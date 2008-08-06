@@ -1,0 +1,15 @@
+# This file contains everything the split Qt ebuilds provide:
+x11-libs/qt-assistant
+x11-libs/qt-core
+x11-libs/qt-dbus
+x11-libs/qt-demo
+x11-libs/qt-gui
+x11-libs/qt-opengl
+x11-libs/qt-phonon
+x11-libs/qt-qt3support
+x11-libs/qt-script
+x11-libs/qt-sql
+x11-libs/qt-svg
+x11-libs/qt-test
+x11-libs/qt-webkit
+x11-libs/qt-xmlpatterns
