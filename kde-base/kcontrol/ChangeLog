@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kcontrol
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kcontrol-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kcontrol-4.1.0.ebuild:
+  Added kcontrol-4.1.0.
+
