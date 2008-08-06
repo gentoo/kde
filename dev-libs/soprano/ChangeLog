@@ -1,0 +1,10 @@
+# ChangeLog for dev-libs/soprano
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*soprano-2.1 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +soprano-2.1.ebuild:
+  Added soprano-2.1.
+
