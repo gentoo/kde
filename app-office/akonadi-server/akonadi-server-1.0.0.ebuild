@@ -19,6 +19,7 @@ RDEPEND="!app-office/akonadi
 	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
 	x11-libs/qt-sql:4[sqlite]
+	x11-libs/qt-test:4
 	x11-misc/shared-mime-info
 	mysql? ( virtual/mysql )"
 DEPEND="${RDEPEND}
