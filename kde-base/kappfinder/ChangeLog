@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kappfinder
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kappfinder-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kappfinder-4.1.0.ebuild:
+  Added kappfinder-4.1.0.
+
