@@ -7,7 +7,5 @@
 	<flag name="sesame2">Enables support for the <pkg>virtual/jre-1.6.0</pkg> (sesame2) backend.
 	</flag>
 </use>
-dev-libs/soprano:redland - Enable the redland Backend
-dev-libs/soprano:sesame2 - Enable the sesame2 (Java) Backend
 <herd>kde</herd>
 </pkgmetadata>

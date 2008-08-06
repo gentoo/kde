@@ -4,6 +4,10 @@
 
   06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   metadata.xml:
+  Removed extra (wrong) entries from metadata.xml.
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
   Added description to redland and sesame2 to metadata.xml.
 
 *soprano-2.1 (06 Aug 2008)
