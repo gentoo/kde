@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/nepomuk
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*nepomuk-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +nepomuk-4.1.0.ebuild:
+  Added nepomuk-4.1.0.
+
