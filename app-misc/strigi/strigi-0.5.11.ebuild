@@ -22,7 +22,7 @@ COMMONDEPEND="
 	clucene? ( >=dev-cpp/clucene-0.9.19 )
 	dbus? ( sys-apps/dbus
 		|| ( ( x11-libs/qt-dbus:4
-			x11-libs/qt-gui:4[dbus] )
+			x11-libs/qt-gui:4 )
 			=x11-libs/qt-4.3*:4[dbus] )
 		)
 	exiv2? ( media-gfx/exiv2 )
@@ -30,8 +30,9 @@ COMMONDEPEND="
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.9.7 )
 	qt4? (
-		|| ( ( x11-libs/qt-core:4[dbus?]
-			x11-libs/qt-gui:4 )
+		|| ( ( x11-libs/qt-core:4
+			x11-libs/qt-gui:4
+			x11-libs/qt-dbus:4 )
 			=x11-libs/qt-4.3*:4[dbus?] )
 		)
 	sqlite? ( dev-db/sqlite:3 )"

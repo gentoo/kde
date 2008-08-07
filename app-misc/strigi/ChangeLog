@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  strigi-0.5.11.ebuild:
+  Fixed the deps on qt for now. I might drop support for qt-4.3 though.
+
 *strigi-0.5.11 (07 Aug 2008)
 
   07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
