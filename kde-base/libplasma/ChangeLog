@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/libplasma
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libplasma-4.1.0 (07 Aug 2008)
+
+  07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +libplasma-4.1.0.ebuild:
+  Added libplasma-4.1.0.
+
