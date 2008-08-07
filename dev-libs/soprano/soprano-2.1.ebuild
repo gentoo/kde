@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/soprano/soprano-${PV}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="+clucene debug doc elibc_FreeBSD +redland sesame2"
 
 COMMON_DEPEND="

@@ -11,7 +11,7 @@ SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug gstreamer"
 
 RDEPEND="!kde-base/phonon:kde-svn

@@ -12,7 +12,7 @@ SRC_URI="http://akonadi.omat.nl/${P/-server/}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="mysql"
 
 RDEPEND="!app-office/akonadi
