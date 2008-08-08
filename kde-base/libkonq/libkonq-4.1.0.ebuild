@@ -13,5 +13,5 @@ DESCRIPTION="The embeddable part of konqueror"
 KEYWORDS="~amd64"
 IUSE="debug"
 RESTRICT="test"
-PATCHES="${FILESDIR}/fix_includes_install.patch"
+PATCHES=("${FILESDIR}/fix_includes_install.patch")
 KMSAVELIBS="true"

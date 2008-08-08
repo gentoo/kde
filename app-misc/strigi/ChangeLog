@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Added log use flag description to metadata.xml.
+
   07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   strigi-0.5.11.ebuild:
   Removed sqlite use as it's still broken.
