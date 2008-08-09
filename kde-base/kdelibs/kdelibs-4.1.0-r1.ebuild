@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
@@ -33,7 +33,7 @@ COMMONDEPEND="
 	media-libs/jpeg
 	media-libs/libpng
 	media-sound/phonon
-	>=sys-apps/dbus-0.91
+	>=sys-apps/dbus-0.91[X]
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -48,7 +48,7 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	>=x11-misc/shared-mime-info-0.20
 	acl? ( kernel_linux? ( sys-apps/acl ) )
-	alsa? ( >=media-libs/alsa-lib-1.0.14a )
+	alsa? ( >=media-libs/alsa-lib-1.0.14a[midi] )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
@@ -59,7 +59,7 @@ COMMONDEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.0.0 )
 	spell? ( app-text/aspell app-dicts/aspell-en app-text/enchant )
 	ssl? ( >=dev-libs/openssl-0.9.7d )
-	zeroconf? ( || ( net-dns/avahi
+	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat]
 		!bindist? ( net-misc/mDNSResponder ) ) )
 "
 
@@ -75,18 +75,6 @@ RDEPEND="${COMMONDEPEND}
 
 # Patch to fix bug #167826
 PATCHES=("${FILESDIR}/${P}-quit-app.patch")
-
-pkg_setup() {
-	KDE4_BUILT_WITH_USE_CHECK=("--missing true sys-apps/dbus X")
-	if use alsa; then
-		KDE4_BUILT_WITH_USE_CHECK+=("--missing true media-libs/alsa-lib midi")
-	fi
-	if use zeroconf && has_version net-dns/avahi; then
-		KDE4_BUILT_WITH_USE_CHECK+=("net-dns/avahi mdnsresponder-compat")
-	fi
-
-	kde4-base_pkg_setup
-}
 
 src_compile() {
 	if use zeroconf; then
