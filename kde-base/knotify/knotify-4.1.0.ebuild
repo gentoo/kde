@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE notification daemon."
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="media-sound/phonon"
 RDEPEND="${DEPEND}"

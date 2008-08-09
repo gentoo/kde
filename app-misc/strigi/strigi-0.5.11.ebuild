@@ -12,7 +12,7 @@ SRC_URI="http://www.vandenoever.info/software/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="+clucene +dbus debug exiv2 fam hyperestraier inotify log +qt4 test"
 # IUSE="sqlite": fails to compile
 

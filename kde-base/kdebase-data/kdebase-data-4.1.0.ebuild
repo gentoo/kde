@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=kde-base/qimageblitz-0.0.4"
 RDEPEND="${DEPEND}"

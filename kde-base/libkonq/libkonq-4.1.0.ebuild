@@ -10,7 +10,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="The embeddable part of konqueror"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 RESTRICT="test"
 PATCHES=("${FILESDIR}/fix_includes_install.patch")

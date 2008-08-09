@@ -9,5 +9,5 @@ KMMODULE=wallpapers
 inherit kde4-meta
 
 DESCRIPTION="KDE wallpapers"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""

@@ -8,7 +8,7 @@ KMNAME=kdebase-workspace
 inherit kde4-meta
 
 DESCRIPTION="KCMInit - runs startups initialization for Control Modules."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND=">=kde-base/ksplash-${PV}:${SLOT}"

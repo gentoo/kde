@@ -8,7 +8,7 @@ KMNAME=kdebase-runtime
 inherit kde4-meta
 
 DESCRIPTION="Nepomuk KDE4 client"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 # dev-cpp/clucene provides the optional strigi backend.

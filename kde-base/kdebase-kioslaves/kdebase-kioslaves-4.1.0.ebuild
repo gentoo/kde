@@ -9,7 +9,7 @@ KMMODULE=kioslave
 inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="bzip2 debug htmlhandbook openexr samba"
 RESTRICT="test"
 

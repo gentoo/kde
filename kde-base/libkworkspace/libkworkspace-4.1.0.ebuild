@@ -10,7 +10,7 @@ KMSAVELIBS="true"
 inherit kde4-meta
 
 DESCRIPTION="A library for KDE desktop applications"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 KMEXTRACTONLY="ksmserver/org.kde.KSMServerInterface.xml

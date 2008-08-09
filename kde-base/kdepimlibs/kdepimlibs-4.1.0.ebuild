@@ -11,7 +11,7 @@ inherit kde4-base
 DESCRIPTION="Common library for KDE PIM apps."
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="${IUSE} debug htmlhandbook ldap sasl"
 LICENSE="LGPL-2.1"
 RESTRICT="test"

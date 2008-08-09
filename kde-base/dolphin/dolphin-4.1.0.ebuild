@@ -9,7 +9,7 @@ KMMODULE=apps/${PN}
 inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +semantic-desktop"
 
 DEPEND=">=kde-base/libkonq-${PV}:${SLOT}

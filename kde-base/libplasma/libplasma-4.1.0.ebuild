@@ -11,7 +11,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug opengl xinerama"
 
 RDEPEND=">=app-misc/strigi-0.5.11[qt4]
