@@ -28,7 +28,9 @@ kde-base/krunner:4.1
 kde-base/ksmserver:4.1
 kde-base/ksplash:4.1
 kde-base/kstartupconfig:4.1
+kde-base/kstyles:4.1
 kde-base/ksysguard:4.1
+kde-base/kwin:4.1
 kde-base/libkworkspace:4.1
 kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
