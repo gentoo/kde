@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/knetattach
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*knetattach-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +knetattach-4.1.0.ebuild:
+  Added knetattach-4.1.0.
+
