@@ -1,0 +1,40 @@
+--- startkde.cmake	2008-07-15 15:49:02.000000000 -0400
++++ startkde-cryos.cmake	2008-08-10 12:43:22.000000000 -0400
+@@ -7,6 +7,37 @@
+ # because we still need to do some cleanup.
+ trap 'echo GOT SIGHUP' HUP
+ 
++# Gentoo: setup environment, filter other slotted KDE installs from PATH
++export KDEDIR=@REPLACE_PREFIX@
++export KDEDIRS=/usr:/usr/local:${KDEDIR}
++export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed 's#/usr/kde/[^/]*/s\?bin:##g')
++export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed 's#/usr/kde/[^/]*/s\?bin:##g')
++export LDPATH=@REPLACE_LIBS@:${LDPATH}
++export STRIGI_PLUGIN_PATH="${KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
++export KDEHOME="${HOME}"/.kde4
++
++# Gentoo: Handle the ~/.kde symlink to ~/.kde$(version)
++# This is needed to sanely mix multiple slotted KDE versions,
++# without hosing settings of an older KDE version.
++[ -e "$HOME/.kde$(basename $KDEDIR)" ] || mkdir "$HOME/.kde$(basename $KDEDIR)"
++if [ -z "$HOME" ]; then
++	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
++	exit 1
++elif [ ! -d "$HOME/.kde$(basename $KDEDIR)" ]; then
++	xmessage "$HOME/.kde$(basename $KDEDIR) exists but is not a dir. Aborting."
++	exit 1
++elif [ -L "$HOME/.kde4" ]; then
++	rm "$HOME/.kde4"
++	ln -sf "$HOME/.kde$(basename $KDEDIR)" "$HOME/.kde4"
++elif [ ! -e "$HOME/.kde4" ]; then
++	ln -s "$HOME/.kde$(basename $KDEDIR)" "$HOME/.kde4"
++elif [ -d "$HOME/.kde4" ]; then
++	xmessage "~/.kde4 is not a symlink. Please move ~/.kde4 to ~/.kde4.1 (if appropriate) and symlink ~/.kde4 to it." > /dev/null 2>/dev/null
++	exit 1
++else
++	xmessage "~/.kde4 is not a symlink or a directory. Make it a symlink to .kde$(basename $KDEDIR) or remove it." > /dev/null 2>/dev/null
++fi
++
+ # Check if a KDE session already is running and whether it's possible to connect to X
+ kcheckrunning
+ kcheckrunning_result=$?

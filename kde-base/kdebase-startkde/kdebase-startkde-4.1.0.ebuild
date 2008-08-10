@@ -44,7 +44,7 @@ KMEXTRACTONLY="startkde.cmake
 	safestartkde.cmake"
 KMCOMPILEONLY="kdm/kfrontend/sessions/"
 
-PATCHES=("${FILESDIR}/gentoo-startkde.patch")
+PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
 
 src_compile() {
 	# Patch the startkde script to setup the environment for KDE 4.0
@@ -93,10 +93,10 @@ src_install() {
 	doexe "${T}/${SLOT}" || die "doexe ${SLOT} failed"
 
 	# freedesktop compliant session script
-	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=${SLOT}:" \
-		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/${SLOT}.desktop"
+	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
+		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/KDE-${SLOT}.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/${SLOT}.desktop" || die "doins ${SLOT}.desktop failed"
+	doins "${T}/KDE-${SLOT}.desktop" || die "doins ${SLOT}.desktop failed"
 }
 
 pkg_postinst () {
