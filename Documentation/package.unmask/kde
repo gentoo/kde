@@ -35,6 +35,7 @@ kde-base/libkworkspace:4.1
 kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
 kde-base/nepomuk:4.1
+kde-base/plasma-apps:4.1
 kde-base/plasma-workspace:4.1
 kde-base/solid:4.1
 kde-base/soliduiserver:4.1
