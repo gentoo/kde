@@ -15,7 +15,7 @@ DEPEND="pam? ( >=kde-base/kdebase-pam-7
 		sys-libs/pam )"
 RDEPEND="${DEPEND}"
 
-PATCHES="${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
+PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}

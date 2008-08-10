@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 KMEXTRACTONLY="kcontrol/kdm/"
 KMEXTRA="libs/kdm/"
 
-PATCHES="${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
+PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
