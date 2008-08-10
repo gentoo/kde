@@ -9,7 +9,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Solid: the KDE hardware library"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="bluetooth networkmanager test"
 
 DEPEND="
