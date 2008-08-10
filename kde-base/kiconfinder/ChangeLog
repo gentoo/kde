@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kiconfinder
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kiconfinder-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kiconfinder-4.1.0.ebuild:
+  Added kiconfinder-4.1.0.
+
