@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kmenuedit
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kmenuedit-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kmenuedit-4.1.0.ebuild:
+  Added kmenuedit-4.1.0.
+
