@@ -24,8 +24,10 @@ kde-base/knotify:4.1
 kde-base/kreadconfig:4.1
 kde-base/ksmserver:4.1
 kde-base/ksplash:4.1
+kde-base/ksysguard:4.1
 kde-base/libkworkspace:4.1
 kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
 kde-base/nepomuk:4.1
+kde-base/plasma-workspace:4.1
 kde-base/solid:4.1
