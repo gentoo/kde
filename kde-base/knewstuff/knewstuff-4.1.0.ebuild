@@ -8,5 +8,5 @@ KMNAME=kdebase-runtime
 inherit kde4-meta
 
 DESCRIPTION="KDE4 software to download and upload 'new stuff'"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
