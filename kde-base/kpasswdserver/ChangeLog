@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kpasswdserver
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kpasswdserver-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org> +metadata.xml,
+  +kpasswdserver-4.1.0.ebuild:
+  Initial import into the overlay.
+
