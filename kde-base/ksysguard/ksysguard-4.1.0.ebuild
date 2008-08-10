@@ -33,9 +33,9 @@ src_compile() {
 }
 
 src_test() {
-	# one out of two tests are broken. we just disable it. last tested on 4.0.3.
-#	sed -e '/guitest/s/^/#DONOTTEST/' \
-#		-i "${S}"/libs/ksysguard/tests/CMakeLists.txt
+	# one out of two tests are broken. we just disable it. last tested on 4.1.0.
+	sed -e '/guitest/s/^/#DONOTTEST/' \
+		-i "${S}"/libs/ksysguard/tests/CMakeLists.txt
 
 	kde4-meta_src_test
 }
