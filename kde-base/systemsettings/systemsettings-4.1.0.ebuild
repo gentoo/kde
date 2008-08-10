@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="System settings utility"
 IUSE="debug htmlhandbook opengl +usb xinerama"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 COMMONDEPEND="
 	>=app-misc/strigi-0.5.7

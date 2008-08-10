@@ -4,6 +4,10 @@
 
   10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   ksysguard-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+  10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  ksysguard-4.1.0.ebuild:
   Disabled the test as its still broken - thanks to tampakrap (forgot to run
   the tests).
 

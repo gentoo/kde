@@ -9,7 +9,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook lm_sensors"
 
 COMMONDEPEND="

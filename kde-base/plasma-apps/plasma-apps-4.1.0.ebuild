@@ -9,7 +9,7 @@ KMMODULE=apps/plasma
 inherit kde4-meta
 
 DESCRIPTION="Additional Applets for Plasma"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="!kde-base/plasma:${SLOT}

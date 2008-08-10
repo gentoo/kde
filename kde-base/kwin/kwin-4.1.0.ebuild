@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE window manager"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="captury debug opengl xcomposite xinerama"
 
 COMMONDEPEND="

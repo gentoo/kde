@@ -8,7 +8,7 @@ KMNAME=kdebase-runtime
 inherit kde4-meta
 
 DESCRIPTION="KDE: A set of different KDE styles."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=kde-base/qimageblitz-0.0.4"

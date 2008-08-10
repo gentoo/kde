@@ -8,7 +8,7 @@ KMNAME=kdebase-runtime
 inherit kde4-meta
 
 DESCRIPTION="KDE4: Soliduiserver"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND=">=kde-base/solid-${PV}:${SLOT}"

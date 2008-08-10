@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Command Runner"
 IUSE="debug opengl xcomposite xscreensaver"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 COMMONDEPEND="
 	>=kde-base/ksmserver-${PV}:${SLOT}

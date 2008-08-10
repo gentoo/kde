@@ -9,7 +9,7 @@ KMNOMODULE=true
 inherit kde4-meta multilib
 
 DESCRIPTION="Startkde script, which starts a complete KDE session, and associated scripts"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""
