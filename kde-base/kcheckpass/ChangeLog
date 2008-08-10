@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/kcheckpass
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kcheckpass-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +files/kdebase-4.0.2-pam-optional.patch, +metadata.xml,
+  +kcheckpass-4.1.0.ebuild:
+  Initial import into overlay.
+

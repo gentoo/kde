@@ -41,3 +41,6 @@ kde-base/solid:4.1
 kde-base/soliduiserver:4.1
 kde-base/systemsettings:4.1
 kde-base/keditbookmarks:4.1
+kde-base/kdepasswd:4.1
+kde-base/kcheckpass:4.1
+kde-base/kdm:4.1
