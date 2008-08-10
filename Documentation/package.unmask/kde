@@ -45,3 +45,8 @@ kde-base/keditbookmarks:4.1
 kde-base/kdepasswd:4.1
 kde-base/kcheckpass:4.1
 kde-base/kdm:4.1
+kde-base/kdebase-startkde:4.1
+kde-base/konsole:4.1
+kde-base/kfind:4.1
+kde-base/kurifilter-plugins:4.1
+kde-base/konqueror:4.1
