@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/krunner
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*krunner-4.1.0 (10 Aug 2008)
+
+  10 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +krunner-4.1.0.ebuild:
+  Added krunner-4.1.0.
+

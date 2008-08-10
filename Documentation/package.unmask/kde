@@ -24,6 +24,7 @@ kde-base/kdialog:4.1
 kde-base/kdesu:4.1
 kde-base/knotify:4.1
 kde-base/kreadconfig:4.1
+kde-base/krunner:4.1
 kde-base/ksmserver:4.1
 kde-base/ksplash:4.1
 kde-base/ksysguard:4.1
