@@ -10,3 +10,4 @@ inherit kde4-meta
 DESCRIPTION="Common library for KDE educational apps"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
+RESTRICT="test"
