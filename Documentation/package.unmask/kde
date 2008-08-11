@@ -9,6 +9,7 @@ kde-base/libkonq:4.1
 # KDE packages
 kde-base/dolphin:4.1
 kde-base/drkonqi:4.1
+kde-base/kalzium:4.1
 kde-base/kappfinder:4.1
 kde-base/kate:4.1
 kde-base/kcheckpass:4.1
@@ -48,12 +49,14 @@ kde-base/knotify:4.1
 kde-base/konqueror:4.1
 kde-base/konsole:4.1
 kde-base/kpasswdserver:4.1
+kde-base/kppp:4.1
 kde-base/kquitapp:4.1
 kde-base/kreadconfig:4.1
 kde-base/krunner:4.1
 kde-base/kscreensaver:4.1
 kde-base/ksmserver:4.1
 kde-base/ksplash:4.1
+kde-base/kstars:4.1
 kde-base/kstart:4.1
 kde-base/kstartupconfig:4.1
 kde-base/kstyles:4.1
@@ -65,9 +68,11 @@ kde-base/kuiserver:4.1
 kde-base/kurifilter-plugins:4.1
 kde-base/kwin:4.1
 kde-base/kwrite:4.1
+kde-base/libkdeedu:4.1
 kde-base/libkworkspace:4.1
 kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
+kde-base/marble:4.1
 kde-base/nepomuk:4.1
 kde-base/nsplugins:4.1
 kde-base/plasma-apps:4.1
@@ -75,7 +80,3 @@ kde-base/plasma-workspace:4.1
 kde-base/solid:4.1
 kde-base/soliduiserver:4.1
 kde-base/systemsettings:4.1
-kde-base/libkdeedu:4.1
-kde-base/kalzium:4.1
-kde-base/marble:4.1
-kde-base/kstars:4.1
