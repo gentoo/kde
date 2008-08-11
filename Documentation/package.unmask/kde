@@ -51,6 +51,7 @@ kde-base/konsole:4.1
 kde-base/kpasswdserver:4.1
 kde-base/kppp:4.1
 kde-base/kquitapp:4.1
+kde-base/krdc:4.1
 kde-base/kreadconfig:4.1
 kde-base/krunner:4.1
 kde-base/kscreensaver:4.1
