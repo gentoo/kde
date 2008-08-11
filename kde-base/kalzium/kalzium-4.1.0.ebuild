@@ -24,6 +24,8 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
+PATCHES=("${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
+
 src_compile() {
 	if use solver ; then
 		# Compile the solver on its own as the cmake-based build is
@@ -42,11 +44,4 @@ src_compile() {
 		$(cmake-utils_use_with solver Libfacile)"
 
 	kde4-meta_src_compile
-}
-
-src_install() {
-	kde4-meta_src_install
-	# These files are installed by kde-base/libkdeedu (4.1.0)
-	rm ${D}/usr/kde/4.1/share/apps/cmake/modules/FindMarbleWidget.cmake
-	rm ${D}/usr/kde/4.1/share/apps/cmake/modules/FindKDEEdu.cmake
 }
