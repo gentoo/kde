@@ -18,7 +18,8 @@ DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 			usb? ( dev-libs/libusb ) )"
 RDEPEND="${DEPEND}"
 
-PATCHES=("${FILESDIR}/${P}-destdir.patch")
+PATCHES=("${FILESDIR}/${P}-destdir.patch"
+	"${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
