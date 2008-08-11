@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/knewsticker
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*knewsticker-4.1.0 (11 Aug 2008)
+
+  11 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +knewsticker-4.1.0.ebuild:
+  Added knewsticker-4.1.0.
+
