@@ -13,7 +13,7 @@ IUSE="debug htmlhandbook +plasma"
 
 DEPEND="
 	dev-libs/libpcre
-	plasma? ( kde-base/libplasma:4.1 )"
+	plasma? ( kde-base/libplasma:${SLOT} )"
 RDEPEND="${DEPEND}"
 
 src_compile() {
