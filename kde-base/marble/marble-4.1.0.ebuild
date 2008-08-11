@@ -25,6 +25,8 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
+PATCHES=("${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
+
 src_compile() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
