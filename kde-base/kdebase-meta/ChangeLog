@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdebase-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdebase-meta-4.1.0 (11 Aug 2008)
+
+  11 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org> +metadata.xml,
+  +kdebase-meta-4.1.0.ebuild:
+  Initial import into overlay.
+
