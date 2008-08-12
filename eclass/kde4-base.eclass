@@ -148,7 +148,7 @@ case ${NEED_KDE} in
 				4.0.8*| 4.0.9* | 4.1*)	_kdedir="4.1"
 					_pv="-${PV}:4.1" ;;
 				4.0*)	_kdedir="4.0"
-					_pv="-${PV}:4.0" ;;
+					_pv="-${PV}:kde-4" ;;
 				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 			_operator=">="
