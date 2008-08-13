@@ -11,7 +11,7 @@ DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64"
 IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
 	+highlight +history htmlhandbook +jabber latex messenger +msn +nowlistening
-	+oscar +otr +pipes +privacy qq sms +statistics testbed +texteffect
+	+oscar +otr +pipes +privacy qq sms ssl +statistics testbed +texteffect
 	+translator +urlpicpreview +webpresence winpopup yahoo"
 # IUSE="irc jingle meanwhile telepathy"
 
@@ -30,8 +30,7 @@ IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
 # Tests are KDE-ish.
 RESTRICT="test"
 
-RDEPEND="
-	dev-libs/libpcre
+COMMONDEPEND="dev-libs/libpcre
 	kde-base/qimageblitz
 	x11-libs/libXScrnSaver
 	gadu? ( dev-libs/openssl )
@@ -39,11 +38,13 @@ RDEPEND="
 	jabber? ( net-dns/libidn app-crypt/qca:2 )
 	otr? ( net-libs/libotr )
 	statistics? ( dev-db/sqlite:3 )
-	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
-"
+	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )"
+
+RDEPEND="${COMMONDEPEND}
+	ssl? ( >=app-crypt/qca-ossl-2.0.0_beta3 )"
 # 	telepathy? ( net-libs/decibel )
 
-DEPEND="${RDEPEND}
+DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto"
 
 src_compile() {
