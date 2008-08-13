@@ -44,7 +44,7 @@ KMEXTRACTONLY="startkde.cmake
 	safestartkde.cmake"
 KMCOMPILEONLY="kdm/kfrontend/sessions/"
 
-PATCHES="${FILESDIR}/gentoo-startkde4.patch"
+PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
 
 src_compile() {
 	# Patch the startkde script to setup the environment for KDE 4.0
