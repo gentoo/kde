@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kmix
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kmix-4.1.0 (14 Aug 2008)
+
+  14 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kmix-4.1.0.ebuild:
+  Added kmix-4.1.0.
+
