@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/ksnapshot
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ksnapshot-4.1.0 (14 Aug 2008)
+
+  14 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org> +metadata.xml,
+  +ksnapshot-4.1.0.ebuild:
+  Version bump.
+
