@@ -5,6 +5,7 @@
 kde-base/kdelibs:4.1
 kde-base/kdepimlibs:4.1
 kde-base/libkonq:4.1
+kde-base/libkdepim:4.1
 
 # KDE packages
 kde-base/ark:4.1
