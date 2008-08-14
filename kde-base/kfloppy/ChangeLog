@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kfloppy
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kfloppy-4.1.0 (14 Aug 2008)
+
+  14 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kfloppy-4.1.0.ebuild:
+  Added kfloppy-4.1.0.
+
