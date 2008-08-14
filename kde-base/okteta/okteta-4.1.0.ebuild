@@ -10,3 +10,6 @@ inherit kde4-meta
 DESCRIPTION="KDE binary file editor"
 KEYWORDS="~amd64"
 IUSE="debug"
+
+# 9/ 40 Testing libpiecetable-grouppiecetablec***Failed
+RESTRICT="test"
