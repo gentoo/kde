@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kcharselect
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kcharselect-4.1.0 (14 Aug 2008)
+
+  14 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kcharselect-4.1.0.ebuild:
+  Added kcharselect-4.1.0.
+
