@@ -12,6 +12,7 @@ kde-base/kfile
 kde-base/khelpcenter
 kde-base/khotkeys
 kde-base/kinfocenter
+kde-base/kiconfinder
 kde-base/kioclient
 kde-base/klipper
 kde-base/kmenuedit
@@ -31,3 +32,14 @@ kde-base/kurifilter-plugins
 kde-base/kwrite
 kde-base/nsplugins
 kde-base/soliduiserver
+kde-base/konqueror
+kde-base/kfind
+kde-base/kdepasswd
+kde-base/kdialog
+kde-base/kdesu
+kde-base/kcheckpass
+kde-base/ksysguard
+kde-base/renamedlg-plugins
+kde-base/kde-menu-icons
+kde-base/phonon-xine
+#kde-base/kdebase-cursors

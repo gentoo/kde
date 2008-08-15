@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/renamedlg-plugins
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*renamedlg-plugins-4.1.0 (15 Aug 2008)
+
+  15 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +renamedlg-plugins-4.1.0.ebuild:
+  Added renamedlg-plugins-4.1.0.
+

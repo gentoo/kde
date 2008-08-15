@@ -138,6 +138,7 @@ kde-base/kdebase kde-base/phonon-xine
 kde-base/kdebase kde-base/plasma
 kde-base/kdebase kde-base/plasma-apps
 kde-base/kdebase kde-base/plasma-workspace
+kde-base/kdebase kde-base/renamedlg-plugins
 kde-base/kdebase kde-base/solid
 kde-base/kdebase kde-base/solid-hardware
 kde-base/kdebase kde-base/soliduiserver
