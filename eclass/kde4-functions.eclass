@@ -84,6 +84,7 @@ kde-base/kdebase kde-base/kcontrol
 kde-base/kdebase kde-base/kde-menu
 kde-base/kdebase kde-base/kde-menu-icons
 kde-base/kdebase kde-base/kde-wallpapers
+kde-base/kdebase kde-base/kdebase-cursors
 kde-base/kdebase kde-base/kdebase-data
 kde-base/kdebase kde-base/kdebase-kioslaves
 kde-base/kdebase kde-base/kdebase-startkde
