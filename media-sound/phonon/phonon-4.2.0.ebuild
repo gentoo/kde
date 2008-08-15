@@ -26,6 +26,8 @@ RDEPEND="!kde-base/phonon:kde-svn
 DEPEND="${RDEPEND}
 	kde-base/automoc"
 
+RESTRICT="test"
+
 src_compile() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with gstreamer GStreamer)

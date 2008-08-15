@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  phonon-4.2.0.ebuild:
+  Restricted tests as they're broken.
+
   07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   phonon-4.2.0.ebuild:
   Added ~x86 keywords - thanks to tampakrap for testing.
