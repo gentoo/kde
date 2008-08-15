@@ -4,8 +4,13 @@
 # KDE base libs
 kde-base/kdelibs:4.1
 kde-base/kdepimlibs:4.1
-kde-base/libkonq:4.1
+kde-base/libkcddb:4.1
+kde-base/libkdeedu:4.1
 kde-base/libkdepim:4.1
+kde-base/libkonq:4.1
+kde-base/libkworkspace:4.1
+kde-base/libplasma:4.1
+kde-base/libtaskmanager:4.1
 
 # KDE packages
 kde-base/ark:4.1
@@ -89,10 +94,6 @@ kde-base/kurifilter-plugins:4.1
 kde-base/kwallet:4.1
 kde-base/kwin:4.1
 kde-base/kwrite:4.1
-kde-base/libkdeedu:4.1
-kde-base/libkworkspace:4.1
-kde-base/libplasma:4.1
-kde-base/libtaskmanager:4.1
 kde-base/marble:4.1
 kde-base/nepomuk:4.1
 kde-base/nsplugins:4.1
