@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/phonon-xine
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*phonon-xine-4.1.0 (15 Aug 2008)
+
+  15 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +phonon-xine-4.1.0.ebuild:
+  Added phonon-xine-4.1.0.
+
