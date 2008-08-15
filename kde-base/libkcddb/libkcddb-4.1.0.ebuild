@@ -14,8 +14,7 @@ IUSE="debug htmlhandbook musicbrainz"
 # Tests are broken. Last checked on 4.1.0.
 RESTRICT="test"
 
-DEPEND="${DEPEND}
-	=media-sound/phonon-4.2*
+DEPEND=">=media-sound/phonon-4.2.0
 	musicbrainz? ( media-libs/musicbrainz )"
 RDEPEND="${DEPEND}"
 
