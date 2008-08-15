@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/libkcompactdisk
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libkcompactdisc-4.1.0 (15 Aug 2008)
+
+  15 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +libkcompactdisc-4.1.0.ebuild:
+  Added libkcompactdisc-4.1.0.
+

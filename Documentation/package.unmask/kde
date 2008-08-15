@@ -5,6 +5,7 @@
 kde-base/kdelibs:4.1
 kde-base/kdepimlibs:4.1
 kde-base/libkcddb:4.1
+kde-base/libkcompactdisc:4.1
 kde-base/libkdeedu:4.1
 kde-base/libkdepim:4.1
 kde-base/libkonq:4.1
