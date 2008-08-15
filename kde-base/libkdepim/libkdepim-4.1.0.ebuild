@@ -16,7 +16,7 @@ KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml
 KMSAVELIBS="true"
 
 src_install() {
-	kde4overlay-meta_src_install
+	kde4-meta_src_install
 
 	# install additional generated headers that are needed by other packages that
 	# are derived from kdepim. e.g. kmail.
