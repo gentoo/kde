@@ -40,12 +40,13 @@ COMMONDEPEND="dev-libs/libpcre
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )"
 
-RDEPEND="${COMMONDEPEND}
-	ssl? ( >=app-crypt/qca-ossl-2.0.0_beta3 )"
+RDEPEND="${COMMONDEPEND}"
 # 	telepathy? ( net-libs/decibel )
 
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto"
+
+PDEPEND="ssl? ( >=app-crypt/qca-ossl-2.0.0_beta3 )"
 
 src_compile() {
 	# Xmms isn't in portage, thus forcefully disabled.
