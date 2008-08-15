@@ -11,5 +11,10 @@ DESCRIPTION="Interfaces library for the KDE personal information manager"
 KEYWORDS="~amd64"
 IUSE="debug htmlhandbook"
 
+#PATCHES=("${FILESDIR}/${PN}-as-needed.patch")
+
 KMSAVELIBS="true"
-KMEXTRACTONLY="libkdepim"
+
+KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml
+	korganizer/korgac/org.kde.korganizer.KOrgac.xml"
+KMCOMPILEONLY="libkdepim"
