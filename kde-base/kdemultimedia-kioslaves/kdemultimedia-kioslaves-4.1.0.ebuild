@@ -29,6 +29,10 @@ KMEXTRACTONLY="libkcddb/
 KMLOADLIBS="libkcddb"
 
 src_compile() {
+	ln -s "${PREFIX}"/include/libkcddb/configbase.h \
+		"${WORKDIR}"/${P}/kioslave/audiocd/ \
+	|| die "linking generated header into sources failed"
+
 	if use encode; then
 		mycmakeargs="${mycmakeargs}
 			$(cmake-utils_use_with flac Flac)
