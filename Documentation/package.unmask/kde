@@ -39,6 +39,7 @@ kde-base/kdebase-meta:4.1
 kde-base/kdebase-startkde:4.1
 kde-base/kdebugdialog:4.1
 kde-base/kdemultimedia-kioslaves:4.1
+kde-base/kdemultimedia-meta:4.1
 kde-base/kdenetwork-filesharing:4.1
 kde-base/kdenetwork-meta:4.1
 kde-base/kdepasswd:4.1
