@@ -8,7 +8,7 @@ KMNAME=kdemultimedia
 inherit kde4-meta
 
 DESCRIPTION="KDE mixer gui"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug htmlhandbook"
 
 DEPEND="

@@ -12,4 +12,4 @@ SLOT="4.1"
 
 DESCRIPTION="oxygen cursors from kdebase"
 IUSE=""
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"

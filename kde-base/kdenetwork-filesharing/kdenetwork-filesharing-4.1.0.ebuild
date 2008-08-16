@@ -9,5 +9,5 @@ KMMODULE=filesharing
 inherit kde4-meta
 
 DESCRIPTION="kcontrol filesharing config module for NFS, SMB etc"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"

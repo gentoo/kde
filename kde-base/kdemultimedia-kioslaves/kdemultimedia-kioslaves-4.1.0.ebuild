@@ -9,7 +9,7 @@ KMNAME=kdemultimedia
 inherit kde4-meta
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug encode flac vorbis"
 
 # Tests are broken. Last checked on 4.0.3.

@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdemultimedia-kioslaves-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
   15 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdemultimedia-kioslaves-4.1.0.ebuild:
   Added a symlink to libkcddb/configbase.h.

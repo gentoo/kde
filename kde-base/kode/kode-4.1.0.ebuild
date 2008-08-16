@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE kpgp library"
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 KMEXTRACTONLY="libkdepim"
