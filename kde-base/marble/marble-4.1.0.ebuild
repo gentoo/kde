@@ -12,7 +12,7 @@ inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
-IUSE="${IUSE} debug designer-plugin htmlhandbook kde gps"
+IUSE="debug designer-plugin htmlhandbook kde gps"
 
 # FIXME: undefined reference when building tests. RESTRICTed for now.
 # Last checked in 4.0.3.
