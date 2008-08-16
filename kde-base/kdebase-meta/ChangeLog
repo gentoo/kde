@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebase-meta-4.1.0.ebuild:
+  Added a few missing deps.
+
 *kdebase-meta-4.1.0 (11 Aug 2008)
 
   11 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org> +metadata.xml,
