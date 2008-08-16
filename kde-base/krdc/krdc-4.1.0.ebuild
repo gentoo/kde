@@ -8,7 +8,7 @@ KMNAME=kdenetwork
 inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook jpeg vnc zeroconf"
 
 DEPEND="jpeg? ( media-libs/jpeg )

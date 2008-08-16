@@ -8,7 +8,7 @@ KMNAME=kdemultimedia
 inherit kde4-meta
 
 DESCRIPTION="KDE library for playing & ripping CDs"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug htmlhandbook"
 
 DEPEND=">=media-sound/phonon-4.2.0

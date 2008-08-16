@@ -8,7 +8,7 @@ KMNAME=kdenetwork
 inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
 	+highlight +history htmlhandbook +jabber latex messenger +msn +nowlistening
 	+oscar +otr +pipes +privacy qq sms ssl +statistics testbed +texteffect

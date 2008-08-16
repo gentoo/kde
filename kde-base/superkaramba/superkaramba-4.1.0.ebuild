@@ -8,7 +8,7 @@ KMNAME=kdeutils
 inherit kde4-meta
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook python"
 
 COMMONDEPEND="

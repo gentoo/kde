@@ -8,7 +8,7 @@ KMNAME=kdemultimedia
 inherit kde4-meta
 
 DESCRIPTION="KDE library for CDDB"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook musicbrainz"
 
 # Tests are broken. Last checked on 4.1.0.

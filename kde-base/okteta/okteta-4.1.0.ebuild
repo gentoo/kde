@@ -8,7 +8,7 @@ KMNAME=kdeutils
 inherit kde4-meta
 
 DESCRIPTION="KDE binary file editor"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 # 9/ 40 Testing libpiecetable-grouppiecetablec***Failed

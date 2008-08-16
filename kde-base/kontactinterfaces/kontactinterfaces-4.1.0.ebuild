@@ -8,7 +8,7 @@ KMNAME=kdepim
 inherit kde4-meta
 
 DESCRIPTION="Interfaces library for the KDE personal information manager"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 #PATCHES=("${FILESDIR}/${PN}-as-needed.patch")
