@@ -12,7 +12,7 @@ DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="${IUSE} 3dnow acl alsa altivec bindist +bzip2 debug doc fam htmlhandbook jpeg2k
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam htmlhandbook jpeg2k
 kerberos mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 LICENSE="LGPL-2.1"
 RESTRICT="test"
