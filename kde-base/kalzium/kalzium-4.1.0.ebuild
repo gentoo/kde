@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~x86"
-IUSE="${IUSE} editor debug htmlhandbook solver"
+IUSE="editor debug htmlhandbook solver"
 
 COMMONDEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 	editor? ( >=dev-cpp/eigen-1.0.5
