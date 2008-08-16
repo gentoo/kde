@@ -23,5 +23,7 @@ RDEPEND="${DEPEND}"
 
 # Install to KDEDIR to slot the package
 PREFIX="${KDEDIR}"
+
 # Needed to find the slotted libkdcraw
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
+PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
+export PKG_CONFIG_PATH
