@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS="~amd64"
-IUSE="debug htmlhandbook kipi semantic-desktop"
+IUSE="debug htmlhandbook kipi +semantic-desktop"
 
 DEPEND="
 	media-gfx/exiv2
@@ -19,10 +19,18 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+# Needed to find the slotted libkipi
+PKG_CONFIG_PATH="${PKG_CONFIG_PATH}${PKG_CONFIG_PATH:+:}${KDEDIR}/$(get_libdir)/pkgconfig"
+#[[ -z ${PKG_CONFIG_PATH} ]] && PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig"
+#[[ -z ${PKG_CONFIG_PATH} ]] || PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
+
 # Tests are broken (4.1.0)
 RESTRICT="test"
 
 src_compile() {
+	# testing PKG_CONFIG_PATH value
+	echo "pkg_config: ${PKG_CONFIG_PATH}"
+
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with kipi KIPI)"
 	if use semantic-desktop; then
@@ -34,4 +42,11 @@ src_compile() {
 	fi
 
 	kde4-meta_src_compile
+}
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+	echo
+	elog "If you want to have svg support, emerge kde-base/svgpart"
+	echo
 }
