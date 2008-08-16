@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/gwenview
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gwenview-4.1.0 (16 Aug 2008)
+
+  16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +gwenview-4.1.0.ebuild:
+  Added gwenview-4.1.0.
+
