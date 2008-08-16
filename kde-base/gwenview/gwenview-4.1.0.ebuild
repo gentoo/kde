@@ -20,16 +20,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # Needed to find the slotted libkipi
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH}${PKG_CONFIG_PATH:+:}${KDEDIR}/$(get_libdir)/pkgconfig"
-#[[ -z ${PKG_CONFIG_PATH} ]] && PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig"
-#[[ -z ${PKG_CONFIG_PATH} ]] || PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
+# PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}/usr/$(get_libdir)/pkgconfig:${KDEDIR}/$(get_libdir)/pkgconfig"
 
 # Tests are broken (4.1.0)
 RESTRICT="test"
 
 src_compile() {
-	# testing PKG_CONFIG_PATH value
-	echo "pkg_config: ${PKG_CONFIG_PATH}"
+	# Needed to find the slotted libkipi
+	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with kipi KIPI)"

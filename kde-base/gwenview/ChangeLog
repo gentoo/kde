@@ -4,6 +4,13 @@
 
   16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   gwenview-4.1.0.ebuild:
+  Added pkg_config definition to find the kipi package. This took a few
+  hours looking into it and raises the question of whether .pc files should
+  be installed to anywhere but /usr/$(get_libdir)/pkgconfig and why doesn't
+  it work on global scope.
+
+  16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  gwenview-4.1.0.ebuild:
   Trying to add kipi support.
 
 *gwenview-4.1.0 (16 Aug 2008)
