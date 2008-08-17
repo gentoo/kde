@@ -3,6 +3,10 @@
 # $Header: $
 
   17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeartwork-sounds-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to pilla.
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   ChangeLog:
   Forgot to add credit to "Mauricio Pilla <pilla@gentoo.org>" for doing the
   testing for the previous commit.

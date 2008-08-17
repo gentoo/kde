@@ -9,5 +9,5 @@ KMNAME=kdeartwork
 inherit kde4-meta
 
 DESCRIPTION="Extra styles for kde"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
