@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  gwenview-4.1.0.ebuild:
+  Fixed the pkgconfig mess: export, EXPORT!!! Don't forget to export a var
+  if it's going to be used on a subshell. EXPORT!!!
+
   16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   gwenview-4.1.0.ebuild:
   Added pkg_config definition to find the kipi package. This took a few
