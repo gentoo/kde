@@ -9,7 +9,7 @@ KMMODULE=ksystemlog
 inherit kde4-meta
 
 DESCRIPTION="KSystemLog is a system log viewer for KDE."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 # Tests fail (4.1.0).
