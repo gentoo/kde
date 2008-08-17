@@ -8,5 +8,5 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="KDE Blackbox Game"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
