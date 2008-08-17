@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  libkmahjongg-4.1.0.ebuild:
+  Adding ~x86, thanks to pilla for testing.
+
 *libkmahjongg-4.1.0 (17 Aug 2008)
 
   17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org> +metadata.xml,
