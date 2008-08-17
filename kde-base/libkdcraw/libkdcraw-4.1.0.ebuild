@@ -14,7 +14,7 @@ DESCRIPTION="KDE Image Plugin Interface: a dcraw library wrapper"
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 SLOT="4.1"
 
