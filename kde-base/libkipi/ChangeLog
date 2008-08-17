@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkipi-4.1.0.ebuild:
+  Removed libkcdraw dep. As I suspected libkipi has no dep on libkdcraw.
+
   16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   libkipi-4.1.0.ebuild:
   Changed the pkgconfig settings, but I suspect libdcraw isn't needed. Going

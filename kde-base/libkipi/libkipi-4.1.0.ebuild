@@ -18,12 +18,5 @@ KEYWORDS="~amd64"
 IUSE=""
 SLOT="4.1"
 
-DEPEND="kde-base/libkdcraw:${SLOT}"
-RDEPEND="${DEPEND}"
-
 # Install to KDEDIR to slot the package
 PREFIX="${KDEDIR}"
-
-# Needed to find the slotted libkdcraw
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
-export PKG_CONFIG_PATH
