@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/libkexiv2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libkexiv2-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +libkexiv2-4.1.0.ebuild:
+  Added libkexi2-4.1.0.
+
