@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/kdeartwork-wallpapers
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeartwork-wallpapers-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeartwork-wallpapers-4.1.0.ebuild:
+  Added kdeartwork-wallpapers-4.1.0. Thanks to "Maricio Pilla
+  <pilla@gentoo.org>" for doing the testing.
+
