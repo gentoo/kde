@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdegraphics-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdegraphics-meta-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdegraphics-meta-4.1.0.ebuild:
+  Added kdegraphics-meta-4.1.0.
+
