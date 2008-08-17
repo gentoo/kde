@@ -8,7 +8,7 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="Skat game for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug "
 
 PATCHES="${FILESDIR}/${PN}-4.0.0-link.patch"
