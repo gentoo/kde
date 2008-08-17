@@ -11,5 +11,5 @@ KMNAME=kdeartwork
 inherit kde4-meta
 
 DESCRIPTION="Theme for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""

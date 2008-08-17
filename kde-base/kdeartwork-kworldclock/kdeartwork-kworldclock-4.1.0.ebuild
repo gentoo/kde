@@ -9,5 +9,5 @@ KMMODULE=kworldclock
 inherit kde4-meta
 
 DESCRIPTION="KDE worldclock artwork"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
