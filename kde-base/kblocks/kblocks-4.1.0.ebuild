@@ -8,5 +8,5 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="A single-player Tetris-like game."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
