@@ -214,6 +214,7 @@ kde-base/kdegames kde-base/lskat
 kde-base/kdegraphics kde-base/gwenview
 kde-base/kdegraphics kde-base/kamera
 kde-base/kdegraphics kde-base/kcolorchooser
+kde-base/kdegraphics kde-base/kdegraphics-strigi-analyzer
 kde-base/kdegraphics kde-base/kgamma
 kde-base/kdegraphics kde-base/kghostview
 kde-base/kdegraphics kde-base/kolourpaint

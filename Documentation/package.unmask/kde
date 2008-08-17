@@ -56,6 +56,7 @@ kde-base/kdebase-kioslaves:4.1
 kde-base/kdebase-meta:4.1
 kde-base/kdebase-startkde:4.1
 kde-base/kdebugdialog:4.1
+kde-base/kdegraphics-strigi-analyzer:4.1
 kde-base/kdemultimedia-kioslaves:4.1
 kde-base/kdemultimedia-meta:4.1
 kde-base/kdenetwork-filesharing:4.1
