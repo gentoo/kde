@@ -8,7 +8,7 @@ KMNAME=kdegraphics
 inherit kde4-meta
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="x11-apps/xgamma

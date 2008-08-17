@@ -8,7 +8,7 @@ KMNAME=kdegraphics
 inherit kde4-meta eutils
 
 DESCRIPTION="Paint Program for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 LICENSE="BSD LGPL-2"
 

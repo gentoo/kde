@@ -8,5 +8,5 @@ KMNAME=kdegraphics
 inherit kde4-meta
 
 DESCRIPTION="KDE color selector/editor"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"

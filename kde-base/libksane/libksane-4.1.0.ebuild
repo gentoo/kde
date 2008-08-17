@@ -12,7 +12,7 @@ DESCRIPTION="SANE Library interface for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="LGPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="kde-base/qimageblitz
