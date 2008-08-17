@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdegames-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdegames-meta-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org> +metadata.xml,
+  +kdegames-meta-4.1.0.ebuild:
+  Added kdegames-meta-4.1.0.
+
