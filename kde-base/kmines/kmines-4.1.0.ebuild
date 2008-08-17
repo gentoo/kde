@@ -8,5 +8,5 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="KMines is a classic mine sweeper game"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
