@@ -8,7 +8,7 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="Base library common to many KDE games."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND=">=dev-games/ggz-client-libs-0.0.14"
