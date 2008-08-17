@@ -18,6 +18,7 @@ kde-base/libtaskmanager:4.1
 # KDE packages
 kde-base/amor:4.1
 kde-base/ark:4.1
+kde-base/cervisia:4.1
 kde-base/dolphin:4.1
 kde-base/dragonplayer:4.1
 kde-base/drkonqi:4.1
