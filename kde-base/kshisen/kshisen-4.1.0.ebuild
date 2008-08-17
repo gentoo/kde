@@ -8,7 +8,7 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="A KDE game similiar to Mahjongg"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND=">=kde-base/libkmahjongg-${PV}:${SLOT}"
