@@ -7,5 +7,5 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="KDE: Kolor Lines - a little game about balls and how to get rid of them"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
