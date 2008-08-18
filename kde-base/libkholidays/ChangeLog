@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkholidays-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
 *libkholidays-4.1.0 (18 Aug 2008)
 
   18 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
