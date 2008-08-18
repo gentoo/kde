@@ -20,6 +20,8 @@ DEPEND="!kde-base/phonon:${SLOT}
 	xcb? ( x11-libs/libxcb )"
 RDEPEND="${DEPEND}"
 
+# Gentoo bug 234926 and KDE bug 169365
+# The real fix is on xine headers and this is just a workaround
 PATCHES=("${FILESDIR}/support-xine-lib-1.1.15.patch")
 
 src_compile() {
