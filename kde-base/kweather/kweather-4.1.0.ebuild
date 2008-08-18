@@ -8,7 +8,7 @@ KMNAME=kdetoys
 inherit kde4-meta
 
 DESCRIPTION="KDE weather status display"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND=">=kde-base/libplasma-${PV}:${SLOT}"
