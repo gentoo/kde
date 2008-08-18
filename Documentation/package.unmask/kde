@@ -161,6 +161,7 @@ kde-base/kuiserver:4.1
 kde-base/kurifilter-plugins:4.1
 kde-base/kuser:4.1
 kde-base/kwallet:4.1
+kde-base/kweather:4.1
 kde-base/kwin:4.1
 kde-base/kwrite:4.1
 kde-base/libkdegames:4.1
