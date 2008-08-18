@@ -18,6 +18,7 @@ kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
 
 # KDE packages
+kde-base/akregator:4.1
 kde-base/amor:4.1
 kde-base/ark:4.1
 kde-base/bovo:4.1
