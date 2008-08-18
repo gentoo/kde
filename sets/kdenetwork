@@ -1,8 +1,8 @@
->=kde-base/kdenetwork-filesharing
->=kde-base/kdnssd
->=kde-base/kget
->=kde-base/knewsticker
->=kde-base/kopete
->=kde-base/kppp
->=kde-base/krdc
->=kde-base/krfb
+kde-base/kdenetwork-filesharing
+kde-base/kdnssd
+kde-base/kget
+kde-base/knewsticker
+kde-base/kopete
+kde-base/kppp
+kde-base/krdc
+kde-base/krfb

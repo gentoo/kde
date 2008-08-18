@@ -1,0 +1,15 @@
+# ChangeLog for kde-base/ksystemlog
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  ksystemlog-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap and Mauricio Pilla
+  <pilla@gentoo.org> for testing.
+
+*ksystemlog-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +ksystemlog-4.1.0.ebuild:
+  Added ksystemlog-4.1.0.
+

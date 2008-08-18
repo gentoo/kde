@@ -10,14 +10,19 @@ kde-base/libkdcraw:4.1
 kde-base/libkdeedu:4.1
 kde-base/libkdepim:4.1
 kde-base/libkexi2:4.1
+kde-base/libkholidays:4.1
 kde-base/libkipi:4.1
+kde-base/libkleo:4.1
 kde-base/libkonq:4.1
+kde-base/libkpgp:4.1
 kde-base/libksane:4.1
+kde-base/libksieve:4.1
 kde-base/libkworkspace:4.1
 kde-base/libplasma:4.1
 kde-base/libtaskmanager:4.1
 
 # KDE packages
+kde-base/akregator:4.1
 kde-base/amor:4.1
 kde-base/ark:4.1
 kde-base/bovo:4.1
@@ -44,6 +49,8 @@ kde-base/kcmshell:4.1
 kde-base/kcolorchooser:4.1
 kde-base/kcontrol:4.1
 kde-base/kcron:4.1
+kde-base/kdeadmin-meta:4.1
+kde-baes/kdeadmin-optional:4.1
 kde-base/kdeartwork-colorschemes:4.1
 kde-base/kdeartwork-emoticons:4.1
 kde-base/kdeartwork-icewm-themes:4.1
@@ -71,6 +78,7 @@ kde-base/kdenetwork-meta:4.1
 kde-base/kdepasswd:4.1
 kde-base/kdessh:4.1
 kde-base/kdesu:4.1
+kde-base/kdetoys-meta:4.1
 kde-base/kdeutils-meta:4.1
 kde-base/kdeutils-optional:4.1
 kde-base/kde-wallpapers:4.1
@@ -105,6 +113,7 @@ kde-base/kmines:4.1
 kde-base/kmix:4.1
 kde-base/knetattach:4.1
 kde-base/knetwalk:4.1
+kde-base/knetworkconf:4.1
 kde-base/knewsticker:4.1
 kde-base/knewstuff:4.1
 kde-base/knotify:4.1
@@ -118,6 +127,7 @@ kde-base/konsole:4.1
 kde-base/kontact:4.1
 kde-base/kontactinterfaces:4.1
 kde-base/kopete:4.1
+kde-base/kpackage:4.1
 kde-base/kpasswdserver:4.1
 kde-base/kpat:4.1
 kde-base/kppp:4.1
@@ -144,22 +154,28 @@ kde-base/kstartupconfig:4.1
 kde-base/kstyles:4.1
 kde-base/ksudoku:4.1
 kde-base/ksysguard:4.1
+kde-base/ksystemlog:4.1
 kde-base/ksystraycmd:4.1
+kde-base/kteatime:4.1
 kde-base/ktimer:4.1
 kde-base/ktimezoned:4.1
 kde-base/ktraderclient:4.1
 kde-base/ktuberling:4.1
+kde-base/ktux:4.1
 kde-base/kubrick:4.1
 kde-base/kuiserver:4.1
 kde-base/kurifilter-plugins:4.1
 kde-base/kuser:4.1
 kde-base/kwallet:4.1
+kde-base/kweather:4.1
 kde-base/kwin:4.1
 kde-base/kwrite:4.1
 kde-base/libkdegames:4.1
 kde-base/libkmahjongg:4.1
+kde-base/lilo-config:4.1
 kde-base/lskat:4.1
 kde-base/marble:4.1
+kde-base/mimelib:4.1
 kde-base/nepomuk:4.1
 kde-base/nsplugins:4.1
 kde-base/okteta:4.1

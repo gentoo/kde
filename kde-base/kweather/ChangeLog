@@ -1,0 +1,14 @@
+# ChangeLog for kde-base/kweather
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kweather-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*kweather-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kweather-4.1.0.ebuild:
+  Added kweather-4.1.0.
+

@@ -60,6 +60,7 @@ kde-base/kdeaccessibility kde-base/kttsd
 kde-base/kdeadmin kde-base/kcron
 kde-base/kdeadmin kde-base/kdat
 kde-base/kdeadmin kde-base/knetworkconf
+kde-base/kdeadmin kde-base/kpackage
 kde-base/kdeadmin kde-base/ksystemlog
 kde-base/kdeadmin kde-base/ksysv
 kde-base/kdeadmin kde-base/kuser
