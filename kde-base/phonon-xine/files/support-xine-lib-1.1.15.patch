@@ -1,0 +1,12 @@
+--- CMakeLists.txt.orig	2008-08-18 22:31:29.000000000 +0200
++++ CMakeLists.txt	2008-08-18 22:33:22.000000000 +0200
+@@ -28,6 +28,9 @@
+ 
+ add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+ 
++string(REPLACE "-ansi" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
++string(REPLACE "-std=iso9899:1990" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
++
+ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES})
+ 
+ add_subdirectory(cmake)

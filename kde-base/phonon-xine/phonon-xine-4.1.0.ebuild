@@ -20,6 +20,8 @@ DEPEND="!kde-base/phonon:${SLOT}
 	xcb? ( x11-libs/libxcb )"
 RDEPEND="${DEPEND}"
 
+PATCHES=("${FILESDIR}/support-xine-lib-1.1.15.patch")
+
 src_compile() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with xcb XCB)
