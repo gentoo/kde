@@ -301,7 +301,6 @@ kde-base/kdesdk kde-base/kstartperf
 kde-base/kdesdk kde-base/kuiviewer
 kde-base/kdesdk kde-base/lokalize
 kde-base/kdesdk kde-base/poxml
-kde-base/kdesdk kde-base/strigi-analyzer
 kde-base/kdesdk kde-base/umbrello
 kde-base/kdetoys kde-base/amor
 kde-base/kdetoys kde-base/kteatime
@@ -312,11 +311,9 @@ kde-base/kdeutils kde-base/ark
 kde-base/kdeutils kde-base/kcalc
 kde-base/kdeutils kde-base/kcharselect
 kde-base/kdeutils kde-base/kdessh
-kde-base/kdeutils kde-base/kdessh
 kde-base/kdeutils kde-base/kdf
 kde-base/kdeutils kde-base/kfloppy
 kde-base/kdeutils kde-base/kgpg
-kde-base/kdeutils kde-base/kjots
 kde-base/kdeutils kde-base/kmilo
 kde-base/kdeutils kde-base/kregexpeditor
 kde-base/kdeutils kde-base/ktimer

@@ -49,7 +49,7 @@ case ${KMNAME} in
 		RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
 	;;
 	kdepim)
-		DEPEND="${DEPEND} dev-libs/boost"
+		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
 		RDEPEND="${RDEPEND} dev-libs/boost"
 		if [[ ${PN} != kode ]]; then
 			DEPEND="${DEPEND} >=kde-base/kode-${PV}:${SLOT}"
@@ -58,8 +58,8 @@ case ${KMNAME} in
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|kmobiletools|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				DEPEND="${DEPEND} kontact? ( >=kde-base/kontact-${PV}:${SLOT} )"
-				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontact-${PV}:${SLOT} )"
+				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
+				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
 			;;
 		esac
 	;;
@@ -248,14 +248,18 @@ kde4-meta_create_extractlists() {
 	esac
 	# Don't install cmake modules for split ebuilds to avoid collisions.
 	case ${KMNAME} in
-		kdebase-workspace|kdebase-runtime|kdepim|kdegames|kdegraphics)
-			if [[ ${PN} != "libkdegames" ]]; then
-				KMCOMPILEONLY="${KMCOMPILEONLY}
-					cmake/modules/"
-			else
-				KMEXTRA="${KMEXTRA}
-					cmake/modules/"
-			fi
+		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics|kdepim)
+			case ${PN} in
+				libkdegames|libkdeedu|marble)
+					KMEXTRA="${KMEXTRA}
+						cmake/modules/"
+					;;
+
+				*)
+					KMCOMPILEONLY="${KMCOMPILEONLY}
+						cmake/modules/"
+					;;
+			esac
 		;;
 	esac
 
@@ -303,7 +307,7 @@ __list_needed_subdirectories() {
 
 
 	case ${PV} in
-		scm|9999.4) : ;;
+		scm|9999*) : ;;
 		*) topdir="${KMNAME}-${PV}/" ;;
 	esac
 

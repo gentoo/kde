@@ -77,8 +77,16 @@ kde4-base_set_qt_dependencies() {
 }
 kde4-base_set_qt_dependencies
 
-DEPEND="${DEPEND} ${COMMONDEPEND}
-	>=dev-util/cmake-2.4.7-r1
+case "${PV}" in
+	9999*|*:kde-svn)
+		CMAKEDEPEND=">=dev-util/cmake-2.6"
+		;;
+	*)
+		CMAKEDEPEND=">=dev-util/cmake-2.4.7-r1"
+		;;
+esac
+
+DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	dev-util/pkgconfig
 	x11-libs/libXt
 	x11-proto/xf86vidmodeproto"
