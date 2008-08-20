@@ -69,7 +69,6 @@ kde-base/kdeartwork-styles:4.1
 kde-base/kdeartwork-wallpapers:4.1
 kde-base/kdebase-cursors:4.1
 kde-base/kdebase-data:4.1
-kde-base/kig:4.1
 kde-base/kdebase-kioslaves:4.1
 kde-base/kdebase-meta:4.1
 kde-base/kdebase-startkde:4.1
@@ -110,9 +109,11 @@ kde-base/khangman:4.1
 kde-base/khelpcenter:4.1
 kde-base/khotkeys:4.1
 kde-base/kiconfinder:4.1
+kde-base/kig:4.1
 kde-base/kinfocenter:4.1
 kde-base/kioclient:4.1
 kde-base/kiriki:4.1
+kde-base/kiten:4.1
 kde-base/kjots:4.1
 kde-base/kjumpingcube:4.1
 kde-base/kleopatra:4.1
