@@ -70,6 +70,7 @@ kde-base/kdebase-kioslaves:4.1
 kde-base/kdebase-meta:4.1
 kde-base/kdebase-startkde:4.1
 kde-base/kdebugdialog:4.1
+kde-base/kdegames-optional:4.1
 kde-base/kdegraphics-meta:4.1
 kde-base/kdegraphics-strigi-analyzer:4.1
 kde-base/kde-menu:4.1
