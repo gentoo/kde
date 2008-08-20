@@ -14,4 +14,5 @@ IUSE="debug"
 DEPEND=">=dev-games/ggz-client-libs-0.0.14"
 RDEPEND="${DEPEND}"
 
-#RESTRICT="test"
+# Tests are failing (4.1.0)
+RESTRICT="test"

@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkdegames-4.1.0.ebuild:
+  Restricted tests on libkdegames.
+
   17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org>
   libkdegames-4.1.0.ebuild:
   Adding ~x86, thanks to pilla for testing.
