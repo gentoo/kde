@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kbruch
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kbruch-4.1.0 (20 Aug 2008)
+
+  20 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kbruch-4.1.0.ebuild:
+  Added kbruch-4.1.0.
+
