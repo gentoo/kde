@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="4.1"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="opengl"
 
 RDEPEND="

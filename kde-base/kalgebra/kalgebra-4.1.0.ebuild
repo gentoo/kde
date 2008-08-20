@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="MathML-based graph calculator for KDE."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +plasma readline"
 
 DEPEND="opengl? ( virtual/opengl )

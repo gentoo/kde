@@ -8,7 +8,7 @@ KMNAME=kdepim
 inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}"
 
