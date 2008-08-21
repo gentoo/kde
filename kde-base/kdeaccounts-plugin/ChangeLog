@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdeaccounts-plugin
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeaccounts-plugin-4.1.0 (21 Aug 2008)
+
+  21 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeaccounts-plugin-4.1.0.ebuild:
+  Added kdeaccounts-plugin-4.1.0.
+
