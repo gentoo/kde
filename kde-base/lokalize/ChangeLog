@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/lokalize
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lokalize-4.1.0 (21 Aug 2008)
+
+  21 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +lokalize-4.1.0.ebuild:
+  Added lokalize-4.1.0.
+
