@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kompare
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kompare-4.1.0 (21 Aug 2008)
+
+  21 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kompare-4.1.0.ebuild:
+  Added kompare-4.1.0.
+
