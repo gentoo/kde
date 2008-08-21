@@ -89,6 +89,7 @@ kde-base/kdemultimedia-meta:4.1
 kde-base/kdenetwork-filesharing:4.1
 kde-base/kdenetwork-meta:4.1
 kde-base/kdepasswd:4.1
+kde-base/kdesdk-kioslaves:4.1
 kde-base/kdesdk-misc:4.1
 kde-base/kdesdk-scripts:4.1
 kde-base/kdessh:4.1
