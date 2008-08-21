@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kcachegrind
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kcachegrind-4.1.0 (21 Aug 2008)
+
+  21 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kcachegrind-4.1.0.ebuild:
+  Added kcachegrind-4.1.0.
+
