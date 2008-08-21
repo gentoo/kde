@@ -9,10 +9,10 @@ inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug htmlhandbook +plasma"
 
 DEPEND="${DEPEND}
-	>=kde-base/plasma-workspace-${PV}:${SLOT}"
+	>=kde-base/libplasma-${PV}:${SLOT}"
 RDEPEND="${DEPEND}
 	dev-libs/libxml2
 	dev-libs/libxslt"
@@ -20,4 +20,11 @@ RDEPEND="${DEPEND}
 src_unpack() {
 	use htmlhandbook && KMEXTRA="doc/kate-plugins"
 	kde4-meta_src_unpack
+}
+
+src_compile() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with plasma Plasma)"
+
+	kde4-meta_src_compile
 }
