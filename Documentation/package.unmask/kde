@@ -92,6 +92,7 @@ kde-base/kdepasswd:4.1
 kde-base/kdesdk-kioslaves:4.1
 kde-base/kdesdk-misc:4.1
 kde-base/kdesdk-scripts:4.1
+kde-base/kdesdk-strigi-analyzer:4.1
 kde-base/kdessh:4.1
 kde-base/kdesu:4.1
 kde-base/kdetoys-meta:4.1
