@@ -9,7 +9,7 @@ KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="kdesdk-misc - Various files and utilities"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="!kde-base/poxml"
