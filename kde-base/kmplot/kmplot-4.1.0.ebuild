@@ -8,7 +8,7 @@ KMNAME=kdeedu
 inherit kde4-meta
 
 DESCRIPTION="Mathematical function plotter for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"

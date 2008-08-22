@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kgeography-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
 *kgeography-4.1.0 (20 Aug 2008)
 
   20 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>

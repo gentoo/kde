@@ -8,5 +8,5 @@ KMNAME=kdesdk
 inherit kde4-meta
 
 DESCRIPTION="Messures starting performance of applications"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"

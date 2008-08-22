@@ -8,7 +8,7 @@ KMNAME=kdeedu
 inherit kde4-meta
 
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"
