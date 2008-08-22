@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/amarok
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*amarok-1.90 (22 Aug 2008)
+
+  22 Aug 2008; Manuel Nickschas <sputnick@quassel-irc.org> +metadata.xml,
+  +amarok-1.90.ebuild:
+  Initial import.
+
