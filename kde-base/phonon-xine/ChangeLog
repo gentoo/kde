@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -files/support-xine-lib-1.1.15.patch, phonon-xine-4.1.0.ebuild:
+  With the new xine-lib-1.1.15-r1 we no longer need the
+  support-xine-lib-1.1.15 patch. The required version was bumped to
+  1.1.15-r1 to avoid the ansi issues with 1.1.15.
+
   18 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   files/support-xine-lib-1.1.15.patch, phonon-xine-4.1.0.ebuild:
   Added a note about the bugs and made the patch conditional on Linux.
