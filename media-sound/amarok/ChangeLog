@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Aug 2008; Manuel Nickschas (Sput) <sputnick@quassel-irc.org>
+  amarok-1.90.ebuild:
+  Keyword ~amd64
+
   22 Aug 2008; Manuel Nickschas (Sput) <sputnick@quassel-irc.org>
   amarok-1.90.ebuild:
   Add ~x86 keyword
