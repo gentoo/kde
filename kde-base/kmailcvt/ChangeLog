@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kmailcvt
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kmailcvt-4.1.0 (25 Aug 2008)
+
+  25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kmailcvt-4.1.0.ebuild:
+  Added kmailcvt-4.1.0.
+
