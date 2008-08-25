@@ -16,3 +16,5 @@ RDEPEND="${DEPEND}"
 
 # Tests are failing (4.1.0)
 RESTRICT="test"
+
+KMSAVELIBS="true"

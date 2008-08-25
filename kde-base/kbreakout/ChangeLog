@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kbreakout
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kbreakout-4.1.0 (25 Aug 2008)
+
+  25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kbreakout-4.1.0.ebuild:
+  Added kbreakout-4.1.0.
+
