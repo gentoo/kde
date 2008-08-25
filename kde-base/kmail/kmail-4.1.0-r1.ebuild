@@ -33,13 +33,9 @@ KMEXTRACTONLY="
 KMEXTRA="${KMEXTRA} plugins/kmail/"
 KMLOADLIBS="libkdepim"
 
-#PATCHES=( "${FILESDIR}/maildirsettings.patch" )
-
 src_compile() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with nepomuk Nepomuk)"
-
-#	MAKEOPTS="${MAKEOPTS} -j1"
 
 	kde4-meta_src_compile
 }
