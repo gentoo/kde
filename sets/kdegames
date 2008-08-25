@@ -4,6 +4,7 @@ kde-base/kbattleship
 kde-base/kblackbox
 kde-base/kblocks
 kde-base/kbounce
+kde-base/kbreakout
 kde-base/kdegames-optional
 kde-base/kdiamond
 kde-base/kfourinline
@@ -26,4 +27,6 @@ kde-base/kspaceduel
 kde-base/ksquares
 kde-base/ktuberling
 kde-base/kubrick
+kde-base/libkdegames
+kde-base/libkmahjongg
 kde-base/lskat

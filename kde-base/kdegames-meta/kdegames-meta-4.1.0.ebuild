@@ -21,6 +21,7 @@ RDEPEND="
 	>=kde-base/kblackbox-${PV}:${SLOT}
 	>=kde-base/kblocks-${PV}:${SLOT}
 	>=kde-base/kbounce-${PV}:${SLOT}
+	>=kde-base/kbreakout-${PV}:${SLOT}
 	>=kde-base/kdiamond-${PV}:${SLOT}
 	>=kde-base/kfourinline-${PV}:${SLOT}
 	>=kde-base/kgoldrunner-${PV}:${SLOT}
@@ -42,6 +43,8 @@ RDEPEND="
 	>=kde-base/ksquares-${PV}:${SLOT}
 	>=kde-base/ktuberling-${PV}:${SLOT}
 	>=kde-base/kubrick-${PV}:${SLOT}
+	>=kde-base/libkdegames-${PV}:${SLOT}
+	>=kde-base/libkmahjongg-${PV}:${SLOT}
 	>=kde-base/lskat-${PV}:${SLOT}
 	opengl? ( >=kde-base/ksudoku-${PV}:${SLOT} )
 "
