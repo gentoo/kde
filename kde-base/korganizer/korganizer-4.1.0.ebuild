@@ -8,7 +8,7 @@ KMNAME=kdepim
 inherit kde4-meta
 
 DESCRIPTION="A Personal Organizer for KDE"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook kontact"
 
 DEPEND="app-crypt/gpgme
