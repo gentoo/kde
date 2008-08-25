@@ -8,7 +8,7 @@ KMNAME=kdepim
 inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +nepomuk"
 
 DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}

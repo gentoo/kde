@@ -4,6 +4,11 @@
 
   25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kmail-4.1.0-r1.ebuild:
+  Added ~x86 keywords - thanks to punraz, strohel and Mauricio Pilla
+  <pilla@gentoo.org> for testing.
+
+  25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kmail-4.1.0-r1.ebuild:
   Cleaned the ebuild a bit more.
 
 *kmail-4.1.0-r1 (25 Aug 2008)
