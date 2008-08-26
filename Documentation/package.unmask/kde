@@ -92,6 +92,7 @@ kde-base/kdenetwork-filesharing:4.1
 kde-base/kdenetwork-meta:4.1
 kde-base/kdepasswd:4.1
 kde-base/kdepim-kresources:4.1
+kde-base/kdepim-strigi-analyzer:4.1
 kde-base/kdesdk-kioslaves:4.1
 kde-base/kdesdk-meta:4.1
 kde-base/kdesdk-misc:4.1
@@ -161,6 +162,7 @@ kde-base/kontact:4.1
 kde-base/kontactinterfaces:4.1
 kde-base/kopete:4.1
 kde-base/korganizer:4.1
+kde-base/korn:4.1
 kde-base/kpackage:4.1
 kde-base/kpasswdserver:4.1
 kde-base/kpat:4.1
