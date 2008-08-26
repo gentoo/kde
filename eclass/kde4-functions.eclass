@@ -255,6 +255,7 @@ kde-base/kdepim kde-base/kalarm
 kde-base/kdepim kde-base/kdemaildir
 kde-base/kdepim kde-base/kdepim-kioslaves
 kde-base/kdepim kde-base/kdepim-kresources
+kde-base/kdepim kde-base/kdepim-strigi-analyzer
 kde-base/kdepim kde-base/kdepim-wizards
 kde-base/kdepim kde-base/kfeed
 kde-base/kdepim kde-base/kitchensync
