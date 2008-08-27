@@ -62,6 +62,7 @@ kde-base/kcontrol:4.1
 kde-base/kcron:4.1
 kde-base/kde-l10n:4.1
 kde-base/kdeaccessibility-colorschemes:4.1
+kde-base/kdeaccessibility-iconthemes:4.1
 kde-base/kdeaccounts-plugin:4.1
 kde-base/kdeadmin-meta:4.1
 kde-baes/kdeadmin-optional:4.1
