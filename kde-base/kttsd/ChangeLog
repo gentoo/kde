@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kttsd
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kttsd-4.1.0 (27 Aug 2008)
+
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kttsd-4.1.0.ebuild:
+  Added kttsd-4.1.0.
+
