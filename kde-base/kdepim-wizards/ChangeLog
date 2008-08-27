@@ -4,6 +4,10 @@
 
   27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdepim-wizards-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to strohel for testing.
+
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdepim-wizards-4.1.0.ebuild:
   Removed an extra kconfig_compiler call.
 
 *kdepim-wizards-4.1.0 (27 Aug 2008)

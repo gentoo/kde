@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="kde-base/kontact:${SLOT}
 	kde-base/kdepim-kresources:${SLOT}

@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDEPIM wizards"
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-crypt/gpgme:1
 	kde-base/kdepim-kresources:${SLOT}
