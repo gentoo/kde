@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/ktimetracker
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ktimetracker-4.1.0 (27 Aug 2008)
+
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +ktimetracker-4.1.0.ebuild:
+  Added ktimetracker-4.1.0.
+
