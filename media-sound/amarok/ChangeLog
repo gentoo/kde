@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  amarok-1.90.ebuild:
+  Fixed alphabetical order in KEYWORDS and deps.
+
   25 Aug 2008; Manuel Nickschas (Sput) <sputnick@quassel-irc.org>
   amarok-1.90.ebuild:
   Keyword ~amd64

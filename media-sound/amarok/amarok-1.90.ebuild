@@ -14,7 +14,7 @@ DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp mysql njb opengl visualization"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
@@ -24,13 +24,13 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	dev-db/sqlite:3
-	>=media-libs/taglib-1.5
-	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
 	kde-base/kdelibs:${SLOT}
 	kde-base/libplasma:${SLOT}
+	>=media-libs/taglib-1.5
+	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
 	x11-libs/qt-webkit:4
-	cdaudio? ( kde-base/libkcompactdisc:${SLOT}
-		   kde-base/libkcddb:${SLOT} )
+	cdaudio? ( kde-base/libkcddb:${SLOT}
+		kde-base/libkcompactdisc:${SLOT} )
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
 	mp3tunes? ( net-misc/curl
@@ -42,8 +42,6 @@ DEPEND="
 	opengl? ( virtual/opengl )
 	visualization? ( media-libs/libsdl
 		=media-plugins/libvisual-plugins-0.4* )
-	mp3tunes? ( net-misc/curl
-		    dev-libs/libxml2 )
 	"
 RDEPEND="${DEPEND}
 	app-arch/unzip
@@ -58,8 +56,8 @@ src_compile() {
 		-DCMAKE_INSTALL_PREFIX=${PREFIX}
 		-DUSE_SYSTEM_SQLITE=ON
 		$(cmake-utils_use_with cdaudio KdeMultimedia)
-		$(cmake-utils_use_with ipod Ipod)
 		$(cmake-utils_use_with ifp Ifp)
+		$(cmake-utils_use_with ipod Ipod)
 		$(cmake-utils_use_with mp4 Mp4v2)
 		$(cmake-utils_use_with mtp Mtp)
 		$(cmake-utils_use_with mysql MySQL)
