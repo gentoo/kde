@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE mailbox checker"
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 KMEXTRACTONLY="kmail"
 

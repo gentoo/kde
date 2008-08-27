@@ -9,7 +9,7 @@ KMNAME=kdegames
 inherit kde4-meta
 
 DESCRIPTION="KDE: A Breakout-like game for KDE."
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 KMLOADLIBS="libkdegames"
