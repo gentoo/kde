@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdeaccessibility-colorschemes
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeaccessibility-colorschemes-4.1.0 (27 Aug 2008)
+
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeaccessibility-colorschemes-4.1.0.ebuild:
+  Added kdeaccessibility-colorschemes-4.1.0.
+
