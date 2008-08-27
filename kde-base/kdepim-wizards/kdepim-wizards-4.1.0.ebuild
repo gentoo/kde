@@ -42,7 +42,6 @@ src_unpack() {
 	# create the kabcsloxprefs.h, kcalsloxprefs.h and knotessloxprefs.h files
 	kconfig_compiler kresources_kabc_slox.kcfg kabcsloxprefs.kcfgc
 	kconfig_compiler kresources_kcal_slox.kcfg kcalsloxprefs.kcfgc
-	kconfig_compiler kresources_knotes_slox.kcfg knotessloxprefs.kcfgc
 	popd
 
 }
