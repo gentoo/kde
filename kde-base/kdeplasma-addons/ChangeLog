@@ -4,6 +4,10 @@
 
   28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdeplasma-addons-4.1.0.ebuild:
+  Added ~x86 keywords as scarabeus is using it.
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.0.ebuild:
   Removed an extra D - it's DBUS_INTERFACES_INSTALL_DIR.
 
 *kdeplasma-addons-4.1.0 (28 Aug 2008)
