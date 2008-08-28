@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kitchensync
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kitchensync-4.1.0 (28 Aug 2008)
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kitchensync-4.1.0.ebuild:
+  Added kitchensync-4.1.0.
+
