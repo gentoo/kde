@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/kdeplasma-addons
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeplasma-addons-4.1.0 (28 Aug 2008)
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeplasma-addons-4.1.0.ebuild:
+  Added kdeplasma-addons-4.1.0. Thanks to Tomas Chvatal (scarabeus)
+  <tomas.chvatal@gmail.com> for providing the ebuild.
+
