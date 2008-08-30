@@ -6,17 +6,12 @@ EAPI="1"
 
 KMNAME="kdegraphics"
 KMMODULE=libs/libkipi
-NEED_KDE="4.1"
 
 inherit kde4-meta
 
-DESCRIPTION="A library for image plugins accross KDE applications."
-HOMEPAGE="http://www.kipi-plugins.org"
+DESCRIPTION="A library for image plugins accross KDE applications"
+HOMEPAGE="http://www.kipi-plugins.org/"
 
-LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-SLOT="4.1"
 
-# Install to KDEDIR to slot the package
-PREFIX="${KDEDIR}"
