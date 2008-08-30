@@ -13,5 +13,5 @@ SLOT="4.1"
 IUSE="accessibility"
 
 RDEPEND="
-	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT} )
+	accessibility? ( @kdeaccessibility:${SLOT} )
 "
