@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*nepomuk-4.1.0-r1 (30 Aug 2008)
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +nepomuk-4.1.0-r1.ebuild:
+  Bumped soprano dep >=2.1.0 and forced a dep on kdelibs[semantic-desktop]
+  to prevent issues with nepomuk.
+
   09 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   nepomuk-4.1.0.ebuild:
   Added ~x86 keywords - thanks to tampakrap for testing.
