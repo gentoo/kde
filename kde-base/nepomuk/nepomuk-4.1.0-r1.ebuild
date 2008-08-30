@@ -16,6 +16,6 @@ IUSE="debug"
 # dependency.
 DEPEND=">=app-misc/strigi-0.5.10[qt4]
 	dev-cpp/clucene
-	>=dev-libs/soprano-2.1.0[clucene]
+	>=dev-libs/soprano-2.1[clucene]
 	kde-base/kdelibs[semantic-desktop]"
 RDEPEND="${DEPEND}"

@@ -56,7 +56,7 @@ COMMONDEPEND="
 	openexr? ( >=media-libs/openexr-1.2.2-r2 media-libs/ilmbase )
 	opengl? ( virtual/opengl )
 	>=dev-libs/libpcre-4.5
-	semantic-desktop? ( >=dev-libs/soprano-2.1.0 )
+	semantic-desktop? ( >=dev-libs/soprano-2.1 )
 	spell? ( app-text/aspell app-dicts/aspell-en app-text/enchant )
 	ssl? ( >=dev-libs/openssl-0.9.7d )
 	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat]
