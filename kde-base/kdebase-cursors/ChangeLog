@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  kdebase-cursors-4.1.0.ebuild:
+  Remove unneeded parts of the ebuild such as SLOT.
+
   16 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdebase-cursors-4.1.0.ebuild:
   Added ~x86 keywords - thanks to tampakrap for testing.

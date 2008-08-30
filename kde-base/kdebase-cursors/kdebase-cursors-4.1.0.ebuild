@@ -8,7 +8,6 @@ KMNAME=kdebase-workspace
 KMEXTRA=cursors
 KMNOMODULE=true
 inherit kde4-meta
-SLOT="4.1"
 
 DESCRIPTION="oxygen cursors from kdebase"
 IUSE=""
