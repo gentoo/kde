@@ -1,3 +1,6 @@
+# We don't include kdesdk on the global set
+kde-base/kate
+
 @kdeadmin
 @kdeartwork
 @kdebase
@@ -6,5 +9,6 @@
 @kdegraphics
 @kdemultimedia
 @kdenetwork
+@kdepim
 @kdetoys
 @kdeutils
