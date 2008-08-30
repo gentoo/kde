@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kde-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kde-meta-4.1.0 (30 Aug 2008)
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kde-meta-4.1.0.ebuild:
+  Added kde-meta-4.1.0.
+

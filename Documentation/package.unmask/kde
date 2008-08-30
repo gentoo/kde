@@ -61,6 +61,7 @@ kde-base/kcolorchooser:4.1
 kde-base/kcontrol:4.1
 kde-base/kcron:4.1
 kde-base/kde-l10n:4.1
+kde-base/kde-meta:4.1
 kde-base/kdeaccessibility-colorschemes:4.1
 kde-base/kdeaccessibility-iconthemes:4.1
 kde-base/kdeaccessibility-meta:4.1
@@ -84,6 +85,7 @@ kde-base/kdebase-meta:4.1
 kde-base/kdebase-startkde:4.1
 kde-base/kdebugdialog:4.1
 kde-base/kdeedu-meta:4.1
+kde-base/kdegames-meta:4.1
 kde-base/kdegames-optional:4.1
 kde-base/kdegraphics-meta:4.1
 kde-base/kdegraphics-strigi-analyzer:4.1
