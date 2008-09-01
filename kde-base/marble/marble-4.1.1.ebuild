@@ -24,10 +24,10 @@ IUSE="debug designer-plugin htmlhandbook kde gps"
 # Last checked in 4.0.3.
 RESTRICT="test"
 
-COMMONDEPEND="
-	gps? ( sci-geosciences/gpsd )
+COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}
-		>=kde-base/kdepimlibs-${PV}:${SLOT} )"
+		>=kde-base/kdepimlibs-${PV}:${SLOT} )
+	!multislot? ( !sci-geosciences/marble )"
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 

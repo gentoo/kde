@@ -19,7 +19,7 @@ DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 RDEPEND="${DEPEND}"
 
 PATCHES=("${FILESDIR}/${P}-destdir.patch"
-	"${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
+	"${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}

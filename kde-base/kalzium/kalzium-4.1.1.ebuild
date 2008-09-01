@@ -24,7 +24,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
-PATCHES=("${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
+PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
 src_compile() {
 	if use solver ; then

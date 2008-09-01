@@ -3,6 +3,9 @@
 # $Header: $
 
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> marble-4.1.1.ebuild:
+  Updated patch location and block sci-geoscience/marble if FHS install.
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> marble-4.1.1.ebuild:
   Updated to fix SLOT issues with FHS install.
 
 *marble-4.1.1 (01 Sep 2008)
