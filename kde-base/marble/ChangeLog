@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> marble-4.1.1.ebuild:
+  Updated to fix SLOT issues with FHS install.
+
 *marble-4.1.1 (01 Sep 2008)
 
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +marble-4.1.1.ebuild:

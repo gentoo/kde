@@ -5,8 +5,14 @@
 EAPI="1"
 NEED_KDE="none"
 KMNAME=kdeedu
-SLOT="4.1" # Goes in the ebuild because of NEED_KDE=none
-KDEDIR="/usr/kde/4.1"
+
+if use multislot; then
+	SLOT="4.1" # Goes in the ebuild because of NEED_KDE=none
+	KDEDIR="/usr/kde/4.1"
+else
+	SLOT="4"
+	KDEDIR="/usr"
+fi
 CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
