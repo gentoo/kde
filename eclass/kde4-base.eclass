@@ -74,6 +74,11 @@ kde4-base_set_qt_dependencies() {
 	esac
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
+
+	# Define the global multislot USE flag
+	if [[ "${KDEBASE}" == "kde-base" ]]; then
+		IUSE="${IUSE} multislot"
+	fi
 }
 kde4-base_set_qt_dependencies
 
@@ -153,8 +158,14 @@ case ${NEED_KDE} in
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
 				3.9*)	_kdedir="3.9" ;;
-				4.0.8*| 4.0.9* | 4.1*)	_kdedir="4.1"
-					_pv="-${PV}:4.1" ;;
+				4.0.8*| 4.0.9* | 4.1*)
+					_kdedir="4.1"
+					if use multislot; then
+						_pv="-${PV}:4.1"
+					else
+						_pv="-${PV}:4"
+					fi
+					;;
 				4.0*)	_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
 				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
@@ -185,6 +196,10 @@ case ${NEED_KDE} in
 		:
 		;;
 	# NEED_KDE=":${SLOT}"
+	:4)	# Does this still make sense for KDE 4 with one slot?
+		_kdedir="4"
+		_pv="${NEED_KDE}"
+		;;
 	:kde-4)
 		_kdedir="4.0"
 		_pv="${NEED_KDE}"
@@ -224,17 +239,29 @@ case ${NEED_KDE} in
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-	KDEDIR="/usr/kde/${_kdedir}"
-	KDEDIRS="/usr:/usr/local:${KDEDIR}"
+	# If the multislot USE flag is set use multiple slots for minor versions
+	if use multislot; then
+		KDEDIR="/usr/kde/${_kdedir}"
+		KDEDIRS="/usr:/usr/local:${KDEDIR}"
+	else
+		KDEDIR="/usr"
+		KDEDIRS="/usr:/usr/local"
+	fi
 
+	# The svn versions always need their own slot
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
 		else
-			case ${PV} in
-				4.0.8* | 4.0.9* | 4.1*) SLOT="4.1" ;;
-				*) SLOT="kde-4" ;;
-			esac
+			# Assign the slot 
+			if use multislot; then
+				case ${PV} in
+					4.0.8* | 4.0.9* | 4.1*) SLOT="4.1" ;;
+					*) SLOT="kde-4" ;;
+				esac
+			else
+				SLOT="4"
+			fi
 		fi
 	fi
 
@@ -298,9 +325,10 @@ debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - 
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
-# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 installation directory.
-# Applications installed by the other ebuilds go into /usr/ by default, this value
-# can be superseded by defining PREFIX before inheriting kde4-base.
+# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 
+# installation directory. This is /usr/ unless multislot is enabled.
+# Applications installed by other ebuilds go into /usr/ by default, this value
+# can be changed by defining PREFIX before inheriting kde4-base.
 if [[ -n ${KDEBASE} ]]; then
 	PREFIX=${KDEDIR}
 else
