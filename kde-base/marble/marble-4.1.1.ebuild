@@ -31,7 +31,7 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=("${FILESDIR}/${KMNAME}-${PV}-cmake_modules.patch")
+PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
