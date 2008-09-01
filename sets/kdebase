@@ -46,7 +46,6 @@ kde-base/kstyles
 kde-base/ksysguard
 kde-base/ksystraycmd
 kde-base/ktimezoned
-kde-base/ktip
 kde-base/ktraderclient
 kde-base/kuiserver
 kde-base/kurifilter-plugins
@@ -58,9 +57,7 @@ kde-base/libplasma
 kde-base/libtaskmanager
 kde-base/nepomuk
 kde-base/nsplugins
-kde-base/phonon
 kde-base/phonon-xine
-kde-base/plasma
 kde-base/plasma-apps
 kde-base/plasma-workspace
 kde-base/renamedlg-plugins
