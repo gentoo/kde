@@ -32,7 +32,7 @@ COMMONDEPEND="
 	media-libs/giflib
 	media-libs/jpeg
 	media-libs/libpng
-	media-sound/phonon
+	>=media-sound/phonon-4.2.0
 	>=sys-apps/dbus-0.91[X]
 	x11-libs/libICE
 	x11-libs/libSM
