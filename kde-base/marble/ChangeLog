@@ -2,6 +2,17 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> marble-4.1.1.ebuild:
+  Updated patch location and block sci-geoscience/marble if FHS install.
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> marble-4.1.1.ebuild:
+  Updated to fix SLOT issues with FHS install.
+
+*marble-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +marble-4.1.1.ebuild:
+  Version bump.
+
   13 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   marble-4.1.0.ebuild:
   Quoted ${D}.

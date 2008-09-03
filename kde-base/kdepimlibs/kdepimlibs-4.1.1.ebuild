@@ -4,7 +4,6 @@
 
 EAPI="1"
 
-NEED_KDE=":4.1"
 CPPUNIT_REQUIRED="optional"
 inherit kde4-base
 

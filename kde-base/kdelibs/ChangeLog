@@ -2,9 +2,16 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
-  kdelibs-4.1.0-r2.ebuild:
+  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> 
+  kdelibs-4.1.1.ebuild:
   Restricted dep on phonon to >=4.2.0.
+
+*kdelibs-4.1.1 (30 Aug 2008)
+
+  30 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  -kdelibs-4.1.0-r1.ebuild, -kdelibs-4.1.0-r2.ebuild, -kdelibs-4.1.0.ebuild,
+  +kdelibs-4.1.1.ebuild:
+  Version bump.
 
   30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdelibs-4.1.0-r2.ebuild:

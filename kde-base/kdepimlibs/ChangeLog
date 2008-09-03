@@ -2,6 +2,15 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdepimlibs-4.1.1.ebuild:
+  Eclass takes care of the depend slot.
+
+*kdepimlibs-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -kdepimlibs-4.1.0.ebuild, +kdepimlibs-4.1.1.ebuild:
+  Bumped kdepimlibs to 4.1.1.
+
   17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdepimlibs-4.1.0.ebuild:
   Enabled sasl by default on kdepimlibs as ssl support is a desirable
