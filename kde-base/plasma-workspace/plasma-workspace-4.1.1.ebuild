@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdebase-workspace
 KMMODULE=plasma
@@ -40,12 +40,12 @@ KMEXTRACTONLY="krunner/org.freedesktop.ScreenSaver.xml
 KMLOADLIBS="libplasma"
 
 # check disable for strigi-9999
-#pkg_setup() {
-#	if ! built_with_use app-misc/strigi dbus && ! built_with_use app-misc/strigi qt4 ; then
-#		eerror "Need app-misc/strigi with dbus and qt4 enabled"
-#		die "Need app-misc/strigi with dbus and qt4 enabled"
-#	fi
-#}
+pkg_setup() {
+	if ! built_with_use app-misc/strigi dbus && ! built_with_use app-misc/strigi qt4 ; then
+		eerror "Need app-misc/strigi with dbus and qt4 enabled"
+		die "Need app-misc/strigi with dbus and qt4 enabled"
+	fi
+}
 
 src_compile() {
 	# Remove this if a patch has been applied upstream.
