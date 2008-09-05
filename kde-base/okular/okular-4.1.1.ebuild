@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/okular/okular-4.0.5.ebuild,v 1.1 2008/06/05 22:43:14 keytoaster Exp $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdegraphics
 inherit kde4-meta
@@ -18,12 +18,19 @@ RDEPEND=">=app-text/libspectre-0.2
 	djvu? ( >=app-text/djvu-3.5.17 )
 	jpeg? ( media-libs/jpeg )
 	pdf? ( >=app-text/poppler-0.8.5
-		>=app-text/poppler-bindings-0.8.5[qt4] )
+		>=app-text/poppler-bindings-0.8.5 )
 	tiff? ( media-libs/tiff )"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 #PATCHES=("${FILESDIR}/${KMNAME}-4.0.2-system-libspectre.patch")
+
+pkg_setup() {
+	if use pdf &&! built_with_use app-text/poppler-bindings qt4 ; then
+		eerror "Need app-text/poppler-bindings with qt4 enabled"
+		die "Need app-text/poppler-bindings with qt4 enabled"
+	fi
+}
 
 src_compile() {
 	# remove internal copy of libspectre

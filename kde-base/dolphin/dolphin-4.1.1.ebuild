@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdebase
 KMMODULE=apps/${PN}
@@ -13,13 +13,21 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +semantic-desktop"
 
 DEPEND=">=kde-base/libkonq-${PV}:${SLOT}
-	kde-base/kdelibs:${SLOT}[semantic-desktop=]
+	kde-base/kdelibs:${SLOT}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}
 						>=dev-libs/soprano-2.0.7 )"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="apps/doc/${PN}"
 KMLOADLIBS="libkonq"
+
+#pkg_setup() {
+#	if use semantic-desktop && ! built_with_use kde-base/kdelibs:${SLOT}
+#	semantic-desktop ; then
+#		eerror "lol"
+#		die "lol"
+#	fi
+#}
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}

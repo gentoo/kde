@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE screensaver framework"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug opengl pam"
+IUSE="debug pam"
 
 COMMONDEPEND="dev-libs/glib
 	>=x11-libs/libxklavier-3.2

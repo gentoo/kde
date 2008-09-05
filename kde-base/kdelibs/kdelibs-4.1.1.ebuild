@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
@@ -59,7 +59,7 @@ COMMONDEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.1 )
 	spell? ( app-text/aspell app-dicts/aspell-en app-text/enchant )
 	ssl? ( >=dev-libs/openssl-0.9.7d )
-	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat]
+	zeroconf? ( || ( net-dns/avahi
 		!bindist? ( net-misc/mDNSResponder ) ) )
 "
 
@@ -72,6 +72,13 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/rgb
 	x11-apps/iceauth
 "
+
+pkg_setup() {
+	if use zeroconf && has_version net-dns/avahi && ! built_with_use net-dns/avahi mdnsresponder-compat; then
+		eerror "You should rebuild avahi with mdnsresponder-compat USE flag!"
+		die "rebuild net-dns/avahi with mdnsresponder-compat"
+	fi
+}
 
 src_compile() {
 	if use zeroconf; then

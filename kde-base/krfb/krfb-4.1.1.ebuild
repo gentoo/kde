@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdenetwork
 inherit kde4-meta
@@ -14,8 +14,15 @@ IUSE="debug htmlhandbook zeroconf"
 DEPEND=">=net-libs/libvncserver-0.9
 	net-libs/openslp
 	x11-libs/libXdamage
-	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat] net-misc/mDNSResponder ) )"
+	zeroconf? ( || ( net-dns/avahi net-misc/mDNSResponder ) )"
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	if use zeroconf && has_version net-dns/avahi && ! built_with_use net-dns/avahi mdnsresponder-compat; then
+		eerror "You should rebuild avahi with mdnsresponder-compat USE flag!"
+		die "rebuild net-dns/avahi with mdnsresponder-compat"
+	fi
+}
 
 src_compile() {
 	# krfb requires both slp and vnc to build

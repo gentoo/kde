@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdepim
 inherit kde4-meta
@@ -15,7 +15,7 @@ IUSE="debug +nepomuk +plasma"
 
 # add when libmapi becomes available with an ebuild
 #exchange? ( net-libs/libmapi )
-RDEPEND="app-misc/strigi[dbus,qt4]
+RDEPEND="app-misc/strigi
 	app-office/akonadi-server
 	dev-libs/boost
 	dev-libs/libxslt
@@ -29,6 +29,12 @@ DEPEND="${RDEPEND}
 
 KMEXTRACTONLY="libkdepim/
 	maildir/"
+pkg_setup() {
+	if ! built_with_use app-misc/strigi dbus && ! built_with_use app-misc/strigi qt4; then
+		eerror"you have to compile app-misc/strigi with dbus and qt4"
+		die "app-misc/strigi needs to be compiled with dbus and qt4 support"
+	fi
+}
 
 src_compile() {
 	# Set the dbus dirs, otherwise it searches in KDEDIR

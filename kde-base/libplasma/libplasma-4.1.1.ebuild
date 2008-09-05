@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMNAME=kdebase-workspace
 KMMODULE="libs/plasma"
@@ -14,7 +14,7 @@ DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug opengl xinerama"
 
-RDEPEND=">=app-misc/strigi-0.5.11[qt4]
+RDEPEND=">=app-misc/strigi-0.5.11
 	!<kde-base/plasma-3.96.0
 	>=kde-base/libkworkspace-${PV}:${SLOT}
 	>=kde-base/libtaskmanager-${PV}:${SLOT}
@@ -22,7 +22,7 @@ RDEPEND=">=app-misc/strigi-0.5.11[qt4]
 	x11-libs/libXfixes
 	x11-libs/libXrender
 	x11-libs/libXtst
-	x11-libs/qt-webkit:4[debug?]
+	x11-libs/qt-webkit:4
 	opengl? ( virtual/opengl )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${RDEPEND}
@@ -36,6 +36,18 @@ KMSAVELIBS="true"
 
 # Disabling tests for now. 3 out of 3 broken now. last tested on 4.0.1.
 RESTRICT="test"
+
+pkg_setup() {
+	if ! built_with_use app-misc/strigi qt4 ; then
+		eerror "you need app-misc/strigi built with qt4 USE flag"
+		die "no qt4 support in strigi"
+	fi
+
+	if use debug && built_with_use x11-libs/qt-webkit debug ; then
+		eerror "you need x11-libs/qt-webkit build with debug USE flag"
+		die "no debug support in qt-webkit"
+	fi
+}
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}

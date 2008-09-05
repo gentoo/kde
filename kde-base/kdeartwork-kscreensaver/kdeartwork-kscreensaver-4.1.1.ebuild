@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 KMMODULE=kscreensaver
 KMNAME=kdeartwork
@@ -11,16 +11,23 @@ inherit eutils kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug opengl xscreensaver"
+IUSE="debug xscreensaver"
 
 DEPEND="${DEPEND}
-	>=kde-base/kscreensaver-${PV}:${SLOT}[opengl?]
+	>=kde-base/kscreensaver-${PV}:${SLOT}
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
 	xscreensaver? ( x11-misc/xscreensaver )"
 RDEPEND="${DEPEND}"
 
 PATCHES=("${FILESDIR}/${PN}-xscreensaver.patch")
+
+pkg_setup() {
+	if use xscreensaver && if ! built_with_use kde-base/kscreensaver opengl ; then
+		eerror "you have to built kde-base/kscreensaver with opengl support"
+		die "kscreensaver not built with opengl"
+	fi
+}
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
