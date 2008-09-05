@@ -75,9 +75,9 @@ kde4-base_set_qt_dependencies() {
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
 
-	# Define the global multislot USE flag
+	# Define the global kdeprefix USE flag
 	if [[ "${KDEBASE}" == "kde-base" ]]; then
-		IUSE="${IUSE} multislot"
+		IUSE="${IUSE} kdeprefix"
 	fi
 }
 kde4-base_set_qt_dependencies
@@ -160,11 +160,7 @@ case ${NEED_KDE} in
 				3.9*)	_kdedir="3.9" ;;
 				4.0.8*| 4.0.9* | 4.1*)
 					_kdedir="4.1"
-					if use multislot; then
-						_pv="-${PV}:4.1"
-					else
-						_pv="-${PV}:4"
-					fi
+					_pv="-${PV}:4"
 					;;
 				4.0*)	_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
@@ -239,10 +235,10 @@ case ${NEED_KDE} in
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-	# If the multislot USE flag is set use multiple slots for minor versions
-	if use multislot; then
+	# If the kdeprefix USE flag is set use the /usr/kde/ prefix
+	if use kdeprefix; then
 		KDEDIR="/usr/kde/${_kdedir}"
-		KDEDIRS="/usr:/usr/local:${KDEDIR}"
+		KDEDIRS=":${KDEDIR}:/usr:/usr/local"
 	else
 		KDEDIR="/usr"
 		KDEDIRS="/usr:/usr/local"
@@ -254,14 +250,10 @@ if [[ ${NEED_KDE} != none ]]; then
 			SLOT="kde-svn"
 		else
 			# Assign the slot 
-			if use multislot; then
-				case ${PV} in
-					4.0.8* | 4.0.9* | 4.1*) SLOT="4.1" ;;
-					*) SLOT="kde-4" ;;
-				esac
-			else
-				SLOT="4"
-			fi
+			case ${PV} in
+				4.0.8* | 4.0.9* | 4.1*) SLOT="4" ;;
+				*) SLOT="kde-4" ;;
+			esac
 		fi
 	fi
 
@@ -326,7 +318,7 @@ debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
 # Set the installation PREFIX. All kde-base ebuilds go into the KDE4 
-# installation directory. This is /usr/ unless multislot is enabled.
+# installation directory. This is /usr/ unless kdeprefix is enabled.
 # Applications installed by other ebuilds go into /usr/ by default, this value
 # can be changed by defining PREFIX before inheriting kde4-base.
 if [[ -n ${KDEBASE} ]]; then
