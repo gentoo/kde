@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  -kdebase-startkde-4.1.0.ebuild:
+  Version removed.
+
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
   files/gentoo-startkde4.patch:
   Updated to start FHS compliant install correctly.

@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  -kdeplasma-addons-4.1.0.ebuild:
+  Version removed.
+
 *kdeplasma-addons-4.1.1 (03 Sep 2008)
 
   03 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
