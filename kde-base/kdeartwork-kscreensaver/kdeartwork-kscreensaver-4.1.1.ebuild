@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}"
 PATCHES=("${FILESDIR}/${PN}-xscreensaver.patch")
 
 pkg_setup() {
-	if use xscreensaver && if ! built_with_use kde-base/kscreensaver opengl ; then
+	if use xscreensaver &&! built_with_use kde-base/kscreensaver opengl ; then
 		eerror "you have to built kde-base/kscreensaver with opengl support"
 		die "kscreensaver not built with opengl"
 	fi
