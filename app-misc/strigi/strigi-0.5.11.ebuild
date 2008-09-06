@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 inherit cmake-utils eutils
 
@@ -23,7 +23,7 @@ COMMONDEPEND="
 	dbus? ( sys-apps/dbus
 		|| ( ( x11-libs/qt-dbus:4
 			x11-libs/qt-gui:4 )
-			=x11-libs/qt-4.3*:4[dbus] )
+			=x11-libs/qt-4.3*:4 )
 		)
 	exiv2? ( media-gfx/exiv2 )
 	fam? ( virtual/fam )
@@ -33,7 +33,7 @@ COMMONDEPEND="
 		|| ( ( x11-libs/qt-core:4
 			x11-libs/qt-gui:4
 			x11-libs/qt-dbus:4 )
-			=x11-libs/qt-4.3*:4[dbus?] )
+			=x11-libs/qt-4.3*:4 )
 		)"
 #	sqlite? ( dev-db/sqlite:3 )"
 DEPEND="${COMMONDEPEND}
@@ -53,6 +53,10 @@ pkg_setup() {
 		eerror "Strigiclient needs dbus to detect a running Strigi daemon."
 		eerror "Please enable both qt4 and dbus."
 		die
+	fi
+	if (use dbus || use qt4 ) && ! built_with_use =x11-libs/qt-4.3*:4 dbus; then
+		eerror "enable dbus useflag for x11-libs/qt"
+		die "enable dbus USE flag for x11-libs/qt"
 	fi
 }
 

@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> strigi-0.5.11.ebuild:
+  Updated to use EAPI=1 for now.
+
   09 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   strigi-0.5.11.ebuild:
   Added ~x86 keywords - thanks to tampakrap for testing.
