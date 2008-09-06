@@ -13,9 +13,10 @@ PREFIX="${KDEDIR}"
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
 
+SLOT="0"
+
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp mysql njb opengl visualization"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
