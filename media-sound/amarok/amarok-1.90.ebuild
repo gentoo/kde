@@ -24,13 +24,13 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	dev-db/sqlite:3
-	kde-base/kdelibs:${SLOT}
-	kde-base/libplasma:${SLOT}
+	>=kde-base/kdelibs-4.1.1
+	>=kde-base/libplasma-4.1.1
 	>=media-libs/taglib-1.5
 	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
 	x11-libs/qt-webkit:4
-	cdaudio? ( kde-base/libkcddb:${SLOT}
-		kde-base/libkcompactdisc:${SLOT} )
+	cdaudio? ( >=kde-base/libkcddb-4.1.1
+		kde-base/libkcompactdisc-4.1.1 )
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
 	mp3tunes? ( net-misc/curl
@@ -41,12 +41,10 @@ DEPEND="
 	njb? ( >=media-libs/libnjb-2.2.4 )
 	opengl? ( virtual/opengl )
 	visualization? ( media-libs/libsdl
-		=media-plugins/libvisual-plugins-0.4* )
-	"
+		=media-plugins/libvisual-plugins-0.4* )"
 RDEPEND="${DEPEND}
 	app-arch/unzip
-	daap? ( www-servers/mongrel )
-	"
+	daap? ( www-servers/mongrel )"
 
 src_compile() {
 	if use debug; then
