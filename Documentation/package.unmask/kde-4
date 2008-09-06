@@ -1,5 +1,6 @@
 # KDE deps
 >=kde-base/qimageblitz-0.0.4
+media-sound/phonon
 
 # KDE base libs
 kde-base/kdelibs:4
