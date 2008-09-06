@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 inherit cmake-utils eutils flag-o-matic
 
@@ -17,8 +17,8 @@ IUSE="+clucene debug doc elibc_FreeBSD +redland sesame2"
 
 COMMON_DEPEND="
 	>=media-libs/raptor-1.4.16
-	x11-libs/qt-core:4[debug=]
-	x11-libs/qt-dbus:4[debug=]
+	x11-libs/qt-core:4
+	x11-libs/qt-dbus:4
 	clucene? ( >=dev-cpp/clucene-0.9.19 )
 	redland? ( >=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6 )
@@ -32,6 +32,10 @@ pkg_setup() {
 		eerror "You need at least one backend."
 		eerror "Available backends are: sesame, redland"
 		die "No backend activated."
+	fi
+	if use debug && ! built_with_use x11-libs/qt-core:4 debug || ! built_with_use x11-libs/qt-dbus:4 debug ; then
+		eerror "install qt-dbus:4 and qt-core:4 with the debug USE flag"
+		die "qt-dbus or qt-core built without debug"
 	fi
 }
 
