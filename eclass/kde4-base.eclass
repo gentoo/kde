@@ -76,9 +76,7 @@ kde4-base_set_qt_dependencies() {
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
 
 	# Define the global kdeprefix USE flag
-	if [[ "${KDEBASE}" == "kde-base" ]]; then
-		IUSE="${IUSE} kdeprefix"
-	fi
+	IUSE="${IUSE} kdeprefix"
 }
 kde4-base_set_qt_dependencies
 
