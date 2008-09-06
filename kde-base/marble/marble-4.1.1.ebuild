@@ -6,14 +6,13 @@ EAPI="1"
 NEED_KDE="none"
 KMNAME=kdeedu
 
-if use multislot; then
-	SLOT="4.1" # Goes in the ebuild because of NEED_KDE=none
+if use kdeprefix; then
 	KDEDIR="/usr/kde/4.1"
 else
-	SLOT="4"
 	KDEDIR="/usr"
 fi
 CPPUNIT_REQUIRED="optional"
+SLOT="4"
 inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
@@ -27,7 +26,7 @@ RESTRICT="test"
 COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}
 		>=kde-base/kdepimlibs-${PV}:${SLOT} )
-	!multislot? ( !sci-geosciences/marble )"
+	!kdeprefix? ( !sci-geosciences/marble )"
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
