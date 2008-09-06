@@ -15,7 +15,7 @@ HOMEPAGE="http://amarok.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4.1"
+SLOT="4"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp mysql njb opengl visualization"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
@@ -24,13 +24,13 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	dev-db/sqlite:3
-	>=kde-base/kdelibs-4.1.1
-	>=kde-base/libplasma-4.1.1
+	>=kde-base/kdelibs-4.1
+	>=kde-base/libplasma-4.1
 	>=media-libs/taglib-1.5
 	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
 	x11-libs/qt-webkit:4
-	cdaudio? ( >=kde-base/libkcddb-4.1.1
-		kde-base/libkcompactdisc-4.1.1 )
+	cdaudio? ( >=kde-base/libkcddb-4.1
+		>=kde-base/libkcompactdisc-4.1 )
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
 	mp3tunes? ( net-misc/curl
