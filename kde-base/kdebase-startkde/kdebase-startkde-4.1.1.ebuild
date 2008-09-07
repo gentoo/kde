@@ -67,6 +67,8 @@ src_compile() {
 }
 
 src_install() {
+	local DIR
+
 	kde4-meta_src_install
 
 	# startup and shutdown scripts
@@ -84,13 +86,19 @@ src_install() {
 	insinto "${KDEDIR}/env"
 	doins "${T}/xdg.sh" || die "doins xdg.sh failed"
 
+	# Set DIR to S{SLOT} for the kde-4 and kde-svn slot or kde-${SLOT} for all other slots
+	case "${SLOT}" in
+		kde-4 | kde-svn) DIR="${SLOT}" ;;
+		*) DIR="kde-${SLOT}"
+	esac
+
 	# x11 session script
-	cat <<-EOF > "${T}/${SLOT}"
+	cat <<-EOF > "${T}/${DIR}"
 	#!/bin/sh
 	exec ${KDEDIR}/bin/startkde
 	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/${SLOT}" || die "doexe ${SLOT} failed"
+	doexe "${T}/${DIR}" || die "doexe ${DIR} failed"
 
 	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
