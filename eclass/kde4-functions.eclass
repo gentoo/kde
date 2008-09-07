@@ -29,6 +29,17 @@ if [[ "${KMNAME}" == "koffice" || "${PN}" == "koffice" ]]; then
 	KDEBASE="koffice"
 fi
 
+# @ECLASS-VARIABLE: KDE_SLOTS
+# @DESCRIPTION:
+# The slots used by all KDE versions after 4.0 - this doesn't include kde-3.5 and the
+# live-ebuilds that use the following var.
+KDE_SLOTS=( "kde-4" "4.1" )
+
+# @ECLASS-VARIABLE: KDE_LIVE_SLOTS
+# @DESCRIPTION:
+# The slots used by all KDE live versions.
+KDE_LIVE_SLOTS=( "kde-svn" )
+
 # @ECLASS-VARIABLE: KDE_DERIVATION_MAP
 # @DESCRIPTION:
 # Map of the monolithic->split ebuild derivation.

@@ -87,6 +87,11 @@ case "${PV}" in
 		;;
 esac
 
+# Add the fhs use flag
+if [[ $EAPI = 2 && -n ${KDEBASE} ]]; then
+	IUSE="${IUSE} fhs"
+fi
+
 DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	dev-util/pkgconfig
 	x11-libs/libXt
@@ -179,6 +184,7 @@ case ${NEED_KDE} in
 		_pv=":kde-svn"
 		export NEED_KDE="svn"
 		;;
+
 	# NEED_KDE=":${SLOT}"
 	*:kde-svn)
 		_kdedir="svn"
@@ -194,6 +200,7 @@ case ${NEED_KDE} in
 		_kdedir="4.0"
 		_pv="${NEED_KDE}"
 		;;
+
 	# NEED_KDE="${PV}:${SLOT}"
 	*:4.1)
 		_kdedir="4.1"
@@ -220,10 +227,12 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
 		;;
+
 	# The ebuild handles dependencies, KDEDIR, SLOT.
 	none)
 		:
 		;;
+
 	*)	die "NEED_KDE=${NEED_KDE} currently not supported."
 		;;
 esac
@@ -231,8 +240,13 @@ esac
 if [[ ${NEED_KDE} != none ]]; then
 
 	# Set PREFIX
-	KDEDIR="/usr/kde/${_kdedir}"
-	KDEDIRS="/usr:/usr/local:${KDEDIR}"
+	if use fhs; then
+		KDEDIR="/usr"
+		KDEDIRS="/usr:/usr/local"
+	else
+		KDEDIR="/usr/kde/${_kdedir}"
+		KDEDIRS="/usr:/usr/local:${KDEDIR}"
+	fi
 
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
@@ -245,19 +259,34 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	# Block other SLOTS
+	# Block kdelibs on other SLOTS
+	if use fhs; then
+		for KDE_SLOT in ${KDE_SLOTS[@]}; do
+			# block kdelibs on other slots
+			if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+				DEPEND="${DEPEND} !kde-base/kdelibs:${KDE_SLOT}"
+				RDEPEND="${RDEPEND} !kde-base/kdelibs:${KDE_SLOT}"
+			fi
+		done
+	fi
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
-		DEPEND="${DEPEND}
-		${_operator}kde-base/kdelibs${_pv}"
-		RDEPEND="${RDEPEND}
-		${_operator}kde-base/kdelibs${_pv}"
+		if [[ $EAPI = 2 ]]; then
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[fhs?]"
+			RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[fhs?]"
+		else
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+		fi
 		if [[ ${PN} != "kdepimlibs" ]]; then
-			DEPEND="${DEPEND}
-			${_operator}kde-base/kdepimlibs${_pv}"
-			RDEPEND="${RDEPEND}
-			${_operator}kde-base/kdepimlibs${_pv}"
+			if [[ $EAPI = "2*" ]]; then
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs?]"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs?]"
+			else
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+			fi
 		fi
 	fi
 
@@ -291,19 +320,6 @@ if [[ -n ${KDEBASE} ]]; then
 fi
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - before blockers"
-
-# Monolithic ebuilds should add blockers for split ebuilds in the same slot.
-# If KMNAME is not set then this is not a split package
-if [[ -n ${KDEBASE} && -z ${KMNAME} ]]; then
-	for _x in $(get-child-packages ${CATEGORY}/${PN}); do
-		DEPEND="${DEPEND} !${_x}:${SLOT}"
-		RDEPEND="${RDEPEND} !${_x}:${SLOT}"
-	done
-	unset _x
-fi
-
-debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - after blockers"
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
