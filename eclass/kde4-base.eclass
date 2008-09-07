@@ -1,6 +1,6 @@
 # Copyright 2007-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.6 2008/03/26 20:39:05 zlin Exp $
+# $Header: $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -11,7 +11,8 @@
 # and KDE4 applications.
 #
 # NOTE: This eclass uses the SLOT dependencies from EAPI="1" or compatible,
-# hence you must define EAPI="1" in the ebuild, before inheriting any eclasses.
+# and use deps from EAPI="2", hence you must define EAPI="2" in the ebuild,
+# before inheriting any eclasses.
 
 inherit base eutils multilib cmake-utils kde4-functions
 
@@ -50,7 +51,7 @@ kde4-base_set_qt_dependencies() {
 
 	# allow monolithic qt for PV < 4.1
 	case "${PV}" in
-		scm|9999*|4.1*|4.0.8*|4.0.9*) : ;;
+		scm|9999*|4.1*|4.0.9*|4.0.8*) : ;;
 		*)
 		qtdepend="|| ( ( ${qtdepend} ) >=x11-libs/qt-4.3.3:4${qt} )"
 		qtopengldepend="|| ( ${qtopengldepend} >=x11-libs/qt-4.3.3:4 )"
@@ -74,11 +75,6 @@ kde4-base_set_qt_dependencies() {
 	esac
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
-
-	# Define the global multislot USE flag
-	if [[ "${KDEBASE}" == "kde-base" ]]; then
-		IUSE="${IUSE} multislot"
-	fi
 }
 kde4-base_set_qt_dependencies
 
@@ -157,25 +153,23 @@ case ${NEED_KDE} in
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
-				3.9*)	_kdedir="3.9" ;;
-				4.0.8*| 4.0.9* | 4.1*)
+				4.1*| 4.0.9* | 4.0.8*)
 					_kdedir="4.1"
-					if use multislot; then
-						_pv="-${PV}:4.1"
-					else
-						_pv="-${PV}:4"
-					fi
-					;;
-				4.0*)	_kdedir="4.0"
+					_pv="-${PV}:4.1" ;;
+				4.0*)
+					_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
-				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
+				3.9*)
+					_kdedir="3.9" ;;
+				*)
+					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 			_operator=">="
 		else
 			case ${PV} in
-				3.9*)	_kdedir="3.9" ;;
-				4.0.8*| 4.0.9* | 4.1*)	_kdedir="4.1" ;;
+				4.1 | 4.0.9* | 4.0.8*)	_kdedir="4.1" ;;
 				4.0*)	_kdedir="4.0" ;;
+				3.9*)	_kdedir="3.9" ;;
 				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 		fi
@@ -185,41 +179,33 @@ case ${NEED_KDE} in
 		_pv=":kde-svn"
 		export NEED_KDE="svn"
 		;;
+	# NEED_KDE=":${SLOT}"
 	*:kde-svn)
 		_kdedir="svn"
 		_operator=">="
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="svn"
 		;;
-	# The ebuild handles dependencies, KDEDIR, SLOT.
-	none)
-		:
-		;;
-	# NEED_KDE=":${SLOT}"
-	:4)	# Does this still make sense for KDE 4 with one slot?
-		_kdedir="4"
+	:4.1)
+		_kdedir="4.1"
 		_pv="${NEED_KDE}"
 		;;
 	:kde-4)
 		_kdedir="4.0"
 		_pv="${NEED_KDE}"
 		;;
-	:4.1)
-		_kdedir="4.1"
-		_pv="${NEED_KDE}"
-		;;
 	# NEED_KDE="${PV}:${SLOT}"
-	*:kde-4)
-		_kdedir="4.0"
-		_operator=">="
-		_pv="-${NEED_KDE}"
-		;;
 	*:4.1)
 		_kdedir="4.1"
 		_operator=">="
 		_pv="-${NEED_KDE}"
 		;;
-	4.0.8* | 4.0.9* | 4.1*)
+	*:kde-4)
+		_kdedir="4.0"
+		_operator=">="
+		_pv="-${NEED_KDE}"
+		;;
+	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
 		_operator=">="
 		_pv="-${NEED_KDE}:4.1"
@@ -234,36 +220,32 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
 		;;
+	# The ebuild handles dependencies, KDEDIR, SLOT.
+	none)
+		:
+		;;
 	*)	die "NEED_KDE=${NEED_KDE} currently not supported."
 		;;
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-	# If the multislot USE flag is set use multiple slots for minor versions
-	if use multislot; then
-		KDEDIR="/usr/kde/${_kdedir}"
-		KDEDIRS="/usr:/usr/local:${KDEDIR}"
-	else
-		KDEDIR="/usr"
-		KDEDIRS="/usr:/usr/local"
-	fi
 
-	# The svn versions always need their own slot
+	# Set PREFIX
+	KDEDIR="/usr/kde/${_kdedir}"
+	KDEDIRS="/usr:/usr/local:${KDEDIR}"
+
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
 		else
-			# Assign the slot 
-			if use multislot; then
-				case ${PV} in
-					4.0.8* | 4.0.9* | 4.1*) SLOT="4.1" ;;
-					*) SLOT="kde-4" ;;
-				esac
-			else
-				SLOT="4"
-			fi
+			case ${PV} in
+				4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
+				*) SLOT="kde-4" ;;
+			esac
 		fi
 	fi
+
+	# Block other SLOTS
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
@@ -295,7 +277,7 @@ if [[ -n ${KDEBASE} ]]; then
 		case ${KDEBASE} in
 			kde-base)
 			case ${PV} in
-				4.0.8* | 4.0.9*)
+				4.0.9* | 4.0.8*)
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 				*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2";;
 			esac
@@ -325,10 +307,9 @@ debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - 
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
-# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 
-# installation directory. This is /usr/ unless multislot is enabled.
-# Applications installed by other ebuilds go into /usr/ by default, this value
-# can be changed by defining PREFIX before inheriting kde4-base.
+# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 installation directory.
+# Applications installed by the other ebuilds go into /usr/ by default, this value
+# can be superseded by defining PREFIX before inheriting kde4-base.
 if [[ -n ${KDEBASE} ]]; then
 	PREFIX=${KDEDIR}
 else
