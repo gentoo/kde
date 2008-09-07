@@ -1,0 +1,14 @@
+# We don't include kdesdk on the global set
+kde-base/kate:4
+
+@kdeadmin-4
+@kdeartwork-4
+@kdebase-4
+@kdeedu-4
+@kdegames-4
+@kdegraphics-4
+@kdemultimedia-4
+@kdenetwork-4
+@kdepim-4
+@kdetoys-4
+@kdeutils-4
