@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 KMEXTRACTONLY="kmail"
 
 src_compile() {
-    # korn was disabled upstream
+	# korn was disabled upstream
 	sed -i -e 's/#  macro_optional_add_subdirectory(korn)/macro_optional_add_subdirectory(korn)/' "${S}"/CMakeLists.txt \
 		|| die "sed to enable korn failed"
 

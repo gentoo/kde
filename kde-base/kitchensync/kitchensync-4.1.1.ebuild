@@ -12,7 +12,7 @@ KEYWORDS="~amd64"
 IUSE="debug htmlhandbook"
 
 DEPEND=">=app-pda/libopensync-0.30
-    dev-libs/glib:2
+	dev-libs/glib:2
 	>=kde-base/libkdepim-${PV}:${SLOT}"
 RDEPEND="${DEPEND}"
 
