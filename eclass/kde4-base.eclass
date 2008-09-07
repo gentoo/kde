@@ -240,9 +240,14 @@ esac
 if [[ ${NEED_KDE} != none ]]; then
 
 	# Set PREFIX
-	if use fhs; then
-		KDEDIR="/usr"
-		KDEDIRS="/usr:/usr/local"
+	if [[ $EAPI = 2 ]]; then
+		if use fhs; then
+			KDEDIR="/usr"
+			KDEDIRS="/usr:/usr/local"
+		else
+			KDEDIR="/usr/kde/${_kdedir}"
+			KDEDIRS="/usr:/usr/local:${KDEDIR}"
+		fi
 	else
 		KDEDIR="/usr/kde/${_kdedir}"
 		KDEDIRS="/usr:/usr/local:${KDEDIR}"
@@ -259,13 +264,22 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	# Block kdelibs on other SLOTS
-	if use fhs; then
+	# Block fhs install of kdelibs on other SLOTS and
+	# different versions fhs install
+	if [[ $EAPI = 2 ]]; then
 		for KDE_SLOT in ${KDE_SLOTS[@]}; do
-			# block kdelibs on other slots
+			# block fhs kdelibs and PN on other slots
 			if [[ ${SLOT} != ${KDE_SLOT} ]]; then
-				DEPEND="${DEPEND} !kde-base/kdelibs:${KDE_SLOT}"
-				RDEPEND="${RDEPEND} !kde-base/kdelibs:${KDE_SLOT}"
+				DEPEND="${DEPEND}
+					fhs? (
+						!kde-base/kdelibs:${KDE_SLOT}[fhs]
+						!kde-base/${PN}:${KDE_SLOT}[fhs]
+					)"
+				RDEPEND="${RDEPEND}
+					fhs? (
+						!kde-base/kdelibs:${KDE_SLOT}
+						!kde-base/${PN}:${KDE_SLOT}[fhs]
+					)"
 			fi
 		done
 	fi
