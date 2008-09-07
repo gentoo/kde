@@ -49,14 +49,14 @@ pkg_setup() {
 	fi
 
 	if use qt4 && ! use dbus; then
-		eerror "You are building Strigi with qt4 but without dbus."
-		eerror "Strigiclient needs dbus to detect a running Strigi daemon."
-		eerror "Please enable both qt4 and dbus."
-		die
-	fi
-	if (use dbus || use qt4 ) && ! built_with_use =x11-libs/qt-4.3*:4 dbus; then
-		eerror "enable dbus useflag for x11-libs/qt"
-		die "enable dbus USE flag for x11-libs/qt"
+		if ( has_version "<x11-libs/qt-4.4.0_alpha:4" && !! built_with_use \
+				x11-libs/qt:4 dbus ) || \
+				( has version "x11-libs/qt-gui:4" && ! built_with_use \
+				x11-libs/qt-gui:4 dbus); then
+			eerror "You are building Strigi with qt4 and dbus, but qt4 wasn't built with dbus support."
+			eerror "Please re-emerge qt4 with dbus, or disable dbus in Strigi."
+			die
+		fi
 	fi
 }
 

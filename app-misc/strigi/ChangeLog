@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> strigi-0.5.11.ebuild:
+  Fixed detection of use flags for Qt.
+
   06 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> strigi-0.5.11.ebuild:
   Updated to use EAPI=1 for now.
 
