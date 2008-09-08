@@ -1,0 +1,11 @@
+# ChangeLog for media-gfx/digikam
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*digikam-0.10.0_beta2 (08 Sep 2008)
+
+  08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +digikam-0.10.0_beta2.ebuild:
+  Added digikam-0.10.0_beta2. This ebuild will need lots of polishing,
+  because its dependencies are calculated by CMake script dynamicaly.
+
