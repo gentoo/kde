@@ -264,22 +264,15 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	# Block fhs install of kdelibs on other SLOTS and
-	# different versions fhs install
+	# Block fhs install of other SLOTS
 	if [[ $EAPI = 2 ]]; then
 		for KDE_SLOT in ${KDE_SLOTS[@]}; do
-			# block fhs kdelibs and PN on other slots
+			# block fhs ${PN} on other slots
 			if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 				DEPEND="${DEPEND}
-					fhs? (
-						!kde-base/kdelibs:${KDE_SLOT}[fhs]
-						!kde-base/${PN}:${KDE_SLOT}[fhs]
-					)"
+					fhs? ( !kde-base/${PN}:${KDE_SLOT}[fhs]	)"
 				RDEPEND="${RDEPEND}
-					fhs? (
-						!kde-base/kdelibs:${KDE_SLOT}
-						!kde-base/${PN}:${KDE_SLOT}[fhs]
-					)"
+					fhs? ( !kde-base/${PN}:${KDE_SLOT}[fhs]	)"
 			fi
 		done
 	fi
@@ -287,16 +280,16 @@ if [[ ${NEED_KDE} != none ]]; then
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
 		if [[ $EAPI = 2 ]]; then
-			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[fhs?]"
-			RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[fhs?]"
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[fhs=]"
+			RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[fhs=]"
 		else
 			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
 			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
 		fi
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			if [[ $EAPI = "2*" ]]; then
-				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs?]"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs?]"
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs=]"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs=]"
 			else
 				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
 				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
