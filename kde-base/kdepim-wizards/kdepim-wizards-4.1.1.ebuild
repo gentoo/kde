@@ -20,13 +20,12 @@ KMEXTRACTONLY="
 	kmail
 	knotes
 	kresources/egroupware
+	kresources/groupwise
 	kresources/kolab
 	kresources/scalix
 	kresources/slox
 	libkdepim
 "
-# groupwise is disabled on CMakeLists.txt
-#	kresources/groupwise
 
 src_unpack() {
 	kde4-meta_src_unpack
@@ -44,4 +43,9 @@ src_unpack() {
 	kconfig_compiler kresources_kcal_slox.kcfg kcalsloxprefs.kcfgc
 	popd
 
+	pushd "${WORKDIR}"/${P}/kresources/groupwise
+	#create the kabc_groupwiseprefs.h and kcal_groupwiseprefsbase.h
+	kconfig_compiler kresources_kabc_groupwise.kcfg kabc_groupwiseprefs.kcfgc
+	kconfig_compiler kresources_kcal_groupwise.kcfg kcal_groupwiseprefsbase.kcfgc
+	popd
 }

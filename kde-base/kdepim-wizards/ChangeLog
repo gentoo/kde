@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdepim-wizards-4.1.1.ebuild:
+  Updated ebuild with fix for groupwise support. Thanks for scarabeus for
+  testing and providing the patch.
+
   05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
   -kdepim-wizards-4.1.0.ebuild:
   Version removed.
