@@ -22,10 +22,10 @@ COMMON_DEPEND="
 	clucene? ( >=dev-cpp/clucene-0.9.19 )
 	redland? ( >=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6 )
-	sesame2? ( >=virtual/jre-1.6.0 )
+	sesame2? ( >=virtual/jdk-1.6.0 )
 	!redland? (
 		!sesame2? (
-			>=virtual/jre-1.6.0
+			>=virtual/jdk-1.6.0
 		)
 	)"
 DEPEND="${COMMON_DEPEND}

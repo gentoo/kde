@@ -4,6 +4,10 @@
 
   08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   soprano-2.1.ebuild:
+  sesame2 requires jdk and not jre.
+
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  soprano-2.1.ebuild:
   Switched default backend from redland to sesame2 and removed pkg_setup by
   building support for sesame2if the user doesn't select a backend.
 
