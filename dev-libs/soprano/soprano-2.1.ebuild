@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/soprano/soprano-${PV}.tar.bz2"
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+clucene debug doc elibc_FreeBSD +redland sesame2"
+IUSE="+clucene debug doc elibc_FreeBSD redland +sesame2"
 
 COMMON_DEPEND="
 	>=media-libs/raptor-1.4.16
@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	clucene? ( >=dev-cpp/clucene-0.9.19 )
 	redland? ( >=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6 )
-	sesame2? ( >=virtual/jre-1.6.0 )"
+	sesame2? ( >=virtual/jdk-1.6.0 )"
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${COMMON_DEPEND}"
