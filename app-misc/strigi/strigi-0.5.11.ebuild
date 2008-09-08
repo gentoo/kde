@@ -13,7 +13,7 @@ SRC_URI="http://www.vandenoever.info/software/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+clucene +dbus debug exiv2 fam hyperestraier inotify log +qt4 test"
+IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
 # IUSE="sqlite": fails to compile
 
 COMMONDEPEND="
@@ -25,7 +25,7 @@ COMMONDEPEND="
 			x11-libs/qt-gui:4 )
 			=x11-libs/qt-4.3*:4 )
 		)
-	exiv2? ( media-gfx/exiv2 )
+	exif? ( media-gfx/exiv2 )
 	fam? ( virtual/fam )
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.9.7 )
@@ -72,7 +72,7 @@ src_compile() {
 		-DENABLE_REGENERATEXSD=OFF
 		$(cmake-utils_use_enable clucene CLUCENE)
 		$(cmake-utils_use_enable dbus DBUS)
-		$(cmake-utils_use_enable exiv2 EXIV2)
+		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam FAM)
 		$(cmake-utils_use_enable hyperestraier HYPERESTRAIER)
 		$(cmake-utils_use_enable inotify INOTIFY)
