@@ -33,7 +33,8 @@ pkg_setup() {
 		eerror "Available backends are: sesame, redland"
 		die "No backend activated."
 	fi
-	if use debug && ! built_with_use x11-libs/qt-core:4 debug || ! built_with_use x11-libs/qt-dbus:4 debug ; then
+	if use debug && (! built_with_use x11-libs/qt-core:4 debug || \
+	! built_with_use x11-libs/qt-dbus:4 debug) ; then
 		eerror "install qt-dbus:4 and qt-core:4 with the debug USE flag"
 		die "qt-dbus or qt-core built without debug"
 	fi
