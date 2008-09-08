@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="1"
 
-KMNAME=kdesdk
+KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 translation tool"
