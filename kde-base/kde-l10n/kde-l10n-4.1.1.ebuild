@@ -12,7 +12,6 @@ LICENSE="GPL-2"
 
 DEPEND="sys-devel/gettext"
 RDEPEND=""
-SLOT="4.1"
 
 KEYWORDS="~amd64 ~x86"
 IUSE=""
