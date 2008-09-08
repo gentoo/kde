@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  strigi-0.5.11.ebuild:
+  Removed pkg_setup by enabling dbus if qt4 is set and by selecting clucene
+  as the default backend.
+
   07 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   metadata.xml:
   Added missing use flag descriptions to metadata.xml.
