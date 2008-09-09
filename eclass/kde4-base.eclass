@@ -23,7 +23,7 @@ kde4-base_set_qt_dependencies() {
 
 	# use dependencies
 	case "${EAPI}" in
-		kdebuild-1)
+		2 | 2_pre2 | 2_pre1)
 		qt="[accessibility][dbus][gif][jpeg][png][qt3support][ssl][zlib]"
 		qtcore="[qt3support][ssl]"
 		qtgui="[accessibility][dbus]"
@@ -88,8 +88,12 @@ case "${PV}" in
 esac
 
 # Add the fhs use flag
-if [[ $EAPI = 2 && -n ${KDEBASE} ]]; then
-	IUSE="${IUSE} fhs"
+if [[ -n ${KDEBASE} ]]; then
+	case "${EAPI}" in
+		2 | 2_pre2 | 2_pre1)
+			IUSE="${IUSE} multislot"
+			;;
+	esac
 fi
 
 DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
@@ -240,18 +244,21 @@ esac
 if [[ ${NEED_KDE} != none ]]; then
 
 	# Set PREFIX
-	if [[ $EAPI = 2 ]]; then
-		if use fhs; then
+	case "${EAPI}" in
+		2 | 2_pre2 | 2_pre1)
+			if use multislot; then
+				KDEDIR="/usr/kde/${_kdedir}"
+				KDEDIRS="/usr:/usr/local:${KDEDIR}"
+			else
+				KDEDIR="/usr"
+				KDEDIRS="/usr:/usr/local"
+			fi
+			;;
+		*)
 			KDEDIR="/usr"
 			KDEDIRS="/usr:/usr/local"
-		else
-			KDEDIR="/usr/kde/${_kdedir}"
-			KDEDIRS="/usr:/usr/local:${KDEDIR}"
-		fi
-	else
-		KDEDIR="/usr/kde/${_kdedir}"
-		KDEDIRS="/usr:/usr/local:${KDEDIR}"
-	fi
+			;;
+	esac
 
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
@@ -264,36 +271,43 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	# Block fhs install of other SLOTS
-	if [[ $EAPI = 2 ]]; then
-		for KDE_SLOT in ${KDE_SLOTS[@]}; do
-			# block fhs ${PN} on other slots
-			if [[ ${SLOT} != ${KDE_SLOT} ]]; then
-				DEPEND="${DEPEND}
-					fhs? ( !kde-base/${PN}:${KDE_SLOT}[fhs]	)"
-				RDEPEND="${RDEPEND}
-					fhs? ( !kde-base/${PN}:${KDE_SLOT}[fhs]	)"
-			fi
-		done
-	fi
+	# Block install of other SLOTS unless multislot
+	case "${EAPI}" in
+		2 | 2_pre2 | 2_pre1)
+			for KDE_SLOT in ${KDE_SLOTS[@]}; do
+				# block non multislot ${PN} on other slots
+				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+					DEPEND="${DEPEND}
+						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[!multislot] )"
+					RDEPEND="${RDEPEND}
+						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[!multislot] )"
+				fi
+			done
+			;;
+	esac
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
-		if [[ $EAPI = 2 ]]; then
-			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[fhs=]"
-			RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[fhs=]"
-		else
-			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-		fi
+		case "${EAPI}" in
+			2 | 2_pre2 | 2_pre1)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[multislot=]"
+				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[multislot=]"
+				;;
+			*)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				;;
+		esac
 		if [[ ${PN} != "kdepimlibs" ]]; then
-			if [[ $EAPI = "2*" ]]; then
-				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs=]"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[fhs=]"
-			else
-				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-			fi
+			case "${EAPI}" in
+				2 | 2_pre2 | 2_pre1)
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[multislot=]"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[multislot=]"
+					;;
+				*)
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				esac
 		fi
 	fi
 
@@ -352,7 +366,7 @@ kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
 
 	case "${EAPI}" in
-		kdebuild-1)
+		2 | 2_pre2 | 2_pre1)
 		[[ -n ${QT4_BUILT_WITH_USE_CHECK} || -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
 			die "built_with_use illegal in this EAPI!"
 		;;
