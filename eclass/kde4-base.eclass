@@ -5,7 +5,7 @@
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @BLURB: This eclass provides functions for kde 4.0 ebuilds
+# @BLURB: This eclass provides functions for kde 4.X ebuilds
 # @DESCRIPTION:
 # The kde4-base.eclass provides support for building KDE4 monolithic ebuilds
 # and KDE4 applications.
@@ -260,6 +260,7 @@ if [[ ${NEED_KDE} != none ]]; then
 			;;
 	esac
 
+	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
@@ -278,9 +279,9 @@ if [[ ${NEED_KDE} != none ]]; then
 				# block non multislot ${PN} on other slots
 				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 					DEPEND="${DEPEND}
-						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[!multislot] )"
+						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[-multislot] )"
 					RDEPEND="${RDEPEND}
-						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[!multislot] )"
+						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[-multislot] )"
 				fi
 			done
 			;;
