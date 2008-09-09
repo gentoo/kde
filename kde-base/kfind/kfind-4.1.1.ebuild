@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kfind/kfind-4.0.5.ebuild,v 1.1 2008/06/05 21:44:41 keytoaster Exp $
 
-EAPI="1"
+EAPI="2_pre1"
 
 KMNAME=kdebase
 KMMODULE=apps/${PN}
