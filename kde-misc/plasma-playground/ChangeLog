@@ -1,0 +1,11 @@
+# ChangeLog for kde-misc/plasma-playground
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*plasma-playground-20080907 (09 Sep 2008)
+
+  09 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +files/plasma-playground-cmakelists.patch, +metadata.xml,
+  +plasma-playground-20080907.ebuild:
+  Added plasma-playground-20080907
+
