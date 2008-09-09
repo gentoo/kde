@@ -24,9 +24,9 @@ kde4-base_set_qt_dependencies() {
 	# use dependencies
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
-		qt="[accessibility][dbus][gif][jpeg][png][qt3support][ssl][zlib]"
-		qtcore="[qt3support][ssl]"
-		qtgui="[accessibility][dbus]"
+		qt="[accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
+		qtcore="[qt3support,ssl]"
+		qtgui="[accessibility,dbus]"
 		qt3support="[accessibility]"
 		case "${OPENGL_REQUIRED}" in
 			always)
@@ -87,11 +87,11 @@ case "${PV}" in
 		;;
 esac
 
-# Add the multislot use flag
+# Add the kdeprefix use flag
 if [[ -n ${KDEBASE} ]]; then
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
-			IUSE="${IUSE} multislot"
+			IUSE="${IUSE} kdeprefix"
 			;;
 	esac
 fi
@@ -248,7 +248,7 @@ if [[ ${NEED_KDE} != none ]]; then
 	# Set PREFIX
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
-			if use multislot; then
+			if use kdeprefix; then
 				KDEDIR="/usr/kde/${_kdedir}"
 				KDEDIRS="/usr:/usr/local:${KDEDIR}"
 			else
@@ -274,16 +274,16 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	# Block install of other SLOTS unless multislot
+	# Block install of other SLOTS unless kdeprefix
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
 			for KDE_SLOT in ${KDE_SLOTS[@]}; do
-				# block non multislot ${PN} on other slots
+				# block non kdeprefix ${PN} on other slots
 				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 					DEPEND="${DEPEND}
-						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[-multislot] )"
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 					RDEPEND="${RDEPEND}
-						!multislot? ( !kde-base/${PN}:${KDE_SLOT}[-multislot] )"
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 				fi
 			done
 			;;
@@ -293,8 +293,8 @@ if [[ ${NEED_KDE} != none ]]; then
 	if [[ ${PN} != "kdelibs" ]]; then
 		case "${EAPI}" in
 			2 | 2_pre2 | 2_pre1)
-				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[multislot=]"
-				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[multislot=]"
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 				;;
 			*)
 				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
@@ -304,8 +304,8 @@ if [[ ${NEED_KDE} != none ]]; then
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			case "${EAPI}" in
 				2 | 2_pre2 | 2_pre1)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[multislot=]"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[multislot=]"
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
 					;;
 				*)
 					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
