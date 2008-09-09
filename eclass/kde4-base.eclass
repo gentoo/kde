@@ -87,7 +87,7 @@ case "${PV}" in
 		;;
 esac
 
-# Add the fhs use flag
+# Add the multislot use flag
 if [[ -n ${KDEBASE} ]]; then
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
@@ -216,6 +216,8 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}"
 		;;
+
+	# NEED_KDE="${PV}"
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
 		_operator=">="
