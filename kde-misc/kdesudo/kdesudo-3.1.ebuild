@@ -20,16 +20,9 @@ RDEPEND="${DEPEND}"
 
 PREFIX="${KDEDIR}"
 
-src_install() {
-	kde4-base_src_install
-	dosym /usr/bin/kdesudo /usr/local/bin/kdesu
-}
-
 pkg_postinst() {
-	elog "Kdesudo does symlink to /usr/local/bin/kdesu"
-	elog "if you want to use kdesu remove that symlink,"
-	elog "or use absolute path to your kdesu (${PREFIX}/bin/kdesu)."
-	elog
-	elog "This expects that your PATH has definition of /usr/local/"
-	elog "before /usr/"
+	elog "If you want to replace kdesu with kdesudo ensure yourself,"
+	elog "that your PREFIX have /usr/local defined before /usr and"
+	elog "run command \"ln -s /usr/bin/kdesudo /usr/local/bin/kdesu\""
+	elog "as root"
 }

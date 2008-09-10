@@ -17,9 +17,7 @@ SLOT="4"
 IUSE=""
 
 DEPEND=">=kde-base/konsole-4.1.0
-	>=x11-libs/qt-core-4.4.0
 	sys-devel/gettext
-	>=x11-libs/qt-gui-4.4.0
 	!kdeprefix? ( !kde-misc/yakuake:0 )"
 RDEPEND="${DEPEND}"
 
