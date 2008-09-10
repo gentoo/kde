@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdesudo-3.1-r1 (10 Sep 2008)
+
+  10 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +kdesudo-3.1-r1.ebuild, -kdesudo-3.1.ebuild:
+  Removed file creation in /usr/local/ on behalf only informing user what he
+  can do.
+
 *kdesudo-3.1 (09 Sep 2008)
 
   09 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,

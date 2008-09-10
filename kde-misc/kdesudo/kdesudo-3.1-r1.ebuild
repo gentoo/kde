@@ -22,7 +22,6 @@ PREFIX="${KDEDIR}"
 
 pkg_postinst() {
 	elog "If you want to replace kdesu with kdesudo ensure yourself,"
-	elog "that your PREFIX have /usr/local defined before /usr and"
-	elog "run command \"ln -s /usr/bin/kdesudo /usr/local/bin/kdesu\""
-	elog "as root"
+	elog "that your PATH variable have /usr/local defined before /usr and"
+	elog "run command \"ln -s /usr/bin/kdesudo /usr/local/bin/kdesu\" as root"
 }
