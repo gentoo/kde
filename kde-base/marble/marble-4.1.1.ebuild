@@ -1,16 +1,13 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/marble/marble-4.0.5.ebuild,v 1.1 2008/06/05 22:42:02 keytoaster Exp $
-
+# $Header: $
 EAPI="2_pre1"
 NEED_KDE="none"
 KMNAME=kdeedu
 
-if use multislot; then
-	SLOT="4.1" # Goes in the ebuild because of NEED_KDE=none
+if use kdeprefix; then
 	KDEDIR="/usr/kde/4.1"
 else
-	SLOT="4"
 	KDEDIR="/usr"
 fi
 CPPUNIT_REQUIRED="optional"
@@ -19,15 +16,17 @@ inherit kde4-meta
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug designer-plugin htmlhandbook kde gps"
+# Goes in the ebuild because of NEED_KDE=none
+SLOT="4.1"
 
 # FIXME: undefined reference when building tests. RESTRICTed for now.
 # Last checked in 4.0.3.
 RESTRICT="test"
 
 COMMONDEPEND="gps? ( sci-geosciences/gpsd )
-	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}
-		>=kde-base/kdepimlibs-${PV}:${SLOT} )
-	!multislot? ( !sci-geosciences/marble )"
+	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=]
+		>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
+	!kdeprefix? ( !sci-geosciences/marble )"
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
