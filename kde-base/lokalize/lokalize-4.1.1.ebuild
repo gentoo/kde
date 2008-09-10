@@ -4,7 +4,7 @@
 
 EAPI="2_pre1"
 
-KMNAME=kdesdk
+KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 translation tool"

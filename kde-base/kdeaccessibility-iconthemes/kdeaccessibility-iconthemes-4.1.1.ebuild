@@ -4,8 +4,8 @@
 
 EAPI="2_pre1"
 
-KMNAME=kdeaccessibility
-KMMODULE=IconThemes
+KMNAME="kdeaccessibility"
+KMMODULE="IconThemes"
 inherit kde4-meta
 
 DESCRIPTION="Icon themes for kde from the kdeaccessibility module"
