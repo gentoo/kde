@@ -24,6 +24,7 @@ DEPEND="${RDEPEND}
 	dev-lang/python"
 
 S=${WORKDIR}/${PN/-menu/}
+PREFIX=${KDEDIR}
 
 src_compile() {
 	local mycmakeargs
@@ -32,3 +33,14 @@ src_compile() {
 	kde4-base_src_compile
 }
 
+src_install() {
+
+	# lancelot has broken install with FSH (dunno why)
+	pushd "${WORKDIR}"/lancelot-menu_build/libs/lancelot/
+	make DESTDIR="${D}" install
+	popd
+	pushd "${WORKDIR}"/lancelot-menu_build/app/
+	make DESTDIR="${D}" install
+	popd
+	cmake-utils_src_install
+}
