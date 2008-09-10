@@ -30,10 +30,10 @@ kde4-base_set_qt_dependencies() {
 		qt3support="[accessibility]"
 		case "${OPENGL_REQUIRED}" in
 			always)
-			qt="${qt}[opengl]"
+			qt="${qt/]/,opengl]}"
 			;;
 			optional)
-			qt="${qt}[opengl?]"
+			qt="${qt/]/,opengl?]}"
 			;;
 		esac
 		;;
