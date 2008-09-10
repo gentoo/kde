@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  digikam-0.10.0_beta2.ebuild:
+  Fixed dep order and removed kdepimlibs as that's defined on the
+  kde4-base.eclass.
+
 *digikam-0.10.0_beta2 (08 Sep 2008)
 
   08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,

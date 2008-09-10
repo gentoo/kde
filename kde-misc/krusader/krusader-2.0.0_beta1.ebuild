@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="2_pre1"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -14,7 +14,7 @@ HOMEPAGE="http://krusader.sourceforge.net/"
 SRC_URI="mirror://sourceforge/krusader/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="pic"
 

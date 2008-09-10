@@ -10,7 +10,7 @@ HOMEPAGE="https://launchpad.net/kdesudo"
 SRC_URI="http://launchpad.net/kdesudo/3.x/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

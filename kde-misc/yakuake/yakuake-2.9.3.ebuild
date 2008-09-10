@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -13,13 +13,11 @@ SRC_URI="mirror://berlios/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE=""
 
 DEPEND=">=kde-base/konsole-4.1.0
-	>=x11-libs/qt-core-4.4.0
 	sys-devel/gettext
-	>=x11-libs/qt-gui-4.4.0
 	!kdeprefix? ( !kde-misc/yakuake:0 )"
 RDEPEND="${DEPEND}"
 

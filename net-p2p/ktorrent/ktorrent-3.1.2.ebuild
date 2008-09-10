@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -13,13 +13,13 @@ SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE="+bwscheduler +infowidget +ipfilter +logviewer +scanfolder +search +stats +upnp webinterface zeroconf +mediaplayer"
 
 DEPEND="dev-libs/gmp
 	app-misc/strigi
-	sys-devel/gettext
 	app-crypt/qca:2
+	sys-devel/gettext
 	!kdeprefix? ( !net-p2p/ktorrent:0 )"
 RDEPEND="${DEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )

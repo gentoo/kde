@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 RDEPEND="${DEPEND}"
-SLOT="4"
+SLOT="4.1"
 IUSE="debug"
 
 LANGS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt lv lb
@@ -30,22 +30,21 @@ KEYWORDS="~amd64"
 # uses them otherwise does not, so any iuse are useless
 DEPEND="
 	dev-db/sqlite:3
-	sys-devel/gettext
-	x11-libs/qt-core[qt3support]
 	kde-base/libkdcraw:${SLOT}
 	kde-base/libkexiv2:${SLOT}
 	kde-base/libkipi:${SLOT}
+	kde-base/marble:${SLOT}
+	kde-base/solid:${SLOT}
 	>=media-libs/jasper-1.701.0
 	media-libs/jpeg
-	kde-base/solid:${SLOT}
-	x11-libs/qt-sql[sqlite]
 	>=media-libs/lcms-1.17
 	>=media-libs/libgphoto2-2.4.1-r1
 	>=media-libs/libpng-1.2.26-r1
 	>=media-libs/tiff-3.8.2-r3
-	kde-base/kdepimlibs:${SLOT}
-	!kdeprefix? ( !media-gfx/digikam:0 )
-	kde-base/marble:${SLOT}"
+	sys-devel/gettext
+	x11-libs/qt-core[qt3support]
+	x11-libs/qt-sql[sqlite]
+	!kdeprefix? ( !media-gfx/digikam:0 )"
 #liblensfun when added should be also dep.
 RDEPEND="${DEPEND}"
 

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 
 inherit eutils qt4 cmake-utils
 
@@ -13,7 +13,7 @@ SRC_URI="http://gtk-qt.ecs.soton.ac.uk/files/${PV}/${MY_PN}-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE=""
 
 LANGS="bg cs de es fr it nn ru sv tr"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2_pre1"
 NEED_KDE=4.1
 inherit qt4 kde4-base
 
