@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/krusader
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*krusader-2.0.0_beta1 (08 Sep 2008)
+
+  08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +krusader-2.0.0_beta1.ebuild:
+  Added krusader-2.0.0_beta1
+

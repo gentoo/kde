@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="1"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -12,20 +12,21 @@ HOMEPAGE="http://ktorrent.org/"
 SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
-IUSE="+bwscheduler +infowidget +ipfilter +logviewer +mediaplayer +scanfolder +search +stats +upnp webinterface zeroconf"
+SLOT="4"
+IUSE="+bwscheduler +infowidget +ipfilter +logviewer +scanfolder +search +stats +upnp webinterface zeroconf +mediaplayer"
 
-DEPEND="app-crypt/qca:2
+DEPEND="dev-libs/gmp
 	app-misc/strigi
-	dev-libs/gmp
-	sys-devel/gettext"
+	sys-devel/gettext
+	app-crypt/qca:2
+	!kdeprefix? ( !net-p2p/ktorrent:0 )"
 RDEPEND="${DEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (
-		|| ( kde-base/kdebase-kioslaves:${SLOT}
-			kde-base/kdelibs:${SLOT} ) )
-	zeroconf? ( kde-base/kdnssd:${SLOT} )"
+		|| ( >=kde-base/kdebase-kioslaves-4.1.0
+			>=kde-base/kdelibs-4.1.0 ) )
+	zeroconf? ( kde-base/kdnssd-4.1.0 )"
 
 LANGS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km lt lv
 nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
@@ -61,12 +62,12 @@ src_compile() {
 		$(cmake-utils_use_with infowidget SYSTEM_GEOIP)
 		$(cmake-utils_use_enable ipfilter IPFILTER_PLUGIN)
 		$(cmake-utils_use_enable logviewer LOGVIEWER_PLUGIN)
-		$(cmake-utils_use_enable mediaplayer MEDIAPLAYER_PLUGIN)"
 		$(cmake-utils_use_enable scanfolder SCANFOLDER_PLUGIN)
 		$(cmake-utils_use_enable search SEARCH_PLUGIN)
 		$(cmake-utils_use_enable stats STATS_PLUGIN)
 		$(cmake-utils_use_enable upnp UPNP_PLUGIN)
 		$(cmake-utils_use_enable webinterface WEBINTERFACE_PLUGIN)
 		$(cmake-utils_use_enable zeroconf ZEROCONF_PLUGIN)
+		$(cmake-utils_use_enable mediaplayer MEDIAPLAYER_PLUGIN)"
 	kde4-base_src_compile
 }

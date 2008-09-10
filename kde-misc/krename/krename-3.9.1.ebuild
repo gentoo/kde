@@ -16,5 +16,7 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/krename:0
+DEPEND="!kdeprefix? ( !kde-misc/krename:0 )
 	>=media-libs/taglib-1.5"
+
+PREFIX="${KDEDIR}"
