@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  plasma-playground-20080907.ebuild:
+  Added dependency on ksmserver
+
 *plasma-playground-20080907 (09 Sep 2008)
 
   09 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>

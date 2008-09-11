@@ -17,6 +17,7 @@ IUSE="python"
 DEPEND=">=kde-base/libplasma-4.1.0
 	>=kde-base/kdepimlibs-4.1.0
 	>=kde-base/plasma-workspace-4.1.0
+	>=kde-base/ksmserver-4.1.0
 	x11-libs/qt-webkit
 	kde-base/qimageblitz
 	python? ( dev-lang/python:2.5 )"
