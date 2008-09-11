@@ -1,6 +1,9 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="1"
+
 NEED_KDE="4.1"
 OPENGL_REQUIRED="optional"
 inherit eutils kde4-base
@@ -20,6 +23,7 @@ DEPEND=">=kde-base/libplasma-4.1.0
 	>=kde-base/ksmserver-4.1.0
 	x11-libs/qt-webkit
 	kde-base/qimageblitz
+	>=dev-util/cmake-2.6.1
 	python? ( dev-lang/python:2.5 )"
 RDEPEND="${DEPEND}"
 
