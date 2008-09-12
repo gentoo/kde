@@ -16,21 +16,21 @@ RDEPEND=""
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-LANGS="bg ca cs csb da de el en_GB eo es et fi fr fy ga gl hi hu it ja kk km ko
+LNGS="bg ca cs csb da de el en_GB eo es et fi fr fy ga gl hi hu it ja kk km ko
 ku lt lv mk ml nb nds nl nn pa pl pt pt_BR ru sl sr sv ta th tr uk wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.bz2/}"
 SRC_URI=""
 
-for LANG in ${LANGS} ; do
-	IUSE="${IUSE} linguas_${LANG}"
-	SRC_URI="${SRC_URI} linguas_${LANG}? ( ${URI_BASE}/${PN}-${LANG}-${PV}.tar.bz2 )"
+for LNG in ${LNGS} ; do
+	IUSE="${IUSE} linguas_${LNG}"
+	SRC_URI="${SRC_URI} linguas_${LNG}? ( ${URI_BASE}/${PN}-${LNG}-${PV}.tar.bz2 )"
 done
 
 S="${WORKDIR}"
 
 src_unpack() {
-	local LANG
+	local LNG
 	local DIR
 	if [[ -z ${A} ]]; then
 		echo
@@ -39,7 +39,7 @@ src_unpack() {
 		elog "You won't have any additional language support."
 		echo
 		elog "${P} supports these language codes:"
-		elog "${LANGS}"
+		elog "${LNGS}"
 		echo
 	fi
 
@@ -48,16 +48,9 @@ src_unpack() {
 
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
-		for LANG in ${LINGUAS}; do
-			DIR="${PN}-${LANG}-${PV}"
+		for LNG in ${LINGUAS}; do
+			DIR="${PN}-${LNG}-${PV}"
 			[[ -d "${DIR}" ]] && echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
-
-			# Fix provided by Chusslove in #kde-devel and should be applied in kde-l10n-4.1.1
-			# This fixes the issue with cmake not finding the resolve-text-alternatives by looking
-			# in CMAKE_HOME_DIRECTORY that points to the root dir and not to the ${LANG} subdir
-			if [[ ${LANG} = "sr" ]]; then
-				cp "${FILESDIR}/srDataMacros.cmake" "${DIR}/data" || die "unable to copy updated cmake file for sr translation"
-			fi
 		done
 	fi
 }

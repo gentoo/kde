@@ -28,26 +28,26 @@ RDEPEND="${DEPEND}
 			>=kde-base/kdelibs-4.1.0 ) )
 	zeroconf? ( >=kde-base/kdnssd-4.1.0 )"
 
-LANGS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km lt lv
+LNGS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km lt lv
 nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
+for LNG in ${LNGS}; do
+	IUSE="${IUSE} linguas_${LNG}"
 done
 
 # fix install PREFIX
 PREFIX="${KDEDIR}"
 
 src_unpack() {
-	local LANG
+	local LNG
 
 	unpack ${A}
 	cd "${S}"
 	# take care of linguas
 	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LANG in ${LINGUAS}; do
+	for LNG in ${LINGUAS}; do
 		sed -i \
-			-e "/add_subdirectory(\s*${LANG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "sed to uncomment ${LANG} failed."
+			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
+			po/CMakeLists.txt || die "sed to uncomment ${LNG} failed."
 	done
 }
 

@@ -18,9 +18,9 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="pic"
 
-LANGS="bg bs ca cs da de el es fr hu it ja lt nl pl pt pt_BR ru sk sl sr sv tr uk zh_CN"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
+LNGS="bg bs ca cs da de el es fr hu it ja lt nl pl pt pt_BR ru sk sl sr sv tr uk zh_CN"
+for LNG in ${LNGS}; do
+	IUSE="${IUSE} linguas_${LNG}"
 done
 
 DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
@@ -29,15 +29,15 @@ DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
 S="${WORKDIR}/${MY_P}"
 
 src_unpack() {
-	local LANG
+	local LNG
 	unpack ${A}
 	cd "${S}"/po
 	# take care of linguas
-	for LANG in ${LANGS}; do
-		mv "${LANG}".po "${LANG}".po.old
+	for LNG in ${LNGS}; do
+		mv "${LNG}".po "${LNG}".po.old
 	done
-	for LANG in ${LINGUAS}; do
-		mv "${LANG}".po.old "${LANG}".po
+	for LNG in ${LINGUAS}; do
+		mv "${LNG}".po.old "${LNG}".po
 	done
 }
 

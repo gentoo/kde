@@ -16,9 +16,9 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE=""
 
-LANGS="bg cs de es fr it nn ru sv tr"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
+LNGS="bg cs de es fr it nn ru sv tr"
+for LNG in ${LNGS}; do
+	IUSE="${IUSE} linguas_${LNG}"
 done
 
 RDEPEND="|| (
@@ -40,11 +40,11 @@ src_unpack() {
 		po/CMakeLists.txt || die "sed install path failed"
 	cd "${S}"/po
 	# take care of linguas
-	for LANG in ${LANGS}; do
-		mv "${LANG}".po "${LANG}".po.old
+	for LNG in ${LNGS}; do
+		mv "${LNG}".po "${LNG}".po.old
 	done
-	for LANG in ${LINGUAS}; do
-		mv "${LANG}".po.old "${LANG}".po
+	for LNG in ${LINGUAS}; do
+		mv "${LNG}".po.old "${LNG}".po
 	done
 }
 

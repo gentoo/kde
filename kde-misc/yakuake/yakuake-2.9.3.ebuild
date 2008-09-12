@@ -22,23 +22,23 @@ DEPEND=">=kde-base/konsole-4.1.0
 RDEPEND="${DEPEND}"
 
 #linguas
-LANGS="ca cs da de el en_GB fr ga gl ja ko nds nl pt pt_BR ro ru sv tr uk"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
+LNGS="ca cs da de el en_GB fr ga gl ja ko nds nl pt pt_BR ro ru sv tr uk"
+for LNG in ${LNGS}; do
+	IUSE="${IUSE} linguas_${LNG}"
 done
 
 # take care of wrong prefixing
 PREFIX="${KDEDIR}"
 
 src_unpack() {
-	local LANG
+	local LNG
 	unpack ${A}
 	cd "${S}"
 	# take care of linguas
 	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LANG in ${LINGUAS}; do
+	for LNG in ${LINGUAS}; do
 		sed -i \
-			-e "/add_subdirectory(\s*${LANG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "Sed to uncomment ${LANG} failed."
+			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
+			po/CMakeLists.txt || die "Sed to uncomment ${LNG} failed."
 	done
 }
