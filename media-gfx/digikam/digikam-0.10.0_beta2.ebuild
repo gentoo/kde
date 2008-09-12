@@ -16,10 +16,10 @@ RDEPEND="${DEPEND}"
 SLOT="4"
 IUSE="debug"
 
-LANGS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt lv lb
+LNGS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt lv lb
 nds ne nl nn pa pl pt pt_BR ro ru se sk sv th tr uk vi zh_CN"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
+for LNG in ${LNGS}; do
+	IUSE="${IUSE} linguas_${LNG}"
 done
 
 S="${WORKDIR}/${P/_/-}"
@@ -70,9 +70,9 @@ src_unpack() {
 	cd "${S}"
 	# take care of linguas
 	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LANG in ${LINGUAS}; do
+	for LNG in ${LINGUAS}; do
 		sed -i \
-			-e "/add_subdirectory(\s*${LANG}\s*)\s*$/s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "Sed to uncomment ${LANG} failed."
+			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/s/^#DONOTCOMPILE //" \
+			po/CMakeLists.txt || die "Sed to uncomment ${LNG} failed."
 	done
 }
