@@ -80,6 +80,12 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}"/${P}-konqueror-pointer.patch
+}
+
 src_compile() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
