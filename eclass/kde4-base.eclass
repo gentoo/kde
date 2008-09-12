@@ -88,13 +88,11 @@ case "${PV}" in
 esac
 
 # Add the kdeprefix use flag
-if [[ -n ${KDEBASE} ]]; then
-	case "${EAPI}" in
-		2 | 2_pre2 | 2_pre1)
-			IUSE="${IUSE} kdeprefix"
-			;;
-	esac
-fi
+case "${EAPI}" in
+	2 | 2_pre2 | 2_pre1)
+		IUSE="${IUSE} kdeprefix"
+		;;
+esac
 
 DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	dev-util/pkgconfig
