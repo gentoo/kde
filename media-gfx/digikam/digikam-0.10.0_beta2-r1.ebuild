@@ -30,6 +30,7 @@ KEYWORDS="~amd64"
 # uses them otherwise does not, so any iuse are useless
 DEPEND="
 	dev-db/sqlite:3
+	kde-base/kdebase-data:${SLOT}
 	kde-base/kdepimlibs:${SLOT}
 	kde-base/libkdcraw:${SLOT}
 	kde-base/libkexiv2:${SLOT}
@@ -68,6 +69,11 @@ src_unpack() {
 
 	unpack ${A}
 	cd "${S}"
+	# fix files collision, use icon from kdebase-data rather that digikam ones
+	sed -i \
+		-e "s:add_subdirectory:#add_subdirectory:g" \
+		data/icons/CMakeLists.txt || die "Failed to remove icon install"
+
 	# take care of linguas
 	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
 	for LNG in ${LINGUAS}; do

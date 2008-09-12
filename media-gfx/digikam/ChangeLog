@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*digikam-0.10.0_beta2-r1 (12 Sep 2008)
+
+  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +digikam-0.10.0_beta2-r1.ebuild, -digikam-0.10.0_beta2.ebuild:
+  Added dependency on kdebase-data (icons) and removing installation of
+  icons by digikam itself
+
   12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   digikam-0.10.0_beta2.ebuild:
   Fixed dependency order (Now in alphabetic order)
