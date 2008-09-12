@@ -17,14 +17,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="python"
 
-DEPEND=">=kde-base/libplasma-4.1.0
+DEPEND=">=dev-util/cmake-2.6.1
 	>=kde-base/kdepimlibs-4.1.0
-	>=kde-base/plasma-workspace-4.1.0
 	>=kde-base/ksmserver-4.1.0
-	x11-libs/qt-webkit
+	>=kde-base/libplasma-4.1.0
+	>=kde-base/plasma-workspace-4.1.0
 	kde-base/qimageblitz
-	>=dev-util/cmake-2.6.1
-	python? ( dev-lang/python:2.5 )"
+	python? ( dev-lang/python:2.5 )
+	x11-libs/qt-webkit"
 RDEPEND="${DEPEND}"
 
 src_unpack() {

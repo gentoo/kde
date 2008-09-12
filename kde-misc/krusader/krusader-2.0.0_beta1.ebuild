@@ -23,8 +23,8 @@ for LANG in ${LANGS}; do
 	IUSE="${IUSE} linguas_${LANG}"
 done
 
-DEPEND="sys-devel/gettext
-	!kdeprefix? ( !kde-misc/krusader:0 )"
+DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
+	sys-devel/gettext"
 
 S="${WORKDIR}/${MY_P}"
 

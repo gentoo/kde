@@ -17,8 +17,8 @@ SLOT="4"
 IUSE=""
 
 DEPEND=">=kde-base/konsole-4.1.0
-	sys-devel/gettext
-	!kdeprefix? ( !kde-misc/yakuake:0 )"
+	!kdeprefix? ( !kde-misc/yakuake:0 )
+	sys-devel/gettext"
 RDEPEND="${DEPEND}"
 
 #linguas

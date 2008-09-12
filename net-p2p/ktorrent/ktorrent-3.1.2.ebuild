@@ -14,13 +14,13 @@ SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="+bwscheduler +infowidget +ipfilter +logviewer +scanfolder +search +stats +upnp webinterface zeroconf +mediaplayer"
+IUSE="+bwscheduler +infowidget +ipfilter +logviewer +mediaplayer +scanfolder +search +stats +upnp webinterface zeroconf"
 
-DEPEND="dev-libs/gmp
+DEPEND="app-crypt/qca:2
 	app-misc/strigi
-	sys-devel/gettext
-	app-crypt/qca:2
-	!kdeprefix? ( !net-p2p/ktorrent:0 )"
+	dev-libs/gmp
+	!kdeprefix? ( !net-p2p/ktorrent:0 )
+	sys-devel/gettext"
 RDEPEND="${DEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (

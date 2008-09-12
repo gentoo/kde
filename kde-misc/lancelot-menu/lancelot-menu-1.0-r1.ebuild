@@ -20,8 +20,8 @@ IUSE="debug"
 RDEPEND=">=kde-base/libplasma-4.1.0
 	>=kde-base/kscreensaver-4.1.0"
 DEPEND="${RDEPEND}
-	>=dev-util/cmake-2.6.0
-	dev-lang/python"
+	dev-lang/python
+	>=dev-util/cmake-2.6.0"
 
 S=${WORKDIR}/${PN/-menu/}
 

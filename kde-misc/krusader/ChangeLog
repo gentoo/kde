@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  krusader-2.0.0_beta1.ebuild:
+  Fixed dependency order (Now in alphabetic order)
+
 *krusader-2.0.0_beta1 (08 Sep 2008)
 
   08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,

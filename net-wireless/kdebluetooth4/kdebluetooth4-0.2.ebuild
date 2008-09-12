@@ -17,10 +17,9 @@ SLOT="4"
 IUSE=""
 
 
-DEPEND="dev-libs/openobex
-	app-mobilephone/obexftp
-	app-mobilephone/obex-data-server"
-
+DEPEND="app-mobilephone/obexftp
+	app-mobilephone/obex-data-server
+	dev-libs/openobex"
 RDEPEND="${DEPEND}
 	|| ( ( kde-base/kdialog:${SLOT} kde-base/konqueror:${SLOT} )
 		kde-base/kdelibs:${SLOT} )
