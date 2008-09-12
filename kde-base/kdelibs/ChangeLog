@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -files/kdelibs-4.1.0-quit-app.patch:
+  Removing patch for kdelibs-4.1.0 since it is part of 4.1.1
+
 *kdelibs-4.1.1-r1 (12 Sep 2008)
 
   12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
