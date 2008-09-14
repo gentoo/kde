@@ -24,6 +24,7 @@ COMMONDEPEND="
 	!=kde-base/kdebase-3.5.8-r1
 	!=kde-base/kdebase-3.5.8-r2
 	!=kde-base/kdebase-startkde-3.5.8
+	!kdeprefix? ( !kde-misc/kdnssd-avahi:0 )
 	>=app-misc/strigi-0.5.9
 	>=dev-libs/libxml2-2.6.6
 	>=dev-libs/libxslt-1.1.17
