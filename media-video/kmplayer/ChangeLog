@@ -1,0 +1,10 @@
+# ChangeLog for media-video/kmplayer
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kmplayer-0.11.0_rc4 (14 Sep 2008)
+
+  14 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kmplayer-0.11.0_rc4.ebuild:
+  Add kmplayer-0.11.0_rc4
+
