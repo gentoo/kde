@@ -34,7 +34,7 @@ COMMONDEPEND="
 	media-libs/jpeg
 	media-libs/libpng
 	>=media-sound/phonon-4.2.0
-	>=sys-apps/dbus-0.91[X]
+	>=sys-apps/dbus-0.91
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -49,7 +49,7 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	>=x11-misc/shared-mime-info-0.20
 	acl? ( kernel_linux? ( sys-apps/acl ) )
-	alsa? ( >=media-libs/alsa-lib-1.0.14a[midi] )
+	alsa? ( >=media-libs/alsa-lib-1.0.14a )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
@@ -80,6 +80,16 @@ pkg_setup() {
 	if use zeroconf && has_version net-dns/avahi && ! built_with_use net-dns/avahi mdnsresponder-compat; then
 		eerror "You should rebuild avahi with mdnsresponder-compat USE flag!"
 		die "rebuild net-dns/avahi with mdnsresponder-compat"
+	fi
+
+	if ! built_with_use sys-apps/dbus X; then
+		eerror "Please build sys-apps/dbus with the X useflag."
+		die "Need sys-apps/dbus built with the X useflag."
+	fi
+
+	if use alsa && ! built_with_use media-libs/alsa-lib midi; then
+		eerror "Please build media-libs/alsa-lib with the midi useflag."
+		die "Need media-libs/alsa-lib built with the midi useflag."
 	fi
 }
 

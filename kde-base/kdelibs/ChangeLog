@@ -3,6 +3,9 @@
 # $Header: $
 
   14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
+  Fixed the remaining USE deps that must have slipped through.
+
+  14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
   Updated to use .kde4 as the default config directory for KDE4 apps. Thanks
   to Beineri from OpenSUSE for pointing out the variable needed.
 
