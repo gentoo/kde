@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${PN/-menu/}
 
-PREFIX=${KDEDIR}
+PREFIX="${KDEDIR}"
 
 src_compile() {
 	local mycmakeargs
