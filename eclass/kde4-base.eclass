@@ -25,18 +25,20 @@ kde4-base_set_qt_dependencies() {
 	# use dependencies
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
-		qt="[accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
+
+		qt="["
+		case "${OPENGL_REQUIRED}" in
+			always)
+			qt="${qt}opengl,"
+			;;
+			optional)
+			qt="${qt}opengl?,"
+			;;
+		esac
+		qt="${qt}accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
 		qtcore="[qt3support,ssl]"
 		qtgui="[accessibility,dbus]"
 		qt3support="[accessibility]"
-		case "${OPENGL_REQUIRED}" in
-			always)
-			qt="${qt/]/,opengl]}"
-			;;
-			optional)
-			qt="${qt/]/,opengl?]}"
-			;;
-		esac
 		;;
 	esac
 
@@ -81,7 +83,7 @@ kde4-base_set_qt_dependencies
 
 # Set the cmake dependencies
 case "${PV}" in
-	9999*|*:kde-svn)
+	9999*)
 		CMAKEDEPEND=">=dev-util/cmake-2.6"
 		;;
 	*)
@@ -170,7 +172,8 @@ case ${NEED_KDE} in
 					_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
 				3.9*)
-					_kdedir="3.9" ;;
+					_kdedir="3.9"
+					_pv="-${PV}:kde-4" ;;
 				*)
 					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
@@ -186,9 +189,8 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE=":${SLOT}"
-	*:kde-svn)
+	:kde-svn)
 		_kdedir="svn"
-		_operator=">="
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="svn"
 		;;
@@ -202,6 +204,12 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}:${SLOT}"
+	*:kde-svn)
+		_kdedir="svn"
+		_operator=">="
+		_pv="-${NEED_KDE}"
+		export NEED_KDE="svn"
+		;;
 	*:4.1)
 		_kdedir="4.1"
 		_operator=">="
@@ -214,9 +222,10 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}"
-	scm|svn|9999*|:kde-svn)
+	scm|svn|9999*)
 		_kdedir="svn"
-		_pv=":kde-svn"
+		_operator=">="
+		_pv="-${NEED_KDE}:kde-svn"
 		export NEED_KDE="svn"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
@@ -337,7 +346,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # This value is set on pkg_setup
 PREFIX=""
 
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - KDEDIRS ${KDEDIRS} - NEED_KDE ${NEED_KDE}"
+debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - NEED_KDE ${NEED_KDE}"
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
@@ -445,7 +454,7 @@ kde4-base_apply_patches() {
 			_packages="${PN}"
 		fi
 		if [[ $(declare -p PATCHES) != 'declare -a '* ]]; then
-			PATCHES=(${PATCHES})
+			die "PATCHES needs to be an array!"
 		fi
 		for _p in ${_packages}; do
 			for _f in "${_patchdir}"/${_p}-${PV}-*{diff,patch}; do
