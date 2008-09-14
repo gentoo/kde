@@ -96,6 +96,7 @@ src_compile() {
 
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
+		-DKDE_DEFAULT_HOME=.kde4
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
