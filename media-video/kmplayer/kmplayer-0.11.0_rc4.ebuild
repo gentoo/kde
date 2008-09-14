@@ -20,6 +20,7 @@ IUSE="cairo npp"
 DEPEND="x11-libs/libXv
 	>=dev-libs/expat-2.0.1
 	cairo? ( x11-libs/cairo )
+	media-sound/phonon
 	!kdeprefix? ( !media-video/kmplayer:0 )
 	npp? ( >=dev-libs/nspr-4.6.7
 			x11-libs/gtk+ )"
@@ -35,7 +36,7 @@ src_unpack() {
 	cd "${S}"
 	# fixup icon install
 	sed -i \
-		-e "s:add_subdirectory\(icons\):#add_subdirectory\(icons\):g"\
+		-e "s:add_subdirectory(icons):#add_subdirectory(icons):g"\
 		CMakeLists.txt || die "removing icons failed"
 }
 src_compile() {
@@ -43,6 +44,6 @@ src_compile() {
 		-DCMAKE_INSTALL_PREFIX=${PREFIX}
 		$(cmake-utils_use_with cairo CAIRO)
 		$(cmake-utils_use_with npp NPP)"
-	kde4overlay-base_src_compile
+	kde4-base_src_compile
 }
 
