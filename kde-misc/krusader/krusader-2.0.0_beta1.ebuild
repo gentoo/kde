@@ -27,6 +27,7 @@ DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
 	sys-devel/gettext"
 
 S="${WORKDIR}/${MY_P}"
+PREFIX="${KDEDIR}"
 
 src_unpack() {
 	local LNG
