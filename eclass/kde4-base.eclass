@@ -14,10 +14,11 @@
 # and use deps from EAPI="2", hence you must define EAPI="2" in the ebuild,
 # before inheriting any eclasses.
 
-inherit base eutils multilib cmake-utils kde4-functions
+inherit base cmake-utils eutils kde4-functions multilib
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
 
+# Set the qt dependencies
 kde4-base_set_qt_dependencies() {
 	local qt qtcore qtgui qt3support qtdepend qtopengldepend
 
@@ -78,6 +79,7 @@ kde4-base_set_qt_dependencies() {
 }
 kde4-base_set_qt_dependencies
 
+# Set the cmake dependencies
 case "${PV}" in
 	9999*|*:kde-svn)
 		CMAKEDEPEND=">=dev-util/cmake-2.6"
@@ -87,18 +89,19 @@ case "${PV}" in
 		;;
 esac
 
+# Set the common dependencies
+DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
+	dev-util/pkgconfig
+	x11-libs/libXt
+	x11-proto/xf86vidmodeproto"
+RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+
 # Add the kdeprefix use flag
 case "${EAPI}" in
 	2 | 2_pre2 | 2_pre1)
 		IUSE="${IUSE} kdeprefix"
 		;;
 esac
-
-DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
-	dev-util/pkgconfig
-	x11-libs/libXt
-	x11-proto/xf86vidmodeproto"
-RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
@@ -181,11 +184,6 @@ case ${NEED_KDE} in
 			esac
 		fi
 		;;
-	scm|svn|9999*|:kde-svn)
-		_kdedir="svn"
-		_pv=":kde-svn"
-		export NEED_KDE="svn"
-		;;
 
 	# NEED_KDE=":${SLOT}"
 	*:kde-svn)
@@ -216,6 +214,11 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}"
+	scm|svn|9999*|:kde-svn)
+		_kdedir="svn"
+		_pv=":kde-svn"
+		export NEED_KDE="svn"
+		;;
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
 		_operator=">="
@@ -242,23 +245,6 @@ case ${NEED_KDE} in
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-
-	# Set PREFIX
-	case "${EAPI}" in
-		2 | 2_pre2 | 2_pre1)
-			if use kdeprefix; then
-				KDEDIR="/usr/kde/${_kdedir}"
-				KDEDIRS="/usr:/usr/local:${KDEDIR}"
-			else
-				KDEDIR="/usr"
-				KDEDIRS="/usr:/usr/local"
-			fi
-			;;
-		*)
-			KDEDIR="/usr"
-			KDEDIRS="/usr:/usr/local"
-			;;
-	esac
 
 	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
@@ -312,7 +298,7 @@ if [[ ${NEED_KDE} != none ]]; then
 		fi
 	fi
 
-	unset _operator _pv _kdedir
+	unset _operator _pv
 fi
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
@@ -348,14 +334,10 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # Set the installation PREFIX. All kde-base ebuilds go into the KDE4 installation directory.
 # Applications installed by the other ebuilds go into /usr/ by default, this value
 # can be superseded by defining PREFIX before inheriting kde4-base.
-if [[ -n ${KDEBASE} ]]; then
-	PREFIX=${KDEDIR}
-else
-	# if PREFIX is not defined we set it to the default value of /usr
-	PREFIX="${PREFIX:-/usr}"
-fi
+# This value is set on pkg_setup
+PREFIX=""
 
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - KDEDIRS ${KDEDIRS}- PREFIX ${PREFIX} - NEED_KDE ${NEED_KDE}"
+debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - KDEDIRS ${KDEDIRS} - NEED_KDE ${NEED_KDE}"
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
@@ -365,6 +347,35 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - 
 # $KDE4_BUILT_WITH_USE_CHECK are missing.
 kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
+
+	if [[ ${NEED_KDE} != none ]]; then
+
+		# Set PREFIX
+		case "${EAPI}" in
+			2 | 2_pre2 | 2_pre1)
+				if use kdeprefix; then
+					KDEDIR="/usr/kde/${_kdedir}"
+					KDEDIRS="/usr:/usr/local:${KDEDIR}"
+				else
+					KDEDIR="/usr"
+					KDEDIRS="/usr:/usr/local"
+				fi
+				;;
+			*)
+				KDEDIR="/usr"
+				KDEDIRS="/usr:/usr/local"
+				;;
+		esac
+	fi
+
+	if [[ -n ${KDEBASE} ]]; then
+		PREFIX=${KDEDIR}
+	else
+		# if PREFIX is not defined we set it to the default value of /usr
+		PREFIX="${PREFIX:-/usr}"
+	fi
+
+	unset _kdedir
 
 	case "${EAPI}" in
 		2 | 2_pre2 | 2_pre1)
