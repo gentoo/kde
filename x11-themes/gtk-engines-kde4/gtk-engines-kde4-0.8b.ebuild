@@ -14,7 +14,8 @@ SRC_URI="http://betta.h.com.ua/no-site/${MY_PN}v${PV}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND="|| (
+DEPEND=">=dev-util/cmake-2.6.1
+	|| (
 		>=x11-libs/qt-4.4.1:4
 		( >=x11-libs/qt-core-4.4.1:4 >=x11-libs/qt-gui-4.4.1:4 )
 	)
