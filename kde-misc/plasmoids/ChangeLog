@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/plasmoids
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*plasmoids-0.1 (15 Sep 2008)
+
+  15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +plasmoids-0.1.ebuild:
+  Added plasmoids-0.1
+
