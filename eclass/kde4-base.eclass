@@ -472,9 +472,8 @@ kde4-base_src_compile() {
 
 	# Don't set KDEHOME during compile, it will cause access violations
 	unset KDEHOME
-
-	kde4-base_src_configure
-	kde4-base_src_make
+	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	[ -e [Mm]akefile ] && kde4-base_src_make
 }
 
 # @FUNCTION: kde4-base_src_configure
