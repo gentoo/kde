@@ -2,15 +2,15 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -phonon-4.2.0.ebuild:
+  Removed phonon-4.2.0, which does not wanted to disappear.
+
 *phonon-4.2.0-r1 (15 Sep 2008)
 
   15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   +phonon-4.2.0-r1.ebuild, -phonon-4.2.0.ebuild:
-  Install phonon into KDEDIR
-
-  15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
-  phonon-4.2.0.ebuild:
-  Install phonon into KDEDIR
+  Install phonon into KDEDIR.
 
   01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   phonon-4.2.0.ebuild:
