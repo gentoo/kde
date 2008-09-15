@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.1.1-r2 (15 Sep 2008)
+
+  15 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  -kdelibs-4.1.1-r1.ebuild, +kdelibs-4.1.1-r2.ebuild:
+  Rev bump for new default config directory (.kde4) and perms on config
+  directory.
+
   14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
   Fixed the remaining USE deps that must have slipped through.
 
