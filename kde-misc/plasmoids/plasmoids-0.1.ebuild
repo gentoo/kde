@@ -34,7 +34,7 @@ S="${WORKDIR}"
 get_dirs() {
 	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasmoids_build \
 		|while read DIR; do
-			echo "<<< WORKING IN ${DIR} >>>"
+			elog "Installing plasma aplet: ${DIR/*\//}"
 			cd "${DIR}"
 			${@}
 		done
@@ -49,17 +49,4 @@ src_compile() {
 }
 src_install() {
 	get_dirs "make DESTDIR=${D} install"
-}
-
-pkg_postinst() {
-	kde4-base_pkg_postinst
-	elog "For now this package contains this plasmoids:"
-	elog "Timer"
-	elog "Flickr"
-	elog "Panel spacer"
-	elog "Am4rok"
-	elog "Quickaccess"
-	elog "Weather"
-	elog "Toggle Composing"
-	elog "Plasma Wifi"
 }

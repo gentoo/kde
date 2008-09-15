@@ -33,14 +33,13 @@ S="${WORKDIR}"
 get_dirs() {
 	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasmoids_build \
 			|while read DIR; do
-		echo "<<< WORKING IN ${DIR} >>>" # debug statement, remove me
 		elog "Installing theme: ${DIR/*\//}"
 		cd "${DIR}"
 		insinto "${KDEDIR}"/share/apps/desktoptheme/"${DIR/*\//}"
-		doins -r dialogs/ || die "dialogs install failed"
-		doins -r opaque/ # optional
-		doins -r widgets/ || die "widgets install failed"
-		doins colors # might be or might not
+		doins -r dialogs/ || die "dialogs/ install failed"
+		[ -d opaque ] { doins -r opaque/ || die  "opaque/ install failed" }
+		doins -r widgets/ || die "widgets/ install failed"
+		[ -e colors ] { doins colors || die "colors files install failed" }
 		doins metadata.desktop || die "metadata install failed"
 	done
 }
