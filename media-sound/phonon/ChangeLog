@@ -3,6 +3,10 @@
 # $Header: $
 
   15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  phonon-4.2.0-r1.ebuild:
+  Placed SLOT and KDEDIR into ebuild, also blockage based on kdeprefix.
+
+  15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   -phonon-4.2.0.ebuild:
   Removed phonon-4.2.0, which does not wanted to disappear.
 

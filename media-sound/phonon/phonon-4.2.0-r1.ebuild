@@ -3,20 +3,28 @@
 # $Header: $
 
 EAPI="1"
-inherit cmake-utils
+
+NEED_KDE="none"
+if use kdeprefix; then
+	KDEDIR="/usr/kde/4.1"
+else
+	KDEDIR="/usr"
+fi
+SLOT=4
+inherit kde4-base
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
 SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug gstreamer"
 
 RDEPEND="!kde-base/phonon:kde-svn
 	!kde-base/phonon:kde-4
-	!x11-libs/qt-phonon:4
+	!media-sound/phonon:0
+	!kdeprefix? ( !x11-libs/qt-phonon:4 )
 	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
 	x11-libs/qt-gui:4
