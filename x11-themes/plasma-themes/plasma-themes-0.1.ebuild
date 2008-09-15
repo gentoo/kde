@@ -37,9 +37,9 @@ get_dirs() {
 		cd "${DIR}"
 		insinto "${KDEDIR}"/share/apps/desktoptheme/"${DIR/*\//}"
 		doins -r dialogs/ || die "dialogs/ install failed"
-		[ -d opaque ] { doins -r opaque/ || die  "opaque/ install failed" }
+		[ -d opaque/ ] && { doins -r opaque/ || die  "opaque/ install failed"; }
 		doins -r widgets/ || die "widgets/ install failed"
-		[ -e colors ] { doins colors || die "colors files install failed" }
+		[ -e colors ] && { doins colors || die "colors files install failed"; }
 		doins metadata.desktop || die "metadata install failed"
 	done
 }
