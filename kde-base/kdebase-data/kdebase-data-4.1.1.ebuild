@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 
 # we don't want hicolor-icon-theme, we replace it
 DEPEND=">=kde-base/qimageblitz-0.0.4
-	!x11-themes/hicolor-icon-theme"
+	!kdeprefix ( !x11-themes/hicolor-icon-theme )"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="l10n/
