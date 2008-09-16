@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdebase-data-4.1.1-r1 (16 Sep 2008)
+
+  16 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +kdebase-data-4.1.1-r1.ebuild, -kdebase-data-4.1.1.ebuild:
+  Allow hicolor-icon-theme and remove collision with it.
+
   15 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdebase-data-4.1.1.ebuild:
   Restrict hicolor-icon-theme from system

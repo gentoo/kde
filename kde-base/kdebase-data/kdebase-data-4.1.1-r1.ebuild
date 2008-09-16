@@ -13,11 +13,19 @@ IUSE=""
 KEYWORDS="~amd64 ~x86"
 
 # we don't want hicolor-icon-theme, we replace it
-DEPEND=">=kde-base/qimageblitz-0.0.4
-	!kdeprefix? ( !x11-themes/hicolor-icon-theme )"
+DEPEND=">=kde-base/qimageblitz-0.0.4"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="l10n/
 	pics/"
 # Note that the eclass doesn't do this for us, because of KMNOMODULE="true".
 KMEXTRACTONLY="config-runtime.h.cmake kde4"
+
+src_compile() {
+	# remove instalation of colliding file for hicolor-icon-theme
+	cd "${S}"
+	sed -i \
+		-e "s:add_subdirectory( hicolor ):#donotwant:g" \
+		pics/CMakeLists.txt
+	kde4-base_src_compile
+}
