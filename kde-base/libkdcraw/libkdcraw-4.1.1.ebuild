@@ -17,6 +17,6 @@ IUSE=""
 
 DEPEND="media-libs/jpeg
 	media-libs/lcms
-	!multislot? ( !media-libs/libkdcraw )"
+	!kdeprefix? ( !media-libs/libkdcraw )"
 RDEPEND="${DEPEND}"
 

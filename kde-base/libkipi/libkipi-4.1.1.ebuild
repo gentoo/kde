@@ -15,5 +15,5 @@ HOMEPAGE="http://www.kipi-plugins.org/"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!multislot? ( !media-libs/libkipi )"
+DEPEND="!kdeprefix? ( !media-libs/libkipi )"
 RDEPEND="${DEPEND}"

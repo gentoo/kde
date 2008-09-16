@@ -18,6 +18,6 @@ IUSE=""
 DEPEND="media-gfx/exiv2
 	media-libs/jpeg
 	media-libs/lcms
-	!multislot? ( !media-libs/libkexiv2 )"
+	!kdeprefix? ( !media-libs/libkexiv2 )"
 RDEPEND="${DEPEND}"
 
