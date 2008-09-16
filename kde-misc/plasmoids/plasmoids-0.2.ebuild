@@ -16,7 +16,9 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/85802-Timer.tar.bz2
 	http://kde-look.org/CONTENT/content-files/84128-quickaccess-0.7.1.tar.gz
 	http://hlukotvor.no-ip.org/plasma-weather-0.4.tar.gz
 	http://ivplasma.googlecode.com/files/toggle-compositing-0.2.1.tar.gz
-	http://www.kde-look.org/CONTENT/content-files/79476-plasma-wifi-0.5.tgz"
+	http://www.kde-look.org/CONTENT/content-files/79476-plasma-wifi-0.5.tgz
+	http://ivplasma.googlecode.com/files/plasma-netgraph-0.3.tar.gz
+	"
 
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
@@ -24,7 +26,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=kde-base/libplasma-4.1.1
-	>=kde-base/plasma-workspace-4.1.1"
+	>=kde-base/plasma-workspace-4.1.1
+	x11-libs/qt-webkit"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1"
 
@@ -33,20 +36,29 @@ S="${WORKDIR}"
 
 get_dirs() {
 	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasmoids_build \
-		|while read DIR; do
-			elog "Installing plasma aplet: ${DIR/*\//}"
-			cd "${DIR}"
-			${@}
-		done
+			|while read DIR; do
+		cd "${DIR}"
+		${@} || die "${@} failed"
+	done
 }
 
 src_unpack() {
 	unpack ${A}
 }
+
 src_compile() {
 	get_dirs "cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 	get_dirs "make"
 }
+
 src_install() {
 	get_dirs "make DESTDIR=${D} install"
+}
+
+pkg_postinst() {
+	kde4-base_pkg_postinst
+	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasmoids_build \
+			|while read DIR; do
+		elog "Plasma applet: ${DIR/*\//}"
+	done
 }
