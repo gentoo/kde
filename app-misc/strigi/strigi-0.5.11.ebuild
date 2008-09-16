@@ -33,7 +33,7 @@ COMMONDEPEND="
 		|| ( ( x11-libs/qt-core:4
 			x11-libs/qt-gui:4
 			x11-libs/qt-dbus:4 )
-			=x11-libs/qt-4.3*:4[dbus?] )
+			=x11-libs/qt-4.3*:4[dbus] )
 		)
 	!clucene? (
 		!hyperestraier? (

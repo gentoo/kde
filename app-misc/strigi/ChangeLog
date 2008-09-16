@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  app-misc/strigi/strigi-0.5.11.ebuild:
+  We want to force dbus if qt4 is enabled.
+
   08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   strigi-0.5.11.ebuild:
   Replaced exiv2 with exif. Thanks to jkt| for nagging about it.
