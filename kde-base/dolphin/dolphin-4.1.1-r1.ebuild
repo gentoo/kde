@@ -18,8 +18,8 @@ DEPEND=">=kde-base/libkonq-${PV}:${SLOT}
 						>=dev-libs/soprano-2.0.7 )"
 RDEPEND="${DEPEND}"
 # get it at least usable
-PDEPEND=">=kde-base/libplasma${PV}:${SLOT}
-	>=kde-base/plasma-workspace${PV}:${SLOT}"
+PDEPEND=">=kde-base/libplasma-${PV}:${SLOT}
+	>=kde-base/plasma-workspace-${PV}:${SLOT}"
 
 KMEXTRA="apps/doc/${PN}"
 KMLOADLIBS="libkonq"
