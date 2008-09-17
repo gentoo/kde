@@ -50,7 +50,7 @@ src_unpack() {
 
 src_compile() {
 	# we dont want kdehome or we get sandbox violation
-	unset ${KDEHOME}
+	unset KDEHOME
 	# does not support out of tree build
 	cmake . || die "cmake failed"
 	emake || die "emake failed"
