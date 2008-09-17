@@ -17,12 +17,17 @@ DEPEND=">=kde-base/libkonq-${PV}:${SLOT}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}
 						>=dev-libs/soprano-2.0.7 )"
 RDEPEND="${DEPEND}"
-# get it at least usable
-PDEPEND=">=kde-base/libplasma${PV}:${SLOT}
-	>=kde-base/plasma-workspace${PV}:${SLOT}"
 
 KMEXTRA="apps/doc/${PN}"
 KMLOADLIBS="libkonq"
+
+#pkg_setup() {
+#	if use semantic-desktop && ! built_with_use kde-base/kdelibs:${SLOT}
+#	semantic-desktop ; then
+#		eerror "lol"
+#		die "lol"
+#	fi
+#}
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
