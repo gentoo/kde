@@ -338,7 +338,7 @@ kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
 	
 	# we don't want to use KDEHOME, it causes sandbox violations
-	unset ${KDEHOME}
+	unset KDEHOME
 
 	case "${EAPI}" in
 		kdebuild-1)
