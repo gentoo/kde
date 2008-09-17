@@ -12,3 +12,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 KMEXTRACTONLY="libkdepim"
+
+DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}"
