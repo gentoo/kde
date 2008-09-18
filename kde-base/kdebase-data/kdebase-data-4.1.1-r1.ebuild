@@ -12,10 +12,8 @@ DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
-# in order to prevent collision we depend on hicolor-icon-theme for -kdeprefix
-# and remove colliding file for kdeprefix we do nothing
 DEPEND=">=kde-base/qimageblitz-0.0.4
-	!kdeprefix? ( x11-themes/hicolor-icon-theme )"
+	x11-themes/hicolor-icon-theme"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="l10n/
@@ -26,7 +24,7 @@ KMEXTRACTONLY="config-runtime.h.cmake kde4"
 src_compile() {
 	# remove instalation of colliding file for hicolor-icon-theme
 	cd "${S}"
-	if ! use kdeprefix; then
+	if (! use kdeprefix); then
 		sed -i \
 			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
 			pics/CMakeLists.txt
