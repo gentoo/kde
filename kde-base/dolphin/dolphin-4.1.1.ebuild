@@ -21,14 +21,6 @@ RDEPEND="${DEPEND}"
 KMEXTRA="apps/doc/${PN}"
 KMLOADLIBS="libkonq"
 
-#pkg_setup() {
-#	if use semantic-desktop && ! built_with_use kde-base/kdelibs:${SLOT}
-#	semantic-desktop ; then
-#		eerror "lol"
-#		die "lol"
-#	fi
-#}
-
 src_compile() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Nepomuk)

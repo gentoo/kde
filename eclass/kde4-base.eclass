@@ -336,6 +336,9 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - 
 # $KDE4_BUILT_WITH_USE_CHECK are missing.
 kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
+	
+	# we don't want to use KDEHOME, it causes sandbox violations
+	unset KDEHOME
 
 	case "${EAPI}" in
 		kdebuild-1)
@@ -470,11 +473,8 @@ kde4-base_src_unpack() {
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Don't set KDEHOME during compile, it will cause access violations
-	unset KDEHOME
-
-	kde4-base_src_configure
-	kde4-base_src_make
+	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	[ -e [Mm]akefile ] && kde4-base_src_make
 }
 
 # @FUNCTION: kde4-base_src_configure
@@ -482,9 +482,6 @@ kde4-base_src_compile() {
 # Function for configuring the build of KDE4 applications.
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Don't set KDEHOME during compile, it will cause access violations
-	unset KDEHOME
 
 	# Final flag handling
 	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then

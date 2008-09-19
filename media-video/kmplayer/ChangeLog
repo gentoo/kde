@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kmplayer-0.11.0_rc4.ebuild:
+  Use correct SLOT
+
 *kmplayer-0.11.0_rc4 (14 Sep 2008)
 
   14 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
