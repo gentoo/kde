@@ -1,6 +1,6 @@
 --- startkde.cmake	2008-07-15 15:49:02.000000000 -0400
 +++ startkde.cmake.cryos	2008-09-01 16:42:04.000000000 -0400
-@@ -7,6 +7,39 @@
+@@ -7,6 +7,34 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
  
@@ -11,6 +11,7 @@
 +export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed 's#/usr/kde/[^/]*/s\?bin:##g')
 +export LDPATH=@REPLACE_LIBS@:${LDPATH}
 +export STRIGI_PLUGIN_PATH="${KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
++export XDG_DATA_DIRS=${KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
@@ -21,12 +22,6 @@
 +if [ "${KDEDIR}" == "/usr" ]; then
 +	# If the directory doesn't exist make it
 +	[ -e "${HOME}/.kde4" ] || mkdir "$HOME/.kde4"
-+	# If the directory is a link remove it and create the directory
-+	if [ -L "$HOME/.kde4" ]; then
-+		rm "$HOME/.kde4"
-+		mkdir "$HOME/.kde4"
-+	fi
-+	export KDEHOME="${HOME}/.kde4"
 +else
 +	# Use multiple directories based upon the KDE directory
 +	[ -e "$HOME/.kde$(basename $KDEDIR)" ] || mkdir "$HOME/.kde$(basename $KDEDIR)"
