@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  phonon-4.2.0-r1.ebuild:
+  Set block on qt-phonon for all times not only for nonkdperefix
+
   15 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   phonon-4.2.0-r1.ebuild:
   Placed SLOT and KDEDIR into ebuild, also blockage based on kdeprefix.

@@ -21,10 +21,12 @@ LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug gstreamer"
 
+# we do not want qt-phonon at all
+# this two libraries block each other
 RDEPEND="!kde-base/phonon:kde-svn
 	!kde-base/phonon:kde-4
 	!media-sound/phonon:0
-	!kdeprefix? ( !x11-libs/qt-phonon:4 )
+	!x11-libs/qt-phonon:4
 	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
 	x11-libs/qt-gui:4
