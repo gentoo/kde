@@ -28,6 +28,8 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkdepim"
 
 src_unpack() {
+	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"	
+
 	kde4-meta_src_unpack
 
 #	mkdir -p "${WORKDIR}"/${P}/kaddressbook/common
@@ -37,7 +39,7 @@ src_unpack() {
 
 	pushd "${WORKDIR}"/${P}/kaddressbook/common
 	# create the kabprefs_base.h file
-	kconfig_compiler kaddressbook.kcfg kabprefs_base.kcfgc
+	${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc
 	popd
 
 	# if kdepim_export.h exists it tries to use kxml_compiler from the sources. this isn't desired

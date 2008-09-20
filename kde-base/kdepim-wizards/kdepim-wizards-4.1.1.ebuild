@@ -29,18 +29,18 @@ KMEXTRACTONLY="
 
 src_unpack() {
 	kde4-meta_src_unpack
-
+	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
 	pushd "${WORKDIR}"/${P}/kresources/egroupware
 	# create the kabc_egroupware.h, kcal_egroupware.h and knotes_egroupware.h files
-	kconfig_compiler kresources_kabc_egroupware.kcfg kabc_egroupwareprefs.kcfgc
-	kconfig_compiler kresources_kcal_egroupware.kcfg kcal_egroupwareprefs.kcfgc
-	kconfig_compiler kresources_knotes_egroupware.kcfg knotes_egroupwareprefs.kcfgc
+	${kconfig_compiler} kresources_kabc_egroupware.kcfg kabc_egroupwareprefs.kcfgc
+	${kconfig_compiler} kresources_kcal_egroupware.kcfg kcal_egroupwareprefs.kcfgc
+	${kconfig_compiler} kresources_knotes_egroupware.kcfg knotes_egroupwareprefs.kcfgc
 	popd
 
 	pushd "${WORKDIR}"/${P}/kresources/slox
 	# create the kabcsloxprefs.h, kcalsloxprefs.h and knotessloxprefs.h files
-	kconfig_compiler kresources_kabc_slox.kcfg kabcsloxprefs.kcfgc
-	kconfig_compiler kresources_kcal_slox.kcfg kcalsloxprefs.kcfgc
+	${kconfig_compiler} kresources_kabc_slox.kcfg kabcsloxprefs.kcfgc
+	${kconfig_compiler} kresources_kcal_slox.kcfg kcalsloxprefs.kcfgc
 	popd
 
 	pushd "${WORKDIR}"/${P}/kresources/groupwise
