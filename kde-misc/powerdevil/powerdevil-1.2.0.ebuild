@@ -22,3 +22,11 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${P}"-kde4.1.1
 PREFIX="${KDEPREFIX}"
+
+src_compile() {
+	local mycmakeargs
+	mycmakeargs="${mycmakeargs}
+		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/"
+
+	kde4-base_src_compile
+}
