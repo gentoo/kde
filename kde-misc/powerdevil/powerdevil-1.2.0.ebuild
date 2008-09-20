@@ -16,7 +16,8 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=kde-base/systemsettings-4.1.1"
+DEPEND=">=kde-base/systemsettings-4.1.1
+	>=kde-base/kscreensaver-4.1.1"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${P}"-kde4.1.1
