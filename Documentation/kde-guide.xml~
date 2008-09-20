@@ -190,8 +190,6 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 		<title>Rebuilding App database</title>
 		<body>
 			<p>Since we run kde3 we need to rebuild sycoca DB for it.</p>
-			<pre caption="kbuildsycoca command">
-# kbuildsycoca</pre>
 		</body>
 	</section>
 </chapter>
