@@ -4,6 +4,10 @@
 
   20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   powerdevil-1.2.0.ebuild:
+  Fix silly typo in PREFIX
+
+  20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  powerdevil-1.2.0.ebuild:
   Make dbus work even for kdeprefix install
 
   20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
