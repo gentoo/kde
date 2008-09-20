@@ -167,4 +167,10 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 			<p>This ebuild should be used if you want your gtk applications use same apperance as your Qt/KDE applications. Configuration can be found in systemsetings->Apperance->GTK Styles and Fonts.</p>
 		</body>
 	</section>
+	<section>
+		<title>x11-themes/gtk-engines-qtcurve</title>
+		<body>
+			<p>Another approach making gtk/qt3/qt4 applications looks the same. User is needed to compile additional package with theme itself which is named x11-themes/qtcurve-qt4.</p>
+		</body>
+	</section>
 </chapter>
