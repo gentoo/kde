@@ -19,7 +19,7 @@ DEPEND=">=dev-util/cmake-2.6.1
 		>=x11-libs/qt-4.4.1:4
 		( >=x11-libs/qt-core-4.4.1:4 >=x11-libs/qt-gui-4.4.1:4 )
 	)
-	>=kde-base/kdelibs-4.1.0:${SLOT}
+	>=kde-base/kdelibs-4.1.0
 	x11-libs/gtk+:2"
 RDEPEND="${DEPEND}"
 SLOT="0"
