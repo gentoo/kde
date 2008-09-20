@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/powerdevil
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*powerdevil-1.2.0 (20 Sep 2008)
+
+  20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +powerdevil-1.2.0.ebuild:
+  Add powerdevil-1.2.0
+
