@@ -1,11 +1,11 @@
 # Copyright 2007-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.6 2008/03/26 20:39:05 zlin Exp $
+# $Header: $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @BLURB: This eclass provides functions for kde 4.0 ebuilds
+# @BLURB: This eclass provides functions for kde 4.X ebuilds
 # @DESCRIPTION:
 # The kde4-base.eclass provides support for building KDE4 monolithic ebuilds
 # and KDE4 applications.
@@ -13,7 +13,7 @@
 # NOTE: This eclass uses the SLOT dependencies from EAPI="1" or compatible,
 # hence you must define EAPI="1" in the ebuild, before inheriting any eclasses.
 
-inherit base eutils multilib cmake-utils kde4-functions
+inherit base cmake-utils eutils kde4-functions multilib
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
 
@@ -50,7 +50,7 @@ kde4-base_set_qt_dependencies() {
 
 	# allow monolithic qt for PV < 4.1
 	case "${PV}" in
-		scm|9999*|4.1*|4.0.8*|4.0.9*) : ;;
+		scm|9999*|4.1*|4.0.9*|4.0.8*) : ;;
 		*)
 		qtdepend="|| ( ( ${qtdepend} ) >=x11-libs/qt-4.3.3:4${qt} )"
 		qtopengldepend="|| ( ${qtopengldepend} >=x11-libs/qt-4.3.3:4 )"
@@ -80,8 +80,9 @@ kde4-base_set_qt_dependencies() {
 }
 kde4-base_set_qt_dependencies
 
+# Set the cmake dependencies
 case "${PV}" in
-	9999*|*:kde-svn)
+	9999*)
 		CMAKEDEPEND=">=dev-util/cmake-2.6"
 		;;
 	*)
@@ -89,6 +90,7 @@ case "${PV}" in
 		;;
 esac
 
+# Set the common dependencies
 DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	dev-util/pkgconfig
 	x11-libs/libXt
@@ -155,41 +157,39 @@ case ${NEED_KDE} in
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
-				3.9*)	_kdedir="3.9" ;;
-				4.0.8*| 4.0.9* | 4.1*)
+				4.1*| 4.0.9* | 4.0.8*)
 					_kdedir="4.1"
-					_pv="-${PV}:4"
-					;;
-				4.0*)	_kdedir="4.0"
+					_pv="-${PV}:4" ;;
+				4.0*)
+					_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
-				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
+				3.9*)
+					_kdedir="3.9"
+					_pv="-${PV}:kde-4" ;;
+				*)
+					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 			_operator=">="
 		else
 			case ${PV} in
-				3.9*)	_kdedir="3.9" ;;
-				4.0.8*| 4.0.9* | 4.1*)	_kdedir="4.1" ;;
+				4.1 | 4.0.9* | 4.0.8*)  _kdedir="4.1" ;;
 				4.0*)	_kdedir="4.0" ;;
+				3.9*)	_kdedir="3.9" ;;
 				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 		fi
 		;;
-	scm|svn|9999*|:kde-svn)
+
+	# NEED_KDE=":${SLOT}"
+	:kde-svn)
 		_kdedir="svn"
-		_pv=":kde-svn"
-		export NEED_KDE="svn"
-		;;
-	*:kde-svn)
-		_kdedir="svn"
-		_operator=">="
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="svn"
 		;;
-	# The ebuild handles dependencies, KDEDIR, SLOT.
-	none)
-		:
+	:4.1)
+		_kdedir="4.1"
+		_pv="${NEED_KDE}"
 		;;
-	# NEED_KDE=":${SLOT}"
 	:4)	# Does this still make sense for KDE 4 with one slot?
 		_kdedir="4"
 		_pv="${NEED_KDE}"
@@ -198,25 +198,35 @@ case ${NEED_KDE} in
 		_kdedir="4.0"
 		_pv="${NEED_KDE}"
 		;;
-	:4.1)
-		_kdedir="4.1"
-		_pv="${NEED_KDE}"
-		;;
 	# NEED_KDE="${PV}:${SLOT}"
-	*:kde-4)
-		_kdedir="4.0"
+	*:kde-svn)
+		_kdedir="svn"
 		_operator=">="
 		_pv="-${NEED_KDE}"
+		export NEED_KDE="svn"
 		;;
 	*:4.1)
 		_kdedir="4.1"
 		_operator=">="
 		_pv="-${NEED_KDE}"
 		;;
-	4.0.8* | 4.0.9* | 4.1*)
-		_kdedir="4.1"
+	*:kde-4)
+		_kdedir="4.0"
 		_operator=">="
 		_pv="-${NEED_KDE}"
+		;;
+
+	# NEED_KDE="${PV}"
+	scm|svn|9999*)
+		_kdedir="svn"
+		_operator=">="
+		_pv="-${NEED_KDE}:kde-svn"
+		export NEED_KDE="svn"
+		;;
+	4.1 | 4.0.9* | 4.0.8*)
+		_kdedir="4.1"
+		_operator=">="
+		_pv="-${NEED_KDE}:4.1"
 		;;
 	4.0*)
 		_kdedir="4.0"
@@ -228,6 +238,12 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
 		;;
+
+	# The ebuild handles dependencies, KDEDIR, SLOT.
+	none)
+		:
+		;;
+
 	*)	die "NEED_KDE=${NEED_KDE} currently not supported."
 		;;
 esac
@@ -247,9 +263,9 @@ if [[ ${NEED_KDE} != none ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
 		else
-			# Assign the slot 
+			# Assign the slot
 			case ${PV} in
-				4.0.8* | 4.0.9* | 4.1*) SLOT="4" ;;
+				4.1* | 4.0.9* | 4.0.8*) SLOT="4" ;;
 				*) SLOT="kde-4" ;;
 			esac
 		fi
@@ -285,7 +301,7 @@ if [[ -n ${KDEBASE} ]]; then
 		case ${KDEBASE} in
 			kde-base)
 			case ${PV} in
-				4.0.8* | 4.0.9*)
+				4.0.9* | 4.0.8*)
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 				*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2";;
 			esac
@@ -336,7 +352,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - 
 # $KDE4_BUILT_WITH_USE_CHECK are missing.
 kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
-	
+
 	# we don't want to use KDEHOME, it causes sandbox violations
 	unset KDEHOME
 
