@@ -129,6 +129,7 @@ It will be updated later when the ebuilds are put in the tree.
 # <i>emerge @&lt;kde-set1&gt; @&lt;kde-set2&gt; @&lt;kde-set3&gt; ... @&lt;kde-setN&gt;</i>
 			</pre>
 			<note>If you want to check the list of sets known to Portage run the following: <i>emerge --list-sets</i></note>
+			<note>If you experience some errors while trying to emerge @kde-4x and you use portage-2.2_rc8, then you need to patch portage with: <a href="http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch">http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch</a>.</note>
 		</body>
 	</section>
 	<section>
@@ -139,9 +140,6 @@ It will be updated later when the ebuilds are put in the tree.
 # <i>emerge kde-meta:4</i></pre>
 		</body>
 	</section>
-	<body>
-		<note>If you experience some errors while trying to emerge @kde-4x and you use portage-2.2_rc8, then you need to patch portage with: <a href="http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch">http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch</a>.</note>
-	</body>
 </chapter>
 <chapter>
 	<title>Configuration</title>
