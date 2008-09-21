@@ -492,6 +492,9 @@ kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+		pushd "${WORKDIR}"/${PN}_build > /dev/null
+	fi
 	[ -e [Mm]akefile ] && kde4-base_src_make
 }
 
