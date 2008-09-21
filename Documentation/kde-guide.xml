@@ -1,39 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
 <!-- $Header$ -->
+
 <guide link="proj/en/desktop/kde/kde4.xml" lang="en">
 <title>Gentoo KDE 4.1 Guide</title>
+
 <author title="Author">
 	<mail link="tomas.chvatal@gmail.com">Tomáš Chvátal</mail>
 </author>
+<author title="Author">
+	<mail link="jmbsvicetto"/>
+</author>
+
 <abstract>
-This guide shows how to setup KDE-4.1 from kde-herd git overlay.
-Will be updated for tree update later.
+This guide shows how to setup KDE-4.1 using the KDE team's git overlay (kde-testing).
+It will be updated later when the ebuilds are put in the tree.
 </abstract>
+
 <!-- The content of this document is licensed under the CC-BY-SA license -->
 <!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
 <license/>
+
 <version>0.1</version>
 <date>2008-09-19</date>
+
 <chapter>
 	<title>Cleaning up</title>
 	<section>
-		<title>Removing old KDE</title>
+		<title>Removing old KDE versions</title>
 		<body>
-			<p>First we need clean enviroment so you need to uninstall any beta or 4.0.X release (uninstall is needed if you are moving from any other overlay too). This can be done by many ways for ease here is one solution pointed by alexxy:</p>
+			<p>To prevent issues, we need to start with a clean enviroment so you'll need to uninstall any beta or 4.0.X release (uninstall is needed if you are moving from any other overlay and in particular if you plan to use the -kdeprefix use flag - FHS install). This can be done in many different ways. Here is one solution pointed out by alexxy:</p>
 			<pre caption="Unmerging commands">
-# <i>emerge -C @kde-4.1 @kdebase-4.1</i> <comment>(only if you are comming from kdesvn-portage)</comment>
-# <i>emerge -C $(qfile -C -q -e /usr/kde/%PREFIX%)</i> <comment>(replace %PREFIX% with your kde version eg. 3.5)</comment></pre>
-# <i>emerge -C @kde-3.5</i> <comment>(if you want to remove kde-3.5)</comment>
-			<p>After this step you should have some dependant packages which are not installed into KDEPREFIX still on your system. This should not make any problem but if you want to remove them you can use little command. This will remove all packages we keep in overlay.</p>
-			<warn>Beware that this does not check for package dependecies!</warn>
+# <i>emerge -C @kde-4.1 @kdebase-4.1</i> <comment>(only if you are comming from the kdesvn-portage overlay)</comment>
+# <i>emerge -C $(qfile -C -q -e /usr/kde/%PREFIX%)</i> <comment>(replace %PREFIX% with your kde version, eg. 4)</comment>
+			</pre>
 			<pre caption="Unmerging commands (only applicable if you are moving from other overlay)">
 # <i>cd /path/to/old/overlay/</i>
-# <i>emerge -C $(find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print "="$1"/"$3}')</i></pre>
-			<p>And as final step you should remove old overlay so there is no blockage with our ebuilds. Also second thing you should make sure is removing old unmask keyword data files for old KDE4</p>
+# <i>emerge -C $(find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print "="$1"/"$3}')</i>
+			</pre>
+			<p>And as final step you should remove the old overlay so there is no blockage with our ebuilds. You should remove the old unmask and or keyword data for old kde4</p>
 		</body>
 	</section>
 </chapter>
+
 <chapter>
 	<title>Grabbing overlay</title>
 	<section>
@@ -51,75 +60,87 @@ Will be updated for tree update later.
 		</body>
 	</section>
 	<body>
-		<note>Don't forget to modify /etc/make.conf where should be added path to our new overlay.</note>
+		<note>Don't forget to modify /etc/make.conf to add the overlay path to PORTDIR_OVERLAY or to add the support for layman, if required.</note>
 	</body>
 </chapter>
+
 <chapter>
 	<title>Unmasking/Keywording</title>
-	<p>KDE in kde-test in not masked so it does not need unmasking. Only thing you need is keywording kde for TESTING arch. This means that all of you, which use testing now, have pretty much nothing to do in this step. For those running the stable tree in Gentoo solution is following.</p>
+	<p>The KDE-4.1 ebuilds available on the kde-testing overlay are not masked (the masks in package.mask have been updated accordingly) so there's no need to unmask them. If you're running the stable tree, you'll need to keyword the ebuilds. If you're running the testing tree, skip this. For those running the stable tree in Gentoo do the following:</p>
 	<section>
-		<title>Usage of our bundled file</title>
+		<title>Using the bundled package.keywords/kde file</title>
 		<body>
-		<note>This is recomended way of doing this for non experienced users.</note>
-		<p>With our overlay we bundle package.keywords file which is needed to be added into your package.keywords file/directory. You can find this file in "Documentation/package.keywords" directory. Just copy it on correct location "/etc/portage/package.keywords/" or put it at the end of your "/etc/portage/package.keywords" file.</p>
+			<note>This is the recomended way of keywording the packages.</note>
+			<p>This overlay provides an appropriate package.keywords file that can be used on your package.keywords file/directory. You can find this file in "Documentation/package.keywords" directory. Just copy it to the correct location "/etc/portage/package.keywords/" (or if you're lazy make a symlink to it) or add it to your "/etc/portage/package.keywords" file.</p>
+			<pre caption="Adding the file to the package.keywords dir">
+# <i>cd /etc/portage/package.keywords</i>
+# <i>ln -s /path/to/overlay/Documentation/package.keywords/kde .</i>
+			</pre>
+			<pre caption="Adding the file to the package.keywords file">
+# <i>cd /etc/portage/</i>
+# <i>cat /path/to/overlay/Documentation/package.keywords/kde >> package.keywords </i>
+			</pre>
 		</body>
 	</section>
 	<section>
-		<title>You use package.keywords as directory</title>
+		<title>Creating the file from the packages in the overlay</title>
 		<body>
-			<pre caption="keywording command">
+			<pre caption="Adding keywords to the package.keywords dir">
 # <i>cd /path/to/our/overlay/</i>
 # <i>find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print $1"/"$2}'  >> /etc/portage/package.keywords/kde4x</i>
 # <i>cd /usr/portage/</i>
-# <i>find ./x11-libs/qt-* -type d |sed -e "s:./::" |awk -F'/' '{print $1"/"$2}' | uniq >> /etc/portage/package.keywords/kde4x</i></pre>
-		</body>
-	</section>
-	<section>
-		<title>You use package.keywords as file</title>
-		<body>
-			<pre caption="keywording command">
+# <i>find ./x11-libs/qt-* -type d |sed -e "s:./::" |awk -F'/' '{print $1"/"$2}' | uniq >> /etc/portage/package.keywords/kde4x</i>
+			</pre>
+			<pre caption="Adding keywords to the package.keywords file">
 # <i>cd /path/to/our/overlay/</i>
 # <i>find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print $1"/"$2}' >> /etc/portage/package.keywords</i>
 # <i>cd /usr/portage/</i>
-# <i>find ./x11-libs/qt-* -type d |sed -e "s:./::" |awk -F'/' '{print $1"/"$2}' | uniq >> /etc/portage/package.keywords</i></pre>
+# <i>find ./x11-libs/qt-* -type d |sed -e "s:./::" |awk -F'/' '{print $1"/"$2}' | uniq >> /etc/portage/package.keywords</i>
+			</pre>
 		</body>
 	</section>
 	<body>
-		<note>Don't forget there are still some dependencies that needs keywording, but are not in this list. So keyword them by yoursef.</note>
+		<note>Don't forget there are still some dependencies that need keywording, but are not in this list. So keyword them by yoursef.</note>
 	</body>
 </chapter>
+
 <chapter>
 	<title>Installation</title>
 	<section>
-		<title>USE kdeprefix</title>
+		<title>The new kdeprefix use flag</title>
 		<body>
-			<p>First let us describe our new variable which is really important on how kde installs.</p>
-			<p>If kdeprefix is disabled (default) KDE installs as FHS. It means all files are put into /usr/ and we dont have to mantain it separately in /usr/kde/VERSION/ directory. This is desired behavior for most users. You do not belong between most users if you want more versions of kde aside.</p>
-			<note>This does not count any 3.X version, you can keep non kdeprefix version of 4.1 and 3.X aside working.</note>
-			<p>If kdeprefix is enabled KDE installs as usually into /usr/kde/VERSION which leaves you chance to use kde-4.1 and ie. kde-9999 ebuilds aside.</p>
+			<p>The newly introduced kdeprefix use flag will allow users to have a FHS compliant install.</p>
+			<p>If kdeprefix is disabled (default) KDE is installed into a FHS compliant location (/usr). That means all files are put under /usr/ and we don't have to mantain it separately in /usr/kde/VERSION/. This is the desired behavior for most users. The drawback of the FHS compliant install is that it will not be possible to have more than one version of KDE installed side by side as before.</p>
+			<note>The described restriction doesn't apply to kde-3.5 (different eclasses) or live versions (as we'll keep having them under /usr/kde/${live-slot}. So you can have a non kdeprefix version of 4.1 and 3.5 working at the same time.</note>
+			<p>If kdeprefix is enabled KDE is installed as usually into /usr/kde/${SLOT} which will allow users to keep having multiple versions of KDE installed side by side as before.</p>
 			<note>"Error during set creation: Redefinition of set 'live-rebuild' (sections: 'live-rebuild', 'kde4-overlay sets')" is pretty harmless so dont bother about it :]</note>
-			<warn>If you want to move between kdeprefix and -kdeprefix, unmerge KDE first. Then emerge it with enabled flag. Otherwise you more like broke everything!</warn>
-		</body>
-	</section>
-	<section>
-		<title>Using meta packages</title>
-		<body>
-			<note>This metod will be removed in next releases and is for backward compatibility with old portage.</note>
-			<pre caption="emerge command">
-# <i>emerge kde-meta:4 &amp;&amp; emerge kde-l10n</i></pre>
+			<warn>If you want to move between kdeprefix and -kdeprefix, unmerge KDE first. Then emerge it with enabled flag. Otherwise you might break everything!</warn>
 		</body>
 	</section>
 	<section>
 		<title>Using sets</title>
 		<body>
-			<p>This is our brand new stuff which allows us portage-2.2.</p>
+			<p>One of the new features that portage-2.2 provides is the use of sets.</p>
+			<p>Sets are a long awaited feature for KDE. They allow the KDE team to finally provide a complete replacement for the monolithic packages, with the added bonus that users can override the default sets to remove the packages they're not interested in. Look under the sets/ dir for a list of the sets provided by the KDE team.</p>
+			<p>Amongst others, you have sets for each kde tarball - @kdeaccessibility, @kdeadmin, @kdeartwork, @kdebase, @kdeedu, @kdegames, @kdegraphics, @kdemultimedia, @kdenetwork, @kdepim, @kdesdk, @kdetoys and @kdeutils. There's also a set of sets (the equivalent to the old kde-meta package) @kde, and the same for specific versions @kde-3.5 and @kde-4x, a set for KDE deps @kdedeps, a set for optional packages @kdeoptional and a set for the split qt packages @qt-split.</p>
+			<p>One can install the complete kde by doing <i>emerge -av @kde</i>. The specific version equivalents are very useful to uninstall an old version like <i>emerge -C @kde-3.5</i> or to reinstall all packages from a specific version <i>emerge -av1 @kde-4x</i>. If you want to override a set and remove any unwanted packages from it, copy the desired set to /etc/portage/sets and edit the file to remove the unwanted applications.</p>
+			<p>We strongly recommend to install the @kdebase set and any other set or package one is interested in.</p>
+			<pre caption="emerge KDE">
+# <i>emerge @&lt;kde-set1&gt; @&lt;kde-set2&gt; @&lt;kde-set3&gt; ... @&lt;kde-setN&gt;</i>
+			</pre>
+			<note>If you want to check the list of sets known to Portage run the following: <i>emerge --list-sets</i></note>
+		</body>
+	</section>
+	<section>
+		<title>Using meta packages</title>
+		<body>
+			<note>This metod will be removed in later releases and is provided for backward compatibility with older portage versions. There will no meta ebuilds for kde-4.2</note>
 			<pre caption="emerge command">
-# <i>emerge @kde-4x &amp;&amp; emerge kde-l10n</i></pre>
-		<note>For those of you eager to see sets in action, we bundle also set for kde-3.5 its name is suprisingly @kde-3.5 :]. You can use this set either to install or uninstall 3.5 version of kde.</note>
+# <i>emerge kde-meta:4</i></pre>
 		</body>
 	</section>
 	<body>
-		<note>If you experience some errors with emerging @kde-4x than you use portage-2.2_rc8 and you need to patch your portage with: <a href="http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch">http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch</a>.</note>
+		<note>If you experience some errors while trying to emerge @kde-4x and you use portage-2.2_rc8, then you need to patch portage with: <a href="http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch">http://dev.gentoo.org/~zmedico/tmp/sets_in_sets.patch</a>.</note>
 	</body>
 </chapter>
 <chapter>
@@ -136,6 +157,12 @@ Will be updated for tree update later.
 		<body>
 			<p>TODO</p>
 		</body>
+	</section>
+	<section>
+		<title>Removing kde-3.5</title>
+			<pre caption="Unmerging kde-3.5">
+# <i>emerge -C @kde-3.5</i>
+			</pre>
 	</section>
 	<section>
 		<title>No Desktop icon</title>
@@ -195,3 +222,4 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 		</body>
 	</section>
 </chapter>
+</guide>
