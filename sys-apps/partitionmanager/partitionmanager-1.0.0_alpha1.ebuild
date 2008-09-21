@@ -5,6 +5,7 @@
 EAPI="1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="de"
 inherit kde4-base
 
 DESCRIPTION="Nice partition tool for KDE"
@@ -22,19 +23,4 @@ DEPEND=">=kde-base/kdelibs-4.1.1
 	sys-apps/parted
 	sys-devel/gettext"
 
-#linguas
-LNGS="de"
-for LNG in ${LNGS}; do
-	IUSE="${IUSE} linguas_${LNG}"
-	done
-
 PREFIX="${KDEPREFIX}"
-
-src_unpack() {
-	unpack ${A}
-	# take care of linguas
-	cd "${S}"/po/
-	for LNG in ${LINGUAS}; do
-		use linguas_${LNG} || rm -f "${LNG}".po
-	done
-}
