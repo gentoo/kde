@@ -396,6 +396,9 @@ buildsycoca() {
 		chown root:0 /usr/share/services
 		chmod 0755 /usr/share/services
 
+		# Make sure tha cache file exists, or kbuildsycoca4 will fail
+		touch "${KDEDIR}/share/kde4/services/ksycoca4"
+
 		# kbuildsycoca4 needs a running dbus session to work correctly.
 		# We have to start a new dbus session, because the DBUS_SESSION_BUS_ADDRESS in the environment
 		# could from from the user's environment (through su [without '-']), causing kbuildsycoca4 to hang.
@@ -412,7 +415,7 @@ buildsycoca() {
 		ebegin "Running kbuildsycoca4 to build global database"
 		# This is needed because we support multiple kde versions installed together.
 		XDG_DATA_DIRS="/usr/share:${KDEDIRS//:/\/share:}/share:/usr/local/share" \
-		${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
+		DISPLAY="" ${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
 
 		echo "Killing dbus session for kbuildsycoca4"
