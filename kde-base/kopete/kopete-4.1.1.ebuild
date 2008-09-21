@@ -33,6 +33,7 @@ RESTRICT="test"
 COMMONDEPEND="dev-libs/libpcre
 	kde-base/qimageblitz
 	x11-libs/libXScrnSaver
+	media-sound/phonon:4
 	gadu? ( dev-libs/openssl )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? ( net-dns/libidn app-crypt/qca:2 )
