@@ -30,6 +30,7 @@ pkg_setup() {
 		eerror "Need app-text/poppler-bindings with qt4 enabled"
 		die "Need app-text/poppler-bindings with qt4 enabled"
 	fi
+	kde4-base_pkg_setup
 }
 
 src_compile() {

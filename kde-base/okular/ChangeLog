@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2008; Petteri Räty <betelgeuse@gentoo.org> okular-4.1.1.ebuild:
+  Call kde4-base_pkg_setup in custom pkg_setup to prevent access violations.
+
   05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -okular-4.1.0.ebuild:
   Version removed.
 
