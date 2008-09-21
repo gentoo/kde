@@ -34,11 +34,7 @@ src_unpack() {
 	unpack ${A}
 	# take care of linguas
 	cd "${S}"/po/
-	for LNG in ${LNGS}; do
-		mv "${LNG}".po "${LNG}".po.old
-	done
 	for LNG in ${LINGUAS}; do
-		mv "${LNG}".po.old "${LNG}".po
+		use linguas_${LNG} || rm -f "${LNG}".po
 	done
-
 }

@@ -40,11 +40,8 @@ src_unpack() {
 		po/CMakeLists.txt || die "sed install path failed"
 	cd "${S}"/po
 	# take care of linguas
-	for LNG in ${LNGS}; do
-		mv "${LNG}".po "${LNG}".po.old
-	done
 	for LNG in ${LINGUAS}; do
-		mv "${LNG}".po.old "${LNG}".po
+		use linguas_${LNG} || rm -f "${LNG}".po
 	done
 }
 
