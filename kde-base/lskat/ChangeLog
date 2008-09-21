@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/lskat/lskat-4.1.1.ebuild:
+  Converted PATCHES to an array.
+
   05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -lskat-4.1.0.ebuild:
   Version removed.
 
