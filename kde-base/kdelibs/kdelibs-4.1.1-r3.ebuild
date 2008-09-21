@@ -103,7 +103,6 @@ src_compile() {
 			die "USE=\"zeroconf\" enabled but neither net-dns/avahi nor net-misc/mDNSResponder were found."
 		fi
 	fi
-	# choose correct homedir for kdeprefix and nonkdeprefix
 	if use kdeprefix; then
 		HME=".kde$(basename $KDEDIR)"
 	else

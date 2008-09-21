@@ -6,7 +6,7 @@
 
   21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   -kdelibs-4.1.1-r2.ebuild, +kdelibs-4.1.1-r3.ebuild:
-  Set HOME/.kde directory correctly
+  Set HOME/.kde directory correctly based on kdeprefix.
 
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   metadata.xml:
