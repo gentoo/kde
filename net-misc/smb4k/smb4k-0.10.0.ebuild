@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="Smb4K is a SMB share browser for KDE."
 HOMEPAGE="http://smb4k.berlios.de/"
-SRC_URI="http://download.berlios.de/${PN}/${P}.tar.bz2"
+SRC_URI="mirror://berlios/${PN}/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
