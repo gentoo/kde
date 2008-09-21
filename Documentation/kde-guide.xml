@@ -165,8 +165,8 @@ It will be updated later when the ebuilds are put in the tree.
 	<section>
 		<title>No Desktop icon</title>
 		<body>
-			<p>KDE 4 as it moves towards a semantic desktop and did not bundle any icon for the desktop at all. As you can see there is actualy no desktop.</p>
-			<p>Solution on howto fix this problem is replace desktop icon by folder one.</p>
+			<p>KDE 4, as it moves towards a semantic desktop, did not bundle any icon for the desktop at all. As you can see there is actually no desktop.</p>
+			<p>Solution on howto fix this problem is to replace the desktop icon by folder one.</p>
 			<pre caption="sed command">
 $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 		</body>
