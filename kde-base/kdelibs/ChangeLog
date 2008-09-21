@@ -8,6 +8,10 @@
   -kdelibs-4.1.1-r2.ebuild, +kdelibs-4.1.1-r3.ebuild:
   Set HOME/.kde directory correctly
 
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Added missing use flag description to metadata.xml.
+
 *kdelibs-4.1.1-r2 (15 Sep 2008)
 
   15 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
