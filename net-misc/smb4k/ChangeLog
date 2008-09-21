@@ -4,6 +4,10 @@
 
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   net-misc/smb4k/smb4k-0.10.0.ebuild:
+  cmake is not a RDEPEND.
+
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  net-misc/smb4k/smb4k-0.10.0.ebuild:
   Berlios is a known 3rd party mirror.
 
   21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>

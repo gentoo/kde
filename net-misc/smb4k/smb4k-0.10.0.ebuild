@@ -17,11 +17,12 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE="bindist"
 
-DEPEND="|| ( >=kde-base/konqueror-4.1.1 >=kde-base/kdebase-4.1.1 )"
-RDEPEND="${DEPEND}
+COMMON_DEPEND="|| ( >=kde-base/konqueror-4.1.1 >=kde-base/kdebase-4.1.1 )"
+DEPEND="${COMMON_DEPEND}
+	>=dev-util/cmake-2.6.1"
+RDEPEND="${COMMON_DEPEND}
 	bindist? ( <net-fs/samba-3.2.0_pre2 )
 	!bindist? ( net-fs/samba )
-	>=dev-util/cmake-2.6.1
 	!kdeprefix? ( !net-misc/smb4k:0 )
 	net-fs/mount-cifs"
 
