@@ -28,7 +28,7 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkdepim"
 
 src_unpack() {
-	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"	
+	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
 
 	kde4-meta_src_unpack
 

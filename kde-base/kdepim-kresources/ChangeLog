@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kdepim-kresources/kdepim-kresources-4.1.1.ebuild:
+  Fixed whitespace.
+
   20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdepim-kresources-4.1.1.ebuild:
   Use correct path for kconfig_compile
