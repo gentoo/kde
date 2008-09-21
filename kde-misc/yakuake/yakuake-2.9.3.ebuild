@@ -5,6 +5,7 @@
 EAPI="1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="ca cs da de el en_GB fr ga gl ja ko nds nl pt pt_BR ro ru sv tr uk"
 inherit kde4-base
 
 DESCRIPTION="A quake-style terminal emulator based on KDE konsole technology"
@@ -21,24 +22,5 @@ DEPEND=">=kde-base/konsole-4.1.0
 	sys-devel/gettext"
 RDEPEND="${DEPEND}"
 
-#linguas
-LNGS="ca cs da de el en_GB fr ga gl ja ko nds nl pt pt_BR ro ru sv tr uk"
-for LNG in ${LNGS}; do
-	IUSE="${IUSE} linguas_${LNG}"
-done
-
 # take care of wrong prefixing
 PREFIX="${KDEDIR}"
-
-src_unpack() {
-	local LNG
-	unpack ${A}
-	cd "${S}"
-	# take care of linguas
-	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LNG in ${LINGUAS}; do
-		sed -i \
-			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "Sed to uncomment ${LNG} failed."
-	done
-}

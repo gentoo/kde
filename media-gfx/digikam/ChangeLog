@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  digikam-0.10.0_beta2-r1.ebuild:
+  Update usage of linguas
+
 *digikam-0.10.0_beta2-r1 (12 Sep 2008)
 
   12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>

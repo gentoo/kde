@@ -5,6 +5,8 @@
 EAPI="1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km
+lt lv nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE."
@@ -28,28 +30,8 @@ RDEPEND="${DEPEND}
 			>=kde-base/kdelibs-4.1.0 ) )
 	zeroconf? ( >=kde-base/kdnssd-4.1.0 )"
 
-LNGS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km lt lv
-nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
-for LNG in ${LNGS}; do
-	IUSE="${IUSE} linguas_${LNG}"
-done
-
 # fix install PREFIX
 PREFIX="${KDEDIR}"
-
-src_unpack() {
-	local LNG
-
-	unpack ${A}
-	cd "${S}"
-	# take care of linguas
-	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LNG in ${LINGUAS}; do
-		sed -i \
-			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "sed to uncomment ${LNG} failed."
-	done
-}
 
 src_compile() {
 	local mycmakeargs

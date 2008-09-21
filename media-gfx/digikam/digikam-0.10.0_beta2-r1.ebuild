@@ -5,6 +5,9 @@
 EAPI="1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt
+lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sv th tr uk vi zh_CN"
+
 inherit kde4-base
 
 DESCRIPTION="A digital photo management application for KDE."
@@ -15,12 +18,6 @@ LICENSE="GPL-2"
 RDEPEND="${DEPEND}"
 SLOT="4"
 IUSE="debug"
-
-LNGS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt lv lb
-nds ne nl nn pa pl pt pt_BR ro ru se sk sv th tr uk vi zh_CN"
-for LNG in ${LNGS}; do
-	IUSE="${IUSE} linguas_${LNG}"
-done
 
 S="${WORKDIR}/${P/_/-}"
 
@@ -73,12 +70,5 @@ src_unpack() {
 	sed -i \
 		-e "s:add_subdirectory:#add_subdirectory:g" \
 		data/icons/CMakeLists.txt || die "Failed to remove icon install"
-
-	# take care of linguas
-	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LNG in ${LINGUAS}; do
-		sed -i \
-			-e "/add_subdirectory(\s*${LNG}\s*)\s*$/s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "Sed to uncomment ${LNG} failed."
-	done
+	enable_selected_linguas
 }

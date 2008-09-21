@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  smb4k-0.10.0.ebuild:
+  Update usage of linguas
+
 *smb4k-0.10.0 (14 Sep 2008)
 
   14 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
