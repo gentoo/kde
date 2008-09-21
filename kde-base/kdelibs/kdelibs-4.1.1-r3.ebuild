@@ -103,10 +103,15 @@ src_compile() {
 			die "USE=\"zeroconf\" enabled but neither net-dns/avahi nor net-misc/mDNSResponder were found."
 		fi
 	fi
-
+	# choose correct homedir for kdeprefix and nonkdeprefix
+	if use kdeprefix; then
+		HME=".kde$(basename $KDEDIR)"
+	else
+		HME=".kde4"
+	fi
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
-		-DKDE_DEFAULT_HOME=.kde4
+		-DKDE_DEFAULT_HOME=${HME}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
