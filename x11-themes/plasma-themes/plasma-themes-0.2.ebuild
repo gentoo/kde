@@ -17,6 +17,7 @@ SRC_URI="
 	http://www.kde-look.org/CONTENT/content-files/83552-Metalized.tar.gz
 	http://www.kde-look.org/CONTENT/content-files/79274-Perfection41.tar.gz
 	http://www.kde-look.org/CONTENT/content-files/77690-spoons-0.1.tar.bz2
+	http://hlukotvor.no-ip.org/fluffybunny-0.0.3.tar.bz2
 	"
 
 LICENSE="GPL-3"
