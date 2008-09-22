@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}"
 
 get_dirs() {
-	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasmoids_build \
+	find "${S}" -mindepth 1 -maxdepth 1 -type d |grep -v plasma-themes_build \
 			|while read DIR; do
 		elog "Installing theme: ${DIR/*\//}"
 		cd "${DIR}"
