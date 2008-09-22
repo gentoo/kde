@@ -74,7 +74,9 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 "
 
-PATCHES=( "${FILESDIR}/${P}-konqueror-pointer.patch" "${FILESDIR}/${PN}-4.1.1-cmake-modules.patch" )
+PATCHES=( "${FILESDIR}/${P}-konqueror-pointer.patch"
+"${FILESDIR}/${P}-kbuildsycoca.patch"
+"${FILESDIR}/${P}-cmake-modules.patch" )
 
 pkg_setup() {
 	if use zeroconf && has_version net-dns/avahi && ! built_with_use net-dns/avahi mdnsresponder-compat; then
