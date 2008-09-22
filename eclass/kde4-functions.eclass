@@ -379,43 +379,19 @@ buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ -x ${KDEDIR}/bin/kbuildsycoca4 && -z "${ROOT%%/}" ]]; then
-		# First of all, make sure that the /usr/share/services directory exists
-		# and it has the right permissions
-		mkdir -p /usr/share/services
-		chown root:0 /usr/share/services
-		chmod 0755 /usr/share/services
 		# Make sure tha cache file exists, or kbuildsycoca4 will fail
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
 
-		# kbuildsycoca4 needs a running dbus session to work correctly.
-		# We have to start a new dbus session, because the DBUS_SESSION_BUS_ADDRESS in the environment
-		# could from from the user's environment (through su [without '-']), causing kbuildsycoca4 to hang.
-
-		echo "Starting dbus session for kbuildsycoca4"
-		local _i
-		for _i in $(dbus-launch); do
-			# We export both the ADDRESS _and_ the PID. We need the latter only to kill our session.
-			debug-print "Exporting: ${_i}"
-			export "${_i}";
-		done
-		debug-print "kbuildsycoca4 is using ${DBUS_SESSION_BUS_ADDRESS}"
+		# We have to unset DISPLAY and DBUS_SESSION_BUS_ADDRESS, the ones
+		# in the user's environment (through su [without '-']) may cause
+		# kbuildsycoca4 to hang.
 
 		ebegin "Running kbuildsycoca4 to build global database"
 		# This is needed because we support multiple kde versions installed together.
 		XDG_DATA_DIRS="/usr/share:${KDEDIRS//:/\/share:}/share:/usr/local/share" \
-		DISPLAY="" ${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
+		DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
+		${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
-
-		echo "Killing dbus session for kbuildsycoca4"
-		debug-print "ADDRESS ${DBUS_SESSION_BUS_ADDRESS}"
-		debug-print "PID: ${DBUS_SESSION_BUS_PID}"
-		kill ${DBUS_SESSION_BUS_PID}
-		eend $?
-		unset DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
-
-		# For some reason this directory gets created with noone other than root
-		# being able to read it. Hence we chmod it.
-		chmod -R 0755 "${ROOT}"/usr/share/kde4
 	fi
 }
 
