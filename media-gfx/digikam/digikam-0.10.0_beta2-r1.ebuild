@@ -47,9 +47,6 @@ DEPEND="
 #liblensfun when added should be also dep.
 RDEPEND="${DEPEND}"
 
-# fixes search for correct deps.
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
-
 # we want to install into kdedir so we can keep kde3 and kde4 version along
 PREFIX="${KDEDIR}"
 
@@ -59,6 +56,7 @@ pkg_setup() {
 		eerror "Please reemerge marble with kde useflag."
 		die
 	fi
+	kde4-base_pkg_setup
 }
 
 src_unpack() {

@@ -531,6 +531,8 @@ kde4-base_src_configure() {
 	# Set environment
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH=${KDEDIR}/$(get_libdir)/kde4/plugins/
+	# hardcode path to *.cmake KDE files
+	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
 	cmake-utils_src_configureout
 }

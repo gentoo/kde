@@ -2,6 +2,14 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.1.1-r4 (22 Sep 2008)
+
+  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +files/kdelibs-4.1.1-cmake-modules.patch, -kdelibs-4.1.1-r3.ebuild,
+  +kdelibs-4.1.1-r4.ebuild:
+  Update cmake files for kipi and other libs searching (
+  http://bugs.kde.org/171460 )
+
 *kdelibs-4.1.1-r3 (21 Sep 2008)
 
   21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
