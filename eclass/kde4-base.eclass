@@ -176,7 +176,7 @@ case ${NEED_KDE} in
 				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
 				4.0*) _kdedir="4.0" ;;
 				3.9*) _kdedir="3.9" ;;
-				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
+				*) die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 		fi
 		;;
@@ -246,7 +246,8 @@ case ${NEED_KDE} in
 		:
 		;;
 
-	*)	die "NEED_KDE=${NEED_KDE} currently not supported."
+	*)
+		die "NEED_KDE=${NEED_KDE} currently not supported."
 		;;
 esac
 
