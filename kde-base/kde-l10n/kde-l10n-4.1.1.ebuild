@@ -38,7 +38,7 @@ src_unpack() {
 		elog "You won't have any additional language support."
 		echo
 		elog "${P} supports these language codes:"
-		elog "${LNGS}"
+		elog "${MY_LANGS}"
 		echo
 	fi
 
