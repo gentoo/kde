@@ -249,7 +249,8 @@ case ${NEED_KDE} in
 		:
 		;;
 
-	*)	die "NEED_KDE=${NEED_KDE} currently not supported."
+	*)
+		die "NEED_KDE=${NEED_KDE} currently not supported."
 		;;
 esac
 
