@@ -34,20 +34,18 @@ COMMONDEPEND="
 			x11-libs/qt-gui:4
 			x11-libs/qt-dbus:4 )
 			=x11-libs/qt-4.3*:4 )
-		)"
+		)
+	!clucene? (
+		!hyperestraier? (
+		>=dev-cpp/clucene-0.9.19
+	)
+)"
 #	sqlite? ( dev-db/sqlite:3 )"
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
 pkg_setup() {
-	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
-		ewarn "It's highly recommended to enable one of the supported backends:"
-		ewarn "clucene, hyperestraier and sqlite"
-		ewarn "Clucene is currently the recommended backend."
-		ewarn "Without a backend you'll only be able to use deepgrep."
-	fi
-
 	if use qt4 && ! use dbus; then
 		if ( has_version "<x11-libs/qt-4.4.0_alpha:4" && !! built_with_use \
 				x11-libs/qt:4 dbus ) || \
@@ -77,8 +75,14 @@ src_compile() {
 		$(cmake-utils_use_enable hyperestraier HYPERESTRAIER)
 		$(cmake-utils_use_enable inotify INOTIFY)
 		$(cmake-utils_use_enable log LOG4CXX)
+		$(cmake-utils_use_enable qt4 DBUS)
 		$(cmake-utils_use_enable qt4 QT4)"
 #		$(cmake-utils_use_enable sqlite SQLITE)"
+
+	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
+		mycmakeargs="${mycmakeargs} -DENABLE_CLUCENE=ON"
+	fi
+
 	cmake-utils_src_compile
 }
 
@@ -89,4 +93,14 @@ src_test() {
 	pushd "${WORKDIR}/${PN}_build"
 	ctest --extra-verbose || die "Tests failed."
 	popd
+}
+
+pkg_postinst() {
+	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
+			elog "Because you didn't enable any of the supported backends:"
+			elog "clucene, hyperestraier and sqlite"
+			elog "clucene support was silently installed."
+			elog "If you prefer another backend, be sure to reinstall strigi"
+			elog "and to enable that backend use flag"
+	fi
 }
