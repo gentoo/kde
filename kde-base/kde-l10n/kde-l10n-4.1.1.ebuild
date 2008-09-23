@@ -50,13 +50,6 @@ src_unpack() {
 		for LANG in ${LINGUAS}; do
 			DIR="${PN}-${LANG}-${PV}"
 			[[ -d "${DIR}" ]] && echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
-
-			# Fix provided by Chusslove in #kde-devel and should be applied in kde-l10n-4.1.1
-			# This fixes the issue with cmake not finding the resolve-text-alternatives by looking
-			# in CMAKE_HOME_DIRECTORY that points to the root dir and not to the ${LANG} subdir
-			if [[ ${LANG} = "sr" ]]; then
-				cp "${FILESDIR}/srDataMacros.cmake" "${DIR}/data" || die "unable to copy updated cmake file for sr translation"
-			fi
 		done
 	fi
 }
