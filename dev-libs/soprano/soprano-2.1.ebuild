@@ -27,7 +27,8 @@ COMMON_DEPEND="
 		!sesame2? (
 			>=virtual/jdk-1.6.0
 		)
-	)"
+	)
+"
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${COMMON_DEPEND}"
