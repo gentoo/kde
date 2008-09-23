@@ -98,10 +98,10 @@ src_test() {
 
 pkg_postinst() {
 	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
-			elog "Because you didn't enable any of the supported backends:"
-			elog "clucene, hyperestraier and sqlite"
-			elog "clucene support was silently installed."
-			elog "If you prefer another backend, be sure to reinstall strigi"
-			elog "and to enable that backend use flag"
+		elog "Because you didn't enable any of the supported backends:"
+		elog "clucene, hyperestraier and sqlite"
+		elog "clucene support was silently installed."
+		elog "If you prefer another backend, be sure to reinstall strigi"
+		elog "and to enable that backend use flag"
 	fi
 }
