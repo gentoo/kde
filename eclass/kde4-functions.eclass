@@ -29,6 +29,17 @@ if [[ "${KMNAME}" == "koffice" || "${PN}" == "koffice" ]]; then
 	KDEBASE="koffice"
 fi
 
+# @ECLASS-VARIABLE: KDE_SLOTS
+# @DESCRIPTION:
+# The slots used by all KDE versions after 4.0 - this doesn't include kde-3.5 and the
+# live-ebuilds that use the following var.
+KDE_SLOTS=( "kde-4" "4" )
+
+# @ECLASS-VARIABLE: KDE_LIVE_SLOTS
+# @DESCRIPTION:
+# The slots used by all KDE live versions.
+KDE_LIVE_SLOTS=( "kde-svn" )
+
 # @ECLASS-VARIABLE: KDE_DERIVATION_MAP
 # @DESCRIPTION:
 # Map of the monolithic->split ebuild derivation.
@@ -389,8 +400,8 @@ buildsycoca() {
 		ebegin "Running kbuildsycoca4 to build global database"
 		# This is needed because we support multiple kde versions installed together.
 		XDG_DATA_DIRS="/usr/share:${KDEDIRS//:/\/share:}/share:/usr/local/share" \
-		DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
-		${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
+			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
+			${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
 	fi
 }

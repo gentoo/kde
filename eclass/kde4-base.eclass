@@ -23,19 +23,21 @@ kde4-base_set_qt_dependencies() {
 
 	# use dependencies
 	case "${EAPI}" in
-		kdebuild-1)
-		qt="[accessibility][dbus][gif][jpeg][png][qt3support][ssl][zlib]"
-		qtcore="[qt3support][ssl]"
-		qtgui="[accessibility][dbus]"
-		qt3support="[accessibility]"
+		2 | 2_pre2 | 2_pre1)
+
+		qt="["
 		case "${OPENGL_REQUIRED}" in
 			always)
-			qt="${qt}[opengl]"
-			;;
+				qt="${qt}opengl,"
+				;;
 			optional)
-			qt="${qt}[opengl?]"
-			;;
+				qt="${qt}opengl?,"
+				;;
 		esac
+		qt="${qt}accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
+		qtcore="[qt3support,ssl]"
+		qtgui="[accessibility,dbus]"
+		qt3support="[accessibility]"
 		;;
 	esac
 
