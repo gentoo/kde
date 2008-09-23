@@ -173,9 +173,9 @@ case ${NEED_KDE} in
 			_operator=">="
 		else
 			case ${PV} in
-				4.1 | 4.0.9* | 4.0.8*)  _kdedir="4.1" ;;
-				4.0*)	_kdedir="4.0" ;;
-				3.9*)	_kdedir="3.9" ;;
+				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
+				4.0*) _kdedir="4.0" ;;
+				3.9*) _kdedir="3.9" ;;
 				*)		die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 		fi
