@@ -67,6 +67,8 @@ src_compile() {
 }
 
 src_install() {
+	local version
+
 	kde4-meta_src_install
 
 	# startup and shutdown scripts
@@ -85,12 +87,17 @@ src_install() {
 	doins "${T}/xdg.sh" || die "doins xdg.sh failed"
 
 	# x11 session script
-	cat <<-EOF > "${T}/${SLOT}"
+	if [ $KDEDIR == "/usr" ]; then
+		version="4"
+	else
+		version="${KDEDIR/*\/}"
+	fi
+	cat <<-EOF > "${T}/kde-${version}"
 	#!/bin/sh
 	exec ${KDEDIR}/bin/startkde
 	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/${SLOT}" || die "doexe ${SLOT} failed"
+	doexe "${T}/kde-${version}" || die "doexe ${SLOT} failed"
 
 	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
