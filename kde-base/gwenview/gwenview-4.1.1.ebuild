@@ -19,10 +19,6 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-# Needed to find the slotted libkipi
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
-export PKG_CONFIG_PATH
-
 # Tests are broken (4.1.0)
 RESTRICT="test"
 
