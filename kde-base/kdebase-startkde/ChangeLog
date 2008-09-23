@@ -4,6 +4,10 @@
 
   23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdebase-startkde-4.1.1.ebuild:
+  typofixing
+
+  23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  kdebase-startkde-4.1.1.ebuild:
   Use better name for xorg session instead of $SLOT use kde-$KDEDIR (just
   number with fallback to 4 when /usr stated).
 

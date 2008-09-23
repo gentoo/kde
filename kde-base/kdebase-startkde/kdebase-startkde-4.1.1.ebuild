@@ -97,13 +97,13 @@ src_install() {
 	exec ${KDEDIR}/bin/startkde
 	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/kde-${version}" || die "doexe ${SLOT} failed"
+	doexe "${T}/kde-${version}" || die "doexe kde-${version} failed"
 
 	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
 		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/KDE-${SLOT}.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/KDE-${SLOT}.desktop" || die "doins ${SLOT}.desktop failed"
+	doins "${T}/KDE-${SLOT}.desktop" || die "doins KDE-${SLOT}.desktop failed"
 }
 
 pkg_postinst () {
