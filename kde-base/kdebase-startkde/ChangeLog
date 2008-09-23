@@ -4,6 +4,10 @@
 
   23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdebase-startkde-4.1.1.ebuild:
+  Forget to apply version also to freedesktop compatible file
+
+  23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  kdebase-startkde-4.1.1.ebuild:
   typofixing
 
   23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
