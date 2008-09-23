@@ -29,5 +29,6 @@ src_compile() {
 			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
 			pics/CMakeLists.txt
 	fi
+
 	kde4-base_src_compile
 }
