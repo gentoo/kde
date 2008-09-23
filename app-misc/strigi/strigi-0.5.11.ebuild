@@ -39,7 +39,8 @@ COMMONDEPEND="
 		!hyperestraier? (
 			>=dev-cpp/clucene-0.9.19
 		)
-	)"
+	)
+"
 #	sqlite? ( dev-db/sqlite:3 )"
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"

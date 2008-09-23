@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  strigi-0.5.11.ebuild:
+  Whitespace.
+
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   app-misc/strigi/metadata.xml:
   Removed exiv2 use flag description as it was replaced with exif.
