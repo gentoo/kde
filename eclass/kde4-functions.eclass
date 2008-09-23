@@ -462,12 +462,21 @@ done
 # but this default can be overridden by defining KDE_LINGUAS_DIR.
 enable_selected_linguas() {
 	local lingua
-	comment_all_add_subdirectory "${KDE_LINGUAS_DIR:-${S}/po}"
+
 	for lingua in ${KDE_LINGUAS}; do
-		if use linguas_${lingua}; then
+		if [ -e "${S}"/po/"${lingua}".po ]; then
+			mv "${S}"/po/"${lingua}".po "${S}"/po/"${lingua}".po.old
+		fi
+	done
+	comment_all_add_subdirectory "${KDE_LINGUAS_DIR:-${S}/po}"
+	for lingua in ${LINGUAS}; do
+		if [ -d "${S}"/po/"${lingua}" ]; then
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-i "${KDE_LINGUAS_DIR:-${S}/po}"/CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+		fi
+		if [ -e "${S}"/po/"${lingua}".po.old ]; then
+			mv "${S}"/po/"${lingua}".po.old "${S}"/po/"${lingua}".po
 		fi
 	done
 }

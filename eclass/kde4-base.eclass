@@ -560,9 +560,15 @@ kde4-base_src_configure() {
 	# Here we set the install prefix
 	mycmakeargs="${mycmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
+	# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
+	[[ "${PREFIX}" == "/usr" ]] && mycmakeargs="${mycmakeargs} -DSYSCONF_INSTALL_DIR=/etc"
+
 	# Set environment
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH=${KDEDIR}/$(get_libdir)/kde4/plugins/
+
+	# hardcode path to *.cmake KDE files
+	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
 	cmake-utils_src_configureout
 }
