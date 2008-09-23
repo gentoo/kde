@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdebase-data-4.1.1-r1 (23 Sep 2008)
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdebase-data-4.1.1-r1.ebuild:
+  Applied scarabeus fix to prevent the collision between kdebase-data and
+  hicolor-icon-theme.
+
 *kdebase-data-4.1.1 (01 Sep 2008)
 
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
