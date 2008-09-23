@@ -12,7 +12,8 @@ DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=">=kde-base/qimageblitz-0.0.4"
+DEPEND=">=kde-base/qimageblitz-0.0.4
+	x11-themes/hicolor-icon-theme"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="l10n/
