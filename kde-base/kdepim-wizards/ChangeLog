@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdepim-wizards-4.1.1.ebuild:
+  Fixed a missing kconfig_compiler var call.
+
   20 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdepim-wizards-4.1.1.ebuild:
   Use correct path for kconfig_compile

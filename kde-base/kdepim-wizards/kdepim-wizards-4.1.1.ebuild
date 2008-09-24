@@ -45,7 +45,7 @@ src_unpack() {
 
 	pushd "${WORKDIR}"/${P}/kresources/groupwise
 	#create the kabc_groupwiseprefs.h and kcal_groupwiseprefsbase.h
-	kconfig_compiler kresources_kabc_groupwise.kcfg kabc_groupwiseprefs.kcfgc
-	kconfig_compiler kresources_kcal_groupwise.kcfg kcal_groupwiseprefsbase.kcfgc
+	${kconfig_compiler} kresources_kabc_groupwise.kcfg kabc_groupwiseprefs.kcfgc
+	${kconfig_compiler} kresources_kcal_groupwise.kcfg kcal_groupwiseprefsbase.kcfgc
 	popd
 }
