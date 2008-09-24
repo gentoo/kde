@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.1-r4.ebuild:
+  Applied partial updates from the master branch.
+
 *kdelibs-4.1.1-r4 (23 Sep 2008)
 
   23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
