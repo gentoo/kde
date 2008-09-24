@@ -67,7 +67,7 @@ src_compile() {
 }
 
 src_install() {
-	local version
+	local DIR
 
 	kde4-meta_src_install
 
@@ -86,24 +86,25 @@ src_install() {
 	insinto "${KDEDIR}/env"
 	doins "${T}/xdg.sh" || die "doins xdg.sh failed"
 
+	# Set DIR to S{SLOT} for the kde-4 and kde-svn slot or kde-${SLOT} for all other slots
+	case "${SLOT}" in
+		kde-4 | kde-svn) DIR="${SLOT}" ;;
+		*) DIR="kde-${SLOT}"
+	esac
+
 	# x11 session script
-	if [ $KDEDIR == "/usr" ]; then
-		version="4"
-	else
-		version="${KDEDIR/*\/}"
-	fi
-	cat <<-EOF > "${T}/kde-${version}"
+	cat <<-EOF > "${T}/${DIR}"
 	#!/bin/sh
 	exec ${KDEDIR}/bin/startkde
 	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/kde-${version}" || die "doexe kde-${version} failed"
+	doexe "${T}/${DIR}" || die "doexe ${DIR} failed"
 
 	# freedesktop compliant session script
-	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${version}:" \
-		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/KDE-${version}.desktop"
+	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
+		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/KDE-${SLOT}.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/KDE-${version}.desktop" || die "doins KDE-${version}.desktop failed"
+	doins "${T}/KDE-${SLOT}.desktop" || die "doins ${SLOT}.desktop failed"
 }
 
 pkg_postinst () {

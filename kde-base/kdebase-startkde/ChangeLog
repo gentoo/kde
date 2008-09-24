@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebase-startkde-4.1.1.ebuild:
+  Applied changes from the testing branch to kdebase-startkde.
+
   23 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdebase-startkde-4.1.1.ebuild:
   Forget to apply version also to freedesktop compatible file
