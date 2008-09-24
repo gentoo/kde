@@ -32,11 +32,6 @@ src_unpack() {
 
 	kde4-meta_src_unpack
 
-#	mkdir -p "${WORKDIR}"/${P}/kaddressbook/common
-#	ln -s "${PREFIX}"/include/kaddressbook/kabprefs_base.h \
-#		"${WORKDIR}"/${P}/kaddressbook/common/kabprefs_base.h \
-#		|| die "linking extra generated header into sources failed"
-
 	pushd "${WORKDIR}"/${P}/kaddressbook/common
 	# create the kabprefs_base.h file
 	${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc

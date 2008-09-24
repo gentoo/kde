@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdepim-kresources-4.1.1.ebuild:
+  Deleted commented out section.
+
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kde-base/kdepim-kresources/kdepim-kresources-4.1.1.ebuild:
   Fixed whitespace.
