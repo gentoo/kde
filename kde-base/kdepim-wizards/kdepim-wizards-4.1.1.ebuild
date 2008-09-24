@@ -28,8 +28,10 @@ KMEXTRACTONLY="
 "
 
 src_unpack() {
-	kde4-meta_src_unpack
 	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
+
+	kde4-meta_src_unpack
+
 	pushd "${WORKDIR}"/${P}/kresources/egroupware
 	# create the kabc_egroupware.h, kcal_egroupware.h and knotes_egroupware.h files
 	${kconfig_compiler} kresources_kabc_egroupware.kcfg kabc_egroupwareprefs.kcfgc
