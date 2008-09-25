@@ -5,6 +5,8 @@
 EAPI="2_pre1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km
+lt lv nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE."
@@ -13,14 +15,14 @@ SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4.1"
-IUSE="+bwscheduler +infowidget +ipfilter +logviewer +scanfolder +search +stats +upnp webinterface zeroconf +mediaplayer"
+SLOT="4"
+IUSE="+bwscheduler +infowidget +ipfilter +logviewer +mediaplayer +scanfolder +search +stats +upnp webinterface zeroconf"
 
-DEPEND="dev-libs/gmp
+DEPEND="app-crypt/qca:2
 	app-misc/strigi
-	app-crypt/qca:2
-	sys-devel/gettext
-	!kdeprefix? ( !net-p2p/ktorrent:0 )"
+	dev-libs/gmp
+	!kdeprefix? ( !net-p2p/ktorrent:0 )
+	sys-devel/gettext"
 RDEPEND="${DEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (
@@ -28,28 +30,8 @@ RDEPEND="${DEPEND}
 			>=kde-base/kdelibs-4.1.0 ) )
 	zeroconf? ( >=kde-base/kdnssd-4.1.0 )"
 
-LANGS="ar be bg ca da de el en_GB eo es et eu fi fr ga gl hi hu it ja km lt lv
-nb nds nl nn oc pl pt pt_BR ro ru se sk sl sv tr uk zh_CN zh_TW"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
-done
-
 # fix install PREFIX
 PREFIX="${KDEDIR}"
-
-src_unpack() {
-	local LANG
-
-	unpack ${A}
-	cd "${S}"
-	# take care of linguas
-	comment_all_add_subdirectory po/ || die "sed to remove all linguas failed."
-	for LANG in ${LINGUAS}; do
-		sed -i \
-			-e "/add_subdirectory(\s*${LANG}\s*)\s*$/ s/^#DONOTCOMPILE //" \
-			po/CMakeLists.txt || die "sed to uncomment ${LANG} failed."
-	done
-}
 
 src_compile() {
 	local mycmakeargs
