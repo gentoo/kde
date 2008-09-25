@@ -358,6 +358,9 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - NEED_KDE ${NEED_KDE
 kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
 
+	# Don't set KDEHOME during compile, it will cause access violations
+	unset KDEHOME
+
 	if [[ ${NEED_KDE} != none ]]; then
 
 		# Set PREFIX
@@ -377,7 +380,7 @@ kde4-base_pkg_setup() {
 				;;
 		esac
 	fi
-
+	
 	if [[ -n ${KDEBASE} ]]; then
 		PREFIX=${KDEDIR}
 	else
@@ -520,11 +523,11 @@ kde4-base_src_unpack() {
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Don't set KDEHOME during compile, it will cause access violations
-	unset KDEHOME
-
-	kde4-base_src_configure
-	kde4-base_src_make
+	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+		pushd "${WORKDIR}"/${PN}_build > /dev/null
+	fi
+	[ -e [Mm]akefile ] && kde4-base_src_make
 }
 
 # @FUNCTION: kde4-base_src_configure
@@ -532,9 +535,6 @@ kde4-base_src_compile() {
 # Function for configuring the build of KDE4 applications.
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Don't set KDEHOME during compile, it will cause access violations
-	unset KDEHOME
 
 	# Final flag handling
 	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
@@ -603,7 +603,10 @@ kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	kde4-base_src_make_doc
-	cmake-utils_src_install
+	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+		pushd "${WORKDIR}"/${PN}_build > /dev/null
+	fi
+	[ -e [Mm]akefile ] && kde4-base_src_install
 }
 
 # @FUNCTION: kde4-base_src_make_doc
