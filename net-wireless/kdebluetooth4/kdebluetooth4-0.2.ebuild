@@ -22,7 +22,8 @@ DEPEND="dev-libs/openobex
 	app-mobilephone/obex-data-server"
 
 RDEPEND="${DEPEND}
-	|| ( ( kde-base/kdialog:${SLOT} kde-base/konqueror:${SLOT} )
-		kde-base/kdelibs:${SLOT} )
+	|| ( ( >=kde-base/kdialog-4.1.1: >=kde-base/konqueror-4.1.1 )
+		>=kde-base/kdelibs-4.1.1 )
 	>=net-wireless/bluez-libs-3.25
 	>=net-wireless/bluez-utils-3.25"
+PREFIX="${KDEDIR}"
