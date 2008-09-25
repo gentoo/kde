@@ -4,7 +4,7 @@
 
   25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdelibs-4.1.1-r4.ebuild:
-  Fix kddns-avahi blockage problem
+  Fix kdnssd-avahi blockage problems.
 
   24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdelibs-4.1.1-r4.ebuild:
