@@ -74,6 +74,10 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 "
 
+PATCHES=( "${FILESDIR}/${P}-konqueror-pointer.patch"
+	"${FILESDIR}/${P}-kbuildsycoca.patch"
+	"${FILESDIR}/${P}-cmake-modules.patch" )
+
 src_compile() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
@@ -84,9 +88,14 @@ src_compile() {
 			die "USE=\"zeroconf\" enabled but neither net-dns/avahi nor net-misc/mDNSResponder were found."
 		fi
 	fi
-
+	if use kdeprefix; then
+		HME=".kde$(basename $KDEDIR)"
+	else
+		HME=".kde4"
+	fi
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
+		-DKDE_DEFAULT_HOME=${HME}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
@@ -162,6 +171,9 @@ src_install() {
 	cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 	SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
 	EOF
+	# Ensure that the correct permissions are present on ${KDEDIR}/share/config
+	chmod 755 ${KDEDIR}/share/config
+
 }
 
 pkg_postinst() {
