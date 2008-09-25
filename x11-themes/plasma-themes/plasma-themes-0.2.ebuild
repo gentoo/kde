@@ -22,7 +22,7 @@ SRC_URI="
 	"
 
 LICENSE="GPL-3"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
