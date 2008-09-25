@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="app-admin/sudo
-	>=kde-base/kdebase-data-4.1.0"
+	kde-base/kdebase-data:${SLOT}"
 RDEPEND="${DEPEND}"
 
 PREFIX="${KDEDIR}"

@@ -26,8 +26,8 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=kde-base/libplasma-4.1.1[opengl]
-	>=kde-base/plasma-workspace-4.1.1
+RDEPEND="kde-base/libplasma:${SLOT}[opengl]
+	kde-base/plasma-workspace:${SLOT}
 	x11-libs/qt-webkit"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1"

@@ -21,14 +21,14 @@ IUSE="+bwscheduler +infowidget +ipfilter +logviewer +mediaplayer +scanfolder +se
 DEPEND="app-crypt/qca:2
 	app-misc/strigi
 	dev-libs/gmp
-	!kdeprefix? ( !net-p2p/ktorrent:0 )
-	sys-devel/gettext"
+	sys-devel/gettext
+	!kdeprefix? ( !net-p2p/ktorrent:0 )"
 RDEPEND="${DEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (
-		|| ( >=kde-base/kdebase-kioslaves-4.1.0
-			>=kde-base/kdelibs-4.1.0 ) )
-	zeroconf? ( >=kde-base/kdnssd-4.1.0 )"
+		|| ( kde-base/kdebase-kioslaves:${SLOT}
+			kde-base/kdelibs:${SLOT} ) )
+	zeroconf? ( kde-base/kdnssd:${SLOT} )"
 
 # fix install PREFIX
 PREFIX="${KDEDIR}"

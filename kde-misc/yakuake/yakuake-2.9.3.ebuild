@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE=""
 
-DEPEND=">=kde-base/konsole-4.1.0
+DEPEND="kde-base/konsole:${SLOT}
 	!kdeprefix? ( !kde-misc/yakuake:0 )
 	sys-devel/gettext"
 RDEPEND="${DEPEND}"

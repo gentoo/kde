@@ -31,7 +31,7 @@ DEPEND="
 	kde-base/libkdcraw:${SLOT}
 	kde-base/libkexiv2:${SLOT}
 	kde-base/libkipi:${SLOT}
-	kde-base/marble:${SLOT}
+	kde-base/marble:${SLOT}[kde]
 	kde-base/solid:${SLOT}
 	!kdeprefix? ( !media-gfx/digikam:0 )
 	>=media-libs/jasper-1.701.0
@@ -48,15 +48,6 @@ RDEPEND="${DEPEND}"
 
 # we want to install into kdedir so we can keep kde3 and kde4 version along
 PREFIX="${KDEDIR}"
-
-pkg_setup() {
-	if ! built_with_use kde-base/marble:${SLOT} kde; then
-		eerror "kdebase/marlbe must be build with USE kde."
-		eerror "Please reemerge marble with kde useflag."
-		die
-	fi
-	kde4-base_pkg_setup
-}
 
 src_unpack() {
 	local lang

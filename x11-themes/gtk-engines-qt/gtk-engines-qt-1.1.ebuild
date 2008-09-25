@@ -22,11 +22,11 @@ for LANG in ${LANGS}; do
 done
 
 RDEPEND="|| (
-		>=x11-libs/qt-4.4.1:4
-		( >=x11-libs/qt-core-4.4.1:4 >=x11-libs/qt-gui-4.4.1:4 )
+		x11-libs/qt:4
+		( x11-libs/qt-core:4 x11-libs/qt-gui:4 )
 	)
 	x11-libs/gtk+:2
-	>=kde-base/kdebase-data-4.1.0"
+	kde-base/kdebase-data:${SLOT}"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MY_PN}

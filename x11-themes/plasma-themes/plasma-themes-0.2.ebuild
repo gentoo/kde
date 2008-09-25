@@ -26,8 +26,8 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=kde-base/libplasma-4.1.1[opengl]
-	>=kde-base/plasma-workspace-4.1.1"
+DEPEND="kde-base/libplasma:${SLOT}[opengl]
+	kde-base/plasma-workspace:${SLOT}"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
