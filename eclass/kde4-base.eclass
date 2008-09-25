@@ -606,7 +606,7 @@ kde4-base_src_install() {
 	if [[ -d ${WORKDIR}/${PN}_build ]]; then
 		pushd "${WORKDIR}"/${PN}_build > /dev/null
 	fi
-	[ -e [Mm]akefile ] && kde4-base_src_install
+	[ -e [Mm]akefile ] && cmake-utils_src_install
 }
 
 # @FUNCTION: kde4-base_src_make_doc
