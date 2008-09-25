@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> ChangeLog:
+  Fix kddns-avahi blockage problem
+
   22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   +files/kdelibs-4.1.1-kbuildsycoca.patch, kdelibs-4.1.1-r4.ebuild:
   add patch on kbuildsycoca bug 238430
