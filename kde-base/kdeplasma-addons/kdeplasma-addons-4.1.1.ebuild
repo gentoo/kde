@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
-		DBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
+		-DBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 	kde4-base_src_compile
