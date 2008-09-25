@@ -28,9 +28,9 @@ DEPEND="${COMMONDEPEND}
 	xcomposite? ( x11-proto/compositeproto )
 	xinerama? ( x11-proto/xineramaproto )"
 RDEPEND="${COMMONDEPEND}
-	>=kde-base/kde-menu-icons-${PV}:${SLOT}
-	>=kde-base/dolphin-${PV}:${SLOT}"
-PDEPEND="kde-base/kdeartwork-iconthemes:${SLOT}"
+	>=kde-base/kde-menu-icons-${PV}:${SLOT}"
+PDEPEND=">=kde-base/dolphin-${PV}:${SLOT}
+	kde-base/kdeartwork-iconthemes:${SLOT}"
 
 KMEXTRACTONLY="krunner/org.freedesktop.ScreenSaver.xml
 	krunner/org.kde.krunner.Interface.xml

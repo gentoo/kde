@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-workspace-4.1.1.ebuild:
+  Moved dolphin to PDEPEND as it's another optional rdep.
+
   17 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   plasma-workspace-4.1.1.ebuild:
   RDEPEND on dolphin in order to be able to show trash:/ and so on
