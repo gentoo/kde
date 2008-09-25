@@ -4,6 +4,10 @@
 
   25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   plasma-workspace-4.1.1.ebuild:
+  Removed unneeded pkg_setup.
+
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-workspace-4.1.1.ebuild:
   Added dolphin as PDEPEND as it's an optional rdep and to prevent broken
   links.
 
