@@ -90,7 +90,7 @@ src_compile() {
 	fi
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
-		-DKDE_DEFAULT_HOME=.kde-${SLOT}
+		-DKDE_DEFAULT_HOME=.kde${SLOT}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
