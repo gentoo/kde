@@ -5,7 +5,7 @@
 EAPI="2_pre1"
 
 NEED_KDE="4.1"
-NEED_OPENGL="allways"
+NEED_OPENGL="always"
 inherit kde4-base
 
 DESCRIPTION="Set of plasma themes packed for ease install"
