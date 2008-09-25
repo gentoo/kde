@@ -11,6 +11,6 @@ DESCRIPTION="Kjots - KDE note taking utility"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-KMEXTRACTONLY="libkdepim"
-
 DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}"
+
+KMEXTRACTONLY="libkdepim"
