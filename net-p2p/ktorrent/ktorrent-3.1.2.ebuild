@@ -15,7 +15,7 @@ SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE="+bwscheduler +infowidget +ipfilter +logviewer +mediaplayer +scanfolder +search +stats +upnp webinterface zeroconf"
 
 DEPEND="app-crypt/qca:2
