@@ -5,6 +5,8 @@
 EAPI="2_pre1"
 
 NEED_KDE="4.1"
+KDE_LINGUAS="bg bs ca cs da de el es fr hu it ja lt nl pl pt pt_BR ru sk sl sr
+sv tr uk zh_CN"
 inherit kde4-base
 
 MY_P="${P/_/-}"
@@ -18,33 +20,20 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="pic"
 
-LANGS="bg bs ca cs da de el es fr hu it ja lt nl pl pt pt_BR ru sk sl sr sv tr uk zh_CN"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
-done
-
-DEPEND="sys-devel/gettext
-	!kdeprefix? ( !kde-misc/krusader:0 )"
+DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
+	sys-devel/gettext"
 
 S="${WORKDIR}/${MY_P}"
-
-src_unpack() {
-	local LANG
-	unpack ${A}
-	cd "${S}"/po
-	# take care of linguas
-	for LANG in ${LANGS}; do
-		mv "${LANG}".po "${LANG}".po.old
-	done
-	for LANG in ${LINGUAS}; do
-		mv "${LANG}".po.old "${LANG}".po
-	done
-}
+PREFIX="${KDEDIR}"
 
 src_compile() {
 	local mycmakeargs
 	# for paranoid users
 	use pic && mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FPIE"
+
+	sed -i \
+		-e "s:set(CMAKE_VERBOSE_MAKEFILE ON):#NADA:g" \
+		CMakeLists.txt
 
 	kde4-base_src_compile
 }
