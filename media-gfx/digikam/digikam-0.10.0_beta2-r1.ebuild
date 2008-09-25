@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre1"
+EAPI="2_pre3"
 
 NEED_KDE="4.1"
 KDE_LINGUAS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt

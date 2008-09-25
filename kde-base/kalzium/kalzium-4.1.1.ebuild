@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kalzium/kalzium-4.0.5.ebuild,v 1.2 2008/07/27 19:07:30 carlo Exp $
 
-EAPI="2_pre1"
+EAPI="2_pre3"
 
 KMNAME=kdeedu
 CPPUNIT_REQUIRED="optional"

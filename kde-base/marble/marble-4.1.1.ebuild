@@ -1,7 +1,7 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI="2_pre1"
+EAPI="2_pre3"
 NEED_KDE="none"
 KMNAME=kdeedu
 
