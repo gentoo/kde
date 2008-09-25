@@ -4,6 +4,10 @@
 
   25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kjots-4.1.1.ebuild:
+  Add minimum dep on libkdepim.
+
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kjots-4.1.1.ebuild:
   Added missing dep on libkdepim.
 
 *kjots-4.1.1 (01 Sep 2008)
