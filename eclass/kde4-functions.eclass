@@ -33,7 +33,7 @@ fi
 # @DESCRIPTION:
 # The slots used by all KDE versions after 4.0 - this doesn't include kde-3.5 and the
 # live-ebuilds that use the following var.
-KDE_SLOTS=( "kde-4" "4.1" )
+KDE_SLOTS=( "kde-4" "4.1" "4.2" )
 
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:
