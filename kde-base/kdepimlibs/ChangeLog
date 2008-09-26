@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdepimlibs-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdepimlibs-4.1.67.ebuild:
+  Version bump.
+
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdepimlibs-4.1.1.ebuild:
   Eclass takes care of the depend slot.
 

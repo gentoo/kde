@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kode-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kode-4.1.67.ebuild:
+  Version bump.
+
 *kode-4.1.1 (01 Sep 2008)
 
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +kode-4.1.1.ebuild:

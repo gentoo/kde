@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdelibs-4.1.67.ebuild:
+  Version bump.
+
   25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdelibs-4.1.1-r4.ebuild:
   Fix kdnssd-avahi blockage problems.

@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libkexiv2-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +libkexiv2-4.1.67.ebuild:
+  Version bump.
+
   16 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   libkexiv2-4.1.1.ebuild:
   Replaced the multislot with the kdeprefix use flag.

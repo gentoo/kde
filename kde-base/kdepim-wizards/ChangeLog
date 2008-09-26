@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdepim-wizards-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdepim-wizards-4.1.67.ebuild:
+  Version bump.
+
   24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdepim-wizards-4.1.1.ebuild:
   Updated kconfig_compiler to work with -kdeprefix.
