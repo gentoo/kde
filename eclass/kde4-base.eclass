@@ -24,7 +24,7 @@ kde4-base_set_qt_dependencies() {
 
 	# use dependencies
 	case "${EAPI}" in
-		2)
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
 
 		qt="["
 		case "${OPENGL_REQUIRED}" in
@@ -100,7 +100,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 # Add the kdeprefix use flag
 case "${EAPI}" in
-	2)
+	2 | 2_pre3 | 2_pre2 | 2_pre1)
 		IUSE="${IUSE} kdeprefix"
 		;;
 esac
@@ -270,7 +270,7 @@ if [[ ${NEED_KDE} != none ]]; then
 
 	# Block install of other SLOTS unless kdeprefix
 	case "${EAPI}" in
-		2)
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
 			for KDE_SLOT in ${KDE_SLOTS[@]}; do
 				# block non kdeprefix ${PN} on other slots
 				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
@@ -286,7 +286,7 @@ if [[ ${NEED_KDE} != none ]]; then
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
 		case "${EAPI}" in
-			2)
+			2 | 2_pre3 | 2_pre2 | 2_pre1)
 				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 				;;
@@ -297,7 +297,7 @@ if [[ ${NEED_KDE} != none ]]; then
 		esac
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			case "${EAPI}" in
-				2)
+				2 | 2_pre3 | 2_pre2 | 2_pre1)
 					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
 					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
 					;;
@@ -365,7 +365,7 @@ kde4-base_pkg_setup() {
 
 		# Set PREFIX
 		case "${EAPI}" in
-			2)
+			2 | 2_pre3 | 2_pre2 | 2_pre1)
 				if use kdeprefix; then
 					KDEDIR="/usr/kde/${_kdedir}"
 					KDEDIRS="/usr:/usr/local:${KDEDIR}"
@@ -391,7 +391,7 @@ kde4-base_pkg_setup() {
 	unset _kdedir
 
 	case "${EAPI}" in
-		2)
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
 		[[ -n ${QT4_BUILT_WITH_USE_CHECK} || -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
 			die "built_with_use illegal in this EAPI!"
 		;;
