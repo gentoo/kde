@@ -31,9 +31,7 @@ DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MY_PN}
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}/${PV}-stdlib.patch"
 	sed -i \
 		-e "s:share/locale:/usr/share/locale/:" \

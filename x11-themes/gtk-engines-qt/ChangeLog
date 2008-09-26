@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  gtk-engines-qt-1.1.ebuild:
+  Use EAPI2 functions since we can.
+
   25 Sep 2008; Petteri Räty <betelgeuse@gentoo.org>
   gtk-engines-qt-1.1.ebuild:
   Prefer split qt over monolithic.
