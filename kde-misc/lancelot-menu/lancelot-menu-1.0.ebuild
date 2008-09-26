@@ -34,7 +34,6 @@ src_compile() {
 }
 
 src_install() {
-
 	# lancelot has broken install with FSH (dunno why)
 	pushd "${WORKDIR}"/lancelot-menu_build/libs/lancelot/
 	make DESTDIR="${D}" install
