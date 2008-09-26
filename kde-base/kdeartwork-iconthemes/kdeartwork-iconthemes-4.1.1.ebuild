@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdeartwork-iconthemes/kdeartwork-iconthemes-4.0.5.ebuild,v 1.1 2008/06/05 21:23:12 keytoaster Exp $
 
-EAPI="2_pre3"
+EAPI="2"
 
 KMNAME=kdeartwork
 KMMODULE=IconThemes

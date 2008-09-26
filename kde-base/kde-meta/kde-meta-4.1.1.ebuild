@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2_pre3"
+EAPI="2"
 
 DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
 HOMEPAGE="http://www.kde.org/"
