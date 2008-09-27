@@ -6,7 +6,7 @@ NEED_KDE="none"
 KMNAME=kdeedu
 
 if use kdeprefix; then
-	KDEDIR="/usr/kde/4.1"
+	KDEDIR="/usr/kde/4.2"
 else
 	KDEDIR="/usr"
 fi
@@ -29,8 +29,6 @@ COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 	!kdeprefix? ( !sci-geosciences/marble )"
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
-
-PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; <alexxy@gentoo.org> marble-4.1.67.ebuild:
+  remove unnided patch and fix kdeprefix dir
+
   27 Sep 2008; <alexxy@gentoo.org> marble-4.1.1.ebuild,
   marble-4.1.67.ebuild:
   Make ebuilds work with eapi2
