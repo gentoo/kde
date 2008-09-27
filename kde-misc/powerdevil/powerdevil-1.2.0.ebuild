@@ -16,7 +16,8 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="kde-base/systemsettings:${SLOT}
+DEPEND="!kde-base/powerdevil
+	kde-base/systemsettings:${SLOT}
 	kde-base/kscreensaver:${SLOT}"
 RDEPEND="${DEPEND}"
 
