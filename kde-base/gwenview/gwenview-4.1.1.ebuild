@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}"
 # Tests are broken (4.1.0)
 RESTRICT="test"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with kipi KIPI)"
 	if use semantic-desktop; then
@@ -33,7 +33,7 @@ src_compile() {
 			-DGWENVIEW_METADATA_BACKEND=None"
 	fi
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 pkg_postinst() {

@@ -14,8 +14,8 @@ IUSE="debug htmlhandbook"
 DEPEND="kde-base/libplasma:${SLOT}"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_Plasma=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

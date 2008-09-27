@@ -14,3 +14,4 @@ IUSE="debug"
 
 DEPEND=">=app-misc/strigi-0.5.10"
 RDEPEND="${DEPEND}"
+

@@ -46,7 +46,7 @@ KMEXTRACTONLY="krunner/org.kde.krunner.App.xml
 	plasma/"
 
 # FIXME: is have_openglxvisual found without screensaver
-src_compile() {
+src_configure() {
 	# Old keyboard-detection code is unmaintained,
 	# so we force the new stuff, using libxklavier.
 	mycmakeargs="${mycmakeargs}
@@ -56,5 +56,5 @@ src_compile() {
 		$(cmake-utils_use_with usb USB)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

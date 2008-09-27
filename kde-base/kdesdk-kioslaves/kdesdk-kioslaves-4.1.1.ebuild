@@ -31,12 +31,12 @@ pkg_setup() {
 	fi
 }
 
-src_compile() {
+src_configure() {
 	if ldd /usr/bin/svn | grep -q libapr-0; then
 		mycmakeargs="${mycmakeargs} -DAPRCONFIG_EXECUTABLE=/usr/bin/apr-config"
 	else
 		mycmakeargs="${mycmakeargs} -DAPRCONFIG_EXECUTABLE=/usr/bin/apr-1-config"
 	fi
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

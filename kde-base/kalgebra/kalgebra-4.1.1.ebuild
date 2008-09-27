@@ -22,11 +22,11 @@ KMEXTRACTONLY=libkdeedu/kdeeduui
 # Needed for USE="-opengl"
 PATCHES=( "${FILESDIR}/${PN}-4.0.2-opengl.patch" )
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with readline Readline)
 		$(cmake-utils_use_with plasma Plasma)
 		$(cmake-utils_use_with opengl OpenGL)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

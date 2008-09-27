@@ -33,9 +33,9 @@ KMEXTRACTONLY="
 KMEXTRA="${KMEXTRA} plugins/kmail/"
 KMLOADLIBS="libkdepim"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with nepomuk Nepomuk)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

@@ -22,10 +22,10 @@ RDEPEND="${DEPEND}"
 
 PATCHES=("${FILESDIR}/${PN}-xscreensaver.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xscreensaver Xscreensaver)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
