@@ -18,6 +18,8 @@ DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 			usb? ( dev-libs/libusb ) )"
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/kstars-4.1.67-destdir.patch" )
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with fits CFitsio)
