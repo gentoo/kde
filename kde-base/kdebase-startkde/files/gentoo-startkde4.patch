@@ -1,14 +1,14 @@
 --- startkde.cmake	2008-07-15 15:49:02.000000000 -0400
 +++ startkde.cmake.cryos	2008-09-01 16:42:04.000000000 -0400
-@@ -7,6 +7,34 @@
+@@ -7,6 +7,33 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
  
 +# Gentoo: setup environment, filter other slotted KDE installs from PATH
 +export KDEDIR=@REPLACE_PREFIX@
 +export KDEDIRS=/usr:/usr/local:${KDEDIR}
-+export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed 's#/usr/kde/[^/]*/s\?bin:##g')
-+export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed 's#/usr/kde/[^/]*/s\?bin:##g')
++export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
 +export LDPATH=@REPLACE_LIBS@:${LDPATH}
 +export STRIGI_PLUGIN_PATH="${KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
 +export XDG_DATA_DIRS=${KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
@@ -29,7 +29,6 @@
 +		xmessage "$HOME/.kde$(basename $KDEDIR) exists but is not a dir. Aborting."
 +		exit 1
 +	fi
-+	export KDEHOME="${HOME}/.kde$(basename $KDEDIR)"
 +fi
 +
  # Check if a KDE session already is running and whether it's possible to connect to X
