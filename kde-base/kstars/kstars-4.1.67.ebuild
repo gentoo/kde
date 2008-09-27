@@ -18,15 +18,15 @@ DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 			usb? ( dev-libs/libusb ) )"
 RDEPEND="${DEPEND}"
 
-PATCHES=("${FILESDIR}/${PN}-4.1.0-destdir.patch"
-	"${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with fits CFitsio)
 		$(cmake-utils_use_with nova Nova)
 		$(cmake-utils_use_with sbig SBIG)
 		$(cmake-utils_use_with usb USB)"
+	
+	sed -i -e 's:add_subdirectory(cmake):#dontwantit:g' CMakeLists.txt \
+			|| die "sed to disable file collisions failed"
 
 	kde4-meta_src_configure
 
