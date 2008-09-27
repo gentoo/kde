@@ -34,7 +34,7 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
 	
-	sed -i -e 's:add_subdirrectory(cmake):#dontwantit:g' CMakeList.txt \
+	sed -i -e 's:add_subdirrectory(cmake):#dontwantit:g' CMakeLists.txt \
 		|| die "sed to disable file collisions failed"
 
 	if use gps; then
