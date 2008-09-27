@@ -30,11 +30,12 @@ COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${FILESDIR}/marble-4.1.67-fix-file-collisions.patch" )
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
+	
+	sed -i -e 's:add_subdirrectory(cmake):#dontwantit:g' CMakeList.txt \
+		|| die "sed to disable file collisions failed"
 
 	if use gps; then
 		mycmakeargs="${mycmakeargs} -DHAVE_LIBGPS=1"
