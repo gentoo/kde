@@ -2,7 +2,17 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+<<<<<<< HEAD:kde-base/kdelibs/ChangeLog
 *kdelibs-4.1.67 (26 Sep 2008)
+=======
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.2.ebuild:
+  Move ebuild towards EAPI2 compilance
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.2.ebuild:
+  Use correct patch name
+>>>>>>> f2164c7... EAPI2 compilance for kdelibs:kde-base/kdelibs/ChangeLog
 
   26 Sep 2008; <alexxy@gentoo.org> +kdelibs-4.1.67.ebuild:
   Version bump.
