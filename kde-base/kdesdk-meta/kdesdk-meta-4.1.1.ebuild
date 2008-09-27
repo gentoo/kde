@@ -10,7 +10,7 @@ DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 # FIXME:
 # Add this back when adding kmtrace

@@ -10,8 +10,8 @@ DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4"
-KEYWORDS="~amd64"
+SLOT="4.1"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

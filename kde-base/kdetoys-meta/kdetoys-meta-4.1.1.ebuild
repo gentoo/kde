@@ -10,7 +10,7 @@ DESCRIPTION="KDE toys - merge this to pull in all kdetoys-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
