@@ -48,7 +48,7 @@ RDEPEND="${DEPEND}
 	daap? ( www-servers/mongrel )
 	"
 
-src_compile() {
+src_configure() {
 	if use debug; then
 		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=debugfull"
 	fi
@@ -65,5 +65,5 @@ src_compile() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with visualization Libvisual)
 	"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
