@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.1-r4.ebuild:
+  Revert to old KDEHOME detection method
+
   25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   kdelibs-4.1.1-r4.ebuild:
   Fix kdnssd-avahi blockage problems.
