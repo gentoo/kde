@@ -15,7 +15,7 @@ IUSE="debug +nepomuk +plasma"
 
 # add when libmapi becomes available with an ebuild
 #exchange? ( net-libs/libmapi )
-RDEPEND="app-misc/strigi[dbus,qt4]
+RDEPEND=">=app-misc/strigi-0.6[dbus,qt4]
 	app-office/akonadi-server
 	dev-libs/boost
 	dev-libs/libxslt

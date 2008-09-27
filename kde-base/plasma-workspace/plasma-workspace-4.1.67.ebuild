@@ -14,7 +14,7 @@ IUSE="debug htmlhandbook xcomposite xinerama"
 
 COMMONDEPEND="!kde-base/plasma:${SLOT}
 	>=kde-base/soliduiserver-${PV}:${SLOT}
-	>=app-misc/strigi-0.5.9
+	>=app-misc/strigi-0.6
 	>=kde-base/libkworkspace-${PV}:${SLOT}
 	>=kde-base/libtaskmanager-${PV}:${SLOT}
 	>=kde-base/libplasma-${PV}:${SLOT}

@@ -14,7 +14,7 @@ IUSE="bzip2 debug htmlhandbook openexr samba"
 RESTRICT="test"
 
 # Note that if you upgrade strigi, you have to rebuild this package.
-DEPEND=">=app-misc/strigi-0.5.7
+DEPEND=">=app-misc/strigi-0.6
 	>=dev-libs/cyrus-sasl-2
 	>=sys-apps/dbus-1.0.2
 	=sys-apps/hal-0.5*

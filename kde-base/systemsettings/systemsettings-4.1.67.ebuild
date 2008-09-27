@@ -13,7 +13,7 @@ IUSE="debug htmlhandbook opengl +usb xinerama"
 KEYWORDS="~amd64 ~x86"
 
 COMMONDEPEND="
-	>=app-misc/strigi-0.5.7
+	>=app-misc/strigi-0.6
 	>=dev-libs/glib-2
 	media-libs/fontconfig
 	>=media-libs/freetype-2

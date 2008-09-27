@@ -14,7 +14,7 @@ DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug opengl xinerama"
 
-RDEPEND=">=app-misc/strigi-0.5.11[qt4]
+RDEPEND=">=app-misc/strigi-0.6[qt4]
 	!<kde-base/plasma-3.96.0
 	>=kde-base/libkworkspace-${PV}:${SLOT}
 	>=kde-base/libtaskmanager-${PV}:${SLOT}

@@ -14,7 +14,7 @@ IUSE="debug"
 # dev-cpp/clucene provides the optional strigi backend.
 # As there's currently no other *usable* strigi backend, I've added it as a hard
 # dependency.
-DEPEND=">=app-misc/strigi-0.5.10[qt4]
+DEPEND=">=app-misc/strigi-0.6[qt4]
 	dev-cpp/clucene
 	>=dev-libs/soprano-2.0.98[clucene]"
 RDEPEND="${DEPEND}"
