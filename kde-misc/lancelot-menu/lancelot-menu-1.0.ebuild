@@ -26,11 +26,11 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${PN/-menu/}
 PREFIX=${KDEDIR}
 
-src_compile() {
+src_configure() {
 	local mycmakeargs
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
 
 src_install() {

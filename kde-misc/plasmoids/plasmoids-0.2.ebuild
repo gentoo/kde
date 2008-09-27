@@ -47,8 +47,11 @@ src_unpack() {
 	unpack ${A}
 }
 
-src_compile() {
+src_configure() {
 	get_dirs "cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+}
+
+src_compile() {
 	get_dirs "make"
 }
 

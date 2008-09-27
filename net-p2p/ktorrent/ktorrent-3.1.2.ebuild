@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 # fix install PREFIX
 PREFIX="${KDEDIR}"
 
-src_compile() {
+src_configure() {
 	local mycmakeargs
 
 	mycmakeargs="${mycmakeargs}
@@ -51,5 +51,5 @@ src_compile() {
 		$(cmake-utils_use_enable webinterface WEBINTERFACE_PLUGIN)
 		$(cmake-utils_use_enable zeroconf ZEROCONF_PLUGIN)
 		$(cmake-utils_use_enable mediaplayer MEDIAPLAYER_PLUGIN)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
