@@ -16,4 +16,4 @@ IUSE=""
 
 DEPEND="kde-base/systemsettings:${SLOT}
 		kde-base/kscreensaver:${SLOT}
-		!kdeprefix ( !kde-misc/powerdevil )"
+		!kdeprefix?: ( !kde-misc/powerdevil )"
