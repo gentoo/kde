@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE PIM icons"
 IUSE="debug"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
