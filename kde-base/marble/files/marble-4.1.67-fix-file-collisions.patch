@@ -6,6 +6,6 @@
  
 -add_subdirectory(cmake)
 +#DONOTCOMPILE add_subdirectory(cmake)
- #DONOTCOMPILE macro_optional_add_subdirectory(doc)
- #DONOTCOMPILE add_subdirectory(libkdeedu)
- #DONOTCOMPILE macro_optional_add_subdirectory(blinken)
+ macro_optional_add_subdirectory(doc)
+ add_subdirectory(libkdeedu)
+ macro_optional_add_subdirectory(blinken)
