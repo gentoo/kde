@@ -9,7 +9,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE="accessibility"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
