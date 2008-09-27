@@ -17,11 +17,11 @@ RDEPEND="${DEPEND}"
 # Tests segfault (4.1.0)
 RESTRICT="test"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_Plasma=ON"
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
 
 src_test() {

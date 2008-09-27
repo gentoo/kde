@@ -40,7 +40,7 @@ KMEXTRACTONLY="krunner/org.freedesktop.ScreenSaver.xml
 
 KMLOADLIBS="libplasma"
 
-src_compile() {
+src_configure() {
 	# Remove this if a patch has been applied upstream.
 	#sed -i -e 's/plasmapkg plasma/plasmapkg ${KDE4_KIO_LIBS} plasma/'\
 	#	"${S}"/plasma/tools/plasmapkg/CMakeLists.txt || die "sed failed."
@@ -48,5 +48,5 @@ src_compile() {
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

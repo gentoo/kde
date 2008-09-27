@@ -32,7 +32,7 @@ RDEPEND="${COMMONDEPEND}"
 
 PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
 
@@ -47,7 +47,7 @@ src_compile() {
 		mycmakeargs="${mycmakeargs} -DQTONLY:BOOL=ON"
 	fi
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

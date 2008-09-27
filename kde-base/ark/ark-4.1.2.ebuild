@@ -15,10 +15,10 @@ DEPEND="archive? ( app-arch/libarchive )
 	zip? ( >=dev-libs/libzip-0.8 )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with archive LibArchive)
 		$(cmake-utils_use_with zip LibZip)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

@@ -37,12 +37,12 @@ KMSAVELIBS="true"
 # Disabling tests for now. 3 out of 3 broken now. last tested on 4.0.1.
 RESTRICT="test"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

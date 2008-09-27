@@ -27,12 +27,12 @@ KMEXTRA="libs/kdm/"
 
 PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(use kerberos && echo "-DKDE4_KRB5AUTH=ON" || echo "-DKDE4_KRB5AUTH=OFF")
 		$(cmake-utils_use_with pam PAM)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

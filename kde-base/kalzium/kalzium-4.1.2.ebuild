@@ -26,6 +26,17 @@ KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
 PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with editor Eigen)
+		$(cmake-utils_use_with editor OpenBabel2)
+		$(cmake-utils_use_with editor OpenGL)
+		$(cmake-utils_use_with solver OCaml)
+		$(cmake-utils_use_with solver Libfacile)"
+
+	kde4-meta_src_configure
+}
+
 src_compile() {
 	if use solver ; then
 		# Compile the solver on its own as the cmake-based build is
@@ -35,13 +46,5 @@ src_compile() {
 		mkdir -p "${WORKDIR}/${PN}_build/${PN}/src/"
 		cp * "${WORKDIR}/${PN}_build/${PN}/src/"
 	fi
-
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with editor Eigen)
-		$(cmake-utils_use_with editor OpenBabel2)
-		$(cmake-utils_use_with editor OpenGL)
-		$(cmake-utils_use_with solver OCaml)
-		$(cmake-utils_use_with solver Libfacile)"
-
 	kde4-meta_src_compile
 }

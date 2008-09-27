@@ -21,10 +21,10 @@ RDEPEND="${DEPEND}
 
 KMEXTRACTONLY="apps/cmake/modules/"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with ieee1394 RAW1394)
 		$(cmake-utils_use_with opengl OpenGL)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

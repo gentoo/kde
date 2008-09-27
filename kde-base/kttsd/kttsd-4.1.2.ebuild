@@ -27,12 +27,12 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}
 		app-accessibility/flite
 	)"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with alsa Alsa)
 		-DKDE4_KTTSD_PHONON=$(use phonon && echo OFF || echo ON)
 		-DKDE4_KTTSD_ALSA=$(use alsa && echo ON || echo OFF)
 		$(cmake-utils_use_with ktts Kttsmodule)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

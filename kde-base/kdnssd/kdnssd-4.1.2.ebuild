@@ -14,8 +14,8 @@ IUSE="debug"
 DEPEND="|| ( net-dns/avahi[mdnsresponder-compat] net-misc/mDNSResponder )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF -DWITH_DNSSD=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

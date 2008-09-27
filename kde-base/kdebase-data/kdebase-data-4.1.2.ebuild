@@ -21,14 +21,13 @@ KMEXTRA="l10n/
 # Note that the eclass doesn't do this for us, because of KMNOMODULE="true".
 KMEXTRACTONLY="config-runtime.h.cmake kde4"
 
-src_compile() {
+src_configure() {
 	# remove instalation of colliding file for hicolor-icon-theme
-	cd "${S}"
 	if (! use kdeprefix); then
 		sed -i \
 			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
 			pics/CMakeLists.txt
 	fi
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

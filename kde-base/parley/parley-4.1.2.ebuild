@@ -20,10 +20,10 @@ RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="libkdeedu/keduvocdocument"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_LibXml2=On -DWITH_LibXslt=On
 		$(cmake-utils_use_with plasma Plasma)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
