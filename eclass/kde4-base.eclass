@@ -522,8 +522,13 @@ kde4-base_src_unpack() {
 # General function for compiling KDE4 applications.
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	case "${EAPI}" in
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
+			;;
+		*)
+			kde4-base_src_configure
+			;;
+	esac
 	if [[ -d ${WORKDIR}/${PN}_build ]]; then
 		pushd "${WORKDIR}"/${PN}_build > /dev/null
 	fi
@@ -570,7 +575,7 @@ kde4-base_src_configure() {
 	# hardcode path to *.cmake KDE files
 	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
-	cmake-utils_src_configureout
+	[ -e CMakeLists.txt ] && cmake-utils_src_configureout
 }
 
 # @FUNCTION: kde4-base_src_make
