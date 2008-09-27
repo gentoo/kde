@@ -4,6 +4,10 @@
 
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   kdelibs-4.1.2.ebuild:
+  Move ebuild towards EAPI2 compilance
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.2.ebuild:
   Use correct patch name
 
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
