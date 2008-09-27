@@ -60,8 +60,13 @@ src_configure() {
 	_libdirs=${_libdirs#:}
 
 	# Complete LDPATH
-	sed -e "s#@REPLACE_LIBS@#${_libdirs}#" \
-		-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
+	if use kdeprefix; then
+		sed -e "s#@REPLACE_LDFLAGS@#export LFFLAGS=${_libdirs}:\$LDFAGS#" \
+			-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
+	else
+		sed -e "s#@REPLACE_LDFLAGS@##" -i "${S}/startkde.cmake" || \
+			die "sed for LDPATH failed"
+	fi
 
 	kde4-meta_src_configure
 }
@@ -72,10 +77,18 @@ src_install() {
 	kde4-meta_src_install
 
 	# startup and shutdown scripts
-	insinto "${KDEDIR}/env"
+	if use kdeprefix; then
+		insinto "${KDEDIR}/env"
+	else
+		insinto "/etc/kde/startup"
+	fi
 	doins "${FILESDIR}/agent-startup.sh" || die "doexe agent-startup.sh failed"
 
-	exeinto "${KDEDIR}/shutdown"
+	if use kdeprefix; then
+		exeinto "${KDEDIR}/shutdown"
+	else
+		exeinto "/etc/kde/shutdown"
+	fi
 	doexe "${FILESDIR}/agent-shutdown.sh" || die "doexe agent-shutdown.sh failed"
 
 	# freedesktop environment variables
@@ -83,7 +96,11 @@ src_install() {
 	export XDG_DATA_DIRS="${KDEDIR}/share:/usr/share"
 	export XDG_CONFIG_DIRS="${KDEDIR}/etc/xdg"
 	EOF
-	insinto "${KDEDIR}/env"
+	if use kdeprefix; then
+		insinto "${KDEDIR}/env"
+	else
+		insinto "/etc/kde/startup"
+	fi
 	doins "${T}/xdg.sh" || die "doins xdg.sh failed"
 
 	# Set DIR to S{SLOT} for the kde-4 and kde-svn slot or kde-${SLOT} for all other slots
@@ -101,10 +118,16 @@ src_install() {
 	doexe "${T}/${DIR}" || die "doexe ${DIR} failed"
 
 	# freedesktop compliant session script
+	local KDE_X
+	if use kdeprefix; then
+		KDE_X="KDE-${SLOT}"
+	else
+		KDE_X="KDE-4"
+	fi
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
-		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/KDE-${SLOT}.desktop"
+		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/${KDE_X}.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/KDE-${SLOT}.desktop" || die "doins ${SLOT}.desktop failed"
+	doins "${T}/${KDE_X}.desktop" || die "doins ${KDE_X}.desktop failed"
 }
 
 pkg_postinst () {
@@ -112,7 +135,12 @@ pkg_postinst () {
 
 	echo
 	elog "To enable gpg-agent and/or ssh-agent in KDE sessions,"
-	elog "edit ${KDEDIR}/env/agent-startup.sh and"
-	elog "${KDEDIR}/shutdown/agent-shutdown.sh"
+	if use kdeprefix; then
+		elog "edit ${KDEDIR}/env/agent-startup.sh and"
+		elog "${KDEDIR}/shutdown/agent-shutdown.sh"
+	else
+		elog "edit /etc/kde/startup/agent-startup.sh and"
+		elog "/etc/kde/shutdown/agent-shutdown.sh"
+	fi
 	echo
 }
