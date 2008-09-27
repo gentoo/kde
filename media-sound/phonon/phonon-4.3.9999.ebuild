@@ -27,7 +27,7 @@ RDEPEND="!kde-base/phonon:kde-svn
 		xine? ( >=media-libs/xine-lib-1.1.15-r1
 				x11-libs/libxcb )"
 DEPEND="${RDEPEND}
-	kde-base/automoc"
+	>=kde-base/automoc-0.9.87"
 
 RESTRICT="test"
 
