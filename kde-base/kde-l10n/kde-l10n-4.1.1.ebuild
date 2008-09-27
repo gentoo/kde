@@ -54,6 +54,10 @@ src_unpack() {
 	fi
 }
 
+src_configure() {
+	[[ -n ${A} ]] && kde4-base_src_configure
+}
+
 src_compile() {
 	[[ -n ${A} ]] && kde4-base_src_compile
 }

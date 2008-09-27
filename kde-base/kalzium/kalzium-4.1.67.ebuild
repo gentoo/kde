@@ -26,7 +26,7 @@ KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
 PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
-src_compile() {
+src_configure() {
 	if use solver ; then
 		# Compile the solver on its own as the cmake-based build is
 		# currently broken. Fixes bug 206620.
@@ -43,5 +43,5 @@ src_compile() {
 		$(cmake-utils_use_with solver OCaml)
 		$(cmake-utils_use_with solver Libfacile)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

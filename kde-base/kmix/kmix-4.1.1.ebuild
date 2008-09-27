@@ -16,8 +16,8 @@ DEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with alsa Alsa)"
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

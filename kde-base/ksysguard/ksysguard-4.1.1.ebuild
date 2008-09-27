@@ -25,11 +25,11 @@ RDEPEND="${COMMONDEPEND}
 
 KMEXTRA="libs/ksysguard/"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with lm_sensors Sensors)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_test() {

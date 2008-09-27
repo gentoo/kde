@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; <alexxy@gentoo.org> kweather-4.1.1.ebuild,
+  kweather-4.1.67.ebuild:
+  Make ebuilds work with eapi2
+
 *kweather-4.1.67 (26 Sep 2008)
 
   26 Sep 2008; <alexxy@gentoo.org> +kweather-4.1.67.ebuild:

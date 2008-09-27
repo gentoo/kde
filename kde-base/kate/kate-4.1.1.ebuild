@@ -22,9 +22,9 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with plasma Plasma)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

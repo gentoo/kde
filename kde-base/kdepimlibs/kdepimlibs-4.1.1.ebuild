@@ -24,9 +24,9 @@ DEPEND="
 	sasl? ( >=dev-libs/cyrus-sasl-2 )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with ldap Ldap)
 		$(cmake-utils_use_with sasl Sasl2)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

@@ -26,10 +26,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	xinerama? ( x11-libs/libXinerama )"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

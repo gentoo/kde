@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 KMEXTRACTONLY="libkdepim/
 	maildir/"
 
-src_compile() {
+src_configure() {
 	# Set the dbus dirs, otherwise it searches in KDEDIR
 	mycmakeargs="${mycmakeargs}
 		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces
@@ -42,7 +42,7 @@ src_compile() {
 		$(cmake-utils_use_with nepomuk Nepomuk)
 		$(cmake-utils_use_with plasma Plasma)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_test() {

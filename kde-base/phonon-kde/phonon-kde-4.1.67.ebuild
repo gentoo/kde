@@ -19,8 +19,8 @@ DEPEND="!kde-base/phonon:${SLOT}
         >=media-sound/phonon-4.3"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with xcb XCB)"
-		kde4-meta_src_compile
+		kde4-meta_src_configure
 }
 

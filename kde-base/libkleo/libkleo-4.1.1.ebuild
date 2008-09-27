@@ -17,8 +17,8 @@ RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_QGPGME=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

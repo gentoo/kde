@@ -14,9 +14,9 @@ IUSE="debug htmlhandbook"
 DEPEND="sys-boot/lilo"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DBUILD_lilo-config=TRUE -DLILO_EXECUTABLE=TRUE"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

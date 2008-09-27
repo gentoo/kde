@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 
 #PATCHES=("${FILESDIR}/${KMNAME}-4.0.2-system-libspectre.patch")
 
-src_compile() {
+src_configure() {
 	# remove internal copy of libspectre
 #	rm -r "${S}"/okular/generators/spectre/libspectre || \
 #		die "Failed to remove internal copy of libspectre."
@@ -38,5 +38,5 @@ src_compile() {
 		$(cmake-utils_use_with pdf Poppler)
 		$(cmake-utils_use_with tiff TIFF)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

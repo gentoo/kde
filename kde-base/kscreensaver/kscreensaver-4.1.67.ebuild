@@ -25,10 +25,10 @@ RDEPEND="${COMMONDEPEND}"
 
 PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with pam PAM)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

@@ -46,7 +46,7 @@ KMCOMPILEONLY="kdm/kfrontend/sessions/"
 
 PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
 
-src_compile() {
+src_configure() {
 	# Patch the startkde script to setup the environment for KDE 4.0
 	# Add our KDEDIR
 	sed -e "s#@REPLACE_PREFIX@#${PREFIX}#" \
@@ -63,7 +63,7 @@ src_compile() {
 	sed -e "s#@REPLACE_LIBS@#${_libdirs}#" \
 		-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

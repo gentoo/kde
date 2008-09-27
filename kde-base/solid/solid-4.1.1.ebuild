@@ -20,12 +20,12 @@ RDEPEND="${DEPEND}"
 
 KMEXTRA="libs/solid/"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bluetooth BlueZ)
 		$(cmake-utils_use_with networkmanager NetworkManager)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 pkg_postinst() {

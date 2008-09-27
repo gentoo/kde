@@ -22,9 +22,9 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="libkleo"
 KMLOADLIBS="libkleo"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_QGpgme=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
