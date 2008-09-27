@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME=kdebase
+KMNAME=kdebase-workspace
 KMMODULE=apps/${PN}
 inherit kde4-base
 
