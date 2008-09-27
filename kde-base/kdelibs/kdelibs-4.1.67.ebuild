@@ -74,7 +74,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 "
 
-src_compile() {
+src_configure() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
 			mycmakeargs="${mycmakeargs} -DWITH_Avahi=ON -DWITH_DNSSD=OFF"
@@ -106,7 +106,10 @@ src_compile() {
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 	"
+	kde4-base_src_configure
+}
 
+src_compile() {
 	kde4-base_src_compile
 
 	# The building of apidox is not managed anymore by the build system

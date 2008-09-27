@@ -16,7 +16,7 @@
 
 inherit base cmake-utils eutils kde4-functions multilib
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
 # Set the qt dependencies
 kde4-base_set_qt_dependencies() {
