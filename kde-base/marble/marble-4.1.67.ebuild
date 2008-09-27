@@ -17,7 +17,7 @@ DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug designer-plugin htmlhandbook kde gps"
 # Goes in the ebuild because of NEED_KDE=none
-SLOT="4.1"
+SLOT="4.2"
 
 # FIXME: undefined reference when building tests. RESTRICTed for now.
 # Last checked in 4.0.3.
