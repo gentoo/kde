@@ -545,7 +545,7 @@ kde4-base_src_compile() {
 		2 | 2_pre3 | 2_pre2 | 2_pre1)
 			;;
 		*)
-			[ -e CMakeLists.txt ] && kde4-base_src_configure
+			kde4-base_src_configure
 			;;
 	esac
 	if [[ -d ${WORKDIR}/${PN}_build ]]; then
@@ -594,7 +594,7 @@ kde4-base_src_configure() {
 	# hardcode path to *.cmake KDE files
 	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
-	cmake-utils_src_configureout
+	[ -e CMakeLists.txt ] && cmake-utils_src_configureout
 }
 
 # @FUNCTION: kde4-base_src_make

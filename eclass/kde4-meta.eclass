@@ -17,7 +17,7 @@
 
 inherit multilib kde4-functions kde4-base
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
 if [[ -z ${KMNAME} ]]; then
 	die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
@@ -356,7 +356,13 @@ load_library_dependencies() {
 kde4-meta_src_compile() {
 	debug-print-function  ${FUNCNAME} "$@"
 
-	kde4-meta_src_configure
+	case "${EAPI}" in
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
+		;;
+		*)
+			kde4-base_meta_configure
+		;;
+	esac
 	kde4-meta_src_make
 }
 
