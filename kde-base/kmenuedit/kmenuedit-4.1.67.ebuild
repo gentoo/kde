@@ -13,12 +13,5 @@ IUSE="debug htmlhandbook"
 
 DEPEND="kde-base/khotkeys:${SLOT}"
 
-src_configure() {
-		mkdir -pv "${WORKDIR}"/${PN}_build/khotkeys/app/ || die "mkdir failed"
-		ln -s ${KDEDIR}/share/dbus-1/interfaces/org.kde.khotkeys.xml \
-			"${WORKDIR}"/${PN}_build/khotkeys/app/org.kde.khotkeys.xml \
-				|| die "symlinking xml file failed"
-		
-		kde4overlay-meta_src_compile
-}
+KMEXTRACTONLY="libs/kworkspace/"
 
