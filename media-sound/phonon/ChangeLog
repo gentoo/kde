@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-4.3.9999 (27 Sep 2008)
+
+  27 Sep 2008; <alexxy@gentoo.org> +phonon-4.3.9999.ebuild:
+  version bump
+
   01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   phonon-4.2.0.ebuild:
   Added block for kde-base/phonon:kde-4.
