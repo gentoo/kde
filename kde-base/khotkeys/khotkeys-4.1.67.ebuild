@@ -16,3 +16,7 @@ DEPEND=">=kde-base/libkworkspace-${PV}:${SLOT}
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="libs/kworkspace/"
+
+src_compile() {
+	MAKEOPTS="-j1" kde4-meta_src_compile
+}
