@@ -46,4 +46,5 @@ src_compile() {
 		mkdir -p "${WORKDIR}/${PN}_build/${PN}/src/"
 		cp * "${WORKDIR}/${PN}_build/${PN}/src/"
 	fi
+	kde4-meta_src_compile
 }
