@@ -1,11 +1,9 @@
---- CMakeLists.txt	2008-09-27 19:30:34.000000000 +0400
-+++ CMakeLists.txt	2008-09-27 19:31:12.000000000 +0400
-@@ -25,7 +25,7 @@
- add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
- include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+--- cmake/modules/CMakeLists.txt.orig	2008-09-27 19:48:46.000000000 +0400
++++ cmake/modules/CMakeLists.txt	2008-09-27 19:49:05.000000000 +0400
+@@ -5,5 +5,5 @@
+   FindMarbleWidget.cmake
+ )
  
--add_subdirectory(cmake)
-+#DONOTCOMPILE add_subdirectory(cmake)
- macro_optional_add_subdirectory(doc)
- add_subdirectory(libkdeedu)
- macro_optional_add_subdirectory(blinken)
+-install(FILES ${cmakeFiles} DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
++#DONOTINSTALL install(FILES ${cmakeFiles} DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+ 
