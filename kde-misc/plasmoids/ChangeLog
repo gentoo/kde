@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  plasmoids-0.2.ebuild:
+  Move ebuild towards EAPI2 compilance
+
 *plasmoids-0.2 (16 Sep 2008)
 
   16 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>

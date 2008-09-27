@@ -46,10 +46,13 @@ src_prepare() {
 	done
 }
 
-src_compile() {
+src_configure() {
 	# we dont want kdehome or we get sandbox violation
 	unset KDEHOME
 	# does not support out of tree build
 	cmake . || die "cmake failed"
+}
+
+src_compile() {
 	emake || die "emake failed"
 }

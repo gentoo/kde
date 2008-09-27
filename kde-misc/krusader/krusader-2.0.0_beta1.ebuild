@@ -26,7 +26,7 @@ DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
 S="${WORKDIR}/${MY_P}"
 PREFIX="${KDEDIR}"
 
-src_compile() {
+src_configure() {
 	local mycmakeargs
 	# for paranoid users
 	use pic && mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FPIE"
@@ -35,5 +35,5 @@ src_compile() {
 		-e "s:set(CMAKE_VERBOSE_MAKEFILE ON):#NADA:g" \
 		CMakeLists.txt
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

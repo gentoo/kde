@@ -33,7 +33,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${COMMON_DEPEND}"
 
-src_compile() {
+src_configure() {
 	# Fix automagic dependencies / linking
 	if ! use clucene; then
 		sed -e '/find_package(CLucene)/s/^/#DONOTFIND /' \
@@ -69,7 +69,7 @@ src_compile() {
 	# NOTE: temporarely fix until a better cmake files patch will be provided.
 	use elibc_FreeBSD && append-ldflags "-lpthread"
 
-	cmake-utils_src_compile
+	cmake-utils_src_configure
 }
 
 src_test() {
