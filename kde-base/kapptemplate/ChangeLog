@@ -2,6 +2,16 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kapptemplate-4.1.1.ebuild, +kapptemplate-4.1.2.ebuild:
+  Version removed.
+
+*kapptemplate-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kapptemplate-4.1.2.ebuild:
+  Version bump.
+
 *kapptemplate-4.1.1 (02 Sep 2008)
 
   02 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>

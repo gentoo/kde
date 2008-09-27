@@ -2,6 +2,16 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kteatime-4.1.1.ebuild, +kteatime-4.1.2.ebuild:
+  Version removed.
+
+*kteatime-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kteatime-4.1.2.ebuild:
+  Version bump.
+
 *kteatime-4.1.1 (02 Sep 2008)
 
   02 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +kteatime-4.1.1.ebuild:

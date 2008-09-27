@@ -2,6 +2,16 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -okteta-4.1.1.ebuild, +okteta-4.1.2.ebuild:
+  Version removed.
+
+*okteta-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +okteta-4.1.2.ebuild:
+  Version bump.
+
 *okteta-4.1.1 (02 Sep 2008)
 
   02 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +okteta-4.1.1.ebuild:

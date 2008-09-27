@@ -2,6 +2,17 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdeaccessibility-iconthemes-4.1.1.ebuild,
+  +kdeaccessibility-iconthemes-4.1.2.ebuild:
+  Version removed.
+
+*kdeaccessibility-iconthemes-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kdeaccessibility-iconthemes-4.1.2.ebuild:
+  Version bump.
+
   10 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdeaccessibility-iconthemes-4.1.1.ebuild:
   Applied scarabeus fix for quoting variables.

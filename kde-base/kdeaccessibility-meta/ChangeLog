@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdeaccessibility-meta-4.1.1.ebuild:
+  Version removed.
+
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   +kde-base/kde-meta/kde-meta-4.1.1.ebuild,
   +kde-base/kdeaccessibility-meta/kdeaccessibility-meta-4.1.1.ebuild:

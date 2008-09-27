@@ -74,9 +74,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 "
 
-PATCHES=( "${FILESDIR}/${P}-konqueror-pointer.patch"
-	"${FILESDIR}/${P}-kbuildsycoca.patch"
-	"${FILESDIR}/${P}-cmake-modules.patch" )
+PATCHES=( "${FILESDIR}/${P}-cmake-modules.patch" )
 
 src_compile() {
 	if use zeroconf; then

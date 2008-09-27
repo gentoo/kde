@@ -2,6 +2,16 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -marble-4.1.1.ebuild, +marble-4.1.2.ebuild:
+  Version removed.
+
+*marble-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +marble-4.1.2.ebuild:
+  Version bump.
+
   10 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kde-base/marble/marble-4.1.1.ebuild:
   Fixed marble for EAPI 2_pre1.
