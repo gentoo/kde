@@ -2,15 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdetoys-meta-4.1.0.ebuild:
-  Version removed.
+*kdetoys-meta-4.1.1 (21 Sep 2008)
 
-*kdetoys-meta-4.1.1 (05 Sep 2008)
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   +kdetoys-meta-4.1.1.ebuild:
-  Version bump.
+  Added back meta ebuild from the master branch.
 
 *kdetoys-meta-4.1.0 (18 Aug 2008)
 

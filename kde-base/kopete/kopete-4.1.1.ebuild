@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdenetwork
 inherit kde4-meta
@@ -48,7 +48,7 @@ DEPEND="${COMMONDEPEND}
 
 PDEPEND="ssl? ( >=app-crypt/qca-ossl-2.0.0_beta3 )"
 
-src_compile() {
+src_configure() {
 	# Xmms isn't in portage, thus forcefully disabled.
 	mycmakeargs="${mycmakeargs}
 		-DWITH_Xmms=OFF
@@ -90,7 +90,7 @@ src_compile() {
 #		$(cmake-utils_use_with telepathy)
 #		$(cmake-utils_use_with telepathy Decibel)
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 pkg_postinst() {

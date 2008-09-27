@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 CPPUNIT_REQUIRED="optional"
@@ -25,11 +25,11 @@ RDEPEND="${COMMONDEPEND}
 
 KMEXTRA="libs/ksysguard/"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with lm_sensors Sensors)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_test() {

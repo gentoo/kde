@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
@@ -34,7 +34,7 @@ COMMONDEPEND="
 	media-libs/jpeg
 	media-libs/libpng
 	>=media-sound/phonon-4.2.0
-	>=sys-apps/dbus-0.91
+	>=sys-apps/dbus-0.91[X]
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -49,7 +49,7 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	>=x11-misc/shared-mime-info-0.20
 	acl? ( kernel_linux? ( sys-apps/acl ) )
-	alsa? ( >=media-libs/alsa-lib-1.0.14a )
+	alsa? ( >=media-libs/alsa-lib-1.0.14a[midi] )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
@@ -60,7 +60,7 @@ COMMONDEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.1 )
 	spell? ( app-text/aspell app-dicts/aspell-en app-text/enchant )
 	ssl? ( >=dev-libs/openssl-0.9.7d )
-	zeroconf? ( || ( net-dns/avahi
+	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat]
 		!bindist? ( net-misc/mDNSResponder ) ) )
 "
 
@@ -75,27 +75,10 @@ RDEPEND="${COMMONDEPEND}
 "
 
 PATCHES=( "${FILESDIR}/${P}-konqueror-pointer.patch"
-"${FILESDIR}/${P}-kbuildsycoca.patch"
-"${FILESDIR}/${P}-cmake-modules.patch" )
+	"${FILESDIR}/${P}-kbuildsycoca.patch"
+	"${FILESDIR}/${P}-cmake-modules.patch" )
 
-pkg_setup() {
-	if use zeroconf && has_version net-dns/avahi && ! built_with_use net-dns/avahi mdnsresponder-compat; then
-		eerror "You should rebuild avahi with mdnsresponder-compat USE flag!"
-		die "rebuild net-dns/avahi with mdnsresponder-compat"
-	fi
-
-	if ! built_with_use sys-apps/dbus X; then
-		eerror "Please build sys-apps/dbus with the X useflag."
-		die "Need sys-apps/dbus built with the X useflag."
-	fi
-
-	if use alsa && ! built_with_use media-libs/alsa-lib midi; then
-		eerror "Please build media-libs/alsa-lib with the midi useflag."
-		die "Need media-libs/alsa-lib built with the midi useflag."
-	fi
-}
-
-src_compile() {
+src_configure() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
 			mycmakeargs="${mycmakeargs} -DWITH_Avahi=ON -DWITH_DNSSD=OFF"
@@ -106,13 +89,13 @@ src_compile() {
 		fi
 	fi
 	if use kdeprefix; then
-		HME=".kde$(basename $KDEDIR)"
+		DEFAULT_HOME=".kde${SLOT}"
 	else
-		HME=".kde4"
+		DEFAULT_HOME=".kde4"
 	fi
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
-		-DKDE_DEFAULT_HOME=${HME}
+		-DKDE_DEFAULT_HOME=${DEFAULT_HOME}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
@@ -132,7 +115,10 @@ src_compile() {
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 	"
+	kde4-base_src_configure
+}
 
+src_compile() {
 	kde4-base_src_compile
 
 	# The building of apidox is not managed anymore by the build system
@@ -188,9 +174,9 @@ src_install() {
 	cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 	SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
 	EOF
-
 	# Ensure that the correct permissions are present on ${KDEDIR}/share/config
 	chmod 755 ${KDEDIR}/share/config
+
 }
 
 pkg_postinst() {

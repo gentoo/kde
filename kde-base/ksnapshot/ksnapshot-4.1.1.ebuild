@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/ksnapshot/ksnapshot-4.0.5.ebuild,v 1.1 2008/06/05 22:19:10 keytoaster Exp $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdegraphics
 inherit kde4-meta

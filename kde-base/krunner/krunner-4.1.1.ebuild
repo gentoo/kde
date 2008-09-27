@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 OPENGL_REQUIRED="optional"
@@ -38,11 +38,11 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasma"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xscreensaver X11_Xscreensaver)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

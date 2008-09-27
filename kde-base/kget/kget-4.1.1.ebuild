@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdenetwork
 inherit kde4-meta
@@ -16,9 +16,9 @@ DEPEND="
 	plasma? ( kde-base/libplasma:${SLOT} )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF
 		$(cmake-utils_use_with plasma Plasma)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

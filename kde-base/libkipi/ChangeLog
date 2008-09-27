@@ -2,12 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -libkipi-4.1.0.ebuild,
+  16 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   libkipi-4.1.1.ebuild:
-  Fixed to use kdeprefix.
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -libkipi-4.1.0.ebuild:
-  Version removed.
+  Replaced the multislot with the kdeprefix use flag.
 
 *libkipi-4.1.1 (01 Sep 2008)
 

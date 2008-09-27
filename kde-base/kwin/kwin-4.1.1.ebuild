@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 OPENGL_REQUIRED="optional"
@@ -28,7 +28,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )"
 RDEPEND="${COMMONDEPEND}"
 
-src_compile() {
+src_configure() {
 	if ! use captury; then
 		sed -e 's:^PKGCONFIG..libcaptury:#DONOTFIND &:' \
 			-i "${S}"/kwin/effects/CMakeLists.txt || \
@@ -40,5 +40,5 @@ src_compile() {
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

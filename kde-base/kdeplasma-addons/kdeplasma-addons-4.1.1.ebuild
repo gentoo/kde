@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
+NEED_KDE="4.1"
 KMNAME=kdeplasma-addons
 OPENGL_REQUIRED="optional"
 inherit kde4-base
@@ -25,10 +26,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	xinerama? ( x11-libs/libXinerama )"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

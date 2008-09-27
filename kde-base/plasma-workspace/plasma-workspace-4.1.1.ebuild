@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 KMMODULE=plasma
@@ -40,15 +40,7 @@ KMEXTRACTONLY="krunner/org.freedesktop.ScreenSaver.xml
 
 KMLOADLIBS="libplasma"
 
-# check disable for strigi-9999
-pkg_setup() {
-	if ! built_with_use app-misc/strigi dbus && ! built_with_use app-misc/strigi qt4 ; then
-		eerror "Need app-misc/strigi with dbus and qt4 enabled"
-		die "Need app-misc/strigi with dbus and qt4 enabled"
-	fi
-}
-
-src_compile() {
+src_configure() {
 	# Remove this if a patch has been applied upstream.
 	#sed -i -e 's/plasmapkg plasma/plasmapkg ${KDE4_KIO_LIBS} plasma/'\
 	#	"${S}"/plasma/tools/plasmapkg/CMakeLists.txt || die "sed failed."
@@ -56,5 +48,5 @@ src_compile() {
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

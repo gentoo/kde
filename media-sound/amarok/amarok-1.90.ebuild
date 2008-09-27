@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -13,10 +13,9 @@ PREFIX="${KDEDIR}"
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
 
-SLOT="0"
-
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
+SLOT="4.1"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp mysql njb opengl visualization"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
@@ -25,13 +24,13 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	dev-db/sqlite:3
-	>=kde-base/kdelibs-4.1
-	>=kde-base/libplasma-4.1
+	kde-base/kdelibs:${SLOT}
+	kde-base/libplasma:${SLOT}
 	>=media-libs/taglib-1.5
 	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
 	x11-libs/qt-webkit:4
-	cdaudio? ( >=kde-base/libkcddb-4.1
-		>=kde-base/libkcompactdisc-4.1 )
+	cdaudio? ( kde-base/libkcddb:${SLOT}
+		kde-base/libkcompactdisc:${SLOT} )
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
 	mp3tunes? ( net-misc/curl
@@ -42,12 +41,14 @@ DEPEND="
 	njb? ( >=media-libs/libnjb-2.2.4 )
 	opengl? ( virtual/opengl )
 	visualization? ( media-libs/libsdl
-		=media-plugins/libvisual-plugins-0.4* )"
+		=media-plugins/libvisual-plugins-0.4* )
+	"
 RDEPEND="${DEPEND}
 	app-arch/unzip
-	daap? ( www-servers/mongrel )"
+	daap? ( www-servers/mongrel )
+	"
 
-src_compile() {
+src_configure() {
 	if use debug; then
 		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=debugfull"
 	fi
@@ -64,5 +65,5 @@ src_compile() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with visualization Libvisual)
 	"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

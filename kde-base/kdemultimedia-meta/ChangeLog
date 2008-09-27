@@ -2,15 +2,17 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdemultimedia-meta-4.1.0.ebuild:
-  Version removed.
-
-*kdemultimedia-meta-4.1.1 (05 Sep 2008)
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  +kdemultimedia-meta-4.1.1.ebuild:
-  Version bump.
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kde-base/kde-meta/kde-meta-4.1.1.ebuild,
+  +kde-base/kdeaccessibility-meta/kdeaccessibility-meta-4.1.1.ebuild,
+  +kde-base/kdeadmin-meta/kdeadmin-meta-4.1.1.ebuild,
+  +kde-base/kdeartwork-meta/kdeartwork-meta-4.1.1.ebuild,
+  +kde-base/kdebase-meta/kdebase-meta-4.1.1.ebuild,
+  +kde-base/kdeedu-meta/kdeedu-meta-4.1.1.ebuild,
+  +kde-base/kdegames-meta/kdegames-meta-4.1.1.ebuild,
+  +kde-base/kdegraphics-meta/kdegraphics-meta-4.1.1.ebuild,
+  +kde-base/kdemultimedia-meta/kdemultimedia-meta-4.1.1.ebuild:
+  Added back meta ebuild from the master branch.
 
 *kdemultimedia-meta-4.1.0 (16 Aug 2008)
 

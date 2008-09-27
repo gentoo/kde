@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-runtime
 KMMODULE=kioslave
@@ -36,11 +36,11 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bzip2 BZip2)
 		$(cmake-utils_use_with samba Samba)
 		$(cmake-utils_use_with openexr OpenEXR)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

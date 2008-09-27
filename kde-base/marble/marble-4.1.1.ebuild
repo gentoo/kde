@@ -1,8 +1,7 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-
-EAPI="1"
+EAPI="2"
 NEED_KDE="none"
 KMNAME=kdeedu
 
@@ -12,27 +11,28 @@ else
 	KDEDIR="/usr"
 fi
 CPPUNIT_REQUIRED="optional"
-SLOT="4"
 inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug designer-plugin htmlhandbook kde gps"
+# Goes in the ebuild because of NEED_KDE=none
+SLOT="4.1"
 
 # FIXME: undefined reference when building tests. RESTRICTed for now.
 # Last checked in 4.0.3.
 RESTRICT="test"
 
 COMMONDEPEND="gps? ( sci-geosciences/gpsd )
-	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}
-		>=kde-base/kdepimlibs-${PV}:${SLOT} )
+	kde? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=]
+		>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 	!kdeprefix? ( !sci-geosciences/marble )"
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
 PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
 
@@ -47,7 +47,7 @@ src_compile() {
 		mycmakeargs="${mycmakeargs} -DQTONLY:BOOL=ON"
 	fi
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

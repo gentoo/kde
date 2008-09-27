@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kscreensaver/kscreensaver-4.0.5.ebuild,v 1.1 2008/06/05 22:17:44 keytoaster Exp $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 OPENGL_REQUIRED="optional"
@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE screensaver framework"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug pam"
+IUSE="debug opengl pam"
 
 COMMONDEPEND="dev-libs/glib
 	>=x11-libs/libxklavier-3.2
@@ -25,10 +25,10 @@ RDEPEND="${COMMONDEPEND}"
 
 PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with pam PAM)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

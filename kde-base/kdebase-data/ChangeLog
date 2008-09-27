@@ -3,30 +3,19 @@
 # $Header: $
 
   23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -kdebase-data-4.1.1.ebuild:
+  Removed old revision.
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdebase-data-4.1.1-r1.ebuild:
-  Whitespace.
+  Applied *all* of scarabeus patch.
 
-  18 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  kdebase-data-4.1.1-r1.ebuild:
-  Fix not installed file index.theme with kdeprefix.
+*kdebase-data-4.1.1-r1 (23 Sep 2008)
 
-  17 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  kdebase-data-4.1.1-r1.ebuild:
-  fix problem with hicolor-icon-theme for good
-
-*kdebase-data-4.1.1-r1 (16 Sep 2008)
-
-  16 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  +kdebase-data-4.1.1-r1.ebuild, -kdebase-data-4.1.1.ebuild:
-  Allow hicolor-icon-theme and remove collision with it.
-
-  15 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  kdebase-data-4.1.1.ebuild:
-  Restrict hicolor-icon-theme from system
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdebase-data-4.1.0.ebuild:
-  Version removed.
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdebase-data-4.1.1-r1.ebuild:
+  Applied scarabeus fix to prevent the collision between kdebase-data and
+  hicolor-icon-theme.
 
 *kdebase-data-4.1.1 (01 Sep 2008)
 

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -14,7 +14,7 @@ SRC_URI="http://${PN}.kde.org/pkgs/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE="cairo npp"
 
 DEPEND="x11-libs/libXv
@@ -39,11 +39,11 @@ src_unpack() {
 		-e "s:add_subdirectory(icons):#add_subdirectory(icons):g"\
 		CMakeLists.txt || die "removing icons failed"
 }
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DCMAKE_INSTALL_PREFIX=${PREFIX}
 		$(cmake-utils_use_with cairo CAIRO)
 		$(cmake-utils_use_with npp NPP)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
 

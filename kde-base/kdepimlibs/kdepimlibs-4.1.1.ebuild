@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 CPPUNIT_REQUIRED="optional"
 inherit kde4-base
@@ -24,9 +24,9 @@ DEPEND="
 	sasl? ( >=dev-libs/cyrus-sasl-2 )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with ldap Ldap)
 		$(cmake-utils_use_with sasl Sasl2)"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

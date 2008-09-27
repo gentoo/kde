@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
+NEED_OPENGL="always"
 inherit kde4-base
 
 DESCRIPTION="Set of plasma themes packed for ease install"
@@ -21,12 +22,12 @@ SRC_URI="
 	"
 
 LICENSE="GPL-3"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=kde-base/libplasma-4.1.1
-	>=kde-base/plasma-workspace-4.1.1"
+DEPEND="kde-base/libplasma:${SLOT}[opengl]
+	kde-base/plasma-workspace:${SLOT}"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"

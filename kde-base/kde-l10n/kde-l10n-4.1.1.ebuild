@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 inherit kde4-base
 
@@ -54,10 +54,12 @@ src_unpack() {
 	fi
 }
 
+src_configure() {
+	[[ -n ${A} ]] && kde4-base_src_configure
+}
 src_compile() {
 	[[ -n ${A} ]] && kde4-base_src_compile
 }
-
 src_install() {
 	[[ -n ${A} ]] && kde4-base_src_install
 }

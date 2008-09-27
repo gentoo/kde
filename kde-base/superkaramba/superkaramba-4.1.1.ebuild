@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdeutils
 inherit kde4-meta
@@ -20,9 +20,9 @@ RDEPEND="${COMMONDEPEND}"
 
 PATCHES=("${FILESDIR}/${PN}-as-needed.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with python PythonLibs)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

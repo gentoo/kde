@@ -2,17 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdepim
 inherit kde4-meta
 
 DESCRIPTION="KDE Synchronisation Framework"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND=">=app-pda/libopensync-0.30
-	<app-pda/libopensync-9999
 	dev-libs/glib:2
 	>=kde-base/libkdepim-${PV}:${SLOT}"
 RDEPEND="${DEPEND}"

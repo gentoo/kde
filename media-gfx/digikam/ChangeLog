@@ -2,24 +2,20 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  digikam-0.10.0_beta2-r1.ebuild:
-  Move patch for kipi and other to eclass
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  ChangeLog:
+  Move ebuild towards EAPI2 compilance
 
-  21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  digikam-0.10.0_beta2-r1.ebuild:
-  Update usage of linguas
+*digikam-0.10.0_beta2-r1 (25 Sep 2008)
 
-*digikam-0.10.0_beta2-r1 (12 Sep 2008)
-
-  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   +digikam-0.10.0_beta2-r1.ebuild, -digikam-0.10.0_beta2.ebuild:
-  Added dependency on kdebase-data (icons) and removing installation of
-  icons by digikam itself
+  Version bump due to various fixups.
 
-  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  10 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   digikam-0.10.0_beta2.ebuild:
-  Fixed dependency order (Now in alphabetic order)
+  Fixed dep order and removed kdepimlibs as that's defined on the
+  kde4-base.eclass.
 
 *digikam-0.10.0_beta2 (08 Sep 2008)
 

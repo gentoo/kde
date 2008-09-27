@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-runtime
 KMNOMODULE=true
@@ -21,7 +21,7 @@ KMEXTRA="l10n/
 # Note that the eclass doesn't do this for us, because of KMNOMODULE="true".
 KMEXTRACTONLY="config-runtime.h.cmake kde4"
 
-src_compile() {
+src_configure() {
 	# remove instalation of colliding file for hicolor-icon-theme
 	cd "${S}"
 	if (! use kdeprefix); then
@@ -30,5 +30,5 @@ src_compile() {
 			pics/CMakeLists.txt
 	fi
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

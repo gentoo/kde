@@ -2,15 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdeutils-meta-4.1.0.ebuild:
-  Version removed.
+*kdeutils-meta-4.1.1 (21 Sep 2008)
 
-*kdeutils-meta-4.1.1 (05 Sep 2008)
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   +kdeutils-meta-4.1.1.ebuild:
-  Version bump.
+  Added back meta ebuild from the master branch.
 
 *kdeutils-meta-4.1.0 (16 Aug 2008)
 

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdeedu
 inherit kde4-meta
@@ -17,10 +17,10 @@ DEPEND=">=sci-mathematics/gmm-3.0
 	qalculate? ( >=sci-libs/libqalculate-0.9.5 )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with gsl GSL)
 		$(cmake-utils_use_with qalculate Qalculate)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

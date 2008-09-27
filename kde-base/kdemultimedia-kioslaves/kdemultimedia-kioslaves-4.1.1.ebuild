@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMMODULE=kioslave
 KMNAME=kdemultimedia
@@ -28,7 +28,7 @@ KMEXTRACTONLY="libkcddb/
 #KMCOMPILEONLY="libkcddb/"
 KMLOADLIBS="libkcddb"
 
-src_compile() {
+src_configure() {
 	ln -s "${PREFIX}"/include/libkcddb/configbase.h \
 		"${WORKDIR}"/${P}/kioslave/audiocd/ \
 	|| die "linking generated header into sources failed"
@@ -42,7 +42,7 @@ src_compile() {
 			-DWITH_OggVorbis=OFF -DWITH_Flac=OFF"
 	fi
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 pkg_postinst() {

@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
+NEED_OPENGL="always"
 inherit kde4-base
 
 DESCRIPTION="Useful plasma applets"
@@ -21,12 +22,12 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/85802-Timer.tar.bz2
 	"
 
 LICENSE="GPL-2 GPL-3"
-SLOT="0"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=kde-base/libplasma-4.1.1
-	>=kde-base/plasma-workspace-4.1.1
+RDEPEND="kde-base/libplasma:${SLOT}[opengl]
+	kde-base/plasma-workspace:${SLOT}
 	x11-libs/qt-webkit"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1"
@@ -46,8 +47,11 @@ src_unpack() {
 	unpack ${A}
 }
 
-src_compile() {
+src_configure() {
 	get_dirs "cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+}
+
+src_compile() {
 	get_dirs "make"
 }
 

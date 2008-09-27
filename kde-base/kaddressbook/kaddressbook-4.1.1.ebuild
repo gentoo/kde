@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdepim
 inherit kde4-meta
@@ -22,9 +22,9 @@ KMEXTRACTONLY="kmail/
 	libkleo/"
 KMLOADLIBS="libkdepim libkleo"
 
-src_compile(){
+src_configure(){
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with gnokii GNOKII)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

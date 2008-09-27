@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdepim
 inherit kde4-meta
@@ -18,9 +18,9 @@ RDEPEND="${DEPEND}"
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="kmail/"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_QGpgme=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

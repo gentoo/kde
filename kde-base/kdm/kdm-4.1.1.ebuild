@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdm/kdm-4.0.5.ebuild,v 1.1 2008/06/05 21:42:03 keytoaster Exp $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 inherit kde4-meta
@@ -27,12 +27,12 @@ KMEXTRA="libs/kdm/"
 
 PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(use kerberos && echo "-DKDE4_KRB5AUTH=ON" || echo "-DKDE4_KRB5AUTH=OFF")
 		$(cmake-utils_use_with pam PAM)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }
 
 src_install() {

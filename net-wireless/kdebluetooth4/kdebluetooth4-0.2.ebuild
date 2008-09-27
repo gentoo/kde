@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -13,16 +13,17 @@ SRC_URI="mirror://sourceforge/kde-bluetooth/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
-SLOT="4"
+SLOT="4.1"
 IUSE=""
 
-DEPEND="app-mobilephone/obexftp
-	app-mobilephone/obex-data-server
-	dev-libs/openobex"
+
+DEPEND="dev-libs/openobex
+	app-mobilephone/obexftp
+	app-mobilephone/obex-data-server"
+
 RDEPEND="${DEPEND}
 	|| ( ( kde-base/kdialog:${SLOT} kde-base/konqueror:${SLOT} )
 		kde-base/kdelibs:${SLOT} )
 	>=net-wireless/bluez-libs-3.25
 	>=net-wireless/bluez-utils-3.25"
-
 PREFIX="${KDEDIR}"

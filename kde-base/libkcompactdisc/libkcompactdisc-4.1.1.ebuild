@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdemultimedia
 inherit kde4-meta
@@ -15,8 +15,8 @@ DEPEND=">=media-sound/phonon-4.2.0
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with alsa Alsa)"
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

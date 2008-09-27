@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="2"
 
 NEED_KDE="4.1"
 KDE_LINGUAS="bg bs ca cs da de el es fr hu it ja lt nl pl pt pt_BR ru sk sl sr
@@ -16,7 +16,7 @@ HOMEPAGE="http://krusader.sourceforge.net/"
 SRC_URI="mirror://sourceforge/krusader/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="pic"
 
@@ -26,7 +26,7 @@ DEPEND="!kdeprefix? ( !kde-misc/krusader:0 )
 S="${WORKDIR}/${MY_P}"
 PREFIX="${KDEDIR}"
 
-src_compile() {
+src_configure() {
 	local mycmakeargs
 	# for paranoid users
 	use pic && mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FPIE"
@@ -35,5 +35,5 @@ src_compile() {
 		-e "s:set(CMAKE_VERBOSE_MAKEFILE ON):#NADA:g" \
 		CMakeLists.txt
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }

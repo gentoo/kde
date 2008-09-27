@@ -2,12 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   gwenview-4.1.1.ebuild:
-  Move patch for kipi and other to eclass
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -gwenview-4.1.0.ebuild:
-  Version removed.
+  Removed patch to find slotted libkipi as it's now applied in the eclass.
 
 *gwenview-4.1.1 (01 Sep 2008)
 

@@ -4,14 +4,11 @@
 
   25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kjots-4.1.1.ebuild:
-  Fixed var order.
+  Add minimum dep on libkdepim.
 
-  17 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kjots-4.1.1.ebuild:
-  Put dependency on kdepimlibs
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -kjots-4.1.0.ebuild:
-  Version removed.
+  Added missing dep on libkdepim.
 
 *kjots-4.1.1 (01 Sep 2008)
 

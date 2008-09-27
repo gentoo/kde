@@ -3,24 +3,23 @@
 # $Header: $
 
   23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
-  kde-l10n-4.1.1.ebuild:
-  Missed one update to kde-l10n.
-
-  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
-  kde-l10n-4.1.1.ebuild:
-  Applied changes from the testing branch to kde-l10n.
-
-  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   -files/srDataMacros.cmake, kde-l10n-4.1.1.ebuild:
-  Removed sr fixage cause it is part of upstream now
+  Dropped the patch provided by Chusslove as it was merged upstream in the
+  4.1.1 release.
+
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kde-l10n/kde-l10n-4.1.1.ebuild:
+  Renamed LANG and LANGS on global scope to avoid issues.
+
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-l10n-4.1.1.ebuild:
+  Remove SLOT as it's defined on the eclasses.
 
 *kde-l10n-4.1.1 (08 Sep 2008)
 
-  08 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +kde-l10n-4.1.1.ebuild:
-  Version bump, added back in, thanks to alexxy for reporting.
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -kde-l10n-4.1.0.ebuild:
-  Version removed.
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kde-l10n-4.1.1.ebuild:
+  Bumped kde-l10n to 4.1.1.
 
 *kde-l10n-4.1.0 (26 Aug 2008)
 

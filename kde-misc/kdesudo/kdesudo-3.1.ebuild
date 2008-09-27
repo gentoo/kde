@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
 inherit kde4-base
@@ -12,12 +12,12 @@ HOMEPAGE="https://launchpad.net/kdesudo"
 SRC_URI="http://launchpad.net/kdesudo/3.x/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="4"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="app-admin/sudo
-	>=kde-base/kdebase-data-4.1.0"
+	kde-base/kdebase-data:${SLOT}"
 RDEPEND="${DEPEND}"
 
 PREFIX="${KDEDIR}"

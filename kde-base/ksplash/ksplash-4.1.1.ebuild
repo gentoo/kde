@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-workspace
 inherit kde4-meta
@@ -16,7 +16,7 @@ RDEPEND="media-libs/libpng
 DEPEND="${RDEPEND}
 	xinerama? ( x11-proto/xineramaproto )"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
@@ -25,5 +25,5 @@ src_compile() {
 		$(cmake-utils_has sse2 X86_SSE2)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

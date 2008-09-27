@@ -2,8 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  06 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> amarok-1.90.ebuild:
-  Updated the dependencies.
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  amarok-1.90.ebuild:
+  Move ebuild towards EAPI2 compilance
 
   27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   amarok-1.90.ebuild:

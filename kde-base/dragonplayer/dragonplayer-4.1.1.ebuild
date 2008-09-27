@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdemultimedia
 inherit kde4-meta
@@ -15,13 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=media-libs/xine-lib-1.1.9
-	kde-base/phonon-xine:${SLOT}"
+	kde-base/phonon-xine:${SLOT}[xcb]"
 DEPEND="${RDEPEND}
 	sys-devel/gettext"
-
-pkg_setup() {
-	if ! built_with_use kde-base/phonon-xine xcb ; then
-		eerror "you need kde-base/phonon-xine built with xcb USE flag"
-		die "no xcb support in phonon-xine"
-	fi
-}

@@ -11,7 +11,8 @@
 # and KDE4 applications.
 #
 # NOTE: This eclass uses the SLOT dependencies from EAPI="1" or compatible,
-# hence you must define EAPI="1" in the ebuild, before inheriting any eclasses.
+# and use deps from EAPI="2", hence you must define EAPI="2" in the ebuild,
+# before inheriting any eclasses.
 
 inherit base cmake-utils eutils kde4-functions multilib
 
@@ -23,16 +24,16 @@ kde4-base_set_qt_dependencies() {
 
 	# use dependencies
 	case "${EAPI}" in
-		2 | 2_pre2 | 2_pre1)
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
 
 		qt="["
 		case "${OPENGL_REQUIRED}" in
 			always)
-				qt="${qt}opengl,"
-				;;
+			qt="${qt}opengl,"
+			;;
 			optional)
-				qt="${qt}opengl?,"
-				;;
+			qt="${qt}opengl?,"
+			;;
 		esac
 		qt="${qt}accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
 		qtcore="[qt3support,ssl]"
@@ -77,9 +78,6 @@ kde4-base_set_qt_dependencies() {
 	esac
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
-
-	# Define the global kdeprefix USE flag
-	IUSE="${IUSE} kdeprefix"
 }
 kde4-base_set_qt_dependencies
 
@@ -99,6 +97,13 @@ DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	x11-libs/libXt
 	x11-proto/xf86vidmodeproto"
 RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+
+# Add the kdeprefix use flag
+case "${EAPI}" in
+	2 | 2_pre3 | 2_pre2 | 2_pre1)
+		IUSE="${IUSE} kdeprefix"
+		;;
+esac
 
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
@@ -162,7 +167,7 @@ case ${NEED_KDE} in
 			case ${PV} in
 				4.1*| 4.0.9* | 4.0.8*)
 					_kdedir="4.1"
-					_pv="-${PV}:4" ;;
+					_pv="-${PV}:4.1" ;;
 				4.0*)
 					_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
@@ -191,10 +196,6 @@ case ${NEED_KDE} in
 		;;
 	:4.1)
 		_kdedir="4.1"
-		_pv="${NEED_KDE}"
-		;;
-	:4)	# Does this still make sense for KDE 4 with one slot?
-		_kdedir="4"
 		_pv="${NEED_KDE}"
 		;;
 	:kde-4)
@@ -230,7 +231,7 @@ case ${NEED_KDE} in
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
 		_operator=">="
-		_pv="-${NEED_KDE}:4"
+		_pv="-${NEED_KDE}:4.1"
 		;;
 	4.0*)
 		_kdedir="4.0"
@@ -254,43 +255,60 @@ case ${NEED_KDE} in
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-	# If the kdeprefix USE flag is set use the /usr/kde/ prefix
-	if use kdeprefix; then
-		KDEDIR="/usr/kde/${_kdedir}"
-		KDEDIRS=":${KDEDIR}:/usr:/usr/local"
-	else
-		KDEDIR="/usr"
-		KDEDIRS="/usr:/usr/local"
-	fi
 
-	# The svn versions always need their own slot
+	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
 		else
-			# Assign the slot
 			case ${PV} in
-				4.1* | 4.0.9* | 4.0.8*) SLOT="4" ;;
+				4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
 				*) SLOT="kde-4" ;;
 			esac
 		fi
 	fi
 
+	# Block install of other SLOTS unless kdeprefix
+	case "${EAPI}" in
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
+			for KDE_SLOT in ${KDE_SLOTS[@]}; do
+				# block non kdeprefix ${PN} on other slots
+				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+					DEPEND="${DEPEND}
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+					RDEPEND="${RDEPEND}
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+				fi
+			done
+			;;
+	esac
+
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
-		DEPEND="${DEPEND}
-		${_operator}kde-base/kdelibs${_pv}"
-		RDEPEND="${RDEPEND}
-		${_operator}kde-base/kdelibs${_pv}"
+		case "${EAPI}" in
+			2 | 2_pre3 | 2_pre2 | 2_pre1)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+				;;
+			*)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				;;
+		esac
 		if [[ ${PN} != "kdepimlibs" ]]; then
-			DEPEND="${DEPEND}
-			${_operator}kde-base/kdepimlibs${_pv}"
-			RDEPEND="${RDEPEND}
-			${_operator}kde-base/kdepimlibs${_pv}"
+			case "${EAPI}" in
+				2 | 2_pre3 | 2_pre2 | 2_pre1)
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					;;
+				*)
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				esac
 		fi
 	fi
 
-	unset _operator _pv _kdedir
+	unset _operator _pv
 fi
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
@@ -320,34 +338,16 @@ if [[ -n ${KDEBASE} ]]; then
 fi
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - before blockers"
-
-# Monolithic ebuilds should add blockers for split ebuilds in the same slot.
-# If KMNAME is not set then this is not a split package
-if [[ -n ${KDEBASE} && -z ${KMNAME} ]]; then
-	for _x in $(get-child-packages ${CATEGORY}/${PN}); do
-		DEPEND="${DEPEND} !${_x}:${SLOT}"
-		RDEPEND="${RDEPEND} !${_x}:${SLOT}"
-	done
-	unset _x
-fi
-
-debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND ${DEPEND} - after blockers"
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
-# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 
-# installation directory. This is /usr/ unless kdeprefix is enabled.
-# Applications installed by other ebuilds go into /usr/ by default, this value
-# can be changed by defining PREFIX before inheriting kde4-base.
-if [[ -n ${KDEBASE} ]]; then
-	PREFIX=${KDEDIR}
-else
-	# if PREFIX is not defined we set it to the default value of /usr
-	PREFIX="${PREFIX:-/usr}"
-fi
+# Set the installation PREFIX. All kde-base ebuilds go into the KDE4 installation directory.
+# Applications installed by the other ebuilds go into /usr/ by default, this value
+# can be superseded by defining PREFIX before inheriting kde4-base.
+# This value is set on pkg_setup
+PREFIX=""
 
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - KDEDIRS ${KDEDIRS}- PREFIX ${PREFIX} - NEED_KDE ${NEED_KDE}"
+debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - NEED_KDE ${NEED_KDE}"
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
@@ -358,11 +358,40 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SLOT ${SLOT} - KDEDIR ${KDEDIR} - 
 kde4-base_pkg_setup() {
 	debug-print-function $FUNCNAME "$@"
 
-	# we don't want to use KDEHOME, it causes sandbox violations
+	# Don't set KDEHOME during compile, it will cause access violations
 	unset KDEHOME
 
+	if [[ ${NEED_KDE} != none ]]; then
+
+		# Set PREFIX
+		case "${EAPI}" in
+			2 | 2_pre3 | 2_pre2 | 2_pre1)
+				if use kdeprefix; then
+					KDEDIR="/usr/kde/${_kdedir}"
+					KDEDIRS="/usr:/usr/local:${KDEDIR}"
+				else
+					KDEDIR="/usr"
+					KDEDIRS="/usr:/usr/local"
+				fi
+				;;
+			*)
+				KDEDIR="/usr"
+				KDEDIRS="/usr:/usr/local"
+				;;
+		esac
+	fi
+	
+	if [[ -n ${KDEBASE} ]]; then
+		PREFIX=${KDEDIR}
+	else
+		# if PREFIX is not defined we set it to the default value of /usr
+		PREFIX="${PREFIX:-/usr}"
+	fi
+
+	unset _kdedir
+
 	case "${EAPI}" in
-		kdebuild-1)
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
 		[[ -n ${QT4_BUILT_WITH_USE_CHECK} || -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
 			die "built_with_use illegal in this EAPI!"
 		;;
@@ -429,7 +458,7 @@ kde4-base_apply_patches() {
 			_packages="${PN}"
 		fi
 		if [[ $(declare -p PATCHES) != 'declare -a '* ]]; then
-			PATCHES=(${PATCHES})
+			die "PATCHES needs to be an array!"
 		fi
 		for _p in ${_packages}; do
 			for _f in "${_patchdir}"/${_p}-${PV}-*{diff,patch}; do
@@ -493,8 +522,13 @@ kde4-base_src_unpack() {
 # General function for compiling KDE4 applications.
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	[ -e CMakeLists.txt ] && kde4-base_src_configure
+	case "${EAPI}" in
+		2 | 2_pre3 | 2_pre2 | 2_pre1)
+			;;
+		*)
+			kde4-base_src_configure
+			;;
+	esac
 	if [[ -d ${WORKDIR}/${PN}_build ]]; then
 		pushd "${WORKDIR}"/${PN}_build > /dev/null
 	fi
@@ -537,10 +571,11 @@ kde4-base_src_configure() {
 	# Set environment
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH=${KDEDIR}/$(get_libdir)/kde4/plugins/
+
 	# hardcode path to *.cmake KDE files
 	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
-	cmake-utils_src_configureout
+	[ -e CMakeLists.txt ] && cmake-utils_src_configureout
 }
 
 # @FUNCTION: kde4-base_src_make
@@ -573,7 +608,10 @@ kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	kde4-base_src_make_doc
-	cmake-utils_src_install
+	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+		pushd "${WORKDIR}"/${PN}_build > /dev/null
+	fi
+	[ -e [Mm]akefile ] && cmake-utils_src_install
 }
 
 # @FUNCTION: kde4-base_src_make_doc

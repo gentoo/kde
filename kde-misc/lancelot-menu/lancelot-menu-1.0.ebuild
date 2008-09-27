@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 NEED_KDE="4.1"
 OPENGL_REQUIRED="always"
@@ -17,28 +17,29 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-RDEPEND=">=kde-base/libplasma-4.1.0"
+RDEPEND="kde-base/libplasma:${SLOT}
+	kde-base/kscreensaver:${SLOT}"
 DEPEND="${RDEPEND}
-	dev-lang/python
-	>=dev-util/cmake-2.6.0"
+	>=dev-util/cmake-2.6.1
+	dev-lang/python"
 
 S=${WORKDIR}/${PN/-menu/}
+PREFIX=${KDEDIR}
 
-PREFIX="${KDEDIR}"
-
-src_compile() {
+src_configure() {
 	local mycmakeargs
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/"
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
 
 src_install() {
 	# lancelot has broken install with FSH (dunno why)
-	cd "${WORKDIR}"/lancelot-menu_build/libs/lancelot/
+	pushd "${WORKDIR}"/lancelot-menu_build/libs/lancelot/
 	make DESTDIR="${D}" install
-	cd "${WORKDIR}"/lancelot-menu_build/app/
+	popd
+	pushd "${WORKDIR}"/lancelot-menu_build/app/
 	make DESTDIR="${D}" install
-	cd "${S}"
+	popd
 	cmake-utils_src_install
 }

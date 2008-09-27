@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 inherit cmake-utils qt4
 
@@ -18,7 +18,7 @@ IUSE="mysql"
 RDEPEND="!app-office/akonadi
 	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
-	x11-libs/qt-sql:4
+	x11-libs/qt-sql:4[sqlite]
 	x11-libs/qt-test:4
 	x11-misc/shared-mime-info
 	mysql? ( virtual/mysql )"
@@ -27,8 +27,6 @@ DEPEND="${RDEPEND}
 	kde-base/automoc"
 
 S="${WORKDIR}/${P/-server/}"
-
-QT4_BUILT_WITH_USE_CHECK="sqlite3"
 
 src_unpack() {
 	unpack ${A}

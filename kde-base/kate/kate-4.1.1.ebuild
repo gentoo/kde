@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kate/kate-4.0.5.ebuild,v 1.1 2008/06/05 21:07:16 keytoaster Exp $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdesdk
 inherit kde4-meta
@@ -22,9 +22,9 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with plasma Plasma)"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

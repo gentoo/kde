@@ -2,9 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdeplasma-addons-4.1.0.ebuild:
-  Version removed.
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.1.ebuild:
+  Fixed the bad cmake option for good.
+
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.1.ebuild:
+  Added a missing - to a cmake option.
 
 *kdeplasma-addons-4.1.1 (03 Sep 2008)
 

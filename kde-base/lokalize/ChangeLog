@@ -2,12 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  10 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   lokalize-4.1.1.ebuild:
-  fixing quoting of variables
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> -lokalize-4.1.0.ebuild:
-  Version removed.
+  Applied scarabeus fix for quoting variables.
 
 *lokalize-4.1.1 (02 Sep 2008)
 

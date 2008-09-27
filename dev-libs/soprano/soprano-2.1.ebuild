@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 inherit cmake-utils eutils flag-o-matic
 
@@ -17,8 +17,8 @@ IUSE="+clucene debug doc elibc_FreeBSD redland +sesame2"
 
 COMMON_DEPEND="
 	>=media-libs/raptor-1.4.16
-	x11-libs/qt-core:4
-	x11-libs/qt-dbus:4
+	x11-libs/qt-core:4[debug=]
+	x11-libs/qt-dbus:4[debug=]
 	clucene? ( >=dev-cpp/clucene-0.9.19 )
 	redland? ( >=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6 )
@@ -33,15 +33,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${COMMON_DEPEND}"
 
-pkg_setup() {
-	if use debug && (! built_with_use x11-libs/qt-core:4 debug || \
-	! built_with_use x11-libs/qt-dbus:4 debug) ; then
-		eerror "install qt-dbus:4 and qt-core:4 with the debug USE flag"
-		die "qt-dbus or qt-core built without debug"
-	fi
-}
-
-src_compile() {
+src_configure() {
 	# Fix automagic dependencies / linking
 	if ! use clucene; then
 		sed -e '/find_package(CLucene)/s/^/#DONOTFIND /' \
@@ -77,7 +69,7 @@ src_compile() {
 	# NOTE: temporarely fix until a better cmake files patch will be provided.
 	use elibc_FreeBSD && append-ldflags "-lpthread"
 
-	cmake-utils_src_compile
+	cmake-utils_src_configure
 }
 
 src_test() {

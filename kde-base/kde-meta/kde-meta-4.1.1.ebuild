@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="4.1"
 IUSE="accessibility"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only

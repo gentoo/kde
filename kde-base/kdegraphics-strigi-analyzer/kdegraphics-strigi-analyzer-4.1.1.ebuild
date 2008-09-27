@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdegraphics
 KMMODULE=strigi-analyzer
@@ -14,3 +14,4 @@ IUSE="debug"
 
 DEPEND=">=app-misc/strigi-0.5.10"
 RDEPEND="${DEPEND}"
+

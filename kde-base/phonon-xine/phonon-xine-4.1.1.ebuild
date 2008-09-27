@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdebase-runtime
 KMMODULE=phonon
@@ -20,10 +20,10 @@ DEPEND="!kde-base/phonon:${SLOT}
 	xcb? ( x11-libs/libxcb )"
 RDEPEND="${DEPEND}"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with xcb XCB)
 		-DWITH_Xine=ON"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

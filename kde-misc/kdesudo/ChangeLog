@@ -2,17 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
-  kde-misc/kdesudo/kdesudo-3.1-r1.ebuild:
-  Added EAPI=1 to the ebuild - we can't have slot deps with EAPI=0 and the
-  kde4 eclasses also require EAPI=1.
-
-*kdesudo-3.1-r1 (10 Sep 2008)
-
-  10 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  +kdesudo-3.1-r1.ebuild, -kdesudo-3.1.ebuild:
-  Removed file creation in /usr/local/ on behalf only informing user what he
-  can do.
+  11 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdesudo-3.1.ebuild:
+  Applied scarabeus updates to kdesudo.
 
 *kdesudo-3.1 (09 Sep 2008)
 

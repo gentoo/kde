@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 inherit cmake-utils eutils
 
@@ -23,7 +23,7 @@ COMMONDEPEND="
 	dbus? ( sys-apps/dbus
 		|| ( ( x11-libs/qt-dbus:4
 			x11-libs/qt-gui:4 )
-			=x11-libs/qt-4.3*:4 )
+			=x11-libs/qt-4.3*:4[dbus] )
 		)
 	exif? ( media-gfx/exiv2 )
 	fam? ( virtual/fam )
@@ -33,7 +33,7 @@ COMMONDEPEND="
 		|| ( ( x11-libs/qt-core:4
 			x11-libs/qt-gui:4
 			x11-libs/qt-dbus:4 )
-			=x11-libs/qt-4.3*:4 )
+			=x11-libs/qt-4.3*:4[dbus] )
 		)
 	!clucene? (
 		!hyperestraier? (
@@ -46,20 +46,7 @@ DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
-pkg_setup() {
-	if use qt4 && ! use dbus; then
-		if ( has_version "<x11-libs/qt-4.4.0_alpha:4" && !! built_with_use \
-				x11-libs/qt:4 dbus ) || \
-				( has_version "x11-libs/qt-gui:4" && ! built_with_use \
-				x11-libs/qt-gui:4 dbus); then
-			eerror "You are building Strigi with qt4 and dbus, but qt4 wasn't built with dbus support."
-			eerror "Please re-emerge qt4 with dbus, or disable dbus in Strigi."
-			die
-		fi
-	fi
-}
-
-src_compile() {
+src_configure() {
 	# Strigi needs either expat or libxml2.
 	# However libxml2 seems to be required in both cases, linking to 2 xml parsers
 	# is just silly, so we forcefully disable linking to expat.
@@ -84,7 +71,7 @@ src_compile() {
 		mycmakeargs="${mycmakeargs} -DENABLE_CLUCENE=ON"
 	fi
 
-	cmake-utils_src_compile
+	cmake-utils_src_configure
 }
 
 src_test() {

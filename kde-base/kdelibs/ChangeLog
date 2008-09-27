@@ -2,66 +2,31 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> ChangeLog:
-  Fix kddns-avahi blockage problem
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.1-r4.ebuild:
+  Revert to old KDEHOME detection method
 
-  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  +files/kdelibs-4.1.1-kbuildsycoca.patch, kdelibs-4.1.1-r4.ebuild:
-  add patch on kbuildsycoca bug 238430
+  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  kdelibs-4.1.1-r4.ebuild:
+  Fix kdnssd-avahi blockage problems.
 
-*kdelibs-4.1.1-r4 (22 Sep 2008)
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.1-r4.ebuild:
+  Applied partial updates from the master branch.
 
-  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  +files/kdelibs-4.1.1-cmake-modules.patch, -kdelibs-4.1.1-r3.ebuild,
-  +kdelibs-4.1.1-r4.ebuild:
-  Update cmake files for kipi and other libs searching (
-  http://bugs.kde.org/171460 )
+*kdelibs-4.1.1-r4 (23 Sep 2008)
 
-*kdelibs-4.1.1-r3 (21 Sep 2008)
-
-  21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  -kdelibs-4.1.1-r2.ebuild, +kdelibs-4.1.1-r3.ebuild:
-  Set HOME/.kde directory correctly based on kdeprefix.
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdelibs-4.1.1-r4.ebuild, -kdelibs-4.1.1.ebuild:
+  Bumped kdelibs revision.
 
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   metadata.xml:
-  Added missing use flag description to metadata.xml.
+  Whitespace.
 
-*kdelibs-4.1.1-r2 (15 Sep 2008)
-
-  15 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdelibs-4.1.1-r1.ebuild, +kdelibs-4.1.1-r2.ebuild:
-  Rev bump for new default config directory (.kde4) and perms on config
-  directory.
-
-  14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
-  Fixed the remaining USE deps that must have slipped through.
-
-  14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
-  Updated to use .kde4 as the default config directory for KDE4 apps. Thanks
-  to Beineri from OpenSUSE for pointing out the variable needed.
-
-  14 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> kdelibs-4.1.1-r1.ebuild:
-  Use PATCHES variable to apply patches.
-
-  14 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
-  kdelibs-4.1.1-r1.ebuild:
-  Fix files collision for kde-misc/kdnssd-avahi
-
-  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  -files/kdelibs-4.1.0-quit-app.patch:
-  Removing patch for kdelibs-4.1.0 since it is part of 4.1.1
-
-*kdelibs-4.1.1-r1 (12 Sep 2008)
-
-  12 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
-  +files/kdelibs-4.1.1-konqueror-pointer.patch, +kdelibs-4.1.1-r1.ebuild,
-  -kdelibs-4.1.1.ebuild:
-  Added patch for konqueror loosing its renderer
-
-  05 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
-  -kdelibs-4.1.0-r2.ebuild:
-  Version removed.
+  07 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kdebase-startkde/Manifest, kde-base/kdelibs/Manifest:
+  Fixed Manifest.
 
   01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> 
   kdelibs-4.1.1.ebuild:

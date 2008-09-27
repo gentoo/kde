@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 KMNAME=kdetoys
 inherit kde4-meta
@@ -17,11 +17,11 @@ RDEPEND="${DEPEND}"
 # Tests segfault (4.1.0)
 RESTRICT="test"
 
-src_compile() {
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_Plasma=ON"
 
-	kde4-base_src_compile
+	kde4-base_src_configure
 }
 
 src_test() {
