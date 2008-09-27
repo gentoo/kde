@@ -7,6 +7,6 @@ EAPI="2"
 KMNAME=kdebase-runtime
 inherit kde4-meta
 
-DESCRIPTION="KDE Menu query tool."
+DESCRIPTION="KDE Password Server"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"

@@ -14,9 +14,9 @@ LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/powerdevil
-	de-base/systemsettings:${SLOT}
-	kde-base/kscreensaver:${SLOT}"
+DEPEND="kde-base/systemsettings:${SLOT}
+		kde-base/kscreensaver:${SLOT}
+		!kdeprefix ( !kde-misc/powerdevil )"
 RDEPEND="${DEPEND}"
 
 

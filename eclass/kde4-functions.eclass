@@ -146,7 +146,9 @@ kde-base/kdebase kde-base/libplasma
 kde-base/kdebase kde-base/libtaskmanager
 kde-base/kdebase kde-base/nepomuk
 kde-base/kdebase kde-base/nsplugins
+kde-base/kdebase kde-base/powerdevil
 kde-base/kdebase kde-base/phonon
+kde-base/kdebase kde-base/phonon-kde
 kde-base/kdebase kde-base/phonon-xine
 kde-base/kdebase kde-base/plasma
 kde-base/kdebase kde-base/plasma-apps
@@ -156,6 +158,7 @@ kde-base/kdebase kde-base/solid
 kde-base/kdebase kde-base/solid-hardware
 kde-base/kdebase kde-base/soliduiserver
 kde-base/kdebase kde-base/systemsettings
+kde-base/kdebase kde-base/kwalletd
 kde-base/kdebindings kde-base/kalyptus
 kde-base/kdebindings kde-base/kdejava
 kde-base/kdebindings kde-base/kimono
