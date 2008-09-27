@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug htmlhandbook xcomposite xinerama"
+IUSE="debug google-gadgets htmlhandbook xcomposite xinerama"
 
 COMMONDEPEND="!kde-base/plasma:${SLOT}
 	>=kde-base/soliduiserver-${PV}:${SLOT}
@@ -22,6 +22,7 @@ COMMONDEPEND="!kde-base/plasma:${SLOT}
 	x11-libs/libXfixes
 	x11-libs/libXrender
 	x11-libs/libXtst
+	google-gadgets? ( >=x11-misc/google-gadgets-0.10.2 )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${COMMONDEPEND}
