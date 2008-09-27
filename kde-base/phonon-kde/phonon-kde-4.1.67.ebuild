@@ -12,7 +12,7 @@ DESCRIPTION="Phonon KDE integration"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="xcb"
 
 DEPEND="!kde-base/phonon:${SLOT}
         !kde-base/phonon-xine:${SLOT}

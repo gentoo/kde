@@ -15,6 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=media-libs/xine-lib-1.1.9
-	kde-base/phonon-xine:${SLOT}[xcb]"
+	kde-base/phonon-kde:${SLOT}[xcb]"
 DEPEND="${RDEPEND}
 	sys-devel/gettext"
