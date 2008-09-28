@@ -18,8 +18,7 @@ DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
 			usb? ( dev-libs/libusb ) )"
 RDEPEND="${DEPEND}"
 
-PATCHES=("${FILESDIR}/${PN}-4.1.0-destdir.patch"
-	"${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
+PATCHES=("${FILESDIR}/${PN}-4.1.0-destdir.patch")
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
@@ -27,6 +26,11 @@ src_configure() {
 		$(cmake-utils_use_with nova Nova)
 		$(cmake-utils_use_with sbig SBIG)
 		$(cmake-utils_use_with usb USB)"
+
+	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
+		|| die  "disabling cmake includes failed"
+	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
+		|| die "disabling cmake includes failed"
 
 	kde4-meta_src_configure
 

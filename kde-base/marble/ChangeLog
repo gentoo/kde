@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -files/kdeedu-4.1.0-cmake_modules.patch, marble-4.1.2.ebuild:
+  Remove patch and do its work with simple sed.
+
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   marble-4.1.2.ebuild:
   Move ebuild towards EAPI2 compilance

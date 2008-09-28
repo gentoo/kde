@@ -36,6 +36,11 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
 
+	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
+		|| die  "disabling cmake includes failed"
+	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
+		|| die "disabling cmake includes failed"
+
 	if use gps; then
 		mycmakeargs="${mycmakeargs} -DHAVE_LIBGPS=1"
 	else
