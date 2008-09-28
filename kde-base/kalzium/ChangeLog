@@ -2,6 +2,27 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+<<<<<<< HEAD:kde-base/kalzium/ChangeLog
+=======
+  28 Sep 2008; <alexxy@gentoo.org> -files/kdeedu-4.1.0-cmake_modules.patch,
+  kalzium-4.1.2.ebuild:
+  backport of sed fix to file collisionf from kde-4.2 branch
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kalzium-4.1.2.ebuild:
+  Move ebuild towards EAPI2 compilance
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kalzium-4.1.1.ebuild, +kalzium-4.1.2.ebuild:
+  Version removed.
+
+*kalzium-4.1.2 (27 Sep 2008)
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kalzium-4.1.2.ebuild:
+  Version bump.
+
+>>>>>>> 584cc66... kalzium: remove patch use sed instead:kde-base/kalzium/ChangeLog
 *kalzium-4.1.1 (01 Sep 2008)
 
   01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +kalzium-4.1.1.ebuild:
