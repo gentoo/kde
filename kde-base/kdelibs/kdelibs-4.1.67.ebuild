@@ -85,13 +85,13 @@ src_configure() {
 		fi
 	fi
 	if use kdeprefix; then
-		HME=".kde$(basename $KDEDIR)"
+		HME=".kde${SLOT}"
 	else
 		HME=".kde4"
 	fi
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
-		-DKDE_DEFAULT_HOME=.kde${HME}
+		-DKDE_DEFAULT_HOME=${HME}
 		$(cmake-utils_has 3dnow X86_3DNOW)
 		$(cmake-utils_has altivec PPC_ALTIVEC)
 		$(cmake-utils_has mmx X86_MMX)
