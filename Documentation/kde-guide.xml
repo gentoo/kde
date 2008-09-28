@@ -31,7 +31,7 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 	<section>
 		<title>Removing old KDE versions</title>
 		<body>
-			<p>To prevent issues, we need to start with a clean enviroment so you'll need to uninstall any beta or 4.0.X release (this is needed if you are moving from any other overlay and in particular if you plan to use the -kdeprefix use flag - FHS install). This can be done in many different ways. Here is one solution pointed out by alexxy:</p>
+			<p>In order to minimize issues, it is best to begin with a clean enviroment. You will need to uninstall any beta or 4.0.X release (this is needed if you are moving from any other overlay and in particular if you plan to use the -kdeprefix use flag - FHS install). Two possible ways or removing old KDE 4 installations are:</p>
 			<pre caption="Unmerging commands">
 # <i>emerge -C @kde-4.1 @kdebase-4.1</i> <comment>(only if you are comming from the kdesvn-portage overlay)</comment>
 # <i>emerge -C $(qfile -C -q -e /usr/kde/%PREFIX%)</i> <comment>(replace %PREFIX% with your kde version, eg. 4)</comment>
@@ -40,8 +40,8 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 # <i>cd /path/to/old/overlay/</i>
 # <i>emerge -C $(find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print "="$1"/"$3}')</i>
 			</pre>
-			<p>As a final step you should remove the old overlay so that there are no conflicts with our ebuilds. You should remove the old unmask and/or keyword data for the old KDE 4</p>
-			<note>Don't forget to run depclean as this will uninstall any dependant packages.</note>
+			<p>As a final step you should remove the old overlay so that there are no conflicts with the KDE ebuilds. You should remove the old unmask and/or keyword data too.</p>
+			<note>Don't forget to run depclean in order to uninstall any dependant packages.</note>
 		</body>
 	</section>
 </chapter>
@@ -63,18 +63,19 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 		</body>
 	</section>
 	<body>
-		<note>Don't forget to modify /etc/make.conf to add the overlay path to PORTDIR_OVERLAY, or to add the support for layman if required.</note>
+		<note>The KDE 4.1 ebuilds make use of EAPI 2. Please use portage-2.2_rc11 or greater, if you run an otherwise stable profile then you must add portage to your package.keywords file.</note>
+		<note>Don't forget to modify /etc/make.conf to add the overlay path to PORTDIR_OVERLAY, or to add the support for layman as required.</note>
 	</body>
 </chapter>
 
 <chapter>
 	<title>Unmasking/Keywording</title>
-	<p>The KDE 4.1 ebuilds available from the kde-testing overlay are not masked (the masks in package.mask have been updated accordingly) and so there is no need to unmask them. If you're running the stable tree you'll need to keyword the ebuilds. If you're running the testing tree skip this step. For those running the stable tree in Gentoo do the following:</p>
+	<p>The KDE 4.1 ebuilds available from the kde-testing overlay are not masked (the masks in package.mask have been updated accordingly) and so there is no need to unmask them. If you are running the stable tree you will need to keyword the ebuilds, otherwise skip this step. For those running the stable tree in Gentoo:</p>
 	<section>
 		<title>Using the bundled package.keywords/kde file</title>
 		<body>
-			<note>This is the recomended way of keywording the packages.</note>
-			<p>This overlay provides an appropriate package.keywords file that can be used in your package.keywords file/directory. You can find this file in "Documentation/package.keywords" directory. Just copy it to the correct location "/etc/portage/package.keywords/" (or preferably make a symlink to it), or add it to your "/etc/portage/package.keywords" file.</p>
+			<note>This is the recomended way of keywording the KDE packages.</note>
+			<p>This overlay provides an appropriate package.keywords file that can be used in your package.keywords file/directory. You can find this file in "Documentation/package.keywords" directory. Copy it to the correct location "/etc/portage/package.keywords/" (preferably make a symlink to it), or add it to your "/etc/portage/package.keywords" file.</p>
 			<pre caption="Adding the file to the package.keywords directory">
 # <i>cd /etc/portage/package.keywords</i>
 # <i>ln -s /path/to/overlay/Documentation/package.keywords/kde .</i>
@@ -103,7 +104,7 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 		</body>
 	</section>
 	<body>
-		<note>Don't forget there are still some dependencies that need keywording that are not in this list. You should keyword them as necessary.</note>
+		<note>There are some dependencies which require keywording that are not in this list. Keyword them as necessary.</note>
 	</body>
 </chapter>
 
@@ -112,34 +113,33 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 	<section>
 		<title>The new kdeprefix use flag</title>
 		<body>
-			<p>The newly introduced kdeprefix use flag allows users to have an FHS compliant install.</p>
-			<p>If kdeprefix is disabled (default) KDE is installed into an FHS compliant location (/usr). That means that all files are put under /usr/ and it is no longer maintained separately in /usr/kde/VERSION/. This is the desired behavior for most users. The drawback of the FHS compliant install is that it will not be possible to have more than one minor version of KDE side by side (previous behaviour).</p>
-			<note>This restriction does not apply to KDE 3.5 (different eclasses) or live versions (as they will continue to be installed in the /usr/kde/${live-slot}. You can have a non kdeprefix version of KDE 4.1, KDE 3.5 and a trunk live version of KDE installed on the same system.</note>
+			<p>The new kdeprefix use flag allows users to choose between an FHS compliant install (-kdeprefix) or a slotted install in the KDE prefix (+kdeprefix).</p>
+			<p>If kdeprefix is disabled (default) KDE is installed into the FHS compliant location, i.e. /usr. That means that all of the files are put under /usr. This is the desired behavior for most users. The drawback of the FHS compliant install is that it will not be possible to have more than one minor version of KDE side by side (previous behaviour), e.g. KDE 4.1 and 4.2.</p>
+			<note>This restriction does not apply to KDE 3.5 (different eclasses) or live versions (as they will continue to be installed in the /usr/kde/${live-slot}. You can have a non kdeprefix version of KDE 4.1, KDE 3.5 and a live version of KDE installed on the same system.</note>
 			<p>If kdeprefix is enabled then KDE is installed into /usr/kde/${SLOT}, which allows you to install KDE 4.1, 4.2, 4.3 etc in /usr/kde/4.1, /usr/kde/4.2, /usr/kde/4.3 for example.</p>
-			<note>"Error during set creation: Redefinition of set 'live-rebuild' (sections: 'live-rebuild', 'kde4-overlay sets')" is pretty harmless so dont bother about it :]</note>
-			<warn>If you want to move between kdeprefix and -kdeprefix (or vice-versa), we recommend that you unmerge KDE first. Then emerge it with the modified flag. If this is not done KDE installations can have trouble finding libraries/plugins at times.</warn>
+			<warn>If you want to move between kdeprefix and -kdeprefix (or vice-versa), it is recommended that you unmerge KDE and then emerge it with the modified flag. If this is not done KDE installations can have trouble finding certain libraries/plugins.</warn>
 		</body>
 	</section>
 	<section>
 		<title>Using sets</title>
 		<body>
-			<p>One of the new features that portage 2.2 provides is sets.</p>
-			<p>Sets are a long awaited feature for KDE. They allow the KDE team to finally provide a complete replacement for the monolithic packages, with the added bonus that users can override the default sets to remove the packages they are not interested in. Look in the sets directory for a list of the sets provided by the KDE team.</p>
+			<p>One of the new features provided portage 2.2 is sets.</p>
+			<p>Sets allow the KDE team to provide a complete replacement for the monolithic packages, with the added bonus that users can override the default sets to remove the packages they do not want. Look in the sets directory for a list of the sets provided by the KDE team.</p>
 			<p>Amongst others, there are sets for each KDE tarball - @kdeaccessibility, @kdeadmin, @kdeartwork, @kdebase, @kdeedu, @kdegames, @kdegraphics, @kdemultimedia, @kdenetwork, @kdepim, @kdesdk, @kdetoys and @kdeutils. There is also a set of sets (the equivalent to the old kde-meta package) @kde, and the same for specific versions @kde-3.5 and @kde-4x, a set for KDE deps @kdedeps, a set for optional packages @kdeoptional and a set for the split qt packages @qt-split.</p>
 			<p>One can install the complete KDE by doing <i>emerge -av @kde</i>. The specific version equivalents are very useful to uninstall an old version, e.g. <i>emerge -C @kde-3.5</i>, or to reinstall all packages from a specific version, e.g. <i>emerge -av @kde-4x</i>. If you want to override a set and remove any unwanted packages from it, copy the desired set to /etc/portage/sets and edit the file to remove the unwanted applications.</p>
-			<p>We strongly recommend that you install the @kdebase set in order to get a full KDE 4 session.</p>
+			<p>We strongly recommend that you install the @kdebase set in order to get a full KDE 4 session. The example below would install the kdebase set and the kdegames set.</p>
 			<pre caption="emerge KDE">
 # <i>emerge @kdebase @kdegames</i>
 			</pre>
 			<note>If you want to check the list of sets known to Portage run the following: <i>emerge --list-sets</i></note>
-			<note>If you experience some errors while trying to emerge @kde-4x and you are using portage-2.2_rc8 then you need to upgrade portage. We currently recommend at least portage-2.2_rc11 which has implemented everything in EAPI 2.</note>
+			<note>All KDE 4.1 ebuilds require portage-2.2_rc11 or greater, which has implemented everything in the new EAPI 2 specification used in these ebuilds.</note>
 		</body>
 	</section>
 	<section>
-		<title>Using meta packages</title>
+		<title>KDE meta packages</title>
 		<body>
-			<note>This method will be removed in a later release and is provided for backward compatibility with older portage versions. There will no meta ebuilds for KDE 4.2</note>
-			<pre caption="emerge command">
+			<note>This method is provided to ease the transition to the new sets. There will no meta ebuilds for KDE 4.2.</note>
+			<pre caption="emerge meta packages">
 # <i>emerge kde-meta:4.1</i></pre>
 		</body>
 	</section>
@@ -147,11 +147,12 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 <chapter>
 	<title>Configuration</title>
 	<body>
-		<p>KDE stores its configuration files in the ~/.kde directory by default. In the Gentoo ebuilds we have changed this default in KDE 4.1 so as to allow for the easier integration of KDE 3.5 and 4.1 from the same user account. If you export KDEHOME you can override this setting, we strongly recommend that you do not do this. KDEHOME will make KDE 3.5 and 4.1 use the same configuration directory which is not usually desired.</p>
-		<p>KDE 3.5 uses ~/.kde and the default FHS (-kdeprefix) KDE 4.1 uses ~/.kde4. If you install KDE 4.1 using the kdeprefix use flag then the configuration directory will default to ~/.kde4.1, ~/.kde4.2 etc. The advantage of this is that KDE 3.5 and 4.1 can be run from the same user account without clobbering settings. Often moving backwards in version is not supported.</p>
-		<p>We do not migrate settings by default. If you want to attempt to migrate your settings you should copy your old configuration directory to the new location before logging in. For example,</p>
+		<p>KDE stores its configuration files in the <i>~/.kde</i> directory by default. In the Gentoo ebuilds this has been changed in KDE 4.1 to allow for better integration of KDE 3.5 and 4.1 when using the same user account. If you export KDEHOME this behaviour will be overridden. It is strongly recommended that you do not do this. KDEHOME will make KDE 3.5 and 4.1 use the same configuration directory which is not usually desired.</p>
+		<p>KDE 3.5 uses <i>~/.kde</i> and the default FHS (-kdeprefix) KDE 4.1 uses <i>~/.kde4</i>. If you install KDE 4.1 using the kdeprefix use flag then the configuration directory will default to <i>~/.kde4.1</i>, <i>~/.kde4.2</i> etc. The advantage of this is that KDE 3.5 and 4.1 can be run from the same user account without clobbering settings. Moving backwards in version, i.e. 4.1 to 3.5, is not supported.</p>
+		<p>Settings are not migrated by default. If you want to attempt to migrate your settings you should copy your old configuration directory to the new location before logging in. For example,</p>
 		<pre caption="copy configuration directory">
 $ <i>cp -r ~/.kde ~/.kde4</i></pre>
+		<p>If this is successful then your settings should all be migrated. If not it is possible to log out and remove the new configuration directory to start with a clean configuration directory.</p>
 	</body>
 </chapter>
 <chapter>
@@ -168,14 +169,14 @@ $ <i>cp -r ~/.kde ~/.kde4</i></pre>
 			<pre caption="Unmerging kde-3.5">
 # <i>emerge -C @kde-3.5</i>
 			</pre>
-			<note>Don't forget to run depclean, because this uninstall only dependant packages and leaves behind rest of it!</note>
+			<note>Run depclean in order to remove all dependent packages.</note>
 		</body>
 	</section>
 	<section>
 		<title>No Desktop icon</title>
 		<body>
-			<p>KDE 4, as it moves towards a semantic desktop, did not bundle any icon for the desktop at all. As you can see there is actually no desktop.</p>
-			<p>Solution on howto fix this problem is to replace the desktop icon by folder one.</p>
+			<p>KDE 4, as it moves towards a semantic desktop, did not bundle an icon for the desktop.</p>
+			<p>The desktop icon can be replaced with the standard folder icon using the following command.</p>
 			<pre caption="sed command">
 $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 		</body>
@@ -186,34 +187,34 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 	<section>
 		<title>kde-misc/plasmoids</title>
 		<body>
-			<p>This ebuild contains various plasma applets which user suggested to add (if you find some contact us that we should add it, please be sure it is not svn version and is working with kde-4.1).</p>
+			<p>This ebuild contains various plasmoids that were requested by users (if you find others that would be useful to our user community please contact us, svn version will not be added and it must work with KDE 4.1).</p>
 		</body>
 	</section>
 	<section>
 		<title>x11-themes/plasma-themes</title>
 		<body>
-			<p>This ebuild contains various plasma themes. Suggestions for adding are same as for plasmoids.</p>
+			<p>This ebuild contains various plasma themes. The procedure for requesting additional themes is the same as that for plasmoids.</p>
 		</body>
 	</section>
 	<section>
 		<title>x11-themes/gtk-engines-qt</title>
 		<body>
-			<p>This ebuild should be used if you want your gtk applications use same apperance as your Qt/KDE applications. Configuration can be found in systemsetings->Apperance->GTK Styles and Fonts.</p>
+			<p>This ebuild should be used if you want your gtk applications to use a similar them to the Qt/KDE applications. Configuration can be found in systemsetings->Apperance->GTK Styles and Fonts.</p>
 		</body>
 	</section>
 	<section>
 		<title>x11-themes/gtk-engines-qtcurve</title>
 		<body>
-			<p>Another approach making gtk/qt3/qt4 applications looks the same. User is needed to compile additional package with theme itself which is named x11-themes/qtcurve-qt4.</p>
+			<p>Another approach to making gtk/qt3/qt4 applications looks the same. You must also install x11-themes/qtcurve-qt4 for this to work with Qt 4/KDE 4 applications.</p>
 		</body>
 	</section>
 </chapter>
 <chapter>
 	<title>Uninstalling KDE-4x</title>
 	<section>
-		<title>Removing all kde-dependant packages</title>
+		<title>Removing all KDE packages</title>
 		<body>
-			<p>First we need to get rid of ALL kde4 packages (if you leave them around it wont change anything, they wont work and leave you only headache finding out why).</p>
+			<p>In order to remove all KDE 4 packages and dependant packages:</p>
 			<pre caption="Unmerging commands">
 # <i>emerge -C @kde-4x</i>
 # <i>cd /path/to/our/overlay/</i>
@@ -221,9 +222,9 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i></pre>
 		</body>
 	</section>
 	<section>
-		<title>Rebuilding App database</title>
+		<title>Rebuilding the application database</title>
 		<body>
-			<p>Since we run kde3 we need to rebuild sycoca DB for it.</p>
+			<p>To rebuild the KDE 3 application database run:</p>
 			<pre caption="kbuildsycoca command">
 # kbuildsycoca --noincremental</pre>
 		</body>
