@@ -30,11 +30,14 @@ COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
+	
+	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
+		|| die  "disabling cmake includes failed"
+	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
+		|| die "disabling cmake includes failed"
 
 	if use gps; then
 		mycmakeargs="${mycmakeargs} -DHAVE_LIBGPS=1"
