@@ -30,8 +30,6 @@ COMMONDEPEND="gps? ( sci-geosciences/gpsd )
 DEPEND="${COMMONDEPEND}"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
@@ -53,13 +51,6 @@ src_configure() {
 	fi
 
 	kde4-meta_src_configure
-}
-
-src_install() {
-	kde4-meta_src_install
-	# These files are installed by kde-base/libkdeedu (4.1.0)
-	rm "${D}"/usr/kde/4.1/share/apps/cmake/modules/FindMarbleWidget.cmake
-	rm "${D}"/usr/kde/4.1/share/apps/cmake/modules/FindKDEEdu.cmake
 }
 
 src_test() {

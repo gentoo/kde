@@ -24,8 +24,6 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
-PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with editor Eigen)
@@ -33,6 +31,11 @@ src_configure() {
 		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
 		$(cmake-utils_use_with solver Libfacile)"
+	
+	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
+		|| die  "disabling cmake includes failed"
+	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
+		|| die "disabling cmake includes failed"
 
 	kde4-meta_src_configure
 }
