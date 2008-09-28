@@ -1,4 +1,4 @@
-*# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.4 2008/03/13 17:57:51 ingmar Exp $
 
