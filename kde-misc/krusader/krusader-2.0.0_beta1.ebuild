@@ -29,7 +29,7 @@ PREFIX="${KDEDIR}"
 src_configure() {
 	local mycmakeargs
 	# for paranoid users
-	use pic && mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FPIE"
+	use pic && mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FPIE=1"
 
 	sed -i \
 		-e "s:set(CMAKE_VERBOSE_MAKEFILE ON):#NADA:g" \
