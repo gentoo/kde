@@ -16,7 +16,14 @@
 
 inherit base cmake-utils eutils kde4-functions multilib
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
+case "${EAPI}" in
+	2)
+		EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_test src_install pkg_postinst pkg_postrm
+		;;
+	*)
+		EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_test src_install pkg_postinst pkg_postrm
+		;;
+esac
 
 # Set the qt dependencies
 kde4-base_set_qt_dependencies() {
@@ -380,7 +387,7 @@ kde4-base_pkg_setup() {
 				;;
 		esac
 	fi
-	
+
 	if [[ -n ${KDEBASE} ]]; then
 		PREFIX=${KDEDIR}
 	else
@@ -523,7 +530,7 @@ kde4-base_src_unpack() {
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 	case "${EAPI}" in
-		2 | 2_pre3 | 2_pre2 | 2_pre1)
+		2)
 			;;
 		*)
 			kde4-base_src_configure
