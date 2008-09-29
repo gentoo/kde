@@ -11,13 +11,16 @@ else
 	KDEDIR="/usr"
 fi
 CPPUNIT_REQUIRED="optional"
+
+# Goes in the ebuild because of NEED_KDE=none
+# It needs to be defined before inheriting kde4-meta eclass
+SLOT="4.1"
+
 inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug designer-plugin htmlhandbook kde gps"
-# Goes in the ebuild because of NEED_KDE=none
-SLOT="4.1"
 
 # FIXME: undefined reference when building tests. RESTRICTed for now.
 # Last checked in 4.0.3.
