@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  marble-4.1.1.ebuild:
+  Fixed marble by defining the SLOT before inheriting kde4-meta.
+
   27 Sep 2008; <alexxy@gentoo.org>
   +files/marble-4.1.67-fix-file-collisions.patch, marble-4.1.67.ebuild:
   add patch to fix file collisions
