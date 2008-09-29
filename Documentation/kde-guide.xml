@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
-<!-- $Header$ -->
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/desktop/kde/kde4-guide.xml,v 1.1 2008/09/29 01:00:53 jmbsvicetto Exp $ -->
 
 <guide link="proj/en/desktop/kde/kde4.xml" lang="en">
 <title>Gentoo KDE 4.1 Guide</title>
@@ -62,18 +62,20 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 # <i>git clone git://git.overlays.gentoo.org/proj/kde.git /PATH/WHERE/TO/PUT/OVERLAY</i></pre>
 		</body>
 	</section>
-	<body>
-		<note>The KDE 4.1 ebuilds make use of EAPI 2. Please use portage-2.2_rc11 or greater, if you run an otherwise stable profile then you must add portage to your package.keywords file.</note>
-		<note>Don't forget to modify /etc/make.conf to add the overlay path to PORTDIR_OVERLAY, or to add the support for layman as required.</note>
-	</body>
+	<section>
+		<body>
+			<note>The KDE 4.1 ebuilds make use of EAPI 2. Please use portage-2.2_rc11 or greater, if you run an otherwise stable profile then you must add portage to your package.keywords file.</note>
+			<note>Don't forget to modify /etc/make.conf to add the overlay path to PORTDIR_OVERLAY, or to add the support for layman as required.</note>
+		</body>
+	</section>
 </chapter>
 
 <chapter>
 	<title>Unmasking/Keywording</title>
-	<p>The KDE 4.1 ebuilds available from the kde-testing overlay are not masked (the masks in package.mask have been updated accordingly) and so there is no need to unmask them. If you are running the stable tree you will need to keyword the ebuilds, otherwise skip this step. For those running the stable tree in Gentoo:</p>
 	<section>
 		<title>Using the bundled package.keywords/kde file</title>
 		<body>
+			<p>The KDE 4.1 ebuilds available from the kde-testing overlay are not masked (the masks in package.mask have been updated accordingly) and so there is no need to unmask them. If you are running the stable tree you will need to keyword the ebuilds, otherwise skip this step. For those running the stable tree in Gentoo:</p>
 			<note>This is the recomended way of keywording the KDE packages.</note>
 			<p>This overlay provides an appropriate package.keywords file that can be used in your package.keywords file/directory. You can find this file in "Documentation/package.keywords" directory. Copy it to the correct location "/etc/portage/package.keywords/" (preferably make a symlink to it), or add it to your "/etc/portage/package.keywords" file.</p>
 			<pre caption="Adding the file to the package.keywords directory">
@@ -101,11 +103,9 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 # <i>cd /usr/portage/</i>
 # <i>find ./x11-libs/qt-* -type d |sed -e "s:./::" |awk -F'/' '{print $1"/"$2}' | uniq >> /etc/portage/package.keywords</i>
 			</pre>
+			<note>There are some dependencies which require keywording that are not in this list. Keyword them as necessary.</note>
 		</body>
 	</section>
-	<body>
-		<note>There are some dependencies which require keywording that are not in this list. Keyword them as necessary.</note>
-	</body>
 </chapter>
 
 <chapter>
@@ -126,12 +126,12 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 			<p>One of the new features provided by portage 2.2 is sets.</p>
 			<p>Sets allow the KDE team to provide a complete replacement for the monolithic packages, with the added bonus that users may choose to remove from the default sets any packages they do not want. Look in the sets directory for a list of the sets provided by the KDE team.</p>
 			<p>Amongst others, there are sets for each KDE tarball - @kdeaccessibility, @kdeadmin, @kdeartwork, @kdebase, @kdeedu, @kdegames, @kdegraphics, @kdemultimedia, @kdenetwork, @kdepim, @kdesdk, @kdetoys and @kdeutils. There is also a set of sets (the equivalent to the old kde-meta package) @kde, and the same for specific versions @kde-3.5 and @kde-4x, a set for KDE deps @kdedeps, a set for optional packages @kdeoptional and a set for the split qt packages @qt-split.</p>
-			<p>One can install the complete KDE by doing <i>emerge -av @kde</i>. The specific version equivalents are very useful to uninstall an old version, e.g. <i>emerge -C @kde-3.5</i>, or to reinstall all packages from a specific version, e.g. <i>emerge -av1 @kde-4x</i>. Advanced features, like removing any unwanted packages from a set, will be supported in a future release of portage - you can read more about it in <uri link="http://planet.gentoo.org/developers/genone/2008/09/29/more_extensions_to_package_set_support">Marius Mauch (genone) blog</uri>. This code has already been commited to Portage's svn and will allow to reinstall all installed packages of a set with emerge -av @&lt;set&gt;/@installled or to have a /etc/portage/sets/kdebase-unwanted set and then run emerge -av @kdebase-@kdebase-unwanted.</p>
+			<p>One can install the complete KDE by doing <e>emerge -av @kde</e>. The specific version equivalents are very useful to uninstall an old version, e.g. <e>emerge -C @kde-3.5</e>, or to reinstall all packages from a specific version, e.g. <e>emerge -av1 @kde-4x</e>. Advanced features, like removing any unwanted packages from a set, will be supported in a future release of portage - you can read more about it in <uri link="http://planet.gentoo.org/developers/genone/2008/09/29/more_extensions_to_package_set_support">Marius Mauch (genone) blog</uri>. This code has already been commited to Portage's svn and will allow to reinstall all installed packages of a set with emerge -av @&lt;set&gt;/@installled or to have a /etc/portage/sets/kdebase-unwanted set and then run <e>emerge -av @kdebase-@kdebase-unwanted</e>.</p>
 			<p>We strongly recommend that you install the @kdebase set in order to get a full KDE 4 session. The example below would install the kdebase set and the kdegames set.</p>
 			<pre caption="emerge KDE">
 # <i>emerge @kdebase @kdegames</i>
 			</pre>
-			<note>If you want to check the list of sets known to Portage run the following: <i>emerge --list-sets</i></note>
+			<note>If you want to check the list of sets known to Portage run the following: <e>emerge --list-sets</e></note>
 			<note>All KDE 4.1 ebuilds require portage-2.2_rc11 or greater, which has implemented everything in the new EAPI 2 specification used in these ebuilds.</note>
 		</body>
 	</section>
@@ -146,14 +146,16 @@ This guide demonstrates how to setup KDE 4.1 using the KDE team's git overlay (k
 </chapter>
 <chapter>
 	<title>Configuration</title>
-	<body>
-		<p>KDE stores its configuration files in the <i>~/.kde</i> directory by default. In the Gentoo ebuilds this has been changed in KDE 4.1 to allow for better integration of KDE 3.5 and 4.1 when using the same user account. If you export KDEHOME this behaviour will be overridden. It is strongly recommended that you do not do this. KDEHOME will make KDE 3.5 and 4.1 use the same configuration directory which is not usually desired.</p>
-		<p>KDE 3.5 uses <i>~/.kde</i> and the default FHS (-kdeprefix) KDE 4.1 uses <i>~/.kde4</i>. If you install KDE 4.1 using the kdeprefix use flag then the configuration directory will default to <i>~/.kde4.1</i>, <i>~/.kde4.2</i> etc. The advantage of this is that KDE 3.5 and 4.1 can be run from the same user account without clobbering settings. Moving backwards in version, i.e. 4.1 to 3.5, is not supported.</p>
-		<p>Settings are not migrated by default. If you want to attempt to migrate your settings you should copy your old configuration directory to the new location before logging in. For example,</p>
-		<pre caption="copy configuration directory">
+	<section>
+		<body>
+			<p>KDE stores its configuration files in the <e>~/.kde</e> directory by default. In the Gentoo ebuilds this has been changed in KDE 4.1 to allow for better integration of KDE 3.5 and 4.1 when using the same user account. If you export KDEHOME this behaviour will be overridden. It is strongly recommended that you do not do this. KDEHOME will make KDE 3.5 and 4.1 use the same configuration directory which is not usually desired.</p>
+			<p>KDE 3.5 uses <e>~/.kde</e> and the default FHS (-kdeprefix) KDE 4.1 uses <e>~/.kde4</e>. If you install KDE 4.1 using the kdeprefix use flag then the configuration directory will default to <e>~/.kde4.1</e>, <e>~/.kde4.2</e> etc. The advantage of this is that KDE 3.5 and 4.1 can be run from the same user account without clobbering settings. Moving backwards in version, i.e. 4.1 to 3.5, is not supported.</p>
+			<p>Settings are not migrated by default. If you want to attempt to migrate your settings you should copy your old configuration directory to the new location before logging in. For example,</p>
+			<pre caption="copy configuration directory">
 $ <i>cp -r ~/.kde ~/.kde4</i></pre>
-		<p>If this is successful then your settings should all be migrated. If not it is possible to log out and remove the new configuration directory to start with a clean configuration directory.</p>
-	</body>
+			<p>If this is successful then your settings should all be migrated. If not it is possible to log out and remove the new configuration directory to start with a clean configuration directory.</p>
+		</body>
+	</section>
 </chapter>
 <chapter>
 	<title>Migration from KDE 3.X</title>
