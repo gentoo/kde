@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*klipper-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +klipper-4.1.68.ebuild:
+  Version bump.
+
 *klipper-4.1.67 (26 Sep 2008)
 
   26 Sep 2008; <alexxy@gentoo.org> +klipper-4.1.67.ebuild:

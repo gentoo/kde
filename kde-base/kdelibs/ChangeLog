@@ -3,6 +3,12 @@
 # $Header: $
 
 <<<<<<< HEAD:kde-base/kdelibs/ChangeLog
+
+*kdelibs-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +kdelibs-4.1.68.ebuild:
+  Version bump.
+
 *kdelibs-4.1.67 (26 Sep 2008)
 =======
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>

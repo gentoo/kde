@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-kde-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +phonon-kde-4.1.68.ebuild:
+  Version bump.
+
   28 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   phonon-kde-4.1.67.ebuild:
   The phonon-kde ebuild needs to block all phonon-xine versions.
