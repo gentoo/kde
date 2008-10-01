@@ -10,10 +10,10 @@ inherit kde4-base
 
 DESCRIPTION="Kool Kickoff replacement with many features"
 HOMEPAGE="http://lancelot.fomentgroup.org/"
-SRC_URI="mirror://sourceforge/${PN}/${P/-menu/}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/lancelot-${PV}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="0"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
@@ -23,7 +23,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1
 	dev-lang/python"
 
-S=${WORKDIR}/${PN/-menu/}
+S=${WORKDIR}/lancelot-${PV}
+
 PREFIX=${KDEDIR}
 
 src_configure() {
@@ -31,15 +32,4 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/"
 	kde4-base_src_configure
-}
-
-src_install() {
-	# lancelot has broken install with FSH (dunno why)
-	pushd "${WORKDIR}"/lancelot-menu_build/libs/lancelot/
-	make DESTDIR="${D}" install
-	popd
-	pushd "${WORKDIR}"/lancelot-menu_build/app/
-	make DESTDIR="${D}" install
-	popd
-	cmake-utils_src_install
 }
