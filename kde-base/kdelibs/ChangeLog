@@ -4,6 +4,9 @@
 
 <<<<<<< HEAD:kde-base/kdelibs/ChangeLog
 
+  01 Oct 2008; <alexxy@gentoo.org> -kdelibs-4.1.67.ebuild:
+  Version removed.
+
 *kdelibs-4.1.68 (01 Oct 2008)
 
   01 Oct 2008; <alexxy@gentoo.org> +kdelibs-4.1.68.ebuild:
