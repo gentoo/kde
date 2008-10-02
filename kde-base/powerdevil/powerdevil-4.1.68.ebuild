@@ -5,7 +5,6 @@
 EAPI="2"
 
 KMNAME=kdebase-workspace
-KMMODULE=apps/${PN}
 inherit kde4-base
 
 DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement"
