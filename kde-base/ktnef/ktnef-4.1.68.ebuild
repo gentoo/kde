@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME=kdepim
+KMNAME=kdepimlibs
 inherit kde4-meta
 
 DESCRIPTION="KDE Viewer for mail attachments using TNEF format"
