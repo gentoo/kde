@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="4.2"
+NEED_KDE=":4.2"
 KMNAME=kdeplasma-addons
 OPENGL_REQUIRED="optional"
 inherit kde4-base
