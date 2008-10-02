@@ -172,7 +172,7 @@ case ${NEED_KDE} in
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
-				4.2*|4.1.9*|4.1.8*|4.1.7*|4.1.6*)
+				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 					_kdedir="4.2"
 					_pv="-${PV}:4.2" ;;
 				4.1*| 4.0.9* | 4.0.8*)
