@@ -251,7 +251,7 @@ case ${NEED_KDE} in
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 		_kdedir="4.2"
 		_operator=">="
-		_pv="-${NEED_KDE}"
+		_pv="-${NEED_KDE}:4.2"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
