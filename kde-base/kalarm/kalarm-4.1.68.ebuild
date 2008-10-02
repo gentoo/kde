@@ -14,5 +14,6 @@ DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}"
 
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="kmail
-	libkdepim"
+KMEXTRACTONLY="	kmail
+				libkdepim
+				libkholidays"
