@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY=libkdeedu/kdeeduui
 
 # Needed for USE="-opengl"
-PATCHES=( "${FILESDIR}/${PN}-4.0.2-opengl.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.1.68-opengl.patch" )
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
