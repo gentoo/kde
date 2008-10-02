@@ -33,11 +33,12 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND=">=kde-base/dolphin-${PV}:${SLOT}
 	kde-base/kdeartwork-iconthemes:${SLOT}"
 
-KMEXTRACTONLY="krunner/org.freedesktop.ScreenSaver.xml
-	krunner/org.kde.krunner.Interface.xml
-	ksmserver/org.kde.KSMServerInterface.xml
-	libs/taskmanager/
-	libs/plasma/"
+KMEXTRACTONLY="	krunner/org.freedesktop.ScreenSaver.xml
+				krunner/org.kde.krunner.Interface.xml
+				krunner/org.kde.krunner.App.xml
+				ksmserver/org.kde.KSMServerInterface.xml
+				libs/taskmanager/
+				libs/plasma/"
 
 KMLOADLIBS="libplasma"
 
