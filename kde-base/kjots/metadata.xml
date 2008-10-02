@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<use>
+	<flag name="kontact">Enable support for the KDE personal information manager</flag>
+</use>
 <herd>kde</herd>
 </pkgmetadata>

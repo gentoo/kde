@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Added missing use flag descriptions.
+
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   -ktimetracker-4.1.1.ebuild, +ktimetracker-4.1.2.ebuild:
   Version removed.
