@@ -24,18 +24,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
 
-PATCHES=("${FILESDIR}/${KMNAME}-4.1.0-cmake_modules.patch")
-
 src_configure() {
-	if use solver ; then
-		# Compile the solver on its own as the cmake-based build is
-		# currently broken. Fixes bug 206620.
-		cd "${S}/${PN}/src/solver"
-		emake || die "compiling the ocaml resolver failed"
-		mkdir -p "${WORKDIR}/${PN}_build/${PN}/src/"
-		cp * "${WORKDIR}/${PN}_build/${PN}/src/"
-	fi
-
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with editor Eigen)
 		$(cmake-utils_use_with editor OpenBabel2)
@@ -43,5 +32,25 @@ src_configure() {
 		$(cmake-utils_use_with solver OCaml)
 		$(cmake-utils_use_with solver Libfacile)"
 
+	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
+		|| die  "disabling cmake includes failed"
+	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
+		|| die "disabling cmake includes failed"
+
 	kde4-meta_src_configure
+}
+
+src_compile() {
+	    if use solver ; then
+			# Compile the solver on its own as the cmake-based build is
+			# currently broken. Fixes bug 206620.
+			einfo "Enabling solver"
+			cd "${S}/${PN}/src/solver"
+			emake || die "compiling the ocaml resolver failed"
+			mkdir -p "${WORKDIR}/${PN}_build/${PN}/src/"
+			cp * "${WORKDIR}/${PN}_build/${PN}/src/"
+			cd "${S}"
+		fi
+
+	kde4-meta_src_compile
 }
