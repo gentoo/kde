@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME=kdebase-workspace
-inherit kde4-base
+inherit kde4-meta
 
 DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement"
 
@@ -16,3 +16,6 @@ IUSE=""
 DEPEND="kde-base/systemsettings:${SLOT}
 		kde-base/kscreensaver:${SLOT}
 		!kdeprefix? ( !kde-misc/powerdevil )"
+
+KMEXTRACTONLY="krunner
+        ksmserver/org.kde.KSMServerInterface.xml"
