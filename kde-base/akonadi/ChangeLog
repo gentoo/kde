@@ -4,6 +4,10 @@
 
   02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   metadata.xml:
+  Added missing use flags descriptions.
+
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
   Added missing use flag descriptions.
 
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
