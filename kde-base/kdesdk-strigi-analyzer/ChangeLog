@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Oct 2008; <alexxy@gentoo.org> -kdesdk-strigi-analyzer-4.1.1.ebuild:
+  Version removed.
+
   01 Oct 2008; <alexxy@gentoo.org> -kdesdk-strigi-analyzer-4.1.67.ebuild:
   Version removed.
 
