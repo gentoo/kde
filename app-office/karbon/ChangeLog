@@ -1,0 +1,10 @@
+# ChangeLog for app-office/karbon
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*karbon-1.9.98.0 (03 Oct 2008)
+
+  03 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +karbon-1.9.98.0.ebuild:
+  Add karbon-1.9.98.0
+

@@ -14,9 +14,6 @@ IUSE=""
 
 RDEPEND=">=app-office/karbon-${PV}:${SLOT}
         >=app-office/kchart-${PV}:${SLOT}
-        >=app-office/kexi-${PV}:${SLOT}
-        >=app-office/kformula-${PV}:${SLOT}
-        >=app-office/kivio-${PV}:${SLOT}
         >=app-office/koffice-data-${PV}:${SLOT}
         >=app-office/koffice-libs-${PV}:${SLOT}
         >=app-office/kplato-${PV}:${SLOT}
@@ -24,4 +21,7 @@ RDEPEND=">=app-office/karbon-${PV}:${SLOT}
         >=app-office/krita-${PV}:${SLOT}
         >=app-office/kspread-${PV}:${SLOT}
         >=app-office/kword-${PV}:${SLOT}"
-
+# Not yet working in koffice2:
+#	>=app-office/kexi-${PV}:${SLOT}
+#	>=app-office/kivio-${PV}:${SLOT}
+#	>=app-office/kformula-${PV}:${SLOT}

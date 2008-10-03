@@ -503,11 +503,11 @@ kde4-meta_change_cmakelists() {
 		fi
 		;;
 		koffice)
-		if [[ ${PN} != koffice-libs ]]; then
-			sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
-				doc/CMakeLists.txt || \
-				die "${LINENO}: sed died in the koffice.desktop collision prevention section"
-		fi
+		#if [[ ${PN} != koffice-libs ]]; then
+		#	sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
+		#		doc/CMakeLists.txt || \
+		#		die "${LINENO}: sed died in the koffice.desktop collision prevention section"
+		#fi
 		;;
 	esac
 
