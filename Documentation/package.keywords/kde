@@ -265,9 +265,8 @@ kde-base/kdepim-icons:4.1
 ~dev-libs/libzip-0.8
 ~sci-mathematics/gmm-3.0
 
-to remove the block with newer qca
+# remove the block with newer qca
 ~app-crypt/qca-1.0
-
 
 # qt stuff
 ~x11-libs/qt-4.4.2
