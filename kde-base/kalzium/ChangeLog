@@ -2,6 +2,14 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Added missing use flags descriptions.
+
+  01 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kalzium-4.1.2.ebuild:
+  Whitespace.
+
   28 Sep 2008; <alexxy@gentoo.org> -files/kdeedu-4.1.0-cmake_modules.patch,
   kalzium-4.1.2.ebuild:
   backport of sed fix to file collisionf from kde-4.2 branch

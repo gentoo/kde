@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+<use>
+	<flag name="nepomuk">Enable desktop-wide tagging support</flag>
+	<flag name="plasma">Build optional kde-base/plasma widgets</flag>
+</use>
 <herd>kde</herd>
 </pkgmetadata>
