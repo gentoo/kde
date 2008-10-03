@@ -14,6 +14,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/85802-Timer.tar.bz2
 	http://kde-look.org/CONTENT/content-files/83246-flickrplasmoid.tar.gz
 	http://kde-look.org/CONTENT/content-files/89304-panelspacer0.1.tar.gz
 	http://am4rok.googlecode.com/files/plasma-am4rok_0.5.tar.bz2
+	http://ivplasma.googlecode.com/files/plasma-am3rok-0.4.1.tar.gz
 	http://kde-look.org/CONTENT/content-files/84128-quickaccess-0.7.1.tar.gz
 	http://hlukotvor.no-ip.org/plasma-weather-0.4.tar.gz
 	http://ivplasma.googlecode.com/files/toggle-compositing-0.2.1.tar.gz
@@ -56,7 +57,7 @@ src_compile() {
 }
 
 src_install() {
-	get_dirs "make DESTDIR=${D} install"
+	get_dirs make DESTDIR="${D}" install
 }
 
 pkg_postinst() {

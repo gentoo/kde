@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*plasmoids-0.3 (03 Oct 2008)
+
+  03 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -plasmoids-0.2.ebuild, +plasmoids-0.3.ebuild:
+  Add am3rok plasmoid and polish code.
+
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   plasmoids-0.2.ebuild:
   Move ebuild towards EAPI2 compilance
