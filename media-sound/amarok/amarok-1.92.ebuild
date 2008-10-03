@@ -22,7 +22,7 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 # daap are automagic
 
 DEPEND="
-	|| ( dev-db/mysql[embedded] dev-db/mysql-community[embedded] )
+	|| ( dev-db/mysql[embedded,-minimal] dev-db/mysql-community[embedded,-minimal] )
 	>=app-misc/strigi-0.5.7
 	kde-base/kdelibs:${SLOT}
 	kde-base/libplasma:${SLOT}
