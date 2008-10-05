@@ -1,3 +1,15 @@
+#
+# change_slot script
+#
+# 2008/10/05
+# Jorge Manuel B. S. Vicetto (jmbsvicetto@gentoo.org)
+
+
+###############
+# Constants
+###############
+PORTDIR=$(portageq portdir)
+VDBDIR=$(portageq vdb_path)
 
 
 ###############
@@ -15,26 +27,25 @@ show_options () {
 	exit
 }
 
-# Find repo
+# Find repo path
 find_repo () {
 
 	for overlay in $(portageq portdir_overlay | tr ' ' '\n'); do
-		path=$(grep -H ${REPO} ${overlay}/profiles/repo_name)
+		path=$(grep -H ${REPO} ${overlay}/profiles/repo_name 2>/dev/null)
 		if [[ ${path} =~ "${REPO}" ]]; then
 			dir=${path%/profiles/repo_name:${REPO}}
 		fi
 	done
 }
 
-# get repo categories
+# Get repo categories
 read_categories () {
 	while read category; do
-		echo "category: ${category}"
 		categories=( "${categories[@]}" "${category}" )
 	done < "${dir}/profiles/categories"
 }
 
-# change_slot
+# Change slot
 change_slot () {
 	for r in $(find -name "repository" -exec grep -l kde {} +); do sed "s/4/4.1/" $(dirname ${r})/SLOT; done
 }
@@ -54,9 +65,7 @@ if ([[ -z "${REPO}" ]] || [[ -z "${OLD_SLOT}" ]] || [[ -z "${NEW_SLOT}" ]]); the
 	show_options
 fi
 
-echo "repo: ${REPO}"
-echo "old_slot: ${OLD_SLOT}"
-echo "new_slot: ${NEW_SLOT}"
+echo "You've asked to update all packages from repo ${REPO} in ${VDBDIR} by changing the old_slot (${OLD_SLOT}) to new_slot (${NEW_SLOT})"
 
 find_repo
 read_categories
