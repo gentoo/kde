@@ -51,7 +51,4 @@ src_install() {
 	cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 	SEARCH_DIRS="\${KDEDIR}/bin \${KDEDIR}/lib*"
 	EOF
-	# Ensure that the correct permissions are present on ${KDEDIR}/share/config
-	chmod 755 ${KDEDIR}/share/config
-
 }

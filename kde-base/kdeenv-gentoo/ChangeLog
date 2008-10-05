@@ -1,0 +1,8 @@
+# ChangeLog for kde-base/kdeenv-gentoo
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  05 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeenv-gentoo-0.0.1.ebuild:
+  Don't try to fix the perms in the version-free kdeevn-gentoo.
+
