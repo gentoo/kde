@@ -8,7 +8,6 @@
 ###############
 # Constants
 ###############
-PORTDIR=$(portageq portdir)
 VDBDIR=$(portageq vdb_path)
 
 
