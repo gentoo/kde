@@ -15,3 +15,11 @@ DEPEND="kde-base/khotkeys:${SLOT}"
 
 KMEXTRACTONLY="libs/kworkspace/"
 
+src_configure() {
+	sed -i -e \
+		"s:\${CMAKE_CURRENT_BINARY_DIR}/../khotkeys/app/org.kde.khotkeys.xml:/usr/share/dbus-1/interfaces/org.kde.khotkeys.xml:g" \
+		kmenuedit/CMakeLists.txt \
+			|| die "sed failed"
+	
+	kde4-base_src_configure
+}

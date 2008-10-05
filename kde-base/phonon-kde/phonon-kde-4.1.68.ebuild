@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="xcb"
 
 DEPEND="!kde-base/phonon:${SLOT}
-        !kde-base/phonon-xine
+        !kde-base/phonon-xine[-kdeprefix]
         >=media-sound/phonon-4.3"
 RDEPEND="${DEPEND}"
 
