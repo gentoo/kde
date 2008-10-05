@@ -70,7 +70,8 @@ change_slot () {
 						version=${package}-${INST_VERSION}
 					fi
 
-					sed -i -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
+					sed -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
+#					sed -i -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
 				done
 			fi
 		done
