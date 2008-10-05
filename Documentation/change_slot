@@ -33,7 +33,7 @@ find_repo () {
 	for overlay in $(portageq portdir_overlay | tr ' ' '\n'); do
 		path=$(grep -H ${REPO} ${overlay}/profiles/repo_name 2>/dev/null)
 		if [[ ${path} =~ "${REPO}" ]]; then
-			dir=${path%/profiles/repo_name:${REPO}}
+			repo_path=${path%/profiles/repo_name:${REPO}}
 		fi
 	done
 }
@@ -42,12 +42,34 @@ find_repo () {
 read_categories () {
 	while read category; do
 		categories=( "${categories[@]}" "${category}" )
-	done < "${dir}/profiles/categories"
+	done < "${repo_path}/profiles/categories"
 }
 
 # Change slot
 change_slot () {
-	for r in $(find -name "repository" -exec grep -l kde {} +); do sed "s/4/4.1/" $(dirname ${r})/SLOT; done
+	for category in ${categories[@]}; do
+		# For each category, read the list of packages
+		packages=$(find "${repo_path}/${category}" -mindepth 1 -maxdepth 1 -type d)
+#		echo "category ${category} has ${packages[@]}"
+
+		# For each package, change the slot
+		for dir in ${packages[@]}; do
+			package=$(basename ${dir})
+			files=$(find "${repo_path}/${category}/${package}/" -iname "${package}*.ebuild")
+
+			# skip category/packages without ebuilds
+			if [[ ${files} != "" ]]; then
+				# for each file (there might be more than one ebuild
+				for file in ${files[@]}; do
+					version=$(basename ${file})
+					version=${version%.ebuild}
+					version=${version%-r*}
+#					echo "version: ${version}"
+					sed "s/${OLD_SLOT}/${NEW_SLOT}/" ${VDBDIR}/${category}/${version}/SLOT
+				done
+			fi
+		done
+	done
 }
 
 
@@ -69,6 +91,6 @@ echo "You've asked to update all packages from repo ${REPO} in ${VDBDIR} by chan
 
 find_repo
 read_categories
-#change_slot
+change_slot
 
-echo "categories: ${categories[@]}"
+#echo "categories: ${categories[@]}"
