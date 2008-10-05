@@ -23,6 +23,7 @@ show_options () {
 	echo "repo - The repo name as specified in ${repo}/profiles/repo_name"
 	echo "old_slot - The slot to be replaced"
 	echo "new_slot - The new slot to use"
+	echo "inst_version - Installed package version to update the slot"
 	exit
 }
 
@@ -60,11 +61,16 @@ change_slot () {
 			if [[ ${files} != "" ]]; then
 				# for each file (there might be more than one ebuild
 				for file in ${files[@]}; do
-					version=$(basename ${file})
-					version=${version%.ebuild}
-					version=${version%-r*}
-#					echo "version: ${version}"
-					sed "s/${OLD_SLOT}/${NEW_SLOT}/" ${VDBDIR}/${category}/${version}/SLOT
+
+					if [[ "${INST_VERSION}" == "" ]]; then
+						version=$(basename ${file})
+						version=${version%.ebuild}
+						version=${version%-r*}
+					else
+						version=${package}-${INST_VERSION}
+					fi
+
+					sed -i -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
 				done
 			fi
 		done
@@ -81,6 +87,7 @@ SCRIPT_ARGS="$*"
 REPO="${1}"
 OLD_SLOT="${2}"
 NEW_SLOT="${3}"
+INST_VERSION="${4}"
 
 if ([[ -z "${REPO}" ]] || [[ -z "${OLD_SLOT}" ]] || [[ -z "${NEW_SLOT}" ]]); then
 	show_options
