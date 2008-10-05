@@ -1,0 +1,65 @@
+
+
+###############
+# Functions
+###############
+
+# Show options screen
+show_options () {
+
+# Present options
+	echo "Usage: $0 repo old_slot new_slot"
+	echo "repo - The repo name as specified in ${repo}/profiles/repo_name"
+	echo "old_slot - The slot to be replaced"
+	echo "new_slot - The new slot to use"
+	exit
+}
+
+# Find repo
+find_repo () {
+
+	for overlay in $(portageq portdir_overlay | tr ' ' '\n'); do
+		path=$(grep -H ${REPO} ${overlay}/profiles/repo_name)
+		if [[ ${path} =~ "${REPO}" ]]; then
+			dir=${path%/profiles/repo_name:${REPO}}
+		fi
+	done
+}
+
+# get repo categories
+read_categories () {
+	while read category; do
+		echo "category: ${category}"
+		categories=( "${categories[@]}" "${category}" )
+	done < "${dir}/profiles/categories"
+}
+
+# change_slot
+change_slot () {
+	for r in $(find -name "repository" -exec grep -l kde {} +); do sed "s/4/4.1/" $(dirname ${r})/SLOT; done
+}
+
+
+###############
+# Get options and commands
+###############
+[[ -z "$*" ]] && show_options
+
+SCRIPT_ARGS="$*"
+REPO="${1}"
+OLD_SLOT="${2}"
+NEW_SLOT="${3}"
+
+if ([[ -z "${REPO}" ]] || [[ -z "${OLD_SLOT}" ]] || [[ -z "${NEW_SLOT}" ]]); then
+	show_options
+fi
+
+echo "repo: ${REPO}"
+echo "old_slot: ${OLD_SLOT}"
+echo "new_slot: ${NEW_SLOT}"
+
+find_repo
+read_categories
+#change_slot
+
+echo "categories: ${categories[@]}"
