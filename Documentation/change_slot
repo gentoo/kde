@@ -23,58 +23,37 @@ show_options () {
 	echo "repo - The repo name as specified in ${repo}/profiles/repo_name"
 	echo "old_slot - The slot to be replaced"
 	echo "new_slot - The new slot to use"
-	echo "inst_version - Installed package version to update the slot"
+	echo "change - really change? [Y] to apply"
 	exit
-}
-
-# Find repo path
-find_repo () {
-
-	for overlay in $(portageq portdir_overlay | tr ' ' '\n'); do
-		path=$(grep -H ${REPO} ${overlay}/profiles/repo_name 2>/dev/null)
-		if [[ ${path} =~ "${REPO}" ]]; then
-			repo_path=${path%/profiles/repo_name:${REPO}}
-		fi
-	done
-}
-
-# Get repo categories
-read_categories () {
-	while read category; do
-		categories=( "${categories[@]}" "${category}" )
-	done < "${repo_path}/profiles/categories"
 }
 
 # Change slot
 change_slot () {
+	sed -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${package}/SLOT"
+
+	if [[ ${CHANGE} == "Y" ]]; then
+		sed -i -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${package}/SLOT"
+	fi
+}
+
+# Run the vdb
+run_vdb() {
+
+	# Get categories from the VDB
+	categories=$(find "${VDBDIR}" -mindepth 1 -maxdepth 1 -type d)
 	for category in ${categories[@]}; do
-		# For each category, read the list of packages
-		packages=$(find "${repo_path}/${category}" -mindepth 1 -maxdepth 1 -type d)
-#		echo "category ${category} has ${packages[@]}"
 
-		# For each package, change the slot
-		for dir in ${packages[@]}; do
-			package=$(basename ${dir})
-			files=$(find "${repo_path}/${category}/${package}/" -iname "${package}*.ebuild")
+		# For each category
+		packages=$(find "${category}" -mindepth 1 -maxdepth 1 -type d)
+		for package in ${packages[@]}; do
 
-			# skip category/packages without ebuilds
-			if [[ ${files} != "" ]]; then
-				# for each file (there might be more than one ebuild
-				for file in ${files[@]}; do
-
-					if [[ "${INST_VERSION}" == "" ]]; then
-						version=$(basename ${file})
-						version=${version%.ebuild}
-						version=${version%-r*}
-					else
-						version=${package}-${INST_VERSION}
-					fi
-
-					sed -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
-#					sed -i -e "s/^${OLD_SLOT}$/${NEW_SLOT}/" "${VDBDIR}/${category}/${version}/SLOT"
-				done
+			# If package was installed from the repo
+			name=$(cat ${package}/repository)
+			if [[ "${name}" == "${REPO}" ]]; then
+				echo "package: ${package} - matches ${REPO}"
+				change_slot
 			fi
-		done
+		done		
 	done
 }
 
@@ -88,7 +67,7 @@ SCRIPT_ARGS="$*"
 REPO="${1}"
 OLD_SLOT="${2}"
 NEW_SLOT="${3}"
-INST_VERSION="${4}"
+CHANGE="${4}"
 
 if ([[ -z "${REPO}" ]] || [[ -z "${OLD_SLOT}" ]] || [[ -z "${NEW_SLOT}" ]]); then
 	show_options
@@ -96,8 +75,4 @@ fi
 
 echo "You've asked to update all packages from repo ${REPO} in ${VDBDIR} by changing the old_slot (${OLD_SLOT}) to new_slot (${NEW_SLOT})"
 
-find_repo
-read_categories
-change_slot
-
-#echo "categories: ${categories[@]}"
+run_vdb
