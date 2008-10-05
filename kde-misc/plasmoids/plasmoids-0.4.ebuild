@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
+NEED_KDE=":4.1"
 NEED_OPENGL="always"
 inherit kde4-base
 
@@ -20,6 +20,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/85802-Timer.tar.bz2
 	http://ivplasma.googlecode.com/files/toggle-compositing-0.2.1.tar.gz
 	http://www.kde-look.org/CONTENT/content-files/79476-plasma-wifi-0.5.tgz
 	http://ivplasma.googlecode.com/files/plasma-netgraph-0.3.tar.gz
+	http://kde-look.org/CONTENT/content-files/86628-cpuload-0.1.tar.bz2
 	"
 
 LICENSE="GPL-2 GPL-3"
