@@ -341,6 +341,7 @@ kde-base/kdeutils kde-base/sweeper
 kde-base/kdewebdev kde-base/kfilereplace
 kde-base/kdewebdev kde-base/kimagemapeditor
 kde-base/kdewebdev kde-base/klinkstatus
+kde-base/kdewebdev kde-base/kommander
 kde-base/kdewebdev kde-base/kxsldbg
 kde-base/kdewebdev kde-base/quanta
 '

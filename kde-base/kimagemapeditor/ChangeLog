@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kimagemapeditor
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kimagemapeditor-4.1.68 (06 Oct 2008)
+
+  06 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
+  +kimagemapeditor-4.1.68.ebuild:
+  Version bump
+
