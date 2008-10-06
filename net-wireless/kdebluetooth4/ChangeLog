@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2008; <alexxy@gentoo.org> kdebluetooth4-0.2.ebuild:
+  update NEED_KDE to use slots instead of versions
+
   25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   -kdebluetooth4-0.1.ebuild, kdebluetooth4-0.2.ebuild:
   Remove old version and add PREFIX definition to new one,

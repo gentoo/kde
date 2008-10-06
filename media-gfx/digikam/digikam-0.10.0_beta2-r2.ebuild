@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
+NEED_KDE=":4.1"
 KDE_LINGUAS="ar be bg ca da de el es et eu fa fi fr ga gl he hi is ja km ko lt
 lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sv th tr uk vi zh_CN"
 
