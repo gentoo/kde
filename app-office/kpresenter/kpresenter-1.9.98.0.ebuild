@@ -8,7 +8,7 @@ KMMODULE="${PN}"
 NEED_KDE="any"
 inherit kde4-meta
 
-DESCRIPTION="KOffice vector drawing application."
+DESCRIPTION="KOffice presentation program."
 
 KEYWORDS="amd64 x86"
 IUSE=""

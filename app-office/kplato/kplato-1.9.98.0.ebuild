@@ -8,7 +8,7 @@ KMMODULE="${PN}"
 NEED_KDE="any"
 inherit kde4-meta
 
-DESCRIPTION="KOffice vector drawing application."
+DESCRIPTION="KPlato is a project management application."
 
 KEYWORDS="amd64 x86"
 IUSE=""
@@ -20,3 +20,4 @@ DEPEND="dev-cpp/eigen:2
 	media-libs/fontconfig
 	media-libs/libart_lgpl"
 
+KMEXTRA="kdgantt"

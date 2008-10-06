@@ -8,15 +8,19 @@ KMMODULE="${PN}"
 NEED_KDE="any"
 inherit kde4-meta
 
-DESCRIPTION="KOffice vector drawing application."
+DESCRIPTION="KOffice spreadsheet application."
 
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="dev-cpp/eigen:2
+DEPEND=">=app-office/kchart-${PV}:${SLOT}
+	dev-cpp/eigen:2
 	media-gfx/imagemagick
 	media-gfx/pstoedit
 	media-libs/freetype:2
 	media-libs/fontconfig
 	media-libs/libart_lgpl"
+
+KMEXTRACTONLY="interfaces
+	kchart"
 
