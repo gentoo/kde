@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Shared KOffice data files."
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 KMEXTRA="servicetypes/

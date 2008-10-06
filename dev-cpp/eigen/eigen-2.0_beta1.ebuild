@@ -11,7 +11,7 @@ SRC_URI="http://download.tuxfamily.org/${PN}/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=dev-util/cmake-2.4.5

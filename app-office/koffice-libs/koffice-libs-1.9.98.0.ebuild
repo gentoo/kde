@@ -10,7 +10,7 @@ NEED_KDE="any"
 inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=app-office/koffice-data-${PV}:${SLOT}

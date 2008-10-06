@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice spreadsheet application."
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=app-office/kchart-${PV}:${SLOT}
