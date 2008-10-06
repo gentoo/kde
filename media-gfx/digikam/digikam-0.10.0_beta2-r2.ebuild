@@ -17,11 +17,11 @@ SRC_URI="mirror://sourceforge/${PN}/${P/_/-}.tar.bz2"
 LICENSE="GPL-2"
 RDEPEND="${DEPEND}"
 SLOT="4.1"
-IUSE="debug"
+IUSE="addressbook debug geolocation"
 
 S="${WORKDIR}/${P/_/-}"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 # it have dynamic search for deps, so if they are in system it
 # uses them otherwise does not, so any iuse are useless
@@ -31,7 +31,12 @@ DEPEND="
 	kde-base/libkdcraw:${SLOT}
 	kde-base/libkexiv2:${SLOT}
 	kde-base/libkipi:${SLOT}
-	kde-base/marble:${SLOT}[kde]
+	geolocation? (
+		kde-base/marble:${SLOT}[kde]
+	)
+	addressbook? (
+		kde-base/kdepimlibs:${SLOT}
+	)
 	kde-base/solid:${SLOT}
 	!kdeprefix? ( !media-gfx/digikam:0 )
 	>=media-libs/jasper-1.701.0
@@ -43,7 +48,7 @@ DEPEND="
 	sys-devel/gettext
 	x11-libs/qt-core[qt3support]
 	x11-libs/qt-sql[sqlite]"
-#liblensfun when added should be also dep.
+#liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
 # we want to install into kdedir so we can keep kde3 and kde4 version along
@@ -59,4 +64,12 @@ src_unpack() {
 		-e "s:add_subdirectory:#add_subdirectory:g" \
 		data/icons/CMakeLists.txt || die "Failed to remove icon install"
 	enable_selected_linguas
+}
+
+src_configure() {
+	use addressbook || mycmakeargs="${mycmakeargs} -DWITH_KdepimLibs=OFF"
+	use geolocation || mycmakeargs="${mycmakeargs} -DWITH_MarbleWidget=OFF"
+	#use lens || mycmakeargs="${mycmakeargs} -DWITH_LensFun=OFF"
+	
+	kde4-base_src_configure
 }

@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*digikam-0.10.0_beta2-r2 (06 Oct 2008)
+
+  06 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -digikam-0.10.0_beta2-r1.ebuild, +digikam-0.10.0_beta2-r2.ebuild:
+  Update revision since we added new use flags.
+
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   ChangeLog:
   Move ebuild towards EAPI2 compilance
