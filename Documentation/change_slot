@@ -47,6 +47,11 @@ run_vdb() {
 		packages=$(find "${category}" -mindepth 1 -maxdepth 1 -type d)
 		for package in ${packages[@]}; do
 
+			# If the package has no repository, warn the user
+			if [[ ! -e "${package}/repository" ]]; then
+				echo "Warning: $(basename ${package}) was installed from a repo without repo_name"
+				continue
+			fi
 			# If package was installed from the repo
 			name=$(cat ${package}/repository)
 			if [[ "${name}" == "${REPO}" ]]; then
