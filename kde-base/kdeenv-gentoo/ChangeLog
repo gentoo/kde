@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Oct 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +kde-base/kdeenv-gentoo/kdeenv-gentoo-4.1.ebuild:
+  Version bump, various changes.
+
   05 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdeenv-gentoo-0.0.1.ebuild:
   Don't try to fix the perms in the version-free kdeevn-gentoo.
