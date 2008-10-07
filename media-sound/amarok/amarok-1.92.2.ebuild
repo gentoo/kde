@@ -36,7 +36,7 @@ DEPEND="
 	mp3tunes? ( net-misc/curl
 		    dev-libs/libxml2 )
 	mp4? ( media-libs/libmp4v2 )
-	mtp? ( >=media-libs/libmtp-0.1.1 )
+	mtp? ( >=media-libs/libmtp-0.3.0 )
 	njb? ( >=media-libs/libnjb-2.2.4 )
 	opengl? ( virtual/opengl )
 	visualization? ( media-libs/libsdl
