@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2008; <alexxy@gentoo.org> kdeplasma-addons-4.1.2.ebuild:
+  update NEED_KDE to use slots instead of versions
+
   27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
   -kdeplasma-addons-4.1.1.ebuild:
   Version removed.

@@ -100,6 +100,7 @@
 ~kde-base/kdnssd-4.1.2
 ~kde-base/keditbookmarks-4.1.2
 ~kde-base/kfile-4.1.2
+~kde-base/kfilereplace-4.1.2
 ~kde-base/kfind-4.1.2
 ~kde-base/kfloppy-4.1.2
 ~kde-base/kfourinline-4.1.2
@@ -113,6 +114,7 @@
 ~kde-base/khotkeys-4.1.2
 ~kde-base/kiconfinder-4.1.2
 ~kde-base/kig-4.1.2
+~kde-base/kimagemapeditor-4.1.2
 ~kde-base/kinfocenter-4.1.2
 ~kde-base/kioclient-4.1.2
 ~kde-base/kiriki-4.1.2
@@ -123,6 +125,7 @@
 ~kde-base/kleopatra-4.1.2
 ~kde-base/klettres-4.1.2
 ~kde-base/klines-4.1.2
+~kde-base/klinkstatus-4.1.2
 ~kde-base/klipper-4.1.2
 ~kde-base/kmag-4.1.2
 ~kde-base/kmahjongg-4.1.2
@@ -147,6 +150,7 @@
 ~kde-base/kolf-4.1.2
 ~kde-base/kollision-4.1.2
 ~kde-base/kolourpaint-4.1.2
+~kde-base/kommander-4.1.2
 ~kde-base/kompare-4.1.2
 ~kde-base/konqueror-4.1.2
 ~kde-base/konquest-4.1.2
@@ -206,6 +210,7 @@
 ~kde-base/kwin-4.1.2
 ~kde-base/kwordquiz-4.1.2
 ~kde-base/kwrite-4.1.2
+~kde-base/kxsldbg-4.1.2
 ~kde-base/libkcddb-4.1.2
 ~kde-base/libkcompactdisc-4.1.2
 ~kde-base/libkdcraw-4.1.2

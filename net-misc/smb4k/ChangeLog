@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Oct 2008; <alexxy@gentoo.org> smb4k-0.10.0.ebuild:
+  update NEED_KDE to use slots instead of versions
+
   21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   net-misc/smb4k/smb4k-0.10.0.ebuild:
   cmake is not a RDEPEND.

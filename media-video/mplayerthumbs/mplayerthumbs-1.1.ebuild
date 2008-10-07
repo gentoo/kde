@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/media-video/mplayerthumbs/mplayerthumbs-0.5b.ebuild,v 1.3 2008/06/29 12:05:39 loki_val Exp $
 
 EAPI="2"
-NEED_KDE="4.1"
+NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="A Thumbnail Generator for Video Files on Konqueror."

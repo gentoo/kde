@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
+NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="KdeSudo is a graphical frontend for sudo."
