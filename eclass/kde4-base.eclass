@@ -310,34 +310,40 @@ if [[ ${NEED_KDE} != none ]]; then
 	esac
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
-	if [[ ${PN} != "kdelibs" ]] && [[ ${NEED_KDE} != "any" ]]; then
-		case "${EAPI}" in
-			2 | 2_pre3 | 2_pre2 | 2_pre1)
-				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-				;;
-			*)
-				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-				;;
-		esac
-		if [[ ${PN} != "kdepimlibs" ]]; then
+	if [[ ${NEED_KDE} != "any" ]]; then
+		if  [[ ${PN} != "kdelibs" ]]; then
 			case "${EAPI}" in
 				2 | 2_pre3 | 2_pre2 | 2_pre1)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 					;;
 				*)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-				esac
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					;;
+			esac
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				case "${EAPI}" in
+					2 | 2_pre3 | 2_pre2 | 2_pre1)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						;;
+					*)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					esac
+			fi
 		fi
 	else
-		# need_kde == any
-		DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-		RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-		DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-		RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+		if [[ ${PN} != "kdelibs" ]]; then
+			# need_kde == any
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+			fi
+		fi
 	fi
 
 	unset _operator _pv
