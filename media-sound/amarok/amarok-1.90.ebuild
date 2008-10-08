@@ -27,7 +27,7 @@ DEPEND="
 	kde-base/kdelibs:${SLOT}
 	kde-base/libplasma:${SLOT}
 	>=media-libs/taglib-1.5
-	|| ( x11-libs/qt-phonon:4 media-sound/phonon )
+	|| ( media-sound/phonon x11-libs/qt-phonon:4 )
 	x11-libs/qt-webkit:4
 	cdaudio? ( kde-base/libkcddb:${SLOT}
 		kde-base/libkcompactdisc:${SLOT} )
