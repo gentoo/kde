@@ -266,7 +266,7 @@ kde4-meta_src_extract() {
 			echo "Fixing library ${libname} with hardcoded path"
 			for libpath in $(eval "echo \$R_BAS_${libname}"); do
 				if [[ "${libpath}" != "\"/usr/"* ]]; then
-					local R="${R} \"${KD}/$(get_libdir)/${libpath}.so\""
+					local R="${R} \"/usr/$(get_libdir)/${libpath}.so\""
 				else
 					local R="${R} ${libpath}" 
 				fi
