@@ -247,7 +247,7 @@ kde4-meta_src_extract() {
 			\"${KD}/$(get_libdir)/libkdecore.so\""
 		R_BAS_kostore="libkostore ${R_QT_kostore}"
 		R_BAS_koodf="libkoodf ${R_BAS_kostore}"
-		R_KROSS_kokross="\"${KD}/$(get_libdir)/libkokross.so\"
+		R_KROSS_kokross="
 			\"${KD}/$(get_libdir)/libkrossui.so\"
 			\"${KD}/$(get_libdir)/libkrosscore.so\""
 		R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
