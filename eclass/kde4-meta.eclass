@@ -230,7 +230,7 @@ kde4-meta_src_extract() {
 		### We need to check for latest kdedir if kdedir does not point onto /usr
 		# we check for some basic application and if we found it in /usr we use
 		# /usr as master tree otherwise we pick latest version in /usr/kde/
-		elog "we allways preffer KDE installed without kdeprefix so if you get"
+		elog "we always prefer KDE installed without kdeprefix so if you get"
 		elog "some issues with linking please switch to -kdeprefix KDE install."
 		if [ -e /usr/bin/kwin ]; then
 			KD="/usr"
