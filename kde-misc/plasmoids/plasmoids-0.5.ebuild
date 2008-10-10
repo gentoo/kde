@@ -21,6 +21,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/85802-Timer.tar.bz2
 	http://www.kde-look.org/CONTENT/content-files/79476-plasma-wifi-0.5.tgz
 	http://ivplasma.googlecode.com/files/plasma-netgraph-0.3.tar.gz
 	http://kde-look.org/CONTENT/content-files/86628-cpuload-0.1.tar.bz2
+	http://www.kde-look.org/CONTENT/content-files/91009-iHateTheCashew.tbz
 	"
 
 LICENSE="GPL-2 GPL-3"
