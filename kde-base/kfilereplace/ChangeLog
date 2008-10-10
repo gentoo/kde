@@ -2,6 +2,15 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Oct 2008; <alexxy@gentoo.org> -kfilereplace-4.1.68.ebuild,
+  +kfilereplace-4.1.69.ebuild:
+  Version removed.
+
+*kfilereplace-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +kfilereplace-4.1.69.ebuild:
+  Version bump.
+
 *kfilereplace-4.1.68 (06 Oct 2008)
 
   06 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
