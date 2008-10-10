@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -amarok-1.90.ebuild:
+  Removed amarok-1.90 as it was put in the tree.
+
   06 Oct 2008; <alexxy@gentoo.org> amarok-1.90.ebuild, amarok-1.92.2.ebuild:
   update NEED_KDE to use slots instead of versions
 
