@@ -15,6 +15,16 @@
 # NOTE: This eclass uses the SLOT dependencies from EAPI="1" or compatible,
 # hence you must define EAPI="1" in the ebuild, before inheriting any eclasses.
 
+# we want opengl optional in each koffice package
+if [[ "${KMNAME}" == "koffice" ]]; then
+	case ${PN} in
+		koffice-data)
+			;;
+		*)
+			OPENGL_REQUIRED="optional"
+			;;
+	esac
+fi
 inherit multilib kde4-functions kde4-base
 
 case "${EAPI}" in
@@ -77,11 +87,26 @@ case ${KMNAME} in
 		fi
 	;;
 	koffice)
+		DEPEND="${DEPEND}
+			!app-office/${PN}:0
+			!app-office/koffice:0
+			!app-office/koffice-meta:0"
 		case ${PN} in
-			koffice-libs|koffice-data) : ;;
+			koffice-libs):
+				IUSE="+crypt"
+				DEPEND="${DEPEND} crypt? ( >=app-crypt/qca-2 )"
+				RDEPEND="${RDEPEND} crypt? ( >=app-crypt/qca-2 )"
+				;;
+			koffice-data):
+				;;
 			*)
-			DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
-			RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
+			IUSE="+crypt"
+			DEPEND="${DEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+				crypt? ( >=app-crypt/qca-2 )"
+			RDEPEND="${RDEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+				crypt? ( >=app-crypt/qca-2 )"
 			;;
 		esac
 	;;
@@ -196,6 +221,68 @@ kde4-meta_src_extract() {
 	fi
 
 	kde4-base_src_unpack
+
+	if [[ "${KMNAME}" == "koffice" ]]; then
+		case ${PN} in
+			koffice-data|koffice-libs)
+				;;
+			*)
+		### We need to check for latest kdedir if kdedir does not point onto /usr
+		# we check for some basic application and if we found it in /usr we use
+		# /usr as master tree otherwise we pick latest version in /usr/kde/
+		elog "we always prefer KDE installed without kdeprefix so if you get"
+		elog "some issues with linking please switch to -kdeprefix KDE install."
+		if [ -e /usr/bin/kwin ]; then
+			KD="/usr"
+		else
+			KD=$(find /usr/kde/ -maxdepth 1 -mindepth 1 -type d |tail -n 1)
+			#pickup latest version from /usr/kde
+		fi
+		# we have few lib states we can occur on koffice sources
+		### basic array
+		LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
+		### dep array
+		R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
+			\"/usr/$(get_libdir)/qt4/libQtXml.so\"
+			\"${KD}/$(get_libdir)/libkdecore.so\""
+		R_BAS_kostore="libkostore ${R_QT_kostore}"
+		R_BAS_koodf="libkoodf ${R_BAS_kostore}"
+		R_KROSS_kokross="
+			\"${KD}/$(get_libdir)/libkrossui.so\"
+			\"${KD}/$(get_libdir)/libkrosscore.so\""
+		R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
+		R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
+		R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
+		R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
+		R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
+		R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
+		R_BAS_flake="libflake ${R_BAS_pigmentcms}"
+		R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
+		R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
+		R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
+		### additional unmentioned stuff
+		R_BAS_kowmf="libkowmf"
+		for libname in ${LIB_ARRAY}; do
+			echo "Fixing library ${libname} with hardcoded path"
+			for libpath in $(eval "echo \$R_BAS_${libname}"); do
+				if [[ "${libpath}" != "\"/usr/"* ]]; then
+					local R="${R} \"/usr/$(get_libdir)/${libpath}.so\""
+				else
+					local R="${R} ${libpath}" 
+				fi
+			done
+			find ${S} -name CMakeLists.txt -print| xargs -i \
+			sed -i \
+				-e "s: ${libname} : ${R} :g" \
+				-e "s: ${libname}): ${R}):g" \
+				-e "s:(${libname} :(${R} :g" \
+				-e "s:(${libname}):(${R}):g" \
+				-e "s: ${libname}: ${R}:g" \
+			{} || die "Fixing library names failed."
+		done
+				;;
+		esac
+	fi
 }
 
 # Create lists of files and subdirectories to extract.
@@ -248,9 +335,21 @@ kde4-meta_create_extractlists() {
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-endian.h.cmake
 				filters/config-filters.h.cmake
+				config-openctl.h.cmake
 				config-openexr.h.cmake
 				config-opengl.h.cmake
 				config-prefix.h.cmake"
+			case ${PN} in
+				koffice-libs|koffice-data)
+					;;
+				*)
+					# add basic extract for all packages
+					KMEXTRACTONLY="${KMEXTRACTONLY}
+						filters/
+						libs/
+						plugins/"
+					;;
+			esac
 		;;
 	esac
 	# Don't install cmake modules for split ebuilds to avoid collisions.
@@ -261,13 +360,20 @@ kde4-meta_create_extractlists() {
 					KMEXTRA="${KMEXTRA}
 						cmake/modules/"
 					;;
-
 				*)
 					KMCOMPILEONLY="${KMCOMPILEONLY}
 						cmake/modules/"
 					;;
 			esac
 		;;
+		koffice)
+			case ${PN} in
+				koffice-libs|koffice-data|kplato)
+					;;
+				*)
+					KMEXTRA="${KMEXTRA} filters/${PN}"
+			esac
+			;;
 	esac
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
@@ -502,11 +608,11 @@ kde4-meta_change_cmakelists() {
 		fi
 		;;
 		koffice)
-		if [[ ${PN} != koffice-libs ]]; then
-			sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
-				doc/CMakeLists.txt || \
-				die "${LINENO}: sed died in the koffice.desktop collision prevention section"
-		fi
+		#if [[ ${PN} != koffice-libs ]]; then
+		#	sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
+		#		doc/CMakeLists.txt || \
+		#		die "${LINENO}: sed died in the koffice.desktop collision prevention section"
+		#fi
 		;;
 	esac
 
@@ -554,6 +660,13 @@ kde4-meta_src_install() {
 
 	if [[ -n ${KMSAVELIBS} ]] ; then
 		install_library_dependencies
+	fi
+	# remove unvanted koffice stuff
+	if [[ "${KMNAME}" == "koffice" ]] ; then
+		if [[ "${PN}" != "koffice-data" ]]; then
+			rm "${D}"/usr/include/config-openexr.h
+			rm "${D}"/usr/share/apps/cmake/modules/FindKOfficeLibs.cmake
+		fi
 	fi
 }
 

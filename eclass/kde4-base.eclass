@@ -108,7 +108,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 # Add the kdeprefix use flag
 case "${EAPI}" in
 	2 | 2_pre3 | 2_pre2 | 2_pre1)
-		IUSE="${IUSE} kdeprefix"
+		[[ "${NEED_KDE}" != "any" ]] && IUSE="${IUSE} kdeprefix"
 		;;
 esac
 
@@ -168,6 +168,13 @@ fi
 export NEED_KDE
 
 case ${NEED_KDE} in
+	any)
+		_kdedir=""
+		_operator=">="
+		_pv="-3.9" # we do not specify version only that it needs 4
+		# kdedir is not set and it needs to be detected (maybe fallback for
+		# latest version availible)
+		;;
 	latest)
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
@@ -227,7 +234,6 @@ case ${NEED_KDE} in
 		;;
 	*:4.2)
 		_kdedir="4.2"
-		_operator=">="
 		_pv="-${NEED_KDE}"
 		;;
 	*:4.1)
@@ -258,7 +264,7 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}:4.1"
 		;;
-	4.0*)
+	4.0* | 4)
 		_kdedir="4.0"
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
@@ -286,11 +292,20 @@ if [[ ${NEED_KDE} != none ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
 			SLOT="kde-svn"
 		else
-			case ${PV} in
-				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
-				4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
-				*) SLOT="kde-4" ;;
-			esac
+			case ${KMNAME} in
+				koffice)
+					case ${PV} in
+						*) SLOT="2" ;;
+					esac
+					;;
+				*)
+					case ${PV} in
+						4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
+						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
+						*) SLOT="kde-4" ;;
+					esac
+					;;
+				esac
 		fi
 	fi
 
@@ -299,38 +314,53 @@ if [[ ${NEED_KDE} != none ]]; then
 		2 | 2_pre3 | 2_pre2 | 2_pre1)
 			for KDE_SLOT in ${KDE_SLOTS[@]}; do
 				# block non kdeprefix ${PN} on other slots
-				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
-					DEPEND="${DEPEND}
-						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
-					RDEPEND="${RDEPEND}
-						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+				# we do this only if we do not depend on any version of kde
+				if [[ ${NEED_KDE} != "any" ]]; then
+					if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+						DEPEND="${DEPEND}
+							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+						RDEPEND="${RDEPEND}
+							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+					fi
 				fi
 			done
 			;;
 	esac
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
-	if [[ ${PN} != "kdelibs" ]]; then
-		case "${EAPI}" in
-			2 | 2_pre3 | 2_pre2 | 2_pre1)
-				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-				;;
-			*)
-				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-				;;
-		esac
-		if [[ ${PN} != "kdepimlibs" ]]; then
+	if [[ ${NEED_KDE} != "any" ]]; then
+		if  [[ ${PN} != "kdelibs" ]]; then
 			case "${EAPI}" in
 				2 | 2_pre3 | 2_pre2 | 2_pre1)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 					;;
 				*)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-				esac
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					;;
+			esac
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				case "${EAPI}" in
+					2 | 2_pre3 | 2_pre2 | 2_pre1)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						;;
+					*)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					esac
+			fi
+		fi
+	else
+		if [[ ${PN} != "kdelibs" ]]; then
+			# need_kde == any
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+			fi
 		fi
 	fi
 
@@ -392,9 +422,14 @@ kde4-base_pkg_setup() {
 		# Set PREFIX
 		case "${EAPI}" in
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
-				if use kdeprefix; then
-					KDEDIR="/usr/kde/${_kdedir}"
-					KDEDIRS="/usr:/usr/local:${KDEDIR}"
+				if [[ ${NEED_KDE} != "any" ]]; then
+					if use kdeprefix; then
+						KDEDIR="/usr/kde/${_kdedir}"
+						KDEDIRS="/usr:/usr/local:${KDEDIR}"
+					else
+						KDEDIR="/usr"
+						KDEDIRS="/usr:/usr/local"
+					fi
 				else
 					KDEDIR="/usr"
 					KDEDIRS="/usr:/usr/local"
@@ -600,6 +635,24 @@ kde4-base_src_configure() {
 
 	# hardcode path to *.cmake KDE files
 	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
+
+	# additonal arguments for KOFFICE
+	if [[ "${KMNAME}" == "koffice" ]]; then
+		case ${PN} in
+			koffice-data):
+			;;
+			*):
+			mycmakeargs="${mycmakeargs}
+				-DWITH_OpenEXR=ON
+				$(cmake-utils_use_with crypt QCA2)
+				$(cmake-utils_use_with opengl OpenGL)"
+			if use crypt; then
+				mycmakeargs="${mycmakeargs}
+					-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2"
+			fi
+			;;
+		esac
+	fi
 
 	[ -e CMakeLists.txt ] && cmake-utils_src_configureout
 }
