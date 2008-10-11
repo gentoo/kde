@@ -26,4 +26,3 @@ RDEPEND="${COMMON_DEPEND}
 	!kdeprefix? ( !net-misc/smb4k:0 )
 	net-fs/mount-cifs"
 
-PREFIX="${KDEDIR}"

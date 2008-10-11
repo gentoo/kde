@@ -7,9 +7,6 @@ EAPI="2"
 NEED_KDE=":4.1"
 inherit kde4-base
 
-# Install to KDEDIR rather than /usr, to slot properly.
-PREFIX="${KDEDIR}"
-
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
 

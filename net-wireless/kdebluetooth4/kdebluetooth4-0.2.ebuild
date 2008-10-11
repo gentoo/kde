@@ -26,4 +26,4 @@ RDEPEND="${DEPEND}
 		kde-base/kdelibs:${SLOT} )
 	>=net-wireless/bluez-libs-3.25
 	>=net-wireless/bluez-utils-3.25"
-PREFIX="${KDEDIR}"
+

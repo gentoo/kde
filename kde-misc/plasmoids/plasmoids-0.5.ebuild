@@ -35,7 +35,6 @@ RDEPEND="kde-base/libplasma:${SLOT}[opengl]
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1"
 
-PREFIX="${KDEDIR}"
 S="${WORKDIR}"
 
 get_dirs() {

@@ -29,8 +29,6 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PREFIX="${KDEDIR}"
-
 src_unpack() {
 	unpack ${A}
 	cd "${S}"

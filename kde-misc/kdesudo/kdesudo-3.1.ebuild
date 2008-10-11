@@ -20,8 +20,6 @@ DEPEND="app-admin/sudo
 	kde-base/kdebase-data:${SLOT}"
 RDEPEND="${DEPEND}"
 
-PREFIX="${KDEDIR}"
-
 pkg_postinst() {
 	elog "If you want to replace kdesu with kdesudo ensure yourself,"
 	elog "that your PATH variable has /usr/local defined before /usr and"

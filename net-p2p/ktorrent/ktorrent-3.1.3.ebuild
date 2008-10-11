@@ -30,9 +30,6 @@ RDEPEND="${DEPEND}
 			kde-base/kdelibs:${SLOT} ) )
 	zeroconf? ( kde-base/kdnssd:${SLOT} )"
 
-# fix install PREFIX
-PREFIX="${KDEDIR}"
-
 src_configure() {
 	local mycmakeargs
 

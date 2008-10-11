@@ -21,7 +21,6 @@ DEPEND="kde-base/systemsettings:${SLOT}
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${P}"-kde4.1.1
-PREFIX="${KDEDIR}"
 
 src_configure() {
 	local mycmakeargs

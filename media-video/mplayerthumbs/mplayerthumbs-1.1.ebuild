@@ -18,4 +18,3 @@ IUSE=""
 DEPEND="( || ( >=kde-base/dolphin-4.1.1:${SLOT} >=kde-base/kdebase-4.1.1:${SLOT} >=kde-base/konqueror-4.1.1:${SLOT} ) )
 		( || ( media-video/mplayer media-video/mplayer-bin ) )"
 
-PREFIX="${KDEDIR}"

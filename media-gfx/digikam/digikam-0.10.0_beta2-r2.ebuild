@@ -51,9 +51,6 @@ DEPEND="
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
-# we want to install into kdedir so we can keep kde3 and kde4 version along
-PREFIX="${KDEDIR}"
-
 src_unpack() {
 	local lang
 

@@ -25,8 +25,6 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/lancelot-${PV}
 
-PREFIX=${KDEDIR}
-
 src_configure() {
 	local mycmakeargs
 	mycmakeargs="${mycmakeargs}
