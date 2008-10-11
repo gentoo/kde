@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement"
 HOMEPAGE="http://www.kde-apps.org/content/show.php/PowerDevil?content=85078"
-SRC_URI="http://www.kde-apps.org/CONTENT/content-files/85078-${P}-kde4.1.1.tar.bz2"
+SRC_URI="ftp://ftp.kde.org/pub/kde/stable/apps/KDE4.x/utils/${P}-kde4.1.2.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="4.1"
@@ -20,7 +20,7 @@ DEPEND="kde-base/systemsettings:${SLOT}
 	kde-base/kscreensaver:${SLOT}"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}"/"${P}"-kde4.1.1
+S="${WORKDIR}"/"${P}"-kde4.1.2
 
 src_configure() {
 	local mycmakeargs
