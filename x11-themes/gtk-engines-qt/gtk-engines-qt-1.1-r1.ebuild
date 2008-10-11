@@ -16,9 +16,10 @@ SRC_URI="http://gtk-qt.ecs.soton.ac.uk/files/${PV}/${MY_PN}-${PV}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
-IUSE=""
+IUSE="gnome"
 
-RDEPEND="x11-libs/gtk+:2"
+RDEPEND="x11-libs/gtk+:2
+	gnome? ( =gnome-base/libbonoboui-2* )"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MY_PN}
@@ -28,14 +29,7 @@ src_prepare() {
 }
 
 src_configure() {
-	# does not support out of tree build
-	cmake . "-DCMAKE_INSTALL_PREFIX=/usr/" || die "cmake failed"
+	# does not support out of tree build, BONOBOUI is automagic
+	cmake . -DCMAKE_INSTALL_PREFIX=${KDEDIR} || die "cmake failed"
 }
 
-src_compile() {
-	emake || die "emake failed"
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-}
