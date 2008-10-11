@@ -12,7 +12,7 @@ HOMEPAGE="http://bluetooth.kmobiletools.org/"
 SRC_URI="mirror://sourceforge/kde-bluetooth/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE=""
 
