@@ -18,5 +18,3 @@ IUSE=""
 
 DEPEND="!kdeprefix? ( !kde-misc/krename:0 )
 	>=media-libs/taglib-1.5"
-
-PREFIX="${KDEDIR}"
