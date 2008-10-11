@@ -4,7 +4,9 @@
 
 EAPI="2"
 
-inherit eutils qt4 cmake-utils
+NEED_KDE="any"
+KDE_LINGUAS="bg cs de es fr it nn ru sv tr"
+inherit kde4-base
 
 MY_PN="gtk-qt-engine"
 DESCRIPTION="GTK+2 Qt4 Theme Engine"
@@ -16,39 +18,16 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE=""
 
-LANGS="bg cs de es fr it nn ru sv tr"
-for LANG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LANG}"
-done
-
-RDEPEND="|| (
-		( >=x11-libs/qt-core-4.4.1:4 >=x11-libs/qt-gui-4.4.1:4 )
-		>=x11-libs/qt-4.4.1:4
-	)
-	x11-libs/gtk+:2
-	kde-base/kdebase-data:${SLOT}"
+RDEPEND="x11-libs/gtk+:2"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MY_PN}
 
 src_prepare() {
 	epatch "${FILESDIR}/${PV}-stdlib.patch"
-	sed -i \
-		-e "s:share/locale:/usr/share/locale/:" \
-		po/CMakeLists.txt || die "sed install path failed"
-	cd "${S}"/po
-	# take care of linguas
-	for LANG in ${LANGS}; do
-		mv "${LANG}".po "${LANG}".po.old
-	done
-	for LANG in ${LINGUAS}; do
-		mv "${LANG}".po.old "${LANG}".po
-	done
 }
 
 src_configure() {
-	# we dont want kdehome or we get sandbox violation
-	unset KDEHOME
 	# does not support out of tree build
 	cmake . "-DCMAKE_INSTALL_PREFIX=/usr/" || die "cmake failed"
 }
