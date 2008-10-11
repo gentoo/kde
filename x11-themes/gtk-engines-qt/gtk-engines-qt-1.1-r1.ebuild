@@ -50,9 +50,13 @@ src_configure() {
 	# we dont want kdehome or we get sandbox violation
 	unset KDEHOME
 	# does not support out of tree build
-	cmake . || die "cmake failed"
+	cmake . "-DCMAKE_INSTALL_PREFIX=/usr/" || die "cmake failed"
 }
 
 src_compile() {
 	emake || die "emake failed"
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "emake install failed"
 }

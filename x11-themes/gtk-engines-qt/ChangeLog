@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -x11-themes/gtk-engines-qt/gtk-engines-qt-1.1.ebuild,
+  +x11-themes/gtk-engines-qt/gtk-engines-qt-1.1-r1.ebuild:
+  Fixup installation to correct directories.
+
   26 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
   gtk-engines-qt-1.1.ebuild:
   Use EAPI2 functions since we can.
