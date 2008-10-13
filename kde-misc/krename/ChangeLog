@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -kde-misc/krename/krename-3.9.1.ebuild,
+  +kde-misc/krename/krename-3.9.2.ebuild:
+  Bump new version
+
   11 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   krename-3.9.1.ebuild:
   Removed the PREFIX setting as it's now done through the eclass.
