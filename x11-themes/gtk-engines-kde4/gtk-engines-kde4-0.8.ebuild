@@ -14,7 +14,7 @@ SRC_URI="http://kde-apps.org/CONTENT/content-files/74689-${MY_PN}v${PV}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-RDEPEND=">=11-libs/qt-gui-4.4.2:4
+RDEPEND=">=x11-libs/qt-gui-4.4.2:4
 		x11-libs/gtk+:2"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.2"
