@@ -1,0 +1,9 @@
+# ChangeLog for kde-plasmoids/onelinecalc
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*onelinecalc-0.2 (15 Oct 2008)
+
+  15 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +onelinecalc-0.2.ebuild:
+  Version bump
+
