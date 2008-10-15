@@ -292,6 +292,21 @@ meta ebuilds for KDE 4.2.
 
 </body>
 </section>
+<section>
+<title>Localization/Internationalization</title>
+<p>
+With new KDE there is new translators effort in Localization instead of
+Internationalization. This cause some confusion but dont worry your translation
+is shiped to you, just name has been changed so now for getting translations use
+theese comands.
+<pre caption="emerge translations for kde4 packages">
+# <i>emerge kde-l10n</i>
+</pre>
+<pre caption="emerge translations for kde3 packages">
+# <i>emerge kde-i18n</i>
+</pre>
+</p>
+</section>
 </chapter>
 <chapter>
 <title>Configuration</title>
