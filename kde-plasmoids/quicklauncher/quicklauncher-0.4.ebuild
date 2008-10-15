@@ -9,11 +9,11 @@ inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet which reimplements the quicklaunch applet present in kde3.5"
 HOMEPAGE="http://www.kde-look.org/content/show.php/QuickLauncher+Applet?content=78061"
-KEYWORDS="~amd64 ~x86"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/78061-plasma-applet-${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="4.1"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="!kde-misc/plasmoids

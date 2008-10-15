@@ -9,11 +9,11 @@ inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma weather applet"
 HOMEPAGE="http://www.kde-look.org/content/show.php/Weather+Plasmoid?content=84251"
-KEYWORDS="~amd64 ~x86"
 SRC_URI="http://download83.mediafire.com/ms6xljhh1frg/zsj2dxxj2sl/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="4.1"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="!kde-misc/plasmoids
