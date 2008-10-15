@@ -1,4 +1,3 @@
-kde-plasmoids/toggle-compositing
 kde-plasmoids/cpuload
 kde-plasmoids/eyesaver
 kde-plasmoids/flickrplasmoid
@@ -14,4 +13,5 @@ kde-plasmoids/plasma-wifi
 kde-plasmoids/qalculate-applet
 kde-plasmoids/quickaccess
 kde-plasmoids/quicklauncher
+kde-plasmoids/todo_plasmoid
 kde-plasmoids/toggle-compositing
