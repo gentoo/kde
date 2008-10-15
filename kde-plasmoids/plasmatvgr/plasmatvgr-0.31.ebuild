@@ -20,4 +20,4 @@ IUSE=""
 DEPEND="!kde-misc/plasmoids
 		kde-base/libplasma"
 
-S="${WORKDIR}/${PN}/${PN}-0.1"
+S="${WORKDIR}/${PN}/${PN}"
