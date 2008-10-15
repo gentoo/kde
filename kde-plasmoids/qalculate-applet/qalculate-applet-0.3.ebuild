@@ -10,13 +10,14 @@ inherit kde4-base
 DESCRIPTION="A KDE4 Plasma Applet. A variation of the KAlgebra plasmoid that makes use of the Qalculate! library."
 HOMEPAGE="http://www.kde-look.org/content/show.php/Qalculate?content=84618"
 KEYWORDS="~amd64 ~x86"
-SRC_URI="http://www.kde-look.org/CONTENT/content-files/84618-qalculate_applet-${PV}.tar.gz"
+SRC_URI="http://www.kde-look.org/CONTENT/content-files/84618-${P/-/_}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="4.1"
 IUSE=""
 
 DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
+		kde-base/libplasma
+		sci-libs/libqalculate"
 
-S="${WORKDIR}/qalculate_applet"
+S="${WORKDIR}/${PN/-/_}"
