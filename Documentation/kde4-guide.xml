@@ -421,17 +421,32 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i>
 
 </body>
 </section>
+<section>
+<title>Missing icons in KDE4</title>
+<body>
+<p>
+When you occur with this bug try first this command before opening bug.
+<pre caption="emerge command">
+# <i>emerge -1 kdebase-data &amp;&amp; emerge -1 hicolor-icon-theme kdebase-data</i>
+</pre>
+</p>
+</body>
+</section>
 </chapter>
 <chapter>
 <title>Hints</title>
 <section>
-<title>kde-misc/plasmoids</title>
+<title>Plasmoids</title>
 <body>
 
 <p>
-This ebuild contains various plasmoids that were requested by users (if you find
-others that would be useful to our user community please contact us, SVN version
-will not be added and it must work with KDE 4.1).
+Plasmoids are brand new plasma tools which can enhance your desktop experience
+to brand new level. We created kde-plasma/ section where we place every plasmoid
+on which we get our nasty hands and find it workable enought. If you find out
+that your favorite one is missing create bug and somebody might create it for
+you.
+If you are plasma person "want them all can't live without them" we have set
+@plasmoids which contains all plasmoids which are currently availible.
 </p>
 
 </body>
