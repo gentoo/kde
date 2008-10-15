@@ -17,25 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="gtk"
 
-DEPEND="dev-libs/libxml2
-	media-libs/ladspa-cmt
-	media-libs/ladspa-sdk
-	media-libs/libdv
-	media-libs/libmad
-	media-libs/libogg
-	media-libs/libsamplerate
-	media-libs/libsdl[X,opengl]
-	media-libs/libvorbis
-	>=media-libs/mlt-0.3.0[dv,ffmpeg,lame,libsamplerate,ogg,sdl,sox,vorbis,xml]
+DEPEND=">=media-libs/mlt-0.3.0[ffmpeg]
 	>=media-libs/mlt++-0.3.0
-	media-libs/sdl-image[gif,jpeg,png,tiff]
-	media-sound/sox
-	media-video/dvgrab
-	media-video/ffmpeg[X,sdl]
-	gtk? (
-		x11-libs/gtk+:2
-		x11-libs/pango
-	)"
+	media-video/ffmpeg[X,sdl]"
 
 S="${WORKDIR}"/"${PN}-${PV/_/}"
 
