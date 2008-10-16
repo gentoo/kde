@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="any"
+NEED_KDE=":4.1"
 KMNAME="koffice"
 KMNOMODULE="true"
 inherit kde4-meta
