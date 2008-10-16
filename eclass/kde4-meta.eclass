@@ -230,26 +230,18 @@ kde4-meta_src_extract() {
 		### We need to check for latest kdedir if kdedir does not point onto /usr
 		# we check for some basic application and if we found it in /usr we use
 		# /usr as master tree otherwise we pick latest version in /usr/kde/
-		elog "we always prefer KDE installed without kdeprefix so if you get"
-		elog "some issues with linking please switch to -kdeprefix KDE install."
-		if [ -e /usr/bin/kwin ]; then
-			KD="/usr"
-		else
-			KD=$(find /usr/kde/ -maxdepth 1 -mindepth 1 -type d |tail -n 1)
-			#pickup latest version from /usr/kde
-		fi
 		# we have few lib states we can occur on koffice sources
 		### basic array
 		LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
 		### dep array
 		R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
 			\"/usr/$(get_libdir)/qt4/libQtXml.so\"
-			\"${KD}/$(get_libdir)/libkdecore.so\""
+			\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
 		R_BAS_kostore="libkostore ${R_QT_kostore}"
 		R_BAS_koodf="libkoodf ${R_BAS_kostore}"
 		R_KROSS_kokross="
-			\"${KD}/$(get_libdir)/libkrossui.so\"
-			\"${KD}/$(get_libdir)/libkrosscore.so\""
+			\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
+			\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
 		R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
 		R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
 		R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
@@ -266,7 +258,7 @@ kde4-meta_src_extract() {
 			echo "Fixing library ${libname} with hardcoded path"
 			for libpath in $(eval "echo \$R_BAS_${libname}"); do
 				if [[ "${libpath}" != "\"/usr/"* ]]; then
-					local R="${R} \"/usr/$(get_libdir)/${libpath}.so\""
+					local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
 				else
 					local R="${R} ${libpath}" 
 				fi
