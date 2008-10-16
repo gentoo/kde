@@ -656,8 +656,8 @@ kde4-meta_src_install() {
 	# remove unvanted koffice stuff
 	if [[ "${KMNAME}" == "koffice" ]] ; then
 		if [[ "${PN}" != "koffice-data" ]]; then
-			rm "${D}"/usr/include/config-openexr.h
-			rm "${D}"/usr/share/apps/cmake/modules/FindKOfficeLibs.cmake
+			rm "${D}"/${KDEDIR}/include/config-openexr.h
+			rm "${D}"/${KDEDIR}/share/apps/cmake/modules/FindKOfficeLibs.cmake
 		fi
 	fi
 }
