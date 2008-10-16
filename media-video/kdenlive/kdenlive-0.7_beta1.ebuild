@@ -15,11 +15,13 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV/_/}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk"
+IUSE=""
 
-DEPEND=">=media-libs/mlt-0.3.0[ffmpeg]
+DEPEND="
+	kde-base/kdebase-data${NEED_KDE}
+	>=media-libs/mlt-0.3.0[ffmpeg,-qt3]
 	>=media-libs/mlt++-0.3.0
-	media-video/ffmpeg[X,sdl]"
+	media-video/ffmpeg[X,sdl]
+"
 
 S="${WORKDIR}"/"${PN}-${PV/_/}"
-
