@@ -5,7 +5,7 @@
 EAPI="2"
 KMNAME="koffice"
 KMMODULE="${PN}"
-NEED_KDE="any"
+NEED_KDE=":4.1"
 inherit kde4-meta
 
 DESCRIPTION="KOffice vector drawing application."

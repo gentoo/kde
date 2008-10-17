@@ -1,14 +1,9 @@
-app-office/karbon
-app-office/kchart
-app-office/koffice-data
-app-office/koffice-libs
+app-office/kword
 app-office/kplato
 app-office/kpresenter
+app-office/kchart
+app-office/karbon
 app-office/krita
+app-office/koffice-data
+app-office/koffice-libs
 app-office/kspread
-app-office/kword
-# Not yet working in koffice2:
-#app-office/kexi
-#app-office/kivio
-#app-office/kformula
-
