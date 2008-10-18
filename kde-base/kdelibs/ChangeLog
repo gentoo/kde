@@ -4,6 +4,12 @@
 
 <<<<<<< HEAD:kde-base/kdelibs/ChangeLog
 
+*kdelibs-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdelibs-4.1.69.ebuild, +kdelibs-4.1.70.ebuild:
+  Version bump.
+
   10 Oct 2008; <alexxy@gentoo.org> -kdelibs-4.1.68.ebuild,
   +kdelibs-4.1.69.ebuild:
   Version removed.

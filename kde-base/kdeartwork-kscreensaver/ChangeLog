@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeartwork-kscreensaver-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdeartwork-kscreensaver-4.1.69.ebuild,
+  +kdeartwork-kscreensaver-4.1.70.ebuild:
+  Version bump.
+
   10 Oct 2008; <alexxy@gentoo.org> -kdeartwork-kscreensaver-4.1.68.ebuild,
   +kdeartwork-kscreensaver-4.1.69.ebuild:
   Version removed.

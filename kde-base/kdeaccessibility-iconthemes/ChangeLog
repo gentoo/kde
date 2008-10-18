@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeaccessibility-iconthemes-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdeaccessibility-iconthemes-4.1.69.ebuild,
+  +kdeaccessibility-iconthemes-4.1.70.ebuild:
+  Version bump.
+
   10 Oct 2008; <alexxy@gentoo.org>
   -kdeaccessibility-iconthemes-4.1.68.ebuild,
   +kdeaccessibility-iconthemes-4.1.69.ebuild:
