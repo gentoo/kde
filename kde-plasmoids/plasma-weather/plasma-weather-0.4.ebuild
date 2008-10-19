@@ -9,7 +9,8 @@ inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma weather applet"
 HOMEPAGE="http://www.kde-look.org/content/show.php/Weather+Plasmoid?content=84251"
-SRC_URI="http://download83.mediafire.com/jxlmcdsokmcg/zsj2dxxj2sl//${P}.tar.gz"
+SRC_URI="http://omploader.org/vdWxn/${P}.tar.gz
+		http://download83.mediafire.com/jxlmcdsokmcg/zsj2dxxj2sl//${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="4.1"
