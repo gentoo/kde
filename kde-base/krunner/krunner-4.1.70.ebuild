@@ -34,7 +34,8 @@ KMEXTRACTONLY="
 	kcontrol/
 	ksysguard/
 	ksmserver/org.kde.KSMServerInterface.xml
-	kcheckpass/"
+	kcheckpass/
+	plasma/shells/screensaver/org.kde.plasma-overlay.App.xml"
 
 KMLOADLIBS="libkworkspace libplasma"
 
