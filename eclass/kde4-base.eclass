@@ -203,7 +203,7 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE=":${SLOT}"
-	:kde-svn)
+	:svn)
 		_kdedir="svn"
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="svn"
@@ -218,7 +218,7 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}:${SLOT}"
-	*:kde-svn)
+	*:svn)
 		_kdedir="svn"
 		_operator=">="
 		_pv="-${NEED_KDE}"
@@ -239,7 +239,7 @@ case ${NEED_KDE} in
 	scm|svn|9999*)
 		_kdedir="svn"
 		_operator=">="
-		_pv="-${NEED_KDE}:kde-svn"
+		_pv="-${NEED_KDE}:svn"
 		export NEED_KDE="svn"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
@@ -273,7 +273,7 @@ if [[ ${NEED_KDE} != none ]]; then
 	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = svn ]]; then
-			SLOT="kde-svn"
+			SLOT="svn"
 		else
 			case ${KMNAME} in
 				koffice)
