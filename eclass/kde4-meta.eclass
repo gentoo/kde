@@ -175,7 +175,7 @@ kde4-meta_pkg_setup() {
 # kde4-meta-src_extract.
 kde4-meta_src_unpack() {
 	debug-print-function  ${FUNCNAME} "$@"
-
+	
 	kde4-meta_src_extract
 	kde4-meta_change_cmakelists
 }

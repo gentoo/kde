@@ -149,7 +149,7 @@ esac
 # Acceptable values are:
 #	- latest - Use latest version in the portage tree
 #		Default for kde-base ebuilds. Banned for ebuilds not part of kde or koffice.
-#	- svn - Use svn release (live ebuilds)
+#	- live - Use live release (live ebuilds)
 #	- :SLOT - Use any version in the SLOT specified in the NEED_KDE value.
 #	- VERSION_NUMBER - Use the minimum KDE4 version specified in the NEED_KDE value.
 #	- VERSION_NUMBER:SLOT - Use the minimum KDE4 version and the SLOT specified in the NEED_KDE value.
@@ -207,10 +207,10 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE=":${SLOT}"
-	:svn)
-		_kdedir="svn"
+	:live)
+		_kdedir="live"
 		_pv="-${NEED_KDE}"
-		export NEED_KDE="svn"
+		export NEED_KDE="live"
 		;;
 	:4.2)
 		_kdedir="4.2"
@@ -226,11 +226,11 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}:${SLOT}"
-	*:svn)
-		_kdedir="svn"
+	*:live)
+		_kdedir="live"
 		_operator=">="
 		_pv="-${NEED_KDE}"
-		export NEED_KDE="svn"
+		export NEED_KDE="live"
 		;;
 	*:4.2)
 		_kdedir="4.2"
@@ -248,11 +248,11 @@ case ${NEED_KDE} in
 		;;
 
 	# NEED_KDE="${PV}"
-	scm|svn|9999*)
-		_kdedir="svn"
+	scm|svn|live|9999*)
+		_kdedir="live"
 		_operator=">="
-		_pv="-${NEED_KDE}:svn"
-		export NEED_KDE="svn"
+		_pv="-${NEED_KDE}:live"
+		export NEED_KDE="live"
 		;;
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 		_kdedir="4.2"
@@ -289,8 +289,8 @@ if [[ ${NEED_KDE} != none ]]; then
 
 	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
-		if [[ ${NEED_KDE} = svn ]]; then
-			SLOT="svn"
+		if [[ ${NEED_KDE} = live ]]; then
+			SLOT="live"
 		else
 			case ${KMNAME} in
 				koffice)
@@ -376,7 +376,7 @@ if [[ -n ${KDEBASE} ]]; then
 		_kmname=${PN}
 	fi
 	_kmname_pv="${_kmname}-${PV}"
-	if [[ ${NEED_KDE} != "svn" ]]; then
+	if [[ ${NEED_KDE} != "live" ]]; then
 		case ${KDEBASE} in
 			kde-base)
 			case ${PV} in
