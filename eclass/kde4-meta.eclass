@@ -175,9 +175,28 @@ kde4-meta_pkg_setup() {
 # kde4-meta-src_extract.
 kde4-meta_src_unpack() {
 	debug-print-function  ${FUNCNAME} "$@"
-	
-	kde4-meta_src_extract
-	kde4-meta_change_cmakelists
+	case ${SLOT} in
+		live)
+			S="${WORKDIR}/${PN}"
+			# Ensure the target directory exists
+			mkdir -p "${S}"
+			# Update working copy
+			ESVN_RESTRICT="export" subversion_src_unpack
+			# this sets variables used by the src_extract and change_cmakelists
+			subversion_wc_info
+			# Fetch SVN sources and export (parts of) our SVN working copy to ${S}
+			kde4-meta_src_extract
+			# Make sure PATCHES as well as ESVN_PATCHES get applied
+			kde4-base_apply_patches
+			subversion_bootstrap
+			# CMakeLists.txt magic
+			kde4-meta_change_cmakelists
+			;;
+		*)
+			kde4-meta_src_extract
+			kde4-meta_change_cmakelists
+			;;
+	esac
 }
 
 # @FUNCTION: kde4-meta_src_extract
@@ -185,40 +204,81 @@ kde4-meta_src_unpack() {
 # A function to unpack the source for a split KDE ebuild.
 # Also see KMMODULE, KMNOMODULE, KMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY and KMTARPARAMS.
 kde4-meta_src_extract() {
-	local abort tarball tarfile f extractlist
-	tarball="${KMNAME}-${PV}.tar.bz2"
-	tarfile="${DISTDIR}"/${tarball}
+	case ${SLOT} in
+		live)
+		        local rsync_options subdir kmnamedir targetdir
+		        # Export working copy to ${S}
+	        einfo "Exporting parts of working copy to ${S}"
+			kde4-meta_create_extractlists
 
-	echo "Unpacking parts of ${tarball} to ${WORKDIR}"
+			case ${KMNAME} in
+         			kdebase) kmnamedir="" ;;
+					kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
+			esac
 
-	kde4-meta_create_extractlists
+			rsync_options="--group --links --owner --perms --quiet --exclude=.svn/"
 
-	for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
-		AUTHORS COPYING INSTALL README NEWS ChangeLog
-	do
-		extractlist="${extractlist} ${KMNAME}-${PV}/${f}"
-	done
-	extractlist="${extractlist} $(__list_needed_subdirectories)"
-	KMTARPARAMS="${KMTARPARAMS} -j"
-
-	pushd "${WORKDIR}" > /dev/null
-	[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf $tarfile $KMTARPARAMS $extractlist >&2
-	tar -xpf $tarfile $KMTARPARAMS $extractlist 2> /dev/null
-
-	# Default $S is based on $P; rename the extracted directory to match $S
-	mv ${KMNAME}-${PV} ${P} || die "Died while moving \"${KMNAME}-${PV}\" to \"${P}\""
-
-	popd > /dev/null
-
-	if [[ -n ${KDE4_STRICTER} ]]; then
-		for f in $(__list_needed_subdirectories fatal); do
-			if [[ ! -e ${S}/${f#*/} ]]; then
-				eerror "'${f#*/}' is missing"
-				abort=true
+			# Copy ${KMNAME} non-recursively (toplevel files)
+			rsync ${rsync_options} "${ESVN_WC_PATH}"/${kmnamedir}* "${S}" \
+				|| die "${ESVN}: can't export toplevel files to '${S}'."
+			# Copy cmake directory
+			if [[ -d "${ESVN_WC_PATH}/${kmnamedir}cmake" ]]; then
+				rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}cmake" "${S}" \
+					|| die "${ESVN}: can't export cmake files to '${S}'."
 			fi
-		done
-		[[ -n ${abort} ]] && die "There were missing files."
-	fi
+			# Copy all subdirectories
+			for subdir in $(__list_needed_subdirectories); do
+					targetdir=""
+					if [[ ${subdir} == doc/* && ! -e "${ESVN_WC_PATH}/${kmnamedir}${subdir}" ]]; then
+						continue
+					fi
+
+					[[ ${subdir%/} == */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
+	                rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
+	                        || die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
+			done
+			[[ "${KMNAME}" == kdebase* ]] && kdebase_toplevel_cmakelist
+
+			if [[ ${KMNAME} == kdebase-runtime && ${PN} != kdebase-data ]]; then
+				sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
+	                        "${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
+			fi
+		;;
+		*)
+			local abort tarball tarfile f extractlist
+			tarball="${KMNAME}-${PV}.tar.bz2"
+			tarfile="${DISTDIR}"/${tarball}
+
+			echo "Unpacking parts of ${tarball} to ${WORKDIR}"
+
+			kde4-meta_create_extractlists
+
+			for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
+				AUTHORS COPYING INSTALL README NEWS ChangeLog
+			do
+				extractlist="${extractlist} ${KMNAME}-${PV}/${f}"
+			done
+			extractlist="${extractlist} $(__list_needed_subdirectories)"
+			KMTARPARAMS="${KMTARPARAMS} -j"
+
+			pushd "${WORKDIR}" > /dev/null
+			[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf $tarfile $KMTARPARAMS $extractlist >&2
+			tar -xpf $tarfile $KMTARPARAMS $extractlist 2> /dev/null
+
+			# Default $S is based on $P; rename the extracted directory to match $S
+			mv ${KMNAME}-${PV} ${P} || die "Died while moving \"${KMNAME}-${PV}\" to \"${P}\""
+
+			popd > /dev/null
+
+			if [[ -n ${KDE4_STRICTER} ]]; then
+				for f in $(__list_needed_subdirectories fatal); do
+					if [[ ! -e ${S}/${f#*/} ]]; then
+						eerror "'${f#*/}' is missing"
+						abort=true
+					fi
+				done
+				[[ -n ${abort} ]] && die "There were missing files."
+			fi
 
 	kde4-base_src_unpack
 
@@ -227,54 +287,51 @@ kde4-meta_src_extract() {
 			koffice-data|koffice-libs)
 				;;
 			*)
-		### We need to check for latest kdedir if kdedir does not point onto /usr
-		# we check for some basic application and if we found it in /usr we use
-		# /usr as master tree otherwise we pick latest version in /usr/kde/
-		# we have few lib states we can occur on koffice sources
-		### basic array
-		LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
-		### dep array
-		R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
-			\"/usr/$(get_libdir)/qt4/libQtXml.so\"
-			\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
-		R_BAS_kostore="libkostore ${R_QT_kostore}"
-		R_BAS_koodf="libkoodf ${R_BAS_kostore}"
-		R_KROSS_kokross="
-			\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
-			\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
-		R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
-		R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
-		R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
-		R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
-		R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
-		R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
-		R_BAS_flake="libflake ${R_BAS_pigmentcms}"
-		R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
-		R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
-		R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
-		### additional unmentioned stuff
-		R_BAS_kowmf="libkowmf"
-		for libname in ${LIB_ARRAY}; do
-			echo "Fixing library ${libname} with hardcoded path"
-			for libpath in $(eval "echo \$R_BAS_${libname}"); do
-				if [[ "${libpath}" != "\"/usr/"* ]]; then
-					local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
-				else
-					local R="${R} ${libpath}" 
-				fi
-			done
-			find ${S} -name CMakeLists.txt -print| xargs -i \
-			sed -i \
-				-e "s: ${libname} : ${R} :g" \
-				-e "s: ${libname}): ${R}):g" \
-				-e "s:(${libname} :(${R} :g" \
-				-e "s:(${libname}):(${R}):g" \
-				-e "s: ${libname}: ${R}:g" \
-			{} || die "Fixing library names failed."
-		done
+				### basic array
+				LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
+				### dep array
+				R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
+					\"/usr/$(get_libdir)/qt4/libQtXml.so\"
+					\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
+				R_BAS_kostore="libkostore ${R_QT_kostore}"
+				R_BAS_koodf="libkoodf ${R_BAS_kostore}"
+				R_KROSS_kokross="
+					\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
+					\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
+				R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
+				R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
+				R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
+				R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
+				R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
+				R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
+				R_BAS_flake="libflake ${R_BAS_pigmentcms}"
+				R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
+				R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
+				R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
+				### additional unmentioned stuff
+				R_BAS_kowmf="libkowmf"
+				for libname in ${LIB_ARRAY}; do
+					echo "Fixing library ${libname} with hardcoded path"
+					for libpath in $(eval "echo \$R_BAS_${libname}"); do
+						if [[ "${libpath}" != "\"/usr/"* ]]; then
+							local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
+						else
+							local R="${R} ${libpath}" 
+						fi
+					done
+					find ${S} -name CMakeLists.txt -print| xargs -i \
+						sed -i \
+							-e "s: ${libname} : ${R} :g" \
+							-e "s: ${libname}): ${R}):g" \
+							-e "s:(${libname} :(${R} :g" \
+							-e "s:(${libname}):(${R}):g" \
+							-e "s: ${libname}: ${R}:g" \
+						{} || die "Fixing library names failed."
+				done
 				;;
-		esac
-	fi
+			esac
+		fi
+	esac
 }
 
 # Create lists of files and subdirectories to extract.

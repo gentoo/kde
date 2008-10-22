@@ -351,29 +351,79 @@ fi
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
-if [[ -n ${KDEBASE} ]]; then
-	if [[ -n ${KMNAME} ]]; then
-		_kmname=${KMNAME}
-	else
-		_kmname=${PN}
-	fi
-	_kmname_pv="${_kmname}-${PV}"
-	if [[ ${NEED_KDE} != "live" ]]; then
-		case ${KDEBASE} in
-			kde-base)
-			case ${PV} in
-				4.0.9* | 4.0.8*)
-					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2";;
+case ${SLOT} in
+	live)
+		ESVN_MIRROR="svn://anonsvn.kde.org/home/kde"
+		# Split ebuild, or extragear stuff
+		if [[ -n ${KMNAME} ]]; then
+		    ESVN_PROJECT="KDE/${KMNAME}"
+			if [[ -z ${KMNOMODULE} && -z ${KMMODULE} ]]; then
+				KMMODULE="${PN}/"
+			fi
+			# Split kde-base/ ebuilds: (they reside in trunk/KDE)
+			case ${KMNAME} in
+				kdebase-*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/kdebase"
+					ESVN_PROJECT="KDE/kdebase"
+					;;
+				kdereview)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					;;
+				kde*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${KMNAME}"
+					;;
+				extragear*|playground*)
+					case ${PN} in
+						*-plasma)
+							ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+							ESVN_PROJECT="KDE/${KMNAME}/${KMMODULE}"
+							;;
+						*)
+							ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+							;;
+					esac
+				;;
+				koffice)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+					;;
+				*)
+					# Extragear material
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					;;
 			esac
-			;;
-			koffice)
-			SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2"
-			;;
-		esac
-	fi
-	unset _kmname _kmname_pv
-fi
+		else
+			# kdelibs, kdepimlibs
+			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
+			ESVN_PROJECT="KDE/${PN}"
+		fi
+	inherit subversion
+	;;
+	*)
+		if [[ -n ${KDEBASE} ]]; then
+			if [[ -n ${KMNAME} ]]; then
+				_kmname=${KMNAME}
+			else
+				_kmname=${PN}
+			fi
+			_kmname_pv="${_kmname}-${PV}"
+			if [[ ${NEED_KDE} != "live" ]]; then
+			case ${KDEBASE} in
+				kde-base)
+					case ${PV} in
+						4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
+							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2";;
+					esac
+					;;
+				koffice)
+					SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2"
+				;;
+			esac
+			fi
+				unset _kmname _kmname_pv
+			fi
+	;;
+esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
@@ -463,6 +513,18 @@ kde4-base_pkg_setup() {
 		kde4-functions_check_use
 		;;
 	esac
+	case ${SLOT} in
+		live)
+			if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+				echo
+				ewarn "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
+				ewarn "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
+				ewarn "of this ebuild!"
+			fi
+			;;
+		*)
+			;;
+	esac
 }
 
 # @FUNCTION: kde4-base_apply_patches
@@ -527,29 +589,43 @@ kde4-base_apply_patches() {
 # enable_selected_linguas() in kde4-functions.eclass(5) for further details.
 kde4-base_src_unpack() {
 	debug-print-function $FUNCNAME "$@"
+	case ${SLOT} in
+		live)
+			local cleandir
+			cleandir="${ESVN_STORE_DIR}/KDE/KDE"
+			if [[ -d ${cleandir} ]]; then
+				eerror "'${cleandir}' should never have been created. Either move it to"
+				eerror "${ESVN_STORE_DIR}/${ESVN_PROJECT}/${ESVN_REPO_URI##*/} or remove"
+				eerror "completely."
+				die "'${cleandir}' is in the way."
+			fi
+			subversion_src_unpack
+			kde4-base_apply_patches
+			;;
+		*)
+		[[ -z "${KDE_S}" ]] && KDE_S="${S}"
 
-	[[ -z "${KDE_S}" ]] && KDE_S="${S}"
+		if [[ -z $* ]]; then
+			# Unpack first and deal with KDE patches after examing possible patch sets.
+			# To be picked up, patches need to conform to the guidelines stated before.
+			# Monolithic ebuilds will use the split ebuild patches.
+			[[ -d "${KDE_S}" ]] || unpack ${A}
+			kde4-base_apply_patches
+		else
+			# Call base_src_unpack, which unpacks and patches
+			# step by step transparently as defined in the ebuild.
+			base_src_unpack $*
+		fi
 
-	if [[ -z $* ]]; then
-		# Unpack first and deal with KDE patches after examing possible patch sets.
-		# To be picked up, patches need to conform to the guidelines stated before.
-		# Monolithic ebuilds will use the split ebuild patches.
-		[[ -d "${KDE_S}" ]] || unpack ${A}
-		kde4-base_apply_patches
-	else
-		# Call base_src_unpack, which unpacks and patches
-		# step by step transparently as defined in the ebuild.
-		base_src_unpack $*
-	fi
-
-	# Updated cmake dir
-	if [[ -d "${WORKDIR}/cmake" ]] && [[ -d "${KDE_S}/cmake" ]]; then
-		ebegin "Updating cmake/ directory..."
-		rm -rf "${KDE_S}/cmake" || die "Unable to remove old cmake/ directory"
-		ln -s "${WORKDIR}/cmake" "${KDE_S}/cmake" || die "Unable to symlink the new cmake/ directory"
-		eend 0
-	fi
-
+		# Updated cmake dir
+		if [[ -d "${WORKDIR}/cmake" ]] && [[ -d "${KDE_S}/cmake" ]]; then
+			ebegin "Updating cmake/ directory..."
+			rm -rf "${KDE_S}/cmake" || die "Unable to remove old cmake/ directory"
+			ln -s "${WORKDIR}/cmake" "${KDE_S}/cmake" || die "Unable to symlink the new cmake/ directory"
+			eend 0
+		fi
+		;;
+	esac
 	# Only enable selected languages, used for KDE extragear apps.
 	if [[ -n ${KDE_LINGUAS} ]]; then
 		enable_selected_linguas
