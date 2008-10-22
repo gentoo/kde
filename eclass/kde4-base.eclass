@@ -516,10 +516,10 @@ kde4-base_pkg_setup() {
 	case ${SLOT} in
 		live)
 			if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-				echo
-				ewarn "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
-				ewarn "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
-				ewarn "of this ebuild!"
+				elog
+				elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
+				elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
+				elog "of this ebuild!"
 			fi
 			;;
 		*)

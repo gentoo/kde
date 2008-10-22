@@ -178,18 +178,12 @@ kde4-meta_src_unpack() {
 	case ${SLOT} in
 		live)
 			S="${WORKDIR}/${PN}"
-			# Ensure the target directory exists
 			mkdir -p "${S}"
-			# Update working copy
 			ESVN_RESTRICT="export" subversion_src_unpack
-			# this sets variables used by the src_extract and change_cmakelists
 			subversion_wc_info
-			# Fetch SVN sources and export (parts of) our SVN working copy to ${S}
 			kde4-meta_src_extract
-			# Make sure PATCHES as well as ESVN_PATCHES get applied
 			kde4-base_apply_patches
 			subversion_bootstrap
-			# CMakeLists.txt magic
 			kde4-meta_change_cmakelists
 			;;
 		*)
@@ -206,9 +200,9 @@ kde4-meta_src_unpack() {
 kde4-meta_src_extract() {
 	case ${SLOT} in
 		live)
-		        local rsync_options subdir kmnamedir targetdir
-		        # Export working copy to ${S}
-	        einfo "Exporting parts of working copy to ${S}"
+			local rsync_options subdir kmnamedir targetdir
+			# Export working copy to ${S}
+			einfo "Exporting parts of working copy to ${S}"
 			kde4-meta_create_extractlists
 
 			case ${KMNAME} in
