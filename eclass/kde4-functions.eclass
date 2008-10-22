@@ -38,7 +38,7 @@ KDE_SLOTS=( "kde-4" "4.1" )
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:
 # The slots used by all KDE live versions.
-KDE_LIVE_SLOTS=( "kde-svn" )
+KDE_LIVE_SLOTS=( "live" )
 
 # @ECLASS-VARIABLE: KDE_DERIVATION_MAP
 # @DESCRIPTION:
