@@ -26,7 +26,7 @@ src_configure() {
 		$(cmake-utils_use_with nova Nova)
 		$(cmake-utils_use_with sbig SBIG)
 		$(cmake-utils_use_with usb USB)"
-	
+
 	sed -i -e 's:add_subdirectory(cmake):#dontwantit:g' CMakeLists.txt \
 			|| die "sed to disable file collisions failed"
 

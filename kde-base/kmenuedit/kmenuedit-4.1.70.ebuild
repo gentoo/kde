@@ -20,6 +20,6 @@ src_configure() {
 		"s:\${CMAKE_CURRENT_BINARY_DIR}/../khotkeys/app/org.kde.khotkeys.xml:${KDEDIR}/share/dbus-1/interfaces/org.kde.khotkeys.xml:g" \
 		kmenuedit/CMakeLists.txt \
 			|| die "sed failed"
-	
+
 	kde4-base_src_configure
 }

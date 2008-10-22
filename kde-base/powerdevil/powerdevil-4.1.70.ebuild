@@ -18,4 +18,4 @@ DEPEND="kde-base/systemsettings:${SLOT}
 		!kdeprefix? ( !kde-misc/powerdevil )"
 
 KMEXTRACTONLY="krunner
-        ksmserver/org.kde.KSMServerInterface.xml"
+			ksmserver/org.kde.KSMServerInterface.xml"

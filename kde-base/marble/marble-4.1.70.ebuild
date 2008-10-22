@@ -33,7 +33,7 @@ RDEPEND="${COMMONDEPEND}"
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)"
-	
+
 	sed -i -e 's:add_subdirectory(cmake):#dontwantit:g' CMakeLists.txt \
 		|| die "sed to disable file collisions failed"
 
