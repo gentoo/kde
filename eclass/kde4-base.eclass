@@ -287,6 +287,7 @@ if [[ ${NEED_KDE} != none ]]; then
 				*)
 					case ${PV} in
 						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
+						9999*) "live" ;;
 						*) SLOT="kde-4" ;;
 					esac
 					;;
