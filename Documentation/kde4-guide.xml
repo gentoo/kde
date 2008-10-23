@@ -27,8 +27,8 @@ tools from the KDE team's git overlay (kde-testing) will be used.
 <!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
 <license/>
 
-<version>0.2</version>
-<date>2008-09-28</date>
+<version>0.3</version>
+<date>2008-10-23</date>
 
 <chapter>
 <title>Cleaning up</title>
@@ -112,7 +112,7 @@ to add the support for layman as required.
 
 <p>
 The KDE 4.1 ebuilds are no longer masked so you won't need to use the package.unmask
-file to be able to install them. If you're running ~arch and don't to update to 4.1,
+file to be able to install them. If you're running ~arch and don't want to update to 4.1,
 you can use the package.mask file from Documentation/package.mask/kde.
 If you are running the stable tree you will need to keyword the ebuilds,
 otherwise skip this step. For those running the stable tree in Gentoo:
