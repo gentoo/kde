@@ -287,7 +287,7 @@ if [[ ${NEED_KDE} != none ]]; then
 				*)
 					case ${PV} in
 						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
-						9999*) "live" ;;
+						9999*) SLOT="live" ;;
 						*) SLOT="kde-4" ;;
 					esac
 					;;
@@ -400,7 +400,7 @@ case ${SLOT} in
 			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
 			ESVN_PROJECT="KDE/${PN}"
 		fi
-	inherit subversion
+		inherit subversion
 	;;
 	*)
 		if [[ -n ${KDEBASE} ]]; then
