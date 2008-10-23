@@ -188,6 +188,9 @@ case ${NEED_KDE} in
 				3.9*)
 					_kdedir="3.9"
 					_pv="-${PV}:kde-4" ;;
+				9999*)
+					_kdedir="live"
+					_pv="-${PV}:live"
 				*)
 					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
