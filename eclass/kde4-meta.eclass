@@ -743,11 +743,4 @@ kde4-meta_pkg_postinst() {
 kde4-meta_pkg_postrm() {
 	kde4-base_pkg_postrm
 }
-kdebase_toplevel_cmakelist() {
-	insert=$(sed -e '/macro_optional_find_package/!d' < "${ESVN_WC_PATH}"/CMakeLists.txt)
-	at=$(sed -n '/^include[[:space:]]*(/=' < "${S}"/CMakeLists.txt | sed -n '$p')
-	for line in ${insert}; do
-		sed "${at}a${line}" -i 	"${S}"/CMakeLists.txt
-	done
-}
 
