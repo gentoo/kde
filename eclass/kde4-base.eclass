@@ -190,7 +190,7 @@ case ${NEED_KDE} in
 					_pv="-${PV}:kde-4" ;;
 				9999*)
 					_kdedir="live"
-					_pv="-${PV}:live"
+					_pv="-${PV}:live";;
 				*)
 					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
