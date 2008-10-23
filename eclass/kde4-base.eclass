@@ -61,7 +61,7 @@ kde4-base_set_qt_dependencies() {
 
 	# allow monolithic qt for PV < 4.1
 	case "${PV}" in
-		scm|9999*|4.1*|4.0.9*|4.0.8*) : ;;
+		scm|9999*|4.2*|4.1.9*|4.1.8*|4.1.7*|4.1.6*|4.1*|4.0.9*|4.0.8*) : ;;
 		*)
 		qtdepend="|| ( ( ${qtdepend} ) >=x11-libs/qt-4.3.3:4${qt} )"
 		qtopengldepend="|| ( ${qtopengldepend} >=x11-libs/qt-4.3.3:4 )"
@@ -90,7 +90,7 @@ kde4-base_set_qt_dependencies
 
 # Set the cmake dependencies
 case "${PV}" in
-	9999*)
+	9999*|4.2*|4.1.9*|4.1.8*|4.1.7*|4.1.6*)
 		CMAKEDEPEND=">=dev-util/cmake-2.6"
 		;;
 	*)
@@ -179,6 +179,9 @@ case ${NEED_KDE} in
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
+				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
+					_kdedir="4.2"
+					_pv="-${PV}:4.2" ;;
 				4.1*| 4.0.9* | 4.0.8*)
 					_kdedir="4.1"
 					_pv="-${PV}:4.1" ;;
@@ -190,16 +193,18 @@ case ${NEED_KDE} in
 					_pv="-${PV}:kde-4" ;;
 				9999*)
 					_kdedir="live"
-					_pv="-${PV}:live";;
+					_pv="-${PV}:live" ;;
 				*)
 					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 			_operator=">="
 		else
 			case ${PV} in
+				4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* ) _kdedir="4.2" ;;
 				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
 				4.0*) _kdedir="4.0" ;;
 				3.9*) _kdedir="3.9" ;;
+				9999*) _kdedir="live" ;;
 				*) die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
 		fi
@@ -210,6 +215,10 @@ case ${NEED_KDE} in
 		_kdedir="live"
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="live"
+		;;
+	:4.2)
+		_kdedir="4.2"
+		_pv="${NEED_KDE}"
 		;;
 	:4.1)
 		_kdedir="4.1"
@@ -226,6 +235,10 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}"
 		export NEED_KDE="live"
+		;;
+	*:4.2)
+		_kdedir="4.2"
+		_pv="-${NEED_KDE}"
 		;;
 	*:4.1)
 		_kdedir="4.1"
@@ -244,6 +257,11 @@ case ${NEED_KDE} in
 		_operator=">="
 		_pv="-${NEED_KDE}:live"
 		export NEED_KDE="live"
+		;;
+	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
+		_kdedir="4.2"
+		_operator=">="
+		_pv="-${NEED_KDE}:4.2"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
@@ -287,6 +305,7 @@ if [[ ${NEED_KDE} != none ]]; then
 				*)
 					case ${PV} in
 						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
+						4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
 						9999*) SLOT="live" ;;
 						*) SLOT="kde-4" ;;
 					esac
