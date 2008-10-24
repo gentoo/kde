@@ -14,10 +14,9 @@ DESCRIPTION="Shared KOffice data files."
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-KMEXTRA="servicetypes/
-		pics/
+KMEXTRA="pics/
+		servicetypes/
 		templates/"
 KMEXTRACTONLY="
 	doc/CMakeLists.txt
 	doc/koffice.desktop"
-
