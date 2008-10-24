@@ -204,54 +204,9 @@ case ${NEED_KDE} in
 			esac
 			_operator=">="
 		else
-			# We need to set up correct kdedir based on what we find
-			# not to do it by versioning but based on what is on system.
-			# We might also be cool and install app for all kde installs
-			# but i guess that is just insane.
-			# We can check for kdelibs because they are basic package and
-			# rest of the stuff wont work without it. This might be changed
-			# in future.
-			case ${KDE_WANTED} in
-				# note this will need to be updated as stable moves and so on
-				live)
-					_versions="9999 4.1.69 4.1.0"
-					;;
-				snapshot)
-					_versions="4.1.69 4.1.0 9999"
-					;;
-				testing)
-					_versions="4.1.0 4.1.69 9999"
-					;;
-				stable)
-					_versions="4.1.0 4.1.69 9999"
-					;;
-				*) die "KDE_WANTED=${KDE_WANTED} not supported here." ;;
-			esac
-			# check if exists and fallback as we go
-			for X in ${_versions}; do
-				if has_version ">=kde-base/kdelibs-${X}"; then
-					# figure out which X we are in and set it into _kdedir
-					case ${X} in
-						# also keep track here same for kde_wanted
-						9999)
-							_kdedir="live"
-							break
-						;;
-						4.1.69)
-							_kdedir="4.2"
-							break
-						;;
-						4.1.0)
-							_kdedir="4.1"
-							break
-						;;
-					esac
-				fi
-			done
 			# this creates dependency on any version of kde4
 			_operator=">="
-			_pv="-3.9*"
-			unset _versions X
+			_pv="-3.9"
 		fi
 		;;
 
@@ -502,6 +457,52 @@ kde4-base_pkg_setup() {
 	# Don't set KDEHOME during compile, it will cause access violations
 	unset KDEHOME
 
+	if [[ ${NEED_KDE} == latest ]]; then
+		# We need to set up correct kdedir based on what we find
+		# not to do it by versioning but based on what is on system.
+		# We might also be cool and install app for all kde installs
+		# but i guess that is just insane.
+		# We can check for kdelibs because they are basic package and
+		# rest of the stuff wont work without it. This might be changed
+		# in future.
+		case ${KDE_WANTED} in
+			# note this will need to be updated as stable moves and so on
+			live)
+				_versions="9999 4.1.69 4.1.0"
+				;;
+			snapshot)
+				_versions="4.1.69 4.1.0 9999"
+				;;
+			testing)
+				_versions="4.1.0 4.1.69 9999"
+				;;
+			stable)
+				_versions="4.1.0 4.1.69 9999"
+				;;
+			*) die "KDE_WANTED=${KDE_WANTED} not supported here." ;;
+		esac
+		# check if exists and fallback as we go
+		for X in ${_versions}; do
+			if has_version ">=kde-base/kdelibs-${X}"; then
+				# figure out which X we are in and set it into _kdedir
+				case ${X} in
+					# also keep track here same for kde_wanted
+					9999)
+						_kdedir="live"
+						break
+					;;
+					4.1.69)
+						_kdedir="4.2"
+						break
+					;;
+					4.1.0)
+						_kdedir="4.1"
+						break
+					;;
+				esac
+			fi
+		done
+	fi
 	if [[ ${NEED_KDE} != none ]]; then
 
 		# Set PREFIX
