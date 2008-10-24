@@ -170,13 +170,14 @@ export NEED_KDE
 # which one link in first place if is there.
 # @CODE
 # Acceptable values are:
-# stable = 4.1 or what so ever is main tree if nan choose testing by default
+# stable = 4.1 or what so ever is main tree
 # testing = what so ever is in testing on main tree
 # snapshot = 4.2 or what so ever is released under snapshots
-# live = live svn ebuilds
-# Note: fallback is stable
+# live = live svn ebuilds, also default value, dont be scared it goes in this
+# order: live->snapshot->testing->stable, when searching for kde. This way we
+# allow users to use just kde4snapshots and use software from the tree.
 if [[ -z ${KDE_WANTED} ]]; then
-	KDE_WANTED="testing"
+	KDE_WANTED="live"
 fi
 export KDE_WANTED
 
