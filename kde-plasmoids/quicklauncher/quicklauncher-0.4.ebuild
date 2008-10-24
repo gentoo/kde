@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet which reimplements the quicklaunch applet present in kde3.5"
@@ -12,7 +11,7 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/QuickLauncher+Applet?content=
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/78061-plasma-applet-${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="4.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

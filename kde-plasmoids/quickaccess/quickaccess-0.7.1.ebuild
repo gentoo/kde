@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI="2"
-NEED_KDE=":4.1"
 
 inherit kde4-base
 
@@ -12,7 +11,7 @@ HOMEPAGE="http://kde-look.org/content/show.php/QuickAccess?content=84128"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/84128-${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="4.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

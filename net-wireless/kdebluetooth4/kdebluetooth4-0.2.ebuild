@@ -3,8 +3,6 @@
 # $Header: $
 
 EAPI="2"
-NEED_KDE=":4.1"
-
 inherit kde4-base
 
 DESCRIPTION="KDE Bluetooth Framework"
@@ -13,7 +11,7 @@ SRC_URI="mirror://sourceforge/kde-bluetooth/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4.1"
+SLOT="0"
 IUSE=""
 
 DEPEND="
@@ -23,8 +21,8 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
-	|| ( ( kde-base/kdialog:${SLOT} kde-base/konqueror:${SLOT} )
-		kde-base/kdelibs:${SLOT} )
+	|| ( ( >=kde-base/kdialog-4.1.2 >=kde-base/konqueror-4.1.2 )
+		>=kde-base/kdelibs-4.1.2 )
 	>=net-wireless/bluez-libs-3.25
 	>=net-wireless/bluez-utils-3.25
 "

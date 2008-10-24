@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet to switch with ease, beetween KWin's compositing and traditional mode"
@@ -12,7 +11,7 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/Toggle-Compositing?content=78
 SRC_URI="http://ivplasma.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="4.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

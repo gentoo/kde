@@ -3,8 +3,6 @@
 # $Header: $
 
 EAPI="2"
-
-NEED_KDE=":4.1"
 KDE_LINGUAS="de zh"
 inherit kde4-base
 
@@ -18,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	kde-base/kdebase-data${NEED_KDE}
+	>=kde-base/kdebase-data-4.1
 	>=media-libs/mlt-0.3.0[ffmpeg,-qt3]
 	>=media-libs/mlt++-0.3.0
 	media-video/ffmpeg[X,sdl]

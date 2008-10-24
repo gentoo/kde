@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet. This plasmoid shows TV stations program in Greek."
@@ -12,7 +11,7 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/Eyesaver?content=75728"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/75728-${PN}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="4.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI="2"
-NEED_KDE=":4.1"
 
 inherit kde4-base
 
@@ -13,7 +12,7 @@ SRC_URI="http://omploader.org/vdWxn/${P}.tar.gz
 		http://download83.mediafire.com/jxlmcdsokmcg/zsj2dxxj2sl//${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="4.1"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
@@ -24,9 +23,9 @@ S="${WORKDIR}/weather"
 
 pkg_postinst()
 {
-	einfo "Looking for wheather ZIP code:"
-	einfo "1. Go to http://weather.yahoo.com/"
-	einfo "2. Type in your city, country and click Go"
-	einfo "3. Copy the 8 character location ID from the URL on the next page (ie for Hong Kong, China it is CHXX0049)"
-	einfo "4. Paste the location ID into the widgets zip code field"
+	elog "Looking for wheather ZIP code:"
+	elog "1. Go to http://weather.yahoo.com/"
+	elog "2. Type in your city, country and click Go"
+	elog "3. Copy the 8 character location ID from the URL on the next page (ie for Hong Kong, China it is CHXX0049)"
+	elog "4. Paste the location ID into the widgets zip code field"
 }

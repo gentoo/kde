@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE=":4.1"
 inherit kde4-base
 
 MY_P="${P/_/-}"
@@ -14,7 +13,7 @@ SRC_URI="http://${PN}.kde.org/pkgs/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4.1"
+SLOT="0.11"
 IUSE="cairo npp"
 
 DEPEND="

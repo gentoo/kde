@@ -3,8 +3,6 @@
 # $Header: $
 
 EAPI="2"
-
-NEED_KDE="4.1"
 KDE_LINGUAS="bg cs de es fr it nn ru sv tr"
 inherit kde4-base
 
