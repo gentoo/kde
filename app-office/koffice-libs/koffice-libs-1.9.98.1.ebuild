@@ -24,19 +24,19 @@ DEPEND="${RDEPEND}"
 KMEXTRA="
 	doc/koffice/
 	doc/thesaurus/
+	filters/generic_wrapper/
 	filters/libkowmf/
 	filters/xsltfilter/
-	filters/generic_wrapper/
 	interfaces/
 	kounavail/
 	plugins/
 	tools/"
 #	doc/api/"
 KMEXTRACTONLY="
-		kchart/kdchart/
+		doc/koffice.desktop
 		changes-1.4
 		changes-1.5
-		doc/koffice.desktop"
+		kchart/kdchart/"
 
 src_install() {
 	dodoc changes-*
