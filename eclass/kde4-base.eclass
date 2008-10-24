@@ -108,7 +108,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 # Add the kdeprefix use flag
 case "${EAPI}" in
 	2 | 2_pre3 | 2_pre2 | 2_pre1)
-		[[ "${NEED_KDE}" != "any" ]] && IUSE="${IUSE} kdeprefix"
+		IUSE="${IUSE} kdeprefix"
 		;;
 esac
 
@@ -168,13 +168,6 @@ fi
 export NEED_KDE
 
 case ${NEED_KDE} in
-	any)
-		_kdedir=""
-		_operator=">="
-		_pv="-3.9" # we do not specify version only that it needs 4
-		# kdedir is not set and it needs to be detected (maybe fallback for
-		# latest version availible)
-		;;
 	latest)
 		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
@@ -199,6 +192,10 @@ case ${NEED_KDE} in
 			esac
 			_operator=">="
 		else
+			# we need to set up correct kdedir based on what we find
+			# not to do it by versioning but based on what is on system
+			# we might also be cool and install app for all kde installs
+			# but i guess that is just insane.
 			case ${PV} in
 				4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* ) _kdedir="4.2" ;;
 				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
@@ -207,6 +204,9 @@ case ${NEED_KDE} in
 				9999*) _kdedir="live" ;;
 				*) die "NEED_KDE=latest not supported for PV=${PV}" ;;
 			esac
+			# this creates dependency on any version of kde4
+			_operator=">="
+			_pv="-3.9*"
 		fi
 		;;
 
@@ -320,55 +320,40 @@ if [[ ${NEED_KDE} != none ]]; then
 			for KDE_SLOT in ${KDE_SLOTS[@]}; do
 				# block non kdeprefix ${PN} on other slots
 				# we do this only if we do not depend on any version of kde
-				if [[ ${NEED_KDE} != "any" ]]; then
-					if [[ ${SLOT} != ${KDE_SLOT} ]]; then
-						DEPEND="${DEPEND}
-							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
-						RDEPEND="${RDEPEND}
-							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
-					fi
+				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+					DEPEND="${DEPEND}
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+					RDEPEND="${RDEPEND}
+						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 				fi
 			done
 			;;
 	esac
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
-	if [[ ${NEED_KDE} != "any" ]]; then
-		if  [[ ${PN} != "kdelibs" ]]; then
+	if  [[ ${PN} != "kdelibs" ]]; then
+		case "${EAPI}" in
+			2 | 2_pre3 | 2_pre2 | 2_pre1)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+				RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+				;;
+			*)
+				DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+				;;
+		esac
+		if [[ ${PN} != "kdepimlibs" ]]; then
 			case "${EAPI}" in
 				2 | 2_pre3 | 2_pre2 | 2_pre1)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-					RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
 					;;
 				*)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-					;;
-			esac
-			if [[ ${PN} != "kdepimlibs" ]]; then
-				case "${EAPI}" in
-					2 | 2_pre3 | 2_pre2 | 2_pre1)
-						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-						;;
-					*)
-						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-					esac
-			fi
-		fi
-	else
-		if [[ ${PN} != "kdelibs" ]]; then
-			# need_kde == any
-			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
-			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
-			if [[ ${PN} != "kdepimlibs" ]]; then
-				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-			fi
+					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				esac
 		fi
 	fi
-
 	unset _operator _pv
 fi
 
@@ -477,14 +462,9 @@ kde4-base_pkg_setup() {
 		# Set PREFIX
 		case "${EAPI}" in
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
-				if [[ ${NEED_KDE} != "any" ]]; then
-					if use kdeprefix; then
-						KDEDIR="/usr/kde/${_kdedir}"
-						KDEDIRS="/usr:/usr/local:${KDEDIR}"
-					else
-						KDEDIR="/usr"
-						KDEDIRS="/usr:/usr/local"
-					fi
+				if use kdeprefix; then
+					KDEDIR="/usr/kde/${_kdedir}"
+					KDEDIRS="/usr:/usr/local:${KDEDIR}"
 				else
 					KDEDIR="/usr"
 					KDEDIRS="/usr:/usr/local"
