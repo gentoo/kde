@@ -155,21 +155,33 @@ esac
 #	- VERSION_NUMBER:SLOT - Use the minimum KDE4 version and the SLOT specified in the NEED_KDE value.
 #	- none - Let the ebuild handle SLOT, kde dependencies, KDEDIR, ...
 # @CODE
-#
-# Note: There is no default NEED_KDE for ebuilds not in kde-base or part of
-# koffice, so you must set it explicitly in the ebuild, in all other cases.
+# Note: default NEED_KDE is latest
 if [[ -z ${NEED_KDE} ]]; then
-	if [[ -n ${KDEBASE} ]]; then
-		NEED_KDE="latest"
-	else
-		die "kde4-base.eclass inherited but NEED_KDE not defined - broken ebuild"
-	fi
+	NEED_KDE="latest"
 fi
 export NEED_KDE
 
+# @ECLASS-VARIABLE: KDE_WANTED
+# @DESCRIPTION:
+# This variable is for setting what version of kde we want in the first place
+# when need_kde=latest is inherited.
+# Its walue is compared and then it is looked for that version specialy before
+# any other. So in case you have more +kdeprefix installs you can choose to
+# which one link in first place if is there.
+# @CODE
+# Acceptable values are:
+# stable = 4.1 or what so ever is main tree if nan choose testing by default
+# testing = what so ever is in testing on main tree
+# snapshot = 4.2 or what so ever is released under snapshots
+# live = live svn ebuilds
+# Note: fallback is stable
+if [[ -z ${KDE_REQUIRED} ]]; then
+	KDE_WANTED="stable"
+fi
+export KDE_WANTED
+
 case ${NEED_KDE} in
 	latest)
-		# Should only be used by 'kde-base'-ebuilds
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
 				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
@@ -192,21 +204,39 @@ case ${NEED_KDE} in
 			esac
 			_operator=">="
 		else
-			# we need to set up correct kdedir based on what we find
-			# not to do it by versioning but based on what is on system
-			# we might also be cool and install app for all kde installs
+			# We need to set up correct kdedir based on what we find
+			# not to do it by versioning but based on what is on system.
+			# We might also be cool and install app for all kde installs
 			# but i guess that is just insane.
-			case ${PV} in
-				4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* ) _kdedir="4.2" ;;
-				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
-				4.0*) _kdedir="4.0" ;;
-				3.9*) _kdedir="3.9" ;;
-				9999*) _kdedir="live" ;;
-				*) die "NEED_KDE=latest not supported for PV=${PV}" ;;
+			# We can check for kdelibs because they are basic package and
+			# rest of the stuff wont work without it. This might be changed
+			# in future.
+			case ${KDE_WANTED} in
+				# note this will need to be updated as stable moves and so on
+				live)
+					_versions="9999 4.1.69 4.1.0"
+					;;
+				snapshot)
+					_versions="4.1.69 4.1.0 9999"
+					;;
+				testing)
+					_versions="4.1.0 4.1.69 9999"
+					;;
+				stable)
+					_versions="4.1.0 4.1.69 9999"
+					;;
+				*) die "KDE_WANTED=${KDE_WANTED} not supported here" ;;
 			esac
+			# check if exists and fallback as we go
+			for X in ${_versions}; do
+				if has_version >=kde-base/kdelibs-${X}; then
+					# figure out which X we are in and set it into _kdedir
+				fi
+			done
 			# this creates dependency on any version of kde4
 			_operator=">="
 			_pv="-3.9*"
+			unset _versions X
 		fi
 		;;
 
