@@ -229,7 +229,7 @@ case ${NEED_KDE} in
 			esac
 			# check if exists and fallback as we go
 			for X in ${_versions}; do
-				if has_version >=kde-base/kdelibs-${X}; then
+				if has_version ">=kde-base/kdelibs-${X}"; then
 					# figure out which X we are in and set it into _kdedir
 					case ${X} in
 						# also keep track here same for kde_wanted

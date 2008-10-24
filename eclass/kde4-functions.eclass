@@ -567,4 +567,3 @@ kdebase_toplevel_cmakelist() {
 		sed "${at}a${line}" -i  "${S}"/CMakeLists.txt
 	done
 }
-
