@@ -2,6 +2,14 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebluetooth4-0.2.ebuild:
+  Whitespace.
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebluetooth4-0.2.ebuild:
+  Whitespace.
+
   06 Oct 2008; <alexxy@gentoo.org> kdebluetooth4-0.2.ebuild:
   update NEED_KDE to use slots instead of versions
 

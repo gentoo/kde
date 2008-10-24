@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI="2"
-
 NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma weather applet"
@@ -30,4 +30,3 @@ pkg_postinst()
 	einfo "3. Copy the 8 character location ID from the URL on the next page (ie for Hong Kong, China it is CHXX0049)"
 	einfo "4. Paste the location ID into the widgets zip code field"
 }
-

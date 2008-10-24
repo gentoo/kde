@@ -13,10 +13,11 @@ DESCRIPTION="KOffice word processor."
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-cpp/eigen:2
-	media-libs/freetype:2
+DEPEND="
 	app-text/libwpd
 	app-text/wv2
+	dev-cpp/eigen:2
+	media-gfx/imagemagick
 	media-libs/fontconfig
-	media-gfx/imagemagick"
-
+	media-libs/freetype:2
+"

@@ -3,9 +3,9 @@
 # $Header: $
 
 EAPI="2"
-
 NEED_KDE=":4.1"
 KDE_LINGUAS="bg cs da de es fr hu is it ja nb nl pt pt_BR ru sk sv tr uk zh_CN zh_TW"
+
 inherit kde4-base
 
 DESCRIPTION="Smb4K is a SMB share browser for KDE."
@@ -25,4 +25,3 @@ RDEPEND="${COMMON_DEPEND}
 	!bindist? ( net-fs/samba )
 	!kdeprefix? ( !net-misc/smb4k:0 )
 	net-fs/mount-cifs"
-

@@ -26,19 +26,13 @@ KEYWORDS="~amd64 ~x86"
 # it have dynamic search for deps, so if they are in system it
 # uses them otherwise does not, so any iuse are useless
 DEPEND="
+	!kdeprefix? ( !media-gfx/digikam:0 )
 	dev-db/sqlite:3
 	kde-base/kdebase-data:${SLOT}
 	kde-base/libkdcraw:${SLOT}
 	kde-base/libkexiv2:${SLOT}
 	kde-base/libkipi:${SLOT}
-	geolocation? (
-		kde-base/marble:${SLOT}[kde]
-	)
-	addressbook? (
-		kde-base/kdepimlibs:${SLOT}
-	)
 	kde-base/solid:${SLOT}
-	!kdeprefix? ( !media-gfx/digikam:0 )
 	>=media-libs/jasper-1.701.0
 	media-libs/jpeg
 	>=media-libs/lcms-1.17
@@ -47,15 +41,18 @@ DEPEND="
 	>=media-libs/tiff-3.8.2-r3
 	sys-devel/gettext
 	x11-libs/qt-core[qt3support]
-	x11-libs/qt-sql[sqlite]"
+	x11-libs/qt-sql[sqlite]
+	geolocation? (
+		kde-base/marble:${SLOT}[kde]
+	)
+	addressbook? (
+		kde-base/kdepimlibs:${SLOT}
+	)
+"
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	local lang
-
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	# fix files collision, use icon from kdebase-data rather that digikam ones
 	sed -i \
 		-e "s:add_subdirectory:#add_subdirectory:g" \
@@ -67,6 +64,6 @@ src_configure() {
 	use addressbook || mycmakeargs="${mycmakeargs} -DWITH_KdepimLibs=OFF"
 	use geolocation || mycmakeargs="${mycmakeargs} -DWITH_MarbleWidget=OFF"
 	#use lens || mycmakeargs="${mycmakeargs} -DWITH_LensFun=OFF"
-	
+
 	kde4-base_src_configure
 }

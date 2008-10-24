@@ -17,26 +17,27 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE="cairo npp"
 
-DEPEND="x11-libs/libXv
+DEPEND="
 	>=dev-libs/expat-2.0.1
-	cairo? ( x11-libs/cairo )
 	media-sound/phonon
+	x11-libs/libXv
+	cairo? ( x11-libs/cairo )
 	!kdeprefix? ( !media-video/kmplayer:0 )
 	npp? ( >=dev-libs/nspr-4.6.7
-			x11-libs/gtk+ )"
+			x11-libs/gtk+ )
+"
 RDEPEND="${DEPEND}
 	media-video/mplayer"
 
 S="${WORKDIR}/${MY_P}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	# fixup icon install
 	sed -i \
 		-e "s:add_subdirectory(icons):#add_subdirectory(icons):g"\
 		CMakeLists.txt || die "removing icons failed"
 }
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DCMAKE_INSTALL_PREFIX=${PREFIX}
@@ -44,4 +45,3 @@ src_configure() {
 		$(cmake-utils_use_with npp NPP)"
 	kde4-base_src_configure
 }
-

@@ -16,8 +16,8 @@ IUSE=""
 DEPEND="dev-cpp/eigen:2
 	media-gfx/imagemagick
 	media-gfx/pstoedit
-	media-libs/freetype:2
 	media-libs/fontconfig
+	media-libs/freetype:2
 	media-libs/libart_lgpl"
 
 KMEXTRA="kdgantt"

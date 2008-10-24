@@ -13,14 +13,15 @@ DESCRIPTION="KOffice spreadsheet application."
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=app-office/kchart-${PV}:${SLOT}
+DEPEND="
+	>=app-office/kchart-${PV}:${SLOT}
 	dev-cpp/eigen:2
 	media-gfx/imagemagick
 	media-gfx/pstoedit
-	media-libs/freetype:2
 	media-libs/fontconfig
-	media-libs/libart_lgpl"
+	media-libs/freetype:2
+	media-libs/libart_lgpl
+"
 
 KMEXTRACTONLY="interfaces
 	kchart"
-

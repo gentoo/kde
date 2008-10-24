@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI="2"
-
 NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet let you put some blank space between the other applets located in a panel"
@@ -20,4 +20,3 @@ DEPEND="!kde-misc/plasmoids
 		kde-base/libplasma"
 
 S="${WORKDIR}/plasmaspacer_0.1"
-
