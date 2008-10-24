@@ -405,6 +405,8 @@ case ${SLOT} in
 			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
 			ESVN_PROJECT="KDE/${PN}"
 		fi
+		# limit syncing to 1 hour.
+		SVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		inherit subversion
 	;;
 	*)
