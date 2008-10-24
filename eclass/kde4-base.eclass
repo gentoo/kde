@@ -225,14 +225,14 @@ case ${NEED_KDE} in
 				stable)
 					_versions="4.1.0 4.1.69 9999"
 					;;
-				*) die "KDE_WANTED=${KDE_WANTED} not supported here" ;;
+				*) die "KDE_WANTED=${KDE_WANTED} not supported here." ;;
 			esac
 			# check if exists and fallback as we go
-			for X in ${_versions}; do
-				if has_version >=kde-base/kdelibs-${X}; then
+#			for X in ${_versions}; do
+#				if has_version >=kde-base/kdelibs-${X}; then
 					# figure out which X we are in and set it into _kdedir
-				fi
-			done
+#				fi
+#			done
 			# this creates dependency on any version of kde4
 			_operator=">="
 			_pv="-3.9*"
