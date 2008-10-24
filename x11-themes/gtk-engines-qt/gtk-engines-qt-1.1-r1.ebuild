@@ -32,4 +32,3 @@ src_configure() {
 	# does not support out of tree build, BONOBOUI is automagic
 	cmake . -DCMAKE_INSTALL_PREFIX=${KDEDIR} || die "cmake failed"
 }
-
