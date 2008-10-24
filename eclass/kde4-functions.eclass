@@ -40,45 +40,6 @@ KDE_SLOTS=( "kde-4" "4.1" "4.2" )
 # The slots used by all KDE live versions.
 KDE_LIVE_SLOTS=( "live" )
 
-# @FUNCTION: get-parent-package
-# @USAGE: <split ebuild>
-# @DESCRIPTION:
-# Echoes the name of the monolithic package that a given split ebuild was derived from.
-get-parent-package() {
-	local parent child
-	while read parent child; do
-		if [[ "${child}" == "$1" ]]; then
-			echo ${parent}
-			return 0
-		fi
-	done <<< "$KDE_DERIVATION_MAP"
-	die "Package $target not found in KDE_DERIVATION_MAP, please report bug"
-}
-
-# @FUNCTION: get-child-packages
-# @USAGE: <monolithic ebuild>
-# @DESCRIPTION:
-# Echoes the names of all (split) ebuilds derived from a given monolithic ebuild.
-get-child-packages() {
-	local parent child
-	while read parent child; do
-		[[ "${parent}" == "$1" ]] && echo -n "${child} "
-	done <<< "$KDE_DERIVATION_MAP"
-}
-
-# @FUNCTION: is-parent-package
-# @USAGE: <$CATEGORY/$PN>
-# @DESCRIPTION:
-# Returns zero exit-status if the given package is a parent (monolithic) ebuild.
-# Returns non-zero exit-status if it's not.
-is-parent-package() {
-	local parent child
-	while read parent child; do
-		[[ "${parent}" == "$1" ]] && return 0
-	done <<< "$KDE_DERIVATION_MAP"
-	return 1
-}
-
 # @FUNCTION: buildsycoca
 # @DESCRIPTION:
 # Function to rebuild the KDE System Configuration Cache.
