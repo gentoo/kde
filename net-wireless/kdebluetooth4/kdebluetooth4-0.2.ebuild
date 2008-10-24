@@ -16,7 +16,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4.1"
 IUSE=""
 
-
 DEPEND="
 	app-mobilephone/obex-data-server
 	app-mobilephone/obexftp
