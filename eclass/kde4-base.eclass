@@ -175,8 +175,8 @@ export NEED_KDE
 # snapshot = 4.2 or what so ever is released under snapshots
 # live = live svn ebuilds
 # Note: fallback is stable
-if [[ -z ${KDE_REQUIRED} ]]; then
-	KDE_WANTED="stable"
+if [[ -z ${KDE_WANTED} ]]; then
+	KDE_WANTED="testing"
 fi
 export KDE_WANTED
 
