@@ -218,8 +218,7 @@ kde4-functions_check_use() {
 # @DESCRIPTION:
 # replace includes for live ebuilds with optional requests
 kdebase_toplevel_cmakelist() {
-	insert=$(sed -e '/macro_optional_find_package/!d' <
-	"${ESVN_WC_PATH}"/CMakeLists.txt)
+	insert=$(sed -e '/macro_optional_find_package/!d' < "${ESVN_WC_PATH}"/CMakeLists.txt)
 	at=$(sed -n '/^include[[:space:]]*(/=' < "${S}"/CMakeLists.txt | sed -n '$p')
 	for line in ${insert}; do
 		sed "${at}a${line}" -i  "${S}"/CMakeLists.txt
