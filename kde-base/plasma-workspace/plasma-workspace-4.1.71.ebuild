@@ -18,6 +18,7 @@ COMMONDEPEND="!kde-base/plasma:${SLOT}
 	>=kde-base/libkworkspace-${PV}:${SLOT}
 	>=kde-base/libtaskmanager-${PV}:${SLOT}
 	>=kde-base/libplasma-${PV}:${SLOT}
+	>=kde-base/libplasmaclock-${PV}:${SLOT}
 	x11-libs/libXau
 	x11-libs/libXfixes
 	x11-libs/libXrender
@@ -36,9 +37,9 @@ PDEPEND=">=kde-base/dolphin-${PV}:${SLOT}
 KMEXTRACTONLY="	krunner/org.freedesktop.ScreenSaver.xml
 				krunner/org.kde.krunner.Interface.xml
 				krunner/org.kde.krunner.App.xml
-				ksmserver/org.kde.KSMServerInterface.xml
-				libs/taskmanager/
-				libs/plasma/"
+				ksmserver/org.kde.KSMServerInterface.xml"
+#				libs/taskmanager/ it's already in include/lib
+#				libs/plasma/"
 
 KMLOADLIBS="libplasma"
 

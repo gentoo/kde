@@ -143,6 +143,7 @@ kde-base/kdebase kde-base/kwrite
 kde-base/kdebase kde-base/libkonq
 kde-base/kdebase kde-base/libkworkspace
 kde-base/kdebase kde-base/libplasma
+kde-base/kdebase kde-base/libplasmaclock
 kde-base/kdebase kde-base/libtaskmanager
 kde-base/kdebase kde-base/nepomuk
 kde-base/kdebase kde-base/nsplugins
