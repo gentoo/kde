@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI="2"
-
 NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="KDE Bluetooth Framework"
@@ -17,13 +17,15 @@ SLOT="4.1"
 IUSE=""
 
 
-DEPEND="dev-libs/openobex
+DEPEND="
+	app-mobilephone/obex-data-server
 	app-mobilephone/obexftp
-	app-mobilephone/obex-data-server"
+	dev-libs/openobex
+"
 
 RDEPEND="${DEPEND}
 	|| ( ( kde-base/kdialog:${SLOT} kde-base/konqueror:${SLOT} )
 		kde-base/kdelibs:${SLOT} )
 	>=net-wireless/bluez-libs-3.25
-	>=net-wireless/bluez-utils-3.25"
-
+	>=net-wireless/bluez-utils-3.25
+"
