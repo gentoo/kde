@@ -47,18 +47,6 @@ case ${KDEBASE} in
 				LICENSE="GPL-2" ;;
 esac
 
-debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - before blockers"
-debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - before blockers"
-
-# Add a blocker on the package we're derived from
-if [[ -n ${KDEBASE} ]]; then
-	DEPEND="${DEPEND} !$(get-parent-package ${CATEGORY}/${PN}):${SLOT}"
-	RDEPEND="${RDEPEND} !$(get-parent-package ${CATEGORY}/${PN}):${SLOT}"
-fi
-
-debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after blockers"
-debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after blockers"
-
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-workspace|kdebase-runtime)
