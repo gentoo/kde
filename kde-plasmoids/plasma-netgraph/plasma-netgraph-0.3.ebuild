@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI="2"
-
 NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet. This plasmoid shows network load on desktop."
@@ -18,4 +18,3 @@ IUSE=""
 
 DEPEND="!kde-misc/plasmoids
 		kde-base/libplasma"
-
