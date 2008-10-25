@@ -82,6 +82,10 @@ case ${KMNAME} in
 		fi
 		;;
 	koffice)
+		case ${PV} in
+			9999*) DEPEND="${DEPEND} !app-office/${PN}:2" ;;
+			1.9*|2*) DEPEND="${DEPEND} !app-office/${PN}:live" ;;
+		esac
 		DEPEND="${DEPEND}
 			!app-office/${PN}:0
 			!app-office/koffice:0
