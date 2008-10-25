@@ -166,27 +166,12 @@ kde4-meta_src_unpack() {
 	case ${SLOT} in
 		live)
 			S="${WORKDIR}/${PN}"
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 			mkdir -p "${S}"
 			ESVN_RESTRICT="export" subversion_src_unpack
 			subversion_wc_info
 			kde4-meta_src_extract
 			kde4-base_apply_patches
 			subversion_bootstrap
-=======
-			# Ensure the target directory exists
-			mkdir -p "${S}"
-			# Update working copy
-			ESVN_RESTRICT="export" subversion_src_unpack
-			# this sets variables used by the src_extract and change_cmakelists
-			subversion_wc_info
-			# Fetch SVN sources and export (parts of) our SVN working copy to ${S}
-			kde4-meta_src_extract
-			# Make sure PATCHES as well as ESVN_PATCHES get applied
-			kde4-base_apply_patches
-			subversion_bootstrap
-			# CMakeLists.txt magic
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 			kde4-meta_change_cmakelists
 			;;
 		*)
@@ -203,15 +188,9 @@ kde4-meta_src_unpack() {
 kde4-meta_src_extract() {
 	case ${SLOT} in
 		live)
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 			local rsync_options subdir kmnamedir targetdir
 			# Export working copy to ${S}
 			einfo "Exporting parts of working copy to ${S}"
-=======
-		        local rsync_options subdir kmnamedir targetdir
-		        # Export working copy to ${S}
-	        einfo "Exporting parts of working copy to ${S}"
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 			kde4-meta_create_extractlists
 
 			case ${KMNAME} in
@@ -283,7 +262,6 @@ kde4-meta_src_extract() {
 				[[ -n ${abort} ]] && die "There were missing files."
 			fi
 
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 	kde4-base_src_unpack
 
 	if [[ "${KMNAME}" == "koffice" ]]; then
@@ -291,47 +269,17 @@ kde4-meta_src_extract() {
 			koffice-data|koffice-libs)
 				;;
 			*)
-=======
-			kde4-base_src_unpack
-
-			if [[ "${KMNAME}" == "koffice" ]]; then
-				case ${PN} in
-					koffice-data|koffice-libs)
-						;;
-					*)
-				### We need to check for latest kdedir if kdedir does not point onto /usr
-				# we check for some basic application and if we found it in /usr we use
-				# /usr as master tree otherwise we pick latest version in /usr/kde/
-				elog "we always prefer KDE installed without kdeprefix so if you get"
-				elog "some issues with linking please switch to -kdeprefix KDE install."
-				if [ -e /usr/bin/kwin ]; then
-					KD="/usr"
-				else
-					KD=$(find /usr/kde/ -maxdepth 1 -mindepth 1 -type d |tail -n 1)
-					#pickup latest version from /usr/kde
-				fi
-				# we have few lib states we can occur on koffice sources
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 				### basic array
 				LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
 				### dep array
 				R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
 					\"/usr/$(get_libdir)/qt4/libQtXml.so\"
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 					\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
 				R_BAS_kostore="libkostore ${R_QT_kostore}"
 				R_BAS_koodf="libkoodf ${R_BAS_kostore}"
 				R_KROSS_kokross="
 					\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
 					\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
-=======
-					\"${KD}/$(get_libdir)/libkdecore.so\""
-				R_BAS_kostore="libkostore ${R_QT_kostore}"
-				R_BAS_koodf="libkoodf ${R_BAS_kostore}"
-				R_KROSS_kokross="
-					\"${KD}/$(get_libdir)/libkrossui.so\"
-					\"${KD}/$(get_libdir)/libkrosscore.so\""
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 				R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
 				R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
 				R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
@@ -348,17 +296,12 @@ kde4-meta_src_extract() {
 					echo "Fixing library ${libname} with hardcoded path"
 					for libpath in $(eval "echo \$R_BAS_${libname}"); do
 						if [[ "${libpath}" != "\"/usr/"* ]]; then
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 							local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
-=======
-							local R="${R} \"/usr/$(get_libdir)/${libpath}.so\""
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 						else
 							local R="${R} ${libpath}" 
 						fi
 					done
 					find ${S} -name CMakeLists.txt -print| xargs -i \
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 						sed -i \
 							-e "s: ${libname} : ${R} :g" \
 							-e "s: ${libname}): ${R}):g" \
@@ -370,19 +313,6 @@ kde4-meta_src_extract() {
 				;;
 			esac
 		fi
-=======
-					sed -i \
-						-e "s: ${libname} : ${R} :g" \
-						-e "s: ${libname}): ${R}):g" \
-						-e "s:(${libname} :(${R} :g" \
-						-e "s:(${libname}):(${R}):g" \
-						-e "s: ${libname}: ${R}:g" \
-					{} || die "Fixing library names failed."
-				done
-						;;
-				esac
-			fi
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 	esac
 }
 
@@ -765,13 +695,8 @@ kde4-meta_src_install() {
 	# remove unvanted koffice stuff
 	if [[ "${KMNAME}" == "koffice" ]] ; then
 		if [[ "${PN}" != "koffice-data" ]]; then
-<<<<<<< HEAD:eclass/kde4-meta.eclass
 			rm "${D}"/${KDEDIR}/include/config-openexr.h
 			rm "${D}"/${KDEDIR}/share/apps/cmake/modules/FindKOfficeLibs.cmake
-=======
-			rm "${D}"/usr/include/config-openexr.h
-			rm "${D}"/usr/share/apps/cmake/modules/FindKOfficeLibs.cmake
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 		fi
 	fi
 }
@@ -806,14 +731,4 @@ kde4-meta_pkg_postinst() {
 kde4-meta_pkg_postrm() {
 	kde4-base_pkg_postrm
 }
-<<<<<<< HEAD:eclass/kde4-meta.eclass
-=======
-kdebase_toplevel_cmakelist() {
-	insert=$(sed -e '/macro_optional_find_package/!d' < "${ESVN_WC_PATH}"/CMakeLists.txt)
-	at=$(sed -n '/^include[[:space:]]*(/=' < "${S}"/CMakeLists.txt | sed -n '$p')
-	for line in ${insert}; do
-		sed "${at}a${line}" -i 	"${S}"/CMakeLists.txt
-	done
-}
->>>>>>> origin/4.2:eclass/kde4-meta.eclass
 
