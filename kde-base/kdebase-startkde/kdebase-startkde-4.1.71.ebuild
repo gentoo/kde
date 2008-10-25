@@ -4,12 +4,12 @@
 
 EAPI="2"
 
-KMNAME=kdebase-workspace
-KMNOMODULE=true
+KMNAME="kdebase-workspace"
+KMNOMODULE="true"
 inherit kde4-meta multilib
 
 DESCRIPTION="Startkde script, which starts a complete KDE session, and associated scripts"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=""
@@ -47,25 +47,29 @@ KMCOMPILEONLY="kdm/kfrontend/sessions/"
 PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
 
 src_configure() {
-	# Patch the startkde script to setup the environment for KDE 4.0
-	# Add our KDEDIR
-	if use kdeprefix; then
-		sed -e "s#@REPLACE_LDFLAGS@#export LFFLAGS=${_libdirs}:\$LDFAGS#" \
-			-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
-	else
-		sed -e "s#@REPLACE_LDFLAGS@##" -i "${S}/startkde.cmake" || \
-			die "sed for LDPATH failed"
-	fi
+	# Patch the startkde script to setup the environment for KDE SVN
 	# List all the multilib libdirs
 	local _libdir _libdirs
 	for _libdir in $(get_all_libdirs); do
 		_libdirs="${_libdirs}:${PREFIX}/${_libdir}"
 	done
 	_libdirs=${_libdirs#:}
+	
+	# Sort the LDFLAGS out if necessary	
+	if use kdeprefix; then
+		sed -e "s#@REPLACE_LDFLAGS@#export LDFLAGS=${_libdirs}:\$LDFLAGS#" \
+			-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
+	else
+		sed -e "s#@REPLACE_LDFLAGS@##" -i "${S}/startkde.cmake" || \
+			die "sed for LDPATH failed"
+	fi
 
 	# Complete LDPATH
-	sed -e "s#@REPLACE_LIBS@#${_libdirs}#" \
-		-i "${S}/startkde.cmake" || die "Sed for LDPATH failed."
+	sed -e "s#@REPLACE_LIBDIR@#$(get_libdir)#" \
+		-i "${S}/startkde.cmake" || die "Sed for REPLACE_LIBDIR failed."
+	# Now fix the prefix
+	sed -e "s#@REPLACE_PREFIX@#${KDEDIR}#" \
+		-i "${S}/startkde.cmake" || die "Sed for REPLACE_PREFIX failed."
 
 	kde4-meta_src_configure
 }

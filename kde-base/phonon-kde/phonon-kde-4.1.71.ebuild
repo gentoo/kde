@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME=kdebase-runtime
 KMMODULE=phonon
-inherit kde4-base
+inherit kde4-meta
 
 DESCRIPTION="Phonon KDE integration"
 HOMEPAGE="http://phonon.kde.org"
