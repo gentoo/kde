@@ -304,6 +304,7 @@ if [[ ${NEED_KDE} != none ]]; then
 			case ${KMNAME} in
 				koffice)
 					case ${PV} in
+						9999*) SLOT="live" ;;
 						*) SLOT="2" ;;
 					esac
 					;;
