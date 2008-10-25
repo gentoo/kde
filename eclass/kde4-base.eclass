@@ -511,7 +511,6 @@ kde4-base_pkg_setup() {
 		done
 	fi
 	if [[ ${NEED_KDE} != none ]]; then
-
 		# Set PREFIX
 		case "${EAPI}" in
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
@@ -569,18 +568,14 @@ kde4-base_pkg_setup() {
 		kde4-functions_check_use
 		;;
 	esac
-	case ${SLOT} in
-		live)
-			if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-				elog
-				elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
-				elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
-				elog "of this ebuild!"
-			fi
-			;;
-		*)
-			;;
-	esac
+	if [[ ${SLOT} == "live" || ${PV} == "9999*" ]]; then
+		if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+			elog
+			elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
+			elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
+			elog "of this ebuild!"
+		fi
+	fi
 }
 
 # @FUNCTION: kde4-base_apply_patches
@@ -659,28 +654,28 @@ kde4-base_src_unpack() {
 			kde4-base_apply_patches
 			;;
 		*)
-		[[ -z "${KDE_S}" ]] && KDE_S="${S}"
+			[[ -z "${KDE_S}" ]] && KDE_S="${S}"
 
-		if [[ -z $* ]]; then
-			# Unpack first and deal with KDE patches after examing possible patch sets.
-			# To be picked up, patches need to conform to the guidelines stated before.
-			# Monolithic ebuilds will use the split ebuild patches.
-			[[ -d "${KDE_S}" ]] || unpack ${A}
-			kde4-base_apply_patches
-		else
-			# Call base_src_unpack, which unpacks and patches
-			# step by step transparently as defined in the ebuild.
-			base_src_unpack $*
-		fi
+			if [[ -z $* ]]; then
+				# Unpack first and deal with KDE patches after examing possible patch sets.
+				# To be picked up, patches need to conform to the guidelines stated before.
+				# Monolithic ebuilds will use the split ebuild patches.
+				[[ -d "${KDE_S}" ]] || unpack ${A}
+				kde4-base_apply_patches
+			else
+				# Call base_src_unpack, which unpacks and patches
+				# step by step transparently as defined in the ebuild.
+				base_src_unpack $*
+			fi
 
-		# Updated cmake dir
-		if [[ -d "${WORKDIR}/cmake" ]] && [[ -d "${KDE_S}/cmake" ]]; then
-			ebegin "Updating cmake/ directory..."
-			rm -rf "${KDE_S}/cmake" || die "Unable to remove old cmake/ directory"
-			ln -s "${WORKDIR}/cmake" "${KDE_S}/cmake" || die "Unable to symlink the new cmake/ directory"
-			eend 0
-		fi
-		;;
+			# Updated cmake dir
+			if [[ -d "${WORKDIR}/cmake" ]] && [[ -d "${KDE_S}/cmake" ]]; then
+				ebegin "Updating cmake/ directory..."
+				rm -rf "${KDE_S}/cmake" || die "Unable to remove old cmake/ directory"
+				ln -s "${WORKDIR}/cmake" "${KDE_S}/cmake" || die "Unable to symlink the new cmake/ directory"
+				eend 0
+			fi
+			;;
 	esac
 	# Only enable selected languages, used for KDE extragear apps.
 	if [[ -n ${KDE_LINGUAS} ]]; then

@@ -226,7 +226,7 @@ kde4-meta_src_extract() {
 				sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
 	                        "${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 			fi
-		;;
+			;;
 		*)
 			local abort tarball tarfile f extractlist
 			tarball="${KMNAME}-${PV}.tar.bz2"
@@ -262,10 +262,9 @@ kde4-meta_src_extract() {
 				done
 				[[ -n ${abort} ]] && die "There were missing files."
 			fi
-			kde4-base_src_unpack
 			;;
 	esac
-
+	kde4-base_src_unpack
 	# fix koffice linking
 	if [[ "${KMNAME}" == "koffice" ]]; then
 		koffice_fix_libraries
