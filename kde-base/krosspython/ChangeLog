@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/krosspython
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*krosspython-4.1.71 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
+  +krosspython-4.1.71.ebuild:
+  bump
+

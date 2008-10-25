@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/pykde4
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pykde4-4.1.71 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +pykde4-4.1.71.ebuild:
+  bump
+

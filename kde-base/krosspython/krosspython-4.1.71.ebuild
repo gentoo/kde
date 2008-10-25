@@ -4,13 +4,15 @@
 
 EAPI="2"
 
-KMNAME=kdebase-workspace
-KMMODULE=libs/libplasmaclock
-KMSAVELIBS="true"
+KMNAME=kdebindings
+KMMODULE=python/${PN}
+NEED_KDE="4.2"
 inherit kde4-meta
 
-DESCRIPTION="A library for KDE desktop applications"
+DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=kde-base/libplasma-${PV}:${SLOT}"
+DEPEND="dev-lang/python"
+
+KMEXTRACTONLY="python/pykde4"
