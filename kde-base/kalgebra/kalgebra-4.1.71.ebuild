@@ -14,6 +14,7 @@ IUSE="debug htmlhandbook +plasma readline"
 
 DEPEND="opengl? ( virtual/opengl )
 	plasma? ( kde-base/libplasma:${SLOT} )
+	python? ( kde-base/pykde4:${SLOT} )
 	readline? ( sys-libs/readline )"
 RDEPEND="${DEPEND}"
 

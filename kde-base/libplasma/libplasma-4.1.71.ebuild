@@ -24,6 +24,7 @@ RDEPEND=">=app-misc/strigi-0.6[qt4]
 	x11-libs/libXtst
 	x11-libs/qt-webkit:4[debug?]
 	opengl? ( virtual/opengl )
+	python? ( kde-base/pykde4:${SLOT} )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${RDEPEND}
 	xinerama? ( x11-proto/xineramaproto )"
