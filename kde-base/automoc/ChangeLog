@@ -1,0 +1,19 @@
+# ChangeLog for kde-base/automoc
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*automoc-0.9.87 (27 Sep 2008)
+
+  27 Sep 2008; <alexxy@gentoo.org> +automoc-0.9.87.ebuild:
+  version bump
+
+  07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  automoc-0.9.84.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*automoc-0.9.84 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +automoc-0.9.84.ebuild:
+  Added automoc-0.9.84.
+

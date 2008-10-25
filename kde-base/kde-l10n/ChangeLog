@@ -1,0 +1,35 @@
+# ChangeLog for kde-base/kde-l10n
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Oct 2008; <alexxy@gentoo.org> -kde-l10n-4.1.1.ebuild:
+  Version removed.
+
+  27 Sep 2008; <alexxy@gentoo.org> kde-l10n-4.1.1.ebuild:
+  Make ebuilds work with eapi2
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -files/srDataMacros.cmake, kde-l10n-4.1.1.ebuild:
+  Dropped the patch provided by Chusslove as it was merged upstream in the
+  4.1.1 release.
+
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kde-l10n/kde-l10n-4.1.1.ebuild:
+  Renamed LANG and LANGS on global scope to avoid issues.
+
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-l10n-4.1.1.ebuild:
+  Remove SLOT as it's defined on the eclasses.
+
+*kde-l10n-4.1.1 (08 Sep 2008)
+
+  08 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kde-l10n-4.1.1.ebuild:
+  Bumped kde-l10n to 4.1.1.
+
+*kde-l10n-4.1.0 (26 Aug 2008)
+
+  26 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kde-l10n-4.1.0.ebuild:
+  Added kde-l10n-4.1.0.
+

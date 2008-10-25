@@ -108,7 +108,7 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 # Add the kdeprefix use flag
 case "${EAPI}" in
 	2 | 2_pre3 | 2_pre2 | 2_pre1)
-		IUSE="${IUSE} kdeprefix"
+		[[ "${NEED_KDE}" != "any" ]] && IUSE="${IUSE} kdeprefix"
 		;;
 esac
 
@@ -182,6 +182,13 @@ fi
 export KDE_WANTED
 
 case ${NEED_KDE} in
+	any)
+		_kdedir=""
+		_operator=">="
+		_pv="-3.9" # we do not specify version only that it needs 4
+		# kdedir is not set and it needs to be detected (maybe fallback for
+		# latest version availible)
+		;;
 	latest)
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
@@ -205,9 +212,19 @@ case ${NEED_KDE} in
 			esac
 			_operator=">="
 		else
+<<<<<<< HEAD:eclass/kde4-base.eclass
 			# this creates dependency on any version of kde4
 			_operator=">="
 			_pv="-3.9"
+=======
+			case ${PV} in
+				4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* ) _kdedir="4.2" ;;
+				4.1 | 4.0.9* | 4.0.8*) _kdedir="4.1" ;;
+				4.0*) _kdedir="4.0" ;;
+				3.9*) _kdedir="3.9" ;;
+				*) die "NEED_KDE=latest not supported for PV=${PV}" ;;
+			esac
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 		fi
 		;;
 
@@ -255,6 +272,7 @@ case ${NEED_KDE} in
 	# NEED_KDE="${PV}"
 	scm|svn|live|9999*)
 		_kdedir="live"
+<<<<<<< HEAD:eclass/kde4-base.eclass
 		_operator=">="
 		_pv="-${NEED_KDE}:live"
 		export NEED_KDE="live"
@@ -262,6 +280,15 @@ case ${NEED_KDE} in
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 		_kdedir="4.2"
 		_operator=">="
+=======
+		_operator=">="
+		_pv="-${NEED_KDE}:live"
+		export NEED_KDE="live"
+		;;
+	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
+		_kdedir="4.2"
+		_operator=">="
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 		_pv="-${NEED_KDE}:4.2"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
@@ -305,9 +332,14 @@ if [[ ${NEED_KDE} != none ]]; then
 					;;
 				*)
 					case ${PV} in
+<<<<<<< HEAD:eclass/kde4-base.eclass
 						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
 						4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
 						9999*) SLOT="live" ;;
+=======
+						4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
+						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 						*) SLOT="kde-4" ;;
 					esac
 					;;
@@ -321,17 +353,28 @@ if [[ ${NEED_KDE} != none ]]; then
 			for KDE_SLOT in ${KDE_SLOTS[@]}; do
 				# block non kdeprefix ${PN} on other slots
 				# we do this only if we do not depend on any version of kde
+<<<<<<< HEAD:eclass/kde4-base.eclass
 				if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 					DEPEND="${DEPEND}
 						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 					RDEPEND="${RDEPEND}
 						!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+=======
+				if [[ ${NEED_KDE} != "any" ]]; then
+					if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+						DEPEND="${DEPEND}
+							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+						RDEPEND="${RDEPEND}
+							!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+					fi
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 				fi
 			done
 			;;
 	esac
 
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
+<<<<<<< HEAD:eclass/kde4-base.eclass
 	if  [[ ${PN} != "kdelibs" ]]; then
 		case "${EAPI}" in
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
@@ -344,15 +387,41 @@ if [[ ${NEED_KDE} != none ]]; then
 				;;
 		esac
 		if [[ ${PN} != "kdepimlibs" ]]; then
+=======
+	if [[ ${NEED_KDE} != "any" ]]; then
+		if  [[ ${PN} != "kdelibs" ]]; then
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 			case "${EAPI}" in
 				2 | 2_pre3 | 2_pre2 | 2_pre1)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+					RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
 					;;
 				*)
-					DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-					RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
-				esac
+					DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+					;;
+			esac
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				case "${EAPI}" in
+					2 | 2_pre3 | 2_pre2 | 2_pre1)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+						;;
+					*)
+						DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+						RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+					esac
+			fi
+		fi
+	else
+		if [[ ${PN} != "kdelibs" ]]; then
+			# need_kde == any
+			DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			RDEPEND="${RDEPEND} ${_operator}kde-base/kdelibs${_pv}"
+			if [[ ${PN} != "kdepimlibs" ]]; then
+				DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+				RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}"
+			fi
 		fi
 	fi
 	unset _operator _pv
@@ -405,9 +474,13 @@ case ${SLOT} in
 			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
 			ESVN_PROJECT="KDE/${PN}"
 		fi
+<<<<<<< HEAD:eclass/kde4-base.eclass
 		# limit syncing to 1 hour.
 		ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		inherit subversion
+=======
+	inherit subversion
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 	;;
 	*)
 		if [[ -n ${KDEBASE} ]]; then
@@ -511,9 +584,14 @@ kde4-base_pkg_setup() {
 		# Set PREFIX
 		case "${EAPI}" in
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
-				if use kdeprefix; then
-					KDEDIR="/usr/kde/${_kdedir}"
-					KDEDIRS="/usr:/usr/local:${KDEDIR}"
+				if [[ ${NEED_KDE} != "any" ]]; then
+					if use kdeprefix; then
+						KDEDIR="/usr/kde/${_kdedir}"
+						KDEDIRS="/usr:/usr/local:${KDEDIR}"
+					else
+						KDEDIR="/usr"
+						KDEDIRS="/usr:/usr/local"
+					fi
 				else
 					KDEDIR="/usr"
 					KDEDIRS="/usr:/usr/local"
@@ -568,10 +646,17 @@ kde4-base_pkg_setup() {
 	case ${SLOT} in
 		live)
 			if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+<<<<<<< HEAD:eclass/kde4-base.eclass
 				elog
 				elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
 				elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
 				elog "of this ebuild!"
+=======
+				echo
+				ewarn "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
+				ewarn "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
+				ewarn "of this ebuild!"
+>>>>>>> origin/4.2:eclass/kde4-base.eclass
 			fi
 			;;
 		*)

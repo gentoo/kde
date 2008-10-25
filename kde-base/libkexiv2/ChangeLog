@@ -1,0 +1,66 @@
+# ChangeLog for kde-base/libkexiv2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> -libkexiv2-4.1.70.ebuild,
+  +libkexiv2-4.1.71.ebuild:
+  Version removed.
+
+*libkexiv2-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> +libkexiv2-4.1.71.ebuild:
+  Version bump.
+
+*libkexiv2-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -libkexiv2-4.1.69.ebuild, +libkexiv2-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -libkexiv2-4.1.68.ebuild,
+  +libkexiv2-4.1.69.ebuild:
+  Version removed.
+
+*libkexiv2-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +libkexiv2-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -libkexiv2-4.1.1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -libkexiv2-4.1.67.ebuild:
+  Version removed.
+
+*libkexiv2-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +libkexiv2-4.1.68.ebuild:
+  Version bump.
+
+*libkexiv2-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +libkexiv2-4.1.67.ebuild:
+  Version bump.
+
+  16 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkexiv2-4.1.1.ebuild:
+  Replaced the multislot with the kdeprefix use flag.
+
+*libkexiv2-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +libkexiv2-4.1.1.ebuild:
+  Version bump.
+
+  30 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org> libkexiv2-4.1.0.ebuild:
+  Remove unneeded parts of the ebuild such as SLOT.
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkexiv2-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*libkexiv2-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +libkexiv2-4.1.0.ebuild:
+  Added libkexi2-4.1.0.
+

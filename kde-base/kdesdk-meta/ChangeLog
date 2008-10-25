@@ -1,0 +1,23 @@
+# ChangeLog for kde-base/kdesdk-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Oct 2008; <alexxy@gentoo.org> -kdesdk-meta-4.1.1.ebuild:
+  Version removed.
+
+*kdesdk-meta-4.1.1 (21 Sep 2008)
+
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdesdk-meta-4.1.1.ebuild:
+  Added back meta ebuild from the master branch.
+
+  22 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdesdk-meta-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*kdesdk-meta-4.1.0 (21 Aug 2008)
+
+  21 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdesdk-meta-4.1.0.ebuild:
+  Added kdesdk-meta-4.1.0.
+

@@ -1,0 +1,122 @@
+# ChangeLog for kde-base/kdelibs
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+<<<<<<< HEAD:kde-base/kdelibs/ChangeLog
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> -kdelibs-4.1.70.ebuild,
+  +kdelibs-4.1.71.ebuild:
+  Version removed.
+
+*kdelibs-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> +kdelibs-4.1.71.ebuild:
+  Version bump.
+
+*kdelibs-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdelibs-4.1.69.ebuild, +kdelibs-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -kdelibs-4.1.68.ebuild,
+  +kdelibs-4.1.69.ebuild:
+  Version removed.
+
+*kdelibs-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +kdelibs-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -kdelibs-4.1.1-r4.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -kdelibs-4.1.67.ebuild:
+  Version removed.
+
+*kdelibs-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +kdelibs-4.1.68.ebuild:
+  Version bump.
+
+*kdelibs-4.1.67 (26 Sep 2008)
+=======
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.2.ebuild:
+  Move ebuild towards EAPI2 compilance
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdelibs-4.1.2.ebuild:
+  Use correct patch name
+>>>>>>> f2164c7... EAPI2 compilance for kdelibs:kde-base/kdelibs/ChangeLog
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdelibs-4.1.67.ebuild:
+  Version bump.
+
+  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  kdelibs-4.1.1-r4.ebuild:
+  Fix kdnssd-avahi blockage problems.
+
+  24 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.1-r4.ebuild:
+  Applied partial updates from the master branch.
+
+*kdelibs-4.1.1-r4 (23 Sep 2008)
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdelibs-4.1.1-r4.ebuild, -kdelibs-4.1.1.ebuild:
+  Bumped kdelibs revision.
+
+  21 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Whitespace.
+
+  07 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kdebase-startkde/Manifest, kde-base/kdelibs/Manifest:
+  Fixed Manifest.
+
+  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> 
+  kdelibs-4.1.1.ebuild:
+  Restricted dep on phonon to >=4.2.0.
+
+*kdelibs-4.1.1 (30 Aug 2008)
+
+  30 Aug 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  -kdelibs-4.1.0-r1.ebuild, -kdelibs-4.1.0-r2.ebuild, -kdelibs-4.1.0.ebuild,
+  +kdelibs-4.1.1.ebuild:
+  Version bump.
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.0-r2.ebuild:
+  Let's try again but with the correct soprano version.
+
+*kdelibs-4.1.0-r2 (30 Aug 2008)
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdelibs-4.1.0-r2.ebuild:
+  Bumped soprano dep >=2.1.0 to prevent issues with nepomuk.
+
+  09 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.0-r1.ebuild:
+  Updated kdelibs-4.1.0-r1 to use EAPI 2_pre1.
+
+*kdelibs-4.1.0-r1 (08 Aug 2008)
+
+  08 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +files/kdelibs-4.1.0-quit-app.patch, +kdelibs-4.1.0-r1.ebuild:
+  Added patch to fix bug #167826.
+
+  07 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdelibs-4.1.0.ebuild:
+  Added missing EAPI-1 to kdelibs.
+
+*kdelibs-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdelibs-4.1.0.ebuild:
+  Added kdelibs-4.1.0.
+

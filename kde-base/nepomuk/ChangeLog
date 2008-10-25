@@ -1,0 +1,70 @@
+# ChangeLog for kde-base/nepomuk
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> -nepomuk-4.1.70.ebuild,
+  +nepomuk-4.1.71.ebuild:
+  Version removed.
+
+*nepomuk-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> +nepomuk-4.1.71.ebuild:
+  Version bump.
+
+*nepomuk-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -nepomuk-4.1.69.ebuild, +nepomuk-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -nepomuk-4.1.68.ebuild,
+  +nepomuk-4.1.69.ebuild:
+  Version removed.
+
+*nepomuk-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +nepomuk-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -nepomuk-4.1.1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -nepomuk-4.1.67.ebuild:
+  Version removed.
+
+*nepomuk-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +nepomuk-4.1.68.ebuild:
+  Version bump.
+
+*nepomuk-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +nepomuk-4.1.67.ebuild:
+  Version bump.
+
+*nepomuk-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org> +nepomuk-4.1.1.ebuild:
+  Version bump.
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  nepomuk-4.1.0-r1.ebuild:
+  Let's try again but with the correct soprano version.
+
+*nepomuk-4.1.0-r1 (30 Aug 2008)
+
+  30 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +nepomuk-4.1.0-r1.ebuild:
+  Bumped soprano dep >=2.1.0 and forced a dep on kdelibs[semantic-desktop]
+  to prevent issues with nepomuk.
+
+  09 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  nepomuk-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*nepomuk-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +nepomuk-4.1.0.ebuild:
+  Added nepomuk-4.1.0.
+

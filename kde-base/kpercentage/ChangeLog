@@ -1,0 +1,61 @@
+# ChangeLog for kde-base/kpercentage
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  -kpercentage-4.1.70.ebuild, +kpercentage-4.1.71.ebuild:
+  Version removed.
+
+*kpercentage-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  +kpercentage-4.1.71.ebuild:
+  Version bump.
+
+*kpercentage-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kpercentage-4.1.69.ebuild, +kpercentage-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -kpercentage-4.1.68.ebuild,
+  +kpercentage-4.1.69.ebuild:
+  Version removed.
+
+*kpercentage-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +kpercentage-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -kpercentage-4.1.1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -kpercentage-4.1.67.ebuild:
+  Version removed.
+
+*kpercentage-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +kpercentage-4.1.68.ebuild:
+  Version bump.
+
+*kpercentage-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kpercentage-4.1.67.ebuild:
+  Version bump.
+
+*kpercentage-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +kpercentage-4.1.1.ebuild:
+  Version bump.
+
+  22 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kpercentage-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*kpercentage-4.1.0 (20 Aug 2008)
+
+  20 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kpercentage-4.1.0.ebuild:
+  Added kpercentage-4.1.0.
+
