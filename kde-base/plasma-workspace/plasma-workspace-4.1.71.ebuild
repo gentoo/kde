@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug google-gadgets htmlhandbook xcomposite xinerama"
+IUSE="debug google-gadgets htmlhandbook python xcomposite xinerama"
 
 COMMONDEPEND="!kde-base/plasma:${SLOT}
 	>=kde-base/soliduiserver-${PV}:${SLOT}
@@ -44,6 +44,7 @@ KMLOADLIBS="libplasma"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 

@@ -1,6 +1,7 @@
-kde-base/dragonplayer
-kde-base/juk
-kde-base/kdemultimedia-kioslaves
-kde-base/kmix
-kde-base/libkcddb
-kde-base/libkcompactdisc
+kde-base/dragonplayer:4.1
+kde-base/juk:4.1
+kde-base/kdemultimedia-kioslaves:4.1
+kde-base/kmix:4.1
+kde-base/kscd:4.1
+kde-base/libkcddb:4.1
+kde-base/libkcompactdisc:4.1

@@ -12,7 +12,7 @@ inherit kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug opengl xinerama"
+IUSE="debug opengl python xinerama"
 
 RDEPEND=">=app-misc/strigi-0.6[qt4]
 	!<kde-base/plasma-3.96.0
@@ -41,6 +41,7 @@ RESTRICT="test"
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
 	kde4-meta_src_configure
