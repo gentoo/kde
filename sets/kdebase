@@ -13,6 +13,7 @@ kde-base/kdebase-data
 kde-base/kdebase-kioslaves
 kde-base/kdebase-startkde
 kde-base/kdebugdialog
+kde-base/kdedglobalaccel
 kde-base/kdepasswd
 kde-base/kdesu
 kde-base/kdialog

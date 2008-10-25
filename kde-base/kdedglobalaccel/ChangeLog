@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdedglobalaccel
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdedglobalaccel-4.1.71 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
+  +kdedglobalaccel-4.1.71.ebuild:
+  bump
+
