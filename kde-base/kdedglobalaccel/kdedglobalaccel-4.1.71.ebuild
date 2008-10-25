@@ -8,7 +8,7 @@ KMNAME=kdebase-runtime
 inherit kde4-meta
 
 DESCRIPTION="KDE's Global Shortcut Daemon"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND=""
