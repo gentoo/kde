@@ -162,6 +162,7 @@ kde-base/krdc:4.2
 kde-base/kreadconfig:4.2
 kde-base/kreversi:4.2
 kde-base/krfb:4.2
+kde-base/krosspython:4.2
 kde-base/kruler:4.2
 kde-base/krunner:4.2
 kde-base/ksame:4.2
@@ -237,6 +238,7 @@ kde-base/phonon-kde:4.2
 kde-base/plasma-apps:4.2
 kde-base/plasma-workspace:4.2
 kde-base/powerdevil:4.2
+kde-base/pykde4:4.2
 kde-base/renamedlg-plugins:4.2
 kde-base/solid:4.2
 kde-base/solid-hardware:4.2
@@ -247,3 +249,4 @@ kde-base/svgpart:4.2
 kde-base/sweeper:4.2
 kde-base/systemsettings:4.2
 kde-base/umbrello:4.2
+=media-sound/phonon-4.3.9999
