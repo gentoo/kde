@@ -41,18 +41,25 @@ if [[ -z ${KMNAME} ]]; then
 fi
 
 case ${KDEBASE} in
-	kde-base)	HOMEPAGE="http://www.kde.org/"
-				LICENSE="GPL-2" ;;
-	koffice)	HOMEPAGE="http://www.koffice.org/"
-				LICENSE="GPL-2" ;;
+	kde-base)
+		HOMEPAGE="http://www.kde.org/"
+		LICENSE="GPL-2"
+		;;
+	koffice)
+		HOMEPAGE="http://www.koffice.org/"
+		LICENSE="GPL-2"
+		;;
 esac
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-workspace|kdebase-runtime)
-		DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
-		RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
-	;;
+		# required for 4.0.X
+		if [[ ${PV} -lt 4.1 ]]; then
+			DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
+			RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
+		fi
+		;;
 	kdepim)
 		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
 		RDEPEND="${RDEPEND} dev-libs/boost"
@@ -65,39 +72,33 @@ case ${KMNAME} in
 				IUSE="+kontact"
 				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
 				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
-			;;
+				;;
 		esac
-	;;
+		;;
 	kdegames)
 		if [[ ${PN} != "libkdegames" ]]; then
 			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 		fi
-	;;
+		;;
 	koffice)
 		DEPEND="${DEPEND}
 			!app-office/${PN}:0
 			!app-office/koffice:0
 			!app-office/koffice-meta:0"
 		case ${PN} in
-			koffice-libs):
+			koffice-data) : ;;
+			*)
 				IUSE="+crypt"
 				DEPEND="${DEPEND} crypt? ( >=app-crypt/qca-2 )"
 				RDEPEND="${RDEPEND} crypt? ( >=app-crypt/qca-2 )"
+				if [[ ${PN} != "koffice-libs" ]]; then
+					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
+					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
+				fi
 				;;
-			koffice-data):
-				;;
-			*)
-			IUSE="+crypt"
-			DEPEND="${DEPEND}
-				>=app-office/koffice-libs-${PV}:${SLOT}
-				crypt? ( >=app-crypt/qca-2 )"
-			RDEPEND="${RDEPEND}
-				>=app-office/koffice-libs-${PV}:${SLOT}
-				crypt? ( >=app-crypt/qca-2 )"
-			;;
 		esac
-	;;
+		;;
 esac
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
@@ -194,8 +195,8 @@ kde4-meta_src_extract() {
 			kde4-meta_create_extractlists
 
 			case ${KMNAME} in
-         			kdebase) kmnamedir="" ;;
-					kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
+				kdebase) kmnamedir="" ;;
+				kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
 			esac
 
 			rsync_options="--group --links --owner --perms --quiet --exclude=.svn/"
@@ -261,12 +262,14 @@ kde4-meta_src_extract() {
 				done
 				[[ -n ${abort} ]] && die "There were missing files."
 			fi
+			kde4-base_src_unpack
+			;;
+	esac
 
-	kde4-base_src_unpack
-
+	# fix koffice linking
 	if [[ "${KMNAME}" == "koffice" ]]; then
 		koffice_fix_libraries
-	esac
+	fi
 }
 
 # Create lists of files and subdirectories to extract.
@@ -583,13 +586,6 @@ kde4-meta_change_cmakelists() {
 			sed -i -e '/find_package(Blitz REQUIRED)/d' "${S}"/CMakeLists.txt \
 				|| die "${LINENO}: sed to remove dependency on Blitz failed."
 		fi
-		;;
-		koffice)
-		#if [[ ${PN} != koffice-libs ]]; then
-		#	sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
-		#		doc/CMakeLists.txt || \
-		#		die "${LINENO}: sed died in the koffice.desktop collision prevention section"
-		#fi
 		;;
 	esac
 

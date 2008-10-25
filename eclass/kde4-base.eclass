@@ -130,16 +130,16 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 
 case "${CPPUNIT_REQUIRED}" in
 	always)
-	DEPEND="${DEPEND} dev-util/cppunit"
-	;;
+		DEPEND="${DEPEND} dev-util/cppunit"
+		;;
 	optional)
-	IUSE="${IUSE} test"
-	DEPEND="${DEPEND}
-		test? ( dev-util/cppunit )"
-	;;
+		IUSE="${IUSE} test"
+		DEPEND="${DEPEND}
+			test? ( dev-util/cppunit )"
+		;;
 	*)
-	CPPUNIT_REQUIRED="never"
-	;;
+		CPPUNIT_REQUIRED="never"
+		;;
 esac
 
 # @ECLASS-VARIABLE: NEED_KDE

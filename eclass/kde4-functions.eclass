@@ -280,6 +280,5 @@ koffice_fix_libraries() {
 					{} || die "Fixing library names failed."
 			done
 			;;
-		esac
-	fi
+	esac
 }
