@@ -464,7 +464,7 @@ kde4-base_pkg_setup() {
 	# Don't set KDEHOME during compile, it will cause access violations
 	unset KDEHOME
 
-	if [[ ${NEED_KDE} == latest ]]; then
+	if [[ "${NEED_KDE}" == "latest" && "${KDEBASE}" != "kde-base"  ]]; then
 		# We need to set up correct kdedir based on what we find
 		# not to do it by versioning but based on what is on system.
 		# We might also be cool and install app for all kde installs
@@ -472,6 +472,7 @@ kde4-base_pkg_setup() {
 		# We can check for kdelibs because they are basic package and
 		# rest of the stuff wont work without it. This might be changed
 		# in future.
+
 		case ${KDE_WANTED} in
 			# note this will need to be updated as stable moves and so on
 			live)
