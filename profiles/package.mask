@@ -1,3 +1,4 @@
+=app-misc/strigi-0.6.9999
 kde-base/akonadi:4.2
 kde-base/akregator:4.2
 kde-base/amor:4.2
