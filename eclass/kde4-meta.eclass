@@ -55,7 +55,7 @@ esac
 case ${KMNAME} in
 	kdebase|kdebase-workspace|kdebase-runtime)
 		# required for 4.0.X
-		if [[ ${PV} -lt 4.1 ]]; then
+		if [[ ${PV} == "4.0.*" ]]; then
 			DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
 			RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
 		fi
