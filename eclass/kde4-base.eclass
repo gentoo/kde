@@ -513,15 +513,15 @@ kde4-base_pkg_setup() {
 			2 | 2_pre3 | 2_pre2 | 2_pre1)
 				if use kdeprefix; then
 					KDEDIR="/usr/kde/${_kdedir}"
-					KDEDIRS="/usr:/usr/local:${KDEDIR}"
+					KDEDIRS="/usr/local/:/usr:${KDEDIR}"
 				else
 					KDEDIR="/usr"
-					KDEDIRS="/usr:/usr/local"
+					KDEDIRS="/usr/local/:/usr"
 				fi
 				;;
 			*)
 				KDEDIR="/usr"
-				KDEDIRS="/usr:/usr/local"
+				KDEDIRS="/usr/local:/usr"
 				;;
 		esac
 	fi
