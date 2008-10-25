@@ -11,8 +11,6 @@ DESCRIPTION="Interfaces library for the KDE personal information manager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-#PATCHES=("${FILESDIR}/${PN}-as-needed.patch")
-
 KMSAVELIBS="true"
 
 KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml

@@ -23,13 +23,8 @@ RDEPEND=">=app-text/libspectre-0.2
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-#PATCHES=("${FILESDIR}/${KMNAME}-4.0.2-system-libspectre.patch")
 
 src_configure() {
-	# remove internal copy of libspectre
-#	rm -r "${S}"/okular/generators/spectre/libspectre || \
-#		die "Failed to remove internal copy of libspectre."
-
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with chm CHM)
 		$(cmake-utils_use_with djvu DjVuLibre)

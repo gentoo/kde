@@ -38,15 +38,10 @@ KMEXTRACTONLY="	krunner/org.freedesktop.ScreenSaver.xml
 				krunner/org.kde.krunner.Interface.xml
 				krunner/org.kde.krunner.App.xml
 				ksmserver/org.kde.KSMServerInterface.xml"
-#				libs/taskmanager/ it's already in include/lib
-#				libs/plasma/"
 
 KMLOADLIBS="libplasma"
 
 src_configure() {
-	# Remove this if a patch has been applied upstream.
-	#sed -i -e 's/plasmapkg plasma/plasmapkg ${KDE4_KIO_LIBS} plasma/'\
-	#	"${S}"/plasma/tools/plasmapkg/CMakeLists.txt || die "sed failed."
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
