@@ -111,7 +111,11 @@ case "${EAPI}" in
 		IUSE="${IUSE} kdeprefix"
 		;;
 esac
-
+# block test on live ebuilds
+case "${SLOT}" in
+	live)
+		RESTRICT="${RESTRICT} test"
+esac
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
 # Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.

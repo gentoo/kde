@@ -265,54 +265,7 @@ kde4-meta_src_extract() {
 	kde4-base_src_unpack
 
 	if [[ "${KMNAME}" == "koffice" ]]; then
-		case ${PN} in
-			koffice-data|koffice-libs)
-				;;
-			*)
-				### basic array
-				LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
-				### dep array
-				R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
-					\"/usr/$(get_libdir)/qt4/libQtXml.so\"
-					\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
-				R_BAS_kostore="libkostore ${R_QT_kostore}"
-				R_BAS_koodf="libkoodf ${R_BAS_kostore}"
-				R_KROSS_kokross="
-					\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
-					\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
-				R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
-				R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
-				R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
-				R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
-				R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
-				R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
-				R_BAS_flake="libflake ${R_BAS_pigmentcms}"
-				R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
-				R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
-				R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
-				### additional unmentioned stuff
-				R_BAS_kowmf="libkowmf"
-				for libname in ${LIB_ARRAY}; do
-					echo "Fixing library ${libname} with hardcoded path"
-					for libpath in $(eval "echo \$R_BAS_${libname}"); do
-						if [[ "${libpath}" != "\"/usr/"* ]]; then
-							local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
-						else
-							local R="${R} ${libpath}" 
-						fi
-					done
-					find ${S} -name CMakeLists.txt -print| xargs -i \
-						sed -i \
-							-e "s: ${libname} : ${R} :g" \
-							-e "s: ${libname}): ${R}):g" \
-							-e "s:(${libname} :(${R} :g" \
-							-e "s:(${libname}):(${R}):g" \
-							-e "s: ${libname}: ${R}:g" \
-						{} || die "Fixing library names failed."
-				done
-				;;
-			esac
-		fi
+		koffice_fix_libraries
 	esac
 }
 
@@ -332,36 +285,36 @@ kde4-meta_create_extractlists() {
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
 		kdebase)
-		KMEXTRACTONLY="${KMEXTRACTONLY}
-			apps/config-apps.h.cmake
-			apps/ConfigureChecks.cmake"
-		;;
-		kdebase-runtime)
-		KMEXTRACTONLY="${KMEXTRACTONLY}
-			config-runtime.h.cmake"
-		;;
-		kdebase-workspace)
-		KMEXTRACTONLY="${KMEXTRACTONLY}
-			config-unix.h.cmake
-			ConfigureChecks.cmake
-			config-workspace.h.cmake
-			config-X11.h.cmake
-			startkde.cmake"
-		;;
-		kdegames)
-		if [[ ${PN} != "libkdegames" ]]; then
 			KMEXTRACTONLY="${KMEXTRACTONLY}
-				libkdegames"
-		fi
-		;;
+				apps/config-apps.h.cmake
+				apps/ConfigureChecks.cmake"
+			;;
+		kdebase-runtime)
+			KMEXTRACTONLY="${KMEXTRACTONLY}
+				config-runtime.h.cmake"
+			;;
+		kdebase-workspace)
+			KMEXTRACTONLY="${KMEXTRACTONLY}
+				config-unix.h.cmake
+				ConfigureChecks.cmake
+				config-workspace.h.cmake
+				config-X11.h.cmake
+				startkde.cmake"
+			;;
+		kdegames)
+			if [[ ${PN} != "libkdegames" ]]; then
+				KMEXTRACTONLY="${KMEXTRACTONLY}
+					libkdegames"
+			fi
+			;;
 		kdepim)
-		KMEXTRACTONLY="${KMEXTRACTONLY}
-			kleopatra/ConfigureChecks.cmake"
-		if has kontact ${IUSE//+} && use kontact; then
-			KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
-			KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
-		fi
-		;;
+			KMEXTRACTONLY="${KMEXTRACTONLY}
+				kleopatra/ConfigureChecks.cmake"
+			if has kontact ${IUSE//+} && use kontact; then
+				KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
+				KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
+			fi
+			;;
 		koffice)
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-endian.h.cmake
@@ -379,9 +332,10 @@ kde4-meta_create_extractlists() {
 						filters/
 						libs/
 						plugins/"
+					KMEXTRA="${KMEXTRA} filters/${PN}"
 					;;
 			esac
-		;;
+			;;
 	esac
 	# Don't install cmake modules for split ebuilds to avoid collisions.
 	case ${KMNAME} in
@@ -397,14 +351,6 @@ kde4-meta_create_extractlists() {
 					;;
 			esac
 		;;
-		koffice)
-			case ${PN} in
-				koffice-libs|koffice-data|kplato)
-					;;
-				*)
-					KMEXTRA="${KMEXTRA} filters/${PN}"
-			esac
-			;;
 	esac
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
