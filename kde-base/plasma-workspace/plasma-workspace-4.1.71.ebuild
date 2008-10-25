@@ -24,10 +24,10 @@ COMMONDEPEND="!kde-base/plasma:${SLOT}
 	x11-libs/libXrender
 	x11-libs/libXtst
 	google-gadgets? ( >=x11-misc/google-gadgets-0.10.2 )
-	python? ( kde-base/pykde4:${SLOT} )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${COMMONDEPEND}
+	python? ( kde-base/pykde4:${SLOT} )
 	xcomposite? ( x11-proto/compositeproto )
 	xinerama? ( x11-proto/xineramaproto )"
 RDEPEND="${COMMONDEPEND}
