@@ -1,0 +1,20 @@
+# This file contains everything in kdesdk
+
+kde-base/cervisia:kde-svn
+kde-base/kdeaccounts-plugin:kde-svn
+kde-base/kapptemplate:kde-svn
+kde-base/kate:kde-svn
+# kde-base/kbabel:kde-svn
+kde-base/kbugbuster:kde-svn
+kde-base/kcachegrind:kde-svn
+kde-base/kdesdk-kioslaves:kde-svn
+kde-base/kdesdk-misc:kde-svn
+kde-base/kdesdk-scripts:kde-svn
+# kde-base/kmtrace:kde-svn # missing ebuild
+kde-base/kompare:kde-svn
+# kde-base/kspy:kde-svn # missing ebuild
+kde-base/kstartperf:kde-svn
+# kde-base/kdesdk-strigi-analyzer:kde-svn  disabled upstream
+kde-base/kuiviewer:kde-svn
+# kde-base/poxml:kde-svn # missing ebuild
+kde-base/umbrello:kde-svn

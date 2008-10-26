@@ -1,0 +1,11 @@
+# This file contains everything in kdeartwork
+
+kde-base/kdeartwork-colorschemes:kde-svn
+kde-base/kdeartwork-emoticons:kde-svn
+kde-base/kdeartwork-icewm-themes:kde-svn
+kde-base/kdeartwork-iconthemes:kde-svn
+kde-base/kdeartwork-kscreensaver:kde-svn
+kde-base/kdeartwork-kworldclock:kde-svn
+kde-base/kdeartwork-sounds:kde-svn
+kde-base/kdeartwork-styles:kde-svn
+kde-base/kdeartwork-wallpapers:kde-svn

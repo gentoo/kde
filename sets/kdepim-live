@@ -1,0 +1,33 @@
+# This file contains everything in kdepim (not yet complete)
+
+kde-base/akonadi:kde-svn
+kde-base/akregator:kde-svn
+kde-base/kaddressbook:kde-svn
+kde-base/kalarm:kde-svn
+kde-base/kdemaildir:kde-svn
+kde-base/kdepim-kresources:kde-svn
+kde-base/kdepim-strigi-analyzer:kde-svn
+kde-base/kdepim-wizards:kde-svn
+kde-base/kitchensync:kde-svn
+kde-base/kjots:kde-svn
+kde-base/kleopatra:kde-svn
+kde-base/kmail:kde-svn
+kde-base/kmailcvt:kde-svn
+# kde-base/kmobiletools:kde-svn # missing ebuild
+kde-base/knode:kde-svn
+kde-base/knotes:kde-svn
+kde-base/kode:kde-svn
+# kde-base/konsolekalendar:kde-svn # missing ebuild
+kde-base/kontact:kde-svn
+kde-base/kontactinterfaces:kde-svn
+kde-base/kontact-specialdates:kde-svn
+kde-base/korganizer:kde-svn
+# kde-base/korn:kde-svn doesn't build
+# kde-base/kpilot:kde-svn doesn't build
+kde-base/ktimetracker:kde-svn
+kde-base/libkdepim:kde-svn
+kde-base/libkholidays:kde-svn
+kde-base/libkleo:kde-svn
+kde-base/libkpgp:kde-svn
+kde-base/libksieve:kde-svn
+kde-base/mimelib:kde-svn

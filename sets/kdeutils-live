@@ -1,0 +1,15 @@
+# This file contains everything in kdeutils
+
+kde-base/ark:kde-svn
+kde-base/kcalc:kde-svn
+kde-base/kcharselect:kde-svn
+kde-base/kdessh:kde-svn
+kde-base/kdf:kde-svn
+kde-base/kfloppy:kde-svn
+kde-base/kgpg:kde-svn
+kde-base/kdessh:kde-svn
+kde-base/ktimer:kde-svn
+kde-base/kwallet:kde-svn
+kde-base/superkaramba:kde-svn
+kde-base/sweeper:kde-svn
+kde-base/okteta:kde-svn

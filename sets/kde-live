@@ -1,0 +1,17 @@
+@kdeadmin-svn
+@kdeartwork-svn
+@kdebase-svn
+@kdeedu-svn
+@kde-extras-svn
+@kde-deps-svn
+@kdegames-svn
+@kdegraphics-svn
+@kdemultimedia-svn
+@kdenetwork-svn
+@kdepim-svn
+@kdesdk-svn
+@kdetoys-svn
+@kdeutils-svn
+
+#kde-base/kde-l10n:kde-svn # won't build with empty LINGUAS, not needed 
+#by everyone

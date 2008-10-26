@@ -1,0 +1,13 @@
+# This file contains everything in kdegraphics
+
+kde-base/gwenview:kde-svn
+kde-base/kamera:kde-svn
+kde-base/kcolorchooser:kde-svn
+kde-base/kgamma:kde-svn
+kde-base/kolourpaint:kde-svn
+kde-base/kruler:kde-svn
+kde-base/ksnapshot:kde-svn
+kde-base/libksane:kde-svn
+kde-base/okular:kde-svn
+kde-base/svgpart:kde-svn
+kde-base/kdegraphics-strigi-analyzer:kde-svn
