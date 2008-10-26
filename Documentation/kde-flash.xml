@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
-<!-- $Header$ -->
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/desktop/kde/kde-flash.xml,v 1.1 2008/10/26 11:14:57 scarabeus Exp $ -->
 
 <guide link="/~lack/index.xml" lang="en">
 <title>HowTo: Make Adobe's Flash player work with Konqueror</title>
@@ -9,7 +9,7 @@
 	<mail link="lack"/>
 </author>
 <author title="Editor">
-	<mail link="tomas.chvatal@gmail.com">Tomáš Chvátal</mail>
+	<mail link="scarabeus" />
 </author>
 
 <abstract>
@@ -29,32 +29,32 @@ A guide for Gentoo users who want to use Adobe's flash player in Konqueror.
 <body>
 <p>You can use kmplayer's XEmbed to run Adobe's flash player under Konqueror.
 </p>
-<ol>
-	<li>Install <b>media-video/kmplayer</b>, and ensure you have <b>USE="npp"
-	</b> set.  Make sure you have the proper version installed:
-	<table>
-		<tr><th>kde Version</th><th>kmplayer Version</th></tr>
-		<tr><ti>3</ti><ti>>=media-video/kmplayer-0.10.0c</ti></tr>
-		<tr><ti>4</ti><ti>>=media-video/kmplayer-0.11</ti></tr>
-	</table>
-	</li>
-	<li>For amd64 machines, you will also need to install
-	<b>net-www/nspluginwrapper</b>
-	</li>
-	<li>Run the following commands, depending on what arch you are running:
-	<pre caption="x86">$ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key player npp
+<p>
+1. Install <b>media-video/kmplayer</b>, and ensure you have <b>USE="npp"
+</b> set.  Make sure you have the proper version installed:</p>
+<table>
+	<tr><th>kde Version</th><th>kmplayer Version</th></tr>
+	<tr><ti>3</ti><ti>>=media-video/kmplayer-0.10.0c</ti></tr>
+	<tr><ti>4</ti><ti>>=media-video/kmplayer-0.11</ti></tr>
+</table>
+<p>
+2. For amd64 machines, you will also need to install
+<b>net-www/nspluginwrapper</b>
+</p>
+<p>
+3. Run the following commands, depending on what arch you are running:</p>
+<pre caption="x86">$ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key player npp
 $ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key plugin /usr/lib/nsbrowser/plugins/libflashplayer.so</pre>
-	<pre caption="amd64">$ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key player npp
+<pre caption="amd64">$ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key player npp
 $ kwriteconfig --file kmplayerrc --group "application/x-shockwave-flash" --key plugin /usr/lib64/nsbrowser/plugins/npwrapper.libflashplayer.so</pre>
-	</li>
-	<li>Open Konqueror and click <b>Settings > Configure Konqueror</b>. In the
-	new window navigate to <b>File Associations</b> in the left-hand panel and
-	select <b>application/x-shockwave-flash</b>. Click the <b>Embedding</b>
-	tab and click <b>Add..</b>. Select <b>Embedded MPlayer for KDE</b> from the
-	new window. If it is not there then you may need to run <b>kbuildsycoca</b>
-	from a terminal. Close all the opened windows.
-	</li>
-</ol>
+<p>
+4. Open Konqueror and click <b>Settings > Configure Konqueror</b>. In the
+new window navigate to <b>File Associations</b> in the left-hand panel and
+select <b>application/x-shockwave-flash</b>. Click the <b>Embedding</b>
+tab and click <b>Add..</b>. Select <b>Embedded MPlayer for KDE</b> from the
+new window. If it is not there then you may need to run <b>kbuildsycoca</b>
+from a terminal. Close all the opened windows.
+</p>
 </body>
 </section>
 </chapter>
