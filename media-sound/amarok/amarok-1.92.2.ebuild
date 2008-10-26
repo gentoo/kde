@@ -3,6 +3,8 @@
 # $Header: $
 
 EAPI="2"
+
+NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -10,7 +12,7 @@ HOMEPAGE="http://amarok.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4.1"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp njb opengl visualization"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
@@ -19,13 +21,13 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 DEPEND="
 	|| ( dev-db/mysql[embedded,-minimal] dev-db/mysql-community[embedded,-minimal] )
 	>=app-misc/strigi-0.5.7
-	>=kde-base/kdelibs-4.1.2
-	>=kde-base/libplasma-4.1.2
+	kde-base/kdelibs:${SLOT}
+	kde-base/libplasma:${SLOT}
 	>=media-libs/taglib-1.5
 	|| ( media-sound/phonon x11-libs/qt-phonon:4 )
 	x11-libs/qt-webkit:4
-	cdaudio? ( >=kde-base/libkcddb-4.1
-		>=kde-base/libkcompactdisc-4.1 )
+	cdaudio? ( kde-base/libkcddb:${SLOT}
+		kde-base/libkcompactdisc:${SLOT} )
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
 	mp3tunes? ( net-misc/curl

@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+NEED_KDE=":4.1"
 NEED_OPENGL="always"
 inherit kde4-base
 
@@ -25,8 +26,8 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="kde-base/libplasma[opengl]
-	kde-base/plasma-workspace"
+DEPEND="kde-base/libplasma:${SLOT}[opengl]
+	kde-base/plasma-workspace:${SLOT}"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"

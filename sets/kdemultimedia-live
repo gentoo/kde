@@ -1,9 +1,0 @@
-# This file contains everything in kdemultimedia
-
-kde-base/dragonplayer:kde-svn
-kde-base/juk:kde-svn
-kde-base/kdemultimedia-kioslaves:kde-svn
-kde-base/kmix:kde-svn
-kde-base/kscd:kde-svn
-kde-base/libkcddb:kde-svn
-kde-base/libkcompactdisc:kde-svn

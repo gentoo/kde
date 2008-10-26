@@ -41,25 +41,30 @@ if [[ -z ${KMNAME} ]]; then
 fi
 
 case ${KDEBASE} in
-	kde-base)
-		HOMEPAGE="http://www.kde.org/"
-		LICENSE="GPL-2"
-		;;
-	koffice)
-		HOMEPAGE="http://www.koffice.org/"
-		LICENSE="GPL-2"
-		;;
+	kde-base)	HOMEPAGE="http://www.kde.org/"
+				LICENSE="GPL-2" ;;
+	koffice)	HOMEPAGE="http://www.koffice.org/"
+				LICENSE="GPL-2" ;;
 esac
+
+debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - before blockers"
+debug-print "${BASH_SOURCE} ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - before blockers"
+
+# Add a blocker on the package we're derived from
+if [[ -n ${KDEBASE} ]]; then
+	DEPEND="${DEPEND} !$(get-parent-package ${CATEGORY}/${PN}):${SLOT}"
+	RDEPEND="${RDEPEND} !$(get-parent-package ${CATEGORY}/${PN}):${SLOT}"
+fi
+
+debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after blockers"
+debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after blockers"
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-workspace|kdebase-runtime)
-		# required for 4.0.X
-		if [[ ${PV} == "4.0.*" ]]; then
-			DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
-			RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
-		fi
-		;;
+		DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
+		RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
+	;;
 	kdepim)
 		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
 		RDEPEND="${RDEPEND} dev-libs/boost"
@@ -72,37 +77,39 @@ case ${KMNAME} in
 				IUSE="+kontact"
 				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
 				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
-				;;
+			;;
 		esac
-		;;
+	;;
 	kdegames)
 		if [[ ${PN} != "libkdegames" ]]; then
 			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 		fi
-		;;
+	;;
 	koffice)
-		case ${PV} in
-			9999*) DEPEND="${DEPEND} !app-office/${PN}:2" ;;
-			1.9*|2*) DEPEND="${DEPEND} !app-office/${PN}:live" ;;
-		esac
 		DEPEND="${DEPEND}
 			!app-office/${PN}:0
 			!app-office/koffice:0
 			!app-office/koffice-meta:0"
 		case ${PN} in
-			koffice-data) : ;;
-			*)
+			koffice-libs):
 				IUSE="+crypt"
 				DEPEND="${DEPEND} crypt? ( >=app-crypt/qca-2 )"
 				RDEPEND="${RDEPEND} crypt? ( >=app-crypt/qca-2 )"
-				if [[ ${PN} != "koffice-libs" ]]; then
-					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
-					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
-				fi
 				;;
+			koffice-data):
+				;;
+			*)
+			IUSE="+crypt"
+			DEPEND="${DEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+				crypt? ( >=app-crypt/qca-2 )"
+			RDEPEND="${RDEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+				crypt? ( >=app-crypt/qca-2 )"
+			;;
 		esac
-		;;
+	;;
 esac
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
@@ -199,8 +206,8 @@ kde4-meta_src_extract() {
 			kde4-meta_create_extractlists
 
 			case ${KMNAME} in
-				kdebase) kmnamedir="" ;;
-				kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
+         			kdebase) kmnamedir="" ;;
+					kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
 			esac
 
 			rsync_options="--group --links --owner --perms --quiet --exclude=.svn/"
@@ -230,7 +237,7 @@ kde4-meta_src_extract() {
 				sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
 	                        "${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 			fi
-			;;
+		;;
 		*)
 			local abort tarball tarfile f extractlist
 			tarball="${KMNAME}-${PV}.tar.bz2"
@@ -266,13 +273,59 @@ kde4-meta_src_extract() {
 				done
 				[[ -n ${abort} ]] && die "There were missing files."
 			fi
-			;;
-	esac
+
 	kde4-base_src_unpack
-	# fix koffice linking
+
 	if [[ "${KMNAME}" == "koffice" ]]; then
-		koffice_fix_libraries
-	fi
+		case ${PN} in
+			koffice-data|koffice-libs)
+				;;
+			*)
+				### basic array
+				LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
+				### dep array
+				R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
+					\"/usr/$(get_libdir)/qt4/libQtXml.so\"
+					\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
+				R_BAS_kostore="libkostore ${R_QT_kostore}"
+				R_BAS_koodf="libkoodf ${R_BAS_kostore}"
+				R_KROSS_kokross="
+					\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
+					\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
+				R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
+				R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
+				R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
+				R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
+				R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
+				R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
+				R_BAS_flake="libflake ${R_BAS_pigmentcms}"
+				R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
+				R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
+				R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
+				### additional unmentioned stuff
+				R_BAS_kowmf="libkowmf"
+				for libname in ${LIB_ARRAY}; do
+					echo "Fixing library ${libname} with hardcoded path"
+					for libpath in $(eval "echo \$R_BAS_${libname}"); do
+						if [[ "${libpath}" != "\"/usr/"* ]]; then
+							local R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
+						else
+							local R="${R} ${libpath}" 
+						fi
+					done
+					find ${S} -name CMakeLists.txt -print| xargs -i \
+						sed -i \
+							-e "s: ${libname} : ${R} :g" \
+							-e "s: ${libname}): ${R}):g" \
+							-e "s:(${libname} :(${R} :g" \
+							-e "s:(${libname}):(${R}):g" \
+							-e "s: ${libname}: ${R}:g" \
+						{} || die "Fixing library names failed."
+				done
+				;;
+			esac
+		fi
+	esac
 }
 
 # Create lists of files and subdirectories to extract.
@@ -291,36 +344,36 @@ kde4-meta_create_extractlists() {
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
 		kdebase)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
-				apps/config-apps.h.cmake
-				apps/ConfigureChecks.cmake"
-			;;
+		KMEXTRACTONLY="${KMEXTRACTONLY}
+			apps/config-apps.h.cmake
+			apps/ConfigureChecks.cmake"
+		;;
 		kdebase-runtime)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
-				config-runtime.h.cmake"
-			;;
+		KMEXTRACTONLY="${KMEXTRACTONLY}
+			config-runtime.h.cmake"
+		;;
 		kdebase-workspace)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
-				config-unix.h.cmake
-				ConfigureChecks.cmake
-				config-workspace.h.cmake
-				config-X11.h.cmake
-				startkde.cmake"
-			;;
+		KMEXTRACTONLY="${KMEXTRACTONLY}
+			config-unix.h.cmake
+			ConfigureChecks.cmake
+			config-workspace.h.cmake
+			config-X11.h.cmake
+			startkde.cmake"
+		;;
 		kdegames)
-			if [[ ${PN} != "libkdegames" ]]; then
-				KMEXTRACTONLY="${KMEXTRACTONLY}
-					libkdegames"
-			fi
-			;;
-		kdepim)
+		if [[ ${PN} != "libkdegames" ]]; then
 			KMEXTRACTONLY="${KMEXTRACTONLY}
-				kleopatra/ConfigureChecks.cmake"
-			if has kontact ${IUSE//+} && use kontact; then
-				KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
-				KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
-			fi
-			;;
+				libkdegames"
+		fi
+		;;
+		kdepim)
+		KMEXTRACTONLY="${KMEXTRACTONLY}
+			kleopatra/ConfigureChecks.cmake"
+		if has kontact ${IUSE//+} && use kontact; then
+			KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
+			KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
+		fi
+		;;
 		koffice)
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-endian.h.cmake
@@ -338,10 +391,9 @@ kde4-meta_create_extractlists() {
 						filters/
 						libs/
 						plugins/"
-					KMEXTRA="${KMEXTRA} filters/${PN}"
 					;;
 			esac
-			;;
+		;;
 	esac
 	# Don't install cmake modules for split ebuilds to avoid collisions.
 	case ${KMNAME} in
@@ -357,6 +409,14 @@ kde4-meta_create_extractlists() {
 					;;
 			esac
 		;;
+		koffice)
+			case ${PN} in
+				koffice-libs|koffice-data|kplato)
+					;;
+				*)
+					KMEXTRA="${KMEXTRA} filters/${PN}"
+			esac
+			;;
 	esac
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
@@ -589,6 +649,13 @@ kde4-meta_change_cmakelists() {
 			sed -i -e '/find_package(Blitz REQUIRED)/d' "${S}"/CMakeLists.txt \
 				|| die "${LINENO}: sed to remove dependency on Blitz failed."
 		fi
+		;;
+		koffice)
+		#if [[ ${PN} != koffice-libs ]]; then
+		#	sed -i -e '/^INSTALL(FILES.*koffice.desktop/ s/^/#DONOTINSTALL /' \
+		#		doc/CMakeLists.txt || \
+		#		die "${LINENO}: sed died in the koffice.desktop collision prevention section"
+		#fi
 		;;
 	esac
 

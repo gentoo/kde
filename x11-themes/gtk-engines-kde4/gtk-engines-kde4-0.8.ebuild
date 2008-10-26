@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="2"
+NEED_KDE=4.1
 inherit kde4-base
 
 DESCRIPTION="GTK+2 Qt4 Theme Engine"

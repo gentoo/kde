@@ -1,0 +1,25 @@
+TODO list:
+
+eclasses review:
+ - use EAPI-2
+ - drop mono / split code
+ - make htmlhandbook a global IUSE on by default
+ - add code for multi-slot (off by default)
+ - make prefix=/usr for non multi-slot if SLOT!=svn
+ - move svn slot to live
+ - move 4.1 slot to 4 ? (I don't like this one - what
+ 	about having slots blocking each other with the
+ 	exception of live?)
+ - add a symlink function to avoid building libs twice
+ - KMLOADLIBS/KMSAVELIBS review
+ - kbuildsycoca review
+
+kdebase-startkde:
+ - fix the multi kde versions mess
+ - fix KDEDIRS
+
+ebuilds:
+ - complete bump
+ - check missing ebuilds
+ - add unstable / missing ebuilds? (kpackage)
+ - add testing snapshots? (amarok/k3b)

@@ -4,6 +4,8 @@
 
 EAPI="2"
 
+NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet that controls amaroK 2 and Juk using D-Bus"
@@ -11,7 +13,7 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/plasma-am4rok?content=77297"
 SRC_URI="http://am4rok.googlecode.com/files/${PN}_${PV}.tar.bz2"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

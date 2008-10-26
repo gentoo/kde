@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+NEED_KDE=":4.1"
 inherit kde4-base
 
 DESCRIPTION="Plasmoid that shows a 'todo' list, using the korganizer 'Active calendar' resource file."
@@ -11,7 +12,7 @@ HOMEPAGE="http://kde-look.org/content/show.php/todo+list?content=90706"
 SRC_URI="http://kde-look.org/CONTENT/content-files/90706-${P}.tar.bz"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

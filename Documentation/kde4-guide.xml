@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/desktop/kde/kde4-guide.xml,v 1.9 2008/10/26 11:14:57 scarabeus Exp $ -->
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/desktop/kde/kde4-guide.xml,v 1.8 2008/10/11 10:11:43 jmbsvicetto Exp $ -->
 
 <guide link="/proj/en/desktop/kde/kde4-guide.xml" lang="en">
 <title>Gentoo KDE 4.1 Guide</title>
 
 <author title="Author">
-  <mail link="scarabeus" />
+  <mail link="tomas.chvatal@gmail.com">Tomáš Chvátal</mail>
 </author>
 <author title="Author">
   <mail link="jmbsvicetto"/>
@@ -294,22 +294,18 @@ meta ebuilds for KDE 4.2.
 </section>
 <section>
 <title>Localization/Internationalization</title>
-<body>
-
 <p>
 With new KDE there is new translators effort in Localization instead of
 Internationalization. This cause some confusion but dont worry your translation
 is shiped to you, just name has been changed so now for getting translations use
 theese comands.
-</p>
 <pre caption="emerge translations for kde4 packages">
 # <i>emerge kde-l10n</i>
 </pre>
 <pre caption="emerge translations for kde3 packages">
 # <i>emerge kde-i18n</i>
 </pre>
-
-</body>
+</p>
 </section>
 </chapter>
 <chapter>
@@ -443,14 +439,12 @@ $ <i>sed -i -e "s:Icon=desktop:Icon=folder:g" ~/Desktop/.directory</i>
 <section>
 <title>Missing icons in KDE4</title>
 <body>
-		
 <p>
 When you occur with this bug try first this command before opening bug.
-</p>
 <pre caption="emerge command">
 # <i>emerge -1 kdebase-data &amp;&amp; emerge -1 hicolor-icon-theme kdebase-data</i>
 </pre>
-
+</p>
 </body>
 </section>
 </chapter>
@@ -467,7 +461,7 @@ on which we get our nasty hands and find it workable enought. If you find out
 that your favorite one is missing create bug and somebody might create it for
 you.
 If you are plasma person "want them all can't live without them" we have set
-@plasmoids which contains all plasmoids currently availible.
+@plasmoids which contains all plasmoids which are currently availible.
 </p>
 
 </body>
@@ -524,18 +518,6 @@ about this in <uri link="https://bugs.gentoo.org/show_bug.cgi?id=240370">bug
 </body>
 </section>
 
-<section>
-<title>Flash in konqueror</title>
-<body>
-
-<p>
-If you are interested in getting flash working in konqueror point your mind
-to <uri link="kde-flash.xml" >guide</uri> which describes necessary steps for
-getting it done.
-</p>
-
-</body>
-</section>
 </chapter>
 <chapter>
 <title>Uninstalling KDE 4.x</title>

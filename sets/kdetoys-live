@@ -1,7 +1,0 @@
-# This file contains everything in kdetoys
-
-kde-base/amor:kde-svn
-kde-base/kteatime:kde-svn
-kde-base/ktux:kde-svn
-kde-base/kweather:kde-svn
-# kde-base/kworldclock:kde-svn # missing ebuild

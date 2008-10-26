@@ -4,6 +4,8 @@
 
 EAPI="2"
 
+NEED_KDE=":4.1"
+
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet. It's calculator, consisting of one lineedit widget"
@@ -11,7 +13,7 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/One-Line+Calculator?content=8
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/89524-${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
