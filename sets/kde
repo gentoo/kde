@@ -1,14 +1,16 @@
-# We don't include kdesdk on the global set
-kde-base/kate
+# What didn't fit anywhere so far
+kde-base/kate:4.1
+kde-base/kde-l10n:4.1
+kde-base/kdeplasma-addons:4.1
 
-@kdeadmin
-@kdeartwork
-@kdebase
-@kdeedu
-@kdegames
-@kdegraphics
-@kdemultimedia
-@kdenetwork
-@kdepim
-@kdetoys
-@kdeutils
+@kdeadmin-4.1
+@kdeartwork-4.1
+@kdebase-4.1
+@kdeedu-4.1
+@kdegames-4.1
+@kdegraphics-4.1
+@kdemultimedia-4.1
+@kdenetwork-4.1
+@kdepim-4.1
+@kdetoys-4.1
+@kdeutils-4.1
