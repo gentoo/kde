@@ -1,0 +1,10 @@
+# ChangeLog for kde-plasmoids/plasma-weatherforecast
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*plasma-weatherforecast-0.2 (03 Nov 2008)
+
+  03 Nov 2008; <alexxy@gentoo.org> +metadata.xml,
+  +plasma-weatherforecast-0.2.ebuild:
+  Version bump
+
