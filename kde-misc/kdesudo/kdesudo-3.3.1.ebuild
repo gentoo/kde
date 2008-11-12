@@ -14,11 +14,19 @@ SRC_URI="http://launchpad.net/kdesudo/3.x/${PV}/+download/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="htmlhandbook"
 
 DEPEND="app-admin/sudo
 	kde-base/kdebase-data:${SLOT}"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	if ! use doc; then
+		sed -i \
+			-e "s:ADD_SUBDIRECTORY(doc):#nada:g" \
+			CMakeLists.txt
+	fi
+}
 
 pkg_postinst() {
 	elog "If you want to replace kdesu with kdesudo ensure yourself,"
