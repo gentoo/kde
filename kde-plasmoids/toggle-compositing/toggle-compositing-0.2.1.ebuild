@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE=":4.1"
+NEED_KDE="4.1"
 inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet to switch with ease, beetween KWin's compositing and traditional mode"
