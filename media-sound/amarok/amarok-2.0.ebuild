@@ -48,23 +48,6 @@ RDEPEND="${DEPEND}
 	app-arch/unzip
 	daap? ( www-servers/mongrel )"
 
-pkg_setup() {
-	if use amd64 ; then
-		ewarn
-		ewarn "Compilation will fail if dev-db/mysql[-community] is built without -fPIC in your CFLAGS!"
-		ewarn "Related bug: http://bugs.gentoo.org/show_bug.cgi?id=238487"
-		ewarn
-		ewarn "To fix this, and to avoid using -fPIC globally in your make.conf (which is not recommended),"
-		ewarn "put the following into /etc/portage/env/dev-db/mysql (or mysql-community, depending on which you use;"
-		ewarn "create dirs and the file if they don't exist):"
-		ewarn
-		ewarn "CFLAGS=\"${CFLAGS} -DPIC -fPIC\""
-		ewarn "CXXFLAGS=\"${CXXFLAGS} -DPIC -fPIC\""
-		ewarn
-	fi
-	kde4-base_pkg_setup
-}
-
 src_configure() {
 	if use debug; then
 		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=debugfull"
