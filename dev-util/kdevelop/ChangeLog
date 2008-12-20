@@ -1,0 +1,26 @@
+# ChangeLog for dev-util/kdevelop
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdevelop-3.9.84 (17 Dec 2008)
+
+  17 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kdevelop-3.9.84.ebuild:
+  Version bump
+
+  13 Nov 2008; steffen stramm <krytzz@soylent.eu> kdevelop-9999.ebuild:
+  some fixes
+
+  12 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> kdevelop-9999.ebuild:
+  fix collisions with kile
+
+  29 Oct 2008; Manuel Nickschas <sputnick@quassel-irc.org>
+  dev-util/kdevelop/kdevelop-9999.ebuild:
+  Fixes
+
+  29 Oct 2008; Manuel Nickschas <sputnick@quassel-irc.org>
+  +dev-util/kdevelop/metadata.xml:
+  Migrating kdevelop-9999 from kdesvn-portage
+
+  31 May 2008; Patrick Lauer ( bugs at dev.gentooexperimental.org )
+  ChangeLog:
+  Recovering Changelogs
