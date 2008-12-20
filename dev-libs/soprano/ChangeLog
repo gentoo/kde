@@ -1,0 +1,24 @@
+# ChangeLog for dev-libs/soprano
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Nov 2008; steffen stramm <krytzz@soylent.eu> soprano-9999.ebuild:
+  java eclass inheritance without fail
+
+  23 Nov 2008; steffen stramm <krytzz@soylent.eu> soprano-9999.ebuild:
+  only inherit java when needed
+
+*soprano-2.1.64 (20 Nov 2008)
+
+  20 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +soprano-2.1.64.ebuild:
+  Version bump
+
+  24 Oct 2008; steffen stramm <krytzz@soylent.eu> soprano-9999.ebuild:
+  4.2 live merge
+
+*soprano-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +soprano-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

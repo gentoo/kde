@@ -1,0 +1,13 @@
+# ChangeLog for net-p2p/ktorrent
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ktorrent-3.2_beta1 (14 Dec 2008)
+
+  14 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> -ktorrent-3.1.5.ebuild,
+  +ktorrent-3.2_beta1.ebuild:
+  Version bump
+
+  30 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  initial import of ktorrent
+

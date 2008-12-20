@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+	<flag name="clucene">Enable <pkg>dev-cpp/clucene</pkg> backend support.</flag>
+	<flag name="redland">Enables support for the <pkg>dev-libs/redland</pkg> backend.</flag>
+	<flag name="sesame2">Enables support for the <pkg>virtual/jre-1.6.0</pkg> (sesame2) backend.</flag>
+</use>
+<herd>kde</herd>
+</pkgmetadata>

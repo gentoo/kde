@@ -1,0 +1,28 @@
+# ChangeLog for media-video/kdenlive
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdenlive-0.7.ebuild:
+  Added src_prepare
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdenlive-0.7.ebuild:
+  Removed kdebase-data from deps (now in eclass)
+
+  03 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdenlive-0.7-avcodeclink.patch:
+  Added missing patch
+
+  16 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdenlive-0.7_beta1.ebuild:
+  Added kdebase-data and removed unused gtk from IUSE.
+
+  15 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  kdenlive-0.7_beta1.ebuild:
+  Update deps so we list only those stated by cmakelists.
+
+  13 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +media-video/kdenlive/metadata.xml:
+  Add kdenlive-0.7_beta1
+
