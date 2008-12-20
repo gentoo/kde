@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
 KDE_LINGUAS="be br ca cs cy da de el en_GB es et eu fi fr ga gl he hu it ja nb
 nds nl oc pa pl pt pt_BR ru sr sv tr zh_CN"
 inherit kde4-base
@@ -26,6 +25,8 @@ src_prepare() {
 		-e "s:set(CMAKE_VERBOSE_MAKEFILE ON):#nada:g" \
 		-e "s:add_subdirectory(doc):#nada:g" \
 		"${S}"/CMakeLists.txt
+
+	kde4-base_src_prepare
 }
 
 src_configure() {
