@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI="2"
-NEED_KDE=4.1
 inherit kde4-base
 
 DESCRIPTION="GTK+2 Qt4 Theme Engine"
@@ -22,8 +21,10 @@ SLOT="0"
 
 S=${WORKDIR}/${MY_PN}
 
+CMAKE_IN_SOURCE_BUILD="1"
+
 src_configure() {
-	cmake . || die "cmake failed"
+	cmake-utils_src_configure
 }
 pkg_postinst() {
 	elog "If you want additional themes just download"
