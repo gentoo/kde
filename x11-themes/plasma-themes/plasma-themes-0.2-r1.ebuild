@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
 NEED_OPENGL="always"
+KDE_MINIMAL="4.1"
 inherit kde4-base
 
 DESCRIPTION="Set of plasma themes packed for ease install"
@@ -26,8 +26,7 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="kde-base/libplasma:${SLOT}[opengl]
-	kde-base/plasma-workspace:${SLOT}"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
