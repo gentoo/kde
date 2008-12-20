@@ -12,5 +12,5 @@ DESCRIPTION="kdesdk: strigi plugins"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=app-misc/strigi-0.5.9"
+DEPEND=">=app-misc/strigi-0.5.11"
 RDEPEND="${DEPEND}"

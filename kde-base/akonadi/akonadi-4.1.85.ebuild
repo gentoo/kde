@@ -17,7 +17,7 @@ IUSE="debug +semantic-desktop"
 #exchange? ( net-libs/libmapi )
 # not sure about libxml2... - reavertm
 DEPEND="
-	>=app-misc/strigi-0.6[dbus,qt4]
+	>=app-misc/strigi-0.5.11[dbus,qt4]
 	dev-libs/boost
 	dev-libs/libxml2
 	dev-libs/libxslt
