@@ -1,0 +1,46 @@
+# ChangeLog for app-office/akonadi-server
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*akonadi-server-1.0.81 (20 Dec 2008)
+
+  20 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> +metadata.xml,
+  +akonadi-server-1.0.81.ebuild:
+  akonadi-server is ready, taken from kde-crazy
+
+  28 Nov 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  akonadi-server-1.0.80.ebuild, akonadi-server-9999.ebuild:
+  Fixed mysql deps for akonadi-server
+
+  27 Nov 2008; steffen stramm <krytzz@soylent.eu>
+  akonadi-server-9999.ebuild:
+  depend on qt-sql with mysql useflag rather than on mysql
+
+*akonadi-server-1.0.80 (20 Nov 2008)
+
+  20 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +akonadi-server-1.0.80.ebuild, -akonadi-server-1.1.9999.ebuild:
+  Version bump
+
+*akonadi-server-1.1.9999 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -akonadi-server-1.0.9999.ebuild, +akonadi-server-1.1.9999.ebuild:
+  Version bump
+
+  24 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  akonadi-server-9999.ebuild:
+  4.2 live merge
+
+*akonadi-server-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +akonadi-server-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+
+*akonadi-server-1.0.9999 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
+  +akonadi-server-1.0.9999.ebuild:
+  bump
+
