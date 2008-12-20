@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-NEED_KDE="4.1"
 inherit kde4-base
 
 DESCRIPTION="KdeSudo is a graphical frontend for sudo."
@@ -16,8 +15,8 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="htmlhandbook"
 
-DEPEND="app-admin/sudo
-	kde-base/kdebase-data:${SLOT}"
+DEPEND="app-admin/sudo"
+
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -26,9 +25,13 @@ src_prepare() {
 			-e "s:ADD_SUBDIRECTORY(doc):#nada:g" \
 			CMakeLists.txt
 	fi
+
+	kde4-base_src_prepare
 }
 
 pkg_postinst() {
+	kde4-base_pkg_postinst
+
 	elog "If you want to replace kdesu with kdesudo ensure yourself,"
 	elog "that your PATH variable has /usr/local defined before /usr and"
 	elog "run command \"ln -s /usr/bin/kdesudo /usr/local/bin/kdesu\" as root"
