@@ -1,0 +1,11 @@
+--- libkpgp/kpgp.cpp	2008-11-06 19:58:23.000000000 +0100
++++ libkpgp/kpgp.cpp	2008-11-06 19:58:28.000000000 +0100
+@@ -20,8 +20,6 @@
+ #include "kpgpbase.h"
+ #include "kpgpui.h"
+ 
+-#include <kdepim-compat.h> // for KPATH_SEPARATOR, remove in KDEPIM 4.2
+-
+ #include <kdebug.h>
+ #include <klocale.h>
+ #include <kmessagebox.h>

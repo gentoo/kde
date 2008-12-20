@@ -1,0 +1,27 @@
+# ChangeLog for kde-base/kbruch
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kbruch-4.1.82.ebuild:
+  Version removed.
+
+*kbruch-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kbruch-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kbruch-4.1.80.ebuild:
+  Version removed.
+
+*kbruch-9999 (09 Dec 2008)
+*kbruch-4.1.82 (09 Dec 2008)
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kbruch-4.1.80.ebuild, +kbruch-4.1.82.ebuild, +kbruch-9999.ebuild:
+  Small QA + 4.1.82 revbump
+
+  09 Dec 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kde-base/kbruch/metadata.xml:
+  Added kbruch back as it was missing.
+

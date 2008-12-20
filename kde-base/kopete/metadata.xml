@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+	<flag name="addbookmarks">Enable the addbookmarks plugin</flag>
+	<flag name="alias">Enable the alias plugin</flag>
+	<flag name="autoreplace">Enable the autoreplace plugin</flag>
+	<flag name="connectionstatus">Builds Connection Status plugin</flag>
+	<flag name="contactnotes">Enable the contactnotes plugin</flag>
+	<flag name="decibel">Enable the Telepathy protocol plugin</flag>
+	<flag name="gadu">Enable the gadu protocol plugin</flag>
+	<flag name="groupwise">Enable the groupwise protocol plugin</flag>
+	<flag name="highlight">Enable the highlight plugin</flag>
+	<flag name="history">Enable the history plugin</flag>
+	<flag name="irc">Builds IRC protocol handler</flag>
+	<flag name="jabber">Enable the Jabber protocol plugin</flag>
+	<flag name="nowlistening">Enable the nowlistening plugin</flag>
+	<flag name="messenger">Enable the Windows LIVE!-Messenger protocol plugin</flag>
+	<flag name="netmeeting">Builds netmeeting plugin (require gnomemeeting)</flag>
+	<flag name="otr">Encryption for IMs, using libotr</flag>
+	<flag name="pipes">Enable support for the pipes plugin</flag>
+	<flag name="privacy">plugin to selectively filter messages</flag>
+	<flag name="qca">Enable the Qt Cryptographic Architecture</flag>
+	<flag name="qq">enable support for the chinese network protocol</flag>
+	<flag name="sametime">Enables support for the Sametime protocol for instant messaging</flag>
+	<flag name="sms">Enable the sms protocol plugin</flag>
+	<flag name="statistics">Enable the statistics plugin</flag>
+	<flag name="telepathy">Enable support for the realtime communication framework telepathy</flag>
+	<flag name="testbed">Enable the testbed protocol plugin</flag>
+	<flag name="texteffect">Enable the texteffect plugin</flag>
+	<flag name="translator">Enable the translator plugin</flag>
+	<flag name="urlpicpreview">plugin to allow users to send photos through URLs</flag>
+	<flag name="xslt">Enable xslt support</flag>
+	<flag name="webpresence">Enable the webpresence plugin</flag>
+	<flag name="winpopup">Enable support for the winpopup plugin</flag>
+</use>
+<herd>kde</herd>
+</pkgmetadata>

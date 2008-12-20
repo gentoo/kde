@@ -1,0 +1,18 @@
+# ChangeLog for kde-base/kitchensync
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  06 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kitchensync-9999.ebuild:
+  Upstream removed it from 4.2
+
+  28 Oct 2008; steffen stramm <krytzz@soylent.eu> +metadata.xml,
+  +kitchensync-9999.ebuild:
+  4.2 live merge
+
+*kitchensync-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kitchensync-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

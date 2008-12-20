@@ -1,0 +1,43 @@
+Index: kscreensaver/CMakeLists.txt
+===================================================================
+--- kscreensaver/CMakeLists.txt	(revision 887984)
++++ kscreensaver/CMakeLists.txt	(working copy)
+@@ -1,5 +1,4 @@
+-
+-OPTION(WITH_xscreensaver   "Enable support for xscreensaver" ON)
++OPTION(WITH_Xscreensaver   "Enable support for xscreensaver" ON)
+ FIND_PATH( KSCREENSAVER_INCLUDE_DIR kscreensaver.h
+   ${KDE4_INCLUDE_DIR}
+ )
+@@ -10,12 +9,12 @@
+ 	add_subdirectory( kdesavers ) 
+ 	add_subdirectory( kpartsaver ) 
+ 
+-	if(WITH_xscreensaver)
+-	       	if(XSCREENSAVER_FOUND)
+-		   add_subdirectory(kxsconfig)
+-		   add_subdirectory(xsavers)
+-	        endif(XSCREENSAVER_FOUND)
+-	endif(WITH_xscreensaver)
++	if(WITH_Xscreensaver)
++		if(XSCREENSAVER_FOUND)
++			add_subdirectory(kxsconfig)
++			add_subdirectory(xsavers)
++		endif(XSCREENSAVER_FOUND)
++	endif(WITH_Xscreensaver)
+ 
+ else(KSCREENSAVER_INCLUDE_DIR)
+ 	MESSAGE(STATUS "kscreensaver can't be compile. Please install kdebase before to compile it (need kscreensaver.h)")
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 887984)
++++ CMakeLists.txt	(working copy)
+@@ -8,7 +8,7 @@
+ include (MacroLibrary)
+ include(MacroOptionalAddSubdirectory)
+ 
+-macro_optional_find_package(Xscreensaver)
++find_package(Xscreensaver)
+ macro_log_feature(XSCREENSAVER_FOUND "Xscreensaver" "A modular screen saver and locker for the X Window System" "ttp://www.jwz.org/xscreensaver" FALSE "" "Provides screen savers for the desktop.")
+ 
+ add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )

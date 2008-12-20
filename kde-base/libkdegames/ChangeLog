@@ -1,0 +1,118 @@
+# ChangeLog for kde-base/libkdegames
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -libkdegames-4.1.82.ebuild:
+  Version removed.
+
+*libkdegames-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libkdegames-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -libkdegames-4.1.80.ebuild:
+  Version removed.
+
+*libkdegames-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +libkdegames-4.1.82.ebuild:
+  Version bump.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -libkdegames-4.1.73.ebuild:
+  Version removed.
+
+*libkdegames-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libkdegames-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -libkdegames-4.1.72.ebuild:
+  Version removed.
+
+*libkdegames-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libkdegames-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -libkdegames-4.1.71.ebuild,
+  +libkdegames-4.1.72.ebuild:
+  Version removed.
+
+*libkdegames-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +libkdegames-4.1.72.ebuild:
+  Version bump.
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  -libkdegames-4.1.70.ebuild, +libkdegames-4.1.71.ebuild:
+  Version removed.
+
+*libkdegames-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  +libkdegames-4.1.71.ebuild:
+  Version bump.
+
+*libkdegames-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -libkdegames-4.1.69.ebuild, +libkdegames-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -libkdegames-4.1.68.ebuild,
+  +libkdegames-4.1.69.ebuild:
+  Version removed.
+
+*libkdegames-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +libkdegames-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -libkdegames-4.1.1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -libkdegames-4.1.67.ebuild:
+  Version removed.
+
+*libkdegames-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +libkdegames-4.1.68.ebuild:
+  Version bump.
+
+*libkdegames-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +libkdegames-4.1.67.ebuild:
+  Version bump.
+
+*libkdegames-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +libkdegames-4.1.1.ebuild:
+  Version bump.
+
+  25 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkdegames-4.1.0.ebuild:
+  Added call to KMSAVELIBS.
+
+  20 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  libkdegames-4.1.0.ebuild:
+  Restricted tests on libkdegames.
+
+  17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  libkdegames-4.1.0.ebuild:
+  Adding ~x86, thanks to pilla for testing.
+
+*libkdegames-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Tobias Heinlein <keytoaster@gentoo.org> +metadata.xml,
+  +libkdegames-4.1.0.ebuild:
+  Added libkdegames-4.1.0.
+

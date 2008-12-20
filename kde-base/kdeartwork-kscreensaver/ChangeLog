@@ -1,0 +1,132 @@
+# ChangeLog for kde-base/kdeartwork-kscreensaver
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdeartwork-kscreensaver-4.1.82.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeartwork-kscreensaver-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdeartwork-kscreensaver-4.1.80.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdeartwork-kscreensaver-4.1.82.ebuild:
+  Version bump.
+
+  04 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -files/kdeartwork-kscreensaver-9999-cmake.patch,
+  kdeartwork-kscreensaver-9999.ebuild:
+  Patch applied upstream - removing
+
+  02 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdeartwork-kscreensaver-4.1.80-cmake.patch,
+  +files/kdeartwork-kscreensaver-9999-cmake.patch,
+  -files/kdeartwork-kscreensaver-cmake.patch,
+  kdeartwork-kscreensaver-4.1.80.ebuild,
+  kdeartwork-kscreensaver-9999.ebuild:
+  Cmake xcreensaver patch updated
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdeartwork-kscreensaver-4.1.73.ebuild:
+  Version removed.
+
+  23 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com>
+  +files/kdeartwork-kscreensaver-cmake.patch,
+  kdeartwork-kscreensaver-4.1.73.ebuild,
+  kdeartwork-kscreensaver-9999.ebuild:
+  apply cmake patch thanks reavertm and ABCD
+
+*kdeartwork-kscreensaver-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeartwork-kscreensaver-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdeartwork-kscreensaver-4.1.72.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeartwork-kscreensaver-4.1.73.ebuild:
+  Version bump.
+
+  08 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  kdeartwork-kscreensaver-4.1.72.ebuild,
+  kdeartwork-kscreensaver-9999.ebuild:
+  Install into kdeprefix rather than /
+
+  05 Nov 2008; <alexxy@gentoo.org> -kdeartwork-kscreensaver-4.1.71.ebuild,
+  +kdeartwork-kscreensaver-4.1.72.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +kdeartwork-kscreensaver-4.1.72.ebuild:
+  Version bump.
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  -kdeartwork-kscreensaver-4.1.70.ebuild,
+  +kdeartwork-kscreensaver-4.1.71.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  +kdeartwork-kscreensaver-4.1.71.ebuild:
+  Version bump.
+
+*kdeartwork-kscreensaver-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdeartwork-kscreensaver-4.1.69.ebuild,
+  +kdeartwork-kscreensaver-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -kdeartwork-kscreensaver-4.1.68.ebuild,
+  +kdeartwork-kscreensaver-4.1.69.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +kdeartwork-kscreensaver-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -kdeartwork-kscreensaver-4.1.1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -kdeartwork-kscreensaver-4.1.67.ebuild:
+  Version removed.
+
+*kdeartwork-kscreensaver-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +kdeartwork-kscreensaver-4.1.68.ebuild:
+  Version bump.
+
+*kdeartwork-kscreensaver-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdeartwork-kscreensaver-4.1.67.ebuild:
+  Version bump.
+
+*kdeartwork-kscreensaver-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +kdeartwork-kscreensaver-4.1.1.ebuild:
+  Version bump.
+
+*kdeartwork-kscreensaver-4.1.0 (17 Aug 2008)
+
+  17 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeartwork-kscreensaver-4.1.0.ebuild:
+  Added kdeartwork-kscreensaver-4.1.0.
+

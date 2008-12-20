@@ -1,0 +1,35 @@
+# ChangeLog for kde-base/kscd
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kscd-4.1.82.ebuild:
+  Version removed.
+
+*kscd-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kscd-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kscd-4.1.80.ebuild:
+  Version removed.
+
+*kscd-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kscd-4.1.82.ebuild:
+  Version bump.
+
+  04 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  kscd-9999.ebuild:
+  Fix deps
+
+  28 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  4.2 live merge
+
+*kscd-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kscd-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

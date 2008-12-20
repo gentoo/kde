@@ -1,0 +1,59 @@
+# ChangeLog for kde-base/kdedglobalaccel
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdedglobalaccel-4.1.82.ebuild:
+  Version removed.
+
+*kdedglobalaccel-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdedglobalaccel-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdedglobalaccel-4.1.80.ebuild:
+  Version removed.
+
+*kdedglobalaccel-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdedglobalaccel-4.1.82.ebuild:
+  Version bump.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdedglobalaccel-4.1.73.ebuild:
+  Version removed.
+
+*kdedglobalaccel-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdedglobalaccel-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdedglobalaccel-4.1.72.ebuild:
+  Version removed.
+
+*kdedglobalaccel-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdedglobalaccel-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -kdedglobalaccel-4.1.71.ebuild,
+  +kdedglobalaccel-4.1.72.ebuild:
+  Version removed.
+
+*kdedglobalaccel-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +kdedglobalaccel-4.1.72.ebuild:
+  Version bump.
+
+*kdedglobalaccel-4.1.71 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml,
+  +kdedglobalaccel-4.1.71.ebuild:
+  bump
+

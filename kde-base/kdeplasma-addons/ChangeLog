@@ -1,0 +1,95 @@
+# ChangeLog for kde-base/kdeplasma-addons
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdeplasma-addons-4.1.82.ebuild:
+  Version removed.
+
+*kdeplasma-addons-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeplasma-addons-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdeplasma-addons-4.1.80.ebuild:
+  Version removed.
+
+*kdeplasma-addons-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdeplasma-addons-4.1.82.ebuild:
+  Version bump.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdeplasma-addons-4.1.73.ebuild:
+  Version removed.
+
+*kdeplasma-addons-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeplasma-addons-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdeplasma-addons-4.1.72.ebuild:
+  Version removed.
+
+*kdeplasma-addons-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdeplasma-addons-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -kdeplasma-addons-4.1.71.ebuild,
+  +kdeplasma-addons-4.1.72.ebuild:
+  Version removed.
+
+*kdeplasma-addons-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +kdeplasma-addons-4.1.72.ebuild:
+  Version bump.
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  -kdeplasma-addons-4.1.70.ebuild:
+  Version removed.
+
+  10 Oct 2008; <alexxy@gentoo.org> -kdeplasma-addons-4.1.68.ebuild:
+  Version removed.
+
+  02 Oct 2008; <alexxy@gentoo.org> -kdeplasma-addons-4.1.1.ebuild:
+  Version removed.
+
+  27 Sep 2008; <alexxy@gentoo.org> kdeplasma-addons-4.1.1.ebuild:
+  Make ebuilds work with eapi2
+
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.1.ebuild:
+  Fixed the bad cmake option for good.
+
+  25 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.1.ebuild:
+  Added a missing - to a cmake option.
+
+*kdeplasma-addons-4.1.1 (03 Sep 2008)
+
+  03 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +kdeplasma-addons-4.1.1.ebuild:
+  Version bump.
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.0.ebuild:
+  Added ~x86 keywords as scarabeus is using it.
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdeplasma-addons-4.1.0.ebuild:
+  Removed an extra D - it's DBUS_INTERFACES_INSTALL_DIR.
+
+*kdeplasma-addons-4.1.0 (28 Aug 2008)
+
+  28 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdeplasma-addons-4.1.0.ebuild:
+  Added kdeplasma-addons-4.1.0. Thanks to Tomas Chvatal (scarabeus)
+  <tomas.chvatal@gmail.com> for providing the ebuild.
+

@@ -1,0 +1,27 @@
+# ChangeLog for kde-base/kapman
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kapman-4.1.82.ebuild:
+  Version removed.
+
+*kapman-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kapman-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kapman-4.1.80.ebuild:
+  Version removed.
+
+*kapman-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kapman-4.1.82.ebuild:
+  Version bump.
+
+*kapman-9999 (10 Nov 2008)
+
+  10 Nov 2008; steffen stramm <krytzz@soylent.eu> +kapman-9999.ebuild:
+  added kapman, thanks St_MPA3b
+

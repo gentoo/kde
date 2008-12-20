@@ -1,0 +1,33 @@
+# ChangeLog for kde-base/ksaneplugin
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -ksaneplugin-4.1.82.ebuild:
+  Version removed.
+
+*ksaneplugin-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +ksaneplugin-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -ksaneplugin-4.1.80.ebuild:
+  Version removed.
+
+*ksaneplugin-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +ksaneplugin-4.1.82.ebuild:
+  Version bump.
+
+  28 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  4.2 live merge
+
+*ksaneplugin-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +ksaneplugin-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

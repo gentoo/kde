@@ -1,0 +1,45 @@
+# ChangeLog for kde-base/kontact-specialdates
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -kontact-specialdates-4.1.82.ebuild:
+  Version removed.
+
+*kontact-specialdates-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kontact-specialdates-4.1.85.ebuild:
+  Version bump.
+
+  13 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kontact-specialdates-9999.ebuild:
+  The same fix as for korganizer - I guess it will break soon...
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kontact-specialdates-4.1.80.ebuild:
+  Version removed.
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kontact-specialdates-4.1.80.ebuild, kontact-specialdates-4.1.82.ebuild,
+  kontact-specialdates-9999.ebuild:
+  Added src_prepare
+
+*kontact-specialdates-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kontact-specialdates-4.1.82.ebuild:
+  Version bump.
+
+  28 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  remove comments
+
+  28 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  4.2 live merge
+
+*kontact-specialdates-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kontact-specialdates-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

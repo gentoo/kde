@@ -1,0 +1,39 @@
+# ChangeLog for kde-base/kephal
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kephal-4.1.82.ebuild:
+  Version removed.
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> kephal-4.1.85.ebuild:
+  remove KDE4WorkspaceConfig.cmake.in from KMEXTRACTONLY, its in eclass now
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> kephal-4.1.85.ebuild:
+  Add missing KDE4WorkspaceConfig.cmake.in to KMEXTRACTONLY
+
+*kephal-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kephal-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kephal-4.1.80.ebuild:
+  Version removed.
+
+*kephal-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kephal-4.1.82.ebuild:
+  Version bump.
+
+*kephal-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +kephal-4.1.80.ebuild:
+  Version bump
+
+*kephal-9999 (15 Nov 2008)
+
+  15 Nov 2008; Manuel Nickschas <sputnick@quassel-irc.org> +metadata.xml,
+  +kephal-9999.ebuild:
+  Introduce kephal, a library and daemon for managing multihead setups
+

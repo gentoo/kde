@@ -1,0 +1,32 @@
+# ChangeLog for kde-misc/killbots
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -killbots-4.1.82.ebuild:
+  Version removed.
+
+*killbots-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +killbots-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -killbots-4.1.80.ebuild:
+  Version removed.
+
+*killbots-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +killbots-4.1.82.ebuild:
+  Version bump.
+
+  09 Nov 2008; Theo Chatzimichos <tampakrap@gmaiil.com> +metadata.xml,
+  +killbots-9999.ebuild:
+  move killbots to kde-base thanks to St_MPA3b for the ebuild
+
+*killbots-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +killbots-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

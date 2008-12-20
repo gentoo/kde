@@ -1,0 +1,23 @@
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 880061)
++++ CMakeLists.txt	(revision 880469)
+@@ -4,7 +4,6 @@
+ 
+ # Search KDE installation
+ find_package(KDE4 REQUIRED)
+-find_package(Plasma)
+ include (KDE4Defaults)
+ include (MacroLibrary)
+ include(MacroOptionalAddSubdirectory)
+@@ -33,9 +32,7 @@
+ 
+ 	macro_optional_add_subdirectory( amor )
+         
+-	if( PLASMA_FOUND)
+-		macro_optional_add_subdirectory( kweather )
+-        endif(PLASMA_FOUND)
++	macro_optional_add_subdirectory( kweather )
+ endif(Q_WS_X11)
+ 
+ macro_display_feature_log()

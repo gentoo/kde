@@ -1,0 +1,76 @@
+# ChangeLog for kde-base/pykde4
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -pykde4-4.1.82.ebuild:
+  Version removed.
+
+  18 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, pykde4-4.1.85.ebuild, pykde4-9999.ebuild:
+  Moar h@x would be needed, so adding opengl as use dep
+
+*pykde4-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +pykde4-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -pykde4-4.1.80.ebuild:
+  Version removed.
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  pykde4-4.1.82.ebuild, pykde4-9999.ebuild:
+  Added src_prepare
+
+*pykde4-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +pykde4-4.1.82.ebuild:
+  Version bump.
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml:
+  Updated metadata
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  pykde4-9999.ebuild:
+  Fixed PyKDE4-9999 (opengl optionality, deps fixed)
+
+  07 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, pykde4-9999.ebuild:
+  Fixed PyKDE4 (a bit)
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> -pykde4-4.1.73.ebuild:
+  Version removed.
+
+  23 Nov 2008; Manuel Nickschas <sputnick@quassel-irc.org>
+  pykde4-9999.ebuild:
+  pykde4 needs webkit support
+
+*pykde4-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +pykde4-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> -pykde4-4.1.72.ebuild:
+  Version removed.
+
+*pykde4-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +pykde4-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -pykde4-4.1.71.ebuild,
+  +pykde4-4.1.72.ebuild:
+  Version removed.
+
+*pykde4-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +pykde4-4.1.72.ebuild:
+  Version bump.
+
+*pykde4-4.1.71 (25 Oct 2008)
+
+  25 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +pykde4-4.1.71.ebuild:
+  bump
+

@@ -1,0 +1,104 @@
+# ChangeLog for kde-base/phonon-kde
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -phonon-kde-4.1.82.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +phonon-kde-4.1.85.ebuild:
+  Version bump.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -phonon-kde-4.1.80.ebuild:
+  Version removed.
+
+  10 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  phonon-kde-4.1.82.ebuild, phonon-kde-9999.ebuild:
+  Disable tests (they require OpenGL)
+
+*phonon-kde-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +phonon-kde-4.1.82.ebuild:
+  Version bump.
+
+  30 Nov 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  phonon-kde-4.1.80.ebuild:
+  Making the block to kde-base/phonon-xine mandatory for !kdeprefix.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> -phonon-kde-4.1.73.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +phonon-kde-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> -phonon-kde-4.1.72.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> +phonon-kde-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -phonon-kde-4.1.71.ebuild,
+  +phonon-kde-4.1.72.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +phonon-kde-4.1.72.ebuild:
+  Version bump.
+
+  29 Oct 2008; Manuel Nickschas <sputnick@quassel-irc.org>
+  phonon-kde-9999.ebuild:
+  No, phonon-kde really has no XCB support!
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> -phonon-kde-4.1.70.ebuild,
+  +phonon-kde-4.1.71.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu> +phonon-kde-4.1.71.ebuild:
+  Version bump.
+
+*phonon-kde-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -phonon-kde-4.1.69.ebuild, +phonon-kde-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -phonon-kde-4.1.68.ebuild,
+  +phonon-kde-4.1.69.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +phonon-kde-4.1.69.ebuild:
+  Version bump.
+
+  01 Oct 2008; <alexxy@gentoo.org> -phonon-kde-4.1.67.ebuild:
+  Version removed.
+
+*phonon-kde-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +phonon-kde-4.1.68.ebuild:
+  Version bump.
+
+  28 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  phonon-kde-4.1.67.ebuild:
+  The phonon-kde ebuild needs to block all phonon-xine versions.
+
+  27 Sep 2008; <alexxy@gentoo.org> phonon-kde-4.1.67.ebuild:
+  Make ebuilds work with eapi2
+
+*phonon-kde-4.1.67 (27 Sep 2008)
+
+  27 Sep 2008; <alexxy@gentoo.org> +metadata.xml, +phonon-kde-4.1.67.ebuild:
+  version bump
+

@@ -1,0 +1,137 @@
+# ChangeLog for kde-base/kdebase-data
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdebase-data-4.1.82.ebuild:
+  Version removed.
+
+  17 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdebase-data-9999.ebuild:
+  plasma svg moved to runtime
+
+*kdebase-data-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdebase-data-4.1.85.ebuild:
+  Bumped to 4.1.85.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdebase-data-4.1.80.ebuild:
+  Version removed.
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdebase-data-4.1.82.ebuild, kdebase-data-9999.ebuild:
+  Unpack kde4 wrapper script...
+
+*kdebase-data-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdebase-data-4.1.82.ebuild:
+  Version bump.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdebase-data-4.1.73.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdebase-data-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -kdebase-data-4.1.72.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +kdebase-data-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -kdebase-data-4.1.71.ebuild,
+  +kdebase-data-4.1.72.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +kdebase-data-4.1.72.ebuild:
+  Version bump.
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  -kdebase-data-4.1.70.ebuild, +kdebase-data-4.1.71.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.71 (23 Oct 2008)
+
+  23 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  +kdebase-data-4.1.71.ebuild:
+  Version bump.
+
+*kdebase-data-4.1.70 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kdebase-data-4.1.69.ebuild, +kdebase-data-4.1.70.ebuild:
+  Version bump.
+
+  10 Oct 2008; <alexxy@gentoo.org> -kdebase-data-4.1.68.ebuild,
+  +kdebase-data-4.1.69.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.69 (10 Oct 2008)
+
+  10 Oct 2008; <alexxy@gentoo.org> +kdebase-data-4.1.69.ebuild:
+  Version bump.
+
+  02 Oct 2008; <alexxy@gentoo.org> -kdebase-data-4.1.1-r1.ebuild:
+  Version removed.
+
+  01 Oct 2008; <alexxy@gentoo.org> -kdebase-data-4.1.67.ebuild:
+  Version removed.
+
+*kdebase-data-4.1.68 (01 Oct 2008)
+
+  01 Oct 2008; <alexxy@gentoo.org> +kdebase-data-4.1.68.ebuild:
+  Version bump.
+
+  27 Sep 2008; <alexxy@gentoo.org> kdebase-data-4.1.1-r1.ebuild,
+  kdebase-data-4.1.67.ebuild:
+  Make ebuilds work with eapi2
+
+*kdebase-data-4.1.67 (26 Sep 2008)
+
+  26 Sep 2008; <alexxy@gentoo.org> +kdebase-data-4.1.67.ebuild:
+  Version bump.
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -kdebase-data-4.1.1.ebuild:
+  Removed old revision.
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebase-data-4.1.1-r1.ebuild:
+  Applied *all* of scarabeus patch.
+
+*kdebase-data-4.1.1-r1 (23 Sep 2008)
+
+  23 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +kdebase-data-4.1.1-r1.ebuild:
+  Applied scarabeus fix to prevent the collision between kdebase-data and
+  hicolor-icon-theme.
+
+*kdebase-data-4.1.1 (01 Sep 2008)
+
+  01 Sep 2008; Marcus D. Hanwell <cryos@gentoo.org>
+  +kdebase-data-4.1.1.ebuild:
+  Version bump.
+
+  09 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebase-data-4.1.0.ebuild:
+  Added ~x86 keywords - thanks to tampakrap for testing.
+
+*kdebase-data-4.1.0 (06 Aug 2008)
+
+  06 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +kdebase-data-4.1.0.ebuild:
+  Added kdebase-data-4.1.0.
+

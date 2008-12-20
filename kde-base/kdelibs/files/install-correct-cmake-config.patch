@@ -1,0 +1,19 @@
+--- cmake/modules/FindKDE4Internal.cmake.orig	2008-11-05 22:40:44.000000000 +0100
++++ cmake/modules/FindKDE4Internal.cmake	2008-11-05 22:41:01.000000000 +0100
+@@ -1030,7 +1030,6 @@
+ 
+ 
+ if (CMAKE_COMPILER_IS_GNUCXX)
+-   set (CMAKE_CONFIGURATION_TYPES ${CMAKE_CONFIGURATION_TYPES} "Debugfull")
+ 
+    set (KDE4_ENABLE_EXCEPTIONS -fexceptions)
+    # Select flags.
+@@ -1138,7 +1138,6 @@
+
+
+ if (CMAKE_C_COMPILER MATCHES "icc")
+
+-   set (CMAKE_CONFIGURATION_TYPES ${CMAKE_CONFIGURATION_TYPES} "Debugfull")
+
+    set (KDE4_ENABLE_EXCEPTIONS -fexceptions)
+    # Select flags.

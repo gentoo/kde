@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>kde</herd>
+  <use>
+    <flag name="legacyssl">Support for some deprecated ciphers. Don't use this flag unless you really need it</flag>
+    <flag name="semantic-desktop">Semantic desktop allows for storage of digital information and its metadata to allow the user to express his personal mental models, making all information become intuitively accessible</flag>
+    <flag name="utempter">Records user logins. Useful on multi-user systems</flag>
+  </use>
+</pkgmetadata>

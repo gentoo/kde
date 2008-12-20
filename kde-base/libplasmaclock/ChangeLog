@@ -1,0 +1,71 @@
+# ChangeLog for kde-base/libplasmaclock
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -libplasmaclock-4.1.82.ebuild:
+  Version removed.
+
+*libplasmaclock-4.1.85 (15 Dec 2008)
+
+  15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libplasmaclock-4.1.85.ebuild:
+  Version bump.
+
+  15 Dec 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/libplasmaclock/libplasmaclock-4.1.82.ebuild:
+  Added a block for plasma-workspace:4.1 if !kdeprefix.
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -libplasmaclock-4.1.80.ebuild:
+  Version removed.
+
+*libplasmaclock-4.1.82 (08 Dec 2008)
+
+  08 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +libplasmaclock-4.1.82.ebuild:
+  Version bump.
+
+  26 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -libplasmaclock-4.1.73.ebuild:
+  Version removed.
+
+*libplasmaclock-4.1.80 (19 Nov 2008)
+
+  19 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libplasmaclock-4.1.80.ebuild:
+  Version bump.
+
+  17 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  -libplasmaclock-4.1.72.ebuild:
+  Version removed.
+
+*libplasmaclock-4.1.73 (13 Nov 2008)
+
+  13 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  +libplasmaclock-4.1.73.ebuild:
+  Version bump.
+
+  05 Nov 2008; <alexxy@gentoo.org> -libplasmaclock-4.1.71.ebuild,
+  +libplasmaclock-4.1.72.ebuild:
+  Version removed.
+
+*libplasmaclock-4.1.72 (05 Nov 2008)
+
+  05 Nov 2008; <alexxy@gentoo.org> +libplasmaclock-4.1.72.ebuild:
+  Version bump.
+
+  04 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  libplasmaclock-9999.ebuild:
+  libplasma move to kdelibs
+
+  24 Oct 2008; steffen stramm <krytzz@soylent.eu>
+  libplasmaclock-9999.ebuild:
+  4.2 live merge
+
+*libplasmaclock-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +libplasmaclock-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

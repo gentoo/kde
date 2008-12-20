@@ -1,0 +1,53 @@
+Index: kstars/kstars/kstarsactions.cpp
+===================================================================
+--- kstars/kstars/kstarsactions.cpp	(revision 880361)
++++ kstars/kstars/kstarsactions.cpp	(revision 880362)
+@@ -90,6 +90,7 @@
+ #include "telescopewizardprocess.h"
+ #include "telescopeprop.h"
+ #include "opsindi.h"
++#include "imagesequence.h"
+ #endif
+ 
+ #include "skycomponents/customcatalogcomponent.h"
+@@ -102,8 +103,6 @@
+ 
+ // #include "libkdeedu/kdeeduui/kdeeduglossary.h"
+ 
+-#include "imagesequence.h"
+-
+ //This file contains function definitions for Actions declared in kstars.h
+ 
+ /** ViewToolBar Action.  All of the viewToolBar buttons are connected to this slot. **/
+Index: kstars/kstars/kswizard.cpp
+===================================================================
+--- kstars/kstars/kswizard.cpp	(revision 880361)
++++ kstars/kstars/kswizard.cpp	(revision 880362)
+@@ -30,7 +30,6 @@
+ #include "ksutils.h"
+ #include "geolocation.h"
+ #include "widgets/dmsbox.h"
+-#include "telescopewizardprocess.h"
+ 
+ WizWelcomeUI::WizWelcomeUI( QWidget *parent ) : QFrame( parent ) {
+     setupUi( this );
+Index: kstars/kstars/kstars.cpp
+===================================================================
+--- kstars/kstars/kstars.cpp	(revision 880361)
++++ kstars/kstars/kstars.cpp	(revision 880362)
+@@ -46,7 +46,6 @@
+ #include "imageviewer.h"
+ #include "infoboxes.h"
+ #include "observinglist.h"
+-#include "imagesequence.h"
+ 
+ #include "kstarsadaptor.h"
+ 
+@@ -55,6 +54,7 @@
+ #ifdef HAVE_INDI_H
+ #include "indimenu.h"
+ #include "indidriver.h"
++#include "imagesequence.h"
+ #endif
+ 
+ KStars::KStars( bool doSplash, bool clockrun, const QString &startdate ) :
