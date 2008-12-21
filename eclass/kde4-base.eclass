@@ -195,20 +195,12 @@ case ${NEED_KDE} in
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
 				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
-					if use kdeprefix; then
-						_kdedir="4.2"
-						_pv="-${PV}:4.2"
-					else
-						_pv="-${PV}"
-					fi
+					_kdedir="4.2"
+					_pv="-${PV}:4.2"
 					 ;;
 				4.1*| 4.0.9* | 4.0.8*)
-					if use kdeprefix; then
-						_kdedir="4.1"
-						_pv="-${PV}:4.1"
-					else
-						_pv="-${PV}"
-					fi
+					_kdedir="4.1"
+					_pv="-${PV}:4.1"
 					 ;;
 				4.0*)
 					_kdedir="4.0"
@@ -238,21 +230,13 @@ case ${NEED_KDE} in
 		export NEED_KDE="live"
 		;;
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
-		if use kdeprefix; then
-			_kdedir="4.2"
-			_pv="-${NEED_KDE}:4.2"
-		else
-			_pv="-${NEED_KDE}"
-		fi
+		_kdedir="4.2"
+		_pv="-${NEED_KDE}:4.2"
 		_operator=">="
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
-		if use kdeprefix; then
-			_kdedir="4.1"
-			_pv="-${NEED_KDE}:4.1"
-		else
-			_pv="-${NEED_KDE}"
-		fi
+		_kdedir="4.1"
+		_pv="-${NEED_KDE}:4.1"
 		_operator=">="
 		;;
 	4.0* | 4)
@@ -329,13 +313,29 @@ if [[ ${NEED_KDE} != none ]]; then
 	# Adding kdelibs, kdepimlibs and kdebase-data deps to all other packages.
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
-		DEPEND="${DEPEND} ${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
-		RDEPEND="${RDEPEND}	${_operator}kde-base/kdelibs${_pv}[kdeprefix=]"
+		DEPEND="${DEPEND}
+				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
+				!kdeprefix? ( ${_operator}kde-base/kdelibs-${PV}[kdeprefix=] )"
+		RDEPEND="${RDEPEND}	
+				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
+				!kdeprefix? ( ${_operator}kde-base/kdelibs-${PV}[kdeprefix=] )"
 		if [[ ${PN} != "kdepimlibs" ]]; then
-			DEPEND="${DEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
-			RDEPEND="${RDEPEND} ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=]"
+			DEPEND="${DEPEND} 
+					kdeprefix? (
+					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
+					!kdeprefix? ( 
+					${_operator}kde-base/kdepimlibs-${PV}[kdeprefix=] )"
+			RDEPEND="${RDEPEND} 
+					kdeprefix? (
+					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
+					!kdeprefix? (
+					${_operator}kde-base/kdepimlibs-${PV}[kdeprefix=] )"
 			if [[ ${PN} != "kdebase-data" ]]; then
-				RDEPEND="${RDEPEND} ${_operator}kde-base/kdebase-data${_pv}[kdeprefix=]"
+				RDEPEND="${RDEPEND} 
+						kdeprefix? (
+						${_operator}kde-base/kdebase-data${_pv}[kdeprefix=] )
+						!kdeprefix? (
+						${_operator}kde-base/kdebase-data-${PV}[kdeprefix=] )"
 			fi
 		fi
 	fi
