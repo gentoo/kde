@@ -37,7 +37,7 @@ COMMONDEPEND="
 		!kde-base/kpercentage
 		!kde-base/ktnef
 	)
-	>=app-misc/strigi-0.5.11
+	>=app-misc/strigi-0.6
 	dev-libs/libxml2
 	dev-libs/libxslt
 	media-libs/fontconfig

@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
+  kdebase-kioslaves-4.1.85.ebuild:
+  set strigi version to 0.6
+
   20 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru>
   kdebase-kioslaves-4.1.85.ebuild:
   set deps on strigi to 0.5.11
