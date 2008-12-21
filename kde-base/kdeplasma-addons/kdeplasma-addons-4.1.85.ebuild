@@ -12,7 +12,7 @@ DESCRIPTION="Extra Plasma applets and engines."
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="xinerama"
 
 DEPEND="

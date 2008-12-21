@@ -8,7 +8,7 @@ KMNAME="kdetoys"
 inherit kde4-meta
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND=">=app-misc/strigi-0.6
