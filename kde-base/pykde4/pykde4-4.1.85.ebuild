@@ -9,7 +9,7 @@ KMMODULE="python/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="akonadi debug semantic-desktop"
 
 DEPEND="
