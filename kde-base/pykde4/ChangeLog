@@ -3,6 +3,9 @@
 # $Header: $
 
   21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> pykde4-4.1.85.ebuild:
+  drop keywords for pykde4 as it is b0rked
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> pykde4-4.1.85.ebuild:
   pykde4 deps cleaned and reformated a bit
 
   18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -pykde4-4.1.82.ebuild:
