@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/system-config-printer-kde
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*system-config-printer-kde-4.1.85 (21 Dec 2008)
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> +metadata.xml,
+  +system-config-printer-kde-4.1.85.ebuild:
+  Added sth that's supposed to be KDE printer manager... - package masked
+  due to missing depedencies
+
