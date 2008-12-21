@@ -4,6 +4,10 @@
 
   21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
   kdelibs-4.1.85.ebuild:
+  fix typo
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
+  kdelibs-4.1.85.ebuild:
   added blocks
 
   21 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> kdelibs-4.1.85.ebuild:
