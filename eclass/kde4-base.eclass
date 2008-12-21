@@ -182,7 +182,7 @@ export KDE_MINIMAL
 # 		testing = whatever is in testing on main tree
 # 		snapshot = whatever is released under snapshots (4.2 at present)
 # 		live = live svn ebuilds, also default value, do not be scared it goes in this
-# 
+#
 # order: live->snapshot->testing->stable, when searching for kde. This way we
 # allow users to use just kde4snapshots and use software from the tree.
 if [[ -z ${KDE_WANTED} ]]; then
@@ -195,11 +195,21 @@ case ${NEED_KDE} in
 		if [[ "${KDEBASE}" == "kde-base" ]]; then
 			case ${PV} in
 				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
-					_kdedir="4.2"
-					_pv="-${PV}:4.2" ;;
+					if use kdeprefix; then
+						_kdedir="4.2"
+						_pv="-${PV}:4.2"
+					else
+						_pv="-${PV}"
+					fi
+					 ;;
 				4.1*| 4.0.9* | 4.0.8*)
-					_kdedir="4.1"
-					_pv="-${PV}:4.1" ;;
+					if use kdeprefix; then
+						_kdedir="4.1"
+						_pv="-${PV}:4.1"
+					else
+						_pv="-${PV}"
+					fi
+					 ;;
 				4.0*)
 					_kdedir="4.0"
 					_pv="-${PV}:kde-4" ;;
@@ -228,14 +238,22 @@ case ${NEED_KDE} in
 		export NEED_KDE="live"
 		;;
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
-		_kdedir="4.2"
+		if use kdeprefix; then
+			_kdedir="4.2"
+			_pv="-${NEED_KDE}:4.2"
+		else
+			_pv="-${NEED_KDE}"
+		fi
 		_operator=">="
-		_pv="-${NEED_KDE}:4.2"
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
-		_kdedir="4.1"
+		if use kdeprefix; then
+			_kdedir="4.1"
+			_pv="-${NEED_KDE}:4.1"
+		else
+			_pv="-${NEED_KDE}"
+		fi
 		_operator=">="
-		_pv="-${NEED_KDE}:4.1"
 		;;
 	4.0* | 4)
 		_kdedir="4.0"
@@ -479,7 +497,7 @@ kde4-base_src_unpack() {
 			die "'${cleandir}' is in the way."
 		fi
 		subversion_src_unpack
-	else	
+	else
 		[[ -z "${KDE_S}" ]] && KDE_S="${S}"
 		if [[ -z $* ]]; then
 			# Unpack first and deal with KDE patches after examing possible patch sets.
