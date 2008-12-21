@@ -14,7 +14,7 @@ SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
 
 SLOT="1.2"
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="dev-db/sqlite
