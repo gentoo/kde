@@ -4,6 +4,10 @@
 
   21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
   kdeplasma-addons-4.1.85.ebuild:
+  apply temporary KWorkspace fix (reavertm)
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
+  kdeplasma-addons-4.1.85.ebuild:
   drop keywords
 
   18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>

@@ -3,6 +3,11 @@
 # $Header: $
 
   21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
+  -files/kdeartwork-kscreensaver-4.1.80-cmake.patch,
+  kdeartwork-kscreensaver-4.1.85.ebuild:
+  apply temporary KWorkspace fix (reavertm)
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com>
   kdeartwork-kscreensaver-4.1.85.ebuild:
   drop keywords
 

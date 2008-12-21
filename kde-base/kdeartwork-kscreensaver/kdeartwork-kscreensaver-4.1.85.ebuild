@@ -10,7 +10,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug opengl xscreensaver"
 
 DEPEND="${DEPEND}
@@ -21,6 +21,14 @@ DEPEND="${DEPEND}
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch" )
+
+src_prepare() {
+	sed -i -e 's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/g' \
+		kscreensaver/{kdesavers{,/asciiquarium},kpartsaver}/CMakeLists.txt \
+		|| die "Failed to patch CMake files"
+
+	kde4-meta_src_prepare
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

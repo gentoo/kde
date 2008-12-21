@@ -8,8 +8,15 @@ KMNAME="kdetoys"
 inherit kde4-meta
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND=">=app-misc/strigi-0.6
 	>=kde-base/kscreensaver-${PV}:${SLOT}"
+
+src_prepare() {
+	sed -i -e's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/' \
+	"${PN}"/CMakeLists.txt || die "Failed to patch CMakeLists.txt"
+
+	kde4-meta_src_prepare
+}

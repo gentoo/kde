@@ -12,7 +12,7 @@ DESCRIPTION="Extra Plasma applets and engines."
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="xinerama"
 
 DEPEND="
@@ -21,6 +21,16 @@ DEPEND="
 	xinerama? ( x11-proto/xineramaproto )"
 RDEPEND="${DEPEND}
 	xinerama? ( x11-libs/libXinerama )"
+
+src_prepare() {
+	sed -i -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \
+		-e 's/${KDE4WORKSPACE_WEATHERION_LIBRARY}/weather_ion/g' \
+		-e 's/${KDE4WORKSPACE_TASKMANAGER_LIBRARY}/taskmanager/g' \
+		applets/{binary-clock,fuzzy-clock,weather_station,lancelot/app/src}/CMakeLists.txt \
+		|| die "Failed to patch CMake files"
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

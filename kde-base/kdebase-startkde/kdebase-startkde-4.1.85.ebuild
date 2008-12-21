@@ -18,6 +18,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 	>=kde-base/kcminit-${PV}:${SLOT}
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}
+	>=kde-base/kdedglobalaccel-${PV}:${SLOT}
 	>=kde-base/kde-wallpapers-${PV}:${SLOT}
 	>=kde-base/knotify-${PV}:${SLOT}
 	>=kde-base/kreadconfig-${PV}:${SLOT}
@@ -35,12 +36,15 @@ RDEPEND="${DEPEND}
 	x11-apps/xset
 	x11-apps/xrandr
 	x11-apps/mkfontdir
-	x11-apps/xprop"
+	x11-apps/xprop
+"
 
-KMEXTRACTONLY="startkde.cmake
+KMEXTRACTONLY="
+	startkde.cmake
 	ConfigureChecks.cmake
 	kdm/
-	safestartkde.cmake"
+	safestartkde.cmake
+"
 KMCOMPILEONLY="kdm/kfrontend/sessions/"
 
 PATCHES=("${FILESDIR}/gentoo-startkde4.patch")

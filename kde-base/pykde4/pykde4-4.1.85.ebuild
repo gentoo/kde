@@ -12,12 +12,15 @@ DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~amd64 ~x86"
 IUSE="akonadi debug semantic-desktop"
 
-DEPEND=">=dev-python/sip-4.7.6
+DEPEND="
 	>=dev-python/PyQt4-4.4.4-r1[webkit]
-	dev-lang/python
 	>=kde-base/kdelibs-${PV}:${SLOT}[opengl]
-	semantic-desktop? ( >=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop] >=kde-base/nepomuk-${PV}:${SLOT} )
-	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )"
+	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )
+	semantic-desktop? (
+		>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
+		>=kde-base/nepomuk-${PV}:${SLOT}
+	)
+"
 
 src_prepare() {
 	sed -i -e's/MACRO_OPTIONAL_FIND_PACKAGE(KdepimLibs)//'\
