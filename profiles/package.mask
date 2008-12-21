@@ -1,0 +1,3 @@
+# Maciej Mrozowski <reavertm@poczta.fm> (21 Dec 2008)
+# Depends on stuff masked and not available in portage
+kde-base/printer-applet

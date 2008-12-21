@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/printer-applet
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*printer-applet-4.1.85 (21 Dec 2008)
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> +metadata.xml,
+  +printer-applet-4.1.85.ebuild:
+  Added printer-applet - unfortunately portage does not provide deps so
+  masked (reavertm)
+
