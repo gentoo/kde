@@ -1,0 +1,10 @@
+# ChangeLog for dev-util/kdesvn
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdesvn-1.2.2 (21 Dec 2008)
+
+  21 Dec 2008; Theo Chatzimichos <tampakrap@gmail.com> +metadata.xml,
+  +kdesvn-1.2.2.ebuild:
+  initial import of kdesvn
+
