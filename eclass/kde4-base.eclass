@@ -197,20 +197,28 @@ case ${NEED_KDE} in
 				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 					_kdedir="4.2"
 					_pv="-${PV}:4.2"
+					_pvn="-${PV}"
 					 ;;
 				4.1*| 4.0.9* | 4.0.8*)
 					_kdedir="4.1"
 					_pv="-${PV}:4.1"
+					_pvn="-${PV}"
 					 ;;
 				4.0*)
 					_kdedir="4.0"
-					_pv="-${PV}:kde-4" ;;
+					_pv="-${PV}:kde-4"
+					_pvn="-${PV}"
+					;;
 				3.9*)
 					_kdedir="3.9"
-					_pv="-${PV}:kde-4" ;;
+					_pv="-${PV}:kde-4" 
+					_pvn="-${PV}"
+					;;
 				9999*)
 					_kdedir="live"
-					_pv="-${PV}:live" ;;
+					_pv="-${PV}:live"
+					_pvn="-${PV}"
+					;;
 				*)
 					die "NEED_KDE=latest not supported for PV=${PV}" ;;
 				esac
@@ -227,27 +235,32 @@ case ${NEED_KDE} in
 		_kdedir="live"
 		_operator=">="
 		_pv="-${NEED_KDE}:live"
+		_pvn="-${NEED_KDE}"
 		export NEED_KDE="live"
 		;;
 	4.2 | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 		_kdedir="4.2"
 		_pv="-${NEED_KDE}:4.2"
+		_pvn="-${NEED_KDE}"
 		_operator=">="
 		;;
 	4.1 | 4.0.9* | 4.0.8*)
 		_kdedir="4.1"
 		_pv="-${NEED_KDE}:4.1"
+		_pvn="-${NEED_KDE}"
 		_operator=">="
 		;;
 	4.0* | 4)
 		_kdedir="4.0"
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
+		_pvn="-${NEED_KDE}"
 		;;
 	3.9*)
 		_kdedir="3.9"
 		_operator=">="
 		_pv="-${NEED_KDE}:kde-4"
+		_pvn="-${NEED_KDE}"
 		;;
 
 	# The ebuild handles dependencies, KDEDIR, SLOT.
@@ -315,31 +328,31 @@ if [[ ${NEED_KDE} != none ]]; then
 	if [[ ${PN} != "kdelibs" ]]; then
 		DEPEND="${DEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs-${PV}[kdeprefix=] )"
+				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[kdeprefix=] )"
 		RDEPEND="${RDEPEND}	
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs-${PV}[kdeprefix=] )"
+				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[kdeprefix=] )"
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			DEPEND="${DEPEND} 
 					kdeprefix? (
 					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
 					!kdeprefix? ( 
-					${_operator}kde-base/kdepimlibs-${PV}[kdeprefix=] )"
+					${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
 			RDEPEND="${RDEPEND} 
 					kdeprefix? (
 					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
 					!kdeprefix? (
-					${_operator}kde-base/kdepimlibs-${PV}[kdeprefix=] )"
+					${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
 			if [[ ${PN} != "kdebase-data" ]]; then
 				RDEPEND="${RDEPEND} 
 						kdeprefix? (
 						${_operator}kde-base/kdebase-data${_pv}[kdeprefix=] )
 						!kdeprefix? (
-						${_operator}kde-base/kdebase-data-${PV}[kdeprefix=] )"
+						${_operator}kde-base/kdebase-data${_pvn}[kdeprefix=] )"
 			fi
 		fi
 	fi
-	unset _operator _pv
+	unset _operator _pv _pvn
 fi
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
