@@ -227,6 +227,7 @@ case ${NEED_KDE} in
 			# this creates dependency on any version of kde4
 			_operator=">="
 			_pv="-${KDE_MINIMAL}"
+			_pvn="-${KDE_MINIMAL}"
 		fi
 		;;
 
