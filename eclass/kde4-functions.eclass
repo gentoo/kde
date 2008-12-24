@@ -172,7 +172,7 @@ koffice_fix_libraries() {
 			### additional unmentioned stuff
 			R_BAS_kowmf="libkowmf"
 			for libname in ${LIB_ARRAY}; do
-				echo "Fixing library ${libname} with hardcoded path"
+				ebegin "Fixing library ${libname} with hardcoded path"
 				for libpath in $(eval "echo \$R_BAS_${libname}"); do
 					if [[ "${libpath}" != "\"/usr/"* ]]; then
 						R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
@@ -188,6 +188,7 @@ koffice_fix_libraries() {
 						-e "s:(${libname}):(${R}):g" \
 						-e "s: ${libname}$: ${R}:g" \
 					{} || die "Fixing library names failed."
+				eend $?
 			done
 			;;
 	esac

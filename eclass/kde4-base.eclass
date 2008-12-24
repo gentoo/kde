@@ -10,7 +10,8 @@
 # The kde4-base.eclass provides support for building KDE4 monolithic ebuilds
 # and KDE4 applications.
 #
-# NOTE: This eclass NEEDS EAPI="2" or greater defined in ebuild.
+# NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
+# eclass will fail with version older than 2.
 
 inherit base cmake-utils eutils multilib kde4-functions
 #live/normal

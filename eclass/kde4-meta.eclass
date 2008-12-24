@@ -11,8 +11,6 @@
 #
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
-#
-# NOTE: This eclass NEEDS EAPI="2" or greater defined in ebuild.
 
 # we want opengl optional in each koffice package
 if [[ "${KMNAME}" == "koffice" ]]; then
