@@ -97,12 +97,14 @@ DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	x11-proto/xf86vidmodeproto"
 RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
-# Add the kdeprefix use flag
-IUSE="${IUSE} kdeprefix"
-
 # Do not allow to run test on live ebuilds
 if [[ "${BUILD_TYPE}" == "live" ]]; then
 	RESTRICT="${RESTRICT} test"
+	# Live ebuilds default to kdeprefix, but can be changed if desired
+	IUSE="${IUSE} +kdeprefix"
+else
+	# All other ebuild types default to -kdeprefix as before
+	IUSE="${IUSE} kdeprefix"
 fi
 
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
@@ -227,7 +229,7 @@ case ${NEED_KDE} in
 			# this creates dependency on any version of kde4
 			_operator=">="
 			_pv="-${KDE_MINIMAL}"
-			_pvn="-${KDE_MINIMAL}"
+			_pvn=${_pv}
 		fi
 		;;
 
@@ -335,21 +337,15 @@ if [[ ${NEED_KDE} != none ]]; then
 				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[kdeprefix=] )"
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			DEPEND="${DEPEND} 
-					kdeprefix? (
-					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
-					!kdeprefix? ( 
-					${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
+				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
 			RDEPEND="${RDEPEND} 
-					kdeprefix? (
-					${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
-					!kdeprefix? (
-					${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
+				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
 			if [[ ${PN} != "kdebase-data" ]]; then
 				RDEPEND="${RDEPEND} 
-						kdeprefix? (
-						${_operator}kde-base/kdebase-data${_pv}[kdeprefix=] )
-						!kdeprefix? (
-						${_operator}kde-base/kdebase-data${_pvn}[kdeprefix=] )"
+					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix=] )
+					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[kdeprefix=] )"
 			fi
 		fi
 	fi

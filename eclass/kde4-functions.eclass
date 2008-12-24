@@ -5,13 +5,15 @@
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @BLURB: Common ebuild functions for monolithic and split KDE 4 packages
+# @BLURB: Common ebuild functions for KDE 4 packages
 # @DESCRIPTION:
 # This eclass contains all functions shared by the different eclasses,
-# for KDE 4 monolithic and split ebuilds.
-#
-# NOTE: This eclass uses the SLOT dependencies from EAPI="1" or compatible,
-# hence you must define EAPI="1" in the ebuild, before inheriting any eclasses.
+# for KDE 4 ebuilds.
+
+# @ECLASS-VARIABLE: EAPI
+# @DESCRIPTION:
+# By default kde eclass wants eapi 2 which might be redefinable.
+EAPI=${EAPI:-2}
 
 # BLOCK FOR EAPI OLDER THAN 2.
 case ${EAPI} in
