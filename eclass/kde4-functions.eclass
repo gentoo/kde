@@ -113,6 +113,7 @@ enable_selected_linguas() {
 	done
 	comment_all_add_subdirectory "${KDE_LINGUAS_DIR:-${S}/po}"
 	for lingua in ${LINGUAS}; do
+		ebegin "Enabling LANGUAGE: ${lingua}"
 		if [ -d "${S}"/po/"${lingua}" ]; then
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
@@ -121,6 +122,7 @@ enable_selected_linguas() {
 		if [ -e "${S}"/po/"${lingua}".po.old ]; then
 			mv "${S}"/po/"${lingua}".po.old "${S}"/po/"${lingua}".po
 		fi
+		eend $?
 	done
 }
 
