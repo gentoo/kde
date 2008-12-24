@@ -16,7 +16,7 @@
 inherit base cmake-utils eutils multilib kde4-functions
 #live/normal
 get_build_type
-if [[ "${BUILD_TYPE}" == "live" ]]; then
+if [[ $BUILD_TYPE = live ]]; then
 	inherit subversion
 fi
 
@@ -99,7 +99,7 @@ DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 # Do not allow to run test on live ebuilds
-if [[ "${BUILD_TYPE}" == "live" ]]; then
+if [[ $BUILD_TYPE = live ]]; then
 	RESTRICT="${RESTRICT} test"
 	# Live ebuilds default to kdeprefix, but can be changed if desired
 	IUSE="${IUSE} +kdeprefix"
@@ -188,14 +188,12 @@ export KDE_MINIMAL
 #
 # order: live->snapshot->testing->stable, when searching for kde. This way we
 # allow users to use just kde4snapshots and use software from the tree.
-if [[ -z ${KDE_WANTED} ]]; then
-	KDE_WANTED="live"
-fi
+KDE_WANTED="${KDE_WANTED:-live}"
 export KDE_WANTED
 
 case ${NEED_KDE} in
 	latest)
-		if [[ "${KDEBASE}" == "kde-base" ]]; then
+		if [[ $KDEBASE = kde-base ]]; then
 			case ${PV} in
 				4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*)
 					_kdedir="4.2"
@@ -280,8 +278,8 @@ esac
 if [[ ${NEED_KDE} != none ]]; then
 
 	#Set the SLOT
-	if [[ -n ${KDEBASE} ]]; then
-		if [[ ${NEED_KDE} = live ]]; then
+	if [[ -n $KDEBASE ]]; then
+		if [[ $NEED_KDE = live ]]; then
 			SLOT="live"
 		else
 			case ${KMNAME} in
@@ -319,7 +317,7 @@ if [[ ${NEED_KDE} != none ]]; then
 	for KDE_SLOT in ${KDE_SLOTS[@]}; do
 		# block non kdeprefix ${PN} on other slots
 		# we do this only if we do not depend on any version of kde
-		if [[ ${SLOT} != ${KDE_SLOT} ]]; then
+		if [[ $SLOT != $KDE_SLOT ]]; then
 			DEPEND="${DEPEND}
 				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 			RDEPEND="${RDEPEND}
@@ -359,7 +357,7 @@ case ${SLOT} in
 	live)
 		ESVN_MIRROR=${ESVN_MIRROR:-svn://anonsvn.kde.org/home/kde}
 		# Split ebuild, or extragear stuff
-		if [[ -n ${KMNAME} ]]; then
+		if [[ -n $KMNAME ]]; then
 		    ESVN_PROJECT="KDE/${KMNAME}"
 			if [[ -z ${KMNOMODULE} && -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}/"
@@ -404,14 +402,14 @@ case ${SLOT} in
 		ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 	;;
 	*)
-		if [[ -n ${KDEBASE} ]]; then
+		if [[ -n $KDEBASE ]]; then
 			if [[ -n ${KMNAME} ]]; then
 				_kmname=${KMNAME}
 			else
 				_kmname=${PN}
 			fi
 			_kmname_pv="${_kmname}-${PV}"
-			if [[ ${NEED_KDE} != "live" ]]; then
+			if [[ $NEED_KDE != live ]]; then
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
@@ -458,7 +456,7 @@ kde4-base_pkg_setup() {
 	# Computation based on NEED_KDE and KDE_MINIMAL
 	get_latest_kdedir
 
-	if [[ ${NEED_KDE} != none ]]; then
+	if [[ $NEED_KDE != none ]]; then
 		# Set PREFIX
 		if use kdeprefix; then
 			KDEDIR="/usr/kde/${_kdedir}"
@@ -470,7 +468,7 @@ kde4-base_pkg_setup() {
 	fi
 	# Set the prefix based on KDEDIR
 	# Make it a consequence of kdeprefix
-	PREFIX=${KDEDIR}
+	PREFIX=$KDEDIR
 
 	unset _kdedir
 
@@ -479,13 +477,11 @@ kde4-base_pkg_setup() {
 	[[ -n ${QT4_BUILT_WITH_USE_CHECK} || -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
 		die "built_with_use illegal in this EAPI!"
 
-	if [[ ${SLOT} == "live" || ${PV} == "9999*" ]]; then
-		if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-			elog
-			elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
-			elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
-			elog "of this ebuild!"
-		fi
+	if [[ $BUILD_TYPE = live && -z $I_KNOW_WHAT_I_AM_DOING ]]; then
+		elog
+		elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
+		elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
+		elog "of this ebuild!"
 	fi
 }
 
@@ -498,7 +494,7 @@ kde4-base_pkg_setup() {
 kde4-base_src_unpack() {
 	debug-print-function $FUNCNAME "$@"
 
-	if [[ "${BUILD_TYPE}" == "live" ]]; then
+	if [[ $BUILD_TYPE = live ]]; then
 		local cleandir
 		cleandir="${ESVN_STORE_DIR}/KDE/KDE"
 		if [[ -d ${cleandir} ]]; then
@@ -509,7 +505,7 @@ kde4-base_src_unpack() {
 		fi
 		subversion_src_unpack
 	else
-		[[ -z "${KDE_S}" ]] && KDE_S="${S}"
+		[[ -z $KDE_S ]] && KDE_S="${S}"
 		if [[ -z $* ]]; then
 			# Unpack first and deal with KDE patches after examing possible patch sets.
 			# To be picked up, patches need to conform to the guidelines stated before.
@@ -517,7 +513,7 @@ kde4-base_src_unpack() {
 			[[ -d "${KDE_S}" ]] || unpack ${A}
 		fi
 		# Updated cmake dir
-		if [[ -d "${WORKDIR}/cmake" ]] && [[ -d "${KDE_S}/cmake" ]]; then
+		if [[ -d "${WORKDIR}/cmake" && -d "${KDE_S}/cmake" ]]; then
 			ebegin "Updating cmake/ directory..."
 			rm -rf "${KDE_S}/cmake" || die "Unable to remove old cmake/ directory"
 			ln -s "${WORKDIR}/cmake" "${KDE_S}/cmake" || die "Unable to symlink the new cmake/ directory"
@@ -538,7 +534,6 @@ kde4-base_src_prepare() {
 	if [[ -n ${KDE_LINGUAS} ]]; then
 		enable_selected_linguas
 	fi
-
 
 	# Autopatch
 	base_src_prepare
@@ -581,7 +576,7 @@ kde4-base_src_configure() {
 	mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=OFF"
 
 	# Set distribution name
-	[[ ${PN} == "kdelibs" ]] && mycmakeargs="${mycmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
+	[[ $PN = kdelibs ]] && mycmakeargs="${mycmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
 	# runpath linking
 	mycmakeargs="${mycmakeargs} -DKDE4_USE_ALWAYS_FULL_RPATH=ON"
@@ -600,7 +595,7 @@ kde4-base_src_configure() {
 	PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
 	# additonal arguments for KOFFICE
-	if [[ "${KMNAME}" == "koffice" ]]; then
+	if [[ $KMNAME = koffice ]]; then
 		case ${PN} in
 			koffice-data) : ;;
 			*)
@@ -635,7 +630,7 @@ kde4-base_src_compile() {
 kde4-base_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+	if [[ -d "$WORKDIR/${PN}_build" ]]; then
 		pushd "${WORKDIR}"/${PN}_build > /dev/null
 	fi
 	[ -e [Mm]akefile ] && cmake-utils_src_make "$@"
@@ -660,12 +655,12 @@ kde4-base_src_test() {
 kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -n ${KMSAVELIBS} ]] ; then
+	if [[ -n $KMSAVELIBS ]] ; then
 		install_library_dependencies
 	fi
 
 	kde4-base_src_make_doc
-	if [[ -d ${WORKDIR}/${PN}_build ]]; then
+	if [[ -d "$WORKDIR/${PN}_build" ]]; then
 		pushd "${WORKDIR}"/${PN}_build > /dev/null
 	fi
 	[ -e [Mm]akefile ] && cmake-utils_src_install
@@ -682,7 +677,7 @@ kde4-base_src_make_doc() {
 		[[ -s $doc ]] && dodoc ${doc}
 	done
 
-	if [[ -z ${KMNAME} ]]; then
+	if [[ -z $KMNAME ]]; then
 		for doc in {apps,runtime,workspace,.}/*/{AUTHORS,README*}; do
 			if [[ -s $doc ]]; then
 				local doc_complete=${doc}

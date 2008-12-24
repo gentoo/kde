@@ -13,12 +13,12 @@
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
 # we want opengl optional in each koffice package
-if [[ "${KMNAME}" == "koffice" ]]; then
+if [[ $KMNAME = koffice ]]; then
 	case ${PN} in
 		koffice-data)
 			;;
 		*)
-			OPENGL_REQUIRED="optional"
+			OPENGL_REQUIRED=optional
 			;;
 	esac
 fi
@@ -51,7 +51,7 @@ case ${KMNAME} in
 	kdepim)
 		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
 		RDEPEND="${RDEPEND} dev-libs/boost"
-		if [[ ${PN} != kode ]]; then
+		if [[ $PN != kode ]]; then
 			DEPEND="${DEPEND} >=kde-base/kode-${PV}:${SLOT}"
 			RDEPEND="${RDEPEND} >=kde-base/kode-${PV}:${SLOT}"
 		fi
@@ -64,7 +64,7 @@ case ${KMNAME} in
 		esac
 		;;
 	kdegames)
-		if [[ ${PN} != "libkdegames" ]]; then
+		if [[ $PN != libkdegames ]]; then
 			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
 		fi
@@ -87,7 +87,7 @@ case ${KMNAME} in
 				IUSE="+crypt"
 				DEPEND="${DEPEND} crypt? ( >=app-crypt/qca-2 )"
 				RDEPEND="${RDEPEND} crypt? ( >=app-crypt/qca-2 )"
-				if [[ ${PN} != "koffice-libs" ]]; then
+				if [[ $PN != koffice-libs ]]; then
 					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
 					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
 				fi
@@ -120,8 +120,8 @@ debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-sp
 # Example usage: If you're installing subdirectories of a package, like plugins,
 # you mark the top subdirectory (containing the package) as $KMEXTRACTONLY, and
 # set KMNOMODULE="true".
-if [[ ${KMNOMODULE} != "true" && -z ${KMMODULE} ]]; then
-	KMMODULE=${PN}
+if [[ -z $KMMODULE && $KMNOMODULE != true  ]]; then
+	KMMODULE=$PN
 fi
 
 # @ECLASS-VARIABLE: KMEXTRA
@@ -162,8 +162,8 @@ kde4-meta_pkg_setup() {
 # kde4-meta-src_extract.
 kde4-meta_src_unpack() {
 	debug-print-function  ${FUNCNAME} "$@"
-	if [[ "${BUILD_TYPE}" == "live" ]]; then
-		S="${WORKDIR}/${PN}"
+	if [[ $BUILD_TYPE = live ]]; then
+		S="$WORKDIR/$PN"
 		mkdir -p "${S}"
 		ESVN_RESTRICT="export" subversion_src_unpack
 		subversion_wc_info
@@ -182,7 +182,7 @@ kde4-meta_src_unpack() {
 # Also see KMMODULE, KMNOMODULE, KMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY and
 # KMTARPARAMS.
 kde4-meta_src_extract() {
-	if [[ "${BUILD_TYPE}" == "live" ]]; then
+	if [[ $BUILD_TYPE = live ]]; then
 		local rsync_options subdir kmnamedir targetdir
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
@@ -258,7 +258,7 @@ kde4-meta_src_extract() {
 		kde4-base_src_unpack
 	fi
 	# fix koffice linking
-	if [[ "${KMNAME}" == "koffice" ]]; then
+	if [[ $KMNAME = koffice ]]; then
 		koffice_fix_libraries
 	fi
 }
@@ -379,7 +379,7 @@ __list_needed_subdirectories() {
 	done
 
 	# Expand KMMODULE
-	if [[ -n ${KMMODULE}  ]]; then
+	if [[ -n $KMMODULE  ]]; then
 		kmmodule_expanded="${KMMODULE}"
 		j=$(dirname ${KMMODULE})
 		while [[ ${j} != "." ]]; do
@@ -591,16 +591,14 @@ kde4-meta_src_install() {
 	kde4-meta_src_make_doc
 	cmake-utils_src_install
 
-	if [[ -n ${KMSAVELIBS} ]] ; then
+	if [[ -n ${KMSAVELIBS} ]]; then
 		install_library_dependencies
 	fi
 
 	# remove unvanted koffice stuff
-	if [[ "${KMNAME}" == "koffice" ]] ; then
-		if [[ "${PN}" != "koffice-data" ]]; then
-			rm "${D}"/${KDEDIR}/include/config-openexr.h
-			rm "${D}"/${KDEDIR}/share/apps/cmake/modules/FindKOfficeLibs.cmake
-		fi
+	if [[ $KMNAME = koffice && $PN != koffice-data ]]; then
+		rm "$D/$KDEDIR/include/config-openexr.h"
+		rm "$D/$KDEDIR/share/apps/cmake/modules/FindKOfficeLibs.cmake"
 	fi
 }
 

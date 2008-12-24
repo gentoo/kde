@@ -13,10 +13,7 @@
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # By default kde eclass wants eapi 2 which might be redefinable.
-EAPI=${EAPI:-2}
-
-# BLOCK FOR EAPI OLDER THAN 2.
-case ${EAPI} in
+case ${EAPI:=2} in
 	2) : ;;
 	*) die "No way! EAPI older than 2 is not supported." ;;
 esac
@@ -26,27 +23,27 @@ esac
 # This gets set to a non-zero value when a package is considered a kde or
 # koffice ebuild.
 
-if [[ "${CATEGORY}" == "kde-base" ]]; then
+if [[ $CATEGORY = kde-base ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
-	KDEBASE="kde-base"
+	KDEBASE=kde-base
 fi
 
 # is this a koffice ebuild?
-if [[ "${KMNAME}" == "koffice" || "${PN}" == "koffice" ]]; then
+if [[ $KMNAME = koffice || $PN = koffice ]]; then
 	debug-print "${ECLASS}: KOFFICE ebuild recognized"
-	KDEBASE="koffice"
+	KDEBASE=koffice
 fi
 
 # @ECLASS-VARIABLE: KDE_SLOTS
 # @DESCRIPTION:
 # The slots used by all KDE versions later than 4.0. The live-ebuilds use
 # KDE_LIVE_SLOTS instead.
-KDE_SLOTS=( "kde-4" "4.1" "4.2" )
+KDE_SLOTS=( kde-4 4.1 4.2 )
 
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:
 # The slots used by all KDE live versions.
-KDE_LIVE_SLOTS=( "live" )
+KDE_LIVE_SLOTS=( live )
 
 # @FUNCTION: buildsycoca
 # @DESCRIPTION:
@@ -57,7 +54,7 @@ KDE_LIVE_SLOTS=( "live" )
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -x ${KDEDIR}/bin/kbuildsycoca4 && -z "${ROOT%%/}" ]]; then
+	if [[ -z ${ROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
 		# Make sure tha cache file exists, or kbuildsycoca4 will fail
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
 
@@ -107,20 +104,20 @@ enable_selected_linguas() {
 	local lingua
 
 	for lingua in ${KDE_LINGUAS}; do
-		if [ -e "${S}"/po/"${lingua}".po ]; then
-			mv "${S}"/po/"${lingua}".po "${S}"/po/"${lingua}".po.old
+		if [ -e "$S/po/$lingua.po" ]; then
+			mv "$S/po/$lingua.po" "$S/po/$lingua.po.old"
 		fi
 	done
 	comment_all_add_subdirectory "${KDE_LINGUAS_DIR:-${S}/po}"
 	for lingua in ${LINGUAS}; do
 		ebegin "Enabling LANGUAGE: ${lingua}"
-		if [ -d "${S}"/po/"${lingua}" ]; then
+		if [ -d "$S/po/$lingua" ]; then
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-i "${KDE_LINGUAS_DIR:-${S}/po}"/CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 		fi
-		if [ -e "${S}"/po/"${lingua}".po.old ]; then
-			mv "${S}"/po/"${lingua}".po.old "${S}"/po/"${lingua}".po
+		if [ -e "$S/po/$lingua.po.old" ]; then
+			mv "$S/po/$lingua.po.old" "$S/po/$lingua.po"
 		fi
 		eend $?
 	done
@@ -182,7 +179,7 @@ koffice_fix_libraries() {
 						R="${R} ${libpath}"
 					fi
 				done
-				find ${S} -name CMakeLists.txt -print| xargs -i \
+				find "${S}" -name CMakeLists.txt -print| xargs -i \
 					sed -i \
 						-e "s: ${libname} : ${R} :g" \
 						-e "s: ${libname}): ${R}):g" \
@@ -199,7 +196,7 @@ koffice_fix_libraries() {
 # @DESCRIPTION:
 # Determine whether we are using live ebuild or normal tbzs.
 get_build_type() {
-	if [[ "${SLOT}" == "live" || "${PV}" == 9999* ]]; then
+	if [[ $SLOT = live || $PV = 9999* ]]; then
 		BUILD_TYPE="live"
 	else
 		BUILD_TYPE="normal"
@@ -214,7 +211,7 @@ get_build_type() {
 # We can check for kdelibs because it is the most basic package; no KDE package
 # working without it. This might be changed in future.
 get_latest_kdedir() {
-	if [[ "${NEED_KDE}" == "latest" && "${KDEBASE}" != "kde-base"  ]]; then
+	if [[ $NEED_KDE = latest && $KDEBASE != kde-base ]]; then
 		case ${KDE_WANTED} in
 			# note this will need to be updated as stable moves and so on
 			live)
@@ -272,7 +269,7 @@ save_library_dependencies() {
 # @DESCRIPTION:
 # Install generated CMake library dependencies to /var/lib/kde
 install_library_dependencies() {
-	local depsfile="${T}/${PN}:${SLOT}"
+	local depsfile="$T/$PN:$SLOT"
 	echo "Installing library dependendencies as ${depsfile##*/}"
 	insinto /var/lib/kde
 	doins "${depsfile}" || die "Failed to install library dependencies."
