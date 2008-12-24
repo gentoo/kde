@@ -331,22 +331,22 @@ if [[ ${NEED_KDE} != none ]]; then
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
 	if [[ ${PN} != "kdelibs" ]]; then
 		DEPEND="${DEPEND}
-				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
+				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
 		RDEPEND="${RDEPEND}	
-				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
+				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
 		if [[ ${PN} != "kdepimlibs" ]]; then
 			DEPEND="${DEPEND} 
-				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
+				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
 			RDEPEND="${RDEPEND} 
-				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix=] )
-				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[kdeprefix=] )"
+				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
+				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
 			if [[ ${PN} != "kdebase-data" ]]; then
 				RDEPEND="${RDEPEND} 
-					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix=] )
-					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[kdeprefix=] )"
+					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix] )
+					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[-kdeprefix] )"
 			fi
 		fi
 	fi
