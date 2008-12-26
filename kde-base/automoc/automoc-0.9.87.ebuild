@@ -4,12 +4,14 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+MY_PN="automoc4"
+MY_P="$MY_PN-${PV}"
+
+inherit cmake-utils
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
-SRC_URI=""
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/tags/${PN}4/${PV}"
+SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/${MY_P}.tar.bz2"
 
 LICENSE="as-is"
 SLOT="0"
@@ -19,4 +21,4 @@ IUSE=""
 DEPEND="x11-libs/qt-core:4"
 RDEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${PN}4-${PV}"
+S="${WORKDIR}/${MY_P}"
