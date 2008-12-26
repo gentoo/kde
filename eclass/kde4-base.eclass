@@ -101,8 +101,12 @@ RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 # Do not allow to run test on live ebuilds
 if [[ $BUILD_TYPE = live ]]; then
 	RESTRICT="${RESTRICT} test"
-	# Live ebuilds default to kdeprefix, but can be changed if desired
-	IUSE="${IUSE} +kdeprefix"
+	# Live ebuilds in kde-base default to kdeprefix by default
+	if [[ $KDEBASE = kde-base ]]; then
+		IUSE="${IUSE} +kdeprefix"
+	else
+		IUSE="${IUSE} kdeprefix"
+	fi
 else
 	# All other ebuild types default to -kdeprefix as before
 	IUSE="${IUSE} kdeprefix"
