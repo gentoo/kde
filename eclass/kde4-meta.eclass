@@ -206,17 +206,17 @@ kde4-meta_src_extract() {
 		# Copy all subdirectories
 		for subdir in $(__list_needed_subdirectories); do
 				targetdir=""
-				if [[ ${subdir} == doc/* && ! -e "${ESVN_WC_PATH}/${kmnamedir}${subdir}" ]]; then
+				if [[ $subdir = doc/* && ! -e "$ESVN_WC_PATH/$kmnamedir$subdir" ]]; then
 					continue
 				fi
 
-				[[ ${subdir%/} == */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
+				[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
 				rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
 					|| die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 		done
-		[[ "${KMNAME}" == kdebase* ]] && kdebase_toplevel_cmakelist
+		[[ $KMNAME = kdebase* ]] && kdebase_toplevel_cmakelist
 
-		if [[ ${KMNAME} == kdebase-runtime && ${PN} != kdebase-data ]]; then
+		if [[ $KMNAME = kdebase-runtime && $PN != kdebase-data ]]; then
 			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
 				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 		fi
@@ -225,7 +225,7 @@ kde4-meta_src_extract() {
 		tarball="${KMNAME}-${PV}.tar.bz2"
 		tarfile="${DISTDIR}"/${tarball}
 
-		echo "Unpacking parts of ${tarball} to ${WORKDIR}"
+		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
 		kde4-meta_create_extractlists
 
@@ -245,6 +245,8 @@ kde4-meta_src_extract() {
 		mv ${KMNAME}-${PV} ${P} || die "Died while moving \"${KMNAME}-${PV}\" to \"${P}\""
 
 		popd > /dev/null
+
+		eend $?
 
 		if [[ -n ${KDE4_STRICTER} ]]; then
 			for f in $(__list_needed_subdirectories fatal); do

@@ -22,12 +22,14 @@ fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
-# Set the qt dependencies
+# @FUNCTION: kde4-base_set_qt_dependencies
+# @DESCRIPTION:
+# Set qt dependencies. And use opengl based on OPENGL_REQUIRED variable.
 kde4-base_set_qt_dependencies() {
 	local qt qtcore qtgui qt3support qtdepend qtopengldepend
 
 	qt="["
-	case "${OPENGL_REQUIRED}" in
+	case ${OPENGL_REQUIRED} in
 		always)
 			qt="${qt}opengl,"
 			;;
@@ -47,19 +49,12 @@ kde4-base_set_qt_dependencies() {
 		x11-libs/qt-qt3support:4${qt3support}
 		x11-libs/qt-script:4
 		x11-libs/qt-svg:4
-		x11-libs/qt-test:4"
+		x11-libs/qt-test:4
+		x11-libs/qt-webkit:4"
 	qtopengldepend="x11-libs/qt-opengl:4"
 
-	# KDE > 4.1.71 needs qt-webkit
-	case "${PV}" in
-		scm|9999*|4.2*|4.1.9*|4.1.8*|4.1.7*)
-			qtdepend="${qtdepend}
-				x11-libs/qt-webkit:4"
-			;;
-	esac
-
 	# opengl dependencies
-	case "${OPENGL_REQUIRED}" in
+	case ${OPENGL_REQUIRED} in
 		always)
 			qtdepend="${qtdepend}
 				${qtopengldepend}"
@@ -79,17 +74,8 @@ kde4-base_set_qt_dependencies() {
 kde4-base_set_qt_dependencies
 
 # Set the cmake dependencies
-case "${PV}" in
-	9999*)
-		CMAKEDEPEND=">=dev-util/cmake-2.6.2"
-		;;
-	4.2*|4.1.9*|4.1.8*|4.1.7*|4.1.6*)
-		CMAKEDEPEND=">=dev-util/cmake-2.6"
-		;;
-	*)
-		CMAKEDEPEND=">=dev-util/cmake-2.4.7-r1"
-		;;
-esac
+# quite few packages fail with 2.4 packages even for 4.1 line, rather reqire 2.6.2 everywhere
+CMAKEDEPEND=">=dev-util/cmake-2.6.2"
 
 # Set the common dependencies
 DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
@@ -124,7 +110,7 @@ OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 
-case "${CPPUNIT_REQUIRED}" in
+case ${CPPUNIT_REQUIRED} in
 	always)
 		DEPEND="${DEPEND} dev-util/cppunit"
 		;;
@@ -157,7 +143,7 @@ esac
 #	- 4.2, 4.1, kde-4 - respective slots for kde versions
 # @CODE
 # Note: default NEED_KDE is latest
-NEED_KDE="${NEED_KDE:-latest}"
+NEED_KDE="${NEED_KDE:=latest}"
 export NEED_KDE
 
 # FIXME: look at the description, please, somehow illegible
@@ -170,7 +156,7 @@ export NEED_KDE
 # KDE_MINIMAL="-4.1"
 # specify minimal version as kde-4.1, can be mostly anything which can be put as
 # >=${PN}-${KDE_MINIMAL}
-KDE_MINIMAL="${KDE_MINIMAL:-3.9}"
+KDE_MINIMAL="${KDE_MINIMAL:=3.9}"
 export KDE_MINIMAL
 
 # FIXME: the code section, explanation of live. The last sentence needs other
@@ -192,7 +178,7 @@ export KDE_MINIMAL
 #
 # order: live->snapshot->testing->stable, when searching for kde. This way we
 # allow users to use just kde4snapshots and use software from the tree.
-KDE_WANTED="${KDE_WANTED:-live}"
+KDE_WANTED="${KDE_WANTED:=live}"
 export KDE_WANTED
 
 case ${NEED_KDE} in
@@ -331,21 +317,21 @@ if [[ ${NEED_KDE} != none ]]; then
 
 	# Adding kdelibs, kdepimlibs and kdebase-data deps to all other packages.
 	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
-	if [[ ${PN} != "kdelibs" ]]; then
+	if [[ $PN != kdelibs ]]; then
 		DEPEND="${DEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
 		RDEPEND="${RDEPEND}	
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
-		if [[ ${PN} != "kdepimlibs" ]]; then
+		if [[ $PN != kdepimlibs ]]; then
 			DEPEND="${DEPEND} 
 				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
 			RDEPEND="${RDEPEND} 
 				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
-			if [[ ${PN} != "kdebase-data" ]]; then
+			if [[ $PN != kdebase-data ]]; then
 				RDEPEND="${RDEPEND} 
 					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix] )
 					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[-kdeprefix] )"
@@ -359,7 +345,7 @@ fi
 # koffice ebuild, the URI should be set in the ebuild itself
 case ${SLOT} in
 	live)
-		ESVN_MIRROR=${ESVN_MIRROR:-svn://anonsvn.kde.org/home/kde}
+		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
 		# Split ebuild, or extragear stuff
 		if [[ -n $KMNAME ]]; then
 		    ESVN_PROJECT="KDE/${KMNAME}"
@@ -476,8 +462,7 @@ kde4-base_pkg_setup() {
 
 	unset _kdedir
 
-	# FIXME: reformulate, please
-	# check if useflags were checked. (ugly description i know...)
+	# check if qt has correct deps
 	[[ -n ${QT4_BUILT_WITH_USE_CHECK} || -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
 		die "built_with_use illegal in this EAPI!"
 
@@ -535,7 +520,7 @@ kde4-base_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Only enable selected languages, used for KDE extragear apps.
-	if [[ -n ${KDE_LINGUAS} ]]; then
+	if [[ -n $KDE_LINGUAS ]]; then
 		enable_selected_linguas
 	fi
 
@@ -543,12 +528,12 @@ kde4-base_src_prepare() {
 	base_src_prepare
 
 	# Save library dependencies
-	if [[ -n ${KMSAVELIBS} ]] ; then
+	if [[ -n $KMSAVELIBS ]] ; then
 		save_library_dependencies
 	fi
 
 	# Inject library dependencies
-	if [[ -n ${KMLOADLIBS} ]] ; then
+	if [[ -n $KMLOADLIBS ]] ; then
 		load_library_dependencies
 	fi
 }
@@ -561,19 +546,16 @@ kde4-base_src_configure() {
 
 	# We prefer KDE's own Debugfull mode over the standard Debug
 	if has debug ${IUSE//+} && use debug ; then
+		ebegin "Enabling debug flag"
 		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=Debugfull"
-	fi
-
-	# Final flag handling
-	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
-		echo "Activating enable-final flag"
-		mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_FINAL=ON"
+		eend $?
 	fi
 
 	 # Enable generation of HTML handbook
 	if has htmlhandbook ${IUSE//+} && use htmlhandbook; then
-		echo "Enabling building of HTML handbook"
+		ebegin "Enabling building of HTML handbook"
 		mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_HTMLHANDBOOK=ON"
+		eend $?
 	fi
 
 	# Build tests in src_test only, where we override this value
@@ -691,7 +673,7 @@ kde4-base_src_make_doc() {
 		done
 	fi
 
-	if [[ -n ${KDEBASE} && -d "${D}"/usr/share/doc/${PF} ]]; then
+	if [[ -n ${KDEBASE} && -d "${D}/usr/share/doc/${PF}" ]]; then
 		# work around bug #97196
 		dodir /usr/share/doc/kde && \
 			mv "${D}"/usr/share/doc/${PF} "${D}"/usr/share/doc/kde/ || \

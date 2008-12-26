@@ -260,9 +260,10 @@ get_latest_kdedir() {
 save_library_dependencies() {
 	local depsfile="${T}/${PN}:${SLOT}"
 
-	echo "Saving library dependendencies in ${depsfile##*/}"
+	ebegin "Saving library dependendencies in ${depsfile##*/}"
 	echo "EXPORT_LIBRARY_DEPENDENCIES(\"${depsfile}\")" >> "${S}/CMakeLists.txt" || \
 		die "Failed to save the library dependencies."
+	eend $?
 }
 
 # @FUNCTION: install_library_dependencies
@@ -270,9 +271,10 @@ save_library_dependencies() {
 # Install generated CMake library dependencies to /var/lib/kde
 install_library_dependencies() {
 	local depsfile="$T/$PN:$SLOT"
-	echo "Installing library dependendencies as ${depsfile##*/}"
+	ebegin "Installing library dependendencies as ${depsfile##*/}"
 	insinto /var/lib/kde
 	doins "${depsfile}" || die "Failed to install library dependencies."
+	eend $?
 }
 
 # @FUNCTION: load_library_dependencies
@@ -280,7 +282,7 @@ install_library_dependencies() {
 # Inject specified library dependencies in current package
 load_library_dependencies() {
 	local pn i depsfile
-	echo "Injecting library dependendencies from '${KMLOADLIBS}'"
+	ebegin "Injecting library dependendencies from '${KMLOADLIBS}'"
 
 	i=0
 	for pn in ${KMLOADLIBS} ; do
@@ -290,4 +292,5 @@ load_library_dependencies() {
 		sed -i -e "${i}iINCLUDE(\"${depsfile}\")" "${S}/CMakeLists.txt" || \
 			die "Failed to include library dependencies for ${pn}"
 	done
+	eend $?
 }
