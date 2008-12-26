@@ -53,7 +53,7 @@ src_configure() {
 		mycmakeargs="${mycmakeargs}
 			$(cmake-utils_use_with xcb XCB)"
 	else
-		sed -e '326d' -i "${WORKDIR}/${P}/CMakeLists.txt"
+		sed -e '447d' -i "${WORKDIR}/${P}/CMakeLists.txt"
 	fi
 	cmake-utils_src_configure
 }
