@@ -1,0 +1,12 @@
+diff -aup a/libs/threadimageio/loadingcache.h b/libs/threadimageio/loadingcache.h
+--- a/libs/threadimageio/loadingcache.h	2008-12-26 17:15:26.000000000 +0100
++++ b/libs/threadimageio/loadingcache.h	2008-12-26 17:15:35.000000000 +0100
+@@ -127,7 +127,7 @@ public:
+ 
+     /// !! All methods of LoadingCache shall only be called when a CacheLock is held !!
+ 
+-    class CacheLock
++    class DIGIKAM_EXPORT CacheLock
+     {
+     public:
+ 
