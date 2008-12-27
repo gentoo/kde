@@ -3,6 +3,9 @@
 # $Header: $
 
   27 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> amarok-2.0-r1.ebuild:
+  Remove unneeded src_install
+
+  27 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> amarok-2.0-r1.ebuild:
   Add linguas for amarok!
 
 *amarok-2.0-r1 (20 Dec 2008)
