@@ -5,6 +5,8 @@
 EAPI="2"
 
 OPENGL_REQUIRED="optional"
+KDE_LINGUAS="ar be bg ca cs csb da de el eo es et eu fi fr
+			ga gl he is it ja km sl sv th tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
