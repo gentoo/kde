@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +files/loadingcache.patch,
+  digikam-0.10.0_beta7.ebuild:
+  Add patch for digikam. Fix bug 252615
+
 *digikam-0.10.0_beta7 (20 Dec 2008)
 
   20 Dec 2008; Marcus D. Hanwell <cryos@gentoo.org> 
