@@ -76,17 +76,3 @@ src_configure() {
 	kde4-base_src_configure
 }
 
-src_install() {
-	kde4-base_src_install
-
-	#provided by kdelibs
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-animator.desktop
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-applet.desktop
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-dataengine.desktop
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-runner.desktop
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-scriptengine.desktop
-	rm "${D}"/"${KDEDIR}"/share/kde4/servicetypes/plasma-containment.desktop
-	#provided by plasma-workspace
-	rm "${D}"/"${KDEDIR}"/share/kde4/services/plasma-animator-default.desktop
-	rm "${D}"/"${KDEDIR}"/lib64/kde4/plasma_animator_default.so
-}
