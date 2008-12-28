@@ -104,38 +104,39 @@ enable_selected_linguas() {
 	local lingua sr_mess wp
 
 	#  ebuild overridable linguas directory definition
-	${KDE_LINGUAS_DIR:=${S}/po}
-
+	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:=${S}/po}
+	cd "$KDE_LINGUAS_DIR" || die "wrong linguas dir specified"
+	
 	# fix all various crazy sr@Latn variations
 	# this part is only ease for ebuilds, so there wont be any die when this
 	# fail at any point
 	sr_mess="sr@latn sr@latin sr@Latin"
 	for wp in ${sr_mess}; do
-		[[ -e "$KDE_LINGUAS_DIR/$wp.po" ]] && mv "$KDE_LINGUAS_DIR/$wp.po" "$KDE_LINGUAS_DIR/sr@Latn.po"
-		if [[ -d "$KDE_LINGUAS_DIR/$wp" ]]; then
+		[[ -e "$wp.po" ]] && mv "$wp.po" "sr@Latn.po"
+		if [[ -d "$wp" ]]; then
 			# move dir and fix cmakelists
-			mv "$KDE_LINGUAS_DIR/$wp" "$KDE_LINGUAS_DIR/sr@Latn"
+			mv "$wp" "sr@Latn"
 			sed -i \
 				-e "s:$wp:sr@Latin:g" \
-				$KDE_LINGUAS_DIR/CMakeLists.txt
+				CMakeLists.txt
 		fi
 	done
 
 	for lingua in ${KDE_LINGUAS}; do
-		if [[ -e "$KDE_LINGUAS_DIR/$lingua.po" ]]; then
-			mv "$KDE_LINGUAS_DIR/$lingua.po" "$KDE_LINGUAS_DIR/$lingua.po.old"
+		if [[ -e "$lingua.po" ]]; then
+			mv "$lingua.po" "$lingua.po.old"
 		fi
 	done
 	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
 	for lingua in ${LINGUAS}; do
 		ebegin "Enabling LANGUAGE: ${lingua}"
-		if [[ -d "$KDE_LINGUAS_DIR/$lingua" ]]; then
+		if [[ -d "$lingua" ]]; then
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-i "${KDE_LINGUAS_DIR}"/CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+				-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 		fi
-		if [[ -e "$KDE_LINGUAS_DIR/$lingua.po.old" ]]; then
-			mv "$KDE_LINGUAS_DIR/$lingua.po.old" "$KDE_LINGUAS_DIR/$lingua.po"
+		if [[ -e "$lingua.po.old" ]]; then
+			mv "$lingua.po.old" "$lingua.po"
 		fi
 		eend $?
 	done
