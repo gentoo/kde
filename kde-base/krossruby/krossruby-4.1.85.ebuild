@@ -9,7 +9,7 @@ KMMODULE="ruby/krossruby"
 inherit kde4-meta
 
 DESCRIPTION="Ruby plugin for the kdelibs/kross scripting framework."
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="dev-lang/ruby"

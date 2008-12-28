@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> krossruby-4.1.85.ebuild:
+  Add ~amd64 ~x86 keywords
+
 *krossruby-4.1.85 (15 Dec 2008)
 
   15 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +krossruby-4.1.85.ebuild:
