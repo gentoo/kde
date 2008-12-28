@@ -101,23 +101,41 @@ done
 # the package (see KDE_LINGUAS). By default, translations are found in "${S}"/po
 # but this default can be overridden by defining KDE_LINGUAS_DIR.
 enable_selected_linguas() {
-	local lingua
+	local lingua sr_mess wp
 
-	for lingua in ${KDE_LINGUAS}; do
-		if [ -e "$S/po/$lingua.po" ]; then
-			mv "$S/po/$lingua.po" "$S/po/$lingua.po.old"
+	#  ebuild overridable linguas directory definition
+	${KDE_LINGUAS_DIR:=${S}/po}
+
+	# fix all various crazy sr@Latn variations
+	# this part is only ease for ebuilds, so there wont be any die when this
+	# fail at any point
+	sr_mess="sr@latn sr@latin sr@Latin"
+	for wp in ${sr_mess}; do
+		[[ -e "$KDE_LINGUAS_DIR/$wp.po" ]] && mv "$KDE_LINGUAS_DIR/$wp.po" "$KDE_LINGUAS_DIR/sr@Latn.po"
+		if [[ -d "$KDE_LINGUAS_DIR/$wp" ]]; then
+			# move dir and fix cmakelists
+			mv "$KDE_LINGUAS_DIR/$wp" "$KDE_LINGUAS_DIR/sr@Latn"
+			sed -i \
+				-e "s:$wp:sr@Latin:g" \
+				$KDE_LINGUAS_DIR/CMakeLists.txt
 		fi
 	done
-	comment_all_add_subdirectory "${KDE_LINGUAS_DIR:-${S}/po}"
+
+	for lingua in ${KDE_LINGUAS}; do
+		if [[ -e "$KDE_LINGUAS_DIR/$lingua.po" ]]; then
+			mv "$KDE_LINGUAS_DIR/$lingua.po" "$KDE_LINGUAS_DIR/$lingua.po.old"
+		fi
+	done
+	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
 	for lingua in ${LINGUAS}; do
 		ebegin "Enabling LANGUAGE: ${lingua}"
-		if [ -d "$S/po/$lingua" ]; then
+		if [[ -d "$KDE_LINGUAS_DIR/$lingua" ]]; then
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-i "${KDE_LINGUAS_DIR:-${S}/po}"/CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+				-i "${KDE_LINGUAS_DIR}"/CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 		fi
-		if [ -e "$S/po/$lingua.po.old" ]; then
-			mv "$S/po/$lingua.po.old" "$S/po/$lingua.po"
+		if [[ -e "$KDE_LINGUAS_DIR/$lingua.po.old" ]]; then
+			mv "$KDE_LINGUAS_DIR/$lingua.po.old" "$KDE_LINGUAS_DIR/$lingua.po"
 		fi
 		eend $?
 	done
