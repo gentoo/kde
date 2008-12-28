@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> kbruch-4.1.85.ebuild:
+  Drop ~ppc ~ppc64 keywords
+
   18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kbruch-4.1.82.ebuild:
   Version removed.
 
