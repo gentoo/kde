@@ -1,0 +1,10 @@
+# ChangeLog for media-libs/kipi-plugins
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kipi-plugins-0.2.0_beta5 (27 Dec 2008)
+
+  27 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +kipi-plugins-0.2.0_beta5.ebuild:
+  Initial commit. Per bug
+
