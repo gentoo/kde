@@ -1,6 +1,12 @@
 # ChangeLog for kde-base/ksystraycmd
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*ksystraycmd-4.1.87 (01 Jan 2009)
+
+  01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  +ksystraycmd-4.1.87.ebuild:
+  Version bump.
 
   18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
   -ksystraycmd-4.1.82.ebuild:

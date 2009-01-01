@@ -1,6 +1,11 @@
 # ChangeLog for kde-base/kmix
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*kmix-4.1.87 (01 Jan 2009)
+
+  01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +kmix-4.1.87.ebuild:
+  Version bump.
 
   18 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> -kmix-4.1.82.ebuild:
   Version removed.
