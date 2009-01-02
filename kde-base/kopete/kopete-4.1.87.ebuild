@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
 	+highlight +history htmlhandbook +jabber jingle latex messenger +msn +nowlistening
 	+oscar +otr +pipes +privacy qq sms ssl +statistics testbed +texteffect
-	+translator +urlpicpreview +webpresence winpopup yahoo"
+	+translator +urlpicpreview +webpresence winpopup wlm yahoo"
 # IUSE="irc jingle meanwhile telepathy"
 
 # plugins: addbookmarks, alias, autoreplace, contactnotes, highlight, history,
@@ -21,7 +21,7 @@ IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
 
 # protocols: (ssl?) gadu, (qca2?) groupwise, irc (disabled), (&& qca2 idn) jabber,
 #		jingle (disabled), meanwhile (not ported), messenger (not ready), msn, oscar,
-# 		qq, sms, (decibel?) telepathy (not ready), testbed, winpopup, yahoo
+# 		qq, sms, (decibel?) telepathy (not ready), testbed, winpopup, wlm, yahoo
 
 #		irc and jingle are disabled in the package (4.1.0)
 #		meanwhile hasn't been ported to KDE4 yet (4.1.0)
@@ -42,6 +42,7 @@ COMMONDEPEND="dev-libs/libpcre
 		)
 	)
 	otr? ( net-libs/libotr )
+	msn? ( net-libs/libmsn )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )"
 
@@ -76,6 +77,7 @@ src_configure() {
 		$(cmake-utils_use_with latex)
 		$(cmake-utils_use_with messenger)
 		$(cmake-utils_use_with msn)
+		$(cmake-utils_use_with wlm)
 		$(cmake-utils_use_with nowlistening)
 		$(cmake-utils_use_with oscar)
 		$(cmake-utils_use_with otr)

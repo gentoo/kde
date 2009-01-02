@@ -32,6 +32,7 @@
 	<flag name="urlpicpreview">plugin to allow users to send photos through URLs</flag>
 	<flag name="xslt">Enable xslt support</flag>
 	<flag name="webpresence">Enable the webpresence plugin</flag>
+	<flag name="wlm">Enable the wlm plugin</flag>
 	<flag name="winpopup">Enable support for the winpopup plugin</flag>
 </use>
 <herd>kde</herd>

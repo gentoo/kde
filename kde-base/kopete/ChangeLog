@@ -3,6 +3,9 @@
 # $Header: $
 
   02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> kopete-4.1.87.ebuild:
+  Add wlm support per bug #252264
+
+  02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> kopete-4.1.87.ebuild:
   Add jingle support per bug #252983
 
 *kopete-4.1.87 (01 Jan 2009)
