@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  libtaskmanager-4.1.87.ebuild:
+  Import fix to libtaskmanaget from kde-crazy
+
 *libtaskmanager-4.1.87 (01 Jan 2009)
 
   01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>

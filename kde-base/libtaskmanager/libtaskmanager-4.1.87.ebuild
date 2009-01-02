@@ -23,10 +23,3 @@ RDEPEND="${COMMONDEPEND}"
 
 KMSAVELIBS="true"
 
-src_prepare() {
-	sed -i \
-		-e "s:task.h:task.h\n taskrmbmenu.h:g" \
-		libs/taskmanager/CMakeLists.txt || die "sed failed"
-
-	kde4-meta_src_prepare
-}
