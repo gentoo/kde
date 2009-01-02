@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="xinerama"
 
 DEPEND="
+	!kdeprefix? ( !kde-misc/lancelot-menu[kdeprefix=] )
 	>=kde-base/krunner-${PV}:${SLOT}
 	>=kde-base/plasma-workspace-${PV}:${SLOT}
 	xinerama? ( x11-proto/xineramaproto )"
