@@ -11,3 +11,6 @@ inherit kde4-meta
 DESCRIPTION="Additional themes from kde"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+DEPEND="${DEPEND}
+		!<kde-base/kdeplasma-addons-${PV}"
