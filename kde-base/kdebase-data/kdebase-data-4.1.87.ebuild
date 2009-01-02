@@ -13,7 +13,8 @@ IUSE=""
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="x11-themes/hicolor-icon-theme"
-RDEPEND="${DEPEND}"
+RDEPEND="!<kde-base/dolphin-${PV}
+		${DEPEND}"
 
 KMEXTRA="l10n/
 	pics/"
