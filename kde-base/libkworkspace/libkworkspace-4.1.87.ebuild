@@ -12,6 +12,9 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
+DEPEND="${DEPEND}
+		!<kde-base/libkworkspace-${PV}"
+
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	kwin/org.kde.KWin.xml"
