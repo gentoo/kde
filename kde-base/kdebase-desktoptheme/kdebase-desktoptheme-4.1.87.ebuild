@@ -5,8 +5,7 @@
 EAPI="2"
 
 KMNAME="kdebase-runtime"
-KMEXTRA="desktoptheme"
-
+KMMODULE="desktoptheme"
 inherit kde4-meta
 
 DESCRIPTION="oxygen desktoptheme from kdebase"
