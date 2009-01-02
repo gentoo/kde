@@ -10,7 +10,7 @@ inherit kde4-meta
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64 ~x86"
 IUSE="+addbookmarks +alias +autoreplace +contactnotes debug gadu groupwise
-	+highlight +history htmlhandbook +jabber latex messenger +msn +nowlistening
+	+highlight +history htmlhandbook +jabber jingle latex messenger +msn +nowlistening
 	+oscar +otr +pipes +privacy qq sms ssl +statistics testbed +texteffect
 	+translator +urlpicpreview +webpresence winpopup yahoo"
 # IUSE="irc jingle meanwhile telepathy"
@@ -34,7 +34,13 @@ COMMONDEPEND="dev-libs/libpcre
 	x11-libs/libXScrnSaver
 	gadu? ( dev-libs/openssl )
 	groupwise? ( app-crypt/qca:2 )
-	jabber? ( net-dns/libidn app-crypt/qca:2 )
+	jabber? (
+		net-dns/libidn app-crypt/qca:2
+		jingle? (
+			>=net-libs/ortp-0.13
+			>=media-libs/speex-1.2_rc1
+		)
+	)
 	otr? ( net-libs/libotr )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )"
@@ -49,6 +55,8 @@ PDEPEND="ssl? ( app-crypt/qca-ossl )"
 
 src_configure() {
 	# Xmms isn't in portage, thus forcefully disabled.
+	# jingle has a non-standard flagname currently.
+	#   Don't forget to change this when upstream fixes the name!
 	mycmakeargs="${mycmakeargs}
 		-DWITH_Xmms=OFF
 		-DWITH_Telepathy=OFF -DWITH_Decibel=OFF
@@ -64,6 +72,7 @@ src_configure() {
 		$(cmake-utils_use_with history)
 		$(cmake-utils_use_with jabber IDN)
 		$(cmake-utils_use_with jabber QCA2)
+		-DNO_JINGLE=$(use jingle && echo OFF || echo ON)
 		$(cmake-utils_use_with latex)
 		$(cmake-utils_use_with messenger)
 		$(cmake-utils_use_with msn)
