@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> korganizer-4.1.87.ebuild:
+  Fix compilation
+
 *korganizer-4.1.87 (01 Jan 2009)
 
   01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +korganizer-4.1.87.ebuild:

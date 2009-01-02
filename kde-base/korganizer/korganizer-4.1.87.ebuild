@@ -30,3 +30,12 @@ KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml
 	knode/org.kde.knode.xml
 	libkdepim
 	libkholidays"
+
+src_prepare() {
+	# Fix target_link_libraries for now
+	sed -i -e's/kaddressbookprivate ${KDE4_KCAL_LIBS}/${KDE4_KCAL_LIBS}/' \
+		kontact/plugins/planner/CMakeLists.txt \
+		|| die "Failed to remove kaddressbookprivate from link"
+
+	kde4-meta_src_prepare
+}
