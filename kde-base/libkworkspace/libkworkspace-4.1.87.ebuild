@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="${DEPEND}
-		!<kde-base/libkworkspace-${PV}"
+		!<kde-base/libkworkspace-${PV}:${SLOT}"
 
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
