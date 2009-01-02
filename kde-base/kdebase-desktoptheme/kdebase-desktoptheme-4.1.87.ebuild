@@ -11,3 +11,6 @@ inherit kde4-meta
 DESCRIPTION="oxygen desktoptheme from kdebase"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
+
+RDEPEND="!<kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+		${DEPEND}"

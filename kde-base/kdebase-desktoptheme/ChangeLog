@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  kdebase-desktoptheme-4.1.87.ebuild:
+  Add block due to file collisions
+
 *kdebase-desktoptheme-4.1.87 (02 Jan 2009)
 
   02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +metadata.xml,
