@@ -37,7 +37,6 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )"
 RDEPEND="${COMMONDEPEND}
 	>=kde-base/kde-menu-icons-${PV}:${SLOT}"
-PDEPEND="kde-base/kdeartwork-iconthemes:${SLOT}"
 
 KMEXTRA="libs/nepomukquery/
 	libs/nepomukqueryclient/"
