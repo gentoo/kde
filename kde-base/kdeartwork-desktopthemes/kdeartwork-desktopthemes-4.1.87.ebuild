@@ -13,4 +13,4 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="${DEPEND}
-		!<kde-base/kdeplasma-addons-${PV}"
+		!kdeprefix? ( !<kde-base/kdeplasma-addons-${PV}:${SLOT}[kdeprefix=] )"
