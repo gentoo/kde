@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Special Dates plugin for Kontact: displays a summary of important holidays and calendar events"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
 DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}
 	>=kde-base/kontact-${PV}:${SLOT}
@@ -27,9 +27,10 @@ KMEXTRACTONLY="libkholidays
 KMEXTRA="kontact/plugins/specialdates"
 
 src_prepare() {
-	sed -e \
-		's:target_link_libraries(${LINK_ARG_LIST}:target_link_libraries(${LINK_ARG_LIST}\ ${KDE4_KCAL_LIBS}:g' \
-		-i CMakeLists.txt || die "linkage fix falied"
+	# Fix target_link_libraries for now
+	sed -i -e's/korganizer_calendar kaddressbookprivate)/korganizer_calendar)/' \
+		kontact/plugins/specialdates/CMakeLists.txt \
+		|| die "Failed to remove kaddressbookprivate from link"
 
 	kde4-meta_src_prepare
 }
