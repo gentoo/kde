@@ -8,7 +8,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug groupwise jingle htmlhandbook ssl" 
 
 # availible plugins
