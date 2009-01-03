@@ -1,6 +1,12 @@
 # ChangeLog for app-office/akonadi-server
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*akonadi-server-1.1.0 (03 Jan 2009)
+
+  03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  -akonadi-server-1.0.81.ebuild, +akonadi-server-1.1.0.ebuild:
+  Version bump
 
 *akonadi-server-1.0.81 (20 Dec 2008)
 
