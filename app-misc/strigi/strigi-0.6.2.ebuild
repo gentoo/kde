@@ -8,7 +8,7 @@ inherit cmake-utils eutils
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://www.vandenoever.info/software/strigi"
-SRC_URI="http://dev.gentooexperimental.org/~alexxy/${P}.tar.bz2"
+SRC_URI="http://www.vandenoever.info/software/strigi/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
