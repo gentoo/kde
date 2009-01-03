@@ -64,8 +64,8 @@ COMMONDEPEND="dev-libs/libpcre
 	gadu? ( dev-libs/openssl )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
-		dev-libs/libxml2
-		dev-libs/libxslt
+		net-dns/libidn
+		app-crypt/qca:2
 		jingle? (
 			net-libs/libjingle
 			>=net-libs/ortp-0.13
