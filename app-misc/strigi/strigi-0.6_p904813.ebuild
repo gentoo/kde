@@ -1,21 +1,19 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit cmake-utils eutils subversion
+inherit cmake-utils eutils
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://www.vandenoever.info/software/strigi"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
-ESVN_PROJECT="${PN}"
+SRC_URI="http://dev.gentooexperimental.org/~alexxy/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
-# IUSE="sqlite": fails to compile
 
 COMMONDEPEND="
 	dev-libs/libxml2
@@ -46,6 +44,8 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
+
+S="${WORKDIR}/${PN}"
 
 src_compile() {
 	# Strigi needs either expat or libxml2.
