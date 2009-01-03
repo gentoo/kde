@@ -3,6 +3,9 @@
 # $Header: $
 
   03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> akonadi-4.1.87.ebuild:
+  We dont need this!
+
+  03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> akonadi-4.1.87.ebuild:
   Update deps
 
   03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> akonadi-4.1.87.ebuild:

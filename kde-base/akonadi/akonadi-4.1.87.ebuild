@@ -35,17 +35,6 @@ KMEXTRACTONLY="
 	maildir/
 "
 
-pkg_setup() {
-	if ! built_with_use app-misc/strigi qt4; then
-		eerror""
-		eerror"you have to compile app-misc/strigi with qt4 support"
-		eerror""
-		die "app-misc/strigi needs to be compiled with qt4 support"
-	fi
-
-	kde4-meta_pkg_setup
-}
-
 src_prepare() {
 	if ! use semantic-desktop; then
 		sed -i -e "s/add_subdirectory( nepomuktag )//"\
