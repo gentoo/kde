@@ -14,6 +14,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="x11-themes/hicolor-icon-theme"
 RDEPEND="!<kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
+		!kdeprefix? ( kde-base/dolphin[kdeprefix=] )
 		${DEPEND}"
 
 KMEXTRA="l10n/
