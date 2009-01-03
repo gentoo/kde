@@ -15,8 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="!kde-base/phonon:${SLOT}
-	!kdeprefix? ( !kde-base/phonon-xine )
-	>=media-sound/phonon-4.2.80"
+	!kdeprefix? ( !kde-base/phonon-xine )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
