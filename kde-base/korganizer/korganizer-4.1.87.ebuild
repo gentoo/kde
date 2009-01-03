@@ -26,6 +26,7 @@ KMEXTRA="kdgantt1"
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
+	kdgantt1/
 	knode/org.kde.knode.xml
 	libkdepim
 	libkholidays
