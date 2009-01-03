@@ -6,6 +6,7 @@ EAPI="2"
 
 KMNAME="kdebindings"
 KMMODULE="python/${PN}"
+OPENGL_REQUIRED="allways"
 inherit kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
@@ -13,7 +14,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="akonadi debug semantic-desktop"
 
 DEPEND="
-	>=media-sound/phonon-4.2.81
 	>=dev-python/PyQt4-4.4.4-r1[webkit]
 	>=kde-base/kdelibs-${PV}:${SLOT}[opengl]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )
