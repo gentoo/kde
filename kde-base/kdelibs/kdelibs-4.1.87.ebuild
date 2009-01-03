@@ -38,7 +38,7 @@ COMMONDEPEND="
 		!kde-base/kpercentage:4.1[kdeprefix=]
 		!kde-base/ktnef:4.1[kdeprefix=]
 	)
-	>=app-misc/strigi-0.6
+	>=app-misc/strigi-0.6.2
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87
@@ -47,7 +47,7 @@ COMMONDEPEND="
 	media-libs/giflib
 	media-libs/jpeg
 	media-libs/libpng
-	>=media-sound/phonon-4.2.80
+	>=media-sound/phonon-4.3
 	sys-apps/dbus[X]
 	x11-libs/libICE
 	x11-libs/libSM
