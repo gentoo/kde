@@ -16,7 +16,7 @@ LICENSE="LGPL-2.1"
 RESTRICT="test"
 
 DEPEND="
-	>=app-office/akonadi-server-1.0.80
+	>=app-office/akonadi-server-1.1
 	>=app-crypt/gpgme-1.1.6
 	dev-libs/boost
 	dev-libs/libgpg-error
