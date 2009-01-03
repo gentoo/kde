@@ -38,7 +38,7 @@ COMMONDEPEND="
 		!kde-base/kpercentage:4.1[kdeprefix=]
 		!kde-base/ktnef:4.1[kdeprefix=]
 	)
-	>=app-misc/strigi-0.6.2
+	>=app-misc/strigi-0.6.2[qt4,dbus]
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87
