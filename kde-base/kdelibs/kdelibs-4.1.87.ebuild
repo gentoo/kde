@@ -32,11 +32,11 @@ COMMONDEPEND="
 	!=kde-base/kdebase-startkde-3.5.8
 	!kdeprefix? (
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
-		!kde-base/libplasma
-		!kde-base/kitchensync:4.1
-		!kde-base/knewsticker:4.1
-		!kde-base/kpercentage:4.1
-		!kde-base/ktnef:4.1
+		!kde-base/libplasma[kdeprefix=]
+		!kde-base/kitchensync:4.1[kdeprefix=]
+		!kde-base/knewsticker:4.1[kdeprefix=]
+		!kde-base/kpercentage:4.1[kdeprefix=]
+		!kde-base/ktnef:4.1[kdeprefix=]
 	)
 	>=app-misc/strigi-0.6
 	dev-libs/libxml2
