@@ -12,7 +12,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}"
-RDEPEND="${DEPEND}
-		>=media-sound/phonon-4.2.80"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/keduvocdocument"
