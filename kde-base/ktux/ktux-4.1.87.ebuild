@@ -11,8 +11,7 @@ DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=app-misc/strigi-0.6
-	>=kde-base/kscreensaver-${PV}:${SLOT}"
+DEPEND=">=kde-base/kscreensaver-${PV}:${SLOT}"
 
 src_prepare() {
 	sed -i -e's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/' \
