@@ -14,7 +14,6 @@ IUSE="debug google-gadgets htmlhandbook python xcomposite xinerama"
 
 COMMONDEPEND="!kde-base/plasma:${SLOT}
 	>=kde-base/soliduiserver-${PV}:${SLOT}
-	>=app-misc/strigi-0.6
 	>=kde-base/kephal-${PV}:${SLOT}
 	>=kde-base/ksysguard-${PV}:${SLOT}
 	>=kde-base/libkworkspace-${PV}:${SLOT}

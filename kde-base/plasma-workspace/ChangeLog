@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  plasma-workspace-4.1.87.ebuild:
+  Update deps
+
   02 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
   plasma-workspace-4.1.87.ebuild:
   Drop dep for kdeartwork-iconthems
