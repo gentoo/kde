@@ -12,7 +12,7 @@ DESCRIPTION="System settings utility"
 IUSE="debug htmlhandbook +usb xinerama"
 KEYWORDS="~amd64 ~x86"
 
-COMMONDEPEND=">=app-misc/strigi-0.6
+COMMONDEPEND="
 	>=dev-libs/glib-2
 	media-libs/fontconfig
 	>=media-libs/freetype-2
