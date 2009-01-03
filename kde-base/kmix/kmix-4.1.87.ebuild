@@ -11,8 +11,7 @@ DESCRIPTION="KDE mixer gui"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug htmlhandbook"
 
-DEPEND=">=media-sound/phonon-4.2.80
-	alsa? ( >=media-libs/alsa-lib-1.0.14a )"
+DEPEND="alsa? ( >=media-libs/alsa-lib-1.0.14a )"
 RDEPEND="${DEPEND}"
 
 src_configure() {
