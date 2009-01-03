@@ -45,12 +45,15 @@ src_configure() {
 src_install() {
 	kde4-meta_src_install
 	rm -f "${D}"/usr/lib/python*/site-packages/PyKDE4/*.py[co]
+	rm -f "${D}${PREFIX}"/share/apps/${PN}/*.py[co]
 }
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 	python_version
-	python_mod_optimize /usr/$(get_libdir)/python${PYVER}/site-packages/PyKDE4
+	python_mod_optimize \
+		/usr/$(get_libdir)/python${PYVER}/site-packages/PyKDE4 \
+		"${PREFIX}"/share/apps/${PN}
 }
 
 pkg_postrm() {
