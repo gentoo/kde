@@ -11,5 +11,3 @@ inherit kde4-meta
 DESCRIPTION="kdepim: strigi plugins"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-
-DEPEND=">=app-misc/strigi-0.6"
