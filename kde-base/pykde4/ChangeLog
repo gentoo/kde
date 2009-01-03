@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Jan 2009; Marcus D. Hanwell <cryos@gentoo.org>
+  kde-base/pykde4/pykde4-4.1.87.ebuild:
+  Fixed bad dependency atom.
+
 *pykde4-4.1.87 (01 Jan 2009)
 
   01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +pykde4-4.1.87.ebuild:
