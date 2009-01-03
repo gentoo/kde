@@ -33,8 +33,8 @@ KMEXTRACTONLY="
 
 src_unpack(){
 	if use kontact; then
-		KMLOADLIBS+="kontactinterfaces"
-		KMEXTRA+="kontact/plugins/planner"
+		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
+		KMEXTRA="${KMLOADLIBS} kontact/plugins/planner"
 	fi
 
 	kde4-meta_src_unpack
