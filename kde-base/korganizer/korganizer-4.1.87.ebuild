@@ -11,31 +11,42 @@ DESCRIPTION="A Personal Organizer for KDE"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND="app-crypt/gpgme
+DEPEND="
+	app-crypt/gpgme
 	>=kde-base/libkdepim-${PV}:${SLOT}
 	>=kde-base/libkholidays-${PV}:${SLOT}
-	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT} )"
+	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT} )
+	"
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
 KMEXTRA="kdgantt1"
-if use kontact; then
-	KMLOADLIBS+=" kontactinterfaces"
-	KMEXTRA+=" kontact/plugins/planner"
-fi
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
-KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml
+KMEXTRACTONLY="
+	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
 	knode/org.kde.knode.xml
 	libkdepim
-	libkholidays"
+	libkholidays
+"
+
+src_unpack(){
+	if use kontact; then
+		KMLOADLIBS+="kontactinterfaces"
+		KMEXTRA+="kontact/plugins/planner"
+	fi
+
+	kde4-meta_src_unpack
+}
 
 src_prepare() {
-	# Fix target_link_libraries for now
-	sed -i -e's/kaddressbookprivate ${KDE4_KCAL_LIBS}/${KDE4_KCAL_LIBS}/' \
-		kontact/plugins/planner/CMakeLists.txt \
-		|| die "Failed to remove kaddressbookprivate from link"
+	if use kontact; then
+		# Fix target_link_libraries for now
+		sed -i -e's/kaddressbookprivate ${KDE4_KCAL_LIBS}/${KDE4_KCAL_LIBS}/' \
+			kontact/plugins/planner/CMakeLists.txt \
+			|| die "Failed to remove kaddressbookprivate from link"
+	fi
 
 	kde4-meta_src_prepare
 }
