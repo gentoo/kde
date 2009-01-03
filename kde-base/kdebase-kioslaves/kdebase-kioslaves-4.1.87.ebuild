@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="bzip2 debug htmlhandbook openexr samba"
 RESTRICT="test"
 
-DEPEND=">=app-misc/strigi-0.6
+DEPEND="
 	dev-libs/cyrus-sasl
 	sys-apps/dbus
 	sys-apps/hal
