@@ -14,7 +14,6 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=media-libs/xine-lib-1.1.9
-	>=media-sound/phonon-4.2.80[xcb]"
+RDEPEND=">=media-libs/xine-lib-1.1.9"
 DEPEND="${RDEPEND}
 	sys-devel/gettext"
