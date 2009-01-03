@@ -3,6 +3,9 @@
 # $Header: $
 
   03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> kdelibs-4.1.87.ebuild:
+  Update deps for kdelibs
+
+  03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> kdelibs-4.1.87.ebuild:
   Update deps for kdebase
 
 *kdelibs-4.1.87 (02 Jan 2009)
