@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-4.2.81_p904813 (03 Jan 2009)
+
+  03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru>
+  +phonon-4.2.81_p904813.ebuild, -phonon-4.2.9999.ebuild:
+  Version bump
+
   03 Jan 2009; Theo Chatzimichos <tampakrap@gmail.com>
   +media-sound/phonon/phonon-4.2.9999.ebuild:
   add phonon live ebuild as pykde4 fails without it

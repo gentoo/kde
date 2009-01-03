@@ -1,17 +1,17 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
-inherit cmake-utils subversion
+inherit cmake-utils
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/phonon"
+SRC_URI="http://dev.gentooexperimental.org/~alexxy/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug gstreamer +xcb +xine"
 
 RDEPEND="
@@ -34,6 +34,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
 "
+
+S="${WORKDIR}/${PN}"
 
 pkg_setup() {
 	if use !xine && use !gstreamer; then
