@@ -11,4 +11,8 @@ DESCRIPTION="The KDE Control Center"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/kdnssd-${PV}:${SLOT}"
+DEPEND="
+	!<kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
+	!kdeprefix? ( !<kde-base/ksmserver-${PV}[kdeprefix=] )
+	>=kde-base/kdnssd-${PV}:${SLOT}
+	"
