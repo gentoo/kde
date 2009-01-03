@@ -11,9 +11,5 @@ DESCRIPTION="Nepomuk KDE4 client"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-# dev-cpp/clucene provides the optional strigi backend.
-# As there's currently no other *usable* strigi backend, I've added it as a hard
-# dependency.
-DEPEND="dev-cpp/clucene
-		dev-libs/soprano[clucene]"
+DEPEND="dev-libs/soprano[clucene]"
 RDEPEND="${DEPEND}"
