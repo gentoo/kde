@@ -26,7 +26,6 @@ KMEXTRA="kdgantt1"
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
-	kdgantt1/
 	knode/org.kde.knode.xml
 	libkdepim
 	libkholidays
@@ -35,7 +34,7 @@ KMEXTRACTONLY="
 src_unpack(){
 	if use kontact; then
 		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
-		KMEXTRA="${KMLOADLIBS} kontact/plugins/planner"
+		KMEXTRA="${KMEXTRA} kontact/plugins/planner"
 	fi
 
 	kde4-meta_src_unpack
