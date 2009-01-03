@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<use>
-	<flag name="addbookmarks">Enable the addbookmarks plugin</flag>
-	<flag name="alias">Enable the alias plugin</flag>
-	<flag name="autoreplace">Enable the autoreplace plugin</flag>
-	<flag name="connectionstatus">Builds Connection Status plugin</flag>
-	<flag name="contactnotes">Enable the contactnotes plugin</flag>
-	<flag name="decibel">Enable the Telepathy protocol plugin</flag>
-	<flag name="gadu">Enable the gadu protocol plugin</flag>
-	<flag name="groupwise">Enable the groupwise protocol plugin</flag>
-	<flag name="highlight">Enable the highlight plugin</flag>
-	<flag name="history">Enable the history plugin</flag>
-	<flag name="irc">Builds IRC protocol handler</flag>
-	<flag name="jabber">Enable the Jabber protocol plugin</flag>
-	<flag name="nowlistening">Enable the nowlistening plugin</flag>
-	<flag name="messenger">Enable the Windows LIVE!-Messenger protocol plugin</flag>
-	<flag name="netmeeting">Builds netmeeting plugin (require gnomemeeting)</flag>
-	<flag name="otr">Encryption for IMs, using libotr</flag>
-	<flag name="pipes">Enable support for the pipes plugin</flag>
-	<flag name="privacy">plugin to selectively filter messages</flag>
-	<flag name="qca">Enable the Qt Cryptographic Architecture</flag>
-	<flag name="qq">enable support for the chinese network protocol</flag>
-	<flag name="sametime">Enables support for the Sametime protocol for instant messaging</flag>
-	<flag name="sms">Enable the sms protocol plugin</flag>
-	<flag name="statistics">Enable the statistics plugin</flag>
-	<flag name="telepathy">Enable support for the realtime communication framework telepathy</flag>
-	<flag name="testbed">Enable the testbed protocol plugin</flag>
-	<flag name="texteffect">Enable the texteffect plugin</flag>
-	<flag name="translator">Enable the translator plugin</flag>
-	<flag name="urlpicpreview">plugin to allow users to send photos through URLs</flag>
-	<flag name="xslt">Enable xslt support</flag>
-	<flag name="webpresence">Enable the webpresence plugin</flag>
-	<flag name="wlm">Enable the wlm plugin</flag>
-	<flag name="winpopup">Enable support for the winpopup plugin</flag>
+	<use>
+		<!-- PLUGINS -->
+	<flag name="addbookmarks">Automaticaly add incoming urls to bookmarks.</flag>
+	<flag name="alias">Enables creating of your own aliases for commands.</flag>
+	<flag name="autoreplace">Automaticaly replace selected text</flag>
+	<flag name="contactnotes">Enables writing personal notes for contacts.</flag>
+	<flag name="highlight">Allows you to specify highlights on specific events.</flag>
+	<flag name="history">Enables saving chat history.</flag>
+	<flag name="latex">Embed latex formatted text into messages.</flag>
+	<flag name="nowlistening">Shows song you currently listen to in your status/etc. Bindings for many players.</flag>
+	<flag name="otr">Allows crypting your chat (drugs and talking nonsense are considered as good alternatives ;]).</flag>
+	<flag name="pipes">Send messages to external pipe.</flag>
+	<flag name="privacy">Filter for incomming messages</flag>
+	<flag name="statistic">Everybody loves statistic graphs, especialy cake ones. ;]</flag>
+	<flag name="texteffect">Various fancy text effects for your messages (dont ever consider writing us with this enabled ;]).</flag>
+	<flag name="translator">Translate incoming and outgoing messages.</flag>
+	<flag name="urlpicpreview">Enables in conversation pictures preview.</flag>
+	<flag name="webpresence">Show your status and some more informations on web.</flag>
+		<!-- PROTOCOLS -->
+	<flag name="bonjour">Enable Link-Local Messaging via the bonjour protocol.</flag>
+	<flag name="gadu">Enable the Gadu protocol handler.</flag>
+	<flag name="groupwise">Enable the Groupwise protocol handler.</flag>
+	<flag name="irc">Enable the IRC protocol handler.</flag>
+	<flag name="jabber">Enable XMPP protocol handler (this is also gmail).</flag>
+	<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
+	<flag name="messenger">Enable support for MSN and Windows live protocols (old implementation).</flag>
+	<flag name="msn">Enable support for MSN (old microsoft protocol).</flag>
+	<flag name="oscar">Enable support for AIM and ICQ protocols.</flag>
+	<flag name="qq">enable support for the chinese network protocol.</flag>
+	<flag name="sms">Enable the sms sending plugin.</flag>
+	<flag name="telepathy">Enable support for the realtime communication framework telepathy.</flag>
+	<flag name="testbed">Enable the testbed protocol.</flag>
+	<flag name="winpopup">Enable pop-up messages sending on windows. (same as good old "net send" messages ;])</flag>
+	<flag name="wlm">Enable "Windows live messenger" protocol support (New protocol from MS).</flag>
+	<flag name="yahoo">Enable yahoo protocol support.</flag>
+		<!-- NORMAL USEFLAGS-->
+	<flag name="jingle">Build voice support in jabber protocol.</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
