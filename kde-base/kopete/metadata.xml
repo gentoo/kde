@@ -36,8 +36,6 @@
 	<flag name="winpopup">Enable pop-up messages sending on windows. (same as good old "net send" messages ;])</flag>
 	<flag name="wlm">Enable "Windows live messenger" protocol support (New protocol from MS).</flag>
 	<flag name="yahoo">Enable yahoo protocol support.</flag>
-		<!-- NORMAL USEFLAGS-->
-	<flag name="jingle">Build voice support in jabber protocol.</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
