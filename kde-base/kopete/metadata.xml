@@ -14,7 +14,7 @@
 	<flag name="otr">Allows crypting your chat (drugs and talking nonsense are considered as good alternatives ;]).</flag>
 	<flag name="pipes">Send messages to external pipe.</flag>
 	<flag name="privacy">Filter for incomming messages</flag>
-	<flag name="statistic">Everybody loves statistic graphs, especialy cake ones. ;]</flag>
+	<flag name="statistics">Everybody loves statistic graphs, especialy cake ones. ;]</flag>
 	<flag name="texteffect">Various fancy text effects for your messages (dont ever consider writing us with this enabled ;]).</flag>
 	<flag name="translator">Translate incoming and outgoing messages.</flag>
 	<flag name="urlpicpreview">Enables in conversation pictures preview.</flag>

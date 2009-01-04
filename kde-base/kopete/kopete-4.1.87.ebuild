@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug groupwise jingle htmlhandbook ssl" 
+IUSE="debug groupwise jingle htmlhandbook ssl"
 
 # availible plugins
 #
@@ -24,14 +24,14 @@ IUSE="debug groupwise jingle htmlhandbook ssl"
 #	otr: libotr
 #	pipes: NO DEPS
 #	privacy: NO DEPS
-#	statistic: dev-db/sqlite:3
+#	statistics: dev-db/sqlite:3
 #	texteffect: NO DEPS
 #	translator: NO DEPS
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
 # NOTE: by default we enable all plugins wich dont have any dependencies
 PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history latex
-+nowlistening otr +pipes +privacy +statistic +texteffect +translator +urlpicpreview webpresence"
++nowlistening otr +pipes +privacy +statistics +texteffect +translator +urlpicpreview webpresence"
 
 # availible protocols
 #
@@ -48,11 +48,11 @@ PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history lat
 #	sms: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
-#	winpoupup: NO DEPS
+#	winpopup: NO DEPS
 #	wlm: libmsn
 #	yahoo: NO DEPS
 PROTOCOLS="bonjour gadu groupwise irc +jabber meanwhile messenger msn oscar qq
-testbed telepathy winpoupup wlm yahoo"
+testbed telepathy winpopup wlm yahoo"
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
