@@ -21,6 +21,7 @@ RDEPEND="x11-libs/qt-core:4
 	x11-libs/qt-test:4
 	x11-misc/shared-mime-info"
 DEPEND="${RDEPEND}
+	dev-libs/boost
 	dev-libs/libxslt
 	kde-base/automoc"
 
