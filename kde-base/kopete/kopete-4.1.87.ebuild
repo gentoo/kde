@@ -51,8 +51,12 @@ PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history lat
 #	winpopup: NO DEPS
 #	wlm: libmsn
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour gadu groupwise irc +jabber meanwhile messenger msn oscar qq
-testbed telepathy winpopup wlm yahoo"
+PROTOCOLS="bonjour gadu groupwise +jabber meanwhile messenger msn oscar qq
+testbed winpopup wlm yahoo"
+
+# disabled protocols
+#   telepathy: net-libs/decibel
+#   irc: NO DEPS
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
@@ -67,7 +71,6 @@ COMMONDEPEND="dev-libs/libpcre
 		net-dns/libidn
 		app-crypt/qca:2
 		jingle? (
-			net-libs/libjingle
 			>=net-libs/ortp-0.13
 			>=media-libs/speex-1.2_rc1
 		)
@@ -80,8 +83,8 @@ COMMONDEPEND="dev-libs/libpcre
 	wlm? ( net-libs/libmsn )"
 
 RDEPEND="${COMMONDEPEND}
-	latex? ( virtual/latex-base )
-	telepathy? ( net-libs/decibel )"
+	latex? ( virtual/latex-base )"
+#	telepathy? ( net-libs/decibel )"
 
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto"
@@ -94,15 +97,11 @@ src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF"
 	# enable protocols
 	for x in ${PROTOCOLS}; do
-		if [[ $x = irc ]]; then
-			elog "IRC is not working yet so I only show this info instead of compiling it. Sorry"
-		else
-			mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x})"
-		fi
+		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
 	done
 	# enable plugins
 	for x in ${PLUGINS}; do
-		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x})"
+		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
 	done
 	# additional defines
 	if use jingle && ! use jabber; then
@@ -116,13 +115,13 @@ src_configure() {
 }
 
 pkg_postinst() {
-	if use telepathy; then
-		elog "To use kopete telepathy plugins, you need to start gabble first:"
-		elog "GABBLE_PERSIST=1 telepathy-gabble &"
-		elog "export TELEPATHY_DATA_PATH=/usr/share/telepathy/managers/"
-	fi
+	#if use telepathy; then
+	#	elog "To use kopete telepathy plugins, you need to start gabble first:"
+	#	elog "GABBLE_PERSIST=1 telepathy-gabble &"
+	#	elog "export TELEPATHY_DATA_PATH=/usr/share/telepathy/managers/"
+	#fi
 	if ! use ssl; then
-		if use jabber || use messenger || use irc; then
+		if use jabber || use messenger; then # || use irc; then
 			echo
 			elog "In order to use ssl in jabber, messenger and irc you'll need to"
 			elog "install app-crypt/qca-ossl package."
