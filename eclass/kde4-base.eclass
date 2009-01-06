@@ -13,12 +13,9 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit base cmake-utils eutils multilib kde4-functions
-#live/normal
+inherit base cmake-utils eutils multilib subversion kde4-functions
+
 get_build_type
-if [[ $BUILD_TYPE = live ]]; then
-	inherit subversion
-fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
@@ -26,28 +23,15 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # @DESCRIPTION:
 # Set qt dependencies. And use opengl based on OPENGL_REQUIRED variable.
 kde4-base_set_qt_dependencies() {
-	local qt qtcore qtgui qt3support qtdepend qtopengldepend
-
-	qt="["
-	case ${OPENGL_REQUIRED} in
-		always)
-			qt="${qt}opengl,"
-			;;
-		optional)
-			qt="${qt}opengl?,"
-			;;
-	esac
-	qt="${qt}accessibility,dbus,gif,jpeg,png,qt3support,ssl,zlib]"
-	qtcore="[qt3support,ssl]"
-	qtgui="[accessibility,dbus]"
-	qt3support="[accessibility]"
+	local qtdepend qtopengldepend
 
 	# split qt
 	qtdepend="
-		x11-libs/qt-core:4${qtcore}
-		x11-libs/qt-gui:4${qtgui}
-		x11-libs/qt-qt3support:4${qt3support}
+		x11-libs/qt-core:4[qt3support,ssl]
+		x11-libs/qt-gui:4[accessibility,dbus]
+		x11-libs/qt-qt3support:4[accessibility]
 		x11-libs/qt-script:4
+		x11-libs/qt-script:4[qt3support]
 		x11-libs/qt-svg:4
 		x11-libs/qt-test:4
 		x11-libs/qt-webkit:4"
