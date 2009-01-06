@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME="kdebase-workspace"
 KMMODULE="plasma"
-inherit kde4-meta
+inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~x86"
@@ -57,4 +57,23 @@ src_configure() {
 		-DWITH_Xmms=OFF"
 
 	kde4-meta_src_configure
+}
+
+src_install() {
+	kde4-meta_src_install
+	rm -f "${D}"/usr/$(get_libdir)/python*/site-packages/PyKDE4/*.py[co]
+	rm -f "${D}${PREFIX}"/share/apps/plasma_scriptengine_python/*.py[co]
+}
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+	python_version
+	python_mod_optimize \
+		/usr/$(get_libdir)/python${PYVER}/site-packages/PyKDE4 \
+		"${PREFIX}"/share/apps/plasma_scriptengine_python
+}
+
+pkg_postrm() {
+	kde4-meta_pkg_postrm
+	python_mod_cleanup
 }
