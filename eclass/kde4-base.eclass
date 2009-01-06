@@ -31,7 +31,7 @@ kde4-base_set_qt_dependencies() {
 		x11-libs/qt-gui:4[accessibility,dbus]
 		x11-libs/qt-qt3support:4[accessibility]
 		x11-libs/qt-script:4
-		x11-libs/qt-script:4[qt3support]
+		x11-libs/qt-sql:4[qt3support]
 		x11-libs/qt-svg:4
 		x11-libs/qt-test:4
 		x11-libs/qt-webkit:4"
