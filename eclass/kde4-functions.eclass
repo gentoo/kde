@@ -114,7 +114,7 @@ enable_selected_linguas() {
 	# ebuild overridable linguas directory definition
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:=${S}/po}
 	cd "$KDE_LINGUAS_DIR" || die "wrong linguas dir specified"
-	
+
 	# fix all various crazy sr@Latn variations
 	# this part is only ease for ebuilds, so there wont be any die when this
 	# fail at any point
@@ -147,18 +147,6 @@ enable_selected_linguas() {
 			mv "$lingua.po.old" "$lingua.po"
 		fi
 		eend $?
-	done
-}
-
-# FIXME: descripton too brief?
-# @FUNCTION: kdebase_toplevel_cmakelists
-# @DESCRIPTION:
-# replace includes for live ebuilds with optional requests
-kdebase_toplevel_cmakelist() {
-	insert=$(sed -e '/macro_optional_find_package/!d' < "${ESVN_WC_PATH}"/CMakeLists.txt)
-	at=$(sed -n '/^include[[:space:]]*(/=' < "${S}"/CMakeLists.txt | sed -n '$p')
-	for line in ${insert}; do
-		sed "${at}a${line}" -i  "${S}"/CMakeLists.txt
 	done
 }
 

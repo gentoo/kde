@@ -7,7 +7,7 @@
 # kde@gentoo.org
 # @BLURB: This eclass provides functions for kde 4.X ebuilds
 # @DESCRIPTION:
-# The kde4-base.eclass provides support for building KDE4 monolithic ebuilds
+# The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
@@ -202,7 +202,7 @@ case ${NEED_KDE} in
 					;;
 				3.9*)
 					_kdedir="3.9"
-					_pv="-${PV}:kde-4" 
+					_pv="-${PV}:kde-4"
 					_pvn="-${PV}"
 					;;
 				9999*)
@@ -321,18 +321,18 @@ if [[ ${NEED_KDE} != none ]]; then
 		DEPEND="${DEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
-		RDEPEND="${RDEPEND}	
+		RDEPEND="${RDEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
 		if [[ $PN != kdepimlibs ]]; then
-			DEPEND="${DEPEND} 
+			DEPEND="${DEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
-			RDEPEND="${RDEPEND} 
+			RDEPEND="${RDEPEND}
 				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
 				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
 			if [[ $PN != kdebase-data ]]; then
-				RDEPEND="${RDEPEND} 
+				RDEPEND="${RDEPEND}
 					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix] )
 					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[-kdeprefix] )"
 			fi
@@ -348,15 +348,14 @@ case ${SLOT} in
 		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
 		# Split ebuild, or extragear stuff
 		if [[ -n $KMNAME ]]; then
-		    ESVN_PROJECT="KDE/${KMNAME}"
+		    ESVN_PROJECT="${KMNAME}"
 			if [[ -z ${KMNOMODULE} && -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}/"
 			fi
 			# Split kde-base/ ebuilds: (they reside in trunk/KDE)
 			case ${KMNAME} in
 				kdebase-*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/kdebase"
-					ESVN_PROJECT="KDE/kdebase"
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/kdebase/${KMNAME#kdebase-}/"
 					;;
 				kdereview)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
@@ -368,7 +367,7 @@ case ${SLOT} in
 					case ${PN} in
 						*-plasma)
 							ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-							ESVN_PROJECT="KDE/${KMNAME}/${KMMODULE}"
+							ESVN_PROJECT="${KMNAME}/${KMMODULE}"
 							;;
 						*)
 							ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
@@ -386,7 +385,7 @@ case ${SLOT} in
 		else
 			# kdelibs, kdepimlibs
 			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
-			ESVN_PROJECT="KDE/${PN}"
+			ESVN_PROJECT="${PN}"
 		fi
 		# limit syncing to 1 hour.
 		ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
@@ -467,10 +466,11 @@ kde4-base_pkg_setup() {
 		die "built_with_use illegal in this EAPI!"
 
 	if [[ $BUILD_TYPE = live && -z $I_KNOW_WHAT_I_AM_DOING ]]; then
-		elog
-		elog "WARNING! This is an experimental ebuild of the ${KMNAME:-${PN}} KDE4 SVN tree."
-		elog "Use at your own risk. Do _NOT_ file bugs at bugs.gentoo.org because"
-		elog "of this ebuild!"
+		echo
+		elog "WARNING! This is an experimental live ebuild of ${KMNAME:-${PN}}"
+		elog "Use it at your own risk."
+		elog "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
+		echo
 	fi
 }
 
@@ -485,12 +485,28 @@ kde4-base_src_unpack() {
 
 	if [[ $BUILD_TYPE = live ]]; then
 		local cleandir
-		cleandir="${ESVN_STORE_DIR}/KDE/KDE"
-		if [[ -d ${cleandir} ]]; then
-			eerror "'${cleandir}' should never have been created. Either move it to"
-			eerror "${ESVN_STORE_DIR}/${ESVN_PROJECT}/${ESVN_REPO_URI##*/} or remove"
-			eerror "completely."
-			die "'${cleandir}' is in the way."
+		cleandir="${ESVN_STORE_DIR}/KDE"
+		if [[ -d "${cleandir}" ]]; then
+			ewarn "'${cleandir}' has been found. Moving contents to new location."
+			addwrite "${ESVN_STORE_DIR}"
+			# Split kdebase
+			local module
+			if pushd "${cleandir}"/kdebase/kdebase > /dev/null; then
+				for module in `find . -maxdepth 1 -type d -name [a-z0-9]\*`; do
+					module="${module#./}"
+					mkdir -p "${ESVN_STORE_DIR}/kdebase-${module}" && mv -f "${module}" "${ESVN_STORE_DIR}/kdebase-${module}" || \
+						die "Failed to move to '${ESVN_STORE_DIR}/kdebase-${module}'."
+				done
+				popd > /dev/null
+				rm -fr "${cleandir}/kdebase" || \
+					die "Failed to remove ${cleandir}/kdebase. You need to remove it manually."
+			fi
+			# Move the rest
+			local pkg
+			for pkg in "${cleandir}"/*; do
+				mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "failed to move ${pkg}"
+			done
+			rmdir "${cleandir}" || die "Could not move obsolete KDE store dir. Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 		fi
 		subversion_src_unpack
 	else

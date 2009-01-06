@@ -79,7 +79,7 @@ case ${KMNAME} in
 			!app-office/koffice:0
 			!app-office/koffice-meta:0"
 		case ${PN} in
-			koffice-data) 
+			koffice-data)
 				DEPEND="${DEPEND} media-libs/lcms"
 				RDEPEND="${RDEPEND} media-libs/lcms"
 				;;
@@ -163,12 +163,8 @@ kde4-meta_pkg_setup() {
 kde4-meta_src_unpack() {
 	debug-print-function  ${FUNCNAME} "$@"
 	if [[ $BUILD_TYPE = live ]]; then
-		S="$WORKDIR/$PN"
-		mkdir -p "${S}"
-		ESVN_RESTRICT="export" subversion_src_unpack
-		subversion_wc_info
+		kde4-base_src_unpack
 		kde4-meta_src_extract
-		subversion_bootstrap
 	else
 		kde4-meta_src_extract
 	fi
@@ -187,11 +183,6 @@ kde4-meta_src_extract() {
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
-
-		case ${KMNAME} in
-			kdebase) kmnamedir="" ;;
-			kdebase-*) kmnamedir="${KMNAME#kdebase-}/" ;;
-		esac
 
 		rsync_options="--group --links --owner --perms --quiet --exclude=.svn/"
 
@@ -214,7 +205,6 @@ kde4-meta_src_extract() {
 				rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
 					|| die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 		done
-		[[ $KMNAME = kdebase* ]] && kdebase_toplevel_cmakelist
 
 		if [[ $KMNAME = kdebase-runtime && $PN != kdebase-data ]]; then
 			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
@@ -222,7 +212,14 @@ kde4-meta_src_extract() {
 		fi
 	else
 		local abort tarball tarfile f extractlist
-		tarball="${KMNAME}-${PV}.tar.bz2"
+		case $KMNAME in
+			kdebase-apps)
+				tarball="${KMNAME#-apps}-${PV}.tar.bz2"
+				;;
+			*)
+				tarball="${KMNAME}-${PV}.tar.bz2"
+				;;
+		esac
 		tarfile="${DISTDIR}"/${tarball}
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
@@ -288,17 +285,22 @@ kde4-meta_create_extractlists() {
 				apps/config-apps.h.cmake
 				apps/ConfigureChecks.cmake"
 			;;
+		kdebase-apps)
+			KMEXTRACTONLY="${KMEXTRACTONLY}
+				config-apps.h.cmake
+				ConfigureChecks.cmake"
+			;;
 		kdebase-runtime)
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-runtime.h.cmake"
 			;;
 		kdebase-workspace)
 			KMEXTRACTONLY="${KMEXTRACTONLY}
-						config-unix.h.cmake
-						ConfigureChecks.cmake
-						config-workspace.h.cmake
-						config-X11.h.cmake
-						startkde.cmake"
+				config-unix.h.cmake
+				ConfigureChecks.cmake
+				config-workspace.h.cmake
+				config-X11.h.cmake
+				startkde.cmake"
 			case ${SLOT} in
 				4.2)
 					KMEXTRACTONLY="${KMEXTRACTONLY}
@@ -451,7 +453,7 @@ _change_cmakelists_parent_dirs() {
 
 # FIXME: add description
 # @FUNCTION: kde4-meta_change_cmakelists
-# @DESCRIPTION: 
+# @DESCRIPTION:
 kde4-meta_change_cmakelists() {
 	debug-print-function  ${FUNCNAME} "$@"
 
