@@ -13,9 +13,12 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit base cmake-utils eutils multilib subversion kde4-functions
+inherit base cmake-utils eutils multilib kde4-functions
 
 get_build_type
+if [[ $BUILD_TYPE = live ]]; then
+	inherit subversion
+fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
