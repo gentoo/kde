@@ -1,8 +1,15 @@
 # ChangeLog for dev-cpp/eigen
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-*eigen-2.0_beta2 (24 Dec 2008)
+*eigen-2.0_beta5 (06 Jan 2009)
+
+  06 Jan 2009; Marcus D. Hanwell <cryos@gentoo.org>
+  -dev-cpp/eigen/eigen-2.0_beta3.ebuild,
+  +dev-cpp/eigen/eigen-2.0_beta5.ebuild:
+  Version bump.
+
+*eigen-2.0_beta3 (24 Dec 2008)
 
   24 Dec 2008; Marcus D. Hanwell <cryos@gentoo.org>
   -eigen-2.0_beta2.ebuild, +eigen-2.0_beta3.ebuild:
