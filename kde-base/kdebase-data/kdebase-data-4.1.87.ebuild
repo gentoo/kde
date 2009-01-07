@@ -16,7 +16,7 @@ DEPEND="x11-themes/hicolor-icon-theme"
 # Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
 # releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
 RDEPEND="
-	!<kde-base/dolphin-4.1.87:4.1[kdeprefix=]
+	!<kde-base/dolphin-4.1.87:4.2[kdeprefix=]
 	!kdeprefix? ( !<kde-base/dolphin-4.1.87[-kdeprefix] )
 	${DEPEND}
 "
