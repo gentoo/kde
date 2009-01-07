@@ -4,6 +4,10 @@
 
   07 Jan 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdebase-data-4.1.87.ebuild:
+  Restrict the block and add comment explaining it.
+
+  07 Jan 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebase-data-4.1.87.ebuild:
   Fixed the dolphin block.
 
 *kdebase-data-4.1.87 (01 Jan 2009)
