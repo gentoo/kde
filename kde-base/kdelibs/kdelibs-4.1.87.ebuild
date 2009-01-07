@@ -25,7 +25,7 @@ RESTRICT="test"
 # kde-base/ktnef
 COMMONDEPEND="
 	!<=kde-base/kdebase-3.5.9-r4
-	!<=kde-base/kdebase-startkde-3.5.10-r3
+	!<=kde-base/kdebase-startkde-3.5.10
 	!kdeprefix? (
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 		!kde-base/libplasma[kdeprefix=]
