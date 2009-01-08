@@ -209,12 +209,12 @@ koffice_fix_libraries() {
 }
 # @FUNCTION: get_build_type
 # @DESCRIPTION:
-# Determine whether we are using live ebuild or normal tbzs.
+# Determine whether we are using live ebuild or tbzs.
 get_build_type() {
 	if [[ $SLOT = live || $PV = 9999* ]]; then
 		BUILD_TYPE="live"
 	else
-		BUILD_TYPE="normal"
+		BUILD_TYPE="release"
 	fi
 	export BUILD_TYPE
 }
