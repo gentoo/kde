@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kmix-4.1.96 (08 Jan 2009)
+
+  08 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +kmix-4.1.96.ebuild:
+  Version bump.
+
   03 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> kmix-4.1.87.ebuild:
   Drop media-sound/phonon dep since it already pulled by kdelibs
 

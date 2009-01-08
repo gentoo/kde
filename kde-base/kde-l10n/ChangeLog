@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kde-l10n-4.1.96 (08 Jan 2009)
+
+  08 Jan 2009; <alexxy@gentoo.org> +kde-l10n-4.1.96.ebuild:
+  Bumped to 4.1.96.
+
   28 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> kde-l10n-4.1.85.ebuild:
   Drop ~ppc ~ppc64 keywords
 

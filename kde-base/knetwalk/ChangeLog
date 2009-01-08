@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*knetwalk-4.1.96 (08 Jan 2009)
+
+  08 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +knetwalk-4.1.96.ebuild:
+  Version bump.
+
 *knetwalk-4.1.87 (01 Jan 2009)
 
   01 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +knetwalk-4.1.87.ebuild:
