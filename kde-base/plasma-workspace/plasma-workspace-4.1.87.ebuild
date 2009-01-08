@@ -23,7 +23,7 @@ COMMONDEPEND="!kde-base/plasma:${SLOT}
 	x11-libs/libXfixes
 	x11-libs/libXrender
 	x11-libs/libXtst
-	google-gadgets? ( >=x11-misc/google-gadgets-0.10.4[qt4] )
+	google-gadgets? ( >=x11-misc/google-gadgets-0.10.5[qt4] )
 	python? (
 		>=dev-python/sip-4.7.1
 		>=dev-python/PyQt4-4.4.0
