@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/phonon-xine
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*phonon-xine-4.1.4 (09 Jan 2009)
+
+  09 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +phonon-xine-4.1.4.ebuild:
+  Version bump.
+

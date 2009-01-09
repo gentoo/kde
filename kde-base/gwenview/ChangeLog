@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*gwenview-4.1.4 (09 Jan 2009)
+
+  09 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +gwenview-4.1.4.ebuild:
+  Version bump.
+
 *gwenview-4.1.96 (08 Jan 2009)
 
   08 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +gwenview-4.1.96.ebuild:
