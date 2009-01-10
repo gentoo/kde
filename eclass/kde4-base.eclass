@@ -28,7 +28,6 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 kde4-base_set_qt_dependencies() {
 	local qtdepend qtopengldepend
 
-	# split qt
 	qtdepend="
 		x11-libs/qt-core:4[qt3support,ssl]
 		x11-libs/qt-gui:4[accessibility,dbus]
@@ -61,7 +60,7 @@ kde4-base_set_qt_dependencies() {
 kde4-base_set_qt_dependencies
 
 # Set the cmake dependencies
-# quite few packages fail with 2.4 packages even for 4.1 line, rather reqire 2.6.2 everywhere
+# Quite a few packages fail with cmake-2.4 even for KDE 4.1, so we just require 2.6.2
 CMAKEDEPEND=">=dev-util/cmake-2.6.2"
 
 # Set the common dependencies
@@ -71,8 +70,8 @@ DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
 	x11-proto/xf86vidmodeproto"
 RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
-# Do not allow to run test on live ebuilds
 if [[ $BUILD_TYPE = live ]]; then
+	# Disable tests for live ebuilds
 	RESTRICT="${RESTRICT} test"
 	# Live ebuilds in kde-base default to kdeprefix by default
 	IUSE="${IUSE} +kdeprefix"
@@ -129,17 +128,16 @@ esac
 NEED_KDE="${NEED_KDE:=latest}"
 export NEED_KDE
 
-# FIXME: look at the description, please, somehow illegible
 # @ECLASS-VARIABLE: KDE_MINIMAL
 # @DESCRIPTION:
-# This wariable is used when NEED_KDE="latest" is set,
-# to specify minimal version with which apps will work.
-# it is used in set manner.
+# This wariable is used when NEED_KDE="latest" is set, to specify the
+# required KDE minimal version for which apps will work.
 # @CODE
 # KDE_MINIMAL="-4.1"
-# specify minimal version as kde-4.1, can be mostly anything which can be put as
-# >=${PN}-${KDE_MINIMAL}
-KDE_MINIMAL="${KDE_MINIMAL:=3.9}"
+# @CODE
+# Note: default minimal version is kde-4.1, which means that the apps will work
+# with any KDE version >=${KDE_MINIMAL}
+KDE_MINIMAL="${KDE_MINIMAL:=4.1}"
 export KDE_MINIMAL
 
 # FIXME: the code section, explanation of live. The last sentence needs other
@@ -279,7 +277,7 @@ if [[ ${NEED_KDE} != none ]]; then
 						9999*) SLOT="live" ;;
 						4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
 						4.1* | 4.0.9* | 4.0.8*) SLOT="4.1" ;;
-						*) SLOT="kde-4" ;;
+						*) SLOT="4.1" ;;
 					esac
 					;;
 				esac
@@ -290,7 +288,7 @@ if [[ ${NEED_KDE} != none ]]; then
 	for KDE_SLOT in ${KDE_SLOTS[@]}; do
 		# block non kdeprefix ${PN} on other slots
 		# we do this only if we do not depend on any version of kde
-		if [[ $SLOT != $KDE_SLOT ]]; then
+		if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 			DEPEND="${DEPEND}
 				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
 			RDEPEND="${RDEPEND}
@@ -372,7 +370,7 @@ case ${SLOT} in
 		fi
 		# limit syncing to 1 hour.
 		ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
-	;;
+		;;
 	*)
 		if [[ -n $KDEBASE ]]; then
 			if [[ -n ${KMNAME} ]]; then
@@ -397,7 +395,7 @@ case ${SLOT} in
 			fi
 				unset _kmname _kmname_pv
 			fi
-	;;
+		;;
 esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
