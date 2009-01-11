@@ -1,4 +1,6 @@
 # We don't include kdesdk on the global set
+kde-base/kdelibs
+kde-base/kdepimlibs
 kde-base/kate
 kde-base/kdeplasma-addons
 kde-base/kde-l10n
