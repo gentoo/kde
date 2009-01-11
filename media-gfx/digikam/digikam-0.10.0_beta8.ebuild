@@ -51,13 +51,11 @@ DEPEND="
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/loadingcache.patch" )
 src_prepare() {
 	# fix files collision, use icon from kdebase-data rather that digikam ones
 	sed -i \
 		-e "s:add_subdirectory:#add_subdirectory:g" \
 		data/icons/CMakeLists.txt || die "Failed to remove icon install"
-	enable_selected_linguas
 
 	kde4-base_src_prepare
 }
