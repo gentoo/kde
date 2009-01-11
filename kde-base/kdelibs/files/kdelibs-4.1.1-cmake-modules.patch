@@ -1,0 +1,69 @@
+diff -Naur a/cmake/modules/FindKdcraw.cmake b/cmake/modules/FindKdcraw.cmake
+--- a/cmake/modules/FindKdcraw.cmake	2008-05-21 13:06:10.000000000 +0200
++++ b/cmake/modules/FindKdcraw.cmake	2008-09-22 16:33:42.000000000 +0200
+@@ -69,14 +69,22 @@
+     if(KDCRAW_VERSION_GOOD_FOUND)
+         set(KDCRAW_DEFINITIONS "${_KDCRAWCflags}")
+     
++        # first try pkgconfig dir, fallback to cmake defaults
+         FIND_PATH(KDCRAW_INCLUDE_DIR libkdcraw/version.h
++        PATHS
+         ${_KDCRAWIncDir}
++        ${KDE4_INCLUDE_DIR}
++        NO_DEFAULT_PATH
+         )
++        FIND_PATH(KDCRAW_INCLUDE_DIR libkdcraw/version.h)
+     
+         FIND_LIBRARY(KDCRAW_LIBRARIES NAMES kdcraw
+         PATHS
+         ${_KDCRAWLinkDir}
++        ${KDE4_LIB_DIR}
++        NO_DEFAULT_PATH
+         )
++        FIND_LIBRARY(KDCRAW_LIBRARIES NAMES kdcraw)
+     
+         if (KDCRAW_INCLUDE_DIR AND KDCRAW_LIBRARIES)
+             set(KDCRAW_FOUND TRUE)
+diff -Naur a/cmake/modules/FindKexiv2.cmake b/cmake/modules/FindKexiv2.cmake
+--- a/cmake/modules/FindKexiv2.cmake	2008-05-21 13:06:10.000000000 +0200
++++ b/cmake/modules/FindKexiv2.cmake	2008-09-22 16:32:47.000000000 +0200
+@@ -68,14 +68,22 @@
+     if(KEXIV2_VERSION_GOOD_FOUND)
+         set(KEXIV2_DEFINITIONS "${_KEXIV2Cflags}")
+     
++        # first try specific paths, use cmake defaults as fallback
+         FIND_PATH(KEXIV2_INCLUDE_DIR libkexiv2/version.h
++        PATHS
+         ${_KEXIV2IncDir}
++        ${KDE4_INCLUDE_DIR}
++        NO_DEFAULT_PATH
+         )
++        FIND_PATH(KEXIV2_INCLUDE_DIR libkexiv2/version.h)
+     
+         FIND_LIBRARY(KEXIV2_LIBRARIES NAMES kexiv2
+         PATHS
+         ${_KEXIV2LinkDir}
++        ${KDE4_LIB_DIR}
++        NO_DEFAULT_PATH
+         )
++        FIND_LIBRARY(KEXIV2_LIBRARIES NAMES kexiv2)
+     
+         if (KEXIV2_INCLUDE_DIR AND KEXIV2_LIBRARIES)
+             set(KEXIV2_FOUND TRUE)
+diff -Naur a/cmake/modules/FindKipi.cmake b/cmake/modules/FindKipi.cmake
+--- a/cmake/modules/FindKipi.cmake	2008-05-21 13:06:10.000000000 +0200
++++ b/cmake/modules/FindKipi.cmake	2008-09-22 16:21:37.000000000 +0200
+@@ -68,8 +68,11 @@
+     if(KIPI_VERSION_GOOD_FOUND)
+         set(KIPI_DEFINITIONS ${_KIPICflags})
+ 
+-        find_path(KIPI_INCLUDE_DIR NAMES libkipi/version.h PATHS ${KDE4_INCLUDE_DIR} ${_KIPIIncDir})
+-        find_library(KIPI_LIBRARIES NAMES kipi PATHS ${KDE4_LIB_DIR} ${_KIPILinkDir})
++        # as suggested by cmake documentation, first try specific path, then default to searching everything else
++        find_path(KIPI_INCLUDE_DIR NAMES libkipi/version.h PATHS ${_KIPIIncDir} ${KDE4_INCLUDE_DIR} NO_DEFAULT_PATH)
++        find_path(KIPI_INCLUDE_DIR NAMES libkipi/version.h)
++        find_library(KIPI_LIBRARIES NAMES kipi PATHS ${_KIPILinkDir} ${KDE4_LIB_DIR} NO_DEFAULT_PATH)
++        find_library(KIPI_LIBRARIES NAMES kipi)
+ 
+         if (KIPI_INCLUDE_DIR AND KIPI_LIBRARIES)
+             set(KIPI_FOUND TRUE)

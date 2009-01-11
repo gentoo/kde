@@ -74,8 +74,8 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.1.1-cmake-modules.patch" "${FILESDIR}/${PV}-cmake-config.patch"
-	"${FILESDIR}/${P}-gcc4.1.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.1.1-cmake-modules.patch" "${FILESDIR}/4.1.3-cmake-config.patch"
+	"${FILESDIR}/${PN}-4.1.3-gcc4.1.patch" )
 
 src_configure() {
 	if use zeroconf; then
