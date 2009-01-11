@@ -1,6 +1,12 @@
 # ChangeLog for media-gfx/digikam
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*digikam-0.10.0_beta8 (11 Jan 2009)
+
+  11 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -digikam-0.10.0_beta7.ebuild, +digikam-0.10.0_beta8.ebuild:
+  Bumb.
 
   27 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> +files/loadingcache.patch,
   digikam-0.10.0_beta7.ebuild:
