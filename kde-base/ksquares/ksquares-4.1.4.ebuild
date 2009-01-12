@@ -11,6 +11,8 @@ DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug htmlhandbook"
 
+KMEXTRACTONLY="libkmahjongg/"
+
 src_prepare() {
 	# cmake is doing this really weird
 	sed -i \
