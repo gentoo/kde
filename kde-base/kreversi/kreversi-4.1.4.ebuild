@@ -15,6 +15,7 @@ src_prepare() {
 	sed -i \
 		-e "s:register_ggz_module:#register_ggz_module:g" \
 		${PN}/CMakeLists.txt || die "ggz removal failed"
+	kde4-meta_src_prepare
 }
 
 src_install() {
@@ -22,7 +23,6 @@ src_install() {
 	# and also we have to prepare the ggz dir
 	mkdir -p "${D}"/usr/share/ggz/modules
 	cp ${PN}/module.dsc "${D}"/usr/share/ggz/modules/${PN}.dsc
-	kde4-meta_src_prepare
 }
 
 pkg_postinst() {
