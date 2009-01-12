@@ -247,6 +247,7 @@
 ~kde-base/system-config-printer-kde-4.1.96
 ~kde-base/systemsettings-4.1.96
 ~kde-base/umbrello-4.1.96
+~media-sound/phonon-4.2.96
 ~kde-base/akonadi-4.1.4
 ~kde-base/akregator-4.1.4
 ~kde-base/amor-4.1.4
