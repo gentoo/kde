@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jan 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kopete-4.1.96.ebuild:
+  Moved jingle and removed messenger from PROTOCOLS and added a note warning
+  that messenger has been renamed wlm.
+
 *kopete-4.1.4 (09 Jan 2009)
 
   09 Jan 2009; Alexey Shvetsov <alexxy@gentoo.ru> +kopete-4.1.4.ebuild:

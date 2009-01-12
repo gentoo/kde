@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug groupwise jingle htmlhandbook ssl"
+IUSE="debug htmlhandbook ssl"
 
 # availible plugins
 #
@@ -39,9 +39,9 @@ PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history lat
 #	gadu: openssl
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
-#	jabber: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK 
+#	jabber: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
+#	jingle: media-libs/speex net-libs/ortp
 #	meanwhile: net-libs/meanwhile
-#	messenger: NO DEPS
 #	msn: libmsn
 #	oscar: NO DEPS
 #	qq: NO DEPS
@@ -51,7 +51,7 @@ PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history lat
 #	winpopup: NO DEPS
 #	wlm: libmsn
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour gadu groupwise +jabber meanwhile messenger msn oscar qq
+PROTOCOLS="bonjour gadu groupwise +jabber jingle meanwhile msn oscar qq
 testbed winpopup wlm yahoo"
 
 # disabled protocols
@@ -120,6 +120,9 @@ pkg_postinst() {
 	#	elog "GABBLE_PERSIST=1 telepathy-gabble &"
 	#	elog "export TELEPATHY_DATA_PATH=/usr/share/telepathy/managers/"
 	#fi
+
+	elog "The messenger plugin has been renamed to wlm - adjust your use flags accordingly."
+
 	if ! use ssl; then
 		if use jabber || use messenger; then # || use irc; then
 			echo
