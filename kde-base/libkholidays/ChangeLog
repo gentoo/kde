@@ -3,6 +3,10 @@
 # $Header: $
 
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -libkholidays-4.1.87.ebuild:
+  Version removed.
+
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -libkholidays-4.1.85.ebuild:
   Version removed.
 
