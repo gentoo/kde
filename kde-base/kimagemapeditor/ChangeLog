@@ -3,6 +3,10 @@
 # $Header: $
 
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kimagemapeditor-4.1.4.ebuild:
+  Version removed.
+
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kimagemapeditor-4.1.87.ebuild:
   Version removed.
 
