@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -phonon-4.2.80.ebuild:
+  Drop old version
+
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -phonon-4.3_p905142.ebuild:
   Drop deprecated snapshot
