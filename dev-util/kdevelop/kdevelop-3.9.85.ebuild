@@ -16,7 +16,7 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 
 DEPEND=">=kde-base/kapptemplate-${KDE_MINIMAL}
-		>=dev-util/kdevplatform-0.9.84"
+		>=dev-util/kdevplatform-0.9.85"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
