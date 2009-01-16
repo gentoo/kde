@@ -12,5 +12,7 @@ DESCRIPTION="oxygen desktoptheme from kdebase"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="!<kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
-		${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !kde-base/plasma-workspace:4.1[-kdeprefix] )
+	!<kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+	"
