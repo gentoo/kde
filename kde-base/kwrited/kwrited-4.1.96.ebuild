@@ -10,6 +10,9 @@ DESCRIPTION="KDE daemon listening for wall and write messages."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=sys-libs/libutempter-1.1.5"
+DEPEND="
+	!kdeprefix? ( !kde-base/konsole:4.1[-kdeprefix] )
+	>=sys-libs/libutempter-1.1.5
+	"
 RDEPEND="${DEPEND}"
 
