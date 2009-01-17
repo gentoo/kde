@@ -6,9 +6,10 @@ EAPI="2"
 
 inherit kde4-base
 
+KDEVELOP_PV="3.9.85"
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kde.org/"
-SRC_URI="mirror://kde/unstable/kdevelop/3.9.84/src/${P}.tar.bz2"
+SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
 SLOT="1"
 KEYWORDS="~amd64 ~x86"
