@@ -1,0 +1,14 @@
+# ChangeLog for kde-plasmoids/plasma-netgraph
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-netgraph-0.3.ebuild:
+  Whitespace.
+
+*plasma-netgraph-0.3 (15 Oct 2008)
+
+  15 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +plasma-netgraph-0.3.ebuild:
+  Add plasma-netgraph-0.3.
+

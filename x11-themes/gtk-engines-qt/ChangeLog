@@ -1,0 +1,70 @@
+# ChangeLog for x11-themes/gtk-engines-qt
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Dec 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  gtk-engines-qt-1.1-r1.ebuild, gtk-engines-qt-9999.ebuild:
+  Fixed the block for !kdeprefix - thanks to genady12 for the heads up.
+  Fixed the zn_CN locale.
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  gtk-engines-qt-1.1-r1.ebuild:
+  Added src_prepare
+
+*gtk-engines-qt-1.1-r1 (30 Nov 2008)
+
+  30 Nov 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +gtk-engines-qt-1.1-r1.ebuild:
+  Bumped gtk-engines-qt-1.1 from the tree to fix the :4.1 slot dep.
+
+  08 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  -gtk-engines-qt-1.1-r1.ebuild:
+  Remove gtk-engines-qt-1.1-r1 since there is ebuild in the tree.
+
+  04 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  adding linguas
+
+  01 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  now fixed
+
+  01 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  fix to look like the portage one
+
+  30 Oct 2008; <tampakrap@gentoo.org> ChangeLog:
+  importing gtk-engines-qt live ebuild
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  gtk-engines-qt-1.1-r1.ebuild:
+  Whitespace.
+
+  11 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -x11-themes/gtk-engines-qt/gtk-engines-qt-1.1.ebuild,
+  +x11-themes/gtk-engines-qt/gtk-engines-qt-1.1-r1.ebuild:
+  Fixup installation to correct directories.
+
+  26 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  gtk-engines-qt-1.1.ebuild:
+  Use EAPI2 functions since we can.
+
+  25 Sep 2008; Petteri Räty <betelgeuse@gentoo.org>
+  gtk-engines-qt-1.1.ebuild:
+  Prefer split qt over monolithic.
+
+  21 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  gtk-engines-qt-1.1.ebuild:
+  Update work with linguas
+
+  17 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  gtk-engines-qt-1.1.ebuild:
+  Fix typo in unset KDEHOME
+
+  16 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  gtk-engines-qt-1.1.ebuild:
+  Get rid of ugly sandbox violation when KDEDIR is set
+
+*gtk-engines-qt-1.1 (08 Sep 2008)
+
+  08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +files/1.1-stdlib.patch, +metadata.xml, +gtk-engines-qt-1.1.ebuild:
+  Added gtk-engines-qt-1.1
+

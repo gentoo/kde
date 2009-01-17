@@ -1,0 +1,38 @@
+# ChangeLog for app-office/kplato
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kplato-1.9.98.5 (09 Jan 2009)
+
+  09 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org> -kplato-1.9.98.3.ebuild,
+  +kplato-1.9.98.5.ebuild:
+  Bump to beta5
+
+*kplato-1.9.98.2 (20 Nov 2008)
+
+  20 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org> -kplato-1.9.98.1.ebuild,
+  +kplato-1.9.98.2.ebuild:
+  Version bump. Drop old.
+
+*kplato-9999 (25 Oct 2008)
+
+  25 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kplato-9999.ebuild:
+  Add live ebuild.
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kplato-1.9.98.1.ebuild:
+  Dep order and whitespace.
+
+*kplato-1.9.98.1 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kplato-1.9.98.0.ebuild, +kplato-1.9.98.1.ebuild:
+  Version bump
+
+*kplato-1.9.98.0 (06 Oct 2008)
+
+  06 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +kplato-1.9.98.0.ebuild:
+  Add kplato-1.9.98.0
+

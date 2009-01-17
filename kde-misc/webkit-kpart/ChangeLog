@@ -1,0 +1,17 @@
+# ChangeLog for kde-misc/webkit-kpart
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  fix KMNAME of webkit-kpart
+
+  27 Oct 2008; steffen stramm <krytzz@soylent.eu> +metadata.xml,
+  +metadata.xml, +webkit-kpart-9999.ebuild:
+  4.2 live merge
+
+*webkit-kpart-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +webkit-kpart-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

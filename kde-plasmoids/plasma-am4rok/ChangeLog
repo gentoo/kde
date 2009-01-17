@@ -1,0 +1,9 @@
+# ChangeLog for kde-plasmoids/plasma-am4rok
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*plasma-am4rok-0.5 (15 Oct 2008)
+
+  15 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +plasma-am4rok-0.5.ebuild:
+  Version bump
+

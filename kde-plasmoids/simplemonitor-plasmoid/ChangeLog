@@ -1,0 +1,14 @@
+# ChangeLog for kde-plasmoids/simplemonitor-plasmoid
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  simplemonitor-plasmoid-0.1-r3.ebuild:
+  Added src_prepare
+
+*simplemonitor-plasmoid-0.1-r3 (09 Nov 2008)
+
+  09 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  +metadata.xml, +simplemonitor-plasmoid-0.1-r3.ebuild:
+  Initial version, thanks to thomasa88 for the ebuild
+

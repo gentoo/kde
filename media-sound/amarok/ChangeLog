@@ -1,0 +1,109 @@
+# ChangeLog for media-sound/amarok
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  12 Jan 2009; Manuel Nickschas <sputnick@quassel-irc.org>
+  amarok-2.0.1.1.ebuild:
+  Remove unused USE
+
+*amarok-2.0.1.1 (12 Jan 2009)
+
+  12 Jan 2009; Manuel Nickschas <sputnick@quassel-irc.org>
+  +amarok-2.0.1.1.ebuild:
+  Bump
+
+*amarok-2.0-r1 (27 Dec 2008)
+
+  27 Dec 2008; Alexey Shvetsov <alexxy@gentoo.ru> -amarok-1.98.ebuild,
+  +amarok-2.0-r1.ebuild, -amarok-2.0.ebuild:
+  Remove unneeded src_install
+
+  28 Nov 2008; Manuel Nickschas <sputnick@quassel-irc.org>
+  amarok-9999.ebuild:
+  Prefer mysql over mysql-community. Amarok works fine with either one, but
+  portage seems to suggest only the first of them, and that confuses users.
+
+  27 Nov 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  amarok-9999.ebuild:
+  Files no longer installed in trunk, fixed KEYWORDS for tagged amarok
+
+*amarok-1.98 (21 Nov 2008)
+
+  21 Nov 2008; Alexey Shvetsov <alexxy@gentoo.ru> -amarok-1.94.ebuild,
+  +amarok-1.98.ebuild:
+  Version bump
+
+  16 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  fix collisions for snapshots, bug 246639
+
+  05 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  fix collisions with kdelibs and plasma-workspace
+
+  05 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  amarok-9999.ebuild:
+  Update amd64 -fPIC warning
+
+  04 Nov 2008; Manuel 'Sput' Nickschas <sputnick@quassel-irc.org>
+  amarok-9999.ebuild:
+  libplasma move to kdelibs
+
+*amarok-1.94 (01 Nov 2008)
+
+  01 Nov 2008; <alexxy@gentoo.org> -amarok-1.92.2.ebuild,
+  +amarok-1.94.ebuild:
+  Version bump
+
+  30 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  small fixes
+
+  29 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  small fix
+
+  29 Oct 2008; <tampakrap@gentoo.org> ChangeLog:
+  importing live ebuild
+
+  10 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -amarok-1.90.ebuild:
+  Removed amarok-1.90 as it was put in the tree.
+
+  06 Oct 2008; <alexxy@gentoo.org> amarok-1.90.ebuild, amarok-1.92.2.ebuild:
+  update NEED_KDE to use slots instead of versions
+
+*amarok-1.92.2 (03 Oct 2008)
+
+  03 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +amarok-1.92.2.ebuild, -amarok-1.92.ebuild:
+  Again do version bump.
+
+*amarok-1.92 (03 Oct 2008)
+
+  03 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  +amarok-1.92.ebuild:
+  Bump new version.
+
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml:
+  Added missing use flags descriptions to metadata.xml.
+
+  27 Sep 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  amarok-1.90.ebuild:
+  Move ebuild towards EAPI2 compilance
+
+  27 Aug 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  amarok-1.90.ebuild:
+  Fixed alphabetical order in KEYWORDS and deps.
+
+  25 Aug 2008; Manuel Nickschas (Sput) <sputnick@quassel-irc.org>
+  amarok-1.90.ebuild:
+  Keyword ~amd64
+
+  22 Aug 2008; Manuel Nickschas (Sput) <sputnick@quassel-irc.org>
+  amarok-1.90.ebuild:
+  Add ~x86 keyword
+
+*amarok-1.90 (22 Aug 2008)
+
+  22 Aug 2008; Manuel Nickschas <sputnick@quassel-irc.org> +metadata.xml,
+  +amarok-1.90.ebuild:
+  Initial import.
+

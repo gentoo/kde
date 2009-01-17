@@ -1,0 +1,18 @@
+# ChangeLog for app-cdr/k3b
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  07 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  k3b-9999.ebuild:
+  Added musicbrainz optionality
+
+  29 Oct 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +k3b-9999.ebuild:
+  Make k3b actualy work.
+
+*k3b-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +k3b-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

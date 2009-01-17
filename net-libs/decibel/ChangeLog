@@ -1,0 +1,18 @@
+# ChangeLog for net-libs/decibel
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Nov 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  decibel-9999.ebuild:
+  Fixed decibel to not use kde4-base eclass
+
+  29 Oct 2008; steffen stramm <krytzz@soylent.eu> +metadata.xml,
+  +metadata.xml, +decibel-9999.ebuild:
+  4.2 live merge
+
+*decibel-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +decibel-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

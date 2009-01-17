@@ -1,0 +1,9 @@
+# ChangeLog for media-gfx/kflickr
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kflickr-9999 (11 Dec 2008)
+
+  11 Dec 2008; steffen stramm <krytzz@soylent.eu> +kflickr-9999.ebuild:
+  initial commit
+

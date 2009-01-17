@@ -1,0 +1,10 @@
+# ChangeLog for app-office/scribus
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*scribus-9999 (29 Dec 2008)
+
+  29 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +scribus-9999.ebuild:
+  Initial commit.
+

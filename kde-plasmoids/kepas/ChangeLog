@@ -1,0 +1,14 @@
+# ChangeLog for net-p2p/kepas
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2008; steffen stramm <krytzz@soylent.eu> +metadata.xml,
+  +metadata.xml, +kepas-9999.ebuild:
+  make ready for kde-crazy
+
+*kepas-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kepas-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

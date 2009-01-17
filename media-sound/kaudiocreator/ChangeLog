@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/kaudiocreator
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kaudiocreator-9999.ebuild:
+  Deps changed to KDE_MINIMAL
+
+  11 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> +metadata.xml,
+  +metadata.xml, +kaudiocreator-9999.ebuild:
+  initial import of kaudiocreator live ebuild (by reavertm)
+
+*kaudiocreator-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kaudiocreator-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

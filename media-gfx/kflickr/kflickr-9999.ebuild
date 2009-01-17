@@ -1,0 +1,20 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="2"
+
+inherit kde4-base
+
+KDE_LINGUAS="ar ast bg ca cs de es eu fr he hu id it ko lv nb nds nl pl pt_BR ru
+sl sr sv tr uk zh_CN"
+
+DESCRIPTION="KDE App for easy upload of your favourite photos to your Flickr.com account"
+HOMEPAGE="http://kflickr.sourceforge.net/"
+ESVN_REPO_URI="https://kflickr.svn.sourceforge.net/svnroot/kflickr/trunk/kflickr"
+ESVN_PROJECT="kflickr"
+
+SLOT="live"
+KEYWORDS=""
+LICENSE="GPL-2"
+IUSE="debug"

@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/konq-plugins
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*konq-plugins-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +konq-plugins-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

@@ -1,0 +1,22 @@
+# 17 January 2008
+# Markos Chandras <hwoarang@silverarrow.gr>
+
+I ve just removed the following categories and packages
+
+x11-libs/
+www-client/arora
+dev-util/qt-creator
+Documentation/package.unmask/qt-4.5
+Documentation/package.unmask/qt-copy
+sets/qt-split
+
+
+** profiles/categories has been updated **
+
+Those packages are now located on qting edge overlay. Qting edge is a Qt specific overlay. 
+
+You can add it via layman using 
+
+layman -a qting-edge .
+
+

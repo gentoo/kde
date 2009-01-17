@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/networkmanager-applet
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*networkmanager-applet-9999 (09 Nov 2008)
+
+  09 Nov 2008; <alexxy@gentoo.org> +metadata.xml,
+  +networkmanager-applet-9999.ebuild:
+  bump
+

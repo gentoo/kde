@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/konq-plugins
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*konq-plugins-9999 (24 Dec 2008)
+
+  24 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  +konq-plugins-9999.ebuild:
+  Add live konq-plugins. I want them in kde-mics. Any objections?
+

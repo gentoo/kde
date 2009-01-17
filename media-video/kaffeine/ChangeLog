@@ -1,0 +1,13 @@
+# ChangeLog for media-video/kaffeine
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  06 Nov 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
+  kaffeine live merge
+
+*kaffeine-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +kaffeine-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+

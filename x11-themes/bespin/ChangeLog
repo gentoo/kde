@@ -1,0 +1,8 @@
+# ChangeLog for x11-themes/bespin
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Nov 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml:
+  Added use flag desc
+

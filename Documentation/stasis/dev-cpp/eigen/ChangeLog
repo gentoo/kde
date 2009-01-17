@@ -1,0 +1,10 @@
+# ChangeLog for dev-cpp/eigen
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*eigen-2.0_beta1 (06 Oct 2008)
+
+  06 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +eigen-2.0_beta1.ebuild:
+  Add eigen-2.0_beta1
+

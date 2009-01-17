@@ -1,0 +1,20 @@
+# This file contains everything in kdesdk
+
+kde-base/cervisia:live **
+kde-base/kdeaccounts-plugin:live **
+kde-base/kapptemplate:live **
+kde-base/kate:live **
+kde-base/kbabel:live **
+kde-base/kbugbuster:live **
+kde-base/kcachegrind:live **
+kde-base/kdesdk-kioslaves:live **
+kde-base/kdesdk-misc:live **
+kde-base/kdesdk-scripts:live **
+kde-base/kmtrace:live **
+kde-base/kompare:live **
+kde-base/kspy:live **
+kde-base/kstartperf:live **
+kde-base/kdesdk-strigi-analyzer:live **
+kde-base/kuiviewer:live **
+kde-base/poxml:live **
+kde-base/umbrello:live **

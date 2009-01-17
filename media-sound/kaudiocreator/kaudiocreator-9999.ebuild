@@ -1,0 +1,21 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="2"
+
+KMNAME="extragear/multimedia"
+inherit kde4-base
+
+DESCRIPTION="KDE CD ripper and audio encoder frontend"
+HOMEPAGE="http://www.kde.org/"
+
+LICENSE="GPL-2"
+KEYWORDS=""
+SLOT="live"
+IUSE="debug"
+
+DEPEND="
+	>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+	>=kde-base/libkcddb-${KDE_MINIMAL}
+"

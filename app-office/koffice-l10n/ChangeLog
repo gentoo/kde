@@ -1,0 +1,16 @@
+# ChangeLog for app-office/koffice-l10n
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*koffice-l10n-1.9.98.5 (09 Jan 2009)
+
+  09 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -koffice-l10n-1.9.98.3.ebuild, +koffice-l10n-1.9.98.5.ebuild:
+  Bump to beta5
+
+*koffice-l10n-1.9.98.2 (20 Nov 2008)
+
+  20 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +koffice-l10n-1.9.98.2.ebuild:
+  Initial import.
+

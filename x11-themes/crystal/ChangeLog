@@ -1,0 +1,10 @@
+# ChangeLog for x11-themes/crystal
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*crystal-2.0.2 (29 Dec 2008)
+
+  29 Dec 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +crystal-2.0.2.ebuild:
+  Initial commit. Thanks to comawhite.
+

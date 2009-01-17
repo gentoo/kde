@@ -1,0 +1,10 @@
+# ChangeLog for app-crypt/pinentry-qt4
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pinentry-qt4-9999 (27 Nov 2008)
+
+  27 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml,
+  +pinentry-qt4-9999.ebuild:
+  Initial import. Thanks to dagger.
+

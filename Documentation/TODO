@@ -1,15 +1,8 @@
 TODO list:
 
 eclasses review:
- - use EAPI-2
  - drop mono / split code
- - make htmlhandbook a global IUSE on by default
  - add code for multi-slot (off by default)
- - make prefix=/usr for non multi-slot if SLOT!=svn
- - move svn slot to live
- - move 4.1 slot to 4 ? (I don't like this one - what
- 	about having slots blocking each other with the
- 	exception of live?)
  - add a symlink function to avoid building libs twice
  - KMLOADLIBS/KMSAVELIBS review
  - kbuildsycoca review
@@ -18,8 +11,25 @@ kdebase-startkde:
  - fix the multi kde versions mess
  - fix KDEDIRS
 
+dev-util/kdevelop:
+ - KDevelop uses dev-libs/check and dev-util/cppunit if available (for plugin/xtest)
+   * does not use the usual macro_optional_add stuff, so we can't use the cmake stuff in our eclasses to select
+   * if pkgs are not available at compile time, xtest is not built
+   * should we make that a USE? Or just always depend on those? Patching CMakeLists.txt to not include them if not wanted?
+
 ebuilds:
  - complete bump
  - check missing ebuilds
  - add unstable / missing ebuilds? (kpackage)
  - add testing snapshots? (amarok/k3b)
+ - libkholidays still includes test stuff. can that be taken out?
+ - dont know really about FindMarbleWidget.cmake 
+ - kapptemplate should be checked again when kbindings is available?
+ - kopete needs some love
+ - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
+ - does dragonplayer really need xine-lib dep?
+ - does kuser need knotify dep?
+ - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
+
+ 4.2 snapshot: 
+

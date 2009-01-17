@@ -1,0 +1,27 @@
+# ChangeLog for x11-themes/plasma-themes
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  06 Oct 2008; <alexxy@gentoo.org> plasma-themes-0.2.ebuild:
+  update NEED_KDE to use slots instead of versions
+
+  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  plasma-themes-0.2.ebuild:
+  Fix little copy/paste typo in grep command
+
+*plasma-themes-0.2 (22 Sep 2008)
+
+  22 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -plasma-themes-0.1.ebuild, +plasma-themes-0.2.ebuild:
+  Put fluffy-bunny theme to our themes :]
+
+  15 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  plasma-themes-0.1.ebuild:
+  Fix echecking for not allways availible dirs
+
+*plasma-themes-0.1 (15 Sep 2008)
+
+  15 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +plasma-themes-0.1.ebuild:
+  Add plasma-themes-0.1
+

@@ -1,0 +1,10 @@
+# ChangeLog for kde-plasmoids/menubar
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*menubar-9999 (13 Jan 2009)
+
+  13 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +menubar-9999.ebuild:
+  Added live menubar plasmoid
+

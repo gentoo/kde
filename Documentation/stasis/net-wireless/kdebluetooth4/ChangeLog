@@ -1,0 +1,33 @@
+# ChangeLog for net-wireless/kdebluetooth4
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+<<<<<<< HEAD:Documentation/stasis/net-wireless/kdebluetooth4/ChangeLog
+*kdebluetooth4-9999 (22 Oct 2008)
+
+  22 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kdebluetooth4-9999.ebuild:
+  Moving from kdesvn-portage into kde-testing overlay.
+=======
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebluetooth4-0.2.ebuild:
+  Whitespace.
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kdebluetooth4-0.2.ebuild:
+  Whitespace.
+>>>>>>> origin/master:net-wireless/kdebluetooth4/ChangeLog
+
+  06 Oct 2008; <alexxy@gentoo.org> kdebluetooth4-0.2.ebuild:
+  update NEED_KDE to use slots instead of versions
+
+  25 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com>
+  -kdebluetooth4-0.1.ebuild, kdebluetooth4-0.2.ebuild:
+  Remove old version and add PREFIX definition to new one,
+
+*kdebluetooth4-0.2 (08 Sep 2008)
+
+  08 Sep 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +kdebluetooth4-0.2.ebuild:
+  Added kdebluetooth4-0.2. Needs more testing.
+

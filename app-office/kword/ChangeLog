@@ -1,0 +1,38 @@
+# ChangeLog for app-office/kword
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kword-1.9.98.5 (09 Jan 2009)
+
+  09 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org> -kword-1.9.98.3.ebuild,
+  +kword-1.9.98.5.ebuild:
+  Bump to beta5
+
+*kword-1.9.98.2 (20 Nov 2008)
+
+  20 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org> -kword-1.9.98.1.ebuild,
+  +kword-1.9.98.2.ebuild:
+  Version bump. Drop old.
+
+*kword-9999 (25 Oct 2008)
+
+  25 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +kword-9999.ebuild:
+  Add live ebuild.
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kword-1.9.98.1.ebuild:
+  Dep order and whitespace.
+
+*kword-1.9.98.1 (18 Oct 2008)
+
+  18 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  -kword-1.9.98.0.ebuild, +kword-1.9.98.1.ebuild:
+  Version bump
+
+*kword-1.9.98.0 (06 Oct 2008)
+
+  06 Oct 2008; Tomáš Chvátal <tomas.chvatal@gmail.com> +metadata.xml,
+  +kword-1.9.98.0.ebuild:
+  Add kword-1.9.98.0
+
