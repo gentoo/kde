@@ -1,12 +1,5 @@
 TODO list:
 
-eclasses review:
- - drop mono / split code
- - add code for multi-slot (off by default)
- - add a symlink function to avoid building libs twice
- - KMLOADLIBS/KMSAVELIBS review
- - kbuildsycoca review
-
 kdebase-startkde:
  - fix the multi kde versions mess
  - fix KDEDIRS
