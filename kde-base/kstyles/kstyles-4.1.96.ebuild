@@ -9,7 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A set of different KDE styles."
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-DEPEND=""
-RDEPEND="${DEPEND}"
+IUSE="debug"
