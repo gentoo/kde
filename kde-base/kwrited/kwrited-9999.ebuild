@@ -13,4 +13,6 @@ IUSE="debug"
 DEPEND="
 	>=sys-libs/libutempter-1.1.5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !kde-base/konsole:4.1[-kdeprefix] )
+"
