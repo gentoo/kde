@@ -12,16 +12,24 @@ DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug encode flac vorbis"
 
-DEPEND="${DEPEND}
+DEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}
 	>=kde-base/libkcompactdisc-${PV}:${SLOT}
 	media-sound/cdparanoia
-	encode? ( flac? ( >=media-libs/flac-1.1.2 )
-		vorbis? ( media-libs/libvorbis ) )"
+	encode? (
+		flac? ( >=media-libs/flac-1.1.2 )
+		vorbis? ( media-libs/libvorbis )
+	)
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkcompactdisc/"
-KMCOMPILEONLY="libkcddb/"
+KMEXTRACTONLY="
+	libkcompactdisc/
+"
+KMCOMPILEONLY="
+	libkcddb/
+"
+
 KMLOADLIBS="libkcddb"
 
 src_configure() {
