@@ -25,9 +25,8 @@ PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with kipi KIPI)"
+		$(cmake-utils_use_with kipi Kipi)"
 
 	if use semantic-desktop; then
 		mycmakeargs="${mycmakeargs}
@@ -42,6 +41,7 @@ src_configure() {
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
+
 	echo
 	elog "If you want to have svg support, emerge kde-base/svgpart"
 	echo
