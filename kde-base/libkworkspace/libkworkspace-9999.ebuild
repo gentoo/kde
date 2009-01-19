@@ -12,7 +12,7 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	!<kde-base/libkworkspace-${PV}:${SLOT}
 "
 
