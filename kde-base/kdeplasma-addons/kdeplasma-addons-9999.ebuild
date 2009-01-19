@@ -19,6 +19,7 @@ DEPEND="
 	!kdeprefix? ( !kde-misc/lancelot-menu[kdeprefix=] )
 	>=kde-base/krunner-${PV}:${SLOT}
 	>=kde-base/plasma-workspace-${PV}:${SLOT}
+	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[opengl] )
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${DEPEND}
@@ -31,6 +32,10 @@ src_prepare() {
 		-e 's/${KDE4WORKSPACE_TASKMANAGER_LIBRARY}/taskmanager/g' \
 		applets/{binary-clock,fuzzy-clock,weatherstation,lancelot/app/src}/CMakeLists.txt \
 		|| die "Failed to patch CMake files"
+
+	sed -i -e 's/(KDE4_PLASMA_OPENGL_FOUND)/(KDE4_PLASMA_OPENGL_FOUND AND OPENGL_FOUND)/g' \
+		applets/CMakeLists.txt \
+		|| die "Failed to make OpenGL applets optional"
 
 	kde4-base_src_prepare
 }
