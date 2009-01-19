@@ -9,13 +9,17 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
 KEYWORDS="~amd64 ~x86"
-IUSE="tidy"
+IUSE="debug tidy"
 
-DEPEND="dev-libs/libxslt
-	dev-libs/libxml2"
+DEPEND="
+	dev-libs/libxslt
+	dev-libs/libxml2
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with tidy LibTidy)"
+
 	kde4-meta_src_configure
 }
