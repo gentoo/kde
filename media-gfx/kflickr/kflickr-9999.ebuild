@@ -1,13 +1,15 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit kde4-base
+KDE_LINGUAS="ar ast bg ca cs de es eu fr he hu id it ko ku lv nb nds nl pl pt_BR
+	ru sl sr sv tr uk zh_CN"
 
-KDE_LINGUAS="ar ast bg ca cs de es eu fr he hu id it ko lv nb nds nl pl pt_BR ru
-sl sr sv tr uk zh_CN"
+KDE_LINGUAS_DIR="${S}/src/po"
+
+inherit kde4-base
 
 DESCRIPTION="KDE App for easy upload of your favourite photos to your Flickr.com account"
 HOMEPAGE="http://kflickr.sourceforge.net/"
