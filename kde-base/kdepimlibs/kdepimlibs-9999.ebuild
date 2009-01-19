@@ -16,7 +16,6 @@ LICENSE="LGPL-2.1"
 RESTRICT="test"
 
 DEPEND="
-	!kdeprefix? ( !kde-base/akonadi:4.1 )
 	>=app-crypt/gpgme-1.1.6
 	>=app-office/akonadi-server-1.1
 	dev-libs/boost
@@ -25,7 +24,9 @@ DEPEND="
 	ldap? ( net-nds/openldap )
 	sasl? ( dev-libs/cyrus-sasl )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !kde-base/akonadi:4.1 )
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
