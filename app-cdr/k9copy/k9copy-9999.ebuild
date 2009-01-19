@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,6 +26,11 @@ RDEPEND="${DEPEND}
 	media-libs/xine-lib
 	media-video/dvdauthor"
 
-src_install() {
-	kde4-base_src_install
+src_prepare() {
+	sed -i -e\
+		"s:install(FILES k9copy_assistant_open.desktop:\
+		#install(FILES k9copy_assistant_open.desktop:"\
+		"${S}"/CMakeLists.txt || die "sed failed"
+
+	kde4-base_src_prepare
 }
