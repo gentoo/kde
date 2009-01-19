@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug designer-plugin htmlhandbook +kde gps plasma python"
 
 DEPEND="
-	!kdeprefix? ( !sci-geosciences/marble )
 	gps? ( sci-geosciences/gpsd )
 	kde? (
 		>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=]
@@ -24,16 +23,19 @@ DEPEND="
 		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
 	)
 "
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !sci-geosciences/marble )
+"
 
 pkg_setup() {
 	if use plasma && ! use kde; then
-		eerror
+		echo
 		eerror "KDE integration is required to build marble world clock applet."
 		eerror
 		eerror "Either enable 'kde' USE flag or disable 'plasma'."
 		eerror "You can do this by setting these flags in /etc/portage/package.use, like:"
 		eerror "    =${CATEGORY}/${PN}-${PV} kde plasma"
-		eerror
+		echo
 		die "Conflicting USE flags found"
 	fi
 

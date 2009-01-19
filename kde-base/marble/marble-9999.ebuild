@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE="debug designer-plugin htmlhandbook +kde gps plasma python"
 
 DEPEND="
-	!kdeprefix? ( !sci-geosciences/marble )
 	gps? ( sci-geosciences/gpsd )
 	kde? (
 		>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=]
@@ -24,7 +23,9 @@ DEPEND="
 		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !sci-geosciences/marble )
+"
 
 pkg_setup() {
 	if use plasma && ! use kde; then
