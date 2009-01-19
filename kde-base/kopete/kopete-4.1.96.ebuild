@@ -11,7 +11,7 @@ DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook ssl"
 
-# availible plugins
+# Available plugins
 #
 #	addbookmarks: NO DEPS
 #	alias: NO DEPS
@@ -29,11 +29,11 @@ IUSE="debug htmlhandbook ssl"
 #	translator: NO DEPS
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
-# NOTE: by default we enable all plugins wich dont have any dependencies
+# NOTE: By default we enable all plugins that don't have any dependencies
 PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history latex
 +nowlistening otr +pipes +privacy +statistics +texteffect +translator +urlpicpreview webpresence"
 
-# availible protocols
+# Available protocols
 #
 #	bonjour: NO DEPS
 #	gadu: openssl
@@ -63,33 +63,36 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 # Tests are KDE-ish.
 RESTRICT="test"
 
-COMMONDEPEND="dev-libs/libpcre
+COMMONDEPEND="
+	dev-libs/libpcre
 	x11-libs/libXScrnSaver
 	gadu? ( dev-libs/openssl )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
-		net-dns/libidn
 		app-crypt/qca:2
+		net-dns/libidn
 		jingle? (
-			>=net-libs/ortp-0.13
 			>=media-libs/speex-1.2_rc1
+			>=net-libs/ortp-0.13
 		)
 	)
-	otr? ( net-libs/libotr )
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
+	otr? ( net-libs/libotr )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
-	wlm? ( net-libs/libmsn )"
-
+	wlm? ( net-libs/libmsn )
+"
 RDEPEND="${COMMONDEPEND}
-	latex? ( virtual/latex-base )"
+	latex? ( virtual/latex-base )
+"
 #	telepathy? ( net-libs/decibel )"
-
 DEPEND="${COMMONDEPEND}
-	x11-proto/scrnsaverproto"
-
-PDEPEND="ssl? ( app-crypt/qca-ossl )"
+	x11-proto/scrnsaverproto
+"
+PDEPEND="
+	ssl? ( app-crypt/qca-ossl )
+"
 
 src_configure() {
 	local x
@@ -111,10 +114,13 @@ src_configure() {
 	if use jabber; then
 		mycmakeargs="${mycmakeargs} -DNO_JINGLE=$(use jingle && echo OFF || echo ON)"
 	fi
+
 	kde4-meta_src_configure
 }
 
 pkg_postinst() {
+	kde4-meta_pkg_postinst
+
 	#if use telepathy; then
 	#	elog "To use kopete telepathy plugins, you need to start gabble first:"
 	#	elog "GABBLE_PERSIST=1 telepathy-gabble &"
@@ -124,9 +130,9 @@ pkg_postinst() {
 	elog "The messenger plugin has been renamed to wlm - adjust your use flags accordingly."
 
 	if ! use ssl; then
-		if use jabber || use messenger; then # || use irc; then
+		if use jabber || use wlm; then # || use irc; then
 			echo
-			elog "In order to use ssl in jabber, messenger and irc you'll need to"
+			elog "In order to use ssl in jabber, wlm and irc you'll need to"
 			elog "install app-crypt/qca-ossl package."
 			echo
 		fi
