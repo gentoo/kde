@@ -52,7 +52,7 @@
 #
 # FUNCTIONS:
 #     subversion_src_unpack()
-#         * The function called externally that then calls init, fetch, and bootstrap for either
+#         * Is the function called externally that then calls init, fetch, and bootstrap for either
 #         * svn or git-svn depending on whether 'USE_GITSVN=true' is defined prior to call.
 #     subversion_init()
 #         * Initializes some variables.
@@ -97,9 +97,9 @@ else
 fi
 
 subversion_src_unpack() {
-    subversion_init || die "${ECLASS}::${FUNCNAME}::${LINENO} ~ "
-    subversion_fetch || die "${ECLASS}::${FUNCNAME}::${LINENO} ~ "
-    subversion_bootstrap || die "${ECLASS}::${FUNCNAME}::${LINENO} ~ "
+    subversion_init || die "${FUNCNAME} ~ call to subversion_init failed"
+    subversion_fetch || die "${FUNCNAME} ~ call to subversion_fetch failed"
+    subversion_bootstrap || die "${FUNCNAME} ~ call to subversion_bootstrap failed"
 }
 
 subversion_init() {
@@ -108,13 +108,13 @@ subversion_init() {
         ESVN_FETCH_CMD="gitsvn_fetch_cmd"
         ESVN_UPDATE_CMD="git svn rebase"
     else
-        ESVN_STORE_DIR="${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/gitsvn-src"
+        ESVN_STORE_DIR="${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/svn-src"
         ESVN_FETCH_CMD="svn checkout"
         ESVN_UPDATE_CMD="svn update"
         ESVN_SWITCH_CMD="svn switch"
     fi
-    [[ ! -d ${ESVN_STORE_DIR} ]] && mkdir -p "${ESVN_STORE_DIR}"
     addwrite "${ESVN_STORE_DIR}"
+    [[ ! -d ${ESVN_STORE_DIR} ]] && mkdir -p "${ESVN_STORE_DIR}"
     [[ -z ${ESVN_REPO_URI} ]] && die "ESVN_REPO_URI must be defined by user of subversion.eclass"
     subversion_init_cont "${ESVN_REPO_URI}"
 }
@@ -179,9 +179,10 @@ subversion_fetch() {
             ewarn "see \${ESVN_REPO_URI}"
         fi
         if [[ ! -d ${ESVN_WC_PATH}/.svn ]]; then
-            mkdir -p "${ESVN_WC_PATH}" || die "${FUNCNAME} ~ couldn't mkdir ${$ESVN_WC_PATH}"
-            cd "${ESVN_WC_PATH}"
+            mkdir -p "${ESVN_WC_PATH%/*}" || die "${FUNCNAME} ~ couldn't mkdir ${$ESVN_WC_PATH}"
+            cd "${ESVN_WC_PATH%/*}"
             ${ESVN_FETCH_CMD} ${ESVN_OPTIONS} "${ESVN_REPO_URI}"
+            cd "${ESVN_WC_PATH}"
         elif [[ -n ${ESVN_OFFLINE} ]]; then
             if [[ -n ${ESVN_REVISION} && ${ESVN_REVISION} != ${ESVN_WC_REVISION} ]]; then
                 die "${ECLASS}::${FUNCNAME} ~ You requested off-line updating and revision ${ESVN_REVISION} but only revision ${ESVN_WC_REVISION} is available locally."
@@ -229,7 +230,7 @@ subversion_fetch() {
         fi
     fi
     if ! has "export" ${ESVN_RESTRICT}; then
-        cd "${wc_path}"
+        cd "${ESVN_WC_PATH}"
         local S="${S}/${S_dest}"
         mkdir -p "${S}" || die "${ECLASS}::${FUNCNAME}::${LINENO} ~ "
         rsync -rlpgo --exclude=".svn/" . "${S}" 
@@ -244,15 +245,14 @@ subversion__get_peg_revision() {
 }
 
 subversion_wc_info() {
-    local ESVN_REPO_URI wc_path
-    ESVN_REPO_URI="$(subversion__get_reposiory_uri "${1:-${ESVN_REPO_URI}}")"
-    wc_path="$(subversion__get_wc_path "${ESVN_REPO_URI}")"
-    [[ ! -d ${wc_path} ]] && return 1
-    export ESVN_WC_URL="$(subversion__svn_info "${wc_path}" "URL")"
-    export ESVN_WC_ROOT="$(subversion__svn_info "${wc_path}" "Repository Root")"
-    export ESVN_WC_UUID="$(subversion__svn_info "${wc_path}" "Repository UUID")"
-    export ESVN_WC_REVISION="$(subversion__svn_info "${wc_path}" "Revision")"
-    export ESVN_WC_PATH="${wc_path}"
+    local ESVN_REPO_URI ESVN_WC_PATH
+    ESVN_WC_PATH="${ESVN_WC_PATH}"
+    [[ ! -d ${ESVN_WC_PATH} ]] && return 1
+    export ESVN_WC_URL="$(subversion__svn_info "${ESVN_WC_PATH}" "URL")"
+    export ESVN_WC_ROOT="$(subversion__svn_info "${ESVN_WC_PATH}" "Repository Root")"
+    export ESVN_WC_UUID="$(subversion__svn_info "${ESVN_WC_PATH}" "Repository UUID")"
+    export ESVN_WC_REVISION="$(subversion__svn_info "${ESVN_WC_PATH}" "Revision")"
+    export ESVN_WC_PATH="${ESVN_WC_PATH}"
 }
 
 subversion__svn_info() {
