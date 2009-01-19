@@ -11,6 +11,7 @@ DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND=""
-RDEPEND=">=kde-base/kcmshell-${PV}:${SLOT}
-	kde-base/kwalletd:${SLOT}"
+RDEPEND="
+	>=kde-base/kcmshell-${PV}:${SLOT}
+	kde-base/kwalletd:${SLOT}
+"
