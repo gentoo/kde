@@ -11,14 +11,23 @@ DESCRIPTION="KDE text-to-speech subsystem"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug htmlhandbook +ktts +phonon"
 
-DEPEND="ktts? ( alsa? ( >=media-libs/alsa-lib-1.0.14a )
-	phonon? ( >=media-sound/phonon-4.2.96 ) )
+DEPEND="
 	>=kde-base/kcmshell-${PV}:${SLOT}
-	>=kde-base/knotify-${PV}:${SLOT}"
-RDEPEND="ktts? ( app-accessibility/festival
-	app-accessibility/epos
-	app-accessibility/freetts
-	app-accessibility/flite )"
+	>=kde-base/knotify-${PV}:${SLOT}
+	ktts? (
+		alsa? ( >=media-libs/alsa-lib-1.0.14a )
+		phonon? ( >=media-sound/phonon-4.2.96 )
+	)
+"
+
+RDEPEND="${DEPEND}
+	ktts? (
+		app-accessibility/epos
+		app-accessibility/festival
+		app-accessibility/flite
+		app-accessibility/freetts
+	)
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
