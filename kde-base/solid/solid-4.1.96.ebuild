@@ -10,18 +10,26 @@ inherit kde4-meta
 
 DESCRIPTION="Solid: the KDE hardware library"
 KEYWORDS="~amd64 ~x86"
-IUSE="bluetooth networkmanager"
+IUSE="bluetooth debug networkmanager"
 
 # solid/CMakeLists.txt has an add_subdirectory statement that depends on
 # networkmanager-0.7, referring to a non-existant directory, restricted to =0.6*
 # for now.
 DEPEND="
 	>=sys-apps/hal-0.5.9
-	bluetooth? ( || ( net-wireless/bluez-libs net-wireless/bluez ) )
-	networkmanager? ( >=net-misc/networkmanager-0.7 )"
+	bluetooth? (
+		|| (
+			net-wireless/bluez
+			net-wireless/bluez-libs
+		)
+	)
+	networkmanager? ( >=net-misc/networkmanager-0.7 )
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRA="libs/solid/"
+KMEXTRA="
+	libs/solid/
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
@@ -37,4 +45,3 @@ pkg_postinst() {
 
 	kde4-meta_pkg_postinst
 }
-
