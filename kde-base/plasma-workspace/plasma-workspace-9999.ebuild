@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE="debug google-gadgets htmlhandbook python xcomposite xinerama"
 
 COMMONDEPEND="
-	!kde-base/plasma:${SLOT}
 	>=kde-base/kephal-${PV}:${SLOT}
 	>=kde-base/ksysguard-${PV}:${SLOT}
 	>=kde-base/libkworkspace-${PV}:${SLOT}
@@ -38,6 +37,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
+	!kde-base/plasma:${SLOT}
 	>=kde-base/kde-menu-icons-${PV}:${SLOT}
 "
 
