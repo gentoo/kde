@@ -16,7 +16,7 @@ DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}
 	>=kde-base/libkholidays-${PV}:${SLOT}
 	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT} )
-	"
+"
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
@@ -31,7 +31,7 @@ KMEXTRACTONLY="
 	libkholidays
 "
 
-src_unpack(){
+src_unpack() {
 	if use kontact; then
 		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
 		KMEXTRA="${KMEXTRA} kontact/plugins/planner"
