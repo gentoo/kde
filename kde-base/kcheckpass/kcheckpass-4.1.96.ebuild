@@ -9,13 +9,17 @@ inherit kde4-meta
 
 DESCRIPTION="A simple password checker, used by any software in need of user authentication."
 KEYWORDS="~amd64 ~x86"
-IUSE="pam"
+IUSE="debug pam"
 
-DEPEND="pam? ( >=kde-base/kdebase-pam-7
-		sys-libs/pam )"
+DEPEND="
+	pam? (
+		>=kde-base/kdebase-pam-7
+		sys-libs/pam
+	)
+"
 RDEPEND="${DEPEND}"
 
-PATCHES=("${FILESDIR}/kdebase-4.0.2-pam-optional.patch")
+PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
