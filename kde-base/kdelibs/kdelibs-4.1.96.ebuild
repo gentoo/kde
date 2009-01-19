@@ -27,14 +27,15 @@ COMMONDEPEND="
 	!<=kde-base/kdebase-3.5.9-r4
 	!<=kde-base/kdebase-startkde-3.5.10
 	!kdeprefix? (
-		!<=kde-misc/kdnssd-avahi-0.1.2:0
-		!kde-base/libplasma[kdeprefix=]
 		!kde-base/kitchensync:4.1[kdeprefix=]
 		!kde-base/knewsticker:4.1[kdeprefix=]
 		!kde-base/kpercentage:4.1[kdeprefix=]
 		!kde-base/ktnef:4.1[kdeprefix=]
+		!kde-base/libplasma[kdeprefix=]
+		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	>=app-misc/strigi-0.6.3[qt4,dbus]
+	dev-libs/libpcre
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87
@@ -71,30 +72,30 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	opengl? ( virtual/opengl )
-	dev-libs/libpcre
 	semantic-desktop? ( >=dev-libs/soprano-2.1.64 )
 	spell? (
-		app-text/aspell
 		app-dicts/aspell-en
+		app-text/aspell
 		app-text/enchant
 	)
 	ssl? ( dev-libs/openssl )
-	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat]
-	!bindist? ( net-misc/mDNSResponder ) ) )
+	zeroconf? (
+		|| (
+			net-dns/avahi[mdnsresponder-compat]
+			!bindist? ( net-misc/mDNSResponder )
+		)
+	)
 "
 
 DEPEND="${COMMONDEPEND}
-	doc? ( app-doc/doxygen )
 	sys-devel/gettext
+	doc? ( app-doc/doxygen )
 "
 
 RDEPEND="${COMMONDEPEND}
-	x11-apps/rgb
 	x11-apps/iceauth
+	x11-apps/rgb
 "
-
-# used temporarily
-HME=
 
 src_configure() {
 	if use zeroconf; then
@@ -207,7 +208,6 @@ COLON_SEPARATED="XDG_DATA_DIRS"
 
 pkg_postinst() {
 	fdo-mime_mime_database_update
-
 	if use zeroconf; then
 		echo
 		elog "To make zeroconf support available in KDE make sure that the 'mdnsd' daemon"
@@ -217,6 +217,7 @@ pkg_postinst() {
 		echo
 	fi
 	elog "your homedir is set to "'${HOME}'"/${HME}"
+
 	kde4-base_pkg_postinst
 }
 

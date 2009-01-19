@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.1.96.ebuild, kdelibs-9999.ebuild:
+  kdelibs - updated strigi version in live ebuild, in RC - synced formatting
+  from live, applied minor cleanup
+
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> kdelibs-4.1.96.ebuild:
   Update deps
 
