@@ -14,7 +14,8 @@ HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
-DEPEND="!kdeprefix? ( !media-libs/libkipi )"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	!kdeprefix? ( !media-libs/libkipi )
+"

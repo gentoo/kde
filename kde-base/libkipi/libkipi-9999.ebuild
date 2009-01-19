@@ -16,7 +16,6 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	!kdeprefix? ( !media-libs/libkipi )
 "
-RDEPEND="${DEPEND}"
