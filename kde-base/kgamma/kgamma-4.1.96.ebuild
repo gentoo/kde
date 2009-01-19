@@ -11,6 +11,9 @@ DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND="x11-apps/xgamma
+RDEPEND="
 	x11-libs/libXxf86vm
-	x11-proto/xf86vidmodeproto"
+"
+DEPEND="${RDEPEND}
+	x11-proto/xf86vidmodeproto
+"
