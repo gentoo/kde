@@ -11,11 +11,14 @@ DESCRIPTION="KDE weather status display"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/plasma-workspace-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/plasma-workspace-${PV}:${SLOT}
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-				-DWITH_Plasma=ON"
+		-DWITH_Plasma=ON"
 
 	kde4-base_src_configure
 }
