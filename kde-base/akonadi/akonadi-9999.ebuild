@@ -17,9 +17,7 @@ IUSE="debug +semantic-desktop"
 #exchange? ( net-libs/libmapi )
 # not sure about libxml2... - reavertm
 
-# blocks kdemaildir - no longer provided (it's in akonadi now)
 DEPEND="
-	!kde-base/kdemaildir:${SLOT}[kdeprefix=]
 	dev-libs/boost
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -27,8 +25,9 @@ DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}
 	x11-misc/shared-mime-info
 "
-
+# @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
+	!kde-base/kdemaildir:${SLOT}[kdeprefix=]
 	>=app-office/akonadi-server-1.1[mysql]
 "
 
