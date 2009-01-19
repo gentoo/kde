@@ -13,9 +13,11 @@ HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
-DEPEND="media-gfx/exiv2
+DEPEND="
+	media-gfx/exiv2
 	media-libs/jpeg
-	media-libs/lcms"
-
+	media-libs/lcms
+"
+RDEPEND="${DEPEND}"
