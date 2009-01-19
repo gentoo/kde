@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME="kdebindings"
 KMMODULE="python/${PN}"
-OPENGL_REQUIRED="allways"
+OPENGL_REQUIRED="always"
 inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
@@ -44,19 +44,22 @@ src_configure() {
 
 src_install() {
 	kde4-meta_src_install
-	rm -f "${D}"/usr/$(get_libdir)/python*/site-packages/PyKDE4/*.py[co]
-	rm -f "${D}${PREFIX}"/share/apps/${PN}/*.py[co]
+
+	python_version
+	rm -f "${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co]
+	rm -f "${D}${PREFIX}/share/apps/${PN}"/*.py[co]
 }
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
-	python_version
+
 	python_mod_optimize \
-		/usr/$(get_libdir)/python${PYVER}/site-packages/PyKDE4 \
-		"${PREFIX}"/share/apps/${PN}
+		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+		"${PREFIX}/share/apps/${PN}"
 }
 
 pkg_postrm() {
 	kde4-meta_pkg_postrm
+
 	python_mod_cleanup
 }
