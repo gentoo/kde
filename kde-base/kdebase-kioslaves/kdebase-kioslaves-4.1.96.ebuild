@@ -18,20 +18,25 @@ DEPEND="
 	sys-apps/dbus
 	sys-apps/hal
 	x11-libs/libXcursor
+	openexr? ( media-libs/openexr )
 	samba? ( net-fs/samba )
-	openexr? ( media-libs/openexr )"
+"
 RDEPEND="${DEPEND}
 	>=kde-base/kdesu-${PV}:${SLOT}
 	>=kde-base/kdialog-${PV}:${SLOT}
-	virtual/ssh"
+	virtual/ssh
+"
 
-KMEXTRA="kioexec
-	kdeeject"
+KMEXTRA="
+	kioexec
+	kdeeject
+"
 
 src_unpack() {
 	if use htmlhandbook; then
 		KMEXTRA="${KMEXTRA} doc/kioslave"
 	fi
+
 	kde4-meta_src_unpack
 }
 
@@ -45,6 +50,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	elog ""
+	echo
 	elog "Note that if you upgrade strigi, you have to rebuild this package."
+	echo
+
+	kde4-meta_pkg_postinst
 }
