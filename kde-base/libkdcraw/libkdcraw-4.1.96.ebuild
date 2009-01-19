@@ -14,10 +14,12 @@ HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
 DEPEND="
 	media-libs/jpeg
 	media-libs/lcms
-	!kdeprefix? ( !media-libs/libkdcraw )"
-RDEPEND="${DEPEND}"
+"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !media-libs/libkdcraw )
+"

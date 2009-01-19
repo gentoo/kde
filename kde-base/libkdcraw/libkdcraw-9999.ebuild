@@ -19,6 +19,7 @@ IUSE="debug"
 DEPEND="
 	media-libs/jpeg
 	media-libs/lcms
+"
+RDEPEND="${DEPEND}
 	!kdeprefix? ( !media-libs/libkdcraw )
 "
-RDEPEND="${DEPEND}"
