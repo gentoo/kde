@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +files/digikam-0.10.0_beta8-fix-linkage.patch,
+  digikam-0.10.0_beta8.ebuild:
+  Add patch to fix linkage to digikam. This fixes bug 255419
+
 *digikam-0.10.0_beta8 (11 Jan 2009)
 
   11 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org>
