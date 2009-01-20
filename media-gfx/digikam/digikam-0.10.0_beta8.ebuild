@@ -51,7 +51,7 @@ DEPEND="
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
-PATHCES=( "${FILESDIR}/${P}-fix-linkage.patch" )
+PATCHES=( "${FILESDIR}/${P}-fix-linkage.patch" )
 
 src_prepare() {
 	# fix files collision, use icon from kdebase-data rather that digikam ones
