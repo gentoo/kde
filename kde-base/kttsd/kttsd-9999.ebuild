@@ -16,7 +16,7 @@ DEPEND="
 	>=kde-base/knotify-${PV}:${SLOT}
 	ktts? (
 		alsa? ( >=media-libs/alsa-lib-1.0.14a )
-		phonon? ( >=media-sound/phonon-4.2.96 )
+		phonon? ( >=media-sound/phonon-4.3.0 )
 	)
 "
 

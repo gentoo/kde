@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*gwenview-4.2.0 (22 Jan 2009)
+
+  22 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +gwenview-4.2.0.ebuild:
+  Version bump.
+
   19 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   gwenview-4.1.96.ebuild:
   gwenview: optional kipi macro is called Kipi, not KIPI
