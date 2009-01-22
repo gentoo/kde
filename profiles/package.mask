@@ -1,4 +1,4 @@
-# Maciej Mrozowski <reavertm@poczta.fm> (22 Jan 2008)
+# Maciej Mrozowski <reavertm@poczta.fm> (22 Jan 2009)
 # experimental kde printer admin
 app-admin/system-config-printer
 app-misc/hal-cups-utils
