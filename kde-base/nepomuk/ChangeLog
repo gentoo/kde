@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  nepomuk-4.1.96.ebuild:
+  Added kdelibs[semantic-desktop] deps for nepomuk
+
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -nepomuk-4.1.4.ebuild:
   Version removed.
 
