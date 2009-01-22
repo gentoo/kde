@@ -2,16 +2,14 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-<<<<<<< HEAD:kde-base/nepomuk/ChangeLog
 *nepomuk-4.2.0 (22 Jan 2009)
 
   22 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +nepomuk-4.2.0.ebuild:
   Version bump.
-=======
+  
   21 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   nepomuk-4.1.96.ebuild:
   Added kdelibs[semantic-desktop] deps for nepomuk
->>>>>>> 03bf19afb7fae2e62e7de06a3e582ee1aaf68b60:kde-base/nepomuk/ChangeLog
 
   13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -nepomuk-4.1.4.ebuild:
   Version removed.
