@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-# TODO fix deps
+# TODO fix rdeps
 RDEPEND="
 	dev-lang/python
 	>=dev-libs/dbus-glib-0.74
@@ -27,3 +27,9 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 "
+
+src_install() {
+	dodoc AUTHORS ChangeLog README || die "dodoc failed"
+
+	emake DESTDIR="${D}" install || die "emake install failed"
+}
