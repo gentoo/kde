@@ -17,5 +17,4 @@ DEPEND="
 	dev-python/pycups
 	>=kde-base/pykde4-${PV}:${SLOT}
 "
-
 RDEPEND="${DEPEND}"

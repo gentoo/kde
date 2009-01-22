@@ -1,7 +1,11 @@
-# Maciej Mrozowski <reavertm@poczta.fm> (21 Dec 2008)
-# Depends on stuff masked and not available in portage
+# Maciej Mrozowski <reavertm@poczta.fm> (22 Jan 2008)
+# experimental kde printer admin
+app-admin/system-config-printer
+app-misc/hal-cups-utils
+dev-python/pycups
 kde-base/printer-applet
 kde-base/system-config-printer-kde
+=dev-python/PyQt4-4.4.4-r2
 
 ~app-cdr/k3b-9999
 ~app-cdr/k9copy-9999
