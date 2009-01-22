@@ -11,5 +11,8 @@ DESCRIPTION="Nepomuk KDE4 client"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="dev-libs/soprano[clucene]"
+DEPEND="
+	dev-libs/soprano[clucene]
+	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
+"
 RDEPEND="${DEPEND}"

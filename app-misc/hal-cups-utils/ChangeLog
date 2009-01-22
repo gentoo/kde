@@ -1,0 +1,14 @@
+# ChangeLog for app-misc/hal-cups-utils
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  hal-cups-utils-0.6.19.ebuild:
+  Fixed src_install in hal-cups-utils
+
+*hal-cups-utils-0.6.19 (21 Jan 2009)
+
+  21 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +hal-cups-utils-0.6.19.ebuild:
+  Added hal-cups-utils new ebuild
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>python</herd>
+<herd>qt</herd>
+<use>
+	<flag name='qt3support'>enable the Qt3Support libraries for Qt4</flag>
+	<flag name='webkit'>enable WebKit support</flag>
+</use>
+</pkgmetadata>
