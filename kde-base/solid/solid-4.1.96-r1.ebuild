@@ -32,7 +32,7 @@ KMEXTRA="
 "
 
 src_configure() {
-	epatch ${FILESDIR}/${P}-backport-solid-bluetooth.patch
+	epatch ${FILESDIR}/${PN}-4.2.0-backport-solid-bluetooth.patch
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bluetooth BlueZ)
 		$(cmake-utils_use_with networkmanager NetworkManager)"
