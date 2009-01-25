@@ -11,23 +11,20 @@ SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="nls"
 
-# TODO gnome deps...
 RDEPEND="
 	app-text/xmlto
 	dev-lang/python
 	dev-python/dbus-python
+	dev-python/gnome-keyring-python
+	dev-python/libgnome-python
 	dev-python/notify-python
 	dev-python/pycups
-	=dev-python/pygtk-2*
+	>=dev-python/pygtk-2.4
 	dev-python/pyxml
-	dev-python/rhpl
 	net-print/cups
-	net-print/foomatic-db
-	net-print/foomatic-filters
-	sys-apps/usermode
 "
 DEPEND="${RDEPEND}
 	nls? (
