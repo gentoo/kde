@@ -1,12 +1,3 @@
-# Maciej Mrozowski <reavertm@poczta.fm> (22 Jan 2009)
-# experimental kde printer admin
-app-admin/system-config-printer
-app-misc/hal-cups-utils
-dev-python/pycups
-=dev-python/PyQt4-4.4.4-r2
-kde-base/printer-applet
-kde-base/system-config-printer-kde
-
 # live ebuilds - masked by default
 =app-cdr/k3b-9999
 =app-cdr/k9copy-9999
