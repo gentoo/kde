@@ -6,6 +6,7 @@ dev-util/inspektor:live **
 dev-util/kdesvn:live **
 dev-util/kdevelop:live **
 dev-util/kdevplatform:live **
+dev-util/krazy2:live **
 games-board/tagua:live **
 kde-base/kdeplasma-addons:live **
 kde-base/kde-i10n:live **

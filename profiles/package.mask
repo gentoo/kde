@@ -19,6 +19,7 @@
 =dev-util/kdesvn-9999
 =dev-util/kdevelop-9999
 =dev-util/kdevplatform-9999
+=dev-util/krazy2-9999
 =kde-base/akonadi-9999
 =kde-base/akregator-9999
 =kde-base/amor-9999
