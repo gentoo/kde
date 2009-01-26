@@ -17,6 +17,7 @@ IUSE="nls"
 RDEPEND="
 	app-text/xmlto
 	dev-lang/python
+	dev-libs/libxml2[python]
 	dev-python/dbus-python
 	dev-python/gnome-keyring-python
 	dev-python/libgnome-python

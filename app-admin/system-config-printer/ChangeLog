@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.2.ebuild:
+  Updated deps for system-config-printer - requires libxml2 python bindings
+
   25 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   system-config-printer-1.1.2.ebuild:
   Adjusted system-config-printer deps according to bug #241106
