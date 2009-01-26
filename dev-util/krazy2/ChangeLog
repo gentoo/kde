@@ -1,0 +1,10 @@
+# ChangeLog for dev-util/krazy2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*krazy2-9999 (26 Jan 2009)
+
+  26 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/install.sh.patch, +metadata.xml, +krazy2-9999.ebuild:
+  Added live krazy2 ebuild - code checker/QA by KDE team
+
