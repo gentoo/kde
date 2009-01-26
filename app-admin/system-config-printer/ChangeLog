@@ -4,6 +4,12 @@
 
   26 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   system-config-printer-1.1.2.ebuild:
+  Adjusted deps a bit for system-config-printer: removed
+  gnome-keyring-python. added cups[dbus] USE dep
+  Is gnome-keyring-python *really* needed?
+
+  26 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.2.ebuild:
   Updated deps for system-config-printer - requires libxml2 python bindings
 
   25 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

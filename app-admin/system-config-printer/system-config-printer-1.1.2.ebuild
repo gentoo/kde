@@ -14,18 +14,18 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="nls"
 
+# 	dev-python/gnome-keyring-python
 RDEPEND="
 	app-text/xmlto
 	dev-lang/python
 	dev-libs/libxml2[python]
 	dev-python/dbus-python
-	dev-python/gnome-keyring-python
 	dev-python/libgnome-python
 	dev-python/notify-python
 	dev-python/pycups
 	>=dev-python/pygtk-2.4
 	dev-python/pyxml
-	net-print/cups
+	net-print/cups[dbus]
 "
 DEPEND="${RDEPEND}
 	nls? (
