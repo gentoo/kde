@@ -1,5 +1,3 @@
 app-admin/system-config-printer
 app-misc/hal-cups-utils
 dev-python/pycups
-kde-base/printer-applet
-kde-base/system-config-printer-kde
