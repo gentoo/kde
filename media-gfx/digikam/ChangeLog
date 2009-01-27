@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*digikam-0.10.0_rc1 (27 Jan 2009)
+
+  27 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -files/digikam-0.10.0_beta8-fix-linkage.patch,
+  -digikam-0.10.0_beta8.ebuild, +digikam-0.10.0_rc1.ebuild:
+  Version bump.
+
   20 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
   +files/digikam-0.10.0_beta8-fix-linkage.patch,
   digikam-0.10.0_beta8.ebuild:

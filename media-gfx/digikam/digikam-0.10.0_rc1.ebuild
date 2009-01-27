@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.1"
+KDE_MINIMAL="4.2"
 KDE_LINGUAS="ar be bg ca cs da de el es et eu fa fi fr ga gl he hi is it ja km
 ko lt lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sv th tr uk vi zh_CN zh_TW"
 
@@ -50,8 +50,6 @@ DEPEND="
 "
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${P}-fix-linkage.patch" )
 
 src_prepare() {
 	# fix files collision, use icon from kdebase-data rather that digikam ones
