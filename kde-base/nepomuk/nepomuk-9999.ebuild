@@ -12,7 +12,10 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	dev-libs/soprano[clucene]
+	|| (
+		dev-libs/soprano[clucene,redland]
+		dev-libs/soprano[clucene,sesame2]
+	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
 "
 RDEPEND="${DEPEND}"
