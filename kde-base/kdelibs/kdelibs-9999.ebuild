@@ -46,6 +46,7 @@ COMMONDEPEND="
 	media-libs/libpng
 	>=media-sound/phonon-4.3.0[xcb]
 	sys-apps/dbus[X]
+	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -63,10 +64,10 @@ COMMONDEPEND="
 		kernel_linux? ( sys-apps/acl )
 	)
 	alsa? ( media-libs/alsa-lib[midi] )
+	bzip2? ( app-arch/bzip2 )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
-	nls? ( virtual/libintl )
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
@@ -86,16 +87,22 @@ COMMONDEPEND="
 		)
 	)
 "
-
 DEPEND="${COMMONDEPEND}
-	sys-devel/gettext
 	doc? ( app-doc/doxygen )
+	nls? ( virtual/libintl )
 "
-
 RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+
+src_prepare() {
+	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
+		CMakeLists.txt \
+		|| die "Failed to make ACL disabled even when present in system."
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	if use zeroconf; then
