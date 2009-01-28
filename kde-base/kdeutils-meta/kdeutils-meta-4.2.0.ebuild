@@ -22,7 +22,6 @@ RDEPEND="
 	>=kde-base/kdessh-${PV}:${SLOT}
 	>=kde-base/kdf-${PV}:${SLOT}
 	>=kde-base/kgpg-${PV}:${SLOT}
-	>=kde-base/kjots-${PV}:${SLOT}
 	>=kde-base/ktimer-${PV}:${SLOT}
 	>=kde-base/kwallet-${PV}:${SLOT}
 	>=kde-base/superkaramba-${PV}:${SLOT}
