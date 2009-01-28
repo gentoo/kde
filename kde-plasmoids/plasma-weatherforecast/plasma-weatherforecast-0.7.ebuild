@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_WANTED="snapshot"
+NEED_KDE="4.2"
 
 inherit kde4-base
 
