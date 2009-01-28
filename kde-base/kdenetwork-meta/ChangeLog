@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdenetwork-meta
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdenetwork-meta-4.2.0 (28 Jan 2009)
+
+  28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kdenetwork-meta-4.2.0.ebuild:
+  Added kdenetwork meta ebuild
+

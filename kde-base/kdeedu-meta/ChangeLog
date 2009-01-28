@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdeedu-meta
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeedu-meta-4.2.0 (27 Jan 2009)
+
+  27 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kdeedu-meta-4.2.0.ebuild:
+  Added kdeedu-meta package
+

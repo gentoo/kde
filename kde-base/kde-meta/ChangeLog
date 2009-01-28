@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kde-meta
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kde-meta-4.2.0 (28 Jan 2009)
+
+  28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kde-meta-4.2.0.ebuild:
+  Added kde mata package
+
