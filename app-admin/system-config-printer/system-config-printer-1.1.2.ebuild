@@ -12,9 +12,8 @@ SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="nls"
+IUSE="gnome-keyring nls"
 
-# 	dev-python/gnome-keyring-python
 RDEPEND="
 	app-text/xmlto
 	dev-lang/python
@@ -26,6 +25,7 @@ RDEPEND="
 	>=dev-python/pygtk-2.4
 	dev-python/pyxml
 	net-print/cups[dbus]
+	gnome-keyring? ( dev-python/gnome-keyring-python )
 "
 DEPEND="${RDEPEND}
 	nls? (
@@ -41,8 +41,16 @@ for X in ${APP_LINGUAS}; do
 	IUSE="${IUSE} linguas_${X}"
 done
 
+pkg_setup() {
+	if use nls && [[ -z "${LINGUAS}" ]]; then
+		echo
+		ewarn "To get localized build, set LINGUAS variable appropriately."
+		echo
+	fi
+}
+
 src_configure() {
-	econf $(use_enable nls)
+	econf $(use_enable nls) || die "econf failed"
 }
 
 src_install() {

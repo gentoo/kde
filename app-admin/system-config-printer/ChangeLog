@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.2.ebuild:
+  Added better nls handling (warning message when nls requested but LINGUAS
+  not set).
+
+  27 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.2.ebuild:
+  Added gnome-keyring IUSE
+
   26 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   system-config-printer-1.1.2.ebuild:
   Adjusted deps a bit for system-config-printer: removed
