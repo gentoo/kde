@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kstartperf-4.1.96.ebuild:
+  Version removed.
+
 *kstartperf-4.2.0 (22 Jan 2009)
 
   22 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +kstartperf-4.2.0.ebuild:
