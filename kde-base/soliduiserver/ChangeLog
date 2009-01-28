@@ -3,6 +3,10 @@
 # $Header: $
 
   28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -soliduiserver-4.2.0.ebuild:
+  Version removed.
+
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -soliduiserver-4.1.96.ebuild:
   Version removed.
 
