@@ -1,0 +1,335 @@
+Index: cmake/modules/MacroFindOptionalDep.cmake
+===================================================================
+--- cmake/modules/MacroFindOptionalDep.cmake	(revision 0)
++++ cmake/modules/MacroFindOptionalDep.cmake	(revision 0)
+@@ -0,0 +1,268 @@
++# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
++# approaches:
++#
++# Best-effort approach(FORCE_DEPS=OFF):
++#	Link to all enabled optional dependencies if found. Turn off not found
++# ones, and keep compiling. This greatly benefits hand-compiling from source
++# if all suggested dependencies are turned on by default. Newly installed
++# software conveniently integrates with whatever environment it's compiled in.
++#
++# Strict dependencies approach(FORCE_DEPS=ON):
++#	All enabled optional dependencies must be found, or compilation aborts.
++# This approach lets request and ensure specific functionality. The compilation
++# is deterministic in the sense that everything that's requested is provided
++# or the process fails. This is the preferred behaviour for automated building
++# by package managers/distro maintainers.
++#
++# Parameters:
++# _package:	the package to load
++# _found:	the name of *_FOUND variable which is set by find_package()
++#               if ${_package} is found.
++# _enabled:	option/variable name which along with FORCE_DEPS options
++#               controls macro behaviour:
++#	${_enabled}	FORCE_DEPS	Behaviour
++#		OFF	any		${_package} is not loaded
++#		ON	ON		Try loading ${_package}. If package is
++#                                       not found, abort(fatal error).
++#		ON	OFF		Try loading ${_package}. If package is
++#                                       not found, continue.
++# _description:	a short description of features provided by ${_package}.
++#		Used to display human-readable diagnostic messages
++
++# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
++# clash with a macro from KDE4
++
++# if ON, requested optional deps become required
++# if OFF, requested optional deps are linked to if found
++
++OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
++
++macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
++
++    if(${_enabled})
++        if(FORCE_DEPS)
++            find_package(${_package} REQUIRED)
++        else(FORCE_DEPS)
++            find_package(${_package})
++        endif(FORCE_DEPS)
++    endif(${_enabled})
++
++    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
++
++endmacro(FIND_OPTIONAL_DEP)
++
++
++macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
++
++    if(${_enabled})
++        if(${_found})
++            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
++        else(${_found})
++            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
++        endif(${_found})
++    else(${_enabled})
++        MESSAGE("** ${_package} is disabled. No support for ${_description}")
++    endif(${_enabled})
++
++endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
++# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
++# approaches:
++#
++# Best-effort approach(FORCE_DEPS=OFF):
++#	Link to all enabled optional dependencies if found. Turn off not found
++# ones, and keep compiling. This greatly benefits hand-compiling from source
++# if all suggested dependencies are turned on by default. Newly installed
++# software conveniently integrates with whatever environment it's compiled in.
++#
++# Strict dependencies approach(FORCE_DEPS=ON):
++#	All enabled optional dependencies must be found, or compilation aborts.
++# This approach lets request and ensure specific functionality. The compilation
++# is deterministic in the sense that everything that's requested is provided
++# or the process fails. This is the preferred behaviour for automated building
++# by package managers/distro maintainers.
++#
++# Parameters:
++# _package:	the package to load
++# _found:	the name of *_FOUND variable which is set by find_package()
++#               if ${_package} is found.
++# _enabled:	option/variable name which along with FORCE_DEPS options
++#               controls macro behaviour:
++#	${_enabled}	FORCE_DEPS	Behaviour
++#		OFF	any		${_package} is not loaded
++#		ON	ON		Try loading ${_package}. If package is
++#                                       not found, abort(fatal error).
++#		ON	OFF		Try loading ${_package}. If package is
++#                                       not found, continue.
++# _description:	a short description of features provided by ${_package}.
++#		Used to display human-readable diagnostic messages
++
++# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
++# clash with a macro from KDE4
++
++# if ON, requested optional deps become required
++# if OFF, requested optional deps are linked to if found
++
++OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
++
++macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
++
++    if(${_enabled})
++        if(FORCE_DEPS)
++            find_package(${_package} REQUIRED)
++        else(FORCE_DEPS)
++            find_package(${_package})
++        endif(FORCE_DEPS)
++    endif(${_enabled})
++
++    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
++
++endmacro(FIND_OPTIONAL_DEP)
++
++
++macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
++
++    if(${_enabled})
++        if(${_found})
++            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
++        else(${_found})
++            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
++        endif(${_found})
++    else(${_enabled})
++        MESSAGE("** ${_package} is disabled. No support for ${_description}")
++    endif(${_enabled})
++
++endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
++# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
++# approaches:
++#
++# Best-effort approach(FORCE_DEPS=OFF):
++#	Link to all enabled optional dependencies if found. Turn off not found
++# ones, and keep compiling. This greatly benefits hand-compiling from source
++# if all suggested dependencies are turned on by default. Newly installed
++# software conveniently integrates with whatever environment it's compiled in.
++#
++# Strict dependencies approach(FORCE_DEPS=ON):
++#	All enabled optional dependencies must be found, or compilation aborts.
++# This approach lets request and ensure specific functionality. The compilation
++# is deterministic in the sense that everything that's requested is provided
++# or the process fails. This is the preferred behaviour for automated building
++# by package managers/distro maintainers.
++#
++# Parameters:
++# _package:	the package to load
++# _found:	the name of *_FOUND variable which is set by find_package()
++#               if ${_package} is found.
++# _enabled:	option/variable name which along with FORCE_DEPS options
++#               controls macro behaviour:
++#	${_enabled}	FORCE_DEPS	Behaviour
++#		OFF	any		${_package} is not loaded
++#		ON	ON		Try loading ${_package}. If package is
++#                                       not found, abort(fatal error).
++#		ON	OFF		Try loading ${_package}. If package is
++#                                       not found, continue.
++# _description:	a short description of features provided by ${_package}.
++#		Used to display human-readable diagnostic messages
++
++# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
++# clash with a macro from KDE4
++
++# if ON, requested optional deps become required
++# if OFF, requested optional deps are linked to if found
++
++OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
++
++macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
++
++    if(${_enabled})
++        if(FORCE_DEPS)
++            find_package(${_package} REQUIRED)
++        else(FORCE_DEPS)
++            find_package(${_package})
++        endif(FORCE_DEPS)
++    endif(${_enabled})
++
++    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
++
++endmacro(FIND_OPTIONAL_DEP)
++
++
++macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
++
++    if(${_enabled})
++        if(${_found})
++            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
++        else(${_found})
++            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
++        endif(${_found})
++    else(${_enabled})
++        MESSAGE("** ${_package} is disabled. No support for ${_description}")
++    endif(${_enabled})
++
++endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
++# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
++# approaches:
++#
++# Best-effort approach(FORCE_DEPS=OFF):
++#	Link to all enabled optional dependencies if found. Turn off not found
++# ones, and keep compiling. This greatly benefits hand-compiling from source
++# if all suggested dependencies are turned on by default. Newly installed
++# software conveniently integrates with whatever environment it's compiled in.
++#
++# Strict dependencies approach(FORCE_DEPS=ON):
++#	All enabled optional dependencies must be found, or compilation aborts.
++# This approach lets request and ensure specific functionality. The compilation
++# is deterministic in the sense that everything that's requested is provided
++# or the process fails. This is the preferred behaviour for automated building
++# by package managers/distro maintainers.
++#
++# Parameters:
++# _package:	the package to load
++# _found:	the name of *_FOUND variable which is set by find_package()
++#               if ${_package} is found.
++# _enabled:	option/variable name which along with FORCE_DEPS options
++#               controls macro behaviour:
++#	${_enabled}	FORCE_DEPS	Behaviour
++#		OFF	any		${_package} is not loaded
++#		ON	ON		Try loading ${_package}. If package is
++#                                       not found, abort(fatal error).
++#		ON	OFF		Try loading ${_package}. If package is
++#                                       not found, continue.
++# _description:	a short description of features provided by ${_package}.
++#		Used to display human-readable diagnostic messages
++
++# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
++# clash with a macro from KDE4
++
++# if ON, requested optional deps become required
++# if OFF, requested optional deps are linked to if found
++
++OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
++
++macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
++
++    if(${_enabled})
++        if(FORCE_DEPS)
++            find_package(${_package} REQUIRED)
++        else(FORCE_DEPS)
++            find_package(${_package})
++        endif(FORCE_DEPS)
++    endif(${_enabled})
++
++    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
++
++endmacro(FIND_OPTIONAL_DEP)
++
++
++macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
++
++    if(${_enabled})
++        if(${_found})
++            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
++        else(${_found})
++            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
++        endif(${_found})
++    else(${_enabled})
++        MESSAGE("** ${_package} is disabled. No support for ${_description}")
++    endif(${_enabled})
++
++endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 917610)
++++ CMakeLists.txt	(working copy)
+@@ -24,9 +24,13 @@
+ # properly set up compile flags (QT_DEBUG/QT_NO_DEBUG, ...)
+ include(${QT_USE_FILE})
+ 
+-find_package(Redland)
++include(MacroFindOptionalDep)
+ 
+-find_package(CLucene)
++option(ENABLE_Redland "Raptor RDF parser/serializer and Redland storage backend" OFF)
++find_optional_dep(Redland ENABLE_Redland REDLAND_FOUND "Raptor RDF parser/serializer and Redland storage backend")
++
++option(ENABLE_CLucene "CLucene-based full-text search index library" ON)
++find_optional_dep(CLucene ENABLE_CLucene CLucene_FOUND "CLucene-based full-text search index library")
+ if(CLucene_FOUND)
+   if(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
+     set(CL_VERSION_19_OR_GREATER TRUE)
+@@ -34,23 +38,25 @@
+   set(SOPRANO_BUILD_INDEX_LIB 1 CACHE INTERNAL "Soprano Index is built" FORCE)
+ endif(CLucene_FOUND)
+ 
+-find_package(JNI)
+-if(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
+-  file(READ ${JAVA_INCLUDE_PATH}/jni.h jni_header_data)
+-  string(REGEX MATCH "JNI_VERSION_1_4" JNI_1_4_FOUND "${jni_header_data}")
+-  if(JNI_1_4_FOUND)
+-    message(STATUS "Found Java JNI >= 1.4: ${JAVA_INCLUDE_PATH}, ${JAVA_JVM_LIBRARY}")
+-  else(JNI_1_4_FOUND)
+-    message( "Need JNI version 1.4 or higher for the Sesame2 backend.")
+-  endif(JNI_1_4_FOUND)
+-else(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
+-  message(STATUS "Could not find Java JNI")
+-  if("$ENV{JAVA_HOME}" STREQUAL "")
+-    message("Make sure JAVA_HOME is set")
+-  endif("$ENV{JAVA_HOME}" STREQUAL "")
+-endif(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
++option(ENABLE_Sesame2 "Sesame2 storage backend (java-based)" ON)
++if(ENABLE_Sesame2)
++  find_package(JNI)
++  if(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
++    file(READ ${JAVA_INCLUDE_PATH}/jni.h jni_header_data)
++    string(REGEX MATCH "JNI_VERSION_1_4" JNI_1_4_FOUND "${jni_header_data}")
++    if(JNI_1_4_FOUND)
++      message(STATUS "Found Java JNI >= 1.4: ${JAVA_INCLUDE_PATH}, ${JAVA_JVM_LIBRARY}")
++    else(JNI_1_4_FOUND)
++      message( "Need JNI version 1.4 or higher for the Sesame2 backend.")
++    endif(JNI_1_4_FOUND)
++  else(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
++    message(STATUS "Could not find Java JNI")
++    if("$ENV{JAVA_HOME}" STREQUAL "")
++      message("Make sure JAVA_HOME is set")
++    endif("$ENV{JAVA_HOME}" STREQUAL "")
++  endif(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
++endif(ENABLE_Sesame2)
+ 
+-
+ ##################  setup install directories  ################################
+ set (LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)" )
+ set (LIB_DESTINATION "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}" CACHE STRING "Library directory name")

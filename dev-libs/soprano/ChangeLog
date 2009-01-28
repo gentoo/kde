@@ -1,6 +1,11 @@
 # ChangeLog for dev-libs/soprano
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/soprano-make-optional-targets.patch, soprano-9999.ebuild:
+  Experimental soprano (live) - patch for building optional backends
+  as previous sesame2 autoenabling wasn't working.
 
   23 Nov 2008; steffen stramm <krytzz@soylent.eu> soprano-9999.ebuild:
   java eclass inheritance without fail
