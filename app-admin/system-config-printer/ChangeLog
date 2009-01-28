@@ -4,6 +4,10 @@
 
   28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   system-config-printer-1.1.2.ebuild:
+  Disable nls when no LINGUAS specified
+
+  28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.2.ebuild:
   Added better nls handling (warning message when nls requested but LINGUAS
   not set).
 

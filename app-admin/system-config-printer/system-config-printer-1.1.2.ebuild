@@ -42,15 +42,24 @@ for X in ${APP_LINGUAS}; do
 done
 
 pkg_setup() {
-	if use nls && [[ -z "${LINGUAS}" ]]; then
+	if (use nls && [ -z "${LINGUAS}" ]) || (! use nls && [ -n "${LINGUAS}" ]); then
 		echo
-		ewarn "To get localized build, set LINGUAS variable appropriately."
+		ewarn "To get localized build, enable nls support and set LINGUAS variable appropriately."
 		echo
 	fi
 }
 
 src_configure() {
-	econf $(use_enable nls) || die "econf failed"
+	local myconf
+
+	# enable nls only when any LINGUAS set
+	if use nls && [ -z "${LINGUAS}" ]; then
+		myconf="${myconf} --disable-nls"
+	else
+		myconf="${myconf} $(use_enable nls)"
+	fi
+
+	econf ${myconf} || die "econf failed"
 }
 
 src_install() {
