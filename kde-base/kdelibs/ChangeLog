@@ -7,6 +7,12 @@
   kdelibs - make ACL optional (not just used when found), zlib, bzip2 deps
   added
 
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdelibs-4.2.0.ebuild:
+  Version removed.
+
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdelibs-4.1.96.ebuild:
+  Version removed.
+
   24 Jan 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> Manifest:
   Fixed Manifest for latest kdelibs tarball update.
 

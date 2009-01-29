@@ -6,6 +6,12 @@
   nepomuk-9999.ebuild:
   Make nepomuk require at least one working soprano backend
 
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -nepomuk-4.2.0.ebuild:
+  Version removed.
+
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -nepomuk-4.1.96.ebuild:
+  Version removed.
+
   22 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   nepomuk-4.2.0.ebuild:
   Fix nepomuk deps for 4.2.0

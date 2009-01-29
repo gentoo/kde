@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -solid-4.2.0.ebuild:
+  Version removed.
+
+  28 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -solid-4.1.96-r1.ebuild:
+  Version removed.
+
   25 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   solid-4.1.96-r1.ebuild, -solid-4.1.96.ebuild, solid-4.2.0.ebuild:
   Moved patching to autopatcher in solid, removed old solid ebuild
