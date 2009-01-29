@@ -1,299 +1,57 @@
-Index: cmake/modules/MacroFindOptionalDep.cmake
-===================================================================
---- cmake/modules/MacroFindOptionalDep.cmake	(revision 0)
-+++ cmake/modules/MacroFindOptionalDep.cmake	(revision 0)
-@@ -0,0 +1,268 @@
-+# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
-+# approaches:
-+#
-+# Best-effort approach(FORCE_DEPS=OFF):
-+#	Link to all enabled optional dependencies if found. Turn off not found
-+# ones, and keep compiling. This greatly benefits hand-compiling from source
-+# if all suggested dependencies are turned on by default. Newly installed
-+# software conveniently integrates with whatever environment it's compiled in.
-+#
-+# Strict dependencies approach(FORCE_DEPS=ON):
-+#	All enabled optional dependencies must be found, or compilation aborts.
-+# This approach lets request and ensure specific functionality. The compilation
-+# is deterministic in the sense that everything that's requested is provided
-+# or the process fails. This is the preferred behaviour for automated building
-+# by package managers/distro maintainers.
-+#
-+# Parameters:
-+# _package:	the package to load
-+# _found:	the name of *_FOUND variable which is set by find_package()
-+#               if ${_package} is found.
-+# _enabled:	option/variable name which along with FORCE_DEPS options
-+#               controls macro behaviour:
-+#	${_enabled}	FORCE_DEPS	Behaviour
-+#		OFF	any		${_package} is not loaded
-+#		ON	ON		Try loading ${_package}. If package is
-+#                                       not found, abort(fatal error).
-+#		ON	OFF		Try loading ${_package}. If package is
-+#                                       not found, continue.
-+# _description:	a short description of features provided by ${_package}.
-+#		Used to display human-readable diagnostic messages
-+
-+# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
-+# clash with a macro from KDE4
-+
-+# if ON, requested optional deps become required
-+# if OFF, requested optional deps are linked to if found
-+
-+OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
-+
-+macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(FORCE_DEPS)
-+            find_package(${_package} REQUIRED)
-+        else(FORCE_DEPS)
-+            find_package(${_package})
-+        endif(FORCE_DEPS)
-+    endif(${_enabled})
-+
-+    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
-+
-+endmacro(FIND_OPTIONAL_DEP)
-+
-+
-+macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(${_found})
-+            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
-+        else(${_found})
-+            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
-+        endif(${_found})
-+    else(${_enabled})
-+        MESSAGE("** ${_package} is disabled. No support for ${_description}")
-+    endif(${_enabled})
-+
-+endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
-+# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
-+# approaches:
-+#
-+# Best-effort approach(FORCE_DEPS=OFF):
-+#	Link to all enabled optional dependencies if found. Turn off not found
-+# ones, and keep compiling. This greatly benefits hand-compiling from source
-+# if all suggested dependencies are turned on by default. Newly installed
-+# software conveniently integrates with whatever environment it's compiled in.
-+#
-+# Strict dependencies approach(FORCE_DEPS=ON):
-+#	All enabled optional dependencies must be found, or compilation aborts.
-+# This approach lets request and ensure specific functionality. The compilation
-+# is deterministic in the sense that everything that's requested is provided
-+# or the process fails. This is the preferred behaviour for automated building
-+# by package managers/distro maintainers.
-+#
-+# Parameters:
-+# _package:	the package to load
-+# _found:	the name of *_FOUND variable which is set by find_package()
-+#               if ${_package} is found.
-+# _enabled:	option/variable name which along with FORCE_DEPS options
-+#               controls macro behaviour:
-+#	${_enabled}	FORCE_DEPS	Behaviour
-+#		OFF	any		${_package} is not loaded
-+#		ON	ON		Try loading ${_package}. If package is
-+#                                       not found, abort(fatal error).
-+#		ON	OFF		Try loading ${_package}. If package is
-+#                                       not found, continue.
-+# _description:	a short description of features provided by ${_package}.
-+#		Used to display human-readable diagnostic messages
-+
-+# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
-+# clash with a macro from KDE4
-+
-+# if ON, requested optional deps become required
-+# if OFF, requested optional deps are linked to if found
-+
-+OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
-+
-+macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(FORCE_DEPS)
-+            find_package(${_package} REQUIRED)
-+        else(FORCE_DEPS)
-+            find_package(${_package})
-+        endif(FORCE_DEPS)
-+    endif(${_enabled})
-+
-+    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
-+
-+endmacro(FIND_OPTIONAL_DEP)
-+
-+
-+macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(${_found})
-+            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
-+        else(${_found})
-+            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
-+        endif(${_found})
-+    else(${_enabled})
-+        MESSAGE("** ${_package} is disabled. No support for ${_description}")
-+    endif(${_enabled})
-+
-+endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
-+# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
-+# approaches:
-+#
-+# Best-effort approach(FORCE_DEPS=OFF):
-+#	Link to all enabled optional dependencies if found. Turn off not found
-+# ones, and keep compiling. This greatly benefits hand-compiling from source
-+# if all suggested dependencies are turned on by default. Newly installed
-+# software conveniently integrates with whatever environment it's compiled in.
-+#
-+# Strict dependencies approach(FORCE_DEPS=ON):
-+#	All enabled optional dependencies must be found, or compilation aborts.
-+# This approach lets request and ensure specific functionality. The compilation
-+# is deterministic in the sense that everything that's requested is provided
-+# or the process fails. This is the preferred behaviour for automated building
-+# by package managers/distro maintainers.
-+#
-+# Parameters:
-+# _package:	the package to load
-+# _found:	the name of *_FOUND variable which is set by find_package()
-+#               if ${_package} is found.
-+# _enabled:	option/variable name which along with FORCE_DEPS options
-+#               controls macro behaviour:
-+#	${_enabled}	FORCE_DEPS	Behaviour
-+#		OFF	any		${_package} is not loaded
-+#		ON	ON		Try loading ${_package}. If package is
-+#                                       not found, abort(fatal error).
-+#		ON	OFF		Try loading ${_package}. If package is
-+#                                       not found, continue.
-+# _description:	a short description of features provided by ${_package}.
-+#		Used to display human-readable diagnostic messages
-+
-+# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
-+# clash with a macro from KDE4
-+
-+# if ON, requested optional deps become required
-+# if OFF, requested optional deps are linked to if found
-+
-+OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
-+
-+macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(FORCE_DEPS)
-+            find_package(${_package} REQUIRED)
-+        else(FORCE_DEPS)
-+            find_package(${_package})
-+        endif(FORCE_DEPS)
-+    endif(${_enabled})
-+
-+    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
-+
-+endmacro(FIND_OPTIONAL_DEP)
-+
-+
-+macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(${_found})
-+            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
-+        else(${_found})
-+            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
-+        endif(${_found})
-+    else(${_enabled})
-+        MESSAGE("** ${_package} is disabled. No support for ${_description}")
-+    endif(${_enabled})
-+
-+endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
-+# FIND_OPTIONAL_DEP macro implements two typical optional dependency handling
-+# approaches:
-+#
-+# Best-effort approach(FORCE_DEPS=OFF):
-+#	Link to all enabled optional dependencies if found. Turn off not found
-+# ones, and keep compiling. This greatly benefits hand-compiling from source
-+# if all suggested dependencies are turned on by default. Newly installed
-+# software conveniently integrates with whatever environment it's compiled in.
-+#
-+# Strict dependencies approach(FORCE_DEPS=ON):
-+#	All enabled optional dependencies must be found, or compilation aborts.
-+# This approach lets request and ensure specific functionality. The compilation
-+# is deterministic in the sense that everything that's requested is provided
-+# or the process fails. This is the preferred behaviour for automated building
-+# by package managers/distro maintainers.
-+#
-+# Parameters:
-+# _package:	the package to load
-+# _found:	the name of *_FOUND variable which is set by find_package()
-+#               if ${_package} is found.
-+# _enabled:	option/variable name which along with FORCE_DEPS options
-+#               controls macro behaviour:
-+#	${_enabled}	FORCE_DEPS	Behaviour
-+#		OFF	any		${_package} is not loaded
-+#		ON	ON		Try loading ${_package}. If package is
-+#                                       not found, abort(fatal error).
-+#		ON	OFF		Try loading ${_package}. If package is
-+#                                       not found, continue.
-+# _description:	a short description of features provided by ${_package}.
-+#		Used to display human-readable diagnostic messages
-+
-+# macro name changed from FIND_OPTIONAL_PACKAGE to FIND_OPTIONAL_DEP due to
-+# clash with a macro from KDE4
-+
-+# if ON, requested optional deps become required
-+# if OFF, requested optional deps are linked to if found
-+
-+OPTION(FORCE_DEPS "Enforce strict dependencies" OFF)
-+
-+macro(FIND_OPTIONAL_DEP _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(FORCE_DEPS)
-+            find_package(${_package} REQUIRED)
-+        else(FORCE_DEPS)
-+            find_package(${_package})
-+        endif(FORCE_DEPS)
-+    endif(${_enabled})
-+
-+    REPORT_OPTIONAL_PACKAGE_STATUS(${_package} ${_enabled} ${_found} ${_description})
-+
-+endmacro(FIND_OPTIONAL_DEP)
-+
-+
-+macro(REPORT_OPTIONAL_PACKAGE_STATUS _package _enabled _found _description)
-+
-+    if(${_enabled})
-+        if(${_found})
-+            MESSAGE("** ${_package} is found. Support for ${_description} is enabled")
-+        else(${_found})
-+            MESSAGE("** ${_package} not found. Support for ${_description} is disabled")
-+        endif(${_found})
-+    else(${_enabled})
-+        MESSAGE("** ${_package} is disabled. No support for ${_description}")
-+    endif(${_enabled})
-+
-+endmacro(REPORT_OPTIONAL_PACKAGE_STATUS)
 Index: CMakeLists.txt
 ===================================================================
---- CMakeLists.txt	(revision 917610)
+--- CMakeLists.txt	(revision 918069)
 +++ CMakeLists.txt	(working copy)
-@@ -24,9 +24,13 @@
+@@ -1,4 +1,4 @@
+-project(soprano) 
++project(soprano)
+ 
+ cmake_minimum_required(VERSION 2.6.2)
+ 
+@@ -9,10 +9,8 @@
+ set(CMAKE_SOPRANO_VERSION_RELEASE 60)
+ set(CMAKE_SOPRANO_VERSION_STRING "${CMAKE_SOPRANO_VERSION_MAJOR}.${CMAKE_SOPRANO_VERSION_MINOR}.${CMAKE_SOPRANO_VERSION_RELEASE}")
+ 
+-enable_testing()
++set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+ 
+-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules) 
+-
+ if(WIN32)
+   set(CMAKE_DEBUG_POSTFIX "d")
+ endif(WIN32)
+@@ -20,37 +18,45 @@
+ ##################  find packages  ################################
+ 
+ set(QT_MIN_VERSION "4.4.0")
+-find_package(Qt4 REQUIRED) 
++find_package(Qt4 REQUIRED)
  # properly set up compile flags (QT_DEBUG/QT_NO_DEBUG, ...)
  include(${QT_USE_FILE})
  
 -find_package(Redland)
-+include(MacroFindOptionalDep)
++option(ENABLE_Redland "Raptor RDF parser/serializer and Redland storage backend" OFF)
++if(ENABLE_Redland)
++  find_package(Redland)
++endif(ENABLE_Redland)
  
 -find_package(CLucene)
-+option(ENABLE_Redland "Raptor RDF parser/serializer and Redland storage backend" OFF)
-+find_optional_dep(Redland ENABLE_Redland REDLAND_FOUND "Raptor RDF parser/serializer and Redland storage backend")
-+
+-if(CLucene_FOUND)
+-  if(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
+-    set(CL_VERSION_19_OR_GREATER TRUE)
+-  endif(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
+-  set(SOPRANO_BUILD_INDEX_LIB 1 CACHE INTERNAL "Soprano Index is built" FORCE)
+-endif(CLucene_FOUND)
 +option(ENABLE_CLucene "CLucene-based full-text search index library" ON)
-+find_optional_dep(CLucene ENABLE_CLucene CLucene_FOUND "CLucene-based full-text search index library")
- if(CLucene_FOUND)
-   if(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
-     set(CL_VERSION_19_OR_GREATER TRUE)
-@@ -34,23 +38,25 @@
-   set(SOPRANO_BUILD_INDEX_LIB 1 CACHE INTERNAL "Soprano Index is built" FORCE)
- endif(CLucene_FOUND)
++if(ENABLE_CLucene)
++  find_package(CLucene)
++  if(CLucene_FOUND)
++    if(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
++      set(CL_VERSION_19_OR_GREATER TRUE)
++    endif(CLUCENE_VERSION AND CLUCENE_VERSION STRGREATER "0.9.19" OR CLUCENE_VERSION STREQUAL "0.9.19")
++    set(SOPRANO_BUILD_INDEX_LIB 1 CACHE INTERNAL "Soprano Index is built" FORCE)
++  endif(CLucene_FOUND)
++endif(ENABLE_CLucene)
  
 -find_package(JNI)
 -if(JAVA_INCLUDE_PATH AND JAVA_JVM_LIBRARY)
@@ -333,3 +91,101 @@ Index: CMakeLists.txt
  ##################  setup install directories  ################################
  set (LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)" )
  set (LIB_DESTINATION "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}" CACHE STRING "Library directory name")
+@@ -63,40 +69,47 @@
+ # By default cmake builds the targets with full RPATH to everything in the build directory,
+ # but then removes the RPATH when installing.
+ # These two options below make it set the RPATH of the installed targets to all
+-# RPATH directories outside the current CMAKE_BINARY_DIR and also the library 
++# RPATH directories outside the current CMAKE_BINARY_DIR and also the library
+ # install directory. Alex
+ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH  TRUE)
+-set(CMAKE_INSTALL_RPATH                ${LIB_DESTINATION} )
++set(CMAKE_INSTALL_RPATH ${LIB_DESTINATION})
+ 
+ if(APPLE)
+-   set(CMAKE_INSTALL_NAME_DIR ${LIB_DESTINATION})
++  set(CMAKE_INSTALL_NAME_DIR ${LIB_DESTINATION})
+ endif(APPLE)
+ 
+ 
+ ##################  some compiler settings ################################
+ if(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32 )
+-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -ansi -Wundef -Wcast-align -Wchar-subscripts -Wall -W -Wpointer-arith -Wformat-security -fno-check-new -fno-common")
++  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -ansi -Wundef -Wcast-align -Wchar-subscripts -Wall -W -Wpointer-arith -Wformat-security -fno-check-new -fno-common")
+ endif(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32 )
+ if(MSVC)
+-    add_definitions(-D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -Zc:wchar_t-)
++  add_definitions(-D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -Zc:wchar_t-)
+ endif(MSVC)
+ if(MINGW)
+-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -ansi -Wundef -Wcast-align -Wchar-subscripts -Wall -Wpointer-arith -Wformat-security -fno-check-new -fno-common")
++  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wno-long-long -ansi -Wundef -Wcast-align -Wchar-subscripts -Wall -Wpointer-arith -Wformat-security -fno-check-new -fno-common")
+ endif(MINGW)
+ 
+ 
+ ##################  add subdirectories ################################
+ if(CLucene_FOUND)
+-   add_subdirectory(index)
++  add_subdirectory(index)
+ endif(CLucene_FOUND)
+-add_subdirectory(soprano) 
++
++add_subdirectory(soprano)
+ add_subdirectory(backends)
+ add_subdirectory(parsers)
+ add_subdirectory(serializers)
+ #add_subdirectory(queryparsers)
+ add_subdirectory(server)
+ add_subdirectory(tools)
+-add_subdirectory(test) 
++
++option(ENABLE_tests "Parser/storage backend tests)" ON)
++if(ENABLE_tests)
++  enable_testing()
++  add_subdirectory(test)
++endif(ENABLE_tests)
++
+ add_subdirectory(rules)
+ add_subdirectory(includes)
+ 
+@@ -109,24 +122,26 @@
+ 
+ 
+ ##################  apidox ################################
+-find_package(Doxygen)
++option(ENABLE_docs "API documentation" ON)
++if(ENABLE_docs)
++  find_package(Doxygen)
+ 
+-if(DOXYGEN_EXECUTABLE)
+-  configure_file(${soprano_SOURCE_DIR}/Doxyfile.cmake ${soprano_BINARY_DIR}/Doxyfile)
++  if(DOXYGEN_EXECUTABLE)
++    configure_file(${soprano_SOURCE_DIR}/Doxyfile.cmake ${soprano_BINARY_DIR}/Doxyfile)
+ 
+-  if(EXISTS ${QT_DOC_DIR}/html)
+-    set(QTDOCS "${QT_DOC_DIR}/html")
+-  else(EXISTS ${QT_DOC_DIR}/html)
+-    set(QTDOCS "http://doc.trolltech.com/4.3/")
+-  endif(EXISTS ${QT_DOC_DIR}/html)
++    if(EXISTS ${QT_DOC_DIR}/html)
++      set(QTDOCS "${QT_DOC_DIR}/html")
++    else(EXISTS ${QT_DOC_DIR}/html)
++      set(QTDOCS "http://doc.trolltech.com/4.3/")
++    endif(EXISTS ${QT_DOC_DIR}/html)
+ 
+-  add_custom_target(
+-    apidox
+-    COMMAND ${DOXYGEN_EXECUTABLE} Doxyfile
+-    COMMAND docs/html/installdox -l qt4.tag@${QTDOCS} docs/html/*.html)
+-endif(DOXYGEN_EXECUTABLE)
++    add_custom_target(
++      apidox
++      COMMAND ${DOXYGEN_EXECUTABLE} Doxyfile
++      COMMAND docs/html/installdox -l qt4.tag@${QTDOCS} docs/html/*.html)
++  endif(DOXYGEN_EXECUTABLE)
++endif(ENABLE_docs)
+ 
+-
+ ##################  status messages ################################
+ message("---------------------------------------------------------------------------------------")
+ message("-- Soprano Components that will be built:")

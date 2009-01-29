@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-JAVA_PKG_OPT_USE=sesame2
-inherit base cmake-utils eutils flag-o-matic subversion java-pkg-opt-2
+JAVA_PKG_OPT_USE="sesame2"
+inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
 
 DESCRIPTION="Soprano is a library which provides a nice QT interface to RDF storage solutions."
 HOMEPAGE="http://sourceforge.net/projects/soprano"
@@ -34,6 +34,8 @@ RDEPEND="${COMMON_DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-make-optional-targets.patch" )
 
+CMAKE_IN_SOURCE_BUILD="1"
+
 pkg_setup() {
 	echo
 	ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
@@ -49,16 +51,6 @@ pkg_setup() {
 
 src_prepare() {
 	base_src_prepare
-
-	if ! use doc; then
-		sed -e '/find_package(Doxygen)/s/^/#DONOTFIND /' \
-			-i "${S}/CMakeLists.txt" || die "Sed to disable api-docs failed."
-	fi
-
-	sed -e '/add_subdirectory(test)/s/^/#DONOTCOMPILE /' \
-		-e '/enable_testing/s/^/#DONOTENABLE /' \
-		-i "${S}"/CMakeLists.txt || die "Disabling of ${PN} tests failed."
-	einfo "Disabled building of ${PN} tests."
 }
 
 src_configure() {
@@ -67,16 +59,23 @@ src_configure() {
 	use elibc_FreeBSD && append-ldflags "-lpthread"
 
 	mycmakeargs="${mycmakeargs}
+		-DENABLE_tests=OFF
 		$(cmake-utils_use_enable clucene CLucene)
 		$(cmake-utils_use_enable redland Redland)
-		$(cmake-utils_use_enable sesame2 Sesame2)"
+		$(cmake-utils_use_enable sesame2 Sesame2)
+		$(cmake-utils_use_enable doc docs)"
 
 	cmake-utils_src_configure
 }
 
+src_compile() {
+	cmake-utils_src_compile
+}
+
 src_test() {
-	sed -e 's/#NOTESTS//' \
-		-i "${S}"/CMakeLists.txt || die "Enabling tests failed."
+	mycmakeargs="${mycmakeargs}
+		-DENABLE_tests=ON"
+	cmake-utils_src_configure
 	cmake-utils_src_compile
 	ctest --extra-verbose || die "Tests failed."
 }

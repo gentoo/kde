@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  files/soprano-make-optional-targets.patch, soprano-9999.ebuild:
+  soprano patch updated, tests need cmake in-source build
+
+  29 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -soprano-2.1.64.ebuild:
   Removed old soprano (2.2 in portage now)
 
