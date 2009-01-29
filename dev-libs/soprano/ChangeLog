@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -soprano-2.1.64.ebuild:
+  Removed old soprano (2.2 in portage now)
+
   28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/soprano-make-optional-targets.patch, soprano-9999.ebuild:
   Experimental soprano (live) - patch for building optional backends
