@@ -25,7 +25,10 @@ DEPEND="
 	sasl? ( dev-libs/cyrus-sasl )
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/akonadi:4.1 )
+	!kdeprefix? (
+		!kde-base/akonadi:4.1
+		!kde-base/libkholidays
+	)
 "
 
 src_configure() {

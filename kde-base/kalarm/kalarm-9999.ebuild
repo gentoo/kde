@@ -13,12 +13,10 @@ IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}
-	>=kde-base/libkholidays-${PV}:${SLOT}
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kmail
-	libkholidays
 	libkdepim
 "

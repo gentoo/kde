@@ -26,7 +26,7 @@ kde-base/korganizer:live
 # kde-base/kpilot:live doesn't build
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
-kde-base/libkholidays:live
+# kde-base/libkholidays:live # moved to kdepimlibs
 kde-base/libkleo:live
 kde-base/libkpgp:live
 kde-base/libksieve:live

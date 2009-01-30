@@ -14,7 +14,6 @@ IUSE="debug htmlhandbook"
 DEPEND="
 	app-crypt/gpgme
 	>=kde-base/libkdepim-${PV}:${SLOT}
-	>=kde-base/libkholidays-${PV}:${SLOT}
 	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT} )
 "
 RDEPEND="${DEPEND}"
@@ -28,7 +27,6 @@ KMEXTRACTONLY="
 	kmail/
 	knode/org.kde.knode.xml
 	libkdepim
-	libkholidays
 "
 
 src_unpack() {
