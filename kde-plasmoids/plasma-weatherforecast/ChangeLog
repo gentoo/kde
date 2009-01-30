@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-weatherforecast-0.7.ebuild:
+  Added missing kde4-base_pkg_postinst in override
+
   20 Jan 2009; Markos Chandras (hwoarang) <hwoarang@silverarrow.gr>
   +kde-plasmoids/plasma-weatherforecast/metadata.xml:
   Version bump to 0.7. Use kde-4.2 source code, dropping support for kde-4.1
