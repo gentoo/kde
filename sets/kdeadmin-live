@@ -2,5 +2,4 @@ kde-base/kuser:live
 kde-base/kcron:live
 kde-base/ksystemlog:live
 kde-base/knetworkconf:live
-kde-base/lilo-config:live
 # kde-base/system-config-printer-kde:live # heavy and unresolved deps

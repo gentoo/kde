@@ -2,5 +2,4 @@ kde-base/kcron
 kde-base/knetworkconf
 kde-base/ksystemlog
 kde-base/kuser
-kde-base/lilo-config
 # kde-base/system-config-printer-kde # hardmasked
