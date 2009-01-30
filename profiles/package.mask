@@ -364,7 +364,7 @@
 =kde-base/kdemaildir-4.2.0
 =kde-base/kde-menu-4.2.0
 =kde-base/kde-menu-icons-4.2.0
-=kde-baes/kde-meta-4.2.0
+=kde-base/kde-meta-4.2.0
 =kde-base/kdemultimedia-kioslaves-4.2.0
 =kde-base/kdenetwork-filesharing-4.2.0
 =kde-base/kdepasswd-4.2.0
