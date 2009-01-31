@@ -1,6 +1,10 @@
 # ChangeLog for kde-misc/networkmanager-applet
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  31 Jan 2009; Manuel Nickschas <sputnick@quassel-irc.org>
+  networkmanager-applet-9999.ebuild:
+  Specify location for global dbus conf
 
 *networkmanager-applet-9999 (09 Nov 2008)
 
