@@ -1,0 +1,7 @@
+# This file contains everything in kdetoys
+
+kde-base/amor:live
+kde-base/kteatime:live
+kde-base/ktux:live
+kde-base/kweather:live
+kde-base/kworldclock:live

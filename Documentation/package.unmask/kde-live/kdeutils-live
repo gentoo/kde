@@ -1,0 +1,16 @@
+# This file contains everything in kdeutils
+
+kde-base/ark:live
+kde-base/kcalc:live
+kde-base/kcharselect:live
+kde-base/kdessh:live
+kde-base/kdf:live
+kde-base/kfloppy:live
+kde-base/kgpg:live
+kde-base/kdessh:live
+kde-base/ktimer:live
+kde-base/kwallet:live
+kde-base/superkaramba:live
+kde-base/sweeper:live
+kde-base/okteta:live
+kde-base/printer-applet:live
