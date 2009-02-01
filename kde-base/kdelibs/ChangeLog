@@ -3,6 +3,10 @@
 # $Header: $
 
   01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.61.ebuild, kdelibs-9999.ebuild:
+  Added block in kdelibs for libkworkspace file collision
+
+  01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +kdelibs-4.2.61.ebuild, kdelibs-9999.ebuild:
   Updated soprano version in kdelibs
 

@@ -31,6 +31,7 @@ COMMONDEPEND="
 		!kde-base/knewsticker:4.1[kdeprefix=]
 		!kde-base/kpercentage:4.1[kdeprefix=]
 		!kde-base/ktnef:4.1[kdeprefix=]
+		!<kde-base/libkworkspace-${PV}[kdeprefix=]
 		!kde-base/libplasma[kdeprefix=]
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
