@@ -8,12 +8,6 @@ dev-util/kdevelop:live
 dev-util/kdevplatform:live
 dev-util/krazy2:live
 games-board/tagua:live
-kde-base/kdeplasma-addons:live
-kde-base/kde-i10n:live
-kde-base/libkdcraw:live
-kde-base/libkexiv2:live
-kde-base/libkipi:live
-kde-base/libksane:live
 kde-misc/kapman:live
 kde-misc/kblogger
 kde-misc/kdelirc:live
@@ -44,4 +38,3 @@ net-p2p/kmldonkey:live
 =net-voip/tapioca-qt-9999
 net-wireless/kdebluetooth4:live
 x11-themes/gtk-engines-qt:live
-kde-plasmoids/kepas:live
