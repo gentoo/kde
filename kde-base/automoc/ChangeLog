@@ -1,6 +1,10 @@
 # ChangeLog for kde-base/automoc
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -automoc-0.9.87.ebuild:
+  Removed automoc 0.9.87 from overlay - newer in tree
 
 *automoc-0.9.87 (27 Sep 2008)
 
