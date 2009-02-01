@@ -269,25 +269,6 @@ kde-base/kdepim-icons:4.1
 # remove the block with newer qca
 ~app-crypt/qca-1.0
 
-# qt stuff
-~x11-libs/qt-4.4.2
-~x11-libs/qt-assistant-4.4.2
-~x11-libs/qt-core-4.4.2
-~x11-libs/qt-dbus-4.4.2
-~x11-libs/qt-demo-4.4.2
-~x11-libs/qt-embedded-4.4.2
-~x11-libs/qt-gui-4.4.2
-~x11-libs/qt-opengl-4.4.2
-~x11-libs/qt-phonon-4.4.2
-~x11-libs/qt-qt3support-4.4.2
-~x11-libs/qt-script-4.4.2
-~x11-libs/qt-sql-4.4.2
-~x11-libs/qt-svg-4.4.2
-~x11-libs/qt-test-4.4.2
-~x11-libs/qt-webkit-4.4.2
-~x11-libs/qt-x11-4.4.2
-~x11-libs/qt-xmlpatterns-4.4.2
-
 # missed stuff
 kde-base/kdepim-meta:4.1
 kde-base/kurifilter-plugins:4.1
