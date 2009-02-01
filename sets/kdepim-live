@@ -1,5 +1,3 @@
-# This file contains everything in kdepim (not yet complete)
-
 kde-base/akonadi:live
 kde-base/akregator:live
 kde-base/kaddressbook:live
@@ -17,16 +15,14 @@ kde-base/kmailcvt:live
 kde-base/knode:live
 kde-base/knotes:live
 kde-base/kode:live
-# kde-base/konsolekalendar:live # missing ebuild
 kde-base/kontact:live
-kde-base/kontactinterfaces:live
 kde-base/kontact-specialdates:live
+kde-base/kontactinterfaces:live
 kde-base/korganizer:live
-# kde-base/korn:live doesn't build
-# kde-base/kpilot:live doesn't build
+# kde-base/korn:live disabled for now
+kde-base/kpilot:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
-# kde-base/libkholidays:live # moved to kdepimlibs
 kde-base/libkleo:live
 kde-base/libkpgp:live
 kde-base/libksieve:live

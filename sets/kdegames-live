@@ -1,5 +1,6 @@
 kde-base/bomber:live
 kde-base/bovo:live
+kde-base/kapman:live
 kde-base/katomic:live
 kde-base/kbattleship:live
 kde-base/kblackbox:live
@@ -32,4 +33,3 @@ kde-base/kubrick:live
 kde-base/libkdegames:live
 kde-base/libkmahjongg:live
 kde-base/lskat:live
-kde-base/kapman:live

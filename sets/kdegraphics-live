@@ -4,8 +4,12 @@ kde-base/kcolorchooser:live
 kde-base/kgamma:live
 kde-base/kolourpaint:live
 kde-base/kruler:live
+kde-base/ksaneplugin:live
 kde-base/ksnapshot:live
+kde-base/libkdcraw:live
+kde-base/libkexiv2:live
 kde-base/libksane:live
+kde-base/libkipi:live
 kde-base/okular:live
 kde-base/svgpart:live
 kde-base/kdegraphics-strigi-analyzer:live

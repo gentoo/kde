@@ -16,7 +16,7 @@ kde-base/kde-l10n:live
 @kdetoys-live
 @kdeutils-live
 
-#@kdeaccessibility-live <---- tomorrow!!
+@kdeaccessibility-live
 #@kde-extras-live <---- tomorrow!!
 #@koffice-live
 

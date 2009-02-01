@@ -31,7 +31,6 @@ kde-base/kioclient:live
 kde-base/klipper:live
 kde-base/kmenuedit:live
 kde-base/kmimetypefinder:live
-#kde-base/kmilo:live
 kde-base/knetattach:live
 kde-base/knewstuff:live
 kde-base/knotify:live
