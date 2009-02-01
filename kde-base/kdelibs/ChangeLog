@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdelibs-4.2.61.ebuild, kdelibs-9999.ebuild:
+  Updated soprano version in kdelibs
+
+*kdelibs-4.2.61 (31 Jan 2009)
+
+  31 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdelibs-4.2.61.ebuild:
+  Version bump.
+
   28 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   metadata.xml, kdelibs-9999.ebuild:
   kdelibs - make ACL optional (not just used when found), zlib, bzip2 deps

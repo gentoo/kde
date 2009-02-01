@@ -27,7 +27,7 @@ COMMONDEPEND="
 	python? (
 		>=dev-python/PyQt4-4.4.0
 		>=dev-python/sip-4.7.1
-		kde-base/pykde4:${SLOT}
+		>=kde-base/pykde4-${PV}:${SLOT}
 	)
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )

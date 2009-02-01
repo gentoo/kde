@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE dialog system for scripting"
 KEYWORDS=""
-IUSE="tidy"
+IUSE="debug tidy"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

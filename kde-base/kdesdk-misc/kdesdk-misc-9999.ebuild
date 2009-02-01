@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,8 +12,9 @@ DESCRIPTION="kdesdk-misc - Various files and utilities"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="!kde-base/poxml"
-
 KMEXTRA="
+	kmtrace/
+	kpartloader/
+	kprofilemethod/
 	poxml/
-	kprofilemethod/"
+"

@@ -73,7 +73,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	opengl? ( virtual/opengl )
-	semantic-desktop? ( >=dev-libs/soprano-2.1.64 )
+	semantic-desktop? ( >=dev-libs/soprano-2.1.68 )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell

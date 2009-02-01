@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/kpilot
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kpilot-9999 (01 Feb 2009)
+*kpilot-4.2.61 (01 Feb 2009)
+
+  01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kpilot-4.2.61.ebuild, +kpilot-9999.ebuild:
+  Added new ebuild - kpilot (kdepim)
+
