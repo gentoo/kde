@@ -32,8 +32,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-make-optional-targets.patch" )
-
 CMAKE_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
