@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*eigen-2.0.0 (02 Feb 2009)
+
+  02 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> +eigen-2.0.0.ebuild,
+  -eigen-2.0_beta6.ebuild:
+  Version bump.
+
 *eigen-2.0_beta6 (16 Jan 2009)
 
   16 Jan 2009; Marcus D. Hanwell <cryos@gentoo.org>
