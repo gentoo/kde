@@ -14,9 +14,5 @@ SLOT="2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=dev-util/cmake-2.4.5
-	!dev-cpp/eigen:0"
-RDEPEND=""
-
-S=${WORKDIR}/${PN}2
-
+DEPEND="!dev-cpp/eigen:0"
+RDEPEND="${DEPEND}"
