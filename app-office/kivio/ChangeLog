@@ -1,0 +1,9 @@
+# ChangeLog for app-office/kivio
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kivio-9999 (03 Feb 2009)
+
+  03 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> +kivio-9999.ebuild:
+  Add live kivio ebuild. Thanks to PuffTheMagic.
+
