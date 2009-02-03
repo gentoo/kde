@@ -35,11 +35,8 @@ src_configure() {
 src_install() {
 	kde4-base_src_install
 
-	rm "${D}"/${KDEDIR}/share/kde4/services/svn.protocol
-	rm "${D}"/${KDEDIR}/share/kde4/services/svn+ssh.protocol
-	rm "${D}"/${KDEDIR}/share/kde4/services/svn+https.protocol
-	rm "${D}"/${KDEDIR}/share/kde4/services/svn+file.protocol
-	rm "${D}"/${KDEDIR}/share/kde4/services/svn+http.protocol
+	# Remove kio svn service types - provided by kdesdk-kioslaves
+	rm -f "${D}/${KDEDIR}"/share/kde4/services/svn{,+ssh,+https,+file,+http}.protocol
 }
 
 pkg_postinst() {

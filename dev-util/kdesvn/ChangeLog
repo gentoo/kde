@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Feb 2009; Theo Chatzimichos <tampakrap@gmail.com>
+  -dev-util/kdesvn/kdesvn-1.2.2.ebuild, dev-util/kdesvn/kdesvn-1.2.3.ebuild:
+  minor fixes in kdesvn, remove old
+
   03 Feb 2009; Markus Ullmann <jokey@gentoo.org>
   +dev-util/kdesvn/kdesvn-1.2.3.ebuild:
   Version bump
