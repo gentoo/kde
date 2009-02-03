@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, soprano-9999.ebuild:
+  Updated soprano to new buildsystem options - this will be in 2.2.2 as well
+
   29 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   files/soprano-make-optional-targets.patch, soprano-9999.ebuild:
   soprano patch updated, tests need cmake in-source build

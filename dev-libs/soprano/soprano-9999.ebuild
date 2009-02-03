@@ -14,16 +14,16 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+clucene debug doc elibc_FreeBSD redland +sesame2"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2"
 
 COMMON_DEPEND="
-	x11-libs/qt-core:4[debug=]
-	x11-libs/qt-dbus:4[debug=]
+	x11-libs/qt-core:4
 	clucene? ( dev-cpp/clucene )
+	dbus? ( x11-libs/qt-dbus:4 )
+	raptor? ( >=media-libs/raptor-1.4.16 )
 	redland? (
 		>=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6
-		media-libs/raptor
 	)
 	sesame2? ( >=virtual/jdk-1.6.0 )
 "
@@ -57,11 +57,14 @@ src_configure() {
 	use elibc_FreeBSD && append-ldflags "-lpthread"
 
 	mycmakeargs="${mycmakeargs}
-		-DENABLE_tests=OFF
-		$(cmake-utils_use_enable clucene CLucene)
-		$(cmake-utils_use_enable redland Redland)
-		$(cmake-utils_use_enable sesame2 Sesame2)
-		$(cmake-utils_use_enable doc docs)"
+		-DSOPRANO_BUILD_TESTS=OFF"
+
+	! use clucene && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_CLUCENE_INDEX=ON"
+	! use dbus && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_DBUS=ON"
+	! use raptor && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
+	! use redland && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
+	! use sesame2 && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
+	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
 
 	cmake-utils_src_configure
 }
@@ -72,7 +75,7 @@ src_compile() {
 
 src_test() {
 	mycmakeargs="${mycmakeargs}
-		-DENABLE_tests=ON"
+		-DSOPRANO_BUILD_TESTS=ON"
 	cmake-utils_src_configure
 	cmake-utils_src_compile
 	ctest --extra-verbose || die "Tests failed."
