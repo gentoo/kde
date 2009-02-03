@@ -13,5 +13,5 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/branches/work/konvi-kde4"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
