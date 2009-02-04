@@ -27,7 +27,8 @@ DEPEND="
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
-	!kde-base/kdemaildir:${SLOT}[kdeprefix=]
+	!kdeprefix? ( !kde-base/kdemaildir )
+	kdeprefix? ( !kde-base/kdemaildir:${SLOT}[kdeprefix=] )
 	>=app-office/akonadi-server-1.1[mysql]
 "
 
