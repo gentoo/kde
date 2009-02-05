@@ -1,6 +1,10 @@
 # ChangeLog for app-misc/strigi
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  strigi-9999.ebuild:
+  Updated deps for strigi as for bug #257254
 
   24 Oct 2008; steffen stramm <krytzz@soylent.eu> strigi-9999.ebuild:
   4.2 live merge
