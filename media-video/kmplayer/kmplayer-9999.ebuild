@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,13 +15,18 @@ SLOT="live"
 KEYWORDS=""
 IUSE="cairo debug expat npp"
 
-DEPEND="x11-libs/libXv
+DEPEND="
+	x11-libs/libXv
 	expat? ( >=dev-libs/expat-2.0.1 )
 	cairo? ( x11-libs/cairo )
-	npp? ( >=dev-libs/nspr-4.6.7 >=x11-libs/gtk+-2.10.14 )"
-
+	npp? (
+		>=dev-libs/nspr-4.6.7
+		>=x11-libs/gtk+-2.10.14
+	)
+"
 RDEPEND="${DEPEND}
-		media-video/mplayer"
+	media-video/mplayer
+"
 
 pkg_setup() {
 	if use amd64 && ! has_version media-video/mplayer; then
