@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,6 @@ inherit games-ggz kde4-meta
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
-SRC_URI=""
 
 src_prepare() {
 	# cmake is doing this really weird

@@ -10,7 +10,6 @@ inherit games-ggz kde4-meta
 DESCRIPTION="The KDE Battleship clone"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
-SRC_URI=""
 
 src_prepare() {
 	# cmake is doing this really weird
