@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,12 +15,16 @@ ESVN_REPO_URI="http://gtk-qt.ecs.soton.ac.uk/svn/gtk-qt/trunk/${MY_PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="gnome"
+IUSE="debug gnome"
 SLOT="live"
 
-RDEPEND="x11-libs/gtk+:2
-	gnome? ( =gnome-base/libbonoboui-2* )"
-DEPEND="${RDEPEND}"
+RDEPEND="
+	x11-libs/gtk+:2
+	gnome? ( =gnome-base/libbonoboui-2* )
+"
+DEPEND="${RDEPEND}
+	sys-devel/gettext
+"
 
 CMAKE_IN_SOURCE_BUILD="1"
 S="${WORKDIR}/${MY_PN}"
