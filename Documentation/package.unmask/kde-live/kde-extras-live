@@ -18,7 +18,7 @@ kde-misc/krusader:live
 kde-misc/playground-plasma:live
 kde-misc/webkit-kpart:live
 kde-misc/yakuake:live
-mail-client/mailody:live
+=mail-client/mailody-9999
 media-gfx/digikam:live
 media-gfx/kflickr:live
 media-plugins/kipi-plugins:live
