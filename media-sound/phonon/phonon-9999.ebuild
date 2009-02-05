@@ -30,7 +30,6 @@ RDEPEND="
 		xcb? ( x11-libs/libxcb )
 	)
 "
-
 DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
 "
@@ -51,7 +50,8 @@ src_configure() {
 		mycmakeargs="${mycmakeargs}
 			$(cmake-utils_use_with xcb XCB)"
 	else
-		sed -e '326d' -i "${WORKDIR}/${P}/CMakeLists.txt"
+		sed -i -e '/xine/d' CMakeLists.txt || die "sed failed"
 	fi
+
 	cmake-utils_src_configure
 }
