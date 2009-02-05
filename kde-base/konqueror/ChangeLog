@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, konqueror-4.2.61.ebuild, konqueror-9999.ebuild:
+  Updated konqueror deps as of bug #257355
+
 *konqueror-4.2.61 (31 Jan 2009)
 
   31 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

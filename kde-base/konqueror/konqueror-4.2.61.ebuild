@@ -8,7 +8,7 @@ KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
-IUSE="debug htmlhandbook"
+IUSE="+auth +bookmarks debug htmlhandbook"
 KEYWORDS="~amd64 ~x86"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
@@ -20,6 +20,8 @@ RDEPEND="${DEPEND}
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}
 	>=kde-base/kfind-${PV}:${SLOT}
 	>=kde-base/kurifilter-plugins-${PV}:${SLOT}
+	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT} )
+	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT} )
 "
 
 KMEXTRA="
@@ -34,7 +36,7 @@ pkg_postinst() {
 
 	echo
 	elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
-	elog "emerge kde-base/dolphin:${SLOT}"
+	elog "emerge -1 kde-base/dolphin:${SLOT}"
 	elog
 	elog "To use Java on webpages: emerge jre"
 	echo
