@@ -13,10 +13,12 @@ IUSE="debug htmlhandbook"
 
 DEPEND="
 	app-crypt/gpgme
-	>=kde-base/libkdepim-${PV}:${SLOT}
-	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT} )
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=] )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+ 	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
+"
 
 KMLOADLIBS="libkdepim"
 KMEXTRA="kdgantt1"
