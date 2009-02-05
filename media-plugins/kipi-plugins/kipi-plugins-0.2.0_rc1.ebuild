@@ -18,7 +18,7 @@ SRC_URI="mirror://sourceforge/kipi/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="cdr +imgemagick ipod mjpeg redeyes scanner"
+IUSE="cdr gpod +imgemagick mjpeg opengl redeyes scanner"
 SLOT="2"
 
 # TODO: Check deps
@@ -30,10 +30,11 @@ DEPEND="
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
 	media-libs/jpeg
-	media-libs/libgpod
 	media-libs/libpng
 	media-libs/mesa
 	>=media-libs/tiff-3.5
+	gpod? ( media-libs/libgpod )
+	opengl? ( media-libs/mesa )
 	redeyes? ( media-libs/opencv )
 	scanner? ( media-gfx/sane-backends
 		>=kde-base/libksane-${KDE_MINIMAL} )
@@ -66,7 +67,10 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with OpenGl)
 		$(cmake-utils_use_with scanner KSane)
-		$(cmake-utils_use_with scanner Sane)"
+		$(cmake-utils_use_with scanner Sane)
+		$(cmake-utils_use_with gpod GLIB2)
+		$(cmake-utils_use_with gpod GObject)
+		$(cmake-utils_use_with redeyes OpenCV)"
 
 	kde4-base_src_configure
 }
