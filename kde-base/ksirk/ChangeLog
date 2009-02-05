@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  ksirk-4.2.61.ebuild, ksirk-9999.ebuild:
+  ksirk - added QCA2 as deps
+
 *ksirk-4.2.61 (31 Jan 2009)
 
   31 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

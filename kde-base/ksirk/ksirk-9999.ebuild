@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="KDE: Ksirk is a KDE port of the board game risk"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
+
+DEPEND="
+	app-crypt/qca:2
+"
+RDEPEND="${DEPEND}"
