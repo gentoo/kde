@@ -17,9 +17,7 @@ DEPEND="
 	>=kde-base/kontactinterfaces-${PV}:${SLOT}
 	>=kde-base/libkdepim-${PV}:${SLOT}
 "
-RDEPEND="${DEPEND}
-	>=kde-base/ktimezoned-${PV}:${SLOT}
-"
+RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
 KMSAVELIBS="true"

@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,9 +17,7 @@ DEPEND="
 	>=kde-base/kontactinterfaces-${PV}:${SLOT}
 	>=kde-base/libkdepim-${PV}:${SLOT}
 "
-RDEPEND="${DEPEND}
-	>=kde-base/ktimezoned-${PV}:${SLOT}
-"
+RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
 KMSAVELIBS="true"
