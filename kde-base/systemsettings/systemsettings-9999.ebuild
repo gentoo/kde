@@ -52,6 +52,14 @@ KMEXTRACTONLY="
 	plasma/
 "
 
+src_prepare() {
+	sed -i -e 's/systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR}/systemsettingsrc DESTINATION ${CONFIG_INSTALL_DIR}/' \
+		systemsettings/CMakeLists.txt \
+		|| die "Failed to fix systemsettingsrc install location"
+
+	kde4-meta_src_prepare
+}
+
 # FIXME: is have_openglxvisual found without screensaver
 src_configure() {
 	# Old keyboard-detection code is unmaintained,
