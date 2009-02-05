@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, amarok-9999.ebuild:
+  Added missing [kdeprefix=] USE deps in amarok, reformatting
+
   12 Jan 2009; Manuel Nickschas <sputnick@quassel-irc.org>
   amarok-2.0.1.1.ebuild:
   Remove unused USE

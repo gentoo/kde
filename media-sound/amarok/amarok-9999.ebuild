@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,35 +16,46 @@ KEYWORDS=""
 SLOT="live"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp njb +semantic-desktop"
 
-DEPEND=">=app-misc/strigi-0.5.7
+DEPEND="
+	>=app-misc/strigi-0.5.7
+	|| (
+		>=dev-db/mysql-5.0[embedded]
+		>=dev-db/mysql-community-5.0[embedded]
+	)
 	dev-db/sqlite:3
-	|| ( >=dev-db/mysql-5.0[embedded]
-		>=dev-db/mysql-community-5.0[embedded] )
 	>=media-libs/taglib-1.5
-	|| ( media-sound/phonon x11-libs/qt-phonon:4 )
-	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	|| (
+		media-sound/phonon
+		x11-libs/qt-phonon:4
+	)
+	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
 	x11-libs/qt-webkit:4
-	cdaudio? ( >=kde-base/libkcompactdisc-${KDE_MINIMAL}
-		>=kde-base/libkcddb-${KDE_MINIMAL} )
+	cdaudio? (
+		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
+	)
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.4.2 )
-	mp3tunes? ( dev-libs/libxml2
+	mp3tunes? (
+		dev-libs/libxml2
 		dev-libs/openssl
 		net-libs/loudmouth
-		net-misc/curl )
+		net-misc/curl
+	)
 	mp4? ( media-libs/libmp4v2 )
 	mtp? ( >=media-libs/libmtp-0.3.0 )
 	njb? ( >=media-libs/libnjb-2.2.4 )
-	semantic-desktop? ( dev-libs/soprano[sesame2] )"
-
+"
 RDEPEND="${DEPEND}
 	app-arch/unzip
-	daap? ( www-servers/mongrel )"
+	daap? ( www-servers/mongrel )
+	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
+"
 
 pkg_setup() {
 	if use amd64 ; then
-		ewarn
+		echo
 		ewarn "Compilation will fail if dev-db/mysql[-community] is built without -fPIC in your CFLAGS!"
 		ewarn "Related bug: http://bugs.gentoo.org/show_bug.cgi?id=238487"
 		ewarn
@@ -54,16 +65,13 @@ pkg_setup() {
 		ewarn
 		ewarn "CFLAGS=\"${CFLAGS} -DPIC -fPIC\""
 		ewarn "CXXFLAGS=\"${CXXFLAGS} -DPIC -fPIC\""
-		ewarn
+		echo
 	fi
+
 	kde4-base_pkg_setup
 }
 
 src_configure() {
-	if use debug; then
-		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=debugfull"
-	fi
-
 	if ! use mp3tunes; then
 		sed -e'/mp3tunes/ s:^:#DONOTWANT :' \
 		-i "${S}"/src/services/CMakeLists.txt \
@@ -85,5 +93,6 @@ src_configure() {
 		$(cmake-utils_use_with njb Njb)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
+
 	kde4-base_src_configure
 }

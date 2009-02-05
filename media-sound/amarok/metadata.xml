@@ -3,7 +3,9 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
+	<!--
 	<flag name="amazon">Enable support for downloading covers from amazon.com</flag>
+	-->
 	<flag name="cdaudio">Enable cdaudio functionality</flag>
 	<flag name="daap">
 		Enable the scripts for music sharing through DAAP. This flag adds
@@ -22,6 +24,7 @@
 	</flag>
 	<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
 	<flag name="njb">Enable support for NJB (Creative) devices access through libnjb</flag>
+	<!--
 	<flag name="python">
 		Install the Amarok scripts written in Python, depending on
 		<pkg>dev-python/PyQt</pkg>. At the moment the only script
@@ -36,13 +39,16 @@
 		package will not be redistributable, as it links to the non-GPL compatible
 		RealPlayer.
 	</flag>
+	-->
 	<flag name="semantic-desktop">
 		Semantic desktop allows for storage of digital informationand its
 		metadata to allow the user to express his personal mental models, making
 		all information become intuitively accessible
 	</flag>
+	<!--
 	<flag name="visualization">
 		Support visualization plugins through <pkg>media-libs/libvisual</pkg>
 	</flag>
+	-->
 </use>
 </pkgmetadata>
