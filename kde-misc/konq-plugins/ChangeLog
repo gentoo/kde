@@ -3,6 +3,10 @@
 # $Header: $
 
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  konq-plugins-9999.ebuild:
+  Added missing [kdeprefix=] to deps
+
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +metadata.xml, konq-plugins-9999.ebuild:
   Updated deps/blocks for konq-plugins as of bug #257382
 

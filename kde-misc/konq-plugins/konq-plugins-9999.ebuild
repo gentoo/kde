@@ -17,12 +17,12 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkonq-${KDE_MINIMAL}
+	>=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/konq-plugins )
-	kdeprefix? ( !kde-base/konq-plugins:${SLOT} )
-	>=kde-base/konqueror-${KDE_MINIMAL}
+	!kde-base/konq-plugins[-kdeprefix]
+	!kde-base/konq-plugins:${SLOT}[kdeprefix]
+	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
 "
 
 src_prepare() {
