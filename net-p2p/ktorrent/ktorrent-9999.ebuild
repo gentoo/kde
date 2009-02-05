@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/gmp
 "
 RDEPEND="${DEPEND}
-	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL} )
+	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL}[kdeprefix=] )
 "
 
 src_configure() {
