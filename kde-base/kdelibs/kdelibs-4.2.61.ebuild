@@ -24,15 +24,17 @@ RESTRICT="test"
 # kde-base/kpercentage
 # kde-base/ktnef
 COMMONDEPEND="
-	!<kde-base/kdebase-3.5.10
-	!<kde-base/kdebase-startkde-3.5.10
+	!<=kde-base/kdebase-3.5.9-r4
+	!<=kde-base/kdebase-startkde-3.5.10
+	!<kde-base/kdelibs-3.5.10
+	!x11-libs/qt-phonon
 	!kdeprefix? (
-		!kde-base/kitchensync:4.1[kdeprefix=]
-		!kde-base/knewsticker:4.1[kdeprefix=]
-		!kde-base/kpercentage:4.1[kdeprefix=]
-		!kde-base/ktnef:4.1[kdeprefix=]
-		!<kde-base/libkworkspace-${PV}[kdeprefix=]
-		!kde-base/libplasma[kdeprefix=]
+		!kde-base/kitchensync:4.1[-kdeprefix]
+		!kde-base/knewsticker:4.1[-kdeprefix]
+		!kde-base/kpercentage:4.1[-kdeprefix]
+		!kde-base/ktnef:4.1[-kdeprefix]
+		!<kde-base/libkworkspace-${PV}[-kdeprefix]
+		!kde-base/libplasma[-kdeprefix]
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	>=app-misc/strigi-0.6.3[qt4,dbus]
@@ -96,6 +98,12 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+
+# upstream patches
+PATCHES=(
+	"$FILESDIR/kdelibs-4.2.0-kded.patch"
+	"$FILESDIR/kdelibs-4.2.0-klauncher.patch"
+)
 
 src_prepare() {
 	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
@@ -224,7 +232,10 @@ pkg_postinst() {
 		elog "	hosts: files mdns dns"
 		echo
 	fi
-	elog "your homedir is set to "'${HOME}'"/${HME}"
+	elog "Your homedir is set to "'${HOME}'"/${HME}"
+	elog
+	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
+	elog "# chmod 755 -R /usr/share/config $PREFIX/share/config"
 
 	kde4-base_pkg_postinst
 }
