@@ -1,6 +1,10 @@
 # ChangeLog for kde-misc/konq-plugins
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, konq-plugins-9999.ebuild:
+  Updated deps/blocks for konq-plugins as of bug #257382
 
 *konq-plugins-9999 (24 Dec 2008)
 
