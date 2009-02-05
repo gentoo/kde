@@ -12,6 +12,7 @@ IUSE="debug htmlhandbook"
 KEYWORDS=""
 
 RDEPEND="
+	dev-lang/perl
 	>=www-misc/htdig-3.2.0_beta6-r1
 "
 
