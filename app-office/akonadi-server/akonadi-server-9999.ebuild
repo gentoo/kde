@@ -13,7 +13,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="mysql"
+IUSE="+mysql"
 
 RDEPEND="x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
@@ -22,7 +22,8 @@ RDEPEND="x11-libs/qt-core:4
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
-	kde-base/automoc"
+	>=kde-base/automoc-0.9.88
+"
 
 src_unpack() {
 	subversion_src_unpack
