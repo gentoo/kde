@@ -3,6 +3,10 @@
 # $Header: $
 
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdelibs-4.2.0-knode_crash.patch, kdelibs-4.2.61.ebuild:
+  Added knode crash patch to kdelibs as of bug 257535
+
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/kdelibs-4.2.0-kded.patch, +files/kdelibs-4.2.0-klauncher.patch,
   kdelibs-4.2.61.ebuild, kdelibs-9999.ebuild:
   Updated blocks/deps for kdelibs and added patchset for unstable kdelibs

@@ -101,8 +101,9 @@ RDEPEND="${COMMONDEPEND}
 
 # upstream patches
 PATCHES=(
-	"$FILESDIR/kdelibs-4.2.0-kded.patch"
-	"$FILESDIR/kdelibs-4.2.0-klauncher.patch"
+	"${FILESDIR}/${PN}-4.2.0-kded.patch"
+	"${FILESDIR}/${PN}-4.2.0-klauncher.patch"
+	"${FILESDIR}/${PN}-4.2.0-knode.patch"
 )
 
 src_prepare() {

@@ -1,0 +1,10 @@
+--- branches/KDE/4.2/kdelibs/kdeui/widgets/kmainwindow.cpp	2009/01/19 18:58:39	913701
++++ branches/KDE/4.2/kdelibs/kdeui/widgets/kmainwindow.cpp	2009/01/29 14:12:59	918169
+@@ -461,6 +461,7 @@
+ KMainWindow::~KMainWindow()
+ {
+     sMemberList->removeAll( this );
++    delete k_ptr->dockResizeListener;  //so we don't get anymore events after k_ptr is destroyed
+     delete k_ptr;
+     KGlobal::deref();
+ }
