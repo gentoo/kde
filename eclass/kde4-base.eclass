@@ -480,7 +480,7 @@ kde4-base_src_unpack() {
 	else
 		unpack "${A}" || die "Unpack ${A} failed"
 		# Detect real toplevel dir - issue with unstable snapshots
-		if [[ $KDEBASE = kde-base ]]; then
+		if [[ ${KDEBASE} = kde-base ]]; then
 			local topleveldir=`basename ${SRC_URI%.tar.*}`
 			if 	[[ "${topleveldir}" != "${P}" ]]; then
 				mv "${topleveldir}" "${P}" || die "Died while moving \"${topleveldir}\" to \"${P}\""

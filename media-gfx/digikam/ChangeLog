@@ -3,6 +3,11 @@
 # $Header: $
 
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  digikam-0.10.0_rc1.ebuild:
+  Reverted back to old eclass functionality (just unpack and don't rename S
+  to match P)
+
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   digikam-0.10.0_rc1.ebuild, digikam-9999.ebuild:
   Updated digikam - added gphoto2 IUSE, added missing [kdeprefix=],
   formatting

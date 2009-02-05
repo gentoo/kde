@@ -40,6 +40,8 @@ DEPEND="
 #liblensfun when added should be also optional dep.
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${P/_/-}"
+
 src_prepare() {
 	# Fix files collision, use icon from kdebase-data rather that digikam ones
 	sed -i \
