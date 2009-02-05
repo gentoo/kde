@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kcontrol-4.2.61.ebuild, kcontrol-9999.ebuild:
+  Updated kcontrol deps as of bug #257311
+
 *kcontrol-4.2.61 (31 Jan 2009)
 
   31 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
