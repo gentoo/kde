@@ -23,13 +23,17 @@ SLOT="2"
 
 # TODO: Check deps
 DEPEND="
+	>=dev-libs/expat-2.0.1
+	dev-libs/libxml2
+	dev-libs/libxslt
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
 	media-libs/jpeg
+	media-libs/libgpod
 	media-libs/libpng
+	media-libs/mesa
 	>=media-libs/tiff-3.5
-	ipod? ( media-libs/libipod )
 	redeyes? ( media-libs/opencv )
 	scanner? ( media-gfx/sane-backends
 		>=kde-base/libksane-${KDE_MINIMAL} )
