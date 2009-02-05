@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  digikam-0.10.0_rc1.ebuild, digikam-9999.ebuild:
+  Updated digikam - added gphoto2 IUSE, added missing [kdeprefix=],
+  formatting
+
 *digikam-0.10.0_rc1 (27 Jan 2009)
 
   27 Jan 2009; Tomas Chvatal <scarabeus@gentoo.org>
