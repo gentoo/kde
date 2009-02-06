@@ -10,10 +10,10 @@ inherit kde4-base
 
 DESCRIPTION="A quake-style terminal emulator based on KDE konsole technology"
 HOMEPAGE="http://yakuake.kde.org/"
+
 LICENSE="GPL-2 LGPL-2"
-
 KEYWORDS=""
-IUSE=""
 SLOT="live"
+IUSE="debug"
 
-DEPEND=">=kde-base/konsole-${KDE_MINIMAL}"
+REPEND=">=kde-base/konsole-${KDE_MINIMAL}[kdeprefix=]"

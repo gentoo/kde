@@ -1,6 +1,11 @@
 # ChangeLog for kde-misc/yakuake
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  yakuake-9999.ebuild:
+  Fixed yakuake a bit (added [kdeprefix=]), konsole to RDEPEND, added debug
+  IUSE
 
   30 Oct 2008; Theo Chatzimichos <tampakrap@gmail.com> ChangeLog:
   initial import of yakuake live ebuild
