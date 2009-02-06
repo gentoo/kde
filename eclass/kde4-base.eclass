@@ -59,15 +59,20 @@ kde4-base_set_qt_dependencies() {
 }
 kde4-base_set_qt_dependencies
 
-# Set the cmake dependencies
-# Quite a few packages fail with cmake-2.4 even for KDE 4.1, so we just require 2.6.2
-CMAKEDEPEND=">=dev-util/cmake-2.6.2"
-
-# Set the common dependencies
-DEPEND="${DEPEND} ${COMMONDEPEND} ${CMAKEDEPEND}
-	dev-util/pkgconfig
+# X11 libs
+COMMONDEPEND="${COMMONDEPEND}
+	x11-libs/libXext
 	x11-libs/libXt
-	x11-proto/xf86vidmodeproto"
+	x11-libs/libXxf86vm
+"
+
+# Set common dependencies for all ebuilds that inherit this eclass
+# Yes, sandbox-1.3.2 is there :P
+DEPEND="${DEPEND} ${COMMONDEPEND}
+	>=dev-util/cmake-2.6.2
+	dev-util/pkgconfig
+	>=sys-apps/sandbox-1.3.2
+"
 RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 if [[ $BUILD_TYPE = live ]]; then
