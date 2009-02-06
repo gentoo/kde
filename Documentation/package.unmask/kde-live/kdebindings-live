@@ -1,3 +1,1 @@
-kde-base/krosspython:live
-kde-base/krossruby:live
-kde-base/pykde4:live
+../../../sets/kdebindings-live
