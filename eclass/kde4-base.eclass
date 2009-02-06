@@ -418,6 +418,13 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
+# @ECLASS-VARIABLE: TARBALL
+# @DESCRIPTION:
+# Stores package tarball name - detected from SRC_URI. We need this variable
+# to unpack source in reliable way (patches in distfiles listed in SRC_URI would
+# cause problem otherwise.
+TARBALL="${SRC_URI##*/}"
+
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
 # Set the installation PREFIX. All kde-base ebuilds go into the KDE4 installation directory.
@@ -486,7 +493,7 @@ kde4-base_src_unpack() {
 		unpack "${A}" || die "Unpack ${A} failed"
 		# Detect real toplevel dir - issue with unstable snapshots
 		if [[ ${KDEBASE} = kde-base ]]; then
-			local topleveldir=`basename ${SRC_URI%.tar.*}`
+			local topleveldir="${TARBALL%.tar.*}"
 			if 	[[ "${topleveldir}" != "${P}" ]]; then
 				mv "${topleveldir}" "${P}" || die "Died while moving \"${topleveldir}\" to \"${P}\""
 			fi

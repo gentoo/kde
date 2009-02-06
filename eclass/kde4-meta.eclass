@@ -233,13 +233,13 @@ kde4-meta_src_extract() {
 		fi
 	else
 		local abort tarfile f extractlist topleveldir moduleprefix
-		tarfile="${DISTDIR}/${A}"
+		tarfile="${DISTDIR}/${TARBALL}"
 
 		# Detect real toplevel dir - issue with unstable snapshots
 		# It will be used in __list_needed_subdirectories
-		topleveldir=`basename ${SRC_URI%.tar.*}`/
+		topleveldir="${TARBALL%.tar.*}/"
 
-		ebegin "Unpacking parts of ${A} to ${WORKDIR}"
+		ebegin "Unpacking parts of ${TARBALL} to ${WORKDIR}"
 
 		kde4-meta_create_extractlists
 
