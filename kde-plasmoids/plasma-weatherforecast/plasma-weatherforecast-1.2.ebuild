@@ -11,7 +11,7 @@ MY_P="${P}-kde-4.2"
 
 DESCRIPTION="A KDE4 Plasma weatherforecast applet"
 HOMEPAGE="http://kde-look.org/content/show.php/weatherforecast?content=92149"
-SRC_URI="http://http://www.kde-look.org/CONTENT/content-files/92149-${MY_P}.tar.bz2"
+SRC_URI="http://www.kde-look.org/CONTENT/content-files/92149-${MY_P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
