@@ -187,6 +187,9 @@ kde4-meta_src_unpack() {
 	else
 		kde4-meta_src_extract
 	fi
+
+	# We don't need it anymore
+	unset TARBALL
 }
 
 # FIXME: the difference between kde4-meta_src_extract and kde4-meta_src_unpack?

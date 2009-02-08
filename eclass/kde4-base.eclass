@@ -418,11 +418,9 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
-# @ECLASS-VARIABLE: TARBALL
-# @DESCRIPTION:
 # Stores package tarball name - detected from SRC_URI. We need this variable
 # to unpack source in reliable way (patches in distfiles listed in SRC_URI would
-# cause problem otherwise.
+# cause problem otherwise. It's unset when not needed.
 TARBALL="${SRC_URI##*/}"
 
 # @ECLASS-VARIABLE: PREFIX
@@ -499,6 +497,9 @@ kde4-base_src_unpack() {
 			fi
 		fi
 	fi
+
+	# We don't need it anymore
+	unset TARBALL
 }
 
 # @FUNCTION: kde4-base_src_compile
