@@ -1,3 +1,5 @@
+>=kde-base/qimageblitz-0.0.4
+
 app-misc/strigi
 app-office/akonadi-server
 dev-libs/soprano

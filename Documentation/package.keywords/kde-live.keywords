@@ -1,3 +1,5 @@
+>=kde-base/qimageblitz-0.0.4
+
 ~app-cdr/k3b-9999 **
 ~app-cdr/k9copy-9999 **
 ~app-crypt/pinentry-qt4-9999 **
