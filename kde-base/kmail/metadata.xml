@@ -2,7 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <use>
-	<flag name="nepomuk">Enable desktop-wide tagging support</flag>
 	<flag name="semantic-desktop">Semantic desktop allows for storage of digital
 	information and its metadata to allow the user to express his personal
 	mental models, making all information become intuitively accessible</flag>

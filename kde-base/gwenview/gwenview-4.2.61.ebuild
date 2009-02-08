@@ -15,11 +15,12 @@ RESTRICT="test"
 DEPEND="
 	media-gfx/exiv2
 	media-libs/jpeg
-	kipi? ( >=kde-base/libkipi-${PV}:${SLOT} )
-	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop?]
+	kipi? ( >=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=] )
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 "
-
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+"
 
 PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 

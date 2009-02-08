@@ -12,15 +12,16 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +semantic-desktop"
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}
-	>=kde-base/libkleo-${PV}:${SLOT}
-	>=kde-base/libkpgp-${PV}:${SLOT}
-	>=kde-base/libksieve-${PV}:${SLOT}
-	>=kde-base/mimelib-${PV}:${SLOT}
-	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT} )
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libksieve-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kmailcvt-${PV}:${SLOT}
+	>=kde-base/kmailcvt-${PV}:${SLOT}[kdeprefix=]
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMEXTRACTONLY="
