@@ -12,7 +12,7 @@ MY_P="${P}_kde42"
 
 DESCRIPTION="A KDE4 Plasma Applet designed for the panel to have quick access to the most used folders"
 HOMEPAGE="http://kde-look.org/content/show.php/QuickAccess?content=84128"
-SRC_URI="http://www.linux-ecke.de/${MY_P}.tar.gz"
+SRC_URI="http://kde-look.org/CONTENT/content-files/98521-${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
