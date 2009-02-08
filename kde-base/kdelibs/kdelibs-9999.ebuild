@@ -17,26 +17,7 @@ kerberos mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 LICENSE="LGPL-2.1"
 RESTRICT="test"
 
-# Blockers added for !kdeprefix? due to packages from old versions,
-# removed in the meanwhile
-# kde-base/libplasma
-# kde-base/knewsticker
-# kde-base/kpercentage
-# kde-base/ktnef
 COMMONDEPEND="
-	!<=kde-base/kdebase-3.5.9-r4
-	!<=kde-base/kdebase-startkde-3.5.10
-	!<kde-base/kdelibs-3.5.10
-	!x11-libs/qt-phonon
-	!kdeprefix? (
-		!kde-base/kitchensync:4.1[-kdeprefix]
-		!kde-base/knewsticker:4.1[-kdeprefix]
-		!kde-base/kpercentage:4.1[-kdeprefix]
-		!kde-base/ktnef:4.1[-kdeprefix]
-		!<kde-base/libkworkspace-${PV}[-kdeprefix]
-		!kde-base/libplasma[-kdeprefix]
-		!<=kde-misc/kdnssd-avahi-0.1.2:0
-	)
 	>=app-misc/strigi-0.6.3[qt4,dbus]
 	dev-libs/libpcre
 	dev-libs/libxml2
@@ -76,7 +57,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	opengl? ( virtual/opengl )
-	semantic-desktop? ( >=dev-libs/soprano-2.1.68 )
+	semantic-desktop? ( >=dev-libs/soprano-2.2.1 )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
@@ -94,7 +75,30 @@ DEPEND="${COMMONDEPEND}
 	doc? ( app-doc/doxygen )
 	nls? ( virtual/libintl )
 "
+# Blockers added for !kdeprefix? due to packages from old versions,
+# removed in the meanwhile
+# kde-base/libplasma
+# kde-base/knewsticker
+# kde-base/kpercentage
+# kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
+	!<=kde-base/kdebase-3.5.9-r4
+	!<=kde-base/kdebase-startkde-3.5.10
+	!<kde-base/kdelibs-3.5.10
+	!x11-libs/qt-phonon
+	!kdeprefix? (
+		!kde-base/kitchensync:4.1
+		!kde-base/knewsticker:4.1
+		!kde-base/kpercentage:4.1
+		!kde-base/ktnef:4.1
+		!<kde-base/libkworkspace-${PV}
+		!kde-base/libplasma
+		!<=kde-misc/kdnssd-avahi-0.1.2:0
+	)
+	kdeprefix? (
+		!<kde-base/libkworkspace-${PV}:${SLOT}
+		!<=kde-misc/kdnssd-avahi-0.1.2:0
+	)
 	x11-apps/iceauth
 	x11-apps/rgb
 "
