@@ -13,15 +13,17 @@ IUSE="debug htmlhandbook +plasma bittorrent bittorrent-external +semantic-deskto
 
 DEPEND="
 	dev-libs/libpcre
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
 	bittorrent? (
 		app-crypt/qca:2
 		dev-libs/gmp
 	)
-	bittorrent-external? ( >=net-p2p/ktorrent-3.1.5 )
-	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT} )
+	bittorrent-external? ( >=net-p2p/ktorrent-3.1.5[kdeprefix=] )
 	sqlite? ( dev-db/sqlite )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+"
 
 pkg_setup() {
 	if use bittorrent && use bittorrent-external; then
