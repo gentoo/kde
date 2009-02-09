@@ -20,8 +20,10 @@ DEPEND="
 	>=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	!kde-base/konq-plugins[-kdeprefix]
-	!kde-base/konq-plugins:${SLOT}[kdeprefix]
+	!kdeprefix? (
+		!kde-base/konq-plugins:4.1
+		!kde-base/konq-plugins:4.2
+	)
 	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
 "
 
