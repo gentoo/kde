@@ -8,6 +8,8 @@ dev-util/kdevelop:live
 dev-util/kdevplatform:live
 dev-util/krazy2:live
 games-board/tagua:live
+kde-base/kdeplasma-addons:live
+kde-base/kde-l10n:live
 kde-misc/kapman:live
 kde-misc/kblogger
 kde-misc/kdelirc:live
@@ -15,6 +17,7 @@ kde-misc/kdiff3:live
 kde-misc/killbots:live
 kde-misc/konq-plugins:live
 kde-misc/krusader:live
+kde-misc/networkmanager-applet:live
 kde-misc/playground-plasma:live
 kde-misc/webkit-kpart:live
 kde-misc/yakuake:live
