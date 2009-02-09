@@ -30,5 +30,7 @@ src_unpack() {
 		KMEXTRA="${KMEXTRA} doc/${PN}/"
 	fi
 
+	MAKEOPTS="${MAKEOPTS} -j1"
+
 	kde4-meta_src_unpack
 }
