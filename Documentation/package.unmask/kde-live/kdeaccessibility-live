@@ -1,6 +1,1 @@
-kde-base/kdeaccessibility-colorschemes:live
-kde-base/kdeaccessibility-iconthemes:live
-kde-base/kmag:live
-kde-base/kmousetool:live
-kde-base/kmouth:live
-kde-base/kttsd:live
+/usr/local/portage/kde-testing/sets/kdeaccessibility-live
