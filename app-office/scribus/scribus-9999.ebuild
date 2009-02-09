@@ -1,5 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI="2"
 
@@ -14,7 +15,7 @@ ESVN_PROJECT="scribus"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cairo cups podofo python spell"
+IUSE="cairo cups debug podofo python spell"
 
 DEPEND="
 	dev-libs/libxml2
@@ -31,10 +32,11 @@ DEPEND="
 	cairo? ( x11-libs/cairo[X,svg] )
 	cups? ( net-print/cups )
 	podofo? ( app-text/podofo )
-	spell? ( app-text/aspell )"
-
+	spell? ( app-text/aspell )
+"
 RDEPEND="${DEPEND}
-	virtual/ghostscript"
+	virtual/ghostscript
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

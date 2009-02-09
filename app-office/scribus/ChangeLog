@@ -1,6 +1,10 @@
 # ChangeLog for app-office/scribus
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  scribus-9999.ebuild:
+  Header fixed, debug IUSE added
 
 *scribus-9999 (29 Dec 2008)
 
