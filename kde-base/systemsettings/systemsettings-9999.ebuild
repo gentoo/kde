@@ -33,7 +33,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	>=kde-base/kcontrol-${PV}:${SLOT}
+	>=kde-base/kcontrol-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/setxkbmap
 	|| (
 		x11-misc/xkbdata
@@ -70,6 +70,8 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with usb USB)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
+
+	MAKEOPTS="${MAKEOPTS} -j1"
 
 	kde4-meta_src_configure
 }
