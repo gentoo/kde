@@ -31,7 +31,7 @@ src_compile() {
 }
 
 src_install() {
-	dodoc COPYING NEWS README TODO || die "dodoc failed"
+	dodoc NEWS README TODO || die "dodoc failed"
 
 	if use doc; then
 		dohtml -r html/ || die "installing html docs failed"
