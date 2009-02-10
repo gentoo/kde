@@ -4,7 +4,7 @@
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
-# scarabeus@gentoo.org, kde@gentoo.org
+# kde@gentoo.org
 # @BLURB: This eclass provides functions for kde 4.X ebuilds
 # @DESCRIPTION:
 # The kde4-base.eclass provides support for building KDE4 based ebuilds

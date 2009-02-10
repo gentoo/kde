@@ -38,7 +38,7 @@ fi
 # @DESCRIPTION:
 # The slots used by all KDE versions later than 4.0. The live-ebuilds use
 # KDE_LIVE_SLOTS instead.
-KDE_SLOTS=( kde-4 4.1 4.2 )
+KDE_SLOTS=( kde-4 4.1 4.2 4.3 )
 
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:
@@ -229,16 +229,16 @@ get_latest_kdedir() {
 	case ${KDE_WANTED} in
 		# note this will need to be updated as stable moves and so on
 		live)
-			_versions="9999 4.1.69 4.1.0"
+			_versions="9999 4.2.61 4.2.0 4.10"
 			;;
 		snapshot)
-			_versions="4.1.69 4.1.0 9999"
+			_versions="4.2.61 4.2.0 4.1.0 9999"
 			;;
 		testing)
-			_versions="4.1.0 4.1.69 9999"
+			_versions="4.2.0 4.1.0 4.2.61 9999"
 			;;
 		stable)
-			_versions="4.1.0 4.1.69 9999"
+			_versions="4.2.0 4.1.0 4.1.61 9999"
 			;;
 		*) die "KDE_WANTED=${KDE_WANTED} not supported here." ;;
 	esac
@@ -250,6 +250,10 @@ get_latest_kdedir() {
 				# also keep track here same for kde_wanted
 				9999)
 					_kdedir="live"
+					break
+				;;
+				4.2.61)
+					_kdedir="4.3"
 					break
 				;;
 				4.1.69)

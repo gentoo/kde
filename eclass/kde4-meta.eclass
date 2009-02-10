@@ -4,7 +4,7 @@
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
-# scarabeus@gentoo.org, kde@gentoo.org
+# kde@gentoo.org
 # @BLURB: Eclass for writing "split" KDE packages.
 # @DESCRIPTION:
 # This eclass provides all necessary functions for writing split KDE ebuilds.
