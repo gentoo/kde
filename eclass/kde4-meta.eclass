@@ -178,7 +178,7 @@ kde4-meta_src_unpack() {
 
 	if [[ ${BUILD_TYPE} = live ]]; then
 		migrate_store_dir
-		S="${WORKDIR}/${PN}-${PV}"
+		S="${WORKDIR}/${P}"
 		mkdir -p "${S}"
 		ESVN_RESTRICT="export" subversion_src_unpack
 		subversion_wc_info
@@ -233,17 +233,20 @@ kde4-meta_src_extract() {
 		fi
 	else
 		local abort tarball tarfile f extractlist moduleprefix
+
+		case $KMNAME in
+			kdebase-apps)
+				tarball="${KMNAME#-apps}-${PV}.tar.bz2"
+				;;
+			*)
+				tarball="${KMNAME}-${PV}.tar.bz2"
+				;;
+		esac
 		tarfile="${DISTDIR}/${tarball}"
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
 		kde4-meta_create_extractlists
-
-		# Go one level deeper for kdebase-apps in tarballs (releases)
-		if [[ ${KMNAME} == kdebase-apps && ${BUILD_TYPE} == release ]]; then
-			moduleprefix=apps/
-			KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
-		fi
 
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
