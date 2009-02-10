@@ -12,19 +12,16 @@ HOMEPAGE="http://bluetooth.kmobiletools.org/"
 #SRC_URI="mirror://sourceforge/kde-bluetooth/${P}.tar.bz2"
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/playground/network/kbluetooth4"
 
-
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="live"
 IUSE="debug"
 
 DEPEND="
-	app-mobilephone/obex-data-server
-	app-mobilephone/obexftp
-	dev-libs/openobex
+	>=app-mobilephone/obex-data-server-0.4.2
+	>=app-mobilephone/obexftp-0.23-alpha
 	>=kde-base/solid-${KDE_MINIMAL}
 	>=kde-base/kdialog-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
-	net-wireless/bluez
 "
 RDEPEND="${DEPEND}"
