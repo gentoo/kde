@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="2"
+
 inherit kde4-base
 
 DESCRIPTION="A Thumbnail Generator for Video Files on Konqueror."
@@ -12,11 +13,12 @@ LICENSE="GPL-2"
 
 SLOT="1"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug"
 
-DEPEND="|| (
-		>=kde-base/dolphin-${KDE_MINIMAL} 
-		kde-ase/konqueror-${KDE_MINIMAL}
+RDEPEND="
+	|| (
+		>=kde-base/dolphin-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
 	)
 	|| (
 		media-video/mplayer

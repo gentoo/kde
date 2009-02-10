@@ -1,6 +1,10 @@
 # ChangeLog for media-video/mplayerthumbs
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  mplayerthumbs-1.1-r1.ebuild:
+  Some QA to mplayerthumbs
 
   24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   mplayerthumbs-1.1.ebuild:
