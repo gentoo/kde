@@ -11,7 +11,9 @@ DESCRIPTION="KDE news feed aggregator."
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"

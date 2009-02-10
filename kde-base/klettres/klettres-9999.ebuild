@@ -11,4 +11,6 @@ DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"
+RDEPEND="
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+"

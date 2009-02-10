@@ -11,15 +11,19 @@ DESCRIPTION="The KDE Address Book"
 KEYWORDS=""
 IUSE="debug gnokii htmlhandbook"
 
-DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}
-	>=kde-base/libkleo-${PV}:${SLOT}
-	gnokii? ( app-mobilephone/gnokii )"
+DEPEND="
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
+	gnokii? ( app-mobilephone/gnokii )
+"
 RDEPEND="${DEPEND}"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
-KMEXTRACTONLY="kmail/
+KMEXTRACTONLY="
+	kmail/
 	libkdepim/
-	libkleo/"
+	libkleo/
+"
 KMLOADLIBS="libkdepim libkleo"
 
 src_configure() {

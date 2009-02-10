@@ -12,15 +12,14 @@ KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug htmlhandbook +ktts +phonon"
 
 DEPEND="
-	>=kde-base/kcmshell-${PV}:${SLOT}
-	>=kde-base/knotify-${PV}:${SLOT}
 	ktts? (
 		alsa? ( >=media-libs/alsa-lib-1.0.14a )
 		phonon? ( >=media-sound/phonon-4.3.0 )
 	)
 "
-
 RDEPEND="${DEPEND}
+	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 	ktts? (
 		app-accessibility/epos
 		app-accessibility/festival

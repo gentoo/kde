@@ -14,6 +14,7 @@ DESCRIPTION="Wallpapers from kde"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="${RDEPEND}
-	!<kde-base/kde-wallpapers-$PV:${SLOT}[kdeprefix=]
-	!kdeprefix? ( !<kde-base/kde-wallpapers-$PV[kdeprefix=] )"
+RDEPEND="
+	!kdeprefix? ( !<kde-base/kde-wallpapers-${PV} )
+	kdeprefix? ( !<kde-base/kde-wallpapers-$PV:${SLOT} )
+"

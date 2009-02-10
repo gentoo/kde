@@ -12,8 +12,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/kscreensaver-${PV}:${SLOT}
+	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=]
 "
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	sed -i -e's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/' \

@@ -14,14 +14,14 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
 
 DEPEND="
-	>=kde-base/libkonq-${PV}:${SLOT}
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}
-	>=kde-base/kfind-${PV}:${SLOT}
-	>=kde-base/kurifilter-plugins-${PV}:${SLOT}
-	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT} )
-	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT} )
+	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
+	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
+	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMEXTRA="

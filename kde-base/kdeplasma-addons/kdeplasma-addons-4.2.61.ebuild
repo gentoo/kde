@@ -16,13 +16,13 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug xinerama"
 
 DEPEND="
-	!kdeprefix? ( !kde-misc/lancelot-menu[kdeprefix=] )
-	>=kde-base/krunner-${PV}:${SLOT}
-	>=kde-base/plasma-workspace-${PV}:${SLOT}
-	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[opengl] )
+	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl] )
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${DEPEND}
+	!kdeprefix? ( !kde-misc/lancelot-menu )
 	xinerama? ( x11-libs/libXinerama )
 "
 

@@ -12,4 +12,6 @@ DESCRIPTION="KDE Sudoku"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-RDEPEND="!kdeprefix? ( !games-puzzle/ksudoku )"
+RDEPEND="
+	!kdeprefix? ( !games-puzzle/ksudoku )
+"

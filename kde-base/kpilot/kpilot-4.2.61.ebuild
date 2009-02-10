@@ -14,7 +14,7 @@ IUSE="avantgo debug htmlhandbook"
 DEPEND="
 	app-crypt/qca:2
 	>=app-pda/pilot-link-0.12
-	>=kde-base/libkdepim-${PV}:${SLOT}
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	avantgo? ( >=dev-libs/libmal-0.40 )
 "
 RDEPEND="${DEPEND}"

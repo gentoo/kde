@@ -13,17 +13,9 @@ IUSE="debug"
 
 DEPEND="
 	|| (
-		dev-libs/soprano[clucene,redland]
-		dev-libs/soprano[clucene,sesame2]
+		dev-libs/soprano[clucene,dbus,raptor,redland]
+		dev-libs/soprano[clucene,dbus,raptor,sesame2]
 	)
-	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# Make redland really optional
-	sed -i -e 's/ AND SOPRANO_PLUGIN_RAPTORPARSER_FOUND//g' \
-		CMakeLists.txt || die "Failed to make redlang parser optional"
-
-	kde4-meta_src_prepare
-}

@@ -12,9 +12,12 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/konqueror-${PV}:${SLOT}
-	x11-libs/libXt"
-RDEPEND="${DEPEND}"
+	x11-libs/libXt
+	x11-libs/qt-gui:4[glib]
+"
+RDEPEND="${DEPEND}
+	>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
+"
 
 KMEXTRACTONLY="
 	konqueror/settings/

@@ -15,13 +15,11 @@ IUSE="akonadi debug semantic-desktop"
 
 DEPEND="
 	>=dev-python/PyQt4-4.4.4-r1[webkit]
-	>=kde-base/kdelibs-${PV}:${SLOT}[opengl]
-	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )
-	semantic-desktop? (
-		>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
-		>=kde-base/nepomuk-${PV}:${SLOT}
-	)
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl]
+	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
+	semantic-desktop? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop] )
 "
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	sed -i -e's/MACRO_OPTIONAL_FIND_PACKAGE(KdepimLibs)//'\

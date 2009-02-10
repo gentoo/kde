@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 RDEPEND="
-	>=kde-base/kcmshell-${PV}:${SLOT}
-	kde-base/kwalletd:${SLOT}
+	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kwalletd-${PV}:${SLOT}[kdeprefix=]
 "

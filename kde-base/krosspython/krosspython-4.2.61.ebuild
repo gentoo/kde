@@ -12,4 +12,7 @@ DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="dev-lang/python"
+DEPEND="
+	dev-lang/python
+"
+RDEPEND="${DEPEND}"

@@ -11,13 +11,18 @@ DESCRIPTION="KDE Educational: vocabulary trainer"
 KEYWORDS=""
 IUSE="debug htmlhandbook +plasma"
 
-DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkdeedu/keduvocdocument"
+KMEXTRACTONLY="
+	libkdeedu/keduvocdocument
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with plasma Plasma)"
+
 	kde4-meta_src_configure
 }

@@ -11,7 +11,11 @@ DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkdeedu/keduvocdocument"
+KMEXTRACTONLY="
+	libkdeedu/keduvocdocument
+"

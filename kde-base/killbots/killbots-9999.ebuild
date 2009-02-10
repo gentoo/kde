@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Kill the bots or they kill you!"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"

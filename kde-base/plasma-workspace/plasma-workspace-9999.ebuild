@@ -13,12 +13,12 @@ KEYWORDS=""
 IUSE="debug google-gadgets htmlhandbook python xcomposite xinerama"
 
 COMMONDEPEND="
-	>=kde-base/kephal-${PV}:${SLOT}
-	>=kde-base/ksysguard-${PV}:${SLOT}
-	>=kde-base/libkworkspace-${PV}:${SLOT}
-	>=kde-base/libplasmaclock-${PV}:${SLOT}
-	>=kde-base/libtaskmanager-${PV}:${SLOT}
-	>=kde-base/soliduiserver-${PV}:${SLOT}
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXau
 	x11-libs/libXfixes
 	x11-libs/libXrender
@@ -27,7 +27,7 @@ COMMONDEPEND="
 	python? (
 		>=dev-python/PyQt4-4.4.0
 		>=dev-python/sip-4.7.1
-		>=kde-base/pykde4-${PV}:${SLOT}
+		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
@@ -37,8 +37,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	!kde-base/plasma:${SLOT}
-	>=kde-base/kde-menu-icons-${PV}:${SLOT}
+	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRA="

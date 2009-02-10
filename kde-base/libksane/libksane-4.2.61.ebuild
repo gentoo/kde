@@ -9,13 +9,14 @@ KMMODULE="libs/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="SANE Library interface for KDE"
-HOMEPAGE="http://www.kipi-plugins.org"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 LICENSE="LGPL-2"
 
-DEPEND="kde-base/qimageblitz
-	media-gfx/sane-backends"
+DEPEND="
+	kde-base/qimageblitz
+	media-gfx/sane-backends
+"
 RDEPEND="${DEPEND}"
 
 src_install() {

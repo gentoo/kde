@@ -12,8 +12,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}
-	>=kde-base/libkpgp-${PV}:${SLOT}
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

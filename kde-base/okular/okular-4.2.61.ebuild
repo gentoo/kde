@@ -23,7 +23,8 @@ DEPEND="
 		>=app-text/poppler-bindings-0.8.5[qt4]
 	)
 	ps? ( app-text/libspectre )
-	tiff? ( media-libs/tiff )"
+	tiff? ( media-libs/tiff )
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {

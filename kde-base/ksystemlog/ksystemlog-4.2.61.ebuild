@@ -12,4 +12,7 @@ DESCRIPTION="KSystemLog is a system log viewer for KDE."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND="kde-base/kdepimlibs:${SLOT}"
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${RDEPEND}"

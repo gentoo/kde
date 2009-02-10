@@ -10,8 +10,11 @@ DESCRIPTION="KDE Desktop Planetarium"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug fits htmlhandbook"
 
-DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
-	fits? ( >=sci-libs/cfitsio-0.390 )"
+DEPEND="
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+	fits? ( >=sci-libs/cfitsio-0.390 )
+"
+RDEPEND="${DEPEND}"
 
 # FIXME: Re-add as soon as indilib-0.6 is available
 #	indi? ( >=sci-libs/indilib-0.6 )"

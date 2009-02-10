@@ -11,5 +11,7 @@ DESCRIPTION="KDE digital camera manager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND="media-libs/libgphoto2"
+DEPEND="
+	media-libs/libgphoto2
+"
 RDEPEND="${DEPEND}"

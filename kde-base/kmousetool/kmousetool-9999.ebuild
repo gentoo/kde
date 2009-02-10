@@ -12,5 +12,5 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 RDEPEND="
-	>=kde-base/knotify-${PV}:${SLOT}
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 "

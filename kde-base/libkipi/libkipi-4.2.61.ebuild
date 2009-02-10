@@ -6,7 +6,6 @@ EAPI="2"
 
 KMNAME="kdegraphics"
 KMMODULE="libs/${PN}"
-
 inherit kde4-meta
 
 DESCRIPTION="A library for image plugins accross KDE applications."

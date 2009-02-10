@@ -12,7 +12,11 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkdeedu-${PV}:${SLOT}
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
 "
+RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/keduvocdocument"
+KMEXTRACTONLY="
+	libkdeedu/kdeeduui/
+	libkdeedu/keduvocdocument/
+"

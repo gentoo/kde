@@ -14,5 +14,5 @@ DEPEND="
 	>=sys-libs/libutempter-1.1.5
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/konsole:4.1[-kdeprefix] )
+	!kdeprefix? ( !kde-base/konsole:4.1 )
 "

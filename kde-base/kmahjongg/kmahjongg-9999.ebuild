@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkmahjongg-${PV}:${SLOT}
+	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

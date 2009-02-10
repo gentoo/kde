@@ -13,9 +13,9 @@ IUSE="debug xcomposite xscreensaver"
 KEYWORDS="~amd64 ~x86"
 
 COMMONDEPEND="
-	>=kde-base/ksmserver-${PV}:${SLOT}
-	>=kde-base/ksysguard-${PV}:${SLOT}
-	>=kde-base/libkworkspace-${PV}:${SLOT}
+	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXxf86misc
 	opengl? ( virtual/opengl )
 	xcomposite? ( x11-libs/libXcomposite )

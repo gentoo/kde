@@ -11,9 +11,11 @@ DESCRIPTION="KDE LiLo kcontrol module"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-RDEPEND="sys-boot/lilo"
-DEPEND="${RDEPEND}
-	kde-base/kdepimlibs:${SLOT}"
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	sys-boot/lilo
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

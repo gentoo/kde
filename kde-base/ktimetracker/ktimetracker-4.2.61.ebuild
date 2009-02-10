@@ -8,14 +8,19 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."
-IUSE="debug"
 KEYWORDS="~amd64 ~x86"
+IUSE="debug"
 
-DEPEND="kde-base/kontact:${SLOT}
-	kde-base/kdepim-kresources:${SLOT}
-	kde-base/libkdepim:${SLOT}"
+DEPEND="
+	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="kresources
-	libkdepim"
-KMLOADLIBS="libkdepim
-	kontactinterfaces"
+KMEXTRACTONLY="
+	kresources/
+	libkdepim
+"
+
+KMLOADLIBS="libkdepim kontactinterfaces"

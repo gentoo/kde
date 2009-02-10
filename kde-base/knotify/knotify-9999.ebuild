@@ -8,5 +8,5 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE notification daemon."
-IUSE="debug"
 KEYWORDS=""
+IUSE="debug"

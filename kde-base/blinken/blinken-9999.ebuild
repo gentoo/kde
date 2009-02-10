@@ -11,8 +11,11 @@ DESCRIPTION="KDE version of the Simon Says game."
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}
-	>=kde-base/knotify-${PV}:${SLOT}"
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui"

@@ -24,10 +24,12 @@ DEPEND="
 	ldap? ( net-nds/openldap )
 	sasl? ( dev-libs/cyrus-sasl )
 "
+# @since 4.3 - libkholidays is in kdepimlibs now
 RDEPEND="${DEPEND}
 	!kdeprefix? (
 		!kde-base/akonadi:4.1
-		!kde-base/libkholidays
+		!kde-base/libkholidays:4.1
+		!kde-base/libkholidays:4.2
 	)
 "
 

@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 RDEPEND="
-	kde-base/khotkeys:${SLOT}
+	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

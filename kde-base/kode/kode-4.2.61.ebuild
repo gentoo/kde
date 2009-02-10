@@ -8,7 +8,9 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE kpgp library"
-IUSE="debug"
 KEYWORDS="~amd64 ~x86"
+IUSE="debug"
 
-KMEXTRACTONLY="libkdepim"
+KMEXTRACTONLY="
+	libkdepim/
+"

@@ -11,8 +11,10 @@ DESCRIPTION="KDE library for encryption handling."
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="app-crypt/gnupg
-	>=kde-base/kdepimlibs-${PV}:${SLOT}"
+DEPEND="
+	app-crypt/gnupg
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"

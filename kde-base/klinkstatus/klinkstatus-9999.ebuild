@@ -9,4 +9,3 @@ inherit kde4-meta
 DESCRIPTION="KDE web development - link validity checker"
 KEYWORDS=""
 IUSE="debug"
-HOMEPAGE="http://www.kde.org/"

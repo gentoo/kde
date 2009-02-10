@@ -12,5 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 LICENSE="BSD LGPL-2"
 
-DEPEND="kde-base/qimageblitz"
+DEPEND="
+	kde-base/qimageblitz
+"
 RDEPEND="${DEPEND}"

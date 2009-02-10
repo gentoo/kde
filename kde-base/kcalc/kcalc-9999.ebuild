@@ -12,7 +12,9 @@ DESCRIPTION="KDE calculator"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-DEPEND="dev-libs/gmp"
+DEPEND="
+	dev-libs/gmp
+"
 RDEPEND="${DEPEND}"
 
 src_test() {

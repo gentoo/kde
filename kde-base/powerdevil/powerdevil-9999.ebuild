@@ -15,11 +15,12 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	!sys-power/powerdevil
-	kde-base/libkworkspace:${SLOT}
-	kde-base/solid:${SLOT}
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!sys-power/powerdevil
+"
 
 KMEXTRACTONLY="
 	krunner/

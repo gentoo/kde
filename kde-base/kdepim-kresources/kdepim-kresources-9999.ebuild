@@ -12,10 +12,11 @@ DESCRIPTION="KDE PIM groupware plugin collection"
 IUSE="debug"
 KEYWORDS=""
 
+# Those deps (not in RDEPEND) seem strange but may be valid (or unnecessary)
 DEPEND="
-	kde-base/akonadi:${SLOT}
-	kde-base/libkdepim:${SLOT}
-	kde-base/kaddressbook:${SLOT}
+	kde-base/akonadi:${SLOT}[kdeprefix=]
+	kde-base/libkdepim:${SLOT}[kdeprefix=]
+	kde-base/kaddressbook:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

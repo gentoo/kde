@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkworkspace-${PV}:${SLOT}
-	>=kde-base/libtaskmanager-${PV}:${SLOT}
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXfixes
 "
 RDEPEND="${DEPEND}"

@@ -10,13 +10,12 @@ inherit kde4-meta
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
-#RESTRICT="test"
 
 DEPEND="
 	app-crypt/gnupg
 	app-crypt/gpgme
 	dev-libs/libassuan
-	>=kde-base/libkleo-${PV}:${SLOT}
+	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

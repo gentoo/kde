@@ -13,7 +13,8 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!<kde-base/libkworkspace-${PV}:${SLOT}
+	!kdeprefix? ( !<kde-base/libkworkspace-${PV} )
+	kdeprefix? ( !<kde-base/libkworkspace-${PV}:${SLOT} )
 "
 
 KMEXTRACTONLY="

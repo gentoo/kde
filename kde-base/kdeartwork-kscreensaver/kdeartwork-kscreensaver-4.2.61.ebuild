@@ -13,11 +13,12 @@ DESCRIPTION="Extra screensavers for kde"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug opengl xscreensaver"
 
-DEPEND="${DEPEND}
-	>=kde-base/kscreensaver-${PV}:${SLOT}[opengl?]
+DEPEND="
+	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=,opengl?]
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
-	xscreensaver? ( x11-misc/xscreensaver )"
+	xscreensaver? ( x11-misc/xscreensaver )
+"
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch" )

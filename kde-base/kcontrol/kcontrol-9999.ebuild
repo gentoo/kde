@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug htmlhandbook"
 
 RDEPEND="
-	!<kde-base/ksmserver-${PV}[-kdeprefix]
-	!<kde-base/ksmserver-${PV}:${SLOT}[kdeprefix]
+	!kdeprefix? ( !<kde-base/ksmserver-${PV} )
+	kdeprefix? ( !<kde-base/ksmserver-${PV}:${SLOT} )
 	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "

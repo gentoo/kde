@@ -16,6 +16,6 @@ DEPEND="
 		dev-libs/soprano[clucene,dbus,raptor,redland]
 		dev-libs/soprano[clucene,dbus,raptor,sesame2]
 	)
-	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
 "
 RDEPEND="${DEPEND}"

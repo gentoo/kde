@@ -11,8 +11,11 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 IUSE="debug"
 
-KMEXTRACTONLY="kaddressbook/org.kde.KAddressbook.Core.xml
-	korganizer/korgac/org.kde.korganizer.KOrgac.xml"
+KMEXTRACTONLY="
+	kaddressbook/org.kde.KAddressbook.Core.xml
+	korganizer/korgac/org.kde.korganizer.KOrgac.xml
+"
+
 KMSAVELIBS="true"
 
 src_install() {

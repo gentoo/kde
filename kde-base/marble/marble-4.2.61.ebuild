@@ -20,7 +20,7 @@ DEPEND="
 	)
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
-		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
+		kde? ( >=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=] )
 	)
 "
 RDEPEND="${DEPEND}

@@ -11,4 +11,6 @@ DESCRIPTION="KDE gpg keyring manager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-RDEPEND="app-crypt/gnupg"
+RDEPEND="
+	app-crypt/gnupg
+"

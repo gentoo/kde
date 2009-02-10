@@ -7,6 +7,6 @@ EAPI="2"
 KMNAME="kdegames"
 inherit kde4-meta
 
-DESCRIPTION="kde four-in-a-row game"
+DESCRIPTION="KDE four-in-a-row game."
 KEYWORDS=""
 IUSE="debug htmlhandbook"

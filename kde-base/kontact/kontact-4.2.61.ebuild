@@ -14,8 +14,8 @@ IUSE="debug htmlhandbook"
 DEPEND="
 	app-crypt/gnupg
 	app-crypt/gpgme
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}
-	>=kde-base/libkdepim-${PV}:${SLOT}
+	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

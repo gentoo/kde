@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	>=kde-base/libkdeedu-${PV}:${SLOT}
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

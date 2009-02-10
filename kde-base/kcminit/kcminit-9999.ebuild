@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/ksplash-${PV}:${SLOT}
+	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

@@ -11,4 +11,6 @@ DESCRIPTION="KDE: Educational programming environment using the Logo programming
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"
+RDEPEND="
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+"

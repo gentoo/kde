@@ -13,13 +13,20 @@ DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~x86"
 IUSE="editor debug htmlhandbook +plasma solver"
 
-DEPEND=">=kde-base/libkdeedu-${PV}:${SLOT}
-	editor? ( >=dev-cpp/eigen-1.0.5
-		>=sci-chemistry/openbabel-2.2 )
-	solver? ( dev-ml/facile[ocamlopt] )"
+DEPEND="
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+	editor? (
+		>=dev-cpp/eigen-1.0.5
+		>=sci-chemistry/openbabel-2.2
+	)
+	solver? ( dev-ml/facile[ocamlopt] )
+"
 RDEPEND="${RDEPEND}"
 
-KMEXTRACTONLY="libkdeedu/kdeeduui libkdeedu/libscience"
+KMEXTRACTONLY="
+	libkdeedu/kdeeduui/
+	libkdeedu/libscience/
+"
 
 src_configure(){
 	mycmakeargs="${mycmakeargs}

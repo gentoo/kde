@@ -11,8 +11,9 @@ DESCRIPTION="KDE: Umbrello UML Modeller"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-COMMONDEPEND="dev-libs/boost
+DEPEND="
+	dev-libs/boost
 	dev-libs/libxml2
-	dev-libs/libxslt"
-DEPEND="${COMMONDEPEND}"
-RDEPEND="${COMMONDEPEND}"
+	dev-libs/libxslt
+"
+RDEPEND="${DEPEND}"

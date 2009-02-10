@@ -11,4 +11,6 @@ DESCRIPTION="KDE: A program that helps you to learn and practice touch typing"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"
+RDEPEND="
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+"

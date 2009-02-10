@@ -13,7 +13,7 @@ DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
 IUSE="debug xinerama"
 
-DEPEND="
+RDEPEND="
 	!kdeprefix? ( !kde-base/plasma-workspace:4.1 )
 "
 

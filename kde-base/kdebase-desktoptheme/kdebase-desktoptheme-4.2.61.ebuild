@@ -13,5 +13,6 @@ IUSE=""
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	!<kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+	!kdeprefix? ( !<kde-base/plasma-workspace-${PV} )
+	kdeprefix? ( !<kde-base/plasma-workspace-${PV}:${SLOT} )
 "

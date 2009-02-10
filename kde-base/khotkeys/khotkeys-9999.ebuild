@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkworkspace-${PV}:${SLOT}
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXtst
 "
 RDEPEND="${DEPEND}"

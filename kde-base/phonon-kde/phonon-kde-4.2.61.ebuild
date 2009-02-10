@@ -14,11 +14,9 @@ LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="
-	!kde-base/phonon:${SLOT}
+REPEND="
 	!kdeprefix? ( !kde-base/phonon-xine )
 "
-RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Don't build tests - they require OpenGL

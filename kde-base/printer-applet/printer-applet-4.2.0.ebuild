@@ -16,6 +16,6 @@ DEPEND="
 	app-misc/hal-cups-utils
 	>=dev-python/PyQt4-4.4.4-r1
 	dev-python/pycups
-	>=kde-base/pykde4-${PV}:${SLOT}
+	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

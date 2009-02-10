@@ -8,10 +8,16 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE Notes"
-IUSE="debug"
 KEYWORDS="~amd64 ~x86"
+IUSE="debug"
 
-DEPEND="kde-base/libkdepim:${SLOT}"
+DEPEND="
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkdepim"
+KMEXTRACTONLY="
+	libkdepim/
+"
+
 KMLOADLIBS="libkdepim"

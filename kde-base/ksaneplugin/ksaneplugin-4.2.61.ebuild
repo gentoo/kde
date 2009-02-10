@@ -5,7 +5,6 @@
 EAPI="2"
 
 KMNAME="kdegraphics"
-
 inherit kde4-meta
 
 DESCRIPTION="SANE Plugin for KDE"
@@ -16,6 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	kde-base/libksane:${SLOT}
+	>=kde-base/libksane-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

@@ -11,5 +11,7 @@ DESCRIPTION="A KDE game similiar to Mahjongg"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/libkmahjongg-${PV}:${SLOT}"
+DEPEND="
+	>=kde-base/libkmahjongg-${PV}:${SLOT}
+"
 RDEPEND="${DEPEND}"

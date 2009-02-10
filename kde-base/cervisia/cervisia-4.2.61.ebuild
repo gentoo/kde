@@ -11,5 +11,6 @@ DESCRIPTION="Cervisia - A KDE CVS frontend"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-RDEPEND="${RDEPEND}
-	dev-util/cvs"
+RDEPEND="
+	dev-util/cvs
+"

@@ -11,9 +11,13 @@ DESCRIPTION="KDE CD player"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-DEPEND=">=kde-base/libkcddb-${PV}:${SLOT}
-	>=kde-base/libkcompactdisc-${PV}:${SLOT}
-	media-libs/musicbrainz:1"
+DEPEND="
+	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
+	media-libs/musicbrainz:1
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkcompactdisc/"
+KMEXTRACTONLY="
+	libkcompactdisc/
+"

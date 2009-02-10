@@ -11,4 +11,6 @@ DESCRIPTION="KDE Frontend for Cachegrind"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
-RDEPEND="${RDEPEND} media-gfx/graphviz"
+RDEPEND="
+	media-gfx/graphviz
+"

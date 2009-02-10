@@ -11,10 +11,12 @@ DESCRIPTION="The KDE physics simulator"
 KEYWORDS="~amd64 ~x86"
 IUSE="+gsl +qalculate"
 
-DEPEND=">=sci-mathematics/gmm-3.0
+DEPEND="
+	>=sci-mathematics/gmm-3.0
 	sci-libs/cln
 	gsl? ( >=sci-libs/gsl-1.9-r1 )
-	qalculate? ( >=sci-libs/libqalculate-0.9.5 )"
+	qalculate? ( >=sci-libs/libqalculate-0.9.5 )
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {

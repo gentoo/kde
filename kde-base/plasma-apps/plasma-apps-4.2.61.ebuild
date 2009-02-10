@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook"
 
 DEPEND="
-	!kde-base/plasma:${SLOT}
-	kde-base/libkonq:${SLOT}
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

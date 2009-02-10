@@ -12,4 +12,7 @@ DESCRIPTION="Ruby plugin for the kdelibs/kross scripting framework."
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="dev-lang/ruby"
+DEPEND="
+	dev-lang/ruby
+"
+RDEPEND="${DEPEND}"

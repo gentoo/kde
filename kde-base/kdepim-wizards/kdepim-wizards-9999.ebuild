@@ -14,9 +14,10 @@ KEYWORDS=""
 
 DEPEND="
 	app-crypt/gpgme:1
-	>=kde-base/kdepim-kresources-${PV}:${SLOT}
-	>=kde-base/libkdepim-${PV}:${SLOT}
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
+RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kmail/

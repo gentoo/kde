@@ -13,6 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug captury xcomposite xinerama"
 
 COMMONDEPEND="
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
@@ -23,7 +24,6 @@ COMMONDEPEND="
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
-	kde-base/kephal:${SLOT}
 	x11-proto/damageproto
 	x11-proto/renderproto
 	xcomposite? ( x11-proto/compositeproto )

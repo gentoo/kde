@@ -11,13 +11,15 @@ DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug htmlhandbook +plasma"
 
-DEPEND=""
-RDEPEND="${DEPEND}
+DEPEND="
 	dev-libs/libxml2
-	dev-libs/libxslt"
+	dev-libs/libxslt
+"
+RDEPEND="${DEPEND}"
 
 src_unpack() {
 	use htmlhandbook && KMEXTRA="doc/kate-plugins"
+
 	kde4-meta_src_unpack
 }
 

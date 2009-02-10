@@ -17,7 +17,7 @@ DEPEND="
 	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
- 	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMLOADLIBS="libkdepim"

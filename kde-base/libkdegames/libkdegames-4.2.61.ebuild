@@ -11,7 +11,9 @@ DESCRIPTION="Base library common to many KDE games."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=dev-games/ggz-client-libs-0.0.14"
+DEPEND="
+	>=dev-games/ggz-client-libs-0.0.14
+"
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
