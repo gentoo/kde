@@ -4,7 +4,7 @@
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
-# kde@gentoo.org
+# scarabeus@gentoo.org, kde@gentoo.org
 # @BLURB: This eclass provides functions for kde 4.X ebuilds
 # @DESCRIPTION:
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
@@ -58,6 +58,11 @@ kde4-base_set_qt_dependencies() {
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
 }
 kde4-base_set_qt_dependencies
+
+# Xorg
+COMMONDEPEND="${COMMONDEPEND}
+	>=x11-base/xorg-server-1.5.3
+"
 
 # X11 libs
 COMMONDEPEND="${COMMONDEPEND}
@@ -263,7 +268,6 @@ case ${NEED_KDE} in
 esac
 
 if [[ ${NEED_KDE} != none ]]; then
-
 	#Set the SLOT
 	if [[ -n ${KDEBASE} ]]; then
 		if [[ ${NEED_KDE} = live ]]; then
@@ -397,11 +401,7 @@ case ${SLOT} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.2.60)
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.svn912032tar.bz2" ;;
-						4.2.61)
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.svn917530.tar.bz2" ;;
-						4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
+						4.2.6*| 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
@@ -417,11 +417,6 @@ case ${SLOT} in
 esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
-
-# Stores package tarball name - detected from SRC_URI. We need this variable
-# to unpack source in reliable way (patches in distfiles listed in SRC_URI would
-# cause problem otherwise. It's unset when not needed.
-TARBALL="${SRC_URI##*/}"
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
@@ -488,18 +483,8 @@ kde4-base_src_unpack() {
 		migrate_store_dir
 		subversion_src_unpack
 	else
-		unpack "${A}" || die "Unpack ${A} failed"
-		# Detect real toplevel dir - issue with unstable snapshots
-		if [[ ${KDEBASE} = kde-base ]]; then
-			local topleveldir="${TARBALL%.tar.*}"
-			if 	[[ "${topleveldir}" != "${P}" ]]; then
-				mv "${topleveldir}" "${P}" || die "Died while moving \"${topleveldir}\" to \"${P}\""
-			fi
-		fi
+		base_src_unpack
 	fi
-
-	# We don't need it anymore
-	unset TARBALL
 }
 
 # @FUNCTION: kde4-base_src_compile

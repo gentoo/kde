@@ -4,7 +4,7 @@
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
-# kde@gentoo.org
+# scarabeus@gentoo.org, kde@gentoo.org
 # @BLURB: Eclass for writing "split" KDE packages.
 # @DESCRIPTION:
 # This eclass provides all necessary functions for writing split KDE ebuilds.
@@ -187,9 +187,6 @@ kde4-meta_src_unpack() {
 	else
 		kde4-meta_src_extract
 	fi
-
-	# We don't need it anymore
-	unset TARBALL
 }
 
 # FIXME: the difference between kde4-meta_src_extract and kde4-meta_src_unpack?
@@ -235,14 +232,10 @@ kde4-meta_src_extract() {
 				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 		fi
 	else
-		local abort tarfile f extractlist topleveldir moduleprefix
-		tarfile="${DISTDIR}/${TARBALL}"
+		local abort tarball tarfile f extractlist moduleprefix
+		tarfile="${DISTDIR}/${tarball}"
 
-		# Detect real toplevel dir - issue with unstable snapshots
-		# It will be used in __list_needed_subdirectories
-		topleveldir="${TARBALL%.tar.*}/"
-
-		ebegin "Unpacking parts of ${TARBALL} to ${WORKDIR}"
+		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
 		kde4-meta_create_extractlists
 
@@ -255,7 +248,7 @@ kde4-meta_src_extract() {
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
 		do
-			extractlist="${extractlist} ${topleveldir}${moduleprefix}${f}"
+			extractlist="${extractlist} ${KMNAME}-${PV}/${f}"
 		done
 		extractlist="${extractlist} $(__list_needed_subdirectories)"
 		KMTARPARAMS="${KMTARPARAMS} -j"
@@ -265,9 +258,7 @@ kde4-meta_src_extract() {
 		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
-		if [[ "${topleveldir}" != "${P}" ]]; then
-			mv "${topleveldir}" "${P}" || die "Died while moving \"${topleveldir}\" to \"${P}\""
-		fi
+		mv ${KMNAME}-${PV} ${P} || die "Died while moving \"${KMNAME}-${PV}\" to \"${P}\""
 
 		popd > /dev/null
 
@@ -285,6 +276,7 @@ kde4-meta_src_extract() {
 			done
 			[[ -n ${abort} ]] && die "There were missing files."
 		fi
+		kde4-base_src_unpack
 	fi
 	# fix koffice linking
 	if [[ ${KMNAME} = koffice ]]; then
@@ -331,13 +323,10 @@ kde4-meta_create_extractlists() {
 				config-workspace.h.cmake
 				config-X11.h.cmake
 				startkde.cmake"
-			case ${SLOT} in
-				4.2|4.3)
-					KMEXTRACTONLY="${KMEXTRACTONLY}
-						KDE4WorkspaceConfig.cmake.in"
-					;;
-				*) : ;;
-			esac
+			if [[ ${SLOT} != "4.1" ]]; then
+				KMEXTRACTONLY="${KMEXTRACTONLY}
+					KDE4WorkspaceConfig.cmake.in"
+			fi
 			;;
 		kdegames)
 			if [[ ${PN} != libkdegames ]]; then
@@ -436,12 +425,16 @@ __list_needed_subdirectories() {
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmmodule_expanded:  ${kmmodule_expanded}"
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmcompileonly_expanded: ${kmcompileonly_expanded}"
 
+	case ${PV} in                                                                                                       
+		scm|9999*) : ;;                                                                                             
+		*) topdir="${KMNAME}-${PV}/" ;;                                                                             
+	esac  
 	# Create final list of stuff to extract
 	# We append topleveldir only when specified (usually for tarballs)
 	for i in ${kmmodule_expanded} ${kmextra_expanded} ${kmcompileonly_expanded} \
 		${KMEXTRACTONLY}
 	do
-		extractlist="${extractlist} ${topleveldir}${moduleprefix}${i}"
+		extractlist="${extractlist} ${topdir}${moduleprefix}${i}"
 	done
 
 	echo ${extractlist}
@@ -552,7 +545,7 @@ kde4-meta_change_cmakelists() {
 					die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
 			fi
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
-			if [[ ${SLOT} == 4.2 || ${SLOT} == 4.3 || ${SLOT} == live ]]; then
+			if [[ ${SLOT} != 4.1 ]]; then
 				if [[ ${PN} != libkworkspace ]]; then
 					sed -i -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
 						CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip EXPORT section"
