@@ -19,6 +19,7 @@ DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 "
 RDEPEND="${DEPEND}
+	media-video/mplayerthumbs:1
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
