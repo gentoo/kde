@@ -1,3 +1,6 @@
+
+# Maciej Mrozowski <reavertm@poczta.fm> (10 Feb 2009)
+# KDE printer stuff - masked for testing
 app-admin/system-config-printer
 app-misc/hal-cups-utils
 dev-python/pycups
