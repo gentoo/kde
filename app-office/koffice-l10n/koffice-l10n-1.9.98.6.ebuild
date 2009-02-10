@@ -16,8 +16,7 @@ RDEPEND=""
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-MY_LANGS="ar bg ca cy da de el en_GB es et eu fa fi fr fy ga gl hi hu it ja kk
-ms nb nds ne nl pl pt pt_BR ru sk sl sv ta tr uk zh_CN zh_TW"
+MY_LANGS="ca de el et fr fy gl hi it ja kk nds nl pl pt pt_BR sv tr uk zh_TW"
 URI_BASE="mirror://kde/unstable/koffice-${PV}/src/${PN}/"
 SRC_URI=""
 SLOT="2"
