@@ -19,7 +19,7 @@ IUSE="debug"
 
 DEPEND="
 	>=app-mobilephone/obex-data-server-0.4.2
-	>=app-mobilephone/obexftp_0.23_alpha[bluetooth]
+	>=app-mobilephone/obexftp-0.23_alpha[bluetooth]
 	>=kde-base/solid-${KDE_MINIMAL}[bluetooth]
 	>=kde-base/kdialog-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
