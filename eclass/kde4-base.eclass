@@ -442,17 +442,15 @@ kde4-base_pkg_setup() {
 
 	# Search for best suitable kde installation for misc kde package.
 	# Computation based on NEED_KDE and KDE_MINIMAL
-	get_latest_kdedir
+	[[ ${NEED_KDE} = latest || ${NEED_KDE} = none ]] && get_latest_kdedir
 
-	if [[ ${NEED_KDE} != none ]]; then
-		# Set PREFIX
-		if use kdeprefix; then
-			KDEDIR="/usr/kde/${_kdedir}"
-			KDEDIRS="/usr/local/:/usr:${KDEDIR}"
-		else
-			KDEDIR="/usr"
-			KDEDIRS="/usr/local/:/usr"
-		fi
+	# Set PREFIX
+	if use kdeprefix; then
+		KDEDIR="/usr/kde/${_kdedir}"
+		KDEDIRS="/usr/local/:/usr:${KDEDIR}"
+	else
+		KDEDIR="/usr"
+		KDEDIRS="/usr/local/:/usr"
 	fi
 	# Set the prefix based on KDEDIR
 	# Make it a consequence of kdeprefix
