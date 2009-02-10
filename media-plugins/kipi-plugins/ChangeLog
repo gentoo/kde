@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kipi-plugins-0.2.0_rc1.ebuild:
+  added calendar IUSE, gpod -> ipod IUSE, warn about possible problems with
+  qt4.5
+
   05 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
   kipi-plugins-0.2.0_rc1.ebuild:
   Update deps per bug 256644.

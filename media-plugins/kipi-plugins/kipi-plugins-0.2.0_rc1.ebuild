@@ -18,36 +18,48 @@ SRC_URI="mirror://sourceforge/kipi/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="cdr gpod +imgemagick mjpeg opengl redeyes scanner"
+IUSE="cdr calendar debug +imgemagick ipod mjpeg redeyes scanner"
 SLOT="2"
 
-# TODO: Check deps
 DEPEND="
 	>=dev-libs/expat-2.0.1
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=kde-base/libkdcraw-${KDE_MINIMAL}
-	>=kde-base/libkexiv2-${KDE_MINIMAL}
-	>=kde-base/libkipi-${KDE_MINIMAL}
+	>=kde-base/libkdcraw-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libkexiv2-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libkipi-${KDE_MINIMAL}[kdeprefix=]
 	media-libs/jpeg
 	media-libs/libpng
-	media-libs/mesa
 	>=media-libs/tiff-3.5
-	gpod? ( media-libs/libgpod )
-	opengl? ( media-libs/mesa )
+	calendar? ( >=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=] )
+	ipod? ( media-libs/libgpod )
+	opengl? ( virtual/opengl )
 	redeyes? ( media-libs/opencv )
-	scanner? ( media-gfx/sane-backends
-		>=kde-base/libksane-${KDE_MINIMAL} )
-	"
-
+	scanner? (
+		media-gfx/sane-backends
+		>=kde-base/libksane-${KDE_MINIMAL}[kdeprefix=]
+	)
+"
 RDEPEND="${DEPEND}
 	cdr? ( app-cdr/k3b )
 	imagemagick? ( media-gfx/imagemagick )
-	mjpeg? ( media-video/mjpegtools )"
+	mjpeg? ( media-video/mjpegtools )
+"
 
 PKG_CONFIG_PATH=":${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
+
+pkg_setup() {
+	if has_version '~x11-libs/qt-core-4.5.0'; then
+		echo
+		ewarn "Compilation may fail due to bug in Qt 4.5_rc meta object compiler (moc)."
+		ewarn "You have been warned."
+		echo
+	fi
+
+	kde4-base_pkg_setup
+}
 
 src_configure() {
 	# This Plugin hard depends on libksane, deactivate it if use flag scanner is
@@ -65,11 +77,13 @@ src_configure() {
 		|| die "Sed fixing kipi linking failed."
 
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with OpenGl)
+		$(cmake-utils_use_with calendar KdepimLibs)
+		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with scanner KSane)
 		$(cmake-utils_use_with scanner Sane)
-		$(cmake-utils_use_with gpod GLIB2)
-		$(cmake-utils_use_with gpod GObject)
+		$(cmake-utils_use_with ipod Gpod)
+		$(cmake-utils_use_with ipod GLIB2)
+		$(cmake-utils_use_with ipod GObject)
 		$(cmake-utils_use_with redeyes OpenCV)"
 
 	kde4-base_src_configure
