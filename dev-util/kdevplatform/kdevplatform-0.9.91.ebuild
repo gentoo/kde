@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit kde4-base
 
-KDEVELOP_PV="3.9.85"
+KDEVELOP_PV="3.9.91" # remember to change!
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kde.org/"
 SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
