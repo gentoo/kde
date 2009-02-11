@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/obexftp/obexftp-0.22.ebuild,v 1.8 2008/12/11 20:25:53 mrness Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -12,7 +12,7 @@ SRC_URI="http://triq.net/obexftp/${P/_/-}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~hppa ppc sparc x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="bluetooth debug perl python ruby swig tcl"
 
 RDEPEND="dev-libs/openobex[bluetooth?]
@@ -29,7 +29,6 @@ S="${WORKDIR}"/${P/_alpha/}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0.22-ruby-libpath.patch
-	epatch "${FILESDIR}"/${PN}-0.22-bluetooth.patch
 }
 
 src_configure() {
