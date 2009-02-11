@@ -1,24 +1,13 @@
 app-cdr/k3b:live
 app-cdr/k9copy:live
-#=app-editors/yzis-9999
 =app-editors/kile-9999
-#dev-util/inspektor:live
 dev-util/kdesvn:live
 dev-util/kdevelop:live
 dev-util/kdevplatform:live
-#games-board/tagua:live
-kde-base/kdeplasma-addons:live
-kde-base/libkdcraw:live
-kde-base/libkexiv2:live
-kde-base/libkipi:live
-kde-base/libksane:live
-#kde-misc/kapman:live
-#kde-misc/kblogger
 kde-misc/kdelirc:live
 kde-misc/kdiff3:live
 kde-misc/konq-plugins:live
 kde-misc/krusader:live
-#kde-misc/playground-plasma:live
 kde-misc/webkit-kpart:live
 kde-misc/yakuake:live
 mail-client/mailody:live
@@ -31,7 +20,6 @@ media-tv/kdetv:live
 media-video/kaffeine:live
 media-video/kmplayer:live
 media-video/kplayer:live
-#net-ftp/kftpgrabber:live
 net-im/kmess:live
 net-misc/smb4k:live
 =net-libs/decibel-9999
@@ -41,4 +29,3 @@ net-p2p/ktorrent:live
 =net-voip/tapioca-qt-9999
 net-wireless/kdebluetooth4:live
 x11-themes/gtk-engines-qt:live
-kde-plasmoids/kepas:live
