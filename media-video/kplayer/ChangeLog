@@ -1,6 +1,10 @@
 # ChangeLog for media-video/kplayer
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Feb 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  -media-video/kplayer/kplayer-0.7-r1.ebuild:
+  moved to the tree
 
 *kplayer-0.7 (15 Oct 2008)
 
