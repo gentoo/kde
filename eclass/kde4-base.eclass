@@ -301,7 +301,7 @@ if [[ ${NEED_KDE} != none ]]; then
 						*) SLOT="4.1" ;;
 					esac
 					;;
-				esac
+			esac
 		fi
 	fi
 
@@ -442,7 +442,7 @@ kde4-base_pkg_setup() {
 
 	# Search for best suitable kde installation for misc kde package.
 	# Computation based on NEED_KDE and KDE_MINIMAL
-	[[ ${NEED_KDE} = latest || ${NEED_KDE} = none ]] && get_latest_kdedir
+	[[ ${KDEBASE} != kde-base ]] && [[ ${NEED_KDE} = latest || ${NEED_KDE} = none ]] && get_latest_kdedir
 
 	# Set PREFIX
 	if use kdeprefix; then
@@ -551,8 +551,17 @@ kde4-base_src_configure() {
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
 
-	# hardcode path to *.cmake KDE files
+	# Hardcode path to *.pc KDE files
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
+
+	# Set cmake prefixes to allow buildsystem to localize valid KDE installation when more are present
+	if use kdeprefix; then
+		mycmakeargs="${mycmakeargs}
+			-DCMAKE_SYSTEM_INCLUDE_PATH=${KDEDIR}/include
+			-DCMAKE_SYSTEM_LIBRARY_PATH=${KDEDIR}/$(get_libdir)
+			-DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}
+			-DCMAKE_SYSTEM_PROGRAM_PATH=${KDEDIR}/bin"
+	fi
 
 	# additonal arguments for KOFFICE
 	if [[ ${KMNAME} = koffice ]]; then

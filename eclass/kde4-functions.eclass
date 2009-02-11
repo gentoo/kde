@@ -64,7 +64,7 @@ buildsycoca() {
 
 		ebegin "Running kbuildsycoca4 to build global database"
 		# This is needed because we support multiple kde versions installed together.
-		XDG_DATA_DIRS="/usr/share:${KDEDIRS//:/\/share:}/share:/usr/local/share" \
+		XDG_DATA_DIRS="/usr/share:${KDEDIR}/share:/usr/local/share" \
 			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
 			${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
@@ -229,7 +229,7 @@ get_latest_kdedir() {
 	case ${KDE_WANTED} in
 		# note this will need to be updated as stable moves and so on
 		live)
-			_versions="9999 4.2.61 4.2.0 4.10"
+			_versions="9999 4.2.61 4.2.0 4.1.0"
 			;;
 		snapshot)
 			_versions="4.2.61 4.2.0 4.1.0 9999"
@@ -267,6 +267,8 @@ get_latest_kdedir() {
 			esac
 		fi
 	done
+
+	debug-print-function ${FUNCNAME} "$@" "KDE_WANTED=${KDE_WANTED} -> _kdedir=${_kdedir}"
 }
 
 # @FUNCTION: migrate_store_dir
