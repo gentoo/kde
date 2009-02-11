@@ -252,11 +252,11 @@ get_latest_kdedir() {
 					_kdedir="live"
 					break
 				;;
-				4.2.61)
+				4.3.0 | 4.2.61)
 					_kdedir="4.3"
 					break
 				;;
-				4.1.69)
+				4.2.0 | 4.1.61)
 					_kdedir="4.2"
 					break
 				;;
