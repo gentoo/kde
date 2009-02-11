@@ -61,7 +61,7 @@ kde4-base_set_qt_dependencies
 
 # Xorg
 COMMONDEPEND="${COMMONDEPEND}
-	>=x11-base/xorg-server-1.5.3
+	>=x11-base/xorg-server-1.5.2
 "
 
 # X11 libs
