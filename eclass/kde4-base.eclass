@@ -554,6 +554,10 @@ kde4-base_src_configure() {
 	# Hardcode path to *.pc KDE files
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
+	# Override some environment variables
+	PATH="${KDEDIR}/bin:${PATH}"
+	LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
+
 	# Set cmake prefixes to allow buildsystem to localize valid KDE installation when more are present
 	if use kdeprefix; then
 		mycmakeargs="${mycmakeargs}
