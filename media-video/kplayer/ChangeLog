@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kplayer-9999.ebuild:
+  DEPEND -> RDEPEND for kplayer
+
   11 Feb 2009; Theo Chatzimichos <tampakrap@gentoo.org>
   -media-video/kplayer/kplayer-0.7-r1.ebuild:
   moved to the tree

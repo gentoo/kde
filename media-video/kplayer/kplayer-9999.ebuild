@@ -15,6 +15,8 @@ SLOT="live"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND=">=media-video/mplayer-1.0_rc1"
+RDEPEND="
+	>=media-video/mplayer-1.0_rc1
+"
 
 CMAKE_IN_SOURCE_BUILD="1"
