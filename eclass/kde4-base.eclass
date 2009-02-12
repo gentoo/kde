@@ -345,7 +345,7 @@ fi
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
-case ${SLOT} in
+case ${BUILD_TYPE} in
 	live)
 		SRC_URI=""
 		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
