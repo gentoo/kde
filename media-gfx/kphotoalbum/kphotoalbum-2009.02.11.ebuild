@@ -15,7 +15,7 @@ SRC_URI="http://dev.gentoo.org/~jkt/kphotoalbum/${MY_P}.tar.bz2"
 SLOT="4"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="+exif +kipi +marble +raw +semantic-desktop"
+IUSE="debug +exif +kipi +marble +raw +semantic-desktop"
 
 DEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,semantic-desktop?]
@@ -31,3 +31,15 @@ RDEPEND="${DEPEND}
 "
 
 S="${WORKDIR}"/${MY_P}
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with exif Exiv2)
+		$(cmake-utils_use_with raw Kdcraw)
+		$(cmake-utils_use_with kipi Kipi)
+		$(cmake-utils_use_with marble Marble)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)"
+
+	kde4-base_src_configure
+}
