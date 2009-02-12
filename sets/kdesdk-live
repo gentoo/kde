@@ -7,7 +7,7 @@ kde-base/kdeaccounts-plugin:live
 kde-base/kdesdk-kioslaves:live
 kde-base/kdesdk-misc:live
 kde-base/kdesdk-scripts:live
-kde-base/kdesdk-strigi-analyzer
+kde-base/kdesdk-strigi-analyzer:live
 kde-base/kompare:live
 kde-base/kstartperf:live
 kde-base/kuiviewer:live
