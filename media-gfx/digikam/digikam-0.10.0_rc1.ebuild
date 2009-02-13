@@ -47,7 +47,7 @@ src_prepare() {
 	# and i hate when upstream forces us to do this :(
 	rm -rf data/icons/oxygen/{16x16,22x22,32x32,64x64,48x48,128x128,scalable\
 }/{actions/{view-object-histogram-linear,transform-crop-and-resize,\
-view-object-histogram-logarithmic},apps/digikam}.svgz
+view-object-histogram-logarithmic},apps/digikam}.{svgz,png}
 
 	kde4-base_src_prepare
 }
