@@ -13,6 +13,19 @@ HOMEPAGE="http://kdiff3.sourceforge.net/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="live"
-IUSE="debug"
+IUSE="debug konqueror"
 
-RDEPEND="sys-apps/diffutils"
+DEPEND="
+	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=] )
+"
+RDEPEND="${DEPEND}
+	sys-apps/diffutils
+	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=] )
+"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with konqueror LibKonq)
+	"
+	kde4-base_src_configure
+}

@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, kdiff3-9999.ebuild:
+  Added kdiff3 konqueror menu extension for kdiff3 ebuild
+
   10 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm> ChangeLog:
   Changelog added :P
 
