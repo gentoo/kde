@@ -43,7 +43,7 @@ src_unpack() {
 src_prepare() {
 	if use kontact; then
 		# Fix target_link_libraries for now
-		sed -i -e's/kaddressbookprivate ${KDE4_KCAL_LIBS}/${KDE4_KCAL_LIBS}/' \
+		sed -i -e's/kaddressbookprivate//' \
 			kontact/plugins/planner/CMakeLists.txt \
 			|| die "Failed to remove kaddressbookprivate from link"
 	fi
