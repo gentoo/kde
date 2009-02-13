@@ -44,9 +44,10 @@ S="${WORKDIR}/${P/_/-}"
 
 src_prepare() {
 	# Fix files collision, use icon from kdebase-data rather that digikam ones
-	sed -i \
-		-e "s:add_subdirectory:#add_subdirectory:g" \
-		data/icons/CMakeLists.txt || die "Failed to remove icon install"
+	# and i hate when upstream forces us to do this :(
+	rm -rf data/icons/oxygen/{16x16,22x22,32x32,64x64,48x48,128x128,scalable\
+}/{actions/{view-object-histogram-linear,transform-crop-and-resize,\
+view-object-histogram-logarithmic},apps/digikam}.svgz
 
 	kde4-base_src_prepare
 }
