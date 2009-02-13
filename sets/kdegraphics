@@ -1,15 +1,1 @@
-kde-base/gwenview
-kde-base/kamera
-kde-base/kcolorchooser
-kde-base/kgamma
-kde-base/kolourpaint
-kde-base/kruler
-kde-base/ksaneplugin
-kde-base/ksnapshot
-kde-base/libkdcraw
-kde-base/libkexiv2
-kde-base/libkipi
-kde-base/libksane
-kde-base/okular
-kde-base/svgpart
-kde-base/kdegraphics-strigi-analyzer
+kdegraphics-4.2
