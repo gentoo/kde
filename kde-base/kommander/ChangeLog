@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kommander-4.2.61.ebuild:
+  Version removed.
+
 *kommander-4.2.61 (01 Feb 2009)
 
   01 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

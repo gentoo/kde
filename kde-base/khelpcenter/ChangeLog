@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -khelpcenter-4.2.61.ebuild:
+  Version removed.
+
   02 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   khelpcenter-4.2.61.ebuild, khelpcenter-9999.ebuild:
   Added perl in RDEPEND to khelpcenter as it installs some perl scripts in

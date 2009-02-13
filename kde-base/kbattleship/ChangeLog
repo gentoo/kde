@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kbattleship-4.2.61.ebuild:
+  Version removed.
+
 *kbattleship-4.2.61 (31 Jan 2009)
 
   31 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

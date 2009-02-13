@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -akonadi-4.2.61.ebuild:
+  Version removed.
+
   03 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   akonadi-4.2.61.ebuild, akonadi-9999.ebuild:
   Fixed block for akonadi (libmaildir moved to akonadi)
