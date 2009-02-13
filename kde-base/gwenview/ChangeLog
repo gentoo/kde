@@ -3,6 +3,11 @@
 # $Header: $
 
   13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  gwenview-9999.ebuild:
+  Dropped mplayerthumbs deps from gwenview. Nothing to do with gwenview - it
+  doesn't even preview videos.
+
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -gwenview-4.2.61.ebuild:
   Version removed.
 

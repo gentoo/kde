@@ -3,7 +3,14 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="auth">Add dependency on authentization packages</flag>
-		<flag name="bookmarks">Add dependency on bookmark package.</flag>
+		<flag name="auth">
+			Add dependency on authentization packages.
+		</flag>
+		<flag name="bookmarks">
+			Add dependency on bookmark package.
+		</flag>
+		<flag name="thumbnail">
+			Enables video thumbnails generation for <pkg>kde-base/konqueror</pkg> file manager.
+		</flag>
 	</use>
 </pkgmetadata>

@@ -8,8 +8,8 @@ KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
-IUSE="+auth +bookmarks debug htmlhandbook"
 KEYWORDS=""
+IUSE="+auth +bookmarks debug htmlhandbook thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -22,6 +22,7 @@ RDEPEND="${DEPEND}
 	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
 	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
 	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
+	thumbnail? ( media-video/mplayerthumbs:1[kdeprefix=] )
 "
 
 KMEXTRA="

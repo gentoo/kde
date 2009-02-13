@@ -3,6 +3,10 @@
 # $Header: $
 
   13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, dolphin-9999.ebuild:
+  Added optional video thumbnails for dolphin
+
+  13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -dolphin-4.2.61.ebuild:
   Version removed.
 

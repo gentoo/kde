@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS=""
-IUSE="debug htmlhandbook +semantic-desktop"
+IUSE="debug htmlhandbook +semantic-desktop thumbnail"
 
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
@@ -18,6 +18,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+	thumbnail? ( media-video/mplayerthumbs:1[kdeprefix=] )
 "
 
 KMEXTRA="
