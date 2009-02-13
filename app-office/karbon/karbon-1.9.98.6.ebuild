@@ -14,10 +14,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
 	media-gfx/pstoedit
-	media-libs/fontconfig
-	media-libs/freetype:2
 	media-libs/libart_lgpl
 "
+RDEPEND="${DEPEND}"
+
+KMEXTRA="filters/${KMMODULE}"
+
+

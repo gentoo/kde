@@ -567,23 +567,6 @@ kde4-base_src_configure() {
 			-DCMAKE_SYSTEM_PROGRAM_PATH=${KDEDIR}/bin"
 	fi
 
-	# additonal arguments for KOFFICE
-	if [[ ${KMNAME} = koffice ]]; then
-		case ${PN} in
-			koffice-data) : ;;
-			*)
-				mycmakeargs="${mycmakeargs}
-					-DWITH_OpenEXR=ON
-					$(cmake-utils_use_with crypt QCA2)
-					$(cmake-utils_use_with opengl OpenGL)"
-				if use crypt; then
-					mycmakeargs="${mycmakeargs}
-						-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2"
-				fi
-				;;
-		esac
-	fi
-
 	[ -e CMakeLists.txt ] && cmake-utils_src_configure
 }
 
@@ -617,7 +600,8 @@ kde4-base_src_test() {
 
 	# Override this value, set in kde4-base_src_configure()
 	mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=ON"
-	cmake-utils_src_compile
+	cmake-utils_src_configure
+	kde4-base_src_compile
 
 	cmake-utils_src_test
 }

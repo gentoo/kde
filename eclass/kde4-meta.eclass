@@ -12,17 +12,6 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
-# we want opengl optional in each koffice package
-if [[ ${KMNAME} = koffice ]]; then
-	case ${PN} in
-		koffice-data)
-			;;
-		*)
-			OPENGL_REQUIRED=optional
-			;;
-	esac
-fi
-
 inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
@@ -84,12 +73,16 @@ case ${KMNAME} in
 				RDEPEND="${RDEPEND} media-libs/lcms"
 				;;
 			*)
-				IUSE="+crypt"
-				DEPEND="${DEPEND} crypt? ( >=app-crypt/qca-2 )"
-				RDEPEND="${RDEPEND} crypt? ( >=app-crypt/qca-2 )"
-				if [[ $PN != koffice-libs ]]; then
-					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
-					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}"
+				DEPEND="${DEPEND}
+					dev-cpp/eigen:2
+					media-gfx/imagemagick
+					media-libs/fontconfig
+					media-libs/freetype:2
+				"
+				RDEPEND="${DEPEND}"
+				if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
+					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
+					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}[kdepreifx=]"
 				fi
 				;;
 		esac
@@ -282,9 +275,9 @@ kde4-meta_src_extract() {
 		kde4-base_src_unpack
 	fi
 	# fix koffice linking
-	if [[ ${KMNAME} = koffice ]]; then
-		koffice_fix_libraries
-	fi
+	#if [[ ${KMNAME} = koffice ]]; then
+		#koffice_fix_libraries # in progress magic
+	#fi
 }
 
 # @FUNCTION: kde4-meta_create_extractlists
@@ -354,20 +347,6 @@ kde4-meta_create_extractlists() {
 				config-openexr.h.cmake
 				config-opengl.h.cmake
 				config-prefix.h.cmake"
-			case ${PN} in
-				koffice-libs|koffice-data)
-					;;
-				*)
-					# add basic extract for all packages
-					KMEXTRACTONLY="${KMEXTRACTONLY}
-						filters/
-						libs/
-						plugins/"
-					if [[ ${PN} != kplato ]]; then
-						KMEXTRA="${KMEXTRA} filters/${PN}"
-					fi
-					;;
-			esac
 			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
@@ -572,6 +551,16 @@ kde4-meta_change_cmakelists() {
 				;;
 			esac
 			;;
+		koffice)
+			# prevent collisions
+			if [[ ${PN} != koffice-data ]]; then
+				sed -i -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
+					"${S}"/cmake/modules/CMakeLists.txt || \
+					die "${LINENO}: sed died in collision prevention section"
+				sed -i -n -e '1h;1!H;${g;s/install(.\+config-openexr.h.\+)//;p}' \
+					"${S}"/CMakeLists.txt || \
+					die "${LINENO}: sed died in collision prevention section"
+			fi
 	esac
 
 	popd > /dev/null
@@ -583,7 +572,7 @@ kde4-meta_change_cmakelists() {
 # ebuilds.
 kde4-meta_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
-
+	
 	kde4-base_src_configure
 }
 
@@ -618,12 +607,6 @@ kde4-meta_src_install() {
 
 	if [[ -n ${KMSAVELIBS} ]]; then
 		install_library_dependencies
-	fi
-
-	# remove unvanted koffice stuff
-	if [[ ${KMNAME} = koffice && ${PN} != koffice-data ]]; then
-		rm "$D/$KDEDIR/include/config-openexr.h"
-		rm "$D/$KDEDIR/share/apps/cmake/modules/FindKOfficeLibs.cmake"
 	fi
 }
 
