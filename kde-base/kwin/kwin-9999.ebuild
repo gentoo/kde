@@ -10,15 +10,15 @@ inherit kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS=""
-IUSE="debug captury xcomposite xinerama"
+IUSE="debug xcomposite xinerama"
 
+# NOTE disabled for now: captury? ( media-libs/libcaptury )
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
-	captury? ( media-libs/libcaptury )
 	opengl? ( virtual/opengl )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
@@ -31,13 +31,24 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-src_configure() {
-	if ! use captury; then
-		sed -e 's:^PKGCONFIG..libcaptury:#DONOTFIND &:' \
-			-i "${S}"/kwin/effects/CMakeLists.txt || \
-			die "Making captury optional failed."
+src_prepare() {
+# NOTE uncomment when enabled again by upstream
+#	if ! use captury; then
+#		sed -e 's:^PKGCONFIG..libcaptury:#DONOTFIND &:' \
+#			-i kwin/effects/CMakeLists.txt || \
+#			die "Making captury optional failed."
+#	fi
+	# Dirty hax to fix building without OpenGL
+	if ! use opengl; then
+		sed -e 's|^[[:space:]]*windowOpacity.*|// commented out &|' \
+			-i kwin/effects/logout/logout.cpp || \
+			die "Commenting out windowOpacity failed."
 	fi
 
+	kde4-meta_src_prepare
+}
+
+src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with opengl OpenGL)"
 
