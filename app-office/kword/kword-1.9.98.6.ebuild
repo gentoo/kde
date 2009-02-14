@@ -18,14 +18,23 @@ DEPEND="
 	app-text/wv2
 "
 
-KMEXTRA="filters/${KMMODULE}"
 KMEXTRACTONLY="
 	libs/
 	filters/
 	plugins/
 	kspread/
 "
+KMEXTRA="filters/${KMMODULE}"
 KMLOADLIBS="koffice-libs"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# fix filters
+	sed -i \
+		-e "/add_subdirectory(filters)/s/^#DONOTCOMPILE //" \
+		${S}/CMakeLists.txt || die "fixing filters failed"
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
