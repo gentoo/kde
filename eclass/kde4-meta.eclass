@@ -473,17 +473,8 @@ kde4-meta_change_cmakelists() {
 		_change_cmakelists_parent_dirs ${KMMODULE}
 	fi
 
-	local i
-
-	# KMEXTRACTONLY section - Some ebuilds need to comment out some subdirs in KMMODULE and they use KMEXTRACTONLY
-	for i in ${KMEXTRACTONLY}; do
-		if [[ -d "${S}"/${i} && -f "${S}"/${i}/../CMakeLists.txt ]]; then
-			sed -i -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" "${S}"/${i}/../CMakeLists.txt || \
-				die "${LINENO}: sed died while working in the KMEXTRACTONLY section while processing ${i}"
-		fi
-	done
-
 	# KMCOMPILEONLY
+	local i
 	for i in ${KMCOMPILEONLY}; do
 		debug-print "${LINENO}: KMCOMPILEONLY, processing ${i}"
 		# Uncomment "add_subdirectory" instructions inside $KMCOMPILEONLY, then comment "install" instructions.
@@ -505,7 +496,6 @@ kde4-meta_change_cmakelists() {
 			die "${LINENO}: sed died uncommenting add_subdirectory instructions in KMEXTRA section while processing ${i}"
 		_change_cmakelists_parent_dirs ${i}
 	done
-
 	# KMEXTRA_NONFATAL section
 	for i in ${KMEXTRA_NONFATAL}; do
 		if [[ -d "${S}"/${i} ]]; then
@@ -513,6 +503,14 @@ kde4-meta_change_cmakelists() {
 				xargs -0 sed -i -e 's/^#DONOTCOMPILE //g' || \
 				die "${LINENO}: sed died uncommenting add_subdirectory instructions in KMEXTRA section while processing ${i}"
 			_change_cmakelists_parent_dirs ${i}
+		fi
+	done
+
+	# KMEXTRACTONLY section - Some ebuilds need to comment out some subdirs in KMMODULE and they use KMEXTRACTONLY
+	for i in ${KMEXTRACTONLY}; do
+		if [[ -d "${S}"/${i} && -f "${S}"/${i}/../CMakeLists.txt ]]; then
+			sed -i -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" "${S}"/${i}/../CMakeLists.txt || \
+				die "${LINENO}: sed died while working in the KMEXTRACTONLY section while processing ${i}"
 		fi
 	done
 
