@@ -59,6 +59,7 @@ case ${KMNAME} in
 		fi
 		;;
 	koffice)
+		[[ ${PN} != koffice-data ]] && IUSE="debug"
 		case ${PV} in
 			9999*) DEPEND="${DEPEND} !app-office/${PN}:2" ;;
 			1.9*|2*) DEPEND="${DEPEND} !app-office/${PN}:live" ;;
@@ -75,14 +76,16 @@ case ${KMNAME} in
 			*)
 				DEPEND="${DEPEND}
 					dev-cpp/eigen:2
-					media-gfx/imagemagick
+					media-gfx/imagemagick[openexr?]
 					media-libs/fontconfig
 					media-libs/freetype:2
 				"
 				RDEPEND="${DEPEND}"
 				if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
-					DEPEND="${DEPEND} >=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
-					RDEPEND="${RDEPEND} >=app-office/koffice-libs-${PV}:${SLOT}[kdepreifx=]"
+					DEPEND="${DEPEND}
+					>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
+					RDEPEND="${RDEPEND}
+					>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
 				fi
 				;;
 		esac
@@ -274,10 +277,6 @@ kde4-meta_src_extract() {
 		fi
 		kde4-base_src_unpack
 	fi
-	# fix koffice linking
-	#if [[ ${KMNAME} = koffice ]]; then
-		#koffice_fix_libraries # in progress magic
-	#fi
 }
 
 # @FUNCTION: kde4-meta_create_extractlists

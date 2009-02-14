@@ -58,6 +58,8 @@ src_configure() {
 		$(cmake-utils_use_with openexr OpenEXR)"
 	use crypt && mycmakeargs="${mycmakeargs}
 		-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2"
+
+	kde4-base_src_configure
 }
 
 src_install() {

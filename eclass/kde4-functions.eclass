@@ -150,63 +150,6 @@ enable_selected_linguas() {
 	done
 }
 
-# @FUNCTION: koffice_fix_libraries
-# @DESCRIPTION:
-# replace the weird koffice lib search with hardcoded one, so it
-# actually builds and works.
-koffice_fix_libraries() {
-	local LIB_ARRAY R_QT_kostore R_BAS_kostore R_BAS_koodf R_KROSS_kokross R_QT_komain
-	local R_CMS_pigmentcms R_BAS_pigmentcms R_BAS_koresources R_BAS_flake R_BAS_koguiutils
-	local R_BAS_kopageapp R_BAS_kotext R_BAS_kowmf libname R
-	case ${PN} in
-		koffice-data|koffice-libs)
-			;;
-		*)
-			### basic array
-			LIB_ARRAY="kostore koodf kokross komain pigmentcms koresources flake koguiutils kopageapp kotext kowmf"
-			### dep array
-			R_QT_kostore="\"/usr/$(get_libdir)/qt4/libQtCore.so\"
-				\"/usr/$(get_libdir)/qt4/libQtXml.so\"
-				\"${KDEDIR}/$(get_libdir)/libkdecore.so\""
-			R_BAS_kostore="libkostore ${R_QT_kostore}"
-			R_BAS_koodf="libkoodf ${R_BAS_kostore}"
-			R_KROSS_kokross="
-				\"${KDEDIR}/$(get_libdir)/libkrossui.so\"
-				\"${KDEDIR}/$(get_libdir)/libkrosscore.so\""
-			R_BAS_kokross="libkokross ${R_BAS_koodf} ${R_KROSS_kokross}"
-			R_QT_komain="\"/usr/$(get_libdir)/qt4/libQtGui.so\""
-			R_BAS_komain="libkomain ${R_BAS_koodf} ${R_QT_komain}"
-			R_CMS_pigmentcms="\"/usr/$(get_libdir)/liblcms.so\""
-			R_BAS_pigmentcms="libpigmentcms ${R_BAS_komain} ${R_CMS_pigmentcms}"
-			R_BAS_koresources="libkoresources ${R_BAS_pigmentcms}"
-			R_BAS_flake="libflake ${R_BAS_pigmentcms}"
-			R_BAS_koguiutils="libkoguiutils libkoresources libflake ${R_BAS_pigmentcms}"
-			R_BAS_kopageapp="libkopageapp ${R_BAS_koguitls}"
-			R_BAS_kotext="libkotext libkoresources libflake ${R_BAS_pigmentcms}"
-			### additional unmentioned stuff
-			R_BAS_kowmf="libkowmf"
-			for libname in ${LIB_ARRAY}; do
-				ebegin "Fixing library ${libname} with hardcoded path"
-				for libpath in $(eval "echo \$R_BAS_${libname}"); do
-					if [[ "${libpath}" != "\"/usr/"* ]]; then
-						R="${R} \"${KDEDIR}/$(get_libdir)/${libpath}.so\""
-					else
-						R="${R} ${libpath}"
-					fi
-				done
-				find "${S}" -name CMakeLists.txt -print| xargs -i \
-					sed -i \
-						-e "s: ${libname} : ${R} :g" \
-						-e "s: ${libname}): ${R}):g" \
-						-e "s:(${libname} :(${R} :g" \
-						-e "s:(${libname}):(${R}):g" \
-						-e "s: ${libname}$: ${R}:g" \
-					{} || die "Fixing library names failed."
-				eend $?
-			done
-			;;
-	esac
-}
 # @FUNCTION: get_build_type
 # @DESCRIPTION:
 # Determine whether we are using live ebuild or tbzs.

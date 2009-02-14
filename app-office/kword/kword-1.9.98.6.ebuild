@@ -16,8 +16,19 @@ IUSE=""
 DEPEND="
 	app-text/libwpd
 	app-text/wv2
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-libs/fontconfig
-	media-libs/freetype:2
 "
+
+KMEXTRA="filters/${KMMODULE}"
+KMEXTRACTONLY="
+	libs/
+	filters/
+	plugins/
+	kspread/
+"
+KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DWITH_WV2=1 -DWITH_WPD=1"
+	kde4-meta_src_configure
+}
