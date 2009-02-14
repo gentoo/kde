@@ -275,7 +275,6 @@ kde4-meta_src_extract() {
 			done
 			[[ -n ${abort} ]] && die "There were missing files."
 		fi
-		kde4-base_src_unpack
 	fi
 }
 
@@ -406,10 +405,10 @@ __list_needed_subdirectories() {
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmmodule_expanded:  ${kmmodule_expanded}"
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmcompileonly_expanded: ${kmcompileonly_expanded}"
 
-	case ${PV} in                                                                                                       
-		scm|9999*) : ;;                                                                                             
-		*) topdir="${KMNAME}-${PV}/" ;;                                                                             
-	esac  
+	case ${PV} in
+		scm|9999*) : ;;
+		*) topdir="${KMNAME}-${PV}/" ;;
+	esac
 	# Create final list of stuff to extract
 	# We append topleveldir only when specified (usually for tarballs)
 	for i in ${kmmodule_expanded} ${kmextra_expanded} ${kmcompileonly_expanded} \
@@ -571,7 +570,7 @@ kde4-meta_change_cmakelists() {
 # ebuilds.
 kde4-meta_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
-	
+
 	kde4-base_src_configure
 }
 
