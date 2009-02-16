@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE="debug xinerama"
 
 DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl] )
