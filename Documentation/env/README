@@ -1,0 +1,48 @@
+The purpose of this directory is to quicky set up your KDE4 (or any package) for debugging/profiling.
+
+HOWTO:
+- in /etc/portage/env create directory with the name of category the package belong to (kde-base, etc)
+- in that category create file with package name (without version) - simple bash scrit to set up environment
+  for you package (see example below)
+- you can create "template" for those "profiles" and use symlinks as shown in example
+
+This is example layout:
+
+<dir>
+/etc/portage/env:
++- debug-build
+|
++- dev-db
+|  |
+|  +- mysql -> ../-fPIC
+|  |
+|  +- sqlite -> ../-O3
+|
++- dev-lang
+|  |
+|  +- python -> ../-O3
+|
++- -fPIC
+|
++- -O3
+|
++- profile-build
+</dir>
+
+Example debug-build file:
+
+<code>
+CFLAGS="-O0 -ggdb"
+CXXFLAGS="${CFLAGS}"
+FEATURES="${FEATURES} nostrip"
+USE="${USE} debug"
+</code>
+
+NOTE:
+- not all (usually only some of them) FEATURES work per package basis, so don't monkey too much!
+- FEATURES are package manager specific and may behave (or not work at all) diffrrently per package
+  basis with different package managers
+- this hack is known to work with portage. Refer to your package manager documentation otherwise.
+
+Detailed information about how to obtain meaningful backtraces:
+http://www.gentoo.org/proj/en/qa/backtraces.xml

@@ -1,0 +1,8 @@
+CFLAGS="-O0 -ggdb -pg"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="${LDFLAGS} -pg"
+# You can use either nostrip or splitdebug - refer to
+# http://www.gentoo.org/proj/en/qa/backtraces.xml
+# for more information
+FEATURES="${FEATURES} nostrip"
+USE="${USE} debug"
