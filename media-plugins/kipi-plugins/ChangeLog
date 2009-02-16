@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kipi-plugins-0.2.0_rc2 (16 Feb 2009)
+
+  16 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -kipi-plugins-0.2.0_rc1.ebuild, +kipi-plugins-0.2.0_rc2.ebuild:
+  Bump.
+
   10 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kipi-plugins-0.2.0_rc1.ebuild:
   added calendar IUSE, gpod -> ipod IUSE, warn about possible problems with
