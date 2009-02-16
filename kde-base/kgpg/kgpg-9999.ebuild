@@ -11,6 +11,9 @@ DESCRIPTION="KDE gpg keyring manager"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-RDEPEND="
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}
 	app-crypt/gnupg
 "
