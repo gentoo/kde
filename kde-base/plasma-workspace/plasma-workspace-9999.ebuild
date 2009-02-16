@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets htmlhandbook python xcomposite xinerama"
+IUSE="debug google-gadgets htmlhandbook python rss xcomposite xinerama"
 
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
@@ -29,6 +29,7 @@ COMMONDEPEND="
 		>=dev-python/sip-4.7.1
 		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
+	rss? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
 "
@@ -61,6 +62,7 @@ src_configure() {
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PyKDE4)
+		$(cmake-utils_use_with rss KdepimLibs)
 		-DWITH_Xmms=OFF"
 
 	kde4-meta_src_configure
