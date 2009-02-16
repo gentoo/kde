@@ -20,7 +20,7 @@ DEPEND="
 	>=app-office/akonadi-server-1.1
 	dev-libs/boost
 	dev-libs/libgpg-error
-	>=dev-libs/libical-0.33-r1
+	>=dev-libs/libical-0.42
 	ldap? ( net-nds/openldap )
 	sasl? ( dev-libs/cyrus-sasl )
 "
