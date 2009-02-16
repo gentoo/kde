@@ -11,6 +11,9 @@ DESCRIPTION="KDE user (/etc/passwd and other methods) manager"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
 
-RDEPEND="
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 "

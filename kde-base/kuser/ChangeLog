@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kuser-9999.ebuild:
+  Added kdepimlibs deps for kuser
+
   13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -kuser-4.2.61.ebuild:
   Version removed.
