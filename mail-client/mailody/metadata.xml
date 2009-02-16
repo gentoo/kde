@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>no-herd</herd>
-<maintainer>
-  <email>bugs@dev.gentooexperimental.org</email>
-  <description>See AUTHORS.</description>
-</maintainer>
-<!-- <longdescription>This is for cases when the package's description is longer than 100 characters.</longdescription> -->
-<!--
+<herd>kde</herd>
 <use>
-  <flag name='flag'>Kinda useless atm. useflag descriptions.</flag>
+	<flag name="geolocation">Enables message route visualization using <pkg>kde-base/marble</pkg></flag>
 </use>
--->
 </pkgmetadata>
