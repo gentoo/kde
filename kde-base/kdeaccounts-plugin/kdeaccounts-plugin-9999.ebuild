@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="Addressbook Plugin that puts names/email addresses of all KDE SVN accounts into an addressbook"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}"

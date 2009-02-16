@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="KBugBuster - A tool for checking and reporting KDE apps' bugs"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
+
+DEPEND="
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}"
