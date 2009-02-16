@@ -10,3 +10,9 @@ inherit kde4-meta
 DESCRIPTION="KDE's Global Shortcut Daemon"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
+
+# Module renamed upstream
+RDEPEND="
+	!kdeprefix? ( !kde-base/kdedglobalaccel )
+	kdeprefix? ( !kde-base/kdedglobalaccel:${SLOT} )
+"

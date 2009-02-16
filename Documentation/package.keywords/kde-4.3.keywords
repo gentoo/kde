@@ -62,7 +62,7 @@ kde-base/kdebase-desktoptheme:4.3
 kde-base/kdebase-kioslaves:4.3
 kde-base/kdebase-startkde:4.3
 kde-base/kdebugdialog:4.3
-kde-base/kdedglobalaccel:4.3
+kde-base/kglobalaccel:4.3
 kde-base/kdegraphics-strigi-analyzer:4.3
 kde-base/kde-l10n:4.3
 kde-base/kdelibs:4.3

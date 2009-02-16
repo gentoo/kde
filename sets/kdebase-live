@@ -14,7 +14,7 @@ kde-base/kdebase-desktoptheme:live
 kde-base/kdebase-kioslaves:live
 kde-base/kdebase-startkde:live
 kde-base/kdebugdialog:live
-kde-base/kdedglobalaccel:live
+kde-base/kglobalaccel:live
 kde-base/kdepasswd:live
 kde-base/kdesu:live
 kde-base/kdialog:live

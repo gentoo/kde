@@ -81,7 +81,7 @@
 ~kde-base/kdebase-kioslaves-9999 **
 ~kde-base/kdebase-startkde-9999 **
 ~kde-base/kdebugdialog-9999 **
-~kde-base/kdedglobalaccel-9999 **
+~kde-base/kglobalaccel-9999 **
 ~kde-base/kdegraphics-strigi-analyzer-9999 **
 ~kde-base/kde-l10n-9999 **
 ~kde-base/kdelibs-9999 **

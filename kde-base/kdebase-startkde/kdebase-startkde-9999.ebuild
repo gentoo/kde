@@ -17,7 +17,7 @@ IUSE=""
 RDEPEND="
 	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdedglobalaccel-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kde-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
