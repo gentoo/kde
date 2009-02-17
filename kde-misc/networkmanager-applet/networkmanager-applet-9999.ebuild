@@ -16,7 +16,8 @@ KEYWORDS=""
 IUSE=""
 SLOT="live"
 
-DEPEND=">=net-misc/networkmanager-0.7"
+DEPEND=">=net-misc/networkmanager-0.7
+		kde-base/solid[networkmanager]"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
