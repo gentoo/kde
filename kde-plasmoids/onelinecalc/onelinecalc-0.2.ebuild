@@ -15,5 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
+src_prepare()
+{
+	epatch "${FILESDIR}/cmake_fix_for_kde-4_2.patch"
+}
+

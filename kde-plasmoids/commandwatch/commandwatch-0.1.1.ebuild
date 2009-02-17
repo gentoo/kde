@@ -15,7 +15,3 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
-
-S="${WORKDIR}/${PN}"

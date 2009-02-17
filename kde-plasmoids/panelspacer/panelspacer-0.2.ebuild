@@ -6,16 +6,20 @@ EAPI="2"
 
 inherit kde4-base
 
+MY_P="Panelspacer_from_svn_pour_kdelook-tmp"
+
 DESCRIPTION="A KDE4 Plasma Applet let you put some blank space between the other applets located in a panel"
 HOMEPAGE="http://www.kde-look.org/content/show.php/Panel+Spacer?content=89304"
-SRC_URI="http://www.kde-look.org/CONTENT/content-files/89304-${PN}${PV}.tar.gz"
+SRC_URI="http://danakil.free.fr/linux/releases/${P}/${PN}-plasmoid-${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
+S="${WORKDIR}/${MY_P}"
 
-S="${WORKDIR}/plasmaspacer_0.1"
+src_prepare()
+{
+	epatch "${FILESDIR}/cmake_fix_for_kde-4_2.patch"
+}
