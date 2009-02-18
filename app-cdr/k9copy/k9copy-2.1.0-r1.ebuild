@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.1"
+KDE_MINIMAL="4.2"
 KDE_LINGUAS="ca cs de el es_AR es et fr it nl pl pt_BR ru sr sr@Latn tr zh_TW"
 
 inherit kde4-base

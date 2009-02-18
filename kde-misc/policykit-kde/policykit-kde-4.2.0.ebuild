@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-misc/skanlite/skanlite-0.2.ebuild,v 1.3 2009/02/05 08:12:34 alexxy Exp $
 
 EAPI="2"
-KDE_MINIMAL="4.1"
+KDE_MINIMAL="4.2"
 KDE_LINGUAS="be cs da de el es et fr ga gl it ja km lt lv
 			nb nds nl nn pa pl pt pt_BR ro sk sv tr uk wa zh_CN zh_TW"
 

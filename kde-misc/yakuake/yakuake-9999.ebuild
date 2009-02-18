@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.1"
+KDE_MINIMAL="4.2"
 KMNAME="extragear/utils"
 inherit kde4-base
 
@@ -16,4 +16,6 @@ KEYWORDS=""
 SLOT="live"
 IUSE="debug"
 
-REPEND=">=kde-base/konsole-${KDE_MINIMAL}[kdeprefix=]"
+REPEND="
+	>=kde-base/konsole-${KDE_MINIMAL}[kdeprefix=]
+"

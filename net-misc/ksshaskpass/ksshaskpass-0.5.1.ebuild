@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.1"
+KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration."
