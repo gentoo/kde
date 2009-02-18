@@ -6,6 +6,7 @@ EAPI="2"
 
 KMNAME="playground/base/plasma/applets"
 KMMODULE="networkmanager"
+KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="A NetworkManager applet for kde"
@@ -17,7 +18,7 @@ IUSE=""
 SLOT="live"
 
 DEPEND=">=net-misc/networkmanager-0.7
-		kde-base/solid[networkmanager]"
+		>=kde-base/solid-${KDE_MINIMAL}[kdeprefix=,networkmanager]"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
