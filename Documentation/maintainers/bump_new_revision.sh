@@ -116,18 +116,18 @@ help() {
 	echo "For correct usage set SLOT, VERSION and BUMP_VERSION arguments."
 	echo "-l argument specify SET and is optional"
 	echo "Example:"
-	echo "./script -a bump -s 4.1 -v 4.1.0 -b 4.1.1 -l kdebase"
+	echo "$0 -a bump -s 4.1 -v 4.1.0 -b 4.1.1 -l kdebase"
 	echo
 	echo "When removing:"
-	echo "./script -a remove -v 4.1.0"
+	echo "$0 -a remove -v 4.1.0"
 	echo
 	echo "When creating new slot:"
 	echo "-s STARTSLOT -b BUMPSLOT"
-	echo "./script -a slot -s 4.1 -b 4"
+	echo "$0 -a slot -s 4.1 -b 4"
 	echo
 	echo "When diffing two versions for cmakelists"
 	echo "-v OLDVERSION -b NEWVERSION -p DIRECTORY_WHERE_ARE_TBZS -o OUTPUT_DIR"
-	echo "./script -a diff -v 4.1.0 -b 4.1.1 -p \"/usr/portage/distfiles\" -o /tmp"
+	echo "$0 -a diff -v 4.1.0 -b 4.1.1 -p \"/usr/portage/distfiles\" -o /tmp"
 	exit 0
 }
 ###############################################################################
