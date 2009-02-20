@@ -111,11 +111,8 @@ cmake-utils_src_configure() {
 # eapi and based on it configure or only compile
 cmake-utils_src_compile() {
 	case ${EAPI} in
-		2)
-		;;
-	*)
-		cmake-utils_src_configure
-		;;
+		2) ;;
+		*) cmake-utils_src_configure ;;
 	esac
 
 	cmake-utils_src_make "$@"
