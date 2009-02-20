@@ -45,11 +45,7 @@ _use_me_now() {
 # @VARIABLE: CMAKE_BUILD_DIR
 # @DESCRIPTION:
 # Determine using IN or OUT source build
-if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
-	CMAKE_BUILD_DIR="${S}"
-else
-	CMAKE_BUILD_DIR="${WORKDIR}/${PN}_build"
-fi
+CMAKE_BUILD_DIR="" # defined in src_configure (not needed earlier).
 
 # @FUNCTION: cmake-utils_use_with
 # @USAGE: <USE flag> [flag name]
@@ -93,6 +89,13 @@ cmake-utils_has() { _use_me_now HAVE "$@" ; }
 # out-of-source build.
 cmake-utils_src_configure() {
 	debug-print-function $FUNCNAME $*
+
+	# in/out source build
+	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
+		CMAKE_BUILD_DIR="${S}"
+	else
+		CMAKE_BUILD_DIR="${WORKDIR}/${PN}_build"
+	fi
 
 	_common_configure_code
 	local cmakeargs="${mycmakeargs} ${EXTRA_ECONF} -DCMAKE_INSTALL_DO_STRIP=OFF"
