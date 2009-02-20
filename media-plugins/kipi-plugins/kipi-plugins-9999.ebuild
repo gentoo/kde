@@ -20,7 +20,7 @@ HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="cdr calendar debug +imgemagick ipod mjpeg redeyes scanner"
+IUSE="cdr calendar debug +imagemagick ipod mjpeg redeyes scanner"
 SLOT="2"
 
 DEPEND="
@@ -47,8 +47,12 @@ RDEPEND="${DEPEND}
 	imagemagick? ( media-gfx/imagemagick )
 	mjpeg? ( media-video/mjpegtools )
 "
+PATCHES=(
+	"${FILESDIR}/playbackwidget-qt45.patch"
+)
 
 S="${WORKDIR}/${MY_P}"
+
 
 src_configure() {
 	# This Plugin hard depends on libksane, deactivate it if use flag scanner is

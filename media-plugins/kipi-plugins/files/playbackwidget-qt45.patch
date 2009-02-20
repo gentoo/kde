@@ -1,0 +1,33 @@
+Index: advancedslideshow/playbackwidget.ui
+===================================================================
+--- advancedslideshow/playbackwidget.ui	(revisione 926484)
++++ advancedslideshow/playbackwidget.ui	(copia locale)
+@@ -107,7 +107,7 @@
+       </layout>
+      </item>
+      <item>
+-      <widget class="Phonon::VolumeSlider" native="1" name="m_volumeSlider" >
++      <widget class="VolSlider" native="1" name="m_volumeSlider" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
+          <horstretch>0</horstretch>
+@@ -132,9 +132,9 @@
+  </widget>
+  <customwidgets>
+   <customwidget>
+-   <class>Phonon::VolumeSlider</class>
++   <class>VolSlider</class>
+    <extends>QWidget</extends>
+-   <header location="global" >Phonon/VolumeSlider</header>
++   <header>volslider.h</header>
+    <container>1</container>
+   </customwidget>
+  </customwidgets>
+Index: volslider.h
+===================================================================
+--- advancedslideshow/volslider.h	(revisione 0)
++++ advancedslideshow/volslider.h	(revisione 0)
+@@ -0,0 +1,3 @@
++#include <Phonon/VolumeSlider>
++
++typedef class Phonon::VolumeSlider VolSlider;
