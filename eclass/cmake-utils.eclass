@@ -139,10 +139,10 @@ cmake-utils_src_configureout() {
 
 # Internal use only. Common configuration options for all types of builds.
 _common_configure_code() {
-	local tmp_libdir=$(get_libdir)
+	local output="${TMPDIR}"/gentoo_common_config.cmake
+	local libdir=$(get_libdir) 
 	# here we set the compiler explicitly, set install directories prefixes, and
-	# make sure that the gentoo user compiler flags trump those set in the
-	# program
+	# make sure that the gentoo user compiler flags trump those set in the program
 	local modules_dir=/usr/share/cmake/Modules
 	local cxx_create_shared_library=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<TARGET_SONAME>/<TARGET_SONAME> ${CXXFLAGS}/" -e '/SET(CMAKE_CXX_CREATE_SHARED_LIBRARY/,/)/p' "${modules_dir}/CMakeCXXInformation.cmake")
 	local c_create_shared_library=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<TARGET_SONAME>/<TARGET_SONAME> ${CFLAGS}/" -e '/SET(CMAKE_C_CREATE_SHARED_LIBRARY/,/)/p' "${modules_dir}/CMakeCInformation.cmake")
@@ -160,17 +160,14 @@ ${cxx_compile_object}
 ${c_link_executable}
 ${cxx_link_executable}
 SET(CMAKE_INSTALL_PREFIX ${PREFIX:-/usr} CACHE FILEPATH "install path prefix")
-SET(LIB_SUFFIX ${tmp_libdir/lib} CACHE FILEPATH "library path suffix")
-SET(LIB_INSTALL_DIR ${PREFIX:-/usr}/${tmp_libdir} CACHE FILEPATH "library install directory")
-
+SET(LIB_SUFFIX ${libdir/lib} CACHE FILEPATH "library path suffix")
+SET(LIB_INSTALL_DIR ${PREFIX:-/usr}/${libdir} CACHE FILEPATH "library install directory")
+# honour gentoo c and cxx flags settings instead of using system ones.
+SET(CMAKE_BUILD_TYPE gentoo CACHE STRING "determines build settings")
+SET(CMAKE_CXX_FLAGS_GENTOO "${CXXFLAGS}")
+SET(CMAKE_C_FLAGS_GENTOO "${CFLAGS}")
 _EOF_
-
 	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET(CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make")' >> "${TMPDIR}/gentoo_common_config.cmake"
-
-	# honour gentoo c and cxx flags settings instead of using system ones.
-	echo 'SET(CMAKE_BUILD_TYPE gentoo CACHE STRING "determines build settings")' >> "${TMPDIR}/gentoo_common_config.cmake"
-	echo "SET(CMAKE_CXX_FLAGS_GENTOO \"${CXXFLAGS}\")" >> "${TMPDIR}/gentoo_common_config.cmake"
-	echo "SET(CMAKE_C_FLAGS_GENTOO \"${CFLAGS}\")" >> "${TMPDIR}/gentoo_common_config.cmake"
 }
 
 # @FUNCTION: cmake-utils_src_make
