@@ -1,0 +1,10 @@
+# ChangeLog for kde-plasmoids/customizable-weather
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*customizable-weather-0.9 (20 Feb 2009)
+
+  20 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  -customizable-weather-0.7.ebuild, +customizable-weather-0.9.ebuild:
+  Version bump, remove old
+
