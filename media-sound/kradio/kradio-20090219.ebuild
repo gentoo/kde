@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa encode lirc +mp3 +vorbis"
+IUSE="alsa encode lirc +mp3 +vorbis v4l2"
 SLOT="4"
 
 DEPEND="
@@ -36,7 +36,8 @@ src_configure() {
 	local mycmakeargs="$(cmake-utils_use_with alsa ALSA)
 		$(cmake-utils_use_with mp3 LAME)
 		$(cmake-utils_use_with vorbis OGG_VORBIS)
-		$(cmake-utils_use_with lirc LIRC)"
+		$(cmake-utils_use_with lirc LIRC)
+		$(cmake-utils_use_with v4l2 V4L2)"
 
 	kde4-base_src_configure
 }

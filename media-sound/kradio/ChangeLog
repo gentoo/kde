@@ -1,0 +1,7 @@
+# ChangeLog for media-sound/kradio
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  20 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml:
+  Initial commit for kde4 version.
+
