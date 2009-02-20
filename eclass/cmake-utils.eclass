@@ -42,11 +42,17 @@ _use_me_now() {
 # @DESCRIPTION:
 # Documents to dodoc
 
-# @VARIABLE: CMAKE_BUILD_DIR
+# @FUNCTION: _check_build_type
 # @DESCRIPTION:
 # Determine using IN or OUT source build
-CMAKE_BUILD_DIR="" # defined in src_configure (not needed earlier).
-
+_check_build_type() {
+	# in/out source build
+	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
+		CMAKE_BUILD_DIR="${S}"
+	else
+		CMAKE_BUILD_DIR="${WORKDIR}/${PN}_build"
+	fi
+}
 # @FUNCTION: cmake-utils_use_with
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
@@ -90,12 +96,7 @@ cmake-utils_has() { _use_me_now HAVE "$@" ; }
 cmake-utils_src_configure() {
 	debug-print-function $FUNCNAME $*
 
-	# in/out source build
-	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
-		CMAKE_BUILD_DIR="${S}"
-	else
-		CMAKE_BUILD_DIR="${WORKDIR}/${PN}_build"
-	fi
+	_check_build_type
 
 	_common_configure_code
 	local cmakeargs="${mycmakeargs} ${EXTRA_ECONF} -DCMAKE_INSTALL_DO_STRIP=OFF"
@@ -113,6 +114,7 @@ cmake-utils_src_configure() {
 # General function for compiling with cmake. Default behaviour is to check for
 # eapi and based on it configure or only compile
 cmake-utils_src_compile() {
+	debug-print-function $FUNCNAME $*
 	case ${EAPI} in
 		2) ;;
 		*) cmake-utils_src_configure ;;
@@ -180,6 +182,7 @@ _EOF_
 cmake-utils_src_make() {
 	debug-print-function $FUNCNAME $*
 
+	_check_build_type
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	if ! [[ -z ${CMAKE_COMPILER_VERBOSE} ]]; then
 		emake VERBOSE=1 "$@" || die "Make failed!"
@@ -195,7 +198,7 @@ cmake-utils_src_make() {
 cmake-utils_src_install() {
 	debug-print-function $FUNCNAME $*
 
-
+	_check_build_type
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	emake install DESTDIR="${D}" || die "Make install failed"
 	popd > /dev/null
@@ -210,8 +213,7 @@ cmake-utils_src_install() {
 cmake-utils_src_test() {
 	debug-print-function $FUNCNAME $*
 
-	# At this point we can automatically check if it's an out-of-source or an
-	# in-source build
+	_check_build_type
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	# Standard implementation of src_test
 	if emake -j1 check -n &> /dev/null; then
