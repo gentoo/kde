@@ -126,6 +126,7 @@ cmake-utils_src_compile() {
 # Depercated
 cmake-utils_src_configurein() {
 	ewarn "This ebuild is using deprecated function call: $FUNCNAME"
+	ewarn "Inform ebuild maintainer."
 	cmake-utils_src_configure
 }
 
@@ -134,6 +135,7 @@ cmake-utils_src_configurein() {
 # Depercated
 cmake-utils_src_configureout() {
 	ewarn "This ebuild is using deprecated function call: $FUNCNAME"
+	ewarn "Inform ebuild maintainer."
 	cmake-utils_src_configure
 }
 
