@@ -167,11 +167,10 @@ _EOF_
 
 	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET(CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make")' >> "${TMPDIR}/gentoo_common_config.cmake"
 
-	if has debug ${IUSE//+} && use debug ; then
-		echo 'SET(CMAKE_BUILD_TYPE Debug CACHE STRING "determines build settings")' >> "${TMPDIR}/gentoo_common_config.cmake"
-	else
-		echo 'SET(CMAKE_BUILD_TYPE Release CACHE STRING "determines build settings")' >> "${TMPDIR}/gentoo_common_config.cmake"
-	fi
+	# honour gentoo c and cxx flags settings instead of using system ones.
+	echo 'SET(CMAKE_BUILD_TYPE gentoo CACHE STRING "determines build settings")' >> "${TMPDIR}/gentoo_common_config.cmake"
+	echo "SET(CMAKE_CXX_FLAGS_GENTOO \"${CXXFLAGS}\")" >> "${TMPDIR}/gentoo_common_config.cmake"
+	echo "SET(CMAKE_C_FLAGS_GENTOO \"${CFLAGS}\")" >> "${TMPDIR}/gentoo_common_config.cmake"
 }
 
 # @FUNCTION: cmake-utils_src_make
