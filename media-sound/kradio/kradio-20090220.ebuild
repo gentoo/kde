@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,8 @@ EAPI="2"
 KDE_LINGUAS="de es pl pt ru"
 inherit kde4-base
 
-MY_P="${PN}4-snapshot-${PV:0:4}-${PV:4:2}-${PV:6:2}-r630"
+SCM_REV="649"
+MY_P="${PN}4-snapshot-${PV:0:4}-${PV:4:2}-${PV:6:2}-r${SCM_REV}"
 DESCRIPTION="kradio is a radio tuner application for KDE"
 HOMEPAGE="http://kradio.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
@@ -30,7 +31,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # and i thoguht i saw everything :]
-S="${WORKDIR}/home/urmel/kradio-svn/snapshots/${MY_P}"
+S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	local mycmakeargs="$(cmake-utils_use_with alsa ALSA)

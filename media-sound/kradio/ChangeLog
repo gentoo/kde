@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kradio-20090220 (21 Feb 2009)
+
+  21 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> -kradio-20090219.ebuild,
+  +kradio-20090220.ebuild:
+  Version bump.
+
   20 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> +metadata.xml:
   Initial commit for kde4 version.
 
