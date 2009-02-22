@@ -11,3 +11,5 @@ inherit kde4-meta
 DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
+
+KMEXTRACTONLY="libs/mobipocket"
