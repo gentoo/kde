@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="extragear/multimedia"
-KMMODULE="kaffeinegl"
+KMMODULE="kaffeine"
 inherit kde4-base
 
 DESCRIPTION="Media player for KDE using xine and gstreamer backends."
