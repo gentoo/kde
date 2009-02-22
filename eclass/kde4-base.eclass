@@ -71,14 +71,23 @@ COMMONDEPEND="${COMMONDEPEND}
 	x11-libs/libXxf86vm
 "
 
+# localization deps 
+if [[ -n ${KDE_LINGUAS} ]]; then
+	LNG_DEP=""
+	for _lng in ${KDE_LINGUAS}; do
+		# there must be or due to issue if lingua is not present in kde-l10n so
+		# it wont die but pick kde-l10n as-is. (better than the stab in the eye)
+		LNG_DEP="${LNG_DEP} || ( kde-base/kde-l10n[linguas_${_lng}] kde-base/kde-l10n )"
+	done
+fi
+
 # Set common dependencies for all ebuilds that inherit this eclass
-# Yes, sandbox-1.3.2 is there :P
 DEPEND="${DEPEND} ${COMMONDEPEND}
 	>=dev-util/cmake-2.6.2
 	dev-util/pkgconfig
 	>=sys-apps/sandbox-1.3.2
 "
-RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+RDEPEND="${RDEPEND} ${COMMONDEPEND} ${LNG_DEP}"
 
 if [[ $BUILD_TYPE = live ]]; then
 	# Disable tests for live ebuilds

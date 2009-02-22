@@ -102,14 +102,6 @@ done
 # but this default can be overridden by defining KDE_LINGUAS_DIR.
 enable_selected_linguas() {
 	local lingua sr_mess wp
-	# inform user about kde-l10n for full translation.
-	if ! has_version kde-base/kde-l10n; then
-		echo
-		elog "For fully translated application you should also emerge"
-		elog "kde-base/kde-l10n package which ships translated kde core"
-		elog "strings."
-		echo
-	fi
 
 	# ebuild overridable linguas directory definition
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:=${S}/po}
