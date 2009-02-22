@@ -21,6 +21,7 @@ IUSE="debug"
 
 COMMONDEPEND="
 	app-crypt/qca:2
+	app-crypt/qca-ossl
 	dev-libs/libxml2
 	dev-libs/libxslt
 	x11-libs/libXScrnSaver
