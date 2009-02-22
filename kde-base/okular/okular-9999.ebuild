@@ -27,6 +27,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRACTONLY="libs/mobipocket"
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with chm CHM)
