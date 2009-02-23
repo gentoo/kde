@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/filelight
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*filelight-1.9_beta (23 Feb 2009)
+
+  23 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  +filelight-1.9_beta.ebuild:
+  Initial commit of filelight for KDE4
+
