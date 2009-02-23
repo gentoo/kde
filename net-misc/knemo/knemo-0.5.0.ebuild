@@ -13,12 +13,11 @@ DESCRIPTION="KNemo - the KDE Network Monitor"
 HOMEPAGE="http://kde-apps.org/content/show.php?content=12956"
 SRC_URI="http://www.kde-apps.org/CONTENT/content-files/12956-${P}.tar.gz"
 
-SLOT="0"
+SLOT="4"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-COMMON_DEPEND="|| ( >=kde-base/systemsettings-${KDE_MINIMAL} )"
-DEPEND="${COMMON_DEPEND}
-		>=dev-util/cmake-2.6.1"
+DEPEND="!kdeprefix? ( net-misc/knemo:0 )
+	>=kde-base/systemsettings-${KDE_MINIMAL}[kdeprefix=]"
 RDEPEND="${DEPEND}"
