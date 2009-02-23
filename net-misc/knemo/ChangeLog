@@ -3,6 +3,9 @@
 # $Header: $
 
   23 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org> knemo-0.5.0.ebuild:
+  fix another nice thing
+
+  23 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org> knemo-0.5.0.ebuild:
   fix typo
 
 *knemo-0.5.0 (23 Feb 2009)

@@ -5,6 +5,7 @@
 EAPI="2"
 
 KDE_MINIMAL="4.2"
+KDE_LINGUAS_DIR="${S}/translations"
 KDE_LINGUAS="ar bg br cs cy da de el en_GB es et fr ga gl hu it ja ka lt nl
 			pl pt pt_BR ru rw sk sr sr@Latn sv tr"
 inherit kde4-base
