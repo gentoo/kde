@@ -18,6 +18,6 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kdeprefix? ( net-misc/knemo:0 )
+DEPEND="!kdeprefix? ( !net-misc/knemo:0 )
 	>=kde-base/systemsettings-${KDE_MINIMAL}[kdeprefix=]"
 RDEPEND="${DEPEND}"
