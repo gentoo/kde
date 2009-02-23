@@ -87,7 +87,7 @@ DEPEND="${DEPEND} ${COMMONDEPEND}
 	dev-util/pkgconfig
 	>=sys-apps/sandbox-1.3.2
 "
-RDEPEND="${RDEPEND} ${COMMONDEPEND} ${LNG_DEP}"
+RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 if [[ $BUILD_TYPE = live ]]; then
 	# Disable tests for live ebuilds
