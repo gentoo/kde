@@ -13,7 +13,7 @@ IUSE="debug htmlhandbook kipi +semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
-	media-gfx/exiv2
+	>=media-gfx/exiv2-0.18
 	media-libs/jpeg
 	kipi? ( >=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=] )
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]

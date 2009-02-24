@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-gfx/exiv2
+	>=media-gfx/exiv2-0.18
 	media-libs/jpeg
 	media-libs/lcms
 "
