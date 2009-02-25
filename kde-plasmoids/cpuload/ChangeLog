@@ -1,6 +1,12 @@
 # ChangeLog for kde-plasmoids/cpuload
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*cpuload-0.3.1 (25 Feb 2009)
+
+  25 Feb 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  -cpuload-0.2.ebuild, +cpuload-0.3.1.ebuild:
+  version bump, remove old
 
 *cpuload-0.2 (15 Oct 2008)
 
