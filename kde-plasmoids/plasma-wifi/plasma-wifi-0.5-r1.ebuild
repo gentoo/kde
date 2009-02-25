@@ -15,5 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
+src_prepare() {
+	sed -i "s:find_package(Plasma REQUIRED)::" CMakeLists.txt || die "sed failed"
+	sed -i "s:PLASMA_LIBS:KDE4_PLASMA_LIBS:" CMakeLists.txt || die "sed failed"
+	kde4-base_src_prepare
+}
