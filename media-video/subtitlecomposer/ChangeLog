@@ -1,0 +1,11 @@
+# ChangeLog for media-video/subtitlecomposer
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*subtitlecomposer-0.5.2 (25 Feb 2009)
+
+  25 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/subtitlecomposer-0.5.2-phonon-linkage.patch, +metadata.xml,
+  +subtitlecomposer-0.5.2.ebuild:
+  New ebuild for subtitlecomposer (KDE4)
+
