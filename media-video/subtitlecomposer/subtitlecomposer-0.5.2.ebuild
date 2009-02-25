@@ -8,7 +8,7 @@ KDE_LINGUAS="el es pl sr"
 inherit kde4-base
 
 DESCRIPTION="Text-based subtitles editor."
-HOMEPAGE="http://www.sourceforge.net/projects/subtitlecomposer"
+HOMEPAGE="http://www.sourceforge.net/projects/subcomposer/"
 SRC_URI="mirror://sourceforge/subcomposer/${P}.tar.bz2"
 
 LICENSE="GPL-2"
