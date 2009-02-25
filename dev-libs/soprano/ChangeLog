@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*soprano-2.2.2 (25 Feb 2009)
+
+  25 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, +soprano-2.2.2.ebuild, soprano-9999.ebuild:
+  Version bump 2.2.2
+
   03 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   metadata.xml, soprano-9999.ebuild:
   Updated soprano to new buildsystem options - this will be in 2.2.2 as well

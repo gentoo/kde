@@ -5,16 +5,16 @@
 EAPI="2"
 
 JAVA_PKG_OPT_USE="sesame2"
-inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
+inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="Soprano is a library which provides a nice QT interface to RDF storage solutions."
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2 virtuoso"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2"
 
 COMMON_DEPEND="
 	x11-libs/qt-core:4
@@ -26,14 +26,11 @@ COMMON_DEPEND="
 		>=dev-libs/redland-1.0.6
 	)
 	sesame2? ( >=virtual/jdk-1.6.0 )
-	virtuoso? ( dev-db/libiodbc )
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
-RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( dev-db/virtuoso-opensource )
-"
+RDEPEND="${COMMON_DEPEND}"
 
 CMAKE_IN_SOURCE_BUILD="1"
 
@@ -46,7 +43,7 @@ pkg_setup() {
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
 		ewarn "Applications using soprano may need at least one backend functional."
 		ewarn "If you experience any problems, enable any of those USE flags:"
-		ewarn "redland, sesame2, virtuoso"
+		ewarn "redland, sesame2"
 	fi
 }
 
@@ -67,7 +64,6 @@ src_configure() {
 	! use raptor && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
 	! use redland && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
 	! use sesame2 && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
-	! use virtuoso && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON"
 	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
 
 	cmake-utils_src_configure
