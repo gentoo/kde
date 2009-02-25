@@ -9,7 +9,7 @@ inherit kde4-base
 DESCRIPTION="A simple and compact system monitor for Linux."
 HOMEPAGE="http://kde-look.org/content/show.php/Simple+monitor?content=84933"
 
-SRC_URI="http://kde-look.org/CONTENT/content-files/84933-simplemonitor-0.1.tar.gz"
+SRC_URI="http://kde-look.org/CONTENT/content-files/84933-simplemonitor.tar.gz"
 RESTRICT="mirror"
 
 LICENSE="GPL-3"
@@ -17,11 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="|| ( kde-base/kdelibs:live kde-base/libplasma:4.1 )"
-RDEPEND="${DEPEND}"
-
-
-S="${WORKDIR}/monitor"
+S="${WORKDIR}/simplemonitor"
 
 src_prepare() {
 	# Follow naming convention

@@ -1,6 +1,13 @@
 # ChangeLog for kde-plasmoids/simplemonitor-plasmoid
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*simplemonitor-plasmoid-0.1-r4 (25 Feb 2009)
+
+  25 Feb 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  -simplemonitor-plasmoid-0.1-r3.ebuild,
+  +simplemonitor-plasmoid-0.1-r4.ebuild:
+  updated ebuild, works with kde 4.2. removed old one
 
   09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   simplemonitor-plasmoid-0.1-r3.ebuild:
