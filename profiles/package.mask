@@ -568,3 +568,7 @@ kde-plasmoids/menubar:live
 # Alexey Shvetsov <alexxy@gentoo.org>
 # mask for testing
 kde-misc/policykit-kde
+
+# Maciej Mrozowski (reavertm) <reavertm@poczta.fm> (26 Feb 2009)
+# ebuild is not yet ready
+dev-db/virtuoso-opensource

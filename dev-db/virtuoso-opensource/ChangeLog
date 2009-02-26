@@ -1,0 +1,10 @@
+# ChangeLog for dev-db/virtuoso-opensource
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*virtuoso-opensource-5.0.10 (24 Feb 2009)
+
+  24 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +virtuoso-opensource-5.0.10.ebuild:
+  Added new version from bug 254295
+
