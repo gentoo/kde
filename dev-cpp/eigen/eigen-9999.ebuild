@@ -3,16 +3,17 @@
 # $Header: $
 
 EAPI="2"
-inherit cmake-utils
+inherit cmake-utils subversion
 
 DESCRIPTION="Lightweight C++ template library for vector and matrix math, a.k.a. linear algebra"
 HOMEPAGE="http://eigen.tuxfamily.org/"
-SRC_URI="http://download.tuxfamily.org/${PN}/${P/_/-}.tar.bz2"
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/eigen2"
 
 LICENSE="GPL-3"
 SLOT="2"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
+KEYWORDS=""
+IUSE="debug"
 
-DEPEND="!dev-cpp/eigen:0"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	!dev-cpp/eigen:0
+"
