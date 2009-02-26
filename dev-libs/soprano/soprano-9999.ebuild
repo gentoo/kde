@@ -33,7 +33,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( dev-db/virtuoso-opensource )
+	virtuoso? ( dev-db/virtuoso )
 "
 
 CMAKE_IN_SOURCE_BUILD="1"
