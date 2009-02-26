@@ -9,11 +9,12 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE physics simulator"
 KEYWORDS=""
-IUSE="+gsl +qalculate"
+IUSE="debug +gsl +qalculate"
 
 DEPEND="
-	>=sci-mathematics/gmm-3.0
+	>=dev-cpp/eigen-2.0.51
 	sci-libs/cln
+	>=sci-mathematics/gmm-3.0
 	gsl? ( >=sci-libs/gsl-1.9-r1 )
 	qalculate? ( >=sci-libs/libqalculate-0.9.5 )
 "

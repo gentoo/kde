@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  step-9999.ebuild:
+  Updated deps (requires eigen), added debug IUSE
+
   13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -step-4.2.61.ebuild:
   Version removed.
