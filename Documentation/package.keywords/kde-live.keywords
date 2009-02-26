@@ -17,6 +17,7 @@
 ~app-office/kspread-9999 **
 ~app-office/kword-9999 **
 ~app-office/scribus-9999 **
+~dev-cpp/eigen-9999 **
 ~dev-libs/soprano-9999 **
 ~dev-util/kdesvn-9999 **
 ~dev-util/kdevelop-9999 **

@@ -2,6 +2,7 @@
 
 app-misc/strigi
 app-office/akonadi-server
+dev-cpp/eigen:2
 dev-libs/soprano
 kde-base/akonadi:4.3
 kde-base/akregator:4.3
