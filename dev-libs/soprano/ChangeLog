@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  soprano-9999.ebuild:
+  Disabled virtuoso backend until functional virtuoso is added
+
 *soprano-2.2.2 (25 Feb 2009)
 
   25 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

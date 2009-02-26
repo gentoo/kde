@@ -14,7 +14,8 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 LICENSE="LGPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2 virtuoso"
+# virtuoso disabled for now
+IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2"
 
 COMMON_DEPEND="
 	x11-libs/qt-core:4
