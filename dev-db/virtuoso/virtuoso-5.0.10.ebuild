@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
-inherit base eutils flag-o-matic java-pkg-opt-2 multilib
+inherit base autotools flag-o-matic java-pkg-opt-2 multilib
 
 DESCRIPTION="Virtuoso is a high-performance object-relational SQL database"
 HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
@@ -18,12 +18,11 @@ wbxml"
 
 DOCS="AUTHORS ChangeLog CREDITS INSTALL NEWS README"
 
-# zeroconf support looks like broken - disabled
-RDEPEND="
+# zeroconf support looks like broken - disabling
+COMMON_DEPEND="
 	dev-libs/libxml2
 	>=dev-libs/openssl-0.9.7i
 	imagemagick? ( media-gfx/imagemagick )
-	java? ( virtual/jdk:1.6 )
 	kerberos? ( app-crypt/mit-krb5 )
 	ldap? ( net-nds/openldap )
 	mono? ( dev-lang/mono )
@@ -34,17 +33,29 @@ RDEPEND="
 	ruby? ( dev-lang/ruby )
 	wbxml? ( dev-libs/libwbxml )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=sys-devel/bison-2.3
 	>=sys-devel/flex-2.5.33
+	java? ( virtual/jdk:1.6 )
+"
+RDEPEND="${COMMON_DEPEND}
+	java? ( virtual/jre:1.6 )
 "
 
 S="${WORKDIR}/virtuoso-opensource-${PV}"
 
-src_compile() {
+src_prepare() {
+	base_src_prepare
+	eautoreconf
+}
+
+src_configure() {
 	use amd64 && append-flags "-m64"
 
 	local myconf=""
+
+	# workaround random build failures
+	MAKEOPTS="${MAKEOPTS} -j1"
 
 	use java && myconf="--with-jdk4=$(java-config-2 -O)"
 
@@ -67,9 +78,6 @@ src_compile() {
 		--disable-hslookup \
 		${myconf} \
 		|| die "configure failed"
-
-	# -j1: avoid weird random flex errors
-	emake -j1 || die
 }
 
 src_install() {

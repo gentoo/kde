@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  virtuoso-5.0.10.ebuild:
+  virtuoso - deps adjusted, using eautoreconf (so that we have recent
+  libtool and aclocal)
+
 *virtuoso-5.0.10 (26 Feb 2009)
 
   26 Feb 2009; <wired@gentoo.org> +metadata.xml, +virtuoso-5.0.10.ebuild:
