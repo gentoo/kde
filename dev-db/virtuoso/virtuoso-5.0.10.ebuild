@@ -8,7 +8,7 @@ inherit base eutils flag-o-matic java-pkg-opt-2 multilib
 
 DESCRIPTION="Virtuoso is a high-performance object-relational SQL database"
 HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
-SRC_URI="mirror://sourceforge/virtuoso/${P}.tar.gz"
+SRC_URI="mirror://sourceforge/virtuoso/virtuoso-opensource-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -38,6 +38,8 @@ DEPEND="${RDEPEND}
 	>=sys-devel/bison-2.3
 	>=sys-devel/flex-2.5.33
 "
+
+S="${WORKDIR}/virtuoso-opensource-${PV}"
 
 src_compile() {
 	use amd64 && append-flags "-m64"

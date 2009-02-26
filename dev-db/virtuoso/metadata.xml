@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
+	<herd>kde</herd>
 	<maintainer>
 		<email>vos.admin@openlinksw.com</email>
 		<name>OpenLink Virtuoso Maintainer</name>
