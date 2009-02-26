@@ -9,13 +9,10 @@ inherit kde4-meta
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug zeroconf"
 
 DEPEND="
-	|| (
-		net-dns/avahi[mdnsresponder-compat]
-		net-misc/mDNSResponder
-	)
+	zeroconf? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,zeroconf] )
 "
 RDEPEND="${DEPEND}"
 
