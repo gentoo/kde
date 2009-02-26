@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Feb 2009; Manuel Nickschas <sputnick@quassel-irc.org>
+  kleopatra-9999.ebuild:
+  Extract and add dep to libkdepim
+
   13 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -kleopatra-4.2.61.ebuild:
   Version removed.

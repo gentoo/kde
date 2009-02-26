@@ -15,11 +15,13 @@ DEPEND="
 	app-crypt/gnupg
 	app-crypt/gpgme
 	dev-libs/libassuan
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkleo"
+KMEXTRACTONLY="libkdepim
+	libkleo"
 
 KMLOADLIBS="libkleo"
 
