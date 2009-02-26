@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kde-misc/plasmoids
-		kde-base/libplasma"
+PATCHES=( "${FILESDIR}/${P}-patch_kde42.diff" )
 
 S="${WORKDIR}/${PN}"
