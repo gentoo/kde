@@ -10,3 +10,5 @@ inherit kde4-meta
 DESCRIPTION="KDE control Center Module to confiure Network settings"
 KEYWORDS=""
 IUSE="debug htmlhandbook"
+
+PATCHES=( "${FILESDIR}/backends-scriptsdir.patch" )

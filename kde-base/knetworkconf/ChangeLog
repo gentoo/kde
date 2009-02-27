@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +files/backends-scriptsdir.patch, knetworkconf-4.2.1.ebuild,
+  knetworkconf-9999.ebuild:
+  add patch from bug #260098
+
 *knetworkconf-4.2.1 (27 Feb 2009)
 
   27 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
