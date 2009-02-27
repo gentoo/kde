@@ -1,0 +1,19 @@
+
+--- a/solid/solid/CMakeLists.txt
++++ b/solid/solid/CMakeLists.txt
+@@ -194,7 +194,14 @@
+ install(FILES org.freedesktop.PowerManagement.Inhibit.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+ 
+ ########### static lib for tests  ###############
++macro(AUTOMOC_COPY _from_target _to_target)
++    set(_srcfile ${CMAKE_CURRENT_BINARY_DIR}/${_from_target}_automoc.cpp)
++    set(_dstfile ${CMAKE_CURRENT_BINARY_DIR}/${_to_target}_automoc.cpp)
++    add_custom_command(OUTPUT ${_dstfile} COMMAND ${CMAKE_COMMAND} -E copy
++        ${_srcfile} ${_dstfile} MAIN_DEPENDENCY ${_srcfile})
++endmacro(AUTOMOC_COPY _from_target _to_target)
+ 
++automoc_copy(solid solid_static)
+ kde4_add_library(solid_static STATIC ${solid_LIB_SRCS})
+ 
+ target_link_libraries(solid_static ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTGUI_LIBRARY})
+
