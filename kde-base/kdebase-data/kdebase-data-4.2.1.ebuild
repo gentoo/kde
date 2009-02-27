@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
 RDEPEND="
 	!<kde-base/dolphin-4.1.87:4.2[kdeprefix=]
+	!=media-gfx/digikam-0.10.0_rc2[kdeprefix=]
 	!kdeprefix? ( !<kde-base/dolphin-4.1.87[-kdeprefix] )
 	x11-themes/hicolor-icon-theme
 "
