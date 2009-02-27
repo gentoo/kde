@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-4.3.1 (27 Feb 2009)
+
+  27 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org> +phonon-4.3.1.ebuild:
+  add new phonon
+
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   phonon-9999.ebuild:
   Updated phonon -xine handling as per bug 257509
