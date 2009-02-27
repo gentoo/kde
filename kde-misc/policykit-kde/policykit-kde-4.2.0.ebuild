@@ -14,7 +14,7 @@ KDE_VERSION="4.2.0"
 MY_PN="PolicyKit-kde"
 MY_P="${MY_PN}-${PV}"
 
-DESCRIPTION="KDE image scannig application"
+DESCRIPTION="KDE Policy-Kit control module"
 HOMEPAGE="http://www.kde.org"
 SRC_URI="mirror://kde/stable/${KDE_VERSION}/src/extragear/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
