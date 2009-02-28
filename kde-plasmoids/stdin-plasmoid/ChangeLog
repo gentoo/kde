@@ -1,0 +1,10 @@
+# ChangeLog for kde-plasmoids/stdin-plasmoid
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*stdin-plasmoid-0.2_beta1 (28 Feb 2009)
+
+  28 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  +stdin-plasmoid-0.2_beta1.ebuild:
+  Initial import of stdin plasmoid
+
