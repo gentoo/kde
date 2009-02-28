@@ -158,7 +158,7 @@ export NEED_KDE
 # @CODE
 # Note: default minimal version is kde-4.1, which means that the apps will work
 # with any KDE version >=${KDE_MINIMAL}
-KDE_MINIMAL="${KDE_MINIMAL:=4.1}"
+KDE_MINIMAL="${KDE_MINIMAL:=4.2}"
 export KDE_MINIMAL
 
 # FIXME: the code section, explanation of live. The last sentence needs other
@@ -412,7 +412,7 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.2.6*| 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
+						4.2.6* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac

@@ -316,11 +316,8 @@ kde4-meta_create_extractlists() {
 				ConfigureChecks.cmake
 				config-workspace.h.cmake
 				config-X11.h.cmake
-				startkde.cmake"
-			if [[ ${SLOT} != "4.1" ]]; then
-				KMEXTRACTONLY="${KMEXTRACTONLY}
-					KDE4WorkspaceConfig.cmake.in"
-			fi
+				startkde.cmake
+				KDE4WorkspaceConfig.cmake.in"
 			;;
 		kdegames)
 			if [[ ${PN} != libkdegames ]]; then
@@ -525,11 +522,9 @@ kde4-meta_change_cmakelists() {
 					die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
 			fi
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
-			if [[ ${SLOT} != 4.1 ]]; then
-				if [[ ${PN} != libkworkspace ]]; then
-					sed -i -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-						CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip EXPORT section"
-				fi
+			if [[ ${PN} != libkworkspace ]]; then
+				sed -i -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
+					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip EXPORT section"
 			fi
 			;;
 		kdebase-runtime)
