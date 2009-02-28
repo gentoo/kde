@@ -27,6 +27,7 @@ RDEPEND="
 	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]

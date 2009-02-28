@@ -16,22 +16,23 @@ DEPEND=""
 # The KDE apps called from the startkde script.
 # These provide the most minimal KDE desktop.
 RDEPEND="${DEPEND}
-	>=kde-base/kcminit-${PV}:${SLOT}
-	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}
-	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}
-	>=kde-base/kdedglobalaccel-${PV}:${SLOT}
-	>=kde-base/kde-wallpapers-${PV}:${SLOT}
-	>=kde-base/knotify-${PV}:${SLOT}
-	>=kde-base/kreadconfig-${PV}:${SLOT}
-	>=kde-base/krunner-${PV}:${SLOT}
-	>=kde-base/ksmserver-${PV}:${SLOT}
-	>=kde-base/ksplash-${PV}:${SLOT}
-	>=kde-base/kstartupconfig-${PV}:${SLOT}
-	>=kde-base/kstyles-${PV}:${SLOT}
-	>=kde-base/kwin-${PV}:${SLOT}
-	>=kde-base/plasma-apps-${PV}:${SLOT}
-	>=kde-base/plasma-workspace-${PV}:${SLOT}
-	>=kde-base/systemsettings-${PV}:${SLOT}
+	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdedglobalaccel-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kde-wallpapers-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/xmessage
 	x11-apps/xsetroot
 	x11-apps/xset
