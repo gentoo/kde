@@ -6,9 +6,10 @@ EAPI="2"
 
 inherit base autotools flag-o-matic java-pkg-opt-2 multilib
 
+MY_P="${PN}-opensource-${PV}"
 DESCRIPTION="Virtuoso is a high-performance object-relational SQL database"
 HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
-SRC_URI="mirror://sourceforge/virtuoso/virtuoso-opensource-${PV}.tar.gz"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -42,7 +43,7 @@ RDEPEND="${COMMON_DEPEND}
 	java? ( virtual/jre:1.6 )
 "
 
-S="${WORKDIR}/virtuoso-opensource-${PV}"
+S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	base_src_prepare
@@ -76,8 +77,7 @@ src_configure() {
 		$(use_enable wbxml wbxml2) \
 		--disable-rendezvous \
 		--disable-hslookup \
-		${myconf} \
-		|| die "configure failed"
+		${myconf}
 }
 
 src_install() {
