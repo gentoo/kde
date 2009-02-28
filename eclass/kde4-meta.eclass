@@ -41,21 +41,21 @@ case ${KMNAME} in
 		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
 		RDEPEND="${RDEPEND} dev-libs/boost"
 		if [[ ${PN} != kode ]]; then
-			DEPEND="${DEPEND} >=kde-base/kode-${PV}:${SLOT}"
-			RDEPEND="${RDEPEND} >=kde-base/kode-${PV}:${SLOT}"
+			DEPEND="${DEPEND} >=kde-base/kode-${PV}:${SLOT}[kdeprefix=]"
+			RDEPEND="${RDEPEND} >=kde-base/kode-${PV}:${SLOT}[kdeprefix=]"
 		fi
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|kmobiletools|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
-				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT} )"
+				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
 				;;
 		esac
 		;;
 	kdegames)
 		if [[ ${PN} != libkdegames ]]; then
-			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
-			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}"
+			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]"
+			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]"
 		fi
 		;;
 	koffice)
