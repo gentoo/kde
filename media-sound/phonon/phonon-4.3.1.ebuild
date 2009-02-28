@@ -37,6 +37,8 @@ DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
 "
 
+PATCHES=( "$FILESDIR/fix_nonascii_chars.patch" )
+
 pkg_setup() {
 	if use !xine && use !gstreamer; then
 		die "you must at least select one backend for phonon"
