@@ -15,7 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="boost debug test"
 
-DEPEND="media-libs/fontconfig
+DEPEND="dev-lang/lua
+	dev-libs/openssl
+	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/jpeg
 	media-libs/tiff
