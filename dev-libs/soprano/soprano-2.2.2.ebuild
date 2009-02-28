@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor redland +sesame2"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor +redland sesame2"
 
 COMMON_DEPEND="
 	x11-libs/qt-core:4
