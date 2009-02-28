@@ -72,12 +72,14 @@ COMMONDEPEND="${COMMONDEPEND}
 "
 
 # localization deps 
+# DISABLED UNTIL PMS decide correct approach :(
 if [[ -n ${KDE_LINGUAS} ]]; then
 	LNG_DEP=""
 	for _lng in ${KDE_LINGUAS}; do
 		# there must be or due to issue if lingua is not present in kde-l10n so
-		# it wont die but pick kde-l10n as-is. (better than the stab in the eye)
-		LNG_DEP="${LNG_DEP} || ( kde-base/kde-l10n[linguas_${_lng}] kde-base/kde-l10n )"
+		# it wont die but pick kde-l10n as-is.
+		LNG_DEP="${LNG_DEP}
+			|| ( kde-base/kde-l10n[linguas_${_lng},kdeprefix=] kde-base/kde-l10n[kdeprefix=] )"
 	done
 fi
 
