@@ -31,12 +31,19 @@ case ${EAPI} in
 esac
 
 
-# Internal function use by cmake-utils_use_with and cmake-utils_use_enable
+# Internal functions used by cmake-utils_use_*
 _use_me_now() {
 	debug-print-function $FUNCNAME $*
 	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
 	echo "-D$1_${3:-$2}=$(use $2 && echo ON || echo OFF)"
 }
+_use_me_now_inverted() {
+	debug-print-function $FUNCNAME $*
+	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
+	echo "-D$1_${3:-$2}=$(use $2 && echo OFF || echo ON)"
+}
+
+
 
 # @VARIABLE: DOCS
 # @DESCRIPTION:
@@ -70,6 +77,15 @@ cmake-utils_use_with() { _use_me_now WITH "$@" ; }
 # `cmake-utils_use_enable foo FOO` echoes -DENABLE_FOO=ON if foo is enabled
 # and -DENABLE_FOO=OFF if it is disabled.
 cmake-utils_use_enable() { _use_me_now ENABLE "$@" ; }
+
+# @FUNCTION: cmake-utils_use_disable
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on inversion of use_enable. See ebuild(5).
+#
+# `cmake-utils_use_enable foo FOO` echoes -DDISABLE_FOO=OFF if foo is enabled
+# and -DDISABLE_FOO=ON if it is disabled.
+cmake-utils_use_disable() { _use_me_now_inverted DISABLE "$@" ; }
 
 # @FUNCTION: cmake-utils_use_want
 # @USAGE: <USE flag> [flag name]
