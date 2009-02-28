@@ -85,7 +85,10 @@ COMMONDEPEND="
 	wlm? ( net-libs/libmsn )
 "
 RDEPEND="${COMMONDEPEND}
-	latex? ( virtual/latex-base )
+	latex? (
+		media-gfx/imagemagick
+		virtual/latex-base
+	)
 "
 #	telepathy? ( net-libs/decibel )"
 DEPEND="${COMMONDEPEND}
