@@ -66,6 +66,7 @@ RESTRICT="test"
 COMMONDEPEND="
 	dev-libs/libpcre
 	x11-libs/libXScrnSaver
+	>=x11-libs/qt-gui-4.4.0:4[mng]
 	gadu? ( dev-libs/openssl )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
