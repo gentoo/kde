@@ -22,10 +22,10 @@ RDEPEND="
 	>=x11-libs/qt-test-4.4.0:4
 	>=x11-libs/qt-dbus-4.4.0:4
 	>=x11-libs/qt-gui-4.4.0:4
+	>=x11-libs/qt-opengl-4.4.0:4
 	gstreamer? (
 		media-libs/gstreamer
 		media-libs/gst-plugins-base
-		>=x11-libs/qt-opengl-4.4.0:4
 	)
 	xine? (
 		>=media-libs/xine-lib-1.1.15-r1[xcb?]
