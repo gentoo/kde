@@ -47,9 +47,6 @@ RDEPEND="${DEPEND}
 	imagemagick? ( media-gfx/imagemagick )
 	mjpeg? ( media-video/mjpegtools )
 "
-PATCHES=(
-	"${FILESDIR}/playbackwidget-qt45.patch"
-)
 
 S="${WORKDIR}/${MY_P}"
 
