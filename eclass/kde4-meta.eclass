@@ -608,7 +608,7 @@ kde4-meta_src_install() {
 # This function searches in ${S}/${KMMODULE},
 # and tries to install "AUTHORS ChangeLog* README* NEWS todo" if these files exist.
 kde4-meta_src_make_doc() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local doc
 	for doc in AUTHORS ChangeLog* README* NEWS TODO; do
