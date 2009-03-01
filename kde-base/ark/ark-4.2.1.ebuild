@@ -11,7 +11,7 @@ DESCRIPTION="KDE Archiving tool"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="+archive debug htmlhandbook +zip"
 
-DEPEND="archive? ( app-arch/libarchive )
+DEPEND="archive? ( >=app-arch/libarchive-2.6.1[bzip2,zlib,lzma] )
 	zip? ( >=dev-libs/libzip-0.8 )"
 RDEPEND="${DEPEND}"
 
