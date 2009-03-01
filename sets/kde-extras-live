@@ -1,9 +1,9 @@
 app-cdr/k3b:live
 app-cdr/k9copy:live
 =app-editors/kile-9999
-dev-util/kdesvn:live
-dev-util/kdevelop:live
-dev-util/kdevplatform:live
+=dev-util/kdesvn-9999
+=dev-util/kdevelop-9999
+=dev-util/kdevplatform-9999
 kde-misc/kdelirc:live
 kde-misc/kdiff3:live
 kde-misc/konq-plugins:live
