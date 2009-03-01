@@ -16,6 +16,7 @@ SLOT="live"
 
 DEPEND="kde-base/kapptemplate:${SLOT}
 	dev-util/kdevplatform:${SLOT}"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

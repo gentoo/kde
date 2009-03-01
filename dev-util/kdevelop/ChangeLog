@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  kdevelop-3.9.91.ebuild, kdevelop-9999.ebuild:
+  small fixes
+
 *kdevelop-3.9.85 (14 Jan 2009)
 
   14 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdevelop-3.9.84.ebuild,

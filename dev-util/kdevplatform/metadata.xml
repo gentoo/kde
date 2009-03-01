@@ -6,6 +6,5 @@
 	<flag name="bazaar">Add suport for bazaar VCS</flag>
 	<flag name="git">Add suport for git VCS</flag>
 	<flag name="mercurial">Add suport for mercurial VCS</flag>
-	<flag name="teamwork">Add suport for teamwork</flag>
 </use>
 </pkgmetadata>
