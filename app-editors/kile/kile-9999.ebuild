@@ -12,17 +12,22 @@ HOMEPAGE="http://kile.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="2"
 IUSE="debug"
 
-DEPEND="dev-lang/perl"
-RDEPEND="virtual/tex-base
-	virtual/latex-base"
+DEPEND="
+	dev-lang/perl
+"
+RDEPEND="
+	virtual/latex-base
+	virtual/tex-base
+"
 
 src_install() {
-
 	kde4-base_src_install
+
 	rm -rf "${D}"/"${KDEDIR}/share/apps/katepart/syntax/bibtex.xml"
 	rm -rf "${D}"/"${KDEDIR}/share/apps/katepart/syntax/latex.xml"
 	rm -rf "${D}"/"${KDEDIR}/share/icons/hicolor/64x64/actions/preview.png"
+	rm -rf "${D}"/"${KDEDIR}/share/icons/hicolor/22x22/actions/output_win.png"
 }
