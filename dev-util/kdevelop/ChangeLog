@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevelop-3.9.91.ebuild, kdevelop-9999.ebuild:
+  added missing [kdeprefix=], sorted variables a bit (easier merging),
+  SLOT live to 4
+
   01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
   kdevelop-3.9.91.ebuild, kdevelop-9999.ebuild:
   small fixes

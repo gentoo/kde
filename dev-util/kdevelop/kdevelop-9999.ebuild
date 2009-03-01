@@ -9,14 +9,17 @@ inherit kde4-base
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 HOMEPAGE="http://www.kde.org/"
 
-IUSE="cmake +cxx debug qmake"
-KEYWORDS=""
 LICENSE="GPL-2 LGPL-2"
-SLOT="live"
+KEYWORDS=""
+SLOT="4"
+IUSE="+cmake +cxx debug +qmake"
 
-DEPEND="kde-base/kapptemplate:${SLOT}
-	dev-util/kdevplatform:${SLOT}"
-RDEPEND="${DEPEND}"
+DEPEND="
+	>=dev-util/kdevplatform-0.9.85[kdeprefix=]
+"
+RDEPEND="${DEPEND}
+	>=kde-base/kapptemplate-${KDE_MINIMAL}[kdeprefix=]
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

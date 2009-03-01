@@ -10,14 +10,17 @@ DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C
 HOMEPAGE="http://www.kde.org/"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
-IUSE="cmake +cxx debug qmake"
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2 LGPL-2"
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
+IUSE="+cmake +cxx debug +qmake"
 
-DEPEND=">=kde-base/kapptemplate-${KDE_MINIMAL}
-		>=dev-util/kdevplatform-0.9.85"
-RDEPEND="${DEPEND}"
+DEPEND="
+	>=dev-util/kdevplatform-0.9.85[kdeprefix=]
+"
+RDEPEND="${DEPEND}
+	>=kde-base/kapptemplate-${KDE_MINIMAL}[kdeprefix=]
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
@@ -29,10 +32,3 @@ src_configure() {
 
 	kde4-base_src_configure
 }
-
-#src_install() {
-#	kde4-base_src_install
-#
-#	rm "${D}/${KDEDIR}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
-#	rm "${D}/${KDEDIR}"/share/icons/hicolor/22x22/actions/output_win.png
-#}
