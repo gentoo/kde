@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  -kdesvn-1.2.4.ebuild:
+  in tree
+
 *kdesvn-1.2.4 (01 Mar 2009)
 
   01 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
