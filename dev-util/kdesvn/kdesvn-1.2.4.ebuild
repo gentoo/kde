@@ -9,15 +9,15 @@ inherit kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
 HOMEPAGE="http://www.alwins-world.de/wiki/programs/kdesvn"
-ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
-ESVN_PROJECT="kdesvn"
+SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="2"
 IUSE="debug"
 
 RDEPEND="
+	!dev-util/kdesvn:1.2
 	dev-db/sqlite
 	>=dev-util/subversion-1.4
 	>=kde-base/kdesdk-kioslaves-${KDE_MINIMAL}[kdeprefix=]
