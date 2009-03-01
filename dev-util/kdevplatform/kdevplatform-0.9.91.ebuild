@@ -11,18 +11,20 @@ DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kde.org/"
 SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
-SLOT="1"
-KEYWORDS="~amd64 ~x86"
-IUSE="bazaar cvs debug git htmlhandbook mercurial subversion"
 LICENSE="GPL-2 LGPL-2"
+KEYWORDS="~amd64 ~x86"
+SLOT="1"
+IUSE="bazaar cvs debug git htmlhandbook mercurial subversion"
 
-DEPEND="subversion? ( >=dev-util/subversion-1.3 )"
-
+DEPEND="
+	subversion? ( >=dev-util/subversion-1.3 )
+"
 RDEPEND="${DEPEND}
-		bazaar? ( dev-util/bzr )
-		cvs? ( dev-util/cvs )
-		git? ( dev-util/git )
-		mercurial? ( dev-util/mercurial )"
+	bazaar? ( dev-util/bzr )
+	cvs? ( dev-util/cvs )
+	git? ( dev-util/git )
+	mercurial? ( dev-util/mercurial )
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

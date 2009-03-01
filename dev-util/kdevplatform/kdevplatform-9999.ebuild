@@ -9,16 +9,15 @@ inherit kde4-base
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS=""
-IUSE="bazaar cvs debug git htmlhandbook mercurial subversion"
 LICENSE="GPL-2 LGPL-2"
-SLOT="live"
+KEYWORDS=""
+SLOT="1"
+IUSE="bazaar cvs debug git htmlhandbook mercurial subversion"
 
 DEPEND="
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
-	!kde-base/kdevplatform
 	bazaar? ( dev-util/bzr )
 	cvs? ( dev-util/cvs )
 	git? ( dev-util/git )
