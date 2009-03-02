@@ -3,7 +3,11 @@
 <pkgmetadata>
 <herd>no-herd</herd>
 <maintainer>
-<email>dberkholz@gentoo.org</email>
-<name>Donnie Berkholz</name>
+	<email>dberkholz@gentoo.org</email>
+	<name>Donnie Berkholz</name>
+</maintainer>
+<maintainer>
+	<email>reavertm@poczta.fm</email>
+	<name>Maciej Mrozowski</name>
 </maintainer>
 </pkgmetadata>
