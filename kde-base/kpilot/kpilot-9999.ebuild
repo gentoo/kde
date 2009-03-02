@@ -8,7 +8,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KPilot is software for syncing PalmOS based handhelds."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 "
+KEYWORDS=""
 IUSE="avantgo debug htmlhandbook"
 
 DEPEND="
