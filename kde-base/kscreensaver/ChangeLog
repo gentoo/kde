@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kscreensaver-4.2.1.ebuild, kscreensaver-9999.ebuild:
+  Added SLOT deps
+
 *kscreensaver-4.2.1 (27 Feb 2009)
 
   27 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>

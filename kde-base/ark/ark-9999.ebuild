@@ -11,8 +11,10 @@ DESCRIPTION="KDE Archiving tool"
 KEYWORDS=""
 IUSE="+archive debug htmlhandbook +zip"
 
-DEPEND="archive? ( app-arch/libarchive )
-	zip? ( >=dev-libs/libzip-0.8 )"
+DEPEND="
+	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )
+	zip? ( >=dev-libs/libzip-0.8 )
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {

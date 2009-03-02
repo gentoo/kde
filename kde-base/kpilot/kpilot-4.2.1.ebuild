@@ -8,7 +8,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KPilot is software for syncing PalmOS based handhelds."
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 "
 IUSE="avantgo debug htmlhandbook"
 
 DEPEND="
@@ -16,5 +16,14 @@ DEPEND="
 	>=app-pda/pilot-link-0.12
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	avantgo? ( >=dev-libs/libmal-0.40 )
+	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with avantgo Mal)
+		$(cmake-utils_use_with crypt QCA2)"
+
+	kde4-meta_src_configure
+}
