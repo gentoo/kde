@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, system-config-printer-1.1.4.ebuild:
+  removed ambiguous nls IUSE
+
 *system-config-printer-1.1.4 (25 Feb 2009)
 
   25 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

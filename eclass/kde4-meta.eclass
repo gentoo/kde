@@ -213,14 +213,14 @@ kde4-meta_src_extract() {
 		fi
 		# Copy all subdirectories
 		for subdir in $(__list_needed_subdirectories); do
-				targetdir=""
-				if [[ $subdir = doc/* && ! -e "$ESVN_WC_PATH/$kmnamedir$subdir" ]]; then
-					continue
-				fi
+			targetdir=""
+			if [[ $subdir = doc/* && ! -e "$ESVN_WC_PATH/$kmnamedir$subdir" ]]; then
+				continue
+			fi
 
-				[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
-				rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
-					|| die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
+			[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
+			rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
+				|| die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 		done
 
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
