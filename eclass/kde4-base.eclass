@@ -13,7 +13,7 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit base cmake-utils eutils multilib kde4-functions
+inherit base cmake-utils eutils kde4-functions
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
@@ -71,7 +71,7 @@ COMMONDEPEND="${COMMONDEPEND}
 	x11-libs/libXxf86vm
 "
 
-# localization deps 
+# localization deps
 # DISABLED UNTIL PMS decide correct approach :(
 if [[ -n ${KDE_LINGUAS} ]]; then
 	LNG_DEP=""
@@ -412,7 +412,7 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.2.6* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
+						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
@@ -529,11 +529,9 @@ kde4-base_src_prepare() {
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# We prefer KDE's own Debugfull mode over the standard Debug
-	if has debug ${IUSE//+} && use debug ; then
-		ebegin "Enabling debug flag"
-		mycmakeargs="${mycmakeargs} -DCMAKE_BUILD_TYPE=Debugfull"
-		eend $?
+	# Handle common release builds
+	if ! has debug ${IUSE//+} || ! use debug; then
+		append-cppflags -DQT_NO_DEBUG
 	fi
 
 	 # Enable generation of HTML handbook

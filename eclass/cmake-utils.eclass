@@ -15,7 +15,7 @@
 
 # Original author: Zephyrus (zephyrus@mirach.it)
 
-inherit toolchain-funcs multilib flag-o-matic
+inherit toolchain-funcs multilib flag-o-matic base
 
 DESCRIPTION="Based on the ${ECLASS} eclass"
 
@@ -23,13 +23,12 @@ DEPEND=">=dev-util/cmake-2.4.6"
 
 case ${EAPI} in
 	2)
-		EXPORT_FUNCTIONS src_configure src_compile src_test src_install
+		EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 		;;
 	*)
 		EXPORT_FUNCTIONS src_compile src_test src_install
 		;;
 esac
-
 
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
@@ -43,16 +42,26 @@ _use_me_now_inverted() {
 	echo "-D$1_${3:-$2}=$(use $2 && echo OFF || echo ON)"
 }
 
-
+# @VARIABLE: CMAKE_IN_SOURCE_BUILD
+# @DESCRIPTION:
+# Set to enable in-source build.
 
 # @VARIABLE: DOCS
 # @DESCRIPTION:
-# Documents to dodoc
+# Documents to pass to dodoc.
 
-# @FUNCTION: _check_build_type
+# @VARIABLE: CMAKE_NO_COLOR
+# @DESCRIPTION:
+# Set to disable cmake output coloring.
+
+# @VARIABLE: CMAKE_VERBOSE
+# @DESCRIPTION:
+# Set to enable verbose messages during compilation.
+
+# @FUNCTION: _check_build_dir
 # @DESCRIPTION:
 # Determine using IN or OUT source build
-_check_build_type() {
+_check_build_dir() {
 	# in/out source build
 	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
 		CMAKE_BUILD_DIR="${S}"
@@ -96,6 +105,15 @@ cmake-utils_use_disable() { _use_me_now_inverted DISABLE "$@" ; }
 # and -DWANT_FOO=OFF if it is disabled.
 cmake-utils_use_want() { _use_me_now WANT "$@" ; }
 
+# @FUNCTION: cmake-utils_use_build
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on use_enable. See ebuild(5).
+#
+# `cmake-utils_use_build foo FOO` echoes -DBUILD_FOO=ON if foo is enabled
+# and -DBUILD_FOO=OFF if it is disabled.
+cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
+
 # @FUNCTION: cmake-utils_has
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
@@ -105,6 +123,18 @@ cmake-utils_use_want() { _use_me_now WANT "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_has() { _use_me_now HAVE "$@" ; }
 
+cmake-utils_src_prepare() {
+	debug-print-function $FUNCNAME $*
+
+	base_src_prepare
+	# Comment out all set (CMAKE_BUILD_TYPE )
+	find "${S}" -name CMakeLists.txt -print0 | \
+		xargs -0 sed -i \
+			-e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE.*)/{s/^/#IGNORE /g}' || \
+			-e '/^[[:space:]]*SET[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE.*)/{s/^/#IGNORE /g}' || \
+			die "${LINENO}: sed failed to disable hardcoded built type specifiers"
+}
+
 # @FUNCTION: cmake-utils_src_configure
 # @DESCRIPTION:
 # General function for configuring with cmake. Default behaviour is to start an
@@ -112,15 +142,28 @@ cmake-utils_has() { _use_me_now HAVE "$@" ; }
 cmake-utils_src_configure() {
 	debug-print-function $FUNCNAME $*
 
-	_check_build_type
+	_check_build_dir
 
+	# Handle common release builds
+	if ! has debug ${IUSE//+} || ! use debug; then
+		append-cppflags -DNDEBUG
+		build_type="Release"
+	else
+		build_type="Debug"
+	fi
+
+	# Honor append-cppflags (preprocessor flags)
+	CFLAGS="${CPPFLAGS} ${CFLAGS}"
+	CXXFLAGS="${CPPFLAGS} ${CXXFLAGS}"
+
+	local gentoo_config="${TMPDIR}"/gentoo_config.cmake
 	_common_configure_code
-	local cmakeargs="${mycmakeargs} ${EXTRA_ECONF} -DCMAKE_INSTALL_DO_STRIP=OFF"
+	local cmakeargs="${mycmakeargs} ${EXTRA_ECONF} -DCMAKE_USER_MAKE_RULES_OVERRIDE=${gentoo_config}"
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 
-	debug-print "$LINENO $ECLASS $FUNCNAME: mycmakeargs is $cmakeargs"
-	cmake -C "${TMPDIR}/gentoo_common_config.cmake" ${cmakeargs} "${S}" || die "Cmake failed"
+	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is $cmakeargs"
+	cmake ${cmakeargs} "${S}" || die "cmake failed"
 
 	popd > /dev/null
 }
@@ -159,48 +202,44 @@ cmake-utils_src_configureout() {
 
 # Internal use only. Common configuration options for all types of builds.
 _common_configure_code() {
-	local output="${TMPDIR}"/gentoo_common_config.cmake
-	local libdir=$(get_libdir) 
-	# here we set the compiler explicitly, set install directories prefixes, and
-	# make sure that the gentoo user compiler flags trump those set in the program
-	local modules_dir=/usr/share/cmake/Modules
-	local cxx_create_shared_library=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<TARGET_SONAME>/<TARGET_SONAME> ${CXXFLAGS}/" -e '/SET(CMAKE_CXX_CREATE_SHARED_LIBRARY/,/)/p' "${modules_dir}/CMakeCXXInformation.cmake")
-	local c_create_shared_library=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<TARGET_SONAME>/<TARGET_SONAME> ${CFLAGS}/" -e '/SET(CMAKE_C_CREATE_SHARED_LIBRARY/,/)/p' "${modules_dir}/CMakeCInformation.cmake")
-	local c_compile_object=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<FLAGS>/<FLAGS> ${CFLAGS}/" -e '/SET(CMAKE_C_COMPILE_OBJECT/,/)/p' "${modules_dir}/CMakeCInformation.cmake")
-	local cxx_compile_object=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<FLAGS>/<FLAGS> ${CXXFLAGS}/" -e '/SET(CMAKE_CXX_COMPILE_OBJECT/,/)/p' "${modules_dir}/CMakeCXXInformation.cmake")
-	local c_link_executable=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<FLAGS>/<FLAGS> ${CFLAGS}/" -e "s/<LINK_FLAGS>/<LINK_FLAGS> ${LDFLAGS}/" -e '/SET(CMAKE_C_LINK_EXECUTABLE/,/)/p' "${modules_dir}/CMakeCInformation.cmake")
-	local cxx_link_executable=$(sed -n -e 's/)/ CACHE STRING "")/' -e "s/<FLAGS>/<FLAGS> ${CXXFLAGS}/" -e "s/<LINK_FLAGS>/<LINK_FLAGS> ${LDFLAGS}/" -e '/SET(CMAKE_CXX_LINK_EXECUTABLE/,/)/p' "${modules_dir}/CMakeCXXInformation.cmake")
-	cat > "${TMPDIR}/gentoo_common_config.cmake" <<_EOF_
-SET(CMAKE_C_COMPILER $(type -P $(tc-getCC)) CACHE STRING "package building C compiler")
-SET(CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE STRING "package building C++ compiler")
-${c_create_shared_library}
-${cxx_create_shared_library}
-${c_compile_object}
-${cxx_compile_object}
-${c_link_executable}
-${cxx_link_executable}
-SET(CMAKE_INSTALL_PREFIX ${PREFIX:-/usr} CACHE FILEPATH "install path prefix")
-SET(LIB_SUFFIX ${libdir/lib} CACHE FILEPATH "library path suffix")
-SET(LIB_INSTALL_DIR ${PREFIX:-/usr}/${libdir} CACHE FILEPATH "library install directory")
-# honour gentoo c and cxx flags settings instead of using system ones.
-SET(CMAKE_BUILD_TYPE gentoo CACHE STRING "determines build settings")
-SET(CMAKE_CXX_FLAGS_GENTOO "${CXXFLAGS}")
-SET(CMAKE_C_FLAGS_GENTOO "${CFLAGS}")
+	local libdir=$(get_libdir)
+	# Generate build and install rules from scratch
+	cat > ${gentoo_config} <<_EOF_
+# C compiler rules
+SET (CMAKE_C_COMPILER $(type -P $(tc-getCC)) CACHE STRING "package building C compiler")
+SET (CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> <FLAGS> ${CFLAGS} -o <OBJECT> -c <SOURCE>")
+SET (CMAKE_C_CREATE_SHARED_LIBRARY "<CMAKE_C_COMPILER> <CMAKE_SHARED_LIBRARY_C_FLAGS> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> ${LDFLAGS} <CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS> <CMAKE_SHARED_LIBRARY_SONAME_C_FLAG><TARGET_SONAME> ${CFLAGS} -o <TARGET> <OBJECTS> <LINK_LIBRARIES>")
+SET (CMAKE_C_LINK_EXECUTABLE "<CMAKE_C_COMPILER> <FLAGS> ${CFLAGS} <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> ${LDFLAGS} <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
+
+# C++ compiler rules
+SET (CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE STRING "package building C++ compiler")
+SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> <FLAGS> ${CXXFLAGS} -o <OBJECT> -c <SOURCE>")
+SET (CMAKE_CXX_CREATE_SHARED_LIBRARY "<CMAKE_CXX_COMPILER> <CMAKE_SHARED_LIBRARY_CXX_FLAGS> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> ${LDFLAGS} <CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS> <CMAKE_SHARED_LIBRARY_SONAME_CXX_FLAG><TARGET_SONAME> ${CXXFLAGS} -o <TARGET> <OBJECTS> <LINK_LIBRARIES>")
+SET (CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER> <FLAGS> ${CXXFLAGS} <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> ${LDFLAGS} <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
+
+# Prefixes
+SET (CMAKE_INSTALL_PREFIX ${PREFIX:-/usr} CACHE FILEPATH "install path prefix")
+SET (LIB_SUFFIX ${libdir/lib} CACHE FILEPATH "library path suffix")
+SET (LIB_INSTALL_DIR ${PREFIX:-/usr}/${libdir} CACHE FILEPATH "library install directory")
+
+# Misc settings
+SET (CMAKE_BUILD_TYPE ${build_type})
+SET (CMAKE_INSTALL_DO_STRIP OFF)
 _EOF_
-	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET(CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make")' >> "${TMPDIR}/gentoo_common_config.cmake"
+	unset build_type
+	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET(CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make")' >> ${gentoo_config}
 }
 
 # @FUNCTION: cmake-utils_src_make
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
 # All arguments are passed to emake:
-# "cmake-utils_src_make -j1" can be used to work around parallel make issues.
 cmake-utils_src_make() {
 	debug-print-function $FUNCNAME $*
 
-	_check_build_type
+	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	if ! [[ -z ${CMAKE_COMPILER_VERBOSE} ]]; then
+	if [[ -n ${CMAKE_VERBOSE} ]]; then
 		emake VERBOSE=1 "$@" || die "Make failed!"
 	else
 		emake "$@" || die "Make failed!"
@@ -214,7 +253,7 @@ cmake-utils_src_make() {
 cmake-utils_src_install() {
 	debug-print-function $FUNCNAME $*
 
-	_check_build_type
+	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	emake install DESTDIR="${D}" || die "Make install failed"
 	popd > /dev/null
@@ -229,7 +268,7 @@ cmake-utils_src_install() {
 cmake-utils_src_test() {
 	debug-print-function $FUNCNAME $*
 
-	_check_build_type
+	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	# Standard implementation of src_test
 	if emake -j1 check -n &> /dev/null; then
