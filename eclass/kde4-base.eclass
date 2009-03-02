@@ -13,7 +13,7 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit base cmake-utils eutils kde4-functions
+inherit cmake-utils eutils kde4-functions
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
@@ -492,7 +492,7 @@ kde4-base_src_unpack() {
 		migrate_store_dir
 		subversion_src_unpack
 	else
-		base_src_unpack
+		cmake-utils_src_unpack
 	fi
 }
 
@@ -509,8 +509,7 @@ kde4-base_src_prepare() {
 		enable_selected_linguas
 	fi
 
-	# Autopatch
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
