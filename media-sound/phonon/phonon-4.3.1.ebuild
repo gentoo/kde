@@ -5,7 +5,7 @@
 EAPI="2"
 inherit cmake-utils
 
-KDE_VERSION="4.2.0"
+KDE_VERSION="4.2.1"
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
