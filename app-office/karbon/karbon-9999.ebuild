@@ -14,8 +14,9 @@ KEYWORDS=""
 IUSE="+pstoedit +wpg"
 
 DEPEND="
-	media-gfx/pstoedit
 	media-libs/libart_lgpl
+	pstoedit? ( media-gfx/pstoedit )
+	wpg? ( media-libs/libwpg )
 "
 RDEPEND="${DEPEND}"
 
