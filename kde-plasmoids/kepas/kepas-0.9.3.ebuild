@@ -11,8 +11,8 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=73968"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
-SLOT="live"
+KEYWORDS="~amd64 ~x86"
+SLOT="1"
 IUSE="oscar zeroconf"
 
 DEPEND="zeroconf? ( kde-base/kdnssd:${SLOT} )
