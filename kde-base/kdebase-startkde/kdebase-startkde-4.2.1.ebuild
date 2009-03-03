@@ -47,7 +47,6 @@ KMEXTRACTONLY="
 	kdm/
 	safestartkde.cmake
 "
-KMCOMPILEONLY="kdm/kfrontend/sessions/"
 
 PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
 
