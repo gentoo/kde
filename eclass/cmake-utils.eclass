@@ -42,36 +42,34 @@ _use_me_now_inverted() {
 	echo "-D$1_${3:-$2}=$(use $2 && echo OFF || echo ON)"
 }
 
-# @VARIABLE: DOCS
+# @ECLASS-VARIABLE: DOCS
 # @DESCRIPTION:
-# Documents to pass to dodoc.
+# Documents which are passed to dodoc command.
 : ${DOCS:=}
 
-# @VARIABLE: CMAKE_IN_SOURCE_BUILD
+# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
 # @DESCRIPTION:
 # Set to enable in-source build.
 : ${CMAKE_IN_SOURCE_BUILD:=}
 
-# @VARIABLE: CMAKE_NO_COLOR
+# @ECLASS-VARIABLE: CMAKE_NO_COLOR
 # @DESCRIPTION:
 # Set to disable cmake output coloring.
 : ${CMAKE_NO_COLOR:=}
 
-# @VARIABLE: CMAKE_VERBOSE
+# @ECLASS-VARIABLE: CMAKE_VERBOSE
 # @DESCRIPTION:
 # Set to enable verbose messages during compilation.
 : ${CMAKE_VERBOSE:=}
 
-# @VARIABLE: CMAKE_BUILD_TYPE
+# @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
 # @DESCRIPTION:
 # Set to override default CMAKE_BUILD_TYPE. Only useful for packages
 # known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
 CMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE:=}"
 export CMAKE_BUILD_TYPE
 
-# @FUNCTION: _check_build_dir
-# @DESCRIPTION:
-# Determine using IN or OUT source build
+# Internal function. Determine using IN or OUT source build
 _check_build_dir() {
 	# in/out source build
 	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
@@ -244,7 +242,7 @@ cmake-utils_src_compile() {
 
 # @FUNCTION: cmake-utils_src_configurein
 # @DESCRIPTION:
-# Deprecated
+# Depercated in fawor of cmake-utils_src_configure
 cmake-utils_src_configurein() {
 	ewarn "This ebuild is using deprecated function call: $FUNCNAME"
 	ewarn "Inform ebuild maintainer."
@@ -253,7 +251,7 @@ cmake-utils_src_configurein() {
 
 # @FUNCTION: cmake-utils_src_configureout
 # @DESCRIPTION:
-# Deprecated
+# Depercated in fawor of cmake-utils_src_configure
 cmake-utils_src_configureout() {
 	ewarn "This ebuild is using deprecated function call: $FUNCNAME"
 	ewarn "Inform ebuild maintainer."
