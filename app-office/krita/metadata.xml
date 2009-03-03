@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name="gmm">Enable library for sparse, dense and skyline matrices.</flag>
+	<flag name="kdcraw">Enable KDE image manipulating interface.</flag>
+</use>
 </pkgmetadata>
