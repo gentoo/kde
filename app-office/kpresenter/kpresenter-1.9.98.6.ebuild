@@ -11,30 +11,12 @@ inherit kde4-meta
 DESCRIPTION="KOffice presentation program."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE=""
 
-DEPEND="
-	app-text/libwpd
-	app-text/wv2
-"
+DEPEND=">=dev-libs/boost-1.35.0"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	kchart/
-	interfaces/
-	libs/
-	filters/
-	plugins/
-"
-KMEXTRA="
-	filters/${KMMODULE}/
-"
+KMEXTRACTONLY="libs/"
+KMEXTRA="filters/${KMMODULE}/"
 
 KMLOADLIBS="koffice-libs"
-
-src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DWITH_WV2=1 -DWITH_WPD=1"
-
-	kde4-meta_src_configure
-}

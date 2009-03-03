@@ -3,9 +3,9 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="koffice"
 KMMODULE="${PN}"
-
 inherit kde4-meta
 
 DESCRIPTION="KOffice presentation program."
@@ -13,11 +13,10 @@ DESCRIPTION="KOffice presentation program."
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-gfx/pstoedit
-	media-libs/fontconfig
-	media-libs/freetype:2
-	media-libs/libart_lgpl
-"
+DEPEND=">=dev-libs/boost-1.35.0"
+RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="libs/"
+KMEXTRA="filters/${KMMODULE}/"
+
+KMLOADLIBS="koffice-libs"
