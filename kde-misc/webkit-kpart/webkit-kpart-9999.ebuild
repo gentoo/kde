@@ -4,13 +4,14 @@
 
 EAPI="2"
 
-HOMEPAGE="http://www.kde.org"
+WEBKIT_REQUIRED="allways"
 KMNAME="playground/libs"
 KMMODULE="webkitkde"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for konqueror"
 LICENSE="GPL-2"
+
 KEYWORDS=""
 IUSE="debug"
 SLOT="live"

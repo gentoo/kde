@@ -35,10 +35,22 @@ kde4-base_set_qt_dependencies() {
 		x11-libs/qt-script:4
 		x11-libs/qt-sql:4[qt3support]
 		x11-libs/qt-svg:4
-		x11-libs/qt-test:4
-		x11-libs/qt-webkit:4"
+		x11-libs/qt-test:4"
+	qtwebkitdepend="x11-libs/qt-webkit:4"
 	qtopengldepend="x11-libs/qt-opengl:4"
 
+	case ${WEBKIT_REQUIRED} in
+		always)
+			qtdepend="${qtdepend}
+				${qtwebkitdepend}"
+			;;
+		optional)
+			IUSE="${IUSE} webkit"
+			qtdepend="${qtdepend}
+				webkit? ( ${qtwebkitdepend} )"
+			;;
+		*) WEBKIT_REQUIRED="never" ;;
+	esac
 	# opengl dependencies
 	case ${OPENGL_REQUIRED} in
 		always)
@@ -50,9 +62,7 @@ kde4-base_set_qt_dependencies() {
 			qtdepend="${qtdepend}
 				opengl? ( ${qtopengldepend} )"
 			;;
-		*)
-			OPENGL_REQUIRED="never"
-			;;
+		*) OPENGL_REQUIRED="never" ;;
 	esac
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
@@ -106,6 +116,12 @@ fi
 # Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
+
+# @ECLASS-VARIABLE: WEBKIT_REQUIRED
+# @DESCRIPTION:
+# Is qt-webkit requred? Possible values are 'always', 'optional' and 'never'.
+# This variable must be set before inheriting any eclasses. Defaults to 'never'.
+WEBKIT_REQUIRED="${WEBKIT_REQUIRED:-never}"
 
 # @ECLASS-VARIABLE: CPPUNIT_REQUIRED
 # @DESCRIPTION:
