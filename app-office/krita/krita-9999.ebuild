@@ -18,7 +18,7 @@ DEPEND="
 	>=app-office/koffice-libs-${PV}:${SLOT}[openexr=]
 	dev-cpp/eigen:2
 	>=kde-base/qimageblitz-0.0.4
-	media-gfx/exiv2
+	>=media-gfx/exiv2-0.16
 	>=media-gfx/imagemagick-0.6.4.9.2[openexr=,png,tiff?]
 	gmm? ( sci-mathematics/gmm )
 	kdcraw? ( kde-base/kdcraw[kdeprefix=] )
