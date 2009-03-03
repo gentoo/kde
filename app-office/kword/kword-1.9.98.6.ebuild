@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice word processor."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +wpd +wv2"
+IUSE="+wpd +wv2"
 
 DEPEND="
 	app-text/libwpd
