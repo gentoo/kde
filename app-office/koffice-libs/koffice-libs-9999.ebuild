@@ -6,19 +6,24 @@ EAPI="2"
 
 KMNAME="koffice"
 KMMODULE="libs"
-
+OPENGL_REQUIRED="optional"
+CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
 KEYWORDS=""
-IUSE=""
+IUSE="+crypt +openexr"
 
 RDEPEND="
-	>=app-office/koffice-data-${PV}:${SLOT}
+	>=app-office/koffice-data-${PV}:${SLOT}[kdeprefix=]
 	dev-libs/libxml2
 	dev-libs/libxslt
+	>=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=]
 	>=media-libs/lcms-1.15
-	>=media-libs/openexr-1.2.2-r2"
+	crypt? ( app-crypt/qca:2 )
+	openexr? ( media-libs/openexr )
+	opengl? ( media-libs/mesa )
+"
 DEPEND="${RDEPEND}"
 #	doc? ( app-doc/doxygen )"
 
@@ -34,11 +39,30 @@ KMEXTRA="
 	tools/"
 #	doc/api/"
 KMEXTRACTONLY="
-		doc/koffice.desktop
-		kchart/kdchart/"
+	doc/koffice.desktop"
+
+KMSAVELIBS="true"
+
+src_prepare() {
+	sed -i \
+		-e "s:QtCrypto/QtCrypto:QtCrypto:" \
+		libs/store/KoEncryptedStore.h || die
+
+	kde4-meta_src_prepare
+}
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with crypt QCA2)
+		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with openexr OpenEXR)"
+	use crypt && mycmakeargs="${mycmakeargs}
+		-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2"
+
+	kde4-base_src_configure
+}
 
 src_install() {
-	dodoc changes-*
 	newdoc kounavail/README README.kounavail
 
 	kde4-meta_src_install
