@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice integrated environment for database management."
 KEYWORDS=""
-IUSE="freetds htmlhandbook mysql postgres xbase"
+IUSE="freetds mysql postgres xbase"
 
 DEPEND="
 	sys-libs/readline

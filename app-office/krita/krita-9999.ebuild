@@ -12,7 +12,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice image manipulation program."
 
 KEYWORDS=""
-IUSE="+gmm htmlhandbook +kdcraw +openexr +pdf +tiff"
+IUSE="+gmm +kdcraw +openexr +pdf +tiff"
 
 DEPEND="
 	>=app-office/koffice-libs-${PV}:${SLOT}[openexr=]
