@@ -11,15 +11,23 @@ inherit kde4-meta
 DESCRIPTION="KOffice flowchart application."
 
 KEYWORDS=""
-IUSE=""
+IUSE="python"
+
+DEPEND="python? ( kde-base/pykde4:${SLOT} )"
 
 KMEXTRA="filters/${KMNAME}"
 
 KMEXTRACTONLY="
 	filters/
 	libs/
-	interfaces/
-	plugins
+	plugins/
 "
 
 KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with python PythonLibs)"
+
+	kde4-meta_src_configure
+}
