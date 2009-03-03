@@ -19,14 +19,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRA="filters/${KMMODULE}/"
+
 KMEXTRACTONLY="
+	filters/
 	kspread/
 	libs/
-	filters/
 	plugins/
-"
-KMEXTRA="
-	filters/${KMMODULE}/
 "
 
 KMLOADLIBS="koffice-libs"
