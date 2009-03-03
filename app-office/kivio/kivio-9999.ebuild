@@ -13,4 +13,13 @@ DESCRIPTION="KOffice flowchart application."
 KEYWORDS=""
 IUSE=""
 
+KMEXTRA="filters/${KMNAME}"
+
+KMEXTRACTONLY="
+	filters/
+	libs/
+	interfaces/
+	plugins
+"
+
 KMLOADLIBS="koffice-libs"
