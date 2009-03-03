@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook zeroconf"
+IUSE="debug zeroconf"
 
 DEPEND=">=net-libs/libvncserver-0.9
 	net-libs/openslp

@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A dialog box for setting preferences for debug output"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

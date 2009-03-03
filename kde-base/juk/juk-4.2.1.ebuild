@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Jukebox and music manager for KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook tunepimp"
+IUSE="debug tunepimp"
 
 DEPEND=">=media-libs/taglib-1.5
 	tunepimp? ( media-libs/tunepimp )"

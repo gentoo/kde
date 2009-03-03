@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KMines is a classic mine sweeper game"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

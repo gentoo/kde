@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Kubrick is a games based on \"Rubik\'s Cube\" puzzle."
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

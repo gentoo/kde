@@ -11,7 +11,7 @@ DESCRIPTION="Common library for KDE PIM apps."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
-IUSE="debug htmlhandbook ldap +sasl"
+IUSE="debug ldap +sasl"
 LICENSE="LGPL-2.1"
 RESTRICT="test"
 

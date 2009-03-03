@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook +semantic-desktop"
+IUSE="debug +semantic-desktop"
 
 DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}

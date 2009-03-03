@@ -9,17 +9,14 @@ inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook +plasma"
+IUSE="debug +plasma"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	dev-libs/libxml2
 	dev-libs/libxslt"
 
-src_unpack() {
-	use htmlhandbook && KMEXTRA="doc/kate-plugins"
-	kde4-meta_src_unpack
-}
+KMEXTRA="doc/kate-plugins"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE weather status display"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/plasma-workspace-${PV}:${SLOT}

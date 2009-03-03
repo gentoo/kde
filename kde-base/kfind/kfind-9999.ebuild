@@ -8,7 +8,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE file finder utility"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 KMEXTRA="
 	doc/${PN}/

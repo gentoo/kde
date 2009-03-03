@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="Mathematical function plotter for KDE"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"

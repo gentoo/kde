@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE LiLo kcontrol module"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="sys-boot/lilo"
 DEPEND="${RDEPEND}

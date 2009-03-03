@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE's Global Shortcut Daemon"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 # Module renamed upstream
 RDEPEND="

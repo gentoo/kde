@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 KMEXTRA="
 	doc/${PN}/

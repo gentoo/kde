@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 #RESTRICT="test"
 
 DEPEND="app-crypt/gnupg

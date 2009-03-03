@@ -14,7 +14,7 @@ DEPEND="sys-devel/gettext"
 RDEPEND=""
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="htmlhandbook"
+IUSE=""
 
 MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu he hi hu
 		is it ja kk km kn ko ku lt lv mai mk ml mr nb nds nl nn pa pl pt pt_BR
@@ -52,12 +52,6 @@ src_unpack() {
 			DIR="${PN}-${LNG}-${PV}"
 			if [[ -d "${DIR}" ]] ; then
 				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
-				if ! use htmlhandbook; then
-					sed -i \
-						-e "/docs/ s:^:#DONOTWANT:" \
-						${DIR}/CMakeLists.txt \
-						|| die "Disabling docs for ${lng} failed."
-				fi
 			fi
 		done
 	fi

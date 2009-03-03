@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Pac-Man clone for KDE"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"

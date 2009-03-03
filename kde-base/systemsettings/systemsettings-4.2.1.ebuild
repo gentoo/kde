@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug htmlhandbook +usb xinerama"
+IUSE="debug +usb xinerama"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 COMMONDEPEND="

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE user (/etc/passwd and other methods) manager"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

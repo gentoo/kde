@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE character selection utility"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

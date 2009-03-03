@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A program that helps you to learn and practice touch typing"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]

@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Password Server"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

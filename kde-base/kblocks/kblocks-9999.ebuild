@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Kblocks is a single-player Tetris-like game."
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

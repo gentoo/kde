@@ -13,7 +13,7 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="css debug dvdr dvdread encode -ffmpeg flac hal htmlhandbook mp3 musepack
+IUSE="css debug dvdr dvdread encode -ffmpeg flac hal mp3 musepack
 	musicbrainz sndfile vcd vorbis emovix"
 
 DEPEND="

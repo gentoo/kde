@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"

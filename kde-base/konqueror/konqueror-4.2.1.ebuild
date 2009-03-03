@@ -9,7 +9,7 @@ KMMODULE="apps/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
-IUSE="+auth +bookmarks debug htmlhandbook"
+IUSE="+auth +bookmarks debug"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"

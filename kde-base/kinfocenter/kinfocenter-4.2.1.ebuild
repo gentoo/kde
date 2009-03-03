@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Info Center"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook ieee1394"
+IUSE="debug ieee1394"
 
 DEPEND="ieee1394? ( sys-libs/libraw1394 )
 	opengl? ( virtual/glu virtual/opengl )"

@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Screenshot Utility"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

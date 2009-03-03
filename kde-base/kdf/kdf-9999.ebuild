@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE free disk space utility"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

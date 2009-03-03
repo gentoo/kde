@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE library for playing & ripping CDs"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="alsa debug htmlhandbook"
+IUSE="alsa debug"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

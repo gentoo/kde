@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE CD player"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]

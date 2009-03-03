@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 COMMONDEPEND="
 	x11-libs/libX11
@@ -24,11 +24,4 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto"
 RDEPEND="${COMMONDEPEND}"
 
-src_unpack() {
-	if use htmlhandbook; then
-		KMEXTRA="${KMEXTRA}
-			apps/doc/${PN}"
-	fi
-
-	kde4-meta_src_unpack
-}
+KMEXTRA="apps/doc/${PN}"

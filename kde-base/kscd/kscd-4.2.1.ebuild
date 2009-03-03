@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE CD player"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND=">=kde-base/libkcddb-${PV}:${SLOT}
 	>=kde-base/libkcompactdisc-${PV}:${SLOT}

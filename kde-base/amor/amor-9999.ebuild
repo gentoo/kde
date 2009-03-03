@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

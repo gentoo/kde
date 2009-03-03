@@ -14,7 +14,7 @@ SLOT="live"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=]
@@ -26,13 +26,3 @@ RDEPEND="${DEPEND}
 	)
 	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
 "
-
-src_prepare() {
-	if ! use htmlhandbook; then
-		sed -i \
-			-e "s:macro_optional_add_subdirectory(doc):#nada:g" \
-			CMakeLists.txt || die "sed doc failed"
-	fi
-
-	kde4-meta_src_prepare
-}

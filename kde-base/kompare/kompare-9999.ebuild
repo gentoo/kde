@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Kompare is a program to view the differences between files."
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"

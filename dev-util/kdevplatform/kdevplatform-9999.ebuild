@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="1"
-IUSE="bazaar cvs debug git htmlhandbook mercurial subversion"
+IUSE="bazaar cvs debug git mercurial subversion"
 
 DEPEND="
 	subversion? ( >=dev-util/subversion-1.3 )

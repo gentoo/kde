@@ -13,21 +13,11 @@ SRC_URI="http://launchpad.net/kdesudo/3.x/${PV}/+download/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="4.1"
 KEYWORDS="~amd64 ~x86"
-IUSE="htmlhandbook"
+IUSE=""
 
 DEPEND="app-admin/sudo"
 
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	if ! use doc; then
-		sed -i \
-			-e "s:ADD_SUBDIRECTORY(doc):#nada:g" \
-			CMakeLists.txt
-	fi
-
-	kde4-base_src_prepare
-}
 
 pkg_postinst() {
 	kde4-base_pkg_postinst

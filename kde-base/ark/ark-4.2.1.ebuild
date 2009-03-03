@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Archiving tool"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+archive debug htmlhandbook +zip"
+IUSE="+archive debug +zip"
 
 DEPEND="
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )

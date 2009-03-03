@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Classical hangman game for KDE"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

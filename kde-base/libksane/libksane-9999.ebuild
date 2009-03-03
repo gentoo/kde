@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="SANE Library interface for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 LICENSE="LGPL-2"
 
 DEPEND="

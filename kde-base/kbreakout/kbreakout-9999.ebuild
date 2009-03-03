@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A Breakout-like game for KDE."
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 KMLOADLIBS="libkdegames"

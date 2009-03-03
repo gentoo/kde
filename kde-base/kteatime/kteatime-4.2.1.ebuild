@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE utility for making a fine cup of tea"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"

@@ -8,7 +8,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Desktop Planetarium"
 KEYWORDS=""
-IUSE="debug fits htmlhandbook"
+IUSE="debug fits"
 
 DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS=""
-IUSE="debug htmlhandbook +semantic-desktop thumbnail"
+IUSE="debug +semantic-desktop thumbnail"
 
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 LICENSE="BSD LGPL-2"
 
 DEPEND="

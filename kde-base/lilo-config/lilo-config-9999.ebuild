@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE LiLo kcontrol module"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

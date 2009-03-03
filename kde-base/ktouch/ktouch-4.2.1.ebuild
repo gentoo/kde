@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A program that helps you to learn and practice touch typing"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND=">=kde-base/knotify-${PV}:${SLOT}"

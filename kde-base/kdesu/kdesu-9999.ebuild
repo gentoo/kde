@@ -11,7 +11,7 @@ inherit kde4-meta
 # if not, USE-flag ?
 DESCRIPTION="KDE: gui for su(1)"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 src_configure() {
 	# Upstream moved kdesu to libexec first, then decided to move it back

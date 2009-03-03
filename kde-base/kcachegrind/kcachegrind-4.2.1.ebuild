@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Frontend for Cachegrind"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="${RDEPEND} media-gfx/graphviz"

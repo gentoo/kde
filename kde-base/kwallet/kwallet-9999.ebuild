@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="
 	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]

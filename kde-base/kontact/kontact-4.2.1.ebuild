@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE personal information manager"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="app-crypt/gnupg
 	app-crypt/gpgme

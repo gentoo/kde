@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Additional Applets for Plasma"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]

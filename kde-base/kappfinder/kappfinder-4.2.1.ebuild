@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE tool that looks for well-known apps in your path and creates entries for them in the KDE menu"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}"

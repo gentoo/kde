@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 KEYWORDS=""
-IUSE="+htmlhandbook"
+IUSE=""
 
 DEPEND=">=sys-devel/gettext-0.17"
 
@@ -75,12 +75,6 @@ src_configure() {
 		for lng in ${enabled_linguas} ; do
 			"${S}"/scripts/autogen.sh ${lng}
 			echo "add_subdirectory( ${lng} )" >> "${S}"/CMakeLists.txt
-			if ! use htmlhandbook; then
-				sed -i \
-					-e "/docs/ s:^:#DONOTWANT:" \
-					"${S}"/${lng}/CMakeLists.txt \
-					|| die "Disabling docs for ${lng} failed."
-			fi
 		done
 		kde4-base_src_configure
 	fi

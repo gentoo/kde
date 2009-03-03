@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

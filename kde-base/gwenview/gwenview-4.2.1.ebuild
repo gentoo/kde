@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook kipi +semantic-desktop"
+IUSE="debug kipi +semantic-desktop"
 RESTRICT="test"
 
 DEPEND="

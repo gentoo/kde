@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="
 	x11-libs/libXxf86vm

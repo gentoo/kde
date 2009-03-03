@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	media-libs/libgphoto2
