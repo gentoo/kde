@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*customizable-weather-0.9.4 (03 Mar 2009)
+
+  03 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  -customizable-weather-0.9.3.ebuild, +customizable-weather-0.9.4.ebuild:
+  version bump, removed old one
+
 *customizable-weather-0.9.3 (25 Feb 2009)
 
   25 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
