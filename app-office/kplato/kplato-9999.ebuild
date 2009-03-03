@@ -3,21 +3,28 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="koffice"
 KMMODULE="${PN}"
-
 inherit kde4-meta
 
 DESCRIPTION="KPlato is a project management application."
 
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
-DEPEND="dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-gfx/pstoedit
-	media-libs/fontconfig
-	media-libs/freetype:2
-	media-libs/libart_lgpl"
+DEPEND=""
+RDEPEND="${DEPEND}"
 
-KMEXTRA="kdgantt"
+KMEXTRACTONLY="
+	kchart/
+	interfaces/
+	libs/
+	filters/
+	plugins/
+"
+KMEXTRA="
+	kdgantt
+"
+
+KMLOADLIBS="koffice-libs"

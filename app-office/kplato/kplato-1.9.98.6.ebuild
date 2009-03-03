@@ -13,10 +13,7 @@ DESCRIPTION="KPlato is a project management application."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="
-	app-text/libwpd
-	app-text/wv2
-"
+DEPEND=""
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
@@ -31,10 +28,3 @@ KMEXTRA="
 "
 
 KMLOADLIBS="koffice-libs"
-
-src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DWITH_WV2=1 -DWITH_WPD=1"
-
-	kde4-meta_src_configure
-}
