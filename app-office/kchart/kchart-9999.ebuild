@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice chart application."
 
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
