@@ -13,3 +13,4 @@ DESCRIPTION="KOffice flowchart application."
 KEYWORDS=""
 IUSE=""
 
+KMLOADLIBS="koffice-libs"
