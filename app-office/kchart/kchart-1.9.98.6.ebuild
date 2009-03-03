@@ -11,16 +11,12 @@ inherit kde4-meta
 DESCRIPTION="KOffice chart application."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE=""
 
-DEPEND="
-	app-text/libwpd
-	app-text/wv2
-"
+DEPEND=""
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kspread/
 	libs/
 	interfaces/
 	filters/
@@ -31,10 +27,3 @@ KMEXTRA="
 "
 
 KMLOADLIBS="koffice-libs"
-
-src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DWITH_WV2=1 -DWITH_WPD=1"
-
-	kde4-meta_src_configure
-}

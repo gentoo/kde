@@ -427,7 +427,6 @@ kde4-meta_src_prepare() {
 	kde4-base_src_prepare
 }
 
-
 # FIXME: no comment here?
 _change_cmakelists_parent_dirs() {
 	debug-print-function ${FUNCNAME} "$@"
@@ -470,8 +469,17 @@ kde4-meta_change_cmakelists() {
 		_change_cmakelists_parent_dirs ${KMMODULE}
 	fi
 
-	# KMCOMPILEONLY
 	local i
+
+	# KMEXTRACTONLY section - Some ebuilds need to comment out some subdirs in KMMODULE and they use KMEXTRACTONLY
+	for i in ${KMEXTRACTONLY}; do
+		if [[ -d "${S}"/${i} && -f "${S}"/${i}/../CMakeLists.txt ]]; then
+			sed -i -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" "${S}"/${i}/../CMakeLists.txt || \
+				die "${LINENO}: sed died while working in the KMEXTRACTONLY section while processing ${i}"
+		fi
+	done
+
+	# KMCOMPILEONLY
 	for i in ${KMCOMPILEONLY}; do
 		debug-print "${LINENO}: KMCOMPILEONLY, processing ${i}"
 		# Uncomment "add_subdirectory" instructions inside $KMCOMPILEONLY, then comment "install" instructions.
@@ -500,14 +508,6 @@ kde4-meta_change_cmakelists() {
 				xargs -0 sed -i -e 's/^#DONOTCOMPILE //g' || \
 				die "${LINENO}: sed died uncommenting add_subdirectory instructions in KMEXTRA section while processing ${i}"
 			_change_cmakelists_parent_dirs ${i}
-		fi
-	done
-
-	# KMEXTRACTONLY section - Some ebuilds need to comment out some subdirs in KMMODULE and they use KMEXTRACTONLY
-	for i in ${KMEXTRACTONLY}; do
-		if [[ -d "${S}"/${i} && -f "${S}"/${i}/../CMakeLists.txt ]]; then
-			sed -i -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" "${S}"/${i}/../CMakeLists.txt || \
-				die "${LINENO}: sed died while working in the KMEXTRACTONLY section while processing ${i}"
 		fi
 	done
 

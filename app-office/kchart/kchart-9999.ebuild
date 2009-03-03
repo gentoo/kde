@@ -3,9 +3,9 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="koffice"
 KMMODULE="${PN}"
-
 inherit kde4-meta
 
 DESCRIPTION="KOffice chart application."
@@ -13,14 +13,17 @@ DESCRIPTION="KOffice chart application."
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	>=app-office/koffice-libs-${PV}:${SLOT}
-	app-text/libwpd
-	app-text/wv2
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-libs/fontconfig
-	media-libs/freetype:2
+DEPEND=""
+RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	libs/
+	interfaces/
+	filters/
+	plugins/
+"
+KMEXTRA="
+	filters/${KMMODULE}/
 "
 
-KMEXTRACTONLY="interfaces"
+KMLOADLIBS="koffice-libs"

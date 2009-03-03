@@ -11,13 +11,26 @@ inherit kde4-meta
 DESCRIPTION="KOffice vector drawing application."
 
 KEYWORDS=""
-IUSE=""
+IUSE="+pstoedit +wpg"
 
 DEPEND="
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-gfx/pstoedit
-	media-libs/fontconfig
-	media-libs/freetype:2
 	media-libs/libart_lgpl
+	pstoedit? ( media-gfx/pstoedit )
+	wpg? ( media-libs/libwpg )
 "
+RDEPEND="${DEPEND}"
+
+KMEXTRA="filters/${KMMODULE}"
+KMEXTRACTONLY="
+	libs/
+	plugins/
+	filters/
+"
+KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with wpg WPG)
+		$(cmake-utils_use_with pstoedit Pstoedit)"
+	kde4-meta_src_configure
+}

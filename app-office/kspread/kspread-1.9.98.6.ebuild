@@ -11,11 +11,10 @@ inherit kde4-meta
 DESCRIPTION="KOffice spreadsheet application."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="+solver"
 
-DEPEND="
-	app-text/libwpd
-	app-text/wv2
+DEPEND="dev-cpp/eigen:2
+	solver? ( sci-libs/gsl )
 "
 RDEPEND="${DEPEND}"
 
@@ -26,15 +25,14 @@ KMEXTRACTONLY="
 	filters/
 	plugins/
 "
-KMEXTRA="
-	filters/${KMMODULE}/
-"
+KMEXTRA="filters/${KMMODULE}/"
 
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		-DWITH_WV2=1 -DWITH_WPD=1"
+		-DWITH_Eigen2=ON
+		$(cmake-utils_use_with solver GSL)"
 
 	kde4-meta_src_configure
 }

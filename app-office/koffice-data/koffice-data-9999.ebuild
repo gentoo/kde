@@ -20,11 +20,3 @@ KMEXTRA="pics/
 KMEXTRACTONLY="
 	doc/CMakeLists.txt
 	doc/koffice.desktop"
-
-src_install() {
-	kde4-meta_src_install
-	# remove duplicate icons
-	rm -rf "${D}"/"${KDEDIR}"/share/icons/oxygen/16x16/actions/{\
-format-{justify-{center,fill,left,right},text-{bold,italic,underline}},\
-object-{group,ungroup,order-{back,front,lower,raise}}}.png
-}

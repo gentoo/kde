@@ -3,25 +3,36 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="koffice"
 KMMODULE="${PN}"
-
 inherit kde4-meta
 
 DESCRIPTION="KOffice spreadsheet application."
 
 KEYWORDS=""
-IUSE=""
+IUSE="+solver"
 
-DEPEND="
-	>=app-office/kchart-${PV}:${SLOT}
-	dev-cpp/eigen:2
-	media-gfx/imagemagick
-	media-gfx/pstoedit
-	media-libs/fontconfig
-	media-libs/freetype:2
-	media-libs/libart_lgpl
+DEPEND="dev-cpp/eigen:2
+	solver? ( sci-libs/gsl )
 "
+RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="interfaces
-	kchart"
+KMEXTRACTONLY="
+	kchart/
+	interfaces/
+	libs/
+	filters/
+	plugins/
+"
+KMEXTRA="filters/${KMMODULE}/"
+
+KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DWITH_Eigen2=ON
+		$(cmake-utils_use_with solver GSL)"
+
+	kde4-meta_src_configure
+}
