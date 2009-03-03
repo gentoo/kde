@@ -13,9 +13,6 @@ DESCRIPTION="KPlato is a project management application."
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-
 KMEXTRACTONLY="libs/"
 KMEXTRA="kdgantt/"
 
