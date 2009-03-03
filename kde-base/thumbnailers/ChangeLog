@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/thumbnailers
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*thumbnailers-9999 (03 Mar 2009)
+
+  03 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +metadata.xml, +thumbnailers-9999.ebuild:
+  added live thumbnailers ebuild, bug #258650, thanks to Eugene Shalygin
+
