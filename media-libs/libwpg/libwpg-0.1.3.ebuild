@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit base eutils
 
 DESCRIPTION="C++ library to read and parse graphics in WPG"
 HOMEPAGE="http://libwpg.sourceforge.net/libwpg.htm"
