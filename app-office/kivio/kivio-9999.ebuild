@@ -13,7 +13,7 @@ DESCRIPTION="KOffice flowchart application."
 KEYWORDS=""
 IUSE="python"
 
-DEPEND="python? ( kde-base/pykde4:${SLOT} )"
+DEPEND="python? ( kde-base/pykde4[kdeprefix=] )"
 
 KMEXTRA="filters/${KMNAME}"
 
