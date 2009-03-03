@@ -16,15 +16,7 @@ IUSE="debug"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	kchart/
-	interfaces/
-	libs/
-	filters/
-	plugins/
-"
-KMEXTRA="
-	kdgantt
-"
+KMEXTRACTONLY="libs/"
+KMEXTRA="kdgantt/"
 
 KMLOADLIBS="koffice-libs"
