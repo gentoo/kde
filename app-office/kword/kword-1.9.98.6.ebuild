@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice word processor."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug +wpd +wv2"
 
 DEPEND="
 	app-text/libwpd
@@ -32,7 +32,8 @@ KMLOADLIBS="koffice-libs"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		-DWITH_WV2=1 -DWITH_WPD=1"
+		$(cmake-utils_use_with wpd WPD)
+		$(cmake-utils_use_with wv2 WV2)"
 
 	kde4-meta_src_configure
 }
