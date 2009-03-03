@@ -15,7 +15,7 @@ IUSE="python"
 
 DEPEND="python? ( kde-base/pykde4[kdeprefix=] )"
 
-KMEXTRA="filters/${KMNAME}"
+KMEXTRA="filters/${KMMODULE}"
 
 KMEXTRACTONLY="
 	filters/
