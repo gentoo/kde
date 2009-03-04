@@ -35,9 +35,14 @@ kde4-base_set_qt_dependencies() {
 		x11-libs/qt-script:4
 		x11-libs/qt-sql:4[qt3support]
 		x11-libs/qt-svg:4
-		x11-libs/qt-test:4"
-	qtwebkitdepend="x11-libs/qt-webkit:4"
-	qtopengldepend="x11-libs/qt-opengl:4"
+		x11-libs/qt-test:4
+	"
+	qtwebkitdepend="
+		x11-libs/qt-webkit:4
+	"
+	qtopengldepend="
+		x11-libs/qt-opengl:4
+	"
 
 	case ${WEBKIT_REQUIRED} in
 		always)
@@ -55,12 +60,14 @@ kde4-base_set_qt_dependencies() {
 	case ${OPENGL_REQUIRED} in
 		always)
 			qtdepend="${qtdepend}
-				${qtopengldepend}"
+				${qtopengldepend}
+			"
 			;;
 		optional)
 			IUSE="${IUSE} opengl"
 			qtdepend="${qtdepend}
-				opengl? ( ${qtopengldepend} )"
+				opengl? ( ${qtopengldepend} )
+			"
 			;;
 		*) OPENGL_REQUIRED="never" ;;
 	esac
@@ -81,7 +88,7 @@ COMMONDEPEND="${COMMONDEPEND}
 	x11-libs/libXxf86vm
 "
 
-# localization deps
+# localization deps 
 # DISABLED UNTIL PMS decide correct approach :(
 if [[ -n ${KDE_LINGUAS} ]]; then
 	LNG_DEP=""
@@ -131,12 +138,15 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 
 case ${CPPUNIT_REQUIRED} in
 	always)
-		DEPEND="${DEPEND} dev-util/cppunit"
+		DEPEND="${DEPEND}
+			dev-util/cppunit
+		"
 		;;
 	optional)
 		IUSE="${IUSE} test"
 		DEPEND="${DEPEND}
-			test? ( dev-util/cppunit )"
+			test? ( dev-util/cppunit )
+		"
 		;;
 	*)
 		CPPUNIT_REQUIRED="never"
@@ -338,33 +348,29 @@ if [[ ${NEED_KDE} != none ]]; then
 		# we do this only if we do not depend on any version of kde
 		if [[ ${SLOT} != ${KDE_SLOT} ]]; then
 			DEPEND="${DEPEND}
-				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )
+			"
 			RDEPEND="${RDEPEND}
-				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )"
+				!kdeprefix? ( !kde-base/${PN}:${KDE_SLOT}[-kdeprefix] )
+			"
 		fi
 	done
 
-	# Adding kdelibs, kdepimlibs and kdebase-data deps to all other packages.
-	# We only need to add the dependencies if ${PN} is not "kdelibs" or "kdepimlibs"
+	# Adding kdelibs and kdebase-data deps to all other packages.
 	if [[ ${PN} != kdelibs ]]; then
 		DEPEND="${DEPEND}
-				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
+			kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
+			!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )
+		"
 		RDEPEND="${RDEPEND}
-				kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
-				!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )"
-		if [[ ${PN} != kdepimlibs ]]; then
-			DEPEND="${DEPEND}
-				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
-				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
+			kdeprefix? ( ${_operator}kde-base/kdelibs${_pv}[kdeprefix] )
+			!kdeprefix? ( ${_operator}kde-base/kdelibs${_pvn}[-kdeprefix] )
+		"
+		if [[ ${PN} != kdepimlibs && ${PN} != kdebase-data ]]; then
 			RDEPEND="${RDEPEND}
-				kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pv}[kdeprefix] )
-				!kdeprefix? ( ${_operator}kde-base/kdepimlibs${_pvn}[-kdeprefix] )"
-			if [[ ${PN} != kdebase-data ]]; then
-				RDEPEND="${RDEPEND}
-					kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix] )
-					!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[-kdeprefix] )"
-			fi
+				kdeprefix? ( ${_operator}kde-base/kdebase-data${_pv}[kdeprefix] )
+				!kdeprefix? ( ${_operator}kde-base/kdebase-data${_pvn}[-kdeprefix] )
+			"
 		fi
 	fi
 	unset _operator _pv _pvn
@@ -527,7 +533,7 @@ kde4-base_src_prepare() {
 		enable_selected_linguas
 	fi
 
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then

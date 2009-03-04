@@ -33,59 +33,106 @@ esac
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-workspace|kdebase-runtime)
-		DEPEND="${DEPEND} >=kde-base/qimageblitz-0.0.4"
-		RDEPEND="${RDEPEND} >=kde-base/qimageblitz-0.0.4"
+	kdebase|kdebase-{apps,workspace,runtime})
+		DEPEND="${DEPEND}
+			>=kde-base/qimageblitz-0.0.4
+		"
+		RDEPEND="${RDEPEND}
+			>=kde-base/qimageblitz-0.0.4
+		"
+		;;
+	kdenetwork)
+		DEPEND="${DEPEND}
+			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+		"
+		RDEPEND="${RDEPEND}
+			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+		"
 		;;
 	kdepim)
-		DEPEND="${DEPEND} dev-libs/boost app-office/akonadi-server"
-		RDEPEND="${RDEPEND} dev-libs/boost"
+		DEPEND="${DEPEND}
+			dev-libs/boost
+			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+		"
+		RDEPEND="${RDEPEND}
+			dev-libs/boost
+			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+		"
 		if [[ ${PN} != kode ]]; then
-			DEPEND="${DEPEND} >=kde-base/kode-${PV}:${SLOT}[kdeprefix=]"
-			RDEPEND="${RDEPEND} >=kde-base/kode-${PV}:${SLOT}[kdeprefix=]"
+			DEPEND="${DEPEND}
+				>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
+			"
+			RDEPEND="${RDEPEND}
+				>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
+			"
 		fi
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|kmobiletools|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				DEPEND="${DEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
-				RDEPEND="${RDEPEND} kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				DEPEND="${DEPEND}
+					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
+				"
+				RDEPEND="${RDEPEND}
+					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
+				"
 				;;
 		esac
 		;;
 	kdegames)
 		if [[ ${PN} != libkdegames ]]; then
-			DEPEND="${DEPEND} >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]"
-			RDEPEND="${RDEPEND} >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]"
+			DEPEND="${DEPEND}
+				>=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]
+			"
+			RDEPEND="${RDEPEND}
+				>=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]
+			"
 		fi
 		;;
 	koffice)
 		[[ ${PN} != koffice-data ]] && IUSE="debug"
 		case ${PV} in
-			9999*) DEPEND="${DEPEND} !app-office/${PN}:2" ;;
-			1.9*|2*) DEPEND="${DEPEND} !app-office/${PN}:live" ;;
+			9999*)
+				DEPEND="${DEPEND}
+					!app-office/${PN}:2
+				"
+				;;
+			1.9*|2*)
+				DEPEND="${DEPEND}
+					!app-office/${PN}:live
+				"
+				;;
 		esac
 		DEPEND="${DEPEND}
 			!app-office/${PN}:0
 			!app-office/koffice:0
-			!app-office/koffice-meta:0"
+			!app-office/koffice-meta:0
+		"
 		case ${PN} in
 			koffice-data)
-				DEPEND="${DEPEND} media-libs/lcms"
-				RDEPEND="${RDEPEND} media-libs/lcms"
+				DEPEND="${DEPEND}
+					media-libs/lcms
+				"
+				RDEPEND="${RDEPEND}
+					media-libs/lcms
+				"
 				;;
 			*)
-				DEPEND="${DEPEND}
+				COMMON_DEPEND="
 					dev-cpp/eigen:2
 					media-gfx/imagemagick[openexr?]
 					media-libs/fontconfig
 					media-libs/freetype:2
 				"
-				RDEPEND="${DEPEND}"
+				DEPEND="${DEPEND} ${COMMON_DEPEND}"
+				RDEPEND="${RDEPEND} ${COMMON_DEPEND}"
+				unset COMMON_DEPEND
 				if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
 					DEPEND="${DEPEND}
-					>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
+						>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]
+					"
 					RDEPEND="${RDEPEND}
-					>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]"
+						>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]
+					"
 				fi
 				;;
 		esac
@@ -247,10 +294,16 @@ kde4-meta_src_extract() {
 
 		kde4-meta_create_extractlists
 
+		# Go one level deeper for kdebase-apps in tarballs (releases)
+		if [[ ${KMNAME} == kdebase-apps && ${BUILD_TYPE} == release ]]; then
+			moduleprefix=apps/
+			KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
+		fi
+
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
 		do
-			extractlist="${extractlist} ${KMNAME}-${PV}/${f}"
+			extractlist="${extractlist} ${KMNAME}-${PV}/${moduleprefix}${f}"
 		done
 		extractlist="${extractlist} $(__list_needed_subdirectories)"
 		KMTARPARAMS="${KMTARPARAMS} -j"
