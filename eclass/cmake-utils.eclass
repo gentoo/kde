@@ -178,7 +178,7 @@ cmake-utils_src_prepare() {
 	fi
 
 	# Prepare Gentoo build configuration
-	local gentoo_config="${TMPDIR}"/gentoo_config.cmake
+	gentoo_config="${TMPDIR}"/gentoo_config.cmake
 	local libdir=$(get_libdir)
 	local build_type=`echo ${CMAKE_BUILD_TYPE} | tr [:lower:] [:upper:]`
 	cat > ${gentoo_config} <<_EOF_
@@ -220,7 +220,7 @@ cmake-utils_src_configure() {
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is $cmakeargs"
-	cmake ${cmakeargs} "${S}" || die "cmake failed"
+	cmake -C "${gentoo_config}" ${cmakeargs} "${S}" || die "cmake failed"
 
 	popd > /dev/null
 }
