@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+	<flag name="lilo">Install <pkg>lilo-config</pkg>, a frontend for the lilo boot loader</flag>
+</use>
+<herd>kde</herd>
+</pkgmetadata>

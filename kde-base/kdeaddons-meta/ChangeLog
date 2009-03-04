@@ -1,0 +1,441 @@
+# ChangeLog for kde-base/kdeaddons-meta
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdeaddons-meta/ChangeLog,v 1.104 2008/09/13 23:57:48 carlo Exp $
+
+*kdeaddons-meta-3.5.10 (13 Sep 2008)
+
+  13 Sep 2008; Carsten Lohrke <carlo@gentoo.org>
+  +kdeaddons-meta-3.5.10.ebuild:
+  Version bump.
+
+  07 Jun 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  -kdeaddons-meta-3.5.8.ebuild:
+  Removed old versions.
+
+  18 May 2008; Markus Meier <maekke@gentoo.org> kdeaddons-meta-3.5.9.ebuild:
+  amd64/x86 stable, bug #221063
+
+  15 May 2008; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.5.9.ebuild:
+  Stable on ppc64; bug #221063
+
+  13 May 2008; Jeroen Roovers <jer@gentoo.org> kdeaddons-meta-3.5.9.ebuild:
+  Stable for HPPA (bug #221063).
+
+  12 May 2008; Brent Baude <ranger@gentoo.org> kdeaddons-meta-3.5.9.ebuild:
+  Marking kdeaddons-meta-3.5.9 ppc stable for bug 221063
+
+  12 May 2008; Raúl Porcel <armin76@gentoo.org>
+  kdeaddons-meta-3.5.9.ebuild:
+  alpha/ia64/sparc stable wrt #221063
+
+  04 Mar 2008; Jeroen Roovers <jer@gentoo.org> kdeaddons-meta-3.5.8.ebuild,
+  kdeaddons-meta-3.5.9.ebuild:
+  Keyword split KDE for HPPA.
+
+*kdeaddons-meta-3.5.9 (20 Feb 2008)
+
+  20 Feb 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +kdeaddons-meta-3.5.9.ebuild:
+  Version bump to KDE 3.5.9.
+
+  16 Feb 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -kdeaddons-meta-3.5.5.ebuild, -kdeaddons-meta-3.5.6.ebuild,
+  -kdeaddons-meta-3.5.7.ebuild:
+  Spring cleaning
+
+  31 Jan 2008; Brent Baude <ranger@gentoo.org> kdeaddons-meta-3.5.8.ebuild:
+  Marking kdeaddons-meta-3.5.8 ppc for bug 207634
+
+  30 Jan 2008; Brent Baude <ranger@gentoo.org> kdeaddons-meta-3.5.8.ebuild:
+  Marking kdeaddons-meta-3.5.8 ppc64 for bug 207634
+
+  30 Jan 2008; Christian Faulhammer <opfer@gentoo.org>
+  kdeaddons-meta-3.5.8.ebuild:
+  stable x86, bug 207634
+
+  29 Jan 2008; Raúl Porcel <armin76@gentoo.org>
+  kdeaddons-meta-3.5.8.ebuild:
+  alpha/ia64/sparc stable wrt #207634
+
+  28 Jan 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  kdeaddons-meta-3.5.8.ebuild:
+  Marked stable on amd64 as per bug 207634.
+
+*kdeaddons-meta-3.5.8 (19 Oct 2007)
+
+  19 Oct 2007; Wulf C. Krueger <philantrop@gentoo.org>
+  +kdeaddons-meta-3.5.8.ebuild:
+  Bump to KDE 3.5.8.
+
+  11 Aug 2007; Raúl Porcel <armin76@gentoo.org>
+  kdeaddons-meta-3.5.7.ebuild:
+  x86 stable wrt #185823
+
+  10 Aug 2007; Christoph Mende <angelos@gentoo.org>
+  kdeaddons-meta-3.5.7.ebuild:
+  Stable on amd64 wrt bug #176297
+
+  09 Aug 2007; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.5.7.ebuild:
+  Stable on ppc64; bug #176297
+
+  08 Aug 2007; Raúl Porcel <armin76@gentoo.org>
+  kdeaddons-meta-3.5.7.ebuild:
+  alpha/ia64 stable wrt #176297
+
+  07 Aug 2007; Joseph Jezak <josejx@gentoo.org> kdeaddons-meta-3.5.7.ebuild:
+  Marked ppc stable.
+
+  07 Aug 2007; Gustavo Zacarias <gustavoz@gentoo.org>
+  kdeaddons-meta-3.5.7.ebuild:
+  Stable on sparc wrt #176297
+
+*kdeaddons-meta-3.5.7 (22 May 2007)
+
+  22 May 2007; Carsten Lohrke <carlo@gentoo.org>
+  +kdeaddons-meta-3.5.7.ebuild:
+  Version bump.
+
+  04 Feb 2007; Diego Pettenò <flameeyes@gentoo.org>
+  -kdeaddons-meta-3.5.2.ebuild:
+  Remove old versions.
+
+  17 Jan 2007; Carsten Lohrke <carlo@gentoo.org>
+  kdeaddons-meta-3.5.6.ebuild:
+  Correct minimal needed versions.
+
+*kdeaddons-meta-3.5.6 (16 Jan 2007)
+
+  16 Jan 2007; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5.6.ebuild:
+  Bump to 3.5.6 (prerelease).
+
+  11 Dec 2006; <kloeri@gentoo.org> kdeaddons-meta-3.5.5.ebuild:
+  Stable on ia64.
+
+  06 Dec 2006; <kloeri@gentoo.org> kdeaddons-meta-3.5.5.ebuild:
+  Stable on Alpha.
+
+  30 Nov 2006; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.5.5.ebuild:
+  Stable on ppc64
+
+  18 Nov 2006; Diego Pettenò <flameeyes@gentoo.org>
+  -kdeaddons-meta-3.5.3.ebuild, -kdeaddons-meta-3.5.4.ebuild:
+  Remove old versions.
+
+  16 Nov 2006; Joseph Jezak <josejx@gentoo.org> kdeaddons-meta-3.5.5.ebuild:
+  Marked ppc stable for bug #147570.
+
+  14 Nov 2006; Gustavo Zacarias <gustavoz@gentoo.org>
+  kdeaddons-meta-3.5.5.ebuild:
+  Stable on sparc wrt #147570
+
+  13 Nov 2006; Danny van Dyk <kugelfang@gentoo.org>
+  kdeaddons-meta-3.5.5.ebuild:
+  Marked stable on amd64 wrt bug #147570.
+
+  13 Nov 2006; Christian Faulhammer <opfer@gentoo.org>
+  kdeaddons-meta-3.5.5.ebuild:
+  "Stable x86, bug #147570"
+
+  03 Oct 2006; Diego Pettenò <flameeyes@gentoo.org>
+  kdeaddons-meta-3.5.5.ebuild:
+  Fix minimum version.
+
+*kdeaddons-meta-3.5.5 (03 Oct 2006)
+
+  03 Oct 2006; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5.5.ebuild:
+  Bump to 3.5.5 (pre-release).
+
+  17 Sep 2006; Carsten Lohrke <carlo@gentoo.org>
+  -kdeaddons-meta-3.4.3.ebuild:
+  Drop KDE 3.4.
+
+  06 Sep 2006; Diego Pettenò <flameeyes@gentoo.org>
+  kdeaddons-meta-3.5.4.ebuild:
+  Add ~x86-fbsd keyword.
+
+  03 Sep 2006; Bryan Østergaard <kloeri@gentoo.org>
+  kdeaddons-meta-3.5.2.ebuild:
+  Stable on ia64.
+
+  25 Jul 2006; Diego Pettenò <flameeyes@gentoo.org>
+  kdeaddons-meta-3.5.4.ebuild:
+  Fix dependencies, as reported by Markus Dittrich and Markus Rothe.
+
+*kdeaddons-meta-3.5.4 (25 Jul 2006)
+
+  25 Jul 2006; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5.4.ebuild:
+  Bump to 3.5.4 (pre-release).
+
+*kdeaddons-meta-3.5.3 (01 Jun 2006)
+
+  01 Jun 2006; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5.3.ebuild:
+  Update to new release.
+
+  01 Jun 2006; Thomas Cort <tcort@gentoo.org> kdeaddons-meta-3.5.2.ebuild:
+  Stable on alpha wrt Bug #132213.
+
+  29 May 2006; Jason Wever <weeve@gentoo.org> kdeaddons-meta-3.5.2.ebuild:
+  Stable on SPARC wrt bug #132213.
+
+  29 May 2006; Diego Pettenò <flameeyes@gentoo.org>
+  -kdeaddons-meta-3.4.1.ebuild, -kdeaddons-meta-3.4.2.ebuild:
+  Drop old versions.
+
+  26 May 2006; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.5.2.ebuild:
+  Stable on ppc64
+
+  26 May 2006; Chris Gianelloni <wolf31o2@gentoo.org>
+  kdeaddons-meta-3.5.2.ebuild:
+  Stable on amd64 wrt bug #132213
+
+  25 May 2006; Chris Gianelloni <wolf31o2@gentoo.org>
+  kdeaddons-meta-3.5.2.ebuild:
+  Stable on x86 wrt bug #132213
+
+  05 Apr 2006; Diego Pettenò <flameeyes@gentoo.org>
+  -kdeaddons-meta-3.5.0.ebuild, -kdeaddons-meta-3.5.1.ebuild:
+  Remove 3.5.0 and 3.5.1 -meta ebuilds.
+
+  27 Mar 2006; Aron Griffis <agriffis@gentoo.org>
+  kdeaddons-meta-3.5.0.ebuild, kdeaddons-meta-3.5.1.ebuild,
+  kdeaddons-meta-3.5.2.ebuild:
+  Mark 3.5.2 3.5.1 3.5.0 ~ia64
+
+  27 Mar 2006; Aron Griffis <agriffis@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Mark 3.4.3 stable on ia64. #112842
+
+*kdeaddons-meta-3.5.2 (22 Mar 2006)
+
+  22 Mar 2006; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.5.2.ebuild:
+  KDE 3.5.2. Not yet released upstream, and so package.masked for now.
+
+*kdeaddons-meta-3.5.1 (23 Jan 2006)
+
+  23 Jan 2006; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.5.1.ebuild:
+  Version 3.5.1. Not yet released upstream, so package.masked for now.
+
+  17 Dec 2005; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.5.0.ebuild:
+  Added ~ppc64
+
+  12 Dec 2005; Joseph Jezak <josejx@gentoo.org> kdeaddons-meta-3.5.0.ebuild:
+  Marked ~ppc.
+
+  11 Dec 2005; Bryan Østergaard <kloeri@gentoo.org
+  kdeaddons-meta-3.4.3.ebuild:
+  Stable on alpha.
+
+  10 Dec 2005; Chris White <chriswhite@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Marked x86 stable for bug #112842.
+
+  09 Dec 2005; Joseph Jezak <josejx@gentoo.org> kdeaddons-meta-3.4.3.ebuild:
+  Marked ppc stable for bug #112842.
+
+  04 Dec 2005; Bryan Østergaard <kloeri@gentoo.org>
+  kdeaddons-meta-3.5.0.ebuild:
+  ~alpha keyword.
+
+  01 Dec 2005; Gregorio Guidi <greg_g@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Fix dependency on vimpart (#114067).
+
+  29 Nov 2005; Jason Wever <weeve@gentoo.org> kdeaddons-meta-3.5.0.ebuild:
+  Added ~sparc keyword.
+
+  25 Nov 2005; Marcus D. Hanwell <cryos@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Stable on amd64, bug 112842.
+
+  24 Nov 2005; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Stable on ppc64
+
+  24 Nov 2005; Gustavo Zacarias <gustavoz@gentoo.org>
+  kdeaddons-meta-3.4.3.ebuild:
+  Stable on sparc wrt #112842
+
+*kdeaddons-meta-3.5.0 (22 Nov 2005)
+
+  22 Nov 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.5.0.ebuild:
+  Ebuilds for KDE 3.5.0 final. It is not yet released, and is package.masked.
+
+*kdeaddons-meta-3.5.0_rc1 (12 Nov 2005)
+
+  12 Nov 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.5.0_rc1.ebuild:
+  Ebuild for new version 3.5.0_rc1.
+
+  22 Oct 2005; Mark Loeser <halcy0n@gentoo.org>
+  kdeaddons-meta-3.5_beta1.ebuild, kdeaddons-meta-3.5.0_beta2.ebuild:
+  Adding ~x86 to keywords
+
+*kdeaddons-meta-3.5.0_beta2 (14 Oct 2005)
+
+  14 Oct 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.5.0_beta2.ebuild:
+  New version.
+
+*kdeaddons-meta-3.4.3 (13 Oct 2005)
+
+  13 Oct 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.4.3.ebuild:
+  New version.
+
+  24 Sep 2005; Diego Pettenò <flameeyes@gentoo.org>
+  -kdeaddons-meta-3.5_alpha1.ebuild:
+  Removed 3.5_alpha1.
+
+*kdeaddons-meta-3.5_beta1 (22 Sep 2005)
+
+  22 Sep 2005; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5_beta1.ebuild:
+  Bump to 3.5 beta1.
+
+  09 Sep 2005; Carsten Lohrke <carlo@gentoo.org>
+  kdeaddons-meta-3.5_alpha1.ebuild:
+  slot 3.4 -> 3.5
+
+*kdeaddons-meta-3.5_alpha1 (07 Sep 2005)
+
+  07 Sep 2005; Diego Pettenò <flameeyes@gentoo.org>
+  +kdeaddons-meta-3.5_alpha1.ebuild:
+  Added 3.5_alpha1 split ebuild.
+
+  08 Aug 2005; Bryan Østergaard <kloeri@gentoo.org>
+  kdeaddons-meta-3.4.2.ebuild:
+  Stable on alpha.
+
+*kdeaddons-meta-3.4.2 (28 Jul 2005)
+
+  28 Jul 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.4.2.ebuild:
+  Version bump to 3.4.2.
+
+  08 Jul 2005; Jason Wever <weeve@gentoo.org> kdeaddons-meta-3.4.1.ebuild:
+  Stable on SPARC.
+
+  01 Jul 2005; Lars Weiler <pylon@gentoo.org> kdeaddons-meta-3.4.1.ebuild:
+  Stable on ppc; Bug #97544.
+
+  01 Jul 2005; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.4.1.ebuild:
+  Stable on ppc64 (bug #97544)
+
+*kdeaddons-meta-3.4.1 (25 May 2005)
+
+  25 May 2005; Dan Armak <danarmak@gentoo.org> +kdeaddons-meta-3.4.1.ebuild:
+  Ebuilds for KDE 3.4.1. These are package.masked until 3.4.1 is actually
+  released. You can't get the tarballs yet.
+
+  27 Apr 2005; Markus Rothe <corsair@gentoo.org>
+  kdeaddons-meta-3.4.0.ebuild:
+  Added ~ppc64 to KEYWORDS
+
+  25 Mar 2005; Jason Wever <weeve@gentoo.org> kdeaddons-meta-3.4.0.ebuild:
+  Added ~sparc keyword.
+
+  19 Mar 2005; Simone Gotti <motaboy@gentoo.org>
+  kdeaddons-meta-3.4.0.ebuild:
+  Added dep on konq-plugins. Fixes bug #85640.
+
+  18 Mar 2005; Daniel Goller <morfic@gentoo.org>
+  kdeaddons-meta-3.4.0.ebuild:
+  Added to ~ppc
+
+  15 Mar 2005; Marcus D. Hanwell <cryos@gentoo.org>
+  kdeaddons-meta-3.4.0.ebuild:
+  Marked ~amd64, keywording KDE split ebuilds, bug 80944.
+
+  13 Mar 2005; Dan Armak <danarmak@gentoo.org> kdeaddons-meta-3.4.0.ebuild:
+  KDE 3.4.0 ebuilds. Note that the tarballs won't be officially released for a
+  few more days.
+
+  09 Mar 2005; Marcus D. Hanwell <cryos@gentoo.org>
+  kdeaddons-meta-3.4.0_rc1.ebuild:
+  Marked ~amd64, keywording KDE split ebuilds, bug 80944.
+
+  27 Feb 2005; Dan Armak <danarmak@gentoo.org>
+  kdeaddons-meta-3.4.0_rc1.ebuild:
+  Fix incorrect dep: kdeaddons-docs-konq-plugins doesn't have an rc1 ebuild
+
+*kdeaddons-meta-3.4.0_rc1 (27 Feb 2005)
+
+  27 Feb 2005; Dan Armak <danarmak@gentoo.org>
+  +kdeaddons-meta-3.4.0_rc1.ebuild:
+  Ebuild for 3.4.0 RC1.
+
+*kdeaddons-meta-3.4.0_beta2-r3 (27 Feb 2005)
+
+  27 Feb 2005; Dan Armak <danarmak@gentoo.org>
+  -kdeaddons-meta-3.4.0_beta1-r1.ebuild,
+  kdeaddons-meta-3.4.0_beta2-r3.ebuild:
+  Changed to depend on the new konq-plugins ebuild instead of the old
+  konqueror-* ones.
+
+  11 Feb 2005; Dan Armak <danarmak@gentoo.org>
+  kdeaddons-meta-3.4.0_beta1-r1.ebuild:
+  Changed the beta1 ebuild to depend on the new noatun-plugins ebuild, too.
+
+  11 Feb 2005; Dan Armak <danarmak@gentoo.org> :
+  Bumping again for the noatun ebuilds move.
+
+  11 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  kdeaddons-meta-3.4.0_beta1-r1.ebuild:
+  Support the kate-* move
+
+  11 Feb 2005; Caleb Tennis <caleb@gentoo.org> :
+  Remove some old ebuilds, update for kicker-* changes
+
+  11 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  kdeaddons-meta-3.4.0_beta1-r1.ebuild:
+  Obsoleting kfile-*
+
+  11 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  kdeaddons-meta-3.4.0_beta1-r1.ebuild:
+  Changing beta1 to new package to remove obsoleted one
+
+*kdeaddons-meta-3.4.0_beta2-r2 (10 Feb 2005)
+
+  10 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  +kdeaddons-meta-3.4.0_beta2-r2.ebuild:
+  bump again for kate-* dep changes
+
+  10 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  kdeaddons-meta-3.4.0_beta2.ebuild:
+  Change kfile-* deps to kdeaddons-kfile-plugins
+
+  10 Feb 2005; Caleb Tennis <caleb@gentoo.org>
+  kdeaddons-meta-3.4.0_beta2.ebuild:
+  Change dep to kaddressbook-plugins
+
+*kdeaddons-meta-3.4.0_beta2 (05 Feb 2005)
+
+  05 Feb 2005; Dan Armak <danarmak@gentoo.org>
+  +kdeaddons-meta-3.4.0_beta2.ebuild:
+  Ebuild for 3.4.0_beta2. Note that beta2 has NOT been released as of this
+  date. This ebuild is for inside testing by the KDE team, and is of course
+  package.masked.
+
+*kdeaddons-meta-3.4.0_beta1-r1 (29 Jan 2005)
+
+  29 Jan 2005; Simone Gotti <motaboy@gentoo.org>
+  +kdeaddons-meta-3.4.0_beta1-r1.ebuild, -kdeaddons-meta-3.4.0_beta1.ebuild:
+  Revision bump as a new dep on konqueror-akregator ebuild was added.
+
+  25 Jan 2005; Simone Gotti <motaboy@gentoo.org>
+  kdeaddons-meta-3.4.0_beta1.ebuild:
+  Add dependency on kde-base/konqueror-akregator.
+
+*kdeaddons-meta-3.4.0_beta1 (15 Jan 2005)
+
+  15 Jan 2005; Dan Armak <danarmak@gentoo.org> +metadata.xml,
+  +kdeaddons-meta-3.4.0_beta1.ebuild:
+  Adding the split ebuilds to portage. For KDE 3.4, we've created separate
+  ebuilds for all the KDE apps.
+
