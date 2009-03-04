@@ -4,15 +4,16 @@
 
 EAPI="2"
 
-KMNAME="kdeadmin"
+KMNAME="kdeutils"
 inherit kde4-meta
 
-DESCRIPTION="KDE port of Red Hat's Gnome system-config-printer"
-KEYWORDS="~amd64 ~x86"
+DESCRIPTION="KDE printer system tray utility"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
 	app-admin/system-config-printer
+	app-misc/hal-cups-utils
 	>=dev-python/PyQt4-4.4.4-r1
 	dev-python/pycups
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]

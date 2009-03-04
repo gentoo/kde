@@ -16,6 +16,7 @@ IUSE=""
 # These provide the most minimal KDE desktop.
 RDEPEND="
 	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kde-wallpapers-${PV}:${SLOT}[kdeprefix=]
@@ -31,7 +32,6 @@ RDEPEND="
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
-	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrandr

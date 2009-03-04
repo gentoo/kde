@@ -14,8 +14,11 @@ LICENSE="GPL-3"
 KEYWORDS=""
 IUSE="debug"
 
-REPEND="
-	!kdeprefix? ( !kde-base/phonon-xine )
+RDEPEND="
+	!kdeprefix? (
+		!kde-base/phonon
+		!kde-base/phonon-xine
+	)
 "
 
 src_prepare() {

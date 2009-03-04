@@ -7,6 +7,6 @@ EAPI="2"
 KMNAME="kdetoys"
 inherit kde4-meta
 
-DESCRIPTION="KDE weather status display"
+DESCRIPTION="KDE weather service daemon"
 KEYWORDS=""
 IUSE="debug"

@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkmahjongg-${PV}:${SLOT}
+	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

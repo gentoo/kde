@@ -7,7 +7,5 @@ KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - powerful search and replace in multiple files"
-HOMEPAGE="http://www.kde.org/"
-
 KEYWORDS=""
 IUSE="debug"
