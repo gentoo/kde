@@ -44,6 +44,7 @@ RDEPEND="${COMMONDEPEND}
 KMEXTRA="
 	libs/nepomukquery/
 	libs/nepomukqueryclient/
+	libs/screenpreviewwidget/
 "
 KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
