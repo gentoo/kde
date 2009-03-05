@@ -1,6 +1,10 @@
 # ChangeLog for kde-base/kdewebdev-meta
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdewebdev-meta/ChangeLog,v 1.91 2008/10/21 11:01:42 jmbsvicetto Exp $
+
+  05 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdewebdev-meta-4.2.1.ebuild:
+  Version removed.
 
   21 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   -kdewebdev-meta-4.0.4.ebuild, -kdewebdev-meta-4.0.5.ebuild:

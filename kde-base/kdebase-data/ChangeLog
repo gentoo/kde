@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdebase-data-4.2.1.ebuild:
+  Version removed.
+
   27 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
   kdebase-data-4.2.1.ebuild:
   Add block to media-gfx/digikam-0.10.0_rc2

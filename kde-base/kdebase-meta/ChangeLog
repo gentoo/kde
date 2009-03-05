@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdebase-meta/ChangeLog,v 1.114 2009/02/28 10:33:56 maekke Exp $
 
+  05 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdebase-meta-4.2.1.ebuild:
+  Version removed.
+
   28 Feb 2009; Markus Meier <maekke@gentoo.org> metadata.xml:
   semantic-desktop is a global USE-flag
 

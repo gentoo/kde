@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdeutils-meta/ChangeLog,v 1.103 2009/02/17 13:31:24 alexxy Exp $
 
+  05 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -kdeutils-meta-4.2.1.ebuild:
+  Version removed.
+
   17 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdeutils-meta-4.1.4.ebuild:
   Drop KDE 4.1.4
