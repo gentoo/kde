@@ -26,7 +26,7 @@ case ${EAPI} in
 		EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_test src_install
 		;;
 	*)
-		EXPORT_FUNCTIONS src_compile src_test src_install
+		EXPORT_FUNCTIONS src_unpack src_compile src_test src_install
 		;;
 esac
 
