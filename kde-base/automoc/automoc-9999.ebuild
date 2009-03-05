@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit subversion cmake-utils
+inherit cmake-utils subversion
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
