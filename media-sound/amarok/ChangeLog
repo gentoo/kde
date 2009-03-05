@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*amarok-2.0.2 (05 Mar 2009)
+
+  05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +amarok-2.0.2.ebuild:
+  Bump
+
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   metadata.xml, amarok-9999.ebuild:
   Added missing [kdeprefix=] USE deps in amarok, reformatting
