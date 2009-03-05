@@ -44,6 +44,10 @@ pkg_setup() {
 	fi
 }
 
+src_prepare() {
+	cmake-utils_src_prepare
+}
+
 src_configure() {
 	# Fix for missing pthread.h linking
 	# NOTE: temporarely fix until a better cmake files patch will be provided.
