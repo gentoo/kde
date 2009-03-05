@@ -202,8 +202,8 @@ case ${OPERATION} in
 		INFO_LIST=
 		for EBUILD_BASEDIR in ${EBUILD_BASEDIR_LIST}; do
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
-			OLD_BASE="$(portageq portdir)"/"${EBUILD_BASEDIR}"/
-			#OLD_BASE="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ # uncoment if you work in overlay only
+			#OLD_BASE="$(portageq portdir)"/"${EBUILD_BASEDIR}"/
+			OLD_BASE="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ # uncoment if you work in overlay only
 			OLD=`find ${OLD_BASE} -name \*${VERSION}\*.ebuild |sort -r |head -n 1`
 			mkdir "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ -p # wont harm kittens
 			NEW="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/"${EBUILD_BASENAME}"-${BUMP_VERSION}.ebuild
