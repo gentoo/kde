@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-JAVA_PKG_OPT_USE="sesame2"
+JAVA_PKG_OPT_USE="java"
 inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
 
 DESCRIPTION="Soprano is a library which provides a nice QT interface to RDF storage solutions."
@@ -15,7 +15,7 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 SLOT="0"
 # virtuoso disabled for now
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +raptor +redland sesame2"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD java +raptor +redland"
 
 COMMON_DEPEND="
 	x11-libs/qt-core:4
@@ -26,7 +26,7 @@ COMMON_DEPEND="
 		>=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6
 	)
-	sesame2? ( >=virtual/jdk-1.6.0 )
+	java? ( >=virtual/jdk-1.6.0 )
 	virtuoso? ( dev-db/libiodbc )
 "
 DEPEND="${COMMON_DEPEND}
@@ -43,11 +43,11 @@ pkg_setup() {
 	ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
 	ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
 	echo
-	if ! use redland && ! use sesame2; then
+	if ! use redland && ! use sesame2 && ! use virtuoso ; then
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
 		ewarn "Applications using soprano may need at least one backend functional."
 		ewarn "If you experience any problems, enable any of those USE flags:"
-		ewarn "redland, sesame2, virtuoso"
+		ewarn "redland, java, virtuoso"
 	fi
 }
 
@@ -67,7 +67,7 @@ src_configure() {
 	! use dbus && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_DBUS=ON"
 	! use raptor && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
 	! use redland && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
-	! use sesame2 && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
+	! use java && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
 	! use virtuoso && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON"
 	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
 

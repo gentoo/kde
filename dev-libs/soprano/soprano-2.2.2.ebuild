@@ -25,7 +25,7 @@ COMMON_DEPEND="
 		>=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.6
 	)
-	sesame2? ( >=virtual/jdk-1.6.0 )
+	java? ( >=virtual/jdk-1.6.0 )
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
@@ -40,12 +40,12 @@ pkg_setup() {
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
 		ewarn "Applications using soprano may need at least one backend functional."
 		ewarn "If you experience any problems, enable any of those USE flags:"
-		ewarn "redland, sesame2"
+		ewarn "redland, java"
 	fi
 }
 
 src_prepare() {
-	cmake-utils_src_prepare
+	base_src_prepare
 }
 
 src_configure() {
