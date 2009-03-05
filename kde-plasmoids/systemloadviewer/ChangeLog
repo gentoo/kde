@@ -1,0 +1,10 @@
+# ChangeLog for kde-plasmoids/systemloadviewer
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*systemloadviewer-0.6 (05 Mar 2009)
+
+  05 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +systemloadviewer-0.6.ebuild:
+  new ebuild, bug #261364, thanks to Marian Kyral
+
