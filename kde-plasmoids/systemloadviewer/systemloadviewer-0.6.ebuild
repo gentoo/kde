@@ -15,6 +15,4 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}"
-
-S="${WORKDIR}"/"${PN}"
+S="${WORKDIR}/${PN}"
