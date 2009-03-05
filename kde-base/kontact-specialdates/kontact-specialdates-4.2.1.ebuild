@@ -14,7 +14,7 @@ IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkholidays-${PV}:${SLOT}[kdeprefix=]"
+	>=kde-base/libkholidays-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
