@@ -88,7 +88,7 @@ COMMONDEPEND="${COMMONDEPEND}
 	x11-libs/libXxf86vm
 "
 
-# localization deps 
+# localization deps
 # DISABLED UNTIL PMS decide correct approach :(
 if [[ -n ${KDE_LINGUAS} ]]; then
 	LNG_DEP=""

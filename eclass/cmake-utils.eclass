@@ -26,7 +26,7 @@ DEPEND=">=dev-util/cmake-2.4.6"
 
 case ${EAPI} in
 	2)
-		EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_test src_install
+		EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 		;;
 	*)
 		EXPORT_FUNCTIONS src_unpack src_compile src_test src_install
@@ -53,7 +53,7 @@ _use_me_now_inverted() {
 # @DESCRIPTION
 # Eclass respects PREFIX variable, though it's not recommended way to set
 # install/lib/bin prefixes.
-# Use CMAKE_INSTALL_PREFIX
+# Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
 
 # @VARIABLE: CMAKE_IN_SOURCE_BUILD
 # @DESCRIPTION:
@@ -71,8 +71,10 @@ _use_me_now_inverted() {
 # @DESCRIPTION:
 # Set to override default CMAKE_BUILD_TYPE. Only useful for packages
 # known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
-# It needs to be set before invoking cmake-utils_src_configure.
-: ${CMAKE_BUILD_TYPE:=}
+# If about to be set - needs to be set before invoking cmake-utils_src_configure.
+# You usualy do *NOT* want nor need to set it as it pulls CMake default build-type
+# specific compiler flags overriding make.conf.
+: ${CMAKE_BUILD_TYPE:=Gentoo}
 
 # @FUNCTION: _check_build_dir
 # @DESCRIPTION:
@@ -148,23 +150,6 @@ cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_has() { _use_me_now HAVE "$@" ; }
 
-# @FUNCTION: cmake-utils_src_unpack
-# @DESCRIPTION:
-# General function for src_prepare with cmake. Main purpose is to strip hardcoded
-# build type definitions and override cmake default build type specific flags.
-# Autopatcher is available.
-cmake-utils_src_unpack() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	# Unpack only if not done already
-	[[ ! -d "${S}" ]] && base_src_unpack
-
-	case ${EAPI} in
-		2) ;;
-		*) cmake-utils_src_prepare ;;
-	esac
-}
-
 # @FUNCTION: cmake-utils_src_prepare
 # @DESCRIPTION:
 # General function for src_prepare with cmake. Main purpose is to strip hardcoded
@@ -184,7 +169,8 @@ cmake-utils_src_prepare() {
 		|| die "${LINENO}: failed to disable hardcoded settings"
 
 	# NOTE append some useful summary here
-	echo 'MESSAGE(STATUS "<<< Gentoo configuration >>>
+	echo '
+MESSAGE(STATUS "<<< Gentoo configuration >>>
 Build type: ${CMAKE_BUILD_TYPE}
 Install path: ${CMAKE_INSTALL_PREFIX}\n")' >> CMakeLists.txt
 }
@@ -197,27 +183,20 @@ cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# @SEE CMAKE_BUILD_TYPE
-	if [[ -z ${CMAKE_BUILD_TYPE} ]]; then
-		# Handle common debug/release builds
-		if has debug ${IUSE//+} && use debug; then
-			CMAKE_BUILD_TYPE="Debug"
-		else
+	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
+		# Handle release builds
+		if ! has debug ${IUSE//+} || ! use debug; then
 			append-cppflags -DNDEBUG
-			CMAKE_BUILD_TYPE="Release"
 		fi
 	fi
 
-	# Prepare Gentoo override rules
+	# Prepare Gentoo override rules (set valid compiler, append CPPFLAGS)
 	local build_rules="${TMPDIR}"/gentoo_rules.cmake
 cat > ${build_rules} << _EOF_
 SET (CMAKE_C_COMPILER $(type -P $(tc-getCC)) CACHE FILEPATH "C compiler" FORCE)
-SET (CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CPPFLAGS} \${CMAKE_C_FLAGS} -o <OBJECT> -c <SOURCE>" CACHE STRING "C compile command" FORCE)
-SET (CMAKE_C_LINK_EXECUTABLE "<CMAKE_C_COMPILER> \${CMAKE_C_FLAGS} <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>" CACHE STRING "C exe link command" FORCE)
-SET (CMAKE_C_CREATE_SHARED_LIBRARY "<CMAKE_C_COMPILER> <CMAKE_SHARED_LIBRARY_C_FLAGS> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> <CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS> <CMAKE_SHARED_LIBRARY_SONAME_C_FLAG><TARGET_SONAME> -o <TARGET> <OBJECTS> <LINK_LIBRARIES>" CACHE STRING "C shared lib link command" FORCE)
+SET (CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C compile command" FORCE)
 SET (CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE FILEPATH "C++ compiler" FORCE)
-SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> ${CPPFLAGS} \${CMAKE_CXX_FLAGS} -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
-SET (CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER> \${CMAKE_CXX_FLAGS} <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>" CACHE STRING "C++ exe link command" FORCE)
-SET (CMAKE_CXX_CREATE_SHARED_LIBRARY "<CMAKE_CXX_COMPILER> <CMAKE_SHARED_LIBRARY_CXX_FLAGS> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> <CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS> <CMAKE_SHARED_LIBRARY_SONAME_CXX_FLAG><TARGET_SONAME> -o <TARGET> <OBJECTS> <LINK_LIBRARIES>" CACHE STRING "C++ shared link command" FORCE)
+SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
 _EOF_
 
 	# Common configure parameters (overridable)
