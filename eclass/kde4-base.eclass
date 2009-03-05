@@ -429,7 +429,7 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
-							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.bz2" ;;
+							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
 						4.1.9* | 4.1.8* | 4.1.7* | 4.1.6* | 4.0.9* | 4.0.8*)
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
@@ -510,7 +510,7 @@ kde4-base_src_unpack() {
 		migrate_store_dir
 		subversion_src_unpack
 	else
-		cmake-utils_src_unpack
+		base_src_unpack
 	fi
 }
 
@@ -527,7 +527,7 @@ kde4-base_src_prepare() {
 		enable_selected_linguas
 	fi
 
-	cmake-utils_src_prepare
+	base_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
