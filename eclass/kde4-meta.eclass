@@ -228,15 +228,18 @@ kde4-meta_src_extract() {
 				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 		fi
 	else
-		local abort tarball tarfile f extractlist moduleprefix
-
-		case $KMNAME in
-			kdebase-apps)
-				tarball="${KMNAME#-apps}-${PV}.tar.bz2"
-				;;
+		local abort tarball tarfile f extractlist moduleprefix postfix
+		case ${PV} in
+			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
+				postfix="lzma" ;;
 			*)
-				tarball="${KMNAME}-${PV}.tar.bz2"
-				;;
+				postfix="bz2" ;;
+		esac
+		case ${KMNAME} in
+			kdebase-apps)
+				tarball="${KMNAME#-apps}-${PV}.tar.${postfix}" ;;
+			*)
+				tarball="${KMNAME}-${PV}.tar.${postfix}" ;;
 		esac
 		tarfile="${DISTDIR}/${tarball}"
 
