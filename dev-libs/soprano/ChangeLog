@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  soprano-2.2.2.ebuild, soprano-9999.ebuild:
+  removed unnecessary src_prepare
+
   28 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org> soprano-2.2.2.ebuild,
   soprano-9999.ebuild:
   we shouldnt depend on java by default
