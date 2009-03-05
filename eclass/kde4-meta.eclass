@@ -284,11 +284,15 @@ kde4-meta_src_extract() {
 		esac
 		case ${KMNAME} in
 			kdebase-apps)
-				tarball="${KMNAME#-apps}-${PV}.tar.${postfix}" ;;
+				tarball="kdebase-${PV}.tar.${postfix}" ;;
 			*)
 				tarball="${KMNAME}-${PV}.tar.${postfix}" ;;
 		esac
 		tarfile="${DISTDIR}/${tarball}"
+
+		# Detect real toplevel dir - issue with unstable snapshots
+		# It will be used in __list_needed_subdirectories
+		topdir="${tarball%.tar.*}/"
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
@@ -303,7 +307,7 @@ kde4-meta_src_extract() {
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
 		do
-			extractlist="${extractlist} ${KMNAME}-${PV}/${moduleprefix}${f}"
+			extractlist="${extractlist} ${topdir}${moduleprefix}${f}"
 		done
 		extractlist="${extractlist} $(__list_needed_subdirectories)"
 		KMTARPARAMS="${KMTARPARAMS} -j"
@@ -313,7 +317,7 @@ kde4-meta_src_extract() {
 		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
-		mv ${KMNAME}-${PV} ${P} || die "Died while moving \"${KMNAME}-${PV}\" to \"${P}\""
+		mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""
 
 		popd > /dev/null
 
@@ -331,6 +335,9 @@ kde4-meta_src_extract() {
 			done
 			[[ -n ${abort} ]] && die "There were missing files."
 		fi
+
+		# We don't need it anymore
+		unset topdir
 	fi
 }
 
@@ -420,7 +427,7 @@ kde4-meta_create_extractlists() {
 }
 
 __list_needed_subdirectories() {
-	local i j kmextra kmextra_expanded kmmodule_expanded kmcompileonly_expanded extractlist topdir
+	local i j kmextra kmextra_expanded kmmodule_expanded kmcompileonly_expanded extractlist
 
 	# We expand KMEXTRA by adding CMakeLists.txt files
 	kmextra="${KMEXTRA}"
@@ -458,12 +465,8 @@ __list_needed_subdirectories() {
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmmodule_expanded:  ${kmmodule_expanded}"
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME} - kmcompileonly_expanded: ${kmcompileonly_expanded}"
 
-	case ${PV} in
-		scm|9999*) : ;;
-		*) topdir="${KMNAME}-${PV}/" ;;
-	esac
 	# Create final list of stuff to extract
-	# We append topleveldir only when specified (usually for tarballs)
+	# We append topdir only when specified (usually for tarballs)
 	for i in ${kmmodule_expanded} ${kmextra_expanded} ${kmcompileonly_expanded} \
 		${KMEXTRACTONLY}
 	do

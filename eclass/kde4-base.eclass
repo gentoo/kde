@@ -52,7 +52,8 @@ kde4-base_set_qt_dependencies() {
 		optional)
 			IUSE="${IUSE} webkit"
 			qtdepend="${qtdepend}
-				webkit? ( ${qtwebkitdepend} )"
+				webkit? ( ${qtwebkitdepend} )
+			"
 			;;
 		*) WEBKIT_REQUIRED="never" ;;
 	esac
