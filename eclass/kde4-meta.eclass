@@ -290,8 +290,7 @@ kde4-meta_src_extract() {
 		esac
 		tarfile="${DISTDIR}/${tarball}"
 
-		# Detect real toplevel dir - issue with unstable snapshots
-		# It will be used in __list_needed_subdirectories
+		# Detect real toplevel dir - it will be used in __list_needed_subdirectories
 		topdir="${tarball%.tar.*}/"
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
