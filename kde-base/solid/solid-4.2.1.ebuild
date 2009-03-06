@@ -33,6 +33,8 @@ KMEXTRA="
 	libs/solid/
 "
 
+PATCHES=( "${DISTDIR}/${PN}-4.2.0-backport-solid-bluetooth.patch.tar.bz2" )
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bluetooth BlueZ)
