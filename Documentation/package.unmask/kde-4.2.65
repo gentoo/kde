@@ -230,6 +230,7 @@
 ~kde-base/plasma-apps-4.2.65
 ~kde-base/plasma-workspace-4.2.65
 ~kde-base/powerdevil-4.2.65
+~kde-base/printer-applet-4.2.65
 ~kde-base/pykde4-4.2.65
 ~kde-base/renamedlg-plugins-4.2.65
 ~kde-base/solid-4.2.65
@@ -239,5 +240,6 @@
 ~kde-base/superkaramba-4.2.65
 ~kde-base/svgpart-4.2.65
 ~kde-base/sweeper-4.2.65
+~kde-base/system-config-printer-kde-4.2.65
 ~kde-base/systemsettings-4.2.65
 ~kde-base/umbrello-4.2.65
