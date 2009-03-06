@@ -311,7 +311,6 @@ kde4-meta_src_extract() {
 			extractlist="${extractlist} ${topdir}${moduleprefix}${f}"
 		done
 		extractlist="${extractlist} $(__list_needed_subdirectories)"
-		KMTARPARAMS="${KMTARPARAMS} -j"
 
 		pushd "${WORKDIR}" > /dev/null
 		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} >&2
