@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/gwenview/gwenview-4.2.1-r1.ebuild,v 1.1 2009/03/06 01:16:28 jmbsvicetto Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -15,11 +15,12 @@ RESTRICT="test"
 DEPEND="
 	media-gfx/exiv2
 	media-libs/jpeg
-	kipi? ( >=kde-base/libkipi-${PV}:${SLOT} )
-	>=kde-base/kdelibs-${PV}:${SLOT}[semantic-desktop?]
+	kipi? ( >=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=] )
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 "
-
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+"
 
 PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 

@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  gwenview-4.2.1-r1.ebuild, -gwenview-4.2.1.ebuild:
+  Synced some changes
+
   06 Mar 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   +kde-base/gwenview/files/gwenview-fix-version.diff:
   Bumped gwenview to add a patch sent to the kde packager ml by Aurélien
