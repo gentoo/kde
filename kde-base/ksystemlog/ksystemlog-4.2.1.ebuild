@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KSystemLog is a system log viewer for KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

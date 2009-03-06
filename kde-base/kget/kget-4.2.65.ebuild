@@ -13,7 +13,7 @@ IUSE="debug +plasma bittorrent bittorrent-external +semantic-desktop sqlite"
 
 DEPEND="
 	dev-libs/libpcre
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 	bittorrent? (
 		app-crypt/qca:2
 		dev-libs/gmp

@@ -22,6 +22,7 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
+	>=kde-base/kdemaildir-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
 "

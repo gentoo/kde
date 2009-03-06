@@ -8,7 +8,7 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="

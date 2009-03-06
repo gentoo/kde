@@ -20,5 +20,6 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DBUILD_lilo-config=TRUE -DLILO_EXECUTABLE=TRUE"
-	kde4-meta_src_compile
+
+	kde4-meta_src_configure
 }

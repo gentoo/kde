@@ -12,12 +12,13 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	app-crypt/gnupg
 	app-crypt/gpgme
 	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/gnupg
+"
 
 KMLOADLIBS="libkdepim"
 KMSAVELIBS="true"

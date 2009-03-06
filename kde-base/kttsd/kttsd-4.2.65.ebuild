@@ -14,7 +14,7 @@ IUSE="alsa debug +ktts +phonon"
 DEPEND="
 	ktts? (
 		alsa? ( >=media-libs/alsa-lib-1.0.14a )
-		phonon? ( >=media-sound/phonon-4.3.0 )
+		phonon? ( >=media-sound/phonon-4.3.1 )
 	)
 "
 RDEPEND="${DEPEND}

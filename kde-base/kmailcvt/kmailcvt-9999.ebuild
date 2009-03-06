@@ -12,10 +12,11 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	app-crypt/gnupg
 	app-crypt/gpgme
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/gnupg
+"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="

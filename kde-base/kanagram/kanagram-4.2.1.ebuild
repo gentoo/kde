@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: letter order game."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

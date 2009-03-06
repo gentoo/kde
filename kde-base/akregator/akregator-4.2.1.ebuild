@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE news feed aggregator."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

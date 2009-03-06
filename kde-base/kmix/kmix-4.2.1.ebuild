@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE mixer gui"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="alsa debug htmlhandbook"
+IUSE="alsa debug"
 
 DEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )

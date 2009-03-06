@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +semantic-desktop"
 
 DEPEND="
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]

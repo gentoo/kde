@@ -15,9 +15,8 @@ IUSE="akonadi debug semantic-desktop"
 
 DEPEND="
 	>=dev-python/PyQt4-4.4.4-r1[webkit]
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
-	semantic-desktop? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop] )
 "
 RDEPEND="${DEPEND}"
 

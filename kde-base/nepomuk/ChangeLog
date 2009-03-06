@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  nepomuk-4.2.65.ebuild, nepomuk-9999.ebuild:
+  USE deps updated - 4.2.1 still uses sesame2, newwer - java
+
 *nepomuk-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +nepomuk-4.2.65.ebuild:

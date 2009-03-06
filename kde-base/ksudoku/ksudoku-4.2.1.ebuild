@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Sudoku"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 RDEPEND="
 	!kdeprefix? ( !games-puzzle/ksudoku )

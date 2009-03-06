@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Applet for KDE and X clipboard management"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]

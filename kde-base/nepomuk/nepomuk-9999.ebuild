@@ -14,7 +14,7 @@ IUSE="debug"
 DEPEND="
 	|| (
 		dev-libs/soprano[clucene,dbus,raptor,redland]
-		dev-libs/soprano[clucene,dbus,raptor,sesame2]
+		dev-libs/soprano[clucene,dbus,raptor,java]
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
 "

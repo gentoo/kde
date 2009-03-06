@@ -28,7 +28,7 @@ COMMONDEPEND="
 	media-libs/giflib
 	media-libs/jpeg
 	media-libs/libpng
-	>=media-sound/phonon-4.3.0[xcb]
+	>=media-sound/phonon-4.3.1[xcb]
 	sys-apps/dbus[X]
 	sys-libs/zlib
 	x11-libs/libICE

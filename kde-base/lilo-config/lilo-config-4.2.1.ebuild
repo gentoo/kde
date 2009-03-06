@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE LiLo kcontrol module"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
@@ -21,5 +21,5 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DBUILD_lilo-config=TRUE -DLILO_EXECUTABLE=TRUE"
 
-	kde4-meta_src_compile
+	kde4-meta_src_configure
 }

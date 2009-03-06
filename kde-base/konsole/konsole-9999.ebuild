@@ -25,7 +25,9 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-KMEXTRA="doc/${PN}/"
+KMEXTRA="
+	doc/${PN}/
+"
 
 src_unpack() {
 	MAKEOPTS="${MAKEOPTS} -j1"

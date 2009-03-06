@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE library for CDDB"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook musicbrainz"
+IUSE="debug musicbrainz"
 
 DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:1 )

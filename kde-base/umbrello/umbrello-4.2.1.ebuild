@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Umbrello UML Modeller"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug htmlhandbook"
+IUSE="debug"
 
 DEPEND="
 	dev-libs/boost

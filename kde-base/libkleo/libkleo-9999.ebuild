@@ -12,10 +12,11 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	app-crypt/gnupg
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/gnupg
+"
 
 KMSAVELIBS="true"
 
