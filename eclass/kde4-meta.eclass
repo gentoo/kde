@@ -278,10 +278,10 @@ kde4-meta_src_extract() {
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
 			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
-				KMTARPARAMS="${KMTARPARAMS} -J" # lzma
+				KMTARPARAMS="${KMTARPARAMS} --lzma" # lzma
 				postfix="lzma" ;;
 			*)
-				KMTARPARAMS="${KMTARPARAMS} -j" # bz2
+				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
 				postfix="bz2" ;;
 		esac
 		case ${KMNAME} in
