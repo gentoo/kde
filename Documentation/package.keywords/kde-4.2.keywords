@@ -1,15 +1,17 @@
->=kde-base/qimageblitz-0.0.4
->=dev-util/cmake-2.6.2
->=dev-libs/libical-0.33-r1
->=x11-apps/xinit-1.0.5-r2
->=sci-mathematics/gmm-3.0
-app-text/ebook-tools
-dev-libs/libzip
-
+app-arch/libarchive
 app-misc/strigi
 app-office/akonadi-server
+app-text/ebook-tools
 dev-cpp/eigen:2
+>=dev-libs/libical-0.33-r1
+dev-libs/libzip
 dev-libs/soprano
+>=dev-util/cmake-2.6.2
+>=kde-base/qimageblitz-0.0.4
+media-sound/phonon
+>=sci-mathematics/gmm-3.0
+>=x11-apps/xinit-1.0.5-r2
+
 kde-base/akonadi:4.2
 kde-base/akregator:4.2
 kde-base/amor:4.2
@@ -261,11 +263,8 @@ kde-base/sweeper:4.2
 kde-base/system-config-printer-kde:4.2
 kde-base/systemsettings:4.2
 kde-base/umbrello:4.2
-media-sound/phonon
 
 # meta ebuilds
-
-kde-base/kde-meta:4.2
 kde-base/kdeaccessibility-meta:4.2
 kde-base/kdeadmin-meta:4.2
 kde-base/kdeartwork-meta:4.2
@@ -273,10 +272,10 @@ kde-base/kdebase-meta:4.2
 kde-base/kdeedu-meta:4.2
 kde-base/kdegames-meta:4.2
 kde-base/kdegraphics-meta:4.2
+kde-base/kde-meta:4.2
 kde-base/kdemultimedia-meta:4.2
 kde-base/kdenetwork-meta:4.2
 kde-base/kdepim-meta:4.2
 kde-base/kdesdk-meta:4.2
 kde-base/kdetoys-meta:4.2
 kde-base/kdeutils-meta:4.2
-kde-base/kde-meta:4.2
