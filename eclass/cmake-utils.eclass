@@ -45,29 +45,29 @@ _use_me_now_inverted() {
 	echo "-D$1_${3:-$2}=$(use $2 && echo OFF || echo ON)"
 }
 
-# @VARIABLE: DOCS
+# @ECLASS-VARIABLE: DOCS
 # @DESCRIPTION:
 # Documents to pass to dodoc.
 
-# @VARIABLE: PREFIX
+# @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION
 # Eclass respects PREFIX variable, though it's not recommended way to set
 # install/lib/bin prefixes.
 # Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
 
-# @VARIABLE: CMAKE_IN_SOURCE_BUILD
+# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
 # @DESCRIPTION:
 # Set to enable in-source build.
 
-# @VARIABLE: CMAKE_NO_COLOR
+# @ECLASS-VARIABLE: CMAKE_NO_COLOR
 # @DESCRIPTION:
 # Set to disable cmake output coloring.
 
-# @VARIABLE: CMAKE_VERBOSE
+# @ECLASS-VARIABLE: CMAKE_VERBOSE
 # @DESCRIPTION:
 # Set to enable verbose messages during compilation.
 
-# @VARIABLE: CMAKE_BUILD_TYPE
+# @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
 # @DESCRIPTION:
 # Set to override default CMAKE_BUILD_TYPE. Only useful for packages
 # known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
@@ -150,16 +150,10 @@ cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_has() { _use_me_now HAVE "$@" ; }
 
-# @FUNCTION: cmake-utils_src_prepare
-# @DESCRIPTION:
-# General function for src_prepare with cmake. Main purpose is to strip hardcoded
-# build type definitions and override cmake default build type specific flags.
-# Autopatcher is available.
-cmake-utils_src_prepare() {
+# internal function for modifying hardcoded definitions.
+# remove dangerous defintionts that override gentoo settings.
+_modify-cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Invoke autopatcher
-	base_src_prepare
 
 	# Comment out all set (<some_should_be_user_defined_variable> value)
 	# TODO add QA checker - inform when something from avobe is set in CMakeLists.txt
@@ -181,6 +175,9 @@ Install path: ${CMAKE_INSTALL_PREFIX}\n")' >> CMakeLists.txt
 # out-of-source build.
 cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# remove dangerous things.
+	_modify-cmakelists
 
 	# @SEE CMAKE_BUILD_TYPE
 	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then

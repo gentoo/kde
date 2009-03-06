@@ -43,7 +43,7 @@ pkg_setup() {
 	ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
 	ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
 	echo
-	if ! use redland && ! use sesame2 && ! use virtuoso ; then
+	if ! use redland && ! use java && ! use virtuoso ; then
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
 		ewarn "Applications using soprano may need at least one backend functional."
 		ewarn "If you experience any problems, enable any of those USE flags:"
@@ -52,7 +52,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cmake-utils_src_prepare
+	base_src_prepare
 }
 
 src_configure() {

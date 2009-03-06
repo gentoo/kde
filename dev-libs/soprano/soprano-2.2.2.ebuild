@@ -45,7 +45,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cmake-utils_src_prepare
+	base_src_prepare
 }
 
 src_configure() {

@@ -534,7 +534,7 @@ kde4-base_src_prepare() {
 		enable_selected_linguas
 	fi
 
-	cmake-utils_src_prepare
+	base_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
