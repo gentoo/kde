@@ -18,20 +18,19 @@
 # builds and an implementation of the well-known use_enable and use_with
 # functions for CMake.
 
+EXPORTED_FUNCTIONS="src_compile src_test src_install"
+case ${EAPI:-0} in
+	2) EXPORTED_FUNCTIONS="src_configure ${EXPORTED_FUNCTIONS}" ;;
+	1|0) ;;
+	*) die "Unknown EAPI, Bug eclass maintainers." ;;
+esac
+EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
+
 inherit toolchain-funcs multilib flag-o-matic base
 
-DESCRIPTION="Based on the ${ECLASS} eclass"
+: ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
 DEPEND=">=dev-util/cmake-2.4.6"
-
-case ${EAPI} in
-	2)
-		EXPORT_FUNCTIONS src_configure src_compile src_test src_install
-		;;
-	*)
-		EXPORT_FUNCTIONS src_compile src_test src_install
-		;;
-esac
 
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
@@ -150,7 +149,7 @@ cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_use_has() { _use_me_now HAVE "$@" ; }
 # for backcompat
-cmake-utils_has() { ewarn "ebuild is using deprecated call" ; _use_me_now HAVE "$@" ; }
+cmake-utils_has() { ewarn "ebuild is using deprecated call. Inform maintainer." ; _use_me_now HAVE "$@" ; }
 
 # @FUNCTION: cmake-utils_use
 # @USAGE: <USE flag> [flag name]
@@ -242,10 +241,7 @@ _EOF_
 cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	case ${EAPI} in
-		2) ;;
-		*) cmake-utils_src_configure ;;
-	esac
+	has src_configure ${EXPORTED_FUNCTIONS} || cmake-utils_src_configure
 
 	cmake-utils_src_make "$@"
 }

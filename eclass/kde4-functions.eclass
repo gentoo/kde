@@ -14,9 +14,9 @@
 # @DESCRIPTION:
 # By default kde4 eclasses wants eapi 2 which might be redefinable to newer
 # versions.
-case ${EAPI} in
+case ${EAPI:-0} in
 	2) : ;;
-	*) die "No way! EAPI older than 2 is not supported." ;;
+	*) die "No way! EAPI other than 2 is not supported for now." ;;
 esac
 
 # @ECLASS-VARIABLE: KDEBASE
