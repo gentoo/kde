@@ -80,7 +80,7 @@ src_test() {
 	mycmakeargs="${mycmakeargs} -DENABLE_CPPUNIT=ON"
 	cmake-utils_src_compile
 
-	pushd "${WORKDIR}/${PN}_build"
+	pushd "${CMAKE_BUILD_DIR}"
 	ctest --extra-verbose || die "Tests failed."
 	popd
 }
