@@ -18,5 +18,4 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kmail
-	libkdepim
 "

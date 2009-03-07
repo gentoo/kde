@@ -7,14 +7,13 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="Interfaces for Kontact"
-KEYWORDS="~amd64 ~x86"
+DESCRIPTION="Common library for KDE PIM apps"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
-DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+RDEPEND="
+	>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml

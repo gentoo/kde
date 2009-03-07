@@ -25,7 +25,6 @@ KMEXTRACTONLY="
 	kontactinterfaces/
 	kaddressbook
 	korganizer
-	libkdepim
 "
 KMEXTRA="
 	kontact/plugins/specialdates/

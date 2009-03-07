@@ -27,7 +27,6 @@ KMEXTRACTONLY="
 	kresources/kolab/
 	kresources/scalix/
 	kresources/slox/
-	libkdepim
 "
 
 src_prepare() {

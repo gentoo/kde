@@ -27,7 +27,6 @@ RDEPEND="${DEPEND}
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	korganizer/org.kde.Korganizer.Calendar.xml
-	libkdepim
 	libkleo
 	libkpgp
 	mimelib

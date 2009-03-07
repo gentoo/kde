@@ -19,6 +19,5 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kmail
-	libkdepim
 	libkholidays
 "

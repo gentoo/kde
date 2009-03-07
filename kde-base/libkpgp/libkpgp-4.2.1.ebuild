@@ -7,13 +7,8 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="KDE Notes"
-KEYWORDS=""
+DESCRIPTION="KDE pgp abstraction library"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-"
-RDEPEND="${DEPEND}"
-
-KMLOADLIBS="libkdepim"
+PATCHES=( "${FILESDIR}/${PN}-4.1.72-fix.patch" )

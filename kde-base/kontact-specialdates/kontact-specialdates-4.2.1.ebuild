@@ -26,7 +26,6 @@ KMEXTRACTONLY="
 	kontactinterfaces/
 	kaddressbook
 	korganizer
-	libkdepim
 	libkholidays
 "
 KMEXTRA="

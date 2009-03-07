@@ -17,5 +17,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
-
-KMEXTRACTONLY="libkdepim/"

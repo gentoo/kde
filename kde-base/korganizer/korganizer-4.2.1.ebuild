@@ -29,7 +29,6 @@ KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
 	knode/org.kde.knode.xml
-	libkdepim
 	libkholidays
 "
 

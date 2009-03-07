@@ -12,16 +12,18 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	app-crypt/gnupg
 	app-crypt/gpgme
 	dev-libs/libassuan
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/gnupg
+"
 
-KMEXTRACTONLY="libkdepim
-	libkleo"
+KMEXTRACTONLY="
+	libkleo
+"
 
 KMLOADLIBS="libkleo"
 

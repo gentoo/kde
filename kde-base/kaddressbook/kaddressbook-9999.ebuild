@@ -21,7 +21,6 @@ RDEPEND="${DEPEND}"
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
 	kmail/
-	libkdepim/
 	libkleo/
 "
 KMLOADLIBS="libkdepim libkleo"

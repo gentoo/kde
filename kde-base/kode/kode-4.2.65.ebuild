@@ -7,10 +7,6 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="KDE kpgp library"
+DESCRIPTION="Collection of code generation and XML helper tools."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-
-KMEXTRACTONLY="
-	libkdepim/
-"

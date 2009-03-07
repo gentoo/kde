@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kode-4.2.1.ebuild, kode-4.2.65.ebuild, -kode-9999.ebuild:
+  Dropped by upstream, fixed copy & paste description :P
+
 *kode-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +kode-4.2.65.ebuild:

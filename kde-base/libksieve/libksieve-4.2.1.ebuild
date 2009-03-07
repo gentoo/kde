@@ -7,10 +7,6 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="KDE kpgp library"
-KEYWORDS=""
+DESCRIPTION="library enable support for sieve (imap server-side filtering standard) in kde apps, used by kmail"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-
-KMEXTRACTONLY="
-	libkdepim/
-"

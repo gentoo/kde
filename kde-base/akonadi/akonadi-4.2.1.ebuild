@@ -32,7 +32,6 @@ RDEPEND="${DEPEND}
 "
 
 KMEXTRACTONLY="
-	libkdepim/
 	maildir/
 "
 

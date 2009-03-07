@@ -13,14 +13,18 @@ IUSE="debug"
 #RESTRICT="test"
 
 DEPEND="
-	app-crypt/gnupg
 	app-crypt/gpgme
 	dev-libs/libassuan
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/gnupg
+"
 
-KMEXTRACTONLY="libkleo"
+KMEXTRACTONLY="
+	libkleo
+"
 KMLOADLIBS="libkleo"
 
 src_configure() {

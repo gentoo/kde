@@ -25,7 +25,6 @@ KMEXTRACTONLY="
 	kmail/
 	knotes/
 	korganizer/version.h
-	libkdepim/
 "
 
 KMLOADLIBS="libkdepim"

@@ -19,7 +19,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kresources/
 	libkdepim
 "
 

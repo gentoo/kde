@@ -18,7 +18,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	libkdepim/
 	libkpgp/
 "
 

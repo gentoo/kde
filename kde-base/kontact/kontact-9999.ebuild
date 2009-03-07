@@ -41,5 +41,4 @@ KMEXTRACTONLY="
 	kontact/plugins/planner/
 	kontact/plugins/specialdates/
 	kontactinterfaces/
-	libkdepim/
 "

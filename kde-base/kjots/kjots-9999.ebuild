@@ -15,5 +15,3 @@ DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="libkdepim"

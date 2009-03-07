@@ -58,20 +58,9 @@ case ${KMNAME} in
 			dev-libs/boost
 			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 		"
-		if [[ ${PN} != kode ]]; then
-			DEPEND="${DEPEND}
-				>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
-			"
-			RDEPEND="${RDEPEND}
-				>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
-			"
-		fi
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|kmobiletools|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				DEPEND="${DEPEND}
-					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
-				"
 				RDEPEND="${RDEPEND}
 					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
 				"
@@ -389,9 +378,12 @@ kde4-meta_create_extractlists() {
 			fi
 			;;
 		kdepim)
+			if [[ ${PN} != libkdepim ]]; then
+				KMEXTRACTONLY="${KMEXTRACTONLY}
+					libkdepim"
+			fi
 			KMEXTRACTONLY="${KMEXTRACTONLY}
-				kleopatra/ConfigureChecks.cmake
-				libkdepim/kdepim_export.h"
+				kleopatra/ConfigureChecks.cmake"
 			if has kontact ${IUSE//+} && use kontact; then
 				KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
 				KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"

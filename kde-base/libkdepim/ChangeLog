@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libkdepim-4.2.1-r1 (07 Mar 2009)
+
+  07 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +libkdepim-4.2.1-r1.ebuild, -libkdepim-4.2.1.ebuild,
+  libkdepim-4.2.65.ebuild, libkdepim-9999.ebuild:
+  kdepim changes - as kode was removed from trunk and we had it in eclass
+  (!!) - we need to populate kode in RDEPEND for kdepim packages that may
+  use it - libkdepim is the most common dependency. Removed kdepim_export from
+  eclass - not needed.
+
 *libkdepim-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +libkdepim-4.2.65.ebuild:
