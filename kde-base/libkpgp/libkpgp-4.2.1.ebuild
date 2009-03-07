@@ -8,7 +8,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE pgp abstraction library"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 PATCHES=( "${FILESDIR}/${PN}-4.1.72-fix.patch" )
