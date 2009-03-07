@@ -13,7 +13,6 @@ IUSE="debug"
 
 DEPEND="
 	x11-libs/libXt
-	x11-libs/qt-gui:4[glib]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
