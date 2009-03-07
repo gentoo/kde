@@ -19,7 +19,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	libkdepim
+	kresources/
 "
 
 KMLOADLIBS="libkdepim kontactinterfaces"
