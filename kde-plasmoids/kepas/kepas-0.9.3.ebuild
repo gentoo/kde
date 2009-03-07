@@ -15,5 +15,5 @@ KEYWORDS="~amd64 ~x86"
 SLOT="1"
 IUSE="oscar zeroconf"
 
-DEPEND="zeroconf? ( kde-base/kdnssd:${SLOT} )
-	oscar? ( kde-base/kopete:${SLOT}[oscar] )"
+DEPEND="zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL}[kdeprefix=] )
+	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[kdeprefix=,oscar] )"
