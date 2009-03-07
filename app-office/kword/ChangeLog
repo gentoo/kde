@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +files/kword-1.9.98.7-int-cast-fix.patch, kword-1.9.98.7.ebuild:
+  added patch that fixes wv2 USE, b.k.o #186297
+
 *kword-1.9.98.7 (06 Mar 2009)
 
   06 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org> -kword-1.9.98.6.ebuild,
