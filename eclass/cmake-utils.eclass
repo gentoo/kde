@@ -141,14 +141,25 @@ cmake-utils_use_want() { _use_me_now WANT "$@" ; }
 # and -DBUILD_FOO=OFF if it is disabled.
 cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 
-# @FUNCTION: cmake-utils_has
+# @FUNCTION: cmake-utils_use_has
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
 # Based on use_enable. See ebuild(5).
 #
-# `cmake-utils_has foo FOO` echoes -DHAVE_FOO=ON if foo is enabled
+# `cmake-utils_use_has foo FOO` echoes -DHAVE_FOO=ON if foo is enabled
 # and -DHAVE_FOO=OFF if it is disabled.
-cmake-utils_has() { _use_me_now HAVE "$@" ; }
+cmake-utils_use_has() { _use_me_now HAVE "$@" ; }
+# for backcompat
+cmake-utils_has() { ewarn "ebuild is using deprecated call" ; _use_me_now HAVE "$@" ; }
+
+# @FUNCTION: cmake-utils_use
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on use_enable. See ebuild(5).
+#
+# `cmake-utils_use foo FOO` echoes -DFOO=ON if foo is enabled
+# and -DFOO=OFF if it is disabled.
+cmake-utils_use() { _use_me_now "" "$@" ; }
 
 # internal function for modifying hardcoded definitions.
 # remove dangerous defintionts that override gentoo settings.
