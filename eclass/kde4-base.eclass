@@ -13,7 +13,7 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit cmake-utils eutils kde4-functions
+inherit base cmake-utils eutils kde4-functions
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
