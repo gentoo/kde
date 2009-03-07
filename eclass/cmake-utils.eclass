@@ -18,15 +18,16 @@
 # builds and an implementation of the well-known use_enable and use_with
 # functions for CMake.
 
-EXPORTED_FUNCTIONS="src_compile src_test src_install"
+inherit toolchain-funcs multilib flag-o-matic base
+
+EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2) EXPORTED_FUNCTIONS="src_configure ${EXPORTED_FUNCTIONS}" ;;
+	2) EXPF="${EXPF} src_configure"
+		;;
 	1|0) ;;
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
-EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
-
-inherit toolchain-funcs multilib flag-o-matic base
+EXPORT_FUNCTIONS ${EXPF}
 
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
@@ -85,6 +86,7 @@ _check_build_dir() {
 	else
 		CMAKE_BUILD_DIR="${WORKDIR}/${PN}_build"
 	fi
+	echo ">>> Working in BUILD_DIR: \"$CMAKE_BUILD_DIR\""
 }
 # @FUNCTION: cmake-utils_use_with
 # @USAGE: <USE flag> [flag name]
@@ -241,8 +243,7 @@ _EOF_
 cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	has src_configure ${EXPORTED_FUNCTIONS} || cmake-utils_src_configure
-
+	has src_configure ${EXPF} || cmake-utils_src_configure
 	cmake-utils_src_make "$@"
 }
 
