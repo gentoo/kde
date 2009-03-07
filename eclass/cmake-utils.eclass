@@ -149,7 +149,7 @@ cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_use_has() { _use_me_now HAVE "$@" ; }
 # for backcompat
-cmake-utils_has() { ewarn "ebuild is using deprecated call. Inform maintainer." ; _use_me_now HAVE "$@" ; }
+cmake-utils_has() { ewarn "QA: ebuild is using deprecated call. Inform maintainer." ; _use_me_now HAVE "$@" ; }
 
 # @FUNCTION: cmake-utils_use
 # @USAGE: <USE flag> [flag name]
@@ -250,8 +250,8 @@ cmake-utils_src_compile() {
 # @DESCRIPTION:
 # Deprecated
 cmake-utils_src_configurein() {
-	ewarn "This ebuild is using deprecated function call: ${FUNCNAME}"
-	ewarn "Inform ebuild maintainer."
+	ewarn "QA: This ebuild is using deprecated function call: ${FUNCNAME}"
+	ewarn "QA: Inform ebuild maintainer."
 	cmake-utils_src_configure
 }
 
@@ -259,8 +259,8 @@ cmake-utils_src_configurein() {
 # @DESCRIPTION:
 # Deprecated
 cmake-utils_src_configureout() {
-	ewarn "This ebuild is using deprecated function call: ${FUNCNAME}"
-	ewarn "Inform ebuild maintainer."
+	ewarn "QA: This ebuild is using deprecated function call: ${FUNCNAME}"
+	ewarn "QA: Inform ebuild maintainer."
 	cmake-utils_src_configure
 }
 
