@@ -19,10 +19,7 @@ RDEPEND="
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
-	pam? (
-		>=kde-base/kdebase-pam-7
-		sys-libs/pam
-	)
+	pam? ( >=kde-base/kdebase-pam-7 )
 "
 DEPEND="${RDEPEND}
 	x11-proto/randrproto

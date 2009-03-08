@@ -22,7 +22,7 @@ DEPEND="
 	kerberos? ( virtual/krb5 )
 	pam? (
 		>=kde-base/kcheckpass-${PV}:${SLOT}[kdeprefix=]
-		sys-libs/pam
+		virtual/pam
 	)
 "
 RDEPEND="${DEPEND}

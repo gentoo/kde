@@ -14,7 +14,7 @@ IUSE="debug pam"
 DEPEND="
 	pam? (
 		>=kde-base/kdebase-pam-7
-		sys-libs/pam
+		virtual/pam
 	)
 "
 RDEPEND="${DEPEND}"
