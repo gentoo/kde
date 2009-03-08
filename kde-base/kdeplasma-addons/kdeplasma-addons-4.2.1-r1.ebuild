@@ -28,6 +28,8 @@ RDEPEND="${DEPEND}
 	xinerama? ( x11-libs/libXinerama )
 "
 
+PATCHES=( "${FILESDIR}/lancelot-qt45.patch" )
+
 src_prepare() {
 	sed -i -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \
 		-e 's/${KDE4WORKSPACE_WEATHERION_LIBRARY}/weather_ion/g' \
