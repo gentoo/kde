@@ -15,6 +15,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	!kdeprefix? ( !<kde-base/kde-wallpapers-${PV} )
-	kdeprefix? ( !<kde-base/kde-wallpapers-$PV:${SLOT} )
+	!kdeprefix? ( !<kde-base/kde-wallpapers-${PV}[-kdeprefix] )
+	kdeprefix? ( !<kde-base/kde-wallpapers-$PV:${SLOT}[kdeprefix=] )
 "
