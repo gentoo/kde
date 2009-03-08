@@ -289,9 +289,13 @@ kde4-meta_src_extract() {
 		kde4-meta_create_extractlists
 
 		# Go one level deeper for kdebase-apps in tarballs (releases)
-		if [[ ${KMNAME} == kdebase-apps && ${BUILD_TYPE} == release ]]; then
+		if [[ ${KMNAME} = kdebase-apps ]]; then
 			moduleprefix=apps/
 			KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
+		fi
+
+		if [[ ${KMMODULE} = apps* ]]; then # preserve old behavior
+			topdir="${KMNAME}-${PV}/"
 		fi
 
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
