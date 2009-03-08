@@ -137,11 +137,11 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
 		-DKDE_DEFAULT_HOME=${HME}
-		$(cmake-utils_has 3dnow X86_3DNOW)
-		$(cmake-utils_has altivec PPC_ALTIVEC)
-		$(cmake-utils_has mmx X86_MMX)
-		$(cmake-utils_has sse X86_SSE)
-		$(cmake-utils_has sse2 X86_SSE2)
+		$(cmake-utils_use_has 3dnow X86_3DNOW)
+		$(cmake-utils_use_has altivec PPC_ALTIVEC)
+		$(cmake-utils_use_has mmx X86_MMX)
+		$(cmake-utils_use_has sse X86_SSE)
+		$(cmake-utils_use_has sse2 X86_SSE2)
 		$(cmake-utils_use_with acl ACL)
 		$(cmake-utils_use_with alsa Alsa)
 		$(cmake-utils_use_with bzip2 BZip2)
