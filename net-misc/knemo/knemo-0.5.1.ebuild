@@ -20,5 +20,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="!kdeprefix? ( !net-misc/knemo:0 )
-	>=kde-base/systemsettings-${KDE_MINIMAL}[kdeprefix=]"
+	>=kde-base/systemsettings-${KDE_MINIMAL}[kdeprefix=]
+	net-wireless/wireless-tools
+"
 RDEPEND="${DEPEND}"
