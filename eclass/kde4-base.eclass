@@ -29,6 +29,7 @@ kde4-base_set_qt_dependencies() {
 	local qtdepend qtopengldepend
 
 	qtdepend="
+		(
 		x11-libs/qt-core:4[qt3support,ssl]
 		x11-libs/qt-gui:4[accessibility,dbus]
 		x11-libs/qt-qt3support:4[accessibility]
@@ -36,6 +37,7 @@ kde4-base_set_qt_dependencies() {
 		x11-libs/qt-sql:4[qt3support]
 		x11-libs/qt-svg:4
 		x11-libs/qt-test:4
+		)
 	"
 	qtwebkitdepend="
 		x11-libs/qt-webkit:4

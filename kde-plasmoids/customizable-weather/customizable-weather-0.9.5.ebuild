@@ -8,7 +8,7 @@ inherit kde4-base
 
 MY_P="cwp-${PV}"
 
-DESCRIPTION="A KDE4 Plasma Applet. It aims to be highly customizable, but a little harder to setup than other weather plasmoids."
+DESCRIPTION="A KDE4 Plasma Applet. It aims to be highly customizable, but a little harder to setup."
 HOMEPAGE="http://www.kde-look.org/content/show.php/Customizable+Weather+Plasmoid?content=98925"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/98925-${MY_P}.tar.bz2"
 
