@@ -75,39 +75,43 @@ kde4-base_set_qt_dependencies() {
 
 	COMMONDEPEND="${COMMONDEPEND} ${qtdepend}"
 }
-kde4-base_set_qt_dependencies
 
-# Xorg
-COMMONDEPEND="${COMMONDEPEND}
-	>=x11-base/xorg-server-1.5.2
-"
+if [[ ${NEED_KDE} != "none" ]] ; then
+	# Qt
+	kde4-base_set_qt_dependencies
 
-# X11 libs
-COMMONDEPEND="${COMMONDEPEND}
-	x11-libs/libXext
-	x11-libs/libXt
-	x11-libs/libXxf86vm
-"
+	# Xorg
+	COMMONDEPEND="${COMMONDEPEND}
+		>=x11-base/xorg-server-1.5.2
+	"
 
-# localization deps
-# DISABLED UNTIL PMS decide correct approach :(
-if [[ -n ${KDE_LINGUAS} ]]; then
-	LNG_DEP=""
-	for _lng in ${KDE_LINGUAS}; do
-		# there must be or due to issue if lingua is not present in kde-l10n so
-		# it wont die but pick kde-l10n as-is.
-		LNG_DEP="${LNG_DEP}
-			|| ( kde-base/kde-l10n[linguas_${_lng},kdeprefix=] kde-base/kde-l10n[kdeprefix=] )"
-	done
-fi
+	# X11 libs
+	COMMONDEPEND="${COMMONDEPEND}
+		x11-libs/libXext
+		x11-libs/libXt
+		x11-libs/libXxf86vm
+	"
 
-# Set common dependencies for all ebuilds that inherit this eclass
-DEPEND="${DEPEND} ${COMMONDEPEND}
-	>=dev-util/cmake-2.6.2
-	dev-util/pkgconfig
-	>=sys-apps/sandbox-1.3.2
-"
-RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+	# localization deps
+	# DISABLED UNTIL PMS decide correct approach :(
+	if [[ -n ${KDE_LINGUAS} ]]; then
+		LNG_DEP=""
+		for _lng in ${KDE_LINGUAS}; do
+			# there must be or due to issue if lingua is not present in kde-l10n so
+			# it wont die but pick kde-l10n as-is.
+			LNG_DEP="${LNG_DEP}
+				|| ( kde-base/kde-l10n[linguas_${_lng},kdeprefix=] kde-base/kde-l10n[kdeprefix=] )"
+		done
+	fi
+
+	# Set common dependencies for all ebuilds that inherit this eclass
+	DEPEND="${DEPEND} ${COMMONDEPEND}
+		>=dev-util/cmake-2.6.2
+		dev-util/pkgconfig
+		>=sys-apps/sandbox-1.3.2
+	"
+	RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+fi # NEED_KDE != NONE block
 
 if [[ $BUILD_TYPE = live ]]; then
 	# Disable tests for live ebuilds
