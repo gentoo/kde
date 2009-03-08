@@ -8,7 +8,7 @@ kde-misc/kdelirc:live
 kde-misc/kdiff3:live
 kde-misc/konq-plugins:live
 kde-misc/krusader:live
-kde-misc/webkit-kpart:live
+=kde-misc/webkit-kpart-9999
 kde-misc/yakuake:live
 mail-client/mailody:live
 media-gfx/digikam:live
