@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME="kdeplasma-addons"
 OPENGL_REQUIRED="optional"
-WEBKIT_REQUIRED="allways"
+WEBKIT_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="Extra Plasma applets and engines."
