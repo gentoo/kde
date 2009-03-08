@@ -31,7 +31,7 @@ EXPORT_FUNCTIONS ${EXPF}
 
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
-DEPEND=">=dev-util/cmake-2.4.6"
+DEPEND=">=dev-util/cmake-2.6.2-r1" # stable cmake version must be here ;]
 
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
@@ -47,7 +47,11 @@ _use_me_now_inverted() {
 
 # @ECLASS-VARIABLE: DOCS
 # @DESCRIPTION:
-# Documents to pass to dodoc.
+# Documents passed to dodoc command.
+
+# @ECLASS-VARIABLE: HTML_DOCS
+# @DESCRIPTION:
+# Documents passed to dohtml command.
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION
@@ -297,7 +301,8 @@ cmake-utils_src_install() {
 	popd > /dev/null
 
 	# Manual document installation
-	[[ -n "${DOCS}" ]] && dodoc ${DOCS}
+	[[ -n "${DOCS}" ]] && { dodoc -r ${DOCS} || die "dodoc failed" ; }
+	[[ -n "${HTML_DOCS}" ]] && { dohtml -r ${HTML_DOCS} || die "dohtml failed" ; }
 }
 
 # @FUNCTION: cmake-utils_src_test
