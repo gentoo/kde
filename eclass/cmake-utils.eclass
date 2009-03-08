@@ -150,7 +150,10 @@ cmake-utils_use_build() { _use_me_now BUILD "$@" ; }
 # `cmake-utils_use_has foo FOO` echoes -DHAVE_FOO=ON if foo is enabled
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_use_has() { _use_me_now HAVE "$@" ; }
-# for backcompat
+
+# @FUNCTION: cmake-utils_has
+# @DESCRIPTION:
+# Deprecated, use cmake-utils_use_has, kept now for backcompat.
 cmake-utils_has() { ewarn "QA: ebuild is using deprecated call. Inform maintainer." ; _use_me_now HAVE "$@" ; }
 
 # @FUNCTION: cmake-utils_use
