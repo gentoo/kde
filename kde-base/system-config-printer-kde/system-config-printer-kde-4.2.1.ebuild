@@ -16,7 +16,6 @@ DESCRIPTION="KDE port of Red Hat's Gnome system-config-printer"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-# app-admin/system-config-printer
 DEPEND="
 	>=dev-python/PyQt4-4.4.4-r1[dbus]
 	dev-python/pycups
