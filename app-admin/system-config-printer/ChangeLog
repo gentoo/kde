@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +system-config-printer-1.1.3.ebuild:
+  Restored 1.1.3 - apparently it's last one really working with no issues
+
 *system-config-printer-1.1.5 (08 Mar 2009)
 
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
