@@ -6,10 +6,6 @@
   -files/fix_nonascii_chars.patch, -phonon-4.3.1.ebuild:
   Dropped phonon 4.3.1 (in tree)
 
-  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
-  -phonon-4.3.1.ebuild:
-  Dropped phonon 4.3.1 (in tree)
-
   28 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
   +files/fix_nonascii_chars.patch, phonon-4.3.1.ebuild:
   Fix bug 259825 as in the tree we already did.
