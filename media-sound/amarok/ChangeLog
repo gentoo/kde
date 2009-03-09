@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/2.0.2-ipod.patch, amarok-2.0.2.ebuild:
+  Added ipod patch
+
 *amarok-2.0.2 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +amarok-2.0.2.ebuild:
