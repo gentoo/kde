@@ -126,7 +126,7 @@ cmake-utils_use_disable() { _use_me_now_inverted DISABLE "$@" ; }
 #
 # `cmake-utils_use_no foo FOO` echoes -DNO_FOO=OFF if foo is enabled
 # and -DNO_FOO=ON if it is disabled.
-cmake-utils_use_disable() { _use_me_now_inverted NO "$@" ; }
+cmake-utils_use_no() { _use_me_now_inverted NO "$@" ; }
 
 # @FUNCTION: cmake-utils_use_want
 # @USAGE: <USE flag> [flag name]
