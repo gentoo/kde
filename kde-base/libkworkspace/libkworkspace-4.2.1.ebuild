@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !<kde-base/libkworkspace-${PV} )
+	!kdeprefix? ( !<kde-base/libkworkspace-${PV}[-kdeprefix] )
 	kdeprefix? ( !<kde-base/libkworkspace-${PV}:${SLOT} )
 "
 

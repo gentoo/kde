@@ -12,8 +12,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !<kde-base/ksmserver-${PV} )
-	kdeprefix? ( !<kde-base/ksmserver-${PV}:${SLOT} )
+	!kdeprefix? ( !kde-base/ksmserver:4.1[-kdeprefix] )
 	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "

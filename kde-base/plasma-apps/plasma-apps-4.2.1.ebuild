@@ -16,5 +16,5 @@ DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/plasma )
+	!kdeprefix? ( !kde-base/plasma[-kdeprefix] )
 "

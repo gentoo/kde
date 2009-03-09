@@ -92,7 +92,7 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/knewsticker:4.1
 		!kde-base/kpercentage:4.1
 		!kde-base/ktnef:4.1
-		!<kde-base/libkworkspace-${PV}
+		!<kde-base/libkworkspace-${PV}[-kdeprefix]
 		!kde-base/libplasma
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)

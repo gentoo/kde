@@ -11,8 +11,9 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 IUSE="debug"
 
+# @Since >4.2.65 kode removed from kdepim
 RDEPEND="
-	!kdeprefix? ( !kde-base/kode )
+	!kdeprefix? ( !>=kde-base/kode-4.1.0[-kdeprefix] )
 	kdeprefix? ( !kde-base/kode:${SLOT} )
 "
 

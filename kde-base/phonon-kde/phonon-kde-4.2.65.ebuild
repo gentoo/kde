@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 REPEND="
-	!kdeprefix? ( !kde-base/phonon-xine )
+	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
 "
 
 src_prepare() {

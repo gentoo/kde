@@ -38,7 +38,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	!kdeprefix? ( !kde-base/plasma )
+	!kdeprefix? ( !kde-base/plasma[-kdeprefix] )
 	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
 "
@@ -58,7 +58,8 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
-PATCHES=( "${FILESDIR}/4.2.1-panelview-crash-fix.patch"
+PATCHES=(
+	"${FILESDIR}/4.2.1-panelview-crash-fix.patch"
 	"${FILESDIR}/4.2-fix-quicklaunch.patch"
 )
 

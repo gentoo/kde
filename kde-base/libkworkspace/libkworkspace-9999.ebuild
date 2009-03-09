@@ -14,7 +14,7 @@ IUSE="debug"
 
 RDEPEND="
 	!kdeprefix? ( !<kde-base/libkworkspace-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=] )
+	kdeprefix? ( !<kde-base/libkworkspace-${PV}:${SLOT} )
 "
 
 KMEXTRACTONLY="

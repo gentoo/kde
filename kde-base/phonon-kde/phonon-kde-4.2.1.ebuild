@@ -15,10 +15,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? (
-		!kde-base/phonon
-		!kde-base/phonon-xine
-	)
+	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
 "
 
 src_prepare() {

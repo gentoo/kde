@@ -13,6 +13,6 @@ IUSE="debug"
 
 # Module renamed upstream
 RDEPEND="
-	!kdeprefix? ( !kde-base/kdedglobalaccel )
+	!kdeprefix? ( !kde-base/kdedglobalaccel[-kdeprefix] )
 	kdeprefix? ( !kde-base/kdedglobalaccel:${SLOT} )
 "

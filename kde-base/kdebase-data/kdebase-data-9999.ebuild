@@ -16,7 +16,7 @@ KEYWORDS=""
 # releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
 RDEPEND="
 	!kdeprefix? ( !<kde-base/dolphin-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/dolphin-${PV}:${SLOT}[kdeprefix=] )
+	kdeprefix? ( !<kde-base/dolphin-${PV}:${SLOT} )
 	x11-themes/hicolor-icon-theme
 "
 

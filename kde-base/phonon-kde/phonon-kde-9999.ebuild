@@ -15,10 +15,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? (
-		!kde-base/phonon
-		!kde-base/phonon-xine
-	)
+	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
 "
 
 src_prepare() {

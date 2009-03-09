@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug xinerama"
 
 RDEPEND="
-	!kdeprefix? ( !kde-base/plasma-workspace:4.1 )
+	!kdeprefix? ( !kde-base/plasma-workspace:4.1[-kdeprefix] )
 "
 
 KMSAVELIBS="true"

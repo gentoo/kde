@@ -15,6 +15,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	!kdeprefix? ( !<kde-base/kde-wallpapers-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/kde-wallpapers-$PV:${SLOT}[kdeprefix=] )
+	!kdeprefix? ( !kde-base/kde-wallpapers[-kdeprefix] )
 "
