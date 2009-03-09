@@ -301,7 +301,7 @@ cmake-utils_src_install() {
 	popd > /dev/null
 
 	# Manual document installation
-	[[ -n "${DOCS}" ]] && { dodoc -r ${DOCS} || die "dodoc failed" ; }
+	[[ -n "${DOCS}" ]] && { dodoc ${DOCS} || die "dodoc failed" ; }
 	[[ -n "${HTML_DOCS}" ]] && { dohtml -r ${HTML_DOCS} || die "dohtml failed" ; }
 }
 
