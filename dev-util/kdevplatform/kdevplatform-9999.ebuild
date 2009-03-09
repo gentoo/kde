@@ -14,7 +14,7 @@ KEYWORDS=""
 SLOT="1"
 # Moved to playground for now
 # bazaar mercurial
-IUSE=" cvs debug git subversion"
+IUSE="cvs debug git subversion"
 
 DEPEND="
 	subversion? ( >=dev-util/subversion-1.3 )
@@ -32,9 +32,9 @@ RDEPEND="${DEPEND}
 # -DBUILD_mercurial=$(useq mercurial && echo ON || echo OFF)
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		-DBUILD_cvs=$(useq cvs && echo ON || echo OFF)
-		-DBUILD_git=$(useq git && echo ON || echo OFF)
-		-DBUILD_subversion=$(useq subversion && echo ON || echo OFF)
+		$(cmake-utils_use_build cvs cvs)
+		$(cmake-utils_use_build git git)
+		$(cmake-utils_use_build subversion subversion)
 		$(cmake-utils_use_with subversion SubversionLibrary)"
 
 	kde4-base_src_configure

@@ -4,6 +4,10 @@
 
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdevplatform-9999.ebuild:
+  Converted to cmake-utils functions
+
+  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevplatform-9999.ebuild:
   Some plugins moved to playground
 
   01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>

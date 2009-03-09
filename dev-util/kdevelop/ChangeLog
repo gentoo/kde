@@ -4,6 +4,10 @@
 
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdevelop-9999.ebuild:
+  Dropped doc use flags for now
+
+  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevelop-9999.ebuild:
   Updated kdevelop ebuild
 
   01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>

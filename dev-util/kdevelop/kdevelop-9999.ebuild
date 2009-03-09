@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="+cmake +cxx debug doc +qmake"
+IUSE="+cmake +cxx debug +qmake"
 
 DEPEND="
 	>=dev-util/kdevplatform-0.9.85[kdeprefix=]
@@ -28,8 +28,7 @@ src_configure() {
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build qmake qmake)
 		$(cmake-utils_use_build qmake qmakebuilder)
-		$(cmake-utils_use_build cxx cpp)
-		$(cmake-utils_use_build doc docs)"
+		$(cmake-utils_use_build cxx cpp)"
 
 	kde4-base_src_configure
 }
