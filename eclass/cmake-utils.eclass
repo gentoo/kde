@@ -31,7 +31,7 @@ EXPORT_FUNCTIONS ${EXPF}
 
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
-DEPEND=">=dev-util/cmake-2.6.2-r1" # stable cmake version must be here ;]
+DEPEND=">=dev-util/cmake-2.4.6-r1"
 
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
