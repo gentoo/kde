@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.1-r1.ebuild, kdelibs-4.2.65.ebuild, kdelibs-9999.ebuild:
+  Raised deps of soprano as it supports new USE flag and we want to sort it
+  out earlier - besides soprano-2.2.2 contains some bugfixes
+
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r1.ebuild, kdelibs-4.2.65.ebuild, kdelibs-9999.ebuild:
   Incorporated cmake-utils changes (cmake-utils_use_has)
