@@ -12,10 +12,11 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="+cmake +cxx debug +qmake"
+IUSE="+cmake +cxx debug doc +qmake"
 
 DEPEND="
 	>=dev-util/kdevplatform-0.9.85[kdeprefix=]
+	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}[kdeprefix=]
@@ -23,11 +24,12 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		-DBUILD_cmake=$(useq cmake && echo On || echo Off)
-		-DBUILD_cmakebuilder=$(useq cmake && echo On || echo Off)
-		-DBUILD_qmake=$(useq qmake && echo On || echo Off)
-		-DBUILD_qmakebuilder=$(useq qmake && echo On || echo Off)
-		-DBUILD_cpp=$(useq cxx && echo On || echo Off)"
+		$(cmake-utils_use_build cmake cmake)
+		$(cmake-utils_use_build cmake cmakebuilder)
+		$(cmake-utils_use_build qmake qmake)
+		$(cmake-utils_use_build qmake qmakebuilder)
+		$(cmake-utils_use_build cxx cpp)
+		$(cmake-utils_use_build doc docs)"
 
 	kde4-base_src_configure
 }
