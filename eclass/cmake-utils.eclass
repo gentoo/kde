@@ -169,19 +169,19 @@ cmake-utils_has() { ewarn "QA: ebuild is using deprecated call. Inform maintaine
 # and -DFOO=OFF if it is disabled.
 cmake-utils_use() { _use_me_now "" "$@" ; }
 
-# internal function for modifying hardcoded definitions.
-# remove dangerous defintionts that override gentoo settings.
+# Internal function for modifying hardcoded definitions.
+# Removes dangerous definitionts that override Gentoo settings.
 _modify-cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Comment out all set (<some_should_be_user_defined_variable> value)
-	# TODO add QA checker - inform when something from avobe is set in CMakeLists.txt
+	# TODO Add QA checker - inform when variable being checked for below is set in CMakeLists.txt
 	find "${S}" -name CMakeLists.txt \
 		-exec sed -i -e '/^[[:space:]]*[sS][eE][tT][[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE.*)/{s/^/#IGNORE /g}' {} + \
 		-exec sed -i -e '/^[[:space:]]*[sS][eE][tT][[:space:]]*([[:space:]]*CMAKE_INSTALL_PREFIX.*)/{s/^/#IGNORE /g}' {} + \
 		|| die "${LINENO}: failed to disable hardcoded settings"
 
-	# NOTE append some useful summary here
+	# NOTE Append some useful summary here
 	echo '
 MESSAGE(STATUS "<<< Gentoo configuration >>>
 Build type: ${CMAKE_BUILD_TYPE}
@@ -195,7 +195,7 @@ Install path: ${CMAKE_INSTALL_PREFIX}\n")' >> CMakeLists.txt
 cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# remove dangerous things.
+	# Remove dangerous things.
 	_modify-cmakelists
 
 	# @SEE CMAKE_BUILD_TYPE
@@ -246,7 +246,7 @@ _EOF_
 # @FUNCTION: cmake-utils_src_compile
 # @DESCRIPTION:
 # General function for compiling with cmake. Default behaviour is to check for
-# eapi and based on it configure or only compile
+# EAPI and respectively to configure as well or just compile.
 cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
