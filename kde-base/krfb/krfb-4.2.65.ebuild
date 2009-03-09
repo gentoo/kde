@@ -22,6 +22,7 @@ DEPEND="
 		)
 	)
 "
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	# krfb requires both slp and vnc to build
