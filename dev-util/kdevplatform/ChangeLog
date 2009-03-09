@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevplatform-9999.ebuild:
+  Some plugins moved to playground
+
   01 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
   -kdevplatform-0.9.91.ebuild:
   in tree
