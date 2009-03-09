@@ -268,35 +268,37 @@ kde4-meta_src_extract() {
 		case ${PV} in
 			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
 				KMTARPARAMS="${KMTARPARAMS} --lzma" # lzma
-				postfix="lzma" ;;
+				postfix="lzma"
+				;;
 			*)
 				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
-				postfix="bz2" ;;
+				postfix="bz2"
+				;;
 		esac
 		case ${KMNAME} in
 			kdebase-apps)
-				tarball="kdebase-${PV}.tar.${postfix}" ;;
+				# kdebase/apps -> kdebasa-apps
+				tarball="kdebase-${PV}.tar.${postfix}"
+				# Go one level deeper for kdebase-apps in tarballs
+				moduleprefix=apps/
+				KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
+				;;
 			*)
-				tarball="${KMNAME}-${PV}.tar.${postfix}" ;;
+				# Create tarball name from module name (this is the default)
+				tarball="${KMNAME}-${PV}.tar.${postfix}"
+				;;
 		esac
+
+		# Full patch to source tarball
 		tarfile="${DISTDIR}/${tarball}"
 
-		# Detect real toplevel dir - it will be used in __list_needed_subdirectories
+		# Detect real toplevel dir from tarball name - it will be used upon extraction
+		# and in __list_needed_subdirectories
 		topdir="${tarball%.tar.*}/"
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
 		kde4-meta_create_extractlists
-
-		# Go one level deeper for kdebase-apps in tarballs (releases)
-		if [[ ${KMNAME} = kdebase-apps ]]; then
-			moduleprefix=apps/
-			KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
-		fi
-
-		if [[ ${KMMODULE} = apps* ]]; then # preserve old behavior
-			topdir="${KMNAME}-${PV}/"
-		fi
 
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
