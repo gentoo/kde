@@ -6,6 +6,12 @@
   system-config-printer-kde-4.2.1.ebuild,
   system-config-printer-kde-4.2.65.ebuild,
   system-config-printer-kde-9999.ebuild:
+  Ensure exec bit is set for system-config-printer-kde
+
+  10 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-kde-4.2.1.ebuild,
+  system-config-printer-kde-4.2.65.ebuild,
+  system-config-printer-kde-9999.ebuild:
   Updated system-config-printer-kde - fixed live: sandbox issue - synced
   ebuilds
 

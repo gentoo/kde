@@ -60,6 +60,8 @@ src_install() {
 	python_disable_pyc
 
 	# Manually install some files
+	fperms a+x "${KDEDIR}"/share/apps/${PN}/system-config-printer-kde.py \
+		|| die "fperms failed"
 	dosym "${KDEDIR}"/share/apps/${PN}/system-config-printer-kde.py \
 		"${KDEDIR}"/bin/system-config-printer-kde || die "dosym failed"
 	insinto "${KDEDIR}"/share/apps/${PN}
