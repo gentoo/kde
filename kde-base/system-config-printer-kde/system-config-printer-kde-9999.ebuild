@@ -37,13 +37,17 @@ src_unpack() {
 src_prepare() {
 	kde4-meta_src_prepare
 
+	# Workaround sandbox violation
+	sed -i -e '/PYKDE4_ADD_EXECUTABLE(system-config-printer-kde.py.*)/s/^/#DONOTINSTALL /' \
+		${PN}/CMakeLists.txt || die "failed to disable automatic installation"
+
 	# Update config.py
 	sed -i \
 		-e "s|^prefix=.*$|prefix=\"${KDEDIR}\"|" \
 		-e "s|^datadir=.*$|datadir=\"${KDEDIR}/share\"|" \
 		-e "s|^localedir=.*$|localedir=\"${KDEDIR}/share/locale\"|" \
 		-e "s|^pkgdatadir=.*$|pkgdatadir=\"${KDEDIR}/share/apps/${PN}\"|" \
-			"${S}"/${PN}/config.py || die "failed to update config.py"
+			${PN}/config.py || die "failed to update config.py"
 
 	# Make it find our stripped system-config-printer
 	export PYTHONPATH="${S}/${PN}:${PYTHONPATH}"
@@ -55,6 +59,10 @@ src_install() {
 	# Do not compile python modules
 	python_disable_pyc
 
+	# Manually install some files
+	dosym "${KDEDIR}"/share/apps/${PN}/system-config-printer-kde.py \
+		"${KDEDIR}"/bin/system-config-printer-kde || die "dosym failed"
 	insinto "${KDEDIR}"/share/apps/${PN}
-	doins -r `eval echo "${S}"/${PN}/${SYS_CONF_PR_MODULES}` || die "doins failed"
+	doins -r `eval echo "${S}"/${PN}/${SYS_CONF_PR_MODULES}` \
+		|| die "doins failed"
 }
