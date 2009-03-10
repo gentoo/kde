@@ -3,6 +3,10 @@
 # $Header: $
 
   10 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdelibs-4.2.1-qt4.5.patch:
+  Added missing patch
+
+  10 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r1.ebuild, kdelibs-4.2.65.ebuild, kdelibs-9999.ebuild:
   Synced kdelibs with tree
 
