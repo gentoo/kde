@@ -6,6 +6,7 @@ EAPI="2"
 
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
+WEBKIT_REQUIRED="always"
 inherit kde4-base fdo-mime
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
@@ -105,10 +106,13 @@ RDEPEND="${COMMONDEPEND}
 "
 
 # upstream patches / dist patches
+# {FILESDIR}/${P}-qt4.5.patch is upstream revision 934640
+# and fixes upstream bug 186038 and Gentoo bug 261367
 PATCHES=(
-	"$FILESDIR/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
-	"$FILESDIR/dist/20_use_dejavu_as_default_font.patch"
-	"$FILESDIR/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
+	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
+	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${P}-qt4.5.patch"
 )
 
 src_prepare() {

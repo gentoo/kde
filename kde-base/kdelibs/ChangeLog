@@ -1,6 +1,10 @@
-﻿# ChangeLog for kde-base/kdelibs
+# ChangeLog for kde-base/kdelibs
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.1-r1.ebuild, kdelibs-4.2.65.ebuild, kdelibs-9999.ebuild:
+  Synced kdelibs with tree
 
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r1.ebuild, kdelibs-4.2.65.ebuild, kdelibs-9999.ebuild:
@@ -308,7 +312,7 @@
   kde-base/kdebase-startkde/Manifest, kde-base/kdelibs/Manifest:
   Fixed Manifest.
 
-  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> 
+  01 Sep 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdelibs-4.1.1.ebuild:
   Restricted dep on phonon to >=4.2.0.
 
