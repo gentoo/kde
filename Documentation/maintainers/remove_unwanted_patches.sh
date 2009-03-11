@@ -1,7 +1,7 @@
 #!/bin/bash
 TMP="/tmp/"
 # we also assume that we are run from the directory where we want to remove patches eg. directory where are categories.
-find -mindepth 2 -maxdepth 3 -type d -name files -print | sort -u |sed -e "s:/files::g" -e "s:\./::g" |grep kde-misc > ${TMP}/packages-with-patches.txt
+find -mindepth 2 -maxdepth 3 -type d -name files -print | sort -u |sed -e "s:/files::g" -e "s:\./::g" |grep kde-base > ${TMP}/packages-with-patches.txt
 EBUILD_BASEDIRS="`cat ${TMP}/packages-with-patches.txt`"
 for EBBD in ${EBUILD_BASEDIRS}; do
 	pushd $EBBD >> /dev/null
