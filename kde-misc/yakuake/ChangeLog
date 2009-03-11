@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  yakuake-9999.ebuild:
+  typo fix on RDEPEND
+
   06 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   yakuake-9999.ebuild:
   Fixed yakuake a bit (added [kdeprefix=]), konsole to RDEPEND, added debug

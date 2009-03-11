@@ -16,6 +16,6 @@ KEYWORDS=""
 SLOT="live"
 IUSE="debug"
 
-REPEND="
+RDEPEND="
 	>=kde-base/konsole-${KDE_MINIMAL}[kdeprefix=]
 "
