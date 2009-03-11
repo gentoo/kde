@@ -108,13 +108,11 @@ RDEPEND="${COMMONDEPEND}
 # upstream patches / dist patches
 # {FILESDIR}/${P}-qt4.5.patch is upstream revision 934640
 # and fixes upstream bug 186038 and Gentoo bug 261367
-# ${FILESDIR}/${P}-kcatalog.patch fixes remaining issues on both bugs
 PATCHES=(
 	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
 	"${FILESDIR}/${P}-qt4.5.patch"
-	"${FILESDIR}/${P}-kcatalog.patch"
 )
 
 src_prepare() {
