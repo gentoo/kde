@@ -20,6 +20,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-compilation-fix.patch"
+)
+
 src_prepare() {
 	sed -i -e's/MACRO_OPTIONAL_FIND_PACKAGE(KdepimLibs)//'\
 		python/${PN}/CMakeLists.txt\
