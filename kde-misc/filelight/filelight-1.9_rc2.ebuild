@@ -18,4 +18,4 @@ IUSE=""
 
 RDEPEND="x11-apps/xdpyinfo"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${MY_P}"
