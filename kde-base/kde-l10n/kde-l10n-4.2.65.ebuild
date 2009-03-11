@@ -16,9 +16,10 @@ RDEPEND=""
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu he hi hu
-		is it ja kk km kn ko ku lt lv mk ml nb nds nl nn pa pl pt pt_BR
-		ro ru sl sr sv tg th tr uk wa zh_CN zh_TW"
+MY_LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu
+		fa fi fr fy ga gl gu he hi hr hsb hu hy is it ja ka kk km kn ko ku lb lt lv mk ml
+	    ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sr sv ta 	te tg
+	    th tr uk uz vi wa xh zh_CN zh_HK zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.lzma/}"
 SRC_URI=""
@@ -44,21 +45,25 @@ src_unpack() {
 	fi
 
 	[[ -n ${A} ]] && unpack ${A}
-	cd "${S}"
-
-	# add all linguas to cmake
-	if [[ -n ${A} ]]; then
-		for LNG in ${LINGUAS}; do
-			DIR="${PN}-${LNG}-${PV}"
-			if [[ -d "${DIR}" ]] ; then
-				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
-			fi
-		done
-	fi
-}
+} 
 
 src_configure() {
-	[[ -n ${A} ]] && kde4-base_src_configure
+	    local lng
+	    if [[ ! -z ${enabled_linguas} ]]; then
+			cat <<-EOF > "${S}"/CMakeLists.txt
+			project(kde-l10n)
+			find_package(KDE4 REQUIRED)
+			include (KDE4Defaults)
+			include(MacroOptionalAddSubdirectory)
+			find_package(Gettext REQUIRED)
+			EOF
+		
+			for	lng in ${enabled_linguas} ; do
+				"${S}"/scripts/autogen.sh ${lng}
+				echo "add_subdirectory( ${lng} )" >> "${S}"/CMakeLists.txt
+			done
+			kde4-base_src_configure
+		fi
 }
 
 src_compile() {
