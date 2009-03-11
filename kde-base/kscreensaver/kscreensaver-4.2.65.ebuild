@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug pam"
 
 RDEPEND="
-	dev-cpp/eigen:2
 	dev-libs/glib
 	>=kde-base/kcheckpass-${PV}:${SLOT}[kdeprefix=]
 	>=x11-libs/libxklavier-3.2

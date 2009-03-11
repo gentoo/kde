@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kscreensaver-4.2.65.ebuild, kscreensaver-9999.ebuild:
+  Dropped random eigen deps on kscreensaver...
+
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kscreensaver-4.2.65.ebuild, kscreensaver-9999.ebuild:
   kdebase-pam already pulls virtual/pam
