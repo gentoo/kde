@@ -1,7 +1,7 @@
 Index: kcatalog.cpp
 ===================================================================
---- kcatalog.cpp	(revision 938013)
-+++ kcatalog.cpp	(working copy)
+--- kdecore/localization/kcatalog.cpp	(revision 938013)
++++ kdecore/localization/kcatalog.cpp	(working copy)
 @@ -30,6 +30,24 @@
  #include <locale.h>
  #include "gettext.h"
