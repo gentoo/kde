@@ -13,21 +13,28 @@ HOMEPAGE="http://kile.sourceforge.net/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="debug"
+IUSE="debug +pdf +png"
 
-DEPEND="
-	dev-lang/perl
-"
 RDEPEND="
+	|| (
+		>=kde-base/okular-${KDE_MINIMAL}[kdeprefix=,ps,pdf?]
+		app-text/acroread
+	)
 	virtual/latex-base
 	virtual/tex-base
+	pdf? (
+		app-text/dvipdfmx
+		app-text/ghostscript-gpl
+	)
+	png? (
+		app-text/dvipng
+		media-gfx/imagemagick[png]
+	)
 "
 
 src_install() {
 	kde4-base_src_install
 
-	rm -rf "${D}"/"${KDEDIR}/share/apps/katepart/syntax/bibtex.xml"
-	rm -rf "${D}"/"${KDEDIR}/share/apps/katepart/syntax/latex.xml"
-	rm -rf "${D}"/"${KDEDIR}/share/icons/hicolor/64x64/actions/preview.png"
-	rm -rf "${D}"/"${KDEDIR}/share/icons/hicolor/22x22/actions/output_win.png"
+	rm -f "${D}/${KDEDIR}"/share/{apps/katepart/syntax/{bibtex,latex}.xml,icons/hicolor/{64x64/actions/preview.png,22x22/actions/output_win.png}} \
+		|| ewarn "QA notice: failed to remove some colliding files, not being installed anymore? contact ebuild maintainer"
 }
