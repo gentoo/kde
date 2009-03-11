@@ -13,15 +13,15 @@ DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="editor debug +plasma solver"
 
-DEPEND="
+COMMON_DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
-	editor? (
-		>=dev-cpp/eigen-1.0.5
-		>=sci-chemistry/openbabel-2.2
-	)
+	editor? ( >=sci-chemistry/openbabel-2.2 )
+"
+DEPEND="${COMMON_DEPEND}
+	editor? ( >=dev-cpp/eigen-1.0.5 )
 	solver? ( dev-ml/facile[ocamlopt] )
 "
-RDEPEND="${RDEPEND}"
+RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
