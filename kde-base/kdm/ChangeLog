@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdm-4.2.1.ebuild:
+  Moved to tree
+
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdm-4.2.1.ebuild, kdm-4.2.65.ebuild, kdm-9999.ebuild:
   Synced pam deps from tree

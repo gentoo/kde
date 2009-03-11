@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kolourpaint-4.2.1.ebuild:
+  Moved to tree
+
 *kolourpaint-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
