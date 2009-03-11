@@ -14,9 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="gnome-keyring"
 
-RDEPEND="
-	app-text/xmlto
+COMMON_DEPEND="
 	dev-lang/python
+"
+DEPEND="${COMMON_DEPEND}
+	app-text/docbook-xml-dtd:4.1.2
+	app-text/xmlto
+	dev-util/intltool
+	virtual/libintl
+"
+RDEPEND="${COMMON_DEPEND}
 	dev-libs/libxml2[python]
 	dev-python/dbus-python
 	dev-python/libgnome-python
@@ -26,10 +33,6 @@ RDEPEND="
 	dev-python/pyxml
 	net-print/cups[dbus]
 	gnome-keyring? ( dev-python/gnome-keyring-python )
-"
-DEPEND="${RDEPEND}
-	dev-util/intltool
-	sys-devel/gettext
 "
 
 APP_LINGUAS="ar bg bn bn_IN bs ca cs cy da de el en_GB es et fa fi fr gu he hi

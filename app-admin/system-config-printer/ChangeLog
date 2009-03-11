@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-1.1.3.ebuild, system-config-printer-1.1.5.ebuild:
+  Tweaked deps a bit. added docbook-xml-dtd deps according to #241106,
+  thanks go to: Marcel Hasler and Hal Engel
+
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +system-config-printer-1.1.3.ebuild:
   Restored 1.1.3 - apparently it's last one really working with no issues
