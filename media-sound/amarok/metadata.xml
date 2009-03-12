@@ -45,6 +45,9 @@
 		metadata to allow the user to express his personal mental models, making
 		all information become intuitively accessible
 	</flag>
+	<flag name="utils">
+		Build collection scanner shipped with <pkg>media-sound/amarok</pkg>.
+	</flag>
 	<!--
 	<flag name="visualization">
 		Support visualization plugins through <pkg>media-libs/libvisual</pkg>

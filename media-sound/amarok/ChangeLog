@@ -4,7 +4,7 @@
 
   12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-9999.ebuild:
-  SLOT -> 2 fir live amarok
+  SLOT -> 2 for live amarok
 
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/2.0.2-ipod.patch, amarok-2.0.2.ebuild:

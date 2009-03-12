@@ -6,6 +6,7 @@ EAPI="2"
 
 OPENGL_REQUIRED="optional"
 KMNAME="extragear/multimedia"
+NEED_KDE="4.2"
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -14,7 +15,7 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp njb +semantic-desktop"
+IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop +utils"
 
 DEPEND="
 	>=app-misc/strigi-0.5.7
@@ -22,35 +23,32 @@ DEPEND="
 		>=dev-db/mysql-5.0[embedded]
 		>=dev-db/mysql-community-5.0[embedded]
 	)
-	dev-db/sqlite:3
 	>=media-libs/taglib-1.5
-	|| (
-		media-sound/phonon
-		x11-libs/qt-phonon:4
-	)
 	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
+	>=kde-base/phonon-kde-${KDE_MINIMAL}[kdeprefix=]
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
-	x11-libs/qt-webkit:4
+	sys-libs/zlib
 	cdaudio? (
-		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
 		>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
 	)
-	ifp? ( media-libs/libifp )
-	ipod? ( >=media-libs/libgpod-0.4.2 )
+	ipod? (
+		>=media-libs/libgpod-0.7.0
+		gtk? ( x11-libs/gtk+:2 )
+	)
 	mp3tunes? (
+		dev-libs/glib:2
 		dev-libs/libxml2
 		dev-libs/openssl
 		net-libs/loudmouth
 		net-misc/curl
+		x11-libs/qt-core[glib]
 	)
-	mp4? ( media-libs/libmp4v2 )
 	mtp? ( >=media-libs/libmtp-0.3.0 )
-	njb? ( >=media-libs/libnjb-2.2.4 )
 "
 RDEPEND="${DEPEND}
-	app-arch/unzip
-	daap? ( www-servers/mongrel )
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
+	utils? ( media-sound/amarok-utils )
 "
 
 pkg_setup() {
@@ -72,12 +70,6 @@ pkg_setup() {
 }
 
 src_configure() {
-	if ! use mp3tunes; then
-		sed -e'/mp3tunes/ s:^:#DONOTWANT :' \
-		-i "${S}"/src/services/CMakeLists.txt \
-		|| die "Deactivating mp3tunes failed."
-	fi
-
 	# Remove superfluous QT_WEBKIT
 	sed -e 's/ -DQT_WEBKIT//g' \
 		-i "${S}"/src/scriptengine/generator/generator/CMakeLists.txt \
@@ -85,14 +77,26 @@ src_configure() {
 
 	mycmakeargs="${mycmakeargs}
 		-DUSE_SYSTEM_SQLITE=ON
-		$(cmake-utils_use_with cdaudio KdeMultimedia)
+		-DWITH_PLAYER=ON
+		-DWITH_UTILITIES=OFF
+		-DWITH_Libgcrypt=OFF
 		$(cmake-utils_use_with ipod Ipod)
-		$(cmake-utils_use_with ifp Ifp)
-		$(cmake-utils_use_with mp4 Mp4v2)
+		$(cmake-utils_use_with gtk Gdk)
 		$(cmake-utils_use_with mtp Mtp)
-		$(cmake-utils_use_with njb Njb)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with mp3tunes MP3TUNES)"
+#		$(cmake-utils_use_with semantic-desktop Nepomuk)
+#		$(cmake-utils_use_with semantic-desktop Soprano)"
 
 	kde4-base_src_configure
+}
+
+pkg_postinst() {
+	kde4-base_pkg_postinst
+
+	if use daap; then
+		echo
+		elog "You have installed amarok with daap support."
+		elog "You may be insterested in installing www-servers/mongrel as well."
+		echo
+	fi
 }
