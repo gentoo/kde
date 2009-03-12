@@ -13,7 +13,7 @@ HOMEPAGE="http://amarok.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="2"
 IUSE="cdaudio daap debug ifp ipod mp3tunes mp4 mtp njb +semantic-desktop"
 
 DEPEND="
