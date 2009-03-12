@@ -54,6 +54,7 @@
 ~kde-base/kdebase-desktoptheme-4.2.65
 ~kde-base/kdebase-kioslaves-4.2.65
 ~kde-base/kdebase-startkde-4.2.65
+~kde-base/kdebase-wallpapers-4.2.65
 ~kde-base/kdebugdialog-4.2.65
 ~kde-base/kdegraphics-strigi-analyzer-4.2.65
 ~kde-base/kdelibs-4.2.65
@@ -74,7 +75,6 @@
 ~kde-base/kdesdk-strigi-analyzer-4.2.65
 ~kde-base/kdessh-4.2.65
 ~kde-base/kdesu-4.2.65
-~kde-base/kde-wallpapers-4.2.65
 ~kde-base/kdf-4.2.65
 ~kde-base/kdialog-4.2.65
 ~kde-base/kdiamond-4.2.65

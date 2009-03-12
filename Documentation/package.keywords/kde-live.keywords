@@ -81,6 +81,7 @@
 ~kde-base/kdebase-desktoptheme-9999 **
 ~kde-base/kdebase-kioslaves-9999 **
 ~kde-base/kdebase-startkde-9999 **
+~kde-base/kdebase-wallpapers-9999 **
 ~kde-base/kdebugdialog-9999 **
 ~kde-base/kglobalaccel-9999 **
 ~kde-base/kdegraphics-strigi-analyzer-9999 **
@@ -103,7 +104,6 @@
 ~kde-base/kdesdk-strigi-analyzer-9999 **
 ~kde-base/kdessh-9999 **
 ~kde-base/kdesu-9999 **
-~kde-base/kde-wallpapers-9999 **
 ~kde-base/kdf-9999 **
 ~kde-base/kdialog-9999 **
 ~kde-base/kdiamond-9999 **

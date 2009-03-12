@@ -58,6 +58,7 @@
 ~kde-base/kdebase-desktoptheme-4.2.65
 ~kde-base/kdebase-kioslaves-4.2.65
 ~kde-base/kdebase-startkde-4.2.65
+~kde-base/kdebase-wallpapers-4.2.65
 ~kde-base/kdebugdialog-4.2.65
 ~kde-base/kdegraphics-strigi-analyzer-4.2.65
 ~kde-base/kdelibs-4.2.65
@@ -78,7 +79,6 @@
 ~kde-base/kdesdk-strigi-analyzer-4.2.65
 ~kde-base/kdessh-4.2.65
 ~kde-base/kdesu-4.2.65
-~kde-base/kde-wallpapers-4.2.65
 ~kde-base/kdf-4.2.65
 ~kde-base/kdialog-4.2.65
 ~kde-base/kdiamond-4.2.65
@@ -285,12 +285,12 @@ kde-base/kcmshell:live
 kde-base/kcontrol:live
 kde-base/kde-menu:live
 kde-base/kde-menu-icons:live
-kde-base/kde-wallpapers:live
 kde-base/kdebase-cursors:live
 kde-base/kdebase-data:live
 kde-base/kdebase-desktoptheme:live
 kde-base/kdebase-kioslaves:live
 kde-base/kdebase-startkde:live
+kde-base/kdebase-wallpapers:live
 kde-base/kdebugdialog:live
 kde-base/kglobalaccel:live
 kde-base/kdepasswd:live

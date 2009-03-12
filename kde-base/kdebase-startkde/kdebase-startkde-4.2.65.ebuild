@@ -16,9 +16,10 @@ IUSE=""
 # These provide the most minimal KDE desktop.
 RDEPEND="
 	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kde-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]

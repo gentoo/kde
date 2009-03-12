@@ -11,3 +11,8 @@ inherit kde4-meta
 DESCRIPTION="KDE wallpapers"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-wallpapers[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-wallpapers:${SLOT} )
+"
