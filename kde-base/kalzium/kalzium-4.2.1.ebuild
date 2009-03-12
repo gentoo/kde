@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kalzium/kalzium-4.2.1.ebuild,v 1.2 2009/03/08 13:11:54 scarabeus Exp $
 
 EAPI="2"
 
@@ -13,20 +13,22 @@ DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="editor debug +plasma solver"
 
-COMMON_DEPEND="
+DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
-	editor? ( >=sci-chemistry/openbabel-2.2 )
-"
-DEPEND="${COMMON_DEPEND}
-	editor? ( >=dev-cpp/eigen-1.0.5 )
+	editor? (
+		>=dev-cpp/eigen-1.0.5
+		>=sci-chemistry/openbabel-2.2
+	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${RDEPEND}"
 
 KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
 	libkdeedu/libscience/
 "
+
+PATCHES="${FILESDIR}/${P}-include-order.patch"
 
 src_configure(){
 	mycmakeargs="${mycmakeargs}
