@@ -17,13 +17,13 @@ SLOT="1"
 IUSE="cvs debug git subversion"
 
 DEPEND="
-	!kdeprefix? ( !dev-util/kdevelop:3 )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
 # bazaar? ( dev-util/bzr )
 # mercurial? ( dev-util/mercurial )
 RDEPEND="${DEPEND}
+	!kdeprefix? ( !dev-util/kdevelop:3 )
 	cvs? ( dev-util/cvs )
 	git? ( dev-util/git )
 "
