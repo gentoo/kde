@@ -20,6 +20,7 @@ media-tv/kdetv:live
 media-video/kaffeine:live
 media-video/kmplayer:live
 media-video/kplayer:live
+net-ftp/kftpgrabber:live
 net-im/kmess:live
 net-misc/smb4k:live
 =net-libs/decibel-9999
