@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/kblogger
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kblogger-1.0_alpha3 (12 Mar 2009)
+
+  12 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +kblogger-1.0_alpha3.ebuild:
+  new ebuild for kblogger
+
