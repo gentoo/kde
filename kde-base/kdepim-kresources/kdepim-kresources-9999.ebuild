@@ -13,7 +13,6 @@ IUSE="debug"
 KEYWORDS=""
 
 DEPEND="
-	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
