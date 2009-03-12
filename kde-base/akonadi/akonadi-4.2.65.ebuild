@@ -22,13 +22,14 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !kde-base/kdemaildir )
-	kdeprefix? ( !kde-base/kdemaildir:${SLOT} )
+	!kde-base/kdemaildir:${SLOT}[kdeprefix=] 
 	>=app-office/akonadi-server-1.1[mysql]
 "
 
