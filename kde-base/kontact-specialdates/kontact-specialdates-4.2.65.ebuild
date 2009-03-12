@@ -23,8 +23,9 @@ RDEPEND="${DEPEND}
 
 KMEXTRACTONLY="
 	kontactinterfaces/
-	kaddressbook
-	korganizer
+	kaddressbook/
+	korganizer/
+	kdepim-version.h
 "
 KMEXTRA="
 	kontact/plugins/specialdates/
