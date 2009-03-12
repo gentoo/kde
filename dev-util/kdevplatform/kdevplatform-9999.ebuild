@@ -17,7 +17,7 @@ SLOT="1"
 IUSE="cvs debug git subversion"
 
 DEPEND="
-	!kdeprefix? ( !dev-util/kdevelop:0 )
+	!kdeprefix? ( !dev-util/kdevelop:3 )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
