@@ -13,7 +13,11 @@ SRC_URI="http://kblogger.pwsp.net/files/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="4.2"
+SLOT="1"
 IUSE="debug"
+
+RDEPEND="
+	!kdeprefix? ( !kde-misc/kblogger:0 )
+"
 
 S="${WORKDIR}/${PN}"
