@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-4.2.65.ebuild, plasma-workspace-9999.ebuild:
+  Updated deps
+
   11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   plasma-workspace-4.2.65.ebuild:
   Fixed snapshots

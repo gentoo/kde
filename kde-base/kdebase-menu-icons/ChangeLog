@@ -2,6 +2,14 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdebase-menu-icons-9999 (12 Mar 2009)
+*kdebase-menu-icons-4.2.65 (12 Mar 2009)
+
+  12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kdebase-menu-icons-4.2.65.ebuild,
+  +kdebase-menu-icons-9999.ebuild:
+  Moved from kde-menu-icons
+
 *kde-menu-icons-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>

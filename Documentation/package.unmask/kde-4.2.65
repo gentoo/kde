@@ -53,13 +53,13 @@
 ~kde-base/kdebase-data-4.2.65
 ~kde-base/kdebase-desktoptheme-4.2.65
 ~kde-base/kdebase-kioslaves-4.2.65
+~kde-base/kdebase-menu-4.2.65
+~kde-base/kdebase-menu-icons-4.2.65
 ~kde-base/kdebase-startkde-4.2.65
 ~kde-base/kdebase-wallpapers-4.2.65
 ~kde-base/kdebugdialog-4.2.65
 ~kde-base/kdegraphics-strigi-analyzer-4.2.65
 ~kde-base/kdelibs-4.2.65
-~kde-base/kde-menu-4.2.65
-~kde-base/kde-menu-icons-4.2.65
 ~kde-base/kdemultimedia-kioslaves-4.2.65
 ~kde-base/kdenetwork-filesharing-4.2.65
 ~kde-base/kdepasswd-4.2.65

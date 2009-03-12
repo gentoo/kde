@@ -80,6 +80,8 @@
 ~kde-base/kdebase-data-9999 **
 ~kde-base/kdebase-desktoptheme-9999 **
 ~kde-base/kdebase-kioslaves-9999 **
+~kde-base/kdebase-menu-9999 **
+~kde-base/kdebase-menu-icons-9999 **
 ~kde-base/kdebase-startkde-9999 **
 ~kde-base/kdebase-wallpapers-9999 **
 ~kde-base/kdebugdialog-9999 **
@@ -87,8 +89,6 @@
 ~kde-base/kdegraphics-strigi-analyzer-9999 **
 ~kde-base/kde-l10n-9999 **
 ~kde-base/kdelibs-9999 **
-~kde-base/kde-menu-icons-9999 **
-~kde-base/kde-menu-9999 **
 ~kde-base/kdemultimedia-kioslaves-9999 **
 ~kde-base/kdenetwork-filesharing-9999 **
 ~kde-base/kdepasswd-9999 **

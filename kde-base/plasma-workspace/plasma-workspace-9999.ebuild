@@ -38,7 +38,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRA="

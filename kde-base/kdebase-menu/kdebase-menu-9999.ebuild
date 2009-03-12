@@ -5,8 +5,14 @@
 EAPI="2"
 
 KMNAME="kdebase-runtime"
+KMMODULE="kde-menu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Menu query tool."
 KEYWORDS=""
 IUSE="debug"
+
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-menu[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-menu:${SLOT} )
+"

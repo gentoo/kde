@@ -32,12 +32,12 @@ kde-base/kcheckpass:live
 kde-base/kcminit:live
 kde-base/kcmshell:live
 kde-base/kcontrol:live
-kde-base/kde-menu:live
-kde-base/kde-menu-icons:live
 kde-base/kdebase-cursors:live
 kde-base/kdebase-data:live
 kde-base/kdebase-desktoptheme:live
 kde-base/kdebase-kioslaves:live
+kde-base/kdebase-menu:live
+kde-base/kdebase-menu-icons:live
 kde-base/kdebase-startkde:live
 kde-base/kdebase-wallpapers:live
 kde-base/kdebugdialog:live

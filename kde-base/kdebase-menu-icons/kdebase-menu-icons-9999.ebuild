@@ -11,3 +11,8 @@ inherit kde4-meta
 DESCRIPTION="KDE menu icons"
 KEYWORDS=""
 IUSE=""
+
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-menu-icons[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-menu-icons:${SLOT} )
+"

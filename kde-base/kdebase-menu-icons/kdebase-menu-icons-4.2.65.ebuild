@@ -5,8 +5,14 @@
 EAPI="2"
 
 KMNAME="kdebase-runtime"
+KMMODULE="menu"
 inherit kde4-meta
 
-DESCRIPTION="KDE Menu query tool."
+DESCRIPTION="KDE menu icons"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE=""
+
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-menu-icons[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-menu-icons:${SLOT} )
+"
