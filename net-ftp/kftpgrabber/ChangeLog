@@ -1,0 +1,10 @@
+# ChangeLog for net-ftp/kftpgrabber
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kftpgrabber-9999 (11 Mar 2009)
+
+  11 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +kftpgrabber-9999.ebuild:
+  new ebuild for kftpgrabber:live
+
