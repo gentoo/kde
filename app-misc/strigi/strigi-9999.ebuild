@@ -29,7 +29,7 @@ COMMONDEPEND="
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
 	hyperestraier? ( app-text/hyperestraier )
-	log? ( >=dev-libs/log4cxx-0.9.7 )
+	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		|| ( ( x11-libs/qt-core:4
 			x11-libs/qt-gui:4
