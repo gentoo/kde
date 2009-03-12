@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kalzium-4.2.1.ebuild:
+  Restored deps
+
   11 Mar 2009; Marcus D. Hanwell <cryos@gentoo.org>
   +kde-base/kalzium/files/kalzium-4.2.1-include-order.patch:
   Fix for bug 261392.
