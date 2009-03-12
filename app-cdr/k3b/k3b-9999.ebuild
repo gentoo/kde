@@ -42,7 +42,7 @@ RDEPEND="${DEPEND}
 	dvdr? ( >=app-cdr/dvd+rw-tools-7.0 )
 	emovix? ( media-video/emovix )
 	encode? ( media-sound/sox
-	dvdread? ( media-video/transcode[dvdread] ) )
+	dvdread? ( media-video/transcode[dvd] ) )
 	vcd? ( media-video/vcdimager )
 	"
 
