@@ -20,6 +20,7 @@ IUSE="debug"
 DEPEND="
 	>=media-libs/taglib-1.5
 	>=x11-libs/qt-core-4.4:4
+	>=x11-libs/qt-dbus-4.4:4
 "
 RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.1.0
