@@ -13,6 +13,7 @@ IUSE="debug"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
+	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
