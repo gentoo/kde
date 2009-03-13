@@ -1,0 +1,10 @@
+# ChangeLog for sys-block/partitionmanager
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*partitionmanager-9999 (13 Mar 2009)
+
+  13 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +partitionmanager-9999.ebuild:
+  Added new ebuild
+
