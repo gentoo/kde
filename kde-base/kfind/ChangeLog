@@ -3,6 +3,10 @@
 # $Header: $
 
   13 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kfind-4.2.1.ebuild:
+  Moved to tree
+
+  13 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kfind-4.2.1.ebuild:
   Linker patch for kfind-4.2.1
 
