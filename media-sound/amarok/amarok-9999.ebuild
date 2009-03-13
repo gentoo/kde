@@ -6,7 +6,6 @@ EAPI="2"
 
 OPENGL_REQUIRED="optional"
 KMNAME="extragear/multimedia"
-NEED_KDE="4.2"
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
