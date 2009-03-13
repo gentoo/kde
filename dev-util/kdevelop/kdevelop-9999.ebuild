@@ -24,9 +24,9 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_build cmake cmake)
+		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
-		$(cmake-utils_use_build qmake qmake)
+		$(cmake-utils_use_build qmake)
 		$(cmake-utils_use_build qmake qmakebuilder)
 		$(cmake-utils_use_build cxx cpp)"
 

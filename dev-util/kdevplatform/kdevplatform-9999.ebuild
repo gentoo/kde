@@ -29,13 +29,13 @@ RDEPEND="${DEPEND}
 "
 
 # Moved to playground for now
-# -DBUILD_bazaar=$(useq bazaar && echo ON || echo OFF)
-# -DBUILD_mercurial=$(useq mercurial && echo ON || echo OFF)
+# $(cmake-utils_use_build bazaar)
+# $(cmake-utils_use_build mercurial)
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_build cvs cvs)
-		$(cmake-utils_use_build git git)
-		$(cmake-utils_use_build subversion subversion)
+		$(cmake-utils_use_build cvs)
+		$(cmake-utils_use_build git)
+		$(cmake-utils_use_build subversion)
 		$(cmake-utils_use_with subversion SubversionLibrary)"
 
 	kde4-base_src_configure
