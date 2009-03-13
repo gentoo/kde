@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  akonadi-4.2.65.ebuild, akonadi-9999.ebuild:
+  Restored kdepim-kresources deps (or lack of them)
+
   12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   akonadi-4.2.65.ebuild, akonadi-9999.ebuild:
   Updated block
