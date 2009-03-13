@@ -15,6 +15,7 @@ IUSE="debug opengl xscreensaver"
 
 DEPEND="
 	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=,opengl?]
+	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
 	xscreensaver? ( x11-misc/xscreensaver )
