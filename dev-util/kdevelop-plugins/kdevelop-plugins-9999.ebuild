@@ -13,7 +13,7 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="+browser +debugger +php"
+IUSE="+browser +php"
 
 DEPEND="
 	>=dev-util/kdevelop-${PV}:${SLOT}[kdeprefix=]
@@ -30,7 +30,7 @@ EOF
 # # # search based on path
 #	find ./ -mindepth 1 -maxdepth 1 -type d -print |sed -e "s:./::g"| \
 #	sort | while read dir; do
-	enabled="classbrowser debugger php"
+	enabled="classbrowser php"
 	for dir in ${enabled}; do
 		echo "macro_optional_add_subdirectory(${dir}) " >> "${S}/CMakeLists.txt"
 	done
@@ -39,7 +39,6 @@ EOF
 src_configure() {
 	mycmakeargs="
 		$(cmake-utils_use_build browser classbrowser)
-		$(cmake-utils_use_build debugger)
 		$(cmake-utils_use_build php)"
 
 	kde4-base_src_configure
