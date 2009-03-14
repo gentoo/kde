@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit cmake-utils qt4 subversion
+inherit qt4 cmake-utils subversion
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
@@ -25,9 +25,7 @@ DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.88
 "
 
-src_unpack() {
-	subversion_src_unpack
-
+src_prepare() {
 	# Don't check for mysql, avoid an automagic dep.
 	if ! use mysql; then
 		sed -e '/mysqld/s/find_program/#DONOTWANT &/' \
