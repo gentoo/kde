@@ -3,9 +3,6 @@
 <pkgmetadata>
 <use>
 	<flag name="clucene">Enable <pkg>dev-cpp/clucene</pkg> backend support.</flag>
-	<flag name="exiv2">
-		Enable support for exif/iptc metadata (<pkg>media-gfx/exiv2</pkg>) (recommended)
-	</flag>
 	<flag name="hyperestraier">Enable <pkg>app-text/hyperestraier</pkg> backend support.</flag>
 	<flag name="log">Enables advanced logging through <pkg>dev-libs/log4cxx</pkg>.</flag>
 	<flag name="inotify">Enable support for inotify.</flag>
