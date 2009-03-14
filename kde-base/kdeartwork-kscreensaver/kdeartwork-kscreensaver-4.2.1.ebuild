@@ -10,7 +10,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug +eigen opengl xscreensaver"
 
 RDEPEND="

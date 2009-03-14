@@ -11,16 +11,17 @@ inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug opengl xscreensaver"
+IUSE="debug +eigen opengl xscreensaver"
 
-DEPEND="
+RDEPEND="
 	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=,opengl?]
-	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
-	xscreensaver? ( x11-misc/xscreensaver )
+	xscreensaver? ( x11-misc/xscreensaver[opengl?] )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	eigen? ( dev-cpp/eigen:2 )
+"
 
 PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch" )
 
@@ -34,6 +35,8 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		-DKSCREENSAVER_SOUND_SUPPORT=ON
+		$(cmake-utils_use_with eigen Eigen2)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xscreensaver Xscreensaver)"
 
