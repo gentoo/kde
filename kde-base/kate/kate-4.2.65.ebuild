@@ -14,6 +14,7 @@ IUSE="debug +plasma"
 DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
