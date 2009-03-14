@@ -1,24 +1,22 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/umbrello/umbrello-4.2.1.ebuild,v 1.2 2009/03/08 14:22:40 scarabeus Exp $
 
 EAPI="2"
 
 KMNAME="kdesdk"
-KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="kdesdk-misc - Various files and utilities"
+DESCRIPTION="KDE: Umbrello UML Modeller"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
-RDEPEND="!kde-base/poxml"
-
-KMEXTRA="
-	kmtrace/
-	kprofilemethod/
-	poxml/
+DEPEND="
+	dev-libs/boost
+	dev-libs/libxml2
+	dev-libs/libxslt
 "
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

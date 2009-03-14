@@ -1,24 +1,15 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kompare/kompare-4.2.1.ebuild,v 1.1 2009/03/04 21:59:10 alexxy Exp $
 
 EAPI="2"
 
 KMNAME="kdesdk"
-KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="kdesdk-misc - Various files and utilities"
+DESCRIPTION="Kompare is a program to view the differences between files."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
-
-RDEPEND="!kde-base/poxml"
-
-KMEXTRA="
-	kmtrace/
-	kprofilemethod/
-	poxml/
-"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

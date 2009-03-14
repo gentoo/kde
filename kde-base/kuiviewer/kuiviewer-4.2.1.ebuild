@@ -1,24 +1,15 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kuiviewer/kuiviewer-4.2.1.ebuild,v 1.1 2009/03/04 22:30:43 alexxy Exp $
 
 EAPI="2"
 
 KMNAME="kdesdk"
-KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="kdesdk-misc - Various files and utilities"
+DESCRIPTION="KUIViewer - Displays Designer's UI files"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
-
-RDEPEND="!kde-base/poxml"
-
-KMEXTRA="
-	kmtrace/
-	kprofilemethod/
-	poxml/
-"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

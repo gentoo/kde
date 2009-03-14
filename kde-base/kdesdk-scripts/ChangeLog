@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdesdk-scripts-4.2.1.ebuild:
+  Fixed kdepimlibs check
+
 *kdesdk-scripts-4.2.65 (05 Mar 2009)
 
   05 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>

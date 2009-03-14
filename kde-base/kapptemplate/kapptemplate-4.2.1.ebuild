@@ -1,24 +1,18 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kapptemplate/kapptemplate-4.2.1.ebuild,v 1.1 2009/03/04 20:31:10 alexxy Exp $
 
 EAPI="2"
 
 KMNAME="kdesdk"
-KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="kdesdk-misc - Various files and utilities"
+DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
-RDEPEND="!kde-base/poxml"
-
-KMEXTRA="
-	kmtrace/
-	kprofilemethod/
-	poxml/
-"
+# Fails, checked revision 810882.
+RESTRICT="test"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

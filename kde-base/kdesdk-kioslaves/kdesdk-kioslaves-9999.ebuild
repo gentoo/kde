@@ -12,11 +12,15 @@ DESCRIPTION="kioslaves from kdesdk package: the subversion kioslave"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="dev-libs/apr
-	dev-util/subversion"
-RDEPEND="${RDEPEND}"
+DEPEND="
+	dev-libs/apr
+	dev-util/subversion
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DAPRCONFIG_EXECUTABLE=/usr/bin/apr-1-config"
+	mycmakeargs="${mycmakeargs}
+		-DAPRCONFIG_EXECUTABLE=/usr/bin/apr-1-config"
+
 	kde4-meta_src_configure
 }
