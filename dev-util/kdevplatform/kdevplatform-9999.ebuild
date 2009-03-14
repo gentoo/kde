@@ -7,7 +7,7 @@ EAPI="2"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="http://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""

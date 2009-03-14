@@ -12,11 +12,11 @@ HOMEPAGE="http://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+automake +browser +debugger +php +python +ruby"
 
 DEPEND="
-	>=dev-lang/kdevelop-${PV}:${SLOT}[kdeprefix=]
+	>=dev-util/kdevelop-${PV}:${SLOT}[kdeprefix=]
 	automake? ( sys-devel/automake )
 	php? ( dev-lang/php )
 	python? ( dev-lang/python )
