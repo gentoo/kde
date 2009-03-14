@@ -13,35 +13,34 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="+automake +browser +debugger +php +python +ruby"
+IUSE="+browser +debugger +php"
 
 DEPEND="
 	>=dev-util/kdevelop-${PV}:${SLOT}[kdeprefix=]
-	automake? ( sys-devel/automake )
-	php? ( dev-lang/php )
-	python? ( dev-lang/python )
-	ruby? ( dev-lang/ruby )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	local dir enabled
 	#generate basic cmakelists.txt
 	cat <<-EOF > "${S}/CMakeLists.txt"
 find_package(KDE4 REQUIRED)
 find_package(KDevPlatform REQUIRED)
 EOF
-	find ./ -mindepth 1 -maxdepth 1 -type d -print | while read dir; do
-		echo "macro_optional_add_subdirectory ( \"${dir}\" ) " > "${S}/CMakeLists.txt"
+# # # search based on path
+#	find ./ -mindepth 1 -maxdepth 1 -type d -print |sed -e "s:./::g"| \
+#	sort | while read dir; do
+	enabled="classbrowser debugger php"
+	for dir in ${enabled}; do
+		echo "macro_optional_add_subdirectory(${dir}) " >> "${S}/CMakeLists.txt"
 	done
 }
 
 src_configure() {
-	mycmakeargs="$(cmake-utils_use_build automake)
+	mycmakeargs="
 		$(cmake-utils_use_build browser classbrowser)
 		$(cmake-utils_use_build debugger)
-		$(cmake-utils_use_build php)
-		$(cmake-utils_use_build python)
-		$(cmake-utils_use_build ruby)"
+		$(cmake-utils_use_build php)"
 
 	kde4-base_src_configure
 }
