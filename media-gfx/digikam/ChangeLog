@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  digikam-9999.ebuild:
+  SLOT=live to 0.10
+
   13 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
   -digikam-0.10.0_rc1.ebuild:
   Remove. In the tree
@@ -40,7 +44,7 @@
 
 *digikam-0.10.0_beta7 (20 Dec 2008)
 
-  20 Dec 2008; Marcus D. Hanwell <cryos@gentoo.org> 
+  20 Dec 2008; Marcus D. Hanwell <cryos@gentoo.org>
   +digikam-0.10.0_beta7, -digikam-0.10.0_beta6:
   Version bump.
 

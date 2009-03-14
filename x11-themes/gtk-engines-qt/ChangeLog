@@ -1,6 +1,10 @@
 # ChangeLog for x11-themes/gtk-engines-qt
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  gtk-engines-qt-9999.ebuild:
+  SLOT=live to 1
 
   31 Dec 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   gtk-engines-qt-1.1-r1.ebuild, gtk-engines-qt-9999.ebuild:

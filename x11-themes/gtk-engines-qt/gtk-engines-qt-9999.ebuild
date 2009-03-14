@@ -16,7 +16,7 @@ ESVN_REPO_URI="http://gtk-qt.ecs.soton.ac.uk/svn/gtk-qt/trunk/${MY_PN}"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug gnome"
-SLOT="live"
+SLOT="1"
 
 RDEPEND="
 	x11-libs/gtk+:2

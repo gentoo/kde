@@ -13,7 +13,7 @@ HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="0.10"
 IUSE="addressbook debug geolocation +gphoto2"
 
 DEPEND="
