@@ -28,7 +28,7 @@ DEPEND="
 	musepack? ( media-libs/libmpcdec )
 	musicbrainz? ( media-libs/musicbrainz:1 )
 	sndfile? ( media-libs/libsndfile )
-	taglib? ( >=media-libs/taglib-1.5.0 )
+	taglib? ( >=media-libs/taglib-1.5 )
 	vorbis? ( media-libs/libvorbis )
 "
 RDEPEND="${DEPEND}
