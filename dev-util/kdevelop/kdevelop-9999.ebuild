@@ -28,6 +28,7 @@ src_configure() {
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build qmake)
 		$(cmake-utils_use_build qmake qmakebuilder)
+		$(cmake-utils_use_build qmake qmake_parser)
 		$(cmake-utils_use_build cxx cpp)"
 
 	kde4-base_src_configure
