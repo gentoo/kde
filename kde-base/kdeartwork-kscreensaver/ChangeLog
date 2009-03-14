@@ -3,6 +3,12 @@
 # $Header: $
 
   14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdeartwork-kscreensaver-4.2.1.ebuild,
+  kdeartwork-kscreensaver-4.2.65.ebuild,
+  kdeartwork-kscreensaver-9999.ebuild:
+  Dropped opengl handling in xscreensaver - more harm than good
+
+  14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +kdeartwork-kscreensaver-4.2.1.ebuild,
   kdeartwork-kscreensaver-4.2.65.ebuild,
   kdeartwork-kscreensaver-9999.ebuild:

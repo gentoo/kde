@@ -17,7 +17,7 @@ RDEPEND="
 	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=,opengl?]
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
-	xscreensaver? ( x11-misc/xscreensaver[opengl?] )
+	xscreensaver? ( x11-misc/xscreensaver )
 "
 DEPEND="${RDEPEND}
 	eigen? ( dev-cpp/eigen:2 )
