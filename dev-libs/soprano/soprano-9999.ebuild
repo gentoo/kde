@@ -39,6 +39,7 @@ RDEPEND="${COMMON_DEPEND}
 CMAKE_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
+	java-pkg-opt-2_pkg_setup
 	echo
 	ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
 	ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
