@@ -52,6 +52,7 @@ KMEXTRACTONLY="
 	libs/kworkspace/
 	libs/taskmanager/
 	ksysguard/
+	screenpreviewwidget/
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
