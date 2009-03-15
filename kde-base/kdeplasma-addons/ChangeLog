@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeplasma-addons-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdeplasma-addons-4.2.66.ebuild:
+  Version bump.
+
   08 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdeplasma-addons-4.2.65.ebuild, kdeplasma-addons-9999.ebuild:
   Just one way ;)

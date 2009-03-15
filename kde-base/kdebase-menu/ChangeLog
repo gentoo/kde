@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdebase-menu-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdebase-menu-4.2.66.ebuild:
+  Version bump.
+
 *kdebase-menu-9999 (12 Mar 2009)
 *kdebase-menu-4.2.65 (12 Mar 2009)
 

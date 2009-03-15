@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*plasma-workspace-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.2.66.ebuild:
+  Version bump.
+
   12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   plasma-workspace-4.2.65.ebuild, plasma-workspace-9999.ebuild:
   Updated deps

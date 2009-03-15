@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*nepomuk-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +nepomuk-4.2.66.ebuild:
+  Version bump.
+
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   nepomuk-4.2.1.ebuild:
   Updated soprano use deps: sesame2->java for nepomuk-4.2.1

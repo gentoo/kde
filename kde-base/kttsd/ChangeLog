@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kttsd-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +kttsd-4.2.66.ebuild:
+  Version bump.
+
   06 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kttsd-4.2.1.ebuild, kttsd-4.2.65.ebuild, kttsd-9999.ebuild:
   Updated phonon deps

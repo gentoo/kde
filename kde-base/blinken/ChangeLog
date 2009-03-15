@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*blinken-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +blinken-4.2.66.ebuild:
+  Version bump.
+
   11 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -blinken-4.2.1.ebuild:
   Moved to tree

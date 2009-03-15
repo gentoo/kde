@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeartwork-kscreensaver-4.2.66 (15 Mar 2009)
+
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdeartwork-kscreensaver-4.2.66.ebuild:
+  Version bump.
+
   14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdeartwork-kscreensaver-4.2.1.ebuild,
   kdeartwork-kscreensaver-4.2.65.ebuild,
