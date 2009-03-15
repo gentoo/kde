@@ -51,8 +51,8 @@ KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	libs/kworkspace/
 	libs/taskmanager/
+	libs/screenpreviewwidget/
 	ksysguard/
-	screenpreviewwidget/
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
