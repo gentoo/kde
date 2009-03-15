@@ -14,7 +14,6 @@ kde-base/kmailcvt:live
 # kde-base/kmobiletools:live # missing ebuild
 kde-base/knode:live
 kde-base/knotes:live
-# kde-base/kode:live # removed from 4.3
 kde-base/kontact:live
 kde-base/kontact-specialdates:live
 kde-base/kontactinterfaces:live
