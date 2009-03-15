@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit perl-module subversion cmake-utils qt4
+inherit perl-module subversion qt4 cmake-utils
 
 DESCRIPTION="Source code sanity checker for KDE developers."
 HOMEPAGE="http://www.kde.org/"
