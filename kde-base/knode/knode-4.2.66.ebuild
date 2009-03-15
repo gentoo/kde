@@ -19,7 +19,6 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkpgp/
-	kdepim-version.h
 "
 
 KMLOADLIBS="libkdepim"
