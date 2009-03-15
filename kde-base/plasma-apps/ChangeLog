@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-apps-4.2.65.ebuild:
+  Version removed.
+
 *plasma-apps-4.2.66 (15 Mar 2009)
 
   15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
