@@ -11,10 +11,6 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-RDEPEND="
-	>=kde-base/kode-${PV}:${SLOT}[kdeprefix=]
-"
-
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
