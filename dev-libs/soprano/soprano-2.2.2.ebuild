@@ -35,6 +35,7 @@ RDEPEND="${COMMON_DEPEND}"
 CMAKE_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
+	java-pkg-opt-2_pkg_setup
 	echo
 	if ! use redland && ! use java; then
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
