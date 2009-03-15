@@ -17,6 +17,7 @@ COMMONDEPEND="
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libscreenpreviewwidget-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXau
