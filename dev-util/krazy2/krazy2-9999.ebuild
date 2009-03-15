@@ -30,6 +30,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=( "${FILESDIR}/install.sh.patch" )
+CMAKE_IN_SOURCE_BUILD=1
 
 src_prepare() {
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
@@ -39,7 +40,7 @@ src_prepare() {
 
 src_configure() {
 	cd cppchecks
-	cmake-utils_src_configurein
+	cmake-utils_src_configure
 	cd ../src
 	eqmake4 src.pro
 	cd ..
