@@ -389,13 +389,12 @@ kde4-meta_create_extractlists() {
 				KMEXTRACTONLY="${KMEXTRACTONLY}
 					libkdepim"
 			fi
-			case ${PV} in
-				4.2.6*|4.2.7*|4.2.8*|4.2.9*)
+			case ${SLOT} in
+				4.3|live)
 					KMEXTRACTONLY="${KMEXTRACTONLY}
 							kdepim-version.h
 							config-enterprise.h.cmake"
-							;;
-				*) ;;
+					;;
 			esac
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				kleopatra/ConfigureChecks.cmake"
