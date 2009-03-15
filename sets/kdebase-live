@@ -59,6 +59,7 @@ kde-base/kwrited:live
 kde-base/libkonq:live
 kde-base/libkworkspace:live
 kde-base/libplasmaclock:live
+kde-base/libscreenpreviewwidget:live
 kde-base/libtaskmanager:live
 kde-base/nepomuk:live
 kde-base/nsplugins:live
