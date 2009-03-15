@@ -21,7 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-compilation-fix.patch"
+	"${FILESDIR}/${PN}-4.2.65-compilation-fix.patch"
 )
 
 src_prepare() {
