@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-9999.ebuild:
+  Removed libscreenpreviewwidget from -9999
+
   15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -plasma-workspace-4.2.65.ebuild:
   Version removed.
