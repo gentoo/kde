@@ -28,7 +28,6 @@ KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
 	knode/org.kde.knode.xml
-	kdepim-version.h
 "
 
 src_unpack() {
