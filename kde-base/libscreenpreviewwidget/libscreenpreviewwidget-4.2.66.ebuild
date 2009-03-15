@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="kdebase-workspace"
-KMMODULE="libs/libscreenpreviewwidget"
+KMMODULE="libs/screenpreviewwidget"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
