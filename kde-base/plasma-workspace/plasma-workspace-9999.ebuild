@@ -55,7 +55,7 @@ KMEXTRACTONLY="
 	ksysguard/
 "
 
-KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
+KMLOADLIBS="libkworkspace libplasmaclock libscreenpreviewwidget libtaskmanager"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
