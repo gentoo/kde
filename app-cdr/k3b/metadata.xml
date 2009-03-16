@@ -5,6 +5,7 @@
 <herd>media-optical</herd>
 <use>
 	<flag name="emovix">Enable burning support for eMoviX images</flag>
+	<flag name="samplerate">Enable sample rate conversion support via <pkg>media-libs/libsamplerate</pkg></flag>
 	<flag name="wav">Enable support for reading WAVE files</flag>
 </use>
 </pkgmetadata>
