@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="yaWP (Yet Another Weather Plasmoid)"
 HOMEPAGE="http://www.kde-look.org/content/show.php?content=94106"
-SRC_URI="http://marian.kyralovi.cz/data/yawp/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
