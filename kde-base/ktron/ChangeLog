@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/ktron
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ktron-9999 (16 Mar 2009)
+
+  06 Mar 2009; <en.ABCD@gmail.com> +metadata.xml, +ktron-9999.ebuild:
+  Add ktron-9999.ebuild
+
