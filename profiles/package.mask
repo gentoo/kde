@@ -384,6 +384,7 @@ kde-base/step:live
 =app-editors/kile-9999
 =dev-util/kdesvn-9999
 =dev-util/kdevelop-9999
+=dev-util/kdevelop-plugins-9999
 =dev-util/kdevplatform-9999
 =kde-misc/kdelirc-9999
 =kde-misc/kdiff3-9999
