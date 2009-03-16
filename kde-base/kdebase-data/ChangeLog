@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdebase-data-9999.ebuild:
+  Added dep on oxygen icons
+
   15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdebase-data-4.2.65.ebuild:
   Version removed.

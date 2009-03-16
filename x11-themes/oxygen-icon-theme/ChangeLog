@@ -1,0 +1,10 @@
+# ChangeLog for x11-themes/oxygen-icon-theme
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*oxygen-icon-theme-9999 (16 Mar 2009)
+
+  16 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +oxygen-icon-theme-9999.ebuild:
+  Added new ebuild
+
