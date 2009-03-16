@@ -14,3 +14,7 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
+
+RDEPEND="
+	!<=kde-base/kdebase-data-4.2.66[-kdeprefix]
+"
