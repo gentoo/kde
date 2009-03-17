@@ -56,7 +56,7 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
 "
 
-PATCHES=( "${FILESDIR}/${PV}-ipod.patch" )
+PATCHES=( "${FILESDIR}/${PV}-ipod.patch" "${FILESDIR}/${PV}-qt4.5-script.patch" )
 
 pkg_setup() {
 	if use amd64 ; then

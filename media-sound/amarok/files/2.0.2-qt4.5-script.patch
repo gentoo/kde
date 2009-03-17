@@ -1,0 +1,33 @@
+Index: scriptengine/generator/generator/typesystem_core.xml
+===================================================================
+--- src/scriptengine/generator/generator/typesystem_core.xml	(revision 933539)
++++ src/scriptengine/generator/generator/typesystem_core.xml	(working copy)
+@@ -1346,8 +1346,14 @@
+   </object-type>
+ 
+   <interface-type name="QTextCodecFactoryInterface" java-name="QAbstractTextCodecFactory"/>
+-  <object-type name="QTextCodecPlugin"/>
++  <!--<object-type name="QTextCodecPlugin"/> -->
++  <object-type name="QTextCodecPlugin">
++      <inject-code class="shell" position="beginning">
++  Q_DECLARE_METATYPE(QList&lt;int>)
++      </inject-code>
++     </object-type>
+ 
++
+   <object-type name="QTextDecoder">
+     <modify-function signature="toUnicode(const char*,int)">
+         <remove/>
+Index: scriptengine/generator/generator/shellimplgenerator.cpp
+===================================================================
+--- src/scriptengine/generator/generator/shellimplgenerator.cpp	(revision 933539)
++++ src/scriptengine/generator/generator/shellimplgenerator.cpp	(working copy)
+@@ -106,6 +106,8 @@
+         s << endl;
+     }
+ 
++    writeInjectedCode(s, meta_class);
++
+     // write constructors
+     foreach (const AbstractMetaFunction *ctor, ctors) {
+         s << "QtScriptShell_" << meta_class->name() << "::";

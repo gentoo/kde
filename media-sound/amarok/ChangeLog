@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Mar 2009; Markus Ullmann <jokey@gentoo.org> amarok-9999.ebuild:
+  Add Qt 4.5 Script fix from upstream bugzilla
+
   12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-9999.ebuild:
   SLOT -> 2 for live amarok

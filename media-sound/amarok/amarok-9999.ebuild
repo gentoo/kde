@@ -50,6 +50,8 @@ RDEPEND="${DEPEND}
 	utils? ( media-sound/amarok-utils )
 "
 
+PATCHES=( "${FILESDIR}/2.0.2-qt4.5-script.patch" )
+
 pkg_setup() {
 	if use amd64 ; then
 		echo
