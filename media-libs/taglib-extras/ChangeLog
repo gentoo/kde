@@ -1,0 +1,10 @@
+# ChangeLog for media-libs/taglib-extras
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*taglib-extras-9999 (17 Mar 2009)
+
+  17 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +taglib-extras-9999.ebuild:
+  Ebuild added
+
