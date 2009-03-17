@@ -20,11 +20,12 @@ RDEPEND="
 	>=media-libs/taglib-1.5
 	kde? ( >=kde-base/kdelibs-${KDE_MINIMAL} )
 "
-DEPEND="${RDEPEND}
-	>=dev-util/cmake-2.6
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
+	# if not using kde then remove kdeprefix flag
+	use kde || PREFIX="/usr"
+
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with kde KDE)"
 
