@@ -14,7 +14,7 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop +utils"
+IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop taglib-extras +utils"
 
 DEPEND="
 	>=app-misc/strigi-0.5.7
@@ -44,13 +44,12 @@ DEPEND="
 		x11-libs/qt-core[glib]
 	)
 	mtp? ( >=media-libs/libmtp-0.3.0 )
+	taglib-extras? ( >=media-libs/taglib-extras-0.1[kde] )
 "
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
 	utils? ( media-sound/amarok-utils )
 "
-
-PATCHES=( "${FILESDIR}/2.0.2-qt4.5-script.patch" )
 
 pkg_setup() {
 	if use amd64 ; then
@@ -70,6 +69,14 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
+src_prepare() {
+	if has_version '>=x11-libs/qt-gui-4.5:4'; then
+		epatch "${FILESDIR}/${PV}-qt4.5-script.patch"
+	fi
+
+	kde4-base_src_prepare
+}
+
 src_configure() {
 	# Remove superfluous QT_WEBKIT
 	sed -e 's/ -DQT_WEBKIT//g' \
@@ -77,14 +84,14 @@ src_configure() {
 		|| die "Removing unnecessary -DQT_WEBKIT failed."
 
 	mycmakeargs="${mycmakeargs}
-		-DUSE_SYSTEM_SQLITE=ON
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
 		$(cmake-utils_use_with ipod Ipod)
 		$(cmake-utils_use_with gtk Gdk)
 		$(cmake-utils_use_with mtp Mtp)
-		$(cmake-utils_use_with mp3tunes MP3TUNES)"
+		$(cmake-utils_use_with mp3tunes MP3TUNES)
+		$(cmake-utils_use_with taglib-extras TAGLIB-EXTRAS)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
 #		$(cmake-utils_use_with semantic-desktop Soprano)"
 

@@ -56,7 +56,7 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
 "
 
-PATCHES=( "${FILESDIR}/${PV}-ipod.patch" "${FILESDIR}/${PV}-qt4.5-script.patch" )
+PATCHES=( "${FILESDIR}/${PV}-ipod.patch" )
 
 pkg_setup() {
 	if use amd64 ; then
@@ -74,6 +74,14 @@ pkg_setup() {
 	fi
 
 	kde4-base_pkg_setup
+}
+
+src_prepare() {
+	if has_version '>=x11-libs/qt-gui-4.5:4'; then
+		epatch "${FILESDIR}/${PV}-qt4.5-script.patch"
+	fi
+
+	kde4-base_src_prepare
 }
 
 src_configure() {

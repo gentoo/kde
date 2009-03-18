@@ -40,10 +40,8 @@
 		RealPlayer.
 	</flag>
 	-->
-	<flag name="semantic-desktop">
-		Semantic desktop allows for storage of digital informationand its
-		metadata to allow the user to express his personal mental models, making
-		all information become intuitively accessible
+	<flag name="taglib-extras">
+		Enable support for unofficial taglib plugins maintained by the Amarok team, via <pkg>media-libs/taglib-extras</pkg>."
 	</flag>
 	<flag name="utils">
 		Build collection scanner shipped with <pkg>media-sound/amarok</pkg>.
