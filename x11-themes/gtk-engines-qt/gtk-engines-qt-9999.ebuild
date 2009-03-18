@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="bg cs de es fr it ko nn pt_BR ru sv tr zh_CN"
+KDE_LINGUAS="bg cs de es fr it ko lt nl nn pt_BR ro ru sv tr zh_CN"
 
 inherit kde4-base
 
