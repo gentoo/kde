@@ -416,6 +416,7 @@ kde-base/step:live
 =net-voip/tapioca-qt-9999
 =net-wireless/kdebluetooth4-9999
 =sys-block/partitionmanager-9999
+=www-client/rekonq-9999
 =x11-themes/gtk-engines-qt-9999
 kde-base/bomber:live
 kde-base/bovo:live
@@ -554,8 +555,8 @@ app-office/krita:live
 app-office/koffice-data:live
 app-office/koffice-libs:live
 app-office/kspread:live
-kde-plasmoids/kepas:live
-kde-plasmoids/menubar:live
+=kde-plasmoids/kepas-9999
+=kde-plasmoids/menubar-9999
 
 media-libs/opengtl
 

@@ -12,18 +12,18 @@ DESCRIPTION="KDE Photo Album is a tool for indexing, searching, and viewing imag
 HOMEPAGE="http://www.kphotoalbum.org/"
 SRC_URI="http://dev.gentoo.org/~jkt/kphotoalbum/${MY_P}.tar.bz2"
 
-SLOT="4"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +exif +kipi +marble +raw +semantic-desktop"
+SLOT="4"
+IUSE="debug +exif +geolocation +kipi +raw +semantic-desktop"
 
 DEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,semantic-desktop?]
 	media-libs/jpeg
-	x11-libs/qt-sql:4[sqlite]
+	>=x11-libs/qt-sql-4.4:4[sqlite]
 	exif? ( >=media-gfx/exiv2-0.17 )
+	geolocation? ( >=kde-base/marble-${KDE_MINIMAL}[kdeprefix=] )
 	kipi? ( >=kde-base/libkipi-${KDE_MINIMAL}[kdeprefix=] )
-	marble? ( >=kde-base/marble-${KDE_MINIMAL}[kdeprefix=] )
 	raw? ( >=kde-base/libkdcraw-${KDE_MINIMAL}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
@@ -37,7 +37,7 @@ src_configure() {
 		$(cmake-utils_use_with exif Exiv2)
 		$(cmake-utils_use_with raw Kdcraw)
 		$(cmake-utils_use_with kipi Kipi)
-		$(cmake-utils_use_with marble Marble)
+		$(cmake-utils_use_with geolocation Marble)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
 

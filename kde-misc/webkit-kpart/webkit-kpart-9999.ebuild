@@ -10,14 +10,13 @@ KMMODULE="webkitkde"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for konqueror"
+HOMEPAGE="http://kde.org"
+
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
-	x11-libs/qt-webkit:4
-"
-RDEPEND="${DEPEND}
+RDEPEND="
 	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
 "

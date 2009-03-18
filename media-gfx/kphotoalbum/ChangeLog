@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, kphotoalbum-2009.02.11.ebuild:
+  marble USE flag -> geolocation, cleaned up metadata.xml
+
   12 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kphotoalbum-2009.02.11.ebuild:
   kphotoalbum cmake options fixed

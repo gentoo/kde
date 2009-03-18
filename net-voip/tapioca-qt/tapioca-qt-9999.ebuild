@@ -10,15 +10,17 @@ DESCRIPTION="Tapioca QT4 Bindings"
 HOMEPAGE="http://tapioca-voip.sourceforge.net/wiki/index.php/Tapioca"
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/tapioca-qt"
 
+LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-LICENSE="LGPL-2.1"
 IUSE="debug"
 
-DEPEND="|| ( ( x11-libs/qt-core:4
-		x11-libs/qt-dbus:4 )
-	>=x11-libs/qt-4.2:4 )
-	net-libs/telepathy-qt"
+DEPEND="
+	net-libs/telepathy-qt
+	>=x11-libs/qt-core-4.4:4
+	>=x11-libs/qt-dbus-4.4:4
+"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	echo

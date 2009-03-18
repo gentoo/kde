@@ -1,6 +1,10 @@
 # ChangeLog for net-libs/decibel
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  decibel-9999.ebuild:
+  Deps fixed
 
   30 Nov 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   decibel-9999.ebuild:

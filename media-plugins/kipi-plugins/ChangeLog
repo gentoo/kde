@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml:
+  Removed unnecessary USE flag
+
   20 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
   +files/playbackwidget-qt45.patch, -kipi-plugins-0.2.0_rc2.ebuild,
   kipi-plugins-9999.ebuild:

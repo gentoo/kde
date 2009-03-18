@@ -13,7 +13,9 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="1"
-IUSE="oscar zeroconf"
+IUSE="debug oscar zeroconf"
 
-DEPEND="zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL}[kdeprefix=] )
-	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[kdeprefix=,oscar] )"
+RDEPEND="
+	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[kdeprefix=,oscar] )
+	zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL}[kdeprefix=] )
+"
