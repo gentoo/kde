@@ -5,6 +5,7 @@
 EAPI="2"
 
 KMNAME="playground/network"
+KMMODULE="kbluetooth4"
 KDE_MINIMAL="4.2"
 inherit kde4-base
 
