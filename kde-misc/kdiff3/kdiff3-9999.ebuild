@@ -12,7 +12,7 @@ HOMEPAGE="http://kdiff3.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="1"
 IUSE="debug konqueror"
 
 DEPEND="
@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with konqueror LibKonq)
-	"
+		$(cmake-utils_use_with konqueror LibKonq)"
+
 	kde4-base_src_configure
 }

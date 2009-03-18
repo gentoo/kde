@@ -10,18 +10,21 @@ inherit kde4-base
 
 DESCRIPTION="Media player for KDE using xine and gstreamer backends."
 HOMEPAGE="http://kaffeine.sourceforge.net/"
+
 LICENSE="GPL-2"
-
-SLOT="live"
 KEYWORDS=""
-IUSE="dvb xcb encode vorbis"
+SLOT="1"
+IUSE="debug dvb xcb encode vorbis"
 
-RDEPEND=">=media-libs/xine-lib-1.1.12
-	xcb? ( >=x11-libs/libxcb-1.0 )
+RDEPEND="
+	>=media-libs/xine-lib-1.1.12
 	media-sound/cdparanoia
+	x11-libs/libXtst
 	encode? ( media-sound/lame )
 	vorbis? ( media-libs/libvorbis )
-	x11-libs/libXtst"
+	xcb? ( >=x11-libs/libxcb-1.0 )
+"
 DEPEND="${RDEPEND}
+	x11-proto/inputproto
 	dvb? ( media-tv/linuxtv-dvb-headers )
-	x11-proto/inputproto"
+"

@@ -10,10 +10,10 @@ inherit kde4-meta
 
 DESCRIPTION="Various plugins for konqueror"
 HOMEPAGE="http://kde.org/"
-SLOT="live"
 
 LICENSE="GPL-2"
 KEYWORDS=""
+SLOT="4"
 IUSE="debug"
 
 DEPEND="

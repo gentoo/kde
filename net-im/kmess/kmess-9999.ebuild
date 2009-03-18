@@ -14,9 +14,8 @@ ESVN_REPO_URI="http://kmess.svn.sourceforge.net/svnroot/kmess/trunk/kmess"
 ESVN_PROJECT="kmess"
 
 LICENSE="GPL-2"
-
-SLOT="live"
 KEYWORDS=""
+SLOT="4"
 IUSE="debug"
 
 COMMONDEPEND="

@@ -11,8 +11,8 @@ DESCRIPTION="KMPlayer is a Video player plugin for Konqueror and basic MPlayer/X
 HOMEPAGE="http://kmplayer.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
+SLOT="1"
 IUSE="cairo debug expat npp"
 
 DEPEND="
@@ -25,6 +25,10 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	!kdeprefix? (
+		!media-video/kmplayer:0
+		!media-video/kmplayer:4.1
+	)
 	media-video/mplayer
 "
 

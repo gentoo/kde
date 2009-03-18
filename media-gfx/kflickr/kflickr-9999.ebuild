@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="ar ast bg ca cs de es eu fr he hu id it ko ku lv nb nds nl pl pt_BR
+KDE_LINGUAS="ar bg ca cs de es eu fr he hu id it ko ku lv nb nds nl pl pt_BR
 	ru sl sr sv tr uk zh_CN"
 
 KDE_LINGUAS_DIR="${S}/src/po"
@@ -16,7 +16,7 @@ HOMEPAGE="http://kflickr.sourceforge.net/"
 ESVN_REPO_URI="https://kflickr.svn.sourceforge.net/svnroot/kflickr/trunk/kflickr"
 ESVN_PROJECT="kflickr"
 
-SLOT="live"
-KEYWORDS=""
 LICENSE="GPL-2"
+KEYWORDS=""
+SLOT="4"
 IUSE="debug"

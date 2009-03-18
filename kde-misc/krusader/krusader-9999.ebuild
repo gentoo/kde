@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://${PN}.svn.sourceforge.net/svnroot/${PN}/trunk/${PN}_kde4"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="2"
 IUSE="debug"
 
 DEPEND="

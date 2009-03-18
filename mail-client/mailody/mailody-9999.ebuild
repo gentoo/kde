@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="extragear/pim"
 inherit kde4-base
 
@@ -11,7 +12,7 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php/Mailody?content=47793"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="0"
 IUSE="debug geolocation"
 
 DEPEND="
@@ -26,8 +27,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with geolocation MarbleWidget)
-	"
+		$(cmake-utils_use_with geolocation MarbleWidget)"
 
 	kde4-base_src_configure
 }

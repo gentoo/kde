@@ -4,6 +4,10 @@
 
   18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   krusader-9999.ebuild:
+  Dropped live SLOT
+
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  krusader-9999.ebuild:
   Fixed RDEPEND
 
   09 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
