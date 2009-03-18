@@ -5,15 +5,20 @@
 EAPI="2"
 
 KMNAME="playground/pim"
-KMMODULE="pinentry-qt4"
+NEED_KDE="none"
 inherit kde4-base
 
 DESCRIPTION="Collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol"
 HOMEPAGE="http://kde.org/"
+
 LICENSE="GPL-2 LGPL-2"
-
 KEYWORDS=""
-IUSE=""
-SLOT="live"
+SLOT="0"
+IUSE="debug"
 
-DEPEND="app-crypt/pinentry"
+DEPEND="
+	>=x11-libs/qt-gui-4.4:4
+"
+RDEPEND="${DEPEND}
+	app-crypt/pinentry
+"

@@ -1,6 +1,10 @@
 # ChangeLog for app-crypt/pinentry-qt4
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  pinentry-qt4-9999.ebuild:
+  Slot pdated, deps fixed
 
 *pinentry-qt4-9999 (27 Nov 2008)
 
