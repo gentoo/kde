@@ -5,8 +5,5 @@
 <use>
 	<flag name="bittorrent">Enable embedded bittorrent transport plugin</flag>
 	<flag name="bittorrent-external">Enable external bittorrent transport plugin via ktorrent</flag>
-	<flag name="semantic-desktop">Semantic desktop allows for storage of digital
-	information and its metadata to allow the user to express his personal
-	mental models, making all information become intuitively accessible</flag>
 </use>
 </pkgmetadata>
