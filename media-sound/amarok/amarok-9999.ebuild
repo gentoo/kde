@@ -14,7 +14,7 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop taglib-extras +utils"
+IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop +utils"
 
 DEPEND="
 	>=app-misc/strigi-0.5.7
@@ -23,6 +23,7 @@ DEPEND="
 		>=dev-db/mysql-community-5.0[embedded]
 	)
 	>=media-libs/taglib-1.5
+	>=media-libs/taglib-extras-0.1[kde]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
 	>=kde-base/phonon-kde-${KDE_MINIMAL}[kdeprefix=]
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
@@ -44,7 +45,6 @@ DEPEND="
 		x11-libs/qt-core[glib]
 	)
 	mtp? ( >=media-libs/libmtp-0.3.0 )
-	taglib-extras? ( >=media-libs/taglib-extras-0.1[kde] )
 "
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
@@ -82,8 +82,7 @@ src_configure() {
 		$(cmake-utils_use_with ipod Ipod)
 		$(cmake-utils_use_with gtk Gdk)
 		$(cmake-utils_use_with mtp Mtp)
-		$(cmake-utils_use_with mp3tunes MP3TUNES)
-		$(cmake-utils_use_with taglib-extras TAGLIB-EXTRAS)"
+		$(cmake-utils_use_with mp3tunes MP3TUNES)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
 #		$(cmake-utils_use_with semantic-desktop Soprano)"
 

@@ -3,6 +3,10 @@
 # $Header: $
 
   19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, amarok-9999.ebuild:
+  Amarok now requires taglib-extras
+
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -files/2.0.2-qt4.5-script.patch, amarok-2.0.2.ebuild, amarok-9999.ebuild:
   Removed not working patch
 

@@ -40,9 +40,6 @@
 		RealPlayer.
 	</flag>
 	-->
-	<flag name="taglib-extras">
-		Enable support for unofficial taglib plugins maintained by the Amarok team, via <pkg>media-libs/taglib-extras</pkg>."
-	</flag>
 	<flag name="utils">
 		Build collection scanner shipped with <pkg>media-sound/amarok</pkg>.
 	</flag>
