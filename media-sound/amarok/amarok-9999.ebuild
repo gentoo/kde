@@ -69,14 +69,6 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
-src_prepare() {
-	if has_version '>=x11-libs/qt-gui-4.5:4'; then
-		epatch "${FILESDIR}/2.0.2-qt4.5-script.patch"
-	fi
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	# Remove superfluous QT_WEBKIT
 	sed -e 's/ -DQT_WEBKIT//g' \

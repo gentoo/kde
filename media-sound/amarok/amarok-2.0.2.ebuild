@@ -76,14 +76,6 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
-src_prepare() {
-	if has_version '>=x11-libs/qt-gui-4.5:4'; then
-		epatch "${FILESDIR}/${PV}-qt4.5-script.patch"
-	fi
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	if ! use mp3tunes; then
 		sed -e'/mp3tunes/ s:^:#DONOTWANT :' \
