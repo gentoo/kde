@@ -4,12 +4,13 @@
 
 EAPI="2"
 
-KMNAME="playground/multimedia"
+# TODO add KMNAME=kdesupport handling in eclass
 NEED_KDE="none"
 inherit kde4-base
 
 DESCRIPTION="Unofficial taglib plugins maintained by the Amarok team"
 HOMEPAGE="http://developer.kde.org/~wheeler/taglib.html"
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -30,4 +31,13 @@ src_configure() {
 		$(cmake-utils_use_with kde KDE)"
 
 	kde4-base_src_configure
+}
+
+pkg_postinst() {
+	if [[ -d "${ESVN_STORE_DIR}/playground/multimedia/${PN}" ]]; then
+		echo
+		ewarn "taglib-extras has been moved from playground/multimedia to kdesupport."
+		elog "You may now remove ${ESVN_STORE_DIR}/playground/multimedia/${PN}"
+		echo
+	fi
 }
