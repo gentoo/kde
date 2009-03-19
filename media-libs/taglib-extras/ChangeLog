@@ -4,6 +4,10 @@
 
   19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   taglib-extras-9999.ebuild:
+  Unconditional prefix=/usr - for now
+
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  taglib-extras-9999.ebuild:
   Update svn path
 
   17 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>

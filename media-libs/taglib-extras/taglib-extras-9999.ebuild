@@ -24,10 +24,9 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	# if not using kde then remove kdeprefix flag
-	use kde || PREFIX="/usr"
-
+	# FIXME override kdeprefix flag for now (soon it will be dropped in eclass)
 	mycmakeargs="${mycmakeargs}
+		-DCMAKE_INSTALL_PREFIX=/usr
 		$(cmake-utils_use_with kde KDE)"
 
 	kde4-base_src_configure
