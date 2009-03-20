@@ -12,9 +12,9 @@ HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="4"
 IUSE="debug"
 
-RDEPEND="${DEPEND}
+RDEPEND="
 	app-misc/lirc
 "

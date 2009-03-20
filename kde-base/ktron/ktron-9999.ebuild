@@ -4,11 +4,9 @@
 
 EAPI="2"
 
-KMNAME="kdepim"
+KMNAME="kdegames"
 inherit kde4-meta
 
-DESCRIPTION="KDE mailbox checker"
-IUSE="debug"
+DESCRIPTION="KDE Tron game"
 KEYWORDS=""
-
-KMEXTRACTONLY="kmail"
+IUSE="debug"

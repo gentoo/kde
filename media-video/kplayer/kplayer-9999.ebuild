@@ -10,12 +10,16 @@ inherit kde4-base
 DESCRIPTION="KPlayer is a KDE media player based on mplayer."
 HOMEPAGE="http://kde-apps.org/content/download.php?content=9833&id=1"
 
-LICENSE="GPL-2"
-SLOT="live"
+LICENSE="GPL-3"
 KEYWORDS=""
+SLOT="1"
 IUSE="debug"
 
 RDEPEND="
+	!kdeprefix? (
+		!media-video/kplayer:0
+		!media-video/kplayer:0.7
+	)
 	>=media-video/mplayer-1.0_rc1
 "
 

@@ -18,6 +18,7 @@ RDEPEND="
 	!kdeprefix? ( !<kde-base/dolphin-${PV}[-kdeprefix] )
 	kdeprefix? ( !<kde-base/dolphin-${PV}:${SLOT} )
 	x11-themes/hicolor-icon-theme
+	x11-themes/oxygen-icon-theme
 "
 
 KMEXTRA="

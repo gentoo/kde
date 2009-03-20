@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  libmsn-4.0_beta4.ebuild:
+  Deps fixed
+
   23 Jan 2009; Markos Chandras (hwoarang) <hwoarang@silverarrow.gr>
   -net-libs/libmsn/libmsn-4.0_beta3.ebuild,
   +net-libs/libmsn/libmsn-4.0_beta4.ebuild:

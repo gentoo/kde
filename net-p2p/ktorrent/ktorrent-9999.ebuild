@@ -12,7 +12,7 @@ HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="3"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer +mediaplayer plasma rss +scanfolder +search +stats +upnp +webinterface +zeroconf"
 
 DEPEND="

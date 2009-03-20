@@ -12,6 +12,6 @@ DESCRIPTION="A central menubar for all KDE programs"
 HOMEPAGE="http://plasma.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
+SLOT="0"
 IUSE="debug"

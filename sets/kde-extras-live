@@ -1,9 +1,12 @@
 =app-cdr/k3b-9999
 =app-cdr/k9copy-9999
+=app-crypt/pinentry-qt4-9999
 =app-editors/kile-9999
 =dev-util/kdesvn-9999
 =dev-util/kdevelop-9999
+=dev-util/kdevelop-plugins-9999
 =dev-util/kdevplatform-9999
+=dev-util/krazy2-9999
 =kde-misc/kdelirc-9999
 =kde-misc/kdiff3-9999
 =kde-misc/kgrubeditor-9999
@@ -14,6 +17,7 @@
 =mail-client/mailody-9999
 =media-gfx/digikam-9999
 =media-gfx/kflickr-9999
+=media-libs/taglib-extras-9999
 =media-plugins/kipi-plugins-9999
 =media-sound/amarok-9999
 =media-sound/amarok-utils-9999
@@ -32,4 +36,5 @@
 =net-voip/tapioca-qt-9999
 =net-wireless/kdebluetooth4-9999
 =sys-block/partitionmanager-9999
+=www-client/rekonq-9999
 =x11-themes/gtk-engines-qt-9999

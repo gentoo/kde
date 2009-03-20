@@ -23,6 +23,7 @@ DEPEND="
 		>=dev-db/mysql-community-5.0[embedded]
 	)
 	>=media-libs/taglib-1.5
+	>=media-libs/taglib-extras-0.1[kde]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
 	>=kde-base/phonon-kde-${KDE_MINIMAL}[kdeprefix=]
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
@@ -75,7 +76,6 @@ src_configure() {
 		|| die "Removing unnecessary -DQT_WEBKIT failed."
 
 	mycmakeargs="${mycmakeargs}
-		-DUSE_SYSTEM_SQLITE=ON
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF

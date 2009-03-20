@@ -14,19 +14,21 @@ HOMEPAGE="http://k9copy.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}-Source.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="2"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="2"
+IUSE="debug"
 
-DEPEND="media-libs/libdvdread
+DEPEND="
+	media-libs/libdvdread
 	media-libs/xine-lib
 	>=media-video/ffmpeg-0.4.9_p20081014
 	x11-libs/qt-dbus:4
-	!kdeprefix? ( !app-cdr/k9copy:0 )"
-
+"
 RDEPEND="${DEPEND}
+	!kdeprefix? ( !app-cdr/k9copy:0 )
 	media-video/dvdauthor
-	media-video/mplayer"
+	media-video/mplayer
+"
 
 S="${WORKDIR}/${P}-Source"
 

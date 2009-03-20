@@ -4,6 +4,8 @@
 
 EAPI="2"
 
+KMNAME="playground/network"
+KMMODULE="kbluetooth4"
 KDE_MINIMAL="4.2"
 inherit kde4-base
 
@@ -19,8 +21,9 @@ IUSE="debug"
 DEPEND="
 	>=app-mobilephone/obex-data-server-0.4.2
 	>=app-mobilephone/obexftp-0.23_alpha[bluetooth]
-	>=kde-base/solid-${KDE_MINIMAL}[bluetooth]
-	>=kde-base/kdialog-${KDE_MINIMAL}
-	>=kde-base/konqueror-${KDE_MINIMAL}
+	>=kde-base/solid-${KDE_MINIMAL}[bluetooth,kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-base/kdialog-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
+"

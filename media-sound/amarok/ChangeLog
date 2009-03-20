@@ -2,6 +2,22 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, amarok-9999.ebuild:
+  Amarok now requires taglib-extras
+
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -files/2.0.2-qt4.5-script.patch, amarok-2.0.2.ebuild, amarok-9999.ebuild:
+  Removed not working patch
+
+  17 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, amarok-2.0.2.ebuild, amarok-9999.ebuild:
+  Patching for qt 4.5 only when qt 4.5 is installed, added taglib-extras
+  support for live amarok
+
+  17 Mar 2009; Markus Ullmann <jokey@gentoo.org> amarok-9999.ebuild:
+  Add Qt 4.5 Script fix from upstream bugzilla
+
   12 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-9999.ebuild:
   SLOT -> 2 for live amarok

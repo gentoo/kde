@@ -17,6 +17,7 @@ COMMONDEPEND="
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libscreenpreviewwidget-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXau
@@ -51,10 +52,11 @@ KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	libs/kworkspace/
 	libs/taskmanager/
+	libs/screenpreviewwidget/
 	ksysguard/
 "
 
-KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
+KMLOADLIBS="libkworkspace libplasmaclock libscreenpreviewwidget libtaskmanager"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

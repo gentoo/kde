@@ -14,16 +14,18 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE=""
-SLOT="live"
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=net-misc/networkmanager-0.7
-		>=kde-base/solid-${KDE_MINIMAL}[kdeprefix=,networkmanager]"
+DEPEND="
+	>=kde-base/solid-${KDE_MINIMAL}[kdeprefix=,networkmanager]
+	>=net-misc/networkmanager-0.7
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d
-		"
+		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
 
 	kde4-base_src_configure
 }

@@ -13,28 +13,28 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="1"
 # Moved to playground for now
-# bazaar mercurial
-IUSE="cvs debug git subversion"
+# bazaar
+IUSE="cvs debug git mercurial subversion"
 
 DEPEND="
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
 # bazaar? ( dev-util/bzr )
-# mercurial? ( dev-util/mercurial )
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !dev-util/kdevelop:3 )
 	cvs? ( dev-util/cvs )
 	git? ( dev-util/git )
+	mercurial? ( dev-util/mercurial )
 "
 
 # Moved to playground for now
 # $(cmake-utils_use_build bazaar)
-# $(cmake-utils_use_build mercurial)
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_build cvs)
 		$(cmake-utils_use_build git)
+		$(cmake-utils_use_build mercurial)
 		$(cmake-utils_use_build subversion)
 		$(cmake-utils_use_with subversion SubversionLibrary)"
 

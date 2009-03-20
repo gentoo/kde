@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*plasmatvgr-0.45 (18 Mar 2009)
+
+  18 Mar 2009; Markos Chandras <hwoarang@gentoo.org>
+  -plasmatvgr-0.44.ebuild, +plasmatvgr-0.45.ebuild:
+  Version bump, remove old
+
 *plasmatvgr-0.43 (22 Feb 2009)
 
   22 Feb 2009; Markos Chandras <hwoarang@gentoo.org>

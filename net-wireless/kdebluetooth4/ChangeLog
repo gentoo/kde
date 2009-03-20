@@ -1,6 +1,11 @@
 # ChangeLog for net-wireless/kdebluetooth4
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdebluetooth4-0.2-r1.ebuild, kdebluetooth4-0.3.ebuild,
+  kdebluetooth4-9999.ebuild:
+  Dropped live SLOT, tweaked deps, old version removed
 
   24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   kdebluetooth4-0.2.ebuild:

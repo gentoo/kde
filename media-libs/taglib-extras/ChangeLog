@@ -1,0 +1,22 @@
+# ChangeLog for media-libs/taglib-extras
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  taglib-extras-9999.ebuild:
+  Unconditional prefix=/usr - for now
+
+  19 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  taglib-extras-9999.ebuild:
+  Update svn path
+
+  17 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  taglib-extras-9999.ebuild:
+  use kdeprefix only when needed.
+
+*taglib-extras-9999 (17 Mar 2009)
+
+  17 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +taglib-extras-9999.ebuild:
+  Ebuild added
+

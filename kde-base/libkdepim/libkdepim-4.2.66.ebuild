@@ -11,6 +11,12 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
+# @Since >4.2.65 kode removed from kdepim
+RDEPEND="
+	!kdeprefix? ( !>=kde-base/kode-4.1.0[-kdeprefix] )
+	kdeprefix? ( !kde-base/kode:${SLOT} )
+"
+
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml

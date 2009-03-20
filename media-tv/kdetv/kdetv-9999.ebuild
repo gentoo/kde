@@ -11,13 +11,15 @@ DESCRIPTION="kdetv is a KDE application to watch TV on the desktop."
 HOMEPAGE="http://www.kde-apps.org/content/show.php?content=11602"
 
 LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
+SLOT="0"
 IUSE="debug v4l2 zvbi"
 
-DEPEND="
-	v4l2? ( >=sys-kernel/linux-headers-2.6.11 )
+RDEPEND="
 	zvbi? ( media-libs/zvbi )
+"
+DEPEND="${RDEPEND}
+	v4l2? ( >=sys-kernel/linux-headers-2.6.11 )
 "
 
 src_configure() {

@@ -1,6 +1,10 @@
 # ChangeLog for net-voip/tapioca-qt
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  tapioca-qt-9999.ebuild:
+  Deps fixed
 
   29 Oct 2008; steffen stramm <krytzz@soylent.eu> +metadata.xml,
   +metadata.xml, +tapioca-qt-9999.ebuild:

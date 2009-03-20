@@ -12,10 +12,13 @@ HOMEPAGE="http://sourceforge.net/projects/libmsn/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND="dev-libs/openssl"
+DEPEND="
+	dev-libs/openssl
+"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"

@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit kde4-base 
+inherit kde4-base
 
 DESCRIPTION="A KDE4 Plasma Applet. This plasmoid shows cpu, ram, and swap usage."
 HOMEPAGE="http://www.kde-look.org/content/show.php?content=74891"

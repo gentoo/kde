@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kwin-9999.ebuild:
+  Added libkworkspace dependency
+
   15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> -kwin-4.2.65.ebuild:
   Version removed.
 

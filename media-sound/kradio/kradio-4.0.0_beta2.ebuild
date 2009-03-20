@@ -7,8 +7,7 @@ EAPI="2"
 KDE_LINGUAS="de es pl pt ru"
 inherit kde4-base
 
-SCM_REV="649"
-MY_P="${PN}4-snapshot-${PV:0:4}-${PV:4:2}-${PV:6:2}-r${SCM_REV}"
+MY_P="${PN}4-${PV/_/-}"
 DESCRIPTION="kradio is a radio tuner application for KDE"
 HOMEPAGE="http://kradio.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"

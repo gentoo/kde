@@ -12,8 +12,10 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=73968"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="live"
-IUSE="oscar zeroconf"
+SLOT="1"
+IUSE="debug oscar zeroconf"
 
-DEPEND="zeroconf? ( kde-base/kdnssd:${SLOT} )
-	oscar? ( kde-base/kopete:${SLOT}[oscar] )"
+RDEPEND="
+	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[kdeprefix=,oscar] )
+	zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL}[kdeprefix=] )
+"

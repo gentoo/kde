@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  gtk-engines-qt-9999.ebuild:
+  A few linguas added
+
   14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   gtk-engines-qt-9999.ebuild:
   SLOT=live to 1
