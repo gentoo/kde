@@ -17,4 +17,5 @@ IUSE=""
 
 RDEPEND="
 	!<=kde-base/kdebase-data-4.2.66[-kdeprefix]
+	!x11-themes/oxygen-icon-theme
 "
