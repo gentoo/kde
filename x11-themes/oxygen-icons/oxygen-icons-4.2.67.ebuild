@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
-SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${P}.tar.lzma"
+SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${P}.tar.lzma"
 
 LICENSE="LGPL-3"
 SLOT="0"
