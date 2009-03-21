@@ -26,7 +26,7 @@ SRC_URI=""
 
 for LNG in ${LANGS}; do
 	IUSE="${IUSE} linguas_${LNG}"
-	SRC_URI="${SRC_URI} linguas_${LNG}? ( http://dev.gentooexperimental.org/~alexxy/kde${PV}/${PN}/${PN}-${LNG}-${PV}.tar.lzma )"
+	SRC_URI="${SRC_URI} linguas_${LNG}? ( http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${PN}/${PN}-${LNG}-${PV}.tar.lzma )"
 done
 
 S="${WORKDIR}"
