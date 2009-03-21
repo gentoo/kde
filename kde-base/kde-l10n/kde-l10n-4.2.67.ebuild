@@ -4,9 +4,7 @@
 
 EAPI="2"
 
-inherit kde4-base subversion
-
-SVNREV="940805"
+inherit kde4-base
 
 DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://www.kde.org/"
@@ -23,10 +21,16 @@ LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
 	fy ga gl gu he hi hr hsb hu hy is it ja ka kk km kn ko ku lb lt lv mk ml
 	ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sr sv ta te tg
 	th tr uk uz vi wa xh zh_CN zh_HK zh_TW"
+
+URI_BASE="${SRC_URI/-${PV}.tar.lzma/}"
+SRC_URI=""
+
 for LNG in ${LANGS}; do
 	IUSE="${IUSE} linguas_${LNG}"
+	SRC_URI="${SRC_URI} linguas_${LNG}? ( ${URI_BASE}/${PN}-${LNG}-${PV}.tar.lzma )"
 done
-S="${WORKDIR}"/${PN}
+
+S="${WORKDIR}"
 
 pkg_setup() {
 	local lng
@@ -50,15 +54,8 @@ src_unpack() {
 	local lng
 
 	for lng in ${enabled_linguas}; do
-		ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/${lng}@${SVNREV}"
-		S="${WORKDIR}"/${PN}/${lng}
-		subversion_src_unpack
+		[[ -n ${A} ]] && unpack ${A}
 	done
-	ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/scripts@${SVNREV}"
-	S="${WORKDIR}"/${PN}/scripts
-	subversion_src_unpack
-	S="${WORKDIR}"/${PN}
-	kde4-base_src_unpack
 }
 
 src_configure() {
