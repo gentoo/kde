@@ -73,10 +73,8 @@ src_configure() {
 		EOF
 
 		for lng in ${enabled_linguas} ; do
-			echo "set(CURRENT_LANG ${lng})" >> "${S}"/CMakeLists.txt
-			echo "macro_optional_add_subdirectory( messages )" >> "${S}"/CMakeLists.txt
-			echo "macro_optional_add_subdirectory( docs )" >> "${S}"/CMakeLists.txt
-			echo "macro_optional_add_subdirectory( data )" >> "${S}"/CMakeLists.txt
+			"${S}"/kde-l10n-${lng}-${PV}/scripts/scripts/autogen.sh kde-l10n-${lng}-${PV}
+			echo "add_subdirectory( kde-l10n-${lng}-${PV} )" >> "${S}"/CMakeLists.txt
 		done
 		kde4-base_src_configure
 	fi
