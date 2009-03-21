@@ -73,7 +73,7 @@ src_configure() {
 		EOF
 
 		for lng in ${enabled_linguas} ; do
-			"${S}"/kde-l10n-${lng}-${PV}/scripts/scripts/autogen.sh kde-l10n-${lng}-${PV}
+			"${S}"/kde-l10n-${lng}-${PV}/scripts/autogen.sh kde-l10n-${lng}-${PV}
 			echo "add_subdirectory( kde-l10n-${lng}-${PV} )" >> "${S}"/CMakeLists.txt
 			sed -i -e "s:kde-l10n-${lng}-${PV}:${lng}:g"  "${S}"/kde-l10n-${lng}-${PV}/CMakeLists.txt
 		done
