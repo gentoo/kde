@@ -22,12 +22,11 @@ LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
 	ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sr sv ta te tg
 	th tr uk uz vi wa xh zh_CN zh_HK zh_TW"
 
-URI_BASE="${SRC_URI/-${PV}.tar.lzma/}"
 SRC_URI=""
 
 for LNG in ${LANGS}; do
 	IUSE="${IUSE} linguas_${LNG}"
-	SRC_URI="${SRC_URI} linguas_${LNG}? ( ${URI_BASE}/${PN}-${LNG}-${PV}.tar.lzma )"
+	SRC_URI="${SRC_URI} linguas_${LNG}? ( http://dev.gentooexperimental.org/~alexxy/kde${PV}/${PN}/${PN}-${LNG}-${PV}.tar.lzma )"
 done
 
 S="${WORKDIR}"
