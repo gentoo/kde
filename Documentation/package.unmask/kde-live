@@ -168,6 +168,7 @@ kde-base/step:live
 =net-wireless/kdebluetooth4-9999
 =sys-block/partitionmanager-9999
 =www-client/rekonq-9999
+=x11-libs/qtscriptgenerator-9999
 =x11-themes/gtk-engines-qt-9999
 kde-base/bomber:live
 kde-base/bovo:live

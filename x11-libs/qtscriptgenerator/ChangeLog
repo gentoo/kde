@@ -1,0 +1,22 @@
+# ChangeLog for x11-libs/qtscriptgenerator
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/disable_phonon.patch, +metadata.xml,
+  +qtscriptgenerator-0.1.0.ebuild, +qtscriptgenerator-9999.ebuild:
+  Imported from qting-edge, adjusted inherit, splightly reformatted and
+  reordered variabled to ease merging process
+
+  22 Mar 2009; Markos Chandras <hwoarang@gentoo.org>
+  +files/disable_phonon.patch, qtscriptgenerator-0.1.0.ebuild,
+  qtscriptgenerator-9999.ebuild:
+  Disabling phonon bindings, fixing src_install, unmasking
+
+*qtscriptgenerator-9999 (12 Mar 2009)
+*qtscriptgenerator-0.1.0 (12 Mar 2009)
+
+  12 Mar 2009; Markos Chandras <hwoarang@gentoo.org>
+  +qtscriptgenerator-0.1.0.ebuild, +qtscriptgenerator-9999.ebuild:
+  Initial import of qtscriptgenerator packages
+
