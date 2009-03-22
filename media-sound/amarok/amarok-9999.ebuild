@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-base/phonon-kde-${KDE_MINIMAL}[kdeprefix=]
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
 	sys-libs/zlib
+	>=x11-libs/qtscriptgenerator-0.1.0
 	cdaudio? (
 		>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
@@ -70,11 +71,6 @@ pkg_setup() {
 }
 
 src_configure() {
-	# Remove superfluous QT_WEBKIT
-	sed -e 's/ -DQT_WEBKIT//g' \
-		-i "${S}"/src/scriptengine/generator/generator/CMakeLists.txt \
-		|| die "Removing unnecessary -DQT_WEBKIT failed."
-
 	mycmakeargs="${mycmakeargs}
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
