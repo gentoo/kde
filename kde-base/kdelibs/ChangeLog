@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.2.1-r3 (23 Mar 2009)
+
+  23 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdelibs-4.2.1-kdialog.patch, +kdelibs-4.2.1-r3.ebuild:
+  Testing kdelibs-4.2.1-r3 - optional libplasma build - imported from tree
+  and fixed
+
   20 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdelibs-4.2.66.ebuild:
   Version removed.
 
