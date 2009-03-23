@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdepim-kresources-9999.ebuild:
+  Removed unnecessary sed
+
   20 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdepim-kresources-4.2.66.ebuild:
   Version removed.

@@ -37,10 +37,6 @@ src_prepare() {
 	${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc
 	popd
 
-	# if kdepim_export.h exists it tries to use kxml_compiler from the sources. this isn't desired
-	# as we don't compile kresources together with kode (kxml_compiler). we still need the header though.
-	sed -i -e 's/kdepim_export.h/&_DONOTFIND/' cmake/modules/FindKode.cmake || die "sed failed"
-
 	kde4-meta_src_prepare
 }
 
