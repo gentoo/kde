@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.1-r3.ebuild:
+  Restored plasma as obligatory in 4.2.1
+
 *kdelibs-4.2.1-r3 (23 Mar 2009)
 
   23 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

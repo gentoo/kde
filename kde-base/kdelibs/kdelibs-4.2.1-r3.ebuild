@@ -13,7 +13,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
-mmx nls openexr +plasma +semantic-desktop spell sse sse2 ssl zeroconf"
+mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 LICENSE="LGPL-2.1"
 RESTRICT="test"
 
@@ -45,6 +45,8 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-misc/shared-mime-info
+	>=x11-base/xorg-server-1.5.2
+	x11-libs/qt-webkit:4
 	acl? (
 		kernel_linux? ( sys-apps/acl )
 	)
@@ -58,10 +60,6 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	opengl? ( virtual/opengl )
-	plasma? (
-		>=x11-base/xorg-server-1.5.2
-		x11-libs/qt-webkit:4
-	)
 	semantic-desktop? ( >=dev-libs/soprano-2.2.2[dbus] )
 	spell? (
 		app-dicts/aspell-en
@@ -128,10 +126,6 @@ src_prepare() {
 		CMakeLists.txt \
 		|| die "Failed to make ACL disabled even when present in system."
 
-	sed -i -e 's/add_subdirectory([[:space:]]plasma[[:space:]])/macro_optional_add_subdirectory( plasma )/' \
-		CMakeLists.txt \
-		|| die "Failed to make libplasma optional."
-
 	kde4-base_src_prepare
 }
 
@@ -167,7 +161,6 @@ src_configure() {
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_build plasma)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
