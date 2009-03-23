@@ -4,21 +4,25 @@
 
 EAPI="2"
 
+NEED_KDE="none"
 inherit kde4-base qt4
 
 MY_PN="floatstyle"
 MY_P="${MY_PN}-${PV/_alpha/a}"
+
 DESCRIPTION="QT4/KDE4 style based on gonx"
 HOMEPAGE="http://kde-look.org/content/show.php?content=54477"
 SRC_URI="http://kde-look.org/CONTENT/content-files/54477-${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE="debug kde"
 
-DEPEND="x11-libs/qt-gui:4
-	kde? ( >=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=] )"
+DEPEND="
+	x11-libs/qt-gui:4
+	kde? ( >=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=] )
+"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
