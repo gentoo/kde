@@ -14,10 +14,11 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2"
 SLOT="2"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack samplerate sndfile sox taglib vorbis +wav"
+IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"
 
 DEPEND="
 	>=kde-base/libkcddb-${KDE_MINIMAL}
+	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? ( >=media-video/ffmpeg-0.4.9_p20080206 )
 	flac? ( >=media-libs/flac-1.2.1-r2[cxx] )
@@ -27,7 +28,6 @@ DEPEND="
 	mad? ( media-libs/libmad )
 	musepack? ( media-libs/libmpcdec )
 	musicbrainz? ( media-libs/musicbrainz:1 )
-	samplerate? ( media-libs/libsamplerate )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
 	vorbis? ( media-libs/libvorbis )
@@ -65,8 +65,7 @@ src_configure() {
 		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
 		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
-		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
-		$(cmake-utils_use_with samplerate Samplerate)"
+		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)"
 
 	# Encoder settings
 	if use encode; then
