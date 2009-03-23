@@ -130,7 +130,7 @@ src_prepare() {
 
 	sed -i -e 's/add_subdirectory([[:space:]]plasma[[:space:]])/macro_optional_add_subdirectory( plasma )/' \
 		CMakeLists.txt \
-		|| die "failed to make plasma liboptional."
+		|| die "Failed to make libplasma optional."
 
 	kde4-base_src_prepare
 }
