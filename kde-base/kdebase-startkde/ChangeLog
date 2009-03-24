@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdebase-startkde-9999.ebuild:
+  Added keditfiletype to kdebase-startkde (live)
+
   20 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdebase-startkde-4.2.66.ebuild:
   Version removed.

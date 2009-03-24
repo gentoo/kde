@@ -20,6 +20,7 @@ kde-base/kdesu:live
 kde-base/kdialog:live
 kde-base/kdm:live
 kde-base/keditbookmarks:live
+kde-base/keditfiletype:live
 kde-base/kephal:live
 kde-base/kfile:live
 kde-base/kfind:live

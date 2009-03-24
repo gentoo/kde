@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/keditfiletype
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*keditfiletype-9999 (24 Mar 2009)
+
+  24 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +keditfiletype-9999.ebuild:
+  New ebuild added - split from konqueror by upstream
+
