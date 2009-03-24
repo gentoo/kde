@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug xcomposite"
 
 COMMONDEPEND="
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXfixes
 	x11-libs/libXrender
 	xcomposite? ( x11-libs/libXcomposite )"

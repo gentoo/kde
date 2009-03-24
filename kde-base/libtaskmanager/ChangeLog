@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  libtaskmanager-9999.ebuild:
+  Added kephal as dependency
+
   20 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -libtaskmanager-4.2.66.ebuild:
   Version removed.
