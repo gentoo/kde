@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/skanlite/skanlite-0.2.ebuild,v 1.3 2009/02/05 08:12:34 alexxy Exp $
+# $Header: $
 
 EAPI="2"
 KDE_MINIMAL="4.2"
@@ -14,10 +14,8 @@ KDE_VERSION="4.2.0"
 DESCRIPTION="KDE Power Manager control module"
 HOMEPAGE="http://www.kde.org"
 SRC_URI="mirror://kde/stable/${KDE_VERSION}/src/extragear/${P}.tar.bz2"
-LICENSE="GPL-2"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND="${DEPEND}"
-RDEPEND="${DEPEND}"
+LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
+SLOT="0"
+IUSE="debug"
