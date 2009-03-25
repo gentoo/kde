@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit kde4-base
 
-DESCRIPTION="KDE Easy Publish and Share."
+DESCRIPTION="KDE plasmoid that shows an icon-only taskbar"
 HOMEPAGE="http://www.kde-look.org/content/show.php/STasks?content=99739"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/99739-${P}.tar.gz"
 
