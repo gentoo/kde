@@ -1,11 +1,12 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo-x86/kde-base/kdelibs/kdelibs-4.2.1-r3.ebuild,v 1.1 2009/03/23 04:37:11 jmbsvicetto Exp $
+# $Header: $
 
 EAPI="2"
 
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
+WEBKIT_REQUIRED="always"
 inherit kde4-base fdo-mime
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
@@ -45,8 +46,6 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-misc/shared-mime-info
-	>=x11-base/xorg-server-1.5.2
-	x11-libs/qt-webkit:4
 	acl? (
 		kernel_linux? ( sys-apps/acl )
 	)
