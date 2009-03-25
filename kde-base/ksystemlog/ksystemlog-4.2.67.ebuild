@@ -15,4 +15,4 @@ IUSE="debug"
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
