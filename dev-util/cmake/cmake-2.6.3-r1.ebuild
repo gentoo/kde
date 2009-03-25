@@ -41,11 +41,11 @@ S="${WORKDIR}/${MY_P}"
 
 CMAKE_IN_SOURCE_BUILD=1
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-FindJNI.patch"
-	epatch "${FILESDIR}/${PN}-FindPythonLibs.patch"
-	epatch "${FILESDIR}/${PN}-FindPythonInterp.patch"
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-FindJNI.patch"
+	"${FILESDIR}/${PN}-FindPythonLibs.patch"
+	"${FILESDIR}/${PN}-FindPythonInterp.patch"
+)
 
 src_configure() {
 	local qt_arg par_arg
@@ -101,8 +101,7 @@ src_compile() {
 }
 
 src_test() {
-	emake test || \
-		einfo "note test failure on qtwrapping was expected - nature of portage rather than a true failure"
+	emake test
 }
 
 src_install() {
