@@ -70,6 +70,12 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
+src_prepare() {
+	append-flags -I${KDEDIR}
+	append-ldflags -L${KDEDIR}/$(get_libdir)
+	epatch "${FILESDIR}/disable_bindings_test.patch"
+}
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_PLAYER=ON

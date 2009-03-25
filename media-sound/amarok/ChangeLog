@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  files/2.0.2-ipod.patch, +files/disable_bindings_test.patch,
+  amarok-9999.ebuild:
+  remove bindings test (nasty workaround) until i properly patch it it
+  stucks on +kdeprefix,
+
   22 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-9999.ebuild:
   Added qtscriptgenerator deps
