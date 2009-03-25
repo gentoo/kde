@@ -4,19 +4,29 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+MY_PN="automoc4"
+MY_P="$MY_PN-${PV}"
+
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
-SRC_URI=""
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/automoc"
+SRC_URI="mirror://kde/stable/${MY_PN}/${PV}/${MY_P}.tar.bz2"
 
 LICENSE="as-is"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
 	x11-libs/qt-core:4
 "
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/${MY_P}"
+
+src_prepare() {
+	if [[ ${ELIBC} == "uclibc" ]]; then
+		append-flags -pthread
+	fi
+}
