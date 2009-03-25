@@ -14,21 +14,24 @@ HOMEPAGE="http://www.cmake.org/"
 SRC_URI="http://www.cmake.org/files/v$(get_version_component_range 1-2)/${MY_P}.tar.gz"
 
 LICENSE="CMake"
-SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~sparc-fbsd ~x86 ~x86-fbsd"
+SLOT="0"
 IUSE="emacs qt4 vim-syntax"
 
-DEPEND=">=net-misc/curl-7.16.4
+DEPEND="
+	>=net-misc/curl-7.16.4
 	>=dev-libs/expat-2.0.1
 	>=dev-libs/libxml2-2.6.28
 	>=dev-libs/xmlrpc-c-1.06.09[curl]
 	emacs? ( virtual/emacs )
-	qt4? ( || ( ( x11-libs/qt-core:4
-			x11-libs/qt-gui:4 )
-		>=x11-libs/qt-4.3:4 ) )
-	vim-syntax? ( || (
-		app-editors/vim
-		app-editors/gvim ) )"
+	qt4? ( x11-libs/qt-gui:4 )
+	vim-syntax? (
+		|| (
+			app-editors/vim
+			app-editors/gvim
+		)
+	)
+"
 RDEPEND="${DEPEND}"
 
 SITEFILE="50${PN}-gentoo.el"
@@ -37,7 +40,9 @@ VIMFILE="${PN}.vim"
 S="${WORKDIR}/${MY_P}"
 
 CMAKE_IN_SOURCE_BUILD=1
+
 src_prepare() {
+	epatch "${FILESDIR}/${PN}-FindJNI.patch"
 	epatch "${FILESDIR}/${PN}-FindPythonLibs.patch"
 	epatch "${FILESDIR}/${PN}-FindPythonInterp.patch"
 }
