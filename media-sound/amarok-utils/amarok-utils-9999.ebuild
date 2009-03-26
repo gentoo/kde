@@ -23,7 +23,7 @@ DEPEND="
 	>=x11-libs/qt-dbus-4.4:4
 "
 RDEPEND="${DEPEND}
-	!<media-sound/amarok-2.1.0
+	!<media-sound/amarok-2.1.0:${SLOT}
 "
 
 src_configure() {
