@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE screensaver framework"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug pam"
 
 RDEPEND="
@@ -19,7 +19,10 @@ RDEPEND="
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
-	pam? ( >=kde-base/kdebase-pam-7 )
+	pam? (
+		>=kde-base/kdebase-pam-7
+		virtual/pam
+	)
 "
 DEPEND="${RDEPEND}
 	x11-proto/randrproto
