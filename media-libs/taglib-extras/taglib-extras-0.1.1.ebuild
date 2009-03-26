@@ -10,10 +10,10 @@ inherit kde4-base
 
 DESCRIPTION="Unofficial taglib plugins maintained by the Amarok team"
 HOMEPAGE="http://developer.kde.org/~wheeler/taglib.html"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
+SRC_URI="http://www.jefferai.com/taglib-extras/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug kde"
 
@@ -23,6 +23,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+S="${WORKDIR}/${PN}"
+
 src_configure() {
 	# FIXME override kdeprefix flag for now (soon it will be dropped in eclass)
 	mycmakeargs="${mycmakeargs}
@@ -30,13 +32,4 @@ src_configure() {
 		$(cmake-utils_use_with kde KDE)"
 
 	kde4-base_src_configure
-}
-
-pkg_postinst() {
-	if [[ -d "${ESVN_STORE_DIR}/playground/multimedia/${PN}" ]]; then
-		echo
-		ewarn "taglib-extras has been moved from playground/multimedia to kdesupport."
-		elog "You may now remove ${ESVN_STORE_DIR}/playground/multimedia/${PN}"
-		echo
-	fi
 }
