@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.2.1-r4 (26 Mar 2009)
+
+  26 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdelibs-fixx11h.h.diff, -kdelibs-4.2.1-r3.ebuild,
+  +kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.67.ebuild, kdelibs-9999.ebuild:
+  Fixed bug 263823
+
   23 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r3.ebuild:
   Restored plasma as obligatory in 4.2.1

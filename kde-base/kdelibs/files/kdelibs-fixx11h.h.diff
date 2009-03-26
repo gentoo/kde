@@ -1,0 +1,14 @@
+Index: kdeui/util/fixx11h.h
+===================================================================
+--- kdeui/util/fixx11h.h	(revision 945040)
++++ kdeui/util/fixx11h.h	(working copy)
+@@ -92,8 +92,8 @@
+ typedef Bool XBool;
+ #undef Bool
+ typedef XBool Bool;
++#define Bool XBool
+ #endif
+-#undef Bool
+ #endif
+ // template <---
+ 

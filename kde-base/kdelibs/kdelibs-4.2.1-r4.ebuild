@@ -12,7 +12,7 @@ inherit kde4-base fdo-mime
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
 mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
@@ -25,6 +25,7 @@ COMMONDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87
+	media-fonts/dejavu
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
@@ -106,8 +107,19 @@ RDEPEND="${COMMONDEPEND}
 "
 
 # upstream patches / dist patches
+# {FILESDIR}/${P}-qt4.5.patch is upstream revision 934640
+# and fixes upstream bug 186038 and Gentoo bug 261367
+# ${FILESDIR}/${P}-kcatalog.patch fixes gwenview and other issues on both bugs
+# ${FILESDIR}/${P}-kdialog.patch is upstream revision 938657 and fixes the
+# systemsettings title issue
 # ${FILESDIR}/${PN}-fixx11h.h.diff fixes bug 263823
 PATCHES=(
+	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
+	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
+	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${P}-qt4.5.patch"
+	"${FILESDIR}/${P}-kcatalog.patch"
+	"${FILESDIR}/${P}-kdialog.patch"
 	"${FILESDIR}/${PN}-fixx11h.h.diff"
 )
 

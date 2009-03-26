@@ -13,13 +13,14 @@ DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
-IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k
-kerberos mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 LICENSE="LGPL-2.1"
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
+mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
+
 RESTRICT="test"
 
 COMMONDEPEND="
-	>=app-misc/strigi-0.6.3[qt4,dbus]
+	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -103,6 +104,12 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+
+# upstream patches / dist patches
+# ${FILESDIR}/${PN}-fixx11h.h.diff fixes bug 263823
+PATCHES=(
+	"${FILESDIR}/${PN}-fixx11h.h.diff"
+)
 
 src_prepare() {
 	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
