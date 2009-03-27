@@ -58,11 +58,6 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
-PATCHES=(
-	"${FILESDIR}/4.2.1-panelview-crash-fix.patch"
-	"${FILESDIR}/4.2-fix-quicklaunch.patch"
-)
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
