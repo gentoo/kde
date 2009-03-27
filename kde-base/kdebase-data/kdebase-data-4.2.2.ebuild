@@ -36,6 +36,7 @@ src_configure() {
 	if ! use kdeprefix; then
 		sed -i \
 			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
+			-e "s:add_subdirectory( oxygen ):#donotwant:g" \
 			pics/CMakeLists.txt
 	fi
 
