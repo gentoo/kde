@@ -24,9 +24,6 @@ RDEPEND="${DEPEND}
 
 PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 
-# Patch sent to the packagers ml to fix the version.
-PATCHES=( "${FILESDIR}/${PN}-fix-version.diff" )
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Soprano)
