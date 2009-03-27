@@ -105,12 +105,6 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/rgb
 "
 
-# upstream patches / dist patches
-# ${FILESDIR}/${PN}-fixx11h.h.diff fixes bug 263823
-PATCHES=(
-	"${FILESDIR}/${PN}-fixx11h.h.diff"
-)
-
 src_prepare() {
 	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
 		CMakeLists.txt \
