@@ -32,8 +32,6 @@ KMEXTRACTONLY="
 	libkholidays
 "
 
-PATCHES=( "${FILESDIR}/${PV}-r933657_weekview.patch" )
-
 src_unpack() {
 	if use kontact; then
 		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"

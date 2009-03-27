@@ -107,18 +107,11 @@ RDEPEND="${COMMONDEPEND}
 "
 
 # upstream patches / dist patches
-# {FILESDIR}/${P}-qt4.5.patch is upstream revision 934640
-# and fixes upstream bug 186038 and Gentoo bug 261367
-# ${FILESDIR}/${P}-kcatalog.patch fixes gwenview and other issues on both bugs
-# ${FILESDIR}/${P}-kdialog.patch is upstream revision 938657 and fixes the
 # systemsettings title issue
 PATCHES=(
 	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
-	"${FILESDIR}/${P}-qt4.5.patch"
-	"${FILESDIR}/${P}-kcatalog.patch"
-	"${FILESDIR}/${P}-kdialog.patch"
 )
 
 src_prepare() {

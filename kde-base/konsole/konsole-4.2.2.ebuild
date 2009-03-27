@@ -29,8 +29,6 @@ KMEXTRA="
 	doc/${PN}/
 "
 
-PATCHES=( "${FILESDIR}/${PV}-mouse-selector.patch" )
-
 src_unpack() {
 	MAKEOPTS="${MAKEOPTS} -j1"
 
