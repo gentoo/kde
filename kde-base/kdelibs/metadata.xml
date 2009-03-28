@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name="opengl">Enable OpenGL support for Plasma (GLApplet)</flag>
+	<flag name="plasma">Enable building of libplasma (required for KDE4 desktop)</flag>
+</use>
 </pkgmetadata>

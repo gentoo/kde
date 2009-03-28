@@ -3,6 +3,12 @@
 # $Header: $
 
   28 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, kdelibs-4.2.2.ebuild, kdelibs-4.2.67.ebuild,
+  kdelibs-9999.ebuild:
+  plasma is now optional USE flag in kdelibs, pull opengl only for plasma as
+  well
+
+  28 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/kdelibs-4.2-fixx11h.h.patch, +kdelibs-4.2.1-r4.ebuild,
   kdelibs-4.2.2.ebuild:
   This time really fixing bug 263823
