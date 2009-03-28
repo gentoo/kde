@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdeartwork-kscreensaver-4.2.1.ebuild,
+  kdeartwork-kscreensaver-4.2.2.ebuild,
+  kdeartwork-kscreensaver-4.2.67.ebuild,
+  kdeartwork-kscreensaver-9999.ebuild:
+  Fix KDE4Workspace related issue
+
 *kdeartwork-kscreensaver-4.2.2 (27 Mar 2009)
 
   27 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>

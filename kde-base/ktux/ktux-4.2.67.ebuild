@@ -11,8 +11,10 @@ DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
+# libkworkspace - only as a stub to provide KDE4Workspace config
 DEPEND="
 	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
