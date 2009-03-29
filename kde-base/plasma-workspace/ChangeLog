@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  plasma-workspace-4.2.67.ebuild, plasma-workspace-9999.ebuild:
+  added dep for kdelibs[plasma] - nasty things can happen otherwise
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +files/4.2.1-panelview-crash-fix.patch, +files/4.2-fix-quicklaunch.patch,
   +plasma-workspace-4.2.1-r1.ebuild, plasma-workspace-4.2.2.ebuild:
   added dep for kdelibs[plasma] - nasty things can happen otherwise

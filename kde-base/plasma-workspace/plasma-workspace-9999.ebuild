@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug google-gadgets python rss xcomposite xinerama"
 
 COMMONDEPEND="
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,plasma]
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
