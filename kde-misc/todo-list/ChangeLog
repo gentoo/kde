@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  todo-list-0.2.1.ebuild:
+  added plasma-workspace dependency
+
 *todo-list-0.2.1 (29 Mar 2009)
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>

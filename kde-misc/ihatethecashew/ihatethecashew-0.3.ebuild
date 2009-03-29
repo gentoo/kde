@@ -16,6 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="!kde-plasmoids/iHateTheCashew"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/iHateTheCashew"
 
 S="${WORKDIR}/${MY_PN}"

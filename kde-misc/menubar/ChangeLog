@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  menubar-9999.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +metadata.xml, +menubar-9999.ebuild:
   moved plasmoid to kde-misc, minor cleanup
 

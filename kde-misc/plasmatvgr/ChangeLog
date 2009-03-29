@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  plasmatvgr-0.45.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +metadata.xml, +plasmatvgr-0.45.ebuild:
   moved plasmoid to kde-misc, minor cleanup
 

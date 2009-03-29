@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  cpuload-0.3.1.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +metadata.xml, +cpuload-0.3.1.ebuild:
   moved plasmoid to kde-misc, minor cleanup
 

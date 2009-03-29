@@ -15,7 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="!kde-plasmoids/plasma-wifi"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/plasma-wifi"
 
 src_prepare() {
 	sed -i "s:find_package(Plasma REQUIRED)::" CMakeLists.txt || die "sed failed"

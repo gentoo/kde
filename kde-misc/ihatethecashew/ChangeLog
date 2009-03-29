@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  ihatethecashew-0.3.ebuild:
+  added plasma-workspace dependency
+
 *ihatethecashew-0.3 (29 Mar 2009)
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>

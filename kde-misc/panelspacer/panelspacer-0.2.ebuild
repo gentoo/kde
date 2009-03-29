@@ -17,7 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="!kde-plasmoids/panelspacer"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/panelspacer"
 
 S="${WORKDIR}/${MY_P}"
 

@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  stdin-plasmoid-0.2_beta1.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +metadata.xml, +stdin-plasmoid-0.2_beta1.ebuild:
   moved plasmoid to kde-misc, minor cleanup
 

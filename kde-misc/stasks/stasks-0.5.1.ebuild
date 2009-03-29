@@ -15,4 +15,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
 
-RDEPEND="!kde-plasmoids/stasks"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/stasks"

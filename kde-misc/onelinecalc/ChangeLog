@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  onelinecalc-0.2.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +files/cmake_fix_for_kde-4_2.patch, +metadata.xml,
   +onelinecalc-0.2.ebuild:
   moved plasmoid to kde-misc, minor cleanup

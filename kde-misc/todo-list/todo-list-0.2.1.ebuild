@@ -17,7 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="!kde-plasmoids/todo_plasmoid"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/todo_plasmoid"
 
 PATCHES=( "${FILESDIR}/${P}-patch_kde42.diff" )
 

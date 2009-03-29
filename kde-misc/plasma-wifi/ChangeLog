@@ -3,6 +3,10 @@
 # $Header: $
 
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  plasma-wifi-0.5-r1.ebuild:
+  added plasma-workspace dependency
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +metadata.xml, +plasma-wifi-0.5-r1.ebuild:
   moved plasmoid to kde-misc, minor cleanup
 

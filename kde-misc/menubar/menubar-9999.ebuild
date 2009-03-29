@@ -16,4 +16,6 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-RDEPEND="!kde-plasmoids/menubar"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/menubar"

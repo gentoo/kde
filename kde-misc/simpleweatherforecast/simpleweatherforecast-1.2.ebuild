@@ -18,7 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-RDEPEND="!kde-plasmoids/plasma-weatherforecast"
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
+	!kde-plasmoids/plasma-weatherforecast"
 
 S="${WORKDIR}/${MY_P}"
 

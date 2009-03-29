@@ -15,7 +15,8 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug oscar zeroconf"
 
-RDEPEND="
+DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+RDEPEND="${DEPEND}
 	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[kdeprefix=,oscar] )
 	zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL}[kdeprefix=] )
 	!kde-plasmoids/kepas
