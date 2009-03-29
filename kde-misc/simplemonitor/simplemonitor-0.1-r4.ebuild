@@ -16,8 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/simplemonitor-plasmoid"
+RDEPEND="!kde-plasmoids/simplemonitor-plasmoid"
 
 S="${WORKDIR}/${PN}"
 

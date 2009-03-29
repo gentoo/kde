@@ -17,7 +17,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/customizable-weather"
+RDEPEND="!kde-plasmoids/customizable-weather"
 
 S="${WORKDIR}/${MY_P}"

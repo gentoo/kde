@@ -18,7 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/plasmatvgr"
+RDEPEND="!kde-plasmoids/plasmatvgr"
 
 S="${WORKDIR}/${PN}"

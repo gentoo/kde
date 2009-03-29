@@ -16,5 +16,4 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/menubar"
+RDEPEND="!kde-plasmoids/menubar"

@@ -16,7 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/iHateTheCashew"
+RDEPEND="!kde-plasmoids/iHateTheCashew"
 
 S="${WORKDIR}/${MY_PN}"

@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/cpuload"
+RDEPEND="!kde-plasmoids/cpuload"
 
 S="${WORKDIR}"/"${PN}"

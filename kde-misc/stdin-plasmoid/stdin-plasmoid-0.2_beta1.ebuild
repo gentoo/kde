@@ -18,7 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/stdin-plasmoid"
+RDEPEND="!kde-plasmoids/stdin-plasmoid"
 
 S="${WORKDIR}/${MY_P}"

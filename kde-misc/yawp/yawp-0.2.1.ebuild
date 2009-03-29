@@ -16,5 +16,4 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/yawp"
+RDEPEND="!kde-plasmoids/yawp"

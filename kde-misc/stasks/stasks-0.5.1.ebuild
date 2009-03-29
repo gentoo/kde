@@ -15,5 +15,4 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/stasks"
+RDEPEND="!kde-plasmoids/stasks"

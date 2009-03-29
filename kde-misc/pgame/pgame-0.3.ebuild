@@ -15,5 +15,4 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/pgame"
+RDEPEND="!kde-plasmoids/pgame"

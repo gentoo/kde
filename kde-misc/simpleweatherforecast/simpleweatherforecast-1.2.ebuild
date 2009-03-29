@@ -18,8 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/plasma-weatherforecast"
+RDEPEND="!kde-plasmoids/plasma-weatherforecast"
 
 S="${WORKDIR}/${MY_P}"
 

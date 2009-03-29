@@ -17,8 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/todo_plasmoid"
+RDEPEND="!kde-plasmoids/todo_plasmoid"
 
 PATCHES=( "${FILESDIR}/${P}-patch_kde42.diff" )
 

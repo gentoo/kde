@@ -15,8 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="${DEPEND}
-	!kde-plasmoids/onelinecalc"
+RDEPEND="!kde-plasmoids/onelinecalc"
 
 src_prepare()
 {
