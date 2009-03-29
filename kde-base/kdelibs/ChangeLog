@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  metadata.xml, kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.2.ebuild,
+  kdelibs-4.2.67.ebuild, kdelibs-9999.ebuild:
+  No way, let alpha/sparc team handle webkit issues, better not split plasna
+  from kdelibs and create new maintenance nightmare (and looking for
+  associations with opengl USE flag)
+
   28 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   metadata.xml, kdelibs-4.2.2.ebuild, kdelibs-4.2.67.ebuild,
   kdelibs-9999.ebuild:

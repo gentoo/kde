@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.2.1-r3.ebuild,v 1.2 2009/03/26 21:54:05 jmbsvicetto Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -13,13 +13,14 @@ DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
 mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
-LICENSE="LGPL-2.1"
+
 RESTRICT="test"
 
 COMMONDEPEND="
-	>=app-misc/strigi-0.6.3[qt4,dbus]
+	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
 	dev-libs/libxslt
@@ -58,7 +59,6 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	opengl? ( virtual/opengl )
 	semantic-desktop? ( >=dev-libs/soprano-2.2.2[dbus] )
 	spell? (
 		app-dicts/aspell-en

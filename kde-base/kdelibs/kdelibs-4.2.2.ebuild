@@ -1,19 +1,22 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.2.1-r3.ebuild,v 1.1 2009/03/23 04:37:11 jmbsvicetto Exp $
+# $Header: $
 
 EAPI="2"
 
 CPPUNIT_REQUIRED="optional"
+OPENGL_REQUIRED="optional"
+WEBKIT_REQUIRED="always"
 inherit kde4-base fdo-mime
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
-mmx nls opengl openexr +plasma +semantic-desktop spell sse sse2 ssl zeroconf"
 LICENSE="LGPL-2.1"
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
+mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
+
 RESTRICT="test"
 
 COMMONDEPEND="
@@ -55,10 +58,6 @@ COMMONDEPEND="
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
-	)
-	plasma? (
-		x11-libs/qt-webkit:4
-		opengl? ( x11-libs/qt-opengl:4 )
 	)
 	semantic-desktop? ( >=dev-libs/soprano-2.2.2[dbus] )
 	spell? (
@@ -121,10 +120,6 @@ src_prepare() {
 		CMakeLists.txt \
 		|| die "Failed to make ACL disabled even when present in system."
 
-	sed -i -e 's/add_subdirectory([[:space:]]plasma[[:space:]])/macro_optional_add_subdirectory( plasma )/' \
-		CMakeLists.txt \
-		|| die "Failed to make libplasma optional."
-
 	kde4-base_src_prepare
 }
 
@@ -160,7 +155,6 @@ src_configure() {
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_build plasma)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
