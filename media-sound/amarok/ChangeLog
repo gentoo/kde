@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -media-sound/amarok/files/2.0.2-ipod.patch,
+  +media-sound/amarok/files/amarok-ipod.patch:
+  Updating amarok-2.0.2 to get it to build with qt4.5.
+
   25 Mar 2009; Theo Chatzimichos <tampakrap@gentoo.org>
   files/2.0.2-ipod.patch, +files/disable_bindings_test.patch,
   amarok-9999.ebuild:
