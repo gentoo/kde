@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-4.2.2.ebuild, plasma-workspace-4.2.67.ebuild,
+  plasma-workspace-9999.ebuild:
+  Synced RDEPEND from tree
+
+  29 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-4.2.2.ebuild:
+  Reverted plasma USE deps
+
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +files/4.2.1-panelview-crash-fix.patch, +files/4.2-fix-quicklaunch.patch,
   +plasma-workspace-4.2.1-r1.ebuild, plasma-workspace-4.2.2.ebuild:

@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug google-gadgets python rss xcomposite xinerama"
 
 COMMONDEPEND="
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,plasma]
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
@@ -39,7 +38,6 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	!kdeprefix? ( !kde-base/plasma[-kdeprefix] )
 	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
 "

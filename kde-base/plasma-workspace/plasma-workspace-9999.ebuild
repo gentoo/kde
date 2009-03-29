@@ -38,6 +38,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
+	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
 "
 
