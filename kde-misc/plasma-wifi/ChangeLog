@@ -1,0 +1,24 @@
+# ChangeLog for kde-plasmoids/plasma-wifi
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +metadata.xml, +plasma-wifi-0.5-r1.ebuild:
+  moved plasmoid to kde-misc, minor cleanup
+
+*plasma-wifi-0.5-r1 (25 Feb 2009)
+
+  25 Feb 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +plasma-wifi-0.5-r1.ebuild, -plasma-wifi-0.5.ebuild:
+  updated ebuild patches CMakeLists.txt, works with kde 4.2. removed old one
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-wifi-0.5.ebuild:
+  Whitespace.
+
+*plasma-wifi-0.5 (15 Oct 2008)
+
+  15 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +plasma-wifi-0.5.ebuild:
+  Add plasma-wifi-0.5.
+

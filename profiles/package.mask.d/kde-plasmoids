@@ -1,0 +1,33 @@
+# Alex 'wired' Alexander (alex.alexander@gmail.com)
+# masked for removal
+#    plasmoids are now available under "kde-misc/"
+#    to remove all plasmoids under "kde-plasmoids/"
+#    use one of the following commands:
+#	emerge -aC `qlist -I -C kde-plasmoids/`
+#       emerge -aC `eix -I --only-names kde-plasmoids/`
+#    if you use plasmoids set, make sure your world file
+#    doesn't have any kde-plasmoids/* entries
+kde-plasmoids/commandwatch
+kde-plasmoids/cpuload
+kde-plasmoids/customizable-weather
+kde-plasmoids/drop2ftp
+kde-plasmoids/eyesaver
+kde-plasmoids/iHateTheCashew
+kde-plasmoids/kepas
+kde-plasmoids/menubar
+kde-plasmoids/onelinecalc
+kde-plasmoids/panelspacer
+kde-plasmoids/pgame
+kde-plasmoids/plasma-stock-quote
+kde-plasmoids/plasmatvgr
+kde-plasmoids/plasma-weatherforecast
+kde-plasmoids/plasma-wifi
+kde-plasmoids/playwolf
+kde-plasmoids/quickaccess
+kde-plasmoids/simplemonitor-plasmoid
+kde-plasmoids/stasks
+kde-plasmoids/stdin-plasmoid
+kde-plasmoids/systemloadviewer
+kde-plasmoids/todo_plasmoid
+kde-plasmoids/toggle-compositing
+kde-plasmoids/yawp

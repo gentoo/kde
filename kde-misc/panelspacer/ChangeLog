@@ -1,0 +1,20 @@
+# ChangeLog for kde-plasmoids/panelspacer
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*panelspacer-0.2 (29 Mar 2009)
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +files/cmake_fix_for_kde-4_2.patch, +metadata.xml,
+  +panelspacer-0.2.ebuild:
+  moved plasmoid to kde-misc, minor cleanup
+
+  24 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  panelspacer-0.1.ebuild:
+  Whitespace.
+
+*panelspacer-0.1 (15 Oct 2008)
+
+  15 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +panelspacer-0.1.ebuild:
+  Version bump
+

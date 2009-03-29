@@ -1,0 +1,41 @@
+# ChangeLog for kde-plasmoids/plasmatvgr
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +metadata.xml, +plasmatvgr-0.45.ebuild:
+  moved plasmoid to kde-misc, minor cleanup
+
+*plasmatvgr-0.45 (18 Mar 2009)
+
+  18 Mar 2009; Markos Chandras <hwoarang@gentoo.org>
+  -plasmatvgr-0.44.ebuild, +plasmatvgr-0.45.ebuild:
+  Version bump, remove old
+
+*plasmatvgr-0.43 (22 Feb 2009)
+
+  22 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  -plasmatvgr-0.41.ebuild, +plasmatvgr-0.43.ebuild:
+  Version bump,remove old
+
+*plasmatvgr-0.41 (07 Feb 2009)
+
+  07 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  -plasmatvgr-0.40.ebuild, +plasmatvgr-0.41.ebuild:
+  Version bump
+
+  19 Jan 2009; Markos Chandras (hwoarang) <hwoarang@silverarrow.gr>
+  kde-plasmoids/plasmatvgr/plasmatvgr-0.40.ebuild:
+  Fixing SRC_URI, remove libplasma from DEPEND
+
+  18 Jan 2009; Markos Chandras (hwoarang) <hwoarang@silverarrow.gr>
+  -kde-plasmoids/plasmatvgr/plasmatvgr-0.31.ebuild,
+  +kde-plasmoids/plasmatvgr/plasmatvgr-0.40.ebuild:
+  Version bump to 0.40
+
+*plasmatvgr-0.31 (15 Oct 2008)
+
+  15 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +plasmatvgr-0.31.ebuild:
+  Add plasmatvgr-0.31.
+

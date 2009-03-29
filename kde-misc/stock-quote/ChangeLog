@@ -1,0 +1,22 @@
+# ChangeLog for kde-plasmoids/plasma-stock-quote
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*stock-quote-2.0 (29 Mar 2009)
+
+  29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +metadata.xml, +stock-quote-2.0.ebuild:
+  moved plasmoid to kde-misc, minor cleanup
+
+*plasma-stock-quote-2.0 (23 Feb 2009)
+
+  23 Feb 2009; Markos Chandras <hwoarang@gentoo.org>
+  -plasma-stock-quote-1.1.ebuild, +plasma-stock-quote-2.0.ebuild:
+  Version bump, remove old
+
+*plasma-stock-quote-1.1 (23 Oct 2008)
+
+  23 Oct 2008; Tomas Chvatal (scarabeus) <tomas.chvatal@gmail.com>
+  +metadata.xml, +plasma-stock-quote-1.1.ebuild:
+  Add plasma-stock-quote-1.1
+

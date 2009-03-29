@@ -1,0 +1,25 @@
+*** onelinecalc-0.2.original/CMakeLists.txt	2009-02-17 23:02:54.881216789 +0300
+--- onelinecalc-0.2/CMakeLists.txt	2009-02-17 23:03:04.808216459 +0300
+***************
+*** 4,11 ****
+  # Find the required Libaries
+  find_package(KDE4 REQUIRED)
+  include(KDE4Defaults)
+- find_package(Plasma REQUIRED)
+   
+  add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+  include_directories( ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} )
+   
+--- 4,15 ----
+  # Find the required Libaries
+  find_package(KDE4 REQUIRED)
+  include(KDE4Defaults)
+   
++ if ( ${KDE_VERSION} VERSION_LESS "4.1.90" )
++ else ( ${KDE_VERSION} VERSION_LESS "4.1.90" )
++ set( PLASMA_LIBS ${KDE4_PLASMA_LIBS} )
++ endif ( ${KDE_VERSION} VERSION_LESS "4.1.90" )
++ 
+  add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+  include_directories( ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} )
+   
