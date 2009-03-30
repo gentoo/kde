@@ -13,17 +13,15 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/Panel+Spacer?content=89304"
 SRC_URI="http://danakil.free.fr/linux/releases/${P}/${PN}-plasmoid-${PV}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/panelspacer"
+RDEPEND="
+	!kde-plasmoids/panelspacer
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare()
-{
-	epatch "${FILESDIR}/cmake_fix_for_kde-4_2.patch"
-}
+PATCHES=( "${FILESDIR}/cmake_fix_for_kde-4_2.patch" )

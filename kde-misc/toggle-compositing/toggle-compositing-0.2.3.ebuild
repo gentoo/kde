@@ -13,12 +13,13 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/Toggle-Compositing?content=78
 SRC_URI="http://ivplasma.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/toggle-compositing"
+RDEPEND="
+	!kde-plasmoids/toggle-compositing
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_P}"

@@ -11,10 +11,11 @@ HOMEPAGE="http://kde-look.org/content/show.php/PGame?content=99357"
 SRC_URI="http://kde-look.org/CONTENT/content-files/99357-pgame-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/pgame"
+RDEPEND="
+	!kde-plasmoids/pgame
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

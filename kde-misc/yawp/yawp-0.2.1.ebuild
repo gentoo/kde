@@ -12,10 +12,11 @@ HOMEPAGE="http://www.kde-look.org/content/show.php?content=94106"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/yawp"
+RDEPEND="
+	!kde-plasmoids/yawp
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

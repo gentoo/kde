@@ -4,13 +4,17 @@
 
 EAPI="2"
 
-inherit kde4-base
+inherit kde4-base git
 
 DESCRIPTION="Yet another menu for KDE4"
 HOMEPAGE="http://raptor-menu.org/"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/playground/base/${PN}/"
+EGIT_REPO_URI="git://github.com/ruphy/raptor.git"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS=""
+SLOT="0"
 IUSE="debug"
+
+src_unpack() {
+	git_src_unpack
+}

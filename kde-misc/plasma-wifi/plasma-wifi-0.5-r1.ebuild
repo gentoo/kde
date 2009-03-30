@@ -11,16 +11,18 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/cpuload?content=79476"
 SRC_URI="http://kde-look.org/CONTENT/content-files/79476-${P}.tgz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/plasma-wifi"
+RDEPEND="
+	!kde-plasmoids/plasma-wifi
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 src_prepare() {
 	sed -i "s:find_package(Plasma REQUIRED)::" CMakeLists.txt || die "sed failed"
 	sed -i "s:PLASMA_LIBS:KDE4_PLASMA_LIBS:" CMakeLists.txt || die "sed failed"
+
 	kde4-base_src_prepare
 }

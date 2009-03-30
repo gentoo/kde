@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  stasks-0.5.1.ebuild:
+  Added debug IUSE, moved plasma-workspace to RDEPEND
+
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   stasks-0.5.1.ebuild:
   added plasma-workspace dependency

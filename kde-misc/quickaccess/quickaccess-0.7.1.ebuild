@@ -5,7 +5,6 @@
 EAPI="2"
 
 KDE_MINIMAL="4.2"
-
 inherit kde4-base
 
 MY_P="${P}_kde42"
@@ -15,12 +14,13 @@ HOMEPAGE="http://kde-look.org/content/show.php/QuickAccess?content=84128"
 SRC_URI="http://kde-look.org/CONTENT/content-files/98521-${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/quickaccess"
+RDEPEND="
+	!kde-plasmoids/quickaccess
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_P}"

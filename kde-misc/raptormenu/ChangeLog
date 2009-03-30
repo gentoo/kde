@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  raptormenu-9999.ebuild:
+  Fixed raptormenu - moved to git
+
   04 Jan 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   raptormenu-9999.ebuild:
   Dropped keywords from raptormenu, added debug to IUSE - what about live

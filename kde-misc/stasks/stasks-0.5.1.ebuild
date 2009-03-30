@@ -13,8 +13,9 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/99739-${P}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE=""
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/stasks"
+RDEPEND="
+	!kde-plasmoids/stasks
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

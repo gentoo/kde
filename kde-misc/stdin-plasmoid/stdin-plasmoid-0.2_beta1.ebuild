@@ -14,12 +14,13 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/STDIN+Plasmoid?content=92309"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/92309-${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/stdin-plasmoid"
+RDEPEND="
+	!kde-plasmoids/stdin-plasmoid
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_P}"
