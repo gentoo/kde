@@ -40,13 +40,37 @@ DEPEND="${DEPEND}
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	local uper capitalised x
 	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	echo "-D$1${3:-$2}=$(use $2 && echo ON || echo OFF)"
+	if [[ ! -z $3 ]]; then
+		# user specified the use name so use it
+		echo "-D$1$3=$(use $2 && echo ON || echo OFF)"
+	else
+		# use all various most used combinations
+		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
+		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
+		for x in $2 $uper $capitalised; do
+			echo "-D$1$x=$(use $2 && echo ON || echo OFF) "
+		done
+	fi
 }
 _use_me_now_inverted() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	local uper capitalised x
 	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	echo "-D$1${3:-$2}=$(use $2 && echo OFF || echo ON)"
+	if [[ ! -z $3 ]]; then
+		# user specified the use name so use it
+		echo "-D$1$3=$(use $2 && echo OFF || echo ON)"
+	else
+		# use all various most used combinations
+		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
+		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
+		for x in $2 $uper $capitalised; do
+			echo "-D$1$x=$(use $2 && echo OFF || echo ON) "
+		done
+	fi
 }
 
 # @ECLASS-VARIABLE: DOCS
