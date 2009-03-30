@@ -19,6 +19,7 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/playwolf
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 

@@ -4,6 +4,10 @@
 
   30 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   playwolf-0.7.1.ebuild:
+  playwolf requires semantic-desktop in kdelibs
+
+  30 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  playwolf-0.7.1.ebuild:
   Added debug IUSE, moved plasma-workspace to RDEPEND, sorted deps and
   variables (SLOT between KEYWORDS and IUSE as it's usually invariant)
 
