@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*ktux-4.2.68 (30 Mar 2009)
+
+  30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +ktux-4.2.68.ebuild:
+  Version bump.
+
   28 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +ktux-4.2.1.ebuild, ktux-4.2.2.ebuild, ktux-4.2.67.ebuild,
   ktux-9999.ebuild:
