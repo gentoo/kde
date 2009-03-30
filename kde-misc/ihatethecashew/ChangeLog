@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  ihatethecashew-0.3.ebuild:
+  Added debug IUSE, moved plasma-workspace to RDEPEND, sorted deps and
+  variables (SLOT between KEYWORDS and IUSE as it's usually invariant)
+
   29 Mar 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   ihatethecashew-0.3.ebuild:
   added plasma-workspace dependency

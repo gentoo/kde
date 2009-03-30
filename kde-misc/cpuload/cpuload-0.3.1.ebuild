@@ -11,12 +11,13 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/cpuload?content=86628"
 SRC_URI="http://kde-look.org/CONTENT/content-files/86628-${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/cpuload"
+RDEPEND="
+	!kde-plasmoids/cpuload
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}"/"${PN}"

@@ -7,6 +7,7 @@ EAPI="2"
 inherit kde4-base
 
 MY_P="${P/_/-}"
+
 DESCRIPTION="Blogging applet for KDE"
 HOMEPAGE="http://kblogger.pwsp.net/"
 SRC_URI="http://kblogger.pwsp.net/files/${MY_P}.tar.bz2"

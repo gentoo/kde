@@ -3,10 +3,10 @@
 # $Header: $
 
 EAPI="2"
+
 KDE_MINIMAL="4.2"
 KDE_LINGUAS="be cs da de el es et fr ga gl it ja km lt lv
 			nb nds nl nn pa pl pt pt_BR ro sk sv tr uk wa zh_CN zh_TW"
-
 inherit kde4-base
 
 KDE_VERSION="4.2.0"

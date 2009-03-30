@@ -11,15 +11,13 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/One-Line+Calculator?content=8
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/89524-${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/onelinecalc"
+RDEPEND="
+	!kde-plasmoids/onelinecalc
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
-src_prepare()
-{
-	epatch "${FILESDIR}/cmake_fix_for_kde-4_2.patch"
-}
+PATCHES=( "${FILESDIR}/cmake_fix_for_kde-4_2.patch" )

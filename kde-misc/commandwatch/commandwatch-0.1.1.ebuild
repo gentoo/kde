@@ -11,10 +11,11 @@ HOMEPAGE="http://www.kde-look.org/content/show.php/Command+Watch?content=84523"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/84523-${P}.tar.bz2"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-RDEPEND="${DEPEND}
-	!kde-plasmoids/commandwatch"
+RDEPEND="
+	!kde-plasmoids/commandwatch
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

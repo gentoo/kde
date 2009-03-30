@@ -11,8 +11,8 @@ inherit kde4-base
 
 DESCRIPTION="A NetworkManager applet for kde"
 HOMEPAGE="http://kde.org/"
-LICENSE="GPL-2 LGPL-2"
 
+LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
