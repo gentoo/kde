@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -solid-hardware-4.2.67.ebuild:
+  Version removed.
+
 *solid-hardware-4.2.68 (30 Mar 2009)
 
   30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>

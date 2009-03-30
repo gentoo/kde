@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*keditfiletype-4.2.68 (30 Mar 2009)
+
+  30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +keditfiletype-4.2.68.ebuild:
+  Add missing KDe 4.2.68
+
 *keditfiletype-9999 (24 Mar 2009)
 
   24 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

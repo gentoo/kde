@@ -7,6 +7,12 @@ EAPI="2"
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
-DESCRIPTION="KDE: A set of different KDE styles."
+DESCRIPTION="KDE mime/file type assocciation editor"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
+
+# @Since 4.2.68 - split from konqueror
+RDEPEND="
+	!kdeprefix? ( !<=kde-base/konqueror-4.2.67[-kdeprefix] )
+	kdeprefix? ( !<kde-base/konqueror-4.2.67:4.3 )
+"
