@@ -81,17 +81,6 @@ if [[ -n ${NEED_KDE} ]]; then
 	esac
 fi
 
-# Common Qt4 dependencies
-COMMONDEPEND="
-	x11-libs/qt-core:4[qt3support,ssl]
-	x11-libs/qt-gui:4[accessibility,dbus]
-	x11-libs/qt-qt3support:4[accessibility]
-	x11-libs/qt-script:4
-	x11-libs/qt-sql:4[qt3support]
-	x11-libs/qt-svg:4
-	x11-libs/qt-test:4
-"
-
 # OpenGL dependencies
 qtopengldepend="
 	x11-libs/qt-opengl:4
@@ -217,6 +206,13 @@ kdecommondepend="
 	x11-libs/libXext
 	x11-libs/libXt
 	x11-libs/libXxf86vm
+	x11-libs/qt-core:4[qt3support,ssl]
+	x11-libs/qt-gui:4[accessibility,dbus]
+	x11-libs/qt-qt3support:4[accessibility]
+	x11-libs/qt-script:4
+	x11-libs/qt-sql:4[qt3support]
+	x11-libs/qt-svg:4
+	x11-libs/qt-test:4
 "
 if [[ ${KDEBASE} = kde-base ]]; then
 	kdecommondepend="${kdecommondepend}
