@@ -4,29 +4,25 @@
 
 EAPI="2"
 
-# TODO add KMNAME=kdesupport handling in eclass
-NEED_KDE="none"
+KMNAME="kdesupport"
+KDE_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="Unofficial taglib plugins maintained by the Amarok team"
 HOMEPAGE="http://developer.kde.org/~wheeler/taglib.html"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug kde"
+IUSE="debug"
 
 RDEPEND="
 	>=media-libs/taglib-1.5
-	kde? ( >=kde-base/kdelibs-${KDE_MINIMAL} )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	# FIXME override kdeprefix flag for now (soon it will be dropped in eclass)
 	mycmakeargs="${mycmakeargs}
-		-DCMAKE_INSTALL_PREFIX=/usr
 		$(cmake-utils_use_with kde KDE)"
 
 	kde4-base_src_configure
