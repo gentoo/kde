@@ -5,6 +5,11 @@
   31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.2.ebuild, kdelibs-4.2.68.ebuild,
   kdelibs-9999.ebuild:
+  Reordered XDG_DATA_DIRS: /usr/local, KDEDIR, /usr
+
+  31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.2.ebuild, kdelibs-4.2.68.ebuild,
+  kdelibs-9999.ebuild:
   Added kdebase-data as PDEPEND
 
   30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdelibs-4.2.67.ebuild:

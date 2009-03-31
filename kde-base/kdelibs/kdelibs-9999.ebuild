@@ -194,7 +194,7 @@ LDPATH="${_libdirs}"
 MANPATH="${PREFIX}/share/man"
 CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/share:${PREFIX}/share:/usr/local/share"
+XDG_DATA_DIRS="/usr/local/share:${PREFIX}/share:/usr/share"
 COLON_SEPARATED="XDG_DATA_DIRS"
 EOF
 		doenvd "${T}"/43kdepaths-${SLOT}
@@ -215,7 +215,7 @@ EOF
 		cat <<-EOF > "${T}"/43kdepaths # number goes down with version
 CONFIG_PROTECT="/usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/share:/usr/local/share"
+XDG_DATA_DIRS="/usr/local/share:/usr/share"
 COLON_SEPARATED="XDG_DATA_DIRS"
 		EOF
 		doenvd "${T}"/43kdepaths
