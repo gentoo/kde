@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  amarok-2.0.2.ebuild:
+  Dropped kdeprefix, fixed deps (webkit removed - in kdelibs, removed
+  duplicated OPENGL_REQUIRED, fixed phonon deps)
+
   29 Mar 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   -media-sound/amarok/files/2.0.2-ipod.patch,
   +media-sound/amarok/files/amarok-ipod.patch:

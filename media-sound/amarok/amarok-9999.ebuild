@@ -24,14 +24,14 @@ DEPEND="
 	)
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1[kde]
-	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
-	>=kde-base/phonon-kde-${KDE_MINIMAL}[kdeprefix=]
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
+	>=kde-base/phonon-kde-${KDE_MINIMAL}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 	sys-libs/zlib
 	>=x11-libs/qtscriptgenerator-0.1.0
 	cdaudio? (
-		>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
-		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/libkcddb-${KDE_MINIMAL}
+		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
 	ipod? (
 		>=media-libs/libgpod-0.7.0
@@ -48,7 +48,7 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-0.3.0 )
 "
 RDEPEND="${DEPEND}
-	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
+	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 	utils? ( media-sound/amarok-utils )
 "
 
