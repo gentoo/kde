@@ -281,8 +281,12 @@ case ${BUILD_TYPE} in
 				kdebase-*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/kdebase/${KMNAME#kdebase-}"
 					;;
-				kdereview|kdesupport)
+				kdereview)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					;;
+				kdesupport)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					ESVN_PROJECT="${PN}"
 					;;
 				kde*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${KMNAME}"
