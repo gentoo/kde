@@ -103,6 +103,9 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+PDEPEND="
+	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
+"
 
 src_prepare() {
 	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \

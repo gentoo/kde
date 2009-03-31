@@ -104,6 +104,9 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+PDEPEND="
+	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
+"
 
 # upstream patches / dist patches
 # {FILESDIR}/${P}-qt4.5.patch is upstream revision 934640
