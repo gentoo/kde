@@ -158,59 +158,6 @@ get_build_type() {
 	export BUILD_TYPE
 }
 
-# @FUNCTION: get_latest_kdedir
-# @DESCRIPTION:
-# We set up KDEDIR according to the latest KDE version installed; installing our
-# package for all available installs is just insane.
-# We can check for kdelibs because it is the most basic package; no KDE package
-# working without it. This might be changed in future.
-# DEPRECATED
-get_latest_kdedir() {
-	case ${KDE_WANTED} in
-		# note this will need to be updated as stable moves and so on
-		live)
-			_versions="9999 4.2.61 4.2.0 4.1.0"
-			;;
-		snapshot)
-			_versions="4.2.61 4.2.0 4.1.0 9999"
-			;;
-		testing)
-			_versions="4.2.0 4.1.0 4.2.61 9999"
-			;;
-		stable)
-			_versions="4.2.0 4.1.0 4.1.61 9999"
-			;;
-		*) die "KDE_WANTED=${KDE_WANTED} not supported here." ;;
-	esac
-	# check if exists and fallback as we go
-	for X in ${_versions}; do
-		if has_version ">=kde-base/kdelibs-${X}"; then
-			# figure out which X we are in and set it into _kdedir
-			case ${X} in
-				# also keep track here same for kde_wanted
-				9999)
-					_kdedir="live"
-					break
-				;;
-				4.3.0 | 4.2.61)
-					_kdedir="4.3"
-					break
-				;;
-				4.2.0 | 4.1.61)
-					_kdedir="4.2"
-					break
-				;;
-				4.1.0)
-					_kdedir="4.1"
-					break
-				;;
-			esac
-		fi
-	done
-
-	debug-print-function ${FUNCNAME} "$@" "KDE_WANTED=${KDE_WANTED} -> _kdedir=${_kdedir}"
-}
-
 # @FUNCTION: migrate_store_dir
 # @DESCRIPTION:
 # Migrate the remnants of ${ESVN_STORE_DIR}/KDE/ to ${ESVN_STORE_DIR}/.
