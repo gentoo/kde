@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  digikam-9999.ebuild:
+  Dropped kdeprefix
+
   14 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   digikam-9999.ebuild:
   SLOT=live to 0.10
