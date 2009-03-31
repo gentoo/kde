@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  keditfiletype-4.2.68.ebuild, keditfiletype-9999.ebuild:
+  Fixed block, thx Kuja^ for spotting
+
 *keditfiletype-4.2.68 (30 Mar 2009)
 
   30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
