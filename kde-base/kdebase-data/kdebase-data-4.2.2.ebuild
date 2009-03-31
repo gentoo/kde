@@ -18,7 +18,6 @@ RDEPEND="
 	!kdeprefix? ( !<kde-base/dolphin-${PV}[-kdeprefix] )
 	kdeprefix? ( !<kde-base/dolphin-${PV}:${SLOT} )
 	x11-themes/hicolor-icon-theme
-	>=x11-themes/oxygen-icons-${PV}
 "
 
 KMEXTRA="
@@ -36,7 +35,6 @@ src_configure() {
 	if ! use kdeprefix; then
 		sed -i \
 			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
-			-e "s:add_subdirectory( oxygen ):#donotwant:g" \
 			pics/CMakeLists.txt
 	fi
 
