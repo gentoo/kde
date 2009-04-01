@@ -31,9 +31,11 @@ EXPORT_FUNCTIONS ${EXPF}
 
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
-[[ ${PN} = cmake ]] || DEPEND=">=dev-util/cmake-2.6.2-r1"
+if [[ ${PN} != cmake ]]; then
+	CMAKEDEPEND=">=dev-util/cmake-2.6.2-r1"
+fi
 
-DEPEND="${DEPEND}
+DEPEND="${CMAKEDEPEND}
 	userland_GNU? ( >=sys-apps/findutils-4.4.0 )
 "
 
