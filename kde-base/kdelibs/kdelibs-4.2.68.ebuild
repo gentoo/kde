@@ -194,20 +194,9 @@ LDPATH="${_libdirs}"
 MANPATH="${PREFIX}/share/man"
 CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/local/share:${PREFIX}/share:/usr/share"
-COLON_SEPARATED="XDG_DATA_DIRS"
+XDG_DATA_DIRS="${PREFIX}/share"
 EOF
 		doenvd "${T}"/43kdepaths-${SLOT}
-
-		# make sure 'source /etc/profile' doesn't hose the PATH
-		dodir /etc/profile.d
-		cat <<-'EOF' > "${D}"/etc/profile.d/44kdereorderpaths-${SLOT}.sh
-if [ -n "${KDEDIR}" ]; then
-	export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed "s#${KDEDIR}/s\?bin:##g")
-	export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed "s#${KDEDIR}/s\?bin:##g")
-fi
-EOF
-
 		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
 EOF
@@ -215,8 +204,6 @@ EOF
 		cat <<-EOF > "${T}"/43kdepaths # number goes down with version
 CONFIG_PROTECT="/usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/local/share:/usr/share"
-COLON_SEPARATED="XDG_DATA_DIRS"
 		EOF
 		doenvd "${T}"/43kdepaths
 	fi
