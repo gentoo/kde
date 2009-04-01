@@ -493,15 +493,10 @@ kde4-base_src_configure() {
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
 		# when more are present
-		mycmakeargs="${mycmakeargs}
-			-DCMAKE_SYSTEM_INCLUDE_PATH=${KDEDIR}/include
-			-DCMAKE_SYSTEM_LIBRARY_PATH=${KDEDIR}/$(get_libdir)
-			-DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}
-			-DCMAKE_SYSTEM_PROGRAM_PATH=${KDEDIR}/bin"
+		mycmakeargs="${mycmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		mycmakeargs="${mycmakeargs}
-			-DSYSCONF_INSTALL_DIR=/etc"
+		mycmakeargs="${mycmakeargs} -DSYSCONF_INSTALL_DIR=/etc"
 	fi
 
 	cmake-utils_src_configure
