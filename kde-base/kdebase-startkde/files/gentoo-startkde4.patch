@@ -1,15 +1,18 @@
---- startkde.cmake	2008-07-15 15:49:02.000000000 -0400
-+++ startkde.cmake.cryos	2008-09-27 14:44:01.000000000 -0400
-@@ -7,6 +7,33 @@
+diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/startkde.cmake
+--- kdebase-startkde-4.2.0-orig/startkde.cmake	2009-01-17 05:00:28.000000000 -0600
++++ kdebase-startkde-4.2.0/startkde.cmake	2009-02-21 12:52:02.000000000 -0600
+@@ -7,6 +7,35 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
  
-+export KDEDIR=@REPLACE_PREFIX@
-+export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
-+export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++_KDEDIR=@REPLACE_PREFIX@
++if [ "$_KDEDIR" != "/usr" ]; then
++	export PATH=${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++	export ROOTPATH=${_KDEDIR}/sbin:${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++fi
 +@REPLACE_LDPATH@
-+export STRIGI_PLUGIN_PATH="${KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
-+export XDG_DATA_DIRS=${KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
++export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
++export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
@@ -19,14 +22,14 @@
 +# Gentoo: handle the possible home directory layout for config directory
 +# Note that we change the default KDEHOME in kdelibs to .kde4 or .kde${SLOT}
 +# for -kdeprefix and +kdeprefix respectively.
-+if [ "${KDEDIR}" == "/usr" ]; then
++if [ "${_KDEDIR}" = "/usr" ]; then
 +	# If the directory doesn't exist make it
 +	[ -e "${HOME}/.kde4" ] || mkdir "$HOME/.kde4"
 +else
 +	# Use multiple directories based upon the KDE directory
-+	[ -e "$HOME/.kde$(basename $KDEDIR)" ] || mkdir "$HOME/.kde$(basename $KDEDIR)"
-+	if [ ! -d "$HOME/.kde$(basename $KDEDIR)" ]; then
-+		xmessage "$HOME/.kde$(basename $KDEDIR) exists but is not a dir. Aborting."
++	[ -e "$HOME/.kde$(basename $_KDEDIR)" ] || mkdir "$HOME/.kde$(basename $_KDEDIR)"
++	if [ ! -d "$HOME/.kde$(basename $_KDEDIR)" ]; then
++		xmessage "$HOME/.kde$(basename $_KDEDIR) exists but is not a dir. Aborting."
 +		exit 1
 +	fi
 +fi
@@ -34,12 +37,12 @@
  # Check if a KDE session already is running and whether it's possible to connect to X
  kcheckrunning
  kcheckrunning_result=$?
-@@ -209,6 +236,13 @@
+@@ -214,6 +243,13 @@
    done
  done
  
 +# Gentoo part for FHS installs
-+if [ "${KDEDIR}" == "/usr" ]; then
++if [ "${_KDEDIR}" = "/usr" ]; then
 +  for file in "/etc/kde/startup/"*.sh; do
 +    test -r "${file}" && . "${file}"
 +  done
@@ -48,12 +51,12 @@
  # Set the path for Qt plugins provided by KDE
  if test -n "$QT_PLUGIN_PATH"; then
    QT_PLUGIN_PATH="$QT_PLUGIN_PATH:`kde4-config --path qtplugins`"
-@@ -420,6 +454,13 @@
+@@ -427,6 +463,13 @@
    done
  done
  
 +# Gentoo part for FHS installs
-+if [ "${KDEDIR}" == "/usr" ]; then
++if [ "${_KDEDIR}" = "/usr" ]; then
 +  for file in "/etc/kde/shutdown/"*.sh; do
 +    test -r "${file}" && . "${file}"
 +  done
