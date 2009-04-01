@@ -5,7 +5,7 @@ Index: install.sh
 @@ -94,21 +94,6 @@
  make realclean
  cd ..
- 
+
 -#install binary helper scripts
 -if ( test $EBN -eq 0 ) then
 -  cd src/desktop-file-utils-0.14 && \
@@ -24,29 +24,3 @@ Index: install.sh
  #build and install non-binary plugins
  cd plugins && \
  make install PREFIX=$TOP && \
-@@ -121,25 +106,6 @@
- make realclean
- cd ..
- 
--#build and install (non-cppchecks) binary plugins
--cd src && \
--$QMAKE && \
--make && \
--make install INSTALL_ROOT=$TOP && \
--make distclean
--cd ..
--
--# build and install cppcheck plugins
--cd cppchecks && \
--mkdir -p build && \
--cd build && \
--cmake -DCMAKE_PREFIX_PATH=$TOP .. && \
--make && \
--make install
--cd ..
--rm -rf build
--cd ..
--
- #install share stuff
- mkdir -p $TOP/share/dtd
- cd share && \
