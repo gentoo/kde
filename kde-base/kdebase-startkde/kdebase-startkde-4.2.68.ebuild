@@ -33,9 +33,11 @@ RDEPEND="
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
+	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrandr
+	x11-apps/xrdb
 	x11-apps/xsetroot
 	x11-apps/xset
 "
