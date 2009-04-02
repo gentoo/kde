@@ -1,7 +1,7 @@
 diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/startkde.cmake
 --- kdebase-startkde-4.2.0-orig/startkde.cmake	2009-01-17 05:00:28.000000000 -0600
 +++ kdebase-startkde-4.2.0/startkde.cmake	2009-02-21 12:52:02.000000000 -0600
-@@ -7,6 +7,35 @@
+@@ -7,6 +7,37 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
  
@@ -9,10 +9,12 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 +if [ "$_KDEDIR" != "/usr" ]; then
 +	export PATH=${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
 +	export ROOTPATH=${_KDEDIR}/sbin:${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++	export XDG_CONFIG_DIRS=${_KDEDIR}/etc/xdg
 +fi
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
 +export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
++export XDG_MENU_PREFIX=kde-$(basename $_KDEDIR)-
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
