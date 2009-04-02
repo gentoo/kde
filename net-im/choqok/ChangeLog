@@ -1,0 +1,10 @@
+# ChangeLog for net-im/choqok
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*choqok-0.5 (02 Apr 2009)
+
+  02 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +metadata.xml, +choqok-0.5.ebuild:
+  new ebuild for choqok
+
