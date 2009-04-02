@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdeutils-meta
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdeutils-meta-4.2.2 (02 Apr 2009)
+
+  02 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +kdeutils-meta-4.2.2.ebuild:
+  meta ebuild for 4.2.2
+
