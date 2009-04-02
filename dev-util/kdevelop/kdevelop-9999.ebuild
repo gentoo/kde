@@ -15,11 +15,11 @@ SLOT="4"
 IUSE="+cmake +cxx debug +qmake"
 
 DEPEND="
-	>=dev-util/kdevplatform-0.9.85[kdeprefix=]
+	>=dev-util/kdevplatform-0.9.85
 	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kapptemplate-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/kapptemplate-${KDE_MINIMAL}
 "
 
 src_configure() {
