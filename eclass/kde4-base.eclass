@@ -214,15 +214,17 @@ kdecommondepend="
 	x11-libs/qt-svg:4
 	x11-libs/qt-test:4
 "
-if [[ ${KDEBASE} = kde-base ]]; then
-	kdecommondepend="${kdecommondepend}
-		kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
-		!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
-	"
-else
-	kdecommondepend="${kdecommondepend}
-		>=kde-base/kdelibs${_pv}
-	"
+if [[ ${PN} != kdelibs ]]; then
+	if [[ ${KDEBASE} = kde-base ]]; then
+		kdecommondepend="${kdecommondepend}
+			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
+			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
+		"
+	else
+		kdecommondepend="${kdecommondepend}
+			>=kde-base/kdelibs${_pv}
+		"
+	fi
 fi
 unset _pv _pvn
 kdedepend="
