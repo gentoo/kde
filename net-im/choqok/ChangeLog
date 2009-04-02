@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  choqok-0.5.ebuild:
+  cleaned up header
+
 *choqok-0.5 (02 Apr 2009)
 
   02 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
