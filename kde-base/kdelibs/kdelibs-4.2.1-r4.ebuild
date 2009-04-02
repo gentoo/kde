@@ -126,9 +126,12 @@ PATCHES=(
 )
 
 src_prepare() {
-	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
-		CMakeLists.txt \
-		|| die "Failed to make ACL disabled even when present in system."
+	sed -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
+		-i CMakeLists.txt || die "Failed to make ACL disabled even when present in system."
+
+	# Rename applications.menu
+	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-${SLOT}-applications.menu|g" \
+		-i kded/CMakeLists.txt || die "Sed for applications.menu failed."
 
 	kde4-base_src_prepare
 }

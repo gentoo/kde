@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.2.ebuild, kdelibs-4.2.68.ebuild,
+  kdelibs-9999.ebuild:
+  Fixed bug 256614 - conflicting applications.menu with Gnome
+
   01 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.1-r4.ebuild, kdelibs-4.2.2.ebuild, kdelibs-4.2.68.ebuild,
   kdelibs-9999.ebuild:
