@@ -10,7 +10,7 @@ inherit kde4-base
 
 MY_PN="gtk-qt-engine"
 DESCRIPTION="GTK+2 Qt4 Theme Engine"
-HOMEPAGE="http://gtk-qt.ecs.soton.ac.uk"
+HOMEPAGE="http://code.google.com/p/gtk-qt-engine/"
 ESVN_REPO_URI="http://gtk-qt-engine.googlecode.com/svn/trunk/${MY_PN}"
 
 LICENSE="GPL-2"
