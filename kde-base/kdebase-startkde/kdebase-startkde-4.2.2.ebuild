@@ -76,6 +76,10 @@ src_prepare() {
 	# Now fix the prefix
 	sed -e "s#@REPLACE_PREFIX@#${KDEDIR}#" \
 		-i startkde.cmake || die "Sed for REPLACE_PREFIX failed."
+
+	# Replace applications menu prefix
+	sed -e "s#@REPLACE_MENU_PREFIX@#kde-${SLOT}-#" \
+		-i startkde.cmake || die "Sed for REPLACE_MENU_PREFIX failed."
 }
 
 src_install() {

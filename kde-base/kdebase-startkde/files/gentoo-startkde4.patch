@@ -14,7 +14,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
 +export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
-+export XDG_MENU_PREFIX=kde-$(basename $_KDEDIR)-
++export XDG_MENU_PREFIX=@REPLACE_MENU_PREFIX@
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
