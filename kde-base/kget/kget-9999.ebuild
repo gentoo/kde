@@ -43,8 +43,11 @@ pkg_setup() {
 src_prepare() {
 	if ! use bittorrent && ! use bittorrent-external; then
 		sed -i -e '/bittorrent/s:^:#DONOTCOMPILE :' \
-			"${S}"/kget/transfer-plugins/CMakeLists.txt \
+			kget/transfer-plugins/CMakeLists.txt \
 			|| die "sed to disable torrent support failed."
+		sed -i -e 's|application/x-bittorrent;||' \
+			kget/desktop/kget.desktop \
+			|| die "sed to disable torrent mime-type handling failed."
 	fi
 
 	kde4-meta_src_prepare
