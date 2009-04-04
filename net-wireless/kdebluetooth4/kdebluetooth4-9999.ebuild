@@ -22,6 +22,7 @@ DEPEND="
 	>=app-mobilephone/obex-data-server-0.4.2
 	>=app-mobilephone/obexftp-0.23_alpha[bluetooth]
 	>=kde-base/solid-${KDE_MINIMAL}[bluetooth,kdeprefix=]
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop,kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kdialog-${KDE_MINIMAL}[kdeprefix=]
