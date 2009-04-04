@@ -104,14 +104,6 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/rgb
 "
 
-src_prepare() {
-	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
-		CMakeLists.txt \
-		|| die "Failed to make ACL disabled even when present in system."
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
