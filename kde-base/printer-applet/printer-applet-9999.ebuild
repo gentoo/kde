@@ -12,10 +12,15 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	app-admin/system-config-printer
 	app-misc/hal-cups-utils
-	>=dev-python/PyQt4-4.4.4-r1
-	dev-python/pycups
+	>=dev-python/PyQt4-4.4.4-r1[dbus]
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	sed -i -e 's/^project(printer-applet)//' \
+		"${PN}"/CMakeLists.txt || die "failed to workaround sandbox violation"
+}

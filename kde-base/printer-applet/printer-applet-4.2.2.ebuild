@@ -12,10 +12,8 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
-	app-admin/system-config-printer
 	app-misc/hal-cups-utils
-	>=dev-python/PyQt4-4.4.4-r1
-	dev-python/pycups
+	>=dev-python/PyQt4-4.4.4-r1[dbus]
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
