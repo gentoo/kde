@@ -22,6 +22,7 @@ RDEPEND="x11-libs/qt-core:4
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
+	>=dev-libs/soprano-2.2
 	>=kde-base/automoc-0.9.88
 "
 
