@@ -139,6 +139,8 @@ src_configure() {
 		else
 			die "USE=\"zeroconf\" enabled but neither net-dns/avahi nor net-misc/mDNSResponder were found."
 		fi
+	else
+		mycmakeargs="${mycmakeargs} -DWITH_Avahi=OFF -DWITH_DNSSD=OFF"
 	fi
 	if use kdeprefix; then
 		HME=".kde${SLOT}"
