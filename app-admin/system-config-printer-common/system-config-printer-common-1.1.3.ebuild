@@ -12,8 +12,8 @@ HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
 SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE=""
 
 # system-config-printer split since 1.1.3
@@ -29,7 +29,7 @@ RDEPEND="
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-split.patch"
+	epatch "${FILESDIR}/${PN}-1.1.3-split.patch"
 
 	eaclocal
 	eautomake
