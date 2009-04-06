@@ -79,22 +79,12 @@ case ${KMNAME} in
 		;;
 	koffice)
 		[[ ${PN} != koffice-data ]] && IUSE="debug"
-		case ${PV} in
-			9999*)
-				DEPEND="${DEPEND}
-					!app-office/${PN}:2
-				"
-				;;
-			1.9*|2*)
-				DEPEND="${DEPEND}
-					!app-office/${PN}:live
-				"
-				;;
-		esac
-		DEPEND="${DEPEND}
-			!app-office/${PN}:0
-			!app-office/koffice:0
-			!app-office/koffice-meta:0
+		RDEPEND="${RDEPEND}
+			!kdeprefix? (
+				!app-office/${PN}:0
+				!app-office/koffice:0
+				!app-office/koffice-meta:0
+			)
 		"
 		case ${PN} in
 			koffice-data)
@@ -117,10 +107,10 @@ case ${KMNAME} in
 				unset COMMON_DEPEND
 				if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
 					DEPEND="${DEPEND}
-						>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]
+						>=app-office/koffice-libs-${PV}:${SLOT}
 					"
 					RDEPEND="${RDEPEND}
-						>=app-office/koffice-libs-${PV}:${SLOT}[kdeprefix=]
+						>=app-office/koffice-libs-${PV}:${SLOT}
 					"
 				fi
 				;;
