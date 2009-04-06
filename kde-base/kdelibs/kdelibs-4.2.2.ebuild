@@ -116,6 +116,7 @@ PATCHES=(
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
 	"${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch"
+	"${FILESDIR}/${PN}-${SLOT}-fix_kio_http_401.patch"
 )
 
 src_prepare() {
