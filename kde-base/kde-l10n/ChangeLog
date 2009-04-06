@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kde-l10n-4.2.68.ebuild:
+  Fix bug #265143
+
   02 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   kde-l10n-4.2.2.ebuild:
   added sk to langs

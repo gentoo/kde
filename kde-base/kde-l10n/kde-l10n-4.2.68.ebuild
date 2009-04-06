@@ -34,7 +34,7 @@ S="${WORKDIR}"
 pkg_setup() {
 	local lng
 	for lng in ${LINGUAS}; do
-		enabled_linguas+=" ${lng}"
+		use linguas_${lng} && enabled_linguas+=" ${lng}"
 	done
 	if [[ -z ${enabled_linguas} ]]; then
 		elog
