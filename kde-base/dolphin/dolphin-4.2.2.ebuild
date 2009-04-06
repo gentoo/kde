@@ -17,7 +17,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
-	thumbnail? ( media-video/mplayerthumbs:1[kdeprefix=] )
+	thumbnail? ( media-video/mplayerthumbs:1 )
 "
 
 KMEXTRA="
