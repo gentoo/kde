@@ -18,7 +18,7 @@ DEPEND="
 		app-crypt/qca:2
 		dev-libs/gmp
 	)
-	bittorrent-external? ( >=net-p2p/ktorrent-3.1.5[kdeprefix=] )
+	bittorrent-external? ( >=net-p2p/ktorrent-3.1.5 )
 	sqlite? ( dev-db/sqlite )
 "
 RDEPEND="${DEPEND}
