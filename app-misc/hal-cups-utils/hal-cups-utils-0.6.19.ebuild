@@ -9,23 +9,22 @@ HOMEPAGE="https://fedorahosted.org/hal-cups-utils/"
 SRC_URI="https://fedorahosted.org/hal-cups-utils/attachment/wiki/ProjectReleases/${P}.tar.gz?format=raw -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE=""
 
-# TODO fix rdeps
-RDEPEND="
-	dev-lang/python
+COMMON_DEPEND="
 	>=dev-libs/dbus-glib-0.74
 	>=dev-libs/glib-2.16
-	dev-python/dbus-python
-	dev-python/pycups
 	net-print/cups
 	>=sys-apps/dbus-1.2
 	>=sys-apps/hal-0.5.10
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-util/pkgconfig
+"
+RDEPEND="${COMMON_DEPEND}
+	app-admin/system-config-printer-common
 "
 
 src_install() {

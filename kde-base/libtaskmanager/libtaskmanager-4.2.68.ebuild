@@ -16,10 +16,12 @@ COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXfixes
 	x11-libs/libXrender
-	xcomposite? ( x11-libs/libXcomposite )"
+	xcomposite? ( x11-libs/libXcomposite )
+"
 DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
-	xcomposite? ( x11-proto/compositeproto )"
+	xcomposite? ( x11-proto/compositeproto )
+"
 RDEPEND="${COMMONDEPEND}"
 
 KMSAVELIBS="true"

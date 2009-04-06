@@ -4,11 +4,9 @@
 
 EAPI="2"
 
-OPENGL_REQUIRED="optional"
 KDE_LINGUAS="ar be bg ca cs csb da de el eo es et eu fi fr ga gl he is it ja km
 	ko ku lt lv nb nds ne nl nn oc pa pl pt pt_BR ro ru se si sk sl sv th tr uk zh_CN zh_TW"
 OPENGL_REQUIRED="optional"
-
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -27,16 +25,12 @@ DEPEND="
 		>=dev-db/mysql-community-5.0[embedded,-minimal]
 	)
 	>=media-libs/taglib-1.5
-	|| (
-		media-sound/phonon
-		x11-libs/qt-phonon:4
-	)
-	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,opengl?,semantic-desktop?]
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}[kdeprefix=]
-	x11-libs/qt-webkit:4
+	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
+	>=kde-base/phonon-kde-${KDE_MINIMAL}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 	cdaudio? (
-		>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
-		>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+		>=kde-base/libkcddb-${KDE_MINIMAL}
 	)
 	ifp? ( media-libs/libifp )
 	ipod? ( >=media-libs/libgpod-0.7.0 )

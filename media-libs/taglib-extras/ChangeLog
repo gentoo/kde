@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  taglib-extras-0.1.1.ebuild, taglib-extras-9999.ebuild:
+  Moved to new eclass
+
 *taglib-extras-0.1 (26 Mar 2009)
 
   26 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

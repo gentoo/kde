@@ -103,11 +103,17 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/iceauth
 	x11-apps/rgb
 "
+PDEPEND="
+	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
+"
 
 src_prepare() {
-	sed -i -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
-		CMakeLists.txt \
-		|| die "Failed to make ACL disabled even when present in system."
+	sed -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
+		-i CMakeLists.txt || die "Failed to make ACL disabled even when present in system."
+
+	# Rename applications.menu
+	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-${SLOT}-applications.menu|g" \
+		-i kded/CMakeLists.txt || die "Sed for applications.menu failed."
 
 	kde4-base_src_prepare
 }
@@ -193,20 +199,9 @@ LDPATH="${_libdirs}"
 MANPATH="${PREFIX}/share/man"
 CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/share:${PREFIX}/share:/usr/local/share"
-COLON_SEPARATED="XDG_DATA_DIRS"
+XDG_DATA_DIRS="${PREFIX}/share"
 EOF
 		doenvd "${T}"/43kdepaths-${SLOT}
-
-		# make sure 'source /etc/profile' doesn't hose the PATH
-		dodir /etc/profile.d
-		cat <<-'EOF' > "${D}"/etc/profile.d/44kdereorderpaths-${SLOT}.sh
-if [ -n "${KDEDIR}" ]; then
-	export PATH=${KDEDIR}/bin:$(echo ${PATH} | sed "s#${KDEDIR}/s\?bin:##g")
-	export ROOTPATH=${KDEDIR}/sbin:${KDEDIR}/bin:$(echo ${PATH} | sed "s#${KDEDIR}/s\?bin:##g")
-fi
-EOF
-
 		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
 EOF
@@ -214,8 +209,6 @@ EOF
 		cat <<-EOF > "${T}"/43kdepaths # number goes down with version
 CONFIG_PROTECT="/usr/share/config"
 #KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="/usr/share:/usr/local/share"
-COLON_SEPARATED="XDG_DATA_DIRS"
 		EOF
 		doenvd "${T}"/43kdepaths
 	fi

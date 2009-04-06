@@ -2,6 +2,14 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  printer-applet-4.2.2.ebuild, printer-applet-9999.ebuild:
+  Updated deps of printer-applet
+
+  04 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -printer-applet-4.2.1.ebuild:
+  Version removed.
+
   15 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -printer-applet-4.2.65.ebuild:
   Version removed.

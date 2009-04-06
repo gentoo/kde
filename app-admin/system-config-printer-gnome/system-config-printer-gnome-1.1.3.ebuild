@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-inherit python
+inherit python autotools
 
 DESCRIPTION="A printer administration tool"
 HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
@@ -24,14 +24,11 @@ DEPEND="${COMMON_DEPEND}
 	virtual/libintl
 "
 RDEPEND="${COMMON_DEPEND}
-	dev-libs/libxml2[python]
-	dev-python/dbus-python
+	app-admin/system-config-printer-common
 	dev-python/libgnome-python
 	dev-python/notify-python
-	dev-python/pycups
 	>=dev-python/pygtk-2.4
 	dev-python/pyxml
-	net-print/cups[dbus]
 	gnome-keyring? ( dev-python/gnome-keyring-python )
 "
 
@@ -41,6 +38,16 @@ si sk sl sr sv ta te tr uk vi zh_CN"
 for X in ${APP_LINGUAS}; do
 	IUSE="${IUSE} linguas_${X}"
 done
+
+S="${WORKDIR}/${MY_P}"
+
+src_prepare() {
+	epatch "${FILESDIR}/${P}-split.patch"
+
+	eaclocal
+	eautomake
+	eautoconf
+}
 
 src_configure() {
 	local myconf
@@ -59,8 +66,4 @@ src_install() {
 	dodoc AUTHORS ChangeLog README || die "dodoc failed"
 
 	emake DESTDIR="${D}" install || die "emake install failed"
-}
-
-pkg_postrm() {
-	python_mod_cleanup "/usr/share/${PN}"
 }

@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME="extragear/multimedia"
 KMMODULE="amarok"
-NEED_KDE="none"
+KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="Variuos utility programs for Amarok."
