@@ -21,13 +21,9 @@ RDEPEND="net-misc/openssh"
 CFG="ksshaskpass.sh"
 
 src_prepare() {
-	if use kdeprefix; then
-		STARTUPDIR="${PREFIX}"/env
-		SHUTDOWNDIR="${PREFIX}"/env
-	else
-		STARTUPDIR=/etc/kde/startup
-		SHUTDOWNDIR=/etc/kde/shutdown
-	fi
+	STARTUPDIR=/etc/kde/startup
+	SHUTDOWNDIR=/etc/kde/shutdown
+
 	kde4-base_src_prepare
 }
 

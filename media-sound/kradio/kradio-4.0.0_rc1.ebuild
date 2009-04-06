@@ -8,14 +8,15 @@ KDE_LINGUAS="de es pl pt ru"
 inherit kde4-base
 
 MY_P="${PN}4-${PV/_/-}"
+
 DESCRIPTION="kradio is a radio tuner application for KDE"
 HOMEPAGE="http://kradio.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa encode lirc +mp3 +vorbis v4l2"
 SLOT="4"
+IUSE="alsa debug encode lirc +mp3 +vorbis v4l2"
 
 DEPEND="
 	media-libs/libsndfile

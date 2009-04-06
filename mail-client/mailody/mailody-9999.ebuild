@@ -17,12 +17,12 @@ IUSE="debug geolocation"
 
 DEPEND="
 	dev-libs/boost
-	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,semantic-desktop]
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=]
-	geolocation? ( >=kde-base/marble-${KDE_MINIMAL}[kdeprefix=] )
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
+	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
 "
 RDEPEND="${DEPEND}
-	>=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/nepomuk-${KDE_MINIMAL}
 "
 
 src_configure() {

@@ -6,6 +6,7 @@ EAPI="2"
 
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
+KDE_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
@@ -14,13 +15,10 @@ IUSE="debug designer-plugin +kde gps plasma python"
 
 DEPEND="
 	gps? ( sci-geosciences/gpsd )
-	kde? (
-		>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=]
-		>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-	)
+	kde? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
-		kde? ( >=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=] )
+		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
 	)
 "
 RDEPEND="${DEPEND}

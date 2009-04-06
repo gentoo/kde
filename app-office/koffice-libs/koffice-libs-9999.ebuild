@@ -15,10 +15,10 @@ KEYWORDS=""
 IUSE="+crypt +openexr"
 
 RDEPEND="
-	>=app-office/koffice-data-${PV}:${SLOT}[kdeprefix=]
+	>=app-office/koffice-data-${PV}:${SLOT}
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/kdepimlibs-${KDE_MINIMAL}
 	>=media-libs/lcms-1.15
 	crypt? ( app-crypt/qca:2 )
 	openexr? ( media-libs/openexr )

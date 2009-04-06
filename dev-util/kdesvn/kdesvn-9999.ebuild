@@ -20,7 +20,7 @@ IUSE="debug"
 RDEPEND="
 	dev-db/sqlite
 	>=dev-util/subversion-1.4
-	>=kde-base/kdesdk-kioslaves-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/kdesdk-kioslaves-${KDE_MINIMAL}
 "
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6

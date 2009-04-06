@@ -15,8 +15,11 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=">=kde-base/pykde4-${KDE_MINIMAL}[kdeprefix=]
+DEPEND="
+	>=kde-base/pykde4-${KDE_MINIMAL}
+	media-gfx/imagemagick[png]
 	media-sound/lilypond
-	media-gfx/imagemagick[png]"
+"
 RDEPEND="${DEPEND}
-	>=kde-base/okular-${KDE_MINIMAL}[kdeprefix=]"
+	>=kde-base/okular-${KDE_MINIMAL}
+"

@@ -20,7 +20,7 @@ SLOT="1"
 IUSE="debug bindist"
 
 COMMON_DEPEND="
-	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/konqueror-${KDE_MINIMAL}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/cmake-2.6.1

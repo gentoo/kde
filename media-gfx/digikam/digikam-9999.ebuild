@@ -17,7 +17,6 @@ SLOT="0.10"
 IUSE="addressbook debug geolocation +gphoto2"
 
 DEPEND="
-	!kdeprefix? ( !media-gfx/digikam:0 )
 	dev-db/sqlite:3
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
@@ -36,7 +35,9 @@ DEPEND="
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
 "
 #liblensfun when added should be also optional dep.
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !media-gfx/digikam:0 )
+"
 
 src_prepare() {
 	# Fix files collision, use icon from kdebase-data rather that digikam ones

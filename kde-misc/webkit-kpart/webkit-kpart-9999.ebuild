@@ -16,7 +16,3 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
-
-RDEPEND="
-	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
-"

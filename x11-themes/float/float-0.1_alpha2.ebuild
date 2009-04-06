@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_KDE="none"
+KDE_REQUIRED="optional"
 inherit kde4-base qt4
 
 MY_PN="floatstyle"
@@ -17,11 +17,10 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/54477-${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="debug kde"
+IUSE="debug"
 
 DEPEND="
 	x11-libs/qt-gui:4
-	kde? ( >=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}"
 

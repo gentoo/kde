@@ -16,10 +16,8 @@ SLOT="1"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? (
-		!media-video/kplayer:0
-		!media-video/kplayer:0.7
-	)
+	!kdeprefix? ( !media-video/kplayer:0 )
+	!media-video/kplayer:0.7
 	>=media-video/mplayer-1.0_rc1
 "
 

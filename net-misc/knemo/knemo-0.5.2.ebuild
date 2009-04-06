@@ -19,8 +19,10 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="!kdeprefix? ( !net-misc/knemo:0 )
-	>=kde-base/systemsettings-${KDE_MINIMAL}[kdeprefix=]
+DEPEND="
+	>=kde-base/systemsettings-${KDE_MINIMAL}
 	net-wireless/wireless-tools
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !net-misc/knemo:0 )
+"

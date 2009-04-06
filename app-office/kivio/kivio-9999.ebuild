@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="python"
 
 DEPEND="
-	python? ( kde-base/pykde4[kdeprefix=] )
+	python? ( kde-base/pykde4 )
 "
 RDEPEND="${DEPEND}"
 

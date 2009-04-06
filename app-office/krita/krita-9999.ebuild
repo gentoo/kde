@@ -21,7 +21,7 @@ DEPEND="
 	>=media-gfx/exiv2-0.16
 	>=media-gfx/imagemagick-0.6.4.9.2[openexr=,png,tiff?]
 	gmm? ( sci-mathematics/gmm )
-	kdcraw? ( kde-base/libkdcraw[kdeprefix=] )
+	kdcraw? ( kde-base/libkdcraw )
 	opengl? ( media-libs/glew )
 	pdf? (
 		>=app-text/poppler-0.10.0

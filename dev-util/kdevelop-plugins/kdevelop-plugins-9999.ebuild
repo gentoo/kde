@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="2"
+
 KMNAME="playground/devtools"
 KMMODULE="kdevelop4-extra-plugins"
 inherit kde4-base
@@ -13,10 +14,10 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="+browser +php"
+IUSE="+browser debug +php"
 
 DEPEND="
-	>=dev-util/kdevelop-${PV}:${SLOT}[kdeprefix=]
+	>=dev-util/kdevelop-${PV}:${SLOT}
 "
 RDEPEND="${DEPEND}"
 

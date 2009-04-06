@@ -17,29 +17,28 @@ DESCRIPTION="Plugins for the KDE Image Plugin Interface (libkipi)."
 HOMEPAGE="http://www.kipi-plugins.org"
 #SRC_URI="mirror://sourceforge/kipi/${MY_P}.tar.bz2"
 
-
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="cdr calendar debug +imagemagick ipod mjpeg redeyes scanner"
 SLOT="2"
+IUSE="cdr calendar debug +imagemagick ipod mjpeg redeyes scanner"
 
 DEPEND="
 	>=dev-libs/expat-2.0.1
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=kde-base/libkdcraw-${KDE_MINIMAL}[kdeprefix=]
-	>=kde-base/libkexiv2-${KDE_MINIMAL}[kdeprefix=]
-	>=kde-base/libkipi-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libkdcraw-${KDE_MINIMAL}
+	>=kde-base/libkexiv2-${KDE_MINIMAL}
+	>=kde-base/libkipi-${KDE_MINIMAL}
 	media-libs/jpeg
 	media-libs/libpng
 	>=media-libs/tiff-3.5
-	calendar? ( >=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=] )
+	calendar? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
 	ipod? ( media-libs/libgpod )
 	opengl? ( virtual/opengl )
 	redeyes? ( media-libs/opencv )
 	scanner? (
 		media-gfx/sane-backends
-		>=kde-base/libksane-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/libksane-${KDE_MINIMAL}
 	)
 "
 RDEPEND="${DEPEND}

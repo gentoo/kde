@@ -18,7 +18,7 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/solid-${KDE_MINIMAL}[kdeprefix=,networkmanager]
+	>=kde-base/solid-${KDE_MINIMAL}[networkmanager]
 	>=net-misc/networkmanager-0.7
 "
 RDEPEND="${DEPEND}"

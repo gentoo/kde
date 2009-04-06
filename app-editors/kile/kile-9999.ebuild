@@ -17,7 +17,7 @@ IUSE="debug +pdf +png"
 
 RDEPEND="
 	|| (
-		>=kde-base/okular-${KDE_MINIMAL}[kdeprefix=,ps,pdf?]
+		>=kde-base/okular-${KDE_MINIMAL}[pdf?,ps]
 		app-text/acroread
 	)
 	virtual/latex-base

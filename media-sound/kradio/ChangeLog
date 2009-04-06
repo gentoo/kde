@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kradio-4.0.0_rc1.ebuild:
+  added debug IUSE
+
 *kradio-20090220 (21 Feb 2009)
 
   21 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org> -kradio-20090219.ebuild,

@@ -1,6 +1,10 @@
 # ChangeLog for kde-misc/ksshaskpass
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  ksshaskpass-0.5.1.ebuild:
+  Dropped kdeprefix
 
   23 Dec 2008; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +kde-misc/ksshaskpass/metadata.xml:

@@ -18,16 +18,16 @@ SLOT="4"
 IUSE="debug +exif +geolocation +kipi +raw +semantic-desktop"
 
 DEPEND="
-	>=kde-base/kdelibs-${KDE_MINIMAL}[kdeprefix=,semantic-desktop?]
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	media-libs/jpeg
 	>=x11-libs/qt-sql-4.4:4[sqlite]
 	exif? ( >=media-gfx/exiv2-0.17 )
-	geolocation? ( >=kde-base/marble-${KDE_MINIMAL}[kdeprefix=] )
-	kipi? ( >=kde-base/libkipi-${KDE_MINIMAL}[kdeprefix=] )
-	raw? ( >=kde-base/libkdcraw-${KDE_MINIMAL}[kdeprefix=] )
+	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
+	kipi? ( >=kde-base/libkipi-${KDE_MINIMAL} )
+	raw? ( >=kde-base/libkdcraw-${KDE_MINIMAL} )
 "
 RDEPEND="${DEPEND}
-	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL}[kdeprefix=] )
+	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
 S="${WORKDIR}"/${MY_P}

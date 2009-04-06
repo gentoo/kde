@@ -17,9 +17,7 @@ SLOT="3"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? (
-		!kde-misc/yakuake:0
-		!kde-misc/yakuake:4.1
-	)
-	>=kde-base/konsole-${KDE_MINIMAL}[kdeprefix=]
+	!kdeprefix? ( !kde-misc/yakuake:0 )
+	!kde-misc/yakuake:4.1
+	>=kde-base/konsole-${KDE_MINIMAL}
 "

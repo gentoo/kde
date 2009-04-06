@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-NEED_OPENGL="always"
+OPENGL_REQUIRED="always"
 KDE_MINIMAL="4.1"
 inherit kde4-base
 

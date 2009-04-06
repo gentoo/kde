@@ -17,12 +17,10 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libkonq-${KDE_MINIMAL}
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? (
-		!kde-base/konq-plugins:4.1
-		!kde-base/konq-plugins:4.2
-	)
-	>=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=]
+	!kde-base/konq-plugins:4.1
+	!kde-base/konq-plugins:4.2
+	>=kde-base/konqueror-${KDE_MINIMAL}
 "

@@ -25,10 +25,8 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? (
-		!media-video/kmplayer:0
-		!media-video/kmplayer:4.1
-	)
+	!kdeprefix? ( !media-video/kmplayer:0 )
+	!media-video/kmplayer:4.1
 	media-video/mplayer
 "
 

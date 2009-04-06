@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkcompactdisc-${KDE_MINIMAL}[kdeprefix=]
-	>=kde-base/libkcddb-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+	>=kde-base/libkcddb-${KDE_MINIMAL}
 "
 RDEPEND="${DEPEND}"

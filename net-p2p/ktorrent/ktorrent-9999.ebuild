@@ -18,14 +18,14 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer 
 DEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
-	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL}[kdeprefix=] )
+	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
 	rss? (
 		dev-libs/boost
-		>=kde-base/kdepimlibs-${KDE_MINIMAL}[kdeprefix=]
+		>=kde-base/kdepimlibs-${KDE_MINIMAL}
 	)
 "
 RDEPEND="${DEPEND}
-	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL}[kdeprefix=] )
+	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL} )
 "
 
 src_prepare() {
