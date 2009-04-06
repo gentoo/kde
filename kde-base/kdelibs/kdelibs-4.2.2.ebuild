@@ -211,6 +211,7 @@ MANPATH="${PREFIX}/share/man"
 CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
 #KDE_IS_PRELINKED=1
 XDG_DATA_DIRS="${PREFIX}/share"
+KDEDIRS="/usr"
 EOF
 		doenvd "${T}"/43kdepaths-${SLOT}
 		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
