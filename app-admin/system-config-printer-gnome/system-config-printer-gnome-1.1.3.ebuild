@@ -7,11 +7,12 @@ inherit python autotools
 
 DESCRIPTION="A printer administration tool"
 HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
-SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${P}.tar.bz2"
+SRC_URI=
+#"http://cyberelk.net/tim/data/system-config-printer/1.1/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="gnome-keyring"
 
 COMMON_DEPEND="
