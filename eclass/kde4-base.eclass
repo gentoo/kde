@@ -290,7 +290,10 @@ case ${BUILD_TYPE} in
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${KMNAME}"
 					;;
 				extragear*|playground*)
+					# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
+					# build packages from same svn location.
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					ESVN_PROJECT="${PN}"
 					;;
 				koffice)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"

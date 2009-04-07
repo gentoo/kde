@@ -160,12 +160,11 @@ get_build_type() {
 
 # @FUNCTION: migrate_store_dir
 # @DESCRIPTION:
-# Migrate the remnants of ${ESVN_STORE_DIR}/KDE/ to ${ESVN_STORE_DIR}/.
-# Perform experimental split of kdebase to kdebase-apps.
-# DEPRECATED
+# Universal store dir migration
+# * performs split of kdebase to kdebase-apps when needed
+# * moves playground/extragear kde4-base-style to toplevel dir
 migrate_store_dir() {
-	local cleandir
-	cleandir="${ESVN_STORE_DIR}/KDE"
+	local cleandir="${ESVN_STORE_DIR}/KDE"
 	if [[ -d "${cleandir}" ]]; then
 		ewarn "'${cleandir}' has been found. Moving contents to new location."
 		addwrite "${ESVN_STORE_DIR}"
@@ -184,10 +183,26 @@ migrate_store_dir() {
 		# Move the rest
 		local pkg
 		for pkg in "${cleandir}"/*; do
-			mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "failed to move ${pkg}"
+			mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "Failed to move '${pkg}'"
 		done
 		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir. Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 	fi
+
+	case ${KMNAME} in
+		extragear*|playground*)
+			local svnlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
+			if [[ -d "${svnlocalpath}" ]]; then
+				local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
+				ewarn "'${svnlocalpath}' has been found."
+				ewarn "Moving contents to new location: ${destdir}"
+				addwrite "${ESVN_STORE_DIR}"
+				mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${svnlocalpath}" "${destdir}" \
+					|| die "Failed to move to '${svnlocalpath}'"
+				# Try cleaning empty directories
+				rmdir "`dirname "${svnlocalpath}"`" 2> /dev/null
+			fi
+			;;
+	esac
 }
 
 # Functions handling KMLOADLIBS and KMSAVELIBS
