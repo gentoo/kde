@@ -7,6 +7,6 @@ kde-base/kgpg:live
 kde-base/ktimer:live
 kde-base/kwallet:live
 kde-base/okteta:live
-# kde-base/printer-applet:live #masked
+kde-base/printer-applet:live
 kde-base/superkaramba:live
 kde-base/sweeper:live

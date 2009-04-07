@@ -14,6 +14,9 @@ DESCRIPTION="Solid: the KDE hardware library"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="bluetooth debug networkmanager"
 
+# solid/CMakeLists.txt has an add_subdirectory statement that depends on
+# networkmanager-0.7, referring to a non-existant directory, restricted to =0.6*
+# for now.
 DEPEND="
 	>=sys-apps/hal-0.5.9
 	bluetooth? ( net-wireless/bluez )
