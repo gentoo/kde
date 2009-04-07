@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  konqueror-4.2.2.ebuild, konqueror-4.2.69.ebuild, konqueror-9999.ebuild:
+  Fixed bug 264381
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -konqueror-4.2.68.ebuild,
   +konqueror-4.2.69.ebuild:
   Version removed.

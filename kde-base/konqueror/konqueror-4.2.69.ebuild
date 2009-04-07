@@ -22,6 +22,8 @@ RDEPEND="${DEPEND}
 	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
 	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
 	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
+"
+PDEPEND="
 	thumbnail? ( media-video/mplayerthumbs:1 )
 "
 
