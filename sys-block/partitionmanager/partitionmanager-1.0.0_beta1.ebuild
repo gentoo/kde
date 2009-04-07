@@ -5,21 +5,25 @@
 EAPI="2"
 
 KDE_LINGUAS="de el es fr gl ja lv nds pa pl pt pt_BR sv tr uk zh_CN zh_TW"
+
+KMNAME="extragear/sysadmin"
 inherit kde4-base
 
-MY_PN="partitionmanager"
-MY_P="${MY_PN}-${PV/_/-}"
+MY_P="${PN}-${PV/_/-}"
 
 DESCRIPTION="KDE utility for management of partitions and file systems."
-HOMEPAGE="http://www.kde-apps.org/content/show.php?content=89595"
-SRC_URI="mirror://sourceforge/${MY_PN/manager/man}/${MY_P/beta/BETA}a.tar.bz2"
+HOMEPAGE="http://partitionman.sourceforge.net/"
+SRC_URI="mirror://sourceforge/partitionman/${MY_P/beta/BETA}a.tar.bz2"
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
-KEYWORDS="~x86"
 IUSE="debug"
 
-RDEPEND="sys-apps/parted"
+RDEPEND="
+	sys-apps/parted
+	sys-libs/e2fsprogs-libs
+"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
