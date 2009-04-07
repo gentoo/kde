@@ -232,6 +232,11 @@ pkg_postinst() {
 	kde4-base_pkg_postinst
 }
 
+pkg_prerm() {
+	# Remove ksycoca4 global database
+	rm -f "${PREFIX}"/share/kde4/services/ksycoca4
+}
+
 pkg_postrm() {
 	fdo-mime_mime_database_update
 

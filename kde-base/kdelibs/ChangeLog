@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.2.ebuild, kdelibs-4.2.69.ebuild, kdelibs-9999.ebuild:
+  Remove kbuildsyscoca4 generated file upon removal
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kdelibs-4.2.68.ebuild,
   +kdelibs-4.2.69.ebuild:
   Version removed.
