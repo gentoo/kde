@@ -488,6 +488,9 @@ kde4-base_src_configure() {
 	# Hardcode path to *.pc KDE files
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
 
+	# Shadow existing /usr installations
+	unset KDEDIRS
+
 	# Override some environment variables
 	PATH="${KDEDIR}/bin:${PATH}"
 	LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
