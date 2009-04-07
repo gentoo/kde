@@ -25,13 +25,3 @@ src_prepare() {
 
 	kde4-meta_src_prepare
 }
-
-src_install() {
-	kde4-meta_src_install
-
-	# fix missing backends
-	if use kdeprefix; then
-		dosym /usr/share/kde4/services/phononbackends \
-		"${KDEDIR}"/share/kde4/services/phononbackends || die
-	fi
-}

@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  phonon-kde-4.2.2.ebuild, phonon-kde-4.2.69.ebuild, phonon-kde-9999.ebuild:
+  Phonon symlinks hack no longer required
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -phonon-kde-4.2.68.ebuild, +phonon-kde-4.2.69.ebuild:
   Version removed.
