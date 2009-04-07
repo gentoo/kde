@@ -8,7 +8,7 @@ KMNAME="kdebase-runtime"
 KMMODULE="desktoptheme"
 inherit kde4-meta
 
-DESCRIPTION="oxygen desktoptheme from kdebase"
+DESCRIPTION="Oxygen KDE4 desktop theme."
 IUSE=""
 KEYWORDS="~amd64 ~x86"
 
