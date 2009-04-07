@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdebase-startkde-4.2.68.ebuild, +kdebase-startkde-4.2.69.ebuild:
+  Version removed.
+
+*kdebase-startkde-4.2.69 (07 Apr 2009)
+
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdebase-startkde-4.2.69.ebuild:
+  Version bump.
+
   04 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -kdebase-startkde-4.2.1-r1.ebuild:
   Version removed.

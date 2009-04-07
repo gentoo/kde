@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -libtaskmanager-4.2.68.ebuild, +libtaskmanager-4.2.69.ebuild:
+  Version removed.
+
+*libtaskmanager-4.2.69 (07 Apr 2009)
+
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +libtaskmanager-4.2.69.ebuild:
+  Version bump.
+
   03 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   libtaskmanager-4.2.2.ebuild, libtaskmanager-4.2.68.ebuild,
   libtaskmanager-9999.ebuild:

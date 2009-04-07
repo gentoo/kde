@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kget-4.2.68.ebuild,
+  +kget-4.2.69.ebuild:
+  Version removed.
+
+*kget-4.2.69 (07 Apr 2009)
+
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> +kget-4.2.69.ebuild:
+  Version bump.
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kget-4.2.2.ebuild, kget-4.2.68.ebuild, kget-9999.ebuild:
   Dropped kdeprefix on ktorrent

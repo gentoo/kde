@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kbattleship-4.2.68.ebuild, +kbattleship-4.2.69.ebuild:
+  Version removed.
+
+*kbattleship-4.2.69 (07 Apr 2009)
+
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kbattleship-4.2.69.ebuild:
+  Version bump.
+
   30 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kbattleship-4.2.67.ebuild:
   Version removed.

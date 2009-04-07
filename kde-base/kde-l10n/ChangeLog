@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kde-l10n-4.2.68.ebuild,
+  +kde-l10n-4.2.69.ebuild:
+  Version removed.
+
+*kde-l10n-4.2.69 (07 Apr 2009)
+
+  07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> +kde-l10n-4.2.69.ebuild:
+  Bump KDE 4.2.69
+
   06 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kde-l10n-4.2.68.ebuild:
   Fix bug #265143
 
