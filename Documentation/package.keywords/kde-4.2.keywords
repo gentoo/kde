@@ -283,4 +283,5 @@ kde-base/kdeutils-meta:4.2
 
 # extragear
 kde-misc/konq-plugins:4
+media-gfx/kiconedit:4
 sys-power/guidance-power-manager:0
