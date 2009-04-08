@@ -86,35 +86,23 @@ case ${KMNAME} in
 				!app-office/koffice-meta:0
 			)
 		"
-		case ${PN} in
-			koffice-data)
-				DEPEND="${DEPEND}
-					media-libs/lcms
-				"
-				RDEPEND="${RDEPEND}
-					media-libs/lcms
-				"
-				;;
-			*)
-				COMMON_DEPEND="
-					dev-cpp/eigen:2
-					media-gfx/imagemagick[openexr?]
-					media-libs/fontconfig
-					media-libs/freetype:2
-				"
-				DEPEND="${DEPEND} ${COMMON_DEPEND}"
-				RDEPEND="${RDEPEND} ${COMMON_DEPEND}"
-				unset COMMON_DEPEND
-				if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
-					DEPEND="${DEPEND}
-						>=app-office/koffice-libs-${PV}:${SLOT}
-					"
-					RDEPEND="${RDEPEND}
-						>=app-office/koffice-libs-${PV}:${SLOT}
-					"
-				fi
-				;;
-		esac
+		COMMON_DEPEND="
+			dev-cpp/eigen:2
+			media-gfx/imagemagick[openexr?]
+			media-libs/fontconfig
+			media-libs/freetype:2
+		"
+		DEPEND="${DEPEND} ${COMMON_DEPEND}"
+		RDEPEND="${RDEPEND} ${COMMON_DEPEND}"
+		unset COMMON_DEPEND
+		if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
+			DEPEND="${DEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+			"
+			RDEPEND="${RDEPEND}
+				>=app-office/koffice-libs-${PV}:${SLOT}
+			"
+		fi
 		;;
 esac
 

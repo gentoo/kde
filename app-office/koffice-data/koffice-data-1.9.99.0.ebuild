@@ -14,6 +14,9 @@ DESCRIPTION="Shared KOffice data files."
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+DEPEND=">=media-libs/lcms-1.18"
+RDEPEND="${DEPEND}"
+
 KMEXTRA="pics/
 		servicetypes/
 		templates/"

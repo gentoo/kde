@@ -14,9 +14,12 @@ DESCRIPTION="Shared KOffice data files."
 KEYWORDS=""
 IUSE=""
 
+DEPEND=">=media-libs/lcms-1.18"
+RDEPEND="${DEPEND}"
+
 KMEXTRA="pics/
-		servicetypes/
-		templates/"
+	servicetypes/
+	templates/"
 KMEXTRACTONLY="
 	doc/CMakeLists.txt
 	doc/koffice.desktop"
