@@ -171,6 +171,10 @@ src_compile() {
 src_install() {
 	kde4-base_src_install
 
+	# FIXME Remove some kate styles conflicting with kile
+	rm -f "${D}/${PREFIX}"/share/apps/katepart/syntax/{bibtex,latex}.xml \
+		|| ewarn "QA Notice: failed to remove some colliding files, not being installed anymore? contact ebuild maintainer"
+
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
 		cd "${S}"/doc/api/

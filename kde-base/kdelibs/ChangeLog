@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.2.ebuild, kdelibs-4.2.69.ebuild, kdelibs-9999.ebuild:
+  Removed some kate styles already provided by file - remove this when kile
+  (from kde3) is put in same prefix as kde3
+
   07 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.2.ebuild, kdelibs-4.2.69.ebuild, kdelibs-9999.ebuild:
   Remove kbuildsyscoca4 generated file upon removal
