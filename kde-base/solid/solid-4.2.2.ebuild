@@ -19,12 +19,7 @@ IUSE="bluetooth debug networkmanager"
 # for now.
 DEPEND="
 	>=sys-apps/hal-0.5.9
-	bluetooth? (
-		|| (
-			net-wireless/bluez
-			net-wireless/bluez-libs
-		)
-	)
+	bluetooth? ( net-wireless/bluez )
 	networkmanager? ( >=net-misc/networkmanager-0.7 )
 "
 RDEPEND="${DEPEND}"
