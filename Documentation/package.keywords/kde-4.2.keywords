@@ -282,4 +282,5 @@ kde-base/kdetoys-meta:4.2
 kde-base/kdeutils-meta:4.2
 
 # extragear
+kde-misc/guidance-power-manager:0
 kde-misc/konq-plugins:4
