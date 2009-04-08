@@ -127,10 +127,10 @@ case ${BUILD_TYPE} in
 		case ${KMNAME} in
 			extragear*|playground*)
 				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+				ESVN_PROJECT="${KMNAME}"
 				;;
 		esac
 		;;
-	*) ;;
 esac
 
 # @ECLASS-VARIABLE: KMNAME

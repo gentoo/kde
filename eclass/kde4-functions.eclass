@@ -188,21 +188,23 @@ migrate_store_dir() {
 		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir. Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 	fi
 
-	case ${KMNAME} in
-		extragear*|playground*)
-			local svnlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
-			if [[ -d "${svnlocalpath}" ]]; then
-				local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
-				ewarn "'${svnlocalpath}' has been found."
-				ewarn "Moving contents to new location: ${destdir}"
-				addwrite "${ESVN_STORE_DIR}"
-				mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${svnlocalpath}" "${destdir}" \
-					|| die "Failed to move to '${svnlocalpath}'"
-				# Try cleaning empty directories
-				rmdir "`dirname "${svnlocalpath}"`" 2> /dev/null
-			fi
-			;;
-	esac
+	if ! hasq kde4-meta ${INHERITED}; then
+		case ${KMNAME} in
+			extragear*|playground*)
+				local svnlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
+				if [[ -d "${svnlocalpath}" ]]; then
+					local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
+					ewarn "'${svnlocalpath}' has been found."
+					ewarn "Moving contents to new location: ${destdir}"
+					addwrite "${ESVN_STORE_DIR}"
+					mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${svnlocalpath}" "${destdir}" \
+						|| die "Failed to move to '${svnlocalpath}'"
+					# Try cleaning empty directories
+					rmdir "`dirname "${svnlocalpath}"`" 2> /dev/null
+				fi
+				;;
+		esac
+	fi
 }
 
 # Functions handling KMLOADLIBS and KMSAVELIBS
