@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  qtscriptgenerator-0.1.0.ebuild, qtscriptgenerator-9999.ebuild:
+  Make qtscrptgenerator immune to eclass breakages, don't install
+  plugin symlinks as well
+
   22 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/disable_phonon.patch, +metadata.xml,
   +qtscriptgenerator-0.1.0.ebuild, +qtscriptgenerator-9999.ebuild:

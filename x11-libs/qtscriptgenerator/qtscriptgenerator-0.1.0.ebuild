@@ -64,11 +64,5 @@ src_compile() {
 src_install() {
 	insinto "${QTLIBDIR}"/plugins/script/
 	insopts -m0755
-	for plugin in ${PLUGINS};do
-		doins "${S}"/plugins/script/libqtscript_${plugin}.so.1.0.0 || die "doins failed"
-		cd "${D}${QTLIBDIR}"/plugins/script/
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so.1.0
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so.1
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so
-	done
+	doins -r "${S}"/plugins/script/*.so || die "doins failed"
 }

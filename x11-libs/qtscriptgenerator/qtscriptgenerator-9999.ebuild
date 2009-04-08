@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit multilib qt4 git
+inherit multilib git qt4
 
 DESCRIPTION="Tool for generating Qt bindings for Qt Script"
 HOMEPAGE="http://code.google.com/p/qtscriptgenerator/"
@@ -36,6 +36,10 @@ PATCHES=(
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 
+src_unpack() {
+	git_src_unpack
+}
+
 pkg_setup(){
 	QTDIR="/usr/include/qt4"
 	QTLIBDIR="/usr/$(get_libdir)/qt4/"
@@ -59,11 +63,5 @@ src_compile() {
 src_install() {
 	insinto "${QTLIBDIR}"/plugins/script/
 	insopts -m0755
-	for plugin in ${PLUGINS};do
-		doins "${S}"/plugins/script/libqtscript_${plugin}.so.1.0.0 || die "doins failed"
-		cd "${D}${QTLIBDIR}"/plugins/script/
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so.1.0
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so.1
-		ln -s libqtscript_${plugin}.so.1.0.0 libqtscript_${plugin}.so
-	done
+	doins -r "${S}"/plugins/script/*.so || die "doins failed"
 }
