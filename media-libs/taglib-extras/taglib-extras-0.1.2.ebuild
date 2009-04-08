@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="Unofficial taglib plugins maintained by the Amarok team"
 HOMEPAGE="http://developer.kde.org/~wheeler/taglib.html"
-SRC_URI="http://www.jefferai.com/taglib-extras/${P}.tar.gz"
+SRC_URI="http://www.kollide.net/~jefferai/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
