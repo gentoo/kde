@@ -44,7 +44,8 @@ src_install() {
 	kde4-meta_src_install
 
 	python_version
-	rm -f "${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
+	rm -f \
+		"${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
 		"${D}${PREFIX}"/share/apps/"${PN}"/*.py[co]
 }
 
@@ -52,6 +53,7 @@ pkg_postinst() {
 	kde4-meta_pkg_postinst
 
 	python_mod_optimize "/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
+	# Do not optimize examples
 	python_mod_compile "${PREFIX}"/share/apps/"${PN}"/*.py
 
 	if use examples; then
@@ -65,6 +67,7 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup
-	python_mod_cleanup "${PREFIX}"/share/apps/"${PN}"
+	python_mod_cleanup \
+		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+		"${PREFIX}"/share/apps/"${PN}"
 }

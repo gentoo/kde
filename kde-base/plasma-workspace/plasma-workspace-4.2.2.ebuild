@@ -73,8 +73,9 @@ src_install() {
 	kde4-meta_src_install
 
 	python_version
-	rm -f "${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co]
-	rm -f "${D}${PREFIX}"/share/apps/plasma_scriptengine_python/*.py[co]
+	rm -f \
+		"${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
+		"${D}${PREFIX}"/share/apps/plasma_scriptengine_python/*.py[co]
 }
 
 pkg_postinst() {
@@ -88,5 +89,7 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup
+	python_mod_cleanup \
+		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+		"${PREFIX}"/share/apps/plasma_scriptengine_python
 }
