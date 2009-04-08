@@ -31,7 +31,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="libs/"
-KMEXTRA="filters/${KMMODULE}/"
 
 KMLOADLIBS="koffice-libs"
 
