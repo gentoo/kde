@@ -5,7 +5,6 @@
 EAPI="2"
 
 KMNAME="extragear/base"
-KDE_MIMIMAL="4.2"
 inherit kde4-meta
 
 DESCRIPTION="Various plugins for konqueror"
@@ -20,7 +19,8 @@ DEPEND="
 	>=kde-base/libkonq-${KDE_MINIMAL}
 "
 RDEPEND="${DEPEND}
-	!kde-base/konq-plugins:4.1
-	!kde-base/konq-plugins:4.2
+	!kde-base/konq-plugins:4.1[-kdeprefix]
+	!kde-base/konq-plugins:4.2[-kdeprefix]
+	>=kde-base/kcmshell-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
 "
