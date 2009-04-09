@@ -5,6 +5,11 @@
   09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   plasma-workspace-4.2.2.ebuild, plasma-workspace-4.2.69.ebuild,
   plasma-workspace-9999.ebuild:
+  Redundant
+
+  09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-4.2.2.ebuild, plasma-workspace-4.2.69.ebuild,
+  plasma-workspace-9999.ebuild:
   Added doc IUSE
 
   08 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

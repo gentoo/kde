@@ -57,16 +57,6 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
-src_unpack() {
-	if use doc; then
-		KMEXTRA="${KMEXTRA}
-			doc/plasma
-		"
-	fi
-
-	kde4-meta_src_unpack
-}
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
@@ -85,21 +75,25 @@ src_install() {
 	python_version
 	rm -f \
 		"${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
-		"${D}${PREFIX}"/share/apps/plasma_scriptengine_python/*.py[co]
+		"${D}${KDEDIR}"/share/apps/plasma_scriptengine_python/*.py[co]
 }
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	python_mod_optimize \
-		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
-		"${PREFIX}"/share/apps/plasma_scriptengine_python
+	if use python; then
+		python_mod_optimize \
+			"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+			"${KDEDIR}"/share/apps/plasma_scriptengine_python
+	fi
 }
 
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup \
-		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
-		"${PREFIX}"/share/apps/plasma_scriptengine_python
+	if [[ -d "${KDEDIR}"/share/apps/plasma_scriptengine_python ]]; then
+		python_mod_cleanup \
+			"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+			"${KDEDIR}"/share/apps/plasma_scriptengine_python
+	fi
 }
