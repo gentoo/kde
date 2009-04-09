@@ -4,6 +4,10 @@
 
   09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   marble-4.2.2.ebuild, marble-4.2.69.ebuild, marble-9999.ebuild:
+  marble no longer requires kdepimlibs it seems
+
+  09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  marble-4.2.2.ebuild, marble-4.2.69.ebuild, marble-9999.ebuild:
   Added doc IUSE
 
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -marble-4.2.68.ebuild,

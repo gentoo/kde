@@ -15,7 +15,6 @@ IUSE="debug designer-plugin doc +kde gps plasma python"
 
 DEPEND="
 	gps? ( sci-geosciences/gpsd )
-	kde? ( >=kde-base/kdepimlibs-${PV}:${SLOT} )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
 		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
