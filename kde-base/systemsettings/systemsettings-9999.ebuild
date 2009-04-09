@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug +usb xinerama"
+IUSE="debug doc +usb xinerama"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -51,6 +51,16 @@ KMEXTRACTONLY="
 	libs/
 	plasma/
 "
+
+src_unpack() {
+	if use doc; then
+		KMEXTRA="${KMEXTRA}
+			doc/kcontrol
+		"
+	fi
+
+	kde4-meta_src_unpack
+}
 
 src_prepare() {
 	sed -i -e 's/systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR}/systemsettingsrc DESTINATION ${CONFIG_INSTALL_DIR}/' \

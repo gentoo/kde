@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets python rss xcomposite xinerama"
+IUSE="debug doc google-gadgets python rss xcomposite xinerama"
 
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
@@ -56,6 +56,16 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
+
+src_unpack() {
+	if use doc; then
+		KMEXTRA="${KMEXTRA}
+			doc/plasma
+		"
+	fi
+
+	kde4-meta_src_unpack
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

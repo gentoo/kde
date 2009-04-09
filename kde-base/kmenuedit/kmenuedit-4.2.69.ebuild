@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE menu editor"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]

@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug +usb xinerama"
+IUSE="debug doc +usb xinerama"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 COMMONDEPEND="
@@ -54,6 +54,16 @@ KMEXTRACTONLY="
 
 PATCHES=( "$FILESDIR/20_use_dejavu_as_default_font.patch" )
 
+src_unpack() {
+	if use doc; then
+		KMEXTRA="${KMEXTRA}
+			doc/kcontrol
+		"
+	fi
+
+	kde4-meta_src_unpack
+}
+
 src_prepare() {
 	sed -i -e 's/systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR}/systemsettingsrc DESTINATION ${CONFIG_INSTALL_DIR}/' \
 		systemsettings/CMakeLists.txt \
@@ -72,8 +82,6 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with usb USB)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
-
-	MAKEOPTS="${MAKEOPTS} -j1"
 
 	kde4-meta_src_configure
 }
