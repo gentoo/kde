@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 DEPEND="
 	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]

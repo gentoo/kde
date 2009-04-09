@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A Personal Organizer for KDE"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 DEPEND="
 	app-crypt/gpgme

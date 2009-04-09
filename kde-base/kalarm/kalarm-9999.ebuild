@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

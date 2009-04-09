@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KPilot is software for syncing PalmOS based handhelds."
 KEYWORDS=""
-IUSE="avantgo crypt debug"
+IUSE="avantgo crypt debug doc"
 
 DEPEND="
 	>=app-pda/pilot-link-0.12

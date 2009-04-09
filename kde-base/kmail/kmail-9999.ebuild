@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
 KEYWORDS=""
-IUSE="debug +semantic-desktop"
+IUSE="debug doc +semantic-desktop"
 
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
