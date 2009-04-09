@@ -5,12 +5,11 @@
 EAPI="2"
 
 KMNAME="kdeadmin"
-KMMODULE="ksystemlog"
 inherit kde4-meta
 
 DESCRIPTION="KSystemLog is a system log viewer for KDE."
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

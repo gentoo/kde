@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Info Center"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug ieee1394"
+IUSE="debug doc ieee1394"
 
 DEPEND="
 	ieee1394? ( sys-libs/libraw1394 )

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug +semantic-desktop thumbnail"
+IUSE="debug doc +semantic-desktop thumbnail"
 
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
@@ -22,10 +22,6 @@ RDEPEND="${DEPEND}
 "
 PDEPEND="
 	thumbnail? ( media-video/mplayerthumbs:1 )
-"
-
-KMEXTRA="
-	doc/${PN}
 "
 
 KMLOADLIBS="libkonq"

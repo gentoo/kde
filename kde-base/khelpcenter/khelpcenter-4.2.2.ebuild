@@ -8,18 +8,23 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
-IUSE="debug"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE="debug doc"
 
 RDEPEND="
-	dev-lang/perl
 	>=www-misc/htdig-3.2.0_beta6-r1
 "
 
-KMEXTRA="
-	doc/faq
-	doc/glossary
-	doc/quickstart
-	doc/userguide
-	doc/visualdict
-"
+src_unpack() {
+	if use doc; then
+		KMEXTRA="
+			doc/faq
+			doc/glossary
+			doc/quickstart
+			doc/userguide
+			doc/visualdict
+		"
+	fi
+
+	kde4-meta_src_unpack
+}

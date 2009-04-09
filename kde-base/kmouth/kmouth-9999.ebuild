@@ -9,9 +9,12 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A type-and-say front end for speech synthesizers"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
+
+	echo
 	elog "Suggested: kde-base/kttsd:${SLOT}"
+	echo
 }

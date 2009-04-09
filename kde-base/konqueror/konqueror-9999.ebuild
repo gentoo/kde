@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS=""
-IUSE="+auth +bookmarks debug thumbnail"
+IUSE="+auth +bookmarks debug doc thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -27,9 +27,6 @@ PDEPEND="
 	thumbnail? ( media-video/mplayerthumbs:1 )
 "
 
-KMEXTRA="
-	doc/${PN}/
-"
 KMEXTRACTONLY="
 	lib/konq/
 "

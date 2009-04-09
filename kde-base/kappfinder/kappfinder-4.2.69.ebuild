@@ -9,8 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE tool that looks for well-known apps in your path and creates entries for them in the KDE menu"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
-
-KMEXTRA="
-	doc/${PN}
-"
+IUSE="debug doc"

@@ -10,7 +10,8 @@ inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS="~amd64 ~x86"
-IUSE="bzip2 debug openexr samba"
+IUSE="bzip2 debug doc openexr samba"
+
 RESTRICT="test"
 
 DEPEND="
@@ -30,7 +31,6 @@ RDEPEND="${DEPEND}
 KMEXTRA="
 	kioexec
 	kdeeject
-	doc/kioslave
 "
 
 src_configure() {

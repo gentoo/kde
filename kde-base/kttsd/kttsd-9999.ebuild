@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE text-to-speech subsystem"
 KEYWORDS=""
-IUSE="alsa debug +ktts +phonon"
+IUSE="alsa debug doc +ktts +phonon"
 
 DEPEND="
 	ktts? (

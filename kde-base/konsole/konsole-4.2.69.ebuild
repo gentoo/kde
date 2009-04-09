@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 COMMONDEPEND="
 	x11-libs/libX11
@@ -24,13 +24,3 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
 "
 RDEPEND="${COMMONDEPEND}"
-
-KMEXTRA="
-	doc/${PN}/
-"
-
-src_unpack() {
-	MAKEOPTS="${MAKEOPTS} -j1"
-
-	kde4-meta_src_unpack
-}

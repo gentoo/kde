@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE network wizard"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
