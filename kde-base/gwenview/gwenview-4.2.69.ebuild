@@ -9,7 +9,8 @@ inherit kde4-meta
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug kipi +semantic-desktop"
+IUSE="debug doc kipi +semantic-desktop"
+
 RESTRICT="test"
 
 DEPEND="
@@ -21,8 +22,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
-
-PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:${KDEDIR}/$(get_libdir)/pkgconfig"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

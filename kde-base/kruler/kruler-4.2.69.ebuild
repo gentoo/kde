@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="A screen ruler for the K Desktop Environment"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"

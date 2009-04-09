@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Screenshot Utility"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
