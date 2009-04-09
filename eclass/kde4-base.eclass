@@ -237,7 +237,6 @@ case ${KDE_REQUIRED} in
 	always)
 		COMMONDEPEND="${COMMONDEPEND} ${kdecommondepend}"
 		DEPEND="${DEPEND} ${kdedepend}"
-		RDEPEND="${RDEPEND} ${kderdepend}"
 		;;
 	optional)
 		IUSE="${IUSE} kde"
@@ -245,12 +244,10 @@ case ${KDE_REQUIRED} in
 			kde? ( ${kdecommondepend} )"
 		DEPEND="${DEPEND}
 			kde? ( ${kdedepend} )"
-		RDEPEND="${RDEPEND}
-			kde? ( ${kderdepend} )"
 		;;
 	*) ;;
 esac
-unset kdecommondepend kdedepend kderdepend
+unset kdecommondepend kdedepend
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: COMMONDEPEND is ${COMMONDEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND (only) is ${DEPEND}"
