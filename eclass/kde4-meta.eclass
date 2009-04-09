@@ -396,7 +396,7 @@ kde4-meta_create_extractlists() {
 	case ${KMNAME} in
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics|kdepim)
 			case ${PN} in
-				libkdegames|libkdeedu|marble|libkworkspace)
+				libkdegames|libkdeedu|libkworkspace)
 					KMEXTRA="${KMEXTRA}
 						cmake/modules/"
 					;;
