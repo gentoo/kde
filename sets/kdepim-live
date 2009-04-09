@@ -1,5 +1,6 @@
 kde-base/akonadi:live
 kde-base/akregator:live
+kde-base/kabcclient:live
 kde-base/kaddressbook:live
 kde-base/kalarm:live
 kde-base/kdepim-icons:live
@@ -14,6 +15,7 @@ kde-base/kmailcvt:live
 # kde-base/kmobiletools:live # missing ebuild
 kde-base/knode:live
 kde-base/knotes:live
+kde-base/konsolekalendar:live
 kde-base/kontact:live
 kde-base/kontact-specialdates:live
 kde-base/kontactinterfaces:live
