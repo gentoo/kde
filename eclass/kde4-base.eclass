@@ -203,6 +203,7 @@ esac
 
 # KDE dependencies
 kdecommondepend="
+	dev-lang/perl
 	x11-libs/libXext
 	x11-libs/libXt
 	x11-libs/libXxf86vm
@@ -231,9 +232,6 @@ kdedepend="
 	>=dev-util/cmake-2.6.2
 	dev-util/pkgconfig
 	>=sys-apps/sandbox-1.3.2
-"
-kderdepend="
-	dev-lang/perl
 "
 case ${KDE_REQUIRED} in
 	always)
@@ -462,14 +460,6 @@ kde4-base_src_configure() {
 	# Handle common release builds
 	if ! has debug ${IUSE//+} || ! use debug; then
 		append-cppflags -DQT_NO_DEBUG
-	fi
-
-	# Enable generation of HTML handbook
-	# TODO kill it
-	if has htmlhandbook ${IUSE//+} && use htmlhandbook; then
-		ebegin "Enabling building of HTML handbook"
-		mycmakeargs="${mycmakeargs} -DKDE4_ENABLE_HTMLHANDBOOK=ON"
-		eend $?
 	fi
 
 	# Build tests in src_test only, where we override this value

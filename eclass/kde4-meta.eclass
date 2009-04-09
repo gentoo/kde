@@ -323,7 +323,8 @@ kde4-meta_src_extract() {
 kde4-meta_create_extractlists() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if has htmlhandbook ${IUSE//+} && use htmlhandbook; then
+	# TODO change to KMEXTRA for more strict check
+	if has doc ${IUSE//+} && use doc && [[ -n ${KMMODULE} ]]; then
 		# We use the basename of $KMMODULE because $KMMODULE can contain
 		# the path to the module subdirectory.
 		KMEXTRA_NONFATAL="${KMEXTRA_NONFATAL} doc/${KMMODULE##*/}"
