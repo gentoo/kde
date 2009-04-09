@@ -4,13 +4,13 @@
 
 EAPI="2"
 
-KMMODULE="kioslave"
 KMNAME="kdemultimedia"
+KMMODULE="kioslave"
 inherit kde4-meta
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
-IUSE="debug encode flac vorbis"
+IUSE="debug doc encode flac vorbis"
 
 DEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
