@@ -481,9 +481,12 @@ kde4-base_src_configure() {
 	# Shadow existing /usr installations
 	unset KDEDIRS
 
-	# Override some environment variables
-	PATH="${KDEDIR}/bin:${PATH}"
-	LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
+	# Override some environment variables - only when kdeprefix is different,
+	# to not break ccache/distcc
+	if [[ ${KDEDIR} != /usr ]]; then
+		PATH="${KDEDIR}/bin:${PATH}"
+		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
+	fi
 
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
