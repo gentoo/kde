@@ -465,9 +465,6 @@ kde4-base_src_configure() {
 	# Set distribution name
 	[[ ${PN} = kdelibs ]] && mycmakeargs="${mycmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
-	# Runpath linking
-	mycmakeargs="${mycmakeargs} -DKDE4_USE_ALWAYS_FULL_RPATH=ON"
-
 	# Here we set the install prefix
 	mycmakeargs="${mycmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
