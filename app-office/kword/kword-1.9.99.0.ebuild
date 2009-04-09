@@ -30,8 +30,6 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="koffice-libs"
 
-PATCHES=( "${FILESDIR}/kword-1.9.98.7-int-cast-fix.patch" )
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with wpd WPD)
