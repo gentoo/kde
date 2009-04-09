@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  ksirk-4.2.2.ebuild, ksirk-4.2.69.ebuild, ksirk-9999.ebuild:
+  Added doc IUSE
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -ksirk-4.2.68.ebuild,
   +ksirk-4.2.69.ebuild:
   Version removed.

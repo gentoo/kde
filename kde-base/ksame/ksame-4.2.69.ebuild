@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Same Game - a little game about balls and how to get rid of them"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"

@@ -9,7 +9,7 @@ inherit games-ggz kde4-meta
 
 DESCRIPTION="KDE Board Game"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 src_prepare() {
 	# cmake is doing this really weird

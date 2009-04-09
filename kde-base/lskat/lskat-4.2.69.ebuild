@@ -9,6 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Skat game for KDE"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
-
-KMLOADLIBS="libkdegames"
+IUSE="debug doc"

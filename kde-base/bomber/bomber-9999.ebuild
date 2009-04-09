@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE arcade bombing game"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

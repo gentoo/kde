@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Kiriki - a gtali clone for KDE4"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

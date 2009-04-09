@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Five-in-a-row Board Game"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

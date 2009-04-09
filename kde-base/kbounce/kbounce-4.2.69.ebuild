@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Bounce Ball Game"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"

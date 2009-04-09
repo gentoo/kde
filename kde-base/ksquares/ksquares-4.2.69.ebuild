@@ -9,7 +9,7 @@ inherit games-ggz kde4-meta
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 src_prepare() {
 	# cmake is doing this really weird

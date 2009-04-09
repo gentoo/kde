@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Galactic Strategy KDE Game"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

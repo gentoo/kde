@@ -9,13 +9,13 @@ inherit games-ggz kde4-meta
 
 DESCRIPTION="The KDE Battleship clone"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 src_prepare() {
 	# cmake is doing this really weird
 	sed -i \
 		-e "s:register_ggz_module:#register_ggz_module:g" \
-		${PN}/src/CMakeLists.txt || die "ggz removal failed"
+		"${PN}"/src/CMakeLists.txt || die "ggz removal failed"
 
 	kde4-meta_src_prepare
 }
@@ -24,7 +24,7 @@ src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
 	mkdir -p "${D}"/usr/share/ggz/modules
-	cp ${PN}/src/module.dsc "${D}"/usr/share/ggz/modules/${P}.dsc
+	cp "${PN}"/src/module.dsc "${D}"/usr/share/ggz/modules/"${P}".dsc
 }
 
 pkg_postinst() {

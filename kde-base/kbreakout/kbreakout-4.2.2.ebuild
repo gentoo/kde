@@ -9,6 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A Breakout-like game for KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
-
-KMLOADLIBS="libkdegames"
+IUSE="debug doc"
