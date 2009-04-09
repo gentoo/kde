@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
 KEYWORDS=""
-IUSE="debug +plasma"
+IUSE="debug doc +plasma"
 
 DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE physics simulator"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+gsl +qalculate"
+IUSE="debug doc +gsl +qalculate"
 
 DEPEND="
 	sci-libs/cln

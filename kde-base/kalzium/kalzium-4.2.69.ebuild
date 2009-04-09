@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~x86"
-IUSE="editor debug +plasma solver"
+IUSE="editor debug doc +plasma solver"
 
 COMMON_DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
@@ -35,21 +35,6 @@ src_configure(){
 		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
 		$(cmake-utils_use_with solver Libfacile)"
-
-	sed -i -e "s:add_subdirectory(cmake):#dontwantit:g" CMakeLists.txt \
-		|| die  "disabling cmake includes failed"
-	sed -i -e "s:add_subdirectory( cmake ):#dontwantit:g" CMakeLists.txt \
-		|| die "disabling cmake includes failed"
-
-	if use solver; then
-		# Compile the solver on its own as the cmake-based build is
-		# currently broken. Fixes bug 206620.
-		pushd "${S}/${PN}/src/solver" >/dev/null
-		emake || die "compiling the ocaml resolver failed"
-		mkdir -p "${WORKDIR}/${PN}_build/${PN}/src/"
-		cp * "${WORKDIR}/${PN}_build/${PN}/src/"
-		popd >/dev/null
-	fi
 
 	kde4-meta_src_configure
 }

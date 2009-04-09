@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE physics simulator"
 KEYWORDS=""
-IUSE="debug +gsl +qalculate"
+IUSE="debug doc +gsl +qalculate"
 
 DEPEND="
 	>=dev-cpp/eigen-2.0.51

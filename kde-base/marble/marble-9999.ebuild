@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
-IUSE="debug designer-plugin +kde gps plasma python"
+IUSE="debug designer-plugin doc +kde gps plasma python"
 
 DEPEND="
 	gps? ( sci-geosciences/gpsd )
@@ -47,9 +47,6 @@ src_configure() {
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with python SIP)"
-
-	sed -i -e 's:add_subdirectory(cmake):#dontwantit:g' CMakeLists.txt \
-		|| die "sed to disable file collisions failed"
 
 	find "${S}/marble/src/bindings/python/sip" -name "*.sip" | xargs -- sed -i 's/#include <marble\//#include </'
 

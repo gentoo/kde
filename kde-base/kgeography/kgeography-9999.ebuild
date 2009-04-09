@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: a geography learning tool"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

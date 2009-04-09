@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]

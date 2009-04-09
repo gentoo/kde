@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Educational programming environment using the Logo programming language"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
