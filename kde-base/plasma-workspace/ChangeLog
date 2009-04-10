@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-workspace-4.2.2.ebuild, plasma-workspace-4.2.69.ebuild,
+  plasma-workspace-9999.ebuild:
+  Apply fake transparency patch when xcomposite is disabled
+
   10 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   +files/plasma-workspace-fake-panel-transparency.patch,
   plasma-workspace-4.2.2.ebuild, plasma-workspace-4.2.69.ebuild,

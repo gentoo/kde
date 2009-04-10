@@ -18,11 +18,11 @@ COMMONDEPEND="
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
-	x11-libs/libXau
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
 	x11-libs/libXfixes
 	x11-libs/libXrender
-	x11-libs/libXtst
 	google-gadgets? ( >=x11-misc/google-gadgets-0.10.5[qt4] )
 	python? (
 		>=dev-python/PyQt4-4.4.0
@@ -30,16 +30,19 @@ COMMONDEPEND="
 		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
 	rss? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
-	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
-	xcomposite? ( x11-proto/compositeproto )
+	x11-proto/compositeproto
+	x11-proto/damageproto
+	x11-proto/fixesproto
+	x11-proto/renderproto
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
 	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRA="
@@ -57,7 +60,19 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
-PATCHES=( "${FILESDIR}/${PN}-fake-panel-transparency.patch" )
+src_prepare() {
+	kde4-meta_src_prepare
+
+	if ! use xcomposite; then
+		# Add David Nolder (zwabel) experimental fake transparency patch
+		echo
+		ewarn "Enabling experimental fake transparency support."
+		ewarn "There are known issues with certain versions of Qt."
+		ewarn "Do not report any bugs."
+		echo
+		epatch "${FILESDIR}/${PN}-fake-panel-transparency.patch"
+	fi
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

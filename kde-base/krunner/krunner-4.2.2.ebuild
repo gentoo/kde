@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE Command Runner"
-IUSE="debug xcomposite xscreensaver"
+IUSE="debug xscreensaver"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 COMMONDEPEND="
@@ -18,12 +18,10 @@ COMMONDEPEND="
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXxf86misc
 	opengl? ( virtual/opengl )
-	xcomposite? ( x11-libs/libXcomposite )
 	xscreensaver? ( x11-libs/libXScrnSaver )
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/xf86miscproto
-	xcomposite? ( x11-proto/compositeproto )
 	xscreensaver? ( x11-proto/scrnsaverproto )
 "
 RDEPEND="${COMMONDEPEND}"

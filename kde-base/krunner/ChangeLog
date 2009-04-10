@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  krunner-4.2.2.ebuild, krunner-4.2.69.ebuild, krunner-9999.ebuild:
+  Dropped xcomposite USE flag
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -krunner-4.2.68.ebuild,
   +krunner-4.2.69.ebuild:
   Version removed.

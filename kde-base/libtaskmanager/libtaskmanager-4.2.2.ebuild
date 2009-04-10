@@ -10,18 +10,11 @@ inherit kde4-meta
 
 DESCRIPTION="A library that provides basic taskmanager functionality"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug xcomposite"
+IUSE="debug"
 
-COMMONDEPEND="
+DEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
-	x11-libs/libXfixes
-	x11-libs/libXrender
-	xcomposite? ( x11-libs/libXcomposite )
 "
-DEPEND="${COMMONDEPEND}
-	x11-proto/renderproto
-	xcomposite? ( x11-proto/compositeproto )
-"
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
