@@ -380,6 +380,7 @@ kde4-base_pkg_setup() {
 			[[ -z ${kde_minimal_met} ]] && [[ ${slot} = ${KDE_MINIMAL} ]] && kde_minimal_met=1
 			if [[ -n ${kde_minimal_met} ]] && has_version "kde-base/kdelibs:${slot}"; then
 				if has_version "kde-base/kdelibs:${slot}[kdeprefix]"; then
+					# we prefer -kdeprefix everytime
 					KDEDIR="/usr/kde/${slot}"
 				else
 					KDEDIR="/usr"
@@ -387,6 +388,12 @@ kde4-base_pkg_setup() {
 				break;
 			fi
 		done
+		# we check once more if there is some -kdeprefixed version
+		# (we always prefer such version)
+		if [[ ${KDEDIR} != "/usr" ]]; then
+			has_version "kde-base/kdelibs[-kdeprefix]" && \
+				KDEDIR="/usr"
+		fi
 		[[ -z KDEDIR ]] && die "Failed to determine KDEDIR!"
 		PREFIX="${PREFIX:-/usr}"
 	fi
