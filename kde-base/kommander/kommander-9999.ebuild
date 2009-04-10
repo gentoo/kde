@@ -9,10 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE dialog system for scripting"
 KEYWORDS=""
-IUSE="debug tidy"
-
-src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with tidy LibTidy)"
-	kde4-meta_src_configure
-}
+IUSE="debug doc"

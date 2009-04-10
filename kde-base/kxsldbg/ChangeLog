@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kxsldbg-4.2.2.ebuild, kxsldbg-4.2.69.ebuild, kxsldbg-9999.ebuild:
+  Fixed doc IUSE, fixed kdepimlibs requirements
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kxsldbg-4.2.68.ebuild,
   +kxsldbg-4.2.69.ebuild:
   Version removed.

@@ -9,18 +9,24 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc tidy"
+IUSE="debug doc"
 
 DEPEND="
-	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	dev-libs/libxslt
 	dev-libs/libxml2
 "
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	if use doc; then
+		KMEXTRA="doc/xsldbg"
+	fi
+
+	kde4-meta_src_unpack
+}
+
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with tidy LibTidy)"
+	mycmakeargs="${mycmakeargs} -DWITH_LibXml2=ON -DWITH_Xslt=ON"
 
 	kde4-meta_src_configure
 }
