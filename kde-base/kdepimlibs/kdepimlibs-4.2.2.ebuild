@@ -11,8 +11,9 @@ DESCRIPTION="Common library for KDE PIM apps."
 HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug ldap +sasl"
 LICENSE="LGPL-2.1"
+IUSE="debug doc ldap +sasl"
+
 RESTRICT="test"
 
 DEPEND="
@@ -30,6 +31,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_build doc)
 		$(cmake-utils_use_with ldap Ldap)
 		$(cmake-utils_use_with sasl Sasl2)"
 
