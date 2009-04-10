@@ -15,7 +15,6 @@ IUSE="bzip2 debug doc openexr samba"
 RESTRICT="test"
 
 DEPEND="
-	dev-libs/cyrus-sasl
 	sys-apps/dbus
 	sys-apps/hal
 	x11-libs/libXcursor
