@@ -147,7 +147,8 @@ if [[ ${NEED_KDE} != "none" ]]; then
 			LNG_DEP="${LNG_DEP}
 				|| (
 					kde-base/kde-l10n[linguas_${_lng},kdeprefix=]
-					kde-base/kde-l10n[kdeprefix=] )
+					kde-base/kde-l10n[kdeprefix=]
+				)
 			"
 		done
 	fi
@@ -349,10 +350,8 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
-# Adds flags needed by all of KDE 4 to $QT4_BUILT_WITH_USE_CHECK. Uses
-# kde4-functions_check_use from kde4-functions.eclass to print appropriate
-# errors and die if any required flags listed in $QT4_BUILT_WITH_USE_CHECK or
-# $KDE4_BUILT_WITH_USE_CHECK are missing.
+# Do the basic kdeprefix KDEDIR settings and determine with which kde should
+# optional applications link
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -394,10 +393,6 @@ kde4-base_pkg_setup() {
 
 	# Not needed anymore
 	unset _kdedir
-
-	# check if qt has correct deps
-	[[ -n ${QT4_BUILT_WITH_USE_CHECK} ]] || [[ -n ${KDE4_BUILT_WITH_USE_CHECK[@]} ]] && \
-		die "built_with_use illegal in this EAPI!"
 
 	if [[ ${BUILD_TYPE} = live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 		echo
