@@ -9,4 +9,4 @@ inherit kde4-meta
 DESCRIPTION="KDE web development - image map editor"
 KEYWORDS=""
 HOMEPAGE="http://www.kde.org/"
-IUSE="debug"
+IUSE="debug doc"

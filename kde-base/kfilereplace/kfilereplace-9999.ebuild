@@ -8,4 +8,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE web development - powerful search and replace in multiple files"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

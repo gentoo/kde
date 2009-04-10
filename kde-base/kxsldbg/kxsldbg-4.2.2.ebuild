@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug tidy"
+IUSE="debug doc tidy"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

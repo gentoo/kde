@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
 KEYWORDS=""
-IUSE="debug tidy"
+IUSE="debug doc tidy"
 
 DEPEND="
 	dev-libs/libxslt
