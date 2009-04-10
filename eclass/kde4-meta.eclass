@@ -659,10 +659,16 @@ kde4-meta_src_make_doc() {
 
 # @FUNCTION: kde4-meta_pkg_postinst
 # @DESCRIPTION:
-# Currently just calls its equivalent in kde4-base.eclass(5). Use this in split
-# ebuilds.
+# Display information about application handbook and invoke kbuildsycoca4.
 kde4-meta_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	if has doc ${IUSE//+} && ! use doc; then
+		echo
+		elog "Application handbook for ${PN} has not been installed."
+		elog "To install handbook, reemerge =${CATEGORY}/${P} with 'doc' USE flag."
+		echo
+	fi
 
 	kde4-base_pkg_postinst
 }
