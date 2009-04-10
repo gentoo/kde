@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them."
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"

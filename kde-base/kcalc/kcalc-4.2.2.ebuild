@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE calculator"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 DEPEND="
 	dev-libs/gmp

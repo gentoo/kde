@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kgpg-4.2.2.ebuild, kgpg-4.2.69.ebuild, kgpg-9999.ebuild:
+  Added doc IUSE
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kgpg-4.2.68.ebuild,
   +kgpg-4.2.69.ebuild:
   Version removed.
