@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="de es pl pt ru"
+KDE_LINGUAS="cs de es pl pt ru"
 inherit kde4-base
 
 MY_P="${PN}4-${PV/_/-}"
@@ -16,7 +16,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="alsa debug encode lirc +mp3 +vorbis v4l2"
+IUSE="alsa debug encode ffmpeg lirc +mp3 +vorbis v4l2"
 
 DEPEND="
 	media-libs/libsndfile
@@ -27,10 +27,13 @@ DEPEND="
 		media-libs/libvorbis
 		media-libs/libogg
 	)
+	ffmpeg? (
+		>=media-libs/libmms-0.4
+		<media-video/ffmpeg-0.5
+	)
 "
 RDEPEND="${DEPEND}"
 
-# and i thoguht i saw everything :]
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
@@ -38,6 +41,7 @@ src_configure() {
 		$(cmake-utils_use_with mp3 LAME)
 		$(cmake-utils_use_with vorbis OGG_VORBIS)
 		$(cmake-utils_use_with lirc LIRC)
+		$(cmake-utils_use_with ffmpeg FFMPEG)
 		$(cmake-utils_use_with v4l2 V4L2)"
 
 	kde4-base_src_configure
