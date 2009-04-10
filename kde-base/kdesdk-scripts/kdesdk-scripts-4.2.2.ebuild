@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kdesdk Scripts - Some useful scripts for the development of applications"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
+IUSE="debug doc"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

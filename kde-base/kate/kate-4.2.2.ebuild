@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug +plasma"
+IUSE="debug doc +plasma"
 
 DEPEND="
 	dev-libs/libxml2
@@ -17,7 +17,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRA="doc/kate-plugins"
+src_unpack() {
+	if use doc; then
+		KMEXTRA="doc/kate-plugins"
+	fi
+
+	kde4-meta_src_unpack
+}
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

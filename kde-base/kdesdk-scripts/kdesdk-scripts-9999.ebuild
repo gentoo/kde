@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="Kdesdk Scripts - Some useful scripts for the development of applications"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
