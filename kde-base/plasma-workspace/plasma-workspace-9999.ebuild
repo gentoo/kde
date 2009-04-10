@@ -57,6 +57,8 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
+PATCHES=( "${FILESDIR}/${PN}-fake-panel-transparency.patch" )
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
