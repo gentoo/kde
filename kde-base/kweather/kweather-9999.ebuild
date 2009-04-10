@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE weather service daemon"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
