@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug doc +plasma readline"
 
 DEPEND="
-	opengl? ( virtual/opengl )
 	readline? ( sys-libs/readline )
 "
 RDEPEND="${DEPEND}"
