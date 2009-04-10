@@ -1,26 +1,27 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/strigi/strigi-0.6.4.ebuild,v 1.9 2009/04/10 23:23:51 scarabeus Exp $
 
 EAPI="2"
 
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"                                                                             
+ESVN_PROJECT="${PN}"
 inherit cmake-utils eutils subversion
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://www.vandenoever.info/software/strigi"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
-ESVN_PROJECT="${PN}"
+SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
-# IUSE="sqlite": fails to compile
 
 COMMONDEPEND="
 	dev-libs/libxml2
 	virtual/libiconv
-	clucene? ( >=dev-cpp/clucene-0.9.19 )
+	>=virtual/poppler-utils-0.8
+	clucene? ( >=dev-cpp/clucene-0.9.19[-debug] )
 	dbus? ( sys-apps/dbus
 		|| ( ( x11-libs/qt-dbus:4
 			x11-libs/qt-gui:4 )
@@ -38,14 +39,17 @@ COMMONDEPEND="
 		)
 	!clucene? (
 		!hyperestraier? (
-			>=dev-cpp/clucene-0.9.19
+			>=dev-cpp/clucene-0.9.19[-debug]
 		)
 	)
 "
-#	sqlite? ( dev-db/sqlite:3 )"
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-gcc44.patch
+}
 
 src_configure() {
 	# Strigi needs either expat or libxml2.
@@ -66,10 +70,8 @@ src_configure() {
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4 DBUS)
 		$(cmake-utils_use_enable qt4 QT4)"
-#		$(cmake-utils_use_enable sqlite SQLITE)" dont know whats that? krytzz
-# hm clucene doesnt get found by cmake
 
-	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
+	if ! use clucene && ! use hyperestraier; then
 		mycmakeargs="${mycmakeargs} -DENABLE_CLUCENE=ON"
 	fi
 
@@ -78,15 +80,16 @@ src_configure() {
 
 src_test() {
 	mycmakeargs="${mycmakeargs} -DENABLE_CPPUNIT=ON"
+	cmake-utils_src_configure
 	cmake-utils_src_compile
 
-	pushd "${CMAKE_BUILD_DIR}"
+	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	ctest --extra-verbose || die "Tests failed."
-	popd
+	popd > /dev/null
 }
 
 pkg_postinst() {
-	if ! use clucene && ! use hyperestraier; then # && ! use sqlite; then
+	if ! use clucene && ! use hyperestraier; then
 		elog "Because you didn't enable any of the supported backends:"
 		elog "clucene, hyperestraier and sqlite"
 		elog "clucene support was silently installed."
