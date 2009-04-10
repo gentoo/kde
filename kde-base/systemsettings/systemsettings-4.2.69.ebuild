@@ -81,7 +81,5 @@ src_configure() {
 		$(cmake-utils_use_with usb USB)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
-	MAKEOPTS="${MAKEOPTS} -j1"
-
 	kde4-meta_src_configure
 }
