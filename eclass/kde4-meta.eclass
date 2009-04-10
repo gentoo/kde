@@ -588,6 +588,14 @@ kde4-meta_change_cmakelists() {
 				;;
 			esac
 			;;
+		kdewebdev)
+			# Disable hardcoded kdepimlibs check
+			sed -e 's/find_package(KdepimLibs REQUIRED)/macro_optional_find_package(KdepimLibs)/' \
+				-e 's/find_package(LibXml2 REQUIRED)/macro_optional_find_package(LibXml2 REQUIRED)/' \
+				-e 's/find_package(LibXslt REQUIRED)/macro_optional_find_package(LibXslt REQUIRED)/' \
+				-e 's/find_package(Boost REQUIRED)/macro_optional_find_package(Boost REQUIRED)/' \
+				-i CMakeLists.txt || die "failed to disable hardcoded checks"
+			;;
 		koffice)
 			# prevent collisions
 			if [[ ${PN} != koffice-data ]]; then
@@ -609,6 +617,19 @@ kde4-meta_change_cmakelists() {
 # ebuilds.
 kde4-meta_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# Set some cmake default values here (usually workarounds for automagic deps)
+	case ${KMNAME} in
+		kdewebdev)
+			mycmakeargs="
+				-DWITH_KdepimLibs=OFF
+				-DWITH_LibXml2=OFF
+				-DWITH_LibXslt=OFF
+				-DWITH_Boost=OFF
+				-DWITH_LibTidy=OFF
+				${mycmakeargs}"
+			;;
+	esac
 
 	kde4-base_src_configure
 }

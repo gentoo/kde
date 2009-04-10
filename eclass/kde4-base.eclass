@@ -462,13 +462,13 @@ kde4-base_src_configure() {
 	fi
 
 	# Build tests in src_test only, where we override this value
-	mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=OFF"
+	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
 
 	# Set distribution name
-	[[ ${PN} = kdelibs ]] && mycmakeargs="${mycmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
+	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
 	# Here we set the install prefix
-	mycmakeargs="${mycmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+	cmakeargs="${cmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
 	# Set environment
 	QTEST_COLORED=1
@@ -490,11 +490,13 @@ kde4-base_src_configure() {
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
 		# when more are present
-		mycmakeargs="${mycmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+		cmakeargs="${cmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		mycmakeargs="${mycmakeargs} -DSYSCONF_INSTALL_DIR=/etc"
+		cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=/etc"
 	fi
+
+	mycmakeargs="${cmakeargs} ${mycmakeargs}"
 
 	cmake-utils_src_configure
 }
