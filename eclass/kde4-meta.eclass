@@ -665,8 +665,8 @@ kde4-meta_pkg_postinst() {
 
 	if has doc ${IUSE//+} && ! use doc; then
 		echo
-		elog "Application handbook for ${PN} has not been installed."
-		elog "To install handbook, reemerge =${CATEGORY}/${P} with 'doc' USE flag."
+		einfo "Application handbook for ${PN} has not been installed."
+		einfo "To install handbook, reemerge =${CATEGORY}/${P} with 'doc' USE flag."
 		echo
 	fi
 
