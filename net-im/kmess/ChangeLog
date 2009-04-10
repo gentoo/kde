@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kmess-9999.ebuild:
+  Added block for kde3 kmess
+
   18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kmess-9999.ebuild:
   Dropped live SLOT

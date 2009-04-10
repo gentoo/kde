@@ -28,7 +28,9 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	!kdeprefix? ( !net-im/kmess:0 )
+"
 
 src_unpack() {
 	kde4-base_src_unpack
