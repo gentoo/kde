@@ -1,20 +1,17 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-# Based in parts upon a work of individual contributors of the genkdesvn project
 
 EAPI="2"
 
 KMNAME="kdepim"
+KMMODULE="knotes"
+
 inherit kde4-meta
 
-DESCRIPTION="KDE Notes"
+DESCRIPTION="KDE Notes application"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug"
 
-DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-"
+DEPEND=">=kde-base/libkdepim-${PV}[kdeprefix=]"
 RDEPEND="${DEPEND}"
-
-KMLOADLIBS="libkdepim"
