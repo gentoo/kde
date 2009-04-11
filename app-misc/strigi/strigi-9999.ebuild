@@ -48,10 +48,6 @@ DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-gcc44.patch
-}
-
 src_configure() {
 	# Strigi needs either expat or libxml2.
 	# However libxml2 seems to be required in both cases, linking to 2 xml parsers
