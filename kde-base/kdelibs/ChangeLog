@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Apr 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  kde-base/kdelibs/kdelibs-4.2.2.ebuild:
+  Adding missing dep on syslibs/libutempter - fixes bug 207714.
+
   10 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   files/kdelibs-4.2.2-kickoff-focus.patch:
   Updated previous patch (backport from kubuntu

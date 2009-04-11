@@ -33,6 +33,7 @@ COMMONDEPEND="
 	media-libs/libpng
 	>=media-sound/phonon-4.3.1[xcb]
 	sys-apps/dbus[X]
+	sys-libs/libutempter
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
