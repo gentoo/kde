@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="4.2"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="lilo"
 
 # reavertm TODO add >=kde-base/system-config-printer-kde-${PV}:${SLOT} when system-config-printer unmasked in tree

@@ -8,7 +8,7 @@ KMNAME="kdetoys"
 inherit kde4-meta
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config

@@ -10,7 +10,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="The embeddable part of konqueror"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"
 RESTRICT="test"
 

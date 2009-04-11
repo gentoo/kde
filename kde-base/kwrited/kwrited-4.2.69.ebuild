@@ -7,7 +7,7 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE daemon listening for wall and write messages."
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"
 
 DEPEND="

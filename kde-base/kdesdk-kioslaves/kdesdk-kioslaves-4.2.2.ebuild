@@ -9,7 +9,7 @@ KMMODULE="kioslave"
 inherit kde4-meta
 
 DESCRIPTION="kioslaves from kdesdk package: the subversion kioslave"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 DEPEND="

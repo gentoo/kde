@@ -8,7 +8,7 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="Applet for KDE and X clipboard management"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug doc"
 
 DEPEND="

@@ -9,7 +9,7 @@ KMMODULE="console/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="A command line interface to KDE calendars"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug doc"
 
 DEPEND="

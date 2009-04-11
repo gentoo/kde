@@ -10,7 +10,7 @@ OPENGL_REQUIRED="always"
 inherit kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="editor debug doc +plasma solver"
 
 COMMON_DEPEND="

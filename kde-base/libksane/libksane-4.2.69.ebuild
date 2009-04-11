@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="SANE Library interface for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"
 LICENSE="LGPL-2"
 

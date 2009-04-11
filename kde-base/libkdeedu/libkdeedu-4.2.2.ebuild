@@ -8,7 +8,7 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="Common library for KDE educational apps"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 src_install() {

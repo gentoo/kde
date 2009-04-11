@@ -8,7 +8,7 @@ KMNAME="kdeaccessibility"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A type-and-say front end for speech synthesizers"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug doc"
 
 pkg_postinst() {

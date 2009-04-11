@@ -13,7 +13,7 @@ DESCRIPTION="KDE Image Plugin Interface: a dcraw library wrapper"
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"
 
 DEPEND="

@@ -9,5 +9,5 @@ KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KUIViewer - Displays Designer's UI files"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"

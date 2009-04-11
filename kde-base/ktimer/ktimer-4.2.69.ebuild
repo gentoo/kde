@@ -8,5 +8,5 @@ KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KDE Timer"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc"

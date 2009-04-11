@@ -8,5 +8,5 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="library enable support for sieve (imap server-side filtering standard) in kde apps, used by kmail"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"

@@ -9,5 +9,5 @@ KMMODULE="libs/kephal"
 inherit kde4-meta
 
 DESCRIPTION="Allows handling of multihead systems via the XRandR extension"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"

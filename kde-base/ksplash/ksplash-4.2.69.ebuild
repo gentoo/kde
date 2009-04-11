@@ -8,7 +8,7 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE splashscreen framework (the splashscreen of KDE itself, not of individual apps)"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
 COMMONDEPEND="

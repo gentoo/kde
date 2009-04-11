@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Command Runner"
 IUSE="debug xscreensaver"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 
 COMMONDEPEND="
 	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]

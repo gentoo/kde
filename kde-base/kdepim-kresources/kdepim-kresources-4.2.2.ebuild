@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE PIM groupware plugin collection"
 IUSE="debug"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 
 DEPEND="
 	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]

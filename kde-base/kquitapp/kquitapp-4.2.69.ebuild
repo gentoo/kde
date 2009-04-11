@@ -8,5 +8,5 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="A CLI application quitter"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"

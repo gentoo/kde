@@ -8,7 +8,7 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KCMInit - runs startups initialization for Control Modules."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 DEPEND="

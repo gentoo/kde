@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="KDE Board Game"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc"
 
 src_prepare() {

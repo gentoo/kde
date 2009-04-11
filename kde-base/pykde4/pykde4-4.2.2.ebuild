@@ -10,7 +10,7 @@ OPENGL_REQUIRED="always"
 inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="akonadi debug examples semantic-desktop"
 
 DEPEND="

@@ -7,7 +7,7 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Desktop Planetarium"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc fits"
 
 DEPEND="

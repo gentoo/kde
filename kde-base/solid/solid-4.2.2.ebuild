@@ -11,7 +11,7 @@ inherit kde4-meta
 SRC_URI="${SRC_URI}
 	mirror://gentoo/${PN}-4.2.0-backport-solid-bluetooth.patch.tar.bz2"
 DESCRIPTION="Solid: the KDE hardware library"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="bluetooth debug networkmanager"
 
 # solid/CMakeLists.txt has an add_subdirectory statement that depends on

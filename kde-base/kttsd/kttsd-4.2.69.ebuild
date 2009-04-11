@@ -9,7 +9,7 @@ KMNAME="kdeaccessibility"
 inherit kde4-meta
 
 DESCRIPTION="KDE text-to-speech subsystem"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="alsa debug doc +ktts +phonon"
 
 DEPEND="

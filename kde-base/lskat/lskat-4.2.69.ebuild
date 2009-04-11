@@ -8,5 +8,5 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="Skat game for KDE"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc"

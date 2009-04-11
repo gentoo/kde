@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE PIM wizards"
 IUSE="debug"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 
 DEPEND="
 	app-crypt/gpgme:1

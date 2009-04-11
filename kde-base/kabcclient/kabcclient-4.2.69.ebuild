@@ -9,5 +9,5 @@ KMMODULE="console/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="A command line client for accessing the KDE addressbook"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc"

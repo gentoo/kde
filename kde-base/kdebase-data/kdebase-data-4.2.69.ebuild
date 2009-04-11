@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 
 # Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
 # releases. Thus we need to block older versions of dolphin, including the :4.1 versions.

@@ -9,5 +9,5 @@ OPENGL_REQUIRED="always"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Kubrick is a games based on \"Rubik\'s Cube\" puzzle."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug doc"
