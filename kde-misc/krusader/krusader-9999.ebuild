@@ -22,7 +22,6 @@ DEPEND="
 "
 RDEPEND="
 	!kdeprefix? ( !kde-misc/krusader:0 )
-	!kde-misc/krusader:2
 "
 
 S="${WORKDIR}/${PN}_kde4"
