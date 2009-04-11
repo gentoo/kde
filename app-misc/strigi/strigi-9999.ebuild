@@ -1,15 +1,16 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-misc/strigi/strigi-0.6.4.ebuild,v 1.9 2009/04/10 23:23:51 scarabeus Exp $
+# Based in parts upon a work of individual contributors of the genkdesvn project
 
 EAPI="2"
 
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"                                                                             
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 ESVN_PROJECT="${PN}"
 inherit cmake-utils eutils subversion
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
-HOMEPAGE="http://strigi.sourceforge.net/"                     
+HOMEPAGE="http://strigi.sourceforge.net/"
 #SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 SRC_URI=""
 

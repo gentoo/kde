@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kuiviewer-4.2.69.ebuild, kuiviewer-9999.ebuild:
+  Added credit line for genkdesvn project
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -kuiviewer-4.2.68.ebuild,
   +kuiviewer-4.2.69.ebuild:
   Version removed.
