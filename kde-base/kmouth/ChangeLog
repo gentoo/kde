@@ -4,6 +4,10 @@
 
   11 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   kmouth-9999.ebuild:
+  app has docs, adding doc flag
+
+  11 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  kmouth-9999.ebuild:
   rewritten from scratch based on CMakeLists.txt
 
   11 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
