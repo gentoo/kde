@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  kdeaccessibility-iconthemes-9999.ebuild:
+  rewritten from scratch based on CMakeLists.txt
+
   11 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdeaccessibility-iconthemes-4.2.69.ebuild,
   kdeaccessibility-iconthemes-9999.ebuild:
