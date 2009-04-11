@@ -31,6 +31,13 @@ case ${KDEBASE} in
 		;;
 esac
 
+# Add khelpcenter dependency when installing
+if [[ ${PN} != khelpcenter ]] && has doc ${IUSE//+} && use doc; then
+	RDEPEND="${RDEPEND}
+		>=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=]
+	"
+fi
+
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphic)
