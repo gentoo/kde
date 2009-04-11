@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="debug doc ldap +sasl"
+IUSE="debug doc ldap"
 
 RESTRICT="test"
 
@@ -22,8 +22,8 @@ DEPEND="
 	dev-libs/boost
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.42
+	dev-libs/cyrus-sasl
 	ldap? ( net-nds/openldap )
-	sasl? ( dev-libs/cyrus-sasl )
 "
 # @since 4.3 - libkholidays is in kdepimlibs now
 RDEPEND="${DEPEND}
@@ -37,8 +37,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_build doc)
-		$(cmake-utils_use_with ldap Ldap)
-		$(cmake-utils_use_with sasl Sasl2)"
+		$(cmake-utils_use_with ldap Ldap)"
 
 	kde4-base_src_configure
 }
