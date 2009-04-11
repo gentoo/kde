@@ -4,6 +4,10 @@
 
   11 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   knotes-9999.ebuild:
+  added doc useflag
+
+  11 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  knotes-9999.ebuild:
   rewritten from scratch based on CMakeLists.txt
 
   11 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
