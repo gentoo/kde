@@ -9,7 +9,8 @@ ESVN_PROJECT="${PN}"
 inherit cmake-utils eutils subversion
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
-HOMEPAGE="http://www.vandenoever.info/software/strigi"
+HOMEPAGE="http://strigi.sourceforge.net/"                     
+#SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 SRC_URI=""
 
 LICENSE="GPL-2"
