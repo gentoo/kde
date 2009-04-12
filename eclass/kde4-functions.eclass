@@ -74,14 +74,16 @@ buildsycoca() {
 		eend $?
 	fi
 
-	# fix permission for configuration directory
-	if [[ $(stat --format=%a /usr/share/config) != 755 || $(stat --format=%a ${KDEDIR}/share/config) != 755 ]]; then
-		ewarn "Package ${PN} is breaking /usr/share/config permissions."
-		ewarn "Please report this issue to gentoo bugzilla."
-		einfo "Permissions will get adjusted automatically now."
-		chmod -R 755 /usr/share/config
-		[[ ${KDEDIR} = /usr ]] || chmod -R 755 ${KDEDIR}/share/config
-	fi
+	# fix permission for some directories
+	for x in share/config share/kde4; do
+		if [[ $(stat --format=%a /usr/${x}) != 755 || $(stat --format=%a ${KDEDIR}/${x}) != 755 ]]; then
+			ewarn "Package ${PN} is breaking ${KDEDIR}/${x} permissions."
+			ewarn "Please report this issue to gentoo bugzilla."
+			einfo "Permissions will get adjusted automatically now."
+			find /usr/${x} -type d -print0 | xargs -0 chmod 755
+			[[ ${KDEDIR} = /usr ]] || find ${KDEDIR}/${x} -type d -print0 | xargs -0 chmod 755
+		fi
+	done
 }
 
 # @FUNCTION: comment_all_add_subdirectory
