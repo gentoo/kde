@@ -52,24 +52,6 @@ RDEPEND="${DEPEND}
 	utils? ( media-sound/amarok-utils )
 "
 
-pkg_setup() {
-	if use amd64 ; then
-		echo
-		ewarn "Compilation will fail if dev-db/mysql[-community] is built without -fPIC in your CFLAGS!"
-		ewarn "Related bug: http://bugs.gentoo.org/show_bug.cgi?id=238487"
-		ewarn
-		ewarn "To fix this, and to avoid using -fPIC globally in your make.conf (which is not recommended),"
-		ewarn "put the following into /etc/portage/env/dev-db/mysql (or mysql-community, depending on which you use;"
-		ewarn "create dirs and the file if they don't exist):"
-		ewarn
-		ewarn "CFLAGS=\"${CFLAGS} -DPIC -fPIC\""
-		ewarn "CXXFLAGS=\"${CXXFLAGS} -DPIC -fPIC\""
-		echo
-	fi
-
-	kde4-base_pkg_setup
-}
-
 src_prepare() {
 	append-flags -I${KDEDIR}
 	append-ldflags -L${KDEDIR}/$(get_libdir)
