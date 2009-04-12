@@ -54,7 +54,7 @@ buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 	
 	if [[ -z ${ROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
-		# Make sure tha cache file exists, writable by root and editable by
+		# Make sure tha cache file exists, writable by root and readable by
 		# others. Otherwise kbuildsycoca4 will fail.
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
 		chmod 644 "${KDEDIR}/share/kde4/services/ksycoca4"
