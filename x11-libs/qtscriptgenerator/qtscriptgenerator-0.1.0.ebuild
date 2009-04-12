@@ -45,10 +45,10 @@ pkg_setup(){
 src_prepare() {
 	# remove phonon
 	sed -i \
-		-e "s/typesystem_phonon.xml/d" \
+		-e "/typesystem_phonon.xml/d" \
 		generator/generator.qrc || die "sed failed"
 	sed -i \
-		-e "s/qtscript_phonon/d" \
+		-e "/qtscript_phonon/d" \
 		qtbindings/qtbindings.pro || die "sed failed"
 	qt4_src_prepare
 }
