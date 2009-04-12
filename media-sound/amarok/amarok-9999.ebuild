@@ -19,8 +19,8 @@ IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop +utils"
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	|| (
-		>=dev-db/mysql-5.0[embedded]
-		>=dev-db/mysql-community-5.0[embedded]
+		>=dev-db/mysql-5.0.76-r1[embedded,-minimal]
+		>=dev-db/mysql-community-5.0[embedded,-minimal]
 	)
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1[kde]
