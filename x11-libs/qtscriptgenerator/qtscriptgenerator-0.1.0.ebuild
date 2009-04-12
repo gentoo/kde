@@ -33,10 +33,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/disable_phonon.patch"
-)
-
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 
 S="${WORKDIR}/${MY_P}"
@@ -44,6 +40,17 @@ S="${WORKDIR}/${MY_P}"
 pkg_setup(){
 	QTDIR="/usr/include/qt4"
 	QTLIBDIR="/usr/$(get_libdir)/qt4/"
+}
+
+src_prepare() {
+	# remove phonon
+	sed -i \
+		-e "s/typesystem_phonon.xml/d" \
+		generator/generator.qrc || die "sed failed"
+	sed -i \
+		-e "s/qtscript_phonon/d" \
+		qtbindings/qtbindings.pro || die "sed failed"
+	qt4_src_prepare
 }
 
 src_configure() {
@@ -58,7 +65,7 @@ src_compile() {
 	emake || die "emake generator failed"
 	./generator --include-paths="/usr/include/qt4/" || die "running generator failed"
 	cd "${S}"/qtbindings
-	make || die "make qtbindings failed" # TODO: fix emake
+	emake -j1 || die "make qtbindings failed"
 }
 
 src_install() {
