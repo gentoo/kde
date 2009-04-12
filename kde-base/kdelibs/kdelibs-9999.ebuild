@@ -103,10 +103,18 @@ RDEPEND="${COMMONDEPEND}
 	)
 	x11-apps/iceauth
 	x11-apps/rgb
+	>=x11-misc/xdg-utils-1.0.2-r3
 "
 PDEPEND="
 	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
 "
+
+PATCHES=(
+	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
+	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
+	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${P}-kickoff-focus.patch"
+)
 
 src_prepare() {
 	# Rename applications.menu

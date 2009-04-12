@@ -103,10 +103,18 @@ RDEPEND="${COMMONDEPEND}
 	)
 	x11-apps/iceauth
 	x11-apps/rgb
+	>=x11-misc/xdg-utils-1.0.2-r3
 "
 PDEPEND="
 	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
 "
+
+PATCHES=(                                                   
+	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
+	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"                      
+	"${FILESDIR}/dist/23_solid_no_double_build.patch"                           
+	"${FILESDIR}/${P}-kickoff-focus.patch"                                      
+)
 
 src_prepare() {
 	# Rename applications.menu
@@ -171,10 +179,6 @@ src_compile() {
 
 src_install() {
 	kde4-base_src_install
-
-	# FIXME Remove some kate styles conflicting with kile
-	rm -f "${D}/${PREFIX}"/share/apps/katepart/syntax/{bibtex,latex}.xml \
-		|| ewarn "QA Notice: failed to remove some colliding files, not being installed anymore? contact ebuild maintainer"
 
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
