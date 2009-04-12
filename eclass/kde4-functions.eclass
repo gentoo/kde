@@ -50,14 +50,14 @@ KDE_LIVE_SLOTS=( "live" )
 # @DESCRIPTION:
 # Function to rebuild the KDE System Configuration Cache.
 # All KDE ebuilds should run this in pkg_postinst and pkg_postrm.
-#
-# Note that kde4-base.eclass already does this.
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
-
+	
 	if [[ -z ${ROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
-		# Make sure tha cache file exists, or kbuildsycoca4 will fail
+		# Make sure tha cache file exists, writable by root and editable by
+		# others. Otherwise kbuildsycoca4 will fail.
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
+		chmod 644 "${KDEDIR}/share/kde4/services/ksycoca4"
 
 		# We have to unset DISPLAY and DBUS_SESSION_BUS_ADDRESS, the ones
 		# in the user's environment (through su [without '-']) may cause
@@ -72,6 +72,15 @@ buildsycoca() {
 			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
 			${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
+	fi
+
+	# fix permission for configuration directory
+	if [[ $(stat --format=%a /usr/share/config) != 755 || $(stat --format=%a ${KDEDIR}/share/config) != 755 ]]; then
+		ewarn "Package ${PN} is breaking /usr/share/config permissions."
+		ewarn "Please report this issue to gentoo bugzilla."
+		einfo "Permissions will get adjusted automatically now."
+		chmod -R 755 /usr/share/config
+		[[ ${KDEDIR} = /usr ]] || chmod -R 755 ${KDEDIR}/share/config
 	fi
 }
 
@@ -215,7 +224,7 @@ migrate_store_dir() {
 save_library_dependencies() {
 	local depsfile="${T}/${PN}:${SLOT}"
 
-	ebegin "Saving library dependendencies in ${depsfile##*/}"
+	ebegin "Saving library dependencies in ${depsfile##*/}"
 	echo "EXPORT_LIBRARY_DEPENDENCIES(\"${depsfile}\")" >> "${S}/CMakeLists.txt" || \
 		die "Failed to save the library dependencies."
 	eend $?
@@ -227,7 +236,7 @@ save_library_dependencies() {
 install_library_dependencies() {
 	local depsfile="${T}/${PN}:${SLOT}"
 
-	ebegin "Installing library dependendencies as ${depsfile##*/}"
+	ebegin "Installing library dependencies as ${depsfile##*/}"
 	insinto /var/lib/kde
 	doins "${depsfile}" || die "Failed to install library dependencies."
 	eend $?
@@ -238,7 +247,7 @@ install_library_dependencies() {
 # Inject specified library dependencies in current package
 load_library_dependencies() {
 	local pn i depsfile
-	ebegin "Injecting library dependendencies from '${KMLOADLIBS}'"
+	ebegin "Injecting library dependencies from '${KMLOADLIBS}'"
 
 	i=0
 	for pn in ${KMLOADLIBS} ; do
