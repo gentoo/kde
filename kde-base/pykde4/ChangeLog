@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org> -pykde4-4.2.2.ebuild:
+  Version removed.
+
   08 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   pykde4-4.2.2.ebuild, pykde4-4.2.69.ebuild, pykde4-9999.ebuild:
   Final cleanups

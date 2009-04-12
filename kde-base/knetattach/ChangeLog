@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  -knetattach-4.2.2.ebuild:
+  Version removed.
+
   09 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   knetattach-4.2.2.ebuild, knetattach-4.2.69.ebuild, knetattach-9999.ebuild:
   Added doc IUSE
