@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Apr 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -media-sound/amarok/amarok-2.0.2.ebuild,
+  +media-sound/amarok/amarok-2.0.2-r1.ebuild:
+  Bumped amarok-2.0.2 ebuild to avoid issues related to the changes in the
+  dep introduced without a bump that will make +kdeprefix users lose their
+  mind trying to diagnose.
+
   31 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-2.0.2.ebuild:
   Dropped kdeprefix, fixed deps (webkit removed - in kdelibs, removed
