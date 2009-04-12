@@ -65,7 +65,7 @@ src_compile() {
 	emake || die "emake generator failed"
 	./generator --include-paths="/usr/include/qt4/" || die "running generator failed"
 	cd "${S}"/qtbindings
-	emake -j1 || die "make qtbindings failed"
+	emake || die "make qtbindings failed"
 }
 
 src_install() {
