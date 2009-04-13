@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE Command Runner"
-IUSE="debug xscreensaver"
+IUSE="debug"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -17,12 +17,14 @@ COMMONDEPEND="
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXxf86misc
+	x11-libs/libXcursor
+	x11-libs/libXScrnSaver
 	opengl? ( virtual/opengl )
-	xscreensaver? ( x11-libs/libXScrnSaver )
 "
 DEPEND="${COMMONDEPEND}
+	x11-libs/libXcursor
 	x11-proto/xf86miscproto
-	xscreensaver? ( x11-proto/scrnsaverproto )
+	x11-proto/scrnsaverproto
 "
 RDEPEND="${COMMONDEPEND}"
 
