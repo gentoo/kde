@@ -19,7 +19,6 @@ COMMONDEPEND="
 	x11-libs/libXxf86misc
 	x11-libs/libXcursor
 	x11-libs/libXScrnSaver
-	opengl? ( virtual/opengl )
 "
 DEPEND="${COMMONDEPEND}
 	x11-libs/libXcursor

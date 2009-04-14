@@ -14,11 +14,14 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+COMMONDEPEND="
 	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
+	x11-libs/libXScrnSaver
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMONDEPEND}
+	x11-proto/scrnsaverproto
+"
+RDEPEND="${COMMONDEPEND}
 	!sys-power/powerdevil
 "
 
