@@ -112,7 +112,6 @@ PDEPEND="
 PATCHES=(                                                   
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"                      
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"                           
-	"${FILESDIR}/${P}-kickoff-focus.patch"                                      
 )
 
 src_prepare() {
