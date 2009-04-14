@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils subversion flag-o-matic
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
@@ -20,3 +20,9 @@ DEPEND="
 	x11-libs/qt-core:4
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	if [[ ${ELIBC} = uclibc ]]; then
+		append-flags -pthread
+	fi
+}
