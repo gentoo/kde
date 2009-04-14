@@ -17,6 +17,7 @@ SLOT="1"
 IUSE="cvs debug git mercurial subversion"
 
 DEPEND="
+	>=dev-libs/boost-1.35.0
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
