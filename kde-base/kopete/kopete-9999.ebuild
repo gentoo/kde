@@ -42,17 +42,16 @@ PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history lat
 #	jabber: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
 #	jingle: media-libs/speex net-libs/ortp
 #	meanwhile: net-libs/meanwhile
-#	msn: libmsn
+#	msn: libmsn == this is wlm plugin, we disable msn one
 #	oscar: NO DEPS
 #	qq: NO DEPS
 #	sms: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
-#	wlm: libmsn
 #	yahoo: NO DEPS
 PROTOCOLS="bonjour gadu groupwise +jabber jingle meanwhile msn oscar qq
-testbed winpopup wlm yahoo"
+testbed winpopup yahoo"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
@@ -82,7 +81,6 @@ COMMONDEPEND="
 	otr? ( net-libs/libotr )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
-	wlm? ( net-libs/libmsn )
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
@@ -101,9 +99,11 @@ PDEPEND="
 src_configure() {
 	local x
 	# Xmms isn't in portage, thus forcefully disabled.
-	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF"
+	# Also disable old msn support.
+	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF -DWITH_msn=OFF"
 	# enable protocols
 	for x in ${PROTOCOLS}; do
+		[[ ${x/+/} = msn ]] && x="wlm"
 		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
 	done
 	# enable plugins
@@ -113,7 +113,7 @@ src_configure() {
 	# additional defines
 	if use jingle && ! use jabber; then
 		elog "You enabled jingle but not jabber useflag. Jingle is integral part of"
-		elog "jabber protocol."
+		elog "jabber protocol so it wont be used."
 	fi
 	if use jabber; then
 		mycmakeargs="${mycmakeargs} -DNO_JINGLE=$(use jingle && echo OFF || echo ON)"
@@ -131,12 +131,10 @@ pkg_postinst() {
 	#	elog "export TELEPATHY_DATA_PATH=/usr/share/telepathy/managers/"
 	#fi
 
-	elog "The messenger plugin has been renamed to wlm - adjust your use flags accordingly."
-
 	if ! use ssl; then
-		if use jabber || use wlm; then # || use irc; then
+		if use jabber || use msn; then # || use irc; then
 			echo
-			elog "In order to use ssl in jabber, wlm and irc you'll need to"
+			elog "In order to use ssl in jabber, msn and irc you'll need to"
 			elog "install app-crypt/qca-ossl package."
 			echo
 		fi
