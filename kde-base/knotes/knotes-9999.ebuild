@@ -5,7 +5,6 @@
 EAPI="2"
 
 KMNAME="kdepim"
-KMMODULE="knotes"
 
 inherit kde4-meta
 
@@ -15,3 +14,5 @@ IUSE="debug doc"
 
 DEPEND=">=kde-base/libkdepim-${PV}[kdeprefix=]"
 RDEPEND="${DEPEND}"
+
+KMLOADLIBS="libkdepim"

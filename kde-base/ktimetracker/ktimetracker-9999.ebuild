@@ -9,7 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE app that tracks time spent on various tasks."
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug doc"
 
 DEPEND="

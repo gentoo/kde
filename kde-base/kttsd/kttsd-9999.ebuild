@@ -17,20 +17,23 @@ DEPEND="
 	phonon? ( >=media-sound/phonon-${PV} )
 "
 RDEPEND="${DEPEND}
-	|| (
-			app-accessibility/festival
-			app-accessibility/flite
-			app-accessibility/epos
-			app-accessibility/freetts
-			app-accessibility/mbrola
-		)"
-
-src_configure()
-{
+	app-accessibility/epos
+	app-accessibility/festival
+	app-accessibility/flite
+	app-accessibility/freetts
+	app-accessibility/mbrola
+"
+src_configure() {
+	# we enable all plugins
 	mycmakeargs="${mycmakeargs}
-		-DKDE4_KTTSD_ALSA=$(use alsa && echo ON || echo OFF)
-		-DKDE4_KTTSD_PHONON=$(use phonon && echo ON || echo OFF)
-		$(cmake-utils_use_with alsa Alsa)"
+		-DKDE4_KTTSD_COMMAND=ON
+		-DKDE4_KTTSD_EPOS=ON
+		-DKDE4_KTTSD_FESTIVAL=ON
+		-DKDE4_KTTSD_FLITE=ON
+		-DKDE4_KTTSD_FREETTS=ON
+		-DKDE4_KTTSD_HADIFIX=ON
+		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)
+		$(cmake-utils_use phonon KDE4_KTTSD_PHONON)"
 
 	kde4-meta_src_configure
 }

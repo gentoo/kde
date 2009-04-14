@@ -5,10 +5,11 @@
 
 EAPI="2"
 
-KMNAME="kdeaccessibility"
+KMNAME="${PN/-*/}"
 KMMODULE="IconThemes"
+
 inherit kde4-meta
 
-DESCRIPTION="Icon themes for kde from the kdeaccessibility module"
+DESCRIPTION="KDE Icon Themes designed with accessibility in mind"
 KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE=""

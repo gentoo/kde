@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdeaccessibility"
+KMNAME="${PN/-*/}"
 KMMODULE="ColorSchemes"
 
 inherit kde4-meta

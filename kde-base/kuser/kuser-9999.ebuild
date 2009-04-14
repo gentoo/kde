@@ -13,4 +13,7 @@ KEYWORDS=""
 IUSE="debug doc"
 
 DEPEND=">=kde-base/kdepimlibs-${PV}[kdeprefix=]"
-RDEPEND="${DEPEND}"
+# notify is needed for dialogs
+RDEPEND="${DEPEND}
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+"
