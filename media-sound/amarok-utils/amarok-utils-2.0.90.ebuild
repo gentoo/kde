@@ -11,9 +11,10 @@ inherit kde4-base
 
 DESCRIPTION="Variuos utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
+SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="2"
 IUSE="debug"
 
@@ -25,6 +26,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.0.90:${SLOT}
 "
+
+S="${WORKDIR}/${P/-utils/}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
