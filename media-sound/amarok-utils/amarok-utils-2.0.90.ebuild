@@ -9,7 +9,7 @@ KMMODULE="amarok"
 KDE_REQUIRED="never"
 inherit kde4-base
 
-DESCRIPTION="Variuos utility programs for Amarok."
+DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
 SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
 
@@ -28,6 +28,14 @@ RDEPEND="${DEPEND}
 "
 
 S="${WORKDIR}/${P/-utils/}"
+
+src_unpack() {
+	kde4-base_src_unpack
+
+	# Add missing cmake modules
+	cp "${FILESDIR}/MacroOptionalAddSubdirectory.cmake" "${S}/cmake/modules" || die "Failed to add OptionalAddSubdirectory Macro".
+	cp "${FILESDIR}/FindGettext.cmake" "${S}/cmake/modules" || die "Failed to add Macro".
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
