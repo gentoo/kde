@@ -59,9 +59,6 @@ testbed winpopup yahoo"
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
-# Tests are KDE-ish.
-RESTRICT="test"
-
 COMMONDEPEND="
 	dev-libs/libpcre
 	x11-libs/libXScrnSaver
@@ -97,14 +94,13 @@ PDEPEND="
 "
 
 src_configure() {
-	local x
-	# Xmms isn't in portage, thus forcefully disabled.
-	# Also disable old msn support.
-	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF -DWITH_msn=OFF"
+	local x x2
+	# Disable old msn support.
+	mycmakeargs="${mycmakeargs} -DWITH_msn=OFF"
 	# enable protocols
 	for x in ${PROTOCOLS}; do
-		[[ ${x/+/} = msn ]] && x="wlm"
-		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
+		[[ ${x/+/} = msn ]] && x2=wlm || x2=""
+		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/} ${x2})"
 	done
 	# enable plugins
 	for x in ${PLUGINS}; do
