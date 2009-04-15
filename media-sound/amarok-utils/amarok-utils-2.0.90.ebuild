@@ -29,12 +29,16 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${P/-utils/}"
 
-src_unpack() {
-	kde4-base_src_unpack
+src_prepare() {
+	# Disable po processing
+	sed -e "s:include(MacroOptionalAddSubdirectory)::" \
+		-i "${S}/CMakeLists.txt" \
+		|| die "Removing include of MacroOptionalAddSubdirectory failed."
+	sed -e "s:macro_optional_add_subdirectory( po )::" \
+		-i "${S}/CMakeLists.txt" \
+		|| die "Removing include of MacroOptionalAddSubdirectory failed."
 
-	# Add missing cmake modules
-	cp "${FILESDIR}/MacroOptionalAddSubdirectory.cmake" "${S}/cmake/modules" || die "Failed to add OptionalAddSubdirectory Macro".
-	cp "${FILESDIR}/FindGettext.cmake" "${S}/cmake/modules" || die "Failed to add Macro".
+	kde4-base_src_prepare
 }
 
 src_configure() {
