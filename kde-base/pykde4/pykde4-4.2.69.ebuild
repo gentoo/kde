@@ -18,7 +18,10 @@ DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
-RDEPEND="${DEPEND}"
+# blocker added due to compatibility issues and error during compile time
+RDEPEND="${DEPEND}
+	!dev-python/pykde
+"
 
 src_prepare() {
 	kde4-meta_src_prepare
