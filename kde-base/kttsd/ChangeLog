@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kttsd-4.2.69.ebuild,
+  kttsd-9999.ebuild:
+  Phonon is not optional. Its already requered bt kdelibs
+
   13 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   kttsd-9999.ebuild:
   rewritten from scratch based on CMakeLists.txt

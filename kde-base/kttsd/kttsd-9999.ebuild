@@ -10,11 +10,10 @@ inherit kde4-meta
 
 DESCRIPTION="KDE text-to-speech"
 KEYWORDS=""
-IUSE="alsa debug doc phonon"
+IUSE="alsa debug doc"
 
 DEPEND="
 	alsa? ( media-libs/alsa-lib )
-	phonon? ( >=media-sound/phonon-${PV} )
 "
 RDEPEND="${DEPEND}
 	app-accessibility/epos
@@ -32,8 +31,8 @@ src_configure() {
 		-DKDE4_KTTSD_FLITE=ON
 		-DKDE4_KTTSD_FREETTS=ON
 		-DKDE4_KTTSD_HADIFIX=ON
-		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)
-		$(cmake-utils_use phonon KDE4_KTTSD_PHONON)"
+		-DKDE4_KTTSD_PHONON=ON
+		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)"
 
 	kde4-meta_src_configure
 }
