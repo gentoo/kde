@@ -234,11 +234,12 @@ case ${OPERATION} in
 		EBUILD_BASEDIR_LIST=`cat ${TMPFILE} |sort -u`
 		for EBUILD_BASEDIR in ${EBUILD_BASEDIR_LIST}; do
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
-			cd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"
+			pushd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}" > /dev/null
 			git rm ${EBUILD_BASENAME}-${VERSION}*.ebuild
-			echangelog "Version removed." >> /dev/null
+			# TODO: it is important to remove also unused patches.
+			echangelog "Version removed." &> /dev/null
 			repoman manifest
-			cd "${PORTDIR_BUMPING}" #go back to workdir
+			pushd "${PORTDIR_BUMPING}" &> /dev/null #go back to workdir
 		done
 		;;
 	slot) add_new_sloted_version ;;
