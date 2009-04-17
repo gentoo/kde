@@ -15,7 +15,7 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="2"
-IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop +utils"
+IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop"
 
 DEPEND="
 	>=app-misc/strigi-0.5.7
@@ -49,11 +49,13 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-0.3.0 )
 "
 RDEPEND="${DEPEND}
+	media-sound/amarok-utils
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
-	utils? ( media-sound/amarok-utils )
 "
 
 src_prepare() {
+	kde4-base_src_prepare
+
 	append-flags -I${KDEDIR}
 	append-ldflags -L${KDEDIR}/$(get_libdir)
 	epatch "${FILESDIR}/disable_bindings_test.patch"

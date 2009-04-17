@@ -39,11 +39,6 @@
 		package will not be redistributable, as it links to the non-GPL compatible
 		RealPlayer.
 	</flag>
-	-->
-	<flag name="utils">
-		Build collection scanner shipped with <pkg>media-sound/amarok</pkg>.
-	</flag>
-	<!--
 	<flag name="visualization">
 		Support visualization plugins through <pkg>media-libs/libvisual</pkg>
 	</flag>
