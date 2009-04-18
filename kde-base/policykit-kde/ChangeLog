@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/policykit-kde
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*policykit-kde-9999 (18 Apr 2009)
+
+  18 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +policykit-kde-9999.ebuild:
+  Added policykit-kde
+

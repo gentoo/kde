@@ -1,0 +1,10 @@
+# ChangeLog for sys-auth/policykit-qt
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*policykit-qt-9999 (17 Apr 2009)
+
+  17 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +policykit-qt-9999.ebuild:
+  Added policykit-qt live ebuild
+

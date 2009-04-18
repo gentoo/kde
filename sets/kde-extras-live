@@ -36,6 +36,7 @@
 ~net-p2p/ktorrent-9999
 ~net-voip/tapioca-qt-9999
 ~net-wireless/kdebluetooth4-9999
+~sys-auth/policykit-qt-9999
 ~sys-block/partitionmanager-9999
 ~www-client/rekonq-9999
 ~x11-libs/qtscriptgenerator-9999
