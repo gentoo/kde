@@ -3,6 +3,16 @@
 # $Header: $
 
   18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -policykit-kde-4.2.69.ebuild, +policykit-kde-4.2.70.ebuild:
+  Version removed.
+
+*policykit-kde-4.2.70 (18 Apr 2009)
+
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +policykit-kde-4.2.70.ebuild:
+  Version bump.
+
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
   policykit-kde-4.2.69.ebuild:
   add keywords
 

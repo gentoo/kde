@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -powerdevil-4.2.69.ebuild, +powerdevil-4.2.70.ebuild:
+  Version removed.
+
+*powerdevil-4.2.70 (18 Apr 2009)
+
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +powerdevil-4.2.70.ebuild:
+  Version bump.
+
   14 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   powerdevil-4.2.69.ebuild, powerdevil-9999.ebuild:
   Fixed bug 265976, removed libkworkspace from deps

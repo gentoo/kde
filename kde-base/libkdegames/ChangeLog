@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -libkdegames-4.2.69.ebuild, +libkdegames-4.2.70.ebuild:
+  Version removed.
+
+*libkdegames-4.2.70 (18 Apr 2009)
+
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +libkdegames-4.2.70.ebuild:
+  Version bump.
+
   12 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org>
   -libkdegames-4.2.2.ebuild:
   Version removed.
