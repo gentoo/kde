@@ -24,8 +24,7 @@ DEPEND="
 	kdcraw? ( kde-base/libkdcraw )
 	opengl? ( media-libs/glew )
 	pdf? (
-		>=app-text/poppler-0.10.0
-		>=app-text/poppler-bindings-0.10.0[qt4]
+		>=virtual/poppler-qt4-0.10.5
 	)
 "
 RDEPEND="${DEPEND}"
