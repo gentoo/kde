@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  amarok-utils-9999.ebuild:
+  Corrected ESVN_STORE_DIR
+
   15 Apr 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   media-sound/amarok-utils/amarok-utils-2.0.90.ebuild:
   Reverted previous commit and prevented amarok from building po

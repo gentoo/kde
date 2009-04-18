@@ -11,6 +11,7 @@ inherit kde4-base
 
 DESCRIPTION="Variuos utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
+ESVN_PROJECT="${KMMODULE}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -25,6 +26,19 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.0.90:${SLOT}
 "
+
+pkg_setup() {
+	kde4-base_pkg_setup
+
+	if [[ -d "${ESVN_STORE_DIR}/${PN}" ]]; then
+		echo
+		elog "${P} now is fetched to the same location as media-sound/amarok-9999"
+		ewarn "Removing old SVN storage location ${ESVN_STORE_DIR}/${PN}."
+		echo
+		rm -fr "${ESVN_STORE_DIR}/${PN}" || \
+			eerror "Failed to remove old storage directory at ${ESVN_STORE_DIR}/${PN}"
+	fi
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
