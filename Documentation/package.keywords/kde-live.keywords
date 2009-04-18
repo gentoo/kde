@@ -78,7 +78,6 @@
 ~kde-base/kdeartwork-sounds-9999 **
 ~kde-base/kdeartwork-styles-9999 **
 ~kde-base/kdeartwork-wallpapers-9999 **
-~kde-base/kdeartwork-weatherwallpapers-9999 **
 ~kde-base/kdebase-cursors-9999 **
 ~kde-base/kdebase-data-9999 **
 ~kde-base/kdebase-desktoptheme-9999 **
@@ -268,6 +267,7 @@
 ~kde-base/powerdevil-9999 **
 ~kde-base/printer-applet-9999 **
 ~kde-base/pykde4-9999 **
+~kde-base/quanta-9999 **
 ~kde-base/renamedlg-plugins-9999 **
 ~kde-base/solid-hardware-9999 **
 ~kde-base/solid-9999 **

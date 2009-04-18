@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdeartwork-wallpapers-4.2.70.ebuild, kdeartwork-wallpapers-9999.ebuild:
+  Added block for kdeartwork-weatherwallpapers - moved to kdeplasma-addons
+
   18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdeartwork-wallpapers-4.2.69.ebuild,
   +kdeartwork-wallpapers-4.2.70.ebuild:
