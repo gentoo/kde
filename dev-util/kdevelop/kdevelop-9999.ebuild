@@ -15,7 +15,7 @@ SLOT="4"
 IUSE="+cmake +cxx debug +qmake"
 
 DEPEND="
-	>=dev-util/kdevplatform-0.9.85
+	>=dev-util/kdevplatform-9999
 	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
