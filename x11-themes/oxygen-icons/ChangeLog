@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*oxygen-icons-4.2.70 (18 Apr 2009)
+
+  18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -oxygen-icons-4.2.69.ebuild, +oxygen-icons-4.2.70.ebuild:
+  Add new KDE 4.2.70
+
   07 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -oxygen-icons-4.2.68.ebuild, +oxygen-icons-4.2.69.ebuild:
   Drop KDE 4.2.68
