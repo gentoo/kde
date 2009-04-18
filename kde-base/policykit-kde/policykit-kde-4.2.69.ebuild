@@ -9,7 +9,7 @@ KMMODULE="PolicyKit-kde"
 inherit kde4-meta
 
 DESCRIPTION="PolicyKit integration module for KDE."
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE="debug"
 
