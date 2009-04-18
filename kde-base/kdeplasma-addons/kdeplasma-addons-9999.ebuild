@@ -14,25 +14,25 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug xinerama"
+IUSE="debug desktopglobe exif semantic-desktop"
 
 DEPEND="
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?,semantic-desktop?]
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
-	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl] )
-	xinerama? ( x11-proto/xineramaproto )
+	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
+	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !kde-misc/lancelot-menu )
-	xinerama? ( x11-libs/libXinerama )
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
 src_prepare() {
 	sed -i -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \
 		-e 's/${KDE4WORKSPACE_WEATHERION_LIBRARY}/weather_ion/g' \
 		-e 's/${KDE4WORKSPACE_TASKMANAGER_LIBRARY}/taskmanager/g' \
-		applets/{binary-clock,fuzzy-clock,weatherstation,lancelot/app/src}/CMakeLists.txt \
+		{libs/plasmaweather,applets/{binary-clock,fuzzy-clock,weather,weatherstation,lancelot/app/src}}/CMakeLists.txt \
 		|| die "Failed to patch CMake files"
 
 	sed -i -e 's/(KDE4_PLASMA_OPENGL_FOUND)/(KDE4_PLASMA_OPENGL_FOUND AND OPENGL_FOUND)/g' \
@@ -45,8 +45,10 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
+		$(cmake-utils_use_with exif Kexiv2)
+		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with xinerama X11_Xinerama)"
+		$(cmake-utils_use_with semantic-desktop Nepomuk)"
 
 	kde4-base_src_configure
 }

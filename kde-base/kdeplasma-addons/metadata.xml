@@ -2,4 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name="desktopglobe">Enable Desktop Globe wallpaper using <pkg>kde-base/marble</pkg>.</flag>
+</use>
 </pkgmetadata>
