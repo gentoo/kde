@@ -16,4 +16,6 @@ IUSE="debug"
 DEPEND="
 	sys-auth/policykit-qt
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/policykit-kde
+"

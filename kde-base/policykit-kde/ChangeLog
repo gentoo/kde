@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  policykit-kde-4.2.70.ebuild, policykit-kde-9999.ebuild:
+  Added block for kde-misc/policykit-kde
+
   18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -policykit-kde-4.2.69.ebuild, +policykit-kde-4.2.70.ebuild:
   Version removed.
