@@ -21,9 +21,4 @@ RDEPEND="${DEPEND}
 	net-print/cups[dbus]
 "
 
-src_prepare() {
-	kde4-meta_src_prepare
-
-	sed -i -e 's/^project(system-config-printer-kde)//' \
-		"${PN}"/CMakeLists.txt || die "failed to apply sandbox workaround"
-}
+PATCHES=( "${FILESDIR}/${PN}-pykde4.patch" )
