@@ -20,6 +20,7 @@ IUSE="debug"
 
 DEPEND="
 	>=media-libs/taglib-1.5
+	>=media-libs/taglib-extras-0.1
 	>=x11-libs/qt-core-4.4:4
 	>=x11-libs/qt-dbus-4.4:4
 "

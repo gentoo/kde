@@ -9,7 +9,7 @@ KMMODULE="amarok"
 KDE_REQUIRED="never"
 inherit kde4-base
 
-DESCRIPTION="Various utility programs for Amarok."
+DESCRIPTION="Variuos utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
 SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
 
@@ -20,7 +20,7 @@ IUSE="debug"
 
 DEPEND="
 	>=media-libs/taglib-1.5
-	>=media-libs/taglib-extras-0.1[kde]
+	>=media-libs/taglib-extras-0.1
 	>=x11-libs/qt-core-4.4:4
 	>=x11-libs/qt-dbus-4.4:4
 "
