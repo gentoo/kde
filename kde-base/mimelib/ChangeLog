@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Apr 2009; <chris@gentoo.org> ChangeLog:
+  Version bump.
+
   18 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -mimelib-4.2.69.ebuild,
   +mimelib-4.2.70.ebuild:
   Version removed.
