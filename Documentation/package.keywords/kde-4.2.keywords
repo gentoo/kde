@@ -286,3 +286,4 @@ kde-base/kdeutils-meta:4.2
 kde-misc/konq-plugins:4
 media-gfx/kiconedit:4
 sys-power/guidance-power-manager:0
+kde-misc/webkit-kpart:0
