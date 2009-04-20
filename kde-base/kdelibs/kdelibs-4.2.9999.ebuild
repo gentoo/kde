@@ -94,12 +94,10 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/knewsticker:4.1
 		!kde-base/kpercentage:4.1
 		!kde-base/ktnef:4.1
-		!<kde-base/libkworkspace-${PV}[-kdeprefix]
 		!kde-base/libplasma
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	kdeprefix? (
-		!<kde-base/libkworkspace-${PV}:${SLOT}
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	x11-apps/iceauth
@@ -117,6 +115,7 @@ PATCHES=(
 	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch"
 )
 
 src_prepare() {

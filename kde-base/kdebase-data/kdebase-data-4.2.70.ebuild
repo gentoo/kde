@@ -15,8 +15,8 @@ KEYWORDS="~amd64 ~x86"
 # Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
 # releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
 RDEPEND="
-	!kdeprefix? ( !<kde-base/dolphin-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/dolphin-${PV}:${SLOT} )
+	!kdeprefix? ( !<kde-base/dolphin-4.1.87[-kdeprefix] )
+	kdeprefix? ( !<kde-base/dolphin-4.1.87:${SLOT} )
 	x11-themes/hicolor-icon-theme
 	>=x11-themes/oxygen-icons-${PV}
 "

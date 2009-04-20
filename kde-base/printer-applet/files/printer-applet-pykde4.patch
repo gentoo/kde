@@ -1,0 +1,19 @@
+--- printer-applet/CMakeLists.txt	2009-01-27 04:38:23.000000000 +0100
++++ printer-applet/CMakeLists.txt	2009-04-19 06:53:21.000000000 +0200
+@@ -11,7 +11,7 @@
+ 
+ find_package(PyKDE4)
+ IF(NOT PYKDE4_FOUND)
+-    macro_log_feature(PYKDE_FOUND "PyKDE" "PyKDE was not found.  It is needed by printer-applet to run.  (Use -DINSTALL_PRINTER_APPLET=TRUE to install anyway)" "http://websvn.kde.org/trunk/KDE/kdebindings/python/pykde4/" FALSE)
++    macro_log_feature(PYKDE4_FOUND "PyKDE4" "PyKDE4 was not found.  It is needed by printer-applet to run.  (Use -DINSTALL_PRINTER_APPLET=TRUE to install anyway)" "http://websvn.kde.org/trunk/KDE/kdebindings/python/pykde4/" FALSE)
+ ENDIF(NOT PYKDE4_FOUND)
+ 
+ find_package(PyCups)
+@@ -23,6 +23,7 @@
+     SET(INSTALL_PRINTER_APPLET TRUE)
+ ENDIF(PYQT4_FOUND AND PYKDE4_FOUND AND PYCUPS_FOUND)
+ 
++set (PROJECT_NAME printer-applet)
+ IF(INSTALL_PRINTER_APPLET)
+     install( FILES
+         printer-applet-printers.ui

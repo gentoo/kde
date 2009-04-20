@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kde-l10n-4.2.9999.ebuild:
+  Removed 4.2.9999 ebuild for now
+
   20 Apr 2009; <chris@gentoo.org> ChangeLog:
   Version bump.
 

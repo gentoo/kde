@@ -93,12 +93,10 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/knewsticker:4.1
 		!kde-base/kpercentage:4.1
 		!kde-base/ktnef:4.1
-		!<kde-base/libkworkspace-${PV}[-kdeprefix]
 		!kde-base/libplasma
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	kdeprefix? (
-		!<kde-base/libkworkspace-${PV}:${SLOT}
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	x11-apps/iceauth

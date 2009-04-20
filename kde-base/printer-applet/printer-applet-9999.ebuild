@@ -18,9 +18,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	kde4-meta_src_prepare
-
-	sed -i -e 's/^project(printer-applet)//' \
-		"${PN}"/CMakeLists.txt || die "failed to workaround sandbox violation"
-}
+#PATCHES=( "${FILESDIR}/${PN}-pykde4.patch" )
