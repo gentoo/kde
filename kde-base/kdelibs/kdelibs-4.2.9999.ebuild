@@ -117,9 +117,6 @@ PATCHES=(
 	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
-	"${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch"
-	"${FILESDIR}/${PN}-${SLOT}-fix_kio_http_401.patch"
-	"${FILESDIR}/${P}-kickoff-focus.patch"
 )
 
 src_prepare() {
