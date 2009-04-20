@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*webkit-kpart-0.1_pre20090418 (20 Apr 2009)
+
+  20 Apr 2009; steffen stramm <krytzz@soylent.eu>
+  +webkit-kpart-0.1_pre20090418.ebuild:
+  added snapshot ebuild
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   webkit-kpart-9999.ebuild:
   Dropped kdeprefix, removed RDEPEND to avoid future circular deps
