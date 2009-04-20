@@ -5,21 +5,20 @@
 EAPI="2"
 
 KMNAME="koffice"
-KMMODULE="${PN}"
 inherit kde4-meta
 
 DESCRIPTION="KOffice flowchart application."
-
 KEYWORDS=""
-IUSE="python"
+IUSE="debug python"
 
 DEPEND="
-	python? ( kde-base/pykde4 )
+	python? ( kde-base/pykde4-${KDE_MINIMAL} )
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRA="filters/${KMMODULE}"
-
+KMEXTRA="
+	filters/${KMMODULE}
+"
 KMEXTRACTONLY="
 	filters/
 	libs/
