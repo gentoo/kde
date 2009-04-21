@@ -64,6 +64,7 @@
 ~kde-base/kcminit-9999 **
 ~kde-base/kcmshell-9999 **
 ~kde-base/kcolorchooser-9999 **
+~kde-base/kcontactmanager-9999 **
 ~kde-base/kcontrol-9999 **
 ~kde-base/kcron-9999 **
 ~kde-base/kdeaccessibility-colorschemes-9999 **
@@ -321,4 +322,3 @@
 ~x11-themes/gtk-engines-qt-9999 **
 ~x11-themes/oxygen-icons-9999 **
 ~x11-themes/playground-plasma-themes-9999 **
-~kde-base/kcontactmanager-9999 **

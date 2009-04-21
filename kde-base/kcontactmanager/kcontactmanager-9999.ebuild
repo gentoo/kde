@@ -7,20 +7,22 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="Akonadi based Addressbook for KDE"
-HOMEPAGE="http://kde.org/"
-
-LICENSE="GPL-2"
+DESCRIPTION="Akonadi based addressbook for KDE"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="kde-base/akonadi:${SLOT}"
+DEPEND="
+	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="akonadi/kabc"
+KMEXTRACTONLY="
+	akonadi/kabc/
+"
 
-src_prepare()
-{
-kde4-meta_src_prepare
-sed -i -e "'s:\ \ #\ macro:macro:g' ${WORKDIR}/${P}/CMakeLists.txt"
+src_prepare() {
+	kde4-meta_src_prepare
+
+	sed -i -e 's|# macro_optional_add_subdirectory(kcontactmanager)|macro_optional_add_subdirectory(kcontactmanager)|' \
+		CMakeLists.txt || die "failed to uncomment kcontactmanager"
 }
