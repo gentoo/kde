@@ -72,6 +72,7 @@ kde-base/kdebase-kioslaves:4.2
 kde-base/kdebase-startkde:4.2
 kde-base/kdebugdialog:4.2
 kde-base/kdedglobalaccel:4.2
+kde-base/kde-env:4.2
 kde-base/kdegraphics-strigi-analyzer:4.2
 kde-base/kde-l10n:4.2
 kde-base/kdelibs:4.2
