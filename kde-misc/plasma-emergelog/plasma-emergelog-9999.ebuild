@@ -11,8 +11,10 @@ HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
 EGIT_REPO_URI="git://github.com/hwoarang/plasma-emergelog.git"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS=""
+SLOT="0"
 IUSE="debug"
-RDEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
-DOCS="README AUTHORS"
+
+RDEPEND="
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

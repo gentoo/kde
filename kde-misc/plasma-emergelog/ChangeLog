@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  plasma-emergelog-9999.ebuild:
+  Cleaneup up a bit (DOCS not needed - already handled by eclass)
+
 *plasma-emergelog-9999 (21 Apr 2009)
 
   21 Apr 2009; Markos Chandras <hwoarang@gentoo.org> +metadata.xml,
