@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-kde-4.2.70-r1 (21 Apr 2009)
+*phonon-kde-4.2.2-r1 (21 Apr 2009)
+
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +phonon-kde-4.2.2-r1.ebuild, +phonon-kde-4.2.70-r1.ebuild,
+  -phonon-kde-4.2.70.ebuild, phonon-kde-4.2.9999.ebuild,
+  phonon-kde-9999.ebuild:
+  Fixed automagic from bug 266968 + some other
+
   20 Apr 2009; <chris@gentoo.org> ChangeLog:
   Version bump.
 

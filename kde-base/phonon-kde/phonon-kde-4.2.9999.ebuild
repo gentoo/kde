@@ -10,18 +10,36 @@ inherit kde4-meta
 
 DESCRIPTION="Phonon KDE Integration"
 HOMEPAGE="http://phonon.kde.org"
-LICENSE="GPL-3"
-KEYWORDS=""
-IUSE="debug"
 
-RDEPEND="
+KEYWORDS=""
+LICENSE="GPL-2"
+IUSE="debug pulseaudio +xine"
+
+DEPEND="
+	media-libs/alsa-lib
+	media-sound/phonon[xine?]
+	pulseaudio? ( media-sound/pulseaudio )
+"
+RDEPEND="${DEPEND}
 	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
 "
 
 src_prepare() {
 	# Don't build tests - they require OpenGL
-	sed -i -e 's/add_subdirectory(tests)//'\
-		phonon/CMakeLists.txt || die "Failed to disable tests"
+	sed -e 's/add_subdirectory(tests)//' \
+		-i phonon/CMakeLists.txt || die "Failed to disable tests"
+
+	# Disable automagic
+	sed -e 's/find_package(Xine)/macro_optional_find_package(Xine)/' \
+		-i phonon/kcm/xine/CMakeLists.txt || die "Failed to make xine optional"
 
 	kde4-meta_src_prepare
+}
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with pulseaudio PulseAudio)
+		$(cmake-utils_use_with xine Xine)"
+
+	kde4-meta_src_configure
 }

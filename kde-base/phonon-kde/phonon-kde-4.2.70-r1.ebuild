@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="Phonon KDE Integration"
 HOMEPAGE="http://phonon.kde.org"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE="debug pulseaudio +xine"
 
