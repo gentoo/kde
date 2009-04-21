@@ -29,7 +29,7 @@ done
 S="${WORKDIR}"
 
 src_unpack() {
-	local LNG DIR
+	local lng dir
 	if [[ -z ${A} ]]; then
 		elog
 		elog "You either have the LINGUAS variable unset, or it only"
@@ -46,8 +46,11 @@ src_unpack() {
 
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
-		for LNG in ${LINGUAS}; do
-			DIR="${PN}-${LNG}-${PV}"
+		for lng in ${LINGUAS}; do
+			dir="${PN}-${LNG}-${PV}"
+			if [[ -d "${dir}" ]] ; then
+				echo "add_subdirectory( ${dir} )" >> "${S}"/CMakeLists.txt
+			fi
 		done
 	fi
 }
