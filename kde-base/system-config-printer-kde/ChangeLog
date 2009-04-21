@@ -3,6 +3,10 @@
 # $Header: $
 
   21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-kde-4.2.9999.ebuild:
+  A few keywords too many
+
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   system-config-printer-kde-9999.ebuild:
   Patch applied upsteam
 

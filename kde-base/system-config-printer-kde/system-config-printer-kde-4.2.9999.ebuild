@@ -8,7 +8,7 @@ KMNAME="kdeadmin"
 inherit kde4-meta python
 
 DESCRIPTION="KDE port of Red Hat's Gnome system-config-printer"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
