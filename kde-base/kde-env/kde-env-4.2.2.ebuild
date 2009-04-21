@@ -23,6 +23,10 @@ RDEPEND="
 	kdeprefix? ( !<kde-base/kdelibs-${PV}:${SLOT} )
 "
 
+src_unpack() {
+	:
+}
+
 src_install() {
 	dodir /etc/env.d
 	dodir /etc/revdep-rebuild
@@ -56,4 +60,8 @@ CONFIG_PROTECT="/usr/share/config"
 		EOF
 		doenvd "${T}"/43kdepaths
 	fi
+}
+
+pkg_preinst() {
+	:
 }

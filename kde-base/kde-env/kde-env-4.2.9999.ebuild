@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Environment setting required for all KDE4 apps to run."
 HOMEPAGE="http://kde.org"
-SRC_URI=""
+ESVN_REPO_URI=""
 
 KEYWORDS=""
 LICENSE="as-is"
@@ -22,6 +22,10 @@ RDEPEND="
 	)
 	kdeprefix? ( !<kde-base/kdelibs-${PV}:${SLOT} )
 "
+
+src_unpack() {
+	:
+}
 
 src_install() {
 	dodir /etc/env.d
@@ -56,4 +60,8 @@ CONFIG_PROTECT="/usr/share/config"
 		EOF
 		doenvd "${T}"/43kdepaths
 	fi
+}
+
+pkg_preinst() {
+	:
 }
