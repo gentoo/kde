@@ -17,5 +17,3 @@ DEPEND="
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
-
-#PATCHES=( "${FILESDIR}/${PN}-pykde4.patch" )

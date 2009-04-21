@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  system-config-printer-kde-9999.ebuild:
+  Patch applied upsteam
+
 *system-config-printer-kde-4.2.9999 (20 Apr 2009)
 
   20 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

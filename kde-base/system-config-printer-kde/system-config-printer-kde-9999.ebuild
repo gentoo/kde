@@ -20,5 +20,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-print/cups[dbus]
 "
-
-PATCHES=( "${FILESDIR}/${PN}-pykde4.patch" )
