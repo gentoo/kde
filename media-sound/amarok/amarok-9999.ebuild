@@ -56,7 +56,7 @@ src_prepare() {
 	kde4-base_src_prepare
 
 	append-flags -I${KDEDIR}
-	append-ldflags -L${KDEDIR}/$(get_libdir)
+	append-ldflags -L${KDEDIR}/$(get_libdir) -Wl,--as-needed
 	epatch "${FILESDIR}/disable_bindings_test.patch"
 }
 
