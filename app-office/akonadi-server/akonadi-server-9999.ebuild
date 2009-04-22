@@ -15,10 +15,12 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+mysql"
 
-RDEPEND="x11-libs/qt-core:4
+RDEPEND="
+	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
 	x11-libs/qt-sql:4[mysql?]
-	x11-misc/shared-mime-info"
+	x11-misc/shared-mime-info
+"
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
@@ -31,5 +33,15 @@ src_prepare() {
 	if ! use mysql; then
 		sed -e '/mysqld/s/find_program/#DONOTWANT &/' \
 			-i "${S}"/server/CMakeLists.txt || die 'Sed failed.'
+	fi
+}
+
+pkg_postinst() {
+	if ! use mysql; then
+		echo
+		ewarn "You have decided to build akonadi-server with mysql USE"
+		ewarn "flag disabled. Note, that this is the only supported"
+		ewarn "database backend, hence akonadi-server will not work."
+		echo
 	fi
 }
