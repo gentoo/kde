@@ -483,8 +483,8 @@ kde4-base_src_configure() {
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
 
-	# Hardcode path to *.pc KDE files
-	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
+	# Point pkg-config path to KDE *.pc files
+	export PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
 
 	# Shadow existing /usr installations
 	unset KDEDIRS
