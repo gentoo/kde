@@ -27,6 +27,18 @@ src_unpack() {
 	:
 }
 
+src_prepare() {
+	:
+}
+
+src_configure() {
+	:
+}
+
+src_compile() {
+	:
+}
+
 src_install() {
 	dodir /etc/env.d
 	dodir /etc/revdep-rebuild
