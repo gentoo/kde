@@ -25,6 +25,3 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace"
-
-# Disable SSE2 in fadeeffect when compiling with <gcc-4, bug #256804
-PATCHES=( "$FILESDIR/${PN}-4.2.1-disable-sse2-for-gcc3.patch" )
