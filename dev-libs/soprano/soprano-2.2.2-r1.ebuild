@@ -1,20 +1,19 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/soprano/soprano-2.2.2.ebuild,v 1.1 2009/03/15 14:14:47 scarabeus Exp $
 
 EAPI="2"
 
 JAVA_PKG_OPT_USE="java"
-inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
+inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="Soprano is a library which provides a nice QT interface to RDF storage solutions."
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="0"
-# virtuoso disabled for now
 IUSE="+clucene +dbus debug doc elibc_FreeBSD java +raptor +redland"
 
 COMMON_DEPEND="
@@ -27,28 +26,22 @@ COMMON_DEPEND="
 		>=dev-libs/redland-1.0.6
 	)
 	java? ( >=virtual/jdk-1.6.0 )
-	virtuoso? ( dev-db/libiodbc )
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
-RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( dev-db/virtuoso )
-"
+RDEPEND="${COMMON_DEPEND}"
 
 CMAKE_IN_SOURCE_BUILD="1"
 
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	echo
-	ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
-	ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
-	echo
-	if ! use redland && ! use java && ! use virtuoso ; then
+	if ! use redland && ! use java; then
 		ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
 		ewarn "Applications using soprano may need at least one backend functional."
 		ewarn "If you experience any problems, enable any of those USE flags:"
-		ewarn "redland, java, virtuoso"
+		ewarn "redland, java"
 	fi
 }
 
@@ -70,7 +63,6 @@ src_configure() {
 	! use raptor && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
 	! use redland && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
 	! use java && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
-	! use virtuoso && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON"
 	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
 
 	cmake-utils_src_configure
