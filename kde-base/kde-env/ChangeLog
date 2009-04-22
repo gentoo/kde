@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kde-env-4.2.2.ebuild, kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild,
+  kde-env-9999.ebuild:
+  Added kdeglobals file instead of KDEDIRS
+
   21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kde-env-4.2.2.ebuild, kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild,
   kde-env-9999.ebuild:
