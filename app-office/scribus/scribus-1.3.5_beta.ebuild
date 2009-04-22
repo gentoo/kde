@@ -49,10 +49,10 @@ src_configure() {
 		-DHAVE_TIFF=ON
 		-DHAVE_XML=ON
 		-DWANT_QTARTHUR=ON
-		$(cmake-utils_has cups)
-		$(cmake-utils_has podofo)
-		$(cmake-utils_has python)
-		$(cmake-utils_has spell ASPELL)
+		$(cmake-utils_use_has cups)
+		$(cmake-utils_use_has podofo)
+		$(cmake-utils_use_has python)
+		$(cmake-utils_use_has spell ASPELL)
 		$(cmake-utils_use_want cairo)"
 
 	cmake-utils_src_configure
