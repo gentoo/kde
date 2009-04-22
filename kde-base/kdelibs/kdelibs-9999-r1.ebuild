@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.2.2-r1.ebuild,v 1.1 2009/04/14 15:25:12 scarabeus Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -25,7 +25,6 @@ COMMONDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87
-	media-fonts/dejavu
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
@@ -105,23 +104,16 @@ RDEPEND="${COMMONDEPEND}
 	>=x11-misc/xdg-utils-1.0.2-r3
 "
 PDEPEND="
+	>=kde-base/kde-env-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
 "
 
-# upstream patches / dist patches
-# systemsettings title issue
-# ${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch - see bug 263823
 PATCHES=(
-	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
-	"${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch"
 )
 
 src_prepare() {
-	sed -e 's/find_package(ACL)/macro_optional_find_package(ACL)/' \
-		-i CMakeLists.txt || die "Failed to make ACL disabled even when present in system."
-
 	# Rename applications.menu
 	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-${SLOT}-applications.menu|g" \
 		-i kded/CMakeLists.txt || die "Sed for applications.menu failed."
@@ -191,41 +183,6 @@ src_install() {
 		docinto /HTML/en/kdelibs-apidox
 		dohtml -r ${P}-apidocs/* || die "Install phase of KDE4 API Documentation failed"
 	fi
-
-	dodir /etc/env.d
-	dodir /etc/revdep-rebuild
-
-	# List all the multilib libdirs
-	local _libdir _libdirs
-	for _libdir in $(get_all_libdirs); do
-		_libdirs="${_libdirs}:${PREFIX}/${_libdir}"
-	done
-	_libdirs=${_libdirs#:}
-
-	if use kdeprefix; then
-		cat <<-EOF > "${T}"/43kdepaths-${SLOT} # number goes down with version
-PATH="${PREFIX}/bin"
-ROOTPATH="${PREFIX}/sbin:${PREFIX}/bin"
-LDPATH="${_libdirs}"
-MANPATH="${PREFIX}/share/man"
-CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
-#KDE_IS_PRELINKED=1
-XDG_DATA_DIRS="${PREFIX}/share"
-KDEDIRS="/usr"
-EOF
-		doenvd "${T}"/43kdepaths-${SLOT}
-		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
-SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
-EOF
-	else # Much simpler for the FHS compliant -kdeprefix install
-		cat <<-EOF > "${T}"/43kdepaths # number goes down with version
-CONFIG_PROTECT="/usr/share/config"
-#KDE_IS_PRELINKED=1
-		EOF
-		doenvd "${T}"/43kdepaths
-	fi
-	# Ensure that the correct permissions are set on ${PREFIX}/share/config
-	fperms 755 "${PREFIX}"/share/config
 }
 
 pkg_postinst() {

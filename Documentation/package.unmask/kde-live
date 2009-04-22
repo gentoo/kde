@@ -108,6 +108,7 @@ kde-base/pykde4:live
 ~app-misc/strigi-9999
 ~kde-base/automoc-9999
 ~media-sound/phonon-9999
+kde-base/kde-env:live
 kde-base/kdelibs:live
 kde-base/kdepimlibs:live
 ~x11-themes/oxygen-icons-9999

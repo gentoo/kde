@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  akonadi-server-9999.ebuild:
+  Added warning about missing mysql support
+
   05 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   akonadi-server-9999.ebuild:
   akonadi-server - add +mysql to IUSE (whole kdepim relies on it, other

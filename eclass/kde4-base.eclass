@@ -483,17 +483,20 @@ kde4-base_src_configure() {
 	QTEST_COLORED=1
 	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
 
-	# Hardcode path to *.pc KDE files
-	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${KDEDIR}/$(get_libdir)/pkgconfig"
+	# Point pkg-config path to KDE *.pc files
+	export PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
 
 	# Shadow existing /usr installations
 	unset KDEDIRS
 
-	# Override some environment variables - only when kdeprefix is different,
-	# to not break ccache/distcc
 	if [[ ${KDEDIR} != /usr ]]; then
+		# Override some environment variables - only when kdeprefix is different,
+		# to not break ccache/distcc
 		PATH="${KDEDIR}/bin:${PATH}"
 		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
+
+		# Append full RPATH
+		cmakeargs="${cmakeargs} -DCMAKE_SKIP_RPATH=OFF"
 	fi
 
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then

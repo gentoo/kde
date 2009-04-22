@@ -1,0 +1,29 @@
+# ChangeLog for kde-base/kde-env
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kde-env-4.2.2.ebuild, kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild,
+  kde-env-9999.ebuild:
+  exporting PKG_CONFIG_PATH to allow picking inter-prefix libs
+
+  22 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kde-env-4.2.2.ebuild, kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild,
+  kde-env-9999.ebuild:
+  Added kdeglobals file instead of KDEDIRS
+
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kde-env-4.2.2.ebuild, kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild,
+  kde-env-9999.ebuild:
+  Override pkg_preinst provided by subversion.eclass
+
+*kde-env-4.2.9999 (21 Apr 2009)
+*kde-env-9999 (21 Apr 2009)
+*kde-env-4.2.70 (21 Apr 2009)
+
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, +kde-env-4.2.70.ebuild, +kde-env-9999.ebuild,
+  +kde-env-4.2.9999.ebuild:
+  Added kde-env ebuild to make it easier to play with env.d files - (thus
+  lifting unnecessary kdelibs revbumps)
+

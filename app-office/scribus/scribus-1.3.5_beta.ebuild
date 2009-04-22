@@ -4,20 +4,18 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils
 
 DESCRIPTION="Desktop Publishing (DTP) and Layout program for Linux."
 HOMEPAGE="http://www.scribus.net/"
-
-ESVN_REPO_URI="svn://scribus.info/Scribus/trunk/Scribus"
-ESVN_PROJECT="scribus"
+SRC_URI="mirror://sourceforge/${PN}/${P/_/.}.7z"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="cairo cups debug podofo python spell"
 
-DEPEND="
+COMMONDEPEND="
 	dev-libs/libxml2
 	media-libs/fontconfig
 	>=media-libs/freetype-2.3.7
@@ -34,9 +32,14 @@ DEPEND="
 	podofo? ( app-text/podofo )
 	spell? ( app-text/aspell )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMONDEPEND}
+	app-arch/lzma-utils
+"
+RDEPEND="${COMMONDEPEND}
 	virtual/ghostscript
 "
+
+S="${WORKDIR}/${P/_/.}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

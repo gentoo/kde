@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +media-sound/amarok/amarok-2.0.90-r1.ebuild:
+  Let's add --as-needed to the ldflags to get amarok to build.
+
   17 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   metadata.xml, amarok-2.0.90.ebuild, amarok-9999.ebuild:
   amarok-utils required - by upstream request

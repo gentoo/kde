@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-4.2.70-r1 (21 Apr 2009)
+
+  21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdelibs-4.2.70-r1.ebuild, -kdelibs-4.2.70.ebuild,
+  kdelibs-4.2.9999.ebuild, kdelibs-9999.ebuild:
+  Revbumped because of kde-env
+
   20 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.70.ebuild, kdelibs-4.2.9999.ebuild, kdelibs-9999.ebuild:
   Removed some old block (libkworkspace)
