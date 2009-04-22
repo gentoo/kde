@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P/_/.}.7z"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="cairo cups debug podofo python spell"
 
 COMMONDEPEND="
