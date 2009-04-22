@@ -48,6 +48,7 @@ LDPATH="${_libdirs}"
 MANPATH="${PREFIX}/share/man"
 CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
 #KDE_IS_PRELINKED=1
+PKG_CONFIG_PATH="${PREFIX}/$(get_libdir)/pkgconfig"
 XDG_DATA_DIRS="${PREFIX}/share"
 EOF
 		doenvd "${T}"/43kdepaths-${SLOT}
