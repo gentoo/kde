@@ -7,10 +7,10 @@ EAPI="2"
 WEBKIT_REQUIRED="always"
 inherit kde4-base
 
-MY_P="${P/_alpha/alpha}"
+MY_P="${P/_/}"
 DESCRIPTION="K3b, KDE CD Writing Software"
 HOMEPAGE="http://www.k3b.org/"
-SRC_URI="http://garr.dl.sourceforge.net/sourceforge/${PN}/${MY_P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="2"
@@ -50,7 +50,7 @@ RDEPEND="${DEPEND}
 
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
-S="${WORKDIR}"/"${P/_alpha1/}"
+S="${WORKDIR}"/"${P/_*/}"
 
 src_configure() {
 	# Common settings
