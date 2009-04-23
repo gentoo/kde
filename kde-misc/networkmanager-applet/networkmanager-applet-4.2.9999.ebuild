@@ -25,6 +25,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
+
+# Fix dbus policy
+sed -i 's/at_console=".*"/group="plugdev"/' \
+"${S}/NetworkManager-kde4.conf" \
+        || die "sed failed"
+
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
 
