@@ -18,3 +18,11 @@ IUSE="debug"
 RDEPEND="
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
+
+pkg_postinst() {
+	kde4-base_pkg_postinst
+	einfo "You need to add your user to 'portage' group"
+	einfo "in order to use this plasmoid. To do that, use"
+	einfo "the following command:"
+	einfo "usermod -a -G portage <your_user_here>"
+}

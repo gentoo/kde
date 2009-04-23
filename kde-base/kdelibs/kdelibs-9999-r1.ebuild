@@ -20,6 +20,7 @@ mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 RESTRICT="test"
 
 COMMONDEPEND="
+	!=kde-base/kdelibs-9999
 	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
