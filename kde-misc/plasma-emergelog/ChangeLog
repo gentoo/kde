@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Apr 2009; Markos Chandras <hwoarang@gentoo.org>
+  plasma-emergelog-9999.ebuild:
+  Add einfo message on pkg_postinst to alert users that they need to be on
+  'portage' group before using this plasmoid
+
   21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   plasma-emergelog-9999.ebuild:
   Cleaneup up a bit (DOCS not needed - already handled by eclass)
