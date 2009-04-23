@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  k3b-1.65.0_alpha1.ebuild, k3b-9999.ebuild:
+  added k3b:0 block until kde3 prefix issue is solved
+
 *k3b-1.65.0_alpha1 (23 Apr 2009)
 
   23 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>

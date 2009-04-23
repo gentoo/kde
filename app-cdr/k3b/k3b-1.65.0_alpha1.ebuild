@@ -46,6 +46,7 @@ RDEPEND="${DEPEND}
 		sox? ( media-sound/sox )
 	)
 	vcd? ( media-video/vcdimager )
+	!app-cdr/k3b:0
 "
 
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
