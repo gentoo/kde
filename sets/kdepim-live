@@ -21,7 +21,7 @@ kde-base/kontact-specialdates:live
 kde-base/kontactinterfaces:live
 kde-base/korganizer:live
 # kde-base/korn:live disabled for now
-kde-base/kpilot:live
+# kde-base/kpilot:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
 kde-base/libkleo:live
