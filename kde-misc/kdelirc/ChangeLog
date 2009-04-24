@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Apr 2009; steffen stramm <krytzz@soylent.eu> kdelirc-9999.ebuild:
+  moved to kdereview
+
   18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelirc-9999.ebuild:
   Dropped live SLOT

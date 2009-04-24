@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="playground/utils"
+KMNAME="kdereview"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
