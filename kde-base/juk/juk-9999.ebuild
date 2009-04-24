@@ -9,17 +9,17 @@ inherit kde4-meta
 
 DESCRIPTION="Jukebox and music manager for KDE."
 KEYWORDS=""
-IUSE="debug doc tunepimp"
+IUSE="debug doc musicbrainz"
 
 DEPEND="
 	>=media-libs/taglib-1.5
-	tunepimp? ( media-libs/tunepimp )
+	musicbrainz? ( media-libs/tunepimp )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with tunepimp TunePimp)"
+		$(cmake-utils_use_with musicbrainz TunePimp)"
 
 	kde4-meta_src_configure
 }
