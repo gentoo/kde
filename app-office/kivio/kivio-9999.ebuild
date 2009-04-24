@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug python"
 
 DEPEND="
-	python? ( kde-base/pykde4-${KDE_MINIMAL} )
+	python? ( =kde-base/pykde4-${KDE_MINIMAL}* )
 "
 RDEPEND="${DEPEND}"
 
