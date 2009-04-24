@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE="cairo cups debug podofo python spell"
 
 DEPEND="
+	app-arch/p7zip
 	dev-libs/libxml2
 	media-libs/fontconfig
 	>=media-libs/freetype-2.3.7

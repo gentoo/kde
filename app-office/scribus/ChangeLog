@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Apr 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  scribus-1.3.5_beta.ebuild, scribus-9999.ebuild:
+  Added missing depend on p7zip.
+
   09 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   scribus-9999.ebuild:
   Header fixed, debug IUSE added
