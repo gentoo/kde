@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit cmake-utils
+inherit cmake-utils multilib
 
 DESCRIPTION="Desktop Publishing (DTP) and Layout program for Linux."
 HOMEPAGE="http://www.scribus.net/"
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P/_/.}.7z"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cairo cups debug podofo python spell"
+IUSE="cairo cups debug +podofo python spell"
 
 COMMONDEPEND="
 	app-arch/p7zip
@@ -24,17 +24,18 @@ COMMONDEPEND="
 	media-libs/lcms
 	media-libs/libpng
 	media-libs/tiff
+	net-print/cups
 	sys-libs/zlib
 	x11-libs/qt-core:4
 	x11-libs/qt-gui:4
+	x11-libs/qt-sql:4
 	x11-libs/qt-xmlpatterns:4
 	cairo? ( x11-libs/cairo[X,svg] )
-	cups? ( net-print/cups )
 	podofo? ( app-text/podofo )
 	spell? ( app-text/aspell )
 "
 DEPEND="${COMMONDEPEND}
-	app-arch/lzma-utils
+	app-arch/p7zip
 "
 RDEPEND="${COMMONDEPEND}
 	virtual/ghostscript
@@ -42,15 +43,35 @@ RDEPEND="${COMMONDEPEND}
 
 S="${WORKDIR}/${P/_/.}"
 
+src_prepare() {
+	# fix libdir detection
+	# fix docdir
+	# fix tag appending to folder
+	# build 2geom and toy as shared things
+	sed -i \
+		-e "s:\"lib\${LIB_SUFFIX}\":\"$(get_libdir)\":g" \
+		-e "s:doc/\${MAIN_DIR_NAME}\${TAG_VERSION}/\":doc/${PF}/\":g" \
+		-e "s:doc/\${MAIN_DIR_NAME}-\${VERSION}/\":doc/${PF}/\":g" \
+		-e "s:\${MAIN_DIR_NAME}\${TAG_VERSION}:\${MAIN_DIR_NAME}:g" \
+		CMakeLists.txt || die "fixing libdir failed"
+	# build 2geom and toy as shared things
+	sed	-e "s:LIB_TYPE STATIC:LIB_TYPE SHARED:g" \
+		-i scribus/plugins/tools/2geomtools/lib2geom/CMakeLists.txt \
+		|| die "fixing static libs failed"
+}
+
 src_configure() {
+	# cairo can be used as replacement instead of qt arthur
 	mycmakeargs="${mycmakeargs}
+		-D2GEOM_BUILD_SHARED=ON
 		-DHAVE_CMS=ON
 		-DHAVE_FONTCONFIG=ON
 		-DHAVE_LIBZ=ON
 		-DHAVE_TIFF=ON
 		-DHAVE_XML=ON
+		-DWANT_NORPATH=OFF
 		-DWANT_QTARTHUR=ON
-		$(cmake-utils_use_has cups)
+		-DWANT_QT3SUPPORT=OFF
 		$(cmake-utils_use_has podofo)
 		$(cmake-utils_use_has python)
 		$(cmake-utils_use_has spell ASPELL)
@@ -61,8 +82,6 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-
-	dodoc AUTHORS ChangeLogSVN README || die "dodoc failed"
 
 	newmenu "${S}/${PN}.desktop" "${PN}.desktop" || die "domenu failed"
 	doicon "${S}/scribus/icons/scribus.png" || die "doicon failed"
