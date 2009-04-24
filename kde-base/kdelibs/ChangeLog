@@ -4,6 +4,10 @@
 
   24 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kdelibs-4.2.70-r1.ebuild,
   kdelibs-9999-r1.ebuild:
+  fix block to kde-base/libkworkspace-4.2.2
+
+  24 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kdelibs-4.2.70-r1.ebuild,
+  kdelibs-9999-r1.ebuild:
   Add block to kde-base/libkworkspace-4.2.2
 
 *kdelibs-4.2.70-r1 (21 Apr 2009)

@@ -87,7 +87,6 @@ RDEPEND="${COMMONDEPEND}
 	!<=kde-base/kdebase-3.5.9-r4
 	!<=kde-base/kdebase-startkde-3.5.10
 	!<kde-base/kdelibs-3.5.10
-	!~kde-base/libkworkspace-4.2.2
 	!x11-libs/qt-phonon
 	!kdeprefix? (
 		!kde-base/kitchensync:4.1
@@ -95,6 +94,7 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/kpercentage:4.1
 		!kde-base/ktnef:4.1
 		!kde-base/libplasma
+		!kde-base/libkworkspace:4.2[kdeprefix=]
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
 	kdeprefix? (
