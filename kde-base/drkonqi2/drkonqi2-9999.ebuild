@@ -14,7 +14,7 @@ KEYWORDS=""
 
 DEPEND="
 kdeprefix? (
-	!kde-base/drkonqi-${PV}:${SLOT}
+	!>=kde-base/drkonqi-${PV}:${SLOT}
 )
 !kdeprefix? (
 	!kde-base/drkonqi[kdeprefix=]
