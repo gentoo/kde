@@ -1,0 +1,11 @@
+# ChangeLog for kde-misc/translatoid
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*translatoid-9999 (25 Apr 2009)
+*translatoid-0.9 (25 Apr 2009)
+
+  25 Apr 2009; Markos Chandras <hwoarang@gentoo.org> +metadata.xml,
+  +translatoid-0.9.ebuild, +translatoid-9999.ebuild:
+  Initial commit for translatoid plasmoid
+
