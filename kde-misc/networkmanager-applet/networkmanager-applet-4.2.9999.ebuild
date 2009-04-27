@@ -11,7 +11,6 @@ inherit kde4-base
 
 DESCRIPTION="A NetworkManager applet for kde"
 HOMEPAGE="http://kde.org/"
-#ESVN_REVISION="952840"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
@@ -26,10 +25,10 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 
-# Fix dbus policy
-sed -i 's/at_console=".*"/group="plugdev"/' \
-"${S}/NetworkManager-kde4.conf" \
-        || die "sed failed"
+	# Fix dbus policy
+	sed -i 's/at_console=".*"/group="plugdev"/' \
+	"${S}/NetworkManager-kde4.conf" \
+        	|| die "Fixing dbus policy failed"
 
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
