@@ -14,7 +14,7 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="+browser debug +php"
+IUSE="debug +php"
 
 DEPEND="
 	>=dev-util/kdevelop-${PV}:${SLOT}
@@ -39,7 +39,6 @@ EOF
 
 src_configure() {
 	mycmakeargs="
-		$(cmake-utils_use_build browser classbrowser)
 		$(cmake-utils_use_build php)"
 
 	kde4-base_src_configure
