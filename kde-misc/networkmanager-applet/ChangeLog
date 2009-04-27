@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  networkmanager-applet-9999.ebuild:
+  update ebuild
+
   20 Apr 2009; Robert Piasek (dagger) <robert@piasek.co.uk>
   networkmanager-applet-4.2.9999.ebuild:
   New ebuild. This version work with kde 4.2.x

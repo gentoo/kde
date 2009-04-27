@@ -14,7 +14,7 @@ HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="live"
 IUSE="debug"
 
 DEPEND="
@@ -24,6 +24,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
+
+	# Fix dbus policy
+	sed -i 's/at_console=".*"/group="plugdev"/' \
+			"${S}/NetworkManager-kde4.conf" \
+				|| die "sed failed"
+
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
 
