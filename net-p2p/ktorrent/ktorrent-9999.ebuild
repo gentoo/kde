@@ -19,21 +19,24 @@ KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="3"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer +mediaplayer plasma rss +scanfolder +search +stats +upnp webinterface +zeroconf"
 
-COMMONDEPEND="app-crypt/qca:2
+COMMONDEPEND="
+	app-crypt/qca:2
 	dev-libs/gmp
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
 	rss? (
 		dev-libs/boost
 		>=kde-base/kdepimlibs-${KDE_MINIMAL}
-	)"
+	)
+"
 DEPEND="${COMMONDEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMONDEPEND}
-	!net-p2p/ktorrent:0
+	!kdeprefix? ( !net-p2p/ktorrent:0 )
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
-	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL} )"
+	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL} )
+"
 
 src_prepare() {
 	if ! use plasma; then
@@ -48,6 +51,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DENABLE_DHT_SUPPORT=ON
+		-DWITH_SYSTEM_GEOIP=ON
 		$(cmake-utils_use_enable bwscheduler BWSCHEDULER_PLUGIN)
 		$(cmake-utils_use_enable downloadorder DOWNLOADORDER_PLUGIN)
 		$(cmake-utils_use_enable infowidget INFOWIDGET_PLUGIN)

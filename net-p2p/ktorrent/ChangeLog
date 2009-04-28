@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  ktorrent-9999.ebuild:
+  Use system GeoIP library
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   ktorrent-9999.ebuild:
   Dropped kdeprefix
