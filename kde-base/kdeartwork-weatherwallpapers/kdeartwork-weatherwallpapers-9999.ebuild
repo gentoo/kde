@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="Weather aware wallpapers. Changes with weather outside."
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
