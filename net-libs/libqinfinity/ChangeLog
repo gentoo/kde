@@ -1,0 +1,9 @@
+# ChangeLog for net-libs/libqinfinity
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libqinfinity-9999 (28 Apr 2009)
+
+  28 Apr 2009; steffen stramm <krytzz@soylent.eu> +libqinfinity-9999.ebuild:
+  initial commit
+
