@@ -27,14 +27,12 @@
 	<flag name="jabber">Enable XMPP protocol handler (this is also gmail).</flag>
 	<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
 	<flag name="messenger">Enable support for MSN and Windows live protocols (old implementation).</flag>
-	<flag name="msn">Enable support for MSN (old microsoft protocol).</flag>
-	<flag name="oscar">Enable support for AIM and ICQ protocols.</flag>
+	<flag name="msn">Enable "Windows live messenger" protocol support.</flag>
 	<flag name="qq">enable support for the chinese network protocol.</flag>
 	<flag name="sms">Enable the sms sending plugin.</flag>
 	<flag name="telepathy">Enable support for the realtime communication framework telepathy.</flag>
 	<flag name="testbed">Enable the testbed protocol.</flag>
 	<flag name="winpopup">Enable pop-up messages sending on windows. (same as good old "net send" messages ;])</flag>
-	<flag name="wlm">Enable "Windows live messenger" protocol support (New protocol from MS).</flag>
 	<flag name="yahoo">Enable yahoo protocol support.</flag>
 </use>
 <herd>kde</herd>

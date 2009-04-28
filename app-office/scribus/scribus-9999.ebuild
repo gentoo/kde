@@ -68,7 +68,7 @@ src_configure() {
 		-DHAVE_LIBZ=ON
 		-DHAVE_TIFF=ON
 		-DHAVE_XML=ON
-		-DWANT_NORPATH=OFF
+		-DWANT_NORPATH=ON
 		-DWANT_QTARTHUR=ON
 		-DWANT_QT3SUPPORT=OFF
 		$(cmake-utils_use_has podofo)

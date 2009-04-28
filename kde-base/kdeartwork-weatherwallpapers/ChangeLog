@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdeartwork-weatherwallpapers-9999.ebuild:
+  Dropped debug IUSE
+
   25 Apr 2009; steffen stramm <krytzz@soylent.eu>
   kdeartwork-weatherwallpapers-9999.ebuild:
   location changed

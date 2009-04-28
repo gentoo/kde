@@ -3,6 +3,7 @@ kde-base/akregator:live
 kde-base/kabcclient:live
 kde-base/kaddressbook:live
 kde-base/kalarm:live
+kde-base/kcontactmanager:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
 kde-base/kdepim-strigi-analyzer:live
@@ -21,11 +22,10 @@ kde-base/kontact-specialdates:live
 kde-base/kontactinterfaces:live
 kde-base/korganizer:live
 # kde-base/korn:live disabled for now
-# kde-base/kpilot:live
+kde-base/kpilot:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
 kde-base/libkleo:live
 kde-base/libkpgp:live
 kde-base/libksieve:live
 kde-base/mimelib:live
-kde-base/kcontactmanager:live

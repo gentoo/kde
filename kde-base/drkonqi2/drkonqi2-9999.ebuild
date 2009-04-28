@@ -5,22 +5,19 @@
 EAPI="2"
 
 KMNAME="kdereview"
-
 inherit kde4-base
 
 DESCRIPTION="New KDE crash handler, gives the user feedback if a program crashed"
-IUSE="debug"
 KEYWORDS=""
+IUSE="debug"
 
-DEPEND="
-kdeprefix? (
-	!>=kde-base/drkonqi-${PV}:${SLOT}
-)
-!kdeprefix? (
-	!kde-base/drkonqi[kdeprefix=]
-)
-"
-
-RDEPEND="${DEPEND}
+# Temporary blocks for existing drkonqui
+RDEPEND="
+	!kdeprefix? (
+		!kde-base/drkonqi:4.1[-kdeprefix]
+		!kde-base/drkonqi:4.2[-kdeprefix]
+		!kde-base/drkonqi:4.3[-kdeprefix]
+	)
+	kdeprefix? ( !kde-base/drkonqi-${SLOT} )
 	sys-devel/gdb
 "

@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="cairo cups debug +podofo python spell"
 
 COMMONDEPEND="
-	app-arch/p7zip
+	dev-libs/boost
 	dev-libs/libxml2
 	media-libs/fontconfig
 	>=media-libs/freetype-2.3.7
@@ -55,9 +55,16 @@ src_prepare() {
 		-e "s:\${MAIN_DIR_NAME}\${TAG_VERSION}:\${MAIN_DIR_NAME}:g" \
 		CMakeLists.txt || die "fixing libdir failed"
 	# build 2geom and toy as shared things
-	sed	-e "s:LIB_TYPE STATIC:LIB_TYPE SHARED:g" \
-		-i scribus/plugins/tools/2geomtools/lib2geom/CMakeLists.txt \
+	sed	-i \
+		-e "s:LIB_TYPE STATIC:LIB_TYPE SHARED:g" \
+		scribus/plugins/tools/2geomtools/lib2geom/CMakeLists.txt \
 		|| die "fixing static libs failed"
+#		-e "s:^#FILE:FILE:g" \
+#		-e "s:^#INSTALL(FILES \$:INSTALL(FILES \$:g" \
+#		scribus/plugins/tools/2geomtools/lib2geom/CMakeLists.txt \
+#		|| die "fixing static libs failed"
+#	echo -e "\ninstall(TARGETS 2geom LIBRARY DESTINATION \${PLUGINDIR} PERMISSIONS \${PLUGIN_PERMISSIONS})" \
+#		>> scribus/plugins/tools/2geomtools/lib2geom/CMakeLists.txt
 }
 
 src_configure() {
@@ -69,7 +76,7 @@ src_configure() {
 		-DHAVE_LIBZ=ON
 		-DHAVE_TIFF=ON
 		-DHAVE_XML=ON
-		-DWANT_NORPATH=OFF
+		-DWANT_NORPATH=ON
 		-DWANT_QTARTHUR=ON
 		-DWANT_QT3SUPPORT=OFF
 		$(cmake-utils_use_has podofo)

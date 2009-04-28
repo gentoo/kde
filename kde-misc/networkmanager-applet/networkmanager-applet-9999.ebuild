@@ -14,7 +14,7 @@ HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="live"
+SLOT="0"
 IUSE="debug"
 
 DEPEND="
