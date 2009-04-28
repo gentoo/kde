@@ -11,7 +11,7 @@ HOMEPAGE="http://kaffeine.sourceforge.net/"
 SRC_URI="mirror://sourceforge/kaffeine/${P/_/-}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
+SLOT="0"
 IUSE="debug"
 
 RDEPEND="
