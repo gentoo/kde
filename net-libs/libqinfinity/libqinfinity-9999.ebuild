@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="net-libs/libinfinity"
-
+RDEPEND="${DEPEND}"
 #temporary ugly thing till i patched the buildsystem
 src_compile() {
 CMAKE_IN_SOURCE_BUILD=1 cmake-utils_src_compile
