@@ -13,7 +13,7 @@ HOMEPAGE="http://kaffeine.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
+SLOT="0"
 IUSE="debug dvb xcb encode vorbis"
 
 RDEPEND="
