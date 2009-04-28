@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kaffeine-1.0_pre1.ebuild:
+  Most common docs are already installed by kde4-base eclass
+
   18 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kaffeine-9999.ebuild:
   Dropped live SLOT, deps sorted

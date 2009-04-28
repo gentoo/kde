@@ -12,11 +12,11 @@ DESCRIPTION="Media player for KDE using xine and gstreamer backends."
 HOMEPAGE="http://kaffeine.sourceforge.net/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
-SLOT="0"
+KEYWORDS="~amd64 ~x86"
+SLOT="1"
 IUSE="debug dvb xcb encode vorbis"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=media-libs/xine-lib-1.1.12
 	media-sound/cdparanoia
 	x11-libs/libXtst
@@ -24,7 +24,10 @@ RDEPEND="
 	vorbis? ( media-libs/libvorbis )
 	xcb? ( >=x11-libs/libxcb-1.0 )
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	!kdeprefix? ( !media-video/kaffeine:0 )
+"
+DEPEND="${COMMON_DEPEND}
 	x11-proto/inputproto
 	dvb? ( media-tv/linuxtv-dvb-headers )
 "

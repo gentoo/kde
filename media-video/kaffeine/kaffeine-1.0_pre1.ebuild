@@ -9,19 +9,21 @@ inherit kde4-base
 DESCRIPTION="Media player for KDE using xine and gstreamer backends."
 HOMEPAGE="http://kaffeine.sourceforge.net/"
 SRC_URI="mirror://sourceforge/kaffeine/${P/_/-}.tar.gz"
+
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="1"
 IUSE="debug"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=media-libs/xine-lib-1.1.12
 	x11-libs/libXtst
 "
-DEPEND="${RDEPEND}
-	x11-proto/inputproto
+RDEPEND="${COMMON_DEPEND}
+	!kdeprefix? ( !media-video/kaffeine:0 )
+"
+DEPEND="${COMMON_DEPEND}
 	media-tv/linuxtv-dvb-headers
+	x11-proto/inputproto
 "
 S=${WORKDIR}/${P/_/-}
-
-DOCS="AUTHORS TODO"
