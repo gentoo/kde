@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  k3b-1.65.0_alpha1.ebuild, k3b-9999.ebuild:
+  Reordered deps
+
   23 Apr 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   k3b-1.65.0_alpha1.ebuild, k3b-9999.ebuild:
   k3b requires >=qt-4.5.0 to build

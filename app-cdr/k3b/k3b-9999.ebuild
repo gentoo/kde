@@ -17,9 +17,9 @@ KEYWORDS=""
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"
 
 DEPEND="
-	>=x11-libs/qt-gui-4.5.0
 	>=kde-base/libkcddb-${KDE_MINIMAL}
 	media-libs/libsamplerate
+	>=x11-libs/qt-gui-4.5.0
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? ( >=media-video/ffmpeg-0.4.9_p20080206 )
 	flac? ( >=media-libs/flac-1.2.1-r2[cxx] )
