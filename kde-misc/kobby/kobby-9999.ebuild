@@ -15,5 +15,5 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
-	net-libs/libqinfinity"
+DEPEND="net-libs/libqinfinity"
+RDEPEND="${DEPEND}"
