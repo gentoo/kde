@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, libqinfinity-9999.ebuild:
+  Added debug IUSE, small cleanup
+
 *libqinfinity-9999 (28 Apr 2009)
 
   28 Apr 2009; steffen stramm <krytzz@soylent.eu> +libqinfinity-9999.ebuild:

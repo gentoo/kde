@@ -9,13 +9,14 @@ HOMEPAGE="http://kobby.greghaynes.net/wiki/libqinfinity"
 EGIT_REPO_URI="git://github.com/greghaynes/libqinfinity"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS=""
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND="net-libs/libinfinity"
+DEPEND="
+	net-libs/libinfinity
+"
 RDEPEND="${DEPEND}"
+
 #temporary ugly thing till i patched the buildsystem
-src_compile() {
-CMAKE_IN_SOURCE_BUILD=1 cmake-utils_src_compile
-}
+CMAKE_IN_SOURCE_BUILD=1
