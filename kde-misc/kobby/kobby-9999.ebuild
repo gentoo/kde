@@ -15,5 +15,12 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="net-libs/libqinfinity"
+DEPEND="
+	net-libs/libqinfinity
+"
 RDEPEND="${DEPEND}"
+
+# Needed since git eclass provides one..
+src_prepare() {
+	kde4-base_src_prepare
+}

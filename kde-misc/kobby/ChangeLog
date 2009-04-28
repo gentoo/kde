@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +metadata.xml, kobby-9999.ebuild:
+  Added metadata, force override src_prepare
+
 *kobby-9999 (28 Apr 2009)
 
   28 Apr 2009; steffen stramm <krytzz@soylent.eu> +kobby-9999.ebuild:
