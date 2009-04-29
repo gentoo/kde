@@ -447,6 +447,7 @@ kde4-base_src_prepare() {
 	fi
 
 	base_src_prepare
+	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
