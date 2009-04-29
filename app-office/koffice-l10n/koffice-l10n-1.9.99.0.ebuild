@@ -14,9 +14,10 @@ DEPEND="sys-devel/gettext"
 RDEPEND=""
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE=""
+IUSE="doc"
 
-MY_LANGS="ca de el et fr fy gl hi it ja kk nds nl pl pt pt_BR sv tr uk zh_TW"
+MY_LANGS="ca da de el en_GB et fr fy gl hi it ja kk nb nds nl pl pt pt_BR sv tr
+	uk zh_CN zh_TW"
 URI_BASE="mirror://kde/unstable/koffice-${PV}/src/${PN}/"
 SRC_URI=""
 SLOT="2"
@@ -56,6 +57,10 @@ src_unpack() {
 }
 
 src_configure() {
+	local mycmakeargs
+
+	mycmakeargs="${mycmakeargs} -DBUILD_MESSAGES=ON -DBUILD_DATA=ON
+		$(cmake-utils_build doc)"
 	[[ -n ${A} ]] && kde4-base_src_configure
 }
 
