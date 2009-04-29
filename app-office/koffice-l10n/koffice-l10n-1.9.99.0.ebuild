@@ -61,13 +61,13 @@ src_configure() {
 
 	mycmakeargs="${mycmakeargs} -DBUILD_MESSAGES=ON -DBUILD_DATA=ON
 		$(cmake-utils_build doc)"
-	[[ -n ${A} ]] && kde4-base_src_configure
+	[[ -e "${S}"/CMakeLists.txt ]] && kde4-base_src_configure
 }
 
 src_compile() {
-	[[ -n ${A} ]] && kde4-base_src_compile
+	[[ -e "${S}"/CMakeLists.txt ]] && kde4-base_src_compile
 }
 
 src_install() {
-	[[ -n ${A} ]] && kde4-base_src_install
+	[[ -e "${S}"/CMakeLists.txt ]] && kde4-base_src_install
 }
