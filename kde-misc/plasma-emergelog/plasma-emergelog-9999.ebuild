@@ -10,7 +10,7 @@ DESCRIPTION="Kde4 plasmoid for monitoring emerge progress on Gentoo Linux"
 HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
 EGIT_REPO_URI="git://github.com/hwoarang/plasma-emergelog.git"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
