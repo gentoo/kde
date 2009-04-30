@@ -48,7 +48,7 @@ src_unpack() {
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
 		for lng in ${LINGUAS}; do
-			dir="${PN}-${LNG}-${PV}"
+			dir="${PN}-${lng}-${PV}"
 			if [[ -d "${dir}" ]] ; then
 				echo "add_subdirectory( ${dir} )" >> "${S}"/CMakeLists.txt
 			fi
