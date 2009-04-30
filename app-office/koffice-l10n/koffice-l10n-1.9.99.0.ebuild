@@ -60,7 +60,7 @@ src_configure() {
 	local mycmakeargs
 
 	mycmakeargs="${mycmakeargs} -DBUILD_MESSAGES=ON -DBUILD_DATA=ON
-		$(cmake-utils_build doc)"
+		$(cmake-utils_use_build doc)"
 	[[ -e "${S}"/CMakeLists.txt ]] && kde4-base_src_configure
 }
 
