@@ -13,7 +13,7 @@ MY_P="${PN}-${PV/_/-}"
 
 DESCRIPTION="KDE utility for management of partitions and file systems."
 HOMEPAGE="http://partitionman.sourceforge.net/"
-SRC_URI="mirror://sourceforge/partitionman/${MY_P/beta/BETA}a.tar.bz2"
+SRC_URI="mirror://sourceforge/partitionman/${MY_P/beta/BETA}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
