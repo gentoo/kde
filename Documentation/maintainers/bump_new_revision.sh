@@ -2,7 +2,7 @@
 ###############################################################################
 # KDE Version bumper
 # Created by Gentoo kde-herd
-# This tool is ment to be used for ease of version bumping for KDE ebuilds
+# This tool is meant to be used for ease of version bumping for KDE ebuilds
 # v 0.21
 ###############################################################################
 # functions
@@ -160,24 +160,17 @@ while getopts a:s:v:b:l:p:o: arg ; do
 done
 case ${OPERATION} in
 	bump)
-		if [ -z "${SLOT}" ] || [ -z "${VERSION}" ] || [ -z "${BUMP_VERSION}" ]; then
-			help
-		fi
+		[[ -z "${SLOT}" || -z "${VERSION}" || -z "${BUMP_VERSION}" ]] && help
 		;;
 	remove)
-		if [ -z "${VERSION}" ]; then
-			help
-		fi
+		[[ -z "${VERSION}" ]] && help
 		;;
 	slot)
-		if [ -z "${SLOT}" ] || [ -z "${BUMP_VERSION}" ]; then
-			help
-		fi
+		[[ -z "${SLOT}" || -z "${BUMP_VERSION}" ]] && help
 		;;
 	diff)
-		if [ -z "${VERSION}" ] || [ -z "${BUMP_VERSION}" ] || [ -z "${DIR}" ] || [ -z "${OUTPUT_DIR}" ];  then
+		[[ -z "${VERSION}" || -z "${BUMP_VERSION}" || -z "${DIR}" || -z "${OUTPUT_DIR}" ]] && \
 			help
-		fi
 		;;
 	*)
 		help
@@ -204,6 +197,9 @@ case ${OPERATION} in
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
 			#OLD_BASE="$(portageq portdir)"/"${EBUILD_BASEDIR}"/
 			OLD_BASE="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ # uncoment if you work in overlay only
+			# by default we should pick-up live stable or live ebuilds. But we need to restore the keywords from the previous version of kde
+			# ie. bumping 4.2.71 you pick keywords from 4.2.70 but the ebuilds from 9999.
+			# and bumping 4.2.3 you pick keywords from 4.2.2 but ebuilds from 4.2.9999.
 			OLD=`find ${OLD_BASE} -name \*${VERSION}\*.ebuild |sort -r |head -n 1`
 			mkdir "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ -p # wont harm kittens
 			NEW="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/"${EBUILD_BASENAME}"-${BUMP_VERSION}.ebuild
