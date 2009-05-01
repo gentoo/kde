@@ -23,6 +23,4 @@ DEPEND="
 	>=kde-base/systemsettings-${KDE_MINIMAL}
 	net-wireless/wireless-tools
 "
-RDEPEND="${DEPEND}
-	!kdeprefix? ( !net-misc/knemo:0 )
-"
+RDEPEND="${DEPEND}"
