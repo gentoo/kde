@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdelibs-4.2.70-r1.ebuild, +kdelibs-4.2.71.ebuild:
+  Version removed.
+
+*kdelibs-4.2.71 (01 May 2009)
+
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kdelibs-4.2.71.ebuild:
+  Version bump.
+
   24 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> kdelibs-4.2.70-r1.ebuild,
   kdelibs-9999-r1.ebuild:
   fix block to kde-base/libkworkspace-4.2.2

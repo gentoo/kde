@@ -40,5 +40,6 @@ KMEXTRACTONLY="
 	kontact/plugins/ktimetracker/
 	kontact/plugins/planner/
 	kontact/plugins/specialdates/
+	kontact/plugins/kcontactmanager/
 	kontactinterfaces/
 "

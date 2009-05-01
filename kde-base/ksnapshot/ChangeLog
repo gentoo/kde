@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -ksnapshot-4.2.70.ebuild,
+  +ksnapshot-4.2.71.ebuild:
+  Version removed.
+
+*ksnapshot-4.2.71 (01 May 2009)
+
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +ksnapshot-4.2.71.ebuild:
+  Version bump.
+
   20 Apr 2009; <chris@gentoo.org> ChangeLog:
   Version bump.
 

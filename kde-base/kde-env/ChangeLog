@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -kde-env-4.2.70.ebuild,
+  +kde-env-4.2.71.ebuild:
+  Version removed.
+
+*kde-env-4.2.71 (01 May 2009)
+
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kde-env-4.2.71.ebuild:
+  Version bump.
+
   25 Apr 2009; steffen stramm <krytzz@soylent.eu> kde-env-4.2.2.ebuild,
   kde-env-4.2.70.ebuild, kde-env-4.2.9999.ebuild, kde-env-9999.ebuild:
   KDEDIRS="/usr" was missing, quick fix

@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -printer-applet-4.2.70.ebuild, +printer-applet-4.2.71.ebuild:
+  Version removed.
+
+*printer-applet-4.2.71 (01 May 2009)
+
+  01 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +printer-applet-4.2.71.ebuild:
+  Version bump.
+
   21 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   printer-applet-4.2.9999.ebuild:
   Ups, too many keywords
