@@ -28,8 +28,7 @@ PATCHES=(
 S=${WORKDIR}/${MY_PN}
 
 pkg_postinst() {
-	elog "If you want additional themes just download"
+	elog "If you want additional themes just download:"
 	elog "http://betta.h.com.ua/no-site/qt4.tar.gz"
-	elog "and put into ~/.themes/ or just use any nice"
-	elog "gtk theme."
+	elog "and put into ~/.themes/ or just use any nice gtk theme."
 }
