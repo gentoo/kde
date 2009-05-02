@@ -17,6 +17,6 @@ DEPEND="
 		dev-libs/soprano[clucene,dbus,raptor,java]
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
-	!kdeprefix? ( !<=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=] )
+	!kdeprefix? ( !<kde-base/akonadi-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}"
