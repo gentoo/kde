@@ -37,6 +37,6 @@ src_install() {
 
 	# install additional generated header that is needed by kresources
 	insinto "${KDEDIR}"/include/${PN}
-	doins "${WORKDIR}"/${P}_build/${PN}/common/kabprefs_base.h || \
-	die "Failed to install extra header files"
+	doins "${CMAKE_BUILD_DIR}"/${PN}/common/kabprefs_base.h || \
+		die "Failed to install extra header files"
 }
