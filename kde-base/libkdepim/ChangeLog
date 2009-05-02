@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 May 2009; Alexey Shvetsov <alexxy@gentoo.org> libkdepim-4.2.71.ebuild:
+  fix idl0r issue
+
   01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -libkdepim-4.2.70.ebuild,
   +libkdepim-4.2.71.ebuild:
   Version removed.
