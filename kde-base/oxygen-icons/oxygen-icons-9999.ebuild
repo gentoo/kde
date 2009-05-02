@@ -4,12 +4,11 @@
 
 EAPI="2"
 
-KMNAME="kdesupport"
-KMMODULE="oxygen-icons"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/oxygen-icons"
 
 LICENSE="LGPL-3"
 KEYWORDS=""
