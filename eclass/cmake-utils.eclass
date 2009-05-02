@@ -215,7 +215,7 @@ _modify-cmakelists() {
 
 	# Comment out all set (<some_should_be_user_defined_variable> value)
 	# TODO Add QA checker - inform when variable being checked for below is set in CMakeLists.txt
-	find "${S}" -name CMakeLists.txt \
+	find "${CMAKE_USE_DIR}" -name CMakeLists.txt \
 		-exec sed -i -e '/^[[:space:]]*[sS][eE][tT][[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE.*)/{s/^/#IGNORE /g}' {} + \
 		-exec sed -i -e '/^[[:space:]]*[sS][eE][tT][[:space:]]*([[:space:]]*CMAKE_INSTALL_PREFIX.*)/{s/^/#IGNORE /g}' {} + \
 		|| die "${LINENO}: failed to disable hardcoded settings"
@@ -235,9 +235,9 @@ cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# check if CMakeLists.txt exist and if no then die
-	if [[ ! -e "${S}"/CMakeLists.txt ]] ; then
+	if [[ ! -e "${CMAKE_USE_DIR}"/CMakeLists.txt ]] ; then
 		eerror "I was unable to locate CMakeLists.txt under:"
-		eerror "\"${S}/CMakeLists.txt\""
+		eerror "\"${CMAKE_USE_DIR}/CMakeLists.txt\""
 		eerror "You should consider not inheriting the cmake eclass."
 		die "FATAL: Unable to find CMakeLists.txt"
 	fi
@@ -285,7 +285,7 @@ _EOF_
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is $cmakeargs"
-	cmake ${cmakeargs} "${S}" || die "cmake failed"
+	cmake ${cmakeargs} "${CMAKE_USE_DIR}" || die "cmake failed"
 
 	popd > /dev/null
 }
