@@ -7,7 +7,7 @@ EAPI="2"
 inherit kde4-base
 
 DESCRIPTION="Kde4 plasmoid for monitoring emerge progress on Gentoo Linux"
-HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
+HOMEPAGE="http://www.kde-look.org/content/show.php?content=103928"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/103928-${P}.tar.gz"
 
 LICENSE="GPL-2"
