@@ -111,18 +111,18 @@ _use_me_now_inverted() {
 # specific compiler flags overriding make.conf.
 : ${CMAKE_BUILD_TYPE:=Gentoo}
 
-# @ECLASS-VARIABLE: CMAKE_USE_DIR
-# @DESCRIPTION:
-# Sets the directory where we are working with cmake.
-# For example when application uses autotools and only one
-# plugin needs to be done by cmake.
-# By default it uses ${S}.
-: ${CMAKE_USE_DIR:=${S}}
-
 # @FUNCTION: _check_build_dir
 # @DESCRIPTION:
 # Determine using IN or OUT source build
 _check_build_dir() {
+	# @ECLASS-VARIABLE: CMAKE_USE_DIR
+	# @DESCRIPTION:
+	# Sets the directory where we are working with cmake.
+	# For example when application uses autotools and only one
+	# plugin needs to be done by cmake.
+	# By default it uses ${S}.
+	: ${CMAKE_USE_DIR:=${S}}
+
 	# in/out source build
 	if [[ -n "${CMAKE_IN_SOURCE_BUILD}" ]]; then
 		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}"
