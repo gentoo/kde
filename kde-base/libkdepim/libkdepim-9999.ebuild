@@ -29,7 +29,7 @@ src_install() {
 
 	# install additional generated headers that are needed by other packages that
 	# are derived from kdepim. e.g. kmail.
-	pushd "${WORKDIR}/${PN}_build/libkdepim/" 2>/dev/null || die "pushd libkdepim failed"
+	pushd "${CMAKE_BUILD_DIR}/libkdepim/" 2>/dev/null || die "pushd libkdepim failed"
 	insinto "${PREFIX}/include"
 	doins ui_addresspicker.h ui_categoryselectdialog_base.h || die "Failed to install extra header files."
 	popd 2>/dev/null
