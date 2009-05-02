@@ -4,18 +4,19 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+KMNAME="kdesupport"
+KMMODULE="oxygen-icons"
+inherit kde4-meta
 
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/oxygen-icons"
+SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${P}.tar.lzma"
 
 LICENSE="LGPL-3"
-SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	!<=kde-base/kdebase-data-4.2.66[-kdeprefix]
+	!x11-themes/oxygen-icon
 	!x11-themes/oxygen-icon-theme
 "
