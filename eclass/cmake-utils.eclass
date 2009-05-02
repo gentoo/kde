@@ -234,6 +234,8 @@ Install path: ${CMAKE_INSTALL_PREFIX}\n")' >> CMakeLists.txt
 cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	_check_build_dir
+
 	# check if CMakeLists.txt exist and if no then die
 	if [[ ! -e "${CMAKE_USE_DIR}"/CMakeLists.txt ]] ; then
 		eerror "I was unable to locate CMakeLists.txt under:"
@@ -281,7 +283,6 @@ _EOF_
 	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET (CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> ${common_config}
 	cmakeargs="-C ${common_config} ${cmakeargs}"
 
-	_check_build_dir
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is $cmakeargs"
