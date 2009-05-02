@@ -45,6 +45,6 @@ src_install() {
 
 	# Install headers needed by kdepim-wizards
 	insinto "${PREFIX}"/include/${PN}
-	doins "${WORKDIR}"/${P}_build/${KMMODULE}/{groupwise,egroupware,slox}/*.h || \
+	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/{groupwise,egroupware,slox}/*.h || \
 			die "Failed to install extra header files"
 }
