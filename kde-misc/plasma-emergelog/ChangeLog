@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*plasma-emergelog-0.0.1 (02 May 2009)
+
+  02 May 2009; Markos Chandras <hwoarang@gentoo.org>
+  +plasma-emergelog-0.0.1.ebuild:
+  Bump to 0.0.1
+
   29 Apr 2009; Markos Chandras <hwoarang@gentoo.org>
   plasma-emergelog-9999.ebuild:
   Set license to GPL-2
