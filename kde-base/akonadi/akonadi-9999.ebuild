@@ -60,6 +60,13 @@ src_configure() {
 	kde4-meta_src_configure
 }
 
+src_install() {
+	kde4-meta_src_install
+	# colliding files with nepomuk
+	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nmo.{desktop,trig}
+	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nco.{desktop,trig}
+}
+
 src_test() {
 	# disable broken test
 	sed -i -e '/mailserializerplugintest/ s/^/#DO_NOT_RUN_TEST /' \
