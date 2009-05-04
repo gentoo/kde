@@ -1,0 +1,24 @@
+--- trunk/KDE/kdebindings/python/pykde4/sip/kdecore/ktcpsocket.sip	2009/05/01 15:50:58	962165
++++ trunk/KDE/kdebindings/python/pykde4/sip/kdecore/ktcpsocket.sip	2009/05/01 15:56:01	962166
+@@ -247,16 +247,16 @@
+ };   // KTcpSocket
+ 
+ 
+-class SslErrorUiData
++class KSslErrorUiData
+ {
+ %TypeHeaderCode
+ #include <ktcpsocket.h>
+ %End
+ 
+ public:
+-                            SslErrorUiData ();
+-                            SslErrorUiData (const KTcpSocket* socket);
+-                            SslErrorUiData (const SslErrorUiData& other);
+-};   // SslErrorUiData
++                            KSslErrorUiData ();
++                            KSslErrorUiData (const KTcpSocket* socket);
++                            KSslErrorUiData (const KSslErrorUiData& other);
++};   // KSslErrorUiData
+ 
+ 

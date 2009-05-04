@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 May 2009; Alexey Shvetsov <alexxy@gentoo.org> pykde4-4.2.71.ebuild,
+  +files/pykde4-4.2.71-ktcpsocket.sip.patch:
+  fix pykde4
+
   01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -pykde4-4.2.70.ebuild,
   +pykde4-4.2.71.ebuild:
   Version removed.
