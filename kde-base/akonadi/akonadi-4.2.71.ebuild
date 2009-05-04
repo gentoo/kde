@@ -38,7 +38,7 @@ src_prepare() {
 			akonadi/resources/CMakeLists.txt\
 			|| die "Failed to disable nepomuktag"
 	fi
-
+	epatch "${FILESDIR}/akonadi-4.2.71-emaillineedit.patch"
 	kde4-meta_src_prepare
 }
 

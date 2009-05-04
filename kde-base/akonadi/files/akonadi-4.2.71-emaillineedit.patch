@@ -1,0 +1,11 @@
+diff -urN akonadi-4.2.71.old/akonadi/akonadi_next/emaillineedit.cpp akonadi-4.2.71/akonadi/akonadi_next/emaillineedit.cpp
+--- akonadi-4.2.71.old/akonadi/akonadi_next/emaillineedit.cpp	2009-04-06 00:00:48.000000000 +0400
++++ akonadi-4.2.71/akonadi/akonadi_next/emaillineedit.cpp	2009-05-04 21:19:43.646370867 +0400
+@@ -31,7 +31,6 @@
+ #include <akonadi/entitydisplayattribute.h>
+ #include <akonadi/itemfetchscope.h>
+ 
+-#include "entityupdateadapter.h"
+ #include "descendantentitiesproxymodel.h"
+ #include "entityfilterproxymodel.h"
+ 
