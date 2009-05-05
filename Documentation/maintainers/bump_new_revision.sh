@@ -108,6 +108,23 @@ check_cmakelists() {
 	done
 }
 
+# Check in tree keywords and push them to the overlay,
+# If there is no ebuild add ~amd64 and ~x86 only.
+# If there is more archs in overlay drop them, only tree one counts.
+# These syncs are done druing update and during move back to MAIN tree.
+sync_main_keywords_with_overlay() {
+	# first strip of all keywords
+	ekeyword ^all ${1}
+	# then apply them back
+	local dir="$(portageq portdir)${2}"
+	if [[ -d "${dir}" ]] ; then
+		KEYWORDS="$(find "${dir}" -name *ebuild | xargs -i grep KEYWORDS {} |sort |tail -n 1 |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+	else
+		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
+	fi
+	ekeyword $KEYWORDS ${1} &> /dev/null
+}
+
 # print out help function
 help() {
 	echo "Welcome to KDE package version bumper"
@@ -147,15 +164,15 @@ DIR=
 OUTPUT_DIR=
 while getopts a:s:v:b:l:p:o: arg ; do
 	case ${arg} in
-		a) OPERATION=${OPTARG};;
-		s) SLOT=${OPTARG};;
-		v) VERSION=${OPTARG};;
-		b) BUMP_VERSION="${OPTARG}";;
-		l) SET="${OPTARG}";;
-		p) DIR="${OPTARG}";;
-		o) OUTPUT_DIR="${OPTARG}";;
-		*) help;;
-		?) help;;
+		a) OPERATION=${OPTARG} ;;
+		s) SLOT=${OPTARG} ;;
+		v) VERSION=${OPTARG} ;;
+		b) BUMP_VERSION="${OPTARG}" ;;
+		l) SET="${OPTARG}" ;;
+		p) DIR="${OPTARG}" ;;
+		o) OUTPUT_DIR="${OPTARG}" ;;
+		*) help ;;
+		?) help ;;
 	esac
 done
 case ${OPERATION} in
@@ -217,10 +234,12 @@ case ${OPERATION} in
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
 				# we have update keywords
+				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR}
 				update_package_keywords ${NEW}
 				# update manifest and changelog
 				update_package_changelog ${EBUILD_NAME}
 				update_package_manifest
+				git add .
 			fi
 		done
 		echo -e ${INFO_LIST}
@@ -258,6 +277,7 @@ case ${OPERATION} in
 			fi
 			echangelog "Version removed." &> /dev/null
 			repoman manifest
+			git add .
 			popd &> /dev/null #go back to workdir
 		done
 		;;
