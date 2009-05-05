@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/libknotificationitem
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libknotificationitem-9999 (05 May 2009)
+
+  05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +libknotificationitem-9999.ebuild:
+  new ebuild for libknotificationitem
+
