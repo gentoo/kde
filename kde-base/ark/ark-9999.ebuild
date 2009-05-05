@@ -14,6 +14,7 @@ IUSE="+archive debug doc +zip"
 DEPEND="
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )
 	zip? ( >=dev-libs/libzip-0.8 )
+	>=kde-base/libknotificationitem-${PV}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
