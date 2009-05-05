@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*plasma-workspace-9999-r1 (05 May 2009)
+
+  05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  -plasma-workspace-9999.ebuild, +plasma-workspace-9999-r1.ebuild:
+  revbumped the live one, required to get rid of file collisions with
+  libknotificationitem
+
 *plasma-workspace-4.2.3 (05 May 2009)
 
   05 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
