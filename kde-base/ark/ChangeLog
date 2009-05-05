@@ -4,6 +4,10 @@
 
   05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   ark-9999.ebuild:
+  fixed dep order
+
+  05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  ark-9999.ebuild:
   added libknotificationitem depend
 
 *ark-4.2.3 (05 May 2009)
