@@ -17,5 +17,6 @@ DEPEND="
 		dev-libs/soprano[clucene,dbus,raptor,java]
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
