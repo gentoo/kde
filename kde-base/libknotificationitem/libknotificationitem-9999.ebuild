@@ -4,6 +4,9 @@
 
 EAPI="2"
 
+# this lib is extragear but live kde-base ebuilds depend on it
+# (ark, nepomuk, plasma-workspace)
+# we're keeping it in kde-base/ for now to avoid confusion
 KMNAME="extragear/libs"
 inherit kde4-meta
 

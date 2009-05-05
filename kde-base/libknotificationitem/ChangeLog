@@ -4,6 +4,12 @@
 
   05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   libknotificationitem-9999.ebuild:
+  added some ebuild comments: this library is extragear but various live
+  kde-base/ ebuilds need it, so we're keeping it in kde-base/ to avoid
+  confusion
+
+  05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  libknotificationitem-9999.ebuild:
   added plasma-workspace block to work around file collisions
 
 *libknotificationitem-9999 (05 May 2009)
