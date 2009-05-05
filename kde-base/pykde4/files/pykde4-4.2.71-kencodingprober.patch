@@ -1,0 +1,14 @@
+diff -urN pykde4-4.2.71.old/python/pykde4/sip/kdecore/kencodingprober.sip pykde4-4.2.71/python/pykde4/sip/kdecore/kencodingprober.sip
+--- pykde4-4.2.71.old/python/pykde4/sip/kdecore/kencodingprober.sip	2009-04-30 22:02:22.000000000 +0400
++++ pykde4-4.2.71/python/pykde4/sip/kdecore/kencodingprober.sip	2009-05-03 10:34:24.000000000 +0400
+@@ -71,6 +71,10 @@
+     void                    setProberType (KEncodingProber::ProberType proberType);
+     static KEncodingProber::ProberType  proberTypeForName (const QString& lang);
+     static QString          nameForProberType (KEncodingProber::ProberType proberType);
++
++private:
++    KEncodingProber(const KEncodingProber & other);
++
+ };   // KEncodingProber
+ 
+ 

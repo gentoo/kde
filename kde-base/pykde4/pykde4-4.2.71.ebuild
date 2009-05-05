@@ -24,7 +24,10 @@ RDEPEND="${DEPEND}
 "
 src_prepare() {
 	kde4-meta_src_prepare
-	epatch "${FILESDIR}/pykde4-4.2.71-ktcpsocket.sip.patch"
+	epatch "${FILESDIR}/pykde4-4.2.71-ktcpsocket.patch"
+	epatch "${FILESDIR}/pykde4-4.2.71-backendcapabilities.patch"
+	epatch "${FILESDIR}/pykde4-4.2.71-kdatetime.patch"
+	epatch "${FILESDIR}/pykde4-4.2.71-kencodingprober.patch"
 	if ! use examples; then
 		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i python/${PN}/CMakeLists.txt \
 			|| die "Failed to disable examples"
