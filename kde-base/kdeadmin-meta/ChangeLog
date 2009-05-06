@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeadmin-meta-4.2.3 (06 May 2009)
+
+  06 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +kdeadmin-meta-4.2.3.ebuild:
+  bumped to 4.2.3
+
   12 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org>
   -kdeadmin-meta-4.2.2.ebuild:
   Version removed.
