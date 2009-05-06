@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kde-l10n-4.2.3 (06 May 2009)
+
+  06 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kde-l10n-4.2.3.ebuild:
+  bump
+
   05 May 2009; Alexey Shvetsov <alexxy@gentoo.org> ChangeLog:
   Version bump.
 
