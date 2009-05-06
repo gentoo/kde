@@ -114,15 +114,17 @@ check_cmakelists() {
 # These syncs are done druing update and during move back to MAIN tree.
 sync_main_keywords_with_overlay() {
 	# first strip of all keywords
-	ekeyword ^all ${1}
+	ekeyword ^all ${1} &> /dev/null
 	# then apply them back
 	local dir="$(portageq portdir)${2}"
 	if [[ -d "${dir}" ]] ; then
-		KEYWORDS="$(find "${dir}" -name *ebuild | xargs -i grep KEYWORDS {} |sort |tail -n 1 |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		pushd "${dir}" &> /dev/null
+		KEYWORDS="$(find ./ -name \*ebuild | sort | tail -n 2 |head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		popd &> /dev/null
 	else
 		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
 	fi
-	ekeyword $KEYWORDS ${1} &> /dev/null
+	ekeyword $KEYWORDS ${1} &> /dev/null 
 }
 
 # print out help function
@@ -154,17 +156,19 @@ help() {
 
 _cvsupdate() {
 	pushd "${1}" &> /dev/null
-	cvs up
+#	cvs up
 	popd &> /dev/null
 }
 _addcvsfile() {
 	pushd "${1}" &> /dev/null
+	echo "${1}/${2}"
 	cvs add ${2}
 	popd &> /dev/null
 }
 _check_patches() {
 	pushd "${1}" &> /dev/null
-	rm ${TMPFILE} && touch ${TMPFILE}
+	rm ${TMPFILE} &> /dev/null
+	touch ${TMPFILE} &> /dev/null
 	[[ -d files/ ]] || return
 	find ./files/ -type f |grep -v "CVS/" |grep -v ".svn" |sort -u |sed -e "s:\./files/::g" |while read PATCH; do
 		P1="`echo ${3}| sed -e "s:.ebuild::g"`"
@@ -299,6 +303,7 @@ case ${OPERATION} in
 						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
 						if [[ $(echo ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
 							PATCH_IN_USE="true"
+							popd &> /dev/null
 							break
 						fi
 					done
@@ -318,56 +323,68 @@ case ${OPERATION} in
 	diff) check_cmakelists ;;
 	cvsmove)
 		MAINTREE="$(portageq portdir)"
+		OVERLAY="`pwd`"
 		# course of action we are doing here
 		# cvs up whole tree, then kde-base
 		# then start going per each dir
 		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest, commit
 		_cvsupdate "${MAINTREE}"
 		find ./kde-base/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
-			WRKDIR="${MAINTREE}/${dir}"
-			_cvsupdate "${WRKDIR}"
-			if [[ ! -d "${WRKDIR}" ]]; then
-				# we need to add the directory to scm tracking
-				mkdir -p "${WRKDIR}"
-				_addcvsfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//} 
-			fi
-			# we need to copy the file we want to play with
-			## first generate the correct filename, we expect that if someone added -rX to the package it has reason.
-			EBUILD=`find ${dir} -name \*.ebuild |grep ${VERSION} | sort |tail -n 1`
-			cp ${EBUILD} "${WRKDIR}"
-			_addcvsfile ${WRKDIR} ${EBUILD/*\//}
-			# now we need to search up all patches ebuild is containing and move them along if they are needed.
-			_check_patches ${dir} ${WRKDIR} ${EBUILD/*\//}
-			cat ${TMPFILE} |while read file; do
-				# we actualy have to check if the file is not in subdir and create corresponding directory structure
-				if [[ ! -d "${WRKDIR}/files" ]]; then
-					# create files dir
-					mkdir -p "${WRKDIR}/files"
-					_addcvsfile "${WRKDIR}" files/
-				fi
-				pushd ${dir} &> /dev/null
-				PTH=`find ./ -name ${file} |sed -e "s:./::" -e "s:${file}::"`
-				PDIR=""
-				if [[ ${PTH} != "files/" ]]; then
-					# fixme i expect only one depth folders
-					# anyway no kde package don't use more than one so i wont bother for now
-					PDIR=${PTH/files\//}
-					mkdir -p "${PDIR}"
-					_addcvsfile "${WRKDIR}/files/" "${PDIR}"
-				fi
-				# note that we always replace the patches, no warnings we just poke ourselves over them :]
-				cp "files/${PDIR}${file}" "${WRKDIR}/files/${PDIR}"
-				_addcvsfile "${WRKDIR}/files/${PDIR}" ${file}
+			# we also have to check if directory contains our version if not, we dont copy it
+			pushd "${OVERLAY}/${dir}" &> /dev/null
+			if [[ `find ./ -name \*.ebuild|grep ${VERSION} |wc -l` -gt 0 ]]; then
 				popd &> /dev/null
-			done
-			# now we have to check up the keywords
-			pushd "${WRKDIR}" &> /dev/null
-			sync_main_keywords_with_overlay "${WRKDIR}/${file}" ${dir}
-			update_package_keywords "${WRKDIR}/${file}"
-			echangelog "Version bump"
- 			update_package_manifest
-			repoman commit -m "Version bump KDE ${VERSION}" -f
-			popd &> /dev/null
+				WRKDIR="${MAINTREE}/${dir}"
+				if [[ ! -d "${WRKDIR}" ]]; then
+					# we need to add the directory to scm tracking
+					mkdir -p "${WRKDIR}"
+					_addcvsfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//} 
+				fi
+				_cvsupdate "${WRKDIR}"
+				# we need to copy the file we want to play with
+				## first generate the correct filename, we expect that if someone added -rX to the package it has reason.
+				pushd "${OVERLAY}/${dir}" &> /dev/null
+				EBUILD=`find ./ -name \*.ebuild |grep ${VERSION} | sort |tail -n 1`
+				cp ${EBUILD} "${WRKDIR}"
+				popd &> /dev/null
+				_addcvsfile "${WRKDIR}" ${EBUILD/*\//}
+				# now we need to search up all patches ebuild is containing and move them along if they are needed.
+				_check_patches "${OVERLAY}/${dir}" "${WRKDIR}" ${EBUILD/*\//}
+				if [[ `cat ${TMPFILE} |wc -l` -gt 0 ]]; then
+					cat ${TMPFILE} |while read file; do
+						# we actualy have to check if the file is not in subdir and create corresponding directory structure
+						if [[ ! -d "${WRKDIR}/files" ]]; then
+							# create files dir
+							mkdir -p "${WRKDIR}/files"
+							_addcvsfile "${WRKDIR}" files/
+						fi
+						pushd "${OVERLAY}/${dir}" &> /dev/null
+						PTH=`find ./ -name ${file/*\//} |sed -e "s:./::" -e "s:${file/*\//}::"`
+						PDIR=""
+						if [[ ${PTH} != "files/" ]]; then
+							# fixme i expect only one depth folders
+							# anyway no kde package don't use more than one so i wont bother for now
+							PDIR=${PTH/files\//}
+							mkdir -p "${PDIR}"
+							_addcvsfile "${WRKDIR}/files/" "${PDIR}"
+						fi
+						# note that we always replace the patches, no warnings we just poke ourselves over them :]
+						cp "files/${PDIR}${file}" "${WRKDIR}/files/${PDIR}"
+						_addcvsfile "${WRKDIR}/files/${PDIR}" ${file}
+						popd &> /dev/null
+					done
+				fi
+				# now we have to check up the keywords
+				pushd "${WRKDIR}" &> /dev/null
+				sync_main_keywords_with_overlay "${EBUILD/*\//}" ${dir}
+				ekeyword ~all "${EBUILD/*\//}"
+				echangelog "Version bump"
+				repoman manifest
+				repoman commit -m "Version bump KDE ${VERSION}" -f
+				popd &> /dev/null
+			else
+				popd &> /dev/null
+			fi
 		done
 		;;
 	*) help ;;
