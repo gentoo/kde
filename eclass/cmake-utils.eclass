@@ -128,7 +128,7 @@ _check_build_dir() {
 		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}"
 	else
 		# this is backcompat modulo, should be removed in future
-		[[ ${CMAKE_USE_DIR} = ${S} ]] CMAKE_USE_DIR=${PN}
+		[[ ${CMAKE_USE_DIR} = ${S} ]] && CMAKE_USE_DIR=${PN}
 
 		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}_build"
 	fi
