@@ -12,5 +12,6 @@ IUSE="debug"
 KEYWORDS=""
 
 RDEPEND="
+	!kde-base/drkonqi2:${SLOT}[kdeprefix=]
 	sys-devel/gdb
 "

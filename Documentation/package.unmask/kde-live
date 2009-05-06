@@ -28,7 +28,6 @@ kde-base/kdeartwork-wallpapers:live
 kde-base/kdeartwork-weatherwallpapers:live
 kde-base/dolphin:live
 kde-base/drkonqi:live
-#kde-base/drkonqi2:live wait till it moves to main kde
 kde-base/kappfinder:live
 kde-base/kcheckpass:live
 kde-base/kcminit:live
