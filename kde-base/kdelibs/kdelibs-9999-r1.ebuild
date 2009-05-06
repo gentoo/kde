@@ -120,6 +120,10 @@ src_prepare() {
 	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-${SLOT}-applications.menu|g" \
 		-i kded/CMakeLists.txt || die "Sed for applications.menu failed."
 
+	# Remove experimental folder from CMakeLists - we have
+	# kde-base/libknotificationitem for now
+	sed -i "/macro_optional_add_subdirectory( experimental )/ s:^:#:" CMakeLists.txt
+
 	kde4-base_src_prepare
 }
 
