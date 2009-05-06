@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  libknotificationitem-9999.ebuild:
+  lib moved into kdelibs/experimental. since upstream intends to ship this
+  lib as kdelibs-experimental I'm fixing and keeping this ebuild until our
+  herd's meeting
+
   05 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   libknotificationitem-9999.ebuild:
   added some ebuild comments: this library is extragear but various live
