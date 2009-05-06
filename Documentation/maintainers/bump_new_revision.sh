@@ -145,6 +145,10 @@ help() {
 	echo "When diffing two versions for cmakelists"
 	echo "-v OLDVERSION -b NEWVERSION -p DIRECTORY_WHERE_ARE_TBZS -o OUTPUT_DIR"
 	echo "$0 -a diff -v 4.1.0 -b 4.1.1 -p \"/usr/portage/distfiles\" -o /tmp"
+	echo
+	echo "When moving kde from overlay to the main tree"
+	echo "-v VERSION"
+	echo "$0 -a cvsmove -v 4.2.4"
 	exit 0
 }
 ###############################################################################
@@ -188,6 +192,9 @@ case ${OPERATION} in
 	diff)
 		[[ -z "${VERSION}" || -z "${BUMP_VERSION}" || -z "${DIR}" || -z "${OUTPUT_DIR}" ]] && \
 			help
+		;;
+	cvsmove)
+		[[ -z "${VERSION}" ]] && help
 		;;
 	*)
 		help
@@ -283,6 +290,12 @@ case ${OPERATION} in
 		;;
 	slot) add_new_sloted_version ;;
 	diff) check_cmakelists ;;
+	cvsmove)
+		# course of action we are doing here
+		# cvs up whole tree, then kde-base
+		# then start going per each dir
+		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest, commit
+		;;
 	*) help ;;
 esac
 ###############################################################################
