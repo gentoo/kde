@@ -28,7 +28,7 @@ KMEXTRACTONLY="
 	libkdeedu/libscience/
 "
 
-PATCHES=( "${FILESDIR}/${P}-include-order.patch" )
+PATCHES=( "${FILESDIR}/${PN}-include-order.patch" )
 
 src_configure(){
 	mycmakeargs="${mycmakeargs}

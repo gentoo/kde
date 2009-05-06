@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  kalzium-4.2.3.ebuild, -files/kalzium-4.2.3-include-order.patch,
+  kalzium-4.2.9999.ebuild, +files/kalzium-include-order.patch:
+  updated patch name
+
 *kalzium-4.2.3 (05 May 2009)
 
   05 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kalzium-4.2.3.ebuild:
