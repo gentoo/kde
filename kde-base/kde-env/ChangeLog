@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kde-env-4.2.3 (06 May 2009)
+
+  06 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kde-env-4.2.3.ebuild:
+  bump bump bump
+
   01 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -kde-env-4.2.70.ebuild,
   +kde-env-4.2.71.ebuild:
   Version removed.
