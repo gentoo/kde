@@ -1,0 +1,19 @@
+--- trunk/KDE/kdelibs/solid/solid/backends/hal/halbattery.cpp	2009/03/31 03:29:32	947130
++++ trunk/KDE/kdelibs/solid/solid/backends/hal/halbattery.cpp	2009/03/31 03:58:04	947131
+@@ -112,12 +112,14 @@
+     {
+         emit chargePercentChanged(chargePercent(), m_device->udi());
+     }
+-    else if (changes.contains("battery.rechargeable.is_charging")
++
++    if (changes.contains("battery.rechargeable.is_charging")
+            || changes.contains("battery.rechargeable.is_discharging"))
+     {
+         emit chargeStateChanged(chargeState(), m_device->udi());
+     }
+-    else if ( changes.contains( "battery.present" ) )
++
++    if ( changes.contains( "battery.present" ) )
+     {
+         emit plugStateChanged(isPlugged(), m_device->udi());
+     }
