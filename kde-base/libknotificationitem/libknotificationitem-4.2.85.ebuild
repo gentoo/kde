@@ -9,7 +9,7 @@ KMMODULE="knotificationitem"
 inherit kde4-meta
 
 DESCRIPTION="Notification library"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
