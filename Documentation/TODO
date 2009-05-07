@@ -1,9 +1,5 @@
 TODO list:
 
-kdebase-startkde:
- - fix the multi kde versions mess
- - fix KDEDIRS
-
 dev-util/kdevelop:
  - KDevelop uses dev-libs/check and dev-util/cppunit if available (for plugin/xtest)
    * does not use the usual macro_optional_add stuff, so we can't use the cmake stuff in our eclasses to select
@@ -11,18 +7,29 @@ dev-util/kdevelop:
    * should we make that a USE? Or just always depend on those? Patching CMakeLists.txt to not include them if not wanted?
 
 ebuilds:
- - complete bump
- - check missing ebuilds
- - add unstable / missing ebuilds? (kpackage)
- - add testing snapshots? (amarok/k3b)
+ - check missing ebuilds in live slot (comparing cmakelists probably)
+ - clean up Documentation/stasis
  - libkholidays still includes test stuff. can that be taken out?
  - dont know really about FindMarbleWidget.cmake 
- - kapptemplate should be checked again when kbindings is available?
- - kopete needs some love
+ - kapptemplate needs to be checked again when kbindings is available?
  - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
  - does dragonplayer really need xine-lib dep?
- - does kuser need knotify dep?
  - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
 
- 4.2 snapshot: 
+TESTS:
+ - run test for each application and coordinate with upstream if fails
+ - don't add RESTRICT=test to ebuild, remove it from the ones which fail currently
+   and add codeblock to eclass where it will be added to all relevant PNs
 
+SHINY:
+ - write some application that could be run on d.ge.o and show the state of ebuilds (compiled fine/died)
+ - generate some nice look&feel - icons/themes/kdm
+ - create some reasonable default config for kde, when user first log in so he has configured it a bit (ie. create icons on desktop onto some gentoo sites)
+
+Periodic work:
+ - each month check if there are new applications in live that need packaging
+
+KDE3
+ - create the overlay and its users where we can let them maintain it
+ - from september start slowly moving kde3 misc apps from main tree to the created overlay
+ - removal of kde3 should be finished with release of KDE 4.4
