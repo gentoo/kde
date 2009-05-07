@@ -13,6 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	!<kde-base/plasma-workspace-4.2.85[kdeprefix=]
+	!<kde-base/plasma-workspace-4.2.85:4.3[kdeprefix=]
 	!=kde-base/plasma-workspace-9999[kdeprefix=]
 	"
