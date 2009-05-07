@@ -12,11 +12,6 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="
-	!kdeprefix? ( !<kde-base/libkworkspace-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/libkworkspace-${PV}:${SLOT} )
-"
-
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	kwin/org.kde.KWin.xml
