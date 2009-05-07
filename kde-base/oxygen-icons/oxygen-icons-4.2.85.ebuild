@@ -17,4 +17,5 @@ IUSE=""
 RDEPEND="
 	!x11-themes/oxygen-icons
 	!x11-themes/oxygen-icon-theme
+	!<=kde-base/kdepim-icons-4.2.71[kdeprefix=]
 "
