@@ -1,0 +1,10 @@
+# ChangeLog for net-misc/krsync
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*krsync-0.4.1.1 (07 May 2009)
+
+  07 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
+  +krsync-0.4.1.1.ebuild:
+  new ebuild for krsync (kde4)
+
