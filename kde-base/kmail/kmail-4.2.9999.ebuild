@@ -42,7 +42,5 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Nepomuk)"
 
-	MAKEOPTS="${MAKEOPTS} -j1"
-
 	kde4-meta_src_configure
 }

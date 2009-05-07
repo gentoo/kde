@@ -20,9 +20,3 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	libs/kworkspace/
 "
-
-src_compile() {
-	MAKEOPTS="${MAKEOPTS} -j1"
-
-	kde4-meta_src_compile
-}
