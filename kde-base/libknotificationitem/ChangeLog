@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libknotificationitem-4.2.85 (07 May 2009)
+
+  07 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +libknotificationitem-4.2.85.ebuild:
+  Add missing ebuild
+
   06 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
   libknotificationitem-9999.ebuild:
   lib moved into kdelibs/experimental. since upstream intends to ship this
