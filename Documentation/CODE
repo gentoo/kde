@@ -6,7 +6,7 @@ So the rules are these:
  - always report cmake issues about everything directly to upstream and backport their fix
  - never use -j1 in ebuilds. Always report the issue upstream and wait for the resolution or fix yourself
  - doubleckeck the doc useflag in your package
- - thing about adding debug useflag to your package
+ - think about adding debug useflag to your package
  - always check for linguas and add them to the KDE_LINGUAS variable
  - always fix automagic packages with macro_optional_ prefixing and report it upstream with patch.
  - check your apps deps with dylink scanner in maintainer folder
