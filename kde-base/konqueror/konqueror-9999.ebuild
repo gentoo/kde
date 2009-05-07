@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
 "
 PDEPEND="
-	thumbnail? ( media-video/mplayerthumbs:1 )
+	thumbnail? ( >=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMEXTRACTONLY="

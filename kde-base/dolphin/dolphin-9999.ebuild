@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 PDEPEND="
-	thumbnail? ( media-video/mplayerthumbs:1 )
+	thumbnail? ( >=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMLOADLIBS="libkonq"
