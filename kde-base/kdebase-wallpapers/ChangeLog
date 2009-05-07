@@ -1,6 +1,12 @@
-# ChangeLog for kde-base/kde-wallpapers
+# ChangeLog for kde-base/kdebase-wallpapers
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*kdebase-wallpapers-4.2.85 (07 May 2009)
+
+  07 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kdebase-wallpapers-4.2.85.ebuild:
+  Version bump.
 
   01 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdebase-wallpapers-4.2.70.ebuild, +kdebase-wallpapers-4.2.71.ebuild:
