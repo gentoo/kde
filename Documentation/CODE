@@ -1,0 +1,17 @@
+WHAT RULES I SHOULD FOLLOW WHEN I WANT WORK ON SOMETHING FOR KDE TEAM?
+If you asked this question you are reading right file.
+
+So the rules are these:
+ - always use kde4-* eclasses
+ - always report cmake issues about everything directly to upstream and backport their fix
+ - newer use -j1 in ebuilds. Always report the issue upstream and wait for the resolution or fix yourself
+ - doubleckeck the doc useflag in your package
+ - thing about adding debug useflag to your package
+ - always check for linguas and add them to the KDE_LINGUAS variable
+ - always fix automagic packages with macro_optional_ prefixing and report it upstream with patch.
+ - check your apps deps with dylink scanner in maintainer folder
+ - if you want our herd in the application and you are not kde team HT/Member ask us first
+
+KDE 3
+ - do what ever you want with one condition, make sure it really compiles/run
+ - feel free to commit patches without kde team ack if the above condition is checked
