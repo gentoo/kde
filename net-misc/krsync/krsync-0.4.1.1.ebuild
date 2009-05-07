@@ -32,11 +32,11 @@ src_prepare() {
 }
 
 src_configure() {
-	einfo "no configuration required"
+	: # no configuration required
 }
 
 src_compile() {
-	einfo "no compilation required"
+	: # no compilation required
 }
 
 src_install() {
