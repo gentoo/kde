@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdemultimedia-meta-4.2.3.ebuild:
+  Version removed.
+
 *kdemultimedia-meta-4.2.3 (06 May 2009)
 
   06 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>

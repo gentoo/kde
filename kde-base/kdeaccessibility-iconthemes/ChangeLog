@@ -1,6 +1,10 @@
-# ChangeLog for kde-base/kdeaccessibility-iconschemes
+# ChangeLog for kde-base/kdeaccessibility-iconthemes
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  07 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdeaccessibility-iconthemes-4.2.3.ebuild:
+  Version removed.
 
 *kdeaccessibility-iconthemes-4.2.3 (05 May 2009)
 
