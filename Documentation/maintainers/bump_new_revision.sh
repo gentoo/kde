@@ -124,6 +124,7 @@ sync_main_keywords_with_overlay() {
 	else
 		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
 	fi
+	[[ ${KEYWORDS} = "" ]] && KEYWORDS="~amd64 ~x86"
 	ekeyword $KEYWORDS ${1} &> /dev/null 
 }
 
