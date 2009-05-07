@@ -308,9 +308,11 @@ case ${OPERATION} in
 							break
 						fi
 					done
-					if [ ${PATCH_IN_USE} == "false" ]; then\
+					if [[ ${PATCH_IN_USE} = "false" ]]; then
 						echo "Removing ${PATCH}. No longer used in package ${EBUILD_BASEDIR}."
-						git rm -rf "files/${PATCH}"
+						pushd files/ &> /dev/null
+						git rm -rf $(find ./ -type f -name ${PATCH})
+						popd &>
 					fi
 				done
 			fi
