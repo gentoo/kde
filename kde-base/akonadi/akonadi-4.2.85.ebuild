@@ -38,7 +38,11 @@ src_prepare() {
 			akonadi/resources/CMakeLists.txt\
 			|| die "Failed to disable nepomuktag"
 	fi
-	epatch "${FILESDIR}/akonadi-4.2.85-kolabfix.patch"
+	# disable broken by upstream kolab
+	sed -i -e "s/add_subdirectory( kolabproxy )//"\
+		akonadi/resources/CMakeLists.txt\
+			|| die "Failed to disable kolabproxy"
+
 	kde4-meta_src_prepare
 }
 
