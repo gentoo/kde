@@ -15,6 +15,7 @@ ebuilds:
  - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
  - does dragonplayer really need xine-lib dep?
  - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
+ - fix virtuoso and make it actualy usable
 
 TESTS:
  - run test for each application and coordinate with upstream if fails
