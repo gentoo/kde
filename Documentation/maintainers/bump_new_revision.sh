@@ -302,7 +302,7 @@ case ${OPERATION} in
 						[[ ${P1/*-/} == r* ]] && P1=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
 						PV=${P1/*-/}
 						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
-						if [[ $(echo ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
+						if [[ $(cat ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
 							PATCH_IN_USE="true"
 							popd &> /dev/null
 							break
