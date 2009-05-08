@@ -23,6 +23,9 @@ RDEPEND="${DEPEND}
 	!dev-python/pykde
 "
 
+PATCHES=( "${FILESDIR}/pykde4-4.2.85-backendcapabilities.patch"
+			"${FILESDIR}/pykde4-4.2.85-kdatetime.patch" )
+
 src_prepare() {
 	kde4-meta_src_prepare
 
