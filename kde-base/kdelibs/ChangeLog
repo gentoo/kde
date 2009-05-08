@@ -2,6 +2,17 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -files/4.1.3-cmake-config.patch, -files/kdelibs-4.1.1-cmake-modules.patch,
+  -files/kdelibs-4.2.1-kcatalog.patch,
+  -files/kdelibs-4.2-fix_kio_http_401.patch,
+  -files/kdelibs-4.2.1-kdialog.patch, -files/kdelibs-4.2-fixx11h.h.patch,
+  -files/kdelibs-4.2.0-kded.patch, -files/kdelibs-4.2.0-klauncher.patch,
+  -files/kdelibs-4.2.0-knode_crash.patch, -files/kdelibs-4.2.1-qt4.5.patch,
+  -files/kdelibs-4.2.2-kickoff-focus.patch, -kdelibs-4.2.71.ebuild,
+  -files/install-correct-cmake-config.patch, -files/sanbox-error.patch:
+  Version removed.
+
 *kdelibs-4.2.3-r1 (07 May 2009)
 
   07 May 2009; Alex Alexander (wired) <alex.alexander@gmail.com>
