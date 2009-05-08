@@ -435,6 +435,7 @@ kde-base/kde-env:4.3
 kde-base/kdegraphics-strigi-analyzer:4.3
 kde-base/kde-l10n:4.3
 kde-base/kdelibs:4.3
+kde-base/kdelirc:4.3
 kde-base/kdemultimedia-kioslaves:4.3
 kde-base/kdenetwork-filesharing:4.3
 kde-base/kdepasswd:4.3
