@@ -4,17 +4,14 @@
 
 EAPI="2"
 
-KMNAME="kdereview"
+KMNAME="kdeutils"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
-HOMEPAGE="http://kde.org/"
-
-LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="4"
 IUSE="debug"
 
 RDEPEND="
+	!kde-misc/kdelirc
 	app-misc/lirc
 "
