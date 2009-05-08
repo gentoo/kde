@@ -1,0 +1,506 @@
+--- trunk/KDE/kdepim/akonadi/resources/kolabproxy/CMakeLists.txt	2009/05/06 16:21:54	964415
++++ trunk/KDE/kdepim/akonadi/resources/kolabproxy/CMakeLists.txt	2009/05/06 16:23:56	964416
+@@ -14,6 +14,8 @@
+   kolabproxyresource.cpp
+   contact.cpp
+   kolabbase.cpp
++  kolabhandler.cpp
++  addressbookhandler.cpp
+   ${AKONADI_COLLECTIONATTRIBUTES_SHARED_SOURCES}
+ )
+ 
+--- trunk/KDE/kdepim/akonadi/resources/kolabproxy/kolabproxyresource.cpp	2009/05/06 16:21:54	964415
++++ trunk/KDE/kdepim/akonadi/resources/kolabproxy/kolabproxyresource.cpp	2009/05/06 16:23:56	964416
+@@ -21,8 +21,8 @@
+ 
+ #include "settings.h"
+ #include "settingsadaptor.h"
+-#include "contact.h"
+ #include "collectionannotationsattribute.h"
++#include "addressbookhandler.h"
+ #include <akonadi/attributefactory.h>
+ 
+ #include <akonadi/collectioncreatejob.h>
+@@ -36,8 +36,6 @@
+ #include <akonadi/monitor.h>
+ #include <akonadi/item.h>
+ #include <akonadi/changerecorder.h>
+-#include <kabc/addressee.h>
+-#include <krandom.h>
+ 
+ #include <QtDBus/QDBusConnection>
+ #include <QSet>
+@@ -47,25 +45,25 @@
+ KolabProxyResource::KolabProxyResource( const QString &id )
+   : ResourceBase( id )
+ {
+-  Akonadi::AttributeFactory::registerAttribute<CollectionAnnotationsAttribute>();
++  AttributeFactory::registerAttribute<CollectionAnnotationsAttribute>();
+ 
+   new SettingsAdaptor( Settings::self() );
+   QDBusConnection::sessionBus().registerObject( QLatin1String( "/Settings" ),
+                             Settings::self(), QDBusConnection::ExportAdaptors );
+ 
+-  m_monitor = new Akonadi::Monitor();
+-  Akonadi::ItemFetchScope scope;
++  m_monitor = new Monitor();
++  ItemFetchScope scope;
+   scope.fetchFullPayload();
+   m_monitor->setItemFetchScope(scope);
+ 
+-  m_colectionMonitor = new Akonadi::Monitor();
++  m_colectionMonitor = new Monitor();
+   m_colectionMonitor->setCollectionMonitored(Collection::root());
+ 
+-  connect(m_monitor, SIGNAL(itemAdded(const Akonadi::Item & , const Akonadi::Collection &)), this, SLOT(imapItemAdded(const Akonadi::Item & , const Akonadi::Collection &)));
+-  connect(m_monitor, SIGNAL(itemRemoved(const Akonadi::Item &)), this, SLOT(imapItemRemoved(const Akonadi::Item &)));
+-  connect(m_colectionMonitor, SIGNAL(collectionAdded(const Akonadi::Collection &, const Akonadi::Collection &)), this, SLOT(imapCollectionAdded(const Akonadi::Collection &, const Akonadi::Collection &)));
+-  connect(m_colectionMonitor, SIGNAL(collectionRemoved(const Akonadi::Collection &)), this, SLOT(imapCollectionRemoved(const Akonadi::Collection &)));
+-  connect(m_colectionMonitor, SIGNAL(collectionChanged(const Akonadi::Collection &)), this, SLOT(imapCollectionChanged(const Akonadi::Collection &)));
++  connect(m_monitor, SIGNAL(itemAdded(const Item & , const Collection &)), this, SLOT(imapItemAdded(const Item & , const Collection &)));
++  connect(m_monitor, SIGNAL(itemRemoved(const Item &)), this, SLOT(imapItemRemoved(const Item &)));
++  connect(m_colectionMonitor, SIGNAL(collectionAdded(const Collection &, const Collection &)), this, SLOT(imapCollectionAdded(const Collection &, const Collection &)));
++  connect(m_colectionMonitor, SIGNAL(collectionRemoved(const Collection &)), this, SLOT(imapCollectionRemoved(const Collection &)));
++  connect(m_colectionMonitor, SIGNAL(collectionChanged(const Collection &)), this, SLOT(imapCollectionChanged(const Collection &)));
+ 
+ }
+ 
+@@ -84,10 +82,11 @@
+           collection.attribute<CollectionAnnotationsAttribute>();
+       if (annotationsAttribute) {
+         QMap<QByteArray, QByteArray> annotations = annotationsAttribute->annotations();
+-        if (annotations["/vendor/kolab/folder-type"] ==  "contact.default" || annotations["/vendor/kolab/folder-type"] ==  "contact") {
++        KolabHandler *handler = KolabHandler::createHandler(annotations["/vendor/kolab/folder-type"]);
++        if (handler) {
+           kDebug() << "Monitor folder: " << collection.name() << collection.remoteId();
+           m_monitor->setCollectionMonitored(collection);
+-          m_monitoredCollections.append(collection.id());
++          m_monitoredCollections.insert(collection.id(), handler);
+         }
+       }
+     }
+@@ -102,25 +101,35 @@
+   }
+ }
+ 
+-void KolabProxyResource::retrieveItems( const Akonadi::Collection &collection )
++void KolabProxyResource::retrieveItems( const Collection &collection )
+ {
+   kDebug() << "RETRIEVEITEMS";
+-  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( Collection(collection.remoteId().toUInt()) );
++  ItemFetchJob *job = new ItemFetchJob( Collection(collection.remoteId().toUInt()) );
+   job->fetchScope().fetchFullPayload();
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
+-    createAddressEntry(items);
++    Item::List items = job->items();
++    KolabHandler *handler = m_monitoredCollections.value(collection.remoteId().toUInt());
++    if (handler) {
++      Item::List newItems = handler->translateItems(items);
++      itemsRetrieved(newItems);
++    }
+   }
+ }
+ 
+-bool KolabProxyResource::retrieveItem( const Akonadi::Item &item, const QSet<QByteArray> &parts )
++bool KolabProxyResource::retrieveItem( const Item &item, const QSet<QByteArray> &parts )
+ {
+   kDebug() << "RETRIEVEITEM";
+-  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item );
++  ItemFetchJob *job = new ItemFetchJob( item );
+   job->fetchScope().fetchFullPayload();
++  Item::Id collectionId = -1;
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
+-    createAddressEntry(items);
++    Item::List items = job->items();
++    collectionId = items[0].collectionId();
++    KolabHandler *handler = m_monitoredCollections.value(collectionId);
++    if (handler) {
++      Item::List newItems = handler->translateItems(items);
++      itemsRetrieved(newItems);
++    }
+   }
+   return true;
+ }
+@@ -143,10 +152,10 @@
+   // of focus stealing prevention technique
+ }
+ 
+-void KolabProxyResource::itemAdded( const Akonadi::Item &_item, const Akonadi::Collection &collection )
++void KolabProxyResource::itemAdded( const Item &_item, const Collection &collection )
+ {
+ 
+-  Akonadi::Item item(_item);
++  Item item(_item);
+ //   kDebug() << "Item added " << item.id() << collection.remoteId() << collection.id();
+   Collection c;
+   CollectionFetchJob *coljob = new CollectionFetchJob( Collection::List() << collection );
+@@ -164,11 +173,11 @@
+     kWarning() << "Can't fetch collection" << imapCollection.id();
+   }
+ 
+-  Akonadi::Item addrItem;
+-  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item );
++  Item addrItem;
++  ItemFetchJob *job = new ItemFetchJob( item );
+   job->fetchScope().fetchFullPayload();
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
++    Item::List items = job->items();
+     if (items.isEmpty()) {
+       kDebug() << "Empty fecth";
+       return;
+@@ -179,57 +188,14 @@
+     kWarning() << "Can't fetch address item " << item.id();
+   }
+ 
+-  KABC::Addressee addressee = addrItem.payload<KABC::Addressee>();
+-  Kolab::Contact contact(&addressee, 0);
+-  Item imapItem;
+-  imapItem.setMimeType( "message/rfc822" );
+-  MessagePtr message(new KMime::Message);
+-  QString header;
+-  header += "From: " + addressee.fullEmail() + "\n";
+-  header += "Subject: " + addressee.uid() + "\n";
+-//   header += "Date: " + QDateTime::currentDateTime().toString(Qt::ISODate) + "\n";
+-  header += "User-Agent: Akonadi Kolab Proxy Resource \n";
+-  header += "MIME-Version: 1.0\n";
+-  header += "X-Kolab-Type: application/x-vnd.kolab.contact\n\n\n";
+-  message->setContent(header.toLatin1());
+-
+-  KMime::Content *content = new KMime::Content();
+-  QByteArray contentData = QByteArray("Content-Type: text/plain; charset=\"us-ascii\"\nContent-Transfer-Encoding: 7bit\n\n") +
+-  "This is a Kolab Groupware object.\n" +
+-  "To view this object you will need an email client that can understand the Kolab Groupware format.\n" +
+-  "For a list of such email clients please visit\n"
+-  "http://www.kolab.org/kolab2-clients.html\n";
+-  content->setContent(contentData);
+-  message->addContent(content);
+-
+-  content = new KMime::Content();
+-  header = "Content-Type: application/x-vnd.kolab.contact; name=\"kolab.xml\"\n";
+-  header += "Content-Transfer-Encoding: 7bit\n"; //FIXME 7bit???
+-  header += "Content-Disposition: attachment; filename=\"kolab.xml\"";
+-  content->setHead(header.toLatin1());
+-  content->setBody(contact.saveXML().toUtf8());
+-  message->addContent(content);
+-
+-  if (!contact.pictureAttachmentName().isEmpty()) {
+-    header = "Content-Type: image/png; name=\"kolab-picture.png\"\n";
+-    header += "Content-Transfer-Encoding: base64\n";
+-    header += "Content-Disposition: attachment; filename=\"kolab-picture.png\"";
+-    content = new KMime::Content();
+-    content->setHead(header.toLatin1());
+-    QByteArray pic;
+-    QBuffer buffer(&pic);
+-    buffer.open(QIODevice::WriteOnly);
+-    contact.picture().save(&buffer, "PNG");
+-    buffer.close();
+-    content->setBody(pic.toBase64());
+-    message->addContent(content);
+-
++  KolabHandler *handler  = m_monitoredCollections.value(imapCollection.id());
++  if (!handler) {
++    kWarning() << "No handler found";
++    return;
+   }
+-
+-  imapItem.setPayload<MessagePtr>(message);
+-
+-
+-  Akonadi::ItemCreateJob *cjob = new Akonadi::ItemCreateJob(imapItem, imapCollection);
++  Item imapItem = handler->toKolabFormat(addrItem);
++  
++  ItemCreateJob *cjob = new ItemCreateJob(imapItem, imapCollection);
+   if (!cjob->exec()) {
+     kWarning() << "Can't create imap item " << imapItem.id() << cjob->errorString();
+   }
+@@ -241,48 +207,51 @@
+   changeCommitted( addrItem );
+ }
+ 
+-void KolabProxyResource::itemChanged( const Akonadi::Item &item, const QSet<QByteArray> &parts )
++void KolabProxyResource::itemChanged( const Item &item, const QSet<QByteArray> &parts )
+ {
+-  Akonadi::Item addrItem;
+-  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item );
++  Item addrItem;
++  ItemFetchJob *job = new ItemFetchJob( item );
+   job->fetchScope().fetchFullPayload();
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
++    Item::List items = job->items();
+     addrItem = items[0];
+   } else {
+     kWarning() << "Can't fetch address item " << item.id();
+   }
++
+   Item imapItem;
+-  KABC::Addressee addressee = addrItem.payload<KABC::Addressee>();
+-  job = new Akonadi::ItemFetchJob( Item(addrItem.remoteId().toUInt()) );
++  job = new ItemFetchJob( Item(addrItem.remoteId().toUInt()) );
+   job->fetchScope().fetchFullPayload();
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
++    Item::List items = job->items();
+     imapItem = items[0];
+   } else {
+     kWarning() << "Can't fetch imap item " << addrItem.remoteId();
+   }
+-  MessagePtr message = imapItem.payload<MessagePtr>();
+-  KMime::Content *xmlContent = findContent(message, "application/x-vnd.kolab.contact");
+-  if (xmlContent) {
+-    Kolab::Contact contact(&addressee, 0);
+-    xmlContent->setBody(contact.saveXML().toUtf8());
+-    Akonadi::ItemModifyJob *mjob = new Akonadi::ItemModifyJob( imapItem );
++
++  KolabHandler *handler = m_monitoredCollections.value(imapItem.collectionId());
++  if (!handler) {
++    kWarning() << "No handler found";
++    return;
++  }
++  
++  imapItem = handler->toKolabFormat(addrItem);
++  ItemModifyJob *mjob = new ItemModifyJob( imapItem );
+     if (!mjob->exec()) {
+       kWarning() << "Can't modify imap item " << imapItem.id();
+     }
+-  }
++
+   changeCommitted( addrItem );
+ 
+ }
+ 
+-void KolabProxyResource::itemRemoved( const Akonadi::Item &item )
++void KolabProxyResource::itemRemoved( const Item &item )
+ {
+   kDebug() << "Item removed " << item.id() << item.remoteId();
+   Item imapItem(item.remoteId().toUInt());
+-  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( imapItem );
++  ItemFetchJob *job = new ItemFetchJob( imapItem );
+   if (job->exec()) {
+-    Akonadi::Item::List items = job->items();
++    Item::List items = job->items();
+     imapItem = items[0];
+   } else {
+     kWarning() << "Can't fetch imap item " << imapItem.id();
+@@ -292,7 +261,7 @@
+   Q_UNUSED(djob);
+ }
+ 
+-void KolabProxyResource::imapItemAdded(const Akonadi::Item& item, const Akonadi::Collection &collection)
++void KolabProxyResource::imapItemAdded(const Item& item, const Collection &collection)
+ {
+   kDebug() << "imapItemAdded " << item.id() << collection.id() << Collection::root().id();
+   if (m_excludeAppend.contains(item.id()))   {
+@@ -320,15 +289,17 @@
+         break;
+       }
+     }
+-    KABC::Addressee addressee;
+-    MessagePtr message = m_items[job].payload<MessagePtr>();
+-    if (addresseFromKolab(message, addressee)) {
+-      Item newItem("text/directory");
+-      kDebug() << "m_item " << m_items[job].id();
+-      newItem.setRemoteId(QString::number(m_items[job].id()));
+-      newItem.setPayload(addressee);
+-      Akonadi::ItemCreateJob *job = new Akonadi::ItemCreateJob( newItem,  c );
+-      connect(job, SIGNAL(result(KJob*)), this, SLOT(itemCreatedDone(KJob *)));
++    
++    KolabHandler *handler = m_monitoredCollections.value(c.remoteId().toUInt());
++    if (!handler) {
++      kWarning() << "No handler found";
++      return;
++    }
++
++    Item::List newItems = handler->translateItems(Item::List() << m_items[job]);
++    if (!newItems.isEmpty()) {
++      ItemCreateJob *cjob = new ItemCreateJob( newItems[0],  c );
++      connect(cjob, SIGNAL(result(KJob*)), this, SLOT(itemCreatedDone(KJob *)));
+     }
+   }
+   m_ids.remove(job);
+@@ -343,7 +314,7 @@
+   }
+ }
+ 
+-void KolabProxyResource::imapItemRemoved(const Akonadi::Item& item)
++void KolabProxyResource::imapItemRemoved(const Item& item)
+ {
+   Item addr;
+   addr.setRemoteId(QString::number(item.id()));
+@@ -351,7 +322,7 @@
+   Q_UNUSED(job);
+ }
+ 
+-void KolabProxyResource::imapCollectionAdded(const Akonadi::Collection &collection, const Akonadi::Collection &parent)
++void KolabProxyResource::imapCollectionAdded(const Collection &collection, const Collection &parent)
+ {
+   if (m_monitoredCollections.contains(collection.id()))
+     return;
+@@ -368,17 +339,19 @@
+       imapCollection.attribute<CollectionAnnotationsAttribute>();
+   if (annotationsAttribute) {
+     QMap<QByteArray, QByteArray> annotations = annotationsAttribute->annotations();
+-    if (annotations["/vendor/kolab/folder-type"] ==  "contact.default" || annotations["/vendor/kolab/folder-type"] ==  "contact") {
+-      kDebug() << "Monitor folder: " << imapCollection.name() << imapCollection.remoteId();
++
++    KolabHandler *handler = KolabHandler::createHandler(annotations["/vendor/kolab/folder-type"]);
++    if (handler) {
+       m_monitor->setCollectionMonitored(imapCollection);
+-      m_monitoredCollections.append(imapCollection.id());
++      m_monitoredCollections.insert(imapCollection.id(), handler);
+       Collection c = createCollection(imapCollection);
+       new CollectionCreateJob(c);
++     
+     }
+   }
+ }
+ 
+-void KolabProxyResource::imapCollectionRemoved(const Akonadi::Collection &collection)
++void KolabProxyResource::imapCollectionRemoved(const Collection &collection)
+ {
+   Collection c;
+   CollectionFetchJob *job = new CollectionFetchJob( Collection::root(), CollectionFetchJob::Recursive );
+@@ -396,11 +369,13 @@
+     return;
+   }
+ 
+-  m_monitoredCollections.removeAll(collection.id());
+-  CollectionDeleteJob *djob = new CollectionDeleteJob(c);
++  KolabHandler *handler = m_monitoredCollections.value(collection.id());
++  delete handler;
++  m_monitoredCollections.remove(collection.id());
++  new CollectionDeleteJob(c);
+ }
+ 
+-void KolabProxyResource::imapCollectionChanged(const Akonadi::Collection &collection)
++void KolabProxyResource::imapCollectionChanged(const Collection &collection)
+ {
+ //   kDebug() << "imapCollectionChanged" << collection.id();
+   if (m_monitoredCollections.contains(collection.id()))
+@@ -418,72 +393,18 @@
+       imapCollection.attribute<CollectionAnnotationsAttribute>();
+   if (annotationsAttribute) {
+     QMap<QByteArray, QByteArray> annotations = annotationsAttribute->annotations();
+-    if (annotations["/vendor/kolab/folder-type"] ==  "contact.default" || annotations["/vendor/kolab/folder-type"] ==  "contact") {
+-      kDebug() << "Monitor folder: " << imapCollection.name() << imapCollection.remoteId();
++    KolabHandler *handler = KolabHandler::createHandler(annotations["/vendor/kolab/folder-type"]);
++    if (handler) {
+       m_monitor->setCollectionMonitored(imapCollection);
+-      m_monitoredCollections.append(imapCollection.id());
++      m_monitoredCollections.insert(imapCollection.id(), handler);
+       Collection c = createCollection(imapCollection);
+       new CollectionCreateJob(c);
++     
+     }
+   }
+ }
+ 
+-bool KolabProxyResource::addresseFromKolab(MessagePtr data, KABC::Addressee &addressee)
+-{
+-  KMime::Content *xmlContent  = findContent(data, "application/x-vnd.kolab.contact");
+-  if (xmlContent) {
+-    QByteArray xmlData = xmlContent->decodedContent();
+-//     kDebug() << "xmlData " << xmlData;
+-    Kolab::Contact contact(QString::fromLatin1(xmlData));
+-    QString pictureAttachmentName = contact.pictureAttachmentName();
+-    if (!pictureAttachmentName.isEmpty()) {
+-      KMime::Content *imgContent = findContent(data, "image/png");
+-      if (imgContent) {
+-        QByteArray imgData = imgContent->decodedContent();
+-        QBuffer buffer(&imgData);
+-        buffer.open(QIODevice::ReadOnly);
+-        QImage image;
+-        image.load(&buffer, "PNG");
+-        contact.setPicture(image);
+-      }
+-    }
+-    contact.saveTo(&addressee);
+-    return true;
+-  }
+-  return false;
+-}
+-
+-void KolabProxyResource::createAddressEntry(const Akonadi::Item::List & addrs)
+-{
+-  Akonadi::Item::List items;
+-  Q_FOREACH(Akonadi::Item addr, addrs)
+-  {
+-//     kDebug() << addr.id();
+-    MessagePtr payload = addr.payload<MessagePtr>();
+-    KABC::Addressee addressee;
+-    if (addresseFromKolab(payload, addressee)) {
+-      Item item("text/directory");
+-      item.setRemoteId(QString::number(addr.id()));
+-      item.setPayload(addressee);
+-      items << item;
+-    }
+-  }
+-  itemsRetrieved(items);
+-}
+-
+-KMime::Content *KolabProxyResource::findContent(MessagePtr data, const QByteArray &type)
+-{
+-  KMime::Content::List list = data->contents();
+-  Q_FOREACH(KMime::Content *c, list)
+-  {
+-    if (c->contentType()->mimeType() ==  type)
+-      return c;
+-  }
+-  return 0L;
+-
+-}
+-
+-Akonadi::Collection KolabProxyResource::createCollection(const Akonadi::Collection& imapCollection)
++Collection KolabProxyResource::createCollection(const Collection& imapCollection)
+ {
+   Collection c;
+   c.setParent( Collection::root() );
+--- trunk/KDE/kdepim/akonadi/resources/kolabproxy/kolabproxyresource.h	2009/05/06 16:21:54	964415
++++ trunk/KDE/kdepim/akonadi/resources/kolabproxy/kolabproxyresource.h	2009/05/06 16:23:56	964416
+@@ -22,18 +22,13 @@
+ 
+ #include <akonadi/resourcebase.h>
+ #include <QStringList>
+-#include <boost/shared_ptr.hpp>
+-#include <kmime/kmime_message.h>
+-typedef boost::shared_ptr<KMime::Message> MessagePtr;
+ 
+ 
+ namespace Akonadi {
+   class Monitor;
+ }
+ 
+-namespace KABC{
+-  class Addressee;
+-}
++class KolabHandler;
+ 
+ class KolabProxyResource : public Akonadi::ResourceBase,
+                            public Akonadi::AgentBase::Observer
+@@ -56,7 +51,6 @@
+     void imapCollectionAdded(const Akonadi::Collection &collection, const Akonadi::Collection &parent);
+     void imapCollectionRemoved(const Akonadi::Collection &collection);
+     void imapCollectionChanged(const Akonadi::Collection &collection);
+-    void createAddressEntry(const Akonadi::Item::List & addrs);
+     void itemCreatedDone(KJob *job);
+     void collectionFetchDone(KJob *job);
+ 
+@@ -66,14 +60,12 @@
+     virtual void itemAdded( const Akonadi::Item &item, const Akonadi::Collection &collection );
+     virtual void itemChanged( const Akonadi::Item &item, const QSet<QByteArray> &parts );
+     virtual void itemRemoved( const Akonadi::Item &item );
+-    bool addresseFromKolab(MessagePtr data, KABC::Addressee &addressee);
+     Akonadi::Collection createCollection(const Akonadi::Collection& imapCollection);
+-    KMime::Content *findContent(MessagePtr data, const QByteArray &type);
+ 
+     Akonadi::Monitor *m_monitor;
+     Akonadi::Monitor *m_colectionMonitor;
+     QStringList m_managedCollections;
+-    QList<Akonadi::Item::Id> m_monitoredCollections;
++    QMap<Akonadi::Item::Id, KolabHandler*> m_monitoredCollections;
+     QMap<KJob*, QString> m_ids;
+     QMap<KJob*, Akonadi::Item> m_items;
+     QList<Akonadi::Item::Id> m_excludeAppend;
