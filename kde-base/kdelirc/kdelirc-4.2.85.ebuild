@@ -8,7 +8,7 @@ KMNAME="kdeutils"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
