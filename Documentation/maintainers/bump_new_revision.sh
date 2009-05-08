@@ -302,17 +302,17 @@ case ${OPERATION} in
 						[[ ${P1/*-/} == r* ]] && P1=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
 						PV=${P1/*-/}
 						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
-						if [[ $(echo ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
+						if [[ $(echo ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) != "0" ]]; then
 							PATCH_IN_USE="true"
 							popd &> /dev/null
 							break
 						fi
 					done
-					if [[ ${PATCH_IN_USE} = "false" ]]; then
+					if [[ ${PATCH_IN_USE} == "false" ]]; then
 						echo "Removing ${PATCH}. No longer used in package ${EBUILD_BASEDIR}."
 						pushd files/ &> /dev/null
 						git rm -rf $(find ./ -type f -name ${PATCH})
-						popd &>
+						popd &> /dev/null
 					fi
 				done
 			fi
