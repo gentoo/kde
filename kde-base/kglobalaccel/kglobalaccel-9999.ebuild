@@ -16,3 +16,11 @@ RDEPEND="
 	!kdeprefix? ( !kde-base/kdedglobalaccel[-kdeprefix] )
 	kdeprefix? ( !kde-base/kdedglobalaccel:${SLOT} )
 "
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DKDEBASE_KGLOBALACCEL_REMOVE_OBSOLETE_KDED_DESKTOP_FILE=NOTFOUND
+		-DKDEBASE_KGLOBALACCEL_REMOVE_OBSOLETE_KDED_PLUGIN=NOTFOUND"
+
+	kde4-meta_src_configure
+}
