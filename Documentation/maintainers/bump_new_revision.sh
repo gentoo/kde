@@ -304,15 +304,12 @@ case ${OPERATION} in
 						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
 						if [[ $(cat ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
 							PATCH_IN_USE="true"
-							popd &> /dev/null
 							break
 						fi
 					done
 					if [[ ${PATCH_IN_USE} = "false" ]]; then
 						echo "Removing ${PATCH}. No longer used in package ${EBUILD_BASEDIR}."
-						pushd files/ &> /dev/null
-						git rm -rf $(find ./ -type f -name ${PATCH})
-						popd &> /dev/null
+						git rm -rf $(find ./files/ -type f -name ${PATCH})
 					fi
 				done
 			fi
