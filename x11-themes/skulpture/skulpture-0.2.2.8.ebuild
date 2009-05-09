@@ -7,7 +7,7 @@ EAPI="2"
 inherit kde4-base
 
 DESCRIPTION="Classical style and window decorations for KDE 4.x"
-HOMEPAGE="http://www.kde-look.org/content/show.php?content=59031"
+HOMEPAGE="http://skulpture.maxiom.de/"
 SRC_URI="http://skulpture.maxiom.de/releases/${P}.tar.bz2"
 
 LICENSE="GPL-3"
