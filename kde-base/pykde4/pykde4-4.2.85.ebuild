@@ -23,8 +23,10 @@ RDEPEND="${DEPEND}
 	!dev-python/pykde
 "
 
-PATCHES=( "${FILESDIR}/pykde4-4.2.85-backendcapabilities.patch"
-			"${FILESDIR}/pykde4-4.2.85-kdatetime.patch" )
+PATCHES=(	"${FILESDIR}/pykde4-4.2.85-backendcapabilities.patch"
+			"${FILESDIR}/pykde4-4.2.85-kdatetime.patch"
+			"${FILESDIR}/pykde4-4.2.85-agentfilterproxymodel.patch"
+			)
 
 src_prepare() {
 	kde4-meta_src_prepare
