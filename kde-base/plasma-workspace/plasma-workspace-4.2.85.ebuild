@@ -61,20 +61,6 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
-src_prepare() {
-	kde4-meta_src_prepare
-
-	if ! use xcomposite; then
-		# Add David Nolder (zwabel) experimental fake transparency patch
-		echo
-		ewarn "Enabling experimental fake transparency support."
-		ewarn "There are known issues with certain versions of Qt."
-		ewarn "Do not report any bugs."
-		echo
-		epatch "${FILESDIR}/${PN}-fake-panel-transparency.patch"
-	fi
-}
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with google-gadgets Googlegadgets)

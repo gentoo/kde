@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  plasma-workspace-4.2.85.ebuild, plasma-workspace-9999-r1.ebuild:
+  drop fake transperancy patch
+
   08 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -files/plasma-workspace-4.1.72-fix.patch, -plasma-workspace-4.2.71.ebuild:
   Version removed.
