@@ -1,5 +1,9 @@
 TODO list:
 
+doc useflags
+ - we need to think about it once more and split it onto userdoc and apidoc, where we should pick which one will stand for doc useflag
+   and which one will stand for documentation for developers.
+
 dev-util/kdevelop:
  - KDevelop uses dev-libs/check and dev-util/cppunit if available (for plugin/xtest)
    * does not use the usual macro_optional_add stuff, so we can't use the cmake stuff in our eclasses to select
