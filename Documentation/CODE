@@ -11,7 +11,11 @@ So the rules are these:
  - always fix automagic packages with macro_optional_ prefixing and report it upstream with patch.
  - check your apps deps with dylink scanner in maintainer folder
  - if you want our herd in the application and you are not kde team HT/Member ask us first
+ - if you create blocker make sure it is in RDEPEND and comment the reason why you created the blocker
 
 KDE 3
  - do what ever you want with one condition, make sure it really compiles/run
  - feel free to commit patches without kde team ack if the above condition is checked
+
+# NOT FOLLOWING THIS RULES WILL BE PUNISHED!
+# no cookies for week!
