@@ -113,3 +113,7 @@ EOF
 pkg_preinst() {
 	:
 }
+
+src_test() {
+	:
+}
