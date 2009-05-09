@@ -12,6 +12,11 @@ So the rules are these:
  - check your apps deps with dylink scanner in maintainer folder
  - if you want our herd in the application and you are not kde team HT/Member ask us first
  - if you create blocker make sure it is in RDEPEND and comment the reason why you created the blocker
+   the blocker must contain specific version for the block
+     ie. we introduce blocker for 4.1.87 then we add to the block !cat/pn-4.1.87
+   remember to use correct +-kdeprefix resolution
+     !kdeprefix? ( !cat/pn-version[kdeprefix-] )
+	 kdeprefix? ( !cat/pn-version:slot[kdeprefix] )
 
 KDE 3
  - do what ever you want with one condition, make sure it really compiles/run
