@@ -14,7 +14,7 @@ DEPEND="sys-devel/gettext"
 RDEPEND=""
 
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="doc"
 
 MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu
 			he hi hu is it ja kk km kn ko ku lt lv mai mk ml mr nb nds nl
@@ -58,6 +58,8 @@ src_unpack() {
 }
 
 src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_build doc docs)"
 	[[ -n ${A} ]] && kde4-base_src_configure
 }
 
