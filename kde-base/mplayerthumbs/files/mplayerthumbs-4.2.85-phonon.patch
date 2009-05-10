@@ -1,0 +1,96 @@
+--- tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/mplayerthumbs-config.h.cmake	1970-01-01 01:00:00.000000000 +0100
++++ tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/mplayerthumbs-config.h.cmake	2009-05-10 19:11:54.514003199 +0200
+@@ -0,0 +1,2 @@
++/* If phonon support is enabled */
++#cmakedefine PHONON_API 1
+
+--- tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/servicesfactory.cpp	2009/05/08 14:11:27	965318
++++ tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/servicesfactory.cpp	2009/05/08 14:12:14	965319
+@@ -16,13 +16,20 @@
+    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+    Boston, MA 02110-1301, USA.
+ */
++
+ #include "constants.h"
+ #include "servicesfactory.h"
+ #include "previewingfile.h"
+ #include "videobackendiface.h"
+ #include "mplayervideobackend.h"
+ #include "mplayerthumbs.h"
+-#include "phononbackend.h"
++#include "mplayerthumbs-config.h"
++
++
++#ifdef PHONON_API
++	#include "phononbackend.h"
++#endif
++
+ PreviewingFile* ServicesFactory::previewingFile(const QString& filePath, unsigned int scalingWidth, unsigned int scalingHeight, QObject* parent) {
+   return new PreviewingFile(filePath, scalingWidth, scalingHeight, parent);
+ }
+@@ -33,9 +40,13 @@
+     case VideoBackendIFace::MPlayer:
+       kDebug(DBG_AREA) << "videopreview: Selected mplayer backend\n";
+       return new MPlayerVideoBackend(previewingFile, cfg);
++	  break;
++#ifdef PHONON_API
+     case VideoBackendIFace::Phonon:
+       kDebug(DBG_AREA) << "videopreview: Selected phonon backend\n";
+       return new PhononBackend(previewingFile, cfg);
++	  break;
++#endif
+   }
+   // Well, we should never be here...
+   return NULL;
+
+--- tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/CMakeLists.txt	2009/05/08 14:11:27	965318
++++ tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/src/CMakeLists.txt	2009/05/08 14:12:14	965319
+@@ -1,10 +1,37 @@
+-set(videopreview_PART_SRCS frameselector.cpp phononbackend.cpp videopreview.cpp  mplayervideobackend.cpp videobackendiface.cpp previewingfile.cpp thumbnail.cpp thumbnailsmap.cpp servicesfactory.cpp)
++include_directories( ${CMAKE_CURRENT_BINARY_DIR} )
+ 
+-kde4_add_kcfg_files(videopreview_PART_SRCS mplayerthumbs.kcfgc)
++set(PHONON_API FALSE)
++
++if(ENABLE_PHONON_SUPPORT)
++	set(PHONON_API TRUE)
++endif(ENABLE_PHONON_SUPPORT)
++
++configure_file(mplayerthumbs-config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/mplayerthumbs-config.h )
++
++set(videopreview_PART_SRCS 
++	frameselector.cpp 
++	videopreview.cpp  
++	mplayervideobackend.cpp 
++	videobackendiface.cpp 
++	previewingfile.cpp 
++	thumbnail.cpp 
++	thumbnailsmap.cpp 
++	servicesfactory.cpp)
+ 
++if( PHONON_API )
++	set( videopreview_PART_SRCS
++		${videopreview_PART_SRCS}
++		phononbackend.cpp )
++endif( PHONON_API )
++
++kde4_add_kcfg_files(videopreview_PART_SRCS mplayerthumbs.kcfgc)
+ kde4_add_plugin(videopreview ${videopreview_PART_SRCS})
+ 
+-target_link_libraries(videopreview ${KDE4_KIO_LIBS} ${PHONON_LIBRARY} )
++target_link_libraries(videopreview ${KDE4_KIO_LIBS} )
++
++if( PHONON_API )
++	target_link_libraries(videopreview ${PHONON_LIBRARY} )
++endif( PHONON_API )
+ 
+ install(TARGETS videopreview DESTINATION ${PLUGIN_INSTALL_DIR})
+
+--- tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/CMakeLists.txt	2009/05/08 14:11:27	965318
++++ tags/KDE/4.2.85/kdemultimedia/mplayerthumbs/CMakeLists.txt	2009/05/08 14:12:14	965319
+@@ -1,2 +1,3 @@
+ project(mplayerthumbs)
++
+ add_subdirectory( src )
+
+

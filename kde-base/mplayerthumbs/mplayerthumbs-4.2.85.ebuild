@@ -25,3 +25,8 @@ RDEPEND="
 		media-video/mplayer-bin
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}/mplayerthumbs-4.2.85-phonon.patch"
+)
+
