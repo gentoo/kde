@@ -18,7 +18,13 @@ So the rules are these:
      !kdeprefix? ( !<cat/pn-version[kdeprefix-] )
 	 kdeprefix? ( !<cat/pn-version:slot[kdeprefix] )
 
-KDE 3
+Commiting:
+ - All commit messages must look like this:
+   category/pn - Message describing what i did
+   kde-base/kdelibs - sync with main tree.
+ - When you commit something for some bug add inOverlay to keywords, so normal devs know about it
+
+KDE 3:
  - do what ever you want with one condition, make sure it really compiles/run
  - feel free to commit patches without kde team ack if the above condition is checked
 
