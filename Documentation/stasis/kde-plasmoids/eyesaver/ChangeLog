@@ -1,9 +1,0 @@
-# ChangeLog for kde-plasmoids/eyesaver
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*eyesaver-0.2a (15 Oct 2008)
-
-  15 Oct 2008; <alexxy@gentoo.org> +metadata.xml, +eyesaver-0.2a.ebuild:
-  Version bump
-
