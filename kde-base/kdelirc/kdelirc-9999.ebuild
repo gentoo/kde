@@ -5,8 +5,7 @@
 EAPI="2"
 
 KMNAME="kdeutils"
-KMMODULE="kdelirc"
-inherit kde4-base
+inherit kde4-meta
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 KEYWORDS=""
