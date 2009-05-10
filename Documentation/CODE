@@ -23,6 +23,7 @@ Commiting:
    category/pn - Message describing what i did
    kde-base/kdelibs - sync with main tree.
  - When you commit something for some bug add inOverlay to keywords, so normal devs know about it
+   also add [overlay-name] to the summary
 
 KDE 3:
  - do what ever you want with one condition, make sure it really compiles/run
