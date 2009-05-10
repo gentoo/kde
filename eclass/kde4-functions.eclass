@@ -106,7 +106,7 @@ comment_all_add_subdirectory() {
 # This is a whitespace-separated list of translations this ebuild supports.
 # These translations are automatically added to IUSE. Therefore ebuilds must set
 # this variable before inheriting any eclasses. To enable only selected
-# translations, ebuilds must call enable_selected_linguas(). kde4-base.eclass does
+# translations, ebuilds must call enable_selected_linguas(). kde4-{base,meta}.eclass does
 # this for you.
 #
 # Example: KDE_LINGUAS="en_GB de nl"

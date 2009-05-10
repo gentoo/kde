@@ -326,8 +326,12 @@ case ${BUILD_TYPE} in
 			ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
 			ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
 		fi
-		# limit syncing to 1 hour.
-		ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+		# @ECLASS-VARIABLE: ESVN_UP_FREQ
+		# @DESCRIPTION:
+		# This variable is used for specifying the timeout between svn synces
+		# for kde-base and koffice modules. Does not affect misc apps.
+		# Default value is 1 hour.
+		[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		;;
 	*)
 		if [[ -n ${KDEBASE} ]]; then
@@ -357,7 +361,12 @@ case ${BUILD_TYPE} in
 					esac
 					;;
 				koffice)
-					SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2"
+					case ${PV} in
+						1.9*)
+							SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2"
+							;;
+						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
+					esac
 				;;
 			esac
 			fi
