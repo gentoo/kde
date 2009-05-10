@@ -41,11 +41,11 @@ src_prepare() {
 }
 
 src_configure() {
-	if use bittorent-external && use bittorent ; then
+	if use bittorrent-external && use bittorrent ; then
 		einfo "Using the external plugin."
-		einfo "Disable bittorent-external useflag if you want iternal one."
+		einfo "Disable bittorrent-external useflag if you want iternal one."
 	fi
-	if use bittorent-external; then
+	if use bittorrent-external; then
 		mycmakeargs="${mycmakeargs} -DEMBEDDED_TORRENT_SUPPORT=OFF"
 	else
 		mycmakeargs="${mycmakeargs}
