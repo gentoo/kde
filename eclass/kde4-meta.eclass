@@ -584,7 +584,7 @@ kde4-meta_change_cmakelists() {
 			if [[ ${PN} != libkworkspace ]]; then
 				sed -i \
 					-e '/install(FILES[[:space:]]{CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/s/^/#DONOTINSTALL[[:space:]]/' \
-					-e"s/FILE[[:space:]]KDE4WorkspaceLibraryTargets.cmake/FILE[[:space:]]KDE4WorkspaceLibraryTargets-${PN}.cmake/g" \
+					-e"s/FILE[[:space:]]KDE4WorkspaceLibraryTargets.cmake/FILE[[:space:]]KDE4WorkspaceLibraryTargets.cmake[[:space:]]RENAME[[:space:]]KDE4WorkspaceLibraryTargets-${PN}.cmake/g" \
 					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
 			fi
 			;;
