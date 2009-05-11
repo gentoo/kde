@@ -16,6 +16,8 @@ KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="+mysql"
 
 RDEPEND="
+		dev-libs/boost
+		>=dev-libs/soprano-2.2
 		x11-libs/qt-core:4
 		x11-libs/qt-dbus:4
 		x11-libs/qt-sql:4[mysql?]
@@ -23,9 +25,7 @@ RDEPEND="
 		"
 DEPEND="
 		${RDEPEND}
-		dev-libs/boost
 		dev-libs/libxslt
-		>=dev-libs/soprano-2.2
 		>=kde-base/automoc-0.9.88
 		"
 
