@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  akonadi-server-1.1.85.ebuild, akonadi-server-9999.ebuild:
+  Requires >=qt-4.5.0
+
   11 May 2009; steffen stramm <krytzz@soylent.eu>
   akonadi-server-1.1.85.ebuild, akonadi-server-9999.ebuild:
   adjusted deps, thanks ABCD, bug 269474, soprano was also affected in this

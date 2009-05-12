@@ -16,18 +16,17 @@ KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="+mysql"
 
 RDEPEND="
-		dev-libs/boost
-		>=dev-libs/soprano-2.2
-		x11-libs/qt-core:4
-		x11-libs/qt-dbus:4
-		x11-libs/qt-sql:4[mysql?]
-		x11-misc/shared-mime-info
-		"
-DEPEND="
-		${RDEPEND}
-		dev-libs/libxslt
-		>=kde-base/automoc-0.9.88
-		"
+	dev-libs/boost
+	>=dev-libs/soprano-2.2
+	>=x11-libs/qt-core-4.5.0:4
+	>=x11-libs/qt-dbus-4.5.0:4
+	>=x11-libs/qt-sql-4.5.0:4[mysql?]
+	x11-misc/shared-mime-info
+"
+DEPEND="${RDEPEND}
+	dev-libs/libxslt
+	>=kde-base/automoc-0.9.88
+"
 
 S="${WORKDIR}/${P/-server/}"
 
