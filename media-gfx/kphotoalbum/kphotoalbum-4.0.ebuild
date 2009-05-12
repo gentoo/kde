@@ -10,7 +10,7 @@ MY_P="${PN}-$(replace_all_version_separators '-')"
 
 DESCRIPTION="KDE Photo Album is a tool for indexing, searching, and viewing images."
 HOMEPAGE="http://www.kphotoalbum.org/"
-SRC_URI="http://dev.gentoo.org/~jkt/kphotoalbum/${MY_P}.tar.bz2"
+SRC_URI="http://www.${PN}.org/data/download/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
