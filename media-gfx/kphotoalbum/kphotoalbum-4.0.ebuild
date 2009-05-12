@@ -6,8 +6,6 @@ EAPI="2"
 
 inherit kde4-base versionator
 
-MY_P="${PN}-$(replace_all_version_separators '-')"
-
 DESCRIPTION="KDE Photo Album is a tool for indexing, searching, and viewing images."
 HOMEPAGE="http://www.kphotoalbum.org/"
 SRC_URI="http://www.${PN}.org/data/download/${P}.tar.bz2"
@@ -29,8 +27,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
-
-S="${WORKDIR}"/${MY_P}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
