@@ -25,3 +25,14 @@ src_prepare() {
 
 	kde4-meta_src_prepare
 }
+
+src_install() {
+	kde4-meta_src_install
+
+	# workspace library hack
+	cd "${D}/${KDEDIR}/$(get_libdir)/cmake/"
+	local targ=`find ./ -name KDE4WorkspaceLibraryTargets.cmake`
+	cd ${targ/\/*/}
+	cp "${FILESDIR}"/KDE4WorkspaceLibraryTargets.cmake \
+		./ || die "library target copy failed"
+}
