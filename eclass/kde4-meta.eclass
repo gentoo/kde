@@ -691,7 +691,10 @@ kde4-meta_src_install() {
 	# remove loader script for kdebase-workspace. Only one is needed.
 	if [[ ${KMNAME} = kdebase-workspace && ${PN} != libkworkspace && ${EXPORT_WORKSPACE} = 1 ]]; then 
 		pushd "${D}/${KDEDIR}/$(get_libdir)/cmake/" &> /dev/null
-		find ./ -name KDE4WorkspaceLibraryTargets-${PN}.cmake -exec rm {} \;
+		# get ADD_LIB lines from the file and then remove it
+		local targetlibs=`find ./ -name KDE4WorkspaceLibraryTargets-${PN}.cmake`
+		cat ${targetlibs} |grep ADD_LIBRARY > ${targetlibs/\/*/}/librarydefs-${PN}.cmake
+		rm ${targetlibs}
 		popd &> /dev/null
 	fi
 }
