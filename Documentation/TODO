@@ -10,6 +10,10 @@ dev-util/kdevelop:
    * if pkgs are not available at compile time, xtest is not built
    * should we make that a USE? Or just always depend on those? Patching CMakeLists.txt to not include them if not wanted?
 
+kdebindings:
+ - create new ebuilds for all various things.
+ - php, java, c#...
+
 ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
  - clean up Documentation/stasis
