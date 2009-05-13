@@ -406,6 +406,17 @@ kde4-meta_create_extractlists() {
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
 	case ${KMNAME} in
+		kdepim)
+			# No need for unpack since 4.2.86
+			# Remove when 4.2 is wiped out from the tree
+			case ${PV} in
+				4.1*|4.2.0|4.2.1|4.2.2|4.2.3|4.2.4|4.2.85)
+					KMCOMPILEONLY="${KMCOMPILEONLY}
+						cmake/modules/"
+						;;
+				*) ;;
+			esac
+			;;
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)
