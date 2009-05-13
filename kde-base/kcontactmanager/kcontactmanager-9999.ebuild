@@ -17,6 +17,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
+	akonadi/akonadi_next
 	akonadi/kabc/
 "
 
@@ -25,4 +26,12 @@ src_prepare() {
 
 	sed -i -e 's|# macro_optional_add_subdirectory(kcontactmanager)|macro_optional_add_subdirectory(kcontactmanager)|' \
 		CMakeLists.txt || die "failed to uncomment kcontactmanager"
+}
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DKDEPIM_BUILD_KCONTACTMANAGER=1
+	"
+
+	kde4-meta_src_configure
 }
