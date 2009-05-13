@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*system-config-printer-kde-4.2.3 (13 May 2009)
+
+  13 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -system-config-printer-kde-4.2.2.ebuild,
+  +system-config-printer-kde-4.2.3.ebuild:
+  Added 4.2.3 version
+
   08 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -files/system-config-printer-kde-pykde4.patch,
   -system-config-printer-kde-4.2.71.ebuild:
