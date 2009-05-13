@@ -16,7 +16,7 @@
 # versions.
 case ${EAPI:-0} in
 	2) : ;;
-	*) die "No way! EAPI other than 2 is not supported for now." ;;
+	*) DEPEND="EAPI-TOO-OLD" ;;
 esac
 
 # @ECLASS-VARIABLE: KDEBASE
