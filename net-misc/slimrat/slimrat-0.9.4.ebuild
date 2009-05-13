@@ -23,6 +23,7 @@ DEPEND="dev-perl/WWW-Mechanize
 	X? (
 		dev-perl/gtk2-gladexml
 		dev-perl/Spiffy
+		x11-misc/xclip
 	)"
 RDEPEND="${DEPEND}"
 
