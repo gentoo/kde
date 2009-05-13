@@ -32,6 +32,10 @@ RDEPEND="${DEPEND}
 	>=app-office/akonadi-server-1.1[mysql]
 "
 
+KMEXTRACTONLY="
+	korganizer/version.h
+"
+
 src_prepare() {
 	if ! use semantic-desktop; then
 		sed -i -e "s/add_subdirectory( nepomuktag )//"\
