@@ -578,24 +578,10 @@ kde4-meta_change_cmakelists() {
 					die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
 			fi
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
-			# install files separately as KDE4WorkspaceConfig-${PN}.cmake and
-			# strip duplicate definitions only. Libkworkspace is only special
-			# candidate that installs the desired file itself.
 			if [[ ${PN} != libkworkspace ]]; then
-				# we have to search up the CMakeLists.txt to see if we install
-				# export or not
-				[[ `find "${S}" -type f -name CMakeLists.txt | xargs -i cat {} | grep "EXPORT kdeworkspaceLibraryTargets" | wc -l` -gt 1 ]] \
-					&& EXPORT_WORKSPACE=1
-				if [[ ${EXPORT_WORKSPACE} = 1 ]]; then
-					sed -i \
-						-e '/install(FILES[[:space:]]\${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/DESTINATION \${_KDE4WorkspaceConfig_INSTALL_DIR})/d' \
-						-e "s/FILE KDE4WorkspaceLibraryTargets.cmake/FILE KDE4WorkspaceLibraryTargets-${PN}.cmake/g" \
-						CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
-				else
-					sed -i \
-						-e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-						CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT	section"
-				fi
+				sed -i \
+					-e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
+					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT	section"
 			fi
 			;;
 		kdebase-runtime)
@@ -688,15 +674,6 @@ kde4-meta_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
 	kde4-base_src_install
-	# remove loader script for kdebase-workspace. Only one is needed.
-	if [[ ${KMNAME} = kdebase-workspace && ${PN} != libkworkspace && ${EXPORT_WORKSPACE} = 1 ]]; then 
-		pushd "${D}/${KDEDIR}/$(get_libdir)/cmake/" &> /dev/null
-		# get ADD_LIB lines from the file and then remove it
-		local targetlibs=`find ./ -name KDE4WorkspaceLibraryTargets-${PN}.cmake`
-		cat ${targetlibs} |grep ADD_LIBRARY > ${targetlibs/\/*/}/librarydefs-${PN}.cmake
-		rm ${targetlibs}
-		popd &> /dev/null
-	fi
 }
 
 # @FUNCTION: kde4-meta_src_make_doc
