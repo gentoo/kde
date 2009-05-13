@@ -95,6 +95,7 @@
 ~kde-base/kdegraphics-strigi-analyzer-9999 **
 ~kde-base/kde-l10n-9999 **
 ~kde-base/kdelibs-9999 **
+~kde-base/kdelirc-9999 **
 ~kde-base/kdemultimedia-kioslaves-9999 **
 ~kde-base/kdenetwork-filesharing-9999 **
 ~kde-base/kdepasswd-9999 **
@@ -285,7 +286,6 @@
 ~kde-base/thumbnailers-9999 **
 ~kde-base/umbrello-9999 **
 ~kde-misc/filelight-9999 **
-~kde-misc/kdelirc-9999 **
 ~kde-misc/kdiff3-9999 **
 ~kde-misc/kgrubeditor-9999 **
 ~kde-misc/kobby-9999 **
