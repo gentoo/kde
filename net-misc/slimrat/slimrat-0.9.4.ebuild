@@ -20,7 +20,10 @@ DEPEND="dev-perl/WWW-Mechanize
 		virtual/perl-Getopt-Long
 		virtual/perl-Term-ANSIColor
 	)
-	X? ( dev-perl/gtk2-gladexml )"
+	X? (
+		dev-perl/gtk2-gladexml
+		dev-perl/Spiffy
+	)"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
