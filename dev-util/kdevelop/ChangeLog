@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 May 2009; Manuel Nickschas <sputnick@quassel-irc.org>
+  kdevelop-9999.ebuild:
+  Fix compile, add ksysguard dep for libprocessui
+
   18 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdevelop-9999.ebuild:
   Requires live kdevplatform

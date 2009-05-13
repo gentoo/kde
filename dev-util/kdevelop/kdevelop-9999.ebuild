@@ -16,11 +16,19 @@ IUSE="+cmake +cxx debug +qmake"
 
 DEPEND="
 	>=dev-util/kdevplatform-9999
+	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
 "
+
+src_prepare() {
+	# Remove this and the ksysguard dep after libprocessui moved into kdelibs
+        sed -i -e 's/${KDE4WORKSPACE_PROCESSUI_LIBS}/processui/g' \
+                debuggers/gdb/CMakeLists.txt \
+                || die "Failed to patch CMake files"
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
