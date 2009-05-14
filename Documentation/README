@@ -2,3 +2,15 @@ Hi. Welcome to the kde overlay.
 
 This overlay is a testing ground for the kde team. This is where
 we'll test new ideas before applying them in the tree.
+
+eix stuff:
+we all know that eix takes a long time to complete.
+i set up a server who generates metadata-cache, you can use it to speed up update-eix drastically.
+
+ATTENTION perhaps your overlay path may vary
+
+1. execute metadata-sync in the Documentation directory
+2. edit /etc/eixrc:
+OVERRIDE_CACHE_METHOD="/usr/local/portage/layman/kde-testing metadata-assign"
+
+everytime you sync the overlay, you have to sync the metadata manually again, i dont have a proper solution for that atm

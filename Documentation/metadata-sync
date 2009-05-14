@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -av --delete rsync://slackie.soylent.eu/metadata/kde-testing/ /usr/local/portage/layman/kde-testing/metadata/cache
