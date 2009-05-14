@@ -1,2 +1,7 @@
-#!/bin/sh
-rsync -av --delete rsync://slackie.soylent.eu/metadata/kde-testing/ /usr/local/portage/layman/kde-testing/metadata/cache
+#!/bin/bash
+PWD=`pwd`
+if [ "${PWD/*\//}" == "Documentation" ]; then
+	rsync -av --delete rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache
+else
+	echo "this script is meant to be run from within Documentation/";
+fi
