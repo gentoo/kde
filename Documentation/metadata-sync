@@ -1,6 +1,6 @@
 #!/bin/bash
 PWD=`pwd`
-if [ "${PWD/*\//}" == "Documentation" ]; then
+if [[ ${PWD/*\//} == Documentation ]]; then
 	rsync -av --delete rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache
 else
 	echo "this script is meant to be run from within Documentation/";
