@@ -6,7 +6,7 @@ EAPI="2"
 
 OPENGL_REQUIRED="optional"
 KMNAME="extragear/multimedia"
-inherit flag-o-matic kde4-base
+inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
@@ -26,8 +26,6 @@ DEPEND="
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1[kde]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
-	>=kde-base/phonon-kde-${KDE_MINIMAL}
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 	sys-libs/zlib
 	>=x11-libs/qtscriptgenerator-0.1.0
 	cdaudio? (
@@ -49,6 +47,7 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-0.3.0 )
 "
 RDEPEND="${DEPEND}
+	>=kde-base/phonon-kde-${KDE_MINIMAL}
 	media-sound/amarok-utils
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
