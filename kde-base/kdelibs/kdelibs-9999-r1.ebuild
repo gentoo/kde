@@ -20,7 +20,6 @@ mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 RESTRICT="test"
 
 COMMONDEPEND="
-	!=kde-base/kdelibs-9999
 	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
@@ -113,6 +112,7 @@ PDEPEND="
 PATCHES=(
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/dist/create_exe_symlink.cmake-sandbox-violation.patch"
 )
 
 src_prepare() {

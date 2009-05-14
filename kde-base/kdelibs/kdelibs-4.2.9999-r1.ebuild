@@ -111,11 +111,11 @@ PDEPEND="
 
 # upstream patches / dist patches
 # systemsettings title issue
-# ${FILESDIR}/${PN}-${SLOT}-fixx11h.h.patch - see bug 263823
 PATCHES=(
 	"${FILESDIR}/dist/09_disable_debug_messages_if_not_explicitly_enabled.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/dist/create_exe_symlink.cmake-sandbox-violation.patch"
 )
 
 src_prepare() {

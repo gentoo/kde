@@ -3,6 +3,11 @@
 # $Header: $
 
   14 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdelibs-4.2.85.ebuild, kdelibs-4.2.9999-r1.ebuild, kdelibs-9999-r1.ebuild,
+  +files/dist/create_exe_symlink.cmake-sandbox-violation.patch:
+  Restored sandbox violation patch
+
+  14 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdelibs-4.2.85.ebuild, kdelibs-9999-r1.ebuild:
   Add FIXME note about temporary sed
 
