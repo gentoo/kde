@@ -12,16 +12,25 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=41180"
 LICENSE="GPL-2"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
+IUSE="debug mplayer"
 
 RDEPEND="
 	!media-video/mplayerthumbs
 	|| (
-		>=kde-base/dolphin-${KDE_MINIMAL}
-		>=kde-base/konqueror-${KDE_MINIMAL}
+		>=kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
+		>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
 	)
-	|| (
-		media-video/mplayer
-		media-video/mplayer-bin
+	mplayer? (
+		|| (
+			media-video/mplayer
+			media-video/mplayer-bin
+		)
 	)
 "
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DENABLE_PHONON_SUPPORT=ON"
+
+	kde4-meta_src_configure
+}
