@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug musicbrainz"
 
 DEPEND="
-	>=kde-base/libknotificationitem-${KDE_MINIMAL}[kdeprefix=]
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	musicbrainz? ( media-libs/musicbrainz:1 )
 "
 RDEPEND="${DEPEND}"
