@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	!kde-misc/kdelirc
