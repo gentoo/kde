@@ -87,11 +87,9 @@ case ${KMNAME} in
 	koffice)
 		[[ ${PN} != koffice-data ]] && IUSE="debug"
 		RDEPEND="${RDEPEND}
-			!kdeprefix? (
-				!app-office/${PN}:0
-				!app-office/koffice:0
-				!app-office/koffice-meta:0
-			)
+			!app-office/${PN}:0
+			!app-office/koffice:0
+			!app-office/koffice-meta:0
 		"
 		COMMON_DEPEND="
 			dev-cpp/eigen:2
