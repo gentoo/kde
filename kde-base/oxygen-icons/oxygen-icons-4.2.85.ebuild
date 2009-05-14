@@ -4,6 +4,8 @@
 
 EAPI="2"
 
+KMNAME="kdesupport"
+KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="Oxygen SVG icon theme."
