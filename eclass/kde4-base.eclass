@@ -486,6 +486,11 @@ kde4-base_src_configure() {
 	# Build tests in src_test only, where we override this value
 	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
 
+	# set "real" debug mode
+	if has debug ${IUSE//+} && use debug; then
+		CMAKE_BUILD_TYPE="fulldebug"
+	fi
+
 	# Set distribution name
 	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
