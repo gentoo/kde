@@ -82,7 +82,7 @@ pkg_postinst() {
 	if use daap; then
 		echo
 		elog "You have installed amarok with daap support."
-		elog "You may be interested in installing www-servers/mongrel as well."
+		elog "You may be insterested in installing www-servers/mongrel as well."
 		echo
 	fi
 }

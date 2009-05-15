@@ -2,11 +2,6 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  15 May 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
-  amarok-2.0.90-r1.ebuild, amarok-2.0.96.ebuild:
-  Fixed typo on amarok-2.0.9* ebuilds. Thanks to karthik
-  <karthikmostwanted@gmail.com> for the bug report - fixes bug 269948.
-
 *amarok-2.0.96 (13 May 2009)
 
   13 May 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
