@@ -488,7 +488,7 @@ kde4-base_src_configure() {
 
 	# set "real" debug mode
 	if has debug ${IUSE//+} && use debug; then
-		CMAKE_BUILD_TYPE="fulldebug"
+		CMAKE_BUILD_TYPE="Debugfull"
 	fi
 
 	# Set distribution name
