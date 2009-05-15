@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*amarok-2.0.96-r1 (14 May 2009)
+*amarok-2.0.90-r2 (14 May 2009)
+
+  14 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -amarok-2.0.90-r1.ebuild, +amarok-2.0.90-r2.ebuild, -amarok-2.0.96.ebuild,
+  +amarok-2.0.96-r1.ebuild, amarok-9999.ebuild:
+  Fixed deps - removed plasma-workspace deps - moved phonon-kde deps to
+  RDEPEND, removed redundant inherit (cmake-utils already requires and uses
+  flag-o-matic - this will not change)
+
 *amarok-2.0.96 (13 May 2009)
 
   13 May 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
