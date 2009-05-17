@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit confutils
+inherit eutils confutils
 
 DESCRIPTION="Linux Rapidshare downloader"
 HOMEPAGE="http://code.google.com/p/slimrat/"
@@ -25,7 +25,9 @@ DEPEND="dev-perl/WWW-Mechanize
 		dev-perl/Spiffy
 		x11-misc/xclip
 	)"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	X? ( x11-terms/xterm )
+	"
 
 pkg_setup() {
 	confutils_require_any X cli
@@ -33,11 +35,14 @@ pkg_setup() {
 
 src_prepare() {
 	esvn_clean
+	epatch  ${FILESDIR}/00-config-${PV}.patch
 }
 
 src_install() {
 	# install binaries
+
 	exeinto ${ROOT}usr/share/${PN}
+
 	if use cli; then
 		doexe ${PN} || die "doexe failed"
 		dosym ${ROOT}usr/share/${PN}/${PN} ${ROOT}usr/bin/${PN}
@@ -46,7 +51,11 @@ src_install() {
 		doexe ${PN}-gui || die "doexe failed"
 		dosym ${ROOT}usr/share/${PN}/${PN}-gui ${ROOT}usr/bin/${PN}-gui
 	fi
+	
 	# install data
+	insinto /etc
+	newins ${S}/config slimrat.conf
+	
 	insinto ${ROOT}usr/share/${PN}
 	doins -r Clipboard.pm Clipboard Plugin.pm plugins slimrat.glade Toolbox.pm || die "doins failed"
 }

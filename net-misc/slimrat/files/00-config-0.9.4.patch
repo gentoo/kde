@@ -1,0 +1,12 @@
+--- slimrat-gui.orig	2009-03-23 00:28:38.000000000 +0100
++++ slimrat-gui	2009-05-17 20:28:49.000000000 +0200
+@@ -87,7 +87,8 @@
+ 
+ # config
+ our ($gui_xterm);
+-do "config";
++	my $slimratconfig = "/etc/slimrat.conf";
++	do $slimratconfig if (-e $slimratconfig);
+ 
+ 
+ Gtk2->main;
