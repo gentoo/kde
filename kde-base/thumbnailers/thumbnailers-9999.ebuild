@@ -5,15 +5,18 @@
 EAPI="2"
 
 KMNAME="kdegraphics"
-
 inherit kde4-meta
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS=""
 IUSE="debug"
 
-KMEXTRACTONLY="libs/mobipocket"
+KMEXTRACTONLY="
+	libs/mobipocket
+"
 
-DEPEND=">=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]"
+DEPEND="
+	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
+"
 RDEPEND="${DEPEND}"

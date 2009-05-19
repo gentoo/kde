@@ -5,11 +5,12 @@
 EAPI="2"
 
 KMNAME="kdegraphics"
-KMMODULE="thumbnailers"
 inherit kde4-meta
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-KMEXTRACTONLY="libs/mobipocket"
+KMEXTRACTONLY="
+	libs/mobipocket
+"
