@@ -1,7 +1,6 @@
 # We don't include kdesdk on the global set
 kde-base/kate:live
 kde-base/kdeplasma-addons:live
-kde-base/libknotificationitem:live
 kde-base/kde-env:live
 kde-base/oxygen-icons:live
 kde-base/kde-l10n:live
@@ -20,7 +19,6 @@ kde-base/kde-l10n:live
 @kdeutils-live
 
 @kdeaccessibility-live
-#@kde-extras-live <---- tomorrow!!
 #@koffice-live
 
 #for developers
