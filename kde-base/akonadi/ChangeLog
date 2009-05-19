@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  akonadi-9999.ebuild:
+  akonadi now requires libknotificationitem
+
   13 May 2009; Manuel Nickschas <sputnick@quassel-irc.org>
   akonadi-9999.ebuild:
   Extract korganizer/version.h to make it compile again
