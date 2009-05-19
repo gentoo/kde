@@ -1,0 +1,12 @@
+diff -ru ../kmess-old/src/utils/kmess-send/CMakeLists.txt ./src/utils/kmess-send/CMakeLists.txt
+--- ../kmess-old/src/utils/kmess-send/CMakeLists.txt	2009-05-10 23:53:09.000000000 +0200
++++ ./src/utils/kmess-send/CMakeLists.txt	2009-05-19 19:40:55.619404139 +0200
+@@ -12,8 +12,6 @@
+    ../../contact/msnstatus.cpp
+ )
+ 
+-LINK_DIRECTORIES( kmesssendpluginlib )
+-
+ KDE4_ADD_PLUGIN( kmesssendplugin WITH_PREFIX ${kmesssendplugin_SOURCES} )
+ 
+ TARGET_LINK_LIBRARIES( kmesssendplugin kmesssendpluginlib konq ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} )

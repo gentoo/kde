@@ -1,0 +1,13 @@
+Index: src/utils/kmess-send/CMakeLists.txt
+===================================================================
+--- src/utils/kmess-send/CMakeLists.txt	(revision 4848)
++++ src/utils/kmess-send/CMakeLists.txt	(working copy)
+@@ -12,8 +12,6 @@
+    ../../contact/msnstatus.cpp
+ )
+ 
+-
+-LINK_DIRECTORIES( kmesssendpluginlib )
+ ADD_DEPENDENCIES( kmesssendpluginlib kmess )
+ 
+ KDE4_ADD_PLUGIN( kmesssendplugin WITH_PREFIX ${kmesssendplugin_SOURCES} )

@@ -16,21 +16,26 @@ ESVN_PROJECT="kmess"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug gif konqueror xscreensaver"
 
 COMMONDEPEND="
 	app-crypt/qca:2
-	app-crypt/qca-ossl
+	app-crypt/qca-ossl:2
 	dev-libs/libxml2
 	dev-libs/libxslt
-	x11-libs/libXScrnSaver
+	gif? ( media-libs/giflib )
+	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL} )
+	xscreensaver? ( x11-libs/libXScrnSaver )
 "
 DEPEND="${COMMONDEPEND}
-	x11-proto/scrnsaverproto
+	xscreensaver? ( x11-proto/scrnsaverproto )
 "
 RDEPEND="${COMMONDEPEND}
 	!kdeprefix? ( !net-im/kmess:0 )
+	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
+
+PATCHES=( "${FILESDIR}/${P}-fix-broken-RPATH.patch" )
 
 src_unpack() {
 	kde4-base_src_unpack
@@ -39,11 +44,13 @@ src_unpack() {
 		|| ewarn "SVN revision information will not be available."
 }
 
-src_prepare() {
-	sed -i -e '/MACRO_LOG_FEATURE( QCA2_OSSL_PLUGIN_FOUND.*$/,/^.*t=3100" )/d' \
-		CMakeLists.txt || die "failed to patch CMakeLists.txt"
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with gif GIF)
+		$(cmake-utils_use_with konqueror LibKonq)
+		$(cmake-utils_use_want xscreensaver XSCREENSAVER)"
 
-	kde4-base_src_prepare
+	kde4-base_src_configure
 }
 
 pkg_postinst() {

@@ -2,4 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <herd>kde</herd>
+  <use>
+	<flag name="gif">Enables sending of handwriting, using <pkg>media-libs/giflib</pkg>.</flag>
+	<flag name="konqueror">Enable context menu integration for <pkg>kde-base/konqueror</pkg>.</flag>
+	<flag name="xscreensaver">Enable auto-away support via XScreenSaver.</flag>
+  </use>
 </pkgmetadata>
