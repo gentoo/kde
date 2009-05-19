@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="cs de es fr ja lt nl ru"
+KDE_LINGUAS="cs de es fr ja lt nl ro ru"
 inherit kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
@@ -15,7 +15,7 @@ ESVN_PROJECT="kdesvn"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	dev-db/sqlite
@@ -26,10 +26,19 @@ DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6
 "
 
+src_prepare() {
+	sed -e 's/ADD_SUBDIRECTORY(doc)/MACRO_OPTIONAL_ADD_SUBDIRECTORY(doc)/' \
+		-i CMakeLists.txt || die "failed to make docs optional"
+
+	kde4-base_src_prepare
+}
+
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
 	mycmakeargs="${mycmakeargs}
-		-DLIB_INSTALL_DIR=${KDEDIR}/$(get_libdir)"
+		-DDAILY_BUILD=ON
+		-DLIB_INSTALL_DIR=${KDEDIR}/$(get_libdir)
+		$(cmake-utils_use_build doc)"
 
 	kde4-base_src_configure
 }
