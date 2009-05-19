@@ -14,18 +14,16 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug xinerama"
+IUSE="debug exif"
 
 DEPEND="
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?]
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
-	opengl? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl] )
-	xinerama? ( x11-proto/xineramaproto )
+	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !kde-misc/lancelot-menu )
-	xinerama? ( x11-libs/libXinerama )
 "
 
 PATCHES=( "${FILESDIR}/lancelot-qt45.patch" )
@@ -47,8 +45,8 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
-		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with xinerama X11_Xinerama)"
+		$(cmake-utils_use_with exif Kexiv2)
+		$(cmake-utils_use_with opengl OpenGL)"
 
 	kde4-base_src_configure
 }
