@@ -16,11 +16,11 @@ SLOT="1"
 IUSE="debug konqueror"
 
 DEPEND="
-	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL}[kdeprefix=] )
+	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL} )
 "
 RDEPEND="${DEPEND}
 	sys-apps/diffutils
-	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL}[kdeprefix=] )
+	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
 
 src_configure() {
