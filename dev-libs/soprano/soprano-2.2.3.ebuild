@@ -7,7 +7,7 @@ EAPI="2"
 JAVA_PKG_OPT_USE="java"
 inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
-DESCRIPTION="Soprano is a library which provides a nice QT interface to RDF storage solutions."
+DESCRIPTION="library which provides a nice QT interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
