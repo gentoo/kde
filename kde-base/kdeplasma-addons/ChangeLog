@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdeplasma-addons-4.2.3-r1 (19 May 2009)
+
+  19 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdeplasma-addons-4.2.3-r1.ebuild:
+  Fixed bug 265980, removed krunner fron deps, dropped xinerama from
+  IUSE.
+
   08 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdeplasma-addons-4.2.71.ebuild:
   Version removed.
