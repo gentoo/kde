@@ -24,7 +24,7 @@ COMMONDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
-	usb? ( dev-libs/libusb )
+	usb? ( =virtual/libusb-0* )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
