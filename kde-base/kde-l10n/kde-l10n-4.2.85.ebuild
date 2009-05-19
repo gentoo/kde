@@ -18,7 +18,7 @@ IUSE="doc"
 
 MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu
 			he hi hu is it ja kk km kn ko ku lt lv mai mk ml mr nb nds nl
-			nn pa pl pt pt_BR ro ru sl sr sv tg th tr uk wa zh_CN zh_TW"
+			nn pa pl pt pt_BR ro ru sk sl sr sv tg th tr uk wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.bz2/}"
 SRC_URI=""
