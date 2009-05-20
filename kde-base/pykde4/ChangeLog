@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  pykde4-9999.ebuild:
+  Temporary fix
+
   19 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   pykde4-9999.ebuild:
   Raised sip and PyQt4 deps

@@ -30,6 +30,11 @@ RDEPEND="${COMMON_DEPEND}
 src_prepare() {
 	kde4-meta_src_prepare
 
+	# FIXME temporary fix
+	rm -f python/${PN}/sip/kio/ksslcertificatemanager.sip
+	sed -e 's|%Include ksslcertificatemanager.sip||' \
+		-i python/${PN}/sip/kio/kiomod.sip || die "failed to hack around"
+
 	if ! use examples; then
 		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i python/${PN}/CMakeLists.txt \
 			|| die "Failed to disable examples"
