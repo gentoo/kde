@@ -23,6 +23,8 @@ RDEPEND="${DEPEND}
 	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-desktop-menu-fix.patch" )
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with konqueror LibKonq)"

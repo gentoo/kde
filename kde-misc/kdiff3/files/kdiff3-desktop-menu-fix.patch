@@ -1,0 +1,11 @@
+Index: src/kdiff3.desktop
+===================================================================
+--- src/kdiff3.desktop	(revision 969772)
++++ src/kdiff3.desktop	(working copy)
+@@ -1,5 +1,6 @@
+ [Desktop Entry]
+ Name=KDiff3
++Categories=Qt;KDE;Development;
+ Name[hi]=के-डिफ3
+ Name[hne]=के-डिफ3
+ Name[ml]=കെഡിഫ്3

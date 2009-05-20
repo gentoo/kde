@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/kdiff3-desktop-menu-fix.patch, kdiff3-9999.ebuild:
+  Added temporary menu entry fix
+
   19 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdiff3-9999.ebuild:
   Dropped kdeprefix=
