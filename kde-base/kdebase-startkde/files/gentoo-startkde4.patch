@@ -4,12 +4,12 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -7,6 +7,37 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
- 
+
 +_KDEDIR=@REPLACE_PREFIX@
 +if [ "$_KDEDIR" != "/usr" ]; then
 +	export PATH=${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
 +	export ROOTPATH=${_KDEDIR}/sbin:${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
-+	export XDG_CONFIG_DIRS=${_KDEDIR}/etc/xdg
++	export XDG_CONFIG_DIRS=${_KDEDIR}/etc/xdg:${XDG_CONFIG_DIRS}
 +fi
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
@@ -42,7 +42,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -214,6 +243,13 @@
    done
  done
- 
+
 +# Gentoo part for FHS installs
 +if [ "${_KDEDIR}" = "/usr" ]; then
 +  for file in "/etc/kde/startup/"*.sh; do
@@ -56,7 +56,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -427,6 +463,13 @@
    done
  done
- 
+
 +# Gentoo part for FHS installs
 +if [ "${_KDEDIR}" = "/usr" ]; then
 +  for file in "/etc/kde/shutdown/"*.sh; do

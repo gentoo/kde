@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdebase-startkde-4.2.87-r1 (20 May 2009)
+
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  files/gentoo-startkde4.patch, -kdebase-startkde-4.2.87.ebuild,
+  +kdebase-startkde-4.2.87-r1.ebuild:
+  Added fallback XDG_CONFIG_DIRS path
+
 *kdebase-startkde-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
