@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kcontactmanager-4.2.87 (20 May 2009)
+
+  20 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +kcontactmanager-4.2.87.ebuild:
+  Version bump.
+
   13 May 2009; Manuel Nickschas <sputnick@quassel-irc.org>
   kcontactmanager-9999.ebuild:
   Actually build it rather than only unpacking it; fix extracts

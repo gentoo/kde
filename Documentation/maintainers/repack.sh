@@ -11,9 +11,9 @@ do
 done
 
 # Renaming dirs
-for x in $(ls -d *.svn${SVNREV})
+for x in $(ls -d *svn${SVNREV})
 do
-	mv ${x} ${x/.svn${SVNREV}/}
+	mv ${x} ${x/svn${SVNREV}/}
 done
 
 # making tars

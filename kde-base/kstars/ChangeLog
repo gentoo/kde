@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kstars-4.2.87 (20 May 2009)
+
+  20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kstars-4.2.87.ebuild:
+  Version bump.
+
   08 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -files/kstars-4.1.0-destdir.patch, -files/kstars-4.1.67-destdir.patch,
   -files/kstars-4.1.72-compile-without-indi.patch, -kstars-4.2.71.ebuild:

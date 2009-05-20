@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*akonadi-4.2.87 (20 May 2009)
+
+  20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +akonadi-4.2.87.ebuild:
+  Version bump.
+
   19 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   akonadi-9999.ebuild:
   akonadi now requires libknotificationitem
