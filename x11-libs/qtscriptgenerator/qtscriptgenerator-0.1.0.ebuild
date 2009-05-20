@@ -1,17 +1,20 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qtscriptgenerator/qtscriptgenerator-0.1.0.ebuild,v 1.2 2009/05/08 01:48:35 loki_val Exp $
 
 EAPI="2"
 
-inherit multilib git qt4
+MY_PN="${PN}-src"
+MY_P="${MY_PN}-${PV}"
+
+inherit multilib qt4
 
 DESCRIPTION="Tool for generating Qt bindings for Qt Script"
 HOMEPAGE="http://code.google.com/p/qtscriptgenerator/"
-EGIT_REPO_URI="git://labs.trolltech.com/qtscriptgenerator"
+SRC_URI="http://qtscriptgenerator.googlecode.com/files/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
@@ -32,9 +35,7 @@ RDEPEND="${DEPEND}"
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 
-src_unpack() {
-	git_src_unpack
-}
+S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	QTDIR="/usr/include/qt4"
@@ -49,7 +50,9 @@ src_prepare() {
 	sed -i \
 		-e "/qtscript_phonon/d" \
 		qtbindings/qtbindings.pro || die "sed failed"
-	git_src_prepare
+
+	# Fix for GCC-4.4, bug 268086
+	epatch "${FILESDIR}/${P}-gcc44.patch"
 	qt4_src_prepare
 }
 
