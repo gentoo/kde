@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*phonon-4.4_pre20090520 (20 May 2009)
+
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +phonon-4.4_pre20090520.ebuild:
+  Added phonon-4.4 snapshot
+
   09 Mar 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   -files/fix_nonascii_chars.patch, -phonon-4.3.1.ebuild:
   Dropped phonon 4.3.1 (in tree)
