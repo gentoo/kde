@@ -13,6 +13,7 @@ IUSE="chm crypt debug djvu doc ebook +jpeg +ps +pdf +tiff"
 
 DEPEND="
 	media-libs/freetype
+	sys-libs/zlib
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2 )
 	djvu? ( app-text/djvu )
