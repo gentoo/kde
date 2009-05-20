@@ -1,8 +1,0 @@
-# ChangeLog for app-mobilephone/obexftp
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  11 Feb 2009; Theo Chatzimichos <tampakrap@gentoo.org>
-  -files/obexftp-0.22-bluetooth.patch, obexftp-0.23_alpha.ebuild:
-  remove uneeded patch
-
