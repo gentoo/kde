@@ -18,10 +18,8 @@ ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
  - clean up Documentation/stasis
  - libkholidays still includes test stuff. can that be taken out?
- - dont know really about FindMarbleWidget.cmake 
  - kapptemplate needs to be checked again when kbindings is available?
  - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
- - does dragonplayer really need xine-lib dep?
  - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
  - fix virtuoso and make it actualy usable
 
