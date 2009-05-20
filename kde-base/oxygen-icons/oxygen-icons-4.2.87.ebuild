@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdesupport"
+KMNAME="oxygen-icons"
 KDE_REQUIRED="never"
 inherit kde4-base
 
