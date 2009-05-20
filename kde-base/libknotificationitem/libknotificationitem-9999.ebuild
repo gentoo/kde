@@ -14,4 +14,4 @@ IUSE="debug"
 
 RDEPEND="
 	!=kde-base/plasma-workspace-9999[kdeprefix=]
-	"
+"

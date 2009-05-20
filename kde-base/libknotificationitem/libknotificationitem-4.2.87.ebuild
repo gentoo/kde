@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdelibs/experimental"
+KMNAME="kdelibs-experimental"
 KMMODULE="knotificationitem"
 inherit kde4-meta
 
@@ -14,4 +14,4 @@ IUSE="debug"
 
 RDEPEND="
 	!=kde-base/plasma-workspace-9999[kdeprefix=]
-	"
+"
