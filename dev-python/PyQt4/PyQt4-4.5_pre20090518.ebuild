@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-inherit distutils qt4-edge
+inherit distutils qt4
 
 MY_PV=${PV/_pre/-snapshot-}
 MY_P=PyQt-x11-gpl-${MY_PV}

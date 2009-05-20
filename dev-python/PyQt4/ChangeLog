@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 May 2009; Markos Chandras <hwoarang@gentoo.org>
+  PyQt4-4.4.5_pre20090208-r1.ebuild, PyQt4-4.5_pre20090518.ebuild:
+  Use qt4 eclass instead of qt4-edge
+
 *PyQt4-4.5_pre20090518 (18 May 2009)
 
   18 May 2009; Markos Chandras <hwoarang@gentoo.org>
