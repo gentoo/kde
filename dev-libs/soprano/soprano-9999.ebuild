@@ -7,7 +7,7 @@ EAPI="2"
 JAVA_PKG_OPT_USE="java"
 inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
 
-DESCRIPTION="library which provides a nice QT interface to RDF storage solutions"
+DESCRIPTION="Library that provides a nice QT interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 
