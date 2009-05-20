@@ -16,14 +16,12 @@ IUSE="debug +semantic-desktop"
 # add when libmapi becomes available with an ebuild
 #exchange? ( net-libs/libmapi )
 # not sure about libxml2... - reavertm
-
 DEPEND="
 	dev-libs/boost
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)

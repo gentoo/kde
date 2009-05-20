@@ -15,7 +15,6 @@ IUSE="debug doc google-gadgets python rss xcomposite xinerama"
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]

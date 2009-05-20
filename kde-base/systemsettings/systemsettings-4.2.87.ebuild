@@ -14,7 +14,6 @@ KEYWORDS="~amd64 ~x86"
 
 COMMONDEPEND="
 	>=dev-libs/glib-2
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	media-libs/fontconfig
 	>=media-libs/freetype-2
 	>=x11-libs/libxklavier-3.2

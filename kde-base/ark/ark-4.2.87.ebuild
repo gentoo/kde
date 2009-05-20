@@ -12,7 +12,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+archive debug doc +zip"
 
 DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )
 	zip? ( >=dev-libs/libzip-0.8 )
 "

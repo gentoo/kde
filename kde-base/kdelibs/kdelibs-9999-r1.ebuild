@@ -107,6 +107,7 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	>=kde-base/kde-env-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 "
 
 PATCHES=(

@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="debug musicbrainz"
 
 DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	musicbrainz? ( media-libs/musicbrainz:1 )
 "
 RDEPEND="${DEPEND}"

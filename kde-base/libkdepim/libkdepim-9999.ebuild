@@ -11,11 +11,8 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
-"
 # @Since >4.2.65 kode removed from kdepim
-RDEPEND="${DEPEND}
+RDEPEND="
 	!kdeprefix? ( !>=kde-base/kode-4.1.0[-kdeprefix] )
 	kdeprefix? ( !kde-base/kode:${SLOT} )
 "

@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kget-4.2.87.ebuild, kget-9999.ebuild:
+  libknotificationitem moved to PDEPEND of kdelibs
+
 *kget-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kget-4.2.87.ebuild:
