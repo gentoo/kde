@@ -11,7 +11,7 @@ inherit python kde4-base
 
 DESCRIPTION="KDE Power Manager control module"
 HOMEPAGE="http://www.kde.org"
-SRC_URI="mirror://kde/stable/${PV}/extragear/${P}.tar.bz2"
+SRC_URI="mirror://kde/stable/${PV}/src/extragear/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
@@ -25,6 +25,14 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/libintl
 "
+
+src_prepare() {
+	sed -e 's|PYKDE|PYKDE4|g' \
+		-e 's|PyKDE|PyKDE4|g' \
+		-i CMakeLists.txt || die "failed to fix broken PyKDE4 checks"
+
+	kde4-base_src_prepare
+}
 
 pkg_postinst() {
 	kde4-base_pkg_postinst

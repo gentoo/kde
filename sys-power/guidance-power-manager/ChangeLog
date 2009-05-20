@@ -1,6 +1,13 @@
-# ChangeLog for kde-misc/guidance-power-manager
+# ChangeLog for sys-power/guidance-power-manager
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*guidance-power-manager-4.2.3 (20 May 2009)
+
+  20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -guidance-power-manager-4.2.2.ebuild,
+  +guidance-power-manager-4.2.3.ebuild:
+  Version bump
 
 *guidance-power-manager-4.2.2 (08 Apr 2009)
 
