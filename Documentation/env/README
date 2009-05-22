@@ -43,6 +43,7 @@ NOTE:
 - FEATURES are package manager specific and may behave (or not work at all) diffrrently per package
   basis with different package managers
 - this hack is known to work with portage. Refer to your package manager documentation otherwise.
+- you can use splitdebug instead of nostrip, there is installsources feature as well
 
 Detailed information about how to obtain meaningful backtraces:
 http://www.gentoo.org/proj/en/qa/backtraces.xml
