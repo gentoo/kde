@@ -155,7 +155,7 @@ fi
 # @DESCRIPTION:
 # All subdirectories listed here will be extracted, compiled & installed.
 # $KMMODULE is always added to $KMEXTRA.
-# If the htmlhandbook USE-flag is set, and if this directory exists,
+# If the doc USE-flag is set, and if this directory exists,
 # then "doc/$KMMODULE" is added to $KMEXTRA. In other cases, this should be
 # handled in the ebuild.
 # If the documentation is in a different subdirectory, you should add it to KMEXTRA.
