@@ -23,15 +23,14 @@ if [[ -d kde-3.5.d ]]; then
 fi
 popd > /dev/null
 
-# regenerate live unmask entries (base for live package mask)
+# regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-echo -e "\
-${HEADER}
-# Live packages are masked by default.
-# Edit Documentation/package.unmask/kde-live.d/ files instead." > kde-live
-if [[ -d kde-live.d ]]; then
-	cat kde-live.d/* >> kde-live
-fi
+for release in 4.2 4.3 live; do
+	echo -e "${HEADER}" > "kde-${release}"
+	if [[ -d "kde-${release}.d" ]]; then
+		cat "kde-${release}.d/"* >> "kde-${release}"
+	fi
+done
 popd > /dev/null
 
 # regenerate package mask
@@ -40,9 +39,9 @@ echo -e "\
 ${HEADER}
 # Edit profiles/package.mask.d/ files instead." > package.mask
 if [[ -d package.mask.d ]]; then
-	for x in package.mask.d/*; do
+	for masks in package.mask.d/*; do
 		echo >> package.mask
-		cat ${x} >> package.mask
+		cat ${masks} >> package.mask
 	done
 fi
 popd > /dev/null
