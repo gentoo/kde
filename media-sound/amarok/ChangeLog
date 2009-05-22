@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  amarok-2.0.96-r1.ebuild, amarok-9999.ebuild:
+  Added back qtscriptgenerator test (tested with and
+  w/o kdeprefix), more strict amarok-utils deps.
+
   15 May 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
   amarok-2.0.90-r2.ebuild, amarok-2.0.96-r1.ebuild, amarok-9999.ebuild:
   Fixed typo in the amarok ebuilds. Thanks to karthik

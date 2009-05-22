@@ -47,19 +47,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-base/phonon-kde-${KDE_MINIMAL}
-	media-sound/amarok-utils
+	>=media-sound/amarok-utils-${PV}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
-src_prepare() {
-	kde4-base_src_prepare
-
-	append-flags -I${KDEDIR}
-	append-ldflags -L${KDEDIR}/$(get_libdir) -Wl,--as-needed
-	epatch "${FILESDIR}/disable_bindings_test.patch"
-}
-
 src_configure() {
+	# Workaround for problems related to libmysqld.so and collection plugin not
+	# being found on some architectures when --as-needed is not used.
+	append-ldflags -Wl,--as-needed
+
 	mycmakeargs="${mycmakeargs}
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
