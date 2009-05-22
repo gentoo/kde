@@ -52,7 +52,7 @@ KDE_LIVE_SLOTS=( "live" )
 # All KDE ebuilds should run this in pkg_postinst and pkg_postrm.
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
-	
+
 	if [[ -z ${ROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
 		# Make sure tha cache file exists, writable by root and readable by
 		# others. Otherwise kbuildsycoca4 will fail.
@@ -122,8 +122,11 @@ done
 enable_selected_linguas() {
 	local lingua sr_mess wp
 
+	## This isn't working because it seems portage sets LINGUAS
+	## even if you don't have it in make.conf
+	## Im leaving the command that *should* work if LINGUAS was unset commented
 	# if there is no linguas defined we enable everything
-	[[ ${LINGUAS:?"FALSE"} = FALSE ]] && return 0
+	# [[ ! ${LINGUAS+set} = set ]] && LINGUAS="*"
 	# ebuild overridable linguas directory definition
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="${S}/po"}
 	cd "${KDE_LINGUAS_DIR}" || die "wrong linguas dir specified"
