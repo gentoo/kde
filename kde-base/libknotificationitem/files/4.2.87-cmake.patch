@@ -1,0 +1,10 @@
+--- trunk/KDE/kdelibs/experimental/knotificationitem/cmake/modules/CMakeLists.txt	2009/05/19 18:01:30	970195
++++ trunk/KDE/kdelibs/experimental/knotificationitem/cmake/modules/CMakeLists.txt	2009/05/19 18:09:57	970196
+@@ -1,5 +1,6 @@
+ # explicitely install the "public" cmake files
+ 
+-set(cmakeFiles FindLibKNotificationItem-1.cmake)
++#do not install FindLibKNotificationItem-1.cmake at this time
++#set(cmakeFiles FindLibKNotificationItem-1.cmake)
+ install(FILES ${cmakeFiles} DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+
