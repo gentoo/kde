@@ -122,8 +122,8 @@ done
 enable_selected_linguas() {
 	local lingua sr_mess wp
 
-	# if there is no lingas defined we enable everything
-	[[ ${LINGUAS:?"FALSE"} = FALSE ]] && return
+	# if there is no linguas defined we enable everything
+	[[ ${LINGUAS:?"FALSE"} = FALSE ]] && return 0
 	# ebuild overridable linguas directory definition
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="${S}/po"}
 	cd "${KDE_LINGUAS_DIR}" || die "wrong linguas dir specified"
