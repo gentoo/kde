@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>no-herd</herd>
+<maintainer>
+  <email>dev-zero@gentoo.org</email>
+</maintainer>
+<maintainer>
+  <email>humpback@gentoo.org</email>
+</maintainer>
+<use>
+  <flag name='server'>
+    Build and install the server binary including init.d/conf.d-scripts.
+    Needed if you want to host an infinote server for gobby.
+  </flag>
+</use>
+</pkgmetadata>
