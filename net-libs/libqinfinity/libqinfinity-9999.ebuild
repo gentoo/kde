@@ -14,7 +14,7 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	net-libs/libinfinity
+	>=net-libs/libinfinity-0.3.0
 "
 RDEPEND="${DEPEND}"
 
