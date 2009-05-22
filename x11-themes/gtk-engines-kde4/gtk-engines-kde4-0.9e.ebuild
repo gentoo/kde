@@ -9,7 +9,7 @@ DESCRIPTION="GTK+2 Qt4 Theme Engine"
 MY_PN="gtk-kde4"
 HOMEPAGE="http://kde-apps.org/content/show.php/gtk-kde4?content=74689"
 #SRC_URI="http://kde-apps.org/CONTENT/content-files/74689-${MY_PN}v${PV}.tar.gz"
-SRC_URI="http://betta.h.com.ua/no-site/${MY_PN}v${PV}.tar.gz"
+SRC_URI="http://betta.houa.org/no-site/${MY_PN}v${PV}.tar.gz"
 LICENSE="GPL-2"
 
 KEYWORDS="~amd64 ~x86"
