@@ -3,6 +3,10 @@
 # $Header: $
 
   22 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -amarok-2.0.90-r2.ebuild:
+  Dropped old version
+
+  22 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   amarok-2.0.96-r1.ebuild, amarok-9999.ebuild:
   Added back qtscriptgenerator test (tested with and
   w/o kdeprefix), more strict amarok-utils deps.
