@@ -1,0 +1,19 @@
+# ChangeLog for kde-base/krossjava
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/krossjava/ChangeLog,v 1.1 2009/05/23 07:07:47 ali_bush Exp $
+
+*krossjava-9999 (23 May 2009)
+*krossjava-4.2.9999 (23 May 2009)
+*krossjava-4.2.87 (23 May 2009)
+
+  23 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +files/krossjava-4.2.3_includes.patch, +krossjava-4.2.87.ebuild,
+  +krossjava-4.2.9999.ebuild, +krossjava-9999.ebuild, +metadata.xml:
+  Added krossjava ebuilds - from krossjava-4.2.3 made by ali_bush
+
+*krossjava-4.2.3 (23 May 2009)
+
+  23 May 2009; Alistair Bush <ali_bush@gentoo.org> +krossjava-4.2.3.ebuild,
+  +files/krossjava-4.2.3_includes.patch, +metadata.xml:
+  New Package.
+
