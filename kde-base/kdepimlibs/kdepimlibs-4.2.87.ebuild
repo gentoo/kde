@@ -14,7 +14,8 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="debug doc ldap"
 
-RESTRICT="test"
+# some akonadi tests timeout, that probaly needs more work as its ~700 tests
+#RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.1.6

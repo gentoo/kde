@@ -14,6 +14,7 @@ KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="debug doc ldap"
 
+# some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
 
 DEPEND="

@@ -17,6 +17,7 @@ LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
 mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 
+# needs the kate regression testsuite from svn
 RESTRICT="test"
 
 COMMONDEPEND="
