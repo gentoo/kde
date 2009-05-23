@@ -18,6 +18,7 @@ COMMON_DEPEND="
 	>=dev-python/PyQt4-4.5_pre[webkit]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
+	semantic-desktop? ( >=dev-libs/soprano-2.2.67 )
 "
 # blocker added due to compatibility issues and error during compile time
 DEPEND="${COMMON_DEPEND}
