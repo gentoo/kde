@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kde-env-4.2.87-r1 (24 May 2009)
+*kde-env-4.2.85-r1 (24 May 2009)
+*kde-env-4.2.3-r1 (24 May 2009)
+
+  24 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kde-env-4.2.3-r1.ebuild, -kde-env-4.2.85.ebuild,
+  +kde-env-4.2.85-r1.ebuild, -kde-env-4.2.87.ebuild,
+  +kde-env-4.2.87-r1.ebuild, kde-env-4.2.9999.ebuild, kde-env-9999.ebuild:
+  Fixed duplicated menu entries in kmenuedit
+
 *kde-env-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kde-env-4.2.87.ebuild:

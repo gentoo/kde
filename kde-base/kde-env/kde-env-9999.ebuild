@@ -15,6 +15,7 @@ LICENSE="as-is"
 IUSE=""
 
 RDEPEND="
+	!<kde-base/kdelibs-3.5.10-r3
 	!kdeprefix? (
 		!kde-base/kdelibs:4.1
 		!<=kde-base/kdelibs-4.2.2-r1:4.2
@@ -42,7 +43,7 @@ src_compile() {
 src_install() {
 	dodir /etc/env.d
 	dodir /etc/revdep-rebuild
-	dodir "${PREFIX}"/share/config
+	dodir "${PREFIX}/share/config"
 
 	# List all the multilib libdirs
 	local _libdir _libdirs
@@ -53,7 +54,8 @@ src_install() {
 
 	if use kdeprefix; then
 
-		cat <<-EOF > "${T}"/43kdepaths-${SLOT} # number goes down with version
+		# number goes down with version
+		cat <<-EOF > "${T}/43kdepaths-${SLOT}"
 PATH="${PREFIX}/bin"
 ROOTPATH="${PREFIX}/sbin:${PREFIX}/bin"
 LDPATH="${_libdirs}"
@@ -64,7 +66,7 @@ PKG_CONFIG_PATH="${PREFIX}/$(get_libdir)/pkgconfig"
 XDG_DATA_DIRS="${PREFIX}/share"
 KDEDIRS="/usr"
 EOF
-		doenvd "${T}"/43kdepaths-${SLOT}
+		doenvd "${T}/43kdepaths-${SLOT}"
 		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
 SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
 EOF
@@ -77,35 +79,34 @@ dir_html=${PREFIX}/share/doc/HTML:/usr/share/doc/HTML
 dir_icon=${PREFIX}/share/icons:/usr/share/icons
 dir_config=${PREFIX}/share/config:/usr/share/config
 dir_pixmap=${PREFIX}/share/pixmaps:/usr/share/pixmaps
-dir_apps=${PREFIX}/share/applications:/usr/share/applications
+dir_apps=${PREFIX}/share/applnk:/usr/share/applnk
 dir_sound=${PREFIX}/share/sounds:/usr/share/sounds
 dir_locale=${PREFIX}/share/locale:/usr/share/locale
 dir_services=${PREFIX}/share/kde4/services:/usr/share/kde4/services
 dir_servicetypes=${PREFIX}/share/kde4/servicetypes:/usr/share/kde4/servicetypes
-dir_mime=${PREFIX}/share/mime:/usr/share/mime
+dir_mime=${PREFIX}/share/mimelnk:/usr/share/mimelnk
+dir_wallpapers=${PREFIX}/share/wallpapers:/usr/share/wallpapers
 dir_templates=${PREFIX}/share/templates:/usr/share/templates
 dir_exe=${PREFIX}/$(get_libdir)/kde4/libexec:${PREFIX}/bin:/usr/$(get_libdir)/kde4/libexec:/usr/bin
 dir_module=${PREFIX}/$(get_libdir)/kde4:/usr/$(get_libdir)/kde4
 dir_qtplugins=${PREFIX}/$(get_libdir)/kde4/plugins:/usr/$(get_libdir)/kde4/plugins
 dir_kcfg=${PREFIX}/share/config.kcfg:/usr/share/config.kcfg
 dir_lib=${PREFIX}/$(get_libdir):/usr/$(get_libdir)
+dir_emoticons=${PREFIX}/share/emoticons:/usr/share/emoticons
+dir_xdgdata-apps=${PREFIX}/share/applications:/usr/share/applications
+dir_xdgdata-icons=${PREFIX}/share/icons:/usr/share/icons
+dir_xdgdata-pixmaps=${PREFIX}/share/pixmaps:/usr/share/pixmaps
 EOF
 
 	else
 
 		# Much simpler for the FHS compliant -kdeprefix install
-		cat <<-EOF > "${T}"/43kdepaths # number goes down with version
+		# number goes down with version
+		cat <<-EOF > "${T}/43kdepaths"
 CONFIG_PROTECT="/usr/share/config"
 #KDE_IS_PRELINKED=1
-		EOF
-		doenvd "${T}"/43kdepaths
-
-		# Simpler kdeglobals
-		cat <<-EOF > "${D}/usr/share/config/kdeglobals"
-[Directories][\$i]
-dir_apps=/usr/share/applications
-dir_mime=/usr/share/mime
 EOF
+		doenvd "${T}/43kdepaths"
 
 	fi
 }

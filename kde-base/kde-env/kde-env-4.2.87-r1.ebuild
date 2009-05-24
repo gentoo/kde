@@ -8,9 +8,9 @@ inherit kde4-base
 
 DESCRIPTION="Environment setting required for all KDE4 apps to run."
 HOMEPAGE="http://kde.org"
-ESVN_REPO_URI=""
+SRC_URI=""
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="as-is"
 IUSE=""
 
