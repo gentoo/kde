@@ -152,17 +152,19 @@ enable_selected_linguas() {
 		fi
 	done
 	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
-	for lingua in ${LINGUAS}; do
-		ebegin "Enabling LANGUAGE: ${lingua}"
-		if [[ -d "${lingua}" ]]; then
-			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+	for lingua in ${KDE_LINGUAS}; do
+		if use linguas_${lingua} ; then
+			ebegin "Enabling LANGUAGE: ${lingua}"
+			if [[ -d "${lingua}" ]]; then
+				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+			fi
+			if [[ -e "${lingua}.po.old" ]]; then
+				mv "${lingua}.po.old" "${lingua}.po"
+			fi
+			eend $?
 		fi
-		if [[ -e "${lingua}.po.old" ]]; then
-			mv "${lingua}.po.old" "${lingua}.po"
-		fi
-		eend $?
 	done
 }
 
