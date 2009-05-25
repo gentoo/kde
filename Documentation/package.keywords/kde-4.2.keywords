@@ -283,6 +283,7 @@ kde-base/kdepim-meta:4.2
 kde-base/kdesdk-meta:4.2
 kde-base/kdetoys-meta:4.2
 kde-base/kdeutils-meta:4.2
+kde-base/kdewebdev-meta:4.2
 
 # extragear
 kde-misc/konq-plugins:4
