@@ -14,3 +14,16 @@ ATTENTION perhaps your overlay path may vary
 OVERRIDE_CACHE_METHOD="/usr/local/portage/layman/kde-testing metadata-assign"
 
 everytime you sync the overlay, you have to sync the metadata manually again, i dont have a proper solution for that atm
+
+
+IMPORTANT NOTE FOR >=KDE-4.2.65 AND LIVE KDE4 USERS
+
+Some packages (notably kde-base/pykde4:4.3 and kde-base/pykde4:live) require some yet unreleased packages:
+- dev-python/sip
+- dev-python/PyQt4
+They are maintaned in Official Qt Team Overlay (qting-edge), so please grab them from there.
+
+layman -a qting-edge (or use your favourite method to do it)
+
+For more info about qting-edge overlay, visit:
+http://github.com/gentoo-qt/qting-edge/tree/master/Documentation
