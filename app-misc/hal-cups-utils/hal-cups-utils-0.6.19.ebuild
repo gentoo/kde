@@ -6,7 +6,7 @@ EAPI="2"
 
 DESCRIPTION="Hal cups utilities"
 HOMEPAGE="https://fedorahosted.org/hal-cups-utils/"
-SRC_URI="https://fedorahosted.org/hal-cups-utils/attachment/wiki/ProjectReleases/${P}.tar.gz?format=raw -> ${P}.tar.gz"
+SRC_URI="https://fedorahosted.org/releases/h/a/hal-cups-utils/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
