@@ -16,9 +16,9 @@ IUSE=""
 RDEPEND="
 	media-libs/libpng
 	media-libs/libopenraw
-	=sys-libs/llvm-2.5
+	=sys-devel/llvm-2.5
 "
-# =sys-libs/llvm-2.5 is on bug #186279
+# =sys-devel/llvm-2.5 is on bug #186279
 
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6"

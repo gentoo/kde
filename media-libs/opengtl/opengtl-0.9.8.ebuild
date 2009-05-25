@@ -16,9 +16,9 @@ IUSE=""
 RDEPEND="
 	media-libs/libpng
 	media-libs/libopenraw
-	=sys-libs/llvm-2.4
+	=sys-devel/llvm-2.4
 "
-# =sys-libs/llvm-2.4 is in java-overlay
+# =sys-devel/llvm-2.4 is in java-overlay
 
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6"
