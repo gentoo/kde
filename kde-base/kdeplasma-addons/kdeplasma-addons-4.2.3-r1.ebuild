@@ -22,6 +22,7 @@ DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
+	x11-misc/shared-mime-info
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
