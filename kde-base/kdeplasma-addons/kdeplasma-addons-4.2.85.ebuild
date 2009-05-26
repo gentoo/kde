@@ -16,9 +16,11 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug desktopglobe exif semantic-desktop"
 
+# krunner is only needed to generate dbus interface for lancelot
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?,semantic-desktop?]
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )

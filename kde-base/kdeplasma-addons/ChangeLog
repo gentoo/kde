@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdeplasma-addons-4.2.3-r1.ebuild, kdeplasma-addons-4.2.85.ebuild,
+  kdeplasma-addons-4.2.87.ebuild, kdeplasma-addons-4.2.9999.ebuild,
+  kdeplasma-addons-9999.ebuild:
+  krunner is needed to generate dbus interface (bug 270760)
+
 *kdeplasma-addons-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org>

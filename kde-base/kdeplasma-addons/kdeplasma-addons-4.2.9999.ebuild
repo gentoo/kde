@@ -16,9 +16,11 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 IUSE="debug exif"
 
+# krunner is only needed to generate dbus interface for lancelot
 DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?]
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
