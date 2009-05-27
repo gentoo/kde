@@ -16,7 +16,7 @@ IUSE="+gmm +kdcraw +openexr +pdf +tiff"
 
 DEPEND="
 	>=app-office/koffice-libs-${PV}:${SLOT}[openexr=]
-	=dev-cpp/eigen-9999
+	>=dev-cpp/eigen-2.0.51
 	>=kde-base/qimageblitz-0.0.4
 	>=media-gfx/exiv2-0.16
 	>=media-gfx/imagemagick-0.6.4.9.2[openexr=,png,tiff?]
