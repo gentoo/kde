@@ -14,8 +14,9 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="2"
-IUSE="cdaudio daap debug gtk ipod mp3tunes mtp +semantic-desktop"
+IUSE="cdaudio daap debug ipod mp3tunes mtp +semantic-desktop"
 
+# ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	|| (
@@ -32,8 +33,7 @@ DEPEND="
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
 	ipod? (
-		>=media-libs/libgpod-0.7.0
-		gtk? ( x11-libs/gtk+:2 )
+		>=media-libs/libgpod-0.7.0[gtk]
 	)
 	mp3tunes? (
 		dev-libs/glib:2
@@ -61,7 +61,7 @@ src_configure() {
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
 		$(cmake-utils_use_with ipod Ipod)
-		$(cmake-utils_use_with gtk Gdk)
+		$(cmake-utils_use_with ipod Gdk)
 		$(cmake-utils_use_with mtp Mtp)
 		$(cmake-utils_use_with mp3tunes MP3TUNES)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
