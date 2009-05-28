@@ -3,9 +3,9 @@
 <pkgmetadata>
 	<use>
 		<!-- PLUGINS -->
-	<flag name="addbookmarks">Automaticaly add incoming urls to bookmarks.</flag>
+	<flag name="addbookmarks">Automatically add incoming urls to bookmarks.</flag>
 	<flag name="alias">Enables creating of your own aliases for commands.</flag>
-	<flag name="autoreplace">Automaticaly replace selected text</flag>
+	<flag name="autoreplace">Automatically replace selected text</flag>
 	<flag name="contactnotes">Enables writing personal notes for contacts.</flag>
 	<flag name="highlight">Allows you to specify highlights on specific events.</flag>
 	<flag name="history">Enables saving chat history.</flag>
@@ -13,28 +13,26 @@
 	<flag name="nowlistening">Shows song you currently listen to in your status/etc. Bindings for many players.</flag>
 	<flag name="otr">Allows crypting your chat (drugs and talking nonsense are considered as good alternatives ;]).</flag>
 	<flag name="pipes">Send messages to external pipe.</flag>
-	<flag name="privacy">Filter for incomming messages</flag>
-	<flag name="statistics">Everybody loves statistic graphs, especialy cake ones. ;]</flag>
-	<flag name="texteffect">Various fancy text effects for your messages (dont ever consider writing us with this enabled ;]).</flag>
+	<flag name="privacy">Filter for incoming messages</flag>
+	<flag name="statistics">Everybody loves statistic graphs, especially cake ones. ;]</flag>
+	<flag name="texteffect">Various fancy text effects for your messages (don't ever consider writing us with this enabled ;]).</flag>
 	<flag name="translator">Translate incoming and outgoing messages.</flag>
 	<flag name="urlpicpreview">Enables in conversation pictures preview.</flag>
-	<flag name="webpresence">Show your status and some more informations on web.</flag>
+	<flag name="webpresence">Show your status and some more information on web.</flag>
 		<!-- PROTOCOLS -->
 	<flag name="bonjour">Enable Link-Local Messaging via the bonjour protocol.</flag>
 	<flag name="gadu">Enable the Gadu protocol handler.</flag>
 	<flag name="groupwise">Enable the Groupwise protocol handler.</flag>
-	<!-- disabled in kde4 ebuilds
+	<!-- only in kde3 now, commented out in kde4 -->
 	<flag name="irc">Enable the IRC protocol handler.</flag>
-	-->
 	<flag name="jabber">Enable XMPP protocol handler (this is also gmail).</flag>
 	<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
 	<flag name="msn">Enable "Windows live messenger" protocol support.</flag>
-	<flag name="qq">enable support for the chinese network protocol.</flag>
-	<!-- disabled in kde4 ebuilds
+	<flag name="qq">enable support for the Chinese network protocol.</flag>
+	<!-- only in kde3 now, commented out in kde4 -->
 	<flag name="sms">Enable the sms sending plugin.</flag>
-	-->
-	<!-- disabled in all ebuilds
-	<flag name="telepathy">Enable support for the realtime communication framework telepathy.</flag>
+	<!-- commented out in kde4, not available in kde3 - uncomment this when enabled in an ebuild
+	<flag name="telepathy">Enable support for the real-time communication framework telepathy.</flag>
 	-->
 	<flag name="testbed">Enable the testbed protocol.</flag>
 	<flag name="winpopup">Enable pop-up messages sending on windows. (same as good old "net send" messages ;])</flag>

@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 May 2009; ABCD <en.ABCD@gmail.com> metadata.xml:
+  Fix spelling, uncomment kde3 use flags
+
   28 May 2009; ABCD <en.ABCD@gmail.com> kopete-9999.ebuild, metadata.xml:
   Remove alias useflag from live ebuild: disabled upstream; remove unused
   flags from metadata.xml
