@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -klettres-4.2.87.ebuild,
+  +klettres-4.2.88.ebuild:
+  Version removed.
+
+*klettres-4.2.88 (28 May 2009)
+
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +klettres-4.2.88.ebuild:
+  Version bump.
+
 *klettres-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +klettres-4.2.87.ebuild:

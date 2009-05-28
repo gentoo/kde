@@ -12,7 +12,6 @@ DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesy
 KEYWORDS="~amd64 ~x86"
 IUSE="bzip2 debug doc openexr samba"
 
-# 1 of 2 tests fail. Last checked for 4.2.87
 RESTRICT="test"
 
 DEPEND="

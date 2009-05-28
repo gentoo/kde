@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -nepomuk-4.2.87.ebuild,
+  +nepomuk-4.2.88.ebuild:
+  Version removed.
+
+*nepomuk-4.2.88 (28 May 2009)
+
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +nepomuk-4.2.88.ebuild:
+  Version bump.
+
   20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   nepomuk-4.2.87.ebuild, nepomuk-9999.ebuild:
   libknotificationitem moved to PDEPEND of kdelibs

@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -kbounce-4.2.87.ebuild,
+  +kbounce-4.2.88.ebuild:
+  Version removed.
+
+*kbounce-4.2.88 (28 May 2009)
+
+  28 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kbounce-4.2.88.ebuild:
+  Version bump.
+
 *kbounce-4.2.87 (20 May 2009)
 
   20 May 2009; Alexey Shvetsov <alexxy@gentoo.org> +kbounce-4.2.87.ebuild:

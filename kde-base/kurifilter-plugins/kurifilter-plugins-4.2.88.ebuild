@@ -10,5 +10,4 @@ inherit kde4-meta
 DESCRIPTION="KDE: Plugins to manage filtering URIs."
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-# Tests fail. Last checked on 4.2.87.
-RESTRICT="test"
+RESTRICT="test" # Tests segfault. Last checked on 4.0.3.

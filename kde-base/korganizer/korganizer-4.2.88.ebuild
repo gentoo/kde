@@ -11,9 +11,6 @@ DESCRIPTION="A Personal Organizer for KDE"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug doc"
 
-# test fails. Last checked for 4.2.87
-RESTRICT="test"
-
 DEPEND="
 	app-crypt/gpgme
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
