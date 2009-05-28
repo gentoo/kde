@@ -3,6 +3,9 @@
 # $Header: $
 
   28 May 2009; ABCD <en.ABCD@gmail.com> metadata.xml:
+  Add use flag emoticons-manager for kde3
+
+  28 May 2009; ABCD <en.ABCD@gmail.com> metadata.xml:
   Fix spelling, uncomment kde3 use flags
 
   28 May 2009; ABCD <en.ABCD@gmail.com> kopete-9999.ebuild, metadata.xml:
