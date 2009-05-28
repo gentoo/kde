@@ -18,3 +18,7 @@ KMEXTRACTONLY="
 "
 
 KMSAVELIBS="true"
+
+PATCHES=(
+	"${FILESDIR}/${SLOT}-fix_logoff.patch"
+)
