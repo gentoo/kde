@@ -14,7 +14,7 @@ IUSE="debug doc ssl"
 # Available plugins
 #
 #	addbookmarks: NO DEPS
-#	alias: NO DEPS
+#	alias: NO DEPS (disabled upstream)
 #	autoreplace: NO DEPS
 #	contactnotes: NO DEPS
 #	highlight: NO DEPS
@@ -30,8 +30,9 @@ IUSE="debug doc ssl"
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
 # NOTE: By default we enable all plugins that don't have any dependencies
-PLUGINS="+addbookmarks +alias +autoreplace +contactnotes +highlight +history latex
-+nowlistening otr +pipes +privacy +statistics +texteffect +translator +urlpicpreview webpresence"
+PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
++nowlistening otr +pipes +privacy +statistics +texteffect +translator
++urlpicpreview webpresence"
 
 # Available protocols
 #
