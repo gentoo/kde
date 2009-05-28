@@ -91,9 +91,14 @@ case ${KMNAME} in
 			!app-office/koffice:0
 			!app-office/koffice-meta:0
 		"
-		COMMON_DEPEND="
+		if has openexr ${IUSE//+}; then
+			COMMON_DEPEND="media-gfx/imagemagick[openexr?]"
+		else
+			COMMON_DEPEND="media-gfx/imagemagick"
+		fi
+
+		COMMON_DEPEND="${COMMON_DEPEND}
 			dev-cpp/eigen:2
-			media-gfx/imagemagick[openexr?]
 			media-libs/fontconfig
 			media-libs/freetype:2
 		"
