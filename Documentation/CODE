@@ -16,8 +16,8 @@ So the rules are these:
    or similar directory. Sometimes application handbooks are not trivial to assign (for example
    kde-base/khelpcenter ebuild), in such case ask Gentoo KDE team/HT members or contact upstream.
 
- - think about adding debug useflag to your package. Do not add debug USE flag for artwork-only and
-   python-only KDE packages.
+ - think about adding debug USE flag to your package. Do not add debug USE flag for artwork-only and
+   python-only KDE packages. And don't forget to write metadata.xml entries for new local USE flags.
 
  - always check for linguas and add them to the KDE_LINGUAS variable.
 
@@ -31,6 +31,9 @@ So the rules are these:
  - handle blocks carefully. Put blocks only in RDEPEND section and comment the reason for the block.
    Block, if possible should contain specific version for the blocker. Below are most typical
    scenarios for kde-base/ related blocks, your should use this as a pattern, unless you know what you're doing.
+
+- all kde4 and kde-live misc applications should be in SLOT="4". Feel free to fix packages that don't
+  follow this, and always add the correct blockers (be carefull not to block kde3 packages)
 
    * ebuild rename not colliding with KDE3 ebuilds (see example kde-menu -> kdebase-menu)
 
@@ -78,6 +81,8 @@ Examples:
 KDE 3:
  - do what ever you want with one condition, make sure it really compiles/run
  - feel free to commit patches without kde team ack if the above condition is checked
+ - all kde3 apps should have SLOT="3.5". Feel free to fix packages that don't follow this
+   rule and don't forget to add correct blockers
 
 # NOT FOLLOWING THIS RULES WILL BE PUNISHED!
 # no cookies for week!
