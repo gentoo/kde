@@ -11,3 +11,8 @@ inherit kde4-meta
 DESCRIPTION="Icon themes for kde"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+# Provides nuvola icon theme
+RDEPEND="
+	!kdeprefix? ( !x11-themes/nuvola )
+"

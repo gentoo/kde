@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdeartwork-iconthemes-4.2.4.ebuild, kdeartwork-iconthemes-4.2.88.ebuild,
+  kdeartwork-iconthemes-4.2.9999.ebuild, kdeartwork-iconthemes-9999.ebuild:
+  Block x11-themes/nuvola when -kdeprefix
+
   29 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdeartwork-iconthemes-4.2.85.ebuild:
   Version removed.
