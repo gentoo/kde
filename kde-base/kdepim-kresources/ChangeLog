@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdepim-kresources-4.2.4 (29 May 2009)
+
+  29 May 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  +kdepim-kresources-4.2.4.ebuild:
+  Version bump.
+
   28 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdepim-kresources-4.2.87.ebuild, +kdepim-kresources-4.2.88.ebuild:
   Version removed.
