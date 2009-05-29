@@ -49,7 +49,7 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	x11-misc/shared-mime-info
 	acl? (
-		kernel_linux? ( sys-apps/acl )
+		virtual/acl
 	)
 	alsa? ( media-libs/alsa-lib[midi] )
 	bzip2? ( app-arch/bzip2 )
