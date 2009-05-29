@@ -147,6 +147,7 @@ kde-base/renamedlg-plugins:live
 kde-base/solid:live
 kde-base/solid-hardware:live
 kde-base/soliduiserver:live
+kde-base/solidautoeject:live
 kde-base/systemsettings:live
 kde-base/krossjava:live
 kde-base/krosspython:live
