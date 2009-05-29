@@ -71,10 +71,14 @@ src_install() {
 }
 
 src_test() {
-	# disable broken test
+	# disable broken tests (as of 4.2.87)
 	sed -i -e '/mailserializerplugintest/ s/^/#DO_NOT_RUN_TEST /' \
 		"${S}"/akonadi/plugins/tests/CMakeLists.txt || \
 		die "sed to disable mailserializerplugintest failed."
+
+	sed -i -e '/xmldocumenttest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/akonadi/xml/tests/CMakeLists.txt || \
+		die "sed to disable xmldocumenttest failed."
 
 	kde4-meta_src_test
 }

@@ -10,7 +10,7 @@ inherit kde4-meta
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS="~amd64 ~x86"
 IUSE="+auth +bookmarks debug doc thumbnail"
-# 4 of 4 tests fail. Last checked for 4.0.3
+# 2 of 5 tests fail. Last checked for 4.2.87
 RESTRICT="test"
 
 DEPEND="
