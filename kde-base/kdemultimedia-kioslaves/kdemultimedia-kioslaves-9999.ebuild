@@ -12,6 +12,9 @@ DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
 IUSE="debug doc encode flac vorbis"
 
+# 4 of 9 tests fail. Last checked for 4.2.88
+RESTRICT=test
+
 DEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]

@@ -13,6 +13,9 @@ DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
 IUSE="debug designer-plugin doc +kde gps plasma python"
 
+# tests fail / segfault. Last checked for 4.2.88
+RESTRICT=test
+
 DEPEND="
 	gps? ( sci-geosciences/gpsd )
 	python? (

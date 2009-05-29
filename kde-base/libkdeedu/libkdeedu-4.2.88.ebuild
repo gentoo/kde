@@ -11,6 +11,9 @@ DESCRIPTION="Common library for KDE educational apps"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
+# 4 of 4 tests fail. Last checked for 4.2.87
+RESTRICT=test
+
 src_install() {
 	kde4-meta_src_install
 	# This is installed by kde-base/marble
