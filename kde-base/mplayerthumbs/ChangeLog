@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -mplayerthumbs-4.2.85.ebuild, -files/mplayerthumbs-4.2.85-phonon.patch:
+  Version removed.
+
   28 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -mplayerthumbs-4.2.87.ebuild, +mplayerthumbs-4.2.88.ebuild:
   Version removed.

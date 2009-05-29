@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -solid-4.2.85.ebuild:
+  Version removed.
+
 *solid-4.2.4 (29 May 2009)
 
   29 May 2009; Tomáš Chvátal <scarabeus@gentoo.org> +solid-4.2.4.ebuild:

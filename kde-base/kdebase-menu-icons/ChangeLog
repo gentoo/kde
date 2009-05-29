@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdebase-menu-icons-4.2.85.ebuild:
+  Version removed.
+
   28 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdebase-menu-icons-4.2.87.ebuild, +kdebase-menu-icons-4.2.88.ebuild:
   Version removed.
