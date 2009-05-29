@@ -116,7 +116,7 @@ sync_main_keywords_with_overlay() {
 	# first strip of all keywords
 	ekeyword ^all ${1} &> /dev/null
 	# then apply them back
-	local dir="$(portageq portdir)${2}"
+	local dir="$(portageq portdir)/${2}"
 	if [[ -d "${dir}" ]] ; then
 		pushd "${dir}" &> /dev/null
 		KEYWORDS="$(find ./ -name \*ebuild | sort | tail -n 2 |head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
