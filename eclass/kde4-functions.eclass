@@ -126,6 +126,9 @@ enable_selected_linguas() {
 	## even if you don't have it in make.conf
 	## Im leaving the command that *should* work if LINGUAS was unset commented
 	# if there is no linguas defined we enable everything
+	if ! $(env | grep -q "^LINGUAS="); then
+		return 0
+	fi
 	# [[ ! ${LINGUAS+set} = set ]] && LINGUAS="*"
 	# ebuild overridable linguas directory definition
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="${S}/po"}
