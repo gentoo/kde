@@ -259,6 +259,7 @@ kde-base/pykde4:4.3
 kde-base/renamedlg-plugins:4.3
 kde-base/solid:4.3
 kde-base/solid-hardware:4.3
+kde-base/solidautoeject:4.3
 kde-base/soliduiserver:4.3
 kde-base/step:4.3
 kde-base/superkaramba:4.3
