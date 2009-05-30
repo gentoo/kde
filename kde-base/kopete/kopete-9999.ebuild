@@ -41,7 +41,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
 #	jabber: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
-#	jingle: media-libs/speex net-libs/ortp
+#	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	msn: libmsn == this is wlm plugin, we disable msn one
 #	oscar: NO DEPS
@@ -51,7 +51,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour gadu groupwise +jabber jingle meanwhile msn oscar qq
+PROTOCOLS="bonjour gadu groupwise +jabber meanwhile msn oscar qq
 testbed winpopup yahoo"
 
 # disabled protocols
@@ -68,11 +68,6 @@ COMMONDEPEND="
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
 		app-crypt/qca:2
-		net-dns/libidn
-		jingle? (
-			>=media-libs/speex-1.2_rc1
-			>=net-libs/ortp-0.13
-		)
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
@@ -107,14 +102,6 @@ src_configure() {
 	for x in ${PLUGINS}; do
 		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
 	done
-	# additional defines
-	if use jingle && ! use jabber; then
-		elog "You enabled jingle but not jabber useflag. Jingle is integral part of"
-		elog "jabber protocol so it wont be used."
-	fi
-	if use jabber; then
-		mycmakeargs="${mycmakeargs} -DNO_JINGLE=$(use jingle && echo OFF || echo ON)"
-	fi
 
 	kde4-meta_src_configure
 }
