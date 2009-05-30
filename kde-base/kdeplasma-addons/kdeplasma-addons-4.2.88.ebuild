@@ -26,8 +26,10 @@ DEPEND="
 	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
+# BLOCKS:
+# kdebase-data: some svg icons moved from data directly here.
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-misc/lancelot-menu )
+	!<kde-base/kdebase-data-4.2.88
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
