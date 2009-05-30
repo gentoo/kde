@@ -28,7 +28,7 @@ DEPEND="
 	)
 	ffmpeg? (
 		>=media-libs/libmms-0.4
-		<media-video/ffmpeg-0.5
+		>=media-video/ffmpeg-0.5
 	)
 "
 RDEPEND="${DEPEND}"
