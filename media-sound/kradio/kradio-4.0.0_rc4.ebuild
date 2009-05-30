@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="cs de es pl pt ru"
+KDE_LINGUAS="cs de es pl pt ru uk"
 inherit kde4-base
 
 MY_P="${PN}4-${PV/_/-}"
