@@ -82,9 +82,15 @@ if [[ -n ${NEED_KDE} ]]; then
 	esac
 fi
 
+# @ECLASS-VARIABLE: QT_DEPEND
+# @DESCRIPTION:
+# Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
+# Currently defaults to 4.5.1
+QT_DEPEND="${QT_DEPEND:-4.5.1}"
+
 # OpenGL dependencies
 qtopengldepend="
-	x11-libs/qt-opengl:4
+	x11-libs/qt-opengl-${QT_DEPEND}:4
 "
 case ${OPENGL_REQUIRED} in
 	always)
@@ -102,7 +108,7 @@ unset qtopengldepend
 
 # WebKit dependencies
 qtwebkitdepend="
-	x11-libs/qt-webkit:4
+	x11-libs/qt-webkit-${QT_DEPEND}:4
 "
 case ${WEBKIT_REQUIRED} in
 	always)
@@ -211,13 +217,13 @@ kdecommondepend="
 	x11-libs/libXext
 	x11-libs/libXt
 	x11-libs/libXxf86vm
-	x11-libs/qt-core:4[qt3support,ssl]
-	x11-libs/qt-gui:4[accessibility,dbus]
-	x11-libs/qt-qt3support:4[accessibility]
-	x11-libs/qt-script:4
-	x11-libs/qt-sql:4[qt3support]
-	x11-libs/qt-svg:4
-	x11-libs/qt-test:4
+	>=x11-libs/qt-core-${QT_DEPEND}:4[qt3support,ssl]
+	>=x11-libs/qt-gui-${QT_DEPEND}:4[accessibility,dbus]
+	>=x11-libs/qt-qt3support-${QT_DEPEND}:4[accessibility]
+	>=x11-libs/qt-script-${QT_DEPEND}:4
+	>=x11-libs/qt-sql-${QT_DEPEND}:4[qt3support]
+	>=x11-libs/qt-svg-${QT_DEPEND}:4
+	>=x11-libs/qt-test-${QT_DEPEND}:4
 "
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
