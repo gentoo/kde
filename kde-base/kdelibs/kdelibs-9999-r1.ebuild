@@ -48,9 +48,7 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-misc/shared-mime-info
-	acl? (
-		virtual/acl
-	)
+	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib[midi] )
 	bzip2? ( app-arch/bzip2 )
 	fam? ( virtual/fam )
