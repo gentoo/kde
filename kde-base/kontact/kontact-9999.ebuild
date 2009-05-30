@@ -33,7 +33,6 @@ KMEXTRACTONLY="
 	kontact/plugins/kaddressbook/
 	kontact/plugins/kjots/
 	kontact/plugins/kmail/
-	kontact/plugins/kmobiletools
 	kontact/plugins/knode/
 	kontact/plugins/knotes/
 	kontact/plugins/korganizer/

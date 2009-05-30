@@ -66,7 +66,7 @@ case ${KMNAME} in
 			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 		"
 		case ${PN} in
-			akregator|kaddressbook|kjots|kmail|kmobiletools|knode|knotes|korganizer|ktimetracker)
+			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
 				RDEPEND="${RDEPEND}
 					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
