@@ -29,7 +29,8 @@ DEPEND="
 # BLOCKS:
 # kdebase-data: some svg icons moved from data directly here.
 RDEPEND="${DEPEND}
-	!<kde-base/kdebase-data-4.2.88
+	!kdeprefix? ( !<kde-base/kdebase-data-4.2.88[-kdeprefix] )
+	kdeprefix? ( !<kde-base/kdebase-data-4.2.88:${SLOT}[kdeprefix] )
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 

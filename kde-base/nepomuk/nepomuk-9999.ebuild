@@ -18,4 +18,9 @@ DEPEND="
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
 "
-RDEPEND="${DEPEND}"
+# BLOCKS:
+# kde-base/akonadi: installed nepomuk ontologies, which were supposed to be here
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !<kde-base/akonadi-4.2.60[-kdeprefix] )
+	kdeprefix? ( !<kde-base/akonadi-4.2.60:${SLOT}[kdeprefix] )
+"
