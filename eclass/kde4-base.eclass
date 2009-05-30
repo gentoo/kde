@@ -90,7 +90,7 @@ QT_DEPEND="${QT_DEPEND:-4.5.1}"
 
 # OpenGL dependencies
 qtopengldepend="
-	x11-libs/qt-opengl-${QT_DEPEND}:4
+	>=x11-libs/qt-opengl-${QT_DEPEND}:4
 "
 case ${OPENGL_REQUIRED} in
 	always)
@@ -108,7 +108,7 @@ unset qtopengldepend
 
 # WebKit dependencies
 qtwebkitdepend="
-	x11-libs/qt-webkit-${QT_DEPEND}:4
+	>=x11-libs/qt-webkit-${QT_DEPEND}:4
 "
 case ${WEBKIT_REQUIRED} in
 	always)
