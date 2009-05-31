@@ -25,7 +25,6 @@ DEPEND="
 # Moved to playground for now
 # bazaar? ( dev-util/bzr )
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !dev-util/kdevelop:3 )
 	cvs? ( dev-util/cvs )
 	git? ( dev-util/git )
 	mercurial? ( dev-util/mercurial )

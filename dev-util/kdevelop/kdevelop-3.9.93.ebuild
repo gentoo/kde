@@ -20,6 +20,7 @@ DEPEND="
 	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=x11-libs/qt-assistant-4.4:4
+	>=sys-devel/gdb-6.8.50
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
@@ -49,4 +50,9 @@ src_install() {
 
 	rm "${D}/${KDEDIR}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
 	rm "${D}/${KDEDIR}"/share/icons/hicolor/22x22/actions/output_win.png
+}
+
+pkg_postinst() {
+	elog "For extra functionality you shuold look at following packages:"
+	elog "dev-util/valgrind:         (RECOMMENDED) allow you to do memory leak check."
 }
