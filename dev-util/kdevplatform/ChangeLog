@@ -1,6 +1,10 @@
-# ChangeLog for kde-base/kdevplatform
+# ChangeLog for dev-util/kdevplatform
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  31 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevplatform-9999.ebuild:
+  This block is not necessary anymore
 
   31 May 2009; Vladimir Smirnov (civil) <civil@gentoo.org> ChangeLog:
   +kdevplatform-0.9.93.ebuild:
