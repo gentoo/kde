@@ -4,8 +4,9 @@
 
 EAPI="2"
 
-inherit kde4-base
+inherit kde4-base versionator
 
+KDEVPLATFORM_PV="$(($(get_major_version)-3)).$(get_after_major_version)"
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 HOMEPAGE="http://www.kdevelop.org/"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
@@ -16,7 +17,7 @@ SLOT="4"
 IUSE="+cmake +cxx debug +qmake"
 
 DEPEND="
-	>=dev-util/kdevplatform-0.9.93
+	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=x11-libs/qt-assistant-4.4:4
 "
