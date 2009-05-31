@@ -20,7 +20,6 @@ DEPEND="
 	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=x11-libs/qt-assistant-4.4:4
-	>=sys-devel/gdb-6.8.50
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
@@ -28,9 +27,9 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	# Remove this and the ksysguard dep after libprocessui moved into kdelibs
-        sed -i -e 's/${KDE4WORKSPACE_PROCESSUI_LIBS}/processui/g' \
-                debuggers/gdb/CMakeLists.txt \
-                || die "Failed to patch CMake files"
+	sed -i -e 's/${KDE4WORKSPACE_PROCESSUI_LIBS}/processui/g' \
+		debuggers/gdb/CMakeLists.txt \
+		|| die "Failed to patch CMake files"
 }
 
 src_configure() {
@@ -53,6 +52,11 @@ src_install() {
 }
 
 pkg_postinst() {
+	kde4-base_pkg_postinst
+
+	echo
 	elog "For extra functionality you shuold look at following packages:"
-	elog "dev-util/valgrind:         (RECOMMENDED) allow you to do memory leak check."
+	elog "dev-util/valgrind          allows you to do memory leak check."
+	elog ">=sys-devel/gdb-6.8.50     (RECOMMENDED) required by debugger frontend."
+	echo
 }

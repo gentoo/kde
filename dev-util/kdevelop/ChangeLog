@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdevelop-3.9.93.ebuild, kdevelop-9999.ebuild:
+  gdb in not build/nor runtime hard dependency, fixed formatting, fixed
+  pkg_postints (valgrind support doesnt really work yet so dont make it
+  RECOMMENDED, move gdb requirements there.
+
   31 May 2009; Vladimir Smirnov (civil) <civil@gentoo.org> ChangeLog:
   +kdevelop-3.9.93.ebuild:
   Version bump
