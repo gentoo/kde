@@ -289,30 +289,30 @@ case ${OPERATION} in
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
 			pushd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}" > /dev/null
 			git rm ${EBUILD_BASENAME}-${VERSION}*.ebuild
-			if [[ -d files/ ]]; then
-				# generate list of patches.
-				find ./files/ -type f |grep -v "CVS/" |grep -v ".svn" |sort -u |sed -e "s:\./files/::g" > /tmp/patches-per-package.txt
-				PATCHES="`cat /tmp/patches-per-package.txt`"
-				for PATCH in ${PATCHES}; do
-					PATCH_IN_USE="false"
-					find ./ -type f -name \*.ebuild |sort -u |sed -e "s:\./::g" > ${TMP}/ebuild-list-per-package.txt
-					EBUILDS="`cat ${TMP}/ebuild-list-per-package.txt`"
-					for EBUILD in ${EBUILDS}; do
-						P1="`echo ${EBUILD}| sed -e "s:.ebuild::g"`"
-						[[ ${P1/*-/} == r* ]] && P1=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
-						PV=${P1/*-/}
-						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
-						if [[ $(cat ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
-							PATCH_IN_USE="true"
-							break
-						fi
-					done
-					if [[ ${PATCH_IN_USE} = "false" ]]; then
-						echo "Removing ${PATCH}. No longer used in package ${EBUILD_BASEDIR}."
-						git rm -rf $(find ./files/ -type f -name ${PATCH})
-					fi
-				done
-			fi
+#			if [[ -d files/ ]]; then
+#				# generate list of patches.
+#				find ./files/ -type f |grep -v "CVS/" |grep -v ".svn" |sort -u |sed -e "s:\./files/::g" > /tmp/patches-per-package.txt
+#				PATCHES="`cat /tmp/patches-per-package.txt`"
+#				for PATCH in ${PATCHES}; do
+#					PATCH_IN_USE="false"
+#					find ./ -type f -name \*.ebuild |sort -u |sed -e "s:\./::g" > ${TMP}/ebuild-list-per-package.txt
+#					EBUILDS="`cat ${TMP}/ebuild-list-per-package.txt`"
+#					for EBUILD in ${EBUILDS}; do
+#						P1="`echo ${EBUILD}| sed -e "s:.ebuild::g"`"
+#						[[ ${P1/*-/} == r* ]] && P1=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
+#						PV=${P1/*-/}
+#						PN=`echo ${P1} |  sed -e "s:${P1/*-/}::g" -e "s:-$::g"`
+#						if [[ $(cat ${EBUILD} | sed -e "s:\${PN}:${PN}:g" -e "s:\${PV}:${PV}:g" -e "s:\${P}:${PN}-${PV}:g" |grep "${PATCH}" |wc -l) -gt 0 ]]; then
+#							PATCH_IN_USE="true"
+#							break
+#						fi
+#					done
+#					if [[ ${PATCH_IN_USE} = "false" ]]; then
+#						echo "Removing ${PATCH}. No longer used in package ${EBUILD_BASEDIR}."
+#						git rm -rf $(find ./files/ -type f -name ${PATCH})
+#					fi
+#				done
+#			fi
 			echangelog "Version removed." &> /dev/null
 			repoman manifest
 			git add .
