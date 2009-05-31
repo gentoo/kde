@@ -11,4 +11,3 @@ DESCRIPTION="KDE control Center Module to confiure Network settings"
 KEYWORDS=""
 IUSE="debug"
 
-PATCHES=( "${FILESDIR}/backends-scriptsdir.patch" )
