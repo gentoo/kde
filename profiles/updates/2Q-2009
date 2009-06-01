@@ -1,1 +1,3 @@
 move kde-misc/guidance-power-manager sys-power/guidance-power-manager
+move x11-misc/basket kde-misc/basket
+slotmove =kde-misc/basket-9999 0 4

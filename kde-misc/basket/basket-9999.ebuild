@@ -12,9 +12,13 @@ EGIT_REPO_URI="git://github.com/kelvie/basket.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 src_unpack() {
 	git_src_unpack
 }
+
+RDEPEND="
+	!x11-misc/basket:0
+"

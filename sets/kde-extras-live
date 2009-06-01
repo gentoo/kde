@@ -8,6 +8,7 @@
 ~dev-util/kdevelop-plugins-9999
 ~dev-util/kdevplatform-9999
 ~dev-util/krazy2-9999
+~kde-misc/basket-9999
 ~kde-misc/filelight-9999
 ~kde-misc/kdiff3-9999
 ~kde-misc/kgrubeditor-9999
@@ -45,4 +46,3 @@
 ~x11-libs/qtscriptgenerator-9999
 ~x11-themes/gtk-engines-qt-9999
 ~x11-themes/playground-plasma-themes-9999
-~x11-misc/basket-9999

@@ -287,6 +287,7 @@
 ~kde-base/systemsettings-9999 **
 ~kde-base/thumbnailers-9999 **
 ~kde-base/umbrello-9999 **
+~kde-misc/basket-9999 **
 ~kde-misc/filelight-9999 **
 ~kde-misc/kdiff3-9999 **
 ~kde-misc/kgrubeditor-9999 **
@@ -331,4 +332,3 @@
 ~x11-themes/gtk-engines-qt-9999 **
 ~kde-base/oxygen-icons-9999 **
 ~x11-themes/playground-plasma-themes-9999 **
-~x11-misc/basket-9999 **
