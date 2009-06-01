@@ -617,7 +617,7 @@ kde4-base_pkg_postinst() {
 		einfo "Use it at your own risk."
 		einfo "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
 		echo
-	elif [[ ${BUILD_TYPE} != live ]] && has kdeprefix ${IUSE//+} && use kdeprefix; then
+	elif [[ ${BUILD_TYPE} != live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# warning about kdeprefix for non-live users
 		echo
 		ewarn "WARNING! You have kdeprefix useflag enabled."
