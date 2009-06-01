@@ -58,11 +58,11 @@ src_configure() {
 		-DSOPRANO_BUILD_TESTS=OFF
 		-DCMAKE_SKIP_RPATH=OFF"
 
-	! use clucene && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_CLUCENE_INDEX=ON"
-	! use dbus && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_DBUS=ON"
-	! use raptor && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
-	! use redland && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
-	! use java && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
+	use clucene || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_CLUCENE_INDEX=ON"
+	use dbus || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_DBUS=ON"
+	use raptor || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
+	use redland || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
+	use java || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
 	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
 
 	cmake-utils_src_configure

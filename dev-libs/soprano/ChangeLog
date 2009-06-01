@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Jun 2009; ABCD <en.ABCD@gmail.com> soprano-2.2.3.ebuild,
+  soprano-9999.ebuild, metadata.xml:
+  Clean up syntax, comment out all usage of USE=virtuoso, don't warn about
+  live if user set I_KNOW_WHAT_I_AM_DOING
+
   20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   soprano-2.2.3.ebuild, soprano-9999.ebuild:
   Fixed description a bit
