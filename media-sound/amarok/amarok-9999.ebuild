@@ -51,6 +51,8 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
+PATCHES=( "${FILESDIR}/disable_bindings_test.patch" )
+
 src_configure() {
 	# Workaround for problems related to libmysqld.so and collection plugin not
 	# being found on some architectures when --as-needed is not used.
