@@ -11,6 +11,3 @@ inherit kde4-meta
 DESCRIPTION="Script engine and package tool for plasma"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-
-DEPEND=""
-RDEPEND=""

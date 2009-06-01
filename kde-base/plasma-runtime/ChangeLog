@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Jun 2009; ABCD <en.ABCD@gmail.com> plasma-runtime-4.2.88.ebuild,
+  plasma-runtime-9999.ebuild:
+  Fix *DEPEND
+
 *plasma-runtime-9999 (01 Jun 2009)
 *plasma-runtime-4.2.88 (01 Jun 2009)
 
