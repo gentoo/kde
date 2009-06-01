@@ -32,15 +32,15 @@ case ${KDEBASE} in
 esac
 
 # Add khelpcenter dependency when installing
-if [[ ${PN} != khelpcenter ]] && has doc ${IUSE//+} && use doc; then
+if [[ ${PN} != khelpcenter ]] && has doc ${IUSE//+}; then
 	RDEPEND="${RDEPEND}
-		>=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=]
+		doc? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
 	"
 fi
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphic)
+	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
 		DEPEND="${DEPEND}
 			>=kde-base/qimageblitz-0.0.4
 		"
