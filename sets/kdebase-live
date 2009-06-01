@@ -65,6 +65,7 @@ kde-base/nepomuk:live
 kde-base/nsplugins:live
 kde-base/phonon-kde:live
 kde-base/plasma-apps:live
+kde-base/plasma-runtime:live
 kde-base/plasma-workspace:live
 kde-base/policykit-kde:live
 kde-base/powerdevil:live
