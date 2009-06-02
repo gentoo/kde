@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  kdebluetooth4-9999.ebuild:
+  Requires kde 4.3 from now on
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kdebluetooth4-0.3.ebuild, kdebluetooth4-9999.ebuild:
   Dropped kdeprefix
