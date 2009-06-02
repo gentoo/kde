@@ -21,6 +21,7 @@ DEPEND="
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${DEPEND}
 	!dev-python/pykde
+	!>=dev-python/PyQt4-4.5_pre1
 "
 
 src_prepare() {

@@ -15,13 +15,13 @@ IUSE="akonadi debug examples semantic-desktop"
 
 DEPEND="
 	>=dev-python/PyQt4-4.4.4-r1[webkit]
-	!>=dev-python/PyQt4-4.5_pre1
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${DEPEND}
 	!dev-python/pykde
+	!>=dev-python/PyQt4-4.5_pre1
 "
 
 src_prepare() {
