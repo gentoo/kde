@@ -16,16 +16,16 @@ IUSE="floppy"
 
 # reavertm TODO add kde-base/printer-applet-${PV}:${SLOT} when deps are unmasked in portage
 RDEPEND="
-	>=kde-base/ark-${PV}:${SLOT}
-	>=kde-base/kcalc-${PV}:${SLOT}
-	>=kde-base/kcharselect-${PV}:${SLOT}
-	>=kde-base/kdessh-${PV}:${SLOT}
-	>=kde-base/kdf-${PV}:${SLOT}
-	>=kde-base/kgpg-${PV}:${SLOT}
-	>=kde-base/ktimer-${PV}:${SLOT}
-	>=kde-base/kwallet-${PV}:${SLOT}
-	>=kde-base/superkaramba-${PV}:${SLOT}
-	>=kde-base/sweeper-${PV}:${SLOT}
-	>=kde-base/okteta-${PV}:${SLOT}
-	floppy? ( >=kde-base/kfloppy-${PV}:${SLOT} )
+	>=kde-base/ark-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kcalc-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kcharselect-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdessh-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdf-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kgpg-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kwallet-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/superkaramba-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/sweeper-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/okteta-${PV}:${SLOT}[kdeprefix=]
+	floppy? ( >=kde-base/kfloppy-${PV}:${SLOT}[kdeprefix=] )
 "

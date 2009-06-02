@@ -15,11 +15,11 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/kdenetwork-filesharing-${PV}:${SLOT}
-	>=kde-base/kdnssd-${PV}:${SLOT}
-	>=kde-base/kget-${PV}:${SLOT}
-	>=kde-base/kopete-${PV}:${SLOT}
-	>=kde-base/kppp-${PV}:${SLOT}
-	>=kde-base/krdc-${PV}:${SLOT}
-	>=kde-base/krfb-${PV}:${SLOT}
+	>=kde-base/kdenetwork-filesharing-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kget-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kopete-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kppp-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krdc-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krfb-${PV}:${SLOT}[kdeprefix=]
 "

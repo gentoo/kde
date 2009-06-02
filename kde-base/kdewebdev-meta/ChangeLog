@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdewebdev-meta-4.2.4 (02 Jun 2009)
+
+  02 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +kdewebdev-meta-4.2.4.ebuild:
+  Bumped 4.2.4
+
   07 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdewebdev-meta-4.2.3.ebuild:
   Version removed.

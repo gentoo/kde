@@ -15,8 +15,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/amor-${PV}:${SLOT}
-	>=kde-base/kteatime-${PV}:${SLOT}
-	>=kde-base/ktux-${PV}:${SLOT}
-	>=kde-base/kweather-${PV}:${SLOT}
+	>=kde-base/amor-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kteatime-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktux-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kweather-${PV}:${SLOT}[kdeprefix=]
 "
