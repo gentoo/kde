@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2009; <wired@gentoo.org> khotkeys-4.2.4.ebuild,
+  +files/khotkeys-4-parallel.patch:
+  patch that fixes parallel building
+
   29 May 2009; Alexey Shvetsov <alexxy@gentoo.org> -khotkeys-4.2.85.ebuild:
   Version removed.
 

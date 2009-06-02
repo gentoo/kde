@@ -20,3 +20,5 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	libs/kworkspace/
 "
+
+PATCHES=( "${FILESDIR}/khotkeys-4-parallel.patch" )
