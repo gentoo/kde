@@ -17,6 +17,6 @@ KMEXTRACTONLY="
 
 DEPEND="
 	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

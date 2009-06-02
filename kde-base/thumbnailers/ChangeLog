@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2009; ABCD <en.ABCD@gmail.com> thumbnailers-4.2.88.ebuild,
+  thumbnailers-9999.ebuild:
+  Fix dependencies: -libkonq +libkexiv2
+
   29 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -thumbnailers-4.2.85.ebuild:
   Version removed.
