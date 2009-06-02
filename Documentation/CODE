@@ -66,14 +66,14 @@ Commiting:
 
  - all commit messages must look like this:
 
-   <category/pn> - <detailed message describing what you did>
+   [<category/pn>] <detailed message describing what you did>
    Also append package version, when needed.
 
 Examples:
 
-   kde-base/kdelibs-4.2.3 - Synced with tree: fixed bug #333452, removed unnecessary solid patch, added debug to IUSE.
+   [kde-base/kdelibs-4.2.3] Synced with tree: fixed bug #333452, removed unnecessary solid patch, added debug to IUSE.
 
-   kde-base/kdelibs-4.2.3 - Moved to tree.
+   [kde-base/kdelibs-4.2.3] Moved to tree.
 
  - when you commit something related to existing bugzilla bug, add inOverlay to keywords to that bug,
    so that developers know about it. Also add [overlay-name] to bug summary.
