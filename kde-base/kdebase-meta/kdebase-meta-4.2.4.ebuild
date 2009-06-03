@@ -10,7 +10,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="kde-prefix semantic-desktop"
+IUSE="kdeprefix semantic-desktop"
 
 RDEPEND="
 	!kde-base/kdebase-runtime-meta
