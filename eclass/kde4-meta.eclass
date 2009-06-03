@@ -31,10 +31,10 @@ case ${KDEBASE} in
 		;;
 esac
 
-# Add khelpcenter dependency when installing
-if [[ ${PN} != khelpcenter ]] && has doc ${IUSE//+}; then
+# Add khelpcenter dependency when installing handbooks
+if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
 	RDEPEND="${RDEPEND}
-		doc? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
+		handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
 	"
 fi
 
@@ -160,7 +160,7 @@ fi
 # @DESCRIPTION:
 # All subdirectories listed here will be extracted, compiled & installed.
 # $KMMODULE is always added to $KMEXTRA.
-# If the doc USE-flag is set, and if this directory exists,
+# If the handbook USE-flag is set, and if this directory exists,
 # then "doc/$KMMODULE" is added to $KMEXTRA. In other cases, this should be
 # handled in the ebuild.
 # If the documentation is in a different subdirectory, you should add it to KMEXTRA.
@@ -339,7 +339,7 @@ kde4-meta_create_extractlists() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# TODO change to KMEXTRA for more strict check
-	if has doc ${IUSE//+} && use doc && [[ -n ${KMMODULE} ]]; then
+	if has handbook ${IUSE//+} && use handbook && [[ -n ${KMMODULE} ]]; then
 		# We use the basename of $KMMODULE because $KMMODULE can contain
 		# the path to the module subdirectory.
 		KMEXTRA_NONFATAL="${KMEXTRA_NONFATAL} doc/${KMMODULE##*/}"
@@ -711,10 +711,10 @@ kde4-meta_src_make_doc() {
 kde4-meta_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if has doc ${IUSE//+} && ! use doc; then
+	if has handbook ${IUSE//+} && ! use handbook; then
 		echo
 		einfo "Application handbook for ${PN} has not been installed."
-		einfo "To install handbook, reemerge =${CATEGORY}/${P} with 'doc' USE flag."
+		einfo "To install handbook, reemerge =${CATEGORY}/${P} with 'handbook' USE flag."
 		echo
 	fi
 
