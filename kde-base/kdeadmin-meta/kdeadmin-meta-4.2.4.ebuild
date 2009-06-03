@@ -15,6 +15,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="lilo"
 
 # reavertm TODO add >=kde-base/system-config-printer-kde-${PV}:${SLOT} when system-config-printer unmasked in tree
+# NOTE: do not use [kdeprefix=] here, as that would force [-kdeprefix]
+# (because there is no kdeprefix in IUSE)
 RDEPEND="
 	>=kde-base/kcron-${PV}:${SLOT}
 	>=kde-base/knetworkconf-${PV}:${SLOT}

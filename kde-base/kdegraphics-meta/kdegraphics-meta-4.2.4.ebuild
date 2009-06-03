@@ -14,6 +14,8 @@ SLOT="4.2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
+# NOTE: do not use [kdeprefix=] here, as that would force [-kdeprefix]
+# (because there is no kdeprefix in IUSE)
 RDEPEND="
 	>=kde-base/gwenview-${PV}:${SLOT}
 	>=kde-base/kamera-${PV}:${SLOT}

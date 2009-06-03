@@ -13,6 +13,8 @@ SLOT="4.2"
 IUSE="accessibility +mysql nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
+# NOTE: do not use [kdeprefix=] here, as that would force [-kdeprefix]
+# (because there is no kdeprefix in IUSE)
 RDEPEND="
 	>=kde-base/kate-${PV}:${SLOT}
 	>=kde-base/kdeadmin-meta-${PV}:${SLOT}
