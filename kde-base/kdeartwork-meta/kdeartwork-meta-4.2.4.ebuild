@@ -15,12 +15,12 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/kdeartwork-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-desktopthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-emoticons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-kscreensaver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-sounds-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-styles-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-wallpapers-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdeartwork-colorschemes-${PV}:${SLOT}
+	>=kde-base/kdeartwork-desktopthemes-${PV}:${SLOT}
+	>=kde-base/kdeartwork-emoticons-${PV}:${SLOT}
+	>=kde-base/kdeartwork-iconthemes-${PV}:${SLOT}
+	>=kde-base/kdeartwork-kscreensaver-${PV}:${SLOT}
+	>=kde-base/kdeartwork-sounds-${PV}:${SLOT}
+	>=kde-base/kdeartwork-styles-${PV}:${SLOT}
+	>=kde-base/kdeartwork-wallpapers-${PV}:${SLOT}
 "

@@ -15,23 +15,23 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/blinken-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kalgebra-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kalzium-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kanagram-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kbruch-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kgeography-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khangman-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kig-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kiten-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/klettres-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmplot-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstars-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktouch-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kturtle-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwordquiz-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/marble-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/parley-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/step-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/blinken-${PV}:${SLOT}
+	>=kde-base/kalgebra-${PV}:${SLOT}
+	>=kde-base/kalzium-${PV}:${SLOT}
+	>=kde-base/kanagram-${PV}:${SLOT}
+	>=kde-base/kbruch-${PV}:${SLOT}
+	>=kde-base/kgeography-${PV}:${SLOT}
+	>=kde-base/khangman-${PV}:${SLOT}
+	>=kde-base/kig-${PV}:${SLOT}
+	>=kde-base/kiten-${PV}:${SLOT}
+	>=kde-base/klettres-${PV}:${SLOT}
+	>=kde-base/kmplot-${PV}:${SLOT}
+	>=kde-base/kstars-${PV}:${SLOT}
+	>=kde-base/ktouch-${PV}:${SLOT}
+	>=kde-base/kturtle-${PV}:${SLOT}
+	>=kde-base/kwordquiz-${PV}:${SLOT}
+	>=kde-base/libkdeedu-${PV}:${SLOT}
+	>=kde-base/marble-${PV}:${SLOT}
+	>=kde-base/parley-${PV}:${SLOT}
+	>=kde-base/step-${PV}:${SLOT}
 "

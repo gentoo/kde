@@ -18,21 +18,21 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/cervisia-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kapptemplate-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kate-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kbugbuster-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcachegrind-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeaccounts-plugin-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdesdk-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdesdk-misc-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdesdk-scripts-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdesdk-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kompare-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstartperf-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kuiviewer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/lokalize-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/umbrello-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/cervisia-${PV}:${SLOT}
+	>=kde-base/kapptemplate-${PV}:${SLOT}
+	>=kde-base/kate-${PV}:${SLOT}
+	>=kde-base/kbugbuster-${PV}:${SLOT}
+	>=kde-base/kcachegrind-${PV}:${SLOT}
+	>=kde-base/kdeaccounts-plugin-${PV}:${SLOT}
+	>=kde-base/kdesdk-kioslaves-${PV}:${SLOT}
+	>=kde-base/kdesdk-misc-${PV}:${SLOT}
+	>=kde-base/kdesdk-scripts-${PV}:${SLOT}
+	>=kde-base/kdesdk-strigi-analyzer-${PV}:${SLOT}
+	>=kde-base/kompare-${PV}:${SLOT}
+	>=kde-base/kstartperf-${PV}:${SLOT}
+	>=kde-base/kuiviewer-${PV}:${SLOT}
+	>=kde-base/lokalize-${PV}:${SLOT}
+	>=kde-base/umbrello-${PV}:${SLOT}
 "
 
 # FIXME:

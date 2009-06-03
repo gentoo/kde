@@ -14,7 +14,7 @@ IUSE="accessibility +mysql nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
-	>=kde-base/kate-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kate-${PV}:${SLOT}
 	>=kde-base/kdeadmin-meta-${PV}:${SLOT}
 	>=kde-base/kdeartwork-meta-${PV}:${SLOT}
 	>=kde-base/kdebase-meta-${PV}:${SLOT}
@@ -31,7 +31,7 @@ RDEPEND="
 		>=kde-base/kdepim-meta-${PV}:${SLOT}
 		>=kde-base/kdewebdev-meta-${PV}:${SLOT}
 	)
-	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
+	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT} )
 "
 # make kdepim-meta optional since it requires long hated mysql which people tend
 # not to want in their system. But also enable it by default

@@ -18,9 +18,9 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/kfilereplace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kimagemapeditor-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/klinkstatus-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kommander-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kxsldbg-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfilereplace-${PV}:${SLOT}
+	>=kde-base/kimagemapeditor-${PV}:${SLOT}
+	>=kde-base/klinkstatus-${PV}:${SLOT}
+	>=kde-base/kommander-${PV}:${SLOT}
+	>=kde-base/kxsldbg-${PV}:${SLOT}
 "

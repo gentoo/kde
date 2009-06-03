@@ -16,11 +16,11 @@ IUSE="lilo"
 
 # reavertm TODO add >=kde-base/system-config-printer-kde-${PV}:${SLOT} when system-config-printer unmasked in tree
 RDEPEND="
-	>=kde-base/kcron-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knetworkconf-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksystemlog-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kuser-${PV}:${SLOT}[kdeprefix=]
-	lilo? ( >=kde-base/lilo-config-${PV}:${SLOT}[kdeprefix=] )
+	>=kde-base/kcron-${PV}:${SLOT}
+	>=kde-base/knetworkconf-${PV}:${SLOT}
+	>=kde-base/ksystemlog-${PV}:${SLOT}
+	>=kde-base/kuser-${PV}:${SLOT}
+	lilo? ( >=kde-base/lilo-config-${PV}:${SLOT} )
 "
 
 ## The following package was just added and has a questionable interest to Gentoo

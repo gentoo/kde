@@ -14,11 +14,11 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/dragonplayer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/juk-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdemultimedia-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmix-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kscd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/dragonplayer-${PV}:${SLOT}
+	>=kde-base/juk-${PV}:${SLOT}
+	>=kde-base/kdemultimedia-kioslaves-${PV}:${SLOT}
+	>=kde-base/kmix-${PV}:${SLOT}
+	>=kde-base/kscd-${PV}:${SLOT}
+	>=kde-base/libkcddb-${PV}:${SLOT}
+	>=kde-base/libkcompactdisc-${PV}:${SLOT}
 "

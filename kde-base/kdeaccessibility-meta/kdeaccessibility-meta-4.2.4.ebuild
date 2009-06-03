@@ -15,12 +15,12 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=kde-base/kdeaccessibility-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeaccessibility-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmag-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmousetool-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmouth-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kttsd-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdeaccessibility-colorschemes-${PV}:${SLOT}
+	>=kde-base/kdeaccessibility-iconthemes-${PV}:${SLOT}
+	>=kde-base/kmag-${PV}:${SLOT}
+	>=kde-base/kmousetool-${PV}:${SLOT}
+	>=kde-base/kmouth-${PV}:${SLOT}
+	>=kde-base/kttsd-${PV}:${SLOT}
 "
 # The following are disabled in CMakeLists.txt
 # >=kde-base/kbstateapplet-${PV}:${SLOT} - kicker applet
