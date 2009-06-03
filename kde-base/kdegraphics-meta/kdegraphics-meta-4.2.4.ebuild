@@ -4,32 +4,28 @@
 
 EAPI="2"
 
-inherit kde4-functions
-
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="4.2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE=""
+IUSE="kdeprefix"
 
-# NOTE: do not use [kdeprefix=] here, as that would force [-kdeprefix]
-# (because there is no kdeprefix in IUSE)
 RDEPEND="
-	>=kde-base/gwenview-${PV}:${SLOT}
-	>=kde-base/kamera-${PV}:${SLOT}
-	>=kde-base/kcolorchooser-${PV}:${SLOT}
-	>=kde-base/kdegraphics-strigi-analyzer-${PV}:${SLOT}
-	>=kde-base/kgamma-${PV}:${SLOT}
-	>=kde-base/kolourpaint-${PV}:${SLOT}
-	>=kde-base/kruler-${PV}:${SLOT}
-	>=kde-base/ksaneplugin-${PV}:${SLOT}
-	>=kde-base/ksnapshot-${PV}:${SLOT}
-	>=kde-base/libkdcraw-${PV}:${SLOT}
-	>=kde-base/libkexiv2-${PV}:${SLOT}
-	>=kde-base/libkipi-${PV}:${SLOT}
-	>=kde-base/libksane-${PV}:${SLOT}
-	>=kde-base/okular-${PV}:${SLOT}
-	>=kde-base/svgpart-${PV}:${SLOT}
+	>=kde-base/gwenview-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kamera-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kcolorchooser-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdegraphics-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kgamma-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kolourpaint-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kruler-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksaneplugin-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksnapshot-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libksane-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/okular-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/svgpart-${PV}:${SLOT}[kdeprefix=]
 "
