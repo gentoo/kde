@@ -6,12 +6,11 @@ EAPI="2"
 
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
-KDE_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug designer-plugin +handbook +kde gps plasma python"
+IUSE="debug designer-plugin gps +handbook plasma python"
 
 # tests fail / segfault. Last checked for 4.2.88
 RESTRICT=test
@@ -20,32 +19,18 @@ DEPEND="
 	gps? ( sci-geosciences/gpsd )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
-		kde? ( >=kde-base/pykde4-${PV}:${SLOT} )
+		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
 "
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !sci-geosciences/marble )
 "
 
-pkg_setup() {
-	if use plasma && ! use kde; then
-		echo
-		eerror "KDE integration is required to build marble world clock applet."
-		eerror
-		eerror "Either enable 'kde' USE flag or disable 'plasma'."
-		eerror "You can do this by setting these flags in /etc/portage/package.use, like:"
-		eerror "    =${CATEGORY}/${PN}-${PV} kde plasma"
-		echo
-		die "Conflicting USE flags found"
-	fi
-
-	kde4-meta_pkg_setup
-}
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
 		$(cmake-utils_use_with plasma Plasma)
+		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with python SIP)"
@@ -57,12 +42,6 @@ src_configure() {
 	else
 		sed -i -e 's:FIND_LIBRARY(libgps_LIBRARIES gps):# LIBGPS DISABLED &:' \
 			marble/Findlibgps.cmake || die "sed to disable gpsd failed."
-	fi
-
-	if use kde; then
-		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with python PyKDE4)"
-	else
-		mycmakeargs="${mycmakeargs} -DQTONLY=ON -DWITH_PyKDE4=OFF"
 	fi
 
 	kde4-meta_src_configure
