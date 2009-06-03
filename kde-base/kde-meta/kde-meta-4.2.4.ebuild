@@ -15,23 +15,23 @@ IUSE="accessibility +mysql nls"
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
 	>=kde-base/kate-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeadmin-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeedu-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdegames-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdegraphics-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdemultimedia-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdenetwork-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeplasma-addons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdetoys-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeutils-meta-${PV}:${SLOT}[kdeprefix=]
-	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT}[kdeprefix=] )
+	>=kde-base/kdeadmin-meta-${PV}:${SLOT}
+	>=kde-base/kdeartwork-meta-${PV}:${SLOT}
+	>=kde-base/kdebase-meta-${PV}:${SLOT}
+	>=kde-base/kdeedu-meta-${PV}:${SLOT}
+	>=kde-base/kdegames-meta-${PV}:${SLOT}
+	>=kde-base/kdegraphics-meta-${PV}:${SLOT}
+	>=kde-base/kdemultimedia-meta-${PV}:${SLOT}
+	>=kde-base/kdenetwork-meta-${PV}:${SLOT}
+	>=kde-base/kdeplasma-addons-${PV}:${SLOT}
+	>=kde-base/kdetoys-meta-${PV}:${SLOT}
+	>=kde-base/kdeutils-meta-${PV}:${SLOT}
+	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT} )
 	mysql? (
-		>=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=]
-		>=kde-base/kdewebdev-meta-${PV}:${SLOT}[kdeprefix=]
+		>=kde-base/kdepim-meta-${PV}:${SLOT}
+		>=kde-base/kdewebdev-meta-${PV}:${SLOT}
 	)
-	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
+	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT} )
 "
 # make kdepim-meta optional since it requires long hated mysql which people tend
 # not to want in their system. But also enable it by default
