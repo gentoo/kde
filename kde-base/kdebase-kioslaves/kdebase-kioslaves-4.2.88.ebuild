@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS="~amd64 ~x86"
-IUSE="bzip2 debug doc openexr samba"
+IUSE="bzip2 debug +handbook openexr samba"
 
 # 1 of 2 tests fail. Last checked for 4.2.87
 RESTRICT="test"

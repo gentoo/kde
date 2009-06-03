@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Notes"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

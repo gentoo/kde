@@ -9,10 +9,10 @@ inherit kde4-meta
 
 DESCRIPTION="KDE free disk space utility"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="doc/kcontrol/blockdevices"
 	fi
 

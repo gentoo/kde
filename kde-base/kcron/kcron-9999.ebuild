@@ -9,6 +9,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Task Scheduler"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="virtual/cron"

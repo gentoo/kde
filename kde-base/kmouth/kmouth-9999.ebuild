@@ -11,4 +11,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE application that reads what you type out loud. Doesn't include a speech synthesizer."
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

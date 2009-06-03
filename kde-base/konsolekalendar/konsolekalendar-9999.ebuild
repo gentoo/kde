@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="A command line interface to KDE calendars"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

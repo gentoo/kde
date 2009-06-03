@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Control Center"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="
 	!kdeprefix? ( !kde-base/ksmserver:4.1[-kdeprefix] )

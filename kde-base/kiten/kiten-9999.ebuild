@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Japanese dictionary and reference"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

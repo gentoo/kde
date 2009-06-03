@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Cervisia - A KDE CVS frontend"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="
 	dev-util/cvs

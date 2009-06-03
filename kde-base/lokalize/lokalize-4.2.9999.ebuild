@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"

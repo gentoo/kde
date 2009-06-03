@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE accessibility tool: translates mouse hovering into clicks"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]

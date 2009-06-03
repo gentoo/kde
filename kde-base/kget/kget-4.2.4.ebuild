@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc +plasma bittorrent bittorrent-external +semantic-desktop sqlite"
+IUSE="debug +handbook +plasma bittorrent bittorrent-external +semantic-desktop sqlite"
 
 DEPEND="
 	dev-libs/libpcre

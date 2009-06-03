@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE application that helps you manage system users"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND=">=kde-base/kdepimlibs-${PV}[kdeprefix=]"
 # notify is needed for dialogs

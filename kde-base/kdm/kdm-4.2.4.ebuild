@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="consolekit debug doc kerberos pam"
+IUSE="consolekit debug +handbook kerberos pam"
 
 DEPEND="
 	x11-libs/libXau

@@ -10,6 +10,6 @@ inherit kde4-meta
 
 DESCRIPTION="KDE program that clicks the mouse for you."
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND=">=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]"

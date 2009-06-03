@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KBugBuster - A tool for checking and reporting KDE apps' bugs"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

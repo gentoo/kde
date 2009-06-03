@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
@@ -27,7 +27,7 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkleo"
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="
 			doc/kwatchgnupg
 		"

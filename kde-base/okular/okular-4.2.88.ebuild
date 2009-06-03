@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
 KEYWORDS="~amd64 ~x86"
-IUSE="chm crypt debug djvu doc ebook +jpeg +ps +pdf +tiff"
+IUSE="chm crypt debug djvu ebook +handbook +jpeg +ps +pdf +tiff"
 
 DEPEND="
 	media-libs/freetype

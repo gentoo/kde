@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE GUI for passwd"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]

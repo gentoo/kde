@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kompare is a program to view the differences between files."
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 src_prepare() {
 	# Disable hardcoded kdepimlibs check - only 4.2 branch is affected

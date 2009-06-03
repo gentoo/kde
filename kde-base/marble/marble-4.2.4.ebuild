@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug designer-plugin doc +kde gps plasma python"
+IUSE="debug designer-plugin +handbook +kde gps plasma python"
 
 DEPEND="
 	gps? ( sci-geosciences/gpsd )

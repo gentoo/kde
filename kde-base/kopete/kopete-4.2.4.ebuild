@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc ssl"
+IUSE="debug +handbook ssl"
 
 # Available plugins
 #

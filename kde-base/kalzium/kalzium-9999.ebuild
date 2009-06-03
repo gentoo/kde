@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
-IUSE="editor debug doc +plasma solver"
+IUSE="editor debug +handbook +plasma solver"
 
 COMMON_DEPEND="
 	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]

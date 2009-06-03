@@ -9,14 +9,14 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="
 	>=www-misc/htdig-3.2.0_beta6-r1
 "
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="
 			doc/faq
 			doc/glossary

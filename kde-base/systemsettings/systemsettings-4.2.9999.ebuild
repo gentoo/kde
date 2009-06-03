@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug doc +usb xinerama"
+IUSE="debug +handbook +usb xinerama"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -55,7 +55,7 @@ KMEXTRACTONLY="
 PATCHES=( "$FILESDIR/20_use_dejavu_as_default_font.patch" )
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="${KMEXTRA}
 			doc/kcontrol
 		"

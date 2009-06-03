@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Notes application"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND=">=kde-base/libkdepim-${PV}[kdeprefix=]"
 RDEPEND="${DEPEND}"

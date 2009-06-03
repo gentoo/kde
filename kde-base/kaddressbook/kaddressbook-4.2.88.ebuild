@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Address Book"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc gnokii"
+IUSE="debug +handbook gnokii"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

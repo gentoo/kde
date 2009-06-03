@@ -8,4 +8,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE web development - image map editor"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

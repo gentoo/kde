@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Jukebox and music manager for KDE."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc musicbrainz"
+IUSE="debug +handbook musicbrainz"
 
 DEPEND="
 	>=media-libs/taglib-1.5

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kjots - KDE note taking utility"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]

@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE system log viewer"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Interactive Geometry tool"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc kig-scripting"
+IUSE="debug +handbook kig-scripting"
 
 DEPEND="
 	kig-scripting? ( >=dev-libs/boost-1.32 )

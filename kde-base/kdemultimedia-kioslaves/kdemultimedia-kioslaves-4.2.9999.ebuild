@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
-IUSE="debug doc encode flac vorbis"
+IUSE="debug +handbook encode flac vorbis"
 
 DEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]

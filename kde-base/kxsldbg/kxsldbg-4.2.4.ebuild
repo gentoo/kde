@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	dev-libs/libxslt
@@ -18,7 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="doc/xsldbg"
 	fi
 

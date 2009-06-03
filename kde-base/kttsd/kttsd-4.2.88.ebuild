@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE text-to-speech"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa debug doc"
+IUSE="alsa debug +handbook"
 
 DEPEND="
 	alsa? ( media-libs/alsa-lib )

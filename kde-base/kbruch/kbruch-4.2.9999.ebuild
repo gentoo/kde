@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Educational: Learn calculating with fractions"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

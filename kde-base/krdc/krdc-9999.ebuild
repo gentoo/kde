@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS=""
-IUSE="debug doc jpeg vnc zeroconf"
+IUSE="debug +handbook jpeg vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) doesnt work atm
 #sed -e '72,74d' -i ${WORKDIR}/krdc_build/krdc/cmake_install.cmake || die "sed failed" #nomachine default key isnt there, doesnt matter

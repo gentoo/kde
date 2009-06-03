@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A Personal Organizer for KDE"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 # test fails. Last checked for 4.2.87
 RESTRICT="test"

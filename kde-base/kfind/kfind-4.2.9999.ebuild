@@ -8,4 +8,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE file finder utility"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

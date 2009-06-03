@@ -12,7 +12,7 @@ HOMEPAGE="http://dragonplayer.org/"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 RDEPEND="
 	>=media-libs/xine-lib-1.1.9

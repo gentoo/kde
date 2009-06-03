@@ -10,7 +10,7 @@ inherit kde4-meta
 DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	kde-base/qimageblitz

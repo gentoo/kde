@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications."
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

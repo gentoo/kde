@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	media-libs/libgphoto2
@@ -17,7 +17,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="
 			doc/kcontrol/${PN}
 		"

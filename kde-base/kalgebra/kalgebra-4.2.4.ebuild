@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc +plasma readline"
+IUSE="debug +handbook +plasma readline"
 
 DEPEND="
 	readline? ( sys-libs/readline )

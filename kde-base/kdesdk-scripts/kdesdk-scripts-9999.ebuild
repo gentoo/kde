@@ -11,4 +11,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE SDK Scripts"
 KEYWORDS=""
-IUSE="doc debug"
+IUSE="+handbook debug"

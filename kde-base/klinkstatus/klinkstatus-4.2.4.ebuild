@@ -8,7 +8,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE web development - link validity checker"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc tidy"
+IUSE="debug +handbook tidy"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

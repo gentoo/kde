@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE gpg keyring manager"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]

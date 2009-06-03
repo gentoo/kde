@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="Skat game for KDE"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

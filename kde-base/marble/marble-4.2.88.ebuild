@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug designer-plugin doc +kde gps plasma python"
+IUSE="debug designer-plugin +handbook +kde gps plasma python"
 
 # tests fail / segfault. Last checked for 4.2.88
 RESTRICT=test

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
@@ -24,7 +24,7 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkdepim"
 
 src_unpack() {
-	if use doc; then
+	if use handbook; then
 		KMEXTRA="
 			doc/kioslave/news
 		"

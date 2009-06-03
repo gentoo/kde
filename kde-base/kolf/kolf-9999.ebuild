@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Minigolf Game"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

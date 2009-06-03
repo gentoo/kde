@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A type-and-say front end for speech synthesizers"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst

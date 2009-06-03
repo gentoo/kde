@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Ksirk is a KDE port of the board game risk"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/qca:2

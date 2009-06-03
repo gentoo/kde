@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 COMMONDEPEND="
 	x11-libs/libX11

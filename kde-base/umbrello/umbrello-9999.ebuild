@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE UML Modeller"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	dev-libs/boost

@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc google-gadgets python rss xcomposite xinerama"
+IUSE="debug +handbook google-gadgets python rss xcomposite xinerama"
 
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]

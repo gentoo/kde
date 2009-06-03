@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc python"
+IUSE="debug +handbook python"
 
 DEPEND="
 	kde-base/qimageblitz

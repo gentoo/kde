@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: A simple ball dodging game"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

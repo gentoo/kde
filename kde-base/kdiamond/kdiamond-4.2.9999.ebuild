@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: KDiamond is a three-in-a-row game."
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

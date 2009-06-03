@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 KMEXTRA="
 	kmtrace/

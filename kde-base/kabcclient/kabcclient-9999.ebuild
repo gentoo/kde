@@ -10,4 +10,4 @@ inherit kde4-meta
 
 DESCRIPTION="A command line client for accessing the KDE addressbook"
 KEYWORDS=""
-IUSE="debug doc"
+IUSE="debug +handbook"

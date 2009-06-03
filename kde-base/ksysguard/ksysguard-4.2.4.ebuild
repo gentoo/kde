@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc lm_sensors"
+IUSE="debug +handbook lm_sensors"
 
 COMMONDEPEND="
 	x11-libs/libXrender

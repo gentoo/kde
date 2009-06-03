@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Mahjongg for KDE"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
