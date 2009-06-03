@@ -3,8 +3,8 @@ If you asked this question you are reading right file.
 
 KDE4 (kde-testing) policies:
 
- - append Changelog and valid metadata.xml - not necessarily with <herd>kde</herd> if you're proxy
-   maintaining some ebuild.
+ - append valid metadata.xml - not necessarily with <herd>kde</herd> if you're proxy
+   maintaining some ebuild. Never append ChangeLog because file/folder history is determined by commit log.
 
  - always separate DEPEND and RDEPEND properly (adding COMMON_DEPEND if needed)
 
