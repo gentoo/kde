@@ -31,7 +31,7 @@ RDEPEND="
 		>=kde-base/kdepim-meta-${PV}:${SLOT}
 		>=kde-base/kdewebdev-meta-${PV}:${SLOT}
 	)
-	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT} )
+	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
 "
 # make kdepim-meta optional since it requires long hated mysql which people tend
 # not to want in their system. But also enable it by default
