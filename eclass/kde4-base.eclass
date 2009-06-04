@@ -163,7 +163,6 @@ fi # NEED_KDE != NONE block
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
-
 	kde-base)
 		if [[ $BUILD_TYPE = live ]]; then
 			# Disable tests for live ebuilds
@@ -197,13 +196,11 @@ case ${KDEBASE} in
 		done
 		unset slot
 		;;
-
 	koffice)
 		SLOT="2"
 		_pv="-${KDE_MINIMAL}"
 		_pvn="${_pv}"
 		;;
-
 	*)
 		_pv="-${KDE_MINIMAL}"
 		_pvn="${_pv}"
