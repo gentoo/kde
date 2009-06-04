@@ -1,1 +1,3 @@
 slotmove =media-video/subtitlecomposer-0.5.2 0 4
+slotmove media-libs/taglib-extras 0 4
+slotmove media-sound/amarok-utils 2 4

@@ -13,7 +13,7 @@ HOMEPAGE="http://amarok.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4"
 IUSE="cdaudio daap debug ipod mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
