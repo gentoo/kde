@@ -17,7 +17,7 @@ get_packages_from_slot() {
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild
-		cat ${SLOTFILE} |grep -v ^@ |grep -v ^$ |grep -v ^# \
+		cat ${SLOTFILE} |grep -v ^@ |grep -v ^$ |grep -v ^#| grep 'kde-base/' \
 			|sed -e "s/:${SLOT}//g" \
 			>> ${TMPFILE}
 	done
@@ -125,7 +125,7 @@ sync_main_keywords_with_overlay() {
 		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
 	fi
 	[[ ${KEYWORDS} = "" ]] && KEYWORDS="~amd64 ~x86"
-	ekeyword $KEYWORDS ${1} &> /dev/null 
+	ekeyword $KEYWORDS ${1} &> /dev/null
 }
 
 # print out help function
@@ -339,7 +339,7 @@ case ${OPERATION} in
 				if [[ ! -d "${WRKDIR}" ]]; then
 					# we need to add the directory to scm tracking
 					mkdir -p "${WRKDIR}"
-					_addcvsfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//} 
+					_addcvsfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//}
 				fi
 				_cvsupdate "${WRKDIR}"
 				# we need to copy the file we want to play with
