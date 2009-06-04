@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
-SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
+SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"

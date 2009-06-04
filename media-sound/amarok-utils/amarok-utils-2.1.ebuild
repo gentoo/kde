@@ -11,7 +11,7 @@ inherit kde4-base
 
 DESCRIPTION="Variuos utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
+SRC_URI="mirror://kde/stable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
