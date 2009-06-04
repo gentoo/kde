@@ -3,11 +3,14 @@ kde-base/kate:live
 kde-base/kdeplasma-addons:live
 kde-base/oxygen-icons:live
 kde-base/kde-l10n:live
+kde-base/kde-env:live
+kde-base/kdelibs:live
+kde-base/kdepimlibs:live
+kde-base/libknotificationitem:live
 
 @kdeadmin-live
 @kdeartwork-live
 @kdebase-live
-@kdedeps-live
 @kdeedu-live
 @kdegames-live
 @kdegraphics-live
