@@ -426,7 +426,7 @@ kde4-base_pkg_setup() {
 			fi
 		done
 		unset slot
-		[[ -z KDEDIR ]] && die "Failed to determine KDEDIR!"
+		[[ -z ${KDEDIR} ]] && die "Failed to determine KDEDIR!"
 		PREFIX="${PREFIX:-${ROOT}usr}"
 	fi
 
