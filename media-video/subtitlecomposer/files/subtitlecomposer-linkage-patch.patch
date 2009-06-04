@@ -1,0 +1,12 @@
+diff -ru ./src/main/CMakeLists.txt ../new/src/main/CMakeLists.txt
+--- ./src/main/CMakeLists.txt	2009-04-17 21:09:12.000000000 +0200
++++ ../new/src/main/CMakeLists.txt	2009-06-04 01:47:35.000000000 +0200
+@@ -46,6 +46,8 @@
+ 	${KDE4_KDEUI_LIBS}
+ 	${KDE4_KHTML_LIBS}
+ 	${KDE4_KFILE_LIBS}
++	${KDE4_PHONON_LIBS}
++	${KDE4_KROSSCORE_LIBS}
+ 	${KDE4_KROSSUI_LIBS}
+ 	${common_LIBS}
+ 	${config_LIBS}

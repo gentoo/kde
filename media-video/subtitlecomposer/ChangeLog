@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*subtitlecomposer-9999 (04 Jun 2009)
+*subtitlecomposer-0.5.3 (04 Jun 2009)
+
+  04 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -subtitlecomposer-0.5.2.ebuild,
+  -files/subtitlecomposer-0.5.2-phonon-linkage.patch,
+  +subtitlecomposer-0.5.3.ebuild, +subtitlecomposer-9999.ebuild,
+  +files/subtitlecomposer-linkage-patch.patch:
+  Revbump 0.5.3, added live
+
 *subtitlecomposer-0.5.2 (25 Feb 2009)
 
   25 Feb 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

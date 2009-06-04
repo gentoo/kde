@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="el es pl sr"
+KDE_LINGUAS="bg cs de el es fr pl pt_BR sr"
 inherit kde4-base
 
 DESCRIPTION="Text-based subtitles editor."
@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/subcomposer/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug gstreamer xine"
 
 RDEPEND="
@@ -24,7 +24,16 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
 
-PATCHES=( "${FILESDIR}/${P}-phonon-linkage.patch" )
+src_prepare() {
+	kde4-base_src_prepare
+
+	# linkage issue
+	epatch "${FILESDIR}/${PN}-linkage-patch.patch"
+
+	sed -e '/ADD_SUBDIRECTORY( api )/s/^/# DISABLED/' \
+		-i src/main/scripting/examples/CMakeLists.txt \
+		|| die "failed to disable installation of scripting API"
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
@@ -32,4 +41,13 @@ src_configure() {
 		$(cmake-utils_use_with xine Xine)
 	"
 	kde4-base_src_configure
+}
+
+pkg_postinst() {
+	kde4-base_pkg_postinst
+
+	echo
+	elog "Some example scripts provided by ${PV} require dev-lang/ruby"
+	elog "or dev-lang/python to be installed."
+	echo
 }
