@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> kdepimlibs-4.2.89.ebuild,
+  kdepimlibs-9999.ebuild:
+  Adjust deps for akonadi
+
   04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdepimlibs-4.2.88.ebuild:
   Version removed.
