@@ -14,7 +14,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam handbook jpeg2k kerberos
 mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
@@ -147,6 +147,7 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DWITH_HSPELL=OFF
 		-DKDE_DEFAULT_HOME=${HME}
+		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
 		$(cmake-utils_use_has altivec PPC_ALTIVEC)
 		$(cmake-utils_use_has mmx X86_MMX)
