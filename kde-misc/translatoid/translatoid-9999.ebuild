@@ -4,11 +4,11 @@
 
 EAPI="2"
 
+KMNAME="playground/base/plasma/applets"
 inherit kde4-base subversion
 
 DESCRIPTION="Translator plasmoid using google translator"
 HOMEPAGE="http://kde-look.org/content/show.php/translatoid?content=97511"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/playground/base/plasma/applets/translatoid/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-    >=kde-base/plasma-workspace-${KDE_MINIMAL}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 
 S="${WORKDIR}/${PN}"

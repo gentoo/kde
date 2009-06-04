@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-    >=kde-base/plasma-workspace-${KDE_MINIMAL}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 
 S="${WORKDIR}/${PN}"
