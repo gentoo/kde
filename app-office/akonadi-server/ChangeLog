@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*akonadi-server-1.1.90 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -akonadi-server-1.1.85.ebuild, +akonadi-server-1.1.90.ebuild:
+  Version bump
+
   12 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   akonadi-server-1.1.85.ebuild, akonadi-server-9999.ebuild:
   Requires >=qt-4.5.0
