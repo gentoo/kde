@@ -427,10 +427,13 @@ kde4-base_pkg_setup() {
 		done
 		unset slot
 
-		# optional kde dont need kdedir if unset
-		[[ KDE_REQUIRED = optional ]] && ! use kde && KDEDIR="${ROOT}usr"
+		# Bail out if kdelibs required but not found
+		if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+			[[ -z ${KDEDIR} ]] && die "Failed to determine KDEDIR!"
+		else
+			[[ -z ${KDEDIR} ]] && KDEDIR="${ROOT}usr"
+		fi
 
-		[[ -z ${KDEDIR} ]] && die "Failed to determine KDEDIR!"
 		PREFIX="${PREFIX:-${ROOT}usr}"
 	fi
 
