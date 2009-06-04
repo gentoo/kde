@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdelibs/experimental"
+KMNAME="kdelibs-experimental"
 KMMODULE="knotificationitem"
 inherit kde4-meta
 
