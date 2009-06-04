@@ -3,6 +3,10 @@
 # $Header: $
 
   04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -kdebase-desktoptheme-4.2.88.ebuild:
+  Version removed.
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -kdebase-desktoptheme-4.2.4.ebuild:
   Version removed.
 
