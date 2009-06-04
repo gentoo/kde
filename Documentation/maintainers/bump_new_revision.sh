@@ -134,9 +134,10 @@ help() {
 	echo
 	echo "When bumping:"
 	echo "For correct usage set SLOT, VERSION and BUMP_VERSION arguments."
+	echo "BUMP_VERSION is used as target version and version specify what ebuilds are used as base."
 	echo "-l argument specify SET and is optional"
 	echo "Example:"
-	echo "$0 -a bump -s 4.1 -v 4.1.0 -b 4.1.1 -l kdebase"
+	echo "$0 -a bump -s 4.2 -v 9999 -b 4.2.90 -l kdebase"
 	echo
 	echo "When removing:"
 	echo "$0 -a remove -v 4.1.0"
