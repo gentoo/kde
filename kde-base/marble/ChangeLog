@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*marble-4.2.89 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +marble-4.2.89.ebuild:
+  Version bump.
+
   03 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   marble-4.2.4.ebuild, marble-4.2.88.ebuild, marble-4.2.9999.ebuild,
   marble-9999.ebuild:

@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*soliduiserver-4.2.89 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +soliduiserver-4.2.89.ebuild:
+  Version bump.
+
   29 May 2009; Alexey Shvetsov <alexxy@gentoo.org>
   -soliduiserver-4.2.85.ebuild:
   Version removed.
