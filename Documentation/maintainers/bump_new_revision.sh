@@ -157,7 +157,7 @@ help() {
 
 _cvsupdate() {
 	pushd "${1}" &> /dev/null
-#	cvs up
+	cvs up
 	popd &> /dev/null
 }
 _addcvsfile() {
