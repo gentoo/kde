@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 KMNAME="extragear/utils"
 inherit kde4-base
 

@@ -6,7 +6,6 @@ EAPI="2"
 
 KMNAME="playground/base/plasma/applets"
 KMMODULE="networkmanager"
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="A NetworkManager applet for kde"

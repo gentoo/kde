@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 OPENGL_REQUIRED="optional"
 #KDE_LINGUAS="ar be ca cs da de el es et fr ga gl hi is it ja km lv ms nb nds nl
 #nn oc pa pl pt pt_BR ro ru se sk sv th tr uk zn_CN"
