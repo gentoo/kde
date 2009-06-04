@@ -14,7 +14,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="akonadi debug examples semantic-desktop"
 
 DEPEND="
-	>=dev-python/PyQt4-4.4.4-r1[webkit]
+	>=dev-python/PyQt4-4.4.4-r1[dbus,qt3support,svg,webkit,X]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
