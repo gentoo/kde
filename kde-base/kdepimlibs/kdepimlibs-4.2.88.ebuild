@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="LGPL-2.1"
-IUSE="debug doc ldap"
+IUSE="debug +handbook ldap"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
@@ -37,7 +37,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_build doc)
+		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_with ldap Ldap)"
 
 	kde4-base_src_configure
