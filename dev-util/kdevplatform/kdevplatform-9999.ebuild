@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="1"
+SLOT="4"
 # Moved to playground for now
 # bazaar
 IUSE="cvs debug git mercurial subversion"
