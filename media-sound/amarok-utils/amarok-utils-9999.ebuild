@@ -9,7 +9,7 @@ KMMODULE="amarok"
 KDE_REQUIRED="never"
 inherit kde4-base
 
-DESCRIPTION="Variuos utility programs for Amarok."
+DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
 ESVN_PROJECT="${KMMODULE}"
 
