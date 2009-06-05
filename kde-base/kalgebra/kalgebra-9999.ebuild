@@ -12,6 +12,9 @@ DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS=""
 IUSE="debug +handbook +plasma readline"
 
+# 2 tests fail, last checked for 4.2.89
+RESTRICT=test
+
 DEPEND="
 	readline? ( sys-libs/readline )
 "

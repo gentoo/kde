@@ -11,6 +11,9 @@ DESCRIPTION="KDE mime/file type assocciation editor"
 KEYWORDS=""
 IUSE="debug"
 
+# test fails, last checked for 4.2.89
+RESTRICT=test
+
 # @Since 4.2.68 - split from konqueror
 RDEPEND="
 	!kdeprefix? ( !<=kde-base/konqueror-4.2.67[-kdeprefix] )

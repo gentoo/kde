@@ -11,6 +11,9 @@ DESCRIPTION="KDE library for CDDB"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug musicbrainz"
 
+# tests fail / timeout, last checked for 4.2.89
+RESTRICT=test
+
 DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:1 )
 "

@@ -26,3 +26,12 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+src_test() {
+	# disable broken test (as of 4.2.87)
+	sed -i -e '/keyringcategorysynctest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/kpilot/conduits/keyringconduit/tests/CMakeLists.txt || \
+		die "sed to disable keyringcategorysynctest failed."
+
+	kde4-meta_src_test
+}

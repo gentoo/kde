@@ -16,10 +16,3 @@ DEPEND="
 	dev-libs/gmp
 "
 RDEPEND="${DEPEND}"
-
-src_test() {
-	pushd "${WORKDIR}"/${PN}_build/kcalc/knumber/tests > /dev/null
-	emake knumbertest && \
-		./knumbertest.shell || die "Tests failed."
-	popd > /dev/null
-}

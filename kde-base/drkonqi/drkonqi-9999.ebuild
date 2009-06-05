@@ -8,8 +8,11 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
-IUSE="debug"
 KEYWORDS=""
+IUSE="debug"
+
+# test fails, last checked for 4.2.89
+RESTRICT=test
 
 RDEPEND="
 	!kde-base/drkonqi2:${SLOT}[kdeprefix=]

@@ -8,8 +8,8 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
-IUSE="debug"
 KEYWORDS=""
+IUSE="debug"
 
 RDEPEND="
 	sys-devel/gdb

@@ -69,12 +69,3 @@ src_install() {
 	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nmo.{desktop,trig}
 	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nco.{desktop,trig}
 }
-
-src_test() {
-	# disable broken test
-	sed -i -e '/mailserializerplugintest/ s/^/#DO_NOT_RUN_TEST /' \
-		"${S}"/akonadi/plugins/tests/CMakeLists.txt || \
-		die "sed to disable mailserializerplugintest failed."
-
-	kde4-meta_src_test
-}
