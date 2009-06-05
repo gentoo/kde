@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit qt4 cmake-utils subversion
+inherit cmake-utils subversion
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"

@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit qt4 cmake-utils
+inherit cmake-utils
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
