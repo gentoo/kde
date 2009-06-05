@@ -17,8 +17,8 @@ IUSE="+cmake +cxx debug +qmake"
 DEPEND="
 	>=dev-util/kdevplatform-9999
 	>=kde-base/ksysguard-${KDE_MINIMAL}
-	>=x11-libs/qt-assistant-4.4:4
 	>=kde-base/libkworkspace-${KDE_MINIMAL}
+	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
