@@ -1,2 +1,3 @@
 slotmove =media-video/subtitlecomposer-0.5.2 0 4
 slotmove media-sound/amarok-utils 2 4
+slotmove media-video/kmplayer 1 4

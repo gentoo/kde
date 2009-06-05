@@ -12,7 +12,7 @@ HOMEPAGE="http://kmplayer.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
+SLOT="4"
 IUSE="cairo debug expat npp"
 
 DEPEND="
