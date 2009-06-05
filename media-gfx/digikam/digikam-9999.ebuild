@@ -30,7 +30,7 @@ DEPEND="
 	x11-libs/qt-core[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
-	geolocation? ( >=kde-base/marble-${KDE_MINIMAL}[kde] )
+	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
 "
 #liblensfun when added should be also optional dep.
