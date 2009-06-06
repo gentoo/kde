@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdiff3-0.9.95 (06 Jun 2009)
+
+  06 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -files/kdiff3-desktop-menu-fix.patch, +kdiff3-0.9.95-r1.ebuild,
+  kdiff3-9999.ebuild:
+  Fixed LINGUAS, fixed .desktop icon
+
   20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   +files/kdiff3-desktop-menu-fix.patch, kdiff3-9999.ebuild:
   Added temporary menu entry fix
