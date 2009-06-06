@@ -13,10 +13,11 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug tidy"
 
 DEPEND="
 	>=kde-base/libkonq-${KDE_MINIMAL}
+	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}
 	!kde-base/konq-plugins:4.1[-kdeprefix]
@@ -24,3 +25,12 @@ RDEPEND="${DEPEND}
 	>=kde-base/kcmshell-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
 "
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		-DKdeWebKit=OFF
+		-DWebKitPart=OFF
+		$(cmake-utils_use_with tidy LibTidy)"
+
+	kde4-base_src_configure
+}
