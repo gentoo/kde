@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  nepomuk-9999.ebuild:
+  Handbook added for nepomuk
+
 *nepomuk-4.2.90 (04 Jun 2009)
 
   04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +nepomuk-4.2.90.ebuild:

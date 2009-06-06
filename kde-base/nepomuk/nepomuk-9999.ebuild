@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="Nepomuk KDE4 client"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +handbook"
 
 DEPEND="
 	|| (
