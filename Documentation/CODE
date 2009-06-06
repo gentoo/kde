@@ -38,12 +38,18 @@ KDE4 (kde-testing) policies:
 
  - if you want our herd in the application and you are not Gentoo KDE team/HT member - ask us first.
 
+ - all kde4 and kde-live misc applications should be in SLOT="4". Feel free to fix packages that don't
+   follow this, and always add the correct blockers (be carefull not to block kde3 packages)
+
+ - if you revbump some snapshots of yet-not-released packages (like phonon, soprano, eigen etc), always ensure
+   it's visible *only* for those users that really need it and not for every ~arch users. For KDE dependencies,
+   there are kdedeps-${SLOT} sets created for this purpose. regenerate-files tool will mask those ebuilds
+   for everyone except those using kde-${SLOT} umask file helper, so those dependencies will be available
+   only for them.
+
  - handle blocks carefully. Put blocks only in RDEPEND section and comment the reason for the block.
    Block, if possible should contain specific version for the blocker. Below are most typical
    scenarios for kde-base/ related blocks, your should use this as a pattern, unless you know what you're doing.
-
- - all kde4 and kde-live misc applications should be in SLOT="4". Feel free to fix packages that don't
-   follow this, and always add the correct blockers (be carefull not to block kde3 packages)
 
    * ebuild rename not colliding with KDE3 ebuilds (see example kde-menu -> kdebase-menu)
 
