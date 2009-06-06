@@ -3,6 +3,9 @@ If you asked this question you are reading right file.
 
 KDE4 (kde-testing) policies:
 
+ - NEVER EVER COMMIT NEW REVBUMPS NOR MAJOR CHANGES TO TREE DIRECTLY - ALWAYS USE overlay
+   first so that more pairs of eyes can spot issues. Especially anything in kde-base.
+
  - append valid metadata.xml - not necessarily with <herd>kde</herd> if you're proxy
    maintaining some ebuild. Never append ChangeLog because file/folder history is determined by commit log.
 
