@@ -4,7 +4,8 @@
 
 EAPI="2"
 
-KDE_LINGUAS="de el es fr gl ja lv nds pa pl pt pt_BR sv tr uk zh_CN zh_TW"
+KDE_LINGUAS="bg ca cs da de el en_GB es et fr ga gl hu ja lt lv nb nds nl nn pa
+pl pt pt_BR ro ru sk sv tr uk zh_CN zh_TW"
 
 KMNAME="extragear/sysadmin"
 inherit kde4-base
@@ -31,13 +32,16 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P/beta/BETA}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DPARTMAN_KPART=ON"
+	mycmakeargs="${mycmakeargs}
+		-DPARTMAN_KPART=ON
+		-DPARTMAN_KCM=ON
+	"
 
 	kde4-base_src_configure
 }
 
 src_test() {
 	mycmakeargs="${mycmakeargs}
-		-DPARTMAN_KPART=ON -DPARTMAN_KPART_TEST=ON"
+		-DKDE4_BUILD_TESTS=ON"
 	kde4-base_src_test
 }

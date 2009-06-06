@@ -24,13 +24,16 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DPARTMAN_KPART=ON"
+	mycmakeargs="${mycmakeargs}
+		-DPARTMAN_KPART=ON
+		-DPARTMAN_KCM=ON
+	"
 
 	kde4-base_src_configure
 }
 
 src_test() {
 	mycmakeargs="${mycmakeargs}
-		-DPARTMAN_KPART=ON -DPARTMAN_KPART_TEST=ON"
+		-DKDE4_BUILD_TESTS=ON"
 	kde4-base_src_test
 }
