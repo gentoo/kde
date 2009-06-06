@@ -5,3 +5,4 @@ slotmove =media-video/subtitlecomposer-0.5.2 0 4
 slotmove media-sound/amarok-utils 2 4
 slotmove media-video/kmplayer 1 4
 slotmove =net-irc/konversation-9999 0 4
+slotmove sys-power/guidance-power-manager 0 4
