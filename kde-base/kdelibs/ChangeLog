@@ -2,6 +2,15 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kdelibs-9999 (06 Jun 2009)
+*kdelibs-4.2.90-r1 (06 Jun 2009)
+*kdelibs-4.2.89-r1 (06 Jun 2009)
+
+  06 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  -kdelibs-4.2.89.ebuild, +kdelibs-4.2.89-r1.ebuild, -kdelibs-4.2.90.ebuild,
+  +kdelibs-4.2.90-r1.ebuild, +kdelibs-9999.ebuild, -kdelibs-9999-r1.ebuild:
+  Raise soprano version requirements
+
 *kdelibs-4.2.4-r1 (05 Jun 2009)
 
   05 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

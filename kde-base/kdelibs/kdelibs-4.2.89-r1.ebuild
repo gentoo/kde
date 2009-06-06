@@ -12,7 +12,7 @@ inherit kde4-base fdo-mime
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
 mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
@@ -58,7 +58,7 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	semantic-desktop? ( >=dev-libs/soprano-2.2.2[dbus] )
+	semantic-desktop? ( >=dev-libs/soprano-2.2.67[dbus] )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
