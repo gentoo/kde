@@ -18,12 +18,12 @@ SRC_URI="mirror://kde/stable/${PV}/src/extragear/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="debug doc"
+IUSE="debug +handbook"
 
 src_prepare() {
 	kde4-base_src_prepare
 
-	if ! use doc; then
+	if ! use handbook; then
 		sed -i \
 			-e "/^add_subdirectory[[:space:]]*([[:space:]]*doc[[:space:]]*)/s/^/# DISABLED /" \
 			-e "/^add_subdirectory[[:space:]]*([[:space:]]*doc-translations[[:space:]]*)/s/^/# DISABLED /" \
