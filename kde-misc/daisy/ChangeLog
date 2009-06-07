@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/daisy
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*daisy-0.0.4.14 (07 Jun 2009)
+
+  07 Jun 2009; Markos Chandras <hwoarang@gentoo.org> +daisy-0.0.4.14.ebuild:
+  Initial commit of daisy application. Thanks to Christian Schafmeister
+  <schafm@upb.de> for the ebuild. Bug 271503
+
