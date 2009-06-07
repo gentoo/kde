@@ -34,3 +34,12 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	echo
+	elog "To be able to connect using RDP protocol, install net-misc/rdesktop:"
+	elog "    emerge -va net-misc/rdesktop"
+	echo
+}

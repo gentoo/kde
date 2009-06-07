@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/krdc/krdc-4.2.2.ebuild,v 1.2 2009/04/17 06:21:58 alexxy Exp $
+# $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo-x86/kde-base/krdc/krdc-4.2.4.ebuild,v 1.3 2009/06/07 02:12:31 jmbsvicetto Exp $
 
 EAPI="2"
 
@@ -8,7 +8,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook jpeg vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) doesnt work atm
