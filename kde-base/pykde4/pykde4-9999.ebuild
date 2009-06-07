@@ -13,16 +13,15 @@ DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
 IUSE="akonadi debug examples semantic-desktop"
 
-# FIXME - bump PyQt and sip deps to stable ones when they are out
 COMMON_DEPEND="
-	>=dev-python/PyQt4-4.5_pre[dbus,qt3support,sql,svg,webkit,X]
+	>=dev-python/PyQt4-4.5[dbus,qt3support,sql,svg,webkit,X]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
-# blocker added due to compatibility issues and error during compile time
 DEPEND="${COMMON_DEPEND}
 	>=dev-python/sip-4.8_pre
 "
+# blocker added due to compatibility issues and error during compile time
 RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
