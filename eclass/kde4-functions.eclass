@@ -114,6 +114,11 @@ for _lingua in ${KDE_LINGUAS}; do
 	IUSE="${IUSE} linguas_${_lingua}"
 done
 
+# @ECLASS-VARIABLE: KDE_DOC_LINGUAS
+# @DESCRIPTION:
+# Whitespace sepearated list of availible translations for documentation.
+# Those that will be enabled are determined by LINGUAS variable.
+
 # @FUNCTION: enable_selected_linguas
 # @DESCRIPTION:
 # Enable translations based on LINGUAS settings and translations supported by
@@ -122,15 +127,13 @@ done
 enable_selected_linguas() {
 	local lingua sr_mess wp
 
-	## This isn't working because it seems portage sets LINGUAS
-	## even if you don't have it in make.conf
-	## Im leaving the command that *should* work if LINGUAS was unset commented
 	# if there is no linguas defined we enable everything
 	if ! $(env | grep -q "^LINGUAS="); then
 		return 0
 	fi
-	# [[ ! ${LINGUAS+set} = set ]] && LINGUAS="*"
-	# ebuild overridable linguas directory definition
+	# @ECLASS-VARIABLE: KDE_LINGUAS_DIR
+	# @DESCRIPTION:
+	# Specified folder where application translation are located.
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="${S}/po"}
 	cd "${KDE_LINGUAS_DIR}" || die "wrong linguas dir specified"
 
@@ -166,6 +169,38 @@ enable_selected_linguas() {
 			if [[ -e "${lingua}.po.old" ]]; then
 				mv "${lingua}.po.old" "${lingua}.po"
 			fi
+			eend $?
+		fi
+	done
+}
+
+# @FUNCTION: enable_selected_doc_linguas
+# @DESCRIPTION:
+# Enable only selected linguas enabled doc folders.
+enable_selected_doc_linguas() {
+	local lingua
+	# if there is no linguas defined we enable everything
+	if ! $(env | grep -q "^LINGUAS="); then
+		return 0
+	fi
+	# @ECLASS-VARIABLE: KDE_DOC_DIR
+	# @DESCRIPTION:
+	# Variable specifying where documentation is located.
+	KDE_DOC_DIR=${KDE_DOC_DIR:="${S}/doc"}
+	cd "${KDE_DOC_DIR}" || die "wrong doc dir specified"
+
+	comment_all_add_subdirectory "${KDE_DOC_DIR}"
+	# uncomment eng or at least try to do so without failiture.
+	# we allways want at-least english documentation when doc flag is enabled.
+	sed -e "/add_subdirectory([[:space:]]*en[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+		-e "/ADD_SUBDIRECTORY([[:space:]]*en[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //"
+		-i CMakeLists.txt
+	for lingua in ${KDE_DOC_LINGUAS}; do
+		if use linguas_${lingua} && [[ -d "${lingua}" ]]; then
+			ebegin "Enabling Documentation Translation for: ${lingua}"
+			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+				-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 			eend $?
 		fi
 	done

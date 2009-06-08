@@ -467,6 +467,10 @@ kde4-base_src_prepare() {
 	if [[ -n ${KDE_LINGUAS} ]]; then
 		enable_selected_linguas
 	fi
+	if [[ -n ${KDE_DOC_LINGUAS} ]]; then
+		use handbook && \
+			enable_selected_doc_linguas
+	fi
 
 	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
 	base_src_prepare
