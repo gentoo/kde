@@ -196,7 +196,7 @@ enable_selected_doc_linguas() {
 		-e "/ADD_SUBDIRECTORY([[:space:]]*en[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //"
 		-i CMakeLists.txt
 	for lingua in ${KDE_DOC_LINGUAS}; do
-		if use linguas_${lingua} && [[ -d "${lingua}" ]]; then
+		if [[ lingua != "en" ]] && use linguas_${lingua} && [[ -d "${lingua}" ]]; then
 			ebegin "Enabling Documentation Translation for: ${lingua}"
 			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
