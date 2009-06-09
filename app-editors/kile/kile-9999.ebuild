@@ -35,6 +35,6 @@ RDEPEND="
 src_install() {
 	kde4-base_src_install
 
-	rm -f "${D}/${KDEDIR}"/share/{apps/katepart/syntax/{bibtex,latex}.xml,icons/hicolor/{64x64,22x22}/actions/{preview,output_win}.png} \
+	rm "${D}/${KDEDIR}"/share/{apps/katepart/syntax/{bibtex,latex}.xml,icons/hicolor/{64x64,22x22}/actions/{preview,output_win}.png} \
 		|| ewarn "QA notice: failed to remove some colliding files, not being installed anymore? contact ebuild maintainer"
 }
