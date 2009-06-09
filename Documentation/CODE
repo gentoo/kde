@@ -1,5 +1,5 @@
-WHAT RULES I SHOULD FOLLOW WHEN I WANT WORK ON SOMETHING FOR KDE TEAM?
-If you asked this question you are reading right file.
+WHAT RULES I SHOULD FOLLOW WHEN I WANT TO WORK ON SOMETHING FOR KDE TEAM?
+If you asked this question you are reading the right file.
 
 KDE4 (kde-testing) policies:
 
@@ -36,7 +36,7 @@ KDE4 (kde-testing) policies:
 
  - always fix automagic packages with macro_optional_ prefixing and report it upstream with patch.
 
- - check your apps deps with dylink scanner in maintainer folder. Be aware, that this tool does not
+ - check your apps deps with dynlink-scanner.sh in Documentation/maintainers folder. Be aware, that this tool does not
    return complete runtime dependency chain, still it will find most automagic linking dependencies.
 
  - if you want our herd in the application and you are not Gentoo KDE team/HT member - ask us first.
