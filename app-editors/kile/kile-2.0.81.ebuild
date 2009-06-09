@@ -4,14 +4,14 @@
 
 EAPI="2"
 
-KMNAME="extragear/office"
 inherit kde4-base
 
 DESCRIPTION="A Latex Editor and TeX shell for kde"
 HOMEPAGE="http://kile.sourceforge.net/"
+SRC_URI="http://www.vohnout.cz/premek/gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug +pdf +png"
 
