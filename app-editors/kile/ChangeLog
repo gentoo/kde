@@ -3,6 +3,9 @@
 # $Header: $
 
   09 Jun 2009; ABCD <en.ABCD@gmail.com> kile-9999.ebuild:
+  Readded -f to rm; dropped ewarn
+
+  09 Jun 2009; ABCD <en.ABCD@gmail.com> kile-9999.ebuild:
   Dropped -f from rm command -- warning would never be shown otherwise
 
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
