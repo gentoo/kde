@@ -20,6 +20,7 @@ do
 	cp -r scripts kde-l10n-${lng}-${KDEVER}/
 	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/extragear*
 	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/playground*
+	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/kdereview
 	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/koffice
 	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/kdevelop
 	rm -rf kde-l10n-${lng}-${KDEVER}/{docmessages,messages,docs}/qt
