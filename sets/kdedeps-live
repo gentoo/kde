@@ -3,6 +3,8 @@
 ~app-misc/strigi-9999
 ~kde-base/automoc-9999
 ~media-sound/phonon-9999
+=dev-python/sip-4.8*
+=dev-python/PyQt4-4.5*
 kde-base/kde-env:live
 kde-base/kdelibs:live
 kde-base/kdepimlibs:live
