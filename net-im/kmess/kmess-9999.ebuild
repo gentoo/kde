@@ -34,8 +34,6 @@ RDEPEND="${COMMONDEPEND}
 	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-broken-RPATH.patch" )
-
 src_unpack() {
 	kde4-base_src_unpack
 
