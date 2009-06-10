@@ -13,11 +13,13 @@ IUSE="alsa debug +handbook"
 
 DEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.12 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with pulseaudio PulseAudio)
 		$(cmake-utils_use_with alsa Alsa)"
 
 	kde4-meta_src_configure
