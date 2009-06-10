@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="+archive debug +handbook +zip"
 
 DEPEND="
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )
 	zip? ( >=dev-libs/libzip-0.8 )
 "
