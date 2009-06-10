@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-#KDE_LINGUAS="ar be bg ca cs da de el es et eu fa fi fr ga gl he hi is it ja km
-#ko lt lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
+KDE_LINGUAS="ar be bg ca cs da de el es et eu fa fi fr ga gl he hi is it ja km
+ko lt lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
 KMNAME="extragear/graphics"
 inherit kde4-base
 
@@ -13,7 +13,7 @@ MY_P="${PN}-${PV/_/-}"
 
 DESCRIPTION="A digital photo management application for KDE."
 HOMEPAGE="http://www.digikam.org/"
-#SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 
 LICENSE="GPL-2"
