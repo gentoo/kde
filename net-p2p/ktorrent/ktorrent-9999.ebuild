@@ -16,7 +16,7 @@ HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-SLOT="3"
+SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer +mediaplayer plasma rss +scanfolder +search +stats +upnp webinterface +zeroconf"
 
 COMMONDEPEND="
