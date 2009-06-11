@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*kbruch-4.2.91 (11 Jun 2009)
+
+  11 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +kbruch-4.2.91.ebuild:
+  Version bump.
+
   10 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> -kbruch-4.2.89.ebuild:
   Version removed.
 
