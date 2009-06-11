@@ -126,7 +126,7 @@ done
 enable_selected_linguas() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local lingua sr_mess wp
+	local lingua linguas sr_mess wp
 
 	# if there is no linguas defined we enable everything
 	if ! $(env | grep -q "^LINGUAS="); then
@@ -162,7 +162,6 @@ enable_selected_linguas() {
 		fi
 	done
 
-	local lingas
 	for lingua in ${KDE_LINGUAS}; do
 		if use linguas_${lingua} ; then
 			if [[ -d "${lingua}" ]]; then
@@ -172,12 +171,12 @@ enable_selected_linguas() {
 					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 			fi
 			if [[ -e "${lingua}.po.old" ]]; then
-				lingas="${linguas} ${lingua}"
+				linguas="${linguas} ${lingua}"
 				mv "${lingua}.po.old" "${lingua}.po"
 			fi
 		fi
 	done
-	[[ -n "${lingas}" ]] && einfo "Enabling languages: ${lingas}"
+	[[ -n "${linguas}" ]] && einfo "Enabling languages: ${linguas}"
 
 	popd > /dev/null
 }
@@ -187,6 +186,11 @@ enable_selected_linguas() {
 # Enable only selected linguas enabled doc folders.
 enable_selected_doc_linguas() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# if there is no linguas defined we enable everything
+	if ! $(env | grep -q "^LINGUAS="); then
+		return 0
+	fi
 
 	# @ECLASS-VARIABLE: KDE_DOC_DIRS
 	# @DESCRIPTION:
