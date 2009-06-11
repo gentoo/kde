@@ -162,21 +162,22 @@ enable_selected_linguas() {
 		fi
 	done
 
-	local linguas
+	local lingas
 	for lingua in ${KDE_LINGUAS}; do
 		if use linguas_${lingua} ; then
 			if [[ -d "${lingua}" ]]; then
-				linguas="${linguas} ${lingua}"
+				lingas="${linguas} ${lingua}"
 				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 			fi
 			if [[ -e "${lingua}.po.old" ]]; then
+				lingas="${linguas} ${lingua}"
 				mv "${lingua}.po.old" "${lingua}.po"
 			fi
 		fi
 	done
-	[[ -n "${linguas}" ]] && einfo "Enabling languages:${linguas}"
+	[[ -n "${lingas}" ]] && einfo "Enabling languages: ${lingas}"
 
 	popd > /dev/null
 }
