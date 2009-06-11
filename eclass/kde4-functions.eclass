@@ -97,8 +97,12 @@ buildsycoca() {
 # except those in cmake/.
 comment_all_add_subdirectory() {
 	find "$@" -name CMakeLists.txt -print0 | grep -vFzZ "./cmake" | \
-		xargs -0 sed -i -e '/add_subdirectory/s/^/#DONOTCOMPILE /' -e '/ADD_SUBDIRECTORY/s/^/#DONOTCOMPILE /' || \
-		die "${LINENO}: Initial sed died"
+		xargs -0 sed -i \
+			-e '/^[[:space:]]*add_subdirectory/s/^/#DONOTCOMPILE /' \
+			-e '/^[[:space:]]*ADD_SUBDIRECTORY/s/^/#DONOTCOMPILE /' \
+			-e '/^[[:space:]]*macro_optional_add_subdirectory/s/^/#DONOTCOMPILE /' \
+			-e '/^[[:space:]]*MACRO_OPTIONAL_ADD_SUBDIRECTORY/s/^/#DONOTCOMPILE /' \
+			|| die "${LINENO}: Initial sed died"
 }
 
 # @ECLASS-VARIABLE: KDE_LINGUAS
@@ -114,28 +118,28 @@ for _lingua in ${KDE_LINGUAS}; do
 	IUSE="${IUSE} linguas_${_lingua}"
 done
 
-# @ECLASS-VARIABLE: KDE_DOC_LINGUAS
-# @DESCRIPTION:
-# Whitespace sepearated list of availible translations for documentation.
-# Those that will be enabled are determined by LINGUAS variable.
-
 # @FUNCTION: enable_selected_linguas
 # @DESCRIPTION:
 # Enable translations based on LINGUAS settings and translations supported by
 # the package (see KDE_LINGUAS). By default, translations are found in "${S}"/po
 # but this default can be overridden by defining KDE_LINGUAS_DIR.
 enable_selected_linguas() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	local lingua sr_mess wp
 
 	# if there is no linguas defined we enable everything
 	if ! $(env | grep -q "^LINGUAS="); then
 		return 0
 	fi
+
 	# @ECLASS-VARIABLE: KDE_LINGUAS_DIR
 	# @DESCRIPTION:
 	# Specified folder where application translation are located.
-	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="${S}/po"}
-	cd "${KDE_LINGUAS_DIR}" || die "wrong linguas dir specified"
+	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="po"}
+	[[ -d  "${KDE_LINGUAS_DIR}" ]] || die "wrong linguas dir specified"
+	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
+	pushd "${KDE_LINGUAS_DIR}" > /dev/null
 
 	# fix all various crazy sr@Latn variations
 	# this part is only ease for ebuilds, so there wont be any die when this
@@ -157,11 +161,12 @@ enable_selected_linguas() {
 			mv "${lingua}.po" "${lingua}.po.old"
 		fi
 	done
-	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
+
+	local linguas
 	for lingua in ${KDE_LINGUAS}; do
 		if use linguas_${lingua} ; then
-			ebegin "Enabling LANGUAGE: ${lingua}"
 			if [[ -d "${lingua}" ]]; then
+				linguas="${linguas} ${lingua}"
 				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
@@ -169,41 +174,56 @@ enable_selected_linguas() {
 			if [[ -e "${lingua}.po.old" ]]; then
 				mv "${lingua}.po.old" "${lingua}.po"
 			fi
-			eend $?
 		fi
 	done
+	[[ -n "${linguas}" ]] && einfo "Enabling languages:${linguas}"
+
+	popd > /dev/null
 }
 
 # @FUNCTION: enable_selected_doc_linguas
 # @DESCRIPTION:
 # Enable only selected linguas enabled doc folders.
 enable_selected_doc_linguas() {
-	local lingua
-	# if there is no linguas defined we enable everything
-	if ! $(env | grep -q "^LINGUAS="); then
-		return 0
-	fi
-	# @ECLASS-VARIABLE: KDE_DOC_DIR
-	# @DESCRIPTION:
-	# Variable specifying where documentation is located.
-	KDE_DOC_DIR=${KDE_DOC_DIR:="${S}/doc"}
-	cd "${KDE_DOC_DIR}" || die "wrong doc dir specified"
+	debug-print-function ${FUNCNAME} "$@"
 
-	comment_all_add_subdirectory "${KDE_DOC_DIR}"
-	# uncomment eng or at least try to do so without failiture.
-	# we allways want at-least english documentation when doc flag is enabled.
-	sed -e "/add_subdirectory([[:space:]]*en[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-		-e "/ADD_SUBDIRECTORY([[:space:]]*en[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //"
-		-i CMakeLists.txt
-	for lingua in ${KDE_DOC_LINGUAS}; do
-		if [[ lingua != "en" ]] && use linguas_${lingua} && [[ -d "${lingua}" ]]; then
-			ebegin "Enabling Documentation Translation for: ${lingua}"
-			sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-				-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
-			eend $?
+	# @ECLASS-VARIABLE: KDE_DOC_DIRS
+	# @DESCRIPTION:
+	# Variable specifying whitespace separated patterns for documentation locations.
+	# Default is "doc/%lingua"
+	KDE_DOC_DIRS=${KDE_DOC_DIRS:='doc/%lingua'}
+	local linguas
+	for pattern in ${KDE_DOC_DIRS}; do
+
+		local handbookdir=`dirname ${pattern}`
+		local translationdir=`basename ${pattern}`
+		# Do filename pattern supplied, treat as directory
+		[[ "${handbookdir}" = '.' ]] && handbookdir=${translationdir} && translationdir=
+		[[ -d "${handbookdir}" ]] || die 'wrong doc dir specified'
+
+		if ! use handbook; then
+			# Disable whole directory
+			sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${handbookdir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+				-e "/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${handbookdir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+				-i CMakeLists.txt || die 'failed to comment out all handbooks'
+		else
+			# Disable subdirectories recursively
+			comment_all_add_subdirectory "${handbookdir}"
+			# Add requested translations
+			local lingua
+			for lingua in en ${KDE_LINGUAS}; do
+				if [[ ${lingua} = 'en' ]] || use linguas_${lingua}; then
+					if [[ -d "${handbookdir}/${translationdir//%lingua/${lingua}}" ]]; then
+						sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
+							-e "/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
+							-i "${handbookdir}"/CMakeLists.txt && ! has ${lingua} ${linguas} && linguas="${linguas} ${lingua}"
+					fi
+				fi
+			done
 		fi
+
 	done
+	[[ -n "${linguas}" ]] && einfo "Enabling handbook translations:${linguas}"
 }
 
 # @FUNCTION: get_build_type

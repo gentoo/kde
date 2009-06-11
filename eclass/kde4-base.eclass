@@ -459,7 +459,8 @@ kde4-base_src_unpack() {
 # @DESCRIPTION:
 # General pre-configure and pre-compile function for KDE4 applications.
 # It also handles translations if KDE_LINGUAS is defined. See KDE_LINGUAS and
-# enable_selected_linguas() in kde4-functions.eclass(5) for further details.
+# enable_selected_linguas() and enable_selected_doc_linguas()
+# in kde4-functions.eclass(5) for further details.
 kde4-base_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -467,9 +468,10 @@ kde4-base_src_prepare() {
 	if [[ -n ${KDE_LINGUAS} ]]; then
 		enable_selected_linguas
 	fi
-	if [[ -n ${KDE_DOC_LINGUAS} ]]; then
-		use handbook && \
-			enable_selected_doc_linguas
+
+	# Enable/disable handbooks for kde4-base packages
+	if ! has kde4-meta ${INHERITED}; then
+		has handbook ${IUSE//+} && enable_selected_doc_linguas
 	fi
 
 	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
