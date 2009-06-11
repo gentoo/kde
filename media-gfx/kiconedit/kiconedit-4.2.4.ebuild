@@ -8,6 +8,8 @@ KDE_LINGUAS="af ar be bg br ca cs cy da de el en_GB eo es et eu fa fi fr ga gl
 	he hi hr hu is it ja km ko lt lv mk ms nb nds ne nl nn oc pa pl pt pt_BR
 	ro ru se sk sl sv ta tg th tr uk vi wa xh zh_CN zh_HK zh_TW"
 
+KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
+
 KMNAME="extragear/graphics"
 inherit kde4-base
 
@@ -19,18 +21,3 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug +handbook"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	if ! use handbook; then
-		sed -i \
-			-e "/^add_subdirectory[[:space:]]*([[:space:]]*doc[[:space:]]*)/s/^/# DISABLED /" \
-			-e "/^add_subdirectory[[:space:]]*([[:space:]]*doc-translations[[:space:]]*)/s/^/# DISABLED /" \
-			CMakeLists.txt || die "sed doc failed"
-	else
-		sed -i \
-			-e "s:\${HTML_INSTALL_DIR}/en:\${HTML_INSTALL_DIR}/en SUBDIR ${PN}:g" \
-			doc/CMakeLists.txt || die "fix doc placement failed"
-	fi
-}
