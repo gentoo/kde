@@ -165,7 +165,7 @@ enable_selected_linguas() {
 	for lingua in ${KDE_LINGUAS}; do
 		if use linguas_${lingua} ; then
 			if [[ -d "${lingua}" ]]; then
-				lingas="${linguas} ${lingua}"
+				linguas="${linguas} ${lingua}"
 				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
