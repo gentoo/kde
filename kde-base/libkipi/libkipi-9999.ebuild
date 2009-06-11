@@ -14,7 +14,3 @@ HOMEPAGE="http://www.kipi-plugins.org"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"
-
-RDEPEND="
-	!kdeprefix? ( !media-libs/libkipi )
-"
