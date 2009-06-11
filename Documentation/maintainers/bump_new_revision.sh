@@ -113,14 +113,16 @@ check_cmakelists() {
 # If there is more archs in overlay drop them, only tree one counts.
 # These syncs are done druing update and during move back to MAIN tree.
 sync_main_keywords_with_overlay() {
+	local sep dir
 	# first strip of all keywords
 	ekeyword ^all ${1} &> /dev/null
 	# then apply them back
-	local dir="$(portageq portdir)/${2}"
+	dir="$(portageq portdir)/${2}"
+	[[ ${3} = intree ]] && sep="tail -n 2 |head -n 1" || sep="tail -n 1"
 	if [[ -d "${dir}" ]] ; then
 		pushd "${dir}" &> /dev/null
 		# the grep is for removing 3.5 ebuilds from knowledge
-		KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 2 |head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | ${sep} | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
 		popd &> /dev/null
 	else
 		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
@@ -274,7 +276,7 @@ case ${OPERATION} in
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
 				# we have update keywords
-				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR}
+				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
 				update_package_keywords ${NEW}
 				# update manifest and changelog
 				update_package_changelog ${EBUILD_NAME}
@@ -378,7 +380,7 @@ case ${OPERATION} in
 				fi
 				# now we have to check up the keywords
 				pushd "${WRKDIR}" &> /dev/null
-				sync_main_keywords_with_overlay "${EBUILD/*\//}" ${dir}
+				sync_main_keywords_with_overlay "${EBUILD/*\//}" ${dir} intree
 				ekeyword ~all "${EBUILD/*\//}"
 				echangelog "Version bump"
 				repoman manifest
