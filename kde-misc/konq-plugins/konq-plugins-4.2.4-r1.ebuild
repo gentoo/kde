@@ -8,6 +8,8 @@ KDE_LINGUAS="af ar be bg bn br ca cs cy da de el en_GB eo es et eu fa fi fr fy g
 	gl he hi hr hsb hu is it ja kk km ko ku lt lv mai mk ml ms nb nds ne nl nn oc pa
 	pl pt pt_BR ro ru se sk sl sr sv ta tg th tr uk uz uz@cyrillic vi xh zh_CN zh_TW"
 
+KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
+
 KMNAME="extragear/base"
 inherit kde4-base
 
@@ -30,16 +32,6 @@ RDEPEND="${DEPEND}
 	>=kde-base/kcmshell-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
 "
-
-src_prepare() {
-	if ! use handbook; then
-		sed -e 's|add_subdirectory( doc )||' \
-			-e 's|add_subdirectory( doc-translations )||' \
-			-i CMakeLists.txt || die "failed to disable docs"
-	fi
-
-	kde4-base_src_prepare
-}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
