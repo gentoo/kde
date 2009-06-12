@@ -12,7 +12,10 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	!kdeprefix? ( !kde-base/ksmserver:4.1[-kdeprefix] )
+	!kdeprefix? (
+		!kde-base/ksmserver:4.1[-kdeprefix]
+		!<kde-base/systemsettings-4.2.91[-kdeprefix]
+	)
 	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "

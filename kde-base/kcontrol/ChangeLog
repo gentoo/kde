@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jun 2009; ABCD <en.ABCD@gmail.com> kcontrol-4.2.91.ebuild,
+  kcontrol-9999.ebuild:
+  Block <kde-base/systemsettings-4.2.91, files moved (again)
+
 *kcontrol-4.2.91 (11 Jun 2009)
 
   11 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +kcontrol-4.2.91.ebuild:
