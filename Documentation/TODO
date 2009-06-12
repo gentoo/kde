@@ -1,8 +1,10 @@
 TODO list:
 
 doc useflags
- - we need to think about it once more and split it onto userdoc and apidoc, where we should pick which one will stand for doc useflag
-   and which one will stand for documentation for developers.
+ - needs to be tested that for handbook the linguas detection is working fine.
+
+KDE upstream tracking map.
+ - some application that would show us what parts of kde we dont have implemented yet. So we could see what ebuilds we need to add.
 
 dev-util/kdevelop:
  - KDevelop uses dev-libs/check and dev-util/cppunit if available (for plugin/xtest)
