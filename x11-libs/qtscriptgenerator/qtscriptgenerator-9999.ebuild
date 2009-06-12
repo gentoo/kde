@@ -15,19 +15,13 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
-	x11-libs/qt-gui:4
+DEPEND="x11-libs/qt-gui:4
 	x11-libs/qt-opengl:4
-	|| (
-		x11-libs/qt-phonon:4
-		media-sound/phonon
-	)
 	x11-libs/qt-script:4
 	x11-libs/qt-sql:4
 	x11-libs/qt-svg:4
 	x11-libs/qt-webkit:4
-	x11-libs/qt-xmlpatterns:4
-"
+	x11-libs/qt-xmlpatterns:4"
 RDEPEND="${DEPEND}"
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
@@ -36,20 +30,14 @@ src_unpack() {
 	git_src_unpack
 }
 
-pkg_setup() {
-	QTDIR="/usr/include/qt4"
-	QTLIBDIR="/usr/$(get_libdir)/qt4/"
-}
-
 src_prepare() {
 	# remove phonon
-	sed -i \
-		-e "/typesystem_phonon.xml/d" \
-		generator/generator.qrc || die "sed failed"
-	sed -i \
-		-e "/qtscript_phonon/d" \
-		qtbindings/qtbindings.pro || die "sed failed"
-	epatch "${FILESDIR}/${P}-gcc44.patch"
+	sed -i "/typesystem_phonon.xml/d" generator/generator.qrc \
+		|| die "sed failed"
+	sed -i "/qtscript_phonon/d" qtbindings/qtbindings.pro \
+		|| die "sed failed"
+
+	epatch "${FILESDIR}/${PN}-gcc44.patch"
 	git_src_prepare
 	qt4_src_prepare
 }
@@ -65,12 +53,13 @@ src_compile() {
 	cd "${S}"/generator
 	emake || die "emake generator failed"
 	./generator --include-paths="/usr/include/qt4/" || die "running generator failed"
+
 	cd "${S}"/qtbindings
 	emake || die "make qtbindings failed"
 }
 
 src_install() {
-	insinto "${QTLIBDIR}"/plugins/script/
+	insinto /usr/$(get_libdir)/qt4/plugins/script/
 	insopts -m0755
 	doins -r "${S}"/plugins/script/*.so || die "doins failed"
 }

@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jun 2009; Ben de Groot <yngwin@gentoo.org>
+  -qtscriptgenerator-0.1.0.ebuild,
+  -files/qtscriptgenerator-0.1.0-gcc44.patch,
+  +files/qtscriptgenerator-gcc44.patch, qtscriptgenerator-9999.ebuild:
+  Remove 0.1.0 version which is in portage. Simplify deps, use a more
+  correct gcc-4.4 patch.
+
   20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   qtscriptgenerator-9999.ebuild:
   Dropped qt-dbus deps, added qt-webkit deps
