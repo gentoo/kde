@@ -8,7 +8,7 @@ inherit multilib git qt4
 
 DESCRIPTION="Tool for generating Qt bindings for Qt Script"
 HOMEPAGE="http://code.google.com/p/qtscriptgenerator/"
-EGIT_REPO_URI="git://labs.trolltech.com/qtscriptgenerator"
+EGIT_REPO_URI="git://gitorious.org/qt-labs/qtscriptgenerator.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -49,6 +49,7 @@ src_prepare() {
 	sed -i \
 		-e "/qtscript_phonon/d" \
 		qtbindings/qtbindings.pro || die "sed failed"
+	epatch "${FILESDIR}/${P}-gcc44.patch"
 	git_src_prepare
 	qt4_src_prepare
 }
