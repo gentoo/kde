@@ -18,9 +18,7 @@ COMMON_DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-python/sip-4.8_pre
-"
+DEPEND="${COMMON_DEPEND}"
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
