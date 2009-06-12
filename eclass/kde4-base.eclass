@@ -405,9 +405,9 @@ kde4-base_pkg_setup() {
 
 	if [[ ${KDEBASE} = kde-base ]]; then
 		if use kdeprefix; then
-			KDEDIR="${ROOT}usr/kde/${_kdedir}"
+			KDEDIR="${EROOT}usr/kde/${_kdedir}"
 		else
-			KDEDIR="${ROOT}usr"
+			KDEDIR="${EROOT}usr"
 		fi
 		PREFIX="${PREFIX:-${KDEDIR}}"
 	else
@@ -418,9 +418,9 @@ kde4-base_pkg_setup() {
 			[[ -z ${kde_minimal_met} ]] && [[ ${slot} = ${KDE_MINIMAL} ]] && kde_minimal_met=1
 			if [[ -n ${kde_minimal_met} ]] && has_version "kde-base/kdelibs:${slot}"; then
 				if has_version "kde-base/kdelibs:${slot}[kdeprefix]"; then
-					KDEDIR="${ROOT}usr/kde/${slot}"
+					KDEDIR="${EROOT}usr/kde/${slot}"
 				else
-					KDEDIR="${ROOT}usr"
+					KDEDIR="${EROOT}usr"
 				fi
 				break;
 			fi
@@ -431,10 +431,10 @@ kde4-base_pkg_setup() {
 		if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
 			[[ -z ${KDEDIR} ]] && die "Failed to determine KDEDIR!"
 		else
-			[[ -z ${KDEDIR} ]] && KDEDIR="${ROOT}usr"
+			[[ -z ${KDEDIR} ]] && KDEDIR="${EROOT}usr"
 		fi
 
-		PREFIX="${PREFIX:-${ROOT}usr}"
+		PREFIX="${PREFIX:-${EROOT}usr}"
 	fi
 
 	# Not needed anymore
@@ -523,7 +523,7 @@ kde4-base_src_configure() {
 	# Shadow existing /usr installations
 	unset KDEDIRS
 
-	if [[ ${KDEDIR} != "${ROOT}usr" ]]; then
+	if [[ ${KDEDIR} != "${EROOT}usr" ]]; then
 		# Override some environment variables - only when kdeprefix is different,
 		# to not break ccache/distcc
 		PATH="${KDEDIR}/bin:${PATH}"
@@ -539,7 +539,7 @@ kde4-base_src_configure() {
 		cmakeargs="${cmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=${ROOT}etc"
+		cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=${EROOT}etc"
 	fi
 
 	mycmakeargs="${cmakeargs} ${mycmakeargs}"
@@ -605,10 +605,10 @@ kde4-base_src_make_doc() {
 		done
 	fi
 
-	if [[ -n ${KDEBASE} ]] && [[ -d "${D}${ROOT}usr/share/doc/${PF}" ]]; then
+	if [[ -n ${KDEBASE} ]] && [[ -d "${D}${EROOT}usr/share/doc/${PF}" ]]; then
 		# work around bug #97196
 		dodir /usr/share/doc/KDE4 && \
-			mv "${D}${ROOT}usr/share/doc/${PF}" "${D}${ROOT}usr/share/doc/KDE4/" || \
+			mv "${D}${EROOT}usr/share/doc/${PF}" "${D}${EROOT}usr/share/doc/KDE4/" || \
 			die "Failed to move docs to KDE4/."
 	fi
 }

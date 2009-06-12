@@ -2,6 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.18 2009/05/09 13:23:15 scarabeus Exp $
 
+# Prefix compat:
+: ${EROOT:=${ROOT}}
+
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
@@ -53,7 +56,7 @@ KDE_LIVE_SLOTS=( "live" )
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z ${ROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
+	if [[ -z ${EROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
 		# Make sure tha cache file exists, writable by root and readable by
 		# others. Otherwise kbuildsycoca4 will fail.
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
@@ -66,9 +69,9 @@ buildsycoca() {
 		ebegin "Running kbuildsycoca4 to build global database"
 		# This is needed because we support multiple kde versions installed together.
 		# Lookup in order - local, KDEDIR, /usr, do not duplicate entries btw.
-		local KDEDIRS="${ROOT}usr/share"
-		[[ ${KDEDIR} != "${ROOT}usr" ]] && KDEDIRS="${KDEDIR}/share:${KDEDIRS}"
-		XDG_DATA_DIRS="${ROOT}usr/local/share:${KDEDIRS}" \
+		local KDEDIRS="${EROOT}usr/share"
+		[[ ${KDEDIR} != "${EROOT}usr" ]] && KDEDIRS="${KDEDIR}/share:${KDEDIRS}"
+		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDEDIRS}" \
 			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
 			${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
@@ -76,7 +79,7 @@ buildsycoca() {
 
 	# fix permission for some directories
 	for x in share/config share/kde4; do
-		[[ ${KDEDIR} = ${ROOT}usr ]] && DIRS=${ROOT}usr || DIRS="${ROOT}usr ${KDEDIR}"
+		[[ ${KDEDIR} = ${EROOT}usr ]] && DIRS=${EROOT}usr || DIRS="${EROOT}usr ${KDEDIR}"
 		for y in ${DIRS}; do
 			[[ -d "${y}/${x}" ]] || break # nothing to do if directory does not exist
 			if [[ $(stat --format=%a "${y}/${x}") != 755 ]]; then
@@ -313,7 +316,7 @@ install_library_dependencies() {
 	local depsfile="${T}/${PN}:${SLOT}"
 
 	ebegin "Installing library dependencies as ${depsfile##*/}"
-	insinto ${ROOT}var/lib/kde
+	insinto ${EROOT}var/lib/kde
 	doins "${depsfile}" || die "Failed to install library dependencies."
 	eend $?
 }
@@ -328,7 +331,7 @@ load_library_dependencies() {
 	i=0
 	for pn in ${KMLOADLIBS} ; do
 		((i++))
-		depsfile="${ROOT}var/lib/kde/${pn}:${SLOT}"
+		depsfile="${EROOT}var/lib/kde/${pn}:${SLOT}"
 		[[ -r "${depsfile}" ]] || die "Depsfile '${depsfile}' not accessible. You probably need to reinstall ${pn}."
 		sed -i -e "${i}iINCLUDE(\"${depsfile}\")" "${S}/CMakeLists.txt" || \
 			die "Failed to include library dependencies for ${pn}"
