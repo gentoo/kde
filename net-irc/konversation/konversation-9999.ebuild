@@ -15,5 +15,8 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND=">=kde-base/kdepimlibs-${KDE_MINIMAL}"
+DEPEND="
+	app-crypt/qca:2
+	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+"
 RDEPEND="${DEPEND}"
