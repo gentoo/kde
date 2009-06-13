@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
-IUSE=""
+IUSE="handbook"
 
 SRC_URI=""
 
@@ -59,6 +59,9 @@ src_unpack() {
 
 src_configure() {
 	local lng
+
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_build handbook docs)"
 
 	if [[ ! -z ${enabled_linguas} ]]; then
 		cat <<-EOF > "${S}"/CMakeLists.txt
