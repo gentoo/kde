@@ -10,7 +10,6 @@ inherit kde4-base
 
 DESCRIPTION="A NetworkManager applet for kde"
 HOMEPAGE="http://kde.org/"
-ESVN_REVISION="978079"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""

@@ -2,6 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  networkmanager-applet-9999.ebuild:
+  Always build *current*
+
+
   28 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   networkmanager-applet-9999.ebuild:
   Fixed slot
