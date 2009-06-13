@@ -14,7 +14,7 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdaudio daap debug ipod mp3tunes mtp +semantic-desktop"
+IUSE="cdaudio daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -23,7 +23,6 @@ DEPEND="
 		>=dev-db/mysql-5.0.76-r1[embedded,-minimal]
 		>=dev-db/mysql-community-5.0.77-r1[embedded,-minimal]
 	)
-	>=media-libs/liblastfm-0.3.0
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1[kde]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
@@ -33,9 +32,8 @@ DEPEND="
 		>=kde-base/libkcddb-${KDE_MINIMAL}
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
-	ipod? (
-		>=media-libs/libgpod-0.7.0[gtk]
-	)
+	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
+	lastfm? ( >=media-libs/liblastfm-0.3.0 )
 	mp3tunes? (
 		dev-libs/glib:2
 		dev-libs/libxml2
@@ -65,6 +63,7 @@ src_configure() {
 		-DWITH_Libgcrypt=OFF
 		$(cmake-utils_use_with ipod Ipod)
 		$(cmake-utils_use_with ipod Gdk)
+		$(cmake-utils_use_with lastfm LibLastFm)
 		$(cmake-utils_use_with mtp Mtp)
 		$(cmake-utils_use_with mp3tunes MP3TUNES)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
