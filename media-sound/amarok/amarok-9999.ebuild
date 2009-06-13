@@ -23,6 +23,7 @@ DEPEND="
 		>=dev-db/mysql-5.0.76-r1[embedded,-minimal]
 		>=dev-db/mysql-community-5.0.77-r1[embedded,-minimal]
 	)
+	>=media-libs/liblastfm-0.3.0
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1[kde]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
