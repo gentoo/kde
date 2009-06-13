@@ -13,9 +13,11 @@ IUSE="debug +handbook python"
 
 DEPEND="
 	kde-base/qimageblitz
-	python? ( dev-lang/python )
+	python? ( kde-base/pykde4 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	python? ( kde-base/krosspython )
+"
 
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
 
