@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to repack upstream tarbolls
+# Script to repack upstream tarballs
 #
 SVNREV=$2
 KDEVER=$1
