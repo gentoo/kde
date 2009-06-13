@@ -211,9 +211,6 @@ esac
 # KDE dependencies
 kdecommondepend="
 	dev-lang/perl
-	x11-libs/libXext
-	x11-libs/libXt
-	x11-libs/libXxf86vm
 	>=x11-libs/qt-core-${QT_DEPEND}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_DEPEND}:4[accessibility,dbus]
 	>=x11-libs/qt-qt3support-${QT_DEPEND}:4[accessibility]
@@ -221,6 +218,11 @@ kdecommondepend="
 	>=x11-libs/qt-sql-${QT_DEPEND}:4[qt3support]
 	>=x11-libs/qt-svg-${QT_DEPEND}:4
 	>=x11-libs/qt-test-${QT_DEPEND}:4
+	!aqua? (
+		x11-libs/libXext
+		x11-libs/libXt
+		x11-libs/libXxf86vm
+	)
 "
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
@@ -237,7 +239,7 @@ fi
 unset _pv _pvn
 kdedepend="
 	dev-util/pkgconfig
-	>=sys-apps/sandbox-1.3.2
+	kernel_linux? ( >=sys-apps/sandbox-1.3.2 )
 "
 case ${KDE_REQUIRED} in
 	always)

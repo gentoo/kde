@@ -4,6 +4,7 @@
 
 # Prefix compat:
 : ${EROOT:=${ROOT}}
+IUSE="${IUSE/aqua} aqua"
 
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
