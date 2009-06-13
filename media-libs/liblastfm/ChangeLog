@@ -1,0 +1,11 @@
+# ChangeLog for media-libs/liblastfm
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*liblastfm-9999 (13 Jun 2009)
+*liblastfm-0.3.0 (13 Jun 2009)
+
+  13 Jun 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
+  +liblastfm-0.3.0.ebuild, +liblastfm-9999.ebuild, +metadata.xml:
+  Getting the crap done
+
