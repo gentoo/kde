@@ -12,8 +12,8 @@ HOMEPAGE="http://kdiff3.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
-IUSE="debug konqueror"
+SLOT="4"
+IUSE="debug +handbook konqueror"
 
 DEPEND="
 	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL} )

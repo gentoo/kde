@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/kdiff3/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-SLOT="1"
+SLOT="4"
 IUSE="debug +handbook konqueror"
 
 DEPEND="
@@ -30,12 +30,6 @@ src_prepare() {
 
 	# Append missing categories
 	echo "Categories=Qt;KDE;Development;" >> src-QT4/kdiff3.desktop
-
-	# fix handbook
-	if ! use handbook; then
-		sed -e "/add_subdirectory(doc)/ s/^#DONOTWANT /" \
-			-i CMakeLists.txt || die "removing docs failed"
-	fi
 }
 
 src_configure() {

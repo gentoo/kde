@@ -8,3 +8,4 @@ slotmove =net-irc/konversation-9999 0 4
 slotmove sys-power/guidance-power-manager 0 4
 slotmove =app-editors/kile-9999 2 4
 slotmove =media-gfx/digikam-9999 0.10 4
+slotmove >=kde-misc/kdiff3-0.9.95 1 4
