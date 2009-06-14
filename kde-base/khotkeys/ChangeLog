@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -files/khotkeys-4-parallel.patch:
+  Drop unneeded patch
+
 *khotkeys-4.2.91 (11 Jun 2009)
 
   11 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +khotkeys-4.2.91.ebuild:
