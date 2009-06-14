@@ -57,8 +57,8 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_enable gphoto2 GPHOTO2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
-		$(cmake-utils_use_with geolocation MarbleWidget)"
-		$(cmake-utils_use_with lensfun LensFun)
+		$(cmake-utils_use_with geolocation MarbleWidget)
+		$(cmake-utils_use_with lensfun LensFun)"
 
 	kde4-base_src_configure
 }
