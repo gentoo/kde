@@ -1,0 +1,10 @@
+# ChangeLog for kde-base/kdebindings-csharp
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kdebindings-csharp-9999 (14 Jun 2009)
+
+  14 Jun 2009; ABCD <en.ABCD@gmail.com> +kdebindings-csharp-9999.ebuild,
+  +metadata.xml:
+  New ebuild
+

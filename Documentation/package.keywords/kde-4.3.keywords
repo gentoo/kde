@@ -40,6 +40,7 @@ kde-base/kapptemplate:4.3
 kde-base/kate:4.3
 kde-base/katomic:4.3
 kde-base/kbattleship:4.3
+kde-base/kdebindings-csharp:4.3
 kde-base/kblackbox:4.3
 kde-base/kblocks:4.3
 kde-base/kbounce:4.3
@@ -260,6 +261,7 @@ kde-base/powerdevil:4.3
 kde-base/printer-applet:4.3
 kde-base/pykde4:4.3
 kde-base/renamedlg-plugins:4.3
+kde-base/smoke:4.3
 kde-base/solid:4.3
 kde-base/solid-hardware:4.3
 kde-base/solidautoeject:4.3

@@ -1,0 +1,11 @@
+# ChangeLog for kde-base/smoke
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*smoke-9999 (14 Jun 2009)
+*smoke-4.2.91 (14 Jun 2009)
+
+  14 Jun 2009; ABCD <en.ABCD@gmail.com> +smoke-4.2.91.ebuild,
+  +smoke-9999.ebuild, +metadata.xml:
+  New ebuild, required for kde-base/kdebindings-csharp
+

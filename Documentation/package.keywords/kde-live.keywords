@@ -52,6 +52,7 @@
 ~kde-base/kate-9999 **
 ~kde-base/katomic-9999 **
 ~kde-base/kbattleship-9999 **
+~kde-base/kdebindings-csharp-9999 **
 ~kde-base/kblackbox-9999 **
 ~kde-base/kblocks-9999 **
 ~kde-base/kbounce-9999 **
@@ -276,6 +277,7 @@
 ~kde-base/printer-applet-9999 **
 ~kde-base/pykde4-9999 **
 ~kde-base/renamedlg-plugins-9999 **
+~kde-base/smoke-9999 **
 ~kde-base/solid-9999 **
 ~kde-base/solid-hardware-9999 **
 ~kde-base/solidautoeject-9999 **
