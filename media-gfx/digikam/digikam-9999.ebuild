@@ -19,7 +19,7 @@ HOMEPAGE="http://www.digikam.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="addressbook debug geolocation +gphoto2 lens"
+IUSE="addressbook debug geolocation +gphoto2 lensfun"
 
 DEPEND="
 	dev-db/sqlite:3
@@ -38,7 +38,7 @@ DEPEND="
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
 	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
-	lens? ( media-libs/lensfun )
+	lensfun? ( media-libs/lensfun )
 "
 RDEPEND="${DEPEND}"
 
@@ -58,7 +58,7 @@ src_configure() {
 		$(cmake-utils_use_enable gphoto2 GPHOTO2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)"
-		$(cmake-utils_use_with lens LensFun)
+		$(cmake-utils_use_with lensfun LensFun)
 
 	kde4-base_src_configure
 }

@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  digikam-1.0.0_beta1.ebuild, digikam-9999.ebuild, metadata.xml:
+  rename lens -> lensfun since this use flag already used by ufraw
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   digikam-9999.ebuild:
   Dropped kdeprefix
