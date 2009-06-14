@@ -668,7 +668,7 @@ kde4-meta_src_configure() {
 kde4-meta_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	kde4-base_src_compile
+	kde4-base_src_compile "$@"
 }
 
 # @FUNCTION: kde4-meta_src_test

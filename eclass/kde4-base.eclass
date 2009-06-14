@@ -556,7 +556,7 @@ kde4-base_src_configure() {
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake-utils_src_compile
+	cmake-utils_src_compile "$@"
 }
 
 # @FUNCTION: kde4-base_src_test
