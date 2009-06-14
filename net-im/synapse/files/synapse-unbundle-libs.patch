@@ -1,0 +1,221 @@
+diff --git a/addins/Banshee/Makefile.am b/addins/Banshee/Makefile.am
+index c7af4e1..a1dffcd 100644
+--- a/addins/Banshee/Makefile.am
++++ b/addins/Banshee/Makefile.am
+@@ -8,11 +8,13 @@ FILES =  \
+ 
+ RESOURCES = Banshee.addin.xml 
+ 
+-REFERENCES = System
++REFERENCES =  \
++	$(NDESK_DBUS_GLIB_10_LIBS)
++	System
+ 
+ PROJECT_REFERENCES = ../../build/Debug/Synapse.Services.dll
+ 
+-DLL_REFERENCES = ../../contrib/NDesk.DBus.dll
++DLL_REFERENCES = 
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/addins/CodeSnippets/Makefile.am b/addins/CodeSnippets/Makefile.am
+index 6e88a21..a75cda8 100644
+--- a/addins/CodeSnippets/Makefile.am
++++ b/addins/CodeSnippets/Makefile.am
+@@ -14,6 +14,7 @@ RESOURCES =  \
+ 	ConversationHeader.html \
+ 	insert-code.png 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	$(QTWEBKIT_SHARP_LIBS) \
+ 	$(QYOTO_LIBS) \
+ 	System \
+@@ -28,7 +29,6 @@ PROJECT_REFERENCES =  \
+ 
+ DLL_REFERENCES =  \
+ 	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll \
+ 	../../contrib/Wilco.SyntaxHighlighter.dll 
+ 
+ # End MonoDevelop-maintained variables
+diff --git a/addins/Flickr/Makefile.am b/addins/Flickr/Makefile.am
+index 4a1d69d..aefcd6f 100644
+--- a/addins/Flickr/Makefile.am
++++ b/addins/Flickr/Makefile.am
+@@ -9,6 +9,7 @@ FILES =  \
+ RESOURCES = Flickr.addin.xml 
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	System \
+ 	System.Web \
+ 	System.Xml
+@@ -19,8 +20,7 @@ PROJECT_REFERENCES =  \
+ 	../../build/Debug/Synapse.UI.dll 
+ 
+ DLL_REFERENCES =  \
+-	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll 
++	../../contrib/jabber-net.dll
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/addins/Makefile.am b/addins/Makefile.am
+index a09b4c5..5739223 100644
+--- a/addins/Makefile.am
++++ b/addins/Makefile.am
+@@ -1 +1 @@
+-SUBDIRS = CodeSnippets Banshee Twitter Flickr YouTube Wikipedia
++SUBDIRS = CodeSnippets Twitter Flickr YouTube Wikipedia
+diff --git a/addins/Twitter/Makefile.am b/addins/Twitter/Makefile.am
+index 7d5f35b..36d2768 100644
+--- a/addins/Twitter/Makefile.am
++++ b/addins/Twitter/Makefile.am
+@@ -17,6 +17,7 @@ RESOURCES =  \
+ 
+ REFERENCES =  \
+ 	$(QYOTO_LIBS) \
++	$(MONO_ADDINS_LIBS) \
+ 	Mono.Posix \
+ 	System \
+ 	System.Core \
+@@ -30,7 +31,7 @@ PROJECT_REFERENCES =  \
+ 	../../build/Debug/Synapse.UI.dll \
+ 	../../build/Debug/Synapse.Xmpp.dll 
+ 
+-DLL_REFERENCES = ../../contrib/Mono.Addins.dll 
++DLL_REFERENCES = 
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/addins/Wikipedia/Makefile.am b/addins/Wikipedia/Makefile.am
+index 277b3f5..c4844a5 100644
+--- a/addins/Wikipedia/Makefile.am
++++ b/addins/Wikipedia/Makefile.am
+@@ -9,6 +9,7 @@ RESOURCES =  \
+ 	Wikipedia.addin.xml
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	System \
+ 	System.Web \
+ 	System.Xml
+@@ -19,8 +20,7 @@ PROJECT_REFERENCES =  \
+ 	../../build/Debug/Synapse.UI.dll 
+ 
+ DLL_REFERENCES =  \
+-	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll 
++	../../contrib/jabber-net.dll
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/src/Synapse.Core/Makefile.am b/src/Synapse.Core/Makefile.am
+index b2e6cc1..e87e411 100644
+--- a/src/Synapse.Core/Makefile.am
++++ b/src/Synapse.Core/Makefile.am
+@@ -20,6 +20,7 @@ FILES =  \
+ RESOURCES = Synapse.Core.addin.xml 
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	Mono.Posix \
+ 	System \
+ 	System.Core \
+@@ -31,8 +32,7 @@ PROJECT_REFERENCES =
+ 
+ DLL_REFERENCES =  \
+ 	../../contrib/HtmlAgilityPack.dll \
+-	../../contrib/Hyena.dll \
+-	../../contrib/Mono.Addins.dll
++	../../contrib/Hyena.dll
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/src/Synapse.QtClient/Makefile.am b/src/Synapse.QtClient/Makefile.am
+index 89cc382..7255056 100644
+--- a/src/Synapse.QtClient/Makefile.am
++++ b/src/Synapse.QtClient/Makefile.am
+@@ -131,6 +131,7 @@ RESOURCES =  \
+ REFERENCES =  \
+ 	$(GLIB_SHARP_20_LIBS) \
+ 	$(GTK_SHARP_20_LIBS) \
++	$(MONO_ADDINS_LIBS) \
+ 	$(NDESK_DBUS_GLIB_10_LIBS) \
+ 	$(NOTIFY_SHARP_LIBS) \
+ 	$(QTWEBKIT_SHARP_LIBS) \
+@@ -150,7 +151,6 @@ PROJECT_REFERENCES =  \
+ DLL_REFERENCES =  \
+ 	../../contrib/Hyena.dll \
+ 	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll \
+ 	../../contrib/Mono.Rocks.dll
+ 
+ # End MonoDevelop-maintained variables
+diff --git a/src/Synapse.Services/Makefile.am b/src/Synapse.Services/Makefile.am
+index 2437898..efc342e 100644
+--- a/src/Synapse.Services/Makefile.am
++++ b/src/Synapse.Services/Makefile.am
+@@ -21,6 +21,8 @@ FILES =  \
+ RESOURCES = Synapse.Services.addin.xml 
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
++	$(NDESK_DBUS_GLIB_10_LIBS) \
+ 	Mono.Posix \
+ 	System \
+ 	System.Core \
+@@ -30,10 +32,7 @@ REFERENCES =  \
+ 
+ PROJECT_REFERENCES = ../../build/Debug/Synapse.Core.dll
+ 
+-DLL_REFERENCES =  \
+-	../../contrib/Hyena.dll \
+-	../../contrib/Mono.Addins.dll \
+-	../../contrib/NDesk.DBus.dll
++DLL_REFERENCES = ../../contrib/Hyena.dll
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/src/Synapse.UI/Makefile.am b/src/Synapse.UI/Makefile.am
+index 260da2c..75d5213 100644
+--- a/src/Synapse.UI/Makefile.am
++++ b/src/Synapse.UI/Makefile.am
+@@ -27,6 +27,7 @@ FILES =  \
+ RESOURCES = Synapse.UI.addin.xml 
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	System \
+ 	System.Core \
+ 	System.Web \
+@@ -39,8 +40,7 @@ PROJECT_REFERENCES =  \
+ 
+ DLL_REFERENCES =  \
+ 	../../contrib/Hyena.dll \
+-	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll
++	../../contrib/jabber-net.dll
+ 
+ # End MonoDevelop-maintained variables
+ 
+diff --git a/src/Synapse.Xmpp/Makefile.am b/src/Synapse.Xmpp/Makefile.am
+index 189de65..31fe6f3 100644
+--- a/src/Synapse.Xmpp/Makefile.am
++++ b/src/Synapse.Xmpp/Makefile.am
+@@ -26,6 +26,7 @@ FILES =  \
+ RESOURCES = Synapse.Xmpp.addin.xml 
+ 
+ REFERENCES =  \
++	$(MONO_ADDINS_LIBS) \
+ 	$(NOTIFY_SHARP_LIBS) \
+ 	System \
+ 	System.Core \
+@@ -40,7 +41,6 @@ PROJECT_REFERENCES =  \
+ DLL_REFERENCES =  \
+ 	../../contrib/Hyena.dll \
+ 	../../contrib/jabber-net.dll \
+-	../../contrib/Mono.Addins.dll \
+ 	../../contrib/OAuth.dll \
+ 	../../contrib/OAuthXmpp.dll
+ 
