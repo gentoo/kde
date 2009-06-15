@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> phonon-4.4_pre20090520.ebuild,
+  phonon-9999.ebuild:
+  Clean up cmake flags
+
 *phonon-4.4_pre20090520 (20 May 2009)
 
   20 May 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>

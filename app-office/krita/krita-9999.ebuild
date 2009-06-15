@@ -39,9 +39,9 @@ src_configure() {
 		-DWITH_Exiv2=On
 		-DWITH_JPEG=On
 		$(cmake-utils_use_with openexr OpenEXR)
-		$(cmake-utils_use_with gmm GMM)
-		$(cmake-utils_use_with tiff TIFF)
-		$(cmake-utils_use_with kdcraw Kdcraw)
+		$(cmake-utils_use_with gmm)
+		$(cmake-utils_use_with tiff)
+		$(cmake-utils_use_with kdcraw)
 		$(cmake-utils_use_with pdf Poppler)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with opengl GLEW)"

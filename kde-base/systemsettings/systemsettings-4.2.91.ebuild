@@ -80,7 +80,7 @@ src_configure() {
 		-DUSE_XKLAVIER=ON -DWITH_LibXKlavier=ON
 		-DWITH_GLIB2=ON -DWITH_GObject=ON
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with usb USB)
+		$(cmake-utils_use_with usb)
 		$(cmake-utils_use_with xinerama X11_Xinerama)"
 
 	kde4-meta_src_configure

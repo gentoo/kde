@@ -66,16 +66,16 @@ src_configure() {
 
 	mycmakeargs="${mycmakeargs}
 		-DSOPRANO_BUILD_TESTS=OFF
-		-DCMAKE_SKIP_RPATH=OFF"
-
-	use clucene || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_CLUCENE_INDEX=ON"
-	use dbus || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_DBUS=ON"
-	use raptor || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_RAPTOR_PARSER=ON"
-	use redland || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_REDLAND_BACKEND=ON"
-	use java || mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_SESAME2_BACKEND=ON"
-	#! use virtuoso && mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON"
-	mycmakeargs="${mycmakeargs} -DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON"
-	use doc && mycmakeargs="${mycmakeargs} -DSOPRANO_BUILD_API_DOCS=ON"
+		-DCMAKE_SKIP_RPATH=OFF
+		$(cmake-utils_use !clucene SOPRANO_DISABLE_CLUCENE_INDEX)
+		$(cmake-utils_use !dbus SOPRANO_DISABLE_DBUS)
+		$(cmake-utils_use !raptor SOPRANO_DISABLE_RAPTOR_PARSER)
+		$(cmake-utils_use !redland SOPRANO_DISABLE_REDLAND_BACKEND)
+		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
+		-DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON
+		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
+	"
+		# $(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 
 	cmake-utils_src_configure
 }

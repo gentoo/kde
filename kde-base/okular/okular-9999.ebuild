@@ -29,15 +29,15 @@ KMEXTRACTONLY="libs/mobipocket"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with chm CHM)
+		$(cmake-utils_use_with chm)
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with djvu DjVuLibre)
 		$(cmake-utils_use_with ebook EPub)
-		$(cmake-utils_use_with jpeg JPEG)
+		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with ps LibSpectre)
 		$(cmake-utils_use_with pdf PopplerQt4)
 		$(cmake-utils_use_with pdf Poppler)
-		$(cmake-utils_use_with tiff TIFF)"
+		$(cmake-utils_use_with tiff)"
 
 	kde4-meta_src_configure
 }

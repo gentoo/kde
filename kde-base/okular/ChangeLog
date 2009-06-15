@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> okular-4.2.90.ebuild,
+  okular-4.2.91.ebuild, okular-4.2.9999.ebuild, okular-9999.ebuild:
+  Clean up cmake flags
+
 *okular-4.2.91 (11 Jun 2009)
 
   11 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +okular-4.2.91.ebuild:

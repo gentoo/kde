@@ -58,15 +58,15 @@ src_configure() {
 		-DENABLE_EXPAT=OFF -DENABLE_POLLING=ON
 		-DFORCE_DEPS=ON -DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
-		$(cmake-utils_use_enable clucene CLUCENE)
-		$(cmake-utils_use_enable dbus DBUS)
+		$(cmake-utils_use_enable clucene)
+		$(cmake-utils_use_enable dbus)
 		$(cmake-utils_use_enable exif EXIV2)
-		$(cmake-utils_use_enable fam FAM)
-		$(cmake-utils_use_enable hyperestraier HYPERESTRAIER)
-		$(cmake-utils_use_enable inotify INOTIFY)
+		$(cmake-utils_use_enable fam)
+		$(cmake-utils_use_enable hyperestraier)
+		$(cmake-utils_use_enable inotify)
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4 DBUS)
-		$(cmake-utils_use_enable qt4 QT4)"
+		$(cmake-utils_use_enable qt4)"
 
 	if ! use clucene && ! use hyperestraier; then
 		mycmakeargs="${mycmakeargs} -DENABLE_CLUCENE=ON"

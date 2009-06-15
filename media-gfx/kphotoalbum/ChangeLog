@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> kphotoalbum-4.0.1.ebuild:
+  Clean up cmake flags
+
   06 Apr 2009; Maciej Mrozowski (reavertm) <reavertm@poczta.fm>
   kphotoalbum-2009.02.11.ebuild:
   Dropped kdeprefix

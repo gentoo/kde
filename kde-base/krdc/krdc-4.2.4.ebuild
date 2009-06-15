@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with jpeg JPEG)
+		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with vnc LibVNCServer)
 		$(cmake-utils_use_with zeroconf DNSSD)"
 

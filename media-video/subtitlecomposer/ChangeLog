@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> subtitlecomposer-9999.ebuild:
+  Clean up cmake flags
+
   05 Jun 2009; Ben de Groot <yngwin@gentoo.org>
   -subtitlecomposer-0.5.3.ebuild:
   Moved 0.5.3 release ebuild to portage

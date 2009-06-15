@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> soprano-2.2.3.ebuild,
+  soprano-2.3.0_pre20090603.ebuild, soprano-9999.ebuild:
+  Clean up cmake flags
+
   01 Jun 2009; ABCD <en.ABCD@gmail.com> soprano-2.2.3.ebuild,
   soprano-9999.ebuild, metadata.xml:
   Clean up syntax, comment out all usage of USE=virtuoso, don't warn about

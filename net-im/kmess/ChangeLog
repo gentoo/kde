@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> kmess-9999.ebuild:
+  Clean up cmake flags
+
   10 Jun 2009; Markos Chandras <hwoarang@gentoo.org> kmess-9999.ebuild,
   -files/kmess-9999-fix-broken-RPATH.patch:
   Drop obsolete patch. Upstream fixed it . Bug 270422 

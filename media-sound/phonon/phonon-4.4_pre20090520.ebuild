@@ -45,11 +45,11 @@ src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with gstreamer GStreamer)
 		$(cmake-utils_use_with gstreamer GStreamerPlugins)
-		$(cmake-utils_use_with xine Xine)"
+		$(cmake-utils_use_with xine)"
 
 	if use xine; then
 		mycmakeargs="${mycmakeargs}
-			$(cmake-utils_use_with xcb XCB)"
+			$(cmake-utils_use_with xcb)"
 	else
 		sed -i -e '/xine/d' CMakeLists.txt || die "sed failed"
 	fi

@@ -35,7 +35,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with plasma Plasma)"
+		$(cmake-utils_use_with plasma)"
 
 	kde4-meta_src_configure
 }

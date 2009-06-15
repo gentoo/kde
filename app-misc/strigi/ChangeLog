@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> strigi-9999.ebuild:
+  Clean up cmake flags
+
   11 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org> strigi-9999.ebuild:
   Based on backlog strigi-9999 is direct descendant of 0.5.11 which is based
   directly on portage work. So no copyright for genkdesvn here.

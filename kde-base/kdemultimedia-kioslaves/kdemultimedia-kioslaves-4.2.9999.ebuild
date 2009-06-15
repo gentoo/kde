@@ -35,7 +35,7 @@ KMLOADLIBS="libkcddb"
 src_configure() {
 	if use encode; then
 		mycmakeargs="${mycmakeargs}
-			$(cmake-utils_use_with flac Flac)
+			$(cmake-utils_use_with flac)
 			$(cmake-utils_use_with vorbis OggVorbis)"
 	else
 		mycmakeargs="${mycmakeargs}

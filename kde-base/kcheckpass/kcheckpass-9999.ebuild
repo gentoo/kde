@@ -23,7 +23,7 @@ PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with pam PAM)"
+		$(cmake-utils_use_with pam)"
 
 	kde4-meta_src_configure
 }

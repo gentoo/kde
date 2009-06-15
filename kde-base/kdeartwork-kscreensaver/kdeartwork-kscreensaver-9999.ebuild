@@ -40,7 +40,7 @@ src_configure() {
 		-DKSCREENSAVER_SOUND_SUPPORT=ON
 		$(cmake-utils_use_with eigen Eigen2)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with xscreensaver Xscreensaver)"
+		$(cmake-utils_use_with xscreensaver)"
 
 	kde4-meta_src_configure
 }

@@ -55,7 +55,7 @@ view-object-histogram-logarithmic},apps/{digikam,showfoto}}.{svgz,png}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_enable gphoto2 GPHOTO2)
+		$(cmake-utils_use_enable gphoto2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)"

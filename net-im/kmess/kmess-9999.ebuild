@@ -43,9 +43,9 @@ src_unpack() {
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with gif GIF)
+		$(cmake-utils_use_with gif)
 		$(cmake-utils_use_with konqueror LibKonq)
-		$(cmake-utils_use_want xscreensaver XSCREENSAVER)"
+		$(cmake-utils_use_want xscreensaver)"
 
 	kde4-base_src_configure
 }

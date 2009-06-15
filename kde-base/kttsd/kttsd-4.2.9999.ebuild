@@ -30,9 +30,9 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with alsa Alsa)
-		-DKDE4_KTTSD_PHONON=$(use phonon && echo OFF || echo ON)
-		-DKDE4_KTTSD_ALSA=$(use alsa && echo ON || echo OFF)
+		$(cmake-utils_use_with alsa)
+		$(cmake-utils_use phonon KDE4_KTTSD_PHONON)
+		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)
 		$(cmake-utils_use_with ktts Kttsmodule)"
 
 	kde4-meta_src_configure

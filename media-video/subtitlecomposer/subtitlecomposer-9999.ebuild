@@ -38,7 +38,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with gstreamer GStreamer)
-		$(cmake-utils_use_with xine Xine)
+		$(cmake-utils_use_with xine)
 	"
 	kde4-base_src_configure
 }

@@ -35,7 +35,7 @@ KMEXTRA="
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bzip2 BZip2)
-		$(cmake-utils_use_with samba Samba)
+		$(cmake-utils_use_with samba)
 		$(cmake-utils_use_with openexr OpenEXR)"
 
 	kde4-meta_src_configure

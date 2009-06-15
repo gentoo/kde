@@ -27,7 +27,7 @@ KMLOADLIBS="libkdepim libkleo"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with gnokii GNOKII)"
+		$(cmake-utils_use_with gnokii)"
 
 	kde4-meta_src_configure
 }

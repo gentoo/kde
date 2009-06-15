@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com>
+  kdemultimedia-kioslaves-4.2.90.ebuild,
+  kdemultimedia-kioslaves-4.2.91.ebuild,
+  kdemultimedia-kioslaves-4.2.9999.ebuild,
+  kdemultimedia-kioslaves-9999.ebuild:
+  Clean up cmake flags
+
 *kdemultimedia-kioslaves-4.2.91 (11 Jun 2009)
 
   11 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>

@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_build handbook doc)
-		$(cmake-utils_use_with ldap Ldap)
+		$(cmake-utils_use_with ldap)
 		$(cmake-utils_use_with sasl Sasl2)"
 
 	kde4-base_src_configure

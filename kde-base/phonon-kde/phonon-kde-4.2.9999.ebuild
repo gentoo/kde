@@ -39,7 +39,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with pulseaudio PulseAudio)
-		$(cmake-utils_use_with xine Xine)"
+		$(cmake-utils_use_with xine)"
 
 	kde4-meta_src_configure
 }

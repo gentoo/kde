@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> digikam-1.0.0_beta1.ebuild,
+  digikam-9999.ebuild:
+  Clean up cmake flags
+
   14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
   digikam-1.0.0_beta1.ebuild, digikam-9999.ebuild, metadata.xml:
   rename lens -> lensfun since this use flag already used by ufraw

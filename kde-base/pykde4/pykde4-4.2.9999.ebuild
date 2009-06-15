@@ -38,7 +38,7 @@ src_configure() {
 		-DWITH_QScintilla=OFF
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with akonadi Akonadi)
+		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)"
 
 	kde4-meta_src_configure

@@ -48,7 +48,7 @@ src_configure() {
 		-DPODOFO_HAVE_TIFF_LIB=1
 		-DWANT_FONTCONFIG=1
 		-DUSE_STLPORT=1
-		$(cmake-utils_use_want boost BOOST)
+		$(cmake-utils_use_want boost)
 		$(cmake-utils_use_has test CPPUNIT)"
 
 	cmake-utils_src_configure

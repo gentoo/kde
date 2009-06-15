@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
-		$(cmake-utils_use_with plasma Plasma)
+		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)

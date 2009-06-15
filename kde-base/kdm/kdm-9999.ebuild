@@ -42,8 +42,8 @@ PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(use kerberos && echo "-DKDE4_KRB5AUTH=ON" || echo "-DKDE4_KRB5AUTH=OFF")
-		$(cmake-utils_use_with pam PAM)
+		$(cmake-utils_use kerberos KDE4_KRB5AUTH)
+		$(cmake-utils_use_with pam)
 		$(cmake-utils_use_with consolekit CkConnector)"
 
 	kde4-meta_src_configure
