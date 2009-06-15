@@ -1,9 +1,0 @@
-# ChangeLog for net-misc/slimrat
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*slimrat-0.9.4 (13 May 2009)
-
-  13 May 2009; Tomas Chvatal <scarabeus@gentoo.org> +slimrat-0.9.4.ebuild:
-  Initial commit. Usefull toolie for rapidshare downloading.
-
