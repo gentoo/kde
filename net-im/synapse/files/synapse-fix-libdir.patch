@@ -1,0 +1,113 @@
+diff --git a/addins/Banshee/Makefile.am b/addins/Banshee/Makefile.am
+index a1dffcd..a0ba17f 100644
+--- a/addins/Banshee/Makefile.am
++++ b/addins/Banshee/Makefile.am
+@@ -18,7 +18,7 @@ DLL_REFERENCES =
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/Banshee.dll
+diff --git a/addins/CodeSnippets/Makefile.am b/addins/CodeSnippets/Makefile.am
+index a75cda8..aa5cd0e 100644
+--- a/addins/CodeSnippets/Makefile.am
++++ b/addins/CodeSnippets/Makefile.am
+@@ -33,7 +33,7 @@ DLL_REFERENCES =  \
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/CodeSnippets.dll
+diff --git a/addins/Flickr/Makefile.am b/addins/Flickr/Makefile.am
+index aefcd6f..08fe386 100644
+--- a/addins/Flickr/Makefile.am
++++ b/addins/Flickr/Makefile.am
+@@ -24,7 +24,7 @@ DLL_REFERENCES =  \
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/Flickr.dll
+diff --git a/addins/Twitter/Makefile.am b/addins/Twitter/Makefile.am
+index 36d2768..6682147 100644
+--- a/addins/Twitter/Makefile.am
++++ b/addins/Twitter/Makefile.am
+@@ -35,7 +35,7 @@ DLL_REFERENCES =
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/Twitter.dll
+diff --git a/addins/Wikipedia/Makefile.am b/addins/Wikipedia/Makefile.am
+index c4844a5..d9acee4 100644
+--- a/addins/Wikipedia/Makefile.am
++++ b/addins/Wikipedia/Makefile.am
+@@ -24,7 +24,7 @@ DLL_REFERENCES =  \
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/Wikipedia.dll
+diff --git a/addins/YouTube/Makefile.am b/addins/YouTube/Makefile.am
+index 967ee14..41519e4 100644
+--- a/addins/YouTube/Makefile.am
++++ b/addins/YouTube/Makefile.am
+@@ -22,7 +22,7 @@ DLL_REFERENCES =  \
+ 
+ # End MonoDevelop-maintained variables
+ 
+-pkglibdir = $(prefix)/lib/synapse/addins
++pkglibdir = $(libdir)/synapse/addins
+ BUILD_DIR = $(top_builddir)/build/Debug/addins
+ 
+ ASSEMBLY = $(BUILD_DIR)/YouTube.dll
+diff --git a/contrib/Makefile.am b/contrib/Makefile.am
+index 61ca72d..697a2c9 100644
+--- a/contrib/Makefile.am
++++ b/contrib/Makefile.am
+@@ -12,7 +12,7 @@ clean-local:
+ 	for i in $(CONTRIBS); do rm -fv $(BUILD_DIR)/$$i; done
+ 
+ install-data-hook:
+-	for i in $(CONTRIBS); do $(INSTALL_DATA) -D -v $$i $(DESTDIR)$(prefix)/lib/synapse/$$i; done
++	for i in $(CONTRIBS); do $(INSTALL_DATA) -D -v $$i $(DESTDIR)$(libdir)/synapse/$$i; done
+ 
+ uninstall-hook:
+-	for i in $(CONTRIBS); do rm -fv $(prefix)/lib/synapse/$$i; done
++	for i in $(CONTRIBS); do rm -fv $(libdir)/synapse/$$i; done
+diff --git a/src/Synapse.QtClient/synapse.in b/src/Synapse.QtClient/synapse.in
+index 77ca54e..308ab7e 100644
+--- a/src/Synapse.QtClient/synapse.in
++++ b/src/Synapse.QtClient/synapse.in
+@@ -1,3 +1,3 @@
+ #!/bin/sh
+ 
+-exec mono --debug "@prefix@/lib/synapse/Synapse.exe" "$@"
++exec mono --debug "@libdir@/synapse/Synapse.exe" "$@"
+diff --git a/src/Synapse.Services/synapse-services.pc.in b/src/Synapse.Services/synapse-services.pc.in
+index 6de7943..a5eabb0 100644
+--- a/src/Synapse.Services/synapse-services.pc.in
++++ b/src/Synapse.Services/synapse-services.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}/lib
++libdir=@libdir@
+ dragondir=${libdir}/dragon
+ 
+ Name: Dragon Services

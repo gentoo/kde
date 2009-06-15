@@ -29,7 +29,10 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}
 "
 
-EGIT_PATCHES=( "${FILESDIR}/${PN}-unbundle-libs.patch" )
+EGIT_PATCHES=(
+	"${FILESDIR}/${PN}-unbundle-libs.patch"
+	"${FILESDIR}/${PN}-fix-libdir.patch"
+)
 
 src_prepare() {
 	git_src_prepare
@@ -49,5 +52,4 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die
-	mono_multilib_comply
 }
