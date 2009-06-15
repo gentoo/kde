@@ -1,0 +1,9 @@
+# ChangeLog for net-irc/aki
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*aki-9999 (15 Jun 2009)
+
+  15 Jun 2009; ABCD <en.ABCD@gmail.com> +aki-9999.ebuild, +metadata.xml:
+  New ebuild. Thanks to Keith Rusler (comawhite) for the initial ebuild.
+

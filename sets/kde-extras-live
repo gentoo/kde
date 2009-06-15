@@ -34,6 +34,8 @@
 ~net-ftp/kftpgrabber-9999
 ~net-im/kmess-9999
 ~net-im/synapse-9999
+~net-irc/aki-9999
+~net-irc/akiirc-9999
 ~net-misc/smb4k-9999
 ~net-libs/decibel-9999
 ~net-libs/libqinfinity-9999
