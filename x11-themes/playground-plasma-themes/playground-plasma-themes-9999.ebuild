@@ -4,9 +4,9 @@
 
 EAPI="2"
 
-KMNAME="playground/base/plasma/desktoptheme"
-KMNOMODULE="true"
-inherit kde4-base
+KMNAME="playground/base/plasma"
+KMMODULE="desktoptheme"
+inherit kde4-meta
 
 DESCRIPTION="Plasma themes from KDE playground."
 HOMEPAGE="http://plasma.kde.org/"
