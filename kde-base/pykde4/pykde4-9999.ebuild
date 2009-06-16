@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="akonadi debug examples semantic-desktop"
 
 COMMON_DEPEND="
-	>=dev-python/PyQt4-4.5[dbus,qt3support,sql,svg,webkit,X]
+	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 "
