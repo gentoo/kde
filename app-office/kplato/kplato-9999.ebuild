@@ -14,6 +14,8 @@ KEYWORDS=""
 IUSE=""
 
 KMEXTRACTONLY="libs/"
-KMEXTRA="kdgantt/"
-
+KMEXTRA="
+	filters/${KMMODULE}/
+	kdgantt/
+"
 KMLOADLIBS="koffice-libs"
