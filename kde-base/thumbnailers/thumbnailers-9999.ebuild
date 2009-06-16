@@ -19,4 +19,7 @@ DEPEND="
 	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !<kde-base/kdegraphics-strigi-analyzer-4.2.91[-kdeprefix] )
+	kdeprefix? ( !<kde-base/kdegraphics-strigi-analyzer-4.2.91:${SLOT}[kdeprefix] )
+"
