@@ -31,12 +31,10 @@ KMEXTRACTONLY="
 "
 
 src_configure() {
-	# remove instalation of colliding file for hicolor-icon-theme
-	if ! use kdeprefix; then
-		sed -i \
-			-e "s:add_subdirectory( hicolor ):#donotwant:g" \
-			pics/CMakeLists.txt
-	fi
+	# Remove remnants of hicolor-icon-theme
+	sed -i \
+		-e "s:add_subdirectory( hicolor ):#donotwant:g" \
+		pics/CMakeLists.txt
 
 	kde4-meta_src_configure
 }
