@@ -54,6 +54,7 @@ kde-base/kcheckpass:4.3
 kde-base/kcminit:4.3
 kde-base/kcmshell:4.3
 kde-base/kcolorchooser:4.3
+kde-base/kcontactmanager:4.3
 kde-base/kcontrol:4.3
 kde-base/kcron:4.3
 kde-base/kdeaccessibility-colorschemes:4.3
@@ -236,6 +237,7 @@ kde-base/libkexiv2:4.3
 kde-base/libkipi:4.3
 kde-base/libkleo:4.3
 kde-base/libkmahjongg:4.3
+kde-base/libknotificationitem:4.3
 kde-base/libkonq:4.3
 kde-base/libkpgp:4.3
 kde-base/libksane:4.3
@@ -248,15 +250,18 @@ kde-base/lokalize:4.3
 kde-base/lskat:4.3
 kde-base/marble:4.3
 kde-base/mimelib:4.3
+kde-base/mplayerthumbs:4.3
 kde-base/nepomuk:4.3
 kde-base/nsplugins:4.3
 kde-base/okteta:4.3
 kde-base/okular:4.3
+kde-base/oxygen-icons:4.3
 kde-base/parley:4.3
 kde-base/phonon-kde:4.3
 kde-base/plasma-apps:4.3
 kde-base/plasma-runtime:4.3
 kde-base/plasma-workspace:4.3
+kde-base/policykit-kde:4.3
 kde-base/powerdevil:4.3
 kde-base/printer-applet:4.3
 kde-base/pykde4:4.3
@@ -272,4 +277,5 @@ kde-base/svgpart:4.3
 kde-base/sweeper:4.3
 kde-base/system-config-printer-kde:4.3
 kde-base/systemsettings:4.3
+kde-base/thumbnailers:4.3
 kde-base/umbrello:4.3
