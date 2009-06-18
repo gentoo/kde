@@ -15,7 +15,7 @@ SRC_URI="mirror://kde/stable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="2"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
