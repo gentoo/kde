@@ -14,13 +14,11 @@ ESVN_REPO_URI="http://${PN}.googlecode.com/svn/trunk/"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="X +cli"
+IUSE="X"
 
 DEPEND="dev-perl/WWW-Mechanize
-	cli? (
 		virtual/perl-Getopt-Long
 		virtual/perl-Term-ANSIColor
-	)
 	X? (
 		dev-perl/gtk2-gladexml
 		dev-perl/Spiffy
@@ -30,10 +28,6 @@ RDEPEND="${DEPEND}
 	X? ( x11-terms/xterm )
 	"
 
-pkg_setup() {
-	confutils_require_any X cli
-}
-
 src_prepare() {
 	esvn_clean
 }
@@ -41,21 +35,20 @@ src_prepare() {
 src_install() {
 	# install binaries
 
-	exeinto ${ROOT}usr/share/${PN}
+	exeinto "${ROOT}usr/share/${PN}"
 
-	if use cli; then
-		doexe ${PN} || die "doexe failed"
-		dosym ${ROOT}usr/share/${PN}/${PN} ${ROOT}usr/bin/${PN}
-	fi
+	doexe ${PN} || die "doexe failed"
+	dosym "${ROOT}usr/share/${PN}/${PN}" "${ROOT}usr/bin/${PN}"
+
 	if use X; then
 		doexe ${PN}-gui || die "doexe failed"
-		dosym ${ROOT}usr/share/${PN}/${PN}-gui ${ROOT}usr/bin/${PN}-gui
+		dosym "${ROOT}usr/share/${PN}/${PN}-gui" "${ROOT}usr/bin/${PN}-gui"
 	fi
-	
+
 	# install data
 	insinto /etc
-	newins ${S}/config slimrat.conf
-	
-	insinto ${ROOT}usr/share/${PN}
+	newins "${S}/config" slimrat.conf
+
+	insinto "${ROOT}usr/share/${PN}"
 	doins -r Clipboard.pm Clipboard Configuration.pm Log.pm Plugin.pm plugins Queue.pm slimrat.glade Toolbox.pm || die "doins failed"
 }
