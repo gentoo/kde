@@ -10,12 +10,11 @@ DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
+DEPEND=">=sys-devel/gettext-0.17"
+RDEPEND=""
+
 KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="handbook"
-
-SRC_URI=""
-
-DEPEND=">=sys-devel/gettext-0.17"
 
 LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
 	fy ga gl gu he hi hr hsb hu hy is it ja ka kk km kn ko ku lb lt lv mk ml
