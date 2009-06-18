@@ -27,9 +27,6 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	kde4-base_src_prepare
 
-	# linkage issue
-	epatch "${FILESDIR}/${PN}-linkage-patch.patch"
-
 	sed -e '/ADD_SUBDIRECTORY( api )/s/^/# DISABLED/' \
 		-i src/main/scripting/examples/CMakeLists.txt \
 		|| die "failed to disable installation of scripting API"
