@@ -7,7 +7,7 @@ EAPI="2"
 KDE_REQUIRED="never"
 inherit kde4-base mono git autotools
 
-DESCRIPTION=""
+DESCRIPTION="XMPP client written in .Net"
 HOMEPAGE="http://synapse.im/"
 EGIT_REPO_URI="git://github.com/FireRabbit/synapse.git"
 
