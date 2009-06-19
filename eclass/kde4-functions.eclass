@@ -74,7 +74,7 @@ buildsycoca() {
 		[[ ${KDEDIR} != "${EROOT}usr" ]] && KDEDIRS="${KDEDIR}/share:${KDEDIRS}"
 		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDEDIRS}" \
 			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
-			${KDEDIR}/bin/kbuildsycoca4 --global --noincremental &> /dev/null
+			"${KDEDIR}"/bin/kbuildsycoca4 --global --noincremental &> /dev/null
 		eend $?
 	fi
 
