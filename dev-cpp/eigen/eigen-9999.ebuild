@@ -13,7 +13,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/eigen2"
 
 LICENSE="GPL-3"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 IUSE="debug demos doc"
 
 DEPEND="
