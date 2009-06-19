@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_REQUIRED="never"
 inherit kde4-base mono git autotools
 
 DESCRIPTION="XMPP client written in .Net"
