@@ -27,6 +27,9 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
+	# benchmarks (BTL) brings up damn load of external deps including fortran
+	# compiler
+	# library hangs up complete compilation proccess, test later
 	mycmakeargs="
 		-DEIGEN_BUILD_LIB=OFF
 		-DEIGEN_BUILD_BTL=OFF
