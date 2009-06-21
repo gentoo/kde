@@ -243,11 +243,12 @@ kdedepend="
 "
 case ${KDE_REQUIRED} in
 	always)
+		IUSE="${IUSE} aqua"
 		COMMONDEPEND="${COMMONDEPEND} ${kdecommondepend}"
 		DEPEND="${DEPEND} ${kdedepend}"
 		;;
 	optional)
-		IUSE="${IUSE} kde"
+		IUSE="${IUSE} aqua kde"
 		COMMONDEPEND="${COMMONDEPEND}
 			kde? ( ${kdecommondepend} )"
 		DEPEND="${DEPEND}
