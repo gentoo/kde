@@ -438,6 +438,10 @@ kde4-base_pkg_setup() {
 
 		PREFIX="${PREFIX:-${EROOT}usr}"
 	fi
+	# Point pkg-config path to KDE *.pc files
+	export PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
+	# Point to correct QT plugins path
+	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
 
 	# Not needed anymore
 	unset _kdedir
@@ -516,12 +520,8 @@ kde4-base_src_configure() {
 	# Here we set the install prefix
 	cmakeargs="${cmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
-	# Set environment
+	# Use colors
 	QTEST_COLORED=1
-	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
-
-	# Point pkg-config path to KDE *.pc files
-	export PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
 
 	# Shadow existing /usr installations
 	unset KDEDIRS
