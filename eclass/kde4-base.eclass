@@ -453,11 +453,13 @@ kde4-base_pkg_setup() {
 kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
-		subversion_src_unpack
-	else
-		base_src_unpack
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		if [[ ${BUILD_TYPE} = live ]]; then
+			migrate_store_dir
+			subversion_src_unpack
+		else
+			base_src_unpack
+		fi
 	fi
 }
 
@@ -470,28 +472,30 @@ kde4-base_src_unpack() {
 kde4-base_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Only enable selected languages, used for KDE extragear apps.
-	if [[ -n ${KDE_LINGUAS} ]]; then
-		enable_selected_linguas
-	fi
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		# Only enable selected languages, used for KDE extragear apps.
+		if [[ -n ${KDE_LINGUAS} ]]; then
+			enable_selected_linguas
+		fi
 
-	# Enable/disable handbooks for kde4-base packages
-	# kde-l10n inherits kde-base but is metpackage, so no check for doc
-	if ! has kde4-meta ${INHERITED}; then
-		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && enable_selected_doc_linguas
-	fi
+		# Enable/disable handbooks for kde4-base packages
+		# kde-l10n inherits kde-base but is metpackage, so no check for doc
+		if ! has kde4-meta ${INHERITED}; then
+			has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && enable_selected_doc_linguas
+		fi
 
-	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
-	base_src_prepare
+		[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
+		base_src_prepare
 
-	# Save library dependencies
-	if [[ -n ${KMSAVELIBS} ]] ; then
-		save_library_dependencies
-	fi
+		# Save library dependencies
+		if [[ -n ${KMSAVELIBS} ]] ; then
+			save_library_dependencies
+		fi
 
-	# Inject library dependencies
-	if [[ -n ${KMLOADLIBS} ]] ; then
-		load_library_dependencies
+		# Inject library dependencies
+		if [[ -n ${KMLOADLIBS} ]] ; then
+			load_library_dependencies
+		fi
 	fi
 }
 
@@ -501,53 +505,55 @@ kde4-base_src_prepare() {
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Handle common release builds
-	if ! has debug ${IUSE//+} || ! use debug; then
-		append-cppflags -DQT_NO_DEBUG
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		# Handle common release builds
+		if ! has debug ${IUSE//+} || ! use debug; then
+			append-cppflags -DQT_NO_DEBUG
+		fi
+
+		# Build tests in src_test only, where we override this value
+		local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
+
+		# set "real" debug mode
+		if has debug ${IUSE//+} && use debug; then
+			CMAKE_BUILD_TYPE="Debugfull"
+		fi
+
+		# Set distribution name
+		[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
+
+		# Here we set the install prefix
+		cmakeargs="${cmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+
+		# Use colors
+		QTEST_COLORED=1
+
+		# Shadow existing /usr installations
+		unset KDEDIRS
+
+		if [[ ${KDEDIR} != "${EROOT}usr" ]]; then
+			# Override some environment variables - only when kdeprefix is different,
+			# to not break ccache/distcc
+			PATH="${KDEDIR}/bin:${PATH}"
+			LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
+
+			# Append full RPATH
+			cmakeargs="${cmakeargs} -DCMAKE_SKIP_RPATH=OFF"
+		fi
+
+		if has kdeprefix ${IUSE//+} && use kdeprefix; then
+			# Set cmake prefixes to allow buildsystem to localize valid KDE installation
+			# when more are present
+			cmakeargs="${cmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+		else
+			# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
+			cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=${EROOT}etc"
+		fi
+
+		mycmakeargs="${cmakeargs} ${mycmakeargs}"
+
+		cmake-utils_src_configure
 	fi
-
-	# Build tests in src_test only, where we override this value
-	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
-
-	# set "real" debug mode
-	if has debug ${IUSE//+} && use debug; then
-		CMAKE_BUILD_TYPE="Debugfull"
-	fi
-
-	# Set distribution name
-	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
-
-	# Here we set the install prefix
-	cmakeargs="${cmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
-
-	# Use colors
-	QTEST_COLORED=1
-
-	# Shadow existing /usr installations
-	unset KDEDIRS
-
-	if [[ ${KDEDIR} != "${EROOT}usr" ]]; then
-		# Override some environment variables - only when kdeprefix is different,
-		# to not break ccache/distcc
-		PATH="${KDEDIR}/bin:${PATH}"
-		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
-
-		# Append full RPATH
-		cmakeargs="${cmakeargs} -DCMAKE_SKIP_RPATH=OFF"
-	fi
-
-	if has kdeprefix ${IUSE//+} && use kdeprefix; then
-		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
-		# when more are present
-		cmakeargs="${cmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
-	else
-		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=${EROOT}etc"
-	fi
-
-	mycmakeargs="${cmakeargs} ${mycmakeargs}"
-
-	cmake-utils_src_configure
 }
 
 # @FUNCTION: kde4-base_src_compile
@@ -556,7 +562,9 @@ kde4-base_src_configure() {
 kde4-base_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake-utils_src_compile "$@"
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		cmake-utils_src_compile "$@"
+	fi
 }
 
 # @FUNCTION: kde4-base_src_test
@@ -565,12 +573,14 @@ kde4-base_src_compile() {
 kde4-base_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Override this value, set in kde4-base_src_configure()
-	mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=ON"
-	cmake-utils_src_configure
-	kde4-base_src_compile
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		# Override this value, set in kde4-base_src_configure()
+		mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=ON"
+		cmake-utils_src_configure
+		kde4-base_src_compile
 
-	cmake-utils_src_test
+		cmake-utils_src_test
+	fi
 }
 
 # @FUNCTION: kde4-base_src_install
@@ -579,12 +589,14 @@ kde4-base_src_test() {
 kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -n ${KMSAVELIBS} ]] ; then
-		install_library_dependencies
-	fi
+	if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
+		if [[ -n ${KMSAVELIBS} ]] ; then
+			install_library_dependencies
+		fi
 
-	kde4-base_src_make_doc
-	cmake-utils_src_install
+		kde4-base_src_make_doc
+		cmake-utils_src_install
+	fi
 }
 
 # @FUNCTION: kde4-base_src_make_doc
