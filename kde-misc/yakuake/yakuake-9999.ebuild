@@ -12,7 +12,7 @@ HOMEPAGE="http://yakuake.kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="3"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
