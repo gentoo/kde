@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with kipi Kipi)"
+		$(cmake-utils_use_with kipi)"
 
 	if use semantic-desktop; then
 		mycmakeargs="${mycmakeargs}

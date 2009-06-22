@@ -52,6 +52,6 @@ src_configure() {
 		$(cmake-utils_use_enable akonadi)
 		-DENABLE_Okular=OFF
 	"
-		# $(cmake-utils_use_enable okular Okular)
+		# $(cmake-utils_use_enable okular)
 	kde4-meta_src_configure
 }

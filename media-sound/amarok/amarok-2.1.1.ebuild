@@ -63,9 +63,9 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
-		$(cmake-utils_use_with ipod Ipod)
+		$(cmake-utils_use_with ipod)
 		$(cmake-utils_use_with ipod Gdk)
-		$(cmake-utils_use_with mtp Mtp)
+		$(cmake-utils_use_with mtp)
 		$(cmake-utils_use_with mp3tunes MP3Tunes)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
 #		$(cmake-utils_use_with semantic-desktop Soprano)"

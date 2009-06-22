@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with kde KDE)"
+		$(cmake-utils_use_with kde)"
 
 	kde4-base_src_configure
 }
