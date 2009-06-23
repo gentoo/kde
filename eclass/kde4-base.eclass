@@ -627,7 +627,7 @@ kde4-base_pkg_postinst() {
 
 	if [[ ${BUILD_TYPE} = live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 		echo
-		einfo "WARNING! This is an experimental live ebuild of ${KMNAME:-${PN}}"
+		einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
 		einfo "Use it at your own risk."
 		einfo "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
 		echo
