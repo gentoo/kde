@@ -4,15 +4,14 @@
 
 EAPI="2"
 
-inherit cmake-utils mercurial
+inherit cmake-utils
 
 DESCRIPTION="Lightweight C++ template library for vector and matrix math, a.k.a. linear algebra"
 HOMEPAGE="http://eigen.tuxfamily.org/"
-#SRC_URI="http://bitbucket.org/eigen/eigen2/get/${PV}.tar.bz2"
-EHG_REPO_URI="https://bitbucket.org/eigen/eigen2"
+SRC_URI="http://bitbucket.org/eigen/eigen2/get/${PV}.tar.bz2"
 
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 SLOT="2"
 IUSE="debug doc examples"
 
