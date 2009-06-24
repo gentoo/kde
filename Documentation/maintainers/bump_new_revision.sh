@@ -42,7 +42,7 @@ update_package_changelog() {
 	cd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/
 	git add ${EBUILD}
 	# be quiet when creating changelog
-	echangelog "Version bump." >> /dev/null
+#	echangelog "Version bump." >> /dev/null
 	cd "${PORTDIR_BUMPING}" # go back to workdir
 }
 
@@ -198,10 +198,11 @@ SLOT=
 VERSION=
 OPERATION=
 BUMP_VERSION=
+KEYWORDS=
 SET=
 DIR=
 OUTPUT_DIR=
-while getopts a:s:v:b:l:p:o: arg ; do
+while getopts a:s:v:b:l:p:o:n arg ; do
 	case ${arg} in
 		a) OPERATION=${OPTARG} ;;
 		s) SLOT=${OPTARG} ;;
@@ -210,6 +211,7 @@ while getopts a:s:v:b:l:p:o: arg ; do
 		l) SET="${OPTARG}" ;;
 		p) DIR="${OPTARG}" ;;
 		o) OUTPUT_DIR="${OPTARG}" ;;
+		n) KEYWORDS="no" ;;
 		*) help ;;
 		?) help ;;
 	esac
@@ -276,8 +278,10 @@ case ${OPERATION} in
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
 				# we have update keywords
-				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
-				update_package_keywords ${NEW}
+				if [[ -z ${KEYWORDS} ]]; then
+					sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
+					update_package_keywords ${NEW}
+				fi
 				# update manifest and changelog
 				update_package_changelog ${EBUILD_NAME}
 				update_package_manifest
