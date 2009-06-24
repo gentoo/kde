@@ -18,9 +18,12 @@ IUSE=""
 
 # Block conflicting packages
 RDEPEND="
-	!x11-themes/oxygen-icons
-	!x11-themes/oxygen-icon-theme
-	!kdeprefix? ( !<kde-base/kdebase-data-4.2.67[-kdeprefix] )
-	kdeprefix? ( !<kde-base/kdebase-data-4.2.67:${SLOT} )
-	!<=kde-base/kdepim-icons-4.2.89:4.3[kdeprefix=]
+	!kdeprefix? (
+		!<kde-base/kdebase-data-4.2.67[-kdeprefix]
+		!<=kde-base/kdepim-icons-4.2.89[-kdeprefix]
+	)
+	kdeprefix? (
+		!<kde-base/kdebase-data-4.2.67:${SLOT}
+		!<=kde-base/kdepim-icons-4.2.89:${SLOT}
+	)
 "
