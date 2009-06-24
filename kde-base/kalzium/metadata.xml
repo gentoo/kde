@@ -2,7 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <use>
-	<flag name="cviewer">Enable Kalzium compound viewer</flag>
 	<flag name="editor">Enable the embedded molecule editor/viewer</flag>
 	<flag name="solver">Enable the equation solver</flag>
 </use>

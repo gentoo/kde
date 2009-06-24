@@ -18,7 +18,7 @@ COMMON_DEPEND="
 	editor? ( >=sci-chemistry/openbabel-2.2 )
 "
 DEPEND="${COMMON_DEPEND}
-	editor? ( >=dev-cpp/eigen-1.0.5 )
+	editor? ( >=dev-cpp/eigen-2.0.3 )
 	solver? ( dev-ml/facile[ocamlopt] )
 "
 RDEPEND="${COMMON_DEPEND}"
@@ -30,7 +30,7 @@ KMEXTRACTONLY="
 
 src_configure(){
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with editor Eigen)
+		$(cmake-utils_use_with editor Eigen2)
 		$(cmake-utils_use_with editor OpenBabel2)
 		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
