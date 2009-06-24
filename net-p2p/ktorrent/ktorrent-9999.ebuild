@@ -15,7 +15,7 @@ HOMEPAGE="http://ktorrent.org/"
 #SRC_URI="http://ktorrent.org/downloads/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer +mediaplayer plasma rss +scanfolder +search +stats +upnp webinterface +zeroconf"
 

@@ -12,7 +12,7 @@ DESCRIPTION="Media player for KDE using xine and gstreamer backends."
 HOMEPAGE="http://kaffeine.sourceforge.net/"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="1"
 IUSE="debug dvb xcb encode vorbis"
 
