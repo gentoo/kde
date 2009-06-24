@@ -7,17 +7,15 @@ EAPI="2"
 JAVA_PKG_OPT_USE="java"
 inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
-MY_P=${P/_pre/-snapshot-}
 DESCRIPTION="Library that provides a nice QT interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-SRC_URI="http://hlukotvor.no-ip.org/~greg/kde/distfiles/${MY_P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="0"
 # virtuoso disabled for now
 IUSE="+clucene +dbus debug doc elibc_FreeBSD java +raptor +redland"
-S=${WORKDIR}/${PN}
 
 COMMON_DEPEND="
 	x11-libs/qt-core:4

@@ -59,7 +59,7 @@ src_configure() {
 		-DCMAKE_SKIP_RPATH=OFF
 		$(cmake-utils_use !clucene SOPRANO_DISABLE_CLUCENE_INDEX)
 		$(cmake-utils_use !dbus SOPRANO_DISABLE_DBUS)
-		$(cmake-utils_use !rapotor SOPRANO_DISABLE_RAPTOR_PARSER)
+		$(cmake-utils_use !raptor SOPRANO_DISABLE_RAPTOR_PARSER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_REDLAND_BACKEND)
 		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
 		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
