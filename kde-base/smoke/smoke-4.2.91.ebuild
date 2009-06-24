@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS="~amd64 ~x86"
-IUSE="akonadi kdevplatform +phonon qscintella qwt +semantic-desktop"
+IUSE="akonadi kdevplatform +phonon qscintilla qwt +semantic-desktop"
 # okular
 
 COMMON_DEPEND="
@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	)
 	kdevplatform? ( dev-util/kdevplatform:4 )
 	phonon? ( >=media-sound/phonon-4.4_pre[xcb] )
-	qscintella? ( x11-libs/qscintella[qt4] )
+	qscintilla? ( x11-libs/qscintilla[qt4] )
 	qwt? ( x11-libs/qwt:5 )
 	semantic-desktop? (
 		dev-libs/soprano
@@ -43,7 +43,7 @@ src_configure() {
 	local mycmakeargs="
 		$(cmake-utils_use_enable webkit QTWEBKIT_SMOKE)
 		$(cmake-utils_use_enable qwt QWT_SMOKE)
-		$(cmake-utils_use_enable qscintella QSCI_SMOKE)
+		$(cmake-utils_use_enable qscintilla QSCI_SMOKE)
 		$(cmake-utils_use_enable phonon PHONON_SMOKE)
 		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_SMOKE)
 		$(cmake-utils_use_enable semantic-desktop Nepomuk)
