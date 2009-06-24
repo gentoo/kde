@@ -17,7 +17,7 @@ media-sound/phonon
 ~kde-base/akregator-4.3.9999 **
 ~kde-base/amor-4.3.9999 **
 ~kde-base/ark-4.3.9999 **
-~kde-base/automoc
+kde-base/automoc
 ~kde-base/blinken-4.3.9999 **
 ~kde-base/bomber-4.3.9999 **
 ~kde-base/bovo-4.3.9999 **
