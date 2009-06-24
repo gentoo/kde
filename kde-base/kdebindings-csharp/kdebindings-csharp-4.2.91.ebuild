@@ -35,7 +35,7 @@ src_configure() {
 	local mycmakeargs="
 		$(cmake-utils_use_enable webkit WEBKIT_SHARP)
 		$(cmake-utils_use_enable phonon PHONON_SHARP)
-		$(cmake-utils_use_enable qscintilla QSCINTELLA_SHARP)
+		$(cmake-utils_use_enable qscintilla QSCINTILLA_SHARP)
 		$(cmake-utils_use_enable akonadi KdepimLibs)
 		$(cmake-utils_use_enable akonadi)
 	"
