@@ -11,11 +11,11 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi +phonon qscintella"
+IUSE="akonadi +phonon qscintilla"
 
 COMMON_DEPEND="
 	dev-lang/mono
-	>=kde-base/smoke-${PV}:${SLOT}[akonadi?,kdeprefix=,phonon?,qscintella?,webkit?]
+	>=kde-base/smoke-${PV}:${SLOT}[akonadi?,kdeprefix=,phonon?,qscintilla?,webkit?]
 "
 
 DEPEND="${COMMON_DEPEND}"
@@ -35,7 +35,7 @@ src_configure() {
 	local mycmakeargs="
 		$(cmake-utils_use_enable webkit WEBKIT_SHARP)
 		$(cmake-utils_use_enable phonon PHONON_SHARP)
-		$(cmake-utils_use_enable qscintella QSCINTELLA_SHARP)
+		$(cmake-utils_use_enable qscintilla QSCINTELLA_SHARP)
 		$(cmake-utils_use_enable akonadi KdepimLibs)
 		$(cmake-utils_use_enable akonadi)
 	"
@@ -44,5 +44,6 @@ src_configure() {
 
 src_compile() {
 	# Parallel builds seem broken, check later
-	kde4-meta_src_compile -j1
+	MAKEOPTS=-j1
+	kde4-meta_src_compile
 }
