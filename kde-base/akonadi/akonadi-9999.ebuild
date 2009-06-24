@@ -28,7 +28,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !kde-base/kdemaildir[-kdeprefix] )
 	kdeprefix? ( !kde-base/kdemaildir:${SLOT} )
-	>=app-office/akonadi-server-1.1[mysql]
+	>=app-office/akonadi-server-1.1.95[mysql]
 "
 
 KMEXTRACTONLY="
