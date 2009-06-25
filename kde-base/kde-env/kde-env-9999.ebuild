@@ -21,7 +21,7 @@ RDEPEND="
 		!<=kde-base/kdelibs-4.2.2-r1:4.2
 		!<=kde-base/kdelibs-4.2.70:4.3
 	)
-	kdeprefix? ( !<kde-base/kdelibs-${PV}:${SLOT} )
+	kdeprefix? ( !<=kde-base/kdelibs-4.2.70:4.3 )
 "
 
 src_unpack() {
