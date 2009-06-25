@@ -186,7 +186,7 @@ case ${KDEBASE} in
 		_pvn="-${PV}"
 
 		# Block installation of other SLOTS unless kdeprefix
-		for slot in ${KDE_SLOTS[@]}; do
+		for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 			# Block non kdeprefix ${PN} on other slots
 			if [[ ${SLOT} != ${slot} ]]; then
 				RDEPEND="${RDEPEND}
