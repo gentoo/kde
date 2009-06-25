@@ -1,0 +1,7 @@
+# ChangeLog for kde-base/lskat
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> -lskat-4.2.9999.ebuild:
+  Version removed.
+
