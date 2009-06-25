@@ -319,7 +319,6 @@ case ${OPERATION} in
 #					fi
 #				done
 #			fi
-			echangelog "Version removed." &> /dev/null
 			repoman manifest
 			git add .
 			popd &> /dev/null #go back to workdir
