@@ -14,12 +14,17 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +imagemagick iodbc kerberos ldap mono perl php python readline
+IUSE="debug +imagemagick iodbc kerberos ldap perl php python readline
 ruby wbxml"
 
 DOCS="AUTHORS ChangeLog CREDITS INSTALL NEWS README"
 
 # zeroconf support looks like broken - disabling
+# mono support fetches mono source and compiles it manually - disabling for now
+# mono? (
+#		dev-lang/mono
+#		dev-libs/boehm-gc:0
+#	)
 COMMON_DEPEND="
 	dev-libs/libxml2:2
 	>=dev-libs/openssl-0.9.7i:0
@@ -28,8 +33,7 @@ COMMON_DEPEND="
 	iodbc? ( dev-db/libiodbc:0 )
 	kerberos? ( app-crypt/mit-krb5 )
 	ldap? ( net-nds/openldap )
-	mono? ( dev-lang/mono )
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl[ithreads] )
 	php? ( dev-lang/php:5 )
 	python? ( dev-lang/python )
 	readline? ( sys-libs/readline:0 )
@@ -76,13 +80,13 @@ src_configure() {
 		$(use_with iodbc) \
 		$(use_enable kerberos krb) \
 		$(use_enable ldap openldap) \
-		$(use_enable mono) \
 		$(use_enable perl) \
 		$(use_enable php php5 ) \
 		$(use_enable python) \
 		$(use_with readline) \
 		$(use_enable ruby) \
 		$(use_enable wbxml wbxml2) \
+		--disable-mono \
 		--disable-rendezvous \
 		--disable-hslookup \
 		${myconf}
