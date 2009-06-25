@@ -278,10 +278,8 @@ case ${OPERATION} in
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
 				# we have update keywords
-				if [[ -z ${KEYWORDS} ]]; then
-					sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
-					update_package_keywords ${NEW}
-				fi
+				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
+				update_package_keywords ${NEW}
 				# update manifest and changelog
 				update_package_changelog ${EBUILD_NAME}
 				update_package_manifest
