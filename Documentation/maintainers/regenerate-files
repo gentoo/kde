@@ -23,6 +23,20 @@ if [[ -d kde-3.5.d ]]; then
 fi
 popd > /dev/null
 
+# regenerate package.use entries
+# no live, because live defaults to +kdeprefix anyway
+pushd ../package.use.unsupported/ > /dev/null
+for release in 4.2 4.3; do
+	echo -e "${HEADER}" > "kde-${release}"
+	if [[ -d "kde-${release}.d" ]]; then
+		# this sed script will only include comments, blank lines, and lines
+		# that start with "kde-base/", and add a tab followed by "kdeprefix"
+		# to the end of lines starting with "kde-base/"
+		cat "kde-${release}.d"/* | sed -n $'/^$/p;/^#/p;/^kde-base\//{s/$/\tkdeprefix/;p}' >> "kde-${release}"
+	fi
+done
+popd > /dev/null
+
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
 for release in 4.2 4.3 live; do
