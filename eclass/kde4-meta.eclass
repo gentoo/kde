@@ -397,6 +397,14 @@ kde4-meta_create_extractlists() {
 				KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
 			fi
 			;;
+		kdeutils)
+			case ${SLOT} in
+				4.3|live)
+					KMEXTRACTONLY="${KMEXTRACTONLY}
+							kdeutils-version.h"
+					;;
+			esac
+			;;
 		koffice)
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-endian.h.cmake
