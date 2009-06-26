@@ -27,6 +27,12 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/eigen2"
 
+src_prepare() {
+#fix compilation agains eigen on the PPC platform:
+        epatch "${FILESDIR}/${PN}-ppc-define.patch"
+}
+
+
 src_configure() {
 	# benchmarks (BTL) brings up damn load of external deps including fortran
 	# compiler
