@@ -409,10 +409,17 @@ kde4-meta_create_extractlists() {
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				config-endian.h.cmake
 				filters/config-filters.h.cmake
-				config-openctl.h.cmake
 				config-openexr.h.cmake
 				config-opengl.h.cmake
-				config-prefix.h.cmake"
+				config-prefix.h.cmake
+			"
+			case ${PV} in
+				2.0.*)
+					KMEXTRACTONLY="${KMEXTRACTONLY}
+						config-openctl.h.cmake
+					"
+				;;
+			esac
 			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
