@@ -37,7 +37,7 @@ COMMON_DEPEND="
 	php? ( dev-lang/php:5 )
 	python? ( dev-lang/python )
 	readline? ( sys-libs/readline:0 )
-	ruby? ( dev-lang/ruby )
+	ruby? ( dev-lang/ruby:1.8 )
 	wbxml? ( dev-libs/libwbxml:0 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -50,6 +50,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
+	"${FILESDIR}/dist/${PV}-ruby-support.patch"
 	"${FILESDIR}/dist/${PV}-use-external-zlib.patch"
 )
 
@@ -89,6 +90,7 @@ src_configure() {
 		--disable-mono \
 		--disable-rendezvous \
 		--disable-hslookup \
+		--with-pthreads \
 		${myconf}
 }
 
