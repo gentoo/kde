@@ -641,11 +641,11 @@ kde4-meta_change_cmakelists() {
 		koffice)
 			# prevent collisions
 			if [[ ${PN} != koffice-data ]]; then
+				sed -i -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
+					"${S}"/cmake/modules/CMakeLists.txt || \
+					die "${LINENO}: sed died in collision prevention section"
 				case ${PV} in
 					2.0.*)
-						sed -i -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
-							"${S}"/cmake/modules/CMakeLists.txt || \
-							die "${LINENO}: sed died in collision prevention section"
 						sed -i -n -e '1h;1!H;${g;s/install(.\+config-openexr.h.\+)//;p}' \
 							"${S}"/CMakeLists.txt || \
 							die "${LINENO}: sed died in collision prevention section"
