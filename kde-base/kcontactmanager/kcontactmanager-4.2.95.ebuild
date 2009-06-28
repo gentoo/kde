@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdepim-runtime-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

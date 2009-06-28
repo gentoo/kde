@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="kdepim"
-inherit kde4-meta
+KMNAME="kdebase-runtime"
+inherit kde4-base
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
@@ -26,8 +26,14 @@ DEPEND="
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/kdemaildir[-kdeprefix] )
-	kdeprefix? ( !kde-base/kdemaildir:${SLOT} )
+	!kdeprefix? (
+					!kde-base/kdemaildir[-kdeprefix]
+					!kde-base/akonadi[-kdeprefix]	
+				)
+	kdeprefix? (
+					!kde-base/kdemaildir:${SLOT}
+					!kde-base/akonadi:${SLOT}
+				)
 	>=app-office/akonadi-server-1.1.95[mysql]
 "
 
@@ -42,7 +48,7 @@ src_prepare() {
 			|| die "Failed to disable nepomuktag"
 	fi
 
-	kde4-meta_src_prepare
+	kde4-base_src_prepare
 }
 
 src_configure() {
@@ -60,11 +66,11 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
 
 src_install() {
-	kde4-meta_src_install
+	kde4-base_src_install
 	# colliding files with nepomuk
 	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nmo.{desktop,trig}
 	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nco.{desktop,trig}
