@@ -127,6 +127,11 @@ case ${BUILD_TYPE} in
 				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
 				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
 				;;
+			kdepim-runtime)
+				# for svn the kdepim module is not split
+				# so just override KMNAME when needed.
+				KMNAME="kdepim"
+				;;
 		esac
 		;;
 esac
