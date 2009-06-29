@@ -4,11 +4,13 @@
 
 EAPI="2"
 
-KMNAME="kdepim"
+
+KMNAME="kdepim-runtime"
+[[ ${PV} != *9999* ]] && KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 # add when libmapi becomes available with an ebuild
 #exchange
 IUSE="debug +semantic-desktop"
@@ -31,14 +33,12 @@ RDEPEND="${DEPEND}
 	>=app-office/akonadi-server-1.1.95[mysql]
 "
 
-KMEXTRACTONLY="
-	korganizer/version.h
-"
-
 src_prepare() {
+	local pref="${S}"
+	[[ ${KMNAME} != "kdepim-runtime" ]] && pref="${S}/${PN}"
 	if ! use semantic-desktop; then
 		sed -i -e "s/add_subdirectory( nepomuktag )//"\
-			akonadi/resources/CMakeLists.txt\
+			"${pref}"/resources/CMakeLists.txt\
 			|| die "Failed to disable nepomuktag"
 	fi
 
