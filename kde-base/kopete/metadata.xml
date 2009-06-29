@@ -33,6 +33,7 @@
 	<flag name="qq">enable support for the Chinese network protocol.</flag>
 	<!-- only in kde3 now, commented out in kde4 -->
 	<flag name="sms">Enable the sms sending plugin.</flag>
+	<flag name="skype">Enable Skype protocol handler (not fully functional yet).</flag>
 	<!-- commented out in kde4, not available in kde3 - uncomment this when enabled in an ebuild
 	<flag name="telepathy">Enable support for the real-time communication framework telepathy.</flag>
 	-->
