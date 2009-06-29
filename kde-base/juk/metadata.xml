@@ -3,7 +3,6 @@
 <pkgmetadata>
 <use>
 	<flag name="akode">Support for the aKode audio-decoding frame-work</flag>
-	<flag name="tunepimp">Provide MusicBrainz tagging in Juk</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>

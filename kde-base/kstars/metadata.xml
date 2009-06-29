@@ -3,8 +3,6 @@
 <pkgmetadata>
 <use>
 	<flag name="fits">Enable support for the FITS image format through cfitsio</flag>
-	<flag name="nova">Enable support for libnova.</flag>
-	<flag name="sbig">Enable support for SBIG.</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>

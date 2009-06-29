@@ -8,5 +8,5 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="KDE Tron game"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="debug"
