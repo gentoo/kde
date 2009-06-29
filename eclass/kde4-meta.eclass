@@ -55,6 +55,10 @@ case ${BUILD_TYPE} in
 		;;
 esac
 
+# akonadi fix for non-live things
+[[ ${KMNAME} = kdepim-runtime && ${BUILD_TYPE} != live ]] && \
+	KMNOMODULE="true"
+
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
