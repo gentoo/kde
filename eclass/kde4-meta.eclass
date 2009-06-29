@@ -38,6 +38,23 @@ if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
 	"
 fi
 
+# SVN wrapping for various simplifying ebuilds
+case ${BUILD_TYPE} in
+	live)
+		case ${KMNAME} in
+			extragear*|playground*)
+				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+				;;
+			kdepim-runtime)
+				# for svn the kdepim module is not split
+				# so just override KMNAME when needed.
+				KMNAME="kdepim"
+				;;
+		esac
+		;;
+esac
+
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
@@ -56,7 +73,7 @@ case ${KMNAME} in
 			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 		"
 		;;
-	kdepim)
+	kdepim|kdepim-runtime)
 		DEPEND="${DEPEND}
 			dev-libs/boost
 			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
@@ -118,23 +135,6 @@ esac
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
 debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-specific dependencies"
-
-# Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
-case ${BUILD_TYPE} in
-	live)
-		case ${KMNAME} in
-			extragear*|playground*)
-				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				;;
-			kdepim-runtime)
-				# for svn the kdepim module is not split
-				# so just override KMNAME when needed.
-				KMNAME="kdepim"
-				;;
-		esac
-		;;
-esac
 
 # @ECLASS-VARIABLE: KMNAME
 # @DESCRIPTION:
@@ -382,6 +382,33 @@ kde4-meta_create_extractlists() {
 				KMEXTRACTONLY="${KMEXTRACTONLY}
 					libkdegames"
 			fi
+			;;
+		kdepim-runtime)
+			# this is actualy the akonadi :]
+			KMEXTRACTONLY="${KMEXTRACTONLY}
+				doc/
+				kdepim-mime.xml
+				kdepim-version.h
+				akonadi-prefix.h.cmake
+				Mainpage.dox"
+			KMEXTRA="${KMEXTRA}
+				agents/
+				akonadiconsole/
+				akonadi_next/
+				clients/
+				defaultsetup/
+				kabc/
+				kcal/
+				kcm/
+				kioslave/
+				kresources/
+				libkdepim-copy/
+				migration/
+				opensync/
+				plugins/
+				resources/
+				tray/
+				xml/"
 			;;
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
