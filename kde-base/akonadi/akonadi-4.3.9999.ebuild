@@ -26,7 +26,7 @@ DEPEND="
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
-	!kdeprefix? ( 
+	!kdeprefix? (
 		!kde-base/kdemaildir[-kdeprefix]
 		!<kde-base/kdepim-kresources-4.2.95[-kdeprefix]
 	)
