@@ -4,9 +4,7 @@
 
 EAPI="2"
 
-
 KMNAME="kdepim-runtime"
-[[ ${PV} != *9999* ]] && KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
