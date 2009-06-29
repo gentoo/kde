@@ -3,6 +3,6 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name="opensync">Enables OpenSync data synchronization protocol support.</flag>
+	<!-- <flag name="opensync">Enables OpenSync data synchronization protocol support.</flag> -->
 </use>
 </pkgmetadata>

@@ -10,7 +10,7 @@ KMNAME="kdepim-runtime"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 # add when libmapi becomes available with an ebuild
 #exchange
 IUSE="debug +semantic-desktop"
