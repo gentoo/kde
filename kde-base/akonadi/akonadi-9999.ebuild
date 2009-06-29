@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdepim"
+KMNAME="kdepim-kresources"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
@@ -26,8 +26,14 @@ DEPEND="
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/kdemaildir[-kdeprefix] )
-	kdeprefix? ( !kde-base/kdemaildir:${SLOT} )
+	!kdeprefix? ( 
+		!kde-base/kdemaildir[-kdeprefix]
+		!<kde-base/kdepim-kresources-4.2.95[-kderprefix]
+	)
+	kdeprefix? (
+		!kde-base/kdemaildir:${SLOT}
+		!<kde-base/kdepim-kresources-4.2.95:${SLOT}[kderprefix]
+	)
 	>=app-office/akonadi-server-1.1.95[mysql]
 "
 
