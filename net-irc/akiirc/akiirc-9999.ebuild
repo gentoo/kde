@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE4 IRC development library."
 HOMEPAGE="http://www.kde.org/"
 
-LICENSE="GPL-2"
+LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
