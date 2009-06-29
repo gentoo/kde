@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdepim-runtime"
+KMNAME="kdebase-runtime"
 inherit kde4-base
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
