@@ -18,3 +18,10 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
+
+pkg_postinst() {
+	elog
+	elog "After update from version older than 2.3.0 please run:"
+	elog "    nitrogen-convert-exceptions"
+	elog "In order to get all configuration moved to new format."
+}
