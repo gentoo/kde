@@ -1,8 +1,0 @@
---- knetworkconf/backends/CMakeLists.txt.orig   2009-02-27 10:22:42.000000000 -0600
-+++ knetworkconf/backends/CMakeLists.txt        2009-02-27 10:22:58.000000000 -0600
-@@ -1,4 +1,4 @@
--
-+set(scriptsdir "${DATA_INSTALL_DIR}/knetworkconf/backends")
-
-
- ########### install files ###############
