@@ -82,6 +82,6 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 
-	newmenu "${S}/${PN}.desktop" "${PN}.desktop" || die "domenu failed"
-	doicon "${S}/scribus/icons/scribus.png" || die "doicon failed"
+	domenu "${S}/${PN}.desktop" || die "domenu failed"
+	doicon "${S}/icons/scribus.png" || die "doicon failed"
 }
