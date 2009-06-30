@@ -15,13 +15,16 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/99551-${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE="debug"
 
 pkg_postinst() {
-	elog
+	kde4-base_pkg_postinst
+
+	echo
 	elog "After update from version older than 2.3.0 please run:"
 	elog "    nitrogen-convert-exceptions"
 	elog "In order to get all configuration moved to new format."
+	echo
 }
