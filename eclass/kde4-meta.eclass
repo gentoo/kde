@@ -13,21 +13,20 @@
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
 # SVN wrapping for various simplifying ebuilds
-case ${BUILD_TYPE} in
-	live)
-		case ${KMNAME} in
-			extragear*|playground*)
-				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				;;
-			kdepim-runtime)
-				# for svn the kdepim module is not split
-				# so just override KMNAME when needed.
-				KMNAME="kdepim"
-				;;
-		esac
-		;;
-esac
+# before inheriting so dont use BUILD_TYPE
+if [[ ${SLOT} = live || ${PV} = *9999* ]]; then
+	case ${KMNAME} in
+		extragear*|playground*)
+			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+			ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+			;;
+		kdepim-runtime)
+			# for svn the kdepim module is not split
+			# so just override KMNAME when needed.
+			KMNAME="kdepim"
+			;;
+	esac
+fi
 
 inherit kde4-base versionator
 
