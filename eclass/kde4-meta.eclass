@@ -12,6 +12,23 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
+# SVN wrapping for various simplifying ebuilds
+case ${BUILD_TYPE} in
+	live)
+		case ${KMNAME} in
+			extragear*|playground*)
+				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+				;;
+			kdepim-runtime)
+				# for svn the kdepim module is not split
+				# so just override KMNAME when needed.
+				KMNAME="kdepim"
+				;;
+		esac
+		;;
+esac
+
 inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
@@ -37,23 +54,6 @@ if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
 		handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
 	"
 fi
-
-# SVN wrapping for various simplifying ebuilds
-case ${BUILD_TYPE} in
-	live)
-		case ${KMNAME} in
-			extragear*|playground*)
-				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				;;
-			kdepim-runtime)
-				# for svn the kdepim module is not split
-				# so just override KMNAME when needed.
-				KMNAME="kdepim"
-				;;
-		esac
-		;;
-esac
 
 # akonadi fix for non-live things
 [[ ${KMNAME} = kdepim-runtime && ${BUILD_TYPE} != live ]] && \
