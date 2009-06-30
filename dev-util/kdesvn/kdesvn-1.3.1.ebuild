@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
 	mycmakeargs="${mycmakeargs}
-		-DLIB_INSTALL_DIR=${KDEDIR}/$(get_libdir)"
+		-DLIB_INSTALL_DIR=${PREFIX}/$(get_libdir)"
 
 	kde4-base_src_configure
 }
@@ -37,7 +37,7 @@ src_install() {
 	kde4-base_src_install
 
 	# Remove kio svn service types - provided by kdesdk-kioslaves
-	rm -f "${D}/${KDEDIR}"/share/kde4/services/svn{,+ssh,+https,+file,+http}.protocol
+	rm -f "${D}/${PREFIX}"/share/kde4/services/svn{,+ssh,+https,+file,+http}.protocol
 }
 
 pkg_postinst() {
