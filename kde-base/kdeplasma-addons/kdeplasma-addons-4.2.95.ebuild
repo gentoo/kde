@@ -17,7 +17,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug desktopglobe exif semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
-DEPEND="
+COMMON_DEPEND="
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?,semantic-desktop?]
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
@@ -26,9 +26,12 @@ DEPEND="
 	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
+DEPEND="${COMMON_DEPEND}
+	dev-cpp/eigen2
+"
 # BLOCKS:
 # kdebase-data: some svg icons moved from data directly here.
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!kdeprefix? ( !<kde-base/kdebase-data-4.2.88[-kdeprefix] )
 	kdeprefix? ( !<kde-base/kdebase-data-4.2.88:${SLOT}[kdeprefix] )
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
