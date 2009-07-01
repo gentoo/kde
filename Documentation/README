@@ -1,7 +1,11 @@
 Hi. Welcome to the kde overlay.
 
 This overlay is a testing ground for the kde team. This is where
-we'll test new ideas before applying them in the tree.
+we'll test new ideas before applying them in the tree. It is also
+the main repository for KDE live ebuilds and weekly snapshots.
+
+Installation instructions (and a full Gentoo KDE guide) can be
+found at http://kde.gentoo.org/kde4-guide.xml
 
 eix stuff:
 we all know that eix takes a long time to complete.
