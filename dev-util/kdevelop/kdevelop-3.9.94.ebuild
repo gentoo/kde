@@ -19,8 +19,8 @@ IUSE="+cmake +cxx debug +qmake"
 DEPEND="
 	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
 	>=kde-base/ksysguard-${KDE_MINIMAL}
-	>=x11-libs/qt-assistant-4.4:4
 	>=kde-base/libkworkspace-${KDE_MINIMAL}
+	>=x11-libs/qt-assistant-4.4:4
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
@@ -48,8 +48,8 @@ src_configure() {
 src_install() {
 	kde4-base_src_install
 
-	rm "${D}/${KDEDIR}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
-	rm "${D}/${KDEDIR}"/share/icons/hicolor/22x22/actions/output_win.png
+	rm "${D}/${PREFIX}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
+	rm "${D}/${PREFIX}"/share/icons/hicolor/22x22/actions/output_win.png
 }
 
 pkg_postinst() {
