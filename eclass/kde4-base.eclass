@@ -239,7 +239,6 @@ fi
 unset _pv _pvn
 kdedepend="
 	dev-util/pkgconfig
-	kernel_linux? ( >=sys-apps/sandbox-1.3.2 )
 "
 case ${KDE_REQUIRED} in
 	always)
