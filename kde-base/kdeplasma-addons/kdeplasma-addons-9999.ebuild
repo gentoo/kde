@@ -27,7 +27,7 @@ COMMON_DEPEND="
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-cpp/eigen2
+	dev-cpp/eigen:2
 "
 # BLOCKS:
 # kdebase-data: some svg icons moved from data directly here.
