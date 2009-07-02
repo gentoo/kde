@@ -19,6 +19,8 @@ ruby wbxml"
 
 DOCS="AUTHORS ChangeLog CREDITS INSTALL NEWS README"
 
+# perl currently broken - disabling
+# perl? ( dev-lang/perl[ithreads] )
 # zeroconf support looks like broken - disabling
 # mono support fetches mono source and compiles it manually - disabling for now
 # mono? (
@@ -33,7 +35,6 @@ COMMON_DEPEND="
 	iodbc? ( dev-db/libiodbc:0 )
 	kerberos? ( app-crypt/mit-krb5 )
 	ldap? ( net-nds/openldap )
-	perl? ( dev-lang/perl[ithreads] )
 	php? ( dev-lang/php:5 )
 	python? ( dev-lang/python )
 	readline? ( sys-libs/readline:0 )
@@ -81,12 +82,12 @@ src_configure() {
 		$(use_with iodbc) \
 		$(use_enable kerberos krb) \
 		$(use_enable ldap openldap) \
-		$(use_enable perl) \
 		$(use_enable php php5 ) \
 		$(use_enable python) \
 		$(use_with readline) \
 		$(use_enable ruby) \
 		$(use_enable wbxml wbxml2) \
+		--disable-perl \
 		--disable-mono \
 		--disable-rendezvous \
 		--disable-hslookup \
