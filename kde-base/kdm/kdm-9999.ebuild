@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="kdebase-workspace"
-inherit kde4-meta
+inherit kde4-meta flag-o-matic
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"
 KEYWORDS=""
@@ -41,6 +41,10 @@ KMEXTRA="
 PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
 
 src_configure() {
+	# genkdmconf breaks with -O3
+	# last checked in 4.2.95
+	replace-flags -O3 -O2
+
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use kerberos KDE4_KRB5AUTH)
 		$(cmake-utils_use_with pam)
