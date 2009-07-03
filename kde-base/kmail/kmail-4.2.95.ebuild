@@ -45,3 +45,9 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+src_compile() {
+	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
+	# Upstream as KDE Bug #198807
+	kde4-meta_src_compile -j1
+}
