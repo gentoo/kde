@@ -1,0 +1,249 @@
+diff -ru ../old/appsrc/ODS-Wiki/plugin/Makefile.am ./appsrc/ODS-Wiki/plugin/Makefile.am
+--- ../old/appsrc/ODS-Wiki/plugin/Makefile.am	2008-09-17 10:40:13.000000000 +0200
++++ ./appsrc/ODS-Wiki/plugin/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -36,7 +36,6 @@
+ wikiv_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ wikiv_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+ wikiv_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+-wikiv_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib
+ 
+ wikiv_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ wikiv_la_LDFLAGS = $(LTFLAGS) -export-symbols wikiv.exp
+@@ -54,7 +54,6 @@
+ mediawiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ mediawiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+ mediawiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+-mediawiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib
+ 
+ mediawiki_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ mediawiki_la_LDFLAGS = $(LTFLAGS) -export-symbols mediawiki.exp
+@@ -72,7 +72,6 @@
+ creolewiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ creolewiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+ creolewiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+-creolewiki_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib
+ 
+ creolewiki_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ creolewiki_la_LDFLAGS = $(LTFLAGS) -export-symbols creolewiki.exp
+diff -ru ../old/binsrc/driver/Makefile.am ./binsrc/driver/Makefile.am
+--- ../old/binsrc/driver/Makefile.am	2007-08-24 14:31:23.000000000 +0200
++++ ./binsrc/driver/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -53,14 +53,12 @@
+         $(top_srcdir)/libsrc/Thread/libthrs.la \
+         $(top_srcdir)/libsrc/Dk/libdk1t.la \
+ 	$(top_srcdir)/libsrc/util/libutil.la \
+-	$(top_srcdir)/libsrc/zlib/libz.la \
+ 	$(clntlibs)
+ 
+ VIRTODBC_PTHREAD_LIBS = \
+         $(top_srcdir)/libsrc/Thread/libthrp.la \
+         $(top_srcdir)/libsrc/Dk/libdk1t.la \
+ 	$(top_srcdir)/libsrc/util/libutil.la \
+-	$(top_srcdir)/libsrc/zlib/libz.la \
+ 	$(clntlibs) \
+ 	@LIBTHR@
+ 
+diff -ru ../old/binsrc/maildrop/Makefile.am ./binsrc/maildrop/Makefile.am
+--- ../old/binsrc/maildrop/Makefile.am	2008-07-10 17:12:24.000000000 +0200
++++ ./binsrc/maildrop/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -47,7 +47,6 @@
+ 	$(top_builddir)/libsrc/Wi/libwic.la \
+ 	$(top_builddir)/libsrc/Dk/libdk1t.la \
+ 	$(top_builddir)/libsrc/Thread/libthrs.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	@clntlibs@
+ 
+@@ -70,7 +69,6 @@
+ 	$(top_srcdir)/libsrc/util/libutil.la \
+ 	$(top_builddir)/libsrc/Dk/libdk1t.la \
+ 	$(top_builddir)/libsrc/Thread/libthrs.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	@iodbc_LDFLAGS@ 
+ 
+diff -ru ../old/binsrc/samples/hslookup/Makefile.am ./binsrc/samples/hslookup/Makefile.am
+--- ../old/binsrc/samples/hslookup/Makefile.am	2008-03-26 14:07:11.000000000 +0100
++++ ./binsrc/samples/hslookup/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -34,7 +34,6 @@
+ hslookup_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ hslookup_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+ hslookup_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+-hslookup_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib 
+ hslookup_la_CFLAGS  += $(HSL_CPPFLAGS)
+ hslookup_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ hslookup_la_LDFLAGS = -module -avoid-version -export-dynamic -export-symbols hslookup.exp -no-undefined
+diff -ru ../old/binsrc/samples/image_magick/Makefile.am ./binsrc/samples/image_magick/Makefile.am
+--- ../old/binsrc/samples/image_magick/Makefile.am	2008-03-14 00:23:26.000000000 +0100
++++ ./binsrc/samples/image_magick/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -34,7 +34,6 @@
+ im_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ im_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+ im_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+-im_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib 
+ im_la_CFLAGS  += $(IM_CPPFLAGS)
+ im_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ im_la_LDFLAGS = -module -avoid-version -export-dynamic -export-symbols im.exp -no-undefined
+diff -ru ../old/binsrc/samples/wbxml2/Makefile.am ./binsrc/samples/wbxml2/Makefile.am
+--- ../old/binsrc/samples/wbxml2/Makefile.am	2007-09-23 19:34:31.000000000 +0200
++++ ./binsrc/samples/wbxml2/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -39,7 +39,6 @@
+ wbxml2_la_CFLAGS  += -I$(top_srcdir)/libsrc/odbcsdk/include 
+ wbxml2_la_CFLAGS  += -I$(top_srcdir)/libsrc/plugin 
+ wbxml2_la_CFLAGS  += -I$(top_srcdir)/libsrc/langfunc 
+-wbxml2_la_CFLAGS  += -I$(top_srcdir)/libsrc/zlib 
+ wbxml2_la_CFLAGS  += $(WBXML2_CFLAGS)
+ wbxml2_la_CFLAGS  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ wbxml2_la_LDFLAGS = -module -avoid-version -export-dynamic -no-undefined -export-symbols wbxml2.exp
+diff -ru ../old/binsrc/tests/Makefile.am ./binsrc/tests/Makefile.am
+--- ../old/binsrc/tests/Makefile.am	2008-08-07 16:07:24.000000000 +0200
++++ ./binsrc/tests/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -47,7 +47,6 @@
+ 	$(top_builddir)/libsrc/Xml.new/libxml.la \
+ 	$(top_builddir)/libsrc/plugin/libplugin.la \
+ 	$(top_builddir)/libsrc/langfunc/liblangfunc.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/Tidy/libtidy.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	@srvrlibs@ 
+@@ -56,7 +55,6 @@
+ 	$(top_builddir)/libsrc/Wi/libwic.la \
+ 	$(top_builddir)/libsrc/Dk/libdk1t.la \
+ 	$(top_builddir)/libsrc/Thread/libthrs.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	@clntlibs@
+ 
+diff -ru ../old/binsrc/virtuoso/Makefile.am ./binsrc/virtuoso/Makefile.am
+--- ../old/binsrc/virtuoso/Makefile.am	2008-07-15 14:54:09.000000000 +0200
++++ ./binsrc/virtuoso/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -59,7 +59,6 @@
+ 	$(top_builddir)/libsrc/Xml.new/libxml.la \
+ 	$(top_builddir)/libsrc/plugin/libplugin.la \
+ 	$(top_builddir)/libsrc/langfunc/liblangfunc.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/Tidy/libtidy.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	$(LIBMONO) \
+@@ -72,7 +71,6 @@
+ 	$(top_builddir)/libsrc/Xml.new/libxml.la \
+ 	$(top_builddir)/libsrc/plugin/libplugin.la \
+ 	$(top_builddir)/libsrc/langfunc/liblangfunc.la \
+-	$(top_builddir)/libsrc/zlib/libz.la \
+ 	$(top_builddir)/libsrc/Tidy/libtidy.la \
+ 	$(top_builddir)/libsrc/util/libutil.la \
+ 	@srvrlibs@ \
+diff -ru ../old/configure.in ./configure.in
+--- ../old/configure.in	2009-04-21 18:28:32.000000000 +0200
++++ ./configure.in	2009-07-02 07:24:11.000000000 +0200
+@@ -484,6 +484,7 @@
+ AC_CHECK_LIB(socket, socket, [VLIBS="-lsocket $VLIBS"], [], $VLIBS) # SVR4 sockets
+ fi
+ AC_CHECK_LIB(m, cos, [VLIBS="-lm $VLIBS"]) # complex math
++AC_CHECK_LIB(z, main)
+ 
+ ##########################################################################
+ ##									##
+@@ -606,18 +607,6 @@
+ ##									##
+ ##########################################################################
+ 
+-AC_ARG_WITH(debug, [dnl
+-AC_HELP_STRING([--with-debug], [debugging code])dnl
+-], [ with_debug="$withval" ],
+-   [ with_debug="no" ])
+-if test "x$with_debug" = "xyes"; then
+-    CCOPT="-g"
+-    AM_LDFLAGS="-g"
+-else
+-    CCOPT=""
+-    AM_LDFLAGS="-s"
+-fi
+-
+ AC_CHECKING([default compiler values])
+ if eval "${CC-cc} $CFLAGS $AM_LDFLAGS -o binsrc/config/ccdefs binsrc/config/ccdefs.c" ; then
+     eval `binsrc/config/ccdefs`
+@@ -2464,7 +2453,6 @@
+ 	libsrc/util/Makefile
+ 	libsrc/Wi/Makefile
+ 	libsrc/Xml.new/Makefile
+-	libsrc/zlib/Makefile
+ 	appsrc/Makefile
+ 	appsrc/ODS-Framework/Makefile
+ 	appsrc/ODS-Addressbook/Makefile
+diff -ru ../old/libsrc/Makefile.am ./libsrc/Makefile.am
+--- ../old/libsrc/Makefile.am	2007-12-11 14:47:44.000000000 +0100
++++ ./libsrc/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -19,7 +19,7 @@
+ #  
+ #  
+ 
+-SUBDIRS = util zlib odbcsdk Dk Thread langfunc Wi plugin Tidy Xml.new JDBCDriverType4
++SUBDIRS = util odbcsdk Dk Thread langfunc Wi plugin Tidy Xml.new JDBCDriverType4
+ 
+ noinst_HEADERS = Dk.h libutil.h
+ 
+diff -ru ../old/libsrc/plugin/Makefile.am ./libsrc/plugin/Makefile.am
+--- ../old/libsrc/plugin/Makefile.am	2009-04-22 12:32:59.000000000 +0200
++++ ./libsrc/plugin/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -29,7 +29,6 @@
+ base_plugin_cflags  += -D_GNU_SOURCE -DGLOBALREF=extern -D_USRDLL
+ base_plugin_cflags  += -I$(top_srcdir)/libsrc
+ base_plugin_cflags  += -I$(top_srcdir)/libsrc/Dk 
+-base_plugin_cflags  += -I$(top_srcdir)/libsrc/zlib 
+ base_plugin_cflags  += -I$(top_srcdir)/libsrc/langfunc 
+ base_plugin_cflags  += -I$(top_srcdir)/libsrc/plugin 
+ base_plugin_cflags  += -I$(top_srcdir)/libsrc/Tidy 
+diff -ru ../old/libsrc/Wi/bif_file.c ./libsrc/Wi/bif_file.c
+--- ../old/libsrc/Wi/bif_file.c	2009-04-19 23:48:55.000000000 +0200
++++ ./libsrc/Wi/bif_file.c	2009-07-02 07:23:27.000000000 +0200
+@@ -57,7 +57,6 @@
+ #endif
+ 
+ #include "zlib.h"
+-#include "zutil.h"
+ #include "srvmultibyte.h"
+ 
+ #define FS_MAX_STRING	(10L * 1024L * 1024L)	/* allow files up to 10 MB */
+@@ -4411,7 +4410,7 @@
+   level = 6;
+ 
+   err = deflateInit2 (&(s->stream), level,
+-      Z_DEFLATED, -MAX_WBITS, DEF_MEM_LEVEL, strategy);
++      Z_DEFLATED, -MAX_WBITS, 9, strategy);
+ 
+   s->stream.next_out = s->outbuf = (Byte *) dk_alloc (Z_BUFSIZE);
+   if (err != Z_OK || s->outbuf == Z_NULL)
+diff -ru ../old/libsrc/Wi/Makefile.am ./libsrc/Wi/Makefile.am
+--- ../old/libsrc/Wi/Makefile.am	2009-04-19 23:48:54.000000000 +0200
++++ ./libsrc/Wi/Makefile.am	2009-07-02 07:23:27.000000000 +0200
+@@ -450,7 +450,6 @@
+ libwi_base_la_cflags  = @VIRT_AM_CFLAGS@
+ libwi_base_la_cflags  += -I$(top_srcdir)/libsrc
+ libwi_base_la_cflags  += -I$(top_srcdir)/libsrc/Dk
+-libwi_base_la_cflags  += -I$(top_srcdir)/libsrc/zlib
+ libwi_base_la_cflags  += -I$(srcdir)
+ libwi_base_la_cflags  += -I$(top_srcdir)/libsrc/langfunc
+ libwi_base_la_cflags  += -I$(top_srcdir)/libsrc/plugin
+diff -ru ../old/appsrc/Makefile.am ./appsrc/Makefile.am
+--- ../old/appsrc/Makefile.am	2007-05-07 15:23:31.000000000 +0200
++++ ./appsrc/Makefile.am	2009-07-04 22:45:53.000000000 +0200
+@@ -19,17 +19,4 @@
+ #  
+ #  
+ 
+-SUBDIRS = \
+-	ODS-Framework \
+-	ODS-Addressbook \
+-	ODS-Blog \
+-	ODS-Bookmark \
+-	ODS-Briefcase \
+-	ODS-Calendar \
+-	ODS-Community \
+-	ODS-Discussion \
+-	ODS-FeedManager \
+-	ODS-Gallery \
+-	ODS-Polls \
+-	ODS-WebMail \
+-	ODS-Wiki
++SUBDIRS = ODS-Framework ODS-Addressbook ODS-Blog ODS-Bookmark ODS-Briefcase ODS-Calendar ODS-Community ODS-Discussion ODS-FeedManager ODS-Gallery ODS-Polls ODS-WebMail ODS-Wiki

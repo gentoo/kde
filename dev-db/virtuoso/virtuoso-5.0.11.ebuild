@@ -12,21 +12,15 @@ HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +imagemagick iodbc kerberos ldap perl php python readline
-ruby wbxml"
-
-DOCS="AUTHORS ChangeLog CREDITS INSTALL NEWS README"
+SLOT="0"
+IUSE="imagemagick iodbc kerberos ldap perl php python readline ruby wbxml"
 
 # perl currently broken - disabling
 # perl? ( dev-lang/perl[ithreads] )
 # zeroconf support looks like broken - disabling
 # mono support fetches mono source and compiles it manually - disabling for now
-# mono? (
-#		dev-lang/mono
-#		dev-libs/boehm-gc:0
-#	)
+#	mono? ( dev-lang/mono )
 COMMON_DEPEND="
 	dev-libs/libxml2:2
 	>=dev-libs/openssl-0.9.7i:0
@@ -97,6 +91,8 @@ src_configure() {
 
 src_install() {
 	base_src_install
+
+	dodoc AUTHORS ChangeLog CREDITS INSTALL NEWS README || die
 
 	keepdir /var/lib/virtuoso/db
 }
