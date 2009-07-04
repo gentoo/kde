@@ -11,14 +11,8 @@ DESCRIPTION="Akonadi based addressbook for KDE"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
-"
-RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="
-	akonadi/akonadi_next
-	akonadi/kabc/
 "
 
 src_prepare() {

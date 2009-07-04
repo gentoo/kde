@@ -13,14 +13,12 @@ IUSE="debug"
 KEYWORDS=""
 
 DEPEND="
-	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi/kcal/
 	kaddressbook/common/
 	kmail/
 	knotes/

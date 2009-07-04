@@ -13,14 +13,12 @@ IUSE="debug"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 
 DEPEND="
-	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi/kcal/
 	kaddressbook/common/
 	kmail/
 	knotes/
