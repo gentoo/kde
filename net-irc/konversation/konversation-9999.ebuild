@@ -11,7 +11,7 @@ DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="+crypt debug"
 
