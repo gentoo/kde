@@ -12,22 +12,6 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
-# SVN wrapping for various simplifying ebuilds
-# before inheriting so dont use BUILD_TYPE
-if [[ ${SLOT} = live || ${PV} = *9999* ]]; then
-	case ${KMNAME} in
-		extragear*|playground*)
-			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-			ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-			;;
-		kdepim-runtime)
-			# for svn the kdepim module is not split
-			# so just override KMNAME when needed.
-			KMNAME="kdepim"
-			;;
-	esac
-fi
-
 inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
@@ -53,10 +37,6 @@ if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
 		handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
 	"
 fi
-
-# akonadi fix for non-live things
-[[ ${KMNAME} = kdepim-runtime && ${BUILD_TYPE} != live ]] && \
-	KMNOMODULE="true"
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
@@ -138,6 +118,18 @@ esac
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
 debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-specific dependencies"
+
+# Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
+case ${BUILD_TYPE} in
+	live)
+		case ${KMNAME} in
+			extragear*|playground*)
+				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+				;;
+		esac
+		;;
+esac
 
 # @ECLASS-VARIABLE: KMNAME
 # @DESCRIPTION:

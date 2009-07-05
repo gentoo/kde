@@ -21,7 +21,7 @@ KDE4 (kde-testing) policies:
 
  - never use -j1 in ebuilds. Always report the issue upstream and wait for the resolution or fix yourself
 
- - doubleckeck the handbook useflag in your package. For kde4-meta style ebuilds - look for doc/${PN}
+ - double check the handbook useflag in your package. For kde4-meta style ebuilds - look for doc/${PN}
    or similar directory. Sometimes application handbooks are not trivial to assign (for example
    kde-base/khelpcenter ebuild), in such case ask Gentoo KDE team/HT members or contact upstream.
 

@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+KDE_LINGUAS="cs de es fr it nl pl ru tr"
 inherit kde4-base
 
 DESCRIPTION="LilyPond sheet music editor for KDE4"
@@ -23,3 +24,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-base/okular-${KDE_MINIMAL}
 "
+
+src_prepare() {
+	kde4-base_src_prepare
+	# force translation update
+	rm po/*.mo
+}

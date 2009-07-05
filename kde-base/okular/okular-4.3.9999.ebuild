@@ -16,7 +16,7 @@ DEPEND="
 	sys-libs/zlib
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2 )
-	djvu? ( app-text/djvu )
+	djvu? ( app-text/djview4 )
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( media-libs/jpeg )
 	pdf? ( >=virtual/poppler-qt4-0.8.5 )
