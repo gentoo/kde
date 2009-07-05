@@ -68,6 +68,7 @@ COMMONDEPEND="
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
 		app-crypt/qca:2
+		net-dns/libidn
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
