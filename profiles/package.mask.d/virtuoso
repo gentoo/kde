@@ -1,3 +1,7 @@
 # Maciej Mrozowski (reavertm) <reavertm@poczta.fm> (26 Feb 2009)
-# ebuild is not yet ready
+# ebuilds not yet ready
 dev-db/virtuoso
+dev-db/virtuoso-jdbc
+dev-db/virtuoso-odbc
+dev-db/virtuoso-server
+dev-db/virtuoso-vad-bpel
