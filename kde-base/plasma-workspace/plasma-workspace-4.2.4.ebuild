@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/plasma-workspace/plasma-workspace-4.2.4.ebuild,v 1.2 2009/06/04 14:27:19 hwoarang Exp $
 
 EAPI="2"
 
@@ -9,7 +9,7 @@ KMMODULE="plasma"
 inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook google-gadgets python rss xcomposite xinerama"
 
 COMMONDEPEND="
@@ -25,7 +25,7 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	google-gadgets? ( >=x11-misc/google-gadgets-0.10.5[qt4] )
 	python? (
-		>=dev-python/PyQt4-4.4.0
+		>=dev-python/PyQt4-4.4.0[X]
 		>=dev-python/sip-4.7.1
 		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
@@ -41,7 +41,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kde-menu-icons-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 "
 
@@ -59,6 +59,20 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	if ! use xcomposite; then
+		# Add David Nolden (zwabel) experimental fake transparency patch
+		echo
+		ewarn "Enabling experimental fake transparency support."
+		ewarn "There are known issues with certain versions of Qt."
+		ewarn "Do not report any bugs."
+		echo
+		epatch "${FILESDIR}/${PN}-fake-panel-transparency.patch"
+	fi
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

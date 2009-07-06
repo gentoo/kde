@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug +handbook google-gadgets python rss xcomposite xinerama"
+IUSE="debug +handbook google-gadgets python rss xinerama"
 
 COMMONDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
@@ -25,7 +25,7 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	google-gadgets? ( >=x11-misc/google-gadgets-0.10.5[qt4] )
 	python? (
-		>=dev-python/PyQt4-4.4.0
+		>=dev-python/PyQt4-4.4.0[X]
 		>=dev-python/sip-4.7.1
 		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
