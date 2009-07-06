@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/powerdevil/powerdevil-4.2.4.ebuild,v 1.1 2009/06/04 13:50:56 alexxy Exp $
 
 EAPI="2"
 

@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE="debug"
 
 COMMONDEPEND="
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXScrnSaver
 "
