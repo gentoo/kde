@@ -11,7 +11,3 @@ inherit kde4-meta
 DESCRIPTION="Notification library"
 KEYWORDS=""
 IUSE="debug"
-
-RDEPEND="
-	!=kde-base/plasma-workspace-9999[kdeprefix=]
-"
