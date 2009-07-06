@@ -4,10 +4,9 @@
 
 EAPI="2"
 
-#inherit virtuoso java-pkg-opt-2
 inherit virtuoso
 
-DESCRIPTION="ODBC driver for OpenLink Virtuoso"
+DESCRIPTION="ODBC driver for OpenLink Virtuoso Open-Source Edition"
 
 KEYWORDS="~amd64 ~x86"
 IUSE="+iodbc static-libs"
@@ -49,23 +48,3 @@ src_install() {
 		done
 	fi
 }
-
-#DEPEND="
-#	java? ( >=virtual/jdk-1.6.0 )
-#"
-#RDEPEND="
-	#java? ( >=virtual/jre-1.6.0 )
-#"
-
-#pkg_setup() {
-#	use java && VOS_EXTRACT="libsrc/JDBCDriverType4 ${VOS_EXTRACT}"
-#}
-
-#src_prepare() {
-#	java-pkg-opt-2_src_prepare
-#	virtuoso_src_prepare
-#}
-
-#src_configure() {
-#	use java && myconf="${myconf} --with-jdk4=$(java-config-2 -O)"
-#}

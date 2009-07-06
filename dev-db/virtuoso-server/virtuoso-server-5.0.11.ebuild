@@ -14,7 +14,7 @@ IUSE="+iodbc kerberos ldap readline static-libs"
 # zeroconf support looks like broken - disabling
 # mono support fetches mono source and compiles it manually - disabling for now
 # mono? ( dev-lang/mono )
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/libxml2:2
 	>=dev-libs/openssl-0.9.7i:0
 	sys-libs/zlib:0
@@ -23,9 +23,12 @@ RDEPEND="
 	ldap? ( net-nds/openldap )
 	readline? ( sys-libs/readline:0 )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=sys-devel/bison-2.3
 	>=sys-devel/flex-2.5.33
+"
+RDEPEND="${COMMON_DEPEND}
+	>=dev-db/virtuoso-odbc-${PV}:${SLOT}
 "
 
 VOS_EXTRACT="

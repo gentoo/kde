@@ -71,7 +71,6 @@ src_configure() {
 		--with-layout=gentoo \
 		--localstatedir=/var \
 		--program-transform-name="s/isql/isql-v/" \
-		$(use_with debug) \
 		$(use_enable imagemagick) \
 		$(use_with iodbc) \
 		$(use_enable kerberos krb) \

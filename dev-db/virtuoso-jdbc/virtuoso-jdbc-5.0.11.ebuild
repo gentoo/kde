@@ -6,16 +6,16 @@ EAPI="2"
 
 inherit virtuoso java-pkg-2
 
-DESCRIPTION="ODBC driver for OpenLink Virtuoso"
+DESCRIPTION="JDBC driver for OpenLink Virtuoso Open-Source Edition"
 
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	java? ( >=virtual/jdk-1.6.0 )
+	>=virtual/jdk-1.6.0
 "
 RDEPEND="
-	java? ( >=virtual/jre-1.6.0 )
+	>=virtual/jre-1.6.0
 "
 
 VOS_EXTRACT="
@@ -23,7 +23,7 @@ VOS_EXTRACT="
 "
 
 src_prepare() {
-	java-pkg-opt-2_src_prepare
+	java-pkg-2_src_prepare
 	virtuoso_src_prepare
 }
 
