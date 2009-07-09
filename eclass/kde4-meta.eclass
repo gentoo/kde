@@ -255,7 +255,7 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.2.85|4.2.90|4.2.95)
+			4.2.85|4.2.90|4.2.95|4.2.96)
 				# block for normally packed upstream unstable snapshots
 				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
 				postfix="bz2"
@@ -271,7 +271,7 @@ kde4-meta_src_extract() {
 		esac
 		case ${KMNAME} in
 			kdebase-apps)
-				# kdebase/apps -> kdebasa-apps
+				# kdebase/apps -> kdebase-apps
 				tarball="kdebase-${PV}.tar.${postfix}"
 				# Go one level deeper for kdebase-apps in tarballs
 				moduleprefix=apps/
@@ -283,7 +283,7 @@ kde4-meta_src_extract() {
 				;;
 		esac
 
-		# Full patch to source tarball
+		# Full path to source tarball
 		tarfile="${DISTDIR}/${tarball}"
 
 		# Detect real toplevel dir from tarball name - it will be used upon extraction
@@ -379,7 +379,7 @@ kde4-meta_create_extractlists() {
 			fi
 			;;
 		kdepim-runtime)
-			# this is actualy the akonadi :]
+			# this is actually the akonadi :]
 			KMEXTRACTONLY="${KMEXTRACTONLY}
 				doc/
 				kdepim-mime.xml
@@ -637,7 +637,7 @@ kde4-meta_change_cmakelists() {
 			if [[ ${PN} != libkworkspace ]]; then
 				sed -i \
 					-e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT	section"
+					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
 			fi
 			;;
 		kdebase-runtime)
@@ -744,7 +744,7 @@ kde4-meta_src_install() {
 # @FUNCTION: kde4-meta_src_make_doc
 # @DESCRIPTION:
 # This function searches in ${S}/${KMMODULE},
-# and tries to install "AUTHORS ChangeLog* README* NEWS todo" if these files exist.
+# and tries to install "AUTHORS ChangeLog* README* NEWS TODO" if these files exist.
 kde4-meta_src_make_doc() {
 	debug-print-function ${FUNCNAME} "$@"
 

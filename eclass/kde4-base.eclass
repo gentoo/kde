@@ -61,11 +61,11 @@ fi
 
 # @ECLASS-VARIABLE: KDE_MINIMAL
 # @DESCRIPTION:
-# This wariable is used when KDE_REQUIRED is set, to specify required KDE minimal
+# This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
 # version for apps to work. Currently defaults to 4.2
 # One may override this variable to raise version requirements.
 # For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
-# Note that for kde-base packages is fixed to ${SLOT}.
+# Note that it is fixed to ${SLOT} for kde-base packages.
 KDE_MINIMAL="${KDE_MINIMAL:-4.2}"
 
 # Fallback behaviour (for now)
@@ -355,7 +355,7 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.2.85|4.2.90|4.2.95)
+						4.2.85|4.2.90|4.2.95|4.2.96)
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
@@ -386,7 +386,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # @DESCRIPTION:
 # Set the installation PREFIX for non kde-base applications. It defaults to /usr.
 # kde-base packages go into KDE4 installation directory (KDEDIR) by default.
-# No matter the PREFIX, package will be built agains KDE installed in KDEDIR.
+# No matter the PREFIX, package will be built against KDE installed in KDEDIR.
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
@@ -633,10 +633,10 @@ kde4-base_pkg_postinst() {
 	elif [[ ${BUILD_TYPE} != live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# warning about kdeprefix for non-live users
 		echo
-		ewarn "WARNING! You have kdeprefix useflag enabled."
-		ewarn "This setting is strongly discouraged and might lead to potential troubles"
+		ewarn "WARNING! You have the kdeprefix useflag enabled."
+		ewarn "This setting is strongly discouraged and might lead to potential trouble"
 		ewarn "with KDE update strategies."
-		ewarn "You are using this setup at your own risk and kde team does not"
+		ewarn "You are using this setup at your own risk and the kde team does not"
 		ewarn "take responsibilities for dead kittens."
 		echo
 	fi

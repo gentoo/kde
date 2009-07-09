@@ -15,7 +15,7 @@
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# By default kde4 eclasses wants eapi 2 which might be redefinable to newer
+# By default kde4 eclasses want EAPI 2 which might be redefinable to newer
 # versions.
 case ${EAPI:-0} in
 	2) : ;;
@@ -138,7 +138,7 @@ enable_selected_linguas() {
 
 	# @ECLASS-VARIABLE: KDE_LINGUAS_DIR
 	# @DESCRIPTION:
-	# Specified folder where application translation are located.
+	# Specified folder where application translations are located.
 	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="po"}
 	[[ -d  "${KDE_LINGUAS_DIR}" ]] || die "wrong linguas dir specified"
 	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
