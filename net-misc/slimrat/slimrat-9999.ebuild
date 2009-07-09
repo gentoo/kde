@@ -37,18 +37,18 @@ src_install() {
 
 	exeinto "${ROOT}usr/share/${PN}"
 
-	doexe ${PN} || die "doexe failed"
+	doexe "src/${PN}" || die "doexe failed"
 	dosym "${ROOT}usr/share/${PN}/${PN}" "${ROOT}usr/bin/${PN}"
 
 	if use X; then
-		doexe ${PN}-gui || die "doexe failed"
+		doexe "src/${PN}-gui" || die "doexe failed"
 		dosym "${ROOT}usr/share/${PN}/${PN}-gui" "${ROOT}usr/bin/${PN}-gui"
 	fi
 
 	# install data
 	insinto /etc
-	newins "${S}/config" slimrat.conf
+	newins "${S}/slimrat.conf" slimrat.conf
 
 	insinto "${ROOT}usr/share/${PN}"
-	doins -r Clipboard.pm Clipboard Configuration.pm Log.pm Plugin.pm plugins Queue.pm slimrat.glade Toolbox.pm || die "doins failed"
+	doins -r "src/Clipboard.pm" "src/Clipboard" "src/Configuration.pm" "src/Log.pm" "src/Plugin.pm" "src/plugins/" "src/Queue.pm" "src/slimrat.glade" "src/Toolbox.pm" || die "doins failed"
 }

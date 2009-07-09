@@ -4,8 +4,6 @@
 
 EAPI=2
 
-inherit eutils confutils
-
 DESCRIPTION="Linux Rapidshare downloader"
 HOMEPAGE="http://code.google.com/p/slimrat/"
 SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.bz2"
@@ -28,11 +26,6 @@ RDEPEND="${DEPEND}
 	X? ( x11-terms/xterm )
 	"
 
-src_prepare() {
-	esvn_clean
-	epatch  "${FILESDIR}/00-config-${PV}.patch"
-}
-
 src_install() {
 	# install binaries
 
@@ -48,8 +41,8 @@ src_install() {
 
 	# install data
 	insinto /etc
-	newins "${S}/config" slimrat.conf
+	newins "${S}/slimrat.config" slimrat.conf
 
 	insinto "${ROOT}usr/share/${PN}"
-	doins -r Clipboard.pm Clipboard Plugin.pm plugins slimrat.glade Toolbox.pm || die "doins failed"
+	doins -r Clipboard.pm Clipboard Configuration.pm Log.pm Plugin.pm plugins Queue.pm slimrat.glade Toolbox.pm || die "doins failed"
 }
