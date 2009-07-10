@@ -19,8 +19,8 @@ IUSE=""
 # Block conflicting packages
 RDEPEND="
 	!kdeprefix? (
-		!<kde-base/kdebase-data-4.2.67[-kdeprefix]:4.2
-		!<=kde-base/kdepim-icons-4.2.89[-kdeprefix]:4.2
+		!<kde-base/kdebase-data-4.2.67:4.2[-kdeprefix]
+		!<=kde-base/kdepim-icons-4.2.89:4.2[-kdeprefix]
 	)
 	kdeprefix? (
 		!<kde-base/kdebase-data-4.2.67:${SLOT}
