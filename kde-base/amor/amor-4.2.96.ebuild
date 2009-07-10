@@ -8,5 +8,5 @@ KMNAME="kdetoys"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
