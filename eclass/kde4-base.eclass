@@ -176,6 +176,7 @@ case ${KDEBASE} in
 		# Determine SLOT from PVs
 		case ${PV} in
 			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.4* | 4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*) SLOT="4.4" ;;
 			4.3* | 4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*) SLOT="4.3" ;;
 			4.2* | 4.1.9* | 4.1.8* | 4.1.7* | 4.1.6*) SLOT="4.2" ;;
 			9999*) SLOT="live" ;; # regular live
@@ -355,7 +356,12 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.2.85|4.2.90|4.2.95|4.2.96)
+						4.3.85 | 4.3.90 | 4.3.95 | 4.3.96)
+							# block for normally packed unstable releases
+						 	SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+						4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
+							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
+						4.2.85 | 4.2.90 | 4.2.95 | 4.2.96)
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
