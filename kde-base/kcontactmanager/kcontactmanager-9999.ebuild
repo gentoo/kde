@@ -15,6 +15,8 @@ RDEPEND="
 	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 "
 
+KMEXTRACTONLY="akonadi/"
+
 src_prepare() {
 	kde4-meta_src_prepare
 
