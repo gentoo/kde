@@ -420,7 +420,7 @@ kde4-meta_create_extractlists() {
 					libkdepim"
 			fi
 			case ${SLOT} in
-				4.3|live)
+				4.3|4.4|live)
 					KMEXTRACTONLY="${KMEXTRACTONLY}
 							kdepim-version.h
 							config-enterprise.h.cmake"
@@ -435,7 +435,7 @@ kde4-meta_create_extractlists() {
 			;;
 		kdeutils)
 			case ${SLOT} in
-				4.3|live)
+				4.3|4.4|live)
 					KMEXTRACTONLY="${KMEXTRACTONLY}
 							kdeutils-version.h"
 					;;
