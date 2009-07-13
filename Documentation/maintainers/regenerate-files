@@ -25,7 +25,7 @@ popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-for release in 4.2 4.3 live; do
+for release in 4.2 4.3 4.4 live; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d "kde-${release}.d" ]]; then
 		cat "kde-${release}.d/"* >> "kde-${release}"
