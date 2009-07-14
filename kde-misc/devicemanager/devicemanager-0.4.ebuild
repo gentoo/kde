@@ -20,3 +20,9 @@ RDEPEND="
 	        >=kde-base/plasma-workspace-${KDE_MINIMAL}"
 
 S="${WORKDIR}/${PN}"
+
+src_install() {
+	kde4-meta_src_install
+	# colliding file with plasma-workspace
+	rm -rf "${D}"/${KDEDIR}/share/apps/solid/actions/test-predicate-openinwindow.desktop
+}
