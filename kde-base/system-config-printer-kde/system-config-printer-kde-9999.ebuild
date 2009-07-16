@@ -12,9 +12,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	=app-admin/system-config-printer-common-1.1.3
-	>=dev-python/PyQt4-4.4.4-r1[dbus]
-	dev-python/pycups
+	>=app-admin/system-config-printer-common-1.1.8
+	>=dev-python/pycups-1.9.46
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
