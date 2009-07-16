@@ -23,6 +23,15 @@ DEPEND="
 	sys-devel/gettext
 "
 
+src_prepare() {
+	kde4-base_src_prepare
+
+	if ! use plasma; then
+		sed -e '/add_subdirectory(kmlplasma)/s/^/# DISABLED /g' -i CMakeLists.txt \
+			|| die "failed to disable plasmoid"
+	fi
+}
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with plasma Plasma)"
