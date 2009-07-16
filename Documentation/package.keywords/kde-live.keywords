@@ -333,6 +333,7 @@
 ~net-libs/libqinfinity-9999 **
 ~net-libs/telepathy-qt-9999 **
 ~net-misc/smb4k-9999 **
+~net-p2p/kmldonkey-9999 **
 ~net-p2p/ktorrent-9999 **
 ~net-voip/tapioca-qt-9999 **
 ~net-wireless/kdebluetooth4-9999 **
