@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="KDE4 plasmoid. Add files over KIO supported protocols, like ftp and ssh."

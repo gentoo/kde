@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base versionator
 
 MY_P="$(replace_version_separator 2 '-')"

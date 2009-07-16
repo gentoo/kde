@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration."
@@ -12,8 +11,8 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=50971&forumpage=0"
 SRC_URI="http://www.kde-apps.org/CONTENT/content-files/50971-${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE="debug"
 
 RDEPEND="net-misc/openssh"

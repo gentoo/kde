@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="Multimedia Player Plasmoid"
@@ -12,9 +11,10 @@ HOMEPAGE="http://kde-look.org/CONTENT/content-files/95501-miniplayer-0.9.5.tar.b
 SRC_URI="http://kde-look.org/CONTENT/content-files/95501-${P}.tar.bz2"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}"
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"

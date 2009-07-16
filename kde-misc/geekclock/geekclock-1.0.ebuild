@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 MY_PN="geek-clock-plasmoid"
@@ -19,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}"
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_PN}-${PV}-src"

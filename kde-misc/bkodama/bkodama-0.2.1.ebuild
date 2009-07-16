@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.2"
 inherit kde4-base
 
 DESCRIPTION="Walking Plasmoid Pet"
@@ -17,4 +16,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}"
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
