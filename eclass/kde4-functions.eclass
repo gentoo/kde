@@ -78,7 +78,7 @@ buildsycoca() {
 	fi
 
 	# fix permission for some directories
-	for x in share/config share/kde4; do
+	for x in share/{config,kde4}; do
 		[[ ${KDEDIR} = ${EROOT}usr ]] && DIRS=${EROOT}usr || DIRS="${EROOT}usr ${KDEDIR}"
 		for y in ${DIRS}; do
 			[[ -d "${y}/${x}" ]] || break # nothing to do if directory does not exist
