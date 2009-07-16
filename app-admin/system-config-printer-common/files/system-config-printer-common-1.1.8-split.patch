@@ -1,0 +1,163 @@
+diff -ru ../system-config-printer-1.1.8/Makefile.am ./Makefile.am
+--- ../system-config-printer-1.1.8/Makefile.am	2009-06-18 18:10:58.000000000 +0200
++++ ./Makefile.am	2009-07-16 01:50:23.000000000 +0200
+@@ -57,158 +57,32 @@
+ 	fi
+ 	rm -f .stamp-distutils-in-builddir
+ 
+-nobase_pkgdata_SCRIPTS=				\
+-	my-default-printer.py			\
+-	pysmb.py				\
+-	system-config-printer.py		\
+-	troubleshoot/__init__.py		\
+-	applet.py
+-
+ nobase_pkgdata_DATA=					\
+-	AdvancedServerSettings.py			\
+-	authconn.py					\
+ 	config.py					\
+-	cupspk.py					\
+ 	debug.py					\
+-	errordialogs.py					\
+-	HIG.py						\
+-	glade.py					\
+-	GroupsPane.py					\
+-	GroupsPaneModel.py				\
+-	gtkinklevel.py					\
+-	gtkspinner.py					\
+-	installpackage.py				\
+-	jobviewer.py					\
+-	monitor.py					\
+-	options.py					\
+-	optionwidgets.py				\
+-	PhysicalDevice.py				\
+-	ppdippstr.py					\
+ 	probe_printer.py				\
+-	gtk_label_autowrap.py				\
+-	gtk_treeviewtooltips.py				\
+-	SearchCriterion.py				\
+ 	smburi.py					\
+-	statereason.py					\
+-	timedops.py					\
+-	ToolbarSearchEntry.py				\
+-	userdefault.py					\
+-	XmlHelper.py					\
+-	glade/AboutDialog.glade				\
+-	glade/ConnectDialog.glade				\
+-	glade/ConnectingDialog.glade			\
+-	glade/InstallDialog.glade				\
+-	glade/IPPBrowseDialog.glade			\
+-	glade/JobsWindow.glade				\
+-	glade/NewPrinterName.glade				\
+-	glade/NewPrinterWindow.glade			\
+-	glade/PrinterPropertiesDialog.glade		\
+-	glade/PrintersWindow.glade				\
+-	glade/ServerSettingsDialog.glade			\
+-	glade/SMBBrowseDialog.glade			\
+-	glade/statusicon_popupmenu.glade			\
+-	glade/WaitWindow.glade				\
+-	icons/i-network-printer.png			\
+-	troubleshoot/base.py				\
+-	troubleshoot/CheckLocalServerPublishing.py	\
+-	troubleshoot/CheckNetworkServerSanity.py	\
+-	troubleshoot/CheckPPDSanity.py			\
+-	troubleshoot/CheckPrinterSanity.py		\
+-	troubleshoot/CheckUSBPermissions.py		\
+-	troubleshoot/ChooseNetworkPrinter.py		\
+-	troubleshoot/ChoosePrinter.py			\
+-	troubleshoot/DeviceListed.py			\
+-	troubleshoot/ErrorLogCheckpoint.py		\
+-	troubleshoot/ErrorLogFetch.py			\
+-	troubleshoot/ErrorLogParse.py			\
+-	troubleshoot/Locale.py				\
+-	troubleshoot/LocalOrRemote.py			\
+-	troubleshoot/NetworkCUPSPrinterShared.py	\
+-	troubleshoot/PrinterStateReasons.py		\
+-	troubleshoot/PrintTestPage.py			\
+-	troubleshoot/QueueNotEnabled.py			\
+-	troubleshoot/QueueRejectingJobs.py		\
+-	troubleshoot/RemoteAddress.py			\
+-	troubleshoot/SchedulerNotRunning.py		\
+-	troubleshoot/ServerFirewalled.py		\
+-	troubleshoot/Shrug.py				\
+-	troubleshoot/Welcome.py
+-
+-bin_SCRIPTS=\
+-	system-config-printer			\
+-	system-config-printer-applet		\
+-	my-default-printer
+-
+-man_MANS=					\
+-	man/system-config-printer.1		\
+-	man/system-config-printer-applet.1
++	statereason.py
+ 
+ dbus_DATA =\
+ 	newprinternotification.conf
+ dbusdir = $(sysconfdir)/dbus-1/system.d/
+ 
+-desktop_DATA =\
+-	system-config-printer.desktop \
+-	print-applet.desktop \
+-	manage-print-jobs.desktop \
+-	my-default-printer.desktop
+ desktopdir = $(datadir)/applications/
+ autostartdir = $(sysconfdir)/xdg/autostart/
+ 
+ DESKTOP_VENDOR=@DESKTOPVENDOR@
+ DESKTOP_PREFIX=@DESKTOPPREFIX@
+ 
+-install-desktopDATA: $(desktop_DATA)
+-	mkdir -p $(DESTDIR)$(desktopdir)
+-	mkdir -p $(DESTDIR)$(desktopdir)
+-	desktop-file-install $(DESKTOP_VENDOR)	\
+-	  --dir $(DESTDIR)$(desktopdir)		\
+-	  --add-category System			\
+-	  --add-category Settings		\
+-	  --add-category HardwareSettings	\
+-	  --add-category Printing		\
+-	  --add-category GTK			\
+-	  system-config-printer.desktop
+-	desktop-file-install $(DESKTOP_VENDOR)	\
+-	  --dir $(DESTDIR)$(desktopdir)		\
+-	  --add-category System			\
+-	  --add-category Monitor		\
+-	  --add-category GTK			\
+-	  manage-print-jobs.desktop
+-	desktop-file-install $(DESKTOP_VENDOR)	\
+-	  --dir $(DESTDIR)$(desktopdir)		\
+-	  --add-category Settings		\
+-	  --add-category HardwareSettings	\
+-	  --add-category GTK			\
+-	  my-default-printer.desktop
+-	desktop-file-install $(DESKTOP_VENDOR)	\
+-	  --dir $(DESTDIR)$(autostartdir)	\
+-	  --add-category System			\
+-	  --add-category Monitor		\
+-	  --add-category GTK			\
+-	  print-applet.desktop
+-
+-uninstall-desktopDATA:
+-	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)system-config-printer.desktop
+-	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)manage-print-jobs.desktop
+-	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)my-default-printer.desktop
+-	rm -f $(DESTDIR)$(autostartdir)/$(DESKTOP_PREFIX)print-applet.desktop
+-
+ EXTRA_DIST=\
+ 	$(nobase_pkgdata_SCRIPTS) \
+ 	$(nobase_pkgdata_DATA) \
+ 	$(nobase_sbin_SCRIPTS) \
+ 	$(bin_SCRIPTS) \
+-	setup.py \
+ 	$(EXPORT_MODULES) \
+-	man/system-config-printer.xml \
+ 	newprinternotification.conf \
+ 	bootstrap \
+ 	mkinstalldirs \
+-	system-config-printer.desktop.in \
+-	manage-print-jobs.desktop.in \
+-	my-default-printer.desktop.in \
+-	print-applet.desktop.in \
+ 	intltool-extract.in \
+ 	intltool-merge.in \
+ 	intltool-update.in \
