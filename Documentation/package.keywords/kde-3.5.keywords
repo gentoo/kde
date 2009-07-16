@@ -59,7 +59,6 @@ kde-base/khotkeys:3.5
 kde-base/kicker:3.5
 kde-base/klipper:3.5
 kde-base/kmenuedit:3.5
-kde-base/knetattach:3.5
 kde-base/konqueror:3.5
 kde-base/konsole:3.5
 kde-base/kpager:3.5
@@ -76,11 +75,9 @@ kde-base/kwin:3.5
 kde-base/kxkb:3.5
 kde-base/libkonq:3.5
 kde-base/nsplugins:3.5
-
-#basic deps
+kde-base/knetattach:3.5
 kde-base/arts:3.5
 kde-base/kdelibs:3.5
-kde-base/kghostview:3.5
 kde-base/blinken:3.5
 kde-base/kanagram:3.5
 kde-base/kalzium:3.5
@@ -145,6 +142,7 @@ kde-base/kghostview:3.5
 kde-base/kiconedit:3.5
 kde-base/kolourpaint:3.5
 kde-base/kooka:3.5
+kde-base/libkscan:3.5
 kde-base/kpdf:3.5
 kde-base/kpovmodeler:3.5
 kde-base/kruler:3.5
@@ -153,7 +151,6 @@ kde-base/ksvg:3.5
 kde-base/kuickshow:3.5
 kde-base/kview:3.5
 kde-base/kviewshell:3.5
-kde-base/libkscan:3.5
 kde-base/kde-meta:3.5
 kde-base/kdeutils-meta:3.5
 kde-base/kdebase-meta:3.5
