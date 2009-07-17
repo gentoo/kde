@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make sure that all systems have the same sort order
+export LC_COLLATE=C
+
 SCRIPT=`basename $0`
 if [[ ! -f "${PWD}/${SCRIPT}" ]]; then
 	echo "You need to be in '"`dirname $0`"' dir to run this script."
