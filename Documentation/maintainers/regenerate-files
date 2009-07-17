@@ -35,6 +35,7 @@ done
 
 # ... and for completely unkeyworded packages, add "**"
 if [[ -d kde-4.3.d ]]; then
+	rm -rf kde-4.3.9999.d
 	mkdir -p kde-4.3.9999.d
 	echo -e "${HEADER}" > kde-4.3.9999.keywords
 	for file in kde-4.3.d/*; do
@@ -45,6 +46,7 @@ if [[ -d kde-4.3.d ]]; then
 fi
 
 if [[ -d kde-live.base ]]; then
+	rm -rf kde-live.d
 	mkdir -p kde-live.d
 	echo -e "${HEADER}" > kde-live.keywords
 	for file in kde-live.base/*; do
