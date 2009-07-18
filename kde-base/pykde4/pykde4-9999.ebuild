@@ -24,10 +24,6 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-installation.patch"
-)
-
 src_prepare() {
 	kde4-meta_src_prepare
 
