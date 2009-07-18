@@ -11,8 +11,8 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
 KEYWORDS=""
+SLOT="0"
 IUSE="+mysql"
 
 RDEPEND="

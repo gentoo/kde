@@ -11,13 +11,12 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 SRC_URI="http://download.akonadi-project.org/${P/-server/}.tar.bz2"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 SLOT="0"
 IUSE="+mysql"
 
 RDEPEND="
 	dev-libs/boost
-	>=dev-libs/soprano-2.2
 	>=x11-libs/qt-core-4.5.0:4
 	>=x11-libs/qt-dbus-4.5.0:4
 	>=x11-libs/qt-sql-4.5.0:4[mysql?]
