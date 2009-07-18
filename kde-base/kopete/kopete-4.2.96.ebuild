@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug +handbook ssl"
+IUSE="debug +handbook ssl v4l2"
 
 # tests hang, last checked for 4.2.96
 RESTRICT=test
@@ -78,6 +78,7 @@ COMMONDEPEND="
 	otr? ( net-libs/libotr )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
+	v4l2? ( media-libs/libv4l )
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
