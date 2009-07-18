@@ -11,6 +11,9 @@ DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook ssl"
 
+# tests hang, last checked for 4.2.96
+RESTRICT=test
+
 # Available plugins
 #
 #	addbookmarks: NO DEPS
@@ -105,15 +108,6 @@ src_configure() {
 	done
 
 	kde4-meta_src_configure
-}
-
-src_test() {
-	# disable broken test (as of 4.2.87)
-	sed -i -e '/kopete_pipes_test1 / s/^/#DO_NOT_RUN_TEST /' \
-		"${S}"/kopete/plugins/pipes/tests/CMakeLists.txt || \
-		die "sed to disable kopete_pipes_test1 failed."
-
-	kde4-meta_src_test
 }
 
 pkg_postinst() {

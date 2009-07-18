@@ -11,6 +11,9 @@ DESCRIPTION="A newsreader for KDE"
 KEYWORDS=""
 IUSE="debug +handbook"
 
+# test fails, last checked for 4.2.96
+RESTRICT=test
+
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]

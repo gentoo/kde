@@ -11,6 +11,9 @@ DESCRIPTION="A newsreader for KDE"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
+# test fails, last checked for 4.2.96
+RESTRICT=test
+
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]

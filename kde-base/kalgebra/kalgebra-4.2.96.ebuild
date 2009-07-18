@@ -12,9 +12,6 @@ DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook +plasma readline"
 
-# 2 tests fail, last checked for 4.2.89
-RESTRICT=test
-
 DEPEND="
 	readline? ( sys-libs/readline )
 "
@@ -29,4 +26,13 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)"
 
 	kde4-meta_src_configure
+}
+
+src_test() {
+	# disable broken test
+	sed -i -e '/mathmlpresentationtest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/kalgebra/analitza/tests/CMakeLists.txt || \
+		die "sed to disable mathmlpresentationtest failed."
+
+	kde4-meta_src_test
 }

@@ -11,6 +11,7 @@ DESCRIPTION="KDE image viewer"
 KEYWORDS=""
 IUSE="debug +handbook kipi +semantic-desktop"
 
+# tests hang, last checked for 4.2.96
 RESTRICT="test"
 
 DEPEND="

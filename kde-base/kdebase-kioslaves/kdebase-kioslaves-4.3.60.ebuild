@@ -12,6 +12,7 @@ DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesy
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="bzip2 debug +handbook openexr samba"
 
+# tests hang, last checked for 4.2.96
 RESTRICT="test"
 
 DEPEND="

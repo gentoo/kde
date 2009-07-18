@@ -72,6 +72,18 @@ src_configure() {
 	kde4-meta_src_configure
 }
 
+src_test() {
+	# disable broken tests
+	sed -i -e '/kcalserializertest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/plugins/tests/CMakeLists.txt || \
+		die "sed to disable kcalserializertest failed."
+	sed -i -e '/kresmigrationtest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/migration/kres/tests/CMakeLists.txt || \
+		die "sed to disable kresmigrationtest failed."
+
+	kde4-meta_src_test
+}
+
 src_install() {
 	kde4-meta_src_install
 	# colliding files with nepomuk

@@ -11,9 +11,6 @@ DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
-# test fails, last checked for 4.2.89
-RESTRICT=test
-
 RDEPEND="
 	!kde-base/drkonqi2:${SLOT}[kdeprefix=]
 	sys-devel/gdb
