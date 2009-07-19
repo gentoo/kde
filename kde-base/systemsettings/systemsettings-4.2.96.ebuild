@@ -52,7 +52,9 @@ KMEXTRACTONLY="
 	plasma/
 "
 
-PATCHES=( "$FILESDIR/20_use_dejavu_as_default_font.patch" )
+PATCHES=(
+	"$FILESDIR/20_use_dejavu_as_default_font.patch"
+	)
 
 src_unpack() {
 	if use handbook; then
@@ -68,6 +70,10 @@ src_prepare() {
 	sed -i -e 's/systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR}/systemsettingsrc DESTINATION ${CONFIG_INSTALL_DIR}/' \
 		systemsettings/CMakeLists.txt \
 		|| die "Failed to fix systemsettingsrc install location"
+
+	if has_version ">=x11-libs/libxklavier-4.0"; then
+		epatch "${FILESDIR}"/10_xklavier_adaptor_fix.patch
+	fi
 
 	kde4-meta_src_prepare
 }
