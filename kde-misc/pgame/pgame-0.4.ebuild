@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.3"
 inherit kde4-base
 
 DESCRIPTION="KDE4 plasmoid. PGame is a plasmoid similar to xgame."
@@ -18,5 +17,5 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/pgame
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	>=kde-base/plasma-workspace-4.2.87:4.3
 "
