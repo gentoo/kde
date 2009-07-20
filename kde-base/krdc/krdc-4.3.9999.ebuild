@@ -11,9 +11,6 @@ DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS=""
 IUSE="debug +handbook jpeg vnc zeroconf"
 
-#nx? ( >=net-misc/nxcl-0.9-r1 ) doesnt work atm
-#sed -e '72,74d' -i ${WORKDIR}/krdc_build/krdc/cmake_install.cmake || die "sed failed" #nomachine default key isnt there, doesnt matter
-
 DEPEND="
 	jpeg? ( media-libs/jpeg )
 	vnc? ( >=net-libs/libvncserver-0.9 )
