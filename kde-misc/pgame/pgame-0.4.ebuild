@@ -17,5 +17,5 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/pgame
-	>=kde-base/plasma-workspace-4.2.87:4.3
+	>=kde-base/plasma-workspace-4.2.87
 "
