@@ -5,11 +5,11 @@
 EAPI="2"
 
 OPENGL_REQUIRED="optional"
-KMNAME="extragear/multimedia"
-inherit kde4-base
+inherit git kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -51,6 +51,10 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=( "${FILESDIR}/disable_bindings_test.patch" )
+
+src_unpack() {
+	git_src_unpack
+}
 
 src_configure() {
 	# Workaround for problems related to libmysqld.so and collection plugin not

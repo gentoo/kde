@@ -4,14 +4,15 @@
 
 EAPI="2"
 
-KMNAME="extragear/multimedia"
-KMMODULE="amarok"
 KDE_REQUIRED="never"
-inherit kde4-base
+inherit git kde4-base
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-ESVN_PROJECT="${KMMODULE}"
+MY_PN="amarok"
+S="${WORKDIR}/${MY_PN}"
+EGIT_REPO_URI="git://gitorious.org/${MY_PN}/${MY_PN}.git"
+EGIT_PROJECT="${MY_PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -28,17 +29,8 @@ RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.0.90:${SLOT}
 "
 
-pkg_setup() {
-	kde4-base_pkg_setup
-
-	if [[ -d "${ESVN_STORE_DIR}/${PN}" ]]; then
-		echo
-		elog "${P} now is fetched to the same location as media-sound/amarok-9999"
-		ewarn "Removing old SVN storage location ${ESVN_STORE_DIR}/${PN}."
-		echo
-		rm -fr "${ESVN_STORE_DIR}/${PN}" || \
-			eerror "Failed to remove old storage directory at ${ESVN_STORE_DIR}/${PN}"
-	fi
+src_unpack() {
+	git_src_unpack
 }
 
 src_configure() {
