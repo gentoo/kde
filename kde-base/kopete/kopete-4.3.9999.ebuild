@@ -75,7 +75,7 @@ COMMONDEPEND="
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
-	otr? ( net-libs/libotr )
+	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
 	v4l2? ( media-libs/libv4l )
