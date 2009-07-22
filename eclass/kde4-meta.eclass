@@ -264,7 +264,7 @@ kde4-meta_src_extract() {
 				KMTARPARAMS="${KMTARPARAMS} --lzma" # lzma
 				postfix="lzma"
 				;;
-			4.2.85 | 4.2.90 | 4.2.95 | 4.2.96)
+			4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
 				# block for normally packed upstream unstable snapshots
 				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
 				postfix="bz2"
