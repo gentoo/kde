@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug +handbook jpeg vnc zeroconf"
+IUSE="debug +handbook jpeg rdp vnc zeroconf"
 
 DEPEND="
 	jpeg? ( media-libs/jpeg )
@@ -21,7 +21,9 @@ DEPEND="
 		)
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	rdp? ( net-misc/rdesktop )
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
@@ -30,13 +32,4 @@ src_configure() {
 		$(cmake-utils_use_with zeroconf DNSSD)"
 
 	kde4-meta_src_configure
-}
-
-pkg_postinst() {
-	kde4-meta_pkg_postinst
-
-	echo
-	elog "To be able to connect using RDP protocol, install net-misc/rdesktop:"
-	elog "    emerge -va net-misc/rdesktop"
-	echo
 }
