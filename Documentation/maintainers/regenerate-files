@@ -29,7 +29,7 @@ fi
 for release in 4.2 4.3 4.4; do
 	echo -e "${HEADER}" > "kde-${release}.keywords"
 	if [[ -d "kde-${release}.d" ]]; then
-		cat "kde-${release}.d/"* >> "kde-${release}.keywords"
+		cat "kde-${release}.d/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-${release}.keywords"
 	fi
 done
 

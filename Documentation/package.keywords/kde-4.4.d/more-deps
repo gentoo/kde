@@ -8,6 +8,7 @@ dev-libs/libzip
 =dev-python/pycups-1.9*
 =dev-python/PyQt4-4.5*
 =dev-python/sip-4.8*
+kde-base/automoc
 >=kde-base/qimageblitz-0.0.4
 >=sci-mathematics/gmm-3.0
 ~sys-auth/policykit-0.9
