@@ -71,10 +71,6 @@ src_prepare() {
 		systemsettings/CMakeLists.txt \
 		|| die "Failed to fix systemsettingsrc install location"
 
-	if has_version ">=x11-libs/libxklavier-4.0"; then
-		epatch "${FILESDIR}"/10_xklavier_adaptor_fix.patch
-	fi
-
 	kde4-meta_src_prepare
 }
 
