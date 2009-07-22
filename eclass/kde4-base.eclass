@@ -361,7 +361,7 @@ case ${BUILD_TYPE} in
 						 	SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
-						4.2.85 | 4.2.90 | 4.2.95 | 4.2.96)
+						4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
