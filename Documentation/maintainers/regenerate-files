@@ -56,15 +56,12 @@ if [[ -d kde-live.base ]]; then
 	cat kde-live.d/* >> kde-live.keywords
 fi
 
-# Uncomment the following to create separate .keywords files for
-# kde-extra-live and koffice-live:
-
-#for set in kde-extras-live koffice-live; do
-#	if [[ -e "../../sets/${set}" ]]; then
-#		echo -e "${HEADER}" > "${set}.keywords"
-#		sed '/^~.*[.-]9999$/s/$/ **/' "../../sets/${set}" >> "${set}.keywords"
-#	fi
-#done
+for set in kde-extras-live koffice-live; do
+	if [[ -e "../../sets/${set}" ]]; then
+		echo -e "${HEADER}" > "${set}.keywords"
+		sed '/^~.*[.-]9999$/s/$/ **/' "../../sets/${set}" >> "${set}.keywords"
+	fi
+done
 
 popd > /dev/null
 
