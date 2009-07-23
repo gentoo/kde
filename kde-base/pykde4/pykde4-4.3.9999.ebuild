@@ -11,22 +11,19 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="akonadi debug examples semantic-desktop"
+IUSE="akonadi debug examples policykit semantic-desktop"
 
 COMMON_DEPEND="
 	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
+	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
 DEPEND="${COMMON_DEPEND}"
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-installation.patch"
-)
 
 src_prepare() {
 	kde4-meta_src_prepare
@@ -48,7 +45,9 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with akonadi KdepimLibs)"
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with policykit PolkitQt)
+	"
 
 	kde4-meta_src_configure
 }
