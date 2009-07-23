@@ -1,6 +1,7 @@
 =app-admin/system-config-printer-common-1.1*
 app-arch/libarchive
 =app-misc/hal-cups-utils-0.6*
+=app-misc/strigi-0.6*
 app-text/ebook-tools
 dev-cpp/eigen:2
 >=dev-libs/libical-0.33-r1

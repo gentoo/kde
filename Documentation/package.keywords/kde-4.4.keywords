@@ -108,9 +108,8 @@ kde-base/krosspython:4.4
 kde-base/krossruby:4.4
 kde-base/pykde4:4.4
 kde-base/smoke:4.4
-~app-office/akonadi-server-9999 **
-~dev-libs/soprano-9999 **
-~app-misc/strigi-9999 **
+~app-office/akonadi-server-1.1.95
+~dev-libs/soprano-2.3.0
 ~media-sound/phonon-9999 **
 kde-base/blinken:4.4
 kde-base/kalgebra:4.4
@@ -275,6 +274,7 @@ kde-base/kxsldbg:4.4
 =app-admin/system-config-printer-common-1.1*
 app-arch/libarchive
 =app-misc/hal-cups-utils-0.6*
+=app-misc/strigi-0.6*
 app-text/ebook-tools
 dev-cpp/eigen:2
 >=dev-libs/libical-0.33-r1
