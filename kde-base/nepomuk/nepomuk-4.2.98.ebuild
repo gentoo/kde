@@ -13,8 +13,8 @@ IUSE="debug +handbook"
 
 DEPEND="
 	|| (
-		>=dev-libs/soprano-2.2.67[clucene,dbus,raptor,redland]
-		>=dev-libs/soprano-2.2.67[clucene,dbus,raptor,java]
+		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,redland]
+		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,java]
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
 "

@@ -58,7 +58,7 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	semantic-desktop? ( >=dev-libs/soprano-2.2.67[dbus] )
+	semantic-desktop? ( >=dev-libs/soprano-2.3.0[dbus] )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
