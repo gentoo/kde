@@ -12,7 +12,7 @@ DESCRIPTION="KDE Notes application"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-DEPEND=">=kde-base/libkdepim-${PV}[kdeprefix=]"
+DEPEND=">=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]"
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"

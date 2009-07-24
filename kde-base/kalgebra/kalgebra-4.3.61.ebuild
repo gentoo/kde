@@ -31,7 +31,7 @@ src_configure() {
 src_test() {
 	# disable broken test
 	sed -i -e '/mathmlpresentationtest/ s/^/#DO_NOT_RUN_TEST /' \
-		"${S}"/kalgebra/analitza/tests/CMakeLists.txt || \
+		"${S}"/"${PN}"/analitza/tests/CMakeLists.txt || \
 		die "sed to disable mathmlpresentationtest failed."
 
 	kde4-meta_src_test
