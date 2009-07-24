@@ -26,7 +26,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-installation-fix.patch"
+	"${FILESDIR}/${PN}-installation.patch"
 )
 
 src_prepare() {
