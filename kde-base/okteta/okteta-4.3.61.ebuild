@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="KDE hexeditor"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
+
+DEPEND="
+	app-crypt/qca:2
+"
+RDEPEND="${DEPEND}"
