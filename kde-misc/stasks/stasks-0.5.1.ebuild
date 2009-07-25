@@ -19,3 +19,11 @@ RDEPEND="
 	!kde-plasmoids/stasks
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
+
+src_prepare() {
+	if has_version ">=kde-base/kdelibs-4.2.90"; then
+		epatch "${FILESDIR}"/"${PN}"_kde-4.3.patch
+	fi
+
+	kde4-base_src_prepare
+}
