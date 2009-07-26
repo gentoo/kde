@@ -19,7 +19,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="addressbook debug geolocation +gphoto2 lensfun"
+IUSE="addressbook debug geolocation +gphoto2 lensfun semantic-desktop"
 
 DEPEND="
 	dev-db/sqlite:3
@@ -40,7 +40,9 @@ DEPEND="
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
 	lensfun? ( media-libs/lensfun )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
+"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -54,11 +56,17 @@ view-object-histogram-logarithmic},apps/{digikam,showfoto}}.{svgz,png}
 }
 
 src_configure() {
+	local backend
+
+	use semantic-desktop && backend="Nepomuk" || backend="None"
 	mycmakeargs="${mycmakeargs}
+		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
 		$(cmake-utils_use_enable gphoto2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
-		$(cmake-utils_use_with lensfun LensFun)"
+		$(cmake-utils_use_with lensfun LensFun)
+		$(cmake-utils_use_with semantic-desktop Soprano)"
+	
 
 	kde4-base_src_configure
 }
