@@ -6,9 +6,10 @@ EAPI="2"
 
 inherit kde4-base
 
+MY_P="${PN}-2.1b1"
 DESCRIPTION="A Latex Editor and TeX shell for kde"
 HOMEPAGE="http://kile.sourceforge.net/"
-SRC_URI="http://www.vohnout.cz/premek/gentoo/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
@@ -31,6 +32,8 @@ RDEPEND="
 		media-gfx/imagemagick[png]
 	)
 "
+
+S="${WORKDIR}/${MY_P}"
 
 src_install() {
 	kde4-base_src_install
