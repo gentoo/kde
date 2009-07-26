@@ -24,7 +24,6 @@ net-irc
 net-libs
 net-misc
 net-p2p
-net-voip
 net-wireless
 sys-auth
 sys-block
