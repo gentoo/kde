@@ -33,55 +33,33 @@ esac
 
 # Add khelpcenter dependency when installing handbooks
 if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
-	RDEPEND="${RDEPEND}
-		handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
+	RDEPEND+="handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
 	"
 fi
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
-		DEPEND="${DEPEND}
-			>=kde-base/qimageblitz-0.0.4
-		"
-		RDEPEND="${RDEPEND}
-			>=kde-base/qimageblitz-0.0.4
-		"
+		COMMONDEPEND+=">=kde-base/qimageblitz-0.0.4"
 		;;
 	kdenetwork)
-		DEPEND="${DEPEND}
-			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-		"
-		RDEPEND="${RDEPEND}
-			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-		"
+		COMMONDEPEND+=">=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]"
 		;;
 	kdepim|kdepim-runtime)
-		DEPEND="${DEPEND}
-			dev-libs/boost
-			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
-		"
-		RDEPEND="${RDEPEND}
+		COMMONDEPEND+="
 			dev-libs/boost
 			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 		"
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				RDEPEND="${RDEPEND}
-					kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )
-				"
+				RDEPEND+="kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
 				;;
 		esac
 		;;
 	kdegames)
 		if [[ ${PN} != libkdegames ]]; then
-			DEPEND="${DEPEND}
-				>=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]
-			"
-			RDEPEND="${RDEPEND}
-				>=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]
-			"
+			COMMONDEPEND+=">=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=] "
 		fi
 		;;
 	koffice)
@@ -92,29 +70,24 @@ case ${KMNAME} in
 			!app-office/koffice-meta:0
 		"
 		if has openexr ${IUSE//+}; then
-			COMMON_DEPEND="media-gfx/imagemagick[openexr?]"
+			COMMONDEPEND+="media-gfx/imagemagick[openexr?]"
 		else
-			COMMON_DEPEND="media-gfx/imagemagick"
+			COMMONDEPEND+="media-gfx/imagemagick"
 		fi
 
-		COMMON_DEPEND="${COMMON_DEPEND}
+		COMMONDEPEND+="
 			dev-cpp/eigen:2
 			media-libs/fontconfig
 			media-libs/freetype:2
 		"
-		DEPEND="${DEPEND} ${COMMON_DEPEND}"
-		RDEPEND="${RDEPEND} ${COMMON_DEPEND}"
-		unset COMMON_DEPEND
 		if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
-			DEPEND="${DEPEND}
-				>=app-office/koffice-libs-${PV}:${SLOT}
-			"
-			RDEPEND="${RDEPEND}
-				>=app-office/koffice-libs-${PV}:${SLOT}
-			"
+			COMMONDEPEND+=">=app-office/koffice-libs-${PV}:${SLOT}"
 		fi
 		;;
 esac
+
+DEPEND="${DEPEND} ${COMMONDEPEND}"
+RDEPEND="${RDEPEND} ${COMMONDEPEND}"
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
 debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-specific dependencies"
@@ -255,26 +228,17 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.3.85 | 4.3.90 | 4.3.95 | 4.3.96)
+			4.3.85 | 4.3.90 | 4.3.95 | 4.3.96 | 4.3.98 | 4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
 				# block for normally packed upstream unstable snapshots
-				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
+				KMTARPARAMS+="--bzip2" # bz2
 				postfix="bz2"
 				;;
-			4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
-				KMTARPARAMS="${KMTARPARAMS} --lzma" # lzma
-				postfix="lzma"
-				;;
-			4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
-				# block for normally packed upstream unstable snapshots
-				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
-				postfix="bz2"
-				;;
-			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
-				KMTARPARAMS="${KMTARPARAMS} --lzma" # lzma
+			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6* | 4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
+				KMTARPARAMS+="--lzma" # lzma
 				postfix="lzma"
 				;;
 			*)
-				KMTARPARAMS="${KMTARPARAMS} --bzip2" # bz2
+				KMTARPARAMS+="--bzip2" # bz2
 				postfix="bz2"
 				;;
 		esac
@@ -284,7 +248,7 @@ kde4-meta_src_extract() {
 				tarball="kdebase-${PV}.tar.${postfix}"
 				# Go one level deeper for kdebase-apps in tarballs
 				moduleprefix=apps/
-				KMTARPARAMS="${KMTARPARAMS} --transform=s|apps/||"
+				KMTARPARAMS+="--transform=s|apps/||"
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
@@ -359,21 +323,21 @@ kde4-meta_create_extractlists() {
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
 		kdebase)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				apps/config-apps.h.cmake
 				apps/ConfigureChecks.cmake"
 			;;
 		kdebase-apps)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
 			;;
 		kdebase-runtime)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				config-runtime.h.cmake"
 			;;
 		kdebase-workspace)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				config-unix.h.cmake
 				ConfigureChecks.cmake
 				config-workspace.h.cmake
@@ -383,19 +347,18 @@ kde4-meta_create_extractlists() {
 			;;
 		kdegames)
 			if [[ ${PN} != libkdegames ]]; then
-				KMEXTRACTONLY="${KMEXTRACTONLY}
-					libkdegames"
+				KMEXTRACTONLY+="libkdegames"
 			fi
 			;;
 		kdepim-runtime)
 			# this is actually the akonadi :]
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				doc/
 				kdepim-mime.xml
 				kdepim-version.h
 				akonadi-prefix.h.cmake
 				Mainpage.dox"
-			KMEXTRA="${KMEXTRA}
+			KMEXTRA+="
 				agents/
 				akonadiconsole/
 				akonadi_next/
@@ -416,33 +379,30 @@ kde4-meta_create_extractlists() {
 			;;
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
-				KMEXTRACTONLY="${KMEXTRACTONLY}
-					libkdepim"
+				KMEXTRACTONLY+="libkdepim"
 			fi
 			case ${SLOT} in
 				4.3|4.4|live)
-					KMEXTRACTONLY="${KMEXTRACTONLY}
+					KMEXTRACTONLY+="
 							kdepim-version.h
 							config-enterprise.h.cmake"
 					;;
 			esac
-			KMEXTRACTONLY="${KMEXTRACTONLY}
-				kleopatra/ConfigureChecks.cmake"
+			KMEXTRACTONLY+="kleopatra/ConfigureChecks.cmake"
 			if has kontact ${IUSE//+} && use kontact; then
-				KMEXTRA="${KMEXTRA} kontact/plugins/${PLUGINNAME:-${PN}}"
-				KMEXTRACTONLY="${KMEXTRACTONLY} kontactinterfaces/"
+				KMEXTRA+="kontact/plugins/${PLUGINNAME:-${PN}}"
+				KMEXTRACTONLY+="kontactinterfaces/"
 			fi
 			;;
 		kdeutils)
 			case ${SLOT} in
 				4.3|4.4|live)
-					KMEXTRACTONLY="${KMEXTRACTONLY}
-							kdeutils-version.h"
+					KMEXTRACTONLY+="kdeutils-version.h"
 					;;
 			esac
 			;;
 		koffice)
-			KMEXTRACTONLY="${KMEXTRACTONLY}
+			KMEXTRACTONLY+="
 				config-endian.h.cmake
 				filters/config-filters.h.cmake
 				config-openexr.h.cmake
@@ -451,9 +411,7 @@ kde4-meta_create_extractlists() {
 			"
 			case ${PV} in
 				2.0.*)
-					KMEXTRACTONLY="${KMEXTRACTONLY}
-						config-openctl.h.cmake
-					"
+					KMEXTRACTONLY+="config-openctl.h.cmake"
 				;;
 			esac
 			;;
@@ -465,21 +423,18 @@ kde4-meta_create_extractlists() {
 			# Remove when 4.2 is wiped out from the tree
 			case ${PV} in
 				4.1*|4.2.0|4.2.1|4.2.2|4.2.3|4.2.4|4.2.85)
-					KMCOMPILEONLY="${KMCOMPILEONLY}
-						cmake/modules/"
-						;;
+					KMCOMPILEONLY+="cmake/modules/"
+					;;
 				*) ;;
 			esac
 			;;
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)
-					KMEXTRA="${KMEXTRA}
-						cmake/modules/"
+					KMEXTRA+="cmake/modules/"
 					;;
 				*)
-					KMCOMPILEONLY="${KMCOMPILEONLY}
-						cmake/modules/"
+					KMCOMPILEONLY+="cmake/modules/"
 					;;
 			esac
 		;;
@@ -515,10 +470,10 @@ __list_needed_subdirectories() {
 
 	# Expand KMCOMPILEONLY
 	for i in ${KMCOMPILEONLY}; do
-		kmcompileonly_expanded="${kmcompileonly_expanded} ${i}"
+		kmcompileonly_expanded+="${i}"
 		j=$(dirname ${i})
 		while [[ ${j} != "." ]]; do
-			kmcompileonly_expanded="${kmcompileonly_expanded} ${j}/CMakeLists.txt";
+			kmcompileonly_expanded+="${j}/CMakeLists.txt";
 			j=$(dirname ${j})
 		done
 	done
@@ -532,7 +487,7 @@ __list_needed_subdirectories() {
 	for i in ${kmmodule_expanded} ${kmextra_expanded} ${kmcompileonly_expanded} \
 		${KMEXTRACTONLY}
 	do
-		extractlist="${extractlist} ${topdir}${moduleprefix}${i}"
+		extractlist+="${topdir}${moduleprefix}${i}"
 	done
 
 	echo ${extractlist}
@@ -708,13 +663,12 @@ kde4-meta_src_configure() {
 	# Set some cmake default values here (usually workarounds for automagic deps)
 	case ${KMNAME} in
 		kdewebdev)
-			mycmakeargs="
+			mycmakeargs+="
 				-DWITH_KdepimLibs=OFF
 				-DWITH_LibXml2=OFF
 				-DWITH_LibXslt=OFF
 				-DWITH_Boost=OFF
-				-DWITH_LibTidy=OFF
-				${mycmakeargs}"
+				-DWITH_LibTidy=OFF"
 			;;
 	esac
 
@@ -774,7 +728,7 @@ kde4-meta_pkg_postinst() {
 	if has handbook ${IUSE//+} && ! use handbook; then
 		echo
 		einfo "Application handbook for ${PN} has not been installed."
-		einfo "To install handbook, reemerge =${CATEGORY}/${P} with 'handbook' USE flag."
+		einfo "To install handbook, reemerge =${CATEGORY}/${PF} with 'handbook' USE flag."
 		echo
 	fi
 
