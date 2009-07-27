@@ -236,6 +236,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: RDEPEND (only) is ${RDEPEND}"
 # Accumulate dependencies set by this eclass
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
+unset COMMONDEPEND
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
@@ -492,7 +493,7 @@ kde4-base_src_configure() {
 	fi
 
 	# Set distribution name
-	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
+	[[ ${PN} = kdelibs ]] && cmakeargs+=" -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
 	# Here we set the install prefix
 	cmakeargs+=" -DCMAKE_INSTALL_PREFIX=${PREFIX}"

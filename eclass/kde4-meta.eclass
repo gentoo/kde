@@ -33,8 +33,7 @@ esac
 
 # Add khelpcenter dependency when installing handbooks
 if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
-	RDEPEND+=" handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )
-	"
+	RDEPEND+=" handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )"
 fi
 
 # Add dependencies that all packages in a certain module share.
@@ -63,8 +62,8 @@ case ${KMNAME} in
 		fi
 		;;
 	koffice)
-		[[ ${PN} != koffice-data ]] && IUSE="debug"
-		RDEPEND="${RDEPEND}
+		[[ ${PN} != koffice-data ]] && IUSE+=" debug"
+		RDEPEND+="
 			!app-office/${PN}:0
 			!app-office/koffice:0
 			!app-office/koffice-meta:0
@@ -86,8 +85,9 @@ case ${KMNAME} in
 		;;
 esac
 
-DEPEND="${DEPEND} ${COMMONDEPEND}"
-RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+DEPEND+=" ${COMMONDEPEND}"
+RDEPEND+=" ${COMMONDEPEND}"
+unset COMMONDEPEND
 
 debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-specific dependencies"
 debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-specific dependencies"
@@ -270,9 +270,9 @@ kde4-meta_src_extract() {
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
 			AUTHORS COPYING INSTALL README NEWS ChangeLog
 		do
-			extractlist="${extractlist} ${topdir}${moduleprefix}${f}"
+			extractlist+=" ${topdir}${moduleprefix}${f}"
 		done
-		extractlist="${extractlist} $(__list_needed_subdirectories)"
+		extractlist+=" $(__list_needed_subdirectories)"
 
 		pushd "${WORKDIR}" > /dev/null
 		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} >&2
@@ -315,7 +315,8 @@ kde4-meta_create_extractlists() {
 	if has handbook ${IUSE//+} && use handbook && [[ -n ${KMMODULE} ]]; then
 		# We use the basename of $KMMODULE because $KMMODULE can contain
 		# the path to the module subdirectory.
-		KMEXTRA_NONFATAL="${KMEXTRA_NONFATAL} doc/${KMMODULE##*/}"
+		KMEXTRA_NONFATAL+="
+			doc/${KMMODULE##*/}"
 	fi
 
 	# Add some CMake-files to KMEXTRACTONLY.
@@ -347,7 +348,8 @@ kde4-meta_create_extractlists() {
 			;;
 		kdegames)
 			if [[ ${PN} != libkdegames ]]; then
-				KMEXTRACTONLY+=" libkdegames"
+				KMEXTRACTONLY+="
+					libkdegames/"
 			fi
 			;;
 		kdepim-runtime)
@@ -379,25 +381,30 @@ kde4-meta_create_extractlists() {
 			;;
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
-				KMEXTRACTONLY+=" libkdepim"
+				KMEXTRACTONLY+="
+					libkdepim/"
 			fi
 			case ${SLOT} in
 				4.3|4.4|live)
 					KMEXTRACTONLY+="
-							kdepim-version.h
-							config-enterprise.h.cmake"
+						kdepim-version.h
+						config-enterprise.h.cmake"
 					;;
 			esac
-			KMEXTRACTONLY+=" kleopatra/ConfigureChecks.cmake"
+			KMEXTRACTONLY+="
+				kleopatra/ConfigureChecks.cmake"
 			if has kontact ${IUSE//+} && use kontact; then
-				KMEXTRA+=" kontact/plugins/${PLUGINNAME:-${PN}}"
-				KMEXTRACTONLY+=" kontactinterfaces/"
+				KMEXTRA+="
+					kontact/plugins/${PLUGINNAME:-${PN}}/"
+				KMEXTRACTONLY+="
+					kontactinterfaces/"
 			fi
 			;;
 		kdeutils)
 			case ${SLOT} in
 				4.3|4.4|live)
-					KMEXTRACTONLY+=" kdeutils-version.h"
+					KMEXTRACTONLY+="
+						kdeutils-version.h"
 					;;
 			esac
 			;;
@@ -411,7 +418,8 @@ kde4-meta_create_extractlists() {
 			"
 			case ${PV} in
 				2.0.*)
-					KMEXTRACTONLY+=" config-openctl.h.cmake"
+					KMEXTRACTONLY+="
+						config-openctl.h.cmake"
 				;;
 			esac
 			;;
@@ -423,7 +431,8 @@ kde4-meta_create_extractlists() {
 			# Remove when 4.2 is wiped out from the tree
 			case ${PV} in
 				4.1*|4.2.0|4.2.1|4.2.2|4.2.3|4.2.4|4.2.85)
-					KMCOMPILEONLY+=" cmake/modules/"
+					KMCOMPILEONLY+="
+						cmake/modules/"
 					;;
 				*) ;;
 			esac
@@ -431,10 +440,12 @@ kde4-meta_create_extractlists() {
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)
-					KMEXTRA+=" cmake/modules/"
+					KMEXTRA+="
+						cmake/modules/"
 					;;
 				*)
-					KMCOMPILEONLY+=" cmake/modules/"
+					KMCOMPILEONLY+="
+						cmake/modules/"
 					;;
 			esac
 		;;
@@ -448,12 +459,12 @@ __list_needed_subdirectories() {
 
 	# We expand KMEXTRA by adding CMakeLists.txt files
 	kmextra="${KMEXTRA}"
-	[[ ${1} != fatal ]] && kmextra="${kmextra} ${KMEXTRA_NONFATAL}"
+	[[ ${1} != fatal ]] && kmextra+=" ${KMEXTRA_NONFATAL}"
 	for i in ${kmextra}; do
-		kmextra_expanded="${kmextra_expanded} ${i}"
+		kmextra_expanded+=" ${i}"
 		j=$(dirname ${i})
 		while [[ ${j} != "." ]]; do
-			kmextra_expanded="${kmextra_expanded} ${j}/CMakeLists.txt";
+			kmextra_expanded+=" ${j}/CMakeLists.txt";
 			j=$(dirname ${j})
 		done
 	done
@@ -463,7 +474,7 @@ __list_needed_subdirectories() {
 		kmmodule_expanded="${KMMODULE}"
 		j=$(dirname ${KMMODULE})
 		while [[ ${j} != "." ]]; do
-			kmmodule_expanded="${kmmodule_expanded} ${j}/CMakeLists.txt";
+			kmmodule_expanded+=" ${j}/CMakeLists.txt";
 			j=$(dirname ${j})
 		done
 	fi
@@ -663,12 +674,13 @@ kde4-meta_src_configure() {
 	# Set some cmake default values here (usually workarounds for automagic deps)
 	case ${KMNAME} in
 		kdewebdev)
-			mycmakeargs+="
+			mycmakeargs="
 				-DWITH_KdepimLibs=OFF
 				-DWITH_LibXml2=OFF
 				-DWITH_LibXslt=OFF
 				-DWITH_Boost=OFF
-				-DWITH_LibTidy=OFF"
+				-DWITH_LibTidy=OFF
+				${mycmakeargs}"
 			;;
 	esac
 
