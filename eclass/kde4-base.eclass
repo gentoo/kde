@@ -165,7 +165,7 @@ case ${KDEBASE} in
 		for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 			# Block non kdeprefix ${PN} on other slots
 			if [[ ${SLOT} != ${slot} ]]; then
-				RDEPEND+="!kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
+				RDEPEND+=" !kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
 			fi
 		done
 		unset slot
