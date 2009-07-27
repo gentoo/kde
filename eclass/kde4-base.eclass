@@ -94,10 +94,10 @@ qtopengldepend="
 "
 case ${OPENGL_REQUIRED} in
 	always)
-		COMMONDEPEND+="${qtopengldepend}"
+		COMMONDEPEND+=" ${qtopengldepend}"
 		;;
 	optional)
-		IUSE="${IUSE} opengl"
+		IUSE+=" opengl"
 		COMMONDEPEND+=" opengl? ( ${qtopengldepend} )"
 		;;
 	*) ;;
@@ -110,10 +110,10 @@ qtwebkitdepend="
 "
 case ${WEBKIT_REQUIRED} in
 	always)
-		COMMONDEPEND+="${qtwebkitdepend}"
+		COMMONDEPEND+=" ${qtwebkitdepend}"
 		;;
 	optional)
-		IUSE="webkit"
+		IUSE+=" webkit"
 		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend} )"
 		;;
 	*) ;;
@@ -126,10 +126,10 @@ cppuintdepend="
 "
 case ${CPPUNIT_REQUIRED} in
 	always)
-		DEPEND+="${cppuintdepend}"
+		DEPEND+=" ${cppuintdepend}"
 		;;
 	optional)
-		IUSE="test"
+		IUSE+=" test"
 		DEPEND+=" test? ( ${cppuintdepend} )"
 		;;
 	*) ;;
@@ -143,10 +143,10 @@ case ${KDEBASE} in
 			# Disable tests for live ebuilds
 			RESTRICT+=" test"
 			# Live ebuilds in kde-base default to kdeprefix by default
-			IUSE="+kdeprefix"
+			IUSE+=" +kdeprefix"
 		else
 			# All other ebuild types default to -kdeprefix as before
-			IUSE="kdeprefix"
+			IUSE+=" kdeprefix"
 		fi
 		# Determine SLOT from PVs
 		case ${PV} in
@@ -216,12 +216,12 @@ kdedepend="
 "
 case ${KDE_REQUIRED} in
 	always)
-		IUSE="aqua"
+		IUSE+=" aqua"
 		COMMONDEPEND+=" ${kdecommondepend}"
 		DEPEND+=" ${kdedepend}"
 		;;
 	optional)
-		IUSE="aqua kde"
+		IUSE+=" aqua kde"
 		COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
 		DEPEND+=" kde? ( ${kdedepend} )"
 		;;
@@ -234,8 +234,8 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND (only) is ${DEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: RDEPEND (only) is ${RDEPEND}"
 
 # Accumulate dependencies set by this eclass
-DEPEND+="${COMMONDEPEND}"
-RDEPEND+="${COMMONDEPEND}"
+DEPEND+=" ${COMMONDEPEND}"
+RDEPEND+=" ${COMMONDEPEND}"
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
