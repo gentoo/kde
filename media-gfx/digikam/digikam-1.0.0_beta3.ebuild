@@ -23,6 +23,7 @@ IUSE="addressbook debug geolocation +gphoto2 lensfun semantic-desktop"
 
 DEPEND="
 	dev-db/sqlite:3
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
@@ -40,9 +41,7 @@ DEPEND="
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
 	lensfun? ( media-libs/lensfun )
 "
-RDEPEND="${DEPEND}
-	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
-"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -66,7 +65,7 @@ src_configure() {
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
-	
+
 
 	kde4-base_src_configure
 }

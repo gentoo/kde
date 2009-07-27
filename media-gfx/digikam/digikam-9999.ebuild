@@ -19,10 +19,11 @@ HOMEPAGE="http://www.digikam.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="addressbook debug geolocation +gphoto2 lensfun"
+IUSE="addressbook debug geolocation +gphoto2 lensfun semantic-desktop"
 
 DEPEND="
 	dev-db/sqlite:3
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
@@ -54,11 +55,17 @@ view-object-histogram-logarithmic},apps/{digikam,showfoto}}.{svgz,png}
 }
 
 src_configure() {
+	local backend
+
+	use semantic-desktop && backend="Nepomuk" || backend="None"
 	mycmakeargs="${mycmakeargs}
+		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
 		$(cmake-utils_use_enable gphoto2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
-		$(cmake-utils_use_with lensfun LensFun)"
+		$(cmake-utils_use_with lensfun LensFun)
+		$(cmake-utils_use_with semantic-desktop Soprano)"
+
 
 	kde4-base_src_configure
 }
