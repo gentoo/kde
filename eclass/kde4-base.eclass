@@ -98,7 +98,7 @@ case ${OPENGL_REQUIRED} in
 		;;
 	optional)
 		IUSE="${IUSE} opengl"
-		COMMONDEPEND+="opengl? ( ${qtopengldepend} )"
+		COMMONDEPEND+=" opengl? ( ${qtopengldepend} )"
 		;;
 	*) ;;
 esac
@@ -114,7 +114,7 @@ case ${WEBKIT_REQUIRED} in
 		;;
 	optional)
 		IUSE="webkit"
-		COMMONDEPEND+="webkit? ( ${qtwebkitdepend} )"
+		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend} )"
 		;;
 	*) ;;
 esac
@@ -130,7 +130,7 @@ case ${CPPUNIT_REQUIRED} in
 		;;
 	optional)
 		IUSE="test"
-		DEPEND+="test? ( ${cppuintdepend} )"
+		DEPEND+=" test? ( ${cppuintdepend} )"
 		;;
 	*) ;;
 esac
@@ -141,7 +141,7 @@ case ${KDEBASE} in
 	kde-base)
 		if [[ $BUILD_TYPE = live ]]; then
 			# Disable tests for live ebuilds
-			RESTRICT+="test"
+			RESTRICT+=" test"
 			# Live ebuilds in kde-base default to kdeprefix by default
 			IUSE="+kdeprefix"
 		else
@@ -217,13 +217,13 @@ kdedepend="
 case ${KDE_REQUIRED} in
 	always)
 		IUSE="aqua"
-		COMMONDEPEND+="${kdecommondepend}"
-		DEPEND+="${kdedepend}"
+		COMMONDEPEND+=" ${kdecommondepend}"
+		DEPEND+=" ${kdedepend}"
 		;;
 	optional)
 		IUSE="aqua kde"
-		COMMONDEPEND+="kde? ( ${kdecommondepend} )"
-		DEPEND+="kde? ( ${kdedepend} )"
+		COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
+		DEPEND+=" kde? ( ${kdedepend} )"
 		;;
 	*) ;;
 esac
@@ -495,7 +495,7 @@ kde4-base_src_configure() {
 	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
 	# Here we set the install prefix
-	cmakeargs+="-DCMAKE_INSTALL_PREFIX=${PREFIX}"
+	cmakeargs+=" -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
 	# Use colors
 	QTEST_COLORED=1
@@ -510,16 +510,16 @@ kde4-base_src_configure() {
 		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
 
 		# Append full RPATH
-		cmakeargs+="-DCMAKE_SKIP_RPATH=OFF"
+		cmakeargs+=" -DCMAKE_SKIP_RPATH=OFF"
 	fi
 
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
 		# when more are present
-		cmakeargs+="-DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+		cmakeargs+=" -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs+="-DSYSCONF_INSTALL_DIR=${EROOT}etc"
+		cmakeargs+=" -DSYSCONF_INSTALL_DIR=${EROOT}etc"
 	fi
 
 	mycmakeargs="${cmakeargs} ${mycmakeargs}"
@@ -543,7 +543,7 @@ kde4-base_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Override this value, set in kde4-base_src_configure()
-	mycmakeargs+="-DKDE4_BUILD_TESTS=ON"
+	mycmakeargs+=" -DKDE4_BUILD_TESTS=ON"
 	cmake-utils_src_configure
 	kde4-base_src_compile
 

@@ -40,10 +40,10 @@ fi
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
-		COMMONDEPEND+=">=kde-base/qimageblitz-0.0.4"
+		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
 	kdenetwork)
-		COMMONDEPEND+=">=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]"
+		COMMONDEPEND+=" >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]"
 		;;
 	kdepim|kdepim-runtime)
 		COMMONDEPEND+="
@@ -53,13 +53,13 @@ case ${KMNAME} in
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE="+kontact"
-				RDEPEND+="kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				RDEPEND+=" kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
 				;;
 		esac
 		;;
 	kdegames)
 		if [[ ${PN} != libkdegames ]]; then
-			COMMONDEPEND+=">=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=] "
+			COMMONDEPEND+=" >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=] "
 		fi
 		;;
 	koffice)
@@ -70,9 +70,9 @@ case ${KMNAME} in
 			!app-office/koffice-meta:0
 		"
 		if has openexr ${IUSE//+}; then
-			COMMONDEPEND+="media-gfx/imagemagick[openexr?]"
+			COMMONDEPEND+=" media-gfx/imagemagick[openexr?]"
 		else
-			COMMONDEPEND+="media-gfx/imagemagick"
+			COMMONDEPEND+=" media-gfx/imagemagick"
 		fi
 
 		COMMONDEPEND+="
@@ -81,7 +81,7 @@ case ${KMNAME} in
 			media-libs/freetype:2
 		"
 		if [[ ${PN} != koffice-libs && ${PN} != koffice-data ]]; then
-			COMMONDEPEND+=">=app-office/koffice-libs-${PV}:${SLOT}"
+			COMMONDEPEND+=" >=app-office/koffice-libs-${PV}:${SLOT}"
 		fi
 		;;
 esac
@@ -230,15 +230,15 @@ kde4-meta_src_extract() {
 		case ${PV} in
 			4.3.85 | 4.3.90 | 4.3.95 | 4.3.96 | 4.3.98 | 4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
 				# block for normally packed upstream unstable snapshots
-				KMTARPARAMS+="--bzip2" # bz2
+				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
 			4.2.9* | 4.2.8* | 4.2.7* | 4.2.6* | 4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
-				KMTARPARAMS+="--lzma" # lzma
+				KMTARPARAMS+=" --lzma" # lzma
 				postfix="lzma"
 				;;
 			*)
-				KMTARPARAMS+="--bzip2" # bz2
+				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
 		esac
@@ -248,7 +248,7 @@ kde4-meta_src_extract() {
 				tarball="kdebase-${PV}.tar.${postfix}"
 				# Go one level deeper for kdebase-apps in tarballs
 				moduleprefix=apps/
-				KMTARPARAMS+="--transform=s|apps/||"
+				KMTARPARAMS+=" --transform=s|apps/||"
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
