@@ -20,6 +20,9 @@ get_packages_from_slot() {
 		cat ${SLOTFILE} |grep -v ^@ |grep -v ^$ |grep -v ^#| grep 'kde-base/' \
 			|sed -e "s/:${SLOT}//g" \
 			>> ${TMPFILE}
+		# metas bumping.
+		find ${PORTDIR_BUMPING} -mindepth 2 -maxdepth 2 -type d -name \*-meta |sed -e "s:./::" \
+			>> ${TMPFILE}
 	done
 }
 
