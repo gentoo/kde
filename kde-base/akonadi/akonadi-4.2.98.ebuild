@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 		!kde-base/kdemaildir:${SLOT}
 		!<kde-base/kdepim-kresources-4.2.95:${SLOT}[kdeprefix]
 	)
-	>=app-office/akonadi-server-1.1.95[mysql]
+	>=app-office/akonadi-server-1.2.0[mysql]
 "
 
 src_prepare() {
