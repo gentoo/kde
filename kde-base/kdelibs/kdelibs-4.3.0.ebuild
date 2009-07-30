@@ -99,6 +99,7 @@ RDEPEND="${COMMONDEPEND}
 	kdeprefix? (
 		!<=kde-misc/kdnssd-avahi-0.1.2:0
 	)
+	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
 	x11-apps/rgb
 	>=x11-misc/xdg-utils-1.0.2-r3
