@@ -19,6 +19,7 @@ RDEPEND="${DEPEND}
 "
 
 KMSAVELIBS="true"
+KMEXTRACTONLY="kleopatra/"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs} -DWITH_QGPGME=ON"

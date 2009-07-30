@@ -9,7 +9,10 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS=""
-IUSE="debug +handbook ssl"
+IUSE="debug +handbook ssl v4l2"
+
+# tests hang, last checked for 4.2.96
+RESTRICT=test
 
 # Available plugins
 #
@@ -72,9 +75,10 @@ COMMONDEPEND="
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
-	otr? ( net-libs/libotr )
+	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
+	v4l2? ( media-libs/libv4l )
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
@@ -105,15 +109,6 @@ src_configure() {
 	done
 
 	kde4-meta_src_configure
-}
-
-src_test() {
-	# disable broken test (as of 4.2.87)
-	sed -i -e '/kopete_pipes_test1 / s/^/#DO_NOT_RUN_TEST /' \
-		"${S}"/kopete/plugins/pipes/tests/CMakeLists.txt || \
-		die "sed to disable kopete_pipes_test1 failed."
-
-	kde4-meta_src_test
 }
 
 pkg_postinst() {

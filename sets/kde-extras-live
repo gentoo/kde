@@ -1,6 +1,7 @@
 ~app-cdr/k3b-9999
 ~app-cdr/k9copy-9999
 ~app-editors/kile-9999
+~app-office/skrooge-9999
 ~dev-cpp/eigen-9999
 ~dev-util/kdesvn-9999
 ~dev-util/kdevelop-9999
@@ -36,16 +37,12 @@
 ~net-irc/aki-9999
 ~net-irc/akiirc-9999
 ~net-misc/smb4k-9999
-~net-libs/decibel-9999
 ~net-libs/libqinfinity-9999
-~net-libs/telepathy-qt-9999
 #net-p2p/kmldonkey-9999
 ~net-p2p/ktorrent-9999
-~net-voip/tapioca-qt-9999
 ~net-wireless/kdebluetooth4-9999
 ~sys-auth/policykit-qt-9999
 ~sys-block/partitionmanager-9999
 ~www-client/rekonq-9999
 ~x11-libs/qtscriptgenerator-9999
 ~x11-themes/gtk-engines-qt-9999
-~x11-themes/playground-plasma-themes-9999

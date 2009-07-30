@@ -94,13 +94,11 @@ qtopengldepend="
 "
 case ${OPENGL_REQUIRED} in
 	always)
-		COMMONDEPEND="${COMMONDEPEND} ${qtopengldepend}"
+		COMMONDEPEND+=" ${qtopengldepend}"
 		;;
 	optional)
-		IUSE="${IUSE} opengl"
-		COMMONDEPEND="${COMMONDEPEND}
-			opengl? ( ${qtopengldepend} )
-		"
+		IUSE+=" opengl"
+		COMMONDEPEND+=" opengl? ( ${qtopengldepend} )"
 		;;
 	*) ;;
 esac
@@ -112,13 +110,11 @@ qtwebkitdepend="
 "
 case ${WEBKIT_REQUIRED} in
 	always)
-		COMMONDEPEND="${COMMONDEPEND} ${qtwebkitdepend}"
+		COMMONDEPEND+=" ${qtwebkitdepend}"
 		;;
 	optional)
-		IUSE="${IUSE} webkit"
-		COMMONDEPEND="${COMMONDEPEND}
-			webkit? ( ${qtwebkitdepend} )
-		"
+		IUSE+=" webkit"
+		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend} )"
 		;;
 	*) ;;
 esac
@@ -130,48 +126,27 @@ cppuintdepend="
 "
 case ${CPPUNIT_REQUIRED} in
 	always)
-		DEPEND="${DEPEND} ${cppuintdepend}"
+		DEPEND+=" ${cppuintdepend}"
 		;;
 	optional)
-		IUSE="${IUSE} test"
-		DEPEND="${DEPEND}
-			test? ( ${cppuintdepend} )
-		"
+		IUSE+=" test"
+		DEPEND+=" test? ( ${cppuintdepend} )"
 		;;
 	*) ;;
 esac
 unset cppuintdepend
-
-# DEPRECATED block
-if [[ ${NEED_KDE} != "none" ]]; then
-	# localization deps
-	# DISABLED UNTIL PMS decide correct approach :(
-	if [[ -n ${KDE_LINGUAS} ]]; then
-		LNG_DEP=""
-		for _lng in ${KDE_LINGUAS}; do
-			# there must be or due to issue if lingua is not present in kde-l10n so
-			# it wont die but pick kde-l10n as-is.
-			LNG_DEP="${LNG_DEP}
-				|| (
-					kde-base/kde-l10n[linguas_${_lng},kdeprefix=]
-					kde-base/kde-l10n[kdeprefix=]
-				)
-			"
-		done
-	fi
-fi # NEED_KDE != NONE block
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
 		if [[ $BUILD_TYPE = live ]]; then
 			# Disable tests for live ebuilds
-			RESTRICT="${RESTRICT} test"
+			RESTRICT+=" test"
 			# Live ebuilds in kde-base default to kdeprefix by default
-			IUSE="${IUSE} +kdeprefix"
+			IUSE+=" +kdeprefix"
 		else
 			# All other ebuild types default to -kdeprefix as before
-			IUSE="${IUSE} kdeprefix"
+			IUSE+=" kdeprefix"
 		fi
 		# Determine SLOT from PVs
 		case ${PV} in
@@ -190,9 +165,7 @@ case ${KDEBASE} in
 		for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 			# Block non kdeprefix ${PN} on other slots
 			if [[ ${SLOT} != ${slot} ]]; then
-				RDEPEND="${RDEPEND}
-					!kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )
-				"
+				RDEPEND+=" !kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
 			fi
 		done
 		unset slot
@@ -227,12 +200,12 @@ kdecommondepend="
 "
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
-		kdecommondepend="${kdecommondepend}
+		kdecommondepend+="
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
 		"
 	else
-		kdecommondepend="${kdecommondepend}
+		kdecommondepend+="
 			>=kde-base/kdelibs${_pv}
 		"
 	fi
@@ -243,16 +216,14 @@ kdedepend="
 "
 case ${KDE_REQUIRED} in
 	always)
-		IUSE="${IUSE} aqua"
-		COMMONDEPEND="${COMMONDEPEND} ${kdecommondepend}"
-		DEPEND="${DEPEND} ${kdedepend}"
+		IUSE+=" aqua"
+		COMMONDEPEND+=" ${kdecommondepend}"
+		DEPEND+=" ${kdedepend}"
 		;;
 	optional)
-		IUSE="${IUSE} aqua kde"
-		COMMONDEPEND="${COMMONDEPEND}
-			kde? ( ${kdecommondepend} )"
-		DEPEND="${DEPEND}
-			kde? ( ${kdedepend} )"
+		IUSE+=" aqua kde"
+		COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
+		DEPEND+=" kde? ( ${kdedepend} )"
 		;;
 	*) ;;
 esac
@@ -263,8 +234,9 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND (only) is ${DEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: RDEPEND (only) is ${RDEPEND}"
 
 # Accumulate dependencies set by this eclass
-DEPEND="${DEPEND} ${COMMONDEPEND}"
-RDEPEND="${RDEPEND} ${COMMONDEPEND}"
+DEPEND+=" ${COMMONDEPEND}"
+RDEPEND+=" ${COMMONDEPEND}"
+unset COMMONDEPEND
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
@@ -361,7 +333,7 @@ case ${BUILD_TYPE} in
 						 	SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.3.9* | 4.3.8* | 4.3.7* | 4.3.6*)
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
-						4.2.85 | 4.2.90 | 4.2.95 | 4.2.96)
+						4.2.85 | 4.2.90 | 4.2.95 | 4.2.96 | 4.2.98)
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.2.9* | 4.2.8* | 4.2.7* | 4.2.6*)
@@ -521,10 +493,10 @@ kde4-base_src_configure() {
 	fi
 
 	# Set distribution name
-	[[ ${PN} = kdelibs ]] && cmakeargs="${cmakeargs} -DKDE_DISTRIBUTION_TEXT=Gentoo"
+	[[ ${PN} = kdelibs ]] && cmakeargs+=" -DKDE_DISTRIBUTION_TEXT=Gentoo"
 
 	# Here we set the install prefix
-	cmakeargs="${cmakeargs} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+	cmakeargs+=" -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
 	# Use colors
 	QTEST_COLORED=1
@@ -539,16 +511,16 @@ kde4-base_src_configure() {
 		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
 
 		# Append full RPATH
-		cmakeargs="${cmakeargs} -DCMAKE_SKIP_RPATH=OFF"
+		cmakeargs+=" -DCMAKE_SKIP_RPATH=OFF"
 	fi
 
 	if has kdeprefix ${IUSE//+} && use kdeprefix; then
 		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
 		# when more are present
-		cmakeargs="${cmakeargs} -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+		cmakeargs+=" -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs="${cmakeargs} -DSYSCONF_INSTALL_DIR=${EROOT}etc"
+		cmakeargs+=" -DSYSCONF_INSTALL_DIR=${EROOT}etc"
 	fi
 
 	mycmakeargs="${cmakeargs} ${mycmakeargs}"
@@ -572,7 +544,7 @@ kde4-base_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Override this value, set in kde4-base_src_configure()
-	mycmakeargs="${mycmakeargs} -DKDE4_BUILD_TESTS=ON"
+	mycmakeargs+=" -DKDE4_BUILD_TESTS=ON"
 	cmake-utils_src_configure
 	kde4-base_src_compile
 

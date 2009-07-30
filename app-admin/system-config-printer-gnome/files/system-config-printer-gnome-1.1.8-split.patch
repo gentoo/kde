@@ -1,0 +1,67 @@
+diff -ru ../system-config-printer-1.1.8/Makefile.am ./Makefile.am
+--- ../system-config-printer-1.1.8/Makefile.am	2009-06-18 18:10:58.000000000 +0200
++++ ./Makefile.am	2009-07-16 02:01:31.000000000 +0200
+@@ -1,11 +1,5 @@
+ SUBDIRS=po
+ 
+-EXPORT_MODULES=					\
+-	cupshelpers/__init__.py			\
+-	cupshelpers/cupshelpers.py		\
+-	cupshelpers/ppds.py			\
+-	cupshelpers/openprinting.py
+-
+ ### Automake hooks for Distutils.
+ # The distutils module doesn't understand srcdir != builddir,
+ # so we copy in, along with the cupshelpers modules, into
+@@ -67,9 +61,7 @@
+ nobase_pkgdata_DATA=					\
+ 	AdvancedServerSettings.py			\
+ 	authconn.py					\
+-	config.py					\
+ 	cupspk.py					\
+-	debug.py					\
+ 	errordialogs.py					\
+ 	HIG.py						\
+ 	glade.py					\
+@@ -84,12 +76,9 @@
+ 	optionwidgets.py				\
+ 	PhysicalDevice.py				\
+ 	ppdippstr.py					\
+-	probe_printer.py				\
+ 	gtk_label_autowrap.py				\
+ 	gtk_treeviewtooltips.py				\
+ 	SearchCriterion.py				\
+-	smburi.py					\
+-	statereason.py					\
+ 	timedops.py					\
+ 	ToolbarSearchEntry.py				\
+ 	userdefault.py					\
+@@ -143,8 +132,6 @@
+ 	man/system-config-printer.1		\
+ 	man/system-config-printer-applet.1
+ 
+-dbus_DATA =\
+-	newprinternotification.conf
+ dbusdir = $(sysconfdir)/dbus-1/system.d/
+ 
+ desktop_DATA =\
+@@ -200,9 +187,7 @@
+ 	$(nobase_sbin_SCRIPTS) \
+ 	$(bin_SCRIPTS) \
+ 	setup.py \
+-	$(EXPORT_MODULES) \
+ 	man/system-config-printer.xml \
+-	newprinternotification.conf \
+ 	bootstrap \
+ 	mkinstalldirs \
+ 	system-config-printer.desktop.in \
+@@ -211,8 +196,7 @@
+ 	print-applet.desktop.in \
+ 	intltool-extract.in \
+ 	intltool-merge.in \
+-	intltool-update.in \
+-	config.py.in
++	intltool-update.in
+ 
+ desktop_in_files = $(desktop_DATA:.desktop=.desktop.in)
+ 

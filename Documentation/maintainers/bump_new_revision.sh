@@ -13,12 +13,15 @@ get_packages_from_slot() {
 
 	# if user specify set then use desired one only
 	find ${PORTDIR_BUMPING}/sets/ -maxdepth 1 -type f -name ${SET}\*-${SLOT} -print \
-			| while read SLOTFILE; do
+			| grep -v kdedeps | while read SLOTFILE; do
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild
 		cat ${SLOTFILE} |grep -v ^@ |grep -v ^$ |grep -v ^#| grep 'kde-base/' \
 			|sed -e "s/:${SLOT}//g" \
+			>> ${TMPFILE}
+		# metas bumping.
+		find ${PORTDIR_BUMPING} -mindepth 2 -maxdepth 2 -type d -name \*-meta |sed -e "s:${PORTDIR_BUMPING}::" \
 			>> ${TMPFILE}
 	done
 }

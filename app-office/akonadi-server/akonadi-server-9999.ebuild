@@ -11,8 +11,8 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
 KEYWORDS=""
+SLOT="0"
 IUSE="+mysql"
 
 RDEPEND="
@@ -27,14 +27,6 @@ DEPEND="${RDEPEND}
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.88
 "
-
-src_prepare() {
-	# Don't check for mysql, avoid an automagic dep.
-	if ! use mysql; then
-		sed -e '/mysqld/s/find_program/#DONOTWANT &/' \
-			-i "${S}"/server/CMakeLists.txt || die 'Sed failed.'
-	fi
-}
 
 pkg_postinst() {
 	if ! use mysql; then

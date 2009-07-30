@@ -36,6 +36,7 @@ RDEPEND="${COMMONDEPEND}
 	!kdeprefix? ( !net-p2p/ktorrent:0 )
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? ( >=kde-base/kdebase-kioslaves-${KDE_MINIMAL} )
+	kross? ( >=kde-base/krosspython-${KDE_MINIMAL} )
 "
 
 src_prepare() {

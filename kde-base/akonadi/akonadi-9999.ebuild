@@ -6,21 +6,22 @@ EAPI="2"
 
 if [[ ${PV} = *9999* ]]; then
 	KMNAME="kdepim"
+	eclass="kde4-meta"
 else
 	KMNAME="kdepim-runtime"
 	KMNOMODULE="true"
+	eclass="kde4-base"
 fi
-inherit kde4-meta
+inherit ${eclass}
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 # add when libmapi becomes available with an ebuild
 #exchange
 IUSE="debug +semantic-desktop"
 
 # add when libmapi becomes available with an ebuild
 #exchange? ( net-libs/libmapi )
-# not sure about libxml2... - reavertm
 DEPEND="
 	dev-libs/boost
 	dev-libs/libxml2
@@ -39,7 +40,7 @@ RDEPEND="${DEPEND}
 		!kde-base/kdemaildir:${SLOT}
 		!<kde-base/kdepim-kresources-4.2.95:${SLOT}[kdeprefix]
 	)
-	>=app-office/akonadi-server-1.1.95[mysql]
+	>=app-office/akonadi-server-1.2.0
 "
 
 src_prepare() {
@@ -72,9 +73,20 @@ src_configure() {
 	kde4-meta_src_configure
 }
 
+src_test() {
+	# disable broken tests
+	sed -i -e '/kcalserializertest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/plugins/tests/CMakeLists.txt || \
+		die "sed to disable kcalserializertest failed."
+	sed -i -e '/kresmigrationtest/ s/^/#DO_NOT_RUN_TEST /' \
+		"${S}"/migration/kres/tests/CMakeLists.txt || \
+		die "sed to disable kresmigrationtest failed."
+
+	kde4-meta_src_test
+}
+
 src_install() {
 	kde4-meta_src_install
 	# colliding files with nepomuk
-	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nmo.{desktop,trig}
-	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/nco.{desktop,trig}
+	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/n{m,c}o.{desktop,trig}
 }

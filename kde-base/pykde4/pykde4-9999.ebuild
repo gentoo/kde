@@ -11,12 +11,13 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="akonadi debug examples semantic-desktop"
+IUSE="akonadi debug examples policykit semantic-desktop"
 
 COMMON_DEPEND="
 	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
 	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
+	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
 DEPEND="${COMMON_DEPEND}"
 # blocker added due to compatibility issues and error during compile time
@@ -24,17 +25,8 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-installation.patch"
-)
-
 src_prepare() {
 	kde4-meta_src_prepare
-
-	# FIXME temporary fix
-	rm -f python/${PN}/sip/kio/ksslcertificatemanager.sip
-	sed -e 's|%Include ksslcertificatemanager.sip||' \
-		-i python/${PN}/sip/kio/kiomod.sip || die "failed to hack around"
 
 	if ! use examples; then
 		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i python/${PN}/CMakeLists.txt \
@@ -48,7 +40,9 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with akonadi KdepimLibs)"
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with policykit PolkitQt)
+	"
 
 	kde4-meta_src_configure
 }
@@ -65,9 +59,7 @@ src_install() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	python_mod_optimize "/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
-	# Do not optimize examples
-	python_mod_compile "${PREFIX}"/share/apps/"${PN}"/*.py
+	python_mod_optimize ${ROOT}"usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
 
 	if use examples; then
 		echo
@@ -80,7 +72,5 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup \
-		"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
-		"${PREFIX}"/share/apps/"${PN}"
+	python_mod_cleanup ${ROOT}"usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
 }

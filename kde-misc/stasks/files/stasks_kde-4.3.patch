@@ -1,0 +1,186 @@
+diff -ur stasks-0.5.1-old/applet/stasks_applet.cpp stasks-0.5.1/applet/stasks_applet.cpp
+--- stasks-0.5.1-old/applet/stasks_applet.cpp	2009-07-25 16:42:42.748546150 +0300
++++ stasks-0.5.1/applet/stasks_applet.cpp	2009-07-25 16:43:10.785262339 +0300
+@@ -73,9 +73,9 @@
+     if (appletContainment) m_groupManager->setScreen(appletContainment->screen());
+     
+     connect(this, SIGNAL(settingsChanged()), m_groupManager, SLOT(reconnect()));
+-    connect(m_groupManager->rootGroup(), SIGNAL(itemAdded(AbstractItemPtr)), this, SLOT(itemAdded(AbstractItemPtr)));
+-    connect(m_groupManager->rootGroup(), SIGNAL(itemRemoved(AbstractItemPtr)), this, SLOT(itemRemoved(AbstractItemPtr)));
+-    connect(m_groupManager->rootGroup(), SIGNAL(itemPositionChanged(AbstractItemPtr)), SLOT(itemPositionChanged(AbstractItemPtr)));
++    connect(m_groupManager->rootGroup(), SIGNAL(itemAdded(AbstractGroupableItem *)), this, SLOT(itemAdded(AbstractGroupableItem *)));
++    connect(m_groupManager->rootGroup(), SIGNAL(itemRemoved(AbstractGroupableItem *)), this, SLOT(itemRemoved(AbstractGroupableItem *)));
++    connect(m_groupManager->rootGroup(), SIGNAL(itemPositionChanged(AbstractGroupableItem *)), SLOT(itemPositionChanged(AbstractGroupableItem *)));
+     connect(this, SIGNAL(settingsChanged()), this, SLOT(configuration()));
+ 
+     m_layout = new QGraphicsLinearLayout(this);
+@@ -87,7 +87,7 @@
+     setSizePolicy(QSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding));
+     setMaximumSize(INT_MAX,INT_MAX);
+ }
+-void STasksApplet::itemAdded(TaskManager::AbstractItemPtr groupableItem)
++void STasksApplet::itemAdded(TaskManager::AbstractGroupableItem * groupableItem)
+ {
+     STasksItem *item = new STasksItem(groupableItem, this);
+     if (m_items.contains(item)) 
+@@ -106,7 +106,7 @@
+     m_tasksHash[groupableItem] = item;
+ 
+ }
+-void STasksApplet::itemRemoved(TaskManager::AbstractItemPtr groupableItem)
++void STasksApplet::itemRemoved(TaskManager::AbstractGroupableItem * groupableItem)
+ {
+     STasksItem* item = m_tasksHash[groupableItem];
+     if(item == 0) 
+@@ -120,7 +120,7 @@
+     m_layout->activate();
+     delete item;
+ }
+-void STasksApplet::itemPositionChanged(AbstractItemPtr groupableItem)
++void STasksApplet::itemPositionChanged(TaskManager::AbstractGroupableItem * groupableItem)
+ {
+     STasksItem* item = m_tasksHash[groupableItem];
+     if (!m_items.contains(item))
+@@ -138,7 +138,7 @@
+     m_items.clear();
+     m_tasksHash.clear();
+     
+-    foreach(TaskManager::AbstractItemPtr item,m_groupManager->rootGroup()->members() ) 
++    foreach(AbstractGroupableItem *item, m_groupManager->rootGroup()->members() ) 
+     {
+ 	itemAdded(item);
+     }
+@@ -153,6 +153,8 @@
+     {
+         m_layout->setOrientation((formFactor() == Plasma::Vertical)?Qt::Vertical:Qt::Horizontal);
+     }
++
++		setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
+ }
+ void STasksApplet::updateSize()
+ {
+@@ -271,7 +273,7 @@
+     }
+     return count;
+ }
+-AbstractItemPtr STasksApplet::selectSubTask(int index)
++AbstractGroupableItem * STasksApplet::selectSubTask(int index)
+ {
+ 
+     foreach(STasksItem *item, m_items) 
+@@ -345,14 +347,11 @@
+     }
+ 
+     //kDebug() << "Wheel event m_activeTaskIndex: " << m_activeTaskIndex << " of " << subTasks;
+-    AbstractItemPtr taskItem = selectSubTask( m_activeIconIndex);
+-    if (taskItem) 
+-    {
+-	if (!taskItem->isGroupItem())
+-	{
++    AbstractGroupableItem *taskItem = selectSubTask( m_activeIconIndex);
++    if (taskItem) {
++      if (!taskItem->isGroupItem()){
+ 	    TaskManager::TaskItem* task = static_cast<TaskManager::TaskItem*>(taskItem);
+-	    if (task->task())
+-	    task->task()->activate();
++	if (task->task()) task->task()->activateRaiseOrIconify();
+ 	}
+     }
+ }
+diff -ur stasks-0.5.1-old/applet/stasks_applet.h stasks-0.5.1/applet/stasks_applet.h
+--- stasks-0.5.1-old/applet/stasks_applet.h	2009-07-25 16:42:42.748546150 +0300
++++ stasks-0.5.1/applet/stasks_applet.h	2009-07-25 16:43:10.786261209 +0300
+@@ -51,7 +51,6 @@
+ using TaskManager::TaskPtr;
+ using TaskManager::StartupPtr;
+ using TaskManager::GroupPtr;
+-using TaskManager::AbstractItemPtr;
+ using TaskManager::AbstractGroupableItem;
+ using TaskManager::GroupManager;
+ using TaskManager::TaskItem;
+@@ -88,14 +87,14 @@
+ 	int fps() {return 35;}
+     private:
+ 	QGraphicsLinearLayout *m_layout;
+-	QHash<AbstractItemPtr, STasksItem*> m_tasksHash;
++	QHash<AbstractGroupableItem *, STasksItem*> m_tasksHash;
+ 	qreal m_iconSize;
+ 	Ui::stasksConfigG m_configG;
+ 	Ui::stasksConfigA m_configA;
+ 	void reload();
+ 	void constraintsEvent(Plasma::Constraints constraints);
+ 	int totalSubTasks();
+-	AbstractItemPtr selectSubTask(int index);
++	AbstractGroupableItem * selectSubTask(int index);
+ 	int activeIndex();
+ 	//task
+         TaskManager::GroupManager::TaskGroupingStrategy m_groupingStrategy;
+@@ -119,13 +118,13 @@
+     public slots:
+ 	void updateSize();
+ 	void updateActiveIconIndex(STasksItem *item);
+-	void itemPositionChanged(AbstractItemPtr groupableItem);
++	void itemPositionChanged(AbstractGroupableItem *);
+ 	void expandTasksChanged(int state);
+ 	void lightColorChanged(int state);
+     private slots:
+ 	void configuration();
+-	void itemAdded(AbstractItemPtr groupableItem);
+-	void itemRemoved(AbstractItemPtr groupableItem);
++	void itemAdded(AbstractGroupableItem *);
++	void itemRemoved(AbstractGroupableItem *);
+     protected slots:
+         void configAccepted();
+     signals:
+diff -ur stasks-0.5.1-old/applet/stasks_task.cpp stasks-0.5.1/applet/stasks_task.cpp
+--- stasks-0.5.1-old/applet/stasks_task.cpp	2009-07-25 16:42:42.749545718 +0300
++++ stasks-0.5.1/applet/stasks_task.cpp	2009-07-25 16:43:10.787262174 +0300
+@@ -155,7 +155,7 @@
+ {
+     return m_task->task();
+ }
+-TaskManager::AbstractItemPtr STasksTask::abstractItem()
++TaskManager::AbstractGroupableItem* STasksTask::abstractItem()
+ {
+     return m_abstractItem;
+ }
+diff -ur stasks-0.5.1-old/applet/stasks_task.h stasks-0.5.1/applet/stasks_task.h
+--- stasks-0.5.1-old/applet/stasks_task.h	2009-07-25 16:42:42.748546150 +0300
++++ stasks-0.5.1/applet/stasks_task.h	2009-07-25 16:43:10.787262174 +0300
+@@ -43,7 +43,6 @@
+ using TaskManager::TaskPtr;
+ using TaskManager::StartupPtr;
+ using TaskManager::GroupPtr;
+-using TaskManager::AbstractItemPtr;
+ using TaskManager::AbstractGroupableItem;
+ using TaskManager::GroupManager;
+ using TaskManager::TaskItem;
+@@ -78,7 +77,7 @@
+ 	QString description();
+ 	int desktop();
+ 	TaskPtr task();
+-	TaskManager::AbstractItemPtr abstractItem();
++	TaskManager::AbstractGroupableItem * abstractItem();
+ 	GroupPtr group();
+ 	TaskManager::TaskItem* taskItem();
+ 	StartupPtr startup();
+@@ -92,7 +91,7 @@
+ 	TaskManager::TaskGroup* m_group;
+ 	STasksApplet *m_applet;
+ 
+-	TaskManager::AbstractItemPtr m_abstractItem;
++	TaskManager::AbstractGroupableItem * m_abstractItem;
+ 	TaskFlags m_flags;
+         ItemType m_type;
+     private slots:
+diff -ur stasks-0.5.1-old/applet/stasks_tooltip.cpp stasks-0.5.1/applet/stasks_tooltip.cpp
+--- stasks-0.5.1-old/applet/stasks_tooltip.cpp	2009-07-25 16:42:42.748546150 +0300
++++ stasks-0.5.1/applet/stasks_tooltip.cpp	2009-07-25 16:43:10.788261743 +0300
+@@ -75,6 +75,7 @@
+ 
+ STasksToolTip::STasksToolTip(int size, QWidget *parent) : QWidget(parent)
+ {
++    setAttribute(Qt::WA_TranslucentBackground);
+     setWindowFlags(Qt::ToolTip);
+ 
+     m_size = size;

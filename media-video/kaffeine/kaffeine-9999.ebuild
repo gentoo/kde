@@ -13,7 +13,7 @@ HOMEPAGE="http://kaffeine.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
+SLOT="4"
 IUSE="debug dvb xcb encode vorbis"
 
 COMMON_DEPEND="
@@ -26,6 +26,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	!kdeprefix? ( !media-video/kaffeine:0 )
+	!media-video/kaffeine:1
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/inputproto

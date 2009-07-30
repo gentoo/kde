@@ -2,4 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name='rdp'>Enable runtime dependency for <pkg>net-misc/rdesktop</pkg></flag>
+</use>
 </pkgmetadata>

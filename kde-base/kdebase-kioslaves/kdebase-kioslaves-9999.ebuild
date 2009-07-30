@@ -12,6 +12,7 @@ DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesy
 KEYWORDS=""
 IUSE="bzip2 debug +handbook openexr samba"
 
+# tests hang, last checked for 4.2.96
 RESTRICT="test"
 
 DEPEND="

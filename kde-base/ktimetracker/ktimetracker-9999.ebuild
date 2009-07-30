@@ -13,8 +13,8 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/kdepim-kresources-${PV}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}[kdeprefix=]"
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]"
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="kresources/"

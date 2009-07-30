@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make sure that all systems have the same sort order
+export LC_COLLATE=C
+
 SCRIPT=`basename $0`
 if [[ ! -f "${PWD}/${SCRIPT}" ]]; then
 	echo "You need to be in '"`dirname $0`"' dir to run this script."
@@ -21,6 +24,45 @@ ${HEADER}
 if [[ -d kde-3.5.d ]]; then
 	cat kde-3.5.d/* >> kde-3.5.keywords
 fi
+
+# regenerate other keywords
+for release in 4.2 4.3 4.4; do
+	echo -e "${HEADER}" > "kde-${release}.keywords"
+	if [[ -d "kde-${release}.d" ]]; then
+		cat "kde-${release}.d/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-${release}.keywords"
+	fi
+done
+
+# ... and for completely unkeyworded packages, add "**"
+if [[ -d kde-4.3.d ]]; then
+	rm -rf kde-4.3.9999.d
+	mkdir -p kde-4.3.9999.d
+	echo -e "${HEADER}" > kde-4.3.9999.keywords
+	for file in kde-4.3.d/*; do
+		newfile=kde-4.3.9999.d/$(basename "${file}")
+		sed '/^kde-base\/.*:4.3$/{s/:4.3/-4.3.9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+	done
+	cat kde-4.3.9999.d/* >> kde-4.3.9999.keywords
+fi
+
+if [[ -d kde-live.base ]]; then
+	rm -rf kde-live.d
+	mkdir -p kde-live.d
+	echo -e "${HEADER}" > kde-live.keywords
+	for file in kde-live.base/*; do
+		newfile=kde-live.d/$(basename "${file}")
+		sed '/^kde-base\/.*:live$/{s/:live/-9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+	done
+	cat kde-live.d/* >> kde-live.keywords
+fi
+
+for set in kde-extras-live koffice-live; do
+	if [[ -e "../../sets/${set}" ]]; then
+		echo -e "${HEADER}" > "${set}.keywords"
+		sed '/^~.*[.-]9999$/s/$/ **/' "../../sets/${set}" >> "${set}.keywords"
+	fi
+done
+
 popd > /dev/null
 
 # regenerate unmask entries (base for package mask)

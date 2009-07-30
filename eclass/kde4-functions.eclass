@@ -56,7 +56,21 @@ KDE_LIVE_SLOTS=( "live" )
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z ${EROOT%%/} && -x ${KDEDIR}/bin/kbuildsycoca4 ]]; then
+	local KDE3DIR="${EROOT}usr/kde/3.5"
+	if [[ -z ${EROOT%%/} && -x "${KDE3DIR}"/bin/kbuildsycoca ]]; then
+		# Since KDE3 is aware of shortcuts in /usr, rebuild database
+		# for KDE3 as well.
+		touch "${KDE3DIR}"/share/services/ksycoca
+		chmod 644 "${KDE3DIR}"/share/services/ksycoca
+
+		ebegin "Running kbuildsycoca to build global database"
+		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDE3DIR}/share:${EROOT}usr/share" \
+			DISPLAY="" \
+			"${KDE3DIR}"/bin/kbuildsycoca --global --noincremental &> /dev/null
+		eend $?
+	fi
+
+	if [[ -z ${EROOT%%/} && -x "${KDEDIR}"/bin/kbuildsycoca4 ]]; then
 		# Make sure tha cache file exists, writable by root and readable by
 		# others. Otherwise kbuildsycoca4 will fail.
 		touch "${KDEDIR}/share/kde4/services/ksycoca4"
