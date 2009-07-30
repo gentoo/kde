@@ -352,33 +352,6 @@ kde4-meta_create_extractlists() {
 					libkdegames/"
 			fi
 			;;
-		kdepim-runtime)
-			# this is actually the akonadi :]
-			KMEXTRACTONLY+="
-				doc/
-				kdepim-mime.xml
-				kdepim-version.h
-				akonadi-prefix.h.cmake
-				Mainpage.dox"
-			KMEXTRA+="
-				agents/
-				akonadiconsole/
-				akonadi_next/
-				clients/
-				defaultsetup/
-				kabc/
-				kcal/
-				kcm/
-				kioslave/
-				kresources/
-				libkdepim-copy/
-				migration/
-				opensync/
-				plugins/
-				resources/
-				tray/
-				xml/"
-			;;
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
 				KMEXTRACTONLY+="
