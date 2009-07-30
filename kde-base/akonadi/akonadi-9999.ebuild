@@ -52,7 +52,7 @@ src_prepare() {
 			|| die "Failed to disable nepomuktag"
 	fi
 
-	kde4-meta_src_prepare
+	${eclass}_src_prepare
 }
 
 src_configure() {
@@ -70,7 +70,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
 
-	kde4-meta_src_configure
+	${eclass}_src_configure
 }
 
 src_test() {
@@ -82,11 +82,11 @@ src_test() {
 		"${S}"/migration/kres/tests/CMakeLists.txt || \
 		die "sed to disable kresmigrationtest failed."
 
-	kde4-meta_src_test
+	${eclass}_src_test
 }
 
 src_install() {
-	kde4-meta_src_install
+	${eclass}_src_install
 	# colliding files with nepomuk
 	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/n{m,c}o.{desktop,trig}
 }
