@@ -359,6 +359,7 @@ kde4-meta_create_extractlists() {
 				kdepim-mime.xml
 				kdepim-version.h
 				akonadi-prefix.h.cmake
+				akonadi-version.h.cmake
 				Mainpage.dox"
 			KMEXTRA+="
 				agents/
