@@ -9,7 +9,6 @@ if [[ ${PV} = *9999* ]]; then
 	eclass="kde4-meta"
 else
 	KMNAME="kdepim-runtime"
-	KMNOMODULE="true"
 	eclass="kde4-base"
 fi
 inherit ${eclass}
