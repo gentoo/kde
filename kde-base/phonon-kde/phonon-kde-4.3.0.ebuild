@@ -32,7 +32,7 @@ src_prepare() {
 	# Disable automagic
 	sed -e 's/find_package(Xine)/macro_optional_find_package(Xine)/' \
 		-i phonon/kcm/xine/CMakeLists.txt || die "Failed to make xine optional"
-	sed -e "s:FIND_PACKAGE(Alsa):macro_optional_find_package(Alsa):"
+	sed -e "s:FIND_PACKAGE(Alsa):macro_optional_find_package(Alsa):" \
 		-i phonon/CMakeLists.txt || die "Failed to make alsa optional"
 
 	kde4-meta_src_prepare
