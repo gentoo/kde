@@ -9,7 +9,6 @@ if [[ ${PV} = *9999* ]]; then
 	eclass="kde4-meta"
 else
 	KMNAME="kdepim-runtime"
-	KMNOMODULE="true"
 	eclass="kde4-base"
 fi
 inherit ${eclass}
@@ -42,6 +41,8 @@ RDEPEND="${DEPEND}
 	)
 	>=app-office/akonadi-server-1.2.0
 "
+
+[[ ${KMNAME} = "kdepim-runtime" ]] && S="${WORKDIR}/${KMNAME}-${PV}"
 
 src_prepare() {
 	local pref="${S}"

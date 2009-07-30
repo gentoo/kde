@@ -9,13 +9,12 @@ if [[ ${PV} = *9999* ]]; then
 	eclass="kde4-meta"
 else
 	KMNAME="kdepim-runtime"
-	KMNOMODULE="true"
 	eclass="kde4-base"
 fi
 inherit ${eclass}
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 # add when libmapi becomes available with an ebuild
 #exchange
 IUSE="debug +semantic-desktop"
@@ -42,6 +41,8 @@ RDEPEND="${DEPEND}
 	)
 	>=app-office/akonadi-server-1.2.0
 "
+
+[[ ${KMNAME} = "kdepim-runtime" ]] && S="${WORKDIR}/${KMNAME}-${PV}"
 
 src_prepare() {
 	local pref="${S}"
