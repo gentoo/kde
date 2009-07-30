@@ -28,14 +28,6 @@ DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.88
 "
 
-src_prepare() {
-	# Don't check for mysql, avoid an automagic dep.
-	if ! use mysql; then
-		sed -e '/mysqld/s/find_program/#DONOTWANT &/' \
-			-i "${S}"/server/CMakeLists.txt || die 'Sed failed.'
-	fi
-}
-
 pkg_postinst() {
 	if ! use mysql; then
 		echo
