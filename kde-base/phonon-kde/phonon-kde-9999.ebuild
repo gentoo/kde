@@ -13,11 +13,11 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="debug pulseaudio +xine"
+IUSE="alsa debug pulseaudio +xine"
 
 DEPEND="
-	media-libs/alsa-lib
 	media-sound/phonon[xine?]
+	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-sound/pulseaudio )
 "
 RDEPEND="${DEPEND}
@@ -32,12 +32,15 @@ src_prepare() {
 	# Disable automagic
 	sed -e 's/find_package(Xine)/macro_optional_find_package(Xine)/' \
 		-i phonon/kcm/xine/CMakeLists.txt || die "Failed to make xine optional"
+	sed -e "s:FIND_PACKAGE(Alsa):macro_optional_find_package(Alsa):"
+		-i phonon/CMakeLists.txt || die "Failed to make alsa optional"
 
 	kde4-meta_src_prepare
 }
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with pulseaudio PulseAudio)
 		$(cmake-utils_use_with xine)"
 
