@@ -276,6 +276,9 @@ case ${BUILD_TYPE} in
 				kdebase-*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
 					;;
+				kdelibs-*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
+					;;
 				kdereview)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
 					;;
