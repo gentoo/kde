@@ -4,7 +4,12 @@
 
 EAPI="2"
 
-KMNAME="kdelibs/experimental"
+if [[ ${PV} = *9999* ]]; then
+	KMNAME="kdelibs/experimental"
+else
+	KMNAME="kdelibs-experimental"
+fi
+
 KMMODULE="knotificationitem"
 inherit kde4-meta
 
