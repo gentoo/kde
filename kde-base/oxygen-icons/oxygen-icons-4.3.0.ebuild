@@ -4,7 +4,11 @@
 
 EAPI="2"
 
-KMNAME="oxygen-icons"
+if [[ ${PV} = *9999* ]]; then
+	KMNAME="kdesupport"
+else
+	KMNAME="oxygen-icons"
+fi
 KDE_REQUIRED="never"
 inherit kde4-base
 
