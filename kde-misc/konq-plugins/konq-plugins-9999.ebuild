@@ -32,5 +32,5 @@ src_configure() {
 		-DWebKitPart=OFF
 		$(cmake-utils_use_with tidy LibTidy)"
 
-	kde4-base_src_configure
+	kde4-meta_src_configure
 }
