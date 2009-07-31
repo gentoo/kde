@@ -1,7 +1,7 @@
 # We don't include kdesdk on the global set
 kde-base/kate:live
-kde-base/kdeplasma-addons:live
 kde-base/kde-l10n:live
+kde-base/kdeplasma-addons:live
 
 @kdeaccessibility-live
 @kdeadmin-live
@@ -17,10 +17,8 @@ kde-base/kde-l10n:live
 @kdepim-live
 @kdetoys-live
 @kdeutils-live
-
-#@koffice-live
+@kdewebdev-live
 
 #for developers
 #@kdebindings-live
 #@kdesdk-live
-#@kdewebdev-live <---- tomorrow!!

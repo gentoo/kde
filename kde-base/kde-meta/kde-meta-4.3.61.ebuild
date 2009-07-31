@@ -26,11 +26,9 @@ RDEPEND="
 	>=kde-base/kdeplasma-addons-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdetoys-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdeutils-meta-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdewebdev-meta-${PV}:${SLOT}[kdeprefix=]
 	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT}[kdeprefix=] )
-	mysql? (
-		>=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=]
-		>=kde-base/kdewebdev-meta-${PV}:${SLOT}[kdeprefix=]
-	)
+	mysql? ( >=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=] )
 	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
 "
 # make kdepim-meta optional since it requires long hated mysql which people tend
