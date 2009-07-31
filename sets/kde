@@ -1,1 +1,23 @@
-kde-4.2
+# We don't include kdesdk on the global set
+kde-base/kate
+kde-base/kde-l10n
+kde-base/kdeplasma-addons
+
+@kdeaccessibility
+@kdeadmin
+@kdeartwork
+@kdebase
+@kdeedu
+@kdegames
+@kdegraphics
+@kdelibs
+@kdemultimedia
+@kdenetwork
+@kdepim
+@kdetoys
+@kdeutils
+@kdewebdev
+
+#for developers
+#@kdebindings
+#@kdesdk

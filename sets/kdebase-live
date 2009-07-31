@@ -72,6 +72,6 @@ kde-base/powerdevil:live
 kde-base/renamedlg-plugins:live
 kde-base/solid:live
 kde-base/solid-hardware:live
-kde-base/soliduiserver:live
 kde-base/solidautoeject:live
+kde-base/soliduiserver:live
 kde-base/systemsettings:live
