@@ -26,8 +26,3 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
-
-src_install() {
-	kde4-meta_src_install
-	rm "${D}/${KDEDIR}"/share/icons/oxygen/22x22/actions/pointer.png || die "icon no longer around"
-}
