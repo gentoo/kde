@@ -35,6 +35,14 @@ src_prepare() {
 	sed -e "s:FIND_PACKAGE(Alsa):macro_optional_find_package(Alsa):" \
 		-i phonon/CMakeLists.txt || die "Failed to make alsa optional"
 
+	if ! use alsa; then
+		sed -i \
+			-e "s/ALSA_CONFIGURE_FILE/#DONOTWANT/" \
+			phonon/CMakeLists.txt || die "Failed to disable alsa check with disabled alsa"
+		sed -i \
+			-e "s/alsa_version_string/#DONOTWANT/" \
+			phonon/kded-module/CMakeLists.txt || die "Failed to disable alsa checks"
+	fi
 	kde4-meta_src_prepare
 }
 
