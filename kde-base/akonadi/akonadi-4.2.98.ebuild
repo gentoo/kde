@@ -33,7 +33,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kdeprefix? (
 		!kde-base/kdemaildir[-kdeprefix]
-		!<kde-base/kdepim-kresources-4.2.95[-kdeprefix]
+		!~kde-base/kdepim-kresources-4.2.3[-kdeprefix]
+		!~kde-base/kdepim-kresources-4.2.4[-kdeprefix]
+		!<kde-base/kdepim-kresources-4.2.95:4.3[-kdeprefix]
 	)
 	kdeprefix? (
 		!kde-base/kdemaildir:${SLOT}
