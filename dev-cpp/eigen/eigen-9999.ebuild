@@ -63,7 +63,7 @@ src_install() {
 src_test() {
 	mycmakeargs="${mycmakeargs}
 		-DEIGEN_BUILD_TESTS=ON
-	"
+		-DEIGEN_TEST_NO_FORTRAN=ON"
 	cmake-utils_src_configure
 	cmake-utils_src_compile
 	cmake-utils_src_test
