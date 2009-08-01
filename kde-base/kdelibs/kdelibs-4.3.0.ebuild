@@ -49,7 +49,7 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	x11-misc/shared-mime-info
 	acl? ( virtual/acl )
-	alsa? ( media-libs/alsa-lib[midi] )
+	alsa? ( media-libs/alsa-lib )
 	bzip2? ( app-arch/bzip2 )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
