@@ -15,13 +15,8 @@ IUSE="alsa debug +handbook"
 DEPEND="
 	alsa? ( media-libs/alsa-lib )
 "
-RDEPEND="${DEPEND}
-	app-accessibility/epos
-	app-accessibility/festival
-	app-accessibility/flite
-	app-accessibility/freetts
-	app-accessibility/mbrola
-"
+RDEPEND="${DEPEND}"
+
 src_configure() {
 	# we enable all plugins
 	mycmakeargs="${mycmakeargs}
@@ -35,4 +30,16 @@ src_configure() {
 		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)"
 
 	kde4-meta_src_configure
+}
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	elog "To use KTTSD, you will need to install at least one of the following"
+	elog "packages:"
+	elog " - app-accessibility/epos"
+	elog " - app-accessibility/festival"
+	elog " - app-accessibility/flite"
+	elog " - app-accessibility/freetts"
+	elog " - app-accessibility/mbrola"
 }
