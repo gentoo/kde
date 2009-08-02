@@ -3,7 +3,12 @@
 <pkgmetadata>
 <use>
 	<flag name="akode">Support for the aKode audio-decoding frame-work.</flag>
+	<flag name="epos">Build a plugin for <pkg>app-accessibility/epos</pkg></flag>
+	<flag name="festival">Build a plugin for <pkg>app-accessibility/festival</pkg></flag>
+	<flag name="flite">Build a plugin for <pkg>app-accessibility/flite</pkg></flag>
+	<flag name="freetts">Build a plugin for <pkg>app-accessibility/freetts</pkg></flag>
 	<flag name="ktts">Enable KDE Text To Speech modules</flag>
+	<flag name="mbrola">Build a plugin for <pkg>app-accessibility/mbrola</pkg></flag>
 	<flag name="phonon">Enable support for the KDE multimedia API</flag>
 </use>
 <herd>kde</herd>
