@@ -1,5 +1,6 @@
-# Copyright 1999-2009 Sabayon Linux
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI="2"
 
@@ -95,7 +96,7 @@ pkg_postinst() {
 	kde4-base_pkg_postinst
 
 	echo
-	elog "We don't install k3bsetup anymore because Sabayon doesn't need it."
+	elog "We don't install k3bsetup anymore because Gentoo doesn't need it."
 	elog "If you get warnings on start-up, uncheck the \"Check system"
 	elog "configuration\" option in the \"Misc\" settings window."
 	echo
