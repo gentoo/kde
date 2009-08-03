@@ -54,14 +54,8 @@ DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
 S="${WORKDIR}"/"${P/_*/}"
 
-src_prepare() {
-	kde4-base_src_prepare
-
-	# Fix musepack support, libmpcsv7 needed
-	cd "${S}"
-	epatch "${FILESDIR}/${P}-fix-musepack-lib-detection.patch"
-
-}
+# Fix musepack support, libmpcsv7 needed
+PATCHES=( "${FILESDIR}/${P}-fix-musepack-lib-detection.patch" )
 
 src_configure() {
 	# Common settings

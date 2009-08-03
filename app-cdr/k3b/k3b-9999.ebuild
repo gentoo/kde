@@ -27,7 +27,7 @@ DEPEND="
 		lame? ( media-sound/lame )
 	)
 	mad? ( media-libs/libmad )
-	musepack? ( media-libs/libmpcdec )
+	musepack? ( media-libs/libmpcdecsv7 )
 	musicbrainz? ( media-libs/musicbrainz:1 )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
@@ -50,6 +50,9 @@ RDEPEND="${DEPEND}
 "
 
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
+
+# Fix musepack support, libmpcsv7 needed
+PATCHES=( "${FILESDIR}/${PN}-1.66.0_alpha2-fix-musepack-lib-detection.patch" )
 
 src_configure() {
 	# Common settings
