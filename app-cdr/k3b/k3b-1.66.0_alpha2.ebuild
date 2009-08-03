@@ -1,6 +1,5 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2009 Sabayon Linux
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI="2"
 
@@ -54,6 +53,15 @@ DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
 S="${WORKDIR}"/"${P/_*/}"
 
+src_prepare() {
+	kde4-base_src_prepare
+
+	# Fix musepack support, libmpcsv7 needed
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-fix-musepack-lib-detection.patch"
+
+}
+
 src_configure() {
 	# Common settings
 	mycmakeargs="${mycmakeargs}
@@ -87,7 +95,7 @@ pkg_postinst() {
 	kde4-base_pkg_postinst
 
 	echo
-	elog "We don't install k3bsetup anymore because Gentoo doesn't need it."
+	elog "We don't install k3bsetup anymore because Sabayon doesn't need it."
 	elog "If you get warnings on start-up, uncheck the \"Check system"
 	elog "configuration\" option in the \"Misc\" settings window."
 	echo

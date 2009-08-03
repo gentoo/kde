@@ -1,0 +1,11 @@
+--- k3b-1.66.0.orig/cmake/modules/FindMuse.cmake
++++ k3b-1.66.0/cmake/modules/FindMuse.cmake
+@@ -20,7 +20,7 @@ FIND_PATH(MUSE_INCLUDE_DIR NAMES mpcdec/
+ )
+ 
+ if(MUSE_INCLUDE_DIR)
+-  FIND_LIBRARY(MUSE_LIBRARIES NAMES mpcdec)
++  FIND_LIBRARY(MUSE_LIBRARIES NAMES mpcdecsv7 mpcdec)
+   set(MPC_HEADER_FILE "<mpcdec/mpcdec.h>")
+ else(MUSE_INCLUDE_DIR)
+   FIND_PATH(MUSE_INCLUDE_DIR NAMES musepack/musepack.h)
