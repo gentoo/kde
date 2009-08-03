@@ -44,6 +44,8 @@ RDEPEND="${DEPEND}
 	>=app-office/akonadi-server-1.2.0
 "
 
+[[ ${KMNAME} = "kdepim-runtime" ]] && S="${WORKDIR}/${KMNAME}-${PV}"
+
 src_prepare() {
 	local pref="${S}"
 	[[ ${KMNAME} != "kdepim-runtime" ]] && pref="${S}/${PN}"
