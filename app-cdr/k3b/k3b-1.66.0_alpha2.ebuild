@@ -28,7 +28,7 @@ DEPEND="
 		lame? ( media-sound/lame )
 	)
 	mad? ( media-libs/libmad )
-	musepack? ( media-libs/libmpcdec )
+	musepack? ( media-libs/libmpcdecsv7 )
 	musicbrainz? ( media-libs/musicbrainz:1 )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
