@@ -24,6 +24,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!sys-power/powerdevil
+	sys-power/pm-utils
 "
 
 KMEXTRACTONLY="
