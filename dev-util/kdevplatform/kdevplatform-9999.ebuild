@@ -18,7 +18,7 @@ IUSE="cvs debug git kompare mercurial subversion"
 
 DEPEND="
 	>=dev-libs/boost-1.35.0
-	kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
+	kompare? ( >=kde-base/kompare-4.3.1 )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
@@ -37,7 +37,7 @@ src_configure() {
 		$(cmake-utils_use_build git)
 		$(cmake-utils_use_build mercurial)
 		$(cmake-utils_use_build subversion)
-		$(cmake-utils_use_with kompare KOMPARE_PART)
+		$(cmake-utils_use_with kompare)
 		$(cmake-utils_use_with subversion SubversionLibrary)"
 
 	kde4-base_src_configure
