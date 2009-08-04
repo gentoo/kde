@@ -18,7 +18,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="kresources/"
-
 KMLOADLIBS="libkdepim"
 
 src_unpack() {
@@ -29,5 +28,3 @@ src_unpack() {
 
 	kde4-meta_src_unpack
 }
-
-

@@ -18,16 +18,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="kresources/"
-
 KMLOADLIBS="libkdepim"
 
-
 src_unpack() {
-        if use kontact; then
-                KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
-                KMEXTRA="${KMEXTRA} kontact/plugins/ktimetracker"
-        fi
+	if use kontact; then
+		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
+		KMEXTRA="${KMEXTRA} kontact/plugins/ktimetracker"
+	fi
 
-        kde4-meta_src_unpack
+	kde4-meta_src_unpack
 }
-
