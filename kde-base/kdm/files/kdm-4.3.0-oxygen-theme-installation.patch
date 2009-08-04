@@ -1,0 +1,53 @@
+Index: kdm/config.def
+===================================================================
+--- kdm/config.def	(revision 1004103)
++++ kdm/config.def	(revision 1004104)
+@@ -2029,7 +2029,7 @@
+ Comment: &
+ Description:
+  Specify the widget style for the greeter. Empty means to use the
+- built-in default which currently is <literal>Oxygen</literal>.
++ built-in default which currently is <literal>Oxygen-air</literal>.
+ 
+ Key: ColorScheme
+ Type: string
+@@ -2039,7 +2039,7 @@
+ Comment: &
+ Description:
+  Specify the widget color scheme for the greeter. Empty means to use the
+- built-in default which currently is <literal>Oxygen</literal>.
++ built-in default which currently is <literal>Oxygen-air</literal>.
+ 
+ Key: LogoArea
+ Type: enum
+@@ -2657,7 +2657,7 @@
+ Type: string
+ Default: ""
+ User: greeter
+-Instance: */KDMDATA "/themes/oxygen"
++Instance: */KDMDATA "/themes/oxygen-air"
+ Comment: &
+ Description:
+  The theme to use for the greeter. Can point to either a directory or an XML
+Index: kdm/kfrontend/themes/oxygen-air/CMakeLists.txt
+===================================================================
+--- kdm/kfrontend/themes/oxygen-air/CMakeLists.txt	(revision 0)
++++ kdm/kfrontend/themes/oxygen-air/CMakeLists.txt	(revision 1004104)
+@@ -0,0 +1,17 @@
++install(FILES
++    KdmGreeterTheme.desktop
++    oxygen-air.xml
++    screenshot.png
++    1280x800.jpg
++    caps.png
++    icon-kde.png
++    pw-entry-li.png
++    pw-entry.png
++    session_button-li.png
++    session_button.png
++    system_button-li.png
++    system_button.png
++    user-entry-li.png
++    user-entry.png
++    win-login.png
++    DESTINATION ${DATA_INSTALL_DIR}/kdm/themes/oxygen-air)
