@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 DEPEND=">=sys-devel/gettext-0.17"
 RDEPEND=""
 
-KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="handbook"
 
 LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
