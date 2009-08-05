@@ -67,7 +67,6 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	x11-libs/libXScrnSaver
 	>=x11-libs/qt-gui-4.4.0:4[mng]
-	facebook? ( net-im/kopete-facebook )
 	gadu? ( >=net-libs/libgadu-1.8.0 )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
@@ -86,13 +85,14 @@ RDEPEND="${COMMONDEPEND}
 		media-gfx/imagemagick
 		virtual/latex-base
 	)
+	ssl? ( app-crypt/qca-ossl )
 "
 #	telepathy? ( net-libs/decibel )"
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto
 "
 PDEPEND="
-	ssl? ( app-crypt/qca-ossl )
+	facebook? ( net-im/kopete-facebook )
 "
 
 src_configure() {
