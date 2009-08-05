@@ -54,8 +54,8 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour gadu groupwise +jabber meanwhile msn oscar qq skype
-testbed winpopup yahoo"
+PROTOCOLS="bonjour facebook gadu groupwise +jabber meanwhile msn oscar qq
+skype testbed winpopup yahoo"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
@@ -67,6 +67,7 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	x11-libs/libXScrnSaver
 	>=x11-libs/qt-gui-4.4.0:4[mng]
+	facebook? ( net-im/kopete-facebook )
 	gadu? ( >=net-libs/libgadu-1.8.0 )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
