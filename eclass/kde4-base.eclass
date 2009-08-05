@@ -22,6 +22,17 @@ fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
+case ${KDEBASE} in
+	kde-base)
+		HOMEPAGE="http://www.kde.org/"
+		LICENSE="GPL-2"
+		;;
+	koffice)
+		HOMEPAGE="http://www.koffice.org/"
+		LICENSE="GPL-2"
+		;;
+esac
+
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
 # Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.

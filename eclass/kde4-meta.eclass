@@ -20,17 +20,6 @@ if [[ -z ${KMNAME} ]]; then
 	die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 fi
 
-case ${KDEBASE} in
-	kde-base)
-		HOMEPAGE="http://www.kde.org/"
-		LICENSE="GPL-2"
-		;;
-	koffice)
-		HOMEPAGE="http://www.koffice.org/"
-		LICENSE="GPL-2"
-		;;
-esac
-
 # Add khelpcenter dependency when installing handbooks
 if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
 	RDEPEND+=" handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )"
