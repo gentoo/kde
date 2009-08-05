@@ -13,6 +13,7 @@ IUSE="debug"
 KEYWORDS=""
 
 COMMONDEPEND="
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
