@@ -4,18 +4,29 @@
 
 EAPI="2"
 
-inherit cmake-utils git
+inherit git kde4-base
 
-DESCRIPTION=""
-HOMEPAGE="http://www.kde.org"
+DESCRIPTION="Facebook Chat support for Kopete"
+HOMEPAGE="http://duncan.mac-vicar.com/blog/archives/tag/facebook"
 EGIT_REPO_URI="git://github.com/dmacvicar/kopete-facebook.git"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS=""
-IUSE=""
+SLOT="4"
+IUSE="debug"
 
-DEPEND="dev-libs/qjson"
-RDEPEND=">=kde-base/kopete-4.2"
+DEPEND="
+	dev-libs/qjson
+	>=kde-base/kopete-${KDE_MINIMAL}
+"
+RDEPEND="${DEPEND}
+	!net-im/kopete-facebook:0
+"
 
-PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-as-needed.patch"
+)
+
+src_unpack() {
+	git_src_unpack
+}
