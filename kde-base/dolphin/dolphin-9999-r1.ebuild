@@ -16,6 +16,7 @@ DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
+	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "

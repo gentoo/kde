@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/dolphin-4.2.4-r1.ebuild,v 1.1 2009/06/04 11:06:54 alexxy Exp $
 
 EAPI="2"
 
@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 PDEPEND="
-	thumbnail? ( >=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=] )
+	thumbnail? ( media-video/mplayerthumbs:1 )
 "
 
 KMLOADLIBS="libkonq"

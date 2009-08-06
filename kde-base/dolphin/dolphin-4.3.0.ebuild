@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/dolphin-4.3.0.ebuild,v 1.2 2009/08/03 23:42:23 wired Exp $
 
 EAPI="2"
 

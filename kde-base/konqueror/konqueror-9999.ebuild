@@ -18,6 +18,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
 	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
