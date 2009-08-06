@@ -5,19 +5,25 @@
 EAPI="2"
 
 KMNAME="kdepim"
-
 inherit kde4-meta
 
-DESCRIPTION="KDE app that tracks time spent on various tasks."
+DESCRIPTION="KTimeTracker tracks time spent on various tasks."
 KEYWORDS=""
 IUSE="debug +handbook"
 
-DEPEND="
+RDEPEND="
 	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]"
-RDEPEND="${DEPEND}"
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	x11-libs/libXScrnSaver
+"
+DEPEND="${RDEPEND}
+	x11-proto/scrnsaverproto
+"
 
-KMEXTRACTONLY="kresources/"
+KMEXTRACTONLY="
+	kresources/
+"
+
 KMLOADLIBS="libkdepim"
 
 src_unpack() {

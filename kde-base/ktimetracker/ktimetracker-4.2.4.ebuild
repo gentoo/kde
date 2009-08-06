@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/ktimetracker/ktimetracker-4.2.4.ebuild,v 1.1 2009/06/04 13:25:00 alexxy Exp $
 
 EAPI="2"
 
@@ -12,6 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="
+	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXScrnSaver
@@ -24,13 +25,4 @@ KMEXTRACTONLY="
 	kresources/
 "
 
-KMLOADLIBS="libkdepim"
-
-src_unpack() {
-	if use kontact; then
-		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
-		KMEXTRA="${KMEXTRA} kontact/plugins/ktimetracker"
-	fi
-
-	kde4-meta_src_unpack
-}
+KMLOADLIBS="libkdepim kontactinterfaces"
