@@ -25,7 +25,6 @@ RDEPEND="${DEPEND}
 "
 
 KMEXTRACTONLY="
-	kaddressbook/org.kde.KAddressbook.Core.xml
 	korganizer/org.kde.Korganizer.Calendar.xml
 	libkleo
 	libkpgp
@@ -36,8 +35,6 @@ KMEXTRA="
 	plugins/kmail/
 "
 KMLOADLIBS="libkdepim"
-
-PATCHES=( "${FILESDIR}/${PN}-4.1.72-fix.patch" )
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

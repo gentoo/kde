@@ -25,7 +25,6 @@ KMEXTRA="kdgantt1"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
-	kaddressbook/org.kde.KAddressbook.Core.xml
 	kmail/
 	knode/org.kde.knode.xml
 "

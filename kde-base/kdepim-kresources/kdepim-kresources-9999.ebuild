@@ -19,7 +19,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kaddressbook/common/
 	kmail/
 	knotes/
 	korganizer/version.h
@@ -28,12 +27,12 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkdepim"
 
 src_prepare() {
-	local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
+	#local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
 
-	pushd kaddressbook/common
+	#pushd kaddressbook/common
 	# create the kabprefs_base.h file
-	${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc
-	popd
+	#${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc
+	#popd
 
 	kde4-meta_src_prepare
 }
@@ -41,8 +40,8 @@ src_prepare() {
 src_install() {
 	kde4-meta_src_install
 
-	# Install headers needed by kdepim-wizards
+	# Install headers needed by kdepim-wizards, egroupware stuff gone
 	insinto "${PREFIX}"/include/${PN}
-	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/{groupwise,egroupware,slox}/*.h || \
+	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/{groupwise,slox}/*.h || \
 			die "Failed to install extra header files"
 }

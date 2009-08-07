@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
+	akonadi/
 	kmail/
 	libkleo/
 "
@@ -36,7 +37,7 @@ src_install() {
 	kde4-meta_src_install
 
 	# install additional generated header that is needed by kresources
-	insinto "${KDEDIR}"/include/${PN}
-	doins "${CMAKE_BUILD_DIR}"/${PN}/common/kabprefs_base.h || \
-		die "Failed to install extra header files"
+	#insinto "${KDEDIR}"/include/${PN}
+	#doins "${CMAKE_BUILD_DIR}"/${PN}/common/kabprefs_base.h || \
+#		die "Failed to install extra header files"
 }
