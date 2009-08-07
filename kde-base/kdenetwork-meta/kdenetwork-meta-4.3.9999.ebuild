@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdenetwork-meta/kdenetwork-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:42:39 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -20,4 +21,5 @@ RDEPEND="
 	>=kde-base/kppp-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krdc-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krfb-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdeutils-meta/kdeutils-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:50:14 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -27,4 +28,5 @@ RDEPEND="
 	cups? ( >=kde-base/printer-applet-${PV}:${SLOT}[kdeprefix=] )
 	floppy? ( >=kde-base/kfloppy-${PV}:${SLOT}[kdeprefix=] )
 	lirc? ( >=kde-base/kdelirc-${PV}:${SLOT}[kdeprefix=] )
+	$(block_other_slots)
 "

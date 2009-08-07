@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdeartwork-meta/kdeartwork-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:26:24 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdeartwork - merge this to pull in all kdeartwork-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -22,4 +23,5 @@ RDEPEND="
 	>=kde-base/kdeartwork-styles-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdeartwork-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdeartwork-weatherwallpapers-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

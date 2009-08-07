@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdesdk-meta/kdesdk-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:47:03 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -31,6 +32,7 @@ RDEPEND="
 	>=kde-base/kuiviewer-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/lokalize-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/umbrello-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "
 
 # FIXME:

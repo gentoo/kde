@@ -1,14 +1,15 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdegraphics-meta/kdegraphics-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:35:42 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdegraphics-meta/kdegraphics-meta-4.3.0.ebuild,v 1.1 2009/08/04 00:15:29 wired Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4.4"
+SLOT="4.3"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
@@ -29,4 +30,5 @@ RDEPEND="
 	>=kde-base/okular-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/svgpart-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/thumbnailers-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

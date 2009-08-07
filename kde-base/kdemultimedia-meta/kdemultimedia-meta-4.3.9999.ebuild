@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdemultimedia-meta/kdemultimedia-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:41:47 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -21,4 +22,5 @@ RDEPEND="
 	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

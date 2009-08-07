@@ -9,8 +9,8 @@ DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="live"
-KEYWORDS=""
+SLOT="4.4"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="cups floppy kdeprefix lirc"
 
 RDEPEND="

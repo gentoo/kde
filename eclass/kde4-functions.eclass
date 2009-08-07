@@ -352,3 +352,17 @@ load_library_dependencies() {
 	done
 	eend $?
 }
+
+# @FUNCTION: block_other_slots
+# @DESCRIPTION:
+# Create blocks for the current package in other slots when
+# installed with USE=-kdeprefix
+block_other_slots() {
+	local slot
+	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		# Block non kdeprefix ${PN} on other slots
+		if [[ ${SLOT} != ${slot} ]]; then
+			echo "!kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
+		fi
+	done
+}

@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdegames-meta/kdegames-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:35:09 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -49,4 +50,5 @@ RDEPEND="
 	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/lskat-${PV}:${SLOT}[kdeprefix=]
 	opengl? ( >=kde-base/ksudoku-${PV}:${SLOT}[kdeprefix=] )
+	$(block_other_slots)
 "

@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kde-meta/kde-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:40:43 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
 HOMEPAGE="http://www.kde.org/"
@@ -30,6 +31,7 @@ RDEPEND="
 	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT}[kdeprefix=] )
 	mysql? ( >=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=] )
 	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
+	$(block_other_slots)
 "
 # make kdepim-meta optional since it requires long hated mysql which people tend
 # not to want in their system. But also enable it by default

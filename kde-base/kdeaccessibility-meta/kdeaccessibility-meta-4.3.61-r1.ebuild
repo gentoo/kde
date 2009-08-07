@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdeaccessibility-meta/kdeaccessibility-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:21:23 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -19,6 +20,7 @@ RDEPEND="
 	>=kde-base/kmousetool-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kmouth-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kttsd-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "
 # The following are disabled in CMakeLists.txt
 # >=kde-base/kbstateapplet-${PV}:${SLOT} - kicker applet

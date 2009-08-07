@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdebase-meta/kdebase-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:32:13 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -88,4 +89,5 @@ RDEPEND="
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+	$(block_other_slots)
 "

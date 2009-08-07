@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdegraphics-meta/kdegraphics-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:35:42 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -29,4 +30,5 @@ RDEPEND="
 	>=kde-base/okular-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/svgpart-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/thumbnailers-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

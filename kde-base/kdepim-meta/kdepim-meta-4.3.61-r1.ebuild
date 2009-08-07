@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-meta/kdepim-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:44:57 alexxy Exp $
 
 EAPI="2"
+inherit kde4-functions
 
 DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="http://www.kde.org/"
@@ -41,4 +42,5 @@ RDEPEND="
 	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libksieve-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
+	$(block_other_slots)
 "

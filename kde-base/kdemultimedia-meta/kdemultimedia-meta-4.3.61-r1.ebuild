@@ -9,8 +9,8 @@ DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived pac
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="live"
-KEYWORDS=""
+SLOT="4.4"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="

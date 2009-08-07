@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kde-meta/kde-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:40:43 alexxy Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kde-meta/kde-meta-4.3.0.ebuild,v 1.1 2009/08/04 00:17:53 wired Exp $
 
 EAPI="2"
 inherit kde4-functions
@@ -9,8 +9,8 @@ DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* pac
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
-KEYWORDS=""
-SLOT="live"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+SLOT="4.3"
 IUSE="accessibility kdeprefix +mysql nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only

@@ -9,8 +9,8 @@ DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived package
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4.3"
-KEYWORDS=""
+SLOT="4.4"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
