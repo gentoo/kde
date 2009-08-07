@@ -17,7 +17,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kaddressbook/org.kde.KAddressbook.Core.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 "
 
