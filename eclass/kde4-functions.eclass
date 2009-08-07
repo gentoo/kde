@@ -384,12 +384,8 @@ add_blocker() {
 	[[ ${1} = "" || ${2} = "" ]] && die "Missing parameter"
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# on -kdeprefix we block every slot
-		RDEPEND="${RDEPEND}
-			!kdeprefix? ( !<=${1}:${slot}[-kdeprefix] )
-		"
+		RDEPEND+=" !kdeprefix? ( !<=${1}-${2}:${slot}[-kdeprefix] )"
 	done
 	# on kdeprefix we block only our slot
-	RDEPEND="${RDEPEND}
-		kdeprefix? ( !<=${1}:${SLOT}[kdeprefix] )
-	"
+	RDEPEND+=" kdeprefix? ( !<=${1}-${2}:${SLOT}[kdeprefix] )"
 }
