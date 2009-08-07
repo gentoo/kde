@@ -359,10 +359,37 @@ load_library_dependencies() {
 # installed with USE=-kdeprefix
 block_other_slots() {
 	local slot
+
+	debug-print-function ${FUNCNAME} "$@"
+
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# Block non kdeprefix ${PN} on other slots
 		if [[ ${SLOT} != ${slot} ]]; then
 			echo "!kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
 		fi
 	done
+}
+
+# @FUNCTION: add_blocker
+# @DESCRIPTION:
+# Create correct RDEPEND value for blocking correct package.
+# Usefull for file-collision blocks.
+# Parameters are package and version to block.
+# add_blocker kde-base/kdelibs 4.2.4
+add_blocker() {
+	local slot
+
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ ${1} = "" || ${2} = "" ]] && die "Missing parameter"
+	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		# on -kdeprefix we block every slot
+		RDEPEND="${RDEPEND}
+			!kdeprefix? ( !<=${1}:${slot}[-kdeprefix] )
+		"
+	done
+	# on kdeprefix we block only our slot
+	RDEPEND="${RDEPEND}
+		kdeprefix? ( !<=${1}:${SLOT}[kdeprefix] )
+	"
 }
