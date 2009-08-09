@@ -22,7 +22,6 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	kmail/
 	knotes/
-	kresources/egroupware/
 	kresources/groupwise/
 	kresources/kolab/
 	kresources/scalix/
@@ -30,9 +29,6 @@ KMEXTRACTONLY="
 "
 
 src_prepare() {
-	ln -s "${PREFIX}"/include/kdepim-kresources/{kabc,kcal,knotes}_egroupwareprefs.h \
-		kresources/egroupware/ \
-		|| die "Failed to link extra_headers."
 	ln -s "${PREFIX}"/include/kdepim-kresources/{kabcsloxprefs.h,kcalsloxprefs.h} \
 		kresources/slox/ \
 		|| die "Failed to link extra_headers."
