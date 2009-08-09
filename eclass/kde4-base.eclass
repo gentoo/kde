@@ -13,7 +13,15 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-inherit base cmake-utils eutils kde4-functions
+# @ECLASS-VARIABLE: WANT_CMAKE
+# @DESCRIPTION:
+# Specify if cmake-utils eclass is required. Defaults to true. Please note that
+# if the variable is set otherwise src_configure/compile/install calls in ebuild
+# must be overrided (can't use the eclass ones).
+WANT_CMAKE="${WANT_CMAKE:-true}"
+[[ ${WANT_CMAKE} = true ]] && cmake_eclass="cmake-utils" || cmake_eclass=""
+
+inherit base ${cmake_eclass} eutils kde4-functions
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
