@@ -455,7 +455,7 @@ kde4-base_src_unpack() {
 	fi
 }
 
-# @FUNCTION: kde4-base_src_compile
+# @FUNCTION: kde4-base_src_prepare
 # @DESCRIPTION:
 # General pre-configure and pre-compile function for KDE4 applications.
 # It also handles translations if KDE_LINGUAS is defined. See KDE_LINGUAS and
