@@ -33,6 +33,8 @@ RDEPEND="
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
