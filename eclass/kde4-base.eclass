@@ -132,7 +132,7 @@ unset qtopengldepend
 
 # WebKit dependencies
 qtwebkitdepend="
-	>=x11-libs/qt-webkit-${QT_DEPEND}:4
+	>=x11-libs/qt-webkit-${QT_DEPEND}:4[kde]
 "
 case ${WEBKIT_REQUIRED} in
 	always)
@@ -207,7 +207,7 @@ kdecommondepend="
 	dev-lang/perl
 	>=x11-libs/qt-core-${QT_DEPEND}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_DEPEND}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_DEPEND}:4[accessibility]
+	>=x11-libs/qt-qt3support-${QT_DEPEND}:4[accessibility,kde]
 	>=x11-libs/qt-script-${QT_DEPEND}:4
 	>=x11-libs/qt-sql-${QT_DEPEND}:4[qt3support]
 	>=x11-libs/qt-svg-${QT_DEPEND}:4
