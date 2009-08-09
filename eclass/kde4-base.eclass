@@ -131,16 +131,25 @@ esac
 unset qtopengldepend
 
 # WebKit dependencies
-qtwebkitdepend="
-	>=x11-libs/qt-webkit-${QT_DEPEND}:4
-"
+qtwebkitdepend=">=x11-libs/qt-webkit-${QT_DEPEND}:4"
+
+case ${KDE_REQUIRED} in
+	always)
+		qtwebkitdepend+="[kde]"
+		;;
+	optional)
+		qtwebkitdepend+="[kde?]"
+		;;
+	*) ;;
+esac
+
 case ${WEBKIT_REQUIRED} in
 	always)
-		COMMONDEPEND+=" ${qtwebkitdepend}[kde]"
+		COMMONDEPEND+=" ${qtwebkitdepend}"
 		;;
 	optional)
 		IUSE+=" webkit"
-		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend}[kde?] )"
+		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend} )"
 		;;
 	*) ;;
 esac
