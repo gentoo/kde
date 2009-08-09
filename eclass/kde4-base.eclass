@@ -19,7 +19,13 @@
 # if the variable is set otherwise src_configure/compile/install calls in ebuild
 # must be overrided (can't use the eclass ones).
 WANT_CMAKE="${WANT_CMAKE:-true}"
-[[ ${WANT_CMAKE} = true ]] && cmake_eclass="cmake-utils" || cmake_eclass=""
+if [[ ${WANT_CMAKE} = true ]]; then
+	exports="src_configure src_compile src_test src_install"
+	cmake_eclass="cmake-utils"
+else
+	exports=""
+	cmake_eclass=""
+fi
 
 inherit base ${cmake_eclass} eutils kde4-functions
 
@@ -28,7 +34,8 @@ if [[ ${BUILD_TYPE} = live ]]; then
 	inherit subversion
 fi
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
+
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${exports} pkg_postinst pkg_postrm
 
 case ${KDEBASE} in
 	kde-base)
