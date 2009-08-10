@@ -21,6 +21,7 @@ RDEPEND="
 	>=kde-base/kdebase-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
@@ -28,13 +29,12 @@ RDEPEND="
 	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
