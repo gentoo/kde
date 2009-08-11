@@ -4,6 +4,9 @@
 
 # Prefix compat:
 : ${EROOT:=${ROOT}}
+# some pple thing that /usr/local is lovely, i preffer to write stuff on one
+# place on other hand :]
+[[ ${EROOT} = */ ]] || EROOT+="/"
 
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
