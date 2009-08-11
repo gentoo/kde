@@ -4,7 +4,7 @@
 
 # Prefix compat:
 : ${EROOT:=${ROOT}}
-# Append missing / character
+# Append missing trailing slash character
 [[ ${EROOT} = */ ]] || EROOT+="/"
 
 # @ECLASS: kde4-functions.eclass
