@@ -19,7 +19,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.1.6
-	>=app-office/akonadi-server-1.2.0
+	>=app-office/akonadi-server-1.2.60
 	dev-libs/boost
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.42
