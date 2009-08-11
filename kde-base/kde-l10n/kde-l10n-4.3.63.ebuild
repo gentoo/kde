@@ -14,21 +14,26 @@ DEPEND=">=sys-devel/gettext-0.17"
 RDEPEND=""
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE=""
+IUSE="handbook"
 
 LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
 	fy ga gl gu he hi hr hsb hu hy is it ja ka kk km kn ko ku lb lt lv mk ml
 	ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sr sv ta te tg
 	th tr uk uz vi wa xh zh_CN zh_HK zh_TW"
+
+SRC_URI=""
+
 for LNG in ${LANGS}; do
 	IUSE="${IUSE} linguas_${LNG}"
+	SRC_URI="${SRC_URI} linguas_${LNG}? ( http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${PN}/${PN}-${LNG}-${PV}.tar.lzma )"
 done
-S="${WORKDIR}"/${PN}
+
+S="${WORKDIR}"
 
 pkg_setup() {
 	local lng
 	for lng in ${LINGUAS}; do
-		enabled_linguas+=" ${lng}"
+		use linguas_${lng} && enabled_linguas+=" ${lng}"
 	done
 	if [[ -z ${enabled_linguas} ]]; then
 		elog
@@ -47,19 +52,15 @@ src_unpack() {
 	local lng
 
 	for lng in ${enabled_linguas}; do
-		ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/${lng}"
-		S="${WORKDIR}"/${PN}/${lng}
-		subversion_src_unpack
+		[[ -n ${A} ]] && unpack ${A}
 	done
-	ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/scripts"
-	S="${WORKDIR}"/${PN}/scripts
-	subversion_src_unpack
-	S="${WORKDIR}"/${PN}
-	kde4-base_src_unpack
 }
 
 src_configure() {
 	local lng
+
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_build handbook docs)"
 
 	if [[ ! -z ${enabled_linguas} ]]; then
 		cat <<-EOF > "${S}"/CMakeLists.txt
@@ -74,8 +75,10 @@ src_configure() {
 		EOF
 
 		for lng in ${enabled_linguas} ; do
-			"${S}"/scripts/autogen.sh ${lng}
-			echo "add_subdirectory( ${lng} )" >> "${S}"/CMakeLists.txt
+			rm -f "${S}"/kde-l10n-${lng}-${PV}/messages/kdereview/krusader.po
+			"${S}"/kde-l10n-${lng}-${PV}/scripts/autogen.sh kde-l10n-${lng}-${PV}
+			echo "add_subdirectory( kde-l10n-${lng}-${PV} )" >> "${S}"/CMakeLists.txt
+			sed -i -e "s:kde-l10n-${lng}-${PV}:${lng}:g"  "${S}"/kde-l10n-${lng}-${PV}/CMakeLists.txt
 		done
 		kde4-base_src_configure
 	fi
