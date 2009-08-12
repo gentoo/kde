@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.3"
 KEYWORDS=""
-IUSE="kdeprefix semantic-desktop"
+IUSE="kdeprefix +semantic-desktop"
 
 RDEPEND="
 	!kde-base/kdebase-runtime-meta
