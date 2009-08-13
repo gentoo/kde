@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${PV} == *9999* ]] ; then
 	KEYWORDS=""
 	KMNAME="extragear/network"
 else
@@ -43,7 +43,6 @@ DEPEND="${COMMONDEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMONDEPEND}
-	!kdeprefix? ( !net-p2p/ktorrent:0 )
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (
 			app-arch/bzip2
