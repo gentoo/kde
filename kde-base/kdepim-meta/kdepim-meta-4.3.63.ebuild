@@ -19,7 +19,6 @@ RDEPEND="
 	>=kde-base/kabcclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kalarm-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcontactmanager-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-icons-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
