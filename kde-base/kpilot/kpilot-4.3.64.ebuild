@@ -20,10 +20,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	akonadi/akonadi_next/
-"
-
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with avantgo Mal)
