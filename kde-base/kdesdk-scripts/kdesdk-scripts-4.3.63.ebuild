@@ -12,3 +12,10 @@ inherit kde4-meta
 DESCRIPTION="KDE SDK Scripts"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="+handbook debug"
+
+src_prepare() {
+	# bug 275069
+	sed -ie 's:colorsvn::' scripts/CMakeLists.txt || die
+
+	kde4-meta_src_prepare
+}
