@@ -13,11 +13,16 @@ IUSE="avantgo crypt debug +handbook"
 
 DEPEND="
 	>=app-pda/pilot-link-0.12
+	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	avantgo? ( >=dev-libs/libmal-0.40 )
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	akonadi/akonadi_next/
+"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
