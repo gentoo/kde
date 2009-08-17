@@ -32,12 +32,3 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
-
-src_install() {
-	kde4-meta_src_install
-
-	# install additional generated header that is needed by kresources
-	#insinto "${KDEDIR}"/include/${PN}
-	#doins "${CMAKE_BUILD_DIR}"/${PN}/common/kabprefs_base.h || \
-#		die "Failed to install extra header files"
-}
