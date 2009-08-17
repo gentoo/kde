@@ -1,0 +1,12 @@
+Index: kdepim/libkdepim/CMakeLists.txt
+===================================================================
+--- kdepim/libkdepim/CMakeLists.txt	(revision 1011802)
++++ kdepim/libkdepim/CMakeLists.txt	(working copy)
+@@ -95,6 +95,7 @@
+   ${KDEPIMLIBS_KPIMIDENTITIES_LIBS}
+   ${KDE4_KPARTS_LIBS}
+   ${KDEPIMLIBS_KPIMTEXTEDIT_LIBS}
++  ${KDEPIMLIBS_AKONADI_LIBS}
+   akonadi-contact
+ )
+ 
