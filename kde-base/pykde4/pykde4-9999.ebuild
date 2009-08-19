@@ -7,6 +7,7 @@ EAPI="2"
 KMNAME="kdebindings"
 KMMODULE="python/${PN}"
 OPENGL_REQUIRED="always"
+PYTHON_USE_WITH="threads"
 inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
@@ -24,6 +25,11 @@ DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
+
+pkg_setup() {
+	python_pkg_setup
+	kde4-meta_pkg_setup
+}
 
 src_prepare() {
 	kde4-meta_src_prepare
