@@ -5,16 +5,15 @@
 EAPI="2"
 
 WEBKIT_REQUIRED="always"
+KMNAME="extragear/multimedia"
 inherit kde4-base
 
-MY_P="${P/_/}"
 DESCRIPTION="K3b, KDE CD Writing Software"
 HOMEPAGE="http://www.k3b.org/"
-SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="2"
-KEYWORDS="~amd64 ~x86"
+SLOT="4"
+KEYWORDS=""
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"
 
 DEPEND="
@@ -48,14 +47,13 @@ RDEPEND="${DEPEND}
 	)
 	vcd? ( media-video/vcdimager )
 	!app-cdr/k3b:0
+	!app-cdr/k3b:2
 "
 
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
-S="${WORKDIR}"/"${P/_*/}"
-
 # Fix musepack support, libmpcsv7 needed
-PATCHES=( "${FILESDIR}/${P}-fix-musepack-lib-detection.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.66.0_alpha2-fix-musepack-lib-detection.patch" )
 
 src_configure() {
 	# Common settings
