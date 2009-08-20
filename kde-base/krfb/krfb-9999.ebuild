@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook zeroconf"
 
 DEPEND="
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	>=net-libs/libvncserver-0.9
 	net-libs/openslp
 	x11-libs/libXdamage

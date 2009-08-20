@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="KDE Timer"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
+
+DEPEND="
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
+"
+RDEPEND="${DEPEND}"
