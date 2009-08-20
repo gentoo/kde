@@ -487,9 +487,10 @@ kde4-base_src_prepare() {
 	fi
 
 	# Enable/disable handbooks for kde4-base packages
-	# kde-l10n inherits kde-base but is metpackage, so no check for doc
+	# kde-l10n inherits kde4-base but is metpackage, so no check for doc
+	# kdelibs inherits kde4-base but handle installing the handbook itself
 	if ! has kde4-meta ${INHERITED}; then
-		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && enable_selected_doc_linguas
+		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && [[ ${PN} != kdelibs ]] && enable_selected_doc_linguas
 	fi
 
 	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
