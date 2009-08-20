@@ -18,8 +18,7 @@ IUSE="+mysql sqlite"
 RDEPEND="
 	dev-libs/boost
 	>=dev-libs/soprano-2.2
-	>=x11-libs/qt-core-4.5.0:4
-	>=x11-libs/qt-dbus-4.5.0:4
+	>=x11-libs/qt-gui-4.5.0:4[dbus]
 	>=x11-libs/qt-sql-4.5.0:4[mysql?,sqlite?]
 	x11-misc/shared-mime-info
 "
