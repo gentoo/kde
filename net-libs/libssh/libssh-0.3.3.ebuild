@@ -52,6 +52,6 @@ src_install() {
 
 	if use examples; then
 		insinto "${ROOT}"usr/share/doc/"${PF}"/examples
-		doins sample.c samplesshd.c
+		doins sample.c samplesshd.c || die "doins failed"
 	fi
 }
