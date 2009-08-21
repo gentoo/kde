@@ -10,7 +10,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-SLOT="4.4"
+SLOT="live"
 IUSE="accessibility kdeprefix +mysql nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only

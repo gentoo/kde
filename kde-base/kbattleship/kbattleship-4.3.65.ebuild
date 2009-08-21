@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="The KDE Battleship clone"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 src_prepare() {
