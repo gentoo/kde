@@ -7,10 +7,10 @@ inherit kde4-functions
 
 DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
 HOMEPAGE="http://www.kde.org/"
-LICENSE="GPL-2"
 
-KEYWORDS=""
+LICENSE="GPL-2"
 SLOT="live"
+KEYWORDS=""
 IUSE="accessibility kdeprefix +mysql nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
