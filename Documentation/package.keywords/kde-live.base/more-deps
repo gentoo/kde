@@ -5,6 +5,7 @@ dev-libs/libzip
 =dev-python/PyQt4-4.5*
 =dev-python/sip-4.8*
 >=kde-base/qimageblitz-0.0.4
+>=net-libs/libssh-0.3.2
 >=sci-mathematics/gmm-3.0
 ~sys-auth/policykit-0.9
 ~x11-misc/xdg-utils-1.0.2
