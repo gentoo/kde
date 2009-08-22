@@ -28,8 +28,6 @@ KMEXTRACTONLY="
 
 KMSAVELIBS="true"
 
-PATCHES=( "${FILESDIR}"/${PN}-fix-link.patch )
-
 src_install() {
 	kde4-meta_src_install
 
