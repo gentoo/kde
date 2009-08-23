@@ -538,6 +538,7 @@ kde4-base_src_configure() {
 	# Shadow existing /usr installations
 	unset KDEDIRS
 
+	# Handle kdeprefix-ed KDE
 	if [[ ${KDEDIR} != "${EROOT}usr" ]]; then
 		# Override some environment variables - only when kdeprefix is different,
 		# to not break ccache/distcc
@@ -546,12 +547,15 @@ kde4-base_src_configure() {
 
 		# Append full RPATH
 		cmakeargs+=" -DCMAKE_SKIP_RPATH=OFF"
-	fi
 
-	if has kdeprefix ${IUSE//+} && use kdeprefix; then
-		# Set cmake prefixes to allow buildsystem to localize valid KDE installation
+		# Set cmake prefixes to allow buildsystem to locate valid KDE installation
 		# when more are present
 		cmakeargs+=" -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+	fi
+
+	# Handle kdeprefix in application itself
+	if has kdeprefix ${IUSE//+} && use kdeprefix; then
+		:
 	else
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
 		cmakeargs+=" -DSYSCONF_INSTALL_DIR=${EROOT}etc"
