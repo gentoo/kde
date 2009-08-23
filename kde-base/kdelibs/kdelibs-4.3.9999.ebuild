@@ -111,20 +111,26 @@ PDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
+	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
 )
 
 src_prepare() {
-	# Rename applications.menu
-	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-${SLOT}-applications.menu|g" \
-		-i kded/CMakeLists.txt || die "Sed for applications.menu failed."
+	kde4-base_src_prepare
+
+	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix.patch to work)
+	local menu_prefix="kde-${SLOT}-"
+	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME ${menu_prefix}applications.menu|g" \
+		-i kded/CMakeLists.txt || die "Sed on CMakeLists.txt for applications.menu failed."
+	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
+		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
 
 	# FIXME Remove experimental folder from CMakeLists - we have
 	# kde-base/libknotificationitem for now
-	sed -i "/macro_optional_add_subdirectory( experimental )/ s:^:#:" CMakeLists.txt
-
-	kde4-base_src_prepare
+	sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
+		-i CMakeLists.txt || die "Failed to sed-out experimental."
 }
 
 src_configure() {
@@ -204,8 +210,10 @@ pkg_postinst() {
 	fi
 	elog "Your homedir is set to "'${HOME}'"/${HME}"
 	elog
+	local config_path="${ROOT}usr/share/config"
+	[[ ${PREFIX} != "${ROOT}usr" ]] && config_path+=" ${PREFIX}/share/config"
 	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
-	elog "# chmod 755 -R /usr/share/config $PREFIX/share/config"
+	elog "# chmod 755 -R ${config_path}"
 
 	kde4-base_pkg_postinst
 }
