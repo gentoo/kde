@@ -60,6 +60,7 @@ for set in kde-extras-live koffice-live; do
 	if [[ -e "../../sets/${set}" ]]; then
 		echo -e "${HEADER}" > "${set}.keywords"
 		sed '/^~.*[.-]9999$/s/$/ **/' "../../sets/${set}" >> "${set}.keywords"
+		[[ ${set} == koffice-live ]] && echo "~app-office/koffice-meta-9999 **" >> "${set}.keywords"
 	fi
 done
 
