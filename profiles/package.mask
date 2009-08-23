@@ -59,6 +59,7 @@ kde-base/keditfiletype:4.4
 kde-base/kephal:4.4
 kde-base/kfile:4.4
 kde-base/kfind:4.4
+kde-base/kfmclient:4.4
 kde-base/khelpcenter:4.4
 kde-base/khotkeys:4.4
 kde-base/kiconfinder:4.4
@@ -406,6 +407,7 @@ kde-base/keditfiletype:live
 kde-base/kephal:live
 kde-base/kfile:live
 kde-base/kfind:live
+kde-base/kfmclient:live
 kde-base/khelpcenter:live
 kde-base/khotkeys:live
 kde-base/kiconfinder:live

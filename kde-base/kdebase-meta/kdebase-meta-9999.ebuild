@@ -41,6 +41,7 @@ RDEPEND="
 	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfile-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]

@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
 	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
 	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
@@ -29,8 +30,16 @@ PDEPEND="
 "
 
 KMEXTRACTONLY="
+	konqueror/client/
 	lib/konq/
 "
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Do not install *.desktop files for kfmclient
+	sed -i -e "/kfmclient\.desktop/d" konqueror/CMakeFiles.txt
+}
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst

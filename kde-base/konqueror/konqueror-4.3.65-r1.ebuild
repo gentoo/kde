@@ -8,7 +8,7 @@ KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="+auth +bookmarks debug +handbook thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"

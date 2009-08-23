@@ -113,6 +113,7 @@ kde-base/keditfiletype:live
 kde-base/kephal:live
 kde-base/kfile:live
 kde-base/kfind:live
+kde-base/kfmclient:live
 kde-base/khelpcenter:live
 kde-base/khotkeys:live
 kde-base/kiconfinder:live

@@ -20,6 +20,7 @@ RDEPEND="
 	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-wallpapers-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
