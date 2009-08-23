@@ -38,7 +38,7 @@ src_prepare() {
 	kde4-meta_src_prepare
 
 	# Do not install *.desktop files for kfmclient
-	sed -i -e "/kfmclient\.desktop/d" konqueror/CMakeFiles.txt
+	sed -i -e "/kfmclient\.desktop/d" konqueror/CMakeLists.txt
 }
 
 pkg_postinst() {
