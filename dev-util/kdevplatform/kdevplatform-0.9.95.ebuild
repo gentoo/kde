@@ -9,7 +9,7 @@ inherit kde4-base versionator
 KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kdevelop.org/"
-SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/${P}.tar.bz2"
+SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
