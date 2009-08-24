@@ -554,7 +554,7 @@ kde4-base_src_configure() {
 	fi
 
 	# Handle kdeprefix in application itself
-	if has kdeprefix ${IUSE//+} && ! use kdeprefix; then
+	if ! has kdeprefix ${IUSE//+} || ! use kdeprefix; then
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
 		cmakeargs+=" -DSYSCONF_INSTALL_DIR=${EROOT}etc"
 	fi
