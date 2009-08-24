@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=kde-base/akonadi-${KDE_MINIMAL}[kdeprefix=]
+DEPEND=">=kde-base/akonadi-${KDE_MINIMAL}
 		>=net-libs/libgcal-0.9.0"
 RDEPEND="${DEPEND}"
 
