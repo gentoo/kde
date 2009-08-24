@@ -8,6 +8,7 @@ KMNAME="extragear/pim"
 inherit kde4-base
 
 DESCRIPTION="Google contacts and calendar akonadi resource"
+HOMEPAGE="http://pim.kde.org/akonadi/"
 
 SLOT="0"
 KEYWORDS=""

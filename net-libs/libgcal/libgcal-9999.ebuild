@@ -27,11 +27,6 @@ src_prepare() {
 	emake || die "emake failed"
 
 }
-#src_compile() {
-#	eautoreconf -i -f || die "eautoreconf failed"
-#	econf || die "econf failed"
-#	emake || die "emake failed"
-#}
 
 src_install() {
 	einstall || die "einstall failed"
