@@ -20,14 +20,13 @@ DEPEND=">=dev-libs/libxml-1.8.17-r2
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	eautoreconf -i -f || die "eautoreconf failed"
+	eautoreconf -i -f
 }
 
 src_configure() {
-	local myconf="$(use_enable debug) \
-		$(use_enable curldebug)"
-
-	econf ${myconf}
+	econf \
+		$(use_enable debug) \
+		$(use_enable curldebug)
 }
 
 
