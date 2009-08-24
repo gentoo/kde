@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://repo.or.cz/libgcal.git"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="curldebug debug"
 DEPEND=">=dev-libs/libxml-1.8.17-r2
 	    >=net-misc/curl-7.18.2"
 RDEPEND="${DEPEND}"
@@ -23,10 +23,16 @@ src_unpack() {
 
 src_prepare() {
 	eautoreconf -i -f || die "eautoreconf failed"
-	econf || die "econf failed"
-	emake || die "emake failed"
-
+#	econf || die "econf failed"
 }
+
+src_configure() {
+        local myconf="$(use_enable debug) \                                       
+		      $(use_enable curldebug)"
+
+        econf ${myconf}
+}
+
 
 src_install() {
 	einstall || die "einstall failed"
