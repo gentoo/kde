@@ -9,7 +9,7 @@ KDE4 (kde-testing) policies:
  - append valid metadata.xml - not necessarily with <herd>kde</herd> if you're proxy
    maintaining some ebuild. Never append ChangeLog because file/folder history is determined by commit log.
 
- - NEVER EVER commit anything that can break metadata cache. Check every commit at least with repoman -v -d full! 
+ - NEVER EVER commit anything that can break metadata cache. Check every commit at least with repoman -v -d full!
 
  - always separate DEPEND and RDEPEND properly (adding COMMON_DEPEND if needed)
 
