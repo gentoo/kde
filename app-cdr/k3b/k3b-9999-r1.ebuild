@@ -14,7 +14,7 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"
+IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
 	>=kde-base/libkcddb-${KDE_MINIMAL}
