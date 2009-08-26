@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit kde4-base
 
-MY_P="${PN}-2.1b1"
+MY_P="${P/_beta/b}"
 DESCRIPTION="A Latex Editor and TeX shell for kde"
 HOMEPAGE="http://kile.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
