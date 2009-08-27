@@ -23,7 +23,8 @@ RDEPEND=">=sys-libs/e2fsprogs-libs-1.41.4
 	gtk? ( >=x11-libs/gtk+-2.12:2 )"
 DEPEND="${RDEPEND}
 	>=dev-util/pkgconfig-0.23
-	doc? ( dev-util/gtk-doc )"
+	dev-util/gtk-doc"
+#	doc? ( dev-util/gtk-doc )" bug 267545
 
 pkg_setup() {
 	if use server ; then
