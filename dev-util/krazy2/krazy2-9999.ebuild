@@ -26,44 +26,47 @@ RDEPEND="${DEPEND}
 	dev-util/desktop-file-utils
 "
 
-PATCHES=( "${FILESDIR}/install.sh.patch" )
+#PATCHES=( "${FILESDIR}/install.sh.patch"
+#			"${FILESDIR}/multilib.patch" )
 
-CMAKE_IN_SOURCE_BUILD=1
+CMAKE_USE_DIR="${S}/cppchecks"
 
 src_unpack() {
 	subversion_src_unpack
 }
 
 src_prepare() {
+	epatch "${FILESDIR}/install.sh.patch"
+	epatch "${FILESDIR}/multilib.patch"
+
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
 		src/src.pro || die "failed to apply nostrip"
+		
+	sed -i "s:$TOP/lib:$TOP/$(get_libdir):" install.sh || die "sed failed"
+
+	sed -i "s:lib\$(LIBSUFFIX):$(get_libdir):" src/passbyvalue/passbyvalue.pro || die "sed failed"
 
 	base_src_prepare
 }
 
 src_configure() {
-	cd cppchecks
-	cmake -DCMAKE_INSTALL_PREFIX="/usr" .
-	#cmake-utils_src_configure
-	cd ../src
+	cmake-utils_src_configure
+	cd src
 	eqmake4 src.pro
-	cd ..
 }
 
 src_compile() {
-	cd cppchecks
-	emake "$@" || die "Make failed!"
-	cd ../src
-	emake "$@" || die "Make failed!"
-	cd ..
+	cmake-utils_src_compile
+	cd src
+	emake "$@" || die "2nd Make failed!"
 }
 
 src_install() {
 	dodoc README TODO || die "dodoc failed"
 
-	cd cppchecks
-	emake install DESTDIR="${D}" || die "Make cppchecks install failed"
-	cd ../src
+	cmake-utils_src_install
+	
+	cd src
 	emake install INSTALL_ROOT="${D}/usr" || die "Make src install failed"
 	cd ..
 
