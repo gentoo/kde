@@ -88,3 +88,17 @@ if [[ -d package.mask.d ]]; then
 	done
 fi
 popd > /dev/null
+
+# regenerate paludis sets
+pushd ../sets/paludis/ > /dev/null
+rm -f *
+for set in ../../../sets/*; do
+	# Don't bother with sets for KDE 3.5
+	[[ "${set: -4}" == "-3.5" ]] && continue
+	file="${set##*/}"
+	file="${file/-4./4}.conf"
+	[[ ${file} == "koffice-2.conf" ]] && file="koffice2.conf"
+	echo -e "${HEADER}" > ${file}
+	sed -n '/^#/{p;b};/^$/{p;b};/^@/{s/^@/* /;s/-4\./4/;p;b};/^[<>=~]/{s/^/?: /;p;b};/:/{s/^/?: /;p;b};s/^/? /;p' "${set}" >> "${file}"
+done
+popd > /dev/null
