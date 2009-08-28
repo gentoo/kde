@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~hppa ~x86"
 IUSE=""
 
 DEPEND="
-	>=app-admin/system-config-printer-common-1.1.8
+	>=app-admin/system-config-printer-common-1.1.12
 	>=dev-python/pycups-1.9.46
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "

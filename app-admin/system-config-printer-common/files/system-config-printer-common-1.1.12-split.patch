@@ -1,22 +1,33 @@
-diff -ru ../system-config-printer-1.1.3/Makefile.am ./Makefile.am
---- ../system-config-printer-1.1.3/Makefile.am	2009-02-02 18:49:39.000000000 +0100
-+++ ./Makefile.am	2009-04-05 23:21:58.000000000 +0200
-@@ -57,156 +57,44 @@
- 	fi
+diff -ru ../system-config-printer-1.1.12/configure.in ./configure.in
+--- ../system-config-printer-1.1.12/configure.in	2009-08-25 18:01:27.000000000 +0200
++++ ./configure.in	2009-08-28 18:32:45.000000000 +0200
+@@ -1,6 +1,6 @@
+ AC_INIT(system-config-printer, 1.1.12)
+ AC_CONFIG_SRCDIR(system-config-printer.py)
+-AM_INIT_AUTOMAKE([dist-xz dist-bzip2 subdir-objects 1.6])
++AM_INIT_AUTOMAKE([dist-bzip2 subdir-objects 1.6])
+ IT_PROG_INTLTOOL
+ AM_GNU_GETTEXT([external])
+ AM_PATH_PYTHON
+diff -ru ../system-config-printer-1.1.12/Makefile.am ./Makefile.am
+--- ../system-config-printer-1.1.12/Makefile.am	2009-08-25 18:01:27.000000000 +0200
++++ ./Makefile.am	2009-08-28 18:57:38.000000000 +0200
+@@ -70,84 +70,22 @@
  	rm -f .stamp-distutils-in-builddir
  
--nobase_pkgdata_SCRIPTS=				\
+ nobase_pkgdata_SCRIPTS=				\
 -	my-default-printer.py			\
 -	pysmb.py				\
 -	system-config-printer.py		\
 -	troubleshoot/__init__.py		\
 -	applet.py
-+nobase_pkgdata_SCRIPTS=
++	pysmb.py
  
  nobase_pkgdata_DATA=					\
 -	AdvancedServerSettings.py			\
 -	authconn.py					\
  	config.py					\
+-	cupspk.py					\
  	debug.py					\
 -	errordialogs.py					\
 -	HIG.py						\
@@ -24,28 +35,27 @@ diff -ru ../system-config-printer-1.1.3/Makefile.am ./Makefile.am
 -	GroupsPane.py					\
 -	GroupsPaneModel.py				\
 -	gtkinklevel.py					\
--	installpackage.py				\
+-	gtkspinner.py					\
+ 	installpackage.py				\
 -	jobviewer.py					\
  	monitor.py					\
 -	options.py					\
 -	optionwidgets.py				\
--	PhysicalDevice.py				\
--	ppdippstr.py					\
+ 	PhysicalDevice.py				\
+ 	ppdippstr.py					\
  	probe_printer.py				\
 -	gtk_label_autowrap.py				\
--	gtk_treeviewtooltips.py				\
--	SearchCriterion.py				\
+ 	SearchCriterion.py				\
  	smburi.py					\
--	statereason.py					\
+ 	statereason.py					\
 -	timedops.py					\
 -	ToolbarSearchEntry.py				\
 -	userdefault.py					\
--	XmlHelper.py					\
+ 	XmlHelper.py					\
 -	glade/AboutDialog.glade				\
 -	glade/ConnectDialog.glade				\
 -	glade/ConnectingDialog.glade			\
 -	glade/InstallDialog.glade				\
--	glade/IPPBrowseDialog.glade			\
 -	glade/JobsWindow.glade				\
 -	glade/NewPrinterName.glade				\
 -	glade/NewPrinterWindow.glade			\
@@ -85,16 +95,19 @@ diff -ru ../system-config-printer-1.1.3/Makefile.am ./Makefile.am
 -	system-config-printer			\
 -	system-config-printer-applet		\
 -	my-default-printer
--
++	smburi.py					\
++	statereason.py
+ 
+ if UDEV_RULES
+ udevrulesdir=$(sysconfdir)/udev/rules.d
+@@ -162,61 +100,16 @@
+ 	udev/udev-add-printer
+ endif
+ 
 -man_MANS=					\
 -	man/system-config-printer.1		\
 -	man/system-config-printer-applet.1
-+	statereason.py
-+
-+bin_SCRIPTS=
-+
-+man_MANS=
- 
+-
  dbus_DATA =\
  	newprinternotification.conf
  dbusdir = $(sysconfdir)/dbus-1/system.d/
@@ -104,7 +117,6 @@ diff -ru ../system-config-printer-1.1.3/Makefile.am ./Makefile.am
 -	print-applet.desktop \
 -	manage-print-jobs.desktop \
 -	my-default-printer.desktop
-+desktop_DATA =
  desktopdir = $(datadir)/applications/
  autostartdir = $(sysconfdir)/xdg/autostart/
  
@@ -140,29 +152,13 @@ diff -ru ../system-config-printer-1.1.3/Makefile.am ./Makefile.am
 -	  --add-category Monitor		\
 -	  --add-category GTK			\
 -	  print-applet.desktop
-+install-desktopDATA:
- 
- uninstall-desktopDATA:
+-
+-uninstall-desktopDATA:
 -	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)system-config-printer.desktop
 -	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)manage-print-jobs.desktop
 -	rm -f $(DESTDIR)$(desktopdir)/$(DESKTOP_PREFIX)my-default-printer.desktop
 -	rm -f $(DESTDIR)$(autostartdir)/$(DESKTOP_PREFIX)print-applet.desktop
- 
+-
  EXTRA_DIST=\
  	$(nobase_pkgdata_SCRIPTS) \
  	$(nobase_pkgdata_DATA) \
- 	$(nobase_sbin_SCRIPTS) \
- 	$(bin_SCRIPTS) \
--	setup.py \
- 	$(EXPORT_MODULES) \
--	man/system-config-printer.xml \
- 	newprinternotification.conf \
- 	bootstrap \
- 	mkinstalldirs \
--	system-config-printer.desktop.in \
--	manage-print-jobs.desktop.in \
--	my-default-printer.desktop.in \
--	print-applet.desktop.in \
- 	intltool-extract.in \
- 	intltool-merge.in \
- 	intltool-update.in \
