@@ -17,5 +17,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kmail
+	akonadi/
+	kmail/
 "
