@@ -18,6 +18,7 @@ RDEPEND="
 	>=kde-base/akregator-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kabcclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kalarm-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-icons-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdepim-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
@@ -33,6 +34,7 @@ RDEPEND="
 	>=kde-base/kontact-specialdates-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ktimetracker-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
@@ -41,10 +43,3 @@ RDEPEND="
 	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
 	$(block_other_slots)
 "
-if [[ ${PV} == 9999 ]]; then
-	# These are broken upstream, except in svn checkouts (require akonadi/)
-	RDEPEND+="
-		>=kde-base/kalarm-${PV}:${SLOT}[kdeprefix=]
-		>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
-	"
-fi

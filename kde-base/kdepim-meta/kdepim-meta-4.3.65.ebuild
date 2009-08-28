@@ -34,6 +34,7 @@ RDEPEND="
 	>=kde-base/kontact-specialdates-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ktimetracker-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
@@ -42,5 +43,3 @@ RDEPEND="
 	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
 	$(block_other_slots)
 "
-# Broken upstream, only works with svn checkouts
-#	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
