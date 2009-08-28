@@ -8,7 +8,7 @@ KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KDE printer system tray utility"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~x86"
 IUSE=""
 
 DEPEND="

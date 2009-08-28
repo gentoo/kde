@@ -17,3 +17,15 @@ DEPEND="
 	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Rename printer-applet -> printer-applet-kde
+	local newname="printer-applet-kde"
+	sed -e "/PYKDE4_ADD_EXECUTABLE/s/ printer-applet[[:space:]]*)/ ${newname})/" \
+		-e "/install/s/)/ RENAME ${newname}.desktop)/" \
+		-i "${PN}"/CMakeLists.txt || die "failed to rename printer-applet executable"
+	sed -e "/Exec/s/printer-applet/${newname}/" \
+		-i "${PN}"/printer-applet.desktop || die "failed to patch .desktop file"
+}
