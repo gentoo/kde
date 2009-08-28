@@ -1,7 +1,7 @@
-Index: kdelibs/kio/kio/global.cpp
+Index: kio/kio/global.cpp
 ===================================================================
---- kdelibs/kio/kio/global.cpp	(revision 1005372)
-+++ kdelibs/kio/kio/global.cpp	(working copy)
+--- kio/kio/global.cpp	(revision 1005372)
++++ kio/kio/global.cpp	(working copy)
 @@ -1242,3 +1242,47 @@
  {
      return globalJobTracker;
@@ -50,10 +50,10 @@ Index: kdelibs/kio/kio/global.cpp
 +
 + return QVariant(map);
 +}
-Index: kdelibs/kio/kio/global.h
+Index: kio/kio/global.h
 ===================================================================
---- kdelibs/kio/kio/global.h	(revision 1005372)
-+++ kdelibs/kio/kio/global.h	(working copy)
+--- kio/kio/global.h	(revision 1005372)
++++ kio/kio/global.h	(working copy)
 @@ -25,6 +25,7 @@
  #include <QtCore/QHash>
  #include <QtCore/QMap>
