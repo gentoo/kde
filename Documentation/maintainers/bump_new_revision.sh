@@ -121,11 +121,14 @@ sync_main_keywords_with_overlay() {
 	ekeyword ^all ${1} &> /dev/null
 	# then apply them back
 	dir="$(portageq portdir)/${2}"
-	[[ ${3} = intree ]] && sep="tail -n 2 |head -n 1" || sep="tail -n 1"
 	if [[ -d "${dir}" ]] ; then
 		pushd "${dir}" &> /dev/null
 		# the grep is for removing 3.5 ebuilds from knowledge
-		KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | ${sep} | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		if [[ ${3} = intree ]]; then	
+			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 2 | head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		else
+			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+		fi
 		popd &> /dev/null
 	else
 		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
