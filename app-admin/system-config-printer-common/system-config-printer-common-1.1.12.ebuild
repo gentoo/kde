@@ -1,9 +1,9 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/system-config-printer-common-1.1.8.ebuild,v 1.1 2009/08/04 11:39:42 wired Exp $
+# $Header: $
 
 EAPI="2"
-inherit multilib python autotools
+inherit python autotools
 
 MY_P="${PN%-common}-${PV}"
 
