@@ -11,12 +11,23 @@ DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-DEPEND="
+COMMON_DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	dev-libs/libxslt
+"
+RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRACTONLY="
 	akonadi/
 	kmail/
 "
+
+src_configure() {
+	mycmakeargs="
+		-DBUILD_akonadi=ON
+		-DXSLTPROC_EXECUTABLE=/usr/bin/xsltproc
+	"
+	kde4-meta_src_configure
+}
