@@ -34,9 +34,9 @@ RDEPEND="${COMMON_DEPEND}
 	gnome-keyring? ( dev-python/gnome-keyring-python )
 "
 
-APP_LINGUAS="ar as bg bn bn_IN bs ca cs cy da de el en_GB es et fa fi fr gu he hi
-hr hu hy id is it ja ka kn ko lo lv mk ml mr ms nb nl nn or pa pl pt pt_BR ro ru
-si sk sl sr sv ta te th tr uk vi zh_CN"
+APP_LINGUAS="ar as bg bn_IN bn bs ca cs cy da de el en_GB es et fa fi fr gu he
+hi hr hu hy id is it ja ka kn ko lo lv mai mk ml mr ms nb nl nn or pa pl pt_BR
+pt ro ru si sk sl sr@latin sr sv ta te th tr uk vi zh_CN zh_TW"
 for X in ${APP_LINGUAS}; do
 	IUSE="${IUSE} linguas_${X}"
 done
@@ -46,9 +46,7 @@ S="${WORKDIR}/${MY_P}"
 src_prepare() {
 	epatch "${FILESDIR}/${P}-split.patch"
 
-	eaclocal
-	eautomake
-	eautoconf
+	eautoreconf
 }
 
 src_configure() {
