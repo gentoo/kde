@@ -52,7 +52,7 @@ KMEXTRACTONLY="
 	startkde.cmake
 "
 
-PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
+PATCHES=("${FILESDIR}/gentoo-startkde4-1.patch")
 
 src_prepare() {
 	kde4-meta_src_prepare

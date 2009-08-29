@@ -22,6 +22,7 @@ RDEPEND="
 	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
@@ -29,13 +30,12 @@ RDEPEND="
 	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -52,7 +52,7 @@ KMEXTRACTONLY="
 	startkde.cmake
 "
 
-PATCHES=("${FILESDIR}/gentoo-startkde4.patch")
+PATCHES=("${FILESDIR}/gentoo-startkde4-1.patch")
 
 src_prepare() {
 	kde4-meta_src_prepare
@@ -80,10 +80,6 @@ src_prepare() {
 	# Now fix the prefix
 	sed -e "s#@REPLACE_PREFIX@#${KDEDIR}#" \
 		-i startkde.cmake || die "Sed for REPLACE_PREFIX failed."
-
-	# Replace applications menu prefix
-	sed -e "s#@REPLACE_MENU_PREFIX@#kde-${SLOT}-#" \
-		-i startkde.cmake || die "Sed for REPLACE_MENU_PREFIX failed."
 }
 
 src_install() {
