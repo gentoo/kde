@@ -16,17 +16,20 @@ SLOT="0"
 KEYWORDS=""
 IUSE="X"
 
-DEPEND="dev-perl/WWW-Mechanize
-		virtual/perl-Getopt-Long
-		virtual/perl-Term-ANSIColor
+DEPEND="
+	dev-lang/perl[ithreads]
+	dev-perl/WWW-Mechanize
+	virtual/perl-Getopt-Long
+	virtual/perl-Term-ANSIColor
 	X? (
 		dev-perl/gtk2-gladexml
 		dev-perl/Spiffy
 		x11-misc/xclip
-	)"
+	)
+"
 RDEPEND="${DEPEND}
 	X? ( x11-terms/xterm )
-	"
+"
 
 src_prepare() {
 	esvn_clean
@@ -50,5 +53,5 @@ src_install() {
 	newins "${S}/slimrat.conf" slimrat.conf
 
 	insinto "${ROOT}usr/share/${PN}"
-	doins -r "src/Clipboard.pm" "src/Clipboard" "src/Configuration.pm" "src/Log.pm" "src/Plugin.pm" "src/plugins/" "src/Queue.pm" "src/slimrat.glade" "src/Toolbox.pm" || die "doins failed"
+	doins -r "src/"*.pm "src/Clipboard" "src/plugins/" "src/slimrat.glade" || die "doins failed"
 }
