@@ -2,8 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
-<use>
-	<flag name="bittorrent">Enable embedded bittorrent transport plugin</flag>
-	<flag name="bittorrent-external">Enable external bittorrent transport plugin via ktorrent instead of internal implementation</flag>
-</use>
 </pkgmetadata>

@@ -9,19 +9,16 @@ inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
-IUSE="debug +handbook +plasma bittorrent-external +semantic-desktop sqlite"
+IUSE="debug +handbook +plasma +semantic-desktop sqlite"
 
 DEPEND="
+	app-crypt/qca:2
+	dev-libs/gmp
 	dev-libs/libpcre
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
-	bittorrent-external? ( >=net-p2p/ktorrent-3.1.5 )
-	!bittorrent-external? (
-		app-crypt/qca:2
-		dev-libs/gmp
-	)
 	sqlite? ( dev-db/sqlite:3 )
 "
 RDEPEND="${DEPEND}
@@ -30,7 +27,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_enable !bittorrent-external EMBEDDED_TORRENT_SUPPORT)
+		-DENABLE_EMBEDDED_TORRENT_SUPPORT=ON
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
