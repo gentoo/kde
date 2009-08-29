@@ -4,14 +4,14 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
+SRC_URI="http://download.akonadi-project.org/${P/-server/}.tar.bz2"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 SLOT="0"
 IUSE="+mysql sqlite"
 
