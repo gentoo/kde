@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 		!kde-base/kdemaildir:${SLOT}
 		!<kde-base/kdepim-kresources-4.2.95:${SLOT}[kdeprefix]
 	)
-	>=app-office/akonadi-server-1.2.0
+	>=app-office/akonadi-server-1.2.1
 "
 
 [[ ${KMNAME} = "kdepim-runtime" ]] && S="${WORKDIR}/${KMNAME}-${PV}"

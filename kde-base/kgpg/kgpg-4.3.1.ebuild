@@ -13,6 +13,7 @@ IUSE="debug +handbook"
 
 DEPEND="
 	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
