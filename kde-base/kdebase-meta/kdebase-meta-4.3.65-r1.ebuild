@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="kdeprefix +semantic-desktop"
+IUSE="kdeprefix policykit +semantic-desktop"
 
 RDEPEND="
 	!kde-base/kdebase-runtime-meta
@@ -89,6 +89,7 @@ RDEPEND="
 	>=kde-base/solidautoeject-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
+	policykit? ( >=kde-base/policykit-kde-${PV}:${SLOT}[kdeprefix=] )
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 	$(block_other_slots)
 "
