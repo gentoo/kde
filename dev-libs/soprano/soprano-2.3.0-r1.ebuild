@@ -1,20 +1,19 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/soprano/soprano-2.3.0.ebuild,v 1.1 2009/08/04 05:27:04 wired Exp $
 
 EAPI="2"
 
 JAVA_PKG_OPT_USE="java"
-inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
+inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="Library that provides a nice QT interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="0"
-# virtuoso disabled for now
 IUSE="+clucene +dbus debug doc elibc_FreeBSD +java +raptor redland"
 
 COMMON_DEPEND="
@@ -28,14 +27,12 @@ COMMON_DEPEND="
 	)
 	java? ( >=virtual/jdk-1.6.0 )
 "
-#	virtuoso? ( dev-db/libiodbc )
 
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="${COMMON_DEPEND}
 "
-#	virtuoso? ( dev-db/virtuoso )
 
 CMAKE_IN_SOURCE_BUILD="1"
 
@@ -83,10 +80,8 @@ src_configure() {
 		$(cmake-utils_use !raptor SOPRANO_DISABLE_RAPTOR_PARSER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_REDLAND_BACKEND)
 		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
-		-DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON
 		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
 	"
-		# $(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 
 	cmake-utils_src_configure
 }
