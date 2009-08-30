@@ -24,6 +24,13 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Remove compile-time dep on LibKNotificationItem
+	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
+}
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Soprano)

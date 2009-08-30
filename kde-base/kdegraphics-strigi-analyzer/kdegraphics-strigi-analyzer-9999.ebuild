@@ -13,3 +13,10 @@ KEYWORDS=""
 IUSE="debug"
 
 KMEXTRACTONLY="libs/mobipocket"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Remove compile-time dep on LibKNotificationItem
+	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
+}

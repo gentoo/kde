@@ -10,3 +10,10 @@ inherit kde4-meta
 DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them."
 KEYWORDS=""
 IUSE="debug +handbook"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Remove compile-time dep on LibKNotificationItem
+	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
+}

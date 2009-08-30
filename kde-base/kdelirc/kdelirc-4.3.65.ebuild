@@ -11,7 +11,11 @@ DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
-RDEPEND="
+DEPEND="
+	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
+"
+
+RDEPEND="${DEPEND}
 	!kde-misc/kdelirc
 	app-misc/lirc
 "
