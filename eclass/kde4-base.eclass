@@ -74,6 +74,13 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
+# @ECLASS-VARIABLE: LIBKNOTIFICATIONITEM_REQUIRED
+# @DESCRIPTION:
+# Is libknotificationitem required? Possible values are 'always, 'never'.
+# Set this before inheriting any KDE eclasses. Defauls to 'never'.
+# Note that it only applies when KDE_REQUIRED is 'always' or 'optional' and enabled.
+LIBKNOTIFICATIONITEM_REQUIRED="${LIBKNOTIFICATIONITEM_REQUIRED:-never}"
+
 # Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
 if [[ -n ${KDE_MINIMAL} ]]; then
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
@@ -234,10 +241,19 @@ if [[ ${PN} != kdelibs ]]; then
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
 		"
+		[[ ${LIBKNOTIFICATIONITEM_REQUIRED} = always ]] && \
+			kdecommondepend+="
+				kdeprefix? ( >=kde-base/libknotificationitem${_pv}[kdeprefix] )
+				!kdeprefix? ( >=kde-base/libknotificationitem${_pvn}[-kdeprefix] )
+			"
 	else
 		kdecommondepend+="
 			>=kde-base/kdelibs${_pv}
 		"
+		[[ ${LIBKNOTIFICATIONITEM_REQUIRED} = always ]] && \
+			kdecommondepend+="
+				>=kde-base/libknotificationitem${_pv}
+			"
 	fi
 fi
 unset _pv _pvn
