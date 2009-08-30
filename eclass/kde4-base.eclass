@@ -74,13 +74,6 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
-# @ECLASS-VARIABLE: LIBKNOTIFICATIONITEM_REQUIRED
-# @DESCRIPTION:
-# Is libknotificationitem required? Possible values are 'always, 'never'.
-# Set this before inheriting any KDE eclasses. Defauls to 'never'.
-# Note that it only applies when KDE_REQUIRED is 'always' or 'optional' and enabled.
-LIBKNOTIFICATIONITEM_REQUIRED="${LIBKNOTIFICATIONITEM_REQUIRED:-never}"
-
 # Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
 if [[ -n ${KDE_MINIMAL} ]]; then
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
@@ -95,11 +88,11 @@ fi
 # @ECLASS-VARIABLE: KDE_MINIMAL
 # @DESCRIPTION:
 # This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
-# version for apps to work. Currently defaults to 4.2
+# version for apps to work. Currently defaults to 4.3
 # One may override this variable to raise version requirements.
 # For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
 # Note that it is fixed to ${SLOT} for kde-base packages.
-KDE_MINIMAL="${KDE_MINIMAL:-4.2}"
+KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
 
 # Fallback behaviour (for now)
 # TODO Remove when tree is clean
@@ -200,6 +193,7 @@ case ${KDEBASE} in
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
+		KDE_MINIMAL="${SLOT}"
 		_kdedir="${SLOT}"
 		_pv="-${PV}:${SLOT}"
 		_pvn="-${PV}"
@@ -236,12 +230,13 @@ kdecommondepend="
 	)
 "
 if [[ ${PN} != kdelibs ]]; then
+	slot_is_at_least 4.3 ${KDE_MINIMAL} && local libknotificationitem_required=1
 	if [[ ${KDEBASE} = kde-base ]]; then
 		kdecommondepend+="
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
 		"
-		[[ ${LIBKNOTIFICATIONITEM_REQUIRED} = always ]] && \
+		[[ -n ${libknotificationitem_required} ]] && \
 			kdecommondepend+="
 				kdeprefix? ( >=kde-base/libknotificationitem${_pv}[kdeprefix] )
 				!kdeprefix? ( >=kde-base/libknotificationitem${_pvn}[-kdeprefix] )
@@ -250,7 +245,7 @@ if [[ ${PN} != kdelibs ]]; then
 		kdecommondepend+="
 			>=kde-base/kdelibs${_pv}
 		"
-		[[ ${LIBKNOTIFICATIONITEM_REQUIRED} = always ]] && \
+		[[ -n ${libknotificationitem_required} ]] && \
 			kdecommondepend+="
 				>=kde-base/libknotificationitem${_pv}
 			"

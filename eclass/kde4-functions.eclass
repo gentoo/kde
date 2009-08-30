@@ -44,12 +44,22 @@ fi
 # @DESCRIPTION:
 # The slots used by all KDE versions later than 4.0. The live KDE releases use
 # KDE_LIVE_SLOTS instead. Values should be ordered.
-KDE_SLOTS=( "kde-4" "4.1" "4.2" "4.3" "4.4" )
+KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" )
 
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:
 # The slots used by KDE live versions. Values should be ordered.
 KDE_LIVE_SLOTS=( "live" )
+
+# @FUNCTION: slot_is_at_least
+# @USAGE: <want> <have>
+# @DESCRIPTION:
+# Version aware slot comparator.
+# Current implementation relies on the fact, that slots can be compared like
+# string literals (and let's keep it this way).
+slot_is_at_least() {
+	[[ "${2}" > "${1}" || "${2}" = "${1}" ]]
+}
 
 # @FUNCTION: buildsycoca
 # @DESCRIPTION:
@@ -360,10 +370,9 @@ load_library_dependencies() {
 # Create blocks for the current package in other slots when
 # installed with USE=-kdeprefix
 block_other_slots() {
-	local slot
-
 	debug-print-function ${FUNCNAME} "$@"
 
+	local slot
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# Block non kdeprefix ${PN} on other slots
 		if [[ ${SLOT} != ${slot} ]]; then
@@ -379,11 +388,10 @@ block_other_slots() {
 # Parameters are package and version to block.
 # add_blocker kde-base/kdelibs 4.2.4
 add_blocker() {
-	local slot
-
 	debug-print-function ${FUNCNAME} "$@"
 
 	[[ ${1} = "" || ${2} = "" ]] && die "Missing parameter"
+	local slot
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# on -kdeprefix we block every slot
 		RDEPEND+=" !kdeprefix? ( !<=${1}-${2}:${slot}[-kdeprefix] )"
