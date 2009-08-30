@@ -11,10 +11,7 @@ DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
-"
-RDEPEND="${DEPEND}
+RDEPEND="
 	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kwalletd-${PV}:${SLOT}[kdeprefix=]
 "

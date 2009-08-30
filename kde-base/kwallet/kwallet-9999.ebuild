@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]

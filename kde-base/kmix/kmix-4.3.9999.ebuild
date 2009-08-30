@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="alsa debug +handbook pulseaudio"
 
 DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.12 )
 "

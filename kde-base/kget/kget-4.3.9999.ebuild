@@ -16,7 +16,6 @@ DEPEND="
 	dev-libs/gmp
 	dev-libs/libpcre
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	sqlite? ( dev-db/sqlite:3 )

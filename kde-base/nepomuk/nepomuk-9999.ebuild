@@ -17,7 +17,6 @@ DEPEND="
 		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,redland]
 	)
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 "
 # BLOCKS:
 # kde-base/akonadi: installed nepomuk ontologies, which were supposed to be here

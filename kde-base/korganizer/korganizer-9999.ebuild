@@ -14,7 +14,6 @@ IUSE="debug +handbook"
 DEPEND="
 	app-crypt/gpgme
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}

@@ -14,7 +14,6 @@ IUSE="debug +handbook jpeg rdp vnc zeroconf"
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
 
 DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
 	jpeg? ( media-libs/jpeg )
 	vnc? ( >=net-libs/libvncserver-0.9 )
 	zeroconf? (

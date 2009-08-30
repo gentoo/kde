@@ -10,8 +10,3 @@ inherit kde4-meta
 DESCRIPTION="A screen ruler for the K Desktop Environment"
 KEYWORDS=""
 IUSE="debug +handbook"
-
-DEPEND="
-	>=kde-base/libknotificationitem-${PV}:${SLOT}[kdeprefix=]
-"
-RDEPEND="${DEPEND}"
