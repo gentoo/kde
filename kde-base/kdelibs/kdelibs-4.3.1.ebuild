@@ -86,18 +86,15 @@ RDEPEND="${COMMONDEPEND}
 	!<=kde-base/kdebase-3.5.9-r4
 	!<=kde-base/kdebase-startkde-3.5.10
 	!<kde-base/kdelibs-3.5.10
+	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	!x11-libs/qt-phonon
 	!kdeprefix? (
-		!kde-base/kitchensync:4.1
-		!kde-base/knewsticker:4.1
-		!kde-base/kpercentage:4.1
-		!kde-base/ktnef:4.1
-		!kde-base/libplasma
-		!kde-base/libkworkspace:4.2[kdeprefix=]
-		!<=kde-misc/kdnssd-avahi-0.1.2:0
-	)
-	kdeprefix? (
-		!<=kde-misc/kdnssd-avahi-0.1.2:0
+		!kde-base/kitchensync:4.1[-kdeprefix]
+		!kde-base/knewsticker:4.1[-kdeprefix]
+		!kde-base/kpercentage:4.1[-kdeprefix]
+		!kde-base/ktnef:4.1[-kdeprefix]
+		!kde-base/libplasma[-kdeprefix]
+		!kde-base/libkworkspace:4.2[-kdeprefix]
 	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
