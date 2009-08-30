@@ -28,7 +28,4 @@ src_prepare() {
 		-i "${PN}"/CMakeLists.txt || die "failed to rename printer-applet executable"
 	sed -e "/Exec/s/printer-applet/${newname}/" \
 		-i "${PN}"/printer-applet.desktop || die "failed to patch .desktop file"
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
 }

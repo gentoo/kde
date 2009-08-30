@@ -10,10 +10,3 @@ inherit kde4-meta
 DESCRIPTION="KDE Screenshot Utility"
 KEYWORDS=""
 IUSE="debug +handbook"
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
-}

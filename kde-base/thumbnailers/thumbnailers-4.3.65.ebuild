@@ -23,10 +23,3 @@ RDEPEND="${DEPEND}
 	!kdeprefix? ( !<kde-base/kdegraphics-strigi-analyzer-4.2.91[-kdeprefix] )
 	kdeprefix? ( !<kde-base/kdegraphics-strigi-analyzer-4.2.91:${SLOT}[kdeprefix] )
 "
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
-}

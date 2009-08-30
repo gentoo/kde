@@ -35,13 +35,6 @@ KMCOMPILEONLY="
 
 KMLOADLIBS="libkcddb"
 
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
-}
-
 src_configure() {
 	if use encode; then
 		mycmakeargs="${mycmakeargs}

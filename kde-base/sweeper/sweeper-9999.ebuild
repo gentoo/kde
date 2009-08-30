@@ -10,10 +10,3 @@ inherit kde4-meta
 DESCRIPTION="KDE Privacy Settings Widget"
 KEYWORDS=""
 IUSE="debug"
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
-}

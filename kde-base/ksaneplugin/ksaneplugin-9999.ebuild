@@ -18,10 +18,3 @@ DEPEND="
 	>=kde-base/libksane-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Remove compile-time dep on LibKNotificationItem
-	sed -i -e '/LibKNotificationItem-1/s/^/#DONOTNEED /' CMakeLists.txt
-}
