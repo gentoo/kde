@@ -14,10 +14,9 @@ IUSE="debug +handbook"
 DEPEND="
 	app-crypt/gpgme
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	kontact? ( >=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=] )
 "
 RDEPEND="${DEPEND}
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMLOADLIBS="libkdepim"
@@ -47,4 +46,14 @@ src_prepare() {
 	fi
 
 	kde4-meta_src_prepare
+}
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version kde-base/kdepim-kresources:${SLOT}; then
+		echo
+		elog "For groupware functionality, please install kdepim-kresources:${SLOT}."
+		echo
+	fi
 }
