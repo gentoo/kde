@@ -31,3 +31,14 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version kde-base/kaddressbook:${SLOT}; then
+		echo
+		elog "File templates plugin requires kde-base/kaddressbook:${SLOT}."
+		elog "Please install it if you plan to use this plugin."
+		echo
+	fi
+}
