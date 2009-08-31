@@ -18,6 +18,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRA="
+	plugins/ktexteditor/
+"
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
 	kmail/
