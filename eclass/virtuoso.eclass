@@ -92,10 +92,6 @@ virtuoso_src_prepare() {
 				done
 			fi
 		done
-
-		# Prepend . to SUBDIRS in toplevel Makefile.am
-		sed -e 's/^SUBDIRS\s*=/SUBDIRS = ./' -i Makefile.am \
-			|| die "failed to prepend . to SUBDIRS"
 	fi
 
 	eautoreconf
