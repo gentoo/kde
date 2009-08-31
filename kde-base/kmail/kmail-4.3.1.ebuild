@@ -33,6 +33,7 @@ KMEXTRACTONLY="
 	mimelib
 "
 KMEXTRA="
+	ksendemail/
 	plugins/kmail/
 "
 KMLOADLIBS="libkdepim"
