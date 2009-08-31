@@ -230,13 +230,13 @@ kdecommondepend="
 	)
 "
 if [[ ${PN} != kdelibs ]]; then
-	slot_is_at_least 4.3 ${KDE_MINIMAL} && local libknotificationitem_required=1
+	[[ ${PN} != libknotificationitem ]] && slot_is_at_least 4.3 ${KDE_MINIMAL} && local libknotificationitem_required=1
 	if [[ ${KDEBASE} = kde-base ]]; then
 		kdecommondepend+="
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
 		"
-		[[ ${PN} != "libknotificationitem" && -n ${libknotificationitem_required} ]] && \
+		[[ -n ${libknotificationitem_required} ]] && \
 			kdecommondepend+="
 				kdeprefix? ( >=kde-base/libknotificationitem${_pv}[kdeprefix] )
 				!kdeprefix? ( >=kde-base/libknotificationitem${_pvn}[-kdeprefix] )
