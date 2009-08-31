@@ -236,7 +236,7 @@ if [[ ${PN} != kdelibs ]]; then
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
 		"
-		[[ -n ${libknotificationitem_required} ]] && \
+		[[ ${PN} != "libknotificationitem" && -n ${libknotificationitem_required} ]] && \
 			kdecommondepend+="
 				kdeprefix? ( >=kde-base/libknotificationitem${_pv}[kdeprefix] )
 				!kdeprefix? ( >=kde-base/libknotificationitem${_pvn}[-kdeprefix] )
