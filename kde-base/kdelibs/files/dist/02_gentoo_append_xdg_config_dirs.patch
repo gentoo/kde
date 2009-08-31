@@ -1,3 +1,8 @@
+Set up XDG_CONFIG_DIRS lookup in order:
+1. custom XDG_CONFIG_DIRS from env
+2. kdeprefix xdg config dirs
+3. /etc/xdg
+
 Index: kdecore/kernel/kstandarddirs.cpp
 ===================================================================
 --- kdecore/kernel/kstandarddirs.cpp	(revision 1014759)
