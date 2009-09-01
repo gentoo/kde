@@ -26,6 +26,7 @@ KMEXTRACTONLY="
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		-DBUILD_akonadi=ON
 		$(cmake-utils_use_with avantgo Mal)
 		$(cmake-utils_use_with crypt QCA2)"
 
