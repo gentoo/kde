@@ -22,7 +22,6 @@ RDEPEND="${DEPEND}
 "
 
 KMEXTRACTONLY="
-	akonadi/contact/
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 "
 
