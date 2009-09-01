@@ -18,7 +18,7 @@ IUSE="X"
 
 DEPEND="
 	dev-lang/perl[ithreads]
-	dev-perl/WWW-Mechanize
+	>=dev-perl/WWW-Mechanize-1.52
 	virtual/perl-Getopt-Long
 	virtual/perl-Term-ANSIColor
 	X? (
