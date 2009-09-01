@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php/PowerDevil?content=85078"
 LICENSE="GPL-2"
 
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +pm-utils"
 
 COMMONDEPEND="
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
@@ -24,7 +24,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!sys-power/powerdevil
-	sys-power/pm-utils
+	pm-utils? ( sys-power/pm-utils )
 "
 
 KMEXTRACTONLY="
