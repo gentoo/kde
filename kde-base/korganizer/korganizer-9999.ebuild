@@ -53,7 +53,7 @@ pkg_postinst() {
 
 	if ! has_version kde-base/kdepim-kresources:${SLOT}; then
 		echo
-		elog "For groupware functionality, please install kdepim-kresources:${SLOT}."
+		elog "For groupware functionality, please install kde-base/kdepim-kresources:${SLOT}"
 		echo
 	fi
 }

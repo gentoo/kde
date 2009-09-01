@@ -51,3 +51,13 @@ src_compile() {
 	MAKEOPTS="${MAKEOPTS} -j1"
 	kde4-meta_src_compile
 }
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version kde-base/kdepim-kresources:${SLOT}; then
+		echo
+		elog "For groupware functionality, please install kde-base/kdepim-kresources:${SLOT}"
+		echo
+	fi
+}

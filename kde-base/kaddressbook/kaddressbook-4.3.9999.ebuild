@@ -43,3 +43,13 @@ src_install() {
 	doins "${CMAKE_BUILD_DIR}"/${PN}/common/kabprefs_base.h || \
 		die "Failed to install extra header files"
 }
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version kde-base/kdepim-kresources:${SLOT}; then
+		echo
+		elog "For groupware functionality, please install kde-base/kdepim-kresources:${SLOT}"
+		echo
+	fi
+}
