@@ -13,11 +13,14 @@ ESVN_REPO_URI="https://cloudcity.svn.sourceforge.net/svnroot/cloudcity"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug plasma"
+IUSE="debug"
 
 src_configure() {
+	# these two are no-deps options
+	# no need to have them useflaged
 	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_enable plasma XBAR)"
+		-DENABLE_XBAR=ON
+		-DENABLE_ARGB=ON"
 
 	kde4-base_src_configure
 }
