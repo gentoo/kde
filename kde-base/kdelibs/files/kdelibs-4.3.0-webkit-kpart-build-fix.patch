@@ -1,0 +1,118 @@
+Index: kio/kio/global.cpp
+===================================================================
+--- kio/kio/global.cpp	(revision 1005372)
++++ kio/kio/global.cpp	(working copy)
+@@ -1242,3 +1242,47 @@
+ {
+     return globalJobTracker;
+ }
++
++
++/***************************************************************
++ *
++ * KIO::MetaData
++ *
++ ***************************************************************/
++KIO::MetaData::MetaData(const QMap<QString,QVariant>& map)
++{
++  *this = map;
++}
++
++KIO::MetaData & KIO::MetaData::operator += ( const QMap<QString,QVariant> &metaData )
++{
++  QMap<QString,QVariant>::ConstIterator it;
++  
++  for(it = metaData.constBegin(); it !=  metaData.constEnd(); ++it)
++     insert(it.key(), it.value().toString());
++
++  return *this;
++}
++
++KIO::MetaData & KIO::MetaData::operator = ( const QMap<QString,QVariant> &metaData )
++{
++  clear();
++
++  QMap<QString,QVariant>::ConstIterator it;
++  for(it = metaData.constBegin(); it !=  metaData.constEnd(); ++it)
++     insert(it.key(), it.value().toString());
++
++  return *this;
++}
++
++QVariant KIO::MetaData::toVariant() const
++{
++ QMap<QString, QVariant> map;
++ QMap<QString,QString>::ConstIterator it;
++ QMap<QString,QString>::ConstIterator itEnd = constEnd();
++
++ for(it = constBegin(); it != itEnd; ++it)
++   map.insert(it.key(), it.value());
++
++ return QVariant(map);
++}
+Index: kio/kio/global.h
+===================================================================
+--- kio/kio/global.h	(revision 1005372)
++++ kio/kio/global.h	(working copy)
+@@ -25,6 +25,7 @@
+ #include <QtCore/QHash>
+ #include <QtCore/QMap>
+ #include <QtCore/QList>
++#include <QtCore/QVariant>
+ 
+ #include <kiconloader.h>
+ #include <QtGui/QPixmap> // for pixmapForUrl
+@@ -389,11 +390,17 @@
+      QMap<QString, QString>(metaData) { }
+ 
+    /**
++    * Creates a meta data map from a QVaraint map.
++    * @since 4.3
++    */
++    MetaData(const QMap<QString,QVariant> &);
++
++   /**
+     * Adds the given meta data map to this map.
+     * @param metaData the map to add
+     * @return this map
+     */
+-   MetaData & operator+= ( const QMap<QString,QString> &metaData )
++   MetaData & operator += ( const QMap<QString,QString> &metaData )
+    {
+       QMap<QString,QString>::ConstIterator it;
+       for(it = metaData.constBegin(); it !=  metaData.constEnd(); ++it)
+@@ -402,6 +409,34 @@
+       }
+       return *this;
+    }
++
++   /**
++    * Same as above except the value in the map is a QVariant.
++    *
++    * This convenience function allows you to easily assign the values
++    * of a QVariant to this meta data class.
++    *
++    * @param metaData the map to add
++    * @return this map
++    * @since 4.3
++    */
++   MetaData & operator += ( const QMap<QString,QVariant> &metaData );
++
++   /**
++    * Sets the given meta data map to this map.
++    * @param metaData the map to add
++    * @return this map
++    * @since 4.3
++    */
++   MetaData & operator = ( const QMap<QString,QVariant> &metaData );
++
++   /**
++    * Returns the contents of the map as a QVariant.
++    *
++    * @return a QVariant representation of the meta data map.
++    * @since 4.3
++    */
++   QVariant toVariant() const;
+ };
+ 
+ }
