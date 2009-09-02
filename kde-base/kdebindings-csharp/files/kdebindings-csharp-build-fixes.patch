@@ -1,5 +1,5 @@
---- kdebindings.orig/csharp/qtscript/CMakeLists.txt
-+++ kdebindings/csharp/qtscript/CMakeLists.txt
+--- csharp/qtscript/CMakeLists.txt
++++ csharp/qtscript/CMakeLists.txt
 @@ -15,7 +15,7 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/
  	${CMAKE_CURRENT_SOURCE_DIR}/../qyoto/src ${QT_INCLUDES})
  LINK_DIRECTORIES (${LIBRARY_OUTPUT_PATH})
@@ -9,8 +9,8 @@
  
  SET(CS_FLAGS -r:${LIBRARY_OUTPUT_PATH}/qt-dotnet.dll -warn:0 -keyfile:${KEYFILE})
  ADD_CS_LIBRARY(qtscript "${SRC_CS}" ALL)
---- kdebindings.orig/csharp/qtwebkit/CMakeLists.txt
-+++ kdebindings/csharp/qtwebkit/CMakeLists.txt
+--- csharp/qtwebkit/CMakeLists.txt
++++ csharp/qtwebkit/CMakeLists.txt
 @@ -14,7 +14,7 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/
  	${CMAKE_CURRENT_SOURCE_DIR}/../qyoto/src ${QT_INCLUDES})
  LINK_DIRECTORIES (${LIBRARY_OUTPUT_PATH})
@@ -20,8 +20,8 @@
  
  SET(CS_FLAGS -r:${LIBRARY_OUTPUT_PATH}/qt-dotnet.dll -warn:0 -keyfile:${KEYFILE})
  ADD_CS_LIBRARY(qtwebkit "${SRC_CS}" ALL)
---- kdebindings.orig/csharp/qyoto/CMakeLists.txt
-+++ kdebindings/csharp/qyoto/CMakeLists.txt
+--- csharp/qyoto/CMakeLists.txt
++++ csharp/qyoto/CMakeLists.txt
 @@ -39,11 +39,11 @@ INCLUDE_DIRECTORIES (${QT_INCLUDES} ${CM
  LINK_DIRECTORIES (${LIBRARY_OUTPUT_PATH})
  
@@ -36,8 +36,8 @@
  
  SET(CS_FLAGS -debug -define:DEBUG -unsafe -warn:0 -keyfile:${KEYFILE})
  ADD_CS_LIBRARY(qt-dotnet "${SRC_CS_QYOTO}" ALL)
---- kdebindings.orig/csharp/soprano/CMakeLists.txt
-+++ kdebindings/csharp/soprano/CMakeLists.txt
+--- csharp/soprano/CMakeLists.txt
++++ csharp/soprano/CMakeLists.txt
 @@ -21,7 +21,7 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/
  LINK_DIRECTORIES (${LIBRARY_OUTPUT_PATH})
  ADD_LIBRARY(soprano-sharp MODULE ${SRC_CPP})
@@ -47,3 +47,44 @@
  
  SET(CS_FLAGS -r:${LIBRARY_OUTPUT_PATH}/qt-dotnet.dll -warn:0 -keyfile:${KEYFILE})
  ADD_CS_LIBRARY(soprano "${SRC_CS}" ALL)
+--- csharp/CMakeLists.txt	2009-09-02 13:30:38.045355025 +0300
++++ csharp/CMakeLists.txt	2009-09-02 13:31:40.426071410 +0300
+@@ -3,6 +3,7 @@
+ OPTION(ENABLE_QTTEST "build QtTest" ON)
+ OPTION(ENABLE_QTUITOOLS_SHARP "build QtUiTools" ON)
+ OPTION(ENABLE_QTWEBKIT_SHARP "build QtWebKit" ON)
++OPTION(ENABLE_PLASMA_SHARP "build PlasmaSharp" ON)
+ OPTION(ENABLE_PHONON_SHARP "build PhononSharp" OFF)
+ OPTION(ENABLE_QSCINTILLA_SHARP "build QScintillaSharp" OFF)
+ OPTION(ENABLE_KHTML_SHARP "build KHTML" ON)
+@@ -15,7 +16,8 @@
+ set(QTTEST_ENABLED "no")
+ SET(QTWEBKIT_ENABLED "no")
+ SET(QTUITOOLS_ENABLED "no")
+-SET(QTWEBKIT_ENABLED "no")
++SET(QTWEBKIT_SHARP_ENABLED "no")
++SET(PLASMA_SHARP_ENABLED "no")
+ SET(PHONON_SHARP_ENABLED "no")
+ SET(QSCINTILLA_SHARP_ENABLED "no")
+ SET(AKONADI_ENABLED "no")
+@@ -126,8 +128,10 @@
+         set(AKONADI_ENABLED "yes")
+     endif(KDEPIMLIBS_FOUND AND Akonadi_FOUND)
+ 	
+-    SET(PLASMA_SHARP_ENABLED "yes")
+-    ADD_SUBDIRECTORY(plasma)
++    IF(ENABLE_PLASMA_SHARP)
++	SET(PLASMA_SHARP_ENABLED "yes")
++	ADD_SUBDIRECTORY(plasma)
++    ENDIF(ENABLE_PLASMA_SHARP)
+ 
+     ENDIF (GMCS_EXECUTABLE AND GACUTIL_EXECUTABLE AND MONO_CECIL_FOUND)
+ endif(ENABLE_QYOTO)
+@@ -138,6 +142,7 @@
+ message(STATUS "Build SopranoSharp... " ${SOPRANO_SHARP_ENABLED})
+ message(STATUS "Build NepomukSharp... " ${NEPOMUK_SHARP_ENABLED})
+ message(STATUS "Build PlasmaSharp... " ${PLASMA_SHARP_ENABLED})
++message(STATUS "Build QtWebkitSharp... " ${QTWEBKIT_SHARP_ENABLED})
+ message(STATUS "Build Kimono... " ${KIMONO_ENABLED})
+ message(STATUS "Build KHTMLSharp... " ${KHTML_SHARP_ENABLED})
+ message(STATUS "Build KTextEditorSharp... " ${KHTML_SHARP_ENABLED})
