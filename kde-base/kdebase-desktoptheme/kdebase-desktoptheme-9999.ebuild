@@ -11,8 +11,3 @@ inherit kde4-meta
 DESCRIPTION="Oxygen KDE4 desktop theme."
 IUSE=""
 KEYWORDS=""
-
-RDEPEND="
-	!kdeprefix? ( !<kde-base/plasma-workspace-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/plasma-workspace-${PV}:${SLOT} )
-"

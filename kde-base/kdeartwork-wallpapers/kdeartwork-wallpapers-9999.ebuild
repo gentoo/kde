@@ -13,8 +13,3 @@ inherit kde4-meta
 DESCRIPTION="Wallpapers from kde"
 KEYWORDS=""
 IUSE=""
-
-RDEPEND="
-	!kdeprefix? ( !<kde-base/kde-wallpapers-${PV}[-kdeprefix] )
-	kdeprefix? ( !<kde-base/kde-wallpapers-${PV}:${SLOT} )
-"
