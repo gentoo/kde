@@ -95,11 +95,15 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/knewsticker:4.1[-kdeprefix]
 		!kde-base/kpercentage:4.1[-kdeprefix]
 		!kde-base/ktnef:4.1[-kdeprefix]
-		!kde-base/libplasma[-kdeprefix]
-		!kde-base/libkworkspace:4.2[-kdeprefix]
 		!kde-base/libknotificationitem[-kdeprefix]
+		!kde-base/libkworkspace:4.2[-kdeprefix]
+		!<kde-base/libkworkspace-4.3.66:4.3[-kdeprefix]
+		!kde-base/libplasma[-kdeprefix]
 	)
-	kdeprefix? ( !kde-base/libknotificationitem:${SLOT}[kdeprefix] )
+	kdeprefix? (
+		!kde-base/libknotificationitem:${SLOT}[kdeprefix]
+		!<kde-base/libkworkspace-4.3.66:${SLOT}[kdeprefix]
+	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
 	x11-apps/rgb
