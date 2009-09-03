@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 		!kde-base/akonadi:4.1[-kdeprefix]
 		!kde-base/libkholidays:4.1[-kdeprefix]
 		!kde-base/libkholidays:4.2[-kdeprefix]
-		!<kde-base/akonadi-4.3.66:4.3[-kdeprefix]
+		!<kde-base/akonadi-4.3.66:4.4[-kdeprefix]
 	)
 	kdeprefix? ( !<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix] )
 "
