@@ -97,7 +97,8 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/ktnef:4.1[-kdeprefix]
 		!kde-base/libknotificationitem[-kdeprefix]
 		!kde-base/libkworkspace:4.2[-kdeprefix]
-		!<kde-base/libkworkspace-4.3.66:4.3[-kdeprefix]
+		!kde-base/libkworkspace:4.3[-kdeprefix]
+		!<kde-base/libkworkspace-4.3.66:4.4[-kdeprefix]
 		!kde-base/libplasma[-kdeprefix]
 	)
 	kdeprefix? (
