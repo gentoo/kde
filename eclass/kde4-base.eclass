@@ -233,7 +233,7 @@ if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
 		# All SLOT=4.3 and any SLOT=4.4 where PV < 4.3.66; only kde-base/
 		if [[ ${PN} != libknotificationitem ]]; then
-			if [[ ${SLOT} == 4.3 ]] || [[ ${SLOT} == 4.4 ]] && [[ ${PV} < 4.3.66 ]]; then
+			if [[ ${SLOT} == 4.3 ]] || [[ ${SLOT} == 4.4 && ${PV} < 4.3.66 ]]; then
 				local libknotificationitem_required=1
 			fi
 		fi
