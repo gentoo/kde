@@ -21,6 +21,7 @@ mmx nls openexr policykit +semantic-desktop spell sse sse2 ssl zeroconf"
 RESTRICT="test"
 
 COMMONDEPEND="
+	app-crypt/qca:2
 	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
@@ -96,7 +97,9 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/ktnef:4.1[-kdeprefix]
 		!kde-base/libplasma[-kdeprefix]
 		!kde-base/libkworkspace:4.2[-kdeprefix]
+		!kde-base/libknotificationitem[-kdeprefix]
 	)
+	kdeprefix? ( !kde-base/libknotificationitem:${SLOT}[kdeprefix] )
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
 	x11-apps/rgb
