@@ -128,10 +128,9 @@ src_prepare() {
 	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
 		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
 
-	# FIXME Remove experimental folder from CMakeLists - we have
-	# kde-base/libknotificationitem for now
-	sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
-		-i CMakeLists.txt || die "Failed to sed-out experimental."
+	# FIXME Remove experimental folder from CMakeLists - add back if needed again
+	# sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
+	#	-i CMakeLists.txt || die "Failed to sed-out experimental."
 }
 
 src_configure() {

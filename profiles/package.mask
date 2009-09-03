@@ -544,7 +544,6 @@ kde-base/thumbnailers:live
 kde-base/kde-env:live
 kde-base/kdelibs:live
 kde-base/kdepimlibs:live
-kde-base/libknotificationitem:live
 kde-base/oxygen-icons:live
 kde-base/dragonplayer:live
 kde-base/juk:live
