@@ -8,11 +8,15 @@ KMNAME="kdereview"
 KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="Conversion library for KDE apps"
+DESCRIPTION="Unit conversion library for KDE apps"
 
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
-KMEXTRA="conversion/"
+RDEPEND="
+	!dev-libs/conversion
+"
+
+KMEXTRA="kunitconversion/"
