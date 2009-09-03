@@ -36,7 +36,7 @@ S=${WORKDIR}/${P/_/-}
 
 src_configure() {
 	mycmakeargs="-DBUILD_po=1
-		$(cmake_use debug BUILD_DEBUG_MODULE)
+		$(cmake-utils_use_build debug DEBUG_MODULE)
 	"
 	kde4-base_src_configure
 }
