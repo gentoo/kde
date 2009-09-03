@@ -27,12 +27,15 @@ DEPEND="
 	ldap? ( net-nds/openldap )
 "
 # @since 4.3 - libkholidays is in kdepimlibs now
+# libakonadi-contact moved here from akonadi in 4.3.66
 RDEPEND="${DEPEND}
 	!kdeprefix? (
-		!kde-base/akonadi:4.1
-		!kde-base/libkholidays:4.1
-		!kde-base/libkholidays:4.2
+		!kde-base/akonadi:4.1[-kdeprefix]
+		!kde-base/libkholidays:4.1[-kdeprefix]
+		!kde-base/libkholidays:4.2[-kdeprefix]
+		!<kde-base/akonadi-4.3.66:4.3[-kdeprefix]
 	)
+	kdeprefix? ( !<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix] )
 "
 
 src_configure() {

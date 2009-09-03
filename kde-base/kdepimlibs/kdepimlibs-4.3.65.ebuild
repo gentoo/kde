@@ -29,9 +29,9 @@ DEPEND="
 # @since 4.3 - libkholidays is in kdepimlibs now
 RDEPEND="${DEPEND}
 	!kdeprefix? (
-		!kde-base/akonadi:4.1
-		!kde-base/libkholidays:4.1
-		!kde-base/libkholidays:4.2
+		!kde-base/akonadi:4.1[-kdeprefix]
+		!kde-base/libkholidays:4.1[-kdeprefix]
+		!kde-base/libkholidays:4.2[-kdeprefix]
 	)
 "
 
