@@ -99,11 +99,13 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/libkworkspace:4.2[-kdeprefix]
 		!kde-base/libkworkspace:4.3[-kdeprefix]
 		!<kde-base/libkworkspace-4.3.66:4.4[-kdeprefix]
+		!=kde-base/libkworkspace-9999:live[-kdeprefix]
 		!kde-base/libplasma[-kdeprefix]
 	)
 	kdeprefix? (
 		!kde-base/libknotificationitem:${SLOT}[kdeprefix]
 		!<kde-base/libkworkspace-4.3.66:${SLOT}[kdeprefix]
+		!=kde-base/libkworkspace-9999:${SLOT}[kdeprefix]
 	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth

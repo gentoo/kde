@@ -34,8 +34,12 @@ RDEPEND="${DEPEND}
 		!kde-base/libkholidays:4.1[-kdeprefix]
 		!kde-base/libkholidays:4.2[-kdeprefix]
 		!<kde-base/akonadi-4.3.66:4.4[-kdeprefix]
+		!=kde-base/akonadi-9999:live[-kdeprefix]
 	)
-	kdeprefix? ( !<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix] )
+	kdeprefix? (
+		!<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix]
+		!=kde-base/akonadi-9999:${SLOT}[kdeprefix]
+	)
 "
 
 src_configure() {
