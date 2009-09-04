@@ -26,6 +26,7 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
 "
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
