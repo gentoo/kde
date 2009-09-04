@@ -27,7 +27,9 @@ DEPEND="
 		x11-misc/xclip
 	)
 "
+# aview: displaying captcha
 RDEPEND="${DEPEND}
+	media-gfx/aview
 	X? ( x11-terms/xterm )
 "
 
