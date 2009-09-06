@@ -42,6 +42,7 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}
 	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-runtime-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 "
 
