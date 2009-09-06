@@ -1,5 +1,0 @@
-# Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> (4 Sep 2009)
-# Masking amarok-2.1.80 until the tarballs are released
-# amarok-utils fails to find kdemacros.h for +kdeprefix
-=media-sound/amarok-2.1.80
-=media-sound/amarok-utils-2.1.80
