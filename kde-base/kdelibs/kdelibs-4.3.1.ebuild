@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.3.1.ebuild,v 1.1 2009/09/01 15:11:09 tampakrap Exp $
 
 EAPI="2"
 
@@ -47,7 +47,7 @@ COMMONDEPEND="
 	x11-libs/libXpm
 	x11-libs/libXrender
 	x11-libs/libXtst
-	>=x11-misc/shared-mime-info-0.30
+	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
 	bzip2? ( app-arch/bzip2 )
@@ -107,11 +107,7 @@ PDEPEND="
 	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 "
 
-# first patch fixes live webkit-kpart:
-# http://mail.kde.org/pipermail/webkit-devel/2009-August/000148.html
-
 PATCHES=(
-	"${FILESDIR}/${P}-webkit-kpart-build-fix.patch"
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/20_use_dejavu_as_default_font.patch"
