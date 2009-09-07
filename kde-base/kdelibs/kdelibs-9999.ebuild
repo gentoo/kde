@@ -85,6 +85,7 @@ DEPEND="${COMMONDEPEND}
 # kde-base/kpercentage
 # kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
+	!dev-libs/kunitconversion
 	!<=kde-base/kdebase-3.5.9-r4
 	!<=kde-base/kdebase-startkde-3.5.10
 	!<kde-base/kdelibs-3.5.10
