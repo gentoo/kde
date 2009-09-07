@@ -1,13 +1,12 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok/amarok-2.1.1.ebuild,v 1.2 2009/07/22 16:11:11 ssuominen Exp $
+# $Header: $
 
 EAPI="2"
 
 KDE_LINGUAS="bg ca cs da de el en_GB es et eu fr gl he is it ja km ku lt lv nb
 nds nl nn pa pl pt pt_BR ro ru sl sv th tr uk wa zh_CN zh_TW"
 OPENGL_REQUIRED="optional"
-KMNAME="extragear/multimedia"
 inherit kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -17,7 +16,7 @@ SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="cdda daap debug ipod mp3tunes mtp +semantic-desktop"
+IUSE="cdda daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -35,9 +34,8 @@ DEPEND="
 		>=kde-base/libkcddb-${KDE_MINIMAL}
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
-	ipod? (
-		>=media-libs/libgpod-0.7.0[gtk]
-	)
+	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
+	lastfm? ( >=media-libs/liblastfm-0.3.0 )
 	mp3tunes? (
 		dev-libs/glib:2
 		dev-libs/libxml2
@@ -65,10 +63,11 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
-		$(cmake-utils_use_with ipod Ipod)
+		$(cmake-utils_use_with ipod)
 		$(cmake-utils_use_with ipod Gdk)
-		$(cmake-utils_use_with mtp Mtp)
-		$(cmake-utils_use_with mp3tunes MP3TUNES)"
+		$(cmake-utils_use_with lastfm LibLastFm)
+		$(cmake-utils_use_with mtp)
+		$(cmake-utils_use_with mp3tunes MP3Tunes)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
 #		$(cmake-utils_use_with semantic-desktop Soprano)"
 

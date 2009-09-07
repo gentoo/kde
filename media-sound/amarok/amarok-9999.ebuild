@@ -14,7 +14,7 @@ EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdaudio daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
+IUSE="cdda daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -28,7 +28,7 @@ DEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
 	sys-libs/zlib
 	>=x11-libs/qtscriptgenerator-0.1.0
-	cdaudio? (
+	cdda? (
 		>=kde-base/libkcddb-${KDE_MINIMAL}
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
