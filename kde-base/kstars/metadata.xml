@@ -3,6 +3,7 @@
 <pkgmetadata>
 <use>
 	<flag name="fits">Enable support for the FITS image format through cfitsio</flag>
+	<flag name="indi">Enable support for Astronomical control library using libindi</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
