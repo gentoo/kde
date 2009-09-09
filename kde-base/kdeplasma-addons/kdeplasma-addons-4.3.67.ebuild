@@ -14,7 +14,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug desktopglobe exif semantic-desktop unitconversion"
+IUSE="debug desktopglobe exif semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
@@ -23,7 +23,6 @@ COMMON_DEPEND="
 	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
-	unitconversion? ( dev-libs/kunitconversion )
 	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
 	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
@@ -59,7 +58,6 @@ src_prepare() {
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
-		$(cmake-utils_use_with unitconversion KUnitConversion)
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with opengl OpenGL)

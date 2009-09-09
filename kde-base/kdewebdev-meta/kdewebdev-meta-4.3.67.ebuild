@@ -9,7 +9,7 @@ DESCRIPTION="KDE WebDev - merge this to pull in all kdewebdev-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4.4"
+SLOT="live"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 # FIXME:
 # Add this back when adding kmtrace

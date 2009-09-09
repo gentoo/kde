@@ -19,7 +19,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.1.6
-	>=app-office/akonadi-server-1.2.60
+	>=app-office/akonadi-server-1.2.61
 	dev-libs/boost
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
@@ -27,11 +27,18 @@ DEPEND="
 	ldap? ( net-nds/openldap )
 "
 # @since 4.3 - libkholidays is in kdepimlibs now
+# libakonadi-contact moved here from akonadi in 4.3.66
 RDEPEND="${DEPEND}
 	!kdeprefix? (
 		!kde-base/akonadi:4.1[-kdeprefix]
 		!kde-base/libkholidays:4.1[-kdeprefix]
 		!kde-base/libkholidays:4.2[-kdeprefix]
+		!<kde-base/akonadi-4.3.66:4.4[-kdeprefix]
+		!=kde-base/akonadi-9999:live[-kdeprefix]
+	)
+	kdeprefix? (
+		!<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix]
+		!=kde-base/akonadi-9999:${SLOT}[kdeprefix]
 	)
 "
 

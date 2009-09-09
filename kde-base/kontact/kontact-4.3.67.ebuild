@@ -42,3 +42,13 @@ KMEXTRACTONLY="
 	kontact/plugins/specialdates/
 	kontactinterfaces/
 "
+
+src_unpack() {
+	if use handbook; then
+		KMEXTRA+="
+			doc/kontact-admin/
+		"
+	fi
+
+	kde4-meta_src_unpack
+}

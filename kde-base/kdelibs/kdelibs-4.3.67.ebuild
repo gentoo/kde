@@ -15,12 +15,13 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
+mmx nls openexr policykit +semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
 
 COMMONDEPEND="
+	app-crypt/qca:2
 	>=app-misc/strigi-0.6.3[dbus,qt4]
 	dev-libs/libpcre
 	dev-libs/libxml2
@@ -58,6 +59,7 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
+	policykit? ( sys-auth/policykit-qt )
 	semantic-desktop? ( >=dev-libs/soprano-2.3.0[dbus] )
 	spell? (
 		app-dicts/aspell-en
@@ -83,18 +85,28 @@ DEPEND="${COMMONDEPEND}
 # kde-base/kpercentage
 # kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
+	!dev-libs/kunitconversion
 	!<=kde-base/kdebase-3.5.9-r4
 	!<=kde-base/kdebase-startkde-3.5.10
 	!<kde-base/kdelibs-3.5.10
-	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	!x11-libs/qt-phonon
+	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	!kdeprefix? (
 		!kde-base/kitchensync:4.1[-kdeprefix]
 		!kde-base/knewsticker:4.1[-kdeprefix]
 		!kde-base/kpercentage:4.1[-kdeprefix]
 		!kde-base/ktnef:4.1[-kdeprefix]
-		!kde-base/libplasma[-kdeprefix]
+		!kde-base/libknotificationitem[-kdeprefix]
 		!kde-base/libkworkspace:4.2[-kdeprefix]
+		!kde-base/libkworkspace:4.3[-kdeprefix]
+		!<kde-base/libkworkspace-4.3.66:4.4[-kdeprefix]
+		!=kde-base/libkworkspace-9999:live[-kdeprefix]
+		!kde-base/libplasma[-kdeprefix]
+	)
+	kdeprefix? (
+		!kde-base/libknotificationitem:${SLOT}[kdeprefix]
+		!<kde-base/libkworkspace-4.3.66:${SLOT}[kdeprefix]
+		!=kde-base/libkworkspace-9999:${SLOT}[kdeprefix]
 	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
@@ -124,10 +136,9 @@ src_prepare() {
 	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
 		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
 
-	# FIXME Remove experimental folder from CMakeLists - we have
-	# kde-base/libknotificationitem for now
-	sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
-		-i CMakeLists.txt || die "Failed to sed-out experimental."
+	# FIXME Remove experimental folder from CMakeLists - add back if needed again
+	# sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
+	#	-i CMakeLists.txt || die "Failed to sed-out experimental."
 }
 
 src_configure() {
@@ -165,6 +176,7 @@ src_configure() {
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with policykit PolkitQt)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)

@@ -9,7 +9,7 @@ DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4.4"
+SLOT="live"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
