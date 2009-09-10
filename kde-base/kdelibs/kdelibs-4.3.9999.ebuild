@@ -15,7 +15,7 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
+lzma mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -54,6 +54,7 @@ COMMONDEPEND="
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
+	lzma? ( app-arch/xz-utils )
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
@@ -162,6 +163,7 @@ src_configure() {
 		$(cmake-utils_use_with fam)
 		$(cmake-utils_use_with jpeg2k Jasper)
 		$(cmake-utils_use_with kerberos GSSAPI)
+		$(cmake-utils_use_with lzma LibLZMA)
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)

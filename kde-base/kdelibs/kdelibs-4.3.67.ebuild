@@ -15,7 +15,7 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-mmx nls openexr policykit +semantic-desktop spell sse sse2 ssl zeroconf"
+lzma mmx nls openexr policykit +semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -55,6 +55,7 @@ COMMONDEPEND="
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
+	lzma? ( app-arch/xz-utils )
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
@@ -135,10 +136,6 @@ src_prepare() {
 		-i kded/CMakeLists.txt || die "Sed on CMakeLists.txt for applications.menu failed."
 	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
 		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
-
-	# FIXME Remove experimental folder from CMakeLists - add back if needed again
-	# sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
-	#	-i CMakeLists.txt || die "Failed to sed-out experimental."
 }
 
 src_configure() {
@@ -173,6 +170,7 @@ src_configure() {
 		$(cmake-utils_use_with fam)
 		$(cmake-utils_use_with jpeg2k Jasper)
 		$(cmake-utils_use_with kerberos GSSAPI)
+		$(cmake-utils_use_with lzma LibLZMA)
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
