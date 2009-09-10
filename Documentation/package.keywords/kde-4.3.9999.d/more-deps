@@ -1,6 +1,7 @@
 ~app-accessibility/epos-2.5.37
 =app-admin/system-config-printer-common-1.1*
 app-arch/libarchive
+app-arch/xz-utils
 =app-misc/hal-cups-utils-0.6*
 app-misc/strigi
 app-text/ebook-tools

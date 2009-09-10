@@ -1,5 +1,6 @@
 =app-admin/system-config-printer-common-1.1*
 app-arch/libarchive
+app-arch/xz-utils
 =app-misc/hal-cups-utils-0.6*
 =app-misc/strigi-0.6*
 app-text/ebook-tools
