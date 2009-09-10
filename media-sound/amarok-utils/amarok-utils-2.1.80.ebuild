@@ -4,33 +4,50 @@
 
 EAPI="2"
 
+EGIT_REPO_URI="git://gitorious.org/${MY_PN}/${MY_PN}.git"
+EGIT_PROJECT="${MY_PN}"
+
+[[ ${PV} = *9999* ]] && git="git" || git=""
+
 KMNAME="extragear/multimedia"
 KMMODULE="amarok"
 KDE_REQUIRED="never"
-inherit kde4-base
+inherit ${git} kde4-base
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
+else
+	SRC_URI=""
+	KEYWORDS=""
+fi
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	!<media-sound/amarok-${PV}
 	>=media-libs/taglib-1.5
 	>=media-libs/taglib-extras-0.1
 	>=x11-libs/qt-core-4.4:4
 	>=x11-libs/qt-dbus-4.4:4
 "
 RDEPEND="${DEPEND}
-	!<media-sound/amarok-2.0.90:2
-	!<media-sound/amarok-2.0.90:${SLOT}
+	!<media-sound/amarok-2.1.80:2
+	!<media-sound/amarok-2.1.80:${SLOT}
 "
 
 S="${WORKDIR}/${P/-utils/}"
+
+src_unpack() {
+	if [[ ${PV} = *9999* ]]; then
+		git_src_unpack
+	else
+		kde4-base_src_unpack
+	fi
+}
 
 src_prepare() {
 	# Disable po processing
