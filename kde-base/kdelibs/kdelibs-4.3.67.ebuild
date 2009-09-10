@@ -96,7 +96,7 @@ RDEPEND="${COMMONDEPEND}
 		!kde-base/knewsticker:4.1[-kdeprefix]
 		!kde-base/kpercentage:4.1[-kdeprefix]
 		!kde-base/ktnef:4.1[-kdeprefix]
-		!kde-base/libknotificationitem:4.3[-kdeprefix]
+		!kde-base/libknotificationitem[-kdeprefix]
 		!kde-base/libkworkspace:4.2[-kdeprefix]
 		!kde-base/libkworkspace:4.3[-kdeprefix]
 		!<kde-base/libkworkspace-4.3.66:4.4[-kdeprefix]
