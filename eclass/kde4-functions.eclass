@@ -386,7 +386,7 @@ block_other_slots() {
 # Create correct RDEPEND value for blocking correct package.
 # Usefull for file-collision blocks.
 # Parameters are package and version to block.
-# add_blocker kde-base/kdelibs 4.2.4
+# add_blocker kdelibs 4.2.4
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -394,8 +394,8 @@ add_blocker() {
 	local slot
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# on -kdeprefix we block every slot
-		RDEPEND+=" !kdeprefix? ( !<=${1}-${2}:${slot}[-kdeprefix] )"
+		RDEPEND+=" !kdeprefix? ( !<=kde-base/${1}-${2}:${slot}[-kdeprefix] )"
 	done
 	# on kdeprefix we block only our slot
-	RDEPEND+=" kdeprefix? ( !<=${1}-${2}:${SLOT}[kdeprefix] )"
+	RDEPEND+=" kdeprefix? ( !<=kde-base/${1}-${2}:${SLOT}[kdeprefix] )"
 }
