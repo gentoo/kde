@@ -399,3 +399,23 @@ add_blocker() {
 	# on kdeprefix we block only our slot
 	RDEPEND+=" kdeprefix? ( !<=kde-base/${1}-${2}:${SLOT}[kdeprefix] )"
 }
+
+# @FUNCTION: add_kdebase_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-base/ dependencies,
+# adding SLOT when needed (and *only* when needed).
+# This takes 1 or 2 arguments.  The first being the package
+# name, the optional second, is additional USE flags to append.
+# The output of this should be added directly to DEPEND/RDEPEND, and
+# may be wrapped in a USE conditional (but not an || conditional
+# without an extra set of parentheses.
+add_kdebase_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ -z ${1} ]] && die "Missing parameter"
+
+	local use=${2:+,${2}}
+
+	echo "!kdeprefix? ( >=kde-base/${1}-${PV}[-kdeprefix${use}] )"
+	echo "kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[kdeprefix${use}] )"
+}
