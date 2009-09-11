@@ -15,27 +15,27 @@ IUSE=""
 # The KDE apps called from the startkde script.
 # These provide the most minimal KDE desktop.
 RDEPEND="
-	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-wallpapers-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kreadconfig-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kcminit)
+	$(add_kdebase_dep kdebase-desktoptheme)
+	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdebase_dep kdebase-wallpapers)
+	$(add_kdebase_dep keditfiletype)
+	$(add_kdebase_dep kfmclient)
+	$(add_kdebase_dep kglobalaccel)
+	$(add_kdebase_dep kmimetypefinder)
+	$(add_kdebase_dep knotify)
+	$(add_kdebase_dep kreadconfig)
+	$(add_kdebase_dep krunner)
+	$(add_kdebase_dep ksmserver)
+	$(add_kdebase_dep ksplash)
+	$(add_kdebase_dep kstartupconfig)
+	$(add_kdebase_dep kstyles)
+	$(add_kdebase_dep ktimezoned)
+	$(add_kdebase_dep kwin)
+	$(add_kdebase_dep phonon-kde)
+	$(add_kdebase_dep plasma-apps)
+	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep systemsettings)
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop

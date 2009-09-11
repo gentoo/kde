@@ -17,7 +17,7 @@ KEYWORDS=""
 RDEPEND="
 	!kdeprefix? ( !<kde-base/dolphin-4.1.87[-kdeprefix] )
 	kdeprefix? ( !<kde-base/dolphin-4.1.87:${SLOT} )
-	>=kde-base/oxygen-icons-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
 

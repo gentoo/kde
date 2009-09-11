@@ -12,10 +12,10 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdeedu)
 "
 RDEPEND="${DEPEND}
-	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep knotify)
 "
 
 KMEXTRACTONLY="libkdeedu/kdeeduui"

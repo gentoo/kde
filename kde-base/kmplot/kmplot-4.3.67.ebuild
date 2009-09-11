@@ -12,5 +12,5 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="
-	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep knotify)
 "

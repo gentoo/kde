@@ -14,8 +14,8 @@ IUSE="debug xcomposite xinerama"
 
 # NOTE disabled for now: captury? ( media-libs/libcaptury )
 COMMONDEPEND="
-	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kephal)
+	$(add_kdebase_dep libkworkspace)
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1

@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepimlibs)
 	sys-boot/lilo
 "
 RDEPEND="${DEPEND}"

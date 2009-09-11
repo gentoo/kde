@@ -15,8 +15,8 @@ IUSE="debug +eigen opengl xscreensaver"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config
 RDEPEND="
-	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=,opengl?]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kscreensaver "opengl?")
+	$(add_kdebase_dep libkworkspace)
 	media-libs/libart_lgpl
 	opengl? ( virtual/opengl )
 	xscreensaver? ( x11-misc/xscreensaver )

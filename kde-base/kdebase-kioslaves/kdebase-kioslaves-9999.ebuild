@@ -24,8 +24,8 @@ DEPEND="
 	sftp? ( >=net-libs/libssh-0.3.2[sftp] )
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdesu)
+	$(add_kdebase_dep kdialog)
 	virtual/ssh
 "
 

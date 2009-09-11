@@ -17,6 +17,6 @@ RDEPEND="
 		!<kde-base/systemsettings-4.2.91[-kdeprefix]
 	)
 	kdeprefix? ( !<kde-base/systemsettings-4.2.91:${SLOT}[kdeprefix] )
-	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdnssd)
+	$(add_kdebase_dep khotkeys)
 "

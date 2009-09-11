@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug zeroconf"
 
 DEPEND="
-	zeroconf? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,zeroconf] )
+	zeroconf? ( $(add_kdebase_dep kdelibs zeroconf) )
 "
 RDEPEND="${DEPEND}"
 

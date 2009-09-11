@@ -14,13 +14,13 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/dragonplayer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/juk-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdemultimedia-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmix-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kscd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep dragonplayer)
+	$(add_kdebase_dep juk)
+	$(add_kdebase_dep kdemultimedia-kioslaves)
+	$(add_kdebase_dep kmix)
+	$(add_kdebase_dep kscd)
+	$(add_kdebase_dep libkcddb)
+	$(add_kdebase_dep libkcompactdisc)
+	$(add_kdebase_dep mplayerthumbs)
 	$(block_other_slots)
 "

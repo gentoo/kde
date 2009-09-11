@@ -14,14 +14,14 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/kdeartwork-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-desktopthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-emoticons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-kscreensaver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-sounds-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-styles-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-wallpapers-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-weatherwallpapers-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdeartwork-colorschemes)
+	$(add_kdebase_dep kdeartwork-desktopthemes)
+	$(add_kdebase_dep kdeartwork-emoticons)
+	$(add_kdebase_dep kdeartwork-iconthemes)
+	$(add_kdebase_dep kdeartwork-kscreensaver)
+	$(add_kdebase_dep kdeartwork-sounds)
+	$(add_kdebase_dep kdeartwork-styles)
+	$(add_kdebase_dep kdeartwork-wallpapers)
+	$(add_kdebase_dep kdeartwork-weatherwallpapers)
 	$(block_other_slots)
 "

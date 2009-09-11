@@ -14,8 +14,8 @@ IUSE="debug +handbook"
 DEPEND="
 	app-crypt/gpgme
 	dev-libs/libassuan
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep libkleo)
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg

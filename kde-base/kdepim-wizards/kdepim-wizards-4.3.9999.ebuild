@@ -14,8 +14,8 @@ KEYWORDS=""
 
 DEPEND="
 	app-crypt/gpgme:1
-	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepim-kresources)
+	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}"
 

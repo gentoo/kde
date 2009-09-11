@@ -16,80 +16,80 @@ IUSE="kdeprefix policykit +semantic-desktop"
 RDEPEND="
 	!kde-base/kdebase-runtime-meta
 	!kde-base/kdebase-workspace-meta
-	>=kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/drkonqi-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kappfinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcheckpass-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcontrol-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-cursors-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-desktoptheme-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-menu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-startkde-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-wallpapers-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebugdialog-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepasswd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdm-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kfile-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kglobalaccel-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kiconfinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kinfocenter-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/klipper-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmenuedit-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmimetypefinder-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knetattach-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knewstuff-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/konsole-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kquitapp-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksplash-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstart-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstartupconfig-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstyles-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksystraycmd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktraderclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kuiserver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwalletd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwin-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwrite-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwrited-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/nsplugins-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/plasma-apps-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/plasma-runtime-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/powerdevil-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/renamedlg-plugins-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/solid-hardware-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/solidautoeject-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/systemsettings-${PV}:${SLOT}[kdeprefix=]
-	policykit? ( >=kde-base/policykit-kde-${PV}:${SLOT}[kdeprefix=] )
-	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+	$(add_kdebase_dep dolphin)
+	$(add_kdebase_dep drkonqi)
+	$(add_kdebase_dep kappfinder)
+	$(add_kdebase_dep kcheckpass)
+	$(add_kdebase_dep kcminit)
+	$(add_kdebase_dep kcmshell)
+	$(add_kdebase_dep kcontrol)
+	$(add_kdebase_dep kdebase-cursors)
+	$(add_kdebase_dep kdebase-data)
+	$(add_kdebase_dep kdebase-desktoptheme)
+	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdebase_dep kdebase-menu)
+	$(add_kdebase_dep kdebase-menu-icons)
+	$(add_kdebase_dep kdebase-startkde)
+	$(add_kdebase_dep kdebase-wallpapers)
+	$(add_kdebase_dep kdebugdialog)
+	$(add_kdebase_dep kdepasswd)
+	$(add_kdebase_dep kdesu)
+	$(add_kdebase_dep kdialog)
+	$(add_kdebase_dep kdm)
+	$(add_kdebase_dep keditbookmarks)
+	$(add_kdebase_dep keditfiletype)
+	$(add_kdebase_dep kephal)
+	$(add_kdebase_dep kfile)
+	$(add_kdebase_dep kfind)
+	$(add_kdebase_dep kfmclient)
+	$(add_kdebase_dep kglobalaccel)
+	$(add_kdebase_dep khelpcenter)
+	$(add_kdebase_dep khotkeys)
+	$(add_kdebase_dep kiconfinder)
+	$(add_kdebase_dep kinfocenter)
+	$(add_kdebase_dep kioclient)
+	$(add_kdebase_dep klipper)
+	$(add_kdebase_dep kmenuedit)
+	$(add_kdebase_dep kmimetypefinder)
+	$(add_kdebase_dep knetattach)
+	$(add_kdebase_dep knewstuff)
+	$(add_kdebase_dep konqueror)
+	$(add_kdebase_dep konsole)
+	$(add_kdebase_dep kpasswdserver)
+	$(add_kdebase_dep kquitapp)
+	$(add_kdebase_dep kscreensaver)
+	$(add_kdebase_dep ksmserver)
+	$(add_kdebase_dep ksplash)
+	$(add_kdebase_dep kstart)
+	$(add_kdebase_dep kstartupconfig)
+	$(add_kdebase_dep kstyles)
+	$(add_kdebase_dep ksysguard)
+	$(add_kdebase_dep ksystraycmd)
+	$(add_kdebase_dep ktimezoned)
+	$(add_kdebase_dep ktraderclient)
+	$(add_kdebase_dep kuiserver)
+	$(add_kdebase_dep kurifilter-plugins)
+	$(add_kdebase_dep kwalletd)
+	$(add_kdebase_dep kwin)
+	$(add_kdebase_dep kwrite)
+	$(add_kdebase_dep kwrited)
+	$(add_kdebase_dep libkonq)
+	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libplasmaclock)
+	$(add_kdebase_dep libtaskmanager)
+	$(add_kdebase_dep nsplugins)
+	$(add_kdebase_dep phonon-kde)
+	$(add_kdebase_dep plasma-apps)
+	$(add_kdebase_dep plasma-runtime)
+	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep powerdevil)
+	$(add_kdebase_dep renamedlg-plugins)
+	$(add_kdebase_dep solid)
+	$(add_kdebase_dep solid-hardware)
+	$(add_kdebase_dep solidautoeject)
+	$(add_kdebase_dep soliduiserver)
+	$(add_kdebase_dep systemsettings)
+	policykit? ( $(add_kdebase_dep policykit-kde) )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 	$(block_other_slots)
 "

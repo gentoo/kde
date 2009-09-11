@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug +handbook gnokii"
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep libkleo)
 	gnokii? ( app-mobilephone/gnokii )
 "
 RDEPEND="${DEPEND}"

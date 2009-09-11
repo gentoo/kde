@@ -14,21 +14,21 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/gwenview-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kamera-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kcolorchooser-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdegraphics-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kgamma-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kolourpaint-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kruler-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksaneplugin-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ksnapshot-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libksane-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/okular-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/svgpart-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/thumbnailers-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep gwenview)
+	$(add_kdebase_dep kamera)
+	$(add_kdebase_dep kcolorchooser)
+	$(add_kdebase_dep kdegraphics-strigi-analyzer)
+	$(add_kdebase_dep kgamma)
+	$(add_kdebase_dep kolourpaint)
+	$(add_kdebase_dep kruler)
+	$(add_kdebase_dep ksaneplugin)
+	$(add_kdebase_dep ksnapshot)
+	$(add_kdebase_dep libkdcraw)
+	$(add_kdebase_dep libkexiv2)
+	$(add_kdebase_dep libkipi)
+	$(add_kdebase_dep libksane)
+	$(add_kdebase_dep okular)
+	$(add_kdebase_dep svgpart)
+	$(add_kdebase_dep thumbnailers)
 	$(block_other_slots)
 "

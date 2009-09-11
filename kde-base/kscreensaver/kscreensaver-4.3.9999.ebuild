@@ -14,7 +14,7 @@ IUSE="debug pam"
 
 RDEPEND="
 	dev-libs/glib
-	>=kde-base/kcheckpass-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kcheckpass)
 	>=x11-libs/libxklavier-3.2
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXtst

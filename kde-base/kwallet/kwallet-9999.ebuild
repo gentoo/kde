@@ -11,9 +11,7 @@ DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-DEPEND="
-"
-RDEPEND="${DEPEND}
-	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwalletd-${PV}:${SLOT}[kdeprefix=]
+RDEPEND="
+	$(add_kdebase_dep kcmshell)
+	$(add_kdebase_dep kwalletd)
 "

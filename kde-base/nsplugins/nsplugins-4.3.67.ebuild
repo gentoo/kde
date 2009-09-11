@@ -15,7 +15,7 @@ DEPEND="
 	x11-libs/libXt
 "
 RDEPEND="${DEPEND}
-	>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep konqueror)
 "
 
 KMEXTRACTONLY="

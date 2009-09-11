@@ -14,24 +14,24 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/blinken-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kalgebra-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kalzium-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kanagram-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kbruch-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kgeography-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khangman-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kig-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kiten-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/klettres-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmplot-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kstars-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktouch-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kturtle-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwordquiz-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/marble-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/parley-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/step-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep blinken)
+	$(add_kdebase_dep kalgebra)
+	$(add_kdebase_dep kalzium)
+	$(add_kdebase_dep kanagram)
+	$(add_kdebase_dep kbruch)
+	$(add_kdebase_dep kgeography)
+	$(add_kdebase_dep khangman)
+	$(add_kdebase_dep kig)
+	$(add_kdebase_dep kiten)
+	$(add_kdebase_dep klettres)
+	$(add_kdebase_dep kmplot)
+	$(add_kdebase_dep kstars)
+	$(add_kdebase_dep ktouch)
+	$(add_kdebase_dep kturtle)
+	$(add_kdebase_dep kwordquiz)
+	$(add_kdebase_dep libkdeedu)
+	$(add_kdebase_dep marble)
+	$(add_kdebase_dep parley)
+	$(add_kdebase_dep step)
 	$(block_other_slots)
 "

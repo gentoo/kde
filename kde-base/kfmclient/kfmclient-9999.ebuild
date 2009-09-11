@@ -23,7 +23,7 @@ RDEPEND="
 		!<=kde-base/konqueror-9999:live[-kdeprefix]
 	)
 	kdeprefix? ( !<=kde-base/konqueror-4.3.65:${SLOT}[kdeprefix] )
-	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kioclient)
 "
 if [[ ${PV} == 9999 ]]; then
 	RDEPEND+=" kdeprefix? ( !<=kde-base/konqueror-9999:live[kdeprefix] )"

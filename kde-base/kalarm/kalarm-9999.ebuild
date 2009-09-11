@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 COMMON_DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt

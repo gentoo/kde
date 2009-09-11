@@ -15,8 +15,8 @@ IUSE="debug +handbook"
 RESTRICT=test
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep libkpgp)
 "
 RDEPEND="${DEPEND}"
 

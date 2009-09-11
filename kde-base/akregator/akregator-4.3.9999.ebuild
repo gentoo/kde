@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}"
 

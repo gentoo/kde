@@ -16,8 +16,8 @@ IUSE="debug +handbook encode flac vorbis"
 RESTRICT=test
 
 DEPEND="
-	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkcddb)
+	$(add_kdebase_dep libkcompactdisc)
 	media-sound/cdparanoia
 	encode? (
 		flac? ( >=media-libs/flac-1.1.2 )

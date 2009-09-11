@@ -12,16 +12,16 @@ KEYWORDS=""
 IUSE="debug +handbook +semantic-desktop thumbnail"
 
 DEPEND="
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdelibs semantic-desktop=)
+	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
-	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+	$(add_kdebase_dep keditfiletype)
+	$(add_kdebase_dep kfind)
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 PDEPEND="
-	thumbnail? ( >=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=] )
+	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
 "
 
 KMLOADLIBS="libkonq"

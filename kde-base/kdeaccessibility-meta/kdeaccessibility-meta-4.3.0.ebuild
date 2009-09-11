@@ -14,12 +14,12 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/kdeaccessibility-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeaccessibility-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmag-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmousetool-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmouth-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kttsd-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdeaccessibility-colorschemes)
+	$(add_kdebase_dep kdeaccessibility-iconthemes)
+	$(add_kdebase_dep kmag)
+	$(add_kdebase_dep kmousetool)
+	$(add_kdebase_dep kmouth)
+	$(add_kdebase_dep kttsd)
 	$(block_other_slots)
 "
 # The following are disabled in CMakeLists.txt

@@ -19,7 +19,7 @@ DEPEND="
 	gps? ( sci-geosciences/gpsd )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
-		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
+		$(add_kdebase_dep pykde4)
 	)
 "
 RDEPEND="${DEPEND}

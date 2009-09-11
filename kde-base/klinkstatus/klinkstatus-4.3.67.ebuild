@@ -11,7 +11,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook tidy"
 
 DEPEND="
-	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepimlibs)
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}"

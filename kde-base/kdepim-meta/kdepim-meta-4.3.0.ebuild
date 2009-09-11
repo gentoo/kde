@@ -14,32 +14,32 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/akregator-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kabcclient-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kalarm-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepim-icons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepim-strigi-analyzer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepim-wizards-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kjots-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kleopatra-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmail-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmailcvt-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knode-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/knotes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/konsolekalendar-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kontact-specialdates-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimetracker-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libksieve-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep akonadi)
+	$(add_kdebase_dep akregator)
+	$(add_kdebase_dep kabcclient)
+	$(add_kdebase_dep kaddressbook)
+	$(add_kdebase_dep kalarm)
+	$(add_kdebase_dep kdepim-icons)
+	$(add_kdebase_dep kdepim-kresources)
+	$(add_kdebase_dep kdepim-strigi-analyzer)
+	$(add_kdebase_dep kdepim-wizards)
+	$(add_kdebase_dep kjots)
+	$(add_kdebase_dep kleopatra)
+	$(add_kdebase_dep kmail)
+	$(add_kdebase_dep kmailcvt)
+	$(add_kdebase_dep knode)
+	$(add_kdebase_dep knotes)
+	$(add_kdebase_dep konsolekalendar)
+	$(add_kdebase_dep kontact)
+	$(add_kdebase_dep kontact-specialdates)
+	$(add_kdebase_dep kontactinterfaces)
+	$(add_kdebase_dep korganizer)
+	$(add_kdebase_dep kpilot)
+	$(add_kdebase_dep ktimetracker)
+	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep libkleo)
+	$(add_kdebase_dep libkpgp)
+	$(add_kdebase_dep libksieve)
+	$(add_kdebase_dep mimelib)
 	$(block_other_slots)
 "

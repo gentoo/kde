@@ -21,12 +21,12 @@ DEPEND="
 	)
 	kerberos? ( virtual/krb5 )
 	pam? (
-		>=kde-base/kcheckpass-${PV}:${SLOT}[kdeprefix=]
+		$(add_kdebase_dep kcheckpass)
 		virtual/pam
 	)
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kdepasswd-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepasswd)
 	>=x11-apps/xinit-1.0.5-r2
 	x11-apps/xmessage
 "

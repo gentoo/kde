@@ -13,7 +13,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kephal)
 "
 RDEPEND="${DEPEND}"
 

@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkmahjongg)
 "
 RDEPEND="${DEPEND}"
 

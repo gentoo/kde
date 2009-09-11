@@ -12,9 +12,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/kcminit-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kcminit)
+	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}"
 

@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug fits +handbook indi"
 
 DEPEND="
-	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdeedu)
 	fits? ( >=sci-libs/cfitsio-0.390 )
 	indi? ( >=sci-libs/indilib-0.6[fits?] )
 "

@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libtaskmanager)
 	x11-libs/libXfixes
 "
 RDEPEND="${DEPEND}"
