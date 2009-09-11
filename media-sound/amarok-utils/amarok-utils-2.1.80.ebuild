@@ -30,6 +30,10 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-add-kdemacros.h.patch"
+)
+
 src_prepare() {
 	# Disable po processing
 	sed -e "s:include(MacroOptionalAddSubdirectory)::" \
