@@ -3,7 +3,7 @@
 <pkgmetadata>
   <herd>kde</herd>
   <use>
-    <flag name="lzma">Enable LZMA/XZ KIO Slave support</flag>
+    <flag name="lzma">Enable LZMA/XZ archive support</flag>
     <flag name="opengl">Enable OpenGL support for Plasma (GLApplet)</flag>
   </use>
 </pkgmetadata>
