@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit git kde4-base
+inherit git base cmake-utils
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
@@ -42,7 +42,7 @@ src_prepare() {
 		-i "${S}/CMakeLists.txt" \
 		|| die "Removing include of MacroOptionalAddSubdirectory failed."
 
-	kde4-base_src_prepare
+	base_src_prepare
 }
 
 src_configure() {
@@ -50,5 +50,5 @@ src_configure() {
 		-DWITH_PLAYER=OFF
 		-DWITH_UTILITIES=ON"
 
-	kde4-base_src_configure
+	cmake-utils_src_configure
 }

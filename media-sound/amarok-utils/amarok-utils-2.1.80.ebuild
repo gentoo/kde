@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit kde4-base
+inherit base cmake-utils
 
 MY_PN="amarok"
 
@@ -34,6 +34,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-add-kdemacros.h.patch"
 )
 
+DOCS="TODO README ChangeLog AUTHORS"
+
 src_prepare() {
 	# Disable po processing
 	sed -e "s:include(MacroOptionalAddSubdirectory)::" \
@@ -43,7 +45,7 @@ src_prepare() {
 		-i "${S}/CMakeLists.txt" \
 		|| die "Removing include of MacroOptionalAddSubdirectory failed."
 
-	kde4-base_src_prepare
+	base_src_prepare
 }
 
 src_configure() {
@@ -51,5 +53,5 @@ src_configure() {
 		-DWITH_PLAYER=OFF
 		-DWITH_UTILITIES=ON"
 
-	kde4-base_src_configure
+	cmake-utils_src_configure
 }
