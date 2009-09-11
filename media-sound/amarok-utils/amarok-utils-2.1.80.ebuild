@@ -1,30 +1,19 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/amarok-utils/amarok-utils-2.1.1.ebuild,v 1.1 2009/06/26 11:05:41 tampakrap Exp $
+# $Header: $
 
 EAPI="2"
 
-EGIT_REPO_URI="git://gitorious.org/${MY_PN}/${MY_PN}.git"
-EGIT_PROJECT="${MY_PN}"
+inherit kde4-base
 
-[[ ${PV} = *9999* ]] && git="git" || git=""
-
-KMNAME="extragear/multimedia"
-KMMODULE="amarok"
-KDE_REQUIRED="never"
-inherit ${git} kde4-base
+MY_PN="amarok"
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://kde/unstable/${PN/-utils/}/${PV}/src/${P/-utils/}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
-else
-	SRC_URI=""
-	KEYWORDS=""
-fi
+SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_PN}-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
@@ -39,15 +28,7 @@ RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.1.80:${SLOT}
 "
 
-S="${WORKDIR}/${P/-utils/}"
-
-src_unpack() {
-	if [[ ${PV} = *9999* ]]; then
-		git_src_unpack
-	else
-		kde4-base_src_unpack
-	fi
-}
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
 	# Disable po processing
