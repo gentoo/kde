@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!kde-base/drkonqi2:${SLOT}[kdeprefix=]
+	!kdeprefix? ( !kde-base/drkonqi2[-kdeprefix] )
+	kdeprefix? ( !kde-base/drkonqi2:${SLOT}[kdeprefix] )
 	sys-devel/gdb
 "
