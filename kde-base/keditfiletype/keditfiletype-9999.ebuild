@@ -15,7 +15,4 @@ IUSE="debug"
 RESTRICT=test
 
 # @Since 4.2.68 - split from konqueror
-RDEPEND="
-	!kdeprefix? ( !<=kde-base/konqueror-4.2.67:4.2[-kdeprefix] )
-	kdeprefix? ( !<=kde-base/konqueror-4.2.67:4.3 )
-"
+add_blocker konqueror 4.2.67

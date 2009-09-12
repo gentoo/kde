@@ -12,7 +12,4 @@ DESCRIPTION="KDE menu icons"
 KEYWORDS="~amd64 ~hppa ~x86"
 IUSE=""
 
-RDEPEND="
-	!kdeprefix? ( !kde-base/kde-menu-icons[-kdeprefix] )
-	kdeprefix? ( !kde-base/kde-menu-icons:${SLOT} )
-"
+add_blocker kde-menu-icons

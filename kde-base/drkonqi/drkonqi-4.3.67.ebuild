@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !kde-base/drkonqi2[-kdeprefix] )
-	kdeprefix? ( !kde-base/drkonqi2:${SLOT}[kdeprefix] )
 	sys-devel/gdb
 "
+
+add_blocker drkonqi2

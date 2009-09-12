@@ -12,14 +12,14 @@ DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
 KEYWORDS=""
 
-# Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
-# releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
 RDEPEND="
-	!kdeprefix? ( !<kde-base/dolphin-4.1.87[-kdeprefix] )
-	kdeprefix? ( !<kde-base/dolphin-4.1.87:${SLOT} )
 	$(add_kdebase_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
+
+# Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
+# releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
+add_blocker dolphin '<4.1.87'
 
 KMEXTRA="
 	l10n/

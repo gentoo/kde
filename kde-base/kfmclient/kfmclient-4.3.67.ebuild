@@ -12,22 +12,12 @@ DESCRIPTION="KDE tool for opening URLs from the command line"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-# Moved from kde-base/konqueror in 4.3.0-r2, 4.3.65-r1, and 9999-r1, so ugly blockers...
 RDEPEND="
-	!kdeprefix? (
-		!kde-base/konqueror:kde-4[-kdeprefix]
-		!kde-base/konqueror:4.1[-kdeprefix]
-		!kde-base/konqueror:4.2[-kdeprefix]
-		!<=kde-base/konqueror-4.3.0-r1:4.3[-kdeprefix]
-		!<=kde-base/konqueror-4.3.65:4.4[-kdeprefix]
-		!<=kde-base/konqueror-9999:live[-kdeprefix]
-	)
-	kdeprefix? ( !<=kde-base/konqueror-4.3.65:${SLOT}[kdeprefix] )
 	$(add_kdebase_dep kioclient)
 "
-if [[ ${PV} == 9999 ]]; then
-	RDEPEND+=" kdeprefix? ( !<=kde-base/konqueror-9999:live[kdeprefix] )"
-fi
+
+# Moved from kde-base/konqueror in 4.3.0-r2, 4.3.65-r1, and 9999-r1
+add_blocker konqueror 4.3.0-r1 4.3.65:4.4 9999:live
 
 KMEXTRACTONLY="
 	konqueror/kfmclient.desktop

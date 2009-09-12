@@ -12,10 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 # @Since >4.2.65 kode removed from kdepim
-RDEPEND="
-	!kdeprefix? ( !>=kde-base/kode-4.1.0[-kdeprefix] )
-	kdeprefix? ( !kde-base/kode:${SLOT} )
-"
+add_blocker kode
 
 KMEXTRACTONLY="
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml

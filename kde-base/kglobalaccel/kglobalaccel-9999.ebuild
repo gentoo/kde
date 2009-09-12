@@ -12,10 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 # Module renamed upstream
-RDEPEND="
-	!kdeprefix? ( !kde-base/kdedglobalaccel[-kdeprefix] )
-	kdeprefix? ( !kde-base/kdedglobalaccel:${SLOT} )
-"
+add_blocker kdedglobalaccel
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

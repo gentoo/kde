@@ -12,10 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 # @Since >4.2.65 kode removed from kdepim
-RDEPEND="
-	!kdeprefix? ( !>=kde-base/kode-4.1.0[-kdeprefix] )
-	kdeprefix? ( !kde-base/kode:${SLOT} )
-"
+add_blocker kode
 
 KMEXTRACTONLY="
 	kaddressbook/org.kde.KAddressbook.Core.xml

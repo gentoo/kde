@@ -21,16 +21,6 @@ KEYWORDS=""
 IUSE=""
 
 # Block conflicting packages
-RDEPEND="
-	!kdeprefix? (
-		!<kde-base/kdebase-data-4.2.67:4.2[-kdeprefix]
-		!<kde-base/kdebase-data-4.2.67:4.3[-kdeprefix]
-		!<=kde-base/kdepim-icons-4.2.89[-kdeprefix]
-		!<=kde-base/step-4.2.98[-kdeprefix]
-	)
-	kdeprefix? (
-		!<kde-base/kdebase-data-4.2.67:${SLOT}[kdeprefix]
-		!<=kde-base/kdepim-icons-4.2.89:${SLOT}[kdeprefix]
-		!<=kde-base/step-4.2.98:${SLOT}[kdeprefix]
-	)
-"
+add_blocker kdebase-data '<4.2.67'
+add_blocker kdepim-icons 4.2.89
+add_blocker step 4.2.98

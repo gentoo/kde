@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.18 2009/05/09 13:23:15 scarabeus Exp $
 
+inherit versionator
+
 # Prefix compat:
 : ${EROOT:=${ROOT}}
 # Append missing trailing slash character
@@ -372,32 +374,114 @@ load_library_dependencies() {
 block_other_slots() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local slot
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		# Block non kdeprefix ${PN} on other slots
-		if [[ ${SLOT} != ${slot} ]]; then
-			echo "!kdeprefix? ( !kde-base/${PN}:${slot}[-kdeprefix] )"
-		fi
-	done
+	_do_blocker ${CATEGORY}/${PN} 0:${SLOT}
 }
 
 # @FUNCTION: add_blocker
 # @DESCRIPTION:
 # Create correct RDEPEND value for blocking correct package.
-# Usefull for file-collision blocks.
-# Parameters are package and version to block.
+# Useful for file-collision blocks.
+# Parameters are package and version(s) to block.
 # add_blocker kdelibs 4.2.4
+# If no version is specified, then all versions will be blocked
+# If any arguments (from 2 on) contain a ":", then different versions
+# are blocked in different slots. (Unlisted slots get the version without
+# a ":", if none, then all versions are blocked). The parameter is then of
+# the form VERSION:SLOT.  Any VERSION of 0 means that no blocker will be
+# added for that slot (or, if no slot, then for any unlisted slot).
+# A parameter of the form :SLOT means to block all versions from that slot.
+# If VERSION begins with "<", then "!<foo" will be used instead of "!<=foo".
+# As a special case, if a parameter with slot "3.5" is passed, then that slot
+# may also be blocked.
+#
+# Versions that match "4.x.50" are equivalent to all slots up to (and including)
+# "4.x", but nothing following slot "4.x"
+#
+# As an example, if SLOT=live, then
+#    add_blocker kdelibs 0 :4.3 '<4.3.96:4.4' 9999:live
+# will add the following to RDEPEND:
+#    !kdeprefix? ( !kde-base/kdelibs:4.3[-kdeprefix] )
+#    !kdeprefix? ( !<kde-base/kdelibs-4.3.96:4.4[-kdeprefix] )
+#    !kdeprefix? ( !<=kde-base/kdelibs-9999:live[-kdeprefix] )
+#    kdeprefix? ( !<=kde-base/kdelibs-9999:live[kdeprefix] )
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ ${1} = "" || ${2} = "" ]] && die "Missing parameter"
-	local slot
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		# on -kdeprefix we block every slot
-		RDEPEND+=" !kdeprefix? ( !<=kde-base/${1}-${2}:${slot}[-kdeprefix] )"
+	RDEPEND+=" $(_do_blocker "$@")"
+}
+
+# _greater_max_in_slot ver slot
+_greater_max_in_slot() {
+	local ver=$1
+	local slot=$2
+	[[ $slot == live ]] && return 1
+	local test=${slot}.50
+	version_compare $1 ${test}
+	[[ $? -ne 1 ]]
+}
+
+# _less_min_in_slot ver slot
+# slot must be 4.x or live
+_less_min_in_slot() {
+	local ver=$1
+	local slot=$2
+	local test=9999
+	[[ $slot == live ]] || test=${slot%.*}.$((${slot#*.} - 1)).50
+	version_compare $1 ${test}
+	[[ $? -eq 1 ]]
+}
+
+# Internal function used for add_blocker and block_other_slots
+# This takes the same parameters as add_blocker, but echos to
+# stdout instead of updating a variable.
+_do_blocker() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ -z ${1} ]] && die "Missing parameter"
+	local pkg=kde-base/$1
+	shift
+	local param slot def="unset"
+	for slot in 3.5 ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		slot=${slot//[.-]/_}
+		local block_${slot}="unset"
 	done
-	# on kdeprefix we block only our slot
-	RDEPEND+=" kdeprefix? ( !<=kde-base/${1}-${2}:${SLOT}[kdeprefix] )"
+	for param; do
+		if [[ ${param/:} == ${param} ]]; then
+			def=${param}
+		else
+			slot=${param#*:}
+			local block_${slot//[.-]/_}=${param%:*}
+		fi
+	done
+	local var atom
+	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		var=block_${slot//[.-]/_}
+		[[ ${!var} == "unset" ]] && var=def
+		if [[ ${!var} == "0" ]] || _less_min_in_slot ${!var#<} ${slot}; then
+			continue
+		elif [[ ${!var} == "unset" || -z ${!var} ]] || _greater_max_in_slot ${!var#<} ${slot}; then
+			atom=${pkg}
+		elif [[ ${!var:0:1} == "<" ]]; then
+			atom="<${pkg}-${!var:1}"
+		else
+			atom="<=${pkg}-${!var}"
+		fi
+		# on -kdeprefix we block every slot
+		echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix] )"
+		if [[ ${SLOT} == ${slot} ]]; then
+			echo " kdeprefix? ( !${atom}:${SLOT}[kdeprefix] )"
+		fi
+	done
+	if [[ ${block_3_5} != "unset" && ${block_3_5} != "0" ]]; then
+		if [[ -z ${block_3_5} ]]; then
+			atom=${pkg}
+		elif [[ ${block_3_5:0:1} == "<" ]]; then
+			atom="<${pkg}-${block_3_5:1}"
+		else
+			atom="<=${pkg}-${block_3_5}"
+		fi
+		echo " !${atom}:3.5"
+	fi
 }
 
 # @FUNCTION: add_kdebase_dep

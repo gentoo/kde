@@ -26,14 +26,11 @@ DEPEND="
 	dev-libs/cyrus-sasl
 	ldap? ( net-nds/openldap )
 "
+RDEPEND="${DEPEND}"
+
+add_blocker akonadi 4.1.50
 # @since 4.3 - libkholidays is in kdepimlibs now
-RDEPEND="${DEPEND}
-	!kdeprefix? (
-		!kde-base/akonadi:4.1[-kdeprefix]
-		!kde-base/libkholidays:4.1[-kdeprefix]
-		!kde-base/libkholidays:4.2[-kdeprefix]
-	)
-"
+add_blocker libkholidays
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
