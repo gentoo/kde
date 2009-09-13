@@ -411,23 +411,33 @@ add_blocker() {
 }
 
 # _greater_max_in_slot ver slot
+# slot must be 4.x or live
+# returns true if ver is >= the maximum possibile version in slot
 _greater_max_in_slot() {
 	local ver=$1
 	local slot=$2
+	# If slot is live, then return false
+	# (nothing is greater than the maximum live version)
 	[[ $slot == live ]] && return 1
+	# Otherwise, for slot X.Y, test against X.Y.50
 	local test=${slot}.50
 	version_compare $1 ${test}
+	# 1 = '<', 2 = '=', 3 = '>'
 	[[ $? -ne 1 ]]
 }
 
 # _less_min_in_slot ver slot
 # slot must be 4.x or live
+# returns true if ver is <= the minimum possibile version in slot
 _less_min_in_slot() {
 	local ver=$1
 	local slot=$2
-	local test=9999
+	# If slot == live, then test with "9999_pre", so that 9999 tests false
+	local test=9999_pre
+	# If slot == X.Y, then test with X.(Y-1).50
 	[[ $slot == live ]] || test=${slot%.*}.$((${slot#*.} - 1)).50
 	version_compare $1 ${test}
+	# 1 = '<', 2 = '=', 3 = '>'
 	[[ $? -ne 3 ]]
 }
 
@@ -441,18 +451,15 @@ _do_blocker() {
 	local pkg=kde-base/$1
 	shift
 	local param slot def="unset" var atom
-	# The following variables are set to "unset" in this block:
+	# The following variables will hold parameters that contain ":"
 	#  - block_3_5
 	#  - block_4_1
 	#  - block_4_2
 	#  - block_4_3
 	#  - block_4_4
 	#  - block_live
-	# Those variables will hold the parameters that end in :3.5
-	# (resp. :4.1, :4.2, :4.3, :4.4, :live)
 	for slot in 3.5 ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		slot=${slot//[.-]/_}
-		local block_${slot}="unset"
+		local block_${slot//./_}
 	done
 
 	# This construct goes through each parameter passed, and sets
@@ -465,16 +472,16 @@ _do_blocker() {
 			# so everythin after the : is the slot...
 			slot=${param#*:}
 			# ...and everything before the : is the version
-			local block_${slot//[.-]/_}=${param%:*}
+			local block_${slot//./_}=${param%:*}
 		fi
 	done
 
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# ${var} contains the name of the variable we care about for this slot
 		# ${!var} is it's value
-		var=block_${slot//[.-]/_}
+		var=block_${slot//./_}
 		# if we didn't pass *:${slot}, then use the unsloted value
-		[[ ${!var} == "unset" ]] && var=def
+		[[ ${!var-unset} == "unset" ]] && var=def
 
 		# If the version is "0" or less than the minimum possible version in
 		# this slot, do nothing
@@ -483,7 +490,7 @@ _do_blocker() {
 		# If the no version was passed, or the version is greater than the
 		# maximum possible version in this slot, block all versions in this
 		# slot
-		elif [[ ${!var} == "unset" || -z ${!var} ]] || _greater_max_in_slot ${!var#<} ${slot}; then
+		elif [[ ${!var:-unset} == "unset" ]] || _greater_max_in_slot ${!var#<} ${slot}; then
 			atom=${pkg}
 		# If the version passed begins with a "<", then use "<" instead of "<="
 		elif [[ ${!var:0:1} == "<" ]]; then
@@ -504,7 +511,7 @@ _do_blocker() {
 	# default version passed, and no blocker is output *unless* a version
 	# is passed, or ":3.5" is passed to explicitly request a block on all
 	# 3.5 versions.
-	if [[ ${block_3_5} != "unset" && ${block_3_5} != "0" ]]; then
+	if [[ ${block_3_5-unset} != "unset" && ${block_3_5} != "0" ]]; then
 		if [[ -z ${block_3_5} ]]; then
 			atom=${pkg}
 		elif [[ ${block_3_5:0:1} == "<" ]]; then
