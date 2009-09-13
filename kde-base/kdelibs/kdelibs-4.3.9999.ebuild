@@ -77,9 +77,26 @@ DEPEND="${COMMONDEPEND}
 	doc? ( app-doc/doxygen )
 	nls? ( virtual/libintl )
 "
+# Blockers added for !kdeprefix? due to packages from old versions,
+# removed in the meanwhile
+# kde-base/libplasma
+# kde-base/knewsticker
+# kde-base/kpercentage
+# kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
+	!<=kde-base/kdebase-3.5.9-r4
+	!<=kde-base/kdebase-startkde-3.5.10
+	!<kde-base/kdelibs-3.5.10
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	!x11-libs/qt-phonon
+	!kdeprefix? (
+		!kde-base/kitchensync:4.1[-kdeprefix]
+		!kde-base/knewsticker:4.1[-kdeprefix]
+		!kde-base/kpercentage:4.1[-kdeprefix]
+		!kde-base/ktnef:4.1[-kdeprefix]
+		!kde-base/libplasma[-kdeprefix]
+		!kde-base/libkworkspace:4.2[-kdeprefix]
+	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
 	x11-apps/rgb
@@ -90,19 +107,6 @@ PDEPEND="
 	$(add_kdebase_dep kdebase-data)
 	$(add_kdebase_dep ktimezoned)
 "
-
-# Blockers added due to packages from old versions, removed in the meanwhile
-# as well as for file collisions
-add_blocker kitchensync 4.1.50
-add_blocker knewsticker 4.1.50
-add_blocker kpercentage 4.1.50
-add_blocker ktnef 4.1.50
-add_blocker libplasma
-add_blocker libkworkspace 4.2.50
-# Block some old versions of KDE-3.5 packages that don't work well with KDE-4
-add_blocker kdebase 0 3.5.9-r4:3.5
-add_blocker kdebase-startkde 0 3.5.10:3.5
-add_blocker kdelibs 0 '<3.5.10:3.5'
 
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"

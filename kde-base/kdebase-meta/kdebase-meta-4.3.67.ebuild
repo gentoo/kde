@@ -14,6 +14,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix policykit +semantic-desktop"
 
 RDEPEND="
+	!kde-base/kdebase-runtime-meta
+	!kde-base/kdebase-workspace-meta
 	$(add_kdebase_dep dolphin)
 	$(add_kdebase_dep drkonqi)
 	$(add_kdebase_dep kappfinder)
@@ -91,6 +93,3 @@ RDEPEND="
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 	$(block_other_slots)
 "
-
-add_blocker kdebase-runtime-meta
-add_blocker kdebase-workspace-meta

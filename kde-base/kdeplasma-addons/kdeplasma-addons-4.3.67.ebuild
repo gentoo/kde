@@ -30,14 +30,16 @@ DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
 "
 # BLOCKS:
+# kdebase-data: some svg icons moved from data directly here.
 # kde-misc/plasmaboard: moved here in 4.3.65
 RDEPEND="${COMMON_DEPEND}
-	!kdeprefix? ( !kde-misc/plasmaboard )
+	!kdeprefix? (
+		!<kde-base/kdebase-data-4.2.88:4.2[-kdeprefix]
+		!kde-misc/plasmaboard
+	)
+	kdeprefix? ( !<kde-base/kdebase-data-4.2.88:${SLOT}[kdeprefix] )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
-
-# kdebase-data: some svg icons moved from data directly here.
-add_blocker kdebase-data '<4.2.88'
 
 src_prepare() {
 	sed -i -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \

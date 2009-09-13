@@ -14,7 +14,15 @@ KEYWORDS=""
 LICENSE="as-is"
 IUSE=""
 
-add_blocker kdelibs 4.2.2-r1 '<3.5.10-r3:3.5' 4.2.70:4.3
+RDEPEND="
+	!<kde-base/kdelibs-3.5.10-r3
+	!kdeprefix? (
+		!kde-base/kdelibs:4.1
+		!<=kde-base/kdelibs-4.2.2-r1:4.2
+		!<=kde-base/kdelibs-4.2.70:4.3
+	)
+	kdeprefix? ( !<=kde-base/kdelibs-4.2.70:4.3 )
+"
 
 src_unpack() {
 	:

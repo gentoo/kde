@@ -20,9 +20,9 @@ DEPEND="
 	media-sound/phonon[xine?]
 	pulseaudio? ( media-sound/pulseaudio )
 "
-RDEPEND="${DEPEND}"
-
-add_blocker phonon-xine
+RDEPEND="${DEPEND}
+	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
+"
 
 src_prepare() {
 	# Don't build tests - they require OpenGL

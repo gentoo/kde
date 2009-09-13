@@ -12,4 +12,7 @@ DESCRIPTION="KDE Menu query tool."
 KEYWORDS=""
 IUSE="debug"
 
-add_blocker kde-menu
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-menu[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-menu:${SLOT} )
+"

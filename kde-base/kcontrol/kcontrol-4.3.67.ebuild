@@ -12,9 +12,11 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="
+	!kdeprefix? (
+		!kde-base/ksmserver:4.1[-kdeprefix]
+		!<kde-base/systemsettings-4.2.91[-kdeprefix]
+	)
+	kdeprefix? ( !<kde-base/systemsettings-4.2.91:${SLOT}[kdeprefix] )
 	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep khotkeys)
 "
-
-add_blocker ksmserver 4.1.50
-add_blocker systemsettings '<4.2.91'

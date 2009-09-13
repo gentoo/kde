@@ -13,6 +13,8 @@ DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
 IUSE="debug xinerama"
 
-add_blocker plasma-workspace 4.1.50
+RDEPEND="
+	!kdeprefix? ( !kde-base/plasma-workspace:4.1[-kdeprefix] )
+"
 
 KMSAVELIBS="true"

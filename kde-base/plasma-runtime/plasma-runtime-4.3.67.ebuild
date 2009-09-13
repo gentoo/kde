@@ -13,4 +13,7 @@ KEYWORDS="~amd64 ~hppa ~x86"
 IUSE="debug"
 
 # cloned from workspace thus introduce collisions.
-add_blocker plasma-workspace '<4.2.90'
+RDEPEND="
+	!kdeprefix? ( !<kde-base/plasma-workspace-4.2.90[-kdeprefix] )
+	kdeprefix? (  !<kde-base/plasma-workspace-4.2.90:${SLOT}[kdeprefix] )
+"

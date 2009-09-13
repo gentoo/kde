@@ -29,13 +29,20 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	x11-misc/shared-mime-info
 "
+# @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 RDEPEND="${DEPEND}
+	!kdeprefix? (
+		!kde-base/kdemaildir[-kdeprefix]
+		!~kde-base/kdepim-kresources-4.2.3[-kdeprefix]
+		!~kde-base/kdepim-kresources-4.2.4[-kdeprefix]
+		!<kde-base/kdepim-kresources-4.2.95:4.3[-kdeprefix]
+	)
+	kdeprefix? (
+		!kde-base/kdemaildir:${SLOT}
+		!<kde-base/kdepim-kresources-4.2.95:${SLOT}[kdeprefix]
+	)
 	>=app-office/akonadi-server-1.2.1
 "
-
-# @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
-add_blocker kdemaildir
-add_blocker kdepim-kresources '<4.2.95'
 
 [[ ${KMNAME} = "kdepim-runtime" ]] && S="${WORKDIR}/${KMNAME}-${PV}"
 

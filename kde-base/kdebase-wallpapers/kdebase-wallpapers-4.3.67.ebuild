@@ -12,4 +12,7 @@ DESCRIPTION="KDE wallpapers"
 KEYWORDS="~amd64 ~hppa ~x86"
 IUSE=""
 
-add_blocker kde-wallpapers
+RDEPEND="
+	!kdeprefix? ( !kde-base/kde-wallpapers[-kdeprefix] )
+	kdeprefix? ( !kde-base/kde-wallpapers:${SLOT} )
+"
