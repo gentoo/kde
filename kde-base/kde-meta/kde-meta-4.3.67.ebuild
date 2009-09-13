@@ -9,7 +9,7 @@ DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* pac
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="live"
+SLOT="4.4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="accessibility kdeprefix +mysql nls"
 

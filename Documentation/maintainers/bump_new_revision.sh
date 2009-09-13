@@ -280,6 +280,8 @@ case ${OPERATION} in
 				# actualy create our desired ebuild files
 				# echo "Creating: ${NEW}" # verbosity
 				cp "${OLD}" "${NEW}"
+				# if the ebuild sets SLOT, then update it properly
+				sed -i "/^SLOT=/s/^.*$/SLOT=\"${SLOT}\"/" "${NEW}"
 				if [ `grep ".patch" ${NEW} |wc -l` -gt 0 ]; then
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
