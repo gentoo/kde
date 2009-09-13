@@ -14,8 +14,6 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix policykit +semantic-desktop"
 
 RDEPEND="
-	!kde-base/kdebase-runtime-meta
-	!kde-base/kdebase-workspace-meta
 	>=kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/drkonqi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kappfinder-${PV}:${SLOT}[kdeprefix=]
