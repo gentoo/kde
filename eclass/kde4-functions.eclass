@@ -428,7 +428,7 @@ _less_min_in_slot() {
 	local test=9999
 	[[ $slot == live ]] || test=${slot%.*}.$((${slot#*.} - 1)).50
 	version_compare $1 ${test}
-	[[ $? -eq 1 ]]
+	[[ $? -ne 3 ]]
 }
 
 # Internal function used for add_blocker and block_other_slots
