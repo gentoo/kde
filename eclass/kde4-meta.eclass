@@ -22,7 +22,7 @@ fi
 
 # Add khelpcenter dependency when installing handbooks
 if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
-	RDEPEND+=" handbook? ( >=kde-base/khelpcenter-${PV}:${SLOT}[kdeprefix=] )"
+	RDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
 fi
 
 # Add dependencies that all packages in a certain module share.
@@ -31,23 +31,23 @@ case ${KMNAME} in
 		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
 	kdenetwork)
-		COMMONDEPEND+=" >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]"
+		COMMONDEPEND+=" $(add_kdebase_dep kdepimlibs)"
 		;;
 	kdepim|kdepim-runtime)
 		COMMONDEPEND+="
 			dev-libs/boost
-			>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+			$(add_kdebase_dep kdepimlibs)
 		"
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
-				RDEPEND+=" kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				RDEPEND+=" kontact? ( $(add_kdebase_dep kontactinterfaces) )"
 				;;
 		esac
 		;;
 	kdegames)
 		if [[ ${PN} != libkdegames ]]; then
-			COMMONDEPEND+=" >=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=] "
+			COMMONDEPEND+=" $(add_kdebase_dep libkdegames)"
 		fi
 		;;
 	koffice)
