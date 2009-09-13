@@ -374,7 +374,7 @@ load_library_dependencies() {
 block_other_slots() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_do_blocker ${PN} 0:${SLOT}
+	_do_blocker ${CATEGORY}/${PN} 0:${SLOT}
 }
 
 # @FUNCTION: add_blocker
