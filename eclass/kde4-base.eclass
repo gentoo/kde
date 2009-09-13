@@ -231,12 +231,8 @@ kdecommondepend="
 "
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
-		# All SLOT=4.3 and any SLOT=4.4 where PV < 4.3.66; only kde-base/
-		if [[ ${PN} != libknotificationitem ]]; then
-			if [[ ${SLOT} == 4.3 ]] || [[ ${SLOT} == 4.4 && ${PV} < 4.3.66 ]]; then
-				local libknotificationitem_required=1
-			fi
-		fi
+		# libknotificationitem only when SLOT is 4.3
+		[[ ${PN} != libknotificationitem ]] && [[ ${SLOT} = 4.3 ]] && local libknotificationitem_required=1
 		kdecommondepend+="
 			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
 			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
