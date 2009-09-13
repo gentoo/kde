@@ -13,12 +13,12 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kaddressbook)
-	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep kontact)
+	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

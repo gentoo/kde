@@ -14,7 +14,7 @@ IUSE=""
 DEPEND="
 	>=app-admin/system-config-printer-common-1.1.12
 	app-misc/hal-cups-utils
-	$(add_kdebase_dep pykde4)
+	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

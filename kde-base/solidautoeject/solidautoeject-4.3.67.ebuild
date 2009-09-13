@@ -12,6 +12,6 @@ KEYWORDS="~amd64 ~hppa ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep solid)
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

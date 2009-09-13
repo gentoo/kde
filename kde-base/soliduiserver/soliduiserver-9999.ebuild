@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep solid)
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

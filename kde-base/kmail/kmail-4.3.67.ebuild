@@ -12,16 +12,16 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook +semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs "semantic-desktop?")
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
-	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep libksieve)
-	$(add_kdebase_dep mimelib)
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libksieve-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kmailcvt)
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
+	>=kde-base/kmailcvt-${PV}:${SLOT}[kdeprefix=]
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMEXTRACTONLY="

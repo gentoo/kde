@@ -13,12 +13,12 @@ KEYWORDS=""
 IUSE="debug +handbook google-gadgets python rss xinerama"
 
 COMMONDEPEND="
-	$(add_kdebase_dep kephal)
-	$(add_kdebase_dep ksysguard)
-	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep libplasmaclock)
-	$(add_kdebase_dep libtaskmanager)
-	$(add_kdebase_dep solid)
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXfixes
@@ -27,9 +27,9 @@ COMMONDEPEND="
 	python? (
 		>=dev-python/PyQt4-4.4.0[X]
 		>=dev-python/sip-4.7.1
-		$(add_kdebase_dep pykde4)
+		>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 	)
-	rss? ( $(add_kdebase_dep kdepimlibs) )
+	rss? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
@@ -40,10 +40,10 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep kioclient)
-	$(add_kdebase_dep kdebase-menu-icons)
-	$(add_kdebase_dep plasma-runtime)
-	$(add_kdebase_dep soliduiserver)
+	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdebase-menu-icons-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-runtime-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/soliduiserver-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRA="

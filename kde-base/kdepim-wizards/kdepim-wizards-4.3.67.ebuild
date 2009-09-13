@@ -14,8 +14,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 
 DEPEND="
 	app-crypt/gpgme:1
-	$(add_kdebase_dep kdepim-kresources)
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

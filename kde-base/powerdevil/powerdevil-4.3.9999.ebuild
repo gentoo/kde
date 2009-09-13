@@ -15,8 +15,8 @@ KEYWORDS=""
 IUSE="debug +pm-utils"
 
 COMMONDEPEND="
-	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep solid)
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXScrnSaver
 "
 DEPEND="${COMMONDEPEND}

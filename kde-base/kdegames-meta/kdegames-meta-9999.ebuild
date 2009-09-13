@@ -14,41 +14,41 @@ KEYWORDS=""
 IUSE="kdeprefix opengl"
 
 RDEPEND="
-	$(add_kdebase_dep bomber)
-	$(add_kdebase_dep bovo)
-	$(add_kdebase_dep kapman)
-	$(add_kdebase_dep katomic)
-	$(add_kdebase_dep kbattleship)
-	$(add_kdebase_dep kblackbox)
-	$(add_kdebase_dep kblocks)
-	$(add_kdebase_dep kbounce)
-	$(add_kdebase_dep kbreakout)
-	$(add_kdebase_dep kdiamond)
-	$(add_kdebase_dep kfourinline)
-	$(add_kdebase_dep kgoldrunner)
-	$(add_kdebase_dep killbots)
-	$(add_kdebase_dep kiriki)
-	$(add_kdebase_dep kjumpingcube)
-	$(add_kdebase_dep klines)
-	$(add_kdebase_dep kmahjongg)
-	$(add_kdebase_dep kmines)
-	$(add_kdebase_dep knetwalk)
-	$(add_kdebase_dep kolf)
-	$(add_kdebase_dep kollision)
-	$(add_kdebase_dep konquest)
-	$(add_kdebase_dep kpat)
-	$(add_kdebase_dep kreversi)
-	$(add_kdebase_dep ksame)
-	$(add_kdebase_dep kshisen)
-	$(add_kdebase_dep ksirk)
-	$(add_kdebase_dep kspaceduel)
-	$(add_kdebase_dep ksquares)
-	$(add_kdebase_dep ktron)
-	$(add_kdebase_dep ktuberling)
-	$(add_kdebase_dep kubrick)
-	$(add_kdebase_dep libkdegames)
-	$(add_kdebase_dep libkmahjongg)
-	$(add_kdebase_dep lskat)
-	opengl? ( $(add_kdebase_dep ksudoku) )
+	>=kde-base/bomber-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/bovo-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kapman-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/katomic-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kbattleship-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kblackbox-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kblocks-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kbounce-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kbreakout-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdiamond-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfourinline-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kgoldrunner-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/killbots-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kiriki-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kjumpingcube-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/klines-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kmahjongg-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kmines-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/knetwalk-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kolf-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kollision-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/konquest-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kpat-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kreversi-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksame-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kshisen-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksirk-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kspaceduel-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksquares-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktron-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktuberling-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kubrick-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdegames-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkmahjongg-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/lskat-${PV}:${SLOT}[kdeprefix=]
+	opengl? ( >=kde-base/ksudoku-${PV}:${SLOT}[kdeprefix=] )
 	$(block_other_slots)
 "

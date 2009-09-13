@@ -18,13 +18,13 @@ IUSE="debug desktopglobe exif semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
-	$(add_kdebase_dep kdelibs "opengl?,semantic-desktop?")
-	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace)
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl?,semantic-desktop?]
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krunner-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/plasma-workspace-${PV}:${SLOT}[kdeprefix=]
 	x11-misc/shared-mime-info
-	desktopglobe? ( $(add_kdebase_dep marble) )
-	exif? ( $(add_kdebase_dep libkexiv2) )
+	desktopglobe? ( >=kde-base/marble-${PV}:${SLOT}[kdeprefix=] )
+	exif? ( >=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=] )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -38,7 +38,7 @@ RDEPEND="${COMMON_DEPEND}
 		!kde-misc/plasmaboard
 	)
 	kdeprefix? ( !<kde-base/kdebase-data-4.2.88:${SLOT}[kdeprefix] )
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
 src_prepare() {

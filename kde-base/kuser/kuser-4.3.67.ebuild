@@ -12,10 +12,8 @@ DESCRIPTION="KDE application that helps you manage system users"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
-DEPEND="
-	$(add_kdebase_dep kdepimlibs)
-"
+DEPEND=">=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]"
 # notify is needed for dialogs
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep knotify)
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 "

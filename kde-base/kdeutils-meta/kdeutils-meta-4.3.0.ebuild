@@ -14,19 +14,19 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="cups floppy kdeprefix lirc"
 
 RDEPEND="
-	$(add_kdebase_dep ark)
-	$(add_kdebase_dep kcalc)
-	$(add_kdebase_dep kcharselect)
-	$(add_kdebase_dep kdessh)
-	$(add_kdebase_dep kdf)
-	$(add_kdebase_dep kgpg)
-	$(add_kdebase_dep ktimer)
-	$(add_kdebase_dep kwallet)
-	$(add_kdebase_dep superkaramba)
-	$(add_kdebase_dep sweeper)
-	$(add_kdebase_dep okteta)
-	cups? ( $(add_kdebase_dep printer-applet) )
-	floppy? ( $(add_kdebase_dep kfloppy) )
-	lirc? ( $(add_kdebase_dep kdelirc) )
+	>=kde-base/ark-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kcalc-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kcharselect-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdessh-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdf-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kgpg-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktimer-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kwallet-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/superkaramba-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/sweeper-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/okteta-${PV}:${SLOT}[kdeprefix=]
+	cups? ( >=kde-base/printer-applet-${PV}:${SLOT}[kdeprefix=] )
+	floppy? ( >=kde-base/kfloppy-${PV}:${SLOT}[kdeprefix=] )
+	lirc? ( >=kde-base/kdelirc-${PV}:${SLOT}[kdeprefix=] )
 	$(block_other_slots)
 "

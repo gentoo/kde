@@ -14,12 +14,12 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="cups kdeprefix lilo"
 
 RDEPEND="
-	$(add_kdebase_dep kcron)
-	$(add_kdebase_dep knetworkconf)
-	$(add_kdebase_dep ksystemlog)
-	$(add_kdebase_dep kuser)
-	cups? ( $(add_kdebase_dep system-config-printer-kde) )
-	lilo? ( $(add_kdebase_dep lilo-config) )
+	>=kde-base/kcron-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/knetworkconf-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksystemlog-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kuser-${PV}:${SLOT}[kdeprefix=]
+	cups? ( >=kde-base/system-config-printer-kde-${PV}:${SLOT}[kdeprefix=] )
+	lilo? ( >=kde-base/lilo-config-${PV}:${SLOT}[kdeprefix=] )
 	$(block_other_slots)
 "
 

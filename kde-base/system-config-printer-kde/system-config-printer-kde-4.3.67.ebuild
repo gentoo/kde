@@ -14,7 +14,7 @@ IUSE=""
 DEPEND="
 	>=app-admin/system-config-printer-common-1.1.12
 	>=dev-python/pycups-1.9.46
-	$(add_kdebase_dep pykde4)
+	>=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	net-print/cups[dbus]

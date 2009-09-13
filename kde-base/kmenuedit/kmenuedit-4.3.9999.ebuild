@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep khotkeys)
+	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

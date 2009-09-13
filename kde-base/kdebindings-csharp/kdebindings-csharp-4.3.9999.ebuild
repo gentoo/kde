@@ -11,11 +11,11 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi +phonon plasma qscintilla webkit"
+IUSE="akonadi +phonon plasma qscintilla"
 
 COMMON_DEPEND="
 	dev-lang/mono
-	$(add_kdebase_dep smoke "akonadi?,phonon?,qscintilla?,webkit?")
+	>=kde-base/smoke-${PV}:${SLOT}[akonadi?,kdeprefix=,phonon?,qscintilla?,webkit?]
 "
 
 DEPEND="${COMMON_DEPEND}"

@@ -12,8 +12,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook gnokii"
 
 DEPEND="
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 	gnokii? ( app-mobilephone/gnokii )
 "
 RDEPEND="${DEPEND}"

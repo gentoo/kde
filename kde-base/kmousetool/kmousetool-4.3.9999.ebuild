@@ -12,6 +12,4 @@ DESCRIPTION="KDE program that clicks the mouse for you."
 KEYWORDS=""
 IUSE="debug +handbook"
 
-RDEPEND="
-	$(add_kdebase_dep knotify)
-"
+RDEPEND=">=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]"

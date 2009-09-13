@@ -13,10 +13,10 @@ IUSE="debug"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 
 COMMONDEPEND="
-	$(add_kdebase_dep kephal)
-	$(add_kdebase_dep ksmserver)
-	$(add_kdebase_dep ksysguard)
-	$(add_kdebase_dep libkworkspace)
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksmserver-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXxf86misc
 	x11-libs/libXcursor
 	x11-libs/libXScrnSaver

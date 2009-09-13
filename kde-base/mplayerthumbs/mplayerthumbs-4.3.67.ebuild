@@ -17,8 +17,8 @@ IUSE="debug mplayer"
 RDEPEND="
 	!media-video/mplayerthumbs
 	|| (
-		$(add_kdebase_dep dolphin)
-		$(add_kdebase_dep konqueror)
+		>=kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
+		>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
 	)
 	mplayer? (
 		|| (

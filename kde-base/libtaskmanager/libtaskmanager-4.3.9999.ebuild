@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kephal)
+	>=kde-base/kephal-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
 

@@ -33,7 +33,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep kcontrol)
+	>=kde-base/kcontrol-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/setxkbmap
 	|| (
 		x11-misc/xkbdata

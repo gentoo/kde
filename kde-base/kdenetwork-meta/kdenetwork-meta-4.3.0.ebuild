@@ -14,12 +14,12 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="kdeprefix"
 
 RDEPEND="
-	$(add_kdebase_dep kdenetwork-filesharing)
-	$(add_kdebase_dep kdnssd)
-	$(add_kdebase_dep kget)
-	$(add_kdebase_dep kopete)
-	$(add_kdebase_dep kppp)
-	$(add_kdebase_dep krdc)
-	$(add_kdebase_dep krfb)
+	>=kde-base/kdenetwork-filesharing-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kget-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kopete-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kppp-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krdc-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/krfb-${PV}:${SLOT}[kdeprefix=]
 	$(block_other_slots)
 "

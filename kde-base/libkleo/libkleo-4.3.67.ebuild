@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg

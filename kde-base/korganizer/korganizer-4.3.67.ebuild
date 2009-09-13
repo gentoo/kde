@@ -13,10 +13,10 @@ IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kaddressbook)
+	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMLOADLIBS="libkdepim"

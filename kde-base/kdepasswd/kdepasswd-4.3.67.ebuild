@@ -12,10 +12,10 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesu)
+	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMLOADLIBS="libkonq"

@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep khotkeys)
+	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

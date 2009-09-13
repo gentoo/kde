@@ -17,7 +17,7 @@ COMMON_DEPEND="
 	>=kde-base/qimageblitz-0.0.4
 	akonadi? (
 		app-office/akonadi-server
-		$(add_kdebase_dep kdepimlibs)
+		>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	)
 	kdevplatform? ( dev-util/kdevplatform:4 )
 	phonon? ( >=media-sound/phonon-4.4_pre[xcb] )
@@ -25,7 +25,7 @@ COMMON_DEPEND="
 	qwt? ( x11-libs/qwt:5 )
 	semantic-desktop? (
 		dev-libs/soprano
-		$(add_kdebase_dep nepomuk)
+		>=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=]
 	)
 "
 # okular? ( kde-base/okular)  -- it can't find it anyway

@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 COMMON_DEPEND="
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt

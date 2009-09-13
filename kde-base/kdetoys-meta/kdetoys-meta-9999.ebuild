@@ -14,9 +14,9 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	$(add_kdebase_dep amor)
-	$(add_kdebase_dep kteatime)
-	$(add_kdebase_dep ktux)
-	$(add_kdebase_dep kweather)
+	>=kde-base/amor-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kteatime-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/ktux-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kweather-${PV}:${SLOT}[kdeprefix=]
 	$(block_other_slots)
 "

@@ -23,8 +23,8 @@ DEPEND="
 	samba? ( net-fs/samba )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesu)
-	$(add_kdebase_dep kdialog)
+	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
 	virtual/ssh
 "
 

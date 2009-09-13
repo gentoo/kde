@@ -16,8 +16,8 @@ IUSE="akonadi debug examples policykit semantic-desktop"
 
 COMMON_DEPEND="
 	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
-	$(add_kdebase_dep kdelibs "opengl,semantic-desktop?")
-	akonadi? ( $(add_kdebase_dep kdepimlibs) )
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,opengl,semantic-desktop?]
+	akonadi? ( >=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=] )
 	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
 DEPEND="${COMMON_DEPEND}"

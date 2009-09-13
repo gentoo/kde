@@ -23,7 +23,7 @@ RDEPEND="
 		!<=kde-base/konqueror-9999:live[-kdeprefix]
 	)
 	kdeprefix? ( !<=kde-base/konqueror-4.3.0-r1:4.3[kdeprefix] )
-	$(add_kdebase_dep kioclient)
+	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
 "
 
 KMEXTRACTONLY="

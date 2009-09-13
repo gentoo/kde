@@ -12,5 +12,5 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep knotify)
+	>=kde-base/knotify-${PV}:${SLOT}[kdeprefix=]
 "

@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug +handbook tidy"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}"

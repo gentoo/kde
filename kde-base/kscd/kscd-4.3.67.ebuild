@@ -12,8 +12,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep libkcddb)
-	$(add_kdebase_dep libkcompactdisc)
+	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
 	media-libs/musicbrainz:1
 "
 RDEPEND="${DEPEND}"

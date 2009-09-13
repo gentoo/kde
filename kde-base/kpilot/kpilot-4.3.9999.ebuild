@@ -13,7 +13,7 @@ IUSE="avantgo crypt debug +handbook"
 
 DEPEND="
 	>=app-pda/pilot-link-0.12
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	avantgo? ( >=dev-libs/libmal-0.40 )
 	crypt? ( app-crypt/qca:2 )
 "

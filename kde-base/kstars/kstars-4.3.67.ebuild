@@ -11,7 +11,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug fits +handbook indi"
 
 DEPEND="
-	$(add_kdebase_dep libkdeedu)
+	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
 	fits? ( >=sci-libs/cfitsio-0.390 )
 	indi? ( >=sci-libs/indilib-0.6[fits?] )
 "

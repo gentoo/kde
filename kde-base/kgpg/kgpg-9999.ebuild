@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg

@@ -15,13 +15,13 @@ IUSE="debug +handbook kipi +semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs "semantic-desktop?")
 	>=media-gfx/exiv2-0.18
 	media-libs/jpeg
-	kipi? ( $(add_kdebase_dep libkipi) )
+	kipi? ( >=kde-base/libkipi-${PV}:${SLOT}[kdeprefix=] )
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 "
 RDEPEND="${DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
+	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
 "
 
 src_configure() {

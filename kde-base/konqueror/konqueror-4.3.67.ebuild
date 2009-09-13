@@ -14,19 +14,19 @@ IUSE="+auth +bookmarks debug +handbook thumbnail"
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
-	$(add_kdebase_dep keditfiletype)
-	$(add_kdebase_dep kfind)
-	$(add_kdebase_dep kfmclient)
-	$(add_kdebase_dep kurifilter-plugins)
-	auth? ( $(add_kdebase_dep kpasswdserver) )
-	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
+	>=kde-base/kdebase-kioslaves-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/keditfiletype-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfind-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kfmclient-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kurifilter-plugins-${PV}:${SLOT}[kdeprefix=]
+	auth? ( >=kde-base/kpasswdserver-${PV}:${SLOT}[kdeprefix=] )
+	bookmarks? ( >=kde-base/keditbookmarks-${PV}:${SLOT}[kdeprefix=] )
 "
 PDEPEND="
-	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
+	thumbnail? ( >=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=] )
 "
 
 KMEXTRACTONLY="

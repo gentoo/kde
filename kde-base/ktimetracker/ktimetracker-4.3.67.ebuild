@@ -12,8 +12,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep kdepim-kresources)
-	$(add_kdebase_dep libkdepim)
+	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXScrnSaver
 "
 DEPEND="${RDEPEND}

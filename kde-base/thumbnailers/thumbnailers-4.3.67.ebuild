@@ -16,8 +16,8 @@ KMEXTRACTONLY="
 "
 
 DEPEND="
-	$(add_kdebase_dep libkdcraw)
-	$(add_kdebase_dep libkexiv2)
+	>=kde-base/libkdcraw-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libkexiv2-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
 	!kdeprefix? ( !<kde-base/kdegraphics-strigi-analyzer-4.2.91[-kdeprefix] )
