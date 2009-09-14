@@ -9,11 +9,12 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Archiving tool"
 KEYWORDS=""
-IUSE="+archive debug +handbook +zip"
+IUSE="+archive debug +handbook +lzma +zip"
 
 DEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2,lzma,zlib] )
+	lzma? ( app-arch/xz-utils )
 	zip? ( >=dev-libs/libzip-0.8 )
 "
 RDEPEND="${DEPEND}"
@@ -21,6 +22,7 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with archive LibArchive)
+		$(cmake-utils_use_with lzma LibLZMA)
 		$(cmake-utils_use_with zip LibZip)"
 
 	kde4-meta_src_configure
