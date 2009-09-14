@@ -459,7 +459,7 @@ _do_blocker() {
 	#  - block_4_4
 	#  - block_live
 	for slot in 3.5 ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		local block_${slot//./_}
+		local block_${slot//./_}="unset"
 	done
 
 	# This construct goes through each parameter passed, and sets
@@ -481,17 +481,17 @@ _do_blocker() {
 		# ${!var} is it's value
 		var=block_${slot//./_}
 		# if we didn't pass *:${slot}, then use the unsloted value
-		[[ ${!var-unset} == "unset" ]] && var=def
+		[[ ${!var} == "unset" ]] && var=def
 
-		# If the version is "0" or less than the minimum possible version in
-		# this slot, do nothing
-		if [[ ${!var} == "0" ]] || _less_min_in_slot ${!var#<} ${slot}; then
-			continue
 		# If the no version was passed, or the version is greater than the
 		# maximum possible version in this slot, block all versions in this
 		# slot
-		elif [[ ${!var:-unset} == "unset" ]] || _greater_max_in_slot ${!var#<} ${slot}; then
+		if [[ ${!var} == "unset" ]] || _greater_max_in_slot ${!var#<} ${slot}; then
 			atom=${pkg}
+		# If the version is "0" or less than the minimum possible version in
+		# this slot, do nothing
+		elif [[ ${!var} == "0" ]] || _less_min_in_slot ${!var#<} ${slot}; then
+			continue
 		# If the version passed begins with a "<", then use "<" instead of "<="
 		elif [[ ${!var:0:1} == "<" ]]; then
 			# this also removes the first character of the version, which is a "<"
@@ -511,7 +511,7 @@ _do_blocker() {
 	# default version passed, and no blocker is output *unless* a version
 	# is passed, or ":3.5" is passed to explicitly request a block on all
 	# 3.5 versions.
-	if [[ ${block_3_5-unset} != "unset" && ${block_3_5} != "0" ]]; then
+	if [[ ${block_3_5} != "unset" && ${block_3_5} != "0" ]]; then
 		if [[ -z ${block_3_5} ]]; then
 			atom=${pkg}
 		elif [[ ${block_3_5:0:1} == "<" ]]; then
