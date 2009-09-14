@@ -1,0 +1,56 @@
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 1023395)
++++ CMakeLists.txt	(working copy)
+@@ -14,13 +14,14 @@
+ ##################  User options  ################################
+ 
+ option(SOPRANO_BUILD_TESTS "Build all unit tests")
+-option(SOPRANO_DISABLE_REDLAND_BACKEND "Disable the compilation of the redland backend")
+-option(SOPRANO_DISABLE_SESAME2_BACKEND "Disable the compilation of the sesame2 backend")
+-option(SOPRANO_DISABLE_VIRTUOSO_BACKEND "Disable the compilation of the Virtuoso backend")
+-option(SOPRANO_DISABLE_CLUCENE_INDEX "Disable the compilation of the clucene-based full-text index")
+-option(SOPRANO_DISABLE_RAPTOR_PARSER "Disable the compilation of the raptor parser and serializer plugins (provides most Soprano parsers and serializers)")
+-option(SOPRANO_DISABLE_DBUS "Disable the D-Bus integration")
+-option(SOPRANO_BUILD_API_DOCS "Build the Soprano API documentation")
++option(SOPRANO_DISABLE_REDLAND_BACKEND "Disable compilation of Redland storage backend")
++option(SOPRANO_DISABLE_SESAME2_BACKEND "Disable compilation of Sesame2 storage backend")
++option(SOPRANO_DISABLE_VIRTUOSO_BACKEND "Disable compilation of Virtuoso storage backend")
++option(SOPRANO_DISABLE_CLUCENE_INDEX "Disable compilation of Clucene-based full-text index")
++option(SOPRANO_DISABLE_RAPTOR_PARSER "Disable compilation of Raptor parser plugin")
++option(SOPRANO_DISABLE_RAPTOR_SERIALIZER "Disable compilation of Raptor RDF serializer plugin")
++option(SOPRANO_DISABLE_DBUS "Disable D-Bus integration")
++option(SOPRANO_BUILD_API_DOCS "Build Soprano API documentation")
+ 
+ if(SOPRANO_BUILD_TESTS)
+   enable_testing()
+@@ -39,7 +40,7 @@
+ # properly set up compile flags (QT_DEBUG/QT_NO_DEBUG, ...)
+ include(${QT_USE_FILE})
+ 
+-if(NOT SOPRANO_DISABLE_RAPTOR_PARSER OR NOT SOPRANO_DISABLE_REDLAND_BACKEND)
++if(NOT SOPRANO_DISABLE_RAPTOR_PARSER OR NOT SOPRANO_DISABLE_RAPTOR_SERIALIZER OR NOT SOPRANO_DISABLE_REDLAND_BACKEND)
+   find_package(Rasqal)
+   find_package(Raptor)
+   find_package(Redland)
+@@ -50,7 +51,7 @@
+       message(STATUS "Windows currently only has Redland version 1.0.3")
+     endif(NOT REDLAND_VERSION)
+   endif(WIN32)
+-endif(NOT SOPRANO_DISABLE_RAPTOR_PARSER OR NOT SOPRANO_DISABLE_REDLAND_BACKEND)
++endif(NOT SOPRANO_DISABLE_RAPTOR_PARSER OR NOT SOPRANO_DISABLE_RAPTOR_SERIALIZER OR NOT SOPRANO_DISABLE_REDLAND_BACKEND)
+ 
+ if(NOT SOPRANO_DISABLE_CLUCENE_INDEX)
+   find_package(CLucene)
+@@ -98,9 +99,9 @@
+ if(RAPTOR_FOUND AND NOT SOPRANO_DISABLE_RAPTOR_PARSER)
+   set(BUILD_RAPTOR_PARSER TRUE)
+ endif(RAPTOR_FOUND AND NOT SOPRANO_DISABLE_RAPTOR_PARSER)
+-if(RAPTOR_FOUND AND REDLAND_FOUND AND REDLAND_VERSION STRGREATER "1.0.5" AND NOT SOPRANO_DISABLE_RAPTOR_PARSER)
++if(RAPTOR_FOUND AND REDLAND_FOUND AND REDLAND_VERSION STRGREATER "1.0.5" AND NOT SOPRANO_DISABLE_RAPTOR_SERIALIZER)
+   set(BUILD_RAPTOR_SERIALIZER TRUE)
+-endif(RAPTOR_FOUND AND REDLAND_FOUND AND REDLAND_VERSION STRGREATER "1.0.5" AND NOT SOPRANO_DISABLE_RAPTOR_PARSER)
++endif(RAPTOR_FOUND AND REDLAND_FOUND AND REDLAND_VERSION STRGREATER "1.0.5" AND NOT SOPRANO_DISABLE_RAPTOR_SERIALIZER)
+ if(NOT SOPRANO_DISABLE_DBUS AND QT_QTDBUS_FOUND)
+   set(BUILD_DBUS_SUPPORT TRUE)
+ endif(NOT SOPRANO_DISABLE_DBUS AND QT_QTDBUS_FOUND)
