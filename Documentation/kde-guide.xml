@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/desktop/kde/kde4-guide.xml,v 1.39 2009/08/07 20:05:33 tampakrap Exp $ -->
+
+<guide link="/proj/en/desktop/kde/kde4-guide.xml" lang="en">
+<title>Gentoo KDE Guide</title>
+
+<author title="Author">
+  <mail link="tampakrap" />
+</author>
+<author title="Author">
+  <mail link="scarabeus" />
+</author>
+<author title="Author">
+  <mail link="jmbsvicetto"/>
+</author>
+<author title="Author">
+  <mail link="cryos" />
+</author>
+<author title="Editor">
+  <mail link="keytoaster" />
+</author>
+
+<abstract>
+This guide demonstrates how to setup KDE using the ebuilds in the tree. Some
+tools from the KDE team's git overlay (kde-testing) will be used.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>0.6</version>
+<date>2009-06-26</date>
+
+<chapter>
+<title>KDE 3</title>
+<section>
+<title>Introduction</title>
+<body>
+
+<p>
+KDE 3 is no longer maintained by upstream, with 3.5.10 being their last release.
+Also, most KDE 3 applications aren't maintained any more, as they already have been
+or are currently being ported to KDE 4. The Gentoo KDE Team, provides both KDE 3
+and KDE 4 ebuilds for the base KDE and for various applications, and supports a side
+by side full desktop installation of KDE 3 and 4, including misc KDE applications.
+Our advice is for you to install and use by default a full KDE 4 desktop, and use
+only the KDE 3 applications that you feel have yet to be propperly ported to KDE 4
+(due to missing features, random crashes etc).
+</p>
+
+<warn>
+Keep in mind that since KDE 3 isn't maintained by upstream any more, it is possible
+and likely that bug reports concerning KDE 3 applications may not be fixed, but
+rather closed as WONTFIX / CANTFIX / UPSTREAM, or instead kept open for a long time
+until a fix (patch) is provided.
+</warn>
+
+</body>
+</section>
+<section>
+<title>KDE 3 Stabilization</title>
+<body>
+
+<p>
+Currently 3.5.9 is marked stable on all architectures (with stable keywords), while
+3.5.10 is in the process of stabilization (see <uri link="https://bugs.gentoo.org/271889">
+bug 271889</uri>) - it is already stable on the amd64 and x86 arches.<br />
+KDE 3.5.10 uses only split ebuilds, meaning that users of monolithic ebuilds (like
+kdebase, kdepim, kdegames etc) must unemerge them manually and then proceed with
+the installation of KDE 3.5.10 as described below. KOffice 1.6.3 is also in the progress
+of stabilization, and the last version includes only split ebuilds. So, users of monolithic
+KOffice should also unemerge it manually and <c>emerge koffice-meta-1.6.3_p20090204</c>.
+</p>
+
+<p>
+The team is also cleaning up the various KDE 3 applications, either by removing them
+from the tree, if they are too old, broken and unmaintained, or by stabilizing the
+latest version after moving the SLOT to :3.5. (<uri
+link="https://bugs.gentoo.org/270945">bug 270945</uri>), and dropping arts support
+(with major help from Media/Video teams). When this task is finished, we are going to
+drop arts from base KDE 3 as well.
+</p>
+
+</body>
+</section>
+<section>
+<title>KDE 3.5.10 Installation</title>
+<body>
+
+<p>
+The installation of KDE 3 can be done either by using the meta packages (kdebase-meta,
+kdepim-meta, kde-meta) or by using the sets. As stated before, users of monolithic 3.5.9
+ebuilds that want to update to 3.5.10 and get strange blocks, should manually unemerge
+monolithic 3.5.9 ebuilds (kdebase, kdepim, kdegames etc) and emerge 3.5.10 as explained
+below. For installation using meta packages:
+</p>
+
+<pre caption="Installation of KDE 3 using meta packages">
+# <i>emerge -av kde-meta:3.5</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:3.5 kdegames-meta:3.5</i> <comment>(installation of chosen modules only)</comment>
+</pre>
+
+<note>
+Installation of KDE 3 can be done in parallel with KDE 4, because both use different eclasses,
+thus different slotting and prefix, so they don't affect each other. <c>kdeprefix</c> USE Flag
+for KDE 4 (explained later) has nothing to do with KDE 3/4 mixed installations.
+</note>
+
+<p>
+For installation using sets check the <uri link="#sets">Using Sets</uri> section.
+</p>
+
+<p>
+In case KDE 3.5.10 isn't marked stable in your architecture yet (or you are using ~mips or
+~x86-fbsd, that don't provide stable keywords any more), we provide a package.keywords file
+in <c>kde-testing</c> overlay under <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=blob_plain;f=Documentation/package.keywords/kde-3.5.keywords;hb=HEAD">
+Documentation/package.keywords</uri> directory.
+</p>
+
+<pre caption="Adding the file to the package.keywords file">
+# <i>cd /etc/portage/</i>
+# <i>cat /path/to/kde-3.5.keywords/file >> package.keywords</i>
+</pre>
+
+<pre caption="Adding the file to the package.keywords directory">
+# <i>cd /etc/portage/package.keywords</i>
+# <i>cp /path/to/kde-3.5-keywords/file .</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Installation of KDE 3 Applications</title>
+<body>
+
+<p>
+As stated before, KDE 3 Applications are slotted as :3.5, which allows users to have them
+installed along with the KDE 4 equivalents, just like in the base applications. For better
+administration of your system, you could take full advantage of slots and use slotted
+package selections in your package.keywords and world file. For example:
+</p>
+
+<pre caption="Installation of KDE 3 application">
+# <i>echo "app-cat/application:3.5" &gt;&gt; /etc/portage/package.keywords[/&lt;file&gt;]</i>
+<comment>(in case the KDE 3 application is still keyworded as testing)</comment>
+# <i>emerge -av application:3.5</i>
+</pre>
+
+<p>
+The same rules apply for KDE 4 applications, which are slotted as :4. This way, the emerge
+and removal of an application can be easily done without conflicts, blocks, or unwanted
+removals.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>KDE 4</title>
+<section>
+<title>Introduction</title>
+<body>
+
+<p>
+KDE 4 is the current KDE version supported by upstream. The current KDE 4 version
+available through portage is 4.2.4 (this version is considered stable by upstream).
+In addition, KDE upstream provides weekly <uri link="ftp://ftp.kde.org/pub/kde/unstable">
+snapshots</uri>, and a <uri link="http://websvn.kde.org">live SVN tree</uri>.
+The Gentoo KDE team provides the snapshots, trunk and latest branch live ebuilds,
+through the <c>kde-testing</c> overlay. To enable this, the user can have multiple
+parallel KDE 4 installations, with the use of the <c>kdeprefix</c> USE flag.
+</p>
+
+<p>
+Choose what KDE version is most appropriate for you:
+</p>
+<table>
+<tr>
+ <ti><uri link="#kde_portage">KDE from Portage (currently 4.2.4 and 4.3.0)</uri></ti>
+</tr>
+<tr>
+ <ti><uri link="#snapshots">KDE snapshots (currently 4.3.X)</uri></ti>
+</tr>
+<tr>
+ <ti><uri link="#live">KDE live ebuilds</uri></ti>
+</tr>
+</table>
+
+</body>
+</section>
+<section>
+<title>The kdeprefix USE flag</title>
+<body>
+
+<warn>
+The <c>kdeprefix</c> USE flag is currently masked. It's <b>unsupported</b>
+and shouldn't be used by users in any way. Use at your own risk. Read below
+for the reasons that led to the masking of the USE flag.
+</warn>
+
+<p>
+The <c>kdeprefix</c> USE flag allows users to choose between an FHS compliant
+install (<c>-kdeprefix</c>) or a slotted install in the KDE prefix (<c>+kdeprefix</c>).
+</p>
+
+<p>
+If <c>kdeprefix</c> is disabled (default) KDE is installed into the FHS compliant
+location, i.e. <path>/usr</path>. That means that all of the files are put under
+<path>/usr</path>. This is the desired behaviour for most users. The drawback of
+the FHS compliant install is that it will not be possible to have more than one
+minor version of KDE side by side (previous behaviour), e.g. KDE 4.2 and 4.3.
+</p>
+
+<note>
+This restriction does not apply to KDE 3 (which uses different prefix (<path>/usr/kde/3.5</path>)).
+You can have KDE 3.5 with either <c>-kdeprefix</c> or <c>kdeprefix</c> KDE 4.X in the same system.
+</note>
+
+<warn>
+Mixing a <c>+kdeprefix</c> and a <c>-kdeprefix</c> KDE installation is not supported, nor
+recommended. If you really want kdeprefix in your system, you'll have to unmask
+it and put it globally in <path>/etc/make.conf</path>
+</warn>
+
+<p>
+If <c>kdeprefix</c> is enabled then KDE is installed into <path>/usr/kde/${SLOT}</path>,
+which allows you to install KDE 4.2, 4.3, live etc. in <path>/usr/kde/4.2</path>,
+<path>/usr/kde/4.3</path>, and <path>/usr/kde/live</path> for example.
+</p>
+
+<warn>
+If you want to move between <c>kdeprefix</c> and <c>-kdeprefix</c> (or vice-versa), it is
+recommended that you unmerge all KDE packages and then emerge it with the
+modified flag. If this is not done, KDE installations can have trouble finding
+certain libraries/plugins. Check <uri link="#cleanup">Cleaning Up KDE</uri>
+for more details.
+</warn>
+
+<p>
+Recently <c>kdeprefix</c> got masked by default, as it caused many problems, like
+collisions between the same packages when having two or more KDE installations,
+or strange behaviour even when only one <c>+kdeprefix</c> KDE installation was present
+in the system. Great examples of packages with such problems are pykde4 and
+amarok. Since the Gentoo KDE Team decided to proceed with the stabilization of KDE 4
+(KDE 4.2.4 being the best candidate at this moment), those issues needed to be resolved
+first. As it was difficult to fix them, we decided to mask the use flag instead.
+<b>If you really know what you are doing</b> and you are sure that you want
+<c>kdeprefix</c> unmasked and enabled in your system, add kdeprefix globally to
+<path>/etc/make.conf</path> and unmask it by following the instructions below.
+</p>
+
+<pre caption="Unmasking the kdeprefix use flag">
+# <i>mkdir -p /etc/portage/profile</i>
+# <i>echo "-kdeprefix" >> /etc/portage/profile/use.mask</i>
+</pre>
+
+</body>
+</section>
+<section id="kde_portage">
+<title>Installing KDE 4.2.4 or KDE 4.3.0 (from Portage)</title>
+<body>
+
+<note>
+<uri link="http://kde.org/announcements/4.3/index.php">KDE 4.3.0</uri> is in
+Portage tree but hardmasked (until bug 280312 is fixed), except for amd64
+architecture.
+</note>
+
+<p>
+<uri link="http://kde.org/announcements/announce-4.2.4.php">KDE 4.2.4</uri> and
+is the <uri link="http://kde.org/announcements/4.3/index.php">KDE 4.3.0</uri> are
+the KDE 4 versions that Gentoo has in Portage - they are considered by upstream as
+the latest stable. Currently they are in the testing branch in Portage, but in June's
+meeting the Gentoo KDE Team decided to move forward with KDE 4 stabilization - 4.2.4
+being the best candidate.
+</p>
+
+<note>
+In order to minimize issues it is recommended to start with a clean environment. Read
+more in <uri link="#cleanup">Cleaning Up KDE</uri> section.
+</note>
+
+<p>
+Users with stable systems have to keyword the packages to proceed.
+We provide a package.keywords file in <c>kde-testing</c> overlay under 
+Documentation/package.keywords/ directory <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=blob_plain;f=Documentation/package.keywords/kde-4.2.keywords;hb=master">
+for KDE 4.2</uri> and <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=blob_plain;f=Documentation/package.keywords/kde-4.3.keywords;hb=master">
+for KDE 4.3</uri>.
+</p>
+
+<pre caption="Adding the file to the package.keywords file">
+# <i>cd /etc/portage/</i>
+# <i>cat /path/to/kde-4.2.keywords/file >> package.keywords</i> <comment>For KDE 4.2</comment>
+# <i>cat /path/to/kde-4.3.keywords/file >> package.keywords</i> <comment>For KDE 4.3</comment>
+</pre>
+
+<p>
+If your package.keywords is a directory instead of a file you can do the
+following:
+</p>
+
+<pre caption="Adding the file to the package.keywords directory">
+# <i>cd /etc/portage/package.keywords</i>
+# <i>cp /path/to/kde-4.2.keywords/file .</i> <comment>For KDE 4.2</comment>
+# <i>cp /path/to/kde-4.3.keywords/file .</i> <comment>For KDE 4.3</comment>
+</pre>
+
+<p>
+KDE 4.3 is currently hardmasked for all architectures apart from amd64.So,
+you may also need the unmask file that we provide in <c>kde-testing</c> under <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=blob_plain;f=Documentation/package.unmask/kde-4.3;hb=master">
+Documentation/package.unmask</uri> and do the following step:
+</p>
+
+<pre caption="Adding the file to the package.unmask file">
+# <i>cd /etc/portage/</i>
+# <i>cat /path/to/kde-4.3/unmask/file >> package.unmask</i>
+</pre>
+
+<p>
+If your package.unmask is a directory, you can do the following:
+</p>
+
+<pre caption="Adding the file to the package.unmask directory">
+# <i>cd /etc/portage/package.unmask</i>
+# <i>cp /parth/to/kde-4.3/unmask/file .</i>
+</pre>
+
+<p>
+The installation can be done either by using the meta packages or by using sets.
+</p>
+
+<pre caption="Installation of KDE 4.2.4 using meta packages">
+<comment>For KDE 4.2</comment>
+# <i>emerge -av kde-meta:4.2</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:4.2 kdegames-meta:4.2</i> <comment>(installation of chosen modules only)</comment>
+<comment>For KDE 4.3</comment>
+# <i>emerge -av kde-meta:4.3</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:4.3 kdegames-meta:4.3</i> <comment>(installation of chosen modules only)</comment>
+</pre>
+
+<p>
+For installation using sets check the <uri link="#sets">Using Sets</uri> section.
+</p>
+
+<p>
+<b>Upgrade Troubleshooting</b>
+</p>
+
+<p>
+If you’re trying to upgrade from KDE 4.2, but portage gives you nice little blocks,
+there are a few things you can check:
+</p>
+
+<ul>
+ <li>Make sure you’ve synced the tree and/or kde-testing overlay (if using it)</li>
+ <li>Make sure the unmask/keyword files are correct and up-to-date</li>
+ <li>Check that you don’t have any 4.2 versioned kde-base/* items in <path>/var/lib/portage/world</path></li>
+ <li>Check that you don’t have any 4.2 versioned sets in <path>/var/lib/portage/world_sets</path></li>
+ <li><c>emerge -avDuN world</c> — you’ll probably get some messy output but all blocks should be automatically resolved</li>
+</ul>
+
+</body>
+</section>
+<section id="snapshots">
+<title>Installing KDE 4.3.X snapshots (from kde-testing overlay)</title>
+<body>
+
+<warn>
+KDE snapshots are <b>bleeding edge</b>. Use at your own risk.
+</warn>
+
+<p>
+KDE upstream provides <uri link="ftp://ftp.kde.org/pub/kde/unstable">weekly snapshots</uri>
+taken from the <uri link="http://websvn.kde.org/trunk/">SVN trunk tree</uri>. KDE now provides
+4.3.X snapshot series, and after 4.4 release they are going to start with 4.4.60. Beta and
+Release Candidate KDE releases are following the snapshot model below:
+</p>
+
+<table>
+<tr>
+ <th>Snaphot version</th>
+ <th>KDE Version</th>
+</tr>
+<tr>
+ <ti>4.X.85</ti>
+ <ti>KDE 4.X Beta 1</ti>
+</tr>
+<tr>
+ <ti>4.X.90</ti>
+ <ti>KDE 4.X Beta 2</ti>
+</tr>
+<tr>
+ <ti>4.X.95</ti>
+ <ti>KDE 4.X Release Candidate</ti>
+</tr>
+</table>
+
+<note>
+In order to minimize issues it is recommended to start with a clean environment. Read
+more in <uri link="#cleanup">Cleaning Up KDE</uri> section.
+</note>
+
+<note>
+You'll need portage-2.2_rc*, so please add <c>~sys-apps/portage-2.2</c> entry to your
+<path>/etc/portage/package.unmask[/*]</path> file.
+</note>
+
+<p>
+Snapshots are only available through <c>kde-testing</c> overlay, so you first need to
+add it:
+</p>
+
+<pre caption="Installing kde-testing overlay from layman">
+# <i>layman -f -a kde-testing</i>
+<comment>For more information regarding overlays, please read the <uri
+link="http://www.gentoo.org/proj/en/overlays/userguide.xml">Overlay Guide</uri></comment>
+</pre>
+
+<p>
+If you're used to git repos, don't want to use layman and rather do all
+the sync work yourself, you can install the repo directly:
+</p>
+
+<pre caption="Installing kde-testing overlay directly">
+# <i>mkdir /&lt;repo-base-dir&gt;</i>
+# <i>cd /&lt;repo-base-dir&gt;</i>
+# git clone git://git.overlays.gentoo.org/proj/kde.git
+</pre>
+
+<p>
+Users with stable systems have to keyword the packages to proceed.
+We provide a package.keyword file in <c>kde-testing</c> overlay, which we'll
+have to symlink to our package.keywords directory:
+</p>
+
+<pre caption="Creating symlink of the kde-4.3.keywords file">
+# <i>cd /etc/portage/package.keywords</i>
+# <i>ln -s /path/to/overlay/kde-testing/Documentation/package.keywords/kde-4.4.keywords .</i>
+</pre>
+
+<p>
+The installation can be done either by using the meta packages or by using sets.
+</p>
+
+<pre caption="Installation of KDE snapshots using meta packages">
+# <i>emerge -av kde-meta:4.4</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:4.4 kdegames-meta:4.4</i> <comment>(installation of chosen modules only)</comment>
+</pre>
+
+<pre caption="Installation of KDE snapshots using sets">
+# <i>emerge -av @kde-4.3</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av @kdebase-4.3 @kdegames-4.3</i> <comment>(installation of chosen modules only)</comment>
+<comment>See the <uri link="#sets">Using Sets</uri> section for more information.</comment>
+</pre>
+
+</body>
+</section>
+<section id="live">
+<title>Installing KDE live ebuilds (from kde-testing overlay)</title>
+<body>
+
+<warn>
+KDE live ebuilds are <b>bleeding edge</b>. Use at your own risk.
+</warn>
+
+<p>
+KDE is Open Source, with its code being available for browsing through<uri
+link="http://websvn.kde.org">KDE Websvn</uri>, and for public checkout
+through an anonymous (anonsvn) account. Gentoo, as a source based distro,
+has the ability to provide live ebuilds that checkout the code either from
+the latest branch or from trunk. Currently, we provide 4.3.9999 ebuilds from
+4.3 branch. (We recently dropped 4.2.9999 ebuilds as 4.2 branch is mostly
+dead).
+</p>
+
+<table>
+<tr>
+ <th>Ebuilds version</th>
+ <th>KDE Version</th>
+</tr>
+<tr>
+ <ti>4.3.9999</ti>
+ <ti>KDE 4.3.Branch</ti>
+</tr>
+<tr>
+ <ti>9999</ti>
+ <ti>KDE 4 Trunk (currently 4.4)</ti>
+</tr>
+</table>
+
+<note>
+In order to minimize issues it is recommended to start with a clean environment. Read
+more in <uri link="#cleanup">Cleaning Up KDE</uri> section.
+</note>
+
+<note>
+You'll need portage-2.2_rc*, so please add <c>~sys-apps/portage-2.2</c> entry in your
+<path>/etc/portage/package.unmask</path> file.
+</note>
+
+<p>
+Live ebuilds are only available through <c>kde-testing</c> overlay, so first thing is to install
+it:
+</p>
+
+<pre caption="Installing kde-testing overlay">
+# <i>layman -f -a kde-testing</i>
+<comment>For more information regarding overlays, please read the <uri
+link="http://www.gentoo.org/proj/en/overlays/userguide.xml">Overlay Guide</uri></comment>
+</pre>
+
+<p>
+Users with stable systems have to keyword the packages to proceed.
+We provide a package.keyword file in <c>kde-testing</c> overlay, which we'll
+have to symlink to our package.keywords directory:
+</p>
+
+<pre caption="Creating symlink of the kde-4.X.9999.keywords or kde-live file">
+# <i>cd /etc/portage/package.keywords</i>
+# <i>ln -s /path/to/overlay/kde-testing/Documentation/package.keywords/kde-4.3.9999.keywords .</i><comment>(for 4.3 Branch)</comment>
+# <i>ln -s /path/to/overlay/kde-testing/Documentation/package.keywords/kde-live.keywords .</i><comment>(for KDE 4.4 Trunk)</comment>
+</pre>
+
+<p>
+The installation can be done either by using the meta packages or by using sets.
+</p>
+
+<pre caption="Installation of KDE live ebuilds using meta packages">
+<comment>(For KDE 4.3 Branch)</comment>
+# <i>emerge -av kde-meta:4.3</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:4.3 kdegames-meta:4.3</i> <comment>(installation of chosen modules only)</comment>
+<comment>(For KDE 4.4 Trunk)</comment>
+# <i>emerge -av kde-meta:live</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av kdebase-meta:live kdegames-meta:live</i> <comment>(installation of chosen modules only)</comment>
+</pre>
+
+<pre caption="Installation of KDE live ebuilds using sets">
+<comment>(For KDE 4.3 Branch)</comment>
+# <i>emerge -av @kde-4.3</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av @kdebase-4.3 @kdegames-4.3</i> <comment>(installation of chosen modules only)</comment>
+<comment>(For KDE 4.4 Trunk)</comment>
+# <i>emerge -av @kde-live</i> <comment>(contains all of KDE modules)</comment>
+# <i>emerge -av @kdebase-live @kdegames-live</i> <comment>(installation of chosen modules only)</comment>
+<comment>See the <uri link="#sets">Using Sets</uri> section for more information.</comment>
+</pre>
+
+<note>
+You may be interested for Qt live ebuilds  as well. Check the Qt Guide (TODO) for
+installation instructions.
+</note>
+
+</body>
+</section>
+<section>
+<title>Installation of KDE 4 Applications</title>
+<body>
+
+<p>
+KDE 4 Applications are slotted in :4, which allows the users to have them
+installed along with the KDE 3 equivalents, just like in the base applications. For better
+administration of your system, you could take full advantage of slots and use slotted
+package selections in your package.keywords and world file. For example:
+</p>
+
+<pre caption="Installation of KDE 4 application">
+# <i>echo "app-cat/application:4" >> /etc/portage/package.keywords</i>
+# <i>emerge -av application:4</i>
+</pre>
+
+<p>
+The same rules apply for KDE 3 applications, which are slotted in :3.5. This way, the emerge
+and removal of an application can be easily done without conflicts, blocks, or unwanted
+removals.
+</p>
+
+<p>
+In kde-testing you may find live ebuilds of KDE 4 applications. These are slotted in :4
+as well, but they <b>can not</b> be installed in parallel with normal ones. You are
+free though to use live KDE 4 applications with KDE 4 from portage, or to use
+portage KDE 4 applications with your live KDE.
+</p>
+
+<note>
+There is also a set with live KDE 4 applications, @kde-extras-live, in kde-testing and
+a set with Qt live applications, @qt-extras-live, in qting-edge overlay.
+</note>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Additional Installation/Removal Information</title>
+<section id="sets">
+<title>Using Sets</title>
+<body>
+
+<warn>
+Portage 2.2_rcX is currently masked to allow 2.1.6 getting stable asap. So if
+you want to use sets please unmask <c>~sys-apps/portage-2.2</c>.
+</warn>
+
+<p>
+One of the new features provided by Portage 2.2 is sets.
+</p>
+
+<p>
+Sets allow the KDE team to provide a complete replacement for the monolithic
+packages, with the added bonus that users may choose to remove from the default
+sets any packages they do not want. There is still some discussion going on
+before we can put sets in the Portage tree. Thus, grab the sets from the
+<c>kde-testing</c> overlay <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=tree;f=sets">sets
+directory</uri> or grab them as a <uri
+link="http://git.overlays.gentoo.org/gitweb/?p=proj/kde.git;a=snapshot;h=5b2fc54fa5d1c8aeddaeb05f044bf28754bb18be;sf=tbz2">
+tar.bz2 archive</uri> and put the ones you like in <path>/etc/portage/sets</path> --
+you can browse the list of sets provided by the KDE team in the overlay
+by using the first link.
+</p>
+
+<note>
+In case you are using <c>kde-testing</c> overlay you can use sets directly instead
+of copying them to <path>/etc/portage/sets</path>.
+</note>
+
+<p>
+Amongst others, there are sets for each KDE tarball - @kdeaccessibility,
+@kdeadmin, @kdeartwork, @kdebase, @kdeedu, @kdegames, @kdegraphics,
+@kdemultimedia, @kdenetwork, @kdepim, @kdesdk, @kdetoys, and @kdeutils. There is
+also a set of sets (the equivalent to the old kde-meta package) @kde, and the
+same for specific versions @kde-3.5 and @kde-4x, a set for KDE deps @kdedeps, a
+set for optional packages @kdeoptional and a set for the split qt packages
+@qt-split.
+</p>
+
+<p>
+One can install the complete KDE by running <e>emerge -av @kde</e>. The specific
+version equivalents are very useful to uninstall an old version, e.g. <c>emerge
+-C @kde-3.5</c>, or to reinstall all packages from a specific version, e.g.
+<c>emerge -av1 @kde-4x</c>. Advanced features, like removing any unwanted
+packages from a set, will be supported in a future release of Portage -- you can
+read more about it in <uri
+link="http://planet.gentoo.org/developers/genone/2008/09/29/more_extensions_to_package_set_support">Marius
+Mauch's (genone) blog</uri>. Part of this code has now been released in
+portage-2.2_rc12 and so you can reinstall all installed packages of a set
+with <c>emerge -av @&lt;set&gt;/@installled</c> or to have a
+<path>/etc/portage/sets/kdebase-unwanted</path> set and then run <e>emerge -av
+@kdebase-@kdebase-unwanted</e>.
+</p>
+
+<p>
+We strongly recommend that you install the <c>kdebase</c> set in order to get a
+full KDE 4 session. The example below would install the <c>kdebase</c> set and
+the <c>kdegames</c> set.
+</p>
+
+<pre caption="Installing KDE">
+# <i>emerge @kdebase @kdegames</i>
+</pre>
+
+<note>
+If you want to check the list of sets known to Portage run the following:
+<e>emerge --list-sets</e>
+</note>
+
+<note>
+All >= KDE 4.1 ebuilds require <c>sys-apps/portage-2.1.6</c> or greater,
+which has implemented everything in the new EAPI 2 specification used in
+these ebuilds (<c>>=sys-apps/portage-2.2_rc12</c> is required to use sets).
+</note>
+
+</body>
+</section>
+<section id="cleanup">
+<title>Cleaning Up KDE</title>
+<body>
+
+<p>
+In order to minimize issues, it is best to begin with a clean environment. This is
+recommended for the following cases:
+</p>
+
+<ul>
+ <li>Moving from <c>+kdeprefix</c> to <c>-kdeprefix</c> (and vice versa)</li>
+ <li>Downgrading KDE (eg. from snapshots/live ebuilds to portage version)</li>
+ <li>Fully upgrading from KDE 3 to KDE 4 (and vice versa)</li>
+ <li>Moving from an old overlay</li>
+</ul>
+
+<p>
+Two possible ways of removing old KDE installations are:
+</p>
+
+<pre caption="Unmerging commands">
+# <i>emerge -C @kde-4.X @kdebase-4.X @kde-3.5</i>(using the typical sets)
+# <i>emerge -C $(qfile -C -q -e /usr/kde/%PREFIX%)</i> <comment>(replace %PREFIX% with your KDE version, eg. 3.5, 4)</comment>
+</pre>
+
+<pre caption="Unmerging commands (only applicable if you are moving from an overlay)">
+# <i>cd /path/to/overlay/</i>
+# <i>emerge -C $(find ./ -name \*.ebuild |sed -e "s:.ebuild::" -e "s:./::" |awk -F'/' '{print "="$1"/"$3}')</i>
+</pre>
+
+<p>
+As a final step you should remove the old overlay so that there are no conflicts
+with the KDE ebuilds. You should remove the old unmask and/or keyword data, too.
+</p>
+
+<note>
+Don't forget to run depclean in order to uninstall any dependant packages.
+</note>
+
+</body>
+</section>
+<section>
+<title>Rebuilding the application database</title>
+<body>
+
+<p>
+To rebuild the KDE application database run:
+</p>
+
+<pre caption="kbuildsycoca command">
+# <i>kbuildsycoca --noincremental</i> (for KDE 3)
+# <i>kbuildsycoca4 --noincremental</i> (for KDE 4)
+</pre>
+
+</body>
+</section>
+<section>
+<title>Localization/Internationalization</title>
+<body>
+
+<p>
+With new KDE there is new translators effort in Localization instead of
+Internationalization. This cause some confusion but dont worry your translation
+is shiped to you, just name has been changed so now for getting translations use
+theese comands.
+</p>
+
+<pre caption="emerge commands for translations">
+<comment>For KDE 4 and KOffice 2:</comment>
+# <i>emerge kde-l10n</i>
+# <i>emerge koffice-l10n</i>
+<comment>For KDE 3 and KOffice 1.6.3:</comment>
+# <i>emerge kde-i18n</i>
+# <i>emerge koffice-i18n</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Configuration of ~/.kde Directory</title>
+<body>
+
+<p>
+KDE stores its configuration files in the <path>~/.kde</path> directory by default.
+In the Gentoo ebuilds this has been changed in KDE 4.1 and later to allow for better
+integration of KDE 3.5 and 4.X when using the same user account. If you export
+$KDEHOME this behaviour will be overridden. It is strongly recommended that you
+do not do this. $KDEHOME will make KDE 3.5 and 4.X use the same configuration
+directory which is usually not desired.
+</p>
+
+<p>
+KDE 3.5 uses <path>~/.kde</path> and the default FHS (<c>-kdeprefix</c>) KDE 4.X uses
+<e>~/.kde4</e>. If you install KDE 4.1 using the <c>kdeprefix</c> USE flag then the
+configuration directory will default to <path>~/.kde4.1</path>, for KDE 4.2 it will
+be <path>~/.kde4.2</path> and so on.
+The advantage of this is that KDE 3.5 and 4.X can be run from the same user
+account without clobbering settings. Moving backwards in version, i.e. 4.X to
+3.5, is not supported.
+</p>
+
+<p>
+Settings are not migrated by default. If you want to attempt to migrate your
+settings you should copy your old configuration directory to the new location
+before logging in. For example:
+</p>
+
+<pre caption="Copying the configuration directory">
+$ <i>cp -r ~/.kde ~/.kde4</i>
+</pre>
+
+<p>
+If this is successful, then your settings should all be migrated. If not, it is
+possible to log out and remove the new configuration directory to start with a
+clean configuration directory.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Hints and Troubleshooting</title>
+<section>
+<title>Plasmoids</title>
+<body>
+
+<p>
+Plasmoids are new plasma tools which can enhance your desktop experience
+to brand new level. Many plasmoids are available in kde-misc/ category,
+on which we get our nasty hands and find it workable enought. If you find out
+that your favorite one is missing create bug and somebody might create it for
+you.
+If you are plasma person "want them all can't live without them" we have set
+@plasmoids which contains all plasmoids currently availible.
+</p>
+
+<note>
+Mostly all plasmoids are currently placed on kde-testing overlay.
+</note>
+
+</body>
+</section>
+<section>
+<title>x11-themes/plasma-themes</title>
+<body>
+
+<p>
+This ebuild contains various plasma themes. The procedure for requesting
+additional themes is the same as that for plasmoids.
+</p>
+
+</body>
+</section>
+<section>
+<title>x11-themes/gtk-engines-qt</title>
+<body>
+
+<p>
+This ebuild should be used if you want your GTK applications to use a theme
+similar to the Qt/KDE applications. Configuration can be found in
+systemsetings->Appearance->GTK Styles and Fonts. For KDE-4.2 you need at least
+gtk-engines-qt-1.1-r1.
+</p>
+
+</body>
+</section>
+<section>
+<title>x11-themes/gtk-engines-qtcurve</title>
+<body>
+
+<p>
+This is another approach to making GTK/Qt 3/Qt 4 applications looks the same.
+You must also install <c>x11-themes/qtcurve-qt4</c> for this to work with Qt
+4/KDE 4 applications.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Flash in Konqueror</title>
+<body>
+
+<p>
+If you are interested in getting flash working in konqueror point your mind
+to <uri link="kde-flash.xml" >guide</uri> which describes necessary steps for
+getting it done. Latest www-plugins/adobe-flash (both 32 and 64-bit) should
+work flawlessly though, maybe you'll need to Scan for Plugins under
+Konqueror->Settings->Plugins.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Akonadi Complains about the MySQL Config</title>
+<body>
+
+<p>
+Start by checking the permissions in /usr/share/config and /usr/share/kde4. If you're using +kdeprefix then
+check the permissions in $(kde4-config -prefix) instead of /usr/ too. If they're 700, you need to update them
+to 755 recursively.
+</p>
+<pre caption="updating /usr/share/config permissions">
+# <i>chmod -R 755 /usr/share/{config,kde4}</i>
+</pre>
+<p>
+If that doesn't solve the error, you need to open the akonadi configuration and
+change the default mysql config. If you don't have the tray running, start
+<c>akonaditray</c>, select "Akonadi Server Configuration", activate  "Use internal
+MySQL server" and then press the test button.
+If you want to use the mysql server and not the embbeded executable, you'll need to
+ensure that mysql is running.
+</p>
+
+</body>
+</section>
+<section>
+<title>KDM fails to start</title>
+<body>
+
+<p>
+Start by checking the permissions in /usr/share/config and if you're using +kdeprefix in
+$(kde4-config -prefix)/share/config. If they're 700, you need to update them to 755.
+Check previous section.
+If that doesn't solve the error, check the following notice in the kdm ebuild:
+</p>
+
+<pre caption="kdm notice">
+If when you restart xdm, kdm fails to start with a message like "gentoo kdm[2116]: X
+server startup timeout, terminating" in /var/log/messages, uncomment the ServerTimeout
+line in "grep kdmrc /var/db/pkg/kde-base/kdm-4.2.0/CONTENTS | cut -f2 -d " ""
+and be sure to increase the timeout - 60 should work
+</pre>
+
+<p>
+Also be sure that the following services are started:
+</p>
+
+<pre caption="checking and starting services">
+# <i>/etc/init.d/dbus status</i>
+# <i>/etc/init.d/hald status</i>
+# <i>/etc/init.d/consolekit status</i>
+</pre>
+
+<p>
+If not, enable them by replacing status with start, and use
+the command <c>rc-update add dbus default</c> for every one
+of them to add them to default runlevel.
+</p>
+
+<p>
+Finally, KDM could fail due to errors in xorg.conf. Take a
+look in logs: <path>/var/log/Xorg.0.log</path> and
+<path>/var/log/kdm.log</path> and fix xorg.conf accordingly.
+For additional help you can find us in IRC (#gentoo-kde at Freenode).
+</p>
+
+</body>
+</section>
+<section>
+<title>The battery applet or solid notifications don't show the relevant info</title>
+<body>
+
+<p>
+So that the battery applet or other solid notifications can show the relevant info,
+you need dbus and hald running.
+</p>
+<pre caption="checking and starting dbus and hald">
+# <i>/etc/init.d/dbus status</i>
+# <i>/etc/init.d/hald status</i>
+# <i>/etc/init.d/dbus start</i>
+# <i>/etc/init.d/hald start</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+</guide>
