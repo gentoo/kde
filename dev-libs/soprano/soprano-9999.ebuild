@@ -39,10 +39,6 @@ RDEPEND="${COMMON_DEPEND}
 
 CMAKE_IN_SOURCE_BUILD="1"
 
-PATCHES=(
-	"${FILESDIR}/soprano-fix-raptor-serializer-automagic.patch"
-)
-
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 
