@@ -9,3 +9,8 @@ inherit kde4-meta
 DESCRIPTION="KDE file finder utility"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
+
+DEPEND="
+	>=kde-base/libkonq-${PV}:${SLOT}[kdebase=]
+"
+RDEPEND="${DEPEND}"
