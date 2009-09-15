@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS=""
-IUSE="bzip2 debug lzma +handbook openexr samba sftp"
+IUSE="+bzip2 debug lzma +handbook openexr samba sftp"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"
@@ -26,6 +26,7 @@ DEPEND="
 	sftp? ( >=net-libs/libssh-0.3.2[sftp] )
 "
 RDEPEND="${DEPEND}
+	>=kde-base/kdelibs-${PV}:${SLOT}[bzip2?,lzma?]
 	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
 	virtual/ssh
