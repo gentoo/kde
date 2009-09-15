@@ -11,6 +11,6 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkonq-${PV}:${SLOT}[kdebase=]
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"

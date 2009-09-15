@@ -11,6 +11,6 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	>=kde-base/libkonq-${PV}:${SLOT}[kdebase=]
+	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
