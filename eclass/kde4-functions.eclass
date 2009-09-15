@@ -84,26 +84,7 @@ buildsycoca() {
 		eend $?
 	fi
 
-	if [[ -z ${EROOT%%/} && -x "${KDEDIR}"/bin/kbuildsycoca4 ]]; then
-		# Make sure tha cache file exists, writable by root and readable by
-		# others. Otherwise kbuildsycoca4 will fail.
-		touch "${KDEDIR}/share/kde4/services/ksycoca4"
-		chmod 644 "${KDEDIR}/share/kde4/services/ksycoca4"
-
-		# We have to unset DISPLAY and DBUS_SESSION_BUS_ADDRESS, the ones
-		# in the user's environment (through su [without '-']) may cause
-		# kbuildsycoca4 to hang.
-
-		ebegin "Running kbuildsycoca4 to build global database"
-		# This is needed because we support multiple kde versions installed together.
-		# Lookup in order - local, KDEDIR, /usr, do not duplicate entries btw.
-		local KDEDIRS="${EROOT}usr/share"
-		[[ ${KDEDIR} != "${EROOT}usr" ]] && KDEDIRS="${KDEDIR}/share:${KDEDIRS}"
-		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDEDIRS}" \
-			DISPLAY="" DBUS_SESSION_BUS_ADDRESS="" \
-			"${KDEDIR}"/bin/kbuildsycoca4 --global --noincremental &> /dev/null
-		eend $?
-	fi
+	# We no longer need to run kbuildsycoca4, as kded does that automatically, as needed
 
 	# fix permission for some directories
 	for x in share/{config,kde4}; do
