@@ -193,6 +193,12 @@ case ${KDEBASE} in
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
+		# 4.x.[6789]* and *9999* packages aren't mirrored by Gentoo
+		case ${PV} in
+			*9999* | 4.?.[9876]*)
+				RESTRICT+=" mirrors"
+				;;
+		esac
 		KDE_MINIMAL="${SLOT}"
 		_kdedir="${SLOT}"
 		_pv="-${PV}:${SLOT}"
