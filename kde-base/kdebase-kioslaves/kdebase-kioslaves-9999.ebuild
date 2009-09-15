@@ -19,6 +19,7 @@ DEPEND="
 	sys-apps/dbus
 	sys-apps/hal
 	x11-libs/libXcursor
+	bzip2? ( app-arch/bzip2 )
 	lzma? ( app-arch/xz-utils )
 	openexr? ( media-libs/openexr )
 	samba? ( net-fs/samba )

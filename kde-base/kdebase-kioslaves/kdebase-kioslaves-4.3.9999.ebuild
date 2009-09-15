@@ -19,6 +19,7 @@ DEPEND="
 	sys-apps/dbus
 	sys-apps/hal
 	x11-libs/libXcursor
+	bzip2? ( app-arch/bzip2 )
 	openexr? ( media-libs/openexr )
 	samba? ( net-fs/samba )
 "
@@ -36,8 +37,9 @@ KMEXTRA="
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bzip2 BZip2)
+		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with samba)
-		$(cmake-utils_use_with openexr OpenEXR)"
+	"
 
 	kde4-meta_src_configure
 }
