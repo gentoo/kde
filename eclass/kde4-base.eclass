@@ -377,10 +377,10 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.[23].85 | 4.[23].9[056] | 4.2.98 | 4.1.[9876]* | 4.0.[98]*)
+						4.[23].85 | 4.[23].9[0568] | 4.1.[6-9]* | 4.0.[89]*)
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-						4.[23].[9876]*)
+						4.[23].[6-9]*)
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
