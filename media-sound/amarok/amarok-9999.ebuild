@@ -23,8 +23,8 @@ DEPEND="
 		>=dev-db/mysql-5.0.76-r1[embedded,-minimal]
 		>=dev-db/mysql-community-5.0.77-r1[embedded,-minimal]
 	)
-	>=media-libs/taglib-1.5
-	>=media-libs/taglib-extras-0.1[kde]
+	>=media-libs/taglib-1.6
+	>=media-libs/taglib-extras-1.0.0
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
 	sys-libs/zlib
 	>=x11-libs/qtscriptgenerator-0.1.0
