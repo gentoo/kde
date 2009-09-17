@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="playground/network"
-KMMODULE="kbluetooth4"
+KMMODULE="kbluetooth"
 KDE_MINIMAL="4.3"
 inherit kde4-base
 
@@ -15,17 +15,24 @@ HOMEPAGE="http://bluetooth.kmobiletools.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
-IUSE="debug"
+SLOT="4"
+IUSE="debug semantic-desktop"
 
 DEPEND="
 	>=app-mobilephone/obex-data-server-0.4.2
 	>=app-mobilephone/obexftp-0.23_alpha[bluetooth]
 	>=kde-base/solid-${KDE_MINIMAL}[bluetooth]
-	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
+	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kdialog-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
 	>=kde-base/nepomuk-${KDE_MINIMAL}
 "
+
+src_configure() {
+	mycmakeargs="
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+	"
+	kde4-base_src_configure
+}
