@@ -217,12 +217,12 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.[23].85 | 4.[23].9[0568])
+			4.3.85 | 4.3.9[0568])
 				# block for normally packed upstream unstable snapshots
 				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
-			4.[23].[6-9]*)
+			4.3.[6-9]*)
 				KMTARPARAMS+=" --lzma" # lzma
 				postfix="lzma"
 				;;
@@ -392,11 +392,10 @@ kde4-meta_create_extractlists() {
 			# No need for unpack since 4.2.86
 			# Remove when 4.2 is wiped out from the tree
 			case ${PV} in
-				4.1*|4.2.[0-4]|4.2.85)
+				4.2.[0-4])
 					KMCOMPILEONLY+="
 						cmake/modules/"
 					;;
-				*) ;;
 			esac
 			;;
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)

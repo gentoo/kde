@@ -188,8 +188,8 @@ case ${KDEBASE} in
 		case ${PV} in
 			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
 			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
-			4.3* | 4.2.[6-9]*) SLOT="4.3" ;;
-			4.2* | 4.1.[6-9]*) SLOT="4.2" ;;
+			4.3*) SLOT="4.3" ;;
+			4.2*) SLOT="4.2" ;;
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
@@ -377,22 +377,16 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.[23].85 | 4.[23].9[0568] | 4.1.[6-9]* | 4.0.[89]*)
+						4.3.85 | 4.3.9[0568])
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-						4.[23].[6-9]*)
+						4.3.[6-9]*)
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.lzma" ;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
 					;;
 				koffice)
-					case ${PV} in
-						1.9*)
-							SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2"
-							;;
-						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
-					esac
-				;;
+					SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
 			esac
 			fi
 			unset _kmname _kmname_pv
