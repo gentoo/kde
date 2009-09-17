@@ -30,7 +30,6 @@ KMEXTRACTONLY="
 
 src_unpack() {
 	if use kontact; then
-		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
 		KMEXTRA="${KMEXTRA} kontact/plugins/planner"
 	fi
 

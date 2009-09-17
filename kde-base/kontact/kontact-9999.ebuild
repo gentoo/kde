@@ -13,7 +13,6 @@ IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}
@@ -40,7 +39,6 @@ KMEXTRACTONLY="
 	kontact/plugins/ktimetracker/
 	kontact/plugins/planner/
 	kontact/plugins/specialdates/
-	kontactinterfaces/
 "
 
 src_unpack() {

@@ -17,7 +17,6 @@ kde-base/knotes:live
 kde-base/konsolekalendar:live
 kde-base/kontact:live
 kde-base/kontact-specialdates:live
-kde-base/kontactinterfaces:live
 kde-base/korganizer:live
 # kde-base/korn:live disabled for now
 kde-base/kpilot:live

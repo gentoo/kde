@@ -22,7 +22,6 @@ RDEPEND="${DEPEND}
 "
 
 KMEXTRACTONLY="
-	kontactinterfaces/
 	kaddressbook
 	korganizer
 "

@@ -41,7 +41,9 @@ case ${KMNAME} in
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
-				RDEPEND+=" kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				if ! slot_is_at_least 4.4 ${SLOT} || [[ ${SLOT} == 4.4 && ${PV} < 4.3.68 ]]; then
+					RDEPEND+=" kontact? ( >=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=] )"
+				fi
 				;;
 		esac
 		;;
@@ -358,8 +360,10 @@ kde4-meta_create_extractlists() {
 			if has kontact ${IUSE//+} && use kontact; then
 				KMEXTRA+="
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
-				KMEXTRACTONLY+="
-					kontactinterfaces/"
+				if ! slot_is_at_least 4.4 ${SLOT} || [[ ${SLOT} == 4.4 && ${PV} < 4.3.68 ]]; then
+					KMEXTRACTONLY+="
+						kontactinterfaces/"
+				fi
 			fi
 			;;
 		kdeutils)

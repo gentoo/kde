@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-base/konsolekalendar-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontact-specialdates-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ktimetracker-${PV}:${SLOT}[kdeprefix=]
