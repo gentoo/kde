@@ -12,8 +12,12 @@ EGIT_REPO_URI="git://github.com/flavio/${PN}.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug test"
+
+RDEPEND="
+	!app-backup/kaveau:0
+"
 
 S="${WORKDIR}/${PN}"
 
