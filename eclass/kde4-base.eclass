@@ -386,7 +386,10 @@ case ${BUILD_TYPE} in
 					esac
 					;;
 				koffice)
-					SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
+					case ${PV} in
+						2.[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
+						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
+					esac
 			esac
 			fi
 			unset _kmname _kmname_pv
