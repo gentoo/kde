@@ -311,6 +311,7 @@ kde-base/kde-l10n:live
 ~dev-util/krazy2-9999
 ~kde-misc/basket-9999
 ~kde-misc/filelight-9999
+~kde-misc/kbstateapplet-9999
 ~kde-misc/kcheckgmail-9999
 ~kde-misc/kdiff3-9999
 ~kde-misc/kepas-9999
