@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice presentation program."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=dev-libs/boost-1.35.0"

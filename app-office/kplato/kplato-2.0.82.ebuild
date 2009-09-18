@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KPlato is a project management application."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 KMEXTRACTONLY="libs/"

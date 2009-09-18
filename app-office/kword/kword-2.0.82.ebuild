@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice word processor."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+wpd +wv2"
 
 DEPEND="

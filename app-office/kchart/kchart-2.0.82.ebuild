@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice chart application."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""

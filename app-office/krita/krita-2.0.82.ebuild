@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice image manipulation program."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+gmm +kdcraw +openexr +pdf +tiff"
 
 DEPEND="

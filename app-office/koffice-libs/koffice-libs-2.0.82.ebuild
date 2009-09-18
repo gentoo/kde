@@ -11,7 +11,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+crypt +openexr"
 
 RDEPEND="

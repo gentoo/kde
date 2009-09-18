@@ -8,7 +8,7 @@ KMNAME="koffice"
 inherit kde4-meta
 
 DESCRIPTION="KOffice flowchart application."
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug python"
 
 DEPEND="

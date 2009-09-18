@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice spreadsheet application."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+solver"
 
 DEPEND="dev-cpp/eigen:2

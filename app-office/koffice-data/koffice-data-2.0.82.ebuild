@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Shared KOffice data files."
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=media-libs/lcms-1.18"
