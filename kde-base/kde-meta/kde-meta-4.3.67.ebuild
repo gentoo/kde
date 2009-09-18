@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="accessibility kdeprefix +mysql nls"
+IUSE="accessibility kdeprefix nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
@@ -24,14 +24,12 @@ RDEPEND="
 	>=kde-base/kdegraphics-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdemultimedia-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdenetwork-meta-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdeplasma-addons-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdetoys-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdeutils-meta-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdewebdev-meta-${PV}:${SLOT}[kdeprefix=]
 	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT}[kdeprefix=] )
-	mysql? ( >=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=] )
 	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
 	$(block_other_slots)
 "
-# make kdepim-meta optional since it requires long hated mysql which people tend
-# not to want in their system. But also enable it by default
