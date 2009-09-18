@@ -21,8 +21,8 @@ IUSE="debug semantic-desktop"
 DEPEND="
 	>=app-mobilephone/obex-data-server-0.4.2
 	>=app-mobilephone/obexftp-0.23_alpha[bluetooth]
-	>=kde-base/solid-${KDE_MINIMAL}[bluetooth]
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
+	>=kde-base/solid-${KDE_MINIMAL}[bluetooth]
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kdialog-${KDE_MINIMAL}
@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="
+	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 	"
 	kde4-base_src_configure
