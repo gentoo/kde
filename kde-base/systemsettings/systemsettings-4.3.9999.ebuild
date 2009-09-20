@@ -52,8 +52,6 @@ KMEXTRACTONLY="
 	plasma/
 "
 
-PATCHES=( "$FILESDIR/20_use_dejavu_as_default_font.patch" )
-
 src_unpack() {
 	if use handbook; then
 		KMEXTRA="${KMEXTRA}
