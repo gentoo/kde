@@ -22,13 +22,13 @@
 
 inherit toolchain-funcs multilib flag-o-matic base
 
-EXPF="src_compile src_test src_install"
+CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2) EXPF+=" src_configure" ;;
+	2) CMAKE_EXPF+=" src_configure" ;;
 	1|0) ;;
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
-EXPORT_FUNCTIONS ${EXPF}
+EXPORT_FUNCTIONS ${CMAKE_EXPF}
 
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
@@ -311,7 +311,7 @@ _EOF_
 cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	has src_configure ${EXPF} || cmake-utils_src_configure
+	has src_configure ${CMAKE_EXPF} || cmake-utils_src_configure
 	cmake-utils_src_make "$@"
 }
 
