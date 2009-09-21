@@ -9,7 +9,7 @@ KMMODULE="konqueror/client"
 inherit kde4-meta
 
 DESCRIPTION="KDE tool for opening URLs from the command line"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ia64 ~x86"
 IUSE="debug"
 
 # Moved from kde-base/konqueror in 4.3.0-r2, 4.3.65-r1, and 9999-r1, so ugly blockers...

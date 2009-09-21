@@ -5,17 +5,15 @@
 EAPI="2"
 
 KMNAME="kdebase-workspace"
-KMMODULE="PolicyKit-kde"
+KMMODULE="libs/plasmagenericshell"
 inherit kde4-meta
 
-DESCRIPTION="PolicyKit integration module for KDE."
+DESCRIPTION="Libraries for the KDE Plasma shell"
 KEYWORDS="~amd64 ~x86"
-LICENSE="GPL-2"
 IUSE="debug"
 
-DEPEND="
-	sys-auth/policykit-qt
+RDEPEND="
+	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 "
-RDEPEND="${DEPEND}
-	!kde-misc/policykit-kde
-"
+
+KMSAVELIBS="true"

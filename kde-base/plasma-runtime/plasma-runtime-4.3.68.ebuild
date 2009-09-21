@@ -9,7 +9,7 @@ KMMODULE="plasma"
 inherit kde4-meta
 
 DESCRIPTION="Script engine and package tool for plasma"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~x86"
 IUSE="debug"
 
 # cloned from workspace thus introduce collisions.

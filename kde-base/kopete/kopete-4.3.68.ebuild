@@ -95,6 +95,13 @@ PDEPEND="
 	facebook? ( net-im/kopete-facebook )
 "
 
+src_prepare() {
+	sed -i "s:lib/mozilla:$(get_libdir)/mozilla:" kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
+	
+	kde4-meta_src_prepare
+}
+
+
 src_configure() {
 	local x x2
 	# Disable old msn support.

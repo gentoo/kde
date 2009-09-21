@@ -28,6 +28,7 @@ DEPEND="
 "
 # @since 4.3 - libkholidays is in kdepimlibs now
 # libakonadi-contact moved here from akonadi in 4.3.66
+# @since 4.4 - kontactinterfaces is in kdepimlibs now
 RDEPEND="${DEPEND}
 	!kdeprefix? (
 		!kde-base/akonadi:4.1[-kdeprefix]
@@ -35,10 +36,12 @@ RDEPEND="${DEPEND}
 		!kde-base/libkholidays:4.2[-kdeprefix]
 		!<kde-base/akonadi-4.3.66:4.4[-kdeprefix]
 		!=kde-base/akonadi-9999:live[-kdeprefix]
+		!kde-base/kontactinterfaces[-kdeprefix]
 	)
 	kdeprefix? (
 		!<kde-base/akonadi-4.3.66:${SLOT}[kdeprefix]
 		!=kde-base/akonadi-9999:${SLOT}[kdeprefix]
+		!kde-base/kontactinterfaces:${SLOT}[kdeprefix]
 	)
 "
 

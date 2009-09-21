@@ -32,7 +32,6 @@ RDEPEND="
 	>=kde-base/konsolekalendar-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontact-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kontact-specialdates-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/korganizer-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kpilot-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ktimetracker-${PV}:${SLOT}[kdeprefix=]
@@ -40,6 +39,7 @@ RDEPEND="
 	>=kde-base/libkleo-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkpgp-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libksieve-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/messagelist-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/mimelib-${PV}:${SLOT}[kdeprefix=]
 	$(block_other_slots)
 "

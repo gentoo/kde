@@ -7,17 +7,11 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="Interfaces for Kontact"
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+DESCRIPTION="KDE PIM messagelist library"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
 	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="
-	korganizer/korgac/org.kde.korganizer.KOrgac.xml
-"
-
-KMSAVELIBS="true"

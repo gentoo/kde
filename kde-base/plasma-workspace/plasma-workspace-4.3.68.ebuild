@@ -17,6 +17,7 @@ COMMONDEPEND="
 	>=kde-base/ksysguard-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libplasmagenericshell-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/solid-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXcomposite
@@ -56,10 +57,11 @@ KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	libs/kworkspace/
 	libs/taskmanager/
+	libs/plasmagenericshell/
 	ksysguard/
 "
 
-KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
+KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

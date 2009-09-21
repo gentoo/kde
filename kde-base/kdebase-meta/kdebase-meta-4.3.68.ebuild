@@ -74,6 +74,7 @@ RDEPEND="
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libplasmaclock-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/libplasmagenericshell-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/libtaskmanager-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/nsplugins-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/phonon-kde-${PV}:${SLOT}[kdeprefix=]

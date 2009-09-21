@@ -28,7 +28,6 @@ KMLOADLIBS="libkdepim"
 
 src_unpack() {
 	if use kontact; then
-		KMLOADLIBS="${KMLOADLIBS} kontactinterfaces"
 		KMEXTRA="${KMEXTRA} kontact/plugins/ktimetracker"
 	fi
 

@@ -13,7 +13,7 @@ get_packages_from_slot() {
 
 	# if user specify set then use desired one only
 	find ${PORTDIR_BUMPING}/sets/ -maxdepth 1 -type f -name ${SET}\*-${SLOT} -print \
-			| grep -v kdedeps | while read SLOTFILE; do
+			| grep -v kdedeps | grep -v koffice | while read SLOTFILE; do
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild

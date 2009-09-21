@@ -8,7 +8,7 @@ KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~x86"
 IUSE="debug"
 
 KMEXTRACTONLY="

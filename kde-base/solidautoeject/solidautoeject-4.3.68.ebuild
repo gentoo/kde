@@ -8,7 +8,7 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE4: Ejects optical drives when the eject button is pressed"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~x86"
 IUSE="debug"
 
 DEPEND="
