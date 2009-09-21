@@ -17,7 +17,7 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=media-libs/taglib-1.5
+	>=media-libs/taglib-1.6
 "
 DEPEND="${RDEPEND}"
 
