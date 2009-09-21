@@ -24,7 +24,7 @@ inherit toolchain-funcs multilib flag-o-matic base
 
 EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2) EXPF="${EXPF} src_configure" ;;
+	2) EXPF+=" src_configure" ;;
 	1|0) ;;
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
