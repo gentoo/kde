@@ -12,11 +12,6 @@ fi
 
 inherit base cmake-utils ${GIT_ECLASS}
 
-# After base so we get src_unpack from git, src_prepare is defined below
-if [[ ${PV} == 9999 ]]; then
-	inherit git
-fi
-
 MY_PN="amarok"
 
 DESCRIPTION="Various utility programs for Amarok."
