@@ -20,10 +20,3 @@ RDEPEND="
 "
 
 S="${WORKDIR}/${PN}"
-
-src_install() {
-	kde4-base_src_install
-
-	# colliding file with plasma-workspace
-	rm -rf "${D}/${PREFIX}"/share/apps/solid/actions/test-predicate-openinwindow.desktop
-}
