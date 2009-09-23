@@ -24,7 +24,7 @@ else
 fi
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="cdda daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
 
