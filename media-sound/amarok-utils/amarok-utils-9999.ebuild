@@ -4,7 +4,13 @@
 
 EAPI="2"
 
-inherit base cmake-utils
+if [[ ${PV} = *9999* ]]; then
+	GIT_ECLASS="git"
+	EGIT_PROJECT="amarok"
+	EGIT_REPO_URI="git://gitorious.org/amarok/amarok.git"
+fi
+
+inherit base cmake-utils ${GIT_ECLASS}
 
 # After base so we get src_unpack from git, src_prepare is defined below
 if [[ ${PV} == 9999 ]]; then
@@ -15,9 +21,8 @@ MY_PN="amarok"
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://gitorious.org/amarok/amarok.git"
-	EGIT_PROJECT="amarok"
+if [[ ${PV} = *9999* ]]; then
+	SRC_URI=""
 else
 	SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_PN}-${PV}.tar.bz2"
 fi
