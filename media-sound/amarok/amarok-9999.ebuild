@@ -4,12 +4,24 @@
 
 EAPI="2"
 
+# Translations are only in the tarballs, not the git repo
+if [[ ${PV} != 9999 ]]; then
+	KDE_LINGUAS="bg ca cs da de en_GB es et eu fi fr it ja km nb nds nl
+	pa pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
+fi
 OPENGL_REQUIRED="optional"
-inherit git kde4-base
+inherit kde4-base
+if [[ ${PV} == 9999 ]]; then
+	inherit git
+fi
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+else
+	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -54,6 +66,11 @@ PATCHES=( "${FILESDIR}/disable_bindings_test.patch" )
 
 src_unpack() {
 	git_src_unpack
+}
+
+# Only really required for live ebuild, to skip git_src_prepare
+src_prepare() {
+	kde4-base_src_prepare
 }
 
 src_configure() {

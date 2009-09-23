@@ -4,12 +4,23 @@
 
 EAPI="2"
 
-inherit git base cmake-utils
+inherit base cmake-utils
+
+# After base so we get src_unpack from git, src_prepare is defined below
+if [[ ${PV} == 9999 ]]; then
+	inherit git
+fi
+
+MY_PN="amarok"
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-EGIT_REPO_URI="git://gitorious.org/amarok/amarok.git"
-EGIT_PROJECT="amarok"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://gitorious.org/amarok/amarok.git"
+	EGIT_PROJECT="amarok"
+else
+	SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_PN}-${PV}.tar.bz2"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -27,11 +38,9 @@ RDEPEND="${DEPEND}
 	!<media-sound/amarok-2.1.80:${SLOT}
 "
 
-DOCS="TODO README ChangeLog AUTHORS"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
-src_unpack() {
-	git_src_unpack
-}
+DOCS="TODO README ChangeLog AUTHORS"
 
 src_prepare() {
 	# Disable po processing

@@ -6,11 +6,21 @@ EAPI="2"
 
 inherit base cmake-utils
 
+# After base so we get src_unpack from git, src_prepare is defined below
+if [[ ${PV} == 9999 ]]; then
+	inherit git
+fi
+
 MY_PN="amarok"
 
 DESCRIPTION="Various utility programs for Amarok."
 HOMEPAGE="http://amarok.kde.org/"
-SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_PN}-${PV}.tar.bz2"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://gitorious.org/amarok/amarok.git"
+	EGIT_PROJECT="amarok"
+else
+	SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_PN}-${PV}.tar.bz2"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
@@ -18,8 +28,8 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/taglib-1.5
-	>=media-libs/taglib-extras-0.1
+	>=media-libs/taglib-1.6
+	>=media-libs/taglib-extras-1.0.0
 	>=x11-libs/qt-core-4.4:4
 	>=x11-libs/qt-dbus-4.4:4
 "
@@ -29,10 +39,6 @@ RDEPEND="${DEPEND}
 "
 
 S="${WORKDIR}/${MY_PN}-${PV}"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-add-kdemacros.h.patch"
-)
 
 DOCS="TODO README ChangeLog AUTHORS"
 
