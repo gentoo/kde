@@ -198,7 +198,7 @@ case ${KDEBASE} in
 		# the overlay).
 		case ${PV} in
 			*9999* | 4.?.[6-9]?)
-				RESTRICT+=" mirrors"
+				RESTRICT+=" mirror"
 				;;
 		esac
 		KDE_MINIMAL="${SLOT}"
