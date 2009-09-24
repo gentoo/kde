@@ -34,6 +34,14 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
+src_prepare() {
+	kde4-base_src_prepare
+
+	mkdir -p cmake/modules || die "mkdir failed"
+	cp "${FILESDIR}"/FindLibKNotificationItem-1.cmake cmake/modules/ \
+		|| die "cp failed"
+}
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
