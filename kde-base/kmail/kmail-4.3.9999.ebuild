@@ -55,6 +55,13 @@ src_compile() {
 	kde4-meta_src_compile
 }
 
+src_install() {
+	kde4-meta_src_install
+
+	# Remove, when fixed upstream
+	rm -f "${D}/${PREFIX}"/share/icons/oxygen/{16x16,22x22,32x32,48x48}/{actions/mail-{forwarded-replied,forwarded,reply-custom,signed-fully,signed-part,signed}.png,status/mail-{sent,tagged,task}.png}
+}
+
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
