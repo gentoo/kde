@@ -1,0 +1,134 @@
+diff -ru ../system-config-printer-1.1.13/configure.in ./configure.in
+--- ../system-config-printer-1.1.13/configure.in	2009-09-14 16:13:21.000000000 +0200
++++ ./configure.in	2009-09-24 02:59:04.000000000 +0200
+@@ -1,6 +1,6 @@
+ AC_INIT(system-config-printer, 1.1.13)
+ AC_CONFIG_SRCDIR(system-config-printer.py)
+-AM_INIT_AUTOMAKE([dist-xz dist-bzip2 subdir-objects 1.6])
++AM_INIT_AUTOMAKE([dist-bzip2 subdir-objects 1.6])
+ IT_PROG_INTLTOOL
+ AM_GNU_GETTEXT([external])
+ AM_PATH_PYTHON
+diff -ru ../system-config-printer-1.1.13/Makefile.am ./Makefile.am
+--- ../system-config-printer-1.1.13/Makefile.am	2009-09-04 11:35:47.000000000 +0200
++++ ./Makefile.am	2009-09-24 02:55:11.000000000 +0200
+@@ -2,77 +2,8 @@
+ 
+ SUBDIRS=po
+ 
+-EXPORT_MODULES=					\
+-	cupshelpers/__init__.py			\
+-	cupshelpers/cupshelpers.py		\
+-	cupshelpers/ppds.py			\
+-	cupshelpers/openprinting.py
+-
+-### Automake hooks for Distutils.
+-# The distutils module doesn't understand srcdir != builddir,
+-# so we copy in, along with the cupshelpers modules, into
+-# the builddir for 'all', 'install-exec', and 'clean' hooks.
+-.stamp-distutils-in-builddir:	setup.py $(EXPORT_MODULES)
+-	if [ "$(top_srcdir)" != "$(top_builddir)" ]; then	\
+-		cp $(top_srcdir)/setup.py .;			\
+-		mkdir cupshelpers;				\
+-		for file in $(EXPORT_MODULES); do		\
+-			cp $(top_srcdir)/$$file $$file;		\
+-		done;						\
+-	fi
+-	touch .stamp-distutils-in-builddir
+-
+-dist-hook: mk-ChangeLog
+-.PHONE: mk-ChangeLog
+-mk-ChangeLog:
+-	if test -d .git; then				\
+-	  $(top_srcdir)/gitlog-to-changelog		\
+-	    --since=2009-05-01 -- --no-merges		\
+-	    > $(distdir)/cl ;				\
+-	  mv -f $(distdir)/cl $(distdir)/ChangeLog ;	\
+-	fi
+-
+-config.py: config.py.in Makefile
+-	sed \
+-	  -e "s|\@prefix\@|$(prefix)|" \
+-	  -e "s|\@datadir\@|$(datadir)|" \
+-	  -e "s|\@localedir\@|$(localedir)|" \
+-	  -e "s|\@VERSION\@|$(VERSION)|" \
+-	  -e "s|\@PACKAGE\@|$(PACKAGE)|" \
+-	  -e "s|\@WITH_POLKIT_1\@|$(WITH_POLKIT_1)|" \
+-	  $< > $@
+-
+-# Use distutils to build the module.
+-all-local: .stamp-distutils-in-builddir config.py
+-	$(PYTHON) setup.py build
+-
+-# Use distutils to install the module.
+-install-exec-local: .stamp-distutils-in-builddir
+-	$(PYTHON) setup.py install --prefix=$(DESTDIR)$(prefix)
+-
+-# Uninstall the module, crossing our fingers that we know enough
+-# about how distutils works to do this.  Unfortunately, distutils
+-# doesn't provide a way to do this itself.
+-uninstall-local:
+-	rm -f $(DESTDIR)/$(pythondir)/cupshelpers*.egg-info
+-	for file in $(EXPORT_MODULES); do				\
+-		rm -f $(DESTDIR)/$(pythondir)/$$file*;			\
+-	done
+-
+-# Tell distutils to clean up.
+-clean-local:
+-	-$(PYTHON) setup.py clean --all
+-	if [ "$(top_srcdir)" != "$(top_builddir)" ]; then	\
+-		rm -f setup.py;					\
+-		for file in $(EXPORT_MODULES); do		\
+-			rm -f $$file*;				\
+-		done;						\
+-	fi
+-	rm -f .stamp-distutils-in-builddir
+-
+ nobase_pkgdata_SCRIPTS=				\
+ 	my-default-printer.py			\
+-	pysmb.py				\
+ 	system-config-printer.py		\
+ 	troubleshoot/__init__.py		\
+ 	applet.py
+@@ -80,9 +11,7 @@
+ nobase_pkgdata_DATA=					\
+ 	AdvancedServerSettings.py			\
+ 	authconn.py					\
+-	config.py					\
+ 	cupspk.py					\
+-	debug.py					\
+ 	errordialogs.py					\
+ 	HIG.py						\
+ 	glade.py					\
+@@ -90,22 +19,13 @@
+ 	GroupsPaneModel.py				\
+ 	gtkinklevel.py					\
+ 	gtkspinner.py					\
+-	installpackage.py				\
+ 	jobviewer.py					\
+-	monitor.py					\
+ 	options.py					\
+ 	optionwidgets.py				\
+-	PhysicalDevice.py				\
+-	ppdippstr.py					\
+-	probe_printer.py				\
+ 	gtk_label_autowrap.py				\
+-	SearchCriterion.py				\
+-	smburi.py					\
+-	statereason.py					\
+ 	timedops.py					\
+ 	ToolbarSearchEntry.py				\
+ 	userdefault.py					\
+-	XmlHelper.py					\
+ 	glade/AboutDialog.glade				\
+ 	glade/ConnectDialog.glade				\
+ 	glade/ConnectingDialog.glade			\
+@@ -167,8 +87,6 @@
+ 	man/system-config-printer.1		\
+ 	man/system-config-printer-applet.1
+ 
+-dbus_DATA =\
+-	newprinternotification.conf
+ dbusdir = $(sysconfdir)/dbus-1/system.d/
+ 
+ desktop_DATA =\
