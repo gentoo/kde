@@ -4,14 +4,14 @@
 
 EAPI="2"
 
-KMNAME="extragear/office"
 inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
 HOMEPAGE="http://www.kde-apps.org/content/show.php/skrooge?content=92458"
+SRC_URI="http://websvn.kde.org/*checkout*/tags/${PN}/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
