@@ -49,7 +49,6 @@ src_prepare() {
 	# fix tag appending to folder
 	# build 2geom and toy as shared things
 	sed -i \
-		-e "s:\"lib\${LIB_SUFFIX}\":\"$(get_libdir)\":g" \
 		-e "s:doc/\${MAIN_DIR_NAME}\${TAG_VERSION}/\":doc/${PF}/\":g" \
 		-e "s:doc/\${MAIN_DIR_NAME}-\${VERSION}/\":doc/${PF}/\":g" \
 		-e "s:\${MAIN_DIR_NAME}\${TAG_VERSION}:\${MAIN_DIR_NAME}:g" \
