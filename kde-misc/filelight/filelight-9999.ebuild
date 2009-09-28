@@ -12,7 +12,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/filelight?content=99561"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
