@@ -38,7 +38,8 @@ KMEXTRA="
 	libs/kdm/
 "
 
-PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
+PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
+	  "${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch" )
 
 src_configure() {
 	# genkdmconf breaks with -O3
