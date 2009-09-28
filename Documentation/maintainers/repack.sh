@@ -20,6 +20,7 @@ done
 for x in $(ls -d *-${KDEVER})
 do
 	tar cpf $x.tar $x
+	rm -rf $x
 done
 
 # making tar.lzma
