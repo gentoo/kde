@@ -3,6 +3,6 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name="consolekit">Enables support for authorization using consolekit</flag>
+  <flag name="consolekit">Enables support for authorization using consolekit</flag>
 </use>
 </pkgmetadata>
