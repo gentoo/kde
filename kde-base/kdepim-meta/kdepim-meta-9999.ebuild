@@ -16,6 +16,7 @@ IUSE="kdeprefix"
 RDEPEND="
 	>=kde-base/akonadi-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/akregator-${PV}:${SLOT}[kdeprefix=]
+	>=kde-base/blogilo-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kabcclient-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kalarm-${PV}:${SLOT}[kdeprefix=]
