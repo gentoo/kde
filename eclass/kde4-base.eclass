@@ -631,8 +631,9 @@ kde4-base_src_make_doc() {
 	if [[ -n ${KDEBASE} ]] && [[ -d "${D}${EROOT}usr/share/doc/${PF}" ]]; then
 		# work around bug #97196
 		dodir /usr/share/doc/KDE4 && \
-			mv -f "${D}${EROOT}usr/share/doc/${PF}" "${D}${EROOT}usr/share/doc/KDE4/" || \
+			cp -r "${D}${EROOT}usr/share/doc/${PF}" "${D}${EROOT}usr/share/doc/KDE4/" || \
 			die "Failed to move docs to KDE4/."
+			rm -rf "${D}${EROOT}usr/share/doc/${PF}"
 	fi
 }
 
