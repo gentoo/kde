@@ -16,8 +16,6 @@ IUSE="+bzip2 debug lzma +handbook openexr samba sftp"
 RESTRICT="test"
 
 DEPEND="
-	sys-apps/dbus
-	sys-apps/hal
 	x11-libs/libXcursor
 	bzip2? ( app-arch/bzip2 )
 	lzma? ( app-arch/xz-utils )
@@ -29,6 +27,7 @@ RDEPEND="${DEPEND}
 	>=kde-base/kdelibs-${PV}:${SLOT}[bzip2?,lzma?]
 	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
+	virtual/eject
 	virtual/ssh
 "
 
