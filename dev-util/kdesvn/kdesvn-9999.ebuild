@@ -14,7 +14,7 @@ ESVN_PROJECT="kdesvn"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4"
 IUSE="debug +handbook"
 
 DEPEND="
