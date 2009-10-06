@@ -2,7 +2,6 @@ app-misc/strigi
 app-office/akonadi-server
 app-text/ebook-tools
 dev-cpp/eigen:2
->=dev-libs/libical-0.33-r1
 dev-libs/libzip
 dev-libs/soprano
 >=kde-base/qimageblitz-0.0.4
