@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook +semantic-desktop thumbnail"
 
 DEPEND="
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop=]
+	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
 	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
 "
 RDEPEND="${DEPEND}

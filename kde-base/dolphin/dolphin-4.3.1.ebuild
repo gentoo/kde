@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/dolphin-4.3.1.ebuild,v 1.1 2009/09/01 14:44:51 tampakrap Exp $
 
 EAPI="2"
 
@@ -8,7 +8,7 @@ KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook +semantic-desktop thumbnail"
 
 DEPEND="
