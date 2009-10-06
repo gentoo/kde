@@ -86,29 +86,10 @@ DEPEND="${COMMONDEPEND}
 # kde-base/kpercentage
 # kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
+	!dev-libs/conversion
 	!dev-libs/kunitconversion
-	!<=kde-base/kdebase-3.5.9-r4
-	!<=kde-base/kdebase-startkde-3.5.10
-	!<kde-base/kdelibs-3.5.10
 	!x11-libs/qt-phonon
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
-	!kdeprefix? (
-		!kde-base/kitchensync:4.1[-kdeprefix]
-		!kde-base/knewsticker:4.1[-kdeprefix]
-		!kde-base/kpercentage:4.1[-kdeprefix]
-		!kde-base/ktnef:4.1[-kdeprefix]
-		!kde-base/libknotificationitem[-kdeprefix]
-		!kde-base/libkworkspace:4.2[-kdeprefix]
-		!kde-base/libkworkspace:4.3[-kdeprefix]
-		!<kde-base/libkworkspace-4.3.66:4.4[-kdeprefix]
-		!=kde-base/libkworkspace-9999:live[-kdeprefix]
-		!kde-base/libplasma[-kdeprefix]
-	)
-	kdeprefix? (
-		!kde-base/libknotificationitem:${SLOT}[kdeprefix]
-		!<kde-base/libkworkspace-4.3.66:${SLOT}[kdeprefix]
-		!=kde-base/libkworkspace-9999:${SLOT}[kdeprefix]
-	)
 	>=app-crypt/gnupg-2.0.11
 	x11-apps/iceauth
 	x11-apps/rgb
@@ -119,6 +100,20 @@ PDEPEND="
 	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
 	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
 "
+
+# Blockers added due to packages from old versions, removed in the meanwhile
+# as well as for file collisions
+add_blocker kitchensync 4.1.50
+add_blocker knewsticker 4.1.50
+add_blocker kpercentage 4.1.50
+add_blocker ktnef 4.1.50
+add_blocker libknotificationitem
+add_blocker libkworkspace '<4.3.66' 9999:live
+add_blocker libplasma
+# Block some old versions of KDE-3.5 packages that don't work well with KDE-4
+add_blocker kdebase 0 3.5.9-r4:3.5
+add_blocker kdebase-startkde 0 3.5.10:3.5
+add_blocker kdelibs 0 '<3.5.10:3.5'
 
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
