@@ -1,9 +1,9 @@
 app-admin
+app-backup
 app-cdr
 app-editors
 app-misc
 app-office
-app-text
 dev-cpp
 dev-db
 dev-libs
@@ -26,6 +26,7 @@ net-p2p
 net-wireless
 sys-auth
 sys-block
+sys-devel
 sys-power
 www-client
 x11-libs
