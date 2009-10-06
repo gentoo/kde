@@ -35,10 +35,7 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}
 	>=kde-base/kcontrol-${PV}:${SLOT}[kdeprefix=]
 	x11-apps/setxkbmap
-	|| (
-		x11-misc/xkbdata
-		x11-misc/xkeyboard-config
-	)
+	x11-misc/xkeyboard-config
 "
 
 KMEXTRA="
