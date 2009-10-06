@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdnssd)
+	$(add_kdebase_dep khotkeys)
 "
 
 add_blocker ksmserver 4.1.50

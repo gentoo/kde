@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/kioclient-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kioclient)
 "
 
 # Moved from kde-base/konqueror in 4.3.0-r2, 4.3.65-r1, and 9999-r1

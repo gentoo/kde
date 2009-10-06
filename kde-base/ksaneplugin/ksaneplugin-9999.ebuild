@@ -15,6 +15,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libksane-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libksane)
 "
 RDEPEND="${DEPEND}"

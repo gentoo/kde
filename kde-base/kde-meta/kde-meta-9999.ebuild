@@ -15,21 +15,21 @@ IUSE="accessibility kdeprefix nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
-	>=kde-base/kate-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeadmin-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeedu-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdegames-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdegraphics-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdemultimedia-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdenetwork-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdepim-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeplasma-addons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdetoys-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeutils-meta-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdewebdev-meta-${PV}:${SLOT}[kdeprefix=]
-	accessibility? ( >=kde-base/kdeaccessibility-meta-${PV}:${SLOT}[kdeprefix=] )
-	nls? ( >=kde-base/kde-l10n-${PV}:${SLOT}[kdeprefix=] )
+	$(add_kdebase_dep kate)
+	$(add_kdebase_dep kdeadmin-meta)
+	$(add_kdebase_dep kdeartwork-meta)
+	$(add_kdebase_dep kdebase-meta)
+	$(add_kdebase_dep kdeedu-meta)
+	$(add_kdebase_dep kdegames-meta)
+	$(add_kdebase_dep kdegraphics-meta)
+	$(add_kdebase_dep kdemultimedia-meta)
+	$(add_kdebase_dep kdenetwork-meta)
+	$(add_kdebase_dep kdepim-meta)
+	$(add_kdebase_dep kdeplasma-addons)
+	$(add_kdebase_dep kdetoys-meta)
+	$(add_kdebase_dep kdeutils-meta)
+	$(add_kdebase_dep kdewebdev-meta)
+	accessibility? ( $(add_kdebase_dep kdeaccessibility-meta) )
+	nls? ( $(add_kdebase_dep kde-l10n) )
 	$(block_other_slots)
 "

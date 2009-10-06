@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkworkspace)
 "
 
 KMSAVELIBS="true"
