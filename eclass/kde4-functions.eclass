@@ -512,7 +512,7 @@ _do_blocker() {
 # name, the optional second, is additional USE flags to append.
 # The output of this should be added directly to DEPEND/RDEPEND, and
 # may be wrapped in a USE conditional (but not an || conditional
-# without an extra set of parentheses.
+# without an extra set of parentheses).
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
