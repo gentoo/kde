@@ -450,7 +450,7 @@ _do_blocker() {
 		if [[ ${param/:} == ${param} ]]; then
 			def=${param}
 		else # the parameter *does* have a ":" in it
-			# so everythin after the : is the slot...
+			# so everything after the : is the slot...
 			slot=${param#*:}
 			# ...and everything before the : is the version
 			local block_${slot//./_}=${param%:*}
@@ -464,10 +464,9 @@ _do_blocker() {
 		# if we didn't pass *:${slot}, then use the unsloted value
 		[[ ${!var} == "unset" ]] && var=def
 
-		# If the no version was passed, or the version is greater than the
-		# maximum possible version in this slot, block all versions in this
-		# slot
-		if [[ ${!var} == "unset" ]] || _greater_max_in_slot ${!var#<} ${slot}; then
+		# If no version was passed, or the version is greater than the maximum
+		# possible version in this slot, block all versions in this slot
+		if [[ ${!var} == "unset" ]] || [[ -z ${!var} ]] || _greater_max_in_slot ${!var#<} ${slot}; then
 			atom=${pkg}
 		# If the version is "0" or less than the minimum possible version in
 		# this slot, do nothing
