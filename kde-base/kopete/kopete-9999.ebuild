@@ -67,7 +67,7 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	x11-libs/libXScrnSaver
 	>=x11-libs/qt-gui-4.4.0:4[mng]
-	gadu? ( >=net-libs/libgadu-1.8.0 )
+	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2 )
 	jabber? (
 		app-crypt/qca:2
