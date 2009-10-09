@@ -21,5 +21,6 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkleo
+	libkpgp
 	messagecore
 "
