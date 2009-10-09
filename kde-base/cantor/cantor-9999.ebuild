@@ -37,8 +37,8 @@ pkg_postinst() {
 		echo
 		ewarn "You have decided to build ${PN} with no backend."
 		ewarn "To have this application functional, please do one of below:"
-		ewarn "    * emerge -va1 '='${CATEGORY}/${P} with 'R' USE flag enabled"
-		ewarn "    * emerge -vaDu sci-mathematics/maxima"
+		ewarn "    # emerge -va1 '='${CATEGORY}/${P} with 'R' USE flag enabled"
+		ewarn "    # emerge -vaDu sci-mathematics/maxima"
 		echo
 	fi
 }
