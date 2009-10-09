@@ -21,4 +21,5 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkleo
+	messagecore
 "

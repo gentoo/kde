@@ -31,6 +31,7 @@ KMEXTRACTONLY="
 	libkleo
 	libkpgp
 	libksieve
+	messagecore
 	messagelist
 	mimelib
 "

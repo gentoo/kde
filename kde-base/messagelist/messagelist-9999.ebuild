@@ -15,3 +15,7 @@ DEPEND="
 	$(add_kdebase_dep messagecore)
 "
 RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	messagecore
+"
