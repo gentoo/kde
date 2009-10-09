@@ -40,7 +40,9 @@ RDEPEND="
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
 	$(add_kdebase_dep libksieve)
+	$(add_kdebase_dep messagecore)
 	$(add_kdebase_dep messagelist)
+	$(add_kdebase_dep messageviewer)
 	$(add_kdebase_dep mimelib)
 	$(block_other_slots)
 "

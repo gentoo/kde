@@ -26,5 +26,7 @@ kde-base/libkdepim:live
 kde-base/libkleo:live
 kde-base/libkpgp:live
 kde-base/libksieve:live
+kde-base/messagecore:live
 kde-base/messagelist:live
+kde-base/messageviewer:live
 kde-base/mimelib:live

@@ -7,11 +7,6 @@ EAPI="2"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="KDE PIM messagelist library"
+DESCRIPTION="KDE PIM messagecore library"
 KEYWORDS=""
 IUSE="debug"
-
-DEPEND="
-	$(add_kdebase_dep messagecore)
-"
-RDEPEND="${DEPEND}"
