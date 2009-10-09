@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/dolphin-4.3.1.ebuild,v 1.1 2009/09/01 14:44:51 tampakrap Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/dolphin-4.3.2.ebuild,v 1.2 2009/10/06 20:53:01 alexxy Exp $
 
 EAPI="2"
 
@@ -25,6 +25,10 @@ PDEPEND="
 "
 
 KMLOADLIBS="libkonq"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.3.1-fix-sftp-crash.patch"
+)
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
