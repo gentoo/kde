@@ -206,11 +206,6 @@ cmake-utils_use_build() { _use_me_now BUILD_ "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
 
-# @FUNCTION: cmake-utils_has
-# @DESCRIPTION:
-# Deprecated, use cmake-utils_use_has, kept now for backcompat.
-cmake-utils_has() { ewarn "QA notice: using deprecated ${FUNCNAME} call, use cmake-utils_use_has instead." ; _use_me_now HAVE_ "$@" ; }
-
 # @FUNCTION: cmake-utils_use
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
@@ -313,22 +308,6 @@ cmake-utils_src_compile() {
 
 	has src_configure ${CMAKE_EXPF} || cmake-utils_src_configure
 	cmake-utils_src_make "$@"
-}
-
-# @FUNCTION: cmake-utils_src_configurein
-# @DESCRIPTION:
-# Deprecated
-cmake-utils_src_configurein() {
-	ewarn "QA notice: using deprecated ${FUNCNAME} call, set CMAKE_IN_SOURCE_BUILD=1 instead."
-	cmake-utils_src_configure
-}
-
-# @FUNCTION: cmake-utils_src_configureout
-# @DESCRIPTION:
-# Deprecated
-cmake-utils_src_configureout() {
-	ewarn "QA notice: using deprecated ${FUNCNAME} call, out of source build is enabled by default."
-	cmake-utils_src_configure
 }
 
 # @FUNCTION: cmake-utils_src_make
