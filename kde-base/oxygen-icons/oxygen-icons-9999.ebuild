@@ -24,3 +24,4 @@ IUSE=""
 add_blocker kdebase-data '<4.2.67'
 add_blocker kdepim-icons 4.2.89
 add_blocker step 4.2.98
+add_blocker kmail '<4.3.2'
