@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook jpeg rdp vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
+#telepathy? ( >=net-libs/telepathy-qt4-0.18 ) not yet in portage/overlay
 
 DEPEND="
 	jpeg? ( media-libs/jpeg )
@@ -29,9 +30,12 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		-DWITH_TelepathyQt4=OFF
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with vnc LibVNCServer)
-		$(cmake-utils_use_with zeroconf DNSSD)"
+		$(cmake-utils_use_with zeroconf DNSSD)
+	"
+	# $(cmake-utils_use_with telepathy TelepathyQt4)
 
 	kde4-meta_src_configure
 }
