@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KDE_LINGUAS="bg cs da de es fr hu is it ja nb nl pl pt_BR ru sk sv tr uk zh_CN zh_TW"
-
+KDE_LINGUAS="bg cs da de es fr hu is it ja ko_KR nb nl pl pt_BR ru sk sv tr uk zh_CN zh_TW"
+KDE_DOC_DIRS="doc"
 inherit kde4-base cvs
 
 DESCRIPTION="Smb4K is a SMB share browser for KDE."
@@ -16,18 +16,11 @@ ECVS_LOCALNAME="${P}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="1"
-IUSE="debug bindist"
+SLOT="4"
+IUSE="debug handbook"
 
-COMMON_DEPEND="
+RDEPEND="
+	|| ( >=net-fs/samba-client-3.4.2 net-fs/mount-cifs )
 	>=kde-base/konqueror-${KDE_MINIMAL}
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-util/cmake-2.6.1
-"
-RDEPEND="${COMMON_DEPEND}
-	!kdeprefix? ( !net-misc/smb4k:0 )
-	net-fs/mount-cifs
-	!bindist? ( net-fs/samba )
-	bindist? ( <net-fs/samba-3.2.0_pre2 )
-"
+DEPEND="${RDEPEND}"
