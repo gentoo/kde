@@ -18,9 +18,9 @@ SLOT="0"
 IUSE="+clucene +dbus debug doc elibc_FreeBSD +java +raptor redland"
 
 COMMON_DEPEND="
-	x11-libs/qt-core:4
+	>=x11-libs/qt-core-4.5.0:4
 	clucene? ( dev-cpp/clucene )
-	dbus? ( x11-libs/qt-dbus:4 )
+	dbus? ( >=11-libs/qt-dbus-4.5.0:4 )
 	raptor? ( >=media-libs/raptor-1.4.16 )
 	redland? (
 		>=dev-libs/rasqal-0.9.15
