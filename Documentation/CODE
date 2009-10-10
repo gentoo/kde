@@ -54,6 +54,25 @@ KDE4 (kde-testing) policies:
 
  - use the add_blocker function to add blocks. This ensures that the blocks are only added to RDEPEND.
 
+Examples:
+
+   # Block all versions of kdelibs <=4.1.80
+   add_blocker kdelibs 4.1.80
+
+   # Block all versions of kdelibs <4.2.0
+   add_blocker kdelibs '<4.2.0'
+
+   # Block all versions of kdelibs <=4.2.80 or <=4.3.2 or <4.3.65 or <=9999, depending on SLOT
+   add_blocker kdelibs 4.2.80 4.3.2:4.3 '<4.3.65:4.4' 9999:live
+
+   # Block all versions of kde-menu (replaced by kdebase-menu)
+   add_blocker kde-menu
+
+   # Block all versions of kdelibs in slot :4.1 or prior
+   add_blocker kdelibs 4.1.50
+
+   For more details, read the comments in kde4-functions.eclass
+
  - comment any new blockers you add
 
 
