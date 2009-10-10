@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix"
+IUSE="kdeprefix +python"
 
 RDEPEND="
 	$(add_kdebase_dep blinken)
@@ -30,8 +30,8 @@ RDEPEND="
 	$(add_kdebase_dep kturtle)
 	$(add_kdebase_dep kwordquiz)
 	$(add_kdebase_dep libkdeedu)
-	$(add_kdebase_dep marble)
 	$(add_kdebase_dep parley)
 	$(add_kdebase_dep step)
+	python? ( $(add_kdebase_dep marble) )
 	$(block_other_slots)
 "
