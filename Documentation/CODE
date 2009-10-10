@@ -52,21 +52,9 @@ KDE4 (kde-testing) policies:
    for everyone except those using kde-${SLOT} umask file helper, so those dependencies will be available
    only for them.
 
- - handle blocks carefully. Put blocks only in RDEPEND section and comment the reason for the block.
-   Block, if possible should contain specific version for the blocker. Below are most typical
-   scenarios for kde-base/ related blocks, your should use this as a pattern, unless you know what you're doing.
+ - use the add_blocker function to add blocks. This ensures that the blocks are only added to RDEPEND.
 
-   * ebuild rename not colliding with KDE3 ebuilds (see example kde-menu -> kdebase-menu)
-
-   !kdeprefix? ( !<old_cat>/<old_pkg>[-kdeprefix] )
-   kdeprefix? ( !<old_cat>/<old_pkg>:${SLOT} )
-
-TODO
-TODO    ie. we introduce blocker for 4.1.87 then we add to the block !<cat/pn-4.1.87
-TODO    remember to use correct +-kdeprefix resolution
-TODO   !kdeprefix? ( !<cat/pn-version[kdeprefix-] )
-TODO   kdeprefix? ( !<cat/pn-version:slot[kdeprefix] )
-TODO
+ - comment any new blockers you add
 
 
 Commiting:
@@ -112,7 +100,7 @@ QA:
 	dev-libs/libpcre
 	dev-libs/libxml2
 
-   * try to separate KEYWORDS and IUSE with some usually invariant variable (like SLOT) - it makes
+   * try to separate KEYWORDS and IUSE with some usually invariant variable (like LICENSE) - it makes
      it easier to merge changes between live and tagged ebuilds using GUI diff/merge tools.
      Always *avoid* merging/synchronizing ebuilds manually if possible - it's error prone.
      Use kompare <srcfile> <destfile> for it.
@@ -126,7 +114,7 @@ mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
      - it's easier to spot them when they're in expected location
 
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-base/phonon-xine[-kdeprefix] )
+	!kdeprefix? ( !dev-libs/libconvert )
 "
 
    * put optional dependencies after obligatory ones - again - improves readability
