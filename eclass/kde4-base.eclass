@@ -108,10 +108,55 @@ if [[ -n ${NEED_KDE} ]]; then
 	esac
 fi
 
+# Setup packages inheriting this eclass
+case ${KDEBASE} in
+	kde-base)
+		if [[ $BUILD_TYPE = live ]]; then
+			# Disable tests for live ebuilds
+			RESTRICT+=" test"
+			# Live ebuilds in kde-base default to kdeprefix by default
+			IUSE+=" +kdeprefix"
+		else
+			# All other ebuild types default to -kdeprefix as before
+			IUSE+=" kdeprefix"
+		fi
+		# Determine SLOT from PVs
+		case ${PV} in
+			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
+			4.3*) SLOT="4.3" ;;
+			4.2*) SLOT="4.2" ;;
+			9999*) SLOT="live" ;; # regular live
+			*) die "Unsupported ${PV}" ;;
+		esac
+		# This code is to prevent portage from searching GENTOO_MIRRORS for
+		# packages that will never be mirrored. (As they only will ever be in
+		# the overlay).
+		case ${PV} in
+			*9999* | 4.?.[6-9]?)
+				RESTRICT+=" mirror"
+				;;
+		esac
+		KDE_MINIMAL="${SLOT}"
+		_kdedir="${SLOT}"
+
+		# Block installation of other SLOTS unless kdeprefix
+		RDEPEND+=" $(block_other_slots)"
+		;;
+	koffice)
+		SLOT="2"
+		;;
+esac
+
 # @ECLASS-VARIABLE: QT_DEPEND
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
-# Currently defaults to 4.5.1
+# Currently defaults to 4.5.1 for KDE 4.3 and earlier
+# or 4.6.0_alpha_pre for KDE 4.4 and later
+if slot_is_at_least 4.4 "${KDE_MINIMAL}"; then
+	QT_DEPEND="${QT_DEPEND:-4.6.0_alpha_pre}"
+fi
+
 QT_DEPEND="${QT_DEPEND:-4.5.1}"
 
 # OpenGL dependencies
@@ -172,55 +217,6 @@ case ${CPPUNIT_REQUIRED} in
 esac
 unset cppuintdepend
 
-# Setup packages inheriting this eclass
-case ${KDEBASE} in
-	kde-base)
-		if [[ $BUILD_TYPE = live ]]; then
-			# Disable tests for live ebuilds
-			RESTRICT+=" test"
-			# Live ebuilds in kde-base default to kdeprefix by default
-			IUSE+=" +kdeprefix"
-		else
-			# All other ebuild types default to -kdeprefix as before
-			IUSE+=" kdeprefix"
-		fi
-		# Determine SLOT from PVs
-		case ${PV} in
-			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
-			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
-			4.3*) SLOT="4.3" ;;
-			4.2*) SLOT="4.2" ;;
-			9999*) SLOT="live" ;; # regular live
-			*) die "Unsupported ${PV}" ;;
-		esac
-		# This code is to prevent portage from searching GENTOO_MIRRORS for
-		# packages that will never be mirrored. (As they only will ever be in
-		# the overlay).
-		case ${PV} in
-			*9999* | 4.?.[6-9]?)
-				RESTRICT+=" mirror"
-				;;
-		esac
-		KDE_MINIMAL="${SLOT}"
-		_kdedir="${SLOT}"
-		_pv="-${PV}:${SLOT}"
-		_pvn="-${PV}"
-
-		# Block installation of other SLOTS unless kdeprefix
-		RDEPEND+=" $(block_other_slots)"
-		;;
-	koffice)
-		SLOT="2"
-		_pv="-${KDE_MINIMAL}"
-		_pvn="${_pv}"
-		;;
-	*)
-		_pv="-${KDE_MINIMAL}"
-		_pvn="${_pv}"
-		;;
-
-esac
-
 # KDE dependencies
 kdecommondepend="
 	dev-lang/perl
@@ -239,24 +235,16 @@ kdecommondepend="
 "
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
+		kdecommondepend+=" $(add_kdebase_dep kdelibs)"
 		# libknotificationitem only when SLOT is 4.3
-		[[ ${PN} != libknotificationitem ]] && [[ ${SLOT} = 4.3 ]] && local libknotificationitem_required=1
-		kdecommondepend+="
-			kdeprefix? ( >=kde-base/kdelibs${_pv}[kdeprefix] )
-			!kdeprefix? ( >=kde-base/kdelibs${_pvn}[-kdeprefix] )
-		"
-		[[ -n ${libknotificationitem_required} ]] && \
-			kdecommondepend+="
-				kdeprefix? ( >=kde-base/libknotificationitem${_pv}[kdeprefix] )
-				!kdeprefix? ( >=kde-base/libknotificationitem${_pvn}[-kdeprefix] )
-			"
+		[[ ${PN} != libknotificationitem ]] && [[ ${SLOT} = 4.3 ]] && \
+			kdecommondepend+=" $(add_kdebase_dep libknotificationitem)"
 	else
 		kdecommondepend+="
-			>=kde-base/kdelibs${_pv}
+			>=kde-base/kdelibs-${KDE_MINIMAL}
 		"
 	fi
 fi
-unset _pv _pvn
 kdedepend="
 	dev-util/pkgconfig
 "
