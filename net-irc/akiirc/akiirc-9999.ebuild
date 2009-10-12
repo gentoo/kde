@@ -16,6 +16,6 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	>=x11-libs/qt-core-${QT_DEPEND}:4[ssl]
+	>=x11-libs/qt-core-${QT_MINIMAL}:4[ssl]
 "
 DEPEND="${RDEPEND}"

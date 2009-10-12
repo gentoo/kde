@@ -148,20 +148,20 @@ case ${KDEBASE} in
 		;;
 esac
 
-# @ECLASS-VARIABLE: QT_DEPEND
+# @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
 # Currently defaults to 4.5.1 for KDE 4.3 and earlier
 # or 4.6.0_alpha_pre for KDE 4.4 and later (except 4.3.69)
 if slot_is_at_least 4.4 "${KDE_MINIMAL}" && [[ ${KDEBASE} != kde-base || ${PV} != 4.3.69 ]]; then
-	QT_DEPEND="${QT_DEPEND:-4.6.0_alpha_pre}"
+	QT_MINIMAL="${QT_MINIMAL:-4.6.0_alpha_pre}"
 fi
 
-QT_DEPEND="${QT_DEPEND:-4.5.1}"
+QT_MINIMAL="${QT_MINIMAL:-4.5.1}"
 
 # OpenGL dependencies
 qtopengldepend="
-	>=x11-libs/qt-opengl-${QT_DEPEND}:4
+	>=x11-libs/qt-opengl-${QT_MINIMAL}:4
 "
 case ${OPENGL_REQUIRED} in
 	always)
@@ -186,7 +186,7 @@ case ${KDE_REQUIRED} in
 	*) ;;
 esac
 qtwebkitdepend="
-	>=x11-libs/qt-webkit-${QT_DEPEND}:4${qtwebkitusedeps}
+	>=x11-libs/qt-webkit-${QT_MINIMAL}:4${qtwebkitusedeps}
 "
 unset qtwebkitusedeps
 case ${WEBKIT_REQUIRED} in
@@ -220,13 +220,13 @@ unset cppuintdepend
 # KDE dependencies
 kdecommondepend="
 	dev-lang/perl
-	>=x11-libs/qt-core-${QT_DEPEND}:4[qt3support,ssl]
-	>=x11-libs/qt-gui-${QT_DEPEND}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_DEPEND}:4[accessibility,kde]
-	>=x11-libs/qt-script-${QT_DEPEND}:4
-	>=x11-libs/qt-sql-${QT_DEPEND}:4[qt3support]
-	>=x11-libs/qt-svg-${QT_DEPEND}:4
-	>=x11-libs/qt-test-${QT_DEPEND}:4
+	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
+	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
+	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility,kde]
+	>=x11-libs/qt-script-${QT_MINIMAL}:4
+	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
+	>=x11-libs/qt-svg-${QT_MINIMAL}:4
+	>=x11-libs/qt-test-${QT_MINIMAL}:4
 	!aqua? (
 		x11-libs/libXext
 		x11-libs/libXt
