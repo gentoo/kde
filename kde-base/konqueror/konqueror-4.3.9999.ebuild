@@ -34,6 +34,12 @@ KMEXTRACTONLY="
 	lib/konq/
 "
 
+src_configure() {
+	mycmakeargs+=" -DWITH_KdeWebKit=OFF -DWITH_WebKitPart=OFF"
+
+	kde4-meta_src_configure
+}
+
 src_prepare() {
 	kde4-meta_src_prepare
 
