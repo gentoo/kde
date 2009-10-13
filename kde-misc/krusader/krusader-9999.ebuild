@@ -19,5 +19,5 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	!kdeprefix? ( !kde-misc/krusader:0 )
+	!kde-misc/krusader:0
 "

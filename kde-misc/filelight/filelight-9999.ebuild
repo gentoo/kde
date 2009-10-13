@@ -16,6 +16,6 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !kde-misc/filelight:0 )
+	!kde-misc/filelight:0
 	x11-apps/xdpyinfo
 "

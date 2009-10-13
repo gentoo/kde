@@ -23,7 +23,7 @@ DEPEND="
 	x11-libs/qt-dbus:4
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !app-cdr/k9copy:0 )
+	!app-cdr/k9copy:0
 	media-video/dvdauthor
 	media-video/mplayer
 "

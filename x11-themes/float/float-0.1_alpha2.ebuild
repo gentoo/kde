@@ -36,11 +36,7 @@ src_install() {
 	doins libfloatstyle.so || die "libfloatstyle.so install failed"
 
 	if use kde; then
-		if use kdeprefix; then
-			insinto "${PREFIX}/share/apps/kstyle/themes"
-		else
-			insinto "/usr/share/apps/kstyle/themes"
-		fi
+		insinto "/usr/share/apps/kstyle/themes"
 		doins float.themerc || die "float.themerc install failed"
 	fi
 }

@@ -18,7 +18,7 @@ SLOT="1"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !kde-misc/kblogger:0 )
+	!kde-misc/kblogger:0
 "
 
 S="${WORKDIR}/${PN}"

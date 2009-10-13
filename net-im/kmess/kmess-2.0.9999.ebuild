@@ -30,7 +30,7 @@ DEPEND="${COMMONDEPEND}
 	xscreensaver? ( x11-proto/scrnsaverproto )
 "
 RDEPEND="${COMMONDEPEND}
-	!kdeprefix? ( !net-im/kmess:0 )
+	!net-im/kmess:0
 	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
 
