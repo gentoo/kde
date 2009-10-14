@@ -11,12 +11,12 @@ HOMEPAGE="http://www.kde-look.org/content/show.php?content=74891"
 SRC_URI="http://www.kde-look.org/CONTENT/content-files/74891-systemloadviewer.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-		>=kde-base/plasma-workspace-${KDE_MINIMAL}		
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 
-S="${WORKDIR}"/"${PN}"
+S="${WORKDIR}/${PN}"
