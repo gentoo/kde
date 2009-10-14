@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.3.1.ebuild,v 1.2 2009/09/07 02:34:08 jmbsvicetto Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.3.2.ebuild,v 1.1 2009/10/06 18:55:15 alexxy Exp $
 
 EAPI="2"
 
@@ -15,7 +15,7 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
+lzma mmx nls openexr +semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -54,6 +54,7 @@ COMMONDEPEND="
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
+	lzma? ( app-arch/xz-utils )
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
@@ -111,8 +112,8 @@ PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
-	"${FILESDIR}/${P}-dom-docimpl-crash.patch"
-	"${FILESDIR}/${PN}-4.3.1-fix-crash-on-konqueror-tabs.patch"
+	"${FILESDIR}/${PN}-4.3.1-crash-on-konqueror-tabs.patch"
+	"${FILESDIR}/${PN}-4.3.2-fix-deadlock-in-KLocale.patch"
 )
 
 src_prepare() {
@@ -163,6 +164,7 @@ src_configure() {
 		$(cmake-utils_use_with fam)
 		$(cmake-utils_use_with jpeg2k Jasper)
 		$(cmake-utils_use_with kerberos GSSAPI)
+		$(cmake-utils_use_with lzma LibLZMA)
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
