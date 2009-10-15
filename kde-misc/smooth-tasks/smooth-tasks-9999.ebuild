@@ -4,18 +4,24 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.3"
+KDE_LINGUAS="cs de fr hu pl ru"
+
 inherit kde4-base mercurial
 
-DESCRIPTION="KDE plasmoid. Windows 7 like taskbar"
+DESCRIPTION="KDE plasmoid. Windows 7 like taskbar, fork of stasks"
 HOMEPAGE="http://www.kde-look.org/content/show.php/Smooth+Tasks?content=101586"
-EHG_REPO_URI="http://bitbucket.org/panzi/smooth-tasks/"
+EHG_REPO_URI="http://bitbucket.org/panzi/${PN}/"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
-SLOT="0"
+KEYWORDS=""
+SLOT="4"
 IUSE="debug"
 
-RDEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+DEPEND="
+	>=kde-base/libtaskmanager-${KDE_MINIMAL}
+"
+RDEPEND="${DEPEND}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${PN}"
