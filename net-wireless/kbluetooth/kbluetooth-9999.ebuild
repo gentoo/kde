@@ -7,16 +7,14 @@ EAPI="2"
 KMNAME="playground/network"
 KMMODULE="kbluetooth"
 KDE_MINIMAL="4.3"
-
-MY_P="${KMMODULE}-${PV/_/}"
 inherit kde4-base
 
 DESCRIPTION="KDE Bluetooth Framework"
 HOMEPAGE="http://bluetooth.kmobiletools.org/"
-SRC_URI="http://www.kde-apps.org/CONTENT/content-files/112110-${MY_P}.tar.bz2"
+#SRC_URI="mirror://sourceforge/kde-bluetooth/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="debug semantic-desktop"
 
@@ -30,17 +28,8 @@ RDEPEND="${DEPEND}
 	>=kde-base/kdialog-${KDE_MINIMAL}
 	>=kde-base/konqueror-${KDE_MINIMAL}
 	>=kde-base/nepomuk-${KDE_MINIMAL}
+	!net-wireless/kdebluetooth4
 "
-
-S="${WORKDIR}/${MY_P}"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	mkdir -p cmake/modules || die "mkdir failed"
-	cp "${FILESDIR}"/FindLibKNotificationItem-1.cmake cmake/modules/ \
-		|| die "cp failed"
-}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
