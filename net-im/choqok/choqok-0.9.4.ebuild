@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
-SRC_URI="http://www.kde-apps.org/CONTENT/content-files/95760-${P}.tar.bz2"
+SRC_URI="http://d10xg45o6p6dbl.cloudfront.net/projects/c/choqok/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
