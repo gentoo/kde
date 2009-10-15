@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook musicbrainz"
 
 DEPEND="
-	>=media-libs/taglib-1.5
+	>=media-libs/taglib-1.6
 	musicbrainz? ( media-libs/tunepimp )
 "
 RDEPEND="${DEPEND}"
