@@ -8,7 +8,7 @@ KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"
-HOMEPAGE="http://dragonplayer.net/"
+HOMEPAGE="http://www.dragonplayer.net/"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 LICENSE="GPL-2"
