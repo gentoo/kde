@@ -8,7 +8,7 @@ KMNAME="extragear/utils"
 inherit kde4-base
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras."
-HOMEPAGE="http://krusader.sourceforge.net/"
+HOMEPAGE="http://www.krusader.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
