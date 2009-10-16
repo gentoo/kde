@@ -24,3 +24,7 @@ KMEXTRACTONLY="
 	libkpgp
 	messagecore
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-build-fix.patch
+)
