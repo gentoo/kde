@@ -2,49 +2,43 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=2
 
-WEBKIT_REQUIRED="always"
+WEBKIT_REQUIRED=always
 KMNAME="extragear/multimedia"
 inherit kde4-base
 
-DESCRIPTION="K3b, KDE CD Writing Software"
+DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vcd vorbis +wav"
+IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
 	>=kde-base/libkcddb-${KDE_MINIMAL}
 	media-libs/libsamplerate
-	>=x11-libs/qt-gui-4.5.0
 	dvd? ( media-libs/libdvdread )
-	ffmpeg? ( >=media-video/ffmpeg-0.4.9_p20080206 )
-	flac? ( >=media-libs/flac-1.2.1-r2[cxx] )
-	encode? (
-		lame? ( media-sound/lame )
-	)
+	ffmpeg? ( >=media-video/ffmpeg-0.5 )
+	flac? ( >=media-libs/flac-1.2[cxx] )
+	encode? ( lame? ( media-sound/lame ) )
 	mad? ( media-libs/libmad )
-	musepack? ( media-libs/libmpcdecsv7 )
 	musicbrainz? ( media-libs/musicbrainz:1 )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
 	vorbis? ( media-libs/libvorbis )
 "
 RDEPEND="${DEPEND}
-	>=app-cdr/cdrdao-1.1.7-r3
-	>=media-sound/cdparanoia-3.9.8
+	app-cdr/cdrdao
+	media-sound/cdparanoia
 	virtual/cdrtools
 	dvd? (
-		>=app-cdr/dvd+rw-tools-7.0
+		>=app-cdr/dvd+rw-tools-7
 		encode? ( media-video/transcode[dvd] )
 	)
 	emovix? ( media-video/emovix )
-	encode? (
-		sox? ( media-sound/sox )
-	)
+	encode? ( sox? ( media-sound/sox ) )
 	vcd? ( media-video/vcdimager )
 	!app-cdr/k3b:0
 	!app-cdr/k3b:2
@@ -52,11 +46,7 @@ RDEPEND="${DEPEND}
 
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
-# Fix musepack support, libmpcsv7 needed
-PATCHES=( "${FILESDIR}/${PN}-1.66.0_alpha2-fix-musepack-lib-detection.patch" )
-
 src_configure() {
-	# Common settings
 	mycmakeargs="${mycmakeargs}
 		-DK3B_BUILD_K3BSETUP=OFF
 		$(cmake-utils_use debug K3B_DEBUG)
@@ -67,13 +57,14 @@ src_configure() {
 		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
 		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
-		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
+		-DK3B_BUILD_MUSE_DECODER_PLUGIN=OFF
 		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
 		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
-		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)"
+		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
+		-DWITH_PolkitQt=OFF
+	"
 
-	# Encoder settings
 	if use encode; then
 		mycmakeargs="${mycmakeargs}
 			$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
