@@ -254,6 +254,9 @@ cmake-utils_src_configure() {
 	# Remove dangerous things.
 	_modify-cmakelists
 
+	# Fix xdg collision with sandbox
+	export XDG_CONFIG_HOME="${T}"
+
 	# @SEE CMAKE_BUILD_TYPE
 	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
 		# Handle release builds

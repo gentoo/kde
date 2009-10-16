@@ -448,6 +448,8 @@ kde4-base_pkg_setup() {
 	# Point to correct QT plugins path
 	QT_PLUGIN_PATH="${KDEDIR}/$(get_libdir)/kde4/plugins/"
 
+	# Fix XDG collision with sandbox
+	export XDG_CONFIG_HOME="${T}"
 	# Not needed anymore
 	unset _kdedir
 }
