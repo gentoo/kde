@@ -152,8 +152,8 @@ esac
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
 # Currently defaults to 4.5.1 for KDE 4.3 and earlier
-# or 4.6.0_beta for KDE 4.4 and later (except 4.3.69)
-if slot_is_at_least 4.4 "${KDE_MINIMAL}" && [[ ${KDEBASE} != kde-base || ${PV} != 4.3.69 ]]; then
+# or 4.6.0_beta for KDE 4.4 and later
+if slot_is_at_least 4.4 "${KDE_MINIMAL}" && [[ ${KDEBASE} != kde-base ]]; then
 	QT_MINIMAL="${QT_MINIMAL:-4.6.0_beta}"
 fi
 
