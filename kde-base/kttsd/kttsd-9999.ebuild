@@ -13,8 +13,8 @@ KEYWORDS=""
 IUSE="alsa debug epos festival flite freetts +handbook mbrola"
 
 DEPEND="
-	app-accessibility/speech-dispatcher
 	alsa? ( media-libs/alsa-lib )
+	app-accessibility/speech-dispatcher
 "
 RDEPEND="${DEPEND}
 	epos? ( app-accessibility/epos )
