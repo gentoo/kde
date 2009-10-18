@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix"
+IUSE="kdeprefix +semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep akonadi)
@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_kdebase_dep kabcclient)
 	$(add_kdebase_dep kaddressbook)
 	$(add_kdebase_dep kalarm)
+	$(add_kdebase_dep kdepim-examples)
 	$(add_kdebase_dep kdepim-icons)
 	$(add_kdebase_dep kdepim-kresources)
 	$(add_kdebase_dep kdepim-strigi-analyzer)
@@ -44,5 +45,6 @@ RDEPEND="
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
 	$(add_kdebase_dep mimelib)
+	semantic-desktop? ( $(add_kdebase_dep kdepim-ontologies) )
 	$(block_other_slots)
 "
