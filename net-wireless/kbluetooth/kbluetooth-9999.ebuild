@@ -31,6 +31,16 @@ RDEPEND="${DEPEND}
 	!net-wireless/kdebluetooth4
 "
 
+src_prepare() {
+	kde4-base_src_prepare
+
+	sed -e 's/${KDE4WORKSPACE_SOLIDCONTROL_LIBRARY}/solidcontrol/g' \
+		-i src/CMakeLists.txt \
+		-i src/device-manager/CMakeLists.txt \
+		-i src/inputwizard/CMakeLists.txt \
+		|| die "Failed to patch CMake files"
+}
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
