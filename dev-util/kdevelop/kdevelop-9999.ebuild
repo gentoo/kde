@@ -25,6 +25,8 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
+	kde4-base_src_prepare
+
 	# Remove this and the ksysguard dep after libprocessui moved into kdelibs
 	sed -i -e 's/${KDE4WORKSPACE_PROCESSUI_LIBS}/processui/g' \
 		debuggers/gdb/CMakeLists.txt \
