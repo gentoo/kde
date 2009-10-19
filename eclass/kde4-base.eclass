@@ -400,6 +400,11 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	# Prefix compat:
+	use prefix || EROOT=${ROOT}
+	# Append missing trailing slash character
+	[[ ${EROOT} = */ ]] || EROOT+="/"
+
 	# QA ebuilds
 	case ${NEED_KDE} in
 		none) ewarn "QA Notice: using deprecated NEED_KDE variable, use KDE_REQUIRED=\"never\" or KDE_REQUIRED=\"optional\" instead. You may want to override KDE_MINIMAL as well (default is KDE_MINIMAL=\"${KDE_MINIMAL}\")." ;;

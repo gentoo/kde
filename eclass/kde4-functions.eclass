@@ -4,11 +4,6 @@
 
 inherit versionator
 
-# Prefix compat:
-: ${EROOT:=${ROOT}}
-# Append missing trailing slash character
-[[ ${EROOT} = */ ]] || EROOT+="/"
-
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
