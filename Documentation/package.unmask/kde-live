@@ -282,7 +282,7 @@ kde-base/kalarm:live
 kde-base/kdepim-examples:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
-kde-base/kdepim-ontologies:live
+# kde-base/kdepim-ontologies:live # disabled until I can get it to build
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
 kde-base/kjots:live

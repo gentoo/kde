@@ -11,7 +11,8 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix +semantic-desktop"
+IUSE="kdeprefix"
+# +semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep akonadi)
@@ -45,6 +46,8 @@ RDEPEND="
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
 	$(add_kdebase_dep mimelib)
-	semantic-desktop? ( $(add_kdebase_dep kdepim-ontologies) )
 	$(block_other_slots)
 "
+# Disabled until I can get it to build
+#	semantic-desktop? ( $(add_kdebase_dep kdepim-ontologies) )
+

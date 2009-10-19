@@ -218,7 +218,7 @@
 ~kde-base/kdepim-examples-9999 **
 ~kde-base/kdepim-icons-9999 **
 ~kde-base/kdepim-kresources-9999 **
-~kde-base/kdepim-ontologies-9999 **
+# kde-base/kdepim-ontologies:live # disabled until I can get it to build
 ~kde-base/kdepim-strigi-analyzer-9999 **
 ~kde-base/kdepim-wizards-9999 **
 ~kde-base/kjots-9999 **
