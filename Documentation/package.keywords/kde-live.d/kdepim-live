@@ -4,12 +4,11 @@
 ~kde-base/kabcclient-9999 **
 ~kde-base/kaddressbook-9999 **
 ~kde-base/kalarm-9999 **
-~kde-base/kdepim-examples-9999 **
 ~kde-base/kdepim-icons-9999 **
 ~kde-base/kdepim-kresources-9999 **
-# kde-base/kdepim-ontologies:live # disabled until I can get it to build
 ~kde-base/kdepim-strigi-analyzer-9999 **
 ~kde-base/kdepim-wizards-9999 **
+# kde-base/kitchensync:live # removed from 4.2
 ~kde-base/kjots-9999 **
 ~kde-base/kleopatra-9999 **
 ~kde-base/kmail-9999 **
@@ -20,6 +19,7 @@
 ~kde-base/kontact-9999 **
 ~kde-base/kontact-specialdates-9999 **
 ~kde-base/korganizer-9999 **
+# kde-base/korn:live disabled for now
 ~kde-base/kpilot-9999 **
 ~kde-base/ktimetracker-9999 **
 ~kde-base/libkdepim-9999 **

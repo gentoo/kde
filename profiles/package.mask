@@ -580,12 +580,11 @@ kde-base/blogilo:live
 kde-base/kabcclient:live
 kde-base/kaddressbook:live
 kde-base/kalarm:live
-kde-base/kdepim-examples:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
-# kde-base/kdepim-ontologies:live # disabled until I can get it to build
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
+# kde-base/kitchensync:live # removed from 4.2
 kde-base/kjots:live
 kde-base/kleopatra:live
 kde-base/kmail:live
@@ -596,6 +595,7 @@ kde-base/konsolekalendar:live
 kde-base/kontact:live
 kde-base/kontact-specialdates:live
 kde-base/korganizer:live
+# kde-base/korn:live disabled for now
 kde-base/kpilot:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
@@ -670,10 +670,6 @@ kde-base/kdewebdev-meta:live
 ~kde-misc/menubar-9999
 ~kde-misc/networkmanager-applet-9999
 ~kde-misc/plasma-emergelog-9999
-
-# Jonathan Callen <abcd@gentoo.org> (19 Oct 2009)
-# Disabled temporarily until it builds
-kde-base/kdepim-ontologies:live
 
 media-libs/opengtl
 
