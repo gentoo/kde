@@ -80,13 +80,3 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
-
-pkg_postinst() {
-	kde4-meta_pkg_postinst
-
-	elog "If you want to use GTK integration then we recommend you to try"
-	elog "one of the following packages:"
-	elog "    x11-themes/gtk-engines-qt"
-	elog "    x11-themes/gtk-engines-kde4"
-	elog "    x11-themes/qtcurve-qt4"
-}
