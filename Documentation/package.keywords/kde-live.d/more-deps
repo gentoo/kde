@@ -1,7 +1,3 @@
 app-arch/xz-utils
-app-text/ebook-tools
-dev-libs/libzip
->=kde-base/qimageblitz-0.0.4
 >=net-libs/libssh-0.3.2
->=sci-mathematics/gmm-3.0
 x11-misc/google-gadgets
