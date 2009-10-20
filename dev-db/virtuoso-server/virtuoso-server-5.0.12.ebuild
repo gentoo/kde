@@ -9,7 +9,7 @@ inherit virtuoso
 DESCRIPTION="Server binaries for Virtuoso, high-performance object-relational SQL database"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="+iodbc kerberos ldap readline static-libs"
+IUSE="kerberos ldap readline static-libs"
 
 # zeroconf support looks like broken - disabling
 # mono support fetches mono source and compiles it manually - disabling for now
@@ -18,7 +18,6 @@ COMMON_DEPEND="
 	dev-libs/libxml2:2
 	>=dev-libs/openssl-0.9.7i:0
 	sys-libs/zlib:0
-	iodbc? ( dev-db/libiodbc:0 )
 	kerberos? ( app-crypt/mit-krb5 )
 	ldap? ( net-nds/openldap )
 	readline? ( sys-libs/readline:0 )
@@ -38,15 +37,12 @@ VOS_EXTRACT="
 	libsrc/Wi
 	libsrc/Xml.new
 	libsrc/langfunc
+	libsrc/odbcsdk
 	libsrc/plugin
 	libsrc/util
 	binsrc/virtuoso
 	binsrc/tests
 "
-
-pkg_setup() {
-	use iodbc || VOS_EXTRACT="libsrc/odbcsdk ${VOS_EXTRACT}"
-}
 
 src_prepare() {
 	if ! use static-libs; then
@@ -58,14 +54,15 @@ src_prepare() {
 }
 
 src_configure() {
-	myconf="${myconf}
-		$(use_with iodbc)
+	myconf+="
 		$(use_enable kerberos krb)
 		$(use_enable ldap openldap)
 		$(use_with readline)
 		$(use_enable static-libs static)
 		--disable-rendezvous
-		--disable-hslookup"
+		--disable-hslookup
+		--without-iodbc
+	"
 
 	virtuoso_src_configure
 }
@@ -73,19 +70,11 @@ src_configure() {
 src_install() {
 	virtuoso_src_install
 
-	# The only difference between binaries is using bundled vs external iODBC
-	# We prefer external ones.
-	if use iodbc; then
-		mv "${D}/${ROOT}usr/bin/virtuoso-iodbc-t" "${D}/${ROOT}usr/bin/virtuoso-t" || die
-		mv "${D}/${ROOT}usr/bin/isql-iodbc" "${D}/${ROOT}usr/bin/isql" || die
-		mv "${D}/${ROOT}usr/bin/isqlw-iodbc" "${D}/${ROOT}usr/bin/isqlw" || die
-	fi
-
 	# Rename isql executables (conflicts with unixODBC)
 	mv "${D}/${ROOT}usr/bin/isql" "${D}/${ROOT}usr/bin/isql-v" || die
 	mv "${D}/${ROOT}usr/bin/isqlw" "${D}/${ROOT}usr/bin/isqlw-v" || die
 
-	dodoc AUTHORS ChangeLog CREDITS INSTALL NEWS README || die
+	dodoc AUTHORS ChangeLog CREDITS INSTALL NEWS README || die "dodoc failed"
 
 	keepdir "${ROOT}var/lib/virtuoso/db"
 }

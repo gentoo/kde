@@ -16,7 +16,6 @@ Data Web Server (RDF Linked Data Deployment), Web Services Platform, Discussion
 Server, and many more.
 	</longdescription>
 	<use>
-		<flag name="iodbc">Use external <pkg>dev-db/libiodbc</pkg> instead of bundled one (recommended)</flag>
 		<flag name="static-libs">Build and install static server libraries (libvirtuoso-t.a, libvirtuoso-iodbc-t.a)</flag>
 	</use>
 </pkgmetadata>

@@ -9,30 +9,26 @@ inherit virtuoso
 DESCRIPTION="ODBC driver for OpenLink Virtuoso Open-Source Edition"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="+iodbc static-libs"
+IUSE="static-libs"
 
 RDEPEND="
 	>=dev-libs/openssl-0.9.7i:0
 "
-DEPEND="${RDEPEND}
-	iodbc? ( dev-db/libiodbc:0 )
-"
+DEPEND="${RDEPEND}"
 
 VOS_EXTRACT="
 	libsrc/Dk
 	libsrc/Thread
+	libsrc/odbcsdk
 	libsrc/util
 	binsrc/driver
 "
 
-pkg_setup() {
-	use iodbc || VOS_EXTRACT="libsrc/odbcsdk ${VOS_EXTRACT}"
-}
-
 src_configure() {
-	myconf="${myconf}
-		$(use_with iodbc)
-		$(use_enable static-libs static)"
+	myconf+="
+		$(use_enable static-libs static)
+		--without-iodbc
+	"
 
 	virtuoso_src_configure
 }

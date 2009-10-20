@@ -28,6 +28,9 @@ src_prepare() {
 }
 
 src_configure() {
-	myconf="${myconf} --with-jdk4=$(java-config-2 -O)"
+	myconf+="
+		--with-jdk4=$(java-config-2 -O)
+	"
+
 	virtuoso_src_configure
 }

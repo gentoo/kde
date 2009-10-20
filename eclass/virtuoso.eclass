@@ -111,6 +111,15 @@ virtuoso_src_configure() {
 		export SERVER="${ROOT}usr/bin/virtuoso-t"
 	fi
 
+	# Version specific options
+	case ${PV} in
+		5.0.11)
+			;;
+		*)
+			myconf+=" --without-internal-zlib"
+			;;
+	esac
+
 	econf \
 		--with-layout=gentoo \
 		--localstatedir="${ROOT}var" \
