@@ -14,8 +14,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 LICENSE="LGPL-2"
 KEYWORDS=""
 SLOT="0"
-# virtuoso disabled for now
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +java +raptor redland"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD +java +raptor redland virtuoso"
 
 COMMON_DEPEND="
 	>=x11-libs/qt-core-4.5.0:4
@@ -27,15 +26,14 @@ COMMON_DEPEND="
 		>=dev-libs/redland-1.0.6
 	)
 	java? ( >=virtual/jdk-1.6.0 )
+	virtuoso? ( dev-db/libiodbc:0 )
 "
-#	virtuoso? ( dev-db/libiodbc )
-
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="${COMMON_DEPEND}
+	virtuoso? ( >=dev-db/virtuoso-server-5.0.12 )
 "
-#	virtuoso? ( dev-db/virtuoso )
 
 CMAKE_IN_SOURCE_BUILD="1"
 
@@ -73,7 +71,7 @@ src_prepare() {
 src_configure() {
 	# Fix for missing pthread.h linking
 	# NOTE: temporarily fix until a better cmake files patch will be provided.
-	use elibc_FreeBSD && append-ldflags "-lpthread"
+	use elibc_FreeBSD && append-flags -pthread
 
 	mycmakeargs="${mycmakeargs}
 		-DSOPRANO_BUILD_TESTS=OFF
@@ -84,10 +82,9 @@ src_configure() {
 		$(cmake-utils_use !redland SOPRANO_DISABLE_RAPTOR_SERIALIZER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_REDLAND_BACKEND)
 		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
-		-DSOPRANO_DISABLE_VIRTUOSO_BACKEND=ON
+		$(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
 	"
-		# $(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 
 	cmake-utils_src_configure
 }
