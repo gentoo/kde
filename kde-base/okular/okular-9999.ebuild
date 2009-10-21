@@ -19,7 +19,10 @@ DEPEND="
 	djvu? ( app-text/djvu )
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( media-libs/jpeg )
-	pdf? ( >=virtual/poppler-qt4-0.8.5 )
+	pdf? (
+		>=virtual/poppler-0.12.1[lcms]
+		>=virtual/poppler-qt4-0.12.1
+	)
 	ps? ( app-text/libspectre )
 	tiff? ( media-libs/tiff )
 "
