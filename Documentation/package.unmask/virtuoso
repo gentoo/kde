@@ -1,2 +1,1 @@
-=dev-db/virtuoso-server-5.0.12
-=dev-db/virtuoso-odbc-5.0.12
+../../profiles/package.mask.d/virtuoso

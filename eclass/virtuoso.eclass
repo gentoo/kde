@@ -38,6 +38,9 @@ EXPORT_FUNCTIONS src_prepare src_configure src_compile src_install
 HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
 LICENSE="GPL-2"
 SLOT="0"
+
+DEPEND=" >=sys-devel/libtool-2.2.6a"
+
 S="${WORKDIR}/${MY_P}"
 
 # @FUNCTION: virtuoso_src_prepare
