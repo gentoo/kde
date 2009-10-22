@@ -20,8 +20,11 @@ DEPEND="
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( media-libs/jpeg )
 	pdf? (
-		>=virtual/poppler-0.12.1[lcms]
-		>=virtual/poppler-qt4-0.12.1
+		|| (
+			>=virtual/poppler-0.12.1[lcms]
+			virtual/poppler
+		)
+		>=virtual/poppler-qt4-0.8.5
 	)
 	ps? ( app-text/libspectre )
 	tiff? ( media-libs/tiff )
