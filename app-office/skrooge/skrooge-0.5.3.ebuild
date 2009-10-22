@@ -12,7 +12,7 @@ inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
 HOMEPAGE="http://www.kde-apps.org/content/show.php/skrooge?content=92458"
-SRC_URI="http://websvn.kde.org/*checkout*/tags/${PN}/${PV}/${P}.tar.gz"
+SRC_URI="http://websvn.kde.org/*checkout*/tags/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
