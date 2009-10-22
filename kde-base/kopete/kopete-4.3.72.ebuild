@@ -65,6 +65,7 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
 COMMONDEPEND="
 	dev-libs/libpcre
+	$(add_kdebase_dep kdepimlibs)
 	x11-libs/libXScrnSaver
 	>=x11-libs/qt-gui-4.4.0:4[mng]
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
@@ -96,11 +97,11 @@ PDEPEND="
 "
 
 src_prepare() {
-	sed -i "s:lib/mozilla:$(get_libdir)/mozilla:" kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
-	
+	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
+		-i kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
+
 	kde4-meta_src_prepare
 }
-
 
 src_configure() {
 	local x x2

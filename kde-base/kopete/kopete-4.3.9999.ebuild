@@ -65,6 +65,7 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
 COMMONDEPEND="
 	dev-libs/libpcre
+	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
 	x11-libs/libXScrnSaver
 	>=x11-libs/qt-gui-4.4.0:4[mng]
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )

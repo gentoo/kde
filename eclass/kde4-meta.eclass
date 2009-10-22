@@ -30,9 +30,6 @@ case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
 		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
-	kdenetwork)
-		COMMONDEPEND+=" $(add_kdebase_dep kdepimlibs)"
-		;;
 	kdepim|kdepim-runtime)
 		COMMONDEPEND+="
 			dev-libs/boost
@@ -508,16 +505,17 @@ kde4-meta_change_cmakelists() {
 	comment_all_add_subdirectory ./
 
 	# Restore "add_subdirectory( cmake )" in ${S}/CMakeLists.txt
-	if [[ -f "${S}"/CMakeLists.txt ]]; then
+	if [[ -f CMakeLists.txt ]]; then
 		sed -e '/add_subdirectory[[:space:]]*([[:space:]]*cmake[[:space:]]*)/s/^#DONOTCOMPILE //' \
 			-e '/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*cmake[[:space:]]*)/s/^#DONOTCOMPILE //' \
-			-i "${S}"/CMakeLists.txt || die "${LINENO}: cmake sed died"
+			-i CMakeLists.txt || die "${LINENO}: cmake sed died"
 	fi
 
 	if [[ -z ${KMNOMODULE} ]]; then
 		# Restore "add_subdirectory" in $KMMODULE subdirectories
-		find "${S}"/${KMMODULE} -name CMakeLists.txt -print0 | xargs -0 sed -i -e 's/^#DONOTCOMPILE //g' || \
-			die "${LINENO}: died in KMMODULE section"
+		find "${S}"/${KMMODULE} -name CMakeLists.txt -print0 | \
+			xargs -0 sed -i -e 's/^#DONOTCOMPILE //g' || \
+				die "${LINENO}: died in KMMODULE section"
 		_change_cmakelists_parent_dirs ${KMMODULE}
 	fi
 
@@ -525,8 +523,9 @@ kde4-meta_change_cmakelists() {
 
 	# KMEXTRACTONLY section - Some ebuilds need to comment out some subdirs in KMMODULE and they use KMEXTRACTONLY
 	for i in ${KMEXTRACTONLY}; do
-		if [[ -d "${S}"/${i} && -f "${S}"/${i}/../CMakeLists.txt ]]; then
-			sed -i -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" "${S}"/${i}/../CMakeLists.txt || \
+		if [[ -d ${i} && -f ${i}/../CMakeLists.txt ]]; then
+			sed -e "/([[:space:]]*$(basename $i)[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+				-i ${i}/../CMakeLists.txt || \
 				die "${LINENO}: sed died while working in the KMEXTRACTONLY section while processing ${i}"
 		fi
 	done
@@ -558,7 +557,7 @@ kde4-meta_change_cmakelists() {
 		if [[ -d "${S}"/${i} ]]; then
 			find "${S}"/${i} -name CMakeLists.txt -print0 | \
 				xargs -0 sed -i -e 's/^#DONOTCOMPILE //g' || \
-				die "${LINENO}: sed died uncommenting add_subdirectory instructions in KMEXTRA section while processing ${i}"
+					die "${LINENO}: sed died uncommenting add_subdirectory instructions in KMEXTRA section while processing ${i}"
 			_change_cmakelists_parent_dirs ${i}
 		fi
 	done
@@ -568,31 +567,36 @@ kde4-meta_change_cmakelists() {
 			# COLLISION PROTECT section
 			# Install the startkde script just once, as a part of kde-base/kdebase-startkde,
 			# not as a part of every package.
-			if [[ ${PN} != kdebase-startkde && -f "${S}"/CMakeLists.txt ]]; then
+			if [[ ${PN} != kdebase-startkde && -f CMakeLists.txt ]]; then
 				# The startkde script moved to kdebase-workspace for KDE4 versions > 3.93.0.
-				sed -i -e '/startkde/s/^/#DONOTINSTALL /' "${S}"/CMakeLists.txt || \
-					die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
+				sed -e '/startkde/s/^/#DONOTINSTALL /' \
+					-i CMakeLists.txt || die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
 			fi
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
 			if [[ ${PN} != libkworkspace ]]; then
-				sed -i \
-					-e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-					CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
+				sed -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
+					-i CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
 			fi
 			;;
 		kdebase-runtime)
 			# COLLISION PROTECT section
 			# Only install the kde4 script as part of kde-base/kdebase-data
-			if [[ ${PN} != kdebase-data && -f "${S}"/CMakeLists.txt ]]; then
-				sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
-					"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
+			if [[ ${PN} != kdebase-data && -f CMakeLists.txt ]]; then
+				sed -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
+					-i CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 			fi
+			;;
+		kdenetwork)
+			# Disable hardcoded kdepimlibs check
+			sed -e 's/find_package(KdepimLibs REQUIRED)/macro_optional_find_package(KdepimLibs)/' \
+				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			;;
 		kdepim)
 			case ${PN} in
 				kaddressbook|kalarm|kmailcvt|kontact|korganizer|korn)
-					sed -i -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
-						-e '/add_custom_target(kmail_xml /,/)/p' "${S}"/kmail/CMakeLists.txt || die "uncommenting xml failed"
+					sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
+						-e '/add_custom_target(kmail_xml /,/)/p' \
+						-i kmail/CMakeLists.txt || die "uncommenting xml failed"
 					_change_cmakelists_parent_dirs kmail
 				;;
 			esac
@@ -608,12 +612,10 @@ kde4-meta_change_cmakelists() {
 		koffice)
 			# prevent collisions
 			if [[ ${PN} != koffice-data ]]; then
-				sed -i -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
-					"${S}"/cmake/modules/CMakeLists.txt || \
-					die "${LINENO}: sed died in collision prevention section"
-				sed -i -e '/install(.\+config-openexr\.h.\+)/d' \
-					"${S}"//CMakeLists.txt || \
-					die "${LINENO}: sed died in collision prevention section"
+				sed -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
+					-i cmake/modules/CMakeLists.txt || die "${LINENO}: sed died in collision prevention section"
+				sed -e '/install(.\+config-openexr\.h.\+)/d' \
+					-i CMakeLists.txt || die "${LINENO}: sed died in collision prevention section"
 			fi
 	esac
 
