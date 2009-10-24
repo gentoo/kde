@@ -359,7 +359,7 @@ kde-base/kde-l10n:live
 ~net-misc/smb4k-9999
 #net-p2p/kmldonkey-9999
 ~net-p2p/ktorrent-9999
-~net-wireless/kdebluetooth4-9999
+~net-wireless/kbluetooth-9999
 ~sys-auth/policykit-qt-9999
 ~sys-block/partitionmanager-9999
 ~www-client/rekonq-9999
@@ -672,7 +672,6 @@ media-libs/opengtl
 
 # Maciej Mrozowski (reavertm) <reavertm@poczta.fm> (26 Feb 2009)
 # ebuilds not yet ready
-dev-db/virtuoso
 dev-db/virtuoso-jdbc
 dev-db/virtuoso-odbc
 dev-db/virtuoso-server
