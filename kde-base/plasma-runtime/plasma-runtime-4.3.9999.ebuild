@@ -13,7 +13,4 @@ KEYWORDS=""
 IUSE="debug"
 
 # cloned from workspace thus introduce collisions.
-RDEPEND="
-	!kdeprefix? ( !<kde-base/plasma-workspace-4.2.90[-kdeprefix] )
-	kdeprefix? (  !<kde-base/plasma-workspace-4.2.90:${SLOT}[kdeprefix] )
-"
+add_blocker plasma-workspace '<4.2.90'
