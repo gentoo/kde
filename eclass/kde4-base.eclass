@@ -15,17 +15,25 @@
 
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
-# Specify if cmake-utils eclass is required. Defaults to true. Please note that
+# Specify if cmake-utils eclass is required. Defaults to allways. Please note that
 # if the variable is set otherwise src_configure/compile/install calls in ebuild
 # must be overrided (can't use the eclass ones).
-WANT_CMAKE="${WANT_CMAKE:-true}"
-if [[ ${WANT_CMAKE} = true ]]; then
-	exports="src_configure src_compile src_test src_install"
-	cmake_eclass="cmake-utils"
-else
-	exports=""
-	cmake_eclass=""
-fi
+# Valid values are: always, optional and never
+WANT_CMAKE="${WANT_CMAKE:-always}"
+case ${WANT_CMAKE} in
+	always)
+		exports="src_configure src_compile src_test src_install"
+		cmake_eclass="cmake-utils"
+		;;
+	optional)
+		exports="src_configure src_compile src_test src_install"
+		cmake_eclass="cmake-utils"
+		;;
+	*)
+		exports=""
+		cmake_eclass=""
+		;;
+esac
 
 inherit base ${cmake_eclass} eutils kde4-functions
 
@@ -93,20 +101,6 @@ fi
 # For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
 # Note that it is fixed to ${SLOT} for kde-base packages.
 KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
-
-# Fallback behaviour (for now)
-# TODO Remove when tree is clean
-if [[ -n ${NEED_KDE} ]]; then
-	case ${NEED_KDE} in
-		none)
-			KDE_REQUIRED="never"
-			;;
-		*)
-			KDE_REQUIRED="always"
-			KDE_MINIMAL="${NEED_KDE}"
-			;;
-	esac
-fi
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
@@ -361,7 +355,6 @@ case ${BUILD_TYPE} in
 				_kmname=${PN}
 			fi
 			_kmname_pv="${_kmname}-${PV}"
-			if [[ $NEED_KDE != live ]]; then
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
@@ -379,7 +372,6 @@ case ${BUILD_TYPE} in
 						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
 			esac
-			fi
 			unset _kmname _kmname_pv
 		fi
 		;;
@@ -406,10 +398,6 @@ kde4-base_pkg_setup() {
 	[[ ${EROOT} = */ ]] || EROOT+="/"
 
 	# QA ebuilds
-	case ${NEED_KDE} in
-		none) ewarn "QA Notice: using deprecated NEED_KDE variable, use KDE_REQUIRED=\"never\" or KDE_REQUIRED=\"optional\" instead. You may want to override KDE_MINIMAL as well (default is KDE_MINIMAL=\"${KDE_MINIMAL}\")." ;;
-		*) [[ -n ${NEED_KDE} ]] && ewarn "QA Notice: using deprecated NEED_KDE variable, use KDE_MINIMAL instead (default is KDE_MINIMAL=\"${KDE_MINIMAL}\")." ;;
-	esac
 	[[ -z ${KDE_MINIMAL_VALID} ]] && ewarn "QA Notice: ignoring invalid KDE_MINIMAL (defaulting to ${KDE_MINIMAL})."
 
 	# Don't set KDEHOME during compilation, it will cause access violations
