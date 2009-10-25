@@ -15,7 +15,7 @@
 
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
-# Specify if cmake-utils eclass is required. Defaults to allways. Please note that
+# Specify if cmake-utils eclass is required. Defaults to always. Please note that
 # if the variable is set otherwise src_configure/compile/install calls in ebuild
 # must be overrided (can't use the eclass ones).
 # Valid values are: always, optional and never
