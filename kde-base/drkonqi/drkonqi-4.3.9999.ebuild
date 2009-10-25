@@ -21,4 +21,3 @@ pkg_postinst() {
 	elog "For more usability consider installing folowing packages:"
 	elog "    sys-devel/gdb - Easier debugging support"
 }
-
