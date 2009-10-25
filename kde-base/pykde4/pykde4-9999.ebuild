@@ -26,6 +26,10 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-python/pykde
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-kcategorydrawer.patch"
+)
+
 pkg_setup() {
 	python_pkg_setup
 	kde4-meta_pkg_setup

@@ -27,8 +27,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
-			"${FILESDIR}/${PN}-kcategorydrawer.patch"
-		)
+	"${FILESDIR}/${PN}-kcategorydrawer.patch"
+)
 
 pkg_setup() {
 	python_pkg_setup
