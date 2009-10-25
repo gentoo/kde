@@ -13,8 +13,8 @@ IUSE="debug"
 KEYWORDS=""
 
 DEPEND="
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kaddressbook-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kaddressbook)
 "
 RDEPEND="${DEPEND}"
 

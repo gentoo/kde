@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/kdepimlibs-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"

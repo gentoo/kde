@@ -15,13 +15,13 @@ DEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
 	dev-libs/libpcre
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop?]
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep libkonq)
+	$(add_kdebase_dep libkworkspace)
 	sqlite? ( dev-db/sqlite:3 )
 "
 RDEPEND="${DEPEND}
-	semantic-desktop? ( >=kde-base/nepomuk-${PV}:${SLOT}[kdeprefix=] )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 src_configure() {

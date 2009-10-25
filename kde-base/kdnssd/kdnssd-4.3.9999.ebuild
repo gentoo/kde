@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug zeroconf"
 
 DEPEND="
-	zeroconf? ( >=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,zeroconf] )
+	zeroconf? ( $(add_kdebase_dep kdelibs zeroconf) )
 "
 RDEPEND="${DEPEND}"
 

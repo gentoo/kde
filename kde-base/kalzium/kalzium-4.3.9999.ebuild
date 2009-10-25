@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="editor debug +handbook +plasma solver"
 
 COMMON_DEPEND="
-	>=kde-base/libkdeedu-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkdeedu)
 	editor? ( >=sci-chemistry/openbabel-2.2 )
 "
 DEPEND="${COMMON_DEPEND}

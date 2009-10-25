@@ -13,10 +13,10 @@ IUSE="debug +handbook python"
 
 DEPEND="
 	kde-base/qimageblitz
-	python? ( >=kde-base/pykde4-${PV}:${SLOT}[kdeprefix=] )
+	python? ( $(add_kdebase_dep pykde4) )
 "
 RDEPEND="${DEPEND}
-	python? ( >=kde-base/krosspython-${PV}:${SLOT}[kdeprefix=] )
+	python? ( $(add_kdebase_dep krosspython) )
 "
 
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )

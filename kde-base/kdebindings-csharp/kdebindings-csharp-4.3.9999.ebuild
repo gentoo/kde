@@ -15,7 +15,7 @@ IUSE="akonadi +phonon plasma qscintilla"
 
 COMMON_DEPEND="
 	dev-lang/mono
-	>=kde-base/smoke-${PV}:${SLOT}[akonadi?,kdeprefix=,phonon?,qscintilla?,webkit?]
+	$(add_kdebase_dep smoke 'akonadi?,phonon?,qscintilla?,webkit?')
 "
 
 DEPEND="${COMMON_DEPEND}"

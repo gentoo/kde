@@ -13,7 +13,7 @@ IUSE=""
 KEYWORDS=""
 
 RDEPEND="
-	>=kde-base/oxygen-icons-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
 

@@ -86,9 +86,9 @@ RDEPEND="${COMMONDEPEND}
 	>=x11-misc/xdg-utils-1.0.2-r3
 "
 PDEPEND="
-	>=kde-base/kde-env-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdebase-data-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/ktimezoned-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kde-env)
+	$(add_kdebase_dep kdebase-data)
+	$(add_kdebase_dep ktimezoned)
 "
 
 # Blockers added due to packages from old versions, removed in the meanwhile

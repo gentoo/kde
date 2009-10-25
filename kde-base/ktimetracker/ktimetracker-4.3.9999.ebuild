@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	>=kde-base/kdepim-kresources-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdepim-kresources)
+	$(add_kdebase_dep libkdepim)
 	x11-libs/libXScrnSaver
 "
 DEPEND="${RDEPEND}
