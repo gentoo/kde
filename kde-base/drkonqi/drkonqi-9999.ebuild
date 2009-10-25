@@ -11,8 +11,10 @@ DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="
-	sys-devel/gdb
-"
-
 add_blocker drkonqi2
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+	elog "For more usability consider installing folowing packages:"
+	elog "    sys-devel/gdb - Easier debugging support"
+}

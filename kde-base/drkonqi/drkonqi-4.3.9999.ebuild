@@ -14,5 +14,11 @@ IUSE="debug"
 RDEPEND="
 	!kdeprefix? ( !kde-base/drkonqi2[-kdeprefix] )
 	kdeprefix? ( !kde-base/drkonqi2:${SLOT}[kdeprefix] )
-	sys-devel/gdb
 "
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+	elog "For more usability consider installing folowing packages:"
+	elog "    sys-devel/gdb - Easier debugging support"
+}
+
