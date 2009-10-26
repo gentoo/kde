@@ -24,7 +24,6 @@ KMEXTRACTONLY="
 	knotes/
 	kresources/groupwise/
 	kresources/kolab/
-	kresources/scalix/
 	kresources/slox/
 "
 
