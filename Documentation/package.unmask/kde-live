@@ -22,11 +22,11 @@ kde-base/kde-l10n:live
 ~kde-misc/kdiff3-9999
 ~kde-misc/kepas-9999
 ~kde-misc/kgrubeditor-9999
+~kde-misc/knetworkmanager-9999
 ~kde-misc/kobby-9999
 ~kde-misc/konq-plugins-9999
 ~kde-misc/krusader-9999
 ~kde-misc/menubar-9999
-~kde-misc/networkmanager-applet-9999
 ~kde-misc/plasma-emergelog-9999
 ~kde-misc/raptormenu-9999
 ~kde-misc/translatoid-9999
@@ -366,5 +366,4 @@ kde-base/kdeutils-meta:live
 kde-base/kdewebdev-meta:live
 ~kde-misc/kepas-9999
 ~kde-misc/menubar-9999
-~kde-misc/networkmanager-applet-9999
 ~kde-misc/plasma-emergelog-9999
