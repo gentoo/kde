@@ -20,6 +20,22 @@
 # builds and an implementation of the well-known use_enable and use_with
 # functions for CMake.
 
+# @ECLASS-VARIABLE: WANT_CMAKE
+# @DESCRIPTION:
+# Specify if cmake-utils eclass should depend on cmake optionaly or not.
+# This is usefull when only part of aplication is using cmake build system.
+# Valid values are: always [default], optional (where the value is the useflag
+# used for optionality)
+WANT_CMAKE="${WANT_CMAKE:-always}"
+CMAKEDEPEND=""
+case ${WANT_CMAKE} in
+	    always)
+			;;
+		*)
+			IUSE+=" ${WANT_CMAKE}"
+			CMAKEDEPEND+="${WANT_CMAKE}? ( "
+			;;
+esac
 inherit toolchain-funcs multilib flag-o-matic base
 
 CMAKE_EXPF="src_compile src_test src_install"
@@ -33,12 +49,15 @@ EXPORT_FUNCTIONS ${CMAKE_EXPF}
 : ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
 
 if [[ ${PN} != cmake ]]; then
-	CMAKEDEPEND=">=dev-util/cmake-2.6.2-r1"
+	CMAKEDEPEND+=">=dev-util/cmake-2.6.2-r1"
 fi
 
-DEPEND="${CMAKEDEPEND}
-	userland_GNU? ( >=sys-apps/findutils-4.4.0 )
-"
+CMAKEDEPEND+="userland_GNU? ( >=sys-apps/findutils-4.4.0 )"
+
+[[ ${WANT_CMAKE} = always ]] || CMAKEDEPEND+=" )"
+
+DEPEND="${CMAKEDEPEND}"
+unset CMAKEDEPEND
 
 # Internal functions used by cmake-utils_use_*
 _use_me_now() {
@@ -234,11 +253,11 @@ Build type: ${CMAKE_BUILD_TYPE}
 Install path: ${CMAKE_INSTALL_PREFIX}\n")' >> CMakeLists.txt
 }
 
-# @FUNCTION: cmake-utils_src_configure
+# @FUNCTION: enable_cmake-utils_src_configure
 # @DESCRIPTION:
 # General function for configuring with cmake. Default behaviour is to start an
 # out-of-source build.
-cmake-utils_src_configure() {
+enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir init
@@ -302,11 +321,11 @@ _EOF_
 	popd > /dev/null
 }
 
-# @FUNCTION: cmake-utils_src_compile
+# @FUNCTION: enable_cmake-utils_src_compile
 # @DESCRIPTION:
 # General function for compiling with cmake. Default behaviour is to check for
 # EAPI and respectively to configure as well or just compile.
-cmake-utils_src_compile() {
+enable_cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	has src_configure ${CMAKE_EXPF} || cmake-utils_src_configure
@@ -332,10 +351,10 @@ cmake-utils_src_make() {
 	popd &> /dev/null
 }
 
-# @FUNCTION: cmake-utils_src_install
+# @FUNCTION: enable_cmake-utils_src_install
 # @DESCRIPTION:
 # Function for installing the package. Automatically detects the build type.
-cmake-utils_src_install() {
+enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
@@ -348,10 +367,10 @@ cmake-utils_src_install() {
 	[[ -n "${HTML_DOCS}" ]] && { dohtml -r ${HTML_DOCS} || die "dohtml failed" ; }
 }
 
-# @FUNCTION: cmake-utils_src_test
+# @FUNCTION: enable_cmake-utils_src_test
 # @DESCRIPTION:
 # Function for testing the package. Automatically detects the build type.
-cmake-utils_src_test() {
+enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
@@ -371,4 +390,47 @@ cmake-utils_src_test() {
 		einfo ">>> Test phase [none]: ${CATEGORY}/${PF}"
 	fi
 	popd &> /dev/null
+}
+
+## Wrappers for calls bellow this line
+# @FUNCTION: cmake-utils_src_configure
+# @DESCRIPTION:
+# Wrapper for detection if we want to run enable_ prefixed function with same name
+# unconditionaly or only when some useflag is enabled.
+cmake-utils_src_configure() {
+	_inherit_optionaly "src_configure"
+}
+
+# @FUNCTION: cmake-utils_src_compile
+# @DESCRIPTION:
+# Wrapper for detection if we want to run enable_ prefixed function with same name
+# unconditionaly or only when some useflag is enabled.
+cmake-utils_src_compile() {
+	_inherit_optionaly "src_compile"
+}
+
+# @FUNCTION: cmake-utils_src_install
+# @DESCRIPTION:
+# Wrapper for detection if we want to run enable_ prefixed function with same name
+# unconditionaly or only when some useflag is enabled.
+cmake-utils_src_install() {
+	_inherit_optionaly "src_install"
+}
+
+# @FUNCTION: cmake-utils_src_test
+# @DESCRIPTION:
+# Wrapper for detection if we want to run enable_ prefixed function with same name
+# unconditionaly or only when some useflag is enabled.
+cmake-utils_src_test() {
+	_inherit_optionaly "src_test"
+}
+
+
+_execute_optionaly() {
+	local phase="$1"
+	if [[ ${WANT_CMAKE} = always ]]; then
+		enable_cmake-utils_${phase}
+	else
+		use ${WANT_CMAKE} && enable_cmake-utils_${phase}
+	fi
 }

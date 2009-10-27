@@ -13,37 +13,33 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-# @ECLASS-VARIABLE: WANT_CMAKE
+# @ECLASS-VARIABLE: CMAKE_REQUIRED
 # @DESCRIPTION:
-# Specify if cmake-utils eclass is required. Defaults to allways. Please note that
-# if the variable is set otherwise src_configure/compile/install calls in ebuild
-# must be overrided (can't use the eclass ones).
-# Valid values are: always, optional and never
-WANT_CMAKE="${WANT_CMAKE:-always}"
-case ${WANT_CMAKE} in
-	always)
-		exports="src_configure src_compile src_test src_install"
-		cmake_eclass="cmake-utils"
-		;;
-	optional)
-		exports="src_configure src_compile src_test src_install"
-		cmake_eclass="cmake-utils"
-		;;
-	*)
-		exports=""
-		cmake_eclass=""
-		;;
-esac
-
-inherit base ${cmake_eclass} eutils kde4-functions
+# Specify if cmake buildsystem is being used. Possible values are 'always' and 'never'.
+# Please note that if it's set to 'never' you need to explicitly override following phases:
+# src_configure, src_compile, src_test and src_install.
+# Defaults to 'always'.
+CMAKE_REQUIRED="${CMAKE_REQUIRED:-always}"
+if [[ ${WANT_CMAKE} = false || ${WANT_CMAKE} = never ]]; then
+	buildsystem_eclass=""
+	export_fns=""
+else
+	buildsystem_eclass="cmake-utils"
+	export_fns="src_configure src_compile src_test src_install"
+fi
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
-	inherit subversion
+	subversion_eclass="subversion"
 fi
 
+inherit base ${cmake_utils} eutils kde4-functions ${subversion_eclass}
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${exports} pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare  ${export_fns} pkg_postinst pkg_postrm
+
+unset buildsystem_eclass
+unset export_fns
+unset subversion_eclass
 
 case ${KDEBASE} in
 	kde-base)
