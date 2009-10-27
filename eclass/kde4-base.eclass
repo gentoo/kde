@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.48 2009/10/27 14:20:13 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.49 2009/10/27 17:43:02 scarabeus Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -35,7 +35,7 @@ if [[ ${BUILD_TYPE} = live ]]; then
 	subversion_eclass="subversion"
 fi
 
-inherit base ${cmake_utils} eutils ${subversion_eclass}
+inherit base ${buildsystem_eclass} eutils ${subversion_eclass}
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare  ${export_fns} pkg_postinst pkg_postrm
 
