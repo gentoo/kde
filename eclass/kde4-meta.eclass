@@ -617,6 +617,15 @@ kde4-meta_change_cmakelists() {
 				sed -e '/install(.\+config-openexr\.h.\+)/d' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in collision prevention section"
 			fi
+			# koffice 2.0
+			case ${PV} in
+				2.0.[1-9])
+					sed -i -n -e '1h;1!H;${g;s/install(.\+config-openexr.h.\+)//;p}' \
+						"${S}"/CMakeLists.txt || \
+						die "${LINENO}: sed died in collision prevention section"
+					;;
+				*) ;;
+			esac
 	esac
 
 	popd > /dev/null
