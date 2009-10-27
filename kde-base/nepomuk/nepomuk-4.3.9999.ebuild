@@ -16,11 +16,8 @@ DEPEND="
 		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,java]
 		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,redland]
 	)
-	>=kde-base/kdelibs-${PV}:${SLOT}[kdeprefix=,semantic-desktop]
+	$(add_kdebase_dep kdelibs semantic-desktop)
 "
 # BLOCKS:
 # kde-base/akonadi: installed nepomuk ontologies, which were supposed to be here
-RDEPEND="${DEPEND}
-	!kdeprefix? ( !<kde-base/akonadi-4.2.60[-kdeprefix] )
-	kdeprefix? ( !<kde-base/akonadi-4.2.60:${SLOT}[kdeprefix] )
-"
+add_blocker akonadi '<4.2.60'

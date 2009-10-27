@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdeartwork-meta/kdeartwork-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:26:24 alexxy Exp $
+# $Header: $
 
 EAPI="2"
 inherit kde4-functions
@@ -14,14 +14,14 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/kdeartwork-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-desktopthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-emoticons-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-kscreensaver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-sounds-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-styles-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-wallpapers-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeartwork-weatherwallpapers-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdeartwork-colorschemes)
+	$(add_kdebase_dep kdeartwork-desktopthemes)
+	$(add_kdebase_dep kdeartwork-emoticons)
+	$(add_kdebase_dep kdeartwork-iconthemes)
+	$(add_kdebase_dep kdeartwork-kscreensaver)
+	$(add_kdebase_dep kdeartwork-sounds)
+	$(add_kdebase_dep kdeartwork-styles)
+	$(add_kdebase_dep kdeartwork-wallpapers)
+	$(add_kdebase_dep kdeartwork-weatherwallpapers)
 	$(block_other_slots)
 "

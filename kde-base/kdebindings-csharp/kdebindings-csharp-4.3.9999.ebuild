@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdebindings-csharp/kdebindings-csharp-4.3.1.ebuild,v 1.2 2009/09/02 10:41:46 wired Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -15,7 +15,7 @@ IUSE="akonadi +phonon plasma qscintilla"
 
 COMMON_DEPEND="
 	dev-lang/mono
-	>=kde-base/smoke-${PV}:${SLOT}[akonadi?,kdeprefix=,phonon?,qscintilla?,webkit?]
+	$(add_kdebase_dep smoke 'akonadi?,phonon?,qscintilla?,webkit?')
 "
 
 DEPEND="${COMMON_DEPEND}"

@@ -8,15 +8,16 @@ KMNAME="playground/base/plasma/applets"
 KMMODULE="networkmanager"
 inherit kde4-base
 
-DESCRIPTION="A NetworkManager applet for kde"
+DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	!kde-misc/networkmanager-applet
 	>=kde-base/solid-${KDE_MINIMAL}[networkmanager]
 	>=net-misc/networkmanager-0.7
 "

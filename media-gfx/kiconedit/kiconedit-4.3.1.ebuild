@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/kiconedit/kiconedit-4.3.0.ebuild,v 1.1 2009/08/06 11:38:08 tampakrap Exp $
+# $Header: $
 
 EAPI="2"
 

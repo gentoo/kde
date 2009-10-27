@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	>=kde-base/kcmshell-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kwalletd-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kcmshell)
+	$(add_kdebase_dep kwalletd)
 "

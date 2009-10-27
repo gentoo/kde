@@ -13,8 +13,8 @@ IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
-	>=kde-base/kontactinterfaces-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkdepim-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kontactinterfaces)
+	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg

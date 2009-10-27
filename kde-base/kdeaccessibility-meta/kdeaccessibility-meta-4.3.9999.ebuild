@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdeaccessibility-meta/kdeaccessibility-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:21:23 alexxy Exp $
+# $Header: $
 
 EAPI="2"
 inherit kde4-functions
@@ -14,12 +14,12 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/kdeaccessibility-colorschemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdeaccessibility-iconthemes-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmag-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmousetool-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmouth-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kttsd-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdeaccessibility-colorschemes)
+	$(add_kdebase_dep kdeaccessibility-iconthemes)
+	$(add_kdebase_dep kmag)
+	$(add_kdebase_dep kmousetool)
+	$(add_kdebase_dep kmouth)
+	$(add_kdebase_dep kttsd)
 	$(block_other_slots)
 "
 # The following are disabled in CMakeLists.txt

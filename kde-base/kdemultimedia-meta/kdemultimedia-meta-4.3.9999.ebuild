@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdemultimedia-meta/kdemultimedia-meta-4.2.4.ebuild,v 1.2 2009/06/04 23:41:47 alexxy Exp $
+# $Header: $
 
 EAPI="2"
 inherit kde4-functions
@@ -14,13 +14,13 @@ KEYWORDS=""
 IUSE="kdeprefix"
 
 RDEPEND="
-	>=kde-base/dragonplayer-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/juk-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdemultimedia-kioslaves-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kmix-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kscd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcddb-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkcompactdisc-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/mplayerthumbs-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep dragonplayer)
+	$(add_kdebase_dep juk)
+	$(add_kdebase_dep kdemultimedia-kioslaves)
+	$(add_kdebase_dep kmix)
+	$(add_kdebase_dep kscd)
+	$(add_kdebase_dep libkcddb)
+	$(add_kdebase_dep libkcompactdisc)
+	$(add_kdebase_dep mplayerthumbs)
 	$(block_other_slots)
 "

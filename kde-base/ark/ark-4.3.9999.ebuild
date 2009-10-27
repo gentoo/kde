@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="+archive +bzip2 debug +handbook lzma zip"
 
 DEPEND="
-	>=kde-base/libkonq-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep libkonq)
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2?,lzma?,zlib] )
 	lzma? ( app-arch/xz-utils )
 	zip? ( >=dev-libs/libzip-0.8 )

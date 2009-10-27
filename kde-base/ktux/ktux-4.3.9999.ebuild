@@ -13,8 +13,8 @@ IUSE="debug"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config
 DEPEND="
-	>=kde-base/kscreensaver-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/libkworkspace-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kscreensaver)
+	$(add_kdebase_dep libkworkspace)
 "
 RDEPEND="${DEPEND}"
 

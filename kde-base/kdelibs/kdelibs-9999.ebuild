@@ -79,12 +79,6 @@ DEPEND="${COMMONDEPEND}
 	doc? ( app-doc/doxygen )
 	nls? ( virtual/libintl )
 "
-# Blockers added for !kdeprefix? due to packages from old versions,
-# removed in the meanwhile
-# kde-base/libplasma
-# kde-base/knewsticker
-# kde-base/kpercentage
-# kde-base/ktnef
 RDEPEND="${COMMONDEPEND}
 	!dev-libs/conversion
 	!dev-libs/kunitconversion

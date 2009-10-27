@@ -23,9 +23,9 @@ DEPEND="
 	samba? ( net-fs/samba )
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kdelibs-${PV}:${SLOT}[bzip2?,lzma?]
-	>=kde-base/kdesu-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/kdialog-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdelibs 'bzip2?,lzma?')
+	$(add_kdebase_dep kdesu)
+	$(add_kdebase_dep kdialog)
 	virtual/eject
 	virtual/ssh
 "

@@ -12,11 +12,9 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	!kdeprefix? (
-		!kde-base/ksmserver:4.1[-kdeprefix]
-		!<kde-base/systemsettings-4.2.91[-kdeprefix]
-	)
-	kdeprefix? ( !<kde-base/systemsettings-4.2.91:${SLOT}[kdeprefix] )
-	>=kde-base/kdnssd-${PV}:${SLOT}[kdeprefix=]
-	>=kde-base/khotkeys-${PV}:${SLOT}[kdeprefix=]
+	$(add_kdebase_dep kdnssd)
+	$(add_kdebase_dep khotkeys)
 "
+
+add_blocker ksmserver 4.1.50
+add_blocker systemsettings '<4.2.91'

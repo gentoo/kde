@@ -11,10 +11,7 @@ DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="
-	!kdeprefix? ( !kde-base/drkonqi2[-kdeprefix] )
-	kdeprefix? ( !kde-base/drkonqi2:${SLOT}[kdeprefix] )
-"
+add_blocker drkonqi2
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst

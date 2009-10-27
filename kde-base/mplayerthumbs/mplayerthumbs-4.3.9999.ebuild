@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayerthumbs/mplayerthumbs-1.2.ebuild,v 1.7 2009/04/26 15:02:28 scarabeus Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -17,8 +17,8 @@ IUSE="debug mplayer"
 RDEPEND="
 	!media-video/mplayerthumbs
 	|| (
-		>=kde-base/dolphin-${PV}:${SLOT}[kdeprefix=]
-		>=kde-base/konqueror-${PV}:${SLOT}[kdeprefix=]
+		$(add_kdebase_dep dolphin)
+		$(add_kdebase_dep konqueror)
 	)
 	mplayer? (
 		|| (

@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo-x86/kde-misc/tellico/tellico-2.0_pre2.ebuild,v 1.1 2009/09/10 13:43:22 ssuominen Exp $
+# $Header: $
 
 EAPI="2"
 

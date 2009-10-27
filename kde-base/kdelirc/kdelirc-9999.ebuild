@@ -11,7 +11,10 @@ DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-RDEPEND="
+DEPEND="
+	$(add_kdebase_dep solid)
+"
+RDEPEND="${DEPEND}
 	!kde-misc/kdelirc
 	app-misc/lirc
 "
