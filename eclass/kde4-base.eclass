@@ -19,7 +19,7 @@
 # Please note that if it's set to 'never' you need to explicitly override following phases:
 # src_configure, src_compile, src_test and src_install.
 # Defaults to 'always'.
-CMAKE_REQUIRED="${CMAKE_REQUIRED:-${CMAKE_REQUIRED:-always}}"
+: ${CMAKE_REQUIRED:=always}
 if [[ ${CMAKE_REQUIRED} = false || ${CMAKE_REQUIRED} = never ]]; then
 	buildsystem_eclass=""
 	export_fns=""
