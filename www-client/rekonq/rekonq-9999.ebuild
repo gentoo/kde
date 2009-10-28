@@ -8,7 +8,7 @@ WEBKIT_REQUIRED="always"
 inherit kde4-base git
 
 DESCRIPTION="Konqueror replacement using webkit as backend."
-HOMEPAGE="http://rekonq.adjam.org/"
+HOMEPAGE="http://rekonq.sourceforge.net/"
 EGIT_REPO_URI="git://gitorious.org/rekonq/mainline.git"
 
 LICENSE="GPL-2"
