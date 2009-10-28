@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.51 2009/10/28 14:27:17 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.52 2009/10/28 15:50:56 scarabeus Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -13,14 +13,14 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
-# @ECLASS-VARIABLE: WANT_CMAKE
+# @ECLASS-VARIABLE: CMAKE_REQUIRED
 # @DESCRIPTION:
 # Specify if cmake buildsystem is being used. Possible values are 'always' and 'never'.
 # Please note that if it's set to 'never' you need to explicitly override following phases:
 # src_configure, src_compile, src_test and src_install.
 # Defaults to 'always'.
-WANT_CMAKE="${WANT_CMAKE:-${CMAKE_REQUIRED:-always}}"
-if [[ ${WANT_CMAKE} = false || ${WANT_CMAKE} = never ]]; then
+CMAKE_REQUIRED="${CMAKE_REQUIRED:-${CMAKE_REQUIRED:-always}}"
+if [[ ${CMAKE_REQUIRED} = false || ${CMAKE_REQUIRED} = never ]]; then
 	buildsystem_eclass=""
 	export_fns=""
 else
