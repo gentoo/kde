@@ -17,7 +17,7 @@ SRC_URI="mirror://kde/stable/latest/src/extragear/${MY_P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug handbook"
 
 DEPEND="media-libs/imlib"
