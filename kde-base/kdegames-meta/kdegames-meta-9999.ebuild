@@ -16,6 +16,7 @@ IUSE="kdeprefix opengl"
 RDEPEND="
 	$(add_kdebase_dep bomber)
 	$(add_kdebase_dep bovo)
+	$(add_kdebase_dep granatier)
 	$(add_kdebase_dep kapman)
 	$(add_kdebase_dep katomic)
 	$(add_kdebase_dep kbattleship)
