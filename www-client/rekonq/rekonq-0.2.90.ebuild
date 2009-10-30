@@ -24,3 +24,5 @@ HOMEPAGE="http://rekonq.sourceforge.net/"
 LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug"
+
+DEPEND=">=x11-libs/qt-xmlpatterns-4.5.0:4"
