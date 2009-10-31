@@ -18,7 +18,3 @@ IUSE="debug"
 src_unpack() {
 	git_src_unpack
 }
-
-RDEPEND="
-	!x11-misc/basket:0
-"
