@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-3.3_rc1.ebuild,v 1.1 2009/10/24 20:52:19 scarabeus Exp $
 
 EAPI="2"
 
@@ -11,8 +11,9 @@ else
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
 	MY_P="${PN}-${MY_PV}"
-	KDE_LINGUAS="ar be bg ca cs da de el en_GB es et fr ga gl hi it ja
-		km lt lv nb nds nl nn oc pl pt pt_BR ro ru se sk sl sr sv
+
+	KDE_LINGUAS="ar be bg ca cs da de el en_GB es et eu fr ga gl hi hne hr hu is it
+		ja km lt lv mai ms nb nds nl nn oc pl pt pt_BR ro ru se sk sl sr sv          
 		tr uk zh_CN zh_TW"
 	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
@@ -35,8 +36,10 @@ COMMONDEPEND="
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
 	rss? (
-		dev-libs/boost
 		>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	)
+	shutdown? (
+		>=kde-base/solid-${KDE_MINIMAL}
 	)
 "
 DEPEND="${COMMONDEPEND}
