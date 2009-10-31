@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+KDE_LINGUAS="de pl"
 inherit kde4-base
 
 MY_P="kde4-windeco-${P}-Source"
@@ -18,13 +19,3 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
-
-pkg_postinst() {
-	kde4-base_pkg_postinst
-
-	echo
-	elog "After update from version older than 2.3.0 please run:"
-	elog "    nitrogen-convert-exceptions"
-	elog "In order to get all configuration moved to new format."
-	echo
-}
