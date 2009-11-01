@@ -42,3 +42,9 @@ src_configure() {
 
 	kde4-base_src_configure
 }
+
+src_install() {
+	kde4-base_src_install
+
+	rm "${D}/${PREFIX}"/share/apps/cmake/modules/FindKDevPlatform.cmake
+}
