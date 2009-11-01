@@ -12,7 +12,7 @@ inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
 KEYWORDS=""
-IUSE="+crypt +openexr"
+IUSE="crypt openexr"
 
 RDEPEND="
 	>=app-office/koffice-data-${PV}:${SLOT}
