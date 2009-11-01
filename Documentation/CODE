@@ -30,7 +30,7 @@ KDE4 (kde-testing) policies:
  - think about adding debug USE flag to your package. Do not add debug USE flag for artwork-only and
    python-only KDE packages. And don't forget to write metadata.xml entries for new local USE flags.
 
- - do not enable USE flags by default (IUSE="+useflag") with no *good* reason. "Because I use it" it's
+ - do not enable USE flags by default (IUSE="+useflag") with no *good* reason. "Because I use it" is
    not enough. If uncertain - discuss it with the rest of the team. USE flags that are considered as
    commonly used, known to work and not pulling any dependencies, can be enabled by default right away.
 
