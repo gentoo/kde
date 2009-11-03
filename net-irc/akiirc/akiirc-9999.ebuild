@@ -4,11 +4,11 @@
 
 EAPI="2"
 
-KMNAME="playground/network"
-inherit kde4-base
+inherit git kde4-base
 
 DESCRIPTION="KDE4 IRC development library."
 HOMEPAGE="http://www.kde.org/"
+EGIT_REPO_URI="git://gitorious.org/aki/akiirc.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
@@ -19,3 +19,7 @@ RDEPEND="
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[ssl]
 "
 DEPEND="${RDEPEND}"
+
+src_unpack() {
+	git_src_unpack
+}
