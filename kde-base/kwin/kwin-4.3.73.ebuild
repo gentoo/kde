@@ -26,6 +26,8 @@ COMMONDEPEND="
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/damageproto
+	x11-proto/fixesproto
+	x11-proto/randrproto
 	x11-proto/renderproto
 	xcomposite? ( x11-proto/compositeproto )
 	xinerama? ( x11-proto/xineramaproto )
