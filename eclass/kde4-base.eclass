@@ -239,6 +239,10 @@ if [[ ${PN} != kdelibs ]]; then
 fi
 kdedepend="
 	dev-util/pkgconfig
+	!aqua? (
+		x11-proto/xextproto
+		x11-proto/xf86vidmodeproto
+	)
 "
 case ${KDE_REQUIRED} in
 	always)
