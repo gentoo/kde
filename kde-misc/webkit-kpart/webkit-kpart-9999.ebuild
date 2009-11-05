@@ -5,8 +5,8 @@
 EAPI="2"
 
 WEBKIT_REQUIRED="always"
-KMNAME="kdereview"
-KMMODULE="kdewebkit"
+KMNAME="playground/libs"
+KMMODULE="webkitkde"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for konqueror"
