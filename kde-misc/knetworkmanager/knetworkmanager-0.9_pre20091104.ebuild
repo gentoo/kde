@@ -29,6 +29,11 @@ src_configure() {
 	sed -i 's/at_console=".*"/group="plugdev"/' \
 			"${S}/NetworkManager-kde4.conf" \
 				|| die "Fixing dbus policy failed"
+	
+	# remove plasmoid, doesnt work
+	sed -i 's/add_subdirectory(applet)//' \
+			"${S}/CMakeLists.txt" \
+				|| die "removing plasmoid failed"
 
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
