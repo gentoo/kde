@@ -21,7 +21,7 @@ DEPEND="
 	lzma? ( app-arch/xz-utils )
 	openexr? ( media-libs/openexr )
 	samba? ( net-fs/samba )
-	sftp? ( >=net-libs/libssh-0.3.2[sftp] )
+	sftp? ( >=net-libs/libssh-0.4.0[sftp] )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdelibs 'bzip2?,lzma?')

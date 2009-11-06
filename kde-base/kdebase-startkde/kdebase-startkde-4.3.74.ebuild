@@ -31,6 +31,7 @@ RDEPEND="
 	$(add_kdebase_dep kstartupconfig)
 	$(add_kdebase_dep kstyles)
 	$(add_kdebase_dep ktimezoned)
+	$(add_kdebase_dep kurifilter-plugins)
 	$(add_kdebase_dep kwin)
 	$(add_kdebase_dep phonon-kde)
 	$(add_kdebase_dep plasma-apps)

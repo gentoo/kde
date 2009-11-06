@@ -58,6 +58,7 @@ KMEXTRACTONLY="
 	libs/kworkspace/
 	libs/taskmanager/
 	libs/plasmagenericshell/
+	libs/ksysguard/
 	ksysguard/
 "
 
