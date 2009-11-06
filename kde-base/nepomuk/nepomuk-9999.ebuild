@@ -13,8 +13,8 @@ IUSE="debug +handbook"
 
 DEPEND="
 	|| (
-		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,java]
-		>=dev-libs/soprano-2.3.0[clucene,dbus,raptor,redland]
+		>=dev-libs/soprano-2.3.67[clucene,dbus,raptor,java]
+		>=dev-libs/soprano-2.3.67[clucene,dbus,raptor,redland]
 		>=dev-libs/soprano-9999[clucene,dbus,raptor,virtuoso]
 	)
 	$(add_kdebase_dep kdelibs semantic-desktop)
