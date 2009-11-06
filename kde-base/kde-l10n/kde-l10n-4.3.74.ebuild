@@ -16,9 +16,10 @@ RDEPEND=""
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="+handbook"
 
-MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu he hi
-	hne hr hu is it ja kk km kn ko ku lt lv mai mk ml mr nb nds nl nn pa pl pt
-	pt_BR ro ru sk sl sr sv tg th tr uk wa zh_CN zh_TW"
+MY_LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi
+			fr fy ga gl gu he hi hne hsb hr hu hy is it ja ka kk km kn ko ku lb
+			lt lv mai mk ml mr ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru
+			rw se sk sl sr sv ta te tg th tr uk uz vi wa xh	zh_CN zh_HK zh_TW"
 
 SRC_URI=""
 
