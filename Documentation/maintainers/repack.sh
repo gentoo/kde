@@ -23,10 +23,10 @@ do
 	rm -rf $x
 done
 
-# making tar.lzma
+# making tar.xz
 for x in $(ls *.tar)
 do
-	lzma -9 -v $x
+	xz -9 -e -v $x
 done
 
 exit 0
