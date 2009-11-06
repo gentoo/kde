@@ -115,6 +115,9 @@
 ~kde-base/automoc-9999 **
 ~media-sound/phonon-9999 **
 ~sys-auth/policykit-qt-9999 **
+
+# For kde-base/kdebase-kioslaves
+~net-libs/libssh-9999 **
 ~kde-base/blinken-9999 **
 ~kde-base/cantor-9999 **
 ~kde-base/kalgebra-9999 **

@@ -179,6 +179,9 @@ kde-base/smoke:live
 ~kde-base/automoc-9999
 ~media-sound/phonon-9999
 ~sys-auth/policykit-qt-9999
+
+# For kde-base/kdebase-kioslaves
+~net-libs/libssh-9999
 kde-base/blinken:live
 kde-base/cantor:live
 kde-base/kalgebra:live
