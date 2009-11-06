@@ -222,8 +222,8 @@ kde4-meta_src_extract() {
 				postfix="bz2"
 				;;
 			4.3.[6-9]*)
-				KMTARPARAMS+=" --lzma" # lzma
-				postfix="lzma"
+				KMTARPARAMS+=" --xz" # lzma
+				postfix="xz"
 				;;
 			*)
 				KMTARPARAMS+=" --bzip2" # bz2
