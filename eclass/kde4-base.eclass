@@ -364,7 +364,10 @@ case ${BUILD_TYPE} in
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.3.[6-9]*)
-							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.xz" ;;
+							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
+							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.xz"
+							DEPEND+=" app-arch/xz-utils"
+							;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
 					;;
@@ -459,7 +462,20 @@ kde4-base_src_unpack() {
 		migrate_store_dir
 		subversion_src_unpack
 	else
-		base_src_unpack
+		local file
+		for file in ${A}; do
+			# This setup is because EAPI <= 2 cannot unpack *.tar.xz files
+			# directly, so we do it ourselves (using the exact same code as portage)
+			case ${file} in
+				*.tar.xz)
+					xz -dc "${DISTDIR}"/${file} | tar xof -
+					assert "failed unpacking ${file}"
+					;;
+				*)
+					unpack ${file}
+					;;
+			esac
+		done
 	fi
 }
 
