@@ -13,7 +13,7 @@ HOMEPAGE="http://www.libssh.org/"
 EGIT_REPO_URI="git://git.libssh.org/projects/libssh/libssh.git"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ppc ~s390 x86"
+KEYWORDS=""
 SLOT="0"
 IUSE="debug gcrypt examples +sftp ssh1 server static-libs zlib"
 
