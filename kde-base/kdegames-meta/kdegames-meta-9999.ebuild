@@ -28,6 +28,7 @@ RDEPEND="
 	$(add_kdebase_dep kfourinline)
 	$(add_kdebase_dep kgoldrunner)
 	$(add_kdebase_dep killbots)
+	$(add_kdebase_dep kigo)
 	$(add_kdebase_dep kiriki)
 	$(add_kdebase_dep kjumpingcube)
 	$(add_kdebase_dep klines)
