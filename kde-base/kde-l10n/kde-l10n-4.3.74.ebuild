@@ -10,7 +10,10 @@ DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
-DEPEND="sys-devel/gettext"
+DEPEND="
+	app-arch/xz-utils
+	sys-devel/gettext
+"
 RDEPEND=""
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
@@ -31,7 +34,7 @@ done
 S="${WORKDIR}"
 
 src_unpack() {
-	local LNG DIR
+	local LNG DIR file
 	if [[ -z ${A} ]]; then
 		elog
 		elog "You either have the LINGUAS variable unset, or it only"
@@ -43,7 +46,13 @@ src_unpack() {
 		elog
 	fi
 
-	[[ -n ${A} ]] && unpack ${A}
+	for file in ${A}; do
+		echo ">>> Unpacking ${file} to ${PWD}"
+		xz -dc "${DISTDIR}"/${file} | tar xof -
+		assert "failed unpacking ${file}"
+	done
+	# For EAPI >= 3, or if not using .tar.xz archives:
+	# [[ -n ${A} ]] && unpack ${A}
 	cd "${S}"
 
 	# add all linguas to cmake
