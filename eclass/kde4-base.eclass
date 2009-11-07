@@ -468,6 +468,7 @@ kde4-base_src_unpack() {
 			# directly, so we do it ourselves (using the exact same code as portage)
 			case ${file} in
 				*.tar.xz)
+					echo ">>> Unpacking ${file} to ${PWD}"
 					xz -dc "${DISTDIR}"/${file} | tar xof -
 					assert "failed unpacking ${file}"
 					;;
