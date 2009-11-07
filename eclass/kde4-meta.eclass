@@ -31,10 +31,7 @@ case ${KMNAME} in
 		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
-		COMMONDEPEND+="
-			dev-libs/boost
-			$(add_kdebase_dep kdepimlibs)
-		"
+		COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs)"
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"

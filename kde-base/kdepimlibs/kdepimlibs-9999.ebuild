@@ -20,7 +20,7 @@ RESTRICT="test"
 DEPEND="
 	>=app-crypt/gpgme-1.1.6
 	>=app-office/akonadi-server-1.2.61
-	dev-libs/boost
+	>=dev-libs/boost-1.35.0-r5[python]
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
