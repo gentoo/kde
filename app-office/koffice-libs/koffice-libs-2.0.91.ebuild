@@ -63,7 +63,7 @@ src_configure() {
 }
 
 src_install() {
-	newdoc kounavail/README README.kounavail
+	newdoc kounavail/README README.kounavail || die
 
 	kde4-meta_src_install
 }

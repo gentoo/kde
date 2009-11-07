@@ -11,11 +11,11 @@ inherit kde4-meta
 DESCRIPTION="KOffice word processor."
 
 KEYWORDS=""
-IUSE="+wpd +wv2"
+IUSE="wpd +wv2"
 
 DEPEND="
-	wpd? ( app-text/libwpd )
-	wv2? ( >=app-text/wv2-0.4.1 )
+	app-text/libwpd
+	app-text/wv2
 "
 RDEPEND="${DEPEND}"
 

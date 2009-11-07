@@ -12,7 +12,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice image manipulation program."
 
 KEYWORDS="~amd64 ~x86"
-IUSE="+gmm +kdcraw +openexr +pdf +tiff"
+IUSE="gmm +kdcraw openexr +pdf +tiff"
 
 DEPEND="
 	>=app-office/koffice-libs-${PV}:${SLOT}[openexr=]
@@ -21,7 +21,7 @@ DEPEND="
 	>=media-gfx/exiv2-0.16
 	>=media-gfx/imagemagick-0.6.4.9.2[openexr=,png,tiff?]
 	gmm? ( sci-mathematics/gmm )
-	kdcraw? ( kde-base/libkdcraw )
+	kdcraw? ( >=kde-base/libkdcraw-${KDE_MINIMAL} )
 	opengl? ( media-libs/glew )
 	pdf? (
 		>=virtual/poppler-qt4-0.10.5

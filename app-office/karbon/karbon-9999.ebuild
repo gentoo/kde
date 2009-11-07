@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice vector drawing application."
 
 KEYWORDS=""
-IUSE="+pstoedit +wpg"
+IUSE="+pstoedit wpg"
 
 DEPEND="
 	media-libs/libart_lgpl
