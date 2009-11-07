@@ -15,7 +15,7 @@ IUSE="wpd +wv2"
 
 DEPEND="
 	app-text/libwpd
-	app-text/wv2
+	>=app-text/wv2-0.4.2
 "
 RDEPEND="${DEPEND}"
 
