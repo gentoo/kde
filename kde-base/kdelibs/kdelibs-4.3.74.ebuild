@@ -113,6 +113,7 @@ PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${P}-glibc2.11.patch"
 )
 
 src_prepare() {
