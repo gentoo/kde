@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="playground/base/plasma/applets"
-KMMODULE="networkmanager"
+KMNAME="playground/base/plasma/applets"                                                                                                   
+KMMODULE="networkmanager"                                                                                                                 
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
@@ -14,22 +14,36 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="consolekit debug +networkmanager wicd"
 
 DEPEND="
 	!kde-misc/networkmanager-applet
-	>=kde-base/solid-${KDE_MINIMAL}[networkmanager]
+	>=kde-base/solid-${KDE_MINIMAL}[networkmanager?,wicd?]
 	>=net-misc/networkmanager-0.7
+	consolekit? ( sys-auth/consolekit )
 "
 RDEPEND="${DEPEND}"
 
+pkg_setup() {
+	if ! use networkmanager && ! use wicd; then
+		eerror "You need to pick up one of the backend implementations"
+		eerror "   * networkmanager"
+		eerror "   * wicd"
+		die "No backend selected"
+	fi
+
+	kde4-base_pkg_setup
+}
+
 src_configure() {
-
-	# Fix dbus policy
-	sed -i 's/at_console=".*"/group="plugdev"/' \
+	if ! use consolekit; then
+		# Fix dbus policy
+		sed -i \
+			-e 's/at_console=".*"/group="plugdev"/' \
 			"${S}/NetworkManager-kde4.conf" \
-				|| die "Fixing dbus policy failed"
-
+			|| die "Fixing dbus policy failed"
+	fi
+	
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
 
