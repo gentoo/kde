@@ -3,7 +3,6 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name="nfs">Create sqlite db within ~/.kde, instead in the albums base directory.</flag>
 	<flag name="addressbook">Add support for kdepim</flag>
 	<flag name="geolocation">Add support for marble</flag>
 	<flag name="lensfun">Enable support for lens-correnction library</flag>

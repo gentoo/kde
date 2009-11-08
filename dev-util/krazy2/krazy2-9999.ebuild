@@ -41,7 +41,7 @@ src_prepare() {
 
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
 		src/src.pro || die "failed to apply nostrip"
-		
+
 	sed -i "s:$TOP/lib:$TOP/$(get_libdir):" install.sh || die "sed failed"
 
 	sed -i "s:lib\$(LIBSUFFIX):$(get_libdir):" src/passbyvalue/passbyvalue.pro || die "sed failed"
@@ -65,7 +65,7 @@ src_install() {
 	dodoc README TODO || die "dodoc failed"
 
 	cmake-utils_src_install
-	
+
 	cd src
 	emake install INSTALL_ROOT="${D}/usr" || die "Make src install failed"
 	cd ..

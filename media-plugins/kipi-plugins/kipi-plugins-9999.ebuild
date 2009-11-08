@@ -48,7 +48,6 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-
 src_configure() {
 	# This Plugin hard depends on libksane, deactivate it if use flag scanner is
 	# not set.

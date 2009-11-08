@@ -15,7 +15,6 @@ DESCRIPTION="A digital photo management application for KDE."
 HOMEPAGE="http://www.digikam.org/"
 #SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2
 
-
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
@@ -65,7 +64,6 @@ src_configure() {
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
 		$(cmake-utils_use_with semantic-desktop Soprano)"
-
 
 	kde4-base_src_configure
 }

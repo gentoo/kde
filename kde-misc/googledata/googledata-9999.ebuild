@@ -9,6 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="Google contacts and calendar akonadi resource"
 HOMEPAGE="http://pim.kde.org/akonadi/"
+LICENSE="GPL-2"
 
 SLOT="0"
 KEYWORDS=""
@@ -17,4 +18,3 @@ IUSE=""
 DEPEND=">=kde-base/akonadi-${KDE_MINIMAL}
 		>=net-libs/libgcal-0.9.0"
 RDEPEND="${DEPEND}"
-

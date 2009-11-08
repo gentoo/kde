@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-
 KMNAME="koffice"
 KMNOMODULE="true"
 inherit kde4-meta
