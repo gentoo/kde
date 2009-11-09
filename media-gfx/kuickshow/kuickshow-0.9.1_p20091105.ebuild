@@ -10,7 +10,7 @@ KDE_MINIMAL="4.3"
 
 inherit kde4-base
 
-MY_P="${P}-kde4.3.1"
+MY_P="${P/_p*}-kde4.3.3"
 DESCRIPTION="KDE4 program to view images"
 HOMEPAGE="http://userbase.kde.org/KuickShow"
 SRC_URI="mirror://kde/stable/latest/src/extragear/${MY_P}.tar.bz2"
