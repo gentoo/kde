@@ -61,7 +61,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? ( >=dev-libs/soprano-2.3.0[dbus] )
+	semantic-desktop? ( >=dev-libs/soprano-2.3.67[dbus] )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
@@ -108,6 +108,8 @@ add_blocker libplasma
 add_blocker kdebase 0 3.5.9-r4:3.5
 add_blocker kdebase-startkde 0 3.5.10:3.5
 add_blocker kdelibs 0 '<3.5.10:3.5'
+# libnepomukquery moved to kdelibs from plasma-workspace between 4.3.74 -> 4.3.75
+add_blocker plasma-workspace '<4.3.75'
 
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"

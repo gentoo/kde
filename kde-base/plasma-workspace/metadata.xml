@@ -5,6 +5,5 @@
 <use>
 	<flag name="google-gadgets">Add google-gadgets support</flag>
 	<flag name="rss">Enables building RSSNOW plasmoid (requires <pkg>kde-base/kdepimlibs</pkg>)</flag>
-	<flag name="xcomposite">Disable this flag to enable experimental fake transparency support for plasma panel.</flag>
 </use>
 </pkgmetadata>

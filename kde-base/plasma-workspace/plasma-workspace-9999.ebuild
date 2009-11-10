@@ -47,10 +47,6 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep soliduiserver)
 "
 
-KMEXTRA="
-	libs/nepomukquery/
-	libs/nepomukqueryclient/
-"
 KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
 	krunner/dbus/org.kde.krunner.App.xml
