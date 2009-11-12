@@ -56,16 +56,15 @@ src_configure() {
 src_install() {
 	kde4-meta_src_install
 
-	python_version
 	rm -f \
-		"${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
+		"${D}$(python_get_sitedir)"/PyKDE4/*.py[co] \
 		"${D}${PREFIX}"/share/apps/"${PN}"/*.py[co]
 }
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	python_mod_optimize ${ROOT}"usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
+	python_mod_optimize "${ROOT}$(python_get_sitedir)"/PyKDE4
 
 	if use examples; then
 		echo
@@ -78,5 +77,5 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup ${ROOT}"usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4
+	python_mod_cleanup "${ROOT}$(python_get_sitedir)"/PyKDE4
 }

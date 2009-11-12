@@ -75,9 +75,8 @@ src_configure() {
 src_install() {
 	kde4-meta_src_install
 
-	python_version
 	rm -f \
-		"${D}/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4/*.py[co] \
+		"${D}$(python_get_sitedir)"/PyKDE4/*.py[co] \
 		"${D}${KDEDIR}"/share/apps/plasma_scriptengine_python/*.py[co]
 }
 
@@ -86,7 +85,7 @@ pkg_postinst() {
 
 	if use python; then
 		python_mod_optimize \
-			"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+			"${ROOT}$(python_get_sitedir)"/PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
@@ -96,7 +95,7 @@ pkg_postrm() {
 
 	if [[ -d "${KDEDIR}"/share/apps/plasma_scriptengine_python ]]; then
 		python_mod_cleanup \
-			"/usr/$(get_libdir)/python${PYVER}"/site-packages/PyKDE4 \
+			"${ROOT}$(python_get_sitedir)"/PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
