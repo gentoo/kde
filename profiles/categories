@@ -4,6 +4,7 @@ app-cdr
 app-editors
 app-misc
 app-office
+app-portage
 dev-cpp
 dev-db
 dev-libs

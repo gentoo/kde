@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>volkmar@gentoo.org</email>
+		<name>Mounir Lamouri</name>
+	</maintainer>
+	<use>
+		<flag name="consolekit">
+			Use sys-auth/consolekit to determine proxy settings
+		</flag>
+		<flag name="cron">Install cron script for auto-update</flag>
+		<flag name="pm-utils">
+			Add pm-utils (suspend/resume) functionalities
+		</flag>
+		<flag name="ruck">Build ruck (rug-like) client</flag>
+		<flag name="static-libs">Compile static archives</flag>
+	</use>
+</pkgmetadata>
+
