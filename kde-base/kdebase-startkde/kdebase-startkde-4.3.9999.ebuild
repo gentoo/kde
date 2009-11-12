@@ -101,22 +101,21 @@ src_install() {
 	fi
 	doexe "${FILESDIR}/agent-shutdown.sh" || die "doexe agent-shutdown.sh failed"
 
-	# x11 session script
-	local DIR="kde-${SLOT}"
-	cat <<-EOF > "${T}/${DIR}"
-	#!/bin/sh
-	exec ${KDEDIR}/bin/startkde
-	EOF
-	exeinto /etc/X11/Sessions
-	doexe "${T}/${DIR}" || die "doexe ${DIR} failed"
-
-	# freedesktop compliant session script
-	local KDE_X
 	if use kdeprefix; then
 		KDE_X="KDE-${SLOT}"
 	else
 		KDE_X="KDE-4"
 	fi
+
+	# x11 session script
+	cat <<-EOF > "${T}/${KDE_X}"
+	#!/bin/sh
+	exec ${KDEDIR}/bin/startkde
+	EOF
+	exeinto /etc/X11/Sessions
+	doexe "${T}/${KDE_X}" || die "doexe ${KDE_X} failed"
+
+	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
 		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/${KDE_X}.desktop"
 	insinto /usr/share/xsessions
@@ -136,4 +135,8 @@ pkg_postinst () {
 		elog "/etc/kde/shutdown/agent-shutdown.sh"
 	fi
 	echo
+	elog "The name of the session script has changed."
+	elog "If you currently have XSESSION=\"kde-${SLOT}\" in your"
+	elog "configuration files, you will need to change it to"
+	elog "XSESSION=\"${KDE_X}\""
 }
