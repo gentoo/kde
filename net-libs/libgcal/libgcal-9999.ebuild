@@ -29,7 +29,6 @@ src_configure() {
 		$(use_enable curldebug)
 }
 
-
 src_install() {
 	einstall || die "einstall failed"
 }
