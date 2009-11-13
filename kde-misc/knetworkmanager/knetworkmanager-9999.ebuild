@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="playground/base/plasma/applets"                                                                                                   
-KMMODULE="networkmanager"                                                                                                                 
+KMNAME="playground/base/plasma/applets"
+KMMODULE="networkmanager"
 QT_MINIMAL="4.6.0_beta"
 
 inherit kde4-base
@@ -45,7 +45,7 @@ src_configure() {
 			"${S}/NetworkManager-kde4.conf" \
 			|| die "Fixing dbus policy failed"
 	fi
-	
+
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
 
