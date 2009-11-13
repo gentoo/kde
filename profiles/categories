@@ -28,7 +28,6 @@ net-wireless
 sys-auth
 sys-block
 sys-devel
-sys-power
 www-client
 x11-libs
 x11-themes
