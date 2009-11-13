@@ -16,4 +16,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 add_blocker konsole 4.1.50
-
