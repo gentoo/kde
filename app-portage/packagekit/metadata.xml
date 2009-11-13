@@ -7,15 +7,17 @@
 		<name>Mounir Lamouri</name>
 	</maintainer>
 	<use>
+		<flag name="connman">Add support for <pkg>net-misc/connman</pkg></flag>
 		<flag name="consolekit">
-			Use sys-auth/consolekit to determine proxy settings
+			Use <pkg>sys-auth/consolekit</pkg> to determine proxy settings
 		</flag>
 		<flag name="cron">Install cron script for auto-update</flag>
 		<flag name="pm-utils">
 			Add pm-utils (suspend/resume) functionalities
 		</flag>
-		<flag name="ruck">Build ruck (rug-like) client</flag>
+		<!--flag name="ruck">Build ruck (rug-like) client</flag-->
 		<flag name="static-libs">Compile static archives</flag>
+		<flag name="udev">Add support for <pkg>sys-fs/udev</pkg></flag>
 	</use>
 </pkgmetadata>
 
