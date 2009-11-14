@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="playground/base/plasma/applets"
-KMMODULE="networkmanager"
+KMNAME="kdereview"
+KMMODULE="networkmanagement"
 QT_MINIMAL="4.6.0_beta"
 
 inherit kde4-base
