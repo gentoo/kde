@@ -26,7 +26,7 @@ fi
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdda daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
+IUSE="cdda daap debug ipod mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -45,7 +45,7 @@ DEPEND="
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 	)
 	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
-	lastfm? ( >=media-libs/liblastfm-0.3.0 )
+	>=media-libs/liblastfm-0.3.0
 	mp3tunes? (
 		dev-libs/glib:2
 		dev-libs/libxml2
@@ -78,9 +78,9 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
+		-DWITH_LibLastFm=ON
 		$(cmake-utils_use_with ipod)
 		$(cmake-utils_use_with ipod Gdk)
-		$(cmake-utils_use_with lastfm LibLastFm)
 		$(cmake-utils_use_with mtp)
 		$(cmake-utils_use_with mp3tunes MP3Tunes)"
 #		$(cmake-utils_use_with semantic-desktop Nepomuk)
