@@ -309,7 +309,7 @@ case ${BUILD_TYPE} in
 				kdelibs-*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
 					;;
-				kdereview)
+				kdereview*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
 					;;
 				kdesupport)
