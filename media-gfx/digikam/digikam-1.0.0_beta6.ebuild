@@ -13,42 +13,42 @@ MY_P="${PN}-${PV/_/-}"
 
 DESCRIPTION="A digital photo management application for KDE."
 HOMEPAGE="http://www.digikam.org/"
-SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2
+	http://dev.gentooexperimental.org/~scarabeus/digikam-1.0.0-beta6.patch.bz2
+"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="addressbook debug geolocation +gphoto2 lensfun semantic-desktop"
+IUSE="addressbook debug geolocation gphoto2 lensfun semantic-desktop +thumbnails"
 
-DEPEND="
-	dev-db/sqlite:3
+RDEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
 	>=kde-base/solid-${KDE_MINIMAL}
-	>=media-libs/jasper-1.701.0
+	media-libs/jasper
 	media-libs/jpeg
-	>=media-libs/lcms-1.17
-	>=media-libs/libpng-1.2.26-r1
-	>=media-libs/tiff-3.8.2-r3
-	sys-devel/gettext
-	x11-libs/qt-core[qt3support]
+	media-libs/lcms
+	media-libs/liblqr
+	media-libs/libpng
+	media-libs/tiff
+	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
 	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
 	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
 	lensfun? ( media-libs/lensfun )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-devel/gettext
+"
 
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	# Fix files collision, use icon from kdebase-data rather that digikam ones
-	rm -rf data/icons/oxygen/{16x16,22x22,32x32,64x64,48x48,128x128,scalable\
-}/{actions/{view-object-histogram-linear,transform-crop-and-resize,\
-view-object-histogram-logarithmic},apps/{digikam,showfoto}}.{svgz,png}
+	epatch "${WORKDIR}"/${MY_P}.patch
 
 	kde4-base_src_prepare
 }
@@ -57,9 +57,14 @@ src_configure() {
 	local backend
 
 	use semantic-desktop && backend="Nepomuk" || backend="None"
+	# LQR = only allows to choose between bundled/external
 	mycmakeargs="${mycmakeargs}
+		-DWITH_LQR=ON
+		-DENABLE_THEMEDESIGNER=OFF
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
-		$(cmake-utils_use_enable gphoto2)
+		$(cmake-utils_use_enable gphoto2 GPHOTO2)
+		$(cmake-utils_use_with gphoto2)
+		$(cmake-utils_use_enable thumbnails THUMBS_DB)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
