@@ -62,7 +62,7 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
-PATCHES=( "${FILESDIR}/disable_bindings_test.patch" )
+PATCHES=( "${FILESDIR}/amarok-qtscriptcheck.patch" )
 
 # Only really required for live ebuild, to skip git_src_prepare
 src_prepare() {
