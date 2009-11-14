@@ -9,6 +9,8 @@ inherit kde4-base git
 DESCRIPTION="Gmail notifier applet/plasmoid for kde"
 HOMEPAGE="http://sourceforge.net/projects/kcheckgmail"
 EGIT_REPO_URI="git://git.debian.org/users/lpereira-guest/kcheckgmail.git"
+EGIT_BRANCH="kde4-port"
+EGIT_TREE="${EGIT_BRANCH}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -18,3 +20,4 @@ IUSE="debug"
 RDEPEND="
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
+
