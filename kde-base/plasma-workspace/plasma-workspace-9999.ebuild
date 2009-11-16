@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug +handbook google-gadgets python rss xinerama"
+IUSE="debug +handbook google-gadgets python rss +semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kephal)
@@ -31,6 +31,7 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	rss? ( $(add_kdebase_dep kdepimlibs) )
+	semantic-desktop? ( $(add_kdebase_dep kdelibs 'semantic-desktop?') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
@@ -67,6 +68,8 @@ src_configure() {
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with rss KdepimLibs)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		-DWITH_Xmms=OFF"
 
 	kde4-meta_src_configure
