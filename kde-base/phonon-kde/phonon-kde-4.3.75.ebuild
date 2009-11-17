@@ -22,8 +22,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker phonon-xine
-
 src_prepare() {
 	# Don't build tests - they require OpenGL
 	sed -e 's/add_subdirectory(tests)//' \

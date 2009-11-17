@@ -16,5 +16,4 @@ RDEPEND="
 	$(add_kdebase_dep khotkeys)
 "
 
-add_blocker ksmserver 4.1.50
 add_blocker systemsettings '<4.2.91'

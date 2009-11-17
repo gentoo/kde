@@ -17,10 +17,6 @@ RDEPEND="
 	x11-themes/hicolor-icon-theme
 "
 
-# Some files were moved from dolphin to kdebase-data between the 4.1.85 and the 4.1.87
-# releases. Thus we need to block older versions of dolphin, including the :4.1 versions.
-add_blocker dolphin '<4.1.87'
-
 KMEXTRA="
 	l10n/
 	pics/

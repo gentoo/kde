@@ -14,5 +14,3 @@ DEPEND="
 	>=sys-libs/libutempter-1.1.5
 "
 RDEPEND="${DEPEND}"
-
-add_blocker konsole 4.1.50

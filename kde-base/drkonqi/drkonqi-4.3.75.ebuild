@@ -11,8 +11,6 @@ DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
-add_blocker drkonqi2
-
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 	elog "For more usability consider installing folowing packages:"
