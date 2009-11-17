@@ -17,26 +17,27 @@ DEPEND="
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
 	$(add_kdebase_dep libksieve)
-	$(add_kdebase_dep messagecore)
-	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep mimelib)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kmailcvt)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
+add_blocker messagecore
+add_blocker messagelist
+add_blocker messageviewer
 
 KMEXTRACTONLY="
 	korganizer/org.kde.Korganizer.Calendar.xml
 	libkleo
 	libkpgp
 	libksieve
-	messagecore
-	messagelist
 	mimelib
 "
 KMEXTRA="
 	ksendemail/
+	messagecore/
+	messagelist/
 	plugins/kmail/
 "
 KMLOADLIBS="libkdepim"
