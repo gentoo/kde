@@ -20,13 +20,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi/
 	kmail/
 "
 
 src_configure() {
 	mycmakeargs="
-		-DBUILD_akonadi=ON
+		-DBUILD_akonadi=OFF
 		-DXSLTPROC_EXECUTABLE=/usr/bin/xsltproc
 	"
 	kde4-meta_src_configure
