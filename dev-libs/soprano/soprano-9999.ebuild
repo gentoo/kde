@@ -50,10 +50,11 @@ pkg_setup() {
 	if ! use java && ! use virtuoso; then
 		if ! use redland; then
 			echo
-			ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
-			ewarn "Applications using soprano may need at least one backend functional."
-			ewarn "If you experience any problems, enable any of those USE flags:"
-			ewarn "java (recommended), redland"
+			ewarn "You have explicitly disabled the default soprano backend and haven't chosen"
+			ewarn "a different one. Applications using soprano may need at least one backend"
+			ewarn "to be functional. If you experience any problems, enable any of those USE"
+			ewarn "flags:"
+			ewarn "java (recommended), redland, virtuoso"
 			echo
 		else
 			echo
