@@ -17,3 +17,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto
 "
+
+src_unpack() {
+	if use handbook; then
+		KMEXTRA+=" doc/kcontrol/kgamma"
+	fi
+
+	kde4-meta_src_unpack
+}
