@@ -47,7 +47,7 @@ pkg_setup() {
 		echo
 	fi
 
-	if ! use java; then
+	if ! use java && ! use virtuoso; then
 		if ! use redland; then
 			echo
 			ewarn "You explicitly disabled default soprano backend and haven't chosen other one."
