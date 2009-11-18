@@ -12,7 +12,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/phonon"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug gstreamer +xcb +xine"
+IUSE="alsa debug gstreamer +xcb +xine"
 
 RDEPEND="
 	!kde-base/phonon-xine
@@ -24,6 +24,7 @@ RDEPEND="
 	gstreamer? (
 		media-libs/gstreamer
 		media-libs/gst-plugins-base
+		alsa? ( media-libs/alsa-lib )
 	)
 	xine? (
 		>=media-libs/xine-lib-1.1.15-r1[xcb?]
@@ -42,16 +43,12 @@ pkg_setup() {
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with gstreamer GStreamer)
 		$(cmake-utils_use_with gstreamer GStreamerPlugins)
-		$(cmake-utils_use_with xine)"
-
-	if use xine; then
-		mycmakeargs="${mycmakeargs}
-			$(cmake-utils_use_with xcb)"
-	else
-		sed -i -e '/xine/d' CMakeLists.txt || die "sed failed"
-	fi
+		$(cmake-utils_use_with xine)
+		$(cmake-utils_use_with xcb)
+	"
 
 	cmake-utils_src_configure
 }
