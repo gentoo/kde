@@ -11,16 +11,20 @@ DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
 IUSE="debug +handbook +plasma +semantic-desktop sqlite"
 
-DEPEND="
+COMMON_DEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
 	dev-libs/libpcre
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace)
 	sqlite? ( dev-db/sqlite:3 )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
+"
+RDEPEND="${COMMON_DEPEND}
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
