@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS=""
-IUSE="+bzip2 debug lzma +handbook openexr samba sftp"
+IUSE="+bzip2 exif debug lzma +handbook openexr samba sftp"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"
@@ -18,6 +18,7 @@ RESTRICT="test"
 DEPEND="
 	x11-libs/libXcursor
 	bzip2? ( app-arch/bzip2 )
+	exif? ( media-gfx/exiv2 )
 	lzma? ( app-arch/xz-utils )
 	openexr? ( media-libs/openexr )
 	samba? ( net-fs/samba )
@@ -39,6 +40,7 @@ KMEXTRA="
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with bzip2 BZip2)
+		$(cmake-utils_use_with exif Exiv2)
 		$(cmake-utils_use_with lzma LibLZMA)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with samba)
