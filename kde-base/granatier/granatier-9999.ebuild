@@ -9,4 +9,18 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Bomberman game"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug +handbook +gluon"
+
+DEPEND="
+	gluon? ( media-libs/gluon )
+	!gluon? ( >=x11-libs/qt-multimedia-${QT_MINIMAL}:4 )
+"
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	mycmakeargs+="
+		$(cmake-utils_use_with gluon)
+	"
+
+	kde4-meta_src_configure
+}
