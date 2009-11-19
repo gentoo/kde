@@ -118,6 +118,9 @@
 
 # For kde-base/kdebase-kioslaves
 ~net-libs/libssh-9999 **
+
+# For kde-base/granatier
+~media-libs/gluon-9999 **
 ~kde-base/blinken-9999 **
 ~kde-base/cantor-9999 **
 ~kde-base/kalgebra-9999 **

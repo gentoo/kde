@@ -182,6 +182,9 @@ kde-base/smoke:live
 
 # For kde-base/kdebase-kioslaves
 ~net-libs/libssh-9999
+
+# For kde-base/granatier
+~media-libs/gluon-9999
 kde-base/blinken:live
 kde-base/cantor:live
 kde-base/kalgebra:live
