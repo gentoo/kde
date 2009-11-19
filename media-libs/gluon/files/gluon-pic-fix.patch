@@ -1,0 +1,12 @@
+diff --git a/Box2D/Source/CMakeLists.txt b/Box2D/Source/CMakeLists.txt
+index dcb2484..e602f29 100644
+--- a/Box2D/Source/CMakeLists.txt
++++ b/Box2D/Source/CMakeLists.txt
+@@ -34,7 +34,5 @@ set(SOURCES
+ 
+ add_library( Box2D STATIC ${SOURCES} )
+ 
+-if( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+ set_target_properties(Box2D PROPERTIES COMPILE_FLAGS "-fPIC")
+-endif( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+ 
