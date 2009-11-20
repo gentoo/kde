@@ -174,6 +174,7 @@ kde-base/krossruby:live
 kde-base/pykde4:live
 kde-base/smoke:live
 ~app-office/akonadi-server-9999
+~dev-libs/libattica-9999
 ~dev-libs/soprano-9999
 ~app-misc/strigi-9999
 ~kde-base/automoc-9999

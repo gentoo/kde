@@ -110,6 +110,7 @@
 ~kde-base/pykde4-9999 **
 ~kde-base/smoke-9999 **
 ~app-office/akonadi-server-9999 **
+~dev-libs/libattica-9999 **
 ~dev-libs/soprano-9999 **
 ~app-misc/strigi-9999 **
 ~kde-base/automoc-9999 **
