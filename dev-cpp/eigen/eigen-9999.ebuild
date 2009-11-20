@@ -9,7 +9,7 @@ inherit cmake-utils mercurial
 DESCRIPTION="Lightweight C++ template library for vector and matrix math, a.k.a. linear algebra"
 HOMEPAGE="http://eigen.tuxfamily.org/"
 #SRC_URI="http://bitbucket.org/eigen/eigen2/get/${PV}.tar.bz2"
-EHG_REPO_URI="https://bitbucket.org/eigen/eigen2"
+EHG_REPO_URI="https://bitbucket.org/eigen/eigen"
 
 LICENSE="GPL-3"
 KEYWORDS=""
@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}
 	!dev-cpp/eigen:0
 "
 
-S="${WORKDIR}/eigen2"
+S="${WORKDIR}/eigen"
 
 src_configure() {
 	# benchmarks (BTL) brings up damn load of external deps including fortran
