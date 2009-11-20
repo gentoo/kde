@@ -378,8 +378,7 @@ block_other_slots() {
 # will add the following to RDEPEND:
 #    !kdeprefix? ( !kde-base/kdelibs:4.3[-kdeprefix] )
 #    !kdeprefix? ( !<kde-base/kdelibs-4.3.96:4.4[-kdeprefix] )
-#    !kdeprefix? ( !<=kde-base/kdelibs-9999:live[-kdeprefix] )
-#    kdeprefix? ( !<=kde-base/kdelibs-9999:live[kdeprefix] )
+#    !<=kde-base/kdelibs-9999:live
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -399,7 +398,7 @@ _greater_max_in_slot() {
 	local test=${slot}.50
 	version_compare $1 ${test}
 	# 1 = '<', 2 = '=', 3 = '>'
-	[[ $? -ne 1 ]]
+	(( $? != 1 ))
 }
 
 # _less_min_in_slot ver slot
@@ -411,10 +410,10 @@ _less_min_in_slot() {
 	# If slot == live, then test with "9999_pre", so that 9999 tests false
 	local test=9999_pre
 	# If slot == X.Y, then test with X.(Y-1).50
-	[[ $slot == live ]] || test=${slot%.*}.$((${slot#*.} - 1)).50
+	[[ $slot != live ]] && test=${slot%.*}.$((${slot#*.} - 1)).50
 	version_compare $1 ${test}
 	# 1 = '<', 2 = '=', 3 = '>'
-	[[ $? -ne 3 ]]
+	(( $? != 3 ))
 }
 
 # Internal function used for add_blocker and block_other_slots
@@ -474,11 +473,12 @@ _do_blocker() {
 		else
 			atom="<=${pkg}-${!var}"
 		fi
-		# on -kdeprefix we block every slot
-		echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix] )"
-		# on kdeprefix we block only our slot
+		# we always block our own slot, ignoring kdeprefix
 		if [[ ${SLOT} == ${slot} ]]; then
-			echo " kdeprefix? ( !${atom}:${SLOT}[kdeprefix] )"
+			echo " !${atom}:${slot}"
+		else
+			# we only block other slots on -kdeprefix
+			echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix] )"
 		fi
 	done
 
@@ -514,6 +514,6 @@ add_kdebase_dep() {
 
 	local use=${2:+,${2}}
 
-	echo "!kdeprefix? ( >=kde-base/${1}-${PV}[-kdeprefix${use}] )"
-	echo "kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[kdeprefix${use}] )"
+	echo " !kdeprefix? ( >=kde-base/${1}-${PV}[-kdeprefix${use}] )"
+	echo " kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[kdeprefix${use}] )"
 }
