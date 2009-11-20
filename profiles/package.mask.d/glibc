@@ -1,4 +1,4 @@
 # Adding a masked glibc in overlay, which solves crashes for KDE development versions. Also see:
 # http://www.purinchu.net/wp/2009/11/16/malloc_check_-crashes/
 # Gentoo bug 293527 upstream (glibc) bug 10282
-=sys-apps/glibc-2.10-r1
+=sys-libs/glibc-2.11-r1
