@@ -13,6 +13,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa debug gstreamer +xcb +xine"
+#pulseaudio
 
 RDEPEND="
 	!kde-base/phonon-xine
@@ -31,6 +32,10 @@ RDEPEND="
 		xcb? ( x11-libs/libxcb )
 	)
 "
+#	pulseaudio? (
+#		>=media-sound/pulseaudio-0.9.21[glib]
+#		dev-libs/glib:2
+#	)
 DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
 "
@@ -48,7 +53,11 @@ src_configure() {
 		$(cmake-utils_use_with gstreamer GStreamerPlugins)
 		$(cmake-utils_use_with xine)
 		$(cmake-utils_use_with xcb)
+		-DWITH_PulseAudio=OFF
+		-DWITH_GLib2=OFF
 	"
+	#	$(cmake-utils_use_with pulseaudio PulseAudio)
+	#	$(cmake-utils_use_with pulseaudio GLib2)
 
 	cmake-utils_src_configure
 }
