@@ -15,7 +15,8 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-lzma mmx nls openexr policykit +semantic-desktop spell sse sse2 ssl zeroconf"
+lzma mmx nls openexr policykit +semantic-desktop social-desktop spell sse sse2 ssl
+zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -62,6 +63,7 @@ COMMONDEPEND="
 	)
 	policykit? ( sys-auth/policykit-qt )
 	semantic-desktop? ( >=dev-libs/soprano-2.3.67[dbus,raptor,redland] )
+	social-desktop? ( dev-libs/libattica )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
@@ -161,6 +163,7 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with policykit PolkitQt)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_with social-desktop LibAttica)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
