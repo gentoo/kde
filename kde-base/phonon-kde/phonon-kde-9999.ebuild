@@ -17,7 +17,7 @@ IUSE="debug +xine"
 
 DEPEND="
 	media-libs/alsa-lib
-	media-sound/phonon[xine?]
+	>=media-sound/phonon-4.4_pre20091120[xine?]
 	pulseaudio? ( media-sound/pulseaudio )
 "
 RDEPEND="${DEPEND}"
