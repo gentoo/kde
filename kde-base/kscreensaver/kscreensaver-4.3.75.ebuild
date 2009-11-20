@@ -13,7 +13,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug pam"
 
 RDEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	$(add_kdebase_dep kcheckpass)
 	>=x11-libs/libxklavier-3.2
 	>=x11-libs/libXrandr-1.2.1

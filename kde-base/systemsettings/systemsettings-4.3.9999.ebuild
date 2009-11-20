@@ -13,7 +13,7 @@ IUSE="debug +handbook +usb xinerama"
 KEYWORDS=""
 
 COMMONDEPEND="
-	>=dev-libs/glib-2
+	dev-libs/glib:2
 	media-libs/fontconfig
 	>=media-libs/freetype-2
 	>=x11-libs/libxklavier-3.2
