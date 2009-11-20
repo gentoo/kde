@@ -18,6 +18,7 @@ IUSE="alsa debug gstreamer +xcb +xine"
 RDEPEND="
 	!kde-base/phonon-xine
 	!x11-libs/qt-phonon:4
+	dev-libs/glib:2
 	>=x11-libs/qt-test-4.4.0:4
 	>=x11-libs/qt-dbus-4.4.0:4
 	>=x11-libs/qt-gui-4.4.0:4
@@ -34,7 +35,6 @@ RDEPEND="
 "
 #	pulseaudio? (
 #		>=media-sound/pulseaudio-0.9.21[glib]
-#		dev-libs/glib:2
 #	)
 DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
@@ -47,6 +47,8 @@ pkg_setup() {
 }
 
 src_configure() {
+	# glib *should* only be needed with USE=pulseaudio; unfortunately, that is
+	# not the case
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with gstreamer GStreamer)
@@ -54,10 +56,9 @@ src_configure() {
 		$(cmake-utils_use_with xine)
 		$(cmake-utils_use_with xcb)
 		-DWITH_PulseAudio=OFF
-		-DWITH_GLib2=OFF
+		-DWITH_GLib2=ON
 	"
 	#	$(cmake-utils_use_with pulseaudio PulseAudio)
-	#	$(cmake-utils_use_with pulseaudio GLib2)
 
 	cmake-utils_src_configure
 }
