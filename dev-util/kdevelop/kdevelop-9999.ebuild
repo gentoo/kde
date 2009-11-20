@@ -12,13 +12,13 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="+cmake +cxx debug +qmake"
+IUSE="+cmake +cxx debug +qmake qthelp"
 
 DEPEND="
 	>=dev-util/kdevplatform-9999
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=kde-base/libkworkspace-${KDE_MINIMAL}
-	>=x11-libs/qt-assistant-4.4:4
+	qthelp? ( >=x11-libs/qt-assistant-4.4:4 )
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
@@ -40,7 +40,9 @@ src_configure() {
 		$(cmake-utils_use_build qmake)
 		$(cmake-utils_use_build qmake qmakebuilder)
 		$(cmake-utils_use_build qmake qmake_parser)
-		$(cmake-utils_use_build cxx cpp)"
+		$(cmake-utils_use_build cxx cpp)
+		$(cmake-utils_use_build qthelp)
+	"
 
 	kde4-base_src_configure
 }

@@ -3,7 +3,8 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-<flag name="cmake">Enable support for CMAKE build system</flag>
-<flag name="qmake">Enable support for Qmake build system</flag>
+	<flag name="cmake">Enable support for CMAKE build system</flag>
+	<flag name="qmake">Enable support for Qmake build system</flag>
+	<flag name="qthelp">Enable support for QtHelp documentation browsing</flag>
 </use>
 </pkgmetadata>
