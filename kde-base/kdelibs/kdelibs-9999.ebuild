@@ -61,7 +61,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? ( >=dev-libs/soprano-2.3.67[dbus,raptor] )
+	semantic-desktop? ( >=dev-libs/soprano-2.3.67[dbus,raptor,redland] )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
