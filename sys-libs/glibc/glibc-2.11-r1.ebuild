@@ -184,8 +184,8 @@ for x in setup {pre,post}inst ; do
 done
 
 eblit-src_unpack-post() {
+	cd "${S}"
 	if use hardened ; then
-		cd "${S}"
 		einfo "Patching to get working PIE binaries on PIE (hardened) platforms"
 		gcc-specs-pie && epatch "${FILESDIR}"/2.11/glibc-2.11-hardened-pie.patch
 		epatch "${FILESDIR}"/2.10/glibc-2.10-hardened-configure-picdefault.patch
