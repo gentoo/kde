@@ -1,0 +1,67 @@
+# Copyright 1999-2009 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/files/eblits/pkg_setup.eblit,v 1.4 2009/08/21 05:46:04 vapier Exp $
+
+eblit-glibc-pkg_setup() {
+	# prevent native builds from downgrading ... maybe update to allow people
+	# to change between diff -r versions ? (2.3.6-r4 -> 2.3.6-r2)
+	if [[ ${ROOT} == "/" ]] && [[ ${CBUILD} == ${CHOST} ]] && [[ ${CHOST} == ${CTARGET} ]] ; then
+		if has_version '>'${CATEGORY}/${PF} ; then
+			eerror "Sanity check to keep you from breaking your system:"
+			eerror " Downgrading glibc is not supported and a sure way to destruction"
+			die "aborting to save your system"
+		fi
+
+		# Check for broken kernels #262698
+		cd "${T}"
+		printf '#include <pwd.h>\nint main(){return getpwuid(0)==0;}\n' > kern-clo-test.c
+		emake kern-clo-test || die
+		if ! ./kern-clo-test ; then
+			eerror "Your patched vendor kernel is broken.  You need to get an"
+			eerror "update from whoever is providing the kernel to you."
+			eerror "http://sourceware.org/bugzilla/show_bug.cgi?id=5227"
+			die "keeping your system alive, say thank you"
+		fi
+
+		# Check for broken kernels #279260
+		cd "${T}"
+		printf '#include <unistd.h>\n#include <sys/syscall.h>\nint main(){return syscall(1000)!=-1;}\n' > kern-enosys-test.c
+		emake kern-enosys-test || die
+		if ! ./kern-enosys-test ; then
+			eerror "Your old kernel is broken.  You need to update it to"
+			eerror "a newer version as syscall(<bignum>) will break."
+			eerror "http://bugs.gentoo.org/279260"
+			die "keeping your system alive, say thank you"
+		fi
+	fi
+
+	# users have had a chance to phase themselves, time to give em the boot
+	if [[ -e ${ROOT}/etc/locale.gen ]] && [[ -e ${ROOT}/etc/locales.build ]] ; then
+		eerror "You still haven't deleted ${ROOT}/etc/locales.build."
+		eerror "Do so now after making sure ${ROOT}/etc/locale.gen is kosher."
+		die "lazy upgrader detected"
+	fi
+
+	if [[ ${CTARGET} == i386-* ]] ; then
+		eerror "i386 CHOSTs are no longer supported."
+		eerror "Chances are you don't actually want/need i386."
+		eerror "Please read http://www.gentoo.org/doc/en/change-chost.xml"
+		die "please fix your CHOST"
+	fi
+
+	if [[ -n ${LT_VER} ]] ; then
+		if use nptlonly && ! use nptl ; then
+			eerror "If you want nptlonly, add nptl to your USE too ;p"
+			die "nptlonly without nptl"
+		fi
+	fi
+
+	if [[ -e /proc/xen ]] && [[ $(tc-arch) == "x86" ]] && ! is-flag -mno-tls-direct-seg-refs ; then
+		ewarn "You are using Xen but don't have -mno-tls-direct-seg-refs in your CFLAGS."
+		ewarn "This will result in a 50% performance penalty when running with a 32bit"
+		ewarn "hypervisor, which is probably not what you want."
+	fi
+
+	use hardened && ! gcc-specs-pie && \
+		ewarn "PIE hardening not applied, as your compiler doesn't default to PIE"
+}

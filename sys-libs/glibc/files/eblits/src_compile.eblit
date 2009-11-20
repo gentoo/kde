@@ -1,0 +1,208 @@
+# Copyright 1999-2007 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/files/eblits/src_compile.eblit,v 1.10 2009/11/06 00:33:03 vapier Exp $
+
+glibc_do_configure() {
+	local myconf
+
+	# set addons
+	pushd "${S}" > /dev/null
+	local ADDONS=$(echo */configure | sed \
+		-e 's:/configure::g' \
+		-e 's:\(linuxthreads\|nptl\|rtkaio\|glibc-compat\)\( \|$\)::g' \
+		-e 's: \+$::' \
+		-e 's! !,!g' \
+		-e 's!^!,!' \
+		-e '/^,\*$/d')
+	[[ -d ports ]] && ADDONS="${ADDONS},ports"
+	popd > /dev/null
+
+	use nls || myconf="${myconf} --disable-nls"
+	myconf="${myconf} $(use_enable hardened stackguard-randomization)"
+	if [[ $(<"${T}"/.ssp.compat) == "yes" ]] ; then
+		myconf="${myconf} --enable-old-ssp-compat"
+	else
+		myconf="${myconf} --disable-old-ssp-compat"
+	fi
+
+	use glibc-omitfp && myconf="${myconf} --enable-omitfp"
+
+	[[ ${CTARGET//_/-} == *-softfloat-* ]] && myconf="${myconf} --without-fp"
+
+	if [[ $1 == "linuxthreads" ]] ; then
+		if want_tls ; then
+			myconf="${myconf} --with-tls"
+
+			if ! want__thread || use glibc-compat20 || [[ ${LT_KER_VER} == 2.[02].* ]] ; then
+				myconf="${myconf} --without-__thread"
+			else
+				myconf="${myconf} --with-__thread"
+			fi
+		else
+			myconf="${myconf} --without-tls --without-__thread"
+		fi
+
+		myconf="${myconf} --disable-sanity-checks"
+		myconf="${myconf} --enable-add-ons=linuxthreads${ADDONS}"
+		myconf="${myconf} --enable-kernel=${LT_KER_VER}"
+	elif [[ $1 == "nptl" ]] ; then
+		myconf="${myconf} --enable-add-ons=nptl${ADDONS}"
+		myconf="${myconf} --enable-kernel=${NPTL_KERN_VER}"
+	else
+		die "invalid pthread option"
+	fi
+
+	# Since SELinux support is only required for nscd, only enable it if:
+	# 1. USE selinux
+	# 2. only for the primary ABI on multilib systems
+	# 3. Not a crosscompile
+	if ! is_crosscompile && use selinux ; then
+		if use multilib || has_multilib_profile ; then
+			if is_final_abi ; then
+				myconf="${myconf} --with-selinux"
+			else
+				myconf="${myconf} --without-selinux"
+			fi
+		else
+			myconf="${myconf} --with-selinux"
+		fi
+	else
+		myconf="${myconf} --without-selinux"
+	fi
+
+	myconf="${myconf}
+		--without-cvs
+		--enable-bind-now
+		--build=${CBUILD_OPT:-${CBUILD}}
+		--host=${CTARGET_OPT:-${CTARGET}}
+		$(use_enable profile)
+		$(use_with gd)
+		--with-headers=$(alt_build_headers)
+		--prefix=/usr
+		--libdir=/usr/$(get_libdir)
+		--mandir=/usr/share/man
+		--infodir=/usr/share/info
+		--libexecdir=/usr/$(get_libdir)/misc/glibc
+		${EXTRA_ECONF}"
+
+	# There is no configure option for this and we need to export it
+	# since the glibc build will re-run configure on itself
+	export libc_cv_slibdir=/$(get_libdir)
+
+	has_version app-admin/eselect-compiler || export CC=$(tc-getCC ${CTARGET})
+
+	local GBUILDDIR=${WORKDIR}/build-${ABI}-${CTARGET}-$1
+	mkdir -p "${GBUILDDIR}"
+	cd "${GBUILDDIR}"
+	einfo "Configuring GLIBC for $1 with: ${myconf// /\n\t\t}"
+	"${S}"/configure ${myconf} || die "failed to configure glibc"
+
+	# since we'll be punting them for cross-compilers, and they can cause
+	# problems (ia64+static), we'll just skip building altogether
+	is_crosscompile && sed -i '1ibuild-programs = no' config.make
+}
+
+toolchain-glibc_src_compile() {
+	echo
+	local v
+	for v in ABI CBUILD CHOST CTARGET CBUILD_OPT CTARGET_OPT CC CFLAGS ; do
+		einfo " $(printf '%15s' ${v}:)   ${!v}"
+	done
+	echo
+
+	if want_linuxthreads ; then
+		glibc_do_configure linuxthreads
+		einfo "Building GLIBC with linuxthreads..."
+		make PARALLELMFLAGS="${MAKEOPTS}" || die "make for ${ABI} failed"
+	fi
+	if want_nptl ; then
+		# ... and then do the optional nptl build
+		unset LD_ASSUME_KERNEL
+		glibc_do_configure nptl
+		einfo "Building GLIBC with NPTL..."
+		make PARALLELMFLAGS="${MAKEOPTS}" || die "make for ${ABI} failed"
+	fi
+}
+
+toolchain-glibc_headers_compile() {
+	local GBUILDDIR=${WORKDIR}/build-${ABI}-${CTARGET}-headers
+	mkdir -p "${GBUILDDIR}"
+	cd "${GBUILDDIR}"
+
+	# if we don't have a compiler yet, we cant really test it now ...
+	# hopefully they don't affect header geneation, so let's hope for
+	# the best here ...
+	export \
+		libc_cv_386_tls=yes \
+		libc_cv_asm_cfi_directives=yes \
+		libc_cv_broken_visibility_attribute=no \
+		libc_cv_gcc___thread=yes \
+		libc_cv_mlong_double_128=yes \
+		libc_cv_mlong_double_128ibm=yes \
+		libc_cv_ppc_machine=yes \
+		libc_cv_visibility_attribute=yes \
+		libc_cv_z_combreloc=yes \
+		libc_cv_z_execstack=yes \
+		libc_cv_z_initfirst=yes \
+		libc_cv_z_nodelete=yes \
+		libc_cv_z_nodlopen=yes \
+		libc_cv_z_relro=yes
+
+	# Pick out the correct location for build headers
+	local ports="" myconf="--disable-sanity-checks --enable-hacker-mode"
+	[[ -d ${S}/ports ]] && ports=",ports"
+	myconf="${myconf}
+		--enable-add-ons=nptl${ports}
+		--without-cvs
+		--enable-bind-now
+		--build=${CBUILD_OPT:-${CBUILD}}
+		--host=${CTARGET_OPT:-${CTARGET}}
+		--with-headers=$(alt_build_headers)
+		--prefix=/usr
+		${EXTRA_ECONF}"
+
+	# Nothing is compiled here which would affect the headers for the target.
+	# so forcing CC/CFLAGS is sane.  unless you dont have `gcc`.  then i
+	# dont care :p.
+	einfo "Configuring GLIBC headers with: ${myconf// /\n\t\t}"
+	CC=gcc \
+	CFLAGS="-O1 -pipe" \
+	"${S}"/configure ${myconf} || die "failed to configure glibc"
+}
+
+eblit-glibc-src_compile() {
+	if is_crosscompile ; then
+		export \
+			libc_cv_c_cleanup=yes \
+			libc_cv_forced_unwind=yes
+	fi
+
+	if just_headers ; then
+		toolchain-glibc_headers_compile
+		return
+	fi
+
+	setup_env
+
+	if [[ -z ${OABI} ]] ; then
+		local abilist=""
+		if has_multilib_profile ; then
+			abilist=$(get_install_abis)
+			einfo "Building multilib glibc for ABIs: ${abilist}"
+		elif is_crosscompile || tc-is-cross-compiler ; then
+			abilist=${DEFAULT_ABI}
+		fi
+		if [[ -n ${abilist} ]] ; then
+			OABI=${ABI}
+			for ABI in ${abilist} ; do
+				export ABI
+				src_compile
+			done
+			ABI=${OABI}
+			unset OABI
+			return 0
+		fi
+	fi
+
+	toolchain-glibc_src_compile
+}
