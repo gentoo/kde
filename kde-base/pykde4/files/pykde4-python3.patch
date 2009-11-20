@@ -1,0 +1,21 @@
+--- trunk/KDE/kdebindings/python/pykde4/CMakeLists.txt
++++ trunk/KDE/kdebindings/python/pykde4/CMakeLists.txt
+@@ -231,7 +231,7 @@ INSTALL(DIRECTORY sip/ DESTINATION ${SIP
+ ADD_SUBDIRECTORY(tools)
+ #ADD_SUBDIRECTORY(docs)
+ ADD_SUBDIRECTORY(examples)
+-IF (NOT ${PYTHON_3})
++IF (NOT PYTHON_3)
+     ADD_SUBDIRECTORY(kpythonpluginfactory)
+-ENDIF (NOT ${PYTHON_3})
++ENDIF (NOT PYTHON_3)
+ #ADD_SUBDIRECTORY(pykdedocs)
+--- trunk/KDE/kdebindings/python/pykde4/tools/pykdeuic4/CMakeLists.txt
++++ trunk/KDE/kdebindings/python/pykde4/tools/pykdeuic4/CMakeLists.txt
+@@ -2,4 +2,6 @@
+ PYTHON_INSTALL(kde4.py ${PYTHON_SITE_PACKAGES_DIR}/PyQt4/uic/widget-plugins/)
+ PYTHON_INSTALL(pykdeuic4.py ${PYTHON_SITE_PACKAGES_DIR}/PyQt4/uic/)
+ find_path(cmake_module_dir create_exe_symlink.cmake ${CMAKE_MODULE_PATH})
++IF (NOT PYTHON_3)
+ INSTALL(CODE "EXECUTE_PROCESS(COMMAND ${CMAKE_COMMAND} -DTARGET=${PYTHON_SITE_PACKAGES_DIR}/PyQt4/uic/pykdeuic4.py -DLINK_NAME=${BIN_INSTALL_DIR}/pykdeuic4 -P ${cmake_module_dir}/create_exe_symlink.cmake)" )
++ENDIF (NOT PYTHON_3)
