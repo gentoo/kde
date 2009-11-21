@@ -27,7 +27,6 @@ net-p2p
 net-wireless
 sys-auth
 sys-block
-sys-devel
 www-client
 x11-libs
 x11-themes
