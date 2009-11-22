@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="+auth +bookmarks debug +handbook thumbnail"
+IUSE="+auth +bookmarks debug +handbook svg thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -24,6 +24,7 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kurifilter-plugins)
 	auth? ( $(add_kdebase_dep kpasswdserver) )
 	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
+	svg? ( $(add_kdebase_dep svgpart) )
 "
 PDEPEND="
 	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
