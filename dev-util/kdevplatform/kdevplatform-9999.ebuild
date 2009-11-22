@@ -24,7 +24,9 @@ DEPEND="
 # Moved to playground for now
 # bazaar? ( dev-util/bzr )
 # git? ( dev-util/git )
+# block - some plugins moved to kdevplatform from kdevelop
 RDEPEND="${DEPEND}
+	!<dev-util/kdevelop-3.9.96
 	cvs? ( dev-util/cvs )
 	mercurial? ( dev-util/mercurial )
 "
