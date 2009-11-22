@@ -18,7 +18,7 @@ COMMON_DEPEND="
 	editor? ( >=sci-chemistry/openbabel-2.2 )
 "
 DEPEND="${COMMON_DEPEND}
-	editor? ( >=dev-cpp/eigen-2.0.3 )
+	editor? ( >=dev-cpp/eigen-2.0.3:2 )
 	solver? ( dev-ml/facile[ocamlopt] )
 "
 RDEPEND="${COMMON_DEPEND}"

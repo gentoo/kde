@@ -17,7 +17,7 @@ COMMON_DEPEND="
 	R? ( dev-lang/R )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-cpp/eigen-2.0.3
+	>=dev-cpp/eigen-2.0.3:2
 "
 RDEPEND="${COMMON_DEPEND}"
 

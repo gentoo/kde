@@ -13,7 +13,8 @@ DESCRIPTION="KOffice spreadsheet application."
 KEYWORDS="~amd64 ~x86"
 IUSE="solver"
 
-DEPEND="dev-cpp/eigen:2
+DEPEND="
+	dev-cpp/eigen:2
 	solver? ( sci-libs/gsl )
 "
 RDEPEND="${DEPEND}"

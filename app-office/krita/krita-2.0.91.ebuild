@@ -16,16 +16,14 @@ IUSE="gmm +kdcraw openexr +pdf +tiff"
 
 DEPEND="
 	>=app-office/koffice-libs-${PV}:${SLOT}[openexr=]
-	>=dev-cpp/eigen-2.0.51
+	>=dev-cpp/eigen-2.0.3:2
 	>=kde-base/qimageblitz-0.0.4
 	>=media-gfx/exiv2-0.16
 	>=media-gfx/imagemagick-0.6.4.9.2[openexr=,png,tiff?]
 	gmm? ( sci-mathematics/gmm )
 	kdcraw? ( >=kde-base/libkdcraw-${KDE_MINIMAL} )
 	opengl? ( media-libs/glew )
-	pdf? (
-		>=virtual/poppler-qt4-0.10.5
-	)
+	pdf? ( >=virtual/poppler-qt4-0.10.5 )
 "
 RDEPEND="${DEPEND}"
 

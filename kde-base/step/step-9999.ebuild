@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook +gsl +qalculate"
 
 DEPEND="
-	>=dev-cpp/eigen-2.0.3
+	>=dev-cpp/eigen-2.0.3:2
 	sci-libs/cln
 	>=sci-mathematics/gmm-3.0
 	gsl? ( >=sci-libs/gsl-1.9-r1 )
