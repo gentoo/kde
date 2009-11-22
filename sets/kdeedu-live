@@ -13,6 +13,7 @@ kde-base/kmplot:live
 kde-base/kstars:live
 kde-base/ktouch:live
 kde-base/kturtle:live
+kde-base/kvtml-data:live
 kde-base/kwordquiz:live
 kde-base/libkdeedu:live
 kde-base/marble:live
