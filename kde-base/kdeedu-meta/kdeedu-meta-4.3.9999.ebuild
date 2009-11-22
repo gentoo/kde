@@ -28,6 +28,7 @@ RDEPEND="
 	$(add_kdebase_dep kstars)
 	$(add_kdebase_dep ktouch)
 	$(add_kdebase_dep kturtle)
+	$(add_kdebase_dep kvtml-data)
 	$(add_kdebase_dep kwordquiz)
 	$(add_kdebase_dep libkdeedu)
 	$(add_kdebase_dep marble)
