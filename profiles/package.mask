@@ -131,6 +131,7 @@ kde-base/kmplot:4.4
 kde-base/kstars:4.4
 kde-base/ktouch:4.4
 kde-base/kturtle:4.4
+kde-base/kvtml-data:4.4
 kde-base/kwordquiz:4.4
 kde-base/libkdeedu:4.4
 kde-base/marble:4.4
@@ -496,6 +497,7 @@ kde-base/kmplot:live
 kde-base/kstars:live
 kde-base/ktouch:live
 kde-base/kturtle:live
+kde-base/kvtml-data:live
 kde-base/kwordquiz:live
 kde-base/libkdeedu:live
 kde-base/marble:live
