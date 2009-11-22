@@ -197,9 +197,12 @@ pkg_postinst() {
 	if use zeroconf; then
 		echo
 		elog "To make zeroconf support available in KDE make sure that the 'mdnsd' daemon"
-		elog "is running. Make sure also that multicast dns lookups are enabled by editing"
-		elog "the 'hosts:' line in /etc/nsswitch.conf to include 'mdns', e.g.:"
-		elog "	hosts: files mdns dns"
+		elog "is running."
+		echo
+		einfo "If you also want to use zeroconf for hostname resolution, emerge sys-auth/nss-mdns"
+		einfo "and enable multicast dns lookups by editing the 'hosts:' line in /etc/nsswitch.conf"
+		einfo "to include 'mdns', e.g.:"
+		einfo "	hosts: files mdns dns"
 		echo
 	fi
 	elog "Your homedir is set to "'${HOME}'"/${HME}"
