@@ -20,7 +20,7 @@ SLOT="2"
 KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="debug handbook"
 
-RDEPEND=""
+RDEPEND=">=kde-base/libkonq-${KDE_MINIMAL}"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "

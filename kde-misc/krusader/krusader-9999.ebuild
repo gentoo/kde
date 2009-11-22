@@ -15,9 +15,8 @@ KEYWORDS=""
 SLOT="2"
 IUSE="debug"
 
-DEPEND="
+
+RDEPEND=">=kde-base/libkonq-${KDE_MINIMAL}"
+DEPEND="${RDEPEND}
 	sys-devel/gettext
-"
-RDEPEND="
-	!kde-misc/krusader:0
 "
