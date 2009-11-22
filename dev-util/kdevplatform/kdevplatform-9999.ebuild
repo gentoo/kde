@@ -26,7 +26,7 @@ DEPEND="
 # git? ( dev-util/git )
 # block - some plugins moved to kdevplatform from kdevelop
 RDEPEND="${DEPEND}
-	!<dev-util/kdevelop-3.9.96
+	!<dev-util/kdevelop-3.9.96:4
 	cvs? ( dev-util/cvs )
 	mercurial? ( dev-util/mercurial )
 "
