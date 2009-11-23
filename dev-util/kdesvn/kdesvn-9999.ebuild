@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="cs de es fr ja lt nl ro ru"
+KDE_LINGUAS="cs de es fr ja lt nl pt_BR ro ru"
 inherit kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
