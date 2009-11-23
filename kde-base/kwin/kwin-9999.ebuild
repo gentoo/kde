@@ -41,12 +41,6 @@ src_prepare() {
 #			-i kwin/effects/CMakeLists.txt || \
 #			die "Making captury optional failed."
 #	fi
-	# Dirty hax to fix building without OpenGL
-	if ! use opengl; then
-		sed -e 's|^[[:space:]]*windowOpacity.*|// commented out &|' \
-			-i kwin/effects/logout/logout.cpp || \
-			die "Commenting out windowOpacity failed."
-	fi
 
 	kde4-meta_src_prepare
 }
