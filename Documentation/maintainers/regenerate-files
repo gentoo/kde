@@ -21,7 +21,7 @@ if [[ -d kde-3.5.d ]]; then
 fi
 
 # regenerate other keywords
-for release in 4.2 4.3 4.4; do
+for release in 4.3 4.4; do
 	echo -e "${HEADER}" > "kde-${release}.keywords"
 	if [[ -d "kde-${release}.d" ]]; then
 		cat "kde-${release}.d/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-${release}.keywords"
@@ -63,7 +63,7 @@ popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-for release in 4.2 4.3 4.4 live; do
+for release in 4.3 4.4 live; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d "kde-${release}.d" ]]; then
 		cat "kde-${release}.d/"* >> "kde-${release}"
