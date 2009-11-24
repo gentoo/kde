@@ -12,8 +12,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/phonon"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa debug gstreamer +xcb +xine"
-#pulseaudio
+IUSE="alsa debug gstreamer pulseaudio +xcb +xine"
 
 RDEPEND="
 	!kde-base/phonon-xine
@@ -27,15 +26,15 @@ RDEPEND="
 		media-libs/gst-plugins-base
 		alsa? ( media-libs/alsa-lib )
 	)
+	pulseaudio? (
+		dev-libs/glib:2
+		>=media-sound/pulseaudio-0.9.21[glib]
+	)
 	xine? (
 		>=media-libs/xine-lib-1.1.15-r1[xcb?]
 		xcb? ( x11-libs/libxcb )
 	)
 "
-#	pulseaudio? (
-#		dev-libs/glib:2
-#		>=media-sound/pulseaudio-0.9.21[glib]
-#	)
 DEPEND="${RDEPEND}
 	>=kde-base/automoc-0.9.87
 "
@@ -51,13 +50,11 @@ src_configure() {
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with gstreamer GStreamer)
 		$(cmake-utils_use_with gstreamer GStreamerPlugins)
+		$(cmake-utils_use_with pulseaudio PulseAudio)
+		$(cmake-utils_use_with pulseaudio GLib2)
 		$(cmake-utils_use_with xine)
 		$(cmake-utils_use_with xcb)
-		-DWITH_PulseAudio=OFF
-		-DWITH_GLib2=OFF
 	"
-	#	$(cmake-utils_use_with pulseaudio PulseAudio)
-	#	$(cmake-utils_use_with pulseaudio GLib2)
 
 	cmake-utils_src_configure
 }
