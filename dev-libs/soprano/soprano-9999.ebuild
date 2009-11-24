@@ -54,11 +54,11 @@ pkg_setup() {
 			ewarn "a different one. Applications using soprano may need at least one backend"
 			ewarn "to be functional. If you experience any problems, enable any of those USE"
 			ewarn "flags:"
-			ewarn "java (recommended), redland, virtuoso"
+			ewarn "java, redland, virtuoso (recommended)"
 			echo
 		else
 			echo
-			ewarn "You selected redland as default backend for soprano."
+			ewarn "You selected redland as the only backend for soprano."
 			ewarn "Be advised that it's known to be broken (bug #275326)."
 			echo
 		fi
