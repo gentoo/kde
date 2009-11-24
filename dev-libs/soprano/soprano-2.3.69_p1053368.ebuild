@@ -14,7 +14,7 @@ SRC_URI="http://dev.gentoo.org/~abcd/${P}.tar.xz"
 LICENSE="LGPL-2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 SLOT="0"
-IUSE="+clucene +dbus debug doc elibc_FreeBSD +java +raptor +redland virtuoso"
+IUSE="+clucene +dbus debug doc elibc_FreeBSD java +raptor +redland +virtuoso"
 
 COMMON_DEPEND="
 	>=x11-libs/qt-core-4.5.0:4
