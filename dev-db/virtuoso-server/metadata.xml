@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<maintainer>
-		<email>reavertm@poczta.fm</email>
+		<email>reavertm@gmail.com</email>
 		<name>Maciej Mrozowski</name>
 	</maintainer>
 	<longdescription>
@@ -15,7 +15,4 @@ Heterogeneous Data Sources (SQL, XML, RDF), Document Web Server (WebDAV/HTTP),
 Data Web Server (RDF Linked Data Deployment), Web Services Platform, Discussion
 Server, and many more.
 	</longdescription>
-	<use>
-		<flag name="static-libs">Build and install static server libraries (libvirtuoso-t.a, libvirtuoso-iodbc-t.a)</flag>
-	</use>
 </pkgmetadata>
