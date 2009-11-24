@@ -12,11 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	|| (
-		>=dev-libs/soprano-2.3.67[clucene,dbus,raptor,java]
-		>=dev-libs/soprano-2.3.67[clucene,dbus,raptor,redland]
-		>=dev-libs/soprano-2.3.68_p1051502[clucene,dbus,raptor,virtuoso]
-	)
+	>=dev-libs/soprano-2.3.69[dbus,raptor,redland,virtuoso]
 	$(add_kdebase_dep kdelibs semantic-desktop)
 "
 RDEPEND="${DEPEND}"
