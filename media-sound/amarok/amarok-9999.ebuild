@@ -26,14 +26,14 @@ fi
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdda daap debug ipod lastfm mp3tunes mtp +semantic-desktop"
+IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
 	>=app-misc/strigi-0.5.7
 	|| (
-		>=dev-db/mysql-5.0.76-r1[embedded,-minimal]
-		>=dev-db/mysql-community-5.0.77-r1[embedded,-minimal]
+		>=dev-db/mysql-5.0.76-r1[embedded?,-minimal]
+		>=dev-db/mysql-community-5.0.77-r1[embedded?,-minimal]
 	)
 	>=media-libs/taglib-1.6
 	>=media-libs/taglib-extras-1.0.0
@@ -76,6 +76,7 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
+		$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
 		$(cmake-utils_use_with ipod)
 		$(cmake-utils_use_with ipod Gdk)
 		$(cmake-utils_use_with lastfm LibLastFm)
