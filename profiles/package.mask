@@ -539,6 +539,7 @@ kde-base/kubrick:live
 kde-base/libkdegames:live
 kde-base/libkmahjongg:live
 kde-base/lskat:live
+kde-base/palapeli:live
 kde-base/gwenview:live
 kde-base/kamera:live
 kde-base/kcolorchooser:live

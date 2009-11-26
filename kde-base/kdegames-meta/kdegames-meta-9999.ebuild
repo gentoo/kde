@@ -51,6 +51,7 @@ RDEPEND="
 	$(add_kdebase_dep libkdegames)
 	$(add_kdebase_dep libkmahjongg)
 	$(add_kdebase_dep lskat)
+	$(add_kdebase_dep palapeli)
 	opengl? ( $(add_kdebase_dep ksudoku) )
 	$(block_other_slots)
 "
