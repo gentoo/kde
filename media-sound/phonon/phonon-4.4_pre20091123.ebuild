@@ -37,6 +37,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	app-arch/xz-utils
 	>=kde-base/automoc-0.9.87
 "
 
