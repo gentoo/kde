@@ -68,9 +68,11 @@ src_prepare() {
 }
 
 src_configure() {
-	# Workaround for problems related to libmysqld.so and collection plugin not
-	# being found on some architectures when --as-needed is not used.
-	append-ldflags -Wl,--as-needed
+	if use embedded; then
+		# Workaround for problems related to libmysqld.so and collection plugin not
+		# being found on some architectures when --as-needed is not used.
+		append-ldflags -Wl,--as-needed
+	fi
 
 	mycmakeargs="${mycmakeargs}
 		-DWITH_PLAYER=ON
