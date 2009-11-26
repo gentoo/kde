@@ -15,6 +15,7 @@ COMMON_DEPEND="
 	$(add_kdebase_dep libkdepim)
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
 	dev-libs/libxslt
 "
 RDEPEND="${COMMON_DEPEND}"
