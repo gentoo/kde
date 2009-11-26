@@ -13,6 +13,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook google-gadgets python rss +semantic-desktop xinerama"
 
 COMMONDEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
@@ -31,7 +32,6 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	rss? ( $(add_kdebase_dep kdepimlibs) )
-	semantic-desktop? ( $(add_kdebase_dep kdelibs 'semantic-desktop?') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
