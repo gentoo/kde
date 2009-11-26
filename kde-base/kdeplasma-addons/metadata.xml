@@ -4,6 +4,5 @@
 <herd>kde</herd>
 <use>
 	<flag name="desktopglobe">Enable Desktop Globe wallpaper using <pkg>kde-base/marble</pkg>.</flag>
-	<flag name="unitconversion">Enable applets that use <pkg>dev-libs/kunitconversion</pkg>.</flag>
 </use>
 </pkgmetadata>

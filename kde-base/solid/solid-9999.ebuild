@@ -22,6 +22,9 @@ DEPEND="
 	wicd? ( net-misc/wicd )
 "
 RDEPEND="${DEPEND}"
+PDEPEND="
+	$(add_kdebase_dep solid-runtime)
+"
 
 KMEXTRA="
 	libs/solid/
@@ -35,11 +38,4 @@ src_configure() {
 	"
 
 	kde4-meta_src_configure
-}
-
-pkg_postinst() {
-	elog "If you want to be notified about new plugged devices by a popup,"
-	elog "install kde-base/soliduiserver"
-
-	kde4-meta_pkg_postinst
 }

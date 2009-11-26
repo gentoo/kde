@@ -45,7 +45,6 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep kioclient)
 	$(add_kdebase_dep kdebase-menu-icons)
 	$(add_kdebase_dep plasma-runtime)
-	$(add_kdebase_dep soliduiserver)
 "
 
 KMEXTRACTONLY="
