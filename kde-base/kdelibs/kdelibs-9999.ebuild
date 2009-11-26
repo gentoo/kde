@@ -27,6 +27,7 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	dev-libs/libxml2
 	dev-libs/libxslt
+	>=dev-libs/soprano-2.3.70[dbus,raptor,redland]
 	>=kde-base/automoc-0.9.87
 	media-libs/fontconfig
 	media-libs/freetype:2
@@ -62,10 +63,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? (
-			dev-libs/shared-desktop-ontologies
-			>=dev-libs/soprano-2.3.67[dbus,raptor,redland]
-	)
+	semantic-desktop? ( dev-libs/shared-desktop-ontologies )
 	social-desktop? ( dev-libs/libattica )
 	spell? (
 		app-dicts/aspell-en
@@ -165,7 +163,6 @@ src_configure() {
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with policykit PolkitQt)
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with social-desktop LibAttica)
 		$(cmake-utils_use_with spell ASPELL)
