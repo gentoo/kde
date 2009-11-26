@@ -7,7 +7,8 @@ inherit cmake-utils
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
-SRC_URI="http://dev.gentoo.org/~abcd/${P}.tar.xz"
+SRC_URI="mirror://gentoo/${P}.tar.xz
+	http://dev.gentoo.org/~abcd/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
