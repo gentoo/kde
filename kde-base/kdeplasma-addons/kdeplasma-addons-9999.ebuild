@@ -14,17 +14,20 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif semantic-desktop"
+IUSE="debug desktopglobe exif qwt scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
-	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?,social-desktop')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
 	$(add_kdebase_dep plasma-workspace)
 	x11-misc/shared-mime-info
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
+	qwt? ( x11-libs/qwt:5 )
+	scim? ( app-i18n/scim )
+	social-desktop? ( dev-libs/libattica )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -49,6 +52,10 @@ src_prepare() {
 		applets/CMakeLists.txt \
 		|| die "Failed to make OpenGL applets optional"
 
+	sed -i -e 's/^find_package(Qwt)/macro_optional_&/' \
+		CMakeLists.txt \
+		|| die "Failed to make Qwt optional"
+
 	kde4-base_src_prepare
 }
 
@@ -58,7 +65,10 @@ src_configure() {
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)"
+		$(cmake-utils_use_with qwt)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with scim)
+	"
 
 	kde4-base_src_configure
 }

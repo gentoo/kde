@@ -4,5 +4,7 @@
 <herd>kde</herd>
 <use>
 	<flag name="desktopglobe">Enable Desktop Globe wallpaper using <pkg>kde-base/marble</pkg>.</flag>
+	<flag naem="qwt">Enable applets that use <pkg>x11-libs/qwt:5</pkg>.</flag>
+	<flag name="scim">Enable applets that use <pkg>app-i18n/scim</pkg>.</flag>
 </use>
 </pkgmetadata>
