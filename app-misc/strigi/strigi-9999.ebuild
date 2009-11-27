@@ -23,21 +23,20 @@ COMMONDEPEND="
 	virtual/libiconv
 	>=virtual/poppler-utils-0.8
 	clucene? ( >=dev-cpp/clucene-0.9.19[-debug] )
-	dbus? ( sys-apps/dbus
-		|| ( ( x11-libs/qt-dbus:4
-			x11-libs/qt-gui:4 )
-			=x11-libs/qt-4.3*:4[dbus] )
-		)
+	dbus? (
+		sys-apps/dbus
+		x11-libs/qt-dbus:4
+		x11-libs/qt-gui:4
+	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
-		|| ( ( x11-libs/qt-core:4
-			x11-libs/qt-gui:4
-			x11-libs/qt-dbus:4 )
-			=x11-libs/qt-4.3*:4[dbus] )
-		)
+		x11-libs/qt-core:4
+		x11-libs/qt-dbus:4
+		x11-libs/qt-gui:4
+	)
 	!clucene? (
 		!hyperestraier? (
 			>=dev-cpp/clucene-0.9.19[-debug]
@@ -87,8 +86,8 @@ src_test() {
 
 pkg_postinst() {
 	if ! use clucene && ! use hyperestraier; then
-		elog "Because you didn't enable any of the supported backends:"
-		elog "clucene, hyperestraier and sqlite"
+		elog "Because you didn't enable either of the supported backends:"
+		elog "clucene or hyperestraier"
 		elog "clucene support was silently installed."
 		elog "If you prefer another backend, be sure to reinstall strigi"
 		elog "and to enable that backend use flag"
