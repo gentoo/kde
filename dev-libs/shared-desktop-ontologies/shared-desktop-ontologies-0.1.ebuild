@@ -12,4 +12,4 @@ SRC_URI="mirror://sourceforge/oscaf/${PN}/${P}.tar.bz2"
 
 LICENSE="BSD CCPL-Attribution-3.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
