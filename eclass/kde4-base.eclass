@@ -268,8 +268,8 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
-# Add experimental kdeenablefinal, disabled by default
-IUSE+=" kdeenablefinal"
+# Add experimental kde4enablefinal, disabled by default
+IUSE+=" kde4enablefinal"
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
@@ -527,7 +527,7 @@ kde4-base_src_configure() {
 	# Build tests in src_test only, where we override this value
 	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
 
-	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
+	if has kde4enablefinal ${IUSE//+} && use kde4enablefinal; then
 		cmakeargs+=" -DKDE4_ENABLE_FINAL=ON"
 	fi
 
