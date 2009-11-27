@@ -19,6 +19,7 @@ RDEPEND="
 
 KMEXTRA="
 	l10n/
+	localization/
 	pics/
 "
 # Note that the eclass doesn't do this for us, because of KMNOMODULE="true".
