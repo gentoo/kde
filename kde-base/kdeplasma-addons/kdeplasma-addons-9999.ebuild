@@ -5,7 +5,6 @@
 EAPI="2"
 
 KMNAME="kdeplasma-addons"
-OPENGL_REQUIRED="optional"
 WEBKIT_REQUIRED="always"
 inherit kde4-base
 
@@ -14,17 +13,17 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif semantic-desktop"
+IUSE="debug desktopglobe exif qalculate semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
-	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
 	$(add_kdebase_dep plasma-workspace)
 	x11-misc/shared-mime-info
-	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
+	qualculate? ( sci-libs/libqalculate )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -45,20 +44,17 @@ src_prepare() {
 		{libs/plasmaweather,applets/{binary-clock,fuzzy-clock,weather,weatherstation,lancelot/app/src}}/CMakeLists.txt \
 		|| die "Failed to patch CMake files"
 
-	sed -i -e 's/(KDE4_PLASMA_OPENGL_FOUND)/(KDE4_PLASMA_OPENGL_FOUND AND OPENGL_FOUND)/g' \
-		applets/CMakeLists.txt \
-		|| die "Failed to make OpenGL applets optional"
-
 	kde4-base_src_prepare
 }
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
-		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with desktopglobe Marble)
-		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)"
+		$(cmake-utils_use_with exif Kexiv2)
+		$(cmake-utils_use_with qalculate)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+	"
 
 	kde4-base_src_configure
 }
