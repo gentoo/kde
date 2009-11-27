@@ -268,6 +268,9 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
+# Add experimental kdeenablefinal, disabled by default
+IUSE+=" kdeenablefinal"
+
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
 case ${BUILD_TYPE} in
@@ -521,17 +524,19 @@ kde4-base_src_prepare() {
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Handle common release builds
-	if ! has debug ${IUSE//+} || ! use debug; then
-		append-cppflags -DQT_NO_DEBUG
-	fi
-
 	# Build tests in src_test only, where we override this value
 	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
 
-	# set "real" debug mode
+	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
+		cmakeargs+=" -DKDE4_ENABLE_FINAL=ON"
+	fi
+
 	if has debug ${IUSE//+} && use debug; then
+		# Set "real" debug mode
 		CMAKE_BUILD_TYPE="Debugfull"
+	else
+		# Handle common release builds
+		append-cppflags -DQT_NO_DEBUG
 	fi
 
 	# Set distribution name
