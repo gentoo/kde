@@ -62,7 +62,10 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? ( >=dev-libs/soprano-2.3.67[dbus,raptor,redland] )
+	semantic-desktop? (
+			dev-libs/shared-desktop-ontologies
+			>=dev-libs/soprano-2.3.67[dbus,raptor,redland]
+	)
 	social-desktop? ( dev-libs/libattica )
 	spell? (
 		app-dicts/aspell-en
@@ -163,6 +166,7 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with policykit PolkitQt)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with social-desktop LibAttica)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
