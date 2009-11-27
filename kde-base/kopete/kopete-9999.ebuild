@@ -49,7 +49,6 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	msn: libmsn == this is wlm plugin, we disable msn one
 #	oscar: NO DEPS
 #	qq: NO DEPS
-#	sms: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
@@ -132,7 +131,8 @@ pkg_postinst() {
 	if ! use ssl; then
 		if use jabber || use msn; then # || use irc; then
 			echo
-			elog "In order to use ssl in jabber, msn and irc you'll need to"
+			#elog "In order to use ssl in jabber, msn and irc you'll need to"
+			elog "In order to use ssl in jabber and msn you'll need to"
 			elog "install app-crypt/qca-ossl package."
 			echo
 		fi

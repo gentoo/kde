@@ -23,14 +23,15 @@
 	<flag name="facebook">Enable Facebook chat support.</flag>
 	<flag name="gadu">Enable the Gadu protocol handler.</flag>
 	<flag name="groupwise">Enable the Groupwise protocol handler.</flag>
-	<!-- only in kde3 now, commented out in kde4 -->
+	<!-- uncomment this when enabled in ebuild
+	<flag name="irc">Enable the IRC protocol handler.</flag>
+	-->
 	<flag name="jabber">Enable XMPP protocol handler (this is also gmail).</flag>
 	<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
 	<flag name="msn">Enable "Windows live messenger" protocol support.</flag>
 	<flag name="qq">enable support for the Chinese network protocol.</flag>
-	<!-- only in kde3 now, commented out in kde4 -->
 	<flag name="skype">Enable Skype protocol handler (not fully functional yet).</flag>
-	<!-- commented out in kde4, not available in kde3 - uncomment this when enabled in an ebuild
+	<!-- uncomment this when enabled in ebuild
 	<flag name="telepathy">Enable support for the real-time communication framework telepathy.</flag>
 	-->
 	<flag name="testbed">Enable the testbed protocol.</flag>
