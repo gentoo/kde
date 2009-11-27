@@ -9,4 +9,17 @@ inherit kde4-meta
 
 DESCRIPTION="KDE4 software to download and upload 'new stuff'"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug social-desktop"
+
+DEPEND="
+	$(add_kdebase_dep kdelibs 'social-desktop?')
+"
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_with social-desktop LibAttica)
+	"
+
+	kde4-meta_src_configure
+}
