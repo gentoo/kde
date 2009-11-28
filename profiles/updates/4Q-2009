@@ -1,2 +1,3 @@
 slotmove dev-util/kdesvn 2 4
 slotmove kde-misc/systemloadviewer 0 4
+move kde-misc/recorditnow media-video/recorditnow
