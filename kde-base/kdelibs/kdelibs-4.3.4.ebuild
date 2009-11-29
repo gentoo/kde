@@ -87,8 +87,7 @@ RDEPEND="${COMMONDEPEND}
 "
 PDEPEND="
 	$(add_kdebase_dep kde-env)
-	$(add_kdebase_dep kdebase-data)
-	$(add_kdebase_dep ktimezoned)
+	$(add_kdebase_dep kdebase-runtime-meta)
 "
 
 # Blockers added due to packages from old versions, removed in the meanwhile

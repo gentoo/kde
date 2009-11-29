@@ -287,6 +287,7 @@
 ~kde-base/kdeadmin-meta-9999 **
 ~kde-base/kdeartwork-meta-9999 **
 ~kde-base/kdebase-meta-9999 **
+~kde-base/kdebase-runtime-live-9999 **
 ~kde-base/kdeedu-meta-9999 **
 ~kde-base/kdegames-meta-9999 **
 ~kde-base/kdegraphics-meta-9999 **

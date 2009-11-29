@@ -2,6 +2,7 @@ kde-base/kdeaccessibility-meta:live
 kde-base/kdeadmin-meta:live
 kde-base/kdeartwork-meta:live
 kde-base/kdebase-meta:live
+kde-base/kdebase-runtime-live:live
 kde-base/kdeedu-meta:live
 kde-base/kdegames-meta:live
 kde-base/kdegraphics-meta:live
