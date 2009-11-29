@@ -257,6 +257,14 @@ case ${KDE_REQUIRED} in
 		;;
 	*) ;;
 esac
+
+# All non kdebase-startkde packages needs to depend on kde-base/startkde
+# For simple detection just bail out with everything and PDEPEND so it gets
+# dependency wise resolved properly
+if [[ ${PN} != ]]; then
+	PDEPEND=">=kde-base/kdebase-startkde-${KDE_MINIMAL}"
+fi
+
 unset kdecommondepend kdedepend
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: COMMONDEPEND is ${COMMONDEPEND}"
