@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+KMNAME="extragear/sdk"
 inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."

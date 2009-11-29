@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+KMNAME="extragear/sdk"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
