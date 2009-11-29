@@ -261,7 +261,7 @@ esac
 # All non kdebase-startkde packages needs to depend on kde-base/startkde
 # For simple detection just bail out with everything and PDEPEND so it gets
 # dependency wise resolved properly
-if [[ ${PN} != ]]; then
+if [[ ${PN} != kdebase-startkde ]]; then
 	PDEPEND=">=kde-base/kdebase-startkde-${KDE_MINIMAL}"
 fi
 
