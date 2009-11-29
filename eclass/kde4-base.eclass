@@ -464,7 +464,7 @@ kde4-base_src_unpack() {
 	if [[ ${BUILD_TYPE} = live ]]; then
 		migrate_store_dir
 		subversion_src_unpack
-	else
+	elif [[ ${EAPI} == 2 ]]; then
 		local file
 		for file in ${A}; do
 			# This setup is because EAPI <= 2 cannot unpack *.tar.xz files
@@ -480,6 +480,9 @@ kde4-base_src_unpack() {
 					;;
 			esac
 		done
+	else
+		# For EAPI >= 3, we can just use unpack() directly
+		unpack ${A}
 	fi
 }
 
