@@ -4,17 +4,18 @@
 
 EAPI="2"
 
-#KDE_LINGUAS="en cs de hu pt_BR"
+#KDE_LINGUAS="en cs de hu pt_BR fr"
 # need patch to work select linguas
 
-inherit kde4-base
+inherit kde4-base git
 
 DESCRIPTION="RecordItNow is a plugin based desktop recorder for KDE"
 HOMEPAGE="http://kde-apps.org/content/show.php/RecordItNow?content=114610"
-SRC_URI="http://kde-apps.org/CONTENT/content-files/114610-${P}.tar.bz2"
+SRC_URI=""
+EGIT_REPO_URI="git://gitorious.org/recorditnow/recorditnow.git"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="debug ffmpeg mplayer"
 
@@ -30,6 +31,10 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	media-video/recordmydesktop
 "
+
+src_prepare() {
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	mycmakeargs+="
