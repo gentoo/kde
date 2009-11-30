@@ -14,25 +14,17 @@ IUSE="akonadi kdevplatform +phonon qscintilla qwt +semantic-desktop"
 # okular
 
 COMMON_DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	>=kde-base/qimageblitz-0.0.4
-	akonadi? (
-		app-office/akonadi-server
-		$(add_kdebase_dep kdepimlibs)
-	)
+	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	kdevplatform? ( dev-util/kdevplatform:4 )
 	phonon? ( >=media-sound/phonon-4.4_pre[xcb] )
 	qscintilla? ( x11-libs/qscintilla[qt4] )
 	qwt? ( x11-libs/qwt:5 )
-	semantic-desktop? (
-		dev-libs/soprano
-		$(add_kdebase_dep nepomuk)
-	)
 "
 # okular? ( kde-base/okular)  -- it can't find it anyway
 
-DEPEND="${COMMON_DEPEND}
-	dev-lang/perl
-"
+DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRACTONLY="kalyptus/"

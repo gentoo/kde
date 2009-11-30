@@ -21,7 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kmailcvt)
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 KMEXTRACTONLY="

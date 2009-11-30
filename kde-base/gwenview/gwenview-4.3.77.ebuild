@@ -20,9 +20,7 @@ DEPEND="
 	media-libs/jpeg
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
-RDEPEND="${DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

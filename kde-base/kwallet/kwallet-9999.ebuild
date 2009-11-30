@@ -10,8 +10,3 @@ inherit kde4-meta
 DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS=""
 IUSE="debug +handbook"
-
-RDEPEND="
-	$(add_kdebase_dep kcmshell)
-	$(add_kdebase_dep kwalletd)
-"

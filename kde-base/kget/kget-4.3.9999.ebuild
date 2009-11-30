@@ -20,9 +20,7 @@ DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	sqlite? ( dev-db/sqlite:3 )
 "
-RDEPEND="${DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

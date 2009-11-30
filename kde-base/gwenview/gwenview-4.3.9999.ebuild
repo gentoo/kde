@@ -15,14 +15,12 @@ IUSE="debug +handbook kipi +semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	>=media-gfx/exiv2-0.18
 	media-libs/jpeg
 	kipi? ( $(add_kdebase_dep libkipi) )
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 "
-RDEPEND="${DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}

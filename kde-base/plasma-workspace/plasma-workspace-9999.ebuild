@@ -41,11 +41,7 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
 	xinerama? ( x11-proto/xineramaproto )
 "
-RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep kioclient)
-	$(add_kdebase_dep kdebase-menu-icons)
-	$(add_kdebase_dep plasma-runtime)
-"
+RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml

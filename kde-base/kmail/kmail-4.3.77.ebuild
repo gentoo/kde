@@ -21,8 +21,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kmailcvt)
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
+
 add_blocker messagecore
 add_blocker messagelist
 add_blocker messageviewer

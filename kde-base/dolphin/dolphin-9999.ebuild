@@ -16,9 +16,7 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep keditfiletype)
 	$(add_kdebase_dep kfind)
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 PDEPEND="
 	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )

@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS=""
-IUSE="+auth +bookmarks debug +handbook svg thumbnail"
+IUSE="+bookmarks debug +handbook svg thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -17,12 +17,8 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
-	$(add_kdebase_dep keditfiletype)
 	$(add_kdebase_dep kfind)
 	$(add_kdebase_dep kfmclient)
-	$(add_kdebase_dep kurifilter-plugins)
-	auth? ( $(add_kdebase_dep kpasswdserver) )
 	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
 	svg? ( $(add_kdebase_dep svgpart) )
 "

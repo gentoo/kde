@@ -29,9 +29,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
 "
-RDEPEND="${COMMON_DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-"
+RDEPEND="${COMMON_DEPEND}"
 
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'

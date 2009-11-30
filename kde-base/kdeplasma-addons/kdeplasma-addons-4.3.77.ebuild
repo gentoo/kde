@@ -32,7 +32,6 @@ DEPEND="${COMMON_DEPEND}
 # kde-misc/plasmaboard: moved here in 4.3.65
 RDEPEND="${COMMON_DEPEND}
 	!kdeprefix? ( !kde-misc/plasmaboard )
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 # kdebase-data: some svg icons moved from data directly here.

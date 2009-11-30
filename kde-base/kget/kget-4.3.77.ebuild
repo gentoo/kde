@@ -24,9 +24,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
-RDEPEND="${COMMON_DEPEND}
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-"
+RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
