@@ -240,7 +240,7 @@ fi
 kdedepend="
 	dev-util/pkgconfig
 	!aqua? (
-		x11-proto/xextproto
+		|| ( >=x11-libs/libXtst1.1.0 <x11-proto/xextproto-7.1.0 )
 		x11-proto/xf86vidmodeproto
 	)
 "
