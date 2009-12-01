@@ -8,7 +8,7 @@ KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KDE Archiving tool"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="+archive +bzip2 debug +handbook lzma zip"
 
 DEPEND="
