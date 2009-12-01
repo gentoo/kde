@@ -26,23 +26,26 @@ fi
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp +semantic-desktop"
+IUSE="bindist cdda daap debug +embedded ipod lastfm mp3tunes mtp +semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
+	app-crypt/qca:2
 	>=app-misc/strigi-0.5.7
 	|| (
 		>=dev-db/mysql-5.0.76-r1[embedded?,-minimal]
 		>=dev-db/mysql-community-5.0.77-r1[embedded?,-minimal]
 	)
-	>=media-libs/taglib-1.6
-	>=media-libs/taglib-extras-1.0.0
+	>=media-libs/taglib-extras-1.0.1
 	>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
 	sys-libs/zlib
 	>=x11-libs/qtscriptgenerator-0.1.0
+	bindist? ( >=media-libs/taglib-1.6.1[-asf,-mp4] )
+	!bindist? ( >=media-libs/taglib-1.6.1[asf,mp4] )
 	cdda? (
 		>=kde-base/libkcddb-${KDE_MINIMAL}
 		>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+		>=kde-base/kdemultimedia-kioslaves-${KDE_MINIMAL}
 	)
 	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
 	lastfm? ( >=media-libs/liblastfm-0.3.0 )
@@ -62,18 +65,14 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
+PATCHES=( "${FILESDIR}/amarok-2.2-mysql-libs.patch" )
+
 # Only really required for live ebuild, to skip git_src_prepare
 src_prepare() {
 	kde4-base_src_prepare
 }
 
 src_configure() {
-	if use embedded; then
-		# Workaround for problems related to libmysqld.so and collection plugin not
-		# being found on some architectures when --as-needed is not used.
-		append-ldflags -Wl,--as-needed
-	fi
-
 	mycmakeargs="${mycmakeargs}
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
