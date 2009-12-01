@@ -100,6 +100,7 @@ kde-base/powerdevil:4.4
 kde-base/renamedlg-plugins:4.4
 kde-base/solid:4.4
 kde-base/solid-hardware:4.4
+kde-base/solid-runtime:4.4
 kde-base/solidautoeject:4.4
 kde-base/soliduiserver:4.4
 kde-base/systemsettings:4.4
