@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kde-l10n/kde-l10n-4.3.3.ebuild,v 1.4 2009/11/30 06:53:42 josejx Exp $
 
 EAPI="2"
 
@@ -10,81 +10,63 @@ DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
-DEPEND=">=sys-devel/gettext-0.17"
+DEPEND="sys-devel/gettext"
 RDEPEND=""
 
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE=""
+KEYWORDS="~alpha amd64 ~hppa ~ia64 ppc ppc64 ~sparc ~x86"
+IUSE="+handbook"
 
-LANGS="af ar be bg bn bn_IN br ca cs csb cy da de el en_GB eo es et eu fa fi fr
-	fy ga gl gu he hi hr hsb hu hy is it ja ka kk km kn ko ku lb lt lv mk ml
-	ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sr sv ta te tg
-	th tr uk uz vi wa xh zh_CN zh_HK zh_TW"
-for LNG in ${LANGS}; do
-	IUSE="${IUSE} linguas_${LNG}"
+MY_LANGS="ar bg bn_IN ca cs csb da de el en_GB es et eu fi fr ga gl gu he hi
+	hne hr hu is it ja kk km kn ko ku lt lv mai mk ml mr nb nds nl nn pa pl pt
+	pt_BR ro ru sk sl sr sv tg th tr uk wa zh_CN zh_TW"
+
+URI_BASE="${SRC_URI/-${PV}.tar.bz2/}"
+SRC_URI=""
+
+for MY_LANG in ${MY_LANGS} ; do
+	IUSE="${IUSE} linguas_${MY_LANG}"
+	SRC_URI="${SRC_URI} linguas_${MY_LANG}? ( ${URI_BASE}/${PN}-${MY_LANG}-${PV}.tar.bz2 )"
 done
-S="${WORKDIR}"/${PN}
 
-pkg_setup() {
-	local lng
-	for lng in ${LINGUAS}; do
-		enabled_linguas+=" ${lng}"
-	done
-	if [[ -z ${enabled_linguas} ]]; then
+S="${WORKDIR}"
+
+src_unpack() {
+	local LNG DIR
+	if [[ -z ${A} ]]; then
 		elog
 		elog "You either have the LINGUAS variable unset, or it only"
 		elog "contains languages not supported by ${P}."
 		elog "You won't have any additional language support."
 		elog
 		elog "${P} supports these language codes:"
-		elog "${LANGS}"
+		elog "${MY_LANGS}"
 		elog
 	fi
-	kde4-base_pkg_setup
-}
 
-src_unpack() {
-	local lng
+	[[ -n ${A} ]] && unpack ${A}
+	cd "${S}"
 
-	for lng in ${enabled_linguas}; do
-		ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/${lng}"
-		S="${WORKDIR}"/${PN}/${lng}
-		subversion_src_unpack
-	done
-	ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/l10n-kde4/scripts"
-	S="${WORKDIR}"/${PN}/scripts
-	subversion_src_unpack
-	S="${WORKDIR}"/${PN}
-	kde4-base_src_unpack
+	# add all linguas to cmake
+	if [[ -n ${A} ]]; then
+		for LNG in ${LINGUAS}; do
+			DIR="${PN}-${LNG}-${PV}"
+			if [[ -d "${DIR}" ]] ; then
+				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
+			fi
+		done
+	fi
 }
 
 src_configure() {
-	local lng
-
-	if [[ ! -z ${enabled_linguas} ]]; then
-		cat <<-EOF > "${S}"/CMakeLists.txt
-		project(kde-l10n)
-
-		find_package(KDE4 REQUIRED)
-		include (KDE4Defaults)
-		include(MacroOptionalAddSubdirectory)
-
-		find_package(Gettext REQUIRED)
-
-		EOF
-
-		for lng in ${enabled_linguas} ; do
-			"${S}"/scripts/autogen.sh ${lng}
-			echo "add_subdirectory( ${lng} )" >> "${S}"/CMakeLists.txt
-		done
-		kde4-base_src_configure
-	fi
+	mycmakeargs="${mycmakeargs}
+		$(cmake-utils_use_build handbook docs)"
+	[[ -n ${A} ]] && kde4-base_src_configure
 }
 
 src_compile() {
-	[[ -z ${enabled_linguas} ]] || kde4-base_src_compile
+	[[ -n ${A} ]] && kde4-base_src_compile
 }
 
 src_install() {
-	[[ -z ${enabled_linguas} ]] || kde4-base_src_install
+	[[ -n ${A} ]] && kde4-base_src_install
 }
