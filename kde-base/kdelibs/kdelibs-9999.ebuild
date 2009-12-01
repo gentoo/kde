@@ -100,7 +100,7 @@ PDEPEND="
 # Blockers added due to packages from old versions, removed in the meanwhile
 # as well as for file collisions
 add_blocker libknotificationitem
-add_blocker libkworkspace '<4.3.66' 9999:live
+add_blocker libkworkspace '<4.3.66'
 # Block some old versions of KDE-3.5 packages that don't work well with KDE-4
 add_blocker kdebase 0 3.5.9-r4:3.5
 add_blocker kdebase-startkde 0 3.5.10:3.5
