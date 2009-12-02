@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/subversion.eclass,v 1.60 2008/05/27 09:49:09 zlin Exp $
+# $Header: $
 
 # @ECLASS: subversion.eclass
 # @MAINTAINER:
@@ -12,10 +12,10 @@
 # directly.
 # Requires EAPI="2"
 
-case ${EAPI} in                                                 
-	2) : ;;                                                 
-	*) die "No way! EAPI older than 2 is not supported." ;; 
-esac  
+case ${EAPI} in
+	2) : ;;
+	*) die "No way! EAPI older than 2 is not supported." ;;
+esac
 
 inherit eutils
 

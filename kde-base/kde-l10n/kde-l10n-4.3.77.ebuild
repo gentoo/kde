@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kde-l10n/kde-l10n-4.3.3.ebuild,v 1.1 2009/11/02 20:57:08 wired Exp $
+# $Header: $
 
 EAPI="2"
 
