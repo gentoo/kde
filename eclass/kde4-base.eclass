@@ -60,6 +60,12 @@ esac
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
 
+# @ECLASS-VARIABLE: MULTIMEDIA_REQUIRED
+# @DESCRIPTION:
+# Is qt-multimedia required? Possible values are 'always', 'optional' and 'never'.
+# This variable must be set before inheriting any eclasses. Defaults to 'never'.
+MULTIMEDIA_REQUIRED="${MULTIMEDIA_REQUIRED:-never}"
+
 # @ECLASS-VARIABLE: WEBKIT_REQUIRED
 # @DESCRIPTION:
 # Is qt-webkit requred? Possible values are 'always', 'optional' and 'never'.
@@ -146,7 +152,7 @@ esac
 # Currently defaults to 4.5.1 for KDE 4.3 and earlier
 # or 4.6.0_rc1 for KDE 4.4 and later
 if slot_is_at_least 4.4 "${KDE_MINIMAL}"; then
-	QT_MINIMAL="${QT_MINIMAL:-4.6.0_rc1}"
+	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
 
 QT_MINIMAL="${QT_MINIMAL:-4.5.1}"
@@ -166,6 +172,22 @@ case ${OPENGL_REQUIRED} in
 	*) ;;
 esac
 unset qtopengldepend
+
+# MultiMedia dependencies
+qtmultimediadepend="
+	>=x11-libs/qt-multimedia-${QT_MINIMAL}:4
+"
+case ${MULTIMEDIA_REQUIRED} in
+	always)
+		COMMONDEPEND+=" ${qtmultimediadepend}"
+		;;
+	optional)
+		IUSE+=" multimedia"
+		COMMONDEPEND+=" multimedia? ( ${qtmultimediadepend} )"
+		;;
+	*) ;;
+esac
+unset qtmultimediadepend
 
 # WebKit dependencies
 case ${KDE_REQUIRED} in
