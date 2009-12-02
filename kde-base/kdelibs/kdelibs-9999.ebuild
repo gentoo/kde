@@ -211,7 +211,7 @@ pkg_postinst() {
 	local config_path="${ROOT}usr/share/config"
 	[[ ${PREFIX} != "${ROOT}usr" ]] && config_path+=" ${PREFIX}/share/config"
 	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
-	elog "# chmod 755 -R ${config_path}"
+	elog "# chmod go+rX -R ${config_path}"
 
 	kde4-base_pkg_postinst
 }
