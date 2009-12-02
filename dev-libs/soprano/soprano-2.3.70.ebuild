@@ -9,7 +9,7 @@ inherit base cmake-utils flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-SRC_URI="mirror://gentoo/${P}.tar.xz"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
@@ -64,12 +64,6 @@ pkg_setup() {
 			echo
 		fi
 	fi
-}
-
-src_unpack() {
-	echo ">>> Unpacking ${P}.tar.xz to ${PWD}"
-	xz -dc "${DISTDIR}"/${P}.tar.xz | tar xof -
-	assert "failed unpacking ${P}.tar.xz"
 }
 
 src_prepare() {
