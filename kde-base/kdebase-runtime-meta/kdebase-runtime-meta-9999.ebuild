@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix +semantic-desktop"
+IUSE="+handbook kdeprefix +semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep drkonqi)
@@ -27,7 +27,6 @@ RDEPEND="
 	$(add_kdebase_dep keditfiletype)
 	$(add_kdebase_dep kfile)
 	$(add_kdebase_dep kglobalaccel)
-	$(add_kdebase_dep khelpcenter)
 	$(add_kdebase_dep kiconfinder)
 	$(add_kdebase_dep kioclient)
 	$(add_kdebase_dep kmimetypefinder)
@@ -45,6 +44,7 @@ RDEPEND="
 	$(add_kdebase_dep plasma-runtime)
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
+	handbook? ( $(add_kdebase_dep khelpcenter) )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 	$(block_other_slots)
 "

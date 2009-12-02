@@ -20,6 +20,11 @@ if [[ -z ${KMNAME} ]]; then
 	die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 fi
 
+# Add khelpcenter dependency when installing handbooks
+if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
+       RDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
+fi
+
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
