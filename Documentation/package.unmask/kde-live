@@ -15,6 +15,7 @@ kde-base/kde-l10n:live
 ~dev-util/kdevelop-plugins-9999
 ~dev-util/kdevplatform-9999
 ~dev-util/krazy2-9999
+~dev-util/kxsldbg-9999
 ~kde-misc/basket-9999
 ~kde-misc/filelight-9999
 ~kde-misc/kbstateapplet-9999
@@ -346,7 +347,6 @@ kde-base/kfilereplace:live
 kde-base/kimagemapeditor:live
 kde-base/klinkstatus:live
 kde-base/kommander:live
-kde-base/kxsldbg:live
 ~app-office/kword-9999
 ~app-office/kplato-9999
 ~app-office/kpresenter-9999

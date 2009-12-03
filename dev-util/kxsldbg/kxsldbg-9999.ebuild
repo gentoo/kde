@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdewebdev"
+KMNAME="extragear/sdk"
 inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
