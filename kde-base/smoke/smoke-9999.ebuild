@@ -18,7 +18,7 @@ COMMON_DEPEND="
 	>=kde-base/qimageblitz-0.0.4
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	kdevplatform? ( dev-util/kdevplatform:4 )
-	phonon? ( >=media-sound/phonon-4.4_pre[xcb] )
+	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
 	qscintilla? ( x11-libs/qscintilla[qt4] )
 	qwt? ( x11-libs/qwt:5 )
 "
