@@ -8,7 +8,11 @@ KMNAME="extragear/sdk"
 inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
+HOMEPAGE="http://www.kde.org/"
+
+LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
+SLOT="4"
 IUSE="debug +handbook"
 
 DEPEND="
