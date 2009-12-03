@@ -1,0 +1,4 @@
+# manually masking them since the sets don't have them any more and the deps break
+kde-base/solid-hardware:4.4
+kde-base/solidautoeject:4.4
+kde-base/soliduiserver:4.4
