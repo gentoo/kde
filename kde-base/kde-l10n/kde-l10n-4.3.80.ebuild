@@ -54,7 +54,16 @@ src_unpack() {
 	# For EAPI >= 3, or if not using .tar.xz archives:
 	# [[ -n ${A} ]] && unpack ${A}
 	cd "${S}"
+	# linguas header
+	cat <<-EOF > "${S}"/CMakeLists.txt
+project(kde-l10n)
 
+find_package(KDE4 REQUIRED)
+include (KDE4Defaults)
+include(MacroOptionalAddSubdirectory)
+
+find_package(Gettext REQUIRED)
+	EOF
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
 		for LNG in ${LINGUAS}; do
@@ -64,6 +73,17 @@ src_unpack() {
 			fi
 		done
 	fi
+}
+
+src_prepare() {
+	for LNG in ${LINGUAS}; do
+		DIR="${PN}-${LNG}-${PV}"
+		if [[ -d "${DIR}" ]] ; then
+			"${S}/${DIR}"/scripts/autogen.sh ${DIR}
+		fi
+		sed -i -e "s:${DIR}:${LNG}:g" "${DIR}"/CMakeLists.txt || die
+	done
+	kde4-base_src_prepare
 }
 
 src_configure() {
