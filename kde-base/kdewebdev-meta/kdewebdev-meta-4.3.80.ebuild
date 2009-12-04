@@ -21,6 +21,5 @@ RDEPEND="
 	$(add_kdebase_dep kimagemapeditor)
 	$(add_kdebase_dep klinkstatus)
 	$(add_kdebase_dep kommander)
-	$(add_kdebase_dep kxsldbg)
 	$(block_other_slots)
 "
