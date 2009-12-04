@@ -4,3 +4,4 @@ app-arch/xz-utils
 =dev-python/pycups-1.9*
 >=net-libs/libssh-0.3.2
 x11-misc/google-gadgets
+dev-libs/libattica
