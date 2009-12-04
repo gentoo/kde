@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE4 interface to work with Graph Theory"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +handbook ps +R"
+IUSE="debug +handbook"
 
 DEPEND="${COMMON_DEPEND}
 	>=dev-cpp/eigen-2.0.3:2
