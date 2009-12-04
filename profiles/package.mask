@@ -134,6 +134,7 @@ kde-base/kwordquiz:4.4
 kde-base/libkdeedu:4.4
 kde-base/marble:4.4
 kde-base/parley:4.4
+kde-base/rocs:4.4
 kde-base/step:4.4
 kde-base/bomber:4.4
 kde-base/bovo:4.4
@@ -500,6 +501,7 @@ kde-base/kwordquiz:live
 kde-base/libkdeedu:live
 kde-base/marble:live
 kde-base/parley:live
+kde-base/rocs:live
 kde-base/step:live
 kde-base/bomber:live
 kde-base/bovo:live

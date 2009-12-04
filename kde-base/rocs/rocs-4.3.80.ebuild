@@ -11,7 +11,7 @@ DESCRIPTION="KDE4 interface to work with Graph Theory"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
-DEPEND="${COMMON_DEPEND}
+DEPEND="
 	>=dev-cpp/eigen-2.0.3:2
 "
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND=""
