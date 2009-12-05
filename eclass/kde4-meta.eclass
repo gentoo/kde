@@ -16,13 +16,15 @@ inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
-if [[ -z ${KMNAME} ]]; then
-	die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
-fi
+# Restrict test on all KDE4 core packages, since upstream does not care about
+# them and they mostly fail.
+[[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && RESTRICT="test"
+
+[[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
 # Add khelpcenter dependency when installing handbooks
 if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
-       RDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
+	RDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
 fi
 
 # Add dependencies that all packages in a certain module share.
