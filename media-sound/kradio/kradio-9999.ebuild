@@ -34,12 +34,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	local mycmakeargs="$(cmake-utils_use_with alsa)
+	mycmakeargs=(
+		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with mp3 LAME)
 		$(cmake-utils_use_with vorbis OGG_VORBIS)
 		$(cmake-utils_use_with lirc)
 		$(cmake-utils_use_with ffmpeg)
-		$(cmake-utils_use_with v4l2)"
+		$(cmake-utils_use_with v4l2)
+	)
 
 	kde4-base_src_configure
 }

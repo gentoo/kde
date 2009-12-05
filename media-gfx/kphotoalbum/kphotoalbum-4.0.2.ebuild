@@ -29,13 +29,14 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with exif Exiv2)
 		$(cmake-utils_use_with raw Kdcraw)
 		$(cmake-utils_use_with kipi)
 		$(cmake-utils_use_with geolocation Marble)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
 
 	kde4-base_src_configure
 }

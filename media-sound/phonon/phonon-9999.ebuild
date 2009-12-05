@@ -46,7 +46,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with gstreamer GStreamer)
 		$(cmake-utils_use_with gstreamer GStreamerPlugins)
@@ -54,7 +54,7 @@ src_configure() {
 		$(cmake-utils_use_with pulseaudio GLib2)
 		$(cmake-utils_use_with xine)
 		$(cmake-utils_use_with xcb)
-	"
+	)
 
 	cmake-utils_src_configure
 }

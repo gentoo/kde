@@ -55,9 +55,10 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_PLAYER=OFF
-		-DWITH_UTILITIES=ON"
+		-DWITH_UTILITIES=ON
+	)
 
 	cmake-utils_src_configure
 }

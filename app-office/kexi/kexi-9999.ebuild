@@ -25,13 +25,14 @@ KMLOADLIBS="koffice-libs"
 KMEXTRACTONLY="libs/"
 
 src_configure() {
-	 mycmakeargs="${mycmakeargs}
+	 mycmakeargs=(
 		-DWITH_WEBFORMS=Off
 		$(cmake-utils_use_with freetds FreeTDS)
 		$(cmake-utils_use_with mysql MySQL)
 		$(cmake-utils_use_with postgres PostgreSQL)
 		$(cmake-utils_use_with postgres Pqxx)
-		$(cmake-utils_use_with xbase XBase)"
+		$(cmake-utils_use_with xbase XBase)
+	)
 
 	kde4-meta_src_configure
 }

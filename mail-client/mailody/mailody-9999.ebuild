@@ -26,8 +26,9 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with geolocation MarbleWidget)"
+	mycmakeargs=(
+		$(cmake-utils_use_with geolocation MarbleWidget)
+	)
 
 	kde4-base_src_configure
 }

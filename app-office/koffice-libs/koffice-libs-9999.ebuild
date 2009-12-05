@@ -52,14 +52,15 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with openexr OpenEXR)"
-	use crypt && mycmakeargs="${mycmakeargs}
-		-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2"
+		$(cmake-utils_use_with openexr OpenEXR)
+	)
+	use crypt && \
+		mycmakeargs+=(-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2)
 
-	kde4-base_src_configure
+	kde4-meta_src_configure
 }
 
 src_install() {

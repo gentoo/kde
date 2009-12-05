@@ -28,8 +28,9 @@ KMEXTRACTONLY="
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with python PythonLibs)"
+	mycmakeargs=(
+		$(cmake-utils_use_with python PythonLibs)
+	)
 
 	kde4-meta_src_configure
 }

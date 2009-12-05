@@ -68,7 +68,7 @@ src_prepare() {
 
 src_configure() {
 	# cairo can be used as replacement instead of qt arthur
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-D2GEOM_BUILD_SHARED=ON
 		-DHAVE_CMS=ON
 		-DHAVE_FONTCONFIG=ON
@@ -81,7 +81,8 @@ src_configure() {
 		$(cmake-utils_use_has podofo)
 		$(cmake-utils_use_has python)
 		$(cmake-utils_use_has spell ASPELL)
-		$(cmake-utils_use_want cairo)"
+		$(cmake-utils_use_want cairo)
+	)
 
 	cmake-utils_src_configure
 }

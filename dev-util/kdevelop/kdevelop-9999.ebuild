@@ -35,7 +35,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build qmake)
@@ -43,7 +43,7 @@ src_configure() {
 		$(cmake-utils_use_build qmake qmake_parser)
 		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
-	"
+	)
 
 	kde4-base_src_configure
 }

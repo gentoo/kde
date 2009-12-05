@@ -73,7 +73,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
@@ -82,9 +82,10 @@ src_configure() {
 		$(cmake-utils_use_with ipod Gdk)
 		$(cmake-utils_use_with lastfm LibLastFm)
 		$(cmake-utils_use_with mtp)
-		$(cmake-utils_use_with mp3tunes MP3Tunes)"
-#		$(cmake-utils_use_with semantic-desktop Nepomuk)
-#		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with mp3tunes MP3Tunes)
+		# $(cmake-utils_use_with semantic-desktop Nepomuk)
+		# $(cmake-utils_use_with semantic-desktop Soprano)
+	)
 
 	kde4-base_src_configure
 }

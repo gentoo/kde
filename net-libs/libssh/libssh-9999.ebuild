@@ -31,7 +31,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with debug DEBUG_CALLTRACE)
 		$(cmake-utils_use_with debug DEBUG_CRYPTO)
 		$(cmake-utils_use_with gcrypt)
@@ -40,7 +40,7 @@ src_configure() {
 		$(cmake-utils_use_with ssh1)
 		$(cmake-utils_use_with server)
 		$(cmake-utils_use_with static-libs STATIC_LIB)
-	"
+	)
 
 	cmake-utils_src_configure
 }

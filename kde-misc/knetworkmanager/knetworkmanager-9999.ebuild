@@ -37,7 +37,9 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
-src_configure() {
+src_prepare() {
+	kde4-base_src_prepare
+
 	if ! use consolekit; then
 		# Fix dbus policy
 		sed -i \
@@ -45,9 +47,12 @@ src_configure() {
 			"${S}/NetworkManager-kde4.conf" \
 			|| die "Fixing dbus policy failed"
 	fi
+}
 
-	mycmakeargs="${mycmakeargs}
-		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d"
+src_configure() {
+	mycmakeargs=(
+		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d
+	)
 
 	kde4-base_src_configure
 }

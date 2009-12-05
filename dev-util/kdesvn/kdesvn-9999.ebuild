@@ -28,9 +28,10 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DDAILY_BUILD=ON
-		-DLIB_INSTALL_DIR=${PREFIX}/$(get_libdir)"
+		-DLIB_INSTALL_DIR=${PREFIX}/$(get_libdir)
+	)
 
 	kde4-base_src_configure
 }

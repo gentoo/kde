@@ -32,17 +32,18 @@ KMEXTRACTONLY="libs/"
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DWITH_Eigen2=On
-		-DWITH_Exiv2=On
-		-DWITH_JPEG=On
+	mycmakeargs=(
+		-DWITH_Eigen2=ON
+		-DWITH_Exiv2=ON
+		-DWITH_JPEG=ON
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with gmm)
 		$(cmake-utils_use_with tiff)
 		$(cmake-utils_use_with kdcraw)
 		$(cmake-utils_use_with pdf Poppler)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with opengl GLEW)"
+		$(cmake-utils_use_with opengl GLEW)
+	)
 
 	kde4-meta_src_configure
 }

@@ -48,7 +48,9 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-src_configure() {
+src_prepare() {
+	kde4-base_src_prepare
+
 	# This Plugin hard depends on libksane, deactivate it if use flag scanner is
 	# not set.
 	if ! use scanner; then
@@ -62,8 +64,10 @@ src_configure() {
 		-e '/KDE4_KDEUI_LIBS/ c\\${KDE4_KIO_LIBS}'\
 		"${S}"/common/libkipiplugins/CMakeLists.txt \
 		|| die "Sed fixing kipi linking failed."
+}
 
-	mycmakeargs="${mycmakeargs}
+src_configure() {
+	mycmakeargs=(
 		$(cmake-utils_use_with calendar KdepimLibs)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with scanner KSane)
@@ -71,7 +75,8 @@ src_configure() {
 		$(cmake-utils_use_with ipod Gpod)
 		$(cmake-utils_use_with ipod GLIB2)
 		$(cmake-utils_use_with ipod GObject)
-		$(cmake-utils_use_with redeyes OpenCV)"
+		$(cmake-utils_use_with redeyes OpenCV)
+	)
 
 	kde4-base_src_configure
 }

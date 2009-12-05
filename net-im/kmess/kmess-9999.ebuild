@@ -42,10 +42,11 @@ src_unpack() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with gif)
 		$(cmake-utils_use_with konqueror LibKonq)
-		$(cmake-utils_use_want xscreensaver)"
+		$(cmake-utils_use_want xscreensaver)
+	)
 
 	kde4-base_src_configure
 }
@@ -55,6 +56,6 @@ pkg_postinst() {
 
 	echo
 	elog "KMess can use the following optional packages:"
-	elog "- net-www/netscape-flash		provides support for winks"
+	elog "- www-plugins/adobe-flash		provides support for winks"
 	echo
 }

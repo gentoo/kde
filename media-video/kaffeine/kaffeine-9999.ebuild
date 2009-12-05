@@ -35,8 +35,9 @@ RDEPEND="${DEPEND}
 S=${WORKDIR}/${P/_/-}
 
 src_configure() {
-	mycmakeargs="-DBUILD_po=1
+	mycmakeargs=(
+		-DBUILD_po=ON
 		$(cmake-utils_use_build debug DEBUG_MODULE)
-	"
+	)
 	kde4-base_src_configure
 }

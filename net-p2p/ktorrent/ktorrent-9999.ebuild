@@ -66,7 +66,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DENABLE_DHT_SUPPORT=ON
 		-DWITH_SYSTEM_GEOIP=ON
 		$(cmake-utils_use_enable bwscheduler BWSCHEDULER_PLUGIN)
@@ -84,6 +84,7 @@ src_configure() {
 		$(cmake-utils_use_enable stats STATS_PLUGIN)
 		$(cmake-utils_use_enable upnp UPNP_PLUGIN)
 		$(cmake-utils_use_enable webinterface WEBINTERFACE_PLUGIN)
-		$(cmake-utils_use_enable zeroconf ZEROCONF_PLUGIN)"
+		$(cmake-utils_use_enable zeroconf ZEROCONF_PLUGIN)
+	)
 	kde4-base_src_configure
 }

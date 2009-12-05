@@ -24,8 +24,9 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_build examples)"
+	mycmakeargs=(
+		$(cmake-utils_use_build examples)
+	)
 
 	cmake-utils_src_configure
 }

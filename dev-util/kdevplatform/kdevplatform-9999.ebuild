@@ -36,12 +36,13 @@ RDEPEND="${DEPEND}
 # $(cmake-utils_use_build bazaar)
 # $(cmake-utils_use_build git)
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_build cvs)
 		$(cmake-utils_use_build mercurial)
 		$(cmake-utils_use_build subversion)
 		$(cmake-utils_use_with kompare)
-		$(cmake-utils_use_with subversion SubversionLibrary)"
+		$(cmake-utils_use_with subversion SubversionLibrary)
+	)
 
 	kde4-base_src_configure
 }

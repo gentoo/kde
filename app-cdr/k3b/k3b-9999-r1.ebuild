@@ -47,7 +47,7 @@ RDEPEND="${DEPEND}
 DOCS="FAQ KNOWNBUGS PERMISSIONS"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DK3B_BUILD_K3BSETUP=OFF
 		$(cmake-utils_use debug K3B_DEBUG)
 		$(cmake-utils_use musicbrainz K3B_ENABLE_MUSICBRAINZ)
@@ -63,13 +63,14 @@ src_configure() {
 		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
 		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
 		-DWITH_PolkitQt=OFF
-	"
+	)
 
 	if use encode; then
-		mycmakeargs="${mycmakeargs}
+		mycmakeargs+=(
 			$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
 			$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
-			$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)"
+			$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
+		)
 	fi
 
 	kde4-base_src_configure

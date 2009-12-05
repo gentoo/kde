@@ -31,8 +31,9 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with konqueror LibKonq)"
+	mycmakeargs=(
+		$(cmake-utils_use_with konqueror LibKonq)
+	)
 
 	kde4-base_src_configure
 }

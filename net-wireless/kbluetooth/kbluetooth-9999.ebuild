@@ -42,8 +42,8 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-	"
+	)
 	kde4-base_src_configure
 }

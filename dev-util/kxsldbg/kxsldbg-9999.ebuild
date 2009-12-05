@@ -30,7 +30,7 @@ src_unpack() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DWITH_LibXml2=ON -DWITH_Xslt=ON"
+	mycmakeargs=(-DWITH_LibXml2=ON -DWITH_Xslt=ON)
 
 	kde4-meta_src_configure
 }

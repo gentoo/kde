@@ -38,8 +38,9 @@ EOF
 }
 
 src_configure() {
-	mycmakeargs="
-		$(cmake-utils_use_build php)"
+	mycmakeargs=(
+		$(cmake-utils_use_build php)
+	)
 
 	kde4-base_src_configure
 }

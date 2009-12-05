@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="debug"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DPROFILE=ON"
+	mycmakeargs=(-DPROFILE=ON)
 
 	kde4-base_src_configure
 }

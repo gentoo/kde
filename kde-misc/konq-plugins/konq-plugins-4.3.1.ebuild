@@ -34,10 +34,11 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DKdeWebKit=OFF
 		-DWebKitPart=OFF
-		$(cmake-utils_use_with tidy LibTidy)"
+		$(cmake-utils_use_with tidy LibTidy)
+	)
 
 	kde4-base_src_configure
 }

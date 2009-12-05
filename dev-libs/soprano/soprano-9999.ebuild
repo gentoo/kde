@@ -74,7 +74,7 @@ src_configure() {
 	# NOTE: temporarily fix until a better cmake files patch will be provided.
 	use elibc_FreeBSD && append-flags -pthread
 
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DSOPRANO_BUILD_TESTS=OFF
 		-DCMAKE_SKIP_RPATH=OFF
 		$(cmake-utils_use !clucene SOPRANO_DISABLE_CLUCENE_INDEX)
@@ -85,7 +85,7 @@ src_configure() {
 		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
 		$(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
-	"
+	)
 
 	cmake-utils_src_configure
 }
@@ -95,8 +95,7 @@ src_compile() {
 }
 
 src_test() {
-	mycmakeargs="${mycmakeargs}
-		-DSOPRANO_BUILD_TESTS=ON"
+	mycmakeargs+=(-DSOPRANO_BUILD_TESTS=ON)
 	cmake-utils_src_configure
 	cmake-utils_src_compile
 	ctest --extra-verbose || die "Tests failed."

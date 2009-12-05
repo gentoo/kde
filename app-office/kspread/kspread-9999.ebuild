@@ -31,9 +31,10 @@ KMEXTRA="filters/${KMMODULE}/"
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_Eigen2=ON
-		$(cmake-utils_use_with solver GSL)"
+		$(cmake-utils_use_with solver GSL)
+	)
 
 	kde4-meta_src_configure
 }

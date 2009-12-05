@@ -31,9 +31,10 @@ KMEXTRACTONLY="
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with wpd)
-		$(cmake-utils_use_with wv2)"
+		$(cmake-utils_use_with wv2)
+	)
 
 	kde4-meta_src_configure
 }

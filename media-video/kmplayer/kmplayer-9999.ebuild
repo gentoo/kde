@@ -55,10 +55,11 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use cairo KMPLAYER_BUILT_WITH_CAIRO)
 		$(cmake-utils_use expat KMPLAYER_BUILT_WITH_EXPAT)
-		$(cmake-utils_use npp KMPLAYER_BUILT_WITH_NPP)"
+		$(cmake-utils_use npp KMPLAYER_BUILT_WITH_NPP)
+	)
 
 	kde4-base_src_configure
 }

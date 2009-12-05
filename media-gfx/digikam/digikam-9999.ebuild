@@ -57,13 +57,14 @@ src_configure() {
 	local backend
 
 	use semantic-desktop && backend="Nepomuk" || backend="None"
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
 		$(cmake-utils_use_enable gphoto2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
 
 	kde4-base_src_configure
 }
