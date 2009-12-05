@@ -551,10 +551,10 @@ kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Build tests in src_test only, where we override this value
-	local cmakeargs="-DKDE4_BUILD_TESTS=OFF"
+	local cmakeargs=(-DKDE4_BUILD_TESTS=OFF)
 
 	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
-		cmakeargs+=" -DKDE4_ENABLE_FINAL=ON"
+		cmakeargs+=(-DKDE4_ENABLE_FINAL=ON)
 	fi
 
 	if has debug ${IUSE//+} && use debug; then
@@ -566,10 +566,10 @@ kde4-base_src_configure() {
 	fi
 
 	# Set distribution name
-	[[ ${PN} = kdelibs ]] && cmakeargs+=" -DKDE_DISTRIBUTION_TEXT=Gentoo"
+	[[ ${PN} = kdelibs ]] && cmakeargs+=(-DKDE_DISTRIBUTION_TEXT=Gentoo)
 
 	# Here we set the install prefix
-	cmakeargs+=" -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+	cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${PREFIX}")
 
 	# Use colors
 	QTEST_COLORED=1
@@ -585,20 +585,24 @@ kde4-base_src_configure() {
 		LDPATH="${KDEDIR}/$(get_libdir):${LDPATH}"
 
 		# Append full RPATH
-		cmakeargs+=" -DCMAKE_SKIP_RPATH=OFF"
+		cmakeargs+=(-DCMAKE_SKIP_RPATH=OFF)
 
 		# Set cmake prefixes to allow buildsystem to locate valid KDE installation
 		# when more are present
-		cmakeargs+=" -DCMAKE_SYSTEM_PREFIX_PATH=${KDEDIR}"
+		cmakeargs+=(-DCMAKE_SYSTEM_PREFIX_PATH="${KDEDIR}")
 	fi
 
 	# Handle kdeprefix in application itself
 	if ! has kdeprefix ${IUSE//+} || ! use kdeprefix; then
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs+=" -DSYSCONF_INSTALL_DIR=${EROOT}etc"
+		cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EROOT}"etc)
 	fi
 
-	mycmakeargs="${cmakeargs} ${mycmakeargs}"
+	if [[ $(declare -p mycmakeargs) != "declare -a mycmakeargs="* ]]; then
+		mycmakeargs=(${mycmakeargs})
+	fi
+
+	mycmakeargs=("${cmakeargs[@]}" "${mycmakeargs[@]}")
 
 	cmake-utils_src_configure
 }
@@ -619,7 +623,7 @@ kde4-base_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Override this value, set in kde4-base_src_configure()
-	mycmakeargs+=" -DKDE4_BUILD_TESTS=ON"
+	mycmakeargs+=(-DKDE4_BUILD_TESTS=ON)
 	cmake-utils_src_configure
 	kde4-base_src_compile
 

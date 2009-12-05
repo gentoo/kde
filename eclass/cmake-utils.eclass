@@ -293,16 +293,6 @@ SET (CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE FILEPATH "C++ compiler" FO
 SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
 _EOF_
 
-	# Common configure parameters (overridable)
-	# NOTE CMAKE_BUILD_TYPE can be only overriden via CMAKE_BUILD_TYPE eclass variable
-	# No -DCMAKE_BUILD_TYPE=xxx definitions will be in effect.
-	local cmakeargs="
-		-DCMAKE_INSTALL_PREFIX=${PREFIX:-/usr}
-		${mycmakeargs}
-		-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-		-DCMAKE_INSTALL_DO_STRIP=OFF
-		-DCMAKE_USER_MAKE_RULES_OVERRIDE=${build_rules}"
-
 	# Common configure parameters (invariants)
 	local common_config="${TMPDIR}"/gentoo_common_config.cmake
 	local libdir=$(get_libdir)
@@ -310,13 +300,29 @@ cat > ${common_config} << _EOF_
 SET (LIB_SUFFIX ${libdir/lib} CACHE STRING "library path suffix" FORCE)
 _EOF_
 	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET (CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> ${common_config}
-	cmakeargs="-C ${common_config} ${cmakeargs}"
+
+	# Convert mycmakeargs to an array, for backwards compatibility
+	if [[ $(declare -p mycmakeargs) != "declare -a mycmakeargs="* ]]; then
+		mycmakeargs=(${mycmakeargs})
+	fi
+
+	# Common configure parameters (overridable)
+	# NOTE CMAKE_BUILD_TYPE can be only overriden via CMAKE_BUILD_TYPE eclass variable
+	# No -DCMAKE_BUILD_TYPE=xxx definitions will be in effect.
+	local cmakeargs=(
+		-C "${common_config}"
+		-DCMAKE_INSTALL_PREFIX="${PREFIX:-/usr}"
+		"${mycmakeargs[@]}"
+		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+		-DCMAKE_INSTALL_DO_STRIP=OFF
+		-DCMAKE_USER_MAKE_RULES_OVERRIDE="${build_rules}"
+	)
 
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is $cmakeargs"
-	echo cmake ${cmakeargs} "${CMAKE_USE_DIR}"
-	cmake ${cmakeargs} "${CMAKE_USE_DIR}" || die "cmake failed"
+	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${cmakeargs[*]}"
+	echo cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
+	cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
 
 	popd > /dev/null
 }
