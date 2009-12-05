@@ -16,10 +16,6 @@ inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
-# Restrict test on all KDE4 core packages, since upstream does not care about
-# them and they mostly fail.
-[[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && RESTRICT="test"
-
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
 # Add khelpcenter dependency when installing handbooks
@@ -672,12 +668,16 @@ kde4-meta_src_compile() {
 
 # @FUNCTION: kde4-meta_src_test
 # @DESCRIPTION:
-# Currently just calls its equivalent in kde4-base.eclass(5). Use this in split
-# ebuilds.
+# Currently just calls its equivalent in kde4-base.eclass(5) if
+# I_KNOW_WHAT_I_AM_DOING is set. Use this in split ebuilds.
 kde4-meta_src_test() {
 	debug-print-function $FUNCNAME "$@"
 
-	kde4-base_src_test
+	if [[ $I_KNOW_WHAT_I_AM_DOING ]]; then
+		kde4-base_src_test
+	else
+		einfo "Tests disabled"
+	fi
 }
 
 # @FUNCTION: kde4-meta_src_install
