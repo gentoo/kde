@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug desktopglobe exif semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
-COMMON_DEPEND="
+RDEPEND="
 	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
@@ -26,10 +26,9 @@ COMMON_DEPEND="
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-cpp/eigen:2
 "
-RDEPEND="${COMMON_DEPEND}"
 
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'

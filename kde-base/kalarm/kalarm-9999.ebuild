@@ -11,14 +11,13 @@ DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_kdebase_dep libkdepim)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
 "
-RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRACTONLY="
 	kmail/

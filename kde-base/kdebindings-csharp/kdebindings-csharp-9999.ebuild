@@ -13,13 +13,11 @@ DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
 IUSE="akonadi +phonon plasma qscintilla webkit"
 
-COMMON_DEPEND="
+DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep smoke 'akonadi?,phonon?,qscintilla?,webkit?')
 "
-
-DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="smoke/"
 

@@ -11,7 +11,7 @@ DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
 IUSE="debug +handbook +plasma +semantic-desktop sqlite"
 
-COMMON_DEPEND="
+RDEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
 	dev-libs/libpcre
@@ -21,10 +21,9 @@ COMMON_DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	sqlite? ( dev-db/sqlite:3 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
 "
-RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
