@@ -99,15 +99,15 @@ PDEPEND="
 src_configure() {
 	local x x2
 	# Disable old msn support.
-	mycmakeargs="${mycmakeargs} -DWITH_msn=OFF"
+	mycmakeargs=(-DWITH_msn=OFF)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		[[ ${x/+/} = msn ]] && x2=wlm || x2=""
-		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/} ${x2})"
+		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
 	# enable plugins
 	for x in ${PLUGINS}; do
-		mycmakeargs="${mycmakeargs} $(cmake-utils_use_with ${x/+/})"
+		mycmakeargs+=($(cmake-utils_use_with ${x/+/}))
 	done
 
 	kde4-meta_src_configure

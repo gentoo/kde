@@ -42,14 +42,14 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs="
+	mycmakeargs=(
 		$(cmake-utils_use_enable webkit QTWEBKIT_SHARP)
 		$(cmake-utils_use_enable plasma PLASMA_SHARP)
 		$(cmake-utils_use_enable phonon PHONON_SHARP)
 		$(cmake-utils_use_enable qscintilla QSCINTILLA_SHARP)
 		$(cmake-utils_use_enable akonadi KdepimLibs)
 		$(cmake-utils_use_enable akonadi)
-	"
+	)
 	kde4-meta_src_configure
 }
 

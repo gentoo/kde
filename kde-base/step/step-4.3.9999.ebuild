@@ -21,9 +21,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with gsl)
-		$(cmake-utils_use_with qalculate)"
+		$(cmake-utils_use_with qalculate)
+	)
 
 	kde4-meta_src_configure
 }

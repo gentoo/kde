@@ -17,8 +17,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with kig-scripting BoostPython)"
+	mycmakeargs=(
+		$(cmake-utils_use_with kig-scripting BoostPython)
+	)
 
 	kde4-meta_src_configure
 }

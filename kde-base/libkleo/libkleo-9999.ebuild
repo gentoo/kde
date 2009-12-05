@@ -22,7 +22,7 @@ KMSAVELIBS="true"
 KMEXTRACTONLY="kleopatra/"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DWITH_QGPGME=ON"
+	mycmakeargs=(-DWITH_QGPGME=ON)
 
 	kde4-meta_src_configure
 }

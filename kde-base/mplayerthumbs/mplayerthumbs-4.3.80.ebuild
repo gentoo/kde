@@ -29,8 +29,9 @@ RDEPEND="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DENABLE_PHONON_SUPPORT=ON"
+	mycmakeargs=(
+		-DENABLE_PHONON_SUPPORT=ON
+	)
 
 	kde4-meta_src_configure
 }

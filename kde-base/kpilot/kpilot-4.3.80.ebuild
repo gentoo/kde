@@ -28,10 +28,11 @@ KMEXTRACTONLY="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DBUILD_akonadi=ON
 		$(cmake-utils_use_with avantgo Mal)
-		$(cmake-utils_use_with crypt QCA2)"
+		$(cmake-utils_use_with crypt QCA2)
+	)
 
 	kde4-meta_src_configure
 }

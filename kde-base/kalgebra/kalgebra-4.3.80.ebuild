@@ -20,10 +20,11 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="libkdeedu/kdeeduui"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with readline)
 		$(cmake-utils_use_with plasma)
-		$(cmake-utils_use_with opengl OpenGL)"
+		$(cmake-utils_use_with opengl OpenGL)
+	)
 
 	kde4-meta_src_configure
 }

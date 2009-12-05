@@ -36,9 +36,10 @@ add_blocker libkholidays
 add_blocker kontactinterfaces
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_build handbook doc)
-		$(cmake-utils_use_with ldap)"
+		$(cmake-utils_use_with ldap)
+	)
 
 	kde4-base_src_configure
 }

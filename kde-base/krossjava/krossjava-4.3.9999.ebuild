@@ -30,7 +30,7 @@ src_prepare() {
 }
 
 src_configure() {
-	export mycmakeargs="-DENABLE_KROSSJAVA=ON"
+	mycmakeargs=(-DENABLE_KROSSJAVA=ON)
 	kde4-meta_src_configure
 	java-ant-2_src_configure
 }

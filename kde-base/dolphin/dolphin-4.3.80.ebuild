@@ -25,9 +25,10 @@ PDEPEND="
 KMLOADLIBS="libkonq"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
 
 	kde4-meta_src_configure
 }

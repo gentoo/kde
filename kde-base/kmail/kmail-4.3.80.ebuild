@@ -43,10 +43,11 @@ KMEXTRA="
 KMLOADLIBS="libkdepim"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
+		# FIXME: IndicateQt is not in portage
 		-DWITH_IndicateQt=OFF
-		$(cmake-utils_use_with semantic-desktop Nepomuk)"
-	# FIXME: IndicateQt is not in portage
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+	)
 
 	kde4-meta_src_configure
 }

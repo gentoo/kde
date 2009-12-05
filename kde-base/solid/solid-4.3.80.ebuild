@@ -28,11 +28,11 @@ KMEXTRA="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with bluetooth BlueZ)
 		$(cmake-utils_use_with networkmanager NetworkManager)
 		$(cmake-utils_use_build wicd)
-	"
+	)
 
 	kde4-meta_src_configure
 }

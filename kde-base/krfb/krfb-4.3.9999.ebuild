@@ -26,9 +26,10 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	# krfb requires both slp and vnc to build
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_Xmms=OFF -DWITH_SLP=ON -DWITH_LibVNCServer=ON
-		$(cmake-utils_use_with zeroconf DNSSD)"
+		$(cmake-utils_use_with zeroconf DNSSD)
+	)
 
 	kde4-meta_src_configure
 }

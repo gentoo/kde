@@ -28,12 +28,13 @@ KMEXTRACTONLY="
 "
 
 src_configure(){
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with editor Eigen2)
 		$(cmake-utils_use_with editor OpenBabel2)
 		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
-		$(cmake-utils_use_with solver Libfacile)"
+		$(cmake-utils_use_with solver Libfacile)
+	)
 
 	kde4-meta_src_configure
 }

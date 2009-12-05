@@ -58,7 +58,7 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkworkspace libplasmaclock libtaskmanager"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with python PyQt4)
@@ -66,7 +66,8 @@ src_configure() {
 		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		-DWITH_Xmms=OFF"
+		-DWITH_Xmms=OFF
+	)
 
 	kde4-meta_src_configure
 }

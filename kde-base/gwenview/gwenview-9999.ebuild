@@ -23,16 +23,15 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with kipi)"
+		$(cmake-utils_use_with kipi)
+	)
 
 	if use semantic-desktop; then
-		mycmakeargs="${mycmakeargs}
-			-DGWENVIEW_SEMANTICINFO_BACKEND=Nepomuk"
+		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Nepomuk)
 	else
-		mycmakeargs="${mycmakeargs}
-			-DGWENVIEW_SEMANTICINFO_BACKEND=None"
+		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
 	fi
 
 	kde4-meta_src_configure

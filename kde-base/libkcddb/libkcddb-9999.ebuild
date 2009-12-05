@@ -22,8 +22,9 @@ RDEPEND="${DEPEND}"
 KMSAVELIBS="true"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with musicbrainz MusicBrainz)"
+	mycmakeargs=(
+		$(cmake-utils_use_with musicbrainz MusicBrainz)
+	)
 
 	kde4-meta_src_configure
 }

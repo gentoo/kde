@@ -40,8 +40,9 @@ KMLOADLIBS="libkdepim"
 PATCHES=( "${FILESDIR}/${PN}-4.1.72-fix.patch" )
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with semantic-desktop Nepomuk)"
+	mycmakeargs=(
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+	)
 
 	kde4-meta_src_configure
 }

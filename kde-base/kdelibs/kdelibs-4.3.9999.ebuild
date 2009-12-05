@@ -128,21 +128,21 @@ src_prepare() {
 src_configure() {
 	if use zeroconf; then
 		if has_version net-dns/avahi; then
-			mycmakeargs="${mycmakeargs} -DWITH_Avahi=ON -DWITH_DNSSD=OFF"
+			mycmakeargs=(-DWITH_Avahi=ON -DWITH_DNSSD=OFF)
 		elif has_version net-misc/mDNSResponder; then
-			mycmakeargs="${mycmakeargs} -DWITH_Avahi=OFF -DWITH_DNSSD=ON"
+			mycmakeargs=(-DWITH_Avahi=OFF -DWITH_DNSSD=ON)
 		else
 			die "USE=\"zeroconf\" enabled but neither net-dns/avahi nor net-misc/mDNSResponder were found."
 		fi
 	else
-		mycmakeargs="${mycmakeargs} -DWITH_Avahi=OFF -DWITH_DNSSD=OFF"
+		mycmakeargs=(-DWITH_Avahi=OFF -DWITH_DNSSD=OFF)
 	fi
 	if use kdeprefix; then
 		HME=".kde${SLOT}"
 	else
 		HME=".kde4"
 	fi
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs+=(
 		-DWITH_HSPELL=OFF
 		-DKDE_DEFAULT_HOME=${HME}
 		$(cmake-utils_use_build handbook doc)
@@ -165,7 +165,7 @@ src_configure() {
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
-	"
+	)
 	kde4-base_src_configure
 }
 

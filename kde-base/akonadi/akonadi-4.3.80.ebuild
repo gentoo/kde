@@ -53,18 +53,18 @@ src_prepare() {
 
 src_configure() {
 	# Set the dbus dirs, otherwise it searches in KDEDIR
-	mycmakeargs="${mycmakeargs}
-		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces
-		-DAKONADI_DBUS_SERVICES_INSTALL_DIR=/usr/share/dbus-1/services"
 	# replace with $(cmake-utils_use_with exchange OpenChange) when libmapi becomes available with an ebuild
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
+		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces
+		-DAKONADI_DBUS_SERVICES_INSTALL_DIR=/usr/share/dbus-1/services
 		-DWITH_LibXslt=ON
 		-DWITH_OpenChange=OFF
 		-DWITH_GNOKII=OFF
 		-DWITH_GLIB2=OFF
 		-DWITH_OpenSync=OFF
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
 
 	${eclass}_src_configure
 }

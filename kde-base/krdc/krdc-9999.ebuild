@@ -29,13 +29,13 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_TelepathyQt4=OFF
 		$(cmake-utils_use_with jpeg)
+		# $(cmake-utils_use_with telepathy TelepathyQt4)
 		$(cmake-utils_use_with vnc LibVNCServer)
 		$(cmake-utils_use_with zeroconf DNSSD)
-	"
-	# $(cmake-utils_use_with telepathy TelepathyQt4)
+	)
 
 	kde4-meta_src_configure
 }

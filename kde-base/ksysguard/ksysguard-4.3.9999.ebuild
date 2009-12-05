@@ -27,8 +27,9 @@ KMEXTRA="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with lm_sensors Sensors)"
+	mycmakeargs=(
+		$(cmake-utils_use_with lm_sensors Sensors)
+	)
 
 	kde4-meta_src_configure
 }

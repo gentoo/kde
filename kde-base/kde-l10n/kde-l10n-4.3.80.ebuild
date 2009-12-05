@@ -87,8 +87,9 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_build handbook docs)"
+	mycmakeargs=(
+		$(cmake-utils_use_build handbook docs)
+	)
 	[[ -n ${A} ]] && kde4-base_src_configure
 }
 

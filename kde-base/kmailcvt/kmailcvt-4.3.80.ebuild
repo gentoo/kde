@@ -24,8 +24,9 @@ KMEXTRACTONLY="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DWITH_QGpgme=ON"
+	mycmakeargs=(
+		-DWITH_QGpgme=ON
+	)
 
 	kde4-meta_src_configure
 }

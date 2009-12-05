@@ -18,9 +18,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with pulseaudio PulseAudio)
-		$(cmake-utils_use_with alsa)"
+		$(cmake-utils_use_with alsa)
+	)
 
 	kde4-meta_src_configure
 }

@@ -18,8 +18,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with musicbrainz TunePimp)"
+	mycmakeargs=(
+		$(cmake-utils_use_with musicbrainz TunePimp)
+	)
 
 	kde4-meta_src_configure
 }

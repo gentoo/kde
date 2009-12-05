@@ -32,18 +32,18 @@ KMEXTRACTONLY="kalyptus/"
 PATCHES=( "${FILESDIR}"/${PN}-phonon-fix.patch )
 
 src_configure() {
-	local mycmakeargs="
-		$(cmake-utils_use_enable webkit QTWEBKIT_SMOKE)
-		$(cmake-utils_use_enable qwt QWT_SMOKE)
-		$(cmake-utils_use_enable qscintilla QSCI_SMOKE)
-		$(cmake-utils_use_enable phonon PHONON_SMOKE)
+	mycmakeargs=(
+		$(cmake-utils_use_enable akonadi)
+		$(cmake-utils_use_enable akonadi Kdepimlibs)
 		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_SMOKE)
+		$(cmake-utils_use_enable phonon PHONON_SMOKE)
+		# $(cmake-utils_use_enable okular)
+		-DENABLE_Okular=OFF
+		$(cmake-utils_use_enable qscintilla QSCI_SMOKE)
+		$(cmake-utils_use_enable qwt QWT_SMOKE)
 		$(cmake-utils_use_enable semantic-desktop Nepomuk)
 		$(cmake-utils_use_enable semantic-desktop Soprano)
-		$(cmake-utils_use_enable akonadi Kdepimlibs)
-		$(cmake-utils_use_enable akonadi)
-		-DENABLE_Okular=OFF
-	"
-		# $(cmake-utils_use_enable okular)
+		$(cmake-utils_use_enable webkit QTWEBKIT_SMOKE)
+	)
 	kde4-meta_src_configure
 }

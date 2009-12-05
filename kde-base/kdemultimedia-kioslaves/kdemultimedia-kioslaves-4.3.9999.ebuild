@@ -37,12 +37,12 @@ KMLOADLIBS="libkcddb"
 
 src_configure() {
 	if use encode; then
-		mycmakeargs="${mycmakeargs}
+		mycmakeargs=(
 			$(cmake-utils_use_with flac)
-			$(cmake-utils_use_with vorbis OggVorbis)"
+			$(cmake-utils_use_with vorbis OggVorbis)
+		)
 	else
-		mycmakeargs="${mycmakeargs}
-			-DWITH_OggVorbis=OFF -DWITH_Flac=OFF"
+		mycmakeargs=(-DWITH_OggVorbis=OFF -DWITH_Flac=OFF)
 	fi
 
 	kde4-meta_src_configure

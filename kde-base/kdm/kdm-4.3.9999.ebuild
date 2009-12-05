@@ -49,10 +49,11 @@ src_configure() {
 	# last checked in 4.2.95
 	replace-flags -O3 -O2
 
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use kerberos KDE4_KRB5AUTH)
 		$(cmake-utils_use_with pam)
-		$(cmake-utils_use_with consolekit CkConnector)"
+		$(cmake-utils_use_with consolekit CkConnector)
+	)
 
 	kde4-meta_src_configure
 }

@@ -23,12 +23,15 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		-DENABLE_EMBEDDED_TORRENT_SUPPORT=ON -DWITH_KdeWebKit=OFF -DWITH_WebKitPart=OFF
+	mycmakeargs=(
+		-DENABLE_EMBEDDED_TORRENT_SUPPORT=ON
+		-DWITH_KdeWebKit=OFF
+		-DWITH_WebKitPart=OFF
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with sqlite)"
+		$(cmake-utils_use_with sqlite)
+	)
 
 	kde4-meta_src_configure
 }

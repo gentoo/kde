@@ -23,8 +23,9 @@ KMEXTRACTONLY="
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with plasma)"
+	mycmakeargs=(
+		$(cmake-utils_use_with plasma)
+	)
 
 	kde4-meta_src_configure
 }

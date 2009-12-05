@@ -17,9 +17,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_KdepimLibs=ON
-		$(cmake-utils_use_with tidy LibTidy)"
+		$(cmake-utils_use_with tidy LibTidy)
+	)
 
 	kde4-meta_src_configure
 }

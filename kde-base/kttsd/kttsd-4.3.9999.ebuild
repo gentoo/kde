@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DKDE4_KTTSD_COMMAND=ON
 		-DKDE4_KTTSD_PHONON=ON
 		$(cmake-utils_use alsa KDE4_KTTSD_ALSA)
@@ -33,7 +33,7 @@ src_configure() {
 		$(cmake-utils_use flite KDE4_KTTSD_FLITE)
 		$(cmake-utils_use freetts KDE4_KTTSD_FREETTS)
 		$(cmake-utils_use mbrola KDE4_KTTSD_HADIFIX)
-	"
+	)
 
 	kde4-meta_src_configure
 }

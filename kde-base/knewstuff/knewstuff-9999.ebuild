@@ -17,9 +17,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with social-desktop LibAttica)
-	"
+	)
 
 	kde4-meta_src_configure
 }

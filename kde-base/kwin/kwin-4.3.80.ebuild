@@ -46,8 +46,9 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with opengl OpenGL)"
+	mycmakeargs=(
+		$(cmake-utils_use_with opengl OpenGL)
+	)
 
 	kde4-meta_src_configure
 }

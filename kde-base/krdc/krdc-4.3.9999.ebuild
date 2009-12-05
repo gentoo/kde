@@ -26,10 +26,11 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with vnc LibVNCServer)
-		$(cmake-utils_use_with zeroconf DNSSD)"
+		$(cmake-utils_use_with zeroconf DNSSD)
+	)
 
 	kde4-meta_src_configure
 }

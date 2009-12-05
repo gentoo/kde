@@ -12,7 +12,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="alsa debug"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
-		$(cmake-utils_use_with alsa)"
+	mycmakeargs=(
+		$(cmake-utils_use_with alsa)
+	)
 	kde4-meta_src_configure
 }

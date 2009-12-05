@@ -48,22 +48,24 @@ src_prepare() {
 }
 
 src_configure() {
-	savedcmakeargs="${mycmakeargs}
+	savedcmakeargs=(
 		-DWITH_QScintilla=OFF
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with policykit PolkitQt)
-	"
+	)
 
 	do_src_configure() {
-		mycmakeargs="${savedcmakeargs}"
+		mycmakeargs=("${savedcmakeargs[@]}")
 
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_configure
 
-		export savedcmakeargs_${PYTHON_ABI//./_}="${mycmakeargs}"
+		local value=$(declare -p mycmakeargs)
+		value=${value#*=}
+		declare -a savedcmakeargs_${PYTHON_ABI//./_}=$value
 	}
 
 	python_execute_function -s do_src_configure
@@ -80,8 +82,10 @@ src_compile() {
 
 src_test() {
 	do_src_test() {
-		local var="savedcmakeargs_${PYTHON_ABI//./_}"
-		mycmakeargs="${!var}"
+		local var=savedcmakeargs_${PYTHON_ABI//./_}
+		local value=$(declare -p $var)
+		value=${value#*=}
+		declare -a mycmakeargs=$value
 
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_test

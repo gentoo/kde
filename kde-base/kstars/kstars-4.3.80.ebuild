@@ -18,9 +18,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		$(cmake-utils_use_with fits CFitsio)
-		$(cmake-utils_use_with indi INDI)"
+		$(cmake-utils_use_with indi)
+	)
 
 	kde4-meta_src_configure
 }

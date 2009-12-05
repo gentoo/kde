@@ -17,7 +17,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="${mycmakeargs} -DWITH_Xmms=OFF -DWITH_DNSSD=ON"
+	mycmakeargs=(-DWITH_Xmms=OFF -DWITH_DNSSD=ON)
 
 	kde4-meta_src_configure
 }
