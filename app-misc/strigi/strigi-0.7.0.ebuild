@@ -4,18 +4,15 @@
 
 EAPI="2"
 
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
-ESVN_PROJECT="${PN}"
-inherit cmake-utils eutils subversion
+inherit base cmake-utils
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://strigi.sourceforge.net/"
-#SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-SRC_URI=""
+SRC_URI="http://www.vandenoever.info/software/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha amd64 ~hppa ~ia64 ppc ppc64 ~sparc x86"
 IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
 
 COMMONDEPEND="
@@ -24,7 +21,6 @@ COMMONDEPEND="
 	>=virtual/poppler-utils-0.8
 	clucene? ( >=dev-cpp/clucene-0.9.19[-debug] )
 	dbus? (
-		sys-apps/dbus
 		x11-libs/qt-dbus:4
 		x11-libs/qt-gui:4
 	)
@@ -34,8 +30,8 @@ COMMONDEPEND="
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		x11-libs/qt-core:4
-		x11-libs/qt-dbus:4
 		x11-libs/qt-gui:4
+		x11-libs/qt-dbus:4
 	)
 	!clucene? (
 		!hyperestraier? (
@@ -46,6 +42,12 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.6.4-gcc44.patch"
+	"${FILESDIR}/${PN}-0.6.5-gcc4.4-missing-headers.patch"
+	"${FILESDIR}/${PN}-disable_java.patch"
+)
 
 src_configure() {
 	# Strigi needs either expat or libxml2.
@@ -68,7 +70,7 @@ src_configure() {
 	)
 
 	if use qt4; then
-		mycmakeargs+=(-DENABLE_DBUS=ON)
+		mycmakeargs+=(-DENABLE_DBUS)
 	fi
 
 	if ! use clucene && ! use hyperestraier; then
@@ -90,8 +92,8 @@ src_test() {
 
 pkg_postinst() {
 	if ! use clucene && ! use hyperestraier; then
-		elog "Because you didn't enable either of the supported backends:"
-		elog "clucene or hyperestraier"
+		elog "Because you didn't enable any of the supported backends:"
+		elog "clucene, hyperestraier and sqlite"
 		elog "clucene support was silently installed."
 		elog "If you prefer another backend, be sure to reinstall strigi"
 		elog "and to enable that backend use flag"
