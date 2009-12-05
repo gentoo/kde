@@ -19,6 +19,9 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kaddressbook)
 "
 
+# Tests hang, last checked in 4.3.3
+RESTRICT="test"
+
 KMLOADLIBS="libkdepim"
 KMEXTRA="kdgantt1"
 

@@ -20,6 +20,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# Tests hang, last checked in 4.3.3
+RESTRICT="test"
+
 KMEXTRACTONLY="
 	akonadi/akonadi_next/
 "

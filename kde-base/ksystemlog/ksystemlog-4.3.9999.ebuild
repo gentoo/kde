@@ -11,3 +11,6 @@ inherit kde4-meta
 DESCRIPTION="KDE system log viewer"
 KEYWORDS=""
 IUSE="debug +handbook"
+
+# Tests hang, last checked in 4.3.3
+RESTRICT="test"

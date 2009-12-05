@@ -15,3 +15,6 @@ DEPEND="
 	app-crypt/qca:2
 "
 RDEPEND="${DEPEND}"
+
+# Tests hang, last checked in 4.3.3
+RESTRICT="test"

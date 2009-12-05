@@ -19,6 +19,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# Tests hang, last checked in 4.3.3
+RESTRICT="test"
+
 src_configure() {
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_with avantgo Mal)
