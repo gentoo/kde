@@ -13,11 +13,10 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif qalculate qwt scim semantic-desktop"
+IUSE="debug desktopglobe exif qalculate qwt scim +semantic-desktop social-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
-	dev-libs/libattica
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
@@ -28,6 +27,7 @@ COMMON_DEPEND="
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
+	social-desktop? ( dev-libs/libattica )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -58,6 +58,7 @@ src_configure() {
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with social-desktop LibAttica)
 		$(cmake-utils_use_with scim)
 	)
 
