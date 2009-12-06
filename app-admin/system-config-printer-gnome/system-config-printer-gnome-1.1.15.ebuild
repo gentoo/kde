@@ -7,7 +7,7 @@ inherit python autotools
 
 MY_P="${PN%-gnome}-${PV}"
 
-DESCRIPTION="Gnome frontend for a Red Hat's printer administration tool"
+DESCRIPTION="GNOME frontend for a Red Hat's printer administration tool"
 HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
 SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${MY_P}.tar.bz2"
 
