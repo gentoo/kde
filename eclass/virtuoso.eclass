@@ -39,7 +39,8 @@ HOMEPAGE="http://virtuoso.openlinksw.com/wiki/main/Main/"
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND=" >=sys-devel/libtool-2.2.6a"
+DEPEND=">=sys-devel/libtool-2.2.6a"
+RDEPEND=""
 
 S="${WORKDIR}/${MY_P}"
 
