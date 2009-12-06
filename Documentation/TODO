@@ -18,12 +18,9 @@ kdebindings:
 
 ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
- - clean up Documentation/stasis
- - libkholidays still includes test stuff. can that be taken out?
  - kapptemplate needs to be checked again when kbindings is available?
  - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
  - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
- - fix virtuoso and make it actualy usable
 
 TESTS:
  - run test for each application and coordinate with upstream if fails
@@ -39,6 +36,5 @@ Periodic work:
  - each month check if there are new applications in live that need packaging
 
 KDE3
- - create the overlay and its users where we can let them maintain it
- - from september start slowly moving kde3 misc apps from main tree to the created overlay
+ - from september start slowly moving kde3 misc apps from main tree to the kde-sunset overlay
  - removal of kde3 should be finished with release of KDE 4.4
