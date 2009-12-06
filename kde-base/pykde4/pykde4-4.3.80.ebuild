@@ -15,15 +15,14 @@ DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="akonadi debug examples policykit semantic-desktop"
 
-COMMON_DEPEND="
+DEPEND="
 	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
-DEPEND="${COMMON_DEPEND}"
 # blocker added due to compatibility issues and error during compile time
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!dev-python/pykde
 "
 
