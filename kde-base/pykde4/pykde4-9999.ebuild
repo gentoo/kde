@@ -60,7 +60,7 @@ src_configure() {
 
 		local value=$(declare -p mycmakeargs)
 		value=${value#*=}
-		declare -a savedcmakeargs_${PYTHON_ABI//./_}=$value
+		declare -a "savedcmakeargs_${PYTHON_ABI//./_}=$value"
 	}
 
 	python_execute_function -s do_src_configure
@@ -80,7 +80,7 @@ src_test() {
 		local var=savedcmakeargs_${PYTHON_ABI//./_}
 		local value=$(declare -p $var)
 		value=${value#*=}
-		declare -a mycmakeargs=$value
+		declare -a "mycmakeargs=$value"
 
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_test
