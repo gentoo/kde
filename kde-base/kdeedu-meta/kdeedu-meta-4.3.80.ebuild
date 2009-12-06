@@ -33,7 +33,7 @@ RDEPEND="
 	$(add_kdebase_dep libkdeedu)
 	$(add_kdebase_dep marble)
 	$(add_kdebase_dep parley)
-	$(add_kdebase_dep rocks)
+	$(add_kdebase_dep rocs)
 	$(add_kdebase_dep step)
 	$(block_other_slots)
 "
