@@ -23,11 +23,11 @@ COMMON_DEPEND="
 	media-libs/libvorbis
 	media-libs/openal
 	virtual/glu
-	virtual/opengl
 	x11-libs/libXrandr
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
+	x11-proto/randrproto
 "
 RDEPEND="${COMMON_DEPEND}"
 
@@ -39,8 +39,11 @@ src_unpack() {
 	git_src_unpack
 }
 
-src_prepare() {
-	kde4-base_src_prepare
+src_install() {
+	kde4-base_src_install
 
-	rm cmake/modules/FindEigen2.cmake cmake/modules/FindOggVorbis.cmake || die "could not remove cmake modules"
+	# Silly upstream installs everything they use
+	for module in "${D}${PREFIX}/share/apps/cmake/modules"/*.cmake; do
+		[[ "${module}" = *FindGluon*.cmake ]] || rm "${module}"
+	done
 }
