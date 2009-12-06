@@ -223,7 +223,6 @@ kde-base/kdepim-icons:4.4
 kde-base/kdepim-kresources:4.4
 kde-base/kdepim-strigi-analyzer:4.4
 kde-base/kdepim-wizards:4.4
-# kde-base/kitchensync:4.4 # removed from 4.2
 kde-base/kjots:4.4
 kde-base/kleopatra:4.4
 kde-base/kmail:4.4
@@ -234,7 +233,6 @@ kde-base/konsolekalendar:4.4
 kde-base/kontact:4.4
 kde-base/kontact-specialdates:4.4
 kde-base/korganizer:4.4
-# kde-base/korn:4.4 disabled for now
 kde-base/kpilot:4.4
 kde-base/ktimetracker:4.4
 kde-base/libkdepim:4.4
@@ -590,7 +588,6 @@ kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
-# kde-base/kitchensync:live # removed from 4.2
 kde-base/kjots:live
 kde-base/kleopatra:live
 kde-base/kmail:live
@@ -601,8 +598,6 @@ kde-base/konsolekalendar:live
 kde-base/kontact:live
 kde-base/kontact-specialdates:live
 kde-base/korganizer:live
-# kde-base/korn:live disabled for now
-kde-base/kpilot:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
 kde-base/libkleo:live
