@@ -12,6 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +handbook +plasma"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'social-desktop')
 	$(add_kdebase_dep libkdeedu)
 "
 RDEPEND="${DEPEND}
