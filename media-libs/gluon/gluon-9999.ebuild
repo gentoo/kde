@@ -43,5 +43,5 @@ src_unpack() {
 src_prepare() {
 	kde4-base_src_prepare
 
-	sed '/add_subdirectory(src)/s/^#//' "${S}"/CMakeLists.txt || die "couldn't re-enable main library"
+	sed -i '/add_subdirectory(src)/s/^#//' "${S}"/CMakeLists.txt || die "couldn't re-enable main library"
 }
