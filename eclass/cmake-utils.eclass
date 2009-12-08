@@ -40,7 +40,7 @@ inherit toolchain-funcs multilib flag-o-matic base
 
 CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2) CMAKE_EXPF+=" src_configure" ;;
+	3|2) CMAKE_EXPF+=" src_configure" ;;
 	1|0) ;;
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
@@ -294,6 +294,18 @@ enable_cmake-utils_src_configure() {
 		SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
 	_EOF_
 
+	if use prefix; then
+		cat >> "${build_rules}" <<- _EOF_
+			# in Prefix we need rpath and must ensure cmake gets our default linker path
+			# right ... except for Darwin hosts
+			IF (NOT APPLE)
+			SET (CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
+			SET (CMAKE_PLATFORM_REQUIRED_RUNTIME_PATH "${EPREFIX}/usr/${CHOST}/lib/gcc;${EPREFIX}/usr/${CHOST}/lib;${EPREFIX}/usr/$(get_libdir);${EPREFIX}/$(get_libdir)"
+			CACHE STRING "" FORCE)
+			ENDIF (NOT APPLE)
+		_EOF_
+	fi
+
 	# Common configure parameters (invariants)
 	local common_config=${T}/gentoo_common_config.cmake
 	local libdir=$(get_libdir)
@@ -307,12 +319,14 @@ enable_cmake-utils_src_configure() {
 		mycmakeargs=(${mycmakeargs})
 	fi
 
+	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
+
 	# Common configure parameters (overridable)
 	# NOTE CMAKE_BUILD_TYPE can be only overriden via CMAKE_BUILD_TYPE eclass variable
 	# No -DCMAKE_BUILD_TYPE=xxx definitions will be in effect.
 	local cmakeargs=(
 		-C "${common_config}"
-		-DCMAKE_INSTALL_PREFIX="${PREFIX:-/usr}"
+		-DCMAKE_INSTALL_PREFIX="${PREFIX:-${EPREFIX}/usr}"
 		"${mycmakeargs[@]}"
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
 		-DCMAKE_INSTALL_DO_STRIP=OFF

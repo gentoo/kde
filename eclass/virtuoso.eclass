@@ -11,7 +11,7 @@
 # This eclass provides common code for splitting Virtuoso OpenSource database
 
 case ${EAPI:-0} in
-	2) : ;;
+	2|3) : ;;
 	*) DEPEND="EAPI-TOO-OLD" ;;
 esac
 
@@ -111,8 +111,9 @@ virtuoso_src_configure() {
 
 	# Override some variables to make tests work
 	if [[ ${PN} != virtuoso-server ]]; then
-		export ISQL="${ROOT}usr/bin/isql-v"
-		export SERVER="${ROOT}usr/bin/virtuoso-t"
+		[[ ${EAPI} == 2 ]] && ! use prefix && EPREFIX=
+		export ISQL=${EPREFIX}/usr/bin/isql-v
+		export SERVER=${EPREFIX}/usr/bin/virtuoso-t
 	fi
 
 	# Version specific options
@@ -126,7 +127,7 @@ virtuoso_src_configure() {
 
 	econf \
 		--with-layout=gentoo \
-		--localstatedir="${ROOT}var" \
+		--localstatedir=${EPREFIX}/var \
 		--enable-shared \
 		--with-pthreads \
 		${myconf}

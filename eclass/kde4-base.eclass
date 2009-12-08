@@ -424,7 +424,11 @@ kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Prefix compat:
-	use prefix || EROOT=${ROOT}
+	if [[ ${EAPI} == 2 ]] && ! use prefix; then
+		EPREFIX=
+		EROOT=${ROOT}
+	fi
+
 	# Append missing trailing slash character
 	[[ ${EROOT} = */ ]] || EROOT+="/"
 
@@ -436,11 +440,11 @@ kde4-base_pkg_setup() {
 
 	if [[ ${KDEBASE} = kde-base ]]; then
 		if use kdeprefix; then
-			KDEDIR="${EROOT}usr/kde/${_kdedir}"
+			KDEDIR=${EPREFIX}/usr/kde/${_kdedir}
 		else
-			KDEDIR="${EROOT}usr"
+			KDEDIR=${EPREFIX}/usr
 		fi
-		PREFIX="${PREFIX:-${KDEDIR}}"
+		: ${PREFIX:=${KDEDIR}}
 	else
 		# Determine KDEDIR by loooking for the closest match with KDE_MINIMAL
 		KDEDIR=
@@ -449,9 +453,9 @@ kde4-base_pkg_setup() {
 			[[ -z ${kde_minimal_met} ]] && [[ ${slot} = ${KDE_MINIMAL} ]] && kde_minimal_met=1
 			if [[ -n ${kde_minimal_met} ]] && has_version "kde-base/kdelibs:${slot}"; then
 				if has_version "kde-base/kdelibs:${slot}[kdeprefix]"; then
-					KDEDIR="${EROOT}usr/kde/${slot}"
+					KDEDIR=${EPREFIX}/usr/kde/${slot}
 				else
-					KDEDIR="${EROOT}usr"
+					KDEDIR=${EPREFIX}/usr
 				fi
 				break;
 			fi
@@ -462,10 +466,10 @@ kde4-base_pkg_setup() {
 		if [[ ${KDE_REQUIRED} = always ]] || { [[ ${KDE_REQUIRED} = optional ]] && use kde; }; then
 			[[ -z ${KDEDIR} ]] && die "Failed to determine KDEDIR!"
 		else
-			[[ -z ${KDEDIR} ]] && KDEDIR="${EROOT}usr"
+			[[ -z ${KDEDIR} ]] && KDEDIR=${EPREFIX}/usr
 		fi
 
-		PREFIX="${PREFIX:-${EROOT}usr}"
+		: ${PREFIX:=${EPREFIX}/usr}
 	fi
 	# Point pkg-config path to KDE *.pc files
 	export PKG_CONFIG_PATH="${KDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
@@ -487,10 +491,10 @@ kde4-base_src_unpack() {
 	if [[ ${BUILD_TYPE} = live ]]; then
 		migrate_store_dir
 		subversion_src_unpack
-	elif [[ ${EAPI} == 2 ]]; then
+	elif [[ ${EAPI} == [23] ]]; then
 		local file
 		for file in ${A}; do
-			# This setup is because EAPI <= 2 cannot unpack *.tar.xz files
+			# This setup is because EAPI <= 3 cannot unpack *.tar.xz files
 			# directly, so we do it ourselves (using the exact same code as portage)
 			case ${file} in
 				*.tar.xz)
@@ -504,7 +508,7 @@ kde4-base_src_unpack() {
 			esac
 		done
 	else
-		# For EAPI >= 3, we can just use unpack() directly
+		# For EAPI >= 4, we can just use unpack() directly
 		unpack ${A}
 	fi
 }
@@ -578,7 +582,7 @@ kde4-base_src_configure() {
 	unset KDEDIRS
 
 	# Handle kdeprefix-ed KDE
-	if [[ ${KDEDIR} != "${EROOT}usr" ]]; then
+	if [[ ${KDEDIR} != ${EPREFIX}/usr ]]; then
 		# Override some environment variables - only when kdeprefix is different,
 		# to not break ccache/distcc
 		PATH="${KDEDIR}/bin:${PATH}"
@@ -595,7 +599,7 @@ kde4-base_src_configure() {
 	# Handle kdeprefix in application itself
 	if ! has kdeprefix ${IUSE//+} || ! use kdeprefix; then
 		# If prefix is /usr, sysconf needs to be /etc, not /usr/etc
-		cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EROOT}"etc)
+		cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 	fi
 
 	if [[ $(declare -p mycmakeargs) != "declare -a mycmakeargs="* ]]; then
@@ -665,12 +669,14 @@ kde4-base_src_make_doc() {
 		done
 	fi
 
-	if [[ -n ${KDEBASE} ]] && [[ -d "${D}${EROOT}usr/share/doc/${PF}" ]]; then
+	[[ -z ${ED} ]] && ED=${D}${EPREFIX}
+
+	if [[ -n ${KDEBASE} ]] && [[ -d ${ED}usr/share/doc/${PF} ]]; then
 		# work around bug #97196
 		dodir /usr/share/doc/KDE4 && \
-			cp -r "${D}${EROOT}usr/share/doc/${PF}" "${D}${EROOT}usr/share/doc/KDE4/" || \
+			cp -r "${ED}usr/share/doc/${PF}" "${ED}usr/share/doc/KDE4/" || \
 			die "Failed to move docs to KDE4/."
-			rm -rf "${D}${EROOT}usr/share/doc/${PF}"
+			rm -rf "${ED}usr/share/doc/${PF}"
 	fi
 }
 
