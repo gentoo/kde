@@ -23,6 +23,7 @@ COMMON_DEPEND="
 	media-libs/libvorbis
 	media-libs/openal
 	virtual/glu
+	virtual/opengl
 	x11-libs/libXrandr
 "
 DEPEND="${COMMON_DEPEND}
@@ -37,4 +38,10 @@ PATCHES=(
 
 src_unpack() {
 	git_src_unpack
+}
+
+src_prepare() {
+	kde4-base_src_prepare
+
+	sed '/add_subdirectory(src)/s/^#//' "${S}"/CMakeLists.txt || die "couldn't re-enable main library"
 }
