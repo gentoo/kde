@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook +plasma"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'social-desktop')
 	$(add_kdebase_dep libkdeedu)
 "
 RDEPEND="${DEPEND}

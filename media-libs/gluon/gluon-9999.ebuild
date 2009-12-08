@@ -38,12 +38,3 @@ PATCHES=(
 src_unpack() {
 	git_src_unpack
 }
-
-src_install() {
-	kde4-base_src_install
-
-	# Silly upstream installs everything they use
-	for module in "${D}${PREFIX}/share/apps/cmake/modules"/*.cmake; do
-		[[ "${module}" = *FindGluon*.cmake ]] || rm "${module}"
-	done
-}
