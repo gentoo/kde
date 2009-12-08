@@ -356,8 +356,7 @@ enable_cmake-utils_src_compile() {
 # @FUNCTION: cmake-utils_src_make
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
-# All arguments are passed to emake:
-# "cmake-utils_src_make -j1" can be used to work around parallel make issues.
+# All arguments are passed to emake
 cmake-utils_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
