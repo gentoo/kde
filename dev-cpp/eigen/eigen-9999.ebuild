@@ -13,7 +13,7 @@ EHG_REPO_URI="https://bitbucket.org/eigen/eigen"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-SLOT="2"
+SLOT="3"
 IUSE="debug doc examples"
 
 DEPEND="
