@@ -40,20 +40,20 @@ src_prepare() {
 src_install() {
 	# install binaries
 
-	exeinto "${ROOT}usr/share/${PN}"
+	exeinto "/usr/share/${PN}"
 
 	doexe "src/${PN}" || die "doexe failed"
-	dosym "${ROOT}usr/share/${PN}/${PN}" "${ROOT}usr/bin/${PN}"
+	dosym "/usr/share/${PN}/${PN}" "${ROOT}usr/bin/${PN}"
 
 	if use X; then
 		doexe "src/${PN}-gui" || die "doexe failed"
-		dosym "${ROOT}usr/share/${PN}/${PN}-gui" "${ROOT}usr/bin/${PN}-gui"
+		dosym "/usr/share/${PN}/${PN}-gui" "/usr/bin/${PN}-gui"
 	fi
 
 	# install data
 	insinto /etc
 	newins "${S}/slimrat.conf" slimrat.conf
 
-	insinto "${ROOT}usr/share/${PN}"
-	doins -r "src/"*.pm "src/Clipboard" "src/plugins/" "src/slimrat.glade" || die "doins failed"
+	insinto "/usr/share/${PN}"
+	doins -r "src/"*.pm "src/Clipboard" "src/plugins/" "src/${PN}.glade" || die "doins failed"
 }
