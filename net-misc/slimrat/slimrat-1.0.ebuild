@@ -12,7 +12,7 @@ SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="X"
 
 DEPEND="
