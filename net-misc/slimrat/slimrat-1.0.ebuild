@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="X"
 
 DEPEND="
-	dev-lang/perl[ithreads]
+	>=dev-lang/perl-5.10.1[ithreads]
 	>=dev-perl/WWW-Mechanize-1.52
 	virtual/perl-Getopt-Long
 	virtual/perl-Term-ANSIColor
