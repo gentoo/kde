@@ -80,8 +80,8 @@ src_prepare() {
 		DIR="${PN}-${LNG}-${PV}"
 		if [[ -d "${DIR}" ]] ; then
 			"${S}/${DIR}"/scripts/autogen.sh ${DIR}
+			sed -i -e "s:${DIR}:${LNG}:g" "${DIR}"/CMakeLists.txt || die
 		fi
-		sed -i -e "s:${DIR}:${LNG}:g" "${DIR}"/CMakeLists.txt || die
 	done
 	kde4-base_src_prepare
 }
