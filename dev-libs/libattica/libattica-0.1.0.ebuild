@@ -6,13 +6,22 @@ EAPI="2"
 
 inherit cmake-utils
 
+MY_P="${P#lib}"
+MY_PN="${PN#lib}"
+
 DESCRIPTION="A library providing access to Open Collaboration Services"
 HOMEPAGE="http://kde.org/"
-SRC_URI="mirror://kde/stable/${PN/lib}/${P/lib}.tar.bz2"
+SRC_URI="mirror://kde/stable/${MY_PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
-S="${WORKDIR}/${P/lib}"
+S="${WORKDIR}/${MY_P}"
+
+DEPEND="
+	x11-libs/qt-core:4
+	x11-libs/qt-gui:4
+"
+RDEPEND="${DEPEND}"

@@ -15,3 +15,8 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
+
+DEPEND="
+	x11-libs/qt-core:4
+"
+RDEPEND="${DEPEND}"
