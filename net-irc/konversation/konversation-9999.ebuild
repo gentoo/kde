@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="extragear/network"
-inherit kde4-base
+ESVN_REPO_URI="git://gitorious.org/konversation/konversation.git"
+inherit git kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
@@ -20,6 +20,10 @@ DEPEND="
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	git_src_unpack
+}
 
 src_configure() {
 	mycmakeargs=($(cmake-utils_use_with crypt QCA2))
