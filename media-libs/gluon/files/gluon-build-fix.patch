@@ -1,0 +1,25 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 7a87243..2cf3788 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -18,8 +18,18 @@ include_directories(${KDE4_INCLUDES})
+ ENDIF()
+ 
+ find_package(Eigen2 REQUIRED)
+-find_package(GluonCommon REQUIRED)
+-find_package(KGL REQUIRED)
++IF(CMAKE_SOURCE_DIR STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
++	find_package(GluonCommon REQUIRED)
++	find_package(KGL REQUIRED)
++ELSE()
++	# GluonCommon and KGL aren't installed to the system yet
++	find_package(OpenGL REQUIRED)
++	find_package(GLEW REQUIRED)
++	set(GLUONCOMMON_INCLUDES "${CMAKE_SOURCE_DIR}")
++	set(KGL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}")
++	set(KGL_INCLUDES ${GLUON_COMMON_INCLUDE_DIR} ${KGL_INCLUDE_DIR} ${EIGEN2_INCLUDE_DIR})
++	set(KGL_LIBRARY kgl)
++ENDIF(CMAKE_SOURCE_DIR STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
+ 
+ message("-- Found KGL include dir: " ${KGL_INCLUDE_DIR})
+ message("-- Found KGL includes: " ${KGL_INCLUDES})

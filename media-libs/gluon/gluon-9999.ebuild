@@ -34,6 +34,7 @@ RDEPEND="${COMMON_DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-pic-fix.patch"
+	"${FILESDIR}/${PN}-build-fix.patch"
 )
 
 src_unpack() {
