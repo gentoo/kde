@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-ESVN_REPO_URI="git://gitorious.org/konversation/konversation.git"
+EGIT_REPO_URI="git://gitorious.org/konversation/konversation.git"
 inherit git kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
