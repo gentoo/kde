@@ -15,5 +15,5 @@ KEYWORDS=""
 src_install() {
 	kde4-meta_src_install
 	# colliding with oxygen icons
-	rm -rf "${D}"/${KDEDIR}/share/icons/oxygen/16x16/status/meeting-organizer.png
+	rm -rf "${ED}"/${KDEDIR}/share/icons/oxygen/16x16/status/meeting-organizer.png
 }
