@@ -75,8 +75,8 @@ src_install() {
 	kde4-meta_src_install
 
 	rm -f \
-		"${D}$(python_get_sitedir)"/PyKDE4/*.py[co] \
-		"${D}${KDEDIR}"/share/apps/plasma_scriptengine_python/*.py[co]
+		"${ED}$(python_get_sitedir)"/PyKDE4/*.py[co] \
+		"${ED}${KDEDIR}"/share/apps/plasma_scriptengine_python/*.py[co]
 }
 
 pkg_postinst() {
@@ -92,7 +92,7 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	if [[ -d "${KDEDIR}"/share/apps/plasma_scriptengine_python ]]; then
+	if [[ -d ${EKDEDIR}/share/apps/plasma_scriptengine_python ]]; then
 		python_mod_cleanup \
 			"$(python_get_sitedir)"/PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
