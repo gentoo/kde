@@ -26,17 +26,6 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkdepim"
 
-src_prepare() {
-	#local kconfig_compiler="${KDEDIR}/bin/kconfig_compiler"
-
-	#pushd kaddressbook/common
-	# create the kabprefs_base.h file
-	#${kconfig_compiler} kaddressbook.kcfg kabprefs_base.kcfgc
-	#popd
-
-	kde4-meta_src_prepare
-}
-
 src_install() {
 	kde4-meta_src_install
 
