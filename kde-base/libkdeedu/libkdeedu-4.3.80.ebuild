@@ -17,5 +17,5 @@ RESTRICT=test
 src_install() {
 	kde4-meta_src_install
 	# This is installed by kde-base/marble
-	rm "${D}"/"${KDEDIR}"/share/apps/cmake/modules/FindMarbleWidget.cmake
+	rm "${ED}"/${KDEDIR}/share/apps/cmake/modules/FindMarbleWidget.cmake
 }
