@@ -4,15 +4,15 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -7,6 +7,35 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
-
-+_KDEDIR=@REPLACE_PREFIX@
-+if [ "$_KDEDIR" != "/usr" ]; then
-+	export PATH=${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
-+	export ROOTPATH=${_KDEDIR}/sbin:${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
+ 
++_KDEDIR=@GENTOO_PORTAGE_EPREFIX@@REPLACE_PREFIX@
++if [ "$_KDEDIR" != "@GENTOO_PORTAGE_EPREFIX@/usr" ]; then
++	export PATH=${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
++	export ROOTPATH=${_KDEDIR}/sbin:${_KDEDIR}/bin:$(echo ${PATH} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/s\?bin/\?:##g;s/:$//g')
 +fi
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
-+export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#/usr/kde/[^/]*/share/\?:##g;s/:$//g')
++export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/share/\?:##g;s/:$//g')
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
@@ -22,7 +22,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 +# Gentoo: handle the possible home directory layout for config directory
 +# Note that we change the default KDEHOME in kdelibs to .kde4 or .kde${SLOT}
 +# for -kdeprefix and +kdeprefix respectively.
-+if [ "${_KDEDIR}" = "/usr" ]; then
++if [ "${_KDEDIR}" = "@GENTOO_PORTAGE_EPREFIX@/usr" ]; then
 +	# If the directory doesn't exist make it
 +	[ -e "${HOME}/.kde4" ] || mkdir "$HOME/.kde4"
 +else
@@ -40,10 +40,10 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -214,6 +243,13 @@
    done
  done
-
+ 
 +# Gentoo part for FHS installs
-+if [ "${_KDEDIR}" = "/usr" ]; then
-+  for file in "/etc/kde/startup/"*.sh; do
++if [ "${_KDEDIR}" = "@GENTOO_PORTAGE_EPREFIX@/usr" ]; then
++  for file in "@GENTOO_PORTAGE_EPREFIX@/etc/kde/startup/"*.sh; do
 +    test -r "${file}" && . "${file}"
 +  done
 +fi
@@ -54,10 +54,10 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 @@ -427,6 +463,13 @@
    done
  done
-
+ 
 +# Gentoo part for FHS installs
-+if [ "${_KDEDIR}" = "/usr" ]; then
-+  for file in "/etc/kde/shutdown/"*.sh; do
++if [ "${_KDEDIR}" = "@GENTOO_PORTAGE_EPREFIX@/usr" ]; then
++  for file in "@GENTOO_PORTAGE_EPREFIX@/etc/kde/shutdown/"*.sh; do
 +    test -r "${file}" && . "${file}"
 +  done
 +fi

@@ -6,7 +6,7 @@ EAPI="2"
 
 KMNAME="kdebase-workspace"
 KMNOMODULE="true"
-inherit kde4-meta multilib
+inherit kde4-meta multilib prefix
 
 DESCRIPTION="Startkde script, which starts a complete KDE session, and associated scripts"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
@@ -46,16 +46,16 @@ KMEXTRACTONLY="
 	startkde.cmake
 "
 
-PATCHES=("${FILESDIR}/gentoo-startkde4-1.patch")
+PATCHES=("${FILESDIR}/gentoo-startkde4-2.patch")
 
 src_prepare() {
 	kde4-meta_src_prepare
 
 	# Patch the startkde script to setup the environment for KDE
 	# List all the multilib libdirs
-	local _libdir _libdirs
+	local _libdir _libdirs=
 	for _libdir in $(get_all_libdirs); do
-		_libdirs="${_libdirs}:${KDEDIR}/${_libdir}"
+		_libdirs+=":${EKDEDIR}/${_libdir}"
 	done
 	_libdirs=${_libdirs#:}
 
@@ -74,6 +74,8 @@ src_prepare() {
 	# Now fix the prefix
 	sed -e "s#@REPLACE_PREFIX@#${KDEDIR}#" \
 		-i startkde.cmake || die "Sed for REPLACE_PREFIX failed."
+	# ... and fix ${EPREFIX}
+	eprefixify startkde.cmake
 }
 
 src_install() {
@@ -103,13 +105,13 @@ src_install() {
 	# x11 session script
 	cat <<-EOF > "${T}/${KDE_X}"
 	#!/bin/sh
-	exec ${KDEDIR}/bin/startkde
+	exec "${EKDEDIR}/bin/startkde"
 	EOF
 	exeinto /etc/X11/Sessions
 	doexe "${T}/${KDE_X}" || die "doexe ${KDE_X} failed"
 
 	# freedesktop compliant session script
-	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${KDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
+	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${EKDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
 		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/${KDE_X}.desktop"
 	insinto /usr/share/xsessions
 	doins "${T}/${KDE_X}.desktop" || die "doins ${KDE_X}.desktop failed"
@@ -121,11 +123,11 @@ pkg_postinst () {
 	echo
 	elog "To enable gpg-agent and/or ssh-agent in KDE sessions,"
 	if use kdeprefix; then
-		elog "edit ${KDEDIR}/env/agent-startup.sh and"
-		elog "${KDEDIR}/shutdown/agent-shutdown.sh"
+		elog "edit ${EKDEDIR}/env/agent-startup.sh and"
+		elog "${EKDEDIR}/shutdown/agent-shutdown.sh"
 	else
-		elog "edit /etc/kde/startup/agent-startup.sh and"
-		elog "/etc/kde/shutdown/agent-shutdown.sh"
+		elog "edit ${EPREFIX}/etc/kde/startup/agent-startup.sh and"
+		elog "${EPREFIX}/etc/kde/shutdown/agent-shutdown.sh"
 	fi
 	echo
 	elog "The name of the session script has changed."
