@@ -84,7 +84,7 @@ pkg_postinst() {
 
 	if use python; then
 		python_mod_optimize \
-			"${ROOT}$(python_get_sitedir)"/PyKDE4 \
+			"$(python_get_sitedir)"/PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
@@ -94,7 +94,7 @@ pkg_postrm() {
 
 	if [[ -d "${KDEDIR}"/share/apps/plasma_scriptengine_python ]]; then
 		python_mod_cleanup \
-			"${ROOT}$(python_get_sitedir)"/PyKDE4 \
+			"$(python_get_sitedir)"/PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
