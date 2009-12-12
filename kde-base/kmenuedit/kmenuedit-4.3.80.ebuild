@@ -21,7 +21,7 @@ KMEXTRACTONLY="
 
 src_configure() {
 	sed -i -e \
-		"s:\${CMAKE_CURRENT_BINARY_DIR}/../khotkeys/app/org.kde.khotkeys.xml:${KDEDIR}/share/dbus-1/interfaces/org.kde.khotkeys.xml:g" \
+		"s:\${CMAKE_CURRENT_BINARY_DIR}/../khotkeys/app/org.kde.khotkeys.xml:${EKDEDIR}/share/dbus-1/interfaces/org.kde.khotkeys.xml:g" \
 		kmenuedit/CMakeLists.txt \
 		|| die "sed failed"
 
