@@ -642,6 +642,11 @@ kde4-base_src_test() {
 kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	# Prefix support, for usage in ebuilds
+	if [[ ${EAPI} == 2 ]] && ! use prefix; then
+		ED=${D}
+	fi
+
 	if [[ -n ${KMSAVELIBS} ]] ; then
 		install_library_dependencies
 	fi
@@ -671,7 +676,7 @@ kde4-base_src_make_doc() {
 		done
 	fi
 
-	[[ -z ${ED} ]] && ED=${D}${EPREFIX}
+	[[ -z ${ED} ]] && ED=${D}
 
 	if [[ -n ${KDEBASE} ]] && [[ -d ${ED}usr/share/doc/${PF} ]]; then
 		# work around bug #97196
