@@ -52,12 +52,13 @@ src_prepare() {
 }
 
 src_configure() {
-	# Set the dbus dirs, otherwise it searches in KDEDIR
-	# replace with $(cmake-utils_use_with exchange OpenChange) when libmapi becomes available with an ebuild
 	mycmakeargs=(
-		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR=/usr/share/dbus-1/interfaces
-		-DAKONADI_DBUS_SERVICES_INSTALL_DIR=/usr/share/dbus-1/services
+		# Set the dbus dirs, otherwise it searches in KDEDIR
+		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/interfaces"
+		-DAKONADI_DBUS_SERVICES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/services"
+
 		-DWITH_LibXslt=ON
+		# replace with $(cmake-utils_use_with exchange OpenChange) when libmapi becomes available with an ebuild
 		-DWITH_OpenChange=OFF
 		-DWITH_GNOKII=OFF
 		-DWITH_GLIB2=OFF
@@ -84,5 +85,5 @@ src_test() {
 src_install() {
 	${eclass}_src_install
 	# colliding files with nepomuk
-	rm -rf "${D}"/${KDEDIR}/share/apps/nepomuk/ontologies/n{m,c}o.{desktop,trig}
+	rm -rf "${ED}"/${KDEDIR}/share/apps/nepomuk/ontologies/n{m,c}o.{desktop,trig}
 }
