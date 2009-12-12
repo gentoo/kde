@@ -63,7 +63,7 @@ src_install() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	python_mod_optimize "${ROOT}$(python_get_sitedir)"/PyKDE4
+	python_mod_optimize "$(python_get_sitedir)"/PyKDE4
 
 	if use examples; then
 		echo
@@ -76,5 +76,5 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	python_mod_cleanup "${ROOT}$(python_get_sitedir)"/PyKDE4
+	python_mod_cleanup "$(python_get_sitedir)"/PyKDE4
 }
