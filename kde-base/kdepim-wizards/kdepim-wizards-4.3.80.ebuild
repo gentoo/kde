@@ -28,10 +28,10 @@ KMEXTRACTONLY="
 "
 
 src_prepare() {
-	ln -s "${PREFIX}"/include/kdepim-kresources/{kabcsloxprefs.h,kcalsloxprefs.h} \
+	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabcsloxprefs.h,kcalsloxprefs.h} \
 		kresources/slox/ \
 		|| die "Failed to link extra_headers."
-	ln -s "${PREFIX}"/include/kdepim-kresources/{kabc_groupwiseprefs,kcal_groupwiseprefsbase}.h \
+	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabc_groupwiseprefs,kcal_groupwiseprefsbase}.h \
 		kresources/groupwise/ \
 		|| die "Failed to link extra_headers."
 
