@@ -26,7 +26,7 @@ KMEXTRACTONLY="
 src_configure() {
 	mycmakeargs=(
 		-DBUILD_akonadi=OFF
-		-DXSLTPROC_EXECUTABLE=/usr/bin/xsltproc
+		-DXSLTPROC_EXECUTABLE="${EPREFIX}"/usr/bin/xsltproc
 	)
 	kde4-meta_src_configure
 }
