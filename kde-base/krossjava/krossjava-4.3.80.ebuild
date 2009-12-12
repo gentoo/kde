@@ -43,16 +43,16 @@ src_compile() {
 
 src_install() {
 	kde4-meta_src_install
-	java-pkg_dojar "${D}/${KDEDIR}/$(get_libdir)/kde4/kross/kross.jar"
+	java-pkg_dojar "${ED}/${KDEDIR}/$(get_libdir)/kde4/kross/kross.jar"
 
-	cd "${D}${KDEDIR}/$(get_libdir)/kde4/kross/" || die
+	cd "${ED}${KDEDIR}/$(get_libdir)/kde4/kross/" || die
 	local path_prefix="../../../../"
 
-	if [[ "${KDEDIR}" != "/usr" ]]; then
+	if [[ ${KDEDIR} != /usr ]]; then
 		path_prefix="${path_prefix}../"
 	fi
 
 	dosym "${path_prefix}usr/share/${PN}-${SLOT}/lib/kross.jar" \
 		"${KDEDIR}/$(get_libdir)/kde4/kross/kross.jar"
-	java-pkg_regso "${D}/${KDEDIR}/$(get_libdir)/kde4/libkrossjava.so"
+	java-pkg_regso "${ED}/${KDEDIR}/$(get_libdir)/kde4/libkrossjava.so"
 }
