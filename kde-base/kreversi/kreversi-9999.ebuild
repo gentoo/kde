@@ -23,8 +23,8 @@ src_prepare() {
 src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
-	mkdir -p "${D}"/usr/share/ggz/modules
-	cp ${PN}/module.dsc "${D}"/usr/share/ggz/modules/${P}.dsc
+	insinto /usr/share/ggz/modules
+	newins ${PN}/module.dsc ${P}.dsc || die "couldn't install .dsc file"
 }
 
 pkg_postinst() {
