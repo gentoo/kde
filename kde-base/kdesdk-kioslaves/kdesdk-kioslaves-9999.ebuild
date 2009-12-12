@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
-		-DAPRCONFIG_EXECUTABLE=/usr/bin/apr-1-config
+		-DAPRCONFIG_EXECUTABLE="${EPREFIX}"/usr/bin/apr-1-config
 	)
 
 	kde4-meta_src_configure
