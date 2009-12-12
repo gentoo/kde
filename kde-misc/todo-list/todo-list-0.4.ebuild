@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit kde4-base
 
-MY_PN="todo-plasmoid"
+MY_PN="todo_plasmoid"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="KDE4 plasmoid that shows a 'todo' list, using the korganizer 'Active calendar' resource file."
@@ -22,4 +22,4 @@ RDEPEND="
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_PN}"
