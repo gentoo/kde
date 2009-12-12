@@ -65,7 +65,7 @@ slot_is_at_least() {
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ -z ${EROOT} ]] && EROOT=${ROOT}${EPREFIX}
+	[[ -z ${EROOT} ]] && EROOT=${ROOT}${EPREFIX}/
 
 	local KDE3DIR="${EROOT}usr/kde/3.5"
 	if [[ -z ${EROOT%%/} && -x "${KDE3DIR}"/bin/kbuildsycoca ]]; then
@@ -85,7 +85,7 @@ buildsycoca() {
 
 	# fix permission for some directories
 	for x in share/{config,kde4}; do
-		[[ ${KDEDIR} = ${EROOT}usr ]] && DIRS=${EROOT}usr || DIRS="${EROOT}usr ${KDEDIR}"
+		[[ ${KDEDIR} == /usr ]] && DIRS=${EROOT}usr || DIRS="${EROOT}usr ${EROOT}${KDEDIR}"
 		for y in ${DIRS}; do
 			[[ -d "${y}/${x}" ]] || break # nothing to do if directory does not exist
 			if [[ $(stat --format=%a "${y}/${x}") != 755 ]]; then

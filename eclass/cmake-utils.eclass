@@ -327,7 +327,7 @@ enable_cmake-utils_src_configure() {
 	# No -DCMAKE_BUILD_TYPE=xxx definitions will be in effect.
 	local cmakeargs=(
 		-C "${common_config}"
-		-DCMAKE_INSTALL_PREFIX="${PREFIX:-${EPREFIX}/usr}"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX:-/usr}"
 		"${mycmakeargs[@]}"
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
 		-DCMAKE_INSTALL_DO_STRIP=OFF
