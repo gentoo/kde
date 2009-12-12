@@ -49,7 +49,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		-DDBUS_INTERFACES_INSTALL_DIR=${KDEDIR}/share/dbus-1/interfaces/
+		-DDBUS_INTERFACES_INSTALL_DIR="${EKDEDIR}/share/dbus-1/interfaces/"
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with opengl OpenGL)
