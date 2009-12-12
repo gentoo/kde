@@ -15,8 +15,9 @@ KEYWORDS=""
 IUSE="akonadi debug examples policykit semantic-desktop"
 
 DEPEND="
-	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
+	aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X] )
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
@@ -56,8 +57,8 @@ src_install() {
 	kde4-meta_src_install
 
 	rm -f \
-		"${D}$(python_get_sitedir)"/PyKDE4/*.py[co] \
-		"${D}${PREFIX}"/share/apps/"${PN}"/*.py[co]
+		"${ED}$(python_get_sitedir)"/PyKDE4/*.py[co] \
+		"${ED}${PREFIX}"/share/apps/"${PN}"/*.py[co]
 }
 
 pkg_postinst() {
@@ -68,7 +69,7 @@ pkg_postinst() {
 	if use examples; then
 		echo
 		elog "PyKDE4 examples have been installed to"
-		elog "${PREFIX}/share/apps/${PN}/examples"
+		elog "${EKDEDIR}/share/apps/${PN}/examples"
 		echo
 	fi
 }

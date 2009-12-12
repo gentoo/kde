@@ -16,9 +16,10 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="akonadi debug examples policykit semantic-desktop"
 
 DEPEND="
-	>=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X]
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
+	aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X] )
 	policykit? ( >=sys-auth/policykit-qt-0.9.2 )
 "
 # blocker added due to compatibility issues and error during compile time
@@ -99,7 +100,7 @@ src_install() {
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_install
 
-		rm -f "${D}$(python_get_sitedir)"/PyKDE4/*.py[co]
+		rm -f "${ED}$(python_get_sitedir)"/PyKDE4/*.py[co]
 	}
 
 	python_execute_function -s do_src_install
@@ -113,7 +114,7 @@ pkg_postinst() {
 	if use examples; then
 		echo
 		elog "PyKDE4 examples have been installed to"
-		elog "${PREFIX}/share/apps/${PN}/examples"
+		elog "${EKDEDIR}/share/apps/${PN}/examples"
 		echo
 	fi
 }
