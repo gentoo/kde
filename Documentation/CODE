@@ -1,7 +1,7 @@
 WHAT RULES I SHOULD FOLLOW WHEN I WANT TO WORK ON SOMETHING FOR KDE TEAM?
 If you asked this question you are reading the right file.
 
-KDE4 (kde-testing) policies:
+KDE4 policies:
 
  - NEVER EVER COMMIT NEW REVBUMPS NOR MAJOR CHANGES TO TREE DIRECTLY - ALWAYS USE overlay
    first so that more pairs of eyes can spot issues. Especially anything in kde-base.
