@@ -88,12 +88,12 @@ RDEPEND="${COMMONDEPEND}
 	!x11-libs/qt-phonon
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	>=app-crypt/gnupg-2.0.11
+	$(add_kdebase_dep kde-env)
 	x11-apps/iceauth
 	x11-apps/rgb
 	>=x11-misc/xdg-utils-1.0.2-r3
 "
 PDEPEND="
-	$(add_kdebase_dep kde-env)
 	$(add_kdebase_dep kdebase-runtime-meta 'handbook?,semantic-desktop?')
 "
 
