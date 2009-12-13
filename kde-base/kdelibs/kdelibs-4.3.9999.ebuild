@@ -193,6 +193,7 @@ src_install() {
 
 pkg_postinst() {
 	fdo-mime_mime_database_update
+
 	if use zeroconf; then
 		echo
 		elog "To make zeroconf support available in KDE make sure that the 'mdnsd' daemon"
@@ -204,12 +205,21 @@ pkg_postinst() {
 		einfo "	hosts: files mdns dns"
 		echo
 	fi
+
 	elog "Your homedir is set to "'${HOME}'"/${HME}"
-	elog
+	echo
+
 	local config_path="${ROOT}usr/share/config"
 	[[ ${PREFIX} != "${ROOT}usr" ]] && config_path+=" ${PREFIX}/share/config"
 	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
 	elog "# chmod go+rX -R ${config_path}"
+
+	if ! has_version sys-apps/hal; then
+		echo
+		ewarn "You need sys-apps/hal for new device notifications, power management and any"
+		ewarn "other hardware related functionalities to work."
+		echo
+	fi
 
 	kde4-base_pkg_postinst
 }
