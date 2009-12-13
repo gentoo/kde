@@ -1,0 +1,118 @@
+KDE is smart, too smart. We don't want application bundles. And since our Qt is
+configured to not build application bundles, since wouldn't even work. So this
+patch disables KDE's smartness regarding application bundles.
+
+Author: Heiko Przybyl <zuxez@cs.tu-berlin.de>
+
+--- kdelibs-4.3.1/kdecore/kernel/kstandarddirs.cpp.orig	2009-09-28 02:05:37 +0200
++++ kdelibs-4.3.1/kdecore/kernel/kstandarddirs.cpp	2009-09-28 02:22:20 +0200
+@@ -1207,32 +1207,8 @@ QStringList KStandardDirs::systemPaths( 
+     return exePaths;
+ }
+ 
+-#ifdef Q_WS_MAC
+-static QString getBundle( const QString& path, bool ignore )
+-{
+-    kDebug(180) << "getBundle(" << path << ", " << ignore << ") called";
+-    QFileInfo info;
+-    QString bundle = path;
+-    bundle += ".app/Contents/MacOS/" + bundle.section('/', -1);
+-    info.setFile( bundle );
+-    if ( info.exists() && ( ignore || info.isExecutable() )
+-         && ( info.isFile() || info.isSymLink() ) ) {
+-        kDebug(180) << "getBundle(): returning " << bundle;
+-        return bundle;
+-    }
+-    return QString();
+-}
+-#endif
+-
+ static QString checkExecutable( const QString& path, bool ignoreExecBit )
+ {
+-#ifdef Q_WS_MAC
+-    QString bundle = getBundle( path, ignoreExecBit );
+-    if ( !bundle.isEmpty() ) {
+-        //kDebug(180) << "findExe(): returning " << bundle;
+-        return bundle;
+-    }
+-#endif
+     QFileInfo info( path );
+     QFileInfo orig = info;
+     if( info.exists() && info.isSymLink() )
+@@ -1327,14 +1303,6 @@ int KStandardDirs::findAllExe( QStringLi
+         p = (*it) + '/';
+         p += real_appname;
+ 
+-#ifdef Q_WS_MAC
+-        QString bundle = getBundle( p, (options & IgnoreExecBit) );
+-        if ( !bundle.isEmpty() ) {
+-            //kDebug(180) << "findExe(): returning " << bundle;
+-            list.append( bundle );
+-        }
+-#endif
+-
+         info.setFile( p );
+ 
+         if( info.exists() && ( ( options & IgnoreExecBit ) || info.isExecutable())
+@@ -1636,18 +1604,6 @@ void KStandardDirs::addKDEDefaults()
+         addPrefix(localKdeDir);
+     }
+ 
+-#ifdef Q_WS_MACX
+-    // Adds the "Contents" directory of the current application bundle to
+-    // the search path. This way bundled resources can be found.
+-    QDir bundleDir(mac_app_filename());
+-    if (bundleDir.dirName() == "MacOS") { // just to be sure we're in a bundle
+-        bundleDir.cdUp();
+-        // now dirName should be "Contents". In there we can find our normal
+-        // dir-structure, beginning with "share"
+-        addPrefix(bundleDir.absolutePath());
+-    }
+-#endif
+-
+     QStringList::ConstIterator end(kdedirList.end());
+     for (QStringList::ConstIterator it = kdedirList.constBegin();
+          it != kdedirList.constEnd(); ++it)
+@@ -1680,11 +1636,7 @@ void KStandardDirs::addKDEDefaults()
+     }
+     else
+     {
+-#ifdef Q_WS_MACX
+-        localXdgDir =  QDir::homePath() + "/Library/Preferences/XDG/";
+-#else
+         localXdgDir =  QDir::homePath() + "/.config/";
+-#endif
+     }
+ 
+     localXdgDir = KShell::tildeExpand(localXdgDir);
+--- ./kinit/kinit.cpp.orig	2009-09-28 12:38:02 +0200
++++ ./kinit/kinit.cpp	2009-09-28 12:40:02 +0200
+@@ -551,14 +551,7 @@ static pid_t launch(int argc, const char
+        QByteArray procTitle;
+        d.argv = (char **) malloc(sizeof(char *) * (argc+1));
+        d.argv[0] = (char *) _name;
+-#ifdef Q_WS_MAC
+-       QString argvexe = s_instance->dirs()->findExe(QString::fromLatin1(d.argv[0]));
+-       if (!argvexe.isEmpty()) {
+-          QByteArray cstr = argvexe.toLocal8Bit();
+-          kDebug(7016) << "kdeinit4: launch() setting argv: " << cstr.data();
+-          d.argv[0] = strdup(cstr.data());
+-       }
+-#endif
++
+        for (int i = 1;  i < argc; i++)
+        {
+           d.argv[i] = (char *) args;
+@@ -627,12 +620,6 @@ static pid_t launch(int argc, const char
+         setup_tty( tty );
+ 
+         QByteArray executable = execpath;
+-#ifdef Q_WS_MAC
+-        QString bundlepath = s_instance->dirs()->findExe(QFile::decodeName(executable));
+-        if (!bundlepath.isEmpty())
+-           executable = QFile::encodeName(bundlepath);
+-#endif
+-
+         if (!executable.isEmpty())
+            execvp(executable, d.argv);
+ 

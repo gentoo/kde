@@ -1,0 +1,36 @@
+This patch avoids calling of QDesktopServices::storageLocation() to workaround
+the abort(USING_FORK_WITHOUT_EXEC_IS_NOT_SUPPORTED_BY_FILE_MANAGER) on kdeinit4
+startup.
+
+--- kdelibs-4.3.2/kinit/kinit.cpp.orig	2009-10-09 18:46:20 +0200
++++ kdelibs-4.3.2/kinit/kinit.cpp	2009-10-09 18:46:51 +0200
+@@ -46,6 +46,7 @@
+ 
+ #include <QtCore/QLibrary>
+ #include <QtCore/QString>
++#include <QtCore/QDir>
+ #include <QtCore/QFile>
+ #include <QtCore/QDate>
+ #include <QtCore/QFileInfo>
+--- kdelibs-4.3.2/kinit/kinit.cpp.orig	2009-10-09 18:28:59 +0200
++++ kdelibs-4.3.2/kinit/kinit.cpp	2009-10-09 18:29:05 +0200
+@@ -513,7 +513,7 @@ static pid_t launch(int argc, const char
+      if (cwd && *cwd) {
+          (void)chdir(cwd);
+      } else {
+-         const QByteArray docPath = QFile::encodeName(KGlobalSettings::documentPath());
++         const QByteArray docPath = QFile::encodeName(QDir::homePath());
+          (void)chdir(docPath.constData());
+      }
+ 
+--- kdelibs-4.3.2/kinit/klauncher_main.cpp.orig	2009-10-09 19:11:17 +0200
++++ kdelibs-4.3.2/kinit/klauncher_main.cpp	2009-10-09 19:11:24 +0200
+@@ -62,7 +62,7 @@ extern "C" KDE_EXPORT int kdemain( int a
+ #endif
+ 
+    KComponentData componentData("klauncher", "kdelibs4");
+-   KGlobal::locale();
++   //KGlobal::locale();
+ 
+    // WABA: Make sure not to enable session management.
+    putenv(strdup("SESSION_MANAGER="));

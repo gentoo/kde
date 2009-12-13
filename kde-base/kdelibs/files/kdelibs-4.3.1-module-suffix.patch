@@ -1,0 +1,108 @@
+The current approach to load shared objects in KDE4 sucks, so
+just use the cmake provided shared object extensions for the
+KPluginLoader as the preferred extension.
+
+Author: Heiko Przybyl <zuxez@cs.tu-berlin.de>
+
+--- kdelibs-4.3.1/config.h.cmake     2009-02-04 16:44:05 +0100
++++ kdelibs-4.3.1/config.h.cmake     2009-02-04 16:43:43 +0100
+@@ -12,6 +12,7 @@
+ #define kde_socklen_t socklen_t
+ 
+ #define KDELIBSUFF "${KDELIBSUFF}"
++#define KDE_MODULE_SUFFIX "${CMAKE_SHARED_MODULE_SUFFIX}"
+ 
+ /****************************/
+ 
+--- kdelibs-4.3.1/kdecore/util/kpluginloader.cpp	2009-09-28 13:52:23 +0200
++++ kdelibs-4.3.1/kdecore/util/kpluginloader.cpp	2009-09-28 14:57:15 +0200
+@@ -27,6 +27,8 @@
+ #include "klibrary.h"
+ #include <kdebug.h>
+ 
++#include <config.h>
++
+ #include <QtCore/QLibrary>
+ #include <QtCore/QDir>
+ #include <QtCore/QFileInfo>
+@@ -53,25 +55,37 @@ protected:
+     KLibrary *lib;
+ };
+ 
+-inline QString makeLibName( const QString &libname )
++inline QString makeLibName( const QString &libname, const QString &type )
+ {
+ #ifdef Q_OS_WIN
+     if (!libname.endsWith(".dll"))
+         return libname + ".dll";
+     return libname;
+-#else
++#else // Q_OS_WIN
+     int pos = libname.lastIndexOf('/');
+     if (pos < 0)
+       pos = 0;
+     if (libname.indexOf('.', pos) < 0) {
+-        const char* const extList[] = { ".so", ".dylib", ".bundle", ".sl" };
++#ifdef Q_OS_MAC
++		// Libraries are always .dylib
++		if (type.compare("lib") == 0) {
++			return libname + ".dylib";
++		}
++		// Modules mostly go .bundle but we'll use CMake smartness
++		else {
++			return libname + KDE_MODULE_SUFFIX;
++		}
++#else // Q_OS_MAC
++		// Prefer the value specified by cmake for the target, fall back to standard
++        const char* const extList[] = { KDE_MODULE_SUFFIX, ".so", ".sl" };
+         for (uint i = 0; i < sizeof(extList) / sizeof(*extList); ++i) {
+            if (QLibrary::isLibrary(libname + extList[i]))
+                return libname + extList[i];
+         }
++#endif // Q_OS_MAC
+     }
+     return libname;
+-#endif
++#endif // Q_OS_WIN
+ }
+ 
+ #ifdef Q_OS_WIN
+@@ -80,13 +94,13 @@ extern QString fixLibPrefix(const QStrin
+ 
+ QString findLibraryInternal(const QString &name, const KComponentData &cData)
+ {
+-    // Convert name to a valid platform libname
+-    QString libname = makeLibName(name);
+-
+     QFileInfo fileinfo(name);
+     bool hasPrefix = fileinfo.fileName().startsWith("lib");
+     bool kdeinit = fileinfo.fileName().startsWith("libkdeinit4_");
+ 
++    // Convert name to a valid platform libname depending on requested type.
++    QString libname = makeLibName(name, kdeinit ? "lib" : "module");
++
+     if (hasPrefix && !kdeinit)
+         kDebug(150) << "plugins should not have a 'lib' prefix:" << libname;
+ #ifdef Q_OS_WIN
+--- kdelibs-4.3.1/kdecore/util/klibloader.cpp	2009-09-28 13:57:03 +0200
++++ kdelibs-4.3.1/kdecore/util/klibloader.cpp	2009-09-28 13:57:46 +0200
+@@ -57,7 +57,7 @@ KLibLoader::~KLibLoader()
+ {
+ }
+ 
+-extern QString makeLibName( const QString &libname );
++extern QString makeLibName( const QString &libname, const QString &type );
+ 
+ extern QString findLibrary(const QString &name, const KComponentData &cData);
+ 
+--- kdelibs-4.3.1/kdecore/util/klibrary.cpp	2009-09-28 13:57:13 +0200
++++ kdelibs-4.3.1/kdecore/util/klibrary.cpp	2009-09-28 13:58:04 +0200
+@@ -27,7 +27,7 @@
+ #include <kpluginfactory.h>
+ #include <kdebug.h>
+ 
+-extern QString makeLibName( const QString &libname );
++extern QString makeLibName( const QString &libname, const QString &type );
+ 
+ extern QString findLibraryInternal(const QString &name, const KComponentData &cData);
+ 

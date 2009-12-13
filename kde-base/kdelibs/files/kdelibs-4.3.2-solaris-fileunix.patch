@@ -1,0 +1,40 @@
+Solaris has no d_type element in dir_ent.
+
+Please refer to
+  https://solaris.bionicmutton.org/hg/kde4-specs-432/rev/be96f7fc958a
+
+--- kioslave/file/file_unix.cpp.orig	2009-03-10 13:26:04.000000000 +0100
++++ kioslave/file/file_unix.cpp	2009-05-04 03:27:15.231305077 +0200
+@@ -42,7 +42,7 @@
+ #include <grp.h>
+ #include <utime.h>
+ #include <pwd.h>
+-
++#include <sys/stat.h>
+ #if defined(HAVE_LIMITS_H)
+ #include <limits.h>  // PATH_MAX
+ #endif
+@@ -338,15 +338,20 @@
+     // files where QFile::encodeName(QFile::decodeName(a)) != a.
+     QList<QByteArray> entryNames;
+     KDE_struct_dirent *ep;
++    KDE_struct_stat hajmaep;
+     if (details == 0) {
+         // Fast path (for recursive deletion, mostly)
+         // Simply emit the name and file type, nothing else.
+         while ( ( ep = KDE_readdir( dp ) ) != 0 ) {
+             entry.clear();
+             entry.insert(KIO::UDSEntry::UDS_NAME, QFile::decodeName(ep->d_name));
+-            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE,
+-                         (ep->d_type & DT_DIR) ? S_IFDIR : S_IFREG );
+-            if (ep->d_type & DT_LNK) {
++//            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE,
++//                         (ep->d_type & DT_DIR) ? S_IFDIR : S_IFREG );
++KDE_lstat(  ep->d_name, &hajmaep );
++entry.insert(KIO::UDSEntry::UDS_FILE_TYPE,
++(S_ISDIR(hajmaep.st_mode)) ? S_IFDIR : S_IFREG );
++//            if (ep->d_type & DT_LNK) {
++if (S_ISLNK(hajmaep.st_mode)) {
+                 // for symlinks obey the UDSEntry contract and provide UDS_LINK_DEST
+                 // even if we don't know the link dest (and DeleteJob doesn't care...)
+                 entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QLatin1String("Dummy Link Target"));

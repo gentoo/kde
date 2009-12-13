@@ -31,25 +31,31 @@ COMMONDEPEND="
 	media-libs/giflib
 	media-libs/jpeg
 	media-libs/libpng
-	>=media-sound/phonon-4.3.49[xcb]
-	sys-apps/dbus[X]
-	sys-libs/libutempter
 	sys-libs/zlib
-	x11-libs/libICE
-	x11-libs/libSM
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libXcursor
-	x11-libs/libXdmcp
-	x11-libs/libXext
-	x11-libs/libXfixes
-	x11-libs/libXft
-	x11-libs/libXpm
-	x11-libs/libXrender
-	x11-libs/libXtst
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
+	aqua? (
+		>=media-sound/phonon-4.3.49
+		sys-apps/dbus
+	)
+	!aqua? (
+		>=media-sound/phonon-4.3.80[xcb]
+		sys-apps/dbus[X]
+		x11-libs/libICE
+		x11-libs/libSM
+		x11-libs/libX11
+		x11-libs/libXau
+		x11-libs/libXcursor
+		x11-libs/libXdmcp
+		x11-libs/libXext
+		x11-libs/libXfixes
+		x11-libs/libXft
+		x11-libs/libXpm
+		x11-libs/libXrender
+		x11-libs/libXtst
+		!kernel_SunOS? ( sys-libs/libutempter )
+	)
 	bzip2? ( app-arch/bzip2 )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
@@ -81,9 +87,11 @@ RDEPEND="${COMMONDEPEND}
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	!x11-libs/qt-phonon
 	>=app-crypt/gnupg-2.0.11
-	x11-apps/iceauth
-	x11-apps/rgb
-	>=x11-misc/xdg-utils-1.0.2-r3
+	!aqua? (
+		x11-apps/iceauth
+		x11-apps/rgb
+		>=x11-misc/xdg-utils-1.0.2-r3
+	)
 "
 PDEPEND="
 	$(add_kdebase_dep kde-env)
@@ -107,6 +115,11 @@ PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
+	"${FILESDIR}/${PN}-4.3.1-module-suffix.patch"
+	"${FILESDIR}/${PN}-4.3.1-macos-unbundle.patch"
+	"${FILESDIR}/${PN}-4.3.3-klauncher_kdeinit.patch"
+	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
+	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
 )
 
 src_prepare() {
@@ -123,6 +136,48 @@ src_prepare() {
 	# kde-base/libknotificationitem for now
 	sed -e "/macro_optional_add_subdirectory( experimental )/ s:^:#:" \
 		-i CMakeLists.txt || die "Failed to sed-out experimental."
+
+	if use aqua; then
+		sed -i -e \
+			"s:BUNDLE_INSTALL_DIR \"/Applications:BUNDLE_INSTALL_DIR \"${EPREFIX}/${APP_BUNDLE_DIR}:g" \
+			cmake/modules/FindKDE4Internal.cmake || die "failed to sed FindKDE4Internal.cmake"
+
+		#if [[ ${CHOST} == *-darwin8 ]]; then
+		sed -i -e \
+			"s:set(_add_executable_param MACOSX_BUNDLE):remove(_add_executable_param MACOSX_BUNDLE):g" \
+			cmake/modules/KDE4Macros.cmake || die "failed to sed KDE4Macros.cmake"
+		#fi
+
+		# solid/solid/backends/iokit doesn't properly link, so disable it.
+		sed -e "s|\(APPLE\)|(FALSE)|g" -i solid/solid/CMakeLists.txt \
+			|| die "disabling solid/solid/backends/iokit failed"
+		sed -e "s|m_backend = .*Backends::IOKit.*;|m_backend = 0;|g" -i solid/solid/managerbase.cpp \
+			|| die "disabling solid/solid/backends/iokit failed"
+
+		# There's no fdatasync on OSX and the check fails to detect that.
+		sed -e "/HAVE_FDATASYNC/ d" -i config.h.cmake \
+			|| die "disabling fdatasync failed"
+
+		# Fix nameser include to nameser8_compat
+		sed -e "s|nameser8_compat.h|nameser_compat.h|g" -i kio/misc/kpac/discovery.cpp \
+			|| die "fixing nameser include failed"
+		append-flags -DHAVE_ARPA_NAMESER8_COMPAT_H=1
+
+		# Try to fix kkeyserver_mac
+		epatch "${FILESDIR}"/${PN}-4.3.1-kdeui_util_kkeyserver_mac.patch
+
+		# Workaround the problem with
+		# USING_FORK_WITHOUT_EXEC_IS_NOT_SUPPORTED_BY_FILE_MANAGER
+		#epatch "${FILESDIR}/${PN}-4.3.1-macos-kinit-fork.patch"
+	fi
+
+	if [[ ${CHOST} == *-solaris* ]] ; then
+		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-ksyscoca.patch"
+		# getgrouplist not in solaris libc
+		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-getgrouplist.patch"
+		# solaris has no d_type element in dir_ent
+		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-fileunix.patch"
+	fi
 }
 
 src_configure() {
@@ -189,6 +244,25 @@ src_install() {
 		docinto /HTML/en/kdelibs-apidox
 		dohtml -r ${P}-apidocs/* || die "Install phase of KDE4 API Documentation failed"
 	fi
+
+	if use aqua; then
+		einfo "fixing ${PN} plugins"
+
+		local _PV=${PV:0:3}.0
+		local _dir=${EKDEDIR}/$(get_libdir)/kde4/plugins/script
+
+		install_name_tool -id \
+			"${_dir}/libkrossqtsplugin.${_PV}.dylib" \
+			"${D}/${_dir}/libkrossqtsplugin.${_PV}.dylib" \
+			|| die "failed fixing libkrossqtsplugin.${_PV}.dylib"
+
+		einfo "fixing ${PN} cmake detection files"
+		#sed -i -e \
+		#	"s:if (HAVE_XKB):if (HAVE_XKB AND NOT APPLE):g" \
+		echo -e "set(XKB_FOUND FALSE)\nset(HAVE_XKB FALSE)" > \
+			"${ED}"/${KDEDIR}/share/apps/cmake/modules/FindXKB.cmake \
+			|| die "failed fixing FindXKB.cmake"
+	fi
 }
 
 pkg_postinst() {
@@ -206,11 +280,11 @@ pkg_postinst() {
 		echo
 	fi
 
-	elog "Your homedir is set to "'${HOME}'"/${HME}"
+	elog "Your homedir is set to \${HOME}/${HME}"
 	echo
 
-	local config_path="${ROOT}usr/share/config"
-	[[ ${PREFIX} != "${ROOT}usr" ]] && config_path+=" ${PREFIX}/share/config"
+	local config_path="'${EROOT}usr/share/config'"
+	[[ ${PREFIX} != /usr ]] && config_path+=" '${EROOT}${PREFIX}/share/config'"
 	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
 	elog "# chmod go+rX -R ${config_path}"
 
@@ -226,7 +300,7 @@ pkg_postinst() {
 
 pkg_prerm() {
 	# Remove ksycoca4 global database
-	rm -f "${PREFIX}"/share/kde4/services/ksycoca4
+	rm -f "${EROOT}${PREFIX}"/share/kde4/services/ksycoca4
 }
 
 pkg_postrm() {
