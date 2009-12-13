@@ -5,11 +5,10 @@
 EAPI="2"
 
 KMNAME="playground/office"
-KMMODULE="kmymoney"
 inherit kde4-base
 
-DESCRIPTION="kmymoney is a personal finance program."
-HOMEPAGE="http://www.kde-apps.org/content/show.php?content=11602"
+DESCRIPTION="kmymoney is a personal finance program for KDE4"
+HOMEPAGE="http://techbase.kde.org/Projects/KMyMoney"
 
 LICENSE="GPL-2"
 KEYWORDS=""
