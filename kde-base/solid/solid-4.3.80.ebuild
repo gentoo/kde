@@ -16,7 +16,6 @@ IUSE="bluetooth debug networkmanager wicd"
 # networkmanager-0.7, referring to a non-existant directory, restricted to =0.6*
 # for now.
 DEPEND="
-	>=sys-apps/hal-0.5.9
 	bluetooth? ( net-wireless/bluez )
 	networkmanager? ( >=net-misc/networkmanager-0.7 )
 	wicd? ( net-misc/wicd )
