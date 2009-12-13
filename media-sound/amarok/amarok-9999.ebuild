@@ -65,8 +65,6 @@ RDEPEND="${DEPEND}
 	semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
 "
 
-PATCHES=( "${FILESDIR}/amarok-2.2-mysql-libs.patch" )
-
 # Only really required for live ebuild, to skip git_src_prepare
 src_prepare() {
 	kde4-base_src_prepare
