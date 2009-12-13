@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="Environment setting required for all KDE4 apps to run."
