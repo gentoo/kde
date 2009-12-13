@@ -34,13 +34,15 @@ src_configure() {
 }
 
 src_install() {
+	use prefix || ED="${D}"
+
 	virtuoso_src_install
 
 	# Remove libtool files
 	if ! use static-libs; then
 		local libdir
 		for libdir in $(get_all_libdirs); do
-			rm -f "${D}/${ROOT}usr/${libdir}"/*.la || die
+			rm -f "${ED}/usr/${libdir}"/*.la || die
 		done
 	fi
 }

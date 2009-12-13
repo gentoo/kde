@@ -68,22 +68,26 @@ src_configure() {
 }
 
 src_install() {
+	use prefix || ED="${D}"
+
 	virtuoso_src_install
 
 	# Rename isql executables (conflicts with unixODBC)
-	mv "${D}/${ROOT}usr/bin/isql" "${D}/${ROOT}usr/bin/isql-v" || die
-	mv "${D}/${ROOT}usr/bin/isqlw" "${D}/${ROOT}usr/bin/isqlw-v" || die
+	mv "${ED}/usr/bin/isql" "${ED}/usr/bin/isql-v" || die
+	mv "${ED}/usr/bin/isqlw" "${ED}/usr/bin/isqlw-v" || die
 
 	dodoc AUTHORS ChangeLog CREDITS INSTALL NEWS README || die "dodoc failed"
 
-	keepdir "${ROOT}var/lib/virtuoso/db"
+	keepdir /var/lib/virtuoso/db
 }
 
 pkg_postinst() {
+	use prefix || EROOT="${ROOT}"
+
 	echo
 	einfo "To start the database server:"
 	echo
-	einfo "# cd ${ROOT}var/lib/virtuoso/db"
+	einfo "# cd ${EROOT}var/lib/virtuoso/db"
 	einfo "# virtuoso-t -f &"
 	echo
 	einfo "Then you should be able to access http://localhost:8890/"
