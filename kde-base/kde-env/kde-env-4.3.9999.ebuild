@@ -33,14 +33,16 @@ src_compile() {
 }
 
 src_install() {
+	use prefix || ED=$D
+
 	dodir /etc/env.d
 	dodir /etc/revdep-rebuild
-	dodir "${PREFIX}/share/config"
+	dodir ${KDEDIR}/share/config
 
 	# List all the multilib libdirs
 	local _libdir _libdirs
 	for _libdir in $(get_all_libdirs); do
-		_libdirs="${_libdirs}:${PREFIX}/${_libdir}"
+		_libdirs+=":${EKDEDIR}/${_libdir}"
 	done
 	_libdirs=${_libdirs#:}
 
@@ -48,24 +50,24 @@ src_install() {
 
 		# number goes down with version
 		cat <<-EOF > "${T}/43kdepaths-${SLOT}"
-PATH="${PREFIX}/bin"
-ROOTPATH="${PREFIX}/sbin:${PREFIX}/bin"
+PATH="${EKDEDIR}/bin"
+ROOTPATH="${EKDEDIR}/sbin:${EKDEDIR}/bin"
 LDPATH="${_libdirs}"
-MANPATH="${PREFIX}/share/man"
-CONFIG_PROTECT="${PREFIX}/share/config ${PREFIX}/env ${PREFIX}/shutdown /usr/share/config"
+MANPATH="${EKDEDIR}/share/man"
+CONFIG_PROTECT="${EKDEDIR}/share/config ${EKDEDIR}/env ${EKDEDIR}/shutdown ${EPREFIX}/usr/share/config"
 #KDE_IS_PRELINKED=1
-PKG_CONFIG_PATH="${PREFIX}/$(get_libdir)/pkgconfig"
-XDG_DATA_DIRS="${PREFIX}/share"
+PKG_CONFIG_PATH="${EKDEDIR}/$(get_libdir)/pkgconfig"
+XDG_DATA_DIRS="${EKDEDIR}/share"
 EOF
 		doenvd "${T}/43kdepaths-${SLOT}"
-		cat <<-EOF > "${D}/etc/revdep-rebuild/50-kde-${SLOT}"
-SEARCH_DIRS="${PREFIX}/bin ${PREFIX}/lib*"
+		cat <<-EOF > "${ED}/etc/revdep-rebuild/50-kde-${SLOT}"
+SEARCH_DIRS="${EKDEDIR}/bin ${EKDEDIR}/lib*"
 EOF
 
 		# kdeglobals needed to make third party apps installed in /usr work
-		cat <<-EOF > "${D}/${PREFIX}/share/config/kdeglobals"
+		cat <<-EOF > "${ED}/${KDEDIR}/share/config/kdeglobals"
 [Directories][\$i]
-prefixes=/usr
+prefixes=${EPREFIX}/usr
 EOF
 
 	else
@@ -73,7 +75,7 @@ EOF
 		# Much simpler for the FHS compliant -kdeprefix install
 		# number goes down with version
 		cat <<-EOF > "${T}/43kdepaths"
-CONFIG_PROTECT="/usr/share/config"
+CONFIG_PROTECT="${EPREFIX}/usr/share/config"
 #KDE_IS_PRELINKED=1
 EOF
 		doenvd "${T}/43kdepaths"
