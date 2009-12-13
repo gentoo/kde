@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/aqbanking/aqbanking-4.1.4.ebuild,v 1.4 2009/11/25 17:10:14 ssuominen Exp $
+# $Header: $
 
 EAPI="2"
 
@@ -12,7 +12,7 @@ SRC_URI="http://www2.aquamaniac.de/sites/download/download.php?package=03&releas
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64"
 IUSE="chipcard debug ofx qt3 qt4"
 
 DEPEND=">=sys-libs/gwenhywfar-3.10.0.0
@@ -29,10 +29,10 @@ MAKEOPTS="${MAKEOPTS} -j1"
 RESTRICT="test"
 
 pkg_setup() {
-   if use qt3 && use qt4; then
-      eerror "Both Qt3 and Qt4 are not supported"
-      die "Disable either the \"qt3\" or the \"qt4\" USE flag"
-   fi
+	if use qt3 && use qt4; then
+	eerror "Both Qt3 and Qt4 are not supported"
+	die "Disable either the \"qt3\" or the \"qt4\" USE flag"
+	fi
 }
 
 src_configure() {
@@ -42,9 +42,8 @@ src_configure() {
 	local BACKENDS="aqhbci"
 	use ofx && BACKENDS="${BACKENDS} aqofxconnect"
 
-
 	if use qt4; then
-		QT4_LIBS="$(pkg-config QtCore QtGui Qt3Support --libs)" 
+		QT4_LIBS="$(pkg-config QtCore QtGui Qt3Support --libs)"
 		QT4_INC="$(pkg-config QtCore QtGui Qt3Support --cflags)"
 	fi
 
