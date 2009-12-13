@@ -602,7 +602,7 @@ kde4-base_src_configure() {
 		cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 	fi
 
-	if [[ $(declare -p mycmakeargs) != "declare -a mycmakeargs="* ]]; then
+	if [[ $(declare -p mycmakeargs 2>&-) != "declare -a mycmakeargs="* ]]; then
 		mycmakeargs=(${mycmakeargs})
 	fi
 
