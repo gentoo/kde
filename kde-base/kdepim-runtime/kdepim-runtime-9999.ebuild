@@ -14,5 +14,6 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkdepim)
+	>=dev-libs/shared-desktop-ontologies-0.2
 "
 RDEPEND="${DEPEND}"
