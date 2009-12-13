@@ -72,7 +72,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=("${mycmakeargs[@]}"
+	mycmakeargs=(
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=OFF
 		-DWITH_Libgcrypt=OFF
