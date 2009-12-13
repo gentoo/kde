@@ -9,14 +9,10 @@ KMMODULE="runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE PIM runtime plugin collection"
-IUSE="debug"
 KEYWORDS=""
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}"
-
-src_install() {
-	kde4-meta_src_install
-}
