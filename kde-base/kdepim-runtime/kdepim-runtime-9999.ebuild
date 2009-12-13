@@ -14,7 +14,6 @@ KEYWORDS=""
 
 DEPEND="
 	$(add_kdebase_dep libkdepim)
-	
 "
 RDEPEND="${DEPEND}"
 
