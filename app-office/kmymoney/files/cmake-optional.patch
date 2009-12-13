@@ -1,0 +1,35 @@
+--- CMakeLists.txt.old	2009-12-13 17:33:24.000000000 +0100
++++ CMakeLists.txt	2009-12-13 17:36:42.000000000 +0100
+@@ -159,12 +159,18 @@
+ 
+ ######################### Special Requirements ##########################
+ 
++OPTION(ENABLE_AQBANKING "Enable Aqbanking plugin" ON)
++OPTION(ENABLE_ICAL "Enable iCal" ON)
++OPTION(ENABLE_OFX "Enable OFX" ON)
++
++IF(ENABLE_OFX)
+ CHECK_INCLUDE_FILE("libofx/libofx.h" HAVE_LIBOFX_H)
+ IF(HAVE_LIBOFX_H)
+   OPTION(USE_OFX_DIRECTCONNECT "Enable to compile with ofximport support" ON)
+   # the USE_OFX_DIRECTCONNECT preprocessor definition will be written
+   # to config.h as specified in config.h.cmake
+ ENDIF(HAVE_LIBOFX_H)
++ENDIF(ENABLE_OFX)
+ 
+ # This is needed for QtSqlite and QtDesigner
+ # (they'll install files to ${QT_INSTALL_DIR}/plugins/)
+@@ -173,9 +179,13 @@
+ SET(QT_INSTALL_DIR ${QT_DIR} CACHE PATH
+   "Qt install prefix defaults to the Qt prefix: ${QT_DIR}")
+ 
++IF(ENABLE_ICAL)
+ FIND_PACKAGE(Libical)
++ENDIF(ENABLE_ICAL)
+ FIND_PACKAGE(Gwenhywfar)
++IF(ENABLE_AQBANKING)
+ FIND_PACKAGE(AqBanking)
++ENDIF(ENABLE_AQBANKING)
+ 
+ SET(KBANKING_FOUND FALSE)
+ IF (AQBANKING_FOUND AND GWENHYWFAR_FOUND)
