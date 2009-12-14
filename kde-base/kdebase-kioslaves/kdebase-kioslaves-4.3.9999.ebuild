@@ -16,7 +16,7 @@ IUSE="+bzip2 debug lzma +handbook openexr samba"
 RESTRICT="test"
 
 DEPEND="
-	x11-libs/libXcursor
+	!aqua? ( x11-libs/libXcursor )
 	bzip2? ( app-arch/bzip2 )
 	lzma? ( app-arch/xz-utils )
 	openexr? ( media-libs/openexr )
@@ -30,8 +30,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdelibs 'bzip2?,lzma?')
 	$(add_kdebase_dep kdialog)
-	virtual/eject
 	virtual/ssh
+	!aqua? ( !kernel_SunOS? ( virtual/eject ) )
 "
 
 KMEXTRA="
