@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdepim)
 	>=dev-libs/shared-desktop-ontologies-0.2
+	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}"
