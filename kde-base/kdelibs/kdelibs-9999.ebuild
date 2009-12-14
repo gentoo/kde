@@ -63,7 +63,7 @@ COMMONDEPEND="
 		media-libs/ilmbase
 	)
 	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? ( dev-libs/shared-desktop-ontologies )
+	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.2 )
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
