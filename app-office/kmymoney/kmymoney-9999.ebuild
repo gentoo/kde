@@ -16,12 +16,14 @@ SLOT="4"
 IUSE="debug hbci ical ofx"
 
 COMMONDEPEND="app-crypt/gpgme
-		sys-libs/gwenhywfar
 		kde-base/kdepimlibs
 		dev-libs/libxml2
 		kde-base/libkleo
 		x11-misc/shared-mime-info
-		hbci? ( >=net-libs/aqbanking-4.2.0[qt4] )
+		hbci? (
+			>=net-libs/aqbanking-4.2.0[qt4]
+			>=sys-libs/gwenhywfar-3.10.0.0
+		)
 		ical? ( dev-libs/libical )
 		ofx? ( >=dev-libs/libofx-0.8.2 )"
 
