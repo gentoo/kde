@@ -14,7 +14,7 @@ IUSE="debug +handbook zeroconf"
 DEPEND="
 	>=net-libs/libvncserver-0.9
 	net-libs/openslp
-	x11-libs/libXdamage
+	!aqua? ( x11-libs/libXdamage )
 	zeroconf? (
 		|| (
 			net-dns/avahi[mdnsresponder-compat]
