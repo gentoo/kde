@@ -20,15 +20,14 @@ COMMONDEPEND="app-crypt/gpgme
 		kde-base/kdepimlibs
 		dev-libs/libxml2
 		kde-base/libkleo
-		x11-misc/shared-mime-info"
+		x11-misc/shared-mime-info
+		hbci? ( >=net-libs/aqbanking-4.2.0[qt4] )
+		ical? ( dev-libs/libical )
+		ofx? ( >=dev-libs/libofx-0.8.2 )"
 
-DEPEND="${COMMONDEPEND}
-	hbci? ( >=net-libs/aqbanking-4.2.0[qt4] )
-	ical? ( dev-libs/libical )
-	ofx? ( >=dev-libs/libofx-0.8.2 )"
+DEPEND="${COMMONDEPEND}"
 
-RDEPEND="${COMMONDEPEND}
-	!app-office/kmymoney2"
+RDEPEND="${COMMONDEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}/cmake-optional.patch"
