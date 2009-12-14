@@ -303,6 +303,7 @@ enable_cmake-utils_src_configure() {
 			SET (CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
 			SET (CMAKE_PLATFORM_REQUIRED_RUNTIME_PATH "${EPREFIX}/usr/${CHOST}/lib/gcc;${EPREFIX}/usr/${CHOST}/lib;${EPREFIX}/usr/$(get_libdir);${EPREFIX}/$(get_libdir)"
 			CACHE STRING "" FORCE)
+			SET (CMAKE_BUILD_WITH_INSTALL_RPATH ON CACHE BOOL "" FORCE)
 			ENDIF (NOT APPLE)
 		_EOF_
 	fi
