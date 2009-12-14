@@ -15,7 +15,8 @@ LICENSE="GPL-2"
 IUSE="debug +handbook"
 
 RDEPEND="
-	>=media-libs/xine-lib-1.1.9[xcb]
+	aqua? ( >=media-libs/xine-lib-1.1.9 )
+	!aqua? ( >=media-libs/xine-lib-1.1.9[xcb] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
