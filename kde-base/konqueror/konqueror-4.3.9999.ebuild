@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="kdebase-apps"
-inherit kde4-meta
+inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS=""
@@ -38,6 +38,8 @@ src_configure() {
 }
 
 src_prepare() {
+	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
+
 	kde4-meta_src_prepare
 
 	# Do not install *.desktop files for kfmclient
