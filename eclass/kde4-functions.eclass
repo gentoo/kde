@@ -65,7 +65,9 @@ slot_is_at_least() {
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ -z ${EROOT} ]] && EROOT=${ROOT}${EPREFIX}/
+	if [[ ${EAPI} == 2 ]] && ! use prefix; then
+		EROOT=${ROOT}
+	fi
 
 	local KDE3DIR="${EROOT}usr/kde/3.5"
 	if [[ -z ${EROOT%%/} && -x "${KDE3DIR}"/bin/kbuildsycoca ]]; then
