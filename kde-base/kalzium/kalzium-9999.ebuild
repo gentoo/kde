@@ -7,7 +7,7 @@ EAPI="2"
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit kde4-meta
+inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
@@ -28,6 +28,9 @@ KMEXTRACTONLY="
 "
 
 src_configure(){
+	# Fix missing finite()
+	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
+
 	mycmakeargs=(
 		$(cmake-utils_use_with editor Eigen2)
 		$(cmake-utils_use_with editor OpenBabel2)
