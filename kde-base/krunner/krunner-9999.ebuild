@@ -17,14 +17,18 @@ COMMONDEPEND="
 	$(add_kdebase_dep ksmserver)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
-	x11-libs/libXxf86misc
-	x11-libs/libXcursor
-	x11-libs/libXScrnSaver
+	!aqua? (
+		x11-libs/libXxf86misc
+		x11-libs/libXcursor
+		x11-libs/libXScrnSaver
+	)
 "
 DEPEND="${COMMONDEPEND}
-	x11-libs/libXcursor
-	x11-proto/xf86miscproto
-	x11-proto/scrnsaverproto
+	!aqua? (
+		x11-libs/libXcursor
+		x11-proto/xf86miscproto
+		x11-proto/scrnsaverproto
+	)
 "
 RDEPEND="${COMMONDEPEND}"
 
