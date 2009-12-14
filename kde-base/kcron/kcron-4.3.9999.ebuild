@@ -11,4 +11,4 @@ DESCRIPTION="KDE Task Scheduler"
 KEYWORDS=""
 IUSE="debug +handbook"
 
-RDEPEND="virtual/cron"
+RDEPEND="!prefix? ( virtual/cron )"

@@ -11,4 +11,4 @@ DESCRIPTION="KDE Task Scheduler"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +handbook"
 
-RDEPEND="virtual/cron"
+RDEPEND="!prefix? ( virtual/cron )"
