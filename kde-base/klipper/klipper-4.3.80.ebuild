@@ -14,6 +14,6 @@ IUSE="debug +handbook"
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libtaskmanager)
-	x11-libs/libXfixes
+	!aqua? ( x11-libs/libXfixes )
 "
 RDEPEND="${DEPEND}"
