@@ -1,0 +1,69 @@
+Desc:	Fix compilation on Solaris.
+Author:	Heiko Przybyl <zuxez@cs.tu-berlin.de>
+--- step-4.3.2/step/stepcore/constraintsolver.cc.orig	2009-10-16 18:42:52.562521176 +0200
++++ step-4.3.2/step/stepcore/constraintsolver.cc	2009-10-16 18:44:15.447949305 +0200
+@@ -21,4 +21,18 @@
+ #include <unsupported/Eigen/IterativeSolvers>
+ #include <cmath>
++ 
++// Stolen from kcalc.
++#if defined(Q_OS_SOLARIS)
++// Strictly by the standard, ininf() is a c99-ism which
++// is unavailable in C++. The IEEE FP headers provide
++// a function with similar functionality, so use that instead.
++// However, !finite(a) == isinf(a) || isnan(a), so it's 
++// not 100% correct.
++#include <ieeefp.h>
++namespace std {
++  inline int isinf(double a) { return !finite(a); }
++  inline int isfinite(double a) { return finite(a); }
++}
++#endif
+ 
+ using namespace Eigen;
+--- step-4.3.2/step/stepcore/particle.cc.orig	2009-10-16 19:23:50.845435007 +0200
++++ step-4.3.2/step/stepcore/particle.cc	2009-10-16 19:24:33.425319075 +0200
+@@ -22,6 +22,20 @@
+ #include <cmath>
+ #include <QtGlobal>
+ 
++// Stolen from kcalc.
++#if defined(Q_OS_SOLARIS)
++// Strictly by the standard, ininf() is a c99-ism which
++// is unavailable in C++. The IEEE FP headers provide
++// a function with similar functionality, so use that instead.
++// However, !finite(a) == isinf(a) || isnan(a), so it's 
++// not 100% correct.
++#include <ieeefp.h>
++namespace std {
++  inline int isinf(double a) { return !finite(a); }
++  inline int isfinite(double a) { return finite(a); }
++}
++#endif
++
+ namespace StepCore
+ {
+ 
+--- step-4.3.2/step/stepcore/rigidbody.cc.orig	2009-10-16 19:24:57.664177635 +0200
++++ step-4.3.2/step/stepcore/rigidbody.cc	2009-10-16 19:25:08.616915717 +0200
+@@ -21,6 +21,20 @@
+ #include <cstring>
+ #include <cmath>
+ 
++// Stolen from kcalc.
++#if defined(Q_OS_SOLARIS)
++// Strictly by the standard, ininf() is a c99-ism which
++// is unavailable in C++. The IEEE FP headers provide
++// a function with similar functionality, so use that instead.
++// However, !finite(a) == isinf(a) || isnan(a), so it's 
++// not 100% correct.
++#include <ieeefp.h>
++namespace std {
++  inline int isinf(double a) { return !finite(a); }
++  inline int isfinite(double a) { return finite(a); }
++}
++#endif
++
+ namespace StepCore
+ {
+ 
