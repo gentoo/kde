@@ -73,6 +73,11 @@ COMMONDEPEND="
 		app-crypt/qca:2
 		net-dns/libidn
 	)
+	jingle? (
+		>=media-libs/mediastreamer-2.3.0
+		net-libs/ortp
+		media-libs/speex
+	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
 	otr? ( >=net-libs/libotr-3.2.0 )
@@ -105,15 +110,25 @@ src_prepare() {
 src_configure() {
 	local x x2
 	# Disable old msn support.
-	mycmakeargs=(-DWITH_msn=OFF)
+	mycmakeargs=(-DWITH_Libmsn=OFF)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		[[ ${x/+/} = msn ]] && x2=wlm || x2=""
-		mycmakeargs=($(cmake-utils_use_with ${x/+/} ${x2}))
+		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
+
+	if use !jingle; then
+		mycmakeargs+=(
+			"-DWITH_GOOGLETALK:BOOL=OFF"
+			"-DWITH_LiboRTP:BOOL=OFF"
+			"-DWITH_Mediastreamer:BOOL=OFF"
+			"-DWITH_Speex:BOOL=OFF"
+		)
+	fi
+
 	# enable plugins
 	for x in ${PLUGINS}; do
-		mycmakeargs=($(cmake-utils_use_with ${x/+/}))
+		mycmakeargs+=($(cmake-utils_use_with ${x/+/}))
 	done
 
 	kde4-meta_src_configure
