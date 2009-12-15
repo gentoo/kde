@@ -53,7 +53,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour facebook gadu groupwise +jabber meanwhile msn oscar qq
+PROTOCOLS="bonjour facebook gadu groupwise +jabber jingle meanwhile msn oscar qq
 skype testbed winpopup yahoo"
 
 # disabled protocols
