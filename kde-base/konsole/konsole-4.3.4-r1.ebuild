@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/konsole/konsole-4.3.4.ebuild,v 1.1 2009/12/01 10:54:43 wired Exp $
+# $Header: $
 
 EAPI="2"
 
