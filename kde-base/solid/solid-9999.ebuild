@@ -26,6 +26,10 @@ KMEXTRA="
 	libs/solid/
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.1-darwin-compile-powermanager.patch
+)
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with bluetooth BlueZ)
