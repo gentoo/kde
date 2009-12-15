@@ -109,11 +109,9 @@ src_prepare() {
 
 src_configure() {
 	local x x2
-	# Disable old msn support.
-	mycmakeargs=(-DWITH_Libmsn=OFF)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
-		[[ ${x/+/} = msn ]] && x2=wlm || x2=""
+		[[ ${x/+/} = msn ]] && x2=Libmsn || x2=""
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
 
