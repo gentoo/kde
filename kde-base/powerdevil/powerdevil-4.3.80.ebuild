@@ -17,10 +17,10 @@ IUSE="debug +pm-utils"
 COMMONDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
-	x11-libs/libXScrnSaver
+	!aqua? ( x11-libs/libXScrnSaver )
 "
 DEPEND="${COMMONDEPEND}
-	x11-proto/scrnsaverproto
+	!aqua? ( x11-proto/scrnsaverproto )
 "
 RDEPEND="${COMMONDEPEND}
 	!sys-power/powerdevil
