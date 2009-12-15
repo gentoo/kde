@@ -19,6 +19,10 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="libkdeedu/kdeeduui"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.2-solaris-graph2d.patch
+)
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
