@@ -53,7 +53,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour facebook gadu groupwise +jabber jingle meanwhile msn oscar qq
+PROTOCOLS="bonjour facebook gadu groupwise +jabber meanwhile msn oscar qq
 skype testbed winpopup yahoo"
 
 # disabled protocols
@@ -72,11 +72,6 @@ COMMONDEPEND="
 	jabber? (
 		app-crypt/qca:2
 		net-dns/libidn
-	)
-	jingle? (
-		media-libs/speex
-		net-libs/ortp
-		>=media-libs/mediastreamer-2.3.0
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
