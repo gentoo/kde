@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	raptor? ( >=media-libs/raptor-1.4.16 )
 	redland? (
 		>=dev-libs/rasqal-0.9.15
-		>=dev-libs/redland-1.0.6
+		>=dev-libs/redland-1.0.9.1
 	)
 	java? ( >=virtual/jdk-1.6.0 )
 	virtuoso? ( dev-db/libiodbc:0 )
