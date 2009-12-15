@@ -27,7 +27,7 @@ SRC_URI="${RELEASE_URI}"
 
 LICENSE="LGPL-2.1 Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS=""
 IUSE="berkdb mysql postgres sqlite ssl threads virtuoso xml"
 
 RDEPEND="mysql? ( virtual/mysql )
