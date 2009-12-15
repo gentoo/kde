@@ -13,16 +13,21 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 LICENSE="GPL-2"
-IUSE="debug +xine"
+IUSE="alsa debug +xine"
 
 DEPEND="
-	media-libs/alsa-lib
 	>=media-sound/phonon-4.3.80[xine?]
-	pulseaudio? ( media-sound/pulseaudio )
+	alsa? ( media-libs/alsa-lib )
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.80-optional-alsa.patch
+)
+
 src_prepare() {
+	kde4-meta_src_prepare
+
 	# Don't build tests - they require OpenGL
 	sed -e 's/add_subdirectory(tests)//' \
 		-i phonon/CMakeLists.txt || die "Failed to disable tests"
@@ -30,12 +35,11 @@ src_prepare() {
 	# Disable automagic
 	sed -e 's/find_package(Xine)/macro_optional_find_package(Xine)/' \
 		-i phonon/kcm/xine/CMakeLists.txt || die "Failed to make xine optional"
-
-	kde4-meta_src_prepare
 }
 
 src_configure() {
 	mycmakeargs=(
+		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with xine)
 	)
 
