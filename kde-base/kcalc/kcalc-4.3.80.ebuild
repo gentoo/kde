@@ -16,3 +16,7 @@ DEPEND="
 	dev-libs/gmp
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.2-solaris-knumber_priv.patch
+)
