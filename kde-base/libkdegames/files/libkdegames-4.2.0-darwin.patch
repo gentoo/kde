@@ -1,0 +1,11 @@
+--- ./libkdegames/kggzmod/misc_private.h.orig	2009-01-31 20:24:23 +0100
++++ ./libkdegames/kggzmod/misc_private.h	2009-01-31 20:24:39 +0100
+@@ -44,7 +44,7 @@
+ #  define __DARWIN_ALIGN(p)       ((__darwin_size_t)((char *)(p) + __DARWIN_ALIGNBYTES) &~ __DARWIN_ALIGNBYTES)
+ # endif
+ # undef CMSG_SPACE
+-# define CMSG_SPACE(l) (ALIGN(sizeof(struct cmsghdr)) + ALIGN(l))
++# define CMSG_SPACE(l) (__DARWIN_ALIGN(sizeof(struct cmsghdr)) + __DARWIN_ALIGN(l))
+ #endif
+ 
+ namespace KGGZMod

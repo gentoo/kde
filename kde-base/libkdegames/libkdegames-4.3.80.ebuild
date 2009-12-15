@@ -17,3 +17,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.2.0-darwin.patch
+)
