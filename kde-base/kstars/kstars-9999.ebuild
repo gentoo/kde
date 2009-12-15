@@ -17,6 +17,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.80-solaris.patch
+)
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with fits CFitsio)
