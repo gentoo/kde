@@ -22,7 +22,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.80-optional-alsa.patch
+	"${FILESDIR}"/${PN}-4.3.4-optional-alsa.patch
 )
 
 src_prepare() {

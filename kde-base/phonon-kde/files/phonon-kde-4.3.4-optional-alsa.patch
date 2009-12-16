@@ -1,5 +1,5 @@
---- phonon-kde-4.3.80.orig/phonon/CMakeLists.txt
-+++ phonon-kde-4.3.80/phonon/CMakeLists.txt
+--- phonon-kde-4.3.4.orig/phonon/CMakeLists.txt
++++ phonon-kde-4.3.4/phonon/CMakeLists.txt
 @@ -14,6 +14,16 @@ else(KDE4_DISABLE_MULTIMEDIA)
     macro_log_feature(_phonon_version_ok "Phonon" "Phonon library" "svn.kde.org/home/kde/trunk/kdesupport/phonon" TRUE "${PHONON_MIN_VERSION}" "STRONGLY RECOMMENDED: Required for playing audio and video throughout KDE")
  
