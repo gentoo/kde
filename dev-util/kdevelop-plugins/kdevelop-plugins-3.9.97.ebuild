@@ -20,7 +20,7 @@ IUSE="debug ${PLUGINS}"
 PLUGINS="${PLUGINS//+/}"
 
 for plugin in ${PLUGINS}; do
-	SRC_URI+=" ${plugin}? ( mirror://kde/unstable/${PN%-${plugin}}/${PV}/src/kdevelop-${plugin}-${TMPVER}.tar.bz2 )"
+	SRC_URI+=" ${plugin}? ( mirror://kde/unstable/kdevelop/${PV}/src/kdevelop-${plugin}-${TMPVER}.tar.bz2 )"
 done
 
 DEPEND="
