@@ -32,6 +32,7 @@ KMEXTRA="
 	doc/thesaurus/
 	filters/generic_wrapper/
 	filters/libkowmf/
+	filters/libmsooxml/
 	filters/xsltfilter/
 	interfaces/
 	kounavail/
