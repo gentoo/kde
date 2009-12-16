@@ -100,6 +100,10 @@ PDEPEND="
 	facebook? ( net-im/kopete-facebook )
 "
 
+PATCHES=(
+	"${FILESDIR}/${PV}-fix_jabber.patch"
+)
+
 src_prepare() {
 	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
 		-i kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
