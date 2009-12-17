@@ -1,0 +1,9 @@
+# possibly incomplete list of useflags that need to be disabled in order
+# to prevent pykde4 from being pulled in (which normally doesn't build)
+
+kde-base/marble -python
+kde-base/plasma-workspace -python
+kde-base/superkaramba -python
+kde-base/kdeadmin-meta -cups
+kde-base/kdeutils-meta -cups
+
