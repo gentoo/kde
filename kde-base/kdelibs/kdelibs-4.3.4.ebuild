@@ -40,7 +40,7 @@ COMMONDEPEND="
 		sys-apps/dbus
 	)
 	!aqua? (
-		>=media-sound/phonon-4.3.80[xcb]
+		>=media-sound/phonon-4.3.49[xcb]
 		sys-apps/dbus[X]
 		x11-libs/libICE
 		x11-libs/libSM
