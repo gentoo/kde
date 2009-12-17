@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
-IUSE="akonadi kdevplatform +phonon qscintilla qwt +semantic-desktop"
+IUSE="akonadi kdevplatform +phonon qscintilla qwt semantic-desktop"
 # okular
 
 COMMON_DEPEND="

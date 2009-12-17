@@ -26,7 +26,7 @@ fi
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="bindist cdda daap debug +embedded ipod lastfm mp3tunes mtp +semantic-desktop"
+IUSE="bindist cdda daap debug +embedded ipod lastfm mp3tunes mtp semantic-desktop"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="

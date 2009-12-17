@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="debug +handbook +plasma +semantic-desktop sqlite"
+IUSE="debug +handbook +plasma semantic-desktop sqlite"
 
 DEPEND="
 	app-crypt/qca:2

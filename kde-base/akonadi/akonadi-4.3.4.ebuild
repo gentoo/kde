@@ -17,7 +17,7 @@ DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta d
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 # add when libmapi becomes available with an ebuild
 #exchange
-IUSE="debug +semantic-desktop"
+IUSE="debug semantic-desktop"
 
 # add when libmapi becomes available with an ebuild
 #exchange? ( net-libs/libmapi )

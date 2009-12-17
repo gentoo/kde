@@ -13,7 +13,7 @@ SRC_URI="http://www.${PN}.org/data/download/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="debug +exif +geolocation +kipi +raw +semantic-desktop"
+IUSE="debug +exif +geolocation +kipi +raw semantic-desktop"
 
 DEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
