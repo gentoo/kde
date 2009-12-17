@@ -20,5 +20,6 @@ DEPEND="app-backup/rdiff-backup"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	rm "${S}/cmake/modules/PkgConfigGetVar.cmake"
+	kde4-base_src_install
+	rm "${D}/usr/share/apps/cmake/modules/PkgConfigGetVar.cmake" || die "workaround deletion failed"
 }
