@@ -54,7 +54,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
 PROTOCOLS="bonjour facebook gadu groupwise +jabber jingle meanwhile msn oscar qq
-skype testbed winpopup yahoo"
+skype sms testbed winpopup yahoo"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
@@ -75,8 +75,8 @@ COMMONDEPEND="
 	)
 	jingle? (
 		>=media-libs/mediastreamer-2.3.0
-		net-libs/ortp
 		media-libs/speex
+		net-libs/ortp
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( net-libs/libmsn )
@@ -109,20 +109,18 @@ src_prepare() {
 
 src_configure() {
 	local x x2
+	# Handle common stuff
+	mycmakeargs=(
+		$(cmake-utils_use_with jingle GOOGLETALK)
+		$(cmake-utils_use_with jingle LiboRTP)
+		$(cmake-utils_use_with jingle Mediastreamer)
+		$(cmake-utils_use_with jingle Speex)
+	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		[[ ${x/+/} = msn ]] && x2=Libmsn || x2=""
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
-
-	if use !jingle; then
-		mycmakeargs+=(
-			"-DWITH_GOOGLETALK:BOOL=OFF"
-			"-DWITH_LiboRTP:BOOL=OFF"
-			"-DWITH_Mediastreamer:BOOL=OFF"
-			"-DWITH_Speex:BOOL=OFF"
-		)
-	fi
 
 	# enable plugins
 	for x in ${PLUGINS}; do
