@@ -146,22 +146,22 @@ help() {
 	echo "BUMP_VERSION is used as target version and version specify what ebuilds are used as base."
 	echo "-l argument specify SET and is optional"
 	echo "Example:"
-	echo "$0 -a bump -s 4.2 -v 9999 -b 4.2.90 -l kdebase"
+	echo "$0 -a bump -s 4.4 -v 9999 -b 4.3.90 -l kdebase"
 	echo
 	echo "When removing:"
-	echo "$0 -a remove -v 4.1.0"
+	echo "$0 -a remove -v 4.4.0"
 	echo
 	echo "When creating new slot:"
 	echo "-s STARTSLOT -b BUMPSLOT"
-	echo "$0 -a slot -s 4.1 -b 4"
+	echo "$0 -a slot -s 4.4 -b 4"
 	echo
 	echo "When diffing two versions for cmakelists"
 	echo "-v OLDVERSION -b NEWVERSION -p DIRECTORY_WHERE_ARE_TBZS -o OUTPUT_DIR"
-	echo "$0 -a diff -v 4.1.0 -b 4.1.1 -p \"/usr/portage/distfiles\" -o /tmp"
+	echo "$0 -a diff -v 4.4.0 -b 4.4.1 -p \"/usr/portage/distfiles\" -o /tmp"
 	echo
 	echo "When moving kde from overlay to the main tree"
 	echo "-v VERSION"
-	echo "$0 -a cvsmove -v 4.2.4"
+	echo "$0 -a cvsmove -v 4.4.4"
 	exit 0
 }
 
