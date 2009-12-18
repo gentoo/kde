@@ -36,3 +36,5 @@ for cpv in `portageq match $ROOT/ $1`; do
 	echo "Processing $cpv"
 	qfile -eR $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --internal | sort -u` | cut -f1 -d' ' | sort -u
 done
+
+rm -f /tmp/try_dlopen
