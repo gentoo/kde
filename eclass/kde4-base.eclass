@@ -675,16 +675,6 @@ kde4-base_src_make_doc() {
 			fi
 		done
 	fi
-
-	[[ -z ${ED} ]] && ED=${D}
-
-	if [[ -n ${KDEBASE} ]] && [[ -d ${ED}usr/share/doc/${PF} ]]; then
-		# work around bug #97196
-		dodir /usr/share/doc/KDE4 && \
-			cp -r "${ED}usr/share/doc/${PF}" "${ED}usr/share/doc/KDE4/" || \
-			die "Failed to move docs to KDE4/."
-			rm -rf "${ED}usr/share/doc/${PF}"
-	fi
 }
 
 # @FUNCTION: kde4-base_pkg_postinst
