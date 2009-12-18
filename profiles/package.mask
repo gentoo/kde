@@ -149,7 +149,6 @@ kde-base/kbreakout:4.4
 kde-base/kdiamond:4.4
 kde-base/kfourinline:4.4
 kde-base/kgoldrunner:4.4
-kde-base/granatier:4.4
 kde-base/killbots:4.4
 kde-base/kigo:4.4
 kde-base/kiriki:4.4
