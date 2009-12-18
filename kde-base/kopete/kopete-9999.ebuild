@@ -90,6 +90,7 @@ RDEPEND="${COMMONDEPEND}
 		media-gfx/imagemagick
 		virtual/latex-base
 	)
+	sms? ( app-mobilephone/smssend )
 	ssl? ( app-crypt/qca-ossl )
 "
 #	telepathy? ( net-libs/decibel )"
