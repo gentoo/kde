@@ -4,9 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdepim"
-KMMODULE="runtime"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS="~amd64 ~x86"
