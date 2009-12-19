@@ -15,7 +15,3 @@ DEPEND="
 	app-crypt/qca:2
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.2.1-freebsd-darwin.patch"
-)
