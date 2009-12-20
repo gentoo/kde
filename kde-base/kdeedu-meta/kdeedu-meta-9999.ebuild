@@ -15,6 +15,7 @@ IUSE="kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep blinken)
+	$(add_kdebase_dep cantor)
 	$(add_kdebase_dep kalgebra)
 	$(add_kdebase_dep kalzium)
 	$(add_kdebase_dep kanagram)
