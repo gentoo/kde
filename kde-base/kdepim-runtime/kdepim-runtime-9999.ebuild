@@ -27,7 +27,9 @@ DEPEND="
 	$(add_kdebase_dep libkdepim)
 	x11-misc/shared-mime-info
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=app-office/akonadi-server-1.2.1
+"
 
 add_blocker akonadi '<4.3.85'
 

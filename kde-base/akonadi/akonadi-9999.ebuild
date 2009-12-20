@@ -19,7 +19,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}
-	>=app-office/akonadi-server-1.2.1
+	$(add_kdebase_dep kdepim-runtime)
 "
 
 KMEXTRA="

@@ -19,6 +19,7 @@ kdebindings:
 kdepim:
 - do something with nepomuk_email_feeder and ontologies (moved away from kdepim-runtime)
 - do something with examples
+- add kdepim-runtime as RDEPEND-only to some kdepim packages
 
 ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
