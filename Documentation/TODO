@@ -16,6 +16,10 @@ kdebindings:
  - create new ebuilds for all various things.
  - php, java, c#...
 
+kdepim:
+- do something with nepomuk_email_feeder and ontologies (moved away from kdepim-runtime)
+- do something with examples
+
 ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
  - kapptemplate needs to be checked again when kbindings is available?
