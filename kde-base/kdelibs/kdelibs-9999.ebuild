@@ -281,11 +281,6 @@ pkg_postinst() {
 	elog "Your homedir is set to \${HOME}/${HME}"
 	echo
 
-	local config_path="'${EROOT}usr/share/config'"
-	[[ ${PREFIX} != /usr ]] && config_path+=" '${EROOT}${PREFIX}/share/config'"
-	elog "If you experience weird application behavior (missing texts, etc.) run as root:"
-	elog "# chmod go+rX -R ${config_path}"
-
 	if ! has_version sys-apps/hal; then
 		echo
 		ewarn "You need sys-apps/hal for new device notifications, power management and any"
