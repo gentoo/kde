@@ -14,6 +14,7 @@ IUSE="debug +handbook +semantic-desktop thumbnail"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
+	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.2 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
@@ -27,7 +28,7 @@ KMLOADLIBS="libkonq"
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 	)
 
 	kde4-meta_src_configure
