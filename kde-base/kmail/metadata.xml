@@ -2,4 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name="indicate">Enable integration with libindicate Indicators via <pkg>dev-libs/libindicate-qt</pkg></flag>
+</use>
 </pkgmetadata>
