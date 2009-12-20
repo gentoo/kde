@@ -3,6 +3,6 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name="indicate">Enable integration with libindicate Indicators via <pkg>dev-libs/libindicate-qt</pkg></flag>
+	<flag name="ayatana">Build in support for Ayatana notification via <pkg>dev-libs/libindicate-qt</pkg></flag>
 </use>
 </pkgmetadata>
