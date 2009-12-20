@@ -15,7 +15,7 @@ inherit ${eclass}
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE="debug +semantic-desktop"
+IUSE="debug semantic-desktop"
 
 DEPEND="
 	app-misc/strigi

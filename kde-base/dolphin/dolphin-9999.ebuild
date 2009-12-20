@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS=""
-IUSE="debug +handbook +semantic-desktop thumbnail"
+IUSE="debug +handbook semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
