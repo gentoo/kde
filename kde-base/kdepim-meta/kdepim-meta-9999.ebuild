@@ -11,10 +11,9 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix"
+IUSE="kdeprefix +semantic-desktop"
 
 RDEPEND="
-	$(add_kdebase_dep akonadi)
 	$(add_kdebase_dep akregator)
 	$(add_kdebase_dep blogilo)
 	$(add_kdebase_dep kabcclient)
@@ -40,5 +39,6 @@ RDEPEND="
 	$(add_kdebase_dep libkpgp)
 	$(add_kdebase_dep libksieve)
 	$(add_kdebase_dep mimelib)
+	semantic-desktop? ( $(add_kdebase_dep akonadi) )
 	$(block_other_slots)
 "
