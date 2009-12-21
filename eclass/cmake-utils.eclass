@@ -235,7 +235,7 @@ cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
 cmake-utils_use() { _use_me_now "" "$@" ; }
 
 # Internal function for modifying hardcoded definitions.
-# Removes dangerous definitionts that override Gentoo settings.
+# Removes dangerous definitions that override Gentoo settings.
 _modify-cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 
