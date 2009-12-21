@@ -12,18 +12,18 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 LICENSE="LGPL-2.1"
-IUSE="debug +handbook ldap"
+IUSE="+akonadi debug +handbook ldap"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.1.6
-	>=app-office/akonadi-server-1.2.61
 	>=dev-libs/boost-1.35.0-r5
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
+	akonadi? ( >=app-office/akonadi-server-1.2.61 )
 	ldap? ( net-nds/openldap )
 "
 RDEPEND="${DEPEND}"
@@ -34,6 +34,18 @@ add_blocker akonadi 0 '<4.3.66:4.4'
 add_blocker libkholidays
 # @since 4.4 - kontactinterfaces is in kdepimlibs now
 add_blocker kontactinterfaces
+
+src_prepare() {
+	kde4-base_src_prepare
+
+	if ! use akonadi; then
+		sed -e '/find_package(Akonadi/s/^/# DISABLED /' \
+			-e '/macro_log_feature(Akonadi_FOUND/s/TRUE/FALSE/' \
+			-e '/add_subdirectory(akonadi)/s/^/# DISABLED /' \
+			-e '/add_subdirectory(mailtransport)/s/^/# DISABLED /' \
+			-i CMakeLists.txt || die "failed to disable akonadi"
+	fi
+}
 
 src_configure() {
 	mycmakeargs=(
