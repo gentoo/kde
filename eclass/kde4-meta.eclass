@@ -18,18 +18,17 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
-# Add khelpcenter dependency when installing handbooks
-if [[ ${PN} != khelpcenter ]] && has handbook ${IUSE//+}; then
-	RDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
-fi
-
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
 	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
 		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
-		COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs)"
+		if slot_is_at_least 4.4 ${SLOT}; then
+			COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs 'akonadi')"
+		else
+			COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs)"
+		fi
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
