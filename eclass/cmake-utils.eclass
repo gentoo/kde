@@ -250,8 +250,8 @@ _modify-cmakelists() {
 	cat >> CMakeLists.txt <<- _EOF_
 
 		MESSAGE(STATUS "<<< Gentoo configuration >>>
-		Build type: ${CMAKE_BUILD_TYPE}
-		Install path: ${CMAKE_INSTALL_PREFIX}\n")
+		Build type: \${CMAKE_BUILD_TYPE}
+		Install path: \${CMAKE_INSTALL_PREFIX}\n")
 	_EOF_
 }
 
