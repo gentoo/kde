@@ -298,5 +298,6 @@
 ~kde-base/kdeutils-meta-9999 **
 ~kde-base/kdewebdev-meta-9999 **
 app-arch/xz-utils
->=net-libs/libssh-0.3.2
+~dev-db/virtuoso-odbc-5.0.12
+~dev-db/virtuoso-server-5.0.12
 x11-misc/google-gadgets
