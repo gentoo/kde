@@ -4,14 +4,13 @@
 
 EAPI="2"
 
-KDE_LINGUAS="bg cs de el en_GB et ga gl km lt nds nl pt pt_BR ro ru sk sv tr uk zh_CN"
+KMNAME="extragear/network"
 inherit kde4-base
 
 DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
-SRC_URI="http://d10xg45o6p6dbl.cloudfront.net/projects/c/choqok/${P}.tar.bz2"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE="debug"
