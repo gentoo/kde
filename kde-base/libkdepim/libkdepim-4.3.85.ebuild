@@ -14,6 +14,11 @@ IUSE="debug"
 # @Since >4.2.65 kode removed from kdepim
 add_blocker kode
 
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+"
+RDEPEND="${DEPEND}"
+
 KMEXTRACTONLY="
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 "
