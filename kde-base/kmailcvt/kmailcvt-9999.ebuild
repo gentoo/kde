@@ -11,22 +11,7 @@ DESCRIPTION="KMail Import Filters"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	app-crypt/gpgme
-"
-RDEPEND="${DEPEND}
-	app-crypt/gnupg
-"
-
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
 	kmail/
 "
-
-src_configure() {
-	mycmakeargs=(
-		-DWITH_QGpgme=ON
-	)
-
-	kde4-meta_src_configure
-}
