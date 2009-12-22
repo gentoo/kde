@@ -62,7 +62,7 @@ pkg_postinst() {
 		echo
 	else
 		echo
-		ewarn "You have decided to build akonadi-server with both"
+		ewarn "You have decided to build akonadi-server with"
 		ewarn "'mysql', 'postgres' and 'sqlite' USE flags disabled."
 		ewarn "akonadi-server will not be functional."
 		echo
