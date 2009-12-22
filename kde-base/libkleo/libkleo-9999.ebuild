@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	app-crypt/gpgme
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}
@@ -20,9 +21,3 @@ RDEPEND="${DEPEND}
 
 KMSAVELIBS="true"
 KMEXTRACTONLY="kleopatra/"
-
-src_configure() {
-	mycmakeargs=(-DWITH_QGPGME=ON)
-
-	kde4-meta_src_configure
-}
