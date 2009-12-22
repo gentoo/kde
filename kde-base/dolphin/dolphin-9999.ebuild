@@ -28,7 +28,6 @@ KMLOADLIBS="libkonq"
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 	)
 
 	kde4-meta_src_configure
