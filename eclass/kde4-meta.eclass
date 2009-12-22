@@ -32,9 +32,7 @@ case ${KMNAME} in
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
-				if ! slot_is_at_least 4.4 ${SLOT}; then
-					RDEPEND+=" kontact? ( $(add_kdebase_dep kontactinterfaces) )"
-				fi
+				RDEPEND+=" kontact? ( $(add_kdebase_dep kontact) )"
 				;;
 		esac
 		;;
