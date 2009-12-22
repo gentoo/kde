@@ -587,6 +587,25 @@ kde4-meta_change_cmakelists() {
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			;;
 		kdepim)
+			# Disable hardcoded checks
+			sed -e '/find_package(KdepimLibs/s/find/macro_optional_find/' \
+				-e '/find_package(Boost/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(Boost_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(QGpgme/s/find/macro_optional_find/g' \
+				-e '/macro_log_feature(QGPGME_FOUND/s/ TRUE / FALSE /g' \
+				-e '/find_package(Akonadi/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(Akonadi_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(ZLIB/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(ZLIB_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(Strigi/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(STRIGI_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(SharedDesktopOntologies/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(SHAREDDESKTOPONTOLOGIES_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(Soprano/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(Soprano_FOUND/s/ TRUE / FALSE /' \
+				-e '/find_package(Nepomuk/s/find/macro_optional_find/' \
+				-e '/macro_log_feature(Nepomuk_FOUND/s/ TRUE / FALSE /' \
+				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			case ${PN} in
 				kaddressbook|kalarm|kmailcvt|kontact|korganizer|korn)
 					sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
@@ -597,7 +616,7 @@ kde4-meta_change_cmakelists() {
 			esac
 			;;
 		kdewebdev)
-			# Disable hardcoded kdepimlibs check
+			# Disable hardcoded checks
 			sed -e 's/find_package(KdepimLibs REQUIRED)/macro_optional_find_package(KdepimLibs)/' \
 				-e 's/find_package(LibXml2 REQUIRED)/macro_optional_find_package(LibXml2)/' \
 				-e 's/find_package(LibXslt REQUIRED)/macro_optional_find_package(LibXslt)/' \
@@ -605,7 +624,7 @@ kde4-meta_change_cmakelists() {
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			;;
 		koffice)
-			# prevent collisions
+			# Prevent collisions
 			if [[ ${PN} != koffice-data ]]; then
 				sed -e '/install(.*FindKOfficeLibs.cmake/,/)/ d' \
 					-i cmake/modules/CMakeLists.txt || die "${LINENO}: sed died in collision prevention section"
