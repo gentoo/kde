@@ -9,12 +9,11 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Address Book"
 KEYWORDS=""
-IUSE="debug +handbook gnokii"
+IUSE="debug +handbook"
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
-	gnokii? ( app-mobilephone/gnokii )
 "
 RDEPEND="${DEPEND}"
 
@@ -25,17 +24,8 @@ KMEXTRA="
 KMEXTRACTONLY="
 	akonadi/
 	kmail/
-	libkleo/
 "
-KMLOADLIBS="libkdepim libkleo"
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with gnokii)
-	)
-
-	kde4-meta_src_configure
-}
+KMLOADLIBS="libkdepim"
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
