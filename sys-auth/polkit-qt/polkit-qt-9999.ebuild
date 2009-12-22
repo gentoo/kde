@@ -8,7 +8,7 @@ inherit subversion cmake-utils
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
 HOMEPAGE="http://kde.org/"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdereview/polkit-qt-1"
+ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt-1"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
