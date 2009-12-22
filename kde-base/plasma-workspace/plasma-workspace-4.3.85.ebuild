@@ -64,7 +64,6 @@ src_configure() {
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		-DWITH_Xmms=OFF
 	)
 
