@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.36 2009/12/10 19:58:42 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.38 2009/12/18 10:49:55 zmedico Exp $
 
 # @ECLASS: cmake-utils.eclass
 # @MAINTAINER:
@@ -235,7 +235,7 @@ cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
 cmake-utils_use() { _use_me_now "" "$@" ; }
 
 # Internal function for modifying hardcoded definitions.
-# Removes dangerous definitions that override Gentoo settings.
+# Removes dangerous definitionts that override Gentoo settings.
 _modify-cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -250,8 +250,8 @@ _modify-cmakelists() {
 	cat >> CMakeLists.txt <<- _EOF_
 
 		MESSAGE(STATUS "<<< Gentoo configuration >>>
-		Build type: \${CMAKE_BUILD_TYPE}
-		Install path: \${CMAKE_INSTALL_PREFIX}\n")
+		Build type: ${CMAKE_BUILD_TYPE}
+		Install path: ${CMAKE_INSTALL_PREFIX}\n")
 	_EOF_
 }
 
@@ -317,8 +317,12 @@ enable_cmake-utils_src_configure() {
 	[[ -n ${CMAKE_NO_COLOR} ]] && echo 'SET (CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> "${common_config}"
 
 	# Convert mycmakeargs to an array, for backwards compatibility
+	# Make the array a local variable since <=portage-2.1.6.x does not
+	# support global arrays (see bug #297255).
 	if [[ $(declare -p mycmakeargs 2>&-) != "declare -a mycmakeargs="* ]]; then
-		mycmakeargs=(${mycmakeargs})
+		local mycmakeargs_local=(${mycmakeargs})
+	else
+		local mycmakeargs_local=("${mycmakeargs[@]}")
 	fi
 
 	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
@@ -329,7 +333,7 @@ enable_cmake-utils_src_configure() {
 	local cmakeargs=(
 		-C "${common_config}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX:-/usr}"
-		"${mycmakeargs[@]}"
+		"${mycmakeargs_local[@]}"
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
 		-DCMAKE_INSTALL_DO_STRIP=OFF
 		-DCMAKE_USER_MAKE_RULES_OVERRIDE="${build_rules}"
@@ -337,7 +341,7 @@ enable_cmake-utils_src_configure() {
 
 	mkdir -p "${CMAKE_BUILD_DIR}"
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${cmakeargs[*]}"
+	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
 	echo cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
 	cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
 
