@@ -23,7 +23,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!dev-util/kdesvn:1.2
-	>=kde-base/kdesdk-kioslaves-${KDE_MINIMAL}
+	!<=kde-base/kdesdk-kioslaves-4.3.85[kdeprefix,subversion]
 "
 
 src_configure() {
@@ -33,13 +33,6 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
-}
-
-src_install() {
-	kde4-base_src_install
-
-	# Remove kio svn service types - provided by kdesdk-kioslaves
-	rm -f "${D}/${PREFIX}"/share/kde4/services/svn{,+ssh,+https,+file,+http}.protocol
 }
 
 pkg_postinst() {

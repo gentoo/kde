@@ -8,19 +8,26 @@ KMNAME="kdesdk"
 KMMODULE="kioslave"
 inherit kde4-meta
 
-DESCRIPTION="kioslaves from kdesdk package: the subversion kioslave"
+DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
+IUSE="debug subversion"
 
 DEPEND="
-	dev-libs/apr
-	dev-util/subversion
+	subversion? (
+		dev-libs/apr
+		dev-util/subversion
+	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kdeprefix? (
+		subversion? ( !dev-util/kdesvn:4 )
+	)
+"
 
 src_configure() {
 	mycmakeargs=(
 		-DAPRCONFIG_EXECUTABLE="${EPREFIX}"/usr/bin/apr-1-config
+		$(cmake-utils_use_with subversion SVN)
 	)
 
 	kde4-meta_src_configure
