@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 DEPEND="
 	>=dev-libs/soprano-2.3.70[dbus,raptor,redland,virtuoso]
-	$(add_kdebase_dep kdelibs semantic-desktop)
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 "
 RDEPEND="${DEPEND}"
 
