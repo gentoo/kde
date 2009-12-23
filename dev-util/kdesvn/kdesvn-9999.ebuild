@@ -30,7 +30,6 @@ src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
 	mycmakeargs=(
 		-DDAILY_BUILD=ON
-		-DLIB_INSTALL_DIR=${PREFIX}/$(get_libdir)
 	)
 
 	kde4-base_src_configure
