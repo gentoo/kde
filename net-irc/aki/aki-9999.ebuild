@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+WEBKIT_REQUIRED="always"
 inherit git kde4-base
 
 DESCRIPTION="Extensive IRC Client for KDE4"
