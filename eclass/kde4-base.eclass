@@ -537,7 +537,10 @@ kde4-base_src_prepare() {
 	fi
 
 	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
+
+	# Apply patches
 	base_src_prepare
+	epatch_user
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
