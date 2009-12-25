@@ -22,7 +22,3 @@ RDEPEND="${DEPEND}"
 
 #temporary ugly thing till i patched the buildsystem
 CMAKE_IN_SOURCE_BUILD=1
-
-src_prepare() {
-	 sed -i "s:DESTINATION lib:DESTINATION $(get_libdir):" libqinfinity/CMakeLists.txt || die "sed failed"
-}
