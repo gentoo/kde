@@ -8,7 +8,7 @@ inherit cmake-utils git
 
 DESCRIPTION="QT-style Interface for libinfinity"
 HOMEPAGE="http://kobby.greghaynes.net/wiki/libqinfinity"
-EGIT_REPO_URI="git://github.com/greghaynes/libqinfinity"
+EGIT_REPO_URI="git://gitorious.com/libqinfinity/mainline.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
