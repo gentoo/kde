@@ -8,7 +8,7 @@ inherit kde4-base git
 
 DESCRIPTION="collaborative Editor for KDE"
 HOMEPAGE="http://wiki.github.com/greghaynes/kobby"
-EGIT_REPO_URI="git://github.com/greghaynes/kobby.git"
+EGIT_REPO_URI="git://gitorious.org/kobby/mailine.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
