@@ -91,6 +91,7 @@ kde-base/kdeartwork-sounds:live
 kde-base/kdeartwork-styles:live
 kde-base/kdeartwork-wallpapers:live
 kde-base/kdeartwork-weatherwallpapers:live
+kde-base/attica:live
 kde-base/dolphin:live
 kde-base/drkonqi:live
 kde-base/kappfinder:live
