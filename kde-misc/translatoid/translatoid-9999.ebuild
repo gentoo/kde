@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="playground/plasma/applets"
+KMNAME="playground/base/plasma/applets"
 inherit kde4-base
 
 DESCRIPTION="Translator plasmoid using google translator"
