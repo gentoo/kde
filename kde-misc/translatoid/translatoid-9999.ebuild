@@ -17,6 +17,7 @@ IUSE="debug"
 
 RDEPEND="
 	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	dev-libs/qjson
 "
 
 S="${WORKDIR}/${PN}"
