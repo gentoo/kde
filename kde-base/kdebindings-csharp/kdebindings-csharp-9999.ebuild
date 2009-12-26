@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="smoke/"
 
-PATCHES=( "${FILESDIR}"/${PN}-build-fixes.patch )
+PATCHES=( "${FILESDIR}"/${P}-build-fixes.patch )
 
 pkg_setup() {
 	kde4-meta_pkg_setup
