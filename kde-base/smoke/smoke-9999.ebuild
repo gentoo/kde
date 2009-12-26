@@ -26,7 +26,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
-KMEXTRACTONLY="kalyptus/"
+KMEXTRA="generator/"
 
 #PATCHES=( "${FILESDIR}"/${PN}-phonon-fix.patch )
 
