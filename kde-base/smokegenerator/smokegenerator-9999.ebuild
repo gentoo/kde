@@ -13,3 +13,11 @@ KEYWORDS=""
 IUSE=""
 
 S="generator"
+
+src_install() {
+	insinto "${KDEDIR}"/bin
+	doins "${S}"_build/generator/bin/generator
+
+	insinto /usr/$(get_libdir)
+	doins "${S}"_build/generator/bin/*.so
+}
