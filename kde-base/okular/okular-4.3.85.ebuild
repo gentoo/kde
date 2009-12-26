@@ -48,3 +48,10 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+src_install() {
+	insinto "${KDEDIR}"/share/apps/cmake/modules
+	doins "${S}"/cmake/modules/FindOkular.cmake
+
+	kde4-meta_src_install
+}
