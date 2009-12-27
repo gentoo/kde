@@ -13,7 +13,7 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt-1"
 LICENSE="LGPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug doc examples"
+IUSE="debug examples"
 
 RDEPEND="
 	>=sys-auth/polkit-0.95
@@ -21,7 +21,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	kde-base/automoc
-	doc? ( app-doc/doxygen )
 "
 
 DOCS="AUTHORS README README.porting TODO"
@@ -36,20 +35,4 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-
-	if use doc; then
-		doxygen Doxyfile || die "doxygen failed"
-	fi
-}
-
-src_install() {
-	cmake-utils_src_install
-
-	if use doc; then
-		dohtml -r "${S}/html/" || die "dohtml failed"
-	fi
 }
