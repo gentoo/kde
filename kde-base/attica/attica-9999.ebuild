@@ -7,6 +7,6 @@ EAPI="2"
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
-DESCRIPTION="KDE bindings for attica"
+DESCRIPTION="Open Collaboration Services provider management"
 KEYWORDS=""
 IUSE="debug"
