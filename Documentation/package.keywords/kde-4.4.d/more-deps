@@ -3,7 +3,8 @@ app-arch/xz-utils
 =app-misc/hal-cups-utils-0.6*
 ~dev-db/virtuoso-odbc-5.0.12
 ~dev-db/virtuoso-server-5.0.12
+dev-libs/libattica
 =dev-python/pycups-1.9*
 >=net-libs/libssh-0.3.2
+>=sys-auth/polkit-0.95
 x11-misc/google-gadgets
-dev-libs/libattica

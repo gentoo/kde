@@ -458,6 +458,7 @@ kde-base/plasma-runtime:live
 kde-base/plasma-workspace:live
 kde-base/policykit-kde:live
 kde-base/powerdevil:live
+kde-base/qguiplatformplugin_kde:live
 kde-base/renamedlg-plugins:live
 kde-base/solid:live
 kde-base/solid-runtime:live
@@ -474,7 +475,7 @@ kde-base/smoke:live
 ~app-misc/strigi-9999
 ~kde-base/automoc-9999
 ~media-sound/phonon-9999
-~sys-auth/policykit-qt-9999
+~sys-auth/polkit-qt-9999
 
 # For kde-base/kdebase-kioslaves
 ~net-libs/libssh-9999

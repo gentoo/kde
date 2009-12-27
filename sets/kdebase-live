@@ -72,6 +72,7 @@ kde-base/plasma-runtime:live
 kde-base/plasma-workspace:live
 kde-base/policykit-kde:live
 kde-base/powerdevil:live
+kde-base/qguiplatformplugin_kde:live
 kde-base/renamedlg-plugins:live
 kde-base/solid:live
 kde-base/solid-runtime:live

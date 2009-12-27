@@ -54,6 +54,7 @@ RDEPEND="
 	$(add_kdebase_dep plasma-apps)
 	$(add_kdebase_dep plasma-workspace)
 	$(add_kdebase_dep powerdevil)
+	$(add_kdebase_dep qguiplatformplugin_kde)
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
 	policykit? ( $(add_kdebase_dep policykit-kde) )

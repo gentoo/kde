@@ -98,6 +98,7 @@
 ~kde-base/plasma-workspace-9999 **
 ~kde-base/policykit-kde-9999 **
 ~kde-base/powerdevil-9999 **
+~kde-base/qguiplatformplugin_kde-9999 **
 ~kde-base/renamedlg-plugins-9999 **
 ~kde-base/solid-9999 **
 ~kde-base/solid-runtime-9999 **
@@ -114,7 +115,7 @@
 ~app-misc/strigi-9999 **
 ~kde-base/automoc-9999 **
 ~media-sound/phonon-9999 **
-~sys-auth/policykit-qt-9999 **
+~sys-auth/polkit-qt-9999 **
 
 # For kde-base/kdebase-kioslaves
 ~net-libs/libssh-9999 **
@@ -301,4 +302,5 @@
 app-arch/xz-utils
 ~dev-db/virtuoso-odbc-5.0.12
 ~dev-db/virtuoso-server-5.0.12
+>=sys-auth/polkit-0.95
 x11-misc/google-gadgets
