@@ -15,9 +15,11 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+DEPEND="
 	dev-libs/qjson
+"
+RDEPEND="${DEPEND}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
 
 S="${WORKDIR}/${PN}"
