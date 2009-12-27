@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="+handbook kdeprefix semantic-desktop"
 
 RDEPEND="
+	$(add_kdebase_dep attica)
 	$(add_kdebase_dep drkonqi)
 	$(add_kdebase_dep kcmshell)
 	$(add_kdebase_dep kcontrol)
