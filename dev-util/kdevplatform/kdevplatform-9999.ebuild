@@ -44,7 +44,7 @@ src_prepare() {
 
 	# FindKDevPlatform.cmake is installed by kdelibs
 	sed -i \
-		-e '/^add_subdirectory(modules)/s/^/#DONOTINSTALL/' \
+		-e '/cmakeFiles/s/^/#DONOTINSTALL/' \
 		cmake/CMakeLists.txt || die
 }
 
