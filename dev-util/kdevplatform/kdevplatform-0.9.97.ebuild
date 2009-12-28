@@ -38,6 +38,15 @@ RDEPEND="${DEPEND}
 	mercurial? ( dev-util/mercurial )
 "
 
+src_prepare() {
+	kde4-base_src_prepare
+
+	# FindKDevPlatform.cmake is installed by kdelibs
+	sed -i \
+		-e '/^add_subdirectory(modules)/s/^/#DONOTINSTALL/' \
+		cmake/CMakeLists.txt || die
+}
+
 # Moved to playground for now
 # $(cmake-utils_use_build bazaar)
 # $(cmake-utils_use_build git)
