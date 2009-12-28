@@ -4,12 +4,17 @@
 
 EAPI="2"
 
-inherit kde4-base versionator
+KMNAME="extragear/sdk"
+inherit kde4-base
 
-KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
+if [[ ${PV} == *9999* ]]; then
+	KDEVELOP_PV="9999"
+else
+	KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
+fi
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kdevelop.org/"
-SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
@@ -19,7 +24,7 @@ SLOT="4"
 IUSE="cvs debug mercurial subversion"
 
 DEPEND="
-	>=dev-libs/boost-1.35.0
+	dev-libs/boost
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 # Moved to playground for now
@@ -27,6 +32,7 @@ DEPEND="
 # git? ( dev-util/git )
 # block - some plugins moved to kdevplatform from kdevelop
 RDEPEND="${DEPEND}
+	!<dev-util/kdevelop-${KDEVELOP_PV}
 	cvs? ( dev-util/cvs )
 	mercurial? ( dev-util/mercurial )
 "
@@ -43,10 +49,4 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
-}
-
-src_install() {
-	kde4-base_src_install
-
-	rm "${D}/${PREFIX}"/share/apps/cmake/modules/FindKDevPlatform.cmake
 }

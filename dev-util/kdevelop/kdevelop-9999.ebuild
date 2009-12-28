@@ -7,8 +7,15 @@ EAPI="2"
 KMNAME="extragear/sdk"
 inherit kde4-base
 
+if [[ ${PV} == *9999* ]]; then
+	KDEVPLATFORM_PV="9999"
+else
+	inherit versionator
+	KDEVPLATFORM_PV="$(($(get_major_version)-3)).$(get_after_major_version)"
+fi
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 HOMEPAGE="http://www.kdevelop.org/"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
@@ -16,7 +23,7 @@ SLOT="4"
 IUSE="+cmake +cxx debug +qmake qthelp"
 
 DEPEND="
-	>=dev-util/kdevplatform-9999
+	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=kde-base/libkworkspace-${KDE_MINIMAL}
 	qthelp? ( >=x11-libs/qt-assistant-4.4:4 )
