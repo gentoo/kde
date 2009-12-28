@@ -10,6 +10,7 @@ inherit kde4-base
 if [[ ${PV} == *9999* ]]; then
 	KDEVELOP_PV="9999"
 else
+	inherit versionator
 	KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
 fi
 DESCRIPTION="KDE development support libraries and apps"
