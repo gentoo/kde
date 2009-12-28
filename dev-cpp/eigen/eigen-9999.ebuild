@@ -21,6 +21,7 @@ DEPEND="
 		x11-libs/qt-gui:4
 		x11-libs/qt-opengl:4
 	)
+	doc? ( app-doc/doxygen )
 "
 RDEPEND="${DEPEND}"
 
