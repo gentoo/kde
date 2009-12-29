@@ -1,0 +1,19 @@
+Author: Dario Andres
+
+https://bugs.gentoo.org/show_bug.cgi?id=298806
+https://bugs.kde.org/show_bug.cgi?id=211016
+
+Index: libchoqok/mediamanager.cpp
+===================================================================
+--- libchoqok/mediamanager.cpp    (revision 1063057)
++++ libchoqok/mediamanager.cpp    (working copy)
+@@ -120,7 +120,8 @@
+         emit fetchError( remote, errMsg );
+     } else {
+         QPixmap p;
+-        if( p.loadFromData( baseJob->data() ) ) {
++        if( !baseJob->data().startsWith(QByteArray("<?xml version=\"")) &&
++            p.loadFromData( baseJob->data() ) ) {
+             d->cache.insert( remote, p );
+             emit imageFetched( remote, p );
+         } else {

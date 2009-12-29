@@ -15,3 +15,5 @@ LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
+
+PATCHES=( "${FILESDIR}"/${PN}-fix-mediamanager-sigsegv.patch )
