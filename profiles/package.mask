@@ -632,7 +632,6 @@ kde-base/kweather:live
 kde-base/ark:live
 kde-base/kcalc:live
 kde-base/kcharselect:live
-kde-base/kdessh:live
 kde-base/kdf:live
 kde-base/kgpg:live
 kde-base/ktimer:live
