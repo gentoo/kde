@@ -4,14 +4,8 @@
 
 EAPI="2"
 
-if [[ ${PV} = *9999* ]]; then
-	KMNAME="extragear/utils"
-	eclass="kde4-meta"
-else
-	eclass="kde4-base"
-	SRC_URI="mirror://sourceforge/kdiff3/${P}.tar.gz"
-fi
-inherit ${eclass}
+KMNAME="extragear/utils"
+inherit kde4-base
 
 DESCRIPTION="KDE-based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
@@ -19,7 +13,7 @@ HOMEPAGE="http://kdiff3.sourceforge.net/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug +handbook konqueror"
+IUSE="debug konqueror"
 
 DEPEND="
 	konqueror? ( >=kde-base/libkonq-${KDE_MINIMAL} )
@@ -34,5 +28,5 @@ src_configure() {
 		$(cmake-utils_use_with konqueror LibKonq)
 	)
 
-	${eclass}_src_configure
+	kde4-base_src_configure
 }

@@ -7,14 +7,7 @@ EAPI="2"
 KDE_LINGUAS="ar bg br cs cy da de el en_GB es et fr ga gl hi hu it ja ka lt nb
 nds nl pl pt pt_BR ro ru rw sv ta tg tr uk zh_CN"
 
-if [[ ${PV} = *9999* ]]; then
-	KMNAME="extragear/utils"
-	eclass="kde4-meta"
-else
-	eclass="kde4-base"
-	SRC_URI="mirror://sourceforge/kdiff3/${P}.tar.gz"
-fi
-inherit ${eclass}
+inherit kde4-base
 
 DESCRIPTION="KDE-based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
@@ -33,7 +26,7 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
-	${eclass}_src_prepare
+	kde4-base_src_prepare
 
 	# Append missing categories
 	echo "Categories=Qt;KDE;Development;" >> src/kdiff3.desktop
@@ -44,5 +37,5 @@ src_configure() {
 		$(cmake-utils_use_with konqueror LibKonq)
 	)
 
-	${eclass}_src_configure
+	kde4-base_src_configure
 }
