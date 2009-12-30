@@ -29,13 +29,6 @@ RDEPEND="${DEPEND}
 	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
 
-src_prepare() {
-	${eclass}_src_prepare
-
-	# Append missing categories
-	echo "Categories=Qt;KDE;Development;" >> src/kdiff3.desktop
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with konqueror LibKonq)
