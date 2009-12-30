@@ -4,8 +4,14 @@
 
 EAPI="2"
 
-KMNAME="extragear/utils"
-inherit kde4-base
+if [[ ${PV} = *9999* ]]; then
+	KMNAME="extragear/utils"
+	eclass="kde4-meta"
+else
+	eclass="kde4-base"
+	SRC_URI="mirror://sourceforge/kdiff3/${P}.tar.gz"
+fi
+inherit ${eclass}
 
 DESCRIPTION="KDE-based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
@@ -24,7 +30,7 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
-	kde4-base_src_prepare
+	${eclass}_src_prepare
 
 	# Append missing categories
 	echo "Categories=Qt;KDE;Development;" >> src/kdiff3.desktop
@@ -35,5 +41,5 @@ src_configure() {
 		$(cmake-utils_use_with konqueror LibKonq)
 	)
 
-	kde4-base_src_configure
+	${eclass}_src_configure
 }
