@@ -16,13 +16,15 @@ KEYWORDS=""
 SLOT="3"
 IUSE="debug doc examples"
 
-DEPEND="
+RDEPEND="
 	examples? (
 		x11-libs/qt-gui:4
 		x11-libs/qt-opengl:4
 	)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )
+"
 
 S="${WORKDIR}/eigen"
 

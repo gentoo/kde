@@ -27,7 +27,6 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=dev-libs/soprano-2.3.70[dbus,raptor,redland]
 	>=kde-base/automoc-0.9.87
 	media-libs/fontconfig
 	media-libs/freetype:2
@@ -68,8 +67,11 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	policykit? ( sys-auth/policykit-qt )
-	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.2 )
+	policykit? ( sys-auth/polkit-qt )
+	semantic-desktop? (
+		>=dev-libs/shared-desktop-ontologies-0.2
+		>=dev-libs/soprano-2.3.70[dbus,raptor,redland]
+	)
 	spell? (
 		app-dicts/aspell-en
 		app-text/aspell
@@ -197,6 +199,7 @@ src_configure() {
 	mycmakeargs+=(
 		-DWITH_HSPELL=OFF
 		-DKDE_DEFAULT_HOME=${HME}
+		-DKAUTH_BACKEND=POLKITQT-1
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
 		$(cmake-utils_use_has altivec PPC_ALTIVEC)
@@ -213,7 +216,8 @@ src_configure() {
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with policykit PolkitQt)
+		$(cmake-utils_use_with policykit PolkitQt-1)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)

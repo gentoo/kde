@@ -18,3 +18,11 @@ RDEPEND="${DEPEND}
 	!kde-misc/kdelirc
 	app-misc/lirc
 "
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	sed -e 's:${KDE4WORKSPACE_SOLIDCONTROL_LIBRARY}:solidcontrol:g' \
+		-i kdelirc/{kcmlirc,kdelirc,irkick}/CMakeLists.txt \
+		|| die "sed failed"
+}
