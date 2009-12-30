@@ -518,6 +518,6 @@ add_kdebase_dep() {
 
 	local use=${2:+,${2}}
 
-	echo " !kdeprefix? ( >=kde-base/${1}-${PV}[-kdeprefix${use}] )"
-	echo " kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[kdeprefix${use}] )"
+	echo " !kdeprefix? ( >=kde-base/${1}-${PV}[aqua=,-kdeprefix${use}] )"
+	echo " kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[aqua=,kdeprefix${use}] )"
 }
