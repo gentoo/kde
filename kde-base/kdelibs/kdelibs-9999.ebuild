@@ -22,7 +22,7 @@ RESTRICT="test"
 
 COMMONDEPEND="
 	app-crypt/qca:2
-	>=app-misc/strigi-0.6.3[dbus,qt4]
+	>=app-misc/strigi-0.6.3
 	dev-libs/libattica
 	dev-libs/libpcre
 	dev-libs/libxml2
