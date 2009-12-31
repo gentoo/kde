@@ -15,12 +15,15 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug examples"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=sys-auth/polkit-0.95
 	x11-libs/qt-gui[dbus]
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	kde-base/automoc
+"
+RDEPEND="${COMMON_DEPEND}
+	examples? ( !sys-auth/policykit-qt[examples] )
 "
 
 DOCS="AUTHORS README README.porting TODO"

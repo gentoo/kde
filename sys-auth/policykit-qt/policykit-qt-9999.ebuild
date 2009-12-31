@@ -15,12 +15,15 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug examples"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=sys-auth/policykit-0.8
 	>=x11-libs/qt-gui-4.4:4[dbus]
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	kde-base/automoc
+"
+RDEPEND="${COMMON_DEPEND}
+	examples? ( !sys-auth/polkit-qt[examples] )
 "
 
 src_configure() {
