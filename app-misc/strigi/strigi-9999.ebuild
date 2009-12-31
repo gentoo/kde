@@ -25,8 +25,7 @@ COMMONDEPEND="
 	clucene? ( >=dev-cpp/clucene-0.9.19[-debug] )
 	dbus? (
 		sys-apps/dbus
-		x11-libs/qt-dbus:4
-		x11-libs/qt-gui:4
+		qt4? ( x11-libs/qt-dbus:4 )
 	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
@@ -34,7 +33,6 @@ COMMONDEPEND="
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		x11-libs/qt-core:4
-		x11-libs/qt-dbus:4
 		x11-libs/qt-gui:4
 	)
 	!clucene? (
