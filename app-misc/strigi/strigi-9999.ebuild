@@ -22,7 +22,7 @@ COMMONDEPEND="
 	dev-libs/libxml2
 	virtual/libiconv
 	>=virtual/poppler-utils-0.8
-	clucene? ( >=dev-cpp/clucene-0.9.19[-debug] )
+	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
 		sys-apps/dbus
 		qt4? ( x11-libs/qt-dbus:4 )
@@ -37,7 +37,7 @@ COMMONDEPEND="
 	)
 	!clucene? (
 		!hyperestraier? (
-			>=dev-cpp/clucene-0.9.19[-debug]
+			>=dev-cpp/clucene-0.9.21[-debug]
 		)
 	)
 "
