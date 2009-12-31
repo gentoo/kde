@@ -13,7 +13,6 @@ IUSE="debug +handbook +gluon"
 
 DEPEND="
 	gluon? ( media-libs/gluon )
-	!gluon? ( >=x11-libs/qt-multimedia-${QT_MINIMAL}:4 )
 "
 RDEPEND="${DEPEND}"
 
