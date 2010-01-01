@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: media-gfx/digikam/digikam-1.0.0.ebuild, 2009/12/22 Ronis_BR $
 
