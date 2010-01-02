@@ -101,7 +101,7 @@ base_src_util() {
 
 				pushd "${S}" > /dev/null
 
-				if declare -p PATCHES | grep -q '^declare -a '; then
+				if declare -p PATCHES >/dev/null 2>&1 && declare -p PATCHES | grep -q '^declare -a '; then
 					for x in "${PATCHES[@]}"; do
 						debug-print "$FUNCNAME: autopatch: applying patch from ${x}"
 						[[ -f "${x}" ]] && epatch "${x}"
@@ -228,13 +228,13 @@ base_src_install() {
 				;;
 			docs)
 				debug-print-section docs
-				if declare -p DOCS | grep -q '^declare -a '; then
+				if declare -p DOCS >/dev/null 2>&1 && declare -p DOCS | grep -q '^declare -a '; then
 					for x in "${DOCS[@]}"; do
 						debug-print "$FUNCNAME: docs: creating document from ${x}"
 						dodoc -r "${x}" || die "dodoc failed"
 					done
 				fi
-				if declare -p HTML_DOCS | grep -q '^declare -a '; then
+				if declare -p HTML_DOCS >/dev/null 2>&1 && declare -p HTML_DOCS | grep -q '^declare -a '; then
 					for x in "${HTML_DOCS[@]}"; do
 						debug-print "$FUNCNAME: docs: creating html document from ${x}"
 						dohtml -r "${x}" || die "dohtml failed"
