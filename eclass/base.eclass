@@ -52,7 +52,7 @@ esac
 base_src_unpack() {
 	debug-print-function $FUNCNAME "$@"
 
-	if [ -z "$1" ]; then
+	if [[ -z "$1" ]]; then
 		case "${EAPI:-0}" in
 			2)
 				base_src_util unpack
@@ -86,13 +86,13 @@ base_src_util() {
 
 	local x oldval
 
-	while [ "$1" ]; do
+	while [[ "$1" ]]; do
 		case $1 in
 			unpack)
 				debug-print-section unpack
 
 				pushd "${WORKDIR}" > /dev/null
-				[ ! -z "$A" ] && unpack ${A}
+				[[ ! -z "${A}" ]] && unpack ${A}
 				popd > /dev/null
 				;;
 			autopatch)
@@ -101,7 +101,7 @@ base_src_util() {
 
 				pushd "${S}" > /dev/null
 
-				if [[ ${#PATCHES[@]} -gt 1 ]] ; then
+				if [[ $(declare -p PATCHES) == "declare -a "* ]]; then
 					for x in "${PATCHES[@]}"; do
 						debug-print "$FUNCNAME: autopatch: applying patch from ${x}"
 						[[ -f "${x}" ]] && epatch "${x}"
@@ -157,7 +157,7 @@ base_src_configure() {
 base_src_compile() {
 	debug-print-function $FUNCNAME "$@"
 
-	if [ -z "$1" ]; then
+	if [[ -z "$1" ]]; then
 		case "${EAPI:-0}" in
 			2)
 				base_src_work make
@@ -181,7 +181,7 @@ base_src_work() {
 
 	pushd "${S}" > /dev/null
 
-	while [ "$1" ]; do
+	while [[ "$1" ]]; do
 		case $1 in
 			configure)
 				debug-print-section configure
@@ -216,11 +216,11 @@ base_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
 	local x
-	[ -z "$1" ] && base_src_install all
+	[[ -z "$1" ]] && base_src_install all
 
 	pushd "${S}" > /dev/null
 
-	while [ "$1" ]; do
+	while [[ "$1" ]]; do
 		case $1 in
 			make)
 				debug-print-section make
@@ -228,13 +228,13 @@ base_src_install() {
 				;;
 			docs)
 				debug-print-section docs
-				if [[ ${#DOCS[@]} -gt 1 ]] ; then
+				if [[ $(declare -p DOCS) == "declare -a "* ]]; then
 					for x in "${DOCS[@]}"; do
 						debug-print "$FUNCNAME: docs: creating document from ${x}"
 						dodoc -r "${x}" || die "dodoc failed"
 					done
 				fi
-				if [[ ${#HTML_DOCS[@]} -gt 1 ]] ; then
+				if [[ $(declare -p HTML_DOCS) == "declare -a "* ]]; then
 					for x in "${HTML_DOCS[@]}"; do
 						debug-print "$FUNCNAME: docs: creating html document from ${x}"
 						dohtml -r "${x}" || die "dohtml failed"
