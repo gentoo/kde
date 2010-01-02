@@ -15,6 +15,7 @@ IUSE="debug +handbook"
 RESTRICT=test
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkpgp)
 "
