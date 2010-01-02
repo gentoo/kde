@@ -7,22 +7,21 @@ EAPI="2"
 if [[ ${PV} = *9999* ]]; then
 	KMNAME="kdepim"
 	KMMODULE="runtime"
-	eclass="kde4-meta"
+	inherit kde4-meta
 else
-	eclass="kde4-base"
+	inherit kde4-base
 fi
-inherit ${eclass}
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE="debug semantic-desktop"
+IUSE="debug"
 
 DEPEND="
 	app-misc/strigi
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
 	x11-misc/shared-mime-info
@@ -33,11 +32,4 @@ RDEPEND="${DEPEND}
 
 add_blocker akonadi '<4.3.85'
 
-[[ ${eclass} = "kde4-base" ]] && S="${WORKDIR}/${KMNAME}-${PV}"
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use semantic-desktop KDEPIM_BUILD_NEPOMUK_AGENTS)
-	)
-	${eclass}_src_configure
-}
+[[ ${PV} = *9999* ]] || S="${WORKDIR}/${KMNAME}-${PV}"
