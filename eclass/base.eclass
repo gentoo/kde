@@ -29,7 +29,8 @@ esac
 # Array containing documents passed to dodoc command.
 
 # @ECLASS-VARIABLE: HTML_DOCS
-# @DESCRIPTION: HTML_DOCS=( "${S}/doc/document.html" "${S}/doc/html_folder/" )
+# @USAGE: HTML_DOCS=( "${S}/doc/document.html" "${S}/doc/html_folder/" )
+# @DESCRIPTION:
 # Array containing documents passed to dohtml command.
 
 # @ECLASS-VARIABLE: PATCHES
