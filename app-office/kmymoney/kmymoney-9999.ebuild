@@ -20,7 +20,6 @@ COMMONDEPEND="
 	>=dev-libs/boost-1.33.1
 	dev-libs/libxml2:2
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
-	>=kde-base/libkleo-${KDE_MINIMAL}
 	media-libs/jpeg
 	media-libs/libpng
 	sys-libs/zlib
