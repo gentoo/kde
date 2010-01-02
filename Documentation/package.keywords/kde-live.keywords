@@ -301,5 +301,6 @@
 app-arch/xz-utils
 ~dev-db/virtuoso-odbc-5.0.12
 ~dev-db/virtuoso-server-5.0.12
+~dev-libs/shared-desktop-ontologies-0.2
 >=sys-auth/polkit-0.95
 x11-misc/google-gadgets
