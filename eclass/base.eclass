@@ -127,7 +127,7 @@ base_src_util() {
 					done
 				fi
 
-				popd > n/dev/null
+				popd > /dev/null
 				;;
 			all)
 				debug-print-section all
