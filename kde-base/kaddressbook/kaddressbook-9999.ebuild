@@ -12,19 +12,23 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep libkleo)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep kdepim-runtime)
+"
 
 KMEXTRA="
+	plugins/kaddressbook/
 	plugins/ktexteditor/
 "
-# xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
-	akonadi/
-	kmail/
+	libkleo/
 "
+
 KMLOADLIBS="libkdepim"
 
 pkg_postinst() {
