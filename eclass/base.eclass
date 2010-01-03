@@ -4,7 +4,7 @@
 
 # @ECLASS: base.eclass
 # @MAINTAINER:
-# Peter Alfredsen <loki_val@gentoo.org>
+# QA Team <qa@gentoo.org>
 #
 # Original author Dan Armak <danarmak@gentoo.org>
 # @BLURB: The base eclass defines some default functions and variables.
