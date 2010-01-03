@@ -109,9 +109,7 @@ base_src_configure() {
 	debug-print-function $FUNCNAME "$@"
 
 	# there is no pushd ${S} so we can override its place where to run
-	if [[ -x ${ECONF_SOURCE:-.}/configure ]]; then
-		econf || die "died running econf, $FUNCNAME:configure"
-	fi
+	[[ -x ${ECONF_SOURCE:-.}/configure ]] && econf
 }
 
 # @FUNCTION: base_src_compile
