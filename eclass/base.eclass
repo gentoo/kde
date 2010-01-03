@@ -14,14 +14,13 @@
 
 inherit eutils
 
+BASE_EXPF="src_unpack src_compile src_install"
 case "${EAPI:-0}" in
-	2|3)
-		EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install
-		;;
-	*)
-		EXPORT_FUNCTIONS src_unpack src_compile src_install
-		;;
+	2|3|4) BASE_EXPF="src_prepare src_configure" ;;
+	*) ;;
 esac
+
+EXPORT_FUNCTIONS ${BASE_EXPF}
 
 # @ECLASS-VARIABLE: DOCS
 # @USAGE: DOCS=( "${S}/doc/document.txt" "${S}/doc/doc_folder/" )
@@ -45,213 +44,134 @@ esac
 
 
 # @FUNCTION: base_src_unpack
-# @USAGE: [ unpack ] [ autopatch ] [ all ]
 # @DESCRIPTION:
-# The base src_unpack function, which is exported. If no argument is given,
-# "all" is assumed if EAPI!=2, "unpack" if EAPI=2.
+# The base src_unpack function, which is exported.
+# Calls also src_prepare with eapi older than 2.
 base_src_unpack() {
-	debug-print-function $FUNCNAME "$@"
-
-	if [[ -z "$1" ]]; then
-		case "${EAPI:-0}" in
-			2)
-				base_src_util unpack
-				;;
-			*)
-				base_src_util all
-				;;
-		esac
-	else
-		base_src_util $@
-	fi
-}
-
-# @FUNCTION: base_src_prepare
-# @DESCRIPTION:
-# The base src_prepare function, which is exported when EAPI=2. Performs
-# "base_src_util autopatch".
-base_src_prepare() {
-	debug-print-function $FUNCNAME "$@"
-
-	base_src_util autopatch
-}
-
-# @FUNCTION: base_src_util
-# @USAGE: [ unpack ] [ autopatch ] [ all ]
-# @DESCRIPTION:
-# The base_src_util function is the grunt function for base src_unpack
-# and base src_prepare.
-base_src_util() {
-	debug-print-function $FUNCNAME "$@"
-
-	local x oldval
-
-	while [[ "$1" ]]; do
-		case "$1" in
-			unpack)
-				debug-print-section unpack
-
-				pushd "${WORKDIR}" > /dev/null
-				[[ ! -z "${A}" ]] && unpack ${A}
-				popd > /dev/null
-				;;
-			autopatch)
-				debug-print-section autopatch
-				debug-print "$FUNCNAME: autopatch: PATCHES=$PATCHES"
-
-				pushd "${S}" > /dev/null
-
-				if declare -p PATCHES >/dev/null 2>&1 && declare -p PATCHES | grep -q '^declare -a '; then
-					for x in "${PATCHES[@]}"; do
-						debug-print "$FUNCNAME: autopatch: applying patch from ${x}"
-						[[ -f "${x}" ]] && epatch "${x}"
-						if [[ -d "${x}" ]]; then
-							# Use standardized names and locations with bulk patching
-							# Patch directory is ${WORKDIR}/patch
-							# See epatch() in eutils.eclass for more documentation
-							EPATCH_SUFFIX=${EPATCH_SUFFIX:=patch}
-
-							# in order to preserve normal EPATCH_SOURCE value that can
-							# be used other way than with base eclass store in local
-							# variable and restore later
-							oldval=${EPATCH_SOURCE}
-							EPATCH_SOURCE=${x}
-							epatch
-							EPATCH_SOURCE=${oldval}
-						fi
-					done
-				else
-					for x in ${PATCHES}; do
-						debug-print "$FUNCNAME: autopatch: patching from ${x}"
-						epatch "${x}"
-					done
-				fi
-
-				# Apply user patches
-				epatch_user
-
-				popd > /dev/null
-				;;
-			all)
-				debug-print-section all
-				base_src_util unpack autopatch
-				;;
-			esac
-
-		shift
-	done
-}
-
-# @FUNCTION: base_src_configure
-# @DESCRIPTION:
-# The base src_prepare function, which is exported when EAPI=2. Performs
-# "base_src_work configure".
-base_src_configure() {
-	debug-print-function $FUNCNAME "$@"
-
-	base_src_work configure
-}
-
-# @FUNCTION: base_src_compile
-# @USAGE: [ configure ] [ make ] [ all ]
-# @DESCRIPTION:
-# The base src_compile function, which is exported. If no argument is given,
-# "all" is assumed if EAPI!=2, "make" if EAPI=2.
-base_src_compile() {
-	debug-print-function $FUNCNAME "$@"
-
-	if [[ -z "$1" ]]; then
-		case "${EAPI:-0}" in
-			2)
-				base_src_work make
-				;;
-			*)
-				base_src_work all
-				;;
-		esac
-	else
-		base_src_work $@
-	fi
-}
-
-# @FUNCTION: base_src_work
-# @USAGE: [ configure ] [ make ] [ all ]
-# @DESCRIPTION:
-# The base_src_work function is the grunt function for base src_configure
-# and base src_compile.
-base_src_work() {
 	debug-print-function $FUNCNAME "$@"
 
 	pushd "${S}" > /dev/null
 
-	while [[ "$1" ]]; do
-		case "$1" in
-			configure)
-				debug-print-section configure
-				if [[ -x ${ECONF_SOURCE:-.}/configure ]]; then
-					econf || die "died running econf, $FUNCNAME:configure"
-				fi
-				;;
-			make)
-				debug-print-section make
-				if [[ -f Makefile || -f GNUmakefile || -f makefile ]]; then
-					emake || die "died running emake, $FUNCNAME:make"
-				fi
-				;;
-			all)
-				debug-print-section all
-				base_src_work configure make
-				;;
-		esac
+	[[ ! -z "${A}" ]] && unpack ${A}
 
-		shift
-	done
+	has src_prepare ${BASE_EXPF} || base_src_prepare
+
+	popd > /dev/null
+}
+
+# @FUNCTION: base_src_prepare
+# @DESCRIPTION:
+# The base src_prepare function, which is exported
+# EAPI is greater or equal to 2.
+base_src_prepare() {
+	debug-print-function $FUNCNAME "$@"
+	debug-print "$FUNCNAME: PATCHES=$PATCHES"
+
+	pushd "${S}" > /dev/null
+
+	if declare -p PATCHES >/dev/null 2>&1 && declare -p PATCHES | grep -q '^declare -a '; then
+		for x in "${PATCHES[@]}"; do
+			debug-print "$FUNCNAME: applying patch from ${x}"
+			[[ -f "${x}" ]] && epatch "${x}"
+			if [[ -d "${x}" ]]; then
+				# Use standardized names and locations with bulk patching
+				# Patch directory is ${WORKDIR}/patch
+				# See epatch() in eutils.eclass for more documentation
+				EPATCH_SUFFIX=${EPATCH_SUFFIX:=patch}
+
+				# in order to preserve normal EPATCH_SOURCE value that can
+				# be used other way than with base eclass store in local
+				# variable and restore later
+				oldval=${EPATCH_SOURCE}
+				EPATCH_SOURCE=${x}
+				epatch
+				EPATCH_SOURCE=${oldval}
+			fi
+		done
+	else
+		for x in ${PATCHES}; do
+			debug-print "$FUNCNAME: patching from ${x}"
+			epatch "${x}"
+		done
+	fi
+
+	# Apply user patches
+	debug-print "$FUNCNAME: applying user patches"
+	epatch_user
+
+	popd > /dev/null
+}
+
+# @FUNCTION: base_src_configure
+# @DESCRIPTION:
+# The base src_configure function, which is exported when
+# EAPI is greater or equal to 2. Runs basic econf.
+base_src_configure() {
+	debug-print-function $FUNCNAME "$@"
+
+	pushd "${S}" > /dev/null
+
+	if [[ -x ${ECONF_SOURCE:-.}/configure ]]; then
+		econf || die "died running econf, $FUNCNAME:configure"
+	fi
+
+	popd > /dev/null
+}
+
+# @FUNCTION: base_src_compile
+# @DESCRIPTION:
+# The base src_compile function, calls src_configure with
+# EAPI older than 2.
+base_src_compile() {
+	debug-print-function $FUNCNAME "$@"
+
+	pushd "${S}" > /dev/null
+
+	has src_configure ${BASE_EXPF} || base_src_configure
+
+	if [[ -f Makefile || -f GNUmakefile || -f makefile ]]; then
+		emake || die "died running emake, $FUNCNAME:make"
+	fi
 
 	popd > /dev/null
 }
 
 # @FUNCTION: base_src_install
-# @USAGE: [ make ] [ docs ] [ all ]
 # @DESCRIPTION:
-# The base src_install function, which is exported. If no argument is given,
-# "all" is assumed.
+# The base src_install function. Runs make install and
+# installs documents and html documents from DOCS and HTML_DOCS
+# arrays.
 base_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
 	local x
-	[[ -z "$1" ]] && base_src_install all
 
 	pushd "${S}" > /dev/null
 
-	while [[ "$1" ]]; do
-		case "$1" in
-			make)
-				debug-print-section make
-				emake DESTDIR="${D}" install || die "died running make install, $FUNCNAME:make"
-				;;
-			docs)
-				debug-print-section docs
-				if declare -p DOCS >/dev/null 2>&1 && declare -p DOCS | grep -q '^declare -a '; then
-					for x in "${DOCS[@]}"; do
-						debug-print "$FUNCNAME: docs: creating document from ${x}"
-						dodoc -r "${x}" || die "dodoc failed"
-					done
-				fi
-				if declare -p HTML_DOCS >/dev/null 2>&1 && declare -p HTML_DOCS | grep -q '^declare -a '; then
-					for x in "${HTML_DOCS[@]}"; do
-						debug-print "$FUNCNAME: docs: creating html document from ${x}"
-						dohtml -r "${x}" || die "dohtml failed"
-					done
-				fi
-				;;
-			all)
-				debug-print-section all
-				base_src_install make docs
-				;;
-		esac
+	# run the install
+	emake DESTDIR="${D}" install || die "died running make install, $FUNCNAME:make"
 
-		shift
-	done
+	base_src_install_docs
 
 	popd > /dev/null
+}
+
+# @FUNCTION: base_src_install_docs
+# @DESCRIPTION:
+# Actual function that install documentation from
+# DOCS and HTML_DOCS arrays.
+base_src_install_docs() {
+	# install docs and html_docs
+	if declare -p DOCS >/dev/null 2>&1 && declare -p DOCS | grep -q '^declare -a '; then
+		for x in "${DOCS[@]}"; do
+			debug-print "$FUNCNAME: docs: creating document from ${x}"
+			dodoc -r "${x}" || die "dodoc failed"
+		done
+	fi
+	if declare -p HTML_DOCS >/dev/null 2>&1 && declare -p HTML_DOCS | grep -q '^declare -a '; then
+		for x in "${HTML_DOCS[@]}"; do
+			debug-print "$FUNCNAME: docs: creating html document from ${x}"
+			dohtml -r "${x}" || die "dohtml failed"
+		done
+	fi
 }
