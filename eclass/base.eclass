@@ -87,7 +87,7 @@ base_src_util() {
 	local x oldval
 
 	while [[ "$1" ]]; do
-		case $1 in
+		case "$1" in
 			unpack)
 				debug-print-section unpack
 
@@ -182,7 +182,7 @@ base_src_work() {
 	pushd "${S}" > /dev/null
 
 	while [[ "$1" ]]; do
-		case $1 in
+		case "$1" in
 			configure)
 				debug-print-section configure
 				if [[ -x ${ECONF_SOURCE:-.}/configure ]]; then
@@ -221,7 +221,7 @@ base_src_install() {
 	pushd "${S}" > /dev/null
 
 	while [[ "$1" ]]; do
-		case $1 in
+		case "$1" in
 			make)
 				debug-print-section make
 				emake DESTDIR="${D}" install || die "died running make install, $FUNCNAME:make"
