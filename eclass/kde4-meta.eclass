@@ -24,11 +24,7 @@ case ${KMNAME} in
 		COMMONDEPEND+=" >=kde-base/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
-		if slot_is_at_least 4.4 ${SLOT}; then
-			COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs 'akonadi')"
-		else
-			COMMONDEPEND+="	$(add_kdebase_dep kdepimlibs)"
-		fi
+		! slot_is_at_least 4.4 ${SLOT} && COMMONDEPEND+=" $(add_kdebase_dep kdepimlibs)"
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
@@ -604,14 +600,16 @@ kde4-meta_change_cmakelists() {
 				-e '/find_package(Nepomuk/s/find/macro_optional_find/' \
 				-e '/macro_log_feature(Nepomuk_FOUND/s/ TRUE / FALSE /' \
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
-			case ${PN} in
-				kaddressbook|kalarm|kmailcvt|kontact|korganizer|korn)
-					sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
-						-e '/add_custom_target(kmail_xml /,/)/p' \
-						-i kmail/CMakeLists.txt || die "uncommenting xml failed"
-					_change_cmakelists_parent_dirs kmail
-				;;
-			esac
+			if ! slot_is_at_least 4.4; then
+				case ${PN} in
+					kalarm|kmailcvt|kontact|korganizer|korn)
+						sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
+							-e '/add_custom_target(kmail_xml /,/)/p' \
+							-i kmail/CMakeLists.txt || die "uncommenting xml failed"
+						_change_cmakelists_parent_dirs kmail
+					;;
+				esac
+			fi
 			;;
 		kdewebdev)
 			# Disable hardcoded checks
