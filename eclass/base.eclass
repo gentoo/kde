@@ -161,7 +161,6 @@ base_src_install() {
 # Actual function that install documentation from
 # DOCS and HTML_DOCS arrays.
 base_src_install_docs() {
-	# install docs and html_docs
 	if declare -p DOCS >/dev/null 2>&1 && declare -p DOCS | grep -q '^declare -a '; then
 		for x in "${DOCS[@]}"; do
 			debug-print "$FUNCNAME: docs: creating document from ${x}"
