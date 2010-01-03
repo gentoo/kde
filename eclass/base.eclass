@@ -127,6 +127,9 @@ base_src_util() {
 					done
 				fi
 
+				# Apply user patches
+				epatch_user
+
 				popd > /dev/null
 				;;
 			all)
