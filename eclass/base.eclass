@@ -50,10 +50,9 @@ EXPORT_FUNCTIONS ${BASE_EXPF}
 base_src_unpack() {
 	debug-print-function $FUNCNAME "$@"
 
-	pushd "${S}" > /dev/null
+	pushd "${WORKDIR}" > /dev/null
 
 	[[ ! -z "${A}" ]] && unpack ${A}
-
 	has src_prepare ${BASE_EXPF} || base_src_prepare
 
 	popd > /dev/null
@@ -109,13 +108,10 @@ base_src_prepare() {
 base_src_configure() {
 	debug-print-function $FUNCNAME "$@"
 
-	pushd "${S}" > /dev/null
-
+	# there is no pushd ${S} so we can override its place where to run
 	if [[ -x ${ECONF_SOURCE:-.}/configure ]]; then
 		econf || die "died running econf, $FUNCNAME:configure"
 	fi
-
-	popd > /dev/null
 }
 
 # @FUNCTION: base_src_compile
@@ -125,19 +121,16 @@ base_src_configure() {
 base_src_compile() {
 	debug-print-function $FUNCNAME "$@"
 
-	pushd "${S}" > /dev/null
-
 	has src_configure ${BASE_EXPF} || base_src_configure
-
 	base_src_make
-
-	popd > /dev/null
 }
 
 # @FUNCTION: base_src_make
 # @DESCRIPTION:
 # Actual function that runs emake command.
 base_src_make() {
+	debug-print-function $FUNCNAME "$@"
+
 	if [[ -f Makefile || -f GNUmakefile || -f makefile ]]; then
 		emake || die "died running emake, $FUNCNAME:make"
 	fi
@@ -151,16 +144,8 @@ base_src_make() {
 base_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
-	local x
-
-	pushd "${S}" > /dev/null
-
-	# run the install
 	emake DESTDIR="${D}" install || die "died running make install, $FUNCNAME:make"
-
 	base_src_install_docs
-
-	popd > /dev/null
 }
 
 # @FUNCTION: base_src_install_docs
@@ -168,6 +153,12 @@ base_src_install() {
 # Actual function that install documentation from
 # DOCS and HTML_DOCS arrays.
 base_src_install_docs() {
+	debug-print-function $FUNCNAME "$@"
+
+	local x
+
+	pushd "${S}" > /dev/null
+
 	if declare -p DOCS >/dev/null 2>&1 && declare -p DOCS | grep -q '^declare -a '; then
 		for x in "${DOCS[@]}"; do
 			debug-print "$FUNCNAME: docs: creating document from ${x}"
@@ -180,4 +171,6 @@ base_src_install_docs() {
 			dohtml -r "${x}" || die "dohtml failed"
 		done
 	fi
+
+	popd > /dev/null
 }
