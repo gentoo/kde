@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="kdebindings"
-KMMODULE="python/${PN}"
+KMMODULE="python/pykde4"
 OPENGL_REQUIRED="always"
 PYTHON_USE_WITH="threads"
 inherit python kde4-meta
