@@ -66,7 +66,7 @@ pkg_postinst() {
 	kde4-base_pkg_postinst
 
 	echo
-	elog "For extra functionality you shuold look at following packages:"
+	elog "For extra functionality you should look at following packages:"
 	elog "dev-util/valgrind          allows you to do memory leak check."
 	elog ">=sys-devel/gdb-7.0        (RECOMMENDED) required by debugger frontend."
 	echo
