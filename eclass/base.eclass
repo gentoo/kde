@@ -52,7 +52,7 @@ base_src_unpack() {
 
 	pushd "${WORKDIR}" > /dev/null
 
-	[[ ! -z "${A}" ]] && unpack ${A}
+	[[ -n "${A}" ]] && unpack ${A}
 	has src_prepare ${BASE_EXPF} || base_src_prepare
 
 	popd > /dev/null
