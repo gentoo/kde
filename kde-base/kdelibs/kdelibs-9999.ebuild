@@ -24,7 +24,7 @@ COMMONDEPEND="
 	app-crypt/qca:2
 	>=app-misc/strigi-0.6.3
 	dev-libs/libattica
-	dev-libs/libpcre
+	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87

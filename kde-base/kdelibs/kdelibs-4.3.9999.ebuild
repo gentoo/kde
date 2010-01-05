@@ -22,7 +22,7 @@ RESTRICT="test"
 
 COMMONDEPEND="
 	>=app-misc/strigi-0.6.3[dbus,qt4]
-	dev-libs/libpcre
+	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/automoc-0.9.87

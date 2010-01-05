@@ -5,6 +5,5 @@
   <use>
     <flag name="lzma">Enable LZMA/XZ archive support</flag>
     <flag name="opengl">Enable OpenGL support for Plasma (GLApplet)</flag>
-    <flag name="social-desktop">Enable LibAttica support</flag>
   </use>
 </pkgmetadata>
