@@ -24,6 +24,7 @@ kde-base/kdeartwork-sounds:4.4
 kde-base/kdeartwork-styles:4.4
 kde-base/kdeartwork-wallpapers:4.4
 kde-base/kdeartwork-weatherwallpapers:4.4
+kde-base/attica:4.4
 kde-base/dolphin:4.4
 kde-base/drkonqi:4.4
 kde-base/kappfinder:4.4
@@ -95,7 +96,7 @@ kde-base/phonon-kde:4.4
 kde-base/plasma-apps:4.4
 kde-base/plasma-runtime:4.4
 kde-base/plasma-workspace:4.4
-kde-base/policykit-kde:4.4
+kde-base/qguiplatformplugin_kde:4.4
 kde-base/powerdevil:4.4
 kde-base/renamedlg-plugins:4.4
 kde-base/solid:4.4
@@ -207,6 +208,7 @@ kde-base/krfb:4.4
 kde-base/lilo-config:4.4
 kde-base/kfloppy:4.4
 kde-base/kdelirc:4.4
+kde-base/policykit-kde:4.4
 kde-base/akonadi:4.4
 kde-base/akregator:4.4
 kde-base/blogilo:4.4
@@ -216,6 +218,7 @@ kde-base/kalarm:4.4
 kde-base/kdepim-icons:4.4
 kde-base/kdepim-kresources:4.4
 kde-base/kdepim-strigi-analyzer:4.4
+kde-base/kdepim-runtime:4.4
 kde-base/kdepim-wizards:4.4
 kde-base/kjots:4.4
 kde-base/kleopatra:4.4

@@ -165,7 +165,6 @@ kde-base/phonon-kde:live
 kde-base/plasma-apps:live
 kde-base/plasma-runtime:live
 kde-base/plasma-workspace:live
-kde-base/policykit-kde:live
 kde-base/powerdevil:live
 kde-base/qguiplatformplugin_kde:live
 kde-base/renamedlg-plugins:live
@@ -290,6 +289,7 @@ kde-base/krfb:live
 kde-base/lilo-config:live
 kde-base/kfloppy:live
 kde-base/kdelirc:live
+kde-base/policykit-kde:live
 kde-base/akonadi:live
 kde-base/akregator:live
 kde-base/blogilo:live

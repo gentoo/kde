@@ -70,7 +70,6 @@ kde-base/phonon-kde:live
 kde-base/plasma-apps:live
 kde-base/plasma-runtime:live
 kde-base/plasma-workspace:live
-kde-base/policykit-kde:live
 kde-base/powerdevil:live
 kde-base/qguiplatformplugin_kde:live
 kde-base/renamedlg-plugins:live

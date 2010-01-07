@@ -57,6 +57,6 @@ RDEPEND="
 	$(add_kdebase_dep qguiplatformplugin_kde)
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
-	policykit? ( $(add_kdebase_dep policykit-kde) )
+	policykit? ( >=sys-auth/polkit-kde-0.95.1 )
 	$(block_other_slots)
 "
