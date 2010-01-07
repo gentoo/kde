@@ -29,16 +29,18 @@ for release in 4.3 4.4; do
 done
 
 # ... and for completely unkeyworded packages, add "**"
-if [[ -d kde-4.3.d ]]; then
-	rm -rf kde-4.3.9999.d
-	mkdir -p kde-4.3.9999.d
-	echo -e "${HEADER}" > kde-4.3.9999.keywords
-	for file in kde-4.3.d/*; do
-		newfile=kde-4.3.9999.d/$(basename "${file}")
-		sed '/^kde-base\/.*:4.3$/{s/:4.3/-4.3.9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
-	done
-	cat kde-4.3.9999.d/* >> kde-4.3.9999.keywords
-fi
+for release in 4.3 4.4; do
+	if [[ -d "kde-${release}.d" ]]; then
+		rm -rf "kde-${release}.9999.d"
+		mkdir -p "kde-${release}.9999.d"
+		echo -e "${HEADER}" > "kde-${release}.9999.keywords"
+		for file in "kde-${release}.d"/*; do
+			newfile="kde-${release}.9999.d"/$(basename "${file}")
+			sed "/^kde-base\/.*:${release}$/{s/:${release}/-${release}.9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
+		done
+		cat "kde-${release}.9999.d"/* >> "kde-${release}.9999.keywords"
+	fi
+done
 
 if [[ -d kde-live.base ]]; then
 	rm -rf kde-live.d
