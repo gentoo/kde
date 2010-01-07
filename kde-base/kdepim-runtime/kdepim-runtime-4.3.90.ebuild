@@ -33,4 +33,4 @@ RDEPEND="${DEPEND}
 
 add_blocker akonadi '<4.3.85'
 
-[[ ${PV} = *9999* ]] || S="${WORKDIR}/${KMNAME}-${PV}"
+[[ ${PV} = *9999* ]] || S="${WORKDIR}/${PN}-${PV}"
