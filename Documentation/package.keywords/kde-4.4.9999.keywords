@@ -110,6 +110,7 @@
 ~kde-base/smoke-4.4.9999 **
 ~app-office/akonadi-server-1.2.90
 ~dev-libs/soprano-2.3.70
+~media-sound/phonon-4.3.80
 ~kde-base/blinken-4.4.9999 **
 ~kde-base/cantor-4.4.9999 **
 ~kde-base/kalgebra-4.4.9999 **
