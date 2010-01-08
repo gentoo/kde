@@ -22,7 +22,7 @@ DEPEND="
 	pdf? (
 		|| (
 			>=virtual/poppler-0.12.1[lcms]
-			virtual/poppler
+			<virtual/poppler-0.12.0
 		)
 		>=virtual/poppler-qt4-0.8.5
 	)
