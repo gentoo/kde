@@ -13,25 +13,25 @@ HOMEPAGE="http://techbase.kde.org/Projects/KMyMoney"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug hbci ical ofx"
+IUSE="debug hbci ical ofx quotes test"
 
 COMMONDEPEND="
 	app-crypt/gpgme
 	>=dev-libs/boost-1.33.1
-	dev-libs/libxml2:2
+	dev-libs/libxml2
+	dev-libs/libgpg-error
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
-	media-libs/jpeg
-	media-libs/libpng
-	sys-libs/zlib
 	hbci? (
-		>=net-libs/aqbanking-4.2.0[qt4]
-		>=sys-libs/gwenhywfar-3.10.0.0
+		>=net-libs/aqbanking-4.2[qt4]
+		>=sys-libs/gwenhywfar-3.10
 	)
 	ical? ( dev-libs/libical )
-	ofx? ( >=dev-libs/libofx-0.8.2 )
+	ofx? ( >=dev-libs/libofx-0.9 )
 "
-DEPEND="${COMMONDEPEND}"
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	quotes? ( dev-perl/Finance-Quote )"
+DEPEND="${COMMONDEPEND}
+	test? ( >=dev-util/cppunit-1.12 )"
 
 src_prepare() {
 	kde4-base_src_prepare
@@ -46,6 +46,7 @@ src_configure() {
 		$(cmake-utils_use_enable hbci KBANKING)
 		$(cmake-utils_use_enable ical LIBICAL)
 		$(cmake-utils_use_enable ofx LIBOFX)
+		$(cmake-utils_use test KDE4_BUILD_TESTS)
 	)
 	kde4-base_src_configure
 }
