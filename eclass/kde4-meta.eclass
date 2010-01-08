@@ -204,12 +204,12 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.3.8[05] | 4.3.9[0568])
+			4.[34].8[05] | 4.[34].9[0568])
 				# block for normally packed upstream unstable snapshots
 				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
-			4.3.[6-9]*)
+			4.[34].[6-9]*)
 				# Not passing --xz, as it doesn't work with stable tar
 				KMTARPARAMS+=" --use-compress-program=xz" # xz
 				postfix="xz"
@@ -334,14 +334,9 @@ kde4-meta_create_extractlists() {
 				KMEXTRACTONLY+="
 					libkdepim/"
 			fi
-			case ${SLOT} in
-				4.3|4.4|live)
-					KMEXTRACTONLY+="
-						kdepim-version.h
-						config-enterprise.h.cmake"
-					;;
-			esac
 			KMEXTRACTONLY+="
+				kdepim-version.h
+				config-enterprise.h.cmake
 				kleopatra/ConfigureChecks.cmake"
 			if has kontact ${IUSE//+} && use kontact; then
 				KMEXTRA+="
@@ -353,12 +348,8 @@ kde4-meta_create_extractlists() {
 			fi
 			;;
 		kdeutils)
-			case ${SLOT} in
-				4.3|4.4|live)
-					KMEXTRACTONLY+="
-						kdeutils-version.h"
-					;;
-			esac
+			KMEXTRACTONLY+="
+				kdeutils-version.h"
 			;;
 		koffice)
 			KMEXTRACTONLY+="
@@ -378,16 +369,6 @@ kde4-meta_create_extractlists() {
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
 	case ${KMNAME} in
-		kdepim)
-			# No need for unpack since 4.2.86
-			# Remove when 4.2 is wiped out from the tree
-			case ${PV} in
-				4.2.[0-4])
-					KMCOMPILEONLY+="
-						cmake/modules/"
-					;;
-			esac
-			;;
 		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)

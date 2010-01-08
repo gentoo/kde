@@ -41,7 +41,7 @@ fi
 # @DESCRIPTION:
 # The slots used by all KDE versions later than 4.0. The live KDE releases use
 # KDE_LIVE_SLOTS instead. Values should be ordered.
-KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" )
+KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" "4.5" )
 
 # @ECLASS-VARIABLE: KDE_LIVE_SLOTS
 # @DESCRIPTION:

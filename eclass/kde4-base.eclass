@@ -121,9 +121,9 @@ case ${KDEBASE} in
 		# Determine SLOT from PVs
 		case ${PV} in
 			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
 			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
 			4.3*) SLOT="4.3" ;;
-			4.2*) SLOT="4.2" ;;
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
@@ -386,10 +386,10 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.3.8[05] | 4.3.9[0568])
+						4.[34].8[05] | 4.[34].9[0568])
 							# block for normally packed unstable releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-						4.3.[6-9]*)
+						4.[34].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.xz"
 							DEPEND+=" app-arch/xz-utils"
