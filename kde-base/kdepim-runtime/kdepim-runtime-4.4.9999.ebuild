@@ -31,4 +31,4 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
 "
 
-add_blocker akonadi '<4.3.85'
+add_blocker akonadi '<4.3.90'
