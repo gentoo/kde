@@ -36,7 +36,6 @@ RDEPEND="${COMMONDEPEND}"
 src_prepare() {
 	kde4-base_src_prepare
 
-	epatch "${FILESDIR}/cmake-optional.patch"
 	# Fix multilib and RPATH
 	sed -e '/SET(CMAKE_INSTALL_RPATH/s/^/# DISABLED /g' \
 		-i CMakeLists.txt || die "failed to disable setting bad RPATH"
@@ -44,10 +43,9 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		-DUSE_QT_DESIGNER=ON
-		$(cmake-utils_use_enable hbci AQBANKING)
-		$(cmake-utils_use_enable ical)
-		$(cmake-utils_use_enable ofx)
+		$(cmake-utils_use_enable hbci KBANKING)
+		$(cmake-utils_use_enable ical LIBICAL)
+		$(cmake-utils_use_enable ofx LIBOFX)
 	)
 	kde4-base_src_configure
 }
