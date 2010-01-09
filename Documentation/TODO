@@ -39,7 +39,3 @@ SHINY:
 
 Periodic work:
  - each month check if there are new applications in live that need packaging
-
-KDE3
- - from september start slowly moving kde3 misc apps from main tree to the kde-sunset overlay
- - removal of kde3 should be finished with release of KDE 4.4

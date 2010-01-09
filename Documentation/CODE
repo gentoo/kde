@@ -172,19 +172,5 @@ PATCHES=(
 )
 
 
-
-
-
-KDE 3 rules
-
- - use kde-crazy overlay for your KDE3 experimental/testing work
-
- - do what ever you want with one condition, make sure it really compiles/run
-
- - feel free to commit patches without kde team ack if the above condition is checked
-
- - all kde3 apps should have SLOT="3.5". Feel free to fix packages that don't follow this rule and don't
-   forget to add correct blockers
-
 # NOT FOLLOWING THESE RULES WILL BE PUNISHED!
-# no cookies for week!
+# No cookies for week!
