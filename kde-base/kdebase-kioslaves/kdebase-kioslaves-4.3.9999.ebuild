@@ -22,7 +22,7 @@ DEPEND="
 	openexr? ( media-libs/openexr )
 	samba? (
 		|| (
-			net-fs/samba
+			=net-fs/samba-3.0*
 			>=net-fs/samba-libs-3.4[smbclient]
 		)
 	)
