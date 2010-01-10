@@ -1,7 +1,9 @@
-#!/bin/bash
-PWD=`pwd`
-if [[ ${PWD/*\//} == Documentation ]]; then
-	rsync -av --delete rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache
+#!/bin/sh
+
+if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
+	echo "Syncing KDE overlay metadata ..."
+	exec rsync --quiet --recursive --times --compress --delete-delay rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache/
 else
-	echo "this script is meant to be run from within Documentation/";
+	echo "ERROR: This script is meant to be run from within Documentation/ !"
+	exit 255
 fi
