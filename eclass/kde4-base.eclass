@@ -704,11 +704,12 @@ kde4-base_pkg_postinst() {
 		ewarn "take responsibilities for dead kittens."
 		echo
 	fi
-	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && ! has_version 'kde-base/kdebase-startkde'; then
+	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && ! has_version 'kde-base/kdebase-runtime-meta' && ! has_version 'kde-base/kdebase-startkde'; then
 		# warn about not supported approach
 		if [[ ${KDE_REQUIRED} == always ]] || ( [[ ${KDE_REQUIRED} == optional ]] && use kde ); then
 			echo
-			ewarn "WARNING! Your system configuration does not contain \"kde-base/kdebase-startkde\""
+			ewarn "WARNING! Your system configuration contains neither \"kde-base/kdebase-runtime-meta\""
+			ewarn "nor \"kde-base/kdebase-startkde\". You need one of above."
 			ewarn "With this setting you are unsupported by KDE team."
 			ewarn "All missing features you report for misc packages will be probably ignored or closed as INVALID."
 		fi
