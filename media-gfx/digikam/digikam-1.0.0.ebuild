@@ -47,12 +47,7 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	# Patch to unbundled libpgf.
-	epatch "${FILESDIR}/libpgf-unbundled-r0.patch"
-
-	kde4-base_src_prepare
-}
+PATCHES=("${FILESDIR}/libpgf-unbundled-r0.patch")
 
 src_configure() {
 	local backend
