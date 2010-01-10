@@ -22,6 +22,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=("${FILESDIR}/gwenview-4.3.90-no-semantic-desktop.patch")
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Soprano)
