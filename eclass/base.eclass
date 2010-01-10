@@ -119,7 +119,7 @@ base_src_compile() {
 	debug-print-function $FUNCNAME "$@"
 
 	has src_configure ${BASE_EXPF} || base_src_configure
-	base_src_make
+	base_src_make $@
 }
 
 # @FUNCTION: base_src_make
@@ -129,7 +129,7 @@ base_src_make() {
 	debug-print-function $FUNCNAME "$@"
 
 	if [[ -f Makefile || -f GNUmakefile || -f makefile ]]; then
-		emake || die "died running emake, $FUNCNAME:make"
+		emake $@ || die "died running emake, $FUNCNAME:make"
 	fi
 }
 
@@ -141,7 +141,7 @@ base_src_make() {
 base_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
-	emake DESTDIR="${D}" install || die "died running make install, $FUNCNAME:make"
+	emake DESTDIR="${D}" $@ install || die "died running make install, $FUNCNAME:make"
 	base_src_install_docs
 }
 
