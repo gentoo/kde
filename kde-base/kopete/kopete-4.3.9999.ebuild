@@ -75,7 +75,7 @@ COMMONDEPEND="
 		net-dns/libidn
 	)
 	meanwhile? ( net-libs/meanwhile )
-	msn? ( net-libs/libmsn )
+	msn? ( >=net-libs/libmsn-4.0 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
