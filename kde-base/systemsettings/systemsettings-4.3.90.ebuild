@@ -37,6 +37,8 @@ RDEPEND="${COMMONDEPEND}
 	x11-misc/xkeyboard-config
 "
 
+add_blocker kcontrol '<4.3.90'
+
 KMEXTRA="
 	kcontrol/
 "
