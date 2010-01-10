@@ -102,9 +102,6 @@ RDEPEND="${COMMONDEPEND}
 		>=x11-misc/xdg-utils-1.0.2-r3
 	)
 "
-PDEPEND="
-	$(add_kdebase_dep kdebase-runtime-meta 'handbook?,semantic-desktop?')
-"
 
 # Blockers added due to packages from old versions, removed in the meanwhile
 # as well as for file collisions
