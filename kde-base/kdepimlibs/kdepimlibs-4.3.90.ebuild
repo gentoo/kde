@@ -29,7 +29,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # libakonadi-kcal moved here from akonadi in 4.3.86
-add_blocker akonadi 0 '<4.3.86:4.4'
+add_blocker akonadi '<4.3.86'
 # @since 4.3 - libkholidays is in kdepimlibs now
 add_blocker libkholidays
 # @since 4.4 - kontactinterfaces is in kdepimlibs now
