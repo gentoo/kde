@@ -464,9 +464,9 @@ _change_cmakelists_parent_dirs() {
 	done
 }
 
-# FIXME: add description
 # @FUNCTION: kde4-meta_change_cmakelists
 # @DESCRIPTION:
+# Adjust CMakeLists.txt to comply to our splitting.
 kde4-meta_change_cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 
