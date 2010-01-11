@@ -18,8 +18,8 @@ IUSE="akonadi debug examples semantic-desktop"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
-	aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.5[dbus,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.7_pre[dbus,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.7_pre[dbus,sql,svg,webkit,X] )
 "
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${DEPEND}
