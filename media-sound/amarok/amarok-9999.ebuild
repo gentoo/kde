@@ -58,7 +58,7 @@ DEPEND="
 		net-misc/curl
 		x11-libs/qt-core[glib]
 	)
-	mtp? ( >=media-libs/libmtp-0.3.0 )
+	mtp? ( >=media-libs/libmtp-1.0.0 )
 "
 RDEPEND="${DEPEND}
 	>=kde-base/phonon-kde-${KDE_MINIMAL}
