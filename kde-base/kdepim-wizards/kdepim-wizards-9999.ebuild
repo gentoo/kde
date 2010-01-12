@@ -13,7 +13,7 @@ IUSE="debug"
 KEYWORDS=""
 
 DEPEND="
-	app-crypt/gpgme:1
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-kresources)
 	$(add_kdebase_dep libkdepim)
 "
@@ -34,6 +34,7 @@ src_prepare() {
 	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabc_groupwiseprefs,kcal_groupwiseprefsbase}.h \
 		kresources/groupwise/ \
 		|| die "Failed to link extra_headers."
+	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
 
 	kde4-meta_src_prepare
 }
