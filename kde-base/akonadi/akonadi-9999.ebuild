@@ -25,6 +25,10 @@ KMEXTRA="
 	akonadiconsole/
 "
 
+KMEXTRACTONLY="
+	messageviewer/
+"
+
 # @since 4.3 - blocks kdemaildir - no longer provided (it's in akonadi now)
 add_blocker kdemaildir
 add_blocker kdepim-kresources '<4.2.95'
