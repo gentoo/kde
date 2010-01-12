@@ -12,7 +12,7 @@ SRC_URI="http://www.vandenoever.info/software/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm ~hppa ia64 ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
 
 COMMONDEPEND="
