@@ -30,6 +30,7 @@ add_blocker mimelib
 
 KMEXTRACTONLY="
 	korganizer/org.kde.Korganizer.Calendar.xml
+	kresources/
 	libkleo/
 	libkpgp/
 "
