@@ -13,27 +13,16 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep korganizer)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kaddressbook)
-	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep kontact)
 "
 
 KMEXTRACTONLY="
-	kaddressbook
 	korganizer
 "
 KMEXTRA="
 	kontact/plugins/specialdates/
 "
-
-src_prepare() {
-	# Fix target_link_libraries for now
-	sed -i -e's/korganizer_calendar kaddressbookprivate)/korganizer_calendar)/' \
-		kontact/plugins/specialdates/CMakeLists.txt \
-		|| die "Failed to remove kaddressbookprivate from link"
-
-	kde4-meta_src_prepare
-}
