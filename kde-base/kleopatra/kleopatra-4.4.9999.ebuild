@@ -14,6 +14,8 @@ IUSE="debug +handbook"
 DEPEND="
 	app-crypt/gpgme
 	dev-libs/libassuan
+	dev-libs/libgpg-error
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 "
