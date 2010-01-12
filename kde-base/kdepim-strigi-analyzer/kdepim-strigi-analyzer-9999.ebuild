@@ -11,3 +11,9 @@ inherit kde4-meta
 DESCRIPTION="kdepim: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="
+	app-misc/strigi
+	$(add_kdebase_dep kdepimlibs)
+"
+RDEPEND="${DEPEND}"
