@@ -31,7 +31,6 @@ RDEPEND="
 	$(add_kdebase_dep knotes)
 	$(add_kdebase_dep konsolekalendar)
 	$(add_kdebase_dep kontact)
-	$(add_kdebase_dep kontact-specialdates)
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep ktimetracker)
 	$(add_kdebase_dep libkdepim)

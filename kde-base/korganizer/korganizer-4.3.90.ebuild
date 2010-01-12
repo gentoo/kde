@@ -12,11 +12,14 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
+
+# Moved after 4.3.90
+add_blocker kontact-specialdates
 
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"
@@ -32,7 +35,10 @@ KMEXTRACTONLY="
 
 src_unpack() {
 	if use kontact; then
-		KMEXTRA="${KMEXTRA} kontact/plugins/planner"
+		KMEXTRA="${KMEXTRA}
+			kontact/plugins/planner/
+			kontact/plugins/specialdates/
+		"
 	fi
 
 	kde4-meta_src_unpack

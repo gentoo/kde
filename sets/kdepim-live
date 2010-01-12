@@ -16,7 +16,6 @@ kde-base/knode:live
 kde-base/knotes:live
 kde-base/konsolekalendar:live
 kde-base/kontact:live
-kde-base/kontact-specialdates:live
 kde-base/korganizer:live
 kde-base/ktimetracker:live
 kde-base/libkdepim:live
