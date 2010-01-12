@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
 "
 DEPEND="${RDEPEND}

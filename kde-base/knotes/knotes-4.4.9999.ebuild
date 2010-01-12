@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}"
