@@ -10,5 +10,3 @@ inherit kde4-meta
 DESCRIPTION="KDE pgp abstraction library"
 KEYWORDS=""
 IUSE="debug"
-
-PATCHES=( "${FILESDIR}/${PN}-4.1.72-fix.patch" )
