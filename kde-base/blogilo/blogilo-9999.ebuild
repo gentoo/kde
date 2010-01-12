@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="KDE Blogging Client"
 KEYWORDS=""
 IUSE="debug +handbook"
+
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+"
+RDEPEND="${DEPEND}"
