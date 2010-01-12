@@ -13,6 +13,7 @@ IUSE="debug +handbook"
 
 RDEPEND="
 	$(add_kdebase_dep kdepim-kresources)
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 	x11-libs/libXScrnSaver
 "
