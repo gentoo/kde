@@ -12,6 +12,6 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"
