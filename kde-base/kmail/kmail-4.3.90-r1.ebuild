@@ -17,30 +17,30 @@ DEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep libksieve)
-	$(add_kdebase_dep mimelib)
 	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kmailcvt)
-"
+RDEPEND="${DEPEND}"
 
+add_blocker kmailcvt
+add_blocker libksieve
 add_blocker messagecore
 add_blocker messagelist
 add_blocker messageviewer
+add_blocker mimelib
 
 KMEXTRACTONLY="
 	korganizer/org.kde.Korganizer.Calendar.xml
-	libkleo
-	libkpgp
-	libksieve
-	mimelib
+	libkleo/
+	libkpgp/
 "
 KMEXTRA="
+	kmailcvt/
 	ksendemail/
+	libksieve/
 	messagecore/
 	messagelist/
 	messageviewer/
+	mimelib/
 	plugins/kmail/
 "
 KMLOADLIBS="libkdepim"

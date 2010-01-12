@@ -12,7 +12,6 @@ kde-base/kdepim-runtime:live
 kde-base/kjots:live
 kde-base/kleopatra:live
 kde-base/kmail:live
-kde-base/kmailcvt:live
 kde-base/knode:live
 kde-base/knotes:live
 kde-base/konsolekalendar:live
@@ -23,5 +22,3 @@ kde-base/ktimetracker:live
 kde-base/libkdepim:live
 kde-base/libkleo:live
 kde-base/libkpgp:live
-kde-base/libksieve:live
-kde-base/mimelib:live

@@ -27,7 +27,6 @@ RDEPEND="
 	$(add_kdebase_dep kjots)
 	$(add_kdebase_dep kleopatra)
 	$(add_kdebase_dep kmail)
-	$(add_kdebase_dep kmailcvt)
 	$(add_kdebase_dep knode)
 	$(add_kdebase_dep knotes)
 	$(add_kdebase_dep konsolekalendar)
@@ -38,8 +37,6 @@ RDEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep libksieve)
-	$(add_kdebase_dep mimelib)
 	semantic-desktop? ( $(add_kdebase_dep akonadi) )
 	$(block_other_slots)
 "

@@ -12,7 +12,6 @@
 ~kde-base/kjots-9999 **
 ~kde-base/kleopatra-9999 **
 ~kde-base/kmail-9999 **
-~kde-base/kmailcvt-9999 **
 ~kde-base/knode-9999 **
 ~kde-base/knotes-9999 **
 ~kde-base/konsolekalendar-9999 **
@@ -23,5 +22,3 @@
 ~kde-base/libkdepim-9999 **
 ~kde-base/libkleo-9999 **
 ~kde-base/libkpgp-9999 **
-~kde-base/libksieve-9999 **
-~kde-base/mimelib-9999 **
