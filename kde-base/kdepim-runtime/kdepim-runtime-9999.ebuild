@@ -18,6 +18,7 @@ IUSE="debug"
 
 DEPEND="
 	app-misc/strigi
+	>=app-office/akonadi-server-1.2.1
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
@@ -27,7 +28,6 @@ DEPEND="
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
-	>=app-office/akonadi-server-1.2.1
 	$(add_kdebase_dep kdepim-icons)
 "
 
