@@ -15,7 +15,7 @@ IUSE="debug"
 add_blocker kode
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi')
 "
 RDEPEND="${DEPEND}"
 
