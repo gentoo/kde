@@ -12,6 +12,11 @@ DESCRIPTION="A command line client for accessing the KDE addressbook"
 KEYWORDS=""
 IUSE="debug +handbook"
 
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+"
+RDEPEND="${DEPEND}"
+
 src_install() {
 	kde4-meta_src_install
 
