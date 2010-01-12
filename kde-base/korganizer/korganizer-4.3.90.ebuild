@@ -12,12 +12,11 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
-	app-crypt/gpgme
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
+	sys-libs/zlib
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kaddressbook)
-"
+RDEPEND="${DEPEND}"
 
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"
@@ -40,13 +39,9 @@ src_unpack() {
 }
 
 src_prepare() {
-	if use kontact; then
-		# Fix target_link_libraries for now
-		sed -i -e's/kaddressbookprivate//' \
-			kontact/plugins/planner/CMakeLists.txt \
-			|| die "Failed to remove kaddressbookprivate from link"
-	fi
+	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
 
+	# Needs to be done this way
 	kde4-meta_src_prepare
 }
 
