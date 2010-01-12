@@ -11,3 +11,6 @@
 
 # For kde-base/granatier
 ~media-libs/gluon-9999
+
+# For kde-base/kopete
+>=net-libs/libmsn-4.0

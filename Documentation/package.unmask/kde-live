@@ -190,6 +190,9 @@ kde-base/smoke:live
 
 # For kde-base/granatier
 ~media-libs/gluon-9999
+
+# For kde-base/kopete
+>=net-libs/libmsn-4.0
 kde-base/blinken:live
 kde-base/cantor:live
 kde-base/kalgebra:live
