@@ -12,12 +12,10 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	app-crypt/gpgme
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 "
-RDEPEND="${DEPEND}
-	app-crypt/gnupg
-"
+RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
 KMSAVELIBS="true"
@@ -49,4 +47,11 @@ src_unpack() {
 	fi
 
 	kde4-meta_src_unpack
+}
+
+src_prepare() {
+	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
+
+	# Need to patch it this way
+	kde4-meta_src_prepare
 }
