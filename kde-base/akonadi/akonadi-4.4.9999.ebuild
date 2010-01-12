@@ -12,11 +12,10 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	dev-libs/boost
-	dev-libs/libxml2
-	dev-libs/libxslt
+	>=app-office/akonadi-server-1.2.1
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep libkdepim)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
