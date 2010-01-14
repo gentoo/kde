@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS=""
-IUSE="+bzip2 exif debug lzma +handbook openexr samba sftp"
+IUSE="+bzip2 exif debug lzma +handbook openexr samba +sftp"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"
@@ -32,7 +32,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdelibs 'bzip2?,lzma?')
 	$(add_kdebase_dep kdialog)
-	virtual/ssh
 	!aqua? ( !kernel_SunOS? ( virtual/eject ) )
 "
 
