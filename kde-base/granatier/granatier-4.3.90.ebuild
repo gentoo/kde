@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Bomberman game"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +handbook +gluon"
+IUSE="debug +handbook gluon"
 
 DEPEND="
 	gluon? ( media-libs/gluon )
