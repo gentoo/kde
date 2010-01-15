@@ -11,6 +11,6 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="debug xinerama"
+IUSE="debug"
 
 KMSAVELIBS="true"

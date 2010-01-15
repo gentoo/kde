@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
-IUSE="debug xinerama"
+IUSE="debug"
 
 add_blocker plasma-workspace 4.1.50
 
