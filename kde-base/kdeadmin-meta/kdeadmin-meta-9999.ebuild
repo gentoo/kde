@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="cups kdeprefix lilo"
+IUSE="aqua cups kdeprefix lilo"
 
 RDEPEND="
 	$(add_kdebase_dep kcron)

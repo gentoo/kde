@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.3"
 KEYWORDS=""
-IUSE="kdeprefix"
+IUSE="aqua kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep kdeartwork-colorschemes)

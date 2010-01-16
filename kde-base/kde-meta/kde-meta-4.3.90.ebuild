@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="accessibility kdeprefix nls"
+IUSE="accessibility aqua kdeprefix nls"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="

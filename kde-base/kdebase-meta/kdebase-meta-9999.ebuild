@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix policykit"
+IUSE="aqua kdeprefix policykit"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)

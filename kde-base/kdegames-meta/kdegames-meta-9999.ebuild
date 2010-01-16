@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix opengl"
+IUSE="aqua kdeprefix opengl"
 
 RDEPEND="
 	$(add_kdebase_dep bomber)

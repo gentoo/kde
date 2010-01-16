@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS=""
-IUSE="kdeprefix"
+IUSE="aqua kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep gwenview)

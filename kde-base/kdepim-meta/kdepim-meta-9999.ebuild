@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="kdeprefix semantic-desktop"
+IUSE="aqua kdeprefix semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep akregator)

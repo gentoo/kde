@@ -11,10 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-# FIXME:
-# Add this back when adding kmtrace
-# elibc_glibc
-IUSE="kdeprefix"
+IUSE="aqua kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep kfilereplace)
