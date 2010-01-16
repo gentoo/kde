@@ -13,7 +13,7 @@ HOMEPAGE="http://kde.org"
 
 KEYWORDS=""
 LICENSE="as-is"
-IUSE=""
+IUSE="aqua"
 
 add_blocker kdelibs 4.2.2-r1 '<3.5.10-r3:3.5' 4.2.70:4.3
 

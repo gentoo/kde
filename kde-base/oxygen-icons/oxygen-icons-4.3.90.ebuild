@@ -18,7 +18,7 @@ HOMEPAGE="http://www.oxygen-icons.org/"
 
 LICENSE="LGPL-3"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE=""
+IUSE="aqua"
 
 # Block conflicting packages
 add_blocker kdebase-data '<4.2.67'
