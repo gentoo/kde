@@ -1,0 +1,352 @@
+Desc:	Fix the QuickTime7 plugin for MacOS. Probably needs 10.6.
+Author:	Heiko Przybyl <zuxez@cs.tu-berlin.de>
+--- phonon-4.4_pre20090520/qt7/backendinfo.mm.orig	2009-10-10 17:54:22 +0200
++++ phonon-4.4_pre20090520/qt7/backendinfo.mm	2009-10-10 17:52:13 +0200
+@@ -22,6 +22,7 @@
+ #include <AudioUnit/AudioUnit.h>
+ #include <CoreServices/CoreServices.h>
+ 
++#include <QtGui/qmacdefines_mac.h>
+ #import <QTKit/QTMovie.h>
+ 
+ #ifdef QUICKTIME_C_API_AVAILABLE
+--- phonon-4.4_pre20090520/qt7/quicktimevideoplayer.h.orig	2009-10-10 19:42:17 +0200
++++ phonon-4.4_pre20090520/qt7/quicktimevideoplayer.h	2009-10-10 20:25:49 +0200
+@@ -20,6 +20,7 @@
+ 
+ #include "backendheader.h"
+ 
++#include <QtGui/qmacdefines_mac.h>
+ #import <QTKit/QTDataReference.h>
+ #import <QTKit/QTMovie.h>
+ 
+--- phonon-4.4_pre20090520/qt7/CMakeLists.txt.orig	2009-10-10 22:09:10 +0200
++++ phonon-4.4_pre20090520/qt7/CMakeLists.txt	2009-10-10 22:09:19 +0200
+@@ -43,6 +43,7 @@ if (BUILD_PHONON_QT7)
+        )
+ 
+    automoc4_add_library(phonon_qt7 MODULE ${phonon_qt7_SRCS})
++   set_target_properties(phonon_qt7 PROPERTIES PREFIX "")
+    target_link_libraries(phonon_qt7
+        ${QT_QTGUI_LIBRARY} ${QT_QTOPENGL_LIBRARY}
+        ${PHONON_LIBS}
+@@ -46,7 +46,6 @@ if (BUILD_PHONON_QT7)
+    target_link_libraries(phonon_qt7
+        ${QT_QTGUI_LIBRARY} ${QT_QTOPENGL_LIBRARY}
+        ${PHONON_LIBS}
+-       "-framework QuickTime"
+        "-framework AudioUnit"
+        "-framework AudioToolbox"
+        "-framework CoreAudio"
+@@ -53,6 +54,6 @@ if (BUILD_PHONON_QT7)
+        "-framework QuartzCore"
+        "-framework QTKit"
+        )
+-    install(TARGETS phonon_qt7 DESTINATION ${PLUGIN_INSTALL_DIR})
++    install(TARGETS phonon_qt7 DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/phonon_backend)
+ 
+ endif (BUILD_PHONON_QT7)
+--- phonon-4.4_pre20090520/qt7/audioeffects.h.orig	2009-10-10 20:42:45 +0200
++++ phonon-4.4_pre20090520/qt7/audioeffects.h	2009-10-10 20:42:54 +0200
+@@ -37,7 +37,7 @@ namespace QT7
+             AudioEffectAudioNode(int effectType);
+             int m_effectType;
+ 
+-            ComponentDescription getAudioNodeDescription() const;
++            AudioComponentDescription getAudioNodeDescription() const;
+             void initializeAudioUnit();
+ 
+             QVariant parameterValue(const Phonon::EffectParameter &value) const;
+--- phonon-4.4_pre20090520/qt7/audioeffects.mm.orig	2009-10-10 20:42:41 +0200
++++ phonon-4.4_pre20090520/qt7/audioeffects.mm	2009-10-10 21:52:44 +0200
+@@ -29,9 +29,9 @@ AudioEffectAudioNode::AudioEffectAudioNo
+ {
+ }
+ 
+-ComponentDescription AudioEffectAudioNode::getAudioNodeDescription() const
++AudioComponentDescription AudioEffectAudioNode::getAudioNodeDescription() const
+ {
+-	ComponentDescription d;
++	AudioComponentDescription d;
+ 	d.componentType = kAudioUnitType_Effect;
+ 	d.componentSubType = m_effectType;
+ 	d.componentManufacturer = kAudioUnitManufacturer_Apple;
+@@ -62,10 +62,10 @@ QVariant AudioEffectAudioNode::parameter
+     } else {
+         // Use default value:
+         AudioUnit tmpAudioUnit;
+-        ComponentDescription description = getAudioNodeDescription();
+-        Component component = FindNextComponent(0, &description);
++        AudioComponentDescription description = getAudioNodeDescription();
++        AudioComponent component = AudioComponentFindNext(0, &description);
+         BACKEND_ASSERT3(component, "Could not get parameters of audio effect.", NORMAL_ERROR, QVariant())
+-        OSErr err = OpenAComponent(component, &tmpAudioUnit);
++        OSErr err = AudioComponentInstanceNew(component, &tmpAudioUnit);
+         BACKEND_ASSERT3(err == noErr, "Could not get parameters of audio effect.", NORMAL_ERROR, QVariant())
+         AudioUnitParameterInfo info;
+         UInt32 size = sizeof(info);
+@@ -87,10 +87,10 @@ void AudioEffectAudioNode::setParameterV
+         m_alteredParameters.remove(parameter.id());
+         if (m_audioUnit){
+             AudioUnit tmpAudioUnit;
+-            ComponentDescription description = getAudioNodeDescription();
+-            Component component = FindNextComponent(0, &description);
++            AudioComponentDescription description = getAudioNodeDescription();
++            AudioComponent component = AudioComponentFindNext(0, &description);
+             BACKEND_ASSERT2(component, "Could not get parameters of audio effect.", NORMAL_ERROR)
+-            OSErr err = OpenAComponent(component, &tmpAudioUnit);
++            OSErr err = AudioComponentInstanceNew(component, &tmpAudioUnit);
+             BACKEND_ASSERT2(err == noErr, "Could not get parameters of audio effect.", NORMAL_ERROR)
+             AudioUnitParameterInfo info;
+             UInt32 size = sizeof(info);
+@@ -121,10 +121,10 @@ QList<Phonon::EffectParameter> AudioEffe
+     QList<Phonon::EffectParameter> effectList;
+     // Create a temporary audio unit:
+     AudioUnit audioUnit;
+-    ComponentDescription description = m_audioNode->getAudioNodeDescription();
+-    Component component = FindNextComponent(0, &description);
++    AudioComponentDescription description = m_audioNode->getAudioNodeDescription();
++    AudioComponent component = AudioComponentFindNext(0, &description);
+     BACKEND_ASSERT3(component, "Could not get parameters of audio effect.", NORMAL_ERROR, effectList)
+-    OSErr err = OpenAComponent(component, &audioUnit);
++    OSErr err = AudioComponentInstanceNew(component, &audioUnit);
+     BACKEND_ASSERT3(err == noErr, "Could not get parameters of audio effect.", NORMAL_ERROR, effectList)
+ 
+     UInt32 size = 0;
+@@ -149,29 +149,25 @@ QList<Phonon::EffectParameter> AudioEffe
+ 
+ QString AudioEffect::name()
+ {
+-    ComponentDescription description = m_audioNode->getAudioNodeDescription();
+-    Component component = FindNextComponent(0, &description);
++    AudioComponentDescription description = m_audioNode->getAudioNodeDescription();
++    AudioComponent component = AudioComponentFindNext(0, &description);
+     BACKEND_ASSERT3(component, "Could not get audio effect name.", NORMAL_ERROR, QLatin1String("<unknown effect>"))
+ 
+-    ComponentDescription cDesc;
+-    Handle nameH = NewHandle(0);
+-    GetComponentInfo(component, &cDesc, nameH, 0, 0); 
+-    HLock(nameH);
+-    char *namePtr = *nameH;
+-    int len = *namePtr++;
+-    namePtr[len] = 0;
+-    QString qsName = QString::fromUtf8(namePtr);
+-    DisposeHandle(nameH);
++    CFStringRef n;
++    AudioComponentCopyName(component, &n);
++    // Or use CFStringGetCString?
++    QString qsName = QString::fromUtf8(CFStringGetCStringPtr(n, kCFStringEncodingUTF8));
+     return qsName;
+ }
+ 
+ QString AudioEffect::description()
+ {
+-    ComponentDescription description = m_audioNode->getAudioNodeDescription();
+-    Component component = FindNextComponent(0, &description);
++    AudioComponentDescription description = m_audioNode->getAudioNodeDescription();
++#if 0
++    AudioComponent component = AudioComponentFindNext(0, &description);
+     BACKEND_ASSERT3(component, "Could not get audio effect description.", NORMAL_ERROR, QLatin1String("<unknown effect>"))
+ 
+-    ComponentDescription cDesc;
++    AudioComponentDescription cDesc;
+     Handle descH = NewHandle(0);
+     GetComponentInfo(component, &cDesc, 0, descH, 0); 
+     HLock(descH);
+@@ -180,6 +176,9 @@ QString AudioEffect::description()
+     descPtr[len] = 0;
+     QString qsDesc = QString::fromUtf8(descPtr);
+     DisposeHandle(descH);
++#else
++    QString qsDesc;
++#endif
+     return qsDesc;
+ }
+ 
+@@ -187,19 +186,19 @@ QList<int> AudioEffect::effectList()
+ {
+     QList<int> effects;
+ 
+-	ComponentDescription d;
++	AudioComponentDescription d;
+ 	d.componentType = kAudioUnitType_Effect;
+ 	d.componentSubType = 0;
+ 	d.componentManufacturer = 0;
+ 	d.componentFlags = 0;
+ 	d.componentFlagsMask = 0;
+-    Component component = FindNextComponent(0, &d);
++    AudioComponent component = AudioComponentFindNext(0, &d);
+     
+     while (component) {
+-        ComponentDescription cDesc;
+-        GetComponentInfo(component, &cDesc, 0, 0, 0); 
++        AudioComponentDescription cDesc;
++        AudioComponentGetDescription(component, &cDesc);
+         effects << cDesc.componentSubType;
+-        component = FindNextComponent(component, &d);
++        component = AudioComponentFindNext(component, &d);
+     }
+     return effects;
+ }
+--- phonon-4.4_pre20090520/qt7/audiomixer.h.orig	2009-10-10 21:55:44 +0200
++++ phonon-4.4_pre20090520/qt7/audiomixer.h	2009-10-10 21:56:01 +0200
+@@ -41,7 +41,7 @@ namespace QT7
+             float volume(int bus = 0);
+ 
+         protected:
+-            ComponentDescription getAudioNodeDescription() const;
++            AudioComponentDescription getAudioNodeDescription() const;
+             void initializeAudioUnit();
+ 
+         private:
+--- phonon-4.4_pre20090520/qt7/audiomixer.mm.orig	2009-10-10 21:56:20 +0200
++++ phonon-4.4_pre20090520/qt7/audiomixer.mm	2009-10-10 21:56:33 +0200
+@@ -30,9 +30,9 @@ AudioMixerAudioNode::AudioMixerAudioNode
+     m_volume = 1.0f;
+ }
+ 
+-ComponentDescription AudioMixerAudioNode::getAudioNodeDescription() const
++AudioComponentDescription AudioMixerAudioNode::getAudioNodeDescription() const
+ {
+-	ComponentDescription description;
++	AudioComponentDescription description;
+ 	description.componentType = kAudioUnitType_Mixer;
+ 	description.componentSubType = kAudioUnitSubType_StereoMixer;
+ 	description.componentManufacturer = kAudioUnitManufacturer_Apple;
+--- phonon-4.4_pre20090520/qt7/audionode.h.orig	2009-10-10 20:39:39 +0200
++++ phonon-4.4_pre20090520/qt7/audionode.h	2009-10-10 20:40:01 +0200
+@@ -73,7 +73,7 @@ namespace QT7
+ 
+             // Only the following methods needs to
+             // be overidden by only_one-audio-unit nodes:
+-            virtual ComponentDescription getAudioNodeDescription() const;
++            virtual AudioComponentDescription getAudioNodeDescription() const;
+             virtual void initializeAudioUnit();
+ 
+         private:
+--- phonon-4.4_pre20090520/qt7/audionode.mm.orig	2009-10-10 20:35:51 +0200
++++ phonon-4.4_pre20090520/qt7/audionode.mm	2009-10-10 22:02:27 +0200
+@@ -63,17 +63,20 @@ void AudioNode::createAndConnectAUNodes(
+     if (m_auNode)
+         return;
+ 
+-    ComponentDescription description = getAudioNodeDescription();
++    AudioComponentDescription description = getAudioNodeDescription();
+     DEBUG_AUDIO_GRAPH("AudioNode" << int(this) << "creates AUNode" 
+         << QString(!FindNextComponent(0, &description) ? "ERROR: COMPONENT NOT FOUND!" : "OK!"))
+ 
+     OSStatus err = noErr;
++#if 0
+ #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5
+     if (QSysInfo::MacintoshVersion >= QSysInfo::MV_10_5)
+         err = AUGraphAddNode(m_audioGraph->audioGraphRef(), &description, &m_auNode);
+     else
+ #endif
+         err = AUGraphNewNode(m_audioGraph->audioGraphRef(), &description, 0, 0, &m_auNode);
++#endif
++	err = AUGraphAddNode(m_audioGraph->audioGraphRef(), &description, &m_auNode);
+         
+     BACKEND_ASSERT2(err != kAUGraphErr_OutputNodeErr, "A MediaObject can only be connected to one audio output device.", FATAL_ERROR)
+     BACKEND_ASSERT2(err == noErr, "Could not create new AUNode.", FATAL_ERROR)
+@@ -100,10 +103,10 @@ void AudioNode::createAudioUnits()
+     initializeAudioUnit();
+ }
+ 
+-ComponentDescription AudioNode::getAudioNodeDescription() const
++AudioComponentDescription AudioNode::getAudioNodeDescription() const
+ {
+     // Override if needed.
+-    ComponentDescription cd;
++    AudioComponentDescription cd;
+     Q_UNUSED(cd);
+     return cd;
+ }
+--- phonon-4.4_pre20090520/qt7/audiooutput.h.orig	2009-10-10 20:40:32 +0200
++++ phonon-4.4_pre20090520/qt7/audiooutput.h	2009-10-10 20:40:48 +0200
+@@ -41,7 +41,7 @@ namespace QT7
+             float volume();
+ 
+         protected:
+-            ComponentDescription getAudioNodeDescription() const;
++            AudioComponentDescription getAudioNodeDescription() const;
+             void initializeAudioUnit();
+ 
+         signals:
+--- phonon-4.4_pre20090520/qt7/audiooutput.mm.orig	2009-10-10 20:40:54 +0200
++++ phonon-4.4_pre20090520/qt7/audiooutput.mm	2009-10-10 20:41:11 +0200
+@@ -16,6 +16,7 @@
+ */
+ 
+ #include "audiooutput.h"
++#include "audiooutput_p.h"
+ #include "audiograph.h"
+ #include "audiodevice.h"
+ #include "mediaobject.h"
+@@ -34,9 +34,9 @@ AudioOutputAudioPart::AudioOutputAudioPa
+     m_volume = 1;
+ }
+ 
+-ComponentDescription AudioOutputAudioPart::getAudioNodeDescription() const
++AudioComponentDescription AudioOutputAudioPart::getAudioNodeDescription() const
+ {
+-	ComponentDescription description;
++	AudioComponentDescription description;
+ 	description.componentType = kAudioUnitType_Output;
+ 	description.componentSubType = kAudioUnitSubType_DefaultOutput;
+ 	description.componentManufacturer = kAudioUnitManufacturer_Apple;
+--- phonon-4.4_pre20090520/qt7/audiosplitter.h.orig	2009-10-10 20:41:44 +0200
++++ phonon-4.4_pre20090520/qt7/audiosplitter.h	2009-10-10 20:41:53 +0200
+@@ -33,7 +33,7 @@ namespace QT7
+     {
+         public:
+             AudioNodeSplitter();
+-            ComponentDescription getAudioNodeDescription() const;
++            AudioComponentDescription getAudioNodeDescription() const;
+     };
+ 
+     class AudioSplitter : public MediaNode
+--- phonon-4.4_pre20090520/qt7/audiosplitter.mm.orig	2009-10-10 20:42:02 +0200
++++ phonon-4.4_pre20090520/qt7/audiosplitter.mm	2009-10-10 20:42:10 +0200
+@@ -28,9 +28,9 @@ AudioNodeSplitter::AudioNodeSplitter() :
+ {
+ }
+ 
+-ComponentDescription AudioNodeSplitter::getAudioNodeDescription() const
++AudioComponentDescription AudioNodeSplitter::getAudioNodeDescription() const
+ {
+-	ComponentDescription description;
++	AudioComponentDescription description;
+ 	description.componentType = kAudioUnitType_FormatConverter;
+ 	description.componentSubType = kAudioUnitSubType_Splitter;
+ 	description.componentManufacturer = kAudioUnitManufacturer_Apple;
+--- phonon-4.4_pre20090520/qt7/quicktimeaudioplayer.h.orig	2009-10-10 21:53:20 +0200
++++ phonon-4.4_pre20090520/qt7/quicktimeaudioplayer.h	2009-10-10 21:53:30 +0200
+@@ -66,7 +66,7 @@ namespace QT7
+             QString currentTimeString();
+             QuickTimeVideoPlayer *videoPlayer();
+ 
+-            ComponentDescription getAudioNodeDescription() const;
++            AudioComponentDescription getAudioNodeDescription() const;
+             void initializeAudioUnit();
+             bool fillInStreamSpecification(AudioConnection *connection, ConnectionSide side);
+             void mediaNodeEvent(const MediaNodeEvent *event);
+--- phonon-4.4_pre20090520/qt7/quicktimeaudioplayer.mm.orig	2009-10-10 21:53:42 +0200
++++ phonon-4.4_pre20090520/qt7/quicktimeaudioplayer.mm	2009-10-10 21:55:18 +0200
+@@ -266,13 +266,13 @@ bool QuickTimeAudioPlayer::hasAudio()
+ bool QuickTimeAudioPlayer::soundPlayerIsAwailable()
+ {
+     QuickTimeAudioPlayer player;
+-    ComponentDescription d = player.getAudioNodeDescription();
+-    return FindNextComponent(0, &d);
++    AudioComponentDescription d = player.getAudioNodeDescription();
++    return AudioComponentFindNext(0, &d);
+ }
+ 
+-ComponentDescription QuickTimeAudioPlayer::getAudioNodeDescription() const
++AudioComponentDescription QuickTimeAudioPlayer::getAudioNodeDescription() const
+ {
+-	ComponentDescription description;
++	AudioComponentDescription description;
+ 	description.componentType = kAudioUnitType_Generator;
+ 	description.componentSubType = kAudioUnitSubType_ScheduledSoundPlayer;
+ 	description.componentManufacturer = kAudioUnitManufacturer_Apple;
