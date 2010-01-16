@@ -14,20 +14,23 @@ SRC_URI="http://cyberelk.net/tim/data/system-config-printer/1.1/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 SLOT="0"
-IUSE="doc"
+IUSE="doc policykit"
 
 # system-config-printer split since 1.1.3
-RDEPEND="
-	!app-admin/system-config-printer:0
+COMMON_DEPEND="
 	dev-libs/libxml2[python]
 	dev-python/dbus-python
 	dev-python/pycups
 	dev-python/pygobject
 	net-print/cups[dbus]
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 	doc? ( dev-python/epydoc )
+"
+RDEPEND="${COMMON_DEPEND}
+	!app-admin/system-config-printer:0
+	policykit? ( sys-auth/polkit )
 "
 
 S="${WORKDIR}/${MY_P}"
@@ -39,7 +42,9 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --disable-nls
+	econf \
+		--disable-nls \
+		--with-polkit-1
 }
 
 src_compile() {
