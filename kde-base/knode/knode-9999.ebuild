@@ -22,6 +22,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
+	libkleo/
 	libkpgp/
 "
 
