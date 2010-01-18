@@ -21,8 +21,8 @@ COMMONDEPEND="
 	>=virtual/poppler-utils-0.8
 	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
-		x11-libs/qt-dbus:4
-		x11-libs/qt-gui:4
+		sys-apps/dbus
+		qt4? ( x11-libs/qt-dbus:4 )
 	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
@@ -31,7 +31,6 @@ COMMONDEPEND="
 	qt4? (
 		x11-libs/qt-core:4
 		x11-libs/qt-gui:4
-		x11-libs/qt-dbus:4
 	)
 	!clucene? (
 		!hyperestraier? (
