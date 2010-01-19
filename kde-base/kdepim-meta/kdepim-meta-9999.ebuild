@@ -36,6 +36,10 @@ RDEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
+	$(add_kdebase_dep messagecomposer)
+	$(add_kdebase_dep messagecore)
+	$(add_kdebase_dep messagelist)
+	$(add_kdebase_dep messageviewer)
 	semantic-desktop? ( $(add_kdebase_dep akonadi) )
 	$(block_other_slots)
 "

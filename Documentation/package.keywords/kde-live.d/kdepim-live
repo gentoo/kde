@@ -21,3 +21,7 @@
 ~kde-base/libkdepim-9999 **
 ~kde-base/libkleo-9999 **
 ~kde-base/libkpgp-9999 **
+~kde-base/messagecomposer-9999 **
+~kde-base/messagecore-9999 **
+~kde-base/messagelist-9999 **
+~kde-base/messageviewer-9999 **

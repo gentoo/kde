@@ -316,6 +316,10 @@ kde-base/ktimetracker:live
 kde-base/libkdepim:live
 kde-base/libkleo:live
 kde-base/libkpgp:live
+kde-base/messagecomposer:live
+kde-base/messagecore:live
+kde-base/messagelist:live
+kde-base/messageviewer:live
 kde-base/cervisia:live
 kde-base/kapptemplate:live
 kde-base/kate:live
