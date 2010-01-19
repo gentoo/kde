@@ -285,13 +285,18 @@
 ~kde-base/kdeutils-meta-4.4.9999 **
 ~kde-base/kdewebdev-meta-4.4.9999 **
 =app-admin/system-config-printer-common-1.1*
-app-arch/xz-utils
 =app-misc/hal-cups-utils-0.6*
+~app-text/poppler-utils-0.12.3
 ~dev-db/virtuoso-odbc-5.0.12
 ~dev-db/virtuoso-server-5.0.12
+~dev-libs/poppler-0.12.3
+~dev-libs/poppler-qt4-0.12.3
 dev-libs/libattica
 ~dev-libs/shared-desktop-ontologies-0.2
 =dev-python/pycups-1.9*
 >=net-libs/libssh-0.3.2
 >=sys-auth/polkit-0.95
+~virtual/poppler-0.12.3
+~virtual/poppler-qt4-0.12.3
+~virtual/poppler-utils-0.12.3
 x11-misc/google-gadgets

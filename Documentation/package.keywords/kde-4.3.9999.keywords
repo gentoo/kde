@@ -282,7 +282,6 @@
 ~kde-base/kdeutils-meta-4.3.9999 **
 ~kde-base/kdewebdev-meta-4.3.9999 **
 =app-admin/system-config-printer-common-1.1*
-app-arch/xz-utils
 =app-misc/hal-cups-utils-0.6*
 =dev-python/pycups-1.9*
 x11-misc/google-gadgets
