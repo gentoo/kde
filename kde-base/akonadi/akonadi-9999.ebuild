@@ -16,6 +16,7 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep messageviewer)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
