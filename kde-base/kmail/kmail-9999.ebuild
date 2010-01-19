@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
 KEYWORDS=""
-IUSE="ayatana debug +handbook"
+IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
@@ -21,7 +21,6 @@ DEPEND="
 	$(add_kdebase_dep messagecore)
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
-	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
 RDEPEND="${DEPEND}"
 
@@ -47,14 +46,6 @@ KMEXTRA="
 	ontologies/
 "
 KMLOADLIBS="libkdepim"
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with ayatana IndicateQt)
-	)
-
-	kde4-meta_src_configure
-}
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
