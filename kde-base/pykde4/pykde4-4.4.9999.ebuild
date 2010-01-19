@@ -13,7 +13,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="akonadi debug examples semantic-desktop"
+IUSE="akonadi debug doc examples semantic-desktop"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
@@ -90,6 +90,10 @@ src_test() {
 }
 
 src_install() {
+	if use doc; then
+		dohtml -r "${S}"/python/pykde4/docs/html/* || die 'dohtml failed'
+	fi
+
 	do_src_install() {
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_install

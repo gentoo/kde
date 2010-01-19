@@ -13,13 +13,13 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="akonadi debug examples semantic-desktop"
+IUSE="akonadi debug doc examples semantic-desktop"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
-	aqua? ( >=dev-python/PyQt4-4.7_pre[dbus,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.7_pre[dbus,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
 "
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="${DEPEND}
@@ -90,6 +90,10 @@ src_test() {
 }
 
 src_install() {
+	if use doc; then
+		dohtml -r "${S}"/python/pykde4/docs/html/* || die 'dohtml failed'
+	fi
+
 	do_src_install() {
 		CMAKE_USE_DIR="${S}-${PYTHON_ABI}"
 		kde4-meta_src_install
