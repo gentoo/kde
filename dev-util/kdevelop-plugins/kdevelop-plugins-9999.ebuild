@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-KMNAME="playground/devtools"
-KMMODULE="kdevelop4-extra-plugins"
+KMNAME="extragear/sdk"
+KMMODULE="kdevelop-plugins"
 inherit kde4-base
 
 DESCRIPTION="Various plugins for kdevelop (support for other langs)"
