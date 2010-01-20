@@ -56,7 +56,7 @@ pkg_postinst() {
 		${func} "${driver} has been set as your default akonadi storage backend."
 		${func} "You can override it in your ~/.config/akonadi/akonadiserverrc."
 		${func} "Available drivers are:"
-		${func} "QMYSQL, QPSQL (experimental), QSQLITE (experimental)"
+		${func} "QMYSQL, QPSQL (testing), QSQLITE (experimental)"
 		${func} "Be advised that QMYSQL is the one fully tested and officially supported."
 		use sqlite && ewarn "If you experience random data losses using QSQLITE driver, you have been warned."
 		echo
