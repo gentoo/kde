@@ -11,13 +11,13 @@ DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 IUSE="debug"
 
-# @Since >4.2.65 kode removed from kdepim
-add_blocker kode
-
 DEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 "
 RDEPEND="${DEPEND}"
+
+# @Since >4.2.65 kode removed from kdepim
+add_blocker kode
 
 KMEXTRACTONLY="
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
