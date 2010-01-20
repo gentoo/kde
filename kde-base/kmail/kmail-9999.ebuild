@@ -14,6 +14,7 @@ IUSE="debug +handbook"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
@@ -30,7 +31,7 @@ add_blocker mimelib
 
 KMEXTRACTONLY="
 	akonadi/
-	korganizer/org.kde.Korganizer.Calendar.xml
+	korganizer/
 	kresources/
 	libkleo/
 	libkpgp/
