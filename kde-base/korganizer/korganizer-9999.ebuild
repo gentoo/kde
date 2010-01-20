@@ -29,8 +29,10 @@ KMEXTRA="kdgantt1"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
+	akonadi/
 	kmail/
 	knode/org.kde.knode.xml
+	libkdepimdbusinterfaces/
 "
 
 src_unpack() {
