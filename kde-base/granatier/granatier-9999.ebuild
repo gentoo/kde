@@ -17,9 +17,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs+="
-		$(cmake-utils_use_with gluon)
-	"
+	mycmakeargs=(
+		$(cmake-utils_use gluon GRANATIER_USE_GLUON_SOUND_BACKEND)
+	)
 
 	kde4-meta_src_configure
 }
