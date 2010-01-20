@@ -23,7 +23,6 @@ KMEXTRACTONLY="
 	kmail/
 	knotes/
 	kresources/groupwise/
-	kresources/kolab/
 	kresources/slox/
 "
 
