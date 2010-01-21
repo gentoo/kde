@@ -24,7 +24,6 @@ RDEPEND="
 	$(add_kdebase_dep kdebase-wallpapers)
 	$(add_kdebase_dep kdepasswd)
 	$(add_kdebase_dep kdialog)
-	$(add_kdebase_dep kdm)
 	$(add_kdebase_dep keditbookmarks)
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep kfind)
@@ -55,6 +54,7 @@ RDEPEND="
 	$(add_kdebase_dep powerdevil)
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
+	!prefix? ( $(add_kdebase_dep kdm) )
 	policykit? ( $(add_kdebase_dep policykit-kde) )
 	$(block_other_slots)
 "
