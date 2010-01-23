@@ -581,6 +581,7 @@ kde4-meta_change_cmakelists() {
 				-e '/macro_log_feature(Soprano_FOUND/s/ TRUE / FALSE /' \
 				-e '/find_package(Nepomuk/s/find/macro_optional_find/' \
 				-e '/macro_log_feature(Nepomuk_FOUND/s/ TRUE / FALSE /' \
+				-e 's/macro_optional_macro_optional_find/macro_optional_find/g' \
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			if ! slot_is_at_least 4.4; then
 				case ${PN} in
