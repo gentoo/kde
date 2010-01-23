@@ -22,6 +22,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-no-semantic-desktop.patch"
+)
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Soprano)
