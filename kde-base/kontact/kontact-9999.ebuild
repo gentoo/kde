@@ -24,9 +24,7 @@ KMSAVELIBS="true"
 # kontact doesn't have to depend on all programs it has plugins for.
 # kcontactmanager gone from kdesvn
 #
-# xml targets from kmail/ are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
-	kmail/
 	kontact/plugins/akregator/
 	kontact/plugins/kaddressbook/
 	kontact/plugins/kjots/
@@ -34,9 +32,9 @@ KMEXTRACTONLY="
 	kontact/plugins/knotes/
 	kontact/plugins/korganizer/
 	kontact/plugins/ktimetracker/
-	kontact/plugins/messageviewer/
 	kontact/plugins/planner/
 	kontact/plugins/specialdates/
+	libkdepimdbusinterfaces/
 "
 
 src_unpack() {
@@ -50,7 +48,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
+	epatch "${FILESDIR}/4.5-fix-broken-gpgme-cmake-guard.patch"
 
 	# Need to patch it this way
 	kde4-meta_src_prepare
