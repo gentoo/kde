@@ -18,7 +18,6 @@ IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
 COMMONDEPEND="
 	dev-libs/libxml2
 	virtual/libiconv
-	>=virtual/poppler-utils-0.8
 	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
 		sys-apps/dbus
