@@ -563,25 +563,9 @@ kde4-meta_change_cmakelists() {
 			;;
 		kdepim)
 			# Disable hardcoded checks
-			sed -e '/find_package(KdepimLibs/s/REQUIRED//' \
-				-e '/find_package(KdepimLibs/s/find/macro_optional_find/' \
-				-e '/find_package(Boost/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(Boost_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(QGpgme/s/find/macro_optional_find/g' \
-				-e '/macro_log_feature(QGPGME_FOUND/s/ TRUE / FALSE /g' \
-				-e '/find_package(Akonadi/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(Akonadi_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(ZLIB/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(ZLIB_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(Strigi/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(STRIGI_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(SharedDesktopOntologies/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(SHAREDDESKTOPONTOLOGIES_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(Soprano/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(Soprano_FOUND/s/ TRUE / FALSE /' \
-				-e '/find_package(Nepomuk/s/find/macro_optional_find/' \
-				-e '/macro_log_feature(Nepomuk_FOUND/s/ TRUE / FALSE /' \
-				-e 's/macro_optional_macro_optional_find/macro_optional_find/g' \
+			sed -r -e '/find_package\(KdepimLibs/s/REQUIRED//' \
+				-e '/find_package\((KdepimLibs|Boost|QGpgme|Akonadi|ZLIB|Strigi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
+				-e '/macro_log_feature\((Boost|QGPGME|Akonadi|ZLIB|STRIGI|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			if ! slot_is_at_least 4.4 ${SLOT}; then
 				case ${PN} in
