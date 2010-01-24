@@ -13,6 +13,6 @@ IUSE="debug +handbook"
 
 # Althrought they are purely runtime, its too useless without them
 RDEPEND="
-	$(add_kdebase_dep krosspython)
 	$(add_kdebase_dep kdesdk-strigi-analyzer)
+	$(add_kdebase_dep krosspython)
 "

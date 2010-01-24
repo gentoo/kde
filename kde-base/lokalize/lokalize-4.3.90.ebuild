@@ -10,3 +10,9 @@ inherit kde4-meta
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86"
 IUSE="debug +handbook"
+
+# Althrought they are purely runtime, its too useless without them
+RDEPEND="
+	$(add_kdebase_dep kdesdk-strigi-analyzer)
+	$(add_kdebase_dep krosspython)
+"
