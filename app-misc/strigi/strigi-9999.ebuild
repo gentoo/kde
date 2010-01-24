@@ -6,11 +6,10 @@ EAPI="2"
 
 ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
 ESVN_PROJECT="${PN}"
-inherit cmake-utils eutils subversion
+inherit base cmake-utils eutils subversion
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://strigi.sourceforge.net/"
-#SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -43,6 +42,18 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.6.4-gcc44.patch"
+	"${FILESDIR}/${PN}-0.6.5-gcc4.4-missing-headers.patch"
+	"${FILESDIR}/${PN}-disable_java.patch"
+)
+
+src_prepare() {
+	# subverison has own src_prepare
+	# so this is not required on stable ebuild
+	base_src_prepare
+}
 
 src_configure() {
 	# Strigi needs either expat or libxml2.
