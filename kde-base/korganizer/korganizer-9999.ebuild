@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
+	$(add_kdebase_dep akonadi)
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
 	sys-libs/zlib
