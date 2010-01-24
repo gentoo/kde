@@ -1,0 +1,101 @@
+Desc:	Fix compilation on Solaris. Needs OSS installed!
+Author:	Please refer to
+  https://solaris.bionicmutton.org/hg/kde4-specs-432/file/539d9ed6c7b5/specs/patches/kdemultimedia-kmix_sun.diff
+
+--- kmix/mixer_sun.cpp.orig	2009-09-06 21:57:49.699297806 +0200
++++ kmix/mixer_sun.cpp	2009-09-06 23:08:54.665165476 +0200
+@@ -31,7 +31,8 @@
+ 
+ #include "mixer_sun.h"
+ #include "mixer.h"
+-
++#include <sys/soundcard.h>
++#include <QTimer>
+ //======================================================================
+ // CONSTANT/ENUM DEFINITIONS
+ //======================================================================
+@@ -125,7 +126,7 @@
+ // FUNCTION    : Mixer::Mixer
+ // DESCRIPTION : Class constructor.
+ //======================================================================
+-Mixer_SUN::Mixer_SUN(int devnum) : Mixer_Backend(mixer, devnum)
++Mixer_SUN::Mixer_SUN(Mixer *mixer, int devnum) : Mixer_Backend(mixer, devnum)
+ {
+    if ( devnum == -1 )
+       m_devnum = 0;
+@@ -155,12 +156,12 @@
+    //
+    // Open the mixer hardware driver
+    //
+-   QCString audiodev(getenv("AUDIODEV"));
++   QString audiodev(getenv("AUDIODEV"));
+    if(audiodev.isNull())
+      audiodev = "/dev/audio";
+    audiodev += "ctl";
+    _udi = audiodev; // use device name as UDI. Doesn't matter as we only use it for hotplugging/unplugging.
+-   if ( ( fd = ::open( audiodev.data(), O_RDWR ) ) < 0 )
++   if ( ( fd = ::open( audiodev.toAscii().data(), O_RDWR ) ) < 0 )
+    {
+       if ( errno == EACCES )
+          return Mixer::ERR_PERM;
+@@ -172,16 +173,35 @@
+       //
+       // Mixer is open. Now define all of the mix devices.
+       //
++	       int devmask, recmask, i_recsrc, stereodevs;
++      		// Mixer is open. Now define properties
++	      if (ioctl(fd, SOUND_MIXER_READ_DEVMASK, &devmask) == -1)
++	        return Mixer::ERR_READ;
++	      if (ioctl(fd, SOUND_MIXER_READ_RECMASK, &recmask) == -1)
++	        return Mixer::ERR_READ;
++	      if (ioctl(fd, SOUND_MIXER_READ_RECSRC, &i_recsrc) == -1)
++	        return Mixer::ERR_READ;
++	      if (ioctl(fd, SOUND_MIXER_READ_STEREODEVS, &stereodevs) == -1)
++	        return Mixer::ERR_READ;
+ 
+          for ( int idx = 0; idx < numDevs; idx++ )
+          {
+-            Volume vol( 2, AUDIO_MAX_GAIN );
+-            QString id;
++	    Volume::ChannelMask chnmask = Volume::MLEFT;
++            if ( stereodevs & ( 1 << idx ) ) chnmask = (Volume::ChannelMask)(chnmask|Volume::MRIGHT);
++
++            Volume playbackVol( chnmask, 100, 1, true, false );
++	    QString id;
+             id.setNum(idx);
+             MixDevice* md = new MixDevice( _mixer, id,
+                QString(MixerDevNames[idx]), MixerChannelTypes[idx]);
+-            md->addPlaybackVolume(vol);
+-            md->setRecSource( isRecsrcHW( idx ) );
++            md->addPlaybackVolume(playbackVol);
++                  // Tutorial: Howto add a simple capture switch
++                  if ( recmask & ( 1 << idx ) ) {
++                     // can be captured => add capture volume, with no capture volume
++                     chnmask = Volume::MNONE;
++                     Volume captureVol( chnmask, 100, 1, true, true );
++                     md->addCaptureVolume(captureVol);
++                 }
+             m_mixDevices.append( md );
+          }
+ 
+@@ -234,10 +254,10 @@
+ int Mixer_SUN::readVolumeFromHW( const QString& id, MixDevice *md )
+ {
+    audio_info_t audioinfo;
++   int devnum = id2num(id);
+    uint_t devMask = MixerSunPortMasks[devnum];
+ 
+    Volume& volume = md->playbackVolume();
+-   int devnum = id2num(id);
+    //
+    // Read the current audio information from the driver
+    //
+@@ -253,7 +273,7 @@
+       switch ( devnum )
+       {
+          case MIXERDEV_MASTER_VOLUME :
+-            volume.setSwitchActivated( audioinfo.output_muted );
++            //volume.setSwitchActivated( audioinfo.output_muted );
+             GainBalanceToVolume( audioinfo.play.gain,
+                                  audioinfo.play.balance,
+                                  volume );
