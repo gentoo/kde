@@ -28,6 +28,8 @@ KMEXTRA="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.3.1-darwin-compile-powermanager.patch
+	"${FILESDIR}/${PN}-4.3.4-hal.patch"
+	"${FILESDIR}/${PN}-4.3.4-hal-2.patch"
 )
 
 src_configure() {
