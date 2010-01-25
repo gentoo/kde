@@ -18,12 +18,13 @@ SLOT="4"
 IUSE="debug +handbook"
 
 DEPEND="
-	dev-db/sqlite
+	>=dev-db/sqlite-3
 	>=dev-util/subversion-1.4
 "
 RDEPEND="${DEPEND}
 	!dev-util/kdesvn:1.2
-	!<=kde-base/kdesdk-kioslaves-4.3.85[kdeprefix,subversion]
+	!dev-util/qsvn
+	!>=kde-base/kdesdk-kioslaves-4.3.3[-kdeprefix,subversion]
 "
 
 src_configure() {
