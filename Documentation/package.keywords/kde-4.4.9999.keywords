@@ -286,11 +286,9 @@
 ~kde-base/kdewebdev-meta-4.4.9999 **
 =app-admin/system-config-printer-common-1.1*
 =app-misc/hal-cups-utils-0.6*
-~app-text/poppler-utils-0.12.3
+~app-text/poppler-0.12.3
 ~dev-db/virtuoso-odbc-5.0.12
 ~dev-db/virtuoso-server-5.0.12
-~dev-libs/poppler-0.12.3
-~dev-libs/poppler-qt4-0.12.3
 dev-libs/libattica
 ~dev-libs/shared-desktop-ontologies-0.2
 =dev-python/pycups-1.9*
