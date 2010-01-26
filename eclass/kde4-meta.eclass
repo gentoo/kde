@@ -327,6 +327,7 @@ kde4-meta_create_extractlists() {
 			if [[ ${PN} != libkdegames ]]; then
 				KMEXTRACTONLY+="
 					libkdegames/"
+				KMLOADLIBS="${KMLOADLIBS} libkdegames"
 			fi
 			;;
 		kdepim)
