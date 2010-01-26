@@ -567,7 +567,7 @@ kde4-meta_change_cmakelists() {
 				-e '/find_package\((KdepimLibs|Boost|QGpgme|Akonadi|ZLIB|Strigi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
 				-e '/macro_log_feature\((Boost|QGPGME|Akonadi|ZLIB|STRIGI|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
-			if ! slot_is_at_least 4.4 ${SLOT}; then
+			if ! slot_is_at_least 4.5 ${SLOT}; then
 				case ${PN} in
 					kalarm|kmailcvt|kontact|korganizer|korn)
 						sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
