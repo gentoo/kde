@@ -19,7 +19,7 @@ COMMON_DEPEND="
 	okular? ( $(add_kdebase_dep okular) )
 	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
 	qimageblitz? ( >=kde-base/qimageblitz-0.0.4 )
-	qscintilla? ( x11-libs/qscintilla[qt4] )
+	qscintilla? ( x11-libs/qscintilla )
 	qwt? ( x11-libs/qwt:5 )
 "
 

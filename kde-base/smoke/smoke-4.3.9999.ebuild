@@ -18,8 +18,8 @@ COMMON_DEPEND="
 	>=kde-base/qimageblitz-0.0.4
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	kdevplatform? ( dev-util/kdevplatform:4 )
-	phonon? ( >=media-sound/phonon-4.4_pre[xcb] )
-	qscintilla? ( x11-libs/qscintilla[qt4] )
+	phonon? ( >=media-sound/phonon-4.3.49[xcb] )
+	qscintilla? ( x11-libs/qscintilla )
 	qwt? ( x11-libs/qwt:5 )
 "
 # okular? ( kde-base/okular)  -- it can't find it anyway
