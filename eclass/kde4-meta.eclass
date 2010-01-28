@@ -336,9 +336,15 @@ kde4-meta_create_extractlists() {
 					libkdepim/"
 			fi
 			KMEXTRACTONLY+="
-				kdepim-version.h
 				config-enterprise.h.cmake
 				kleopatra/ConfigureChecks.cmake"
+			if slot_is_at_least 4.5 ${SLOT}; then
+				KMEXTRACTONLY+="
+					kdepim-version.h.cmake"
+			else
+				KMEXTRACTONLY+="
+					kdepim-version.h"
+			fi
 			if has kontact ${IUSE//+} && use kontact; then
 				KMEXTRA+="
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
