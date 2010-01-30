@@ -32,9 +32,6 @@ src_prepare() {
 	sed -e 's/add_subdirectory(tests)//' \
 		-i phonon/CMakeLists.txt || die "Failed to disable tests"
 
-	# Disable automagic
-	sed -e 's/find_package(Xine)/macro_optional_find_package(Xine)/' \
-		-i phonon/kcm/xine/CMakeLists.txt || die "Failed to make xine optional"
 }
 
 src_configure() {
