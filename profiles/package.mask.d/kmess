@@ -1,0 +1,4 @@
+# Markos Chandras <hwoarang@gentoo.org> (31 Jan 2010)
+# Masking trunk since upstream claims it is highly broken.
+# Users should stick with 2.0.x branch instead
+=net-im/kmess-9999
