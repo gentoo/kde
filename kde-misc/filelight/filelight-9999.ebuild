@@ -5,6 +5,7 @@
 EAPI="2"
 
 KMNAME="kdereview"
+KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="Filelight creates an interactive map of concentric, segmented rings that help visualise disk usage."
@@ -19,3 +20,10 @@ RDEPEND="
 	!kde-misc/filelight:0
 	x11-apps/xdpyinfo
 "
+
+pkg_setup() {
+	KMEXTRA="${PN}"
+	use handbook && KMEXTRA+=" doc/${PN}"
+
+	kde4-meta_pkg_setup
+}
