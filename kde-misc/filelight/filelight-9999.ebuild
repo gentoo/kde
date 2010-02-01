@@ -27,3 +27,9 @@ pkg_setup() {
 
 	kde4-meta_pkg_setup
 }
+
+src_install() {
+	kde4-meta_src_install
+
+	dodoc ${PN}/{AUTHORS,ChangeLog,NEWS,README,TODO} || die
+}
