@@ -21,7 +21,7 @@ for release in 4.3 4.4; do
 done
 
 # ... and for completely unkeyworded packages, add "**"
-for release in 4.3 4.4; do
+for release in 4.4; do
 	if [[ -d "kde-${release}.d" ]]; then
 		rm -rf "kde-${release}.9999.d"
 		mkdir -p "kde-${release}.9999.d"
