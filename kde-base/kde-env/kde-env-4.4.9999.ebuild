@@ -20,8 +20,13 @@ add_blocker kdelibs 4.2.2-r1 '<3.5.10-r3:3.5' 4.2.70:4.3
 
 S=${WORKDIR}
 
-src_unpack() { :; }
-src_prepare() { :; }
+src_unpack() {
+	:
+}
+
+src_prepare() {
+	:
+}
 
 src_install() {
 	if use kdeprefix; then
@@ -66,4 +71,12 @@ CONFIG_PROTECT="/usr/share/config"
 EOF
 		doenvd 43kdepaths
 	fi
+}
+
+pkg_preinst() {
+	:
+}
+
+src_test() {
+	:
 }
