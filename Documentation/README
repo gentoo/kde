@@ -13,7 +13,7 @@ i set up a server who generates metadata-cache, you can use it to speed up updat
 
 ATTENTION perhaps your overlay path may vary
 
-1. execute metadata-sync in the Documentation directory
+##1. execute metadata-sync in the Documentation directory - sorry, the server slackie.soylent.eu is down :(
 2. edit /etc/eixrc:
 OVERRIDE_CACHE_METHOD="/usr/local/portage/layman/kde metadata-assign"
 
