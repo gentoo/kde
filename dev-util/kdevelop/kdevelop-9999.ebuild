@@ -20,7 +20,7 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="+cmake +cxx debug +qmake qthelp"
+IUSE="+cmake +cxx debug +debugger +qmake qthelp"
 
 DEPEND="
 	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
@@ -30,6 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
+	debugger? ( >=sys-devel/gdb-7.0[python] )
 "
 
 src_prepare() {
@@ -60,14 +61,4 @@ src_install() {
 
 	rm "${D}/${PREFIX}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
 	rm "${D}/${PREFIX}"/share/icons/hicolor/22x22/actions/output_win.png
-}
-
-pkg_postinst() {
-	kde4-base_pkg_postinst
-
-	echo
-	elog "For extra functionality you should look at following packages:"
-	elog "dev-util/valgrind          allows you to do memory leak check."
-	elog ">=sys-devel/gdb-7.0        (RECOMMENDED) required by debugger frontend."
-	echo
 }
