@@ -1,9 +1,12 @@
 #!/bin/sh
 
-if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
-	echo "Syncing KDE overlay metadata ..."
-	exec rsync --quiet --recursive --times --compress --delete-delay rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache/
-else
-	echo "ERROR: This script is meant to be run from within Documentation/ !"
-	exit 255
-fi
+echo "sorry slackie.soylent.eu is down, somebody else has to provide the metadata"
+exit 255
+
+#if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
+#	echo "Syncing KDE overlay metadata ..."
+#	exec rsync --quiet --recursive --times --compress --delete-delay rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache/
+#else
+#	echo "ERROR: This script is meant to be run from within Documentation/ !"
+#	exit 255
+#fi
