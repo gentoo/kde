@@ -116,6 +116,7 @@ src_configure() {
 		$(cmake-utils_use_with jingle LiboRTP)
 		$(cmake-utils_use_with jingle Mediastreamer)
 		$(cmake-utils_use_with jingle Speex)
+		$(cmake-utils_use_with v4l2 LibV4L2)
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
