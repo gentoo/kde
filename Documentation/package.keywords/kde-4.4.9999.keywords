@@ -109,7 +109,7 @@
 ~kde-base/pykde4-4.4.9999 **
 ~kde-base/smoke-4.4.9999 **
 ~app-office/akonadi-server-1.3.0
-~dev-libs/soprano-2.3.70
+~dev-libs/soprano-2.3.73
 ~media-sound/phonon-4.3.80
 ~kde-base/blinken-4.4.9999 **
 ~kde-base/cantor-4.4.9999 **
@@ -287,8 +287,9 @@
 =app-admin/system-config-printer-common-1.1*
 =app-misc/hal-cups-utils-0.6*
 ~app-text/poppler-0.12.3
-~dev-db/virtuoso-odbc-5.0.13
-~dev-db/virtuoso-server-5.0.13
+~dev-db/virtuosoconverter-1.0
+~dev-db/virtuoso-odbc-6.1.0
+~dev-db/virtuoso-server-6.1.0
 dev-libs/libattica
 ~dev-libs/shared-desktop-ontologies-0.2
 =dev-python/pycups-1.9*

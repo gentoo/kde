@@ -304,8 +304,9 @@
 =app-admin/system-config-printer-common-1.1*
 =app-misc/hal-cups-utils-0.6*
 ~app-text/poppler-0.12.3
-~dev-db/virtuoso-odbc-5.0.13
-~dev-db/virtuoso-server-5.0.13
+~dev-db/virtuosoconverter-1.0
+~dev-db/virtuoso-odbc-6.1.0
+~dev-db/virtuoso-server-6.1.0
 dev-libs/libattica
 ~dev-libs/shared-desktop-ontologies-0.2
 =dev-python/pycups-1.9*
