@@ -4,7 +4,7 @@
 
 # @ECLASS: virtuoso.eclass
 # @MAINTAINER:
-# Maciej Mrozowski <reavertm@poczta.fm>
+# Maciej Mrozowski <reavertm@gentoo.org>
 #
 # @BLURB: Provides splitting functionality for Virtuoso
 # @DESCRIPTION:
@@ -116,20 +116,12 @@ virtuoso_src_configure() {
 		export SERVER=${EPREFIX}/usr/bin/virtuoso-t
 	fi
 
-	# Version specific options
-	case ${PV} in
-		5.0.11)
-			;;
-		*)
-			myconf+=" --without-internal-zlib"
-			;;
-	esac
-
 	econf \
 		--with-layout=gentoo \
 		--localstatedir=${EPREFIX}/var \
 		--enable-shared \
 		--with-pthreads \
+		--without-internal-zlib \
 		${myconf}
 }
 
