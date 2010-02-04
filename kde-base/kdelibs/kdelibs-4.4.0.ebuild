@@ -70,7 +70,7 @@ COMMONDEPEND="
 	policykit? ( sys-auth/polkit-qt )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.2
-		>=dev-libs/soprano-2.3.70[dbus,raptor,redland]
+		>=dev-libs/soprano-2.3.73[dbus,raptor,redland]
 	)
 	spell? (
 		app-dicts/aspell-en

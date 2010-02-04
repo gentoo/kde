@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	raptor? ( >=media-libs/raptor-1.4.16 )
 	redland? (
 		>=dev-libs/rasqal-0.9.15
-		>=dev-libs/redland-1.0.6
+		>=dev-libs/redland-1.0.9
 	)
 	java? ( >=virtual/jdk-1.6.0 )
 	virtuoso? ( dev-db/libiodbc:0 )
@@ -32,7 +32,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( >=dev-db/virtuoso-server-5.0.12 )
+	virtuoso? ( >=dev-db/virtuoso-server-6.1.0 )
 "
 
 CMAKE_IN_SOURCE_BUILD="1"

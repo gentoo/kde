@@ -32,7 +32,7 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( >=dev-db/virtuoso-server-5.0.12 )
+	virtuoso? ( >=dev-db/virtuoso-server-6.1.0 )
 "
 
 CMAKE_IN_SOURCE_BUILD="1"
