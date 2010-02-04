@@ -29,11 +29,11 @@ kde-base/kde-l10n:live
 ~kde-misc/konq-plugins-9999
 ~kde-misc/kportagetray-9999
 ~kde-misc/krusader-9999
+~kde-misc/kwebkitpart-9999
 ~kde-misc/menubar-9999
 ~kde-misc/plasma-emergelog-9999
 ~kde-misc/raptormenu-9999
 ~kde-misc/translatoid-9999
-~kde-misc/webkit-kpart-9999
 ~kde-misc/yakuake-9999
 ~mail-client/mailody-9999
 ~media-gfx/digikam-9999
