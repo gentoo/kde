@@ -1,0 +1,45 @@
+diff -ru ../virtuosoconverter-1.0/CMakeLists.txt ./CMakeLists.txt
+--- ../virtuosoconverter-1.0/CMakeLists.txt	2010-02-03 14:03:30.000000000 +0100
++++ ./CMakeLists.txt	2010-02-04 16:06:28.344773799 +0100
+@@ -53,40 +53,7 @@
+ # build Virtuoso5 the ugly way
+ #
+ 
+-# Check if the source tree does already contain the v5 sources. If not -> download them
+-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/virtuoso-opensource-5.0.12.tar.gz)
+-  set(VIRTUOSO_V5_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/virtuoso-opensource-5.0.12.tar.gz)
+-else(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/virtuoso-opensource-5.0.12.tar.gz)
+-  set(VIRTUOSO_V5_SOURCE ${CMAKE_CURRENT_BINARY_DIR}/virtuoso-opensource-5.0.12.tar.gz)
+-endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/virtuoso-opensource-5.0.12.tar.gz)
+-
+-set(VIRTUOSO_V5_SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/virtuoso-opensource-5.0.12)
+-
+-add_custom_command(
+-  OUTPUT ${VIRTUOSO_V5_SOURCE}
+-  COMMAND wget http://sourceforge.net/projects/virtuoso/files/virtuoso/5.0.12/virtuoso-opensource-5.0.12.tar.gz/download
+-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-  COMMENT "Downloading Virtuoso 5 sources...")
+-  
+-add_custom_command(
+-  OUTPUT ${VIRTUOSO_V5_SOURCE_DIR}/Makefile.am
+-  COMMAND tar xzf ${VIRTUOSO_V5_SOURCE}
+-  DEPENDS ${VIRTUOSO_V5_SOURCE}
+-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-  COMMENT "Extracting Virtuoso 5 sources...")
+-
+-add_custom_command(
+-  OUTPUT ${VIRTUOSO_V5_SOURCE_DIR}/Makefile
+-  COMMAND ${VIRTUOSO_V5_SOURCE_DIR}/configure --disable-all-vads --disable-wbxml2 --disable-imsg --disable-openldap --disable-imagemagick
+-  DEPENDS ${VIRTUOSO_V5_SOURCE_DIR}/Makefile.am
+-  WORKING_DIRECTORY ${VIRTUOSO_V5_SOURCE_DIR}
+-  COMMENT "Configuring Virtuoso 5 sources...")
+-
+-add_custom_target(virtuoso-t ALL
+-  COMMAND make
+-  DEPENDS ${VIRTUOSO_V5_SOURCE_DIR}/Makefile
+-  WORKING_DIRECTORY ${VIRTUOSO_V5_SOURCE_DIR}
+-  COMMENT "Building Virtuoso 5 sources...")
++set(VIRTUOSO_V5_SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/../virtuoso-opensource-5.0.13)
+ 
+ install(
+   PROGRAMS ${VIRTUOSO_V5_SOURCE_DIR}/binsrc/virtuoso/virtuoso-t 

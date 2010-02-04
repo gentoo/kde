@@ -44,6 +44,12 @@ VOS_EXTRACT="
 	binsrc/tests
 "
 
+pkg_setup() {
+	if has_version '<dev-db/virtuoso-server-6.0.0' && has_version 'kde-base/nepomuk'; then
+		VIRTUOSO_UPGRADE=1
+	fi
+}
+
 src_prepare() {
 	if ! use static-libs; then
 		sed -e '/^lib_LTLIBRARIES\s*=.*/s/lib_/noinst_/' -i binsrc/virtuoso/Makefile.am \
@@ -82,20 +88,16 @@ src_install() {
 }
 
 pkg_postinst() {
-	use prefix || EROOT="${ROOT}"
-
-	echo
-	einfo "To start the database server:"
-	echo
-	einfo "# cd ${EROOT}var/lib/virtuoso/db"
-	einfo "# virtuoso-t -f &"
-	echo
-	einfo "Then you should be able to access http://localhost:8890/"
-	einfo "and the conductor VAD at http://localhost:8890/conductor/."
-	einfo "The default login is dba:dba"
-	echo
-	einfo "The command line interface can be accessed with"
-	echo
-	einfo "$ isql-v 1111 dba dba"
-	echo
+	if [[ -n ${VIRTUOSO_UPGRADE} ]]; then
+		echo
+		ewarn "You're upgrading from Virtuoso V5. Note that your existing Nepomuk Virtuoso databases"
+		ewarn "will not work with Virtuoso V6 release unless you do one of the following:"
+		ewarn "a) Convert existing databases to V6 format:"
+		ewarn "  (as root) # emerge -1 dev-db/virtuosoconverter"
+		ewarn "  (as user) $ virtuosoconverter --auto"
+		ewarn "  (as root) # emerge -C virtuosoconverter"
+		ewarn "b) Remove existing databases:"
+		ewarn "  (as user) $ rm -r \${HOME}/.kde4/share/apps/nepomuk/repository/main/data/virtuosobackend"
+		echo
+	fi
 }
