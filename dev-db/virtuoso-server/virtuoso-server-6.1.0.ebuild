@@ -92,12 +92,12 @@ pkg_postinst() {
 		echo
 		ewarn "You're upgrading from Virtuoso V5. Note that your existing Nepomuk Virtuoso databases"
 		ewarn "will not work with Virtuoso V6 release unless you do one of the following:"
-		ewarn "a) Convert existing databases to V6 format:"
+		ewarn "a) Remove existing databases:"
+		ewarn "  (as user) $ rm -r \${HOME}/.kde4/share/apps/nepomuk/repository"
+		ewarn "b) Try to convert existing databases to V6 format:"
 		ewarn "  (as root) # emerge -1 dev-db/virtuosoconverter"
 		ewarn "  (as user) $ virtuosoconverter --auto"
 		ewarn "  (as root) # emerge -C virtuosoconverter"
-		ewarn "b) Remove existing databases:"
-		ewarn "  (as user) $ rm -r \${HOME}/.kde4/share/apps/nepomuk/repository/main/data/virtuosobackend"
 		echo
 	fi
 }
