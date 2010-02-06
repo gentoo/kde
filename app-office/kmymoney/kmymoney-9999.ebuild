@@ -22,7 +22,7 @@ COMMONDEPEND="
 	dev-libs/libgpg-error
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
 	hbci? (
-		>=net-libs/aqbanking-4.2[qt4]
+		>=net-libs/aqbanking-4.2.4[qt4]
 		>=sys-libs/gwenhywfar-3.10
 	)
 	ical? ( dev-libs/libical )
