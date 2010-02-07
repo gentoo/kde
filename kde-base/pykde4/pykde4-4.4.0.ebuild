@@ -15,16 +15,15 @@ DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="akonadi debug doc examples semantic-desktop"
 
+# blocker added due to compatibility issues and error during compile time
 DEPEND="
+	!dev-python/pykde
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
 "
-# blocker added due to compatibility issues and error during compile time
-RDEPEND="${DEPEND}
-	!dev-python/pykde
-"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	python_pkg_setup
