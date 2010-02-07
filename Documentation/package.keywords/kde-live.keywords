@@ -103,6 +103,7 @@
 ~kde-base/solid-runtime-9999 **
 ~kde-base/systemsettings-9999 **
 ~kde-base/kdebindings-csharp-9999 **
+~kde-base/kdebindings-ruby-9999 **
 ~kde-base/krossjava-9999 **
 ~kde-base/krosspython-9999 **
 ~kde-base/krossruby-9999 **

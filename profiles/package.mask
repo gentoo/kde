@@ -110,6 +110,7 @@ kde-base/solid:4.4
 kde-base/solid-runtime:4.4
 kde-base/systemsettings:4.4
 kde-base/kdebindings-csharp:4.4
+kde-base/kdebindings-ruby:4.4
 kde-base/krossjava:4.4
 kde-base/krosspython:4.4
 kde-base/krossruby:4.4
