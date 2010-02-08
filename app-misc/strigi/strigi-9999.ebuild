@@ -15,10 +15,12 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
+IUSE="clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
 
 COMMONDEPEND="
-	dev-libs/libxml2
+	app-arch/bzip2:0
+	dev-libs/libxml2:2
+	sys-libs/zlib:0
 	virtual/libiconv
 	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
@@ -32,11 +34,6 @@ COMMONDEPEND="
 	qt4? (
 		x11-libs/qt-core:4
 		x11-libs/qt-gui:4
-	)
-	!clucene? (
-		!hyperestraier? (
-			>=dev-cpp/clucene-0.9.21[-debug]
-		)
 	)
 "
 DEPEND="${COMMONDEPEND}
@@ -79,10 +76,6 @@ src_configure() {
 		mycmakeargs+=(-DENABLE_DBUS=ON)
 	fi
 
-	if ! use clucene && ! use hyperestraier; then
-		mycmakeargs+=(-DENABLE_CLUCENE=ON)
-	fi
-
 	cmake-utils_src_configure
 }
 
@@ -98,10 +91,12 @@ src_test() {
 
 pkg_postinst() {
 	if ! use clucene && ! use hyperestraier; then
-		elog "Because you didn't enable either of the supported backends:"
-		elog "clucene or hyperestraier"
-		elog "clucene support was silently installed."
-		elog "If you prefer another backend, be sure to reinstall strigi"
-		elog "and to enable that backend use flag"
+		echo
+		elog "Because you didn't enable either of the available backends:"
+		elog "clucene or hyperestraier, strigi may not be functional."
+		elog "If you intend to use standalone strigi indexer (not needed for KDE),"
+		elog "be sure to reinstall app-misc/strigi with either clucene (recommended)"
+		elog "or hyperestraier (unreliable) USE flag enabled."
+		echo
 	fi
 }
