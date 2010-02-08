@@ -293,6 +293,7 @@
 ~dev-db/virtuoso-server-6.1.0
 dev-libs/libattica
 ~dev-libs/shared-desktop-ontologies-0.2
+~dev-libs/redland-1.0.10
 =dev-python/pycups-1.9*
 >=net-libs/libssh-0.3.2
 >=sys-auth/polkit-0.95
