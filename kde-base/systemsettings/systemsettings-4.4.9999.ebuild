@@ -33,6 +33,7 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
+	
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
 "
@@ -47,6 +48,8 @@ KMEXTRACTONLY="
 	libs/
 	plasma/
 "
+
+add_blocker kcontrol '<4.3.98'
 
 src_unpack() {
 	if use handbook; then
