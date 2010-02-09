@@ -13,7 +13,7 @@ USE_RUBY="ruby18"
 inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="akonadi debug kdevplatform phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
