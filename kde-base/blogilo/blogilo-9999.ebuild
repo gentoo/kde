@@ -14,4 +14,7 @@ IUSE="debug +handbook"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/bilbo
+	!kde-misc/blogilo
+"
