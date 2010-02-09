@@ -16,6 +16,6 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=app-portage/packagekit-0.5.3[qt4]
+	>=app-admin/packagekit-0.6[qt4]
 "
 RDEPEND="${DEPEND}"
