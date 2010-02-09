@@ -8,7 +8,7 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://anongit.freedesktop.org/packagekit"
 	GIT_ECLASS="git"
 fi
-inherit eutils multilib python autotools nsplugins ${GIT_ECLASS}
+inherit eutils multilib python autotools nsplugins bash-completion ${GIT_ECLASS}
 
 MY_PN="PackageKit"
 MY_P=${MY_PN}-${PV}
@@ -26,7 +26,7 @@ SLOT="0"
 # KEYWORDS="~amd64 ~x86"
 KEYWORDS=""
 IUSE="connman +consolekit cron doc gtk networkmanager nsplugin pm-utils
-+policykit qt4 static-libs test udev"
++policykit +portage entropy qt4 static-libs test udev"
 
 CDEPEND="
 	dev-db/sqlite:3
@@ -148,7 +148,7 @@ src_configure() {
 		--disable-strict \
 		--disable-local \
 		$(use_enable doc gtk-doc) \
-		--disable-command-not-found \
+		$(use_enable bash-completion command-not-found) \
 		--disable-debuginfo-install \
 		--disable-gstreamer-plugin \
 		--disable-service-packs \
@@ -157,7 +157,8 @@ src_configure() {
 		--enable-man-pages \
 		# default backend is autodetected
 		# --with-default-backend=portage
-		$(use_enable connman) \
+		$(use_enable portage) \
+		$(use_enable entropy) \
 		$(use_enable cron) \
 		$(use_enable gtk gtk-module) \
 		$(use_enable networkmanager) \
@@ -184,6 +185,8 @@ src_install() {
 
 	# Remove precompiled python modules, we handle byte compiling
 	rm -f "${D}/$(python_get_sitedir)"/${PN}*.py[co]
+
+	dobashcompletion "${S}/contrib/pk-completion.bash" ${PN}
 }
 
 pkg_postinst() {
@@ -205,6 +208,8 @@ pkg_postinst() {
 		ewarn "it is not recommanded nor supported upstream."
 		echo
 	fi
+
+	bash-completion_pkg_postinst
 }
 
 pkg_prerm() {

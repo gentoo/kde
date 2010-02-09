@@ -12,8 +12,11 @@
 			Use <pkg>sys-auth/consolekit</pkg> to determine proxy settings
 		</flag>
 		<flag name="cron">Install cron script for auto-update</flag>
-		<flag name="pm-utils">
-			Add pm-utils (suspend/resume) functionalities
+		<flag name="portage">
+			Enable Portage backend
+		</flag>
+		<flag name="entropy">
+			Enable Entropy backend (Sabayon system pkg)
 		</flag>
 		<!--flag name="ruck">Build ruck (rug-like) client</flag-->
 		<flag name="static-libs">Compile static archives</flag>
