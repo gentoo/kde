@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
-	akonadi? ( >=app-office/akonadi-server-1.3.0 )
+	akonadi? ( >=app-office/akonadi-server-1.3.1 )
 	ldap? ( net-nds/openldap )
 "
 RDEPEND="${DEPEND}"
