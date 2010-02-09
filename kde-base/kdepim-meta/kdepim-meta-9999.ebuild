@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 inherit kde4-functions
 
 DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"

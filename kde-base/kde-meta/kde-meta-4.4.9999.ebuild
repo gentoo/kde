@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 inherit kde4-functions
 
 DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
