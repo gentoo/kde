@@ -19,6 +19,7 @@ SLOT="4"
 IUSE=""
 
 DEPEND="
+	!kde-misc/kportagetray
 	dev-python/PyQt4[svg,dbus]
 	>=kde-base/pykde4-${KDE_MINIMAL}
 "
