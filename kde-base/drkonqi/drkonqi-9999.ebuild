@@ -13,6 +13,8 @@ IUSE="debug"
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst
-	elog "For more usability consider installing folowing packages:"
+	if ! has_version "sys-devel/gdb"; then
+		elog "For more usability consider installing following packages:"
 	elog "    sys-devel/gdb - Easier debugging support"
+	fi
 }
