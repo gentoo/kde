@@ -33,7 +33,6 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
 "
