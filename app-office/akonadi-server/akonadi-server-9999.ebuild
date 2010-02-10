@@ -39,11 +39,12 @@ src_install() {
 		driver="QSQLITE"
 	fi
 	# Who knows, maybe it accidentally fixes our permission issues
-	mkdir -p "${D}"/usr/share/config/akonadi || die "mkdir failed"
-	cat <<-EOF > "${D}"/usr/share/config/akonadi/akonadiserverrc
+	cat <<-EOF > "${T}"/akonadiserverrc
 [%General]
 Driver=${driver}
 EOF
+	insinto /usr/share/config/akonadi
+	doins "${T}"/akonadiserverrc || die "doins failed"
 
 	cmake-utils_src_install
 }
