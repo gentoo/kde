@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="accessibility aqua kdeprefix nls"
+IUSE="accessibility aqua kdeprefix nls semantic-desktop"
 
 # excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
@@ -24,12 +24,12 @@ RDEPEND="
 	$(add_kdebase_dep kdegraphics-meta)
 	$(add_kdebase_dep kdemultimedia-meta)
 	$(add_kdebase_dep kdenetwork-meta)
-	$(add_kdebase_dep kdepim-meta)
 	$(add_kdebase_dep kdeplasma-addons)
 	$(add_kdebase_dep kdetoys-meta)
 	$(add_kdebase_dep kdeutils-meta)
 	$(add_kdebase_dep kdewebdev-meta)
 	accessibility? ( $(add_kdebase_dep kdeaccessibility-meta) )
 	nls? ( $(add_kdebase_dep kde-l10n) )
+	semantic-desktop? ( $(add_kdebase_dep kdepim-meta) )
 	$(block_other_slots)
 "
