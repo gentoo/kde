@@ -14,10 +14,10 @@ inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
-IUSE="akonadi debug kdevplatform phonon plasma qscintilla qwt semantic-desktop"
+IUSE="akonadi debug kdevplatform okular phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,kdevplatform?,phonon?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'akonadi?,kdevplatform?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?')
 "
 
 RDEPEND="${DEPEND}
@@ -64,7 +64,9 @@ each_ruby_configure() {
 		$(cmake-utils_use_enable akonadi KdepimLibs)
 		$(cmake-utils_use_enable akonadi)
 		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_RUBY)
+		$(cmake-utils_use_enable kdevplatform KDevPlatform)
 		$(cmake-utils_use_with kdevplatform KDevPlatform)
+		$(cmake-utils_use_enable okular)
 		$(cmake-utils_use_enable plasma PLASMA_RUBY)
 		$(cmake-utils_use_enable phonon)
 		$(cmake-utils_use_enable phonon PHONON_RUBY)
