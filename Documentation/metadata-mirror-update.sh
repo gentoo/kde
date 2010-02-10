@@ -18,18 +18,19 @@ METADATA_MIRROR_DIR=/path/to/your/mirror/dir
 #    portdbapi.auxdbmodule = portage.cache.sqlite.database
 
 die() {
-        echo "USAGE: $0 <overlay>" 1>&2
+        echo "Usage: $0 <overlay>" 1>&2
         echo "ERROR: $@" 1>&2
-        exit -1
+        exit 255
 }
 
 [[ "$1" ]] || die 'overlay'
 overlay="$1" ; shift
 
 case $overlay in
-        kde) update="git --git-dir=$METADATA_MIRROR_DIR/kde/repo/.git/ pull" ;;
+	kde) update="git --git-dir=$METADATA_MIRROR_DIR/kde/repo/.git/ pull" ;;
+	*) die "unknown overlay: $overlay" ;;
 esac
 
 if $update ; then
-        exec egencache --config-root=$METADATA_MIRROR_DIR/$overlay/ --cache-dir=$METADATA_MIRROR_DIR/cache/ --repo=$overlay --update
+	exec egencache --config-root=$METADATA_MIRROR_DIR/$overlay/ --cache-dir=$METADATA_MIRROR_DIR/cache/ --repo=$overlay --update
 fi
