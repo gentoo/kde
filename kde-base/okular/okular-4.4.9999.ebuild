@@ -18,11 +18,8 @@ DEPEND="
 	crypt? ( app-crypt/qca:2 )
 	djvu? ( app-text/djvu )
 	ebook? ( app-text/ebook-tools )
-	jpeg? ( media-libs/jpeg )
-	pdf? (
-		>=virtual/poppler-0.12.3[lcms]
-		>=virtual/poppler-qt4-0.12.3
-	)
+	jpeg? ( media-libs/jpeg:0 )
+	pdf? ( >=app-text/poppler-0.12.3-r3[lcms,qt4] )
 	ps? ( app-text/libspectre )
 	tiff? ( media-libs/tiff )
 "
