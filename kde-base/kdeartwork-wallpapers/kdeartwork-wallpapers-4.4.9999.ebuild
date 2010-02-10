@@ -13,3 +13,5 @@ inherit kde4-meta
 DESCRIPTION="Wallpapers from kde"
 KEYWORDS=""
 IUSE=""
+
+add_blocker kdebase-wallpapers '<'${PV}
