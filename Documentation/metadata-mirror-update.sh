@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Run this script via cronjob to update your metadata mirror
+
 METADATA_MIRROR_DIR=/path/to/your/mirror/dir
 
 # METADATA_MIRROR_DIR must contain:
