@@ -1,6 +1,5 @@
 =app-admin/system-config-printer-common-1.1*
 =app-misc/hal-cups-utils-0.6*
-~app-text/poppler-0.12.3
 ~dev-db/virtuosoconverter-1.0
 ~dev-db/virtuoso-odbc-6.1.0
 ~dev-db/virtuoso-server-6.1.0
@@ -10,7 +9,4 @@ dev-libs/libattica
 =dev-python/pycups-1.9*
 >=net-libs/libssh-0.3.2
 >=sys-auth/polkit-0.95
-~virtual/poppler-0.12.3
-~virtual/poppler-qt4-0.12.3
-~virtual/poppler-utils-0.12.3
 x11-misc/google-gadgets
