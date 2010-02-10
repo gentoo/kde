@@ -36,10 +36,4 @@ src_unpack() {
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-
-	echo
-	ewarn "This application wasn't ported to KDE 4.4 or higher yet."
-	ewarn "You will get runtime errors if you try to run it using these"
-	ewarn "versions."
-	echo
 }
