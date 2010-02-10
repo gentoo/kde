@@ -23,7 +23,7 @@ DEPEND="
 	gmm? ( sci-mathematics/gmm )
 	kdcraw? ( >=kde-base/libkdcraw-${KDE_MINIMAL} )
 	opengl? ( media-libs/glew )
-	pdf? ( >=virtual/poppler-qt4-0.10.5 )
+	pdf? ( >=app-text/poppler-0.12.3-r3[qt4] )
 "
 RDEPEND="${DEPEND}"
 
