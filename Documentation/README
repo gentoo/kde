@@ -7,17 +7,16 @@ the main repository for KDE live ebuilds and weekly snapshots.
 Installation instructions (and a full Gentoo KDE guide) can be
 found at http://kde.gentoo.org/kde4-guide.xml
 
+
 eix stuff:
 we all know that eix takes a long time to complete.
 i set up a server who generates metadata-cache, you can use it to speed up update-eix drastically.
 
 ATTENTION perhaps your overlay path may vary
 
-##1. execute metadata-sync in the Documentation directory - sorry, the server slackie.soylent.eu is down :(
-2. edit /etc/eixrc:
-OVERRIDE_CACHE_METHOD="/usr/local/portage/layman/kde metadata-assign"
+put this into /etc/eix-sync.conf:
+	@cd /var/lib/layman/kde/Documentation && sh ./metadata-sync
 
-everytime you sync the overlay, you have to sync the metadata manually again, i dont have a proper solution for that atm
 
 IMPORTANT NOTE FOR >=KDE-4.2.65 AND LIVE KDE4 USERS
 

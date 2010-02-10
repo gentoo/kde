@@ -1,12 +1,11 @@
 #!/bin/sh
 
-echo "sorry slackie.soylent.eu is down, somebody else has to provide the metadata"
-exit 255
+METADATA_MIRROR=rsync://gentoo.kynes.de:660/gentoo-metadata-kde/
 
-#if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
-#	echo "Syncing KDE overlay metadata ..."
-#	exec rsync --quiet --recursive --times --compress --delete-delay rsync://slackie.soylent.eu/metadata/kde-testing/ ../metadata/cache/
-#else
-#	echo "ERROR: This script is meant to be run from within Documentation/ !"
-#	exit 255
-#fi
+if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
+	echo "Syncing KDE overlay metadata ..."
+	exec rsync --quiet --recursive --times --compress --delete-delay $METADATA_MIRROR ../metadata/cache/
+else
+	echo "ERROR: This script is meant to be run from within Documentation/ !"
+	exit 255
+fi
