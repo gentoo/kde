@@ -190,6 +190,11 @@ src_install() {
 	rm -f "${D}/$(python_get_sitedir)"/${PN}*.py[co]
 
 	dobashcompletion "${S}/contrib/pk-completion.bash" ${PN}
+        # Remove bashcomp file installed by build-system
+        rm -f "${D}/bash_completion.d/pk-completion.bash"
+
+        # Remove unwanted PackageKit website stuff
+        rm -rf "${D}/usr/share/PackageKit/website"
 }
 
 pkg_postinst() {
