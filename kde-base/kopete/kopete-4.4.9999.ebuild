@@ -53,7 +53,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   testbed: NO DEPS
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
-PROTOCOLS="bonjour facebook gadu groupwise +jabber jingle meanwhile msn oscar qq
+PROTOCOLS="bonjour gadu groupwise +jabber jingle meanwhile msn oscar qq
 skype sms testbed winpopup yahoo"
 
 # disabled protocols
@@ -96,9 +96,6 @@ RDEPEND="${COMMONDEPEND}
 #	telepathy? ( net-libs/decibel )"
 DEPEND="${COMMONDEPEND}
 	!aqua? ( x11-proto/scrnsaverproto )
-"
-PDEPEND="
-	facebook? ( net-im/kopete-facebook )
 "
 
 src_prepare() {

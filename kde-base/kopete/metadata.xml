@@ -20,7 +20,6 @@
 	<flag name="webpresence">Show your status and some more information on web.</flag>
 		<!-- PROTOCOLS -->
 	<flag name="bonjour">Enable Link-Local Messaging via the bonjour protocol.</flag>
-	<flag name="facebook">Enable Facebook chat support.</flag>
 	<flag name="gadu">Enable the Gadu protocol handler.</flag>
 	<flag name="groupwise">Enable the Groupwise protocol handler.</flag>
 	<!-- uncomment this when enabled in ebuild
