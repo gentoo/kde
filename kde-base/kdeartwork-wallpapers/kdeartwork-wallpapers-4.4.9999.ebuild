@@ -14,4 +14,4 @@ DESCRIPTION="Wallpapers from kde"
 KEYWORDS=""
 IUSE=""
 
-add_blocker kdebase-wallpapers '<'${PV}
+add_blocker kdebase-wallpapers '<4.4.0'
