@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="ayatana debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep akonadi)
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
@@ -20,7 +19,9 @@ DEPEND="
 	$(add_kdebase_dep libkpgp)
 	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep akonadi)
+"
 
 add_blocker kmailcvt
 add_blocker libksieve

@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep akonadi)
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep korganizer)
@@ -24,7 +23,9 @@ DEPEND="
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep akonadi)
+"
 
 add_blocker kmailcvt
 add_blocker libksieve
