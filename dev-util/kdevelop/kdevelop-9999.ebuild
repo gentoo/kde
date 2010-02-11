@@ -20,7 +20,7 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="+cmake +cxx debug +debugger +qmake qthelp"
+IUSE="+cmake +cxx debug +qmake qthelp"
 
 DEPEND="
 	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
@@ -30,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-base/kapptemplate-${KDE_MINIMAL}
-	debugger? ( >=sys-devel/gdb-7.0[python] )
+	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 
 src_prepare() {
