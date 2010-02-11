@@ -173,7 +173,10 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 
-	dodoc AUTHORS ChangeLog MAINTAINERS NEWS README TODO || die "dodoc failed"
+        dodoc AUTHORS MAINTAINERS NEWS README TODO || die "dodoc failed"
+        if [[ ${PV} != *9999* ]]; then
+                dodoc ChangeLog || die "dodoc failed"
+        fi
 
 	if use nsplugin; then
 		src_mv_plugins /usr/$(get_libdir)/mozilla/plugins
