@@ -24,7 +24,7 @@ DEPEND="
 	$(add_kdebase_dep messageviewer)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep akonadi)
+	$(add_kdebase_dep kdepim-runtime)
 "
 
 add_blocker kmailcvt

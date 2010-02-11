@@ -20,7 +20,7 @@ DEPEND="
 	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep akonadi)
+	$(add_kdebase_dep kdepim-runtime)
 "
 
 add_blocker kmailcvt
