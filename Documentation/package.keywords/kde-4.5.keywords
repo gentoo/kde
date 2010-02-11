@@ -110,7 +110,7 @@ kde-base/krossruby:4.5
 kde-base/pykde4:4.5
 kde-base/smoke:4.5
 ~app-office/akonadi-server-1.3.1
-~dev-libs/soprano-2.4.0
+~dev-libs/soprano-2.4.0.1
 ~media-sound/phonon-4.3.80
 kde-base/blinken:4.5
 kde-base/cantor:4.5
