@@ -139,6 +139,8 @@ src_configure() {
 	# command,debuginfo,gstreamer,service-packs: not supported by backend
 	# ruck,managed: failing (see UPSTREAM in ebuild header)
 	# glib2: experimental
+	# default backend is autodetected
+	# --with-default-backend=portage
 	econf \
 		${myconf} \
 		--localstatedir=/var \
@@ -155,8 +157,6 @@ src_configure() {
 		--disable-ruck \
 		--disable-managed \
 		--enable-man-pages \
-		# default backend is autodetected
-		# --with-default-backend=portage
 		$(use_enable portage) \
 		$(use_enable entropy) \
 		$(use_enable cron) \
