@@ -1,3 +1,4 @@
+kde-base/attica
 kde-base/dolphin
 kde-base/drkonqi
 kde-base/kappfinder
@@ -61,6 +62,7 @@ kde-base/kwrited
 kde-base/libkonq
 kde-base/libkworkspace
 kde-base/libplasmaclock
+kde-base/libplasmagenericshell
 kde-base/libtaskmanager
 kde-base/nepomuk
 kde-base/nsplugins
@@ -68,11 +70,9 @@ kde-base/phonon-kde
 kde-base/plasma-apps
 kde-base/plasma-runtime
 kde-base/plasma-workspace
-kde-base/policykit-kde
 kde-base/powerdevil
+kde-base/qguiplatformplugin_kde
 kde-base/renamedlg-plugins
 kde-base/solid
-kde-base/solid-hardware
-kde-base/solidautoeject
-kde-base/soliduiserver
+kde-base/solid-runtime
 kde-base/systemsettings

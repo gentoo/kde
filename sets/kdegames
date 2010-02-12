@@ -1,5 +1,6 @@
 kde-base/bomber
 kde-base/bovo
+kde-base/granatier
 kde-base/kapman
 kde-base/katomic
 kde-base/kbattleship
@@ -11,6 +12,7 @@ kde-base/kdiamond
 kde-base/kfourinline
 kde-base/kgoldrunner
 kde-base/killbots
+kde-base/kigo
 kde-base/kiriki
 kde-base/kjumpingcube
 kde-base/klines
@@ -34,3 +36,4 @@ kde-base/kubrick
 kde-base/libkdegames
 kde-base/libkmahjongg
 kde-base/lskat
+kde-base/palapeli

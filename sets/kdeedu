@@ -1,4 +1,5 @@
 kde-base/blinken
+kde-base/cantor
 kde-base/kalgebra
 kde-base/kalzium
 kde-base/kanagram
@@ -17,4 +18,5 @@ kde-base/kwordquiz
 kde-base/libkdeedu
 kde-base/marble
 kde-base/parley
+kde-base/rocs
 kde-base/step
