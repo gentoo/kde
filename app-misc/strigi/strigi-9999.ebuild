@@ -15,7 +15,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="clucene +dbus debug exif fam hyperestraier inotify log +qt4 test"
+IUSE="clucene +dbus debug exif fam ffmpeg hyperestraier inotify log +qt4 test xine"
 
 COMMONDEPEND="
 	app-arch/bzip2:0
@@ -29,12 +29,14 @@ COMMONDEPEND="
 	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
+	ffmpeg? ( media-video/ffmpeg )
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		x11-libs/qt-core:4
 		x11-libs/qt-gui:4
 	)
+	xine? ( media-libs/xine-lib )
 "
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
@@ -66,10 +68,12 @@ src_configure() {
 		$(cmake-utils_use_enable dbus)
 		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam)
+		$(cmake-utils_use_enable ffmpeg)
 		$(cmake-utils_use_enable hyperestraier)
 		$(cmake-utils_use_enable inotify)
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4)
+		$(cmake-utils_use_enable xine)
 	)
 
 	if use qt4; then
