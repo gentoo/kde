@@ -189,8 +189,8 @@ kde-base/smoke:live
 # For kde-base/kdebase-kioslaves
 ~net-libs/libssh-9999
 
-# For kde-base/granatier
-~media-libs/gluon-9999
+# For kde-base/granatier - removed due to use.mask
+#~media-libs/gluon-9999
 
 # For kde-base/kopete
 >=net-libs/libmsn-4.0
