@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE printer system tray utility"
 KEYWORDS=""
-IUSE=""
+IUSE="+handbook"
 
 DEPEND="
 	>=app-admin/system-config-printer-common-1.1.12
