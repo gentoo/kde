@@ -5,7 +5,7 @@
 EAPI="2"
 
 WEBKIT_REQUIRED="always"
-KMNAME="kdereview"
+KMNAME="extragear/base"
 KMMODULE="kwebkitpart"
 inherit kde4-base
 
