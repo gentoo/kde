@@ -7,31 +7,33 @@ EAPI="2"
 KMNAME="playground/office"
 inherit kde4-base
 
-DESCRIPTION="kmymoney is a personal finance program for KDE4"
+DESCRIPTION="A personal finance manager for KDE"
 HOMEPAGE="http://techbase.kde.org/Projects/KMyMoney"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug hbci ical ofx quotes test"
+IUSE="debug calendar +handbook hbci ofx quotes test"
 
-COMMONDEPEND="
+COMMON_DEPEND="
 	app-crypt/gpgme
 	>=dev-libs/boost-1.33.1
 	dev-libs/libxml2
 	dev-libs/libgpg-error
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	calendar? ( dev-libs/libical )
 	hbci? (
 		>=net-libs/aqbanking-4.2.4[qt4]
-		>=sys-libs/gwenhywfar-3.10
+		>=sys-libs/gwenhywfar-3.11.3
 	)
-	ical? ( dev-libs/libical )
-	ofx? ( >=dev-libs/libofx-0.9 )
+	ofx? ( >=dev-libs/libofx-0.9.1 )
 "
-RDEPEND="${COMMONDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	quotes? ( dev-perl/Finance-Quote )"
-DEPEND="${COMMONDEPEND}
-	test? ( >=dev-util/cppunit-1.12 )"
+DEPEND="${COMMON_DEPEND}
+	test? ( >=dev-util/cppunit-1.12.1 )"
+
+DOCS="AUTHORS BUGS ChangeLog* README* TODO"
 
 src_prepare() {
 	kde4-base_src_prepare
@@ -44,7 +46,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_enable hbci KBANKING)
-		$(cmake-utils_use_enable ical LIBICAL)
+		$(cmake-utils_use_enable calendar LIBICAL)
 		$(cmake-utils_use_enable ofx LIBOFX)
 		$(cmake-utils_use test KDE4_BUILD_TESTS)
 	)
