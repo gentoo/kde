@@ -14,6 +14,7 @@ KEYWORDS=""
 
 COMMONDEPEND="
 	dev-libs/glib:2
+	$(add_kdebase_dep libkworkspace)
 	media-libs/fontconfig
 	>=media-libs/freetype-2
 	>=x11-libs/libxklavier-3.2
