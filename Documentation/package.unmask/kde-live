@@ -290,7 +290,6 @@ kde-base/kopete:live
 kde-base/kppp:live
 kde-base/krdc:live
 kde-base/krfb:live
-kde-base/lilo-config:live
 kde-base/kfloppy:live
 kde-base/kdelirc:live
 kde-base/policykit-kde:live
