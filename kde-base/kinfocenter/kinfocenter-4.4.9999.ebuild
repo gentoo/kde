@@ -13,16 +13,12 @@ KEYWORDS=""
 IUSE="debug +handbook ieee1394"
 
 DEPEND="
+	sys-apps/pciutils
 	ieee1394? ( sys-libs/libraw1394 )
 	opengl? ( virtual/glu virtual/opengl )
 "
 RDEPEND="${DEPEND}
-	sys-apps/pciutils
 	sys-apps/usbutils
-"
-
-KMEXTRACTONLY="
-	cmake/modules/
 "
 
 src_configure() {
