@@ -101,6 +101,8 @@ DEPEND="${COMMONDEPEND}
 src_prepare() {
 	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
 		-i kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
+	sed -e '/set (LIBV4L2_REQUIRED TRUE)/s/TRUE/FALSE/' \
+		-i kopete/CMakeLists.txt || die 'failed to make v4l2 optional'
 
 	kde4-meta_src_prepare
 }
