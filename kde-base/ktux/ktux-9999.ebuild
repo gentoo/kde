@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	sed -i -e's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/' \
-		"${PN}"/CMakeLists.txt || die "Failed to patch CMakeLists.txt"
+		"${PN}"/src/CMakeLists.txt || die "Failed to patch CMakeLists.txt"
 
 	kde4-meta_src_prepare
 }
