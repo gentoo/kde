@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS=""
-IUSE="aqua cups kdeprefix lilo"
+IUSE="aqua cups kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep kcron)
@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdebase_dep ksystemlog)
 	$(add_kdebase_dep kuser)
 	cups? ( $(add_kdebase_dep system-config-printer-kde) )
-	lilo? ( $(add_kdebase_dep lilo-config) )
 	$(block_other_slots)
 "
 
@@ -29,7 +28,3 @@ RDEPEND="
 ## the following packages are currently missing in kde 4.1
 #>=kde-base/kdeadmin-kfile-plugins-${PV}:${SLOT}
 #>=kde-base/secpolicy-${PV}:${SLOT}
-
-## These seem to be broken
-#>=kde-base/kdat-${PV}:${SLOT}
-#>=kde-base/ksysv-${PV}:${SLOT}
