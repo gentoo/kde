@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 KMNAME="kdebase-workspace"
 KMMODULE="plasma"
@@ -83,7 +83,7 @@ pkg_postinst() {
 
 	if use python; then
 		python_mod_optimize \
-			"$(python_get_sitedir)"/PyKDE4 \
+			PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
@@ -93,7 +93,7 @@ pkg_postrm() {
 
 	if [[ -d ${EKDEDIR}/share/apps/plasma_scriptengine_python ]]; then
 		python_mod_cleanup \
-			"$(python_get_sitedir)"/PyKDE4 \
+			PyKDE4 \
 			"${KDEDIR}"/share/apps/plasma_scriptengine_python
 	fi
 }
