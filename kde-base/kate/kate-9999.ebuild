@@ -17,14 +17,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	if use handbook; then
-		KMEXTRA="doc/kate-plugins"
-	fi
-
-	kde4-meta_src_unpack
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with plasma)
