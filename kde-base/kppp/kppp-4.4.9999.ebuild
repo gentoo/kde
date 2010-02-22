@@ -10,3 +10,7 @@ inherit kde4-meta
 DESCRIPTION="KDE: A dialer and front-end to pppd."
 KEYWORDS=""
 IUSE="debug +handbook"
+
+RDEPEND="
+	net-dialup/ppp
+"
