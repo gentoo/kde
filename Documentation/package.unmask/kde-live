@@ -287,11 +287,11 @@ kde-base/kdenetwork-filesharing:live
 kde-base/kdnssd:live
 kde-base/kget:live
 kde-base/kopete:live
-kde-base/kppp:live
 kde-base/krdc:live
 kde-base/krfb:live
-kde-base/kfloppy:live
 kde-base/kdelirc:live
+kde-base/kfloppy:live
+kde-base/kppp:live
 kde-base/policykit-kde:live
 kde-base/akonadi:live
 kde-base/akregator:live

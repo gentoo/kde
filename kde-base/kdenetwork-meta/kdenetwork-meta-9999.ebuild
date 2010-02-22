@@ -11,15 +11,15 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE="aqua kdeprefix ppp"
 
 RDEPEND="
 	$(add_kdebase_dep kdenetwork-filesharing)
 	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep kget)
 	$(add_kdebase_dep kopete)
-	$(add_kdebase_dep kppp)
 	$(add_kdebase_dep krdc)
 	$(add_kdebase_dep krfb)
+	ppp? ( $(add_kdebase_dep kppp) )
 	$(block_other_slots)
 "

@@ -1,4 +1,5 @@
-kde-base/lilo-config
-kde-base/kfloppy
 kde-base/kdelirc
+kde-base/kfloppy
+kde-base/kppp
+kde-base/lilo-config
 kde-base/policykit-kde

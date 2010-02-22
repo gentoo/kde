@@ -205,11 +205,11 @@
 ~kde-base/kdnssd-4.4.9999 **
 ~kde-base/kget-4.4.9999 **
 ~kde-base/kopete-4.4.9999 **
-~kde-base/kppp-4.4.9999 **
 ~kde-base/krdc-4.4.9999 **
 ~kde-base/krfb-4.4.9999 **
-~kde-base/kfloppy-4.4.9999 **
 ~kde-base/kdelirc-4.4.9999 **
+~kde-base/kfloppy-4.4.9999 **
+~kde-base/kppp-4.4.9999 **
 ~kde-base/policykit-kde-4.4.9999 **
 ~kde-base/akonadi-4.4.9999 **
 ~kde-base/akregator-4.4.9999 **
