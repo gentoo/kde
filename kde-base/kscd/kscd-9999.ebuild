@@ -21,3 +21,9 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	libkcompactdisc/
 "
+
+src_unpack() {
+	use handbook && KMEXTRA="doc/kcontrol/cddbretrieval"
+
+	kde4-meta_src_unpack
+}
