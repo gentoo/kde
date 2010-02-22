@@ -4,11 +4,11 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils git
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/phonon"
+EGIT_REPO_URI="git://gitorious.org/phonon/phonon.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
