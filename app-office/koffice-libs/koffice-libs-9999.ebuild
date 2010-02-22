@@ -37,20 +37,14 @@ KMEXTRA="
 	interfaces/
 	kounavail/
 	plugins/
-	tools/"
+	tools/
+"
 #	doc/api/"
 KMEXTRACTONLY="
-	doc/koffice.desktop"
+	doc/koffice.desktop
+"
 
 KMSAVELIBS="true"
-
-src_prepare() {
-	sed -i \
-		-e "s:QtCrypto/QtCrypto:QtCrypto:" \
-		libs/store/KoEncryptedStore.h || die
-
-	kde4-meta_src_prepare
-}
 
 src_configure() {
 	mycmakeargs=(
