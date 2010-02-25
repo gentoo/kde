@@ -24,7 +24,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!dev-util/kdesvn:1.2
 	!dev-util/qsvn
-	!>=kde-base/kdesdk-kioslaves-4.3.3[-kdeprefix,subversion]
+	!<kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix]
+	!>=kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix,subversion]
 "
 
 src_configure() {
