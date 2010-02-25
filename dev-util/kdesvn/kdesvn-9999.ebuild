@@ -20,6 +20,7 @@ IUSE="debug +handbook"
 DEPEND="
 	>=dev-db/sqlite-3
 	>=dev-util/subversion-1.4
+	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
 	!dev-util/kdesvn:1.2
