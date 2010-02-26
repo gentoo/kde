@@ -12,3 +12,4 @@ Topics
 - change kde-meta (and @kde-*) to include all modules (plus the developer specific ones)
 - stabilization of misc kde apps
 - patches of kde-packager
+- split of desktop profile
