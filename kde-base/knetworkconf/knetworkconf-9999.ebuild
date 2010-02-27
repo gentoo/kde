@@ -9,4 +9,10 @@ inherit kde4-meta
 
 DESCRIPTION="KDE control Center Module to confiure Network settings"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +handbook"
+
+src_unpack() {
+	use handbook && KMEXTRA="doc/kcontrol/${PN}"
+
+	kde4-meta_src_unpack
+}
