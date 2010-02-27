@@ -17,7 +17,9 @@ DEPEND="
 	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.2 )
 "
 RDEPEND="${DEPEND}
-	subversion? ( dev-util/subversion )
+	subversion? (
+	dev-util/subversion
+	$(add_kdebase_dep kompare) )
 	$(add_kdebase_dep kfind)
 "
 PDEPEND="
