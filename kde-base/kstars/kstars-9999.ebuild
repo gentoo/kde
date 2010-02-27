@@ -18,7 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.80-solaris.patch
+	"${FILESDIR}"/${PN}-4.4.65-solaris.patch
 )
 
 src_configure() {
