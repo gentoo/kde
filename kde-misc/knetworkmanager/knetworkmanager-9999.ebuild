@@ -21,21 +21,11 @@ IUSE="consolekit debug +networkmanager wicd"
 DEPEND="
 	!kde-misc/networkmanager-applet
 	>=kde-base/solid-${KDE_MINIMAL}[networkmanager?,wicd?]
+	!wicd? ( >=kde-base/solid-${KDE_MINIMAL}[networkmanager] )
 	>=net-misc/networkmanager-0.7
 	consolekit? ( sys-auth/consolekit )
 "
 RDEPEND="${DEPEND}"
-
-pkg_setup() {
-	if ! use networkmanager && ! use wicd; then
-		eerror "You need to pick up one of the backend implementations"
-		eerror "   * networkmanager"
-		eerror "   * wicd"
-		die "No backend selected"
-	fi
-
-	kde4-base_pkg_setup
-}
 
 src_prepare() {
 	kde4-base_src_prepare
