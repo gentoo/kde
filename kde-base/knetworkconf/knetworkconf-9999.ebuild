@@ -12,7 +12,11 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 src_unpack() {
-	use handbook && KMEXTRA="doc/kcontrol/${PN}"
+	if use handbook; then
+		KMEXTRA="${KMEXTRA}
+			doc/kcontrol/${PN}
+		"
+	fi
 
 	kde4-meta_src_unpack
 }
