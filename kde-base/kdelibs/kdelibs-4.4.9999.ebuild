@@ -134,13 +134,8 @@ src_prepare() {
 	local menu_prefix="kde-${SLOT}-"
 	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME ${menu_prefix}applications.menu|g" \
 		-i kded/CMakeLists.txt || die "Sed on CMakeLists.txt for applications.menu failed."
-	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
+	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|g" \
 		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
-
-	# Properly place xinitrc.d file that exports XDG_MENU_PREFIX to env
-	cp "${FILESDIR}"/dist/11-xdg-menu-kde .
-	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
-		-i 11-xdg-menu-kde || die "Sed on vfolder_menu.cpp failed."
 
 	if use aqua; then
 		sed -i -e \
@@ -267,11 +262,6 @@ src_install() {
 			"${ED}"/${KDEDIR}/share/apps/cmake/modules/FindXKB.cmake \
 			|| die "failed fixing FindXKB.cmake"
 	fi
-
-	# Install xinitrc.d entry
-	exeinto /etc/X11/xinit/xinitrc.d/
-	doexe "${S}/11-xdg-menu-kde" || die "doexe failed"
-
 }
 
 pkg_postinst() {
