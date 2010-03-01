@@ -136,6 +136,11 @@ src_prepare() {
 	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
 		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
 
+	# Properly place xinitrc.d file that exports XDG_MENU_PREFIX to env
+	cp "${FILESDIR}"/dist/11-xdg-menu-kde .
+	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|" \
+		-i 11-xdg-menu-kde || die "Sed on vfolder_menu.cpp failed."
+
 	if use aqua; then
 		sed -i -e \
 			"s:BUNDLE_INSTALL_DIR \"/Applications:BUNDLE_INSTALL_DIR \"${EPREFIX}/${APP_BUNDLE_DIR}:g" \
@@ -261,6 +266,11 @@ src_install() {
 			"${ED}"/${KDEDIR}/share/apps/cmake/modules/FindXKB.cmake \
 			|| die "failed fixing FindXKB.cmake"
 	fi
+
+	# Install xinitrc.d entry
+	exeinto /etc/X11/xinit/xinitrc.d/
+	doexe "${S}/11-xdg-menu-kde" || die "doexe failed"
+
 }
 
 pkg_postinst() {
