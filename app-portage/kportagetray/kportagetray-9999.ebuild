@@ -9,7 +9,7 @@ NEED_PYTHON="2.6"
 
 inherit git kde4-base python
 
-DESCRIPTION="A set of basic operations for Portage"
+DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
 EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 
