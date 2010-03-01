@@ -25,6 +25,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	app-portage/eix
+	app-portage/genlop
 	>=kde-base/kdesu-${KDE_MINIMAL}
 	>=kde-base/knotify-${KDE_MINIMAL}
 	>=kde-base/konsole-${KDE_MINIMAL}
