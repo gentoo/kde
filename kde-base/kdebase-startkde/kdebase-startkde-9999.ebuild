@@ -42,7 +42,6 @@ RDEPEND="
 KMEXTRACTONLY="
 	ConfigureChecks.cmake
 	kdm/
-	safestartkde.cmake
 	startkde.cmake
 "
 
