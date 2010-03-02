@@ -50,6 +50,7 @@ KMEXTRACTONLY="
 "
 
 add_blocker kcontrol '<4.3.98'
+add_blocker konqueror '<4.4.70'
 
 src_unpack() {
 	if use handbook; then
