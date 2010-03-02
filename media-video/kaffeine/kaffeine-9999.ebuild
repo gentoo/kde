@@ -26,6 +26,7 @@ IUSE="debug"
 DEPEND="
 	>=kde-base/phonon-kde-${KDE_MINIMAL}
 	>=kde-base/solid-${KDE_MINIMAL}
+	x11-libs/libXScrnSaver
 "
 RDEPEND="${DEPEND}
 	!media-video/kaffeine:0
