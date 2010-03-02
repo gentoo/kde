@@ -48,7 +48,6 @@ kde-base/ksmserver:live
 kde-base/ksplash:live
 kde-base/kstart:live
 kde-base/kstartupconfig:live
-kde-base/kstyles:live
 kde-base/ksysguard:live
 kde-base/ksystraycmd:live
 kde-base/ktimezoned:live

@@ -36,7 +36,6 @@ RDEPEND="
 	$(add_kdebase_dep kpasswdserver)
 	$(add_kdebase_dep kquitapp)
 	$(add_kdebase_dep kstart)
-	$(add_kdebase_dep kstyles)
 	$(add_kdebase_dep ktimezoned)
 	$(add_kdebase_dep ktraderclient)
 	$(add_kdebase_dep kuiserver)

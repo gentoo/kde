@@ -34,6 +34,15 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
+add_blocker kstyles
+
+KMEXTRA="
+	kstyles/
+"
+KMEXTACTONLY="
+	libs/oxygen/
+"
+
 src_prepare() {
 # NOTE uncomment when enabled again by upstream
 #	if ! use captury; then
