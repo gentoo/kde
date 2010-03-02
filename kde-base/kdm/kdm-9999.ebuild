@@ -43,6 +43,15 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch"
 )
 
+pkg_setup() {
+	kde4-meta_pkg_setup
+
+	# Create kdm:kdm user
+	KDM_HOME=/var/lib/kdm
+	enewgroup kdm
+	enewuser kdm -1 -1 "${KDM_HOME}" kdm
+}
+
 src_configure() {
 	# genkdmconf breaks with -O3
 	# last checked in 4.2.95
@@ -69,6 +78,11 @@ src_install() {
 
 	# Don't install empty dir
 	rmdir "${ED}${KDEDIR}"/share/config/kdm/sessions
+
+	# Set up permissions to kdm work directory
+	keepdir "${KDM_HOME}"
+	fowners root:kdm "${KDM_HOME}"
+	fperms 1770 "${KDM_HOME}"
 }
 
 pkg_postinst() {
