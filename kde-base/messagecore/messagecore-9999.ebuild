@@ -11,6 +11,12 @@ DESCRIPTION="KDE PIM messagecore library"
 KEYWORDS=""
 IUSE="debug"
 
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep libkdepim)
+"
+RDEPEND="${DEPEND}"
+
 add_blocker kmail 4.4.50
 
 KMLOADLIBS="libkdepim"
