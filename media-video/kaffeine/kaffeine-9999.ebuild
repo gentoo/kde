@@ -23,12 +23,15 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND="
+COMMON_DEPEND="
 	>=kde-base/phonon-kde-${KDE_MINIMAL}
 	>=kde-base/solid-${KDE_MINIMAL}
 	x11-libs/libXScrnSaver
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	x11-proto/scrnsaverproto
+"
+RDEPEND="${COMMON_DEPEND}
 	!media-video/kaffeine:0
 	!media-video/kaffeine:1
 "
