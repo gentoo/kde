@@ -74,6 +74,7 @@
 ~kde-base/ksplash-9999 **
 ~kde-base/kstart-9999 **
 ~kde-base/kstartupconfig-9999 **
+~kde-base/kstyles-9999 **
 ~kde-base/ksysguard-9999 **
 ~kde-base/ksystraycmd-9999 **
 ~kde-base/ktimezoned-9999 **
@@ -86,6 +87,7 @@
 ~kde-base/kwrited-9999 **
 ~kde-base/libkonq-9999 **
 ~kde-base/libkworkspace-9999 **
+~kde-base/liboxygenstyle-9999 **
 ~kde-base/libplasmaclock-9999 **
 ~kde-base/libplasmagenericshell-9999 **
 ~kde-base/libtaskmanager-9999 **

@@ -16,6 +16,7 @@ IUSE="debug xcomposite xinerama"
 COMMONDEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep liboxygenstyle)
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
@@ -34,11 +35,6 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-add_blocker kstyles
-
-KMEXTRA="
-	kstyles/
-"
 KMEXTACTONLY="
 	libs/oxygen/
 "
