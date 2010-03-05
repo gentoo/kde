@@ -27,8 +27,7 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
-	!dev-util/kdesvn:1.2
-	!dev-util/qsvn
+	!dev-vcs/qsvn
 	!<kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix]
 	!>=kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix,subversion]
 "
