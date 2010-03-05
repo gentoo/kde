@@ -20,7 +20,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kdeprefix? (
-		subversion? ( !>=dev-util/kdesvn-1.5.2:4 )
+		subversion? ( !>=dev-vcs/kdesvn-1.5.2:4 )
 	)
 "
 
