@@ -25,9 +25,17 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 "
 
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Don't use external libbtcore, it's not really ready yet
+	sed -e 's:find_package(BTCore):macro_optional_&:' \
+		-i kget/transfer-plugins/bittorrent/CMakeLists.txt || die "sed failed"
+}
+
 src_configure() {
 	mycmakeargs=(
-		-DENABLE_EMBEDDED_TORRENT_SUPPORT=ON
+		-DWITH_BTCore=OFF
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
