@@ -56,6 +56,14 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
+src_unpack() {
+	if use handbook; then
+		KMEXTRA+=" doc/plasma-desktop"
+	fi
+
+	kde4-meta_src_unpack
+}
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with google-gadgets Googlegadgets)

@@ -56,10 +56,12 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
-pkg_setup() {
-	use handbook && KMEXTRA="doc/plasma-desktop"
+src_unpack() {
+	if use handbook; then
+		KMEXTRA+=" doc/plasma-desktop"
+	fi
 
-	kde4-meta_pkg_setup
+	kde4-meta_src_unpack
 }
 
 src_configure() {
