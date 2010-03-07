@@ -121,7 +121,7 @@ PATCHES=(
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
 	"${FILESDIR}/dist/23_solid_no_double_build.patch"
 	"${FILESDIR}/${PN}-4.3.80-module-suffix.patch"
-	"${FILESDIR}/${PN}-4.3.1-macos-unbundle.patch"
+	"${FILESDIR}/${PN}-4.4.66-macos-unbundle.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
