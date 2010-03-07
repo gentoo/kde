@@ -24,7 +24,7 @@ kdepim:
 ebuilds:
  - check missing ebuilds in live slot (comparing cmakelists probably)
  - kapptemplate needs to be checked again when kbindings is available?
- - kdesdk-kioslaves, i dont know about the dev-util/kdesvn collision
+ - kdesdk-kioslaves, i dont know about the dev-vcs/kdesvn collision
  - kdesdk-misc, kpalettes doesnt do anything, scheck disabled in cmakelists.txt
 
 TESTS:

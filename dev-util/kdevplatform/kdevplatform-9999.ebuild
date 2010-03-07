@@ -25,14 +25,14 @@ SLOT="4"
 IUSE="cvs debug kompare mercurial subversion"
 
 # Moved to playground for now
-# bazaar? ( dev-util/bzr )
+# bazaar? ( dev-vcs/bzr )
 # git? ( dev-util/git )
 # block - some plugins moved to kdevplatform from kdevelop
 RDEPEND="
 	!<dev-util/kdevelop-${KDEVELOP_PV}
 	cvs? ( dev-util/cvs )
 	kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
-	mercurial? ( dev-util/mercurial )
+	mercurial? ( dev-vcs/mercurial )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 DEPEND="${RDEPEND}
