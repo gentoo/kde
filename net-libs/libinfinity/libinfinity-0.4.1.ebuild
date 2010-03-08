@@ -11,7 +11,7 @@ HOMEPAGE="http://gobby.0x539.de/"
 SRC_URI="http://releases.0x539.de/${PN}/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="avahi doc gtk server"
 
 RDEPEND=">=sys-libs/e2fsprogs-libs-1.41.4
@@ -20,11 +20,10 @@ RDEPEND=">=sys-libs/e2fsprogs-libs-1.41.4
 	net-libs/gnutls
 	>=net-misc/gsasl-0.2.21
 	avahi? ( net-dns/avahi )
-	gtk? ( >=x11-libs/gtk+-2.12:2 )"
+	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
 	>=dev-util/pkgconfig-0.23
-	dev-util/gtk-doc"
-#	doc? ( dev-util/gtk-doc )" bug 267545
+	doc? ( dev-util/gtk-doc )"
 
 pkg_setup() {
 	if use server ; then
@@ -47,8 +46,8 @@ src_install() {
 	dodoc AUTHORS NEWS README TODO
 
 	if use server ; then
-		newinitd "${FILESDIR}/infinoted.initd-0.2" infinoted
-		newconfd "${FILESDIR}/infinoted.confd-0.2" infinoted
+		newinitd "${FILESDIR}/infinoted.initd-0.4" infinoted
+		newconfd "${FILESDIR}/infinoted.confd-0.4" infinoted
 
 		keepdir /var/lib/infinote
 		fowners infinote:infinote /var/lib/infinote

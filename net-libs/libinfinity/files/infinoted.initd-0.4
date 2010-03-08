@@ -1,7 +1,7 @@
 #!/sbin/runscript
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libinfinity/files/infinoted.initd-0.2,v 1.1 2009/04/08 19:54:27 dev-zero Exp $
+# $Header: $
 
 
 depend() {
@@ -13,7 +13,7 @@ start() {
 	start-stop-daemon \
 		--start --quiet --background --make-pidfile \
 		--pidfile /var/run/infinoted.pid \
-		--exec /usr/bin/infinoted \
+		--exec /usr/bin/infinoted-0.4 \
 		--user ${USER} --group ${GROUP} --umask 007 \
 		-- ${OPTIONS}
 	eend $?
