@@ -16,9 +16,6 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/libinfinity-0.3.0
+	>=net-libs/libinfinity-0.4.1
 "
 RDEPEND="${DEPEND}"
-
-#temporary ugly thing till i patched the buildsystem
-CMAKE_IN_SOURCE_BUILD=1
