@@ -37,7 +37,7 @@ src_prepare() {
 	sed -e 's/${KDE4WORKSPACE_SOLIDCONTROL_LIBRARY}/solidcontrol/g' \
 		-i src/CMakeLists.txt \
 		-i src/device-manager/CMakeLists.txt \
-		-i src/inputwizard/CMakeLists.txt \
+		-i src/wizard/CMakeLists.txt \
 		|| die "Failed to patch CMake files"
 }
 
