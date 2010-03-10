@@ -21,22 +21,22 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
 # Moved to playground for now
-# bazaar git
-IUSE="cvs debug kompare mercurial subversion"
+# bazaar git kompare mercurial
+IUSE="cvs debug subversion"
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
+# kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
+# mercurial? ( dev-vcs/mercurial )
 # git? ( dev-util/git )
 # block - some plugins moved to kdevplatform from kdevelop
-RDEPEND="
-	!<dev-util/kdevelop-${KDEVELOP_PV}
+DEPEND="
+	dev-libs/boost
 	cvs? ( dev-util/cvs )
-	kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
-	mercurial? ( dev-vcs/mercurial )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
+RDEPEND="${DEPEND}
+	!<dev-util/kdevelop-${KDEVELOP_PV}
 "
 
 src_prepare() {
@@ -45,18 +45,18 @@ src_prepare() {
 	# FindKDevPlatform.cmake is installed by kdelibs
 	sed -i \
 		-e '/cmakeFiles/s/^/#DONOTINSTALL/' \
-		cmake/CMakeLists.txt || die
+		cmake/modules/CMakeLists.txt || die
 }
 
 # Moved to playground for now
 # $(cmake-utils_use_build bazaar)
 # $(cmake-utils_use_build git)
+# $(cmake-utils_use_with kompare)
+# $(cmake-utils_use_build mercurial)
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build cvs)
-		$(cmake-utils_use_build mercurial)
 		$(cmake-utils_use_build subversion)
-		$(cmake-utils_use_with kompare)
 		$(cmake-utils_use_with subversion SubversionLibrary)
 	)
 
