@@ -85,6 +85,10 @@ src_compile() {
 	[[ -z ${enabled_linguas} ]] || kde4-base_src_compile
 }
 
+src_test() {
+	[[ -z ${enabled_linguas} ]] || kde4-base_src_test
+}
+
 src_install() {
 	[[ -z ${enabled_linguas} ]] || kde4-base_src_install
 }
