@@ -4,9 +4,8 @@
 
 EAPI="2"
 
-KMNAME="kdereview"
-KMNOMODULE="true"
-inherit kde4-meta
+KMNAME="playground/utils"
+inherit kde4-base
 
 DESCRIPTION="Filelight creates an interactive map of concentric, segmented rings that help visualise disk usage."
 HOMEPAGE="http://kde-apps.org/content/show.php/filelight?content=99561"
@@ -14,22 +13,9 @@ HOMEPAGE="http://kde-apps.org/content/show.php/filelight?content=99561"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	!kde-misc/filelight:0
 	x11-apps/xdpyinfo
 "
-
-pkg_setup() {
-	KMEXTRA="${PN}"
-	use handbook && KMEXTRA+=" doc/${PN}"
-
-	kde4-meta_pkg_setup
-}
-
-src_install() {
-	kde4-meta_src_install
-
-	dodoc ${PN}/{AUTHORS,ChangeLog,NEWS,README,TODO} || die
-}
