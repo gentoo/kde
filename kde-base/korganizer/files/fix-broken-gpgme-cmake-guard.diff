@@ -13,9 +13,9 @@ Index: CMakeLists.txt
 @@ -211,7 +210,6 @@
      include( SopranoAddOntology )
      add_subdirectory( ontologies )
-     add_subdirectory( nepomuk_email_feeder )
+ #    add_subdirectory( nepomuk_email_feeder )
 -  endif(QGPGME_FOUND)
  
    if(KDEPIM_BUILD_EVERYTHING)
      macro_optional_add_subdirectory(knode)
- 
+
