@@ -297,6 +297,19 @@ kde-base/kdewebdev-meta:4.5
 # Users should stick with 2.0.x branch instead
 =net-im/kmess-9999
 
+# Theo Chatzimichos <tampakrap@gentoo.org>
+# Mask koffice 2.1.81, needs depedencies review
+=app-office/karbon-2.1.81
+=app-office/kchart-2.1.81
+=app-office/koffice-data-2.1.81
+=app-office/koffice-libs-2.1.81
+=app-office/kplato-2.1.81
+=app-office/kpresenter-2.1.81
+=app-office/krita-2.1.81
+=app-office/kspread-2.1.81
+=app-office/kword-2.1.81
+
+
 media-libs/opengtl
 
 # Maciej Mrozowski <reavertm@gentoo.org> (26 Feb 2009)
