@@ -44,13 +44,6 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_prepare() {
-	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
-
-	# Needs to be done this way
-	kde4-meta_src_prepare
-}
-
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
