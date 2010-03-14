@@ -578,7 +578,7 @@ kde4-meta_change_cmakelists() {
 			sed -e '/if[[:space:]]*([[:space:]]*BUILD_.*)/s/^/#OVERRIDE /' \
 				-e '/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)/s/^/#OVERRIDE /' \
 				-i CMakeLists.txt \
-				-i kontact/plugins/CMakeLists.txt || die 'failed to disable broken build logic'
+				-i kontact/plugins/CMakeLists.txt
 			if ! slot_is_at_least 4.5 ${SLOT}; then
 				case ${PN} in
 					kaddressbook|kalarm|kmailcvt|kontact|korganizer|korn)
