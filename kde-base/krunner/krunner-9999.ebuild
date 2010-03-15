@@ -36,6 +36,7 @@ KMEXTRACTONLY="
 	libs/kdm/
 	libs/ksysguard/
 	libs/kworkspace/
+	libs/plasmagenericshell/
 	kcontrol/
 	ksysguard/
 	ksmserver/org.kde.KSMServerInterface.xml
