@@ -33,7 +33,6 @@ src_prepare() {
 	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabc_groupwiseprefs,kcal_groupwiseprefsbase}.h \
 		kresources/groupwise/ \
 		|| die "Failed to link extra_headers."
-	epatch "${FILESDIR}/fix-broken-gpgme-cmake-guard.diff"
 
 	kde4-meta_src_prepare
 }

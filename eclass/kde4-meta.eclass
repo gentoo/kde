@@ -584,7 +584,7 @@ kde4-meta_change_cmakelists() {
 			fi
 			if ! slot_is_at_least 4.5 ${SLOT}; then
 				case ${PN} in
-					kaddressbook|kalarm|kmailcvt|kontact|korganizer|korn)
+					kalarm|kmailcvt|kontact|korganizer|korn)
 						sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
 							-e '/add_custom_target(kmail_xml /,/)/p' \
 							-i kmail/CMakeLists.txt || die "uncommenting xml failed"
