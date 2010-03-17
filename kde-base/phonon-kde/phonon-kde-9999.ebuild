@@ -21,21 +21,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.4-optional-alsa.patch
-)
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	# Don't build tests - they require OpenGL
-	sed -e 's/add_subdirectory(tests)//' \
-		-i phonon/CMakeLists.txt || die "Failed to disable tests"
-
-}
-
 src_configure() {
 	mycmakeargs=(
+		-DBUILD_tests=OFF
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with xine)
 	)
