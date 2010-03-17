@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix opengl"
+IUSE="aqua kdeprefix opengl python"
 
 RDEPEND="
 	$(add_kdebase_dep bomber)
@@ -53,5 +53,6 @@ RDEPEND="
 	$(add_kdebase_dep lskat)
 	$(add_kdebase_dep palapeli)
 	opengl? ( $(add_kdebase_dep ksudoku) )
+	python? ( $(add_kdebase_dep kajongg) )
 	$(block_other_slots)
 "
