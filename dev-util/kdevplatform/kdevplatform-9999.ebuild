@@ -28,7 +28,7 @@ IUSE="cvs debug subversion"
 # bazaar? ( dev-vcs/bzr )
 # kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
 # mercurial? ( dev-vcs/mercurial )
-# git? ( dev-util/git )
+# git? ( dev-vcs/git )
 # block - some plugins moved to kdevplatform from kdevelop
 DEPEND="
 	dev-libs/boost
