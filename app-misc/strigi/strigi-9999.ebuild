@@ -42,12 +42,6 @@ DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.6.4-gcc44.patch"
-	"${FILESDIR}/${PN}-0.6.5-gcc4.4-missing-headers.patch"
-	"${FILESDIR}/${PN}-disable_java.patch"
-)
-
 src_prepare() {
 	# subverison has own src_prepare
 	# so this is not required on stable ebuild
@@ -55,14 +49,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# Strigi needs either expat or libxml2.
-	# However libxml2 seems to be required in both cases, linking to 2 xml parsers
-	# is just silly, so we forcefully disable linking to expat.
 	# Enabled: POLLING (only reliable way to check for files changed.)
 
 	mycmakeargs=(
-		-DENABLE_EXPAT=OFF -DENABLE_POLLING=ON
-		-DFORCE_DEPS=ON -DENABLE_CPPUNIT=OFF
+		-DENABLE_POLLING=ON
+		-DFORCE_DEPS=ON
+		-DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
 		$(cmake-utils_use_enable clucene)
 		$(cmake-utils_use_enable dbus)
