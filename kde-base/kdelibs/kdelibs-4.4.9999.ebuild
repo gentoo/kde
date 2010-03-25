@@ -95,6 +95,7 @@ RDEPEND="${COMMONDEPEND}
 	!x11-libs/qt-phonon
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
 	>=app-crypt/gnupg-2.0.11
+	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
 	!aqua? (
 		x11-apps/iceauth
@@ -236,6 +237,12 @@ src_compile() {
 
 src_install() {
 	kde4-base_src_install
+
+	# use system certificates
+	rm -f "${ED}/${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
+	dosym /etc/ssl/certs/ca-certificates.crt \
+	"${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
+
 
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
