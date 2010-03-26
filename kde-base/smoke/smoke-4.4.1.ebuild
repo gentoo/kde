@@ -28,7 +28,7 @@ RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRA="generator/"
 
-PATCHES=( "${FILESDIR}/${PN}-webkit.patch" )
+PATCHES=( "${FILESDIR}/${P}-webkit-cmake.patch" )
 
 src_configure() {
 	mycmakeargs=(
