@@ -43,6 +43,9 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
+KMEXTRA="
+	statusnotifierwatcher/
+"
 KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
 	krunner/dbus/org.kde.krunner.App.xml
