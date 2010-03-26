@@ -4,8 +4,9 @@
 <herd>kde</herd>
 <use>
 	<flag name="akonadi">Compile bindings for <pkg>kde-base/akonadi</pkg>.</flag>
-	<flag name="phonon">Compile bindings for <pkg>media-sound/phonon</pkg>.</flag>
 	<flag name="plasma">Compile bindings for kde's plasma.</flag>
+	<flag name="phonon">Compile bindings for <pkg>media-sound/phonon</pkg>.</flag>
+	<flag name="qimageblitz">Compile bindings for <pkg>kde-base/qimageblitz</pkg>.</flag>
 	<flag name="qscintilla">Compile bindings for <pkg>x11-libs/qscintilla</pkg>.</flag>
 	<flag name="webkit">Compile bindings for <pkg>x11-libs/webkit</pkg>.</flag>
 </use>

@@ -11,17 +11,17 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi +phonon plasma qscintilla webkit"
+IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop webkit"
 
 DEPEND="
 	dev-lang/mono
-	$(add_kdebase_dep smoke 'akonadi?,phonon?,qscintilla?,webkit?')
+	$(add_kdebase_dep smoke 'akonadi?,phonon?,qimageblitz?,qscintilla?,semantic-desktop?,webkit?')
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="smoke/"
 
-PATCHES=( "${FILESDIR}"/${PN}-4.4-build-fixes.patch )
+PATCHES=( "${FILESDIR}"/${PN}-4.4.1-make-stuff-optional.patch )
 
 pkg_setup() {
 	kde4-meta_pkg_setup
@@ -38,23 +38,26 @@ pkg_setup() {
 src_prepare() {
 	kde4-meta_src_prepare
 
-	sed -i "/add_subdirectory( examples )/ s:^:#:" csharp/plasma/CMakeLists.txt
+	# Disable soprano index (clucene) bindings
+	rm -f csharp/soprano/soprano/Soprano_Index_{CLuceneIndex,IndexFilterModel}.cs || die
+	sed -e 's/\${SOPRANO_INDEX_LIBRARIES}//g' \
+		-i csharp/soprano/CMakeLists.txt || die 'failed to remove clucene from link'
+
+	sed -e "/add_subdirectory( examples )/ s:^:#:" \
+		-i csharp/plasma/CMakeLists.txt || die 'failed to disable examples'
 }
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_enable webkit QTWEBKIT_SHARP)
+		$(cmake-utils_use_with akonadi)
+		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_enable plasma PLASMA_SHARP)
 		$(cmake-utils_use_enable phonon PHONON_SHARP)
+		$(cmake-utils_use_enable qimageblitz QIMAGEBLITZ_SHARP)
 		$(cmake-utils_use_enable qscintilla QSCINTILLA_SHARP)
-		$(cmake-utils_use_enable akonadi KdepimLibs)
-		$(cmake-utils_use_enable akonadi)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_enable webkit QTWEBKIT_SHARP)
 	)
 	kde4-meta_src_configure
-}
-
-src_compile() {
-	# Parallel builds seem broken, check later
-	MAKEOPTS=-j1
-	kde4-meta_src_compile
 }
