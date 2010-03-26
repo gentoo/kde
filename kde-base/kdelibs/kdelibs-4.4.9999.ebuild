@@ -243,7 +243,6 @@ src_install() {
 	dosym /etc/ssl/certs/ca-certificates.crt \
 	"${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
 
-
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
 		cd "${S}"/doc/api/
