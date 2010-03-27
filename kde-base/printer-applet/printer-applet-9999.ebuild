@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="+handbook"
 
 DEPEND="
-	>=app-admin/system-config-printer-common-1.1.12
+	>=app-admin/system-config-printer-common-1.1.18
 	app-misc/hal-cups-utils
 	$(add_kdebase_dep pykde4)
 "
