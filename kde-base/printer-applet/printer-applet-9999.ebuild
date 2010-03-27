@@ -42,5 +42,5 @@ src_install() {
 }
 
 pkg_postrm() {
-	python_mod_cleanup "${EPREFIX}${PREFIX}share/apps/${PN}"
+	python_mod_cleanup "${PREFIX}share/apps/${PN}"
 }
