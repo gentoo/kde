@@ -4,23 +4,26 @@
 
 EAPI="2"
 
-inherit git kde4-base
+inherit kde4-base
 
 DESCRIPTION="A DropDrawers clone. Multiple information organizer"
 HOMEPAGE="http://basket.kde.org/"
-EGIT_REPO_URI="git://gitorious.org/basket/basket.git"
+SRC_URI="http://${PN}.kde.org/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="4"
 
 IUSE="debug crypt"
 
-PATCHES=( "${FILESDIR}/${P}-crypt.patch" )
+DEPEND="
+	>=kde-base/kdelibs-4.4.0
+	>=kde-base/kdepimlibs-4.4.0
+	crypt? ( >=app-crypt/gpgme-1.0 )
+"
+RDEPEND=${DEPEND}
 
-src_unpack() {
-	git_src_unpack
-}
+PATCHES=( "${FILESDIR}/${P}-crypt.patch" )
 
 src_configure() {
 	mycmakeargs=(
