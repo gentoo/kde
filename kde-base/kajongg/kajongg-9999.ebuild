@@ -9,7 +9,7 @@ inherit kde4-meta python
 
 DESCRIPTION="The classical Mah Jongg for four players"
 KEYWORDS=""
-IUSE=""
+IUSE="debug +handbook"
 
 DEPEND="
 	dev-db/sqlite:3
