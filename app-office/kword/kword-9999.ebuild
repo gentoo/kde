@@ -20,7 +20,9 @@ RDEPEND="${DEPEND}
 	!app-text/wv2
 "
 
-KMEXTRA="filters/${KMMODULE}/"
+KMEXTRA="filters/${KMMODULE}/
+	filters/libmso/
+"
 
 KMEXTRACTONLY="
 	filters/

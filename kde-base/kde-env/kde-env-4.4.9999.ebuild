@@ -80,7 +80,7 @@ EOF
 	cat <<EOF > 11-xdg-menu-${KDE_X}
 #!/bin/sh
 
-if [ -z \${XDG_MENU_PREFIX} ] && [ \${DESKTOP_SESSION} = "${KDE_X}" ]; then
+if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "${KDE_X}" ]; then
 	export XDG_MENU_PREFIX="kde-${SLOT}-"
 fi
 EOF

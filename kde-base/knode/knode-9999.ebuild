@@ -18,12 +18,16 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkpgp)
+	$(add_kdebase_dep messagecomposer)
+	$(add_kdebase_dep messageviewer)
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkleo/
 	libkpgp/
+	messagecomposer/
+	messageviewer/
 "
 
 KMLOADLIBS="libkdepim"

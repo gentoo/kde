@@ -8,8 +8,8 @@ KMNAME="kdebase-runtime"
 KMMODULE="kioslave"
 inherit kde4-meta
 
-DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 KEYWORDS=""
+DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
 IUSE="+bzip2 exif debug lzma +handbook openexr samba +sftp"
 
 # tests hang, last checked for 4.2.96
@@ -43,6 +43,7 @@ KMEXTRA="
 
 src_configure() {
 	mycmakeargs=(
+		-DWITH_SLP=OFF
 		$(cmake-utils_use_with bzip2 BZip2)
 		$(cmake-utils_use_with exif Exiv2)
 		$(cmake-utils_use_with lzma LibLZMA)

@@ -5,18 +5,24 @@
 EAPI="3"
 
 KMNAME="kdeutils"
-inherit kde4-meta
+PYTHON_DEPEND="2"
+inherit python kde4-meta
 
 DESCRIPTION="KDE printer system tray utility"
 KEYWORDS=""
 IUSE="+handbook"
 
 DEPEND="
-	>=app-admin/system-config-printer-common-1.1.12
+	>=app-admin/system-config-printer-common-1.1.18
 	app-misc/hal-cups-utils
 	$(add_kdebase_dep pykde4)
 "
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	kde4-meta_pkg_setup
+	python_set_active_version 2
+}
 
 src_prepare() {
 	kde4-meta_src_prepare
@@ -28,4 +34,13 @@ src_prepare() {
 		-i "${PN}"/CMakeLists.txt || die "failed to rename printer-applet executable"
 	sed -e "/Exec/s/printer-applet/${newname}/" \
 		-i "${PN}"/printer-applet.desktop || die "failed to patch .desktop file"
+}
+
+src_install() {
+	kde4-meta_src_install
+	python_convert_shebangs -q -r $(python_get_version) "${ED}${PREFIX}/share/apps/${PN}"
+}
+
+pkg_postrm() {
+	python_mod_cleanup "${PREFIX}share/apps/${PN}"
 }

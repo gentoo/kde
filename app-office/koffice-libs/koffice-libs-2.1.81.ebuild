@@ -42,6 +42,7 @@ KMEXTRA="
 #	doc/api/"
 KMEXTRACTONLY="
 	doc/koffice.desktop
+	kchart/kdchart/
 "
 
 KMSAVELIBS="true"

@@ -18,7 +18,7 @@ IUSE="doc"
 
 MY_LANGS="ca da de el en_GB es et fr gl it ja kk nb nds nl pl pt pt_BR
 	sv tr uk zh_TW"
-URI_BASE="mirror://kde/stable/koffice-${PV}/${PN}/"
+URI_BASE="mirror://kde/unstable/koffice-${PV}/${PN}/"
 SRC_URI=""
 SLOT="2"
 

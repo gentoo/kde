@@ -23,13 +23,9 @@ KMEXTRACTONLY="
 	kmail/
 	knotes/
 	kresources/groupwise/
-	kresources/slox/
 "
 
 src_prepare() {
-	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabcsloxprefs.h,kcalsloxprefs.h} \
-		kresources/slox/ \
-		|| die "Failed to link extra_headers."
 	ln -s "${EKDEDIR}"/include/kdepim-kresources/{kabc_groupwiseprefs,kcal_groupwiseprefsbase}.h \
 		kresources/groupwise/ \
 		|| die "Failed to link extra_headers."

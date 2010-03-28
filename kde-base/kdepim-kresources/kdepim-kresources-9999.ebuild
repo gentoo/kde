@@ -29,8 +29,8 @@ KMLOADLIBS="libkdepim"
 src_install() {
 	kde4-meta_src_install
 
-	# Install headers needed by kdepim-wizards, egroupware stuff gone
+	# Install headers needed by kdepim-wizards, egroupware and slox stuff gone
 	insinto "${PREFIX}"/include/${PN}
-	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/{groupwise,slox}/*.h || \
+	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/groupwise/*.h || \
 			die "Failed to install extra header files"
 }

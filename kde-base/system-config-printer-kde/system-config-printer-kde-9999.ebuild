@@ -5,17 +5,32 @@
 EAPI="3"
 
 KMNAME="kdeadmin"
-inherit kde4-meta python
+PYTHON_DEPEND="2"
+inherit python kde4-meta
 
 DESCRIPTION="KDE port of Red Hat's Gnome system-config-printer"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=app-admin/system-config-printer-common-1.1.12
+	>=app-admin/system-config-printer-common-1.1.18
 	>=dev-python/pycups-1.9.46
 	$(add_kdebase_dep pykde4)
 "
 RDEPEND="${DEPEND}
 	net-print/cups[dbus]
 "
+
+pkg_setup() {
+	kde4-meta_pkg_setup
+	python_set_active_version 2
+}
+
+src_install() {
+	kde4-meta_src_install
+	python_convert_shebangs -q -r $(python_get_version) "${ED}${PREFIX}/share/apps/${PN}"
+}
+
+pkg_postrm() {
+	python_mod_cleanup "${PREFIX}share/apps/${PN}"
+}
