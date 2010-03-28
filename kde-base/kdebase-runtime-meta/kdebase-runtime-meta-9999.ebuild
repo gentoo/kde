@@ -25,6 +25,7 @@ RDEPEND="
 	$(add_kdebase_dep kdebase-menu-icons)
 	$(add_kdebase_dep kdebugdialog)
 	$(add_kdebase_dep kdesu)
+	$(add_kdebase_dep kdontchangethehostname)
 	$(add_kdebase_dep keditfiletype)
 	$(add_kdebase_dep kfile)
 	$(add_kdebase_dep kglobalaccel)

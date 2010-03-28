@@ -15,6 +15,7 @@ kde-base/kdebase-menu-icons:live
 kde-base/kdebase-startkde:live
 kde-base/kdebase-wallpapers:live
 kde-base/kdebugdialog:live
+kde-base/kdontchangethehostname:live
 kde-base/kglobalaccel:live
 kde-base/kdepasswd:live
 kde-base/kdesu:live
