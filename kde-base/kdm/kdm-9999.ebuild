@@ -71,15 +71,6 @@ src_install() {
 
 	kde4-meta_src_install
 
-	# Upstream no longer calls this... (remove when upstream decides what
-	# its going to do about it)
-	${CMAKE_BUILD_DIR}/kdm/kfrontend/genkdmconf \
-		--in "${ED}${KDEDIR}/share/config/kdm" \
-		--no-in-notice \
-		--face-src "${S}/kdm/kfrontend/pics" \
-		${GENKDMCONF_FLAGS} \
-		|| die "genkdmconf failed"
-
 	# Customize the kdmrc configuration
 	sed -i -e "s:^.*SessionsDirs=.*$:#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions:" \
 		"${ED}"/${KDEDIR}/share/config/kdm/kdmrc \
