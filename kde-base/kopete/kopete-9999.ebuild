@@ -101,8 +101,6 @@ DEPEND="${COMMONDEPEND}
 src_prepare() {
 	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
 		-i kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
-	sed -e '/set (LIBV4L2_REQUIRED TRUE)/s/TRUE/FALSE/' \
-		-i kopete/CMakeLists.txt || die 'failed to make v4l2 optional'
 
 	kde4-meta_src_prepare
 }
@@ -115,7 +113,7 @@ src_configure() {
 		$(cmake-utils_use_with jingle LiboRTP)
 		$(cmake-utils_use_with jingle Mediastreamer)
 		$(cmake-utils_use_with jingle Speex)
-		$(cmake-utils_use_with v4l2 LibV4L2)
+		$(cmake-utils_use_disable v4l2 VIDEOSUPPORT)
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
