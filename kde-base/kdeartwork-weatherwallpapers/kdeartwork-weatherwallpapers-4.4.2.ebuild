@@ -11,3 +11,5 @@ inherit kde4-meta
 DESCRIPTION="Weather aware wallpapers. Changes with weather outside."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
+
+RDEPEND="$(add_kdebase_dep kdeartwork-wallpapers)"
