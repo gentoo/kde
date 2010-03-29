@@ -28,6 +28,7 @@ KMEXTRACTONLY="
 	kontact/plugins/akregator/
 	kontact/plugins/kaddressbook/
 	kontact/plugins/kjots/
+	kontact/plugins/kmail/
 	kontact/plugins/knode/
 	kontact/plugins/knotes/
 	kontact/plugins/korganizer/
