@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="A simple chess board for KDE"
 HOMEPAGE="http://kde-apps.org/content/show.php/Knights?content=122046"
-SRC_URI="http://kde-apps.org/CONTENT/content-files/122046-${PN}_${PV/_}_source.tar.gz"
+SRC_URI="http://kde-apps.org/CONTENT/content-files/122046-${P/_}-src.tar.gz"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
