@@ -12,4 +12,6 @@ DESCRIPTION="Weather aware wallpapers. Changes with weather outside."
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="$(add_kdebase_dep kdeartwork-wallpapers)"
+RDEPEND="
+	$(add_kdebase_dep kdeartwork-wallpapers)
+"
