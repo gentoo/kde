@@ -17,6 +17,7 @@ IUSE="gtk doc"
 # They put their mother in the tarball ? ^^
 RESTRICT="test"
 
+# For the dependency on dev-libs/libdbusmenu see launchpad-bug #552667
 RDEPEND="dev-libs/glib:2
 	dev-libs/dbus-glib
 	dev-libs/libdbusmenu
