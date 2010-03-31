@@ -27,9 +27,9 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_prepare() {
-	# Make libindicator-gtk library optional
+	# Make libindicator-gtk library optional, launchpad-bug #431311
 	epatch "${FILESDIR}/${P}-optional-gtk-support.patch"
-	# Fixup undeclared HAVE_INTROSPECTION
+	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552537
 	epatch "${FILESDIR}/${P}-no-gobject-introspection.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libindicate/Makefile.am libindicate-gtk/Makefile.am || die "sed failed"
