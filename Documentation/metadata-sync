@@ -5,7 +5,7 @@ METADATA_MIRROR=rsync://gentoo.kynes.de:660/gentoo-metadata-kde/
 # IPv6 needs no special port:
 #METADATA_MIRROR=rsync://gentoo.kynes.de/gentoo-metadata-kde/
 
-if [[ "`basename $PWD`" == "Documentation" ]] ; then
+if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
 	echo "Syncing KDE overlay metadata ..."
 	exec rsync --quiet --recursive --times --compress --delete-delay $METADATA_MIRROR ../metadata/cache/
 else
