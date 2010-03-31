@@ -306,6 +306,7 @@ kde-base/kdewebdev-meta:4.5
 # Mask koffice 2.1.81, needs depedencies review
 ~app-office/karbon-2.1.81
 ~app-office/kchart-2.1.81
+~app-office/kexi-2.1.81
 ~app-office/koffice-data-2.1.81
 ~app-office/koffice-libs-2.1.81
 ~app-office/kplato-2.1.81
