@@ -618,6 +618,22 @@ kde4-meta_change_cmakelists() {
 					;;
 				*) ;;
 			esac
+			# koffice 2.1.[8-9][0-9] and 9999
+			case ${PV} in
+				2.1.8[0-9]|2.1.9[0-9]|9999)
+					sed -e '/^option(BUILD/s/ON/OFF/' \
+						-e '/^if(NOT BUILD_kchart/,/^endif(NOT BUILD_kchart/d' \
+						-e '/^if(BUILD_koreport/,/^endif(BUILD_koreport/d' \
+						-e 's/set(SHOULD_BUILD_F_OFFICE TRUE)/set(SHOULD_BUILD_F_OFFICE FALSE)/' \
+						-i "${S}"/CMakeLists.txt || die "sed died while fixing cmakelists"
+					if [[ ${PN} != koffice-data ]] && [[ ${PV} == 9999 ]]; then
+						sed -e '/config-opengl.h/d' \
+						-i "${S}"/CMakeLists.txt || die "sed died while fixing cmakelists"
+
+					fi
+				;;
+				*) ;;
+			esac
 	esac
 
 	popd > /dev/null
@@ -647,6 +663,18 @@ kde4-meta_src_configure() {
 				"${mycmakeargs[@]}"
 			)
 			;;
+		koffice)
+			case ${PV} in
+				2.1.8[0-9]|2.1.9[0-9]|9999)
+					if [[ ${PN} != "kchart" ]]; then
+						mycmakeargs=(
+							-DBUILD_koreport=OFF
+							"${mycmakeargs[@]}"
+						)
+					fi
+				;;
+			esac
+			;;		
 	esac
 
 	kde4-base_src_configure
