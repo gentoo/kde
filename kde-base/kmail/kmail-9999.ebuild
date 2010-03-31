@@ -50,6 +50,8 @@ KMEXTRA="
 "
 KMLOADLIBS="libkdepim"
 
+PATCHES=( "${FILESDIR}/generate-messageviewer-kcfg.patch" )
+
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
 	# Upstream as KDE Bug #198807
