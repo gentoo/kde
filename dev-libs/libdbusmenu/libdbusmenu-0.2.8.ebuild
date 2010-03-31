@@ -26,11 +26,11 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_prepare() {
-	# Make libdbusmenu-gtk library optional
+	# Make libdbusmenu-gtk library optional, launchpad-bug #552530
 	epatch "${FILESDIR}/${P}-1-optional-gtk.patch"
-	# Make tests optional
+	# Make tests optional, launchpad-bug #552526
 	epatch "${FILESDIR}/${P}-2-optional-tests.patch"
-	# Fixup undeclared HAVE_INTROSPECTION
+	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552538
 	epatch "${FILESDIR}/${P}-no-gobject-introspection.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libdbusmenu-glib/Makefile.am libdbusmenu-gtk/Makefile.am || die "sed failed"
