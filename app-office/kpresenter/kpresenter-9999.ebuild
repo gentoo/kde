@@ -16,7 +16,13 @@ IUSE=""
 DEPEND=">=dev-libs/boost-1.35.0"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libs/"
-KMEXTRA="filters/${KMMODULE}/"
+KMEXTRACTONLY="
+	filters/libmsooxml/
+	libs/
+"
+KMEXTRA="
+	filters/${KMMODULE}/
+	filters/libmso/
+"
 
 KMLOADLIBS="koffice-libs"

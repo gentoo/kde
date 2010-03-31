@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice integrated environment for database management."
 KEYWORDS=""
-IUSE="freetds mysql postgres xbase"
+IUSE="freetds mysql postgres reports xbase"
 
 DEPEND="
 	sys-libs/readline
@@ -17,12 +17,16 @@ DEPEND="
 	freetds? ( dev-db/freetds )
 	mysql? ( virtual/mysql )
 	postgres? ( =dev-libs/libpqxx-2.6* )
+	reports? ( ~app-office/kchart-${PV}:${SLOT}[reports] )
 	xbase? ( dev-db/xbase )
 "
 RDEPEND="${DEPEND}"
 
 KMLOADLIBS="koffice-libs"
-KMEXTRACTONLY="libs/"
+KMEXTRACTONLY="
+	libs/
+	kspread/
+"
 
 src_configure() {
 	 mycmakeargs=(
@@ -32,6 +36,7 @@ src_configure() {
 		$(cmake-utils_use_with postgres PostgreSQL)
 		$(cmake-utils_use_with postgres Pqxx)
 		$(cmake-utils_use_with xbase XBase)
+		-DBUILD_kexi=ON
 	)
 
 	kde4-meta_src_configure

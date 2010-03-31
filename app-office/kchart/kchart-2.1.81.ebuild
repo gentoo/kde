@@ -11,10 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KOffice chart application."
 
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE=""
-
-DEPEND=""
-RDEPEND="${DEPEND}"
+IUSE="reports"
 
 KMEXTRACTONLY="
 	libs/
@@ -24,6 +21,16 @@ KMEXTRACTONLY="
 "
 KMEXTRA="
 	filters/${KMMODULE}/
+	libs/koreport/
 "
 
 KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	 mycmakeargs=(
+		-DBUILD_kchart=ON
+		$(cmake-utils_use_build reports koreport)
+	)
+
+	kde4-meta_src_configure
+}

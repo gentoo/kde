@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd> 
+<use>
+	<flag name="reports">Enable the reports koffice module in kchart,
+		also used by kplato and kexi</flag>
+</use>
 </pkgmetadata>
