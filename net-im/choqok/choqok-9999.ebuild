@@ -14,3 +14,6 @@ LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
+
+DEPEND="dev-libs/qjson"
+RDEPEND="${DEPEND}"
