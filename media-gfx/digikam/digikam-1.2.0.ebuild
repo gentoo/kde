@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: media-gfx/digikam/digikam-1.0.0.ebuild, 2009/12/22 Ronis_BR $
+# $Header: $
 
 EAPI="2"
 
@@ -18,7 +18,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
 SLOT="4"
-IUSE="addressbook debug geolocation gphoto2 lensfun semantic-desktop +thumbnails"
+IUSE="addressbook debug doc geolocation gphoto2 lensfun semantic-desktop +thumbnails"
 
 RDEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
@@ -28,17 +28,17 @@ RDEPEND="
 	>=kde-base/solid-${KDE_MINIMAL}
 	>=kde-base/kreadconfig-${KDE_MINIMAL}
 	media-libs/jasper
-	media-libs/jpeg
+	>=media-libs/jpeg-8
 	media-libs/lcms
-	>=media-libs/libpgf-6.09.44-r1
 	media-libs/liblqr
 	media-libs/libpng
 	media-libs/tiff
+	media-libs/libpgf
 	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
 	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
-	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
+	gphoto2? ( media-libs/libgphoto2 )
 	lensfun? ( media-libs/lensfun )
 "
 DEPEND="${RDEPEND}
@@ -47,7 +47,12 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=("${FILESDIR}/libpgf-unbundled-r0.patch")
+src_prepare() {
+	# Patch to unbundled libpgf.
+	epatch "${FILESDIR}/libpgf-unbundled-digikam-1.2.0-r0.patch"
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	local backend
@@ -64,7 +69,8 @@ src_configure() {
 		$(cmake-utils_use_with addressbook KdepimLibs)
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
-		$(cmake-utils_use_with semantic-desktop Soprano)"
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_build doc)"
 
 	kde4-base_src_configure
 }

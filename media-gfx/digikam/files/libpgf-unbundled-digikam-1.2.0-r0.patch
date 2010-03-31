@@ -1,6 +1,6 @@
 diff -ruN old/cmake/modules/FindPGF.cmake new/cmake/modules/FindPGF.cmake
 --- old/cmake/modules/FindPGF.cmake	1969-12-31 21:00:00.000000000 -0300
-+++ new/cmake/modules/FindPGF.cmake	2009-12-24 02:15:23.754769439 -0200
++++ new/cmake/modules/FindPGF.cmake	2010-03-30 13:54:13.520854878 -0300
 @@ -0,0 +1,15 @@
 +# - Try to find libpgf
 +# Once done this will define
@@ -18,8 +18,8 @@ diff -ruN old/cmake/modules/FindPGF.cmake new/cmake/modules/FindPGF.cmake
 +	PKG_CHECK_MODULES(PGF libpgf)
 +ENDIF(PKG_CONFIG_FOUND)
 diff -ruN old/CMakeLists.txt new/CMakeLists.txt
---- old/CMakeLists.txt	2009-12-21 07:30:05.000000000 -0200
-+++ new/CMakeLists.txt	2009-12-24 02:15:23.755769330 -0200
+--- old/CMakeLists.txt	2010-03-28 19:26:06.000000000 -0300
++++ new/CMakeLists.txt	2010-03-30 19:50:55.537108644 -0300
 @@ -34,6 +34,9 @@
      "${DIGIKAM_VERSION_SHORT}${DIGIKAM_SUFFIX_VERSION}"
     )
@@ -30,7 +30,7 @@ diff -ruN old/CMakeLists.txt new/CMakeLists.txt
  # ==================================================================================================
  # Debug area codes
  # These codes will be set for every project specific path automatically, so
-@@ -63,6 +66,11 @@
+@@ -115,6 +118,11 @@
  FIND_PACKAGE(JPEG)
  FIND_PACKAGE(PNG)
  FIND_PACKAGE(TIFF)
@@ -42,41 +42,32 @@ diff -ruN old/CMakeLists.txt new/CMakeLists.txt
  FIND_PACKAGE(Jasper)
  FIND_PACKAGE(Kdcraw)
  FIND_PACKAGE(Kexiv2)
-@@ -181,6 +189,16 @@
+@@ -210,6 +218,7 @@
+ 
+ PRINT_QTMODULE_STATUS("Qt4 SQL" QT_QTSQL_FOUND)
+ PRINT_LIBRARY_STATUS("libtiff" "http://www.remotesensing.org/libtiff" "" TIFF_FOUND)
++PRINT_LIBRARY_STATUS("libpgf" "http://www.libpgf.org" "" PGF_FOUND)
+ PRINT_LIBRARY_STATUS("libpng" "http://www.libpng.org/pub/png/libpng.html" " (version >= 1.2.7)" PNG_FOUND)
+ PRINT_LIBRARY_STATUS("libjasper" "http://www.ece.uvic.ca/~mdadams/jasper" "" JASPER_FOUND)
+ PRINT_LIBRARY_STATUS("liblcms" "http://www.littlecms.com" "" LCMS_FOUND)
+@@ -311,13 +320,13 @@
      MESSAGE(STATUS "")
- ENDIF(PNG_FOUND)
- 
-+IF(PGF_FOUND)
-+    MESSAGE(STATUS " libpgf library found................ YES")
-+ELSE(PGF_FOUND)
-+    MESSAGE(STATUS " libpgf library found................ NO")
-+    MESSAGE(STATUS "")
-+    MESSAGE(SEND_ERROR " digiKam needs libpgf since it was unbundled. You need to install the development package.")
-+    MESSAGE(STATUS " Libpgf website is at http://www.libpgf.org")
-+    MESSAGE(STATUS "")
-+ENDIF(PGF_FOUND)
-+
- IF(JASPER_FOUND)
-     MESSAGE(STATUS " libjasper library found............. YES")
- ELSE(JASPER_FOUND)
-@@ -316,13 +334,13 @@
- ENDIF(GLIB2_FOUND)
- 
+ ENDIF(DOXYGEN_FOUND)
  
 -IF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
 +IF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND PGF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
-     MESSAGE(STATUS " digiKam will be compiled............ YES")
+     MESSAGE(STATUS " digiKam will be compiled................. YES")
      SET(DIGIKAM_CAN_BE_COMPILED true)
 -ELSE(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
 +ELSE(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND PGF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
-     MESSAGE(FATAL_ERROR " digiKam will be compiled............ NO  (Look README file for more details about dependencies)")
+     MESSAGE(FATAL_ERROR " digiKam will be compiled................. NO  (Look README file for more details about dependencies)")
      SET(DIGIKAM_CAN_BE_COMPILED false)
 -ENDIF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
 +ENDIF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND PGF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOUND AND KIPI_FOUND)
  
  MESSAGE(STATUS "----------------------------------------------------------------------------------")
  MESSAGE(STATUS "")
-@@ -906,14 +924,7 @@
+@@ -952,14 +961,7 @@
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/threadimageio/pgfutils.cpp
         )
  
@@ -92,10 +83,61 @@ diff -ruN old/CMakeLists.txt new/CMakeLists.txt
  
      SET(libsqlite2_SRCS
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/sqlite2/attach.c
+@@ -1258,18 +1260,41 @@
+ # ==================================================================================================
+ # API documentation generation
+ 
+-IF(DOXYGEN_FOUND)
++# Checks if user ask to build documentation.
++IF(BUILD_DOC)
++    IF(DOXYGEN_FOUND)
++
++        MESSAGE(STATUS "")
++        MESSAGE(STATUS "Documentation will be installed")
++	MESSAGE(STATUS "")
+ 
+-    SET(API_DIR ${CMAKE_BINARY_DIR}/api)
+-    SET(SOURCE_DIR ${CMAKE_SOURCE_DIR})
+-    SET(DOXYFILE ${CMAKE_BINARY_DIR}/Doxyfile)
+-    SET(WARNFILE ${CMAKE_BINARY_DIR}/doxygen-warn.log)
++        SET(API_DIR ${CMAKE_BINARY_DIR}/api)
++        SET(SOURCE_DIR ${CMAKE_SOURCE_DIR})
++        SET(DOXYFILE ${CMAKE_BINARY_DIR}/Doxyfile)
++        SET(WARNFILE ${CMAKE_BINARY_DIR}/doxygen-warn.log)
+ 
+-    CONFIGURE_FILE(Doxyfile.cmake ${DOXYFILE})
++        CONFIGURE_FILE(Doxyfile.cmake ${DOXYFILE})
+ 
+-    ADD_CUSTOM_TARGET(doc ${DOXYGEN_EXECUTABLE} ${DOXYFILE}
+-                      WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
++        ADD_CUSTOM_TARGET(doc ${DOXYGEN_EXECUTABLE} ${DOXYFILE}
++                          WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
++
++    ELSE(DOXYGEN_FOUND)
++    
++        MESSAGE(STATUS "")
++        MESSAGE(STATUS "Documentation will NOT be installed")
++	MESSAGE(STATUS "Doxygen wasn't found on the system")
++	MESSAGE(STATUS "")
++
++    ENDIF(DOXYGEN_FOUND)
++
++ELSE(BUILD_DOC)
++
++    MESSAGE(STATUS "")
++    MESSAGE(STATUS "Documentation will NOT be installed")
++    MESSAGE(STATUS "Because the option -DBUILD_DOC=ON wasn't passed to cmake")
++    MESSAGE(STATUS "")
++
++ENDIF(BUILD_DOC)
+ 
+-ENDIF(DOXYGEN_FOUND)
+ include(MacroOptionalAddSubdirectory)
+ macro_optional_add_subdirectory( po )
 diff -ruN old/digikam/CMakeLists.txt new/digikam/CMakeLists.txt
---- old/digikam/CMakeLists.txt	2009-12-21 07:21:14.000000000 -0200
-+++ new/digikam/CMakeLists.txt	2009-12-24 02:15:23.756770201 -0200
-@@ -38,7 +38,6 @@
+--- old/digikam/CMakeLists.txt	2010-03-28 19:19:21.000000000 -0300
++++ new/digikam/CMakeLists.txt	2010-03-30 19:44:00.296860646 -0300
+@@ -52,7 +52,6 @@
                       # specific libs and utilities
                       ${CMAKE_CURRENT_SOURCE_DIR}/../libs/3rdparty/lprof
                       ${CMAKE_CURRENT_SOURCE_DIR}/../libs/3rdparty/sqlite2
@@ -103,35 +145,33 @@ diff -ruN old/digikam/CMakeLists.txt new/digikam/CMakeLists.txt
                       ${CMAKE_CURRENT_SOURCE_DIR}/../libs/3rdparty/clapack
                       ${CMAKE_CURRENT_SOURCE_DIR}/../libs/3rdparty/cimg
                       ${CMAKE_CURRENT_SOURCE_DIR}/../libs/themeengine
-@@ -73,7 +72,8 @@
+@@ -89,6 +88,7 @@
                       ${JPEG_INCLUDE_DIR}
                       ${PNG_PNG_INCLUDE_DIR}
                       ${TIFF_INCLUDE_DIR}
--                   )
-+                     ${PGF_INCLUDE_DIRS}
-+		   )
++		     ${PGF_INCLUDE_DIRS}
+                    )
  
- 
- # Shared libdigikamcore ################################################################
-@@ -81,9 +81,6 @@
+ IF(LENSFUN_LIBRARY)
+@@ -100,9 +100,6 @@
  # Disable Clapack C code warnings.
  SET_SOURCE_FILES_PROPERTIES(${libclapack_SRCS} PROPERTIES COMPILE_FLAGS "-w")
  
 -# Disable libpgf warnings.
 -SET_SOURCE_FILES_PROPERTIES(${libpgf_SRCS} PROPERTIES COMPILE_FLAGS "-w")
 -
- SET(digikamcore_LIB_SRCS
-                         # basic libs
-                         ${libdimg_SRCS}
-@@ -100,7 +97,6 @@
-                         ${libgreycstoration_SRCS}
+ # Disable liblqr C code warnings.
+ SET_SOURCE_FILES_PROPERTIES(${liblqr_SRCS} PROPERTIES COMPILE_FLAGS "-w")
+ 
+@@ -121,7 +118,6 @@
+                         ${libjpegutils_SRCS}
                          ${libthreadimageio_SRCS}
                          ${libthemeengine_SRCS}
 -                        ${libpgf_SRCS}
                          ${pgfutils_SRCS}
                          ${libdigikamhelpers_SRCS}
  
-@@ -146,6 +142,7 @@
+@@ -173,6 +169,7 @@
                        ${JPEG_LIBRARIES}
                        ${TIFF_LIBRARIES}
                        ${PNG_LIBRARIES}
@@ -139,14 +179,7 @@ diff -ruN old/digikam/CMakeLists.txt new/digikam/CMakeLists.txt
                        ${LCMS_LIBRARIES}
                        ${JASPER_LIBRARIES}
  
-@@ -182,14 +179,10 @@
-     SET_SOURCE_FILES_PROPERTIES(${libsqlite2_SRCS} PROPERTIES COMPILE_FLAGS "-w")
- ENDIF(WIN32)
- 
--## Disable libpgf warnings.
--#SET_SOURCE_FILES_PROPERTIES(${libpgf_SRCS} PROPERTIES COMPILE_FLAGS "-w")
--
- SET(digikamdatabase_LIB_SRCS ${libdatabase_SRCS}
+@@ -225,7 +222,6 @@
                               ${libhaar_SRCS}
                               ${libdatabasemodels_SRCS}
                               ${libsqlite2_SRCS}
@@ -154,7 +187,7 @@ diff -ruN old/digikam/CMakeLists.txt new/digikam/CMakeLists.txt
                               ${pgfutils_SRCS}
     )
  
-@@ -204,6 +197,7 @@
+@@ -240,6 +236,7 @@
                        ${QT_QTCORE_LIBRARY}
                        ${QT_QTGUI_LIBRARY}
                        ${QT_QTSQL_LIBRARY}
@@ -163,16 +196,13 @@ diff -ruN old/digikam/CMakeLists.txt new/digikam/CMakeLists.txt
  
  SET_TARGET_PROPERTIES(digikamdatabase PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 diff -ruN old/libs/CMakeLists.txt new/libs/CMakeLists.txt
---- old/libs/CMakeLists.txt	2009-12-21 07:21:03.000000000 -0200
-+++ new/libs/CMakeLists.txt	2009-12-24 02:15:23.757769111 -0200
-@@ -21,8 +21,10 @@
+--- old/libs/CMakeLists.txt	2010-03-28 19:19:02.000000000 -0300
++++ new/libs/CMakeLists.txt	2010-03-30 14:03:07.365604017 -0300
+@@ -18,6 +18,7 @@
                       ${JPEG_INCLUDE_DIR}
                       ${TIFF_INCLUDE_DIR}
                       ${PNG_INCLUDE_DIR}
-+		     ${PGF_INCLUDE_DIRS}
++                     ${PGF_INCLUDE_DIRS}
                       ${JASPER_INCLUDE_DIR}
                     )
-+
- ADD_SUBDIRECTORY( curves )
- ADD_SUBDIRECTORY( levels )
  ADD_SUBDIRECTORY( histogram )

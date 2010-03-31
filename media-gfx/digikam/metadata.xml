@@ -6,5 +6,6 @@
 	<flag name="addressbook">Add support for kdepim</flag>
 	<flag name="geolocation">Add support for marble</flag>
 	<flag name="lensfun">Enable support for lens-correnction library</flag>
+	<flag name="thumbnails">Enable thumbnails database support</flag>
 </use>
 </pkgmetadata>
