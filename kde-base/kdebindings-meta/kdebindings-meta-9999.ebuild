@@ -9,7 +9,7 @@ DESCRIPTION="KDE bindings - merge this to pull in all kdebindings-derived packag
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4.4"
+SLOT="live"
 KEYWORDS=""
 IUSE="aqua csharp kdeprefix java python ruby"
 
