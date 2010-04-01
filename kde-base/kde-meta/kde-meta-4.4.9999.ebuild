@@ -5,15 +5,14 @@
 EAPI="3"
 inherit kde4-functions
 
-DESCRIPTION="KDE - merge this to pull in all non-developer, split kde-base/* packages"
+DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
 HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS=""
-IUSE="accessibility aqua kdeprefix nls semantic-desktop"
+IUSE="accessibility aqua kdeprefix nls sdk semantic-desktop"
 
-# excluded: kdebindings, kdesdk, kdevelop, since these are developer-only
 RDEPEND="
 	$(add_kdebase_dep kate)
 	$(add_kdebase_dep kdeadmin-meta)
@@ -27,9 +26,13 @@ RDEPEND="
 	$(add_kdebase_dep kdeplasma-addons)
 	$(add_kdebase_dep kdetoys-meta)
 	$(add_kdebase_dep kdeutils-meta)
-	$(add_kdebase_dep kdewebdev-meta)
 	accessibility? ( $(add_kdebase_dep kdeaccessibility-meta) )
 	nls? ( $(add_kdebase_dep kde-l10n) )
+	sdk? (
+		$(add_kdebase_dep kdebindings-meta)
+		$(add_kdebase_dep kdesdk-meta)
+		$(add_kdebase_dep kdewebdev-meta)
+	)
 	semantic-desktop? ( $(add_kdebase_dep kdepim-meta) )
 	$(block_other_slots)
 "
