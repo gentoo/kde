@@ -51,6 +51,8 @@ KMEXTRACTONLY="
 
 add_blocker kcontrol '<4.3.98'
 
+PATCHES=( "${FILESDIR}/kdebase-workspace-xinerama.patch" )
+
 src_unpack() {
 	if use handbook; then
 		KMEXTRA="${KMEXTRA}

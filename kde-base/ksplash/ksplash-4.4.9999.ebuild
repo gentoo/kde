@@ -20,6 +20,8 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
+PATCHES=( "${FILESDIR}/kdebase-workspace-xinerama.patch" )
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
