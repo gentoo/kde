@@ -7,7 +7,7 @@ OPENGL_REQUIRED=optional
 KDE_LINGUAS="ar be ca cs da de el en_GB es et fi fr ga gl hi hne is it ja km
 lt lv ms nb nds nl nn oc pa pl pt pt_BR ro ru se sk sv th tr uk zh_CN zh_TW"
 
-inherit kde4-base
+inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDE Image Plugin Interface"
 HOMEPAGE="http://www.kipi-plugins.org/"
@@ -41,6 +41,14 @@ RDEPEND="${DEPEND}
 	cdr? ( app-cdr/k3b )
 	imagemagick? ( >=media-gfx/imagemagick-5.5.4 )
 	mjpeg? ( media-video/mjpegtools )"
+
+src_prepare() {
+	# Remove flags -floop-block -floop-interchange
+	# -floop-strip-mine due to bug #305443.
+	filter-flags -floop-block
+	filter-flags -floop-interchange
+	filter-flags -floop-strip-mine
+}
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
