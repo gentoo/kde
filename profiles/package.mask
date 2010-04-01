@@ -32,7 +32,6 @@ kde-base/kdeartwork-styles:4.5
 kde-base/kdeartwork-wallpapers:4.5
 kde-base/kdeartwork-weatherwallpapers:4.5
 kde-base/dolphin:4.5
-kde-base/kappfinder:4.5
 kde-base/kdepasswd:4.5
 kde-base/kdialog:4.5
 kde-base/keditbookmarks:4.5
