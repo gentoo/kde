@@ -28,10 +28,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	:
-}
-
 src_configure() {
 	for plugin in ${PLUGINS}; do
 		if use ${plugin}; then
