@@ -14,7 +14,10 @@ HOMEPAGE="http://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug +php"
+
+PLUGINS="+php +php-docs"
+IUSE="debug ${PLUGINS}"
+PLUGINS="${PLUGINS//+/}"
 
 DEPEND="
 	>=dev-util/kdevelop-${PV}:${SLOT}
@@ -22,25 +25,32 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	local dir enabled
-	#generate basic cmakelists.txt
-	cat <<-EOF > "${S}/CMakeLists.txt"
-find_package(KDE4 REQUIRED)
-find_package(KDevPlatform REQUIRED)
-EOF
-# # # search based on path
-#	find ./ -mindepth 1 -maxdepth 1 -type d -print |sed -e "s:./::g"| \
-#	sort | while read dir; do
-	enabled="classbrowser php"
-	for dir in ${enabled}; do
-		echo "macro_optional_add_subdirectory(${dir}) " >> "${S}/CMakeLists.txt"
-	done
+	:
 }
 
 src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_build php)
-	)
+	for plugin in ${PLUGINS}; do
+		if use ${plugin}; then
+			CMAKE_USE_DIR="${WORKDIR}/${P}/${plugin}"
+			kde4-base_src_configure
+		fi
+	done
+}
 
-	kde4-base_src_configure
+src_compile() {
+	for plugin in ${PLUGINS}; do
+		if use ${plugin}; then
+			CMAKE_USE_DIR="${WORKDIR}/${P}/${plugin}"
+			kde4-base_src_compile
+		fi
+	done
+}
+
+src_install() {
+	for plugin in ${PLUGINS}; do
+		if use ${plugin}; then
+			CMAKE_USE_DIR="${WORKDIR}/${P}/${plugin}"
+			kde4-base_src_install
+		fi
+	done
 }
