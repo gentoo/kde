@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="2"
+
 KDE_LINGUAS="cs de es fr gl it nl pl ru tr"
 PYTHON_DEPEND="2"
 inherit python kde4-base
@@ -12,13 +13,15 @@ HOMEPAGE="http://www.frescobaldi.org/"
 SRC_URI="http://lilykde.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="4"
 KEYWORDS="~amd64 ~x86"
-IUSE="handbook"
+SLOT="4"
+IUSE="+handbook"
 
-DEPEND=">=kde-base/pykde4-${KDE_MINIMAL}
+DEPEND="
+	>=kde-base/pykde4-${KDE_MINIMAL}
 	media-gfx/imagemagick
-	media-sound/lilypond"
+	media-sound/lilypond
+"
 RDEPEND=${DEPEND}
 
 pkg_setup() {
@@ -28,5 +31,5 @@ pkg_setup() {
 
 src_install() {
 	kde4-base_src_install
-	find "${D}"/usr -name '*.pyc' -exec rm -f \{\} \;
+	find "${D}" -type -f -name '*.pyc' -exec rm -f {} +
 }
