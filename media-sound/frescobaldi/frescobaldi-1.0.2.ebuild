@@ -4,7 +4,8 @@
 
 EAPI=2
 KDE_LINGUAS="cs de es fr gl it nl pl ru tr"
-inherit kde4-base
+PYTHON_DEPEND="2"
+inherit python kde4-base
 
 DESCRIPTION="a LilyPond sheet music text editor for KDE"
 HOMEPAGE="http://www.frescobaldi.org/"
@@ -13,16 +14,19 @@ SRC_URI="http://lilykde.googlecode.com/files/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="handbook"
 
-DEPEND="media-gfx/imagemagick
-	media-sound/lilypond
-	dev-python/dbus-python
-	>=kde-base/pykde4-${KDE_MINIMAL}"
+DEPEND=">=kde-base/pykde4-${KDE_MINIMAL}
+	media-gfx/imagemagick
+	media-sound/lilypond"
+RDEPEND=${DEPEND}
 
-DOCS="ChangeLog README README-development THANKS TODO po/README-translations"
+pkg_setup() {
+	python_set_active_version 2
+	kde4-base_pkg_setup
+}
 
 src_install() {
 	kde4-base_src_install
-	find "${D}"/usr -name '*.pyc' -delete
+	find "${D}"/usr -name '*.pyc' -exec rm -f \{\} \;
 }
