@@ -16,7 +16,7 @@ HOMEPAGE="http://www.digikam.org/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="addressbook debug doc geolocation gphoto2 lensfun semantic-desktop +thumbnails"
 
