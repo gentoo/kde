@@ -5,7 +5,6 @@
 EAPI="2"
 
 if [[ ${PV} == *9999* ]] ; then
-	KEYWORDS=""
 	KMNAME="extragear/network"
 else
 	# upstream likes to skip that _ in beta releases
@@ -15,7 +14,6 @@ else
 	KDE_LINGUAS="ar be bg ca cs da de el en_GB es et eu fr ga gl hi hne hr hu is it
 		ja km lt lv mai ms nb nds nl nn oc pl pt pt_BR ro ru se sk sl sr sv
 		tr uk zh_CN zh_TW"
-	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 fi
@@ -26,9 +24,11 @@ DESCRIPTION="A BitTorrent program for KDE."
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
+KEYWORDS=""
 SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
-+mediaplayer plasma rss +scanfolder +search +shutdown +stats +upnp webinterface +zeroconf"
++magnetgenerator +mediaplayer plasma rss +scanfolder +search +shutdown +stats
++upnp webinterface +zeroconf"
 
 COMMONDEPEND="
 	app-crypt/qca:2
@@ -49,10 +49,10 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}
 	infowidget? ( >=dev-libs/geoip-1.4.4 )
 	ipfilter? (
-			app-arch/bzip2
-			app-arch/unzip
-			>=kde-base/kdebase-kioslaves-${KDE_MINIMAL}
-		)
+		app-arch/bzip2
+		app-arch/unzip
+		>=kde-base/kdebase-kioslaves-${KDE_MINIMAL}
+	)
 	kross? ( >=kde-base/krosspython-${KDE_MINIMAL} )
 "
 
@@ -77,6 +77,7 @@ src_configure() {
 		$(cmake-utils_use_enable ipfilter IPFILTER_PLUGIN)
 		$(cmake-utils_use_enable kross SCRIPTING_PLUGIN)
 		$(cmake-utils_use_enable logviewer LOGVIEWER_PLUGIN)
+		$(cmake-utils_use_enable magnetgenerator MAGNETGENERATOR_PLUGIN)
 		$(cmake-utils_use_enable mediaplayer MEDIAPLAYER_PLUGIN)
 		$(cmake-utils_use_enable rss SYNDICATION_PLUGIN)
 		$(cmake-utils_use_enable scanfolder SCANFOLDER_PLUGIN)
