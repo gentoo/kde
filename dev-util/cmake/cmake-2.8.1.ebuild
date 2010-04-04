@@ -52,6 +52,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.0-darwin-no-app-with-qt.patch
 	"${FILESDIR}"/${PN}-2.8.1-more-no_host_paths.patch
 	"${FILESDIR}"/${PN}-2.8.1-FindBoost.patch
+	"${FILESDIR}"/${PN}-2.8.1-libform.patch
 )
 
 src_prepare() {
