@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	>=x11-libs/qt-sql-4.5:4
 "
 DEPEND="${COMMON_DEPEND}
-	dev-lang/ruby
+	=dev-lang/ruby-1.8*
 	>=x11-libs/qt-test-4.5:4
 "
 RDEPEND="${COMMON_DEPEND}
