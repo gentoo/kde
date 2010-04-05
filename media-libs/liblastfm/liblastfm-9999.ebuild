@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	>=x11-libs/qt-sql-4.5:4
 "
 DEPEND="${COMMON_DEPEND}
-	=dev-lang/ruby-1.8*
+	dev-lang/ruby
 	>=x11-libs/qt-test-4.5:4
 "
 RDEPEND="${COMMON_DEPEND}
@@ -41,5 +41,6 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}${ROOT}" install || die "emake install failed"
+
 	dodoc README || die "dodoc failed"
 }
