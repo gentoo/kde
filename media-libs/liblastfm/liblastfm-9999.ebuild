@@ -19,11 +19,15 @@ COMMON_DEPEND="
 	>=media-libs/libsamplerate-0.1.4
 	sci-libs/fftw:3.0
 	>=x11-libs/qt-core-4.5:4
+	>=x11-libs/qt-sql-4.5:4
 "
 DEPEND="${COMMON_DEPEND}
 	dev-lang/ruby
+	>=x11-libs/qt-test-4.5:4
 "
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	!<media-libs/lastfmlib-0.4.0
+"
 
 src_prepare() {
 	# Fix multilib paths
