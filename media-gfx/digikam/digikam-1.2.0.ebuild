@@ -48,6 +48,8 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
+	# Patch to prevent a crash on startup in RatingWidget (kde#232628)
+	epatch "${FILESDIR}/digikam-1.2.0-kde232628.patch"
 	# Patch to unbundled libpgf.
 	epatch "${FILESDIR}/libpgf-unbundled-digikam-1.2.0-r0.patch"
 
@@ -59,7 +61,7 @@ src_configure() {
 
 	use semantic-desktop && backend="Nepomuk" || backend="None"
 	# LQR = only allows to choose between bundled/external
-	mycmakeargs="${mycmakeargs}
+	mycmakeargs=(
 		-DWITH_LQR=ON
 		-DENABLE_THEMEDESIGNER=OFF
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
@@ -70,7 +72,8 @@ src_configure() {
 		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_build doc)"
+		$(cmake-utils_use_build doc)
+	)
 
 	kde4-base_src_configure
 }
