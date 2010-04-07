@@ -24,7 +24,7 @@ DEPEND="
 	samba? (
 		|| (
 			=net-fs/samba-3.0*
-			>=net-fs/samba-libs-3.4[smbclient]
+			>=net-fs/samba-3.4.6[smbclient]
 		)
 	)
 	sftp? ( >=net-libs/libssh-0.4.0[sftp] )
