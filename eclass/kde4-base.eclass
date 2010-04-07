@@ -233,7 +233,6 @@ unset cppuintdepend
 
 # KDE dependencies
 kdecommondepend="
-	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[dbus]
 	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[kde]
@@ -247,6 +246,9 @@ kdecommondepend="
 		x11-libs/libXxf86vm
 	)
 "
+#perl is not needed on host (+ difficult crosscompilation)
+tc-is-cross-compiler || kdecommondepend="$kdecommondepend dev-lang/perl"
+
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
 		kdecommondepend+=" $(add_kdebase_dep kdelibs)"
@@ -578,7 +580,7 @@ kde4-base_src_configure() {
 	[[ ${PN} = kdelibs ]] && cmakeargs+=(-DKDE_DISTRIBUTION_TEXT=Gentoo)
 
 	# Here we set the install prefix
-	cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
+	tc-is-cross-compiler || cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
 
 	# Use colors
 	QTEST_COLORED=1
@@ -600,6 +602,11 @@ kde4-base_src_configure() {
 		# when more are present
 		cmakeargs+=(-DCMAKE_SYSTEM_PREFIX_PATH="${EKDEDIR}")
 	fi
+
+	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
+	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/lib/qt4)
+	#kde-config -path data unavailable when cross-compiling
+	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
 
 	# Handle kdeprefix in application itself
 	if ! has kdeprefix ${IUSE//+} || ! use kdeprefix; then
