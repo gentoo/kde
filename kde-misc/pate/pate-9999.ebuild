@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-PYTHON_DEPEND="2:2.4"
-inherit git kde4-base python
+PYTHON_DEPEND="2"
+inherit git python kde4-base
 
 DESCRIPTION="Tasty Python plugins for Kate"
 HOMEPAGE="http://github.com/pag/pate"
@@ -21,6 +21,11 @@ DEPEND="
 	>=kde-base/pykde4-${KDE_MINIMAL}
 "
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	python_set_active_version 2
+	kde4-base_pkg_setup
+}
 
 src_unpack() {
 	git_src_unpack
