@@ -4,23 +4,24 @@
 
 EAPI="2"
 
-EGIT_REPO_URI="git://github.com/pag/${PN}.git"
 PYTHON_DEPEND="2:2.4"
-
-inherit kde4-base git python
+inherit git kde4-base python
 
 DESCRIPTION="Tasty Python plugins for Kate"
 HOMEPAGE="http://github.com/pag/pate"
-SRC_URI=""
+EGIT_REPO_URI="git://github.com/pag/${PN}.git"
 
 LICENSE="GPL-2"
-SLOT="4"
 KEYWORDS=""
-
+SLOT="4"
 IUSE=""
 
-DEPEND="dev-python/sip
+DEPEND="
+	>=kde-base/kate-${KDE_MINIMAL}
 	>=kde-base/pykde4-${KDE_MINIMAL}
-	dev-python/PyQt4"
-RDEPEND="${DEPEND}
-	>=kde-base/kate-${KDE_MINIMAL}"
+"
+RDEPEND="${DEPEND}"
+
+src_unpack() {
+	git_src_unpack
+}
