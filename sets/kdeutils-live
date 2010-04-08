@@ -3,6 +3,7 @@ kde-base/kcalc:live
 kde-base/kcharselect:live
 kde-base/kdf:live
 kde-base/kgpg:live
+kde-base/kremotecontrol:live
 kde-base/ktimer:live
 kde-base/kwallet:live
 kde-base/okteta:live

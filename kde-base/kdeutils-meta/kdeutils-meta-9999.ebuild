@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua cups floppy kdeprefix lirc"
+IUSE="aqua cups floppy kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep ark)
@@ -19,6 +19,7 @@ RDEPEND="
 	$(add_kdebase_dep kcharselect)
 	$(add_kdebase_dep kdf)
 	$(add_kdebase_dep kgpg)
+	$(add_kdebase_dep kremotecontrol)
 	$(add_kdebase_dep ktimer)
 	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep superkaramba)
@@ -26,6 +27,5 @@ RDEPEND="
 	$(add_kdebase_dep okteta)
 	cups? ( $(add_kdebase_dep printer-applet) )
 	floppy? ( $(add_kdebase_dep kfloppy) )
-	lirc? ( $(add_kdebase_dep kdelirc) )
 	$(block_other_slots)
 "
