@@ -102,6 +102,7 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
 	)
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 # Blockers added due to packages from old versions, removed in the meanwhile
