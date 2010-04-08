@@ -102,6 +102,8 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
 	)
+"
+PDEPEND="
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
