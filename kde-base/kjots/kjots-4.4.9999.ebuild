@@ -7,7 +7,7 @@ EAPI="3"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="Kjots - KDE note taking utility"
+DESCRIPTION="KDE note taking utility"
 KEYWORDS=""
 IUSE="debug +handbook"
 

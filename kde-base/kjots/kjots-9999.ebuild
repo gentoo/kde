@@ -7,11 +7,12 @@ EAPI="3"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="Kjots - KDE note taking utility"
+DESCRIPTION="KDE note taking utility"
 KEYWORDS=""
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	>=dev-libs/grantlee-0.1
+	$(add_kdebase_dep kdepimlibs 'akonadi')
 "
 RDEPEND="${DEPEND}"
