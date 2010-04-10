@@ -34,6 +34,7 @@ RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="
 	libs/kdm/
+	libs/kephal/
 	libs/ksysguard/
 	libs/kworkspace/
 	libs/plasmagenericshell/
