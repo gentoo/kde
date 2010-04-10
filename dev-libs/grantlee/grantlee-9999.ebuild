@@ -1,0 +1,42 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="2"
+
+inherit cmake-utils git
+
+DESCRIPTION="C++ string template engine based on the Django template system"
+HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
+EGIT_REPO_URI="git://gitorious.org/grantlee/grantlee.git"
+
+LICENSE="LGPL-2.1"
+KEYWORDS=""
+SLOT="0"
+IUSE="debug doc"
+
+COMMON_DEPEND="
+	>=x11-libs/qt-core-4.5.0:4
+	>=x11-libs/qt-gui-4.5.0:4
+	>=x11-libs/qt-script-4.5.0:4
+"
+DEPEND="${COMMON_DEPEND}
+	doc? ( app-text/doxygen )
+"
+RDEPEND="${COMMON_DEPEND}"
+
+src_configure() {
+	mycmakeargs=(
+		-DBUILD_TESTS=OFF
+	)
+	cmake-utils_src_configure
+}
+
+src_test() {
+	mycmakeargs+=(
+		-DBUILD_TESTS=ON
+	)
+	cmake-utils_src_configure
+	cmake-utils_src_compile
+	cmake-utils_src_test
+}
