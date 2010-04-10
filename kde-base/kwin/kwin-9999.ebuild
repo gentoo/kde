@@ -36,6 +36,7 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="
+	libs/kephal/
 	libs/oxygen/
 "
 
