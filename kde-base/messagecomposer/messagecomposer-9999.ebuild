@@ -14,7 +14,10 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
+	$(add_kdebase_dep libkpgp)
 	$(add_kdebase_dep messagecore)
+	$(add_kdebase_dep messageviewer)
+	$(add_kdebase_dep templateparser)
 "
 RDEPEND="${DEPEND}"
 
@@ -22,7 +25,10 @@ add_blocker kmail 4.4.50
 
 KMEXTRACTONLY="
 	libkleo/
+	libkpgp/
 	messagecore/
+	messageviewer/
+	templateparser/
 "
 
 KMLOADLIBS="
