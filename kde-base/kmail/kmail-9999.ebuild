@@ -22,6 +22,7 @@ DEPEND="
 	$(add_kdebase_dep messagecore)
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
+	$(add_kdebase_dep templateparser)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
@@ -41,6 +42,7 @@ KMEXTRACTONLY="
 	messagecore/
 	messagelist/
 	messageviewer/
+	templateparser/
 "
 KMEXTRA="
 	kmailcvt/
@@ -50,7 +52,7 @@ KMEXTRA="
 "
 KMLOADLIBS="libkdepim"
 
-PATCHES=( "${FILESDIR}/generate-messageviewer-kcfg.patch" )
+PATCHES=( "${FILESDIR}/generate-kcfg-files.patch" )
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
