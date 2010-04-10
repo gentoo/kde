@@ -20,3 +20,4 @@ RDEPEND="${DEPEND}"
 add_blocker kmail 4.4.50
 
 KMLOADLIBS="libkdepim"
+KMSAVELIBS="true"
