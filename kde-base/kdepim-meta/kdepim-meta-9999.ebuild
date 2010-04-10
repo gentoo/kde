@@ -40,6 +40,7 @@ RDEPEND="
 	$(add_kdebase_dep messagecore)
 	$(add_kdebase_dep messagelist)
 	$(add_kdebase_dep messageviewer)
+	$(add_kdebase_dep templateparser)
 	semantic-desktop? ( $(add_kdebase_dep akonadi) )
 	$(block_other_slots)
 "

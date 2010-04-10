@@ -322,6 +322,7 @@ kde-base/messagecomposer:live
 kde-base/messagecore:live
 kde-base/messagelist:live
 kde-base/messageviewer:live
+kde-base/templateparser:live
 kde-base/cervisia:live
 kde-base/kapptemplate:live
 kde-base/kate:live
