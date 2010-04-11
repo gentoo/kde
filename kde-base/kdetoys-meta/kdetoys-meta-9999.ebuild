@@ -17,6 +17,5 @@ RDEPEND="
 	$(add_kdebase_dep amor)
 	$(add_kdebase_dep kteatime)
 	$(add_kdebase_dep ktux)
-	$(add_kdebase_dep kweather)
 	$(block_other_slots)
 "
