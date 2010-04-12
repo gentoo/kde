@@ -4,12 +4,17 @@
 
 EAPI="2"
 
-KDE_LINGUAS="de es fr ja lt nl pt_BR ro ru"
+KDE_LINGUAS="cs de es fr ja lt nl pl pt_BR ro ru"
 inherit kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
 HOMEPAGE="http://kdesvn.alwins-world.de/"
-SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
+if [[ ${PV} = 9999* ]]; then
+	ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
+	ESVN_PROJECT="kdesvn"
+else
+	SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
@@ -28,6 +33,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
+
+	[[ ${PV} = 9999* ]] && mycmakeargs=(-DDAILY_BUILD=ON)
 
 	kde4-base_src_configure
 }
