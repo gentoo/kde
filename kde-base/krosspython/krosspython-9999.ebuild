@@ -13,9 +13,7 @@ DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	dev-lang/python
-"
+DEPEND=""
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
