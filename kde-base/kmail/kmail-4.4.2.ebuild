@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kmail/kmail-4.4.2.ebuild,v 1.1 2010/03/30 21:13:39 spatz Exp $
 
 EAPI="3"
 
@@ -8,21 +8,16 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
-KEYWORDS=""
-IUSE="debug +handbook"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="ayatana debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep messagecomposer)
-	$(add_kdebase_dep messagecore)
-	$(add_kdebase_dep messagelist)
-	$(add_kdebase_dep messageviewer)
-	$(add_kdebase_dep templateparser)
+	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
@@ -30,29 +25,35 @@ RDEPEND="${DEPEND}
 
 add_blocker kmailcvt
 add_blocker libksieve
+add_blocker messagecore
+add_blocker messagelist
+add_blocker messageviewer
 add_blocker mimelib
 
 KMEXTRACTONLY="
-	akonadi/
-	korganizer/
-	kresources/
+	korganizer/org.kde.Korganizer.Calendar.xml
 	libkleo/
 	libkpgp/
-	messagecomposer/
-	messagecore/
-	messagelist/
-	messageviewer/
-	templateparser/
 "
 KMEXTRA="
 	kmailcvt/
 	ksendemail/
 	libksieve/
-	ontologies/
+	messagecore/
+	messagelist/
+	messageviewer/
+	mimelib/
+	plugins/kmail/
 "
 KMLOADLIBS="libkdepim"
 
-PATCHES=( "${FILESDIR}/generate-kcfg-files.patch" )
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with ayatana IndicateQt)
+	)
+
+	kde4-meta_src_configure
+}
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
