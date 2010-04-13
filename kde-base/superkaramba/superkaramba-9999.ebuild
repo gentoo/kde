@@ -5,7 +5,8 @@
 EAPI="3"
 
 KMNAME="kdeutils"
-inherit kde4-meta
+PYTHON_DEPEND="python? 2"
+inherit python kde4-meta
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS=""
@@ -20,6 +21,10 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
+
+pkg_setup() {
+    python_set_active_version 2
+}
 
 src_configure() {
 	mycmakeargs=(
