@@ -13,9 +13,6 @@ DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-
 pkg_setup() {
 	python_set_active_version 2
 	kde4-meta_pkg_setup
