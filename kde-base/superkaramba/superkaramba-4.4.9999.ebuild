@@ -23,7 +23,8 @@ RDEPEND="${DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
 
 pkg_setup() {
-    python_set_active_version 2
+	kde4-meta_pkg_setup
+	python_set_active_version 2
 }
 
 src_configure() {
