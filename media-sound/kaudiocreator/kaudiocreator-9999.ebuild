@@ -18,6 +18,7 @@ IUSE="debug"
 DEPEND="
 	>=kde-base/libkcddb-${KDE_MINIMAL}
 	>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+	media-libs/libdiscid
 	media-libs/taglib
 "
 RDEPEND="${DEPEND}"
