@@ -24,7 +24,6 @@ done
 
 DEPEND=">=kde-base/konqueror-${KDE_MINIMAL}
 	>=kde-base/kdelibs-${KDE_MINIMAL}
-	dev-lang/python
 	!${CATEGORY}/${PN}:0"
 
 S=${WORKDIR}
