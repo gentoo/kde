@@ -33,7 +33,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-    python_convert_shebangs -r 2 .
+	python_convert_shebangs -r 2 .
 }
 
 src_install() {
