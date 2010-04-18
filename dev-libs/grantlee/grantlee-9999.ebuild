@@ -21,21 +21,37 @@ COMMON_DEPEND="
 	>=x11-libs/qt-script-4.5.0:4
 "
 DEPEND="${COMMON_DEPEND}
-	doc? ( app-text/doxygen )
+	doc? ( app-doc/doxygen[-nodot] )
 "
 RDEPEND="${COMMON_DEPEND}"
+
+DOCS="AUTHORS CHANGELOG GOALS README"
 
 src_configure() {
 	mycmakeargs=(
 		-DBUILD_TESTS=OFF
 	)
+
 	cmake-utils_src_configure
+}
+
+src_compile() {
+	cmake-utils_src_compile
+
+	use doc && cmake-utils_src_compile docs
+}
+
+src_install() {
+	use doc && HTML_DOCS="${CMAKE_BUILD_DIR}"/apidocs/html/
+
+	cmake-utils_src_install
 }
 
 src_test() {
 	mycmakeargs+=(
 		-DBUILD_TESTS=ON
 	)
+
 	cmake-utils_src_configure
 	cmake-utils_src_compile
 	cmake-utils_src_test
