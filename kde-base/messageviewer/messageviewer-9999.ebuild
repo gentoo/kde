@@ -25,6 +25,8 @@ KMEXTRACTONLY="
 	kresources/groupwise/soap
 	libkleo
 	libkpgp
+"
+KMCOMPILEONLY="
 	messagecore
 "
 
