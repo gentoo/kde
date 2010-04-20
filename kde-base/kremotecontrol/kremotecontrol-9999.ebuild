@@ -17,6 +17,14 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	if use handbook; then
+		KMEXTRA="doc/kcontrol/kremotecontrol"
+	fi
+
+	kde4-meta_src_unpack
+}
+
 src_prepare() {
 	kde4-meta_src_prepare
 
