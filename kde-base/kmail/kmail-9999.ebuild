@@ -39,10 +39,12 @@ KMEXTRACTONLY="
 	libkleo/
 	libkpgp/
 	messagecomposer/
-	messagecore/
-	messagelist/
 	messageviewer/
 	templateparser/
+"
+KMCOMPILEONLY="
+	messagecore/
+	messagelist/
 "
 KMEXTRA="
 	kmailcvt/
