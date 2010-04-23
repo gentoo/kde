@@ -16,3 +16,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 "
 RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	akonadi/akonadi_next/
+"
