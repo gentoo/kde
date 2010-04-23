@@ -22,6 +22,6 @@ KMEXTRA="
 	ontologies
 "
 
-KMEXTRACTONLY="
+KMCOMPILEONLY="
 	messagecore
 "
