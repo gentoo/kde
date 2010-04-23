@@ -5,7 +5,8 @@
 EAPI="3"
 
 KMNAME="kdesdk"
-inherit kde4-meta
+PYTHON_DEPEND="2"
+inherit python kde4-meta
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
@@ -21,6 +22,11 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep krosspython)
 	$(add_kdebase_dep pykde4)
 "
+
+src_prepare() {
+	python_convert_shebangs -r 2 .
+	kde4-meta_src_prepare
+}
 
 pkg_postinst() {
 	echo
