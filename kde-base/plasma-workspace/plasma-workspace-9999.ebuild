@@ -6,6 +6,7 @@ EAPI="3"
 
 KMNAME="kdebase-workspace"
 KMMODULE="plasma"
+PYTHON_DEPEND="python? 2"
 inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
@@ -59,6 +60,11 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
+
+pkg_setup() {
+	python_set_active_version 2
+	kde4-meta_pkg_setup
+}
 
 src_unpack() {
 	if use handbook; then
