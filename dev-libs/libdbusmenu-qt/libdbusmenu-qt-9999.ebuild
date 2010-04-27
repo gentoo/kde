@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit eutils cmake-utils git
+inherit git cmake-utils
 
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="http://people.canonical.com/~agateau/dbusmenu/"
@@ -22,7 +22,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.3.2-qtincludedir.patch
-	git_src_prepare
+PATCHES=(
+	"${FILESDIR}/${PN}-0.3.2-cmake.patch"
+)
+
+DOCS="NEWS README"
+
+src_unpack() {
+	git_src_unpack
 }
