@@ -15,6 +15,9 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
+# Bug #315215, require X server running
+RESTRICT="test"
+
 DEPEND="
 	x11-libs/qt-core:4
 	x11-libs/qt-gui:4[dbus]
