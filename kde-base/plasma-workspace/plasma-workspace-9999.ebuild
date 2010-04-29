@@ -11,7 +11,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug +handbook google-gadgets python rss semantic-desktop xinerama"
+IUSE="debug +handbook google-gadgets python qalculate rss semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -32,6 +32,7 @@ COMMONDEPEND="
 		>=dev-python/sip-4.7.1
 		$(add_kdebase_dep pykde4)
 	)
+	qalculate? ( sci-libs/libqalculate )
 	rss? ( $(add_kdebase_dep kdepimlibs) )
 	xinerama? ( x11-libs/libXinerama )
 "
@@ -80,6 +81,7 @@ src_configure() {
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PyKDE4)
+		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		-DWITH_Xmms=OFF
