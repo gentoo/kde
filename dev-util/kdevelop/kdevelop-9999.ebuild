@@ -4,18 +4,20 @@
 
 EAPI="2"
 
-KMNAME="extragear/sdk"
-inherit kde4-base
-
 if [[ ${PV} == *9999* ]]; then
 	KDEVPLATFORM_PV="9999"
 else
+	KDE_LINGUAS="ca ca@valencia da de en_GB es et fr gl it nds pt pt_BR sv tr uk zh_CN zh_TW"
 	inherit versionator
 	KDEVPLATFORM_PV="$(($(get_major_version)-3)).$(get_after_major_version)"
 fi
+
+KMNAME="extragear/sdk"
+inherit kde4-base
+
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 HOMEPAGE="http://www.kdevelop.org/"
-[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
@@ -54,11 +56,4 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
-}
-
-src_install() {
-	kde4-base_src_install
-
-	rm "${D}/${PREFIX}"/share/apps/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2
-	rm "${D}/${PREFIX}"/share/icons/hicolor/22x22/actions/output_win.png
 }
