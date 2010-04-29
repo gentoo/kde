@@ -4,18 +4,20 @@
 
 EAPI="2"
 
-KMNAME="extragear/sdk"
-inherit kde4-base
-
 if [[ ${PV} == *9999* ]]; then
 	KDEVELOP_PV="9999"
 else
+	KDE_LINGUAS="ca ca@valencia da de en_GB es et fr gl it nds pt pt_BR sv tr uk zh_CN zh_TW"
 	inherit versionator
 	KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
 fi
+
+KMNAME="extragear/sdk"
+inherit kde4-base
+
 DESCRIPTION="KDE development support libraries and apps"
 HOMEPAGE="http://www.kdevelop.org/"
-[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
