@@ -32,11 +32,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-pic-fix.patch"
-	"${FILESDIR}/${PN}-build-fix.patch"
-)
-
 src_unpack() {
 	git_src_unpack
 }
