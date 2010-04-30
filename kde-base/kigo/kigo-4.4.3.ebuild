@@ -10,3 +10,5 @@ inherit kde4-meta
 DESCRIPTION="KDE Go game"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
+
+RDEPEND="games-board/gnugo"
