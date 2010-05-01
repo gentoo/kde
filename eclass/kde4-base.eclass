@@ -13,6 +13,13 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
+inherit kde4-functions base eutils
+
+get_build_type
+if [[ ${BUILD_TYPE} = live ]]; then
+	inherit subversion
+fi
+
 # @ECLASS-VARIABLE: CMAKE_REQUIRED
 # @DESCRIPTION:
 # Specify if cmake buildsystem is being used. Possible values are 'always' and 'never'.
@@ -20,28 +27,58 @@
 # src_configure, src_compile, src_test and src_install.
 # Defaults to 'always'.
 : ${CMAKE_REQUIRED:=always}
-if [[ ${CMAKE_REQUIRED} = false || ${CMAKE_REQUIRED} = never ]]; then
-	buildsystem_eclass=""
-	export_fns=""
-else
+if [[ ${CMAKE_REQUIRED} = always ]]; then
 	buildsystem_eclass="cmake-utils"
 	export_fns="src_configure src_compile src_test src_install"
 fi
 
-inherit kde4-functions
-
-get_build_type
-if [[ ${BUILD_TYPE} = live ]]; then
-	subversion_eclass="subversion"
+# Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
+if [[ -n ${KDE_MINIMAL} ]]; then
+	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		[[ ${KDE_MINIMAL} = ${slot} ]] && KDE_MINIMAL_VALID=1 && break
+	done
+	unset slot
+	[[ -z ${KDE_MINIMAL_VALID} ]] && unset KDE_MINIMAL
+else
+	KDE_MINIMAL_VALID=1
 fi
 
-inherit base ${buildsystem_eclass} eutils ${subversion_eclass}
+# @ECLASS-VARIABLE: KDE_MINIMAL
+# @DESCRIPTION:
+# This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
+# version for apps to work. Currently defaults to 4.3
+# One may override this variable to raise version requirements.
+# For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
+# Note that it is fixed to ${SLOT} for kde-base packages.
+KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare  ${export_fns} pkg_postinst pkg_postrm
+# Set slot for packages in kde-base and koffice
+case ${KDEBASE} in
+	kde-base)
+		# Determine SLOT from PVs
+		case ${PV} in
+			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
+			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
+			4.3*) SLOT="4.3" ;;
+			9999*) SLOT="live" ;; # regular live
+			*) die "Unsupported ${PV}" ;;
+		esac
+		KDE_MINIMAL="${SLOT}"
+		;;
+	koffice)
+		SLOT="2"
+		;;
+esac
+
+slot_is_at_least 4.5 ${KDE_MINIMAL} && CMAKE_MIN_VERSION="2.6.4"
+
+inherit ${buildsystem_eclass}
+
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_postinst pkg_postrm
 
 unset buildsystem_eclass
 unset export_fns
-unset subversion_eclass
 
 case ${KDEBASE} in
 	kde-base)
@@ -86,26 +123,6 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
-# Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
-if [[ -n ${KDE_MINIMAL} ]]; then
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		[[ ${KDE_MINIMAL} = ${slot} ]] && KDE_MINIMAL_VALID=1 && break
-	done
-	unset slot
-	[[ -z ${KDE_MINIMAL_VALID} ]] && unset KDE_MINIMAL
-else
-	KDE_MINIMAL_VALID=1
-fi
-
-# @ECLASS-VARIABLE: KDE_MINIMAL
-# @DESCRIPTION:
-# This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
-# version for apps to work. Currently defaults to 4.3
-# One may override this variable to raise version requirements.
-# For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
-# Note that it is fixed to ${SLOT} for kde-base packages.
-KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
-
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
@@ -118,15 +135,6 @@ case ${KDEBASE} in
 			# All other ebuild types default to -kdeprefix as before
 			IUSE+=" kdeprefix"
 		fi
-		# Determine SLOT from PVs
-		case ${PV} in
-			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
-			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
-			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
-			4.3*) SLOT="4.3" ;;
-			9999*) SLOT="live" ;; # regular live
-			*) die "Unsupported ${PV}" ;;
-		esac
 		# This code is to prevent portage from searching GENTOO_MIRRORS for
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
@@ -135,14 +143,9 @@ case ${KDEBASE} in
 				RESTRICT+=" mirror"
 				;;
 		esac
-		KDE_MINIMAL="${SLOT}"
-		_kdedir="${SLOT}"
 
 		# Block installation of other SLOTS unless kdeprefix
 		RDEPEND+=" $(block_other_slots)"
-		;;
-	koffice)
-		SLOT="2"
 		;;
 esac
 
@@ -442,7 +445,7 @@ kde4-base_pkg_setup() {
 
 	if [[ ${KDEBASE} = kde-base ]]; then
 		if use kdeprefix; then
-			KDEDIR=/usr/kde/${_kdedir}
+			KDEDIR=/usr/kde/${SLOT}
 		else
 			KDEDIR=/usr
 		fi
@@ -482,8 +485,6 @@ kde4-base_pkg_setup() {
 
 	# Fix XDG collision with sandbox
 	export XDG_CONFIG_HOME="${T}"
-	# Not needed anymore
-	unset _kdedir
 }
 
 # @FUNCTION: kde4-base_src_unpack
