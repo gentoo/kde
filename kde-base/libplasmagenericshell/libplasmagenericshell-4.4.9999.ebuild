@@ -10,10 +10,12 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for the KDE Plasma shell"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug test"
 
 RDEPEND="
 	$(add_kdebase_dep libkworkspace)
 "
+
+use test && KMEXTRACTONLY="plasma/desktop/shell/data"
 
 KMSAVELIBS="true"
