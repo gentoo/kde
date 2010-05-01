@@ -674,7 +674,7 @@ kde4-meta_src_configure() {
 					fi
 				;;
 			esac
-			;;		
+			;;
 	esac
 
 	kde4-base_src_configure
