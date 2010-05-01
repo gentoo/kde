@@ -15,8 +15,11 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="$(add_kdebase_dep plasma-workspace)
-	net-libs/gnutls"
-DEPEND="net-libs/gnutls"
+DEPEND="
+	net-libs/gnutls
+"
+RDEPEND="${DEPEND}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${PN}"

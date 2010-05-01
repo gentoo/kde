@@ -15,5 +15,9 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
-RDEPEND="$(add_kdebase_dep plasma-workspace)"
-DEPEND="$(add_kdebase_dep libplasmaclock)"
+RDEPEND="
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
+DEPEND="
+	>=kde-base/libplasmaclock-${KDE_MINIMAL}
+"

@@ -15,8 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="media-sound/phonon"
-RDEPEND="
-	${DEPEND}
-	$(add_kdebase_dep plasma-workspace)
+DEPEND="
+	media-sound/phonon
+"
+RDEPEND="${DEPEND}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
 "
