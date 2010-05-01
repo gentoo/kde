@@ -391,7 +391,6 @@ kde-base/plasma-workspace:4.5
 kde-base/powerdevil:4.5
 kde-base/qguiplatformplugin_kde:4.5
 kde-base/solid:4.5
-kde-base/statusnotifierwatcher:4.5
 kde-base/systemsettings:4.5
 kde-base/kdebindings-csharp:4.5
 kde-base/kdebindings-ruby:4.5
