@@ -17,7 +17,11 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="x11-libs/qt-gui[accessibility]"
-RDEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+DEPEND="
+	x11-libs/qt-gui:4[accessibility]
+"
+RDEPEND="${DEPEND}
+	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+"
 
 S="${WORKDIR}/${MY_P}"
