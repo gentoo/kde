@@ -396,7 +396,7 @@ case ${BUILD_TYPE} in
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.[34].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
-							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.xz"
+							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
 							DEPEND+=" app-arch/xz-utils"
 							;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
