@@ -3,7 +3,6 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="phpdocs">Build PHP documentation plugin (up to 3.9.97).</flag>
 		<flag name="php-docs">Build PHP documentation plugin.</flag>
 	</use>
 </pkgmetadata>

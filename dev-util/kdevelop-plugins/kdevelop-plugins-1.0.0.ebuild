@@ -4,10 +4,9 @@
 
 EAPI="2"
 
-inherit kde4-base versionator
+inherit kde4-base
 
-TMPVER="1.0-beta4"
-KDEVPLATFORM_PV="$(($(get_major_version)-3)).$(get_after_major_version)"
+KDEVELOP_PV="4.0.0"
 DESCRIPTION="PHP plugin for KDevelop 4."
 HOMEPAGE="http://www.kdevelop.org/"
 
@@ -20,18 +19,20 @@ IUSE="debug ${PLUGINS}"
 PLUGINS="${PLUGINS//+/}"
 
 for plugin in ${PLUGINS}; do
-	SRC_URI+=" ${plugin}? ( mirror://kde/unstable/kdevelop/${PV}/src/${plugin}-${TMPVER}.tar.bz2 )"
+	SRC_URI+=" ${plugin}? ( mirror://kde/stable/kdevelop/${KDEVELOP_PV}/src/kdevelop-${plugin}-${PV}.tar.bz2 )"
 done
 
 DEPEND="
-	>=dev-util/kdevplatform-${KDEVPLATFORM_PV}
+	>=dev-util/kdevplatform-${PV}
 "
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}"
 
 src_configure() {
 	for plugin in ${PLUGINS}; do
 		if use ${plugin}; then
-			CMAKE_USE_DIR="${WORKDIR}/${plugin}-${TMPVER}"
+			CMAKE_USE_DIR="${WORKDIR}/kdevelop-${plugin}-${PV}"
 			kde4-base_src_configure
 		fi
 	done
@@ -40,7 +41,7 @@ src_configure() {
 src_compile() {
 	for plugin in ${PLUGINS}; do
 		if use ${plugin}; then
-			CMAKE_USE_DIR="${WORKDIR}/${plugin}-${TMPVER}"
+			CMAKE_USE_DIR="${WORKDIR}/kdevelop-${plugin}-${PV}"
 			kde4-base_src_compile
 		fi
 	done
@@ -49,7 +50,7 @@ src_compile() {
 src_install() {
 	for plugin in ${PLUGINS}; do
 		if use ${plugin}; then
-			CMAKE_USE_DIR="${WORKDIR}/${plugin}-${TMPVER}"
+			CMAKE_USE_DIR="${WORKDIR}/kdevelop-${plugin}-${PV}"
 			kde4-base_src_install
 		fi
 	done
