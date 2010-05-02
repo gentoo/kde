@@ -333,6 +333,7 @@ kde4-meta_create_extractlists() {
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
 				KMEXTRACTONLY+="
+					CTestCustom.cmake
 					libkdepim/"
 			fi
 			KMEXTRACTONLY+="
