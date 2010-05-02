@@ -13,3 +13,7 @@ IUSE="debug"
 
 # moved from kdelibs
 add_blocker kdelibs 4.4.68
+
+# this needs actually only 0.3.0 but kdelibs[semantic-desktop] requires 0.3.60, so for minimum mess...
+DEPEND=">=dev-libs/shared-desktop-ontologies-0.3.60"
+RDEPEND="${DEPEND}"
