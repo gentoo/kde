@@ -18,7 +18,7 @@ IUSE="debug"
 
 DEPEND="
 	app-misc/strigi
-	>=app-office/akonadi-server-1.2.1
+	>=app-office/akonadi-server-1.3.60
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt

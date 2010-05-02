@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=app-office/akonadi-server-1.2.1
+	>=app-office/akonadi-server-1.3.60
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)

@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug"
 
 DEPEND="
-	>=app-office/akonadi-server-1.2.1
+	>=app-office/akonadi-server-1.3.60
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep libkdepim)
