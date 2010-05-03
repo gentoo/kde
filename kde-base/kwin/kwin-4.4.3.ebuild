@@ -34,6 +34,10 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+)
+
 src_prepare() {
 # NOTE uncomment when enabled again by upstream
 #	if ! use captury; then
@@ -48,6 +52,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with xinerama X11_Xinerama)
 	)
 
 	kde4-meta_src_configure
