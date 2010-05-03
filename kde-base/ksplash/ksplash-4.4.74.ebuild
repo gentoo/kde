@@ -20,7 +20,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${FILESDIR}/kdebase-workspace-xinerama.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
 
 src_configure() {
 	mycmakeargs=(
