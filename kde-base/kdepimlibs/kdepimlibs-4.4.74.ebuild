@@ -34,6 +34,8 @@ add_blocker akonadi '<4.3.86'
 add_blocker libkholidays
 # @since 4.4 - kontactinterfaces is in kdepimlibs now
 add_blocker kontactinterfaces
+# @since 4.4 kcm_ldap and friends in kdepimlibs
+add_blocker kaddressbook '<4.4.60'
 
 src_prepare() {
 	kde4-base_src_prepare

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kde-l10n/kde-l10n-4.4.2.ebuild,v 1.1 2010/03/30 20:42:45 spatz Exp $
 
-EAPI="2"
+EAPI="3"
 
 inherit kde4-base
 
