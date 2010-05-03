@@ -22,6 +22,6 @@ pkg_postinst() {
 	kde4-meta_pkg_postinst
 
 	if ! has_version app-crypt/dirmngr ; then
-		elog "You can install app-crypt/dirmngr to improve key search functionality."
+		elog "For improved key search functionality, install app-crypt/dirmngr."
 	fi
 }
