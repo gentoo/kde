@@ -16,6 +16,9 @@ RDEPEND="
 	$(add_kdebase_dep libkworkspace)
 "
 
-use test && KMEXTRACTONLY="plasma/desktop/shell/data"
-
 KMSAVELIBS="true"
+
+src_unpack() {
+	use test && KMEXTRACTONLY="plasma/desktop/shell/data"
+	kde4-meta_src_unpack
+}
