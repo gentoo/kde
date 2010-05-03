@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KDE_LINGUAS="bg cs de el es fr pl pt_BR sr"
+KDE_LINGUAS="bg cs de el es fr it pl pt_BR sr"
 inherit kde4-base
 
 DESCRIPTION="Text-based subtitles editor."
