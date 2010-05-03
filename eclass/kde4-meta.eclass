@@ -333,7 +333,6 @@ kde4-meta_create_extractlists() {
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
 				KMEXTRACTONLY+="
-					CTestCustom.cmake
 					libkdepim/"
 			fi
 			KMEXTRACTONLY+="
@@ -341,6 +340,7 @@ kde4-meta_create_extractlists() {
 				kleopatra/ConfigureChecks.cmake"
 			if slot_is_at_least 4.5 ${SLOT}; then
 				KMEXTRACTONLY+="
+					CTestCustom.cmake
 					kdepim-version.h.cmake"
 			else
 				KMEXTRACTONLY+="
