@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep plasma-workspace 'rss')
 	x11-misc/shared-mime-info
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
