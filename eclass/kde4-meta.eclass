@@ -711,22 +711,13 @@ kde4-meta_src_test() {
 kde4-meta_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
-	kde4-base_src_install
-}
-
-# @FUNCTION: kde4-meta_src_make_doc
-# @DESCRIPTION:
-# This function searches in ${S}/${KMMODULE},
-# and tries to install "AUTHORS ChangeLog* README* NEWS TODO" if these files exist.
-kde4-meta_src_make_doc() {
-	debug-print-function ${FUNCNAME} "$@"
-
+	# Search ${S}/${KMMODULE} and install any "AUTHORS ChangeLog* README* NEWS TODO HACKING" found
 	local doc
-	for doc in AUTHORS ChangeLog* README* NEWS TODO; do
-		[[ -s ${KMMODULE}/${doc} ]] && newdoc "${KMMODULE}/${doc}" "${doc}.${KMMODULE##*/}"
+	for doc in AUTHORS ChangeLog* README* NEWS TODO HACKING; do
+		[[ -s "${S}/${KMMODULE}/${doc}" ]] && dodoc "${S}/${KMMODULE}/${doc}"
 	done
 
-	kde4-base_src_make_doc
+	kde4-base_src_install
 }
 
 # @FUNCTION: kde4-meta_pkg_postinst

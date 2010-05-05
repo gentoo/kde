@@ -662,30 +662,25 @@ kde4-base_src_install() {
 		install_library_dependencies
 	fi
 
-	kde4-base_src_make_doc
-	cmake-utils_src_install
-}
-
-# @FUNCTION: kde4-base_src_make_doc
-# @DESCRIPTION:
-# Function for installing the documentation of KDE4 applications.
-kde4-base_src_make_doc() {
-	debug-print-function ${FUNCNAME} "$@"
-
+	# Install common documentation of KDE4 applications
 	local doc
-	for doc in AUTHORS ChangeLog* README* NEWS TODO; do
-		[[ -s ${doc} ]] && dodoc ${doc}
-	done
-
-	if [[ -z ${KMNAME} ]]; then
-		for doc in {apps,runtime,workspace,.}/*/{AUTHORS,README*}; do
-			if [[ -s ${doc} ]]; then
-				local doc_complete=${doc}
-				doc="${doc#*/}"
-				newdoc "$doc_complete" "${doc%/*}.${doc##*/}"
-			fi
+	if ! has kde4-meta ${INHERITED}; then
+		for doc in AUTHORS ChangeLog* README* NEWS TODO HACKING; do
+			[[ -s "${S}/${doc}" ]] && dodoc "${doc}"
 		done
+		# kdelibs, kdepimlibs
+		if [[ -z ${KMNAME} ]]; then
+			for doc in "${S}"/*/{AUTHORS,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+				if [[ -s "${S}/${doc}" ]]; then
+					local doc_complete=${doc}
+					doc="${doc#*/}"
+					newdoc "$doc_complete" "${doc%/*}.${doc##*/}"
+				fi
+			done
+		fi
 	fi
+
+	cmake-utils_src_install
 }
 
 # @FUNCTION: kde4-base_pkg_postinst
