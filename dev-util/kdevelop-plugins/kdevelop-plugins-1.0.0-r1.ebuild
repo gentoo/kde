@@ -8,7 +8,7 @@ DESCRIPTION="Extra plugins for KDevelop 4"
 HOMEPAGE="http://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="+php +php-docs"
 
