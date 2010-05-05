@@ -40,6 +40,10 @@ RDEPEND="${COMMON_DEPEND}
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.74-cmake.patch"
+)
+
 src_prepare() {
 	find "${S}" -name CMakeLists.txt | \
 		xargs sed -i \

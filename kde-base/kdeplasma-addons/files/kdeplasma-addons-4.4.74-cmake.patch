@@ -1,8 +1,8 @@
 Index: applets/CMakeLists.txt
 ===================================================================
---- applets/CMakeLists.txt	(revision 1122757)
+--- applets/CMakeLists.txt	(revision 1122904)
 +++ applets/CMakeLists.txt	(working copy)
-@@ -15,6 +15,7 @@
+@@ -16,6 +16,7 @@
  add_subdirectory(calculator)
  add_subdirectory(charselect)
  add_subdirectory(comic)
@@ -10,14 +10,14 @@ Index: applets/CMakeLists.txt
  add_subdirectory(fifteenPuzzle)
  add_subdirectory(fileWatcher)
  add_subdirectory(frame)
-@@ -29,14 +30,21 @@
+@@ -30,14 +31,21 @@
  add_subdirectory(microblog)
  add_subdirectory(notes)
  add_subdirectory(nowplaying)
 +
  if(LIBATTICA_FOUND)
-   add_subdirectory(opendesktop)
-   add_subdirectory(opendesktop-activities)
+   add_subdirectory(community)
+   add_subdirectory(social-news)
  endif(LIBATTICA_FOUND)
 +
  add_subdirectory(pastebin)
@@ -33,7 +33,7 @@ Index: applets/CMakeLists.txt
  add_subdirectory(spellcheck)
  add_subdirectory(showdashboard)
  add_subdirectory(timer)
-@@ -47,11 +55,6 @@
+@@ -48,11 +56,6 @@
  add_subdirectory(weatherstation)
  add_subdirectory(weather)
  
@@ -45,12 +45,29 @@ Index: applets/CMakeLists.txt
  if(PHONON_FOUND)
    add_subdirectory(mediaplayer)
  endif(PHONON_FOUND)
+Index: libs/lancelot-datamodels/CMakeLists.txt
+===================================================================
+--- libs/lancelot-datamodels/CMakeLists.txt	(revision 1122904)
++++ libs/lancelot-datamodels/CMakeLists.txt	(working copy)
+@@ -23,10 +23,8 @@
+ 
+    set (ADDITIONAL_LINK_LIBRARIES
+         ${ADDITIONAL_LINK_LIBRARIES}
+-        ${KDE4_AKONADI_LIBS}
+-        )
+-
+-
++        ${KDEPIMLIBS_AKONADI_LIBS}
++   )
+ endif(KDEPIMLIBS_FOUND)
+ 
+ macro_log_feature(LANCELOT_DATAMODELS_HAS_PIMLIBS
 Index: runners/CMakeLists.txt
 ===================================================================
---- runners/CMakeLists.txt	(revision 1122757)
+--- runners/CMakeLists.txt	(revision 1122904)
 +++ runners/CMakeLists.txt	(working copy)
-@@ -8,10 +8,9 @@
- add_subdirectory(spellchecker)
+@@ -9,10 +9,9 @@
+ add_subdirectory(characters)
  
  if(KDEPIMLIBS_FOUND)
 -add_subdirectory(contacts)
@@ -64,7 +81,7 @@ Index: runners/CMakeLists.txt
 -
 Index: runners/contacts/CMakeLists.txt
 ===================================================================
---- runners/contacts/CMakeLists.txt	(revision 1122757)
+--- runners/contacts/CMakeLists.txt	(revision 1122904)
 +++ runners/contacts/CMakeLists.txt	(working copy)
 @@ -5,7 +5,7 @@
  

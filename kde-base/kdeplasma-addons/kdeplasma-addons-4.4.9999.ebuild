@@ -40,6 +40,10 @@ RDEPEND="${COMMON_DEPEND}
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.3-cmake.patch"
+)
+
 src_prepare() {
 	sed -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \
 		-e 's/${KDE4WORKSPACE_WEATHERION_LIBRARY}/weather_ion/g' \
