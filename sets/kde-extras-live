@@ -8,6 +8,9 @@
 ~app-portage/kportagetray-9999
 ~dev-cpp/eigen-9999
 ~dev-util/kdevelop-9999
+~dev-util/kdevelop-extra-plugins-9999
+~dev-util/kdevelop-php-9999
+~dev-util/kdevelop-php-docs-9999
 ~dev-util/kdevelop-plugins-9999
 ~dev-util/kdevplatform-9999
 ~dev-util/krazy2-9999
