@@ -54,7 +54,7 @@ pkg_setup() {
 			ewarn "a different one. Applications using soprano may need at least one backend"
 			ewarn "to be functional. If you experience any problems, enable any of those USE"
 			ewarn "flags:"
-			ewarn "java, redland, virtuoso (recommended)"
+			ewarn "java (deprecated), redland, virtuoso (recommended)"
 			echo
 		else
 			echo
