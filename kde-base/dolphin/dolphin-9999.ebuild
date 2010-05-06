@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS=""
-IUSE="debug +handbook semantic-desktop subversion thumbnail"
+IUSE="debug +handbook semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -18,25 +18,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
-	subversion? (
-		dev-util/subversion
-		$(add_kdebase_dep kompare)
-	)
 "
 PDEPEND="
 	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
 "
 
 KMLOADLIBS="libkonq"
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	if ! use subversion; then
-		sed -e '/install(.*fileviewsvnplugin.*)/s/^/#DONOTINSTALL /g' \
-			-i dolphin/src/CMakeLists.txt || die 'failed to disable subversion plugin'
-	fi
-}
 
 src_configure() {
 	mycmakeargs=(
