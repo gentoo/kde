@@ -25,16 +25,15 @@ esac
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
 # koffice ebuild.
-
 if [[ ${CATEGORY} = kde-base ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
-fi
-
-# is this a koffice ebuild?
-if [[ ${KMNAME} = koffice || ${PN} = koffice ]]; then
+elif [[ ${KMNAME} = koffice || ${PN} = koffice ]]; then
 	debug-print "${ECLASS}: KOFFICE ebuild recognized"
 	KDEBASE=koffice
+elif [[ ${KMNAME} = kdevelop ]]; then
+	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
+	KDEBASE="kdevelop"
 fi
 
 # @ECLASS-VARIABLE: KDE_SLOTS

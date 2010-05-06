@@ -17,7 +17,11 @@ inherit kde4-functions base eutils
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
-	inherit subversion
+	if [[ ${KDEBASE} = kdevelop ]]; then
+		inherit git
+	else
+		inherit subversion
+	fi
 fi
 
 # @ECLASS-VARIABLE: CMAKE_REQUIRED
@@ -52,7 +56,7 @@ fi
 # Note that it is fixed to ${SLOT} for kde-base packages.
 KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
 
-# Set slot for packages in kde-base and koffice
+# Set slot for packages in kde-base, koffice and kdevelop
 case ${KDEBASE} in
 	kde-base)
 		# Determine SLOT from PVs
@@ -68,6 +72,23 @@ case ${KDEBASE} in
 		;;
 	koffice)
 		SLOT="2"
+		;;
+	kdevelop)
+		if [[ ${BUILD_TYPE} = live ]]; then
+			KDEVELOP_VERSION="9999"
+			KDEVPLATFORM_VERSION="9999"
+		else
+			case ${PN} in
+				kdevelop|quanta)
+					KDEVELOP_VERSION=${PV}
+					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
+					;;
+				*)
+					KDEVELOP_VERSION="$(($(get_major_version)+3)).$(get_after_major_version)"
+					KDEVPLATFORM_VERSION=${PV}
+			esac
+		fi
+		SLOT="4"
 		;;
 esac
 
@@ -87,6 +108,10 @@ case ${KDEBASE} in
 		;;
 	koffice)
 		HOMEPAGE="http://www.koffice.org/"
+		LICENSE="GPL-2"
+		;;
+	kdevelop)
+		HOMEPAGE="http://www.kdevelop.org/"
 		LICENSE="GPL-2"
 		;;
 esac
@@ -143,7 +168,6 @@ case ${KDEBASE} in
 				RESTRICT+=" mirror"
 				;;
 		esac
-
 		# Block installation of other SLOTS unless kdeprefix
 		RDEPEND+=" $(block_other_slots)"
 		;;
@@ -153,7 +177,7 @@ esac
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
 # Currently defaults to 4.5.1 for KDE 4.3 and earlier
-# or 4.6.0_rc1 for KDE 4.4 and later
+# or 4.6.0 for KDE 4.4 and later
 if slot_is_at_least 4.4 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
@@ -262,6 +286,13 @@ if [[ ${PN} != kdelibs ]]; then
 		kdecommondepend+="
 			>=kde-base/kdelibs-${KDE_MINIMAL}
 		"
+		if [[ ${KDEBASE} = kdevelop ]]; then
+			if [[ ${PN} != kdevplatform ]]; then
+				kdecommondepend+="
+					>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
+				"
+			fi
+		fi
 	fi
 fi
 kdedepend="
@@ -303,77 +334,88 @@ IUSE+=" kdeenablefinal"
 # koffice ebuild, the URI should be set in the ebuild itself
 case ${BUILD_TYPE} in
 	live)
-		# Determine branch URL based on live type
-		local branch_prefix
-		case ${PV} in
-			9999*)
-				# trunk
-				branch_prefix="trunk/KDE"
-				;;
-			*)
-				# branch
-				branch_prefix="branches/KDE/${SLOT}"
-				# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
-				# @DESCRIPTION
-				# Suffix appended to ESVN_PROJECT depending on fetched branch.
-				# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
-				ESVN_PROJECT_SUFFIX="-${PV}"
-				;;
-		esac
 		SRC_URI=""
-		# @ECLASS-VARIABLE: ESVN_MIRROR
-		# @DESCRIPTION:
-		# This variable allows easy overriding of default kde mirror service
-		# (anonsvn) with anything else you might want to use.
-		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
-		# Split ebuild, or extragear stuff
-		if [[ -n ${KMNAME} ]]; then
-		    ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+		if has subversion ${INHERITED}; then
+			# Determine branch URL based on live type
+			local branch_prefix
+			case ${PV} in
+				9999*)
+					# trunk
+					branch_prefix="trunk/KDE"
+					;;
+				*)
+					# branch
+					branch_prefix="branches/KDE/${SLOT}"
+					# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
+					# @DESCRIPTION
+					# Suffix appended to ESVN_PROJECT depending on fetched branch.
+					# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
+					ESVN_PROJECT_SUFFIX="-${PV}"
+					;;
+			esac
+			# @ECLASS-VARIABLE: ESVN_MIRROR
+			# @DESCRIPTION:
+			# This variable allows easy overriding of default kde mirror service
+			# (anonsvn) with anything else you might want to use.
+			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
+			# Split ebuild, or extragear stuff
+			if [[ -n ${KMNAME} ]]; then
+				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+					KMMODULE="${PN}"
+				fi
+				# Split kde-base/ ebuilds: (they reside in trunk/KDE)
+				case ${KMNAME} in
+					kdebase-*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
+						;;
+					kdelibs-*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
+						;;
+					kdereview*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						;;
+					kdesupport)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+						;;
+					kde*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
+						;;
+					extragear*|playground*)
+						# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
+						# build packages from same svn location.
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+						;;
+					koffice)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+						;;
+					*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						;;
+				esac
+			else
+				# kdelibs, kdepimlibs
+				ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
+				ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+			fi
+			# @ECLASS-VARIABLE: ESVN_UP_FREQ
+			# @DESCRIPTION:
+			# This variable is used for specifying the timeout between svn synces
+			# for kde-base and koffice modules. Does not affect misc apps.
+			# Default value is 1 hour.
+			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+		elif has git ${INHERITED}; then
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}"
 			fi
-			# Split kde-base/ ebuilds: (they reside in trunk/KDE)
-			case ${KMNAME} in
-				kdebase-*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
-					;;
-				kdelibs-*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
-					;;
-				kdereview*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					;;
-				kdesupport)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-					;;
-				kde*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
-					;;
-				extragear*|playground*)
-					# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
-					# build packages from same svn location.
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-					;;
-				koffice)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-					;;
-				*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+			case ${KDEBASE} in
+				kdevelop)
+					EGIT_REPO_URI="git://gitorious.org/${KMNAME}/${KMMODULE}.git"
 					;;
 			esac
-		else
-			# kdelibs, kdepimlibs
-			ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
-			ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
 		fi
-		# @ECLASS-VARIABLE: ESVN_UP_FREQ
-		# @DESCRIPTION:
-		# This variable is used for specifying the timeout between svn synces
-		# for kde-base and koffice modules. Does not affect misc apps.
-		# Default value is 1 hour.
-		[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		;;
 	*)
 		if [[ -n ${KDEBASE} ]]; then
@@ -407,6 +449,10 @@ case ${BUILD_TYPE} in
 						2.1.[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 					esac
+					;;
+				kdevelop)
+					SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
+					;;
 			esac
 			unset _kmname _kmname_pv
 		fi
@@ -494,8 +540,12 @@ kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
-		subversion_src_unpack
+		if has subversion ${INHERITED}; then
+			migrate_store_dir
+			subversion_src_unpack
+		elif has git ${INHERITED}; then
+			git_src_unpack
+		fi
 	elif [[ ${EAPI} == 2 ]]; then
 		local file
 		for file in ${A}; do
@@ -539,7 +589,14 @@ kde4-base_src_prepare() {
 		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && [[ ${PN} != kdelibs ]] && enable_selected_doc_linguas
 	fi
 
-	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
+	# SCM bootstrap
+	if [[ ${BUILD_TYPE} = live ]]; then
+		if has subversion ${INHERITED}; then
+			subversion_src_prepare
+		elif has git ${INHERITED}; then
+			git_src_prepare
+		fi
+	fi
 
 	# Apply patches
 	base_src_prepare
