@@ -7,6 +7,7 @@ EAPI="3"
 KMNAME="kdebindings"
 KMMODULE="python/pykde4"
 OPENGL_REQUIRED="always"
+PYTHON_DEPEND="*:2.5"
 PYTHON_USE_WITH="threads"
 SUPPORT_PYTHON_ABIS="1"
 inherit python kde4-meta
@@ -24,6 +25,7 @@ DEPEND="
 	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
 "
 RDEPEND="${DEPEND}"
+RESTRICT_PYTHON_ABIS="2.4"
 
 pkg_setup() {
 	python_pkg_setup
