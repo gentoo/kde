@@ -4,23 +4,16 @@
 
 EAPI="2"
 
-KMNAME="extragear/sdk"
-KMMODULE="kdevelop-plugins"
+KMNAME="kdevelop"
+KMMODULE="php-docs"
 inherit kde4-base
 
-KDEVELOP_PV="4.0.0"
-
 DESCRIPTION="PHP documentation plugin for KDevelop 4"
-HOMEPAGE="http://www.kdevelop.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="4"
 IUSE="debug"
 
-DEPEND="
-	>=dev-util/kdevplatform-${PV}:${SLOT}
-"
-RDEPEND="${DEPEND}
+RDEPEND="
 	!=dev-util/kdevelop-plugins-1.0.0
 "

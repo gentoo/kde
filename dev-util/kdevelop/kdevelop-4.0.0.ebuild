@@ -14,7 +14,7 @@ inherit kde4-base
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+cmake +cxx debug +qmake qthelp"
 
 DEPEND="

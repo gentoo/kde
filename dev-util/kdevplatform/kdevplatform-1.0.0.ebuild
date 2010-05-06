@@ -14,7 +14,7 @@ inherit kde4-base
 DESCRIPTION="KDE development support libraries and apps"
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 # Moved to playground for now
 # bazaar git kompare mercurial
 IUSE="cvs debug subversion"
