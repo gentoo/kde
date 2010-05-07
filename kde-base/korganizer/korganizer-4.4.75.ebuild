@@ -36,6 +36,10 @@ KMEXTRACTONLY="
 	libkdepimdbusinterfaces/
 "
 
+PATCHES=(
+			"${FILESDIR}/${P}_missing_header.patch"
+)
+
 src_unpack() {
 	if use kontact; then
 		KMEXTRA="${KMEXTRA}
