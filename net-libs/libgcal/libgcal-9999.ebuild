@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="curldebug debug"
 
-DEPEND=">=dev-libs/libxml-1.8.17-r2
+DEPEND="dev-libs/libxml2
 	    >=net-misc/curl-7.18.2"
 RDEPEND="${DEPEND}"
 
