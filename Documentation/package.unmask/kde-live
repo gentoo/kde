@@ -107,6 +107,7 @@ kde-base/kwrite:live
 kde-base/libkonq:live
 kde-base/nsplugins:live
 kde-base/plasma-apps:live
+kde-base/activitymanager:live
 kde-base/attica:live
 kde-base/drkonqi:live
 kde-base/kcmshell:live

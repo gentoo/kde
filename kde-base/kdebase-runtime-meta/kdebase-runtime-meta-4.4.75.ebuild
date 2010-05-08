@@ -14,6 +14,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x
 IUSE="aqua +handbook kdeprefix semantic-desktop"
 
 RDEPEND="
+	$(add_kdebase_dep activitymanager)
 	$(add_kdebase_dep attica)
 	$(add_kdebase_dep drkonqi)
 	$(add_kdebase_dep kcmshell)

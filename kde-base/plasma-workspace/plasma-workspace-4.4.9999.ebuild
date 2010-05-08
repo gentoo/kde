@@ -42,7 +42,9 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
 	xinerama? ( x11-proto/xineramaproto )
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	$(add_kdebase_dep plasma-runtime)
+"
 
 KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
