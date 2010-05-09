@@ -651,7 +651,9 @@ kde4-base_src_configure() {
 		# Override some environment variables - only when kdeprefix is different,
 		# to not break ccache/distcc
 		PATH="${EKDEDIR}/bin:${PATH}"
-		LDPATH="${EKDEDIR}/$(get_libdir)${LDPATH+:}${LDPATH}"
+
+		# Append library search path
+		append-ldflags -L"${EKDEDIR}/$(get_libdir)"
 
 		# Append full RPATH
 		cmakeargs+=(-DCMAKE_SKIP_RPATH=OFF)
