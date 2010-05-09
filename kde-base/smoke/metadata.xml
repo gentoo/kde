@@ -3,6 +3,7 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
+	<flag name="attica">Compile bindings for <pkg>dev-libs/libattica</pkg>.</flag>
 	<flag name="akonadi">Compile bindings for <pkg>kde-base/akonadi</pkg>.</flag>
 	<flag name="kdevplatform">Compile bindings for <pkg>dev-util/kdevplatform</pkg>.</flag>
 	<flag name="okular">Compile bindings for <pkg>kde-base/okular</pkg>.</flag>
