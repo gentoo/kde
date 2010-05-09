@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep messagecore)
 "
 RDEPEND="${DEPEND}"
