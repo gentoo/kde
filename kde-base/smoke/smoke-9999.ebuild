@@ -38,11 +38,11 @@ src_configure() {
 		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with qimageblitz QImageBlitz)
 		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use !qtmultimedia SMOKE_DISABLE_QtMultimedia)
-		$(cmake-utils_use_with qwt Qwt5)
+		$(cmake-utils_use_disable qtmultimedia QtMultimedia)
+		$(cmake-utils_use_with qwt Qwt)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use !webkit SMOKE_DISABLE_QtWebKit)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
 }
