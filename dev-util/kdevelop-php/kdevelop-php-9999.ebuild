@@ -11,6 +11,7 @@ inherit kde4-base
 DESCRIPTION="PHP plugin for KDevelop 4"
 
 LICENSE="GPL-2 LGPL-2"
+SLOT="4"
 KEYWORDS=""
 IUSE="debug doc"
 
