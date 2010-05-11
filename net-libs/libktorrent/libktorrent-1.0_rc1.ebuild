@@ -12,22 +12,19 @@ else
 	MY_PV="${PV/_/}"
 	MY_P="${PN}-${MY_PV}"
 
-	KDE_LINGUAS="ar be bg ca cs da de el en_GB es et eu fr ga gl hi hne hr hu is it
-		ja km lt lv mai ms nb nds nl nn oc pl pt pt_BR ro ru se sk sl sr sv
-		tr uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
 inherit kde4-base
 
-DESCRIPTION="A BitTorrent library used by ktorrent."
+DESCRIPTION="A BitTorrent library based on KDE Platform"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="4"
-IUSE="debug"
+IUSE="debug doc"
 
 COMMONDEPEND="
 	app-crypt/qca:2
@@ -36,5 +33,18 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	dev-libs/boost
 	sys-devel/gettext
+	doc? ( app-doc/doxygen[-nodot] )
 "
 RDEPEND="${COMMONDEPEND}"
+
+src_compile() {
+	cmake-utils_src_compile
+
+	use doc && cmake-utils_src_compile docs
+}
+
+src_install() {
+	use doc && HTML_DOCS="${CMAKE_BUILD_DIR}"/apidocs/html/
+
+	cmake-utils_src_install
+}

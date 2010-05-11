@@ -24,7 +24,7 @@ DESCRIPTION="A BitTorrent program for KDE."
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +magnetgenerator +mediaplayer plasma rss +scanfolder +search +shutdown +stats
@@ -33,6 +33,7 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 COMMONDEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
+	>=net-libs/libktorrent-1.0_rc1
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
 	rss? (
@@ -44,7 +45,6 @@ COMMONDEPEND="
 	)
 "
 DEPEND="${COMMONDEPEND}
-	>=net-p2p/libktorrent-1.0_rc1
 	dev-libs/boost
 	sys-devel/gettext
 "
