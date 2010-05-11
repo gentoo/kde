@@ -1,0 +1,12 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="3"
+
+KMNAME="kdebase-workspace"
+inherit kde4-meta
+
+DESCRIPTION="A module that monitors free disk space on the home dir"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+IUSE="debug"

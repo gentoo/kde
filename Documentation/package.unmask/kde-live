@@ -144,6 +144,7 @@ kde-base/phonon-kde:live
 kde-base/plasma-runtime:live
 kde-base/renamedlg-plugins:live
 kde-base/solid-runtime:live
+kde-base/freespacenotifier:live
 kde-base/kcheckpass:live
 kde-base/kcminit:live
 kde-base/kdebase-cursors:live
