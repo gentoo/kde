@@ -15,6 +15,7 @@ IUSE="aqua kdeprefix policykit"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
+	$(add_kdebase_dep freespacenotifier)
 	$(add_kdebase_dep kcheckpass)
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep kdebase-cursors)
