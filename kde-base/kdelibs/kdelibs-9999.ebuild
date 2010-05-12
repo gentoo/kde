@@ -131,6 +131,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
+	"${FILESDIR}/${P}-docbook.patch"
 )
 
 src_prepare() {

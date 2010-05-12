@@ -1,0 +1,16 @@
+Index: cmake/modules/FindDocBookXML.cmake
+===================================================================
+--- cmake/modules/FindDocBookXML.cmake	(revision 1125789)
++++ cmake/modules/FindDocBookXML.cmake	(working copy)
+@@ -17,9 +17,9 @@
+ # Redistribution and use is allowed according to the terms of the BSD license.
+ # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+ 
+-set (DOCBOOKXML_CURRENTDTD_VERSION "4.2" 
++set (DOCBOOKXML_CURRENTDTD_VERSION "4.2"
+      CACHE INTERNAL "Required version of XML DTDs")
+-find_path (DOCBOOKXML_CURRENTDTD_DIR catalog.xml
++find_path (DOCBOOKXML_CURRENTDTD_DIR catalog.xml docbook.cat
+    PATHS ${CMAKE_SYSTEM_PREFIX_PATH}
+ 
+    PATH_SUFFIXES
