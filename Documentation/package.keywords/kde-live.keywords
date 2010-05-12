@@ -229,7 +229,6 @@
 ~kde-base/kfloppy-9999 **
 ~kde-base/kppp-9999 **
 ~kde-base/policykit-kde-9999 **
-~kde-base/akonadi-9999 **
 ~kde-base/akregator-9999 **
 ~kde-base/blogilo-9999 **
 ~kde-base/kabcclient-9999 **
@@ -237,6 +236,7 @@
 ~kde-base/kalarm-9999 **
 ~kde-base/kdepim-icons-9999 **
 ~kde-base/kdepim-kresources-9999 **
+~kde-base/kdepim-libs-9999 **
 ~kde-base/kdepim-strigi-analyzer-9999 **
 ~kde-base/kdepim-wizards-9999 **
 ~kde-base/kdepim-runtime-9999 **
@@ -249,14 +249,6 @@
 ~kde-base/kontact-9999 **
 ~kde-base/korganizer-9999 **
 ~kde-base/ktimetracker-9999 **
-~kde-base/libkdepim-9999 **
-~kde-base/libkleo-9999 **
-~kde-base/libkpgp-9999 **
-~kde-base/messagecomposer-9999 **
-~kde-base/messagecore-9999 **
-~kde-base/messagelist-9999 **
-~kde-base/messageviewer-9999 **
-~kde-base/templateparser-9999 **
 ~kde-base/cervisia-9999 **
 ~kde-base/dolphin-plugins-9999 **
 ~kde-base/kapptemplate-9999 **

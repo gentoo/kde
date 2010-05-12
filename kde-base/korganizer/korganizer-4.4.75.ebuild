@@ -12,9 +12,8 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug +handbook"
 
 DEPEND="
-	$(add_kdebase_dep akonadi)
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-libs)
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
@@ -25,12 +24,11 @@ add_blocker kontact-specialdates
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"
 
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"
 KMEXTRA="kdgantt1"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
-	akonadi/
 	kmail/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/

@@ -14,7 +14,7 @@ IUSE="debug +handbook"
 RDEPEND="
 	$(add_kdebase_dep kdepim-kresources)
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-libs)
 	x11-libs/libXScrnSaver
 "
 DEPEND="${RDEPEND}
@@ -25,7 +25,7 @@ KMEXTRACTONLY="
 	kresources/
 "
 
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"
 
 src_unpack() {
 	if use kontact; then

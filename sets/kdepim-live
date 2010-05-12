@@ -1,4 +1,3 @@
-kde-base/akonadi:live
 kde-base/akregator:live
 kde-base/blogilo:live
 kde-base/kabcclient:live
@@ -6,6 +5,7 @@ kde-base/kaddressbook:live
 kde-base/kalarm:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
+kde-base/kdepim-libs:live
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
 kde-base/kdepim-runtime:live
@@ -18,11 +18,3 @@ kde-base/konsolekalendar:live
 kde-base/kontact:live
 kde-base/korganizer:live
 kde-base/ktimetracker:live
-kde-base/libkdepim:live
-kde-base/libkleo:live
-kde-base/libkpgp:live
-kde-base/messagecomposer:live
-kde-base/messagecore:live
-kde-base/messagelist:live
-kde-base/messageviewer:live
-kde-base/templateparser:live

@@ -15,14 +15,7 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
-	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep messagecomposer)
-	$(add_kdebase_dep messagecore)
-	$(add_kdebase_dep messagelist)
-	$(add_kdebase_dep messageviewer)
-	$(add_kdebase_dep templateparser)
+	$(add_kdebase_dep kdepim-libs)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
@@ -36,15 +29,6 @@ KMEXTRACTONLY="
 	akonadi/
 	korganizer/
 	kresources/
-	libkleo/
-	libkpgp/
-	messagecomposer/
-	messageviewer/
-	templateparser/
-"
-KMCOMPILEONLY="
-	messagecore/
-	messagelist/
 "
 KMEXTRA="
 	kmailcvt/
@@ -52,7 +36,7 @@ KMEXTRA="
 	libksieve/
 	ontologies/
 "
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"
 
 PATCHES=( "${FILESDIR}/generate-kcfg-files.patch" )
 

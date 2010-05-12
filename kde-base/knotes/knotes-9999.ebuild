@@ -14,8 +14,8 @@ IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-libs)
 "
 RDEPEND="${DEPEND}"
 
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"

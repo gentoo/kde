@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-libs)
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost

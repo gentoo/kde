@@ -14,8 +14,7 @@ IUSE="debug +handbook"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
+	$(add_kdebase_dep kdepim-libs)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
@@ -25,11 +24,8 @@ KMEXTRA="
 	plugins/kaddressbook/
 	plugins/ktexteditor/
 "
-KMEXTRACTONLY="
-	libkleo/
-"
 
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"
 
 pkg_postinst() {
 	kde4-meta_pkg_postinst

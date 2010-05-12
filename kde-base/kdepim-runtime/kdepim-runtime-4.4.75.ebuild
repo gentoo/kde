@@ -24,7 +24,6 @@ DEPEND="
 	dev-libs/libxslt
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}

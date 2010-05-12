@@ -16,17 +16,11 @@ DEPEND="
 	dev-libs/libassuan
 	dev-libs/libgpg-error
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
+	$(add_kdebase_dep kdepim-libs)
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
 "
-
-KMEXTRACTONLY="
-	libkleo
-"
-KMLOADLIBS="libkleo"
 
 src_unpack() {
 	if use handbook; then

@@ -14,7 +14,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-libs)
 "
 RDEPEND="${DEPEND}"
 
@@ -24,7 +24,7 @@ KMEXTRACTONLY="
 	korganizer/version.h
 "
 
-KMLOADLIBS="libkdepim"
+KMLOADLIBS="kdepim-libs"
 
 src_install() {
 	kde4-meta_src_install
