@@ -283,6 +283,7 @@ kde-base/kdelibs:live
 kde-base/kdepimlibs:live
 kde-base/oxygen-icons:live
 kde-base/dragonplayer:live
+kde-base/ffmpegthumbs:live
 kde-base/juk:live
 kde-base/kdemultimedia-kioslaves:live
 kde-base/kmix:live
