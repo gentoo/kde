@@ -16,13 +16,15 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep kdepim-libs)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 KMEXTRA="
 	plugins/kaddressbook/
 	plugins/ktexteditor/
+"
+KMEXTRACTONLY="
+	akonadi/
+	libkleo/
 "
 
 KMLOADLIBS="kdepim-libs"

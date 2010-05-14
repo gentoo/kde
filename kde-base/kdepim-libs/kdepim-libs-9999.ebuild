@@ -36,15 +36,18 @@ add_blocker templateparser
 
 KMEXTRA="
 	akonadi/
+	calendarviews/
 	incidenceeditors/
 	libkdepim/
 	libkdepimdbusinterfaces/
 	libkleo/
 	libkpgp/
+	libstickynotes/
 	messagecomposer/
 	messagecore/
 	messagelist/
 	messageviewer/
+	ontologies/
 	templateparser/
 "
 
@@ -55,7 +58,6 @@ KMEXTRACTONLY="
 	knode/org.kde.knode.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
-	ontologies/
 "
 
 KMSAVELIBS="true"
