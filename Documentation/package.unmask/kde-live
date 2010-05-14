@@ -192,9 +192,6 @@ kde-base/smoke:live
 ~media-sound/phonon-9999
 ~sys-auth/polkit-qt-9999
 
-# For kde-base/kdebase-kioslaves
-~net-libs/libssh-9999
-
 # For kde-base/granatier - removed due to use.mask
 #~media-libs/gluon-9999
 
