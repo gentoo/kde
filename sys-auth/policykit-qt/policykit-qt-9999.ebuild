@@ -20,7 +20,7 @@ COMMON_DEPEND="
 	>=x11-libs/qt-gui-4.4:4[dbus]
 "
 DEPEND="${COMMON_DEPEND}
-	kde-base/automoc
+	dev-util/automoc
 "
 RDEPEND="${COMMON_DEPEND}
 	examples? ( !sys-auth/polkit-qt[examples] )

@@ -296,6 +296,7 @@ if [[ ${PN} != kdelibs ]]; then
 	fi
 fi
 kdedepend="
+	dev-util/automoc
 	dev-util/pkgconfig
 	!aqua? (
 		|| ( >=x11-libs/libXtst-1.1.0 <x11-proto/xextproto-7.1.0 )

@@ -27,7 +27,6 @@ COMMONDEPEND="
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=kde-base/automoc-0.9.87
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib

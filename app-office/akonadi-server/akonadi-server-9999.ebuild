@@ -24,7 +24,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-libs/libxslt
-	>=kde-base/automoc-0.9.88
+	>=dev-util/automoc-0.9.88
 "
 
 S="${WORKDIR}/${P/-server/}"

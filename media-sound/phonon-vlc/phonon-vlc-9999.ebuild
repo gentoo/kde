@@ -24,7 +24,7 @@ RDEPEND="
 	>=x11-libs/qt-opengl-4.4.0:4
 "
 DEPEND="${RDEPEND}
-	>=kde-base/automoc-0.9.86
+	>=dev-util/automoc-0.9.86
 "
 
 pkg_postinst() {
