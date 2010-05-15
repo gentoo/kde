@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug +handbook python"
 
 DEPEND="
-	kde-base/qimageblitz
+	media-libs/qimageblitz
 	python? ( $(add_kdebase_dep pykde4) )
 "
 RDEPEND="${DEPEND}

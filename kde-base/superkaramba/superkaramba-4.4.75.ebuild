@@ -13,7 +13,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug +handbook python"
 
 DEPEND="
-	kde-base/qimageblitz
+	media-libs/qimageblitz
 	python? ( $(add_kdebase_dep pykde4) )
 "
 RDEPEND="${DEPEND}
