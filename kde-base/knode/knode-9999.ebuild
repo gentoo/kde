@@ -20,6 +20,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRACTONLY="
+	libkleo/
+	libkpgp/
+	messagecomposer/
+	messageviewer/
+"
+
 KMLOADLIBS="kdepim-libs"
 
 src_unpack() {

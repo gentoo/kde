@@ -29,13 +29,15 @@ KMEXTRA="kdgantt1"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
+	akonadi/
+	incidenceeditors/
 	kmail/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/
 "
 
 PATCHES=(
-			"${FILESDIR}/${P}_missing_header.patch"
+	"${FILESDIR}/${PN}-4.4.75_missing_header.patch"
 )
 
 src_unpack() {

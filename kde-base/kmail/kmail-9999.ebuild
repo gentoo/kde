@@ -17,9 +17,7 @@ DEPEND="
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep kdepim-libs)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 add_blocker kmailcvt
 add_blocker libksieve
@@ -29,6 +27,15 @@ KMEXTRACTONLY="
 	akonadi/
 	korganizer/
 	kresources/
+	libkleo/
+	libkpgp/
+"
+KMCOMPILEONLY="
+	messagecomposer/
+	messagecore/
+	messagelist/
+	messageviewer/
+	templateparser/
 "
 KMEXTRA="
 	kmailcvt/
@@ -36,9 +43,8 @@ KMEXTRA="
 	libksieve/
 	ontologies/
 "
-KMLOADLIBS="kdepim-libs"
 
-PATCHES=( "${FILESDIR}/generate-kcfg-files.patch" )
+KMLOADLIBS="kdepim-libs"
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
