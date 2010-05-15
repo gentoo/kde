@@ -12,6 +12,12 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"
 
+# semantic-desktop sependency until activities API is moved to kdelibs (4.6)
+DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
+"
+RDEPEND="${DEPEND}"
+
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	kwin/org.kde.KWin.xml
