@@ -23,12 +23,18 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep pykde4)
 "
 
-src_prepare() {
-	python_convert_shebangs -r 2 .
-	kde4-meta_src_prepare
+pkg_setup() {
+	kde4-meta_pkg_setup
+	python_set_active_version 2
+}
+
+src_install() {
+	kde4-meta_src_install
+	python_convert_shebangs -q -r $(python_get_version) "${ED}${PREFIX}/share/apps/${PN}"
 }
 
 pkg_postinst() {
+	kde4-meta_pkg_postinst
 	echo
 	elog "To be able to autofetch KDE translations in new project wizard, install subversion client:"
 	elog "	emerge -vau subversion"
