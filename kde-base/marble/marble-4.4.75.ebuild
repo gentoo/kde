@@ -33,14 +33,15 @@ pkg_setup() {
 }
 
 src_prepare() {
-	python_convert_shebangs -r 2 .
 	kde4-meta_src_prepare
+	python_convert_shebangs -r $(python_get_version) .
 }
 
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
 		$(cmake-utils_use_with plasma)
+		$(cmake-utils_use python EXPERIMENTAL_PYTHON_BINDINGS)
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)
