@@ -12,9 +12,10 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-# semantic-desktop sependency until activities API is moved to kdelibs (4.6)
+# FIXME dependencies until activities API is moved to kdelibs (4.6)
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
+	>=dev-libs/shared-desktop-ontologies-0.4
+	>=dev-libs/soprano-2.4.63
 "
 RDEPEND="${DEPEND}"
 
