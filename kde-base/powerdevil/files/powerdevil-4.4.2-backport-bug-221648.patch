@@ -1,0 +1,13 @@
+Index: workspace/powerdevil/daemon/PowerDevilDaemon.cpp
+===================================================================
+--- workspace/powerdevil/daemon/PowerDevilDaemon.cpp	(revision 1115251)
++++ workspace/powerdevil/daemon/PowerDevilDaemon.cpp	(revision 1115252)
+@@ -280,6 +280,8 @@
+     }
+ 
+     Solid::Control::PowerManager::setBrightness(d->brightness);
++
++    d->status = NoAction;
+ }
+ 
+ void PowerDevilDaemon::refreshStatus()
