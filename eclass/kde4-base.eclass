@@ -725,19 +725,12 @@ kde4-base_src_install() {
 	# Install common documentation of KDE4 applications
 	local doc
 	if ! has kde4-meta ${INHERITED}; then
-		for doc in AUTHORS ChangeLog* README* NEWS TODO HACKING; do
-			[[ -s "${S}/${doc}" ]] && dodoc "${doc}"
+		for doc in "${S}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+			[[ -s "${doc}" ]] && dodoc "${doc}"
 		done
-		# kdelibs, kdepimlibs
-		if [[ -z ${KMNAME} ]]; then
-			for doc in "${S}"/*/{AUTHORS,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-				if [[ -s "${S}/${doc}" ]]; then
-					local doc_complete=${doc}
-					doc="${doc#*/}"
-					newdoc "$doc_complete" "${doc%/*}.${doc##*/}"
-				fi
-			done
-		fi
+		for doc in "${S}"/*/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+			[[ -s "${doc}" ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
+		done
 	fi
 
 	cmake-utils_src_install

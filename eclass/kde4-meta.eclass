@@ -711,10 +711,10 @@ kde4-meta_src_test() {
 kde4-meta_src_install() {
 	debug-print-function $FUNCNAME "$@"
 
-	# Search ${S}/${KMMODULE} and install any "AUTHORS ChangeLog* README* NEWS TODO HACKING" found
+	# Search ${S}/${KMMODULE} and install common documentation files found
 	local doc
-	for doc in AUTHORS ChangeLog* README* NEWS TODO HACKING; do
-		[[ -s "${S}/${KMMODULE}/${doc}" ]] && dodoc "${S}/${KMMODULE}/${doc}"
+	for doc in "${S}/${KMMODULE}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+		[[ -s "${doc}" ]] && dodoc "${doc}"
 	done
 
 	kde4-base_src_install
