@@ -16,7 +16,6 @@ kde-base/kde-l10n:live
 ~dev-util/kdevelop-extra-plugins-9999
 ~dev-util/kdevelop-php-9999
 ~dev-util/kdevelop-php-docs-9999
-~dev-util/kdevelop-plugins-9999
 ~dev-util/kdevplatform-9999
 ~dev-util/krazy2-9999
 ~dev-util/kxsldbg-9999
