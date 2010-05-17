@@ -3,13 +3,13 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name="akonadi">Compile bindings for <pkg>kde-base/akonadi</pkg>.</flag>
+	<flag name="akonadi">Compile bindings for Akonadi.</flag>
 	<flag name="kdevplatform">Compile bindings for <pkg>dev-util/kdevplatform</pkg>.</flag>
 	<flag name="okular">Compile bindings for <pkg>kde-base/okular</pkg>.</flag>
-	<flag name="phonon">Compile bindings for <pkg>media-sound/phonon</pkg>.</flag>
-	<flag name="plasma">Compile bindings for kde's plasma.</flag>
+	<flag name="phonon">Compile bindings for Phonon.</flag>
+	<flag name="plasma">Compile bindings for KDE's Plasma.</flag>
 	<flag name="qscintilla">Compile bindings for <pkg>x11-libs/qscintilla</pkg>.</flag>
 	<flag name="qwt">Compile bindings for <pkg>x11-libs/qwt</pkg>.</flag>
-	<flag name="webkit">Compile bindings for <pkg>x11-libs/webkit</pkg>.</flag>
+	<flag name="webkit">Compile bindings for <pkg>x11-libs/qt-webkit</pkg>.</flag>
 </use>
 </pkgmetadata>
