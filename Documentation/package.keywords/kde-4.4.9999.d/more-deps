@@ -1,10 +1,9 @@
-=app-admin/system-config-printer-common-1.1*
-=app-misc/hal-cups-utils-0.6*
+app-admin/system-config-printer-common
 =dev-db/virtuoso-odbc-6.1*
 =dev-db/virtuoso-server-6.1*
 dev-libs/libattica
 dev-libs/shared-desktop-ontologies
-=dev-python/pycups-1.9*
+dev-python/pycups
 >=net-libs/libssh-0.3.2
 >=sys-auth/polkit-0.95
 x11-misc/google-gadgets

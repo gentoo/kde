@@ -13,8 +13,7 @@ KEYWORDS=""
 IUSE="+handbook"
 
 DEPEND="
-	>=app-admin/system-config-printer-common-1.1.18
-	app-misc/hal-cups-utils
+	>=app-admin/system-config-printer-common-1.2.2
 	$(add_kdebase_dep pykde4)
 "
 RDEPEND="${DEPEND}"
@@ -38,7 +37,7 @@ src_prepare() {
 
 src_install() {
 	kde4-meta_src_install
-	python_convert_shebangs -q -r $(python_get_version) "${ED}${PREFIX}/share/apps/${PN}"
+	python_convert_shebangs -q -r $(python_get_version) "${ED}"
 }
 
 pkg_postrm() {
