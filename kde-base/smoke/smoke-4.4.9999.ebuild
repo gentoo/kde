@@ -5,12 +5,13 @@
 EAPI="3"
 
 KMNAME="kdebindings"
+MULTIMEDIA_REQUIRED="optional"
 WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
-IUSE="akonadi kdevplatform okular +phonon qimageblitz qtmultimedia qscintilla qwt semantic-desktop"
+IUSE="akonadi kdevplatform okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -22,7 +23,6 @@ COMMON_DEPEND="
 	qscintilla? ( x11-libs/qscintilla )
 	qwt? ( x11-libs/qwt:5 )
 "
-
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
@@ -33,11 +33,11 @@ src_configure() {
 		$(cmake-utils_use_enable akonadi)
 		$(cmake-utils_use_enable akonadi Kdepimlibs)
 		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_SMOKE)
+		$(cmake-utils_use_enable multimedia QTMULTIMEDIA_SMOKE)
 		$(cmake-utils_use_enable okular)
 		$(cmake-utils_use_enable phonon PHONON_SMOKE)
 		$(cmake-utils_use_enable qimageblitz QIMAGEBLITZ_SMOKE)
 		$(cmake-utils_use_enable qscintilla QSCI_SMOKE)
-		$(cmake-utils_use_enable qtmultimedia QTMULTIMEDIA_SMOKE)
 		$(cmake-utils_use_enable qwt QWT_SMOKE)
 		$(cmake-utils_use_enable semantic-desktop Nepomuk)
 		$(cmake-utils_use_enable semantic-desktop Soprano)

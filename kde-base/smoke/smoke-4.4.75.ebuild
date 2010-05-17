@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="akonadi attica kdevplatform okular +phonon qimageblitz qtmultimedia qscintilla qwt semantic-desktop"
+IUSE="akonadi attica kdevplatform okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -34,11 +34,11 @@ src_configure() {
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_with kdevplatform KDevPlatform)
+		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_with okular)
 		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with qimageblitz QImageBlitz)
 		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_disable qtmultimedia QtMultimedia)
 		$(cmake-utils_use_with qwt Qwt)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
