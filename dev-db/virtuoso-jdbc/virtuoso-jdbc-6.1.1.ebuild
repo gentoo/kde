@@ -32,5 +32,7 @@ src_configure() {
 		--with-jdk4=$(java-config-2 -O)
 	"
 
+	MAKEOPTS=-j1
+
 	virtuoso_src_configure
 }
