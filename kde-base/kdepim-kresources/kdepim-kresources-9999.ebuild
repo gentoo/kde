@@ -14,7 +14,7 @@ KEYWORDS=""
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep kdepim-libs)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
@@ -24,7 +24,7 @@ KMEXTRACTONLY="
 	korganizer/version.h
 "
 
-KMLOADLIBS="kdepim-libs"
+KMLOADLIBS="kdepim-common-libs"
 
 src_install() {
 	kde4-meta_src_install

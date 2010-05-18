@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep kdepim-libs)
+	$(add_kdebase_dep kdepim-common-libs)
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
@@ -24,7 +24,7 @@ add_blocker kontact-specialdates
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"
 
-KMLOADLIBS="kdepim-libs"
+KMLOADLIBS="kdepim-common-libs"
 KMEXTRA="kdgantt1"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass

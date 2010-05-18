@@ -16,7 +16,7 @@ RESTRICT=test
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep kdepim-libs)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
@@ -27,7 +27,7 @@ KMEXTRACTONLY="
 	messageviewer/
 "
 
-KMLOADLIBS="kdepim-libs"
+KMLOADLIBS="kdepim-common-libs"
 
 src_unpack() {
 	if use handbook; then

@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep kdepim-libs)
+	$(add_kdebase_dep kdepim-common-libs)
 	media-sound/phonon
 "
 DEPEND="${RDEPEND}"

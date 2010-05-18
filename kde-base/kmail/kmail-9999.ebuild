@@ -15,7 +15,7 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep kdepim-libs)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
@@ -44,7 +44,7 @@ KMEXTRA="
 	ontologies/
 "
 
-KMLOADLIBS="kdepim-libs"
+KMLOADLIBS="kdepim-common-libs"
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
