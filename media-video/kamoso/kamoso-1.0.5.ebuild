@@ -15,9 +15,7 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
-	>=media-video/vlc-1.0.0[v4l2]"
-
+DEPEND=">=media-video/vlc-1.0.0[v4l2]"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${PN}"
