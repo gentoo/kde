@@ -31,9 +31,3 @@ RDEPEND="
 	$(add_kdebase_dep umbrello)
 	$(block_other_slots)
 "
-
-# FIXME:
-# Broken in 4.1.0
-#   >=kde-base/kspy-${PV}:${SLOT}
-#	elibc_glibc? ( >=kde-base/kmtrace-${PV}:${SLOT} )
-#	>=kde-base/kunittest-${PV}:${SLOT}
