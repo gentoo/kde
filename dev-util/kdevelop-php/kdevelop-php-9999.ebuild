@@ -14,6 +14,9 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 IUSE="debug doc"
 
+DEPEND="
+	>=dev-util/kdevelop-pg-qt-0.9.0
+"
 RDEPEND="
 	!=dev-util/kdevelop-plugins-1.0.0
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
