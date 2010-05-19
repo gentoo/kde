@@ -25,10 +25,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.3.2-cmake.patch"
-)
-
 DOCS="NEWS README"
 
 src_unpack() {
