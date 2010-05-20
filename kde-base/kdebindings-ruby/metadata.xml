@@ -4,7 +4,6 @@
 <herd>kde</herd>
 <use>
 	<flag name="akonadi">Compile bindings for Akonadi.</flag>
-	<flag name="kdevplatform">Compile bindings for <pkg>dev-util/kdevplatform</pkg>.</flag>
 	<flag name="okular">Compile bindings for <pkg>kde-base/okular</pkg>.</flag>
 	<flag name="phonon">Compile bindings for Phonon.</flag>
 	<flag name="plasma">Compile bindings for KDE's Plasma.</flag>

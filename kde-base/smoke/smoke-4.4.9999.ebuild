@@ -11,12 +11,11 @@ inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
-IUSE="akonadi kdevplatform okular +phonon qimageblitz qscintilla qwt semantic-desktop"
+IUSE="akonadi okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
-	kdevplatform? ( dev-util/kdevplatform:4 )
 	okular? ( $(add_kdebase_dep okular) )
 	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
@@ -32,7 +31,6 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_enable akonadi)
 		$(cmake-utils_use_enable akonadi Kdepimlibs)
-		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_SMOKE)
 		$(cmake-utils_use_enable multimedia QTMULTIMEDIA_SMOKE)
 		$(cmake-utils_use_enable okular)
 		$(cmake-utils_use_enable phonon PHONON_SMOKE)
