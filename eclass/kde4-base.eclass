@@ -457,8 +457,16 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.[34].8[05] | 4.[34].9[0568])
-							# block for normally packed unstable releases
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+							case ${KMNAME} in
+								kdepim | kdepim-runtime)
+									SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.bz2"
+									;;
+								*)
+									# block for normally packed unstable releases
+									SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+									;;
+								esac
+								;;
 						4.[34].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
