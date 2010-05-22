@@ -16,6 +16,7 @@ IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop"
 DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep smoke 'akonadi?,phonon?,qimageblitz?,qscintilla?,semantic-desktop?,webkit?')
+	semantic-desktop? ( dev-libs/soprano[clucene] )
 "
 RDEPEND="${DEPEND}"
 
@@ -43,14 +44,13 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_disable akonadi)
+		$(cmake-utils_use_disable phonon)
 		$(cmake-utils_use_disable plasma)
-		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with qimageblitz QImageBlitz)
-		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_disable qimageblitz QImageBlitz)
+		$(cmake-utils_use_disable qscintilla QScintilla)
+		$(cmake-utils_use_disable semantic-desktop Nepomuk)
+		$(cmake-utils_use_disable semantic-desktop Soprano)
 		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
