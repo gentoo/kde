@@ -8,7 +8,7 @@
 #
 # @CODE
 # Tomáš Chvátal <scarabeus@gentoo.org>
-# Maciej Mrozowski <reavertm@gmail.com>
+# Maciej Mrozowski <reavertm@gentoo.org>
 # (undisclosed contributors)
 # Original author: Zephyrus (zephyrus@mirach.it)
 # @CODE
@@ -101,14 +101,6 @@ _use_me_now_inverted() {
 	fi
 }
 
-# @ECLASS-VARIABLE: DOCS
-# @DESCRIPTION:
-# Documents passed to dodoc command.
-
-# @ECLASS-VARIABLE: HTML_DOCS
-# @DESCRIPTION:
-# Documents passed to dohtml command.
-
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
 # Eclass respects PREFIX variable, though it's not recommended way to set
@@ -132,8 +124,6 @@ _use_me_now_inverted() {
 # specific compiler flags overriding make.conf.
 : ${CMAKE_BUILD_TYPE:=Gentoo}
 
-# @FUNCTION: _check_build_dir
-# @DESCRIPTION:
 # Determine using IN or OUT source build
 _check_build_dir() {
 	# @ECLASS-VARIABLE: CMAKE_USE_DIR
@@ -153,13 +143,8 @@ _check_build_dir() {
 	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
 		# we build in source dir
 		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}"
-	elif [[ ${CMAKE_USE_DIR} = ${WORKDIR} ]]; then
-		# out of tree build, but with $S=$WORKDIR, see bug #273949 for reason.
-		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}/build"
 	else
-		# regular out of tree build
-		[[ ${1} = init || -d ${CMAKE_USE_DIR}_build ]] && SUF="_build" || SUF=""
-		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}${SUF}"
+		: ${CMAKE_BUILD_DIR:=${WORKDIR}/${P}_build}
 	fi
 	echo ">>> Working in BUILD_DIR: \"$CMAKE_BUILD_DIR\""
 }
@@ -263,10 +248,6 @@ _modify-cmakelists() {
 	_EOF_
 }
 
-# @FUNCTION: enable_cmake-utils_src_configure
-# @DESCRIPTION:
-# General function for configuring with cmake. Default behaviour is to start an
-# out-of-source build.
 enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -357,10 +338,6 @@ enable_cmake-utils_src_configure() {
 	popd > /dev/null
 }
 
-# @FUNCTION: enable_cmake-utils_src_compile
-# @DESCRIPTION:
-# General function for compiling with cmake. Default behaviour is to check for
-# EAPI and respectively to configure as well or just compile.
 enable_cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -387,81 +364,64 @@ cmake-utils_src_make() {
 	popd &> /dev/null
 }
 
-# @FUNCTION: enable_cmake-utils_src_install
-# @DESCRIPTION:
-# Function for installing the package. Automatically detects the build type.
 enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" &> /dev/null
-	emake install DESTDIR="${D}" || die "Make install failed"
+	base_src_install
 	popd &> /dev/null
 
-	# Manual document installation
-	[[ -n "${DOCS}" ]] && { dodoc ${DOCS} || die "dodoc failed" ; }
-	[[ -n "${HTML_DOCS}" ]] && { dohtml -r ${HTML_DOCS} || die "dohtml failed" ; }
+	# Backward compatibility, for non-array variables
+	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
+		dodoc ${DOCS} || die "dodoc failed"
+	fi
+	if [[ -n "${HTML_DOCS}" ]] && [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
+		dohtml -r ${HTML_DOCS} || die "dohtml failed"
+	fi
 }
 
-# @FUNCTION: enable_cmake-utils_src_test
-# @DESCRIPTION:
-# Function for testing the package. Automatically detects the build type.
 enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" &> /dev/null
-	# Standard implementation of src_test
-	if emake -j1 check -n &> /dev/null; then
-		einfo ">>> Test phase [check]: ${CATEGORY}/${PF}"
-		if ! emake -j1 check; then
-			die "Make check failed. See above for details."
-		fi
-	elif emake -j1 test -n &> /dev/null; then
-		einfo ">>> Test phase [test]: ${CATEGORY}/${PF}"
-		if ! emake -j1 test; then
-			die "Make test failed. See above for details."
-		fi
-	else
-		einfo ">>> Test phase [none]: ${CATEGORY}/${PF}"
-	fi
+	ctest --extra-verbose || die "Tests failed."
 	popd &> /dev/null
 }
 
-## Wrappers for calls bellow this line
 # @FUNCTION: cmake-utils_src_configure
 # @DESCRIPTION:
-# Wrapper for detection if we want to run enable_ prefixed function with same name
-# unconditionaly or only when some useflag is enabled.
+# General function for configuring with cmake. Default behaviour is to start an
+# out-of-source build.
 cmake-utils_src_configure() {
 	_execute_optionaly "src_configure" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_compile
 # @DESCRIPTION:
-# Wrapper for detection if we want to run enable_ prefixed function with same name
-# unconditionaly or only when some useflag is enabled.
+# General function for compiling with cmake. Default behaviour is to check for
+# EAPI and respectively to configure as well or just compile.
+# Automatically detects the build type. All arguments are passed to emake.
 cmake-utils_src_compile() {
 	_execute_optionaly "src_compile" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_install
 # @DESCRIPTION:
-# Wrapper for detection if we want to run enable_ prefixed function with same name
-# unconditionaly or only when some useflag is enabled.
+# Function for installing the package. Automatically detects the build type.
 cmake-utils_src_install() {
 	_execute_optionaly "src_install" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_test
 # @DESCRIPTION:
-# Wrapper for detection if we want to run enable_ prefixed function with same name
-# unconditionaly or only when some useflag is enabled.
+# Function for testing the package. Automatically detects the build type.
 cmake-utils_src_test() {
 	_execute_optionaly "src_test" "$@"
 }
 
-
+# Optionally executes phases based on WANT_CMAKE variable/USE flag.
 _execute_optionaly() {
 	local phase="$1" ; shift
 	if [[ ${WANT_CMAKE} = always ]]; then
