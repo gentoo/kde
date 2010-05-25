@@ -109,7 +109,6 @@ kde-base/kdebindings-csharp:4.5
 kde-base/kdebindings-ruby:4.5
 kde-base/krossjava:4.5
 kde-base/krosspython:4.5
-kde-base/krossruby:4.5
 kde-base/pykde4:4.5
 kde-base/smoke:4.5
 >=app-office/akonadi-server-1.3.60
@@ -220,9 +219,9 @@ kde-base/blogilo:4.5
 kde-base/kabcclient:4.5
 kde-base/kaddressbook:4.5
 kde-base/kalarm:4.5
+kde-base/kdepim-common-libs:4.5
 kde-base/kdepim-icons:4.5
 kde-base/kdepim-kresources:4.5
-kde-base/kdepim-libs:4.5
 kde-base/kdepim-strigi-analyzer:4.5
 kde-base/kdepim-wizards:4.5
 kde-base/kdepim-runtime:4.5

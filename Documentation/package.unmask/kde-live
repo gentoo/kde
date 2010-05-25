@@ -30,6 +30,7 @@ kde-base/kde-l10n:live
 ~kde-misc/knetworkmanager-9999
 ~kde-misc/kobby-9999
 ~kde-misc/konq-plugins-9999
+~kde-misc/kregexpeditor-9999
 ~kde-misc/krusader-9999
 ~kde-misc/kwebkitpart-9999
 ~kde-misc/menubar-9999
@@ -73,12 +74,12 @@ kde-base/kde-l10n:live
 ~x11-libs/qtscriptgenerator-9999
 ~x11-themes/bespin-9999
 ~x11-themes/gtk-engines-qt-9999
+kde-base/jovie:live
 kde-base/kdeaccessibility-colorschemes:live
 kde-base/kdeaccessibility-iconthemes:live
 kde-base/kmag:live
 kde-base/kmousetool:live
 kde-base/kmouth:live
-kde-base/kttsd:live
 kde-base/kcron:live
 kde-base/knetworkconf:live
 kde-base/ksystemlog:live
@@ -176,10 +177,10 @@ kde-base/qguiplatformplugin_kde:live
 kde-base/solid:live
 kde-base/systemsettings:live
 kde-base/kdebindings-csharp:live
+kde-base/kdebindings-perl:live
 kde-base/kdebindings-ruby:live
 kde-base/krossjava:live
 kde-base/krosspython:live
-kde-base/krossruby:live
 kde-base/pykde4:live
 kde-base/smoke:live
 ~app-office/akonadi-server-9999
@@ -301,9 +302,9 @@ kde-base/blogilo:live
 kde-base/kabcclient:live
 kde-base/kaddressbook:live
 kde-base/kalarm:live
+kde-base/kdepim-common-libs:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
-kde-base/kdepim-common-libs:live
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
 kde-base/kdepim-runtime:live
