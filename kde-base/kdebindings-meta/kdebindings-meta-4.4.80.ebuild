@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.5"
 KEYWORDS="~amd64 ~x86"
-IUSE="aqua csharp kdeprefix java python ruby"
+IUSE="aqua csharp java kdeprefix python ruby"
 
 RDEPEND="
 	$(add_kdebase_dep smoke)
