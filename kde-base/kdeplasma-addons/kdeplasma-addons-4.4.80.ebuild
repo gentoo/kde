@@ -33,8 +33,12 @@ DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
 "
 # kde-misc/plasmaboard: moved here in 4.3.65
+# kde-misc/qalculate-applet: since 4.4.0
 RDEPEND="${COMMON_DEPEND}
-	!kdeprefix? ( !kde-misc/plasmaboard )
+	!kdeprefix? (
+		!kde-misc/plasmaboard
+		!kde-misc/qalculate-applet
+	)
 "
 
 # kdebase-data: some svg icons moved from data directly here.
