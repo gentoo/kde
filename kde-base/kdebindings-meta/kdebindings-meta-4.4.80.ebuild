@@ -21,9 +21,6 @@ RDEPEND="
 		$(add_kdebase_dep krosspython)
 		$(add_kdebase_dep pykde4)
 	)
-	ruby? (
-		$(add_kdebase_dep kdebindings-ruby)
-		$(add_kdebase_dep krossruby)
-	)
+	ruby? ( $(add_kdebase_dep kdebindings-ruby) )
 	$(block_other_slots)
 "
