@@ -7,13 +7,9 @@ EAPI="2"
 if [[ ${PV} == *9999* ]] ; then
 	KMNAME="extragear/network"
 else
-	# upstream likes to skip that _ in beta releases
-	KTORRENT_VERSION="4.0rc1"
-	MY_PV="${PV/_/}"
-	MY_P="${PN}-${MY_PV}"
+	KTORRENT_VERSION="4.0"
 
-	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
-	S="${WORKDIR}"/"${MY_P}"
+	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${P}.tar.bz2"
 fi
 
 inherit kde4-base
