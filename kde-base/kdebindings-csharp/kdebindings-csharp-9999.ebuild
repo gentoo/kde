@@ -16,7 +16,7 @@ IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop"
 DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep smoke 'akonadi?,phonon?,qimageblitz?,qscintilla?,semantic-desktop?,webkit?')
-	semantic-desktop? ( dev-libs/soprano[clucene] )
+	semantic-desktop? ( >=dev-libs/soprano-2.4.63[clucene] )
 "
 RDEPEND="${DEPEND}"
 
