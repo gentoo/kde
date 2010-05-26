@@ -14,11 +14,11 @@
 # @CODE
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
-# The cmake-utils eclass contains functions that make creating ebuilds for
+# The cmake-utils eclass is base.eclass(5) wrapper that makes creating ebuilds for
 # cmake-based packages much easier.
-# Its main features are support of out-of-source builds as well as in-source
-# builds and an implementation of the well-known use_enable and use_with
-# functions for CMake.
+# It provides all inherited features (DOCS, HTML_DOCS, PATCHES) along with out-of-source
+# builds (default), in-source builds and an implementation of the well-known use_enable
+# and use_with functions for CMake.
 
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
