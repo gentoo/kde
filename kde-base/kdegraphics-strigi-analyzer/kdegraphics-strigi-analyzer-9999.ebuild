@@ -12,7 +12,11 @@ DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
 
-KMEXTRACTONLY="libs/mobipocket"
+KMEXTRACTONLY="
+	libs/mobipocket/
+"
 
-DEPEND="app-misc/strigi"
+DEPEND="
+	app-misc/strigi
+"
 RDEPEND="${DEPEND}"

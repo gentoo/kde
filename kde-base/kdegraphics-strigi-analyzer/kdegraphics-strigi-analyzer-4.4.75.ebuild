@@ -12,7 +12,11 @@ DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-KMEXTRACTONLY="libs/mobipocket"
+KMEXTRACTONLY="
+	libs/mobipocket/
+"
 
-DEPEND="app-misc/strigi"
+DEPEND="
+	app-misc/strigi
+"
 RDEPEND="${DEPEND}"
