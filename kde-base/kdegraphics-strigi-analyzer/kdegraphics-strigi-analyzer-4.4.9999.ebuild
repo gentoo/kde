@@ -13,3 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 KMEXTRACTONLY="libs/mobipocket"
+
+DEPEND="app-misc/strigi"
+RDEPEND="${DEPEND}"

@@ -13,3 +13,6 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug"
 
 KMEXTRACTONLY="libs/mobipocket"
+
+DEPEND="app-misc/strigi"
+RDEPEND="${DEPEND}"
