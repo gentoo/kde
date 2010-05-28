@@ -20,3 +20,5 @@ DEPEND="
 	x11-libs/qt-core:4
 "
 RDEPEND="${DEPEND}"
+
+DOCS=(AUTHORS ChangeLog README)

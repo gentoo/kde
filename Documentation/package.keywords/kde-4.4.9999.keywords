@@ -288,7 +288,7 @@ media-sound/phonon
 app-admin/system-config-printer-common
 =dev-db/virtuoso-odbc-6.1*
 =dev-db/virtuoso-server-6.1*
-dev-libs/libattica
+<=dev-libs/libattica-0.1.2
 dev-libs/shared-desktop-ontologies
 dev-python/pycups
 >=net-libs/libssh-0.3.2
