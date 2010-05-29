@@ -23,7 +23,7 @@ MY_LANGS="ar bg ca ca@valencia cs csb da de el en_GB eo es et eu
 		mai mk ml nb nds nl nn pa pl pt pt_BR ro ru si sk sl sr sv tg
 		tr uk wa zh_CN zh_TW"
 
-URI_BASE="${SRC_URI/-${PV}.tar.bz2/}"
+URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
 SRC_URI=""
 
 for MY_LANG in ${MY_LANGS} ; do
