@@ -13,18 +13,23 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="+mysql postgres sqlite"
+IUSE="+mysql postgres sqlite +server"
 
-RDEPEND="
+CDEPEND="
 	dev-libs/boost
 	>=dev-libs/soprano-2.2
 	>=x11-libs/qt-gui-4.5.0:4[dbus]
 	>=x11-libs/qt-sql-4.5.0:4[mysql?,postgres?,sqlite?]
 	x11-misc/shared-mime-info
 "
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	dev-libs/libxslt
-	>=kde-base/automoc-0.9.88
+	>=dev-util/automoc-0.9.88
+"
+RDEPEND="${CDEPEND}
+	server? (
+		postgres? ( dev-db/postgresql-server )
+	)
 "
 
 S="${WORKDIR}/${P/-server/}"

@@ -13,4 +13,13 @@ DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
 IUSE="debug"
 
+DEPEND="
+	$(add_kdebase_dep kephal)
+"
+RDEPEND="${DEPEND}"
+
 KMSAVELIBS="true"
+
+KMEXTRACTONLY="
+	libs/kephal/
+"

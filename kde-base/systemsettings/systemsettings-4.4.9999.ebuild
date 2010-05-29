@@ -51,7 +51,7 @@ KMEXTRACTONLY="
 
 add_blocker kcontrol '<4.3.98'
 
-PATCHES=( "${FILESDIR}/kdebase-workspace-xinerama.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
 
 src_unpack() {
 	if use handbook; then

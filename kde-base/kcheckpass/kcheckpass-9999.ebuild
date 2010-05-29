@@ -19,7 +19,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
+	"${FILESDIR}/${PN}-4.4.2-no-SUID-no-GUID.patch"
+)
 
 src_configure() {
 	mycmakeargs=(

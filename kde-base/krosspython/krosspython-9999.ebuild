@@ -6,13 +6,14 @@ EAPI="3"
 
 KMNAME="kdebindings"
 KMMODULE="python/krosspython"
-inherit kde4-meta
+PYTHON_DEPEND="2"
+inherit python kde4-meta
 
 DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	dev-lang/python
-"
-RDEPEND="${DEPEND}"
+pkg_setup() {
+	python_set_active_version 2
+	kde4-meta_pkg_setup
+}

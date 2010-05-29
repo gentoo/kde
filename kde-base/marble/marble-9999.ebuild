@@ -6,7 +6,8 @@ EAPI="3"
 
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
-inherit kde4-meta
+PYTHON_DEPEND="python? 2"
+inherit python kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
@@ -26,10 +27,21 @@ RDEPEND="${DEPEND}
 	!kdeprefix? ( !sci-geosciences/marble )
 "
 
+pkg_setup() {
+	python_set_active_version 2
+	kde4-meta_pkg_setup
+}
+
+src_prepare() {
+	kde4-meta_src_prepare
+	python_convert_shebangs -r $(python_get_version) .
+}
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
 		$(cmake-utils_use_with plasma)
+		$(cmake-utils_use python EXPERIMENTAL_PYTHON_BINDINGS)
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)

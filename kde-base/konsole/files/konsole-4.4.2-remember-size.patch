@@ -1,0 +1,157 @@
+diff -ur konsole-4.2.4_orig/konsole/src/EditProfileDialog.cpp konsole-4.2.4/konsole/src/EditProfileDialog.cpp
+--- konsole-4.2.4_orig/konsole/src/EditProfileDialog.cpp	2008-12-10 17:13:08.000000000 +0100
++++ konsole-4.2.4/konsole/src/EditProfileDialog.cpp	2009-08-02 01:50:04.000000000 +0200
+@@ -255,6 +255,7 @@
+ 
+     // window options
+     _ui->showMenuBarButton->setChecked( info->property<bool>(Profile::ShowMenuBar) );
++    _ui->saveGeometryOnExitButton->setChecked( info->property<bool>(Profile::SaveGeometryOnExit) );
+ 
+     // signals and slots
+     connect( _ui->dirSelectButton , SIGNAL(clicked()) , this , SLOT(selectInitialDir()) );
+@@ -270,6 +271,8 @@
+     
+     connect(_ui->showMenuBarButton , SIGNAL(toggled(bool)) , this , 
+             SLOT(showMenuBar(bool)) );
++    connect(_ui->saveGeometryOnExitButton , SIGNAL(toggled(bool)) , this ,
++	    SLOT(saveGeometryOnExit(bool)) );
+ 
+     connect(_ui->environmentEditButton , SIGNAL(clicked()) , this , 
+             SLOT(showEnvironmentEditor()) );
+@@ -371,6 +374,10 @@
+ {
+     _tempProfile->setProperty(Profile::ShowMenuBar,show);
+ }
++void EditProfileDialog::saveGeometryOnExit(bool save)
++{
++    _tempProfile->setProperty(Profile::SaveGeometryOnExit,save);
++}
+ void EditProfileDialog::tabTitleFormatChanged(const QString& format)
+ {
+     _tempProfile->setProperty(Profile::LocalTabTitleFormat,format);
+diff -ur konsole-4.2.4_orig/konsole/src/EditProfileDialog.h konsole-4.2.4/konsole/src/EditProfileDialog.h
+--- konsole-4.2.4_orig/konsole/src/EditProfileDialog.h	2008-09-26 16:55:51.000000000 +0200
++++ konsole-4.2.4/konsole/src/EditProfileDialog.h	2009-08-02 01:53:03.000000000 +0200
+@@ -120,6 +120,7 @@
+     void insertRemoteTabTitleText(const QString& text);
+ 
+     void showMenuBar(bool);
++    void saveGeometryOnExit(bool);
+     void showEnvironmentEditor();
+     void tabBarVisibilityChanged(int);
+     void tabBarPositionChanged(int);
+diff -ur konsole-4.2.4_orig/konsole/src/EditProfileDialog.ui konsole-4.2.4/konsole/src/EditProfileDialog.ui
+--- konsole-4.2.4_orig/konsole/src/EditProfileDialog.ui	2008-10-09 11:46:34.000000000 +0200
++++ konsole-4.2.4/konsole/src/EditProfileDialog.ui	2009-08-02 02:02:59.000000000 +0200
+@@ -228,6 +228,22 @@
+             </property>
+            </widget>
+           </item>
++	  <item>
++	   <widget class="QCheckBox" name="saveGeometryOnExitButton">
++	    <property name="sizePolicy">
++	     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
++	      <horstretch>0</horstretch>
++	      <verstretch>0</verstretch>
++	     </sizepolicy>
++	    </property>
++	    <property name="toolTip">
++	     <string>Set the window size and position for this profile when exiting</string>
++	    </property>
++	    <property name="text">
++	     <string>Save window size and position on exit</string>
++	    </property>
++	   </widget>
++	  </item>
+          </layout>
+         </widget>
+        </item>
+diff -ur konsole-4.2.4_orig/konsole/src/MainWindow.cpp konsole-4.2.4/konsole/src/MainWindow.cpp
+--- konsole-4.2.4_orig/konsole/src/MainWindow.cpp	2008-12-10 17:13:08.000000000 +0100
++++ konsole-4.2.4/konsole/src/MainWindow.cpp	2009-08-02 01:57:31.000000000 +0200
+@@ -79,6 +79,8 @@
+ 
+     connect( _viewManager , SIGNAL(setMenuBarVisibleRequest(bool)) , this ,
+             SLOT(setMenuBarVisibleOnce(bool)) );
++    connect( _viewManager , SIGNAL(setSaveGeometryOnExitRequest(bool)) , this ,
++	    SLOT(setSaveGeometryOnExit(bool)) );
+     connect( _viewManager , SIGNAL(newViewRequest(Profile::Ptr)) , 
+         this , SLOT(newFromProfile(Profile::Ptr)) );
+     connect( _viewManager , SIGNAL(newViewRequest()) , 
+@@ -129,6 +131,11 @@
+     _menuBarVisibilitySet = true;
+ }
+ 
++void MainWindow::setSaveGeometryOnExit(bool save)
++{
++    setAutoSaveSettings("MainWindow",save);
++}
++
+ void MainWindow::correctShortcuts()
+ {
+     // replace F1 shortcut for help contents
+diff -ur konsole-4.2.4_orig/konsole/src/MainWindow.h konsole-4.2.4/konsole/src/MainWindow.h
+--- konsole-4.2.4_orig/konsole/src/MainWindow.h	2008-10-09 11:46:34.000000000 +0200
++++ konsole-4.2.4/konsole/src/MainWindow.h	2009-08-02 01:46:59.000000000 +0200
+@@ -155,6 +155,8 @@
+         // effect if the menu bar is a MacOS-style top-level menu
+         void setMenuBarVisibleOnce(bool visible);
+ 
++	void setSaveGeometryOnExit(bool visible);
++
+         void openUrls(const QList<KUrl>& urls);
+ 
+     private:
+diff -ur konsole-4.2.4_orig/konsole/src/Profile.cpp konsole-4.2.4/konsole/src/Profile.cpp
+--- konsole-4.2.4_orig/konsole/src/Profile.cpp	2008-09-26 16:55:51.000000000 +0200
++++ konsole-4.2.4/konsole/src/Profile.cpp	2009-08-02 01:45:01.000000000 +0200
+@@ -76,6 +76,7 @@
+     , { LocalTabTitleFormat , "tabtitle" , 0 , QVariant::String }
+     , { RemoteTabTitleFormat , "RemoteTabTitleFormat" , GENERAL_GROUP , QVariant::String }
+     , { ShowMenuBar , "ShowMenuBar" , GENERAL_GROUP , QVariant::Bool }
++    , { SaveGeometryOnExit , "SaveGeometryOnExit" , GENERAL_GROUP , QVariant::Bool }
+     , { TabBarMode , "TabBarMode" , GENERAL_GROUP , QVariant::Int }
+     , { TabBarPosition , "TabBarPosition" , GENERAL_GROUP , QVariant::Int }
+     , { StartInCurrentSessionDir , "StartInCurrentSessionDir" , GENERAL_GROUP , QVariant::Bool }
+@@ -153,6 +154,7 @@
+     setProperty(TabBarMode,AlwaysShowTabBar);
+     setProperty(TabBarPosition,TabBarBottom);
+     setProperty(ShowMenuBar,true);
++    setProperty(SaveGeometryOnExit,true);
+     setProperty(StartInCurrentSessionDir,true);
+     setProperty(ShowNewAndCloseTabButtons,false);
+ 
+diff -ur konsole-4.2.4_orig/konsole/src/Profile.h konsole-4.2.4/konsole/src/Profile.h
+--- konsole-4.2.4_orig/konsole/src/Profile.h	2008-09-26 16:55:51.000000000 +0200
++++ konsole-4.2.4/konsole/src/Profile.h	2009-08-02 01:52:38.000000000 +0200
+@@ -113,6 +113,7 @@
+         RemoteTabTitleFormat,   
+         /** (bool) Specifies whether the menu bar should be shown in the main application window. */
+         ShowMenuBar,    
++	SaveGeometryOnExit,
+         /** (TabBarModeEnum) Specifies when the tab bar should be shown in
+          * the main application window. */ 
+         TabBarMode,    
+diff -ur konsole-4.2.4_orig/konsole/src/ViewManager.cpp konsole-4.2.4/konsole/src/ViewManager.cpp
+--- konsole-4.2.4_orig/konsole/src/ViewManager.cpp	2009-03-26 15:42:41.000000000 +0100
++++ konsole-4.2.4/konsole/src/ViewManager.cpp	2009-08-02 01:51:24.000000000 +0200
+@@ -738,6 +738,8 @@
+     // menu bar visibility
+     emit setMenuBarVisibleRequest( info->property<bool>(Profile::ShowMenuBar) );
+ 
++    emit setSaveGeometryOnExitRequest( info->property<bool>(Profile::SaveGeometryOnExit) );
++
+     // tab bar visibility
+     if (applyContainerSettings)
+     {
+diff -ur konsole-4.2.4_orig/konsole/src/ViewManager.h konsole-4.2.4/konsole/src/ViewManager.h
+--- konsole-4.2.4_orig/konsole/src/ViewManager.h	2008-10-09 11:46:34.000000000 +0200
++++ konsole-4.2.4/konsole/src/ViewManager.h	2009-08-02 01:46:23.000000000 +0200
+@@ -195,6 +195,7 @@
+      * activated.
+      */
+     void setMenuBarVisibleRequest(bool);
++    void setSaveGeometryOnExitRequest(bool);
+ 
+     /** Requests creation of a new view with the default profile. */
+     void newViewRequest();

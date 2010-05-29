@@ -13,32 +13,40 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif qalculate qwt scim semantic-desktop"
+IUSE="debug desktopglobe exif qalculate qwt rss scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
 	dev-libs/libattica
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep plasma-workspace 'rss?')
 	x11-misc/shared-mime-info
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
+	rss? ( $(add_kdebase_dep kdepimlibs 'akonadi') )
 	scim? ( app-i18n/scim )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
 "
 # kde-misc/plasmaboard: moved here in 4.3.65
+# kde-misc/qalculate-applet: since 4.4.0
 RDEPEND="${COMMON_DEPEND}
-	!kdeprefix? ( !kde-misc/plasmaboard )
+	!kdeprefix? (
+		!kde-misc/plasmaboard
+		!kde-misc/qalculate-applet
+	)
 "
 
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.74-cmake.patch"
+)
 
 src_prepare() {
 	find "${S}" -name CMakeLists.txt | \
@@ -58,6 +66,7 @@ src_configure() {
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
+		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with scim)
 	)

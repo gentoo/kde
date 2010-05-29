@@ -11,3 +11,8 @@ inherit kde4-meta
 DESCRIPTION="kdesdk: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="
+	app-misc/strigi
+"
+RDEPEND="${DEPEND}"

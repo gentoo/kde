@@ -15,17 +15,9 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
-	$(add_kdebase_dep libkpgp)
-	$(add_kdebase_dep messagecomposer)
-	$(add_kdebase_dep messagecore)
-	$(add_kdebase_dep messagelist)
-	$(add_kdebase_dep messageviewer)
+	$(add_kdebase_dep kdepim-common-libs)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 add_blocker kmailcvt
 add_blocker libksieve
@@ -37,10 +29,13 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
+"
+KMCOMPILEONLY="
 	messagecomposer/
 	messagecore/
 	messagelist/
 	messageviewer/
+	templateparser/
 "
 KMEXTRA="
 	kmailcvt/
@@ -48,9 +43,8 @@ KMEXTRA="
 	libksieve/
 	ontologies/
 "
-KMLOADLIBS="libkdepim"
 
-PATCHES=( "${FILESDIR}/generate-messageviewer-kcfg.patch" )
+KMLOADLIBS="kdepim-common-libs"
 
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
@@ -67,6 +61,11 @@ pkg_postinst() {
 	if ! has_version kde-base/kdepim-kresources:${SLOT}; then
 		echo
 		elog "For groupware functionality, please install kde-base/kdepim-kresources:${SLOT}"
+		echo
+	fi
+	if ! has_version kde-base/kleopatra:${SLOT}; then
+		echo
+		elog "For certificate management and the gnupg log viewer, please install kde-base/kleopatra:${SLOT}"
 		echo
 	fi
 }

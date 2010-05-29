@@ -18,13 +18,12 @@ IUSE="debug"
 
 DEPEND="
 	app-misc/strigi
-	>=app-office/akonadi-server-1.2.1
+	>=app-office/akonadi-server-1.3.60
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}

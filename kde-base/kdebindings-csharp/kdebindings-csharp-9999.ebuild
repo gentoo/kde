@@ -11,17 +11,18 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi +phonon plasma qscintilla webkit"
+IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop"
 
 DEPEND="
 	dev-lang/mono
-	$(add_kdebase_dep smoke 'akonadi?,phonon?,qscintilla?,webkit?')
+	$(add_kdebase_dep smoke 'akonadi?,phonon?,qimageblitz?,qscintilla?,semantic-desktop?,webkit?')
+	semantic-desktop? ( >=dev-libs/soprano-2.4.63[clucene] )
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="smoke/"
-
-PATCHES=( "${FILESDIR}"/${PN}-4.4-build-fixes.patch )
+KMEXTRACTONLY="
+	smoke/
+"
 
 pkg_setup() {
 	kde4-meta_pkg_setup
@@ -43,18 +44,14 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_enable webkit QTWEBKIT_SHARP)
-		$(cmake-utils_use_enable plasma PLASMA_SHARP)
-		$(cmake-utils_use_enable phonon PHONON_SHARP)
-		$(cmake-utils_use_enable qscintilla QSCINTILLA_SHARP)
-		$(cmake-utils_use_enable akonadi KdepimLibs)
-		$(cmake-utils_use_enable akonadi)
+		$(cmake-utils_use_disable akonadi)
+		$(cmake-utils_use_disable phonon)
+		$(cmake-utils_use_disable plasma)
+		$(cmake-utils_use_disable qimageblitz QImageBlitz)
+		$(cmake-utils_use_disable qscintilla QScintilla)
+		$(cmake-utils_use_disable semantic-desktop Nepomuk)
+		$(cmake-utils_use_disable semantic-desktop Soprano)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
-}
-
-src_compile() {
-	# Parallel builds seem broken, check later
-	MAKEOPTS=-j1
-	kde4-meta_src_compile
 }

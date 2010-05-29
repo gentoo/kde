@@ -13,12 +13,10 @@ IUSE="debug +handbook"
 
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi')
-	$(add_kdebase_dep libkdepim)
+	$(add_kdebase_dep kdepim-common-libs)
+	media-sound/phonon
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-	dev-libs/libxslt
-"
+DEPEND="${RDEPEND}"
 
 KMEXTRACTONLY="
 	kmail/
@@ -27,7 +25,7 @@ KMEXTRACTONLY="
 src_configure() {
 	mycmakeargs=(
 		-DBUILD_akonadi=OFF
-		-DXSLTPROC_EXECUTABLE="${EPREFIX}"/usr/bin/xsltproc
 	)
+
 	kde4-meta_src_configure
 }

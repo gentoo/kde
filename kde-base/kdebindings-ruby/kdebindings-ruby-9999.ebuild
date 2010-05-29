@@ -8,29 +8,23 @@ KMNAME="kdebindings"
 KMMODULE="ruby"
 WEBKIT_REQUIRED="optional"
 
-USE_RUBY="ruby18"
+USE_RUBY="ruby18 ruby19"
 
 inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
-IUSE="akonadi debug kdevplatform phonon plasma qscintilla qwt semantic-desktop"
+IUSE="akonadi debug okular phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,kdevplatform?,phonon?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'akonadi?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?')
 "
-
 RDEPEND="${DEPEND}
 	!dev-ruby/qt4-qtruby
 "
 
-KMEXTRACTONLY="
-	ruby/krossruby
-"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-fix-linkage.patch
-)
+# Merged with kdebindings-ruby after 4.4.80
+add_blocker krossruby
 
 pkg_setup() {
 	ruby-ng_pkg_setup
@@ -61,26 +55,19 @@ all_ruby_prepare() {
 each_ruby_configure() {
 	CMAKE_USE_DIR=${S}
 	mycmakeargs=(
-		$(cmake-utils_use_enable akonadi KdepimLibs)
-		$(cmake-utils_use_enable akonadi)
-		$(cmake-utils_use_enable kdevplatform KDEVPLATFORM_RUBY)
-		$(cmake-utils_use_enable kdevplatform KDevPlatform)
-		$(cmake-utils_use_with kdevplatform KDevPlatform)
-		$(cmake-utils_use_enable okular)
-		$(cmake-utils_use_enable plasma PLASMA_RUBY)
-		$(cmake-utils_use_enable phonon)
-		$(cmake-utils_use_enable phonon PHONON_RUBY)
-		$(cmake-utils_use_enable qscintilla QScintilla)
-		$(cmake-utils_use_enable qscintilla QSCINTILLA_RUBY)
-		$(cmake-utils_use_enable qwt QWT_RUBY)
-		$(cmake-utils_use_enable semantic-desktop Soprano)
-		$(cmake-utils_use_enable semantic-desktop SOPRANO_RUBY)
-		$(cmake-utils_use_enable semantic-desktop Nepomuk)
-		$(cmake-utils_use_enable webkit QTWEBKIT_RUBY)
-		-DENABLE_KROSSRUBY=OFF
 		-DRUBY_LIBRARY=$(ruby_get_libruby)
 		-DRUBY_INCLUDE_PATH=$(ruby_get_hdrdir)
 		-DRUBY_EXECUTABLE=${RUBY}
+		$(cmake-utils_use_with akonadi)
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with okular)
+		$(cmake-utils_use_with phonon)
+		$(cmake-utils_use_with plasma)
+		$(cmake-utils_use_with qscintilla QScintilla)
+		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
 }

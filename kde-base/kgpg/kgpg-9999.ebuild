@@ -17,3 +17,11 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
 "
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version app-crypt/dirmngr ; then
+		elog "For improved key search functionality, install app-crypt/dirmngr."
+	fi
+}

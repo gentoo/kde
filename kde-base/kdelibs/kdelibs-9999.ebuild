@@ -23,11 +23,11 @@ RESTRICT="test"
 COMMONDEPEND="
 	app-crypt/qca:2
 	>=app-misc/strigi-0.6.3
-	dev-libs/libattica
+	>=dev-libs/libattica-0.1.4
+	>=dev-libs/libdbusmenu-qt-0.3.2
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=kde-base/automoc-0.9.87
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
@@ -69,8 +69,8 @@ COMMONDEPEND="
 	)
 	policykit? ( sys-auth/polkit-qt )
 	semantic-desktop? (
-		>=dev-libs/shared-desktop-ontologies-0.3.60
-		>=dev-libs/soprano-2.3.73[dbus,raptor,redland]
+		>=dev-libs/shared-desktop-ontologies-0.4
+		>=dev-libs/soprano-2.4.63[dbus,raptor,redland]
 	)
 	spell? (
 		app-dicts/aspell-en
@@ -86,6 +86,8 @@ COMMONDEPEND="
 	)
 "
 DEPEND="${COMMONDEPEND}
+	app-text/docbook-xml-dtd:4.2
+	app-text/docbook-xsl-stylesheets
 	doc? ( app-doc/doxygen )
 	nls? ( virtual/libintl )
 "
@@ -102,6 +104,9 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
 	)
+"
+PDEPEND="
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 # Blockers added due to packages from old versions, removed in the meanwhile
@@ -125,6 +130,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
+	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 )
 
 src_prepare() {

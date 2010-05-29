@@ -15,7 +15,6 @@ IUSE="debug"
 LICENSE="LGPL-2"
 
 DEPEND="
-	kde-base/qimageblitz
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}"

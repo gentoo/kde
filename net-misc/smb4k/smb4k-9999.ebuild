@@ -20,7 +20,7 @@ SLOT="4"
 IUSE="debug handbook"
 
 RDEPEND="
-	|| ( >=net-fs/samba-client-3.4.2 net-fs/mount-cifs )
+	|| ( >=net-fs/samba-3.5.0 net-fs/mount-cifs )
 	>=kde-base/konqueror-${KDE_MINIMAL}
 "
 DEPEND="${RDEPEND}"

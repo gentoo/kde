@@ -16,6 +16,7 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=media-video/vlc-1.0.0[v4l2]"
-
+	>=kde-base/libkipi-${KDE_MINIMAL}
+	>=media-video/vlc-1.0.0[v4l2]
+"
 RDEPEND="${DEPEND}"

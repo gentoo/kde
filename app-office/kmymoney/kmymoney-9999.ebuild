@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="playground/office"
+KMNAME="kdereview"
 inherit kde4-base
 
 DESCRIPTION="A personal finance manager for KDE"

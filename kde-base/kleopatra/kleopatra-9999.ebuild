@@ -13,20 +13,19 @@ IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
+	dev-libs/boost
 	dev-libs/libassuan
 	dev-libs/libgpg-error
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep libkdepim)
-	$(add_kdebase_dep libkleo)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
 "
 
 KMEXTRACTONLY="
-	libkleo
+	libkleo/
 "
-KMLOADLIBS="libkleo"
 
 src_unpack() {
 	if use handbook; then
@@ -36,12 +35,4 @@ src_unpack() {
 	fi
 
 	kde4-meta_src_unpack
-}
-
-src_configure() {
-	mycmakeargs=(
-		-DWITH_QGPGME=ON
-	)
-
-	kde4-meta_src_configure
 }

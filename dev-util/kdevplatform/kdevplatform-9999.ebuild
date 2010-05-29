@@ -4,22 +4,17 @@
 
 EAPI="2"
 
-KMNAME="extragear/sdk"
+if [[ ${PV} != *9999* ]]; then
+	KDE_LINGUAS="ca ca@valencia da de en_GB es et fr gl it nds pt pt_BR sv tr uk zh_CN zh_TW"
+fi
+
+KMNAME="kdevelop"
 inherit kde4-base
 
-if [[ ${PV} == *9999* ]]; then
-	KDEVELOP_PV="9999"
-else
-	inherit versionator
-	KDEVELOP_PV="$(($(get_major_version)+3)).$(get_after_major_version)"
-fi
 DESCRIPTION="KDE development support libraries and apps"
-HOMEPAGE="http://www.kdevelop.org/"
-[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="4"
 # Moved to playground for now
 # bazaar git kompare mercurial
 IUSE="cvs debug subversion"
@@ -36,7 +31,7 @@ DEPEND="
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
-	!<dev-util/kdevelop-${KDEVELOP_PV}
+	!<dev-util/kdevelop-${KDEVELOP_VERSION}
 "
 
 src_prepare() {

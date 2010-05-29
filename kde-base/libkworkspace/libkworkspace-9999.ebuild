@@ -12,6 +12,13 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS=""
 IUSE="debug"
 
+# FIXME dependencies until activities API is moved to kdelibs (4.6)
+DEPEND="
+	>=dev-libs/shared-desktop-ontologies-0.4
+	>=dev-libs/soprano-2.4.63
+"
+RDEPEND="${DEPEND}"
+
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	kwin/org.kde.KWin.xml

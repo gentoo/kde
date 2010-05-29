@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="aqua +handbook kdeprefix semantic-desktop"
 
 RDEPEND="
+	$(add_kdebase_dep activitymanager)
 	$(add_kdebase_dep attica)
 	$(add_kdebase_dep drkonqi)
 	$(add_kdebase_dep kcmshell)

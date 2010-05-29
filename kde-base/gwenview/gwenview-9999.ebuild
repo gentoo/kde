@@ -41,6 +41,6 @@ pkg_postinst() {
 	kde4-meta_pkg_postinst
 
 	echo
-	elog "If you want to have svg support, emerge kde-base/svgpart"
+	elog "For SVG support, emerge -va kde-base/svgpart"
 	echo
 }

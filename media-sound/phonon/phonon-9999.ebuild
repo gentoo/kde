@@ -37,7 +37,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	>=kde-base/automoc-0.9.87
+	>=dev-util/automoc-0.9.87
 "
 
 pkg_setup() {

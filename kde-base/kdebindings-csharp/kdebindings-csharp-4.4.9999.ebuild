@@ -11,11 +11,12 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop webkit"
+IUSE="akonadi +phonon plasma qimageblitz qscintilla semantic-desktop"
 
 DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep smoke 'akonadi?,phonon?,qimageblitz?,qscintilla?,semantic-desktop?,webkit?')
+	semantic-desktop? ( >=dev-libs/soprano-2.3.73[clucene] )
 "
 RDEPEND="${DEPEND}"
 

@@ -36,8 +36,13 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="
+	libs/kephal/
 	libs/oxygen/
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+)
 
 src_prepare() {
 # NOTE uncomment when enabled again by upstream
@@ -51,8 +56,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# FIXME Remove when activity API moved away from libkworkspace
+	append-cppflags "-I${EKDEDIR}/include/kworkspace"
+
 	mycmakeargs=(
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with xinerama X11_Xinerama)
 	)
 
 	kde4-meta_src_configure

@@ -13,6 +13,17 @@
 # NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
 # eclass will fail with version older than 2.
 
+inherit kde4-functions base eutils
+
+get_build_type
+if [[ ${BUILD_TYPE} = live ]]; then
+	if [[ ${KDEBASE} = kdevelop ]]; then
+		inherit git
+	else
+		inherit subversion
+	fi
+fi
+
 # @ECLASS-VARIABLE: CMAKE_REQUIRED
 # @DESCRIPTION:
 # Specify if cmake buildsystem is being used. Possible values are 'always' and 'never'.
@@ -20,28 +31,87 @@
 # src_configure, src_compile, src_test and src_install.
 # Defaults to 'always'.
 : ${CMAKE_REQUIRED:=always}
-if [[ ${CMAKE_REQUIRED} = false || ${CMAKE_REQUIRED} = never ]]; then
-	buildsystem_eclass=""
-	export_fns=""
-else
+if [[ ${CMAKE_REQUIRED} = always ]]; then
 	buildsystem_eclass="cmake-utils"
 	export_fns="src_configure src_compile src_test src_install"
 fi
 
-inherit kde4-functions
-
-get_build_type
-if [[ ${BUILD_TYPE} = live ]]; then
-	subversion_eclass="subversion"
+# Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
+if [[ -n ${KDE_MINIMAL} ]]; then
+	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
+		[[ ${KDE_MINIMAL} = ${slot} ]] && KDE_MINIMAL_VALID=1 && break
+	done
+	unset slot
+	[[ -z ${KDE_MINIMAL_VALID} ]] && unset KDE_MINIMAL
+else
+	KDE_MINIMAL_VALID=1
 fi
 
-inherit base ${buildsystem_eclass} eutils ${subversion_eclass}
+# @ECLASS-VARIABLE: KDE_MINIMAL
+# @DESCRIPTION:
+# This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
+# version for apps to work. Currently defaults to 4.3
+# One may override this variable to raise version requirements.
+# For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
+# Note that it is fixed to ${SLOT} for kde-base packages.
+KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare  ${export_fns} pkg_postinst pkg_postrm
+# Set slot for packages in kde-base, koffice and kdevelop
+case ${KDEBASE} in
+	kde-base)
+		# Determine SLOT from PVs
+		case ${PV} in
+			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
+			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
+			4.3*) SLOT="4.3" ;;
+			9999*) SLOT="live" ;; # regular live
+			*) die "Unsupported ${PV}" ;;
+		esac
+		KDE_MINIMAL="${SLOT}"
+		;;
+	koffice)
+		SLOT="2"
+		;;
+	kdevelop)
+		if [[ ${BUILD_TYPE} = live ]]; then
+			# @ECLASS-VARIABLE: KDEVELOP_VERSION
+			# @DESCRIPTION:
+			# Specifies KDevelop version. Default is 4.0.0 for tagged packages and 9999 for live packages.
+			# Applies to KDEBASE=kdevelop only.
+			KDEVELOP_VERSION="${KDEVELOP_VERSION:-9999}"
+			# @ECLASS-VARIABLE: KDEVPLATFORM_VERSION
+			# @DESCRIPTION:
+			# Specifies KDevplatform version. Default is 1.0.0 for tagged packages and 9999 for live packages.
+			# Applies to KDEBASE=kdevelop only.
+			KDEVPLATFORM_VERSION="${KDEVPLATFORM_VERSION:-9999}"
+		else
+			case ${PN} in
+				kdevelop|quanta)
+					KDEVELOP_VERSION=${PV}
+					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
+					;;
+				kdevplatform)
+					KDEVELOP_VERSION="$(($(get_major_version)+3)).$(get_after_major_version)"
+					KDEVPLATFORM_VERSION=${PV}
+					;;
+				*)
+					KDEVELOP_VERSION="${KDEVELOP_VERSION:-4.0.0}"
+					KDEVPLATFORM_VERSION="${KDEVPLATFORM_VERSION:-1.0.0}"
+			esac
+		fi
+		SLOT="4"
+		;;
+esac
+
+slot_is_at_least 4.5 ${KDE_MINIMAL} && CMAKE_MIN_VERSION="2.6.4"
+
+inherit ${buildsystem_eclass}
+
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_postinst pkg_postrm
 
 unset buildsystem_eclass
 unset export_fns
-unset subversion_eclass
 
 case ${KDEBASE} in
 	kde-base)
@@ -50,6 +120,10 @@ case ${KDEBASE} in
 		;;
 	koffice)
 		HOMEPAGE="http://www.koffice.org/"
+		LICENSE="GPL-2"
+		;;
+	kdevelop)
+		HOMEPAGE="http://www.kdevelop.org/"
 		LICENSE="GPL-2"
 		;;
 esac
@@ -86,26 +160,6 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
-# Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
-if [[ -n ${KDE_MINIMAL} ]]; then
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		[[ ${KDE_MINIMAL} = ${slot} ]] && KDE_MINIMAL_VALID=1 && break
-	done
-	unset slot
-	[[ -z ${KDE_MINIMAL_VALID} ]] && unset KDE_MINIMAL
-else
-	KDE_MINIMAL_VALID=1
-fi
-
-# @ECLASS-VARIABLE: KDE_MINIMAL
-# @DESCRIPTION:
-# This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
-# version for apps to work. Currently defaults to 4.3
-# One may override this variable to raise version requirements.
-# For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
-# Note that it is fixed to ${SLOT} for kde-base packages.
-KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
-
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
@@ -118,15 +172,6 @@ case ${KDEBASE} in
 			# All other ebuild types default to -kdeprefix as before
 			IUSE+=" kdeprefix"
 		fi
-		# Determine SLOT from PVs
-		case ${PV} in
-			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
-			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
-			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
-			4.3*) SLOT="4.3" ;;
-			9999*) SLOT="live" ;; # regular live
-			*) die "Unsupported ${PV}" ;;
-		esac
 		# This code is to prevent portage from searching GENTOO_MIRRORS for
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
@@ -135,14 +180,8 @@ case ${KDEBASE} in
 				RESTRICT+=" mirror"
 				;;
 		esac
-		KDE_MINIMAL="${SLOT}"
-		_kdedir="${SLOT}"
-
 		# Block installation of other SLOTS unless kdeprefix
 		RDEPEND+=" $(block_other_slots)"
-		;;
-	koffice)
-		SLOT="2"
 		;;
 esac
 
@@ -150,7 +189,7 @@ esac
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
 # Currently defaults to 4.5.1 for KDE 4.3 and earlier
-# or 4.6.0_rc1 for KDE 4.4 and later
+# or 4.6.0 for KDE 4.4 and later
 if slot_is_at_least 4.4 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
@@ -233,10 +272,9 @@ unset cppuintdepend
 
 # KDE dependencies
 kdecommondepend="
-	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
-	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility,kde]
+	>=x11-libs/qt-gui-${QT_MINIMAL}:4[dbus]
+	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[kde]
 	>=x11-libs/qt-script-${QT_MINIMAL}:4
 	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
 	>=x11-libs/qt-svg-${QT_MINIMAL}:4
@@ -247,6 +285,9 @@ kdecommondepend="
 		x11-libs/libXxf86vm
 	)
 "
+#perl is not needed on host (+ difficult crosscompilation)
+tc-is-cross-compiler || kdecommondepend="$kdecommondepend dev-lang/perl"
+
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
 		kdecommondepend+=" $(add_kdebase_dep kdelibs)"
@@ -257,9 +298,27 @@ if [[ ${PN} != kdelibs ]]; then
 		kdecommondepend+="
 			>=kde-base/kdelibs-${KDE_MINIMAL}
 		"
+		if [[ ${KDEBASE} = kdevelop ]]; then
+			if [[ ${PN} != kdevplatform ]]; then
+				# @ECLASS-VARIABLE: KDEVPLATFORM_REQUIRED
+				# @DESCRIPTION:
+				# Specifies whether kdevplatform is required. Possible values are 'always' (default) and 'never'.
+				# Applies to KDEBASE=kdevelop only.
+				KDEVPLATFORM_REQUIRED="${KDEVPLATFORM_REQUIRED:-always}"
+				case ${KDEVPLATFORM_REQUIRED} in
+					always)
+						kdecommondepend+="
+							>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
+						"
+						;;
+					*) ;;
+				esac
+			fi
+		fi
 	fi
 fi
 kdedepend="
+	dev-util/automoc
 	dev-util/pkgconfig
 	!aqua? (
 		|| ( >=x11-libs/libXtst-1.1.0 <x11-proto/xextproto-7.1.0 )
@@ -298,77 +357,88 @@ IUSE+=" kdeenablefinal"
 # koffice ebuild, the URI should be set in the ebuild itself
 case ${BUILD_TYPE} in
 	live)
-		# Determine branch URL based on live type
-		local branch_prefix
-		case ${PV} in
-			9999*)
-				# trunk
-				branch_prefix="trunk/KDE"
-				;;
-			*)
-				# branch
-				branch_prefix="branches/KDE/${SLOT}"
-				# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
-				# @DESCRIPTION
-				# Suffix appended to ESVN_PROJECT depending on fetched branch.
-				# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
-				ESVN_PROJECT_SUFFIX="-${PV}"
-				;;
-		esac
 		SRC_URI=""
-		# @ECLASS-VARIABLE: ESVN_MIRROR
-		# @DESCRIPTION:
-		# This variable allows easy overriding of default kde mirror service
-		# (anonsvn) with anything else you might want to use.
-		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
-		# Split ebuild, or extragear stuff
-		if [[ -n ${KMNAME} ]]; then
-		    ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+		if has subversion ${INHERITED}; then
+			# Determine branch URL based on live type
+			local branch_prefix
+			case ${PV} in
+				9999*)
+					# trunk
+					branch_prefix="trunk/KDE"
+					;;
+				*)
+					# branch
+					branch_prefix="branches/KDE/${SLOT}"
+					# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
+					# @DESCRIPTION
+					# Suffix appended to ESVN_PROJECT depending on fetched branch.
+					# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
+					ESVN_PROJECT_SUFFIX="-${PV}"
+					;;
+			esac
+			# @ECLASS-VARIABLE: ESVN_MIRROR
+			# @DESCRIPTION:
+			# This variable allows easy overriding of default kde mirror service
+			# (anonsvn) with anything else you might want to use.
+			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
+			# Split ebuild, or extragear stuff
+			if [[ -n ${KMNAME} ]]; then
+				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+					KMMODULE="${PN}"
+				fi
+				# Split kde-base/ ebuilds: (they reside in trunk/KDE)
+				case ${KMNAME} in
+					kdebase-*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
+						;;
+					kdelibs-*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
+						;;
+					kdereview*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						;;
+					kdesupport)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+						;;
+					kde*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
+						;;
+					extragear*|playground*)
+						# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
+						# build packages from same svn location.
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+						;;
+					koffice)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+						;;
+					*)
+						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+						;;
+				esac
+			else
+				# kdelibs, kdepimlibs
+				ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
+				ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+			fi
+			# @ECLASS-VARIABLE: ESVN_UP_FREQ
+			# @DESCRIPTION:
+			# This variable is used for specifying the timeout between svn synces
+			# for kde-base and koffice modules. Does not affect misc apps.
+			# Default value is 1 hour.
+			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+		elif has git ${INHERITED}; then
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}"
 			fi
-			# Split kde-base/ ebuilds: (they reside in trunk/KDE)
-			case ${KMNAME} in
-				kdebase-*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
-					;;
-				kdelibs-*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
-					;;
-				kdereview*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					;;
-				kdesupport)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-					;;
-				kde*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
-					;;
-				extragear*|playground*)
-					# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
-					# build packages from same svn location.
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-					;;
-				koffice)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-					;;
-				*)
-					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+			case ${KDEBASE} in
+				kdevelop)
+					EGIT_REPO_URI="git://gitorious.org/${KMNAME}/${KMMODULE}.git"
 					;;
 			esac
-		else
-			# kdelibs, kdepimlibs
-			ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
-			ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
 		fi
-		# @ECLASS-VARIABLE: ESVN_UP_FREQ
-		# @DESCRIPTION:
-		# This variable is used for specifying the timeout between svn synces
-		# for kde-base and koffice modules. Does not affect misc apps.
-		# Default value is 1 hour.
-		[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		;;
 	*)
 		if [[ -n ${KDEBASE} ]]; then
@@ -387,11 +457,19 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.[34].8[05] | 4.[34].9[0568])
-							# block for normally packed unstable releases
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+							case ${KMNAME} in
+								kdepim | kdepim-runtime)
+									SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.bz2"
+									;;
+								*)
+									# block for normally packed unstable releases
+									SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+									;;
+								esac
+								;;
 						4.[34].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
-							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/${_kmname_pv}.tar.xz"
+							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
 							DEPEND+=" app-arch/xz-utils"
 							;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
@@ -402,6 +480,10 @@ case ${BUILD_TYPE} in
 						2.1.[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 					esac
+					;;
+				kdevelop)
+					SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
+					;;
 			esac
 			unset _kmname _kmname_pv
 		fi
@@ -440,7 +522,7 @@ kde4-base_pkg_setup() {
 
 	if [[ ${KDEBASE} = kde-base ]]; then
 		if use kdeprefix; then
-			KDEDIR=/usr/kde/${_kdedir}
+			KDEDIR=/usr/kde/${SLOT}
 		else
 			KDEDIR=/usr
 		fi
@@ -480,8 +562,6 @@ kde4-base_pkg_setup() {
 
 	# Fix XDG collision with sandbox
 	export XDG_CONFIG_HOME="${T}"
-	# Not needed anymore
-	unset _kdedir
 }
 
 # @FUNCTION: kde4-base_src_unpack
@@ -491,8 +571,12 @@ kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
-		subversion_src_unpack
+		if has subversion ${INHERITED}; then
+			migrate_store_dir
+			subversion_src_unpack
+		elif has git ${INHERITED}; then
+			git_src_unpack
+		fi
 	elif [[ ${EAPI} == 2 ]]; then
 		local file
 		for file in ${A}; do
@@ -536,7 +620,14 @@ kde4-base_src_prepare() {
 		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && [[ ${PN} != kdelibs ]] && enable_selected_doc_linguas
 	fi
 
-	[[ ${BUILD_TYPE} = live ]] && subversion_src_prepare
+	# SCM bootstrap
+	if [[ ${BUILD_TYPE} = live ]]; then
+		if has subversion ${INHERITED}; then
+			subversion_src_prepare
+		elif has git ${INHERITED}; then
+			git_src_prepare
+		fi
+	fi
 
 	# Apply patches
 	base_src_prepare
@@ -578,7 +669,7 @@ kde4-base_src_configure() {
 	[[ ${PN} = kdelibs ]] && cmakeargs+=(-DKDE_DISTRIBUTION_TEXT=Gentoo)
 
 	# Here we set the install prefix
-	cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
+	tc-is-cross-compiler || cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
 
 	# Use colors
 	QTEST_COLORED=1
@@ -591,7 +682,9 @@ kde4-base_src_configure() {
 		# Override some environment variables - only when kdeprefix is different,
 		# to not break ccache/distcc
 		PATH="${EKDEDIR}/bin:${PATH}"
-		LDPATH="${EKDEDIR}/$(get_libdir)${LDPATH+:}${LDPATH}"
+
+		# Append library search path
+		append-ldflags -L"${EKDEDIR}/$(get_libdir)"
 
 		# Append full RPATH
 		cmakeargs+=(-DCMAKE_SKIP_RPATH=OFF)
@@ -600,6 +693,11 @@ kde4-base_src_configure() {
 		# when more are present
 		cmakeargs+=(-DCMAKE_SYSTEM_PREFIX_PATH="${EKDEDIR}")
 	fi
+
+	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
+	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/lib/qt4)
+	#kde-config -path data unavailable when cross-compiling
+	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
 
 	# Handle kdeprefix in application itself
 	if ! has kdeprefix ${IUSE//+} || ! use kdeprefix; then
@@ -654,30 +752,18 @@ kde4-base_src_install() {
 		install_library_dependencies
 	fi
 
-	kde4-base_src_make_doc
-	cmake-utils_src_install
-}
-
-# @FUNCTION: kde4-base_src_make_doc
-# @DESCRIPTION:
-# Function for installing the documentation of KDE4 applications.
-kde4-base_src_make_doc() {
-	debug-print-function ${FUNCNAME} "$@"
-
+	# Install common documentation of KDE4 applications
 	local doc
-	for doc in AUTHORS ChangeLog* README* NEWS TODO; do
-		[[ -s ${doc} ]] && dodoc ${doc}
-	done
-
-	if [[ -z ${KMNAME} ]]; then
-		for doc in {apps,runtime,workspace,.}/*/{AUTHORS,README*}; do
-			if [[ -s ${doc} ]]; then
-				local doc_complete=${doc}
-				doc="${doc#*/}"
-				newdoc "$doc_complete" "${doc%/*}.${doc##*/}"
-			fi
+	if ! has kde4-meta ${INHERITED}; then
+		for doc in "${S}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+			[[ -s "${doc}" ]] && dodoc "${doc}"
+		done
+		for doc in "${S}"/*/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
+			[[ -s "${doc}" ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
 		done
 	fi
+
+	cmake-utils_src_install
 }
 
 # @FUNCTION: kde4-base_pkg_postinst

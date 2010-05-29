@@ -15,6 +15,7 @@ IUSE="aqua kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep cervisia)
+	$(add_kdebase_dep dolphin-plugins)
 	$(add_kdebase_dep kapptemplate)
 	$(add_kdebase_dep kate)
 	$(add_kdebase_dep kbugbuster)
@@ -31,9 +32,3 @@ RDEPEND="
 	$(add_kdebase_dep umbrello)
 	$(block_other_slots)
 "
-
-# FIXME:
-# Broken in 4.1.0
-#   >=kde-base/kspy-${PV}:${SLOT}
-#	elibc_glibc? ( >=kde-base/kmtrace-${PV}:${SLOT} )
-#	>=kde-base/kunittest-${PV}:${SLOT}

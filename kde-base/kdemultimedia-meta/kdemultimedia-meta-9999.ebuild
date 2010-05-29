@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE="aqua ffmpeg kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep dragonplayer)
@@ -22,5 +22,6 @@ RDEPEND="
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
 	$(add_kdebase_dep mplayerthumbs)
+	ffmpeg? ( $(add_kdebase_dep ffmpegthumbs) )
 	$(block_other_slots)
 "

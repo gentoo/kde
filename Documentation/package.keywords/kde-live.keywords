@@ -3,12 +3,12 @@
 # Edit Documentation/package.keywords/kde-live.base/ files instead.
 ~kde-base/kdeplasma-addons-9999 **
 ~kde-base/kde-l10n-9999 **
+~kde-base/jovie-9999 **
 ~kde-base/kdeaccessibility-colorschemes-9999 **
 ~kde-base/kdeaccessibility-iconthemes-9999 **
 ~kde-base/kmag-9999 **
 ~kde-base/kmousetool-9999 **
 ~kde-base/kmouth-9999 **
-~kde-base/kttsd-9999 **
 ~kde-base/kcron-9999 **
 ~kde-base/knetworkconf-9999 **
 ~kde-base/ksystemlog-9999 **
@@ -36,6 +36,7 @@
 ~kde-base/libkonq-9999 **
 ~kde-base/nsplugins-9999 **
 ~kde-base/plasma-apps-9999 **
+~kde-base/activitymanager-9999 **
 ~kde-base/attica-9999 **
 ~kde-base/drkonqi-9999 **
 ~kde-base/kcmshell-9999 **
@@ -72,6 +73,7 @@
 ~kde-base/plasma-runtime-9999 **
 ~kde-base/renamedlg-plugins-9999 **
 ~kde-base/solid-runtime-9999 **
+~kde-base/freespacenotifier-9999 **
 ~kde-base/kcheckpass-9999 **
 ~kde-base/kcminit-9999 **
 ~kde-base/kdebase-cursors-9999 **
@@ -104,23 +106,20 @@
 ~kde-base/solid-9999 **
 ~kde-base/systemsettings-9999 **
 ~kde-base/kdebindings-csharp-9999 **
+~kde-base/kdebindings-perl-9999 **
 ~kde-base/kdebindings-ruby-9999 **
 ~kde-base/krossjava-9999 **
 ~kde-base/krosspython-9999 **
-~kde-base/krossruby-9999 **
 ~kde-base/pykde4-9999 **
 ~kde-base/smoke-9999 **
 ~app-office/akonadi-server-9999 **
 ~dev-libs/libattica-9999 **
 ~dev-libs/shared-desktop-ontologies-9999 **
 ~dev-libs/soprano-9999 **
+~dev-util/automoc-9999 **
 ~app-misc/strigi-9999 **
-~kde-base/automoc-9999 **
 ~media-sound/phonon-9999 **
 ~sys-auth/polkit-qt-9999 **
-
-# For kde-base/kdebase-kioslaves
-~net-libs/libssh-9999 **
 
 # For kde-base/granatier - removed due to use.mask
 #~media-libs/gluon-9999
@@ -210,6 +209,7 @@
 ~kde-base/kdepimlibs-9999 **
 ~kde-base/oxygen-icons-9999 **
 ~kde-base/dragonplayer-9999 **
+~kde-base/ffmpegthumbs-9999 **
 ~kde-base/juk-9999 **
 ~kde-base/kdemultimedia-kioslaves-9999 **
 ~kde-base/kmix-9999 **
@@ -223,16 +223,15 @@
 ~kde-base/kopete-9999 **
 ~kde-base/krdc-9999 **
 ~kde-base/krfb-9999 **
-~kde-base/kdelirc-9999 **
 ~kde-base/kfloppy-9999 **
 ~kde-base/kppp-9999 **
 ~kde-base/policykit-kde-9999 **
-~kde-base/akonadi-9999 **
 ~kde-base/akregator-9999 **
 ~kde-base/blogilo-9999 **
 ~kde-base/kabcclient-9999 **
 ~kde-base/kaddressbook-9999 **
 ~kde-base/kalarm-9999 **
+~kde-base/kdepim-common-libs-9999 **
 ~kde-base/kdepim-icons-9999 **
 ~kde-base/kdepim-kresources-9999 **
 ~kde-base/kdepim-strigi-analyzer-9999 **
@@ -247,14 +246,8 @@
 ~kde-base/kontact-9999 **
 ~kde-base/korganizer-9999 **
 ~kde-base/ktimetracker-9999 **
-~kde-base/libkdepim-9999 **
-~kde-base/libkleo-9999 **
-~kde-base/libkpgp-9999 **
-~kde-base/messagecomposer-9999 **
-~kde-base/messagecore-9999 **
-~kde-base/messagelist-9999 **
-~kde-base/messageviewer-9999 **
 ~kde-base/cervisia-9999 **
+~kde-base/dolphin-plugins-9999 **
 ~kde-base/kapptemplate-9999 **
 ~kde-base/kate-9999 **
 ~kde-base/kbugbuster-9999 **
@@ -272,12 +265,12 @@
 ~kde-base/amor-9999 **
 ~kde-base/kteatime-9999 **
 ~kde-base/ktux-9999 **
-~kde-base/kweather-9999 **
 ~kde-base/ark-9999 **
 ~kde-base/kcalc-9999 **
 ~kde-base/kcharselect-9999 **
 ~kde-base/kdf-9999 **
 ~kde-base/kgpg-9999 **
+~kde-base/kremotecontrol-9999 **
 ~kde-base/ktimer-9999 **
 ~kde-base/kwallet-9999 **
 ~kde-base/okteta-9999 **
@@ -293,6 +286,7 @@
 ~kde-base/kdeartwork-meta-9999 **
 ~kde-base/kdebase-meta-9999 **
 ~kde-base/kdebase-runtime-meta-9999 **
+~kde-base/kdebindings-meta-9999 **
 ~kde-base/kdeedu-meta-9999 **
 ~kde-base/kdegames-meta-9999 **
 ~kde-base/kdegraphics-meta-9999 **
@@ -304,15 +298,14 @@
 ~kde-base/kdetoys-meta-9999 **
 ~kde-base/kdeutils-meta-9999 **
 ~kde-base/kdewebdev-meta-9999 **
-=app-admin/system-config-printer-common-1.1*
-=app-misc/hal-cups-utils-0.6*
-~dev-db/virtuosoconverter-1.0
-~dev-db/virtuoso-odbc-6.1.0
-~dev-db/virtuoso-server-6.1.0
+app-admin/system-config-printer-common
+=dev-db/virtuoso-odbc-6.1*
+=dev-db/virtuoso-server-6.1*
+dev-libs/grantlee
 dev-libs/libattica
-~dev-libs/redland-1.0.10
-~dev-libs/shared-desktop-ontologies-0.2
-=dev-python/pycups-1.9*
+dev-libs/libdbusmenu-qt
+dev-libs/shared-desktop-ontologies
+dev-python/pycups
 >=net-libs/libssh-0.3.2
 >=sys-auth/polkit-0.95
 x11-misc/google-gadgets

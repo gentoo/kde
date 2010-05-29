@@ -1,7 +1,7 @@
 kde-base/kdebindings-csharp:live
+kde-base/kdebindings-perl:live
 kde-base/kdebindings-ruby:live
 kde-base/krossjava:live
 kde-base/krosspython:live
-kde-base/krossruby:live
 kde-base/pykde4:live
 kde-base/smoke:live

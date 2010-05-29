@@ -18,11 +18,8 @@ RDEPEND="
 src_unpack() {
 	if use handbook; then
 		KMEXTRA="
-			doc/faq
 			doc/glossary
-			doc/quickstart
-			doc/userguide
-			doc/visualdict
+			doc/onlinehelp
 		"
 	fi
 

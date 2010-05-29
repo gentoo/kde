@@ -43,6 +43,7 @@ kde-base/kwrite:4.5
 kde-base/libkonq:4.5
 kde-base/nsplugins:4.5
 kde-base/plasma-apps:4.5
+kde-base/activitymanager:4.5
 kde-base/attica:4.5
 kde-base/drkonqi:4.5
 kde-base/kcmshell:4.5
@@ -79,6 +80,7 @@ kde-base/phonon-kde:4.5
 kde-base/plasma-runtime:4.5
 kde-base/renamedlg-plugins:4.5
 kde-base/solid-runtime:4.5
+kde-base/freespacenotifier:4.5
 kde-base/kcheckpass:4.5
 kde-base/kcminit:4.5
 kde-base/kdebase-cursors:4.5
@@ -109,13 +111,11 @@ kde-base/plasma-workspace:4.5
 kde-base/powerdevil:4.5
 kde-base/qguiplatformplugin_kde:4.5
 kde-base/solid:4.5
-kde-base/statusnotifierwatcher:4.5
 kde-base/systemsettings:4.5
 kde-base/kdebindings-csharp:4.5
 kde-base/kdebindings-ruby:4.5
 kde-base/krossjava:4.5
 kde-base/krosspython:4.5
-kde-base/krossruby:4.5
 kde-base/pykde4:4.5
 kde-base/smoke:4.5
 kde-base/blinken:4.5
@@ -201,6 +201,7 @@ kde-base/kdelibs:4.5
 kde-base/kdepimlibs:4.5
 kde-base/oxygen-icons:4.5
 kde-base/dragonplayer:4.5
+kde-base/ffmpegthumbs:4.5
 kde-base/juk:4.5
 kde-base/kdemultimedia-kioslaves:4.5
 kde-base/kmix:4.5
@@ -214,16 +215,15 @@ kde-base/kget:4.5
 kde-base/kopete:4.5
 kde-base/krdc:4.5
 kde-base/krfb:4.5
-kde-base/kdelirc:4.5
 kde-base/kfloppy:4.5
 kde-base/kppp:4.5
 kde-base/policykit-kde:4.5
-kde-base/akonadi:4.5
 kde-base/akregator:4.5
 kde-base/blogilo:4.5
 kde-base/kabcclient:4.5
 kde-base/kaddressbook:4.5
 kde-base/kalarm:4.5
+kde-base/kdepim-common-libs:4.5
 kde-base/kdepim-icons:4.5
 kde-base/kdepim-kresources:4.5
 kde-base/kdepim-strigi-analyzer:4.5
@@ -238,14 +238,8 @@ kde-base/konsolekalendar:4.5
 kde-base/kontact:4.5
 kde-base/korganizer:4.5
 kde-base/ktimetracker:4.5
-kde-base/libkdepim:4.5
-kde-base/libkleo:4.5
-kde-base/libkpgp:4.5
-kde-base/messagecomposer:4.5
-kde-base/messagecore:4.5
-kde-base/messagelist:4.5
-kde-base/messageviewer:4.5
 kde-base/cervisia:4.5
+kde-base/dolphin-plugins:4.5
 kde-base/kapptemplate:4.5
 kde-base/kate:4.5
 kde-base/kbugbuster:4.5
@@ -263,12 +257,12 @@ kde-base/umbrello:4.5
 kde-base/amor:4.5
 kde-base/kteatime:4.5
 kde-base/ktux:4.5
-kde-base/kweather:4.5
 kde-base/ark:4.5
 kde-base/kcalc:4.5
 kde-base/kcharselect:4.5
 kde-base/kdf:4.5
 kde-base/kgpg:4.5
+kde-base/kremotecontrol:4.5
 kde-base/ktimer:4.5
 kde-base/kwallet:4.5
 kde-base/okteta:4.5
@@ -284,6 +278,7 @@ kde-base/kdeadmin-meta:4.5
 kde-base/kdeartwork-meta:4.5
 kde-base/kdebase-meta:4.5
 kde-base/kdebase-runtime-meta:4.5
+kde-base/kdebindings-meta:4.5
 kde-base/kdeedu-meta:4.5
 kde-base/kdegames-meta:4.5
 kde-base/kdegraphics-meta:4.5
@@ -317,8 +312,3 @@ kde-base/kdewebdev-meta:4.5
 ~app-office/koffice-meta-2.1.81
 
 media-libs/opengtl
-
-# Maciej Mrozowski <reavertm@gentoo.org> (26 Feb 2009)
-# Not tested yet
-~dev-db/virtuoso-jdbc-6.1.0
-~dev-db/virtuoso-vad-bpel-6.1.0

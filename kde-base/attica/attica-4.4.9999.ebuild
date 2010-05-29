@@ -10,3 +10,8 @@ inherit kde4-meta
 DESCRIPTION="Open Collaboration Services provider management"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="
+	~dev-libs/libattica-0.1.2
+"
+RDEPEND="${DEPEND}"

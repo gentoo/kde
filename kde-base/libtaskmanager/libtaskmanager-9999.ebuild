@@ -18,3 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
+
+KMEXTRACTONLY="
+	libs/kephal/
+"

@@ -63,9 +63,10 @@ src_install() {
 	kde4-meta_src_install
 
 	# Customize the kdmrc configuration
-	sed -i -e "s:^.*SessionsDirs=.*$:#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions:" \
-		"${ED}"/${PREFIX}/share/config/kdm/kdmrc \
-		|| die "Failed to set SessionsDirs correctly."
+	sed -e "s:^.*SessionsDirs=.*$:#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions:" \
+		-e "s:#ServerTimeout=15:ServerTimeout=30:" \
+		-i "${ED}"/${KDEDIR}/share/config/kdm/kdmrc \
+		|| die "Failed to set ServerTimeout and SessionsDirs correctly in kdmrc."
 
 	# Don't install empty dir
 	rmdir "${ED}${KDEDIR}"/share/config/kdm/sessions

@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit kde4-base
 
-DESCRIPTION="KDE internationalization package"
+DESCRIPTION="KOffice localization package"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 

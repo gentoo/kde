@@ -2,16 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
+
+SCM=""
+if [ "${PV%9999}" != "${PV}" ] ; then
+	SCM=git
+	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+fi
 
 KDE_LINGUAS="pt_BR"
 PYTHON_DEPEND="2:2.6"
 
-inherit git kde4-base python
+inherit ${SCM} kde4-base python
 
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+
+if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
+	SRC_URI=""
+else
+	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+fi
 
 LICENSE="GPL-3"
 KEYWORDS=""
@@ -36,7 +47,11 @@ pkg_setup() {
 }
 
 src_unpack() {
-	git_src_unpack
+	if [ "${PV%9999}" != "${PV}" ] ; then
+		git_src_unpack
+	else
+		base_src_unpack
+	fi
 }
 
 src_prepare() {

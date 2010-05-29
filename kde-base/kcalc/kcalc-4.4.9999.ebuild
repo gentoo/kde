@@ -20,3 +20,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.3.2-solaris-knumber_priv.patch
 )
+
+src_test() {
+	LANG=C kde4-meta_src_test
+}

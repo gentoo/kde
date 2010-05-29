@@ -12,7 +12,7 @@ HOMEPAGE="http://www.krusader.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4"
 IUSE="debug"
 
 

@@ -11,8 +11,3 @@ DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
 IUSE="debug +handbook"
-
-DEPEND="
-	kde-base/qimageblitz
-"
-RDEPEND="${DEPEND}"

@@ -6,11 +6,12 @@ EAPI="3"
 
 KMNAME="kdebase-workspace"
 KMMODULE="plasma"
+PYTHON_DEPEND="python? 2"
 inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug +handbook google-gadgets python rss semantic-desktop xinerama"
+IUSE="debug +handbook google-gadgets python qalculate rss semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -31,7 +32,8 @@ COMMONDEPEND="
 		>=dev-python/sip-4.7.1
 		$(add_kdebase_dep pykde4)
 	)
-	rss? ( $(add_kdebase_dep kdepimlibs) )
+	qalculate? ( sci-libs/libqalculate )
+	rss? ( $(add_kdebase_dep kdepimlibs 'akonadi') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
@@ -41,7 +43,10 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
 	xinerama? ( x11-proto/xineramaproto )
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	$(add_kdebase_dep activitymanager)
+	$(add_kdebase_dep plasma-runtime)
+"
 
 KMEXTRA="
 	statusnotifierwatcher/
@@ -50,6 +55,7 @@ KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
 	krunner/dbus/org.kde.krunner.App.xml
 	ksmserver/org.kde.KSMServerInterface.xml
+	libs/kephal/
 	libs/kworkspace/
 	libs/taskmanager/
 	libs/plasmagenericshell/
@@ -58,6 +64,15 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+)
+
+pkg_setup() {
+	python_set_active_version 2
+	kde4-meta_pkg_setup
+}
 
 src_unpack() {
 	if use handbook; then
@@ -73,8 +88,10 @@ src_configure() {
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PyKDE4)
+		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with xinerama X11_Xinerama)
 		-DWITH_Xmms=OFF
 	)
 
