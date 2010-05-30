@@ -34,6 +34,7 @@ RDEPEND="
 	media-libs/libpng
 	media-libs/tiff
 	media-libs/libpgf
+	virtual/lapack
 	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
@@ -42,6 +43,7 @@ RDEPEND="
 	lensfun? ( media-libs/lensfun )
 "
 DEPEND="${RDEPEND}
+	sys-devel/gcc[fortran]
 	sys-devel/gettext
 "
 
@@ -52,6 +54,8 @@ src_prepare() {
 	epatch "${FILESDIR}/digikam-1.2.0-kde232628.patch"
 	# Patch to unbundled libpgf.
 	epatch "${FILESDIR}/libpgf-unbundled-digikam-1.2.0-r0.patch"
+	# Patch to unbundle lapack.
+	epatch "${FILESDIR}/digikam-1.2.0-lapack.patch"
 
 	kde4-base_src_prepare
 }
