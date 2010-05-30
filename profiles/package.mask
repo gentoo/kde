@@ -273,12 +273,6 @@ kde-base/kfilereplace:4.5
 kde-base/kimagemapeditor:4.5
 kde-base/klinkstatus:4.5
 kde-base/kommander:4.5
-
-# Andreas K. Huettel <mail@akhuettel.de> (30 May 2010)
-# See bug 314539
-# As long as KDE 4.5 is masked, so should be this:
-=dev-libs/libattica-0.1.4
-
 kde-base/kdeaccessibility-meta:4.5
 kde-base/kdeadmin-meta:4.5
 kde-base/kdeartwork-meta:4.5
