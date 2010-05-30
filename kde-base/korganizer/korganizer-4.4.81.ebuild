@@ -21,9 +21,6 @@ RDEPEND="${DEPEND}"
 # Moved after 4.3.90
 add_blocker kontact-specialdates
 
-# Tests hang, last checked in 4.3.3
-RESTRICT="test"
-
 KMLOADLIBS="kdepim-common-libs"
 KMEXTRA="kdgantt1"
 
