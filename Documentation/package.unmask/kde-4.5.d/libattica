@@ -1,0 +1,6 @@
+
+# Andreas K. Huettel <mail@akhuettel.de> (30 May 2010)
+# See bug 314539
+# As long as KDE 4.5 is masked, so should be this:
+=dev-libs/libattica-0.1.4
+
