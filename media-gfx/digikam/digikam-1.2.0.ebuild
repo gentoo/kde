@@ -34,6 +34,7 @@ RDEPEND="
 	media-libs/libpng
 	media-libs/tiff
 	media-libs/libpgf
+	>=media-plugins/kipi-plugins-1.2.0-r1
 	virtual/lapack
 	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
