@@ -1,0 +1,1083 @@
+Index: cmake/modules/FindAssuan2.cmake
+===================================================================
+--- cmake/modules/FindAssuan2.cmake	(revision 0)
++++ cmake/modules/FindAssuan2.cmake	(revision 1078528)
+@@ -0,0 +1,251 @@
++# - Try to find the assuan v2 library
++
++# Variables set:
++#  ASSUAN2_{INCLUDES,FOUND,LIBRARIES} will be set for each of the above
++
++# do away with crappy condition repetition on else/endfoo
++set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS_assuan2_saved ${CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS} )
++set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true )
++
++#if this is built-in, please replace, if it isn't, export into a MacroToBool.cmake of it's own
++macro( macro_bool_to_bool FOUND_VAR )
++  foreach( _current_VAR ${ARGN} )
++    if ( ${FOUND_VAR} )
++      set( ${_current_VAR} TRUE )
++    else()
++      set( ${_current_VAR} FALSE )
++    endif()
++  endforeach()
++endmacro()
++
++include (MacroEnsureVersion)
++
++message( STATUS "In FindAssuan2.cmake" )
++
++if ( WIN32 )
++
++  # On Windows, we don't have a libassuan-config script, so we need to
++  # look for the stuff ourselves:
++
++  # in cmake, AND and OR have the same precedence, there's no
++  # subexpressions, and expressions are evaluated short-circuit'ed
++  # IOW: CMake if() suxx.
++  set( _seem_to_have_cached_assuan2 false )
++  if ( ASSUAN2_INCLUDES )
++    if ( ASSUAN2_VANILLA_LIBRARIES )#OR ASSUAN2_QT_LIBRARIES OR ASSUAN2_GLIB_LIBRARIES )
++      set( _seem_to_have_cached_assuan2 true )
++    endif()
++  endif()
++
++  if ( _seem_to_have_cached_assuan2 )
++
++    macro_bool_to_bool( ASSUAN2_VANILLA_LIBRARIES  ASSUAN2_VANILLA_FOUND )
++    # this would have been preferred:
++    #set( ASSUAN2_*_FOUND macro_bool_to_bool(ASSUAN2_*_LIBRARIES) )
++
++    if ( ASSUAN2_VANILLA_FOUND ) #OR ASSUAN2_GLIB_FOUND OR ASSUAN2_QT_FOUND )
++      set( ASSUAN2_FOUND true )
++    else()
++      set( ASSUAN2_FOUND false )
++    endif()
++
++  else()
++
++    set( ASSUAN2_FOUND         false )
++    set( ASSUAN2_VANILLA_FOUND false )
++    #set( ASSUAN2_GLIB_FOUND    false )
++    #set( ASSUAN2_QT_FOUND      false )
++
++    find_path( ASSUAN2_INCLUDES assuan.h
++      ${CMAKE_INCLUDE_PATH}
++      ${CMAKE_INSTALL_PREFIX}/include
++    )
++
++    find_library( _assuan2_library NAMES assuan assuan0 assuan2 libassuan libassuan0 libassuan2
++      PATHS 
++        ${CMAKE_LIBRARY_PATH}
++        ${CMAKE_INSTALL_PREFIX}/lib
++    )
++
++    find_library( _gpg_error_library     NAMES gpg-error libgpg-error gpg-error-0 libgpg-error-0
++      PATHS 
++        ${CMAKE_LIBRARY_PATH}
++        ${CMAKE_INSTALL_PREFIX}/lib
++    )
++
++    set( ASSUAN2_INCLUDES ${ASSUAN2_INCLUDES} )
++
++    if ( _assuan2_library AND _gpg_error_library )
++      set( ASSUAN2_LIBRARIES ${_assuan2_library} ${_gpg_error_library} ws2_32 )
++      set( ASSUAN2_FOUND             true )
++    endif()
++
++  endif()
++
++  macro_bool_to_01( ASSUAN2_FOUND HAVE_ASSUAN2 )
++
++else() # not WIN32
++
++  # On *nix, we have the libassuan-config script which can tell us all we
++  # need to know:
++
++  # see WIN32 case for an explanation of what this does:
++  set( _seem_to_have_cached_assuan2 false )
++  if ( ASSUAN2_INCLUDES AND ASSUAN2_LIBRARIES )
++    set( _seem_to_have_cached_assuan2 true )
++  endif()
++
++  if ( _seem_to_have_cached_assuan2 )
++
++    set( ASSUAN2_FOUND true )
++
++  else()
++
++    set( ASSUAN2_FOUND         false )
++
++    find_program( _ASSUAN2CONFIG_EXECUTABLE NAMES libassuan-config )
++
++    # if libassuan-config has been found
++    if ( _ASSUAN2CONFIG_EXECUTABLE )
++      
++      message( STATUS "Found libassuan-config at ${_ASSUAN2CONFIG_EXECUTABLE}" )
++
++      exec_program( ${_ASSUAN2CONFIG_EXECUTABLE} ARGS --version OUTPUT_VARIABLE ASSUAN2_VERSION )
++
++      set( _ASSUAN2_MIN_VERSION "2.0.0" )
++      macro_ensure_version( ${_ASSUAN2_MIN_VERSION} ${ASSUAN2_VERSION} _ASSUAN2_INSTALLED_VERSION_OK )
++
++      if ( NOT _ASSUAN2_INSTALLED_VERSION_OK )
++
++        message( STATUS "The installed version of assuan is too old: ${ASSUAN2_VERSION} (required: >= ${_ASSUAN2_MIN_VERSION})" )
++
++      else()
++
++        message( STATUS "Found assuan v${ASSUAN2_VERSION}" )
++
++        exec_program( ${_ASSUAN2CONFIG_EXECUTABLE} ARGS --libs OUTPUT_VARIABLE _assuan2_config_libs RETURN_VALUE _ret )
++	if ( _ret )
++	  set( _assuan2_config_libs )
++	endif()
++
++        # append -lgpg-error to the list of libraries, if necessary
++        if ( _assuan2_config_libs AND NOT _assuan2_config_libs MATCHES "lgpg-error" )
++          set( _assuan2_config_libs "${_assuan2_config_libs} -lgpg-error" )
++        endif()
++
++        if ( _assuan2_config_libs )
++
++          exec_program( ${_ASSUAN2CONFIG_EXECUTABLE} ARGS --cflags OUTPUT_VARIABLE _ASSUAN2_CFLAGS )
++
++          if ( _ASSUAN2_CFLAGS )
++            string( REGEX REPLACE "(\r?\n)+$" " " _ASSUAN2_CFLAGS  "${_ASSUAN2_CFLAGS}" )
++            string( REGEX REPLACE " *-I"      ";" ASSUAN2_INCLUDES "${_ASSUAN2_CFLAGS}" )
++          endif()
++
++          if ( _assuan2_config_libs )
++
++            set( _assuan2_library_dirs )
++            set( _assuan2_library_names )
++
++            string( REGEX REPLACE " +" ";" _assuan2_config_libs "${_assuan2_config_libs}" )
++
++            foreach( _flag ${_assuan2_config_libs} )
++              if ( "${_flag}" MATCHES "^-L" )
++                string( REGEX REPLACE "^-L" "" _dir "${_flag}" )
++                file( TO_CMAKE_PATH "${_dir}" _dir )
++                set( _assuan2_library_dirs ${_assuan2_library_dirs} "${_dir}" )
++              elseif( "${_flag}" MATCHES "^-l" )
++                string( REGEX REPLACE "^-l" "" _name "${_flag}" )
++                set( _assuan2_library_names ${_assuan2_library_names} "${_name}" )
++              endif()
++            endforeach()
++
++            set( ASSUAN2_FOUND true )
++
++            foreach( _name ${_assuan2_library_names} )
++              set( _assuan2_${_name}_lib )
++
++              # if -L options were given, look only there
++              if ( _assuan2_library_dirs )
++                find_library( _assuan2_${_name}_lib NAMES ${_name} PATHS ${_assuan2_library_dirs} NO_DEFAULT_PATH )
++              endif()
++
++              # if not found there, look in system directories
++              if ( NOT _assuan2_${_name}_lib )
++                find_library( _assuan2_${_name}_lib NAMES ${_name} )
++              endif()
++
++              # if still not found, then the whole flavour isn't found
++              if ( NOT _assuan2_${_name}_lib )
++                if ( ASSUAN2_FOUND )
++                  set( ASSUAN2_FOUND false )
++                  set( _not_found_reason "dependant library ${_name} wasn't found" )
++                endif()
++              endif()
++
++              set( ASSUAN2_LIBRARIES ${ASSUAN2_LIBRARIES} "${_assuan2_${_name}_lib}" )
++            endforeach()
++
++            #check_c_library_exists_explicit( assuan         assuan_check_version "${_ASSUAN2_CFLAGS}" "${ASSUAN2_LIBRARIES}"         ASSUAN2_FOUND         )
++            if ( ASSUAN2_FOUND )
++              message( STATUS " Checking whether assuan is usable...yes" )
++            else()
++              message( STATUS " Checking whether assuan is usable...no" )
++              message( STATUS "  (${_not_found_reason})" )
++            endif()
++          endif()
++
++          # ensure that they are cached
++          set( ASSUAN2_INCLUDES  ${ASSUAN2_INCLUDES}  )
++          set( ASSUAN2_LIBRARIES ${ASSUAN2_LIBRARIES} )
++
++        endif()
++
++      endif()
++
++    endif()
++
++  endif()
++
++  macro_bool_to_01( ASSUAN2_FOUND         HAVE_ASSUAN2         )
++
++endif() # WIN32 | Unix
++
++
++if ( NOT Assuan2_FIND_QUIETLY )
++
++  if ( ASSUAN2_FOUND )
++    message( STATUS "Usable assuan found." )
++    message( STATUS " Includes:  ${ASSUAN2_INCLUDES}" )
++    message( STATUS " Libraries: ${ASSUAN2_LIBRARIES}" )
++  else()
++    message( STATUS "No usable assuan found." )
++  endif()
++
++  macro_bool_to_bool( Assuan2_FIND_REQUIRED _req )
++
++  if ( WIN32 )
++    set( _assuan2_homepage "http://www.gpg4win.org" )
++  else()
++    set( _assuan2_homepage "http://www.gnupg.org/related_software/libassuan" )
++  endif()
++
++  macro_log_feature(
++    ASSUAN2_FOUND
++    "assuan2"
++    "Assuan v2 IPC library"
++    ${_assuan2_homepage}
++    ${_req}
++    "${_ASSUAN2_MIN_VERSION} or greater"
++    "Needed for Kleopatra to act as the GnuPG UI Server"
++  )
++
++else()
++
++  if ( Assuan2_FIND_REQUIRED AND NOT ASSUAN2_FOUND )
++    message( FATAL_ERROR "" )
++  endif()
++
++endif()
++
++set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS_assuan2_saved )
+Index: kleopatra/ConfigureChecks.cmake
+===================================================================
+--- kleopatra/ConfigureChecks.cmake	(revision 1078527)
++++ kleopatra/ConfigureChecks.cmake	(revision 1078528)
+@@ -1,21 +1,18 @@
+ # assuan configure checks
+ include(CheckFunctionExists)
+ 
+-macro_optional_find_package(Assuan)
++macro_optional_find_package(Assuan2)
+ 
+ set( USABLE_ASSUAN_FOUND false )
+ 
+-if ( ASSUAN_FOUND )
++if ( ASSUAN2_FOUND )
+ 
+-  set( CMAKE_REQUIRED_INCLUDES ${ASSUAN_INCLUDES} )
++  set( CMAKE_REQUIRED_INCLUDES ${ASSUAN2_INCLUDES} )
+ 
+-  if ( WIN32 AND ASSUAN_VANILLA_FOUND )
+-    set( CMAKE_REQUIRED_LIBRARIES ${ASSUAN_VANILLA_LIBRARIES} )
++  if ( ASSUAN2_FOUND )
++    set( CMAKE_REQUIRED_LIBRARIES ${ASSUAN2_LIBRARIES} )
+     set( USABLE_ASSUAN_FOUND true )
+-  elseif( NOT WIN32 AND ASSUAN_PTHREAD_FOUND )
+-    set( CMAKE_REQUIRED_LIBRARIES ${ASSUAN_PTHREAD_LIBRARIES} )
+-    set( USABLE_ASSUAN_FOUND true )
+-  endif( WIN32 AND ASSUAN_VANILLA_FOUND )
++  endif( ASSUAN2_FOUND )
+ 
+   # TODO: this workaround will be removed as soon as we find better solution
+   if(MINGW)
+@@ -24,7 +21,7 @@
+     set(CMAKE_REQUIRED_INCLUDES ${CMAKE_REQUIRED_INCLUDES} ${KDEWIN32_INCLUDE_DIR}/msvc)
+   endif(MINGW)
+ 
+-endif( ASSUAN_FOUND )
++endif( ASSUAN2_FOUND )
+ 
+ if ( USABLE_ASSUAN_FOUND )
+   # check if assuan.h can be compiled standalone (it couldn't, on
+@@ -48,40 +45,6 @@
+ 
+ if ( USABLE_ASSUAN_FOUND )
+ 
+-  # check if assuan has assuan_fd_t
+-  check_cxx_source_compiles("
+-        #include <assuan.h>
+-        int main() {
+-            assuan_fd_t fd = ASSUAN_INVALID_FD;
+-            return fd ? 1 : 0 ;
+-        }
+-        "
+-    HAVE_ASSUAN_FD_T )
+-
+-  if ( WIN32 AND NOT HAVE_ASSUAN_FD_T )
+-    set( USABLE_ASSUAN_FOUND false )
+-  endif ( WIN32 AND NOT HAVE_ASSUAN_FD_T )
+-
+-  # check if assuan has assuan_inquire_ext, old style
+-  check_function_exists( "assuan_inquire_ext" HAVE_ASSUAN_INQUIRE_EXT )
+-
+-  if ( NOT HAVE_ASSUAN_INQUIRE_EXT )
+-    set( USABLE_ASSUAN_FOUND false )
+-  endif( NOT HAVE_ASSUAN_INQUIRE_EXT )
+-
+-  # check if assuan has new-style assuan_inquire_ext:
+-  check_cxx_source_compiles("
+-        #include <assuan.h>
+-        static int handler( void *, int, unsigned char*, size_t ) { return 0; }
+-        int main() {
+-            assuan_context_t ctx = 0;
+-            const size_t maxSize = 0U;
+-            assuan_error_t err = assuan_inquire_ext( ctx, \"FOO\", maxSize, handler, (void*)0 );
+-            return err ? 1 : 0 ;
+-        }
+-        "
+-    HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT )
+-
+   # check if gpg-error already has GPG_ERR_SOURCE_KLEO
+   check_cxx_source_compiles("
+         #include <gpg-error.h>
+@@ -90,21 +53,6 @@
+         "
+     HAVE_GPG_ERR_SOURCE_KLEO )
+ 
+-  # check if assuan has assuan_sock_get_nonce (via assuan_sock_nonce_t)
+-  # function_exists runs into linking errors - libassuan is static,
+-  # and assuan_sock_get_nonce drags in stuff that needs linking
+-  # against winsock2.
+-  check_cxx_source_compiles("
+-        #include <assuan.h>
+-        static assuan_sock_nonce_t nonce;
+-        int main() { return 0; }
+-        "
+-    HAVE_ASSUAN_SOCK_GET_NONCE )
+-
+-  if ( WIN32 AND NOT HAVE_ASSUAN_SOCK_GET_NONCE )
+-    set( USABLE_ASSUAN_FOUND false )
+-  endif ( WIN32 AND NOT HAVE_ASSUAN_SOCK_GET_NONCE )  
+-
+ endif ( USABLE_ASSUAN_FOUND )
+ 
+ if ( USABLE_ASSUAN_FOUND )
+@@ -113,45 +61,14 @@
+   message( STATUS "NO usable assuan found for Kleopatra" )
+ endif ( USABLE_ASSUAN_FOUND )
+ 
+-#
+-# Check that libassuan (which is built statically) can be linked into a DSO
+-# (e.g. on amd64, this requires it to be compiled with -fPIC).
+-#
+-
+-set ( ASSUAN_LINKABLE_TO_DSO false )
+-
+ OPTION( BUILD_libkleopatraclient "Build directory kleopatra/libkleopatraclient" ${USABLE_ASSUAN_FOUND} )
+ 
+ if ( NOT USABLE_ASSUAN_FOUND )
+   set( BUILD_libkleopatraclient false )
+ endif ( NOT USABLE_ASSUAN_FOUND )
+ 
+-if ( BUILD_libkleopatraclient )
+-
+-  message( STATUS "Checking whether libassuan can be linked against from DSO's" )
+-
+-  set ( YUP TRUE )
+-  if ( YUP )
+-    set ( ASSUAN_LINKABLE_TO_DSO true )
+-    message( STATUS "--> Assuming that it can. If compilation of libkleopatraclient fails on AMD64, check that libassuan is compiled with -fPIC and try again. Otherwise, pass -DBUILD_libkleopatraclient=OFF." )
+-  else ( YUP )
+-  # TODO: make this one executed at configure time, so the check below works:
+-  add_library( dso_with_assuan_check SHARED ${CMAKE_SOURCE_DIR}/kleopatra/dso_with_assuan_check.c )
+-
+-  set( CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES} dso_with_assuan_check )
+-  check_cxx_source_compiles( "int main() { return 0; }" ASSUAN_LINKABLE_TO_DSO )
+-
+-  if ( ASSUAN_LINKABLE_TO_DSO )
+-    message( STATUS "Usable assuan found for libkleopatraclient" )
+-  else ( ASSUAN_LINKABLE_TO_DSO )
+-    message( STATUS "NO usable assuan found for libkleopatraclient - if this is AMD64, check that libassuan is compiled with -fPIC" )
+-  endif ( ASSUAN_LINKABLE_TO_DSO )
+-  endif ( YUP )
+-
+-endif ( BUILD_libkleopatraclient )
+-
+ macro_bool_to_01( USABLE_ASSUAN_FOUND  HAVE_USABLE_ASSUAN )
+-macro_bool_to_01( ASSUAN_LINKABLE_TO_DSO HAVE_KLEOPATRACLIENT_LIBRARY )
++macro_bool_to_01( USABLE_ASSUAN_FOUND  HAVE_KLEOPATRACLIENT_LIBRARY )
+ 
+ set(CMAKE_REQUIRED_INCLUDES)
+ set(CMAKE_REQUIRED_LIBRARIES)
+Index: kleopatra/config-kleopatra.h.cmake
+===================================================================
+--- kleopatra/config-kleopatra.h.cmake	(revision 1078527)
++++ kleopatra/config-kleopatra.h.cmake	(revision 1078528)
+@@ -1,18 +1,6 @@
+ /* Define to 1 if you have a recent enough libassuan */
+ #cmakedefine HAVE_USABLE_ASSUAN 1
+ 
+-/* Define to 1 if your libassuan has the assuan_fd_t type  */
+-#cmakedefine HAVE_ASSUAN_FD_T 1
+-
+-/* Define to 1 if your libassuan has the assuan_inquire_ext function */
+-#cmakedefine HAVE_ASSUAN_INQUIRE_EXT 1
+-
+-/* Define to 1 if your assuan_inquire_ext puts the buffer arguments into the callback signature */
+-#cmakedefine HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT 1
+-
+-/* Define to 1 if your libassuan has the assuan_sock_get_nonce function */
+-#cmakedefine HAVE_ASSUAN_SOCK_GET_NONCE 1
+-
+ /* Define to 1 if you build libkleopatraclient */
+ #cmakedefine HAVE_KLEOPATRACLIENT_LIBRARY 1
+ 
+Index: kleopatra/tests/test_uiserver.cpp
+===================================================================
+--- kleopatra/tests/test_uiserver.cpp	(revision 1078527)
++++ kleopatra/tests/test_uiserver.cpp	(revision 1078528)
+@@ -89,17 +89,17 @@
+     exit( 1 );
+ }
+ 
+-static assuan_error_t data( void * void_ctx, const void * buffer, size_t len ) {
++static gpg_error_t data( void * void_ctx, const void * buffer, size_t len ) {
+     (void)void_ctx; (void)buffer; (void)len;
+     return 0; // ### implement me
+ }
+ 
+-static assuan_error_t status( void * void_ctx, const char * line ) {
++static gpg_error_t status( void * void_ctx, const char * line ) {
+     (void)void_ctx; (void)line;
+     return 0;
+ }
+ 
+-static assuan_error_t inquire( void * void_ctx, const char * keyword ) {
++static gpg_error_t inquire( void * void_ctx, const char * keyword ) {
+     assuan_context_t ctx = (assuan_context_t)void_ctx;
+     assert( ctx );
+     const std::map<std::string,std::string>::const_iterator it = inquireData.find( keyword );
+@@ -121,7 +121,7 @@
+ 
+     const Kleo::WSAStarter _wsastarter;
+ 
+-    assuan_set_assuan_err_source( GPG_ERR_SOURCE_DEFAULT );
++    assuan_set_gpg_err_source( GPG_ERR_SOURCE_DEFAULT );
+ 
+     if ( argc < 3 )
+         usage(); // need socket and command, at least
+@@ -185,7 +185,12 @@
+ 
+     assuan_context_t ctx = 0;
+ 
+-    if ( const gpg_error_t err = assuan_socket_connect_ext( &ctx, socket, -1, ASSUAN_CONNECT_FLAGS ) ) {
++    if ( const gpg_error_t err = assuan_new( &ctx ) ) {
++        qDebug( "%s", Exception( err, "assuan_new" ).what() );
++        return 1;
++    }
++
++    if ( const gpg_error_t err = assuan_socket_connect( ctx, socket, -1, ASSUAN_CONNECT_FLAGS ) ) {
+         qDebug( "%s", Exception( err, "assuan_socket_connect_ext" ).what() );
+         return 1;
+     }
+@@ -279,7 +284,7 @@
+         return 1;
+     }
+ 
+-    assuan_disconnect( ctx );
++    assuan_release( ctx );
+ 
+     return 0;
+ }
+Index: kleopatra/uiserver/assuancommand.h
+===================================================================
+--- kleopatra/uiserver/assuancommand.h	(revision 1078527)
++++ kleopatra/uiserver/assuancommand.h	(revision 1078528)
+@@ -39,6 +39,8 @@
+ #include <gpgme++/global.h>
+ #include <gpgme++/error.h>
+ 
++#include <gpg-error.h>
++
+ #include <kmime/kmime_header_parsing.h>
+ 
+ #include <qwindowdefs.h> // for WId
+@@ -329,16 +331,16 @@
+         virtual boost::shared_ptr<AssuanCommand> create() const = 0;
+         virtual const char * name() const = 0;
+ 
+-        typedef int(*_Handler)( assuan_context_s*, char *);
++        typedef gpg_error_t(*_Handler)( assuan_context_s*, char *);
+         virtual _Handler _handler() const = 0;
+     protected:
+-        static int _handle( assuan_context_s*, char *, const char * );
++        static gpg_error_t _handle( assuan_context_s*, char *, const char * );
+     };
+ 
+     template <typename Command>
+     class GenericAssuanCommandFactory : public AssuanCommandFactory {
+         /* reimp */ AssuanCommandFactory::_Handler _handler() const { return &GenericAssuanCommandFactory::_handle; }
+-        static int _handle( assuan_context_s* _ctx, char * _line ) {
++        static gpg_error_t _handle( assuan_context_s* _ctx, char * _line ) {
+             return AssuanCommandFactory::_handle( _ctx, _line, Command::staticName() );
+         }
+         /* reimp */ boost::shared_ptr<AssuanCommand> create() const { return make(); }
+Index: kleopatra/uiserver/assuanserverconnection.cpp
+===================================================================
+--- kleopatra/uiserver/assuanserverconnection.cpp	(revision 1078527)
++++ kleopatra/uiserver/assuanserverconnection.cpp	(revision 1078528)
+@@ -116,13 +116,18 @@
+ static const int FOR_READING = 0;
+ static const unsigned int MAX_ACTIVE_FDS = 32;
+ 
++static void my_assuan_release( assuan_context_t ctx ) {
++    if ( ctx )
++        assuan_release( ctx );
++}
++
+ // shared_ptr for assuan_context_t w/ deleter enforced to assuan_deinit_server:
+ typedef shared_ptr< remove_pointer<assuan_context_t>::type > AssuanContextBase;
+ struct AssuanContext : AssuanContextBase {
+     AssuanContext() : AssuanContextBase() {}
+-    explicit AssuanContext( assuan_context_t ctx ) : AssuanContextBase( ctx, &assuan_deinit_server ) {}
++    explicit AssuanContext( assuan_context_t ctx ) : AssuanContextBase( ctx, &my_assuan_release ) {}
+ 
+-    void reset( assuan_context_t ctx=0 ) { AssuanContextBase::reset( ctx, &assuan_deinit_server ); }
++    void reset( assuan_context_t ctx=0 ) { AssuanContextBase::reset( ctx, &my_assuan_release ); }
+ };
+ 
+ static inline gpg_error_t assuan_process_done_msg( assuan_context_t ctx, gpg_error_t err, const char * err_msg ) {
+@@ -240,7 +245,8 @@
+ public Q_SLOTS:
+     void slotReadActivity( int ) {
+         assert( ctx );
+-        if ( const int err = assuan_process_next( ctx.get() ) ) {
++        int done = false;
++        if ( const int err = assuan_process_next( ctx.get(), &done ) || done ) {
+             //if ( err == -1 || gpg_err_code(err) == GPG_ERR_EOF ) {
+                 topHalfDeletion();
+                 if ( nohupedCommands.empty() )
+@@ -296,15 +302,17 @@
+     }
+ 
+ private:
+-    static void reset_handler( assuan_context_t ctx_ ) {
++    static gpg_error_t reset_handler( assuan_context_t ctx_, char * ) {
+         assert( assuan_get_pointer( ctx_ ) );
+ 
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+         conn.reset();
++
++        return 0;
+     }
+ 
+-    static int option_handler( assuan_context_t ctx_, const char * key, const char * value ) {
++    static gpg_error_t option_handler( assuan_context_t ctx_, const char * key, const char * value ) {
+         assert( assuan_get_pointer( ctx_ ) );
+ 
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+@@ -317,7 +325,7 @@
+         //return gpg_error( GPG_ERR_UNKNOWN_OPTION );
+     }
+ 
+-    static int session_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t session_handler( assuan_context_t ctx_, char * line ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -344,7 +352,7 @@
+         return assuan_process_done( ctx_, 0 );
+     }
+ 
+-    static int capabilities_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t capabilities_handler( assuan_context_t ctx_, char * line ) {
+         if ( !QByteArray( line ).trimmed().isEmpty() ) {
+             static const QString errorString = i18n("CAPABILITIES does not take arguments");
+             return assuan_process_done_msg( ctx_, gpg_error( GPG_ERR_ASS_PARAMETER ), errorString );
+@@ -357,7 +365,7 @@
+         return assuan_process_done( ctx_, assuan_send_data( ctx_, capabilities, sizeof capabilities - 1 ) );
+     }
+ 
+-    static int getinfo_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t getinfo_handler( assuan_context_t ctx_, char * line ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -386,7 +394,7 @@
+         return assuan_process_done( ctx_, assuan_send_data( ctx_, ba.constData(), ba.size() ) );
+     }
+ 
+-    static int start_keymanager_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t start_keymanager_handler( assuan_context_t ctx_, char * line ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -400,7 +408,7 @@
+         return assuan_process_done( ctx_, 0 );
+     }
+ 
+-    static int start_confdialog_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t start_confdialog_handler( assuan_context_t ctx_, char * line ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -418,7 +426,7 @@
+ 
+     // format: TAG (FD|FD=\d+|FILE=...)
+     template <bool in, typename T_memptr>
+-    static int IO_handler( assuan_context_t ctx_, char * line_, T_memptr which ) {
++    static gpg_error_t IO_handler( assuan_context_t ctx_, char * line_, T_memptr which ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -498,19 +506,19 @@
+ 
+     }
+ 
+-    static int input_handler( assuan_context_t ctx, char * line ) {
++    static gpg_error_t input_handler( assuan_context_t ctx, char * line ) {
+         return IO_handler<true>( ctx, line, &Private::inputs );
+     }
+ 
+-    static int output_handler( assuan_context_t ctx, char * line ) {
++    static gpg_error_t output_handler( assuan_context_t ctx, char * line ) {
+         return IO_handler<false>( ctx, line, &Private::outputs );
+     }
+ 
+-    static int message_handler( assuan_context_t ctx, char * line ) {
++    static gpg_error_t message_handler( assuan_context_t ctx, char * line ) {
+         return IO_handler<true>( ctx, line, &Private::messages );
+     }
+ 
+-    static int file_handler( assuan_context_t ctx_, char * line ) {
++    static gpg_error_t file_handler( assuan_context_t ctx_, char * line ) {
+         assert( assuan_get_pointer( ctx_ ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx_ ) );
+ 
+@@ -572,7 +580,7 @@
+     }
+ 
+     template <typename T_memptr, typename T_memptr2>
+-    static int recipient_sender_handler( T_memptr mp, T_memptr2 info, assuan_context_t ctx, char * line, bool sender=false ) {
++    static gpg_error_t recipient_sender_handler( T_memptr mp, T_memptr2 info, assuan_context_t ctx, char * line, bool sender=false ) {
+         assert( assuan_get_pointer( ctx ) );
+         AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx ) );
+ 
+@@ -656,11 +664,11 @@
+         return assuan_process_done( ctx, 0 );
+     }
+ 
+-    static int recipient_handler( assuan_context_t ctx, char * line ) {
++    static gpg_error_t recipient_handler( assuan_context_t ctx, char * line ) {
+         return recipient_sender_handler( &Private::recipients, &Private::informativeRecipients, ctx, line );
+     }
+ 
+-    static int sender_handler( assuan_context_t ctx, char * line ) {
++    static gpg_error_t sender_handler( assuan_context_t ctx, char * line ) {
+         return recipient_sender_handler( &Private::senders, &Private::informativeSenders, ctx, line, true );
+     }
+ 
+@@ -792,11 +800,15 @@
+     if ( fd == ASSUAN_INVALID_FD )
+         throw Exception( gpg_error( GPG_ERR_INV_ARG ), "pre-assuan_init_socket_server_ext" );
+ 
+-    assuan_context_t naked_ctx = 0;
+-    if ( const gpg_error_t err = assuan_init_socket_server_ext( &naked_ctx, fd, INIT_SOCKET_FLAGS ) )
++    {
++        assuan_context_t naked_ctx = 0;
++        if ( const gpg_error_t err = assuan_new( &naked_ctx ) )
++            throw Exception( err, "assuan_new" );
++        ctx.reset( naked_ctx );
++    }
++    if ( const gpg_error_t err = assuan_init_socket_server( ctx.get(), fd, INIT_SOCKET_FLAGS ) )
+         throw Exception( err, "assuan_init_socket_server_ext" );
+ 
+-    ctx.reset( naked_ctx ); naked_ctx = 0;
+ 
+     // for callbacks, associate the context with this connection:
+     assuan_set_pointer( ctx.get(), this );
+@@ -824,34 +836,34 @@
+ 
+ 
+     // register our INPUT/OUTPUT/MESSGAE/FILE handlers:
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "INPUT",  input_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "INPUT",  input_handler, "" ) )
+         throw Exception( err, "register \"INPUT\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "MESSAGE",  message_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "MESSAGE",  message_handler, "" ) )
+         throw Exception( err, "register \"MESSAGE\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "OUTPUT", output_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "OUTPUT", output_handler, "" ) )
+         throw Exception( err, "register \"OUTPUT\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "FILE", file_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "FILE", file_handler, "" ) )
+         throw Exception( err, "register \"FILE\" handler" );
+ 
+ 
+     // register user-defined commands:
+     Q_FOREACH( shared_ptr<AssuanCommandFactory> fac, factories )
+-        if ( const gpg_error_t err = assuan_register_command( ctx.get(), fac->name(), fac->_handler() ) )
++        if ( const gpg_error_t err = assuan_register_command( ctx.get(), fac->name(), fac->_handler(), "" ) )
+             throw Exception( err, std::string( "register \"" ) + fac->name() + "\" handler" );
+ 
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "GETINFO", getinfo_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "GETINFO", getinfo_handler, "" ) )
+         throw Exception( err, "register \"GETINFO\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "START_KEYMANAGER", start_keymanager_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "START_KEYMANAGER", start_keymanager_handler, "" ) )
+         throw Exception( err, "register \"START_KEYMANAGER\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "START_CONFDIALOG", start_confdialog_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "START_CONFDIALOG", start_confdialog_handler, "" ) )
+         throw Exception( err, "register \"START_CONFDIALOG\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "RECIPIENT", recipient_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "RECIPIENT", recipient_handler, "" ) )
+         throw Exception( err, "register \"RECIPIENT\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "SENDER", sender_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "SENDER", sender_handler, "" ) )
+         throw Exception( err, "register \"SENDER\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "SESSION", session_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "SESSION", session_handler, "" ) )
+         throw Exception( err, "register \"SESSION\" handler" );
+-    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "CAPABILITIES", capabilities_handler ) )
++    if ( const gpg_error_t err = assuan_register_command( ctx.get(), "CAPABILITIES", capabilities_handler, "" ) )
+         throw Exception( err, "register \"CAPABILITIES\" handler" );
+ 
+     assuan_set_hello_line( ctx.get(), "GPG UI server (Kleopatra/" KLEOPATRA_VERSION_STRING ") ready to serve" );
+@@ -904,20 +916,14 @@
+     Q_OBJECT
+ public:
+ 
+-#ifdef HAVE_ASSUAN_INQUIRE_EXT
+     explicit InquiryHandler( const char * keyword_, QObject * p=0 )
+         : QObject( p ),
+-# ifndef HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT
+-          buffer( 0 ),
+-          buflen( 0 ),
+-# endif
+           keyword( keyword_ )
+     {
+ 
+     }
+ 
+-# ifdef HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT
+-    static int handler( void * cb_data, int rc, unsigned char * buffer, size_t buflen )
++    static gpg_error_t handler( void * cb_data, gpg_error_t rc, unsigned char * buffer, size_t buflen )
+     {
+         assert( cb_data );
+         InquiryHandler * this_ = static_cast<InquiryHandler*>(cb_data);
+@@ -926,26 +932,9 @@
+         delete this_;
+         return 0;
+     }
+-# else
+-    static int handler( void * cb_data, int rc )
+-    {
+-        assert( cb_data );
+-        InquiryHandler * this_ = static_cast<InquiryHandler*>(cb_data);
+-        emit this_->signal( rc, QByteArray::fromRawData( reinterpret_cast<const char*>(this_->buffer), this_->buflen ), this_->keyword );
+-        std::free( this_->buffer );
+-        delete this_;
+-        return 0;
+-    }
+-# endif
+ 
+ private:
+-# ifndef HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT
+-    friend class ::Kleo::AssuanCommand;
+-    unsigned char * buffer;
+-    size_t buflen;
+-# endif
+     const char * keyword;
+-#endif // HAVE_ASSUAN_INQUIRE_EXT
+ 
+ Q_SIGNALS:
+     void signal( int rc, const QByteArray & data, const QByteArray & keyword );
+@@ -1157,20 +1146,13 @@
+     if ( d->nohup )
+         return makeError( GPG_ERR_INV_OP );
+ 
+-#ifdef HAVE_ASSUAN_INQUIRE_EXT
+     std::auto_ptr<InquiryHandler> ih( new InquiryHandler( keyword, receiver ) );
+     receiver->connect( ih.get(), SIGNAL(signal(int,QByteArray,QByteArray)), slot );
+     if ( const gpg_error_t err = assuan_inquire_ext( d->ctx.get(), keyword,
+-# ifndef HAVE_NEW_STYLE_ASSUAN_INQUIRE_EXT
+-                                                     &ih->buffer, &ih->buflen,
+-# endif
+                                                      maxSize, InquiryHandler::handler, ih.get() ) )
+          return err;
+     ih.release();
+     return 0;
+-#else
+-    return makeError( GPG_ERR_NOT_SUPPORTED ); // libassuan too old
+-#endif // HAVE_ASSUAN_INQUIRE_EXT
+ }
+ 
+ void AssuanCommand::done( const GpgME::Error& err, const QString & details ) {
+@@ -1262,7 +1244,7 @@
+     return d->senders;
+ }
+ 
+-int AssuanCommandFactory::_handle( assuan_context_t ctx, char * line, const char * commandName ) {
++gpg_error_t AssuanCommandFactory::_handle( assuan_context_t ctx, char * line, const char * commandName ) {
+     assert( assuan_get_pointer( ctx ) );
+     AssuanServerConnection::Private & conn = *static_cast<AssuanServerConnection::Private*>( assuan_get_pointer( ctx ) );
+ 
+Index: kleopatra/uiserver/uiserver.cpp
+===================================================================
+--- kleopatra/uiserver/uiserver.cpp	(revision 1078527)
++++ kleopatra/uiserver/uiserver.cpp	(revision 1078528)
+@@ -73,15 +73,15 @@
+       actualSocketName(),
+       cryptoCommandsEnabled( false )
+ {
+-    assuan_set_assuan_err_source( GPG_ERR_SOURCE_DEFAULT );
++    assuan_set_gpg_err_source( GPG_ERR_SOURCE_DEFAULT );
+ }
+ 
+ bool UiServer::Private::isStaleAssuanSocket( const QString& fileName )
+ {
+     assuan_context_t ctx = 0;
+-    const bool error = assuan_socket_connect_ext( &ctx, QFile::encodeName( fileName ).constData(), -1, 0 );
++    const bool error = assuan_new( &ctx ) || assuan_socket_connect( ctx, QFile::encodeName( fileName ).constData(), -1, 0 );
+     if ( !error )
+-        assuan_disconnect( ctx );
++        assuan_release( ctx );
+     return error;
+ }
+ 
+@@ -166,13 +166,11 @@
+ void UiServer::Private::incomingConnection( int fd ) {
+     try {
+         qDebug( "UiServer: client connect on fd %d", fd );
+-#ifdef HAVE_ASSUAN_SOCK_GET_NONCE
+         if ( assuan_sock_check_nonce( (assuan_fd_t)fd, &nonce ) ) {
+             qDebug( "UiServer: nonce check failed" );
+             assuan_sock_close( (assuan_fd_t)fd );
+             return;
+         }
+-#endif
+         const shared_ptr<AssuanServerConnection> c( new AssuanServerConnection( (assuan_fd_t)fd, factories ) );
+         connect( c.get(), SIGNAL(closed(Kleo::AssuanServerConnection*)),
+                  this, SLOT(slotConnectionClosed(Kleo::AssuanServerConnection*)) );
+Index: kleopatra/uiserver/uiserver_unix.cpp
+===================================================================
+--- kleopatra/uiserver/uiserver_unix.cpp	(revision 1078527)
++++ kleopatra/uiserver/uiserver_unix.cpp	(revision 1078528)
+@@ -61,11 +61,7 @@
+ 
+ void UiServer::Private::doMakeListeningSocket( const QByteArray & encodedFileName ) {
+     // Create a Unix Domain Socket:
+-#ifdef HAVE_ASSUAN_SOCK_GET_NONCE
+     const assuan_fd_t sock = assuan_sock_new( AF_UNIX, SOCK_STREAM, 0 );
+-#else
+-    const assuan_fd_t sock = ::socket( AF_UNIX, SOCK_STREAM, 0 );
+-#endif
+     if ( sock == ASSUAN_INVALID_FD )
+         throw_<std::runtime_error>( i18n( "Could not create socket: %1", systemErrorString() ) );
+ 
+@@ -75,19 +71,13 @@
+         std::memset( &sa, 0, sizeof(sa) );
+         sa.sun_family = AF_UNIX;
+         std::strncpy( sa.sun_path, encodedFileName.constData(), sizeof( sa.sun_path ) - 1 );
+-#ifdef HAVE_ASSUAN_SOCK_GET_NONCE
+         if ( assuan_sock_bind( sock, (struct sockaddr*)&sa, sizeof( sa ) ) )
+-#else
+-        if ( ::bind( sock, (struct sockaddr*)&sa, sizeof( sa ) ) )
+-#endif
+             throw_<std::runtime_error>( i18n( "Could not bind to socket: %1", systemErrorString() ) );
+ 
+         // ### TODO: permissions?
+ 
+-#ifdef HAVE_ASSUAN_SOCK_GET_NONCE
+         if ( assuan_sock_get_nonce( (struct sockaddr*)&sa, sizeof( sa ), &nonce ) )
+             throw_<std::runtime_error>( i18n("Could not get socket nonce: %1", systemErrorString() ) );
+-#endif
+ 
+         // Listen
+         if ( ::listen( sock, SOMAXCONN ) )
+Index: kleopatra/CMakeLists.txt
+===================================================================
+--- kleopatra/CMakeLists.txt	(revision 1078527)
++++ kleopatra/CMakeLists.txt	(revision 1078528)
+@@ -2,7 +2,7 @@
+ 
+ include(MacroOptionalAddSubdirectory)
+ 
+-set( kleopatra_version 2.0.12 )
++set( kleopatra_version 2.1.0 )
+ set( kleopatra_release FALSE )
+ 
+ if (NOT kleopatra_release)
+@@ -28,7 +28,7 @@
+   ${QGPGME_INCLUDES}
+   ${GPGME_INCLUDES} )
+ if (USABLE_ASSUAN_FOUND)
+-   include_directories(${ASSUAN_INCLUDES})
++   include_directories(${ASSUAN2_INCLUDES})
+ endif(USABLE_ASSUAN_FOUND)
+ add_definitions ( -DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS -D_ASSUAN_ONLY_GPG_ERRORS -DQT_STL )
+ remove_definitions ( -DQT_NO_STL )
+@@ -84,11 +84,7 @@
+     selftest/uiservercheck.cpp
+     )
+ 
+-  if ( WIN32 )
+-    set( _kleopatra_uiserver_extra_libs ${ASSUAN_VANILLA_LIBRARIES} )
+-  else ( WIN32 )
+-    set( _kleopatra_uiserver_extra_libs ${ASSUAN_PTHREAD_LIBRARIES} )
+-  endif( WIN32 )
++  set( _kleopatra_uiserver_extra_libs ${ASSUAN2_LIBRARIES} )
+ 
+   if ( HAVE_GPG_ERR_SOURCE_KLEO )
+     add_definitions( -DGPG_ERR_SOURCE_DEFAULT=GPG_ERR_SOURCE_KLEO )
+Index: kleopatra/libkleopatraclient/core/command.cpp
+===================================================================
+--- kleopatra/libkleopatraclient/core/command.cpp	(revision 1078527)
++++ kleopatra/libkleopatraclient/core/command.cpp	(revision 1078528)
+@@ -283,19 +283,19 @@
+ namespace {
+     struct AssuanClientContext : AssuanContextBase {
+         AssuanClientContext() : AssuanContextBase() {}
+-        explicit AssuanClientContext( assuan_context_t ctx ) : AssuanContextBase( ctx, &assuan_disconnect ) {}
+-        void reset( assuan_context_t ctx=0 ) { AssuanContextBase::reset( ctx, &assuan_disconnect ); }
++        explicit AssuanClientContext( assuan_context_t ctx ) : AssuanContextBase( ctx, &assuan_release ) {}
++        void reset( assuan_context_t ctx=0 ) { AssuanContextBase::reset( ctx, &assuan_release ); }
+     };
+ }
+ 
+-static assuan_error_t
++static gpg_error_t
+ my_assuan_transact( const AssuanClientContext & ctx,
+                     const char *command,
+-                    assuan_error_t (*data_cb)( void *, const void *, size_t )=0,
++                    gpg_error_t (*data_cb)( void *, const void *, size_t )=0,
+                     void * data_cb_arg=0,
+-                    assuan_error_t (*inquire_cb)( void *, const char * )=0,
++                    gpg_error_t (*inquire_cb)( void *, const char * )=0,
+                     void * inquire_cb_arg=0,
+-                    assuan_error_t (*status_cb)( void *, const char * )=0,
++                    gpg_error_t (*status_cb)( void *, const char * )=0,
+                     void * status_cb_arg=0)
+ {
+     return assuan_transact( ctx.get(), command, data_cb, data_cb_arg, inquire_cb, inquire_cb_arg, status_cb, status_cb_arg );
+@@ -337,26 +337,26 @@
+     return Command::tr("start_uiserver: not yet implemented");
+ }
+ 
+-static assuan_error_t getinfo_pid_cb( void * opaque, const void * buffer, size_t length ) {
++static gpg_error_t getinfo_pid_cb( void * opaque, const void * buffer, size_t length ) {
+     qint64 & pid = *static_cast<qint64*>( opaque );
+     pid = QByteArray( static_cast<const char*>( buffer ), length ).toLongLong();
+     return 0;
+ }
+ 
+-static assuan_error_t command_data_cb( void * opaque, const void * buffer, size_t length ) {
++static gpg_error_t command_data_cb( void * opaque, const void * buffer, size_t length ) {
+     QByteArray & ba = *static_cast<QByteArray*>( opaque );
+     ba.append( QByteArray( static_cast<const char*>(buffer), length ) );
+     return 0;
+ }
+ 
+-static assuan_error_t send_option( const AssuanClientContext & ctx, const char * name, const QVariant & value ) {
++static gpg_error_t send_option( const AssuanClientContext & ctx, const char * name, const QVariant & value ) {
+     if ( value.isValid() )
+         return my_assuan_transact( ctx, QString().sprintf( "OPTION %s=%s", name, value.toString().toUtf8().constData() ).toUtf8().constData() );
+     else
+         return my_assuan_transact( ctx, QString().sprintf( "OPTION %s", name ).toUtf8().constData() );
+ }
+ 
+-static assuan_error_t send_file( const AssuanClientContext & ctx, const QString & file ) {
++static gpg_error_t send_file( const AssuanClientContext & ctx, const QString & file ) {
+     return my_assuan_transact( ctx, QString().sprintf( "FILE %s", hexencode( QFile::encodeName( file ) ).constData() ).toUtf8().constData() );
+ }
+ 
+@@ -373,21 +373,32 @@
+ 
+     out.canceled = false;
+ 
+-    assuan_error_t err = 0;
++    if ( out.serverLocation.isEmpty() )
++        out.serverLocation = default_socket_name();
+ 
+-    assuan_context_t naked_ctx = 0;
+     AssuanClientContext ctx;
++    gpg_error_t err = 0;
+ 
+-    if ( out.serverLocation.isEmpty() )
+-        out.serverLocation = default_socket_name();
+-
+     const QString socketName = out.serverLocation;
+     if ( socketName.isEmpty() ) {
+         out.errorString = tr("Invalid socket name!");
+         goto leave;
+     }
+ 
+-    err = assuan_socket_connect( &naked_ctx, QFile::encodeName( socketName ).constData(), -1 );
++    {
++        assuan_context_t naked_ctx = 0;
++        err = assuan_new( &naked_ctx );
++        if ( err ) {
++            out.errorString = tr( "Could not allocate resources to connect to Kleopatra UI server at %1: %2" )
++                .arg( socketName, to_error_string( err ) );
++            goto leave;
++        }
++
++        ctx.reset( naked_ctx );
++    }
++
++
++    err = assuan_socket_connect( ctx.get(), QFile::encodeName( socketName ).constData(), -1, 0 );
+     if ( err ) {
+         qDebug( "UI server not running, starting it" );
+         
+@@ -400,7 +411,7 @@
+         // give it a bit of time to start up and try a couple of times
+         for ( int i = 0 ; err && i < 20 ; ++i ) {
+             msleep( 500 );
+-            err = assuan_socket_connect( &naked_ctx, QFile::encodeName( socketName ).constData(), -1 );
++            err = assuan_socket_connect( ctx.get(), QFile::encodeName( socketName ).constData(), -1, 0 );
+         }
+     }
+ 
+@@ -410,9 +421,6 @@
+         goto leave;
+     }
+ 
+-    ctx.reset( naked_ctx );
+-    naked_ctx = 0;
+-
+     out.serverPid = -1;
+     err = my_assuan_transact( ctx, "GETINFO pid", &getinfo_pid_cb, &out.serverPid );
+     if ( err || out.serverPid <= 0 ) {
+Index: kleopatra/libkleopatraclient/core/initialization.cpp
+===================================================================
+--- kleopatra/libkleopatraclient/core/initialization.cpp	(revision 1078527)
++++ kleopatra/libkleopatraclient/core/initialization.cpp	(revision 1078528)
+@@ -29,7 +29,7 @@
+ using namespace KLEOPATRACLIENT_NAMESPACE;
+ 
+ Initialization::Initialization() {
+-    assuan_set_assuan_err_source( GPG_ERR_SOURCE_DEFAULT );
++    assuan_set_gpg_err_source( GPG_ERR_SOURCE_DEFAULT );
+ }
+ 
+ Initialization::~Initialization() {
+Index: kleopatra/libkleopatraclient/core/CMakeLists.txt
+===================================================================
+--- kleopatra/libkleopatraclient/core/CMakeLists.txt	(revision 1078527)
++++ kleopatra/libkleopatraclient/core/CMakeLists.txt	(revision 1078528)
+@@ -1,4 +1,4 @@
+-include_directories( ${ASSUAN_INCLUDES} ${CMAKE_SOURCE_DIR}/kleopatra )
++include_directories( ${ASSUAN2_INCLUDES} ${CMAKE_SOURCE_DIR}/kleopatra )
+ 
+ add_definitions( -D_ASSUAN_ONLY_GPG_ERRORS -DQT_NO_CAST_FROM_ASCII -DQT_NO_KEYWORDS -DQT_NO_CAST_TO_ASCII )
+ 
+@@ -27,9 +27,9 @@
+ 
+ 
+ if ( WIN32 )
+-  target_link_libraries( kleopatraclientcore ${QT_QTCORE_LIBRARY} ${ASSUAN_VANILLA_LIBRARIES} ws2_32 )
++  target_link_libraries( kleopatraclientcore ${QT_QTCORE_LIBRARY} ${ASSUAN2_LIBRARIES} ws2_32 )
+ else ( WIN32 )
+-  target_link_libraries( kleopatraclientcore ${QT_QTCORE_LIBRARY} ${ASSUAN_PTHREAD_LIBRARIES} )
++  target_link_libraries( kleopatraclientcore ${QT_QTCORE_LIBRARY} ${ASSUAN2_LIBRARIES} )
+ endif ( WIN32 )
+ 
+ install(

@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 DEPEND="
 	app-crypt/gpgme
-	dev-libs/libassuan
+	>=dev-libs/libassuan-2.0.0
 	dev-libs/libgpg-error
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkdepim)
@@ -27,6 +27,10 @@ KMEXTRACTONLY="
 	libkleo
 "
 KMLOADLIBS="libkleo"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.3-assuan2.patch"
+)
 
 src_unpack() {
 	if use handbook; then
