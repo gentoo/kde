@@ -44,7 +44,7 @@ src_compile() {
 }
 
 src_install() {
-	use doc && HTML_DOCS="${CMAKE_BUILD_DIR}"/apidocs/html/
+	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
 
 	cmake-utils_src_install
 }

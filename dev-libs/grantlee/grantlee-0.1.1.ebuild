@@ -27,7 +27,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
-DOCS="AUTHORS CHANGELOG GOALS README"
+DOCS=(AUTHORS CHANGELOG GOALS README)
 
 S="${WORKDIR}/${MY_P}"
 
@@ -46,7 +46,7 @@ src_compile() {
 }
 
 src_install() {
-	use doc && HTML_DOCS="${CMAKE_BUILD_DIR}"/apidocs/html/
+	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
 
 	cmake-utils_src_install
 }

@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="2"
+
 inherit kde4-base
 
 DESCRIPTION="Find out when your bus/train is going."
@@ -17,7 +18,7 @@ IUSE="debug"
 DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
 RDEPEND="${DEPEND}"
 
-DOCS="AUTHORS Changelog README"
+DOCS=(AUTHORS Changelog README)
 
 src_prepare() {
 	cat <<-EOF > "${S}/CMakeLists.txt"
@@ -25,5 +26,6 @@ add_subdirectory(plasma-applet-${P})
 add_subdirectory(plasma-dataengine-${P})
 add_subdirectory(${PN}-icons-${PV})
 	EOF
+
 	kde4-base_src_prepare
 }

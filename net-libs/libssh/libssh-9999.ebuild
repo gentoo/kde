@@ -24,7 +24,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS="AUTHORS README ChangeLog"
+DOCS=(AUTHORS README ChangeLog)
 
 src_prepare() {
 	sed -i '/add_subdirectory(examples)/s/^/#DONOTWANT/' CMakeLists.txt

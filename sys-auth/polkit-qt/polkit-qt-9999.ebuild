@@ -26,7 +26,7 @@ RDEPEND="${COMMON_DEPEND}
 	examples? ( !sys-auth/policykit-qt[examples] )
 "
 
-DOCS="AUTHORS README README.porting TODO"
+DOCS=(AUTHORS README README.porting TODO)
 
 src_unpack() {
 	subversion_src_unpack

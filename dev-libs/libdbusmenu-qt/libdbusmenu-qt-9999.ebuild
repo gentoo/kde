@@ -25,7 +25,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS="NEWS README"
+DOCS=(NEWS README)
 
 src_unpack() {
 	git_src_unpack

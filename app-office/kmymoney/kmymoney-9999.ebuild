@@ -33,7 +33,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-util/cppunit-1.12.1 )"
 
-DOCS="AUTHORS BUGS ChangeLog* README* TODO"
+DOCS=(AUTHORS BUGS ChangeLog ChangeLog.original README.Fileformats TODO)
 
 src_prepare() {
 	kde4-base_src_prepare

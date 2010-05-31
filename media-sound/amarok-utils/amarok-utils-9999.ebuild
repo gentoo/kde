@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-DOCS="TODO README ChangeLog AUTHORS"
+DOCS=(TODO README ChangeLog AUTHORS)
 
 src_prepare() {
 	# Disable po processing

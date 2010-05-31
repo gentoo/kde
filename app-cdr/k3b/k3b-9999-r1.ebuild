@@ -44,7 +44,7 @@ RDEPEND="${DEPEND}
 	!app-cdr/k3b:2
 "
 
-DOCS="FAQ KNOWNBUGS PERMISSIONS"
+DOCS=(FAQ KNOWNBUGS PERMISSIONS)
 
 src_configure() {
 	mycmakeargs=(

@@ -3,28 +3,30 @@
 # $Header: $
 
 EAPI="2"
-inherit cmake-utils 
+
+inherit cmake-utils
 
 DESCRIPTION="Little CMS ICC profile construction set"
 HOMEPAGE="http://lprof.sourceforge.net/"
 SRC_URI="http://dev.gentooexperimental.org/~tampakrap/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+SLOT="0"
+IUSE="debug"
 
-DEPEND="x11-libs/qt-core:4[qt3support]
-	x11-libs/qt-assistant:4
+DEPEND="
 	dev-libs/openssl
-	sys-libs/zlib
 	media-libs/libpng
 	media-libs/tiff
 	media-libs/jpeg
 	media-libs/vigra
+	sys-libs/zlib
 	virtual/libusb
+	x11-libs/qt-core:4[qt3support]
+	x11-libs/qt-assistant:4
 	x11-libs/libX11
-	"
+"
 RDEPEND="${DEPEND}"
 
-DOCS="README"
+DOCS=(README)
