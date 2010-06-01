@@ -101,19 +101,12 @@ _use_me_now_inverted() {
 	fi
 }
 
-# @ECLASS-VARIABLE: PREFIX
+# @ECLASS-VARIABLE: CMAKE_BUILD_DIR
 # @DESCRIPTION:
-# Eclass respects PREFIX variable, though it's not recommended way to set
-# install/lib/bin prefixes.
-# Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
-
-# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
-# @DESCRIPTION:
-# Set to enable in-source build.
-
-# @ECLASS-VARIABLE: CMAKE_VERBOSE
-# @DESCRIPTION:
-# Set to enable verbose messages during compilation.
+# Build directory where all cmake processed files should be generated.
+# For in-source build it's fixed to ${CMAKE_USE_DIR}.
+# For out-of-source build it can be overriden, by default it uses
+# ${WORKDIR}/${P}_build.
 
 # @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
 # @DESCRIPTION:
@@ -124,22 +117,30 @@ _use_me_now_inverted() {
 # specific compiler flags overriding make.conf.
 : ${CMAKE_BUILD_TYPE:=Gentoo}
 
+# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
+# @DESCRIPTION:
+# Set to enable in-source build.
+
+# @ECLASS-VARIABLE: CMAKE_USE_DIR
+# @DESCRIPTION:
+# Sets the directory where we are working with cmake.
+# For example when application uses autotools and only one
+# plugin needs to be done by cmake.
+# By default it uses ${S}.
+
+# @ECLASS-VARIABLE: CMAKE_VERBOSE
+# @DESCRIPTION:
+# Set to enable verbose messages during compilation.
+
+# @ECLASS-VARIABLE: PREFIX
+# @DESCRIPTION:
+# Eclass respects PREFIX variable, though it's not recommended way to set
+# install/lib/bin prefixes.
+# Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
+
 # Determine using IN or OUT source build
 _check_build_dir() {
-	# @ECLASS-VARIABLE: CMAKE_USE_DIR
-	# @DESCRIPTION:
-	# Sets the directory where we are working with cmake.
-	# For example when application uses autotools and only one
-	# plugin needs to be done by cmake.
-	# By default it uses ${S}.
 	: ${CMAKE_USE_DIR:=${S}}
-
-	# @ECLASS-VARIABLE: CMAKE_BUILD_DIR
-	# @DESCRIPTION:
-	# Specify the build directory where all cmake processed
-	# files should be located.
-	#
-	# For installing binary doins "${CMAKE_BUILD_DIR}/${PN}"
 	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
 		# we build in source dir
 		CMAKE_BUILD_DIR="${CMAKE_USE_DIR}"
