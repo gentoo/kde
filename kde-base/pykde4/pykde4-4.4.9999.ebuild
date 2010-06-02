@@ -56,8 +56,8 @@ src_install() {
 
 	kde4-meta_src_install
 
-	python_convert_shebangs -q -r $(python_get_version) "${ED}"
-	find "${ED}" -type f -name '*.py[co]' -exec rm -f {} +
+	python_convert_shebangs -r $(python_get_version) "${ED}"
+	python_clean_installation_image
 }
 
 pkg_postinst() {
