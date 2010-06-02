@@ -26,3 +26,10 @@ KMEXTRA="
 "
 
 KMLOADLIBS="koffice-libs"
+
+src_install() {
+	kde4-meta_src_install
+
+	# this is already installed by koffice-data
+	rm -f "${D}/usr/include/config-opengl.h"
+}
