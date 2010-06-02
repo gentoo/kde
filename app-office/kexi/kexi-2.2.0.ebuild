@@ -14,6 +14,7 @@ IUSE="freetds mysql postgres reports xbase"
 DEPEND="
 	sys-libs/readline
 	app-arch/bzip2
+	~app-office/kspread-${PV}:${SLOT}
 	freetds? ( dev-db/freetds )
 	mysql? ( virtual/mysql )
 	postgres? ( =dev-libs/libpqxx-2.6* )
