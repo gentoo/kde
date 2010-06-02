@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
-IUSE="+akonadi debug +handbook ldap"
+IUSE="debug +handbook ldap semantic-desktop"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
@@ -23,7 +23,12 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
-	akonadi? ( >=app-office/akonadi-server-1.3.60 )
+	semantic-desktop? (
+		>=app-office/akonadi-server-1.3.60
+		$(add_kdebase_dep kdelibs 'semantic-desktop')
+		media-sound/phonon
+		x11-misc/shared-mime-info
+	)
 	ldap? ( net-nds/openldap )
 "
 RDEPEND="${DEPEND}"
@@ -40,12 +45,16 @@ add_blocker kaddressbook '<4.4.60'
 src_prepare() {
 	kde4-base_src_prepare
 
-	if ! use akonadi; then
-		sed -e '/find_package(Akonadi/s/^/# DISABLED /' \
-			-e '/macro_log_feature(Akonadi_FOUND/s/TRUE/FALSE/' \
-			-e '/add_subdirectory(akonadi)/s/^/# DISABLED /' \
-			-e '/add_subdirectory(mailtransport)/s/^/# DISABLED /' \
-			-i CMakeLists.txt || die "failed to disable akonadi"
+	# Disable hardcoded checks
+	sed -r -e '/find_package\((Akonadi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
+		-e '/macro_log_feature\((Akonadi|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
+		-e '/add_subdirectory\((akonadi|mailtransport)/{/macro_optional_/!s/add/macro_optional_&/}' \
+		-i CMakeLists.txt || die
+	if ! use semantic-desktop; then
+		sed -e '/include(SopranoAddOntology)/s/^/#DISABLED /' \
+			-i CMakeLists.txt || die
+		# More reliable than -DBUILD_akonadi=OFF
+		rm -r akonadi mailtransport || die
 	fi
 }
 
@@ -53,6 +62,10 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_with ldap)
+		$(cmake-utils_use_with semantic-desktop Akonadi)
+		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
 	)
 
 	kde4-base_src_configure

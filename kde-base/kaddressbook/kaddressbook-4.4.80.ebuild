@@ -13,7 +13,7 @@ IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"

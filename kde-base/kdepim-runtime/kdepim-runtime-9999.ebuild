@@ -22,8 +22,7 @@ DEPEND="
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}

@@ -33,7 +33,7 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	qalculate? ( sci-libs/libqalculate )
-	rss? ( $(add_kdebase_dep kdepimlibs 'akonadi') )
+	rss? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}

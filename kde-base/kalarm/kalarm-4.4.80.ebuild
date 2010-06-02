@@ -12,7 +12,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug +handbook"
 
 RDEPEND="
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep kdepim-common-libs)
 	media-sound/phonon
 "
@@ -21,11 +21,3 @@ DEPEND="${RDEPEND}"
 KMEXTRACTONLY="
 	kmail/
 "
-
-src_configure() {
-	mycmakeargs=(
-		-DBUILD_akonadi=OFF
-	)
-
-	kde4-meta_src_configure
-}

@@ -11,7 +11,7 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-li
 IUSE="debug +handbook tidy"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}"

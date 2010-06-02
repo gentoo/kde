@@ -15,8 +15,7 @@ IUSE="debug"
 DEPEND="
 	app-crypt/gpgme
 	>=app-office/akonadi-server-1.3.60
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
