@@ -27,6 +27,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 #	doc? ( app-doc/doxygen )"
 
+PATCHES=( "${FILESDIR}/${P}-kspreadcommon.patch" )
+
 KMEXTRA="
 	doc/koffice/
 	doc/thesaurus/
@@ -38,11 +40,13 @@ KMEXTRA="
 	kounavail/
 	plugins/
 	tools/
+	kchart/kdchart/
+	kchart/shape/
 "
 #	doc/api/"
 KMEXTRACTONLY="
+	kchart
 	doc/koffice.desktop
-	kchart/kdchart/
 "
 
 KMSAVELIBS="true"
@@ -63,4 +67,7 @@ src_install() {
 	newdoc kounavail/README README.kounavail || die
 
 	kde4-meta_src_install
+
+	# this is already installed by koffice-data
+	rm -f "${D}/usr/include/config-opengl.h"
 }
