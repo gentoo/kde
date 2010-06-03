@@ -31,4 +31,5 @@ RDEPEND="${COMMONDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-remember-size.patch"
+	"${FILESDIR}/${PN}-4.4.3-refresh-screen.patch"
 )
