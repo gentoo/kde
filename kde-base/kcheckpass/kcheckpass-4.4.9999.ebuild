@@ -21,8 +21,14 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
-	"${FILESDIR}/${PN}-4.4.2-no-SUID-no-GUID.patch"
 )
+
+src_prepare() {
+	kde4-meta_src_prepare
+	if use pam ; then
+		epatch "${FILESDIR}/${PN}-4.4.2-no-SUID-no-GUID.patch"
+	fi
+}
 
 src_configure() {
 	mycmakeargs=(
