@@ -18,7 +18,10 @@ DEPEND="
 	freetds? ( dev-db/freetds )
 	mysql? ( virtual/mysql )
 	postgres? ( =dev-libs/libpqxx-2.6* )
-	reports? ( ~app-office/kchart-${PV}:${SLOT}[reports] )
+	reports? (
+		~app-office/kchart-${PV}:${SLOT}[reports]
+		~app-office/koffice-libs-${PV}:${SLOT}[reports]
+	)
 	xbase? ( dev-db/xbase )
 "
 RDEPEND="${DEPEND}"
@@ -38,6 +41,7 @@ src_configure() {
 		$(cmake-utils_use_with postgres Pqxx)
 		$(cmake-utils_use_with xbase XBase)
 		-DBUILD_kexi=ON
+		$(cmake-utils_use_build reports koreport)
 	)
 
 	kde4-meta_src_configure
@@ -49,4 +53,3 @@ src_install() {
 	# this is already installed by koffice-data
 	rm -f "${D}/usr/include/config-opengl.h"
 }
-
