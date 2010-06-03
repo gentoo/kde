@@ -2,43 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=2
 
-KMNAME="koffice"
-KMMODULE="${PN}"
-inherit kde4-meta
+DESCRIPTION="KOffice chart application. Temporary dummy ebuild for compatibility."
 
-DESCRIPTION="KOffice chart application."
+SRC_URI=""
+HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+SLOT="2"
+LICENSE="GPL-2"
+
 IUSE="reports"
 
-KMEXTRACTONLY="
-	libs/
-	interfaces/
-	filters/
-	plugins/
-"
-KMEXTRA="
-	filters/${KMMODULE}/
-	libs/koreport/
-"
-
-KMLOADLIBS="koffice-libs"
-
-src_configure() {
-	 mycmakeargs=(
-		-DBUILD_kchart=ON
-		$(cmake-utils_use_build reports koreport)
-	)
-
-	kde4-meta_src_configure
-}
-
-src_install() {
-	kde4-meta_src_install
-
-	# this is already installed by koffice-data
-	rm -f "${D}/usr/include/config-opengl.h"
-}
-
+DEPEND="~app-office/koffice-libs-${PV}:${SLOT}[reports=]"
+RDEPEND=${DEPEND}

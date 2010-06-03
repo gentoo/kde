@@ -12,7 +12,7 @@ inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="crypt openexr"
+IUSE="crypt openexr reports"
 
 RDEPEND="
 	>=app-office/koffice-data-${PV}:${SLOT}
@@ -36,17 +36,17 @@ KMEXTRA="
 	filters/libkowmf/
 	filters/libmsooxml/
 	filters/xsltfilter/
+	filters/kchart/
 	interfaces/
 	kounavail/
 	plugins/
 	tools/
-	kchart/kdchart/
-	kchart/shape/
+	kchart/
 "
 #	doc/api/"
 KMEXTRACTONLY="
-	kchart
 	doc/koffice.desktop
+	filters/
 "
 
 KMSAVELIBS="true"
@@ -56,6 +56,8 @@ src_configure() {
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with openexr OpenEXR)
+		-DBUILD_kchart=ON
+		$(cmake-utils_use_build reports koreport)
 	)
 	use crypt && \
 		mycmakeargs+=(-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2)
