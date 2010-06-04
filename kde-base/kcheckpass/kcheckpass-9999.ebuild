@@ -25,9 +25,8 @@ PATCHES=(
 
 src_prepare() {
 	kde4-meta_src_prepare
-	if use pam ; then
-		epatch "${FILESDIR}/${PN}-4.4.2-no-SUID-no-GUID.patch"
-	fi
+
+	use pam && epatch "${FILESDIR}/${PN}-4.4.2-no-SUID-no-GUID.patch"
 }
 
 src_configure() {
