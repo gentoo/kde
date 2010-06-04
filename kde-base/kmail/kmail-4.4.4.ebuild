@@ -56,10 +56,11 @@ src_configure() {
 }
 
 src_compile() {
-	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
-	# Upstream as KDE Bug #198807
-	# (setting MAKEOPTS to trigger a repoman warning)
-	: || MAKEOPTS="-j1"
+	# # Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
+	# # Upstream as KDE Bug #198807
+	# # (setting MAKEOPTS to trigger a repoman warning)
+	# : || MAKEOPTS="-j1"
+	# commented out so this gets more testing again - dilfridge 4/6/2010
 	kde4-meta_src_compile kmail_xml
 	kde4-meta_src_compile
 }
