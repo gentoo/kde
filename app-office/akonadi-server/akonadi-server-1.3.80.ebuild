@@ -20,6 +20,7 @@ CDEPEND="
 	>=dev-libs/soprano-2.2
 	>=x11-libs/qt-gui-4.5.0:4[dbus]
 	>=x11-libs/qt-sql-4.5.0:4[mysql?,postgres?,sqlite?]
+	>=x11-libs/qt-test-4.5.0:4
 	x11-misc/shared-mime-info
 "
 DEPEND="${CDEPEND}
