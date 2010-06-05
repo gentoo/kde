@@ -71,11 +71,7 @@ COMMONDEPEND="
 		>=dev-libs/shared-desktop-ontologies-0.2
 		>=dev-libs/soprano-2.3.73[dbus,raptor,redland]
 	)
-	spell? (
-		app-dicts/aspell-en
-		app-text/aspell
-		app-text/enchant
-	)
+	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
 	zeroconf? (
 		|| (
@@ -200,6 +196,7 @@ src_configure() {
 	fi
 	mycmakeargs+=(
 		-DWITH_HSPELL=OFF
+		-DWITH_ASPELL=OFF
 		-DKDE_DEFAULT_HOME=${HME}
 		-DKAUTH_BACKEND=POLKITQT-1
 		$(cmake-utils_use_build handbook doc)
@@ -221,7 +218,6 @@ src_configure() {
 		$(cmake-utils_use_with policykit PolkitQt-1)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
-		$(cmake-utils_use_with spell ASPELL)
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 	)
