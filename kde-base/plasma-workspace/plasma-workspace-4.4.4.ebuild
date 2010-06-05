@@ -32,7 +32,7 @@ COMMONDEPEND="
 		>=dev-python/sip-4.7.1
 		$(add_kdebase_dep pykde4)
 	)
-	rss? ( $(add_kdebase_dep kdepimlibs 'akonadi') )
+	rss? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}

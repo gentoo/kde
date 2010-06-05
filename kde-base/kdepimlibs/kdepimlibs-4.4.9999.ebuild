@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="+akonadi debug +handbook ldap"
+IUSE="debug +handbook ldap +semantic-desktop"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
@@ -23,7 +23,11 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
-	akonadi? ( >=app-office/akonadi-server-1.3.1 )
+	semantic-desktop? (
+		>=app-office/akonadi-server-1.3.1
+		media-sound/phonon
+		x11-misc/shared-mime-info
+	)
 	ldap? ( net-nds/openldap )
 "
 RDEPEND="${DEPEND}"
@@ -38,12 +42,14 @@ add_blocker kontactinterfaces
 src_prepare() {
 	kde4-base_src_prepare
 
-	if ! use akonadi; then
-		sed -e '/find_package(Akonadi/s/^/# DISABLED /' \
-			-e '/macro_log_feature(Akonadi_FOUND/s/TRUE/FALSE/' \
-			-e '/add_subdirectory(akonadi)/s/^/# DISABLED /' \
-			-e '/add_subdirectory(mailtransport)/s/^/# DISABLED /' \
-			-i CMakeLists.txt || die "failed to disable akonadi"
+	# Disable hardcoded checks
+	sed -r -e '/find_package\((Akonadi)/{/macro_optional_/!s/find/macro_optional_&/}' \
+		-e '/macro_log_feature\((Akonadi)_FOUND/s/ TRUE / FALSE /' \
+		-e '/add_subdirectory\((akonadi|mailtransport)/{/macro_optional_/!s/add/macro_optional_&/}' \
+		-i CMakeLists.txt || die
+	if ! use semantic-desktop; then
+		# More reliable than -DBUILD_akonadi=OFF
+		rm -r akonadi mailtransport || die
 	fi
 }
 
@@ -51,6 +57,7 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_with ldap)
+		$(cmake-utils_use_with semantic-desktop Akonadi)
 	)
 
 	kde4-base_src_configure

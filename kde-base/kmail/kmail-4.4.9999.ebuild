@@ -13,7 +13,7 @@ IUSE="ayatana debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
-	$(add_kdebase_dep kdepimlibs 'akonadi')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)

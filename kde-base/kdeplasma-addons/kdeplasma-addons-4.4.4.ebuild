@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	exif? ( $(add_kdebase_dep libkexiv2) )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
-	rss? ( $(add_kdebase_dep kdepimlibs 'akonadi') )
+	rss? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	scim? ( app-i18n/scim )
 "
 DEPEND="${COMMON_DEPEND}
@@ -36,8 +36,8 @@ DEPEND="${COMMON_DEPEND}
 # kde-misc/qalculate-applet: since 4.4.0
 RDEPEND="${COMMON_DEPEND}
 	!kdeprefix? (
-		!kde-misc/qalculate-applet
 		!kde-misc/plasmaboard
+		!kde-misc/qalculate-applet
 	)
 "
 
