@@ -278,5 +278,6 @@ dev-libs/libattica
 dev-libs/shared-desktop-ontologies
 dev-python/pycups
 >=net-libs/libssh-0.3.2
->=sys-auth/polkit-0.95
+~sys-auth/polkit-kde-0.95.1
+~sys-auth/polkit-qt-0.95.1
 x11-misc/google-gadgets

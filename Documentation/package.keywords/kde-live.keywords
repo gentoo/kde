@@ -307,5 +307,4 @@ dev-libs/libdbusmenu-qt
 dev-libs/shared-desktop-ontologies
 dev-python/pycups
 >=net-libs/libssh-0.3.2
->=sys-auth/polkit-0.95
 x11-misc/google-gadgets
