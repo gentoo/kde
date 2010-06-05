@@ -33,3 +33,10 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+	ewarn "Note that ksysguard has powerful features; one of these is the executing of arbitrary"
+	ewarn "programs with elevated privileges (as data sources). So be careful opening worksheets"
+	ewarn "from untrusted sources!"
+}
