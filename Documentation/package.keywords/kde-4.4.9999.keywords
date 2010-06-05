@@ -295,3 +295,4 @@ dev-python/pycups
 ~sys-auth/polkit-kde-0.95.1
 ~sys-auth/polkit-qt-0.95.1
 x11-misc/google-gadgets
+>=dev-libs/libassuan-2.0.0
