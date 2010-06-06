@@ -20,12 +20,7 @@ RDEPEND="
 		$(add_kdebase_dep dolphin)
 		$(add_kdebase_dep konqueror)
 	)
-	mplayer? (
-		|| (
-			media-video/mplayer
-			media-video/mplayer-bin
-		)
-	)
+	mplayer? ( media-video/mplayer )
 "
 
 src_configure() {
