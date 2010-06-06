@@ -9,7 +9,7 @@ inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="ayatana debug +handbook"
+IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
@@ -17,7 +17,6 @@ DEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
-	ayatana? ( >=dev-libs/libindicate-qt-0.2.1 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
@@ -49,7 +48,7 @@ KMLOADLIBS="libkdepim"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with ayatana IndicateQt)
+		-DWITH_IndicateQt=OFF
 	)
 
 	kde4-meta_src_configure
