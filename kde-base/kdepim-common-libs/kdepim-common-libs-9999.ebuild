@@ -32,6 +32,7 @@ add_blocker messagecore
 add_blocker messagelist
 add_blocker messageviewer
 add_blocker templateparser
+add_blocker kmail '<4.4.80'
 
 KMEXTRA="
 	akonadi/
