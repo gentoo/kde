@@ -125,7 +125,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
-	"${FILESDIR}/${PN}-4.4.4-renderblock.patch"
 )
 
 src_prepare() {
