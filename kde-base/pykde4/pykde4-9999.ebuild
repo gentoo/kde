@@ -19,7 +19,7 @@ IUSE="akonadi debug doc examples semantic-desktop"
 DEPEND="
 	!dev-python/pykde
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
-	akonadi? ( $(add_kdebase_dep kdepimlibs) )
+	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
 "
@@ -45,7 +45,7 @@ src_configure() {
 		-DWITH_PolkitQt=OFF
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
 	)
 
 	kde4-meta_src_configure
