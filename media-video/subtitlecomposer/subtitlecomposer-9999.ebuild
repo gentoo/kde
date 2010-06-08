@@ -14,10 +14,12 @@ ESVN_REPO_URI="https://subcomposer.svn.sourceforge.net/svnroot/subcomposer/trunk
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug gstreamer xine"
+IUSE="debug gstreamer unicode xine"
 
 RDEPEND="
+	media-sound/phonon
 	gstreamer? ( media-libs/gstreamer )
+	unicode? ( dev-libs/icu )
 	xine? ( media-libs/xine-lib )
 "
 DEPEND="${RDEPEND}
@@ -35,6 +37,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with gstreamer GStreamer)
+		$(cmake-utils_use_with unicode ICU)
 		$(cmake-utils_use_with xine)
 	)
 	kde4-base_src_configure
