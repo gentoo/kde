@@ -13,9 +13,10 @@ run_scanelf()
 }
 
 if [[ "$1" = --internal ]]; then
-	if [[ -f "$2" && -x "$2" && ! -L "$2" ]]; then
+	mime=`file -b --mime-type "$2"`
+	if [[ "$mime" == 'application/x-executable' ]] || [[ "${mime}" == 'application/x-sharedlib' ]]; then
 		LINK=`run_scanelf "$2"`
-		[[ "$2" == *.so ]] && /tmp/try_dlopen "$2"
+		[[ "$mime" == 'application/x-sharedlib' ]] && /tmp/try_dlopen "$2"
 		[[ -n $LINK ]] && echo -e ${LINK//,/\\n}
 		exit 0
 	fi
