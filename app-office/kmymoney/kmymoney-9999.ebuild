@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdereview"
+KMNAME="extragear/office"
 inherit kde4-base
 
 DESCRIPTION="A personal finance manager for KDE"
