@@ -8,7 +8,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 DEPEND="
@@ -56,10 +56,11 @@ src_configure() {
 }
 
 src_compile() {
-	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
-	# Upstream as KDE Bug #198807
-	# (setting MAKEOPTS to trigger a repoman warning)
-	: || MAKEOPTS="-j1"
+	# # Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
+	# # Upstream as KDE Bug #198807
+	# # (setting MAKEOPTS to trigger a repoman warning)
+	# : || MAKEOPTS="-j1"
+	# commented out so this gets more testing again - dilfridge 4/6/2010
 	kde4-meta_src_compile kmail_xml
 	kde4-meta_src_compile
 }

@@ -16,7 +16,10 @@ DEPEND="
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep kdepim-common-libs)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	$(add_kdebase_dep kfmclient)
+"
 
 add_blocker kmailcvt
 add_blocker libksieve
