@@ -31,7 +31,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(-DENABLE_KROSSJAVA=ON)
-	JAVA_HOME=$(java-config -g JAVA_HOME)
+	export JAVA_HOME=$(java-config -g JAVA_HOME)
 	kde4-meta_src_configure
 	java-ant-2_src_configure
 }
