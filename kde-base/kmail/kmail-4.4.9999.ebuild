@@ -20,7 +20,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
-	$(add_kdebase_dep kfmclient)
 "
 
 add_blocker kmailcvt
