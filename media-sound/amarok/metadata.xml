@@ -20,6 +20,8 @@
 	<flag name="lastfm">Enable Last.fm streaming services support through <pkg>media-libs/liblastfm</pkg></flag>
 	<flag name="mp3tunes">Enable mp3tunes integration</flag>
 	<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
+	<flag name="player">Build the player</flag>
+	<flag name="utils">Build the utils - old <pkg>media-sound/amarok-utils</pkg></flag>
 	<!--
 	<flag name="ifp">Enable support for iRiver devices access through libifp</flag>
 	<flag name="mp4">
@@ -30,7 +32,6 @@
 		GPL-incompatible license.
 	</flag>
 	<flag name="njb">Enable support for NJB (Creative) devices access through libnjb</flag>
-	<flag name="player">Build the player</flag>
 	<flag name="python">
 		Install the Amarok scripts written in Python, depending on
 		<pkg>dev-python/PyQt</pkg>. At the moment the only script
@@ -45,7 +46,6 @@
 		package will not be redistributable, as it links to the non-GPL compatible
 		RealPlayer.
 	</flag>
-	<flag name="utils">Build the utils - old <pkg>media-sound/amarok-utils</pkg></flag>
 	<flag name="visualization">
 		Support visualization plugins through <pkg>media-libs/libvisual</pkg>
 	</flag>
