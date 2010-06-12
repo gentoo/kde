@@ -36,9 +36,9 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}"
 
 KMEXTRACTONLY="
+	ksmserver/
 	libs/kephal/
 	libs/oxygen/
-	ksmserver/
 "
 
 PATCHES=(
