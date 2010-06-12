@@ -714,7 +714,7 @@ kde4-meta_src_install() {
 	# Search ${S}/${KMMODULE} and install common documentation files found
 	local doc
 	for doc in "${S}/${KMMODULE}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-		[[ -s "${doc}" ]] && dodoc "${doc}"
+		[[ -f "${doc}" ]] && [[ -s "${doc}" ]] && dodoc "${doc}"
 	done
 
 	kde4-base_src_install

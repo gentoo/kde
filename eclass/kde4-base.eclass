@@ -650,6 +650,9 @@ kde4-base_src_prepare() {
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	# Append minimal-toc compiler flags for PPC64, see #308903
+	use ppc64 && append-flags -mminimal-toc
+
 	# Build tests in src_test only, where we override this value
 	local cmakeargs=(-DKDE4_BUILD_TESTS=OFF)
 
@@ -756,10 +759,10 @@ kde4-base_src_install() {
 	local doc
 	if ! has kde4-meta ${INHERITED}; then
 		for doc in "${S}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-			[[ -s "${doc}" ]] && dodoc "${doc}"
+			[[ -f "${doc}" ]] && [[ -s "${doc}" ]] && dodoc "${doc}"
 		done
 		for doc in "${S}"/*/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-			[[ -s "${doc}" ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
+			[[ -f "${doc}" ]] && [[ -s "${doc}" ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
 		done
 	fi
 
