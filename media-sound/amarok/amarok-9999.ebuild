@@ -67,7 +67,7 @@ DEPEND="
 	!player? ( !utils? ( media-sound/amarok[player] ) )
 "
 RDEPEND="${DEPEND}
-	!<=media-sound/amarok-utils-2.3.1
+	!media-sound/amarok-utils
 	player? ( >=kde-base/phonon-kde-${KDE_MINIMAL} )
 "
 
