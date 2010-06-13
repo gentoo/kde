@@ -10,13 +10,12 @@ WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
-KEYWORDS=""
-IUSE="akonadi attica debug okular +phonon qimageblitz qscintilla qwt semantic-desktop"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+IUSE="akonadi debug okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
-	attica? ( dev-libs/libattica )
 	okular? ( $(add_kdebase_dep okular) )
 	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
@@ -30,18 +29,17 @@ KMEXTRA="generator/"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with akonadi KdepimLibs)
-		$(cmake-utils_use_with attica LibAttica)
-		$(cmake-utils_use_disable multimedia QtMultimedia)
-		$(cmake-utils_use_with okular)
-		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with qimageblitz QImageBlitz)
-		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with qwt Qwt)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_disable webkit QtWebKit)
+		$(cmake-utils_use_enable akonadi)
+		$(cmake-utils_use_enable akonadi Kdepimlibs)
+		$(cmake-utils_use_enable multimedia QTMULTIMEDIA_SMOKE)
+		$(cmake-utils_use_enable okular)
+		$(cmake-utils_use_enable phonon PHONON_SMOKE)
+		$(cmake-utils_use_enable qimageblitz QIMAGEBLITZ_SMOKE)
+		$(cmake-utils_use_enable qscintilla QSCI_SMOKE)
+		$(cmake-utils_use_enable qwt QWT_SMOKE)
+		$(cmake-utils_use_enable semantic-desktop Nepomuk)
+		$(cmake-utils_use_enable semantic-desktop Soprano)
+		$(cmake-utils_use_enable webkit QTWEBKIT_SMOKE)
 	)
 	kde4-meta_src_configure
 }
