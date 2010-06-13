@@ -8,26 +8,26 @@ EAPI="2"
 if [[ ${PV} != *9999* ]]; then
 	KDE_LINGUAS="bg ca cs da de en_GB es et eu fi fr it ja km nb nds nl
 	pa pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
+	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 else
 	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 	GIT_ECLASS="git"
 fi
-OPENGL_REQUIRED="optional"
+
 KDE_REQUIRED="never"
 inherit flag-o-matic kde4-base ${GIT_ECLASS}
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
-if [[ ${PV} = *9999* ]]; then
-	SRC_URI=""
-else
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
-fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdda daap debug embedded ipod lastfm mp3tunes mtp +player semantic-desktop +utils"
+IUSE="cdda daap debug embedded ipod lastfm mp3tunes mtp opengl +player semantic-desktop +utils"
+
+# Tests require gmock - http://code.google.com/p/gmock/
+# It's not in the tree yet
+RESTRICT="test"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
@@ -58,28 +58,21 @@ DEPEND="
 			x11-libs/qt-core[glib]
 		)
 		mtp? ( >=media-libs/libmtp-0.3.0 )
+		opengl? ( virtual/opengl )
+	)
+	utils? (
+		x11-libs/qt-core
+		x11-libs/qt-dbus
 	)
 	!player? ( !utils? ( media-sound/amarok[player] ) )
 "
 RDEPEND="${DEPEND}
 	!<=media-sound/amarok-utils-2.3.1
-	>=kde-base/phonon-kde-${KDE_MINIMAL}
-	player? (
-		semantic-desktop? ( >=kde-base/nepomuk-${KDE_MINIMAL} )
-	)
+	player? ( >=kde-base/phonon-kde-${KDE_MINIMAL} )
 "
 
-# Tests require gmock - http://code.google.com/p/gmock/
-# It's not in the tree yet
-RESTRICT="test"
-
-# required for live ebuild, to skip git_src_prepare, to add
-# the minimal-toc cflag for ppc64 and to fix po issues on utils
 src_prepare() {
-	use ppc64 && append-flags -mminimal-toc
-
 	if ! use player; then
-
 		# Disable po processing
 		sed -e "s:include(MacroOptionalAddSubdirectory)::" \
 			-i "${S}/CMakeLists.txt" \
