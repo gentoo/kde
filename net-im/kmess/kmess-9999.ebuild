@@ -33,6 +33,7 @@ RDEPEND="${COMMONDEPEND}
 	!net-im/kmess:0
 	konqueror? ( >=kde-base/konqueror-${KDE_MINIMAL} )
 "
+RESTRICT="test"
 
 src_unpack() {
 	kde4-base_src_unpack
