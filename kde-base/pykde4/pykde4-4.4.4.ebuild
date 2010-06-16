@@ -13,7 +13,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="akonadi debug doc examples semantic-desktop"
+IUSE="debug doc examples semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time
 DEPEND="

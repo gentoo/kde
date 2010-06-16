@@ -37,6 +37,10 @@ src_prepare() {
 		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i python/${PN}/CMakeLists.txt \
 			|| die "Failed to disable examples"
 	fi
+
+	if use arm; then
+		epatch "${FILESDIR}/pykde4-arm-sip.patch"
+	fi
 }
 
 src_configure() {
