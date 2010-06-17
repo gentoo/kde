@@ -35,6 +35,7 @@ KMEXTRA="
 	filters/libmsooxml/
 	filters/xsltfilter/
 	filters/kspread/
+	kspread/
 	interfaces/
 	kounavail/
 	plugins/
