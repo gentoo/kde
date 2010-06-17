@@ -34,6 +34,7 @@ KMEXTRA="
 	filters/libkowmf/
 	filters/libmsooxml/
 	filters/xsltfilter/
+	filters/kspread/
 	interfaces/
 	kounavail/
 	plugins/
@@ -42,7 +43,8 @@ KMEXTRA="
 #	doc/api/"
 KMEXTRACTONLY="
 	doc/koffice.desktop
-	kchart/kdchart/
+	kchart/
+	filters/liboofilter/
 "
 
 KMSAVELIBS="true"

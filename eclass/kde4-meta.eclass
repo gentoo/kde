@@ -361,11 +361,7 @@ kde4-meta_create_extractlists() {
 			;;
 		koffice)
 			KMEXTRACTONLY+="
-				config-endian.h.cmake
 				filters/config-filters.h.cmake
-				config-openexr.h.cmake
-				config-opengl.h.cmake
-				config-prefix.h.cmake
 			"
 			case ${PV} in
 				2.0.*)
