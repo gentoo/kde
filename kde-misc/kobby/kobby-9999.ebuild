@@ -8,7 +8,7 @@ inherit kde4-base git
 
 DESCRIPTION="collaborative Editor for KDE"
 HOMEPAGE="http://kobby.greghaynes.net/"
-EGIT_REPO_URI="git://gitorious.org/${PN}/mainline.git"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
