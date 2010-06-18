@@ -4,6 +4,7 @@
 
 EAPI=2
 
+CMAKE_MIN_VERSION=2.8.0
 WEBKIT_REQUIRED=always
 KMNAME="extragear/multimedia"
 inherit kde4-base
