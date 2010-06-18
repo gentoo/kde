@@ -10,7 +10,7 @@ if [[ ${PV} != *9999* ]]; then
 	pa pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 else
-	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+	EGIT_REPO_URI="git://git.kde.org/${PN}/${PN}.git"
 	GIT_ECLASS="git"
 fi
 
