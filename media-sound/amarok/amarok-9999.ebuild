@@ -86,6 +86,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
+	use ppc64 && append-flags -mminimal-toc
+
 	if use player; then
 		mycmakeargs=(
 			-DWITH_PLAYER=ON
