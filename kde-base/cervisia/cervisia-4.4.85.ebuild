@@ -12,5 +12,5 @@ KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 RDEPEND="
-	dev-util/cvs
+	dev-vcs/cvs
 "

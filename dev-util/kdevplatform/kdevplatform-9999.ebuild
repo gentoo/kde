@@ -27,7 +27,7 @@ IUSE="cvs debug subversion"
 # block - some plugins moved to kdevplatform from kdevelop
 DEPEND="
 	dev-libs/boost
-	cvs? ( dev-util/cvs )
+	cvs? ( dev-vcs/cvs )
 	subversion? ( >=dev-util/subversion-1.3 )
 "
 RDEPEND="${DEPEND}

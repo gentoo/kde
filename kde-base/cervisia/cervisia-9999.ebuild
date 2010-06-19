@@ -12,5 +12,5 @@ KEYWORDS=""
 IUSE="debug +handbook"
 
 RDEPEND="
-	dev-util/cvs
+	dev-vcs/cvs
 "
