@@ -12,10 +12,10 @@ inherit kde4-base
 DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz sndfile sox taglib vcd vorbis +wav"
+IUSE="debug dvd emovix encode ffmpeg flac mad lame musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
 	>=kde-base/libkcddb-${KDE_MINIMAL}
@@ -25,6 +25,7 @@ DEPEND="
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	encode? ( lame? ( media-sound/lame ) )
 	mad? ( media-libs/libmad )
+	musepack? ( >=media-sound/musepack-tools-444 )
 	musicbrainz? ( media-libs/musicbrainz:1 )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
@@ -33,6 +34,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
 	media-sound/cdparanoia
+	sys-apps/hal
 	virtual/cdrtools
 	dvd? (
 		>=app-cdr/dvd+rw-tools-7
@@ -41,11 +43,9 @@ RDEPEND="${DEPEND}
 	emovix? ( media-video/emovix )
 	encode? ( sox? ( media-sound/sox ) )
 	vcd? ( media-video/vcdimager )
-	!app-cdr/k3b:0
-	!app-cdr/k3b:2
 "
 
-DOCS=(FAQ KNOWNBUGS PERMISSIONS)
+DOCS=(ChangeLog FAQ.txt PERMISSIONS.txt README.txt)
 
 src_configure() {
 	mycmakeargs=(
@@ -58,12 +58,11 @@ src_configure() {
 		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
 		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
-		-DK3B_BUILD_MUSE_DECODER_PLUGIN=OFF
+		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
 		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
 		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
 		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
-		-DWITH_PolkitQt=OFF
 	)
 
 	if use encode; then
