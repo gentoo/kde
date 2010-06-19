@@ -5,12 +5,11 @@
 EAPI="2"
 
 KDE_LINGUAS="ar ca da de el es et fi fr hu it ko nb nl pt_BR sk sl sv th tr zh_CN zh_TW"
-inherit kde4-base
+inherit git kde4-base
 
 DESCRIPTION="KMess is an alternative MSN Messenger chat client for Linux"
 HOMEPAGE="http://www.kmess.org"
-ESVN_REPO_URI="http://kmess.svn.sourceforge.net/svnroot/kmess/trunk/kmess"
-ESVN_PROJECT="kmess"
+EGIT_REPO_URI="git://gitorious.org/kmess/kmess.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -36,10 +35,7 @@ RDEPEND="${COMMONDEPEND}
 RESTRICT="test"
 
 src_unpack() {
-	kde4-base_src_unpack
-
-	cp -R "${ESVN_STORE_DIR}/${ESVN_PROJECT}/${ESVN_REPO_URI##*/}/.svn" "${S}" \
-		|| ewarn "SVN revision information will not be available."
+	git_src_unpack
 }
 
 src_configure() {
