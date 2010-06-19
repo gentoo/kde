@@ -650,9 +650,6 @@ kde4-base_src_prepare() {
 kde4-base_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Append minimal-toc compiler flags for PPC64, see #308903
-	use ppc64 && append-flags -mminimal-toc
-
 	# Build tests in src_test only, where we override this value
 	local cmakeargs=(-DKDE4_BUILD_TESTS=OFF)
 
