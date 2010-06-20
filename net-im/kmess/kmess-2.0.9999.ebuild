@@ -4,6 +4,7 @@
 
 EAPI="2"
 
+EGIT_HAS_SUBMODULES="true"
 KDE_LINGUAS="ar ca da de el es et fi fr hu it ko nb nl pt_BR sk sl sv th tr zh_CN zh_TW"
 inherit git kde4-base
 
