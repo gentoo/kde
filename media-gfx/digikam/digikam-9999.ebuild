@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-base/solid-${KDE_MINIMAL}
 	>=media-libs/jasper-1.701.0
 	media-libs/jpeg
-	>=media-libs/lcms-1.17
+	media-libs/lcms:0
 	>=media-libs/libpng-1.2.26-r1
 	>=media-libs/tiff-3.8.2-r3
 	sys-devel/gettext

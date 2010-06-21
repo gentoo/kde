@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	media-libs/fontconfig
 	>=media-libs/freetype-2
 	media-libs/jpeg:0
-	media-libs/lcms
+	media-libs/lcms:0
 	media-libs/libpng
 	media-libs/tiff
 	net-print/cups

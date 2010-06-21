@@ -29,7 +29,7 @@ RDEPEND="
 	>=kde-base/kreadconfig-${KDE_MINIMAL}
 	media-libs/jasper
 	>=media-libs/jpeg-8
-	media-libs/lcms
+	media-libs/lcms:0
 	media-libs/liblqr
 	media-libs/libpng
 	media-libs/tiff

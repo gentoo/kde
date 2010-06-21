@@ -13,7 +13,7 @@ DESCRIPTION="Shared KOffice data files."
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE=""
 
-DEPEND=">=media-libs/lcms-1.18"
+DEPEND="media-libs/lcms:0"
 RDEPEND="${DEPEND}"
 
 KMEXTRA="pics/

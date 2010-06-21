@@ -18,6 +18,6 @@ IUSE="debug"
 
 DEPEND="
 	media-libs/jpeg
-	media-libs/lcms
+	media-libs/lcms:0
 "
 RDEPEND="${DEPEND}"

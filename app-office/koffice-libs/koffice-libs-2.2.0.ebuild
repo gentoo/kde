@@ -21,7 +21,7 @@ RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
-	>=media-libs/lcms-1.15
+	media-libs/lcms:0
 	crypt? ( app-crypt/qca:2 )
 	openexr? ( media-libs/openexr )
 	opengl? ( media-libs/mesa )
