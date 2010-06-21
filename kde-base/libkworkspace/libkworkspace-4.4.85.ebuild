@@ -9,7 +9,7 @@ KMMODULE="libs/kworkspace"
 inherit kde4-meta
 
 DESCRIPTION="A library for KDE desktop applications"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 # FIXME dependencies until activities API is moved to kdelibs (4.6)

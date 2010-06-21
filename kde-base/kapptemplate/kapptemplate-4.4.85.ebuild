@@ -8,5 +8,5 @@ KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications."
-KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"

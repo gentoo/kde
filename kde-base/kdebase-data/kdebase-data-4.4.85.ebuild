@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
 IUSE=""
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	$(add_kdebase_dep oxygen-icons)
