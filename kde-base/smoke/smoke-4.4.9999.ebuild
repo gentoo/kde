@@ -25,13 +25,10 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.4.4-magicakonadi.patch" )
-
 KMEXTRA="generator/"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_enable akonadi)
 		$(cmake-utils_use_enable akonadi Kdepimlibs)
 		$(cmake-utils_use_enable multimedia QTMULTIMEDIA_SMOKE)
