@@ -10,7 +10,7 @@ WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="akonadi debug okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
