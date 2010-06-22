@@ -53,7 +53,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	winpopup: NO DEPS
 #	yahoo: NO DEPS
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="bonjour gadu groupwise +jabber jingle meanwhile msn oscar qq skype
+PROTOCOLS="gadu groupwise +jabber jingle meanwhile msn oscar qq skype
 sms testbed winpopup yahoo zeroconf"
 
 # disabled protocols
@@ -118,8 +118,11 @@ src_configure() {
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
-		[[ ${x/+/} = msn ]] && x2=Libmsn || x2=""
-		[[ ${x/+/} = zeroconf ]] && x2=bonjour || x2=""
+		case ${x/+/} in
+			msn) x2=Libmsn ;;
+			zeroconf) x2=bonjour ;;
+			*) x2='' ;;
+		esac
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
 
