@@ -50,7 +50,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	qq: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
-#	winpopup: NO DEPS
+#	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	yahoo: NO DEPS
 #	zeroconf (bonjour): NO DEPS
 PROTOCOLS="gadu groupwise +jabber jingle meanwhile msn oscar qq skype
@@ -80,7 +80,7 @@ COMMONDEPEND="
 		net-libs/ortp
 	)
 	meanwhile? ( net-libs/meanwhile )
-	msn? ( >=net-libs/libmsn-4.0 )
+	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
 	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
@@ -93,6 +93,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 	sms? ( app-mobilephone/smssend )
 	ssl? ( app-crypt/qca-ossl )
+	winpopup? ( net-fs/samba )
 "
 #	telepathy? ( net-libs/decibel )"
 DEPEND="${COMMONDEPEND}
