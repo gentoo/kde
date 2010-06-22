@@ -15,7 +15,7 @@ IUSE="debug subversion"
 DEPEND="
 	subversion? (
 		dev-libs/apr
-		dev-util/subversion
+		dev-vcs/subversion
 	)
 "
 RDEPEND="${DEPEND}

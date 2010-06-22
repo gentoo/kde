@@ -15,7 +15,7 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	dev-util/subversion
+	dev-vcs/subversion
 	dev-vcs/git
 	$(add_kdebase_dep kompare)
 "

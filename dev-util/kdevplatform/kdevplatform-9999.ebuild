@@ -28,7 +28,7 @@ IUSE="cvs debug subversion"
 DEPEND="
 	dev-libs/boost
 	cvs? ( dev-vcs/cvs )
-	subversion? ( >=dev-util/subversion-1.3 )
+	subversion? ( >=dev-vcs/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}

@@ -19,7 +19,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
 	subversion? (
-		dev-util/subversion
+		dev-vcs/subversion
 		$(add_kdebase_dep kompare)
 	)
 "
