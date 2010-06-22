@@ -23,7 +23,7 @@ DEPEND="
 	)
 	npp? (
 		dev-libs/dbus-glib
-		>=x11-libs/gtk+-2.10.14
+		>=x11-libs/gtk+-2.10.14:2
 	)
 "
 RDEPEND="${DEPEND}
