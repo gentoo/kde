@@ -45,6 +45,13 @@ KMEXTRA="
 
 KMLOADLIBS="kdepim-common-libs"
 
+src_configure() {
+	# Bug 308903
+	use ppc64 && append-flags -mminimal-toc
+
+	kde4-meta_src_configure
+}
+
 src_compile() {
 	# Bug #276377: kontact/ can build before kmail/, causing a dependency not to be built
 	# Upstream as KDE Bug #198807

@@ -47,6 +47,9 @@ KMEXTRA="
 KMLOADLIBS="libkdepim"
 
 src_configure() {
+	# Bug 308903
+	use ppc64 && append-flags -mminimal-toc
+
 	mycmakeargs=(
 		-DWITH_IndicateQt=OFF
 	)
