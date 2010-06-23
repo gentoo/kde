@@ -366,7 +366,12 @@ kde4-meta_create_extractlists() {
 			case ${PV} in
 				2.0.*)
 					KMEXTRACTONLY+="
-						config-openctl.h.cmake"
+						config-openctl.h.cmake
+						config-endian.h.cmake
+						config-openexr.h.cmake
+						config-opengl.h.cmake
+						config-prefix.h.cmake"
+				;;
 				2.[12].*)
 					KMEXTRACTONLY+="
 						config-endian.h.cmake
