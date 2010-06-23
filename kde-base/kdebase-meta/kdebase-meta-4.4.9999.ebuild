@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.4"
 KEYWORDS=""
-IUSE="aqua kdeprefix policykit"
+IUSE="aqua kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
@@ -56,6 +56,5 @@ RDEPEND="
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
 	!prefix? ( $(add_kdebase_dep kdm) )
-	policykit? ( >=sys-auth/polkit-kde-0.95.1 )
 	$(block_other_slots)
 "

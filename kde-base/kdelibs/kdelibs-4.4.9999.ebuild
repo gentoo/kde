@@ -99,6 +99,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 "
 PDEPEND="
+	policykit? ( >=sys-auth/polkit-kde-0.95.1 )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
