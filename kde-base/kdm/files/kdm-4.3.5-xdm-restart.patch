@@ -1,0 +1,41 @@
+--- kdm-4.3.5/kdm/backend/dm.c.orig	2010-05-08 17:00:38.000000000 -0700
++++ kdm-4.3.5/kdm/backend/dm.c	2010-05-08 17:38:17.000000000 -0700
+@@ -1469,7 +1469,15 @@
+ 
+ 		d->hstent->lock = d->hstent->rLogin = d->hstent->goodExit =
+ 			d->sdRec.how = 0;
+-		d->lastStart = now;
++		/* If this is a local server then we record the actual
++		 * start time of the server - this is because the server
++		 * can be reset without restarting and it can crash when,
++		 * or after, reset - we don't want to disable it if it
++		 * crashes in this case.  (See exitDisplay() below.)
++		 * 'lastStart' is set in server.c to make this work.
++		 */
++		if ((d->displayType & d_location) != dLocal)
++			d->lastStart = now;
+ 		break;
+ 	}
+ }
+@@ -1558,7 +1566,7 @@
+ 		} else {
+ 			if (serverCmd == XS_RETRY) {
+ 				if ((d->displayType & d_location) == dLocal) {
+-					if (he->lastExit - d->lastStart < 120) {
++					if (he->lastExit - d->lastStart < 20) {
+ 						logError( "Unable to fire up local display %s;"
+ 						          " disabling.\n", d->name );
+ 						stopDisplay( d );
+--- kdm-4.3.5/kdm/backend/server.c.orig	2010-05-08 17:00:43.000000000 -0700
++++ kdm-4.3.5/kdm/backend/server.c	2010-05-08 17:35:34.000000000 -0700
+@@ -76,6 +76,10 @@
+ 
+ 	debug( "startServerOnce for %s, try %d\n", d->name, ++d->startTries );
+ 	d->serverStatus = starting;
++	/* For the local X server record the start time of the server, not the
++	 * session, so set the time here and not in dm.c:startDisplayP2()
++	 */
++	d->lastStart = now;
+ 	switch (Fork( &d->serverPid )) {
+ 	case 0:
+ 		argv = prepareServerArgv( d, d->serverArgsLocal );

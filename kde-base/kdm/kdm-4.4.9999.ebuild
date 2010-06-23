@@ -41,7 +41,14 @@ KMEXTRA="
 PATCHES=(
 	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
 	"${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch"
+	"${FILESDIR}/${PN}-4.3.5-xdm-restart.patch"
 )
+
+pkg_setup() {
+	kde4-meta_pkg_setup
+
+	KDM_HOME=/var/lib/kdm-${SLOT}
+}
 
 src_configure() {
 	# genkdmconf breaks with -O3
@@ -62,14 +69,25 @@ src_install() {
 
 	kde4-meta_src_install
 
-	# Customize the kdmrc configuration
-	sed -e "s:^.*SessionsDirs=.*$:#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions:" \
-		-e "s:#ServerTimeout=15:ServerTimeout=30:" \
+	# Customize the kdmrc configuration:
+	# - SessionDirs set to /usr/share/xsessions
+	# - increase server timeout to 30s
+	# - TerminateServer=true to workaround X server regen bug, bug 278473
+	# - DataDir set to /var/lib/kdm-${SLOT}
+	# - FaceDir set to /var/lib/kdm-${SLOT}/faces
+	sed -e "s|^.*SessionsDirs=.*$|#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions|" \
+		-e "/#ServerTimeout=/s/^.*$/ServerTimeout=30/" \
+		-e "/#TerminateServer=/s/^.*$/TerminateServer=true/" \
+		-e "s|^.*DataDir=.*$|#&\nDataDir=${EPREFIX}${KDM_HOME}|" \
+		-e "s|^.*FaceDir=.*$|#&\nFaceDir=${EPREFIX}${KDM_HOME}/faces|" \
 		-i "${ED}"/${KDEDIR}/share/config/kdm/kdmrc \
 		|| die "Failed to set ServerTimeout and SessionsDirs correctly in kdmrc."
 
 	# Don't install empty dir
 	rmdir "${ED}${KDEDIR}"/share/config/kdm/sessions
+
+	# Set up kdm work directory
+	keepdir "${KDM_HOME}"
 }
 
 pkg_postinst() {
