@@ -7,7 +7,7 @@ EAPI=2
 OPENGL_REQUIRED="always"
 inherit git kde4-base
 
-DESCRIPTION=""
+DESCRIPTION="Free and Open Source framework for creating and distributing games"
 HOMEPAGE="http://gluon.tuxfamily.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://gitorious.org/gluon/gluon.git"
