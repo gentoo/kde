@@ -2,9 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
-<use>
-	<flag name="git">Add suport for git VCS</flag>
-	<flag name="kompare">Enhance code generation user feedback using kompare diff viewer</flag>
-	<flag name="mercurial">Add suport for mercurial VCS</flag>
-</use>
 </pkgmetadata>
