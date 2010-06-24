@@ -18,6 +18,7 @@
 		<flag name="entropy">
 			Enable Entropy backend (Sabayon system pkg)
 		</flag>
+		<flag name="pm-utils">Use pm-utils</flag>
 		<!--flag name="ruck">Build ruck (rug-like) client</flag-->
 		<flag name="static-libs">Compile static archives</flag>
 		<flag name="udev">Add support for <pkg>sys-fs/udev</pkg></flag>

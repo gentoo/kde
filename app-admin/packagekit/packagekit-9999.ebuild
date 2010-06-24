@@ -73,7 +73,7 @@ DEPEND="${CDEPEND}
 "
 if [[ ${PV} = *9999* ]]; then
 	# GIT HEAD actually requires gtk-doc
-        DEPEND="${DEPEND} dev-util/gtk-doc"
+	DEPEND="${DEPEND} dev-util/gtk-doc"
 fi
 
 RDEPEND="${CDEPEND}
@@ -173,10 +173,10 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 
-        dodoc AUTHORS MAINTAINERS NEWS README TODO || die "dodoc failed"
-        if [[ ${PV} != *9999* ]]; then
-                dodoc ChangeLog || die "dodoc failed"
-        fi
+	dodoc AUTHORS MAINTAINERS NEWS README TODO || die "dodoc failed"
+	if [[ ${PV} != *9999* ]]; then
+		dodoc ChangeLog || die "dodoc failed"
+	fi
 
 	if use nsplugin; then
 		src_mv_plugins /usr/$(get_libdir)/mozilla/plugins
@@ -190,11 +190,11 @@ src_install() {
 	rm -f "${D}/$(python_get_sitedir)"/${PN}*.py[co]
 
 	dobashcompletion "${S}/contrib/pk-completion.bash" ${PN}
-        # Remove bashcomp file installed by build-system
-        rm -f "${D}/bash_completion.d/pk-completion.bash"
+	# Remove bashcomp file installed by build-system
+	rm -f "${D}/bash_completion.d/pk-completion.bash"
 
-        # Remove unwanted PackageKit website stuff
-        rm -rf "${D}/usr/share/PackageKit/website"
+	# Remove unwanted PackageKit website stuff
+	rm -rf "${D}/usr/share/PackageKit/website"
 }
 
 pkg_postinst() {
