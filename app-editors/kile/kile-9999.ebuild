@@ -7,15 +7,18 @@ EAPI="2"
 KMNAME="extragear/office"
 inherit kde4-base
 
-DESCRIPTION="A Latex Editor and TeX shell for kde"
+DESCRIPTION="A Latex Editor and TeX shell for KDE"
 HOMEPAGE="http://kile.sourceforge.net/"
 
-LICENSE="GPL-2"
+LICENSE="FDL-1.2 GPL-2"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug +pdf +png"
 
-RDEPEND="
+DEPEND="
+	x11-misc/shared-mime-info
+"
+RDEPEND="${DEPEND}
 	|| (
 		>=kde-base/okular-${KDE_MINIMAL}[pdf?,ps]
 		app-text/acroread
@@ -32,9 +35,12 @@ RDEPEND="
 	)
 "
 
-src_install() {
-	kde4-base_src_install
+DOCS=(kile-remote-control.txt)
 
-	# TODO: come back later and see if there still is a collision
-	rm -f "${D}/${KDEDIR}"/share/{apps/katepart/syntax/{bibtex,latex}.xml,icons/hicolor/{64x64,22x22}/actions/{preview,output_win}.png}
+src_prepare() {
+	kde4-base_src_prepare
+
+	# I know upstream wants to help us but it doesn't work..
+	sed -e '/INSTALL( FILES AUTHORS/s/^/#DISABLED /' \
+		-i CMakeLists.txt || die
 }
