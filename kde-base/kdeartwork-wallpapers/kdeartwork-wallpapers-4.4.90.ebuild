@@ -15,7 +15,7 @@ KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 # Please bump this as needed (probably at least for every minor version)
-add_blocker kdebase-wallpapers '<4.4.0'
+add_blocker kdebase-wallpapers '<4.4.90'
 
 KMEXTRA="
 	HighResolutionWallpapers/
