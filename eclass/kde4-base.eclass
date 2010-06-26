@@ -271,6 +271,7 @@ esac
 unset cppuintdepend
 
 # KDE dependencies
+# Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
