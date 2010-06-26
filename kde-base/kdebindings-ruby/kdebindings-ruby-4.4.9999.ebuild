@@ -61,18 +61,18 @@ all_ruby_prepare() {
 each_ruby_configure() {
 	CMAKE_USE_DIR=${S}
 	mycmakeargs=(
-		$(cmake-utils_use_enable akonadi KdepimLibs)
-		$(cmake-utils_use_enable akonadi)
-		$(cmake-utils_use_enable okular)
+		$(cmake-utils_use_with akonadi)
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with okular)
 		$(cmake-utils_use_enable plasma PLASMA_RUBY)
-		$(cmake-utils_use_enable phonon)
+		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_enable phonon PHONON_RUBY)
-		$(cmake-utils_use_enable qscintilla QScintilla)
+		$(cmake-utils_use_with qscintilla QScintilla)
 		$(cmake-utils_use_enable qscintilla QSCINTILLA_RUBY)
 		$(cmake-utils_use_enable qwt QWT_RUBY)
-		$(cmake-utils_use_enable semantic-desktop Soprano)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_enable semantic-desktop SOPRANO_RUBY)
-		$(cmake-utils_use_enable semantic-desktop Nepomuk)
 		$(cmake-utils_use_enable webkit QTWEBKIT_RUBY)
 		-DENABLE_KROSSRUBY=OFF
 		-DRUBY_LIBRARY=$(ruby_get_libruby)
