@@ -456,6 +456,17 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
+						4.4.90)
+							case ${KMNAME} in
+								kdepim | kdepim-runtime)
+									SRC_URI="ftp://alexxy.gentoo.ru/distfiles/${_kmname_pv}.tar.bz2"
+									;;
+								*)
+									# block for normally packed unstable releases
+									SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+									;;
+								esac
+								;;
 						4.[34].8[05] | 4.[34].9[0568])
 							case ${KMNAME} in
 								kdepim | kdepim-runtime)
