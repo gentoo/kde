@@ -35,6 +35,7 @@ KMEXTRACTONLY="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.75_missing_header.patch"
+	"${FILESDIR}/kdepim-r1133220-fix-holidayregion.patch"
 )
 
 src_unpack() {

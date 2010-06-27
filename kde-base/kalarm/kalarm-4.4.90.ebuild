@@ -21,3 +21,5 @@ DEPEND="${RDEPEND}"
 KMEXTRACTONLY="
 	kmail/
 "
+
+PATCHES=( "${FILESDIR}/kdepim-r1133220-fix-holidayregion.patch" )
