@@ -9,6 +9,7 @@ if [[ ${PV} = *9999* ]]; then
 	KMMODULE="runtime"
 	inherit kde4-meta
 else
+	KMNAME="kdepim-runtime"
 	inherit kde4-base
 fi
 

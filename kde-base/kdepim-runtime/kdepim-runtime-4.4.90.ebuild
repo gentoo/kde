@@ -4,11 +4,12 @@
 
 EAPI="3"
 
-KMNAME="kdepim"
-KMMODULE="runtime"
 if [[ ${PV} = *9999* ]]; then
+	KMNAME="kdepim"
+	KMMODULE="runtime"
 	inherit kde4-meta
 else
+	KMNAME="kdepim-runtime"
 	inherit kde4-base
 fi
 
