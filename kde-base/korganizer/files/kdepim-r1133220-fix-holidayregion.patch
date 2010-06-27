@@ -1,16 +1,3 @@
-Index: kdepim/kalarm/prefdlg.cpp
-===================================================================
---- kdepim/kalarm/prefdlg.cpp	(revision 1133219)
-+++ kdepim/kalarm/prefdlg.cpp	(revision 1133220)
-@@ -640,7 +640,7 @@
- 	box->setWhatsThis(i18nc("@info:whatsthis",
- 	                        "Select which holiday region to use"));
- 
--    QStringList regions = HolidayRegion::regions();
-+    QStringList regions = HolidayRegion::regionCodes();
-     QMap<QString, QString> regionsMap;
- 
-     foreach (const QString & regionCode, regions) {
 Index: kdepim/korganizer/koprefsdialog.cpp
 ===================================================================
 --- kdepim/korganizer/koprefsdialog.cpp	(revision 1133219)
