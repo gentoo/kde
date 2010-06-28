@@ -113,6 +113,7 @@ kde-base/qguiplatformplugin_kde:4.5
 kde-base/solid:4.5
 kde-base/systemsettings:4.5
 kde-base/kdebindings-csharp:4.5
+kde-base/kdebindings-perl:4.5
 kde-base/kdebindings-ruby:4.5
 kde-base/krossjava:4.5
 kde-base/krosspython:4.5
