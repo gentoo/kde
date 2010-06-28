@@ -124,17 +124,19 @@ sync_main_keywords_with_overlay() {
 	if [[ -d "${dir}" ]] ; then
 		pushd "${dir}" &> /dev/null
 		# the grep is for removing 3.5 ebuilds from knowledge
-		if [[ ${3} = intree ]]; then	
+		if [[ ${3} = intree ]]; then
 			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 2 | head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
 		else
 			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
 		fi
 		popd &> /dev/null
 	else
-		KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
+		[[ ${BUMP_VERSION} != *9999 ]] && KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
 	fi
-	[[ ${KEYWORDS} = "" ]] && KEYWORDS="~amd64 ~x86"
-	ekeyword $KEYWORDS ${1} &> /dev/null
+	if [[ ${BUMP_VERSION} != *9999 ]]; then
+		[[ -z ${KEYWORDS} ]] && KEYWORDS="~amd64 ~x86"
+		ekeyword $KEYWORDS ${1} &> /dev/null
+	fi
 }
 
 # print out help function
