@@ -41,7 +41,6 @@ KMEXTRA="
 PATCHES=(
 	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
 	"${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch"
-	"${FILESDIR}/${PN}-4.3.5-xdm-restart.patch"
 )
 
 pkg_setup() {
