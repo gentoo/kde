@@ -16,12 +16,12 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
+	dev-libs/libatasmart
 	sys-apps/parted
 	sys-libs/e2fsprogs-libs
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
-	dev-libs/libatasmart
 "
 
 src_configure() {
