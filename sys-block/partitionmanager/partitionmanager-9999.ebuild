@@ -21,6 +21,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
+	dev-libs/libatasmart
 "
 
 src_configure() {
