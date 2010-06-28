@@ -95,15 +95,15 @@ pkg_postinst() {
 
 	# Set the default kdm face icon if it's not already set by the system admin
 	# because this is user-overrideable in that way, it's not in src_install
-	if [[ ! -e "${EROOT}${KDEDIR}/share/apps/kdm/faces/.default.face.icon" ]]; then
-		mkdir -p "${EROOT}${KDEDIR}/share/apps/kdm/faces"
+	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/.default.face.icon" ]]; then
+		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
 		cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/default1.png" \
-			"${EROOT}${KDEDIR}/share/apps/kdm/faces/.default.face.icon"
+			"${PREFIX}${KDM_HOME}/faces/.default.face.icon"
 	fi
-	if [[ ! -e "${EROOT}${KDEDIR}/share/apps/kdm/faces/root.face.icon" ]]; then
-		mkdir -p "${EROOT}${KDEDIR}/share/apps/kdm/faces"
+	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/root.face.icon" ]]; then
+		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
 		cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/root1.png" \
-			"${EROOT}${KDEDIR}/share/apps/kdm/faces/root.face.icon"
+			"${EPREFIX}${KDM_HOME}/faces/root.face.icon"
 	fi
 
 	if use consolekit; then
