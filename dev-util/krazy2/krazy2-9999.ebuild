@@ -26,9 +26,6 @@ RDEPEND="${DEPEND}
 	dev-util/desktop-file-utils
 "
 
-#PATCHES=( "${FILESDIR}/install.sh.patch"
-#			"${FILESDIR}/multilib.patch" )
-
 CMAKE_USE_DIR="${S}/cppchecks"
 
 src_unpack() {
@@ -36,7 +33,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/install.sh.patch"
 	epatch "${FILESDIR}/multilib.patch"
 
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
