@@ -102,7 +102,7 @@ pkg_postinst() {
 	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/.default.face.icon" ]]; then
 		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
 		cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/default1.png" \
-			"${PREFIX}${KDM_HOME}/faces/.default.face.icon"
+			"${EPREFIX}${KDM_HOME}/faces/.default.face.icon"
 	fi
 	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/root.face.icon" ]]; then
 		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
