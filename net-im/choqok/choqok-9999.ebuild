@@ -15,5 +15,6 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND="dev-libs/qjson"
+DEPEND="dev-libs/qjson
+	=dev-libs/qoauth-9999"
 RDEPEND="${DEPEND}"
