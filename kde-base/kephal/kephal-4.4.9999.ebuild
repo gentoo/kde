@@ -11,3 +11,10 @@ inherit kde4-meta
 DESCRIPTION="Allows handling of multihead systems via the XRandR extension"
 KEYWORDS=""
 IUSE="debug"
+
+RDEPEND="
+	x11-libs/libXrandr
+"
+DEPEND="${RDEPEND}
+	x11-proto/randrproto
+"
