@@ -38,9 +38,8 @@ src_prepare() {
 			|| die "Failed to disable examples"
 	fi
 
-	if use arm; then
-		epatch "${FILESDIR}/pykde4-arm-sip.patch"
-	fi
+	# See bug 322351
+	use arm && epatch "${FILESDIR}/${P}-4.4.4-arm-sip.patch"
 }
 
 src_configure() {
