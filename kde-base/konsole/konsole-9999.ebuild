@@ -28,7 +28,3 @@ DEPEND="${COMMONDEPEND}
 	)
 "
 RDEPEND="${COMMONDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.4.2-remember-size.patch"
-)
