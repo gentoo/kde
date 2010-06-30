@@ -11,12 +11,13 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.5"
 KEYWORDS=""
-IUSE="aqua csharp java kdeprefix python ruby"
+IUSE="aqua csharp java kdeprefix perl python ruby"
 
 RDEPEND="
 	$(add_kdebase_dep smoke)
 	csharp? ( $(add_kdebase_dep kdebindings-csharp) )
 	java? ( $(add_kdebase_dep krossjava) )
+	perl? ( $(add_kdebase_dep kdebindings-perl) )
 	python? (
 		$(add_kdebase_dep krosspython)
 		$(add_kdebase_dep pykde4)
