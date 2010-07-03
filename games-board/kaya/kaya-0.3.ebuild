@@ -18,6 +18,7 @@ IUSE=""
 
 RDEPEND=""
 ruby_add_rdepend "kde-base/kdebindings-ruby"
+ruby_add_rdepend "dev-ruby/builder"
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
