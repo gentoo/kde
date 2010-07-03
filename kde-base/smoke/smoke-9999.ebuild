@@ -32,16 +32,17 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
-		$(cmake-utils_use_with attica LibAttica)
-		$(cmake-utils_use_disable multimedia QtMultimedia)
+		$(cmake-utils_use_enable attica ATTICA_SMOKE)
+		$(cmake-utils_use_enable multimedia QTMULTIMEDIA_SMOKE)
 		$(cmake-utils_use_with okular)
 		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with qimageblitz QImageBlitz)
+		$(cmake-utils_use_enable phonon PHONON_SMOKE)
+		$(cmake-utils_use_enable qimageblitz QIMAGEBLITZ_SMOKE)
 		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_enable qwt QWT_SMOKE)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_disable webkit QtWebKit)
+		$(cmake-utils_use_enable webkit QTWEBKIT_SMOKE)
 	)
 	kde4-meta_src_configure
 }
