@@ -21,10 +21,10 @@ inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS="~amd64 ~x86"
-IUSE="attica akonadi debug multimedia okular phonon plasma qimageblitz qscintilla qwt semantic-desktop"
+IUSE="attica akonadi debug multimedia okular phonon qimageblitz qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'attica?,akonadi?,multimedia?,okular?,phonon?,plasma?,qimageblitz?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'attica?,akonadi?,multimedia?,okular?,phonon?,qimageblitz?,qscintilla?,qwt?,semantic-desktop?')
 "
 
 RDEPEND="${DEPEND}
