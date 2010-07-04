@@ -30,18 +30,18 @@ KMEXTRA="generator/"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with attica LibAttica)
-		$(cmake-utils_use_with qimageblitz)
-		$(cmake-utils_use_with qwt Qwt5)
-		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with qscintilla QScintilla)
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with attica LibAttica)
+		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_with okular)
-		$(cmake-utils_use_with webkit QT_QTWEBKIT)
-		$(cmake-utils_use_with multimedia QT_MULTIMEDIA)
+		$(cmake-utils_use_with phonon)
+		$(cmake-utils_use_with qimageblitz QImageBlitz)
+		$(cmake-utils_use_with qscintilla QScintilla)
+		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
 }

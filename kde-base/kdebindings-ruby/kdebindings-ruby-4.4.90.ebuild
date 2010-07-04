@@ -8,35 +8,23 @@ KMNAME="kdebindings"
 KMMODULE="ruby"
 WEBKIT_REQUIRED="optional"
 
-USE_RUBY="ruby18"
-# No ruby19 for two reasons:
-# 1) it does not build (yet) - solvable I'd guess
-# 2) the ebuild can only be installed for one ruby variant, otherwise the compiled
-#    files with identical path+name will overwrite each other - difficult :(
-
-# Workaround to get things in principle build with several ruby implementations:
-CMAKE_IN_SOURCE_BUILD=1
+USE_RUBY="ruby18 ruby19"
 
 inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS="~amd64 ~x86"
-IUSE="attica akonadi debug multimedia okular phonon qimageblitz qscintilla qwt semantic-desktop"
+IUSE="akonadi debug okular phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'attica?,akonadi?,multimedia?,okular?,phonon?,qimageblitz?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'akonadi?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?')
 "
-
 RDEPEND="${DEPEND}
 	!dev-ruby/qt4-qtruby
 "
 
 # Merged with kdebindings-ruby after 4.4.80
 add_blocker krossruby
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-fix-linkage-4.5.patch
-)
 
 pkg_setup() {
 	ruby-ng_pkg_setup
@@ -67,21 +55,19 @@ all_ruby_prepare() {
 each_ruby_configure() {
 	CMAKE_USE_DIR=${S}
 	mycmakeargs=(
-		$(cmake-utils_use_with attica LibAttica)
-		$(cmake-utils_use_with qimageblitz)
-		$(cmake-utils_use_with qwt Qwt5)
-		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with akonadi KdepimLibs)
-		$(cmake-utils_use_with akonadi)
-		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with okular)
-		$(cmake-utils_use_with webkit QT_QTWEBKIT)
-		$(cmake-utils_use_with multimedia QT_MULTIMEDIA)
 		-DRUBY_LIBRARY=$(ruby_get_libruby)
 		-DRUBY_INCLUDE_PATH=$(ruby_get_hdrdir)
 		-DRUBY_EXECUTABLE=${RUBY}
+		$(cmake-utils_use_with akonadi)
+		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with okular)
+		$(cmake-utils_use_with phonon)
+		$(cmake-utils_use_with plasma)
+		$(cmake-utils_use_with qscintilla QScintilla)
+		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
 }
