@@ -6,11 +6,9 @@ EAPI="2"
 
 inherit cmake-utils
 
-MY_P="${PN}-v${PV}"
-
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-SRC_URI="http://downloads.grantlee.org/${MY_P}.tar.gz"
+SRC_URI="http://downloads.grantlee.org/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
@@ -28,8 +26,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=(AUTHORS CHANGELOG GOALS README)
-
-S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	mycmakeargs=(
