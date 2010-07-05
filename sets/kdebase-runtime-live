@@ -8,6 +8,7 @@ kde-base/kdebase-desktoptheme:live
 kde-base/kdebase-kioslaves:live
 kde-base/kdebase-menu:live
 kde-base/kdebase-menu-icons:live
+kde-base/kdebase-runtime-meta:live
 kde-base/kdebugdialog:live
 kde-base/kdesu:live
 kde-base/kdontchangethehostname:live

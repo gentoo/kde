@@ -78,10 +78,12 @@ kde-base/kde-l10n:live
 kde-base/jovie:live
 kde-base/kdeaccessibility-colorschemes:live
 kde-base/kdeaccessibility-iconthemes:live
+kde-base/kdeaccessibility-meta:live
 kde-base/kmag:live
 kde-base/kmousetool:live
 kde-base/kmouth:live
 kde-base/kcron:live
+kde-base/kdeadmin-meta:live
 kde-base/knetworkconf:live
 kde-base/ksystemlog:live
 kde-base/kuser:live
@@ -91,7 +93,7 @@ kde-base/kdeartwork-desktopthemes:live
 kde-base/kdeartwork-emoticons:live
 kde-base/kdeartwork-iconthemes:live
 kde-base/kdeartwork-kscreensaver:live
-# kde-base/kdeartwork-kwin-styles:live <--- not ready yet by upstream
+kde-base/kdeartwork-meta:live
 kde-base/kdeartwork-sounds:live
 kde-base/kdeartwork-styles:live
 kde-base/kdeartwork-wallpapers:live
@@ -118,6 +120,7 @@ kde-base/kdebase-desktoptheme:live
 kde-base/kdebase-kioslaves:live
 kde-base/kdebase-menu:live
 kde-base/kdebase-menu-icons:live
+kde-base/kdebase-runtime-meta:live
 kde-base/kdebugdialog:live
 kde-base/kdesu:live
 kde-base/kdontchangethehostname:live
@@ -178,6 +181,7 @@ kde-base/qguiplatformplugin_kde:live
 kde-base/solid:live
 kde-base/systemsettings:live
 kde-base/kdebindings-csharp:live
+kde-base/kdebindings-meta:live
 kde-base/kdebindings-perl:live
 kde-base/kdebindings-ruby:live
 kde-base/krossjava:live
@@ -204,6 +208,7 @@ kde-base/kalgebra:live
 kde-base/kalzium:live
 kde-base/kanagram:live
 kde-base/kbruch:live
+kde-base/kdeedu-meta:live
 kde-base/kgeography:live
 kde-base/khangman:live
 kde-base/kig:live
@@ -231,6 +236,7 @@ kde-base/kblackbox:live
 kde-base/kblocks:live
 kde-base/kbounce:live
 kde-base/kbreakout:live
+kde-base/kdegames-meta:live
 kde-base/kdiamond:live
 kde-base/kfourinline:live
 kde-base/kgoldrunner:live
@@ -263,6 +269,8 @@ kde-base/palapeli:live
 kde-base/gwenview:live
 kde-base/kamera:live
 kde-base/kcolorchooser:live
+kde-base/kdegraphics-meta:live
+kde-base/kdegraphics-strigi-analyzer:live
 kde-base/kgamma:live
 kde-base/kolourpaint:live
 kde-base/kruler:live
@@ -274,7 +282,6 @@ kde-base/libksane:live
 kde-base/libkipi:live
 kde-base/okular:live
 kde-base/svgpart:live
-kde-base/kdegraphics-strigi-analyzer:live
 kde-base/thumbnailers:live
 kde-base/kde-env:live
 kde-base/kdelibs:live
@@ -284,12 +291,14 @@ kde-base/dragonplayer:live
 kde-base/ffmpegthumbs:live
 kde-base/juk:live
 kde-base/kdemultimedia-kioslaves:live
+kde-base/kdemultimedia-meta:live
 kde-base/kmix:live
 kde-base/kscd:live
 kde-base/libkcddb:live
 kde-base/libkcompactdisc:live
 kde-base/mplayerthumbs:live
 kde-base/kdenetwork-filesharing:live
+kde-base/kdenetwork-meta:live
 kde-base/kdnssd:live
 kde-base/kget:live
 kde-base/kopete:live
@@ -306,6 +315,7 @@ kde-base/kalarm:live
 kde-base/kdepim-common-libs:live
 kde-base/kdepim-icons:live
 kde-base/kdepim-kresources:live
+kde-base/kdepim-meta:live
 kde-base/kdepim-strigi-analyzer:live
 kde-base/kdepim-wizards:live
 kde-base/kdepim-runtime:live
@@ -326,6 +336,7 @@ kde-base/kbugbuster:live
 kde-base/kcachegrind:live
 kde-base/kdeaccounts-plugin:live
 kde-base/kdesdk-kioslaves:live
+kde-base/kdesdk-meta:live
 kde-base/kdesdk-misc:live
 kde-base/kdesdk-scripts:live
 kde-base/kdesdk-strigi-analyzer:live
@@ -335,11 +346,13 @@ kde-base/kuiviewer:live
 kde-base/lokalize:live
 kde-base/umbrello:live
 kde-base/amor:live
+kde-base/kdetoys-meta:live
 kde-base/kteatime:live
 kde-base/ktux:live
 kde-base/ark:live
 kde-base/kcalc:live
 kde-base/kcharselect:live
+kde-base/kdeutils-meta:live
 kde-base/kdf:live
 kde-base/kgpg:live
 kde-base/kremotecontrol:live
@@ -349,6 +362,7 @@ kde-base/okteta:live
 kde-base/printer-applet:live
 kde-base/superkaramba:live
 kde-base/sweeper:live
+kde-base/kdewebdev-meta:live
 kde-base/kfilereplace:live
 kde-base/kimagemapeditor:live
 kde-base/klinkstatus:live
@@ -364,23 +378,8 @@ kde-base/kommander:live
 ~app-office/koffice-data-9999
 ~app-office/koffice-libs-9999
 ~app-office/kspread-9999
-kde-base/kdeaccessibility-meta:live
-kde-base/kdeadmin-meta:live
-kde-base/kdeartwork-meta:live
 kde-base/kdebase-meta:live
-kde-base/kdebase-runtime-meta:live
-kde-base/kdebindings-meta:live
-kde-base/kdeedu-meta:live
-kde-base/kdegames-meta:live
-kde-base/kdegraphics-meta:live
 kde-base/kde-meta:live
-kde-base/kdemultimedia-meta:live
-kde-base/kdenetwork-meta:live
-kde-base/kdepim-meta:live
-kde-base/kdesdk-meta:live
-kde-base/kdetoys-meta:live
-kde-base/kdeutils-meta:live
-kde-base/kdewebdev-meta:live
 ~kde-misc/kepas-9999
 ~kde-misc/menubar-9999
 ~kde-misc/plasma-emergelog-9999

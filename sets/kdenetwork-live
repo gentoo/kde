@@ -1,4 +1,5 @@
 kde-base/kdenetwork-filesharing:live
+kde-base/kdenetwork-meta:live
 kde-base/kdnssd:live
 kde-base/kget:live
 kde-base/kopete:live

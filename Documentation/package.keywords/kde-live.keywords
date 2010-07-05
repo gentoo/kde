@@ -6,10 +6,12 @@
 ~kde-base/jovie-9999 **
 ~kde-base/kdeaccessibility-colorschemes-9999 **
 ~kde-base/kdeaccessibility-iconthemes-9999 **
+~kde-base/kdeaccessibility-meta-9999 **
 ~kde-base/kmag-9999 **
 ~kde-base/kmousetool-9999 **
 ~kde-base/kmouth-9999 **
 ~kde-base/kcron-9999 **
+~kde-base/kdeadmin-meta-9999 **
 ~kde-base/knetworkconf-9999 **
 ~kde-base/ksystemlog-9999 **
 ~kde-base/kuser-9999 **
@@ -19,7 +21,7 @@
 ~kde-base/kdeartwork-emoticons-9999 **
 ~kde-base/kdeartwork-iconthemes-9999 **
 ~kde-base/kdeartwork-kscreensaver-9999 **
-# kde-base/kdeartwork-kwin-styles:live <--- not ready yet by upstream
+~kde-base/kdeartwork-meta-9999 **
 ~kde-base/kdeartwork-sounds-9999 **
 ~kde-base/kdeartwork-styles-9999 **
 ~kde-base/kdeartwork-wallpapers-9999 **
@@ -46,6 +48,7 @@
 ~kde-base/kdebase-kioslaves-9999 **
 ~kde-base/kdebase-menu-9999 **
 ~kde-base/kdebase-menu-icons-9999 **
+~kde-base/kdebase-runtime-meta-9999 **
 ~kde-base/kdebugdialog-9999 **
 ~kde-base/kdesu-9999 **
 ~kde-base/kdontchangethehostname-9999 **
@@ -106,6 +109,7 @@
 ~kde-base/solid-9999 **
 ~kde-base/systemsettings-9999 **
 ~kde-base/kdebindings-csharp-9999 **
+~kde-base/kdebindings-meta-9999 **
 ~kde-base/kdebindings-perl-9999 **
 ~kde-base/kdebindings-ruby-9999 **
 ~kde-base/krossjava-9999 **
@@ -132,6 +136,7 @@
 ~kde-base/kalzium-9999 **
 ~kde-base/kanagram-9999 **
 ~kde-base/kbruch-9999 **
+~kde-base/kdeedu-meta-9999 **
 ~kde-base/kgeography-9999 **
 ~kde-base/khangman-9999 **
 ~kde-base/kig-9999 **
@@ -159,6 +164,7 @@
 ~kde-base/kblocks-9999 **
 ~kde-base/kbounce-9999 **
 ~kde-base/kbreakout-9999 **
+~kde-base/kdegames-meta-9999 **
 ~kde-base/kdiamond-9999 **
 ~kde-base/kfourinline-9999 **
 ~kde-base/kgoldrunner-9999 **
@@ -191,6 +197,8 @@
 ~kde-base/gwenview-9999 **
 ~kde-base/kamera-9999 **
 ~kde-base/kcolorchooser-9999 **
+~kde-base/kdegraphics-meta-9999 **
+~kde-base/kdegraphics-strigi-analyzer-9999 **
 ~kde-base/kgamma-9999 **
 ~kde-base/kolourpaint-9999 **
 ~kde-base/kruler-9999 **
@@ -202,7 +210,6 @@
 ~kde-base/libkipi-9999 **
 ~kde-base/okular-9999 **
 ~kde-base/svgpart-9999 **
-~kde-base/kdegraphics-strigi-analyzer-9999 **
 ~kde-base/thumbnailers-9999 **
 ~kde-base/kde-env-9999 **
 ~kde-base/kdelibs-9999 **
@@ -212,12 +219,14 @@
 ~kde-base/ffmpegthumbs-9999 **
 ~kde-base/juk-9999 **
 ~kde-base/kdemultimedia-kioslaves-9999 **
+~kde-base/kdemultimedia-meta-9999 **
 ~kde-base/kmix-9999 **
 ~kde-base/kscd-9999 **
 ~kde-base/libkcddb-9999 **
 ~kde-base/libkcompactdisc-9999 **
 ~kde-base/mplayerthumbs-9999 **
 ~kde-base/kdenetwork-filesharing-9999 **
+~kde-base/kdenetwork-meta-9999 **
 ~kde-base/kdnssd-9999 **
 ~kde-base/kget-9999 **
 ~kde-base/kopete-9999 **
@@ -234,6 +243,7 @@
 ~kde-base/kdepim-common-libs-9999 **
 ~kde-base/kdepim-icons-9999 **
 ~kde-base/kdepim-kresources-9999 **
+~kde-base/kdepim-meta-9999 **
 ~kde-base/kdepim-strigi-analyzer-9999 **
 ~kde-base/kdepim-wizards-9999 **
 ~kde-base/kdepim-runtime-9999 **
@@ -254,6 +264,7 @@
 ~kde-base/kcachegrind-9999 **
 ~kde-base/kdeaccounts-plugin-9999 **
 ~kde-base/kdesdk-kioslaves-9999 **
+~kde-base/kdesdk-meta-9999 **
 ~kde-base/kdesdk-misc-9999 **
 ~kde-base/kdesdk-scripts-9999 **
 ~kde-base/kdesdk-strigi-analyzer-9999 **
@@ -263,11 +274,13 @@
 ~kde-base/lokalize-9999 **
 ~kde-base/umbrello-9999 **
 ~kde-base/amor-9999 **
+~kde-base/kdetoys-meta-9999 **
 ~kde-base/kteatime-9999 **
 ~kde-base/ktux-9999 **
 ~kde-base/ark-9999 **
 ~kde-base/kcalc-9999 **
 ~kde-base/kcharselect-9999 **
+~kde-base/kdeutils-meta-9999 **
 ~kde-base/kdf-9999 **
 ~kde-base/kgpg-9999 **
 ~kde-base/kremotecontrol-9999 **
@@ -277,27 +290,13 @@
 ~kde-base/printer-applet-9999 **
 ~kde-base/superkaramba-9999 **
 ~kde-base/sweeper-9999 **
+~kde-base/kdewebdev-meta-9999 **
 ~kde-base/kfilereplace-9999 **
 ~kde-base/kimagemapeditor-9999 **
 ~kde-base/klinkstatus-9999 **
 ~kde-base/kommander-9999 **
-~kde-base/kdeaccessibility-meta-9999 **
-~kde-base/kdeadmin-meta-9999 **
-~kde-base/kdeartwork-meta-9999 **
 ~kde-base/kdebase-meta-9999 **
-~kde-base/kdebase-runtime-meta-9999 **
-~kde-base/kdebindings-meta-9999 **
-~kde-base/kdeedu-meta-9999 **
-~kde-base/kdegames-meta-9999 **
-~kde-base/kdegraphics-meta-9999 **
 ~kde-base/kde-meta-9999 **
-~kde-base/kdemultimedia-meta-9999 **
-~kde-base/kdenetwork-meta-9999 **
-~kde-base/kdepim-meta-9999 **
-~kde-base/kdesdk-meta-9999 **
-~kde-base/kdetoys-meta-9999 **
-~kde-base/kdeutils-meta-9999 **
-~kde-base/kdewebdev-meta-9999 **
 app-admin/system-config-printer-common
 =dev-db/virtuoso-odbc-6.1*
 =dev-db/virtuoso-server-6.1*

@@ -1,6 +1,8 @@
 kde-base/gwenview:live
 kde-base/kamera:live
 kde-base/kcolorchooser:live
+kde-base/kdegraphics-meta:live
+kde-base/kdegraphics-strigi-analyzer:live
 kde-base/kgamma:live
 kde-base/kolourpaint:live
 kde-base/kruler:live
@@ -12,5 +14,4 @@ kde-base/libksane:live
 kde-base/libkipi:live
 kde-base/okular:live
 kde-base/svgpart:live
-kde-base/kdegraphics-strigi-analyzer:live
 kde-base/thumbnailers:live
