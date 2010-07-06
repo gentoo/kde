@@ -30,7 +30,7 @@ WANT_CMAKE="${WANT_CMAKE:-always}"
 
 # @ECLASS-VARIABLE: CMAKE_MIN_VERSION
 # @DESCRIPTION:
-# Specify the minimum allowable version of cmake.  Defaults to 2.6.2-r1
+# Specify the minimum required CMake version.  Default is 2.6.2-r1
 CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.6.2-r1}"
 
 CMAKEDEPEND=""
@@ -350,7 +350,7 @@ enable_cmake-utils_src_compile() {
 # @FUNCTION: cmake-utils_src_make
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
-# All arguments are passed to emake
+# All arguments are passed to emake.
 cmake-utils_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
