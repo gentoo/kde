@@ -18,14 +18,13 @@ IUSE="alsa aqua debug gstreamer pulseaudio +xcb +xine"
 RDEPEND="
 	!kde-base/phonon-xine
 	!x11-libs/qt-phonon:4
-	>=x11-libs/qt-test-4.4.0:4[aqua=]
-	>=x11-libs/qt-dbus-4.4.0:4[aqua=]
-	>=x11-libs/qt-gui-4.4.0:4[aqua=]
-	>=x11-libs/qt-opengl-4.4.0:4[aqua=]
+	>=x11-libs/qt-test-4.6.0:4[aqua=]
+	>=x11-libs/qt-dbus-4.6.0:4[aqua=]
+	>=x11-libs/qt-gui-4.6.0:4[aqua=]
+	>=x11-libs/qt-opengl-4.6.0:4[aqua=]
 	gstreamer? (
 		media-libs/gstreamer
-		media-libs/gst-plugins-base
-		alsa? ( media-libs/alsa-lib )
+		media-plugins/gst-plugins-meta[alsa?]
 	)
 	pulseaudio? (
 		dev-libs/glib:2
