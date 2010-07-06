@@ -2,6 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+#
+# ***
+# Note that this ebuild is outdated; the changes from the latest .x.y.z still have to be ported here!!!
+# ***
+#
+
+
 EAPI="2"
 
 #KDE_LINGUAS="ar be bg ca cs da de el es et eu fa fi fr ga gl he hi is it ja km
