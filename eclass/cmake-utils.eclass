@@ -337,7 +337,6 @@ enable_cmake-utils_src_configure() {
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"
 	echo cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}"
 	cmake "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed"
-
 	popd > /dev/null
 }
 
@@ -356,7 +355,7 @@ cmake-utils_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" &> /dev/null
+	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	# first check if Makefile exist otherwise die
 	[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
 	if [[ -n ${CMAKE_VERBOSE} ]]; then
@@ -364,16 +363,16 @@ cmake-utils_src_make() {
 	else
 		emake "$@" || die "Make failed!"
 	fi
-	popd &> /dev/null
+	popd > /dev/null
 }
 
 enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" &> /dev/null
+	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	base_src_install
-	popd &> /dev/null
+	popd > /dev/null
 
 	# Backward compatibility, for non-array variables
 	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
@@ -388,9 +387,11 @@ enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
-	pushd "${CMAKE_BUILD_DIR}" &> /dev/null
-	ctest --extra-verbose || die "Tests failed."
-	popd &> /dev/null
+	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	local ctestargs
+	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
+	ctest ${ctestargs} || die "Tests failed."
+	popd > /dev/null
 }
 
 # @FUNCTION: cmake-utils_src_configure
