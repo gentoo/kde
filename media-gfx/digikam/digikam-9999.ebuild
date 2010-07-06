@@ -2,18 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-#
-# ***
-# Note that this ebuild is outdated; the changes from the latest .x.y.z still have to be ported here!!!
-# ***
-#
-
-
 EAPI="2"
 
 #KDE_LINGUAS="ar be bg ca cs da de el es et eu fa fi fr ga gl he hi is it ja km
 #ko lt lv lb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
 KMNAME="extragear/graphics"
+
+# needed for sufficiently new libkdcraw
+KDE_MINIMAL="4.4"
 inherit kde4-base
 
 MY_P="${PN}-${PV/_/-}"
@@ -25,37 +21,53 @@ HOMEPAGE="http://www.digikam.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="addressbook debug geolocation +gphoto2 lensfun semantic-desktop"
+IUSE="addressbook debug doc geolocation gphoto2 lensfun semantic-desktop themedesigner +thumbnails video"
 
-DEPEND="
-	dev-db/sqlite:3
+CDEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
 	>=kde-base/solid-${KDE_MINIMAL}
-	>=media-libs/jasper-1.701.0
-	media-libs/jpeg
+	media-libs/jasper
+	>=media-libs/jpeg-8
 	media-libs/lcms:0
-	>=media-libs/libpng-1.2.26-r1
-	>=media-libs/tiff-3.8.2-r3
-	sys-devel/gettext
-	x11-libs/qt-core[qt3support]
+	media-libs/liblqr
+	media-libs/libpng
+	media-libs/tiff
+	media-libs/libpgf
+	>=media-plugins/kipi-plugins-1.2.0-r1
+	virtual/lapack
+	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
 	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
-	gphoto2? ( >=media-libs/libgphoto2-2.4.1-r1 )
+	gphoto2? ( media-libs/libgphoto2 )
 	lensfun? ( media-libs/lensfun )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${CDEPEND}
+	>=kde-base/kreadconfig-${KDE_MINIMAL}
+	video? (
+		|| (
+			>=kde-base/mplayerthumbs-${KDE_MINIMAL}
+			>=kde-base/ffmpegthumbs-${KDE_MINIMAL}
+		)
+	)
+"
+# gcc[fortran] is required since we cannot otherwise link to the lapack library
+#   (the fun of unbundling)
+DEPEND="${CDEPEND}
+	sys-devel/gcc[fortran]
+	sys-devel/gettext
+"
 
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	# Fix files collision, use icon from kdebase-data rather that digikam ones
-	rm -rf data/icons/oxygen/{16x16,22x22,32x32,64x64,48x48,128x128,scalable\
-}/{actions/{view-object-histogram-linear,transform-crop-and-resize,\
-view-object-histogram-logarithmic},apps/{digikam,showfoto}}.{svgz,png}
+	# Patch to unbundled libpgf.
+	epatch "${FILESDIR}/${PN}-1.3.0-libpgf.patch"
+	# Patch to unbundle lapack.
+	epatch "${FILESDIR}/${PN}-1.3.0-lapack.patch"
 
 	kde4-base_src_prepare
 }
@@ -64,13 +76,19 @@ src_configure() {
 	local backend
 
 	use semantic-desktop && backend="Nepomuk" || backend="None"
+	# LQR = only allows to choose between bundled/external
 	mycmakeargs=(
+		-DWITH_LQR=ON
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
-		$(cmake-utils_use_enable gphoto2)
 		$(cmake-utils_use_with addressbook KdepimLibs)
+		$(cmake-utils_use_build doc)
 		$(cmake-utils_use_with geolocation MarbleWidget)
+		$(cmake-utils_use_enable gphoto2 GPHOTO2)
+		$(cmake-utils_use_with gphoto2)
 		$(cmake-utils_use_with lensfun LensFun)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_enable themedesigner)
+		$(cmake-utils_use_enable thumbnails THUMBS_DB)
 	)
 
 	kde4-base_src_configure

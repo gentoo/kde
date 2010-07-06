@@ -10,7 +10,6 @@ KMNAME="extragear/graphics"
 
 # needed for sufficiently new libkdcraw
 KDE_MINIMAL="4.4"
-
 inherit kde4-base
 
 MY_P="${PN}-${PV/_/-}"
@@ -24,13 +23,12 @@ KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="addressbook debug doc geolocation gphoto2 lensfun semantic-desktop themedesigner +thumbnails video"
 
-RDEPEND="
+CDEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop?]
 	>=kde-base/libkdcraw-${KDE_MINIMAL}
 	>=kde-base/libkexiv2-${KDE_MINIMAL}
 	>=kde-base/libkipi-${KDE_MINIMAL}
 	>=kde-base/solid-${KDE_MINIMAL}
-	>=kde-base/kreadconfig-${KDE_MINIMAL}
 	media-libs/jasper
 	>=media-libs/jpeg-8
 	media-libs/lcms:0
@@ -46,12 +44,19 @@ RDEPEND="
 	geolocation? ( >=kde-base/marble-${KDE_MINIMAL} )
 	gphoto2? ( media-libs/libgphoto2 )
 	lensfun? ( media-libs/lensfun )
-	video? ( >=kde-base/mplayerthumbs-${KDE_MINIMAL} )
 "
-
-# gcc[fortran] is required since we cannot otherwise link to the lapack library 
+RDEPEND="${CDEPEND}
+	>=kde-base/kreadconfig-${KDE_MINIMAL}
+	video? (
+		|| (
+			>=kde-base/mplayerthumbs-${KDE_MINIMAL}
+			>=kde-base/ffmpegthumbs-${KDE_MINIMAL}
+		)
+	)
+"
+# gcc[fortran] is required since we cannot otherwise link to the lapack library
 #   (the fun of unbundling)
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	sys-devel/gcc[fortran]
 	sys-devel/gettext
 "
@@ -60,9 +65,9 @@ S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	# Patch to unbundled libpgf.
-	epatch "${FILESDIR}/digikam-1.3.0-libpgf.patch"
+	epatch "${FILESDIR}/${PN}-1.3.0-libpgf.patch"
 	# Patch to unbundle lapack.
-	epatch "${FILESDIR}/digikam-1.3.0-lapack.patch"
+	epatch "${FILESDIR}/${PN}-1.3.0-lapack.patch"
 
 	kde4-base_src_prepare
 }
@@ -74,17 +79,16 @@ src_configure() {
 	# LQR = only allows to choose between bundled/external
 	mycmakeargs=(
 		-DWITH_LQR=ON
-		-DENABLE_THEMEDESIGNER=OFF
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
+		$(cmake-utils_use_with addressbook KdepimLibs)
+		$(cmake-utils_use_build doc)
+		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_enable gphoto2 GPHOTO2)
 		$(cmake-utils_use_with gphoto2)
-		$(cmake-utils_use_enable thumbnails THUMBS_DB)
-		$(cmake-utils_use_with addressbook KdepimLibs)
-		$(cmake-utils_use_with geolocation MarbleWidget)
 		$(cmake-utils_use_with lensfun LensFun)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_enable themedesigner)
-		$(cmake-utils_use_build doc)
+		$(cmake-utils_use_enable thumbnails THUMBS_DB)
 	)
 
 	kde4-base_src_configure
