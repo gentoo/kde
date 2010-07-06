@@ -229,27 +229,6 @@ kde-base/krfb:4.5
 kde-base/kfloppy:4.5
 kde-base/kppp:4.5
 kde-base/policykit-kde:4.5
-kde-base/akregator:4.5
-kde-base/blogilo:4.5
-kde-base/kabcclient:4.5
-kde-base/kaddressbook:4.5
-kde-base/kalarm:4.5
-kde-base/kdepim-common-libs:4.5
-kde-base/kdepim-icons:4.5
-kde-base/kdepim-kresources:4.5
-kde-base/kdepim-meta:4.5
-kde-base/kdepim-strigi-analyzer:4.5
-kde-base/kdepim-wizards:4.5
-kde-base/kdepim-runtime:4.5
-kde-base/kjots:4.5
-kde-base/kleopatra:4.5
-kde-base/kmail:4.5
-kde-base/knode:4.5
-kde-base/knotes:4.5
-kde-base/konsolekalendar:4.5
-kde-base/kontact:4.5
-kde-base/korganizer:4.5
-kde-base/ktimetracker:4.5
 kde-base/cervisia:4.5
 kde-base/dolphin-plugins:4.5
 kde-base/kapptemplate:4.5
@@ -297,6 +276,28 @@ kde-base/kommander:4.5
 
 kde-base/kdebase-meta:4.5
 kde-base/kde-meta:4.5
+
+kde-base/akregator:4.5
+kde-base/blogilo:4.5
+kde-base/kabcclient:4.5
+kde-base/kaddressbook:4.5
+kde-base/kalarm:4.5
+kde-base/kdepim-common-libs:4.5
+kde-base/kdepim-icons:4.5
+kde-base/kdepim-kresources:4.5
+kde-base/kdepim-meta:4.5
+kde-base/kdepim-strigi-analyzer:4.5
+kde-base/kdepim-wizards:4.5
+kde-base/kdepim-runtime:4.5
+kde-base/kjots:4.5
+kde-base/kleopatra:4.5
+kde-base/kmail:4.5
+kde-base/knode:4.5
+kde-base/knotes:4.5
+kde-base/konsolekalendar:4.5
+kde-base/kontact:4.5
+kde-base/korganizer:4.5
+kde-base/ktimetracker:4.5
 
 # Markos Chandras <hwoarang@gentoo.org> (31 Jan 2010)
 # Masking trunk since upstream claims it is highly broken.
