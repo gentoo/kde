@@ -19,3 +19,7 @@ DEPEND=">=sys-libs/pam-0.99.8
         >=media-libs/opencv-1.0.0
         >=sci-libs/gsl-1.9"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	sed -i 's:/kde/4::g' CMakeLists.txt
+}
