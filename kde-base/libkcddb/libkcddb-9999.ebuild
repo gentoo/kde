@@ -15,7 +15,7 @@ IUSE="debug musicbrainz"
 RESTRICT=test
 
 DEPEND="
-	musicbrainz? ( media-libs/musicbrainz:1 )
+	musicbrainz? ( media-libs/musicbrainz:3 )
 "
 RDEPEND="${DEPEND}"
 
@@ -23,7 +23,7 @@ KMSAVELIBS="true"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with musicbrainz MusicBrainz)
+		$(cmake-utils_use_with musicbrainz MusicBrainz3)
 	)
 
 	kde4-meta_src_configure
