@@ -36,11 +36,11 @@ KMEXTRACTONLY="
 	libs/kdm/
 	libs/ksysguard/
 	libs/kworkspace/
-	kcontrol/
-	ksysguard/
-	ksmserver/org.kde.KSMServerInterface.xml
-	plasma/screensaver/shell/org.kde.plasma-overlay.App.xml
 	kcheckpass/
+	kcontrol/
+	ksmserver/org.kde.KSMServerInterface.xml
+	ksysguard/
+	plasma/screensaver/shell/org.kde.plasma-overlay.App.xml
 "
 
 KMLOADLIBS="libkworkspace"

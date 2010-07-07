@@ -17,6 +17,7 @@ COMMONDEPEND="
 	$(add_kdebase_dep ksmserver)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libplasmagenericshell)
 	!aqua? (
 		x11-libs/libXxf86misc
 		x11-libs/libXcursor
@@ -38,11 +39,10 @@ KMEXTRACTONLY="
 	libs/ksysguard/
 	libs/kworkspace/
 	libs/plasmagenericshell/
-	kcontrol/
-	ksysguard/
-	ksmserver/org.kde.KSMServerInterface.xml
-	plasma/screensaver/shell/org.kde.plasma-overlay.App.xml
 	kcheckpass/
+	ksmserver/org.kde.KSMServerInterface.xml
+	ksysguard/
+	plasma/screensaver/shell/org.kde.plasma-overlay.App.xml
 "
 
 KMLOADLIBS="libkworkspace"
