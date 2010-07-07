@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="3"
+
 inherit kde4-base
 
 DESCRIPTION="This is kdm plugin for Pluggable Authentication Module for Face based Authentication"
