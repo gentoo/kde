@@ -22,7 +22,9 @@ RDEPEND="${DEPEND}"
 add_blocker kontact-specialdates
 
 KMLOADLIBS="kdepim-common-libs"
-KMEXTRA="kdgantt1"
+KMEXTRA="
+	kdgantt2/
+"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
