@@ -40,6 +40,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	media-gfx/hugin
 	cdr? ( app-cdr/k3b )
 	imagemagick? ( >=media-gfx/imagemagick-5.5.4 )
 	mjpeg? ( media-video/mjpegtools )
