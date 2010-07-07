@@ -5,6 +5,7 @@
 <use>
 	<flag name="attica">Compile bindings for <pkg>dev-libs/libattica</pkg>.</flag>
 	<flag name="akonadi">Compile bindings for Akonadi.</flag>
+	<flag name="kate">Compile bindings for KDE Advanced Text Editor.</flag>
 	<flag name="multimedia">Compile bindings for <pkg>x11-libs/qt-multimedia</pkg>.</flag>
 	<flag name="okular">Compile bindings for <pkg>kde-base/okular</pkg>.</flag>
 	<flag name="phonon">Compile bindings for Phonon.</flag>
