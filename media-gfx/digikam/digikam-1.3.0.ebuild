@@ -9,7 +9,7 @@ ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_T
 KMNAME="extragear/graphics"
 
 # needed for sufficiently new libkdcraw
-KDE_MINIMAL="4.4"
+KDE_MINIMAL="4.5"
 inherit kde4-base
 
 MY_P="${PN}-${PV/_/-}"
