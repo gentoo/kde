@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,16 +10,20 @@ DESCRIPTION="This is Pluggable Authentication Module for Face based Authenticati
 HOMEPAGE="http://code.google.com/p/pam-face-authentication/"
 SRC_URI="http://pam-face-authentication.googlecode.com/files/${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 amd64"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="debug"
 
-DEPEND=">=sys-libs/pam-0.99.8
-        >=media-libs/opencv-1.0.0
-        >=sci-libs/gsl-1.9"
+DEPEND="
+	>=media-libs/opencv-1.0.0
+	>=sci-libs/gsl-1.9
+	>=sys-libs/pam-0.99.8
+"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	sed -i 's:/kde/4::g' CMakeLists.txt
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-0.3-cmake.patch"
+)
+
+DOCS=(AUTHORS ChangeLog README)
