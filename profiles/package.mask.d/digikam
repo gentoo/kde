@@ -1,0 +1,3 @@
+# Theo Chatzimichos <tampakrap@gentoo.org> (07 Jul 2010)
+# Mask digikam as it requires KDE 4.5
+=media-gfx/digikam-1.3.0
