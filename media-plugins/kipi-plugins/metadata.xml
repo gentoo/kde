@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="expoblending">Build the expoblending plugin, which requires media-gfx/hugin</flag>
 		<flag name="mjpeg">Add mjpeg suppport</flag>
 		<flag name="redeyes">Add redeyes removal suppport</flag>
 	</use>
