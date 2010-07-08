@@ -129,6 +129,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-icon-name-qt47.patch"
+	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 )
 
 src_prepare() {
