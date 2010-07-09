@@ -26,7 +26,7 @@ DESCRIPTION="A BitTorrent library based on KDE Platform"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="4"
 IUSE="debug doc"
 
