@@ -19,6 +19,8 @@ else
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
+KDE_MINIMAL="4.4"
+
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE."
@@ -32,7 +34,7 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +upnp webinterface +zeroconf"
 
 COMMONDEPEND="
-	>=net-libs/libktorrent-1.0_rc1
+	>=net-libs/libktorrent-1.0.2
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
 	rss? (
