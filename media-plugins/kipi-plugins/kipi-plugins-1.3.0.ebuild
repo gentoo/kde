@@ -5,6 +5,8 @@
 EAPI="2"
 
 OPENGL_REQUIRED="optional"
+KDE_LINGUAS="ar be ca cs da de el en_GB es et fi fr ga gl hi hne is it ja km
+lt lv ms nb nds nl nn oc pa pl pt pt_BR ro ru se sk sv th tr uk zh_CN zh_TW"
 KMNAME="extragear/graphics"
 KDE_MINIMAL="4.5"
 inherit flag-o-matic kde4-base
@@ -14,7 +16,7 @@ HOMEPAGE="http://www.kipi-plugins.org"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/kipi/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="cdr calendar crypt debug expoblending +imagemagick ipod mjpeg redeyes scanner"
 

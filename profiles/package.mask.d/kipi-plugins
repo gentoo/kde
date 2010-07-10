@@ -1,0 +1,3 @@
+# Andreas K. Huettel (dilfridge) <mail@akhuettel.de> 10.7.2010
+# Mask kipi-plugins-1.3.0 since it requires kde-4.5
+~media-plugins/kipi-plugins-1.3.0

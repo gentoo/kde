@@ -303,6 +303,10 @@ kde-base/kontact:4.5
 kde-base/korganizer:4.5
 kde-base/ktimetracker:4.5
 
+# Andreas K. Huettel (dilfridge) <mail@akhuettel.de> 10.7.2010
+# Mask kipi-plugins-1.3.0 since it requires kde-4.5
+~media-plugins/kipi-plugins-1.3.0
+
 # Markos Chandras <hwoarang@gentoo.org> (31 Jan 2010)
 # Masking trunk since upstream claims it is highly broken.
 # Users should stick with 2.0.x branch instead
