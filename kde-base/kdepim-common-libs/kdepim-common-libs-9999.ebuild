@@ -43,6 +43,7 @@ KMEXTRA="
 	libkdepimdbusinterfaces/
 	libkleo/
 	libkpgp/
+	kdgantt2/
 	messagecomposer/
 	messagecore/
 	messagelist/
