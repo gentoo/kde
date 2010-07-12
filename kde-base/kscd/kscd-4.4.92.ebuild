@@ -8,13 +8,13 @@ KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="KDE CD player"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
-	media-libs/musicbrainz:3
+	media-libs/musicbrainz:1
 "
 RDEPEND="${DEPEND}"
 

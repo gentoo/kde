@@ -8,5 +8,5 @@ KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them."
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"

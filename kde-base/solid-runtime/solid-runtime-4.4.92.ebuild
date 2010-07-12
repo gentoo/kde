@@ -9,7 +9,7 @@ KMNOMODULE=true
 inherit kde4-meta
 
 DESCRIPTION="KDE SC solid runtime modules (autoeject, automounter and others)"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

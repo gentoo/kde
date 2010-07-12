@@ -8,7 +8,7 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 RDEPEND="

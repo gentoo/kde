@@ -10,7 +10,7 @@ WEBKIT_REQUIRED="optional"
 inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="akonadi debug +phonon plasma qimageblitz qscintilla semantic-desktop"
 
 DEPEND="

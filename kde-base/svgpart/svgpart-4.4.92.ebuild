@@ -8,5 +8,5 @@ KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"

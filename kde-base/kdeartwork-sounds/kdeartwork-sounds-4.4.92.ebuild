@@ -11,5 +11,5 @@ KMNAME="kdeartwork"
 inherit kde4-meta
 
 DESCRIPTION="Extra sound themes for kde"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE=""

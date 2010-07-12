@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="Mahjongg for KDE"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="

@@ -8,7 +8,7 @@ KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="KDE mixer gui"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug +handbook pulseaudio"
 
 DEPEND="

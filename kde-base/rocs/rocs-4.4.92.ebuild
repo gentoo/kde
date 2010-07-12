@@ -8,7 +8,7 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 interface to work with Graph Theory"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"
 
 DEPEND="

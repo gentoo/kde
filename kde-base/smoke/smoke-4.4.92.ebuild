@@ -10,14 +10,13 @@ WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop"
+KEYWORDS="~amd64 ~x86"
+IUSE="akonadi attica debug okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	attica? ( dev-libs/libattica )
-	kate? ( $(add_kdebase_dep kate) )
 	okular? ( $(add_kdebase_dep okular) )
 	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
@@ -34,7 +33,6 @@ src_configure() {
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with attica LibAttica)
-		$(cmake-utils_use_disable kate)
 		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_with okular)
 		$(cmake-utils_use_with phonon)

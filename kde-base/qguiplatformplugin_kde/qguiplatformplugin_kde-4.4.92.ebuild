@@ -8,5 +8,5 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="Helps integration of pure Qt applications with KDE Workspace"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"

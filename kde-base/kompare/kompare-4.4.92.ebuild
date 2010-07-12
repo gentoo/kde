@@ -8,5 +8,5 @@ KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="Kompare is a program to view the differences between files."
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug +handbook"

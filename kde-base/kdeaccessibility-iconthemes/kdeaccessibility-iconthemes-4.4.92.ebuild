@@ -10,5 +10,5 @@ KMMODULE="IconThemes"
 inherit kde4-meta
 
 DESCRIPTION="KDE Icon Themes designed with accessibility in mind"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
