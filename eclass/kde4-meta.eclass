@@ -209,6 +209,10 @@ kde4-meta_src_extract() {
 				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
+			4.4.92)
+				KMTARPARAMS+=" --bzip2" # bz2
+				postfix="bz2"
+				;;
 			4.[34].[6-9]*)
 				# Not passing --xz, as it doesn't work with stable tar
 				KMTARPARAMS+=" --use-compress-program=xz" # xz
