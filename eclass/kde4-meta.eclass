@@ -204,12 +204,8 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.[34].8[05] | 4.[34].9[0568])
+			4.[34].8[05] | 4.[34].9[02568])
 				# block for normally packed upstream unstable snapshots
-				KMTARPARAMS+=" --bzip2" # bz2
-				postfix="bz2"
-				;;
-			4.4.92)
 				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
