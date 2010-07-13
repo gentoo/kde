@@ -130,12 +130,33 @@ _check_build_dir() {
 	echo ">>> Working in BUILD_DIR: \"$AUTOTOOLS_BUILD_DIR\""
 }
 
+# @FUNCTION: remove_libtool_files
+# @USAGE: [all]
+# @DESCRIPTION:
+# Determines useless libtool files (.la) and libtool static archives (.a)
+# and removes them from installation image.
+# To unconditionally remove all libtool files, pass 'all' as argument.
+#
+# In most cases it's not necessary to manually invoke this function.
+# See autotools-utils_src_install for reference.
+remove_libtool_files() {
+	local f
+	for f in $(find "${D}" -type f -name '*.la'); do
+		# Keep only .la files with shouldnotlink=yes - likely plugins
+		local shouldnotlink=$(sed -ne '/^shouldnotlink=yes$/p' "${f}")
+		[[  "$1" != 'all' && -n ${shouldnotlink} ]] || rm -f "${f}"
+		# Remove static libs we're not supposed to link against
+		[[ -n ${shouldnotlink} ]] && rm -f "${f/%.la/.a}"
+	done
+}
+
 # @FUNCTION: autotools-utils_src_prepare
 # @DESCRIPTION:
-# The src_prepare function, supporting PATCHES array and user patches.
-# See base.eclass(5) for reference.
+# The src_prepare function.
+#
+# Supporting PATCHES array and user patches. See base.eclass(5) for reference.
 autotools-utils_src_prepare() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	base_src_prepare
 }
@@ -152,7 +173,7 @@ autotools-utils_src_prepare() {
 # IUSE="static-libs" passes --enable-shared and either --disable-static/--enable-static
 # to econf respectively.
 autotools-utils_src_configure() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local econfargs=(${myeconfargs[@]})
 
@@ -180,7 +201,7 @@ autotools-utils_src_configure() {
 # @DESCRIPTION:
 # The autotools src_compile function, invokes emake in specified AUTOTOOLS_BUILD_DIR.
 autotools-utils_src_compile() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
 	pushd "${AUTOTOOLS_BUILD_DIR}" > /dev/null
@@ -190,25 +211,27 @@ autotools-utils_src_compile() {
 
 # @FUNCTION: autotools-utils_src_install
 # @DESCRIPTION:
-# The autotools src_install function. Runs emake install and removes libtool files
-# when static-libs USE flag is defined and unset.
+# The autotools src_install function. Runs emake install, unconditionally removes
+# unnecessary static libs (based on shouldnotlink libtool property)
+# and removes libtool files when static-libs USE flag is defined and unset.
+#
 # DOCS and HTML_DOCS arrays are supported. See base.eclass(5) for reference.
 autotools-utils_src_install() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	_check_build_dir
 	pushd "${AUTOTOOLS_BUILD_DIR}" > /dev/null
 	base_src_install
 	popd > /dev/null
 
+	# Remove unnecessary static libs we're not supposed to link against anyway
+	local f
+	for f in $(find "${D}" -type f -name '*.la'); do
+		[[ -n $(sed -ne '/^shouldnotlink=yes$/p' "${f}") ]] && rm -f "${f/#.la/.a}"
+	done
+
 	# Remove libtool files
-	if has static-libs ${IUSE//+} && ! use static-libs; then
-		local f
-		for f in $(find "${D}" -type f -name '*.la'); do
-			# Keep only .la files with shouldnotlink=yes - likely plugins
-			[[ -n `sed -ne '/^shouldnotlink=yes$/p' "${f}"` ]] || rm -f "${f}"
-		done
-	fi
+	has static-libs ${IUSE//+} && ! use static-libs && remove_libtool_files
 }
 
 # @FUNCTION: autotools-utils_src_test
