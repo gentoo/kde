@@ -17,36 +17,10 @@ get_packages_from_slot() {
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild
-		cat ${SLOTFILE} |grep -v ^@ |grep -v ^$ |grep -v ^#| grep 'kde-base/' \
-			|sed -e "s/:${SLOT}//g" \
-			>> ${TMPFILE}
-		# metas bumping.
-		find ${PORTDIR_BUMPING} -mindepth 2 -maxdepth 2 -type d -name \*-meta |sed -e "s:${PORTDIR_BUMPING}::" \
+		cat ${SLOTFILE} | grep -v ^@ | grep -v ^$ | grep -v ^#| grep 'kde-base/' \
+			| sed -e "s/:${SLOT}//g" \
 			>> ${TMPFILE}
 	done
-}
-
-# update package keywords from anything to testing
-update_package_keywords() {
-	ekeyword ~all ${1}
-}
-
-# regenerate manifest files
-update_package_manifest() {
-	cd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/
-	repoman manifest
-	cd "${PORTDIR_BUMPING}" #go back to workdir
-}
-
-# add basic line to changelog telling that we bumped new revision
-update_package_changelog() {
-	local EBUILD=${1}
-
-	cd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/
-	git add ${EBUILD}
-	# be quiet when creating changelog
-#	echangelog "Version bump." >> /dev/null
-	cd "${PORTDIR_BUMPING}" # go back to workdir
 }
 
 # create new slot for all packages when creating new minor bump 4.1 -> 4.2
@@ -111,32 +85,35 @@ check_cmakelists() {
 	done
 }
 
-# Check in tree keywords and push them to the overlay,
-# If there is no ebuild add ~amd64 and ~x86 only.
-# If there is more archs in overlay drop them, only tree one counts.
-# These syncs are done druing update and during move back to MAIN tree.
-sync_main_keywords_with_overlay() {
-	local sep dir
-	# first strip of all keywords
-	ekeyword ^all ${1} &> /dev/null
-	# then apply them back
-	dir="$(portageq portdir)/${2}"
-	if [[ -d "${dir}" ]] ; then
-		pushd "${dir}" &> /dev/null
-		# the grep is for removing 3.5 ebuilds from knowledge
-		if [[ ${3} = intree ]]; then
-			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 2 | head -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
-		else
-			KEYWORDS="$(find ./ -name \*ebuild |grep -v "\-3.5" | sort | tail -n 1 | xargs -i grep KEYWORDS {} |sed -e "s:KEYWORDS=::g" -e "s:\"::g")"
+# Updates keywords:
+# - for stable releases - use latest keywords from tree
+# - for snapshot/alpha/beta/rc releases - use fixed ~amd64 and ~x86 keywords
+# - in either case drop arch to testing
+update_keywords() {
+	local MINIMAL_KEYWORDS="~amd64 ~x86"
+	# Initially strip all keywords
+	ekeyword ^all ${1} > /dev/null
+	if [[ ${BUMP_VERSION} =~ ([4-9]+)\.?([0-9]*)\.?([0-9]*) ]]; then
+		local version_major=${BASH_REMATCH[1]}
+		local version_minor=${BASH_REMATCH[2]}
+		local version_patch=${BASH_REMATCH[3]}
+		if [[ -n {version_patch} ]]; then
+			if [[ ${version_patch} -lt 50 ]]; then
+				# Patch version is < 50 - stable release, try to obtain keywords from tree
+				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
+					KEYWORDS=$(ls -1r *-4*.ebuild | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
+					popd &> /dev/null
+				else
+					KEYWORD=${MINIMAL_KEYWORDS}
+				fi
+			elif [[ ${version_patch} -le 99 ]]; then
+				# Patch version >= 50 and <= 99 - snapshot/alpha/beta/rc release, ~amd64 ~x86 keywords
+				KEYWORDS=${MINIMAL_KEYWORDS}
+			fi
 		fi
-		popd &> /dev/null
-	else
-		[[ ${BUMP_VERSION} != *9999 ]] && KEYWORDS="~amd64 ~x86" # want to be here, well ask us :]
 	fi
-	if [[ ${BUMP_VERSION} != *9999 ]]; then
-		[[ -z ${KEYWORDS} ]] && KEYWORDS="~amd64 ~x86"
-		ekeyword $KEYWORDS ${1} &> /dev/null
-	fi
+	ekeyword ${KEYWORDS} "${1}" > /dev/null
+	ekeyword ~all "${1}" > /dev/null
 }
 
 # print out help function
@@ -146,7 +123,7 @@ help() {
 	echo "When bumping:"
 	echo "For correct usage set SLOT, VERSION and BUMP_VERSION arguments."
 	echo "BUMP_VERSION is used as target version and version specify what ebuilds are used as base."
-	echo "-l argument specify SET and is optional"
+	echo "-l argument specify sets to use (optional)"
 	echo "Example:"
 	echo "$0 -a bump -s 4.4 -v 9999 -b 4.3.90 -l kdebase"
 	echo
@@ -267,17 +244,19 @@ case ${OPERATION} in
 			#OLD_BASE="$(portageq portdir)"/"${EBUILD_BASEDIR}"/
 			OLD_BASE="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ # uncoment if you work in overlay only
 			# by default we should pick-up live stable or live ebuilds. But we need to restore the keywords from the previous version of kde
-			# ie. bumping 4.2.71 you pick keywords from 4.2.70 but the ebuilds from 9999.
-			# and bumping 4.2.3 you pick keywords from 4.2.2 but ebuilds from 4.2.9999.
-			OLD=`find ${OLD_BASE} -name \*${VERSION}\*.ebuild |sort -r |head -n 1`
+			# ie. bumping 4.4.92 you set keywords to "~amd64 ~x86" but ebuilds from 9999 (before tagging) or 4.5.9999 (after tagging).
+			# and bumping 4.4.5 you pick keywords from 4.4.4 but ebuilds from 4.4.9999.
+			OLD=`find ${OLD_BASE} -name \*-${VERSION}\*.ebuild | sort -r | head -n 1`
 			mkdir "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ -p # wont harm kittens
 			NEW="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/"${EBUILD_BASENAME}"-${BUMP_VERSION}.ebuild
 			EBUILD_NAME="${EBUILD_BASENAME}"-${BUMP_VERSION}.ebuild
-			# echo ${OLD} # debug
-			# echo ${NEW} # debug
+			pushd "${PORTDIR_BUMPING}/${EBUILD_BASEDIR}" > /dev/null
 			if [ -f ${NEW} ]; then
-				echo "Skipping ${NEW} already created!";
-				# rm -rf ${NEW} # debug
+				# update keywords
+				echo "Updating keywords for ${NEW}"
+				update_keywords ${NEW} ${EBUILD_BASEDIR}
+				repoman manifest
+				git add .
 			else
 				# actualy create our desired ebuild files
 				# echo "Creating: ${NEW}" # verbosity
@@ -287,14 +266,12 @@ case ${OPERATION} in
 				if [ `grep ".patch" ${NEW} |wc -l` -gt 0 ]; then
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi
-				# we have update keywords
-				sync_main_keywords_with_overlay ${NEW} ${EBUILD_BASEDIR} outtree
-				update_package_keywords ${NEW}
-				# update manifest and changelog
-				update_package_changelog ${EBUILD_NAME}
-				update_package_manifest
+				# update keywords
+				update_keywords ${NEW} ${EBUILD_BASEDIR}
+				repoman manifest
 				git add .
 			fi
+			popd > /dev/null
 		done
 		echo -e ${INFO_LIST}
 		;;
@@ -391,11 +368,10 @@ case ${OPERATION} in
 				fi
 				# now we have to check up the keywords
 				pushd "${WRKDIR}" &> /dev/null
-				sync_main_keywords_with_overlay "${EBUILD/*\//}" ${dir} intree
-				ekeyword ~all "${EBUILD/*\//}"
+				update_keywords "${EBUILD/*\//}" ${dir}
 				echangelog "Version bump"
 				repoman manifest
-				repoman commit -m "Version bump KDE ${VERSION}" -f
+				repoman commit -m "Version bump KDE SC ${VERSION}" -f
 				popd &> /dev/null
 			else
 				popd &> /dev/null
