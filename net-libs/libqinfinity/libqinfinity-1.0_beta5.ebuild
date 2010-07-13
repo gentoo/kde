@@ -2,20 +2,26 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
 
-inherit cmake-utils git
+inherit cmake-utils
 
 DESCRIPTION="QT-style Interface for libinfinity"
 HOMEPAGE="http://kobby.greghaynes.net/wiki/libqinfinity"
-EGIT_REPO_URI="git://gitorious.com/${PN}/${PN}.git"
+SRC_URI="http://kobby.greghaynes.net/file-cabinet/${P/_beta/b}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
 DEPEND="
+	dev-libs/glib:2
+	dev-libs/libxml2
 	>=net-libs/libinfinity-0.4.1
+	x11-libs/qt-core
+	>=virtual/gsasl-1.4.0
 "
 RDEPEND="${DEPEND}"
+
+S=${WORKDIR}/${P/_beta/b}
