@@ -25,6 +25,9 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 "
 
+# WARNING: This patch got reverted by upstream in r1139036!
+PATCHES=( "${FILESDIR}/kdenetwork-r1138807-fix-virtual-scandlg.patch" )
+
 src_prepare() {
 	kde4-meta_src_prepare
 
