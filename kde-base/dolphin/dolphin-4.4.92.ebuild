@@ -20,7 +20,12 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
 "
 PDEPEND="
-	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
+	thumbnail? (
+		|| (
+			$(add_kdebase_dep ffmpegthumbs)
+			$(add_kdebase_dep mplayerthumbs)
+		)
+	)
 "
 
 KMLOADLIBS="libkonq"
