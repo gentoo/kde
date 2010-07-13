@@ -81,8 +81,7 @@ popd > /dev/null
 RELEASE=${RELEASE:-4.4}
 pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
-	newfile=${set/-${RELEASE}}
-	echo "newfile='${newfile}'"
+	newfile=${set/%-${RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
 	sed "s/[:-]${RELEASE}//g" "${set}" >> "${newfile}"
 done
