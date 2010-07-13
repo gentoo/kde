@@ -52,7 +52,6 @@ for set in kde-extras-live koffice-live; do
 		[[ ${set} == koffice-live ]] && echo "~app-office/koffice-meta-9999 **" >> "${set}.keywords"
 	fi
 done
-
 popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
@@ -76,4 +75,15 @@ if [[ -d package.mask.d ]]; then
 		cat ${masks} >> package.mask
 	done
 fi
+popd > /dev/null
+
+# regenerate unversioned sets
+RELEASE=${RELEASE:-4.4}
+pushd ../../sets/ > /dev/null
+for set in *-${RELEASE}; do
+	newfile=${set/-${RELEASE}}
+	echo "newfile='${newfile}'"
+	echo -e "${HEADER}" > "${newfile}"
+	sed "s/[:-]${RELEASE}//g" "${set}" >> "${newfile}"
+done
 popd > /dev/null
