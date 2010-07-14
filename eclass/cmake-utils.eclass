@@ -212,6 +212,15 @@ cmake-utils_use_build() { _use_me_now BUILD_ "$@" ; }
 # and -DHAVE_FOO=OFF if it is disabled.
 cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
 
+# @FUNCTION: cmake-utils_use_use
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on use_enable. See ebuild(5).
+#
+# `cmake-utils_use_use foo FOO` echoes -DUSE_FOO=ON if foo is enabled
+# and -DUSE_FOO=OFF if it is disabled.
+cmake-utils_use_use() { _use_me_now USE_ "$@" ; }
+
 # @FUNCTION: cmake-utils_use
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
