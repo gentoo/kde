@@ -8,24 +8,29 @@ KMNAME="koffice"
 KMMODULE="${PN}"
 inherit kde4-meta
 
-DESCRIPTION="KOffice presentation program."
+DESCRIPTION="KPlato is a project management application."
 
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-DEPEND=">=dev-libs/boost-1.35.0"
+DEPEND="~app-office/kchart-${PV}:${SLOT}[reports]"
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	filters/libmsooxml/
-	libs/
-"
+KMEXTRACTONLY="libs/"
 KMEXTRA="
 	filters/${KMMODULE}/
-	filters/libmso/
+	kdgantt/
 "
-
 KMLOADLIBS="koffice-libs"
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with python PythonLibs)
+		-DBUILD_kplato=ON
+	)
+
+	kde4-meta_src_configure
+}
 
 src_install() {
 	kde4-meta_src_install

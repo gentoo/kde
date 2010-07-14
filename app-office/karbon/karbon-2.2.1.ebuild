@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KOffice vector drawing application."
 
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="+pstoedit wpg"
 
 DEPEND="

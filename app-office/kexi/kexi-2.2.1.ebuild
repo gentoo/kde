@@ -8,7 +8,7 @@ KMNAME="koffice"
 inherit kde4-meta
 
 DESCRIPTION="KOffice integrated environment for database management."
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="freetds mysql postgres reports xbase"
 
 DEPEND="

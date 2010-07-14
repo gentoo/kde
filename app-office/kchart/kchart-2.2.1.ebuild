@@ -9,7 +9,7 @@ DESCRIPTION="KOffice chart application. Temporary dummy ebuild for compatibility
 SRC_URI=""
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="2"
 LICENSE="GPL-2"
 

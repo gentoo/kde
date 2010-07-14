@@ -8,36 +8,24 @@ KMNAME="koffice"
 KMMODULE="${PN}"
 inherit kde4-meta
 
-DESCRIPTION="KOffice spreadsheet application."
+DESCRIPTION="KOffice presentation program."
 
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="+solver"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE=""
 
-DEPEND="
-	dev-cpp/eigen:2
-	solver? ( sci-libs/gsl )
-"
+DEPEND=">=dev-libs/boost-1.35.0"
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kchart/
-	interfaces/
+	filters/libmsooxml/
 	libs/
-	filters/
-	plugins/
 "
-KMEXTRA="filters/${KMMODULE}/"
+KMEXTRA="
+	filters/${KMMODULE}/
+	filters/libmso/
+"
 
 KMLOADLIBS="koffice-libs"
-
-src_configure() {
-	mycmakeargs=(
-		-DWITH_Eigen2=ON
-		$(cmake-utils_use_with solver GSL)
-	)
-
-	kde4-meta_src_configure
-}
 
 src_install() {
 	kde4-meta_src_install
@@ -45,4 +33,3 @@ src_install() {
 	# this is already installed by koffice-data
 	rm -f "${D}/usr/include/config-opengl.h"
 }
-

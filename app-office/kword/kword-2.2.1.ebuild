@@ -8,25 +8,34 @@ KMNAME="koffice"
 KMMODULE="${PN}"
 inherit kde4-meta
 
-DESCRIPTION="KPlato is a project management application."
+DESCRIPTION="KOffice word processor."
 
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE="wpd"
 
-DEPEND="~app-office/kchart-${PV}:${SLOT}[reports]"
-RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="libs/"
-KMEXTRA="
-	filters/${KMMODULE}/
-	kdgantt/
+DEPEND="
+	wpd? ( app-text/libwpd )
 "
+RDEPEND="${DEPEND}
+	!app-text/wv2
+"
+
+KMEXTRA="filters/${KMMODULE}/
+	filters/libmso/
+"
+
+KMEXTRACTONLY="
+	filters/
+	kspread/
+	libs/
+	plugins/
+"
+
 KMLOADLIBS="koffice-libs"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with python PythonLibs)
-		-DBUILD_kplato=ON
+		$(cmake-utils_use_with wpd)
 	)
 
 	kde4-meta_src_configure

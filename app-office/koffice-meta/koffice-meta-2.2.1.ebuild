@@ -9,7 +9,7 @@ HOMEPAGE="http://www.koffice.org/"
 LICENSE="GPL-2"
 
 SLOT="2"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="nls reports"
 
 RDEPEND="

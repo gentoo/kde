@@ -11,7 +11,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="crypt openexr reports"
 
 # the contents of kchart have been _temporarily_ moved into koffice-libs in 2.2.0
