@@ -131,22 +131,36 @@ _check_build_dir() {
 }
 
 # @FUNCTION: remove_libtool_files
-# @USAGE: [all]
+# @USAGE: [all|none]
 # @DESCRIPTION:
 # Determines useless libtool files (.la) and libtool static archives (.a)
 # and removes them from installation image.
 # To unconditionally remove all libtool files, pass 'all' as argument.
+# To leave all libtool files alone, pass 'none' as argument.
+# Unnecessary static archives are removed in any case.
 #
 # In most cases it's not necessary to manually invoke this function.
 # See autotools-utils_src_install for reference.
 remove_libtool_files() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	local f
 	for f in $(find "${D}" -type f -name '*.la'); do
 		# Keep only .la files with shouldnotlink=yes - likely plugins
 		local shouldnotlink=$(sed -ne '/^shouldnotlink=yes$/p' "${f}")
-		[[  "$1" != 'all' && -n ${shouldnotlink} ]] || rm -f "${f}"
+		if [[  "$1" == 'all' || -z ${shouldnotlink} ]]; then
+			if [[ "$1" != 'none' ]]; then
+				echo "Removing unnecessary ${f}"
+				rm -f "${f}"
+			fi
+		fi
 		# Remove static libs we're not supposed to link against
-		[[ -n ${shouldnotlink} ]] && rm -f "${f/%.la/.a}"
+		if [[ -n ${shouldnotlink} ]]; then
+			local remove=${f/%.la/.a}
+			[[ "${f}" != "${remove}" ]] || die 'regex sanity check failed'
+			echo "Removing unnecessary ${remove}"
+			rm -f "${remove}"
+		fi
 	done
 }
 
@@ -175,7 +189,8 @@ autotools-utils_src_prepare() {
 autotools-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local econfargs=(${myeconfargs[@]})
+	# Common args
+	local econfargs=(--disable-dependency-tracking)
 
 	# Handle debug found in IUSE
 	if has debug ${IUSE//+}; then
@@ -189,6 +204,9 @@ autotools-utils_src_configure() {
 			$(use_enable static-libs static)
 		)
 	fi
+
+	# Append user args
+	econfargs+=(${myeconfargs[@]})
 
 	_check_build_dir
 	mkdir -p "${AUTOTOOLS_BUILD_DIR}" || die "mkdir '${AUTOTOOLS_BUILD_DIR}' failed"
@@ -224,14 +242,10 @@ autotools-utils_src_install() {
 	base_src_install
 	popd > /dev/null
 
-	# Remove unnecessary static libs we're not supposed to link against anyway
-	local f
-	for f in $(find "${D}" -type f -name '*.la'); do
-		[[ -n $(sed -ne '/^shouldnotlink=yes$/p' "${f}") ]] && rm -f "${f/#.la/.a}"
-	done
-
-	# Remove libtool files
-	has static-libs ${IUSE//+} && ! use static-libs && remove_libtool_files
+	# Remove libtool files and unnecessary static libs
+	local args
+	has static-libs ${IUSE//+} && ! use static-libs || args='none'
+	remove_libtool_files ${args}
 }
 
 # @FUNCTION: autotools-utils_src_test
