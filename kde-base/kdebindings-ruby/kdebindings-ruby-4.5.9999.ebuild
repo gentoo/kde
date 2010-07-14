@@ -8,7 +8,12 @@ KMNAME="kdebindings"
 KMMODULE="ruby"
 WEBKIT_REQUIRED="optional"
 
-USE_RUBY="ruby18 ruby19"
+USE_RUBY="ruby18"
+# No ruby19 for three reasons:
+# 1) it does not build (yet) - will likely be solved soon
+# 2) cmake bails when configuring twice or more - solved with CMAKE_IN_SOURCE_BUILD=1
+# 3) the ebuild can only be installed for one ruby variant, otherwise the compiled
+#    files with identical path+name will overwrite each other - difficult :(
 
 inherit kde4-meta ruby-ng
 
