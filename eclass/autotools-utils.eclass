@@ -190,7 +190,7 @@ autotools-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Common args
-	local econfargs=(--disable-dependency-tracking)
+	local econfargs=()
 
 	# Handle debug found in IUSE
 	if has debug ${IUSE//+}; then
