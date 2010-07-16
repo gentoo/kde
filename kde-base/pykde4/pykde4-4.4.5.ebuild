@@ -42,7 +42,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-4.4.92-build-fix-sip.patch
 
 	# See bug 322351
-	use arm && epatch "${FILESDIR}/${P}-4.4.4-arm-sip.patch"
+	use arm && epatch "${FILESDIR}/${PN}-4.4.4-arm-sip.patch"
 }
 
 src_configure() {

@@ -39,7 +39,7 @@ src_prepare() {
 	fi
 
 	# See bug 322351
-	use arm && epatch "${FILESDIR}/${P}-4.4.4-arm-sip.patch"
+	use arm && epatch "${FILESDIR}/${PN}-4.4.4-arm-sip.patch"
 }
 
 src_configure() {
