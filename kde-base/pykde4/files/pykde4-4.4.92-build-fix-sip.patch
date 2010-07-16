@@ -1,0 +1,12 @@
+diff -ur pykde4-4.4.92.orig/python/pykde4/sip/akonadi/addressattribute.sip pykde4-4.4.92/python/pykde4/sip/akonadi/addressattribute.sip
+--- pykde4-4.4.92.orig/python/pykde4/sip/akonadi/addressattribute.sip	2010-05-27 19:21:46.000000000 +0200
++++ pykde4-4.4.92/python/pykde4/sip/akonadi/addressattribute.sip	2010-07-15 06:36:27.000000000 +0200
+@@ -19,7 +19,7 @@
+ 
+ namespace Akonadi
+ {
+-class AddressAttribute : Akonadi::Attribute
++class AddressAttribute : Akonadi::Attribute /NoDefaultCtors/
+ {
+ %TypeHeaderCode
+ #include <akonadi/kmime/addressattribute.h>
