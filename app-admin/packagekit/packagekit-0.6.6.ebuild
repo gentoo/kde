@@ -66,7 +66,6 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	>=app-portage/layman-1.2.3
-	>=sys-apps/portage-2.2_rc67
 	pm-utils? ( sys-power/pm-utils )
 "
 
@@ -81,6 +80,7 @@ S="${WORKDIR}/${MY_P}"
 # TODO:
 # +doc to install doc/website
 # check if test? qt? ( really needs qt-gui)
+# determine supported portage version
 
 # UPSTREAM:
 # documentation/website with --enable-doc-install
