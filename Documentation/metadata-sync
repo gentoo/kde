@@ -1,9 +1,7 @@
 #!/bin/sh
 
 # Contact: devurandom
-METADATA_MIRROR=rsync://gentoo.kynes.de:660/gentoo-metadata-kde/
-# IPv6 needs no special port:
-#METADATA_MIRROR=rsync://gentoo.kynes.de/gentoo-metadata-kde/
+METADATA_MIRROR=rsync://gentoo.kynes.de:800/gentoo-metadata-kde/
 
 if [[ "$(basename $(pwd))" == "Documentation" ]] ; then
 	echo "Syncing KDE overlay metadata ..."
