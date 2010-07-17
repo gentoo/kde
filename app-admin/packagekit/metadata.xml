@@ -8,20 +8,11 @@
 	</maintainer>
 	<use>
 		<flag name="connman">Add support for <pkg>net-misc/connman</pkg></flag>
-		<flag name="consolekit">
-			Use <pkg>sys-auth/consolekit</pkg> to determine proxy settings
-		</flag>
 		<flag name="cron">Install cron script for auto-update</flag>
-		<flag name="portage">
-			Enable Portage backend
-		</flag>
-		<flag name="entropy">
-			Enable Entropy backend (Sabayon system pkg)
-		</flag>
+		<flag name="portage">Enable Portage backend</flag>
+		<flag name="entropy">Enable Entropy backend (Sabayon system pkg)</flag>
 		<flag name="pm-utils">Use pm-utils</flag>
 		<!--flag name="ruck">Build ruck (rug-like) client</flag-->
-		<flag name="static-libs">Compile static archives</flag>
 		<flag name="udev">Add support for <pkg>sys-fs/udev</pkg></flag>
 	</use>
 </pkgmetadata>
-
