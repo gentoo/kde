@@ -281,6 +281,7 @@ kde-base/kommander:4.5
 kde-base/kdebase-meta:4.5
 kde-base/kde-meta:4.5
 
+kde-base/akonadiconsole:4.5
 kde-base/akregator:4.5
 kde-base/blogilo:4.5
 kde-base/kabcclient:4.5

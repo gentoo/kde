@@ -235,6 +235,7 @@ kde-base/krfb:live
 kde-base/kfloppy:live
 kde-base/kppp:live
 kde-base/policykit-kde:live
+kde-base/akonadiconsole:live
 kde-base/akregator:live
 kde-base/blogilo:live
 kde-base/kabcclient:live

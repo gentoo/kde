@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="aqua kdeprefix"
 
 RDEPEND="
+	$(add_kdebase_dep akonadiconsole)
 	$(add_kdebase_dep akregator)
 	$(add_kdebase_dep blogilo)
 	$(add_kdebase_dep kabcclient)
