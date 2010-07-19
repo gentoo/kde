@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND="
 	app-office/akonadi-server
-	app-pda/funambol-client-sdk
+	>=app-pda/funambol-client-sdk-9999
 	>=kde-base/kdelibs-${KDE_MINIMAL}
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
 "
