@@ -18,7 +18,7 @@ inherit versionator
 # versions.
 case ${EAPI:-0} in
 	2|3) : ;;
-	*) die "EAPI-TOO-OLD" ;;
+	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
 # @ECLASS-VARIABLE: KDEBASE
