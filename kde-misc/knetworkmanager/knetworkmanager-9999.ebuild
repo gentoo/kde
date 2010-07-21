@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-KMNAME="kdereview"
+KMNAME="extragear/base"
 KMMODULE="networkmanagement"
 QT_MINIMAL="4.6.0_beta"
 
