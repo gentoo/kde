@@ -20,7 +20,9 @@ DEPEND="
 	networkmanager? ( >=net-misc/networkmanager-0.7 )
 	wicd? ( net-misc/wicd )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	sys-apps/hal
+"
 
 KMEXTRA="
 	libs/solid/
