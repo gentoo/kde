@@ -13,7 +13,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif qalculate qwt rss scim semantic-desktop"
+IUSE="akonadi debug desktopglobe exif qalculate qwt rss scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
@@ -31,6 +31,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
+	akonadi? ( kde-base/akonadi )
 "
 # kde-misc/plasmaboard: moved here in 4.3.65
 # kde-misc/qalculate-applet: since 4.4.0
@@ -47,6 +48,13 @@ add_blocker kdebase-data '<4.2.88'
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.3-cmake.patch"
 )
+
+src_unpack() {
+	kde4-base_src_unpack
+	if ! use akonadi; then
+		epatch "${FILESDIR}/noakonadi.patch"
+	fi
+}
 
 src_prepare() {
 	sed -e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \

@@ -1,0 +1,80 @@
+diff -rupN kdeplasma-addons-4.4.92_original//applets/lancelot/application/LancelotWindow.cpp kdeplasma-addons-4.4.92//applets/lancelot/application/LancelotWindow.cpp
+--- kdeplasma-addons-4.4.92_original//applets/lancelot/application/LancelotWindow.cpp	2010-06-16 14:03:16.000000000 +0200
++++ kdeplasma-addons-4.4.92//applets/lancelot/application/LancelotWindow.cpp	2010-07-21 21:32:58.226762098 +0200
+@@ -63,7 +63,6 @@
+ #include <Lancelot/Models/Runner>
+ #include <Lancelot/Models/SystemActions>
+ #include <Lancelot/Models/ContactsKopete>
+-#include <Lancelot/Models/MessagesKmail>
+ #include <Lancelot/Models/BaseMergedModel>
+ #include <Lancelot/Models/Logger>
+ 
+@@ -565,18 +564,6 @@ void LancelotWindow::setupModels()
+ 
+     QString plugins;
+ 
+-    // Contacts Mail
+-    plugins = m_mainConfig.readEntry("mailPlugins", QString());
+-    if (plugins.isEmpty()) {
+-        m_models["Messages"]          = new Lancelot::Models::MessagesKmail();
+-        MergedAddModel(m_modelGroups["ContactsLeft"], "Messages", m_models["Messages"]);
+-    } else if (plugins != "disabled") {
+-        Lancelot::ActionListModel * model;
+-        foreach (const QString &plugin, plugins.split(',')) {
+-            model = new Lancelot::PlasmaServiceListModel(plugin);
+-            MergedAddModel(m_modelGroups["ContactsLeft"], model->selfTitle(), model);
+-        }
+-    }
+ 
+     // Contacts IM
+     plugins = m_mainConfig.readEntry("imPlugins", QString());
+diff -rupN kdeplasma-addons-4.4.92_original//applets/lancelot/parts/PartsMergedModel.cpp kdeplasma-addons-4.4.92//applets/lancelot/parts/PartsMergedModel.cpp
+--- kdeplasma-addons-4.4.92_original//applets/lancelot/parts/PartsMergedModel.cpp	2010-07-06 08:54:40.000000000 +0200
++++ kdeplasma-addons-4.4.92//applets/lancelot/parts/PartsMergedModel.cpp	2010-07-21 21:30:45.237762305 +0200
+@@ -38,7 +38,6 @@
+ #include <Lancelot/Models/Applications>
+ #include <Lancelot/Models/Runner>
+ #include <Lancelot/Models/ContactsKopete>
+-#include <Lancelot/Models/MessagesKmail>
+ #include <Lancelot/Models/SystemActions>
+ #include <Lancelot/Models/Serializator>
+ 
+@@ -289,11 +288,6 @@ bool PartsMergedModel::load(const QStrin
+                         model = new Lancelot::Models::RecentDocuments());
+                 m_models.append(model);
+ 
+-            } else if (modelID =="Messages") {
+-                addModel(modelID, QIcon(), i18n("Unread messages"),
+-                        model = new Lancelot::Models::MessagesKmail());
+-                m_models.append(model);
+-
+             } else if (modelID =="Contacts") {
+                 addModel(modelID, QIcon(), i18n("Online contacts"),
+                         model = new Lancelot::Models::ContactsKopete());
+diff -rupN kdeplasma-addons-4.4.92_original//libs/lancelot-datamodels/CMakeLists.txt kdeplasma-addons-4.4.92//libs/lancelot-datamodels/CMakeLists.txt
+--- kdeplasma-addons-4.4.92_original//libs/lancelot-datamodels/CMakeLists.txt	2010-05-27 19:24:02.000000000 +0200
++++ kdeplasma-addons-4.4.92//libs/lancelot-datamodels/CMakeLists.txt	2010-07-21 21:35:22.407762295 +0200
+@@ -82,7 +82,6 @@ set(lancelot_datamodels_LIB_SRCS
+    FolderModel.cpp
+    AvailableModels.cpp
+    Logger.cpp
+-   MessagesKmail.cpp
+    NewDocuments.cpp
+    OpenDocuments.cpp
+    Places.cpp
+@@ -137,7 +136,6 @@ set(lancelot_datamodels_LIB_INCLUDES
+    FolderModel.h
+    AvailableModels.h
+    Logger.h
+-   MessagesKmail.h
+    NewDocuments.h
+    OpenDocuments.h
+    Places.h
+@@ -164,7 +162,6 @@ install(FILES
+    Lancelot/Models/FavoriteApplications
+    Lancelot/Models/FolderModel
+    Lancelot/Models/Logger
+-   Lancelot/Models/MessagesKmail
+    Lancelot/Models/NewDocuments
+    Lancelot/Models/OpenDocuments
+    Lancelot/Models/Places
