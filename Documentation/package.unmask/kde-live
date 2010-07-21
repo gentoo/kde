@@ -4,6 +4,7 @@
 kde-base/kdeplasma-addons:live
 kde-base/kde-l10n:live
 kde-base/jovie:live
+kde-base/kaccessible:live
 kde-base/kdeaccessibility-colorschemes:live
 kde-base/kdeaccessibility-iconthemes:live
 kde-base/kdeaccessibility-meta:live
