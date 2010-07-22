@@ -66,21 +66,23 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	>=app-portage/layman-1.2.3
+	>=sys-apps/portage-2.2_rc67
 	pm-utils? ( sys-power/pm-utils )
 "
 
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-portage.patch"
+)
+
 # NOTES:
-# do not use a specific user, useless and not more secure according to upstream
-# doc is in the tarball and always installed
 # mono doesn't install anything (RDEPEND dev-dotnet/gtk-sharp-gapi:2
 #	(R)DEPEND dev-dotnet/glib-sharp:2 dev-lang/mono), upstream bug 23247
 
 # TODO:
 # +doc to install doc/website
 # check if test? qt? ( really needs qt-gui)
-# determine supported portage version
 
 # UPSTREAM:
 # documentation/website with --enable-doc-install
@@ -100,19 +102,21 @@ src_configure() {
 	# gtk-doc: doc already built
 	# command,debuginfo,gstreamer,service-packs: not supported by backend
 	myeconfargs=(
-		--localstatedir=/var
-		--enable-option-checking
-		--enable-libtool-lock
-		--disable-strict
-		--disable-local
-		--disable-gtk-doc
+		--localstatedir="/var"
 		--disable-command-not-found
 		--disable-debuginfo-install
-		--disable-gstreamer-plugin
-		--disable-service-packs
-		--disable-managed
-		--enable-man-pages
 		--disable-dummy
+		--disable-gtk-doc
+		--disable-gstreamer-plugin
+		--disable-local
+		--disable-managed
+		--disable-service-packs
+		--disable-strict
+		--disable-tests
+		--enable-introspection
+		--enable-libtool-lock
+		--enable-man-pages
+		--enable-option-checking
 		--enable-portage
 		--with-default-backend=portage
 		$(use_enable connman)
@@ -123,7 +127,6 @@ src_configure() {
 		$(use_enable nsplugin browser-plugin)
 		$(use_enable pm-utils)
 		$(use_enable qt4 qt)
-		$(use_enable test tests)
 		$(use_enable udev device-rebind)
 	)
 
@@ -140,15 +143,25 @@ src_install() {
 	autotools-utils_src_install
 
 	if use nsplugin; then
-		src_mv_plugins /usr/$(get_libdir)/mozilla/plugins
+		src_mv_plugins "/usr/$(get_libdir)/mozilla/plugins"
 	fi
 
-	# Remove precompiled python modules, we handle byte compiling
-	rm -f "${D}/$(python_get_sitedir)"/${PN}*.py[co]
+	python_convert_shebangs -q -r $(python_get_version) "${D}"
+	python_clean_installation_image -q
+}
+
+src_test() {
+	myeconfargs+=(
+		--enable-tests
+	)
+
+	autotools-utils_src_configure
+	autotools-utils_src_compile
+	autotools-utils_src_test
 }
 
 pkg_postinst() {
-	python_mod_optimize "$(python_get_sitedir)/${PN}"
+	python_mod_optimize -q "$(python_get_sitedir)/${PN}"
 
 	if ! use policykit; then
 		ewarn "You are not using policykit, the daemon can't be considered as secure."
@@ -163,10 +176,10 @@ pkg_postinst() {
 
 pkg_prerm() {
 	einfo "Removing downloaded files with ${MY_PN}..."
-	[[ -d "${ROOT}"/var/cache/${MY_PN}/downloads/ ]] && \
-		rm -rf /var/cache/PackageKit/downloads/*
+	[[ -d "${ROOT}/var/cache/${MY_PN}/downloads" ]] && \
+		rm -rf "${ROOT}/var/cache/${MY_PN}/downloads"/*
 }
 
 pkg_postrm() {
-	python_mod_cleanup $(python_get_sitedir)/${PN}
+	python_mod_cleanup -q "$(python_get_sitedir)/${PN}"
 }

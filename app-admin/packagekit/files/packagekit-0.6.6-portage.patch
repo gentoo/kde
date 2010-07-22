@@ -1,0 +1,419 @@
+diff -ru ../PackageKit-0.6.6/backends/entropy/entropyBackend.py ./backends/entropy/entropyBackend.py
+--- ../PackageKit-0.6.6/backends/entropy/entropyBackend.py	2010-06-20 23:38:26.000000000 +0200
++++ ./backends/entropy/entropyBackend.py	2010-07-22 12:04:53.248827967 +0200
+@@ -27,8 +27,8 @@
+ import time
+ import traceback
+ 
+-from packagekit.backend import PackageKitBaseBackend, \
+-    ERROR_PACKAGE_ID_INVALID, ERROR_REPO_NOT_FOUND, ERROR_INTERNAL_ERROR, \
++from packagekit.enums import ERROR_PACKAGE_ID_INVALID, ERROR_REPO_NOT_FOUND, \
++    ERROR_INTERNAL_ERROR, \
+     ERROR_CANNOT_DISABLE_REPOSITORY, ERROR_PACKAGE_FAILED_TO_INSTALL, \
+     ERROR_DEP_RESOLUTION_FAILED, ERROR_PACKAGE_FAILED_TO_CONFIGURE, \
+     ERROR_PACKAGE_FAILED_TO_REMOVE, ERROR_GROUP_LIST_INVALID, \
+@@ -42,13 +42,15 @@
+     GROUP_UNKNOWN, INFO_IMPORTANT, INFO_NORMAL, INFO_DOWNLOADING, \
+     INFO_INSTALLED, INFO_REMOVING, INFO_INSTALLING, \
+     ERROR_INVALID_PACKAGE_FILE, ERROR_FILE_NOT_FOUND, \
+-    INFO_AVAILABLE, get_package_id, split_package_id, MESSAGE_UNKNOWN, \
++    INFO_AVAILABLE, MESSAGE_UNKNOWN, \
+     MESSAGE_AUTOREMOVE_IGNORED, MESSAGE_CONFIG_FILES_CHANGED, STATUS_INFO, \
+     MESSAGE_COULD_NOT_FIND_PACKAGE, MESSAGE_REPO_METADATA_DOWNLOAD_FAILED, \
+     STATUS_QUERY, STATUS_DEP_RESOLVE, STATUS_REMOVE, STATUS_DOWNLOAD, \
+     STATUS_INSTALL, STATUS_RUNNING, STATUS_REFRESH_CACHE, \
+     UPDATE_STATE_TESTING, UPDATE_STATE_STABLE, EXIT_EULA_REQUIRED
+ 
++from packagekit.backend import PackageKitBaseBackend, get_package_id, \
++    split_package_id
+ from packagekit.package import PackagekitPackage
+ 
+ sys.path.insert(0, '/usr/lib/entropy/libraries')
+@@ -59,6 +61,7 @@
+ from entropy.client.interfaces import Client
+ from entropy.core.settings.base import SystemSettings
+ from entropy.misc import LogFile
++from entropy.cache import EntropyCacher
+ from entropy.exceptions import SystemDatabaseError
+ try:
+     from entropy.exceptions import DependenciesNotRemovable
+@@ -768,7 +771,11 @@
+ 
+     def destroy(self):
+         if hasattr(self, "_entropy"):
+-            self._entropy.shutdown()
++            try:
++                self._entropy.shutdown()
++            except NameError:
++                EntropyCacher().stop()
++                self._entropy.destroy()
+ 
+     def __del__(self):
+         self.destroy()
+diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/portage/portageBackend.py
+--- ../PackageKit-0.6.6/backends/portage/portageBackend.py	2010-05-07 22:08:17.000000000 +0200
++++ ./backends/portage/portageBackend.py	2010-07-22 12:04:49.827380945 +0200
+@@ -20,8 +20,39 @@
+ # along with this program; if not, write to the Free Software
+ # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ 
++import os
++import traceback
++
++
+ # packagekit imports
+-from packagekit.backend import *
++from packagekit.enums import ERROR_PACKAGE_ID_INVALID, ERROR_REPO_NOT_FOUND, \
++    ERROR_INTERNAL_ERROR, ERROR_CANNOT_REMOVE_SYSTEM_PACKAGE, \
++    ERROR_CANNOT_DISABLE_REPOSITORY, ERROR_PACKAGE_FAILED_TO_INSTALL, \
++    ERROR_DEP_RESOLUTION_FAILED, ERROR_PACKAGE_FAILED_TO_CONFIGURE, \
++    ERROR_PACKAGE_FAILED_TO_REMOVE, ERROR_GROUP_LIST_INVALID, \
++    ERROR_UPDATE_NOT_FOUND, ERROR_REPO_CONFIGURATION_ERROR, \
++    ERROR_RESTRICTED_DOWNLOAD, ERROR_PACKAGE_FAILED_TO_BUILD, \
++    ERROR_CANNOT_GET_FILELIST, ERROR_CANNOT_GET_REQUIRES, \
++    ERROR_PACKAGE_ALREADY_INSTALLED, ERROR_PACKAGE_NOT_INSTALLED, \
++    ERROR_PACKAGE_NOT_FOUND, ERROR_MISSING_GPG_SIGNATURE, FILTER_INSTALLED, \
++    FILTER_NOT_INSTALLED, ERROR_GROUP_LIST_INVALID, FILTER_NOT_DEVELOPMENT, \
++    FILTER_FREE, GROUP_ACCESSIBILITY, GROUP_PROGRAMMING, GROUP_GAMES, \
++    FILTER_NOT_FREE, FILTER_NEWEST, \
++    GROUP_DESKTOP_GNOME, GROUP_DESKTOP_KDE, GROUP_DESKTOP_OTHER, \
++    GROUP_MULTIMEDIA, GROUP_NETWORK, GROUP_OFFICE, GROUP_SCIENCE, \
++    GROUP_SYSTEM, GROUP_SECURITY, GROUP_OTHER, GROUP_DESKTOP_XFCE, \
++    GROUP_UNKNOWN, INFO_IMPORTANT, INFO_NORMAL, INFO_DOWNLOADING, \
++    INFO_INSTALLED, INFO_REMOVING, INFO_INSTALLING, INFO_SECURITY, \
++    ERROR_INVALID_PACKAGE_FILE, ERROR_FILE_NOT_FOUND, \
++    INFO_AVAILABLE, MESSAGE_UNKNOWN, \
++    MESSAGE_AUTOREMOVE_IGNORED, MESSAGE_CONFIG_FILES_CHANGED, STATUS_INFO, \
++    MESSAGE_COULD_NOT_FIND_PACKAGE, MESSAGE_REPO_METADATA_DOWNLOAD_FAILED, \
++    STATUS_QUERY, STATUS_DEP_RESOLVE, STATUS_REMOVE, STATUS_DOWNLOAD, \
++    STATUS_INSTALL, STATUS_RUNNING, STATUS_REFRESH_CACHE, \
++    UPDATE_STATE_TESTING, UPDATE_STATE_STABLE, EXIT_EULA_REQUIRED
++
++from packagekit.backend import PackageKitBaseBackend, \
++    get_package_id, split_package_id
+ from packagekit.progress import *
+ from packagekit.package import PackagekitPackage
+ 
+@@ -546,7 +577,7 @@
+ 
+         return cpv_dict
+ 
+-    def _filter_free(self, cpv_list, fltlist):
++    def _filter_free(self, cpv_list, filters):
+         if not cpv_list:
+             return cpv_list
+ 
+@@ -554,11 +585,11 @@
+             metadata = self._get_metadata(cpv, ["LICENSE", "USE", "SLOT"], True)
+             return not self.pvar.settings._getMissingLicenses(cpv, metadata)
+ 
+-        if FILTER_FREE in fltlist or FILTER_NOT_FREE in fltlist:
++        if FILTER_FREE in filters or FILTER_NOT_FREE in filters:
+             free_licenses = "@FSF-APPROVED"
+-            if FILTER_FREE in fltlist:
++            if FILTER_FREE in filters:
+                 licenses = "-* " + free_licenses
+-            elif FILTER_NOT_FREE in fltlist:
++            elif FILTER_NOT_FREE in filters:
+                 licenses = "* -" + free_licenses
+             backup_license = self.pvar.settings["ACCEPT_LICENSE"]
+ 
+@@ -576,14 +607,14 @@
+ 
+         return cpv_list
+ 
+-    def _filter_newest(self, cpv_list, fltlist):
++    def _filter_newest(self, cpv_list, filters):
+         if len(cpv_list) == 0:
+             return cpv_list
+ 
+-        if FILTER_NEWEST not in fltlist:
++        if FILTER_NEWEST not in filters:
+             return cpv_list
+ 
+-        if FILTER_INSTALLED in fltlist:
++        if FILTER_INSTALLED in filters:
+             # we have one package per slot, so it's the newest
+             return cpv_list
+ 
+@@ -598,7 +629,7 @@
+ 
+         for k in slots:
+             # if not_intalled on, no need to check for newest installed
+-            if FILTER_NOT_INSTALLED not in fltlist:
++            if FILTER_NOT_INSTALLED not in filters:
+                 newest_installed = self._get_newest_cpv(cpv_dict[k], True)
+                 if newest_installed != "":
+                     cpv_list.append(newest_installed)
+@@ -608,7 +639,7 @@
+ 
+         return cpv_list
+ 
+-    def _get_all_cp(self, fltlist):
++    def _get_all_cp(self, filters):
+         # NOTES:
+         # returns a list of cp
+         #
+@@ -618,9 +649,9 @@
+         # - newest: ok (should be finished with cpv)
+         cp_list = []
+ 
+-        if FILTER_INSTALLED in fltlist:
++        if FILTER_INSTALLED in filters:
+             cp_list = self.pvar.vardb.cp_all()
+-        elif FILTER_NOT_INSTALLED in fltlist:
++        elif FILTER_NOT_INSTALLED in filters:
+             cp_list = self.pvar.portdb.cp_all()
+         else:
+             # need installed packages first
+@@ -631,7 +662,7 @@
+ 
+         return cp_list
+ 
+-    def _get_all_cpv(self, cp, fltlist, filter_newest=True):
++    def _get_all_cpv(self, cp, filters, filter_newest=True):
+         # NOTES:
+         # returns a list of cpv
+         #
+@@ -643,9 +674,9 @@
+         cpv_list = []
+ 
+         # populate cpv_list taking care of installed filter
+-        if FILTER_INSTALLED in fltlist:
++        if FILTER_INSTALLED in filters:
+             cpv_list = self.pvar.vardb.match(cp)
+-        elif FILTER_NOT_INSTALLED in fltlist:
++        elif FILTER_NOT_INSTALLED in filters:
+             for cpv in self.pvar.portdb.match(cp):
+                 if not self._is_installed(cpv):
+                     cpv_list.append(cpv)
+@@ -656,11 +687,11 @@
+                     cpv_list.append(cpv)
+ 
+         # free filter
+-        cpv_list = self._filter_free(cpv_list, fltlist)
++        cpv_list = self._filter_free(cpv_list, filters)
+ 
+         # newest filter
+         if filter_newest:
+-            cpv_list = self._filter_newest(cpv_list, fltlist)
++            cpv_list = self._filter_newest(cpv_list, filters)
+ 
+         return cpv_list
+ 
+@@ -852,8 +883,6 @@
+         self.allow_cancel(True)
+         self.percentage(None)
+ 
+-        fltlist = filters.split(';')
+-
+         cpv_input = []
+         cpv_list = []
+ 
+@@ -913,9 +942,9 @@
+         cpv_list = filter(_filter_uninstall, cpv_list)
+ 
+         # install filter
+-        if FILTER_INSTALLED in fltlist:
++        if FILTER_INSTALLED in filters:
+             cpv_list = filter(_filter_installed, cpv_list)
+-        if FILTER_NOT_INSTALLED in fltlist:
++        if FILTER_NOT_INSTALLED in filters:
+             cpv_list = filter(_filter_not_installed, cpv_list)
+ 
+         # now we can change cpv_list to a real cpv list
+@@ -926,7 +955,7 @@
+         del tmp_list
+ 
+         # free filter
+-        cpv_list = self._filter_free(cpv_list, fltlist)
++        cpv_list = self._filter_free(cpv_list, filters)
+ 
+         for cpv in cpv_list:
+             # prevent showing input packages
+@@ -1001,13 +1030,12 @@
+         self.allow_cancel(True)
+         self.percentage(0)
+ 
+-        fltlist = filters.split(';')
+-        cp_list = self._get_all_cp(fltlist)
++        cp_list = self._get_all_cp(filters)
+         nb_cp = float(len(cp_list))
+         cp_processed = 0.0
+ 
+-        for cp in self._get_all_cp(fltlist):
+-            for cpv in self._get_all_cpv(cp, fltlist):
++        for cp in self._get_all_cp(filters):
++            for cpv in self._get_all_cpv(cp, filters):
+                 self._package(cpv)
+ 
+             cp_processed += 100.0
+@@ -1024,8 +1052,6 @@
+         self.allow_cancel(True)
+         self.percentage(None)
+ 
+-        fltlist = filters.split(';')
+-
+         # get installed and available dbs
+         installed_layman_db = layman.db.DB(layman.config.Config())
+         available_layman_db = layman.db.RemoteDB(layman.config.Config())
+@@ -1033,7 +1059,7 @@
+         # 'gentoo' is a dummy repo
+         self.repo_detail('gentoo', 'Gentoo Portage tree', True)
+ 
+-        if FILTER_NOT_DEVELOPMENT not in fltlist:
++        if FILTER_NOT_DEVELOPMENT not in filters:
+             for o in available_layman_db.overlays.keys():
+                 if available_layman_db.overlays[o].is_official() \
+                         and available_layman_db.overlays[o].is_supported():
+@@ -1052,12 +1078,10 @@
+         self.allow_cancel(True)
+         self.percentage(None)
+ 
+-        fltlist = filters.split(';')
+-
+         cpv_input = []
+         cpv_list = []
+ 
+-        if FILTER_NOT_INSTALLED in fltlist:
++        if FILTER_NOT_INSTALLED in filters:
+             self.error(ERROR_CANNOT_GET_REQUIRES,
+                     "get-requires returns only installed packages at the moment")
+             return
+@@ -1085,7 +1109,7 @@
+         del packages_list
+ 
+         # free filter
+-        cpv_list = self._filter_free(cpv_list, fltlist)
++        cpv_list = self._filter_free(cpv_list, filters)
+ 
+         for cpv in cpv_list:
+             # prevent showing input packages
+@@ -1147,8 +1171,6 @@
+         self.allow_cancel(True)
+         self.percentage(None)
+ 
+-        fltlist = filters.split(';')
+-
+         update_candidates = []
+         cpv_updates = {}
+         cpv_downgra = {}
+@@ -1203,12 +1225,12 @@
+                         else:
+                             dict_down[s] = [tmp_list_avai.pop()]
+ 
+-                cpv_list_updates = self._filter_free(cpv_list_updates, fltlist)
++                cpv_list_updates = self._filter_free(cpv_list_updates, filters)
+ 
+                 if len(cpv_list_updates) == 0:
+                     break
+ 
+-                if FILTER_NEWEST in fltlist:
++                if FILTER_NEWEST in filters:
+                     best_cpv = portage.versions.best(cpv_list_updates)
+                     cpv_list_updates = [best_cpv]
+ 
+@@ -1539,8 +1561,7 @@
+         self.allow_cancel(True)
+         self.percentage(0)
+ 
+-        fltlist = filters.split(';')
+-        cp_list = self._get_all_cp(fltlist)
++        cp_list = self._get_all_cp(filters)
+         nb_cp = float(len(cp_list))
+         cp_processed = 0.0
+ 
+@@ -1554,7 +1575,7 @@
+ 
+         for cp in cp_list:
+             if s.match(cp):
+-                for cpv in self._get_all_cpv(cp, fltlist):
++                for cpv in self._get_all_cpv(cp, filters):
+                     self._package(cpv)
+ 
+             cp_processed += 100.0
+@@ -1568,8 +1589,7 @@
+         self.allow_cancel(True)
+         self.percentage(0)
+ 
+-        fltlist = filters.split(';')
+-        cp_list = self._get_all_cp(fltlist)
++        cp_list = self._get_all_cp(filters)
+         nb_cp = float(len(cp_list))
+         cp_processed = 0.0
+         search_list = self._get_search_list(keys)
+@@ -1582,7 +1602,7 @@
+             # newest filter can't be executed now
+             # because some cpv are going to be filtered by search conditions
+             # and newest filter could be alterated
+-            for cpv in self._get_all_cpv(cp, fltlist, filter_newest=False):
++            for cpv in self._get_all_cpv(cp, filters, filter_newest=False):
+                 match = True
+                 metadata =  self._get_metadata(cpv,
+                         ["DESCRIPTION", "HOMEPAGE", "IUSE",
+@@ -1603,7 +1623,7 @@
+                     cpv_list.append(cpv)
+ 
+             # newest filter
+-            cpv_list = self._filter_newest(cpv_list, fltlist)
++            cpv_list = self._filter_newest(cpv_list, filters)
+ 
+             for cpv in cpv_list:
+                 self._package(cpv)
+@@ -1622,9 +1642,7 @@
+         self.allow_cancel(True)
+         self.percentage(0)
+ 
+-        fltlist = filters.split(';')
+-
+-        if FILTER_NOT_INSTALLED in fltlist:
++        if FILTER_NOT_INSTALLED in filters:
+             self.error(ERROR_CANNOT_GET_FILELIST,
+                     "search-file isn't available with ~installed filter")
+             return
+@@ -1640,7 +1658,7 @@
+             searchre = re.compile("/" + key + "$", re.IGNORECASE)
+ 
+         # free filter
+-        cpv_list = self._filter_free(cpv_list, fltlist)
++        cpv_list = self._filter_free(cpv_list, filters)
+         nb_cpv = float(len(cpv_list))
+ 
+         for cpv in cpv_list:
+@@ -1661,15 +1679,14 @@
+         self.allow_cancel(True)
+         self.percentage(0)
+ 
+-        fltlist = filters.split(';')
+-        cp_list = self._get_all_cp(fltlist)
++        cp_list = self._get_all_cp(filters)
+         nb_cp = float(len(cp_list))
+         cp_processed = 0.0
+ 
+         for cp in cp_list:
+             for group in groups:
+                 if self._get_pk_group(cp) == group:
+-                    for cpv in self._get_all_cpv(cp, fltlist):
++                    for cpv in self._get_all_cpv(cp, filters):
+                         self._package(cpv)
+ 
+             cp_processed += 100.0
+@@ -1707,8 +1724,7 @@
+             k = re.escape(k)
+             search_list.append(re.compile(k, re.IGNORECASE))
+ 
+-        fltlist = filters.split(';')
+-        cp_list = self._get_all_cp(fltlist)
++        cp_list = self._get_all_cp(filters)
+         nb_cp = float(len(cp_list))
+         cp_processed = 0.0
+ 
+@@ -1727,7 +1743,7 @@
+                     found = False
+                     break
+             if found:
+-                for cpv in self._get_all_cpv(cp, fltlist):
++                for cpv in self._get_all_cpv(cp, filters):
+                     self._package(cpv)
+ 
+             cp_processed += 100.0
