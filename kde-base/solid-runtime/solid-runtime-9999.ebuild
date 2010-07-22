@@ -12,11 +12,6 @@ DESCRIPTION="KDE SC solid runtime modules (autoeject, automounter and others)"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	$(add_kdebase_dep solid)
-"
-RDEPEND="${DEPEND}"
-
 # Packages merged around 4.3.77
 add_blocker solidautoeject
 add_blocker solid-device-automounter
