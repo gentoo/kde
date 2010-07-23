@@ -53,11 +53,3 @@ src_configure() {
 	)
 	kde4-meta_src_configure
 }
-
-pkg_postinst() {
-	echo
-	elog "Note that if you upgrade strigi, you have to rebuild this package."
-	echo
-
-	kde4-meta_pkg_postinst
-}
