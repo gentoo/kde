@@ -58,6 +58,7 @@ src_unpack() {
 	if use handbook; then
 		KMEXTRA="${KMEXTRA}
 			doc/kcontrol
+			doc/kfontview
 		"
 	fi
 
