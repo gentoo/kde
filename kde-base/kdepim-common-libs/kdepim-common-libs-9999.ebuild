@@ -34,6 +34,7 @@ add_blocker messageviewer
 add_blocker templateparser
 add_blocker kaddressbook '<4.4.90'
 add_blocker kmail '<4.4.80'
+add_blocker korganizer '<4.4.95'
 
 KMEXTRA="
 	akonadi/
