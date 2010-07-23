@@ -10,3 +10,7 @@ inherit kde4-meta
 DESCRIPTION="KDE screen magnifier"
 KEYWORDS=""
 IUSE="debug +handbook"
+
+RDEPEND="
+	$(add_kdebase_dep kaccessible)
+"
