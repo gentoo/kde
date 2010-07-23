@@ -9,4 +9,4 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Privacy Settings Widget"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +handbook"
