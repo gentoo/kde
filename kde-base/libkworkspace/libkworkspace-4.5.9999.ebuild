@@ -15,7 +15,7 @@ IUSE="debug"
 # FIXME dependencies until activities API is moved to kdelibs (4.6)
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.4
-	>=dev-libs/soprano-2.4.63
+	>=dev-libs/soprano-2.4.64
 "
 RDEPEND="${DEPEND}"
 

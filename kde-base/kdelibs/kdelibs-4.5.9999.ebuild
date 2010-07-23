@@ -70,7 +70,7 @@ COMMONDEPEND="
 	policykit? ( sys-auth/polkit-qt )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.4
-		>=dev-libs/soprano-2.4.63[dbus,raptor,redland]
+		>=dev-libs/soprano-2.4.64[dbus,raptor,redland]
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
