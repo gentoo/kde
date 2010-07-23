@@ -7,6 +7,6 @@ EAPI="3"
 KMNAME="kdeaccessibility"
 inherit kde4-meta
 
-DESCRIPTION="TODO"
+DESCRIPTION="Provides accessibility services like focus tracking"
 KEYWORDS=""
 IUSE="debug"
