@@ -32,7 +32,7 @@ COMMONDEPEND="
 	media-libs/freetype:2
 	media-libs/giflib
 	media-libs/jpeg:0
-	media-libs/libpng
+	>=media-libs/libpng-1.4
 	sys-libs/zlib
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
