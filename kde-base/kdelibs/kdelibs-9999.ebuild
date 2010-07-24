@@ -31,7 +31,7 @@ COMMONDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
-	media-libs/jpeg:0
+	virtual/jpeg:0
 	>=media-libs/libpng-1.4
 	sys-libs/zlib
 	>=x11-misc/shared-mime-info-0.60
