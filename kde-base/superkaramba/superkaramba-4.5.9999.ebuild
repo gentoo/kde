@@ -10,7 +10,7 @@ inherit python kde4-meta
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS=""
-IUSE="debug +handbook python"
+IUSE="debug python"
 
 DEPEND="
 	media-libs/qimageblitz
