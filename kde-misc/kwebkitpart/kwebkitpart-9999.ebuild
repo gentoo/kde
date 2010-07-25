@@ -16,7 +16,3 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
-
-RDEPEND="
-	!kde-misc/webkit-kpart
-"
