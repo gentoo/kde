@@ -59,3 +59,11 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+src_install() {
+	if use plasma; then
+		insinto "${KDEDIR}"/share/apps/cmake/modules
+		doins "${S}"/cmake/modules/FindMarbleWidget.cmake
+	fi
+	kde4-meta_src_install
+}
