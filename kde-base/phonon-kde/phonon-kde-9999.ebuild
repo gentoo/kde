@@ -13,11 +13,16 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="alsa debug +xine"
+IUSE="alsa debug +xine pulseaudio"
 
 DEPEND="
 	>=media-sound/phonon-4.3.80[xine?]
 	alsa? ( media-libs/alsa-lib )
+	pulseaudio? (
+		dev-libs/glib:2
+		media-libs/libcanberra
+		>=media-sound/pulseaudio-0.9.21[glib]
+	)
 "
 RDEPEND="${DEPEND}"
 
@@ -26,6 +31,7 @@ src_configure() {
 		-DBUILD_tests=OFF
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with xine)
+		$(cmake-utils_use_with pulseaudio PulseAudio)
 	)
 
 	kde4-meta_src_configure
