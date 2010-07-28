@@ -20,4 +20,4 @@ DEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
 "
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}"

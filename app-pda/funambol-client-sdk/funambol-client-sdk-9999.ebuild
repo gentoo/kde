@@ -17,7 +17,6 @@ IUSE=""
 
 DEPEND="net-misc/curl"
 RDEPEND="${DEPEND}"
-#S="${WORKDIR}"/build/autotools
 
 src_prepare() {
 	cd "${S}"/build/autotools
