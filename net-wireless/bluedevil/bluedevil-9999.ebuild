@@ -1,27 +1,33 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=2
 
-inherit kde4-base git
+EAPI="2"
+
+inherit git kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://gitorious.org/bluedevil"
 EGIT_REPO_URI="git://gitorious.org/bluedevil/bluedevil.git"
 
 LICENSE="GPL-3"
-SLOT="0"
 KEYWORDS=""
-IUSE=""
+SLOT="4"
+IUSE="debug"
 
 DEPEND="
-	app-mobilephone/obexd
-	app-mobilephone/obex-data-server
-	>=kde-base/kdelibs-${KDE_MINIMAL}
 	net-libs/libbluedevil
+	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
-	!net-wireless/kbluetooth"
+	!net-wireless/kbluetooth
+	app-mobilephone/obexd
+	app-mobilephone/obex-data-server
+"
+
+src_unpack() {
+	git_src_unpack
+}
 
 src_prepare() {
 	kde4-base_src_prepare
