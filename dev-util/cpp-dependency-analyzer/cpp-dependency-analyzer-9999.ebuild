@@ -25,10 +25,6 @@ DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.35.0
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-multilib.patch"
-)
-
 src_unpack() {
 	git_src_unpack
 }
