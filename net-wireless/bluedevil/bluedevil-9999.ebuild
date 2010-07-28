@@ -24,3 +24,15 @@ RDEPEND="${DEPEND}
 	app-mobilephone/obexd
 	app-mobilephone/obex-data-server
 "
+
+src_unpack() {
+	git_src_unpack
+}
+
+src_prepare() {
+	kde4-base_src_prepare
+
+	sed -e 's/${KDE4WORKSPACE_SOLIDCONTROL_LIBRARY}/solidcontrol/g' \
+		-i src/monolithic/CMakeLists.txt \
+		|| die "Failed to patch CMake files"
+}
