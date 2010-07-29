@@ -16,6 +16,7 @@ IUSE=""
 
 # Please bump this as needed (probably at least for every minor version)
 add_blocker kdebase-wallpapers '<4.4.90'
+add_blocker kdeartwork-weatherwallpapers '<4.5.0'
 
 KMEXTRA="
 	HighResolutionWallpapers/
