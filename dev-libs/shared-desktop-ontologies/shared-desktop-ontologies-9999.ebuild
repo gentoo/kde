@@ -10,7 +10,7 @@ DESCRIPTION="Shared OSCAF desktop ontologies"
 HOMEPAGE="http://sourceforge.net/projects/oscaf"
 ESVN_REPO_URI="https://oscaf.svn.sourceforge.net/svnroot/oscaf/trunk/ontologies"
 
-LICENSE="BSD CCPL-Attribution-3.0"
+LICENSE="|| ( BSD CCPL-Attribution-ShareAlike-3.0 )"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
