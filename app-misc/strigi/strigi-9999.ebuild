@@ -79,10 +79,7 @@ src_test() {
 	mycmakeargs+=(-DENABLE_CPPUNIT=ON)
 	cmake-utils_src_configure
 	cmake-utils_src_compile
-
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	ctest --extra-verbose || die "Tests failed."
-	popd > /dev/null
+	cmake-utils_src_test
 }
 
 pkg_postinst() {
