@@ -1,0 +1,55 @@
+Index: kio/kfile/kfilemetadatawidget.h
+===================================================================
+--- kio/kfile/kfilemetadatawidget.h	(revision 1158054)
++++ kio/kfile/kfilemetadatawidget.h	(revision 1158055)
+@@ -51,6 +51,8 @@
+ 
+     /**
+      * Sets the items for which the meta data should be shown.
++     * The signal metaDataRequestFinished() will be emitted,
++     * as soon as the meta data for the items has been received.
+      */
+     void setItems(const KFileItemList& items);
+     KFileItemList items() const;
+@@ -72,6 +74,13 @@
+      */
+     void urlActivated(const KUrl& url);
+ 
++    /**
++     * Is emitted after the meta data has been received for the items
++     * set by KFileMetaDataWidget::setItems().
++     * @since 4.6
++     */
++    void metaDataRequestFinished();
++
+ protected:
+     virtual bool event(QEvent* event);
+ 
+Index: kio/kfile/kfilemetadatawidget.cpp
+===================================================================
+--- kio/kfile/kfilemetadatawidget.cpp	(revision 1158054)
++++ kio/kfile/kfilemetadatawidget.cpp	(revision 1158055)
+@@ -48,7 +48,6 @@
+     #include <QThread>
+ #endif
+ 
+-
+ // The default size hint of QLabel tries to return a square size.
+ // This does not work well in combination with layouts that use
+ // heightForWidth(): In this case it is possible that the content
+@@ -66,6 +65,7 @@
+     QLabel(parent)
+ {
+ }
++
+ QSize ValueWidget::sizeHint() const
+ {
+     QFontMetrics metrics(font());
+@@ -425,6 +425,7 @@
+ #endif
+ 
+     q->updateGeometry();
++    emit q->metaDataRequestFinished();
+ }
+ 
+ void KFileMetaDataWidget::Private::removeOutdatedRows()
