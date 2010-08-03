@@ -17,7 +17,7 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 # Moved to playground for now
 # bazaar git kompare mercurial
-IUSE="cvs debug subversion"
+IUSE="cvs debug reviewboard subversion"
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
@@ -28,6 +28,7 @@ IUSE="cvs debug subversion"
 DEPEND="
 	dev-libs/boost
 	cvs? ( dev-vcs/cvs )
+	reviewboard? ( dev-libs/qjson )
 	subversion? ( >=dev-vcs/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
@@ -51,6 +52,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build cvs)
+		$(cmake-utils_use_with reviewboard QJSON)
 		$(cmake-utils_use_build subversion)
 		$(cmake-utils_use_with subversion SubversionLibrary)
 	)
