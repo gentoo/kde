@@ -5,7 +5,4 @@
 <maintainer>
 	<email>maintainer-needed@gentoo.org</email>
 </maintainer>
-<use>
-	<flag name='curldebug'>Enables debugging of curl usage</flag>
-</use>
 </pkgmetadata>

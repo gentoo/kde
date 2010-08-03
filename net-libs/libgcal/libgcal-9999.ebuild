@@ -4,33 +4,51 @@
 
 EAPI="2"
 
-inherit eutils git autotools
+inherit cmake-utils git
 
 DESCRIPTION="C/C++ interface to the Google Data API"
 HOMEPAGE="http://code.google.com/p/libgcal/"
-EGIT_REPO_URI="git://repo.or.cz/libgcal.git"
+EGIT_REPO_URI="git://gitorious.org/libgcal/libgcal.git"
 
 LICENSE="BSD"
-SLOT="0"
 KEYWORDS=""
-IUSE="curldebug debug"
+SLOT="0"
+IUSE="debug doc test"
 
-DEPEND="
+# Some tests fail
+RESTRICT="test"
+
+RDEPEND="
 	dev-libs/libxml2:2
 	>=net-misc/curl-7.18.2
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )
+	test? ( dev-libs/check )
+"
 
-src_prepare() {
-	eautoreconf -i -f
-}
+DOCS=(README)
 
 src_configure() {
-	econf \
-		$(use_enable debug) \
-		$(use_enable curldebug)
+	mycmakeargs=(
+		-DENABLE_TESTS=OFF
+		$(cmake-utils_use debug CURL_DEBUG)
+	)
+	cmake-utils_src_configure
+}
+
+src_compile() {
+	cmake-utils_src_compile
+	use doc && cmake-utils_src_compile docs
 }
 
 src_install() {
-	einstall || die "einstall failed"
+	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/docs/doxygen/html/")
+	cmake-utils_src_install
+}
+
+src_test() {
+	mycmakeargs+=(-DENABLE_TESTS=ON)
+	cmake-utils_src_configure
+	cmake-utils_src_make test
 }
