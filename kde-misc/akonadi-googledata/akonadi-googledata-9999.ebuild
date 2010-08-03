@@ -5,6 +5,7 @@
 EAPI="2"
 
 KMNAME="extragear/pim"
+KMMODULE="googledata"
 inherit kde4-base
 
 DESCRIPTION="Google contacts and calendar akonadi resource"
@@ -12,9 +13,14 @@ HOMEPAGE="http://pim.kde.org/akonadi/"
 LICENSE="GPL-2"
 
 SLOT="0"
-KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
-DEPEND="app-office/akonadi-server
-	>=net-libs/libgcal-0.9.0"
-RDEPEND="${DEPEND}"
+DEPEND="
+	dev-libs/boost
+	dev-libs/libxslt
+	>=kde-base/kdepimlibs-${KDE_MINIMAL}[semantic-desktop]
+	>=net-libs/libgcal-0.9.4
+"
+RDEPEND="${DEPEND}
+	!kde-misc/googledata
+"
