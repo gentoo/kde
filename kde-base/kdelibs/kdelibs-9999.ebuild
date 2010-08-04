@@ -96,6 +96,7 @@ RDEPEND="${COMMONDEPEND}
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
 	!aqua? (
+		sys-power/upower
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
@@ -289,13 +290,6 @@ pkg_postinst() {
 
 	elog "Your homedir is set to \${HOME}/${HME}"
 	echo
-
-	if ! has_version sys-apps/hal; then
-		echo
-		ewarn "You need sys-apps/hal for new device notifications, power management and any"
-		ewarn "other hardware related functionalities to work."
-		echo
-	fi
 
 	kde4-base_pkg_postinst
 }

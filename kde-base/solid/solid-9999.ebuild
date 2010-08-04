@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Solid: the KDE hardware library"
 KEYWORDS=""
-IUSE="bluetooth debug +hal networkmanager wicd"
+IUSE="bluetooth debug networkmanager wicd"
 
 # solid/CMakeLists.txt has an add_subdirectory statement that depends on
 # networkmanager-0.7, referring to a non-existant directory, restricted to =0.6*
@@ -22,7 +22,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep solid-runtime)
-	hal? ( sys-apps/hal )
 "
 
 KMEXTRA="
