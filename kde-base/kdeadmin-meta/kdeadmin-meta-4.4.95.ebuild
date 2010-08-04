@@ -21,10 +21,3 @@ RDEPEND="
 	cups? ( $(add_kdebase_dep system-config-printer-kde) )
 	$(block_other_slots)
 "
-
-## The following package was just added and has a questionable interest to Gentoo
-#	>=kde-base/kpackage-${PV}:${SLOT}
-
-## the following packages are currently missing in kde 4.1
-#>=kde-base/kdeadmin-kfile-plugins-${PV}:${SLOT}
-#>=kde-base/secpolicy-${PV}:${SLOT}

@@ -13,7 +13,6 @@ kde-base/kmousetool:live
 kde-base/kmouth:live
 kde-base/kcron:live
 kde-base/kdeadmin-meta:live
-kde-base/knetworkconf:live
 kde-base/ksystemlog:live
 kde-base/kuser:live
 kde-base/system-config-printer-kde:live
