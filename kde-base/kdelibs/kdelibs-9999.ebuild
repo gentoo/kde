@@ -96,6 +96,7 @@ RDEPEND="${COMMONDEPEND}
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
 	!aqua? (
+		sys-fs/udisks
 		sys-power/upower
 		x11-apps/iceauth
 		x11-apps/rgb
