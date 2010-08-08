@@ -17,6 +17,7 @@ IUSE="debug desktopglobe exif qalculate qwt rss scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
+	app-crypt/qca:2
 	dev-libs/libattica
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep krunner)
