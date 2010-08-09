@@ -30,10 +30,6 @@ PDEPEND="
 
 KMLOADLIBS="libkonq"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.5.0-tooltips.patch"
-)
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
