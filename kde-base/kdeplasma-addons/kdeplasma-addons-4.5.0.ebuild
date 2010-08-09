@@ -47,7 +47,6 @@ add_blocker kdebase-data '<4.2.88'
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.74-cmake.patch"
-	"${FILESDIR}/${PN}-4.4.92-lancelot.patch"
 )
 
 src_prepare() {
