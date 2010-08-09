@@ -4,7 +4,6 @@
 
 EAPI="2"
 
-KDE_MINIMAL="4.3"
 inherit kde4-base
 
 DESCRIPTION="A virtual keyboard for KDE 4's plasma desktop"

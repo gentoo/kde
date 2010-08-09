@@ -9,7 +9,6 @@ EAPI="2"
 KMNAME="extragear/graphics"
 
 # needed for sufficiently new libkdcraw
-KDE_MINIMAL="4.4"
 inherit kde4-base
 
 MY_P="${PN}-${PV/_/-}"

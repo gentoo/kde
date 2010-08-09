@@ -50,11 +50,11 @@ fi
 # @ECLASS-VARIABLE: KDE_MINIMAL
 # @DESCRIPTION:
 # This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
-# version for apps to work. Currently defaults to 4.3
+# version for apps to work. Currently defaults to 4.4
 # One may override this variable to raise version requirements.
 # For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
 # Note that it is fixed to ${SLOT} for kde-base packages.
-KDE_MINIMAL="${KDE_MINIMAL:-4.3}"
+KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 
 # Set slot for packages in kde-base, koffice and kdevelop
 case ${KDEBASE} in

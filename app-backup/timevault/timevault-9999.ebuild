@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI="2"
-KDE_MINIMAL="4.4"
 
 inherit kde4-base git
 
