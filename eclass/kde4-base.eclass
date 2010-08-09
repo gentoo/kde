@@ -62,9 +62,9 @@ case ${KDEBASE} in
 		# Determine SLOT from PVs
 		case ${PV} in
 			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
+			4.6* | 4.5.[6-9]*) SLOT="4.6" ;;
 			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
 			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
-			4.3*) SLOT="4.3" ;;
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
@@ -104,7 +104,7 @@ case ${KDEBASE} in
 		;;
 esac
 
-slot_is_at_least 4.5 ${KDE_MINIMAL} && CMAKE_MIN_VERSION="2.6.4"
+slot_is_at_least 4.5 ${KDE_MINIMAL} && CMAKE_MIN_VERSION="2.8.1"
 
 inherit ${buildsystem_eclass}
 
@@ -187,15 +187,12 @@ esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
-# Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1..
-# Currently defaults to 4.5.1 for KDE 4.3 and earlier, 4.6.0 for KDE 4.4 and
-# later and 4.6.3 for KDE 4.5 and later.
+# Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1...
+# 4.6.0 for 4.4 and 4.6.3 for 4.5 and later
 if slot_is_at_least 4.5 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.6.3}"
-elif slot_is_at_least 4.4 "${KDE_MINIMAL}"; then
-	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 else
-	QT_MINIMAL="${QT_MINIMAL:-4.5.1}"
+	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
 
 # OpenGL dependencies
@@ -289,14 +286,11 @@ kdecommondepend="
 	)
 "
 #perl is not needed on host (+ difficult crosscompilation)
-tc-is-cross-compiler || kdecommondepend="$kdecommondepend dev-lang/perl"
+tc-is-cross-compiler || kdecommondepend+=" dev-lang/perl"
 
 if [[ ${PN} != kdelibs ]]; then
 	if [[ ${KDEBASE} = kde-base ]]; then
 		kdecommondepend+=" $(add_kdebase_dep kdelibs)"
-		# libknotificationitem only when SLOT is 4.3
-		[[ ${PN} != libknotificationitem ]] && [[ ${SLOT} = 4.3 ]] && \
-			kdecommondepend+=" $(add_kdebase_dep libknotificationitem)"
 	else
 		kdecommondepend+="
 			>=kde-base/kdelibs-${KDE_MINIMAL}
@@ -459,7 +453,7 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.[34].8[05] | 4.[34].9[02568])
+						4.[45].8[05] | 4.[45].9[02568])
 							case ${KMNAME} in
 								kdepim | kdepim-runtime)
 									SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.bz2"
@@ -470,7 +464,7 @@ case ${BUILD_TYPE} in
 									;;
 								esac
 								;;
-						4.[34].[6-9]*)
+						4.[45].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
 							DEPEND+=" app-arch/xz-utils"

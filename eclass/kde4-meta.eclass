@@ -24,7 +24,6 @@ case ${KMNAME} in
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
-		! slot_is_at_least 4.4 ${SLOT} && COMMONDEPEND+=" $(add_kdebase_dep kdepimlibs)"
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
@@ -204,12 +203,12 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
-			4.[34].8[05] | 4.[34].9[02568])
+			4.[45].8[05] | 4.[45].9[02568])
 				# block for normally packed upstream unstable snapshots
 				KMTARPARAMS+=" --bzip2" # bz2
 				postfix="bz2"
 				;;
-			4.[34].[6-9]*)
+			4.[45].[6-9]*)
 				# Not passing --xz, as it doesn't work with stable tar
 				KMTARPARAMS+=" --use-compress-program=xz" # xz
 				postfix="xz"
@@ -349,10 +348,6 @@ kde4-meta_create_extractlists() {
 			if has kontact ${IUSE//+} && use kontact; then
 				KMEXTRA+="
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
-				if ! slot_is_at_least 4.4 ${SLOT}; then
-					KMEXTRACTONLY+="
-						kontactinterfaces/"
-				fi
 			fi
 			;;
 		kdeutils)
