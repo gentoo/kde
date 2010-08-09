@@ -455,8 +455,7 @@ case ${BUILD_TYPE} in
 					case ${PV} in
 						4.[45].8[05] | 4.[45].9[02568])
 							# Normally packed unstable releases
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
-							;;
+							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 						4.[45].[6-9]*)
 							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
