@@ -19,7 +19,6 @@ else
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
-
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE."
@@ -40,8 +39,8 @@ COMMONDEPEND="
 		>=kde-base/kdepimlibs-${KDE_MINIMAL}
 	)
 	shutdown? (
-		>=kde-base/solid-${KDE_MINIMAL}
 		>=kde-base/libkworkspace-${KDE_MINIMAL}
+		>=kde-base/solid-${KDE_MINIMAL}
 	)
 "
 DEPEND="${COMMONDEPEND}
