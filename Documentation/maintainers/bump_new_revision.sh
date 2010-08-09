@@ -281,7 +281,12 @@ case ${OPERATION} in
 		for EBUILD_BASEDIR in ${EBUILD_BASEDIR_LIST}; do
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
 			pushd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}" > /dev/null
-			git rm ${EBUILD_BASENAME}-${VERSION}*.ebuild
+			if [[ -d .git ]]; then
+				git rm "${EBUILD_BASENAME}-${VERSION}"*.ebuild
+			elif [[ -d CVS ]]; then
+				cvs remove -f "${EBUILD_BASENAME}-${VERSION}"*.ebuild
+				echangelog "Remove KDE SC ${VERSION}"
+			fi
 #			if [[ -d files/ ]]; then
 #				# generate list of patches.
 #				find ./files/ -type f |grep -v "CVS/" |grep -v ".svn" |sort -u |sed -e "s:\./files/::g" > /tmp/patches-per-package.txt
@@ -307,7 +312,9 @@ case ${OPERATION} in
 #				done
 #			fi
 			repoman manifest
-			git add .
+			if [[ -d .git ]]; then
+				git add .
+			fi
 			popd &> /dev/null #go back to workdir
 		done
 		;;
