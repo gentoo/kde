@@ -103,5 +103,5 @@ src_test() {
 	mycmakeargs+=(-DSOPRANO_BUILD_TESTS=ON)
 	cmake-utils_src_configure
 	cmake-utils_src_compile
-	ctest --extra-verbose || die "Tests failed."
+	cmake-utils_src_test
 }
