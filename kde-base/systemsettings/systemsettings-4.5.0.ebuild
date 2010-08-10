@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="System settings utility"
 IUSE="debug +handbook +usb xinerama"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 COMMONDEPEND="
 	dev-libs/glib:2

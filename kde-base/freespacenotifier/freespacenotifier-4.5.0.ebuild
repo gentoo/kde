@@ -8,5 +8,5 @@ KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="A module that monitors free disk space on the home dir"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"

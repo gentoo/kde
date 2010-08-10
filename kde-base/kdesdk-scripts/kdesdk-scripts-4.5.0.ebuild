@@ -10,7 +10,7 @@ KMMODULE="${PN/*-/}"
 inherit kde4-meta
 
 DESCRIPTION="KDE SDK Scripts"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64  ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+handbook debug"
 
 src_prepare() {

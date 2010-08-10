@@ -8,6 +8,6 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Plugins to manage filtering URIs."
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 RESTRICT="test" # Tests segfault. Last checked on 4.0.3.

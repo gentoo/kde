@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 src_prepare() {

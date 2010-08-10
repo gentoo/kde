@@ -8,5 +8,5 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="Kiriki - a gtali clone for KDE4"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"

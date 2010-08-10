@@ -10,5 +10,5 @@ KMMODULE="kmouth"
 inherit kde4-meta
 
 DESCRIPTION="KDE application that reads what you type out loud. Doesn't include a speech synthesizer."
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
