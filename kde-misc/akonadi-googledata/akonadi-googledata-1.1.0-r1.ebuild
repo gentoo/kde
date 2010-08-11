@@ -28,3 +28,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-misc/googledata
 "
+
+src_prepare() {
+	kde4-base_src_prepare
+	epatch "${FILESDIR}"/"${PN}"-fix-offset.patch
+}
