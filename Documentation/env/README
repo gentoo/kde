@@ -34,7 +34,10 @@ Example debug-build file:
 <code>
 CFLAGS="-O0 -ggdb"
 CXXFLAGS="${CFLAGS}"
-FEATURES="${FEATURES} nostrip"
+# You can use either nostrip or splitdebug - refer to
+# http://www.gentoo.org/proj/en/qa/backtraces.xml
+# for more information
+FEATURES="${FEATURES} splitdebug"
 USE="${USE} debug"
 </code>
 
