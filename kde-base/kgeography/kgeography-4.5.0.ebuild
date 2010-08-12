@@ -8,5 +8,5 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE: a geography learning tool"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"

@@ -17,7 +17,7 @@ HOMEPAGE="http://www.oxygen-icons.org/"
 #SRC_URI="mirror://kde/unstable/${PV}/src/${P}.tar.bz2"
 
 LICENSE="LGPL-3"
-KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="aqua"
 
 # Block conflicting packages

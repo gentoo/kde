@@ -9,7 +9,7 @@ KMNAME="kdeaccessibility"
 inherit kde4-meta
 
 DESCRIPTION="Jovie is a text to speech application"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 DEPEND="

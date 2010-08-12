@@ -10,5 +10,5 @@ KMMODULE="ColorSchemes"
 inherit kde4-meta
 
 DESCRIPTION="KDE high contrast color schemes"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""

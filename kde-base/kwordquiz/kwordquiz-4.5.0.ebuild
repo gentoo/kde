@@ -8,7 +8,7 @@ KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 DEPEND="

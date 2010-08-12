@@ -10,7 +10,7 @@ inherit kde4-meta
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"
 HOMEPAGE="http://www.dragonplayer.net/"
 
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-2"
 IUSE="debug +handbook"
 

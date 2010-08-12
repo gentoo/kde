@@ -7,5 +7,5 @@ KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - powerful search and replace in multiple files"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"

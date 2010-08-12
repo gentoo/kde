@@ -8,7 +8,7 @@ KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
-KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook semantic-desktop thumbnail"
 
 DEPEND="

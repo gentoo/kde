@@ -8,7 +8,7 @@ KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KBugBuster - A tool for checking and reporting KDE apps' bugs"
-KEYWORDS=" ~amd64  ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 DEPEND="

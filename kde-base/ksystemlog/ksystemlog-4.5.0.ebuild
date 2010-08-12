@@ -9,7 +9,7 @@ KMNAME="kdeadmin"
 inherit kde4-meta
 
 DESCRIPTION="KDE system log viewer"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 # Tests hang, last checked in 4.3.3

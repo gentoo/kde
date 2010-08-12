@@ -9,7 +9,7 @@ PYTHON_DEPEND="python? 2"
 inherit python kde4-meta
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug python"
 
 DEPEND="

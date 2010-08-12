@@ -12,7 +12,7 @@ DESCRIPTION="Environment setting required for all KDE4 apps to run."
 HOMEPAGE="http://kde.org"
 [[ ${PV} = *9999* ]] && ESVN_REPO_URI="" || SRC_URI=""
 
-KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 LICENSE="as-is"
 IUSE="aqua"
 

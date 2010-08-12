@@ -8,7 +8,7 @@ KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Control Center"
-KEYWORDS=" ~amd64 ~arm  ~ppc ~ppc64  ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug +handbook"
 
 RDEPEND="

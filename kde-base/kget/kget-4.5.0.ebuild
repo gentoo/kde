@@ -8,7 +8,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +handbook +plasma semantic-desktop sqlite"
 
 RDEPEND="

@@ -12,7 +12,7 @@ DESCRIPTION="Extra Plasma applets and engines."
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
-KEYWORDS=" ~amd64  ~ppc ~ppc64  ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug desktopglobe exif qalculate qwt rss scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot

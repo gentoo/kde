@@ -11,7 +11,7 @@ USE_RUBY="ruby18"
 inherit kde4-meta ruby-ng
 
 DESCRIPTION="Ruby plugin for the kdelibs/kross scripting framework."
-KEYWORDS=" ~amd64  ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
 pkg_setup() {
