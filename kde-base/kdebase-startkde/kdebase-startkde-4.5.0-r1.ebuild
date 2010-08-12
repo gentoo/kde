@@ -45,7 +45,10 @@ KMEXTRACTONLY="
 	startkde.cmake
 "
 
-PATCHES=("${FILESDIR}/gentoo-startkde4-2.patch")
+PATCHES=(
+	"${FILESDIR}/${PV}-fix_malloc.patch"
+	"${FILESDIR}/gentoo-startkde4-2.patch"
+)
 
 src_prepare() {
 	kde4-meta_src_prepare
