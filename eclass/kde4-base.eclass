@@ -631,7 +631,7 @@ kde4-base_src_configure() {
 		CMAKE_BUILD_TYPE="Debugfull"
 	else
 		# Handle common release builds
-		append-cppflags -DQT_NO_DEBUG
+		append-cppflags -DQT_NO_DEBUG -DQT_NO_DEBUG_STREAM
 	fi
 
 	# Set distribution name
