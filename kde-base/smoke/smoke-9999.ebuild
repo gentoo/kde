@@ -13,6 +13,7 @@ DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
 IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
+# TODO add qt-declarative
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
