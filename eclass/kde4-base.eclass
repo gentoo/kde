@@ -626,13 +626,12 @@ kde4-base_src_configure() {
 		cmakeargs+=(-DKDE4_ENABLE_FINAL=ON)
 	fi
 
-	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
-		# Handle debug and release codepaths
-		if has debug ${IUSE//+} && use debug; then
-			append-cppflags -DDEBUG
-		else
-			append-cppflags -DNDEBUG -DQT_NO_DEBUG -DQT_NO_DEBUG_STREAM
-		fi
+	if has debug ${IUSE//+} && use debug; then
+		# Set "real" debug mode
+		CMAKE_BUILD_TYPE="Debugfull"
+	else
+		# Handle common release builds
+		append-cppflags -DQT_NO_DEBUG
 	fi
 
 	# Set distribution name
