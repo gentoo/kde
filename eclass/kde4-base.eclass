@@ -465,8 +465,9 @@ case ${BUILD_TYPE} in
 							esac
 							;;
 						4.[56].[6-9]*)
-							# Repacked tarballs
+							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
 							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
+							DEPEND+=" app-arch/xz-utils"
 							;;
 						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 					esac
@@ -500,6 +501,15 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # optional applications link
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# Prefix compat:
+	if [[ ${EAPI} == 2 ]] && ! use prefix; then
+		EPREFIX=
+		EROOT=${ROOT}
+	fi
+
+	# Append missing trailing slash character
+	[[ ${EROOT} = */ ]] || EROOT+="/"
 
 	# QA ebuilds
 	[[ -z ${KDE_MINIMAL_VALID} ]] && ewarn "QA Notice: ignoring invalid KDE_MINIMAL (defaulting to ${KDE_MINIMAL})."
@@ -564,7 +574,24 @@ kde4-base_src_unpack() {
 		elif has git ${INHERITED}; then
 			git_src_unpack
 		fi
+	elif [[ ${EAPI} == 2 ]]; then
+		local file
+		for file in ${A}; do
+			# This setup is because EAPI <= 2 cannot unpack *.tar.xz files
+			# directly, so we do it ourselves (using the exact same code as portage)
+			case ${file} in
+				*.tar.xz)
+					echo ">>> Unpacking ${file} to ${PWD}"
+					xz -dc "${DISTDIR}"/${file} | tar xof -
+					assert "failed unpacking ${file}"
+					;;
+				*)
+					unpack ${file}
+					;;
+			esac
+		done
 	else
+		# For EAPI >= 3, we can just use unpack() directly
 		unpack ${A}
 	fi
 }
