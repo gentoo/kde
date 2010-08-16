@@ -4,7 +4,6 @@
 <use>
 	<flag name="archive">Enable support for a variety of archive formats through libarchive</flag>
 	<flag name="lzma">Enable LZMA/XZ archive support</flag>
-	<flag name="zip">Enable zip support through LibZip</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
