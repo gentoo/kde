@@ -1,0 +1,49 @@
+#!/bin/bash
+
+[[ -z $1 ]] && echo "usage $0 <soversion>" && exit 1
+
+soversion=${1}
+
+if [[ -n $2 ]]; then
+	shift
+	for f in $@; do
+		if [[ -n `sed -ne '/^.*_la_LDFLAGS\s*=.*$/p' "${f}"` ]]; then	# _LDFLAGS specified, append
+			if [[ -n `sed -ne '/^.*_la_LDFLAGS\s*=.*-version-info/p' "${f}"` ]]; then	# -version-info specified
+				sed -e "/_la_LDFLAGS\s*=/s/-version-info\s\+\S\+\s*/-version-info ${soversion}/g" \
+					-i "${f}" || echo 'failed to replace soversion'
+			else
+				sed -e "/_la_LDFLAGS\s*=/s/$/ -version-info ${soversion}/g" \
+					-i "${f}" || echo 'failed to append soversion'
+			fi
+		else	# _LDFLAGS not specified, set -version-info just before _SOURCES
+			sed -e "s/^\(.*\)_SOURCES.*$/\1_LDFLAGS = -version-info ${soversion}\n&/g" \
+				-i "${f}" || echo 'failed to set soversion'
+		fi
+	done
+	exit 0
+fi
+
+echo 'Patching automake'
+find -name '*.am' \
+	-exec sed -e 's|\.a|.la|g' -i {} + \
+	-exec sed -e 's|_a_SOURCES|_la_SOURCES|g' -i {} + \
+	-exec sed -e 's|_a_LIBADD|_la_LIBADD|g' -i {} + \
+	-exec sed -e 's|_a_DEPENDENCIES|_la_DEPENDENCIES|g' -i {} + \
+	-exec sed -e 's|_a_CXXFLAGS|_la_CXXFLAGS|g' -i {} + \
+	-exec sed -e 's|_a_LDFLAGS|_la_LDFLAGS|g' -i {} + \
+	-exec sed -e 's|^lib_LIBRARIES|lib_LTLIBRARIES|g' -i {} + \
+	-exec "$0" ${soversion} {} + \
+	|| echo 'failed to switch to shared libs'
+
+acfile=
+if [[ -f configure.ac ]]; then
+	acfile=configure.ac
+elif [[ -f configure.in ]]; then
+	acfile=configure.in
+fi
+
+if [[ -n ${acfile} ]]; then
+	echo 'Patching autoconf'
+	sed -e 's/AC_PROG_RANLIB/AC_PROG_LIBTOOL/g' -i ${acfile} \
+		|| echo 'failed to enable libtool'
+fi
