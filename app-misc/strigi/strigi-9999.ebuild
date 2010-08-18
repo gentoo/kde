@@ -65,6 +65,7 @@ src_configure() {
 		$(cmake-utils_use_enable inotify)
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4)
+		$(cmake-utils_use_enable test CPPUNIT)
 		$(cmake-utils_use_enable xine)
 	)
 
@@ -73,13 +74,6 @@ src_configure() {
 	fi
 
 	cmake-utils_src_configure
-}
-
-src_test() {
-	mycmakeargs+=(-DENABLE_CPPUNIT=ON)
-	cmake-utils_src_configure
-	cmake-utils_src_compile
-	cmake-utils_src_test
 }
 
 pkg_postinst() {

@@ -127,6 +127,7 @@ src_configure() {
 		$(use_enable nsplugin browser-plugin)
 		$(use_enable pm-utils)
 		$(use_enable qt4 qt)
+		$(use_enable test tests)
 		$(use_enable udev device-rebind)
 	)
 
@@ -148,16 +149,6 @@ src_install() {
 
 	python_convert_shebangs -q -r $(python_get_version) "${D}"
 	python_clean_installation_image -q
-}
-
-src_test() {
-	myeconfargs+=(
-		--enable-tests
-	)
-
-	autotools-utils_src_configure
-	autotools-utils_src_compile
-	autotools-utils_src_test
 }
 
 pkg_postinst() {

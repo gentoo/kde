@@ -5,7 +5,7 @@
 EAPI="2"
 
 JAVA_PKG_OPT_USE="java"
-inherit base cmake-utils flag-o-matic subversion java-pkg-opt-2
+inherit base java-pkg-opt-2 cmake-utils flag-o-matic subversion
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
@@ -90,18 +90,8 @@ src_configure() {
 		$(cmake-utils_use !java SOPRANO_DISABLE_SESAME2_BACKEND)
 		$(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
+		$(cmake-utils_use test SOPRANO_BUILD_TESTS)
 	)
 
 	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_test() {
-	mycmakeargs+=(-DSOPRANO_BUILD_TESTS=ON)
-	cmake-utils_src_configure
-	cmake-utils_src_compile
-	cmake-utils_src_test
 }

@@ -13,7 +13,7 @@ SRC_URI="http://downloads.grantlee.org/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="debug doc"
+IUSE="debug doc test"
 
 COMMON_DEPEND="
 	>=x11-libs/qt-core-4.5.0:4
@@ -29,7 +29,7 @@ DOCS=(AUTHORS CHANGELOG GOALS README)
 
 src_configure() {
 	mycmakeargs=(
-		-DBUILD_TESTS=OFF
+		$(cmake-utils_use_build test TESTS)
 	)
 
 	cmake-utils_src_configure
@@ -45,14 +45,4 @@ src_install() {
 	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
 
 	cmake-utils_src_install
-}
-
-src_test() {
-	mycmakeargs+=(
-		-DBUILD_TESTS=ON
-	)
-
-	cmake-utils_src_configure
-	cmake-utils_src_compile
-	cmake-utils_src_test
 }

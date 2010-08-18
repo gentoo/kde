@@ -14,7 +14,7 @@ EHG_REPO_URI="https://bitbucket.org/eigen/eigen"
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="3"
-IUSE="debug doc examples"
+IUSE="debug doc examples test"
 
 RDEPEND="
 	examples? (
@@ -36,34 +36,21 @@ src_configure() {
 		-DEIGEN_BUILD_LIB=OFF
 		-DEIGEN_BUILD_BTL=OFF
 		$(cmake-utils_use examples EIGEN_BUILD_DEMOS)
+		$(cmake-utils_use test EIGEN_BUILD_TESTS)
+		$(cmake-utils_use test EIGEN_TEST_NO_FORTRAN)
 	)
 	cmake-utils_src_configure
 }
 
 src_compile() {
 	cmake-utils_src_compile
-	if use doc; then
-		cd "${CMAKE_BUILD_DIR}"
-		emake doc || die "building documentation failed"
-	fi
-}
-
-src_test() {
-	mycmakeargs+=(
-		-DEIGEN_BUILD_TESTS=ON
-		-DEIGEN_TEST_NO_FORTRAN=ON
-	)
-	cmake-utils_src_configure
-	cmake-utils_src_compile
-	cmake-utils_src_test
+	use doc && cmake-utils_src_compile doc
 }
 
 src_install() {
+	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/doc/html/")
 	cmake-utils_src_install
-	if use doc; then
-		cd "${CMAKE_BUILD_DIR}"/doc
-		dohtml -r html/* || die "dohtml failed"
-	fi
+
 	if use examples; then
 		cd "${CMAKE_BUILD_DIR}"/demos
 		dobin mandelbrot/mandelbrot opengl/quaternion_demo || die "dobin failed"

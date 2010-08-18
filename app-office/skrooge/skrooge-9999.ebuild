@@ -18,13 +18,16 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug test"
 
-DEPEND="dev-libs/libofx
+DEPEND="
 	app-crypt/qca:2
-	x11-libs/qt-sql[sqlite]"
+	dev-libs/libofx
+	x11-libs/qt-sql[sqlite]
+"
+RDEPEND="${DEPEND}"
 
-src_test() {
-	mycmakeargs+="
+src_configure() {
+	mycmakeargs=(
 		$(cmake-utils_use test SKG_BUILD_TEST)
-	"
-	kde4-base_src_test
+	)
+	kde4-base_src_configure
 }
