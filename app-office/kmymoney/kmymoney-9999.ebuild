@@ -5,21 +5,21 @@
 EAPI="2"
 
 KMNAME="extragear/office"
-inherit kde4-base
+inherit virtualx kde4-base
 
 DESCRIPTION="A personal finance manager for KDE"
-HOMEPAGE="http://techbase.kde.org/Projects/KMyMoney"
+HOMEPAGE="http://kmymoney2.sourceforge.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug calendar +handbook hbci ofx quotes test"
+IUSE="debug calendar doc +handbook hbci ofx quotes test"
 
 COMMON_DEPEND="
 	app-crypt/gpgme
 	>=dev-libs/boost-1.33.1
-	dev-libs/libxml2
 	dev-libs/libgpg-error
+	dev-libs/libxml2
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
 	calendar? ( dev-libs/libical )
 	hbci? (
@@ -29,26 +29,36 @@ COMMON_DEPEND="
 	ofx? ( >=dev-libs/libofx-0.9.1 )
 "
 RDEPEND="${COMMON_DEPEND}
-	quotes? ( dev-perl/Finance-Quote )"
+	quotes? ( >=dev-perl/Finance-Quote-1.17 )
+"
 DEPEND="${COMMON_DEPEND}
-	test? ( >=dev-util/cppunit-1.12.1 )"
-
-DOCS=(AUTHORS BUGS ChangeLog ChangeLog.original README.Fileformats TODO)
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	# Fix multilib and RPATH
-	sed -e '/SET(CMAKE_INSTALL_RPATH/s/^/# DISABLED /g' \
-		-i CMakeLists.txt || die "failed to disable setting bad RPATH"
-}
+	doc? ( app-doc/doxygen )
+	test? ( >=dev-util/cppunit-1.12.1 )
+"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_enable hbci KBANKING)
+		-DUSE_QT_DESIGNER=OFF
 		$(cmake-utils_use_enable calendar LIBICAL)
+		$(cmake-utils_use_use doc DEVELOPER_DOC)
+		$(cmake-utils_use_enable hbci KBANKING)
 		$(cmake-utils_use_enable ofx LIBOFX)
 		$(cmake-utils_use test KDE4_BUILD_TESTS)
 	)
 	kde4-base_src_configure
+}
+
+src_compile() {
+	kde4-base_src_compile
+	use doc && kde4-base_src_compile apidoc
+}
+
+src_install() {
+	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
+	kde4-base_src_install
+}
+
+src_test() {
+	export maketype="kde4-base_src_test"
+	virtualmake
 }
