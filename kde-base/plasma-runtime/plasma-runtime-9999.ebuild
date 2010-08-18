@@ -13,4 +13,4 @@ KEYWORDS=""
 IUSE="debug"
 
 # cloned from workspace thus introduce collisions.
-add_blocker plasma-workspace '<4.2.90'
+add_blocker plasma-workspace '<4.5.60'
