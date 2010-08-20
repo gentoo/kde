@@ -23,7 +23,7 @@ IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop"
 
 # TODO add qt-declarative
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'akonadi?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
 "
 RDEPEND="${DEPEND}
 	!dev-ruby/qt4-qtruby

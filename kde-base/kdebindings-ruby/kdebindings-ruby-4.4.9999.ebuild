@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="akonadi debug okular phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?')
+	$(add_kdebase_dep smoke 'akonadi?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
 "
 
 RDEPEND="${DEPEND}
