@@ -19,5 +19,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi/akonadi_next/
+	akonadi_next/
 "

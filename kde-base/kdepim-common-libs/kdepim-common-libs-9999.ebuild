@@ -37,7 +37,8 @@ add_blocker kmail '<4.4.80'
 add_blocker korganizer '<4.4.95'
 
 KMEXTRA="
-	akonadi/
+	akonadi_next/
+	calendarsupport/
 	calendarviews/
 	incidenceeditors/
 	libkdepim/

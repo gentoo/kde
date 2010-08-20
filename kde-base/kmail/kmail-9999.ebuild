@@ -23,7 +23,8 @@ add_blocker libksieve
 add_blocker mimelib
 
 KMEXTRACTONLY="
-	akonadi/
+	akonadi_next/
+	calendarsupport/
 	korganizer/
 	kresources/
 	libkleo/

@@ -25,7 +25,8 @@ KMLOADLIBS="kdepim-common-libs"
 
 # xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
-	akonadi/
+	akonadi_next/
+	calendarsupport/
 	incidenceeditors/
 	kdgantt2/
 	kmail/

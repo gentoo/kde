@@ -18,6 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi/
+	akonadi_next/
+	calendarsupport/
 	messageviewer/
 "

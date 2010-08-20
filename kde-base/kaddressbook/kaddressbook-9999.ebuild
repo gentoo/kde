@@ -24,7 +24,8 @@ KMEXTRA="
 	plugins/ktexteditor/
 "
 KMEXTRACTONLY="
-	akonadi/
+	akonadi_next/
+	calendarsupport/
 	libkleo/
 "
 
