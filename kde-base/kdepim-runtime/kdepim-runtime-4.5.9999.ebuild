@@ -16,6 +16,9 @@ DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
 IUSE="debug"
 
+RESTRICT="test"
+# Would need test programs _testrunner and akonaditest from kdepimlibs
+
 DEPEND="
 	app-misc/strigi
 	>=app-office/akonadi-server-1.3.60
