@@ -19,6 +19,7 @@ DEPEND="
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
+	>=kde-base/kdebase-data-${KDE_MINIMAL}
 	|| (
 		>=kde-base/okular-${KDE_MINIMAL}[pdf?,ps]
 		app-text/acroread
