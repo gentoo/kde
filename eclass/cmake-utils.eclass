@@ -69,36 +69,47 @@ unset CMAKEDEPEND
 _use_me_now() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	[[ -z $3 ]] && die "USAGE: cmake-utils_use_$2 <USE flag> [<flag name>]"
+
+	local inversion=$1 # use inverted bool logic or not
+	local option=$2 # WITH/ENABLE...
+	local useflag=$3 # THE useflag alsa/kde/...
+	local flagname=$4 # special flag name: eg alsa -> ALSALIB
+
 	local uper capitalised x
-	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	if [[ ! -z $3 ]]; then
+
+	if [[ ! -z ${flagname} ]]; then
 		# user specified the use name so use it
-		echo "-D$1$3=$(use $2 && echo ON || echo OFF)"
+		echo "-D${option}${flagname}=$(_use_me_now_echo_use ${useflag} ${inversion})"
 	else
 		# use all various most used combinations
-		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
-		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
-		for x in $2 $uper $capitalised; do
-			echo "-D$1$x=$(use $2 && echo ON || echo OFF) "
+		uper=$(echo ${useflag} | tr '[:lower:]' '[:upper:]')
+		capitalised=$(echo ${useflag} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
+		for x in ${useflag} ${uper} ${capitalised}; do
+			echo "-D${option}${x}=$(_use_me_now_echo_use ${useflag} ${inversion})"
 		done
 	fi
 }
-_use_me_now_inverted() {
+
+_use_me_now_echo_use() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local uper capitalised x
-	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	if [[ ! -z $3 ]]; then
-		# user specified the use name so use it
-		echo "-D$1$3=$(use $2 && echo OFF || echo ON)"
+	[[ -z $1 ]] && die "_use_me_now_echo_use <USE flag> [<inversion>]"
+
+	local useflag=$1
+	local inversion=$2 # defined if bool logic for on/off is inverse
+
+	local enabler disabler
+
+	if [[ -z ${inversion} ]]; then
+		enabler="ON"
+		disabler="OFF"
 	else
-		# use all various most used combinations
-		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
-		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
-		for x in $2 $uper $capitalised; do
-			echo "-D$1$x=$(use $2 && echo OFF || echo ON) "
-		done
+		enabler="OFF"
+		disabler="ON"
 	fi
+
+	echo "$(use ${useflag} && echo ${enabler} || echo ${disabler})"
 }
 
 # @ECLASS-VARIABLE: CMAKE_BUILD_DIR
@@ -147,7 +158,7 @@ _check_build_dir() {
 	else
 		: ${CMAKE_BUILD_DIR:=${WORKDIR}/${P}_build}
 	fi
-	echo ">>> Working in BUILD_DIR: \"$CMAKE_BUILD_DIR\""
+	echo ">>> Working in BUILD_DIR: \"${CMAKE_BUILD_DIR}\""
 }
 # @FUNCTION: cmake-utils_use_with
 # @USAGE: <USE flag> [flag name]
@@ -156,7 +167,7 @@ _check_build_dir() {
 #
 # `cmake-utils_use_with foo FOO` echoes -DWITH_FOO=ON if foo is enabled
 # and -DWITH_FOO=OFF if it is disabled.
-cmake-utils_use_with() { _use_me_now WITH_ "$@" ; }
+cmake-utils_use_with() { _use_me_now "" WITH_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_enable
 # @USAGE: <USE flag> [flag name]
@@ -165,7 +176,7 @@ cmake-utils_use_with() { _use_me_now WITH_ "$@" ; }
 #
 # `cmake-utils_use_enable foo FOO` echoes -DENABLE_FOO=ON if foo is enabled
 # and -DENABLE_FOO=OFF if it is disabled.
-cmake-utils_use_enable() { _use_me_now ENABLE_ "$@" ; }
+cmake-utils_use_enable() { _use_me_now "" ENABLE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_disable
 # @USAGE: <USE flag> [flag name]
@@ -174,7 +185,7 @@ cmake-utils_use_enable() { _use_me_now ENABLE_ "$@" ; }
 #
 # `cmake-utils_use_enable foo FOO` echoes -DDISABLE_FOO=OFF if foo is enabled
 # and -DDISABLE_FOO=ON if it is disabled.
-cmake-utils_use_disable() { _use_me_now_inverted DISABLE_ "$@" ; }
+cmake-utils_use_disable() { _use_me_now "inverted" DISABLE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_no
 # @USAGE: <USE flag> [flag name]
@@ -183,7 +194,7 @@ cmake-utils_use_disable() { _use_me_now_inverted DISABLE_ "$@" ; }
 #
 # `cmake-utils_use_no foo FOO` echoes -DNO_FOO=OFF if foo is enabled
 # and -DNO_FOO=ON if it is disabled.
-cmake-utils_use_no() { _use_me_now_inverted NO_ "$@" ; }
+cmake-utils_use_no() { _use_me_now "inverted" NO_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_want
 # @USAGE: <USE flag> [flag name]
@@ -192,7 +203,7 @@ cmake-utils_use_no() { _use_me_now_inverted NO_ "$@" ; }
 #
 # `cmake-utils_use_want foo FOO` echoes -DWANT_FOO=ON if foo is enabled
 # and -DWANT_FOO=OFF if it is disabled.
-cmake-utils_use_want() { _use_me_now WANT_ "$@" ; }
+cmake-utils_use_want() { _use_me_now "" WANT_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_build
 # @USAGE: <USE flag> [flag name]
@@ -201,7 +212,7 @@ cmake-utils_use_want() { _use_me_now WANT_ "$@" ; }
 #
 # `cmake-utils_use_build foo FOO` echoes -DBUILD_FOO=ON if foo is enabled
 # and -DBUILD_FOO=OFF if it is disabled.
-cmake-utils_use_build() { _use_me_now BUILD_ "$@" ; }
+cmake-utils_use_build() { _use_me_now "" BUILD_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_has
 # @USAGE: <USE flag> [flag name]
@@ -210,7 +221,7 @@ cmake-utils_use_build() { _use_me_now BUILD_ "$@" ; }
 #
 # `cmake-utils_use_has foo FOO` echoes -DHAVE_FOO=ON if foo is enabled
 # and -DHAVE_FOO=OFF if it is disabled.
-cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
+cmake-utils_use_has() { _use_me_now "" HAVE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_use
 # @USAGE: <USE flag> [flag name]
@@ -219,7 +230,7 @@ cmake-utils_use_has() { _use_me_now HAVE_ "$@" ; }
 #
 # `cmake-utils_use_use foo FOO` echoes -DUSE_FOO=ON if foo is enabled
 # and -DUSE_FOO=OFF if it is disabled.
-cmake-utils_use_use() { _use_me_now USE_ "$@" ; }
+cmake-utils_use_use() { _use_me_now "" USE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use
 # @USAGE: <USE flag> [flag name]
