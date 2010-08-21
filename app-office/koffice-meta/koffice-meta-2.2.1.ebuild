@@ -22,5 +22,6 @@ RDEPEND="
 	>=app-office/krita-${PV}:${SLOT}
 	>=app-office/kspread-${PV}:${SLOT}
 	>=app-office/kword-${PV}:${SLOT}
+	nls? ( >=app-office/koffice-l10n-${PV}:${SLOT} )
 	reports? ( >=app-office/kplato-${PV}:${SLOT} )
 "
