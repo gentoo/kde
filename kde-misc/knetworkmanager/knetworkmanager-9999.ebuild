@@ -37,6 +37,11 @@ src_prepare() {
 			"${S}/NetworkManager-kde4.conf" \
 			|| die "Fixing dbus policy failed"
 	fi
+	# We should drop tests
+	sed -i \
+		-e 's:add_subdirectory(tests):#add_subdirectory(tests):g' \
+			"${S}/CMakeLists.txt" \
+			|| die "Disabling tests failed"
 }
 
 src_configure() {
