@@ -17,7 +17,7 @@ IUSE="debug"
 
 RDEPEND="
 	dev-libs/libatasmart
-	sys-apps/parted
+	sys-block/parted
 	sys-libs/e2fsprogs-libs
 "
 DEPEND="${RDEPEND}
