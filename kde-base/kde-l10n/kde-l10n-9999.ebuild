@@ -58,6 +58,15 @@ src_unpack() {
 	kde4-base_src_unpack
 }
 
+src_prepare() {
+	# we dont want l10n for all playgraund stuff we need ti only for kde!
+	rm -rf "${S}/ru/extragear*"
+	rm -rf "${S}/ru/playground*"
+	rm -rf "${S}/ru/kdereview"
+	rm -rf "${S}/ru/kdevelop"
+	rm -rf "${S}/ru/koffice"
+}
+
 src_configure() {
 	local lng
 
