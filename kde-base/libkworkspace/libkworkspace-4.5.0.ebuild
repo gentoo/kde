@@ -14,8 +14,7 @@ IUSE="debug"
 
 # FIXME dependencies until activities API is moved to kdelibs (4.6)
 DEPEND="
-	>=dev-libs/shared-desktop-ontologies-0.4
-	>=dev-libs/soprano-2.4.64[raptor,redland]
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 "
 RDEPEND="${DEPEND}"
 
