@@ -60,15 +60,17 @@ src_unpack() {
 
 src_prepare() {
 	# we dont want l10n for all playgraund stuff we need ti only for kde!
-	rm -r "${S}"/ru/docs/extragear*
-	rm -r "${S}"/ru/docs/playground*
-	rm -r "${S}"/ru/docs/kdereview
-	rm -r "${S}"/ru/docs/kdevelop
-	rm -r "${S}"/ru/docs/koffice
-	rm -r "${S}"/ru/messages/extragear*
-	rm -r "${S}"/ru/messages/playground*
-	rm -r "${S}"/ru/messages/kdereview
-	rm -r "${S}"/ru/messages/koffice
+	for lng in ${enabled_linguas}; do
+		rm -r "${S}/${lng}"/docs/extragear*
+		rm -r "${S}/${lng}"/docs/playground*
+		rm -r "${S}/${lng}"/docs/kdereview
+		rm -r "${S}/${lng}"/docs/kdevelop
+		rm -r "${S}/${lng}"/docs/koffice
+		rm -r "${S}/${lng}"/messages/extragear*
+		rm -r "${S}/${lng}"/messages/playground*
+		rm -r "${S}/${lng}"/messages/kdereview
+		rm -r "${S}/${lng}"/messages/koffice
+	done
 }
 
 src_configure() {
