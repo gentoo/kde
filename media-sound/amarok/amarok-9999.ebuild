@@ -97,7 +97,7 @@ src_configure() {
 		mycmakeargs=(
 			-DWITH_PLAYER=ON
 			-DWITH_Libgcrypt=OFF
-			$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
+			$(cmake-utils_use_with embedded MYSQL_EMBEDDED)
 			$(cmake-utils_use_with ipod)
 			$(cmake-utils_use_with ipod Gdk)
 			$(cmake-utils_use_with lastfm LibLastFm)
