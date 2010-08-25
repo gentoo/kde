@@ -30,7 +30,7 @@ IUSE="cdda daap debug embedded ipod lastfm mp3tunes mtp opengl +player semantic-
 RESTRICT="test"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
-DEPEND="
+COMMONDEPEND="
 	>=media-libs/taglib-1.6.1[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
 	player? (
@@ -66,7 +66,11 @@ DEPEND="
 	)
 	!player? ( !utils? ( media-sound/amarok[player] ) )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMONDEPEND}
+	dev-util/automoc
+	dev-util/pkgconfig
+"
+RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
 	player? ( >=kde-base/phonon-kde-${KDE_MINIMAL} )
 "
