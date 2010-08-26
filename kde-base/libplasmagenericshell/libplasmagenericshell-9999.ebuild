@@ -12,13 +12,20 @@ DESCRIPTION="Libraries for the KDE Plasma shell"
 KEYWORDS=""
 IUSE="debug test"
 
+DEPEND="
+	$(add_kdebase_dep kephal)
+"
+
 RDEPEND="
+	${DEPEND}
 	$(add_kdebase_dep libkworkspace)
 "
 
 KMSAVELIBS="true"
 
+KMEXTRACTONLY="libs/kephal/kephal"
+
 src_unpack() {
-	use test && KMEXTRACTONLY="plasma/desktop/shell/data"
+	use test && KMEXTRACTONLY="${KMEXTRACTONLY} plasma/desktop/shell/data"
 	kde4-meta_src_unpack
 }
