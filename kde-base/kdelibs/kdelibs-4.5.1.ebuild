@@ -129,7 +129,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
-	"${FILESDIR}/${PN}-4.5.0-kfilemetadatawidget.patch" # kde bug 245491
 )
 
 src_prepare() {
