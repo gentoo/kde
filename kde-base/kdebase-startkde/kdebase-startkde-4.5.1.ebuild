@@ -46,7 +46,6 @@ KMEXTRACTONLY="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PV}-fix_malloc.patch"
 	"${FILESDIR}/gentoo-startkde4-2.patch"
 )
 
