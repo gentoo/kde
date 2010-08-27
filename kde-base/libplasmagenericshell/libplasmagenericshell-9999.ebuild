@@ -16,16 +16,17 @@ DEPEND="
 	$(add_kdebase_dep kephal)
 "
 
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
 	$(add_kdebase_dep libkworkspace)
 "
 
 KMSAVELIBS="true"
 
-KMEXTRACTONLY="libs/kephal/kephal"
+KMEXTRACTONLY="
+	libs/kephal/kephal/
+"
 
 src_unpack() {
-	use test && KMEXTRACTONLY="${KMEXTRACTONLY} plasma/desktop/shell/data"
+	use test && KMEXTRACTONLY+=" plasma/desktop/shell/data/"
 	kde4-meta_src_unpack
 }
