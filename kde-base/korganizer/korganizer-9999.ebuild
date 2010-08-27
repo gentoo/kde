@@ -35,7 +35,7 @@ KMEXTRACTONLY="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.4.75_missing_header.patch"
+	"${FILESDIR}/${PN}-4.5.64_missing_header.patch"
 )
 
 src_unpack() {
@@ -47,6 +47,13 @@ src_unpack() {
 	fi
 
 	kde4-meta_src_unpack
+}
+
+src_install() {
+	kde4-meta_src_install
+	# colliding with kdepim-common-libs
+	rm -rf "${ED}"/${KDEDIR}/share/kde4/servicetypes/calendarplugin.desktop
+	rm -rf "${ED}"/${KDEDIR}/share/kde4/servicetypes/calendardecoration.desktop
 }
 
 pkg_postinst() {

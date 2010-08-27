@@ -1,0 +1,10 @@
+--- korganizer/CMakeLists.txt	2010-05-07 11:14:26.000000000 +0200
++++ korganizer/CMakeLists.txt	2010-05-07 10:28:38.000000000 +0200
+@@ -167,6 +167,7 @@
+ )
+ 
+ kde4_add_kcfg_files(korganizer_core_LIB_SRCS koprefs_base.kcfgc )
++kde4_add_kcfg_files(korganizer_core_LIB_SRCS ../calendarsupport/kcalprefs_base.kcfgc )
+ 
+ kde4_add_library(korganizer_core SHARED ${korganizer_core_LIB_SRCS})
+ 
