@@ -1,6 +1,6 @@
 diff -r -u -N digikam-1.3.0-2-pgf/CMakeLists.txt digikam-1.3.0/CMakeLists.txt
 --- digikam-1.3.0-2-pgf/CMakeLists.txt	2010-08-26 23:44:46.000000000 +0200
-+++ digikam-1.3.0/CMakeLists.txt	2010-08-28 16:37:17.000000000 +0200
++++ digikam-1.3.0/CMakeLists.txt	2010-08-28 21:16:05.000000000 +0200
 @@ -141,6 +141,7 @@
  FIND_PACKAGE(Kdcraw)
  FIND_PACKAGE(Kexiv2)
@@ -24,7 +24,28 @@ diff -r -u -N digikam-1.3.0-2-pgf/CMakeLists.txt digikam-1.3.0/CMakeLists.txt
  
  
  # ================================================================
-@@ -538,7 +545,8 @@
+@@ -374,13 +381,19 @@
+ ENDIF(DOXYGEN_FOUND)
+ 
+ IF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOR_DIGIKAM AND KIPI_FOUND)
+-    MESSAGE(STATUS " digiKam will be compiled................. YES")
++    MESSAGE(STATUS " digiKam can be compiled.................. YES")
+     SET(DIGIKAM_CAN_BE_COMPILED true)
+ ELSE(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOR_DIGIKAM AND KIPI_FOUND)
+     MESSAGE(FATAL_ERROR " digiKam will be compiled................. NO  (Look README file for more details about dependencies)")
+     SET(DIGIKAM_CAN_BE_COMPILED false)
+ ENDIF(LCMS_FOUND AND JPEG_FOUND AND PNG_FOUND AND TIFF_FOUND AND JASPER_FOUND AND KDCRAW_FOR_DIGIKAM AND KEXIV2_FOR_DIGIKAM AND KIPI_FOUND)
+ 
++IF(DIGIKAM_CAN_BE_COMPILED AND FORCED_UNBUNDLE AND ((NOT PGF_FOUND) OR (NOT CLAPACK_FOUND)))
++    MESSAGE(STATUS "")
++    MESSAGE(FATAL_ERROR " BUNDLED LIBRARIES HAVE BEEN FORCE-DISABLED IN THIS BUILD. Aborting.")
++    SET(DIGIKAM_CAN_BE_COMPILED false)
++ENDIF(DIGIKAM_CAN_BE_COMPILED AND FORCED_UNBUNDLE AND ((NOT PGF_FOUND) OR (NOT CLAPACK_FOUND)))
++
+ MESSAGE(STATUS "----------------------------------------------------------------------------------")
+ MESSAGE(STATUS "")
+ 
+@@ -538,7 +551,8 @@
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/dimg/loaders/pgfsettings.cpp
         )
  
@@ -34,7 +55,7 @@ diff -r -u -N digikam-1.3.0-2-pgf/CMakeLists.txt digikam-1.3.0/CMakeLists.txt
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/clapack/abort_.c
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/clapack/dgesv.c
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/clapack/dlaswp.c
-@@ -571,6 +579,7 @@
+@@ -571,6 +585,7 @@
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/clapack/util.c
          ${CMAKE_CURRENT_SOURCE_DIR}/libs/3rdparty/clapack/xerbla.c
         )

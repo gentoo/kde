@@ -71,6 +71,7 @@ src_configure() {
 	use semantic-desktop && backend="Nepomuk" || backend="None"
 	# LQR = only allows to choose between bundled/external
 	mycmakeargs=(
+		-DFORCED_UNBUNDLE=ON
 		-DWITH_LQR=ON
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
 		$(cmake-utils_use_with addressbook KdepimLibs)
