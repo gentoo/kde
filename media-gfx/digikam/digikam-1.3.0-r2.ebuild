@@ -37,7 +37,7 @@ CDEPEND="
 	media-libs/tiff
 	media-libs/libpgf
 	>=media-plugins/kipi-plugins-1.2.0-r1
-	virtual/lapack
+	>=sci-libs/clapack-3.2.1-r3
 	x11-libs/qt-gui[qt3support]
 	x11-libs/qt-sql[sqlite]
 	addressbook? ( >=kde-base/kdepimlibs-${KDE_MINIMAL} )
@@ -63,14 +63,7 @@ DEPEND="${CDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	# Patch to unbundled libpgf.
-	epatch "${FILESDIR}/${PN}-1.3.0-libpgf.patch"
-	# Patch to unbundle lapack.
-	epatch "${FILESDIR}/${PN}-1.3.0-lapack.patch"
-
-	kde4-base_src_prepare
-}
+PATCHES=( "${FILESDIR}/${P}"-{docs,pgf,clapack}.patch )
 
 src_configure() {
 	local backend
