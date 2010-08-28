@@ -54,10 +54,7 @@ RDEPEND="${CDEPEND}
 		)
 	)
 "
-# gcc[fortran] is required since we cannot otherwise link to the lapack library
-#   (the fun of unbundling)
 DEPEND="${CDEPEND}
-	sys-devel/gcc[fortran]
 	sys-devel/gettext
 "
 
