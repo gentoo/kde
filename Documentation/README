@@ -20,6 +20,7 @@ put this into /etc/eix-sync.conf:
 Your local git copy will almost always be newer than what the metadata mirror server had.
 	Hence in addition to the above, you might want to put this into .git/hooks/post-update:
 	https://git.wiki.kernel.org/index.php/ExampleScripts#Setting_the_timestamps_of_the_files_to_the_commit_timestamp_of_the_commit_which_last_touched_them
+	WARNING: Doing this is usually considered DANGEROUS and can break stuff in unexpected ways!
 
 
 IMPORTANT NOTE FOR >=KDE-4.2.65 AND LIVE KDE4 USERS
