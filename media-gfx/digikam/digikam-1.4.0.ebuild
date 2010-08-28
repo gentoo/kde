@@ -4,8 +4,8 @@
 
 EAPI="2"
 
-#KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km
-#ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
+KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km
+ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
 KMNAME="extragear/graphics"
 
 CMAKE_MIN_VERSION=2.8
@@ -18,10 +18,10 @@ MY_P="${PN}-${PV/_/-}"
 
 DESCRIPTION="A digital photo management application for KDE."
 HOMEPAGE="http://www.digikam.org/"
-#SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="addressbook debug doc geolocation gphoto2 lensfun semantic-desktop themedesigner +thumbnails video"
 
