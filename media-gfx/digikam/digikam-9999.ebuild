@@ -63,7 +63,6 @@ DEPEND="${CDEPEND}
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}"-1.3.0-docs.patch
 	"${FILESDIR}/${P}"-{pgf,clapack}.patch
 )
 
