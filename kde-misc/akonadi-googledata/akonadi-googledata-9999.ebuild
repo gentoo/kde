@@ -29,3 +29,9 @@ src_prepare() {
 	kde4-base_src_prepare
 	epatch "${FILESDIR}"/"${PN}"-fix-offset.patch
 }
+
+src_configure() {
+	local mycmakeargs
+	mycmakeargs=(-DLIBGCAL_INCLUDE_DIR=/usr/include/libgcal)
+	kde4-base_src_configure
+}
