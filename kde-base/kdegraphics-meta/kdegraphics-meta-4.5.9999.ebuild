@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.5"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE="aqua kdeprefix scanner"
 
 RDEPEND="
 	$(add_kdebase_dep gwenview)
@@ -21,12 +21,12 @@ RDEPEND="
 	$(add_kdebase_dep kgamma)
 	$(add_kdebase_dep kolourpaint)
 	$(add_kdebase_dep kruler)
-	$(add_kdebase_dep ksaneplugin)
+	scanner? ( $(add_kdebase_dep ksaneplugin)
+		$(add_kdebase_dep libksane) )
 	$(add_kdebase_dep ksnapshot)
 	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkexiv2)
 	$(add_kdebase_dep libkipi)
-	$(add_kdebase_dep libksane)
 	$(add_kdebase_dep okular)
 	$(add_kdebase_dep svgpart)
 	$(add_kdebase_dep thumbnailers)
