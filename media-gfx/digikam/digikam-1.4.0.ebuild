@@ -62,7 +62,7 @@ DEPEND="${CDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/${PN}"-1.3.0-{docs,pgf,clapack}.patch )
+PATCHES=( "${FILESDIR}/${PN}"-1.3.0-{docs,pgf}.patch "${FILESDIR}/${P}"-clapack.patch)
 
 src_configure() {
 	local backend
