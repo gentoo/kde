@@ -15,11 +15,12 @@ DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="+cmake +cxx debug +qmake qthelp"
+IUSE="+cmake +cxx debug okteta +qmake qthelp"
 
 DEPEND="
 	>=kde-base/ksysguard-${KDE_MINIMAL}
 	>=kde-base/libkworkspace-${KDE_MINIMAL}
+	okteta? ( >=kde-base/okteta-${KDE_MINIMAL} )
 	qthelp? ( >=x11-libs/qt-assistant-4.4:4 )
 "
 RDEPEND="${DEPEND}
@@ -40,10 +41,13 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
+		$(cmake-utils_use_build cxx cpp)
+		$(cmake-utils_use_with okteta LibKasten)
+		$(cmake-utils_use_with okteta LibOkteta)
+		$(cmake-utils_use_with okteta LibOktetaKasten)
 		$(cmake-utils_use_build qmake)
 		$(cmake-utils_use_build qmake qmakebuilder)
 		$(cmake-utils_use_build qmake qmake_parser)
-		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
 	)
 
