@@ -8,7 +8,7 @@ if [[ ${PV} == *9999* ]] ; then
 	KMNAME="extragear/network"
 else
 	# upstream likes to skip that _ in beta releases
-	KTORRENT_VERSION="4.0.2"
+	KTORRENT_VERSION="4.0.3"
 	MY_PV="${PV/_/}"
 	MY_P="${PN}-${MY_PV}"
 
@@ -30,16 +30,15 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug doc"
 
-COMMONDEPEND="
+RDEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
 "
-DEPEND="${COMMONDEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
 	sys-devel/gettext
 	doc? ( app-doc/doxygen[-nodot] )
 "
-RDEPEND="${COMMONDEPEND}"
 
 src_compile() {
 	cmake-utils_src_compile
@@ -48,7 +47,7 @@ src_compile() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
+	use doc && HTML_DOCS=( "${CMAKE_BUILD_DIR}/apidocs/html/" )
 
 	cmake-utils_src_install
 }
