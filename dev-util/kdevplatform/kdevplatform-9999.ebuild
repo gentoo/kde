@@ -17,7 +17,7 @@ LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 # Moved to playground for now
 # bazaar git kompare mercurial
-IUSE="cvs debug reviewboard subversion"
+IUSE="cvs debug git reviewboard subversion"
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
@@ -27,12 +27,15 @@ IUSE="cvs debug reviewboard subversion"
 # block - some plugins moved to kdevplatform from kdevelop
 DEPEND="
 	dev-libs/boost
-	cvs? ( dev-vcs/cvs )
 	reviewboard? ( dev-libs/qjson )
 	subversion? ( >=dev-vcs/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}
+	!dev-util/kdevelop-git
+	>=kde-base/konsole-${KDE_MINIMAL}
+	cvs? ( dev-vcs/cvs )
+	git? ( dev-vcs/git )
 "
 
 src_prepare() {
@@ -46,12 +49,12 @@ src_prepare() {
 
 # Moved to playground for now
 # $(cmake-utils_use_build bazaar)
-# $(cmake-utils_use_build git)
 # $(cmake-utils_use_with kompare)
 # $(cmake-utils_use_build mercurial)
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build cvs)
+		$(cmake-utils_use_build git)
 		$(cmake-utils_use_with reviewboard QJSON)
 		$(cmake-utils_use_build subversion)
 		$(cmake-utils_use_with subversion SubversionLibrary)
