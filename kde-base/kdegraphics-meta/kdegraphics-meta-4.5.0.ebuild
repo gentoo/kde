@@ -21,8 +21,6 @@ RDEPEND="
 	$(add_kdebase_dep kgamma)
 	$(add_kdebase_dep kolourpaint)
 	$(add_kdebase_dep kruler)
-	scanner? ( $(add_kdebase_dep ksaneplugin)
-		$(add_kdebase_dep libksane) )
 	$(add_kdebase_dep ksnapshot)
 	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkexiv2)
@@ -30,5 +28,9 @@ RDEPEND="
 	$(add_kdebase_dep okular)
 	$(add_kdebase_dep svgpart)
 	$(add_kdebase_dep thumbnailers)
+	scanner? (
+		$(add_kdebase_dep ksaneplugin)
+		$(add_kdebase_dep libksane)
+	)
 	$(block_other_slots)
 "
