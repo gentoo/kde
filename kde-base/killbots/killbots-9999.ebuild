@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="Kill the bots or they kill you!"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"

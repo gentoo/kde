@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KDE Privacy Settings Widget"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

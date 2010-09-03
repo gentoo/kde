@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="4.5"
 KEYWORDS=""
-IUSE="aqua +handbook kdeprefix semantic-desktop"
+IUSE="aqua kdeprefix semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep activitymanager)

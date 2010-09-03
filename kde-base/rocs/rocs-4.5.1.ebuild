@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 interface to work with Graph Theory"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	>=dev-cpp/eigen-2.0.3:2

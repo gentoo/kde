@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-workspace"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Info Center"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook ieee1394"
+IUSE="debug ieee1394"
 
 DEPEND="
 	$(add_kdebase_dep solid)

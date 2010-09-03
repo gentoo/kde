@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="Jukebox and music manager for KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook musicbrainz"
+IUSE="debug musicbrainz"
 
 DEPEND="
 	>=media-libs/taglib-1.6

@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdemultimedia"
 KMMODULE="kioslave"
 inherit kde4-meta
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
-IUSE="debug +handbook encode flac vorbis"
+IUSE="debug encode flac vorbis"
 
 # 4 of 9 tests fail. Last checked for 4.2.88
 RESTRICT=test

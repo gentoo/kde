@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="Cervisia - A KDE CVS frontend"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	dev-vcs/cvs

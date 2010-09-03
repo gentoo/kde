@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="KDE mixer gui"
 KEYWORDS=""
-IUSE="alsa debug +handbook pulseaudio"
+IUSE="alsa debug pulseaudio"
 
 DEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )

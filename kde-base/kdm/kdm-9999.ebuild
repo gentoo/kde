@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-workspace"
 inherit kde4-meta flag-o-matic
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"
 KEYWORDS=""
-IUSE="consolekit debug +handbook kerberos pam"
+IUSE="consolekit debug kerberos pam"
 
 DEPEND="
 	x11-libs/libXau

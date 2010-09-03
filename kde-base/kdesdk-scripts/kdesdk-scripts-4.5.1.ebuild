@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="${PN/-*/}"
 KMMODULE="${PN/*-/}"
 

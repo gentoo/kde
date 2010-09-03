@@ -3,12 +3,13 @@
 # $Header: $
 
 EAPI="3"
+KDE_HANDBOOK=1
 KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - link validity checker"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook tidy"
+IUSE="debug tidy"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')

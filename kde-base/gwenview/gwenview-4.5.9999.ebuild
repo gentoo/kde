@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS=""
-IUSE="debug +handbook kipi semantic-desktop"
+IUSE="debug kipi semantic-desktop"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"

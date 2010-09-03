@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook ps +R"
+IUSE="debug ps +R"
 
 # TODO Add Sage Mathematics Software backend (http://www.sagemath.org)
 RDEPEND="

@@ -4,11 +4,12 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeadmin"
 inherit kde4-meta
 
 DESCRIPTION="KDE Task Scheduler"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="!prefix? ( virtual/cron )"

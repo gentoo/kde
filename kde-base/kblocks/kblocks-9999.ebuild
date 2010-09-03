@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Kblocks is a single-player Tetris-like game."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

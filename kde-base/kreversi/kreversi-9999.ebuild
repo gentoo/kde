@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="KDE Board Game"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 src_prepare() {
 	# cmake is doing this really weird

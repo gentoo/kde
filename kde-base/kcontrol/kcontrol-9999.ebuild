@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Control Center"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdnssd)

@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="The KDE Battleship clone"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"
 
 src_prepare() {
 	# cmake is doing this really weird

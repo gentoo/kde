@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Japanese dictionary and reference"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

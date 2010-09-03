@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"

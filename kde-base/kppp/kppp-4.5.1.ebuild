@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	net-dialup/ppp

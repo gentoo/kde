@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-apps"
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+bookmarks debug +handbook svg thumbnail"
+IUSE="+bookmarks debug svg thumbnail"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 

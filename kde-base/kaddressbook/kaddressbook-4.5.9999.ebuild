@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Address Book"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')

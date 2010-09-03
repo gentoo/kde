@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
-IUSE="debug +handbook ldap semantic-desktop"
+IUSE="debug ldap semantic-desktop"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"

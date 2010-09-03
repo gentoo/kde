@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')

@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Interactive Geometry tool"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook kig-scripting"
+IUSE="debug kig-scripting"
 
 DEPEND="
 	kig-scripting? ( >=dev-libs/boost-1.32 )

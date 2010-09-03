@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook jpeg rdp vnc zeroconf"
+IUSE="debug jpeg rdp vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
 #telepathy? ( >=net-libs/telepathy-qt4-0.18 ) not yet in portage/overlay

@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="KDE: potato game for kids"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

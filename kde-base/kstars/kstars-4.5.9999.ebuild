@@ -3,12 +3,13 @@
 # $Header: $
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Desktop Planetarium"
 KEYWORDS=""
-IUSE="debug fits +handbook indi"
+IUSE="debug fits indi"
 
 DEPEND="
 	$(add_kdebase_dep libkdeedu)

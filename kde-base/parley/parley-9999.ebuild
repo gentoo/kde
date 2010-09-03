@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
 KEYWORDS=""
-IUSE="debug +handbook +plasma"
+IUSE="debug +plasma"
 
 DEPEND="
 	$(add_kdebase_dep libkdeedu)

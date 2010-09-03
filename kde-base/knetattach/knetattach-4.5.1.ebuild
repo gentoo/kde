@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE network wizard"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"

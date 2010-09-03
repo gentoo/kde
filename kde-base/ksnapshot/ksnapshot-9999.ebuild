@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="KDE Screenshot Utility"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

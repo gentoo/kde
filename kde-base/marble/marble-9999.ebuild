@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 PYTHON_DEPEND="python? 2"
@@ -11,7 +12,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
-IUSE="debug designer-plugin gps +handbook plasma python"
+IUSE="debug designer-plugin gps plasma python"
 
 # tests fail / segfault. Last checked for 4.2.88
 RESTRICT=test

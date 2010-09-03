@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-workspace"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug +handbook +usb xinerama"
+IUSE="debug +usb xinerama"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 COMMONDEPEND="

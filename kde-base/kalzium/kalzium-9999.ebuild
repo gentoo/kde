@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
@@ -11,7 +12,7 @@ inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
-IUSE="editor debug +handbook +plasma solver"
+IUSE="editor debug +plasma solver"
 
 RDEPEND="
 	$(add_kdebase_dep libkdeedu)

@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="${PN/-*/}"
 KMNOMODULE="true"
 
@@ -11,7 +12,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"
 KEYWORDS=""
-IUSE="debug extras +handbook"
+IUSE="debug extras"
 
 DEPEND="
 	extras? ( >=dev-java/antlr-2.7.7:0[cxx,script] )

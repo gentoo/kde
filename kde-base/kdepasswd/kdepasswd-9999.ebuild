@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE GUI for passwd"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)

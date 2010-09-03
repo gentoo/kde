@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 # test fails, last checked for 4.2.96
 RESTRICT=test

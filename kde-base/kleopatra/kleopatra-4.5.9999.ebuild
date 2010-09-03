@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	app-crypt/gpgme

@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeutils"
 CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE calculator"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	dev-libs/gmp

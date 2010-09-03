@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS=""
-IUSE="debug +handbook ssl v4l2"
+IUSE="debug ssl v4l2"
 
 # tests hang, last checked for 4.2.96
 RESTRICT=test

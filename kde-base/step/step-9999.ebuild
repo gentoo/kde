@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="The KDE physics simulator"
 KEYWORDS=""
-IUSE="debug +handbook +gsl +qalculate"
+IUSE="debug +gsl +qalculate"
 
 DEPEND="
 	>=dev-cpp/eigen-2.0.3:2

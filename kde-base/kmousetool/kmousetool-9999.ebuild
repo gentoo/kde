@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeaccessibility"
 
 inherit kde4-meta
 
 DESCRIPTION="KDE program that clicks the mouse for you."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep knotify)

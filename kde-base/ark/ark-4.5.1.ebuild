@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KDE Archiving tool"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+archive +bzip2 debug +handbook lzma"
+IUSE="+archive +bzip2 debug lzma"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)

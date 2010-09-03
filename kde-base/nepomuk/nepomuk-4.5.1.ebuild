@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Nepomuk KDE4 client"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	>=app-misc/strigi-0.6.3[dbus,qt4]

@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeaccessibility"
 inherit kde4-meta
 
 DESCRIPTION="KDE screen magnifier"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="A screen ruler for the K Desktop Environment"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

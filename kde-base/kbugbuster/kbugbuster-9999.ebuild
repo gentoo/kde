@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KBugBuster - A tool for checking and reporting KDE apps' bugs"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)

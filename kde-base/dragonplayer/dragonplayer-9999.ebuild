@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
@@ -12,7 +13,7 @@ HOMEPAGE="http://www.dragonplayer.net/"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	aqua? ( >=media-libs/xine-lib-1.1.9 )

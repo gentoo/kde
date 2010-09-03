@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook zeroconf"
+IUSE="debug zeroconf"
 
 DEPEND="
 	>=net-libs/libvncserver-0.9

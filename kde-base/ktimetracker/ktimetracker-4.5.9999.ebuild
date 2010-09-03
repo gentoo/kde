@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdepim-kresources)

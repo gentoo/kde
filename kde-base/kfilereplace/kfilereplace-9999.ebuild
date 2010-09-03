@@ -3,9 +3,10 @@
 # $Header: $
 
 EAPI="3"
+KDE_HANDBOOK=1
 KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - powerful search and replace in multiple files"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

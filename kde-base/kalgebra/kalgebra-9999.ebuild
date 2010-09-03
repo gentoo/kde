@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS=""
-IUSE="debug +handbook +plasma readline"
+IUSE="debug +plasma readline"
 
 DEPEND="
 	readline? ( sys-libs/readline )

@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeedu"
 inherit kde4-meta
 
 DESCRIPTION="KDE: letter order game."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkdeedu)

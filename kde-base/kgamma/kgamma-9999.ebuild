@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	x11-libs/libXxf86vm

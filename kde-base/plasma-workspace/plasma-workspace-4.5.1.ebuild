@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-workspace"
 KMMODULE="plasma"
 PYTHON_DEPEND="python? 2"
@@ -11,7 +12,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +handbook google-gadgets python qalculate rss semantic-desktop xinerama"
+IUSE="debug google-gadgets python qalculate rss semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')

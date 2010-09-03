@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeaccessibility"
 
 inherit kde4-meta
 
 DESCRIPTION="Jovie is a text to speech application"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	app-accessibility/speech-dispatcher

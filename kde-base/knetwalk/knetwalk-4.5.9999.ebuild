@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Knetwalk is the kde version of the popular NetWalk game for system administrators"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

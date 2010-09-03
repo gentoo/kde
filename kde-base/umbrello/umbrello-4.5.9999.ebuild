@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdesdk"
 
 inherit kde4-meta
 
 DESCRIPTION="KDE UML Modeller"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	dev-libs/boost

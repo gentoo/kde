@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')

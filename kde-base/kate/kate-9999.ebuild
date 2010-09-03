@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS=""
-IUSE="debug +handbook +plasma"
+IUSE="debug +plasma"
 
 DEPEND="
 	dev-libs/libxml2

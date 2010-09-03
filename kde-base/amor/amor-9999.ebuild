@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdetoys"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

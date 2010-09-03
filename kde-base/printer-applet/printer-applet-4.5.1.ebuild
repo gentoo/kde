@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeutils"
 PYTHON_DEPEND="2"
 inherit python kde4-meta

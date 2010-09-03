@@ -4,9 +4,10 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeutils"
 inherit kde4-meta
 
 DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"

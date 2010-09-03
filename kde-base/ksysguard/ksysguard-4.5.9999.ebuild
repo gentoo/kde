@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-workspace"
 CPPUNIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."
 KEYWORDS=""
-IUSE="debug +handbook lm_sensors"
+IUSE="debug lm_sensors"
 
 COMMONDEPEND="
 	x11-libs/libXrender

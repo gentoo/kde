@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 COMMONDEPEND="
 	!aqua? (

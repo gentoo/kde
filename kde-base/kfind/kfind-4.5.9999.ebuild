@@ -3,12 +3,13 @@
 # $Header: $
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="KDE file finder utility"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)

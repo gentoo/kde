@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdeadmin"
 inherit kde4-meta
 
 DESCRIPTION="KDE control Center Module to confiure Network settings"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 src_unpack() {
 	if use handbook; then

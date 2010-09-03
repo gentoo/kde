@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdegraphics"
 inherit kde4-meta
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	media-libs/libgphoto2

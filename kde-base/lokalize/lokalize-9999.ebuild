@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK=1
 KMNAME="kdesdk"
 PYTHON_DEPEND="2"
 inherit python kde4-meta
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 # Althrought they are purely runtime, its too useless without them
 DEPEND="
