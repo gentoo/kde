@@ -325,8 +325,14 @@ kdedepend="
 "
 
 # Handbook handling - dependencies
-if [[ ${PN} != khelpcenter ]]; then
-	if [[ -n ${KDE_HANDBOOK} ]]; then
+if [[ -n ${KDE_HANDBOOK} ]]; then
+	kdedepend+="
+		handbook? (
+			app-text/docbook-xml-dtd:4.2
+			app-text/docbook-xsl-stylesheets
+		)
+	"
+	if [[ ${PN} != khelpcenter ]]; then
 		if [[ ${KDEBASE} = kde-base ]]; then
 			PDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
 		else
