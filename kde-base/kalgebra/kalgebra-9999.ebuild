@@ -17,7 +17,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libkdeedu/kdeeduui"
+KMEXTRACTONLY="
+	libkdeedu/kdeeduui/
+"
+KMEXTRA="
+	libkdeedu/qtmmlwidget/
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.3.2-solaris-graph2d.patch
