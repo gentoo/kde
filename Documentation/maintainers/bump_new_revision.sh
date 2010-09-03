@@ -281,7 +281,7 @@ case ${OPERATION} in
 		for EBUILD_BASEDIR in ${EBUILD_BASEDIR_LIST}; do
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
 			pushd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}" > /dev/null
-			if [[ -d .git ]]; then
+			if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
 				git rm "${EBUILD_BASENAME}-${VERSION}"*.ebuild
 			elif [[ -d CVS ]]; then
 				cvs remove -f "${EBUILD_BASENAME}-${VERSION}"*.ebuild
@@ -312,7 +312,7 @@ case ${OPERATION} in
 #				done
 #			fi
 			repoman manifest
-			if [[ -d .git ]]; then
+			if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
 				git add .
 			fi
 			popd &> /dev/null #go back to workdir
