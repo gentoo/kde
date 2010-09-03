@@ -517,6 +517,14 @@ add_kdebase_dep() {
 
 	local use=${2:+,${2}}
 
-	echo " !kdeprefix? ( >=kde-base/${1}-${PV}[aqua=,-kdeprefix${use}] )"
-	echo " kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[aqua=,kdeprefix${use}] )"
+	if [[ ${KDEBASE} = kde-base ]]; then
+		echo " !kdeprefix? ( >=kde-base/${1}-${PV}[aqua=,-kdeprefix${use}] )"
+		echo " kdeprefix? ( >=kde-base/${1}-${PV}:${SLOT}[aqua=,kdeprefix${use}] )"
+	else
+		if [[ ${KDE_MINIMAL} = live ]]; then
+			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
+		else
+			echo " >=kde-base/${1}-${KDE_MINIMAL}[aqua=${use}]"
+		fi
+	fi
 }
