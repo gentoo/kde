@@ -151,11 +151,6 @@ KDE_REQUIRED="${KDE_REQUIRED:-always}"
 # to KMEXTRA and ensures buildtime and runtime dependencies.
 [[ -n ${KDE_HANDBOOK} ]] && IUSE+=" +handbook"
 
-# @ECLASS-VARIABLE: KDE_HANDBOOK_DIRS
-# @DESCRIPTION:
-# Specify additional handbook locations. Default is (doc doc/%lingua)
-KDE_HANDBOOK_DIRS=${KDE_HANDBOOK_DIRS:-(doc doc/%lingua)}
-
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)

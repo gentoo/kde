@@ -206,7 +206,6 @@ enable_selected_doc_linguas() {
 	# @DESCRIPTION:
 	# Variable specifying whitespace separated patterns for documentation locations.
 	# Default is "doc/%lingua"
-	# @DEPRECATED: Use KDE_HANDBOOK_DIRS instead.
 	KDE_DOC_DIRS=${KDE_DOC_DIRS:='doc/%lingua'}
 	local linguas
 	for pattern in ${KDE_DOC_DIRS}; do
