@@ -113,21 +113,6 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_postinst pkg
 unset buildsystem_eclass
 unset export_fns
 
-case ${KDEBASE} in
-	kde-base)
-		HOMEPAGE="http://www.kde.org/"
-		LICENSE="GPL-2"
-		;;
-	koffice)
-		HOMEPAGE="http://www.koffice.org/"
-		LICENSE="GPL-2"
-		;;
-	kdevelop)
-		HOMEPAGE="http://www.kdevelop.org/"
-		LICENSE="GPL-2"
-		;;
-esac
-
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
 # Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.
@@ -160,9 +145,22 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
+# @ECLASS-VARIABLE: KDE_HANDBOOK
+# @DESCRIPTION:
+# Set to enable handbook in application. It adds +handbook to IUSE, handbook dirs
+# to KMEXTRA and ensures buildtime and runtime dependencies.
+[[ -n ${KDE_HANDBOOK} ]] && IUSE+=" +handbook"
+
+# @ECLASS-VARIABLE: KDE_HANDBOOK_DIRS
+# @DESCRIPTION:
+# Specify additional handbook locations. Default is (doc doc/%lingua)
+KDE_HANDBOOK_DIRS=${KDE_HANDBOOK_DIRS:-(doc doc/%lingua)}
+
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
+		HOMEPAGE="http://www.kde.org/"
+		LICENSE="GPL-2"
 		if [[ $BUILD_TYPE = live ]]; then
 			# Disable tests for live ebuilds
 			RESTRICT+=" test"
@@ -182,6 +180,14 @@ case ${KDEBASE} in
 		esac
 		# Block installation of other SLOTS unless kdeprefix
 		RDEPEND+=" $(block_other_slots)"
+		;;
+	koffice)
+		HOMEPAGE="http://www.koffice.org/"
+		LICENSE="GPL-2"
+		;;
+	kdevelop)
+		HOMEPAGE="http://www.kdevelop.org/"
+		LICENSE="GPL-2"
 		;;
 esac
 
@@ -322,6 +328,18 @@ kdedepend="
 		x11-proto/xf86vidmodeproto
 	)
 "
+
+# Handbook handling - dependencies
+if [[ ${PN} != khelpcenter ]]; then
+	if [[ -n ${KDE_HANDBOOK} ]]; then
+		if [[ ${KDEBASE} = kde-base ]]; then
+			PDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
+		else
+			PDEPEND+=" handbook? ( >=kde-base/khelpcenter-${KDE_MINIMAL} )"
+		fi
+	fi
+fi
+
 case ${KDE_REQUIRED} in
 	always)
 		IUSE+=" aqua"
@@ -341,6 +359,7 @@ unset kdecommondepend kdedepend
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: COMMONDEPEND is ${COMMONDEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND (only) is ${DEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: RDEPEND (only) is ${RDEPEND}"
+debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: PDEPEND is ${PDEPEND}"
 
 # Accumulate dependencies set by this eclass
 DEPEND+=" ${COMMONDEPEND}"
