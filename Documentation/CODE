@@ -23,9 +23,10 @@ KDE4 policies:
 
  - never use -j1 in ebuilds. Always report the issue upstream and wait for the resolution or fix yourself
 
- - double check the handbook useflag in your package. For kde4-meta style ebuilds - look for doc/${PN}
+ - double check handbook support in your package. For kde4-meta style ebuilds - look for doc/${PN}
    or similar directory. Sometimes application handbooks are not trivial to assign (for example
    kde-base/khelpcenter ebuild), in such case ask Gentoo KDE team/HT members or contact upstream.
+   To enable handbook support, set KDE_HANDBOOK=1 before inheriting kde eclasses.
 
  - think about adding debug USE flag to your package. Do not add debug USE flag for artwork-only and
    python-only KDE packages. And don't forget to write metadata.xml entries for new local USE flags.
