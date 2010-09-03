@@ -332,11 +332,17 @@ if [[ -n ${KDE_HANDBOOK} ]]; then
 			app-text/docbook-xsl-stylesheets
 		)
 	"
-	if [[ ${PN} != khelpcenter ]]; then
+	if [[ ${PN} != kdelibs ]]; then
 		if [[ ${KDEBASE} = kde-base ]]; then
-			PDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
+			PDEPEND+=" handbook? ( $(add_kdebase_dep kdelibs 'handbook') )"
 		else
-			PDEPEND+=" handbook? ( >=kde-base/khelpcenter-${KDE_MINIMAL} )"
+			PDEPEND+=" handbook? ( >=kde-base/kdelibs-${KDE_MINIMAL}[handbook] )"
+		fi
+	elif [[ ${PN} != khelpcenter ]]; then
+		if [[ ${KDEBASE} = kde-base ]]; then
+			PDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter 'handbook') )"
+		else
+			PDEPEND+=" handbook? ( >=kde-base/khelpcenter-${KDE_MINIMAL}[handbook] )"
 		fi
 	fi
 fi
