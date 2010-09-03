@@ -33,7 +33,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}
 	!dev-util/kdevelop-git
-	>=kde-base/konsole-${KDE_MINIMAL}
+	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "

@@ -18,13 +18,13 @@ KEYWORDS=""
 IUSE="+cmake +cxx debug okteta +qmake qthelp"
 
 DEPEND="
-	>=kde-base/ksysguard-${KDE_MINIMAL}
-	>=kde-base/libkworkspace-${KDE_MINIMAL}
-	okteta? ( >=kde-base/okteta-${KDE_MINIMAL} )
+	$(add_kdebase_dep ksysguard)
+	$(add_kdebase_dep libkworkspace)
+	okteta? ( $(add_kdebase_dep okteta) )
 	qthelp? ( >=x11-libs/qt-assistant-4.4:4 )
 "
 RDEPEND="${DEPEND}
-	>=kde-base/kapptemplate-${KDE_MINIMAL}
+	$(add_kdebase_dep kapptemplate)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 
