@@ -11,11 +11,16 @@ HOMEPAGE="http://frinring.wordpress.com/2010/08/09/cagibi-0-1-1-released-network
 SRC_URI="mirror://kde/stable/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
-KEYWORDS="~amd64"
+IUSE="debug"
 
-IUSE=""
+RDEPEND="
+	x11-libs/qt-core:4
+	x11-libs/qt-dbus:4
+"
+DEPEND="${RDEPEND}
+	dev-util/automoc
+"
 
-RDEPEND="x11-libs/qt-dbus"
-DEPEND="dev-util/automoc
-	${RDEPEND}"
+DOCS=(README)

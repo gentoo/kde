@@ -274,6 +274,7 @@ dev-libs/shared-desktop-ontologies
 dev-libs/soprano
 dev-python/pycups
 media-sound/phonon
+net-dns/cagibi
 sys-auth/polkit-kde
 sys-auth/polkit-qt
 x11-misc/google-gadgets
