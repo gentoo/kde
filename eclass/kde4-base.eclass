@@ -479,11 +479,11 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.[456].8[05] | 4.[456].9[02568])
+						4.[456].8[05] | 4.[456].9[023568])
 							case ${_kmname} in
 								kdepim | kdepim-runtime)
 									# Betta kdepim versions
-									SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/${_kmname_pv}.tar.bz2"
+									SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/src/${_kmname_pv}.tar.bz2"
 									;;
 								*)
 									# Normally packed unstable releases
