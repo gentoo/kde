@@ -33,8 +33,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/multilib.patch"
-
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
 		src/src.pro || die "failed to apply nostrip"
 
