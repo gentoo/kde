@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 DEPEND="
-	>=sys-auth/polkit-qt-0.95
+	>=sys-auth/policykit-qt-0.9.3
 "
 RDEPEND="${DEPEND}
 	!kde-misc/policykit-kde
