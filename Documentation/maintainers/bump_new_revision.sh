@@ -376,9 +376,8 @@ case ${OPERATION} in
 				# now we have to check up the keywords
 				pushd "${WRKDIR}" &> /dev/null
 				update_keywords "${EBUILD/*\//}" ${dir}
-				echangelog "Version bump"
+				echangelog "Version bump KDE SC ${VERSION}"
 				repoman manifest
-				repoman commit -m "Version bump KDE SC ${VERSION}" -f
 				popd &> /dev/null
 			else
 				popd &> /dev/null
