@@ -101,11 +101,12 @@ update_keywords() {
 			if [[ ${version_patch} -lt 50 ]]; then
 				# Patch version is < 50 - stable release, try to obtain keywords from tree
 				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
-					KEYWORDS=$(ls -1r *-4*.ebuild | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
-					popd &> /dev/null
+					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
+					[[ -z ${KEYWORDS} ]] && KEYWORDS=${MINIMAL_KEYWORDS}
 				else
-					KEYWORD=${MINIMAL_KEYWORDS}
+					KEYWORDS=${MINIMAL_KEYWORDS}
 				fi
+				popd &> /dev/null
 			elif [[ ${version_patch} -le 99 ]]; then
 				# Patch version >= 50 and <= 99 - snapshot/alpha/beta/rc release, ~amd64 ~x86 keywords
 				KEYWORDS=${MINIMAL_KEYWORDS}
@@ -323,6 +324,7 @@ case ${OPERATION} in
 	cvsmove)
 		MAINTREE="$(portageq portdir)"
 		OVERLAY="`pwd`"
+		BUMP_VERSION=${VERSION}
 		# course of action we are doing here
 		# cvs up whole tree, then kde-base
 		# then start going per each dir
@@ -344,7 +346,7 @@ case ${OPERATION} in
 				## first generate the correct filename, we expect that if someone added -rX to the package it has reason.
 				pushd "${OVERLAY}/${dir}" &> /dev/null
 				EBUILD=`find ./ -name \*.ebuild |grep ${VERSION} | sort |tail -n 1`
-				cp ${EBUILD} "${WRKDIR}"
+				cp -f ${EBUILD} "${WRKDIR}"
 				popd &> /dev/null
 				_addcvsfile "${WRKDIR}" ${EBUILD/*\//}
 				# now we need to search up all patches ebuild is containing and move them along if they are needed.
@@ -368,7 +370,7 @@ case ${OPERATION} in
 							_addcvsfile "${WRKDIR}/files/" "${PDIR}"
 						fi
 						# note that we always replace the patches, no warnings we just poke ourselves over them :]
-						cp "files/${PDIR}${file}" "${WRKDIR}/files/${PDIR}"
+						cp -f "files/${PDIR}${file}" "${WRKDIR}/files/${PDIR}"
 						_addcvsfile "${WRKDIR}/files/${PDIR}" ${file}
 						popd &> /dev/null
 					done
