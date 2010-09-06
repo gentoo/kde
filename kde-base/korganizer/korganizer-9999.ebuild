@@ -28,6 +28,7 @@ KMLOADLIBS="kdepim-common-libs"
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
+	calendarviews/
 	incidenceeditors/
 	kdgantt2/
 	kmail/
