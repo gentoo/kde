@@ -6,6 +6,8 @@ EAPI="2"
 
 KMNAME="kdebindings"
 KMMODULE="perl"
+MULTIMEDIA_REQUIRED="optional"
+WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE Perl bindings"
@@ -13,13 +15,15 @@ KEYWORDS=""
 IUSE="debug plasma"
 
 DEPEND="
-	$(add_kdebase_dep smoke)
+	$(add_kdebase_dep smoke 'multimedia?,webkit?')
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
+		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_disable plasma)
+		$(cmake-utils_use_disable webkit QtWebKit)
 	)
 	kde4-meta_src_configure
 }

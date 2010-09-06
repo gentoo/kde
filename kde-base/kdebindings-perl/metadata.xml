@@ -3,6 +3,8 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
+	<flag name="multimedia">Compile bindings for <pkg>x11-libs/qt-multimedia</pkg>.</flag>
 	<flag name="plasma">Compile bindings for KDE's Plasma.</flag>
+	<flag name="webkit">Compile bindings for <pkg>x11-libs/qt-webkit</pkg>.</flag>
 </use>
 </pkgmetadata>
