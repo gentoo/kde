@@ -13,13 +13,13 @@ ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="+mysql postgres sqlite +server"
+IUSE="mysql postgres +sqlite +server"
 
 CDEPEND="
 	dev-libs/boost
 	>=dev-libs/soprano-2.2
 	>=x11-libs/qt-gui-4.5.0:4[dbus]
-	>=x11-libs/qt-sql-4.5.0:4[mysql?,postgres?,sqlite?]
+	>=x11-libs/qt-sql-4.5.0:4[mysql?,postgres?]
 	>=x11-libs/qt-test-4.5.0:4
 	x11-misc/shared-mime-info
 "
@@ -35,15 +35,39 @@ RDEPEND="${CDEPEND}
 
 S="${WORKDIR}/${P/-server/}"
 
-src_install() {
-	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
-	if use mysql; then
+pkg_setup() {
+	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
+	local available
+	if use sqlite; then
+		driver="QSQLITE3"
+		available+=" ${driver}"
+	elif use mysql; then
 		driver="QMYSQL"
+		available+=" ${driver}"
 	elif use postgres; then
 		driver="QPSQL"
-	elif use sqlite; then
-		driver="QSQLITE"
+		available+=" ${driver}"
 	fi
+
+	# Notify about driver name change
+	if use sqlite && has_version "<=${CATEGORY}/${PN}-1.4.0[sqlite]"; then
+		ewarn
+		ewarn "SQLite driver name changed from QSQLITE to QSQLITE3."
+		ewarn "Please edit your ~/.config/akonadi/akonadiserverrc."
+	fi
+
+	# Notify about MySQL not being default anymore
+	if ! use mysql && has_version "<=${CATEGORY}/${PN}-1.4.0[mysql]"; then
+		ewarn
+		ewarn "MySQL driver is not enabled by default in Gentoo anymore."
+		ewarn "If you intend to use it, please enable mysql USE flag and reinstall"
+		ewarn "${CATEGORY}/${PN}."
+		ewarn "Otherwise select different driver in your ~/.config/akonadi/akonadiserverrc."
+		ewarn "Available drivers are:${available}"
+	fi
+}
+
+src_install() {
 	# Who knows, maybe it accidentally fixes our permission issues
 	cat <<-EOF > "${T}"/akonadiserverrc
 [%General]
@@ -57,21 +81,14 @@ EOF
 
 pkg_postinst() {
 	if use mysql || use postgres || use sqlite; then
-		local func=elog
-		( use postgres || use sqlite ) && func=ewarn
-		echo
-		${func} "${driver} has been set as your default akonadi storage backend."
-		${func} "You can override it in your ~/.config/akonadi/akonadiserverrc."
-		${func} "Available drivers are:"
-		${func} "QMYSQL, QPSQL (testing), QSQLITE (experimental)"
-		${func} "Be advised that QMYSQL is the one fully tested and officially supported."
-		use sqlite && ewarn "If you experience random data losses using QSQLITE driver, you have been warned."
-		echo
+		elog
+		elog "${driver} has been set as your default akonadi storage backend."
+		elog "You can override it in your ~/.config/akonadi/akonadiserverrc."
+		elog "Available drivers are: QMYSQL, QPSQL, QSQLITE3"
 	else
-		echo
-		ewarn "You have decided to build akonadi-server with"
+		ewarn
+		ewarn "You have decided to build ${PN} with"
 		ewarn "'mysql', 'postgres' and 'sqlite' USE flags disabled."
-		ewarn "akonadi-server will not be functional."
-		echo
+		ewarn "${PN} will not be functional."
 	fi
 }
