@@ -8,6 +8,10 @@ KMMODULE="styles"
 KMNAME="kdeartwork"
 inherit kde4-meta
 
-DESCRIPTION="Extra styles for kde"
+DESCRIPTION="Extra KWin styles and window decorations"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+KMEXTRA="
+	aurorae/
+"
