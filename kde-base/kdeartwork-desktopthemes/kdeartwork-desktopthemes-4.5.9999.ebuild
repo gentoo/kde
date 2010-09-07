@@ -8,6 +8,6 @@ KMMODULE="desktopthemes"
 KMNAME="kdeartwork"
 inherit kde4-meta
 
-DESCRIPTION="Additional themes from kde"
+DESCRIPTION="Additional KDE4 Plasma themes"
 KEYWORDS=""
 IUSE=""
