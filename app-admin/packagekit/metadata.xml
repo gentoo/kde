@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
-	<maintainer>
-		<email>volkmar@gentoo.org</email>
-		<name>Mounir Lamouri</name>
-	</maintainer>
+	<herd>kde</herd>
 	<use>
 		<flag name="connman">Add support for <pkg>net-misc/connman</pkg></flag>
 		<flag name="cron">Install cron script for auto-update</flag>
+		<flag name="introspection">Enable GObject introspection.</flag>
 		<flag name="pm-utils">Use pm-utils</flag>
 		<flag name="udev">Add support for <pkg>sys-fs/udev</pkg></flag>
 	</use>

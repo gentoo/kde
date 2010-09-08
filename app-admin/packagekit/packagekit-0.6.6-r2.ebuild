@@ -18,14 +18,13 @@ SRC_URI="http://www.packagekit.org/releases/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="connman cron gtk networkmanager nls nsplugin pm-utils
+IUSE="connman cron gtk +introspection networkmanager nls nsplugin pm-utils
 +policykit qt4 static-libs test udev"
 
 CDEPEND="
 	dev-db/sqlite:3
 	>=dev-libs/dbus-glib-0.74
 	>=dev-libs/glib-2.16.1:2
-	dev-libs/gobject-introspection
 	>=sys-apps/dbus-1.2.24
 	connman? ( net-misc/connman )
 	gtk? (
@@ -34,6 +33,7 @@ CDEPEND="
 		>=x11-libs/gtk+-2.14.0:2
 		x11-libs/pango
 	)
+	introspection? ( dev-libs/gobject-introspection )
 	networkmanager? ( >=net-misc/networkmanager-0.6.4 )
 	nsplugin? (
 		dev-libs/dbus-glib
@@ -92,8 +92,6 @@ DOCS=(AUTHORS ChangeLog MAINTAINERS NEWS README TODO)
 
 src_prepare() {
 	autotools-utils_src_prepare
-
-	eautoreconf
 }
 
 src_configure() {
@@ -113,7 +111,6 @@ src_configure() {
 		--disable-service-packs
 		--disable-strict
 		--disable-tests
-		--enable-introspection
 		--enable-libtool-lock
 		--enable-man-pages
 		--enable-option-checking
@@ -122,6 +119,7 @@ src_configure() {
 		$(use_enable connman)
 		$(use_enable cron)
 		$(use_enable gtk gtk-module)
+		$(use_enable introspection)
 		$(use_enable networkmanager)
 		$(use_enable nls)
 		$(use_enable nsplugin browser-plugin)
