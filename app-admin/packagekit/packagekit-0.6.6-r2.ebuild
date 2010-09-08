@@ -66,7 +66,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	>=app-portage/layman-1.2.3
-	>=sys-apps/portage-2.2_rc67
+	sys-apps/portage
 	pm-utils? ( sys-power/pm-utils )
 "
 

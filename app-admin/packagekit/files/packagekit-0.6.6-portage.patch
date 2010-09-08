@@ -1,6 +1,6 @@
-diff -ru ../PackageKit-0.6.6/backends/entropy/entropyBackend.py ./backends/entropy/entropyBackend.py
+diff -ruN ../PackageKit-0.6.6/backends/entropy/entropyBackend.py ./backends/entropy/entropyBackend.py
 --- ../PackageKit-0.6.6/backends/entropy/entropyBackend.py	2010-06-20 23:38:26.000000000 +0200
-+++ ./backends/entropy/entropyBackend.py	2010-07-22 12:04:53.248827967 +0200
++++ ./backends/entropy/entropyBackend.py	2010-09-08 17:51:59.486753385 +0200
 @@ -27,8 +27,8 @@
  import time
  import traceback
@@ -50,9 +50,9 @@ diff -ru ../PackageKit-0.6.6/backends/entropy/entropyBackend.py ./backends/entro
  
      def __del__(self):
          self.destroy()
-diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/portage/portageBackend.py
+diff -ruN ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/portage/portageBackend.py
 --- ../PackageKit-0.6.6/backends/portage/portageBackend.py	2010-05-07 22:08:17.000000000 +0200
-+++ ./backends/portage/portageBackend.py	2010-07-22 12:04:49.827380945 +0200
++++ ./backends/portage/portageBackend.py	2010-09-08 17:52:07.467133868 +0200
 @@ -20,8 +20,39 @@
  # along with this program; if not, write to the Free Software
  # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -94,7 +94,21 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
  from packagekit.progress import *
  from packagekit.package import PackagekitPackage
  
-@@ -546,7 +577,7 @@
+@@ -309,6 +340,13 @@
+         settings.setcpv(cpv, mydb=metadata)
+         return settings
+ 
++    def _get_internal_package_set_class(self):
++        try:
++            from portage._sets.base import InternalPackageSet
++        except ImportError:
++            from portage.sets.base import InternalPackageSet
++        return InternalPackageSet
++
+     def _is_installed(self, cpv):
+         if self.pvar.vardb.cpv_exists(cpv):
+             return True
+@@ -546,7 +584,7 @@
  
          return cpv_dict
  
@@ -103,7 +117,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          if not cpv_list:
              return cpv_list
  
-@@ -554,11 +585,11 @@
+@@ -554,11 +592,11 @@
              metadata = self._get_metadata(cpv, ["LICENSE", "USE", "SLOT"], True)
              return not self.pvar.settings._getMissingLicenses(cpv, metadata)
  
@@ -118,7 +132,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                  licenses = "* -" + free_licenses
              backup_license = self.pvar.settings["ACCEPT_LICENSE"]
  
-@@ -576,14 +607,14 @@
+@@ -576,14 +614,14 @@
  
          return cpv_list
  
@@ -136,7 +150,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              # we have one package per slot, so it's the newest
              return cpv_list
  
-@@ -598,7 +629,7 @@
+@@ -598,7 +636,7 @@
  
          for k in slots:
              # if not_intalled on, no need to check for newest installed
@@ -145,7 +159,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                  newest_installed = self._get_newest_cpv(cpv_dict[k], True)
                  if newest_installed != "":
                      cpv_list.append(newest_installed)
-@@ -608,7 +639,7 @@
+@@ -608,7 +646,7 @@
  
          return cpv_list
  
@@ -154,7 +168,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          # NOTES:
          # returns a list of cp
          #
-@@ -618,9 +649,9 @@
+@@ -618,9 +656,9 @@
          # - newest: ok (should be finished with cpv)
          cp_list = []
  
@@ -166,7 +180,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              cp_list = self.pvar.portdb.cp_all()
          else:
              # need installed packages first
-@@ -631,7 +662,7 @@
+@@ -631,7 +669,7 @@
  
          return cp_list
  
@@ -175,7 +189,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          # NOTES:
          # returns a list of cpv
          #
-@@ -643,9 +674,9 @@
+@@ -643,9 +681,9 @@
          cpv_list = []
  
          # populate cpv_list taking care of installed filter
@@ -187,7 +201,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              for cpv in self.pvar.portdb.match(cp):
                  if not self._is_installed(cpv):
                      cpv_list.append(cpv)
-@@ -656,11 +687,11 @@
+@@ -656,11 +694,11 @@
                      cpv_list.append(cpv)
  
          # free filter
@@ -201,7 +215,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
  
          return cpv_list
  
-@@ -852,8 +883,6 @@
+@@ -852,8 +890,6 @@
          self.allow_cancel(True)
          self.percentage(None)
  
@@ -210,7 +224,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          cpv_input = []
          cpv_list = []
  
-@@ -913,9 +942,9 @@
+@@ -913,9 +949,9 @@
          cpv_list = filter(_filter_uninstall, cpv_list)
  
          # install filter
@@ -222,7 +236,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              cpv_list = filter(_filter_not_installed, cpv_list)
  
          # now we can change cpv_list to a real cpv list
-@@ -926,7 +955,7 @@
+@@ -926,7 +962,7 @@
          del tmp_list
  
          # free filter
@@ -231,7 +245,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
  
          for cpv in cpv_list:
              # prevent showing input packages
-@@ -1001,13 +1030,12 @@
+@@ -1001,13 +1037,12 @@
          self.allow_cancel(True)
          self.percentage(0)
  
@@ -248,7 +262,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                  self._package(cpv)
  
              cp_processed += 100.0
-@@ -1024,8 +1052,6 @@
+@@ -1024,8 +1059,6 @@
          self.allow_cancel(True)
          self.percentage(None)
  
@@ -257,7 +271,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          # get installed and available dbs
          installed_layman_db = layman.db.DB(layman.config.Config())
          available_layman_db = layman.db.RemoteDB(layman.config.Config())
-@@ -1033,7 +1059,7 @@
+@@ -1033,7 +1066,7 @@
          # 'gentoo' is a dummy repo
          self.repo_detail('gentoo', 'Gentoo Portage tree', True)
  
@@ -266,7 +280,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              for o in available_layman_db.overlays.keys():
                  if available_layman_db.overlays[o].is_official() \
                          and available_layman_db.overlays[o].is_supported():
-@@ -1052,12 +1078,10 @@
+@@ -1052,12 +1085,10 @@
          self.allow_cancel(True)
          self.percentage(None)
  
@@ -280,7 +294,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              self.error(ERROR_CANNOT_GET_REQUIRES,
                      "get-requires returns only installed packages at the moment")
              return
-@@ -1085,7 +1109,7 @@
+@@ -1085,7 +1116,7 @@
          del packages_list
  
          # free filter
@@ -289,7 +303,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
  
          for cpv in cpv_list:
              # prevent showing input packages
-@@ -1147,8 +1171,6 @@
+@@ -1147,17 +1178,15 @@
          self.allow_cancel(True)
          self.percentage(None)
  
@@ -298,7 +312,18 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          update_candidates = []
          cpv_updates = {}
          cpv_downgra = {}
-@@ -1203,12 +1225,12 @@
+ 
+         # get system and world packages
+         for s in ["system", "world"]:
+-            set = portage.sets.base.InternalPackageSet(
++            sets = self._get_internal_package_set_class()(
+                     initial_atoms=self.pvar.root_config.setconfig.getSetAtoms(s))
+-            for atom in set:
++            for atom in sets:
+                 update_candidates.append(atom.cp)
+ 
+         # check if a candidate can be updated
+@@ -1203,12 +1232,12 @@
                          else:
                              dict_down[s] = [tmp_list_avai.pop()]
  
@@ -313,7 +338,29 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                      best_cpv = portage.versions.best(cpv_list_updates)
                      cpv_list_updates = [best_cpv]
  
-@@ -1539,8 +1561,7 @@
+@@ -1220,7 +1249,7 @@
+                 cpv_downgra[cp] = dict_down
+ 
+         # get security updates
+-        for atom in portage.sets.base.InternalPackageSet(
++        for atom in self._get_internal_package_set_class()(
+                 initial_atoms=self.pvar.root_config.setconfig.getSetAtoms("security")):
+             # send update message and remove atom from cpv_updates
+             if atom.cp in cpv_updates:
+@@ -1387,9 +1416,9 @@
+         system_packages = []
+ 
+         # get system packages
+-        set = portage.sets.base.InternalPackageSet(
+-                initial_atoms=self.pvar.root_config.setconfig.getSetAtoms("system"))
+-        for atom in set:
++        sets = self._get_internal_package_set_class()(
++            initial_atoms=self.pvar.root_config.setconfig.getSetAtoms("system"))
++        for atom in sets:
+             system_packages.append(atom.cp)
+ 
+         # create cpv_list
+@@ -1539,8 +1568,7 @@
          self.allow_cancel(True)
          self.percentage(0)
  
@@ -323,7 +370,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          nb_cp = float(len(cp_list))
          cp_processed = 0.0
  
-@@ -1554,7 +1575,7 @@
+@@ -1554,7 +1582,7 @@
  
          for cp in cp_list:
              if s.match(cp):
@@ -332,7 +379,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                      self._package(cpv)
  
              cp_processed += 100.0
-@@ -1568,8 +1589,7 @@
+@@ -1568,8 +1596,7 @@
          self.allow_cancel(True)
          self.percentage(0)
  
@@ -342,7 +389,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          nb_cp = float(len(cp_list))
          cp_processed = 0.0
          search_list = self._get_search_list(keys)
-@@ -1582,7 +1602,7 @@
+@@ -1582,7 +1609,7 @@
              # newest filter can't be executed now
              # because some cpv are going to be filtered by search conditions
              # and newest filter could be alterated
@@ -351,7 +398,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                  match = True
                  metadata =  self._get_metadata(cpv,
                          ["DESCRIPTION", "HOMEPAGE", "IUSE",
-@@ -1603,7 +1623,7 @@
+@@ -1603,7 +1630,7 @@
                      cpv_list.append(cpv)
  
              # newest filter
@@ -360,7 +407,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
  
              for cpv in cpv_list:
                  self._package(cpv)
-@@ -1622,9 +1642,7 @@
+@@ -1622,9 +1649,7 @@
          self.allow_cancel(True)
          self.percentage(0)
  
@@ -371,7 +418,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
              self.error(ERROR_CANNOT_GET_FILELIST,
                      "search-file isn't available with ~installed filter")
              return
-@@ -1640,7 +1658,7 @@
+@@ -1640,7 +1665,7 @@
              searchre = re.compile("/" + key + "$", re.IGNORECASE)
  
          # free filter
@@ -380,7 +427,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          nb_cpv = float(len(cpv_list))
  
          for cpv in cpv_list:
-@@ -1661,15 +1679,14 @@
+@@ -1661,15 +1686,14 @@
          self.allow_cancel(True)
          self.percentage(0)
  
@@ -398,7 +445,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
                          self._package(cpv)
  
              cp_processed += 100.0
-@@ -1707,8 +1724,7 @@
+@@ -1707,8 +1731,7 @@
              k = re.escape(k)
              search_list.append(re.compile(k, re.IGNORECASE))
  
@@ -408,7 +455,7 @@ diff -ru ../PackageKit-0.6.6/backends/portage/portageBackend.py ./backends/porta
          nb_cp = float(len(cp_list))
          cp_processed = 0.0
  
-@@ -1727,7 +1743,7 @@
+@@ -1727,7 +1750,7 @@
                      found = False
                      break
              if found:
