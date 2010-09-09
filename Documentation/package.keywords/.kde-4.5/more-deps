@@ -1,14 +1,15 @@
+# Version is unrelated, KDE printing won't be stabilized
 app-admin/system-config-printer-common
-=dev-db/virtuoso-odbc-6.1*
-=dev-db/virtuoso-server-6.1*
-dev-libs/libdbusmenu-qt
+=dev-db/virtuoso-odbc-6.1.2
+=dev-db/virtuoso-server-6.1.2
+=dev-libs/libdbusmenu-qt-0.3.5
+# Some issues with grantlee, let's wait for 0.1.6
 dev-libs/grantlee
-dev-libs/libattica
-dev-libs/shared-desktop-ontologies
-dev-libs/soprano
+=dev-libs/libattica-0.1.4
+=dev-libs/shared-desktop-ontologies-0.5
+# Unsure about that yet
+=dev-libs/soprano-2.5*
 dev-python/pycups
-media-sound/phonon
-net-dns/cagibi
-sys-auth/polkit-kde
-sys-auth/polkit-qt
+=net-dns/cagibi-0.1.1
+# Also unrelated
 x11-misc/google-gadgets
