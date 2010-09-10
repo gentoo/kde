@@ -257,7 +257,9 @@ case ${OPERATION} in
 				echo "Updating keywords for ${NEW}"
 				update_keywords ${NEW} ${EBUILD_BASEDIR}
 				repoman manifest
-				git add .
+				if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
+					git add .
+				fi
 			else
 				# actualy create our desired ebuild files
 				# echo "Creating: ${NEW}" # verbosity
@@ -270,7 +272,9 @@ case ${OPERATION} in
 				# update keywords
 				update_keywords ${NEW} ${EBUILD_BASEDIR}
 				repoman manifest
-				git add .
+				if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
+					git add .
+				fi
 			fi
 			popd > /dev/null
 		done
@@ -328,7 +332,7 @@ case ${OPERATION} in
 		# course of action we are doing here
 		# cvs up whole tree, then kde-base
 		# then start going per each dir
-		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest, commit
+		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest
 		_cvsupdate "${MAINTREE}"
 		find ./kde-base/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
 			# we also have to check if directory contains our version if not, we dont copy it
