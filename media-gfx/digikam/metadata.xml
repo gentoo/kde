@@ -2,6 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<maintainer>
+<email>mail@akhuettel.de</email>
+<name>Andreas K. Huettel</name>
+<description>Please assign bugs to kde and cc me.</description>
+</maintainer>
 <use>
 	<flag name="addressbook">Add support for kdepim</flag>
 	<flag name="geolocation">Add support for marble</flag>
