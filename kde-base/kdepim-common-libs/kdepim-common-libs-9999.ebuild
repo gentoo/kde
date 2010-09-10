@@ -40,7 +40,7 @@ KMEXTRA="
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
-	incidenceeditors/
+	incidenceeditor-ng/
 	libkdepim/
 	libkdepimdbusinterfaces/
 	libkleo/
@@ -55,7 +55,6 @@ KMEXTRA="
 "
 
 KMEXTRACTONLY="
-	kdgantt1/
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml

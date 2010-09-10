@@ -29,7 +29,7 @@ KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
-	incidenceeditors/
+	incidenceeditor-ng/
 	kdgantt2/
 	kmail/
 	knode/org.kde.knode.xml
