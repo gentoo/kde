@@ -16,7 +16,9 @@ SLOT="0"
 IUSE="debug examples"
 
 COMMON_DEPEND="
-	>=sys-auth/polkit-0.95
+	dev-libs/glib:2
+	>=sys-auth/polkit-0.96
+	x11-libs/qt-core
 	x11-libs/qt-gui[dbus]
 "
 DEPEND="${COMMON_DEPEND}
@@ -36,6 +38,5 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build examples)
 	)
-
 	cmake-utils_src_configure
 }
