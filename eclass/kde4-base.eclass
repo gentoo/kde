@@ -480,22 +480,17 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.[456].8[05] | 4.[456].9[023568])
-							case ${_kmname} in
-								kdepim | kdepim-runtime)
-									# Betta kdepim versions
-									SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/src/${_kmname_pv}.tar.bz2"
-									;;
-								*)
-									# Normally packed unstable releases
-									SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-							esac
+							# Unstable KDE SC releases
+							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
-						4.[56].[6-9]*)
-							# Repacked tarballs: need to depend on xz-utils to ensure that they can be unpacked
-							SRC_URI="http://dev.gentooexperimental.org/~alexxy/kde/${PV}/src/${_kmname_pv}.tar.xz"
-							DEPEND+=" app-arch/xz-utils"
+						4.4.6)
+							# Only kdepim here
+							SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
-						*)	SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+						*)
+							# Stable KDE SC releases
+							SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2"
+							;;
 					esac
 					;;
 				koffice)
