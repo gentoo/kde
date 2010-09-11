@@ -62,9 +62,9 @@ case ${KDEBASE} in
 		# Determine SLOT from PVs
 		case ${PV} in
 			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
-			4.6* | 4.5.[6-9]*) SLOT="4.6" ;;
-			4.5* | 4.4.[6-9]*) SLOT="4.5" ;;
-			4.4* | 4.3.[6-9]*) SLOT="4.4" ;;
+			4.6* | 4.5.[6-9][0-9]*) SLOT="4.6" ;;
+			4.5* | 4.4.[6-9][0-9]*) SLOT="4.5" ;;
+			4.4* | 4.3.[6-9][0-9]*) SLOT="4.4" ;;
 			9999*) SLOT="live" ;; # regular live
 			*) die "Unsupported ${PV}" ;;
 		esac
