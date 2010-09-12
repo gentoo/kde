@@ -273,6 +273,7 @@ unset cppuintdepend
 # KDE dependencies
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
+	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
 	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility,kde]
@@ -286,32 +287,24 @@ kdecommondepend="
 		x11-libs/libXxf86vm
 	)
 "
-#perl is not needed on host (+ difficult crosscompilation)
-tc-is-cross-compiler || kdecommondepend+=" dev-lang/perl"
 
 if [[ ${PN} != kdelibs ]]; then
-	if [[ ${KDEBASE} = kde-base ]]; then
-		kdecommondepend+=" $(add_kdebase_dep kdelibs)"
-	else
-		kdecommondepend+="
-			>=kde-base/kdelibs-${KDE_MINIMAL}
-		"
-		if [[ ${KDEBASE} = kdevelop ]]; then
-			if [[ ${PN} != kdevplatform ]]; then
-				# @ECLASS-VARIABLE: KDEVPLATFORM_REQUIRED
-				# @DESCRIPTION:
-				# Specifies whether kdevplatform is required. Possible values are 'always' (default) and 'never'.
-				# Applies to KDEBASE=kdevelop only.
-				KDEVPLATFORM_REQUIRED="${KDEVPLATFORM_REQUIRED:-always}"
-				case ${KDEVPLATFORM_REQUIRED} in
-					always)
-						kdecommondepend+="
-							>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
-						"
-						;;
-					*) ;;
-				esac
-			fi
+	kdecommondepend+=" $(add_kdebase_dep kdelibs)"
+	if [[ ${KDEBASE} = kdevelop ]]; then
+		if [[ ${PN} != kdevplatform ]]; then
+			# @ECLASS-VARIABLE: KDEVPLATFORM_REQUIRED
+			# @DESCRIPTION:
+			# Specifies whether kdevplatform is required. Possible values are 'always' (default) and 'never'.
+			# Applies to KDEBASE=kdevelop only.
+			KDEVPLATFORM_REQUIRED="${KDEVPLATFORM_REQUIRED:-always}"
+			case ${KDEVPLATFORM_REQUIRED} in
+				always)
+					kdecommondepend+="
+						>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
+					"
+					;;
+				*) ;;
+			esac
 		fi
 	fi
 fi
@@ -323,6 +316,7 @@ kdedepend="
 		x11-proto/xf86vidmodeproto
 	)
 "
+kderdepend=""
 
 # Handbook handling - dependencies
 if [[ -n ${KDE_HANDBOOK} ]]; then
@@ -332,41 +326,30 @@ if [[ -n ${KDE_HANDBOOK} ]]; then
 			app-text/docbook-xsl-stylesheets
 		)
 	"
-	if [[ ${PN} != kdelibs ]]; then
-		if [[ ${KDEBASE} = kde-base ]]; then
-			PDEPEND+=" handbook? ( $(add_kdebase_dep kdelibs 'handbook') )"
-		else
-			PDEPEND+=" handbook? ( >=kde-base/kdelibs-${KDE_MINIMAL}[handbook] )"
-		fi
-	elif [[ ${PN} != khelpcenter ]]; then
-		if [[ ${KDEBASE} = kde-base ]]; then
-			PDEPEND+=" handbook? ( $(add_kdebase_dep khelpcenter 'handbook') )"
-		else
-			PDEPEND+=" handbook? ( >=kde-base/khelpcenter-${KDE_MINIMAL}[handbook] )"
-		fi
-	fi
+	[[ ${PN} != kdelibs ]] && kderdepend+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
 fi
 
 case ${KDE_REQUIRED} in
 	always)
 		IUSE+=" aqua"
-		COMMONDEPEND+=" ${kdecommondepend}"
-		DEPEND+=" ${kdedepend}"
+		[[ -n ${kdecommondepend} ]] && COMMONDEPEND+=" ${kdecommondepend}"
+		[[ -n ${kdedepend} ]] && DEPEND+=" ${kdedepend}"
+		[[ -n ${kderdepend} ]] && RDEPEND+=" ${kderdepend}"
 		;;
 	optional)
 		IUSE+=" aqua kde"
-		COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
-		DEPEND+=" kde? ( ${kdedepend} )"
+		[[ -n ${kdecommondepend} ]] && COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
+		[[ -n ${kdedepend} ]] && DEPEND+=" kde? ( ${kdedepend} )"
+		[[ -n ${kderdepend} ]] && RDEPEND+=" kde? ( ${kderdepend} )"
 		;;
 	*) ;;
 esac
 
-unset kdecommondepend kdedepend
+unset kdecommondepend kdedepend kderdepend
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: COMMONDEPEND is ${COMMONDEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: DEPEND (only) is ${DEPEND}"
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: RDEPEND (only) is ${RDEPEND}"
-debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: PDEPEND is ${PDEPEND}"
 
 # Accumulate dependencies set by this eclass
 DEPEND+=" ${COMMONDEPEND}"
