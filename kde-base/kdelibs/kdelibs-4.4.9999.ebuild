@@ -95,6 +95,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 "
 PDEPEND="
+	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? ( >=sys-auth/polkit-kde-0.95.1 )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "

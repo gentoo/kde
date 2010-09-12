@@ -4,7 +4,6 @@
 
 EAPI="3"
 
-KDE_HANDBOOK=1
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
 WEBKIT_REQUIRED="always"
@@ -15,7 +14,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
 lzma mmx nls openexr policykit semantic-desktop spell sse sse2 ssl zeroconf"
 
 # needs the kate regression testsuite from svn
@@ -99,6 +98,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 "
 PDEPEND="
+	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? ( >=sys-auth/polkit-kde-0.95.1 )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
