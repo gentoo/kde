@@ -9,22 +9,17 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
+	$(add_kdebase_dep kdelibs 'handbook')
 	>=www-misc/htdig-3.2.0_beta6-r1
 "
 
-src_unpack() {
-	if use handbook; then
-		KMEXTRA="
-			doc/faq
-			doc/glossary
-			doc/quickstart
-			doc/userguide
-			doc/visualdict
-		"
-	fi
-
-	kde4-meta_src_unpack
-}
+KMEXTRA="
+	doc/faq/
+	doc/glossary/
+	doc/quickstart/
+	doc/userguide/
+	doc/visualdict/
+"
