@@ -38,13 +38,9 @@ COMMONDEPEND="
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
-	aqua? (
-		>=media-sound/phonon-4.3.80
-		sys-apps/dbus
-	)
+	aqua? ( >=media-sound/phonon-4.3.80 )
 	!aqua? (
 		>=media-sound/phonon-4.3.80[xcb]
-		sys-apps/dbus[X]
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
