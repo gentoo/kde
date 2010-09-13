@@ -31,9 +31,9 @@ COMMONDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
-	virtual/jpeg:0
 	>=media-libs/libpng-1.4
 	sys-libs/zlib
+	virtual/jpeg
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
@@ -66,7 +66,7 @@ COMMONDEPEND="
 	policykit? ( sys-auth/polkit-qt )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.5
-		>=dev-libs/soprano-2.5.60[dbus,raptor,redland]
+		>=dev-libs/soprano-2.5.63[dbus,raptor,redland]
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )

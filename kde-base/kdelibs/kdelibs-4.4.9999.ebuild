@@ -30,9 +30,9 @@ COMMONDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
-	virtual/jpeg:0
 	>=media-libs/libpng-1.4
 	sys-libs/zlib
+	virtual/jpeg
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
