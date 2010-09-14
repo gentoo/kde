@@ -108,10 +108,9 @@ fi
 # @DESCRIPTION:
 # All subdirectories listed here will be extracted, compiled & installed.
 # $KMMODULE is always added to $KMEXTRA.
-# If the handbook USE-flag is set, and if this directory exists,
-# then "doc/$KMMODULE" is added to $KMEXTRA. In other cases, this should be
-# handled in the ebuild.
-# If the documentation is in a different subdirectory, you should add it to KMEXTRA.
+# If KDE_HANDBOOK is 'always' or 'optional' and handbook USE-flag is set, and if this
+# directory exists, then "doc/$KMMODULE" is added to $KMEXTRA. If there's additional
+# documentation in different subdirectories, it should be added to KMEXTRA manually..
 
 # @ECLASS-VARIABLE: KMCOMPILEONLY
 # @DESCRIPTION:
@@ -282,12 +281,18 @@ kde4-meta_src_extract() {
 kde4-meta_create_extractlists() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# TODO change to KMEXTRA for more strict check
-	if has handbook ${IUSE//+} && use handbook && [[ -n ${KMMODULE} ]]; then
+	# Add default handbook locations
+	# FIXME - legacy code - remove when 4.4.5 is gone or preferrably port 4.4.5.
+	if ! slot_is_at_least 4.5 ${SLOT} && has handbook ${IUSE//+} && use handbook && [[ -n ${KMMODULE} ]]; then
 		# We use the basename of $KMMODULE because $KMMODULE can contain
 		# the path to the module subdirectory.
 		KMEXTRA_NONFATAL+="
 			doc/${KMMODULE##*/}"
+	fi
+
+	# Add default handbook locations
+	if [[ -n ${KMMODULE} ]] && [[ ${KDE_HANDBOOK} = always ]] || { [[ ${KDE_HANDBOOK} = optional ]] && use handbook; }; then
+		KMEXTRA+=" doc/${KMMODULE##*/}"
 	fi
 
 	# Add some CMake-files to KMEXTRACTONLY.

@@ -141,15 +141,18 @@ CPPUNIT_REQUIRED="${CPPUNIT_REQUIRED:-never}"
 # @DESCRIPTION:
 # Is kde required? Possible values are 'always', 'optional' and 'never'.
 # This variable must be set before inheriting any eclasses. Defaults to 'always'
-# If set to always or optional, KDE_MINIMAL may be overriden as well.
+# If set to 'always' or 'optional', KDE_MINIMAL may be overriden as well.
 # Note that for kde-base packages this variable is fixed to 'always'.
 KDE_REQUIRED="${KDE_REQUIRED:-always}"
 
 # @ECLASS-VARIABLE: KDE_HANDBOOK
 # @DESCRIPTION:
-# Set to enable handbook in application. It adds +handbook to IUSE, handbook dirs
-# to KMEXTRA and ensures buildtime and runtime dependencies.
-[[ -n ${KDE_HANDBOOK} ]] && IUSE+=" +handbook"
+# Set to enable handbook in application. Possible values are 'always', 'optional'
+# (handbook USE flag) and 'never'.
+# This variable must be set before inheriting any eclasses. Defaults to 'never'.
+# It adds default handbook dirs for kde-base packages to KMEXTRA and in any case it
+# ensures buildtime and runtime dependencies.
+KDE_HANDBOOK="${KDE_HANDBOOK:-never}"
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
@@ -318,16 +321,26 @@ kdedepend="
 "
 kderdepend=""
 
-# Handbook handling - dependencies
-if [[ -n ${KDE_HANDBOOK} ]]; then
-	kdedepend+="
-		handbook? (
-			app-text/docbook-xml-dtd:4.2
-			app-text/docbook-xsl-stylesheets
-		)
-	"
-	[[ ${PN} != kdelibs ]] && kderdepend+=" handbook? ( $(add_kdebase_dep khelpcenter) )"
-fi
+kdehandbookdepend="
+	app-text/docbook-xml-dtd:4.2
+	app-text/docbook-xsl-stylesheets
+"
+kdehandbookrdepend="
+	$(add_kdebase_dep kdelibs 'handbook')
+"
+case ${KDE_HANDBOOK} in
+	always)
+		kdedepend+=" ${kdehandbookdepend}"
+		[[ ${PN} != kdelibs ]] && kderdepend+=" ${kdehandbookrdepend}"
+		;;
+	optional)
+		IUSE+=" +handbook"
+		kdedepend+=" handbook? ( ${kdehandbookdepend} )"
+		[[ ${PN} != kdelibs ]] && kderdepend+=" handbook? ( ${kdehandbookrdepend} )"
+		;;
+	*) ;;
+esac
+unset kdehandbookdepend kdehandbookrdepend
 
 case ${KDE_REQUIRED} in
 	always)
