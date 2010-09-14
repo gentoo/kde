@@ -276,5 +276,6 @@ dev-libs/grantlee
 =dev-libs/soprano-2.5*
 dev-python/pycups
 =net-dns/cagibi-0.1.1
+net-libs/libktorrent
 # Also unrelated
 x11-misc/google-gadgets
