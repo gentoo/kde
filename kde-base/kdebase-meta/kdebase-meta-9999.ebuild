@@ -11,7 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE="aqua +handbook kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
@@ -29,7 +29,6 @@ RDEPEND="
 	$(add_kdebase_dep kfind)
 	$(add_kdebase_dep kfmclient)
 	$(add_kdebase_dep khotkeys)
-	$(add_kdebase_dep kinfocenter)
 	$(add_kdebase_dep klipper)
 	$(add_kdebase_dep kmenuedit)
 	$(add_kdebase_dep konqueror)
@@ -59,5 +58,6 @@ RDEPEND="
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
 	!prefix? ( $(add_kdebase_dep kdm) )
+	handbook? ( $(add_kdebase_dep kinfocenter) )
 	$(block_other_slots)
 "

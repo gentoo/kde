@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-KDE_HANDBOOK=1
+KDE_HANDBOOK="optional"
 KMNAME="kdeutils"
 CPPUNIT_REQUIRED="optional"
 inherit kde4-meta

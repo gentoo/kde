@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-KDE_HANDBOOK=1
+KDE_HANDBOOK="optional"
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"

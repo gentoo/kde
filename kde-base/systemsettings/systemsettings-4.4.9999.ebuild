@@ -4,12 +4,13 @@
 
 EAPI="3"
 
+KDE_HANDBOOK="optional"
 KMNAME="kdebase-workspace"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug +handbook +usb xinerama"
+IUSE="debug +usb xinerama"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -55,7 +56,7 @@ PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
 
 src_unpack() {
 	if use handbook; then
-		KMEXTRA="${KMEXTRA}
+		KMEXTRA+="
 			doc/kcontrol
 		"
 	fi

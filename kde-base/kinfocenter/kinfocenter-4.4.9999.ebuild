@@ -4,13 +4,14 @@
 
 EAPI="3"
 
+KDE_HANDBOOK="optional"
 KMNAME="kdebase-apps"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Info Center"
 KEYWORDS=""
-IUSE="debug +handbook ieee1394"
+IUSE="debug ieee1394"
 
 DEPEND="
 	sys-apps/pciutils

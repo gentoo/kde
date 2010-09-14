@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_HANDBOOK="always"
 KMNAME="kdebase-runtime"
 inherit kde4-meta
 
@@ -12,7 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdelibs 'handbook')
 	>=www-misc/htdig-3.2.0_beta6-r1
 "
 
