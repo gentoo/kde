@@ -5,6 +5,8 @@
 EAPI="2"
 
 OPENGL_REQUIRED="optional"
+KDE_LINGUAS="ar ast be ca da de el en_GB eo es fr hne hr is it ja
+lt lv ms nb nds nn oc pa pl pt pt_BR ro ru se sk th uk zh_CN zh_TW"
 KMNAME="extragear/graphics"
 KDE_MINIMAL="4.5"
 inherit flag-o-matic kde4-base
