@@ -17,10 +17,13 @@ add_blocker solidautoeject
 add_blocker solid-device-automounter
 add_blocker solid-hardware
 add_blocker soliduiserver
+# Moved away from workspace
+add_blocker solid '<4.5.69'
 
 KMEXTRA="
-	solidautoeject/
 	solid-device-automounter/
 	solid-hardware/
+	solid-networkstatus/
+	solidautoeject/
 	soliduiserver/
 "
