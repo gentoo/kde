@@ -5,9 +5,8 @@
 EAPI="3"
 
 KDE_HANDBOOK="optional"
-KMNAME="${PN/-*/}"
+KMNAME="kdesdk"
 KMNOMODULE="true"
-
 inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"

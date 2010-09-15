@@ -4,9 +4,8 @@
 
 EAPI="3"
 
-KMNAME="${PN/-*/}"
-KMMODULE="${PN/*-/}"
-
+KMNAME="kdesdk"
+KMMODULE="scripts"
 inherit kde4-meta
 
 DESCRIPTION="KDE SDK Scripts"
