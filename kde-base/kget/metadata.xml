@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<use>
+	<flag name="bittorrent">Enable bittorrent transfer plugin through <pkg>net-libs/libktorrent</pkg></flag>
+	<flag name="webkit">Enable KdeWebkit browser plugin using <pkg>kde-misc/kwebkitpart</pkg></flag>
+</use>
 </pkgmetadata>
