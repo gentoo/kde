@@ -292,7 +292,7 @@ kde4-meta_create_extractlists() {
 
 	# Add default handbook locations
 	if [[ -n ${KMMODULE} ]] && [[ ${KDE_HANDBOOK} = always ]] || { [[ ${KDE_HANDBOOK} = optional ]] && use handbook; }; then
-		KMEXTRA+=" doc/${KMMODULE##*/}"
+		KMEXTRA_NONFATAL+=" doc/${KMMODULE##*/}"
 	fi
 
 	# Add some CMake-files to KMEXTRACTONLY.
