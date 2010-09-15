@@ -4,7 +4,6 @@
 
 EAPI="3"
 
-KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
 KMNOMODULE="true"
 inherit kde4-meta
@@ -19,6 +18,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRA="
+	doc/kmtrace/
+	doc/poxml/
 	kmtrace/
 	kpartloader/
 	kprofilemethod/

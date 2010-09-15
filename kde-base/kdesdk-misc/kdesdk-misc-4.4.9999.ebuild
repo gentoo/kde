@@ -18,6 +18,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRA="
+	doc/kmtrace/
+	doc/poxml/
 	kmtrace/
 	kpartloader/
 	kprofilemethod/
