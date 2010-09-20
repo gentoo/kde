@@ -1,0 +1,8 @@
+--- Makefile.am.orig	2010-09-20 21:58:41.616751481 +0200
++++ Makefile.am	2010-09-20 22:21:12.976592367 +0200
+@@ -1,3 +1,5 @@
++ACLOCAL_AMFLAGS = -I m4
++
+ EXTRA_DIST = \
+ 	COPYING.2.1 \
+ 	COPYING-GPL3 \

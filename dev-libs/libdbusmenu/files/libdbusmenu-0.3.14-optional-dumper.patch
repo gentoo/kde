@@ -1,0 +1,31 @@
+--- configure.ac.orig	2010-09-20 21:51:50.289828895 +0200
++++ configure.ac	2010-09-20 22:05:38.292979567 +0200
+@@ -63,8 +63,15 @@
+ 
+ X11_REQUIRED_VERSION=1.3
+ 
++AC_ARG_ENABLE([dumper],
++	AC_HELP_STRING([--disable-dumper], [Disable dbusmenudumper tool]),
++	[enable_dumper=$enableval], enable_dumper=auto)
++AM_CONDITIONAL([WANT_DBUSMENUDUMPER], [test "x$enable_dumper" != "xno"])
++
++if test "x$enable_dumper" != "xno" ; then
+ PKG_CHECK_MODULES(DBUSMENUDUMPER, gtk+-2.0 >= $GTK_REQUIRED_VERSION
+                                   x11 >= $X11_REQUIRED_VERSION)
++fi
+ 
+ AC_SUBST(DBUSMENUDUMPER_CFLAGS)
+ AC_SUBST(DBUSMENUDUMPER_LIBS)
+--- tools/Makefile.am.orig	2010-09-20 22:02:07.280175897 +0200
++++ tools/Makefile.am	2010-09-20 22:05:15.621664358 +0200
+@@ -3,5 +3,9 @@
+ 
+-libexec_PROGRAMS = dbusmenu-dumper
++libexec_PROGRAMS =
++
++if WANT_DBUSMENUDUMPER
++libexec_PROGRAMS += dbusmenu-dumper
++endif
+ 
+ libexec_SCRIPTS = dbusmenu-bench
+ 

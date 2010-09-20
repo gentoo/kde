@@ -27,11 +27,13 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	# Make libdbusmenu-gtk library optional, launchpad-bug #552530
-	epatch "${FILESDIR}/${P}-1-optional-gtk.patch"
+	epatch "${FILESDIR}/${P}-optional-gtk.patch"
 	# Make tests optional, launchpad-bug #552526
-	epatch "${FILESDIR}/${P}-2-optional-tests.patch"
+	epatch "${FILESDIR}/${P}-optional-tests.patch"
+	# Make dbusmenudumper optional, launchpad-bug #643871
+	epatch "${FILESDIR}/${P}-optional-dumper.patch"
 	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552538
-	epatch "${FILESDIR}/${P}-no-gobject-introspection.patch"
+	epatch "${FILESDIR}/${P}-fix-aclocal.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libdbusmenu-glib/Makefile.am libdbusmenu-gtk/Makefile.am || die "sed failed"
 	eautoreconf
@@ -40,6 +42,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_enable gtk) \
+		$(use_enable gtk dumper) \
 		$(use_enable test tests)
 }
 
