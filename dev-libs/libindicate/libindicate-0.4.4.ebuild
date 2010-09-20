@@ -23,12 +23,20 @@ RDEPEND="dev-libs/glib:2
 	dev-libs/dbus-glib
 	dev-libs/libdbusmenu
 	dev-libs/libxml2:2
-	x11-libs/gtk+:2"
+	x11-libs/gtk+:2
+	dev-python/pygtk
+	dev-dotnet/gtk-sharp
+	dev-dotnet/gtk-sharp-gapi"
 DEPEND="${RDEPEND}
 	doc? ( dev-util/gtk-doc )
 	dev-util/pkgconfig"
 
 src_prepare() {
+	# Without patches:
+	# Make gtk optional, launchpad-bug #431311
+	# Make python optional, launchpad-bug #643921
+	# Make mono optional, launchpad-bug #643922
+
 	# Make doc optional, launchpad-bug #643911
 	epatch "${FILESDIR}/${P}-optional-doc.patch"
 	# Do not compile mono-example by default, launchpad-bug #643912
