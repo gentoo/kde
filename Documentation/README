@@ -8,22 +8,27 @@ Installation instructions (and a full Gentoo KDE guide) can be
 found at http://kde.gentoo.org/kde4-guide.xml
 
 
-eix stuff:
-we all know that eix takes a long time to complete.
-i set up a server who generates metadata-cache, you can use it to speed up update-eix drastically.
+== EIX ==
 
-ATTENTION perhaps your overlay path may vary
+We all know that eix takes a long time to complete.
+I set up a server who generates metadata-cache, you can use it to speed up update-eix drastically.
 
-put this into /etc/eix-sync.conf:
+ATTENTION: Perhaps your overlay path may vary!
+
+Put this into /etc/eix-sync.conf:
 	@cd /var/lib/layman/kde/Documentation && sh ./metadata-sync
 
-Your local git copy will almost always be newer than what the metadata mirror server had.
+Your local git copy will almost always be newer than what the metadata-mirror-server had.
 	Hence in addition to the above, you might want to put this into .git/hooks/post-checkout:
-	https://git.wiki.kernel.org/index.php/ExampleScripts#Setting_the_timestamps_of_the_files_to_the_commit_timestamp_of_the_commit_which_last_touched_them
+		#!/bin/sh
+		cd $GIT_DIR
+		/usr/local/bin/git-set-file-times
+	You can get git-set-file-times from Git Wiki:
+		https://git.wiki.kernel.org/index.php/ExampleScripts#Setting_the_timestamps_of_the_files_to_the_commit_timestamp_of_the_commit_which_last_touched_them
 	WARNING: Doing this is usually considered DANGEROUS and can break stuff in unexpected ways!
 
 
-IMPORTANT NOTE FOR >=KDE-4.2.65 AND LIVE KDE4 USERS
+== IMPORTANT NOTE FOR >=KDE-4.2.65 AND LIVE KDE4 USERS ==
 
 Some packages (notably kde-base/pykde4:4.3 and kde-base/pykde4:live) require some yet unreleased packages:
 - dev-python/sip
