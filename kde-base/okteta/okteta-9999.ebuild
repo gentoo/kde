@@ -5,7 +5,7 @@
 EAPI="3"
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
+KMNAME="kdesdk"
 inherit kde4-meta
 
 DESCRIPTION="KDE hexeditor"

@@ -272,6 +272,7 @@ kde-base/kompare:live
 kde-base/kstartperf:live
 kde-base/kuiviewer:live
 kde-base/lokalize:live
+kde-base/okteta:live
 kde-base/umbrello:live
 kde-base/amor:live
 kde-base/kdetoys-meta:live
@@ -286,7 +287,6 @@ kde-base/kgpg:live
 kde-base/kremotecontrol:live
 kde-base/ktimer:live
 kde-base/kwallet:live
-kde-base/okteta:live
 kde-base/printer-applet:live
 kde-base/superkaramba:live
 kde-base/sweeper:live

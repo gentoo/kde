@@ -24,7 +24,6 @@ RDEPEND="
 	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep superkaramba)
 	$(add_kdebase_dep sweeper)
-	$(add_kdebase_dep okteta)
 	cups? ( $(add_kdebase_dep printer-applet) )
 	floppy? ( $(add_kdebase_dep kfloppy) )
 	$(block_other_slots)

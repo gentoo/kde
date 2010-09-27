@@ -272,6 +272,7 @@
 ~kde-base/kstartperf-9999 **
 ~kde-base/kuiviewer-9999 **
 ~kde-base/lokalize-9999 **
+~kde-base/okteta-9999 **
 ~kde-base/umbrello-9999 **
 ~kde-base/amor-9999 **
 ~kde-base/kdetoys-meta-9999 **
@@ -286,7 +287,6 @@
 ~kde-base/kremotecontrol-9999 **
 ~kde-base/ktimer-9999 **
 ~kde-base/kwallet-9999 **
-~kde-base/okteta-9999 **
 ~kde-base/printer-applet-9999 **
 ~kde-base/superkaramba-9999 **
 ~kde-base/sweeper-9999 **
