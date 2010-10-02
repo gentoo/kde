@@ -17,6 +17,7 @@ RDEPEND="
 "
 
 KMEXTRA="
+	doc/documentationnotfound/
 	doc/glossary/
 	doc/onlinehelp/
 "
