@@ -4,12 +4,13 @@
 
 EAPI="2"
 
-WEBKIT_REQUIRED="always"
+KDE_MINIMAL="4.6"
 KMNAME="extragear/base"
 KMMODULE="kwebkitpart"
+WEBKIT_REQUIRED="always"
 inherit kde4-base
 
-DESCRIPTION="A WebKit KPart for konqueror"
+DESCRIPTION="A WebKit KPart for Konqueror"
 HOMEPAGE="http://kde.org"
 
 LICENSE="GPL-2"
