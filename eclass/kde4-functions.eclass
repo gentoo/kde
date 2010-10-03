@@ -136,7 +136,7 @@ done
 enable_selected_linguas() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local lingua linguas sr_mess wp
+	local x
 
 	# if there is no linguas defined we enable everything
 	if ! $(env | grep -q "^LINGUAS="); then
@@ -146,49 +146,18 @@ enable_selected_linguas() {
 	# @ECLASS-VARIABLE: KDE_LINGUAS_DIR
 	# @DESCRIPTION:
 	# Specified folder where application translations are located.
-	KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="po"}
-	[[ -d  "${KDE_LINGUAS_DIR}" ]] || die "wrong linguas dir specified"
-	comment_all_add_subdirectory "${KDE_LINGUAS_DIR}"
-	pushd "${KDE_LINGUAS_DIR}" > /dev/null
-
-	# fix all various crazy sr@Latn variations
-	# this part is only ease for ebuilds, so there wont be any die when this
-	# fail at any point
-	sr_mess="sr@latn sr@latin sr@Latin"
-	for wp in ${sr_mess}; do
-		[[ -e "${wp}.po" ]] && mv "${wp}.po" "sr@Latn.po"
-		if [[ -d "${wp}" ]]; then
-			# move dir and fix cmakelists
-			mv "${wp}" "sr@Latn"
-			sed -i \
-				-e "s:${wp}:sr@Latin:g" \
-				CMakeLists.txt
-		fi
-	done
-
-	for lingua in ${KDE_LINGUAS}; do
-		if [[ -e "${lingua}.po" ]]; then
-			mv "${lingua}.po" "${lingua}.po.old"
-		fi
-	done
-
-	for lingua in ${KDE_LINGUAS}; do
-		if use linguas_${lingua} ; then
-			if [[ -d "${lingua}" ]]; then
-				linguas="${linguas} ${lingua}"
-				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
-					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
-			fi
-			if [[ -e "${lingua}.po.old" ]]; then
-				linguas="${linguas} ${lingua}"
-				mv "${lingua}.po.old" "${lingua}.po"
-			fi
-		fi
-	done
-	[[ -n "${linguas}" ]] && einfo "Enabling languages: ${linguas}"
-
-	popd > /dev/null
+	# Can be defined as array of folders where translations are located.
+	# Note that space separated list of dirs is not supported.
+	# Default value is set to "po".
+	if [[ "$(declare -p KDE_LINGUAS_DIR 2>/dev/null 2>&1)" == "declare -a"* ]]; then
+		debug-print "$FUNCNAME: we have these subfolders defined: ${KDE_LINGUAS_DIR}"
+		for x in "${KDE_LINGUAS_DIR[@]}"; do
+			_enable_selected_linguas_dir ${x}
+		done
+	else
+		KDE_LINGUAS_DIR=${KDE_LINGUAS_DIR:="po"}
+		_enable_selected_linguas_dir ${KDE_LINGUAS_DIR}
+	fi
 }
 
 # @FUNCTION: enable_selected_doc_linguas
@@ -388,6 +357,41 @@ add_blocker() {
 	RDEPEND+=" $(_do_blocker "$@")"
 }
 
+# @FUNCTION: add_kdebase_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-base/ dependencies,
+# adding SLOT when needed (and *only* when needed).
+# This takes 1 or 2 arguments.  The first being the package
+# name, the optional second, is additional USE flags to append.
+# The output of this should be added directly to DEPEND/RDEPEND, and
+# may be wrapped in a USE conditional (but not an || conditional
+# without an extra set of parentheses).
+add_kdebase_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ -z ${1} ]] && die "Missing parameter"
+
+	local use=${2:+,${2}}
+
+	if [[ ${KDEBASE} = kde-base ]]; then
+		# FIXME remove hack when kdepim-4.4.6 is gone
+		local FIXME_PV
+		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs ]]; then
+			FIXME_PV=4.4.5
+		else
+			FIXME_PV=${PV}
+		fi
+		echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
+		echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
+	else
+		if [[ ${KDE_MINIMAL} = live ]]; then
+			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
+		else
+			echo " >=kde-base/${1}-${KDE_MINIMAL}[aqua=${use}]"
+		fi
+	fi
+}
+
 # _greater_max_in_slot ver slot
 # slot must be 4.x or live
 # returns true if ver is >= the maximum possibile version in slot
@@ -501,37 +505,52 @@ _do_blocker() {
 	fi
 }
 
-# @FUNCTION: add_kdebase_dep
-# @DESCRIPTION:
-# Create proper dependency for kde-base/ dependencies,
-# adding SLOT when needed (and *only* when needed).
-# This takes 1 or 2 arguments.  The first being the package
-# name, the optional second, is additional USE flags to append.
-# The output of this should be added directly to DEPEND/RDEPEND, and
-# may be wrapped in a USE conditional (but not an || conditional
-# without an extra set of parentheses).
-add_kdebase_dep() {
-	debug-print-function ${FUNCNAME} "$@"
+# local function to enable specified translations for specified directory
+# used from kde4-functions_enable_selected_linguas function
+_enable_selected_linguas_dir() {
+	local lingua linguas sr_mess wp
+	local dir=${1}
 
-	[[ -z ${1} ]] && die "Missing parameter"
+	[[ -d  "${dir}" ]] || die "linguas dir \"${dir}\" does not exist"
+	comment_all_add_subdirectory "${dir}"
+	pushd "${dir}" > /dev/null
 
-	local use=${2:+,${2}}
-
-	if [[ ${KDEBASE} = kde-base ]]; then
-		# FIXME remove hack when kdepim-4.4.6 is gone
-		local FIXME_PV
-		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs ]]; then
-			FIXME_PV=4.4.5
-		else
-			FIXME_PV=${PV}
+	# fix all various crazy sr@Latn variations
+	# this part is only ease for ebuilds, so there wont be any die when this
+	# fail at any point
+	sr_mess="sr@latn sr@latin sr@Latin"
+	for wp in ${sr_mess}; do
+		[[ -e "${wp}.po" ]] && mv "${wp}.po" "sr@Latn.po"
+		if [[ -d "${wp}" ]]; then
+			# move dir and fix cmakelists
+			mv "${wp}" "sr@Latn"
+			sed -i \
+				-e "s:${wp}:sr@Latin:g" \
+				CMakeLists.txt
 		fi
-		echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
-		echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
-	else
-		if [[ ${KDE_MINIMAL} = live ]]; then
-			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
-		else
-			echo " >=kde-base/${1}-${KDE_MINIMAL}[aqua=${use}]"
+	done
+
+	for lingua in ${KDE_LINGUAS}; do
+		if [[ -e "${lingua}.po" ]]; then
+			mv "${lingua}.po" "${lingua}.po.old"
 		fi
-	fi
+	done
+
+	for lingua in ${KDE_LINGUAS}; do
+		if use linguas_${lingua} ; then
+			if [[ -d "${lingua}" ]]; then
+				linguas="${linguas} ${lingua}"
+				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
+					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
+			fi
+			if [[ -e "${lingua}.po.old" ]]; then
+				linguas="${linguas} ${lingua}"
+				mv "${lingua}.po.old" "${lingua}.po"
+			fi
+		fi
+	done
+	[[ -n "${linguas}" ]] && echo ">>> Enabling languages: ${linguas}"
+
+	popd > /dev/null
 }
