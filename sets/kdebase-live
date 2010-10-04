@@ -1,3 +1,4 @@
+kde-base/kdebase-meta:live
 @kdebase-apps-live
 @kdebase-runtime-live
 @kdebase-workspace-live
