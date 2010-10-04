@@ -1,0 +1,40 @@
+Index: PyQt-x11-gpl-4.7.7/pyuic/uic/Loader/loader.py
+===================================================================
+--- PyQt-x11-gpl-4.7.7.orig/pyuic/uic/Loader/loader.py
++++ PyQt-x11-gpl-4.7.7/pyuic/uic/Loader/loader.py
+@@ -1,3 +1,5 @@
++import os.path
++
+ from PyQt4 import QtGui, QtCore
+ from PyQt4.uic.uiparser import UIParser
+ from PyQt4.uic.Loader.qobjectcreator import LoaderCreatorPolicy
+@@ -19,6 +21,7 @@ class DynamicUILoader(UIParser):
+     def loadUi(self, filename, toplevelInst=None):
+         self.toplevelInst = toplevelInst
+ 
+-        # By using QFileInfo.path() rather than os.path.dirname() we allow
+-        # QString file names.
+-        return self.parse(filename, QtCore.QFileInfo(filename).path())
++        # Allow the filename to be a QString.
++        filename = str(filename)
++
++        return self.parse(filename, os.path.dirname(filename))
+Index: PyQt-x11-gpl-4.7.7/sip/QtCore/qglobal.sip
+===================================================================
+--- PyQt-x11-gpl-4.7.7.orig/sip/QtCore/qglobal.sip
++++ PyQt-x11-gpl-4.7.7/sip/QtCore/qglobal.sip
+@@ -312,12 +312,12 @@ public:
+     // Qt.Alignment class.
+     QFlags operator|(int f);
+ %MethodCode
+-        sipRes = new QFlags(*a0 | (ENUM(a1)));
++        sipRes = new QFlags(*a0 | a1);
+ %End
+ 
+     QFlags operator^(int f);
+ %MethodCode
+-        sipRes = new QFlags(*a0 ^ (ENUM(a1)));
++        sipRes = new QFlags(*a0 ^ a1);
+ %End
+ 
+     // These are necessary to prevent Python comparing object IDs.

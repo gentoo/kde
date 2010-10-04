@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>python</herd>
+  <herd>qt</herd>
+  <use>
+    <flag name='X'>Build the QtGui and QtDesigner modules</flag>
+    <flag name='assistant'>Build the QtHelp and QtAssistant modules</flag>
+    <flag name='kde'>
+      Select <pkg>media-sound/phonon</pkg> as phonon variant needed for kde
+    </flag>
+	<flag name='multimedia'>Build the QtMultimedia module</flag>
+    <flag name='opengl'>Build the QtOpenGL module</flag>
+    <flag name='phonon'>Build the phonon module</flag>
+    <flag name='sql'>Build the QtSql module</flag>
+    <flag name='svg'>Build the QtSvg module</flag>
+    <flag name='webkit'>Build the QtWebKit module</flag>
+    <flag name='xmlpatterns'>Build the QtXmlPatterns module</flag>
+  </use>
+</pkgmetadata>
