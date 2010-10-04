@@ -15,6 +15,7 @@ IUSE="aqua cups floppy kdeprefix"
 
 RDEPEND="
 	$(add_kdebase_dep ark)
+	$(add_kdebase_dep filelight)
 	$(add_kdebase_dep kcalc)
 	$(add_kdebase_dep kcharselect)
 	$(add_kdebase_dep kdf)
