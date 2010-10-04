@@ -30,7 +30,6 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
-	mailcommon/
 "
 KMCOMPILEONLY="
 	messagecomposer/
@@ -43,6 +42,7 @@ KMEXTRA="
 	kmailcvt/
 	ksendemail/
 	libksieve/
+	mailcommon/
 	ontologies/
 "
 
