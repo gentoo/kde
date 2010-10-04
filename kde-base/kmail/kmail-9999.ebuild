@@ -30,6 +30,7 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
+	mailcommon/
 "
 KMCOMPILEONLY="
 	messagecomposer/
