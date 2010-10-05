@@ -386,8 +386,8 @@ add_kdebase_dep() {
 		# to allow merging packages against more stable basic stuff
 		case ${PV} in
 			*.9999*)
-				echo " !kdeprefix? ( kde-base/${1}:${SLOT}[aqua=,-kdeprefix${use}] )"
-				echo " kdeprefix? ( kde-base/${1}:${SLOT}[aqua=,kdeprefix${use}] )"
+				echo " !kdeprefix? ( >=kde-base/${1}-${SLOT}[aqua=,-kdeprefix${use}] )"
+				echo " kdeprefix? ( >=kde-base/${1}-${SLOT}:${SLOT}[aqua=,kdeprefix${use}] )"
 				;;
 			*)
 				echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
