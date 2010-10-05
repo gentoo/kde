@@ -23,12 +23,3 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 CMAKE_USE_DIR=${S}/${PN}
-
-src_configure() {
-	mycmakeargs=(
-		-DPARTMAN_KPART=ON
-		-DPARTMAN_KCM=ON
-	)
-
-	kde4-base_src_configure
-}
