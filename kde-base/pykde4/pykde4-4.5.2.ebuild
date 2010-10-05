@@ -19,7 +19,7 @@ IUSE="debug doc examples semantic-desktop"
 # Added specific PyQt4 and sip deps to fix bug 332503.
 DEPEND="
 	!dev-python/pykde
-	>dev-python/PyQt4-4.7.3
+	>=dev-python/PyQt4-4.7.7-r1
 	>dev-python/sip-4.10
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
