@@ -381,8 +381,19 @@ add_kdebase_dep() {
 		else
 			FIXME_PV=${PV}
 		fi
-		echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
-		echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
+
+		# if building stable-live version depend just on slot
+		# to allow merging packages against more stable basic stuff
+		case ${PV} in
+			*.9999*)
+				echo " !kdeprefix? ( kde-base/${1}:${SLOT}[aqua=,-kdeprefix${use}] )"
+				echo " kdeprefix? ( kde-base/${1}:${SLOT}[aqua=,kdeprefix${use}] )"
+				;;
+			*)
+				echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
+				echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
+				;;
+		esac
 	else
 		if [[ ${KDE_MINIMAL} = live ]]; then
 			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
