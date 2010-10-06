@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
 
-EGIT_REPO_URI="git://git.kde.org/${PN}/${PN}.git"
+EGIT_REPO_URI="git://git.kde.org/${PN}.git"
 inherit git kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
@@ -16,7 +16,7 @@ SLOT="4"
 IUSE="+crypt debug"
 
 DEPEND="
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	$(add_kdebase_dep kdepimlibs)
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}"
