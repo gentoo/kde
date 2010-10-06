@@ -2,12 +2,28 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=3
 
 CMAKE_MIN_VERSION=2.8.0
 MULTIMEDIA_REQUIRED=always
 WEBKIT_REQUIRED=always
 KMNAME="extragear/multimedia"
+
+# Translations are only in the tarballs, not in the svn repo
+if [[ ${PV} != *9999* ]]; then
+	KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
+	gl he hi hne hr hu is it ja km ko ku lt mai nb nds nl nn oc pa pl pt pt_BR ro ru
+	se sk sl sv th tr uk zh_CN zh_TW"
+
+	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
+
+	DOCS=( FAQ PERMISSIONS README RELEASE_HOWTO )
+
+	S=${WORKDIR}/${P/_*}
+else
+	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
+fi
+
 inherit kde4-base
 
 DESCRIPTION="The CD/DVD Kreator for KDE"
@@ -19,7 +35,7 @@ KEYWORDS=""
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
-	>=kde-base/libkcddb-${KDE_MINIMAL}
+	$(add_kdebase_dep libkcddb)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? ( >=media-video/ffmpeg-0.5 )
@@ -46,7 +62,7 @@ RDEPEND="${DEPEND}
 	vcd? ( media-video/vcdimager )
 "
 
-DOCS=(ChangeLog FAQ.txt PERMISSIONS.txt README.txt)
+DOCS+=( ChangeLog )
 
 src_configure() {
 	mycmakeargs=(
