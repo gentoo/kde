@@ -10,7 +10,7 @@ if [[ ${PV} != *9999* ]]; then
 	pa pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 else
-	EGIT_REPO_URI="git://git.kde.org/${PN}/${PN}.git"
+	EGIT_REPO_URI="git://git.kde.org/${PN}.git"
 	GIT_ECLASS="git"
 fi
 
@@ -23,7 +23,7 @@ HOMEPAGE="http://amarok.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="cdda daap debug embedded ipod lastfm mp3tunes mtp opengl +player semantic-desktop +utils"
+IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp opengl +player semantic-desktop +utils"
 
 # Tests require gmock - http://code.google.com/p/gmock/
 # It's not in the tree yet
@@ -36,9 +36,9 @@ COMMONDEPEND="
 	player? (
 		app-crypt/qca:2
 		>=app-misc/strigi-0.5.7[dbus,qt4]
-		|| ( >=dev-db/mysql-5.0.76 =virtual/mysql-5.1 )
 		>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
 		sys-libs/zlib
+		>=virtual/mysql-5.1
 		x11-libs/qt-script
 		>=x11-libs/qtscriptgenerator-0.1.0
 		cdda? (
@@ -46,7 +46,9 @@ COMMONDEPEND="
 			>=kde-base/libkcompactdisc-${KDE_MINIMAL}
 			>=kde-base/kdemultimedia-kioslaves-${KDE_MINIMAL}
 		)
-		embedded? ( <dev-db/mysql-5.1[embedded,-minimal] )
+		embedded? (
+			|| ( >=dev-db/mysql-5.1.50-r3 >=dev-db/mariadb-5.1.50 )
+		)
 		ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
 		lastfm? ( >=media-libs/liblastfm-0.3.0 )
 		mp3tunes? (
@@ -57,7 +59,7 @@ COMMONDEPEND="
 			net-misc/curl
 			x11-libs/qt-core[glib]
 		)
-		mtp? ( >=media-libs/libmtp-0.3.0 )
+		mtp? ( >=media-libs/libmtp-1.0.0 )
 		opengl? ( virtual/opengl )
 	)
 	utils? (
@@ -97,7 +99,7 @@ src_configure() {
 		mycmakeargs=(
 			-DWITH_PLAYER=ON
 			-DWITH_Libgcrypt=OFF
-			$(cmake-utils_use_with embedded MYSQL_EMBEDDED)
+			$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
 			$(cmake-utils_use_with ipod)
 			$(cmake-utils_use_with ipod Gdk)
 			$(cmake-utils_use_with lastfm LibLastFm)
