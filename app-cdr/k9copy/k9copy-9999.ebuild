@@ -13,7 +13,7 @@ ESVN_PROJECT="k9copy"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="2"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
