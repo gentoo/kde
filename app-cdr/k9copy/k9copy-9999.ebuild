@@ -2,44 +2,45 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
+
+if [[ ${PV} != *9999* ]]; then
+	KDE_LINGUAS="ca cs da de el es_AR es fr it ja nl pl pt_BR ru sr@Latn sr tr zh_TW"
+
+	MY_P=${P}-Source
+
+	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+
+	S=${WORKDIR}/${MY_P}
+else
+	ESVN_REPO_URI="https://k9copy.svn.sourceforge.net/svnroot/k9copy/kde4"
+	ESVN_PROJECT="k9copy"
+fi
 
 inherit kde4-base
 
 DESCRIPTION="k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5."
 HOMEPAGE="http://k9copy.sourceforge.net/"
-ESVN_REPO_URI="https://k9copy.svn.sourceforge.net/svnroot/k9copy/kde4"
-ESVN_PROJECT="k9copy"
 
 LICENSE="GPL-2"
-KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+KEYWORDS=""
+IUSE="debug +handbook"
 
 DEPEND="
 	media-libs/libdvdread
+	>=media-libs/libmpeg2-0.5.1
 	media-libs/xine-lib
-	>=media-video/ffmpeg-0.4.9_p20081014
-	x11-libs/qt-dbus:4
+	>=media-video/ffmpeg-0.5i
 "
 RDEPEND="${DEPEND}
-	!app-cdr/k9copy:0
 	media-video/dvdauthor
 	media-video/mplayer
 "
 
-src_prepare() {
-	sed -i -e\
-		"s:install(FILES k9copy_assistant_open.desktop:\
-		#install(FILES k9copy_assistant_open.desktop:"\
-		"${S}"/CMakeLists.txt || die "sed failed"
-
-	kde4-base_src_prepare
-}
+DOCS=( README )
 
 pkg_postinst() {
-	echo
-	elog "If you want K3b burning support in ${P}, please install app-cdr/k3b separately."
-	elog "If you want phonon media playback in ${P}, please install media-sound/phonon separately."
-	echo
+	kde4-base_pkg_postinst
+	has_version '>=app-cdr/k3b-1.50' || elog "If you want K3b burning support in ${P}, please install app-cdr/k3b separately."
 }
