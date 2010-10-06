@@ -47,7 +47,10 @@ COMMONDEPEND="
 			>=kde-base/kdemultimedia-kioslaves-${KDE_MINIMAL}
 		)
 		embedded? (
-			|| ( >=dev-db/mysql-5.1.50-r3 >=dev-db/mariadb-5.1.50 )
+			|| (
+				>=dev-db/mysql-5.1.50-r3[embedded]
+				>=dev-db/mariadb-5.1.50[embedded]
+			)
 		)
 		ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
 		lastfm? ( >=media-libs/liblastfm-0.3.0 )
