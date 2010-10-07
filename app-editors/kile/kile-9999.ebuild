@@ -7,11 +7,10 @@ EAPI=3
 KMNAME="extragear/office"
 
 if [[ ${PV} != *9999* ]]; then
-	MY_P=${P/_beta/b}
-
-	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
-
 	KDE_DOC_DIRS="doc"
+	KDE_HANDBOOK="optional"
+	MY_P=${P/_beta/b}
+	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 fi
 
 inherit kde4-base
@@ -22,7 +21,7 @@ HOMEPAGE="http://kile.sourceforge.net/"
 LICENSE="FDL-1.2 GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug handbook +pdf +png"
+IUSE="debug +pdf +png"
 
 DEPEND="
 	x11-misc/shared-mime-info
