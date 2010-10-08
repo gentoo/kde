@@ -326,7 +326,7 @@ case ${OPERATION} in
 	slot) add_new_sloted_version ;;
 	diff) check_cmakelists ;;
 	cvsmove)
-		MAINTREE="$(portageq portdir)"
+		MAINTREE="/home/alexxy/Gentoo/gentoo-x86"
 		OVERLAY="`pwd`"
 		BUMP_VERSION=${VERSION}
 		# course of action we are doing here

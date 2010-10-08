@@ -30,6 +30,7 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
+	incidenceeditor-ng/
 "
 KMCOMPILEONLY="
 	messagecomposer/
