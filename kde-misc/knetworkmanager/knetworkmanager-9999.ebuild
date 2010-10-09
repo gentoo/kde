@@ -23,6 +23,7 @@ DEPEND="
 	>=kde-base/solid-${KDE_MINIMAL}[networkmanager?,wicd?]
 	!wicd? ( >=kde-base/solid-${KDE_MINIMAL}[networkmanager] )
 	>=net-misc/networkmanager-0.7
+	net-misc/mobile-broadband-provider-info
 	consolekit? ( sys-auth/consolekit )
 "
 RDEPEND="${DEPEND}"
