@@ -676,6 +676,10 @@ kde4-base_src_prepare() {
 		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KSGRD_(LIBRARY|LIBS)\}/ksgrd/g' {} + \
 		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KEPHAL_(LIBRARY|LIBS)\}/kephal/g' {} + \
 		|| die 'failed to replace KDE4Workspace library targets'
+
+	find "${S}" -name "*.docbook" \
+		-exec sed -i -r -e 's/DocBook XML V4\.1\.2-Based Variant/DocBook XML V4.2-Based Variant/g' {} + \
+		|| die 'failed to fix DocBook variant version'
 }
 
 # @FUNCTION: kde4-base_src_configure
