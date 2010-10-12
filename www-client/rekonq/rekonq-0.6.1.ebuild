@@ -29,7 +29,7 @@ HOMEPAGE="http://rekonq.sourceforge.net/"
 
 LICENSE="GPL-3"
 SLOT="4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
@@ -38,3 +38,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 RESTRICT="test"
+
+PATCHES=( "${FILESDIR}/${P}-cve-2010-2536.patch" )

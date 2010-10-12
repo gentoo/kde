@@ -1,0 +1,3 @@
+# Theo Chatzimichos <tampakrap@gentoo.org> (12 Oct 2010)
+# Mask rekonq 0.6 branch as it depends on masked Qt 4.7
+=www-client/rekonq-0.6*
