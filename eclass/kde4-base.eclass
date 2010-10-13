@@ -201,6 +201,22 @@ else
 	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
 
+# Declarative dependencies
+qtdeclarativedepend="
+	>=x11-libs/qt-declarative-${QT_MINIMAL}:4
+"
+case ${DECLARATIVE_REQUIRED} in
+	always)
+		COMMONDEPEND+=" ${qtdeclarativedepend}"
+		;;
+	optional)
+		IUSE+=" declarative"
+		COMMONDEPEND+=" declarative? ( ${qtdeclarativedepend} )"
+		;;
+	*) ;;
+esac
+unset qtdeclarativedepend
+
 # OpenGL dependencies
 qtopengldepend="
 	>=x11-libs/qt-opengl-${QT_MINIMAL}:4
