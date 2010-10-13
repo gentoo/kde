@@ -277,11 +277,9 @@ unset cppuintdepend
 
 # KDE dependencies
 # Qt accessibility classes are needed in various places, bug 325461
-# kdelibs now needs qt-declarative too
 kdecommondepend="
 	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
-	>=x11-libs/qt-declarative-${QT_MINIMAL}:4
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
 	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility,kde]
 	>=x11-libs/qt-script-${QT_MINIMAL}:4
