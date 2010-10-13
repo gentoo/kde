@@ -5,6 +5,7 @@
 EAPI="3"
 
 CPPUNIT_REQUIRED="optional"
+DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 WEBKIT_REQUIRED="always"
 inherit kde4-base fdo-mime
