@@ -28,7 +28,7 @@ COMMONDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXrender
 	google-gadgets? ( >=x11-misc/google-gadgets-0.11.0[qt4] )
-	gps? ( sci-geosciences/gpsd )
+	gps? ( >=sci-geosciences/gpsd-2.37 )
 	python? (
 		>=dev-python/PyQt4-4.4.0[X]
 		>=dev-python/sip-4.7.1

@@ -17,7 +17,7 @@ IUSE="debug designer-plugin gps +handbook plasma python"
 RESTRICT=test
 
 DEPEND="
-	gps? ( sci-geosciences/gpsd )
+	gps? ( >=sci-geosciences/gpsd-2.37 )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
 		$(add_kdebase_dep pykde4)
