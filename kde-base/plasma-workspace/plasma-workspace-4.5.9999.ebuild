@@ -84,15 +84,6 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_prepare() {
-	# Disable GPS automagic
-	sed -e 's/find_package(libgps)/macro_optional_find_package(libgps)/' \
-	-i plasma/generic/dataengines/geolocation/CMakeLists.txt \
-	|| die "Failed to make GPS optional"
-
-	kde4-meta_src_prepare
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
