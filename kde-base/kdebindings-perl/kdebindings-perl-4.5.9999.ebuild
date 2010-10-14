@@ -14,6 +14,7 @@ IUSE="debug plasma"
 
 DEPEND="
 	$(add_kdebase_dep smoke)
+	>=dev-lang/perl-5.10.1
 "
 RDEPEND="${DEPEND}"
 
