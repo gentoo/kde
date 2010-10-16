@@ -15,8 +15,8 @@ KEYWORDS=""
 IUSE="debug plasma"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'multimedia?,webkit?')
 	>=dev-lang/perl-5.10.1
+	$(add_kdebase_dep smoke 'multimedia?,webkit?')
 "
 RDEPEND="${DEPEND}"
 
