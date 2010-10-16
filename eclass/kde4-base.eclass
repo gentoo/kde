@@ -113,6 +113,18 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_postinst pkg
 unset buildsystem_eclass
 unset export_fns
 
+# @ECLASS-VARIABLE: DECLARATIVE_REQUIRED
+# @DESCRIPTION:
+# Is qt-declarative required? Possible values are 'always', 'optional' and 'never'.
+# This variable must be set before inheriting any eclasses. Defaults to 'never'.
+DECLARATIVE_REQUIRED="${DECLARATIVE_REQUIRED:-never}"
+
+# @ECLASS-VARIABLE: QTHELP_REQUIRED
+# @DESCRIPTION:
+# Is qt-assistant required? Possible values are 'always', 'optional' and 'never'.
+# This variable must be set before inheriting any eclasses. Defaults to 'never'.
+QTHELP_REQUIRED="${QTHELP_REQUIRED:-never}"
+
 # @ECLASS-VARIABLE: OPENGL_REQUIRED
 # @DESCRIPTION:
 # Is qt-opengl required? Possible values are 'always', 'optional' and 'never'.
@@ -216,6 +228,21 @@ case ${DECLARATIVE_REQUIRED} in
 	*) ;;
 esac
 unset qtdeclarativedepend
+
+# QtHelp dependencies
+qthelpdepend="
+	>=x11-libs/qt-assistant-${QT_MINIMAL}:4
+"
+case ${QTHELP_REQUIRED} in
+	always)
+		COMMONDEPEND+=" ${qthelpdepend}"
+		;;
+	optional)
+		IUSE+=" qthelp"
+		COMMONDEPEND+=" qthelp? ( ${qthelpdepend} )"
+		;;
+esac
+unset qthelpdepend
 
 # OpenGL dependencies
 qtopengldepend="
