@@ -5,6 +5,7 @@
 EAPI="3"
 
 KMNAME="kdebindings"
+DECLARATIVE_REQUIRED="optional"
 MULTIMEDIA_REQUIRED="optional"
 WEBKIT_REQUIRED="optional"
 inherit kde4-meta
@@ -13,7 +14,6 @@ DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
 IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
-# TODO add qt-declarative
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
@@ -35,6 +35,7 @@ src_configure() {
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with attica LibAttica)
+		$(cmake-utils_use_disable declarative QtDeclarative)
 		$(cmake-utils_use_disable kate)
 		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_with okular)
