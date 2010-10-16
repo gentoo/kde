@@ -2,11 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
 
 KMNAME="extragear/base"
-KMMODULE="networkmanagement"
-QT_MINIMAL="4.6.0_beta"
+KMMODULE="knetworkmanagement"
+KDE_MINIMAL="4.5"
+
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="mirror://gentoo/${P}.tar.bz2"
+fi
 
 inherit kde4-base
 
@@ -19,14 +23,15 @@ SLOT="4"
 IUSE="consolekit debug +networkmanager wicd"
 
 DEPEND="
-	!kde-misc/networkmanager-applet
-	>=kde-base/solid-${KDE_MINIMAL}[networkmanager?,wicd?]
-	!wicd? ( >=kde-base/solid-${KDE_MINIMAL}[networkmanager] )
-	>=net-misc/networkmanager-0.7
+	$(add_kdebase_dep solid 'networkmanager?,wicd?')
 	net-misc/mobile-broadband-provider-info
+	>=net-misc/networkmanager-0.7
 	consolekit? ( sys-auth/consolekit )
+	!wicd? ( $(add_kdebase_dep solid 'networkmanager') )
 "
 RDEPEND="${DEPEND}"
+
+RESTRICT="test"
 
 src_prepare() {
 	kde4-base_src_prepare
@@ -38,11 +43,6 @@ src_prepare() {
 			"${S}/NetworkManager-kde4.conf" \
 			|| die "Fixing dbus policy failed"
 	fi
-	# We should drop tests
-	sed -i \
-		-e 's:add_subdirectory(tests):#add_subdirectory(tests):g' \
-			"${S}/CMakeLists.txt" \
-			|| die "Disabling tests failed"
 }
 
 src_configure() {
