@@ -5,7 +5,7 @@
 EAPI=3
 
 KMNAME="extragear/base"
-KMMODULE="knetworkmanagement"
+KMMODULE="networkmanagement"
 KDE_MINIMAL="4.5"
 
 if [[ ${PV} != *9999* ]]; then
