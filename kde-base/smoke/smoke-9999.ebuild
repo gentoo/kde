@@ -7,6 +7,7 @@ EAPI="3"
 KMNAME="kdebindings"
 DECLARATIVE_REQUIRED="optional"
 MULTIMEDIA_REQUIRED="optional"
+QTHELP_REQUIRED="optional"
 WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
@@ -42,6 +43,7 @@ src_configure() {
 		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with qimageblitz QImageBlitz)
 		$(cmake-utils_use_with qscintilla QScintilla)
+		$(cmake-utils_use_disable qthelp QtHelp)
 		$(cmake-utils_use_with qwt Qwt)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)

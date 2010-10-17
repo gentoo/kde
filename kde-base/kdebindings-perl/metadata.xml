@@ -3,8 +3,10 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
+	<flag name="declarative">Compile bindings for <pkg>x11-libs/qt-declarative</pkg>.</flag>
 	<flag name="multimedia">Compile bindings for <pkg>x11-libs/qt-multimedia</pkg>.</flag>
 	<flag name="plasma">Compile bindings for KDE's Plasma.</flag>
+	<flag name="qthelp">Compile bindings for QtHelp from <pkg>x11-libs/qt-assistant</pkg>.</flag>
 	<flag name="webkit">Compile bindings for <pkg>x11-libs/qt-webkit</pkg>.</flag>
 </use>
 </pkgmetadata>
