@@ -6,6 +6,7 @@ EAPI="3"
 
 KMNAME="kdebase-runtime"
 KMMODULE="plasma"
+DECLARATIVE_REQUIRED="always"
 inherit kde4-meta
 
 DESCRIPTION="Script engine and package tool for plasma"
