@@ -25,9 +25,9 @@ KMEXTRA="
 	libkdeedu/qtmmlwidget/
 "
 
-#PATCHES=(
-#	"${FILESDIR}"/${PN}-4.3.2-solaris-graph2d.patch
-#)
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.5.73-solaris-graph2d.patch
+)
 
 src_configure() {
 	mycmakeargs=(
