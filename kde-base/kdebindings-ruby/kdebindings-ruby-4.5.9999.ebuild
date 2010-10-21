@@ -24,6 +24,9 @@ IUSE="akonadi debug okular phonon plasma qscintilla qwt semantic-desktop"
 DEPEND="
 	$(add_kdebase_dep smoke 'akonadi?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
 "
+
+ruby_add_bdepend virtual/rubygems
+
 RDEPEND="${DEPEND}
 	!dev-ruby/qt4-qtruby
 "
