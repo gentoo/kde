@@ -123,7 +123,7 @@ add_blocker plasma-workspace '<4.3.75'
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs.patch"
-	"${FILESDIR}/${PN}-4.3.80-module-suffix.patch"
+	"${FILESDIR}/${PN}-4.5.73-module-suffix.patch"
 	"${FILESDIR}/${PN}-4.4.66-macos-unbundle.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"

@@ -31,7 +31,3 @@ KMEXTRACTONLY="
 	krunner/
 	ksmserver/org.kde.KSMServerInterface.xml
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.4.3-fix-sleep-205453.patch"
-)
