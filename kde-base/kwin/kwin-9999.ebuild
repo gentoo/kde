@@ -33,7 +33,8 @@ DEPEND="${COMMONDEPEND}
 	xcomposite? ( x11-proto/compositeproto )
 	xinerama? ( x11-proto/xineramaproto )
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	x11-apps/scripts"
 
 KMEXTRACTONLY="
 	ksmserver/

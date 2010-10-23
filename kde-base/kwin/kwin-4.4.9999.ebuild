@@ -32,7 +32,8 @@ DEPEND="${COMMONDEPEND}
 	xcomposite? ( x11-proto/compositeproto )
 	xinerama? ( x11-proto/xineramaproto )
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	x11-apps/scripts"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
