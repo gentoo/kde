@@ -13,6 +13,7 @@ IUSE="debug"
 KEYWORDS=""
 
 COMMONDEPEND="
+	$(add_kdebase_dep kcheckpass)
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksmserver)
 	$(add_kdebase_dep ksysguard)
