@@ -374,9 +374,9 @@ add_kdebase_dep() {
 	local use=${2:+,${2}}
 
 	if [[ ${KDEBASE} = kde-base ]]; then
-		# FIXME remove hack when kdepim-4.4.6 is gone
+		# FIXME remove hack when kdepim-4.4.{6,7} is gone
 		local FIXME_PV
-		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs ]]; then
+		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* || ${PV} = 4.4.7* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs ]]; then
 			FIXME_PV=4.4.5
 		else
 			FIXME_PV=${PV}
