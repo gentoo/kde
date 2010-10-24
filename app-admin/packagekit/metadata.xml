@@ -7,6 +7,5 @@
 		<flag name="cron">Install cron script for auto-update</flag>
 		<flag name="introspection">Enable GObject introspection.</flag>
 		<flag name="pm-utils">Use pm-utils</flag>
-		<flag name="udev">Add support for <pkg>sys-fs/udev</pkg></flag>
 	</use>
 </pkgmetadata>
