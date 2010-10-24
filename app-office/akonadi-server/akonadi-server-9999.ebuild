@@ -4,11 +4,11 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils git
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/akonadi"
+EGIT_REPO_URI="git://git.kde.org/akonadi.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
