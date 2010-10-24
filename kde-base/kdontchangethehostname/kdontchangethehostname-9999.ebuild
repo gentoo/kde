@@ -11,7 +11,9 @@ DESCRIPTION="Tool to inform KDE about a change in hostname"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="x11-apps/xauth"
+RDEPEND="
+	x11-apps/xauth
+"
 
 # moved from kdelibs
 add_blocker kdelibs 4.4.68
