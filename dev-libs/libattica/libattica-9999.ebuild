@@ -4,12 +4,12 @@
 
 EAPI="2"
 
-inherit cmake-utils subversion
+inherit cmake-utils git
 
 DESCRIPTION="A library providing access to Open Collaboration Services"
 HOMEPAGE="http://kde.org/"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/attica"
-ESVN_PROJECT="libattica"
+EGIT_REPO_URI="git://git.kde.org/attica.git"
+EGIT_PROJECT="libattica"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
