@@ -5,8 +5,9 @@
 EAPI="2"
 
 if [[ ${PV} = *9999* ]]; then
-	KMNAME="extragear/base"
-	KMMODULE="polkit-kde-1"
+	inherit git
+	EGIT_REPO_URI="git://gitorious.org/policykit-kde/policykit-kde.git"
+	EGIT_PROJECT="policykit-kde"
 else
 	KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
 	MY_P="${P/kde/kde-1}"
