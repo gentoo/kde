@@ -5,11 +5,11 @@
 EAPI="2"
 
 JAVA_PKG_OPT_USE="java"
-inherit base java-pkg-opt-2 cmake-utils flag-o-matic subversion
+inherit base java-pkg-opt-2 cmake-utils flag-o-matic git
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
+EGIT_REPO_URI="git://git.kde.org/soprano.git"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
