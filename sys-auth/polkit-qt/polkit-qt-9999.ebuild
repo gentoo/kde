@@ -30,10 +30,6 @@ RDEPEND="${COMMON_DEPEND}
 
 DOCS=(AUTHORS README README.porting TODO)
 
-src_unpack() {
-	subversion_src_unpack
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build examples)
