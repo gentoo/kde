@@ -4,17 +4,13 @@
 
 EAPI="2"
 
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="ca ca@valencia da de en_GB es et fr gl it nds pt pt_BR sv tr uk zh_CN zh_TW"
-fi
-
 KMNAME="kdevelop"
 inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 
-LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
+LICENSE="GPL-2 LGPL-2"
 IUSE="+cmake +cxx debug okteta +qmake qthelp"
 
 DEPEND="

@@ -4,19 +4,15 @@
 
 EAPI="2"
 
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="ca ca@valencia da de en_GB es et fr gl it nds pt pt_BR sv tr uk zh_CN zh_TW"
-fi
-
 KMNAME="kdevelop"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
 
-LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 # Moved to playground for now
 # bazaar git kompare mercurial
+LICENSE="GPL-2 LGPL-2"
 IUSE="cvs debug git reviewboard subversion"
 
 # Moved to playground for now
