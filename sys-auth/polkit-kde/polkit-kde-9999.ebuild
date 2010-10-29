@@ -24,8 +24,12 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=sys-auth/polkit-qt-0.95.1
+	>=sys-auth/polkit-qt-0.98
 "
 RDEPEND="${DEPEND}"
 
 [[ ${PV} = *9999* ]] || S="${WORKDIR}/${MY_P}"
+
+src_unpack() {
+	git_src_unpack
+}

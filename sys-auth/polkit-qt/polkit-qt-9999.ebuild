@@ -17,7 +17,7 @@ IUSE="debug examples"
 
 COMMON_DEPEND="
 	dev-libs/glib:2
-	>=sys-auth/polkit-0.96
+	>=sys-auth/polkit-0.99
 	x11-libs/qt-core
 	x11-libs/qt-gui[dbus]
 "
