@@ -33,6 +33,7 @@ KMEXTRA="generator/"
 
 src_configure() {
 	mycmakeargs=(
+		-DDISABLE_Qt3Support=ON
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with attica LibAttica)

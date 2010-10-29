@@ -24,6 +24,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
+		-DDISABLE_Qt3Support=ON
 		$(cmake-utils_use_disable declarative QtDeclarative)
 		$(cmake-utils_use_disable multimedia QtMultimedia)
 		$(cmake-utils_use_disable plasma)
