@@ -4,12 +4,11 @@
 
 EAPI="3"
 
-inherit cmake-utils subversion flag-o-matic
+inherit cmake-utils flag-o-matic git
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
-SRC_URI=""
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/automoc"
+EGIT_REPO_URI="git://git.kde.org/automoc.git"
 
 LICENSE="as-is"
 SLOT="0"
