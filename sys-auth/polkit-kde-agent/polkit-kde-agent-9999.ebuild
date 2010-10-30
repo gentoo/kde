@@ -6,8 +6,8 @@ EAPI="2"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git
-	EGIT_REPO_URI="git://gitorious.org/policykit-kde/policykit-kde.git"
-	EGIT_PROJECT="policykit-kde"
+	EGIT_REPO_URI="git://anongit.kde.org/polkit-kde-agent-1"
+	EGIT_PROJECT="polkit-kde-agent-1"
 else
 	KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
 	MY_P="${P/kde/kde-1}"
@@ -15,8 +15,8 @@ else
 fi
 inherit kde4-base
 
-DESCRIPTION="PolicyKit integration module for KDE."
-HOMEPAGE="http://kde.org"
+DESCRIPTION="PolKit agent module for KDE."
+HOMEPAGE="http://www.kde.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
