@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/pykde4/pykde4-4.5.2.ebuild,v 1.2 2010/10/06 17:49:00 dilfridge Exp $
 
 EAPI="3"
 
@@ -16,14 +16,19 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time
+# Added specific PyQt4 and sip deps to fix bug 332503.
 DEPEND="
 	!dev-python/pykde
+	>=dev-python/PyQt4-4.7.7-r1
+	>dev-python/sip-4.10
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-mapped-type-fix.patch" )
 
 pkg_setup() {
 	python_pkg_setup
