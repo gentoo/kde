@@ -103,10 +103,10 @@ RDEPEND="${COMMONDEPEND}
 "
 PDEPEND="
 	handbook? ( $(add_kdebase_dep khelpcenter) )
-	policykit? ( 
-					>=sys-auth/polkit-kde-agent-0.98
-					>=kde-misc/polkit-kde-kcmodules-0.98
-				)
+	policykit? (
+		>=kde-misc/polkit-kde-kcmodules-0.98
+		>=sys-auth/polkit-kde-agent-0.98
+	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 

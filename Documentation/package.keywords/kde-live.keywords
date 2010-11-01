@@ -309,4 +309,5 @@ dev-libs/libdbusmenu-qt
 dev-libs/shared-desktop-ontologies
 dev-python/pycups
 net-libs/libktorrent
+x11-apps/scripts
 x11-misc/google-gadgets
