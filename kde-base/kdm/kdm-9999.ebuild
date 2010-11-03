@@ -32,9 +32,6 @@ RDEPEND="${DEPEND}
 	x11-apps/xmessage
 "
 
-KMEXTRACTONLY="
-	kcontrol/kdm/
-"
 KMEXTRA="
 	libs/kdm/
 "
