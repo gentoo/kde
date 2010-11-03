@@ -8,6 +8,9 @@ KDE_HANDBOOK="optional"
 KMNAME="kdegames"
 inherit kde4-meta
 
-DESCRIPTION="KDE: Same Game - a little game about balls and how to get rid of them"
+DESCRIPTION="A KDE game almost the same as ksame, but a bit different."
 KEYWORDS=""
 IUSE="debug"
+
+# Replaced ksame around 4.5.74
+add_blocker ksame

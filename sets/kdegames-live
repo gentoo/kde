@@ -17,6 +17,7 @@ kde-base/killbots:live
 kde-base/kigo:live
 kde-base/kiriki:live
 kde-base/kjumpingcube:live
+kde-base/klickety:live
 kde-base/klines:live
 kde-base/kmahjongg:live
 kde-base/kmines:live
@@ -26,7 +27,6 @@ kde-base/kollision:live
 kde-base/konquest:live
 kde-base/kpat:live
 kde-base/kreversi:live
-kde-base/ksame:live
 kde-base/kshisen:live
 kde-base/ksirk:live
 kde-base/kspaceduel:live
