@@ -4,7 +4,6 @@
 
 EAPI="3"
 
-KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
 inherit kde4-meta
 
