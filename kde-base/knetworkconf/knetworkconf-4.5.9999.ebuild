@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KMNAME="kdeadmin"
 inherit kde4-meta
 
-DESCRIPTION="KDE control Center Module to confiure Network settings"
+DESCRIPTION="KDE Control Center module to configure network settings"
 KEYWORDS=""
 IUSE="debug"
 
