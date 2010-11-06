@@ -1,0 +1,26 @@
+--- kinit/klauncher.cpp.orig	2010-11-06 23:35:26.000000000 +0300
++++ kinit/klauncher.cpp	2010-11-07 02:45:19.000000000 +0300
+@@ -1151,6 +1151,12 @@
+     kDebug(7016) << "KLauncher: launching new slave " << name << " with protocol=" << protocol
+      << " args=" << arg_list << endl;
+ 
++#ifdef Q_WS_MAC
++    arg_list.prepend(KLibLoader::findLibrary(name));
++    name = KStandardDirs::locate("exe", QString::fromLatin1("kioslave"));
++    arg_list.prepend(name);
++#endif
++
+ #ifdef Q_OS_UNIX
+     if (mSlaveDebug == arg1)
+     {
+@@ -1161,8 +1167,10 @@
+     }
+     if (mSlaveValgrind == arg1)
+     {
++#ifdef Q_WS_MAC
+        arg_list.prepend(::findLibrary(name, KGlobal::mainComponent()));
+        arg_list.prepend(KStandardDirs::locate("exe", QString::fromLatin1("kioslave")));
++#endif
+        name = QString::fromLatin1("valgrind");
+        if (!mSlaveValgrindSkin.isEmpty()) {
+            arg_list.prepend(QLatin1String("--tool=") + mSlaveValgrindSkin);

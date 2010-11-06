@@ -129,7 +129,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.5.73-module-suffix.patch"
 	"${FILESDIR}/${PN}-4.4.66-macos-unbundle.patch"
 	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch"
-	"${FILESDIR}/${PN}-4.3.3-klauncher_mac.patch"
+	"${FILESDIR}/${PN}-4.5.74-klauncher_mac.patch"
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 )
