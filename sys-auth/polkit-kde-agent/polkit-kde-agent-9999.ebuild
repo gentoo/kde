@@ -26,7 +26,9 @@ IUSE="debug"
 DEPEND="
 	>=sys-auth/polkit-qt-0.98
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!sys-auth/polkit-kde
+"
 
 [[ ${PV} = *9999* ]] || S="${WORKDIR}/${MY_P}"
 
