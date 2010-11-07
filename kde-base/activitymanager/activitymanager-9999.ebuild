@@ -10,7 +10,3 @@ inherit kde4-meta
 DESCRIPTION="Activity manager"
 KEYWORDS=""
 IUSE="debug"
-
-KMEXTRACTONLY="
-	nepomuk/services/activities/org.kde.nepomuk.ActivitiesService.xml
-"
