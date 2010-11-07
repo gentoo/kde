@@ -18,7 +18,6 @@ RDEPEND="
 	$(add_kdebase_dep dolphin-plugins)
 	$(add_kdebase_dep kapptemplate)
 	$(add_kdebase_dep kate)
-	$(add_kdebase_dep kbugbuster)
 	$(add_kdebase_dep kcachegrind)
 	$(add_kdebase_dep kdeaccounts-plugin)
 	$(add_kdebase_dep kdesdk-kioslaves)
