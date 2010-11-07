@@ -10,16 +10,20 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Bomberman game"
 KEYWORDS=""
-IUSE="debug gluon"
+IUSE="debug openal"
 
 DEPEND="
-	gluon? ( media-libs/gluon )
+	openal? (
+		media-libs/libsndfile
+		media-libs/openal
+	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use gluon GRANATIER_USE_GLUON_SOUND_BACKEND)
+		$(cmake-utils_use_with openal OpenAL)
+		$(cmake-utils_use_with openal SndFile)
 	)
 
 	kde4-meta_src_configure
