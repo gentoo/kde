@@ -15,7 +15,7 @@ IUSE="debug +handbook jpeg rdp vnc zeroconf"
 #telepathy? ( >=net-libs/telepathy-qt4-0.18 ) not yet in portage/overlay
 
 DEPEND="
-	jpeg? ( media-libs/jpeg )
+	jpeg? ( virtual/jpeg )
 	vnc? ( >=net-libs/libvncserver-0.9 )
 	zeroconf? (
 		|| (
