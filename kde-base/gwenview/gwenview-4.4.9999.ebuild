@@ -17,7 +17,7 @@ RESTRICT="test"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	>=media-gfx/exiv2-0.18
-	media-libs/jpeg
+	virtual/jpeg
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
 RDEPEND="${DEPEND}"
