@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-libs/jpeg
 	media-libs/lcms:0
+	virtual/jpeg
 "
 RDEPEND="${DEPEND}"
