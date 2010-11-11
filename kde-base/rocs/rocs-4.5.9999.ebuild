@@ -16,3 +16,5 @@ DEPEND="
 	>=dev-cpp/eigen-2.0.3:2
 "
 RDEPEND=""
+
+PATCHES=( "${FILESDIR}/${PN}-4.5.3-double.patch" )
