@@ -111,7 +111,7 @@ src_install() {
 
 	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${EKDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
-		"${S}/kdm/kfrontend/sessions/kde.desktop.cmake" > "${T}/${KDE_X}.desktop"
+		"${S}/kdm/kfrontend/sessions/kde-plasma.desktop.cmake" > "${T}/${KDE_X}.desktop"
 	insinto /usr/share/xsessions
 	doins "${T}/${KDE_X}.desktop" || die "doins ${KDE_X}.desktop failed"
 }
