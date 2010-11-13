@@ -10,4 +10,16 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Screenshot Utility"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug kipi"
+
+DEPEND="
+	kipi? ( $(add_kdebase_dep libkipi) )
+"
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with libkipi)
+	)
+
+	kde4-meta_src_configure
+}
