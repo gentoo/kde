@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with libkipi)
+		$(cmake-utils_use_with kipi)
 	)
 
 	kde4-meta_src_configure
