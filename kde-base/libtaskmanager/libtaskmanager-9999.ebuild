@@ -14,6 +14,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kephal)
+	$(add_kdebase_dep libkworkspace)
 "
 RDEPEND="${DEPEND}"
 
@@ -21,4 +22,5 @@ KMSAVELIBS="true"
 
 KMEXTRACTONLY="
 	libs/kephal/
+	libs/kworkspace/
 "
