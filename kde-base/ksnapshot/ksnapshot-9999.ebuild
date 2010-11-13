@@ -15,6 +15,7 @@ IUSE="debug kipi"
 DEPEND="
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
