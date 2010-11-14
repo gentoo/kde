@@ -6,11 +6,24 @@ EAPI="3"
 
 KMNAME="kdeadmin"
 
-inherit kde4-meta
+inherit virtualx kde4-meta
 
 DESCRIPTION="KDE system log viewer"
 KEYWORDS=""
-IUSE="debug +handbook"
+IUSE="debug +handbook test"
 
-# Tests hang, last checked in 4.3.3
-RESTRICT="test"
+src_prepare() {
+	kde4-meta_src_prepare
+
+	if use test; then
+		# beat this stupid test into shape: the test files contain no year, so
+		# comparison succeeds only in 2007 !!!
+		local theyear=$(date +%Y)
+		sed -e "s:2007:${theyear}:g" -i ksystemlog/tests/systemAnalyzerTest.cpp
+	fi
+}
+
+src_test() {
+	export maketype="kde4-meta_src_test"
+	virtualmake
+}
