@@ -4,16 +4,17 @@
 
 EAPI=3
 
-KMNAME="extragear/office"
-
 if [[ ${PV} != *9999* ]]; then
 	KDE_DOC_DIRS="doc"
 	KDE_HANDBOOK="optional"
 	MY_P=${P/_beta/b}
 	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+else
+	EGIT_REPO_URI="http://anongit.kde.org/kile"
+	GIT_ECLASS="git"
 fi
 
-inherit kde4-base
+inherit kde4-base ${GIT_ECLASS}
 
 DESCRIPTION="A Latex Editor and TeX shell for KDE"
 HOMEPAGE="http://kile.sourceforge.net/"
