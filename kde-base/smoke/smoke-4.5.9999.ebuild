@@ -38,7 +38,7 @@ src_configure() {
 		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with qimageblitz QImageBlitz)
 		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_disable qwt)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_disable webkit QtWebKit)
