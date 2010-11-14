@@ -4,12 +4,11 @@
 
 EAPI="2"
 
-inherit perl-module subversion qt4 cmake-utils
+inherit git perl-module qt4 cmake-utils
 
 DESCRIPTION="Source code sanity checker for KDE developers."
 HOMEPAGE="http://www.kde.org/"
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/quality/krazy2"
-ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+EGIT_REPO_URI="git://gitorious.org/krazy/krazy.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -20,6 +19,7 @@ DEPEND="
 	>=dev-perl/HTML-Parser-2.20
 	>=dev-perl/Tie-IxHash-1.20
 	>=dev-perl/XML-LibXML-1.57
+	dev-perl/yaml
 	>=x11-libs/qt-gui-4.4:4
 "
 RDEPEND="${DEPEND}
@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 CMAKE_USE_DIR="${S}/cppchecks"
 
 src_unpack() {
-	subversion_src_unpack
+	git_src_unpack
 }
 
 src_prepare() {
