@@ -3,7 +3,6 @@
 <pkgmetadata>
 <use>
 	<flag name="archive">Enable support for a variety of archive formats through libarchive</flag>
-	<flag name="lzma">Enable LZMA/XZ archive support</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
