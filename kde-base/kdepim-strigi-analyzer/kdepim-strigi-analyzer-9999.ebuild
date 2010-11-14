@@ -15,5 +15,12 @@ IUSE="debug"
 DEPEND="
 	app-misc/strigi
 	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	libkleo/
+	libkpgp/
+	messageviewer/
+"
