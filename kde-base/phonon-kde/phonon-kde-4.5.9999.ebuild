@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 IUSE="alsa debug +xine"
 
 DEPEND="
-	>=media-sound/phonon-4.3.80[xine?]
+	>=media-sound/phonon-4.4.2[xine?]
 	alsa? ( media-libs/alsa-lib )
 "
 RDEPEND="${DEPEND}"
