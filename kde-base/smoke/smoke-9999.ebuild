@@ -31,6 +31,8 @@ RDEPEND="${COMMON_DEPEND}"
 
 KMEXTRA="generator/"
 
+KMSAVELIBS=1
+
 src_configure() {
 	mycmakeargs=(
 		-DDISABLE_Qt3Support=ON
