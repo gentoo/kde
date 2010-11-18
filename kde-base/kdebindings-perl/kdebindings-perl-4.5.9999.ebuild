@@ -22,9 +22,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-qttest-link.patch" # Investigate why it's needed while it shouldn't (--as-needed maybe)
-)
+KMLOADLIBS="smoke"
 
 src_configure() {
 	mycmakeargs=(
