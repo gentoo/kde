@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	dev-libs/libattica
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace 'rss?')
+	$(add_kdebase_dep plasma-workspace)
 	x11-misc/shared-mime-info
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
