@@ -24,7 +24,7 @@ RESTRICT="test"
 COMMONDEPEND="
 	app-crypt/qca:2
 	>=app-misc/strigi-0.6.3
-	>=dev-libs/libattica-0.1.4
+	>=dev-libs/libattica-0.1.90
 	>=dev-libs/libdbusmenu-qt-0.3.2
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
