@@ -1,28 +1,3 @@
-diff -ru rocs-4.5.3.orig/doc/rocs/index.docbook rocs-4.5.3/doc/rocs/index.docbook
---- rocs-4.5.3.orig/doc/rocs/index.docbook	2010-06-08 12:10:55.000000000 +0200
-+++ rocs-4.5.3/doc/rocs/index.docbook	2010-11-10 01:21:53.467410347 +0100
-@@ -180,9 +180,9 @@
- </programlisting> 
- <para>Node Variables:</para>
- <programlisting>
--    double x
--    double y
--    double width
-+    qreal x
-+    qreal y
-+    qreal width
-     string value
-     string name
-     string color  // in HEXA
-@@ -197,7 +197,7 @@
-     string color ( em hexa )
-     string value
-     string name
--    double width
-+    qreal width
-     string style ( dot, dash, dash dot, solid )
- 
-     node start();
 diff -ru rocs-4.5.3.orig/rocs/src/Core/edge.h rocs-4.5.3/rocs/src/Core/edge.h
 --- rocs-4.5.3.orig/rocs/src/Core/edge.h	2010-06-08 12:10:59.000000000 +0200
 +++ rocs-4.5.3/rocs/src/Core/edge.h	2010-11-10 01:23:28.283410355 +0100
