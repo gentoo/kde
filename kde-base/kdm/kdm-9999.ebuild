@@ -32,6 +32,8 @@ RDEPEND="${DEPEND}
 	x11-apps/xmessage
 "
 
+add_blocker systemsettings '<4.5.80'
+
 KMEXTRA="
 	libs/kdm/
 "
