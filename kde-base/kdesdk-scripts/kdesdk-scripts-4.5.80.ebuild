@@ -13,6 +13,11 @@ DESCRIPTION="KDE SDK Scripts"
 KEYWORDS="~amd64 ~x86"
 IUSE="+handbook debug"
 
+RDEPEND="
+	app-arch/advancecomp
+	media-gfx/optipng
+"
+
 src_prepare() {
 	# bug 275069
 	sed -ie 's:colorsvn::' scripts/CMakeLists.txt || die
