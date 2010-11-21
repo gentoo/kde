@@ -720,11 +720,13 @@ kde4-base_src_prepare() {
 		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KEPHAL_(LIBRARY|LIBS)\}/kephal/g' {} + \
 		|| die 'failed to replace KDE4Workspace library targets'
 
-	# Hack for manuals relying on outdated DTD
-	find "${S}" -name "*.docbook" \
-		-exec sed -i -r \
-			-e 's:-//KDE//DTD DocBook XML V4\.1(\..)?-Based Variant V1\.[01]//EN:-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN:g' {} + \
-		|| die 'failed to fix DocBook variant version'
+	# Hack for manuals relying on outdated DTD, only outside kde-base/koffice/...
+	if [ -z ${KDEBASE} ]; then 
+		find "${S}" -name "*.docbook" \
+			-exec sed -i -r \
+				-e 's:-//KDE//DTD DocBook XML V4\.1(\..)?-Based Variant V1\.[01]//EN:-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN:g' {} + \
+			|| die 'failed to fix DocBook variant version'
+	fi
 }
 
 # @FUNCTION: kde4-base_src_configure
