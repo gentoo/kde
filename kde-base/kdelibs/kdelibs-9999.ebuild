@@ -90,6 +90,7 @@ RDEPEND="${COMMONDEPEND}
 	!dev-libs/kunitconversion
 	!x11-libs/qt-phonon
 	!<=kde-misc/kdnssd-avahi-0.1.2:0
+	!<=kde-misc/knetworkmanager-4.4.0_p20100820
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
