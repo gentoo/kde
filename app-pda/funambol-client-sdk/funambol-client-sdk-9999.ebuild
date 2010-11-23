@@ -1,7 +1,8 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=2
+
+EAPI=3
 
 inherit autotools subversion
 
@@ -31,5 +32,5 @@ src_configure() {
 
 src_install() {
 	cd "${S}"/build/autotools
-	emake DESTDIR="${D}" install || die "emake install failed"
+	emake DESTDIR="${ED}" install || die "emake install failed"
 }

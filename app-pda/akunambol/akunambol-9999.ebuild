@@ -1,12 +1,13 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=2
+
+EAPI=3
 
 inherit kde4-base git
 
 DESCRIPTION="Akonadi Syncml client"
-HOMEPAGE="http://gitorious.org/akunambol"
+HOMEPAGE="http://akunambol.ruphy.org/"
 EGIT_REPO_URI="git://gitorious.org/akunambol/akunambol.git"
 
 LICENSE="GPL-3"
@@ -19,5 +20,6 @@ DEPEND="
 	>=app-pda/funambol-client-sdk-9999
 	>=kde-base/kdelibs-${KDE_MINIMAL}
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	net-libs/likeback
 "
 RDEPEND="${DEPEND}"
