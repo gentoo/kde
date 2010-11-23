@@ -16,6 +16,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	>=kde-base/kdelibs-${KDE_MINIMAL}
 "
 RDEPEND="${DEPEND}"
