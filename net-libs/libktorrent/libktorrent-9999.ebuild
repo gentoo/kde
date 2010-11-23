@@ -4,8 +4,10 @@
 
 EAPI="2"
 
+GIT_ECLASS=
 if [[ ${PV} == *9999* ]] ; then
-	KMNAME="extragear/network"
+	EGIT_REPO_URI="git://git.kde.org/libktorrent"
+	GIT_ECLASS="git"
 else
 	# upstream likes to skip that _ in beta releases
 	KTORRENT_VERSION="4.0.3"
@@ -20,7 +22,7 @@ else
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
-inherit kde4-base
+inherit kde4-base ${GIT_ECLASS}
 
 DESCRIPTION="A BitTorrent library based on KDE Platform"
 HOMEPAGE="http://ktorrent.org/"
