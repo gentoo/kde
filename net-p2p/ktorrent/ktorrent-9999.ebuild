@@ -4,8 +4,10 @@
 
 EAPI="2"
 
+GIT_ECLASS=
 if [[ ${PV} == *9999* ]] ; then
-	KMNAME="extragear/network"
+	EGIT_REPO_URI="git://git.kde.org/ktorrent"
+	GIT_ECLASS="git"
 else
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
@@ -19,7 +21,7 @@ else
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
-inherit kde4-base
+inherit kde4-base ${GIT_ECLASS}
 
 DESCRIPTION="A BitTorrent program for KDE."
 HOMEPAGE="http://ktorrent.org/"
@@ -34,13 +36,11 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 COMMONDEPEND="
 	>=net-libs/libktorrent-1.0.3
 	mediaplayer? ( >=media-libs/taglib-1.5 )
-	plasma? ( >=kde-base/libtaskmanager-${KDE_MINIMAL} )
-	rss? (
-		>=kde-base/kdepimlibs-${KDE_MINIMAL}
-	)
+	plasma? ( $(add_kdebase_dep libtaskmanager) )
+	rss? ( $(add_kdebase_dep kdepimlibs) )
 	shutdown? (
-		>=kde-base/libkworkspace-${KDE_MINIMAL}
-		>=kde-base/solid-${KDE_MINIMAL}
+		$(add_kdebase_dep libkworkspace)
+		$(add_kdebase_dep solid)
 	)
 "
 DEPEND="${COMMONDEPEND}
@@ -52,9 +52,9 @@ RDEPEND="${COMMONDEPEND}
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
-		>=kde-base/kdebase-kioslaves-${KDE_MINIMAL}
+		$(add_kdebase_dep kdebase-kioslaves)
 	)
-	kross? ( >=kde-base/krosspython-${KDE_MINIMAL} )
+	kross? ( $(add_kdebase_dep krosspython) )
 "
 
 src_prepare() {
