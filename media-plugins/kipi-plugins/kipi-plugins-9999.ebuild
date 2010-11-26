@@ -5,7 +5,7 @@
 EAPI="3"
 
 OPENGL_REQUIRED="optional"
-if [ ${PV} != *9999* ]; then
+if [ "${PV}" != "9999" ]; then
 	KDE_LINGUAS="ar ast be ca da de el en_GB eo es fr hne hr is it ja
 		lt lv ms nb nds nn oc pa pl pt pt_BR ro ru se sk th uk zh_CN zh_TW"
 	KMNAME="extragear/graphics"
