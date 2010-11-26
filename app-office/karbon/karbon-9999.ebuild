@@ -2,6 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+# 
+# Please note that koffice is currently bumped "forward" and that this live
+# ebuild is more or less unmaintained. 
+#
+
 EAPI="2"
 KMNAME="koffice"
 KMMODULE="${PN}"
