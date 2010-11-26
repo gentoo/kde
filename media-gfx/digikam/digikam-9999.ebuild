@@ -7,6 +7,7 @@ EAPI="3"
 if [ "${PV}" != "9999" ]; then
 	KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km
 				ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
+else
 	KMNAME="extragear/graphics"
 fi
 CMAKE_MIN_VERSION=2.8
