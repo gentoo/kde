@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdebase_dep kget)
 	$(add_kdebase_dep kopete)
 	$(add_kdebase_dep krdc)
-	$(add_kdebase_dep krfb)
 	ppp? ( $(add_kdebase_dep kppp) )
 	$(block_other_slots)
 "
