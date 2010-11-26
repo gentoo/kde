@@ -2,12 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
-#KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km
-#ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
-KMNAME="extragear/graphics"
-
+if [ ${PV} != *9999* ]; then
+	KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km
+				ko lt lv nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sv th tr uk vi zh_CN zh_TW"
+	KMNAME="extragear/graphics"
+fi
 CMAKE_MIN_VERSION=2.8
 
 # needed for sufficiently new libkdcraw
