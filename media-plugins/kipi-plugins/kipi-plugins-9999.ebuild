@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 OPENGL_REQUIRED="optional"
 if [ ${PV} != *9999* ]; then
