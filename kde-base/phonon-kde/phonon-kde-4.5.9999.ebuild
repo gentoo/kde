@@ -18,6 +18,7 @@ IUSE="alsa debug +xine"
 DEPEND="
 	>=media-sound/phonon-4.4.2[xine?]
 	alsa? ( media-libs/alsa-lib )
+	>=media-sound/phonon-4.4.3
 "
 RDEPEND="${DEPEND}"
 
