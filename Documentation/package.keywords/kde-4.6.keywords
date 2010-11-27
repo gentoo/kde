@@ -120,7 +120,7 @@ kde-base/smoke:4.6
 ~dev-libs/soprano-2.5.63_pre
 ~sys-auth/polkit-qt-0.98_pre
 ~sys-auth/polkit-kde-agent-0.98_pre
-~kde-misc/polkit-kde-kcmodules-9999 **
+~kde-misc/polkit-kde-kcmodules-0.98_pre
 kde-base/blinken:4.6
 kde-base/cantor:4.6
 kde-base/kalgebra:4.6
