@@ -39,6 +39,7 @@ KMCOMPILEONLY="
 	templateparser/
 	incidenceeditor-ng/
 	calendarsupport/
+	libkdepimdbusinterfaces/
 "
 KMEXTRA="
 	kmailcvt/
