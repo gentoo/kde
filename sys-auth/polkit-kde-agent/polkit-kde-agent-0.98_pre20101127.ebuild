@@ -9,7 +9,6 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://anongit.kde.org/polkit-kde-agent-1"
 	EGIT_PROJECT="polkit-kde-agent-1"
 else
-	KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
 	MY_P="${P/agent/agent-1}"
 	#SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 	SRC_URI="mirror://gentoo/${MY_P}.tar.bz2"
@@ -25,14 +24,10 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=sys-auth/polkit-qt-0.98
+	>=sys-auth/polkit-qt-0.98_pre
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-kde
 "
 
 [[ ${PV} = *9999* ]] || S="${WORKDIR}/${MY_P}"
-
-src_unpack() {
-	git_src_unpack
-}
