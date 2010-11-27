@@ -118,7 +118,7 @@
 ~kde-base/smoke-4.6.9999 **
 >=app-office/akonadi-server-1.4.80
 ~dev-libs/soprano-9999 **
-~sys-auth/polkit-qt-9999 **
+~sys-auth/polkit-qt-0.98_pre
 ~sys-auth/polkit-kde-agent-9999 **
 ~kde-misc/polkit-kde-kcmodules-9999 **
 ~kde-base/blinken-4.6.9999 **
