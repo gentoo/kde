@@ -29,11 +29,14 @@ KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
-	incidenceeditor-ng/
 	kdgantt2/
 	kmail/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/
+"
+
+KMCOMPILEONLY="
+	incidenceeditor-ng/
 "
 
 PATCHES=(

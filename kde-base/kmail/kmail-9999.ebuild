@@ -30,7 +30,6 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
-	incidenceeditor-ng/
 "
 KMCOMPILEONLY="
 	messagecomposer/
@@ -38,6 +37,7 @@ KMCOMPILEONLY="
 	messagelist/
 	messageviewer/
 	templateparser/
+	incidenceeditor-ng/
 "
 KMEXTRA="
 	kmailcvt/
