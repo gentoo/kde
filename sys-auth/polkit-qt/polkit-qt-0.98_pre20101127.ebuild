@@ -32,6 +32,8 @@ RDEPEND="${COMMON_DEPEND}
 
 DOCS=(AUTHORS README README.porting TODO)
 
+S="${WORKDIR}/${MY_P}"
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build examples)
