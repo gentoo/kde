@@ -64,7 +64,7 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	policykit? ( >=sys-auth/polkit-qt-0.98 )
+	policykit? ( >=sys-auth/polkit-qt-0.98_pre )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.5
 		>=dev-libs/soprano-2.5.63[dbus,raptor,redland]
