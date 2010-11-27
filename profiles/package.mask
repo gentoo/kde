@@ -287,6 +287,7 @@ kde-misc/daisy
 ~kde-base/systemsettings-4.5.80
 ~kde-base/thumbnailers-4.5.80
 ~kde-base/umbrello-4.5.80
+~sys-auth/polkit-0.98_pre
 
 kde-base/akonadiconsole:4.5
 kde-base/akregator:4.5
