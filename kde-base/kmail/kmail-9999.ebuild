@@ -30,6 +30,7 @@ KMEXTRACTONLY="
 	kresources/
 	libkleo/
 	libkpgp/
+	libkdepimdbusinterfaces/
 "
 KMCOMPILEONLY="
 	messagecomposer/
@@ -39,7 +40,6 @@ KMCOMPILEONLY="
 	templateparser/
 	incidenceeditor-ng/
 	calendarsupport/
-	libkdepimdbusinterfaces/
 "
 KMEXTRA="
 	kmailcvt/
