@@ -106,7 +106,7 @@ PDEPEND="
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
 		>=kde-misc/polkit-kde-kcmodules-0.98
-		>=sys-auth/polkit-kde-agent-0.98
+		>=sys-auth/polkit-kde-agent-0.98_pre
 	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
