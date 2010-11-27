@@ -38,6 +38,7 @@ KMCOMPILEONLY="
 	messageviewer/
 	templateparser/
 	incidenceeditor-ng/
+	calendarsupport/
 "
 KMEXTRA="
 	kmailcvt/
