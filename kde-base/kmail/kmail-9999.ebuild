@@ -31,6 +31,7 @@ KMEXTRACTONLY="
 	libkleo/
 	libkpgp/
 	libkdepimdbusinterfaces/
+	kdgantt2/
 "
 KMCOMPILEONLY="
 	messagecomposer/
