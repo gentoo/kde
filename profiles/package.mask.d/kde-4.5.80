@@ -282,3 +282,4 @@
 ~kde-base/umbrello-4.5.80
 ~sys-auth/polkit-0.98_pre
 ~dev-libs/soprano-2.5.63_pre
+~sys-auth/polkit-kde-agent-0.98_pre
