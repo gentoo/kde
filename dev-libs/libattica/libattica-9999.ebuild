@@ -8,7 +8,7 @@ inherit cmake-utils git
 
 DESCRIPTION="A library providing access to Open Collaboration Services"
 HOMEPAGE="http://kde.org/"
-EGIT_REPO_URI="git://git.kde.org/attica.git"
+EGIT_REPO_URI="git://git.kde.org/attica"
 EGIT_PROJECT="libattica"
 
 LICENSE="GPL-2 LGPL-2"

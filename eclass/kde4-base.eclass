@@ -499,7 +499,7 @@ case ${BUILD_TYPE} in
 			fi
 			case ${KDEBASE} in
 				kdevelop)
-					EGIT_REPO_URI="git://git.kde.org/${KMMODULE}.git"
+					EGIT_REPO_URI="git://git.kde.org/${KMMODULE}"
 					;;
 			esac
 		fi
