@@ -499,7 +499,7 @@ case ${BUILD_TYPE} in
 			fi
 			case ${KDEBASE} in
 				kdevelop)
-					EGIT_REPO_URI="git://gitorious.org/${KMNAME}/${KMMODULE}.git"
+					EGIT_REPO_URI="git://git.kde.org/${KMMODULE}.git"
 					;;
 			esac
 		fi
@@ -721,7 +721,7 @@ kde4-base_src_prepare() {
 		|| die 'failed to replace KDE4Workspace library targets'
 
 	# Hack for manuals relying on outdated DTD, only outside kde-base/koffice/...
-	if [ -z ${KDEBASE} ]; then 
+	if [[ -z ${KDEBASE} ]]; then
 		find "${S}" -name "*.docbook" \
 			-exec sed -i -r \
 				-e 's:-//KDE//DTD DocBook XML V4\.1(\..)?-Based Variant V1\.[01]//EN:-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN:g' {} + \
