@@ -11,7 +11,7 @@ DESCRIPTION="KDE development support libraries and apps"
 
 KEYWORDS=""
 # Moved to playground for now
-# bazaar git kompare mercurial
+# bazaar kompare mercurial
 LICENSE="GPL-2 LGPL-2"
 IUSE="cvs debug git reviewboard subversion"
 
@@ -19,7 +19,6 @@ IUSE="cvs debug git reviewboard subversion"
 # bazaar? ( dev-vcs/bzr )
 # kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
 # mercurial? ( dev-vcs/mercurial )
-# git? ( dev-vcs/git )
 # block - some plugins moved to kdevplatform from kdevelop
 DEPEND="
 	dev-libs/boost
