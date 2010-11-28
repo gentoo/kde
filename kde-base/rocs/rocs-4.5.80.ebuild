@@ -17,7 +17,7 @@ DEPEND="
 "
 RDEPEND=""
 
-PATCHES=( "${FILESDIR}/${PN}-4.5.3-double.patch" )
+PATCHES=( "${FILESDIR}/${P}-double.patch" )
 
 src_prepare() {
 	kde4-meta_src_prepare

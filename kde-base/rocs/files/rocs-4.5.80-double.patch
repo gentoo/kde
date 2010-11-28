@@ -1,0 +1,168 @@
+diff -ruN rocs-4.5.80.orig/rocs/src/Core/Data.h rocs-4.5.80/rocs/src/Core/Data.h
+--- rocs-4.5.80.orig/rocs/src/Core/Data.h	2010-09-20 10:50:19.000000000 +0200
++++ rocs-4.5.80/rocs/src/Core/Data.h	2010-11-28 22:34:45.602646490 +0100
+@@ -85,7 +85,7 @@
+ 
+     void setX(int x);
+     void setY(int y);
+-    void setWidth(double w);
++    void setWidth(qreal w);
+     void setPos(qreal x, qreal y);
+     qreal x() const;
+     qreal y() const;
+diff -ruN rocs-4.5.80.orig/rocs/src/Core/Pointer.cpp rocs-4.5.80/rocs/src/Core/Pointer.cpp
+--- rocs-4.5.80.orig/rocs/src/Core/Pointer.cpp	2010-09-20 10:50:19.000000000 +0200
++++ rocs-4.5.80/rocs/src/Core/Pointer.cpp	2010-11-28 22:34:32.959646460 +0100
+@@ -39,7 +39,7 @@
+     bool showValue;
+ 
+     QString style;
+-    double width;
++    qreal width;
+ 
+      DataType *dataType;
+ 
+@@ -177,7 +177,7 @@
+ qreal Pointer::width () const {
+     return d->width;
+ }
+-void Pointer::setWidth(double w) {
++void Pointer::setWidth(qreal w) {
+     d->width = w;
+     emit changed();
+ }
+diff -ruN rocs-4.5.80.orig/rocs/src/Core/Pointer.h rocs-4.5.80/rocs/src/Core/Pointer.h
+--- rocs-4.5.80.orig/rocs/src/Core/Pointer.h	2010-09-20 10:50:19.000000000 +0200
++++ rocs-4.5.80/rocs/src/Core/Pointer.h	2010-11-28 22:34:19.803646370 +0100
+@@ -56,7 +56,7 @@
+     Q_PROPERTY(QString color READ color WRITE setColor)
+     Q_PROPERTY(QString value READ value WRITE setValue)
+     Q_PROPERTY(QString name READ name WRITE setName)
+-    Q_PROPERTY(double width READ width WRITE setWidth)
++    Q_PROPERTY(qreal width READ width WRITE setWidth)
+     Q_PROPERTY(QString style READ style WRITE setStyle)
+ 
+ public:
+@@ -140,7 +140,7 @@
+     void setColor(const QString& s);
+ 
+     qreal width () const;
+-    void setWidth(double w);
++    void setWidth(qreal w);
+ 
+     const QString& style() const;
+     void setStyle(const QString& s);
+diff -ruN rocs-4.5.80.orig/rocs/src/GraphicsItem/math_constants.h rocs-4.5.80/rocs/src/GraphicsItem/math_constants.h
+--- rocs-4.5.80.orig/rocs/src/GraphicsItem/math_constants.h	2010-06-08 12:10:59.000000000 +0200
++++ rocs-4.5.80/rocs/src/GraphicsItem/math_constants.h	2010-11-28 22:34:01.287646435 +0100
+@@ -23,10 +23,10 @@
+ #define MATH_CONSTANTS_H
+ 
+ 
+-static const double Pi = 3.14159265358979323846264338327950288419717;
++static const qreal Pi = 3.14159265358979323846264338327950288419717;
+ 
+ /// The value of Pi * 2
+-static const double TwoPi = 2.0 * Pi;
++static const qreal TwoPi = 2.0 * Pi;
+ 
+ /// The Value of PI / 3
+ static const qreal PI_3 = Pi / 3.0;
+diff -ruN rocs-4.5.80.orig/rocs/src/Interface/NodePropertiesWidget.cpp rocs-4.5.80/rocs/src/Interface/NodePropertiesWidget.cpp
+--- rocs-4.5.80.orig/rocs/src/Interface/NodePropertiesWidget.cpp	2010-09-27 21:51:04.000000000 +0200
++++ rocs-4.5.80/rocs/src/Interface/NodePropertiesWidget.cpp	2010-11-28 22:30:58.375646448 +0100
+@@ -45,7 +45,7 @@
+     connect( _value,        SIGNAL(textChanged(QString)),   _datum, SLOT(setValue(QString)));
+ //     connect( _x,            SIGNAL(valueChanged(int)),      _datum, SLOT(setX(int)));
+ //     connect( _y,            SIGNAL(valueChanged(int)),      _datum, SLOT(setY(int)));
+-//     connect( _width,        SIGNAL(valueChanged(double)),   _datum, SLOT(setWidth(double)));
++//     connect( _width,        SIGNAL(valueChanged(qreal)),   _datum, SLOT(setWidth(qreal)));
+ 
+     GraphPropertiesModel *model = new GraphPropertiesModel();
+     model->setDataSource(_datum);
+@@ -144,6 +144,6 @@
+     disconnect( _value,        SIGNAL(textChanged(QString)),   n, SLOT(setValue(QString)));
+ //     disconnect( _x,            SIGNAL(valueChanged(int)),      n, SLOT(setX(int)));
+ //     disconnect( _y,            SIGNAL(valueChanged(int)),      n, SLOT(setY(int)));
+-//     disconnect( _width,        SIGNAL(valueChanged(double)),   n, SLOT(setWidth(double)));
++//     disconnect( _width,        SIGNAL(valueChanged(qreal)),   n, SLOT(setWidth(qreal)));
+ 
+ }
+diff -ruN rocs-4.5.80.orig/rocs/src/Interface/edgepropertieswidget.cpp rocs-4.5.80/rocs/src/Interface/edgepropertieswidget.cpp
+--- rocs-4.5.80.orig/rocs/src/Interface/edgepropertieswidget.cpp	2010-08-19 10:51:56.000000000 +0200
++++ rocs-4.5.80/rocs/src/Interface/edgepropertieswidget.cpp	2010-11-28 22:31:30.290646224 +0100
+@@ -53,7 +53,7 @@
+ 
+     connect(_value,     SIGNAL(textChanged(QString)),   _pointer, SLOT(setValue(QString)));
+     connect(_name,      SIGNAL(textChanged(QString)),   _pointer, SLOT(setName(QString)));
+-    connect(_width,     SIGNAL(valueChanged(double)),    _pointer, SLOT(setWidth(double)));
++    connect(_width,     SIGNAL(valueChanged(qreal)),    _pointer, SLOT(setWidth(qreal)));
+     connect(_showName,  SIGNAL(toggled(bool)),          _pointer, SLOT(hideName(bool)));
+     connect(_showValue, SIGNAL(toggled(bool)),          _pointer, SLOT(hideValue(bool)));
+ 
+@@ -101,7 +101,7 @@
+ 
+     disconnect(_value,     SIGNAL(textChanged(QString)),   _pointer, SLOT(setValue(QString)));
+     disconnect(_name,      SIGNAL(textChanged(QString)),   _pointer, SLOT(setName(QString)));
+-    disconnect(_width,     SIGNAL(valueChanged(double)),    _pointer, SLOT(setWidth(double)));
++    disconnect(_width,     SIGNAL(valueChanged(qreal)),    _pointer, SLOT(setWidth(qreal)));
+     disconnect(_showName,  SIGNAL(toggled(bool)),          _pointer, SLOT(hideName(bool)));
+     disconnect(_showValue, SIGNAL(toggled(bool)),          _pointer, SLOT(hideValue(bool)));
+ }
+diff -ruN rocs-4.5.80.orig/rocs/src/Plugins/DSPlugins/Graph/GraphPlugin.cpp rocs-4.5.80/rocs/src/Plugins/DSPlugins/Graph/GraphPlugin.cpp
+--- rocs-4.5.80.orig/rocs/src/Plugins/DSPlugins/Graph/GraphPlugin.cpp	2010-11-05 11:48:01.000000000 +0100
++++ rocs-4.5.80/rocs/src/Plugins/DSPlugins/Graph/GraphPlugin.cpp	2010-11-28 22:32:45.944646450 +0100
+@@ -85,7 +85,7 @@
+ 
+   connect( x,            SIGNAL(valueChanged(int)),      node, SLOT(setX(int)));
+   connect( y,            SIGNAL(valueChanged(int)),      node, SLOT(setY(int)));
+-  connect( size,        SIGNAL(valueChanged(double)),   node, SLOT(setWidth(double)));
++  connect( size,        SIGNAL(valueChanged(qreal)),   node, SLOT(setWidth(qreal)));
+   QFrame * line = new QFrame(parentWidget);
+   line->setFrameShape(QFrame::VLine);
+ 
+diff -ruN rocs-4.5.80.orig/rocs/src/Plugins/GMLParser/GMLGrammar.h rocs-4.5.80/rocs/src/Plugins/GMLParser/GMLGrammar.h
+--- rocs-4.5.80.orig/rocs/src/Plugins/GMLParser/GMLGrammar.h	2010-11-05 11:48:00.000000000 +0100
++++ rocs-4.5.80/rocs/src/Plugins/GMLParser/GMLGrammar.h	2010-11-28 22:32:21.925646415 +0100
+@@ -134,7 +134,7 @@
+ void finalactions(char const* first, char const* last);
+ 
+ bool parse_point(char const* str, QPoint& p);
+-bool parse_real(char const* str, double& d);
++bool parse_real(char const* str, qreal& d);
+ bool parse_integers(char const* str, std::vector<int>& v);
+ bool parse_spline(char const* str, QVector< QPair< float, float > >& points);
+ void init_op();
+diff -ruN rocs-4.5.80.orig/rocs/src/Plugins/dotParser/dotgrammar.cpp rocs-4.5.80/rocs/src/Plugins/dotParser/dotgrammar.cpp
+--- rocs-4.5.80.orig/rocs/src/Plugins/dotParser/dotgrammar.cpp	2010-11-05 11:48:01.000000000 +0100
++++ rocs-4.5.80/rocs/src/Plugins/dotParser/dotgrammar.cpp	2010-11-28 22:33:04.498646532 +0100
+@@ -389,7 +389,7 @@
+     return true;
+   }
+ 
+-  double h,s,v;
++  qreal h,s,v;
+   res = parse(str,
+               (
+                 real_p[assign_a(h)] >> !ch_p(',') >> real_p[assign_a(s)] >> !ch_p(',') >> real_p[assign_a(v)]
+@@ -404,7 +404,7 @@
+   return false;
+ }
+ 
+-bool parse_real(char const* str, double& d)
++bool parse_real(char const* str, qreal& d)
+ {
+   return parse(str,
+                (
+diff -ruN rocs-4.5.80.orig/rocs/src/Plugins/dotParser/dotgrammar.h rocs-4.5.80/rocs/src/Plugins/dotParser/dotgrammar.h
+--- rocs-4.5.80.orig/rocs/src/Plugins/dotParser/dotgrammar.h	2010-11-05 11:48:01.000000000 +0100
++++ rocs-4.5.80/rocs/src/Plugins/dotParser/dotgrammar.h	2010-11-28 22:33:23.710646519 +0100
+@@ -72,7 +72,7 @@
+ void finalactions(char const* first, char const* last);
+ 
+ bool parse_point(char const* str, QPoint& p);
+-bool parse_real(char const* str, double& d);
++bool parse_real(char const* str, qreal& d);
+ bool parse_integers(char const* str, std::vector<int>& v);
+ bool parse_spline(char const* str, QVector< QPair< float, float > >& points);
+ void init_op();

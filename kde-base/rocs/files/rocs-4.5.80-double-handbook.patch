@@ -1,7 +1,7 @@
-diff -ru rocs-4.5.3.orig/doc/rocs/index.docbook rocs-4.5.3/doc/rocs/index.docbook
---- rocs-4.5.3.orig/doc/rocs/index.docbook	2010-06-08 12:10:55.000000000 +0200
-+++ rocs-4.5.3/doc/rocs/index.docbook	2010-11-10 01:21:53.467410347 +0100
-@@ -180,9 +180,9 @@
+diff -ruN rocs-4.5.80.orig/doc/rocs/index.docbook rocs-4.5.80/doc/rocs/index.docbook
+--- rocs-4.5.80.orig/doc/rocs/index.docbook	2010-10-27 21:55:08.000000000 +0200
++++ rocs-4.5.80/doc/rocs/index.docbook	2010-11-28 22:35:11.590646446 +0100
+@@ -177,9 +177,9 @@
  </programlisting> 
  <para>Node Variables:</para>
  <programlisting>
@@ -14,7 +14,7 @@ diff -ru rocs-4.5.3.orig/doc/rocs/index.docbook rocs-4.5.3/doc/rocs/index.docboo
      string value
      string name
      string color  // in HEXA
-@@ -197,7 +197,7 @@
+@@ -194,7 +194,7 @@
      string color ( em hexa )
      string value
      string name
