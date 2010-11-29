@@ -388,13 +388,14 @@ kde-base/krossjava:4.6
 kde-base/krosspython:4.6
 kde-base/pykde4:4.6
 kde-base/smoke:4.6
-# Polkit and deps
->=sys-auth/polkit-qt-0.98_pre
->=sys-auth/polkit-0.98
+# Polkit and other deps
+>=app-office/akonadi-server-1.4.80
 >=dev-libs/glib-2.25.12
 >=dev-libs/soprano-2.5.63_pre
->=sys-auth/polkit-kde-agent-0.98_pre
 >=kde-misc/polkit-kde-kcmodules-0.98_pre
+>=sys-auth/polkit-0.98
+>=sys-auth/polkit-kde-agent-0.98_pre
+>=sys-auth/polkit-qt-0.98_pre
 >=sys-power/upower-0.9.7
 kde-base/blinken:4.6
 kde-base/cantor:4.6
@@ -593,7 +594,3 @@ kde-base/ktimetracker:4.5
 =net-im/kmess-9999
 
 media-libs/opengtl
-
-# Depends on a package-masked version of polkit
-# Remove when nirbheek@g.o unmasks >=sys-auth/polkit-0.99
->=sys-auth/polkit-qt-0.98
