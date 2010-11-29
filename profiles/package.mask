@@ -593,3 +593,7 @@ kde-base/ktimetracker:4.5
 =net-im/kmess-9999
 
 media-libs/opengtl
+
+# Depends on a package-masked version of polkit
+# Remove when nirbheek@g.o unmasks >=sys-auth/polkit-0.99
+>=sys-auth/polkit-qt-0.98
