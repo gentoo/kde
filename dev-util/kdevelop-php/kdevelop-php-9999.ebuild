@@ -5,7 +5,7 @@
 EAPI="2"
 
 KMNAME="kdevelop"
-KMMODULE="php"
+KMMODULE="kdev-php"
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
