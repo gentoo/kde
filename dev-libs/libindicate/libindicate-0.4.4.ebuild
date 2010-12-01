@@ -33,9 +33,12 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	# Without patches:
-	# Make gtk optional, launchpad-bug #431311
 	# Make python optional, launchpad-bug #643921
 	# Make mono optional, launchpad-bug #643922
+
+	# Incomplete patches:
+	# Make gtk optional, needs optional-python or code modifications, launchpad-bug #431311
+	#epatch "${FILESDIR}/${P}-optional-gtk.patch"
 
 	# Make doc optional, launchpad-bug #643911
 	epatch "${FILESDIR}/${P}-optional-doc.patch"
@@ -43,10 +46,14 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-optional-mono-example.patch"
 	# Do not compile examples by default, launchpad-bug #643917
 	epatch "${FILESDIR}/${P}-optional-examples.patch"
-	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552537
+	# Fix trouble with autoreconf and m4 directory, launchpad-bug #683552
 	epatch "${FILESDIR}/${P}-fix-aclocal.patch"
+	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552537
+	epatch "${FILESDIR}/${P}-fix-introspection.patch"
 	# Fix out-of-source builds, launchpad-bug #643913
 	epatch "${FILESDIR}/${P}-fix-out-of-source-build.patch"
+	# Fix compilation for python != 2.6, launchpad-bug #594992
+	epatch "${FILESDIR}/${P}-fix-python-version.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libindicate/Makefile.am libindicate-gtk/Makefile.am || die "sed failed"
 	eautoreconf
