@@ -17,9 +17,9 @@ DEPEND="
 "
 RDEPEND=""
 
-PATCHES=( "${FILESDIR}/${PN}-4.5.3-double.patch" )
+PATCHES=( "${FILESDIR}/${PN}-double.patch" )
 
 src_prepare() {
 	kde4-meta_src_prepare
-	use handbook && epatch "${FILESDIR}/${P}-double-handbook.patch"
+	use handbook && epatch "${FILESDIR}/${PN}-double-handbook.patch"
 }
