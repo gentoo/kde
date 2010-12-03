@@ -328,4 +328,24 @@ kde-base/ktimetracker:4.5
 # Users should stick with 2.0.x branch instead
 =net-im/kmess-9999
 
+
+# Mask RC's of koffice-2.3 - this is work in progress 
+# Some of the applications do not build yet and I have not
+# even started checking if they are "complete"
+# dilfridge, 3/12/2010
+#
+>=app-office/koffice-meta-2.2.91
+>=app-office/kexi-2.2.91
+>=app-office/koffice-l10n-2.2.91
+>=app-office/kplato-2.2.91
+>=app-office/kchart-2.2.91
+>=app-office/kword-2.2.91
+>=app-office/krita-2.2.91
+>=app-office/kspread-2.2.91
+>=app-office/koffice-data-2.2.91
+>=app-office/kpresenter-2.2.91
+>=app-office/koffice-libs-2.2.91
+>=app-office/karbon-2.2.91
+
+
 media-libs/opengtl
