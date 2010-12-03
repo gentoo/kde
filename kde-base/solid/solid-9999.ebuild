@@ -10,13 +10,12 @@ inherit kde4-meta
 
 DESCRIPTION="Solid: the KDE hardware library"
 KEYWORDS=""
-IUSE="bluetooth debug networkmanager wicd"
+IUSE="debug networkmanager wicd"
 
 # solid/CMakeLists.txt has an add_subdirectory statement that depends on
 # networkmanager-0.7, referring to a non-existant directory, restricted to =0.6*
 # for now.
 DEPEND="
-	bluetooth? ( net-wireless/bluez )
 	networkmanager? ( >=net-misc/networkmanager-0.7 )
 	wicd? ( net-misc/wicd )
 "
@@ -30,7 +29,6 @@ KMEXTRA="
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with bluetooth BlueZ)
 		$(cmake-utils_use_with networkmanager NetworkManager)
 		$(cmake-utils_use_build wicd)
 	)
