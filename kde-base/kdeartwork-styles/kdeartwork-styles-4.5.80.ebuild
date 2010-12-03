@@ -14,6 +14,10 @@ IUSE="debug"
 
 add_blocker kwin '<4.5.67'
 
+DEPEND="
+		$(add_kdebase_dep kwin)
+"
+
 KMEXTRA="
 	aurorae/
 	kwin-styles/
