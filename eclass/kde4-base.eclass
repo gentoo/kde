@@ -537,7 +537,7 @@ case ${BUILD_TYPE} in
 							# Unstable KDE SC releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
-						4.4.6 | 4.4.7)
+						4.4.6 | 4.4.7 | 4.4.8)
 							# Only kdepim here
 							SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
