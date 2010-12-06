@@ -1,0 +1,3 @@
+# Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> (5 Dec 2010)
+# Masking amarok-2.3.90 until the tarball is released
+=media-sound/amarok-2.3.90
