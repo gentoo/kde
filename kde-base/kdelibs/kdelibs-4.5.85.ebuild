@@ -133,7 +133,6 @@ PATCHES=(
 #	"${FILESDIR}/${PN}-4.5.74-klauncher_mac.patch" - FIXME read above
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
-	"${FILESDIR}/${PN}-4.5.80-udisks.patch"
 )
 
 src_prepare() {
