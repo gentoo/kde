@@ -64,10 +64,10 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	policykit? ( >=sys-auth/polkit-qt-0.98 )
+	policykit? ( >=sys-auth/polkit-qt-0.98_pre )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.5
-		>=dev-libs/soprano-2.5.63[dbus,raptor,redland]
+		>=dev-libs/soprano-2.5.63_pre[dbus,raptor,redland]
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
@@ -105,8 +105,8 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
-		>=kde-misc/polkit-kde-kcmodules-0.98
-		>=sys-auth/polkit-kde-agent-0.98
+		>=kde-misc/polkit-kde-kcmodules-0.98_pre
+		>=sys-auth/polkit-kde-agent-0.98_pre
 	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
@@ -133,6 +133,7 @@ PATCHES=(
 #	"${FILESDIR}/${PN}-4.5.74-klauncher_mac.patch" - FIXME read above
 	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
+	"${FILESDIR}/${PN}-4.5.80-udisks.patch"
 )
 
 src_prepare() {
