@@ -115,6 +115,7 @@ PDEPEND="
 # as well as for file collisions
 add_blocker libknotificationitem
 add_blocker libkworkspace '<4.3.66'
+add_blocker kcontrol '<4.5.80'
 # @since 4.4 - kpilot is gone (blocker added to help upgrades)
 add_blocker kpilot
 # Block some old versions of KDE-3.5 packages that don't work well with KDE-4
