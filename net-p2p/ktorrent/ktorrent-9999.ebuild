@@ -6,7 +6,7 @@ EAPI="2"
 
 GIT_ECLASS=
 if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="git://git.kde.org/ktorrent"
+	EGIT_REPO_URI="git://anongit.kde.org/ktorrent"
 	GIT_ECLASS="git"
 else
 	# upstream likes to skip that _ in beta releases

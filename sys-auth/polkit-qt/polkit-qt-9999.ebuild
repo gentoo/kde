@@ -8,7 +8,7 @@ inherit git cmake-utils
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
 HOMEPAGE="http://kde.org/"
-EGIT_REPO_URI="git://git.kde.org/polkit-qt-1"
+EGIT_REPO_URI="git://anongit.kde.org/polkit-qt-1"
 
 LICENSE="LGPL-2"
 KEYWORDS=""

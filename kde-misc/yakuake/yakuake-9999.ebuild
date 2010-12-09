@@ -4,12 +4,11 @@
 
 EAPI=3
 
-EGIT_REPO_URI="git://git.kde.org/yakuake.git"
-
 inherit git kde4-base
 
 DESCRIPTION="A quake-style terminal emulator based on KDE konsole technology"
 HOMEPAGE="http://yakuake.kde.org/"
+EGIT_REPO_URI="git://anongit.kde.org/yakuake"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""

@@ -7,7 +7,7 @@ inherit git kde4-base
 
 DESCRIPTION="Wicd client build on the KDE Development Platform"
 HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
-EGIT_REPO_URI="git://git.kde.org/${PN}.git"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
