@@ -14,10 +14,10 @@ inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# By default kde4 eclasses want EAPI 2 which might be redefinable to newer
-# versions.
+# Currently kde4 eclasses support EAPI 3. Over time newer versions
+# will be supported.
 case ${EAPI:-0} in
-	2|3) : ;;
+	3) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -35,6 +35,11 @@ elif [[ ${KMNAME} = kdevelop ]]; then
 	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE="kdevelop"
 fi
+
+# @ECLASS-VARIABLE: KDE_SCM
+# @DESCRIPTION:
+# If this is a live package which scm does it use - default to svn
+KDE_SCM="${KDE_SCM:-svn}"
 
 # @ECLASS-VARIABLE: KDE_SLOTS
 # @DESCRIPTION:
@@ -63,24 +68,6 @@ slot_is_at_least() {
 # All KDE ebuilds should run this in pkg_postinst and pkg_postrm.
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	if [[ ${EAPI} == 2 ]] && ! use prefix; then
-		EROOT=${ROOT}
-	fi
-
-	local KDE3DIR="${EROOT}usr/kde/3.5"
-	if [[ -z ${EROOT%%/} && -x "${KDE3DIR}"/bin/kbuildsycoca ]]; then
-		# Since KDE3 is aware of shortcuts in /usr, rebuild database
-		# for KDE3 as well.
-		touch "${KDE3DIR}"/share/services/ksycoca
-		chmod 644 "${KDE3DIR}"/share/services/ksycoca
-
-		ebegin "Running kbuildsycoca to build global database"
-		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDE3DIR}/share:${EROOT}usr/share" \
-			DISPLAY="" \
-			"${KDE3DIR}"/bin/kbuildsycoca --global --noincremental &> /dev/null
-		eend $?
-	fi
 
 	# We no longer need to run kbuildsycoca4, as kded does that automatically, as needed
 

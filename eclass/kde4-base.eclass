@@ -10,8 +10,8 @@
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
-# NOTE: KDE 4 ebuilds by default define EAPI="2", this can be redefined but
-# eclass will fail with version older than 2.
+# NOTE: KDE 4 ebuilds currently support EAPI "3".  This will be reviewed
+# over time as new EAPI versions are approved.
 
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
@@ -30,11 +30,17 @@ inherit kde4-functions base virtualx eutils
 
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
-	if [[ ${KDEBASE} = kdevelop ]]; then
-		inherit git
-	else
-		inherit subversion
-	fi
+	case ${KDE_SCM} in
+		svn)
+			inherit subversion
+			;;
+		git)
+			inherit git
+			;;
+		*)
+			die "unsupported scm: ${KDE_SCM}"
+			;;
+	esac
 fi
 
 # @ECLASS-VARIABLE: CMAKE_REQUIRED
@@ -369,6 +375,7 @@ if [[ ${PN} != kdelibs ]]; then
 		fi
 	fi
 fi
+
 kdedepend="
 	dev-util/automoc
 	dev-util/pkgconfig
@@ -377,6 +384,7 @@ kdedepend="
 		x11-proto/xf86vidmodeproto
 	)
 "
+
 kderdepend=""
 
 kdehandbookdepend="
@@ -435,7 +443,7 @@ IUSE+=" kdeenablefinal"
 case ${BUILD_TYPE} in
 	live)
 		SRC_URI=""
-		if has subversion ${INHERITED}; then
+		if [[ "${KDE_SCM}" == "svn" ]]; then
 			# Determine branch URL based on live type
 			local branch_prefix
 			case ${PV} in
@@ -506,14 +514,16 @@ case ${BUILD_TYPE} in
 			# for kde-base and koffice modules. Does not affect misc apps.
 			# Default value is 1 hour.
 			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
-		elif has git ${INHERITED}; then
+		elif [[ "${KDE_SCM}" == "git" ]]; then
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}"
 			fi
 			case ${KDEBASE} in
 				kdevelop)
-					EGIT_REPO_URI="git://git.kde.org/${KMMODULE}"
+					EGIT_REPO_URI="git://anongit.kde.org/${KMMODULE}"
 					;;
+				*)
+					EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 			esac
 		fi
 		;;
@@ -577,15 +587,6 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Prefix compat:
-	if [[ ${EAPI} == 2 ]] && ! use prefix; then
-		EPREFIX=
-		EROOT=${ROOT}
-	fi
-
-	# Append missing trailing slash character
-	[[ ${EROOT} = */ ]] || EROOT+="/"
-
 	# QA ebuilds
 	[[ -z ${KDE_MINIMAL_VALID} ]] && ewarn "QA Notice: ignoring invalid KDE_MINIMAL (defaulting to ${KDE_MINIMAL})."
 
@@ -643,28 +644,15 @@ kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		if has subversion ${INHERITED}; then
-			migrate_store_dir
-			subversion_src_unpack
-		elif has git ${INHERITED}; then
-			git_src_unpack
-		fi
-	elif [[ ${EAPI} == 2 ]]; then
-		local file
-		for file in ${A}; do
-			# This setup is because EAPI <= 2 cannot unpack *.tar.xz files
-			# directly, so we do it ourselves (using the exact same code as portage)
-			case ${file} in
-				*.tar.xz)
-					echo ">>> Unpacking ${file} to ${PWD}"
-					xz -dc "${DISTDIR}"/${file} | tar xof -
-					assert "failed unpacking ${file}"
-					;;
-				*)
-					unpack ${file}
-					;;
-			esac
-		done
+		case ${KDE_SCM} in
+			svn)
+				migrate_store_dir
+				subversion_src_unpack
+				;;
+			git)
+				git_src_unpack
+				;;
+		esac
 	else
 		# For EAPI >= 3, we can just use unpack() directly
 		unpack ${A}
@@ -854,11 +842,6 @@ kde4-base_src_test() {
 # Function for installing KDE4 applications.
 kde4-base_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Prefix support, for usage in ebuilds
-	if [[ ${EAPI} == 2 ]] && ! use prefix; then
-		ED=${D}
-	fi
 
 	if [[ -n ${KMSAVELIBS} ]] ; then
 		install_library_dependencies

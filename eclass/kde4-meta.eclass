@@ -70,12 +70,14 @@ debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-sp
 # Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
 case ${BUILD_TYPE} in
 	live)
-		case ${KMNAME} in
-			extragear*|playground*)
-				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				;;
-		esac
+		if [[ "${KDE_SCM}" == "svn" ]]; then
+			case ${KMNAME} in
+				extragear*|playground*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+					ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+					;;
+			esac
+		fi
 		;;
 esac
 
@@ -145,12 +147,17 @@ kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
-		S="${WORKDIR}/${P}"
-		mkdir -p "${S}"
-		ESVN_RESTRICT="export" subversion_src_unpack
-		subversion_wc_info
-		subversion_bootstrap
+		if [[ "$KDE_SCM" == "svn" ]]; then
+			migrate_store_dir
+			S="${WORKDIR}/${P}"
+			mkdir -p "${S}"
+			ESVN_RESTRICT="export" subversion_src_unpack
+			subversion_wc_info
+			subversion_bootstrap
+		elif [[ "${KDE_SCM}" == "git" ]]; then
+			??
+		fi
+
 		kde4-meta_src_extract
 	else
 		kde4-meta_src_extract
