@@ -7,11 +7,12 @@ EAPI="3"
 KDE_HANDBOOK="optional"
 KMNAME="kdebase-workspace"
 CPPUNIT_REQUIRED="optional"
-inherit virtualx kde4-meta
+VIRTUALX_REQUIRED="optional"
+inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."
 KEYWORDS=""
-IUSE="debug lm_sensors"
+IUSE="debug lm_sensors test"
 
 COMMONDEPEND="
 	x11-libs/libXrender
