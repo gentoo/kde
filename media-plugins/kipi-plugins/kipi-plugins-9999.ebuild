@@ -52,8 +52,6 @@ RDEPEND="${DEPEND}
 	mjpeg? ( media-video/mjpegtools )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.0-expoblending.patch" )
-
 src_configure() {
 	# Remove flags -floop-block -floop-interchange
 	# -floop-strip-mine due to bug #305443.
