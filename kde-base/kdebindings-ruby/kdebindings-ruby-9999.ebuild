@@ -26,7 +26,7 @@ DEPEND="
 	$(add_kdebase_dep smoke 'akonadi?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
 "
 
-ruby_add_bdepend virtual/rubygems
+ruby_add_bdepend dev-ruby/rubygems
 
 RDEPEND="${DEPEND}
 	!dev-ruby/qt4-qtruby
