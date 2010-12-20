@@ -10,8 +10,7 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_PROJECT="polkit-kde-agent-1"
 else
 	MY_P="${P/agent/agent-1}"
-	#SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
-	SRC_URI="mirror://gentoo/${MY_P}.tar.bz2"
+	SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 fi
 inherit kde4-base
 

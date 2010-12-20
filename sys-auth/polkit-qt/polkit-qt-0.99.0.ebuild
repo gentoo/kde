@@ -10,7 +10,7 @@ inherit cmake-utils
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
 HOMEPAGE="http://kde.org/"
-SRC_URI="mirror://gentoo/${MY_P}.tar.bz2"
+SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 
 LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~x86"
