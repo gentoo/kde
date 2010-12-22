@@ -8,7 +8,7 @@ inherit cmake-utils git
 
 DESCRIPTION="Phonon VLC backend"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon/phonon-vlc"
-EGIT_REPO_URI="git://git.kde.org/phonon-vlc.git"
+EGIT_REPO_URI="git://anongit.kde.org/phonon-vlc"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
