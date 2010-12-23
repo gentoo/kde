@@ -16,7 +16,7 @@ if [[ ${PV} != *9999* ]]; then
 	KDE_HANDBOOK="optional"
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 else
-	EGIT_REPO_URI="git://git.kde.org/rekonq.git"
+	EGIT_REPO_URI="git://anongit.kde.org/rekonq"
 	GIT_ECLASS="git"
 fi
 

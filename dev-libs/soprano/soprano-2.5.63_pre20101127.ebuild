@@ -12,7 +12,7 @@ HOMEPAGE="http://sourceforge.net/projects/soprano"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="clucene +dbus debug doc elibc_FreeBSD java +raptor +redland test +virtuoso"
 

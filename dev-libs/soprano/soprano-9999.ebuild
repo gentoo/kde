@@ -9,7 +9,7 @@ inherit base java-pkg-opt-2 cmake-utils flag-o-matic git
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
-EGIT_REPO_URI="git://git.kde.org/soprano"
+EGIT_REPO_URI="git://anongit.kde.org/soprano"
 
 LICENSE="LGPL-2"
 KEYWORDS=""

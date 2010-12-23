@@ -8,7 +8,7 @@ inherit git kde4-base
 
 DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="http://www.kdevelop.org"
-EGIT_REPO_URI="git://git.kde.org/kdevelop-pg-qt"
+EGIT_REPO_URI="git://anongit.kde.org/kdevelop-pg-qt"
 
 LICENSE="LGPL-2"
 KEYWORDS=""

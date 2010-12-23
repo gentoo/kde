@@ -8,7 +8,7 @@ inherit cmake-utils git
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
-EGIT_REPO_URI="git://gitorious.org/phonon/phonon.git"
+EGIT_REPO_URI="git://anongit.kde.org/phonon"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

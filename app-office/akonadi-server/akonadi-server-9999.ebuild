@@ -8,7 +8,7 @@ inherit cmake-utils git
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
-EGIT_REPO_URI="git://git.kde.org/akonadi"
+EGIT_REPO_URI="git://anongit.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""

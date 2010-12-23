@@ -8,7 +8,7 @@ inherit cmake-utils flag-o-matic git
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
-EGIT_REPO_URI="git://git.kde.org/automoc"
+EGIT_REPO_URI="git://anongit.kde.org/automoc"
 
 LICENSE="as-is"
 SLOT="0"

@@ -252,8 +252,8 @@ kde4-meta_src_extract() {
 		extractlist+=" $(__list_needed_subdirectories)"
 
 		pushd "${WORKDIR}" > /dev/null
-		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} >&2
-		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null
+		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist}
+		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} || ewarn "tar extract command failed at least partially - continuing anyway"
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
 		mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""

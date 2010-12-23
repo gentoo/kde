@@ -4,15 +4,17 @@
 
 EAPI=3
 
-KMNAME="extragear/base"
-KMMODULE="networkmanagement"
 KDE_MINIMAL="4.5"
 
+GIT_ECLASS=
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://gentoo/${P}.tar.bz2"
+else
+	EGIT_REPO_URI="git://git.kde.org/networkmanagement"
+	GIT_ECLASS="git"
 fi
 
-inherit kde4-base
+inherit kde4-base ${GIT_ECLASS}
 
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"

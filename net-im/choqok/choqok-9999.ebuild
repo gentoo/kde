@@ -6,12 +6,11 @@ EAPI=3
 
 KMNAME="extragear/network"
 
-EGIT_REPO_URI="git://git.kde.org/choqok"
-
 inherit git kde4-base
 
 DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
+EGIT_REPO_URI="git://anongit.kde.org/choqok"
 
 LICENSE="GPL-3"
 KEYWORDS=""

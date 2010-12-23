@@ -4,11 +4,11 @@
 
 EAPI=3
 
-EGIT_REPO_URI="git://git.kde.org/${PN}.git"
 inherit git kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
