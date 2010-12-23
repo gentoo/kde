@@ -132,7 +132,7 @@ PATCHES=(
 #	"${FILESDIR}/${PN}-4.4.66-macos-unbundle.patch" - FIXME needs to be ported, also see above
 #	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch" - FIXME is this really needed? if so, please upstream it
 #	"${FILESDIR}/${PN}-4.5.74-klauncher_mac.patch" - FIXME read above
-	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"
+#	"${FILESDIR}/${PN}-4.4.3-mimetypes.patch"  - FIXME do we need this? kdelibs wont compile with this anymore
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 )
 
