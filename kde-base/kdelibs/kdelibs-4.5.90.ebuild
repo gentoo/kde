@@ -64,10 +64,10 @@ COMMONDEPEND="
 		media-libs/openexr
 		media-libs/ilmbase
 	)
-	policykit? ( >=sys-auth/polkit-qt-0.98 )
+	policykit? ( >=sys-auth/polkit-qt-0.99 )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.5
-		>=dev-libs/soprano-2.5.63[dbus,raptor,redland]
+		>=dev-libs/soprano-2.5.63_pre[dbus,raptor,redland]
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
@@ -105,8 +105,8 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
-		>=kde-misc/polkit-kde-kcmodules-0.98
-		>=sys-auth/polkit-kde-agent-0.98
+		>=kde-misc/polkit-kde-kcmodules-0.99
+		>=sys-auth/polkit-kde-agent-0.99
 	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
