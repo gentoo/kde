@@ -534,10 +534,14 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.[456].8[05] | 4.[456].9[023568])
-							# Unstable KDE SC releases
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+							if [[ ${_kmname} == "kdepim"* ]]; then
+								SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname}-4.6beta3.tar.bz2"
+							else
+								# Unstable KDE SC releases
+								SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+							fi
 							;;
-						4.4.6 | 4.4.7 | 4.4.8)
+						4.4.6 | 4.4.7 | 4.4.8 | 4.4.9)
 							# Only kdepim here
 							SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
