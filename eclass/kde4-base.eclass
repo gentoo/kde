@@ -534,7 +534,7 @@ case ${BUILD_TYPE} in
 				kde-base)
 					case ${PV} in
 						4.[456].8[05] | 4.[456].9[023568])
-							if [[ ${_kmname} == "kdepim"* ]]; then
+							if [[ ${_kmname} == kdepim || ${_kmname} == kdepim-runtime ]]; then
 								SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname}-4.6beta3.tar.bz2"
 							else
 								# Unstable KDE SC releases
