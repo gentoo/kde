@@ -11,9 +11,3 @@ inherit kde4-meta
 DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
-
-src_install() {
-	kde4-meta_src_install
-	# colliding with oxygen icons
-	rm -rf "${ED}"/${KDEDIR}/share/icons/oxygen/16x16/status/meeting-organizer.png
-}
