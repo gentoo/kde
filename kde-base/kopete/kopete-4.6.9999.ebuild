@@ -89,7 +89,7 @@ COMMONDEPEND="
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
-		media-gfx/imagemagick
+		|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 		virtual/latex-base
 	)
 	sms? ( app-mobilephone/smssend )
