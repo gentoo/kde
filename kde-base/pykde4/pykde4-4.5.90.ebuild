@@ -25,6 +25,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-typedefs-fix.patch" )
+
 pkg_setup() {
 	python_pkg_setup
 	kde4-meta_pkg_setup
