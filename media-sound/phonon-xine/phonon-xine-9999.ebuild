@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="aqua pulseaudio +xcb"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=media-libs/xine-lib-1.1.15-r1[xcb?]
 	pulseaudio? (
 		dev-libs/glib:2
@@ -23,7 +23,11 @@ RDEPEND="
 	)
 	xcb? ( x11-libs/libxcb )
 "
-DEPEND="${RDEPEND}
+# Plugins split ~4.4.3
+RDEPEND="${COMMON_DEPEND}
+	!<=media-sound/phonon-4.4.3
+"
+DEPEND="${COMMON_DEPEND}
 	>=dev-util/automoc-0.9.87
 "
 

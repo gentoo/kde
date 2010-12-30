@@ -8,14 +8,14 @@ inherit cmake-utils git
 
 DESCRIPTION="Phonon XINE backend"
 HOMEPAGE="http://phonon.kde.org"
-EGIT_REPO_URI="git://anongit.kde.org/$PNP}"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa pulseaudio"
 
-RDEPEND="
+COMMON_DEPEND="
 	media-libs/gstreamer
 	media-plugins/gst-plugins-meta[alsa?]
 	pulseaudio? (
@@ -23,7 +23,11 @@ RDEPEND="
 		>=media-sound/pulseaudio-0.9.21[glib]
 	)
 "
-DEPEND="${RDEPEND}
+# Plugins split ~4.4.3
+RDEPEND="${COMMON_DEPEND}
+	!<=media-sound/phonon-4.4.3
+"
+DEPEND="${COMMON_DEPEND}
 	>=dev-util/automoc-0.9.87
 "
 
