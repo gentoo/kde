@@ -84,12 +84,18 @@ COMMONDEPEND="
 	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
-	webpresence? ( dev-libs/libxml2 dev-libs/libxslt )
+	webpresence? (
+		dev-libs/libxml2
+		dev-libs/libxslt
+	)
 	v4l2? ( media-libs/libv4l )
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
-		|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
+		|| (
+			media-gfx/imagemagick
+			media-gfx/graphicsmagick[imagemagick]
+		)
 		virtual/latex-base
 	)
 	sms? ( app-mobilephone/smssend )
