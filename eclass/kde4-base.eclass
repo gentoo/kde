@@ -379,6 +379,10 @@ kdedepend="
 "
 kderdepend=""
 
+if [[ ${PN} != oxygen-icons ]]; then
+	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
+fi
+
 kdehandbookdepend="
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
