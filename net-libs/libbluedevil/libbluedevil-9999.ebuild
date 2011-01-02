@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit git kde4-base
 
-DESCRIPTION="A Qt wrapper for bluez used in the KDE bluetooth stack"
+DESCRIPTION="Qt wrapper for bluez used in the KDE bluetooth stack"
 HOMEPAGE="http://gitorious.org/libbluedevil"
 EGIT_REPO_URI="git://gitorious.org/libbluedevil/libbluedevil.git"
 
