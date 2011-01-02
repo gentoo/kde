@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-SRC_URI="http://downloads.grantlee.org/${P}.tar.gz"
+SRC_URI="http://www.loegria.net/grantlee/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
