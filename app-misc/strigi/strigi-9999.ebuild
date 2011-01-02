@@ -2,11 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=3
 
-ESVN_REPO_URI="svn://anonsvn.kde.org/home/kde/trunk/kdesupport/${PN}"
-ESVN_PROJECT="${PN}"
-inherit base cmake-utils eutils subversion
+if [[ "${PV}" != "9999" ]]; then
+	SRC_URI=""
+	KEYWORDS=""
+else
+	EGIT_REPO_URI="git://anongit.kde.org/strigi"
+	GIT_ECLASS="git"
+	EGIT_HAS_SUBMODULES="true"
+	KEYWORDS=""
+fi
+
+inherit cmake-utils ${GIT_ECLASS}
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="http://strigi.sourceforge.net/"
@@ -14,8 +22,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="clucene +dbus debug exif fam ffmpeg hyperestraier inotify log +qt4 test xine"
+IUSE="clucene +dbus debug exif fam ffmpeg hyperestraier inotify log +qt4 test"
 
 COMMONDEPEND="
 	app-arch/bzip2:0
@@ -36,21 +43,14 @@ COMMONDEPEND="
 		x11-libs/qt-core:4
 		x11-libs/qt-gui:4
 	)
-	xine? ( media-libs/xine-lib )
 "
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
-src_prepare() {
-	# subverison has own src_prepare
-	# so this is not required on stable ebuild
-	base_src_prepare
-}
-
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
-
+	# Disabled: xine - recommended upstream to keep it this way
 	mycmakeargs=(
 		-DENABLE_POLLING=ON
 		-DFORCE_DEPS=ON
@@ -66,7 +66,7 @@ src_configure() {
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4)
 		$(cmake-utils_use_enable test CPPUNIT)
-		$(cmake-utils_use_enable xine)
+		$(cmake-utils_disable xine)
 	)
 
 	if use qt4; then
