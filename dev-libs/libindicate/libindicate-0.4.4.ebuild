@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libindicate/libindicate-0.3.6.ebuild,v 1.1 2010/03/31 17:43:34 tampakrap Exp $
+# $Header: $
 
 EAPI=2
 
@@ -29,6 +29,7 @@ RDEPEND="dev-libs/glib:2
 	dev-dotnet/gtk-sharp-gapi"
 DEPEND="${RDEPEND}
 	doc? ( dev-util/gtk-doc )
+	dev-util/gtk-doc-am
 	dev-util/pkgconfig"
 
 src_prepare() {
