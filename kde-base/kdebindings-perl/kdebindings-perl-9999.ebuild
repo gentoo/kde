@@ -25,6 +25,10 @@ RDEPEND="${DEPEND}"
 
 KMLOADLIBS="smoke"
 
+KMEXTRACTONLY="
+			smoke/
+"
+
 src_configure() {
 	mycmakeargs=(
 		-DDISABLE_Qt3Support=ON
