@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug jpeg rdp vnc zeroconf"
+IUSE="debug jpeg rdesktop vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
 #telepathy? ( >=net-libs/telepathy-qt4-0.18 ) not yet in portage/overlay
@@ -26,7 +26,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	rdp? ( net-misc/rdesktop )
+	rdesktop? ( net-misc/rdesktop )
 "
 
 src_configure() {
