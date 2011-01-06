@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}"
 KMLOADLIBS="smoke"
 
 KMEXTRACTONLY="
-			smoke/
+	smoke/
 "
 
 src_configure() {

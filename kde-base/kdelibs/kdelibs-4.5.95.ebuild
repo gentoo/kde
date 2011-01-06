@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -40,8 +40,10 @@ COMMONDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	aqua? ( >=media-sound/phonon-4.3.80 )
 	!aqua? (
-		|| ( >=media-sound/phonon-4.3.80[xcb]
-		>=media-sound/phonon-4.4.4 )
+		|| (
+			>=media-sound/phonon-4.3.80[xcb]
+			>=media-sound/phonon-4.4.4
+		)
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
