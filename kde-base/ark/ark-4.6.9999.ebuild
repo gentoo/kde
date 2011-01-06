@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Archiving tool"
 KEYWORDS=""
-IUSE="+archive +bzip2 debug lzma rar"
+IUSE="+archive +bzip2 debug lzma"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)
@@ -18,9 +18,7 @@ DEPEND="
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2?,lzma?,zlib] )
 	lzma? ( app-arch/xz-utils )
 "
-RDEPEND="${DEPEND}
-	rar? ( app-arch/rar )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(
