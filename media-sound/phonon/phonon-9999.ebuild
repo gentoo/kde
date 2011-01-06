@@ -26,6 +26,8 @@ RDEPEND="
 		dev-libs/glib:2
 		>=media-sound/pulseaudio-0.9.21[glib]
 	)
+"
+PDEPEND="
 	vlc? ( media-sound/phonon-vlc )
 	xine? ( media-sound/phonon-xine )
 "

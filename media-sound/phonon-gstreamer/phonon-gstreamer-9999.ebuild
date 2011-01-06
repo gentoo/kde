@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit cmake-utils git
 
-DESCRIPTION="Phonon XINE backend"
+DESCRIPTION="Phonon GStreamer backend"
 HOMEPAGE="http://phonon.kde.org"
 EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE="alsa pulseaudio"
 
 COMMON_DEPEND="
+	>=media-sound/phonon-4.4.4
 	media-libs/gstreamer
 	media-plugins/gst-plugins-meta[alsa?]
 	pulseaudio? (
@@ -23,9 +24,7 @@ COMMON_DEPEND="
 		>=media-sound/pulseaudio-0.9.21[glib]
 	)
 "
-# Plugins split ~4.4.3
 RDEPEND="${COMMON_DEPEND}
-	!<=media-sound/phonon-4.4.3
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/automoc-0.9.87
