@@ -387,6 +387,10 @@ kdedepend="
 
 kderdepend=""
 
+if [[ ${PN} != oxygen-icons ]]; then
+	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
+fi
+
 kdehandbookdepend="
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
@@ -543,11 +547,15 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
+						4.5.93)
+							# Only kdepim and kdepim-runtime 4.6beta here
+							SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname}-4.6beta3.tar.bz2"
+							;;
 						4.[456].8[05] | 4.[456].9[023568])
 							# Unstable KDE SC releases
 							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
-						4.4.6 | 4.4.7 | 4.4.8)
+						4.4.6 | 4.4.7 | 4.4.8 | 4.4.9)
 							# Only kdepim here
 							SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 							;;

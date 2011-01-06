@@ -1,6 +1,6 @@
 --- configure.ac.orig	2010-09-20 23:15:36.692289201 +0200
 +++ configure.ac	2010-09-20 23:26:30.159014141 +0200
-@@ -171,8 +171,15 @@
+@@ -171,8 +171,18 @@
  # GTK Doc 
  ###########################
  
@@ -12,6 +12,9 @@
  GTK_DOC_CHECK([1.4])
 +if test "x$enable_doc" != "xno" ; then
  GNOME_DOC_INIT
++else
++# The initialisation is still needed for certain conditionals to be defined, just make it not output any error
++GNOME_DOC_INIT(,,[:])
 +fi
  GNOME_COMPILE_WARNINGS
  

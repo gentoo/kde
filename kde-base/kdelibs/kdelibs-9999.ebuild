@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -40,7 +40,10 @@ COMMONDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	aqua? ( >=media-sound/phonon-4.3.80 )
 	!aqua? (
-		>=media-sound/phonon-4.3.80[xcb]
+		|| (
+			>=media-sound/phonon-4.3.80[xcb]
+			>=media-sound/phonon-4.4.4
+		)
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
@@ -105,7 +108,7 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
-		>=kde-misc/polkit-kde-kcmodules-0.99
+		>=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
 		>=sys-auth/polkit-kde-agent-0.99
 	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
