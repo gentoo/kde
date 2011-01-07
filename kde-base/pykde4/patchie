@@ -1,0 +1,15 @@
+diff --git a/kde-base/pykde4/pykde4-4.5.95.ebuild b/kde-base/pykde4/pykde4-4.5.95.ebuild
+index 8b6b272..d496b57 100644
+--- a/kde-base/pykde4/pykde4-4.5.95.ebuild
++++ b/kde-base/pykde4/pykde4-4.5.95.ebuild
+@@ -20,8 +20,8 @@ DEPEND="
+ 	!dev-python/pykde
+ 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
+ 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
+-	aqua? ( >=dev-python/PyQt4-4.8[dbus,declarative,sql,svg,webkit,aqua] )
+-	!aqua? ( >=dev-python/PyQt4-4.8[dbus,declarative,sql,svg,webkit,X] )
++	aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,aqua] )
++	!aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,X] )
+ "
+ RDEPEND="${DEPEND}"
+ 

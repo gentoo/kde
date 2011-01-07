@@ -20,8 +20,8 @@ DEPEND="
 	!dev-python/pykde
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
-	aqua? ( >=dev-python/PyQt4-4.8[dbus,declarative,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.8[dbus,declarative,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,X] )
 "
 RDEPEND="${DEPEND}"
 
