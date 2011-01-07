@@ -2,46 +2,49 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 inherit cmake-utils git
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="http://phonon.kde.org"
-EGIT_REPO_URI="git://anongit.kde.org/phonon"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa aqua debug gstreamer pulseaudio +xcb +xine"
+IUSE="alsa aqua debug directshow gstreamer mmf mplayer quicktime pulseaudio vlc waveout +xine"
 
 RDEPEND="
 	!kde-base/phonon-xine
 	!x11-libs/qt-phonon:4
-	>=x11-libs/qt-test-4.6.0:4[aqua=]
-	>=x11-libs/qt-dbus-4.6.0:4[aqua=]
-	>=x11-libs/qt-gui-4.6.0:4[aqua=]
-	>=x11-libs/qt-opengl-4.6.0:4[aqua=]
-	gstreamer? (
-		media-libs/gstreamer
-		media-plugins/gst-plugins-meta[alsa?]
-	)
+	>=x11-libs/qt-test-4.7.0:4[aqua=]
+	>=x11-libs/qt-dbus-4.7.0:4[aqua=]
+	>=x11-libs/qt-gui-4.7.0:4[aqua=]
+	>=x11-libs/qt-opengl-4.7.0:4[aqua=]
 	pulseaudio? (
 		dev-libs/glib:2
 		>=media-sound/pulseaudio-0.9.21[glib]
 	)
-	xine? (
-		>=media-libs/xine-lib-1.1.15-r1[xcb?]
-		xcb? ( x11-libs/libxcb )
-	)
 "
+PDEPEND="
+	vlc? ( media-sound/phonon-vlc )
+	xine? ( media-sound/phonon-xine )
+"
+#	gstreamer? ( media-sound/phonon-gstreamer )
+#	directshow? ( media-sound/phonon-directshow )
+#	mmf? ( media-sound/phonon-mmf )
+#	mplayer? ( media-sound/phonon-mplayer )
+#	quicktime? ( media-sound/phonon-quicktime )
+#	waveout? ( media-sound/phonon-waveout )
+
 DEPEND="${RDEPEND}
 	>=dev-util/automoc-0.9.87
 "
 
 pkg_setup() {
-	if use !xine && use !gstreamer && use !aqua; then
-		die "you must at least select one backend for phonon"
+	if use !aqua && use !directshow && use !aqua && use !; then
+		ewarn "You must at least select one backend for phonon to be usuable"
 	fi
 
 	if use xine && use aqua; then
@@ -52,25 +55,13 @@ pkg_setup() {
 src_prepare() {
 	# Fix the qt7 backend for MacOS 10.6.
 	[[ ${CHOST} == *-darwin10 ]] && epatch "${FILESDIR}"/${PN}-4.4-qt7.patch
-
-	# On MacOS we additionally want the gstreamer plugin.
-	if use aqua && use gstreamer; then
-		sed -e "/add_subdirectory(qt7)/a add_subdirectory(gstreamer)" \
-			-i CMakeLists.txt \
-			|| die "failed to enable GStreamer backend"
-	fi
 }
 
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_build aqua PHONON_QT7)
-		$(cmake-utils_use_with gstreamer GStreamer)
-		$(cmake-utils_use_with gstreamer GStreamerPlugins)
-		$(cmake-utils_use_with pulseaudio PulseAudio)
 		$(cmake-utils_use_with pulseaudio GLib2)
-		$(cmake-utils_use_with xine)
-		$(cmake-utils_use_with xcb)
 	)
 
 	cmake-utils_src_configure

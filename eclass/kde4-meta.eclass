@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.47 2010/12/29 17:56:34 tampakrap Exp $
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
@@ -226,6 +226,13 @@ kde4-meta_src_extract() {
 				# Go one level deeper for kdebase-apps in tarballs
 				moduleprefix=apps/
 				KMTARPARAMS+=" --transform=s|apps/||"
+				;;
+			kdepim)
+				if [[ ${PV} == 4.5.93 ]] ; then
+					tarball="kdepim-4.6beta3.tar.${postfix}"
+				else
+					tarball="${KMNAME}-${PV}.tar.${postfix}"
+				fi
 				;;
 			*)
 				# Create tarball name from module name (this is the default)

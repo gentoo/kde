@@ -77,7 +77,7 @@ EOF
 	fi
 
 	# Properly place xinitrc.d file that exports XDG_MENU_PREFIX to env
-	cat <<EOF > 11-xdg-menu-${KDE_X}
+	cat <<EOF > 11-xdg-menu-kde-${SLOT}
 #!/bin/sh
 
 if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "${KDE_X}" ]; then
@@ -85,7 +85,7 @@ if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "${KDE_X}" ]; then
 fi
 EOF
 	exeinto /etc/X11/xinit/xinitrc.d/
-	doexe 11-xdg-menu-${KDE_X} || die "doexe failed"
+	doexe 11-xdg-menu-kde-${SLOT} || die "doexe failed"
 }
 
 pkg_preinst() {
