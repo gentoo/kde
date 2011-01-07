@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-libs/shared-desktop-ontologies/shared-desktop-ontologies-0.3.ebuild,v 1.1 2010/03/11 04:28:21 reavertm Exp $
 
-EAPI="3"
+EAPI="2"
 
 inherit cmake-utils subversion
 

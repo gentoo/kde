@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@
 # ebuild is more or less unmaintained.
 #
 
-EAPI="3"
+EAPI=2
 
 DESCRIPTION="KOffice - merge this to pull in all KOffice-derived packages."
 HOMEPAGE="http://www.koffice.org/"
