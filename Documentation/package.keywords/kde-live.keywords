@@ -132,6 +132,9 @@
 
 # For kde-base/kopete
 >=net-libs/libmsn-4.0
+
+# For media-sound/phonon
+~media-sound/phonon-vlc-9999 **
 ~kde-base/blinken-9999 **
 ~kde-base/cantor-9999 **
 ~kde-base/kalgebra-9999 **

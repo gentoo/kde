@@ -132,6 +132,9 @@ kde-base/smoke:live
 
 # For kde-base/kopete
 >=net-libs/libmsn-4.0
+
+# For media-sound/phonon
+~media-sound/phonon-vlc-9999
 kde-base/blinken:live
 kde-base/cantor:live
 kde-base/kalgebra:live

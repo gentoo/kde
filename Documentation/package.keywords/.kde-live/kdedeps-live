@@ -14,3 +14,6 @@
 
 # For kde-base/kopete
 >=net-libs/libmsn-4.0
+
+# For media-sound/phonon
+~media-sound/phonon-vlc-9999 **
