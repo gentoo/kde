@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kde-l10n/kde-l10n-4.5.4.ebuild,v 1.1 2010/12/02 21:14:32 alexxy Exp $
 
-EAPI="2"
+EAPI="3"
 
 inherit kde4-base
 
