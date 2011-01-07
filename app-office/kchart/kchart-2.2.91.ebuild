@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-office/kchart/kchart-2.2.2.ebuild,v 1.4 2010/11/04 13:42:44 hwoarang Exp $
 
-EAPI=2
+EAPI="3"
 
 DESCRIPTION="KOffice chart application. Temporary dummy ebuild for compatibility."
 
