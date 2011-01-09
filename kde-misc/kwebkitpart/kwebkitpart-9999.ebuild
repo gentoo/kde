@@ -5,6 +5,7 @@
 EAPI="3"
 
 KDE_MINIMAL="4.6"
+KDE_SCM="git"
 KMNAME="extragear/base"
 KMMODULE="kwebkitpart"
 WEBKIT_REQUIRED="always"
