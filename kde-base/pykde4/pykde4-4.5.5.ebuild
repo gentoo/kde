@@ -18,12 +18,15 @@ IUSE="debug doc examples semantic-desktop"
 # blocker added due to compatibility issues and error during compile time
 DEPEND="
 	!dev-python/pykde
+	>=dev-python/sip-4.12
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
-	aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.7[dbus,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.8.2[dbus,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.8.2[dbus,sql,svg,webkit,X] )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-typedefs-fix.patch" )
 
 pkg_setup() {
 	python_pkg_setup
