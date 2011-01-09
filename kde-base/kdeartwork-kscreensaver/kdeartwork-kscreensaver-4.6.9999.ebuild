@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,8 @@ DEPEND="${RDEPEND}
 	eigen? ( dev-cpp/eigen:2 )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch" )
+PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
+	"${FILESDIR}/${PN}-4.5.95-webcollage.patch" )
 
 src_prepare() {
 	sed -i -e 's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/g' \
