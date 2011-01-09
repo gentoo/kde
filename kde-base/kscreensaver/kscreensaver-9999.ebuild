@@ -25,7 +25,8 @@ DEPEND="${RDEPEND}
 	x11-proto/randrproto
 "
 
-PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch" )
+PATCHES=( "${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
+	"${FILESDIR}/${PN}-4.5.95-nsfw.patch" )
 
 src_configure() {
 	mycmakeargs=(

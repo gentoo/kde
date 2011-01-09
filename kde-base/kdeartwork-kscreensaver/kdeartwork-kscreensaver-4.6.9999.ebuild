@@ -25,7 +25,8 @@ DEPEND="${RDEPEND}
 	eigen? ( dev-cpp/eigen:2 )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch" )
+PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
+	"${FILESDIR}/${PN}-4.5.95-webcollage.patch" )
 
 src_prepare() {
 	sed -i -e 's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/g' \

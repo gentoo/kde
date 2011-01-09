@@ -93,6 +93,10 @@ src_install() {
 	keepdir "${KDM_HOME}"
 	fowners root:kdm "${KDM_HOME}"
 	fperms 1770 "${KDM_HOME}"
+
+	# install logrotate file
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}"/kdm-logrotate kdm
 }
 
 pkg_postinst() {

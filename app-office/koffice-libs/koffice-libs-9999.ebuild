@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/app-office/koffice-libs/koffice-libs-2.2.2.ebuild,v 1.4 2010/11/04 13:43:26 hwoarang Exp $
 
 #
 # Please note that koffice is currently bumped "forward" and that this live
@@ -17,7 +17,7 @@ inherit kde4-meta
 
 DESCRIPTION="Shared KOffice libraries."
 KEYWORDS=""
-IUSE="crypt openexr"
+IUSE="crypt openexr reports"
 
 RDEPEND="
 	>=app-office/koffice-data-${PV}:${SLOT}
@@ -28,6 +28,7 @@ RDEPEND="
 	crypt? ( app-crypt/qca:2 )
 	openexr? ( media-libs/openexr )
 	opengl? ( media-libs/mesa )
+	!app-office/kchart
 "
 DEPEND="${RDEPEND}"
 #	doc? ( app-doc/doxygen )"
@@ -39,18 +40,20 @@ KMEXTRA="
 	filters/libkowmf/
 	filters/libmsooxml/
 	filters/xsltfilter/
-	filters/kspread/
-	kspread/
+	filters/kchart/
+	filters/kformula/
 	interfaces/
+	kchart/
+	kformula/
 	kounavail/
 	plugins/
 	tools/
 "
-#	doc/api/"
+
 KMEXTRACTONLY="
+	KoConfig.h.cmake
 	doc/koffice.desktop
-	kchart/
-	filters/liboofilter/
+	filters/
 "
 
 KMSAVELIBS="true"
@@ -60,6 +63,9 @@ src_configure() {
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with openexr OpenEXR)
+		-DBUILD_kchart=ON
+		-DBUILD_kformula=ON
+		$(cmake-utils_use_build reports koreport)
 	)
 	use crypt && \
 		mycmakeargs+=(-DQCA2_LIBRARIES=/usr/$(get_libdir)/qca2/libqca.so.2)
@@ -71,4 +77,8 @@ src_install() {
 	newdoc kounavail/README README.kounavail || die
 
 	kde4-meta_src_install
+
+	# this is already installed by koffice-data
+	rm -f "${D}/usr/include/config-opengl.h"
+	rm -f "${D}/usr/include/KoConfig.h"
 }
