@@ -26,7 +26,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-typedefs-fix.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.5.5-typedefs-fix.patch" )
 
 pkg_setup() {
 	python_pkg_setup

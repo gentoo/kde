@@ -1,7 +1,5 @@
 # Version is unrelated, KDE printing won't be stabilized
 app-admin/system-config-printer-common
-=dev-db/virtuoso-odbc-6.1.2
-=dev-db/virtuoso-server-6.1.2
 =dev-libs/libdbusmenu-qt-0.6*
 # Some issues with grantlee, let's wait for 0.1.6
 dev-libs/grantlee
@@ -10,6 +8,8 @@ dev-libs/grantlee
 # Unsure about that yet
 =dev-libs/soprano-2.5*
 dev-python/pycups
+>=dev-python/sip-4.12
+>=dev-python/PyQt4-4.8.2
 =net-dns/cagibi-0.1.1
 net-libs/libktorrent
 x11-apps/scripts
