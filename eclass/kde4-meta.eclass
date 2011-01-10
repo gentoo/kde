@@ -220,13 +220,6 @@ kde4-meta_src_extract() {
 				moduleprefix=apps/
 				KMTARPARAMS+=" --transform=s|apps/||"
 				;;
-			kdepim)
-				if [[ ${PV} == 4.5.93 ]] ; then
-					tarball="kdepim-4.6beta3.tar.${postfix}"
-				else
-					tarball="${KMNAME}-${PV}.tar.${postfix}"
-				fi
-				;;
 			*)
 				# Create tarball name from module name (this is the default)
 				tarball="${KMNAME}-${PV}.tar.${postfix}"

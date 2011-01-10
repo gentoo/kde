@@ -537,9 +537,9 @@ case ${BUILD_TYPE} in
 			case ${KDEBASE} in
 				kde-base)
 					case ${PV} in
-						4.5.93)
-							# Only kdepim and kdepim-runtime 4.6beta here
-							SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname}-4.6beta3.tar.bz2"
+						4.5.94.1)
+							# KDEPIM 4.6beta
+							SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/${_kmname_pv}.tar.bz2"
 							;;
 						4.[456].8[05] | 4.[456].9[023568])
 							# Unstable KDE SC releases
