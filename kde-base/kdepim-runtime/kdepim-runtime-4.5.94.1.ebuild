@@ -34,5 +34,3 @@ RDEPEND="${DEPEND}
 
 add_blocker kdemaildir '<4.3.0'
 add_blocker akonadi '<4.3.90'
-
-S="${WORKDIR}/${PN}-4.6beta3"
