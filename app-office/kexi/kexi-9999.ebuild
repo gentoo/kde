@@ -7,27 +7,32 @@
 # ebuild is more or less unmaintained.
 #
 
-EAPI="2"
+EAPI=3
 
 KMNAME="koffice"
 inherit kde4-meta
 
-DESCRIPTION="KOffice integrated environment for database management."
+DESCRIPTION="KOffice integrated environment for database management"
 KEYWORDS=""
 IUSE="freetds mysql postgres reports xbase"
 
 DEPEND="
 	sys-libs/readline
 	app-arch/bzip2
+	~app-office/kspread-${PV}:${SLOT}
 	freetds? ( dev-db/freetds )
 	mysql? ( virtual/mysql )
 	postgres? ( =dev-libs/libpqxx-2.6* )
+	reports? ( ~app-office/koffice-libs-${PV}:${SLOT}[reports] )
 	xbase? ( dev-db/xbase )
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}"-link.patch )
+
 KMLOADLIBS="koffice-libs"
 KMEXTRACTONLY="
+	KoConfig.h.cmake
 	libs/
 	kspread/
 "
@@ -41,7 +46,16 @@ src_configure() {
 		$(cmake-utils_use_with postgres Pqxx)
 		$(cmake-utils_use_with xbase XBase)
 		-DBUILD_kexi=ON
+		$(cmake-utils_use_build reports koreport)
 	)
 
 	kde4-meta_src_configure
+}
+
+src_install() {
+	kde4-meta_src_install
+
+	# this is already installed by koffice-data
+	rm -f "${D}/usr/include/config-opengl.h"
+	rm -f "${D}/usr/include/KoConfig.h"
 }
