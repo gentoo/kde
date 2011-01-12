@@ -50,10 +50,10 @@ pkg_setup() {
 
 	if ! use virtuoso; then
 		echo
-		ewarn "You have explicitly disabled the default soprano backend"
+		ewarn "You have explicitly disabled the default soprano backend."
 		ewarn "Applications using soprano may need at least one backend"
 		ewarn "to be functional. If you experience any problems, enable"
-		ewarn "the virtuoso USE flag:"
+		ewarn "the virtuoso USE flag."
 		echo
 	fi
 }
