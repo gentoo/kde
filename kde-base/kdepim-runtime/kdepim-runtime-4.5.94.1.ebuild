@@ -34,3 +34,9 @@ RDEPEND="${DEPEND}
 
 add_blocker kdemaildir '<4.3.0'
 add_blocker akonadi '<4.3.90'
+
+src_prepare(){
+	sed -i '/add_subdirectory(po)/d' "${S}/CMakeLists.txt" || die
+	kde4-base_src_prepare
+}
+
