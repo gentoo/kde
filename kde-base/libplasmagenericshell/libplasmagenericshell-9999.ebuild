@@ -26,7 +26,3 @@ KMEXTRACTONLY="
 	libs/kephal/kephal/
 	plasma/desktop/shell/data/
 "
-
-src_unpack() {
-	kde4-meta_src_unpack
-}
