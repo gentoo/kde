@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,13 +7,13 @@
 # ebuild is more or less unmaintained.
 #
 
-EAPI="2"
+EAPI=3
 
 KMNAME="koffice"
 KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="Shared KOffice data files."
+DESCRIPTION="Shared KOffice data files"
 
 KEYWORDS=""
 IUSE=""
@@ -25,5 +25,6 @@ KMEXTRA="pics/
 	servicetypes/
 	templates/"
 KMEXTRACTONLY="
+	KoConfig.h.cmake
 	doc/CMakeLists.txt
 	doc/koffice.desktop"

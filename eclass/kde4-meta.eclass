@@ -246,7 +246,12 @@ kde4-meta_src_extract() {
 
 		pushd "${WORKDIR}" > /dev/null
 		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist}
-		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} || ewarn "tar extract command failed at least partially - continuing anyway"
+		if [[ ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+			# to make the devs happy - bug 338397
+			tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} || ewarn "tar extract command failed at least partially - continuing anyway"
+		else
+			tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null || echo "tar extract command failed at least partially - continuing anyway"
+		fi
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
 		mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""

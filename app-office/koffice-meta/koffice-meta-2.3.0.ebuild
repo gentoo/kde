@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=3
 
-DESCRIPTION="KOffice - merge this to pull in all KOffice-derived packages."
+DESCRIPTION="KOffice - merge this to pull in all KOffice-derived packages"
 HOMEPAGE="http://www.koffice.org/"
 LICENSE="GPL-2"
 
@@ -16,7 +16,7 @@ RDEPEND="
 	>=app-office/karbon-${PV}:${SLOT}
 	>=app-office/kexi-${PV}:${SLOT}
 	>=app-office/koffice-data-${PV}:${SLOT}
-	>=app-office/koffice-libs-${PV}:${SLOT}
+	>=app-office/koffice-libs-${PV}:${SLOT}[reports?]
 	>=app-office/kpresenter-${PV}:${SLOT}
 	>=app-office/krita-${PV}:${SLOT}
 	>=app-office/kspread-${PV}:${SLOT}

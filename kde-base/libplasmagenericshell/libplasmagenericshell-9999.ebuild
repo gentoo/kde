@@ -24,9 +24,5 @@ KMSAVELIBS="true"
 
 KMEXTRACTONLY="
 	libs/kephal/kephal/
+	plasma/desktop/shell/data/
 "
-
-src_unpack() {
-	use test && KMEXTRACTONLY+=" plasma/desktop/shell/data/"
-	kde4-meta_src_unpack
-}

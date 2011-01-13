@@ -1,14 +1,14 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/kpresenter/kpresenter-2.2.2.ebuild,v 1.4 2010/11/04 13:43:41 hwoarang Exp $
+# $Header: $
 
-EAPI="2"
+EAPI=3
 
 KMNAME="koffice"
 KMMODULE="${PN}"
 inherit kde4-meta
 
-DESCRIPTION="KOffice presentation program."
+DESCRIPTION="KOffice presentation program"
 
 KEYWORDS="~amd64 ~x86"
 IUSE=""

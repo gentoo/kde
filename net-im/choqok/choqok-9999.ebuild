@@ -6,6 +6,11 @@ EAPI=3
 
 KMNAME="extragear/network"
 
+if [[ ${PV} != *9999* ]]; then
+	KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR sv tr uk zh_CN zh_TW"
+	SRC_URI="http://choqok.gnufolks.org/pkgs/${PN}_${PV}.tar.bz2"
+fi
+
 inherit git kde4-base
 
 DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
@@ -15,12 +20,22 @@ EGIT_REPO_URI="git://anongit.kde.org/choqok"
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug indicate"
 
 DEPEND="dev-libs/qjson
-		>=dev-libs/qoauth-1.0.1"
+		>=dev-libs/qoauth-1.0.1
+		indicate? ( dev-libs/libindicate-qt )
+"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
 	git_src_unpack
+}
+
+src_prepare(){
+	mycmakeargs=(
+		$(cmake-utils_use indicate QTINDICATE_ENABLE)
+	)
+
+	kde4-base_src_prepare
 }

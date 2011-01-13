@@ -1,8 +1,8 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/koffice-l10n/koffice-l10n-2.1.1.ebuild,v 1.1 2010/02/27 22:35:17 ssuominen Exp $
+# $Header: $
 
-EAPI="2"
+EAPI=3
 
 inherit kde4-base
 

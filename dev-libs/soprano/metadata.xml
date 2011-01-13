@@ -4,7 +4,6 @@
 <herd>kde</herd>
 <use>
 	<flag name="clucene">Enable <pkg>dev-cpp/clucene</pkg> backend support.</flag>
-	<flag name="java">Enables support for <pkg>virtual/jre-1.6.0</pkg> (sesame2) storage backend.</flag>
 	<flag name="raptor">Enables support for <pkg>media-libs/raptor</pkg> RDF parser/serializer.</flag>
 	<flag name="redland">Enables support for the <pkg>dev-libs/redland</pkg> storage backend (really slow one).</flag>
 	<flag name="virtuoso">Enables support for <pkg>dev-db/virtuoso</pkg> storage backend.</flag>
