@@ -29,11 +29,11 @@ src_prepare() {
 	echo 'macro_optional_add_subdirectory ( dolphin-plugins )' >> CMakeLists.txt || die
 	echo > dolphin-plugins/CMakeLists.txt || die
 	use git && echo 'add_subdirectory ( git )' >> dolphin-plugins/CMakeLists.txt
-	use svn && echo 'add_subdirectory ( svn )' >> dolphin-plugins/CMakeLists.txt
+	use subversion && echo 'add_subdirectory ( svn )' >> dolphin-plugins/CMakeLists.txt
 
 	kde4-meta_src_prepare
 }
 
 src_install() {
-	( ! use git && ! use svn ) || kde4-meta_src_install
+	( ! use git && ! use subversion ) || kde4-meta_src_install
 }
