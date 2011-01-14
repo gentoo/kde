@@ -9,15 +9,15 @@ inherit kde4-meta
 
 DESCRIPTION="Extra Dolphin plugins"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug +git +svn"
+IUSE="debug +git +subversion"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	dev-vcs/git
-	dev-vcs/subversion
 	$(add_kdebase_dep kompare)
+	git? ( dev-vcs/git )
+	subversion? ( dev-vcs/subversion )
 "
 
 # SCM plugins moved from dolphin somewhere before 4.4.75

@@ -4,6 +4,5 @@
 <herd>kde</herd>
 <use>
 <flag name="git">Enable support for the git VCS</flag>
-<flag name="svn">Enable support for the subversion VCS</flag>
 </use>
 </pkgmetadata>
