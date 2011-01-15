@@ -4,6 +4,7 @@
 
 EAPI="3"
 
+KDE_SCM="git"
 KMNAME="extragear/multimedia"
 inherit kde4-base
 
