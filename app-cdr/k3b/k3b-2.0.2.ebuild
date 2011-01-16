@@ -31,7 +31,7 @@ HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
