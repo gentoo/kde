@@ -652,9 +652,9 @@ kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
+		migrate_store_dir
 		case ${KDE_SCM} in
 			svn)
-				migrate_store_dir
 				subversion_src_unpack
 				;;
 			git)
