@@ -5,9 +5,9 @@
 EAPI="3"
 
 if [[ ${PV} = *9999* ]]; then
-	KMNAME="kdepim"
-	KMMODULE="runtime"
-	inherit kde4-meta
+	KMNAME="kdepim-runtime"
+	KDE_SCM="git"
+	inherit kde4-base
 else
 	inherit kde4-base
 fi
