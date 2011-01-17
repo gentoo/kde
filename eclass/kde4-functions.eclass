@@ -364,50 +364,48 @@ add_blocker() {
 
 # @FUNCTION: add_kdebase_dep
 # @DESCRIPTION:
-# Create proper dependency for kde-base/ dependencies,
-# adding SLOT when needed (and *only* when needed).
-# This takes 1 or 2 arguments.  The first being the package
-# name, the optional second, is additional USE flags to append.
-# The output of this should be added directly to DEPEND/RDEPEND, and
-# may be wrapped in a USE conditional (but not an || conditional
-# without an extra set of parentheses).
+# Create proper dependency for kde-base/ dependencies, adding SLOT when needed
+# (and *only* when needed).
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	local ver
+
+	if [[ -n ${3} ]]; then
+		ver=${3}
+	elif [[ ${KDEBASE} != kde-base ]]; then
+		ver=${KDE_MINIMAL}
+	# FIXME remove hack when kdepim-4.4.* is gone
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.4.[6-8] && ${1} =~ ^kde(pim)?libs$ ]]; then
+		ver=4.4.5
+	# FIXME remove hack when kdepim-4.6beta is gone
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.5.98 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
+		ver=4.5.90
+	# if building stable-live version depend just on slot
+	# to allow merging packages against more stable basic stuff
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=${SLOT}
+	else
+		ver=${PV}
+	fi
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
 	local use=${2:+,${2}}
 
 	if [[ ${KDEBASE} = kde-base ]]; then
-		# FIXME remove hack when >kdepim-4.4.5 is gone
-		local FIXME_PV
-		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* || ${PV} = 4.4.7*  || ${PV} = 4.4.8* || ${PV} = 4.4.9* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs || ${1} = oxygen-icons ]]; then
-			FIXME_PV=4.4.5
-		# FIXME remove hack when kdepim-4.6beta is gone
-		elif [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.5.93* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs || ${1} = oxygen-icons ]]; then
-			FIXME_PV=4.5.90
-		else
-			FIXME_PV=${PV}
-		fi
-
-		# if building stable-live version depend just on slot
-		# to allow merging packages against more stable basic stuff
-		case ${PV} in
-			*.9999*)
-				echo " !kdeprefix? ( >=kde-base/${1}-${SLOT}[aqua=,-kdeprefix${use}] )"
-				echo " kdeprefix? ( >=kde-base/${1}-${SLOT}:${SLOT}[aqua=,kdeprefix${use}] )"
-				;;
-			*)
-				echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
-				echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
-				;;
-		esac
+		echo " !kdeprefix? ( >=kde-base/${1}-${ver}[aqua=,-kdeprefix${use}] )"
+		echo " kdeprefix? ( >=kde-base/${1}-${ver}:${SLOT}[aqua=,kdeprefix${use}] )"
+	elif [[ ${ver} == live ]]; then
+		echo " kde-base/${1}:live[aqua=${use}]"
 	else
-		if [[ ${KDE_MINIMAL} = live ]]; then
-			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
-		else
-			echo " >=kde-base/${1}-${KDE_MINIMAL}[aqua=${use}]"
-		fi
+		echo " >=kde-base/${1}-${ver}[aqua=${use}]"
 	fi
 }
 
