@@ -155,8 +155,8 @@ kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
 		if [[ "$KDE_SCM" == "svn" ]]; then
+			migrate_store_dir
 			S="${WORKDIR}/${P}"
 			mkdir -p "${S}"
 			ESVN_RESTRICT="export" subversion_src_unpack

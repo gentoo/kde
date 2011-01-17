@@ -215,35 +215,22 @@ get_build_type() {
 # * performs split of kdebase to kdebase-apps when needed
 # * moves playground/extragear kde4-base-style to toplevel dir
 migrate_store_dir() {
-	case "$KDE_SCM" in
-		svn)
-			local cleandir="${ESVN_STORE_DIR}/KDE"
-			local storedir="${ESVN_STORE_DIR}"
-			local repouri="${ESVN_REPO_URI}"
-			local project="${ESVN_PROJECT}"
+	if [[ ${KDE_SCM} != svn ]]; then
+		die "migrate_store_dir() only makes sense for subversion"
+	fi
 
-			;;
-		git)
-			local cleandir="${EGIT_STORE_DIR}/KDE"
-			local storedir="${EGIT_STORE_DIR}"
-			local repouri="${EGIT_REPO_URI}"
-			local project="${EGIT_PROJECT}"
-			;;
-		*)
-			die "Unknown KDE_SCM value in migrate_store_dir(): $1"
-	esac
-
+	local cleandir="${ESVN_STORE_DIR}/KDE"
 
 	if [[ -d "${cleandir}" ]]; then
 		ewarn "'${cleandir}' has been found. Moving contents to new location."
-		addwrite "${storedir}"
+		addwrite "${ESVN_STORE_DIR}"
 		# Split kdebase
 		local module
 		if pushd "${cleandir}"/kdebase/kdebase > /dev/null; then
 			for module in `find . -maxdepth 1 -type d -name [a-z0-9]\*`; do
 				module="${module#./}"
-				mkdir -p "${storedir}/kdebase-${module}" && mv -f "${module}" "${storedir}/kdebase-${module}" || \
-					die "Failed to move to '${storedir}/kdebase-${module}'."
+				mkdir -p "${ESVN_STORE_DIR}/kdebase-${module}" && mv -f "${module}" "${ESVN_STORE_DIR}/kdebase-${module}" || \
+					die "Failed to move to '${ESVN_STORE_DIR}/kdebase-${module}'."
 			done
 			popd > /dev/null
 			rm -fr "${cleandir}/kdebase" || \
@@ -252,21 +239,21 @@ migrate_store_dir() {
 		# Move the rest
 		local pkg
 		for pkg in "${cleandir}"/*; do
-			mv -f "${pkg}" "${storedir}"/ || eerror "Failed to move '${pkg}'"
+			mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "Failed to move '${pkg}'"
 		done
-		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir.  Please move '${cleandir}' contents to appropriate location (possibly ${storedir}) and manually remove '${cleandir}' in order to continue."
+		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir.  Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 	fi
 
 	if ! hasq kde4-meta ${INHERITED}; then
 		case ${KMNAME} in
 			extragear*|playground*)
-				local scmlocalpath="${storedir}"/"${KMNAME}"/"${PN}"
+				local scmlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
 				if [[ -d "${scmlocalpath}" ]]; then
-					local destdir="${storedir}"/"${project}"/"`basename "${repouri}"`"
+					local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
 					ewarn "'${scmlocalpath}' has been found."
 					ewarn "Moving contents to new location: ${destdir}"
-					addwrite "${storedir}"
-					mkdir -p "${storedir}"/"${project}" && mv -f "${scmlocalpath}" "${destdir}" \
+					addwrite "${ESVN_STORE_DIR}"
+					mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${scmlocalpath}" "${destdir}" \
 						|| die "Failed to move to '${scmlocalpath}'"
 					# Try cleaning empty directories
 					rmdir "`dirname "${scmlocalpath}"`" 2> /dev/null
