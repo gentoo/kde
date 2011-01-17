@@ -6,6 +6,7 @@ EAPI="3"
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
+KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."

@@ -6,6 +6,7 @@ EAPI="3"
 
 KMNAME="kdepim"
 KMMODULE="wizards"
+KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE PIM wizards"
