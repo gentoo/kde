@@ -5,6 +5,7 @@
 EAPI="3"
 
 KMNAME="extragear/utils"
+KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras."
