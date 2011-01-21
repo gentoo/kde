@@ -519,8 +519,37 @@ case ${BUILD_TYPE} in
 			# Default value is 1 hour.
 			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 		elif [[ "${KDE_SCM}" == "git" ]]; then
+			case ${PV} in
+				9999*)
+					# master
+					# @ECLASS-VARIABLE: EGIT_PROJECT_SUFFIX
+					# @DESCRIPTION
+					# Suffix appended to EGIT_PROJECT depending on fetched branch.
+					# Defaults is empty (for -9999 = master), and "-${PV}" otherwise.
+					EGIT_PROJECT_SUFFIX=""
+					;;
+				4.6.9999)
+					# keep this as long as 4.6 does not have its own branch in
+					# kde git tree
+					EGIT_PROJECT_SUFFIX=""
+					EGIT_BRANCH="${SLOT}"
+					;;
+				*)
+					# branch
+					EGIT_PROJECT_SUFFIX="-${PV}"
+
+					# set EGIT_BRANCH to ${SLOT}
+					EGIT_BRANCH="${SLOT}"
+					;;
+			esac
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}"
+			fi
+			if [[ -n ${KMNAME} ]]; then
+				EGIT_PROJECT="${KMNAME}${EGIT_PROJECT_SUFFIX}"
+				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+					KMMODULE="${PN}"
+				fi
 			fi
 			case ${KDEBASE} in
 				kdevelop)
