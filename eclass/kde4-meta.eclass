@@ -79,9 +79,8 @@ case ${BUILD_TYPE} in
 			esac
 		elif [[ "${KDE_SCM}" == "git" ]]; then
 			case ${KMNAME} in
-				kdepim|kdepim-runtime)
+				kdepim)
 					EGIT_REPO_URI="git://anongit.kde.org/${KMNAME}"
-					EGIT_PROJECT="${KMNAME}"
 					;;
 			esac
 
@@ -189,7 +188,7 @@ kde4-meta_src_extract() {
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
-		rsync_options="--progress -v --group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
+		rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 
 		case "${KDE_SCM}" in
 			svn)
