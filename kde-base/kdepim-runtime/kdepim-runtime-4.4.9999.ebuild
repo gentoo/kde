@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RESTRICT="test"
-# Would need test programs _testrunner and akonaditest from kdepimlibs
+# Would need test programs _testrunner and akonaditest from kdepimlibs, see bug 313233
 
 DEPEND="
 	app-misc/strigi
