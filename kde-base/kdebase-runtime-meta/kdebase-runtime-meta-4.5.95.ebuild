@@ -42,6 +42,7 @@ RDEPEND="
 	$(add_kdebase_dep ktraderclient)
 	$(add_kdebase_dep kuiserver)
 	$(add_kdebase_dep kurifilter-plugins)
+	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep kwalletd)
 	$(add_kdebase_dep plasma-runtime)
 	$(add_kdebase_dep renamedlg-plugins)
