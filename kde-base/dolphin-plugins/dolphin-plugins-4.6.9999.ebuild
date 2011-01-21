@@ -25,9 +25,6 @@ add_blocker dolphin '<4.4.75'
 
 KMLOADLIBS="libkonq"
 
-#
-# See bug 351147 for why this is necessary
-#
 src_prepare() {
 	echo 'macro_optional_add_subdirectory ( dolphin-plugins )' >> CMakeLists.txt || die
 	echo > dolphin-plugins/CMakeLists.txt || die
