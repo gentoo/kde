@@ -33,6 +33,6 @@ RDEPEND="
 		$(add_kdebase_dep kdesdk-meta)
 		$(add_kdebase_dep kdewebdev-meta)
 	)
-	semantic-desktop? ( $(add_kdebase_dep kdepim-meta) )
+	semantic-desktop? ( || ( >=kde-base/kdepim-meta-4.5.93 >=kde-base/kdepim-meta-4.4.9 ) )
 	$(block_other_slots)
 "
