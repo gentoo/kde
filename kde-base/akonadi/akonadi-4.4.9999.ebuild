@@ -5,6 +5,7 @@
 EAPI="3"
 
 KMNAME="kdepim"
+KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="An extensible cross-desktop storage service for PIM data and meta data"
