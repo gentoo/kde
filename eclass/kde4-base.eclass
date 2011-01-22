@@ -532,7 +532,7 @@ case ${BUILD_TYPE} in
 					# keep this as long as 4.6 does not have its own branch in
 					# kde git tree
 					EGIT_PROJECT_SUFFIX=""
-					EGIT_BRANCH="${SLOT}"
+					EGIT_BRANCH="master"
 					;;
 				*)
 					# branch
