@@ -5,6 +5,7 @@
 EAPI="3"
 
 KMNAME="kdepim"
+VIRTUALX_REQUIRED=tests
 inherit kde4-meta
 
 DESCRIPTION="Common library for KDE PIM apps"
