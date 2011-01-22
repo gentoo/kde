@@ -5,6 +5,7 @@
 EAPI="3"
 
 KMNAME="kdepim"
+VIRTUALX_REQUIRED=tests
 inherit kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
