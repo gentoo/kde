@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=3
 
 KMNAME="kdebindings"
 KMMODULE="ruby"
@@ -59,6 +59,32 @@ all_ruby_prepare() {
 		ruby/qtruby/src/qtruby.cpp \
 		ruby/qtruby/src/qtruby.h \
 		ruby/qtruby/src/smokeruby.h || die
+
+	sed -i -e "s#include <smoke/qt/#include <smoke/#" -e "s#include <smoke/kde/#include <smoke/#" \
+		ruby/qtruby/src/Qt.cpp \
+		ruby/qtruby/src/marshall_types.cpp \
+		ruby/qtruby/modules/phonon/phonon.cpp \
+		ruby/qtruby/modules/qtdeclarative/qtdeclarative.cpp \
+		ruby/qtruby/modules/qtuitools/qtuitools.cpp \
+		ruby/qtruby/modules/qtscript/qtscript.cpp \
+		ruby/qtruby/modules/qwt/qwt.cpp	\
+		ruby/qtruby/modules/qttest/qttest.cpp \
+		ruby/qtruby/modules/qtwebkit/qtwebkit.cpp \
+		ruby/qtruby/src/qtruby.cpp \
+		ruby/korundum/src/Korundum.cpp \
+		ruby/korundum/modules/soprano/soprano.cpp \
+		ruby/korundum/modules/akonadi/akonadi.cpp \
+		ruby/korundum/modules/khtml/khtml.cpp \
+		ruby/korundum/modules/kio/kio.cpp \
+		ruby/korundum/modules/ktexteditor/ktexteditor.cpp \
+		ruby/korundum/modules/solid/solid.cpp \
+		ruby/korundum/modules/nepomuk/nepomuk.cpp \
+		ruby/korundum/modules/plasma/src/plasma.cpp \
+		ruby/korundum/modules/plasma/src/plasmahandlers.cpp \
+		ruby/korundum/modules/nepomuk/nepomukhandlers.cpp || die
+
+	echo 'target_link_libraries(rubyqtdeclarative ${QT_QTDECLARATIVE_LIBRARY})' >> \
+		ruby/qtruby/modules/qtdeclarative/CMakeLists.txt || die
 }
 
 each_ruby_configure() {
