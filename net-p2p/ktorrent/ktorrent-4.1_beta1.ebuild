@@ -29,7 +29,7 @@ DESCRIPTION="A BitTorrent program for KDE."
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +magnetgenerator +mediaplayer plasma rss +scanfolder +search +shutdown +stats
