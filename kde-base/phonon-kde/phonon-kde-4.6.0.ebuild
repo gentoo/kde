@@ -13,7 +13,7 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-2"
-IUSE="alsa debug +xine pulseaudio"
+IUSE="alsa debug xine pulseaudio"
 
 DEPEND="
 	>=media-sound/phonon-4.4.3[xine?]
