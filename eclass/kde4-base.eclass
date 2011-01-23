@@ -840,6 +840,12 @@ kde4-base_src_test() {
 	cmake-utils_src_configure
 	kde4-base_src_compile
 
+	# When run as normal user during ebuild development with the ebuild command, the
+	# kde tests tend to access the session DBUS. This however is not possible in a real
+	# emerge or on the tinderbox.
+	# > make sure it does not happen, so bad tests can be recognized and disabled
+	unset DBUS_SESSION_BUS_ADDRESS
+
 	if [[ ${VIRTUALX_REQUIRED} == always ]] ||
 		( [[ ${VIRTUALX_REQUIRED} != manual ]] && use test ); then
 
