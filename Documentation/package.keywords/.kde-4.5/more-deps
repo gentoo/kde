@@ -11,7 +11,6 @@ dev-python/pycups
 >=dev-python/sip-4.12
 >=dev-python/PyQt4-4.8.2
 =net-dns/cagibi-0.1.1
-net-libs/libktorrent
 x11-apps/scripts
 # Also unrelated
 x11-misc/google-gadgets
