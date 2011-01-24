@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	attica? ( dev-libs/libattica )
 	kate? ( $(add_kdebase_dep kate) )
 	okular? ( $(add_kdebase_dep okular) )
-	phonon? ( >=media-sound/phonon-4.3.80[xcb] )
+	phonon? ( >=media-sound/phonon-4.4.3 )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
 	qscintilla? ( x11-libs/qscintilla )
 	qwt? ( x11-libs/qwt:5 )

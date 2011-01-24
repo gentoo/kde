@@ -33,17 +33,13 @@ COMMONDEPEND="
 	media-libs/freetype:2
 	media-libs/giflib
 	>=media-libs/libpng-1.4
+	>=media-sound/phonon-4.4.3
 	sys-libs/zlib
 	virtual/jpeg
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
-	aqua? ( >=media-sound/phonon-4.3.80 )
 	!aqua? (
-		|| (
-			>=media-sound/phonon-4.3.80[xcb]
-			>=media-sound/phonon-4.4.4
-		)
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
