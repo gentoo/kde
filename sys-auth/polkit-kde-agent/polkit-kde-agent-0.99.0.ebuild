@@ -20,7 +20,7 @@ HOMEPAGE="http://www.kde.org"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
-IUSE="debug"
+IUSE="debug nls"
 
 DEPEND="
 	>=sys-auth/polkit-qt-0.98_pre
@@ -30,3 +30,10 @@ RDEPEND="${DEPEND}
 "
 
 [[ ${PV} = *9999* ]] || S="${WORKDIR}/${MY_P}"
+
+src_configure() {
+	mycmakeargs=(
+	$(cmake-utils_use nls BUILD_po)
+	)
+	kde4-base_src_configure
+}
