@@ -1,10 +1,11 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 KMNAME="extragear/utils"
+KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras."

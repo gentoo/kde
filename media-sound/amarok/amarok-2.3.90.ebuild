@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 # Translations are only in the tarballs, not the git repo
 if [[ ${PV} != *9999* ]]; then
@@ -11,13 +11,12 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 else
-	EGIT_REPO_URI="git://anongit.kde.org/${PN}"
-	GIT_ECLASS="git"
+	KDE_SCM="git"
 	KEYWORDS=""
 fi
 
 KDE_REQUIRED="never"
-inherit flag-o-matic kde4-base ${GIT_ECLASS}
+inherit flag-o-matic kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"

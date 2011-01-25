@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
-IUSE="alsa debug +xine pulseaudio"
+IUSE="alsa debug xine pulseaudio"
 
 DEPEND="
 	>=media-sound/phonon-4.4.3[xine?]

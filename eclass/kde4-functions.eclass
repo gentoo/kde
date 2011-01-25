@@ -14,10 +14,10 @@ inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# By default kde4 eclasses want EAPI 2 which might be redefinable to newer
-# versions.
+# Currently kde4 eclasses support EAPI 3. Over time newer versions
+# will be supported.
 case ${EAPI:-0} in
-	2|3) : ;;
+	3) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -35,6 +35,11 @@ elif [[ ${KMNAME} = kdevelop ]]; then
 	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE="kdevelop"
 fi
+
+# @ECLASS-VARIABLE: KDE_SCM
+# @DESCRIPTION:
+# If this is a live package which scm does it use - default to svn
+KDE_SCM="${KDE_SCM:-svn}"
 
 # @ECLASS-VARIABLE: KDE_SLOTS
 # @DESCRIPTION:
@@ -63,24 +68,6 @@ slot_is_at_least() {
 # All KDE ebuilds should run this in pkg_postinst and pkg_postrm.
 buildsycoca() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	if [[ ${EAPI} == 2 ]] && ! use prefix; then
-		EROOT=${ROOT}
-	fi
-
-	local KDE3DIR="${EROOT}usr/kde/3.5"
-	if [[ -z ${EROOT%%/} && -x "${KDE3DIR}"/bin/kbuildsycoca ]]; then
-		# Since KDE3 is aware of shortcuts in /usr, rebuild database
-		# for KDE3 as well.
-		touch "${KDE3DIR}"/share/services/ksycoca
-		chmod 644 "${KDE3DIR}"/share/services/ksycoca
-
-		ebegin "Running kbuildsycoca to build global database"
-		XDG_DATA_DIRS="${EROOT}usr/local/share:${KDE3DIR}/share:${EROOT}usr/share" \
-			DISPLAY="" \
-			"${KDE3DIR}"/bin/kbuildsycoca --global --noincremental &> /dev/null
-		eend $?
-	fi
 
 	# We no longer need to run kbuildsycoca4, as kded does that automatically, as needed
 
@@ -228,7 +215,12 @@ get_build_type() {
 # * performs split of kdebase to kdebase-apps when needed
 # * moves playground/extragear kde4-base-style to toplevel dir
 migrate_store_dir() {
+	if [[ ${KDE_SCM} != svn ]]; then
+		die "migrate_store_dir() only makes sense for subversion"
+	fi
+
 	local cleandir="${ESVN_STORE_DIR}/KDE"
+
 	if [[ -d "${cleandir}" ]]; then
 		ewarn "'${cleandir}' has been found. Moving contents to new location."
 		addwrite "${ESVN_STORE_DIR}"
@@ -249,22 +241,22 @@ migrate_store_dir() {
 		for pkg in "${cleandir}"/*; do
 			mv -f "${pkg}" "${ESVN_STORE_DIR}"/ || eerror "Failed to move '${pkg}'"
 		done
-		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir. Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
+		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir.  Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 	fi
 
 	if ! hasq kde4-meta ${INHERITED}; then
 		case ${KMNAME} in
 			extragear*|playground*)
-				local svnlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
-				if [[ -d "${svnlocalpath}" ]]; then
+				local scmlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
+				if [[ -d "${scmlocalpath}" ]]; then
 					local destdir="${ESVN_STORE_DIR}"/"${ESVN_PROJECT}"/"`basename "${ESVN_REPO_URI}"`"
-					ewarn "'${svnlocalpath}' has been found."
+					ewarn "'${scmlocalpath}' has been found."
 					ewarn "Moving contents to new location: ${destdir}"
 					addwrite "${ESVN_STORE_DIR}"
-					mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${svnlocalpath}" "${destdir}" \
-						|| die "Failed to move to '${svnlocalpath}'"
+					mkdir -p "${ESVN_STORE_DIR}"/"${ESVN_PROJECT}" && mv -f "${scmlocalpath}" "${destdir}" \
+						|| die "Failed to move to '${scmlocalpath}'"
 					# Try cleaning empty directories
-					rmdir "`dirname "${svnlocalpath}"`" 2> /dev/null
+					rmdir "`dirname "${scmlocalpath}"`" 2> /dev/null
 				fi
 				;;
 		esac
@@ -359,50 +351,48 @@ add_blocker() {
 
 # @FUNCTION: add_kdebase_dep
 # @DESCRIPTION:
-# Create proper dependency for kde-base/ dependencies,
-# adding SLOT when needed (and *only* when needed).
-# This takes 1 or 2 arguments.  The first being the package
-# name, the optional second, is additional USE flags to append.
-# The output of this should be added directly to DEPEND/RDEPEND, and
-# may be wrapped in a USE conditional (but not an || conditional
-# without an extra set of parentheses).
+# Create proper dependency for kde-base/ dependencies, adding SLOT when needed
+# (and *only* when needed).
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	local ver
+
+	if [[ -n ${3} ]]; then
+		ver=${3}
+	elif [[ ${KDEBASE} != kde-base ]]; then
+		ver=${KDE_MINIMAL}
+	# FIXME remove hack when kdepim-4.4.* is gone
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.4.[6-8] && ${1} =~ ^kde(pim)?libs$ ]]; then
+		ver=4.4.5
+	# FIXME remove hack when kdepim-4.6beta is gone
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.5.98 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
+		ver=4.5.90
+	# if building stable-live version depend just on slot
+	# to allow merging packages against more stable basic stuff
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=${SLOT}
+	else
+		ver=${PV}
+	fi
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
 	local use=${2:+,${2}}
 
 	if [[ ${KDEBASE} = kde-base ]]; then
-		# FIXME remove hack when >kdepim-4.4.5 is gone
-		local FIXME_PV
-		if [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.4.6* || ${PV} = 4.4.7*  || ${PV} = 4.4.8* || ${PV} = 4.4.9* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs || ${1} = oxygen-icons ]]; then
-			FIXME_PV=4.4.5
-		# FIXME remove hack when kdepim-4.6beta is gone
-		elif [[ ${KMNAME} = kdepim || ${PN} = kdepim-runtime ]] && [[ ${PV} = 4.5.94* ]] && [[ ${1} = kdelibs || ${1} = kdepimlibs || ${1} = oxygen-icons ]]; then
-			FIXME_PV=4.5.90
-		else
-			FIXME_PV=${PV}
-		fi
-
-		# if building stable-live version depend just on slot
-		# to allow merging packages against more stable basic stuff
-		case ${PV} in
-			*.9999*)
-				echo " !kdeprefix? ( >=kde-base/${1}-${SLOT}[aqua=,-kdeprefix${use}] )"
-				echo " kdeprefix? ( >=kde-base/${1}-${SLOT}:${SLOT}[aqua=,kdeprefix${use}] )"
-				;;
-			*)
-				echo " !kdeprefix? ( >=kde-base/${1}-${FIXME_PV}[aqua=,-kdeprefix${use}] )"
-				echo " kdeprefix? ( >=kde-base/${1}-${FIXME_PV}:${SLOT}[aqua=,kdeprefix${use}] )"
-				;;
-		esac
+		echo " !kdeprefix? ( >=kde-base/${1}-${ver}[aqua=,-kdeprefix${use}] )"
+		echo " kdeprefix? ( >=kde-base/${1}-${ver}:${SLOT}[aqua=,kdeprefix${use}] )"
+	elif [[ ${ver} == live ]]; then
+		echo " kde-base/${1}:live[aqua=${use}]"
 	else
-		if [[ ${KDE_MINIMAL} = live ]]; then
-			echo " kde-base/${1}:${KDE_MINIMAL}[aqua=${use}]"
-		else
-			echo " >=kde-base/${1}-${KDE_MINIMAL}[aqua=${use}]"
-		fi
+		echo " >=kde-base/${1}-${ver}[aqua=${use}]"
 	fi
 }
 

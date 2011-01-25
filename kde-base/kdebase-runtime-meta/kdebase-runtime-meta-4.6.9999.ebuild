@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -42,6 +42,7 @@ RDEPEND="
 	$(add_kdebase_dep ktraderclient)
 	$(add_kdebase_dep kuiserver)
 	$(add_kdebase_dep kurifilter-plugins)
+	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep kwalletd)
 	$(add_kdebase_dep plasma-runtime)
 	$(add_kdebase_dep renamedlg-plugins)

@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="3"
 
 CMAKE_MIN_VERSION=2.8.0
 MULTIMEDIA_REQUIRED=always
@@ -21,6 +21,7 @@ if [[ ${PV} != *9999* ]]; then
 
 	S=${WORKDIR}/${P/_*}
 else
+	KDE_SCM="git"
 	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
 fi
 

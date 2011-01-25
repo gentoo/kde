@@ -7,7 +7,7 @@
 # ebuild is more or less unmaintained.
 #
 
-EAPI=3
+EAPI="3"
 
 KMNAME="koffice"
 KMMODULE="${PN}"

@@ -70,12 +70,21 @@ debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-sp
 # Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
 case ${BUILD_TYPE} in
 	live)
-		case ${KMNAME} in
-			extragear*|playground*)
-				ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				;;
-		esac
+		if [[ "${KDE_SCM}" == "svn" ]]; then
+			case ${KMNAME} in
+				extragear*|playground*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+					ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+					;;
+			esac
+		elif [[ "${KDE_SCM}" == "git" ]]; then
+			case ${KMNAME} in
+				kdepim)
+					EGIT_REPO_URI="git://anongit.kde.org/${KMNAME}"
+					;;
+			esac
+
+		fi
 		;;
 esac
 
@@ -145,12 +154,19 @@ kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		migrate_store_dir
-		S="${WORKDIR}/${P}"
-		mkdir -p "${S}"
-		ESVN_RESTRICT="export" subversion_src_unpack
-		subversion_wc_info
-		subversion_bootstrap
+		if [[ "$KDE_SCM" == "svn" ]]; then
+			migrate_store_dir
+			S="${WORKDIR}/${P}"
+			mkdir -p "${S}"
+			ESVN_RESTRICT="export" subversion_src_unpack
+			subversion_wc_info
+			subversion_bootstrap
+		elif [[ "${KDE_SCM}" == "git" ]]; then
+			S="${WORKDIR}/${P}"
+			mkdir -p "${S}"
+			EGIT_HAS_SUBMODULES=1
+			git_src_unpack
+		fi
 		kde4-meta_src_extract
 	else
 		kde4-meta_src_extract
@@ -168,31 +184,43 @@ kde4-meta_src_extract() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		local rsync_options subdir kmnamedir targetdir
+		local rsync_options subdir kmnamedir targetdir wc_path escm
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
+		rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 
-		rsync_options="--group --links --owner --perms --quiet --exclude=.svn/"
+		case "${KDE_SCM}" in
+			svn)
+				wc_path="${ESVN_WC_PATH}"
+				escm="{ESVN}"
+				;;
+			git)
+				wc_path="${EGIT_STORE_DIR}/${EGIT_PROJECT}"
+				escm="{EGIT}"
+				;;
+			*)
+				die "Unknown value for KDE_SCM in kde4-meta_src_extract(): ${KDE_SCM}"
+		esac
 
 		# Copy ${KMNAME} non-recursively (toplevel files)
-		rsync ${rsync_options} "${ESVN_WC_PATH}"/${kmnamedir}* "${S}" \
-			|| die "${ESVN}: can't export toplevel files to '${S}'."
+		rsync ${rsync_options} "${wc_path}"/${kmnamedir}* "${S}" \
+			|| die "${escm}: can't export toplevel files to '${S}'."
 		# Copy cmake directory
-		if [[ -d "${ESVN_WC_PATH}/${kmnamedir}cmake" ]]; then
-			rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}cmake" "${S}" \
-				|| die "${ESVN}: can't export cmake files to '${S}'."
+		if [[ -d "${wc_path}/${kmnamedir}cmake" ]]; then
+			rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}cmake" "${S}" \
+				|| die "${escm}: can't export cmake files to '${S}'."
 		fi
 		# Copy all subdirectories
 		for subdir in $(__list_needed_subdirectories); do
 			targetdir=""
-			if [[ $subdir = doc/* && ! -e "$ESVN_WC_PATH/$kmnamedir$subdir" ]]; then
+			if [[ $subdir = doc/* && ! -e "$wc_path/$kmnamedir$subdir" ]]; then
 				continue
 			fi
 
 			[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
-			rsync --recursive ${rsync_options} "${ESVN_WC_PATH}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
-				|| die "${ESVN}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
+			rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
+				|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 		done
 
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
