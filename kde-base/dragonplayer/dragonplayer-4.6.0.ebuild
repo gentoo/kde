@@ -16,8 +16,7 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 RDEPEND="
-	aqua? ( >=media-libs/xine-lib-1.1.9 )
-	!aqua? ( >=media-libs/xine-lib-1.1.9[xcb] )
+	>=media-sound/phonon-4.4.3
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
