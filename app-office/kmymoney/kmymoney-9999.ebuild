@@ -33,8 +33,8 @@ COMMON_DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	calendar? ( dev-libs/libical )
 	hbci? (
-		>=net-libs/aqbanking-4.2.4[qt4]
-		>=sys-libs/gwenhywfar-3.11.3
+		>=net-libs/aqbanking-5.0.0
+		>=sys-libs/gwenhywfar-4.0.0
 	)
 	ofx? ( >=dev-libs/libofx-0.9.1 )
 "
