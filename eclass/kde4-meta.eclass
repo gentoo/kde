@@ -164,7 +164,6 @@ kde4-meta_src_unpack() {
 		elif [[ "${KDE_SCM}" == "git" ]]; then
 			S="${WORKDIR}/${P}"
 			mkdir -p "${S}"
-			EGIT_HAS_SUBMODULES=1
 			git_src_unpack
 		fi
 		kde4-meta_src_extract
@@ -188,45 +187,46 @@ kde4-meta_src_extract() {
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
-		rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 
 		case "${KDE_SCM}" in
 			svn)
+				rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 				wc_path="${ESVN_WC_PATH}"
 				escm="{ESVN}"
+
+				# Copy ${KMNAME} non-recursively (toplevel files)
+				rsync ${rsync_options} "${wc_path}"/${kmnamedir}* "${S}" \
+					|| die "${escm}: can't export toplevel files to '${S}'."
+				# Copy cmake directory
+				if [[ -d "${wc_path}/${kmnamedir}cmake" ]]; then
+					rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}cmake" "${S}" \
+						|| die "${escm}: can't export cmake files to '${S}'."
+				fi
+				# Copy all subdirectories
+				for subdir in $(__list_needed_subdirectories); do
+					targetdir=""
+					if [[ $subdir = doc/* && ! -e "$wc_path/$kmnamedir$subdir" ]]; then
+						continue
+					fi
+
+					[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
+					rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
+						|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
+				done
 				;;
+
 			git)
-				wc_path="${EGIT_STORE_DIR}/${EGIT_PROJECT}"
-				escm="{EGIT}"
+				: noop
 				;;
 			*)
 				die "Unknown value for KDE_SCM in kde4-meta_src_extract(): ${KDE_SCM}"
 		esac
 
-		# Copy ${KMNAME} non-recursively (toplevel files)
-		rsync ${rsync_options} "${wc_path}"/${kmnamedir}* "${S}" \
-			|| die "${escm}: can't export toplevel files to '${S}'."
-		# Copy cmake directory
-		if [[ -d "${wc_path}/${kmnamedir}cmake" ]]; then
-			rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}cmake" "${S}" \
-				|| die "${escm}: can't export cmake files to '${S}'."
-		fi
-		# Copy all subdirectories
-		for subdir in $(__list_needed_subdirectories); do
-			targetdir=""
-			if [[ $subdir = doc/* && ! -e "$wc_path/$kmnamedir$subdir" ]]; then
-				continue
-			fi
-
-			[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
-			rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
-				|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
-		done
-
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
 			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
 				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 		fi
+
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 		case ${PV} in
