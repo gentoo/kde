@@ -535,8 +535,8 @@ case ${BUILD_TYPE} in
 					EGIT_BRANCH="master"
 					;;
 				*)
-					# branch
-					EGIT_PROJECT_SUFFIX="-${PV}"
+					# branch: prefix empty because we use bare git repo
+					EGIT_PROJECT_SUFFIX=""
 
 					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
 					EGIT_BRANCH="${SLOT}"
