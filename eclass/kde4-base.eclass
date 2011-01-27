@@ -538,8 +538,9 @@ case ${BUILD_TYPE} in
 					# branch
 					EGIT_PROJECT_SUFFIX="-${PV}"
 
-					# set EGIT_BRANCH to ${SLOT}
+					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
 					EGIT_BRANCH="${SLOT}"
+					EGIT_COMMIT="${SLOT}"
 					;;
 			esac
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
