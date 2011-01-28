@@ -77,6 +77,7 @@ case ${BUILD_TYPE} in
 					ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
 					;;
 			esac
+		fi
 		;;
 esac
 
