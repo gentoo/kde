@@ -40,6 +40,10 @@ fi
 # @DESCRIPTION:
 # If this is a live package which scm does it use
 KDE_SCM="${KDE_SCM:-svn}"
+case ${KDE_SCM} in
+	svn|git) ;;
+	*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
+esac
 
 # @ECLASS-VARIABLE: KDE_SLOTS
 # @DESCRIPTION:

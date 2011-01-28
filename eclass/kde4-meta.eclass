@@ -77,14 +77,6 @@ case ${BUILD_TYPE} in
 					ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
 					;;
 			esac
-		elif [[ "${KDE_SCM}" == "git" ]]; then
-			case ${KMNAME} in
-				kdepim)
-					EGIT_REPO_URI="git://anongit.kde.org/${KMNAME}"
-					;;
-			esac
-
-		fi
 		;;
 esac
 
@@ -214,12 +206,7 @@ kde4-meta_src_extract() {
 						|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 				done
 				;;
-
-			git)
-				: noop
-				;;
-			*)
-				die "Unknown value for KDE_SCM in kde4-meta_src_extract(): ${KDE_SCM}"
+			*) ;;
 		esac
 
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
@@ -392,14 +379,6 @@ kde4-meta_create_extractlists() {
 				filters/config-filters.h.cmake
 			"
 			case ${PV} in
-				2.0.*)
-					KMEXTRACTONLY+="
-						config-openctl.h.cmake
-						config-endian.h.cmake
-						config-openexr.h.cmake
-						config-opengl.h.cmake
-						config-prefix.h.cmake"
-				;;
 				2.[12].*)
 					KMEXTRACTONLY+="
 						config-endian.h.cmake
@@ -645,31 +624,6 @@ kde4-meta_change_cmakelists() {
 				sed -e '/install(.\+config-openexr\.h.\+)/d' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in collision prevention section"
 			fi
-			# koffice 2.0
-			case ${PV} in
-				2.0.[1-9])
-					sed -i -n -e '1h;1!H;${g;s/install(.\+config-openexr.h.\+)//;p}' \
-						"${S}"/CMakeLists.txt || \
-						die "${LINENO}: sed died in collision prevention section"
-					;;
-				*) ;;
-			esac
-			# koffice 2.1.[8-9][0-9] and 9999
-			case ${PV} in
-				2.1.8[0-9]|2.1.9[0-9]|9999)
-					sed -e '/^option(BUILD/s/ON/OFF/' \
-						-e '/^if(NOT BUILD_kchart/,/^endif(NOT BUILD_kchart/d' \
-						-e '/^if(BUILD_koreport/,/^endif(BUILD_koreport/d' \
-						-e 's/set(SHOULD_BUILD_F_OFFICE TRUE)/set(SHOULD_BUILD_F_OFFICE FALSE)/' \
-						-i "${S}"/CMakeLists.txt || die "sed died while fixing cmakelists"
-					if [[ ${PN} != koffice-data ]] && [[ ${PV} == 9999 ]]; then
-						sed -e '/config-opengl.h/d' \
-						-i "${S}"/CMakeLists.txt || die "sed died while fixing cmakelists"
-
-					fi
-				;;
-				*) ;;
-			esac
 	esac
 
 	popd > /dev/null
@@ -698,18 +652,6 @@ kde4-meta_src_configure() {
 				-DWITH_LibTidy=OFF
 				"${mycmakeargs[@]}"
 			)
-			;;
-		koffice)
-			case ${PV} in
-				2.1.8[0-9]|2.1.9[0-9]|9999)
-					if [[ ${PN} != "kchart" ]]; then
-						mycmakeargs=(
-							-DBUILD_koreport=OFF
-							"${mycmakeargs[@]}"
-						)
-					fi
-				;;
-			esac
 			;;
 	esac
 

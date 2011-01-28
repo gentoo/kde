@@ -33,7 +33,6 @@ if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
 		git) inherit git ;;
-		*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
 	esac
 fi
 
