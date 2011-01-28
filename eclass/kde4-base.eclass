@@ -217,7 +217,7 @@ esac
 # 4.6.0 for 4.4, 4.6.3 for 4.5, and 4.7.0 for 4.6 and later
 if slot_is_at_least 4.6 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
-else "${KDE_MINIMAL}"; then
+else
 	QT_MINIMAL="${QT_MINIMAL:-4.6.3}"
 fi
 
