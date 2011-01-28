@@ -20,6 +20,10 @@ if [[ ${PV} != 9999* ]]; then
 		sr@latin sv tr uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
+
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+else
+	KEYWORDS=""
 fi
 inherit kde4-base
 
@@ -27,7 +31,6 @@ DESCRIPTION="A BitTorrent library based on KDE Platform"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="4"
 IUSE="debug"
 

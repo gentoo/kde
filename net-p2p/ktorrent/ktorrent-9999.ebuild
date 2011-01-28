@@ -24,6 +24,12 @@ if [[ ${PV} != 9999* ]]; then
 		sr@latin sv tr uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
+
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+else
+	LIBKT_VERSION_MIN="${PV}"
+	LIBKT_VERSION_MAX="99999999"
+	KEYWORDS=""
 fi
 
 inherit kde4-base
