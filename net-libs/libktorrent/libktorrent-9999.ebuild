@@ -1,18 +1,18 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libktorrent/libktorrent-1.0.5.3.ebuild,v 1.5 2011/01/17 01:07:43 ranger Exp $
 
 EAPI=3
 
-GIT_ECLASS=
-if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="git://anongit.kde.org/libktorrent"
-	GIT_ECLASS="git"
-else
+KDE_SCM="git"
+if [[ ${PV} != 9999* ]]; then
+	inherit versionator
 	# upstream likes to skip that _ in beta releases
-	KTORRENT_VERSION="4.0.3"
 	MY_PV="${PV/_/}"
+	KTORRENT_VERSION=$(($(get_major_version)+3)).$(get_version_component_range 2-3 ${MY_PV})
 	MY_P="${PN}-${MY_PV}"
+	KDE_HANDBOOK="optional"
+	KDE_DOC_DIRS="doc"
 
 	KDE_LINGUAS="ar ast be bg ca ca@valencia cs da de el en_GB eo es et eu
 		fi fr ga gl hi hne hr hu is it ja km ku lt lv ms nb nds nl nn oc pl
@@ -21,16 +21,15 @@ else
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 fi
-
-inherit kde4-base ${GIT_ECLASS}
+inherit kde4-base
 
 DESCRIPTION="A BitTorrent library based on KDE Platform"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="4"
-IUSE="debug doc"
+IUSE="debug"
 
 RDEPEND="
 	app-crypt/qca:2
@@ -39,17 +38,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	sys-devel/gettext
-	doc? ( app-doc/doxygen[-nodot] )
 "
 
-src_compile() {
-	cmake-utils_src_compile
-
-	use doc && cmake-utils_src_compile docs
-}
-
-src_install() {
-	use doc && HTML_DOCS=( "${CMAKE_BUILD_DIR}/apidocs/html/" )
-
-	cmake-utils_src_install
+src_prepare() {
+	kde4-base_src_prepare
+	# do not build non-installed example binary
+	sed -i -e '/add_subdirectory(examples)/d' CMakeLists.txt || die
 }
