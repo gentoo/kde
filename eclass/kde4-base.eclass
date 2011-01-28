@@ -432,7 +432,6 @@ unset COMMONDEPEND
 # Add experimental kdeenablefinal, masked by default
 IUSE+=" kdeenablefinal"
 
-
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
 _calculate_src_uri() {
