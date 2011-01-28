@@ -303,9 +303,7 @@ app-admin/system-config-printer-common
 =dev-db/virtuoso-odbc-6.1*
 =dev-db/virtuoso-server-6.1*
 dev-libs/grantlee
-dev-libs/libattica
 dev-libs/libdbusmenu-qt
-dev-libs/shared-desktop-ontologies
 dev-python/pycups
 net-libs/libktorrent
 x11-apps/scripts

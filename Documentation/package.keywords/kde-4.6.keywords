@@ -117,12 +117,9 @@ kde-base/krosspython:4.6
 kde-base/pykde4:4.6
 kde-base/smoke:4.6
 # Polkit and other deps
->=app-office/akonadi-server-1.4.80
+=app-office/akonadi-server-1.5.0
+=dev-libs/libattica-0.2.0
 >=dev-libs/soprano-2.5.63_pre
->=kde-misc/polkit-kde-kcmodules-0.98_pre
->=sys-auth/polkit-kde-agent-0.98_pre
->=sys-auth/polkit-qt-0.98_pre
->=sys-power/upower-0.9.7
 kde-base/blinken:4.6
 kde-base/cantor:4.6
 kde-base/kalgebra:4.6
@@ -292,17 +289,22 @@ kde-base/kdebase-meta:4.6
 kde-base/kde-meta:4.6
 # Version is unrelated, KDE printing won't be stabilized
 app-admin/system-config-printer-common
-=dev-db/virtuoso-odbc-6.1.2
-=dev-db/virtuoso-server-6.1.2
+~dev-db/virtuoso-odbc-6.1.2
+~dev-db/virtuoso-server-6.1.2
 =dev-libs/libdbusmenu-qt-0.6*
 # Some issues with grantlee, let's wait for 0.1.6
-dev-libs/grantlee
-=dev-libs/libattica-0.1.4
-=dev-libs/shared-desktop-ontologies-0.5
+~dev-libs/glib-2.26.1
+~dev-libs/grantlee-0.1.7
+>=dev-libs/shared-desktop-ontologies-0.5
 # Unsure about that yet
-=dev-libs/soprano-2.5*
 dev-python/pycups
-=net-dns/cagibi-0.1.1
+~dev-python/PyQt4-4.8.3
+~net-dns/cagibi-0.1.1
+>=kde-misc/polkit-kde-kcmodules-0.98_pre
+~sys-auth/polkit-0.99
+~sys-auth/polkit-kde-agent-0.99.0
+~sys-auth/polkit-qt-0.99.0
+>=sys-power/upower-0.9.7
 x11-apps/scripts
 # Also unrelated
 x11-misc/google-gadgets
