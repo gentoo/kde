@@ -17,7 +17,7 @@ inherit versionator
 # Currently kde4 eclasses support EAPI 3. Over time newer versions
 # will be supported.
 case ${EAPI:-0} in
-	3) : ;;
+	4|3) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -33,12 +33,12 @@ elif [[ ${KMNAME} = koffice || ${PN} = koffice ]]; then
 	KDEBASE=koffice
 elif [[ ${KMNAME} = kdevelop ]]; then
 	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
-	KDEBASE="kdevelop"
+	KDEBASE=kdevelop
 fi
 
 # @ECLASS-VARIABLE: KDE_SCM
 # @DESCRIPTION:
-# If this is a live package which scm does it use - default to svn
+# If this is a live package which scm does it use
 KDE_SCM="${KDE_SCM:-svn}"
 
 # @ECLASS-VARIABLE: KDE_SLOTS

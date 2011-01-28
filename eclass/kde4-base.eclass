@@ -31,15 +31,9 @@ inherit kde4-functions base virtualx eutils
 get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
-		svn)
-			inherit subversion
-			;;
-		git)
-			inherit git
-			;;
-		*)
-			die "unsupported scm: ${KDE_SCM}"
-			;;
+		svn) inherit subversion ;;
+		git) inherit git ;;
+		*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
 	esac
 fi
 
@@ -122,8 +116,6 @@ case ${KDEBASE} in
 		SLOT="4"
 		;;
 esac
-
-slot_is_at_least 4.5 ${KDE_MINIMAL} && CMAKE_MIN_VERSION="2.8.1"
 
 inherit ${buildsystem_eclass}
 
@@ -226,10 +218,8 @@ esac
 # 4.6.0 for 4.4, 4.6.3 for 4.5, and 4.7.0 for 4.6 and later
 if slot_is_at_least 4.6 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
-elif slot_is_at_least 4.5 "${KDE_MINIMAL}"; then
+else "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.6.3}"
-else
-	QT_MINIMAL="${QT_MINIMAL:-4.6.0}"
 fi
 
 # Declarative dependencies
@@ -387,6 +377,7 @@ kdedepend="
 
 kderdepend=""
 
+# all packages needs oxygen icons for basic iconset
 if [[ ${PN} != oxygen-icons ]]; then
 	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
 fi
@@ -439,175 +430,14 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
-# Add experimental kdeenablefinal, disabled by default
+# Add experimental kdeenablefinal, masked by default
 IUSE+=" kdeenablefinal"
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
 case ${BUILD_TYPE} in
-	live)
-		SRC_URI=""
-		if [[ "${KDE_SCM}" == "svn" ]]; then
-			# Determine branch URL based on live type
-			local branch_prefix
-			case ${PV} in
-				9999*)
-					# trunk
-					branch_prefix="trunk/KDE"
-					;;
-				*)
-					# branch
-					branch_prefix="branches/KDE/${SLOT}"
-					# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
-					# @DESCRIPTION
-					# Suffix appended to ESVN_PROJECT depending on fetched branch.
-					# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
-					ESVN_PROJECT_SUFFIX="-${PV}"
-					;;
-			esac
-			# @ECLASS-VARIABLE: ESVN_MIRROR
-			# @DESCRIPTION:
-			# This variable allows easy overriding of default kde mirror service
-			# (anonsvn) with anything else you might want to use.
-			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
-			# Split ebuild, or extragear stuff
-			if [[ -n ${KMNAME} ]]; then
-				ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
-				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
-					KMMODULE="${PN}"
-				fi
-				# Split kde-base/ ebuilds: (they reside in trunk/KDE)
-				case ${KMNAME} in
-					kdebase-*)
-						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
-						;;
-					kdelibs-*)
-						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
-						;;
-					kdereview*)
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-						;;
-					kdesupport)
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-						;;
-					kde*)
-						ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
-						;;
-					extragear*|playground*)
-						# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
-						# build packages from same svn location.
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-						;;
-					koffice)
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-						;;
-					*)
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
-						;;
-				esac
-			else
-				# kdelibs, kdepimlibs
-				ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
-				ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
-			fi
-			# @ECLASS-VARIABLE: ESVN_UP_FREQ
-			# @DESCRIPTION:
-			# This variable is used for specifying the timeout between svn synces
-			# for kde-base and koffice modules. Does not affect misc apps.
-			# Default value is 1 hour.
-			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
-		elif [[ "${KDE_SCM}" == "git" ]]; then
-			case ${PV} in
-				9999*)
-					# master
-					# @ECLASS-VARIABLE: EGIT_PROJECT_SUFFIX
-					# @DESCRIPTION
-					# Suffix appended to EGIT_PROJECT depending on fetched branch.
-					# Defaults is empty (for -9999 = master), and "-${PV}" otherwise.
-					EGIT_PROJECT_SUFFIX=""
-					;;
-				4.6.9999)
-					# keep this as long as 4.6 does not have its own branch in
-					# kde git tree
-					EGIT_PROJECT_SUFFIX=""
-					EGIT_BRANCH="master"
-					;;
-				*)
-					# branch: prefix empty because we use bare git repo
-					EGIT_PROJECT_SUFFIX=""
-
-					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
-					EGIT_BRANCH="${SLOT}"
-					EGIT_COMMIT="${SLOT}"
-					;;
-			esac
-			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
-				KMMODULE="${PN}"
-			fi
-			if [[ -n ${KMNAME} ]]; then
-				EGIT_PROJECT="${KMNAME}${EGIT_PROJECT_SUFFIX}"
-				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
-					KMMODULE="${PN}"
-				fi
-			fi
-			case ${KDEBASE} in
-				kdevelop)
-					EGIT_REPO_URI="git://anongit.kde.org/${KMMODULE}"
-					;;
-				*)
-					EGIT_REPO_URI="git://anongit.kde.org/${PN}"
-			esac
-		fi
-		;;
-	*)
-		if [[ -n ${KDEBASE} ]]; then
-			if [[ -n ${KMNAME} ]]; then
-				case ${KMNAME} in
-					kdebase-apps)
-						_kmname="kdebase" ;;
-					*)
-						_kmname="${KMNAME}" ;;
-				esac
-			else
-				_kmname=${PN}
-			fi
-			_kmname_pv="${_kmname}-${PV}"
-			case ${KDEBASE} in
-				kde-base)
-					case ${PV} in
-						4.5.94.1)
-							# KDEPIM 4.6beta
-							SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/${_kmname_pv}.tar.bz2"
-							;;
-						4.[456].8[05] | 4.[456].9[023568])
-							# Unstable KDE SC releases
-							SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
-							;;
-						4.4.6 | 4.4.7 | 4.4.8 | 4.4.9)
-							# Only kdepim here
-							SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
-							;;
-						*)
-							# Stable KDE SC releases
-							SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2"
-							;;
-					esac
-					;;
-				koffice)
-					case ${PV} in
-						2.1.[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
-						*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
-					esac
-					;;
-				kdevelop)
-					SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
-					;;
-			esac
-			unset _kmname _kmname_pv
-		fi
-		;;
+	live) _calculate_live_repo ;;
+	*) _calculate_src_uri ;;
 esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
@@ -692,7 +522,6 @@ kde4-base_src_unpack() {
 				;;
 		esac
 	else
-		# For EAPI >= 3, we can just use unpack() directly
 		unpack ${A}
 	fi
 }
@@ -720,11 +549,10 @@ kde4-base_src_prepare() {
 
 	# SCM bootstrap
 	if [[ ${BUILD_TYPE} = live ]]; then
-		if has subversion ${INHERITED}; then
-			subversion_src_prepare
-		elif has git ${INHERITED}; then
-			git_src_prepare
-		fi
+		case ${KDE_SCM} in
+			svn) subversion_src_prepare ;;
+			git) git_src_prepare ;;
+		esac
 	fi
 
 	# Apply patches
@@ -913,30 +741,41 @@ kde4-base_pkg_postinst() {
 
 	buildsycoca
 
-	if [[ ${BUILD_TYPE} = live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-		echo
-		einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
-		einfo "Use it at your own risk."
-		einfo "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
-		echo
-	elif [[ ${BUILD_TYPE} != live ]] && [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && has kdeprefix ${IUSE//+} && use kdeprefix; then
-		# warning about kdeprefix for non-live users
-		echo
-		ewarn "WARNING! You have the kdeprefix useflag enabled."
-		ewarn "This setting is strongly discouraged and might lead to potential trouble"
-		ewarn "with KDE update strategies."
-		ewarn "You are using this setup at your own risk and the kde team does not"
-		ewarn "take responsibilities for dead kittens."
-		echo
-	fi
-	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && ! has_version 'kde-base/kdebase-runtime-meta' && ! has_version 'kde-base/kdebase-startkde'; then
-		# warn about not supported approach
-		if [[ ${KDE_REQUIRED} == always ]] || ( [[ ${KDE_REQUIRED} == optional ]] && use kde ); then
+	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+		if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
 			echo
-			ewarn "WARNING! Your system configuration contains neither \"kde-base/kdebase-runtime-meta\""
-			ewarn "nor \"kde-base/kdebase-startkde\". You need one of above."
-			ewarn "With this setting you are unsupported by KDE team."
-			ewarn "All missing features you report for misc packages will be probably ignored or closed as INVALID."
+			ewarn "WARNING! you have kdeenable final useflag enabled."
+			ewarn "This useflag needs to be enabled on ALL kde using packages and"
+			ewarn "is known to cause issues."
+			ewarn "You are using this setup at your own risk and the kde team does not"
+			ewarn "take responsibilities for dead kittens."
+			echo
+		fi
+		if [[ ${BUILD_TYPE} = live ]]; then
+			echo
+			einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
+			einfo "Use it at your own risk."
+			einfo "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
+			echo
+		elif [[ ${BUILD_TYPE} != live ]] && has kdeprefix ${IUSE//+} && use kdeprefix; then
+			# warning about kdeprefix for non-live users
+			echo
+			ewarn "WARNING! You have the kdeprefix useflag enabled."
+			ewarn "This setting is strongly discouraged and might lead to potential trouble"
+			ewarn "with KDE update strategies."
+			ewarn "You are using this setup at your own risk and the kde team does not"
+			ewarn "take responsibilities for dead kittens."
+			echo
+		fi
+		if ! has_version 'kde-base/kdebase-runtime-meta' && ! has_version 'kde-base/kdebase-startkde'; then
+			# warn about not supported approach
+			if [[ ${KDE_REQUIRED} == always ]] || ( [[ ${KDE_REQUIRED} == optional ]] && use kde ); then
+				echo
+				ewarn "WARNING! Your system configuration contains neither \"kde-base/kdebase-runtime-meta\""
+				ewarn "nor \"kde-base/kdebase-startkde\". You need one of above."
+				ewarn "With this setting you are unsupported by KDE team."
+				ewarn "All missing features you report for misc packages will be probably ignored or closed as INVALID."
+			fi
 		fi
 	fi
 }
@@ -948,4 +787,169 @@ kde4-base_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	buildsycoca
+}
+
+_calculate_src_uri() {
+	if [[ -n ${KDEBASE} ]]; then
+		if [[ -n ${KMNAME} ]]; then
+			case ${KMNAME} in
+				kdebase-apps)
+					_kmname="kdebase" ;;
+				*)
+					_kmname="${KMNAME}" ;;
+			esac
+		else
+			_kmname=${PN}
+		fi
+		_kmname_pv="${_kmname}-${PV}"
+		case ${KDEBASE} in
+			kde-base)
+				case ${PV} in
+					4.5.94.1)
+						# KDEPIM 4.6beta
+						SRC_URI="mirror://kde/unstable/kdepim/${PV}/src/${_kmname_pv}.tar.bz2"
+						;;
+					4.[456].8[05] | 4.[456].9[023568])
+						# Unstable KDE SC releases
+						SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
+						;;
+					4.4.6 | 4.4.7 | 4.4.8 | 4.4.9)
+						# Only kdepim here
+						SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
+						;;
+					*)
+						# Stable KDE SC releases
+						SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2"
+						;;
+				esac
+				;;
+			koffice)
+				case ${PV} in
+					2.[1234].[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
+					*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
+				esac
+				;;
+			kdevelop)
+				SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
+				;;
+		esac
+		unset _kmname _kmname_pv
+	fi
+}
+
+_calculate_live_repo() {
+	SRC_URI=""
+	if [[ "${KDE_SCM}" == "svn" ]]; then
+		# Determine branch URL based on live type
+		local branch_prefix
+		case ${PV} in
+			9999*)
+				# trunk
+				branch_prefix="trunk/KDE"
+				;;
+			*)
+				# branch
+				branch_prefix="branches/KDE/${SLOT}"
+				# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
+				# @DESCRIPTION
+				# Suffix appended to ESVN_PROJECT depending on fetched branch.
+				# Defaults is empty (for -9999 = trunk), and "-${PV}" otherwise.
+				ESVN_PROJECT_SUFFIX="-${PV}"
+				;;
+		esac
+		# @ECLASS-VARIABLE: ESVN_MIRROR
+		# @DESCRIPTION:
+		# This variable allows easy overriding of default kde mirror service
+		# (anonsvn) with anything else you might want to use.
+		ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
+		# Split ebuild, or extragear stuff
+		if [[ -n ${KMNAME} ]]; then
+			ESVN_PROJECT="${KMNAME}${ESVN_PROJECT_SUFFIX}"
+			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+				KMMODULE="${PN}"
+			fi
+			# Split kde-base/ ebuilds: (they reside in trunk/KDE)
+			case ${KMNAME} in
+				kdebase-*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdebase/${KMNAME#kdebase-}"
+					;;
+				kdelibs-*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/kdelibs/${KMNAME#kdelibs-}"
+					;;
+				kdereview*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					;;
+				kdesupport)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+					;;
+				kde*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${KMNAME}"
+					;;
+				extragear*|playground*)
+					# Unpack them in toplevel dir, so that they won't conflict with kde4-meta
+					# build packages from same svn location.
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+					;;
+				koffice)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
+					;;
+				*)
+					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
+					;;
+			esac
+		else
+			# kdelibs, kdepimlibs
+			ESVN_REPO_URI="${ESVN_MIRROR}/${branch_prefix}/${PN}"
+			ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
+		fi
+		# @ECLASS-VARIABLE: ESVN_UP_FREQ
+		# @DESCRIPTION:
+		# This variable is used for specifying the timeout between svn synces
+		# for kde-base and koffice modules. Does not affect misc apps.
+		# Default value is 1 hour.
+		[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+	elif [[ "${KDE_SCM}" == "git" ]]; then
+		case ${PV} in
+			9999*)
+				# master
+				# @ECLASS-VARIABLE: EGIT_PROJECT_SUFFIX
+				# @DESCRIPTION
+				# Suffix appended to EGIT_PROJECT depending on fetched branch.
+				# Defaults is empty (for -9999 = master), and "-${PV}" otherwise.
+				EGIT_PROJECT_SUFFIX=""
+				;;
+			4.6.9999)
+				# keep this as long as 4.6 does not have its own branch in
+				# kde git tree
+				EGIT_PROJECT_SUFFIX=""
+				EGIT_BRANCH="master"
+				;;
+			*)
+				# branch: prefix empty because we use bare git repo
+				EGIT_PROJECT_SUFFIX=""
+
+				# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
+				EGIT_BRANCH="${SLOT}"
+				EGIT_COMMIT="${SLOT}"
+				;;
+		esac
+		if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+			KMMODULE="${PN}"
+		fi
+		if [[ -n ${KMNAME} ]]; then
+			EGIT_PROJECT="${KMNAME}${EGIT_PROJECT_SUFFIX}"
+			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
+				KMMODULE="${PN}"
+			fi
+		fi
+		case ${KDEBASE} in
+			kdevelop)
+				EGIT_REPO_URI="git://anongit.kde.org/${KMMODULE}"
+				;;
+			*)
+				EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+		esac
+	fi
 }
