@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=3
 
 #KDE_LINGUAS="en cs de hu pt_BR fr"
 # need patch to work select linguas

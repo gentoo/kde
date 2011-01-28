@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=3
 
 if [ "${PV}" != "9999" ]; then
 	KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi hne hr hu is it ja km

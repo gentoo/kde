@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=3
 
 KDE_LINGUAS="cs de es fr it ja lt nl pl pt_BR ro ru"
 inherit kde4-base

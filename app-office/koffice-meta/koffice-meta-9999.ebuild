@@ -8,7 +8,7 @@
 #
 
 
-EAPI="3"
+EAPI=3
 
 DESCRIPTION="KOffice - merge this to pull in all KOffice-derived packages"
 HOMEPAGE="http://www.koffice.org/"
