@@ -1,17 +1,22 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.0.5.ebuild,v 1.6 2011/01/17 01:08:40 ranger Exp $
 
 EAPI=3
 
-GIT_ECLASS=
-if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="git://anongit.kde.org/ktorrent"
-	GIT_ECLASS="git"
-else
+KDE_SCM="git"
+KDE_MINIMAL="4.5"
+LIBKT_VERSION_MIN="${PV}"
+LIBKT_VERSION_MAX="99999999"
+if [[ ${PV} != 9999* ]]; then
+	inherit versionator
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
+	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
+	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1)).$(get_version_component_range 3)
 	MY_P="${PN}-${MY_PV}"
+	KDE_HANDBOOK="optional"
+	KDE_DOC_DIRS="doc"
 
 	KDE_LINGUAS="ar ast be bg ca ca@valencia cs da de el en_GB eo es et eu
 		fi fr ga gl hi hne hr hu is it ja km lt lv mai ms nb nds nl nn oc
@@ -21,20 +26,21 @@ else
 	S="${WORKDIR}"/"${MY_P}"
 fi
 
-inherit kde4-base ${GIT_ECLASS}
+inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE."
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 SLOT="4"
 IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +magnetgenerator +mediaplayer plasma rss +scanfolder +search +shutdown +stats
 +upnp webinterface +zeroconf"
 
 COMMONDEPEND="
-	>=net-libs/libktorrent-1.0.3
+	!>=net-libs/libktorrent-${LIBKT_VERSION_MAX}
+	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( $(add_kdebase_dep libtaskmanager) )
 	rss? ( $(add_kdebase_dep kdepimlibs) )
@@ -48,7 +54,7 @@ DEPEND="${COMMONDEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMONDEPEND}
-	infowidget? ( >=dev-libs/geoip-1.4.4 )
+	infowidget? ( dev-libs/geoip )
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
@@ -69,8 +75,6 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		-DENABLE_DHT_SUPPORT=ON
-		-DWITH_SYSTEM_GEOIP=ON
 		$(cmake-utils_use_enable bwscheduler BWSCHEDULER_PLUGIN)
 		$(cmake-utils_use_enable downloadorder DOWNLOADORDER_PLUGIN)
 		$(cmake-utils_use_enable infowidget INFOWIDGET_PLUGIN)
