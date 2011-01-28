@@ -13,7 +13,7 @@ if [[ ${PV} != 9999* ]]; then
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
 	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
-	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1)).$(get_version_component_range 3)
+	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
 	KDE_HANDBOOK="optional"
 	KDE_DOC_DIRS="doc"
@@ -45,7 +45,7 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +upnp webinterface +zeroconf"
 
 COMMONDEPEND="
-	!>=net-libs/libktorrent-${LIBKT_VERSION_MAX}
+	<net-libs/libktorrent-${LIBKT_VERSION_MAX}
 	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( $(add_kdebase_dep libtaskmanager) )
