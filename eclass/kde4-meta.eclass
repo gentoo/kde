@@ -216,17 +216,10 @@ kde4-meta_src_extract() {
 
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
-		case ${PV} in
-			4.[45].8[05] | 4.[45].9[023568])
-				# Block for normally packed upstream unstable snapshots
-				KMTARPARAMS+=" --bzip2" # bz2
-				postfix="bz2"
-				;;
-			*)
-				KMTARPARAMS+=" --bzip2" # bz2
-				postfix="bz2"
-				;;
-		esac
+
+		KMTARPARAMS+=" --bzip2"
+		postfix="bz2"
+
 		case ${KMNAME} in
 			kdebase-apps)
 				# kdebase/apps -> kdebase-apps
@@ -260,7 +253,12 @@ kde4-meta_src_extract() {
 		extractlist+=" $(__list_needed_subdirectories)"
 
 		pushd "${WORKDIR}" > /dev/null
-		[[ -n ${KDE4_STRICTER} ]] && echo tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist}
+
+		# @ECLASS-VARIABLE: KDE4_STRICTER
+		# @DESCRIPTION:
+		# Print out all issues found executing tar / kmextract files
+		# Set on if you want to find issues in kde-base ebuild unpack sequences
+		[[ -n ${KDE4_STRICTER} ]] && echo 'tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist}'
 		if [[ ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 			# to make the devs happy - bug 338397
 			tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} || ewarn "tar extract command failed at least partially - continuing anyway"
