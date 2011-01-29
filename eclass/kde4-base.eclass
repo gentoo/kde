@@ -577,6 +577,7 @@ _calculate_live_repo() {
 			# This variable allows easy overriding of default kde mirror service
 			# (anongit) with anything else you might want to use.
 			EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org/}
+
 			case ${PV} in
 				9999*)
 					# master
@@ -591,10 +592,28 @@ _calculate_live_repo() {
 					EGIT_PROJECT_SUFFIX=""
 
 					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
-					EGIT_BRANCH="${SLOT}"
-					EGIT_COMMIT="${SLOT}"
+					EGIT_BRANCH="KDE/${SLOT}"
+					EGIT_COMMIT="${EGIT_BRANCH}"
 					;;
 			esac
+
+			# set various git branching variables based on kmname
+			# each repo can use different branch names and so on :/
+			case ${KMNAME} in
+				kdepim)
+					case ${PV} in
+						4.6.9999)
+							EGIT_BRANCH="master"
+							EGIT_COMMIT="${EGIT_BRANCH}"
+							;;
+						*.9999)
+							EGIT_BRANCH="${SLOT}"
+							EGIT_COMMIT="${EGIT_BRANCH}"
+							;;
+					esac
+					;;
+			esac
+
 			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
 				KMMODULE="${PN}"
 			fi
