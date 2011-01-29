@@ -1,0 +1,7 @@
+--- Makefile.am.orig	2010-09-20 23:12:10.442903362 +0200
++++ Makefile.am	2010-09-20 23:12:20.591583239 +0200
+@@ -1,3 +1,4 @@
++ACLOCAL_AMFLAGS = -I m4
+ 
+ SUBDIRS = \
+ 	libindicate \

@@ -1,0 +1,8 @@
+--- examples/Makefile.am.orig	2010-09-20 23:42:07.380545155 +0200
++++ examples/Makefile.am	2010-09-20 23:44:49.173431396 +0200
+@@ -97,5 +97,3 @@
+ $(ASSEMBLY): $(CSFILES) Makefile.am
+ 	$(CSC) $(CSFLAGS) -out:$(ASSEMBLY) -target:exe $(references) $(srcdir)/$(CSFILES)
+ 	chmod a+x indicator-mono-example
+-
+-all: $(ASSEMBLY)
