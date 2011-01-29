@@ -1,0 +1,11 @@
+--- Makefile.am.orig	2011-01-29 13:49:42.828302898 +0100
++++ Makefile.am	2011-01-29 13:50:45.096371768 +0100
+@@ -21,4 +21,8 @@
+ 
++libdbusmenu-gtk: libdbusmenu-glib
++tests: libdbusmenu-gtk
++tools: libdbusmenu-gtk
++
+ DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
+ 
+ dist-hook:

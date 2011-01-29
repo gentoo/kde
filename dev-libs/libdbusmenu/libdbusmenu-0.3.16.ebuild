@@ -13,8 +13,9 @@ SRC_URI="http://launchpad.net/dbusmenu/$(get_version_component_range 1-2)/${PV}/
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk test"
+IUSE="gtk +introspection test"
 
+# Needs running dbus and a program called "dbus-test-runner"
 RESTRICT="test"
 
 RDEPEND="dev-libs/glib:2
@@ -22,7 +23,8 @@ RDEPEND="dev-libs/glib:2
 	dev-libs/libxml2:2
 	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
-	test? ( dev-libs/json-glib )
+    introspection? ( >=dev-libs/gobject-introspection-0.6.7 )
+	test? ( dev-libs/json-glib[introspection=] )
 	dev-util/intltool
 	dev-util/pkgconfig"
 
@@ -31,10 +33,14 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-optional-gtk.patch"
 	# Make tests optional, launchpad-bug #552526
 	epatch "${FILESDIR}/${P}-optional-tests.patch"
+	# Try to make parallel-make safe, launchpad-bug #709762
+	epatch "${FILESDIR}/${P}-parallel-make.patch"
+	# Decouple testapp from libdbusmenu-gtk, launchpad-bug #709761
+	epatch "${FILESDIR}/${P}-decouple-testapp.patch"
 	# Make dbusmenudumper optional, launchpad-bug #643871
-	epatch "${FILESDIR}/${P}-optional-dumper.patch"
+	epatch "${FILESDIR}/${PN}-0.3.14-optional-dumper.patch"
 	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552538
-	epatch "${FILESDIR}/${P}-fix-aclocal.patch"
+	epatch "${FILESDIR}/${PN}-0.3.14-fix-aclocal.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libdbusmenu-glib/Makefile.am libdbusmenu-gtk/Makefile.am || die "sed failed"
 	eautoreconf
@@ -44,6 +50,7 @@ src_configure() {
 	econf \
 		$(use_enable gtk) \
 		$(use_enable gtk dumper) \
+		$(use_enable introspection) \
 		$(use_enable test tests)
 }
 

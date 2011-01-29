@@ -1,0 +1,9 @@
+--- tools/testapp/Makefile.am.orig	2011-01-29 13:42:00.984605528 +0100
++++ tools/testapp/Makefile.am	2011-01-29 13:44:45.523514281 +0100
+@@ -12,6 +13,4 @@
+ 
+ dbusmenu_testapp_LDADD = \
+ 	$(builddir)/../../libdbusmenu-glib/libdbusmenu-glib.la \
+-	$(builddir)/../../libdbusmenu-gtk/libdbusmenu-gtk.la \
+-	$(DBUSMENUGTK_LIBS) \
+ 	$(DBUSMENUTESTS_LIBS)

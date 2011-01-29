@@ -29,14 +29,16 @@
 +endif
 +
  DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
---- tools/Makefile.am.orig	2010-09-20 22:02:07.280175897 +0200
-+++ tools/Makefile.am	2010-09-20 22:02:40.579759752 +0200
-@@ -1,3 +1,7 @@
+--- tools/testapp/Makefile.am.orig    2011-01-29 13:42:00.984605528 +0100
++++ tools/testapp/Makefile.am 2011-01-29 13:44:45.523514281 +0100
+@@ -1,5 +1,9 @@
  
--SUBDIRS = testapp
-+SUBDIRS =
+-libexec_PROGRAMS = dbusmenu-testapp
++libexec_PROGRAMS =
 +
 +if WANT_TESTS
-+SUBDIRS += testapp
++libexec_PROGRAMS += dbusmenu-testapp
 +endif
  
+ dbusmenu_testapp_SOURCES = \
+    main.c

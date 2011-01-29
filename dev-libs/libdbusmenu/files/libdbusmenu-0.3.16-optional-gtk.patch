@@ -35,3 +35,51 @@
 +endif
 +
  DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
+--- tests/Makefile.am.orig	2011-01-29 14:37:11.863805482 +0100
++++ tests/Makefile.am	2011-01-29 14:38:48.910883303 +0100
+@@ -11,12 +11,16 @@
+ 	test-glib-proxy \
+ 	test-glib-simple-items \
+ 	test-glib-submenu \
+-	test-json \
++	test-json
++
++if WANT_LIBDBUSMENUGTK
++TESTS += \
+ 	test-gtk-objects-test \
+ 	test-gtk-label \
+ 	test-gtk-shortcut \
+ 	test-gtk-reorder \
+ 	test-gtk-submenu
++endif
+ 
+ check_PROGRAMS = \
+ 	glib-server-nomenu \
+@@ -30,19 +34,23 @@
+ 	test-glib-proxy-client \
+ 	test-glib-proxy-server \
+ 	test-glib-proxy-proxy \
+-	test-gtk-objects \
+ 	test-glib-submenu-client \
+ 	test-glib-submenu-server \
++	test-glib-simple-items \
++	test-json-client \
++	test-json-server
++
++if WANT_LIBDBUSMENUGTK
++check_PROGRAMS += \
++	test-gtk-objects \
+ 	test-gtk-label-client \
+ 	test-gtk-label-server \
+ 	test-gtk-shortcut-client \
+ 	test-gtk-shortcut-server \
+-	test-glib-simple-items \
+ 	test-gtk-reorder-server \
+-	test-json-client \
+-	test-json-server \
+ 	test-gtk-submenu-server \
+ 	test-gtk-submenu-client
++endif
+ 
+ XVFB_RUN=". $(srcdir)/run-xvfb.sh"
+ 
