@@ -628,8 +628,14 @@ _calculate_live_repo() {
 					EGIT_REPO_URI="${EGIT_MIRROR}/${KMMODULE}"
 					;;
 				*)
-					EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
-					;;
+					case ${KMNAME} in
+						kdepim)
+							EGIT_REPO_URI="${EGIT_MIRROR}${KMNAME}"
+							;;
+						*)
+							EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
+							;;
+					esac
 			esac
 			;;
 	esac
