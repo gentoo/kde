@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# To enable this hook, link it into .git/hooks/commit-msg like this:
+# ln -s ../../Documentation/git-hooks-commit-msg .git/hooks/commit-msg
+
+FILE=$1
+
+die() {
+	echo "Aborting commit: $1"
+	echo "(Your message was saved in $FILE)"
+	exit 1
+}
+
+summary=`head -n1 "$FILE"`
+
+### Enforce first-line summary ###
+if [[ -z `grep '^\[[^]]\+\]' <<< "$summary"` ]] ; then
+	die 'Summary (first line) should start with [changed path]'
+fi
+
+### Enforce usage of repoman ###
+if [[ -n `grep -e '^\[Documentation' <<< "$summary"` ]] ; then
+	# Do not enforce usage of repoman where it makes no sense
+	exit 0
+elif grep '^NO_REPOMAN' "$FILE" >& /dev/null ; then
+	# Allow i-know-what-i-am-doing override
+	sed -i -e '/^NO_REPOMAN/d' "$FILE"
+	exit 0
+elif ! grep '^(Portage version' "$FILE" >& /dev/null ; then
+	die 'Please use repoman to commit'
+fi
+
+exit 0
