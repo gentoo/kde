@@ -533,7 +533,7 @@ _enable_selected_linguas_dir() {
 			# move dir and fix cmakelists
 			mv "${wp}" "sr@Latn"
 			sed -i \
-				-e "s:${wp}:sr@Latin:g" \
+				-e "s:${wp}:sr@Latn:g" \
 				CMakeLists.txt
 		fi
 	done
