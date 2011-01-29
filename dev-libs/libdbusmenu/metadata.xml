@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <herd>kde</herd>
+  <use>
+    <flag name="gtk3">Build experimental gtk3 version instead of using gtk2</flag>
+    <flag name="introspection">Use dev-libs/gobject-introspection for introspection</flag>
+  </use>
 </pkgmetadata>

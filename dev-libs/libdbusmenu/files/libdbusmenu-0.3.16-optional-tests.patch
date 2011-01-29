@@ -18,17 +18,18 @@
  AC_SUBST(DBUSMENUTESTS_LIBS)
 --- Makefile.am.orig	2010-09-20 21:58:41.616751481 +0200
 +++ Makefile.am	2010-09-20 22:01:55.525674385 +0200
-@@ -9,6 +9,9 @@
- 	tools \
--	tests \
- 	docs \
- 	po
+@@ -5,2 +5,6 @@
  
 +if WANT_TESTS
-+SUBDIRS += tests
++TESTS_SUBDIR = tests
 +endif
 +
- DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
+ SUBDIRS = \
+@@ -9,3 +9,3 @@
+ 	tools \
+-	tests \
++	$(TESTS_SUBDIR) \
+ 	docs \
 --- tools/testapp/Makefile.am.orig    2011-01-29 13:42:00.984605528 +0100
 +++ tools/testapp/Makefile.am 2011-01-29 13:44:45.523514281 +0100
 @@ -1,5 +1,9 @@

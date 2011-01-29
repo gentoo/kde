@@ -20,21 +20,17 @@
  AC_SUBST(DBUSMENUGTK_LIBS)
 --- Makefile.am.orig	2010-09-20 21:58:41.616751481 +0200
 +++ Makefile.am	2010-09-20 21:59:23.492035983 +0200
-@@ -5,10 +5,13 @@
+@@ -5,5 +5,9 @@
  
++if WANT_LIBDBUSMENUGTK
++LIBDBUSMENUGTK_SUBDIR = libdbusmenu-gtk
++endif
++
  SUBDIRS = \
  	libdbusmenu-glib \
 -	libdbusmenu-gtk \
++	$(LIBDBUSMENUGTK_SUBDIR) \
  	tools \
- 	tests \
- 	docs \
- 	po
- 
-+if WANT_LIBDBUSMENUGTK
-+SUBDIRS += libdbusmenu-gtk
-+endif
-+
- DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
 --- tests/Makefile.am.orig	2011-01-29 14:37:11.863805482 +0100
 +++ tests/Makefile.am	2011-01-29 14:38:48.910883303 +0100
 @@ -11,12 +11,16 @@
