@@ -4,3 +4,5 @@ agenda suggestions
 2) status regarding hal
 3) should we try to form a "stable kde devs" team? meaning just call for volunteers on the dev ml?
 4) kde-git migration and status
+5) Shall we drop useflags kdeenablefinal and/or kdeprefix to simplify code?
+
