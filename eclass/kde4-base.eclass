@@ -572,6 +572,11 @@ _calculate_live_repo() {
 			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 			;;
 		git)
+			# @ECLASS-VARIABLE: EGIT_MIRROR
+			# @DESCRIPTION:
+			# This variable allows easy overriding of default kde mirror service
+			# (anongit) with anything else you might want to use.
+			EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org/}
 			case ${PV} in
 				9999*)
 					# master
@@ -580,12 +585,6 @@ _calculate_live_repo() {
 					# Suffix appended to EGIT_PROJECT depending on fetched branch.
 					# Defaults is empty (for -9999 = master), and "-${PV}" otherwise.
 					EGIT_PROJECT_SUFFIX=""
-					;;
-				4.6.9999)
-					# keep this as long as 4.6 does not have its own branch in
-					# kde git tree
-					EGIT_PROJECT_SUFFIX=""
-					EGIT_BRANCH="master"
 					;;
 				*)
 					# branch: prefix empty because we use bare git repo
@@ -607,10 +606,10 @@ _calculate_live_repo() {
 			fi
 			case ${KDEBASE} in
 				kdevelop)
-					EGIT_REPO_URI="git://anongit.kde.org/${KMMODULE}"
+					EGIT_REPO_URI="${EGIT_MIRROR}/${KMMODULE}"
 					;;
 				*)
-					EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+					EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
 					;;
 			esac
 			;;
