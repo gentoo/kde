@@ -5,4 +5,4 @@ agenda suggestions
 3) should we try to form a "stable kde devs" team? meaning just call for volunteers on the dev ml?
 4) kde-git migration and status
 5) Shall we drop useflags kdeenablefinal and/or kdeprefix to simplify code?
-
+6) Dropping of semantic-desktop useflag with guide update (mostly even kdebase needs it on now)
