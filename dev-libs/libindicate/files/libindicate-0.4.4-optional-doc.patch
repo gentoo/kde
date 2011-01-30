@@ -21,16 +21,15 @@
  ##############################
 --- Makefile.am.orig	2010-09-20 23:12:10.442903362 +0200
 +++ Makefile.am	2010-09-20 23:27:12.557785756 +0200
-@@ -5,7 +5,10 @@
- 	bindings \
- 	examples \
--	tests \
--	docs
-+	tests
-+
-+if WANT_DOC
-+SUBDIRS += docs
-+endif
+@@ -1,2 +1,6 @@
  
- EXTRA_DIST = \
- 	COPYING.LGPL.2.1 \
++if WANT_DOC
++DOC_SUBDIR = docs
++endif
++
+ SUBDIRS = \
+@@ -8,3 +12,3 @@
+ 	tests \
+-	docs
++	$(DOC_SUBDIR)
+ 

@@ -1,0 +1,12 @@
+--- bindings/mono/indicate/Makefile.am.orig	2011-01-30 00:14:17.670042664 +0100
++++ bindings/mono/indicate/Makefile.am	2011-01-30 00:14:40.204346425 +0100
+@@ -61,7 +61,8 @@
+ 		-e "s|PROP_MENU|menu|" \
+ 		-e "s|PROP_DESKTOP|Desktop|" \
+ 		-e "s|PROP_DESKTOP|desktop|" \
+-		$< > $@
++		$< > $@.tmp
++	mv $@.tmp $@
+ 
+ api_includes = $(GTK_SHARP_CFLAGS)
+ 

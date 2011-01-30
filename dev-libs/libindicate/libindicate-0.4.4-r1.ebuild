@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libindicate/libindicate-0.4.4.ebuild,v 1.1 2011/01/17 09:34:20 tampakrap Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libindicate/libindicate-0.4.4-r1.ebuild,v 1.1 2011/01/29 16:09:35 tampakrap Exp $
 
 EAPI=2
 
@@ -20,7 +20,7 @@ RESTRICT="test"
 # For the dependency on dev-libs/libdbusmenu see launchpad-bug #552667
 RDEPEND="dev-libs/glib:2[introspection=]
 	dev-libs/dbus-glib
-	dev-libs/libdbusmenu[introspection=]
+	<dev-libs/libdbusmenu-0.3.50[introspection=]
 	dev-libs/libxml2:2
 	x11-libs/gtk+:2
 	dev-python/pygtk
@@ -55,6 +55,8 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-fix-out-of-source-build.patch"
 	# Fix compilation for python != 2.6, launchpad-bug #594992
 	epatch "${FILESDIR}/${P}-fix-python-version.patch"
+	# Fix parallel-make for mono bindings, launchpad-bug #709954
+	epatch "${FILESDIR}/${P}-mono-parallel-make.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libindicate/Makefile.am libindicate-gtk/Makefile.am || die "sed failed"
 	eautoreconf
