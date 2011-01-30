@@ -379,8 +379,8 @@ add_kdebase_dep() {
 
 	if [[ -n ${3} ]]; then
 		ver=${3}
-	elif [[ -n ${KDE_MINIMAL_OVERRIDE} ]]; then
-		ver=${KDE_MINIMAL_OVERRIDE}
+	elif [[ -n ${KDE_OVERRIDE_MINIMAL} ]]; then
+		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
 	# FIXME remove hack when kdepim-4.4.* is gone
