@@ -5,7 +5,8 @@
 EAPI=3
 
 KMNAME="kdevelop"
-KMMODULE="kdev-php"
+KDE_SCM="git"
+ESCM_REPONAME="kdev-php"
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
