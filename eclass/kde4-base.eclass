@@ -600,7 +600,7 @@ _calculate_live_repo() {
 			# set various git branching variables based on kmname
 			# each repo can use different branch names and so on :/
 			case ${KMNAME} in
-				kdepim)
+				kdepim|kdepim-runtime)
 					case ${PV} in
 						4.6.9999)
 							EGIT_BRANCH="master"
@@ -629,7 +629,7 @@ _calculate_live_repo() {
 					;;
 				*)
 					case ${KMNAME} in
-						kdepim)
+						kdepim|kdepim-runtime)
 							EGIT_REPO_URI="${EGIT_MIRROR}${KMNAME}"
 							;;
 						*)
