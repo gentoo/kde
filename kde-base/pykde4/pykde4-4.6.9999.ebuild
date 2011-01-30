@@ -9,6 +9,8 @@ KMMODULE="python/pykde4"
 OPENGL_REQUIRED="always"
 PYTHON_USE_WITH="threads"
 RESTRICT_PYTHON_ABIS="2.4"
+KDE_SCM="git"
+ESCM_REPONAME="pykde4"
 inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
@@ -35,7 +37,7 @@ src_prepare() {
 	kde4-meta_src_prepare
 
 	if ! use examples; then
-		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i python/${PN}/CMakeLists.txt \
+		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i ${KMMODULE}/CMakeLists.txt \
 			|| die "Failed to disable examples"
 	fi
 
@@ -56,7 +58,7 @@ src_configure() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${S}/python/pykde4/docs/html/")
+	use doc && HTML_DOCS=("${S}/${KMMODULE}/docs/html/")
 
 	kde4-meta_src_install
 
