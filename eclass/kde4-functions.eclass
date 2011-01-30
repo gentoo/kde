@@ -28,10 +28,10 @@ esac
 if [[ ${CATEGORY} = kde-base ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
-elif [[ ${KMNAME} = koffice || ${PN} = koffice ]]; then
+elif [[ ${KMNAME-${PN}} = koffice ]]; then
 	debug-print "${ECLASS}: KOFFICE ebuild recognized"
 	KDEBASE=koffice
-elif [[ ${KMNAME} = kdevelop ]]; then
+elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE=kdevelop
 fi
