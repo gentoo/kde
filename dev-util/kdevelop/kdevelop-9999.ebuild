@@ -4,7 +4,6 @@
 
 EAPI=3
 
-KMNAME="kdevelop"
 KDE_SCM="git"
 inherit kde4-base
 
