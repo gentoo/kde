@@ -32,7 +32,7 @@ get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
-		git) inherit git ;;
+		git) inherit git-ng ;;
 	esac
 fi
 
@@ -213,8 +213,7 @@ esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
-# Determine version of qt we enforce as minimal for the package. 4.4.0 4.5.1...
-# 4.6.0 for 4.4, 4.6.3 for 4.5, and 4.7.0 for 4.6 and later
+# Determine version of qt we enforce as minimal for the package.
 if slot_is_at_least 4.6 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
 else
@@ -572,28 +571,32 @@ _calculate_live_repo() {
 			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 			;;
 		git)
-			# @ECLASS-VARIABLE: EGIT_MIRROR
+			local _kmname
+			# @ECLASS-VARIABLE: ESCM_MIRROR
 			# @DESCRIPTION:
 			# This variable allows easy overriding of default kde mirror service
 			# (anongit) with anything else you might want to use.
-			EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org/}
+			ESCM_MIRROR=${ESCM_MIRROR:=git://anongit.kde.org}
 
+			# @ECLASS-VARIABLE: ESCM_REPONAME
+			# @DESCRIPTION:
+			# This variable allows overriding of default repository
+			# name. Specify only if this differ from PN and KMNAME.
+			if [[ -n ${ESCM_REPONAME} ]]; then
+				# the repository and kmname different
+				_kmname=${ESCM_REPONAME}
+			elif [[ -n ${KMNAME} ]]; then
+				_kmname=${KMNAME}
+			else
+				_kmname=${PN}
+			fi
+
+			# default branching
 			case ${PV} in
-				9999*)
-					# master
-					# @ECLASS-VARIABLE: EGIT_PROJECT_SUFFIX
-					# @DESCRIPTION
-					# Suffix appended to EGIT_PROJECT depending on fetched branch.
-					# Defaults is empty (for -9999 = master), and "-${PV}" otherwise.
-					EGIT_PROJECT_SUFFIX=""
-					;;
+				9999*) ;;
 				*)
-					# branch: prefix empty because we use bare git repo
-					EGIT_PROJECT_SUFFIX=""
-
-					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
-					EGIT_BRANCH="KDE/${SLOT}"
-					EGIT_COMMIT="${EGIT_BRANCH}"
+					# set ESCM_BRANCH and ESCM_COMMIT to ${SLOT}
+					ESCM_BRANCH="KDE/${SLOT}"
 					;;
 			esac
 
@@ -603,40 +606,16 @@ _calculate_live_repo() {
 				kdepim|kdepim-runtime)
 					case ${PV} in
 						4.6.9999)
-							EGIT_BRANCH="master"
-							EGIT_COMMIT="${EGIT_BRANCH}"
+							ESCM_BRANCH="master"
 							;;
 						*.9999)
-							EGIT_BRANCH="${SLOT}"
-							EGIT_COMMIT="${EGIT_BRANCH}"
+							ESCM_BRANCH="${SLOT}"
 							;;
 					esac
 					;;
 			esac
 
-			if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
-				KMMODULE="${PN}"
-			fi
-			if [[ -n ${KMNAME} ]]; then
-				EGIT_PROJECT="${KMNAME}${EGIT_PROJECT_SUFFIX}"
-				if [[ -z ${KMNOMODULE} ]] && [[ -z ${KMMODULE} ]]; then
-					KMMODULE="${PN}"
-				fi
-			fi
-			case ${KDEBASE} in
-				kdevelop)
-					EGIT_REPO_URI="${EGIT_MIRROR}/${KMMODULE}"
-					;;
-				*)
-					case ${KMNAME} in
-						kdepim|kdepim-runtime)
-							EGIT_REPO_URI="${EGIT_MIRROR}${KMNAME}"
-							;;
-						*)
-							EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
-							;;
-					esac
-			esac
+			ESCM_REPO_URI="${ESCM_MIRROR}/${_kmname}"
 			;;
 	esac
 }
@@ -724,7 +703,7 @@ kde4-base_src_unpack() {
 				subversion_src_unpack
 				;;
 			git)
-				git_src_unpack
+				git-ng_src_unpack
 				;;
 		esac
 	else
@@ -757,7 +736,6 @@ kde4-base_src_prepare() {
 	if [[ ${BUILD_TYPE} = live ]]; then
 		case ${KDE_SCM} in
 			svn) subversion_src_prepare ;;
-			git) git_src_prepare ;;
 		esac
 	fi
 

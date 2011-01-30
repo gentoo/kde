@@ -96,13 +96,6 @@ git-ng_init_variables() {
 		esac
 	fi
 
-	# @ECLASS-VARIABLE: ESCM_PROJECT
-	# @DESCRIPTION:
-	# Project name, it must be unique across ESCM_STORE_DIR.
-	# Git eclass will check out the git repository into ${ESCM_STORE_DIR}/${ESCM_PROJECT}/${ESCM_REPO_URI##*/}
-	# Default is ${PN}.
-	: ${ESCM_PROJECT:=${PN}}
-
 	# @ECLASS-VARIABLE: ESCM_OFFLINE
 	# @DESCRIPTION:
 	# Set this variable to a non-empty value to disable the automatic updating of
@@ -208,10 +201,9 @@ git-ng_fetch() {
 	# nicely with sandbox
 	if [[ ! -d ${ESCM_STORE_DIR} ]] ; then
 		debug-print "${FUNCNAME}: initial clone. creating git directory"
-		addwrite /
+		addwrite ${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}
 		mkdir -p "${ESCM_STORE_DIR}" \
 			|| die "${ESCM}: can't mkdir ${ESCM_STORE_DIR}."
-		export SANDBOX_WRITE="${SANDBOX_WRITE%%:/}"
 	fi
 
 	cd -P "${ESCM_STORE_DIR}" || die "Can't chdir to ${ESCM_STORE_DIR}"
@@ -220,7 +212,7 @@ git-ng_fetch() {
 	addwrite "${ESCM_STORE_DIR}"
 	# calculate the proper store dir for data
 	[[ -z ${ESCM_REPO_URI##*/} ]] && ESCM_REPO_URI="${ESCM_REPO_URI%/}"
-	ESCM_CLONE_DIR="${ESCM_PROJECT}/${ESCM_REPO_URI##*/}"
+	ESCM_CLONE_DIR="${ESCM_REPO_URI##*/}"
 	GIT_DIR="${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}"
 	debug-print "${FUNCNAME}: Storing the repo into \"${GIT_DIR}\"."
 
@@ -255,7 +247,7 @@ git-ng_fetch() {
 		cursha1=$(git rev-parse ${upstream_branch})
 		${elogcmd} "   at the commit:		${cursha1}"
 
-		git_submodules
+		git-ng_submodules
 		popd &> /dev/null
 	elif [[ -n ${ESCM_OFFLINE} ]] ; then
 		pushd "${GIT_DIR}" &> /dev/null
@@ -327,9 +319,9 @@ git-ng_fetch() {
 	fi
 
 	pushd "${SOURCE}" &> /dev/null
-	git_branch
+	git-ng_branch
 	# submodules always reqire net (thanks to branches changing)
-	[[ -z ${ESCM_OFFLINE} ]] && git_submodules
+	[[ -z ${ESCM_OFFLINE} ]] && git-ng_submodules
 	popd &> /dev/null
 
 	echo ">>> Unpacked to ${SOURCE}"

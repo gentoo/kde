@@ -155,9 +155,7 @@ kde4-meta_src_unpack() {
 			subversion_wc_info
 			subversion_bootstrap
 		elif [[ "${KDE_SCM}" == "git" ]]; then
-			S="${WORKDIR}/${P}"
-			mkdir -p "${S}"
-			git_src_unpack
+			git-ng_src_unpack
 		fi
 		kde4-meta_src_extract
 	else
@@ -207,14 +205,18 @@ kde4-meta_src_extract() {
 						|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 				done
 				;;
-			*) ;;
+			git)
+				# if we have different ESCM_REPONAME we want not to obey KMNAME KMMODULE, reset them for now
+				KMNAME="${ESCM_REPONAME}"
+				KMMODULE="./"
+				KMNOMODULE="yes"
+				;;
 		esac
 
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
 			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
 				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
 		fi
-
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 
