@@ -7,8 +7,6 @@ EAPI=3
 CMAKE_MIN_VERSION=2.8.0
 MULTIMEDIA_REQUIRED=always
 WEBKIT_REQUIRED=always
-KMNAME="extragear/multimedia"
-
 # Translations are only in the tarballs, not in the svn repo
 if [[ ${PV} != *9999* ]]; then
 	KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
