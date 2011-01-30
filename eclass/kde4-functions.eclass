@@ -21,6 +21,15 @@ case ${EAPI:-0} in
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
+# @ECLASS-VARIABLE: KDE_OVERRIDE_MINIMAL
+# @DESCRIPTION:
+# For use only in very few well-defined cases; normally it should be unset.
+# If this variable is set, all calls to add_kdebase_dep return a dependency on
+# at least this version, independent of the version of the package itself.
+# If you know exactly that one specific NEW KDE component builds and runs fine
+# with all the rest of KDE at an OLDER version, you can set this old version here.
+# Warning- may lead to general instability and kill your pet targh.
+
 # @ECLASS-VARIABLE: KDEBASE
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
@@ -370,6 +379,8 @@ add_kdebase_dep() {
 
 	if [[ -n ${3} ]]; then
 		ver=${3}
+	elif [[ -n ${KDE_MINIMAL_OVERRIDE} ]]; then
+		ver=${KDE_MINIMAL_OVERRIDE}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
 	# FIXME remove hack when kdepim-4.4.* is gone
