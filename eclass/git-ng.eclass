@@ -181,7 +181,7 @@ git-ng_branch() {
 
 # @FUNCTION: git-ng_gc
 # @DESCRIPTION:
-# Run garbage collector on checked out tree.
+# Internal function running garbage collector on checked out tree.
 git-ng_gc() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -199,7 +199,7 @@ git-ng_gc() {
 
 # @FUNCTION: git-ng_prepare_storedir
 # @DESCRIPTION:
-# Prepare directory where we are going to store SCM repository.
+# Internal function preparing directory where we are going to store SCM repository.
 git-ng_prepare_storedir() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -237,7 +237,7 @@ git-ng_prepare_storedir() {
 
 # @FUNCTION: git-ng_move_source
 # @DESCRIPTION:
-# Move the sources from the EGIT_DIR to SOURCE dir.
+# Internal function moving sources from the EGIT_DIR to SOURCE dir.
 git-ng_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -255,7 +255,7 @@ git-ng_move_source() {
 
 # @FUNCTION: git-ng_fetch
 # @DESCRIPTION:
-# Gets repository from ESCM_REPO_URI and store it in specified ESCM_STORE_DIR.
+# Internal function fetching repository from ESCM_REPO_URI and storing it in specified ESCM_STORE_DIR.
 git-ng_fetch() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -339,7 +339,7 @@ git-ng_fetch() {
 
 # @FUNCTION: git_bootstrap
 # @DESCRIPTION:
-# Runs bootstrap command on unpacked source.
+# Internal function that runs bootstrap command on unpacked source.
 git-ng_bootstrap() {
 	debug-print-function ${FUNCNAME} "$@"
 
