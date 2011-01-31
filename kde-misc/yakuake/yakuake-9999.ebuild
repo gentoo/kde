@@ -14,7 +14,7 @@ HOMEPAGE="http://yakuake.kde.org/"
 [[ ${PV} == *9999 ]] || SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 SLOT="4"
 IUSE=""
 
