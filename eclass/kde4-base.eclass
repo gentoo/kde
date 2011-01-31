@@ -176,6 +176,16 @@ KDE_REQUIRED="${KDE_REQUIRED:-always}"
 # ensures buildtime and runtime dependencies.
 KDE_HANDBOOK="${KDE_HANDBOOK:-never}"
 
+# @ECLASS-VARIABLE: KDE_LINGUAS_LIVE_OVERRIDE
+# @DESCRIPTION:
+# Set this varible if you want your live package to manage its
+# translations. (Mostly all kde ebuilds does not ship documentation
+# and translations in live ebuilds)
+if [[ ${BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
+	KDE_HANDBOOK=never
+	KDE_LINGUAS=""
+fi
+
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
@@ -719,6 +729,8 @@ kde4-base_src_unpack() {
 # in kde4-functions.eclass(5) for further details.
 kde4-base_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# enable handbook and linguas only when not using live ebuild
 
 	# Only enable selected languages, used for KDE extragear apps.
 	if [[ -n ${KDE_LINGUAS} ]]; then
