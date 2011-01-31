@@ -32,7 +32,6 @@ git-ng_init_variables() {
 	# @ECLASS-VARIABLE: ESCM_STORE_DIR
 	# @DESCRIPTION:
 	# Storage directory for git sources.
-	# Can be redefined.
 	: ${ESCM_STORE_DIR:="${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}/egit-src"}
 
 	# @ECLASS-VARIABLE: EGIT_HAS_SUBMODULES
@@ -99,7 +98,7 @@ git-ng_init_variables() {
 
 	# @ECLASS-VARIABLE: ESCM_BRANCH
 	# @DESCRIPTION:
-	# git eclass can fetch any branch in git_fetch().
+	# Specify the branch we want to check out from the repository
 	eval X="\$${PN//[-+]/_}_LIVE_BRANCH"
 	if [[ "${X}" = "" ]]; then
 		: ${ESCM_BRANCH:=${ESCM_MASTER}}
@@ -109,7 +108,7 @@ git-ng_init_variables() {
 
 	# @ECLASS-VARIABLE: ESCM_COMMIT
 	# @DESCRIPTION:
-	# git eclass can checkout any commit.
+	# Specify commit we want to check out from the repository.
 	eval X="\$${PN//[-+]/_}_LIVE_COMMIT"
 	if [[ "${X}" = "" ]]; then
 		: ${ESCM_COMMIT:=${ESCM_BRANCH}}
@@ -140,11 +139,11 @@ git-ng_submodules() {
 	# for submodules operations we need to be online
 	if [[ -z ${ESCM_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
 		debug-print "${FUNCNAME}: git submodule init"
-		git submodule init || die "Git submodule initialisation failed"
+		git submodule init || die "${FUNCNAME}: git submodule initialisation failed"
 		debug-print "${FUNCNAME}: git submodule sync"
-		git submodule sync
+		git submodule sync "" die "${FUNCNAME}: git submodule sync failed"
 		debug-print "${FUNCNAME}: git submodule update"
-		git submodule update || die "Git submodule update failed"
+		git submodule update || die "${FUNCNAME}: git submodule update failed"
 	fi
 }
 
@@ -155,13 +154,18 @@ git-ng_submodules() {
 git-ng_branch() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	debug-print "${FUNCNAME}: working in \"${SOURCE}\""
+	pushd "${SOURCE}" &> /dev/null
+
 	local branchname=branch-${ESCM_BRANCH} src=origin/${ESCM_BRANCH}
 	if [[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]]; then
 		branchname=tree-${ESCM_COMMIT}
 		src=${ESCM_COMMIT}
 	fi
 	debug-print "${FUNCNAME}: git checkout -b ${branchname} ${src}"
-	git checkout -b ${branchname} ${src} || die "Changing the branch failed"
+	git checkout -b ${branchname} ${src} || die "${FUNCNAME}: changing the branch failed"
+
+	popd > /dev/null
 
 	unset branchname src
 }
@@ -177,6 +181,7 @@ git-ng_gc() {
 		ebegin "Garbage collecting the repository"
 		local args
 		[[ -n ${EGIT_PRUNE} ]] && args='--prune'
+		debug-print "${FUNCNAME}: git gc ${args}"
 		git gc ${args}
 		eend $?
 	fi
@@ -225,14 +230,16 @@ git-ng_prepare_storedir() {
 # @DESCRIPTION:
 # Move the sources from the GIT_DIR to SOURCE dir.
 git-ng_move_source() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
 		pushd "${GIT_DIR}" &> /dev/null
-		debug-print "rsync -rlpgo . \"${SOURCE}\""
-		rsync -rlpgo . "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
+		debug-print "${FUNCNAME}: rsync -rlpgo . \"${SOURCE}\""
+		rsync -rlpgo . "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
 		popd &> /dev/null
 	else
-		debug-print "git clone -l -s -n \"${GIT_DIR}\" \"${SOURCE}\""
-		git clone -l -s -n "${GIT_DIR}" "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
+		debug-print "${FUNCNAME}: git clone -l -s -n \"${GIT_DIR}\" \"${SOURCE}\""
+		git clone -l -s -n "${GIT_DIR}" "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
 	fi
 }
 
@@ -261,7 +268,7 @@ git-ng_fetch() {
 
 		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" ${GIT_DIR}"
 		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" ${GIT_DIR} \
-			|| die "Can't fetch from ${ESCM_REPO_URI}."
+			|| die "${FUNCNAME}: can't fetch from ${ESCM_REPO_URI}."
 
 		pushd "${GIT_DIR}" &> /dev/null
 		cursha1=$(git rev-parse ${upstream_branch})
@@ -295,11 +302,11 @@ git-ng_fetch() {
 				git branch -D ${x}
 			done
 			${ESCM_UPDATE_CMD} ${ESCM_OPTIONS} \
-				|| die "Can't update from ${ESCM_REPO_URI}."
+				|| die "${FUNCNAME}: can't update from ${ESCM_REPO_URI}."
 		else
 			debug-print "${ESCM_UPDATE_CMD} ${ESCM_OPTIONS} origin ${ESCM_BRANCH}:${ESCM_BRANCH}"
 			${ESCM_UPDATE_CMD} ${ESCM_OPTIONS} origin ${ESCM_BRANCH}:${ESCM_BRANCH} \
-				|| die "Can't update from ${ESCM_REPO_URI}."
+				|| die "${FUNCNAME}: can't update from ${ESCM_REPO_URI}."
 		fi
 
 		git-ng_submodules
@@ -357,7 +364,7 @@ git-ng_bootstrap() {
 
 			if [[ -x ${ESCM_BOOTSTRAP} ]]; then
 				eval "./${ESCM_BOOTSTRAP}" \
-					|| die "bootstrap script failed"
+					|| die "${FUNCNAME}: bootstrap script failed"
 			else
 				eerror "\"${ESCM_BOOTSTRAP}\" is not executable."
 				eerror "Report upstream, or bug ebuild maintainer to remove bootstrap command."
@@ -368,7 +375,7 @@ git-ng_bootstrap() {
 			debug-print "${FUNCNAME}: bootstraping with commands \"${ESCM_BOOTSTRAP}\""
 
 			eval "${ESCM_BOOTSTRAP}" \
-				|| die "bootstrap commands failed."
+				|| die "${FUNCNAME}: bootstrap commands failed."
 		fi
 
 		einfo "Bootstrap finished"
