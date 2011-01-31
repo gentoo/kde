@@ -136,6 +136,11 @@ git-ng_init_variables() {
 git-ng_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	[[ "$#" -ne 1 ]] && die "${FUNCNAME}: requires 1 argument"
+
+	debug-print "${FUNCNAME}: working in \"${1}\""
+	pushd ${1} &> /dev/null
+
 	# for submodules operations we need to be online
 	if [[ -z ${ESCM_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
 		export GIT_DIR=${EGIT_DIR}
@@ -145,7 +150,10 @@ git-ng_submodules() {
 		git submodule sync "" die "${FUNCNAME}: git submodule sync failed"
 		debug-print "${FUNCNAME}: git submodule update"
 		git submodule update || die "${FUNCNAME}: git submodule update failed"
+		unset GIT_DIR
 	fi
+
+	popd > /dev/null
 }
 
 # @FUNCTION: git-ng_branch
@@ -253,8 +261,6 @@ git-ng_fetch() {
 
 	local oldsha1 cursha1 extra_clone_opts upstream_branch
 
-	git-ng_prepare_storedir
-
 	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 		upstream_branch=origin/${ESCM_BRANCH}
 	else
@@ -275,7 +281,7 @@ git-ng_fetch() {
 		cursha1=$(git rev-parse ${upstream_branch})
 		einfo "   at the commit:		${cursha1}"
 
-		git-ng_submodules
+		git-ng_submodules "${EGIT_DIR}"
 		popd &> /dev/null
 	elif [[ -n ${ESCM_OFFLINE} ]] ; then
 		pushd "${EGIT_DIR}" &> /dev/null
@@ -310,7 +316,7 @@ git-ng_fetch() {
 				|| die "${FUNCNAME}: can't update from ${ESCM_REPO_URI}."
 		fi
 
-		git-ng_submodules
+		git-ng_submodules "${EGIT_DIR}"
 		cursha1=$(git rev-parse ${upstream_branch})
 
 		# write out message based on the revisions
@@ -329,17 +335,6 @@ git-ng_fetch() {
 	[[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]] && einfo "   commit:			${ESCM_COMMIT}"
 	einfo "   branch: 			${ESCM_BRANCH}"
 	einfo "   storage directory: 	\"${EGIT_DIR}\""
-
-	git-ng_gc
-
-	git-ng_move_source
-
-	pushd "${SOURCE}" &> /dev/null
-	git-ng_branch
-	git-ng_submodules
-	popd &> /dev/null
-
-	echo ">>> Unpacked to ${SOURCE}"
 }
 
 # @FUNCTION: git_bootstrap
@@ -391,6 +386,12 @@ git-ng_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	git-ng_init_variables
+	git-ng_prepare_storedir
 	git-ng_fetch $@
+	git-ng_gc
+	git-ng_move_source
+	git-ng_branch
+	git-ng_submodules "${SOURCE}"
 	git-ng_bootstrap
+	echo ">>> Unpacked to ${SOURCE}"
 }
