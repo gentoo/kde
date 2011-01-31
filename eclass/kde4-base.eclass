@@ -963,8 +963,10 @@ kde4-base_pkg_postinst() {
 			ewarn "take responsibilities for dead kittens."
 			echo
 		fi
-		if ! has_version 'kde-base/kdebase-runtime-meta' && ! has_version 'kde-base/kdebase-startkde'; then
-			# warn about not supported approach
+		# for all 3rd party soft tell user that he SHOULD install kdebase-startkde or kdebase-runtime-meta
+		if [[ ${KDEBASE} != "kde-base" ]] && \
+				! has_version 'kde-base/kdebase-runtime-meta' && \
+				! has_version 'kde-base/kdebase-startkde'; then
 			if [[ ${KDE_REQUIRED} == always ]] || ( [[ ${KDE_REQUIRED} == optional ]] && use kde ); then
 				echo
 				ewarn "WARNING! Your system configuration contains neither \"kde-base/kdebase-runtime-meta\""
