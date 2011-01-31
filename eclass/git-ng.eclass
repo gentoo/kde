@@ -10,8 +10,6 @@
 # Eclass for easing maitenance of live ebuilds using git as remote repositories.
 # Eclass support working with git submodules and branching.
 
-inherit eutils
-
 # This eclass support all EAPIs
 EXPORT_FUNCTIONS src_unpack
 
