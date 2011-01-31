@@ -207,9 +207,7 @@ kde4-meta_src_extract() {
 				;;
 			git)
 				# if we have different ESCM_REPONAME we want not to obey KMNAME KMMODULE, reset them for now
-				KMNAME="${ESCM_REPONAME}"
-				KMMODULE="./"
-				KMNOMODULE="yes"
+				[[ -n ${ESCM_REPONAME} ]] && KMNAME="${ESCM_REPONAME}"
 				;;
 		esac
 
