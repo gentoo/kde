@@ -9,7 +9,7 @@
 # @DESCRIPTION:
 # Eclass for easing maitenance of live ebuilds using git as remote repositories.
 # Eclass support working with git submodules and branching.
-# revision 
+
 inherit eutils
 
 # This eclass support all EAPIs
