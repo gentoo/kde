@@ -136,10 +136,10 @@ git-ng_init_variables() {
 git-ng_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ "$#" -ne 1 ]] && die "${FUNCNAME}: requires 1 argument"
+	[[ "$#" -ne 1 ]] && die "${FUNCNAME}: requires 1 argument (path)"
 
 	debug-print "${FUNCNAME}: working in \"${1}\""
-	pushd ${1} &> /dev/null
+	pushd "${1}" &> /dev/null
 
 	# for submodules operations we need to be online
 	if [[ -z ${ESCM_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
