@@ -449,8 +449,14 @@ _do_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	[[ -z ${1} ]] && die "Missing parameter"
-	local pkg=kde-base/$1
+	local pkg=kde-base/$1 use
 	shift
+	if [[ $pkg == *\[*\] ]]; then
+		use=${pkg#*\[}
+		use=${use%\]}
+		pkg=${pkg%\[*\]}
+	fi
+
 	local param slot def="unset" var atom
 	# The following variables will hold parameters that contain ":"
 	#  - block_3_5
@@ -501,10 +507,10 @@ _do_blocker() {
 		fi
 		# we always block our own slot, ignoring kdeprefix
 		if [[ ${SLOT} == ${slot} ]]; then
-			echo " !${atom}:${slot}"
+			echo " !${atom}:${slot}${use:+[${use}]}"
 		else
 			# we only block other slots on -kdeprefix
-			echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix] )"
+			echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix${use:+,${use}}] )"
 		fi
 	done
 
@@ -520,7 +526,7 @@ _do_blocker() {
 		else
 			atom="<=${pkg}-${block_3_5}"
 		fi
-		echo " !${atom}:3.5"
+		echo " !${atom}:3.5${use:+[${use}]}"
 	fi
 }
 
