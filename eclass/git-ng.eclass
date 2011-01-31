@@ -21,9 +21,6 @@ DEPEND="dev-vcs/git"
 # Sometimes we might want to redefine S.
 SOURCE="${WORKDIR}/${PN}-${PV}"
 
-# Gitstat command used to get differences in sources
-ESCM_DIFFSTAT_CMD="git --no-pager diff --stat"
-
 # @FUNCTION: git-ng_init_variables
 # @DESCRIPTION:
 # Internal function initializing all git variables.
@@ -120,17 +117,17 @@ git-ng_init_variables() {
 		ESCM_COMMIT="${X}"
 	fi
 
-	# @ECLASS-VARIABLE: ESCM_REPACK
+	# @ECLASS-VARIABLE: EGIT_REPACK
 	# @DESCRIPTION:
 	# Set to non-empty value to repack objects to save disk space. However this can
 	# take a REALLY LONG time with VERY big repositories.
-	: ${ESCM_REPACK:=}
+	: ${EGITM_REPACK:=}
 
-	# @ECLASS-VARIABLE: ESCM_PRUNE
+	# @ECLASS-VARIABLE: EGIT_PRUNE
 	# @DESCRIPTION:
 	# Set to non-empty value to prune loose objects on each fetch. This is useful
 	# if upstream rewinds and rebases branches often.
-	: ${ESCM_PRUNE:=}
+	: ${EGIT_PRUNE:=}
 
 }
 
@@ -176,10 +173,10 @@ git-ng_gc() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	pushd "${GIT_DIR}" &> /dev/null
-	if [[ -n ${ESCM_REPACK} || -n ${ESCM_PRUNE} ]]; then
+	if [[ -n ${EGIT_REPACK} || -n ${EGIT_PRUNE} ]]; then
 		ebegin "Garbage collecting the repository"
 		local args
-		[[ -n ${ESCM_PRUNE} ]] && args='--prune'
+		[[ -n ${EGIT_PRUNE} ]] && args='--prune'
 		git gc ${args}
 		eend $?
 	fi
@@ -192,7 +189,7 @@ git-ng_gc() {
 git-ng_prepare_storedir() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local ESCM_CLONE_DIR
+	local clone_dir
 
 	# initial clone, we have to create master git storage directory and play
 	# nicely with sandbox
@@ -208,18 +205,18 @@ git-ng_prepare_storedir() {
 	addwrite "${ESCM_STORE_DIR}"
 	# calculate the proper store dir for data
 	[[ -z ${ESCM_REPO_URI##*/} ]] && ESCM_REPO_URI="${ESCM_REPO_URI%/}"
-	ESCM_CLONE_DIR="${ESCM_REPO_URI##*/}"
-	export GIT_DIR="${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}"
+	clone_dir="${ESCM_REPO_URI##*/}"
+	export GIT_DIR="${ESCM_STORE_DIR}/${clone_dir}"
 	debug-print "${FUNCNAME}: Storing the repo into \"${GIT_DIR}\"."
 
 	# we can not jump between using and not using SUBMODULES so we need to
 	# refetch the source when needed
 	if [[ -n ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && ! -d ${GIT_DIR}/.git ]]; then
-		debug-print "${FUNCNAME}: \"${ESCM_CLONE_DIR}\" was bare copy removing..."
+		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy removing..."
 		rm -rf "${GIT_DIR}"
 	fi
 	if [[ -z ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && -d ${GIT_DIR}/.git ]]; then
-		debug-print "${FUNCNAME}: \"${ESCM_CLONE_DIR}\" was not copy removing..."
+		debug-print "${FUNCNAME}: \"${clone_dir}\" was not copy removing..."
 		rm -rf "${GIT_DIR}"
 	fi
 }
@@ -315,7 +312,7 @@ git-ng_fetch() {
 		else
 			einfo "   at the commit: 		${cursha1}"
 		fi
-		${ESCM_DIFFSTAT_CMD} ${oldsha1}..${upstream_branch}
+		git --no-pager diff --stat ${oldsha1}..${upstream_branch}
 		popd &> /dev/null
 	fi
 	# export the version the repository is at
@@ -356,7 +353,7 @@ git-ng_bootstrap() {
 
 		if [[ -f ${ESCM_BOOTSTRAP} ]]; then
 			# we have file in the repo which we should execute
-			debug-print "$FUNCNAME: bootstraping with file \"${ESCM_BOOTSTRAP}\""
+			debug-print "${FUNCNAME}: bootstraping with file \"${ESCM_BOOTSTRAP}\""
 
 			if [[ -x ${ESCM_BOOTSTRAP} ]]; then
 				eval "./${ESCM_BOOTSTRAP}" \
@@ -368,7 +365,7 @@ git-ng_bootstrap() {
 			fi
 		else
 			# we execute some system command
-			debug-print "$FUNCNAME: bootstraping with commands \"${ESCM_BOOTSTRAP}\""
+			debug-print "${FUNCNAME}: bootstraping with commands \"${ESCM_BOOTSTRAP}\""
 
 			eval "${ESCM_BOOTSTRAP}" \
 				|| die "bootstrap commands failed."
