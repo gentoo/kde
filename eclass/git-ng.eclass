@@ -7,15 +7,13 @@
 # Tomas Chvatal <scarabeus@gentoo.org>
 # @BLURB: This eclass provides functions for fetch and unpack git repositories
 # @DESCRIPTION:
-# Tadydaydya WRITEME
+# Eclass for easing maitenance of live ebuilds using git as remote repositories.
+# Eclass support working with git submodules and branching.
+# revision 
 inherit eutils
 
-EXPORTED_FUNCTIONS="src_unpack"
-case "${EAPI:-0}" in
-	4|3) ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
-esac
-EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
+# This eclass support all EAPIs
+EXPORT_FUNCTIONS src_unpack
 
 DEPEND="dev-vcs/git"
 
@@ -28,12 +26,11 @@ ESCM_DIFFSTAT_CMD="git --no-pager diff --stat"
 
 # @FUNCTION: git-ng_init_variables
 # @DESCRIPTION:
-# Internal function initializing all git variables
+# Internal function initializing all git variables.
+# We define it in function scope so user can define
+# all the variables before and after inherit.
 git-ng_init_variables() {
-	# @ECLASS-VARIABLE: ESCM_QUIET
-	# @DESCRIPTION:
-	# Set to non-empty value to supress some eclass messages.
-	: ${ESCM_QUIET:=${ESCM_QUIET}}
+	debug-print-function ${FUNCNAME} "$@"
 
 	# @ECLASS-VARIABLE: ESCM_STORE_DIR
 	# @DESCRIPTION:
@@ -41,10 +38,10 @@ git-ng_init_variables() {
 	# Can be redefined.
 	: ${ESCM_STORE_DIR:="${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}/egit-src"}
 
-	# @ECLASS-VARIABLE: ESCM_HAS_SUBMODULES
+	# @ECLASS-VARIABLE: EGIT_HAS_SUBMODULES
 	# @DESCRIPTION:
 	# Set this to non-empty value to enable submodule support (slower).
-	: ${ESCM_HAS_SUBMODULES:=}
+	: ${EGIT_HAS_SUBMODULES:=}
 
 	# @ECLASS-VARIABLE: ESCM_FETCH_CMD
 	# @DESCRIPTION:
@@ -54,7 +51,7 @@ git-ng_init_variables() {
 	# @ECLASS-VARIABLE: ESCM_UPDATE_CMD
 	# @DESCRIPTION:
 	# Git fetch command.
-	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
+	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 		ESCM_UPDATE_CMD="git pull -f -u"
 	else
 		ESCM_UPDATE_CMD="git fetch -t -f -u"
@@ -141,10 +138,15 @@ git-ng_init_variables() {
 # @DESCRIPTION:
 # Internal function wrapping the submodule initialisation and update
 git-ng_submodules() {
-	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
-		debug-print "git submodule init"
+	debug-print-function ${FUNCNAME} "$@"
+
+	# for submodules operations we need to be online
+	if [[ -z ${ESCM_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
+		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die "Git submodule initialisation failed"
-		debug-print "git submodule update"
+		debug-print "${FUNCNAME}: git submodule sync"
+		git submodule sync
+		debug-print "${FUNCNAME}: git submodule update"
 		git submodule update || die "Git submodule update failed"
 	fi
 }
@@ -154,12 +156,14 @@ git-ng_submodules() {
 # Internal function that changes branch for the repo based on ESCM_COMMIT and
 # ESCM_BRANCH variables.
 git-ng_branch() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	local branchname=branch-${ESCM_BRANCH} src=origin/${ESCM_BRANCH}
 	if [[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]]; then
 		branchname=tree-${ESCM_COMMIT}
 		src=${ESCM_COMMIT}
 	fi
-	debug-print "git checkout -b ${branchname} ${src}"
+	debug-print "${FUNCNAME}: git checkout -b ${branchname} ${src}"
 	git checkout -b ${branchname} ${src} || die "Changing the branch failed"
 
 	unset branchname src
@@ -167,8 +171,10 @@ git-ng_branch() {
 
 # @FUNCTION: git-ng_gc
 # @DESCRIPTION:
-# Run garbage collector on checked out tree
+# Run garbage collector on checked out tree.
 git-ng_gc() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	pushd "${GIT_DIR}" &> /dev/null
 	if [[ -n ${ESCM_REPACK} || -n ${ESCM_PRUNE} ]]; then
 		ebegin "Garbage collecting the repository"
@@ -180,64 +186,81 @@ git-ng_gc() {
 	popd &> /dev/null
 }
 
-
-# @FUNCTION: git_fetch
+# @FUNCTION: git-ng_prepare_storedir
 # @DESCRIPTION:
-# Gets repository from ESCM_REPO_URI and store it in specified ESCM_STORE_DIR
-git-ng_fetch() {
+# Prepare directory where we are going to store SCM repository.
+git-ng_prepare_storedir() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local ESCM_CLONE_DIR oldsha1 cursha1 extra_clone_opts upstream_branch
-	[[ -z ${ESCM_HAS_SUBMODULES} ]] && export GIT_DIR
-
-	# choose if user wants elog or just einfo.
-	if [[ -n ${ESCM_QUIET} ]]; then
-		elogcmd="einfo"
-	else
-		elogcmd="elog"
-	fi
+	local ESCM_CLONE_DIR
 
 	# initial clone, we have to create master git storage directory and play
 	# nicely with sandbox
 	if [[ ! -d ${ESCM_STORE_DIR} ]] ; then
-		debug-print "${FUNCNAME}: initial clone. creating git directory"
+		debug-print "${FUNCNAME}: Creating git main storage directory"
 		addwrite ${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}
 		mkdir -p "${ESCM_STORE_DIR}" \
-			|| die "${ESCM}: can't mkdir ${ESCM_STORE_DIR}."
+			|| die "${FUNCNAME}: can't mkdir ${ESCM_STORE_DIR}."
 	fi
 
-	cd -P "${ESCM_STORE_DIR}" || die "Can't chdir to ${ESCM_STORE_DIR}"
-	ESCM_STORE_DIR=${PWD}
+	cd -P "${ESCM_STORE_DIR}" || die "${FUNCNAME}:  can't chdir to ${ESCM_STORE_DIR}"
 	# allow writing into ESCM_STORE_DIR
 	addwrite "${ESCM_STORE_DIR}"
 	# calculate the proper store dir for data
 	[[ -z ${ESCM_REPO_URI##*/} ]] && ESCM_REPO_URI="${ESCM_REPO_URI%/}"
 	ESCM_CLONE_DIR="${ESCM_REPO_URI##*/}"
-	GIT_DIR="${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}"
+	export GIT_DIR="${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}"
 	debug-print "${FUNCNAME}: Storing the repo into \"${GIT_DIR}\"."
 
 	# we can not jump between using and not using SUBMODULES so we need to
 	# refetch the source when needed
-	if [[ -n ${ESCM_HAS_SUBMODULES} && -d ${GIT_DIR} && ! -d ${GIT_DIR}/.git ]]; then
+	if [[ -n ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && ! -d ${GIT_DIR}/.git ]]; then
+		debug-print "${FUNCNAME}: \"${ESCM_CLONE_DIR}\" was bare copy removing..."
 		rm -rf "${GIT_DIR}"
-		einfo "The ${ESCM_CLONE_DIR} was bare copy. Refetching."
 	fi
-	if [[ -z ${ESCM_HAS_SUBMODULES} && -d ${GIT_DIR} && -d ${GIT_DIR}/.git ]]; then
+	if [[ -z ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && -d ${GIT_DIR}/.git ]]; then
+		debug-print "${FUNCNAME}: \"${ESCM_CLONE_DIR}\" was not copy removing..."
 		rm -rf "${GIT_DIR}"
-		einfo "The ${ESCM_CLONE_DIR} was not a bare copy. Refetching."
 	fi
+}
 
+# @FUNCTION: git-ng_move_source
+# @DESCRIPTION:
+# Move the sources from the GIT_DIR to SOURCE dir.
+git-ng_move_source() {
 	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
+		pushd "${GIT_DIR}" &> /dev/null
+		debug-print "rsync -rlpgo . \"${SOURCE}\""
+		rsync -rlpgo . "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
+		popd &> /dev/null
+	else
+		debug-print "git clone -l -s -n \"${GIT_DIR}\" \"${SOURCE}\""
+		git clone -l -s -n "${GIT_DIR}" "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
+	fi
+}
+
+
+# @FUNCTION: git-ng_fetch
+# @DESCRIPTION:
+# Gets repository from ESCM_REPO_URI and store it in specified ESCM_STORE_DIR.
+git-ng_fetch() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local oldsha1 cursha1 extra_clone_opts upstream_branch
+
+	git-ng_prepare_storedir
+
+	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 		upstream_branch=origin/${ESCM_BRANCH}
 	else
 		upstream_branch=${ESCM_BRANCH}
-		extra_clone_opts=--bare
+		extra_clone_opts="--bare"
 	fi
 
 	if [[ ! -d ${GIT_DIR} ]] ; then
 		# first clone
-		${elogcmd} "GIT NEW clone -->"
-		${elogcmd} "   repository: 		${ESCM_REPO_URI}"
+		einfo "GIT NEW clone -->"
+		einfo "   repository: 		${ESCM_REPO_URI}"
 
 		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" ${GIT_DIR}"
 		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" ${GIT_DIR} \
@@ -245,16 +268,16 @@ git-ng_fetch() {
 
 		pushd "${GIT_DIR}" &> /dev/null
 		cursha1=$(git rev-parse ${upstream_branch})
-		${elogcmd} "   at the commit:		${cursha1}"
+		einfo "   at the commit:		${cursha1}"
 
 		git-ng_submodules
 		popd &> /dev/null
 	elif [[ -n ${ESCM_OFFLINE} ]] ; then
 		pushd "${GIT_DIR}" &> /dev/null
 		cursha1=$(git rev-parse ${upstream_branch})
-		${elogcmd} "GIT offline update -->"
-		${elogcmd} "   repository: 		${ESCM_REPO_URI}"
-		${elogcmd} "   at the commit:		${cursha1}"
+		einfo "GIT offline update -->"
+		einfo "   repository: 		${ESCM_REPO_URI}"
+		einfo "   at the commit:		${cursha1}"
 		popd &> /dev/null
 	else
 		pushd "${GIT_DIR}" &> /dev/null
@@ -262,12 +285,12 @@ git-ng_fetch() {
 		git config remote.origin.url "${ESCM_REPO_URI}"
 
 		# fetch updates
-		${elogcmd} "GIT update -->"
-		${elogcmd} "   repository: 		${ESCM_REPO_URI}"
+		einfo "GIT update -->"
+		einfo "   repository: 		${ESCM_REPO_URI}"
 
 		oldsha1=$(git rev-parse ${upstream_branch})
 
-		if [[ -n ${ESCM_HAS_SUBMODULES} ]] || [[ -n ${ESCM_HAS_WORKDIR} ]]; then
+		if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
 			debug-print "${ESCM_UPDATE_CMD} ${ESCM_OPTIONS}"
 			# fix branching
 			git checkout ${ESCM_MASTER}
@@ -287,41 +310,28 @@ git-ng_fetch() {
 
 		# write out message based on the revisions
 		if [[ "${oldsha1}" != "${cursha1}" ]]; then
-			${elogcmd} "   updating from commit:	${oldsha1}"
-			${elogcmd} "   to commit:		${cursha1}"
+			einfo "   updating from commit:	${oldsha1}"
+			einfo "   to commit:		${cursha1}"
 		else
-			${elogcmd} "   at the commit: 		${cursha1}"
+			einfo "   at the commit: 		${cursha1}"
 		fi
 		${ESCM_DIFFSTAT_CMD} ${oldsha1}..${upstream_branch}
 		popd &> /dev/null
 	fi
+	# export the version the repository is at
+	export ESCM_VERSION="${cursha1}"
+	# log the repo state
+	[[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]] && einfo "   commit:			${ESCM_COMMIT}"
+	einfo "   branch: 			${ESCM_BRANCH}"
+	einfo "   storage directory: 	\"${GIT_DIR}\""
 
 	git-ng_gc
 
-	# export the git version
-	export ESCM_VERSION="${cursha1}"
-
-	# log the repo state
-	[[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]] && ${elogcmd} "   commit:			${ESCM_COMMIT}"
-	${elogcmd} "   branch: 			${ESCM_BRANCH}"
-	${elogcmd} "   storage directory: 	\"${GIT_DIR}\""
-
-	# move the data to workdir
-	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
-		pushd "${GIT_DIR}" &> /dev/null
-		debug-print "rsync -rlpgo . \"${SOURCE}\""
-		rsync -rlpgo . "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
-		popd &> /dev/null
-	else
-		unset GIT_DIR
-		debug-print "git clone -l -s -n \"${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}\" \"${SOURCE}\""
-		git clone -l -s -n "${ESCM_STORE_DIR}/${ESCM_CLONE_DIR}" "${SOURCE}" || die "Sync of git data to \"${SOURCE}\" failed"
-	fi
+	git-ng_move_source
 
 	pushd "${SOURCE}" &> /dev/null
 	git-ng_branch
-	# submodules always reqire net (thanks to branches changing)
-	[[ -z ${ESCM_OFFLINE} ]] && git-ng_submodules
+	git-ng_submodules
 	popd &> /dev/null
 
 	echo ">>> Unpacked to ${SOURCE}"
@@ -341,7 +351,7 @@ git-ng_bootstrap() {
 	# combination with --keep-going it would lead in not-updating
 	# pakcages that are up-to-date.
 	if [[ -n ${ESCM_BOOTSTRAP} ]] ; then
-		pushd "${SOURCE}" > /dev/null
+		pushd "${SOURCE}" &> /dev/null
 		einfo "Starting bootstrap"
 
 		if [[ -f ${ESCM_BOOTSTRAP} ]]; then
