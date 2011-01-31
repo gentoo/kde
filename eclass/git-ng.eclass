@@ -121,7 +121,7 @@ git-ng_init_variables() {
 	# @DESCRIPTION:
 	# Set to non-empty value to repack objects to save disk space. However this can
 	# take a REALLY LONG time with VERY big repositories.
-	: ${EGITM_REPACK:=}
+	: ${EGIT_REPACK:=}
 
 	# @ECLASS-VARIABLE: EGIT_PRUNE
 	# @DESCRIPTION:
