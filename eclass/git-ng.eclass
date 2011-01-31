@@ -102,7 +102,7 @@ git-ng_init_variables() {
 	# git eclass can fetch any branch in git_fetch().
 	eval X="\$${PN//[-+]/_}_LIVE_BRANCH"
 	if [[ "${X}" = "" ]]; then
-		: ${ESCM_BRANCH:=master}
+		: ${ESCM_BRANCH:=${ESCM_MASTER}}
 	else
 		ESCM_BRANCH="${X}"
 	fi
