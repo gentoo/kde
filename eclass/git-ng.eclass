@@ -138,6 +138,7 @@ git-ng_submodules() {
 
 	# for submodules operations we need to be online
 	if [[ -z ${ESCM_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
+		export GIT_DIR=${EGIT_DIR}
 		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die "${FUNCNAME}: git submodule initialisation failed"
 		debug-print "${FUNCNAME}: git submodule sync"
@@ -176,7 +177,7 @@ git-ng_branch() {
 git-ng_gc() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	pushd "${GIT_DIR}" &> /dev/null
+	pushd "${EGIT_DIR}" &> /dev/null
 	if [[ -n ${EGIT_REPACK} || -n ${EGIT_PRUNE} ]]; then
 		ebegin "Garbage collecting the repository"
 		local args
@@ -211,35 +212,35 @@ git-ng_prepare_storedir() {
 	# calculate the proper store dir for data
 	[[ -z ${ESCM_REPO_URI##*/} ]] && ESCM_REPO_URI="${ESCM_REPO_URI%/}"
 	clone_dir="${ESCM_REPO_URI##*/}"
-	export GIT_DIR="${ESCM_STORE_DIR}/${clone_dir}"
-	debug-print "${FUNCNAME}: Storing the repo into \"${GIT_DIR}\"."
+	export EGIT_DIR="${ESCM_STORE_DIR}/${clone_dir}"
+	debug-print "${FUNCNAME}: Storing the repo into \"${EGIT_DIR}\"."
 
 	# we can not jump between using and not using SUBMODULES so we need to
 	# refetch the source when needed
-	if [[ -n ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && ! -d ${GIT_DIR}/.git ]]; then
+	if [[ -n ${EGIT_HAS_SUBMODULES} && -d ${EGIT_DIR} && ! -d ${EGIT_DIR}/.git ]]; then
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy removing..."
-		rm -rf "${GIT_DIR}"
+		rm -rf "${EGIT_DIR}"
 	fi
-	if [[ -z ${EGIT_HAS_SUBMODULES} && -d ${GIT_DIR} && -d ${GIT_DIR}/.git ]]; then
+	if [[ -z ${EGIT_HAS_SUBMODULES} && -d ${EGIT_DIR} && -d ${EGIT_DIR}/.git ]]; then
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was not copy removing..."
-		rm -rf "${GIT_DIR}"
+		rm -rf "${EGIT_DIR}"
 	fi
 }
 
 # @FUNCTION: git-ng_move_source
 # @DESCRIPTION:
-# Move the sources from the GIT_DIR to SOURCE dir.
+# Move the sources from the EGIT_DIR to SOURCE dir.
 git-ng_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
-		pushd "${GIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" &> /dev/null
 		debug-print "${FUNCNAME}: rsync -rlpgo . \"${SOURCE}\""
 		rsync -rlpgo . "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
 		popd &> /dev/null
 	else
-		debug-print "${FUNCNAME}: git clone -l -s -n \"${GIT_DIR}\" \"${SOURCE}\""
-		git clone -l -s -n "${GIT_DIR}" "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
+		debug-print "${FUNCNAME}: git clone -l -s -n \"${EGIT_DIR}\" \"${SOURCE}\""
+		git clone -l -s -n "${EGIT_DIR}" "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
 	fi
 }
 
@@ -261,30 +262,30 @@ git-ng_fetch() {
 		extra_clone_opts="--bare"
 	fi
 
-	if [[ ! -d ${GIT_DIR} ]] ; then
+	if [[ ! -d ${EGIT_DIR} ]] ; then
 		# first clone
 		einfo "GIT NEW clone -->"
 		einfo "   repository: 		${ESCM_REPO_URI}"
 
-		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" ${GIT_DIR}"
-		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" ${GIT_DIR} \
+		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" ${EGIT_DIR}"
+		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" ${EGIT_DIR} \
 			|| die "${FUNCNAME}: can't fetch from ${ESCM_REPO_URI}."
 
-		pushd "${GIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" &> /dev/null
 		cursha1=$(git rev-parse ${upstream_branch})
 		einfo "   at the commit:		${cursha1}"
 
 		git-ng_submodules
 		popd &> /dev/null
 	elif [[ -n ${ESCM_OFFLINE} ]] ; then
-		pushd "${GIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" &> /dev/null
 		cursha1=$(git rev-parse ${upstream_branch})
 		einfo "GIT offline update -->"
 		einfo "   repository: 		${ESCM_REPO_URI}"
 		einfo "   at the commit:		${cursha1}"
 		popd &> /dev/null
 	else
-		pushd "${GIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" &> /dev/null
 		# Git urls might change, so unconditionally set it here
 		git config remote.origin.url "${ESCM_REPO_URI}"
 
@@ -327,7 +328,7 @@ git-ng_fetch() {
 	# log the repo state
 	[[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]] && einfo "   commit:			${ESCM_COMMIT}"
 	einfo "   branch: 			${ESCM_BRANCH}"
-	einfo "   storage directory: 	\"${GIT_DIR}\""
+	einfo "   storage directory: 	\"${EGIT_DIR}\""
 
 	git-ng_gc
 
