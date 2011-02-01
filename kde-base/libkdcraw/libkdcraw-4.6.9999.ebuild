@@ -9,7 +9,7 @@ KMMODULE="libs/${PN}"
 
 inherit kde4-meta
 
-DESCRIPTION="KDE Image Plugin Interface: a dcraw library wrapper"
+DESCRIPTION="KDE digital camera raw image library wrapper"
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
