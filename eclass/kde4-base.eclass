@@ -475,11 +475,12 @@ _calculate_src_uri() {
 	case ${KDEBASE} in
 		kde-base)
 			case ${PV} in
-				4.[456].8[05] | 4.[456].9[023568])
+				4.[456].8[05] | 4.[456].9[023568] | 4.5.94.1)
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 					# KDEPIM IS SPECIAL
-					[[ ${KMNAME} == "kdepim" ]] && SRC_URI="mirror://kde/unstable/kmname/${PV}/src/${_kmname_pv}.tar.bz2"
+					[[ ${KMNAME} == "kdepim" ]] && SRC_URI="mirror://kde/unstable/${KMNAME}/${PV}/src/${_kmname_pv}.tar.bz2"
+					[[ ${PN} == "kdepim-runtime" ]] && echo "yo"; SRC_URI="mirror://kde/unstable/${KMNAME}/${PV}/src/${P}.tar.bz2"
 					;;
 				4.4.[6789] | 4.4.1?)
 					# Stable kdepim releases
