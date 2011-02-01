@@ -611,12 +611,19 @@ _calculate_live_repo() {
 
 			# set various git branching variables based on kmname
 			# each repo can use different branch names and so on :/
-			case ${KMNAME} in
+			case $_kmname in
 				kdepim|kdepim-runtime)
 					case ${PV} in
 						4.6.9999)
 							ESCM_BRANCH="master"
 							;;
+						*.9999)
+							ESCM_BRANCH="${SLOT}"
+							;;
+					esac
+					;;
+				kdepimlibs)
+					case ${PV} in
 						*.9999)
 							ESCM_BRANCH="${SLOT}"
 							;;
