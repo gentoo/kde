@@ -20,5 +20,3 @@ IUSE=""
 
 RDEPEND="net-misc/wicd"
 DEPEND="${RDEPEND}"
-
-S=${WORKDIR}/${PN}
