@@ -65,6 +65,29 @@ KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" "4.5" "4.6" )
 # The slots used by KDE live versions. Values should be ordered.
 KDE_LIVE_SLOTS=( "live" )
 
+# determine the build type
+if [[ ${SLOT} = live || ${PV} = *9999* ]]; then
+	BUILD_TYPE="live"
+else
+	BUILD_TYPE="release"
+fi
+export BUILD_TYPE
+
+# @ECLASS-VARIABLE: KDE_LINGUAS
+# @DESCRIPTION:
+# This is a whitespace-separated list of translations this ebuild supports.
+# These translations are automatically added to IUSE. Therefore ebuilds must set
+# this variable before inheriting any eclasses. To enable only selected
+# translations, ebuilds must call enable_selected_linguas(). kde4-{base,meta}.eclass does
+# this for you.
+#
+# Example: KDE_LINGUAS="en_GB de nl"
+if [[ ${BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
+	for _lingua in ${KDE_LINGUAS}; do
+		IUSE="${IUSE} linguas_${_lingua}"
+	done
+fi
+
 # @FUNCTION: slot_is_at_least
 # @USAGE: <want> <have>
 # @DESCRIPTION:
@@ -114,19 +137,6 @@ comment_all_add_subdirectory() {
 			-e '/^[[:space:]]*MACRO_OPTIONAL_ADD_SUBDIRECTORY/s/^/#DONOTCOMPILE /' \
 			|| die "${LINENO}: Initial sed died"
 }
-
-# @ECLASS-VARIABLE: KDE_LINGUAS
-# @DESCRIPTION:
-# This is a whitespace-separated list of translations this ebuild supports.
-# These translations are automatically added to IUSE. Therefore ebuilds must set
-# this variable before inheriting any eclasses. To enable only selected
-# translations, ebuilds must call enable_selected_linguas(). kde4-{base,meta}.eclass does
-# this for you.
-#
-# Example: KDE_LINGUAS="en_GB de nl"
-for _lingua in ${KDE_LINGUAS}; do
-	IUSE="${IUSE} linguas_${_lingua}"
-done
 
 # @FUNCTION: enable_selected_linguas
 # @DESCRIPTION:
@@ -208,18 +218,6 @@ enable_selected_doc_linguas() {
 
 	done
 	[[ -n "${linguas}" ]] && einfo "Enabling handbook translations:${linguas}"
-}
-
-# @FUNCTION: get_build_type
-# @DESCRIPTION:
-# Determine whether we are using live ebuild or tbzs.
-get_build_type() {
-	if [[ ${SLOT} = live || ${PV} = *9999* ]]; then
-		BUILD_TYPE="live"
-	else
-		BUILD_TYPE="release"
-	fi
-	export BUILD_TYPE
 }
 
 # @FUNCTION: migrate_store_dir

@@ -28,7 +28,6 @@
 
 inherit kde4-functions base virtualx eutils
 
-get_build_type
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
@@ -479,8 +478,7 @@ _calculate_src_uri() {
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 					# KDEPIM IS SPECIAL
-					[[ ${KMNAME} == "kdepim" ]] && SRC_URI="mirror://kde/unstable/${KMNAME}/${PV}/src/${_kmname_pv}.tar.bz2"
-					[[ ${PN} == "kdepim-runtime" ]] && echo "yo"; SRC_URI="mirror://kde/unstable/${KMNAME}/${PV}/src/${P}.tar.bz2"
+					[[ ${KMNAME} == "kdepim" || ${PN} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/unstable/${KMNAME}/${PV}/src/${_kmname_pv}.tar.bz2"
 					;;
 				4.4.[6789] | 4.4.1?)
 					# Stable kdepim releases
