@@ -31,7 +31,7 @@ inherit kde4-functions base virtualx eutils
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
-		git) inherit git-ng ;;
+		git) inherit git-2 ;;
 	esac
 fi
 
@@ -715,7 +715,7 @@ kde4-base_src_unpack() {
 				subversion_src_unpack
 				;;
 			git)
-				git-ng_src_unpack
+				git-2_src_unpack
 				;;
 		esac
 	else

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# @ECLASS: git-ng.eclass
+# @ECLASS: git-2.eclass
 # @MAINTAINER:
 # Tomas Chvatal <scarabeus@gentoo.org>
 # @BLURB: This eclass provides functions for fetch and unpack git repositories
@@ -19,12 +19,12 @@ DEPEND="dev-vcs/git"
 # Sometimes we might want to redefine S.
 SOURCE="${WORKDIR}/${PN}-${PV}"
 
-# @FUNCTION: git-ng_init_variables
+# @FUNCTION: git-2_init_variables
 # @DESCRIPTION:
 # Internal function initializing all git variables.
 # We define it in function scope so user can define
 # all the variables before and after inherit.
-git-ng_init_variables() {
+git-2_init_variables() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# @ECLASS-VARIABLE: ESCM_STORE_DIR
@@ -128,10 +128,10 @@ git-ng_init_variables() {
 
 }
 
-# @FUNCTION: git-ng_submodules
+# @FUNCTION: git-2_submodules
 # @DESCRIPTION:
 # Internal function wrapping the submodule initialisation and update
-git-ng_submodules() {
+git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	[[ "$#" -ne 1 ]] && die "${FUNCNAME}: requires 1 argument (path)"
@@ -154,11 +154,11 @@ git-ng_submodules() {
 	popd > /dev/null
 }
 
-# @FUNCTION: git-ng_branch
+# @FUNCTION: git-2_branch
 # @DESCRIPTION:
 # Internal function that changes branch for the repo based on ESCM_COMMIT and
 # ESCM_BRANCH variables.
-git-ng_branch() {
+git-2_branch() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	debug-print "${FUNCNAME}: working in \"${SOURCE}\""
@@ -177,10 +177,10 @@ git-ng_branch() {
 	unset branchname src
 }
 
-# @FUNCTION: git-ng_gc
+# @FUNCTION: git-2_gc
 # @DESCRIPTION:
 # Internal function running garbage collector on checked out tree.
-git-ng_gc() {
+git-2_gc() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	pushd "${EGIT_DIR}" &> /dev/null
@@ -195,10 +195,10 @@ git-ng_gc() {
 	popd &> /dev/null
 }
 
-# @FUNCTION: git-ng_prepare_storedir
+# @FUNCTION: git-2_prepare_storedir
 # @DESCRIPTION:
 # Internal function preparing directory where we are going to store SCM repository.
-git-ng_prepare_storedir() {
+git-2_prepare_storedir() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local clone_dir
@@ -233,10 +233,10 @@ git-ng_prepare_storedir() {
 	fi
 }
 
-# @FUNCTION: git-ng_move_source
+# @FUNCTION: git-2_move_source
 # @DESCRIPTION:
 # Internal function moving sources from the EGIT_DIR to SOURCE dir.
-git-ng_move_source() {
+git-2_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
@@ -251,10 +251,10 @@ git-ng_move_source() {
 }
 
 
-# @FUNCTION: git-ng_fetch
+# @FUNCTION: git-2_fetch
 # @DESCRIPTION:
 # Internal function fetching repository from ESCM_REPO_URI and storing it in specified ESCM_STORE_DIR.
-git-ng_fetch() {
+git-2_fetch() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local oldsha1 cursha1 extra_clone_opts upstream_branch
@@ -279,7 +279,7 @@ git-ng_fetch() {
 		cursha1=$(git rev-parse ${upstream_branch})
 		einfo "   at the commit:		${cursha1}"
 
-		git-ng_submodules "${EGIT_DIR}"
+		git-2_submodules "${EGIT_DIR}"
 		popd &> /dev/null
 	elif [[ -n ${ESCM_OFFLINE} ]] ; then
 		pushd "${EGIT_DIR}" &> /dev/null
@@ -314,7 +314,7 @@ git-ng_fetch() {
 				|| die "${FUNCNAME}: can't update from ${ESCM_REPO_URI}."
 		fi
 
-		git-ng_submodules "${EGIT_DIR}"
+		git-2_submodules "${EGIT_DIR}"
 		cursha1=$(git rev-parse ${upstream_branch})
 
 		# write out message based on the revisions
@@ -338,7 +338,7 @@ git-ng_fetch() {
 # @FUNCTION: git_bootstrap
 # @DESCRIPTION:
 # Internal function that runs bootstrap command on unpacked source.
-git-ng_bootstrap() {
+git-2_bootstrap() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# @ECLASS_VARIABLE: ESCM_BOOTSTRAP
@@ -377,19 +377,19 @@ git-ng_bootstrap() {
 	fi
 }
 
-# @FUNCTION: git-ng_src_unpack
+# @FUNCTION: git-2_src_unpack
 # @DESCRIPTION:
 # src_upack function
-git-ng_src_unpack() {
+git-2_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	git-ng_init_variables
-	git-ng_prepare_storedir
-	git-ng_fetch $@
-	git-ng_gc
-	git-ng_move_source
-	git-ng_branch
-	git-ng_submodules "${SOURCE}"
-	git-ng_bootstrap
+	git-2_init_variables
+	git-2_prepare_storedir
+	git-2_fetch $@
+	git-2_gc
+	git-2_move_source
+	git-2_branch
+	git-2_submodules "${SOURCE}"
+	git-2_bootstrap
 	echo ">>> Unpacked to ${SOURCE}"
 }

@@ -155,7 +155,7 @@ kde4-meta_src_unpack() {
 			subversion_wc_info
 			subversion_bootstrap
 		elif [[ "${KDE_SCM}" == "git" ]]; then
-			git-ng_src_unpack
+			git-2_src_unpack
 		fi
 		kde4-meta_src_extract
 	else

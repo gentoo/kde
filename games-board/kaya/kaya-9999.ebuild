@@ -26,7 +26,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	git-ng_src_unpack
+	git-2_src_unpack
 
 	cd "${WORKDIR}"
 	mkdir all
