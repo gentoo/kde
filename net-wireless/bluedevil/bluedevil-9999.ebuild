@@ -4,11 +4,12 @@
 
 EAPI=3
 
-inherit git kde4-base
+ESCM_REPONAME="bluedevil"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://gitorious.org/bluedevil"
-EGIT_REPO_URI="git://gitorious.org/bluedevil/bluedevil.git"
 
 LICENSE="GPL-3"
 KEYWORDS=""
@@ -24,7 +25,3 @@ RDEPEND="${DEPEND}
 	app-mobilephone/obexd
 	app-mobilephone/obex-data-server
 "
-
-src_unpack() {
-	git_src_unpack
-}
