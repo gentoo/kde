@@ -6,7 +6,7 @@ EAPI=3
 
 KMNAME="kdepim-runtime"
 KDE_SCM="git"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""

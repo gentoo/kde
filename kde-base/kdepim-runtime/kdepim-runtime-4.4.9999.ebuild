@@ -8,7 +8,7 @@ if [[ ${PV} = *9999* ]]; then
 	KMNAME="kdepim"
 	KMMODULE="runtime"
 	KDE_SCM="git"
-	inherit kde4-meta
+	inherit kde4-base
 else
 	inherit kde4-base
 fi
