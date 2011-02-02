@@ -27,6 +27,8 @@ RDEPEND="${COMMON_DEPEND}"
 
 DOCS=(AUTHORS CHANGELOG GOALS README)
 
+RESTRICT="test"
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build test TESTS)
