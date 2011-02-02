@@ -4,7 +4,8 @@
 
 EAPI=3
 
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE4 IRC development library."
 HOMEPAGE="http://www.kde.org/"
@@ -19,7 +20,3 @@ RDEPEND="
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[ssl]
 "
 DEPEND="${RDEPEND}"
-
-src_unpack() {
-	git_src_unpack
-}
