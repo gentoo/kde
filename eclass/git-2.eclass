@@ -205,14 +205,14 @@ git-2_prepare_storedir() {
 
 	# initial clone, we have to create master git storage directory and play
 	# nicely with sandbox
-	if [[ ! -d ${ESCM_STORE_DIR} ]] ; then
+	if [[ ! -d "${ESCM_STORE_DIR}" ]] ; then
 		debug-print "${FUNCNAME}: Creating git main storage directory"
-		addwrite ${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}
+		addwrite "${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}"
 		mkdir -p "${ESCM_STORE_DIR}" \
-			|| die "${FUNCNAME}: can't mkdir ${ESCM_STORE_DIR}."
+			|| die "${FUNCNAME}: can't mkdir \"${ESCM_STORE_DIR}\"."
 	fi
 
-	cd -P "${ESCM_STORE_DIR}" || die "${FUNCNAME}:  can't chdir to ${ESCM_STORE_DIR}"
+	cd -P "${ESCM_STORE_DIR}" || die "${FUNCNAME}:  can't chdir to \"${ESCM_STORE_DIR}\""
 	# allow writing into ESCM_STORE_DIR
 	addwrite "${ESCM_STORE_DIR}"
 	# calculate the proper store dir for data
@@ -223,11 +223,11 @@ git-2_prepare_storedir() {
 
 	# we can not jump between using and not using SUBMODULES so we need to
 	# refetch the source when needed
-	if [[ -n ${EGIT_HAS_SUBMODULES} && -d ${EGIT_DIR} && ! -d ${EGIT_DIR}/.git ]]; then
+	if [[ -n ${EGIT_HAS_SUBMODULES} && -d "${EGIT_DIR}" && ! -d "${EGIT_DIR}"/.git ]]; then
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy removing..."
 		rm -rf "${EGIT_DIR}"
 	fi
-	if [[ -z ${EGIT_HAS_SUBMODULES} && -d ${EGIT_DIR} && -d ${EGIT_DIR}/.git ]]; then
+	if [[ -z ${EGIT_HAS_SUBMODULES} && -d "${EGIT_DIR}" && -d "${EGIT_DIR}"/.git ]]; then
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was not copy removing..."
 		rm -rf "${EGIT_DIR}"
 	fi
@@ -271,8 +271,8 @@ git-2_fetch() {
 		einfo "GIT NEW clone -->"
 		einfo "   repository: 		${ESCM_REPO_URI}"
 
-		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" ${EGIT_DIR}"
-		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" ${EGIT_DIR} \
+		debug-print "${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} \"${ESCM_REPO_URI}\" \"${EGIT_DIR}\""
+		${ESCM_FETCH_CMD} ${extra_clone_opts} ${ESCM_OPTIONS} "${ESCM_REPO_URI}" "${EGIT_DIR}" \
 			|| die "${FUNCNAME}: can't fetch from ${ESCM_REPO_URI}."
 
 		pushd "${EGIT_DIR}" &> /dev/null
