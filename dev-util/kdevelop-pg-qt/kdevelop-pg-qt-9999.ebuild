@@ -4,11 +4,11 @@
 
 EAPI=3
 
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="http://www.kdevelop.org"
-EGIT_REPO_URI="git://anongit.kde.org/kdevelop-pg-qt"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
@@ -20,7 +20,3 @@ DEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
-
-src_unpack() {
-	git_src_unpack
-}
