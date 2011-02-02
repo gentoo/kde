@@ -7,25 +7,16 @@ EAPI=3
 WEBKIT_REQUIRED=always
 QT_MINIMAL="4.7"
 KDE_MINIMAL="4.5"
-
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS_DIR="i18n"
-	KDE_LINGUAS="ca cs da de el en_GB es et fr hu it ja ko lt nb
-	nds nl pt_BR pt ru sl sr sv uk zh_CN"
-	KDE_DOC_DIRS="docs"
-	KDE_HANDBOOK="optional"
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-else
-	EGIT_REPO_URI="git://anongit.kde.org/rekonq"
-	GIT_ECLASS="git"
-fi
-
-inherit kde4-base ${GIT_ECLASS}
-
-unset GIT_ECLASS
+KDE_SCM="git"
+KDE_LINGUAS_DIR="i18n"
+KDE_LINGUAS="ca cs da de el en_GB es et fr hu it ja ko lt nb nds nl pt_BR pt ru sl sr sv uk zh_CN"
+KDE_DOC_DIRS="docs"
+KDE_HANDBOOK="optional"
+inherit kde4-base
 
 DESCRIPTION="A browser based on qt-webkit"
 HOMEPAGE="http://rekonq.sourceforge.net/"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="4"
