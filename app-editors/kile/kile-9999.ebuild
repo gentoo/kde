@@ -4,20 +4,15 @@
 
 EAPI=3
 
-if [[ ${PV} != *9999* ]]; then
-	KDE_DOC_DIRS="doc"
-	KDE_HANDBOOK="optional"
-	MY_P=${P/_beta/b}
-	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
-else
-	EGIT_REPO_URI="http://anongit.kde.org/kile"
-	GIT_ECLASS="git"
-fi
-
-inherit kde4-base ${GIT_ECLASS}
+KDE_DOC_DIRS="doc"
+KDE_HANDBOOK="optional"
+MY_P=${P/_beta/b}
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A Latex Editor and TeX shell for KDE"
 HOMEPAGE="http://kile.sourceforge.net/"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="FDL-1.2 GPL-2"
 KEYWORDS=""
@@ -55,6 +50,4 @@ src_prepare() {
 	# I know upstream wants to help us but it doesn't work..
 	sed -e '/INSTALL( FILES AUTHORS/s/^/#DISABLED /' \
 		-i CMakeLists.txt || die
-
-	[[ ${PV} != *9999* ]] && { use handbook || rm -fr doc ; }
 }
