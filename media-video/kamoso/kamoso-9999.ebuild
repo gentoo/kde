@@ -4,11 +4,11 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A webcam application to attract sweet girls to kde :)"
-HOMEPAGE="http://gitorious.org/kamoso"
-EGIT_REPO_URI="git://gitorious.org/kamoso/mainline.git"
+HOMEPAGE="http://projects.kde.org/projects/playground/multimedia/kamoso"
 
 LICENSE="GPL-3"
 KEYWORDS=""
@@ -16,7 +16,6 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkipi-${KDE_MINIMAL}
-	>=media-video/vlc-1.0.0[v4l2]
+	$(add_kdebase_dep libkipi)
 "
 RDEPEND="${DEPEND}"
