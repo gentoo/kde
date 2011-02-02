@@ -4,11 +4,11 @@
 
 EAPI=3
 
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -20,10 +20,6 @@ DEPEND="
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	git_src_unpack
-}
 
 src_configure() {
 	mycmakeargs=($(cmake-utils_use_with crypt QCA2))
