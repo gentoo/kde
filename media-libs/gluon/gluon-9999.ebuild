@@ -5,12 +5,12 @@
 EAPI=3
 
 OPENGL_REQUIRED="always"
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Free and Open Source framework for creating and distributing games"
 HOMEPAGE="http://gluon.tuxfamily.org/"
 SRC_URI=""
-EGIT_REPO_URI="git://gitorious.org/gluon/gluon.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,10 +31,6 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/randrproto
 "
 RDEPEND="${COMMON_DEPEND}"
-
-src_unpack() {
-	git_src_unpack
-}
 
 src_prepare() {
 	kde4-base_src_prepare
