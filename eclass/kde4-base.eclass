@@ -606,7 +606,7 @@ _calculate_live_repo() {
 				*)
 					# set ESCM_BRANCH and ESCM_COMMIT to ${SLOT}
 					case ${_kmname} in
-						kdeplasma-addons)
+						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs)
 							ESCM_BRANCH="${SLOT}"
 							;;
 						*) ESCM_BRANCH="KDE/${SLOT}" ;;
@@ -614,29 +614,20 @@ _calculate_live_repo() {
 					;;
 			esac
 
-			# set various git branching variables based on kmname
-			# each repo can use different branch names and so on :/
 			case $_kmname in
 				kdepim|kdepim-runtime)
 					case ${PV} in
+						# kdepim still did not branch
 						4.6.9999)
 							ESCM_BRANCH="master"
-							;;
-						*.9999)
-							ESCM_BRANCH="${SLOT}"
-							;;
-					esac
-					;;
-				kdepimlibs)
-					case ${PV} in
-						*.9999)
-							ESCM_BRANCH="${SLOT}"
 							;;
 					esac
 					;;
 			esac
-
 			ESCM_REPO_URI="${ESCM_MIRROR}/${_kmname}"
+
+			debug-print "${FUNCNAME}: Repository: ${ESCM_REPO_URI}"
+			debug-print "${FUNCNAME}: Branch: ${ESCM_BRANCH}"
 			;;
 	esac
 }
