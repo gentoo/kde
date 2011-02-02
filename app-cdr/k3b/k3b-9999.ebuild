@@ -7,19 +7,16 @@ EAPI=3
 CMAKE_MIN_VERSION=2.8.0
 MULTIMEDIA_REQUIRED=always
 WEBKIT_REQUIRED=always
-# Translations are only in the tarballs, not in the svn repo
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
+KDE_SCM="git"
+KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
 	gl he hi hne hr hu is it ja km ko ku lt mai nb nds nl nn oc pa pl pt pt_BR ro ru
 	se sk sl sv th tr uk zh_CN zh_TW"
 
+if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
-
 	DOCS=( FAQ PERMISSIONS README RELEASE_HOWTO )
-
 	S=${WORKDIR}/${P/_*}
 else
-	KDE_SCM="git"
 	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
 fi
 
