@@ -605,7 +605,12 @@ _calculate_live_repo() {
 				9999*) ;;
 				*)
 					# set ESCM_BRANCH and ESCM_COMMIT to ${SLOT}
-					ESCM_BRANCH="KDE/${SLOT}"
+					case ${_kmname} in
+						kdeplasma-addons)
+							ESCM_BRANCH="${SLOT}"
+							;;
+						*) ESCM_BRANCH="KDE/${SLOT}" ;;
+					esac
 					;;
 			esac
 

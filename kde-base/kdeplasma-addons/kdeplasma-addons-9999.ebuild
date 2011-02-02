@@ -4,8 +4,8 @@
 
 EAPI=3
 
-KMNAME="kdeplasma-addons"
 WEBKIT_REQUIRED="always"
+KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Extra Plasma applets and engines."
