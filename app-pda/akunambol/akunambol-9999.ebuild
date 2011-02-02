@@ -4,11 +4,11 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Akonadi Syncml client"
 HOMEPAGE="http://akunambol.ruphy.org/"
-EGIT_REPO_URI="git://gitorious.org/akunambol/akunambol.git"
 
 LICENSE="GPL-3"
 SLOT="0"
