@@ -4,12 +4,12 @@
 
 EAPI=3
 USE_RUBY="ruby18"
-
-inherit kde4-base git ruby-ng
+KDE_SCM="git"
+inherit kde4-base ruby-ng
 
 DESCRIPTION="Board game suite for KDE"
 HOMEPAGE="http://pcapriotti.github.com/kaya/"
-EGIT_REPO_URI="git://github.com/pcapriotti/kaya.git"
+ESCM_REPO_URI="git://github.com/pcapriotti/kaya.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,7 +26,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	git_src_unpack
+	git-ng_src_unpack
 
 	cd "${WORKDIR}"
 	mkdir all
