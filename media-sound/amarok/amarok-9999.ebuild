@@ -36,15 +36,15 @@ COMMONDEPEND="
 	player? (
 		app-crypt/qca:2
 		>=app-misc/strigi-0.5.7[dbus,qt4]
-		>=kde-base/kdelibs-${KDE_MINIMAL}[opengl?,semantic-desktop?]
+		$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
 		sys-libs/zlib
 		>=virtual/mysql-5.1
 		x11-libs/qt-script
 		>=x11-libs/qtscriptgenerator-0.1.0
 		cdda? (
-			>=kde-base/libkcddb-${KDE_MINIMAL}
-			>=kde-base/libkcompactdisc-${KDE_MINIMAL}
-			>=kde-base/kdemultimedia-kioslaves-${KDE_MINIMAL}
+			$(add_kdebase_dep libkcddb)
+			$(add_kdebase_dep libkcompactdisc)
+			$(add_kdebase_dep kdemultimedia-kioslaves)
 		)
 		embedded? (
 			|| (
@@ -77,7 +77,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
-	player? ( >=kde-base/phonon-kde-${KDE_MINIMAL} )
+	player? ( $(add_kdebase_dep phonon-kde) )
 "
 
 src_prepare() {
