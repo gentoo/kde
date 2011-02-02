@@ -4,14 +4,9 @@
 
 EAPI=3
 
-KMNAME="kdepim"
-KMMODULE="runtime"
+KMNAME="kdepim-runtime"
 
-if [[ ${PV} = *9999* ]]; then
-	inherit kde4-meta
-else
-	inherit kde4-base
-fi
+inherit kde4-meta
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS="~amd64 ~x86"
