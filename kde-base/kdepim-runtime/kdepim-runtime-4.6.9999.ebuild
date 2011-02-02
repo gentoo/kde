@@ -4,13 +4,9 @@
 
 EAPI=3
 
-if [[ ${PV} = *9999* ]]; then
-	KMNAME="kdepim-runtime"
-	KDE_SCM="git"
-	inherit kde4-base
-else
-	inherit kde4-base
-fi
+KMNAME="kdepim-runtime"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
