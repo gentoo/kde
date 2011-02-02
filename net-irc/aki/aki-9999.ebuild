@@ -10,7 +10,6 @@ inherit kde4-base
 
 DESCRIPTION="Extensive IRC Client for KDE4"
 HOMEPAGE="http://www.kde.org/"
-EGIT_REPO_URI="git://gitorious.org/aki/aki.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
