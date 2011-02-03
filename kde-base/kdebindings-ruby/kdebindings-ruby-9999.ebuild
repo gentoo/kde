@@ -19,11 +19,11 @@ inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
-IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop"
+IUSE="akonadi debug declarative kate okular phonon plasma qscintilla qwt semantic-desktop"
 
 # TODO add qt-declarative
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
+	$(add_kdebase_dep smoke 'akonadi?,declarative?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
 "
 
 ruby_add_bdepend dev-ruby/rubygems
@@ -95,6 +95,7 @@ each_ruby_configure() {
 		-DRUBY_EXECUTABLE=${RUBY}
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_disable declarative QtDeclarative)
 		$(cmake-utils_use_disable kate)
 		$(cmake-utils_use_with okular)
 		$(cmake-utils_use_with phonon)
