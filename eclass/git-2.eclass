@@ -17,7 +17,7 @@ DEPEND="dev-vcs/git"
 
 # This static variable is for storing the data in WORKDIR.
 # Sometimes we might want to redefine S.
-SOURCE="${WORKDIR}/${PN}-${PV}"
+EGIT_SOURCEDIR="${WORKDIR}/${P}"
 
 # @FUNCTION: git-2_init_variables
 # @DESCRIPTION:
@@ -161,8 +161,8 @@ git-2_submodules() {
 git-2_branch() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	debug-print "${FUNCNAME}: working in \"${SOURCE}\""
-	pushd "${SOURCE}" &> /dev/null
+	debug-print "${FUNCNAME}: working in \"${EGIT_SOURCEDIR}\""
+	pushd "${EGIT_SOURCEDIR}" &> /dev/null
 
 	local branchname=branch-${ESCM_BRANCH} src=origin/${ESCM_BRANCH}
 	if [[ "${ESCM_COMMIT}" != "${ESCM_BRANCH}" ]]; then
@@ -235,18 +235,18 @@ git-2_prepare_storedir() {
 
 # @FUNCTION: git-2_move_source
 # @DESCRIPTION:
-# Internal function moving sources from the EGIT_DIR to SOURCE dir.
+# Internal function moving sources from the EGIT_DIR to EGIT_SOURCEDIR dir.
 git-2_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
 		pushd "${EGIT_DIR}" &> /dev/null
-		debug-print "${FUNCNAME}: rsync -rlpgo . \"${SOURCE}\""
-		rsync -rlpgo . "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
+		debug-print "${FUNCNAME}: rsync -rlpgo . \"${EGIT_SOURCEDIR}\""
+		rsync -rlpgo . "${EGIT_SOURCEDIR}" || die "${FUNCNAME}: sync of git data to \"${EGIT_SOURCEDIR}\" failed"
 		popd &> /dev/null
 	else
-		debug-print "${FUNCNAME}: git clone -l -s -n \"${EGIT_DIR}\" \"${SOURCE}\""
-		git clone -l -s -n "${EGIT_DIR}" "${SOURCE}" || die "${FUNCNAME}: sync of git data to \"${SOURCE}\" failed"
+		debug-print "${FUNCNAME}: git clone -l -s -n \"${EGIT_DIR}\" \"${EGIT_SOURCEDIR}\""
+		git clone -l -s -n "${EGIT_DIR}" "${EGIT_SOURCEDIR}" || die "${FUNCNAME}: sync of git data to \"${EGIT_SOURCEDIR}\" failed"
 	fi
 }
 
@@ -349,7 +349,7 @@ git-2_bootstrap() {
 	# combination with --keep-going it would lead in not-updating
 	# pakcages that are up-to-date.
 	if [[ -n ${ESCM_BOOTSTRAP} ]] ; then
-		pushd "${SOURCE}" &> /dev/null
+		pushd "${EGIT_SOURCEDIR}" &> /dev/null
 		einfo "Starting bootstrap"
 
 		if [[ -f ${ESCM_BOOTSTRAP} ]]; then
@@ -389,7 +389,7 @@ git-2_src_unpack() {
 	git-2_gc
 	git-2_move_source
 	git-2_branch
-	git-2_submodules "${SOURCE}"
+	git-2_submodules "${EGIT_SOURCEDIR}"
 	git-2_bootstrap
-	echo ">>> Unpacked to ${SOURCE}"
+	echo ">>> Unpacked to ${EGIT_SOURCEDIR}"
 }
