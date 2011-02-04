@@ -1,0 +1,16 @@
+diff -r -u plasma-workspace-4.6.0-orig/plasma/generic/dataengines/CMakeLists.txt plasma-workspace-4.6.0/plasma/generic/dataengines/CMakeLists.txt
+--- plasma-workspace-4.6.0-orig/plasma/generic/dataengines/CMakeLists.txt	2011-02-03 18:58:47.884000165 -0500
++++ plasma-workspace-4.6.0/plasma/generic/dataengines/CMakeLists.txt	2011-02-03 19:24:21.511000165 -0500
+@@ -28,8 +28,10 @@
+ macro_log_feature(KDEPIMLIBS_FOUND "kdepimlibs" "KDE PIM libraries" "http://www.kde.org" FALSE "" "Needed for building several plasma dataengines")
+ 
+ if(KDEPIMLIBS_FOUND)
+-   add_subdirectory(akonadi)
+-   add_subdirectory(calendar)
++   if(AKONADI_FOUND)
++      add_subdirectory(akonadi)
++      add_subdirectory(calendar)
++   endif(AKONADI_FOUND)
+    add_subdirectory(rss)
+ endif(KDEPIMLIBS_FOUND)
+ 
