@@ -12,12 +12,6 @@ DESCRIPTION="A library for KDE desktop applications"
 KEYWORDS=""
 IUSE="debug"
 
-# FIXME dependencies until activities API is moved to kdelibs (4.6)
-DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
-"
-RDEPEND="${DEPEND}"
-
 KMEXTRACTONLY="
 	ksmserver/org.kde.KSMServerInterface.xml
 	kwin/org.kde.KWin.xml
