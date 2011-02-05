@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit cmake-utils
+inherit virtualx cmake-utils
 
 DESCRIPTION="Qt wrapper for libindicate library"
 HOMEPAGE="https://launchpad.net/libindicate-qt/"
@@ -23,3 +23,13 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 "
+
+src_test() {
+	local ctestargs
+	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
+
+	cd "${CMAKE_BUILD_DIR}/tests"
+
+	export maketype="ctest ${ctestargs}"
+	virtualmake || die "Tests failed."
+}
