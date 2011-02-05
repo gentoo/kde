@@ -28,6 +28,8 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/eigen"
 
+CMAKE_BUILD_TYPE="Release"
+
 src_configure() {
 	# benchmarks (BTL) brings up damn load of external deps including fortran
 	# compiler
