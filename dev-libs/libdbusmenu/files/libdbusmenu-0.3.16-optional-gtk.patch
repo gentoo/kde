@@ -1,23 +1,33 @@
 --- configure.ac.orig	2010-09-20 21:51:50.289828895 +0200
 +++ configure.ac	2010-09-20 21:58:03.536293089 +0200
-@@ -49,10 +49,17 @@
+@@ -49,10 +49,19 @@
  
  GTK_REQUIRED_VERSION=2.16
  
 +AC_ARG_ENABLE([gtk],
 +	AC_HELP_STRING([--disable-gtk], [Disable libdbusmenu-gtk library]),
-+	[enable_gtk=$enableval], enable_gtk=auto)
++	[enable_gtk=$enableval], [enable_gtk=auto])
 +AM_CONDITIONAL([WANT_LIBDBUSMENUGTK], [test "x$enable_gtk" != "xno"])
 +
-+if test "x$enable_gtk" != "xno"; then
++AS_IF([test "x$enable_gtk" != "xno"],[
  PKG_CHECK_MODULES(DBUSMENUGTK,  gtk+-2.0 >= $GTK_REQUIRED_VERSION
                                  glib-2.0 >= $GLIB_REQUIRED_VERSION
                                  dbus-glib-1 >= $DBUS_REQUIRED_VERSION
-                                 libxml-2.0 >= $XML_REQUIRED_VERSION)
-+fi
+-                                libxml-2.0 >= $XML_REQUIRED_VERSION)
++                                libxml-2.0 >= $XML_REQUIRED_VERSION,
++                                [have_gtk=yes]
++)
++])
  
  AC_SUBST(DBUSMENUGTK_CFLAGS)
  AC_SUBST(DBUSMENUGTK_LIBS)
+@@ -193,1 +192,6 @@
+ 
++AS_IF([test "x$have_gtk" = "xyes"],
++	AC_MSG_NOTICE([	Gtk:                    yes]),
++	AC_MSG_NOTICE([	Gtk:                    no])
++)
++
 --- Makefile.am.orig	2010-09-20 21:58:41.616751481 +0200
 +++ Makefile.am	2010-09-20 21:59:23.492035983 +0200
 @@ -5,5 +5,9 @@
@@ -79,3 +89,4 @@
  
  XVFB_RUN=". $(srcdir)/run-xvfb.sh"
  
+
