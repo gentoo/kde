@@ -180,7 +180,7 @@ KDE_HANDBOOK="${KDE_HANDBOOK:-never}"
 # Set this varible if you want your live package to manage its
 # translations. (Mostly all kde ebuilds does not ship documentation
 # and translations in live ebuilds)
-if [[ ${BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
+if [[ ${BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} && ${KDEBASE} != "kde-base" ]]; then
 	KDE_HANDBOOK=never
 	KDE_LINGUAS=""
 fi
