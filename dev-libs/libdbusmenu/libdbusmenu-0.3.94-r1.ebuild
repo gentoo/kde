@@ -58,7 +58,7 @@ src_prepare() {
 	# Fixup undeclared HAVE_INTROSPECTION, launchpad-bug #552538
 	epatch "${FILESDIR}/${PN}-0.3.14-fix-aclocal.patch"
 	# Fix introspection generation, launchpad-bug #713690
-	epatch "${FILESDIR}/${PN}-0.3.16-fix-introspection.patch"
+	epatch "${FILESDIR}/${P}-fix-introspection.patch"
 	# Drop -Werror in a release
 	sed -e 's:-Werror::g' -i libdbusmenu-glib/Makefile.am libdbusmenu-gtk/Makefile.am || die "sed failed"
 	eautoreconf
