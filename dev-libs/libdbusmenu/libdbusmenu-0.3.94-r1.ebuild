@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit autotools eutils versionator
+inherit autotools eutils versionator virtualx
 
 MY_MAJOR_VERSION="$(get_version_component_range 1-2)"
 if version_is_at_least "${MY_MAJOR_VERSION}.50" ; then
@@ -20,9 +20,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="gtk gtk3 +introspection test vala"
 
-# Needs dev-util/dbus-test-runner (not yet in tree)
-RESTRICT="test"
-
 RDEPEND="dev-libs/glib:2
 	dev-libs/dbus-glib
 	dev-libs/libxml2:2
@@ -32,7 +29,10 @@ RDEPEND="dev-libs/glib:2
 	)"
 DEPEND="${RDEPEND}
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7 )
-	test? ( dev-libs/json-glib[introspection=] )
+	test? (
+		dev-libs/json-glib[introspection=]
+		dev-util/dbus-test-runner
+	)
 	vala? ( dev-lang/vala:0 )
 	dev-util/intltool
 	dev-util/pkgconfig"
@@ -82,7 +82,7 @@ src_configure() {
 }
 
 src_test() {
-	emake check || die "testsuite failed"
+	Xemake check || die "testsuite failed"
 }
 
 src_install() {
