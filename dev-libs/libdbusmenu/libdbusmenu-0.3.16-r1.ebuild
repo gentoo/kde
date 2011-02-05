@@ -6,9 +6,14 @@ EAPI=3
 
 inherit autotools eutils versionator
 
+MY_MAJOR_VERSION="$(get_version_component_range 1-2)"
+if version_is_at_least "${MY_MAJOR_VERSION}.50" ; then
+	MY_MAJOR_VERSION="$(get_major_version).$(($(get_version_component_range 2)+1))"
+fi
+
 DESCRIPTION="Library to pass menu structure across DBus"
 HOMEPAGE="https://launchpad.net/dbusmenu"
-SRC_URI="http://launchpad.net/dbusmenu/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
+SRC_URI="http://launchpad.net/dbusmenu/${MY_MAJOR_VERSION}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
