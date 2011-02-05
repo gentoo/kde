@@ -44,11 +44,11 @@ DEPEND="${RDEPEND}
 pkg_setup() {
 	if use mono && has "${PV}" "${BROKEN_MONO}" ; then
 		eerror "Mono bindings (USE=mono) are broken in this version"
-		die "Mono bindings are broken in this version"
+		die "Mono bindings (USE=mono) are broken in this version"
 	fi
-	if use python && ! use gtk ; then
+	if use python && use !gtk ; then
 		eerror "Python bindings (USE=python) require GTK support (USE=gtk)"
-		die "Python bindings require USE=gtk"
+		die "Python bindings (USE=python) require GTK support (USE=gtk)"
 	fi
 }
 
