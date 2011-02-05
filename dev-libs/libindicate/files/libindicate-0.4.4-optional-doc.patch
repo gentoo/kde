@@ -6,19 +6,29 @@
  
 +AC_ARG_ENABLE([doc],
 +	AC_HELP_STRING([--disable-doc], [Disable doc generation]),
-+	[enable_doc=$enableval], enable_doc=auto)
++	[enable_doc=$enableval], [enable_doc=auto])
 +AM_CONDITIONAL([WANT_DOC], [test "x$enable_doc" != "xno"])
 +
  GTK_DOC_CHECK([1.4])
-+if test "x$enable_doc" != "xno" ; then
++AS_IF([test "x$enable_doc" != "xno"],[
  GNOME_DOC_INIT
-+else
++],[
 +# The initialisation is still needed for certain conditionals to be defined, just make it not output any error
 +GNOME_DOC_INIT(,,[:])
-+fi
++])
  GNOME_COMPILE_WARNINGS
  
  ##############################
+@@ -271,2 +281,7 @@
+-	GObject Introspection:  $enable_introspection
+-])
++	GObject Introspection:  $enable_introspection
++])
++
++AM_COND_IF([HAVE_GNOME_DOC_UTILS],
++	[AC_MSG_NOTICE([	Documentation:          yes])],
++	[AC_MSG_NOTICE([	Documentation:          no])]
++)
 --- Makefile.am.orig	2010-09-20 23:12:10.442903362 +0200
 +++ Makefile.am	2010-09-20 23:27:12.557785756 +0200
 @@ -1,2 +1,6 @@
