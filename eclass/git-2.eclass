@@ -239,7 +239,7 @@ git-2_prepare_storedir() {
 git-2_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
+	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 		pushd "${EGIT_DIR}" &> /dev/null
 		debug-print "${FUNCNAME}: rsync -rlpgo . \"${EGIT_SOURCEDIR}\""
 		rsync -rlpgo . "${EGIT_SOURCEDIR}" || die "${FUNCNAME}: sync of git data to \"${EGIT_SOURCEDIR}\" failed"
@@ -299,7 +299,7 @@ git-2_fetch() {
 
 		oldsha1=$(git rev-parse ${upstream_branch})
 
-		if [[ -n ${ESCM_HAS_SUBMODULES} ]]; then
+		if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 			debug-print "${ESCM_UPDATE_CMD} ${ESCM_OPTIONS}"
 			# fix branching
 			git checkout ${ESCM_MASTER}
