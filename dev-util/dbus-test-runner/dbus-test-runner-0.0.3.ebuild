@@ -18,5 +18,9 @@ KEYWORDS="~x86 ~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/dbus-glib"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/dbus-glib"
+DEPEND="${RDEPEND}"
+# Not packaged yet:
+#	test? ( dev-util/bustle )
+
+RESTRICT="test"
