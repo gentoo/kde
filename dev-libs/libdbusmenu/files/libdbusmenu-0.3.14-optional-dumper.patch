@@ -39,3 +39,30 @@
  
  libexec_SCRIPTS = dbusmenu-bench
  
+--- tests/Makefile.am.orig	2011-02-07 00:01:11.066461559 +0100
++++ tests/Makefile.am	2011-02-07 00:02:33.487751202 +0100
+@@ -10,6 +10,10 @@
+ 	test-glib-properties \
+ 	test-glib-proxy \
+ 	test-glib-simple-items \
+-	test-glib-submenu \
++	test-glib-submenu
++
++if WANT_DBUSMENUDUMPER
++TESTS += \
+ 	test-json
++endif
+ 
+@@ -36,7 +40,11 @@
+ 	test-glib-proxy-proxy \
+ 	test-glib-submenu-client \
+ 	test-glib-submenu-server \
+-	test-glib-simple-items \
++	test-glib-simple-items
++
++if WANT_DBUSMENUDUMPER
++check_PROGRAMS += \
+ 	test-json-client \
+ 	test-json-server
++endif
+ 
