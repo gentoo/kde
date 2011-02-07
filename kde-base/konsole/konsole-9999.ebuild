@@ -5,8 +5,9 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-apps"
-inherit kde4-meta
+ESCM_REPONAME="konsole"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS=""
