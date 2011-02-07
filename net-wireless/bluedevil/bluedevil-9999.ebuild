@@ -22,6 +22,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!net-wireless/kbluetooth
-	app-mobilephone/obexd
+	app-mobilephone/obexd[-server]
 	app-mobilephone/obex-data-server
 "
