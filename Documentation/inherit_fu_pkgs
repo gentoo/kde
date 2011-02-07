@@ -1,0 +1,6 @@
+The listed packages have moved out of their module into standalone git repos
+and now need to inherit from kde4-base instead of -meta in the live version.
+For now, we use a conditional inherit until we know in which tarballs they're
+going to end up in stable releases.
+
+kde-base/konsole
