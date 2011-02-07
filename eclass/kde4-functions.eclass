@@ -48,6 +48,28 @@ fi
 # @ECLASS-VARIABLE: KDE_SCM
 # @DESCRIPTION:
 # If this is a live package which scm does it use
+
+# Set reponame and SCM for moduleses that have fully migrated to git
+case ${PV} in
+	9999*)
+		case "${KMNAME}" in
+			kdebase-workspace)
+				KDE_SCM="git"
+				ESCM_REPONAME=${ESCM_REPONAME:=kde-workspace}
+			;;
+			kdebase-runtime)
+				KDE_SCM="git"
+				ESCM_REPONAME=${ESCM_REPONAME:=kde-runtime}
+			;;
+			kdebase-apps)
+				KDE_SCM="git"
+				ESCM_REPONAME=${ESCM_REPONAME:=kde-baseapps}
+			;;
+		esac
+	;;
+esac
+
+# Everything else uses svn by default
 KDE_SCM="${KDE_SCM:-svn}"
 case ${KDE_SCM} in
 	svn|git) ;;
