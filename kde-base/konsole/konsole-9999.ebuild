@@ -5,9 +5,15 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
+KMNAME="kdebase-apps"
 ESCM_REPONAME="konsole"
 KDE_SCM="git"
-inherit kde4-base
+
+if [[ ${PV} = 9999* ]]; then
+	inherit kde4-base
+else
+	inherit kde4-meta
+fi
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS=""
