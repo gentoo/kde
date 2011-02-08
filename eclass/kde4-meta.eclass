@@ -205,10 +205,6 @@ kde4-meta_src_extract() {
 						|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 				done
 				;;
-			git)
-				# if we have different ESCM_REPONAME we want not to obey KMNAME KMMODULE, reset them for now
-				[[ -n ${ESCM_REPONAME} ]] && KMNAME="${ESCM_REPONAME}"
-				;;
 		esac
 
 		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
