@@ -4,14 +4,9 @@
 
 EAPI=3
 
-if [[ ${PV} = *9999* ]]; then
-	KMNAME="kdepim"
-	KMMODULE="runtime"
-	KDE_SCM="git"
-	inherit kde4-base
-else
-	inherit kde4-base
-fi
+KMNAME="kdepim-runtime"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
@@ -22,7 +17,7 @@ RESTRICT="test"
 
 DEPEND="
 	app-misc/strigi
-	>=app-office/akonadi-server-1.3.1
+	>=app-office/akonadi-server-1.3.60
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
