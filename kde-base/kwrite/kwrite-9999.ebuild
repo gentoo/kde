@@ -5,7 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-apps"
+KMNAME="kate"
+KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
