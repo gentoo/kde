@@ -4,7 +4,8 @@
 
 EAPI=3
 
-KMNAME="kdebase-runtime"
+KDE_SCM="git"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KCMShell is a utility to host KDE control modules independently of SystemSettings."
