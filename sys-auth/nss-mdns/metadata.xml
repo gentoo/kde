@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>maintainer-needed@gentoo.org</email>
+		</maintainer>
+	<longdescription lang="en">
+		Name service switch module for multicast dns.
+	</longdescription>
+	<longdescription lang="ja">
+		マルチキャスト DNS 向けネーム・サービス・スイッチのモジュールです。
+	</longdescription>
+	<use>
+		<flag name="search-domains">Honour domain search list in /etc/resolv.conf</flag>
+	</use>
+</pkgmetadata>
