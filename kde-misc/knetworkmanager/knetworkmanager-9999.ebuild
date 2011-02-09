@@ -6,15 +6,11 @@ EAPI=3
 
 KDE_MINIMAL="4.5"
 
-GIT_ECLASS=
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://gentoo/${P}.tar.bz2"
-else
-	EGIT_REPO_URI="git://git.kde.org/networkmanagement"
-	GIT_ECLASS="git"
-fi
+KDE_SCM="git"
+ESCM_REPONAME="networkmanagement"
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
-inherit kde4-base ${GIT_ECLASS}
+inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
