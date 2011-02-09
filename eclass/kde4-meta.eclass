@@ -20,7 +20,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
+	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kde-runtime|kdegraphics)
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
@@ -206,11 +206,6 @@ kde4-meta_src_extract() {
 				done
 				;;
 		esac
-
-		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
-			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
-				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
-		fi
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 
@@ -224,6 +219,10 @@ kde4-meta_src_extract() {
 				# Go one level deeper for kdebase-apps in tarballs
 				moduleprefix=apps/
 				KMTARPARAMS+=" --transform=s|apps/||"
+				;;
+			kde-runtime)
+				# Old tarball naming scheme
+				tarball="kdebase-runtime-${PV}.tar.${postfix}"
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
@@ -324,7 +323,7 @@ kde4-meta_create_extractlists() {
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
 			;;
-		kdebase-runtime)
+		kdebase-runtime|kde-runtime)
 			KMEXTRACTONLY+="
 				config-runtime.h.cmake"
 			;;
@@ -386,7 +385,7 @@ kde4-meta_create_extractlists() {
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
 	case ${KMNAME} in
-		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
+		kdebase-runtime|kde-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)
 					KMEXTRA+="
@@ -565,7 +564,7 @@ kde4-meta_change_cmakelists() {
 					-i CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
 			fi
 			;;
-		kdebase-runtime)
+		kdebase-runtime|kde-runtime)
 			# COLLISION PROTECT section
 			# Only install the kde4 script as part of kde-base/kdebase-data
 			if [[ ${PN} != kdebase-data && -f CMakeLists.txt ]]; then

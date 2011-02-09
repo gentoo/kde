@@ -5,7 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="always"
-KMNAME="kdebase-runtime"
+KDE_SCM="git"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
