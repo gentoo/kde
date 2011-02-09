@@ -4,7 +4,8 @@
 
 EAPI=3
 
-KMNAME="kdebase-workspace"
+KDE_SCM="git"
+KMNAME="kde-workspace"
 CPPUNIT_REQUIRED="test"
 inherit kde4-meta
 

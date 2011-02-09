@@ -5,7 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-workspace"
+KDE_SCM="git"
+KMNAME="kde-workspace"
 CPPUNIT_REQUIRED="optional"
 VIRTUALX_REQUIRED="optional"
 inherit kde4-meta

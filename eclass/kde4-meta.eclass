@@ -20,7 +20,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kde-runtime|kdegraphics)
+	kdebase|kdebase-apps|kdebase-workspace|kde-workspace|kdebase-runtime|kde-runtime|kdegraphics)
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
@@ -224,6 +224,10 @@ kde4-meta_src_extract() {
 				# Old tarball naming scheme
 				tarball="kdebase-runtime-${PV}.tar.${postfix}"
 				;;
+			kde-workspace)
+				# Old tarball naming scheme
+				tarball="kdebase-workspace-${PV}.tar.${postfix}"
+				;;
 			*)
 				# Create tarball name from module name (this is the default)
 				tarball="${KMNAME}-${PV}.tar.${postfix}"
@@ -327,7 +331,7 @@ kde4-meta_create_extractlists() {
 			KMEXTRACTONLY+="
 				config-runtime.h.cmake"
 			;;
-		kdebase-workspace)
+		kdebase-workspace|kde-workspace)
 			KMEXTRACTONLY+="
 				config-unix.h.cmake
 				ConfigureChecks.cmake
@@ -385,7 +389,7 @@ kde4-meta_create_extractlists() {
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
 	case ${KMNAME} in
-		kdebase-runtime|kde-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
+		kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
 			case ${PN} in
 				libkdegames|libkdeedu|libkworkspace)
 					KMEXTRA+="
@@ -549,7 +553,7 @@ kde4-meta_change_cmakelists() {
 	done
 
 	case ${KMNAME} in
-		kdebase-workspace)
+		kdebase-workspace|kde-workspace)
 			# COLLISION PROTECT section
 			# Install the startkde script just once, as a part of kde-base/kdebase-startkde,
 			# not as a part of every package.
@@ -561,7 +565,7 @@ kde4-meta_change_cmakelists() {
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
 			if [[ ${PN} != libkworkspace ]]; then
 				sed -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-					-i CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
+					-i CMakeLists.txt || die "${LINENO}: sed died in ${KMNAME} strip config install and fix EXPORT section"
 			fi
 			;;
 		kdebase-runtime|kde-runtime)

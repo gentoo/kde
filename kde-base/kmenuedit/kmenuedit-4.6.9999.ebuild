@@ -5,7 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-workspace"
+KDE_SCM="git"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE menu editor"

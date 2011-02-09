@@ -4,7 +4,8 @@
 
 EAPI=3
 
-KMNAME="kdebase-workspace"
+KDE_SCM="git"
+KMNAME="kde-workspace"
 KMMODULE="libs/plasmaclock"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta

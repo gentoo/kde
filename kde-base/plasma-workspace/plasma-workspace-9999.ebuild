@@ -5,7 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-workspace"
+KDE_SCM="git"
+KMNAME="kde-workspace"
 KMMODULE="plasma"
 PYTHON_DEPEND="python? 2"
 inherit python kde4-meta
