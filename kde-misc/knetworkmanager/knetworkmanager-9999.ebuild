@@ -34,6 +34,10 @@ RESTRICT="test"
 src_prepare() {
 	kde4-base_src_prepare
 
+	#removing monolithic version
+	sed -e "s:add_subdirectory(monolithic):#add_subdirectory(monolithic):" \
+		-i CMakeLists.txt || die "removing monolithic NM failed"
+
 	if ! use consolekit; then
 		# Fix dbus policy
 		sed -i \
