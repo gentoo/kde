@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-runtime"
+KMNAME="kdebase-runtime"
 KMMODULE="renamedlgplugins"
 inherit kde4-meta
 

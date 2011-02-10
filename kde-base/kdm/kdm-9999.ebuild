@@ -5,8 +5,7 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
-KMNAME="kde-workspace"
+KMNAME="kdebase-workspace"
 inherit kde4-meta flag-o-matic
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"

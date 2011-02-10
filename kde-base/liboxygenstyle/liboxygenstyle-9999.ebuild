@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-workspace"
+KMNAME="kdebase-workspace"
 KMMODULE="libs/oxygen"
 inherit kde4-meta
 

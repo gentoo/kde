@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-workspace"
+KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE splashscreen framework (the splashscreen of KDE itself, not of individual apps)"

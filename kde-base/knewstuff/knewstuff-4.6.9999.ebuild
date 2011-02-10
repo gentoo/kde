@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-runtime"
+KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 software to download and upload 'new stuff'"

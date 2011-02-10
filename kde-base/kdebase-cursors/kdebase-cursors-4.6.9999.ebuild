@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-workspace"
+KMNAME="kdebase-workspace"
 KMEXTRA="cursors"
 KMNOMODULE="true"
 inherit kde4-meta

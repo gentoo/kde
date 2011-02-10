@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-runtime"
+KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE application to report the mimetype for a given file"

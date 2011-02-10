@@ -4,8 +4,7 @@
 
 EAPI=3
 
-KDE_SCM="git"
-KMNAME="kde-workspace"
+KMNAME="kdebase-workspace"
 inherit kde4-meta
 
 DESCRIPTION="The reliable KDE session manager that talks the standard X11R6"

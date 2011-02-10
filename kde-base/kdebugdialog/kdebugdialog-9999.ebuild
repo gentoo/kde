@@ -5,8 +5,7 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
-KMNAME="kde-runtime"
+KMNAME="kdebase-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A dialog box for setting preferences for debug output"
