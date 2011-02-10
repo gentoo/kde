@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit eutils
+inherit autotools eutils
 
 DESCRIPTION="Name Service Switch module for Multicast DNS"
 HOMEPAGE="http://0pointer.de/lennart/projects/nss-mdns/"
@@ -20,7 +20,8 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0.8-avahi-socket.patch
-	epatch "${FILESDIR}"/${P}-no-minimal-search-domains.patch
+	epatch "${FILESDIR}"/${P}-no-minimal-search-domains-r1.patch
+	eautoreconf
 }
 
 src_configure() {
