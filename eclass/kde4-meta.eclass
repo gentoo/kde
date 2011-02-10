@@ -12,11 +12,11 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
+[[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
+
 inherit kde4-base versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
-
-[[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
@@ -206,11 +206,6 @@ kde4-meta_src_extract() {
 				done
 				;;
 		esac
-
-		if [[ ${KMNAME} = kdebase-runtime && ${PN} != kdebase-data ]]; then
-			sed -i -e '/^install(PROGRAMS[[:space:]]*[^[:space:]]*\/kde4[[:space:]]/s/^/#DONOTINSTALL /' \
-				"${S}"/CMakeLists.txt || die "Sed to exclude bin/kde4 failed"
-		fi
 	else
 		local abort tarball tarfile f extractlist moduleprefix postfix
 

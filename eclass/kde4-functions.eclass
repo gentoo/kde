@@ -45,37 +45,6 @@ elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	KDEBASE=kdevelop
 fi
 
-# @ECLASS-VARIABLE: KDE_SCM
-# @DESCRIPTION:
-# If this is a live package which scm does it use
-
-# Set reponame and SCM for moduleses that have fully migrated to git
-case ${PV} in
-	9999*)
-		case "${KMNAME}" in
-			kdebase-workspace)
-				KDE_SCM="git"
-				ESCM_REPONAME=${ESCM_REPONAME:=kde-workspace}
-			;;
-			kdebase-runtime)
-				KDE_SCM="git"
-				ESCM_REPONAME=${ESCM_REPONAME:=kde-runtime}
-			;;
-			kdebase-apps)
-				KDE_SCM="git"
-				ESCM_REPONAME=${ESCM_REPONAME:=kde-baseapps}
-			;;
-		esac
-	;;
-esac
-
-# Everything else uses svn by default
-KDE_SCM="${KDE_SCM:-svn}"
-case ${KDE_SCM} in
-	svn|git) ;;
-	*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
-esac
-
 # @ECLASS-VARIABLE: KDE_SLOTS
 # @DESCRIPTION:
 # The slots used by all KDE versions later than 4.0. The live KDE releases use
@@ -94,6 +63,35 @@ else
 	BUILD_TYPE="release"
 fi
 export BUILD_TYPE
+
+# Set reponame and SCM for moduleses that have fully migrated to git
+# (hack - it's here because it needs to be before SCM inherits from kde4-base)
+if [[ ${BUILD_TYPE} == live ]]; then
+	case "${KMNAME}" in
+		kdebase-workspace)
+			KDE_SCM="git"
+			ESCM_REPONAME=${ESCM_REPONAME:=kde-workspace}
+		;;
+		kdebase-runtime)
+			KDE_SCM="git"
+			ESCM_REPONAME=${ESCM_REPONAME:=kde-runtime}
+		;;
+		kdebase-apps)
+			KDE_SCM="git"
+			ESCM_REPONAME=${ESCM_REPONAME:=kde-baseapps}
+		;;
+	esac
+fi
+
+# @ECLASS-VARIABLE: KDE_SCM
+# @DESCRIPTION:
+# If this is a live package which scm does it use
+# Everything else uses svn by default
+KDE_SCM="${KDE_SCM:-svn}"
+case ${KDE_SCM} in
+	svn|git) ;;
+	*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
+esac
 
 # @ECLASS-VARIABLE: KDE_LINGUAS
 # @DESCRIPTION:
