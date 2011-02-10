@@ -64,6 +64,7 @@ all_ruby_prepare() {
 		ruby/qtruby/src/Qt.cpp \
 		ruby/qtruby/src/marshall_types.cpp \
 		ruby/qtruby/modules/phonon/phonon.cpp \
+		ruby/qtruby/modules/qscintilla/qscintilla.cpp \
 		ruby/qtruby/modules/qtdeclarative/qtdeclarative.cpp \
 		ruby/qtruby/modules/qtuitools/qtuitools.cpp \
 		ruby/qtruby/modules/qtscript/qtscript.cpp \
@@ -74,9 +75,11 @@ all_ruby_prepare() {
 		ruby/korundum/src/Korundum.cpp \
 		ruby/korundum/modules/soprano/soprano.cpp \
 		ruby/korundum/modules/akonadi/akonadi.cpp \
+		ruby/korundum/modules/kate/kate.cpp \
 		ruby/korundum/modules/khtml/khtml.cpp \
 		ruby/korundum/modules/kio/kio.cpp \
 		ruby/korundum/modules/ktexteditor/ktexteditor.cpp \
+		ruby/korundum/modules/okular/okular.cpp \
 		ruby/korundum/modules/solid/solid.cpp \
 		ruby/korundum/modules/nepomuk/nepomuk.cpp \
 		ruby/korundum/modules/plasma/src/plasma.cpp \
