@@ -581,19 +581,19 @@ _calculate_live_repo() {
 			;;
 		git)
 			local _kmname
-			# @ECLASS-VARIABLE: ESCM_MIRROR
+			# @ECLASS-VARIABLE: EGIT_MIRROR
 			# @DESCRIPTION:
 			# This variable allows easy overriding of default kde mirror service
 			# (anongit) with anything else you might want to use.
-			ESCM_MIRROR=${ESCM_MIRROR:=git://anongit.kde.org}
+			EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org}
 
-			# @ECLASS-VARIABLE: ESCM_REPONAME
+			# @ECLASS-VARIABLE: EGIT_REPONAME
 			# @DESCRIPTION:
 			# This variable allows overriding of default repository
 			# name. Specify only if this differ from PN and KMNAME.
-			if [[ -n ${ESCM_REPONAME} ]]; then
+			if [[ -n ${EGIT_REPONAME} ]]; then
 				# the repository and kmname different
-				_kmname=${ESCM_REPONAME}
+				_kmname=${EGIT_REPONAME}
 			elif [[ -n ${KMNAME} ]]; then
 				_kmname=${KMNAME}
 			else
@@ -604,12 +604,12 @@ _calculate_live_repo() {
 			case ${PV} in
 				9999*) ;;
 				*)
-					# set ESCM_BRANCH and ESCM_COMMIT to ${SLOT}
+					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
 					case ${_kmname} in
 						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs)
-							ESCM_BRANCH="${SLOT}"
+							EGIT_BRANCH="${SLOT}"
 							;;
-						*) ESCM_BRANCH="KDE/${SLOT}" ;;
+						*) EGIT_BRANCH="KDE/${SLOT}" ;;
 					esac
 					;;
 			esac
@@ -619,15 +619,15 @@ _calculate_live_repo() {
 					case ${PV} in
 						# kdepim still did not branch
 						4.6.9999)
-							ESCM_BRANCH="master"
+							EGIT_BRANCH="master"
 							;;
 					esac
 					;;
 			esac
-			ESCM_REPO_URI="${ESCM_MIRROR}/${_kmname}"
+			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
 
-			debug-print "${FUNCNAME}: Repository: ${ESCM_REPO_URI}"
-			debug-print "${FUNCNAME}: Branch: ${ESCM_BRANCH}"
+			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
+			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"
 			;;
 	esac
 }
