@@ -17,4 +17,6 @@ IUSE="debug"
 
 src_prepare() {
 	mycmakeargs="-DKDE4_BUILD_TESTS=Off"
+
+	kde4-meta_src_prepare
 }
