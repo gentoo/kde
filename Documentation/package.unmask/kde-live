@@ -217,6 +217,7 @@ kde-base/kde-env:live
 kde-base/kdelibs:live
 kde-base/kdepimlibs:live
 kde-base/oxygen-icons:live
+kde-base/katepart:live
 kde-base/dragonplayer:live
 kde-base/ffmpegthumbs:live
 kde-base/juk:live
