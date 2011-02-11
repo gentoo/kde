@@ -38,11 +38,7 @@ cd $METADATA_MIRROR_DIR/$overlay/repo || cd "failed to cd to $METADATA_MIRROR_DI
 
 case "$type" in
 	svn)
-		if ! grep "^use-commit-times = yes" $HOME/.subversion/config ; then
-			mkdir -p $HOME/.subversion
-			echo -e "[miscellany]\nuse-commit-times = yes" >> $HOME/.subversion/config || die 'enabling file time preservation failed'
-		fi
-		svn cleanup && svn update --force || die 'svn update failed'
+		svn cleanup && svn update --force --config-option=config:miscellany:use-commit-times=yes || die 'svn update failed'
 		;;
 	git)
 		git pull || die 'git update failed'
