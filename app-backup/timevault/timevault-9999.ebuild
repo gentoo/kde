@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="simple backup system for KDE"
 HOMEPAGE="http://gitorious.org/timevault"
-ESCM_REPO_URI="git://gitorious.org/timevault/mainline.git"
+EGIT_REPO_URI="git://gitorious.org/timevault/mainline.git"
 
 LICENSE="GPL-2"
 SLOT="4"

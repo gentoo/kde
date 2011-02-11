@@ -10,7 +10,7 @@ OPENGL_REQUIRED="always"
 PYTHON_USE_WITH="threads"
 RESTRICT_PYTHON_ABIS="2.4"
 KDE_SCM="git"
-ESCM_REPONAME="pykde4"
+EGIT_REPONAME="pykde4"
 inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"

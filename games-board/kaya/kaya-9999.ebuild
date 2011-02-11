@@ -9,7 +9,7 @@ inherit kde4-base ruby-ng
 
 DESCRIPTION="Board game suite for KDE"
 HOMEPAGE="http://pcapriotti.github.com/kaya/"
-ESCM_REPO_URI="git://github.com/pcapriotti/kaya.git"
+EGIT_REPO_URI="git://github.com/pcapriotti/kaya.git"
 
 LICENSE="GPL-2"
 SLOT="0"

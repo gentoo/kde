@@ -6,7 +6,7 @@ EAPI=3
 
 KDE_HANDBOOK="optional"
 KMNAME="kdebase-apps"
-ESCM_REPONAME="konsole"
+EGIT_REPONAME="konsole"
 KDE_SCM="git"
 
 if [[ ${PV} = 9999* ]]; then

@@ -70,15 +70,15 @@ if [[ ${BUILD_TYPE} == live ]]; then
 	case "${KMNAME}" in
 		kdebase-workspace)
 			KDE_SCM="git"
-			ESCM_REPONAME=${ESCM_REPONAME:=kde-workspace}
+			EGIT_REPONAME=${EGIT_REPONAME:=kde-workspace}
 		;;
 		kdebase-runtime)
 			KDE_SCM="git"
-			ESCM_REPONAME=${ESCM_REPONAME:=kde-runtime}
+			EGIT_REPONAME=${EGIT_REPONAME:=kde-runtime}
 		;;
 		kdebase-apps)
 			KDE_SCM="git"
-			ESCM_REPONAME=${ESCM_REPONAME:=kde-baseapps}
+			EGIT_REPONAME=${EGIT_REPONAME:=kde-baseapps}
 		;;
 	esac
 fi

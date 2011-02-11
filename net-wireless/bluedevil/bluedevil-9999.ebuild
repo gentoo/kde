@@ -4,7 +4,7 @@
 
 EAPI=3
 
-ESCM_REPONAME="bluedevil"
+EGIT_REPONAME="bluedevil"
 KDE_SCM="git"
 inherit kde4-base
 

@@ -7,7 +7,7 @@ EAPI=3
 KDE_MINIMAL="4.5"
 
 KDE_SCM="git"
-ESCM_REPONAME="networkmanagement"
+EGIT_REPONAME="networkmanagement"
 [[ ${PV} = 9999* ]] && SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 inherit kde4-base

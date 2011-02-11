@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="A media player for KDE utilizing Nepomuk for tagging"
 HOMEPAGE="http://bangarangkde.wordpress.com"
-ESCM_REPO_URI="git://gitorious.org/bangarang/bangarang.git"
+EGIT_REPO_URI="git://gitorious.org/bangarang/bangarang.git"
 
 LICENSE="GPL-3"
 KEYWORDS=""
