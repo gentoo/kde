@@ -4,15 +4,15 @@
 
 EAPI=3
 
-inherit cmake-utils git
+inherit cmake-utils
 
 DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API."
 HOMEPAGE="http://gstreamer.freedesktop.org/wiki/QtGStreamer"
-EGIT_REPO_URI="git://anongit.freedesktop.org/gstreamer/${PN}"
+SRC_URI="http://gstreamer.freedesktop.org/src/qt-gstreamer/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
