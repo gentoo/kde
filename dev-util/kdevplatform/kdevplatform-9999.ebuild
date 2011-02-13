@@ -7,6 +7,7 @@ EAPI=3
 KMNAME="kdevelop"
 KDE_SCM="git"
 EGIT_REPONAME="${PN}"
+KDE_MINIMAL="4.6"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
