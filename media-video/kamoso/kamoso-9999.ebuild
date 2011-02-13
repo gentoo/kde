@@ -16,6 +16,7 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
+	>=media-sound/qt-gstreamer-0.10
 	$(add_kdebase_dep libkipi)
 "
 RDEPEND="${DEPEND}"
