@@ -15,8 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~hppa ~mips ~ppc ~x86"
 IUSE="+search-domains"
 
-DEPEND="net-dns/avahi"
-RDEPEND="${DEPEND}"
+DEPEND="!net-misc/mDNSResponder"
+RDEPEND="${DEPEND}
+	net-dns/avahi"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0.8-avahi-socket-r1.patch
@@ -25,7 +26,11 @@ src_prepare() {
 }
 
 src_configure() {
-	econf $(use_enable search-domains) --enable-avahi || die "configure failed"
+	econf \
+		--enable-avahi \
+		--disable-legacy \
+		$(use_enable search-domains) \
+		|| die "configure failed"
 }
 
 src_compile() {
