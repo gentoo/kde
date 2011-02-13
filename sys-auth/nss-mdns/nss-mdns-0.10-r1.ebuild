@@ -42,7 +42,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	ewarn
 	ewarn "You must modify your name service switch look up file to enable"
 	ewarn "multicast DNS lookups.  If you wish to resolve only IPv6 addresses"
 	ewarn "use mdns6.  For IPv4 addresses only, use mdns4.  To resolve both"
@@ -57,7 +56,4 @@ pkg_postinst() {
 	ewarn
 	ewarn "If you want to perform mDNS lookups for domains other than the ones"
 	ewarn "ending in .local, add them to /etc/mdns.allow"
-	ewarn
-	ebeep 5
-	epause 10
 }
