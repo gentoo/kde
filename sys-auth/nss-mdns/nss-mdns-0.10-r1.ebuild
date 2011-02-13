@@ -19,7 +19,7 @@ DEPEND="net-dns/avahi"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.8-avahi-socket.patch
+	epatch "${FILESDIR}"/${PN}-0.8-avahi-socket-r1.patch
 	epatch "${FILESDIR}"/${P}-no-minimal-search-domains-r1.patch
 	eautoreconf
 }
