@@ -6,6 +6,7 @@ EAPI=3
 
 KDE_LINGUAS_DIR="translations"
 KDE_LINGUAS="cs es fr hu it pt_BR zh_CN"
+EGIT_REPONAME="wicd-kde"
 KDE_SCM="git"
 inherit kde4-base
 
