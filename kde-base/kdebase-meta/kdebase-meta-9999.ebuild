@@ -21,7 +21,6 @@ RDEPEND="
 	$(add_kdebase_dep kdebase-cursors)
 	$(add_kdebase_dep kdebase-runtime-meta)
 	$(add_kdebase_dep kdebase-startkde)
-	$(add_kdebase_dep kdebase-wallpapers)
 	$(add_kdebase_dep kdepasswd)
 	$(add_kdebase_dep kdialog)
 	$(add_kdebase_dep keditbookmarks)

@@ -17,7 +17,6 @@ IUSE=""
 RDEPEND="
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep kdebase-runtime-meta)
-	$(add_kdebase_dep kdebase-wallpapers)
 	$(add_kdebase_dep kfmclient)
 	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep kreadconfig)
