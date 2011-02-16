@@ -4,7 +4,7 @@
 
 EAPI=3
 
-KMNAME="extragear/base"
+KMNAME="kdebase-apps"
 inherit kde4-meta
 
 DESCRIPTION="Various plugins for konqueror"
