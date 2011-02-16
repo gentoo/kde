@@ -11,7 +11,8 @@ DESCRIPTION="KDE library for CDDB"
 KEYWORDS=""
 IUSE="debug musicbrainz"
 
-# tests fail / timeout, last checked for 4.2.89
+# tests require network access and compare static data with online data
+# bug 280996
 RESTRICT=test
 
 DEPEND="
