@@ -12,18 +12,18 @@ HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="4"
 IUSE="debug tidy"
 
 DEPEND="
-	>=kde-base/libkonq-${KDE_MINIMAL}
+	$(add_kdebase_dep libkonq)
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}
 	!kde-base/konq-plugins:4.1[-kdeprefix]
 	!kde-base/konq-plugins:4.2[-kdeprefix]
-	>=kde-base/kcmshell-${KDE_MINIMAL}
-	>=kde-base/konqueror-${KDE_MINIMAL}
+	!kde-misc/konq-plugins[-kdeprefix]
+	$(add_kdebase_dep kcmshell)
+	$(add_kdebase_dep konqueror)
 "
 
 src_configure() {

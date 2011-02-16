@@ -33,6 +33,7 @@ kde-base/keditbookmarks:live
 kde-base/kfind:live
 kde-base/kfmclient:live
 kde-base/konqueror:live
+kde-base/konq-plugins:live
 kde-base/konsole:live
 kde-base/kwrite:live
 kde-base/libkonq:live
