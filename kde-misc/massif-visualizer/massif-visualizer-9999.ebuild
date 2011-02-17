@@ -4,11 +4,11 @@
 
 EAPI=3
 
-EGIT_REPO_URI="git://anongit.kde.org/massif-visualizer"
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
-DESCRIPTION="LE"
-HOMEPAGE="Fu"
+DESCRIPTION="Tool visualising massif data."
+HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,10 +17,6 @@ IUSE="graphviz"
 
 DEPEND="graphviz? ( media-gfx/kgraphviewer )"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	git_src_unpack
-}
 
 src_configure() {
 	local mycmakeargs=(

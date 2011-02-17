@@ -4,7 +4,9 @@
 
 EAPI=3
 
-inherit git kde4-base
+VIRTUALX_REQUIRED=tests
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A DropDrawers clone. Multiple information organizer"
 HOMEPAGE="http://basket.kde.org/"
@@ -16,11 +18,12 @@ SLOT="4"
 
 IUSE="debug crypt"
 
-PATCHES=( "${FILESDIR}/${P}-crypt.patch" )
-
-src_unpack() {
-	git_src_unpack
-}
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+	media-libs/qimageblitz
+	crypt? ( >=app-crypt/gpgme-1.0 )
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	mycmakeargs=(

@@ -4,7 +4,8 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Synaptics driver based touchpads kcontrol module.KSynaptic analog for KDE-4"
 HOMEPAGE="http://kde-apps.org/content/show.php/kcm_touchpad?content=113335"

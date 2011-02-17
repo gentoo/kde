@@ -4,7 +4,8 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Kde4 plasmoid for monitoring emerge progress on Gentoo Linux"
 HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
@@ -16,7 +17,7 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	$(add_kdebase_dep plasma-workspace)
 "
 
 pkg_postinst() {

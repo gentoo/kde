@@ -4,7 +4,8 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Yet another menu for KDE4"
 HOMEPAGE="http://raptor-menu.org/"
@@ -14,7 +15,3 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"
-
-src_unpack() {
-	git_src_unpack
-}

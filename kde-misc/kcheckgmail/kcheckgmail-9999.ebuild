@@ -4,7 +4,8 @@
 
 EAPI=3
 
-inherit kde4-base git
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Gmail notifier applet/plasmoid for kde"
 HOMEPAGE="http://sourceforge.net/projects/kcheckgmail"
@@ -18,6 +19,5 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	$(add_kdebase_dep plasma-workspace)
 "
-
