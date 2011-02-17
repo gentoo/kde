@@ -7,7 +7,8 @@ EAPI=3
 #KDE_LINGUAS="en cs de hu pt_BR fr"
 # need patch to work select linguas
 
-inherit git kde4-base
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="RecordItNow is a plugin based desktop recorder for KDE"
 HOMEPAGE="http://kde-apps.org/content/show.php/RecordItNow?content=114610"
@@ -31,10 +32,6 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	media-video/recordmydesktop
 "
-
-src_unpack() {
-	git_src_unpack
-}
 
 src_configure() {
 	mycmakeargs+="
