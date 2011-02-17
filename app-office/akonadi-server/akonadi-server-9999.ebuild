@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit cmake-utils git
+inherit cmake-utils git-2
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
@@ -33,7 +33,7 @@ RDEPEND="${CDEPEND}
 	)
 "
 
-S="${WORKDIR}/${P/-server/}"
+REQUIRED_USE="^^ ( sqlite mysql postgres )"
 
 pkg_setup() {
 	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
@@ -41,10 +41,12 @@ pkg_setup() {
 	if use sqlite; then
 		driver="QSQLITE3"
 		available+=" ${driver}"
-	elif use mysql; then
+	fi
+	if use mysql; then
 		driver="QMYSQL"
 		available+=" ${driver}"
-	elif use postgres; then
+	fi
+	if use postgres; then
 		driver="QPSQL"
 		available+=" ${driver}"
 	fi
@@ -80,15 +82,8 @@ EOF
 }
 
 pkg_postinst() {
-	if use mysql || use postgres || use sqlite; then
-		elog
-		elog "${driver} has been set as your default akonadi storage backend."
-		elog "You can override it in your ~/.config/akonadi/akonadiserverrc."
-		elog "Available drivers are: QMYSQL, QPSQL, QSQLITE3"
-	else
-		ewarn
-		ewarn "You have decided to build ${PN} with"
-		ewarn "'mysql', 'postgres' and 'sqlite' USE flags disabled."
-		ewarn "${PN} will not be functional."
-	fi
+	echo
+	elog "${driver} has been set as your default akonadi storage backend."
+	elog "You can override it in your ~/.config/akonadi/akonadiserverrc."
+	elog "Available drivers are: QMYSQL, QPSQL, QSQLITE3"
 }
