@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit cmake-utils git
+QT_MINIMAL="4.5.0"
+inherit cmake-utils git-2
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
@@ -16,9 +17,9 @@ SLOT="0"
 IUSE="debug doc test"
 
 COMMON_DEPEND="
-	>=x11-libs/qt-core-4.5.0:4
-	>=x11-libs/qt-gui-4.5.0:4
-	>=x11-libs/qt-script-4.5.0:4
+	>=x11-libs/qt-core-${QT_MINIMAL}:4
+	>=x11-libs/qt-gui-${QT_MINIMAL}:4
+	>=x11-libs/qt-script-${QT_MINIMAL}:4
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen[-nodot] )
