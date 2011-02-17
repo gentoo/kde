@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit cmake-utils git
+inherit cmake-utils git-2
 
 DESCRIPTION="Shared OSCAF desktop ontologies"
 HOMEPAGE="http://sourceforge.net/projects/oscaf"
