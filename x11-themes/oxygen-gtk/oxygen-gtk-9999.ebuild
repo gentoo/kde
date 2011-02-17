@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit cmake-utils git
+inherit cmake-utils git-2
 
 DESCRIPTION="Official GTK+ port of KDE's Oxygen widget style"
 HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-gtk"
