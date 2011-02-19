@@ -52,7 +52,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
-#	yahoo: NO DEPS
+#	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
 PROTOCOLS="gadu groupwise +jabber jingle meanwhile msn oscar qq skype
 sms testbed winpopup yahoo zeroconf"
@@ -84,6 +84,7 @@ COMMONDEPEND="
 	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
+	yahoo? ( media-libs/jasper )
 	webpresence? (
 		dev-libs/libxml2
 		dev-libs/libxslt
