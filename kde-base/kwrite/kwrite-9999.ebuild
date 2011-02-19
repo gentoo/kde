@@ -13,3 +13,7 @@ inherit kde4-meta
 DESCRIPTION="KDE MDI editor/IDE"
 KEYWORDS=""
 IUSE="debug"
+
+RDEPEND="
+	$(add_kdebase_dep katepart)
+"
