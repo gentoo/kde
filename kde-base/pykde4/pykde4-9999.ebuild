@@ -5,7 +5,12 @@
 EAPI=3
 
 KMNAME="kdebindings"
-KMMODULE="python/pykde4"
+if [[ ${PV} != 9999 ]]; then
+	KMMODULE="python/pykde4"
+else
+	# HACK HACK HACK
+	KMMODULE="."
+fi
 OPENGL_REQUIRED="always"
 PYTHON_USE_WITH="threads"
 RESTRICT_PYTHON_ABIS="2.4"
