@@ -15,6 +15,8 @@ DESCRIPTION="KDE Editor KPart"
 KEYWORDS=""
 IUSE="debug"
 
+add_blocker kdelibs 4.6.50
+
 src_prepare() {
 	mycmakeargs="-DKDE4_BUILD_TESTS=Off"
 
