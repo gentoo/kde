@@ -69,6 +69,9 @@ git-2_init_variables() {
 	#   git+ssh://
 	#   rsync://
 	#   ssh://
+	#
+	# Support multiple values:
+	# EGIT_REPO_URI="git://a/b.git http://c/d.git"
 	eval X="\$${PN//[-+]/_}_LIVE_REPO"
 	if [[ ${X} = "" ]]; then
 		: ${EGIT_REPO_URI:=}
@@ -223,6 +226,12 @@ git-2_prepare_storedir() {
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy moving..."
 		mv "${EGIT_DIR}" "${EGIT_DIR}.bare" \
 			|| die "${FUNCNAME}: Moving the bare sources failed."
+
+	fi
+	# Tell user that he can remove his bare repository. It is not used.
+	if [[ -d "${EGIT_DIR}.bare" ]]; then
+		einfo "Found GIT bare repository at \"${EGIT_DIR}.bare\"."
+		einfo "This folder can be safely removed to save space."
 	fi
 }
 
@@ -239,6 +248,64 @@ git-2_move_source() {
 	popd &> /dev/null
 }
 
+# @FUNCTION: git-2_initial_clone
+# @DESCRIPTION:
+# Run initial clone on specified repo_uri
+git-2_initial_clone() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local repo_uri
+
+	for repo_uri in ${EGIT_REPO_URI}; do
+		debug-print "${FUNCNAME}: ${EGIT_FETCH_CMD} ${EGIT_OPTIONS} \"${repo_uri}\" \"${EGIT_DIR}\""
+		${EGIT_FETCH_CMD} ${EGIT_OPTIONS} "${repo_uri}" "${EGIT_DIR}"
+		if [[ $? -eq 0 ]]; then
+			# global variable containing the repo_name we will be using
+			debug-print "${FUNCNAME}: EGIT_REPO_URI_SELECTED=\"${repo_uri}\""
+			EGIT_REPO_URI_SELECTED="${repo_uri}"
+			break
+		fi
+	done
+
+	if [[ -z ${EGIT_REPO_URI_SELECTED} ]]; then
+		die "${FUNCNAME}: can't fetch from ${EGIT_REPO_URI}."
+	fi
+}
+
+# @FUNCTION: git-2_update_repo
+# @DESCRIPTION:
+# Run update command on specified repo_uri
+git-2_update_repo() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local repo_uri
+
+	# checkout master branch and drop all other local branches
+	git checkout ${EGIT_MASTER}
+	for x in $(git branch |grep -v "* ${EGIT_MASTER}" |tr '\n' ' '); do
+		debug-print "${FUNCNAME}: git branch -D ${x}"
+		git branch -D ${x}
+	done
+
+	for repo_uri in ${EGIT_REPO_URI}; do
+		# git urls might change, so reset it
+		git config remote.origin.url "${repo_uri}"
+
+		debug-print "${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}"
+		${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}
+
+		if [[ $? -eq 0 ]]; then
+			# global variable containing the repo_name we will be using
+			debug-print "${FUNCNAME}: EGIT_REPO_URI_SELECTED=\"${repo_uri}\""
+			EGIT_REPO_URI_SELECTED="${repo_uri}"
+			break
+		fi
+	done
+
+	if [[ -z ${EGIT_REPO_URI_SELECTED} ]]; then
+		die "${FUNCNAME}: can't update from ${EGIT_REPO_URI_SELECTED}."
+	fi
+}
 
 # @FUNCTION: git-2_fetch
 # @DESCRIPTION:
@@ -247,78 +314,57 @@ git-2_move_source() {
 git-2_fetch() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local oldsha1 cursha1 upstream_branch
+	local oldsha cursha upstream_branch
 
 	upstream_branch=origin/${EGIT_BRANCH}
 
 	if [[ ! -d ${EGIT_DIR} ]] ; then
-		# first clone
-		einfo "GIT NEW clone -->"
-		einfo "   repository: 		${EGIT_REPO_URI}"
-
-		debug-print "${EGIT_FETCH_CMD} ${EGIT_OPTIONS} \"${EGIT_REPO_URI}\" \"${EGIT_DIR}\""
-		${EGIT_FETCH_CMD} ${EGIT_OPTIONS} "${EGIT_REPO_URI}" "${EGIT_DIR}" \
-			|| die "${FUNCNAME}: can't fetch from ${EGIT_REPO_URI}."
-
+		git-2_initial_clone
 		pushd "${EGIT_DIR}" &> /dev/null
-		cursha1=$(git rev-parse ${upstream_branch})
-		einfo "   at the commit:		${cursha1}"
+		cursha=$(git rev-parse ${upstream_branch})
+		einfo "GIT NEW clone -->"
+		einfo "   repository:               ${EGIT_REPO_URI_SELECTED}"
+		einfo "   at the commit:            ${cursha}"
 
 		git-2_submodules "${EGIT_DIR}"
 		popd &> /dev/null
 	elif [[ -n ${EVCS_OFFLINE} ]] ; then
 		pushd "${EGIT_DIR}" &> /dev/null
-		cursha1=$(git rev-parse ${upstream_branch})
+		cursha=$(git rev-parse ${upstream_branch})
 		einfo "GIT offline update -->"
-		einfo "   repository: 		${EGIT_REPO_URI}"
-		einfo "   at the commit:		${cursha1}"
+		einfo "   repository:               $(git config remote.origin.url)"
+		einfo "   at the commit:            ${cursha}"
 		popd &> /dev/null
 	else
 		pushd "${EGIT_DIR}" &> /dev/null
-		# Git urls might change, so unconditionally set it here
-		git config remote.origin.url "${EGIT_REPO_URI}"
+		oldsha=$(git rev-parse ${upstream_branch})
+		git-2_update_repo
+		cursha=$(git rev-parse ${upstream_branch})
 
 		# fetch updates
 		einfo "GIT update -->"
-		einfo "   repository: 		${EGIT_REPO_URI}"
-
-		oldsha1=$(git rev-parse ${upstream_branch})
-
-		if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
-			debug-print "${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}"
-			# fix branching
-			git checkout ${EGIT_MASTER}
-			for x in $(git branch |grep -v "* ${EGIT_MASTER}" |tr '\n' ' '); do
-				git branch -D ${x}
-			done
-			${EGIT_UPDATE_CMD} ${EGIT_OPTIONS} \
-				|| die "${FUNCNAME}: can't update from ${EGIT_REPO_URI}."
+		einfo "   repository:               ${EGIT_REPO_URI_SELECTED}"
+		# write out message based on the revisions
+		if [[ "${oldsha1}" != "${cursha1}" ]]; then
+			einfo "   updating from commit:     ${oldsha}"
+			einfo "   to commit:                ${cursha}"
 		else
-			debug-print "${EGIT_UPDATE_CMD} ${EGIT_OPTIONS} origin ${EGIT_BRANCH}:${EGIT_BRANCH}"
-			${EGIT_UPDATE_CMD} ${EGIT_OPTIONS} origin ${EGIT_BRANCH}:${EGIT_BRANCH} \
-				|| die "${FUNCNAME}: can't update from ${EGIT_REPO_URI}."
+			einfo "   at the commit:            ${cursha}"
 		fi
 
 		git-2_submodules "${EGIT_DIR}"
-		cursha1=$(git rev-parse ${upstream_branch})
 
-		# write out message based on the revisions
-		if [[ "${oldsha1}" != "${cursha1}" ]]; then
-			einfo "   updating from commit:	${oldsha1}"
-			einfo "   to commit:		${cursha1}"
-		else
-			einfo "   at the commit: 		${cursha1}"
-		fi
-		git --no-pager diff --stat ${oldsha1}..${upstream_branch}
+		# print nice statistic of what was changed
+		git --no-pager diff --stat ${oldsha}..${upstream_branch}
 		popd &> /dev/null
 	fi
 	# export the version the repository is at
 	export EGIT_VERSION="${cursha1}"
 	# log the repo state
 	[[ "${EGIT_COMMIT}" != "${EGIT_BRANCH}" ]] \
-		&& einfo "   commit:		${EGIT_COMMIT}"
-	einfo "   branch: 			${EGIT_BRANCH}"
-	einfo "   storage directory: 	\"${EGIT_DIR}\""
+		&& einfo "   commit:                   ${EGIT_COMMIT}"
+	einfo "   branch:                   ${EGIT_BRANCH}"
+	einfo "   storage directory:        \"${EGIT_DIR}\""
 }
 
 # @FUNCTION: git_bootstrap
