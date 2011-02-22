@@ -1,12 +1,12 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/rekonq/rekonq-0.5.0-r1.ebuild,v 1.2 2010/10/12 18:20:48 tampakrap Exp $
+# $Header: $
 
 EAPI=3
 
 WEBKIT_REQUIRED=always
 QT_MINIMAL="4.7"
-KDE_MINIMAL="4.5"
+KDE_MINIMAL="4.6"
 KDE_SCM="git"
 KDE_LINGUAS_DIR="i18n"
 KDE_LINGUAS="ca cs da de el en_GB es et fr hu it ja ko lt nb nds nl pt_BR pt ru sl sr sv uk zh_CN"
