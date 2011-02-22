@@ -18,6 +18,7 @@ RDEPEND="
 	$(add_kdebase_dep freespacenotifier)
 	$(add_kdebase_dep kcheckpass)
 	$(add_kdebase_dep kcminit)
+	$(add_kdebase_dep kde-wallpapers)
 	$(add_kdebase_dep kdebase-cursors)
 	$(add_kdebase_dep kdebase-runtime-meta)
 	$(add_kdebase_dep kdebase-startkde)
