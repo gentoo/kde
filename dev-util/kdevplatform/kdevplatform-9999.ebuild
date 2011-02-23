@@ -29,7 +29,7 @@ DEPEND="
 	subversion? ( >=dev-vcs/subversion-1.3 )
 "
 RDEPEND="${DEPEND}
-	!<dev-util/kdevelop-${KDEVELOP_VERSION}
+	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
 	!dev-util/kdevelop-git
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
