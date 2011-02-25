@@ -19,5 +19,6 @@ DEPEND="
 	>=dev-util/kdevelop-pg-qt-0.9.0
 "
 RDEPEND="
+	dev-util/kdevelop
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
