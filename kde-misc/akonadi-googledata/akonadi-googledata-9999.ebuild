@@ -19,7 +19,7 @@ DEPEND="
 	dev-libs/boost
 	dev-libs/libxslt
 	>=kde-base/kdepimlibs-${KDE_MINIMAL}[semantic-desktop]
-	>=net-libs/libgcal-0.9.4
+	>=net-libs/libgcal-0.9.6
 "
 RDEPEND="${DEPEND}
 	!kde-misc/googledata
