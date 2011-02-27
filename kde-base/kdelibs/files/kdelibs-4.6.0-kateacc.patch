@@ -1,0 +1,49 @@
+diff -ur kdelibs-4.5.96.orig/kate/view/kateviewaccessible.h kdelibs-4.5.95/kate/view/kateviewaccessible.h
+--- kdelibs-4.5.96.orig/kate/view/kateviewaccessible.h	2010-11-11 17:41:28.000000000 +0300
++++ kdelibs-4.5.95/kate/view/kateviewaccessible.h	2011-01-11 11:37:15.288810505 +0300
+@@ -19,6 +19,7 @@
+ 
+ #ifndef _KATE_VIEW_ACCESSIBLE_
+ #define _KATE_VIEW_ACCESSIBLE_
++#ifndef QT_NO_ACCESSIBILITY
+ 
+ #include "kateviewinternal.h"
+ #include "katetextcursor.h"
+@@ -318,3 +319,4 @@
+ }
+ 
+ #endif
++#endif
+diff -ur kdelibs-4.5.96.orig/kate/view/kateviewinternal.cpp kdelibs-4.5.95/kate/view/kateviewinternal.cpp
+--- kdelibs-4.5.96.orig/kate/view/kateviewinternal.cpp	2010-12-03 17:57:05.000000000 +0300
++++ kdelibs-4.5.95/kate/view/kateviewinternal.cpp	2011-01-11 11:36:51.968811481 +0300
+@@ -216,7 +216,9 @@
+   connect( m_view, SIGNAL( selectionChanged(KTextEditor::View*) ),
+              this, SLOT( viewSelectionChanged() ) );
+ 
++#ifndef QT_NO_ACCESSIBILITY
+   QAccessible::installFactory(accessibleInterfaceFactory);
++#endif
+ 
+   // update is called in KateView, after construction and layout is over
+   // but before any other kateviewinternal call
+@@ -224,7 +226,9 @@
+ 
+ KateViewInternal::~KateViewInternal ()
+ {
++#ifndef QT_NO_ACCESSIBILITY
+   QAccessible::removeFactory(accessibleInterfaceFactory);
++#endif
+ 
+   // kill preedit ranges
+   delete m_imPreeditRange;
+@@ -646,7 +650,9 @@
+ 
+   m_madeVisible = !force;
+ 
++#ifndef QT_NO_ACCESSIBILITY
+   QAccessible::updateAccessibility( this, KateCursorAccessible::ChildId, QAccessible::Focus );
++#endif
+ }
+ 
+ void KateViewInternal::slotRegionVisibilityChangedAt(unsigned int,bool clear_cache)
