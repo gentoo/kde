@@ -11,10 +11,10 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE="aqua cvs kdeprefix"
 
 RDEPEND="
-	$(add_kdebase_dep cervisia)
+	cvs? ( $(add_kdebase_dep cervisia) )
 	$(add_kdebase_dep dolphin-plugins)
 	$(add_kdebase_dep kapptemplate)
 	$(add_kdebase_dep kate)
