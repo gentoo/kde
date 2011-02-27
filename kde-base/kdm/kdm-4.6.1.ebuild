@@ -13,6 +13,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="consolekit debug kerberos pam"
 
 DEPEND="
+	$(add_kdebase_dep libkworkspace)
 	x11-libs/libXau
 	x11-libs/libXdmcp
 	x11-libs/libXtst
