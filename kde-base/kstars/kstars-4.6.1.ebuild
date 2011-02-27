@@ -12,6 +12,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug fits indi"
 
 DEPEND="
+	dev-cpp/eigen
 	$(add_kdebase_dep libkdeedu)
 	fits? ( >=sci-libs/cfitsio-0.390 )
 	indi? ( >=sci-libs/indilib-0.6.2[fits?] )
