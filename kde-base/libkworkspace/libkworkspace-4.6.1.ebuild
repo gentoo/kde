@@ -19,6 +19,12 @@ KMEXTRACTONLY="
 
 KMSAVELIBS="true"
 
+DEPEND="
+	x11-libs/libxkbfile
+	x11-libs/libXcomposite
+"
+RDEPEND=${DEPEND}
+
 src_prepare() {
 	sed -i -e 's/install( FILES kdisplaymanager.h/install( FILES kdisplaymanager.h screenpreviewwidget.h/' \
 		libs/kworkspace/CMakeLists.txt || die "failed to provide screenpreviewwidget.h"
