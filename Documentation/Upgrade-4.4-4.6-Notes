@@ -1,0 +1,5 @@
+
+* kbluetooth needs to be removed from world
+* digikam and kipi-plugins upgrade to 1.8.0 (current stable does not build anymore)
+
+
