@@ -15,7 +15,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="A browser based on qt-webkit"
-HOMEPAGE="http://rekonq.sourceforge.net/"
+HOMEPAGE="http://rekonq.kde.org/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
