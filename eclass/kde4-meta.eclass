@@ -214,11 +214,17 @@ kde4-meta_src_extract() {
 
 		case ${KMNAME} in
 			kdebase-apps)
-				# kdebase/apps -> kdebase-apps
-				tarball="kdebase-${PV}.tar.${postfix}"
-				# Go one level deeper for kdebase-apps in tarballs
-				moduleprefix=apps/
-				KMTARPARAMS+=" --transform=s|apps/||"
+				case ${PV} in
+					4.6.1)
+						;;
+					*)
+						# kdebase/apps -> kdebase-apps
+						tarball="kdebase-${PV}.tar.${postfix}"
+						# Go one level deeper for kdebase-apps in tarballs
+						moduleprefix=apps/
+						KMTARPARAMS+=" --transform=s|apps/||"
+						;;
+				esac
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
