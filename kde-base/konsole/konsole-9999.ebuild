@@ -9,7 +9,7 @@ KMNAME="kdebase-apps"
 EGIT_REPONAME="konsole"
 KDE_SCM="git"
 
-if [[ ${PV} = 9999* ]]; then
+if [[ ${PV} = *9999* ]]; then
 	inherit kde4-base
 else
 	inherit kde4-meta
