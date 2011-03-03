@@ -51,6 +51,7 @@ KMEXTRA="
 	messagecore/
 	messagelist/
 	messageviewer/
+	nepomuk_email_feeder/
 	ontologies/
 	templateparser/
 "
