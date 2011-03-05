@@ -84,11 +84,11 @@ COMMONDEPEND="
 	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
+	v4l2? ( media-libs/libv4l )
 	webpresence? (
 		dev-libs/libxml2
 		dev-libs/libxslt
 	)
-	v4l2? ( media-libs/libv4l )
 	yahoo? ( media-libs/jasper )
 "
 RDEPEND="${COMMONDEPEND}
