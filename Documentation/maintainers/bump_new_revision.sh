@@ -87,18 +87,18 @@ check_cmakelists() {
 
 # Updates keywords:
 # - for stable releases - use latest keywords from tree
-# - for snapshot/alpha/beta/rc releases - use fixed ~amd64 and ~x86 keywords
+# - for snapshot/alpha/beta/rc releases - use fixed ~amd64, ~x86 and ~{amd64,x86}-linux keywords
 # - in either case drop arch to testing
 update_keywords() {
-	local MINIMAL_KEYWORDS="~amd64 ~x86"
+	local MINIMAL_KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux" KEYWORDS
 	# Initially strip all keywords
 	ekeyword ^all ${1} > /dev/null
 	if [[ ${BUMP_VERSION} =~ ([4-9]+)\.?([0-9]*)\.?([0-9]*) ]]; then
 		local version_major=${BASH_REMATCH[1]}
 		local version_minor=${BASH_REMATCH[2]}
 		local version_patch=${BASH_REMATCH[3]}
-		if [[ -n {version_patch} ]]; then
-			if [[ ${version_patch} -lt 50 ]]; then
+		if [[ -n ${version_patch} ]]; then
+			if (( version_patch < 50 )); then
 				# Patch version is < 50 - stable release, try to obtain keywords from tree
 				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
 					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
@@ -107,7 +107,7 @@ update_keywords() {
 					KEYWORDS=${MINIMAL_KEYWORDS}
 				fi
 				popd &> /dev/null
-			elif [[ ${version_patch} -le 99 ]]; then
+			elif (( version_patch <= 99 )); then
 				# Patch version >= 50 and <= 99 - snapshot/alpha/beta/rc release, ~amd64 ~x86 keywords
 				KEYWORDS=${MINIMAL_KEYWORDS}
 			fi
@@ -184,11 +184,10 @@ SLOT=
 VERSION=
 OPERATION=
 BUMP_VERSION=
-KEYWORDS=
 SET=
 DIR=
 OUTPUT_DIR=
-while getopts a:s:v:b:l:p:o:n arg ; do
+while getopts a:s:v:b:l:p:o arg ; do
 	case ${arg} in
 		a) OPERATION=${OPTARG} ;;
 		s) SLOT=${OPTARG} ;;
@@ -197,7 +196,6 @@ while getopts a:s:v:b:l:p:o:n arg ; do
 		l) SET="${OPTARG}" ;;
 		p) DIR="${OPTARG}" ;;
 		o) OUTPUT_DIR="${OPTARG}" ;;
-		n) KEYWORDS="no" ;;
 		*) help ;;
 		?) help ;;
 	esac
