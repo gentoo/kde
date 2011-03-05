@@ -21,3 +21,5 @@ RDEPEND="${DEPEND}
 KMEXTRACTONLY="
 	konqueror/settings/
 "
+
+PATCHES=( "${FILESDIR}/${PN}"-4.6.1-enablefinal.patch )
