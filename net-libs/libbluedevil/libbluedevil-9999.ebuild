@@ -8,7 +8,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Qt wrapper for bluez used in the KDE bluetooth stack"
-HOMEPAGE="http://gitorious.org/libbluedevil"
+HOMEPAGE="http://projects.kde.org/projects/playground/libs/libbluedevil"
 
 LICENSE="GPL-2"
 KEYWORDS=""

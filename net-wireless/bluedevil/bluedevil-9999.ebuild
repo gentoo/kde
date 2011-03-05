@@ -9,7 +9,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
-HOMEPAGE="http://gitorious.org/bluedevil"
+HOMEPAGE="http://projects.kde.org/projects/extragear/base/bluedevil"
 
 LICENSE="GPL-3"
 KEYWORDS=""
