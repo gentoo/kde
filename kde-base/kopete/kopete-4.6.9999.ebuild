@@ -52,7 +52,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
-#	yahoo: NO DEPS
+#	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
 PROTOCOLS="gadu groupwise +jabber jingle meanwhile msn oscar qq skype
 sms testbed winpopup yahoo zeroconf"
@@ -89,6 +89,7 @@ COMMONDEPEND="
 		dev-libs/libxslt
 	)
 	v4l2? ( media-libs/libv4l )
+	yahoo? ( media-libs/jasper )
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
