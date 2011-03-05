@@ -94,7 +94,6 @@ RDEPEND="${COMMONDEPEND}
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
-	|| ( ( $(add_kdebase_dep kfmclient) ) x11-misc/xdg-utils )
 	!aqua? (
 		sys-fs/udisks
 		sys-power/upower
@@ -104,6 +103,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 "
 PDEPEND="
+	|| ( ( $(add_kdebase_dep kfmclient) ) x11-misc/xdg-utils )
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
 		>=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
