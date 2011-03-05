@@ -20,6 +20,6 @@ DEPEND="midi? ( >=media-libs/tse3-0.3.0 )"
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs="$(cmake-utils_use midi WITH_TSE3)"
+	local mycmakeargs=( "$(cmake-utils_use midi WITH_TSE3)" )
 	kde4-base_src_configure
 }
