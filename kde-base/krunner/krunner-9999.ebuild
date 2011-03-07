@@ -20,7 +20,6 @@ COMMONDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libplasmagenericshell)
 	!aqua? (
-		x11-libs/libXxf86misc
 		x11-libs/libXcursor
 		x11-libs/libXScrnSaver
 	)
@@ -28,7 +27,6 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	!aqua? (
 		x11-libs/libXcursor
-		x11-proto/xf86miscproto
 		x11-proto/scrnsaverproto
 	)
 "
