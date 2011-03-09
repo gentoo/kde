@@ -14,7 +14,7 @@
 
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
-inherit kde4-base versionator
+inherit kde4-base toolchain-funcs versionator
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
@@ -131,10 +131,12 @@ fi
 
 # @FUNCTION: kde4-meta_pkg_setup
 # @DESCRIPTION:
-# Currently just calls its equivalent in kde4-base.eclass(5). Use this one in
-# split ebuilds.
+# Currently calls its equivalent in kde4-base.eclass(5) and checks the gcc version.
+# Use this one in split ebuilds.
 kde4-meta_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	[[ $(gcc-version) == "4.3" ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 wont work for >=kde-4.6 (see bug 354837)."
 
 	kde4-base_pkg_setup
 }
