@@ -143,9 +143,9 @@ fi
 kde4-meta_pkg_pretend() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	slot_is_at_least 4.6 && ( gcc-major-version -lt 4 || \
-		( gcc-major-version -eq 4 && gcc-minor-version -lt 3 ) ) \
-		&& die "Sorry, but gcc-4.3 and earlier wont work for KDE SC (see bug 354837)."
+	slot_is_at_least 4.6 ${SLOT} && ( [[ gcc-major-version -lt 4 ]] || \
+		( [[ gcc-major-version -eq 4 ]] && [[ gcc-minor-version -le 3 ]] ) ) \
+		&& die "Sorry, but gcc-4.3 and earlier wont work for KDE SC 4.6 (see bug 354837)."
 }
 
 # @FUNCTION: kde4-meta_pkg_setup
