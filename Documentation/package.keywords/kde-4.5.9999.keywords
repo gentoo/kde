@@ -265,6 +265,7 @@
 ~kde-base/kde-meta-4.5.9999 **
 # Version is unrelated, KDE printing won't be stabilized
 app-admin/system-config-printer-common
+app-admin/system-config-printer-gnome
 =dev-libs/libdbusmenu-qt-0.6*
 # Some issues with grantlee, let's wait for 0.1.6
 dev-libs/grantlee
@@ -276,6 +277,5 @@ dev-python/pycups
 >=dev-python/sip-4.12
 >=dev-python/PyQt4-4.8.2
 =net-dns/cagibi-0.1.1
-x11-apps/scripts
 # Also unrelated
 x11-misc/google-gadgets

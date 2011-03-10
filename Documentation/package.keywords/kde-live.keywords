@@ -302,11 +302,9 @@
 ~kde-base/kdebase-meta-9999 **
 ~kde-base/kde-meta-9999 **
 app-admin/system-config-printer-common
-=dev-db/virtuoso-odbc-6.1*
-=dev-db/virtuoso-server-6.1*
+app-admin/system-config-printer-gnome
 dev-libs/grantlee
 dev-libs/libdbusmenu-qt
 dev-python/pycups
 net-libs/libktorrent
-x11-apps/scripts
 x11-misc/google-gadgets

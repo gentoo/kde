@@ -301,26 +301,20 @@ kde-base/kdebase-meta:4.6
 kde-base/kde-meta:4.6
 # Version is unrelated, KDE printing won't be stabilized
 app-admin/system-config-printer-common
-~dev-db/virtuoso-odbc-6.1.2
-~dev-db/virtuoso-server-6.1.2
+app-admin/system-config-printer-gnome
 =dev-libs/libdbusmenu-qt-0.6*
 # Some issues with grantlee, let's wait for 0.1.6
-~dev-libs/glib-2.26.1
 ~dev-libs/grantlee-0.1.7
 >=dev-libs/shared-desktop-ontologies-0.5
 # Unsure about that yet
 dev-python/pycups
->=dev-python/pygobject-2.21.5
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
 ~net-dns/cagibi-0.1.1
 >=kde-misc/polkit-kde-kcmodules-0.98_pre
-~sys-auth/polkit-0.99
 ~sys-auth/polkit-kde-agent-0.99.0
 ~sys-auth/polkit-qt-0.99.0
 ~gnome-extra/polkit-gnome-0.99
->=sys-power/upower-0.9.7
-x11-apps/scripts
 ~media-sound/phonon-4.4.4
 ~media-sound/phonon-gstreamer-4.4.4
 ~media-sound/phonon-vlc-4.4.4
@@ -328,18 +322,18 @@ x11-apps/scripts
 # Also unrelated
 x11-misc/google-gadgets
 # Qt 4.7
-~x11-libs/qt-script-4.7.1
-~x11-libs/qt-core-4.7.1
-~x11-libs/qt-gui-4.7.1
-~x11-libs/qt-dbus-4.7.1
-~x11-libs/qt-qt3support-4.7.1
-~x11-libs/qt-sql-4.7.1
-~x11-libs/qt-sql-4.7.1
-~x11-libs/qt-test-4.7.1
-~x11-libs/qt-svg-4.7.1
-~x11-libs/qt-declarative-4.7.1
-~x11-libs/qt-opengl-4.7.1
-~x11-libs/qt-xmlpatterns-4.7.1
-~x11-libs/qt-multimedia-4.7.1
-~x11-libs/qt-webkit-4.7.1
-~x11-libs/qt-assistant-4.7.1
+~x11-libs/qt-script-4.7.2
+~x11-libs/qt-core-4.7.2
+~x11-libs/qt-gui-4.7.2
+~x11-libs/qt-dbus-4.7.2
+~x11-libs/qt-qt3support-4.7.2
+~x11-libs/qt-sql-4.7.2
+~x11-libs/qt-sql-4.7.2
+~x11-libs/qt-test-4.7.2
+~x11-libs/qt-svg-4.7.2
+~x11-libs/qt-declarative-4.7.2
+~x11-libs/qt-opengl-4.7.2
+~x11-libs/qt-xmlpatterns-4.7.2
+~x11-libs/qt-multimedia-4.7.2
+~x11-libs/qt-webkit-4.7.2
+~x11-libs/qt-assistant-4.7.2
