@@ -884,8 +884,7 @@ kde4-base_src_test() {
 	# > make sure it does not happen, so bad tests can be recognized and disabled
 	unset DBUS_SESSION_BUS_ADDRESS
 
-	if [[ ${VIRTUALX_REQUIRED} == always ]] ||
-			( [[ ${VIRTUALX_REQUIRED} != manual ]] && use test ); then
+	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
 		VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
 	else
 		cmake-utils_src_test
