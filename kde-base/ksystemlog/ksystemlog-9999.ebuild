@@ -7,7 +7,7 @@ EAPI=3
 KDE_HANDBOOK="optional"
 KMNAME="kdeadmin"
 
-VIRTUALX_REQUIRED=tests
+VIRTUALX_REQUIRED=test
 inherit kde4-meta
 
 DESCRIPTION="KDE system log viewer"

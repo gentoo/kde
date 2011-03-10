@@ -7,7 +7,7 @@ EAPI=3
 KDE_HANDBOOK="optional"
 KMNAME="kdebase-workspace"
 CPPUNIT_REQUIRED="optional"
-VIRTUALX_REQUIRED="optional"
+VIRTUALX_REQUIRED=test
 inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."

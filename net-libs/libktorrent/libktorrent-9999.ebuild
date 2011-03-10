@@ -25,7 +25,7 @@ if [[ ${PV} != 9999* ]]; then
 else
 	KEYWORDS=""
 fi
-VIRTUALX_REQUIRED=optional
+VIRTUALX_REQUIRED=test
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent library based on KDE Platform"

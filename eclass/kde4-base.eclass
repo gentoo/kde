@@ -15,15 +15,9 @@
 
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
-#  Do we need an X server? Valid values are "always", "optional", and "manual".
-#  "tests" is a synonym for "optional". While virtualx.eclass supports in principle
-#  also the use of an X server during other ebuild phases, we only use it in
-#  src_test here. Most likely you'll want to set "optional", which introduces the
-#  use-flag "test" (if not already present), adds dependencies conditional on that
-#  use-flag, and automatically runs (only) the ebuild test phase with a virtual X server
-#  present. This makes things a lot more comfortable than the bare virtualx eclass.
-
-# In case the variable is not set in the ebuild, let virtualx eclass not do anything
+# For proper description see virtualx.eclass manpage.
+# Here we redefine default value to be manual, if your package needs virtualx
+# for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
 inherit kde4-functions base virtualx eutils
@@ -891,17 +885,8 @@ kde4-base_src_test() {
 	unset DBUS_SESSION_BUS_ADDRESS
 
 	if [[ ${VIRTUALX_REQUIRED} == always ]] ||
-		( [[ ${VIRTUALX_REQUIRED} != manual ]] && use test ); then
-
-		if [[ ${maketype} ]]; then
-			# surprise- we are already INSIDE virtualmake!!!
-			ewarn "QA Notice: This version of kde4-base.eclass includes the virtualx functionality."
-			ewarn "           You may NOT set maketype or call virtualmake from the ebuild. Applying workaround."
-			cmake-utils_src_test
-		else
-			export maketype="cmake-utils_src_test"
-			virtualmake
-		fi
+			( [[ ${VIRTUALX_REQUIRED} != manual ]] && use test ); then
+		VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
 	else
 		cmake-utils_src_test
 	fi

@@ -4,7 +4,7 @@
 
 EAPI=3
 
-VIRTUALX_REQUIRED=tests
+VIRTUALX_REQUIRED=test
 KDE_SCM="git"
 inherit kde4-base
 
