@@ -4,9 +4,14 @@
 
 EAPI=3
 
+if [[ ${PV} == *9999 ]]; then
+KDE_SCM="git"
+inherit kde4-base
+else
 KMNAME="kdegraphics"
 KMMODULE="libs/${PN}"
 inherit kde4-meta
+fi
 
 DESCRIPTION="A library for image plugins accross KDE applications."
 HOMEPAGE="http://www.kipi-plugins.org"

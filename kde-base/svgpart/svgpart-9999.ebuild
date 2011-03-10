@@ -4,8 +4,13 @@
 
 EAPI=3
 
+if [[ ${PV} == *9999 ]]; then
+KDE_SCM="git"
+inherit kde4-base
+else
 KMNAME="kdegraphics"
 inherit kde4-meta
+fi
 
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"
 KEYWORDS=""

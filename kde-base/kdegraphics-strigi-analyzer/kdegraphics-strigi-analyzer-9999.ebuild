@@ -4,17 +4,24 @@
 
 EAPI=3
 
+if [[ ${PV} == *9999 ]]; then
+KDE_SCM="git"
+inherit kde4-base
+else
 KMNAME="kdegraphics"
 KMMODULE="strigi-analyzer"
 inherit kde4-meta
+fi
 
 DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
 
+if [[ ${PV} != *9999 ]]; then
 KMEXTRACTONLY="
 	libs/mobipocket/
 "
+fi
 
 DEPEND="
 	app-misc/strigi

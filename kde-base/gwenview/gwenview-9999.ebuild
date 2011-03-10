@@ -4,9 +4,17 @@
 
 EAPI=3
 
+if [[ ${PV} == *9999 ]]; then
+# Not sure how this should be handled...
+KDE_HANDBOOK="required"
+KDE_SCM="git"
+kde_eclass="kde4-base"
+else
 KDE_HANDBOOK="optional"
 KMNAME="kdegraphics"
-inherit kde4-meta
+kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS=""
@@ -35,11 +43,11 @@ src_configure() {
 		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
 	fi
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	${kde_eclass}_pkg_postinst
 
 	echo
 	elog "For SVG support, emerge -va kde-base/svgpart"

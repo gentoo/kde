@@ -4,9 +4,16 @@
 
 EAPI=3
 
+if [[ ${PV} == *9999 ]]; then
+# Not sure how this should be handled...
+KDE_HANDBOOK="required"
+KDE_SCM="git"
+inherit kde4-base
+else
 KDE_HANDBOOK="optional"
 KMNAME="kdegraphics"
 inherit kde4-meta
+fi
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS=""
@@ -19,6 +26,7 @@ DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto
 "
 
+if [[ ${PV} != *9999 ]]; then
 src_unpack() {
 	if use handbook; then
 		KMEXTRA+=" doc/kcontrol/kgamma"
@@ -26,3 +34,4 @@ src_unpack() {
 
 	kde4-meta_src_unpack
 }
+fi
