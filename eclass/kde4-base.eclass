@@ -888,10 +888,10 @@ kde4-base_src_test() {
 		# check for sanity if anyone already redefined VIRTUALX_COMMAND from the default
 		if [[ ${VIRTUALX_COMMAND} != "emake" ]]; then
 			# surprise- we are already INSIDE virtualmake!!!
-			ewarn "QA Notice: This version of kde4-base.eclass includes the virtualx functionality."
-			ewarn "           You may NOT set VIRTUALX_COMMAND or call virtualmake from the ebuild."
-			ewarn "           Setting VIRTUALX_REQUIRED is completely sufficient. See the"
-			ewarn "           kde4-base.eclass docs for details... Applying workaround."
+			debug-print "QA Notice: This version of kde4-base.eclass includes the virtualx functionality."
+			debug-print "           You may NOT set VIRTUALX_COMMAND or call virtualmake from the ebuild."
+			debug-print "           Setting VIRTUALX_REQUIRED is completely sufficient. See the"
+			debug-print "           kde4-base.eclass docs for details... Applying workaround."
 			cmake-utils_src_test
 		else
 			VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
