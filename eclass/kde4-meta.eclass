@@ -16,7 +16,7 @@
 
 inherit kde4-base toolchain-funcs versionator
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
@@ -129,6 +129,15 @@ fi
 # Specify extra parameters to pass to tar, in kde4-meta_src_extract.
 # '-xpf -j' are passed to tar by default.
 
+# @FUNCTION: kde4-meta_pkg_pretend
+# @DESCRIPTION:
+# Currently only checks the gcc version.
+kde4-meta_pkg_pretend() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	LANG=C [[ $(gcc-version) -le 4.3 ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 and earlier wont work for >=kde-4.6 (see bug 354837)."
+}
+
 # @FUNCTION: kde4-meta_pkg_setup
 # @DESCRIPTION:
 # Currently calls its equivalent in kde4-base.eclass(5) and checks the gcc version.
@@ -136,7 +145,7 @@ fi
 kde4-meta_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ $(gcc-version) == "4.3" ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 wont work for >=kde-4.6 (see bug 354837)."
+	LANG=C [[ $(gcc-version) -le 4.3 ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 and earlier wont work for >=kde-4.6 (see bug 354837)."
 
 	kde4-base_pkg_setup
 }
