@@ -16,7 +16,15 @@
 
 inherit kde4-base toolchain-funcs versionator
 
-EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm
+case ${EAPI:-0} in
+	3)
+		KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm"
+		;;
+	*)
+		KDEMETA_EXPF="pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm"
+		;;
+esac
+EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
@@ -135,7 +143,9 @@ fi
 kde4-meta_pkg_pretend() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	LANG=C [[ $(gcc-version) -le 4.3 ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 and earlier wont work for >=kde-4.6 (see bug 354837)."
+	slot_is_at_least 4.6 && ( gcc-major-version -lt 4 || \
+		( gcc-major-version -eq 4 && gcc-minor-version -lt 3 ) ) \
+		&& die "Sorry, but gcc-4.3 and earlier wont work for KDE SC (see bug 354837)."
 }
 
 # @FUNCTION: kde4-meta_pkg_setup
@@ -145,7 +155,7 @@ kde4-meta_pkg_pretend() {
 kde4-meta_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	LANG=C [[ $(gcc-version) -le 4.3 ]] && slot_is_at_least 4.6 && die "Sorry, but gcc-4.3 and earlier wont work for >=kde-4.6 (see bug 354837)."
+	has pkg_pretend ${KDEMETA_EXPF} || kde4-meta_pkg_pretend
 
 	kde4-base_pkg_setup
 }
