@@ -20,7 +20,7 @@
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde4-functions gnome2-utils base virtualx eutils
+inherit kde4-functions fdo-mime gnome2-utils base virtualx eutils
 
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -941,6 +941,8 @@ kde4-base_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_cache_update
+	fdo-mime_desktop_database_update
+	fdo-mime_mime_database_update
 	buildsycoca
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
@@ -991,5 +993,7 @@ kde4-base_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_cache_update
+	fdo-mime_desktop_database_update
+	fdo-mime_mime_database_update
 	buildsycoca
 }
