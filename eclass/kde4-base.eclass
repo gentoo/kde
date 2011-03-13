@@ -20,7 +20,7 @@
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde4-functions base virtualx eutils
+inherit kde4-functions gnome2-utils base virtualx eutils
 
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -111,7 +111,7 @@ esac
 
 inherit ${buildsystem_eclass}
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_preinst pkg_postinst pkg_postrm
 
 unset buildsystem_eclass
 unset export_fns
@@ -925,12 +925,22 @@ kde4-base_src_install() {
 	cmake-utils_src_install
 }
 
+# @FUNCTION: kde4-base_pkg_preinst
+# @DESCRIPTION:
+# Function storing icon caches
+kde4-base_pkg_preinst() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	gnome2_icon_savelist
+}
+
 # @FUNCTION: kde4-base_pkg_postinst
 # @DESCRIPTION:
 # Function to rebuild the KDE System Configuration Cache after an application has been installed.
 kde4-base_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	gnome2_icon_cache_update
 	buildsycoca
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
@@ -980,5 +990,6 @@ kde4-base_pkg_postinst() {
 kde4-base_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	gnome2_icon_cache_update
 	buildsycoca
 }

@@ -18,10 +18,10 @@ inherit kde4-base toolchain-funcs versionator
 
 case ${EAPI:-0} in
 	3)
-		KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm"
+		KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
 		;;
 	*)
-		KDEMETA_EXPF="pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_postinst pkg_postrm"
+		KDEMETA_EXPF="pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
 		;;
 esac
 EXPORT_FUNCTIONS ${KDEMETA_EXPF}
@@ -721,6 +721,15 @@ kde4-meta_src_install() {
 	done
 
 	kde4-base_src_install
+}
+
+# @FUNCTION: kde4-meta_pkg_preinst
+# @DESCRIPTION:
+# Invoke its equivalent in kde4-base.eclass.
+kde4-meta_pkg_preinst() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	kde4-base_pkg_preinst
 }
 
 # @FUNCTION: kde4-meta_pkg_postinst
