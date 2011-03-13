@@ -24,8 +24,6 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep pykde4)
 "
 
-PATCHES=( "${FILESDIR}/${PN}"-4.6.1-enablefinal.patch )
-
 pkg_setup() {
 	kde4-meta_pkg_setup
 	python_set_active_version 2
