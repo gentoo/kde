@@ -297,6 +297,22 @@
 ~kde-base/kimagemapeditor-4.6.9999 **
 ~kde-base/klinkstatus-4.6.9999 **
 ~kde-base/kommander-4.6.9999 **
+
+# koffice-2.2.2 wont build anymore with kde-4.6, so we 
+# keyword 2.3.3 plus dependencies (?) here to provide a smooth upgrade
+#
+~app-office/karbon-2.3.3
+~app-office/kexi-2.3.3
+~app-office/koffice-data-2.3.3
+~app-office/koffice-l10n-2.3.3
+~app-office/koffice-libs-2.3.3
+~app-office/koffice-meta-2.3.3
+~app-office/kplato-2.3.3
+~app-office/kpresenter-2.3.3
+~app-office/krita-2.3.3
+~app-office/kspread-2.3.3
+~app-office/kword-2.3.3
+
 ~kde-base/kdebase-meta-4.6.9999 **
 ~kde-base/kde-meta-4.6.9999 **
 # Version is unrelated, KDE printing won't be stabilized
