@@ -19,7 +19,9 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	crypt? ( app-crypt/qca:2 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	crypt? ( app-crypt/qca-ossl )
+"
 
 src_configure() {
 	mycmakeargs=($(cmake-utils_use_with crypt QCA2))
