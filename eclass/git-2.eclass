@@ -62,13 +62,6 @@ git-2_init_variables() {
 	# @DESCRIPTION:
 	# URI for the repository
 	# e.g. http://foo, git://bar
-	# Supported protocols:
-	#   http://
-	#   https://
-	#   git://
-	#   git+ssh://
-	#   rsync://
-	#   ssh://
 	#
 	# Support multiple values:
 	# EGIT_REPO_URI="git://a/b.git http://c/d.git"
