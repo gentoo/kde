@@ -193,13 +193,14 @@ kde4-meta_src_extract() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		local rsync_options subdir kmnamedir targetdir wc_path escm
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
 
 		case "${KDE_SCM}" in
 			svn)
+				local rsync_options subdir kmnamedir targetdir wc_path escm
+
 				rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 				wc_path="${ESVN_WC_PATH}"
 				escm="{ESVN}"
@@ -235,15 +236,10 @@ kde4-meta_src_extract() {
 			kdebase-apps)
 				# kdebase/apps -> kdebase-apps
 				tarball="kdebase-${PV}.tar.${postfix}"
-				case ${PV} in
-					4.6.1)
-						;;
-					*)
-						# Go one level deeper for kdebase-apps in tarballs
-						moduleprefix=apps/
-						KMTARPARAMS+=" --transform=s|apps/||"
-						;;
-				esac
+				if ! slot_is_at_least 4.6 ${SLOT} || [[ ${PV} == "4.6.0" ]]; then
+					moduleprefix=apps/
+					KMTARPARAMS+=" --transform=s|apps/||"
+				fi
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
@@ -335,18 +331,15 @@ kde4-meta_create_extractlists() {
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
 		kdebase)
-			case ${PV} in
-				4.6.1)
-					KMEXTRACTONLY+="
-						config-apps.h.cmake
-						ConfigureChecks.cmake"
-						;;
-					*)
-					KMEXTRACTONLY+="
-						apps/config-apps.h.cmake
-						apps/ConfigureChecks.cmake"
-						;;
-				esac
+			if ! slot_is_at_least 4.6 ${SLOT} || [[ ${PV} == "4.6.0" ]]; then
+				KMEXTRACTONLY+="
+					apps/config-apps.h.cmake
+					apps/ConfigureChecks.cmake"
+			else
+				KMEXTRACTONLY+="
+					config-apps.h.cmake
+					ConfigureChecks.cmake"
+			fi
 			;;
 		kdebase-apps)
 			KMEXTRACTONLY+="
@@ -414,19 +407,15 @@ kde4-meta_create_extractlists() {
 			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
-	case ${KMNAME} in
-		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
-			case ${PN} in
-				libkdegames|libkdeedu|libkworkspace)
-					KMEXTRA+="
-						cmake/modules/"
-					;;
-				*)
-					KMCOMPILEONLY+="
-						cmake/modules/"
-					;;
-			esac
-		;;
+	case ${PN} in
+		libkdegames|libkdeedu|libkworkspace)
+			KMEXTRA+="
+				cmake/modules/"
+			;;
+		*)
+			KMCOMPILEONLY+="
+				cmake/modules/"
+			;;
 	esac
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
