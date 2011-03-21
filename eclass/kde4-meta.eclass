@@ -168,16 +168,19 @@ kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${BUILD_TYPE} = live ]]; then
-		if [[ "$KDE_SCM" == "svn" ]]; then
-			migrate_store_dir
-			S="${WORKDIR}/${P}"
-			mkdir -p "${S}"
-			ESVN_RESTRICT="export" subversion_src_unpack
-			subversion_wc_info
-			subversion_bootstrap
-		elif [[ "${KDE_SCM}" == "git" ]]; then
-			git-2_src_unpack
-		fi
+		case "${KDE_SCM}" in
+			svn)
+				migrate_store_dir
+				S="${WORKDIR}/${P}"
+				mkdir -p "${S}"
+				ESVN_RESTRICT="export" subversion_src_unpack
+				subversion_wc_info
+				subversion_bootstrap
+				;;
+			git)
+				git-2_src_unpack
+				;;
+		esac
 	fi
 	kde4-meta_src_extract
 }
