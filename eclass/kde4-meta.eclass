@@ -410,15 +410,19 @@ kde4-meta_create_extractlists() {
 			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
-	case ${PN} in
-		libkdegames|libkdeedu|libkworkspace)
-			KMEXTRA+="
-				cmake/modules/"
-			;;
-		*)
-			KMCOMPILEONLY+="
-				cmake/modules/"
-			;;
+	case ${KMNAME} in
+		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
+			case ${PN} in
+				libkdegames|libkdeedu|libkworkspace)
+					KMEXTRA+="
+						cmake/modules/"
+					;;
+				*)
+					KMCOMPILEONLY+="
+						cmake/modules/"
+					;;
+			esac
+		;;
 	esac
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
