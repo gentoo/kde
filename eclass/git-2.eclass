@@ -5,7 +5,8 @@
 # @ECLASS: git-2.eclass
 # @MAINTAINER:
 # Tomas Chvatal <scarabeus@gentoo.org>
-# @BLURB: This eclass provides functions for fetch and unpack git repositories
+# @BLURB:
+# This eclass provides functions for fetching and unpacking git repositories.
 # @DESCRIPTION:
 # Eclass for easing maitenance of live ebuilds using git as remote repository.
 # Eclass support working with git submodules and branching.
@@ -26,6 +27,8 @@ EGIT_SOURCEDIR="${WORKDIR}/${P}"
 # all the variables before and after inherit.
 git-2_init_variables() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	local x
 
 	# @ECLASS-VARIABLE: EGIT_STORE_DIR
 	# @DESCRIPTION:
@@ -65,12 +68,8 @@ git-2_init_variables() {
 	#
 	# Support multiple values:
 	# EGIT_REPO_URI="git://a/b.git http://c/d.git"
-	eval X="\$${PN//[-+]/_}_LIVE_REPO"
-	if [[ ${X} = "" ]]; then
-		: ${EGIT_REPO_URI:=}
-	else
-		EGIT_REPO_URI="${X}"
-	fi
+	eval x="\$${PN//[-+]/_}_LIVE_REPO"
+	EGIT_REPO_URI=${x:-${EGIT_REPO_URI}}
 	[[ -z ${EGIT_REPO_URI} ]] && die "EGIT_REPO_URI must have some value."
 
 	# @ECLASS-VARIABLE: EVCS_OFFLINE
@@ -83,22 +82,14 @@ git-2_init_variables() {
 	# @ECLASS-VARIABLE: EGIT_BRANCH
 	# @DESCRIPTION:
 	# Specify the branch we want to check out from the repository
-	eval X="\$${PN//[-+]/_}_LIVE_BRANCH"
-	if [[ "${X}" = "" ]]; then
-		: ${EGIT_BRANCH:=${EGIT_MASTER}}
-	else
-		EGIT_BRANCH="${X}"
-	fi
+	eval x="\$${PN//[-+]/_}_LIVE_BRANCH"
+	EGIT_BRANCH=${x:-${EGIT_BRANCH:=${EGIT_MASTER}}}
 
 	# @ECLASS-VARIABLE: EGIT_COMMIT
 	# @DESCRIPTION:
 	# Specify commit we want to check out from the repository.
-	eval X="\$${PN//[-+]/_}_LIVE_COMMIT"
-	if [[ "${X}" = "" ]]; then
-		: ${EGIT_COMMIT:=${EGIT_BRANCH}}
-	else
-		EGIT_COMMIT="${X}"
-	fi
+	eval x="\$${PN//[-+]/_}_LIVE_COMMIT"
+	EGIT_COMMIT=${x:-${EGIT_COMMIT:=${EGIT_BRANCH}}}
 
 	# @ECLASS-VARIABLE: EGIT_REPACK
 	# @DESCRIPTION:
@@ -410,7 +401,7 @@ git-2_src_unpack() {
 
 	git-2_init_variables
 	git-2_prepare_storedir
-	git-2_fetch $@
+	git-2_fetch "$@"
 	git-2_gc
 	git-2_move_source
 	git-2_branch
