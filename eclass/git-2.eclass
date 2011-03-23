@@ -5,8 +5,7 @@
 # @ECLASS: git-2.eclass
 # @MAINTAINER:
 # Tomas Chvatal <scarabeus@gentoo.org>
-# @BLURB:
-# This eclass provides functions for fetching and unpacking git repositories.
+# @BLURB: Eclass for fetching and unpacking git repositories.
 # @DESCRIPTION:
 # Eclass for easing maitenance of live ebuilds using git as remote repository.
 # Eclass support working with git submodules and branching.
@@ -70,7 +69,7 @@ git-2_init_variables() {
 	# EGIT_REPO_URI="git://a/b.git http://c/d.git"
 	eval x="\$${PN//[-+]/_}_LIVE_REPO"
 	EGIT_REPO_URI=${x:-${EGIT_REPO_URI}}
-	[[ -z ${EGIT_REPO_URI} ]] && die "EGIT_REPO_URI must have some value."
+	[[ -z ${EGIT_REPO_URI} ]] && die "EGIT_REPO_URI must have some value"
 
 	# @ECLASS-VARIABLE: EVCS_OFFLINE
 	# @DESCRIPTION:
@@ -83,13 +82,13 @@ git-2_init_variables() {
 	# @DESCRIPTION:
 	# Specify the branch we want to check out from the repository
 	eval x="\$${PN//[-+]/_}_LIVE_BRANCH"
-	EGIT_BRANCH=${x:-${EGIT_BRANCH:=${EGIT_MASTER}}}
+	EGIT_BRANCH=${x:-${EGIT_BRANCH:-${EGIT_MASTER}}}
 
 	# @ECLASS-VARIABLE: EGIT_COMMIT
 	# @DESCRIPTION:
 	# Specify commit we want to check out from the repository.
 	eval x="\$${PN//[-+]/_}_LIVE_COMMIT"
-	EGIT_COMMIT=${x:-${EGIT_COMMIT:=${EGIT_BRANCH}}}
+	EGIT_COMMIT=${x:-${EGIT_COMMIT:-${EGIT_BRANCH}}}
 
 	# @ECLASS-VARIABLE: EGIT_REPACK
 	# @DESCRIPTION:
@@ -111,21 +110,20 @@ git-2_init_variables() {
 git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ "$#" -ne 1 ]] && die "${FUNCNAME}: requires 1 argument (path)"
+	[[ $# -ne 1 ]] && die "${FUNCNAME}: requires exactly 1 argument (path)"
 
 	debug-print "${FUNCNAME}: working in \"${1}\""
-	pushd "${1}" &> /dev/null
+	pushd "${1}" > /dev/null
 
 	# for submodules operations we need to be online
 	if [[ -z ${EVCS_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
 		export GIT_DIR=${EGIT_DIR}
 		debug-print "${FUNCNAME}: git submodule init"
-		git submodule init \
-			|| die "${FUNCNAME}: git submodule initialisation failed"
+		git submodule init || die
 		debug-print "${FUNCNAME}: git submodule sync"
-		git submodule sync "" die "${FUNCNAME}: git submodule sync failed"
+		git submodule sync "" die
 		debug-print "${FUNCNAME}: git submodule update"
-		git submodule update || die "${FUNCNAME}: git submodule update failed"
+		git submodule update || die
 		unset GIT_DIR
 	fi
 
@@ -140,10 +138,10 @@ git-2_branch() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	debug-print "${FUNCNAME}: working in \"${EGIT_SOURCEDIR}\""
-	pushd "${EGIT_SOURCEDIR}" &> /dev/null
+	pushd "${EGIT_SOURCEDIR}" > /dev/null
 
 	local branchname=branch-${EGIT_BRANCH} src=origin/${EGIT_BRANCH}
-	if [[ "${EGIT_COMMIT}" != "${EGIT_BRANCH}" ]]; then
+	if [[ ${EGIT_COMMIT} != ${EGIT_BRANCH} ]]; then
 		branchname=tree-${EGIT_COMMIT}
 		src=${EGIT_COMMIT}
 	fi
@@ -162,7 +160,7 @@ git-2_branch() {
 git-2_gc() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	pushd "${EGIT_DIR}" &> /dev/null
+	pushd "${EGIT_DIR}" > /dev/null
 	if [[ -n ${EGIT_REPACK} || -n ${EGIT_PRUNE} ]]; then
 		ebegin "Garbage collecting the repository"
 		local args
@@ -171,7 +169,7 @@ git-2_gc() {
 		git gc ${args}
 		eend $?
 	fi
-	popd &> /dev/null
+	popd > /dev/null
 }
 
 # @FUNCTION: git-2_prepare_storedir
@@ -182,16 +180,14 @@ git-2_prepare_storedir() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local clone_dir
-	local save_sandbox_write=${SANDBOX_WRITE}
 
 	# initial clone, we have to create master git storage directory and play
 	# nicely with sandbox
-	if [[ ! -d "${EGIT_STORE_DIR}" ]] ; then
+	if [[ ! -d ${EGIT_STORE_DIR} ]]; then
 		debug-print "${FUNCNAME}: Creating git main storage directory"
 		addwrite /
 		mkdir -p "${EGIT_STORE_DIR}" \
-			|| die "${FUNCNAME}: can't mkdir \"${EGIT_STORE_DIR}\"."
-		SANDBOX_WRITE=${save_sandbox_write}
+			|| die "${FUNCNAME}: can't mkdir \"${EGIT_STORE_DIR}\""
 	fi
 
 	cd -P "${EGIT_STORE_DIR}" \
@@ -206,14 +202,14 @@ git-2_prepare_storedir() {
 
 	# we can not jump between using and not using SUBMODULES so we need to
 	# refetch the source when needed
-	if [[ -d "${EGIT_DIR}" && ! -d "${EGIT_DIR}"/.git ]]; then
+	if [[ -d ${EGIT_DIR} && ! -d ${EGIT_DIR}/.git ]]; then
 		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy moving..."
 		mv "${EGIT_DIR}" "${EGIT_DIR}.bare" \
-			|| die "${FUNCNAME}: Moving the bare sources failed."
+			|| die "${FUNCNAME}: Moving the bare sources failed"
 
 	fi
 	# Tell user that he can remove his bare repository. It is not used.
-	if [[ -d "${EGIT_DIR}.bare" ]]; then
+	if [[ -d ${EGIT_DIR}.bare ]]; then
 		einfo "Found GIT bare repository at \"${EGIT_DIR}.bare\"."
 		einfo "This folder can be safely removed to save space."
 	fi
@@ -225,11 +221,11 @@ git-2_prepare_storedir() {
 git-2_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	pushd "${EGIT_DIR}" &> /dev/null
+	pushd "${EGIT_DIR}" > /dev/null
 	debug-print "${FUNCNAME}: rsync -rlpgo . \"${EGIT_SOURCEDIR}\""
-	rsync -rlpgo . "${EGIT_SOURCEDIR}" \
+	cp -pPR . "${EGIT_SOURCEDIR}" \
 		|| die "${FUNCNAME}: sync to \"${EGIT_SOURCEDIR}\" failed"
-	popd &> /dev/null
+	popd > /dev/null
 }
 
 # @FUNCTION: git-2_initial_clone
@@ -240,6 +236,7 @@ git-2_initial_clone() {
 
 	local repo_uri
 
+	EGIT_REPO_URI_SELECTED=""
 	for repo_uri in ${EGIT_REPO_URI}; do
 		debug-print "${FUNCNAME}: ${EGIT_FETCH_CMD} ${EGIT_OPTIONS} \"${repo_uri}\" \"${EGIT_DIR}\""
 		${EGIT_FETCH_CMD} ${EGIT_OPTIONS} "${repo_uri}" "${EGIT_DIR}"
@@ -252,7 +249,7 @@ git-2_initial_clone() {
 	done
 
 	if [[ -z ${EGIT_REPO_URI_SELECTED} ]]; then
-		die "${FUNCNAME}: can't fetch from ${EGIT_REPO_URI}."
+		die "${FUNCNAME}: can't fetch from ${EGIT_REPO_URI}"
 	fi
 }
 
@@ -266,11 +263,12 @@ git-2_update_repo() {
 
 	# checkout master branch and drop all other local branches
 	git checkout ${EGIT_MASTER}
-	for x in $(git branch |grep -v "* ${EGIT_MASTER}" |tr '\n' ' '); do
+	for x in $(git branch | grep -v "* ${EGIT_MASTER}" | tr '\n' ' '); do
 		debug-print "${FUNCNAME}: git branch -D ${x}"
 		git branch -D ${x}
 	done
 
+	EGIT_REPO_URI_SELECTED=""
 	for repo_uri in ${EGIT_REPO_URI}; do
 		# git urls might change, so reset it
 		git config remote.origin.url "${repo_uri}"
@@ -287,7 +285,7 @@ git-2_update_repo() {
 	done
 
 	if [[ -z ${EGIT_REPO_URI_SELECTED} ]]; then
-		die "${FUNCNAME}: can't update from ${EGIT_REPO_URI_SELECTED}."
+		die "${FUNCNAME}: can't update from ${EGIT_REPO_URI}"
 	fi
 }
 
@@ -302,25 +300,25 @@ git-2_fetch() {
 
 	upstream_branch=origin/${EGIT_BRANCH}
 
-	if [[ ! -d ${EGIT_DIR} ]] ; then
+	if [[ ! -d ${EGIT_DIR} ]]; then
 		git-2_initial_clone
-		pushd "${EGIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" > /dev/null
 		cursha=$(git rev-parse ${upstream_branch})
 		einfo "GIT NEW clone -->"
 		einfo "   repository:               ${EGIT_REPO_URI_SELECTED}"
 		einfo "   at the commit:            ${cursha}"
 
 		git-2_submodules "${EGIT_DIR}"
-		popd &> /dev/null
-	elif [[ -n ${EVCS_OFFLINE} ]] ; then
-		pushd "${EGIT_DIR}" &> /dev/null
+		popd > /dev/null
+	elif [[ -n ${EVCS_OFFLINE} ]]; then
+		pushd "${EGIT_DIR}" > /dev/null
 		cursha=$(git rev-parse ${upstream_branch})
 		einfo "GIT offline update -->"
 		einfo "   repository:               $(git config remote.origin.url)"
 		einfo "   at the commit:            ${cursha}"
-		popd &> /dev/null
+		popd 	> /dev/null
 	else
-		pushd "${EGIT_DIR}" &> /dev/null
+		pushd "${EGIT_DIR}" > /dev/null
 		oldsha=$(git rev-parse ${upstream_branch})
 		git-2_update_repo
 		cursha=$(git rev-parse ${upstream_branch})
@@ -340,12 +338,12 @@ git-2_fetch() {
 
 		# print nice statistic of what was changed
 		git --no-pager diff --stat ${oldsha}..${upstream_branch}
-		popd &> /dev/null
+		popd > /dev/null
 	fi
 	# export the version the repository is at
 	export EGIT_VERSION="${cursha1}"
 	# log the repo state
-	[[ "${EGIT_COMMIT}" != "${EGIT_BRANCH}" ]] \
+	[[ ${EGIT_COMMIT} != ${EGIT_BRANCH} ]] \
 		&& einfo "   commit:                   ${EGIT_COMMIT}"
 	einfo "   branch:                   ${EGIT_BRANCH}"
 	einfo "   storage directory:        \"${EGIT_DIR}\""
@@ -364,8 +362,8 @@ git-2_bootstrap() {
 	# enviroment the package will fail if there is no update, thus in
 	# combination with --keep-going it would lead in not-updating
 	# pakcages that are up-to-date.
-	if [[ -n ${EGIT_BOOTSTRAP} ]] ; then
-		pushd "${EGIT_SOURCEDIR}" &> /dev/null
+	if [[ -n ${EGIT_BOOTSTRAP} ]]; then
+		pushd "${EGIT_SOURCEDIR}" > /dev/null
 		einfo "Starting bootstrap"
 
 		if [[ -f ${EGIT_BOOTSTRAP} ]]; then
@@ -378,14 +376,14 @@ git-2_bootstrap() {
 			else
 				eerror "\"${EGIT_BOOTSTRAP}\" is not executable."
 				eerror "Report upstream, or bug ebuild maintainer to remove bootstrap command."
-				die "\"${EGIT_BOOTSTRAP}\" is not executable."
+				die "\"${EGIT_BOOTSTRAP}\" is not executable"
 			fi
 		else
 			# we execute some system command
 			debug-print "${FUNCNAME}: bootstraping with commands \"${EGIT_BOOTSTRAP}\""
 
 			eval "${EGIT_BOOTSTRAP}" \
-				|| die "${FUNCNAME}: bootstrap commands failed."
+				|| die "${FUNCNAME}: bootstrap commands failed"
 		fi
 
 		einfo "Bootstrap finished"
