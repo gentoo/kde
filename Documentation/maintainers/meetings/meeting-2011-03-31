@@ -6,10 +6,8 @@ agenda suggestions:
    "The problem is that bindings are not prefixed, and a possible fix (proposed 
     by reavertm) would be to slot sip. tampakrap said he'll work on this, and bring 
     the topic back in next meeting."
-4) Making +consolekit and +policikit or removing the useflags as whole (non working stuff run-as is annoying)
+4) Making +consolekit and +policikit on by default or removing the useflags as whole (non working stuff run-as is annoying)
    "No consensus was reached, the topic will be continued in the gentoo-desktop mailing list."
    Mailing list query resulted in two user voices for "default on but still configurable"
-5) AT/overlay/bugzie access policy
-   any news here?
-6) 4.6 status / stabilization / important bugs
+5) 4.6 status / stabilization / important bugs
 
