@@ -384,7 +384,7 @@ if [[ ${PN} != oxygen-icons ]]; then
 fi
 
 # add dependency over kde-l10n if EAPI4 is around
-if [[ KDEBASE != "kde-base" && -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
+if [[ ${KDEBASE} != "kde-base" ]] && [[ -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
 	for _lingua in ${KDE_LINGUAS}; do
 		# if our package has lignuas pull in kde-l10n with selected lingua
 		kderdepend+=" $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)")"
