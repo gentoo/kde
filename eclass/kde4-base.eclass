@@ -383,12 +383,16 @@ if [[ ${PN} != oxygen-icons ]]; then
 	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
 fi
 
-# add dependency over kde-l10n if EAPI4 is around
+# add a dependency over kde-l10n if EAPI4 is around
 if [[ ${KDEBASE} != "kde-base" ]] && [[ -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
+	usedep=''
 	for _lingua in ${KDE_LINGUAS}; do
-		# if our package has lignuas pull in kde-l10n with selected lingua
-		kderdepend+=" $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)")"
+		[[ -n ${usedep} ]] && usedep="${usedep},"
+		usedep="${usedep}linguas_${_lingua}(+)?"
 	done
+	# if our package has lignuas pull in kde-l10n with selected lingua
+	kderdepend+=" $(add_kdebase_dep kde-l10n ${usedep})"
+	unset usedep _lingua
 fi
 
 kdehandbookdepend="
