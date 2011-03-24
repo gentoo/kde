@@ -12,7 +12,7 @@
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
 +xdgs=$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/share/\?:##g;s/:$//g')
-+if [ $(echo $xdgs |grep -c -w "${_KDEDIR}/share") -eq 0 ]; then
++if [ $(echo $xdgs |grep -c -E "(:|^)${_KDEDIR}/share(:|$)") -eq 0 ]; then
 +	xdgs="${_KDEDIR}/share:${xdgs}"
 +fi
 +export XDG_DATA_DIRS=${xdgs}
