@@ -1,7 +1,6 @@
-diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/startkde.cmake
---- kdebase-startkde-4.2.0-orig/startkde.cmake	2009-01-17 05:00:28.000000000 -0600
-+++ kdebase-startkde-4.2.0/startkde.cmake	2009-02-21 12:52:02.000000000 -0600
-@@ -7,6 +7,35 @@
+--- startkde.cmake.old	2011-03-24 13:07:04.919889148 +0100
++++ startkde.cmake	2011-03-24 13:14:42.033174445 +0100
+@@ -13,6 +13,40 @@
  # because we still need to do some cleanup.
  trap 'echo GOT SIGHUP' HUP
  
@@ -12,7 +11,12 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
 +fi
 +@REPLACE_LDPATH@
 +export STRIGI_PLUGIN_PATH="${_KDEDIR}/@REPLACE_LIBDIR@/strigi:${STRIGI_PLUGIN_PATH}"
-+export XDG_DATA_DIRS=${_KDEDIR}/share:$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/share/\?:##g;s/:$//g')
++xdgs=$(echo ${XDG_DATA_DIRS} | sed 's/$/:/g;s#@GENTOO_PORTAGE_EPREFIX@/usr/kde/[^/]*/share/\?:##g;s/:$//g')
++if [ "$xdgs" != *"${_KDEDIR}/share"* ]; then
++	xdgs="${_KDEDIR}/share:${xdgs}"
++fi
++export XDG_DATA_DIRS=${xdgs}
++unset xdgs
 +
 +if [ -z "$HOME" ]; then
 +	xmessage "HOME is unset. Your user config seems to be broken. Aborting."
@@ -37,7 +41,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
  # Check if a KDE session already is running and whether it's possible to connect to X
  kcheckrunning
  kcheckrunning_result=$?
-@@ -214,6 +243,13 @@
+@@ -187,6 +221,13 @@
    done
  done
  
@@ -51,7 +55,7 @@ diff -Naur kdebase-startkde-4.2.0-orig/startkde.cmake kdebase-startkde-4.2.0/sta
  # Set the path for Qt plugins provided by KDE
  if test -n "$QT_PLUGIN_PATH"; then
    QT_PLUGIN_PATH="$QT_PLUGIN_PATH:`kde4-config --path qtplugins`"
-@@ -427,6 +463,13 @@
+@@ -400,6 +441,13 @@
    done
  done
  
