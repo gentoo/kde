@@ -20,7 +20,7 @@
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde4-functions fdo-mime gnome2-utils base virtualx eutils
+inherit kde4-functions fdo-mime gnome2-utils base virtualx versionator eutils
 
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -64,15 +64,19 @@ KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
+		major=$(get_major_version)
+		minor=$(get_version_component_range 2)
+		micro=$(get_version_component_range 3)
 		# Determine SLOT from PVs
-		case ${PV} in
-			*.9999*) SLOT="${PV/.9999*/}" ;; # stable live
-			4.6* | 4.5.[6-9][0-9]*) SLOT="4.6" ;;
-			4.5* | 4.4.[6-9][0-9]*) SLOT="4.5" ;;
-			4.4* | 4.3.[6-9][0-9]*) SLOT="4.4" ;;
-			9999*) SLOT="live" ;; # regular live
-			*) die "Unsupported ${PV}" ;;
-		esac
+		[[ ${PV} == 9999* ]] && SLOT=live # regular live
+		[[ ${major} -eq 4 && ${micro} == 9999 ]] && SLOT=${major}.${minor} # stable live
+		if [[ ${major} -eq 4 && ${micro} != 9999 ]]; then
+			[[ ${micro} -lt 60 ]] && \
+				SLOT=${major}.${minor}
+			[[ ${micro} -ge 60 ]] &&
+				SLOT=${major}.$(($minor + 1))
+		fi
+		[[ -z ${SLOT} ]] && die "Unsupported ${PV}"
 		KDE_MINIMAL="${SLOT}"
 		;;
 	koffice)
@@ -387,8 +391,8 @@ fi
 if [[ ${KDEBASE} != "kde-base" ]] && [[ -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
 	usedep=''
 	for _lingua in ${KDE_LINGUAS}; do
-		[[ -n ${usedep} ]] && usedep="${usedep},"
-		usedep="${usedep}linguas_${_lingua}(+)?"
+		[[ -n ${usedep} ]] && usedep+=","
+		usedep+="linguas_${_lingua}(+)?"
 	done
 	# if our package has lignuas pull in kde-l10n with selected lingua
 	kderdepend+=" $(add_kdebase_dep kde-l10n ${usedep})"
