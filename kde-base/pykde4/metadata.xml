@@ -4,5 +4,6 @@
 <herd>kde</herd>
 <use>
 	<flag name="semantic-desktop">Enables Nepomuk and Soprano python language bindings</flag>
+	<flag name="qscintilla">Enables QScintilla python language bindings</flag>
 </use>
 </pkgmetadata>

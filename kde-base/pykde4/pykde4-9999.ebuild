@@ -20,13 +20,14 @@ inherit python kde4-meta
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="debug doc examples semantic-desktop"
+IUSE="debug doc examples qscintilla semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time
 DEPEND="
 	!dev-python/pykde
 	>=dev-python/sip-4.12
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
+	qscintilla? ( x11-libs/qscintilla )
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 	aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,X] )
@@ -52,7 +53,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
-		-DWITH_QScintilla=OFF
+		$(cmake-utils_use_with qscintilla)
 		-DWITH_PolkitQt=OFF
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
