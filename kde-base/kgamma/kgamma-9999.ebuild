@@ -4,13 +4,11 @@
 
 EAPI=3
 
+KDE_HANDBOOK="optional"
 if [[ ${PV} == *9999 ]]; then
-# Not sure how this should be handled...
-KDE_HANDBOOK="required"
 KDE_SCM="git"
 inherit kde4-base
 else
-KDE_HANDBOOK="optional"
 KMNAME="kdegraphics"
 inherit kde4-meta
 fi
