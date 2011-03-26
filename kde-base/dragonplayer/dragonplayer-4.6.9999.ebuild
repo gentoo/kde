@@ -13,11 +13,20 @@ HOMEPAGE="http://www.dragonplayer.net/"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="debug"
+IUSE="debug xine"
 
 RDEPEND="
 	>=media-sound/phonon-4.4.3
+	xine? ( media-libs/xine-lib[xcb] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with xine)
+	)
+
+	kde4-meta_src_configure
+}
