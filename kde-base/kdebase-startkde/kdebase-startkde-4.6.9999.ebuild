@@ -102,8 +102,8 @@ src_install() {
 	fi
 
 	# x11 session script
-	cat <<-EOF > "${T}/${KDE_X}"
-	#!/bin/sh
+	cp "${FILESDIR}/sessionfile" "${T}/${KDE_X}" || die
+	cat <<-EOF >> "${T}/${KDE_X}"
 	exec "${EKDEDIR}/bin/startkde"
 	EOF
 	exeinto /etc/X11/Sessions
