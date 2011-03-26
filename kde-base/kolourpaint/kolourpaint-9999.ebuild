@@ -4,13 +4,11 @@
 
 EAPI=3
 
+KDE_HANDBOOK="optional"
 if [[ ${PV} == *9999 ]]; then
-# Not sure how to handle this...
-KDE_HANDBOOK="required"
 KDE_SCM="git"
 inherit kde4-base
 else
-KDE_HANDBOOK="optional"
 KMNAME="kdegraphics"
 inherit kde4-meta
 fi
@@ -19,3 +17,14 @@ DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
 IUSE="debug"
+
+if [[ ${PV} == *9999 ]]; then
+src_prepare() {
+	# Upstream forgot to add_subdirectory(doc), so HACK it in
+	if ! grep -qi '^[[:space:]]*add_subdirectory[[:space:]]*([[:space:]]*doc[[:space:]]*)' CMakeLists.txt; then
+		echo "add_subdirectory(doc)" >> CMakeLists.txt
+	fi
+
+	kde4-base_src_prepare
+}
+fi
