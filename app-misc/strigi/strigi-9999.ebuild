@@ -36,7 +36,7 @@ COMMONDEPEND="
 	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
-	ffmpeg? ( media-video/ffmpeg )
+	ffmpeg? ( virtual/ffmpeg )
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (

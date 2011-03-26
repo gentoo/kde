@@ -34,7 +34,7 @@ DEPEND="
 	$(add_kdebase_dep libkcddb)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
-	ffmpeg? ( >=media-video/ffmpeg-0.5 )
+	ffmpeg? ( virtual/ffmpeg )
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	encode? ( lame? ( media-sound/lame ) )
 	mad? ( media-libs/libmad )

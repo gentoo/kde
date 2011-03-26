@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-video/ffmpeg
+	virtual/ffmpeg
 "
 RDEPEND="${DEPEND}"

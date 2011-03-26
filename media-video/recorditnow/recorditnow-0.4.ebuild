@@ -21,7 +21,7 @@ IUSE="debug ffmpeg mplayer"
 # Silly upstream has no clue about runtime and buildtime deps...
 CDEPEND="
 	x11-libs/libXfixes
-	ffmpeg? ( media-video/ffmpeg )
+	ffmpeg? ( virtual/ffmpeg )
 	mplayer? ( media-video/mplayer )
 "
 DEPEND="${CDEPEND}
