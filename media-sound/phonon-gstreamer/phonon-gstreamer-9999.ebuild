@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="alsa pulseaudio"
 
 COMMON_DEPEND="
-	>=media-sound/phonon-4.4.4
+	>=media-libs/phonon-4.4.4
 	media-libs/gstreamer
 	media-plugins/gst-plugins-meta[alsa?]
 	pulseaudio? (

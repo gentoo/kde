@@ -16,7 +16,7 @@ IUSE="debug"
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep kdepim-common-libs)
-	media-sound/phonon
+	media-libs/phonon
 "
 DEPEND="${RDEPEND}"
 

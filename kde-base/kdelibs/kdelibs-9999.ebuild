@@ -34,7 +34,7 @@ COMMONDEPEND="
 	media-libs/freetype:2
 	media-libs/giflib
 	>=media-libs/libpng-1.4
-	>=media-sound/phonon-4.4.3
+	>=media-libs/phonon-4.4.3
 	sys-libs/zlib
 	virtual/jpeg
 	>=x11-misc/shared-mime-info-0.60

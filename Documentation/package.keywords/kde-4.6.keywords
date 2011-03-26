@@ -331,7 +331,7 @@ dev-python/pycups
 ~sys-auth/polkit-kde-agent-0.99.0
 ~sys-auth/polkit-qt-0.99.0
 ~gnome-extra/polkit-gnome-0.99
-~media-sound/phonon-4.4.4
+~media-libs/phonon-4.4.4
 ~media-sound/phonon-gstreamer-4.4.4
 ~media-sound/phonon-vlc-4.4.4
 ~media-sound/phonon-xine-4.4.4

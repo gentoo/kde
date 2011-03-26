@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 IUSE="debug xine"
 
 RDEPEND="
-	>=media-sound/phonon-4.4.3
+	>=media-libs/phonon-4.4.3
 	xine? ( media-libs/xine-lib[xcb] )
 "
 DEPEND="${RDEPEND}

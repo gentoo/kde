@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	>=media-sound/phonon-4.4.0
+	>=media-libs/phonon-4.4.0
 	>=media-video/vlc-1.1
 	>=x11-libs/qt-test-4.4.0:4
 	>=x11-libs/qt-dbus-4.4.0:4

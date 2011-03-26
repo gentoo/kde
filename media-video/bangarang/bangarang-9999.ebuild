@@ -20,7 +20,7 @@ IUSE="debug"
 RDEPEND="
 	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
 	media-libs/taglib
-	media-sound/phonon
+	media-libs/phonon
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

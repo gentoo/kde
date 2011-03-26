@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="aqua pulseaudio +xcb"
 
 COMMON_DEPEND="
-	>=media-sound/phonon-4.4.4
+	>=media-libs/phonon-4.4.4
 	>=media-libs/xine-lib-1.1.15-r1[xcb?]
 	pulseaudio? (
 		dev-libs/glib:2
