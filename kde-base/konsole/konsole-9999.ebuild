@@ -10,6 +10,7 @@ EGIT_REPONAME="konsole"
 KDE_SCM="git"
 
 if [[ ${PV} = *9999* ]]; then
+	KDE_DOC_DIRS="doc/manual"
 	inherit kde4-base
 else
 	inherit kde4-meta
