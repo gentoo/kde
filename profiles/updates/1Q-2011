@@ -1,2 +1,3 @@
 slotmove net-misc/ksshaskpass 0 4
 move media-sound/phonon media-libs/phonon
+move media-sound/phonon-gstreamer media-libs/phonon-gstreamer

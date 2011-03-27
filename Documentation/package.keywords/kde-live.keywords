@@ -124,7 +124,7 @@
 ~dev-util/automoc-9999 **
 ~app-misc/strigi-9999 **
 ~media-libs/phonon-9999 **
-~media-sound/phonon-gstreamer-9999 **
+~media-libs/phonon-gstreamer-9999 **
 ~media-sound/phonon-vlc-9999 **
 ~media-sound/phonon-xine-9999 **
 ~sys-auth/polkit-qt-9999 **
