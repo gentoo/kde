@@ -744,8 +744,23 @@ kde4-base_src_prepare() {
 	# Enable/disable handbooks for kde4-base packages
 	# kde-l10n inherits kde4-base but is metpackage, so no check for doc
 	# kdelibs inherits kde4-base but handle installing the handbook itself
-	if ! has kde4-meta ${INHERITED}; then
-		has handbook ${IUSE//+} && [[ ${PN} != kde-l10n ]] && [[ ${PN} != kdelibs ]] && enable_selected_doc_linguas
+	if ! has kde4-meta ${INHERITED} && has handbook ${IUSE//+}; then
+		if [[ ${KDEBASE} == kde-base ]]; then
+			if [[ ${PN} != kde-l10n && ${PN} != kdelibs ]] && use !handbook; then
+				# documentation in kde4-functions
+				: ${KDE_DOC_DIRS:=doc}
+				local dir
+				for dir in ${KDE_DOC_DIRS}; do
+					sed -e "/^[[:space:]]*add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+						-e "/^[[:space:]]*ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+						-e "/^[[:space:]]*macro_optional_add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+						-e "/^[[:space:]]*MACRO_OPTIONAL_ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+						-i CMakeLists.txt || die "failed to comment out handbook"
+				done
+			fi
+		else
+			enable_selected_doc_linguas
+		fi
 	fi
 
 	# SCM bootstrap
