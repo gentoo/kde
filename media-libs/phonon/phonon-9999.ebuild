@@ -31,7 +31,7 @@ PDEPEND="
 	vlc? ( media-sound/phonon-vlc )
 	xine? ( media-sound/phonon-xine )
 "
-#	gstreamer? ( media-sound/phonon-gstreamer )
+#	gstreamer? ( media-libs/phonon-gstreamer )
 #	directshow? ( media-sound/phonon-directshow )
 #	mmf? ( media-sound/phonon-mmf )
 #	mplayer? ( media-sound/phonon-mplayer )
