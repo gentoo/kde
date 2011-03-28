@@ -334,7 +334,7 @@ dev-python/pycups
 ~media-libs/phonon-4.4.4
 ~media-libs/phonon-gstreamer-4.4.4
 ~media-libs/phonon-vlc-4.4.4
-~media-sound/phonon-xine-4.4.4
+~media-libs/phonon-xine-4.4.4
 # Also unrelated
 x11-misc/google-gadgets
 # Qt 4.7
