@@ -16,7 +16,7 @@ dev-python/pycups
 ~gnome-extra/polkit-gnome-0.99
 ~media-libs/phonon-4.4.4
 ~media-libs/phonon-gstreamer-4.4.4
-~media-sound/phonon-vlc-4.4.4
+~media-libs/phonon-vlc-4.4.4
 ~media-sound/phonon-xine-4.4.4
 # Also unrelated
 x11-misc/google-gadgets
