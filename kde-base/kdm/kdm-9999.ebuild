@@ -10,7 +10,7 @@ inherit kde4-meta flag-o-matic
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"
 KEYWORDS=""
-IUSE="consolekit debug kerberos pam"
+IUSE="+consolekit debug kerberos pam"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
