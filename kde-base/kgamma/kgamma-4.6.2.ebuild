@@ -20,9 +20,10 @@ DEPEND="${RDEPEND}
 "
 
 src_unpack() {
-	if use handbook; then
-		KMEXTRA+=" doc/kcontrol/kgamma"
-	fi
+	# seems not to exist in 4.6.2
+	# if use handbook; then
+	#	KMEXTRA+=" doc/kcontrol/kgamma"
+	# fi
 
 	kde4-meta_src_unpack
 }
