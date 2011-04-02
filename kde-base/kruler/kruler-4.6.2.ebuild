@@ -11,3 +11,6 @@ inherit kde4-meta
 DESCRIPTION="A screen ruler for the K Desktop Environment"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+# Fix for the install dir of the handbook
+PATCHES=( "${FILESDIR}/${P}-fix-handbook.patch" )
