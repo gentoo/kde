@@ -1,0 +1,131 @@
+diff -ruN plasma-workspace-4.6.2.orig/plasma/generic/dataengines/CMakeLists.txt plasma-workspace-4.6.2/plasma/generic/dataengines/CMakeLists.txt
+--- plasma-workspace-4.6.2.orig/plasma/generic/dataengines/CMakeLists.txt	2011-02-25 23:10:02.000000000 +0100
++++ plasma-workspace-4.6.2/plasma/generic/dataengines/CMakeLists.txt	2011-04-02 13:59:01.919795444 +0200
+@@ -25,10 +25,15 @@
+ endif (NEPOMUK_FOUND)
+ 
+ macro_optional_find_package(KdepimLibs 4.5.60)
+-macro_log_feature(KDEPIMLIBS_FOUND "kdepimlibs" "KDE PIM libraries" "http://www.kde.org" FALSE "" "Needed for building several plasma dataengines")
++macro_log_feature(KDEPIMLIBS_FOUND "kdepimlibs" "KDE PIM libraries" "http://www.kde.org" FALSE "" "Needed for building several Plasma DataEngines")
++
++macro_optional_find_package(Akonadi)
++macro_log_feature(AKONADI_FOUND "Akonadi" "Akonadi libraries" "http://pim.kde.org/akonadi/" FALSE "" "Needed for event support in the calendar DataEngine")
+ 
+ if(KDEPIMLIBS_FOUND)
+-   add_subdirectory(akonadi)
++   if(AKONADI_FOUND)
++      add_subdirectory(akonadi)
++   endif(AKONADI_FOUND)
+    add_subdirectory(calendar)
+    add_subdirectory(rss)
+ endif(KDEPIMLIBS_FOUND)
+diff -ruN plasma-workspace-4.6.2.orig/plasma/generic/dataengines/calendar/CMakeLists.txt plasma-workspace-4.6.2/plasma/generic/dataengines/calendar/CMakeLists.txt
+--- plasma-workspace-4.6.2.orig/plasma/generic/dataengines/calendar/CMakeLists.txt	2011-04-01 12:52:43.000000000 +0200
++++ plasma-workspace-4.6.2/plasma/generic/dataengines/calendar/CMakeLists.txt	2011-04-02 14:02:09.274795409 +0200
+@@ -1,7 +1,6 @@
+ project(calendar_engine)
+ 
+ find_package(KdepimLibs REQUIRED)
+-find_package(Akonadi REQUIRED)
+ find_package(Boost REQUIRED)
+ 
+ include_directories(
+@@ -14,16 +13,22 @@
+ 
+ set(calendar_engine_srcs
+     calendarengine.cpp
+-    eventdatacontainer.cpp
+-# taken from kdepim/akonadi/kcal as long as it's not yet exported:
+-    akonadi/calendar.cpp
+-    akonadi/calendarmodel.cpp
+-    akonadi/calfilterproxymodel.cpp
+-    akonadi/utils.cpp
+-    akonadi/blockalarmsattribute.cpp
+-    akonadi/collectionselection.cpp
+ )
+ 
++if(AKONADI_FOUND)
++     ADD_DEFINITIONS(-DAKONADI_FOUND)
++     set(calendar_engine_srcs ${calendar_engine_srcs}
++	eventdatacontainer.cpp
++	# taken from kdepim/akonadi/kcal as long as it's not yet exported:
++	akonadi/calendar.cpp
++	akonadi/calendarmodel.cpp
++	akonadi/calfilterproxymodel.cpp
++	akonadi/utils.cpp
++	akonadi/blockalarmsattribute.cpp
++	akonadi/collectionselection.cpp
++     )
++endif(AKONADI_FOUND)
++
+ kde4_add_plugin(plasma_engine_calendar ${calendar_engine_srcs})
+ 
+ target_link_libraries(
+@@ -31,13 +36,19 @@
+     ${KDEPIMLIBS_KHOLIDAYS_LIBRARY}
+     ${KDE4_KDECORE_LIBS}
+     ${KDE4_PLASMA_LIBS}
+-    ${KDE4_AKONADI_LIBS}
+     ${KDE4_KMIME_LIBS}
+     ${KDE4_KCALCORE_LIBS}
+     ${KDE4_KCALUTILS_LIBS}
+-    ${KDEPIMLIBS_AKONADI_KCAL_LIBS}
+ )
+ 
++if(AKONADI_FOUND)
++    target_link_libraries(
++        plasma_engine_calendar
++        ${KDE4_AKONADI_LIBS}
++        ${KDEPIMLIBS_AKONADI_KCAL_LIBS}
++    )
++endif(AKONADI_FOUND)
++
+ install(TARGETS plasma_engine_calendar DESTINATION ${PLUGIN_INSTALL_DIR})
+ install(FILES plasma-dataengine-calendar.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+ 
+diff -ruN plasma-workspace-4.6.2.orig/plasma/generic/dataengines/calendar/calendarengine.cpp plasma-workspace-4.6.2/plasma/generic/dataengines/calendar/calendarengine.cpp
+--- plasma-workspace-4.6.2.orig/plasma/generic/dataengines/calendar/calendarengine.cpp	2011-02-25 23:10:02.000000000 +0100
++++ plasma-workspace-4.6.2/plasma/generic/dataengines/calendar/calendarengine.cpp	2011-04-02 13:59:01.920795444 +0200
+@@ -32,6 +32,7 @@
+ #include <KCalCore/Todo>
+ #include <KCalCore/Journal>
+ 
++#ifdef AKONADI_FOUND
+ #include <Akonadi/ChangeRecorder>
+ #include <Akonadi/Session>
+ #include <Akonadi/Collection>
+@@ -41,6 +42,7 @@
+ #include "akonadi/calendar.h"
+ #include "akonadi/calendarmodel.h"
+ #include "eventdatacontainer.h"
++#endif
+ 
+ CalendarEngine::CalendarEngine(QObject* parent, const QVariantList& args)
+               : Plasma::DataEngine(parent),
+@@ -74,9 +76,11 @@
+         return holidayCalendarSourceRequest(requestKey, requestTokens, request);
+     }
+ 
++#ifdef AKONADI_FOUND
+     if (requestKey == "events" || requestKey == "eventsInMonth") {
+         return akonadiCalendarSourceRequest(requestKey, requestTokens, request);
+     }
++#endif
+ 
+     return false;
+ }
+@@ -272,6 +276,7 @@
+     return false;
+ }
+ 
++#ifdef AKONADI_FOUND
+ bool CalendarEngine::akonadiCalendarSourceRequest(const QString& key, const QStringList& args, const QString& request)
+ {
+     // figure out what time range was requested from the source string
+@@ -339,5 +344,6 @@
+     calendarModel->setCollectionFetchStrategy(Akonadi::EntityTreeModel::InvisibleCollectionFetch);
+     m_calendar = new CalendarSupport::Calendar(calendarModel, calendarModel, KSystemTimeZones::local());
+ }
++#endif
+ 
+ #include "calendarengine.moc"

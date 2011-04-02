@@ -69,7 +69,7 @@ KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-	"${FILESDIR}/${PN}-4.6.0-optional_akonadi-server.patch"
+	"${FILESDIR}/${PN}-4.6.2-optional_akonadi-server.patch"
 )
 
 pkg_setup() {
