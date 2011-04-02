@@ -1,0 +1,18 @@
+From: Albert Astals Cid <aacid@kde.org>
+Date: Thu, 10 Mar 2011 23:15:56 +0000
+Subject: install in the correct dir
+X-Git-Url: http://quickgit.kde.org/?p=ksnapshot.git&amp;a=commitdiff&amp;h=4a0ba1374217bad1d4ffbb470e178da714da9e9a
+---
+install in the correct dir
+---
+
+
+--- ksnapshot/doc/CMakeLists.txt
++++ ksnapshot/doc/CMakeLists.txt
+@@ -1,4 +1,4 @@
+ ########### install files ###############
+ #
+ #
+-kde4_create_handbook(index.docbook INSTALL_DESTINATION ${HTML_INSTALL_DIR}/en)
++kde4_create_handbook(index.docbook INSTALL_DESTINATION ${HTML_INSTALL_DIR}/en SUBDIR ksnapshot)
+
