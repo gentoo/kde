@@ -323,7 +323,7 @@ kde4-meta_create_extractlists() {
 	fi
 
 	# Add default handbook locations
-	if [[ -z ${KMNOMODULE} && ( [[ ${KDE_HANDBOOK} = always ]] || ( [[ ${KDE_HANDBOOK} = optional ]] && use handbook; ) ) then
+	if [[ -z ${KMNOMODULE} ]] && ( [[ ${KDE_HANDBOOK} == always ]] || ( [[ ${KDE_HANDBOOK} == optional ]] && use handbook ) ); then
 		KMEXTRA_NONFATAL+=" doc/${KMMODULE##*/}"
 	fi
 
