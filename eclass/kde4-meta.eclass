@@ -78,7 +78,7 @@ debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-sp
 # Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
 case ${BUILD_TYPE} in
 	live)
-		if [[ "${KDE_SCM}" == "svn" ]]; then
+		if [[ ${KDE_SCM} == svn ]]; then
 			case ${KMNAME} in
 				extragear*|playground*)
 					ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
@@ -162,8 +162,8 @@ kde4-meta_pkg_setup() {
 
 # @FUNCTION: kde4-meta_src_unpack
 # @DESCRIPTION:
-# This function unpacks the source for split ebuilds. See also
-# kde4-meta-src_extract.
+# This function unpacks the source for split ebuilds.
+# Further more is processed in kde4-meta_src_extract
 kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -178,18 +178,16 @@ kde4-meta_src_unpack() {
 				subversion_bootstrap
 				;;
 			git)
-				git-2_src_unpack
+				git_src_unpack
 				;;
 		esac
 	fi
 	kde4-meta_src_extract
 }
 
-# FIXME: the difference between kde4-meta_src_extract and kde4-meta_src_unpack?
-
 # @FUNCTION: kde4-meta_src_extract
 # @DESCRIPTION:
-# A function to unpack the source for a split KDE ebuild.
+# A function to extract the source for a split KDE ebuild.
 # Also see KMMODULE, KMNOMODULE, KMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY and
 # KMTARPARAMS.
 kde4-meta_src_extract() {
@@ -200,7 +198,7 @@ kde4-meta_src_extract() {
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists
 
-		case "${KDE_SCM}" in
+		case ${KDE_SCM} in
 			svn)
 				local rsync_options subdir kmnamedir targetdir wc_path escm
 
@@ -294,7 +292,7 @@ kde4-meta_src_extract() {
 
 		if [[ -n ${KDE4_STRICTER} ]]; then
 			for f in $(__list_needed_subdirectories fatal); do
-				if [[ ! -e "${S}/${f#*/}" ]]; then
+				if [[ ! -e ${S}/${f#*/} ]]; then
 					eerror "'${f#*/}' is missing"
 					abort=true
 				fi
@@ -325,7 +323,7 @@ kde4-meta_create_extractlists() {
 	fi
 
 	# Add default handbook locations
-	if [[ -z ${KMNOMODULE} ]] && { [[ ${KDE_HANDBOOK} = always ]] || { [[ ${KDE_HANDBOOK} = optional ]] && use handbook; }; }; then
+	if [[ -z ${KMNOMODULE} && ( [[ ${KDE_HANDBOOK} = always ]] || ( [[ ${KDE_HANDBOOK} = optional ]] && use handbook; ) ) then
 		KMEXTRA_NONFATAL+=" doc/${KMMODULE##*/}"
 	fi
 
@@ -491,13 +489,16 @@ kde4-meta_src_prepare() {
 	kde4-base_src_prepare
 }
 
-# FIXME: no comment here?
+# @FUNCTION: _change_cmakelists_parent_dirs
+# @DESCRIPTION:
+# Adjust CMakeLists.txt to shadow subdirectories
+# that are not required for the build.
 _change_cmakelists_parent_dirs() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local _olddir _dir
 	_dir="${S}"/${1}
-	until [[ ${_dir} == "${S}" ]]; do
+	until [[ ${_dir} == ${S} ]]; do
 		_olddir=$(basename "${_dir}")
 		_dir=$(dirname "${_dir}")
 		debug-print "${LINENO}: processing ${_dir} CMakeLists.txt searching for ${_olddir}"

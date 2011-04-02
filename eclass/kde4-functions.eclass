@@ -181,7 +181,7 @@ enable_selected_linguas() {
 	# Default value is set to "po".
 	if [[ "$(declare -p KDE_LINGUAS_DIR 2>/dev/null 2>&1)" == "declare -a"* ]]; then
 		debug-print "$FUNCNAME: we have these subfolders defined: ${KDE_LINGUAS_DIR}"
-		for x in "${KDE_LINGUAS_DIR[@]}"; do
+		for x in ${KDE_LINGUAS_DIR[@]}; do
 			_enable_selected_linguas_dir ${x}
 		done
 	else
@@ -212,8 +212,8 @@ enable_selected_doc_linguas() {
 		local handbookdir=`dirname ${pattern}`
 		local translationdir=`basename ${pattern}`
 		# Do filename pattern supplied, treat as directory
-		[[ "${handbookdir}" = '.' ]] && handbookdir=${translationdir} && translationdir=
-		[[ -d "${handbookdir}" ]] || die 'wrong doc dir specified'
+		[[ ${handbookdir} = '.' ]] && handbookdir=${translationdir} && translationdir=
+		[[ -d ${handbookdir} ]] || die 'wrong doc dir specified'
 
 		if ! use handbook; then
 			# Disable whole directory
@@ -226,8 +226,8 @@ enable_selected_doc_linguas() {
 			# Add requested translations
 			local lingua
 			for lingua in en ${KDE_LINGUAS}; do
-				if [[ ${lingua} = 'en' ]] || use linguas_${lingua}; then
-					if [[ -d "${handbookdir}/${translationdir//%lingua/${lingua}}" ]]; then
+				if [[ ${lingua} = en ]] || use linguas_${lingua}; then
+					if [[ -d ${handbookdir}/${translationdir//%lingua/${lingua}} ]]; then
 						sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
 							-e "/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
 							-i "${handbookdir}"/CMakeLists.txt && ! has ${lingua} ${linguas} && linguas="${linguas} ${lingua}"
@@ -252,7 +252,7 @@ migrate_store_dir() {
 
 	local cleandir="${ESVN_STORE_DIR}/KDE"
 
-	if [[ -d "${cleandir}" ]]; then
+	if [[ -d ${cleandir} ]]; then
 		ewarn "'${cleandir}' has been found. Moving contents to new location."
 		addwrite "${ESVN_STORE_DIR}"
 		# Split kdebase
@@ -331,7 +331,7 @@ load_library_dependencies() {
 	for pn in ${KMLOADLIBS} ; do
 		((i++))
 		depsfile="${EPREFIX}/var/lib/kde/${pn}:${SLOT}"
-		[[ -r "${depsfile}" ]] || die "Depsfile '${depsfile}' not accessible. You probably need to reinstall ${pn}."
+		[[ -r ${depsfile} ]] || die "Depsfile '${depsfile}' not accessible. You probably need to reinstall ${pn}."
 		sed -i -e "${i}iINCLUDE(\"${depsfile}\")" "${S}/CMakeLists.txt" || \
 			die "Failed to include library dependencies for ${pn}"
 	done
@@ -554,7 +554,7 @@ _enable_selected_linguas_dir() {
 	local lingua linguas sr_mess wp
 	local dir=${1}
 
-	[[ -d  "${dir}" ]] || die "linguas dir \"${dir}\" does not exist"
+	[[ -d  ${dir} ]] || die "linguas dir \"${dir}\" does not exist"
 	comment_all_add_subdirectory "${dir}"
 	pushd "${dir}" > /dev/null
 
@@ -563,8 +563,8 @@ _enable_selected_linguas_dir() {
 	# fail at any point
 	sr_mess="sr@latn sr@latin sr@Latin"
 	for wp in ${sr_mess}; do
-		[[ -e "${wp}.po" ]] && mv "${wp}.po" "sr@Latn.po"
-		if [[ -d "${wp}" ]]; then
+		[[ -e ${wp}.po ]] && mv "${wp}.po" "sr@Latn.po"
+		if [[ -d ${wp} ]]; then
 			# move dir and fix cmakelists
 			mv "${wp}" "sr@Latn"
 			sed -i \
@@ -574,26 +574,26 @@ _enable_selected_linguas_dir() {
 	done
 
 	for lingua in ${KDE_LINGUAS}; do
-		if [[ -e "${lingua}.po" ]]; then
+		if [[ -e ${lingua}.po ]]; then
 			mv "${lingua}.po" "${lingua}.po.old"
 		fi
 	done
 
 	for lingua in ${KDE_LINGUAS}; do
 		if use linguas_${lingua} ; then
-			if [[ -d "${lingua}" ]]; then
+			if [[ -d ${lingua} ]]; then
 				linguas="${linguas} ${lingua}"
 				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-e "/ADD_SUBDIRECTORY([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
 					-i CMakeLists.txt || die "Sed to uncomment linguas_${lingua} failed."
 			fi
-			if [[ -e "${lingua}.po.old" ]]; then
+			if [[ -e ${lingua}.po.old ]]; then
 				linguas="${linguas} ${lingua}"
 				mv "${lingua}.po.old" "${lingua}.po"
 			fi
 		fi
 	done
-	[[ -n "${linguas}" ]] && echo ">>> Enabling languages: ${linguas}"
+	[[ -n ${linguas} ]] && echo ">>> Enabling languages: ${linguas}"
 
 	popd > /dev/null
 }

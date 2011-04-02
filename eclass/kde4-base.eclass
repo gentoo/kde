@@ -25,7 +25,7 @@ inherit kde4-functions fdo-mime gnome2-utils base virtualx versionator eutils
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
-		git) inherit git-2 ;;
+		git) inherit git ;;
 	esac
 fi
 
@@ -717,7 +717,7 @@ kde4-base_src_unpack() {
 				subversion_src_unpack
 				;;
 			git)
-				git-2_src_unpack
+				git_src_unpack
 				;;
 		esac
 	else
@@ -909,7 +909,7 @@ kde4-base_src_test() {
 
 	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
 		# check for sanity if anyone already redefined VIRTUALX_COMMAND from the default
-		if [[ ${VIRTUALX_COMMAND} != "emake" ]]; then
+		if [[ ${VIRTUALX_COMMAND} != emake ]]; then
 			# surprise- we are already INSIDE virtualmake!!!
 			debug-print "QA Notice: This version of kde4-base.eclass includes the virtualx functionality."
 			debug-print "           You may NOT set VIRTUALX_COMMAND or call virtualmake from the ebuild."
@@ -938,10 +938,10 @@ kde4-base_src_install() {
 	local doc
 	if ! has kde4-meta ${INHERITED}; then
 		for doc in "${S}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-			[[ -f "${doc}" ]] && [[ -s "${doc}" ]] && dodoc "${doc}"
+			[[ -f ${doc} && -s ${doc} ]] && dodoc "${doc}"
 		done
 		for doc in "${S}"/*/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-			[[ -f "${doc}" ]] && [[ -s "${doc}" ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
+			[[ -f ${doc} && -s ${doc} ]] && newdoc "${doc}" "$(basename $(dirname ${doc})).$(basename ${doc})"
 		done
 	fi
 
@@ -995,7 +995,7 @@ kde4-base_pkg_postinst() {
 			echo
 		fi
 		# for all 3rd party soft tell user that he SHOULD install kdebase-startkde or kdebase-runtime-meta
-		if [[ ${KDEBASE} != "kde-base" ]] && \
+		if [[ ${KDEBASE} != kde-base ]] && \
 				! has_version 'kde-base/kdebase-runtime-meta' && \
 				! has_version 'kde-base/kdebase-startkde'; then
 			if [[ ${KDE_REQUIRED} == always ]] || ( [[ ${KDE_REQUIRED} == optional ]] && use kde ); then
