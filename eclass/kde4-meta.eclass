@@ -408,23 +408,24 @@ kde4-meta_create_extractlists() {
 			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
-	# note: kdegraphics-4.6.2 does not even have code to do that, so we
+	# note: kdegraphics >= 4.6.2 does not even have code to do that, so we
 	#   should not try in that case
-	( [[ ${KMNAME} == kdegraphics ]] && [[ ${PV} == "4.6.2" ]] ) ||
-	case ${KMNAME} in
-		kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
-			case ${PN} in
-				libkdegames|libkdeedu|libkworkspace)
-					KMEXTRA+="
-						cmake/modules/"
-					;;
-				*)
-					KMCOMPILEONLY+="
-						cmake/modules/"
-					;;
-			esac
-		;;
-	esac
+	if [[ ${KMNAME} != kdegraphics ]] || { [[ ${SLOT} != 4.6 || ${PV} < 4.6.2 ]] && ! slot_is_at_least 4.7 ${SLOT}; }; then
+		case ${KMNAME} in
+			kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
+				case ${PN} in
+					libkdegames|libkdeedu|libkworkspace)
+						KMEXTRA+="
+							cmake/modules/"
+						;;
+					*)
+						KMCOMPILEONLY+="
+							cmake/modules/"
+						;;
+				esac
+			;;
+		esac
+	fi
 
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
 }
