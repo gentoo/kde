@@ -627,6 +627,7 @@ _calculate_live_repo() {
 					;;
 			esac
 			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			EGIT_PROJECT="${_kmname}"
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
 			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"
