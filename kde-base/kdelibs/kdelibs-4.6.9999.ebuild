@@ -136,6 +136,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.5.90-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 	"${FILESDIR}/${PN}-4.6.0-kateacc.patch"
+	"${FILESDIR}/${PN}-4.6.2-safestrigi.patch"
 )
 
 src_prepare() {
