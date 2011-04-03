@@ -54,7 +54,10 @@ KMEXTRACTONLY="
 add_blocker kcontrol '<4.3.98'
 add_blocker konqueror '<4.4.70'
 
-PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+	"${FILESDIR}/${PN}-4.6.2-flagcrash.patch"
+)
 
 src_unpack() {
 	if use handbook; then
