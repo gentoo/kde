@@ -14,8 +14,7 @@ inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently kde4 eclasses support EAPI 3. Over time newer versions
-# will be supported.
+# Currently kde4 eclasses support EAPI 3 and 4.
 case ${EAPI:-0} in
 	4|3) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
