@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua +handbook kdeprefix semantic-desktop"
+IUSE="+handbook semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep activitymanager)
@@ -49,5 +45,4 @@ RDEPEND="
 	$(add_kdebase_dep solid-runtime)
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
-	$(block_other_slots)
 "

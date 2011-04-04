@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep jovie)
@@ -21,5 +17,4 @@ RDEPEND="
 	$(add_kdebase_dep kmag)
 	$(add_kdebase_dep kmousetool)
 	$(add_kdebase_dep kmouth)
-	$(block_other_slots)
 "

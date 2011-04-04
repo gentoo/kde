@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdeartwork - merge this to pull in all kdeartwork-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep kdeartwork-colorschemes)
@@ -23,5 +19,4 @@ RDEPEND="
 	$(add_kdebase_dep kdeartwork-styles)
 	$(add_kdebase_dep kdeartwork-wallpapers)
 	$(add_kdebase_dep kdeartwork-weatherwallpapers)
-	$(block_other_slots)
 "

@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS="~amd64 ~x86"
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep akonadiconsole)
@@ -34,5 +30,4 @@ RDEPEND="
 	$(add_kdebase_dep kontact)
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep ktimetracker)
-	$(block_other_slots)
 "

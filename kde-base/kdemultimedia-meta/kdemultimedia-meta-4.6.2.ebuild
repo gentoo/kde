@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="aqua ffmpeg kdeprefix"
+IUSE="ffmpeg"
 
 RDEPEND="
 	$(add_kdebase_dep dragonplayer)
@@ -23,5 +19,4 @@ RDEPEND="
 	$(add_kdebase_dep libkcompactdisc)
 	$(add_kdebase_dep mplayerthumbs)
 	ffmpeg? ( $(add_kdebase_dep ffmpegthumbs) )
-	$(block_other_slots)
 "

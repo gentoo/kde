@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="aqua cvs kdeprefix"
+IUSE="cvs"
 
 RDEPEND="
 	cvs? ( $(add_kdebase_dep cervisia) )
@@ -30,5 +26,4 @@ RDEPEND="
 	$(add_kdebase_dep lokalize)
 	$(add_kdebase_dep okteta)
 	$(add_kdebase_dep umbrello)
-	$(block_other_slots)
 "

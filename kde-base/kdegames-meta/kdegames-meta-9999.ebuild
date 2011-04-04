@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix opengl python"
+IUSE="opengl python"
 
 RDEPEND="
 	$(add_kdebase_dep bomber)
@@ -54,5 +50,4 @@ RDEPEND="
 	$(add_kdebase_dep palapeli)
 	opengl? ( $(add_kdebase_dep ksudoku) )
 	python? ( $(add_kdebase_dep kajongg) )
-	$(block_other_slots)
 "

@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep blinken)
@@ -36,5 +32,4 @@ RDEPEND="
 	$(add_kdebase_dep parley)
 	$(add_kdebase_dep rocs)
 	$(add_kdebase_dep step)
-	$(block_other_slots)
 "

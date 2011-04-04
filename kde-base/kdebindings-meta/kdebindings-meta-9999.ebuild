@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="KDE bindings - merge this to pull in all kdebindings-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua csharp java kdeprefix perl python ruby"
+IUSE="csharp java perl python ruby"
 
 RDEPEND="
 	$(add_kdebase_dep smoke)
@@ -23,5 +19,4 @@ RDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	ruby? ( $(add_kdebase_dep kdebindings-ruby) )
-	$(block_other_slots)
 "

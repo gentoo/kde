@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="aqua kdeprefix scanner"
+IUSE="scanner"
 
 RDEPEND="
 	$(add_kdebase_dep gwenview)
@@ -32,5 +28,4 @@ RDEPEND="
 		$(add_kdebase_dep ksaneplugin)
 		$(add_kdebase_dep libksane)
 	)
-	$(block_other_slots)
 "

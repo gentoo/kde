@@ -3,19 +3,14 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="KDE toys - merge this to pull in all kdetoys-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep amor)
 	$(add_kdebase_dep kteatime)
 	$(add_kdebase_dep ktux)
-	$(block_other_slots)
 "

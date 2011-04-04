@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="accessibility aqua kdeprefix nls sdk semantic-desktop"
+IUSE="accessibility nls sdk semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep kate)
@@ -34,5 +30,4 @@ RDEPEND="
 		$(add_kdebase_dep kdewebdev-meta)
 	)
 	semantic-desktop? ( $(add_kdebase_dep kdepim-meta) )
-	$(block_other_slots)
 "

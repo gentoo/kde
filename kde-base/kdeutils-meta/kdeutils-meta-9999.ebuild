@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="live"
 KEYWORDS=""
-IUSE="aqua cups floppy kdeprefix"
+IUSE="cups floppy"
 
 RDEPEND="
 	$(add_kdebase_dep ark)
@@ -27,5 +23,4 @@ RDEPEND="
 	$(add_kdebase_dep sweeper)
 	cups? ( $(add_kdebase_dep printer-applet) )
 	floppy? ( $(add_kdebase_dep kfloppy) )
-	$(block_other_slots)
 "

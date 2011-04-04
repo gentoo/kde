@@ -3,15 +3,11 @@
 # $Header: $
 
 EAPI=3
-inherit kde4-functions
+inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
-HOMEPAGE="http://www.kde.org/"
-
-LICENSE="GPL-2"
-SLOT="4.6"
 KEYWORDS=""
-IUSE="aqua kdeprefix"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
@@ -59,5 +55,4 @@ RDEPEND="
 	$(add_kdebase_dep solid)
 	$(add_kdebase_dep systemsettings)
 	!prefix? ( $(add_kdebase_dep kdm) )
-	$(block_other_slots)
 "
