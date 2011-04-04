@@ -596,3 +596,15 @@ _enable_selected_linguas_dir() {
 
 	popd > /dev/null
 }
+
+_calculate_kde_slot() {
+	local ver=${1:-${PV}}
+	local major=$(get_major_version ${ver})
+	local minor=$(get_version_component_range 2 ${ver})
+	local micro=$(get_version_component_range 3 ${ver})
+	[[ ${ver} == 9999 ]] && echo live
+	(( major == 4 && micro == 9999 )) && echo ${major}.${minor}
+	if (( major == 4 && micro != 9999 )); then
+		(( micro < 50 )) && echo ${major}.${minor} || echo ${major}.$((minor + 1))
+	fi
+}

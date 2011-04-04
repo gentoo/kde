@@ -64,18 +64,7 @@ KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
-		major=$(get_major_version)
-		minor=$(get_version_component_range 2)
-		micro=$(get_version_component_range 3)
-		# Determine SLOT from PVs
-		[[ ${PV} == 9999* ]] && SLOT=live # regular live
-		[[ ${major} -eq 4 && ${micro} == 9999 ]] && SLOT=${major}.${minor} # stable live
-		if [[ ${major} -eq 4 && ${micro} != 9999 ]]; then
-			[[ ${micro} -lt 60 ]] && \
-				SLOT=${major}.${minor}
-			[[ ${micro} -ge 60 ]] &&
-				SLOT=${major}.$(($minor + 1))
-		fi
+		SLOT=$(_calculate_kde_slot)
 		[[ -z ${SLOT} ]] && die "Unsupported ${PV}"
 		KDE_MINIMAL="${SLOT}"
 		;;
