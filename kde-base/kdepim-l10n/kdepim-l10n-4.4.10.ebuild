@@ -64,7 +64,6 @@ src_unpack() {
 			for SUBDIR in data docs messages scripts ; do 
 				echo > "${S}/${DIR}/${SUBDIR}/CMakeLists.txt"
 				[[ -d "${S}/${DIR}/${SUBDIR}/kdepim" ]] && ( echo "add_subdirectory(kdepim)" >> "${S}/${DIR}/${SUBDIR}/CMakeLists.txt" )
-				[[ -d "${S}/${DIR}/${SUBDIR}/common" ]] && ( echo "add_subdirectory(common)" >> "${S}/${DIR}/${SUBDIR}/CMakeLists.txt" )
 			done
 		done
 	fi
