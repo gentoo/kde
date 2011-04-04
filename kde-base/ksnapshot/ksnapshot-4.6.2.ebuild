@@ -17,9 +17,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Fix for the install dir of the handbook
-PATCHES=( "${FILESDIR}/${P}-fix-handbook.patch" )
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with kipi)
