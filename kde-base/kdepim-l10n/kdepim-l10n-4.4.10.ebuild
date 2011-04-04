@@ -14,6 +14,7 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND=""
+add_blocker kde-l10n 0 :4.4
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+handbook"
@@ -61,14 +62,13 @@ src_unpack() {
 			fi
 
 			# remove everything except kdepim
-			for SUBDIR in data docs messages scripts ; do 
+			for SUBDIR in data docs messages scripts ; do
 				echo > "${S}/${DIR}/${SUBDIR}/CMakeLists.txt"
 				[[ -d "${S}/${DIR}/${SUBDIR}/kdepim" ]] && ( echo "add_subdirectory(kdepim)" >> "${S}/${DIR}/${SUBDIR}/CMakeLists.txt" )
 			done
 		done
 	fi
 }
-
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
