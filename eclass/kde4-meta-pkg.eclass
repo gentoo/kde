@@ -19,3 +19,4 @@ RDEPEND="$(block_other_slots)"
 
 SLOT=$(_calculate_kde_slot)
 [[ -z ${SLOT} ]] && die "Unsupported ${PV}"
+:
