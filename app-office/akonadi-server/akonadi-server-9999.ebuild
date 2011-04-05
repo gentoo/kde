@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://anongit.kde.org/akonadi"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="mysql postgres +sqlite +server"
+IUSE="mysql postgres +sqlite"
 
 CDEPEND="
 	dev-libs/boost
@@ -28,27 +28,22 @@ DEPEND="${CDEPEND}
 	>=dev-util/automoc-0.9.88
 "
 RDEPEND="${CDEPEND}
-	server? (
-		postgres? ( dev-db/postgresql-server )
-	)
+	postgres? ( dev-db/postgresql-server )
 "
 
-REQUIRED_USE="^^ ( sqlite mysql postgres )"
+REQUIRED_USE="|| ( sqlite mysql postgres )"
 
 pkg_setup() {
 	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
-	local available
 	if use sqlite; then
-		driver="QSQLITE3"
-		available+=" ${driver}"
-	fi
-	if use mysql; then
-		driver="QMYSQL"
-		available+=" ${driver}"
-	fi
-	if use postgres; then
-		driver="QPSQL"
-		available+=" ${driver}"
+		DRIVER="QSQLITE3"
+		AVAILABLE+=" ${driver}"
+	elif use mysql; then
+		DRIVER="QMYSQL"
+		AVAILABLE+=" ${driver}"
+	elif use postgres; then
+		DRIVER="QPSQL"
+		AVAILABLE+=" ${driver}"
 	fi
 
 	# Notify about driver name change
@@ -65,7 +60,7 @@ pkg_setup() {
 		ewarn "If you intend to use it, please enable mysql USE flag and reinstall"
 		ewarn "${CATEGORY}/${PN}."
 		ewarn "Otherwise select different driver in your ~/.config/akonadi/akonadiserverrc."
-		ewarn "Available drivers are:${available}"
+		ewarn "Available drivers are:${AVAILABLE}"
 	fi
 }
 
@@ -73,7 +68,7 @@ src_install() {
 	# Who knows, maybe it accidentally fixes our permission issues
 	cat <<-EOF > "${T}"/akonadiserverrc
 [%General]
-Driver=${driver}
+Driver=${DRIVER}
 EOF
 	insinto /usr/share/config/akonadi
 	doins "${T}"/akonadiserverrc || die "doins failed"
@@ -83,7 +78,7 @@ EOF
 
 pkg_postinst() {
 	echo
-	elog "${driver} has been set as your default akonadi storage backend."
+	elog "${DRIVER} has been set as your default akonadi storage backend."
 	elog "You can override it in your ~/.config/akonadi/akonadiserverrc."
-	elog "Available drivers are: QMYSQL, QPSQL, QSQLITE3"
+	elog "Available drivers are: ${AVAILABLE}"
 }
