@@ -6,7 +6,7 @@ EAPI=3
 
 inherit kde4-base
 
-DESCRIPTION="KDE internationalization package"
+DESCRIPTION="KDE PIM internationalization package"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
