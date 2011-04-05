@@ -274,7 +274,7 @@ git-2_update_repo() {
 		git config remote.origin.url "${repo_uri}"
 
 		debug-print "${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}"
-		${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}
+		${EGIT_UPDATE_CMD} ${EGIT_OPTIONS} > /dev/null
 
 		if [[ $? -eq 0 ]]; then
 			# global variable containing the repo_name we will be using
