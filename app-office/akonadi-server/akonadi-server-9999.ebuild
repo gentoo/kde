@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://anongit.kde.org/akonadi"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="mysql postgres +sqlite"
+IUSE="mysql postgres +sqlite test"
 
 CDEPEND="
 	dev-libs/boost
@@ -62,6 +62,16 @@ pkg_setup() {
 		ewarn "Otherwise select different driver in your ~/.config/akonadi/akonadiserverrc."
 		ewarn "Available drivers are:${AVAILABLE}"
 	fi
+}
+
+src_configure() {
+	local mycmakeargs=(
+		"-DAKONADI_USE_STRIGI_SEARCH=OFF"
+		$(cmake-utils_use test AKONADI_BUILD_TESTS)
+		$(cmake-utils_use sqlite INSTALL_QSQLITE_IN_QT_PREFIX)
+	)
+
+	cmake-utils_src_configure
 }
 
 src_install() {
