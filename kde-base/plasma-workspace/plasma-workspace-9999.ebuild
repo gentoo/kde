@@ -12,7 +12,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets gps python qalculate rss semantic-desktop xinerama"
+IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
@@ -72,7 +72,6 @@ KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-	"${FILESDIR}/${PN}-4.6.2-optional_akonadi-server.patch"
 )
 
 pkg_setup() {
