@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.41 2010/12/29 17:56:34 tampakrap Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.45 2011/04/06 14:22:14 scarabeus Exp $
 
 inherit versionator
 
@@ -401,7 +401,7 @@ add_kdebase_dep() {
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
 	# FIXME remove hack when kdepim-4.4.* is gone
-	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.4.[6-8] && ${1} =~ ^kde(pim)?libs$ ]]; then
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${SLOT} == 4.4 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
 		ver=4.4.5
 	# FIXME remove hack when kdepim-4.6beta is gone
 	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.5.98 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
