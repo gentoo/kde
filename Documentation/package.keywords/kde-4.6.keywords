@@ -5,8 +5,8 @@
 # digikam-1.2 and kipi-plugins-1.2 wont build anymore with kde-4.6, so we 
 # keyword 1.8 plus dependencies here to provide a smooth upgrade
 #
-~media-gfx/digikam-1.8.0
-~media-plugins/kipi-plugins-1.8.0
+~media-gfx/digikam-1.9.0
+~media-plugins/kipi-plugins-1.9.0
 ~media-libs/lensfun-0.2.5
 ~sci-libs/clapack-3.2.1
 
@@ -236,6 +236,36 @@ kde-base/krdc:4.6
 kde-base/krfb:4.6
 kde-base/kfloppy:4.6
 kde-base/kppp:4.6
+
+#
+# kdepim-4.4.10 contains some fixes that make life with kde-4.6 easier
+#
+~kde-base/akonadi-4.4.10
+~kde-base/akregator-4.4.10
+~kde-base/blogilo-4.4.10
+~kde-base/kabcclient-4.4.10
+~kde-base/kaddressbook-4.4.10
+~kde-base/kalarm-4.4.10
+~kde-base/kdepim-icons-4.4.10
+~kde-base/kdepim-kresources-4.4.10
+~kde-base/kdepim-meta-4.4.10
+~kde-base/kdepim-strigi-analyzer-4.4.10
+~kde-base/kdepim-runtime-4.4.10
+~kde-base/kdepim-wizards-4.4.10
+~kde-base/kjots-4.4.10
+~kde-base/kleopatra-4.4.10
+~kde-base/kmail-4.4.10
+~kde-base/knode-4.4.10
+~kde-base/knotes-4.4.10
+~kde-base/konsolekalendar-4.4.10
+~kde-base/kontact-4.4.10
+~kde-base/korganizer-4.4.10
+~kde-base/ktimetracker-4.4.10
+~kde-base/libkdepim-4.4.10
+~kde-base/libkleo-4.4.10
+~kde-base/libkpgp-4.4.10
+~kde-base/kdepim-l10n-4.4.10
+
 kde-base/akonadiconsole:4.6
 kde-base/akregator:4.6
 kde-base/blogilo:4.6
