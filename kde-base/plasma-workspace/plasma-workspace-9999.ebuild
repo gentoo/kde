@@ -12,15 +12,13 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets gps python qalculate semantic-desktop xinerama"
+IUSE="debug google-gadgets gps python qalculate rss semantic-desktop xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop?')
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep libplasmaclock)
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
 	$(add_kdebase_dep solid)
@@ -36,6 +34,11 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	qalculate? ( sci-libs/libqalculate )
+	rss? (
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop?')
+		$(add_kdebase_dep libplasmaclock 'holidays')
+	)
+	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
@@ -69,6 +72,7 @@ KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+	"${FILESDIR}/${PN}-4.6.2-optional_akonadi-server.patch"
 )
 
 pkg_setup() {
@@ -98,6 +102,7 @@ src_configure() {
 		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PyKDE4)
 		$(cmake-utils_use_with qalculate)
+		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with xinerama X11_Xinerama)
