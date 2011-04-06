@@ -736,7 +736,7 @@ kde4-base_src_prepare() {
 	# kdelibs inherits kde4-base but handle installing the handbook itself
 	if ! has kde4-meta ${INHERITED} && has handbook ${IUSE//+}; then
 		if [[ ${KDEBASE} == kde-base ]]; then
-			if [[ ${PN} != kde-l10n && ${PN} != kdelibs ]] && use !handbook; then
+			if [[ ${PN} != kde-l10n && ${PN} != kdepim-l10n && ${PN} != kdelibs ]] && use !handbook; then
 				# documentation in kde4-functions
 				: ${KDE_DOC_DIRS:=doc}
 				local dir
