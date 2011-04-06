@@ -147,7 +147,7 @@ help() {
 
 _cvsupdate() {
 	pushd "${1}" &> /dev/null
-	cvs up
+	#cvs up
 	popd &> /dev/null
 }
 _addcvsfile() {
@@ -331,7 +331,7 @@ case ${OPERATION} in
 		# cvs up whole tree, then kde-base
 		# then start going per each dir
 		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest
-		_cvsupdate "${MAINTREE}"
+		#_cvsupdate "${MAINTREE}"
 		find ./kde-base/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
 			# we also have to check if directory contains our version if not, we dont copy it
 			pushd "${OVERLAY}/${dir}" &> /dev/null
