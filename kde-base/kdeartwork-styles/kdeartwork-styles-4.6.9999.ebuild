@@ -9,7 +9,7 @@ KMNAME="kdeartwork"
 inherit kde4-meta
 
 DESCRIPTION="Extra KWin styles and window decorations"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 add_blocker kwin '<4.5.67'
@@ -17,6 +17,7 @@ add_blocker kwin '<4.5.67'
 DEPEND="
 		$(add_kdebase_dep kwin)
 "
+RDEPEND="${DEPEND}"
 
 KMEXTRA="
 	aurorae/
