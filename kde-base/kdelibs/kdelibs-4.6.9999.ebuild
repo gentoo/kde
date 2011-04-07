@@ -52,6 +52,7 @@ COMMONDEPEND="
 		x11-libs/libXft
 		x11-libs/libXpm
 		x11-libs/libXrender
+		x11-libs/libXScrnSaver
 		x11-libs/libXtst
 		!kernel_SunOS? ( sys-libs/libutempter )
 	)
