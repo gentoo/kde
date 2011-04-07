@@ -7,23 +7,18 @@ EAPI=3
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="Media player for KDE using xine and gstreamer backends."
-HOMEPAGE="http://kaffeine.sourceforge.net/"
+DESCRIPTION="A media player for KDE with digital TV support"
+HOMEPAGE="http://kaffeine.kde.org/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-COMMON_DEPEND="
-	>=kde-base/phonon-kde-${KDE_MINIMAL}
-	>=kde-base/solid-${KDE_MINIMAL}
+DEPEND="
+	media-libs/xine-lib
 	x11-libs/libXScrnSaver
+	x11-libs/qt-sql:4[sqlite]
+	$(add_kdebase_dep solid)
 "
-DEPEND="${COMMON_DEPEND}
-	x11-proto/scrnsaverproto
-"
-RDEPEND="${COMMON_DEPEND}
-	!media-video/kaffeine:0
-	!media-video/kaffeine:1
-"
+RDEPEND="${DEPEND}"
