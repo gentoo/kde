@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kopete/kopete-4.6.2.ebuild,v 1.1 2011/04/06 14:19:17 scarabeus Exp $
 
 EAPI=3
 
@@ -43,7 +43,7 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	gadu: net-libs/libgadu @since 4.3
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
-#	jabber: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
+#	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
 #	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	msn: libmsn == this is wlm plugin, we disable msn one
@@ -54,8 +54,8 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="gadu groupwise +jabber jingle meanwhile msn oscar qq skype
-sms testbed winpopup yahoo zeroconf"
+PROTOCOLS="gadu groupwise jingle meanwhile msn oscar qq skype
+sms testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
@@ -71,10 +71,6 @@ COMMONDEPEND="
 	!aqua? ( x11-libs/libXScrnSaver )
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2 )
-	jabber? (
-		app-crypt/qca:2
-		net-dns/libidn
-	)
 	jingle? (
 		>=media-libs/mediastreamer-2.3.0
 		media-libs/speex
@@ -88,6 +84,10 @@ COMMONDEPEND="
 	webpresence? (
 		dev-libs/libxml2
 		dev-libs/libxslt
+	)
+	xmpp? (
+		app-crypt/qca:2
+		net-dns/libidn
 	)
 	yahoo? ( media-libs/jasper )
 "
@@ -130,6 +130,7 @@ src_configure() {
 		case ${x/+/} in
 			msn) x2=Libmsn ;;
 			zeroconf) x2=bonjour ;;
+			xmpp) x2=jabber ;;
 			*) x2='' ;;
 		esac
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
@@ -153,10 +154,9 @@ pkg_postinst() {
 	#fi
 
 	if ! use ssl; then
-		if use jabber || use msn; then # || use irc; then
+		if use xmpp || use msn; then # || use irc; then
 			echo
-			#elog "In order to use ssl in jabber, msn and irc you'll need to"
-			elog "In order to use ssl in jabber and msn you'll need to"
+			elog "In order to use ssl in xmpp and msn you'll need to"
 			elog "install app-crypt/qca-ossl package."
 			echo
 		fi
