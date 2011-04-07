@@ -9,4 +9,14 @@ inherit kde4-meta
 
 DESCRIPTION="Provides accessibility services like focus tracking"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +speechd"
+
+DEPEND="app-accessibility/speech-dispatcher"
+RDEPEND=${DEPEND}
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with speechd Speechd)
+	)
+	kde4-meta_src_configure
+}
