@@ -25,7 +25,7 @@ inherit kde4-functions fdo-mime gnome2-utils base virtualx versionator eutils
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
-		git) inherit git ;;
+		git) inherit git-2 ;;
 	esac
 fi
 
@@ -616,7 +616,6 @@ _calculate_live_repo() {
 					;;
 			esac
 			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
-			EGIT_PROJECT="${_kmname}"
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
 			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"
@@ -707,7 +706,7 @@ kde4-base_src_unpack() {
 				subversion_src_unpack
 				;;
 			git)
-				git_src_unpack
+				git-2_src_unpack
 				;;
 		esac
 	else
