@@ -8,7 +8,6 @@ app-admin/system-config-printer-gnome
 >=dev-libs/shared-desktop-ontologies-0.5
 
 # Unsure about that yet
-dev-python/pycups
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
 ~net-dns/cagibi-0.1.1
@@ -17,9 +16,9 @@ dev-python/pycups
 ~sys-auth/polkit-qt-0.99.0
 ~gnome-extra/polkit-gnome-0.99
 ~media-libs/phonon-4.4.4
-~media-libs/phonon-gstreamer-4.4.4
-~media-libs/phonon-vlc-4.4.4
-~media-libs/phonon-xine-4.4.4
+media-libs/phonon-gstreamer
+media-libs/phonon-vlc
+media-libs/phonon-xine
 
 # Also unrelated
 x11-misc/google-gadgets
@@ -48,3 +47,5 @@ net-wireless/bluedevil
 # Need newer akonadi-server for 4.6
 app-office/akonadi-server
 
+# For those with useflag webkit
+kde-misc/kwebkitpart
