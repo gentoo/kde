@@ -19,6 +19,7 @@ net-print/cups
 ~sys-auth/polkit-qt-0.99.0
 ~gnome-extra/polkit-gnome-0.99
 ~media-libs/phonon-4.4.4
+~media-libs/phonon-4.5.0
 media-libs/phonon-gstreamer
 media-libs/phonon-vlc
 media-libs/phonon-xine
