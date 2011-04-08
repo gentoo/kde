@@ -354,6 +354,9 @@ app-admin/system-config-printer-gnome
 ~dev-libs/grantlee-0.1.7
 >=dev-libs/shared-desktop-ontologies-0.5
 
+# Seems like cups-1.4 is required for proper printing support
+net-print/cups
+
 # Unsure about that yet
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
