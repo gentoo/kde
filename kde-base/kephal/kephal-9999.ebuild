@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
+	x11-libs/libxkbfile
 	x11-libs/libXrandr
 "
 DEPEND="${RDEPEND}
