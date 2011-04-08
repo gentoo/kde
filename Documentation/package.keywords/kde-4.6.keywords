@@ -349,9 +349,11 @@ kde-base/kde-meta:4.6
 app-admin/system-config-printer-common
 app-admin/system-config-printer-gnome
 =dev-libs/libdbusmenu-qt-0.6*
+
 # Some issues with grantlee, let's wait for 0.1.6
 ~dev-libs/grantlee-0.1.7
 >=dev-libs/shared-desktop-ontologies-0.5
+
 # Unsure about that yet
 dev-python/pycups
 >=dev-python/PyQt4-4.8.3
@@ -365,8 +367,10 @@ dev-python/pycups
 ~media-libs/phonon-gstreamer-4.4.4
 ~media-libs/phonon-vlc-4.4.4
 ~media-libs/phonon-xine-4.4.4
+
 # Also unrelated
 x11-misc/google-gadgets
+
 # Qt 4.7
 ~x11-libs/qt-script-4.7.2
 ~x11-libs/qt-core-4.7.2
@@ -383,3 +387,11 @@ x11-misc/google-gadgets
 ~x11-libs/qt-multimedia-4.7.2
 ~x11-libs/qt-webkit-4.7.2
 ~x11-libs/qt-assistant-4.7.2
+
+# The new bluetooth stack
+net-libs/libbluedevil
+net-wireless/bluedevil
+
+# Need newer akonadi-server for 4.6
+app-office/akonadi-server
+
