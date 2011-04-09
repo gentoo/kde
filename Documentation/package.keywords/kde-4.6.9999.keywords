@@ -356,22 +356,28 @@ app-admin/system-config-printer-gnome
 
 # Seems like cups-1.4 is required for proper printing support
 net-print/cups
+dev-python/pycups
 
-# Unsure about that yet
+# Bindings etc
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
+
+# ??
 ~net-dns/cagibi-0.1.1
+
+# Polkit and friends
 >=kde-misc/polkit-kde-kcmodules-0.98_pre
 ~sys-auth/polkit-kde-agent-0.99.0
 ~sys-auth/polkit-qt-0.99.0
 ~gnome-extra/polkit-gnome-0.99
-~media-libs/phonon-4.4.4
-~media-libs/phonon-4.5.0
+
+# Phonon (have to decide on a version)
+media-libs/phonon
 media-libs/phonon-gstreamer
 media-libs/phonon-vlc
 media-libs/phonon-xine
 
-# Also unrelated
+# Unrelated
 x11-misc/google-gadgets
 
 # Qt 4.7
