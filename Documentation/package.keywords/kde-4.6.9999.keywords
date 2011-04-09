@@ -9,6 +9,7 @@
 ~media-plugins/kipi-plugins-1.9.0
 ~media-libs/lensfun-0.2.5
 ~sci-libs/clapack-3.2.1
+~dev-libs/libf2c-20090407
 
 ~kde-base/kdeplasma-addons-4.6.9999 **
 ~kde-base/kde-l10n-4.6.9999 **

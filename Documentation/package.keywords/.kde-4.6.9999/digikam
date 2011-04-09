@@ -6,4 +6,5 @@
 ~media-plugins/kipi-plugins-1.9.0
 ~media-libs/lensfun-0.2.5
 ~sci-libs/clapack-3.2.1
+~dev-libs/libf2c-20090407
 
