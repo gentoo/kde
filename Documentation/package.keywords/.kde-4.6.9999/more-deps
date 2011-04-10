@@ -63,3 +63,6 @@ kde-misc/kwebkitpart
 # kdevelop
 ~dev-util/kdevelop-4.2.2
 ~dev-util/kdevplatform-4.2.2
+
+# old plugins have file collisions
+~kde-misc/konq-plugins-4.6.1
