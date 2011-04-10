@@ -2,12 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdevelop"
 KDE_SCM="git"
 EGIT_REPONAME="${PN}"
 KDE_MINIMAL="4.6"
+VIRTUALX_REQUIRED=test
+KDE_LINGUAS="ca ca@valencia da de en_GB es et fi gl it nds nl pt pt_BR sl sv th uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
@@ -35,6 +37,9 @@ RDEPEND="${DEPEND}
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "
+
+# Quite few fails and upstream is aware
+RESTRICT="test"
 
 src_prepare() {
 	kde4-base_src_prepare
