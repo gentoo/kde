@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_LINGUAS="ca ca@valencia da de en_GB es et fi gl it nds nl pt pt_BR sl sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
+KDE_SCM=git
 inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
