@@ -4,9 +4,14 @@
 
 EAPI=3
 
-KMNAME="kdeedu"
-KMMODULE="data"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	KDE_SCM="git"
+	inherit kde4-base
+else
+	KMNAME="kdeedu"
+	KMMODULE="data"
+	inherit kde4-meta
+fi
 
 DESCRIPTION="Kvtml data for various KDE games"
 KEYWORDS=""

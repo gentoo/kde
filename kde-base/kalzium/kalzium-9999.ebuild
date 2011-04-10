@@ -5,10 +5,16 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeedu"
+if [[ ${PV} == *9999 ]]; then
+	KDE_SCM="git"
+	inherit kde4-base
+else
+	KMNAME="kdeedu"
+	inherit kde4-meta
+fi
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit flag-o-matic kde4-meta
+inherit flag-o-matic
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""

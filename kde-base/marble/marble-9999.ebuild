@@ -5,10 +5,16 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 PYTHON_DEPEND="python? 2"
-inherit python kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	KDE_SCM="git"
+	inherit kde4-base
+else
+	KMNAME="kdeedu"
+	inherit kde4-meta
+fi
+inherit python
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""

@@ -5,8 +5,13 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeedu"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	KDE_SCM="git"
+	inherit kde4-base
+else
+	KMNAME="kdeedu"
+	inherit kde4-meta
+fi
 
 DESCRIPTION="Mathematical function plotter for KDE"
 KEYWORDS=""
