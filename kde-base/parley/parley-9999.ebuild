@@ -20,9 +20,6 @@ IUSE="debug +plasma"
 DEPEND="
 	$(add_kdebase_dep libkdeedu)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kvtml-data)
-"
 
 KMEXTRACTONLY="
 	libkdeedu/keduvocdocument
