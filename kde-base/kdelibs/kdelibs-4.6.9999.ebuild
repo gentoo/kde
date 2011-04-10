@@ -279,6 +279,11 @@ src_install() {
 			"${ED}"/${KDEDIR}/share/apps/cmake/modules/FindXKB.cmake \
 			|| die "failed fixing FindXKB.cmake"
 	fi
+
+	einfo Installing environment file.
+	# Since 44qt4 is sourced earlier QT_PLUGIN_PATH is defined.
+	echo "QT_PLUGIN_PATH=${EROOT}/${KDEDIR}/$(get_libdir)/kde4/plugins/:\${QT_PLUGIN_PATH}" > "${T}/77kde"
+	doenvd "${T}/77kde" || die
 }
 
 pkg_postinst() {
