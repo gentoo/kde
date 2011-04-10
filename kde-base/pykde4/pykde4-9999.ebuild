@@ -5,7 +5,7 @@
 EAPI=3
 
 KMNAME="kdebindings"
-if [[ ${PV} != 9999 ]]; then
+if [[ ${PV} != *9999 ]]; then
 	KMMODULE="python/pykde4"
 else
 	# HACK HACK HACK
