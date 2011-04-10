@@ -31,12 +31,20 @@ src_configure() {
 		$(cmake-utils_use_with ps LibSpectre)
 		$(cmake-utils_use_with R)
 	"
+	if [[ ${PV} == *9999 ]]; then
+		kde4-base_src_configure
+	else
+		kde4-meta_src_configure
+	fi
 
-	kde4-meta_src_configure
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	if [[ ${PV} == *9999 ]]; then
+		kde4-base_pkg_postinst
+	else
+		kde4-meta_pkg_postinst
+	fi
 
 	if ! use R; then
 		echo
