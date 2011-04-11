@@ -23,6 +23,11 @@ RESTRICT="test"
 
 PATCHES=( "${FILESDIR}/${PN}-4.2.3_includes.patch" )
 
+pkg_setup() {
+	kde4-meta_pkg_setup
+	java-pkg-2_pkg_setup
+}
+
 src_prepare() {
 	find "${S}" -iname '*.jar' | xargs rm -v
 	kde4-meta_src_prepare
@@ -31,7 +36,6 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(-DENABLE_KROSSJAVA=ON)
-	export JAVA_HOME=$(java-config -g JAVA_HOME)
 	kde4-meta_src_configure
 	java-ant-2_src_configure
 }
@@ -56,4 +60,9 @@ src_install() {
 	dosym "${path_prefix}usr/share/${PN}-${SLOT}/lib/kross.jar" \
 		"${KDEDIR}/$(get_libdir)/kde4/kross/kross.jar"
 	java-pkg_regso "${ED}/${KDEDIR}/$(get_libdir)/kde4/libkrossjava.so"
+}
+
+pkg_preinst() {
+	kde4-meta_pkg_preinst
+	java-pkg-2_pkg_preinst
 }
