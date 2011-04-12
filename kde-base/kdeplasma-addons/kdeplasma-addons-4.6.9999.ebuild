@@ -29,7 +29,10 @@ COMMON_DEPEND="
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
-	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
+	semantic-desktop? (
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+		$(add_kdebase_dep plasma-workspace 'rss')
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
