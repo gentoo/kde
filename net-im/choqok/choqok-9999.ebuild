@@ -1,34 +1,37 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/choqok/choqok-0.9.90-r1.ebuild,v 1.1 2010/09/07 01:22:48 tampakrap Exp $
+# $Header: $
 
 EAPI=3
 
-
 if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR sv tr uk zh_CN zh_TW"
-	SRC_URI="http://choqok.gnufolks.org/pkgs/${PN}_${PV}.tar.bz2"
+	KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR ru sv tr uk zh_CN zh_TW"
+	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+	KDE_HANDBOOK="optional"
+	KEYWORDS="~amd64 ~x86"
+else
+	KDE_SCM="git"
+	KEYWORDS=""
 fi
-KDE_SCM="git"
+
 inherit kde4-base
 
 DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 
 LICENSE="GPL-3"
-KEYWORDS=""
 SLOT="4"
 IUSE="debug indicate"
 
 DEPEND="dev-libs/qjson
-		>=dev-libs/qoauth-1.0.1
-		indicate? ( dev-libs/libindicate-qt )
+	>=dev-libs/qoauth-1.0.1
+	indicate? ( dev-libs/libindicate-qt )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare(){
 	mycmakeargs=(
-		$(cmake-utils_use indicate QTINDICATE_ENABLE)
+		$(cmake-utils_use !indicate QTINDICATE_DISABLE)
 	)
 
 	kde4-base_src_prepare
