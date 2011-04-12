@@ -13,23 +13,23 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="debug desktopglobe exif qalculate qwt scim semantic-desktop"
+IUSE="attica debug desktopglobe exif qalculate qwt scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
 	app-crypt/qca:2
 	app-crypt/qca-ossl:2
-	dev-libs/libattica
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep plasma-workspace 'semantic-desktop?')
 	x11-misc/shared-mime-info
+	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
+	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -46,10 +46,6 @@ RDEPEND="${COMMON_DEPEND}
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.5.56-cmake.patch"
-)
-
 src_prepare() {
 	find "${S}" -name CMakeLists.txt | \
 		xargs sed -i \
@@ -64,10 +60,12 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		-DDBUS_INTERFACES_INSTALL_DIR="${EKDEDIR}/share/dbus-1/interfaces/"
+		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with scim)
 	)
