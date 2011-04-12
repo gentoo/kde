@@ -4,7 +4,7 @@
 
 EAPI=3
 
-KDE_MINIMAL="4.5"
+KDE_MINIMAL="4.6"
 
 KDE_SCM="git"
 EGIT_REPONAME="networkmanagement"
@@ -18,25 +18,20 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="consolekit debug +networkmanager wicd"
+IUSE="consolekit debug"
 
+# From 0.9 networkmanager the solid is not used
 DEPEND="
-	$(add_kdebase_dep solid 'networkmanager?,wicd?')
 	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.7
-	consolekit? ( sys-auth/consolekit )
-	!wicd? ( $(add_kdebase_dep solid 'networkmanager') )
+	|| (
+		>=net-misc/networkmanager-0.8.80
+		$(add_kdebase_dep solid 'networkmanager')
+	)
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
-
 src_prepare() {
 	kde4-base_src_prepare
-
-	#removing monolithic version
-	sed -e "s:add_subdirectory(monolithic):#add_subdirectory(monolithic):" \
-		-i CMakeLists.txt || die "removing monolithic NM failed"
 
 	if ! use consolekit; then
 		# Fix dbus policy
