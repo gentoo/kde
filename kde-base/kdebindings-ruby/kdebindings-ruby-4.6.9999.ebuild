@@ -104,7 +104,7 @@ each_ruby_configure() {
 		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with qscintilla QScintilla)
-		$(cmake-utils_use_with qwt Qwt)
+		$(cmake-utils_use_with qwt Qwt5)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_disable webkit QtWebKit)
