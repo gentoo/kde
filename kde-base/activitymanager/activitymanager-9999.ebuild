@@ -9,4 +9,15 @@ inherit kde4-meta
 
 DESCRIPTION="Activity manager"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug semantic-desktop"
+
+DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop?')"
+RDEPEND=${DEPEND}
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
+	kde4-meta_src_configure
+}
