@@ -13,7 +13,7 @@ inherit kde4-base
 
 DESCRIPTION="Wicd client built on the KDE Development Platform"
 HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
-[[ ${PV} == *9999 ]] ||
+[[ ${PV} == *9999 ]] || \
 	SRC_URI="http://kde-apps.org/CONTENT/content-files/132366-${MY_P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
