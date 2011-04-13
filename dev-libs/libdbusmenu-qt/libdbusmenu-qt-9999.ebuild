@@ -28,13 +28,14 @@ HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug"
+IUSE="debug doc"
 
 RDEPEND="
 	>=x11-libs/qt-core-${QT_DEPEND}:4
 	>=x11-libs/qt-gui-${QT_DEPEND}:4[dbus]
 "
 DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )
 	test? (
 		dev-libs/qjson
 		>=x11-libs/qt-test-${QT_DEPEND}:4
@@ -46,6 +47,7 @@ DOCS=(NEWS README)
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build test TESTS)
+		$(cmake-utils_use_with doc)
 	)
 	cmake-utils_src_configure
 }
