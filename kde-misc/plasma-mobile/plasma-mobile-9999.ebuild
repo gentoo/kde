@@ -20,6 +20,7 @@ SLOT="4"
 IUSE=""
 
 DEPEND="
+		$(add_kdebase_dep nepomuk)
 		$(add_kdebase_dep plasma-workspace)
 "
 RDEPEND="${DEPEND}"
