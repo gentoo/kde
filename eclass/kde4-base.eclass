@@ -740,10 +740,10 @@ kde4-base_src_prepare() {
 				: ${KDE_DOC_DIRS:=doc}
 				local dir
 				for dir in ${KDE_DOC_DIRS}; do
-					sed -e "/^[[:space:]]*add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-						-e "/^[[:space:]]*ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-						-e "/^[[:space:]]*macro_optional_add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-						-e "/^[[:space:]]*MACRO_OPTIONAL_ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+					sed -e "\!^[[:space:]]*add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)!s/^/#DONOTCOMPILE /" \
+						-e "\!^[[:space:]]*ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)!s/^/#DONOTCOMPILE /" \
+						-e "\!^[[:space:]]*macro_optional_add_subdirectory[[:space:]]*([[:space:]]*${dir}[[:space:]]*)!s/^/#DONOTCOMPILE /" \
+						-e "\!^[[:space:]]*MACRO_OPTIONAL_ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${dir}[[:space:]]*)!s/^/#DONOTCOMPILE /" \
 						-i CMakeLists.txt || die "failed to comment out handbook"
 				done
 			fi
