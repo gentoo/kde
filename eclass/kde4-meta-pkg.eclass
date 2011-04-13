@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta-pkg.eclass,v 1.1 2011/04/06 14:22:14 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta-pkg.eclass,v 1.2 2011/04/06 15:56:32 scarabeus Exp $
 
 # @ECLASS: kde4-meta-pkg.eclass
 # @MAINTAINER:
@@ -15,9 +15,8 @@ HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2"
 IUSE="aqua kdeprefix"
-RDEPEND="$(block_other_slots)"
 
 SLOT=$(_calculate_kde_slot)
 [[ -z ${SLOT} ]] && die "Unsupported ${PV}"
-# portage dies out if last statement is like above so we need to pass true
-:
+
+RDEPEND="$(block_other_slots)"
