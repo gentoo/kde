@@ -15,10 +15,6 @@ EXPORT_FUNCTIONS src_unpack
 
 DEPEND="dev-vcs/git"
 
-# This static variable is for storing the data in WORKDIR.
-# Sometimes we might want to redefine S.
-EGIT_SOURCEDIR="${WORKDIR}/${P}"
-
 # @FUNCTION: git-2_init_variables
 # @DESCRIPTION:
 # Internal function initializing all git variables.
@@ -28,6 +24,13 @@ git-2_init_variables() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local x
+
+	# @ECLASS-VARIABLE: EGIT_SOURCEDIR
+	# @DESCRIPTION:
+	# This variable specifies destination where the cloned
+	# data are copied to.
+	# Sometimes we might want to make it different than S.
+	: ${EGIT_SOURCEDIR="${S}"}
 
 	# @ECLASS-VARIABLE: EGIT_STORE_DIR
 	# @DESCRIPTION:
