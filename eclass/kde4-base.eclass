@@ -168,7 +168,8 @@ KDE_HANDBOOK="${KDE_HANDBOOK:-never}"
 # translations. (Mostly all kde ebuilds does not ship documentation
 # and translations in live ebuilds)
 if [[ ${BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
-	KDE_HANDBOOK=never
+	# Kdebase actualy provides the handbooks even for live stuff
+	[[ ${KDEBASE} == kde-base ]] || KDE_HANDBOOK=never
 	KDE_LINGUAS=""
 fi
 
