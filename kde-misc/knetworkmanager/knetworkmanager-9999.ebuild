@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_MINIMAL="4.6"
 
@@ -45,7 +45,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d
 	)
 
