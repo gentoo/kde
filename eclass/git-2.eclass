@@ -53,6 +53,12 @@ git-2_init_variables() {
 	# Usefull when upstream don't have master branch.
 	: ${EGIT_MASTER:=master}
 
+	# @ECLASS-VARIABLE: EGIT_DIR
+	# @DESCRIPTION:
+	# Directory where we want to store the git data.
+	# This should not be overriden unless really required.
+	# @DEFAULT: ${EGIT_STORE_DIR}/${EGIT_REPO_URI##*/}
+
 	# @ECLASS-VARIABLE: EGIT_REPO_URI
 	# @DESCRIPTION:
 	# URI for the repository
@@ -193,8 +199,11 @@ git-2_prepare_storedir() {
 	addwrite "${EGIT_STORE_DIR}"
 	# calculate the proper store dir for data
 	[[ -z ${EGIT_REPO_URI##*/} ]] && EGIT_REPO_URI="${EGIT_REPO_URI%/}"
-	clone_dir="${EGIT_REPO_URI##*/}"
-	export EGIT_DIR="${EGIT_STORE_DIR}/${clone_dir}"
+	if [[ -z ${EGIT_DIR} ]]; then
+		clone_dir=${EGIT_REPO_URI##*/}
+		EGIT_DIR=${EGIT_STORE_DIR}/${clone_dir}
+	fi
+	export EGIT_DIR=${EGIT_DIR}
 	debug-print "${FUNCNAME}: Storing the repo into \"${EGIT_DIR}\"."
 }
 
