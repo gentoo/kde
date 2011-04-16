@@ -42,16 +42,6 @@ git-2_init_variables() {
 	# Set this to non-empty value to enable submodule support.
 	: ${EGIT_HAS_SUBMODULES:=}
 
-	# @ECLASS-VARIABLE: EGIT_FETCH_CMD
-	# @DESCRIPTION:
-	# Command for cloning the repository.
-	: ${EGIT_FETCH_CMD:="git clone"}
-
-	# @ECLASS-VARIABLE: EGIT_UPDATE_CMD
-	# @DESCRIPTION:
-	# Git fetch command.
-	: ${EGIT_UPDATE_CMD:="git pull -f -u"}
-
 	# @ECLASS-VARIABLE: EGIT_OPTIONS
 	# @DESCRIPTION:
 	# This variable value is passed to clone and fetch.
@@ -112,14 +102,19 @@ git-2_init_variables() {
 # Internal function wrapping the submodule initialisation and update
 git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
+	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
+		if [[ -n ${ESCM_OFFLINE} ]]; then
+			debug-print "${FUNCNAME}: submodules work only in online mode"
+			return 1
+		fi
 
-	[[ $# -ne 1 ]] && die "${FUNCNAME}: requires exactly 1 argument (path)"
 
-	debug-print "${FUNCNAME}: working in \"${1}\""
-	pushd "${1}" > /dev/null
+		[[ $# -ne 1 ]] && die "${FUNCNAME}: requires exactly 1 argument (path)"
 
-	# for submodules operations we need to be online
-	if [[ -z ${EVCS_OFFLINE} && -n ${EGIT_HAS_SUBMODULES} ]]; then
+		debug-print "${FUNCNAME}: working in \"${1}\""
+		pushd "${1}" > /dev/null
+
+		# for submodules operations we need to be online
 		export GIT_DIR=${EGIT_DIR}
 		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die
@@ -128,9 +123,9 @@ git-2_submodules() {
 		debug-print "${FUNCNAME}: git submodule update"
 		git submodule update || die
 		unset GIT_DIR
-	fi
 
-	popd > /dev/null
+		popd > /dev/null
+	fi
 }
 
 # @FUNCTION: git-2_branch
@@ -202,20 +197,6 @@ git-2_prepare_storedir() {
 	clone_dir="${EGIT_REPO_URI##*/}"
 	export EGIT_DIR="${EGIT_STORE_DIR}/${clone_dir}"
 	debug-print "${FUNCNAME}: Storing the repo into \"${EGIT_DIR}\"."
-
-	# we can not jump between using and not using SUBMODULES so we need to
-	# refetch the source when needed
-	if [[ -d ${EGIT_DIR} && ! -d ${EGIT_DIR}/.git ]]; then
-		debug-print "${FUNCNAME}: \"${clone_dir}\" was bare copy moving..."
-		mv "${EGIT_DIR}" "${EGIT_DIR}.bare" \
-			|| die "${FUNCNAME}: Moving the bare sources failed"
-
-	fi
-	# Tell user that he can remove his bare repository. It is not used.
-	if [[ -d ${EGIT_DIR}.bare ]]; then
-		einfo "Found GIT bare repository at \"${EGIT_DIR}.bare\"."
-		einfo "This folder can be safely removed to save space."
-	fi
 }
 
 # @FUNCTION: git-2_move_source
@@ -224,9 +205,11 @@ git-2_prepare_storedir() {
 git-2_move_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	debug-print "${FUNCNAME}: ${MOVE_COMMAND} \"${EGIT_DIR}\" \"${EGIT_SOURCEDIR}\""
 	pushd "${EGIT_DIR}" > /dev/null
-	debug-print "${FUNCNAME}: rsync -rlpgo . \"${EGIT_SOURCEDIR}\""
-	cp -pPR . "${EGIT_SOURCEDIR}" \
+	mkdir -p "${EGIT_SOURCEDIR}" \
+		|| die "${FUNCNAME}: failed to create ${EGIT_SOURCEDIR}"
+	${MOVE_COMMAND} "${EGIT_SOURCEDIR}" \
 		|| die "${FUNCNAME}: sync to \"${EGIT_SOURCEDIR}\" failed"
 	popd > /dev/null
 }
@@ -241,8 +224,8 @@ git-2_initial_clone() {
 
 	EGIT_REPO_URI_SELECTED=""
 	for repo_uri in ${EGIT_REPO_URI}; do
-		debug-print "${FUNCNAME}: ${EGIT_FETCH_CMD} ${EGIT_OPTIONS} \"${repo_uri}\" \"${EGIT_DIR}\""
-		${EGIT_FETCH_CMD} ${EGIT_OPTIONS} "${repo_uri}" "${EGIT_DIR}"
+		debug-print "${FUNCNAME}: git clone ${EGIT_OPTIONS} \"${repo_uri}\" \"${EGIT_DIR}\""
+		git clone ${EGIT_OPTIONS} "${repo_uri}" "${EGIT_DIR}"
 		if [[ $? -eq 0 ]]; then
 			# global variable containing the repo_name we will be using
 			debug-print "${FUNCNAME}: EGIT_REPO_URI_SELECTED=\"${repo_uri}\""
@@ -264,12 +247,14 @@ git-2_update_repo() {
 
 	local repo_uri
 
-	# checkout master branch and drop all other local branches
-	git checkout ${EGIT_MASTER}
-	for x in $(git branch | grep -v "* ${EGIT_MASTER}" | tr '\n' ' '); do
-		debug-print "${FUNCNAME}: git branch -D ${x}"
-		git branch -D ${x}
-	done
+	if [[ -n ${EGIT_NONBARE} ]]; then
+		# checkout master branch and drop all other local branches
+		git checkout ${EGIT_MASTER} || die "${FUNCNAME}: can't checkout master branch ${EGIT_MASTER}"
+		for x in $(git branch | grep -v "* ${EGIT_MASTER}" | tr '\n' ' '); do
+			debug-print "${FUNCNAME}: git branch -D ${x}"
+			git branch -D ${x} > /dev/null
+		done
+	fi
 
 	EGIT_REPO_URI_SELECTED=""
 	for repo_uri in ${EGIT_REPO_URI}; do
@@ -277,8 +262,7 @@ git-2_update_repo() {
 		git config remote.origin.url "${repo_uri}"
 
 		debug-print "${EGIT_UPDATE_CMD} ${EGIT_OPTIONS}"
-		${EGIT_UPDATE_CMD} ${EGIT_OPTIONS} > /dev/null
-
+		${EGIT_UPDATE_CMD} > /dev/null
 		if [[ $? -eq 0 ]]; then
 			# global variable containing the repo_name we will be using
 			debug-print "${FUNCNAME}: EGIT_REPO_URI_SELECTED=\"${repo_uri}\""
@@ -299,57 +283,59 @@ git-2_update_repo() {
 git-2_fetch() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local oldsha cursha upstream_branch
+	local oldsha cursha local type
 
-	upstream_branch=origin/${EGIT_BRANCH}
+	[[ -n ${EGIT_NONBARE} ]] && type="non-bare repository" || type="bare repository"
 
 	if [[ ! -d ${EGIT_DIR} ]]; then
 		git-2_initial_clone
 		pushd "${EGIT_DIR}" > /dev/null
-		cursha=$(git rev-parse ${upstream_branch})
-		einfo "GIT NEW clone -->"
-		einfo "   repository:               ${EGIT_REPO_URI_SELECTED}"
-		einfo "   at the commit:            ${cursha}"
+		cursha=$(git rev-parse ${UPSTREAM_BRANCH})
+		echo "GIT NEW clone -->"
+		echo "   repository:               ${EGIT_REPO_URI_SELECTED}"
+		echo "   at the commit:            ${cursha}"
 
 		git-2_submodules "${EGIT_DIR}"
 		popd > /dev/null
 	elif [[ -n ${EVCS_OFFLINE} ]]; then
 		pushd "${EGIT_DIR}" > /dev/null
-		cursha=$(git rev-parse ${upstream_branch})
-		einfo "GIT offline update -->"
-		einfo "   repository:               $(git config remote.origin.url)"
-		einfo "   at the commit:            ${cursha}"
-		popd 	> /dev/null
+		cursha=$(git rev-parse ${UPSTREAM_BRANCH})
+		echo "GIT offline update -->"
+		echo "   repository:               $(git config remote.origin.url)"
+		echo "   at the commit:            ${cursha}"
+		popd > /dev/null
 	else
 		pushd "${EGIT_DIR}" > /dev/null
-		oldsha=$(git rev-parse ${upstream_branch})
+		oldsha=$(git rev-parse ${UPSTREAM_BRANCH})
 		git-2_update_repo
-		cursha=$(git rev-parse ${upstream_branch})
+		cursha=$(git rev-parse ${UPSTREAM_BRANCH})
 
 		# fetch updates
-		einfo "GIT update -->"
-		einfo "   repository:               ${EGIT_REPO_URI_SELECTED}"
+		echo "GIT update -->"
+		echo "   repository:               ${EGIT_REPO_URI_SELECTED}"
 		# write out message based on the revisions
 		if [[ "${oldsha1}" != "${cursha1}" ]]; then
-			einfo "   updating from commit:     ${oldsha}"
-			einfo "   to commit:                ${cursha}"
+			echo "   updating from commit:     ${oldsha}"
+			echo "   to commit:                ${cursha}"
 		else
-			einfo "   at the commit:            ${cursha}"
+			echo "   at the commit:            ${cursha}"
 		fi
 
 		git-2_submodules "${EGIT_DIR}"
 
 		# print nice statistic of what was changed
-		git --no-pager diff --stat ${oldsha}..${upstream_branch}
+		git --no-pager diff --stat ${oldsha}..${UPSTREAM_BRANCH}
 		popd > /dev/null
 	fi
 	# export the version the repository is at
 	export EGIT_VERSION="${cursha1}"
 	# log the repo state
 	[[ ${EGIT_COMMIT} != ${EGIT_BRANCH} ]] \
-		&& einfo "   commit:                   ${EGIT_COMMIT}"
-	einfo "   branch:                   ${EGIT_BRANCH}"
-	einfo "   storage directory:        \"${EGIT_DIR}\""
+		&& echo "   commit:                   ${EGIT_COMMIT}"
+	echo "   branch:                   ${EGIT_BRANCH}"
+	echo "   storage directory:        \"${EGIT_DIR}\""
+
+	echo "   checkout type:            ${type}"
 }
 
 # @FUNCTION: git_bootstrap
@@ -394,6 +380,69 @@ git-2_bootstrap() {
 	fi
 }
 
+# @FUNCTION: git-2_migrate_repository
+# @DESCRIPTION:
+# Function to migrate between bare and normal checkout repository.
+# This is based on usage of EGIT_SUBMODULES, at least until they
+# start to work with bare checkouts sanely.
+git-2_migrate_repository() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local target returnstate
+
+	# first find out if we have submodules
+	if [[ -z ${EGIT_SUBMODULES} ]]; then
+		target="bare"
+	else
+		target="full"
+	fi
+	# nondocumented var to allow us nonbare checkouts if we need them
+	# to use somewhere
+	[[ -n ${EGIT_NONBARE} ]] && target="full"
+
+	# test if we already have some repo and if so find out if we have
+	# to migrate the data
+	if [[ -d ${EGIT_DIR} ]]; then
+		if [[ ${target} == bare && -d ${EGIT_DIR}/.git ]]; then
+			ebegin "Converting \"${EGIT_DIR}\" from non-bare to bare copy"
+			mv "${EGIT_DIR}/.git" "${EGIT_DIR}.bare"
+			export GIT_DIR="${EGIT_DIR}.bare"
+			git config core.bare true > /dev/null
+			returnstate=$?
+			unset GIT_DIR
+			rm -rf "${EGIT_DIR}"
+			mv "${EGIT_DIR}.bare" "${EGIT_DIR}"
+			eend ${returnstate}
+		fi
+		if [[ ${target} == full && ! -d ${EGIT_DIR}/.git ]]; then
+			ebegin "Converting \"${EGIT_DIR}\" from bare to non-bare copy"
+			git clone -l "${EGIT_DIR}" "${EGIT_DIR}.nonbare" > /dev/null
+			returnstate=$?
+			rm -rf "${EGIT_DIR}"
+			mv "${EGIT_DIR}.nonbare" "${EGIT_DIR}"
+			eend ${returnstate}
+		fi
+	fi
+	if [[ ${returnstate} -ne 0 ]]; then
+		# migration failed, remove the EGIT_DIR to play it safe
+		einfo "Migration failed, removing \"${EGIT_DIR}\" to start from scratch."
+		rm -rf "${EGIT_DIR}"
+	fi
+
+	# set various options to work with both options
+	if [[ ${target} == bare ]]; then
+		EGIT_OPTIONS+=" --bare"
+		MOVE_COMMAND="git clone -l -s -n ${EGIT_DIR}"
+		EGIT_UPDATE_CMD="git fetch -f -u origin ${EGIT_BRANCH}:${EGIT_BRANCH}"
+		UPSTREAM_BRANCH="${EGIT_BRANCH}"
+	else
+		MOVE_COMMAND="cp -pPR ."
+		EGIT_UPDATE_CMD="git pull -f -u ${EGIT_OPTIONS}"
+		UPSTREAM_BRANCH="origin/${EGIT_BRANCH}"
+		EGIT_NONBARE="true"
+	fi
+}
+
 # @FUNCTION: git-2_src_unpack
 # @DESCRIPTION:
 # src_upack function
@@ -402,6 +451,7 @@ git-2_src_unpack() {
 
 	git-2_init_variables
 	git-2_prepare_storedir
+	git-2_migrate_repository
 	git-2_fetch "$@"
 	git-2_gc
 	git-2_move_source
