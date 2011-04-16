@@ -466,7 +466,7 @@ _calculate_src_uri() {
 	case ${KDEBASE} in
 		kde-base)
 			case ${PV} in
-				4.[456].8[05] | 4.[456].9[023568] | 4.5.94.1)
+				4.[456].8[05] | 4.[456].9[023568])
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
 					# KDEPIM IS SPECIAL
