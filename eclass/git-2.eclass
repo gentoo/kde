@@ -108,7 +108,6 @@ git-2_submodules() {
 			return 1
 		fi
 
-
 		[[ $# -ne 1 ]] && die "${FUNCNAME}: requires exactly 1 argument (path)"
 
 		debug-print "${FUNCNAME}: working in \"${1}\""
@@ -283,9 +282,9 @@ git-2_update_repo() {
 git-2_fetch() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local oldsha cursha local type
+	local oldsha cursha repo_type
 
-	[[ -n ${EGIT_NONBARE} ]] && type="non-bare repository" || type="bare repository"
+	[[ -n ${EGIT_NONBARE} ]] && repo_type="non-bare repository" || repo_type="bare repository"
 
 	if [[ ! -d ${EGIT_DIR} ]]; then
 		git-2_initial_clone
@@ -334,8 +333,7 @@ git-2_fetch() {
 		&& echo "   commit:                   ${EGIT_COMMIT}"
 	echo "   branch:                   ${EGIT_BRANCH}"
 	echo "   storage directory:        \"${EGIT_DIR}\""
-
-	echo "   checkout type:            ${type}"
+	echo "   checkout type:            ${repo_type}"
 }
 
 # @FUNCTION: git_bootstrap
@@ -404,6 +402,7 @@ git-2_migrate_repository() {
 	# to migrate the data
 	if [[ -d ${EGIT_DIR} ]]; then
 		if [[ ${target} == bare && -d ${EGIT_DIR}/.git ]]; then
+			debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" to bare copy"
 			ebegin "Converting \"${EGIT_DIR}\" from non-bare to bare copy"
 			mv "${EGIT_DIR}/.git" "${EGIT_DIR}.bare"
 			export GIT_DIR="${EGIT_DIR}.bare"
@@ -415,6 +414,7 @@ git-2_migrate_repository() {
 			eend ${returnstate}
 		fi
 		if [[ ${target} == full && ! -d ${EGIT_DIR}/.git ]]; then
+			debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" to non-bare copy"
 			ebegin "Converting \"${EGIT_DIR}\" from bare to non-bare copy"
 			git clone -l "${EGIT_DIR}" "${EGIT_DIR}.nonbare" > /dev/null
 			returnstate=$?
@@ -424,6 +424,7 @@ git-2_migrate_repository() {
 		fi
 	fi
 	if [[ ${returnstate} -ne 0 ]]; then
+		debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" failed, removing to start from scratch"
 		# migration failed, remove the EGIT_DIR to play it safe
 		einfo "Migration failed, removing \"${EGIT_DIR}\" to start from scratch."
 		rm -rf "${EGIT_DIR}"
