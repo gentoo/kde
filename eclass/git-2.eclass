@@ -15,6 +15,95 @@ EXPORT_FUNCTIONS src_unpack
 
 DEPEND="dev-vcs/git"
 
+# @ECLASS-VARIABLE: EGIT_SOURCEDIR
+# @DESCRIPTION:
+# This variable specifies destination where the cloned
+# data are copied to.
+#
+# EGIT_SOURCEDIR="${S}"
+
+# @ECLASS-VARIABLE: EGIT_STORE_DIR
+# @DESCRIPTION:
+# Storage directory for git sources.
+#
+# EGIT_STORE_DIR="${DISTDIR}/egit-src"
+
+# @ECLASS-VARIABLE: EGIT_HAS_SUBMODULES
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Variable enabling support for submodules if set.
+
+# @ECLASS-VARIABLE: EGIT_OPTIONS
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Variable specifying additional options for fetch command.
+
+# @ECLASS-VARIABLE: EGIT_MASTER
+# @DESCRIPTION:
+# Variable for specifying master branch.
+# Usefull when upstream don't have master branch or name it differently.
+#
+# EGIT_MASTER="master"
+
+# @ECLASS-VARIABLE: EGIT_DIR
+# @DESCRIPTION:
+# Directory where we want to store the git data.
+# This should not be overriden unless really required.
+#
+# EGIT_DIR="${EGIT_STORE_DIR}/${EGIT_REPO_URI##*/}"
+
+# @ECLASS-VARIABLE: EGIT_REPO_URI
+# @REQUIRED
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# URI for the repository
+# e.g. http://foo, git://bar
+#
+# Support multiple values:
+# EGIT_REPO_URI="git://a/b.git http://c/d.git"
+
+# @ECLASS-VARIABLE: EVCS_OFFLINE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If non-empty this variable prevents performance of any online
+# operations.
+
+# @ECLASS-VARIABLE: EGIT_BRANCH
+# @DESCRIPTION:
+# Variable containing branch name we want to check out.
+# It can be overriden via env using packagename_LIVE_BRANCH
+# variable.
+#
+# EGIT_BRANCH="${EGIT_MASTER}"
+
+# @ECLASS-VARIABLE: EGIT_COMMIT
+# @DESCRIPTION:
+# Variable containing commit hash/tag we want to check out.
+# It can be overriden via env using packagename_LIVE_COMMIT
+# variable.
+#
+# EGIT_BRANCH="${EGIT_BRANCH}"
+
+# @ECLASS-VARIABLE: EGIT_REPACK
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If non-empty this variable specifies that repository will be repacked to
+# save space. However this can take a REALLY LONG time with VERY big
+# repositories.
+
+# @ECLASS-VARIABLE: EGIT_PRUNE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If non-empty this variable enables pruning all loose objects on each fetch.
+# This is useful if upstream rewinds and rebases branches often.
+
+# @ECLASS-VARIABLE: EGIT_NONBARE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If non-empty this variable specifies that all checkouts will be done using
+# non bare repositories. This is useful if you can't operate with bare
+# checkouts for some reason.
+
 # @FUNCTION: git-2_init_variables
 # @DESCRIPTION:
 # Internal function initializing all git variables.
@@ -25,87 +114,38 @@ git-2_init_variables() {
 
 	local x
 
-	# @ECLASS-VARIABLE: EGIT_SOURCEDIR
-	# @DESCRIPTION:
-	# This variable specifies destination where the cloned
-	# data are copied to.
-	# Sometimes we might want to make it different than S.
 	: ${EGIT_SOURCEDIR="${S}"}
 
-	# @ECLASS-VARIABLE: EGIT_STORE_DIR
-	# @DESCRIPTION:
-	# Storage directory for git sources.
 	: ${EGIT_STORE_DIR:="${PORTAGE_ACTUAL_DISTDIR-${DISTDIR}}/egit-src"}
 
-	# @ECLASS-VARIABLE: EGIT_HAS_SUBMODULES
-	# @DESCRIPTION:
-	# Set this to non-empty value to enable submodule support.
 	: ${EGIT_HAS_SUBMODULES:=}
 
-	# @ECLASS-VARIABLE: EGIT_OPTIONS
-	# @DESCRIPTION:
-	# This variable value is passed to clone and fetch.
 	: ${EGIT_OPTIONS:=}
 
-	# @ECLASS-VARIABLE: EGIT_MASTER
-	# @DESCRIPTION:
-	# Variable for specifying master branch.
-	# Usefull when upstream don't have master branch.
 	: ${EGIT_MASTER:=master}
 
-	# @ECLASS-VARIABLE: EGIT_DIR
-	# @DESCRIPTION:
-	# Directory where we want to store the git data.
-	# This should not be overriden unless really required.
-	# @DEFAULT: ${EGIT_STORE_DIR}/${EGIT_REPO_URI##*/}
-
-	# @ECLASS-VARIABLE: EGIT_REPO_URI
-	# @DESCRIPTION:
-	# URI for the repository
-	# e.g. http://foo, git://bar
-	#
-	# Support multiple values:
-	# EGIT_REPO_URI="git://a/b.git http://c/d.git"
 	eval x="\$${PN//[-+]/_}_LIVE_REPO"
 	EGIT_REPO_URI=${x:-${EGIT_REPO_URI}}
 	[[ -z ${EGIT_REPO_URI} ]] && die "EGIT_REPO_URI must have some value"
 
-	# @ECLASS-VARIABLE: EVCS_OFFLINE
-	# @DESCRIPTION:
-	# Set this variable to a non-empty value to disable the automatic updating
-	# of an GIT source tree. This is intended to be set outside the git source
-	# tree by users.
 	: ${EVCS_OFFLINE:=}
 
-	# @ECLASS-VARIABLE: EGIT_BRANCH
-	# @DESCRIPTION:
-	# Specify the branch we want to check out from the repository
 	eval x="\$${PN//[-+]/_}_LIVE_BRANCH"
+	[[ -n ${x} ]] && ewarn "QA: using \"${PN//[-+]/_}_LIVE_BRANCH\" variable, you won't get any support"
 	EGIT_BRANCH=${x:-${EGIT_BRANCH:-${EGIT_MASTER}}}
 
-	# @ECLASS-VARIABLE: EGIT_COMMIT
-	# @DESCRIPTION:
-	# Specify commit we want to check out from the repository.
 	eval x="\$${PN//[-+]/_}_LIVE_COMMIT"
+	[[ -n ${x} ]] && ewarn "QA: using \"${PN//[-+]/_}_LIVE_COMMIT\" variable, you won't get any support"
 	EGIT_COMMIT=${x:-${EGIT_COMMIT:-${EGIT_BRANCH}}}
 
-	# @ECLASS-VARIABLE: EGIT_REPACK
-	# @DESCRIPTION:
-	# Set to non-empty value to repack objects to save disk space. However this
-	# can take a REALLY LONG time with VERY big repositories.
 	: ${EGIT_REPACK:=}
 
-	# @ECLASS-VARIABLE: EGIT_PRUNE
-	# @DESCRIPTION:
-	# Set to non-empty value to prune loose objects on each fetch. This is
-	# useful if upstream rewinds and rebases branches often.
 	: ${EGIT_PRUNE:=}
-
 }
 
 # @FUNCTION: git-2_submodules
 # @DESCRIPTION:
-# Internal function wrapping the submodule initialisation and update
+# Internal function wrapping the submodule initialisation and update.
 git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
@@ -224,7 +264,7 @@ git-2_move_source() {
 
 # @FUNCTION: git-2_initial_clone
 # @DESCRIPTION:
-# Run initial clone on specified repo_uri
+# Internal function running initial clone on specified repo_uri.
 git-2_initial_clone() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -249,7 +289,7 @@ git-2_initial_clone() {
 
 # @FUNCTION: git-2_update_repo
 # @DESCRIPTION:
-# Run update command on specified repo_uri
+# Internal function running update command on specified repo_uri.
 git-2_update_repo() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -389,7 +429,7 @@ git-2_bootstrap() {
 
 # @FUNCTION: git-2_migrate_repository
 # @DESCRIPTION:
-# Function to migrate between bare and normal checkout repository.
+# Internal function migrating between bare and normal checkout repository.
 # This is based on usage of EGIT_SUBMODULES, at least until they
 # start to work with bare checkouts sanely.
 git-2_migrate_repository() {
@@ -403,8 +443,6 @@ git-2_migrate_repository() {
 	else
 		target="full"
 	fi
-	# nondocumented var to allow us nonbare checkouts if we need them
-	# to use somewhere
 	[[ -n ${EGIT_NONBARE} ]] && target="full"
 
 	# test if we already have some repo and if so find out if we have
@@ -455,7 +493,7 @@ git-2_migrate_repository() {
 
 # @FUNCTION: git-2_src_unpack
 # @DESCRIPTION:
-# src_upack function
+# Default git src_upack function.
 git-2_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
