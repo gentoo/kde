@@ -161,7 +161,7 @@ git-2_submodules() {
 		debug-print "${FUNCNAME}: working in \"${1}\""
 		pushd "${1}" > /dev/null
 
-		export GIT_DIR=${EGIT_DIR}
+		export GIT_DIR=${1}
 		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die
 		debug-print "${FUNCNAME}: git submodule sync"

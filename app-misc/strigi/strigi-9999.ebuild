@@ -9,7 +9,7 @@ if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS=""
 else
 	EGIT_REPO_URI="git://anongit.kde.org/strigi"
-	GIT_ECLASS="git"
+	GIT_ECLASS="git-2"
 	EGIT_HAS_SUBMODULES="true"
 	KEYWORDS=""
 fi
