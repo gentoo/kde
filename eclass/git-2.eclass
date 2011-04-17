@@ -484,7 +484,7 @@ git-2_migrate_repository() {
 	# set various options to work with both options
 	if [[ ${target} == bare ]]; then
 		EGIT_OPTIONS+=" --bare"
-		MOVE_COMMAND="git clone -l -s -n ${EGIT_DIR}"
+		MOVE_COMMAND="git clone -l -s -n ${EGIT_DIR// /\\ }"
 		EGIT_UPDATE_CMD="git fetch -f -u origin ${EGIT_BRANCH}:${EGIT_BRANCH}"
 		UPSTREAM_BRANCH="${EGIT_BRANCH}"
 	else
