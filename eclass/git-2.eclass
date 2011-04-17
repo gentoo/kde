@@ -156,19 +156,15 @@ git-2_submodules() {
 			return 1
 		fi
 
-		[[ $# -ne 1 ]] && die "${FUNCNAME}: requires exactly 1 argument (path)"
-
 		debug-print "${FUNCNAME}: working in \"${1}\""
-		pushd "${1}" > /dev/null
+		pushd "${EGIT_DIR}" > /dev/null
 
-		export GIT_DIR=${1}
 		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die
 		debug-print "${FUNCNAME}: git submodule sync"
-		git submodule sync "" die
+		git submodule sync || die
 		debug-print "${FUNCNAME}: git submodule update"
 		git submodule update || die
-		unset GIT_DIR
 
 		popd > /dev/null
 	fi
@@ -344,7 +340,6 @@ git-2_fetch() {
 		echo "   repository:               ${EGIT_REPO_URI_SELECTED}"
 		echo "   at the commit:            ${cursha}"
 
-		git-2_submodules "${EGIT_DIR}"
 		popd > /dev/null
 	elif [[ -n ${EVCS_OFFLINE} ]]; then
 		pushd "${EGIT_DIR}" > /dev/null
@@ -369,8 +364,6 @@ git-2_fetch() {
 		else
 			echo "   at the commit:            ${cursha}"
 		fi
-
-		git-2_submodules "${EGIT_DIR}"
 
 		# print nice statistic of what was changed
 		git --no-pager diff --stat ${oldsha}..${UPSTREAM_BRANCH}
@@ -508,9 +501,9 @@ git-2_src_unpack() {
 	git-2_migrate_repository
 	git-2_fetch "$@"
 	git-2_gc
+	git-2_submodules
 	git-2_move_source
 	git-2_branch
-	git-2_submodules "${EGIT_SOURCEDIR}"
 	git-2_bootstrap
 	echo ">>> Unpacked to ${EGIT_SOURCEDIR}"
 }
