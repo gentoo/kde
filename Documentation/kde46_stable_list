@@ -1,0 +1,17 @@
+# Put here any KDE / Qt packages that should be stabilized
+# The list should include core KDE and Qt packages, their depedencies and extragear/misc KDE/Qt apps as well
+# Please:
+# - Keep the list sorted
+# - Include exact revision of the package
+# - Put the package under the according category
+
+# Qt 4.7 and deps
+
+
+# KDE 4.6 and deps
+
+
+# Misc Qt apps and deps
+
+
+# Misc/Extragear KDE apps and deps
