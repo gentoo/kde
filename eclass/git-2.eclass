@@ -150,7 +150,7 @@ git-2_init_variables() {
 git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
-		if [[ -n ${ESCM_OFFLINE} ]]; then
+		if [[ -n ${EVCS_OFFLINE} ]]; then
 			# for submodules operations we need to be online
 			debug-print "${FUNCNAME}: not updating submodules in offline mode"
 			return 1
