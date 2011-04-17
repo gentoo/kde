@@ -31,7 +31,8 @@ DEPEND="dev-vcs/git"
 # @ECLASS-VARIABLE: EGIT_HAS_SUBMODULES
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Variable enabling support for submodules if set.
+# If non-empty this variable enables support for git submodules in our
+# checkout. Also this makes the checkout to be non-bare for now.
 
 # @ECLASS-VARIABLE: EGIT_OPTIONS
 # @DEFAULT_UNSET
