@@ -5,8 +5,9 @@
 EAPI=3
 
 KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
-MY_P="${P/kde/kde-1}"
-EGIT_REPONAME="polkit-kde-agent-1"
+MY_PN=${PN}-1
+MY_P=${MY_PN}-${PV}
+EGIT_REPONAME=${MY_PN}
 KDE_SCM="git"
 inherit kde4-base
 

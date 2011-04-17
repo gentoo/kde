@@ -4,12 +4,11 @@
 
 EAPI=3
 
-inherit cmake-utils git
+inherit cmake-utils git-2
 
 DESCRIPTION="A library providing access to Open Collaboration Services"
 HOMEPAGE="http://kde.org/"
 EGIT_REPO_URI="git://anongit.kde.org/attica"
-EGIT_PROJECT="libattica"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""

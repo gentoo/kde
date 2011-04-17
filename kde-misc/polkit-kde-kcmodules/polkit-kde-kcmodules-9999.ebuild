@@ -4,19 +4,18 @@
 
 EAPI=3
 
-if [[ ${PV} = *9999* ]]; then
-	inherit git
-	EGIT_REPO_URI="git://anongit.kde.org/polkit-kde-kcmodules-1"
-	EGIT_PROJECT="polkit-kde-kcmodules-1"
-else
-	KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
-	MY_P="${P/kde/kde-1}"
-	SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
-fi
+MY_PN="${PN}-1"
+MY_P="${MY_PN}-${PV}"
+EGIT_REPONAME="${MY_PN}"
+KDE_SCM="git"
+KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
+
 inherit kde4-base
 
 DESCRIPTION="PolKit agent module for KDE."
 HOMEPAGE="http://www.kde.org"
+[[ ${PV} == *9999* ]] ||
+	SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -29,8 +28,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-[[ ${PV} = *9999* ]] || S="${WORKDIR}/${MY_P}"
-
-src_unpack() {
-	git_src_unpack
-}
+S="${WORKDIR}/${MY_P}"

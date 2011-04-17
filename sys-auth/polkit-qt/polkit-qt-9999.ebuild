@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit git cmake-utils
+inherit cmake-utils git-2
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
 HOMEPAGE="http://kde.org/"
@@ -29,10 +29,6 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 DOCS=(AUTHORS README README.porting TODO)
-
-src_unpack() {
-	git_src_unpack
-}
 
 src_configure() {
 	mycmakeargs=(

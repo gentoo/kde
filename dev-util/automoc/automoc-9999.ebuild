@@ -4,7 +4,7 @@
 
 EAPI=3
 
-inherit cmake-utils flag-o-matic git
+inherit cmake-utils flag-o-matic git-2
 
 DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
