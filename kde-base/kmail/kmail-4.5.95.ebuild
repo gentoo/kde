@@ -54,10 +54,6 @@ KMEXTRA="
 
 KMLOADLIBS="kdepim-common-libs"
 
-PATCHES=(
-	"${FILESDIR}/${PV}-encodings.patch"
-)
-
 src_configure() {
 	# Bug 308903
 	use ppc64 && append-flags -mminimal-toc
