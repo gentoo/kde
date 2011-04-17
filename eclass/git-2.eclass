@@ -439,7 +439,7 @@ git-2_migrate_repository() {
 	local target returnstate
 
 	# first find out if we have submodules
-	if [[ -z ${EGIT_SUBMODULES} ]]; then
+	if [[ -z ${EGIT_HAS_SUBMODULES} ]]; then
 		target="bare"
 	else
 		target="full"
@@ -483,11 +483,13 @@ git-2_migrate_repository() {
 
 	# set various options to work with both options
 	if [[ ${target} == bare ]]; then
+		debug-print "${FUNCNAME}: working in bare repository for \"${EGIT_DIR}\""
 		EGIT_OPTIONS+=" --bare"
 		MOVE_COMMAND="git clone -l -s -n ${EGIT_DIR// /\\ }"
 		EGIT_UPDATE_CMD="git fetch -f -u origin ${EGIT_BRANCH}:${EGIT_BRANCH}"
 		UPSTREAM_BRANCH="${EGIT_BRANCH}"
 	else
+		debug-print "${FUNCNAME}: working in bare repository for non-bare \"${EGIT_DIR}\""
 		MOVE_COMMAND="cp -pPR ."
 		EGIT_UPDATE_CMD="git pull -f -u ${EGIT_OPTIONS}"
 		UPSTREAM_BRANCH="origin/${EGIT_BRANCH}"
