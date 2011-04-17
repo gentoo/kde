@@ -151,7 +151,8 @@ git-2_submodules() {
 	debug-print-function ${FUNCNAME} "$@"
 	if [[ -n ${EGIT_HAS_SUBMODULES} ]]; then
 		if [[ -n ${ESCM_OFFLINE} ]]; then
-			debug-print "${FUNCNAME}: submodules work only in online mode"
+			# for submodules operations we need to be online
+			debug-print "${FUNCNAME}: not updating submodules in offline mode"
 			return 1
 		fi
 
@@ -160,7 +161,6 @@ git-2_submodules() {
 		debug-print "${FUNCNAME}: working in \"${1}\""
 		pushd "${1}" > /dev/null
 
-		# for submodules operations we need to be online
 		export GIT_DIR=${EGIT_DIR}
 		debug-print "${FUNCNAME}: git submodule init"
 		git submodule init || die
@@ -451,6 +451,7 @@ git-2_migrate_repository() {
 	if [[ -d ${EGIT_DIR} ]]; then
 		if [[ ${target} == bare && -d ${EGIT_DIR}/.git ]]; then
 			debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" to bare copy"
+
 			ebegin "Converting \"${EGIT_DIR}\" from non-bare to bare copy"
 			mv "${EGIT_DIR}/.git" "${EGIT_DIR}.bare"
 			export GIT_DIR="${EGIT_DIR}.bare"
@@ -463,6 +464,7 @@ git-2_migrate_repository() {
 		fi
 		if [[ ${target} == full && ! -d ${EGIT_DIR}/.git ]]; then
 			debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" to non-bare copy"
+
 			ebegin "Converting \"${EGIT_DIR}\" from bare to non-bare copy"
 			git clone -l "${EGIT_DIR}" "${EGIT_DIR}.nonbare" > /dev/null
 			returnstate=$?
@@ -473,6 +475,7 @@ git-2_migrate_repository() {
 	fi
 	if [[ ${returnstate} -ne 0 ]]; then
 		debug-print "${FUNCNAME}: converting \"${EGIT_DIR}\" failed, removing to start from scratch"
+
 		# migration failed, remove the EGIT_DIR to play it safe
 		einfo "Migration failed, removing \"${EGIT_DIR}\" to start from scratch."
 		rm -rf "${EGIT_DIR}"
