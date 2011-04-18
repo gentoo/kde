@@ -12,7 +12,7 @@ inherit kde4-base python
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
 
-if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
+if [[ ${PV%9999} != ${PV} ]]; then
 	SRC_URI=""
 	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 else
@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}
 	app-portage/eix
 	app-portage/genlop
 	$(add_kdebase_dep kdesu)
-	$(add_kdebase_dep knotifiy)
+	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep konsole)
 "
 
