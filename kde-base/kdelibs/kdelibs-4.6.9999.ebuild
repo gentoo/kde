@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.6.2-r2.ebuild,v 1.2 2011/04/11 21:59:37 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.6.2-r2.ebuild,v 1.4 2011/04/18 20:27:15 dilfridge Exp $
 
 EAPI=3
 
@@ -283,8 +283,8 @@ src_install() {
 	fi
 
 	einfo Installing environment file.
-	# Since 44qt4 is sourced earlier QT_PLUGIN_PATH is defined.
-	echo "QT_PLUGIN_PATH=${EROOT}/${KDEDIR}/$(get_libdir)/kde4/plugins/:\${QT_PLUGIN_PATH}" > "${T}/77kde"
+	echo "COLON_SEPARATED=QT_PLUGIN_PATH" > "${T}/77kde"
+	echo "QT_PLUGIN_PATH=${EROOT}/${KDEDIR}/$(get_libdir)/kde4/plugins/" >> "${T}/77kde"
 	doenvd "${T}/77kde" || die
 }
 
