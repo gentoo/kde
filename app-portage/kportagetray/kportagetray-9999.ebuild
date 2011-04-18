@@ -7,22 +7,13 @@ EAPI=3
 KDE_LINGUAS="pt_BR"
 PYTHON_DEPEND="2:2.6"
 
-SCM=""
-if [[ ${PV%9999} != ${PV} ]]; then
-	SCM="git"
-fi
-
-inherit kde4-base python ${SCM}
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+KDE_SCM="git"
+inherit kde4-base python
 
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
-
-if [[ ${PV%9999} != ${PV} ]]; then
-	SRC_URI=""
-	EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
-else
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-fi
+[[ ${PV} == 9999* ]] || SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 KEYWORDS=""
