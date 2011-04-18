@@ -7,7 +7,12 @@ EAPI=3
 KDE_LINGUAS="pt_BR"
 PYTHON_DEPEND="2:2.6"
 
-inherit kde4-base python
+SCM=""
+if [[ ${PV%9999} != ${PV} ]]; then
+	SCM="git"
+fi
+
+inherit kde4-base python ${SCM}
 
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
