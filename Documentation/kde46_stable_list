@@ -11,6 +11,14 @@
 # KDE 4.6 and deps
 
 
+# phonon (filed as bug 364175)
+# media-libs/phonon
+# media-libs/phonon-gstreamer
+# media-libs/phonon-vlc
+# media-libs/phonon-xine
+
+
+
 # Misc Qt apps and deps
 
 
