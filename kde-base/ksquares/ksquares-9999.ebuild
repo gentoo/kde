@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
@@ -25,7 +25,7 @@ src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
 	insinto /usr/share/ggz/modules
-	newins ${PN}/src/module.dsc ${P}.dsc || die "couldn't install .dsc file"
+	newins ${PN}/src/module.dsc ${P}.dsc
 }
 
 pkg_postinst() {

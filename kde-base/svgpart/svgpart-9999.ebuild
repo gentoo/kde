@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-if [[ ${PV} == *9999 ]]; then
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	inherit kde4-base
 else
-KMNAME="kdegraphics"
-inherit kde4-meta
+	KMNAME="kdegraphics"
+	inherit kde4-meta
 fi
 
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"

@@ -2,15 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-if [[ ${PV} == *9999 ]]; then
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	inherit kde4-base
 else
-KMNAME="kdegraphics"
-KMMODULE="libs/${PN}"
-inherit kde4-meta
+	KMNAME="kdegraphics"
+	KMMODULE="libs/${PN}"
+	inherit kde4-meta
 fi
 
 DESCRIPTION="KDE digital camera raw image library wrapper"

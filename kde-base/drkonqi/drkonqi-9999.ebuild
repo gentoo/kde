@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdebase-runtime"
 inherit kde4-meta
@@ -15,6 +15,6 @@ pkg_postinst() {
 	kde4-meta_pkg_postinst
 	if ! has_version "sys-devel/gdb"; then
 		elog "For more usability consider installing following packages:"
-	elog "    sys-devel/gdb - Easier debugging support"
+		elog "    sys-devel/gdb - Easier debugging support"
 	fi
 }

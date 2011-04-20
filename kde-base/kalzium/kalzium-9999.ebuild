@@ -2,19 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	KDE_SCM="git"
-	inherit kde4-base
+	kde_eclass="kde4-base"
 else
 	KMNAME="kdeedu"
-	inherit kde4-meta
+	kde_eclass="kde4-meta"
 fi
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit flag-o-matic
+inherit ${kde_eclass} flag-o-matic
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
@@ -46,5 +46,5 @@ src_configure(){
 		$(cmake-utils_use_with solver Libfacile)
 	)
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }

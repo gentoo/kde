@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdebindings"
 KMMODULE="csharp"
@@ -19,22 +19,11 @@ DEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.4.64[clucene] )
 "
 RDEPEND="${DEPEND}"
+REQUIRED_USE="plasma? ( webkit )"
 
 KMEXTRACTONLY="
 	smoke/
 "
-
-pkg_setup() {
-	kde4-meta_pkg_setup
-
-	if use plasma && ! use webkit; then
-		eerror
-		eerror "The plasma USE flag requires the webkit USE flag to be enabled."
-		eerror
-		eerror "Please enable webkit or disable plasma."
-		die "plasma requires webkit"
-	fi
-}
 
 src_prepare() {
 	kde4-meta_src_prepare

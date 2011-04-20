@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	KDE_SCM="git"
 	inherit kde4-base
 else
 	KMNAME="kdeedu"

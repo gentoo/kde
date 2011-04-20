@@ -2,12 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} = *9999 ]]; then
 	KMNAME="kdesupport"
-else
-	KMNAME="oxygen-icons"
 fi
 KDE_REQUIRED="never"
 inherit kde4-base

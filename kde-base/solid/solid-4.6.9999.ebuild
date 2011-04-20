@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/solid/solid-4.6.0.ebuild,v 1.2 2011/02/02 11:25:09 scarabeus Exp $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdebase-workspace"
 CPPUNIT_REQUIRED="test"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdebase-workspace"
 KMNOMODULE="true"
@@ -86,14 +86,14 @@ src_install() {
 	else
 		insinto "/etc/kde/startup"
 	fi
-	doins "${FILESDIR}/agent-startup.sh" || die "doexe agent-startup.sh failed"
+	doins "${FILESDIR}/agent-startup.sh"
 
 	if use kdeprefix; then
 		exeinto "${KDEDIR}/shutdown"
 	else
 		exeinto "/etc/kde/shutdown"
 	fi
-	doexe "${FILESDIR}/agent-shutdown.sh" || die "doexe agent-shutdown.sh failed"
+	doexe "${FILESDIR}/agent-shutdown.sh"
 
 	if use kdeprefix; then
 		KDE_X="KDE-${SLOT}"
@@ -107,13 +107,13 @@ src_install() {
 	exec "${EKDEDIR}/bin/startkde"
 	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/${KDE_X}" || die "doexe ${KDE_X} failed"
+	doexe "${T}/${KDE_X}"
 
 	# freedesktop compliant session script
 	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${EKDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
 		"${S}/kdm/kfrontend/sessions/kde-plasma.desktop.cmake" > "${T}/${KDE_X}.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/${KDE_X}.desktop" || die "doins ${KDE_X}.desktop failed"
+	doins "${T}/${KDE_X}.desktop"
 }
 
 pkg_postinst () {

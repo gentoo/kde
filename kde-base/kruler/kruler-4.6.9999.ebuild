@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegraphics"
 inherit kde4-meta
 
-DESCRIPTION="A screen ruler for the K Desktop Environment"
+DESCRIPTION="A screen ruler for KDE"
 KEYWORDS=""
 IUSE="debug"

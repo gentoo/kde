@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdesdk"
 inherit kde4-meta
@@ -25,6 +25,9 @@ add_blocker dolphin '<4.4.75'
 
 KMLOADLIBS="libkonq"
 
+#
+# See bug 351147 for why this is necessary
+#
 src_prepare() {
 	echo 'macro_optional_add_subdirectory ( dolphin-plugins )' >> CMakeLists.txt || die
 	echo > dolphin-plugins/CMakeLists.txt || die
@@ -35,5 +38,5 @@ src_prepare() {
 }
 
 src_install() {
-	( ! use git && ! use subversion ) || kde4-meta_src_install
+	{ use git || use subversion; } && kde4-meta_src_install
 }

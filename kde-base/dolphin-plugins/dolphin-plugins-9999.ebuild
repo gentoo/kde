@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdesdk"
 inherit kde4-meta
@@ -38,5 +38,5 @@ src_prepare() {
 }
 
 src_install() {
-	( ! use git && ! use subversion ) || kde4-meta_src_install
+	{ use git || use subversion; } && kde4-meta_src_install
 }

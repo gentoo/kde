@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdepim"
 KMMODULE="kresources"
@@ -32,6 +32,5 @@ src_install() {
 
 	# Install headers needed by kdepim-wizards, egroupware and slox stuff gone
 	insinto "${PREFIX}"/include/${PN}
-	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/groupwise/*.h || \
-			die "Failed to install extra header files"
+	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/groupwise/*.h
 }

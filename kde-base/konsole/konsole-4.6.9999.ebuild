@@ -2,16 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-apps"
-EGIT_REPONAME="konsole"
 KDE_SCM="git"
 
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} = *9999 ]]; then
 	inherit kde4-base
 else
+	KMNAME="kdebase-apps"
 	inherit kde4-meta
 fi
 

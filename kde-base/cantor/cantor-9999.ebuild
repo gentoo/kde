@@ -2,16 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	KDE_SCM="git"
-	inherit kde4-base
+	kde_eclass="kde4-base"
 else
 	KMNAME="kdeedu"
-	inherit kde4-meta
+	kde_eclass="kde4-meta"
 fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 KEYWORDS=""
@@ -31,20 +32,11 @@ src_configure() {
 		$(cmake-utils_use_with ps LibSpectre)
 		$(cmake-utils_use_with R)
 	"
-	if [[ ${PV} == *9999 ]]; then
-		kde4-base_src_configure
-	else
-		kde4-meta_src_configure
-	fi
-
+	${kde_eclass}_src_configure
 }
 
 pkg_postinst() {
-	if [[ ${PV} == *9999 ]]; then
-		kde4-base_pkg_postinst
-	else
-		kde4-meta_pkg_postinst
-	fi
+	${kde_eclass}_pkg_postinst
 
 	if ! use R; then
 		echo

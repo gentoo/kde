@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdebase-workspace"
@@ -48,7 +48,7 @@ pkg_setup() {
 	kde4-meta_pkg_setup
 
 	# Create kdm:kdm user
-	KDM_HOME=/var/lib/kdm-${SLOT}
+	KDM_HOME=/var/lib/kdm
 	enewgroup kdm
 	enewuser kdm -1 -1 "${KDM_HOME}" kdm
 }
@@ -76,8 +76,8 @@ src_install() {
 	# - SessionDirs set to /usr/share/xsessions
 	# - increase server timeout to 30s
 	# - TerminateServer=true to workaround X server regen bug, bug 278473
-	# - DataDir set to /var/lib/kdm-${SLOT}
-	# - FaceDir set to /var/lib/kdm-${SLOT}/faces
+	# - DataDir set to /var/lib/kdm
+	# - FaceDir set to /var/lib/kdm/faces
 	sed -e "s|^.*SessionsDirs=.*$|#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions|" \
 		-e "/#ServerTimeout=/s/^.*$/ServerTimeout=30/" \
 		-e "/#TerminateServer=/s/^.*$/TerminateServer=true/" \

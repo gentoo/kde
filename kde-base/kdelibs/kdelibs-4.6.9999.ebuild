@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.6.2-r2.ebuild,v 1.4 2011/04/18 20:27:15 dilfridge Exp $
 
-EAPI=3
+EAPI=4
 
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
@@ -254,13 +254,13 @@ src_install() {
 	# use system certificates
 	rm -f "${ED}/${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
 	dosym /etc/ssl/certs/ca-certificates.crt \
-	"${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
+	"${KDEDIR}"/share/apps/kssl/ca-bundle.crt
 
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
 		cd "${S}"/doc/api/
 		docinto /HTML/en/kdelibs-apidox
-		dohtml -r ${P}-apidocs/* || die "Install phase of KDE4 API Documentation failed"
+		dohtml -r ${P}-apidocs/*
 	fi
 
 	if use aqua; then
@@ -284,8 +284,8 @@ src_install() {
 
 	einfo Installing environment file.
 	echo "COLON_SEPARATED=QT_PLUGIN_PATH" > "${T}/77kde"
-	echo "QT_PLUGIN_PATH=${EROOT}/${KDEDIR}/$(get_libdir)/kde4/plugins/" >> "${T}/77kde"
-	doenvd "${T}/77kde" || die
+	echo "QT_PLUGIN_PATH=${EKDEDIR}/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
+	doenvd "${T}/77kde"
 }
 
 pkg_postinst() {

@@ -2,15 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 CMAKE_REQUIRED="never"
 KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="Environment setting required for all KDE4 apps to run."
-HOMEPAGE="http://kde.org"
-[[ ${PV} = *9999* ]] && ESVN_REPO_URI="" || SRC_URI=""
+SRC_URI=""
+ESVN_REPO_URI=""
 
 KEYWORDS=""
 LICENSE="as-is"
