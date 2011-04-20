@@ -23,7 +23,7 @@ KEYWORDS=""
 IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep smoke 'akonadi?,declarative?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop?,webkit?')
+	$(add_kdebase_dep smoke 'akonadi?,declarative?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop=,webkit?')
 "
 
 ruby_add_bdepend dev-ruby/rubygems

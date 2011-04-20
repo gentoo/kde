@@ -11,7 +11,7 @@ DESCRIPTION="Activity manager"
 KEYWORDS=""
 IUSE="debug semantic-desktop"
 
-DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop?')"
+DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop=')"
 RDEPEND=${DEPEND}
 
 src_configure() {

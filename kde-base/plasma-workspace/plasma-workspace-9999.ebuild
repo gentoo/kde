@@ -35,7 +35,7 @@ COMMONDEPEND="
 	)
 	qalculate? ( sci-libs/libqalculate )
 	rss? (
-		$(add_kdebase_dep kdepimlibs 'semantic-desktop?')
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop=')
 		$(add_kdebase_dep libplasmaclock 'holidays')
 	)
 	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )

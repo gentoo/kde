@@ -25,9 +25,9 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
+	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	semantic-desktop? (
 		>=app-office/akonadi-server-1.4.52
-		$(add_kdebase_dep kdelibs 'semantic-desktop')
 		media-libs/phonon
 		x11-misc/shared-mime-info
 	)

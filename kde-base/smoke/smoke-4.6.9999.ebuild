@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop"
 
 COMMON_DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	attica? ( dev-libs/libattica )
 	kate? ( $(add_kdebase_dep kate) )
