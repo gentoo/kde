@@ -24,7 +24,7 @@ src_prepare() {
 src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
-	insinto /usr/share/ggz/modules
+	insinto "${GGZ_MODDIR}"
 	newins ${PN}/src/module.dsc ${P}.dsc
 }
 

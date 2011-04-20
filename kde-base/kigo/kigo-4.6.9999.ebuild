@@ -19,8 +19,8 @@ RDEPEND="
 src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
-	insinto /usr/share/ggz/modules
-	newins ${PN}/src/module.dsc ${P}.dsc || die "couldn't install .dsc file"
+	insinto "${GGZ_MODDIR}"
+	newins ${PN}/src/module.dsc ${P}.dsc
 }
 
 pkg_postinst() {
