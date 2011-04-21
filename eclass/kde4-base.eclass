@@ -936,6 +936,10 @@ kde4-base_src_install() {
 	fi
 
 	cmake-utils_src_install
+
+	# In EAPI 4+, we don't want ${PREFIX}/share/doc/HTML to be compressed,
+	# because then khelpcenter can't find the docs
+	[[ ${EAPI} == 3 ]] || docompress -x ${PREFIX}/share/doc/HTML
 }
 
 # @FUNCTION: kde4-base_pkg_preinst
