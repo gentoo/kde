@@ -28,6 +28,7 @@ RDEPEND="
 	$(add_kdebase_dep kinfocenter)
 	$(add_kdebase_dep klipper)
 	$(add_kdebase_dep kmenuedit)
+	$(add_kdebase_dep konq-plugins)
 	$(add_kdebase_dep konqueror)
 	$(add_kdebase_dep konsole)
 	$(add_kdebase_dep kscreensaver)
