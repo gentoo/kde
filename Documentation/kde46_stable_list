@@ -11,11 +11,47 @@
 # KDE 4.6 and deps
 
 
-# phonon (filed as bug 364175)
-# media-libs/phonon
-# media-libs/phonon-gstreamer
-# media-libs/phonon-vlc
-# media-libs/phonon-xine
+=app-office/akonadi-server-1.5.2
+=dev-libs/libattica-0.2.0
+=dev-libs/soprano-2.6.0 
+=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
+# media-libs/phonon (filed as bug 364175)
+# media-libs/phonon-gstreamer (filed as bug 364175)
+# media-libs/phonon-vlc (filed as bug 364175)
+# media-libs/phonon-xine (filed as bug 364175)
+=sys-auth/polkit-kde-agent-0.99.0
+=sys-auth/polkit-qt-0.99.0
+
+
+# KDEPIM 4.4.11.1 and deps
+
+
+=kde-base/akonadi-4.4.11.1
+=kde-base/akregator-4.4.11.1
+=kde-base/blogilo-4.4.11.1
+=kde-base/kabcclient-4.4.11.1
+=kde-base/kaddressbook-4.4.11.1
+=kde-base/kalarm-4.4.11.1
+=kde-base/kdepim-icons-4.4.11.1
+=kde-base/kdepim-kresources-4.4.11.1
+=kde-base/kdepim-meta-4.4.11.1
+=kde-base/kdepim-strigi-analyzer-4.4.11.1
+=kde-base/kdepim-runtime-4.4.11.1
+=kde-base/kdepim-wizards-4.4.11.1
+=kde-base/kjots-4.4.11.1
+=kde-base/kleopatra-4.4.11.1
+=kde-base/kmail-4.4.11.1
+=kde-base/knode-4.4.11.1
+=kde-base/knotes-4.4.11.1
+=kde-base/konsolekalendar-4.4.11.1
+=kde-base/kontact-4.4.11.1
+=kde-base/korganizer-4.4.11.1
+=kde-base/ktimetracker-4.4.11.1
+=kde-base/libkdepim-4.4.11.1
+=kde-base/libkleo-4.4.11.1
+=kde-base/libkpgp-4.4.11.1
+=kde-base/kdepim-l10n-4.4.11.1
+
 
 
 
@@ -24,11 +60,25 @@
 
 # Misc/Extragear KDE apps and deps
 
+# digikam
+
 =media-gfx/digikam-1.9.0
 =media-plugins/kipi-plugins-1.9.0
-
-
 # =dev-libs/libf2c-20090407-r1 (filed as bug 364011)
 # =media-libs/lensfun-0.2.5-r1 (filed as bug 364173)
 # =sci-libs/clapack-3.2.1-r3 (filed as bug 364013)
+
+# koffice
+
+=app-office/karbon-2.3.3
+=app-office/kexi-2.3.3
+=app-office/koffice-data-2.3.3
+=app-office/koffice-l10n-2.3.3
+=app-office/koffice-libs-2.3.3
+=app-office/koffice-meta-2.3.3
+=app-office/kplato-2.3.3
+=app-office/kpresenter-2.3.3
+=app-office/krita-2.3.3
+=app-office/kspread-2.3.3
+=app-office/kword-2.3.3
 
