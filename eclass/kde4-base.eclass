@@ -379,14 +379,16 @@ fi
 
 # add a dependency over kde-l10n if EAPI4 is around
 if [[ ${KDEBASE} != "kde-base" ]] && [[ -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
-	usedep=''
 	for _lingua in ${KDE_LINGUAS}; do
-		[[ -n ${usedep} ]] && usedep+=","
-		usedep+="linguas_${_lingua}(+)?"
+		# if our package has lignuas, pull in kde-l10n with selected lingua enabled,
+		# but only for selected ones.
+		# this can't be done on one line because if user doesn't use any localisation
+		# then he is probably not interested in kde-l10n at all.
+		kderdepend+="
+			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n linguas_${_lingua}(+)?) )
+		"
 	done
-	# if our package has lignuas pull in kde-l10n with selected lingua
-	kderdepend+=" $(add_kdebase_dep kde-l10n ${usedep})"
-	unset usedep _lingua
+	unset _lingua
 fi
 
 kdehandbookdepend="
@@ -472,7 +474,7 @@ _calculate_src_uri() {
 					# KDEPIM IS SPECIAL
 					[[ ${KMNAME} == "kdepim" || ${KMNAME} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname_pv}.tar.bz2"
 					;;
-				4.4.[6789] | 4.4.1?)
+				4.4.[6789] | 4.4.1?*)
 					# Stable kdepim releases
 					SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 					;;
@@ -939,7 +941,7 @@ kde4-base_src_install() {
 
 	# In EAPI 4+, we don't want ${PREFIX}/share/doc/HTML to be compressed,
 	# because then khelpcenter can't find the docs
-	[[ ${EAPI} != 3 && -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
+	[[ ${EAPI:-0} != 3 && -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
 		docompress -x ${PREFIX}/share/doc/HTML
 }
 
