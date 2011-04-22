@@ -127,7 +127,7 @@
 ~kde-base/pykde4-4.6.9999 **
 ~kde-base/smoke-4.6.9999 **
 # Polkit and other deps
-~app-office/akonadi-server-1.5.0
+~app-office/akonadi-server-1.5.2
 ~dev-libs/libattica-0.2.0
 ~dev-libs/soprano-2.6.0
 ~kde-misc/polkit-kde-kcmodules-0.98_pre20101127
@@ -362,9 +362,6 @@ dev-python/pycups
 # Bindings etc
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
-
-# ??
-~net-dns/cagibi-0.1.1
 
 # Polkit and friends
 >=kde-misc/polkit-kde-kcmodules-0.98_pre

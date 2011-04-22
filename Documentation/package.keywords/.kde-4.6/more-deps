@@ -15,9 +15,6 @@ dev-python/pycups
 >=dev-python/PyQt4-4.8.3
 >=dev-python/sip-4.12.1
 
-# ??
-~net-dns/cagibi-0.1.1
-
 # Polkit and friends
 >=kde-misc/polkit-kde-kcmodules-0.98_pre
 ~sys-auth/polkit-kde-agent-0.99.0
