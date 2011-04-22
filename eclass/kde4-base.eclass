@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.87 2011/04/06 14:22:14 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.90 2011/04/22 18:48:03 abcd Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
