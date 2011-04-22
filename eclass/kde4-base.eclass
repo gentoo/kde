@@ -377,15 +377,15 @@ if [[ ${PN} != oxygen-icons ]]; then
 	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
 fi
 
-# add a dependency over kde-l10n if EAPI4 is around
-if [[ ${KDEBASE} != "kde-base" ]] && [[ -n ${KDE_LINGUAS} ]] && has "${EAPI:-0}" 4; then
+# add a dependency over kde-l10n if EAPI4 or better is around
+if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} && ${EAPI:-0} != 3 ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
 		# if our package has lignuas, pull in kde-l10n with selected lingua enabled,
 		# but only for selected ones.
 		# this can't be done on one line because if user doesn't use any localisation
 		# then he is probably not interested in kde-l10n at all.
 		kderdepend+="
-			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n linguas_${_lingua}(+)?) )
+			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)?") )
 		"
 	done
 	unset _lingua
