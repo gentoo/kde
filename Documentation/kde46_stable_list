@@ -122,9 +122,6 @@
 =kde-base/kdepasswd-4.6.2
 =kde-base/kdepimlibs-4.6.2-r1
 =kde-base/kdeplasma-addons-4.6.2
-
-####### checked up to here, work in progress #######
-
 =kde-base/kdesdk-kioslaves-4.6.2
 =kde-base/kdesdk-meta-4.6.2
 =kde-base/kdesdk-misc-4.6.2
@@ -137,10 +134,13 @@
 =kde-base/kdf-4.6.2
 =kde-base/kdialog-4.6.2
 =kde-base/kdiamond-4.6.2
-=kde-base/kdm-4.6.2
+=kde-base/kdm-4.6.2-r1
 =kde-base/kdnssd-4.6.2
 =kde-base/kdontchangethehostname-4.6.2
 =kde-base/keditbookmarks-4.6.2
+
+####### checked up to here, work in progress #######
+
 =kde-base/keditfiletype-4.6.2
 =kde-base/kephal-4.6.2
 =kde-base/kfile-4.6.2
