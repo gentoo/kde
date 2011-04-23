@@ -385,7 +385,7 @@ if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} && ${EAPI:-0} != 3 ]]; then
 		# this can't be done on one line because if user doesn't use any localisation
 		# then he is probably not interested in kde-l10n at all.
 		kderdepend+="
-			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)?") )
+			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n linguas_${_lingua}(+)) )
 		"
 	done
 	unset _lingua
