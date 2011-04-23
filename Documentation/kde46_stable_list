@@ -17,6 +17,7 @@
 =x11-libs/qt-gui-4.7.2
 =x11-libs/qt-multimedia-4.7.2
 =x11-libs/qt-opengl-4.7.2
+=x11-libs/qt-phonon-4.7.2
 =x11-libs/qt-qt3support-4.7.2
 =x11-libs/qt-script-4.7.2
 =x11-libs/qt-sql-4.7.2
@@ -138,9 +139,6 @@
 =kde-base/kdnssd-4.6.2
 =kde-base/kdontchangethehostname-4.6.2
 =kde-base/keditbookmarks-4.6.2
-
-####### checked up to here, work in progress #######
-
 =kde-base/keditfiletype-4.6.2
 =kde-base/kephal-4.6.2
 =kde-base/kfile-4.6.2
@@ -167,9 +165,7 @@
 =kde-base/kioclient-4.6.2
 =kde-base/kiriki-4.6.2
 =kde-base/kiten-4.6.2
-=kde-base/kjots-4.6.2
 =kde-base/kjumpingcube-4.6.2
-=kde-base/kleopatra-4.6.2
 =kde-base/klettres-4.6.2
 =kde-base/klickety-4.6.2
 =kde-base/klines-4.6.2
@@ -177,7 +173,6 @@
 =kde-base/klipper-4.6.2
 =kde-base/kmag-4.6.2
 =kde-base/kmahjongg-4.6.2
-=kde-base/kmail-4.6.2
 =kde-base/kmenuedit-4.6.2
 =kde-base/kmimetypefinder-4.6.2
 =kde-base/kmines-4.6.2
@@ -188,8 +183,6 @@
 =kde-base/knetattach-4.6.2
 =kde-base/knetwalk-4.6.2
 =kde-base/knewstuff-4.6.2
-=kde-base/knode-4.6.2
-=kde-base/knotes-4.6.2
 =kde-base/knotify-4.6.2
 =kde-base/kolf-4.6.2
 =kde-base/kollision-4.6.2
@@ -199,10 +192,6 @@
 =kde-base/konqueror-4.6.2
 =kde-base/konquest-4.6.2
 =kde-base/konsole-4.6.2
-=kde-base/konsolekalendar-4.6.2
-=kde-base/kontact-4.6.2
-=kde-base/kopete-4.6.2
-=kde-base/korganizer-4.6.2
 =kde-base/kpasswdserver-4.6.2
 =kde-base/kpat-4.6.2
 =kde-base/kppp-4.6.2
@@ -222,7 +211,7 @@
 =kde-base/kshisen-4.6.2
 =kde-base/ksirk-4.6.2
 =kde-base/ksmserver-4.6.2
-=kde-base/ksnapshot-4.6.2
+=kde-base/ksnapshot-4.6.2-r1
 =kde-base/kspaceduel-4.6.2
 =kde-base/ksplash-4.6.2
 =kde-base/ksquares-4.6.2
@@ -232,12 +221,11 @@
 =kde-base/kstartupconfig-4.6.2
 =kde-base/kstyles-4.6.2
 =kde-base/ksudoku-4.6.2
-=kde-base/ksysguard-4.6.2
+=kde-base/ksysguard-4.6.2-r1
 =kde-base/ksystemlog-4.6.2
 =kde-base/ksystraycmd-4.6.2
 =kde-base/kteatime-4.6.2
 =kde-base/ktimer-4.6.2
-=kde-base/ktimetracker-4.6.2
 =kde-base/ktimezoned-4.6.2
 =kde-base/ktouch-4.6.2
 =kde-base/ktraderclient-4.6.2
@@ -274,7 +262,7 @@
 =kde-base/libtaskmanager-4.6.2
 =kde-base/lokalize-4.6.2
 =kde-base/lskat-4.6.2
-=kde-base/marble-4.6.2
+=kde-base/marble-4.6.2-r1
 =kde-base/mplayerthumbs-4.6.2
 =kde-base/nepomuk-4.6.2
 =kde-base/nsplugins-4.6.2
@@ -286,7 +274,7 @@
 =kde-base/phonon-kde-4.6.2
 =kde-base/plasma-apps-4.6.2
 =kde-base/plasma-runtime-4.6.2
-=kde-base/plasma-workspace-4.6.2
+=kde-base/plasma-workspace-4.6.2-r1
 =kde-base/powerdevil-4.6.2
 =kde-base/printer-applet-4.6.2
 =kde-base/pykde4-4.6.2
@@ -313,20 +301,19 @@
 =dev-libs/libattica-0.2.0
 =dev-libs/shared-desktop-ontologies-0.5
 =dev-libs/soprano-2.6.0 
-=dev-python/PyQt4-4.8.3					# 10 open bugs
+=dev-python/PyQt4-4.8.3
 =dev-python/sip-4.12.1
-=kde-misc/polkit-kde-kcmodules-0.98_pre20101127		# 1 open bug
-=kde-misc/kwebkitpart-0.9.6				# 1 OPEN SEC BUG
-# media-libs/phonon (filed as bug 364175)
-# media-libs/phonon-gstreamer (filed as bug 364175)
-# media-libs/phonon-vlc (filed as bug 364175)
-# media-libs/phonon-xine (filed as bug 364175)
+=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
+=kde-misc/kwebkitpart-0.9.6
+# =media-libs/phonon-4.5.0 (filed as bug 364175)
+# =media-libs/phonon-gstreamer-4.5.0 (filed as bug 364175)
+# =media-libs/phonon-vlc-0.3.2 (filed as bug 364175)
+# =media-libs/phonon-xine-4.4.4 (filed as bug 364175)
 =net-libs/libbluedevil-1.8.1
 =net-wireless/bluedevil-1.1
 =sys-auth/polkit-kde-agent-0.99.0
 =sys-auth/polkit-qt-0.99.0
-=x11-misc/google-gadgets-0.11.2				# 3 open bugs
-
+=x11-misc/google-gadgets-0.11.2
 
 
 # KDEPIM 4.4.11.1
@@ -360,7 +347,6 @@
 
 
 # KDEPIM 4.4.11.1 deps
-
 
 
 # Misc Qt apps and deps
