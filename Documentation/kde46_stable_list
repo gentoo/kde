@@ -45,9 +45,6 @@
 =kde-base/dolphin-plugins-4.6.2
 =kde-base/dragonplayer-4.6.2
 =kde-base/drkonqi-4.6.2
-
-####### checked up to here, work in progress #######
-
 =kde-base/ffmpegthumbs-4.6.2
 =kde-base/filelight-4.6.2
 =kde-base/freespacenotifier-4.6.2
@@ -55,11 +52,8 @@
 =kde-base/gwenview-4.6.2
 =kde-base/jovie-4.6.2
 =kde-base/juk-4.6.2
-=kde-base/kabcclient-4.6.2
 =kde-base/kaccessible-4.6.2
-=kde-base/kaddressbook-4.6.2
 =kde-base/kajongg-4.6.2
-=kde-base/kalarm-4.6.2
 =kde-base/kalgebra-4.6.2
 =kde-base/kalzium-4.6.2
 =kde-base/kamera-4.6.2
@@ -120,21 +114,17 @@
 =kde-base/kdegames-meta-4.6.2
 =kde-base/kdegraphics-meta-4.6.2
 =kde-base/kdegraphics-strigi-analyzer-4.6.2
-=kde-base/kdelibs-4.6.2
+=kde-base/kdelibs-4.6.2-r2
 =kde-base/kdemultimedia-kioslaves-4.6.2
 =kde-base/kdemultimedia-meta-4.6.2
 =kde-base/kdenetwork-filesharing-4.6.2
 =kde-base/kdenetwork-meta-4.6.2
 =kde-base/kdepasswd-4.6.2
-=kde-base/kdepim-common-libs-4.6.2
-=kde-base/kdepim-icons-4.6.2
-=kde-base/kdepim-kresources-4.6.2
-=kde-base/kdepim-meta-4.6.2
-=kde-base/kdepim-runtime-4.6.2
-=kde-base/kdepim-strigi-analyzer-4.6.2
-=kde-base/kdepim-wizards-4.6.2
-=kde-base/kdepimlibs-4.6.2
+=kde-base/kdepimlibs-4.6.2-r1
 =kde-base/kdeplasma-addons-4.6.2
+
+####### checked up to here, work in progress #######
+
 =kde-base/kdesdk-kioslaves-4.6.2
 =kde-base/kdesdk-meta-4.6.2
 =kde-base/kdesdk-misc-4.6.2
