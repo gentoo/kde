@@ -309,8 +309,8 @@
 # =media-libs/phonon-gstreamer-4.5.0 (filed as bug 364175)
 # =media-libs/phonon-vlc-0.3.2 (filed as bug 364175)
 # =media-libs/phonon-xine-4.4.4 (filed as bug 364175)
-=net-libs/libbluedevil-1.8.1
-=net-wireless/bluedevil-1.1
+=net-libs/libbluedevil-1.9
+=net-wireless/bluedevil-1.1-r1
 =sys-auth/polkit-kde-agent-0.99.0
 =sys-auth/polkit-qt-0.99.0
 =x11-misc/google-gadgets-0.11.2
