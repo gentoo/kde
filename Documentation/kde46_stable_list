@@ -1,12 +1,15 @@
-# Put here any KDE / Qt packages that should be stabilized
-# The list should include core KDE and Qt packages, their depedencies and extragear/misc KDE/Qt apps as well
-# Please:
-# - Keep the list sorted
-# - Include exact revision of the package
-# - Put the package under the according category
+# KDE / Qt packages that should be stabilized
+# The list includes core KDE and Qt packages, their depedencies and extragear/misc KDE/Qt apps as well
+
+# If a stablerequest has already been filed for some package, then this is indicated with the
+# respective bug number. Nevertheless these packages should be stabilized at the same time
+# as the rest of the list here.
+
+# Stabilization is here requested for "amd64 ppc x86"
+# For other arches (e.g. qt-*), please use a separate bug.
 
 
-# Qt 4.7
+# Qt 4.7.2
 
 
 =x11-libs/qt-assistant-4.7.2
@@ -27,10 +30,7 @@
 =x11-libs/qt-xmlpatterns-4.7.2
 
 
-# Qt 4.7 deps
-
-
-# KDE 4.6
+# KDE 4.6.2
 
 
 =kde-base/activitymanager-4.6.2
@@ -294,7 +294,7 @@
 =kde-base/umbrello-4.6.2
 
 
-# KDE 4.6 deps
+# KDE 4.6.2 dependencies
 
 
 =app-office/akonadi-server-1.5.2
@@ -346,22 +346,16 @@
 =kde-base/kdepim-l10n-4.4.11.1
 
 
-# KDEPIM 4.4.11.1 deps
+# Misc/Extragear KDE applications and dependencies
 
-
-# Misc Qt apps and deps
-
-
-# Misc/Extragear KDE apps and deps
 
 =kde-misc/knetworkmanager-4.4.0_p20110415
-
+=kde-misc/konq-plugins-4.6.1
 
 # digikam
 
 =media-gfx/digikam-1.9.0
 =media-plugins/kipi-plugins-1.9.0
-
 # =dev-libs/libf2c-20090407-r1 (filed as bug 364011)
 # =media-libs/lensfun-0.2.5-r1 (filed as bug 364173)
 # =sci-libs/clapack-3.2.1-r3 (filed as bug 364013)
@@ -385,6 +379,3 @@
 =dev-util/kdevelop-4.2.2
 =dev-util/kdevplatform-1.2.2
 
-# etc
-
-=kde-misc/konq-plugins-4.6.1
