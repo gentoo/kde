@@ -35,6 +35,9 @@ src_configure() {
 		$(cmake-utils_use_with gsl)
 		$(cmake-utils_use_with qalculate)
 	)
-
-	kde4-meta_src_configure
+	if [[ ${PV} == *9999 ]]; then
+		kde4-base_src_configure
+	else
+		kde4-meta_src_configure
+	fi
 }
