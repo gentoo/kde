@@ -4,8 +4,9 @@
 
 EAPI=3
 
-KMNAME="kdebindings"
-KMMODULE="python/krosspython"
+KDE_SCM="git"
+KMNAME="kross-interpreters"
+KMMODULE="python"
 PYTHON_DEPEND="2"
 inherit python kde4-meta
 
