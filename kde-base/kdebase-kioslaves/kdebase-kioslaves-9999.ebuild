@@ -22,12 +22,7 @@ DEPEND="
 	exif? ( media-gfx/exiv2 )
 	lzma? ( app-arch/xz-utils )
 	openexr? ( media-libs/openexr )
-	samba? (
-		|| (
-			=net-fs/samba-3.0*
-			>=net-fs/samba-3.4.6[smbclient]
-		)
-	)
+	samba? ( net-fs/samba[smbclient] )
 	sftp? ( >=net-libs/libssh-0.4.0[sftp] )
 "
 RDEPEND="${DEPEND}
