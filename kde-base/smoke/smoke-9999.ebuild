@@ -4,12 +4,20 @@
 
 EAPI=4
 
-KMNAME="kdebindings"
 DECLARATIVE_REQUIRED="optional"
 MULTIMEDIA_REQUIRED="optional"
 QTHELP_REQUIRED="optional"
 WEBKIT_REQUIRED="optional"
-inherit kde4-meta
+
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	eclass=kde4-base
+else
+	KMNAME="kdebindings"
+	eclass=kde4-meta
+fi
+
+inherit ${eclass}
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
@@ -52,5 +60,5 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_disable webkit QtWebKit)
 	)
-	kde4-meta_src_configure
+	${eclass}_src_configure
 }
