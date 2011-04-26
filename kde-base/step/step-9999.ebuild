@@ -7,11 +7,13 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	inherit kde4-base
+	eclass=kde4-base
 else
 	KMNAME="kdeedu"
-	inherit kde4-meta
+	eclass=kde4-meta
 fi
+
+inherit ${eclass}
 
 DESCRIPTION="The KDE physics simulator"
 KEYWORDS=""
@@ -31,13 +33,9 @@ PATCHES=(
 )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with gsl)
 		$(cmake-utils_use_with qalculate)
 	)
-	if [[ ${PV} == *9999 ]]; then
-		kde4-base_src_configure
-	else
-		kde4-meta_src_configure
-	fi
+	${eclass}_src_configure
 }
