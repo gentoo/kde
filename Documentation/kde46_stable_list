@@ -275,7 +275,7 @@
 =kde-base/plasma-apps-4.6.2
 =kde-base/plasma-runtime-4.6.2
 =kde-base/plasma-workspace-4.6.2-r1
-=kde-base/powerdevil-4.6.2
+=kde-base/powerdevil-4.6.2-r1
 =kde-base/printer-applet-4.6.2
 =kde-base/pykde4-4.6.2
 =kde-base/qguiplatformplugin_kde-4.6.2
@@ -320,7 +320,7 @@
 
 
 =kde-base/akonadi-4.4.11.1
-=kde-base/akregator-4.4.11.1
+=kde-base/akregator-4.4.11.1-r1
 =kde-base/blogilo-4.4.11.1
 =kde-base/kabcclient-4.4.11.1
 =kde-base/kaddressbook-4.4.11.1
@@ -346,10 +346,11 @@
 =kde-base/kdepim-l10n-4.4.11.1
 
 
-# Misc/Extragear KDE applications and dependencies
+# Misc/Extragear Qt and KDE applications and dependencies
 
 
 =kde-misc/knetworkmanager-4.4.0_p20110415
+
 =kde-misc/konq-plugins-4.6.1
 
 # digikam
@@ -379,10 +380,33 @@
 =dev-util/kdevelop-4.2.2
 =dev-util/kdevplatform-1.2.2
 
-# still needs to be checked:
+# amarok (check bugs!)
 
 =media-sound/amarok-2.4.0
-=media-video/kaffeine-1.2.1
+=media-libs/liblastfm-0.3.3
+
+# kaffeine (check bugs!)
+
+=media-video/kaffeine-1.2.2
+
+# ktorrent (check bugs!)
+
 =net-p2p/ktorrent-4.0.5
-=net-im/choqok-1.1
+=net-libs/libktorrent-1.1.0
+
+# rekonq (check bugs!)
+
 =www-client/rekonq-0.7.0
+
+# yakuake (check bugs!)
+
+=kde-misc/yakuake-2.9.8
+
+# ebook-tools (check bugs!)
+
+=app-text/ebook-tools-0.2.1
+
+# qt-creator (check bugs!)
+
+=dev-util/qt-creator-2.1.0
+
