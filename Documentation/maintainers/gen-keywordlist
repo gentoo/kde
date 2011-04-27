@@ -1,0 +1,14 @@
+for pkg in $(cat $1 |grep -v "^#"|sed -e 's:^=::'); do 
+
+  category=$(echo $pkg|sed -e 's:/.*$::')
+  p=$(echo $pkg|sed -e 's:.*/::')
+
+  ebuild=$(find /usr/portage/${category} -name ${p}.ebuild)
+
+  # echo Cat ${category}, P ${p}, ebuild ${ebuild}
+
+  kw="$(grep KEYWORDS ${ebuild} | sed -e 's:^.*KEYWORDS="::' -e 's:".*$::')"
+
+  echo "$pkg	$kw"
+
+done
