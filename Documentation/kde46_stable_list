@@ -380,33 +380,33 @@
 =dev-util/kdevelop-4.2.2
 =dev-util/kdevplatform-1.2.2
 
-# amarok (check bugs!)
+# amarok
 
 =media-sound/amarok-2.4.0
 =media-libs/liblastfm-0.3.3
 
-# kaffeine (check bugs!)
+# kaffeine
 
 =media-video/kaffeine-1.2.2
 
-# ktorrent (check bugs!)
+# ktorrent
 
 =net-p2p/ktorrent-4.0.5
 =net-libs/libktorrent-1.1.0
 
-# rekonq (check bugs!)
+# rekonq
 
 =www-client/rekonq-0.7.0
 
-# yakuake (check bugs!)
+# yakuake
 
 =kde-misc/yakuake-2.9.8
 
-# ebook-tools (check bugs!)
+# ebook-tools
 
 =app-text/ebook-tools-0.2.1
 
-# qt-creator (check bugs!)
+# qt-creator
 
 =dev-util/qt-creator-2.1.0
 
