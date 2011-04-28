@@ -17,10 +17,3 @@ DEPEND="
 	$(add_kdebase_dep libkworkspace)
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	sed -i -e's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/' \
-		"${PN}"/src/CMakeLists.txt || die "Failed to patch CMakeLists.txt"
-
-	kde4-meta_src_prepare
-}

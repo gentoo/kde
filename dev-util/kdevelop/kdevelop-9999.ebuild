@@ -28,15 +28,6 @@ RDEPEND="${DEPEND}
 "
 # see bug 347547 about the kdevplatform[subversion] dependency
 
-src_prepare() {
-	kde4-base_src_prepare
-
-	# Remove this and the ksysguard dep after libprocessui moved into kdelibs
-	sed -i -e 's/${KDE4WORKSPACE_PROCESSUI_LIBS}/processui/g' \
-		debuggers/gdb/CMakeLists.txt \
-		|| die "Failed to patch CMake files"
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build cmake)

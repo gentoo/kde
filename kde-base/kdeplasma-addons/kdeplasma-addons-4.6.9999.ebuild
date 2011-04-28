@@ -49,17 +49,6 @@ RDEPEND="${COMMON_DEPEND}
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
 
-src_prepare() {
-	find "${S}" -name CMakeLists.txt | \
-		xargs sed -i \
-			-e 's/${KDE4WORKSPACE_PLASMACLOCK_LIBRARY}/plasmaclock/g' \
-			-e 's/${KDE4WORKSPACE_WEATHERION_LIBRARY}/weather_ion/g' \
-			-e 's/${KDE4WORKSPACE_TASKMANAGER_LIBRARY}/taskmanager/g' \
-		|| die "Failed to patch CMake files"
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	mycmakeargs=(
 		-DDBUS_INTERFACES_INSTALL_DIR="${EKDEDIR}/share/dbus-1/interfaces/"

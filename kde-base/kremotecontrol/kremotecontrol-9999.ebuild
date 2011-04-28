@@ -25,11 +25,3 @@ src_unpack() {
 
 	kde4-meta_src_unpack
 }
-
-src_prepare() {
-	kde4-meta_src_prepare
-
-	sed -e 's:${KDE4WORKSPACE_SOLIDCONTROL_LIBRARY}:solidcontrol:g' \
-		-i kremotecontrol/{kcmremotecontrol,kded,krcdnotifieritem,libkremotecontrol}/CMakeLists.txt \
-		|| die
-}

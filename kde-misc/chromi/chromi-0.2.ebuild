@@ -20,13 +20,3 @@ S="${WORKDIR}/jinliu-kwin-deco-chromi-4390e63"
 
 DEPEND=">kde-base/kwin-4.4.1"
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	# Prevent a gentoo-specific linking error.
-	sed -e 's/${KDE4WORKSPACE_KDECORATIONS_LIBS}/kdecorations/g' \
-		-i "${S}"/src/CMakeLists.txt || die "Patching failed!"
-}
-
-

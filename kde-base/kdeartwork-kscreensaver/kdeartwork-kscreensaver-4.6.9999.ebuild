@@ -29,14 +29,6 @@ DEPEND="${RDEPEND}
 PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
 	"${FILESDIR}/${PN}-4.5.95-webcollage.patch" )
 
-src_prepare() {
-	sed -i -e 's/${KDE4WORKSPACE_KSCREENSAVER_LIBRARY}/kscreensaver/g' \
-		kscreensaver/{kdesavers{,/asciiquarium},kpartsaver}/CMakeLists.txt \
-		|| die "Failed to patch CMake files"
-
-	kde4-meta_src_prepare
-}
-
 src_configure() {
 	mycmakeargs=(
 		-DKSCREENSAVER_SOUND_SUPPORT=ON
