@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit base cmake-utils flag-o-matic git
+inherit base cmake-utils flag-o-matic git-2
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
 HOMEPAGE="http://sourceforge.net/projects/soprano"
@@ -43,7 +43,7 @@ PATCHES=(
 pkg_setup() {
 	if [[ ${PV} = *9999* && -z $I_KNOW_WHAT_I_AM_DOING ]]; then
 		echo
-		ewarn "WARNING! This is an experimental ebuild of ${PN} SVN tree. Use at your own risk."
+		ewarn "WARNING! This is an experimental ebuild of ${PN} Git tree. Use at your own risk."
 		ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
 		echo
 	fi
@@ -58,16 +58,12 @@ pkg_setup() {
 	fi
 }
 
-src_prepare() {
-	base_src_prepare
-}
-
 src_configure() {
 	# Fix for missing pthread.h linking
 	# NOTE: temporarily fix until a better cmake files patch will be provided.
 	use elibc_FreeBSD && append-flags -pthread
 
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DSOPRANO_BUILD_TESTS=OFF
 		-DCMAKE_SKIP_RPATH=OFF
 		-DSOPRANO_DISABLE_SESAME2_BACKEND=ON

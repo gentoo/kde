@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-editors/kile/kile-2.1_beta4.ebuild,v 1.6 2010/10/06 23:48:08 tampakrap Exp $
 
-EAPI=3
+EAPI=4
 
 KDE_DOC_DIRS="doc"
 KDE_HANDBOOK="optional"

@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 QT_DEPEND="4.6.3"
 inherit cmake-utils virtualx
 
 if [[ "${PV}" = 9999* ]] ; then
-	inherit git
+	inherit git-2
 
 	EGIT_REPO_URI="git://gitorious.org/dbusmenu/dbusmenu-qt.git"
 

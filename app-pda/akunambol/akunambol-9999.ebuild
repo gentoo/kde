@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_SCM="git"
 inherit kde4-base
@@ -18,8 +18,7 @@ IUSE=""
 DEPEND="
 	app-office/akonadi-server
 	>=app-pda/funambol-client-sdk-9999
-	>=kde-base/kdelibs-${KDE_MINIMAL}
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}
+	$(add_kdebase_dep kdepimlibs)
 	net-libs/likeback
 "
 RDEPEND="${DEPEND}"

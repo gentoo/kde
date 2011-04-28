@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
+KDE_MINIMAL=4.6
 inherit kde4-base
 
 RESTRICT="$RESTRICT mirror"
@@ -20,6 +21,6 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/kscreensaver-4.6.0
+	$(add_kdebase_dep kscreensaver)
 "
 

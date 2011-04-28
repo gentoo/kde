@@ -81,7 +81,7 @@ src_install() {
 Driver=${DRIVER}
 EOF
 	insinto /usr/share/config/akonadi
-	doins "${T}"/akonadiserverrc || die "doins failed"
+	doins "${T}"/akonadiserverrc
 
 	cmake-utils_src_install
 }

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 KDE_LINGUAS="de es it fr ru"
 
 inherit kde4-base subversion
@@ -20,6 +20,6 @@ DEPEND="midi? ( >=media-libs/tse3-0.3.0 )"
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	local mycmakeargs=( "$(cmake-utils_use midi WITH_TSE3)" )
+	local mycmakeargs=( $(cmake-utils_use midi WITH_TSE3) )
 	kde4-base_src_configure
 }

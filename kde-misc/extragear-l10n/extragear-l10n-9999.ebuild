@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -69,7 +69,7 @@ src_prepare() {
 
 	for lng in ${enabled_linguas}; do
 		mkdir -p "${S}/${lng}_extra"/docs "${S}/${lng}_extra"/messages
-		mv "${S}/${lng}"/docs/extragear* "${S}/${lng}_extra"/docs 
+		mv "${S}/${lng}"/docs/extragear* "${S}/${lng}_extra"/docs
 		mv "${S}/${lng}"/docs/playground* "${S}/${lng}_extra"/docs
 		mv "${S}/${lng}"/docs/kdereview "${S}/${lng}_extra"/docs
 		mv "${S}/${lng}"/docs/kdevelop "${S}/${lng}_extra"/docs

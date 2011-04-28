@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit autotools eutils
 
@@ -29,21 +29,14 @@ src_configure() {
 	econf \
 		--enable-avahi \
 		--disable-legacy \
-		$(use_enable search-domains) \
-		|| die "configure failed"
-}
-
-src_compile() {
-	emake || die "compile failed"
+		$(use_enable search-domains)
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "install failed"
+	default
 
 	insinto /etc
 	doins "${FILESDIR}"/mdns.allow
-
-	dodoc README
 }
 
 pkg_postinst() {

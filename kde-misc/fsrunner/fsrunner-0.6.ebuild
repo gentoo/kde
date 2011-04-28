@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="debug"
 
 src_configure() {
-	mycmakeargs=(-DPROFILE=ON)
+	local mycmakeargs=(-DPROFILE=ON)
 
 	kde4-base_src_configure
 }

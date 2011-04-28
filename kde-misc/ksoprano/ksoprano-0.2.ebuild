@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -16,10 +16,10 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
+	$(add_kdebase_dep kdelibs semantic-desktop)
 "
 RDEPEND="${DEPEND}
-	>=kde-base/nepomuk-${KDE_MINIMAL}
+	$(add_kdebase_dep nepomuk)
 "
 
 S="${WORKDIR}/${PN}"

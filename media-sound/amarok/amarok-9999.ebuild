@@ -2,24 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-# Translations are only in the tarballs, not the git repo
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg ca cs da de en_GB es et eu fi fr it ja km nb nds nl
-	pa pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-else
-	KDE_SCM="git"
-	KEYWORDS=""
-fi
-
+KDE_LINGUAS="bg ca cs da de en_GB es et eu fi fr it ja km nb nds nl pa
+pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
+KDE_SCM="git"
 KDE_REQUIRED="never"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+else
+	KEYWORDS=""
+fi
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -97,6 +95,7 @@ src_prepare() {
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
 	use ppc64 && append-flags -mminimal-toc
+	local mycmakeargs
 
 	if use player; then
 		mycmakeargs=(

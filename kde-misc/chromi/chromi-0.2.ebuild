@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 inherit kde4-base
 
 RESTRICT="$RESTRICT mirror"
@@ -18,5 +18,5 @@ IUSE=""
 
 S="${WORKDIR}/jinliu-kwin-deco-chromi-4390e63"
 
-DEPEND=">kde-base/kwin-4.4.1"
+DEPEND="$(add_kdebase_dep kwin "" 4.4.1)"
 RDEPEND="${DEPEND}"

@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit multilib git qt4
+inherit multilib qt4-r2 git-2
 
 DESCRIPTION="Tool for generating Qt bindings for Qt Script"
 HOMEPAGE="http://code.google.com/p/qtscriptgenerator/"
@@ -26,10 +26,6 @@ RDEPEND="${DEPEND}"
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 
-src_unpack() {
-	git_src_unpack
-}
-
 src_prepare() {
 	# remove phonon
 	sed -i "/typesystem_phonon.xml/d" generator/generator.qrc \
@@ -38,8 +34,7 @@ src_prepare() {
 		|| die "sed failed"
 
 	epatch "${FILESDIR}/${PN}-gcc44.patch"
-	git_src_prepare
-	qt4_src_prepare
+	qt4-r2_src_prepare
 }
 
 src_configure() {
@@ -51,11 +46,11 @@ src_configure() {
 
 src_compile() {
 	cd "${S}"/generator
-	emake || die "emake generator failed"
-	./generator --include-paths="/usr/include/qt4/" || die "running generator failed"
+	emake
+	./generator --include-paths="${EPREFIX}/usr/include/qt4/" || die "running generator failed"
 
 	cd "${S}"/qtbindings
-	emake || die "make qtbindings failed"
+	emake
 }
 
 src_install() {

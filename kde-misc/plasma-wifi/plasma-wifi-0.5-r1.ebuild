@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -17,7 +17,7 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/plasma-wifi
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	$(add_kdebase_dep plasma-workspace)
 "
 
 src_prepare() {

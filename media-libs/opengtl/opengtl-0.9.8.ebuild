@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=4
+
 inherit cmake-utils
 
 DESCRIPTION="Set of libraries for using and integrating transformation algorithms"

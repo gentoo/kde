@@ -22,7 +22,7 @@ IUSE="cvs debug git reviewboard subversion"
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
-# kompare? ( >=kde-base/kompare-${KDE_MINIMAL} )
+# kompare? ( $(add_kdebase_dep kompare) )
 # mercurial? ( dev-vcs/mercurial )
 # block - some plugins moved to kdevplatform from kdevelop
 DEPEND="

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_LINGUAS="cs de fr it nl pl pt_BR zh_CN"
 KDE_SCM="git"
@@ -18,7 +18,7 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/kdelibs-${KDE_MINIMAL}[semantic-desktop]
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	media-libs/taglib
 	media-libs/phonon
 "

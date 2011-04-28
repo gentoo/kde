@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit cmake-utils mercurial
 
@@ -55,6 +55,6 @@ src_install() {
 
 	if use examples; then
 		cd "${CMAKE_BUILD_DIR}"/demos
-		dobin mandelbrot/mandelbrot opengl/quaternion_demo || die "dobin failed"
+		dobin mandelbrot/mandelbrot opengl/quaternion_demo
 	fi
 }

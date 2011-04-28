@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -17,13 +17,9 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/stasks
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	$(add_kdebase_dep plasma-workspace)
 "
 
-src_prepare() {
-	if has_version ">=kde-base/kdelibs-4.2.90"; then
-		epatch "${FILESDIR}"/"${PN}"_kde-4.3.patch
-	fi
-
-	kde4-base_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}"/${PN}_kde-4.3.patch
+)

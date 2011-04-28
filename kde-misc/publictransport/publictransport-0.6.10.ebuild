@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -15,7 +15,7 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND=">=kde-base/plasma-workspace-${KDE_MINIMAL}"
+DEPEND="$(add_kdebase_dep plasma-workspace)"
 RDEPEND="${DEPEND}"
 
 DOCS=(AUTHORS Changelog README)

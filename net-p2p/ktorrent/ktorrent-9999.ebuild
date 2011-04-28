@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.0.5.ebuild,v 1.6 2011/01/17 01:08:40 ranger Exp $
 
-EAPI=3
+EAPI=4
 
 KDE_SCM="git"
 KDE_MINIMAL="4.5"
@@ -12,7 +12,7 @@ if [[ ${PV} != 9999* ]]; then
 	inherit versionator
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
-	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
+	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3)
 	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
 	KDE_HANDBOOK="optional"

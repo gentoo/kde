@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 MY_PN="${PN}-1"
 MY_P="${MY_PN}-${PV}"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
@@ -17,7 +17,7 @@ IUSE="debug oscar zeroconf"
 
 RDEPEND="
 	!kde-plasmoids/kepas
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
-	oscar? ( >=kde-base/kopete-${KDE_MINIMAL}[oscar] )
-	zeroconf? ( >=kde-base/kdnssd-${KDE_MINIMAL} )
+	$(add_kdebase_dep plasma-workspace)
+	oscar? ( $(add_kdebase_dep kopete oscar) )
+	zeroconf? ( $(add_kdebase_dep kdnssd) )
 "

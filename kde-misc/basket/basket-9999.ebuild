@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 VIRTUALX_REQUIRED=test
 KDE_SCM="git"
@@ -26,7 +26,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_enable crypt)
 	)
 	kde4-base_src_configure

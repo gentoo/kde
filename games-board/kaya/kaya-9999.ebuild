@@ -16,9 +16,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
+DEPEND=""
 RDEPEND=""
-ruby_add_rdepend "kde-base/kdebindings-ruby"
-DEPEND="${RDEPEND}"
+ruby_add_bdepend "$(add_kdebase_dep kdebindings-ruby)"
+ruby_add_rdepend "$(add_kdebase_dep kdebindings-ruby)"
 
 pkg_setup() {
 	ruby-ng_pkg_setup

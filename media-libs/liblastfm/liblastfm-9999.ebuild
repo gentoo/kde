@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit multilib git
+inherit multilib git-2
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="http://github.com/mxcl/liblastfm/"
@@ -36,11 +36,5 @@ src_prepare() {
 }
 
 src_configure() {
-	./configure --prefix "${ROOT}usr" --no-strip --release || die "configure failed"
-}
-
-src_install() {
-	emake DESTDIR="${D}${ROOT}" install || die "emake install failed"
-
-	dodoc README || die "dodoc failed"
+	./configure --prefix /usr --no-strip --release || die "configure failed"
 }

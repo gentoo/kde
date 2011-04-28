@@ -2,15 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
+KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR ru sv tr uk zh_CN zh_TW"
+KDE_SCM="git"
 if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR ru sv tr uk zh_CN zh_TW"
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 	KDE_HANDBOOK="optional"
 	KEYWORDS="~amd64 ~x86"
 else
-	KDE_SCM="git"
 	KEYWORDS=""
 fi
 

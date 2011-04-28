@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_SCM="git"
 inherit kde4-base
@@ -16,7 +16,9 @@ SLOT="4"
 IUSE="debug"
 
 
-RDEPEND=">=kde-base/libkonq-${KDE_MINIMAL}"
+RDEPEND="
+	$(add_kdebase_dep libkonq)
+"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "

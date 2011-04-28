@@ -8,12 +8,12 @@ KDE_MINIMAL="4.6"
 
 KDE_SCM="git"
 EGIT_REPONAME="networkmanagement"
-[[ ${PV} = 9999* ]] && SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
+[[ ${PV} != 9999* ]] && SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""

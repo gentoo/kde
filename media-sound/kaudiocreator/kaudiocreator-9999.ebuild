@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="extragear/multimedia"
 inherit kde4-base
@@ -16,8 +16,8 @@ SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=kde-base/libkcddb-${KDE_MINIMAL}
-	>=kde-base/libkcompactdisc-${KDE_MINIMAL}
+	$(add_kdebase_dep libkcddb)
+	$(add_kdebase_dep libkcompactdisc)
 	media-libs/libdiscid
 	media-libs/taglib
 "

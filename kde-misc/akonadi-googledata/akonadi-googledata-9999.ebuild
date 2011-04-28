@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="extragear/pim"
 KMMODULE="googledata"
@@ -18,7 +18,7 @@ IUSE="debug"
 DEPEND="
 	dev-libs/boost
 	dev-libs/libxslt
-	>=kde-base/kdepimlibs-${KDE_MINIMAL}[semantic-desktop]
+	$(add_kdebase_dep kdepimlibs semantic-desktop)
 	>=net-libs/libgcal-0.9.6
 "
 RDEPEND="${DEPEND}
@@ -26,7 +26,6 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	local mycmakeargs
-	mycmakeargs=(-DLIBGCAL_INCLUDE_DIR=/usr/include/libgcal)
+	local mycmakeargs=(-DLIBGCAL_INCLUDE_DIR="${EPREFIX}"/usr/include/libgcal)
 	kde4-base_src_configure
 }

@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit cmake-utils git
+inherit cmake-utils git-2
 
 DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API."
 HOMEPAGE="http://gstreamer.freedesktop.org/wiki/QtGStreamer"

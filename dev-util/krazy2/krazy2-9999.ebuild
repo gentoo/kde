@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit git perl-module qt4 cmake-utils
+inherit perl-module qt4 cmake-utils git-2
 
 DESCRIPTION="Source code sanity checker for KDE developers."
 HOMEPAGE="http://www.kde.org/"
@@ -28,10 +28,6 @@ RDEPEND="${DEPEND}
 
 CMAKE_USE_DIR="${S}/cppchecks"
 
-src_unpack() {
-	git_src_unpack
-}
-
 src_prepare() {
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
 		src/src.pro || die "failed to apply nostrip"
@@ -52,16 +48,16 @@ src_configure() {
 src_compile() {
 	cmake-utils_src_compile
 	cd src
-	emake "$@" || die "2nd Make failed!"
+	emake
 }
 
 src_install() {
-	dodoc README TODO || die "dodoc failed"
+	dodoc README TODO
 
 	cmake-utils_src_install
 
 	cd src
-	emake install INSTALL_ROOT="${D}/usr" || die "Make src install failed"
+	emake install INSTALL_ROOT="${D}/usr"
 	cd ..
 
 	./install.sh "${D}/usr" || die "install failed"

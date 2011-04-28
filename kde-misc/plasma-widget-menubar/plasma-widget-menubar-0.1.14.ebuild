@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit virtualx kde4-base
+VIRTUALX_REQUIRED="test"
+inherit kde4-base
 
 DESCRIPTION="A Plasma widget to display menubar of application windows"
 HOMEPAGE="https://launchpad.net/plasma-widget-menubar"
@@ -22,8 +23,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-misc/plasma-indicatordisplay
 "
-
-src_test() {
-	export maketype="kde4-base_src_test"
-	virtualmake
-}

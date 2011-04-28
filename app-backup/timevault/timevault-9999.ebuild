@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_SCM="git"
 inherit kde4-base
@@ -21,5 +21,5 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	kde4-base_src_install
-	rm "${D}/usr/share/apps/cmake/modules/PkgConfigGetVar.cmake" || die "workaround deletion failed"
+	rm "${ED}/usr/share/apps/cmake/modules/PkgConfigGetVar.cmake" || die "workaround deletion failed"
 }

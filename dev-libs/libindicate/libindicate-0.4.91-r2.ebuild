@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-libs/libindicate/libindicate-0.4.4.ebuild,v 1.1 2011/01/17 09:34:20 tampakrap Exp $
 
-EAPI=2
+EAPI=4
 
 inherit autotools eutils versionator
 
@@ -41,16 +41,13 @@ DEPEND="${RDEPEND}
 	dev-util/gtk-doc-am
 	dev-util/pkgconfig"
 
-pkg_setup() {
-	if use mono && has "${PV}" "${BROKEN_MONO}" ; then
-		eerror "Mono bindings (USE=mono) are broken in this version"
-		die "Mono bindings (USE=mono) are broken in this version"
-	fi
-	if use python && use !gtk ; then
-		eerror "Python bindings (USE=python) require GTK support (USE=gtk)"
-		die "Python bindings (USE=python) require GTK support (USE=gtk)"
-	fi
-}
+REQUIRED_USE="python? ( gtk )"
+DOCS=( AUTHORS )
+
+if has "${PV}" ${BROKEN_MONO}; then
+	# Mono bindings are broken in this version, forbid
+	REQUIRED_USE+=" !mono"
+fi
 
 src_prepare() {
 	# Make python optional, launchpad-bug #643921
@@ -96,14 +93,9 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable mono) \
 		$(use_enable python) \
-		${conf} || die "configure failed"
+		${conf}
 }
 
 src_test() {
-	emake check || die "testsuite failed"
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die "make install failed"
-	dodoc AUTHORS || die "dodoc failed"
+	emake check
 }

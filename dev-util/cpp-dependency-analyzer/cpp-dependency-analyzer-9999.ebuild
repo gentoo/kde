@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-inherit git cmake-utils
+inherit git-2 cmake-utils
 
 DESCRIPTION="Tool that creates dependency graph of C++ code"
 HOMEPAGE="http://gitorious.org/cpp-dependency-analyzer/"
@@ -24,7 +24,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.35.0
 "
-
-src_unpack() {
-	git_src_unpack
-}

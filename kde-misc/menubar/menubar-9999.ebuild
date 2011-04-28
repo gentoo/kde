@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="playground/base/plasma"
 KMMODULE="applets/${PN}"
@@ -18,5 +18,5 @@ IUSE="debug"
 
 RDEPEND="
 	!kde-plasmoids/menubar
-	>=kde-base/plasma-workspace-${KDE_MINIMAL}
+	$(add_kdebase_dep plasma-workspace)
 "

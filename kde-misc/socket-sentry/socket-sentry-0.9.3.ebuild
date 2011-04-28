@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
+KDE_MINIMAL=4.5
+KDE_OVERRIDE_MINIMAL=4.5.1
 
 inherit kde4-base
 
@@ -20,6 +22,5 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	>=kde-base/kdelibs-4.5.1
 	>=net-libs/libpcap-0.9
 "
