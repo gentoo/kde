@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_MINIMAL="4.6"
 inherit kde4-base
 
 MY_P="${PN}"
@@ -18,7 +19,6 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	!kde-plasmoids/playwolf
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep plasma-workspace)
 "
