@@ -9,6 +9,6 @@ for pkg in $(cat $1 |grep -v "^#"|sed -e 's:^=::'); do
 
   kw="$(grep KEYWORDS ${ebuild} | sed -e 's:^.*KEYWORDS="::' -e 's:".*$::')"
 
-  echo "$pkg	$kw"
+  echo "=$pkg $kw"
 
 done
