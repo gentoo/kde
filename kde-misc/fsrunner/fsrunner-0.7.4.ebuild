@@ -14,9 +14,3 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
-
-src_configure() {
-	local mycmakeargs=(-DPROFILE=ON)
-
-	kde4-base_src_configure
-}
