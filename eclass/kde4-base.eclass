@@ -608,16 +608,6 @@ _calculate_live_repo() {
 					;;
 			esac
 
-			case $_kmname in
-				kdepim|kdepim-runtime)
-					case ${PV} in
-						# kdepim still did not branch
-						4.6.9999)
-							EGIT_BRANCH="master"
-							;;
-					esac
-					;;
-			esac
 			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
