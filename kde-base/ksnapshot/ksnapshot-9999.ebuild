@@ -23,7 +23,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.6.2-kipi.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.7-kipi.patch" )
 
 src_configure() {
 	mycmakeargs=(

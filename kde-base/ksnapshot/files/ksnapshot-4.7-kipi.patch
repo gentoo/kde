@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 683c270..25be4b5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,11 +1,13 @@
+ project(ksnapshot)
+ 
+ find_package(KDE4 REQUIRED)
+-find_package(Kipi)
+ include(KDE4Defaults)
+ include(MacroLibrary)
+ include(MacroOptionalAddSubdirectory)
+ include(MacroBoolTo01)
++include(MacroOptionalFindPackage)
++
++macro_optional_find_package(Kipi)
+ 
+ add_definitions (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS})
+ include_directories (${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
