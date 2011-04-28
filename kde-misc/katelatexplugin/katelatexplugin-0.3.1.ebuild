@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_LINGUAS="fr"
 inherit kde4-base
 
 DESCRIPTION="Kate LaTeX typesetting plugin"
@@ -20,9 +21,3 @@ RDEPEND="
 "
 
 S="${WORKDIR}/${PN}"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	sed -i "s:lib/kde4:lib\${LIB_SUFFIX}/kde4:" CMakeLists.txt
-}
