@@ -56,6 +56,9 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PV}-convert_sets_to_options.patch"
+	"${FILESDIR}/${PV}-gcc46.patch"
+	"${FILESDIR}/${PV}-ptrcvcapture.patch"
+	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
 )
 
 S=${WORKDIR}/${MY_P}
