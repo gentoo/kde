@@ -1,6 +1,27 @@
+diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0/CMakeLists.txt
+--- OpenCV-2.2.0.old/CMakeLists.txt	2010-12-05 04:35:23.000000000 +0100
++++ OpenCV-2.2.0/CMakeLists.txt	2011-04-29 21:47:44.000000000 +0200
+@@ -193,6 +193,8 @@
+ # ----------------------------------------------------------------------------
+ #       CHECK FOR SYSTEM LIBRARIES, OPTIONS, ETC..
+ # ----------------------------------------------------------------------------
++find_package(LAPACK REQUIRED)
++find_package(ZLIB REQUIRED)
+ 
+ # Build/install (or not) some apps:
+ # ===================================================
+diff -urN OpenCV-2.2.0.old/modules/core/CMakeLists.txt OpenCV-2.2.0/modules/core/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/core/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0/modules/core/CMakeLists.txt	2011-04-29 21:58:50.000000000 +0200
+@@ -1,3 +1,3 @@
+-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/include")
+-set(deps opencv_lapack zlib)
++include_directories("${ZLIB_INCLUDE_DIRECTORIES}")
++set(deps ${LAPACK_LIBRARIES} ${ZLIB_LIBRARIES})
+ define_opencv_module(core ${deps})
 diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core/src/lapack.cpp
 --- OpenCV-2.2.0.old/modules/core/src/lapack.cpp	2010-12-05 04:35:24.000000000 +0100
-+++ OpenCV-2.2.0/modules/core/src/lapack.cpp	2011-04-29 21:34:50.000000000 +0200
++++ OpenCV-2.2.0/modules/core/src/lapack.cpp	2011-04-29 21:59:16.000000000 +0200
 @@ -48,7 +48,7 @@
    typedef __CLPK_integer    integer;
    typedef __CLPK_real       real;
