@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>kde</herd>
+<maintainer>
+	<email>dilfridge@gentoo.org</email>
+	<name>Andreas K. Huettel</name>
+</maintainer>
+<longdescription>
+OpenCV (Open Source Computer Vision) is a library of programming functions mainly aimed at real time computer vision.
+Example applications of the OpenCV library are Human-Computer Interaction (HCI); Object Identification, Segmentation and Recognition;
+Face Recognition; Gesture Recognition; Motion Tracking, Ego Motion, Motion Understanding; Structure From Motion (SFM); and Mobile Robotics.
+</longdescription>
+<use>
+	<flag name="cuda">Enable NVIDIA Cuda computations support</flag>
+	<flag name="eigen">Enable usage of <pkg>dev-cpp/eigen</pkg> for computations</flag>
+	<flag name="ipp">Enable Intel Integrated Primitive support</flag>
+	<flag name="sse3">Enable optimization for SSE3 capable chips</flag>
+	<flag name="ssse3">faster floating point optimization for SSSE3 capable chips (Intel Core 2 and later chips)</flag>
+</use>
+</pkgmetadata>
