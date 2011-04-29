@@ -21,6 +21,7 @@ IUSE="cuda doc eigen examples ffmpeg gstreamer gtk ieee1394 ipp jpeg jpeg2k open
 
 RDEPEND="
 	sys-libs/zlib
+	sci-libs/clapack
 	cuda? ( dev-util/nvidia-cuda-toolkit )
 	eigen? ( dev-cpp/eigen:2 )
 	ffmpeg? ( virtual/ffmpeg )
