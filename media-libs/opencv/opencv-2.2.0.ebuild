@@ -25,6 +25,7 @@ RDEPEND="
 	sys-libs/zlib
 	sci-libs/clapack
 	sci-libs/flann
+	virtual/lapack
 	cuda? ( dev-util/nvidia-cuda-toolkit )
 	eigen? ( dev-cpp/eigen:2 )
 	ffmpeg? ( virtual/ffmpeg )

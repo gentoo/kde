@@ -34,6 +34,18 @@ diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core
  #endif
  
  #undef abs
+diff -urN OpenCV-2.2.0.old/modules/haartraining/CMakeLists.txt OpenCV-2.2.0/modules/haartraining/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/haartraining/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0/modules/haartraining/CMakeLists.txt	2011-04-29 23:43:17.000000000 +0200
+@@ -18,7 +18,7 @@
+     link_directories(${CMAKE_SOURCE_DIR}/lib ${CMAKE_SOURCE_DIR}/bin ${CMAKE_CURRENT_BINARY_DIR})
+ endif()
+ 
+-set(haartraining_libs opencv_core opencv_imgproc opencv_highgui opencv_objdetect opencv_calib3d opencv_haartraining_engine)
++set(haartraining_libs opencv_core opencv_imgproc opencv_highgui opencv_objdetect opencv_calib3d opencv_haartraining_engine ${FLANN_LIBRARIES} ${LAPACK_LIBRARIES})
+ 
+ link_libraries(${haartraining_libs})
+ 
 diff -urN OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt OpenCV-2.2.0/modules/highgui/CMakeLists.txt
 --- OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
 +++ OpenCV-2.2.0/modules/highgui/CMakeLists.txt	2011-04-29 23:11:47.000000000 +0200
@@ -70,13 +82,13 @@ diff -urN OpenCV-2.2.0.old/modules/highgui/src/grfmt_png.cpp OpenCV-2.2.0/module
  /****************************************************************************************\
 diff -urN OpenCV-2.2.0.old/OpenCVModule.cmake OpenCV-2.2.0/OpenCVModule.cmake
 --- OpenCV-2.2.0.old/OpenCVModule.cmake	2010-12-05 04:35:25.000000000 +0100
-+++ OpenCV-2.2.0/OpenCVModule.cmake	2011-04-29 23:34:22.000000000 +0200
++++ OpenCV-2.2.0/OpenCVModule.cmake	2011-04-29 23:43:42.000000000 +0200
 @@ -57,7 +57,7 @@
  	    )
  
  	# Add the required libraries for linking:
 -	target_link_libraries(${the_target} ${OPENCV_LINKER_LIBS} ${IPP_LIBS} ${ARGN})
-+	target_link_libraries(${the_target} ${OPENCV_LINKER_LIBS} ${IPP_LIBS} ${ARGN} ${FLANN_LIBRARIES} ${CLAPACK_LIBRARIES})
++	target_link_libraries(${the_target} ${OPENCV_LINKER_LIBS} ${IPP_LIBS} ${ARGN} ${FLANN_LIBRARIES} ${LAPACK_LIBRARIES})
  
  	if(MSVC)
  	    if(CMAKE_CROSSCOMPILING)
