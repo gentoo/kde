@@ -52,5 +52,10 @@ src_configure() {
 }
 
 src_test() {
-	CMAKE_BUILD_DIR=${CMAKE_BUILD_DIR}/tests VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
+	local builddir=${CMAKE_BUILD_DIR}
+
+	CMAKE_BUILD_DIR=${CMAKE_BUILD_DIR}/tests \
+		VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
+
+	CMAKE_BUILD_DIR=${builddir}
 }
