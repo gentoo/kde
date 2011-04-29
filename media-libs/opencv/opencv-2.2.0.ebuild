@@ -60,6 +60,7 @@ PATCHES=(
 	"${FILESDIR}/${PV}-gcc46.patch"
 	"${FILESDIR}/${PV}-ptrcvcapture.patch"
 	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
+	"${FILESDIR}/${PV}-use_system_libs.patch"
 )
 
 S=${WORKDIR}/${MY_P}

@@ -1,0 +1,12 @@
+diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core/src/lapack.cpp
+--- OpenCV-2.2.0.old/modules/core/src/lapack.cpp	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0/modules/core/src/lapack.cpp	2011-04-29 21:34:50.000000000 +0200
+@@ -48,7 +48,7 @@
+   typedef __CLPK_integer    integer;
+   typedef __CLPK_real       real;
+ #else
+-  #include "clapack.h"
++  #include <clapack/clapack.h>
+ #endif
+ 
+ #undef abs
