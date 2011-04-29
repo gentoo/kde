@@ -17,9 +17,10 @@ SRC_URI="mirror://sourceforge/${PN}library/${MY_P}.tar.bz2"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="cuda doc eigen examples ffmpeg gstreamer gtk ieee1394 ipp jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 test threads tiff v4l xine"
+IUSE="cuda doc eigen examples ffmpeg gstreamer gtk ieee1394 ipp jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 test tiff v4l xine"
 
 RDEPEND="
+	sys-libs/zlib
 	cuda? ( dev-util/nvidia-cuda-toolkit )
 	eigen? ( dev-cpp/eigen:2 )
 	ffmpeg? ( virtual/ffmpeg )
@@ -42,7 +43,6 @@ RDEPEND="
 		x11-libs/qt-gui:4
 		opengl? ( x11-libs/qt-opengl:4 )
 	)
-	threads? ( dev-cpp/tbb )
 	tiff? ( media-libs/tiff )
 	v4l? ( media-libs/libv4l )
 	xine? ( media-libs/xine-lib )
@@ -72,6 +72,9 @@ src_prepare() {
 
 	# remove bundled stuff
 	rm -rf 3rdparty
+	sed -i \
+		-e '/add_subdirectory(3rdparty)/ d' \
+		CMakeLists.txt || die
 }
 
 src_configure() {
@@ -97,7 +100,6 @@ src_configure() {
 		$(cmake-utils_use_with png)
 		$(cmake-utils_use_with qt4 QT)
 		$(cmake-utils_use_with opengl QT_OPENGL)
-		$(cmake-utils_use_with threads TBB)
 		$(cmake-utils_use_with tiff)
 		$(cmake-utils_use_with v4l V4L)
 		$(cmake-utils_use_with xine)
@@ -126,6 +128,7 @@ src_configure() {
 		"-DENABLE_SSE42=OFF"
 		"-DWITH_PVAPI=OFF"
 		"-DWITH_UNICAP=OFF"
+		"-DWITH_TBB=OFF"
 	)
 
 	# things we want to be hardly enabled not worth useflag
@@ -136,4 +139,12 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
+}
+
+pkg_postinst() {
+	use python && python_mod_optimize opencv
+}
+
+pkg_postrm() {
+	use python && python_mod_cleanup opencv
 }
