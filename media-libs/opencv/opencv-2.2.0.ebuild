@@ -21,9 +21,10 @@ IUSE="cuda doc eigen examples ffmpeg gstreamer gtk ieee1394 ipp jpeg jpeg2k open
 
 RDEPEND="
 	app-arch/bzip2
+	dev-libs/libf2c
 	sys-libs/zlib
 	sci-libs/clapack
-	virtual/lapack
+	sci-libs/flann
 	cuda? ( dev-util/nvidia-cuda-toolkit )
 	eigen? ( dev-cpp/eigen:2 )
 	ffmpeg? ( virtual/ffmpeg )
@@ -63,6 +64,7 @@ PATCHES=(
 	"${FILESDIR}/${PV}-ptrcvcapture.patch"
 	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
 	"${FILESDIR}/${PV}-use_system_libs.patch"
+	"${FILESDIR}/${PV}-libpng1.5.patch"
 )
 
 S=${WORKDIR}/${MY_P}
@@ -142,7 +144,6 @@ src_configure() {
 	mycmakeargs+=(
 		"-DBUILD_SHARED_LIBS=ON"
 		"-DOPENCV_DOC_INSTALL_PATH=share/doc/${PF}"
-		"-DOPENCV_EXTRA_C_FLAGS=${CXXFLAGS}"
 	)
 
 	cmake-utils_src_configure

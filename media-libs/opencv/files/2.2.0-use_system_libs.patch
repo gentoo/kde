@@ -32,3 +32,37 @@ diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core
  #endif
  
  #undef abs
+diff -urN OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt OpenCV-2.2.0/modules/highgui/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0/modules/highgui/CMakeLists.txt	2011-04-29 22:24:32.000000000 +0200
+@@ -219,8 +219,8 @@
+ set(the_target "opencv_highgui")
+ 
+ add_definitions(-DHIGHGUI_EXPORTS -DCVAPI_EXPORTS)
+-
+-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include"
++include_directories("${ZLIB_INCLUDE_DIRS}"
++					"${CMAKE_CURRENT_SOURCE_DIR}/include"
+ 					"${CMAKE_CURRENT_SOURCE_DIR}/../core/include"
+ 					"${CMAKE_CURRENT_SOURCE_DIR}/../imgproc/include"
+                     "${CMAKE_CURRENT_SOURCE_DIR}/src"
+@@ -285,7 +285,7 @@
+ 	#target_link_libraries(${the_target} libtiff)
+ endif()
+ 
+-target_link_libraries(${the_target} ${OPENCV_LINKER_LIBS} opencv_core opencv_imgproc zlib ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${TIFF_LIBRARIES} ${JASPER_LIBRARIES} ${HIGHGUI_LIBRARIES} ${OPENEXR_LIBRARIES})
++target_link_libraries(${the_target} ${OPENCV_LINKER_LIBS} opencv_core opencv_imgproc ${ZLIB_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${TIFF_LIBRARIES} ${JASPER_LIBRARIES} ${HIGHGUI_LIBRARIES} ${OPENEXR_LIBRARIES})
+ 
+ if(APPLE)
+ 	target_link_libraries(${the_target} "-lbz2 -framework Cocoa -framework QuartzCore")
+diff -urN OpenCV-2.2.0.old/modules/highgui/src/grfmt_png.cpp OpenCV-2.2.0/modules/highgui/src/grfmt_png.cpp
+--- OpenCV-2.2.0.old/modules/highgui/src/grfmt_png.cpp	2010-12-05 04:35:25.000000000 +0100
++++ OpenCV-2.2.0/modules/highgui/src/grfmt_png.cpp	2011-04-29 22:25:25.000000000 +0200
+@@ -42,6 +42,7 @@
+ 
+ #include "precomp.hpp"
+ 
++#include <zlib.h>
+ #ifdef HAVE_PNG
+ 
+ /****************************************************************************************\
