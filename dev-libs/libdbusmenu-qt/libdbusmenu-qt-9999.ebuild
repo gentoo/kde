@@ -1,30 +1,26 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libdbusmenu-qt/libdbusmenu-qt-0.8.2.ebuild,v 1.1 2011/04/29 13:32:45 scarabeus Exp $
 
 EAPI=4
 
 QT_DEPEND="4.6.3"
-inherit cmake-utils virtualx
+EGIT_REPO_URI="git://gitorious.org/dbusmenu/dbusmenu-qt.git"
 
-if [[ "${PV}" = 9999* ]] ; then
-	inherit git-2
-
-	EGIT_REPO_URI="git://gitorious.org/dbusmenu/dbusmenu-qt.git"
-
-	KEYWORDS=""
-else
-	# We are using snapshots from Aurelien's repos, as advised in kde-packager ml
-	# This is because version 0.6.3 removed code from the official version,
-	#  because Canonical has no copyright on it
-	#SRC_URI="mirror://gentoo/${P}.tar.bz2"
-	SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
-
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-fi
+[[ ${PV} == 9999* ]] && GIT_ECLASS="git-2"
+inherit cmake-utils virtualx ${GIT_ECLASS}
 
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
+if [[ ${PV} == 9999* ]] ; then
+	KEYWORDS=""
+else
+	#SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
+	# upstream has no permissions to use some kde written code so repack git
+	# repo every time
+	SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+fi
 
 LICENSE="LGPL-2"
 SLOT="0"
@@ -44,8 +40,11 @@ DEPEND="${RDEPEND}
 
 DOCS=(NEWS README)
 
+# tests fail due to missing conection to dbus
+RESTRICT="test"
+
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build test TESTS)
 		$(cmake-utils_use_with doc)
 	)
@@ -53,12 +52,5 @@ src_configure() {
 }
 
 src_test() {
-	pushd "${CMAKE_BUILD_DIR}/tests" > /dev/null
-	local ctestargs
-	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
-
-	export maketype="ctest ${ctestargs}"
-	virtualmake || die "Tests failed."
-
-	popd > /dev/null
+	CMAKE_BUILD_DIR=${CMAKE_BUILD_DIR}/tests VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
 }
