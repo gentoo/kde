@@ -12,11 +12,11 @@ diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0/CMakeLists.txt
  # ===================================================
 diff -urN OpenCV-2.2.0.old/modules/core/CMakeLists.txt OpenCV-2.2.0/modules/core/CMakeLists.txt
 --- OpenCV-2.2.0.old/modules/core/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
-+++ OpenCV-2.2.0/modules/core/CMakeLists.txt	2011-04-29 22:01:06.000000000 +0200
++++ OpenCV-2.2.0/modules/core/CMakeLists.txt	2011-04-29 22:02:39.000000000 +0200
 @@ -1,3 +1,3 @@
 -include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/include")
 -set(deps opencv_lapack zlib)
-+include_directories("${ZLIB_INCLUDE_DIRSS}")
++include_directories("${ZLIB_INCLUDE_DIRS}")
 +set(deps ${LAPACK_LIBRARIES} ${ZLIB_LIBRARIES})
  define_opencv_module(core ${deps})
 diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core/src/lapack.cpp
