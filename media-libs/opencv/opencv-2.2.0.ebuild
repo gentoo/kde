@@ -71,6 +71,8 @@ PATCHES=(
 	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
 )
 
+CMAKE_BUILD_TYPE="Release"
+
 S=${WORKDIR}/${MY_P}
 
 pkg_setup() {
