@@ -23,7 +23,7 @@ RDEPEND="
 	app-arch/bzip2
 	dev-libs/libf2c
 	sys-libs/zlib
-	sci-libs/clapack
+	>=sci-libs/clapack-3.2.1-r4
 	sci-libs/flann
 	virtual/lapack
 	cuda? ( dev-util/nvidia-cuda-toolkit )
@@ -146,16 +146,8 @@ src_configure() {
 	mycmakeargs+=(
 		"-DCMAKE_SKIP_RPATH=ON"
 		"-DBUILD_SHARED_LIBS=ON"
-		"-DOPENCV_DOC_INSTALL_PATH=share/doc/${PF}"
+		"-DOPENCV_DOC_INSTALL_PATH=${EPREFIX}/usr/share/doc/${PF}"
 	)
 
 	cmake-utils_src_configure
-}
-
-pkg_postinst() {
-	use python && python_mod_optimize opencv
-}
-
-pkg_postrm() {
-	use python && python_mod_cleanup opencv
 }

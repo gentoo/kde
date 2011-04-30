@@ -1,6 +1,6 @@
 diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0.new/CMakeLists.txt
 --- OpenCV-2.2.0.old/CMakeLists.txt	2010-12-05 04:35:23.000000000 +0100
-+++ OpenCV-2.2.0.new/CMakeLists.txt	2011-04-30 10:49:01.000000000 +0200
++++ OpenCV-2.2.0.new/CMakeLists.txt	2011-04-30 11:57:37.000000000 +0200
 @@ -13,7 +13,7 @@
  # Add these standard paths to the search paths for FIND_LIBRARY
  # to find libraries from these locations first
@@ -219,7 +219,7 @@ diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0.new/CMakeLists.txt
  
  exec_program(mkdir ARGS "-p \"${CMAKE_BINARY_DIR}/unix-install/\"" OUTPUT_VARIABLE RET_VAL)
  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/OpenCVConfig.cmake.in" "${CMAKE_BINARY_DIR}/unix-install/OpenCVConfig.cmake" IMMEDIATE @ONLY)
-@@ -1164,7 +1161,7 @@
+@@ -1164,14 +1161,14 @@
  # -------------------------------------------------------------------------------------------
  set(prefix      ${CMAKE_INSTALL_PREFIX})
  set(exec_prefix     "\${prefix}")
@@ -227,6 +227,14 @@ diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0.new/CMakeLists.txt
 +set(libdir      "\${exec_prefix}/lib${LIB_SUFFIX}")
  set(includedir      "\${prefix}/include")
  set(VERSION             ${OPENCV_VERSION})
+ 
+ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/opencv.pc.cmake.in" "${CMAKE_BINARY_DIR}/unix-install/opencv.pc" @ONLY IMMEDIATE)
+ 
+ if(UNIX)
+-    install(FILES ${CMAKE_BINARY_DIR}/unix-install/opencv.pc DESTINATION lib/pkgconfig)
++    install(FILES ${CMAKE_BINARY_DIR}/unix-install/opencv.pc DESTINATION lib${LIB_SUFFIX}/pkgconfig)
+ endif()
+ 
  
 @@ -1191,7 +1188,7 @@
  #   CPack target

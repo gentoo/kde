@@ -24,13 +24,12 @@ diff -urN OpenCV-2.2.0.old/modules/core/CMakeLists.txt OpenCV-2.2.0/modules/core
  define_opencv_module(core ${deps})
 diff -urN OpenCV-2.2.0.old/modules/core/src/lapack.cpp OpenCV-2.2.0/modules/core/src/lapack.cpp
 --- OpenCV-2.2.0.old/modules/core/src/lapack.cpp	2010-12-05 04:35:24.000000000 +0100
-+++ OpenCV-2.2.0/modules/core/src/lapack.cpp	2011-04-29 22:11:31.000000000 +0200
-@@ -48,7 +48,8 @@
++++ OpenCV-2.2.0/modules/core/src/lapack.cpp	2011-04-30 11:50:09.000000000 +0200
+@@ -48,7 +48,7 @@
    typedef __CLPK_integer    integer;
    typedef __CLPK_real       real;
  #else
 -  #include "clapack.h"
-+  #include <f2c.h>
 +  #include <clapack/clapack.h>
  #endif
  
