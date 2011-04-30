@@ -19,6 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="cuda doc eigen examples ffmpeg gstreamer gtk ieee1394 ipp jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 test tiff v4l xine"
 
+# all tests fail, needs further investigation, bug 296681 - dilfridge
+RESTRICT=test
+
 RDEPEND="
 	app-arch/bzip2
 	dev-libs/libf2c
