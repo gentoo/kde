@@ -49,7 +49,7 @@ RDEPEND="
 		opengl? ( x11-libs/qt-opengl:4 )
 	)
 	tiff? ( media-libs/tiff )
-	v4l? ( media-libs/libv4l )
+	v4l? ( >=media-libs/libv4l-0.8.3 )
 	xine? ( media-libs/xine-lib )
 "
 DEPEND="${RDEPEND}
