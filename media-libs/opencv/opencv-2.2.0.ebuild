@@ -66,6 +66,7 @@ PATCHES=(
 	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
 	"${FILESDIR}/${PV}-use_system_libs.patch"
 	"${FILESDIR}/${PV}-libpng1.5.patch"
+	"${FILESDIR}/${PV}-numpy.patch"
 )
 
 S=${WORKDIR}/${MY_P}
@@ -143,6 +144,7 @@ src_configure() {
 
 	# things we want to be hardly enabled not worth useflag
 	mycmakeargs+=(
+		"-DCMAKE_SKIP_RPATH=ON"
 		"-DBUILD_SHARED_LIBS=ON"
 		"-DOPENCV_DOC_INSTALL_PATH=share/doc/${PF}"
 	)

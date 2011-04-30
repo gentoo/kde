@@ -1,6 +1,6 @@
-diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0/CMakeLists.txt
+diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0.new/CMakeLists.txt
 --- OpenCV-2.2.0.old/CMakeLists.txt	2010-12-05 04:35:23.000000000 +0100
-+++ OpenCV-2.2.0/CMakeLists.txt	2011-04-29 20:08:03.000000000 +0200
++++ OpenCV-2.2.0.new/CMakeLists.txt	2011-04-30 10:49:01.000000000 +0200
 @@ -13,7 +13,7 @@
  # Add these standard paths to the search paths for FIND_LIBRARY
  # to find libraries from these locations first
@@ -149,6 +149,17 @@ diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0/CMakeLists.txt
  
  if(BUILD_NEW_PYTHON_SUPPORT)
      find_package(PythonInterp)
+@@ -513,8 +513,8 @@
+ 
+     string(REGEX MATCH "[0-9].[0-9]" PYTHON_VERSION_MAJOR_MINOR "${PYTHON_VERSION_FULL}")
+     if(UNIX)
+-        set(PYTHON_PLUGIN_INSTALL_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages/opencv)
+-        set(PYTHON_PACKAGES_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages)
++        set(PYTHON_PLUGIN_INSTALL_PATH lib${LIB_SUFFIX}/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages/opencv)
++        set(PYTHON_PACKAGES_PATH lib${LIB_SUFFIX}/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages)
+     endif()
+     if(WIN32)
+         get_filename_component(PYTHON_PATH "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\${PYTHON_VERSION_MAJOR_MINOR}\\InstallPath]" ABSOLUTE CACHE)
 @@ -543,8 +543,8 @@
  #YV
  ############################### QT ################################
@@ -226,3 +237,121 @@ diff -urN OpenCV-2.2.0.old/CMakeLists.txt OpenCV-2.2.0/CMakeLists.txt
  
  if(BUILD_PACKAGE)
  
+diff -urN OpenCV-2.2.0.old/modules/ffmpeg/CMakeLists.txt OpenCV-2.2.0.new/modules/ffmpeg/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/ffmpeg/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0.new/modules/ffmpeg/CMakeLists.txt	2011-04-30 10:51:26.000000000 +0200
+@@ -43,12 +43,12 @@
+                       VERSION ${OPENCV_VERSION}
+                       OUTPUT_NAME "${the_target}${OPENCV_DLLVERSION}"
+                       DEFINE_SYMBOL "CVAPI_EXPORTS"
+-                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
++                      ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}/"
+                       RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/"
+                       )
+ 
+ install(TARGETS ${the_target}
+     RUNTIME DESTINATION bin COMPONENT main
+-    ARCHIVE DESTINATION lib COMPONENT main
+-    LIBRARY DESTINATION lib COMPONENT main
++    ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT main
++    LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT main
+     )
+diff -urN OpenCV-2.2.0.old/modules/gpu/CMakeLists.txt OpenCV-2.2.0.new/modules/gpu/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/gpu/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0.new/modules/gpu/CMakeLists.txt	2011-04-30 10:51:08.000000000 +0200
+@@ -96,9 +96,9 @@
+ # Additional target properties
+ set_target_properties(${the_target} PROPERTIES
+ 	DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+-	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
++	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}/"
+ 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/"
+-	INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
++	INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}"
+ 	)
+ 
+ # Add the required libraries for linking:
+@@ -124,8 +124,8 @@
+ 
+ install(TARGETS ${the_target}
+ 	RUNTIME DESTINATION bin COMPONENT main
+-	LIBRARY DESTINATION lib COMPONENT main
+-	ARCHIVE DESTINATION lib COMPONENT main)
++	LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT main
++	ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT main)
+ 
+ install(FILES ${lib_hdrs}
+ 	DESTINATION include/opencv2/${name}
+diff -urN OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt OpenCV-2.2.0.new/modules/highgui/CMakeLists.txt
+--- OpenCV-2.2.0.old/modules/highgui/CMakeLists.txt	2010-12-05 04:35:24.000000000 +0100
++++ OpenCV-2.2.0.new/modules/highgui/CMakeLists.txt	2011-04-30 10:53:11.000000000 +0200
+@@ -250,9 +250,9 @@
+ # Additional target properties
+ set_target_properties(${the_target} PROPERTIES
+ 	DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+-	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
++	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}/"
+ 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/"
+-	INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
++	INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}"
+ 	LINK_INTERFACE_LIBRARIES ""
+ 	)
+ 
+@@ -302,8 +302,8 @@
+ 
+ install(TARGETS ${the_target}
+ 	RUNTIME DESTINATION bin COMPONENT main
+-	LIBRARY DESTINATION lib COMPONENT main
+-	ARCHIVE DESTINATION lib COMPONENT main)
++	LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT main
++	ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT main)
+ 
+ install(FILES ${highgui_ext_hdrs}
+         DESTINATION include/opencv2/highgui
+diff -urN OpenCV-2.2.0.old/OpenCVModule.cmake OpenCV-2.2.0.new/OpenCVModule.cmake
+--- OpenCV-2.2.0.old/OpenCVModule.cmake	2010-12-05 04:35:25.000000000 +0100
++++ OpenCV-2.2.0.new/OpenCVModule.cmake	2011-04-30 10:53:45.000000000 +0200
+@@ -51,9 +51,9 @@
+ 	# Additional target properties
+ 	set_target_properties(${the_target} PROPERTIES
+ 	    DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
++	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}/"
+ 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/"
+-	    INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
++	    INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}"
+ 	    )
+ 
+ 	# Add the required libraries for linking:
+@@ -75,8 +75,8 @@
+ 
+ 	install(TARGETS ${the_target}
+ 	    RUNTIME DESTINATION bin COMPONENT main
+-	    LIBRARY DESTINATION lib COMPONENT main
+-	    ARCHIVE DESTINATION lib COMPONENT main)
++	    LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT main
++	    ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT main)
+ 
+ 	install(FILES ${lib_hdrs}
+ 	    DESTINATION include/opencv2/${name}
+diff -urN OpenCV-2.2.0.old/tests/cxts/CMakeLists.txt OpenCV-2.2.0.new/tests/cxts/CMakeLists.txt
+--- OpenCV-2.2.0.old/tests/cxts/CMakeLists.txt	2010-12-05 04:35:25.000000000 +0100
++++ OpenCV-2.2.0.new/tests/cxts/CMakeLists.txt	2011-04-30 10:54:15.000000000 +0200
+@@ -51,7 +51,7 @@
+ # Additional target properties
+ set_target_properties(${the_target} PROPERTIES
+ 	DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+-	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
++	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}/"
+ 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/"
+ 	DEFINE_SYMBOL "CVAPI_EXPORTS"
+ 	)
+@@ -64,6 +64,6 @@
+ if(WIN32)
+ install(TARGETS ${the_target}
+     RUNTIME DESTINATION bin COMPONENT main
+-	LIBRARY DESTINATION lib COMPONENT main
+-	ARCHIVE DESTINATION lib COMPONENT main)
++	LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT main
++	ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT main)
+ endif()
