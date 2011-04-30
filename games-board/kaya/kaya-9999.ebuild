@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 USE_RUBY="ruby18"
 KDE_SCM="git"
 inherit kde4-base ruby-ng
@@ -21,17 +21,15 @@ RDEPEND=""
 ruby_add_bdepend "$(add_kdebase_dep kdebindings-ruby)"
 ruby_add_rdepend "$(add_kdebase_dep kdebindings-ruby)"
 
+EGIT_SOURCE_UNPACK="${WORKDIR}/all/${P}"
+
 pkg_setup() {
 	ruby-ng_pkg_setup
 	kde4-base_pkg_setup
 }
 
-src_unpack() {
-	git-2_src_unpack
-
-	cd "${WORKDIR}"
-	mkdir all
-	mv ${P} all/ || die "Could not move sources"
+all_ruby_unpack() {
+	kde4-base_src_unpack
 }
 
 all_ruby_prepare() {

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
@@ -29,5 +29,8 @@ RDEPEND="
 		$(add_kdebase_dep kdesdk-meta)
 		$(add_kdebase_dep kdewebdev-meta)
 	)
-	semantic-desktop? ( || ( >=kde-base/kdepim-meta-4.5.93 >=kde-base/kdepim-meta-4.4.9 ) )
+	semantic-desktop? ( || (
+		( $(add_kdebase_dep kdepim-meta '' 4.5.93) )
+		( $(add_kdebase_dep kdepim-meta '' 4.4.9) )
+	) )
 "

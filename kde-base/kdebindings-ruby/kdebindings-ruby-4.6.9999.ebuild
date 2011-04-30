@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KMNAME="kdebindings"
 KMMODULE="ruby"
@@ -41,6 +41,7 @@ pkg_setup() {
 }
 
 src_unpack() {
+	local S="${WORKDIR}/${P}"
 	kde4-meta_src_unpack
 
 	cd "${WORKDIR}"
