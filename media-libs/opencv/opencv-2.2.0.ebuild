@@ -61,12 +61,14 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PV}-convert_sets_to_options.patch"
+	"${FILESDIR}/${PV}-ffmpeg01.patch"
+	"${FILESDIR}/${PV}-ffmpeg02.patch"
 	"${FILESDIR}/${PV}-gcc46.patch"
-	"${FILESDIR}/${PV}-ptrcvcapture.patch"
-	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
-	"${FILESDIR}/${PV}-use_system_libs.patch"
 	"${FILESDIR}/${PV}-libpng1.5.patch"
 	"${FILESDIR}/${PV}-numpy.patch"
+	"${FILESDIR}/${PV}-ptrcvcapture.patch"
+	"${FILESDIR}/${PV}-use_system_libs.patch"
+	"${FILESDIR}/${PV}-v4l_2.6.38.patch"
 )
 
 S=${WORKDIR}/${MY_P}
@@ -150,4 +152,9 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
+}
+
+src_test() {
+	export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${CMAKE_BUILD_DIR}/lib"
+	cmake-utils_src_test
 }
