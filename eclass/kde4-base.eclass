@@ -20,7 +20,7 @@
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde4-functions fdo-mime gnome2-utils base virtualx versionator eutils
+inherit kde4-functions toolchain-funcs fdo-mime gnome2-utils base virtualx versionator eutils
 
 if [[ ${BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in

@@ -9,7 +9,7 @@ DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 WEBKIT_REQUIRED="always"
 KDE_SCM="git"
-inherit kde4-base fdo-mime
+inherit kde4-base fdo-mime toolchain-funcs
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
