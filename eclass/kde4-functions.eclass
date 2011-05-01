@@ -428,7 +428,9 @@ add_kdebase_dep() {
 
 	if [[ ${KDEBASE} = kde-base ]]; then
 		echo " !kdeprefix? ( >=kde-base/${1}-${ver}[aqua=,-kdeprefix${use}] )"
-		echo " kdeprefix? ( >=kde-base/${1}-${ver}:${SLOT}[aqua=,kdeprefix${use}] )"
+		# kdeprefix is no-go for kdepim 4.4
+		[[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${SLOT} == 4.4 ]] || \
+			echo " kdeprefix? ( >=kde-base/${1}-${ver}:${SLOT}[aqua=,kdeprefix${use}] )"
 	elif [[ ${ver} == live ]]; then
 		echo " kde-base/${1}:live[aqua=${use}]"
 	else
