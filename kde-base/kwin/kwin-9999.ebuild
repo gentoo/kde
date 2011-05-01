@@ -10,9 +10,8 @@ inherit kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS=""
-IUSE="debug xcomposite xinerama"
+IUSE="debug gles xcomposite xinerama"
 
-# NOTE disabled for now: captury? ( media-libs/libcaptury )
 COMMONDEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
@@ -21,7 +20,8 @@ COMMONDEPEND="
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
-	opengl? ( virtual/opengl )
+	opengl? ( >=media-libs/mesa-7.10 )
+	gles? ( >=media-libs/mesa-7.10[egl,gles] )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
 "
@@ -47,22 +47,16 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
 )
 
-src_prepare() {
-# NOTE uncomment when enabled again by upstream
-#	if ! use captury; then
-#		sed -e 's:^PKGCONFIG..libcaptury:#DONOTFIND &:' \
-#			-i kwin/effects/CMakeLists.txt || \
-#			die "Making captury optional failed."
-#	fi
-
-	kde4-meta_src_prepare
-}
+# you can use just gles or opengl or none
+REQUIRED_USE="opengl? ( !gles ) gles? ( !opengl )"
 
 src_configure() {
 	# FIXME Remove when activity API moved away from libkworkspace
 	append-cppflags "-I${EKDEDIR}/include/kworkspace"
 
 	mycmakeargs=(
+		$(cmake-utils_use_with gles OpenGLES)
+		$(cmake-utils_use gles KWIN_BUILD_WITH_OPENGLES)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)
 	)
