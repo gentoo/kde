@@ -130,12 +130,9 @@ add_blocker plasma-workspace '<4.3.75'
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs-1.patch"
-#	"${FILESDIR}/${PN}-4.5.73-module-suffix.patch" - FIXME what is this and why is it needed?
-#	"${FILESDIR}/${PN}-4.4.66-macos-unbundle.patch" - FIXME needs to be ported, also see above
-#	"${FILESDIR}/${PN}-4.3.3-klauncher_kioslave.patch" - FIXME is this really needed? if so, please upstream it
-#	"${FILESDIR}/${PN}-4.5.74-klauncher_mac.patch" - FIXME read above
 	"${FILESDIR}/${PN}-4.5.90-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
+	"${FILESDIR}/${PN}-4.6.0-kateacc.patch"
 	"${FILESDIR}/${PN}-4.6.2-nonepomuk.patch"
 )
 
