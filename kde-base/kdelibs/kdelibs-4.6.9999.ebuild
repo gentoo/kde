@@ -133,6 +133,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.5.90-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 	"${FILESDIR}/${PN}-4.6.2-nonepomuk.patch"
+	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 )
 
 pkg_pretend() {
