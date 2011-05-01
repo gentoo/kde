@@ -139,6 +139,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.6.2-nonepomuk.patch"
 )
 
+pkg_pretend() {
+	[[ $(gcc-major-version) -lt 4 ]] || \
+			( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
+		&& die "Sorry, but gcc-4.3 and earlier won't work for KDE SC 4.6 (see bug #354837)."
+}
+
 src_prepare() {
 	kde4-base_src_prepare
 	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"

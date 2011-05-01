@@ -642,6 +642,14 @@ kde4-base_pkg_setup() {
 	# Don't set KDEHOME during compilation, it will cause access violations
 	unset KDEHOME
 
+	# Check if gcc compiler is fresh enough.
+	# In theory should be in pkg_pretend but we check it only for kdelibs there
+	# and for others we do just quick scan in pkg_setup because pkg_pretend
+	# executions consume quite some time.
+	[[ $(gcc-major-version) -lt 4 ]] || \
+			( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
+		&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
+
 	if [[ ${KDEBASE} = kde-base ]]; then
 		if use kdeprefix; then
 			KDEDIR=/usr/kde/${SLOT}

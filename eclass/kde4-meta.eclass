@@ -16,14 +16,7 @@
 
 inherit kde4-base toolchain-funcs versionator
 
-case ${EAPI:-0} in
-	3)
-		KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
-		;;
-	*)
-		KDEMETA_EXPF="pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
-		;;
-esac
+KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
 EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
@@ -137,25 +130,12 @@ fi
 # Specify extra parameters to pass to tar, in kde4-meta_src_extract.
 # '-xpf -j' are passed to tar by default.
 
-# @FUNCTION: kde4-meta_pkg_pretend
-# @DESCRIPTION:
-# Currently only checks the gcc version.
-kde4-meta_pkg_pretend() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	slot_is_at_least 4.6 ${SLOT} && ( [[ $(gcc-major-version) -lt 4 ]] || \
-		( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) ) \
-		&& die "Sorry, but gcc-4.3 and earlier wont work for KDE SC 4.6 (see bug 354837)."
-}
-
 # @FUNCTION: kde4-meta_pkg_setup
 # @DESCRIPTION:
 # Currently calls its equivalent in kde4-base.eclass(5) and checks the gcc version.
 # Use this one in split ebuilds.
 kde4-meta_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	has pkg_pretend ${KDEMETA_EXPF} || kde4-meta_pkg_pretend
 
 	kde4-base_pkg_setup
 }
