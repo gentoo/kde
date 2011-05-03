@@ -12,13 +12,22 @@ inherit kde4-base
 
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
-SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.bz2 ${SRC_URI}"
-# required so we won't fetch the huge tarballs by accident
-RESTRICT="primaryuri"
+# Note that the upstream tarball is .bz2, ours is .xz -- if upstream
+# changes its compression format to .xz, we will need to change the
+# filename of one of the tarballs
+SRC_URI="
+	!bindist? ( http://dev.gentoo.org/~scarabeus/${P}.tar.xz )
+	bindist? ( ${SRC_URI} )
+"
 
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="aqua"
+IUSE="aqua bindist"
+
+DEPEND="
+	!bindist? ( app-arch/xz-utils )
+"
+RDEPEND=""
 
 # Block conflicting packages
 add_blocker kdebase-data '<4.2.67'
