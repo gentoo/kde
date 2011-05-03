@@ -13,6 +13,8 @@ inherit kde4-base
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
 SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.bz2 ${SRC_URI}"
+# required so we won't fetch the huge tarballs by accident
+RESTRICT="primaryuri"
 
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
