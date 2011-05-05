@@ -22,6 +22,7 @@ RDEPEND="${DEPEND}
 "
 PDEPEND="
 	thumbnail? (
+		$(add_kdebase_dep thumbnailers)
 		|| (
 			$(add_kdebase_dep ffmpegthumbs)
 			$(add_kdebase_dep mplayerthumbs)
