@@ -10,7 +10,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug +usb xinerama"
+IUSE="debug gtk +usb xinerama"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 COMMONDEPEND="
@@ -38,6 +38,7 @@ RDEPEND="${COMMONDEPEND}
 	sys-libs/timezone-data
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
+	gtk? ( kde-misc/kcm-gtk-config )
 "
 
 KMEXTRA="
