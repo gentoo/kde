@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdeplasma-addons/kdeplasma-addons-4.6.3.ebuild,v 1.1 2011/05/07 10:48:00 scarabeus Exp $
 
 EAPI=4
 
@@ -48,6 +48,11 @@ RDEPEND="${COMMON_DEPEND}
 
 # kdebase-data: some svg icons moved from data directly here.
 add_blocker kdebase-data '<4.2.88'
+
+src_prepare() {
+	use semantic-desktop || epatch "${FILESDIR}/${PN}-4.6.2-optional-akonadi.patch"
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	mycmakeargs=(
