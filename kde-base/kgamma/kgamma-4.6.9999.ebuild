@@ -5,8 +5,15 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	eclass=kde4-base
+else
+	KMNAME="kdegraphics"
+	eclass=kde4-meta
+fi
+
+inherit ${eclass}
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS=""
@@ -21,8 +28,8 @@ DEPEND="${RDEPEND}
 
 src_unpack() {
 	if use handbook; then
-		KMEXTRA+=" doc/kcontrol/kgamma"
+		KMEXTRA_NOFATAL+=" doc/kcontrol/kgamma"
 	fi
 
-	kde4-meta_src_unpack
+	${eclass}_src_unpack
 }
