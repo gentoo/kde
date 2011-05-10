@@ -307,6 +307,16 @@ pkg_postinst() {
 		echo
 	fi
 
+	if has_version 'net-libs/libproxy'; then
+		echo
+		elog "You have net-libs/libproxy installed. This may lead to serious problems, e.g."
+		elog "not being able to log in. We used to prohibit that combination via a blocker,"
+		elog "however the blocker has been removed because of popular request. Now everyone"
+		elog "may shoot himself in the foot as much as he wants."
+		ewarn "If you encounter timeouts and/or hangs, please have a look at bug 365479,"
+		ewarn "https://bugs.gentoo.org/show_bug.cgi?id=365479"
+	fi
+
 	elog "Your homedir is set to \${HOME}/${HME}"
 	echo
 
