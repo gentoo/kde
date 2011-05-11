@@ -20,9 +20,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	media-video/vlc
 	x11-libs/libXScrnSaver
 	x11-libs/qt-sql:4[sqlite]
-	>=media-libs/xine-lib-1.1.18.1
 	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}"
