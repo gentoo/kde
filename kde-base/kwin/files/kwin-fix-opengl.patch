@@ -1,0 +1,51 @@
+diff -urN kdebase-workspace-4.6.2/kwin/compositingprefs.cpp kdebase-workspace-4.6.2.new/kwin/compositingprefs.cpp
+--- kdebase-workspace-4.6.2/kwin/compositingprefs.cpp	2011-02-25 23:10:02.000000000 +0100
++++ kdebase-workspace-4.6.2.new/kwin/compositingprefs.cpp	2011-04-07 19:37:28.637388362 +0200
+@@ -241,6 +241,7 @@
+ // See http://techbase.kde.org/Projects/KWin/HW for a list of some cards that are known to work.
+ void CompositingPrefs::applyDriverSpecificOptions()
+     {
++#ifdef KWIN_HAVE_OPENGL_COMPOSITING
+     // Always recommend
+     mRecommendCompositing = true;
+ 
+@@ -248,6 +249,7 @@
+     mStrictBinding = !gl->supports( LooseBinding );
+     if ( gl->driver() == Driver_Intel )
+         mEnableVSync = false;
++#endif
+     }
+ 
+ 
+diff -urN kdebase-workspace-4.6.2/kwin/effects/logout/logout.cpp kdebase-workspace-4.6.2.new/kwin/effects/logout/logout.cpp
+--- kdebase-workspace-4.6.2/kwin/effects/logout/logout.cpp	2011-02-25 23:10:02.000000000 +0100
++++ kdebase-workspace-4.6.2.new/kwin/effects/logout/logout.cpp	2011-04-07 19:50:58.355265494 +0200
+@@ -338,7 +338,9 @@
+ 
+ void LogoutEffect::windowDeleted( EffectWindow* w )
+     {
++#ifdef KWIN_HAVE_OPENGL_COMPOSITING
+     windows.removeAll( w );
++#endif
+     ignoredWindows.removeAll( w );
+     if( w == logoutWindow )
+         logoutWindow = NULL;
+diff -urN kdebase-workspace-4.6.2/kwin/options.cpp kdebase-workspace-4.6.2.new/kwin/options.cpp
+--- kdebase-workspace-4.6.2/kwin/options.cpp	2011-02-25 23:10:02.000000000 +0100
++++ kdebase-workspace-4.6.2.new/kwin/options.cpp	2011-04-07 19:43:34.358816214 +0200
+@@ -57,6 +57,7 @@
+     int rate = -1;
+     if( options->refreshRate > 0 ) // use manually configured refresh rate
+         rate = options->refreshRate;
++#ifdef KWIN_HAVE_OPENGL_COMPOSITING
+     else if ( GLPlatform::instance()->driver() == Driver_NVidia )
+         {
+         QProcess nvidia_settings;
+@@ -73,6 +74,7 @@
+                 rate = qRound(frate);
+             }
+         }
++#endif
+ #ifdef HAVE_XRANDR
+     else if( Extensions::randrAvailable() )
+         {
