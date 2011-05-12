@@ -4,22 +4,20 @@
 
 EAPI=4
 
+KDE_HANDBOOK="optional"
 KDE_LINGUAS="cs de es fr it ja lt nl pl pt_BR ro ru"
 inherit kde4-base
 
+ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
+ESVN_PROJECT="kdesvn"
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
 HOMEPAGE="http://kdesvn.alwins-world.de/"
-if [[ ${PV} = 9999* ]]; then
-	ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
-	ESVN_PROJECT="kdesvn"
-else
-	SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
-fi
+[[ ${PV} != 9999* ]] && SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	>=dev-db/sqlite-3
