@@ -4,26 +4,38 @@
 
 EAPI=4
 
+MY_P="OpenGTL-${PV}"
+
 inherit cmake-utils
 
 DESCRIPTION="Set of libraries for using and integrating transformation algorithms"
 HOMEPAGE="http://opengtl.org/"
-SRC_URI="${HOMEPAGE}download/OpenGTL-${PV}.tar.bz2"
+SRC_URI="http://download.opengtl.org/${MY_P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="debug test"
 
 RDEPEND="
 	media-libs/libpng
-	media-libs/libopenraw
-	=sys-devel/llvm-2.5
+	>=sys-devel/llvm-2.7
+	sys-libs/zlib
 "
-# =sys-devel/llvm-2.5 is on bug #186279
-
 DEPEND="${RDEPEND}
-	>=dev-util/cmake-2.6"
+	test? ( dev-util/lcov )
+"
+
+S=${WORKDIR}/${MY_P}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use debug OPENGTL_ENABLE_DEBUG_OUTPUT)
+		$(cmake-utils_use test OPENGTL_BUILD_TESTS)
+		$(cmake-utils_use test OPENGTL_CODE_COVERAGE)
+	)
+	cmake-utils_src_configure
+}
 
 src_install() {
 	cmake-utils_src_install
