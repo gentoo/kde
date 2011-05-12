@@ -4,8 +4,14 @@
 
 EAPI=4
 
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="SANE Plugin for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
