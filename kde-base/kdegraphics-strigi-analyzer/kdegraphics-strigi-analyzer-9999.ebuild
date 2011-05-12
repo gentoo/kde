@@ -6,12 +6,13 @@ EAPI=4
 
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-inherit kde4-base
+	kde_eclass="kde4-base"
 else
-KMNAME="kdegraphics"
-KMMODULE="strigi-analyzer"
-inherit kde4-meta
+	KMNAME="kdegraphics"
+	KMMODULE="strigi-analyzer"
+	kde_eclass="kde4-meta"
 fi
+inherit ${kde_eclass}
 
 DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS=""

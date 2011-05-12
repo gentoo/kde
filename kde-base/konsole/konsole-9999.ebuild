@@ -9,11 +9,12 @@ KDE_SCM="git"
 
 if [[ ${PV} = *9999 ]]; then
 	KDE_DOC_DIRS="doc/manual"
-	inherit kde4-base
+	kde_eclass="kde4-base"
 else
 	KMNAME="kdebase-apps"
-	inherit kde4-meta
+	kde_eclass="kde4-meta"
 fi
+inherit ${kde_eclass}
 
 DESCRIPTION="X terminal for use with KDE."
 KEYWORDS=""

@@ -11,13 +11,13 @@ WEBKIT_REQUIRED="optional"
 
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	eclass=kde4-base
+	kde_eclass="kde4-base"
 else
 	KMNAME="kdebindings"
-	eclass=kde4-meta
+	kde_eclass="kde4-meta"
 fi
 
-inherit ${eclass}
+inherit ${kde_eclass}
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
@@ -60,5 +60,5 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_disable webkit QtWebKit)
 	)
-	${eclass}_src_configure
+	${kde_eclass}_src_configure
 }

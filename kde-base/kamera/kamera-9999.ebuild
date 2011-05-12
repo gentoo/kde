@@ -6,12 +6,13 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 if [[ ${PV} == *9999 ]]; then
-KDE_SCM="git"
-inherit kde4-base
+	KDE_SCM="git"
+	kde_eclass="kde4-base"
 else
-KMNAME="kdegraphics"
-inherit kde4-meta
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
 fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""

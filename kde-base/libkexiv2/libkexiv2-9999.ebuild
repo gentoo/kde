@@ -6,12 +6,13 @@ EAPI=4
 
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	inherit kde4-base
+	kde_eclass="kde4-base"
 else
 	KMNAME="kdegraphics"
 	KMMODULE="libs/libkexiv2"
-	inherit kde4-meta
+	kde_eclass="kde4-meta"
 fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
 HOMEPAGE="http://www.kipi-plugins.org"
