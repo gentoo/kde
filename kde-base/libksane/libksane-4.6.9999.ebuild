@@ -4,9 +4,15 @@
 
 EAPI=4
 
-KMNAME="kdegraphics"
-KMMODULE="libs/${PN}"
-inherit kde4-meta
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdegraphics"
+	KMMODULE="libs/${PN}"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="SANE Library interface for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
@@ -19,9 +25,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# Not sure where this moved/who should install it in 4.6.3+
+if [[ ${PV} != *9999 ]]; then
 src_install() {
 	insinto "${KDEDIR}"/share/apps/cmake/modules
 	doins "${S}"/cmake/modules/FindKSane.cmake
 
-	kde4-meta_src_install
+	${kde_eclass}_src_install
 }
+fi
