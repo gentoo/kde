@@ -31,7 +31,7 @@ RDEPEND="
 	crypt? ( app-crypt/qca:2 )
 	eigen? ( dev-cpp/eigen )
 	exif? ( media-gfx/exiv2 )
-	fftw? ( sci-libs/fftw:3 )
+	fftw? ( sci-libs/fftw:3.0 )
 	fontconfig? ( media-libs/fontconfig )
 	freetds? ( dev-db/freetds )
 	gif? ( media-libs/giflib )
