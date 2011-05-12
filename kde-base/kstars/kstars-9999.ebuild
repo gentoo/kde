@@ -39,5 +39,5 @@ src_configure() {
 		$(cmake-utils_use_with indi)
 	)
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }
