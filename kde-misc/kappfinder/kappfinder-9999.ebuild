@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_HANDBOOK="optional"
 KMNAME="extragear/base"
 inherit kde4-meta
 
@@ -13,7 +14,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug +handbook"
+IUSE="debug"
 
 RDEPEND="
 	!kde-base/kappfinder[-kdeprefix]
