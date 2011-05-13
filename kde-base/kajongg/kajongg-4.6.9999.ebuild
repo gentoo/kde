@@ -18,5 +18,6 @@ DEPEND="
 	$(add_kdebase_dep pykde4)
 "
 RDEPEND="${DEPEND}
+	$(add_kdebase_dep libkmahjongg)
 	>=dev-python/twisted-8.2.0
 "
