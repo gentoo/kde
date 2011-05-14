@@ -63,3 +63,6 @@ kde-misc/kwebkitpart
 
 # old plugins have file collisions
 ~kde-misc/konq-plugins-4.6.1
+
+# Needed by libkexiv2
+>=media-gfx/exiv2-0.20
