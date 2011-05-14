@@ -19,6 +19,7 @@ RDEPEND="
 	$(add_kdebase_dep kremotecontrol)
 	$(add_kdebase_dep ktimer)
 	$(add_kdebase_dep kwallet)
+	$(add_kdebase_dep okteta)
 	$(add_kdebase_dep superkaramba)
 	$(add_kdebase_dep sweeper)
 	cups? ( $(add_kdebase_dep printer-applet) )
