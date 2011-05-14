@@ -239,8 +239,7 @@ kde4-meta_src_extract() {
 
 		kde4-meta_create_extractlists
 
-		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake \
-			AUTHORS COPYING INSTALL README NEWS ChangeLog
+		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake
 		do
 			extractlist+=" ${topdir}${moduleprefix}${f}"
 		done
