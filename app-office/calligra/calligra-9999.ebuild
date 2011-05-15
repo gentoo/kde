@@ -16,7 +16,7 @@ HOMEPAGE="http://www.calligra-suite.org/"
 
 LICENSE="GPL-2"
 SLOT="4"
-[[ ${PV} == 9999 ]] || KEYWORDS=""
+[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
 IUSE="+boost +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
 gsl +iconv +jpeg jpeg2k +kdcraw kdepim +lcms mysql +okular openctl openexr +png
 +poppler postgres pstoedit +semantic-desktop +ssl tiff +threads +truetype
