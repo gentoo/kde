@@ -22,7 +22,7 @@ gsl +iconv +jpeg jpeg2k +kdcraw kdepim +lcms mysql +okular openctl openexr +png
 +poppler postgres pstoedit +semantic-desktop +ssl tiff +threads +truetype
 word-perfect +xml +xslt"
 
-CAL_FTS="karbon kexi kpresenter krita tables words"
+CAL_FTS="words stage tables karbon krita kexi flow kplato braindump"
 for cal_ft in ${CAL_FTS}; do
 	IUSE+=" calligra_features_${cal_ft}"
 done
@@ -77,9 +77,12 @@ DEPEND="${RDEPEND}"
 # By default all bulds are enabled.
 # When you find out what some option does just describe it here and
 # make it optional if required.
+#
+# where does that list come from? cmakelist looks a bit different :(
+#
 # BUILD_artistictextshape
-# BUILD_braindump
-# BUILD_calligra
+# BUILD_braindump - note collection app (<< alpha); USE_EXPAND
+# BUILD_calligra - the generic "open file" office app ; USE_EXPAND? default on?
 # BUILD_chartshape
 # BUILD_colorengines
 # BUILD_commentshape
@@ -89,21 +92,21 @@ DEPEND="${RDEPEND}"
 # BUILD_divineProportion
 # BUILD_doc - handbook stuff, handled by KDE_HANDBOOK=optional
 # BUILD_dockers
-# BUILD_flow
+# BUILD_flow - flowcharting app ; used to be kivio ; USE_EXPAND
 # BUILD_generic_wrapper
 # BUILD_karbon - vector drawing app ; handled as USE_EXPAND
 # BUILD_kexi - database manager ; handled as USE_EXPAND
-# BUILD_kformula
-# BUILD_koabstraction
-# BUILD_koreport
-# BUILD_kounavail
-# BUILD_kpresenter - presentation creator ; handled as USE_EXPAND
+# BUILD_kformula   << formula editor, should be part of base libs
+# BUILD_koabstraction << part of base libs
+# BUILD_koreport   << reporting library, should be part of base libs
+# BUILD_kounavail  << part of base libs
+# BUILD_kpresenter - presentation creator ; handled as USE_EXPAND (now stage ???)
 # BUILD_krita - image editor ; handled as USE_EXPAND
-# BUILD_kthesaurus
-# BUILD_libkowmf
-# BUILD_libmsooxml
+# BUILD_kthesaurus << thesaurus framework, should be part of base libs
+# BUILD_libkowmf   << wmf filter (use wmf?)
+# BUILD_libmsooxml << msooxml filter (use something?)
 # BUILD_mdb
-# BUILD_mobile
+# BUILD_mobile << "Maemo 5 Office UI for KOffice" ?!
 # BUILD_musicshape
 # BUILD_pathshapes
 # BUILD_pictureshape
@@ -187,7 +190,6 @@ src_configure() {
 	)
 
 	# applications
-	CAL_FTS="karbon kexi kpresenter krita tables words"
 	for cal_ft in ${CAL_FTS}; do
 		mycmakeargs+=( $(cmake-utils_use_build calligra_features_${cal_ft} ${cal_ft}) )
 	done
