@@ -11,3 +11,9 @@ inherit kde4-meta
 DESCRIPTION="KDE: KGoldrunner is a game of action and puzzle solving"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="
+	media-libs/libsndfile
+	media-libs/openal
+"
+RDEPEND="${DEPEND}"
