@@ -23,11 +23,14 @@ RESTRICT="test"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
-	>=media-gfx/exiv2-0.18
+	$(add_kdebase_dep libkonq)
+	>=media-gfx/exiv2-0.19
 	virtual/jpeg
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
 RDEPEND="${DEPEND}"
+
+KMLOADLIBS="libkonq"
 
 src_configure() {
 	mycmakeargs=(
