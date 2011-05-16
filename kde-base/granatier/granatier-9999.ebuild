@@ -10,21 +10,10 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Bomberman game"
 KEYWORDS=""
-IUSE="debug openal"
+IUSE="debug"
 
 DEPEND="
-	openal? (
-		media-libs/libsndfile
-		media-libs/openal
-	)
+	media-libs/libsndfile
+	media-libs/openal
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with openal OpenAL)
-		$(cmake-utils_use_with openal SndFile)
-	)
-
-	kde4-meta_src_configure
-}
