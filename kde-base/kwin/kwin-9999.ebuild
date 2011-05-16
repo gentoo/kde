@@ -21,7 +21,7 @@ COMMONDEPEND="
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
 	opengl? ( >=media-libs/mesa-7.10 )
-	gles? ( >=media-libs/mesa-7.10[egl,gles] )
+	gles? ( >=media-libs/mesa-7.10[egl(+),gles] )
 	xcomposite? ( x11-libs/libXcomposite )
 	xinerama? ( x11-libs/libXinerama )
 "
