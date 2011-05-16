@@ -18,6 +18,8 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		# $(cmake-utils_use_with zeitgeist QtZeitgeist)
+		-DWITH_QtZeitgeist=NO
 	)
 	kde4-meta_src_configure
 }
