@@ -19,7 +19,7 @@ inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
-IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop"
+IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop webkit"
 
 DEPEND="
 	$(add_kdebase_dep smoke 'akonadi?,declarative?,kate?,okular?,phonon?,qscintilla?,qwt?,semantic-desktop=,webkit?')

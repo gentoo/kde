@@ -10,7 +10,7 @@ inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"
 KEYWORDS=""
-IUSE="akonadi debug +phonon plasma qimageblitz qscintilla semantic-desktop"
+IUSE="akonadi debug +phonon plasma qimageblitz qscintilla semantic-desktop webkit"
 
 DEPEND="
 	dev-lang/mono

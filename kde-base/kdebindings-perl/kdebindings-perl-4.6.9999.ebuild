@@ -13,7 +13,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Perl bindings"
 KEYWORDS=""
-IUSE="akonadi attica debug kate okular phonon plasma qimageblitz qscintilla qwt semantic-desktop"
+IUSE="akonadi attica debug kate okular phonon plasma qimageblitz qscintilla qwt semantic-desktop webkit"
 
 DEPEND="
 	>=dev-lang/perl-5.10.1

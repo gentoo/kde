@@ -20,7 +20,7 @@ inherit ${kde_eclass}
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
 KEYWORDS=""
-IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop"
+IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop webkit"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')

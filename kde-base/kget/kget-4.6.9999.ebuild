@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
-IUSE="debug bittorrent semantic-desktop sqlite"
+IUSE="debug bittorrent semantic-desktop sqlite webkit"
 
 RDEPEND="
 	app-crypt/qca:2
