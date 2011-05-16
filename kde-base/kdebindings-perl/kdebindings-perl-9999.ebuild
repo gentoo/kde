@@ -9,7 +9,6 @@ KMMODULE="perl"
 DECLARATIVE_REQUIRED="optional"
 MULTIMEDIA_REQUIRED="optional"
 QTHELP_REQUIRED="optional"
-WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE Perl bindings"

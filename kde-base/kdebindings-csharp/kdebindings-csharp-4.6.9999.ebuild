@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kdebindings"
 KMMODULE="csharp"
-WEBKIT_REQUIRED="optional"
 inherit kde4-meta mono
 
 DESCRIPTION="C# bindings for KDE and Qt"

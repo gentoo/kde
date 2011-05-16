@@ -4,7 +4,6 @@
 
 EAPI=4
 
-WEBKIT_REQUIRED="always"
 KDE_SCM="git"
 inherit kde4-base
 

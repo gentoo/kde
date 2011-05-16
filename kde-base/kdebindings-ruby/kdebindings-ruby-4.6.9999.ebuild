@@ -7,7 +7,6 @@ EAPI=4
 KMNAME="kdebindings"
 KMMODULE="ruby"
 DECLARATIVE_REQUIRED="optional"
-WEBKIT_REQUIRED="optional"
 
 USE_RUBY="ruby18"
 # No ruby19 for three reasons:

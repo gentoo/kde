@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdenetwork"
-WEBKIT_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"

@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_MINIMAL="4.6"
 KDE_SCM="git"
-WEBKIT_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for Konqueror"

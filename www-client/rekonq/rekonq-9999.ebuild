@@ -4,7 +4,6 @@
 
 EAPI=4
 
-WEBKIT_REQUIRED=always
 QT_MINIMAL="4.7"
 KDE_MINIMAL="4.6"
 KDE_SCM="git"

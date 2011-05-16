@@ -7,7 +7,6 @@ EAPI=4
 DECLARATIVE_REQUIRED="optional"
 MULTIMEDIA_REQUIRED="optional"
 QTHELP_REQUIRED="optional"
-WEBKIT_REQUIRED="optional"
 
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then

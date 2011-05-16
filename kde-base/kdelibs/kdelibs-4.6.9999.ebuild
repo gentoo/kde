@@ -7,7 +7,6 @@ EAPI=4
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
-WEBKIT_REQUIRED="always"
 KDE_SCM="git"
 inherit kde4-base fdo-mime toolchain-funcs
 
