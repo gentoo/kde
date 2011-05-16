@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
-IUSE="debug bittorrent semantic-desktop sqlite"
+IUSE="debug bittorrent mms semantic-desktop sqlite"
 
 RDEPEND="
 	app-crypt/qca:2
@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
+	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 	webkit? ( >=kde-misc/kwebkitpart-0.9.6 )
 "
@@ -39,6 +40,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with bittorrent KTorrent)
+		$(cmake-utils_use_with mms LibMms)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with sqlite)
