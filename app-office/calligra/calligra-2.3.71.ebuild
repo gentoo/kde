@@ -37,7 +37,7 @@ RDEPEND="
 	sys-libs/zlib
 	boost? ( dev-libs/boost )
 	crypt? ( app-crypt/qca:2 )
-	eigen? ( dev-cpp/eigen )
+	eigen? ( dev-cpp/eigen:2 )
 	exif? ( media-gfx/exiv2 )
 	fftw? ( sci-libs/fftw:3.0 )
 	fontconfig? ( media-libs/fontconfig )
