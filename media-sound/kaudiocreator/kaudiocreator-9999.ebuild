@@ -8,17 +8,19 @@ KMNAME="extragear/multimedia"
 inherit kde4-base
 
 DESCRIPTION="KDE CD ripper and audio encoder frontend"
-HOMEPAGE="http://benjamin-meyer.blogspot.com/2002/02/kaudiocreator.html?program=KAudioCreator"
+HOMEPAGE="http://kde-apps.org/content/show.php?content=107645"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
+	$(add_kdebase_dep kdemultimedia-kioslaves)
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
 	media-libs/libdiscid
 	media-libs/taglib
 "
-RDEPEND="${DEPEND}"
+DOCS=( Changelog TODO )
+
