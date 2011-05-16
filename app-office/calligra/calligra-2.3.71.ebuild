@@ -18,11 +18,11 @@ LICENSE="GPL-2"
 SLOT="4"
 [[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
 IUSE="+boost +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
-gsl +iconv +jpeg jpeg2k +kdcraw kdepim +lcms mysql +okular openctl openexr +png
-+poppler postgres pstoedit +semantic-desktop +ssl tiff +threads +truetype
-word-perfect +xml +xslt"
+gsl +iconv +jpeg jpeg2k +kdcraw kdepim +lcms mysql +mso +okular openctl openexr
++png +poppler postgres pstoedit +semantic-desktop +ssl tiff +threads +truetype
++wmf word-perfect +xml +xslt"
 
-CAL_FTS="karbon kexi kpresenter krita tables words"
+CAL_FTS="braindump flow karbon kexi kpresenter krita tables words"
 for cal_ft in ${CAL_FTS}; do
 	IUSE+=" calligra_features_${cal_ft}"
 done
@@ -77,9 +77,11 @@ DEPEND="${RDEPEND}"
 # By default all bulds are enabled.
 # When you find out what some option does just describe it here and
 # make it optional if required.
+# The list is copied from ccmake output.
+#
 # BUILD_artistictextshape
-# BUILD_braindump
-# BUILD_calligra
+# BUILD_braindump - note collection app ; USE_EXPAND
+# BUILD_calligra - the generic "open file" office app ; default on
 # BUILD_chartshape
 # BUILD_colorengines
 # BUILD_commentshape
@@ -89,21 +91,21 @@ DEPEND="${RDEPEND}"
 # BUILD_divineProportion
 # BUILD_doc - handbook stuff, handled by KDE_HANDBOOK=optional
 # BUILD_dockers
-# BUILD_flow
+# BUILD_flow - flowcharting app ; used to be kivio ; USE_EXPAND
 # BUILD_generic_wrapper
 # BUILD_karbon - vector drawing app ; handled as USE_EXPAND
 # BUILD_kexi - database manager ; handled as USE_EXPAND
-# BUILD_kformula
-# BUILD_koabstraction
-# BUILD_koreport
-# BUILD_kounavail
-# BUILD_kpresenter - presentation creator ; handled as USE_EXPAND
+# BUILD_kformula   << formula editor, should be part of base libs
+# BUILD_koabstraction << part of base libs
+# BUILD_koreport   << reporting library, should be part of base libs
+# BUILD_kounavail  << part of base libs
+# BUILD_kpresenter - presentation creator ; handled as USE_EXPAND (now stage ???)
 # BUILD_krita - image editor ; handled as USE_EXPAND
-# BUILD_kthesaurus
-# BUILD_libkowmf
-# BUILD_libmsooxml
+# BUILD_kthesaurus << thesaurus framework, should be part of base libs
+# BUILD_libkowmf   << wmf filter ; handled as wmf useflag
+# BUILD_libmsooxml << msooxml filter ; handled as mso useflag
 # BUILD_mdb
-# BUILD_mobile
+# BUILD_mobile << "Maemo 5 Office UI for KOffice" ; always off
 # BUILD_musicshape
 # BUILD_pathshapes
 # BUILD_pictureshape
@@ -137,6 +139,7 @@ src_configure() {
 
 	# default disablers
 	mycmakeargs+=(
+		"-DBUILD_mobile=OFF" # we dont suppor mobile gui, maybe arm could
 		"-DWITH_LCMS=OFF" # we use lcms:2
 		"-DWITH_XBase=OFF" # i am not the one to support this
 		"-DCREATIVEONLY=OFF"
@@ -184,10 +187,11 @@ src_configure() {
 		$(cmake-utils_use_with word-perfect WPD)
 		$(cmake-utils_use_with word-perfect WPG)
 		$(cmake-utils_use_with xslt LibXslt)
+		$(cmake-utils_use_build wmf libkowmf)
+		$(cmake-utils_use_build mso libmsooxml)
 	)
 
 	# applications
-	CAL_FTS="karbon kexi kpresenter krita tables words"
 	for cal_ft in ${CAL_FTS}; do
 		mycmakeargs+=( $(cmake-utils_use_build calligra_features_${cal_ft} ${cal_ft}) )
 	done
