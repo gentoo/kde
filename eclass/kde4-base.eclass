@@ -133,12 +133,6 @@ OPENGL_REQUIRED="${OPENGL_REQUIRED:-never}"
 # This variable must be set before inheriting any eclasses. Defaults to 'never'.
 MULTIMEDIA_REQUIRED="${MULTIMEDIA_REQUIRED:-never}"
 
-# @ECLASS-VARIABLE: WEBKIT_REQUIRED
-# @DESCRIPTION:
-# Is qt-webkit requred? Possible values are 'always', 'optional' and 'never'.
-# This variable must be set before inheriting any eclasses. Defaults to 'never'.
-WEBKIT_REQUIRED="${WEBKIT_REQUIRED:-never}"
-
 # @ECLASS-VARIABLE: CPPUNIT_REQUIRED
 # @DESCRIPTION:
 # Is cppunit required for tests? Possible values are 'always', 'optional' and 'never'.
@@ -280,32 +274,6 @@ case ${MULTIMEDIA_REQUIRED} in
 esac
 unset qtmultimediadepend
 
-# WebKit dependencies
-case ${KDE_REQUIRED} in
-	always)
-		qtwebkitusedeps="[kde]"
-		;;
-	optional)
-		qtwebkitusedeps="[kde?]"
-		;;
-	*) ;;
-esac
-qtwebkitdepend="
-	>=x11-libs/qt-webkit-${QT_MINIMAL}:4${qtwebkitusedeps}
-"
-unset qtwebkitusedeps
-case ${WEBKIT_REQUIRED} in
-	always)
-		COMMONDEPEND+=" ${qtwebkitdepend}"
-		;;
-	optional)
-		IUSE+=" webkit"
-		COMMONDEPEND+=" webkit? ( ${qtwebkitdepend} )"
-		;;
-	*) ;;
-esac
-unset qtwebkitdepend
-
 # CppUnit dependencies
 cppuintdepend="
 	dev-util/cppunit
@@ -322,6 +290,17 @@ case ${CPPUNIT_REQUIRED} in
 esac
 unset cppuintdepend
 
+
+# WebKit use dependencies
+case ${KDE_REQUIRED} in
+	always)
+		qtwebkitusedeps="[kde]"
+		;;
+	optional)
+		qtwebkitusedeps="[kde?]"
+		;;
+	*) ;;
+esac
 # KDE dependencies
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
@@ -333,6 +312,7 @@ kdecommondepend="
 	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
 	>=x11-libs/qt-svg-${QT_MINIMAL}:4
 	>=x11-libs/qt-test-${QT_MINIMAL}:4
+	>=x11-libs/qt-webkit-${QT_MINIMAL}:4${qtwebkitusedeps}
 	!aqua? (
 		x11-libs/libXext
 		x11-libs/libXt
