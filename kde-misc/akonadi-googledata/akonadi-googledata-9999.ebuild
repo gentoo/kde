@@ -12,7 +12,7 @@ DESCRIPTION="Google contacts and calendar akonadi resource"
 HOMEPAGE="http://pim.kde.org/akonadi/"
 LICENSE="GPL-2"
 
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
