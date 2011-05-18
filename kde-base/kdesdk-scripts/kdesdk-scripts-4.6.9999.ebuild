@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE SDK Scripts"
 KEYWORDS=""
-IUSE="+handbook debug"
+IUSE="debug"
 
 RDEPEND="
 	app-arch/advancecomp
