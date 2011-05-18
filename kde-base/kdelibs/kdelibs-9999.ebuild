@@ -7,6 +7,7 @@ EAPI=4
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
+KDE_HANDBOOK="optional"
 KDE_SCM="git"
 inherit kde4-base fdo-mime toolchain-funcs
 
@@ -15,7 +16,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
+IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam jpeg2k kerberos
 lzma mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev zeroconf"
 
 # needs the kate regression testsuite from svn
