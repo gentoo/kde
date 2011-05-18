@@ -11,7 +11,7 @@ inherit python kde4-meta
 
 DESCRIPTION="KDE printer system tray utility"
 KEYWORDS=""
-IUSE="+handbook"
+IUSE=""
 
 DEPEND="
 	>=app-admin/system-config-printer-common-1.2.2
