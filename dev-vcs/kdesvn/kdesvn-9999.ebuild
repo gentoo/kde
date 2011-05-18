@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_LINGUAS="cs de es fr it ja lt nl pl pt_BR ro ru"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 inherit kde4-base
 
 ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
