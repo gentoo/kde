@@ -34,7 +34,6 @@ COMMONDEPEND="
 	media-libs/giflib
 	>=media-libs/libpng-1.4
 	>=media-libs/phonon-4.4.3
-	!net-libs/glib-networking[libproxy]
 	sys-libs/zlib
 	virtual/jpeg
 	>=x11-misc/shared-mime-info-0.60
