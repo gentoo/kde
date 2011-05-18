@@ -4,7 +4,9 @@
 
 EAPI=4
 
+KDE_HANDBOOK="optional"
 KMNAME="extragear/sdk"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 inherit kde4-meta
 
 DESCRIPTION="A KDE KPart Application for xsldbg, an XSLT debugger"
@@ -13,7 +15,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug +handbook"
+IUSE="debug"
 
 DEPEND="
 	dev-libs/libxslt
@@ -23,7 +25,7 @@ RDEPEND="${DEPEND}"
 
 src_unpack() {
 	if use handbook; then
-		KMEXTRA="doc/xsldbg"
+		KMEXTRA="doc/xsldbg doc/kxsldbg"
 	fi
 
 	kde4-meta_src_unpack
