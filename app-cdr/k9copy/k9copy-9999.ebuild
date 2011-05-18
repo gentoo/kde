@@ -7,6 +7,7 @@ EAPI=4
 KDE_DOC_DIRS="doc"
 KDE_HANDBOOK="optional"
 KDE_LINGUAS="ca cs da de el es_AR es fr it ja nl pl pt_BR ru sr@Latn sr tr zh_TW"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 MY_P=${P}-Source
 
 inherit kde4-base
