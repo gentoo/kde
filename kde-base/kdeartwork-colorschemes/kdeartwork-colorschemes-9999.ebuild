@@ -11,3 +11,6 @@ inherit kde4-meta
 DESCRIPTION="KDE extra colorschemes"
 KEYWORDS=""
 IUSE=""
+
+# Moved here in 4.7
+add_blocker kdeaccessibility-colorschemes

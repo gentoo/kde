@@ -12,8 +12,6 @@ IUSE=""
 RDEPEND="
 	$(add_kdebase_dep jovie)
 	$(add_kdebase_dep kaccessible)
-	$(add_kdebase_dep kdeaccessibility-colorschemes)
-	$(add_kdebase_dep kdeaccessibility-iconthemes)
 	$(add_kdebase_dep kmag)
 	$(add_kdebase_dep kmousetool)
 	$(add_kdebase_dep kmouth)
