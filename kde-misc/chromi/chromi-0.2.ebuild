@@ -11,7 +11,7 @@ DESCRIPTION="Titlebar-less decoration, inspired by Google Chrome, and Nitrogen m
 HOMEPAGE="http://kde-look.org/content/show.php/Chromi?content=119069"
 SRC_URI="https://download.github.com/jinliu-kwin-deco-chromi-v0.2-0-g4390e63.tar.gz"
 
-SLOT="0"
+SLOT="4"
 LICENSE="GPL-2"
 KEYWORDS="amd64 ~x86"
 IUSE=""
