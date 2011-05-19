@@ -584,6 +584,9 @@ _calculate_live_repo() {
 						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs)
 							EGIT_BRANCH="${SLOT}"
 							;;
+						marble)
+							EGIT_BRANCH="kde-${SLOT}"
+							;;
 						*) EGIT_BRANCH="KDE/${SLOT}" ;;
 					esac
 					;;
