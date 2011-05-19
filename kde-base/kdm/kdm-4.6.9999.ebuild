@@ -102,18 +102,51 @@ src_install() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
+	local file src dest dir old_dirs=(
+		/var/lib/kdm-live
+		/var/lib/kdm-4.6
+		/var/lib/kdm-4.5
+		/var/lib/kdm-4.4
+		/usr/share/apps/kdm
+		/usr/kde/4.4/share/apps/kdm
+		/usr/kde/4.3/share/apps/kdm
+		/usr/kde/4.2/share/apps/kdm
+	)
+
+	mkdir -p "${EROOT}${KDM_HOME}/faces"
 	# Set the default kdm face icon if it's not already set by the system admin
 	# because this is user-overrideable in that way, it's not in src_install
-	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/.default.face.icon" ]]; then
-		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
-		cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/default1.png" \
-			"${EPREFIX}${KDM_HOME}/faces/.default.face.icon"
-	fi
-	if [[ ! -e "${EPREFIX}${KDM_HOME}/faces/root.face.icon" ]]; then
-		mkdir -p "${EPREFIX}${KDM_HOME}/faces"
-		cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/root1.png" \
-			"${EPREFIX}${KDM_HOME}/faces/root.face.icon"
-	fi
+	for file in faces/.default.face.icon:default1.png faces/root.face.icon:root1.png kdmsts: ; do
+		src=${file#*:}
+		dest=${file%:*}
+		if [[ ! -e ${EROOT}${KDM_HOME}/$dest ]]; then
+			for dir in "${old_dirs[@]}"; do
+				if [[ -e ${EROOT}${dir}/${dest} ]]; then
+					cp "${EROOT}${dir}/${dest}" "${EROOT}${KDM_HOME}/${dest}"
+					break 2
+				fi
+			done
+			if [[ -n ${src} ]]; then
+				cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/${src}" \
+					"${EROOT}${KDM_HOME}/${dest}"
+			fi
+		fi
+	done
+	for dir in "${old_dirs[@]}"; do
+		if [[ ${dir} != /usr/* && -d ${EROOT}${dir} ]]; then
+			echo
+			elog "The directory ${EROOT%/}${dir} still exists from an older installation of KDE."
+			elog "You may wish to copy relevant settings into ${EROOT%/}${KDM_HOME}."
+			echo
+			elog "After doing so, you may delete the directory."
+			echo
+		fi
+	done
+
+	# Make sure permissions are correct -- old installations may have
+	# gotten this wrong
+	use prefix || chown root:kdm "${EROOT}${KDM_HOME}"
+	chmod 1770 "${EROOT}${KDM_HOME}"
 
 	if use consolekit; then
 		echo
