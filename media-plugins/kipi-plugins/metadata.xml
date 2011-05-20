@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>kde</herd>
+	<maintainer>
+		<email>dilfridge@gentoo.org</email>
+	</maintainer>
+	<use>
+		<flag name="expoblending">Build the expoblending plugin, which requires media-gfx/hugin</flag>
+		<flag name="mjpeg">Add mjpeg suppport</flag>
+		<flag name="redeyes">Add redeyes removal suppport</flag>
+	</use>
+</pkgmetadata>
