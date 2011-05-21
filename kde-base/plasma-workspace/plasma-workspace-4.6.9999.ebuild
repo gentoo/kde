@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop xinerama"
 
 COMMONDEPEND="
+	dev-libs/boost
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
