@@ -28,15 +28,6 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 "
 
-src_prepare() {
-	kde4-meta_src_prepare
-	# Disable bittorrent as supported mimetype
-	if ! use bittorrent; then
-		sed -e '/MimeType=/s|application/x-bittorrent;||' \
-			-i kget/desktop/kget.desktop || die
-	fi
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with bittorrent KTorrent)
