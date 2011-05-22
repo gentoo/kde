@@ -12,7 +12,10 @@ kde-misc/daisy
 
 # Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org> (22 May 2011)
 # Initial work for 4.6.80 (4.7 beta 1)
+~dev-libs/shared-desktop-ontologies-0.7.0
+~kde-base/kde-env-4.6.80
 ~kde-base/kdelibs-4.6.80
+~kde-base/oxygen-icons-4.6.80
 
 kde-base/akonadiconsole:4.6
 kde-base/akregator:4.6
