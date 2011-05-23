@@ -15,6 +15,10 @@ kde-misc/daisy
 ~dev-libs/shared-desktop-ontologies-0.7.0
 ~kde-base/kde-env-4.6.80
 ~kde-base/kdelibs-4.6.80
+~kde-base/kdesu-4.6.80
+~kde-base/kdontchangethehostname-4.6.80
+~kde-base/khelpcenter-4.6.80
+~kde-base/nepomuk-4.6.80
 ~kde-base/oxygen-icons-4.6.80
 
 kde-base/akonadiconsole:4.6

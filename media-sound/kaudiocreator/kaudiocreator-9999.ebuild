@@ -23,4 +23,3 @@ RDEPEND="
 	media-libs/taglib
 "
 DOCS=( Changelog TODO )
-

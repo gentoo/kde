@@ -23,4 +23,3 @@ IUSE="debug"
 RDEPEND="
 	$(add_kdebase_dep kscreensaver)
 "
-

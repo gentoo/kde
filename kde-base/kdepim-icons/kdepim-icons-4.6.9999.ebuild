@@ -12,4 +12,3 @@ inherit kde4-meta
 DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS=""
-

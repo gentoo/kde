@@ -21,7 +21,7 @@ EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-apps|kdebase-workspace|kdebase-runtime|kdegraphics)
+	kdebase|kdebase-apps|kde-baseapps|kdebase-workspace|kde-workspace|kdebase-runtime|kde-runtime|kdegraphics)
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
@@ -321,16 +321,16 @@ kde4-meta_create_extractlists() {
 					ConfigureChecks.cmake"
 			fi
 			;;
-		kdebase-apps)
+		kdebase-apps | kde-baseapps)
 			KMEXTRACTONLY+="
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
 			;;
-		kdebase-runtime)
+		kdebase-runtime | kde-runtime)
 			KMEXTRACTONLY+="
 				config-runtime.h.cmake"
 			;;
-		kdebase-workspace)
+		kdebase-workspace | kde-workspace)
 			KMEXTRACTONLY+="
 				config-unix.h.cmake
 				ConfigureChecks.cmake
@@ -391,7 +391,7 @@ kde4-meta_create_extractlists() {
 	#   should not try in that case
 	if [[ ${KMNAME} != kdegraphics ]] || { [[ ${SLOT} != 4.6 || ${PV} < 4.6.2 ]] && ! slot_is_at_least 4.7 ${SLOT}; }; then
 		case ${KMNAME} in
-			kdebase-runtime|kdebase-workspace|kdeedu|kdegames|kdegraphics)
+			kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
 				case ${PN} in
 					libkdegames|libkdeedu|libkworkspace)
 						KMEXTRA+="
@@ -559,7 +559,7 @@ kde4-meta_change_cmakelists() {
 	done
 
 	case ${KMNAME} in
-		kdebase-workspace)
+		kdebase-workspace | kde-workspace)
 			# COLLISION PROTECT section
 			# Install the startkde script just once, as a part of kde-base/kdebase-startkde,
 			# not as a part of every package.
@@ -574,7 +574,7 @@ kde4-meta_change_cmakelists() {
 					-i CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
 			fi
 			;;
-		kdebase-runtime)
+		kdebase-runtime | kde-runtime)
 			# COLLISION PROTECT section
 			# Only install the kde4 script as part of kde-base/kdebase-data
 			if [[ ${PN} != kdebase-data && -f CMakeLists.txt ]]; then

@@ -15,7 +15,6 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-
 RDEPEND="
 	$(add_kdebase_dep libkonq)
 "

@@ -42,4 +42,3 @@ CONFIG_PROTECT="/usr/share/themes/oxygen-gtk/gtk-2.0"
 EOF
 	doenvd 99oxygen-gtk
 }
-
