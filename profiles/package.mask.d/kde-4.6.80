@@ -10,6 +10,9 @@
 ~kde-base/kdebase-data-4.6.80
 ~kde-base/kdebase-desktoptheme-4.6.80
 ~kde-base/kdebase-kioslaves-4.6.80
+~kde-base/kdebase-menu-4.6.80
+~kde-base/kdebase-menu-icons-4.6.80
+~kde-base/kdebugdialog-4.6.80
 ~kde-base/kdelibs-4.6.80
 ~kde-base/kdesu-4.6.80
 ~kde-base/kdialog-4.6.80
@@ -18,7 +21,9 @@
 ~kde-base/khelpcenter-4.6.80
 ~kde-base/khotkeys-4.6.80
 ~kde-base/kiconfinder-4.6.80
+~kde-base/knewstuff-4.6.80
 ~kde-base/ksplash-4.6.80
+~kde-base/kstart-4.6.80
 ~kde-base/ktimezoned-4.6.80
 ~kde-base/libkworkspace-4.6.80
 ~kde-base/nepomuk-4.6.80
