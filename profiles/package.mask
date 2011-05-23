@@ -14,18 +14,25 @@ kde-misc/daisy
 # Initial work for 4.6.80 (4.7 beta 1)
 ~dev-libs/shared-desktop-ontologies-0.7.0
 ~kde-base/activitymanager-4.6.80
+~kde-base/attica-4.6.80
+~kde-base/drkonqi-4.6.80
 ~kde-base/kcminit-4.6.80
+~kde-base/kcmshell-4.6.80
 ~kde-base/kde-env-4.6.80
 ~kde-base/kdebase-data-4.6.80
 ~kde-base/kdebase-desktoptheme-4.6.80
+~kde-base/kdebase-kioslaves-4.6.80
 ~kde-base/kdelibs-4.6.80
 ~kde-base/kdesu-4.6.80
+~kde-base/kdialog-4.6.80
 ~kde-base/kdontchangethehostname-4.6.80
 ~kde-base/keditfiletype-4.6.80
 ~kde-base/khelpcenter-4.6.80
+~kde-base/khotkeys-4.6.80
 ~kde-base/kiconfinder-4.6.80
 ~kde-base/ksplash-4.6.80
 ~kde-base/ktimezoned-4.6.80
+~kde-base/libkworkspace-4.6.80
 ~kde-base/nepomuk-4.6.80
 ~kde-base/oxygen-icons-4.6.80
 
