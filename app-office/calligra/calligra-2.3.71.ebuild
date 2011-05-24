@@ -8,6 +8,7 @@ KDE_SCM=git
 KDE_MINIMAL=4.6
 OPENGL_REQUIRED=optional
 KDE_HANDBOOK=optional
+KDE_LINGUAS_LIVE_OVERRIDE=true
 inherit kde4-base
 
 DESCRIPTION="KDE Office Suite"
@@ -19,7 +20,7 @@ SLOT="4"
 [[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
 IUSE="+boost +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
 gsl +iconv +jpeg jpeg2k +kdcraw kdepim +lcms mysql +mso +okular openctl openexr
-+png +poppler postgres pstoedit +semantic-desktop +ssl tiff +threads +truetype
++pdf +png postgres +semantic-desktop +ssl tiff +threads +truetype
 +wmf word-perfect +xml +xslt"
 
 CAL_FTS="braindump flow karbon kexi kpresenter krita tables words"
@@ -57,10 +58,12 @@ RDEPEND="
 	okular? ( $(add_kdebase_dep okular) )
 	openctl? ( >=media-libs/opengtl-0.9.15 )
 	openexr? ( media-libs/openexr )
+	pdf? (
+		app-text/poppler
+		media-gfx/pstoedit
+	)
 	png? ( media-libs/libpng )
-	poppler? ( app-text/poppler )
 	postgres? ( dev-db/postgresql-base )
-	pstoedit? ( media-gfx/pstoedit )
 	semantic-desktop? ( dev-libs/soprano )
 	ssl? ( dev-libs/openssl )
 	tiff? ( media-libs/tiff )
@@ -175,10 +178,10 @@ src_configure() {
 		$(cmake-utils_use_with openctl OpenCTL)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with pdf Poppler)
+		$(cmake-utils_use_with pdf Pstoedit)
 		$(cmake-utils_use_with png PNG)
-		$(cmake-utils_use_with poppler Poppler)
 		$(cmake-utils_use_with postgres PostgreSQL)
-		$(cmake-utils_use_with pstoedit Pstoedit)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with tiff TIFF)
