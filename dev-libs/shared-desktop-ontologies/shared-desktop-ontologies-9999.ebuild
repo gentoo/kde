@@ -4,15 +4,22 @@
 
 EAPI=4
 
-inherit cmake-utils git-2
+if [[ ${PV} == *9999 ]]; then
+	SCM_ECLASS="git-2"
+fi
+EGIT_REPO_URI="git://oscaf.git.sourceforge.net/gitroot/oscaf/shared-desktop-ontologies"
+inherit cmake-utils ${SCM_ECLASS}
+unset SCM_ECLASS
 
 DESCRIPTION="Shared OSCAF desktop ontologies"
 HOMEPAGE="http://sourceforge.net/projects/oscaf"
-EGIT_REPO_URI="git://oscaf.git.sourceforge.net/gitroot/oscaf/shared-desktop-ontologies"
+if [[ ${PV} != *9999 ]]; then
+	SRC_URI="mirror://sourceforge/oscaf/${PN}/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+fi
 
 LICENSE="|| ( BSD CCPL-Attribution-ShareAlike-3.0 )"
 SLOT="0"
-KEYWORDS=""
 IUSE=""
 
 DOCS=(AUTHORS ChangeLog README)
