@@ -2,10 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
 KDE_HANDBOOK="optional"
-
 KMNAME="kate"
 KMMODULE="part"
 KDE_SCM="git"
@@ -17,8 +16,10 @@ IUSE="debug"
 
 add_blocker kdelibs 4.6.50
 
-src_prepare() {
-	mycmakeargs="-DKDE4_BUILD_TESTS=Off"
+src_configure() {
+	local mycmakeargs=(
+		"-DKDE4_BUILD_TESTS=OFF"
+	)
 
-	kde4-meta_src_prepare
+	kde4-meta_src_configure
 }
