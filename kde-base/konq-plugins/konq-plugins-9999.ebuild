@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DKdeWebKit=OFF
 		-DWebKitPart=OFF
 		$(cmake-utils_use_with tidy LibTidy)

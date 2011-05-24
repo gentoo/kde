@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
 KMNAME="kde-baseapps"
 inherit kde4-meta
@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DKdeWebKit=OFF
 		-DWebKitPart=OFF
 		$(cmake-utils_use_with tidy LibTidy)
