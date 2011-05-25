@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
 KEYWORDS=""
-IUSE="ffmpeg"
+IUSE="ffmpeg +mplayer"
 
 RDEPEND="
 	$(add_kdebase_dep dragonplayer)
@@ -17,6 +17,6 @@ RDEPEND="
 	$(add_kdebase_dep kscd)
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
-	$(add_kdebase_dep mplayerthumbs)
+	mplayer? ( $(add_kdebase_dep mplayerthumbs) )
 	ffmpeg? ( $(add_kdebase_dep ffmpegthumbs) )
 "
