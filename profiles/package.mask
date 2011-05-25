@@ -127,7 +127,8 @@ kde-base/krossjava:4.7
 kde-base/krosspython:4.7
 kde-base/pykde4:4.7
 kde-base/smoke:4.7
-# Nothing yet
+~app-office/akonadi-server-1.5.80
+~dev-libs/shared-desktop-ontologies-0.7.0
 kde-base/blinken:4.7
 kde-base/cantor:4.7
 kde-base/kalgebra:4.7
