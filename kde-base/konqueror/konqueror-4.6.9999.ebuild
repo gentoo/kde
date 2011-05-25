@@ -10,7 +10,7 @@ inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
 KEYWORDS=""
-IUSE="+bookmarks debug svg thumbnail"
+IUSE="+bookmarks debug svg"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -22,9 +22,6 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfmclient)
 	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
 	svg? ( $(add_kdebase_dep svgpart) )
-"
-PDEPEND="
-	thumbnail? ( $(add_kdebase_dep mplayerthumbs) )
 "
 
 KMEXTRACTONLY="
