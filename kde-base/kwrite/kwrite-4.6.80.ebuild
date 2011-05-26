@@ -6,7 +6,6 @@ EAPI="4"
 
 KDE_HANDBOOK="optional"
 KMNAME="kate"
-[[ ${PV} = *9999 ]] && KMNAME="kate"
 KDE_SCM="git"
 inherit kde4-meta
 
