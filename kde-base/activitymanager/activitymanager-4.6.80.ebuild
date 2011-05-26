@@ -14,6 +14,10 @@ IUSE="debug semantic-desktop"
 DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop=')"
 RDEPEND=${DEPEND}
 
+KMEXTRACTONLY="
+	nepomuk/
+"
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
