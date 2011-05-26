@@ -3,6 +3,6 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-	<flag name='rdp'>Enable runtime dependency for <pkg>net-misc/rdesktop</pkg></flag>
+	<flag name='rdesktop'>Enable runtime dependency for <pkg>net-misc/rdesktop</pkg></flag>
 </use>
 </pkgmetadata>
