@@ -260,7 +260,9 @@ kde4-meta_src_extract() {
 		fi
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
-		mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""
+		if [[ ${KMNAME} != ${PN} ]]; then
+			mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""
+		fi
 
 		popd > /dev/null
 
