@@ -1,4 +1,5 @@
 Agenda topics for the next KDE meeting:
 
+* split tarballs, ebuilds: decide where to follow upstream / where not, define policy
 * use flag defaults for kde subprofile (bug 365251)
-
+* kdeprefix removal status
