@@ -28,6 +28,7 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	semantic-desktop? (
 		>=app-office/akonadi-server-1.4.52
+		>=kde-base/nepomuk-4.6.80
 		media-libs/phonon
 		x11-misc/shared-mime-info
 	)
