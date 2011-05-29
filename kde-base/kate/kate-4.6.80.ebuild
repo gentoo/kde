@@ -17,7 +17,9 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep katepart)
+"
 
 src_configure() {
 	mycmakeargs=(
