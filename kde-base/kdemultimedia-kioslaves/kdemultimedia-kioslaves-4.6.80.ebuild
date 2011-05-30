@@ -10,7 +10,7 @@ KMMODULE="kioslave"
 inherit kde4-meta
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug encode flac vorbis"
 
 # 4 of 9 tests fail. Last checked for 4.2.88

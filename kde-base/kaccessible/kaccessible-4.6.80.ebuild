@@ -2,18 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
-KMNAME="kdemultimedia"
+KMNAME="kdeaccessibility"
 inherit kde4-meta
 
-DESCRIPTION="KDE library for playing & ripping CDs"
+DESCRIPTION="Provides accessibility services like focus tracking"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="alsa debug"
+IUSE="debug +speechd"
+
+DEPEND="app-accessibility/speech-dispatcher"
+RDEPEND=${DEPEND}
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with alsa)
+		$(cmake-utils_use_with speechd Speechd)
 	)
 	kde4-meta_src_configure
 }

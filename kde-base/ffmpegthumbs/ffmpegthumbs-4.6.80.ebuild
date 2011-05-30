@@ -2,18 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
-DESCRIPTION="KDE library for playing & ripping CDs"
+DESCRIPTION="A FFmpeg based thumbnail Generator for Video Files."
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="alsa debug"
+IUSE="debug"
 
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with alsa)
-	)
-	kde4-meta_src_configure
-}
+DEPEND="
+	virtual/ffmpeg
+"
+RDEPEND="${DEPEND}"
