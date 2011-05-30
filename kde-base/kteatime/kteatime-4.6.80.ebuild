@@ -8,6 +8,6 @@ KDE_HANDBOOK="optional"
 KMNAME="kdetoys"
 inherit kde4-meta
 
-DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
+DESCRIPTION="KDE utility for making a fine cup of tea"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
