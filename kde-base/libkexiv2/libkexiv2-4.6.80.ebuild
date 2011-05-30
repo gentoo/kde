@@ -5,7 +5,7 @@
 EAPI="4"
 
 KDE_SCM="git"
-inherit "kde4-base"
+inherit kde4-base
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
 HOMEPAGE="http://www.kipi-plugins.org"

@@ -7,7 +7,7 @@ EAPI="4"
 KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="optional"
 KDE_SCM="git"
-inherit "kde4-base"
+inherit kde4-base
 
 DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"

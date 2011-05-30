@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit "kde4-base"
+inherit kde4-base
 
 DESCRIPTION="Common library for KDE educational apps"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"

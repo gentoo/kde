@@ -6,7 +6,7 @@ EAPI="4"
 
 KDE_SCM="git"
 KMNAME="kdegraphics-thumbnailers"
-inherit "kde4-base"
+inherit kde4-base
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
