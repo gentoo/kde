@@ -11,7 +11,7 @@ DESCRIPTION="SANE Plugin for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
