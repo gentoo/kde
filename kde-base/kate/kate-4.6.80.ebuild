@@ -10,7 +10,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +plasma"
 
 DEPEND="

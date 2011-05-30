@@ -2,20 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
 inherit kde4-meta
 
-DESCRIPTION="KDE hexeditor"
+DESCRIPTION="Cervisia - A KDE CVS frontend"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-DEPEND="
-	app-crypt/qca:2
+RDEPEND="
+	dev-vcs/cvs
 "
-RDEPEND="${DEPEND}"
-
-# Tests hang, last checked in 4.3.3
-RESTRICT="test"

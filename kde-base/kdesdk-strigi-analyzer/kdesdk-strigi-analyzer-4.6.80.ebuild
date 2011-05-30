@@ -2,20 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
-KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
+KMMODULE="strigi-analyzer"
 inherit kde4-meta
 
-DESCRIPTION="KDE hexeditor"
+DESCRIPTION="kdesdk: strigi plugins"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	app-crypt/qca:2
+	app-misc/strigi
 "
 RDEPEND="${DEPEND}"
-
-# Tests hang, last checked in 4.3.3
-RESTRICT="test"
