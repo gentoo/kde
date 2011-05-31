@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
 KEYWORDS=""
@@ -26,8 +26,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="libs/mobipocket"
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with chm)
@@ -41,5 +39,5 @@ src_configure() {
 		$(cmake-utils_use_with tiff)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }

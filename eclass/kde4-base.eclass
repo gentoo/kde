@@ -581,7 +581,7 @@ _calculate_live_repo() {
 				*)
 					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
 					case ${_kmname} in
-						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs)
+						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs | okular)
 							EGIT_BRANCH="${SLOT}"
 							;;
 						marble)
