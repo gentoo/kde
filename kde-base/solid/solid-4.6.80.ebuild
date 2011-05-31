@@ -9,7 +9,7 @@ CPPUNIT_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="Solid: the KDE hardware library"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug bluetooth networkmanager wicd"
 
 DEPEND="

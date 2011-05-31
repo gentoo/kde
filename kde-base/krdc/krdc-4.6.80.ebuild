@@ -9,7 +9,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug jpeg rdesktop vnc zeroconf"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61

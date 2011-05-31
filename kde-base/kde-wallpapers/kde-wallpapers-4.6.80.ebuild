@@ -10,7 +10,7 @@ KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="KDE wallpapers"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 add_blocker kdebase-wallpapers

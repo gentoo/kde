@@ -9,7 +9,7 @@ PYTHON_DEPEND="2"
 inherit python kde4-meta
 
 DESCRIPTION="KDE port of Red Hat's Gnome system-config-printer"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 DEPEND="

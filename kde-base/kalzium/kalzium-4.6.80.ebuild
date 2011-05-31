@@ -11,7 +11,7 @@ OPENGL_REQUIRED="always"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDE: periodic table of the elements."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="editor debug +plasma solver"
 
 RDEPEND="

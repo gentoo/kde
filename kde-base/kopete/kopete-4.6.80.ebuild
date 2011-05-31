@@ -9,7 +9,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug ssl v4l2"
 
 # tests hang, last checked for 4.2.96

@@ -11,5 +11,5 @@ DESCRIPTION="A library for image plugins accross KDE applications."
 HOMEPAGE="http://www.kipi-plugins.org"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"

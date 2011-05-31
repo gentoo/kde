@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND="

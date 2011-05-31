@@ -9,7 +9,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="

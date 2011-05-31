@@ -9,7 +9,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Mathematical function plotter for KDE"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="

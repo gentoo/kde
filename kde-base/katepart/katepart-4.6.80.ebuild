@@ -11,7 +11,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE Editor KPart"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 add_blocker kdelibs 4.6.50

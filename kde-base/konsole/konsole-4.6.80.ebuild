@@ -11,7 +11,7 @@ KDE_DOC_DIRS="doc/manual"
 inherit kde4-base
 
 DESCRIPTION="X terminal for use with KDE."
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 COMMONDEPEND="
