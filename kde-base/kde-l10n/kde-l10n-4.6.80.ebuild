@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kde-l10n/kde-l10n-4.6.3-r1.ebuild,v 1.2 2011/05/17 05:44:19 maekke Exp $
 
-EAPI="3"
+EAPI=3
 
 inherit kde4-base
 
