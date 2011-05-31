@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE4 software to download and upload 'new stuff'"

@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 OPENGL_REQUIRED="optional"
 inherit kde4-meta
 

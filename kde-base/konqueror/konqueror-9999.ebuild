@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."

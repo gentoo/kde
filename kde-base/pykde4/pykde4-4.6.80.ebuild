@@ -59,7 +59,7 @@ src_configure() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${S}/${KMMODULE}/docs/html/")
+	use doc && HTML_DOCS=("${S}/docs/html/")
 
 	kde4-base_src_install
 

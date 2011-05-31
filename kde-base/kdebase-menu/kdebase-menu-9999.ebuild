@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 KMMODULE="kde-menu"
 inherit kde4-meta
 

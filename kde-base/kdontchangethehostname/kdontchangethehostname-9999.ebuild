@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Tool to inform KDE about a change in hostname"

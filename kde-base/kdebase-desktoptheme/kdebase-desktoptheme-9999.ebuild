@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 KMMODULE="desktoptheme"
 inherit kde4-meta
 

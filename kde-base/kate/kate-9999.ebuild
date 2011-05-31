@@ -5,8 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-[[ ${PV} == *9999 ]] && KMNAME="kate"
+KMNAME="kate"
 KDE_SCM="git"
 inherit kde4-meta
 

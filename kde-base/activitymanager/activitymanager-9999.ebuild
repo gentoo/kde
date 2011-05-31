@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Activity manager"
@@ -13,6 +13,10 @@ IUSE="debug semantic-desktop"
 
 DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop=')"
 RDEPEND=${DEPEND}
+
+KMEXTRACTONLY="
+	nepomuk/
+"
 
 src_configure() {
 	mycmakeargs=(

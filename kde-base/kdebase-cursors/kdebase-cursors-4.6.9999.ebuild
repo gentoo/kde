@@ -5,8 +5,7 @@
 EAPI=4
 
 KMNAME="kdebase-workspace"
-KMEXTRA="cursors"
-KMNOMODULE="true"
+KMMODULE="cursors"
 inherit kde4-meta
 
 DESCRIPTION="oxygen cursors from kdebase"

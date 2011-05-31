@@ -6,13 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 KEYWORDS=""
@@ -32,11 +26,11 @@ src_configure() {
 		$(cmake-utils_use_with ps LibSpectre)
 		$(cmake-utils_use_with R)
 	"
-	${kde_eclass}_src_configure
+	kde4-base_src_configure
 }
 
 pkg_postinst() {
-	${kde_eclass}_pkg_postinst
+	kde4-base_pkg_postinst
 
 	if ! use R; then
 		echo

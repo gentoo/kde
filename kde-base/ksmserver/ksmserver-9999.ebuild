@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="The reliable KDE session manager that talks the standard X11R6"

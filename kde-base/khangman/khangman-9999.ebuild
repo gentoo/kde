@@ -6,13 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="Classical hangman game for KDE"
 KEYWORDS=""
@@ -20,8 +14,4 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkdeedu)
-"
-
-KMEXTRACTONLY="
-	libkdeedu/keduvocdocument
 "

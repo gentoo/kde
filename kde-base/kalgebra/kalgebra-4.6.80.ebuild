@@ -41,10 +41,8 @@ src_configure() {
 
 src_test() {
 	# disable broken test
-	local dir
-	dir="${S}"
 	sed -i -e '/mathmlpresentationtest/ s/^/#DO_NOT_RUN_TEST /' \
-		"${dir}"/analitza/tests/CMakeLists.txt || \
+		"${S}"/analitza/tests/CMakeLists.txt || \
 		die "sed to disable mathmlpresentationtest failed."
 
 	kde4-base_src_test

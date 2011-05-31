@@ -5,24 +5,12 @@
 EAPI=4
 
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	KMNAME="kdegraphics-thumbnailers"
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdegraphics"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+KMNAME="kdegraphics-thumbnailers"
+inherit kde4-base
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS=""
 IUSE="debug"
-
-if [[ ${PV} != *9999 ]]; then
-KMEXTRACTONLY="
-	libs/mobipocket
-"
-fi
 
 DEPEND="
 	$(add_kdebase_dep libkdcraw)

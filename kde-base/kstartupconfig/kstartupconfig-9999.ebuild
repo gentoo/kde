@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Utility to launch applications with special window properties"

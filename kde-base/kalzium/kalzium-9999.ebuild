@@ -6,15 +6,9 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit ${kde_eclass} flag-o-matic
+inherit kde4-base flag-o-matic
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
@@ -46,5 +40,5 @@ src_configure(){
 		$(cmake-utils_use_with solver Libfacile)
 	)
 
-	${kde_eclass}_src_configure
+	kde4-base_src_configure
 }

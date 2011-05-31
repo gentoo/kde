@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="A simple password checker, used by any software in need of user authentication."

@@ -8,13 +8,7 @@ KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="optional"
 PYTHON_DEPEND="python? 2"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass} python
+inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
@@ -39,11 +33,11 @@ PATCHES=( "${FILESDIR}/${PN}-4.6.2-magic.patch" )
 
 pkg_setup() {
 	python_set_active_version 2
-	${kde_eclass}_pkg_setup
+	kde4-base_pkg_setup
 }
 
 src_prepare() {
-	${kde_eclass}_src_prepare
+	kde4-base_src_prepare
 	python_convert_shebangs -r $(python_get_version) .
 }
 
@@ -62,7 +56,7 @@ src_configure() {
 
 	find "${S}/marble/src/bindings/python/sip" -name "*.sip" | xargs -- sed -i 's/#include <marble\//#include </'
 
-	${kde_eclass}_src_configure
+	kde4-base_src_configure
 }
 
 src_install() {
@@ -70,5 +64,5 @@ src_install() {
 		insinto "${KDEDIR}"/share/apps/cmake/modules
 		doins "${S}"/cmake/modules/FindMarbleWidget.cmake
 	fi
-	${kde_eclass}_src_install
+	kde4-base_src_install
 }

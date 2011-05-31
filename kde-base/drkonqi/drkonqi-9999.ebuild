@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"

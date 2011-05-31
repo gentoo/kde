@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="Helps integration of pure Qt applications with KDE Workspace"

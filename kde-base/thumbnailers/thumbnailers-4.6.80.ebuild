@@ -12,9 +12,6 @@ DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-MY_P="kdegraphics-${P}"
-S="${WORKDIR}/${MY_P}"
-
 DEPEND="
 	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkexiv2)
@@ -23,3 +20,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 add_blocker kdegraphics-strigi-analyzer '<4.2.91'
+
+S="${WORKDIR}/${KMNAME}-${PV}"

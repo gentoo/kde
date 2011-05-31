@@ -15,6 +15,3 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep libkdeedu)
 "
-KMEXTRACTONLY="
-	libkdeedu/keduvocdocument
-"

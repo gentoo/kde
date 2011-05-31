@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 KMMODULE="lib/konq"
 CPPUNIT_REQUIRED="optional"
 inherit kde4-meta

@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 KMNOMODULE="true"
 inherit kde4-meta multilib prefix
 

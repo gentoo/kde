@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="Netscape plugins support for Konqueror."

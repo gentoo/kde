@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="KDE file finder utility"

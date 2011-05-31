@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 KMMODULE="libs/taskmanager"
 inherit kde4-meta
 

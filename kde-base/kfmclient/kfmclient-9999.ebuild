@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 KMMODULE="konqueror/client"
 inherit kde4-meta
 

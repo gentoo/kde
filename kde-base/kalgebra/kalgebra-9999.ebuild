@@ -7,14 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="optional"
 KDE_SCM="git"
-
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS=""
@@ -43,20 +36,14 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 	)
 
-	${kde_eclass}_src_configure
+	kde4-base_src_configure
 }
 
 src_test() {
 	# disable broken test
-	local dir
-	if [[ ${PV} == *9999 ]]; then
-		dir="${S}"
-	else
-		dir="${S}/${PN}"
-	fi
 	sed -i -e '/mathmlpresentationtest/ s/^/#DO_NOT_RUN_TEST /' \
-		"${dir}"/analitza/tests/CMakeLists.txt || \
+		"${S}"/analitza/tests/CMakeLists.txt || \
 		die "sed to disable mathmlpresentationtest failed."
 
-	${kde_eclass}_src_test
+	kde4-base_src_test
 }

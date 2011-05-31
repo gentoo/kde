@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 CPPUNIT_REQUIRED="optional"
 VIRTUALX_REQUIRED=test
 inherit kde4-meta

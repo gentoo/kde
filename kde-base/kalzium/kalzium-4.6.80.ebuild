@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KDE_SCM="git"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit flag-o-matic kde4-base
+inherit kde4-base flag-o-matic
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"

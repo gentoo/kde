@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 KMMODULE="plasma"
 DECLARATIVE_REQUIRED="always"
 inherit kde4-meta

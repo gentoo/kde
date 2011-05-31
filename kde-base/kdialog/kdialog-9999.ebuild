@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="kdebase-apps"
+KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="KDialog can be used to show nice dialog boxes from shell scripts"

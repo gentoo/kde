@@ -5,19 +5,13 @@
 EAPI=4
 
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="Common library for KDE educational apps"
 KEYWORDS=""
 IUSE="debug"
 
-# 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken, 
+# 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken,
 # see bug 258857 for details.
 RESTRICT=test
 

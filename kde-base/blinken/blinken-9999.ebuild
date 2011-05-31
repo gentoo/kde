@@ -5,14 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-if [[ ${PV} == *9999 ]]; then
-	KDE_SCM="git"
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdeedu"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE version of the Simon Says game."
 KEYWORDS=""
@@ -24,5 +18,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep knotify)
 "
-
-KMEXTRACTONLY="libkdeedu/kdeeduui"

@@ -16,15 +16,3 @@ DEPEND="
 	media-libs/libgphoto2
 "
 RDEPEND="${DEPEND}"
-
-if [[ ${PV} != *9999 ]]; then
-src_unpack() {
-	if use handbook; then
-		KMEXTRA="
-			doc/kcontrol/${PN}
-		"
-	fi
-
-	kde4-base_src_unpack
-}
-fi

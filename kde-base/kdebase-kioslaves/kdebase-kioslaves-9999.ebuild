@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdebase-runtime"
+KMNAME="kde-runtime"
 KMMODULE="kioslave"
 inherit kde4-meta
 

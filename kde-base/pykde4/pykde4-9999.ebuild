@@ -4,19 +4,12 @@
 
 EAPI=3
 
-KMNAME="kdebindings"
-if [[ ${PV} != *9999 ]]; then
-	KMMODULE="python/pykde4"
-else
-	# HACK HACK HACK
-	KMMODULE="."
-fi
 OPENGL_REQUIRED="always"
 PYTHON_USE_WITH="threads"
 RESTRICT_PYTHON_ABIS="2.4"
 KDE_SCM="git"
 EGIT_REPONAME="pykde4"
-inherit python kde4-meta
+inherit python kde4-base
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
@@ -35,14 +28,14 @@ RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	python_pkg_setup
-	kde4-meta_pkg_setup
+	kde4-base_pkg_setup
 }
 
 src_prepare() {
-	kde4-meta_src_prepare
+	kde4-base_src_prepare
 
 	if ! use examples; then
-		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i ${KMMODULE}/CMakeLists.txt \
+		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i CMakeLists.txt \
 			|| die "Failed to disable examples"
 	fi
 
@@ -62,20 +55,20 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop KdepimLibs)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${S}/${KMMODULE}/docs/html/")
+	use doc && HTML_DOCS=("${S}/docs/html/")
 
-	kde4-meta_src_install
+	kde4-base_src_install
 
 	python_convert_shebangs -q -r $(python_get_version) "${ED}"
 	python_clean_installation_image -q
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 
 	python_mod_optimize PyKDE4 PyQt4
 
@@ -88,7 +81,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	kde4-meta_pkg_postrm
+	kde4-base_pkg_postrm
 
 	python_mod_cleanup PyKDE4 PyQt4
 }

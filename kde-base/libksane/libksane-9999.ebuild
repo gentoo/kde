@@ -5,14 +5,7 @@
 EAPI=4
 
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdegraphics"
-	KMMODULE="libs/${PN}"
-	kde_eclass="kde4-meta"
-fi
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="SANE Library interface for KDE"
 HOMEPAGE="http://www.kipi-plugins.org"
@@ -24,13 +17,3 @@ DEPEND="
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}"
-
-# Not sure where this moved/who should install it in 4.7+
-if [[ ${PV} != *9999 ]]; then
-src_install() {
-	insinto "${KDEDIR}"/share/apps/cmake/modules
-	doins "${S}"/cmake/modules/FindKSane.cmake
-
-	kde4-meta_src_install
-}
-fi

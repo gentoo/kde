@@ -11,12 +11,6 @@ DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-if [[ ${PV} != *9999 ]]; then
-KMEXTRACTONLY="
-	libs/mobipocket/
-"
-fi
-
 DEPEND="
 	app-misc/strigi
 "

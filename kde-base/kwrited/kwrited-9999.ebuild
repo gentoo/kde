@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-KMNAME="kdebase-workspace"
+KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="KDE daemon listening for wall and write messages."
