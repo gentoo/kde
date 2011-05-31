@@ -79,6 +79,9 @@ if [[ ${BUILD_TYPE} == live ]]; then
 			KDE_SCM="git"
 			EGIT_REPONAME=${EGIT_REPONAME:=kde-baseapps}
 		;;
+		kde-workspace|kde-runtime|kde-baseapps)
+			KDE_SCM="git"
+		;;
 	esac
 fi
 
