@@ -17,8 +17,8 @@ IUSE="debug doc"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-0.9.0
-	dev-util/kdevelop
 "
 RDEPEND="
+	dev-util/kdevelop
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
