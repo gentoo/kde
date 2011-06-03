@@ -26,14 +26,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	kde4-base_src_unpack
-
-	# HACK HACK HACK
-	# The package assumes that ../okular == .
-	ln -sf ${P} "${WORKDIR}/okular" || die "could not symlink the sources properly"
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with chm)
