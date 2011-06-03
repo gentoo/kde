@@ -24,4 +24,7 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/cmake_fix_for_kde-4_2.patch" )
+PATCHES=( 
+	"${FILESDIR}/cmake_fix_for_kde-4_2.patch"
+	"${FILESDIR}/eyesaver-0.2a-fix.patch"
+)
