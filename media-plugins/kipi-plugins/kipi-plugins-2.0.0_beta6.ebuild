@@ -8,10 +8,10 @@ OPENGL_REQUIRED="optional"
 # KDE_LINGUAS="ar ast be bg ca ca@valencia cs da de el en_GB eo es et eu fi fr ga gl he hi hne hr hu is it ja km ko
 # lt lv mai ms nb nds nl nn oc pa pl pt pt_BR ro ru se sk sv th tr uk zh_CN zh_TW"
 
-KDE_MINIMAL="4.5.0"
+KDE_MINIMAL="4.5"
 inherit flag-o-matic kde4-base
 
-KDEGRAPHICS_MINIMAL="4.6.29"
+KDEGRAPHICS_MINIMAL="4.6.30"
 # please leave the weird number here for the moment
 
 MY_P="digikam-${PV/_/-}"
@@ -22,7 +22,7 @@ SRC_URI="mirror://sourceforge/digikam/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="cdr calendar crypt debug expoblending handbook +imagemagick ipod mjpeg redeyes scanner"
 
