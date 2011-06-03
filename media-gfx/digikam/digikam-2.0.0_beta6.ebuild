@@ -13,7 +13,9 @@ KDE_HANDBOOK="optional"
 CMAKE_MIN_VERSION=2.8
 
 KDE_MINIMAL="4.6"
-KDEGRAPHICS_MINIMAL="4.6.29"
+
+KDEGRAPHICS_MINIMAL="4.6.30"
+# please leave the weird number here for the moment
 
 inherit kde4-base
 
@@ -25,7 +27,7 @@ HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="addressbook debug doc gphoto2 semantic-desktop themedesigner +thumbnails video"
 
@@ -68,11 +70,6 @@ DEPEND="${CDEPEND}
 	doc? ( app-doc/doxygen )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}"-2.0.0_beta5-docs.patch
-	"${FILESDIR}/${PN}"-1.9.0-turbo.patch
-)
-
 S="${WORKDIR}/${MY_P}/core"
 
 src_prepare() {
@@ -101,7 +98,6 @@ src_configure() {
 		-DWITH_LENSFUN=ON
 		-DGWENVIEW_SEMANTICINFO_BACKEND=${backend}
 		$(cmake-utils_use_with addressbook KdepimLibs)
-		$(cmake-utils_use_build doc)
 		-DWITH_MarbleWidget=ON
 		$(cmake-utils_use_enable gphoto2 GPHOTO2)
 		$(cmake-utils_use_with gphoto2)
@@ -111,6 +107,13 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
+}
+
+src_compile() {
+	local mytargets="all"
+	use doc && mytargets+=" doc"
+
+	kde4-base_src_compile ${mytargets}
 }
 
 src_install() {
