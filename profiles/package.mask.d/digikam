@@ -1,0 +1,3 @@
+# digikam-2 and kipi-plugins-2 depend on kde-4.7, so they are masked here
+=media-gfx/digikam-2*
+=media-plugins/kipi-plugins-2*
