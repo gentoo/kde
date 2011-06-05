@@ -4,16 +4,13 @@
 
 EAPI=4
 
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+KMNAME="kdegraphics-thumbnailers"
+inherit kde4-base
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS=""
 IUSE="debug"
-
-KMEXTRACTONLY="
-	libs/mobipocket
-"
 
 DEPEND="
 	$(add_kdebase_dep libkdcraw)
