@@ -6,6 +6,10 @@ EAPI=4
 
 if [[ ${PV} == *9999 ]]; then
 	KMNAME="kdesupport"
+else
+	# Upstream does not ship releases properly so we dont want all versions
+	MY_PV="4.6.4"
+	MY_P="${PN}-${MY_PV}"
 fi
 KDE_REQUIRED="never"
 inherit kde4-base
