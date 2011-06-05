@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"
 KEYWORDS=""
