@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegraphics"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""
@@ -16,13 +16,3 @@ DEPEND="
 	media-libs/libgphoto2
 "
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	if use handbook; then
-		KMEXTRA="
-			doc/kcontrol/${PN}
-		"
-	fi
-
-	kde4-meta_src_unpack
-}
