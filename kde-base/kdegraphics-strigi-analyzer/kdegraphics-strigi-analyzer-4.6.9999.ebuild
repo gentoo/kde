@@ -4,17 +4,12 @@
 
 EAPI=4
 
-KMNAME="kdegraphics"
-KMMODULE="strigi-analyzer"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="kdegraphics: strigi plugins"
 KEYWORDS=""
 IUSE="debug"
-
-KMEXTRACTONLY="
-	libs/mobipocket/
-"
 
 DEPEND="
 	app-misc/strigi
