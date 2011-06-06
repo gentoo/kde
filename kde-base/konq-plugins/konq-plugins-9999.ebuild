@@ -19,7 +19,7 @@ DEPEND="
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !kde-misc/konq-plugins )
+	!kde-misc/konq-plugins
 	$(add_kdebase_dep kcmshell)
 	$(add_kdebase_dep konqueror)
 "

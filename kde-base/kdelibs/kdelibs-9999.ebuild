@@ -127,7 +127,7 @@ add_blocker kdelibs 0 '<3.5.10:3.5'
 add_blocker plasma-workspace '<4.3.75'
 
 PATCHES=(
-	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix.patch"
+	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix-1.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs-1.patch"
 	"${FILESDIR}/${PN}-4.5.90-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
@@ -145,12 +145,9 @@ src_prepare() {
 	kde4-base_src_prepare
 	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"
 
-	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix.patch to work)
-	local menu_prefix="kde-${SLOT}-"
-	sed -e "s|FILES[[:space:]]applications.menu|FILES applications.menu RENAME ${menu_prefix}applications.menu|g" \
+	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix-1.patch to work)
+	sed -e 's|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-4-applications.menu|g' \
 		-i kded/CMakeLists.txt || die "Sed on CMakeLists.txt for applications.menu failed."
-	sed -e "s|@REPLACE_MENU_PREFIX@|${menu_prefix}|g" \
-		-i kded/vfolder_menu.cpp || die "Sed on vfolder_menu.cpp failed."
 
 	if use aqua; then
 		sed -i -e \
@@ -203,15 +200,10 @@ src_configure() {
 	else
 		mycmakeargs=(-DWITH_Avahi=OFF -DWITH_DNSSD=OFF)
 	fi
-	if use kdeprefix; then
-		HME=".kde${SLOT}"
-	else
-		HME=".kde4"
-	fi
 	mycmakeargs+=(
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
-		-DKDE_DEFAULT_HOME=${HME}
+		-DKDE_DEFAULT_HOME=.kde4
 		-DKAUTH_BACKEND=POLKITQT-1
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
@@ -306,7 +298,7 @@ pkg_postinst() {
 		echo
 	fi
 
-	elog "Your homedir is set to \${HOME}/${HME}"
+	elog "Your homedir is set to \${HOME}/.kde4"
 	echo
 
 	kde4-base_pkg_postinst

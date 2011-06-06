@@ -14,7 +14,7 @@ IUSE=""
 
 # Provides nuvola icon theme
 RDEPEND="
-	!kdeprefix? ( !x11-themes/nuvola )
+	!x11-themes/nuvola
 "
 
 # Moved here in 4.7

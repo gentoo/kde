@@ -14,5 +14,5 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !games-puzzle/ksudoku )
+	!games-puzzle/ksudoku
 "

@@ -28,16 +28,16 @@ if which freetemp 2> /dev/null ; then
 	freetemp
 fi
 
-userresources=$HOME/.Xresources 
-usermodmap=$HOME/.Xmodmap 
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
 userxkbmap=$HOME/.Xkbmap
 
-sysresources=/etc/X11/Xresources 
-sysmodmap=/etc/X11/Xmodmap 
+sysresources=/etc/X11/Xresources
+sysmodmap=/etc/X11/Xmodmap
 sysxkbmap=/etc/X11/Xkbmap
 
-rh6sysresources=/etc/X11/xinit/Xresources 
-rh6sysmodmap=/etc/X11/xinit/Xmodmap 
+rh6sysresources=/etc/X11/xinit/Xresources
+rh6sysmodmap=/etc/X11/xinit/Xmodmap
 
 
 # merge in defaults
@@ -94,3 +94,4 @@ fi
 
 unset XKB_IN_USE
 
+exec "@GENTOO_PORTAGE_EPREFIX@/usr/bin/startkde"

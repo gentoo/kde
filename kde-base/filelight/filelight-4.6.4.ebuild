@@ -15,6 +15,6 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !kde-misc/filelight )
+	!kde-misc/filelight
 	x11-apps/xdpyinfo
 "

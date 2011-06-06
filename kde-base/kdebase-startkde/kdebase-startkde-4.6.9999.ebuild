@@ -45,75 +45,36 @@ KMEXTRACTONLY="
 	startkde.cmake
 "
 
-PATCHES=("${FILESDIR}/gentoo-startkde4-3.patch")
+PATCHES=("${FILESDIR}/gentoo-startkde4-4.patch")
 
 src_prepare() {
 	kde4-meta_src_prepare
 
-	# Patch the startkde script to setup the environment for KDE
-	# List all the multilib libdirs
-	local _libdir _libdirs=
-	for _libdir in $(get_all_libdirs); do
-		_libdirs+=":${EKDEDIR}/${_libdir}"
-	done
-	_libdirs=${_libdirs#:}
+	cp "${FILESDIR}/KDE-4" "${T}"
 
-	# Sort the LDFLAGS out if necessary
-	if use kdeprefix; then
-		sed -e "s#@REPLACE_LDFLAGS@#export LDFLAGS=${_libdirs}:\$LDFLAGS#" \
-			-i startkde.cmake || die "Sed for LDPATH failed."
-	else
-		sed -e "s#@REPLACE_LDFLAGS@##" \
-			-i startkde.cmake || die "sed for LDPATH failed"
-	fi
-
-	# Complete LDPATH
-	sed -e "s#@REPLACE_LIBDIR@#$(get_libdir)#" \
-		-i startkde.cmake || die "Sed for REPLACE_LIBDIR failed."
-	# Now fix the prefix
-	sed -e "s#@REPLACE_PREFIX@#${KDEDIR}#" \
-		-i startkde.cmake || die "Sed for REPLACE_PREFIX failed."
-	# ... and fix ${EPREFIX}
-	eprefixify startkde.cmake
+	# fix ${EPREFIX}
+	eprefixify startkde.cmake "${T}/KDE-4"
 }
 
 src_install() {
 	kde4-meta_src_install
 
 	# startup and shutdown scripts
-	if use kdeprefix; then
-		insinto "${KDEDIR}/env"
-	else
-		insinto "/etc/kde/startup"
-	fi
+	insinto /etc/kde/startup
 	doins "${FILESDIR}/agent-startup.sh"
 
-	if use kdeprefix; then
-		exeinto "${KDEDIR}/shutdown"
-	else
-		exeinto "/etc/kde/shutdown"
-	fi
-	doexe "${FILESDIR}/agent-shutdown.sh"
-
-	if use kdeprefix; then
-		KDE_X="KDE-${SLOT}"
-	else
-		KDE_X="KDE-4"
-	fi
+	insinto /etc/kde/shutdown
+	doins "${FILESDIR}/agent-shutdown.sh"
 
 	# x11 session script
-	cp "${FILESDIR}/sessionfile" "${T}/${KDE_X}" || die
-	cat <<-EOF >> "${T}/${KDE_X}"
-	exec "${EKDEDIR}/bin/startkde"
-	EOF
 	exeinto /etc/X11/Sessions
-	doexe "${T}/${KDE_X}"
+	doexe "${T}/KDE-4"
 
 	# freedesktop compliant session script
-	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${EKDEDIR}/bin:g;s:Name=KDE:Name=KDE ${SLOT}:" \
-		"${S}/kdm/kfrontend/sessions/kde-plasma.desktop.cmake" > "${T}/${KDE_X}.desktop"
+	sed -e "s:\${KDE4_BIN_INSTALL_DIR}:${EPREFIX}/usr/bin:g" \
+		"${S}/kdm/kfrontend/sessions/kde-plasma.desktop.cmake" > "${T}/KDE-4.desktop"
 	insinto /usr/share/xsessions
-	doins "${T}/${KDE_X}.desktop"
+	doins "${T}/KDE-4.desktop"
 }
 
 pkg_postinst () {
@@ -121,16 +82,11 @@ pkg_postinst () {
 
 	echo
 	elog "To enable gpg-agent and/or ssh-agent in KDE sessions,"
-	if use kdeprefix; then
-		elog "edit ${EKDEDIR}/env/agent-startup.sh and"
-		elog "${EKDEDIR}/shutdown/agent-shutdown.sh"
-	else
-		elog "edit ${EPREFIX}/etc/kde/startup/agent-startup.sh and"
-		elog "${EPREFIX}/etc/kde/shutdown/agent-shutdown.sh"
-	fi
+	elog "edit ${EPREFIX}/etc/kde/startup/agent-startup.sh and"
+	elog "${EPREFIX}/etc/kde/shutdown/agent-shutdown.sh"
 	echo
 	elog "The name of the session script has changed."
 	elog "If you currently have XSESSION=\"kde-${SLOT}\" in your"
 	elog "configuration files, you will need to change it to"
-	elog "XSESSION=\"${KDE_X}\""
+	elog "XSESSION=\"KDE-4\""
 }

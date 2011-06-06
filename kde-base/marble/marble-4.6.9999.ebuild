@@ -31,7 +31,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kdeprefix? ( !sci-geosciences/marble )
+	!sci-geosciences/marble
 "
 
 PATCHES=( "${FILESDIR}/${PN}-4.6.2-magic.patch" )

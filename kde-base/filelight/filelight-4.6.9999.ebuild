@@ -15,6 +15,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!kdeprefix? ( !kde-misc/filelight )
+	!kde-misc/filelight
 	x11-apps/xdpyinfo
 "

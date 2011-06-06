@@ -1,4 +1,4 @@
-Set XDG_MENU_PREFIX to kde4- if not set. This fixes "empty-applications-menu" when running
+Set XDG_MENU_PREFIX to kde-4- if not set. This fixes "empty-applications-menu" when running
 KDE4 applications outside of KDE4 environment.
 
 Index: kded/vfolder_menu.cpp
@@ -11,7 +11,7 @@ Index: kded/vfolder_menu.cpp
     QString xdgMenuPrefix = QString::fromLocal8Bit(qgetenv("XDG_MENU_PREFIX"));
 -   if (!xdgMenuPrefix.isEmpty())
 +   if (xdgMenuPrefix.isEmpty())
-+      xdgMenuPrefix = "@REPLACE_MENU_PREFIX@";
++      xdgMenuPrefix = "kde-4-";
 +
     {
        QFileInfo fileInfo(fileName);
