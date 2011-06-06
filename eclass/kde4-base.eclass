@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.94 2011/06/06 17:51:26 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.95 2011/06/06 18:42:55 abcd Exp $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -619,6 +619,20 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # optional applications link
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	if has kdeprefix ${IUSE//+} && use kdeprefix; then
+		eerror "Sorry, kdeprefix support has been removed."
+		eerror "Please remove kdeprefix from your USE variable."
+		die "kdeprefix support has been removed"
+	fi
+
+	if [[ ${CATEGORY}/${PN} != kde-base/kdelibs && ${CATEGORY}/${PN} != kde-base/kde-env ]] && \
+			{ [[ ${KDE_REQUIRED} == always ]] || { [[ ${KDE_REQUIRED} == optional ]] && use kde; }; } && \
+			has_version kde-base/kdelibs[kdeprefix]; then
+		eerror "Sorry, kdeprefix support has been removed."
+		eerror "Please rebuild kdelibs without kdeprefix support."
+		die "kdeprefix support has been removed"
+	fi
 
 	# QA ebuilds
 	[[ -z ${KDE_MINIMAL_VALID} ]] && ewarn "QA Notice: ignoring invalid KDE_MINIMAL (defaulting to ${KDE_MINIMAL})."
