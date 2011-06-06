@@ -58,8 +58,8 @@ src_unpack() {
 src_install() {
 	kde4-meta_src_install
 	# colliding with kdepim-common-libs
-	rm -rf "${ED}"/${KDEDIR}/share/kde4/servicetypes/calendarplugin.desktop
-	rm -rf "${ED}"/${KDEDIR}/share/kde4/servicetypes/calendardecoration.desktop
+	rm -rf "${ED}"/usr/share/kde4/servicetypes/calendarplugin.desktop
+	rm -rf "${ED}"/usr/share/kde4/servicetypes/calendardecoration.desktop
 }
 
 pkg_postinst() {

@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 src_configure() {
-	mycmakeargs=( -DWALLPAPER_INSTALL_DIR=${EKDEDIR}/share/wallpapers )
+	mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
 	kde4-base_src_configure
 }

@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}"
 # Not sure where this moved/who should install it in 4.6.3+
 if [[ ${PV} != *9999 ]]; then
 src_install() {
-	insinto "${KDEDIR}"/share/apps/cmake/modules
+	insinto /usr/share/apps/cmake/modules
 	doins "${S}"/cmake/modules/FindKSane.cmake
 
 	${kde_eclass}_src_install

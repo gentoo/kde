@@ -16,7 +16,7 @@ IUSE=""
 add_blocker kdebase-wallpapers
 
 src_configure() {
-	mycmakeargs=( -DWALLPAPER_INSTALL_DIR=${EKDEDIR}/share/wallpapers )
+	mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
 	kde4-base_src_configure
 }

@@ -246,9 +246,8 @@ src_install() {
 	kde4-base_src_install
 
 	# use system certificates
-	rm -f "${ED}/${KDEDIR}"/share/apps/kssl/ca-bundle.crt || die
-	dosym /etc/ssl/certs/ca-certificates.crt \
-	"${KDEDIR}"/share/apps/kssl/ca-bundle.crt
+	rm -f "${ED}"/usr/share/apps/kssl/ca-bundle.crt || die
+	dosym /etc/ssl/certs/ca-certificates.crt /usr/share/apps/kssl/ca-bundle.crt
 
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
@@ -261,7 +260,7 @@ src_install() {
 		einfo "fixing ${PN} plugins"
 
 		local _PV=${PV:0:3}.0
-		local _dir=${EKDEDIR}/$(get_libdir)/kde4/plugins/script
+		local _dir=${EPREFIX}/usr/$(get_libdir)/kde4/plugins/script
 
 		install_name_tool -id \
 			"${_dir}/libkrossqtsplugin.${_PV}.dylib" \
@@ -272,14 +271,14 @@ src_install() {
 		#sed -i -e \
 		#	"s:if (HAVE_XKB):if (HAVE_XKB AND NOT APPLE):g" \
 		echo -e "set(XKB_FOUND FALSE)\nset(HAVE_XKB FALSE)" > \
-			"${ED}"/${KDEDIR}/share/apps/cmake/modules/FindXKB.cmake \
+			"${ED}"/usr/share/apps/cmake/modules/FindXKB.cmake \
 			|| die "failed fixing FindXKB.cmake"
 	fi
 
 	einfo Installing environment file.
 	# Since 44qt4 is sourced earlier QT_PLUGIN_PATH is defined.
 	echo "COLON_SEPARATED=QT_PLUGIN_PATH" > "${T}/77kde"
-	echo "QT_PLUGIN_PATH=${EKDEDIR}/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
+	echo "QT_PLUGIN_PATH=${EPREFIX}/usr/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
 	doenvd "${T}/77kde"
 }
 

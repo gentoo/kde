@@ -75,7 +75,7 @@ pkg_postinst() {
 	if use examples; then
 		echo
 		elog "PyKDE4 examples have been installed to"
-		elog "${EKDEDIR}/share/apps/${PN}/examples"
+		elog "${EPREFIX}/usr/share/apps/${PN}/examples"
 		echo
 	fi
 }

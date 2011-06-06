@@ -67,7 +67,7 @@ src_configure() {
 
 src_install() {
 	if use plasma; then
-		insinto "${KDEDIR}"/share/apps/cmake/modules
+		insinto /usr/share/apps/cmake/modules
 		doins "${S}"/cmake/modules/FindMarbleWidget.cmake
 	fi
 	${kde_eclass}_src_install

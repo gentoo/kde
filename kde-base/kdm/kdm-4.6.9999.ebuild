@@ -83,11 +83,11 @@ src_install() {
 		-e "/#TerminateServer=/s/^.*$/TerminateServer=true/" \
 		-e "s|^.*DataDir=.*$|#&\nDataDir=${EPREFIX}${KDM_HOME}|" \
 		-e "s|^.*FaceDir=.*$|#&\nFaceDir=${EPREFIX}${KDM_HOME}/faces|" \
-		-i "${ED}"/${KDEDIR}/share/config/kdm/kdmrc \
+		-i "${ED}"/usr/share/config/kdm/kdmrc \
 		|| die "Failed to set ServerTimeout and SessionsDirs correctly in kdmrc."
 
 	# Don't install empty dir
-	rmdir "${ED}${KDEDIR}"/share/config/kdm/sessions
+	rmdir "${ED}"/usr/share/config/kdm/sessions
 
 	# Set up permissions to kdm work directory
 	keepdir "${KDM_HOME}"
@@ -127,7 +127,7 @@ pkg_postinst() {
 				fi
 			done
 			if [[ -n ${src} ]]; then
-				cp "${EROOT}${KDEDIR}/share/apps/kdm/pics/users/${src}" \
+				cp "${EROOT}/usr/share/apps/kdm/pics/users/${src}" \
 					"${EROOT}${KDM_HOME}/${dest}"
 			fi
 		fi
