@@ -17,5 +17,5 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	!kde-base/kappfinder[-kdeprefix]
+	!kde-base/kappfinder
 "
