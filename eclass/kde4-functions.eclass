@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.45 2011/04/06 14:22:14 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.49 2011/06/06 17:51:26 abcd Exp $
 
 inherit versionator
 
