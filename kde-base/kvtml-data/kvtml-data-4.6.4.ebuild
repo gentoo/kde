@@ -5,7 +5,9 @@
 EAPI=4
 
 KMNAME="kdeedu"
-KMMODULE="data"
+KMMODULE="libkdeedu/data"
+KMEXTRACTONLY="libkdeedu"
+
 inherit kde4-meta
 
 DESCRIPTION="Kvtml data for various KDE games"
