@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.49 2011/06/06 17:51:26 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.50 2011/06/06 21:38:18 abcd Exp $
 
 inherit versionator
 
@@ -350,8 +350,7 @@ load_library_dependencies() {
 
 # @FUNCTION: block_other_slots
 # @DESCRIPTION:
-# Create blocks for the current package in other slots when
-# installed with USE=-kdeprefix
+# Create blocks for the current package in other slots
 block_other_slots() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -381,8 +380,8 @@ block_other_slots() {
 # As an example, if SLOT=live, then
 #    add_blocker kdelibs 0 :4.3 '<4.3.96:4.4' 9999:live
 # will add the following to RDEPEND:
-#    !kdeprefix? ( !kde-base/kdelibs:4.3[-kdeprefix] )
-#    !kdeprefix? ( !<kde-base/kdelibs-4.3.96:4.4[-kdeprefix] )
+#    !kde-base/kdelibs:4.3
+#    !<kde-base/kdelibs-4.3.96:4.4
 #    !<=kde-base/kdelibs-9999:live
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
@@ -429,12 +428,7 @@ add_kdebase_dep() {
 
 	local use=${2:+,${2}}
 
-	if [[ ${KDEBASE} = kde-base ]]; then
-		echo " !kdeprefix? ( >=kde-base/${1}-${ver}[aqua=,-kdeprefix${use}] )"
-		# kdeprefix is no-go for kdepim 4.4
-		[[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${SLOT} == 4.4 ]] || \
-			echo " kdeprefix? ( >=kde-base/${1}-${ver}:${SLOT}[aqua=,kdeprefix${use}] )"
-	elif [[ ${ver} == live ]]; then
+	if [[ ${ver} == live ]]; then
 		echo " kde-base/${1}:live[aqua=${use}]"
 	else
 		echo " >=kde-base/${1}-${ver}[aqua=${use}]"
@@ -535,13 +529,7 @@ _do_blocker() {
 		else
 			atom="<=${pkg}-${!var}"
 		fi
-		# we always block our own slot, ignoring kdeprefix
-		if [[ ${SLOT} == ${slot} ]]; then
-			echo " !${atom}:${slot}${use:+[${use}]}"
-		else
-			# we only block other slots on -kdeprefix
-			echo " !kdeprefix? ( !${atom}:${slot}[-kdeprefix${use:+,${use}}] )"
-		fi
+		echo " !${atom}:${slot}${use:+[${use}]}"
 	done
 
 	# This is a special case block for :3.5; it does not use the
