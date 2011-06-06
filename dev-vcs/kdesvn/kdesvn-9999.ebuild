@@ -26,8 +26,8 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
-	!<kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix]
-	!>=kde-base/kdesdk-kioslaves-4.3.5[-kdeprefix,subversion]
+	!<kde-base/kdesdk-kioslaves-4.3.5
+	!>=kde-base/kdesdk-kioslaves-4.3.5[subversion]
 "
 
 src_configure() {
