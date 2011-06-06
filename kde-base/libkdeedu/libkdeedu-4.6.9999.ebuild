@@ -5,6 +5,8 @@
 EAPI=4
 
 KMNAME="kdeedu"
+KMEXTRACTONLY="libkdeedu/data"
+
 inherit kde4-meta
 
 DESCRIPTION="Common library for KDE educational apps"
