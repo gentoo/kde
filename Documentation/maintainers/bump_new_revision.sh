@@ -187,7 +187,7 @@ BUMP_VERSION=
 SET=
 DIR=
 OUTPUT_DIR=
-while getopts a:s:v:b:l:p:o arg ; do
+while getopts a:s:v:b:l:p:o: arg ; do
 	case ${arg} in
 		a) OPERATION=${OPTARG} ;;
 		s) SLOT=${OPTARG} ;;
