@@ -10,12 +10,12 @@ inherit kde4-base
 DESCRIPTION="This notifies you when an incoming message arrives and hangs in the system tray until you're ready to start a chat."
 HOMEPAGE=""
 
-LICENSE="GPL-3"
+LICENSE="LGPL-2.1"
 KEYWORDS="~amd64"
 SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/telepathy-qt4-0.5.6
+	>=net-libs/telepathy-qt4-0.7.0
 "
 RDEPEND="${DEPEND}"

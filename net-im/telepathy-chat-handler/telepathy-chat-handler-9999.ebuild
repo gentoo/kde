@@ -11,7 +11,7 @@ DESCRIPTION="This application provides a text chat window."
 HOMEPAGE=""
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 

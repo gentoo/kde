@@ -12,12 +12,12 @@ DESCRIPTION="UI for contaclist"
 HOMEPAGE=""
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/telepathy-qt4-0.5.6
+	>=net-libs/telepathy-qt4-0.7.0
 	>=net-im/telepathy-accounts-kcm-9999
 "
 RDEPEND="${DEPEND}"
