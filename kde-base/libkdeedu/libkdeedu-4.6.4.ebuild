@@ -16,6 +16,4 @@ IUSE="debug"
 # see bug 258857 for details.
 RESTRICT=test
 
-DEPEND="!!<=kde-base/kvtml-data-4.6.3"
-RDEPEND=${DEPEND}
-# we need a hard blocker here, not provided by eclass
+add_blocker kvtml-data
