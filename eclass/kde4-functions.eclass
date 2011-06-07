@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.50 2011/06/06 21:38:18 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.51 2011/06/07 20:11:04 abcd Exp $
 
 inherit versionator
 
@@ -603,6 +603,3 @@ get_kde_version() {
 		(( micro < 50 )) && echo ${major}.${minor} || echo ${major}.$((minor + 1))
 	fi
 }
-
-# keep the old name until kde4-meta-pkg is updated
-_calculate_kde_slot() { get_kde_version "$@"; }
