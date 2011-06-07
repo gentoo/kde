@@ -195,7 +195,7 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-if [[ ${KDE_MINIMAL} == live ]] || version_is_at_least 4.5.50 "${KDE_MINIMAL}"; then
+if version_is_at_least 4.5.50 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
 else
 	QT_MINIMAL="${QT_MINIMAL:-4.6.3}"
