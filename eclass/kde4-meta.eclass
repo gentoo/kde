@@ -208,7 +208,7 @@ kde4-meta_src_extract() {
 				;;
 		esac
 	else
-		local abort tarball tarfile f extractlist moduleprefix postfix
+		local abort tarball tarfile f extractlist postfix
 
 		KMTARPARAMS+=" --bzip2"
 		postfix="bz2"
@@ -237,7 +237,7 @@ kde4-meta_src_extract() {
 
 		for f in cmake/ CMakeLists.txt ConfigureChecks.cmake config.h.cmake
 		do
-			extractlist+=" ${topdir}${moduleprefix}${f}"
+			extractlist+=" ${topdir}${f}"
 		done
 		extractlist+=" $(__list_needed_subdirectories)"
 
@@ -263,9 +263,6 @@ kde4-meta_src_extract() {
 		popd > /dev/null
 
 		eend $?
-
-		# We need to clear it here to make verification below work
-		unset moduleprefix
 
 		if [[ -n ${KDE4_STRICTER} ]]; then
 			for f in $(__list_needed_subdirectories fatal); do
@@ -444,7 +441,7 @@ __list_needed_subdirectories() {
 	for i in ${kmmodule_expanded} ${kmextra_expanded} ${kmcompileonly_expanded} \
 		${KMEXTRACTONLY}
 	do
-		extractlist+=" ${topdir}${moduleprefix}${i}"
+		extractlist+=" ${topdir}${i}"
 	done
 
 	echo ${extractlist}
