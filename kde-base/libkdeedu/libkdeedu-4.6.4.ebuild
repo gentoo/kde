@@ -5,7 +5,6 @@
 EAPI=4
 
 KMNAME="kdeedu"
-KMEXTRACTONLY="libkdeedu/data"
 
 inherit kde4-meta
 
@@ -16,3 +15,5 @@ IUSE="debug"
 # 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken, 
 # see bug 258857 for details.
 RESTRICT=test
+
+add_blocker kvtml-data
