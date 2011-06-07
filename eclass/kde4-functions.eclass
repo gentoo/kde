@@ -56,7 +56,7 @@ KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" "4.5" "4.6" "4.7" )
 KDE_LIVE_SLOTS=( "live" )
 
 # determine the build type
-if [[ ${SLOT} = live || ${PV} = *9999* ]]; then
+if [[ ${PV} = *9999* ]]; then
 	BUILD_TYPE="live"
 else
 	BUILD_TYPE="release"
@@ -109,16 +109,6 @@ if [[ ${BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
 		IUSE="${IUSE} linguas_${_lingua}"
 	done
 fi
-
-# @FUNCTION: slot_is_at_least
-# @USAGE: <want> <have>
-# @DESCRIPTION:
-# Version aware slot comparator.
-# Current implementation relies on the fact, that slots can be compared like
-# string literals (and let's keep it this way).
-slot_is_at_least() {
-	[[ "${2}" > "${1}" || "${2}" = "${1}" ]]
-}
 
 # @FUNCTION: buildsycoca
 # @DESCRIPTION:
@@ -310,7 +300,7 @@ migrate_store_dir() {
 # @DESCRIPTION:
 # Add exporting CMake dependencies for current package
 save_library_dependencies() {
-	local depsfile="${T}/${PN}:${SLOT}"
+	local depsfile="${T}/${PN}"
 
 	ebegin "Saving library dependencies in ${depsfile##*/}"
 	echo "EXPORT_LIBRARY_DEPENDENCIES(\"${depsfile}\")" >> "${S}/CMakeLists.txt" || \
@@ -322,7 +312,7 @@ save_library_dependencies() {
 # @DESCRIPTION:
 # Install generated CMake library dependencies to /var/lib/kde
 install_library_dependencies() {
-	local depsfile="${T}/${PN}:${SLOT}"
+	local depsfile="${T}/${PN}"
 
 	ebegin "Installing library dependencies as ${depsfile##*/}"
 	insinto /var/lib/kde
@@ -340,7 +330,8 @@ load_library_dependencies() {
 	i=0
 	for pn in ${KMLOADLIBS} ; do
 		((i++))
-		depsfile="${EPREFIX}/var/lib/kde/${pn}:${SLOT}"
+		depsfile="${EPREFIX}/var/lib/kde/${pn}"
+		[[ -r ${depsfile} ]] || depsfile="${EPREFIX}/var/lib/kde/${pn}:$(get_kde_version)"
 		[[ -r ${depsfile} ]] || die "Depsfile '${depsfile}' not accessible. You probably need to reinstall ${pn}."
 		sed -i -e "${i}iINCLUDE(\"${depsfile}\")" "${S}/CMakeLists.txt" || \
 			die "Failed to include library dependencies for ${pn}"
@@ -411,7 +402,7 @@ add_kdebase_dep() {
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
 	# FIXME remove hack when kdepim-4.4.* is gone
-	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${SLOT} == 4.4 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
+	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && $(get_kde_version) == 4.4 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
 		ver=4.4.5
 	# FIXME remove hack when kdepim-4.6beta is gone
 	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.5.98 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
@@ -419,7 +410,7 @@ add_kdebase_dep() {
 	# if building stable-live version depend just on slot
 	# to allow merging packages against more stable basic stuff
 	elif [[ ${PV} == *.9999 ]]; then
-		ver=${SLOT}
+		ver=$(get_kde_version)
 	else
 		ver=${PV}
 	fi
@@ -598,7 +589,10 @@ _enable_selected_linguas_dir() {
 	popd > /dev/null
 }
 
-_calculate_kde_slot() {
+# @FUNCTION: get_kde_version
+# Translates an ebuild version into a major.minor KDE SC
+# release version. If no version is specified, ${PV} is used.
+get_kde_version() {
 	local ver=${1:-${PV}}
 	local major=$(get_major_version ${ver})
 	local minor=$(get_version_component_range 2 ${ver})
@@ -609,3 +603,6 @@ _calculate_kde_slot() {
 		(( micro < 50 )) && echo ${major}.${minor} || echo ${major}.$((minor + 1))
 	fi
 }
+
+# keep the old name until kde4-meta-pkg is updated
+_calculate_kde_slot() { get_kde_version "$@"; }

@@ -86,7 +86,7 @@ pkg_postinst () {
 	elog "${EPREFIX}/etc/kde/shutdown/agent-shutdown.sh"
 	echo
 	elog "The name of the session script has changed."
-	elog "If you currently have XSESSION=\"kde-${SLOT}\" in your"
+	elog "If you currently have XSESSION=\"kde-$(get_kde_version)\" in your"
 	elog "configuration files, you will need to change it to"
 	elog "XSESSION=\"KDE-4\""
 }

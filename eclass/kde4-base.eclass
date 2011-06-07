@@ -41,32 +41,20 @@ if [[ ${CMAKE_REQUIRED} = always ]]; then
 	export_fns="src_configure src_compile src_test src_install"
 fi
 
-# Verify KDE_MINIMAL (display QA notice in pkg_setup, still we need to fix it here)
-if [[ -n ${KDE_MINIMAL} ]]; then
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		[[ ${KDE_MINIMAL} = ${slot} ]] && KDE_MINIMAL_VALID=1 && break
-	done
-	unset slot
-	[[ -z ${KDE_MINIMAL_VALID} ]] && unset KDE_MINIMAL
-else
-	KDE_MINIMAL_VALID=1
-fi
-
 # @ECLASS-VARIABLE: KDE_MINIMAL
 # @DESCRIPTION:
 # This variable is used when KDE_REQUIRED is set, to specify required KDE minimal
 # version for apps to work. Currently defaults to 4.4
 # One may override this variable to raise version requirements.
-# For possible values look at KDE_SLOTS and KDE_LIVE_SLOTS variables.
-# Note that it is fixed to ${SLOT} for kde-base packages.
+# Note that it is fixed to ${PV} for kde-base packages.
 KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
-		SLOT=$(_calculate_kde_slot)
-		[[ -z ${SLOT} ]] && die "Unsupported ${PV}"
-		KDE_MINIMAL="${SLOT}"
+		SLOT=$(get_kde_version)
+		[[ -z ${SLOT} ]] && die "Unsupported PV ${PV}"
+		KDE_MINIMAL="${PV}"
 		;;
 	koffice)
 		SLOT="2"
@@ -207,7 +195,7 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-if slot_is_at_least 4.6 "${KDE_MINIMAL}"; then
+if [[ ${KDE_MINIMAL} == live ]] || version_is_at_least 4.5.50 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
 else
 	QT_MINIMAL="${QT_MINIMAL:-4.6.3}"
@@ -494,7 +482,7 @@ _calculate_live_repo() {
 					;;
 				*)
 					# branch
-					branch_prefix="branches/KDE/${SLOT}"
+					branch_prefix="branches/KDE/$(get_kde_version)"
 					# @ECLASS-VARIABLE: ESVN_PROJECT_SUFFIX
 					# @DESCRIPTION
 					# Suffix appended to ESVN_PROJECT depending on fetched branch.
@@ -581,15 +569,15 @@ _calculate_live_repo() {
 			case ${PV} in
 				9999*) ;;
 				*)
-					# set EGIT_BRANCH and EGIT_COMMIT to ${SLOT}
+					# set EGIT_BRANCH and EGIT_COMMIT to $(get_kde_version)
 					case ${_kmname} in
 						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs | okular)
-							EGIT_BRANCH="${SLOT}"
+							EGIT_BRANCH="$(get_kde_version)"
 							;;
 						marble)
-							EGIT_BRANCH="kde-${SLOT}"
+							EGIT_BRANCH="kde-$(get_kde_version)"
 							;;
-						*) EGIT_BRANCH="KDE/${SLOT}" ;;
+						*) EGIT_BRANCH="KDE/$(get_kde_version)" ;;
 					esac
 					;;
 			esac
@@ -635,9 +623,6 @@ kde4-base_pkg_setup() {
 		eerror "Please rebuild kdelibs without kdeprefix support."
 		die "kdeprefix support has been removed"
 	fi
-
-	# QA ebuilds
-	[[ -z ${KDE_MINIMAL_VALID} ]] && ewarn "QA Notice: ignoring invalid KDE_MINIMAL (defaulting to ${KDE_MINIMAL})."
 
 	# Don't set KDEHOME during compilation, it will cause access violations
 	unset KDEHOME

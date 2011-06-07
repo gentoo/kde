@@ -217,10 +217,6 @@ kde4-meta_src_extract() {
 			kdebase-apps)
 				# kdebase/apps -> kdebase-apps
 				tarball="kdebase-${PV}.tar.${postfix}"
-				if ! slot_is_at_least 4.6 ${SLOT} || [[ ${PV} == "4.6.0" ]]; then
-					moduleprefix=apps/
-					KMTARPARAMS+=" --transform=s|apps/||"
-				fi
 				;;
 			*)
 				# Create tarball name from module name (this is the default)
@@ -296,7 +292,7 @@ kde4-meta_create_extractlists() {
 
 	# Add default handbook locations
 	# FIXME - legacy code - remove when 4.4.5 is gone or preferrably port 4.4.5.
-	if ! slot_is_at_least 4.5 ${SLOT} && has handbook ${IUSE//+} && use handbook && [[ -z ${KMNOMODULE} ]]; then
+	if [[ $(get_kde_version) < 4.5 ]] && has handbook ${IUSE//+} && use handbook && [[ -z ${KMNOMODULE} ]]; then
 		# We use the basename of $KMMODULE because $KMMODULE can contain
 		# the path to the module subdirectory.
 		KMEXTRA_NONFATAL+="
@@ -312,18 +308,7 @@ kde4-meta_create_extractlists() {
 	# Note that this actually doesn't include KMEXTRA handling.
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
-		kdebase)
-			if ! slot_is_at_least 4.6 ${SLOT} || [[ ${PV} == "4.6.0" ]]; then
-				KMEXTRACTONLY+="
-					apps/config-apps.h.cmake
-					apps/ConfigureChecks.cmake"
-			else
-				KMEXTRACTONLY+="
-					config-apps.h.cmake
-					ConfigureChecks.cmake"
-			fi
-			;;
-		kdebase-apps | kde-baseapps)
+		kdebase | kdebase-apps | kde-base-apps)
 			KMEXTRACTONLY+="
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
@@ -356,7 +341,7 @@ kde4-meta_create_extractlists() {
 			KMEXTRACTONLY+="
 				config-enterprise.h.cmake
 				kleopatra/ConfigureChecks.cmake"
-			if slot_is_at_least 4.5 ${SLOT}; then
+			if ! [[ $(get_kde_version) < 4.5 ]]; then
 				KMEXTRACTONLY+="
 					CTestCustom.cmake
 					kdepim-version.h.cmake"
@@ -394,8 +379,8 @@ kde4-meta_create_extractlists() {
 	# note2: kdeedu 4.6.4 does not have a cmake/modules/ subdir anymore :(
 	#   it may be possible to formulate this shorter, but it should also
 	#   still be understandable...
-	if { [[ ${KMNAME} != kdegraphics ]] || { [[ ${SLOT} != 4.6 || ${PV} < 4.6.2 ]] && ! slot_is_at_least 4.7 ${SLOT}; }; } \
-		&& ! { [[ ${KMNAME} == kdeedu ]] && [[ ${PV} == 4.6.4 ]] ; }; then
+	if [[ ${KMNAME} != kdegraphics || ( ( $(get_kde_version) != 4.6 || ${PV} < 4.6.2 ) && $(get_kde_version) < 4.7 ) ]] \
+		&& ! [[ ${KMNAME} == kdeedu && ${PV} == 4.6.4 ]]; then
 		case ${KMNAME} in
 			kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
 				case ${PN} in
@@ -607,7 +592,7 @@ kde4-meta_change_cmakelists() {
 					-e '/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)/s/^/#OVERRIDE /' \
 					-i kontact/plugins/CMakeLists.txt || die 'failed to override build logic'
 			fi
-			if ! slot_is_at_least 4.5 ${SLOT}; then
+			if [[ $(get_kde_version) < 4.5 ]]; then
 				case ${PN} in
 					kalarm|kmailcvt|kontact|korganizer|korn)
 						sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \

@@ -43,7 +43,7 @@ EOF
 #!/bin/sh
 
 if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "KDE-4" ]; then
-	export XDG_MENU_PREFIX="kde-${SLOT}-"
+	export XDG_MENU_PREFIX="kde-4-"
 fi
 EOF
 	exeinto /etc/X11/xinit/xinitrc.d/
