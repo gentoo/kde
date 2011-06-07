@@ -5,7 +5,6 @@ kde-base/kdeartwork-emoticons
 kde-base/kdeartwork-iconthemes
 kde-base/kdeartwork-kscreensaver
 kde-base/kdeartwork-meta
-# kde-base/kdeartwork-kwin-styles <--- not ready yet by upstream
 kde-base/kdeartwork-sounds
 kde-base/kdeartwork-styles
 kde-base/kdeartwork-wallpapers

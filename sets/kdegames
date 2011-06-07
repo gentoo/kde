@@ -3,6 +3,7 @@ kde-base/bomber
 kde-base/bovo
 kde-base/granatier
 kde-base/kapman
+kde-base/kajongg
 kde-base/katomic
 kde-base/kbattleship
 kde-base/kblackbox
@@ -17,6 +18,7 @@ kde-base/killbots
 kde-base/kigo
 kde-base/kiriki
 kde-base/kjumpingcube
+kde-base/klickety
 kde-base/klines
 kde-base/kmahjongg
 kde-base/kmines
@@ -26,7 +28,6 @@ kde-base/kollision
 kde-base/konquest
 kde-base/kpat
 kde-base/kreversi
-kde-base/ksame
 kde-base/kshisen
 kde-base/ksirk
 kde-base/kspaceduel
