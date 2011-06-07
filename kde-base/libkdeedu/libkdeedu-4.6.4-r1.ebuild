@@ -5,7 +5,6 @@
 EAPI=4
 
 KMNAME="kdeedu"
-KMEXTRACTONLY="libkdeedu/data"
 
 inherit kde4-meta
 
@@ -16,3 +15,7 @@ IUSE="debug"
 # 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken, 
 # see bug 258857 for details.
 RESTRICT=test
+
+DEPEND="!!<=kde-base/kvtml-data-4.6.3"
+RDEPEND=${DEPEND}
+# we need a hard blocker here, not provided by eclass
