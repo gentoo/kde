@@ -51,3 +51,10 @@ pkg_postinst() {
 	elog "For SVG support, emerge -va kde-base/svgpart"
 	echo
 }
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
