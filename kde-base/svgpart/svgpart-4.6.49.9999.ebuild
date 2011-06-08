@@ -10,3 +10,10 @@ inherit kde4-base
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"
 KEYWORDS=""
 IUSE="debug"
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
