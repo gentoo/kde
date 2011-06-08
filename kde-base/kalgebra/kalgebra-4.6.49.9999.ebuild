@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
+	libkdeedu/LibKdeEduConfig.cmake.in
 "
 KMEXTRA="
 	libkdeedu/qtmmlwidget/
@@ -27,6 +28,7 @@ KMEXTRA="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.5.73-solaris-graph2d.patch
+	"${FILESDIR}"/${PN}-4.6.4-nolib.patch
 )
 
 src_configure() {
