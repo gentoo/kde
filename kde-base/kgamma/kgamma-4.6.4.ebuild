@@ -33,3 +33,10 @@ src_unpack() {
 
 	${kde_eclass}_src_unpack
 }
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
