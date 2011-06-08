@@ -167,7 +167,7 @@ case ${KDEBASE} in
 
 		# Only add the kdeprefix USE flag for older versions, to help
 		# non-portage package managers handle the upgrade
-		if [[ ${PV} < 4.6.4 ]]; then
+		if [[ ${PV} < 4.6.4 && ( ( ${KMNAME} != kdepim && ${PN} != kdepim-runtime ) || ${PV} < 4.6 ) ]]; then
 			IUSE+=" kdeprefix"
 		fi
 
