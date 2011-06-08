@@ -49,3 +49,10 @@ src_configure() {
 
 	kde4-base_src_configure
 }
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}

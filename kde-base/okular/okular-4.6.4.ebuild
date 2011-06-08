@@ -49,5 +49,12 @@ src_configure() {
 		$(cmake-utils_use_with tiff)
 	)
 
-	${kde4_eclass}_src_configure
+	${kde_eclass}_src_configure
+}
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
 }
