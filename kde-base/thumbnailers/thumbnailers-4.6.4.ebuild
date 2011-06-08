@@ -22,3 +22,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 add_blocker kdegraphics-strigi-analyzer '<4.2.91'
+
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${D}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
