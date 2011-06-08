@@ -445,13 +445,11 @@ _calculate_src_uri() {
 					# KDEPIM IS SPECIAL
 					[[ ${KMNAME} == "kdepim" || ${KMNAME} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname_pv}.tar.bz2"
 					;;
-				4.4.[6789] | 4.4.1?*)
-					# Stable kdepim releases
-					SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
-					;;
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2"
+					# KDEPIM IS SPECIAL
+					[[ ${KMNAME} == "kdepim" || ${KMNAME} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
 					;;
 			esac
 			;;
