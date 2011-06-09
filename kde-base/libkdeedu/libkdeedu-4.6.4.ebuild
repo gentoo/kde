@@ -5,6 +5,8 @@
 EAPI=4
 
 KMNAME="kdeedu"
+KMEXTRACTONLY="libkdeedu/libscience kalzium"
+KMEXTRA="kalzium/libscience"
 
 inherit kde4-meta
 
