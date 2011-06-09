@@ -8,7 +8,7 @@ KMNAME="kde-wallpapers"
 KMMODULE="wallpapers"
 KDE_SCM="svn"
 KDE_REQUIRED="never"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE wallpapers"
 KEYWORDS=""
