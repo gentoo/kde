@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 
 KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
-	libkdeedu/libscience/
+	kalzium/libscience/
 "
 
 src_configure(){
