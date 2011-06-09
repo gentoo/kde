@@ -6,14 +6,8 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdegraphics"
-	kde_eclass="kde4-meta"
-fi
 
-inherit ${kde_eclass}
+inherit kde4-base
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
 KEYWORDS=""
@@ -25,18 +19,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto
 "
-
-src_unpack() {
-	if use handbook; then
-		KMEXTRA_NOFATAL+=" doc/kcontrol/kgamma"
-	fi
-
-	${kde_eclass}_src_unpack
-}
-
-src_install() {
-	kde4-meta_src_install
-
-	# why, oh why?!
-	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
-}
