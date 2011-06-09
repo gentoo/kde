@@ -20,3 +20,12 @@ HOMEPAGE="http://www.kipi-plugins.org"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+if [[ ${PV} != *9999 ]]; then
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
+fi
