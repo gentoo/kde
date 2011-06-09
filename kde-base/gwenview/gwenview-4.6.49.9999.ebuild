@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-	KDE_SCM="git"
 	kde_eclass="kde4-base"
 else
 	KMNAME="kdegraphics"
@@ -52,9 +52,11 @@ pkg_postinst() {
 	echo
 }
 
+if [[ ${PV} != *9999 ]]; then
 src_install() {
 	kde4-meta_src_install
 
 	# why, oh why?!
 	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
 }
+fi

@@ -5,12 +5,22 @@
 EAPI=4
 
 KDE_SCM="git"
-KMNAME="kdegraphics-thumbnailers"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
+fi
+
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
 KEYWORDS=""
 IUSE="debug"
+
+KMEXTRACTONLY="
+	libs/mobipocket
+"
 
 DEPEND="
 	$(add_kdebase_dep libkdcraw)
@@ -19,3 +29,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 add_blocker kdegraphics-strigi-analyzer '<4.2.91'
+
+if [[ ${PV} != *9999 ]]; then
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
+fi

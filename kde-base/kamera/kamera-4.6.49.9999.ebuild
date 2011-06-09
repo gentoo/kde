@@ -6,7 +6,13 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE digital camera manager"
 KEYWORDS=""
@@ -17,9 +23,21 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+if [[ ${PV} != *9999 ]]; then
+src_unpack() {
+	if use handbook; then
+		KMEXTRA="
+			doc/kcontrol/${PN}
+		"
+	fi
+
+	kde4-meta_src_unpack
+}
+
 src_install() {
 	kde4-meta_src_install
 
 	# why, oh why?!
 	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
 }
+fi

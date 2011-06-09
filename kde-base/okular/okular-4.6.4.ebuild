@@ -7,10 +7,10 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
-kde_eclass="kde4-base"
+	kde_eclass="kde4-base"
 else
-KMNAME="kdegraphics"
-kde_eclass="kde4-meta"
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
 fi
 inherit ${kde_eclass}
 
@@ -32,9 +32,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-if [[ ${PV} != *9999 ]]; then
 KMEXTRACTONLY="libs/mobipocket"
-fi
 
 src_configure() {
 	mycmakeargs=(
@@ -52,9 +50,11 @@ src_configure() {
 	${kde_eclass}_src_configure
 }
 
+if [[ ${PV} != *9999 ]]; then
 src_install() {
 	kde4-meta_src_install
 
 	# why, oh why?!
 	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
 }
+fi

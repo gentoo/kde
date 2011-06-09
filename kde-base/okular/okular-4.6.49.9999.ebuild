@@ -6,7 +6,13 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdegraphics"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
 KEYWORDS=""
@@ -26,13 +32,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	kde4-base_src_unpack
-
-	# HACK HACK HACK
-	# The package assumes that ../okular == .
-	ln -sf ${P} "${WORKDIR}/okular" || die "could not symlink the sources properly"
-}
+KMEXTRACTONLY="libs/mobipocket"
 
 src_configure() {
 	mycmakeargs=(
@@ -47,12 +47,14 @@ src_configure() {
 		$(cmake-utils_use_with tiff)
 	)
 
-	kde4-base_src_configure
+	${kde_eclass}_src_configure
 }
 
+if [[ ${PV} != *9999 ]]; then
 src_install() {
 	kde4-meta_src_install
 
 	# why, oh why?!
 	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
 }
+fi
