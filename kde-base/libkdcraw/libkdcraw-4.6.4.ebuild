@@ -26,3 +26,12 @@ DEPEND="
 	virtual/jpeg
 "
 RDEPEND="${DEPEND}"
+
+if [[ ${PV} != *9999 ]]; then
+src_install() {
+	kde4-meta_src_install
+
+	# why, oh why?!
+	rm "${ED}/usr/share/apps/cmake/modules/FindKSane.cmake" || die
+}
+fi
