@@ -7,7 +7,6 @@ EAPI=4
 KMNAME="kde-wallpapers"
 KMMODULE="wallpapers"
 KDE_SCM="svn"
-KDE_REQUIRED="never"
 inherit kde4-base
 
 DESCRIPTION="KDE wallpapers"
