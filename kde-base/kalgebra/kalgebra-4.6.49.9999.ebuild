@@ -5,9 +5,15 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeedu"
 OPENGL_REQUIRED="optional"
-inherit kde4-meta
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdeedu"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="MathML-based graph calculator for KDE."
 KEYWORDS=""
@@ -28,7 +34,6 @@ KMEXTRA="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.5.73-solaris-graph2d.patch
-	"${FILESDIR}"/${PN}-4.6.4-nolib.patch
 )
 
 src_configure() {
@@ -38,7 +43,7 @@ src_configure() {
 		$(cmake-utils_use_with opengl OpenGL)
 	)
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }
 
 src_test() {
@@ -47,5 +52,5 @@ src_test() {
 		"${S}"/"${PN}"/analitza/tests/CMakeLists.txt || \
 		die "sed to disable mathmlpresentationtest failed."
 
-	kde4-meta_src_test
+	${kde_eclass}_src_test
 }
