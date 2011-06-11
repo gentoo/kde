@@ -569,7 +569,8 @@ _calculate_live_repo() {
 				*)
 					# set EGIT_BRANCH and EGIT_COMMIT to $(get_kde_version)
 					case ${_kmname} in
-						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs | okular)
+						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs \
+						| okular | libkdeedu | cantor)
 							EGIT_BRANCH="$(get_kde_version)"
 							;;
 						marble)
