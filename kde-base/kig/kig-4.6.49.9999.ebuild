@@ -6,7 +6,13 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdeedu"
-inherit kde4-meta
+KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE Interactive Geometry tool"
 KEYWORDS=""
@@ -22,5 +28,5 @@ src_configure() {
 		$(cmake-utils_use_with kig-scripting BoostPython)
 	)
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }

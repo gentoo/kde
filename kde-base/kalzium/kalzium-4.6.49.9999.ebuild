@@ -5,10 +5,16 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
-inherit flag-o-matic kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	kde_eclass="kde4-meta"
+fi
+inherit flag-o-matic ${kde_eclass}
 
 DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
@@ -28,6 +34,10 @@ KMEXTRACTONLY="
 	kalzium/libscience/
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.6.49.9999-nolib.patch
+)
+
 src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
@@ -40,5 +50,5 @@ src_configure(){
 		$(cmake-utils_use_with solver Libfacile)
 	)
 
-	kde4-meta_src_configure
+	${kde_eclass}_src_configure
 }

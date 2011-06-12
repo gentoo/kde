@@ -7,10 +7,10 @@ EAPI=4
 KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="optional"
 KDE_SCM="git"
+KMNAME="kdeedu"
 if [[ ${PV} == *9999 ]]; then
 	kde_eclass="kde4-base"
 else
-	KMNAME="kdeedu"
 	kde_eclass="kde4-meta"
 fi
 inherit ${kde_eclass}

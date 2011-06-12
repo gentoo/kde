@@ -5,8 +5,14 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
+KDE_SCM="git"
 KMNAME="kdeedu"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
 KEYWORDS=""

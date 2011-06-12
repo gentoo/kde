@@ -1,0 +1,9 @@
+diff -urN kalzium-4.6.49.9999.orig/CMakeLists.txt kalzium-4.6.49.9999/CMakeLists.txt
+--- kalzium-4.6.49.9999.orig/CMakeLists.txt	2011-06-12 02:22:54.537552101 +0200
++++ kalzium-4.6.49.9999/CMakeLists.txt	2011-06-12 02:23:12.484578827 +0200
+@@ -45,4 +45,4 @@
+ add_subdirectory(src)
+ add_subdirectory(data)
+ add_subdirectory(plasmoid)
+-add_subdirectory(libscience)
++#add_subdirectory(libscience)
