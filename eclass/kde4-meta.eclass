@@ -180,29 +180,29 @@ kde4-meta_src_extract() {
 
 		case ${KDE_SCM} in
 			svn)
-				local rsync_options subdir kmnamedir targetdir wc_path escm
+				local rsync_options subdir targetdir wc_path escm
 
 				rsync_options="--group --links --owner --perms --quiet --exclude=.svn/ --exclude=.git/"
 				wc_path="${ESVN_WC_PATH}"
 				escm="{ESVN}"
 
 				# Copy ${KMNAME} non-recursively (toplevel files)
-				rsync ${rsync_options} "${wc_path}"/${kmnamedir}* "${S}" \
+				rsync ${rsync_options} "${wc_path}"/* "${S}" \
 					|| die "${escm}: can't export toplevel files to '${S}'."
 				# Copy cmake directory
-				if [[ -d "${wc_path}/${kmnamedir}cmake" ]]; then
-					rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}cmake" "${S}" \
+				if [[ -d "${wc_path}/cmake" ]]; then
+					rsync --recursive ${rsync_options} "${wc_path}/cmake" "${S}" \
 						|| die "${escm}: can't export cmake files to '${S}'."
 				fi
 				# Copy all subdirectories
 				for subdir in $(__list_needed_subdirectories); do
 					targetdir=""
-					if [[ $subdir = doc/* && ! -e "$wc_path/$kmnamedir$subdir" ]]; then
+					if [[ $subdir = doc/* && ! -e "$wc_path/$subdir" ]]; then
 						continue
 					fi
 
 					[[ ${subdir%/} = */* ]] && targetdir=${subdir%/} && targetdir=${targetdir%/*} && mkdir -p "${S}/${targetdir}"
-					rsync --recursive ${rsync_options} "${wc_path}/${kmnamedir}${subdir%/}" "${S}/${targetdir}" \
+					rsync --recursive ${rsync_options} "${wc_path}/${subdir%/}" "${S}/${targetdir}" \
 						|| die "${escm}: can't export subdirectory '${subdir}' to '${S}/${targetdir}'."
 				done
 				;;
@@ -305,7 +305,7 @@ kde4-meta_create_extractlists() {
 	# Note that this actually doesn't include KMEXTRA handling.
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
-		kdebase | kdebase-apps | kde-base-apps)
+		kdebase | kdebase-apps | kde-baseapps)
 			KMEXTRACTONLY+="
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
