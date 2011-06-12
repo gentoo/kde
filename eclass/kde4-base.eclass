@@ -569,8 +569,10 @@ _calculate_live_repo() {
 				*)
 					# set EGIT_BRANCH and EGIT_COMMIT to $(get_kde_version)
 					case ${_kmname} in
-						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs \
-						| okular | libkdeedu | cantor | kalgebra | kbruch | kgeography)
+						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs | okular)
+							EGIT_BRANCH="$(get_kde_version)"
+							;;
+						kdeedu)
 							EGIT_BRANCH="$(get_kde_version)"
 							;;
 						marble)
@@ -581,7 +583,14 @@ _calculate_live_repo() {
 					;;
 			esac
 
-			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			# default repo uri
+			case ${_kmname} in
+				kdeedu)
+					EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
+					;;
+				*)
+					EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			esac
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
 			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"
