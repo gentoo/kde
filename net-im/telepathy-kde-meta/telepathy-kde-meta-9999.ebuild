@@ -16,11 +16,12 @@ RDEPEND="
 	>=net-im/telepathy-accounts-kcm-plugins-${PV}
 	>=net-im/telepathy-approver-${PV}
 	>=net-im/telepathy-chat-handler-${PV}
-	>=net-im/telepathy-contact-list-${PV}"
+	>=net-im/telepathy-contact-list-${PV}
+	>=net-im/telepathy-presence-applet-${PV}"
 
 pkg_postinst() {
 	echo
 	elog "You will need in KDE System Settings configure accounts"
-	elog "and then open contact list."
+	elog "and then open contact list and/or add plasma applet."
 	echo
 }
