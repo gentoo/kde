@@ -39,5 +39,5 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	newdoc OpenShiva/doc/specifications/region.pdf OpenShiva.pdf
+	newdoc OpenShiva/doc/reference/region.pdf OpenShiva.pdf
 }
