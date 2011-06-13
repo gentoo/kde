@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/kscreensaver
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  13 Jun 2011; Andreas K. Huettel <dilfridge@gentoo.org>
+  +files/kscreensaver-4.6.4-xf86misc.patch, kscreensaver-4.6.49.9999.ebuild,
+  kscreensaver-4.6.80.ebuild, kscreensaver-9999.ebuild:
+  [kde-base/kscreensaver] Fix automagic dependency on libXxf86misc, bug 358655
+
