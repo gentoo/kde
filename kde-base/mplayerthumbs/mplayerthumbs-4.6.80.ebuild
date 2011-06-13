@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=41180"
 LICENSE="GPL-2"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug mplayer"
+IUSE="debug"
 
 RDEPEND="
 	!media-video/mplayerthumbs
@@ -20,7 +20,6 @@ RDEPEND="
 		$(add_kdebase_dep dolphin)
 		$(add_kdebase_dep konqueror)
 	)
-	mplayer? ( media-video/mplayer )
 "
 
 src_configure() {
