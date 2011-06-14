@@ -120,26 +120,24 @@ buildsycoca() {
 	# We no longer need to run kbuildsycoca4, as kded does that automatically, as needed
 
 	# fix permission for some directories
-	for x in share/{config,kde4}; do
-		[[ ${KDEDIR} == /usr ]] && DIRS=${EROOT}usr || DIRS="${EROOT}usr ${EROOT}${KDEDIR}"
-		for y in ${DIRS}; do
-			[[ -d "${y}/${x}" ]] || break # nothing to do if directory does not exist
-			# fixes Bug 318237
-			if use userland_BSD ; then
-				[[ $(stat -f %p "${y}/${x}") != 40755 ]]
-				local stat_rtn="$?"
-			else
-				[[ $(stat --format=%a "${y}/${x}") != 755 ]]
-				local stat_rtn=$?
-			fi
-			if [[ $stat_rtn != 1 ]] ; then
-				ewarn "QA Notice:"
-				ewarn "Package ${PN} is breaking ${y}/${x} permissions."
-				ewarn "Please report this issue to gentoo bugzilla."
-				einfo "Permissions will get adjusted automatically now."
-				find "${y}/${x}" -type d -print0 | xargs -0 chmod 755
-			fi
-		done
+	for x in usr/share/{config,kde4}; do
+		DIRS=${EROOT}usr
+		[[ -d "${EROOT}${x}" ]] || break # nothing to do if directory does not exist
+		# fixes Bug 318237
+		if use userland_BSD ; then
+			[[ $(stat -f %p "${EROOT}${x}") != 40755 ]]
+			local stat_rtn="$?"
+		else
+			[[ $(stat --format=%a "${EROOT}${x}") != 755 ]]
+			local stat_rtn=$?
+		fi
+		if [[ $stat_rtn != 1 ]] ; then
+			ewarn "QA Notice:"
+			ewarn "Package ${PN} is breaking ${EROOT}${x} permissions."
+			ewarn "Please report this issue to gentoo bugzilla."
+			einfo "Permissions will get adjusted automatically now."
+			find "${EROOT}${x}" -type d -print0 | xargs -0 chmod 755
+		fi
 	done
 }
 
@@ -344,8 +342,15 @@ load_library_dependencies() {
 # Create blocks for the current package in other slots
 block_other_slots() {
 	debug-print-function ${FUNCNAME} "$@"
+	local slot
 
-	_do_blocker ${PN} 0:${SLOT}
+	# Temporary HACK, remove this function after slotmove
+	# (moved from _do_blocker, as this only needs a very specialized listing)
+	for slot in "${KDE_SLOTS[@]}" "${KDE_LIVE_SLOTS[@]}"; do
+		if [[ ${slot} != ${SLOT} ]]; then
+			echo " !kde-base/${PN}:${slot}"
+		fi
+	done
 }
 
 # @FUNCTION: add_blocker
@@ -354,26 +359,21 @@ block_other_slots() {
 # Useful for file-collision blocks.
 # Parameters are package and version(s) to block.
 # add_blocker kdelibs 4.2.4
-# If no version is specified, then all versions will be blocked
-# If any arguments (from 2 on) contain a ":", then different versions
-# are blocked in different slots. (Unlisted slots get the version without
-# a ":", if none, then all versions are blocked). The parameter is then of
-# the form VERSION:SLOT.  Any VERSION of 0 means that no blocker will be
-# added for that slot (or, if no slot, then for any unlisted slot).
-# A parameter of the form :SLOT means to block all versions from that slot.
-# If VERSION begins with "<", then "!<foo" will be used instead of "!<=foo".
-# As a special case, if a parameter with slot "3.5" is passed, then that slot
-# may also be blocked.
+# If no version is specified, then all versions will be blocked.
+# If the version is 0, then no versions will be blocked.
+# If a second version ending in ":3.5" is passed, then the version listed for
+# that slot will be blocked as well.
 #
-# Versions that match "4.x.50" are equivalent to all slots up to (and including)
-# "4.x", but nothing following slot "4.x"
+# Examples:
+#    # Block all versions of kdelibs
+#    add_blocker kdelibs
 #
-# As an example, if SLOT=live, then
-#    add_blocker kdelibs 0 :4.3 '<4.3.96:4.4' 9999:live
-# will add the following to RDEPEND:
-#    !kde-base/kdelibs:4.3
-#    !<kde-base/kdelibs-4.3.96:4.4
-#    !<=kde-base/kdelibs-9999:live
+#    # Block all versions of kdelibs older than 4.3.50
+#    add_blocker kdelibs 4.3.50
+#
+#    # Block kdelibs 3.5.10 and older, but not any version of
+#    # kdelibs from KDE 4
+#    add_blocker kdelibs 0 3.5.10:3.5
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -401,12 +401,6 @@ add_kdebase_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# FIXME remove hack when kdepim-4.4.* is gone
-	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && $(get_kde_version) == 4.4 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
-		ver=4.4.5
-	# FIXME remove hack when kdepim-4.6beta is gone
-	elif [[ ( ${KMNAME} == kdepim || ${PN} == kdepim-runtime ) && ${PV} == 4.5.98 && ${1} =~ ^(kde(pim)?libs|oxygen-icons)$ ]]; then
-		ver=4.5.90
 	# if building stable-live version depend just on slot
 	# to allow merging packages against more stable basic stuff
 	elif [[ ${PV} == *.9999 ]]; then
@@ -417,13 +411,7 @@ add_kdebase_dep() {
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
-	local use=${2:+,${2}}
-
-	if [[ ${ver} == live ]]; then
-		echo " kde-base/${1}:live[aqua=${use}]"
-	else
-		echo " >=kde-base/${1}-${ver}[aqua=${use}]"
-	fi
+	echo " >=kde-base/${1}-${ver}[aqua=${2:+,${2}}]"
 }
 
 # _greater_max_in_slot ver slot
@@ -472,53 +460,24 @@ _do_blocker() {
 		pkg=${pkg%\[*\]}
 	fi
 
-	local param slot def="unset" var atom
-	# The following variables will hold parameters that contain ":"
-	#  - block_3_5
-	#  - block_4_1
-	#  - block_4_2
-	#  - block_4_3
-	#  - block_4_4
-	#  - block_live
-	for slot in 3.5 ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		local block_${slot//./_}="unset"
-	done
-
-	# This construct goes through each parameter passed, and sets
-	# either def or block_* to the version passed
-	for param; do
-		# If the parameter does not have a ":" in it...
-		if [[ ${param/:} == ${param} ]]; then
-			def=${param}
-		else # the parameter *does* have a ":" in it
-			# so everything after the : is the slot...
-			slot=${param#*:}
-			# ...and everything before the : is the version
-			local block_${slot//./_}=${param%:*}
-		fi
-	done
+	local slot ver="$1" atom old_ver="unset"
+	[[ "$2" == *:3.5 ]] && old_ver=${2::-4}
 
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		# ${var} contains the name of the variable we care about for this slot
-		# ${!var} is it's value
-		var=block_${slot//./_}
-		# if we didn't pass *:${slot}, then use the unsloted value
-		[[ ${!var} == "unset" ]] && var=def
-
 		# If no version was passed, or the version is greater than the maximum
 		# possible version in this slot, block all versions in this slot
-		if [[ ${!var} == "unset" ]] || [[ -z ${!var} ]] || _greater_max_in_slot ${!var#<} ${slot}; then
+		if [[ ${ver} == "unset" ]] || [[ -z ${ver} ]] || _greater_max_in_slot ${ver#<} ${slot}; then
 			atom=${pkg}
 		# If the version is "0" or less than the minimum possible version in
 		# this slot, do nothing
-		elif [[ ${!var} == "0" ]] || _less_min_in_slot ${!var#<} ${slot}; then
+		elif [[ ${ver} == "0" ]] || _less_min_in_slot ${ver#<} ${slot}; then
 			continue
 		# If the version passed begins with a "<", then use "<" instead of "<="
-		elif [[ ${!var:0:1} == "<" ]]; then
+		elif [[ ${ver::1} == "<" ]]; then
 			# this also removes the first character of the version, which is a "<"
-			atom="<${pkg}-${!var:1}"
+			atom="<${pkg}-${ver:1}"
 		else
-			atom="<=${pkg}-${!var}"
+			atom="<=${pkg}-${ver}"
 		fi
 		echo " !${atom}:${slot}${use:+[${use}]}"
 	done
@@ -527,13 +486,13 @@ _do_blocker() {
 	# default version passed, and no blocker is output *unless* a version
 	# is passed, or ":3.5" is passed to explicitly request a block on all
 	# 3.5 versions.
-	if [[ ${block_3_5} != "unset" && ${block_3_5} != "0" ]]; then
-		if [[ -z ${block_3_5} ]]; then
+	if [[ ${old_ver} != "unset" && ${old_ver} != "0" ]]; then
+		if [[ -z ${old_ver} ]]; then
 			atom=${pkg}
-		elif [[ ${block_3_5:0:1} == "<" ]]; then
-			atom="<${pkg}-${block_3_5:1}"
+		elif [[ ${old_ver::1} == "<" ]]; then
+			atom="<${pkg}-${old_ver:1}"
 		else
-			atom="<=${pkg}-${block_3_5}"
+			atom="<=${pkg}-${old_ver}"
 		fi
 		echo " !${atom}:3.5${use:+[${use}]}"
 	fi
@@ -597,9 +556,9 @@ get_kde_version() {
 	local major=$(get_major_version ${ver})
 	local minor=$(get_version_component_range 2 ${ver})
 	local micro=$(get_version_component_range 3 ${ver})
-	[[ ${ver} == 9999 ]] && echo live
-	(( major == 4 && micro == 9999 )) && echo ${major}.${minor}
-	if (( major == 4 && micro != 9999 )); then
+	if [[ ${ver} == 9999 ]]; then
+		echo live
+	else
 		(( micro < 50 )) && echo ${major}.${minor} || echo ${major}.$((minor + 1))
 	fi
 }

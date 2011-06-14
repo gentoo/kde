@@ -12,8 +12,8 @@ DESCRIPTION="KDE tool for opening URLs from the command line"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-# Moved from kde-base/konqueror in 4.3.0-r2, 4.3.65-r1
-add_blocker konqueror 4.3.0-r1 4.3.65:4.4
+# Moved from kde-base/konqueror in 4.3.65-r1
+add_blocker konqueror 4.3.65
 
 KMEXTRACTONLY="
 	konqueror/kfmclient.desktop
