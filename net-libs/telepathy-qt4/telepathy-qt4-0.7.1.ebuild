@@ -24,7 +24,7 @@ RDEPEND="
 		dev-libs/dbus-glib
 		dev-libs/libxml2
 		media-libs/gstreamer
-		net-libs/telepathy-glib
+		>=net-libs/telepathy-glib-0.15.1
 		net-libs/telepathy-farsight
 	)
 "
