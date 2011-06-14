@@ -32,6 +32,12 @@ DEPEND="${RDEPEND}
 	dev-libs/libxslt
 	dev-util/pkgconfig"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}"/telepathy-qt4-doxygen_remove.patch
+}
+
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
