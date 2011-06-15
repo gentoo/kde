@@ -44,17 +44,6 @@ elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	KDEBASE=kdevelop
 fi
 
-# @ECLASS-VARIABLE: KDE_SLOTS
-# @DESCRIPTION:
-# The slots used by all KDE versions later than 4.0. The live KDE releases use
-# KDE_LIVE_SLOTS instead. Values should be ordered.
-KDE_SLOTS=( "4.1" "4.2" "4.3" "4.4" "4.5" "4.6" "4.7" )
-
-# @ECLASS-VARIABLE: KDE_LIVE_SLOTS
-# @DESCRIPTION:
-# The slots used by KDE live versions. Values should be ordered.
-KDE_LIVE_SLOTS=( "live" )
-
 # determine the build type
 if [[ ${PV} = *9999* ]]; then
 	BUILD_TYPE="live"
@@ -337,22 +326,6 @@ load_library_dependencies() {
 	eend $?
 }
 
-# @FUNCTION: block_other_slots
-# @DESCRIPTION:
-# Create blocks for the current package in other slots
-block_other_slots() {
-	debug-print-function ${FUNCNAME} "$@"
-	local slot
-
-	# Temporary HACK, remove this function after slotmove
-	# (moved from _do_blocker, as this only needs a very specialized listing)
-	for slot in "${KDE_SLOTS[@]}" "${KDE_LIVE_SLOTS[@]}"; do
-		if [[ ${slot} != ${SLOT} ]]; then
-			echo " !kde-base/${PN}:${slot}"
-		fi
-	done
-}
-
 # @FUNCTION: add_blocker
 # @DESCRIPTION:
 # Create correct RDEPEND value for blocking correct package.
@@ -377,13 +350,47 @@ block_other_slots() {
 add_blocker() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	RDEPEND+=" $(_do_blocker "$@")"
+	[[ -z ${1} ]] && die "Missing parameter"
+	local pkg=kde-base/$1 atom old_ver="unset" use
+	if [[ $pkg == *\[*\] ]]; then
+		use=${pkg/#*\[/[}
+		pkg=${pkg%\[*\]}
+	fi
+
+	[[ "$3" == *:3.5 ]] && old_ver=${3%:3.5}
+
+	# If the version passed is "0", do nothing
+	if [[ ${2} != 0 ]]; then
+		# If no version was passed, block all versions in this slot
+		if [[ -z ${2} ]]; then
+			atom=${pkg}
+		# If the version passed begins with a "<", then use "<" instead of "<="
+		elif [[ ${2::1} == "<" ]]; then
+			# this also removes the first character of the version, which is a "<"
+			atom="<${pkg}-${2:1}"
+		else
+			atom="<=${pkg}-${2}"
+		fi
+		RDEPEND+=" !${atom}:4${use}"
+	fi
+
+	# Do the same thing as above for :3.5, except that we don't want any
+	# output if no parameter was passed.
+	if [[ ${old_ver} != "unset" ]]; then
+		if [[ -z ${old_ver} ]]; then
+			atom=${pkg}
+		elif [[ ${old_ver::1} == "<" ]]; then
+			atom="<${pkg}-${old_ver:1}"
+		else
+			atom="<=${pkg}-${old_ver}"
+		fi
+		RDEPEND+=" !${atom}:3.5${use}"
+	fi
 }
 
 # @FUNCTION: add_kdebase_dep
 # @DESCRIPTION:
-# Create proper dependency for kde-base/ dependencies, adding SLOT when needed
-# (and *only* when needed).
+# Create proper dependency for kde-base/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
 # second is additional USE flags to append, and the optional third is the
 # version to use instead of the automatic version (use sparingly).
@@ -401,7 +408,7 @@ add_kdebase_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building stable-live version depend just on slot
+	# if building stable-live version depend just on the raw KDE version
 	# to allow merging packages against more stable basic stuff
 	elif [[ ${PV} == *.9999 ]]; then
 		ver=$(get_kde_version)
@@ -411,91 +418,7 @@ add_kdebase_dep() {
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
-	echo " >=kde-base/${1}-${ver}[aqua=${2:+,${2}}]"
-}
-
-# _greater_max_in_slot ver slot
-# slot must be 4.x or live
-# returns true if ver is >= the maximum possibile version in slot
-_greater_max_in_slot() {
-	local ver=$1
-	local slot=$2
-	# If slot is live, then return false
-	# (nothing is greater than the maximum live version)
-	[[ $slot == live ]] && return 1
-	# Otherwise, for slot X.Y, test against X.Y.50
-	local test=${slot}.50
-	version_compare $1 ${test}
-	# 1 = '<', 2 = '=', 3 = '>'
-	(( $? != 1 ))
-}
-
-# _less_min_in_slot ver slot
-# slot must be 4.x or live
-# returns true if ver is <= the minimum possibile version in slot
-_less_min_in_slot() {
-	local ver=$1
-	local slot=$2
-	# If slot == live, then test with "9999_pre", so that 9999 tests false
-	local test=9999_pre
-	# If slot == X.Y, then test with X.(Y-1).50
-	[[ $slot != live ]] && test=${slot%.*}.$((${slot#*.} - 1)).50
-	version_compare $1 ${test}
-	# 1 = '<', 2 = '=', 3 = '>'
-	(( $? != 3 ))
-}
-
-# Internal function used for add_blocker and block_other_slots
-# This takes the same parameters as add_blocker, but echos to
-# stdout instead of updating a variable.
-_do_blocker() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	[[ -z ${1} ]] && die "Missing parameter"
-	local pkg=kde-base/$1 use
-	shift
-	if [[ $pkg == *\[*\] ]]; then
-		use=${pkg#*\[}
-		use=${use%\]}
-		pkg=${pkg%\[*\]}
-	fi
-
-	local slot ver="$1" atom old_ver="unset"
-	[[ "$2" == *:3.5 ]] && old_ver=${2%:3.5}
-
-	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
-		# If no version was passed, or the version is greater than the maximum
-		# possible version in this slot, block all versions in this slot
-		if [[ ${ver} == "unset" ]] || [[ -z ${ver} ]] || _greater_max_in_slot ${ver#<} ${slot}; then
-			atom=${pkg}
-		# If the version is "0" or less than the minimum possible version in
-		# this slot, do nothing
-		elif [[ ${ver} == "0" ]] || _less_min_in_slot ${ver#<} ${slot}; then
-			continue
-		# If the version passed begins with a "<", then use "<" instead of "<="
-		elif [[ ${ver::1} == "<" ]]; then
-			# this also removes the first character of the version, which is a "<"
-			atom="<${pkg}-${ver:1}"
-		else
-			atom="<=${pkg}-${ver}"
-		fi
-		echo " !${atom}:${slot}${use:+[${use}]}"
-	done
-
-	# This is a special case block for :3.5; it does not use the
-	# default version passed, and no blocker is output *unless* a version
-	# is passed, or ":3.5" is passed to explicitly request a block on all
-	# 3.5 versions.
-	if [[ ${old_ver} != "unset" && ${old_ver} != "0" ]]; then
-		if [[ -z ${old_ver} ]]; then
-			atom=${pkg}
-		elif [[ ${old_ver::1} == "<" ]]; then
-			atom="<${pkg}-${old_ver:1}"
-		else
-			atom="<=${pkg}-${old_ver}"
-		fi
-		echo " !${atom}:3.5${use:+[${use}]}"
-	fi
+	echo " >=kde-base/${1}-${ver}:4[aqua=${2:+,${2}}]"
 }
 
 # local function to enable specified translations for specified directory

@@ -52,8 +52,7 @@ KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
-		SLOT=$(get_kde_version)
-		[[ -z ${SLOT} ]] && die "Unsupported PV ${PV}"
+		SLOT=4
 		KDE_MINIMAL="${PV}"
 		;;
 	koffice)
@@ -179,8 +178,6 @@ case ${KDEBASE} in
 				RESTRICT+=" mirror"
 				;;
 		esac
-		# Block installation of other SLOTS unless kdeprefix
-		RDEPEND+=" $(block_other_slots)"
 		;;
 	koffice)
 		HOMEPAGE="http://www.koffice.org/"

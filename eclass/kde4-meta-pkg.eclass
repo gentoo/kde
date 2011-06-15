@@ -22,7 +22,4 @@ if [[ ${PV} < 4.6.4 && ( ${PN} != kdepim-meta || ${PV} < 4.6 ) ]]; then
 	IUSE+=" kdeprefix"
 fi
 
-SLOT=$(get_kde_version)
-[[ -z ${SLOT} ]] && die "Unsupported ${PV}"
-
-RDEPEND="$(block_other_slots)"
+SLOT=4
