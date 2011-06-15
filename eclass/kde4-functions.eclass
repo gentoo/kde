@@ -461,7 +461,7 @@ _do_blocker() {
 	fi
 
 	local slot ver="$1" atom old_ver="unset"
-	[[ "$2" == *:3.5 ]] && old_ver=${2::-4}
+	[[ "$2" == *:3.5 ]] && old_ver=${2%:3.5}
 
 	for slot in ${KDE_SLOTS[@]} ${KDE_LIVE_SLOTS[@]}; do
 		# If no version was passed, or the version is greater than the maximum
