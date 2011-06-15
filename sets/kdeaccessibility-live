@@ -1,6 +1,6 @@
-kde-base/jovie:live
-kde-base/kaccessible:live
-kde-base/kdeaccessibility-meta:live
-kde-base/kmag:live
-kde-base/kmousetool:live
-kde-base/kmouth:live
+~kde-base/jovie-9999
+~kde-base/kaccessible-9999
+~kde-base/kdeaccessibility-meta-9999
+~kde-base/kmag-9999
+~kde-base/kmousetool-9999
+~kde-base/kmouth-9999

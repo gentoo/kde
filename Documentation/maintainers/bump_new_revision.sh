@@ -17,9 +17,8 @@ get_packages_from_slot() {
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild
-		cat ${SLOTFILE} | grep -v ^@ | grep -v ^$ | grep -v ^#| grep 'kde-base/' \
-			| sed -e "s/:${SLOT}//g" \
-			>> ${TMPFILE}
+		sed -e '/^[@#]/d;/^$/d;\@kde-base/@!d;s/^>=//g;s/^~//g;s/-4\..\.50$//g;s/-9999$//g' \
+			${SLOTFILE} >> ${TMPFILE}
 	done
 }
 
@@ -27,16 +26,18 @@ get_packages_from_slot() {
 add_new_sloted_version() {
 	local SLOTFILE
 	local NEWSLOTFILE
+	local PREVVER
 
 	find ${PORTDIR_BUMPING}/sets/ -maxdepth 1 -type f -name \*-${SLOT} -print \
 		| while read SLOTFILE; do
 		NEWSLOTFILE=${SLOTFILE/${SLOT}/${BUMP_VERSION}}
+		PREVVER=4.$((${BUMP_VERSION#4.}-1))
 		echo "creating ${NEWSLOTFILE}"
 		# copy actualy that file
 		cp ${SLOTFILE} ${NEWSLOTFILE}
 		# fix versioning
-		sed -i \
-			-e "s:${SLOT}:${BUMP_VERSION}:" \
+		sed -r -i \
+			-e "\@kde-base/@{s:~:>=:;s:-(9999|4\..\.50)$:-${PREVVER}.50:};/@kde/s:${SLOT}:${BUMP_VERSION}:" \
 			${NEWSLOTFILE} || die "unable to update slotfile versioning"
 		# add to git
 		git add ${NEWSLOTFILE}
@@ -262,8 +263,6 @@ case ${OPERATION} in
 				# actualy create our desired ebuild files
 				# echo "Creating: ${NEW}" # verbosity
 				cp "${OLD}" "${NEW}"
-				# if the ebuild sets SLOT, then update it properly
-				sed -i "/^SLOT=/s/^.*$/SLOT=\"${SLOT}\"/" "${NEW}"
 				if [ `grep ".patch" ${NEW} |wc -l` -gt 0 ]; then
 						INFO_LIST="${INFO_LIST} You should pay more attention to ebuild ${NEW}, because it has some patches.\n"
 				fi

@@ -1,2 +1,2 @@
-kde-base/kdebase-meta:4.6
-kde-base/kde-meta:4.6
+>=kde-base/kdebase-meta-4.5.50
+>=kde-base/kde-meta-4.5.50

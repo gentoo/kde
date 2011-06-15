@@ -1,5 +1,5 @@
-kde-base/kcron:live
-kde-base/kdeadmin-meta:live
-kde-base/ksystemlog:live
-kde-base/kuser:live
-kde-base/system-config-printer-kde:live
+~kde-base/kcron-9999
+~kde-base/kdeadmin-meta-9999
+~kde-base/ksystemlog-9999
+~kde-base/kuser-9999
+~kde-base/system-config-printer-kde-9999

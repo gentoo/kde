@@ -28,7 +28,7 @@ for release in 4.6 4.7; do
 		echo -e "${HEADER}" > "kde-${release}.9999.keywords"
 		for file in ".kde-${release}"/*; do
 			newfile=".kde-${release}.9999"/$(basename "${file}")
-			sed "/^kde-base\/.*:${release}$/{s/:${release}/-${release}.49.9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
+			sed "/^>=kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}.49.9999/;s/^>=/~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
 		done
 		cat ".kde-${release}.9999"/* >> "kde-${release}.9999.keywords"
 	fi
@@ -40,7 +40,7 @@ if [[ -d .kde-live.base ]]; then
 	echo -e "${HEADER}" > kde-live.keywords
 	for file in .kde-live.base/*; do
 		newfile=.kde-live/$(basename "${file}")
-		sed '/^kde-base\/.*:live$/{s/:live/-9999/;s/^/~/};/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+		sed '/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
 	done
 	cat .kde-live/* >> kde-live.keywords
 fi
@@ -83,6 +83,6 @@ pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
 	newfile=${set/%-${RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed "s/[:-]${RELEASE}//g" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${RELEASE}//g;s/~//;s/>=//;\@kde-base/@s/-(9999|4\..\.50)/:4/" "${set}" >> "${newfile}"
 done
 popd > /dev/null
