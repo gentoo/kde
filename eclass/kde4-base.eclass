@@ -608,13 +608,12 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
 # Set the installation PREFIX for non kde-base applications. It defaults to /usr.
-# kde-base packages go into KDE4 installation directory (KDEDIR) by default.
-# No matter the PREFIX, package will be built against KDE installed in KDEDIR.
+# kde-base packages go into KDE4 installation directory (/usr).
+# No matter the PREFIX, package will be built against KDE installed in /usr.
 
 # @FUNCTION: kde4-base_pkg_setup
 # @DESCRIPTION:
-# Do the basic KDEDIR settings and determine with which kde should
-# optional applications link
+# Do some basic settings
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -647,10 +646,8 @@ kde4-base_pkg_setup() {
 	: ${PREFIX:=/usr}
 	EKDEDIR=${EPREFIX}/usr
 
-	# Point pkg-config path to KDE *.pc files
-	export PKG_CONFIG_PATH="${EKDEDIR}/$(get_libdir)/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
 	# Point to correct QT plugins path
-	QT_PLUGIN_PATH="${EKDEDIR}/$(get_libdir)/kde4/plugins/"
+	QT_PLUGIN_PATH="${EPREFIX}/usr/$(get_libdir)/kde4/plugins/"
 
 	# Fix XDG collision with sandbox
 	export XDG_CONFIG_HOME="${T}"
@@ -793,7 +790,7 @@ kde4-base_src_configure() {
 	# Use colors
 	QTEST_COLORED=1
 
-	# Shadow existing /usr installations
+	# Shadow existing installations
 	unset KDEDIRS
 
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
