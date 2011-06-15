@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_SCM="git"
 if [[ ${PV} == *9999 ]]; then
+	KMNAME="kdegraphics-thumbnailers"
 	kde_eclass="kde4-base"
 else
 	KMNAME="kdegraphics"
