@@ -66,13 +66,3 @@ KMEXTRACTONLY="
 "
 
 KMSAVELIBS="true"
-
-src_configure() {
-	mycmakeargs=(
-		# Set the dbus dirs, otherwise it searches in KDEDIR
-		-DAKONADI_DBUS_INTERFACES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/interfaces"
-		-DAKONADI_DBUS_SERVICES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/services"
-	)
-
-	kde4-meta_src_configure
-}
