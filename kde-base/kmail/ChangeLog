@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/kmail
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  17 Jun 2011; Andreas K. Huettel <dilfridge@gentoo.org>
+  kmail-4.6.49.9999.ebuild, kmail-9999.ebuild:
+  [kde-base/kmail] Build additional dir with Outlook/Exchange appointment code,
+  bug 372039
+

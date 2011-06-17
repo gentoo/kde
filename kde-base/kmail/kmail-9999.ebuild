@@ -50,6 +50,7 @@ KMEXTRA="
 	libksieve/
 	mailcommon/
 	ontologies/
+	plugins/messageviewer/
 "
 
 KMLOADLIBS="kdepim-common-libs"
