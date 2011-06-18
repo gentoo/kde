@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-qt4/telepathy-qt4-0.5.15.ebuild,v 1.1 2011/04/20 12:31:17 scarabeus Exp $
+# $Header: $
 
 PYTHON_DEPEND="2"
 

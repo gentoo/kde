@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/kaffeine/kaffeine-1.1.ebuild,v 1.4 2011/02/02 04:57:41 tampakrap Exp $
+# $Header: $
 
 EAPI=4
 

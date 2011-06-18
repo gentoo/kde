@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libindicate/libindicate-0.4.4.ebuild,v 1.1 2011/01/17 09:34:20 tampakrap Exp $
+# $Header: $
 
 EAPI=4
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.6.2-r2.ebuild,v 1.4 2011/04/18 20:27:15 dilfridge Exp $
+# $Header: $
 
 EAPI=4
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/kdiff3/kdiff3-0.9.95-r1.ebuild,v 1.1 2011/01/12 22:46:57 tampakrap Exp $
+# $Header: $
 
 EAPI=4
 

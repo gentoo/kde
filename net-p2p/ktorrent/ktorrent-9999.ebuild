@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.0.5.ebuild,v 1.6 2011/01/17 01:08:40 ranger Exp $
+# $Header: $
 
 EAPI=4
 

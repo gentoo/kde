@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/kmymoney/kmymoney-4.5.ebuild,v 1.1 2010/08/18 21:29:48 reavertm Exp $
+# $Header: $
 
 EAPI=4
 
