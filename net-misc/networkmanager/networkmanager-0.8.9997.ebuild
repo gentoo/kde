@@ -95,7 +95,7 @@ pkg_setup() {
 src_prepare() {
 	gtkdocize
 	intltoolize --force
-	eautopoint
+	eautopoint --force
 	eautoreconf
 }
 
