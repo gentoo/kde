@@ -49,7 +49,7 @@ CDEPEND="
 	media-libs/tiff
 	media-libs/libpgf
 	>=media-plugins/kipi-plugins-1.2.0-r1
-	|| ( >=sci-libs/clapack-3.2.1-r3 sci-libs/lapack-atlas )
+	|| ( >=sci-libs/clapack-3.2.1-r6 sci-libs/lapack-atlas )
 	virtual/mysql
 	x11-libs/qt-gui[qt3support]
 	|| ( x11-libs/qt-sql[mysql] x11-libs/qt-sql[sqlite] )
