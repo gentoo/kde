@@ -38,10 +38,12 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-src_prepare() {
-	intltoolize --force --copy --automake || die
-	eautoreconf
-}
+if [[ ${PV} == *9999* ]]; then
+	src_prepare() {
+		intltoolize --force --copy --automake || die
+		eautoreconf
+	}
+fi
 
 src_configure() {
 	# ppp-2.4.5 will change the plugin directory (not added to portage yet)
