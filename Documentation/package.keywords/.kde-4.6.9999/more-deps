@@ -11,58 +11,5 @@ app-admin/system-config-printer-gnome
 net-print/cups
 dev-python/pycups
 
-# Bindings etc
->=dev-python/PyQt4-4.8.3
->=dev-python/sip-4.12.1
-
-# Polkit and friends
->=kde-misc/polkit-kde-kcmodules-0.98_pre
-~sys-auth/polkit-kde-agent-0.99.0
-~sys-auth/polkit-qt-0.99.0
-~gnome-extra/polkit-gnome-0.99
-
-# Phonon (have to decide on a version)
-media-libs/phonon
-media-libs/phonon-gstreamer
-media-libs/phonon-vlc
-media-libs/phonon-xine
-
-# Unrelated
-x11-misc/google-gadgets
-
-# Qt 4.7
-~x11-libs/qt-script-4.7.2
-~x11-libs/qt-core-4.7.2
-~x11-libs/qt-gui-4.7.2
-~x11-libs/qt-dbus-4.7.2
-~x11-libs/qt-qt3support-4.7.2
-~x11-libs/qt-sql-4.7.2
-~x11-libs/qt-test-4.7.2
-~x11-libs/qt-svg-4.7.2
-~x11-libs/qt-declarative-4.7.2
-~x11-libs/qt-opengl-4.7.2
-~x11-libs/qt-xmlpatterns-4.7.2
-~x11-libs/qt-multimedia-4.7.2
-~x11-libs/qt-webkit-4.7.2
-~x11-libs/qt-assistant-4.7.2
-~x11-libs/qt-demo-4.7.2
-
-# The new bluetooth stack
-net-libs/libbluedevil
-net-wireless/bluedevil
-
-# Need newer akonadi-server for 4.6
-app-office/akonadi-server
-
-# For those with useflag webkit
-kde-misc/kwebkitpart
-
-# kdevelop
-~dev-util/kdevelop-4.2.2
-~dev-util/kdevplatform-1.2.2
-
-# old plugins have file collisions
-~kde-misc/konq-plugins-4.6.1
-
 # Needed by libkexiv2
 >=media-gfx/exiv2-0.20
