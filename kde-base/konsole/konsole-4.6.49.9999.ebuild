@@ -36,3 +36,6 @@ DEPEND="${COMMONDEPEND}
 	)
 "
 RDEPEND="${COMMONDEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-4.6.4-imagesize.patch" )
+

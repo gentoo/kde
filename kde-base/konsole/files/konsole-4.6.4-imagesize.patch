@@ -1,0 +1,70 @@
+Make sure the imageSizeChanged signal is emitted at least once.
+
+Without this patch, the shell or other app might have a wrong idea as to the
+size of the terminal, because the size has never explicitely been set.
+
+This patch uses a boolean flag, to make sure the signal gets emitted at
+least once.  An alternative would be to change the default screen sizes. 
+One could either choose 24x80 as the default screen size, as this is what
+most apps expect, or 1x1, as this is almost certainly different from any
+screen size actually used.  The first approach relies on defaults which need
+not be fixed, and should therefore be avoided.  Both approaches force a
+resize of the screens created in the constructor, which is some overhead I'd
+like to avoid.  Neither one bool of data nor the added control structures
+seems expensive enough to discourage this approach.
+
+https://bugs.kde.org/show_bug.cgi?id=176902
+https://bugs.gentoo.org/show_bug.cgi?id=357945
+https://bugzilla.redhat.com/show_bug.cgi?id=477359
+
+2011-04-06 Patch by Martin von Gagern
+based on ideas from Kurt V. Hindenburg and Jonathan Wakely
+
+Index: konsole-4.6.1/konsole/src/Emulation.cpp
+===================================================================
+--- konsole-4.6.1.orig/konsole/src/Emulation.cpp
++++ konsole-4.6.1/konsole/src/Emulation.cpp
+@@ -55,7 +55,8 @@ Emulation::Emulation() :
+   _codec(0),
+   _decoder(0),
+   _keyTranslator(0),
+-  _usesMouse(false)
++  _usesMouse(false),
++  _imageSizeSet(false)
+ {
+   // create screens with a default size
+   _screen[0] = new Screen(40,80);
+@@ -344,12 +345,20 @@ void Emulation::setImageSize(int lines,
+   QSize newSize(columns,lines);
+ 
+   if (newSize == screenSize[0] && newSize == screenSize[1])
+-    return;    
++  {
++    if (!_imageSizeSet)
++    {
++      emit imageSizeChanged(lines,columns);
++      _imageSizeSet = true;
++    }
++    return;
++  }
+ 
+   _screen[0]->resizeImage(lines,columns);
+   _screen[1]->resizeImage(lines,columns);
+ 
+   emit imageSizeChanged(lines,columns);
++  _imageSizeSet = true;
+ 
+   bufferedUpdate();
+ }
+Index: konsole-4.6.1/konsole/src/Emulation.h
+===================================================================
+--- konsole-4.6.1.orig/konsole/src/Emulation.h
++++ konsole-4.6.1/konsole/src/Emulation.h
+@@ -462,6 +462,7 @@ private:
+   bool _usesMouse;
+   QTimer _bulkTimer1;
+   QTimer _bulkTimer2;
++  bool _imageSizeSet;
+   
+ };
+ 
