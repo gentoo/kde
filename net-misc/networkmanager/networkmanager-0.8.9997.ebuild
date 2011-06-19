@@ -92,14 +92,12 @@ pkg_setup() {
 	fi
 }
 
-if [[ ${PV} == *9999* ]]; then
-	src_prepare() {
+src_prepare() {
 		gtkdocize
-		intltoolize --force
 		eautopoint --force
+		intltoolize --force --automake --copy
 		eautoreconf
-	}
-fi
+}
 
 src_configure() {
 	ECONF="--disable-more-warnings
