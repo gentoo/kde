@@ -9,6 +9,12 @@ KDE_MINIMAL="4.6"
 KDE_SCM="git"
 EGIT_REPONAME="networkmanagement"
 
+if use nm09; then
+	EGIT_BRANCH="nm09"
+else
+	EGIT_BRANCH="master"
+fi
+
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
@@ -18,13 +24,13 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="consolekit debug"
+IUSE="consolekit nm09 debug"
 
 # From 0.9 networkmanager the solid is not used
 DEPEND="
 	net-misc/mobile-broadband-provider-info
 	|| (
-		>=net-misc/networkmanager-0.8.80
+		>=net-misc/networkmanager-0.8.9997
 		$(add_kdebase_dep solid 'networkmanager')
 	)
 "
