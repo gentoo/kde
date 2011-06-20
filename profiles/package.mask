@@ -296,3 +296,6 @@
 >=kde-base/kommander-4.6.50
 >=kde-base/kdebase-meta-4.6.50
 >=kde-base/kde-meta-4.6.50
+
+>=net-misc/modemmanager-0.4.997
+>=net-misc/networkmanager-0.8.9997
