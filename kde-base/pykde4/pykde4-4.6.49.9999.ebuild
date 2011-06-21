@@ -73,7 +73,6 @@ src_install() {
 	kde4-meta_src_install
 
 	python_convert_shebangs -q -r $(python_get_version) "${ED}"
-	python_clean_installation_image -q
 }
 
 pkg_postinst() {
