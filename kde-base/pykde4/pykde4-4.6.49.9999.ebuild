@@ -33,6 +33,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-4.6.4-pyqt475.patch" )
+
 pkg_setup() {
 	python_pkg_setup
 	kde4-meta_pkg_setup
