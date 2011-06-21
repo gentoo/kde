@@ -104,6 +104,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_enable themedesigner)
 		$(cmake-utils_use_enable thumbnails THUMBS_DB)
+		$(cmake-utils_use_enable debug DEBUG_MESSAGES)
 	)
 
 	kde4-base_src_configure
