@@ -69,7 +69,7 @@ src_install() {
 pkg_postinst() {
 	kde4-base_pkg_postinst
 
-	python_mod_optimize PyKDE4 PyQt4
+	python_mod_optimize PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 
 	if use examples; then
 		echo
@@ -82,5 +82,5 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-base_pkg_postrm
 
-	python_mod_cleanup PyKDE4 PyQt4
+	python_mod_cleanup PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 }
