@@ -16,7 +16,7 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-lzma mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev zeroconf"
+lzma mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +umagic zeroconf"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -95,11 +95,13 @@ RDEPEND="${COMMONDEPEND}
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
 	!aqua? (
-		sys-fs/udisks
-		sys-power/upower
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
+		umagic? (
+			sys-fs/udisks
+			sys-power/upower
+		)
 	)
 "
 PDEPEND="
