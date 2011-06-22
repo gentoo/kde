@@ -29,10 +29,8 @@ IUSE="consolekit nm09 debug"
 # From 0.9 networkmanager the solid is not used
 DEPEND="
 	net-misc/mobile-broadband-provider-info
-	|| (
-		>=net-misc/networkmanager-0.8.9997
-		$(add_kdebase_dep solid 'networkmanager')
-	)
+	nm09?	( >=net-misc/networkmanager-0.8.9997 )
+	!nm09?	( $(add_kdebase_dep solid 'networkmanager') )
 "
 RDEPEND="${DEPEND}"
 
