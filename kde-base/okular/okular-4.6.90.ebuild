@@ -39,5 +39,5 @@ src_configure() {
 		$(cmake-utils_use_with tiff)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
