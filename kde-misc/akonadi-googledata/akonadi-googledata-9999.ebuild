@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="extragear/pim"
-KMMODULE="googledata"
+KDE_SCM="git"
+EGIT_REPONAME="akonadi-googledata-resource"
 inherit kde4-base
 
 DESCRIPTION="Google contacts and calendar akonadi resource"
