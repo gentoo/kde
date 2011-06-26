@@ -4,5 +4,7 @@
   <herd>kde</herd>
   <use>
     <flag name="opengl">Enable OpenGL support for Plasma (GLApplet)</flag>
+    <flag name="udisks">Use udisks for block device access (e.g., automounting)</flag>
+    <flag name="upower">Use upower for power management</flag>
   </use>
 </pkgmetadata>
