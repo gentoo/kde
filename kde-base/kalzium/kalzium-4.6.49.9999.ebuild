@@ -6,12 +6,12 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-KMNAME="kdeedu"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
 if [[ ${PV} == *9999 ]]; then
 	kde_eclass="kde4-base"
 else
+	KMNAME="kdeedu"
 	kde_eclass="kde4-meta"
 fi
 inherit flag-o-matic ${kde_eclass}

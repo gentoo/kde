@@ -565,29 +565,37 @@ _calculate_live_repo() {
 				9999*) ;;
 				*)
 					# set EGIT_BRANCH and EGIT_COMMIT to $(get_kde_version)
+					# every package is listed explicitly now, as upstream
+					# seems to love being different :(
 					case ${_kmname} in
-						kdeplasma-addons | kdepim | kdepim-runtime | kdepimlibs | okular)
-							EGIT_BRANCH="$(get_kde_version)"
-							;;
-						kdeedu)
+						blinken|cantor|kalgebra|kalzium|kanagram|kbruch| \
+						kdeplasma-addons|kdepim|kdepim-runtime|kdepimlibs| \
+						kgeography|khangman|kig|kiten|klettres|kmplot|kstars| \
+						ktouch|kturtle|kwordquiz|libkdeedu|mobipocket|okular| \
+						parley|rocs|step)
 							EGIT_BRANCH="$(get_kde_version)"
 							;;
 						marble)
 							EGIT_BRANCH="kde-$(get_kde_version)"
 							;;
-						*) EGIT_BRANCH="KDE/$(get_kde_version)" ;;
+						gwenview|kamera|kate|kcolorchooser|kde-baseapps| \
+						kde-runtime|kde-workspace|kgamma| \
+						kdegraphics-strigi-analyzer|kdegraphics-thumbnailers| \
+						kdelibs|kimono|kolourpaint|konsole|korundum| \
+						kross-interpreters|kruler|ksaneplugin|ksnapshot| \
+						libkdcraw|libkexiv2|libkipi|libksane|perlqt|perlkde| \
+						pykde4|qtruby|qyoto|smokegen|smokekde|smokeqt|svgpart)
+							EGIT_BRANCH="KDE/$(get_kde_version)"
+							;;
+						*)
+							ewarn "Unknown KMNAME ${_kmname}: Guessing branch name 'KDE/$(get_kde_version)'"
+							EGIT_BRANCH="KDE/$(get_kde_version)" ;;
 					esac
 					;;
 			esac
 
 			# default repo uri
-			case ${_kmname} in
-				kdeedu)
-					EGIT_REPO_URI="${EGIT_MIRROR}/${PN}"
-					;;
-				*)
-					EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
-			esac
+			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
 			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"

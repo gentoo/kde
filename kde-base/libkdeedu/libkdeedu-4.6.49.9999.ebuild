@@ -5,10 +5,10 @@
 EAPI=4
 
 KDE_SCM="git"
-KMNAME="kdeedu"
 if [[ ${PV} == *9999 ]]; then
 	kde_eclass="kde4-base"
 else
+	KMNAME="kdeedu"
 	KMEXTRACTONLY="libkdeedu/libscience kalzium"
 	KMEXTRA="kalzium/libscience"
 	kde_eclass="kde4-meta"
@@ -19,6 +19,6 @@ DESCRIPTION="Common library for KDE educational apps"
 KEYWORDS=""
 IUSE="debug"
 
-# 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken, 
+# 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken,
 # see bug 258857 for details.
 RESTRICT=test
