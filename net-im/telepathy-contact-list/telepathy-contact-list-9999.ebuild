@@ -24,9 +24,13 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	kde4-base_src_install
-	# Now we will drop icons colliding with 4.6.80
+	# Now we will drop icons colliding with 4.6.80-90
 	for x in aim facebook google-talk icq jabber msn skype yahoo
 	do
 		rm "${ED}/usr/share/icons/oxygen/48x48/actions/im-${x}.png" || die
+	done
+	for x in 16 22 32 48 64 128
+	do
+		rm "${ED}/usr/share/icons/oxygen/${x}x${x}/apps/kde-telepathy.png"
 	done
 }
