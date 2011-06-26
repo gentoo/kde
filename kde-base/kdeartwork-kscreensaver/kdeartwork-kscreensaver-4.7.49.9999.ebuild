@@ -10,7 +10,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug +eigen +kexiv2 opengl xscreensaver"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config

@@ -9,7 +9,7 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="KDE: KGoldrunner is a game of action and puzzle solving"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

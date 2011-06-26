@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="Filelight creates an interactive map of concentric, segmented rings that help visualise disk usage."
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="

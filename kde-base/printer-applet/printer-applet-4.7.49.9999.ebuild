@@ -10,7 +10,7 @@ PYTHON_DEPEND="2"
 inherit python kde4-meta
 
 DESCRIPTION="KDE printer system tray utility"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="

@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE PIM wizards"
 IUSE="debug"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)

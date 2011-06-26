@@ -11,7 +11,7 @@ KMNAME="kdeartwork"
 inherit kde4-meta
 
 DESCRIPTION="Wallpapers from kde"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE=""
 
 # Please bump this as needed (probably at least for every minor version)

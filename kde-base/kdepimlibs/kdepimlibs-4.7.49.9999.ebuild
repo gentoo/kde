@@ -12,7 +12,7 @@ inherit kde4-base
 DESCRIPTION="Common library for KDE PIM apps."
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="debug ldap semantic-desktop"
 

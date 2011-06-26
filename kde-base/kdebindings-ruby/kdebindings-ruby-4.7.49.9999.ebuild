@@ -18,7 +18,7 @@ USE_RUBY="ruby18"
 inherit kde4-meta ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS=""
 IUSE="akonadi debug kate okular phonon plasma qscintilla qwt semantic-desktop webkit"
 
 DEPEND="

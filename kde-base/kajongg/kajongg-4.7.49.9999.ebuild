@@ -9,7 +9,7 @@ KMNAME="kdegames"
 inherit kde4-meta python
 
 DESCRIPTION="The classical Mah Jongg for four players"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

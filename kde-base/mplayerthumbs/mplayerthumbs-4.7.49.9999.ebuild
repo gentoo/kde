@@ -11,7 +11,7 @@ DESCRIPTION="A Thumbnail Generator for Video Files on KDE filemanagers."
 HOMEPAGE="http://www.kde-apps.org/content/show.php?content=41180"
 LICENSE="GPL-2"
 
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="

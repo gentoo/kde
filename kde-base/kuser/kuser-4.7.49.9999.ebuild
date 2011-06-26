@@ -10,7 +10,7 @@ KMNAME="kdeadmin"
 inherit kde4-meta
 
 DESCRIPTION="KDE application that helps you manage system users"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

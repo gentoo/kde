@@ -8,7 +8,7 @@ KMNAME="kdemultimedia"
 inherit kde4-meta
 
 DESCRIPTION="KDE library for CDDB"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug musicbrainz"
 
 # tests require network access and compare static data with online data

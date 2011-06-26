@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="opengl python"
 
 RDEPEND="

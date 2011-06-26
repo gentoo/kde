@@ -8,7 +8,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug zeroconf"
 
 DEPEND="

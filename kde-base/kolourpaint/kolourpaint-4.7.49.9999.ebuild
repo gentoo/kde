@@ -9,6 +9,6 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Paint Program for KDE"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 LICENSE="BSD LGPL-2"
 IUSE="debug"

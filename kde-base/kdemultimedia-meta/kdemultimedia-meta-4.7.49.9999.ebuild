@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="ffmpeg +mplayer"
 
 RDEPEND="

@@ -19,7 +19,7 @@ fi
 inherit ${kde_eclass}
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS=""
 IUSE="akonadi attica debug kate okular +phonon qimageblitz qscintilla qwt semantic-desktop webkit"
 
 COMMON_DEPEND="

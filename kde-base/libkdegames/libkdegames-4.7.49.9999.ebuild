@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="Base library common to many KDE games."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

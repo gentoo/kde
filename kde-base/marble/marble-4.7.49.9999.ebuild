@@ -11,7 +11,7 @@ KDE_SCM="git"
 inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug designer-plugin gps plasma python"
 
 # tests fail / segfault. Last checked for 4.2.88

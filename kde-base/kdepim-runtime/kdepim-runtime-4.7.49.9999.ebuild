@@ -12,7 +12,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 RESTRICT="test"

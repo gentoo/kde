@@ -12,7 +12,7 @@ QTHELP_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="KDE Perl bindings"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="akonadi attica debug kate okular phonon plasma qimageblitz qscintilla qwt semantic-desktop webkit"
 
 DEPEND="

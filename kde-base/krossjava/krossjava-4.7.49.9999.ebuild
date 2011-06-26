@@ -9,7 +9,7 @@ KMMODULE="java/krossjava"
 inherit java-pkg-2 java-ant-2 kde4-meta eutils
 
 DESCRIPTION="Java plugin for the kdelibs/kross scripting framework."
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

@@ -9,7 +9,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

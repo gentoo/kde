@@ -9,7 +9,7 @@ KMMODULE="IconThemes"
 inherit kde4-meta
 
 DESCRIPTION="Icon themes for kde"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE=""
 
 # Provides nuvola icon theme

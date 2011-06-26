@@ -12,7 +12,7 @@ EGIT_REPONAME="pykde4"
 inherit python kde4-base
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug doc examples semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time

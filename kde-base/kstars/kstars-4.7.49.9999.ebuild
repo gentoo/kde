@@ -15,7 +15,7 @@ fi
 inherit ${kde_eclass}
 
 DESCRIPTION="KDE Desktop Planetarium"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug fits indi"
 
 DEPEND="

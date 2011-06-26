@@ -11,7 +11,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="

@@ -9,5 +9,5 @@ KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE dialog system for scripting"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"

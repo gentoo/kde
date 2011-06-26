@@ -89,7 +89,8 @@ check_cmakelists() {
 # Updates keywords:
 # - for stable releases - use latest keywords from tree
 # - for snapshot/alpha/beta/rc releases - use fixed ~amd64, ~x86 and ~{amd64,x86}-linux keywords
-# - in either case drop arch to testing
+# - for live ebuilds - don't use any keywords
+# - in either of the first two cases, drop arch to testing
 update_keywords() {
 	local MINIMAL_KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux" KEYWORDS
 	# Initially strip all keywords
@@ -99,7 +100,10 @@ update_keywords() {
 		local version_minor=${BASH_REMATCH[2]}
 		local version_patch=${BASH_REMATCH[3]}
 		if [[ -n ${version_patch} ]]; then
-			if (( version_patch < 50 )); then
+			if (( version_patch == 49 )); then
+				# We don't want any keywords for live ebuilds
+				KEYWORDS=
+			elif (( version_patch < 50 )); then
 				# Patch version is < 50 - stable release, try to obtain keywords from tree
 				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
 					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')

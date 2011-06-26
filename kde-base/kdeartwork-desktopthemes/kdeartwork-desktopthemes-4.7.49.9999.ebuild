@@ -9,5 +9,5 @@ KMNAME="kdeartwork"
 inherit kde4-meta
 
 DESCRIPTION="Additional KDE4 Plasma themes"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE=""

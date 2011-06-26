@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED=test
 inherit kde4-meta
 
 DESCRIPTION="KDE system log viewer"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug test"
 
 src_prepare() {

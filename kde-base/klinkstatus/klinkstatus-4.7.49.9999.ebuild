@@ -9,7 +9,7 @@ KMNAME="kdewebdev"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - link validity checker"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug tidy"
 
 DEPEND="

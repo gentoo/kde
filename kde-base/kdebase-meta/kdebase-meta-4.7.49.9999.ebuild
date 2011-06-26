@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="

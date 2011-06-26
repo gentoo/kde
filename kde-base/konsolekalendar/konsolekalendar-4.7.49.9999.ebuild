@@ -11,7 +11,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="A command line interface to KDE calendars"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

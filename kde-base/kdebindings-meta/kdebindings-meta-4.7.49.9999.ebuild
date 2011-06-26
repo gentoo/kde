@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-meta-pkg
 
 DESCRIPTION="KDE bindings - merge this to pull in all kdebindings-derived packages"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS=""
 IUSE="csharp java perl python ruby"
 
 RDEPEND="

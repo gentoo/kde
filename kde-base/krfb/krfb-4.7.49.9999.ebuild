@@ -9,7 +9,7 @@ KMNAME="kdenetwork"
 inherit kde4-meta
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

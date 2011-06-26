@@ -10,7 +10,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="

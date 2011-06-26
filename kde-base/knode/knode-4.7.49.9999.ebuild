@@ -10,7 +10,7 @@ KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 # test fails, last checked for 4.2.96

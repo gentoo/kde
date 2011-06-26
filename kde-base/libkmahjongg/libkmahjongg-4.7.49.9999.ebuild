@@ -8,7 +8,7 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="LibKMahjongg for KDE"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 KMLOADLIBS="libkdegames"

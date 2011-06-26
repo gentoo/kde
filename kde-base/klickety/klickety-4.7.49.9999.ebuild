@@ -9,7 +9,7 @@ KMNAME="kdegames"
 inherit kde4-meta
 
 DESCRIPTION="A KDE game almost the same as ksame, but a bit different."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug"
 
 # Replaced ksame around 4.5.74

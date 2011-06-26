@@ -26,7 +26,7 @@ SRC_URI="
 "
 
 LICENSE="LGPL-3"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="aqua bindist"
 
 DEPEND="

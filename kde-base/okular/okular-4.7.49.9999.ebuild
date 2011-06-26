@@ -9,7 +9,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="chm crypt debug djvu ebook +jpeg +ps +pdf +tiff"
 
 DEPEND="

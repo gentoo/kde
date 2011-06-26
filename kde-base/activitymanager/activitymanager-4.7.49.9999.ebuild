@@ -8,7 +8,7 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Activity manager"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug semantic-desktop"
 
 DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop=')"

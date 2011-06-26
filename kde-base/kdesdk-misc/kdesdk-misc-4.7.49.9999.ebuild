@@ -9,7 +9,7 @@ KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug extras"
 
 DEPEND="
