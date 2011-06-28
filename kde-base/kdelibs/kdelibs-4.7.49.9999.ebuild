@@ -16,7 +16,12 @@ HOMEPAGE="http://www.kde.org/"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec bindist +bzip2 debug doc fam +handbook jpeg2k kerberos
-lzma mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev zeroconf"
+lzma mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks +upower zeroconf"
+
+REQUIRED_USE="
+	udisks? ( udev )
+	upower? ( udev )
+"
 
 # needs the kate regression testsuite from svn
 RESTRICT="test"
@@ -98,10 +103,8 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		udev? (
-			sys-fs/udisks
-			sys-power/upower
-		)
+		udisks? ( sys-fs/udisks )
+		upower? ( sys-power/upower )
 	)
 "
 PDEPEND="
