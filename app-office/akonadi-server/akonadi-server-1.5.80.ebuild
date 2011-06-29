@@ -17,7 +17,7 @@ IUSE="mysql postgres +sqlite test"
 
 CDEPEND="
 	dev-libs/boost
-	>=dev-libs/soprano-2.2
+	>=dev-libs/soprano-2.6.51
 	>=x11-libs/qt-gui-4.5.0:4[dbus]
 	>=x11-libs/qt-sql-4.5.0:4[mysql?,postgres?]
 	>=x11-libs/qt-test-4.5.0:4
