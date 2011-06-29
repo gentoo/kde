@@ -18,7 +18,7 @@ IUSE="akonadi attica debug kate okular phonon plasma qimageblitz qscintilla qwt 
 DEPEND="
 	>=dev-lang/perl-5.10.1
 	$(add_kdebase_dep smoke 'akonadi?,attica?,declarative?,kate?,multimedia?,okular?,phonon?,qimageblitz?,qscintilla?,qthelp?,qwt?,semantic-desktop=,webkit?')
-	semantic-desktop? ( >=dev-libs/soprano-2.4.64 )
+	semantic-desktop? ( >=dev-libs/soprano-2.6.51 )
 "
 RDEPEND="${DEPEND}"
 
