@@ -22,15 +22,12 @@ HOMEPAGE="http://kdiff3.sourceforge.net/"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug kde konqueror"
+IUSE="debug kde"
 
 DEPEND="
 	>=x11-libs/qt-core-${QT_MINIMAL}
 	>=x11-libs/qt-gui-${QT_MINIMAL}
-	kde? (
-		$(add_kdebase_dep kdelibs)
-		konqueror? ( $(add_kdebase_dep libkonq) )
-	)
+	kde? ( $(add_kdebase_dep kdelibs) )
 "
 RDEPEND="${DEPEND}
 	sys-apps/diffutils
@@ -64,7 +61,6 @@ src_prepare() {
 
 src_configure() {
 	if use kde; then
-		mycmakeargs=( $(cmake-utils_use_with konqueror LibKonq) )
 		kde4-base_src_configure
 	else
 		eqmake4 "${S}"/src-QT4/kdiff3_fixed.pro
