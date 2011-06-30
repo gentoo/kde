@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KDE_LINGUAS="ca ca@valencia da de en_GB es et fi gl it nds nl pt pt_BR sl sv th uk zh_CN zh_TW"
+KDE_LINGUAS="ca ca@valencia da de en_GB es et fr it nb nds nl pt pt_BR ru sl sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KDE_SCM=git
 inherit kde4-base
@@ -15,6 +15,7 @@ KEYWORDS=""
 LICENSE="GPL-2 LGPL-2"
 IUSE="+cmake +cxx debug okteta +qmake qthelp"
 
+# Remove ksysguard dep after libprocessui moved into kdelibs
 DEPEND="
 	dev-util/kdevplatform[subversion]
 	$(add_kdebase_dep ksysguard)
@@ -27,6 +28,9 @@ RDEPEND="${DEPEND}
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 # see bug 347547 about the kdevplatform[subversion] dependency
+
+RESTRICT="test"
+# see bug 366471
 
 src_configure() {
 	mycmakeargs=(
