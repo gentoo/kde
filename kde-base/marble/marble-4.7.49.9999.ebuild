@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	!sci-geosciences/marble
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.6.2-magic.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.7-magic.patch" )
 # note that this patch will not work if we ever make a qt-only build
 
 pkg_setup() {
