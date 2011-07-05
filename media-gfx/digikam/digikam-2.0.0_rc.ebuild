@@ -68,7 +68,10 @@ DEPEND="${CDEPEND}
 	doc? ( app-doc/doxygen )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-2.0.0_rc-oldpgf.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-2.0.0_rc-oldpgf.patch"
+	"${FILESDIR}/${PN}-2.0.0_rc-officialpgf.patch"
+)
 
 S="${WORKDIR}/${MY_P}/core"
 
