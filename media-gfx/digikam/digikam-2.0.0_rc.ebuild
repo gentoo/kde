@@ -71,6 +71,7 @@ DEPEND="${CDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-2.0.0_rc-oldpgf.patch"
 	"${FILESDIR}/${PN}-2.0.0_rc-officialpgf.patch"
+	"${FILESDIR}/${PN}-2.0.0_rc-officialpgf2.patch"
 )
 
 S="${WORKDIR}/${MY_P}/core"
