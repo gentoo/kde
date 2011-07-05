@@ -1,0 +1,23 @@
+diff -ruN digikam-2.0.0-rc.orig/core/libs/dimg/loaders/pgfloader.cpp digikam-2.0.0-rc/core/libs/dimg/loaders/pgfloader.cpp
+--- digikam-2.0.0-rc.orig/core/libs/dimg/loaders/pgfloader.cpp	2011-06-28 16:38:45.000000000 +0200
++++ digikam-2.0.0-rc/core/libs/dimg/loaders/pgfloader.cpp	2011-07-05 13:50:20.036746353 +0200
+@@ -29,6 +29,7 @@
+ //#define ENABLE_DEBUG_MESSAGES
+ 
+ #include "pgfloader.h"
++#include "config-digikam.h"
+ 
+ // C Ansi includes
+ 
+@@ -435,10 +436,8 @@
+                          CallbackForLibPGF, this);
+ 
+         UINT32 nWrittenBytes = 0;
+-#ifdef PGFCodecVersionID
+-#   if PGFCodecVersionID >= 0x061124
++#if PGFCodecVersionID >= 0x061124
+         pgf.Write(&stream, &nWrittenBytes, CallbackForLibPGF, this);
+-#   endif
+ #else
+         pgf.Write(&stream, 0, CallbackForLibPGF, &nWrittenBytes, this);
+ #endif
