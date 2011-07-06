@@ -45,7 +45,7 @@ CDEPEND="
 	media-libs/liblqr
 	media-libs/libpng
 	media-libs/tiff
-	media-libs/libpgf
+	>=media-libs/libpgf-6.11.24
 	>=media-plugins/kipi-plugins-1.2.0-r1
 	|| ( >=sci-libs/clapack-3.2.1-r6 sci-libs/lapack-atlas )
 	virtual/mysql
