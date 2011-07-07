@@ -1,0 +1,17 @@
+--- python/pykde4/sip/kio/kfileitem.sip
++++ python/pykde4/sip/kio/kfileitem.sip
+@@ -236,7 +236,13 @@
+         
+         len = sipCpp->count();
+         
+-        if (PySlice_GetIndicesEx((PySliceObject *)a0, len, &start, &stop, &step, &slicelength) < 0)
++        if (PySlice_GetIndicesEx(
++#if PY_VERSION_HEX >= 0x03020000
++          a0,
++#else
++          (PySliceObject *)a0,
++#endif
++	   len, &start, &stop, &step, &slicelength) < 0)
+             sipIsErr = 1;
+         else
+         {

@@ -11,19 +11,10 @@ SUPPORT_PYTHON_ABIS="1"
 
 OPENGL_REQUIRED="always"
 KDE_SCM="git"
-if [[ ${PV} == *9999 ]]; then
-	KMMODULE="."
-	kde_eclass="kde4-base"
-else
-	KMNAME="kdebindings"
-	KMMODULE="python/pykde4"
-	kde_eclass="kde4-meta"
-fi
-
-inherit python portability ${kde_eclass}
+inherit python portability kde4-base
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time
@@ -40,13 +31,12 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.6.4-pyqt475.patch
 	"${FILESDIR}"/${PN}-4.6.3-python-3.2.patch
 )
 
 pkg_setup() {
 	python_pkg_setup
-	${kde_eclass}_pkg_setup
+	kde4-base_pkg_setup
 
 	have_python2=false
 
@@ -62,17 +52,17 @@ pkg_setup() {
 }
 
 src_prepare() {
-	${kde_eclass}_src_prepare
+	kde4-base_src_prepare
 
 	if ! use examples; then
-		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i ${KMMODULE}/CMakeLists.txt \
+		sed -e '/^ADD_SUBDIRECTORY(examples)/s/^/# DISABLED /' -i CMakeLists.txt \
 			|| die "Failed to disable examples"
 	fi
 
 	# See bug 322351
 	use arm && epatch "${FILESDIR}/${PN}-4.4.4-arm-sip.patch"
 
-	sed -i -e 's/kpythonpluginfactory /kpython${PYTHON_SHORT_VERSION}pluginfactory /g' ${KMMODULE}/kpythonpluginfactory/CMakeLists.txt
+	sed -i -e 's/kpythonpluginfactory /kpython${PYTHON_SHORT_VERSION}pluginfactory /g' kpythonpluginfactory/CMakeLists.txt
 
 	if ${have_python2}; then
 		mkdir -p "${WORKDIR}/wrapper" || die "failed to copy wrapper"
@@ -81,9 +71,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Required for KTabWidget::label
-	append-cxxflags -DKDE3_SUPPORT
-
 	configuration() {
 		local mycmakeargs=(
 			-DWITH_PolkitQt=OFF
@@ -94,7 +81,7 @@ src_configure() {
 			-DPYTHON_EXECUTABLE=$(PYTHON -a)
 		)
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
-		${kde_eclass}_src_configure
+		kde4-base_src_configure
 	}
 
 	python_execute_function configuration
@@ -108,7 +95,7 @@ echo_and_run() {
 src_compile() {
 	compilation() {
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
-		${kde_eclass}_src_compile
+		kde4-base_src_compile
 	}
 	python_execute_function compilation
 
@@ -141,8 +128,8 @@ src_install() {
 	python_merge_intermediate_installation_images "${T}/images/${PYTHON_ABI}"
 
 	# As we don't call the eclass's src_install, we have to install the docs manually
-	DOCS=("${S}"/${KMMODULE}/{AUTHORS,NEWS,README})
-	use doc && HTML_DOCS=("${S}/${KMMODULE}/docs/html/")
+	DOCS=("${S}"/{AUTHORS,NEWS,README})
+	use doc && HTML_DOCS=("${S}/docs/html/")
 	base_src_install_docs
 
 	if ${have_python2}; then
@@ -153,7 +140,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	${kde_eclass}_pkg_postinst
+	kde4-base_pkg_postinst
 
 	python_mod_optimize PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 
@@ -166,7 +153,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	${kde_eclass}_pkg_postrm
+	kde4-base_pkg_postrm
 
 	python_mod_cleanup PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 }
