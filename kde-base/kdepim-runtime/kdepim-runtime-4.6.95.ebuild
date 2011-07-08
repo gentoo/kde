@@ -4,9 +4,6 @@
 
 EAPI=4
 
-KDE_LINGUAS="ar be ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hr hu
-ia it ja kk km ko lt lv mai nb nds nl nn pa pl pt pt_BR ro ru se sk sl sv th
-tr uk zh_CN zh_TW"
 KMNAME="kdepim-runtime"
 KDE_SCM="git"
 inherit kde4-base
