@@ -15,7 +15,10 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkexiv2)
+	media-libs/lcms:0
 "
 RDEPEND="${DEPEND}"
 
 add_blocker kdegraphics-strigi-analyzer '<4.2.91'
+
+S="${WORKDIR}/${KMNAME}-${PV}"
