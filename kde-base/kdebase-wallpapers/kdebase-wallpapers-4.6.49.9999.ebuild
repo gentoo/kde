@@ -4,10 +4,18 @@
 
 EAPI=4
 
-KMNAME="kde-wallpapers"
-KMMODULE="wallpapers"
-KDE_SCM="svn"
-inherit kde4-base
+if [[ $PV == *9999* ]]; then
+	KMNAME="kde-wallpapers"
+	KMMODULE="wallpapers"
+	KDE_SCM="svn"
+	kde_eclass=kde4-base
+else
+	KMNAME="kdebase-workspace"
+	KMMODULE="wallpapers"
+	kde_eclass=kde4-meta
+fi
+
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE wallpapers"
 KEYWORDS=""
@@ -16,5 +24,5 @@ IUSE=""
 src_configure() {
 	mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
-	kde4-base_src_configure
+	${kde_eclass}_src_configure
 }
