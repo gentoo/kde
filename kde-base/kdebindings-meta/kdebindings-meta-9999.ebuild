@@ -10,7 +10,9 @@ KEYWORDS=""
 IUSE="csharp java perl python ruby"
 
 RDEPEND="
-	$(add_kdebase_dep smoke)
+	$(add_kdebase_dep smokegen)
+	$(add_kdebase_dep smokekde)
+	$(add_kdebase_dep smokeqt)
 	csharp? ( $(add_kdebase_dep kdebindings-csharp) )
 	java? ( $(add_kdebase_dep krossjava) )
 	perl? ( $(add_kdebase_dep kdebindings-perl) )

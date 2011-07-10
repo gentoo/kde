@@ -5,4 +5,6 @@
 ~kde-base/krossjava-9999
 ~kde-base/krosspython-9999
 ~kde-base/pykde4-9999
-~kde-base/smoke-9999
+~kde-base/smokegen-9999
+~kde-base/smokekde-9999
+~kde-base/smokeqt-9999
