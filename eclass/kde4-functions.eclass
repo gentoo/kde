@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.52 2011/06/15 00:11:05 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.55 2011/07/08 11:35:01 ssuominen Exp $
 
 inherit versionator
 
@@ -262,7 +262,7 @@ migrate_store_dir() {
 		rmdir "${cleandir}" || die "Could not move obsolete KDE store dir.  Please move '${cleandir}' contents to appropriate location (possibly ${ESVN_STORE_DIR}) and manually remove '${cleandir}' in order to continue."
 	fi
 
-	if ! hasq kde4-meta ${INHERITED}; then
+	if ! has kde4-meta ${INHERITED}; then
 		case ${KMNAME} in
 			extragear*|playground*)
 				local scmlocalpath="${ESVN_STORE_DIR}"/"${KMNAME}"/"${PN}"
