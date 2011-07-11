@@ -4,8 +4,9 @@
 
 EAPI=4
 
-KMNAME="kdebindings"
-KMMODULE="java/krossjava"
+KMNAME="kross-interpreters"
+KMMODULE="java"
+KDE_SCM="git"
 inherit java-pkg-2 java-ant-2 kde4-meta eutils
 
 DESCRIPTION="Java plugin for the kdelibs/kross scripting framework."
@@ -21,8 +22,6 @@ RDEPEND="
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-4.2.3_includes.patch" )
-
 pkg_setup() {
 	kde4-meta_pkg_setup
 	java-pkg-2_pkg_setup
@@ -35,14 +34,13 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(-DENABLE_KROSSJAVA=ON)
 	kde4-meta_src_configure
 	java-ant-2_src_configure
 }
 
 src_compile() {
 	kde4-meta_src_compile
-	cd "${S}/java/${PN}/${PN}/java/" || die
+	cd "${S}/java/${PN}/java/" || die
 	eant makejar
 }
 
@@ -52,7 +50,7 @@ src_install() {
 
 	dosym ../../../share/${PN}-${SLOT}/lib/kross.jar \
 		/usr/$(get_libdir)/kde4/kross/kross.jar
-	java-pkg_regso "${ED}/usr/$(get_libdir)/kde4/libkrossjava.so"
+	java-pkg_regso "${ED}/usr/$(get_libdir)/kde4/krossjava.so"
 }
 
 pkg_preinst() {

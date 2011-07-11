@@ -10,7 +10,7 @@ KDE_SCM="git"
 inherit java-pkg-2 java-ant-2 kde4-meta eutils
 
 DESCRIPTION="Java plugin for the kdelibs/kross scripting framework."
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
