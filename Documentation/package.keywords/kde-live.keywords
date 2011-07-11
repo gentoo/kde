@@ -110,13 +110,15 @@
 ~kde-base/kdebindings-csharp-9999 **
 ~kde-base/kdebindings-meta-9999 **
 ~kde-base/kdebindings-perl-9999 **
-~kde-base/kdebindings-ruby-9999 **
+~kde-base/korundum-9999 **
 ~kde-base/krossjava-9999 **
 ~kde-base/krosspython-9999 **
+~kde-base/krossruby-9999 **
 ~kde-base/pykde4-9999 **
 ~kde-base/smokegen-9999 **
 ~kde-base/smokekde-9999 **
 ~kde-base/smokeqt-9999 **
+~kde-base/qtruby-9999 **
 ~app-office/akonadi-server-9999 **
 ~dev-libs/libattica-9999 **
 ~dev-libs/shared-desktop-ontologies-9999 **

@@ -20,5 +20,9 @@ RDEPEND="
 		$(add_kdebase_dep krosspython)
 		$(add_kdebase_dep pykde4)
 	)
-	ruby? ( $(add_kdebase_dep kdebindings-ruby) )
+	ruby? (
+		$(add_kdebase_dep korundum)
+		$(add_kdebase_dep krossruby)
+		$(add_kdebase_dep qtruby)
+	)
 "
