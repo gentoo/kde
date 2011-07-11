@@ -15,7 +15,10 @@ RDEPEND="
 	$(add_kdebase_dep smokeqt)
 	csharp? ( $(add_kdebase_dep kdebindings-csharp) )
 	java? ( $(add_kdebase_dep krossjava) )
-	perl? ( $(add_kdebase_dep kdebindings-perl) )
+	perl? (
+		$(add_kdebase_dep perlkde)
+		$(add_kdebase_dep perlqt)
+	)
 	python? (
 		$(add_kdebase_dep krosspython)
 		$(add_kdebase_dep pykde4)

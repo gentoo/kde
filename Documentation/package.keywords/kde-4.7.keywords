@@ -109,11 +109,12 @@
 >=kde-base/systemsettings-4.6.50
 >=kde-base/kdebindings-csharp-4.6.50
 >=kde-base/kdebindings-meta-4.6.50
->=kde-base/kdebindings-perl-4.6.50
 >=kde-base/korundum-4.6.50
 >=kde-base/krossjava-4.6.50
 >=kde-base/krosspython-4.6.50
 >=kde-base/krossruby-4.6.50
+>=kde-base/perlkde-4.6.50
+>=kde-base/perlqt-4.6.50
 >=kde-base/pykde4-4.6.50
 >=kde-base/smokegen-4.6.50
 >=kde-base/smokekde-4.6.50
