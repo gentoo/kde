@@ -13,7 +13,10 @@ RDEPEND="
 	$(add_kdebase_dep smokegen)
 	$(add_kdebase_dep smokekde)
 	$(add_kdebase_dep smokeqt)
-	csharp? ( $(add_kdebase_dep kdebindings-csharp) )
+	csharp? (
+		$(add_kdebase_dep kimono)
+		$(add_kdebase_dep qyoto)
+	)
 	java? ( $(add_kdebase_dep krossjava) )
 	perl? (
 		$(add_kdebase_dep perlkde)

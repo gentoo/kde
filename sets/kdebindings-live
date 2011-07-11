@@ -1,5 +1,5 @@
-~kde-base/kdebindings-csharp-9999
 ~kde-base/kdebindings-meta-9999
+~kde-base/kimono-9999
 ~kde-base/korundum-9999
 ~kde-base/krossjava-9999
 ~kde-base/krosspython-9999
@@ -11,3 +11,4 @@
 ~kde-base/smokekde-9999
 ~kde-base/smokeqt-9999
 ~kde-base/qtruby-9999
+~kde-base/qyoto-9999
