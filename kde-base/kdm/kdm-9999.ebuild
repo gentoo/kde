@@ -78,7 +78,7 @@ src_install() {
 	# - TerminateServer=true to workaround X server regen bug, bug 278473
 	# - DataDir set to /var/lib/kdm
 	# - FaceDir set to /var/lib/kdm/faces
-	sed -e "s|^.*SessionsDirs=.*$|#&\nSessionsDirs=${EPREFIX}/usr/share/xsessions|" \
+	sed -e "s|^.*SessionsDirs=.*$|#&\nSessionsDirs=${EPREFIX}/usr/share/apps/kdm/sessions|" \
 		-e "/#ServerTimeout=/s/^.*$/ServerTimeout=30/" \
 		-e "/#TerminateServer=/s/^.*$/TerminateServer=true/" \
 		-e "s|^.*DataDir=.*$|#&\nDataDir=${EPREFIX}${KDM_HOME}|" \
