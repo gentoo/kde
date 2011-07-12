@@ -6,8 +6,6 @@
 ~dev-libs/libdbusmenu-0.3.94
 ~dev-libs/libindicate-0.4.91
 
->=dev-util/cmake-2.8.5
-
 # digikam-2 and kipi-plugins-2 depend on kde-4.7, so they are masked here
 =media-gfx/digikam-2*
 =media-plugins/kipi-plugins-2*
