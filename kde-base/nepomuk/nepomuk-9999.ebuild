@@ -16,6 +16,7 @@ DEPEND="
 	>=app-misc/strigi-0.6.3[dbus,qt4]
 	>=dev-libs/soprano-2.6.51[dbus,raptor,redland,virtuoso]
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
+	!kde-misc/nepomukcontroller
 "
 RDEPEND="${DEPEND}"
 
