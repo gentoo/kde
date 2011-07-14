@@ -65,7 +65,7 @@ src_configure() {
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4)
 		$(cmake-utils_use_enable test CPPUNIT)
-		$(cmake-utils_disable xine)
+		$(cmake-utils_use_disable xine)
 	)
 
 	if use qt4; then
