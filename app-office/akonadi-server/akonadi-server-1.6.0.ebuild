@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
-SRC_URI="http://download.akonadi-project.org/${P/-server/}.tar.bz2"
+SRC_URI="mirror://kde/stable/${PN/-server/}/src/${P/-server/}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
