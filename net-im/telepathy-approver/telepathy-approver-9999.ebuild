@@ -11,7 +11,7 @@ DESCRIPTION="This notifies you when an incoming message arrives and hangs in the
 HOMEPAGE=""
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
