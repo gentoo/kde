@@ -11,10 +11,10 @@ inherit kde4-base
 DESCRIPTION="LEGO(r) CAD"
 HOMEPAGE="http://konstruktor.influx.kr/"
 SRC_URI="http://konstruktor.influx.kr/${MY_P}.tar.bz2"
-
-LICENSE=""
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+LICENSE="GPL-2"
+SLOT="0"
 IUSE=""
 
 DEPEND="dev-db/sqlite:3"
