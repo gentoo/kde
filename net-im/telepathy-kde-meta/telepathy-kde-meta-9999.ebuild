@@ -3,12 +3,14 @@
 # $Header: $
 
 EAPI=4
+
 DESCRIPTION="Telepathy client for KDE"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+IUSE=""
 
 DEPEND=""
 RDEPEND="
