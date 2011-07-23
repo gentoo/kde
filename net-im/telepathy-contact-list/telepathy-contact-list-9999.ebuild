@@ -9,10 +9,10 @@ inherit kde4-base
 #EGIT_REPO_URI="git://anongit.kde.org/clones/telepathy-contact-list/mklapetek/telepathy-contact-list-new"
 
 DESCRIPTION="UI for contaclist"
-HOMEPAGE=""
+HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+KEYWORDS=""
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
