@@ -306,5 +306,10 @@
 >=kde-base/kdebase-meta-4.6.50
 >=kde-base/kde-meta-4.6.50
 
+# Masked as net-libs/libinfinity is masked on the tree.
+# To drop this mask we need to unmask libinfinity in the overlay and or
+# someone needs to talk to dev-zero and see why it's masked in the tee.
+net-libs/libqinfinity
+
 >=net-misc/modemmanager-0.4.997
 >=net-misc/networkmanager-0.8.9997

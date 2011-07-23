@@ -1,0 +1,4 @@
+# Masked as net-libs/libinfinity is masked on the tree.
+# To drop this mask we need to unmask libinfinity in the overlay and or
+# someone needs to talk to dev-zero and see why it's masked in the tee.
+net-libs/libqinfinity
