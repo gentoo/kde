@@ -20,7 +20,7 @@ add_blocker kde-l10n 4.5.50
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-MY_LANGS="ar bg ca ca@valencia cs da de el en_GB es et eu 
+MY_LANGS="ar bg ca ca@valencia cs da de el en_GB es et eu
 		fi fr ga gl gu he hi hr hu ia id is it ja kk km kn ko lt lv
 		mai nb nds nl nn pa pl pt pt_BR ro ru sk sl sr sv th
 		tr uk wa zh_CN zh_TW"
