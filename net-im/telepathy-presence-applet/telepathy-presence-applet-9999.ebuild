@@ -8,10 +8,10 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy presence applet"
-HOMEPAGE=""
+HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+KEYWORDS=""
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug"
 
