@@ -22,10 +22,10 @@ RDEPEND="
 	>=x11-libs/qt-core-4.6
 	>=dev-util/automoc-0.9
 	>=dev-util/boost-build-1.40
-	sys-devel/flex
-	sys-devel/bison
 "
 DEPEND="
 	>=dev-util/cmake-2.8
+	sys-devel/flex
+	sys-devel/bison
 	${RDEPEND}
 "
