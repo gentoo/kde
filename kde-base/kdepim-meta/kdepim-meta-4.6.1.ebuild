@@ -30,7 +30,7 @@ RDEPEND="
 	$(add_kdebase_dep kontact)
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep ktimetracker)
-    nls? (
+	nls? (
 		$(add_kdebase_dep kde-l10n)
 		$(add_kdebase_dep kdepim-l10n)
 	)
