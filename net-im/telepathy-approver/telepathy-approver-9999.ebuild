@@ -7,11 +7,11 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="This notifies you when an incoming message arrives and hangs in the system tray until you're ready to start a chat."
-HOMEPAGE=""
+DESCRIPTION="System tray application that handles notifications."
+HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
