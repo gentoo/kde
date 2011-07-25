@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	>=x11-libs/qt-core-4.5.0:4
 	clucene? ( dev-cpp/clucene )
 	dbus? ( >=x11-libs/qt-dbus-4.5.0:4 )
-	raptor? ( >=media-libs/raptor-1.4.16 )
+	raptor? ( media-libs/raptor:2 )
 	redland? (
 		>=dev-libs/rasqal-0.9.15
 		>=dev-libs/redland-1.0.10
