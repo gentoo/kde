@@ -28,8 +28,8 @@ COMMON_DEPEND="
 	dbus? ( >=x11-libs/qt-dbus-4.5.0:4 )
 	raptor? ( media-libs/raptor:2 )
 	redland? (
-		>=dev-libs/rasqal-0.9.15
-		>=dev-libs/redland-1.0.10
+		>=dev-libs/rasqal-0.9.22
+		>=dev-libs/redland-1.0.12
 	)
 	virtuoso? ( dev-db/libiodbc:0 )
 "
