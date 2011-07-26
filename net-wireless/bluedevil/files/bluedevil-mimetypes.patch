@@ -1,0 +1,17 @@
+diff -urN bluedevil-1.1.old/src/bluedevil-mime.xml bluedevil-1.1/src/bluedevil-mime.xml
+--- bluedevil-1.1.old/src/bluedevil-mime.xml	2011-05-30 11:52:54.000000000 +0200
++++ bluedevil-1.1/src/bluedevil-mime.xml	2011-05-30 11:53:18.000000000 +0200
+@@ -23,13 +23,4 @@
+     <generic-icon name="preferences-system-bluetooth"/>
+     <comment>Service</comment>
+   </mime-type>
+-  <mime-type type="virtual/bluedevil-input">
+-    <comment>Service</comment>
+-  </mime-type>
+-  <mime-type type="virtual/bluedevil-audio">
+-    <comment>Service</comment>
+-  </mime-type>
+-  <mime-type type="virtual/bluedevil-sendfile">
+-      <comment>Service</comment>
+-  </mime-type>
+ </mime-info>
