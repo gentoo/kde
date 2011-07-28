@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="debug +plasma readline"
 
 DEPEND="
+	$(add_kdebase_dep libkdeedu)
 	readline? ( sys-libs/readline )
 "
 RDEPEND="${DEPEND}"
