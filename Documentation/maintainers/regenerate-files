@@ -78,7 +78,7 @@ fi
 popd > /dev/null
 
 # regenerate unversioned sets
-RELEASE=${RELEASE:-4.6}
+RELEASE=${RELEASE:-4.7}
 pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
 	newfile=${set/%-${RELEASE}}

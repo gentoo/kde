@@ -6,6 +6,7 @@ kde-base/keditbookmarks:4
 kde-base/kfind:4
 kde-base/kfmclient:4
 kde-base/konqueror:4
+kde-base/konq-plugins:4
 kde-base/konsole:4
 kde-base/kwrite:4
 kde-base/libkonq:4
