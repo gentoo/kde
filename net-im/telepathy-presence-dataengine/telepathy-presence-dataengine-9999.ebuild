@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="KDE Telepathy presence applet"
+DESCRIPTION="KDE Telepathy presence dataengine"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 
@@ -18,5 +18,4 @@ IUSE="debug"
 DEPEND="
 	>=net-libs/telepathy-qt4-0.7.0
 "
-RDEPEND="${DEPEND}
-	>=net-im/telepathy-presence-dataengine-${PV}"
+RDEPEND="${DEPEND}"
