@@ -1,0 +1,69 @@
+commit 67b5c56e564f5052238bab38342a85e5f4af570b
+Author: Christoph Feck <christoph@maxiom.de>
+Date:   Sat Jul 30 19:15:28 2011 +0200
+
+    Fix assignment operator and add copy constructor
+    
+    This fixes the crash in Grid Desktop and Grouping Desktop.
+    Thanks to Aaron Seigo for investigation and patch review.
+    
+    BUG: 278222
+    FIXED-IN: 4.7.1
+
+diff --git a/containments/groupingdesktop/lib/groupinfo.cpp b/containments/groupingdesktop/lib/groupinfo.cpp
+index 2106cca..c945551 100644
+--- a/containments/groupingdesktop/lib/groupinfo.cpp
++++ b/containments/groupingdesktop/lib/groupinfo.cpp
+@@ -43,6 +43,12 @@ GroupInfo::GroupInfo(const QString &name, const QString &prettyName)
+     d->prettyName = prettyName;
+ }
+ 
++GroupInfo::GroupInfo(const GroupInfo &other)
++          : d(new GroupInfoPrivate())
++{
++    *d = *other.d;
++}
++
+ GroupInfo::~GroupInfo()
+ {
+     delete d;
+@@ -78,13 +84,12 @@ QString GroupInfo::icon() const
+     return d->icon;
+ }
+ 
+-GroupInfo GroupInfo::operator=(const GroupInfo &gi)
++GroupInfo &GroupInfo::operator=(const GroupInfo &gi)
+ {
+-    GroupInfo g(gi.name(), gi.prettyName());
+-    g.setFormFactors(gi.formFactors());
+-    g.setIcon(gi.icon());
+-
+-    return g;
++    if (this != &gi) {
++        *d = *gi.d;
++    }
++    return *this;
+ }
+ 
+ bool GroupInfo::operator==(const GroupInfo &gi) const
+diff --git a/containments/groupingdesktop/lib/groupinfo.h b/containments/groupingdesktop/lib/groupinfo.h
+index f8cc66f..320c800 100644
+--- a/containments/groupingdesktop/lib/groupinfo.h
++++ b/containments/groupingdesktop/lib/groupinfo.h
+@@ -31,6 +31,7 @@ class GroupInfo
+ {
+     public:
+         explicit GroupInfo(const QString &name, const QString &prettyName = QString());
++        GroupInfo(const GroupInfo &other);
+         ~GroupInfo();
+         void setFormFactors(QSet<Plasma::FormFactor> formFactors);
+         void setIcon(const QString &icon);
+@@ -40,7 +41,7 @@ class GroupInfo
+         QSet<Plasma::FormFactor> formFactors() const;
+         QString icon() const;
+ 
+-        GroupInfo operator=(const GroupInfo &gi);
++        GroupInfo &operator=(const GroupInfo &gi);
+         bool operator==(const GroupInfo &gi) const;
+         bool operator<(const GroupInfo &gi) const;
+ 
