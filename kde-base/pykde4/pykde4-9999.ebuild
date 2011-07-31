@@ -125,7 +125,7 @@ src_install() {
 	}
 	python_execute_function installation
 
-	python_merge_intermediate_installation_images "${T}/images/${PYTHON_ABI}"
+	python_merge_intermediate_installation_images "${T}/images"
 
 	# As we don't call the eclass's src_install, we have to install the docs manually
 	DOCS=("${S}"/{AUTHORS,NEWS,README})
