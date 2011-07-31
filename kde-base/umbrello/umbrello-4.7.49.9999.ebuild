@@ -13,9 +13,10 @@ DESCRIPTION="KDE UML Modeller"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	dev-libs/boost
+RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/boost
+"
