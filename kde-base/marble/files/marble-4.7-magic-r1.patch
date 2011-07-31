@@ -1,0 +1,50 @@
+diff -ruN marble-4.7.0.orig/CMakeLists.txt marble-4.7.0/CMakeLists.txt
+--- marble-4.7.0.orig/CMakeLists.txt	2011-06-22 16:53:54.000000000 +0200
++++ marble-4.7.0/CMakeLists.txt	2011-07-31 20:20:44.000000000 +0200
+@@ -38,7 +38,7 @@
+   "Experimental Python binding support for the Marble library. To activate it pass -DEXPERIMENTAL_PYTHON_BINDINGS=TRUE to cmake.")
+ endif()
+ 
+-if(EXPERIMENTAL_PYTHON_BINDINGS)
++if(NOT QTONLY AND EXPERIMENTAL_PYTHON_BINDINGS)
+     macro_optional_find_package(PythonLibrary)
+ 
+     macro_optional_find_package(SIP)
+diff -ruN marble-4.7.0.orig/src/plugins/positionprovider/CMakeLists.txt marble-4.7.0/src/plugins/positionprovider/CMakeLists.txt
+--- marble-4.7.0.orig/src/plugins/positionprovider/CMakeLists.txt	2011-07-07 16:05:38.000000000 +0200
++++ marble-4.7.0/src/plugins/positionprovider/CMakeLists.txt	2011-07-31 20:16:08.000000000 +0200
+@@ -1,3 +1,7 @@
++# we cannot use macro_optional_find_package here, because we want to be
++# able to build without kde support
++
++IF(WITH_libgps)
+ FIND_PACKAGE(libgps)
+ IF(LIBGPS_FOUND)
+      MESSAGE( STATUS "Building with gpsd position provider")
+@@ -5,12 +9,19 @@
+ ELSE(LIBGPS_FOUND)
+      MESSAGE( STATUS "Not building with gpsd position provider")
+ ENDIF(LIBGPS_FOUND)
++ELSE(WITH_libgps)
++     SET(LIBGPS_FOUND 0)
++ENDIF(WITH_libgps)
+ 
++IF(WITH_liblocation)
+ FIND_PACKAGE(liblocation)
+ IF(liblocation_FOUND)
+      MESSAGE( STATUS "Building with Maemo GPS support")
+      ADD_SUBDIRECTORY( maemo )
+ ENDIF(liblocation_FOUND)
++ELSE(WITH_liblocation)
++     SET(liblocation_FOUND 0)
++ENDIF(WITH_liblocation)
+ 
+ FIND_PACKAGE(QtLocation)
+ IF(QTLOCATION_FOUND)
+@@ -19,4 +30,4 @@
+ ENDIF(QTLOCATION_FOUND)
+ 
+ # experimental implementation
+-# ADD_SUBDIRECTORY( geoclue )
+\ Kein Zeilenumbruch am Dateiende.
++# ADD_SUBDIRECTORY( geoclue )
