@@ -19,9 +19,8 @@ IUSE="debug ldap semantic-desktop"
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
 
-DEPEND="
+COMMON_DEPEND="
 	>=app-crypt/gpgme-1.1.6
-	>=dev-libs/boost-1.35.0-r5
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
@@ -33,7 +32,10 @@ DEPEND="
 	)
 	ldap? ( net-nds/openldap )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	>=dev-libs/boost-1.35.0-r5
+"
+RDEPEND="${COMMON_DEPEND}"
 
 # libakonadi-kcal moved here from akonadi in 4.3.86
 add_blocker akonadi '<4.3.86'
