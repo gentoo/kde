@@ -83,6 +83,6 @@ pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
 	newfile=${set/%-${RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${RELEASE}//g;s/~//;s/>=//;\@kde-base/@s/-(9999|4\..\.50)/:4/" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${RELEASE}//g;/9999$/s/~//;s/>=//;\@kde-base/@s/-(9999|4\..\.50)/:4/" "${set}" >> "${newfile}"
 done
 popd > /dev/null
