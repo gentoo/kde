@@ -19,3 +19,5 @@ RDEPEND="
 	!kde-plasmoids/drop2ftp
 	$(add_kdebase_dep plasma-workspace)
 "
+
+PATCHES=( "${FILESDIR}/${P}-qt47.patch" )
