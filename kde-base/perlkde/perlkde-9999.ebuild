@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE Perl bindings"
 KEYWORDS=""
-IUSE="akonadi attica debug kate okular semantic-desktop"
+IUSE="akonadi attica debug kate okular semantic-desktop test"
 
 RDEPEND="
 	>=dev-lang/perl-5.10.1
