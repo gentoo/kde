@@ -11,13 +11,15 @@ DESCRIPTION="KDE Perl bindings"
 KEYWORDS=""
 IUSE="akonadi attica debug kate okular semantic-desktop"
 
-DEPEND="
+RDEPEND="
 	>=dev-lang/perl-5.10.1
 	$(add_kdebase_dep perlqt)
 	$(add_kdebase_dep smokekde 'akonadi?,attica?,kate?,okular?,semantic-desktop=')
 	semantic-desktop? ( >=dev-libs/soprano-2.6.51 )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-perl/List-MoreUtils )
+"
 
 # Split from kdebindings-perl in 4.7
 add_blocker kdebindings-perl
