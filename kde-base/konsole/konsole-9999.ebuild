@@ -10,7 +10,7 @@ KDE_SCM="git"
 KDE_DOC_DIRS="doc/manual"
 inherit kde4-base
 
-DESCRIPTION="X terminal for use with KDE."
+DESCRIPTION="X terminal for use with KDE"
 KEYWORDS=""
 IUSE="debug"
 
@@ -32,4 +32,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.6.4-imagesize.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.6.4-imagesize.patch"
+	"${FILESDIR}/${PN}-4.7.0-tests.patch"
+)
