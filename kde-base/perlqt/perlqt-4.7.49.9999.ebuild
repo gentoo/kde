@@ -16,11 +16,13 @@ DESCRIPTION="Qt Perl bindings"
 KEYWORDS=""
 IUSE="debug phonon qimageblitz qscintilla qwt webkit"
 
-DEPEND="
+RDEPEND="
 	>=dev-lang/perl-5.10.1
 	$(add_kdebase_dep smokeqt 'declarative?,multimedia?,opengl?,phonon?,qimageblitz?,qscintilla?,qthelp?,qwt?,webkit?')
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-perl/List-MoreUtils )
+"
 
 # Split from kdebindings-perl in 4.7
 add_blocker kdebindings-perl
