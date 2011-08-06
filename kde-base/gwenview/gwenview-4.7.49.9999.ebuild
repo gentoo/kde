@@ -47,4 +47,6 @@ pkg_postinst() {
 	echo
 	elog "For SVG support, emerge -va kde-base/svgpart"
 	echo
+	use kipi && elog "The plugins for the KIPI inteface can be found in media-plugins/kipi-plugins"
+	use kipi && echo
 }
