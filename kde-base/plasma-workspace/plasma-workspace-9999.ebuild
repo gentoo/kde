@@ -42,7 +42,7 @@ COMMONDEPEND="
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
-	dev-libs/boost
+	rss? ( dev-libs/boost )
 	x11-proto/compositeproto
 	x11-proto/damageproto
 	x11-proto/fixesproto
