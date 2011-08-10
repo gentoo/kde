@@ -6,6 +6,7 @@ EAPI=4
 
 CMAKE_MIN_VERSION=2.8.0
 MULTIMEDIA_REQUIRED=always
+KDE_HANDBOOK=always
 KDE_SCM="git"
 KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
 	gl he hi hne hr hu is it ja km ko ku lt mai nb nds nl nn oc pa pl pt pt_BR ro ru
