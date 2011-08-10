@@ -14,6 +14,9 @@ DESCRIPTION="KDE system log viewer"
 KEYWORDS=""
 IUSE="debug test"
 
+RESTRICT=test
+# bug 378101
+
 src_prepare() {
 	kde4-meta_src_prepare
 
