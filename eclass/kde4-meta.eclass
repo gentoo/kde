@@ -351,10 +351,6 @@ kde4-meta_create_extractlists() {
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
 			fi
 			;;
-		kdeutils)
-			KMEXTRACTONLY+="
-				kdeutils-version.h"
-			;;
 		koffice)
 			KMEXTRACTONLY+="
 				filters/config-filters.h.cmake
