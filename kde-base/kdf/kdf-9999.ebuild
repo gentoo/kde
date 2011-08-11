@@ -13,9 +13,5 @@ KEYWORDS=""
 IUSE="debug"
 
 src_unpack() {
-	if use handbook; then
-		KMEXTRA="doc/kcontrol/blockdevices"
-	fi
-
 	kde4-meta_src_unpack
 }
