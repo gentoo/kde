@@ -4,10 +4,11 @@
 
 EAPI=4
 
-CMAKE_MIN_VERSION=2.8.0
-MULTIMEDIA_REQUIRED=always
-KDE_HANDBOOK=always
+MULTIMEDIA_REQUIRED="always"
+WEBKIT_REQUIRED="always"
+KDE_HANDBOOK="optional"
 KDE_SCM="git"
+
 KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
 	gl he hi hne hr hu is it ja km ko ku lt mai nb nds nl nn oc pa pl pt pt_BR ro ru
 	se sk sl sv th tr uk zh_CN zh_TW"
@@ -28,7 +29,7 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac mad lame musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
+IUSE="debug dvd emovix encode ffmpeg flac lame mad musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND="
 	$(add_kdebase_dep libkcddb)
@@ -63,6 +64,7 @@ src_configure() {
 	mycmakeargs=(
 		-DK3B_BUILD_K3BSETUP=OFF
 		$(cmake-utils_use debug K3B_DEBUG)
+		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		$(cmake-utils_use musicbrainz K3B_ENABLE_MUSICBRAINZ)
 		$(cmake-utils_use dvd K3B_ENABLE_DVD_RIPPING)
 		$(cmake-utils_use taglib K3B_ENABLE_TAGLIB)
