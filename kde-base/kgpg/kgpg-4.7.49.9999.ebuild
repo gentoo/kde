@@ -5,8 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE gpg keyring manager"
 KEYWORDS=""
@@ -20,7 +19,7 @@ RDEPEND="${DEPEND}
 "
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 
 	if ! has_version app-crypt/dirmngr ; then
 		elog "For improved key search functionality, install app-crypt/dirmngr."

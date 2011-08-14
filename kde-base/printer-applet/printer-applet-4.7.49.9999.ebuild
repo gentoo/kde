@@ -5,9 +5,8 @@
 EAPI=3
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
 PYTHON_DEPEND="2"
-inherit python kde4-meta
+inherit python kde4-base
 
 DESCRIPTION="KDE printer system tray utility"
 KEYWORDS=""
@@ -20,12 +19,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
-	kde4-meta_pkg_setup
+	kde4-base_pkg_setup
 	python_set_active_version 2
 }
 
 src_prepare() {
-	kde4-meta_src_prepare
+	kde4-base_src_prepare
 
 	# Rename printer-applet -> printer-applet-kde
 	local newname="printer-applet-kde"
@@ -37,7 +36,7 @@ src_prepare() {
 }
 
 src_install() {
-	kde4-meta_src_install
+	kde4-base_src_install
 	python_convert_shebangs -q -r $(python_get_version) "${ED}"
 }
 

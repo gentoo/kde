@@ -5,9 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
 CPPUNIT_REQUIRED="optional"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE calculator"
 KEYWORDS=""
@@ -23,5 +22,5 @@ PATCHES=(
 )
 
 src_test() {
-	LANG=C kde4-meta_src_test
+	LANG=C kde4-base_src_test
 }

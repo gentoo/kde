@@ -5,13 +5,12 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE free disk space utility"
 KEYWORDS=""
 IUSE="debug"
 
 src_unpack() {
-	kde4-meta_src_unpack
+	kde4-base_src_unpack
 }

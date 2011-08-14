@@ -4,9 +4,8 @@
 
 EAPI=3
 
-KMNAME="kdeutils"
 PYTHON_DEPEND="python? 2"
-inherit python kde4-meta
+inherit python kde4-base
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS=""
@@ -23,7 +22,7 @@ RDEPEND="${DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
 
 pkg_setup() {
-	kde4-meta_pkg_setup
+	kde4-base_pkg_setup
 	python_set_active_version 2
 }
 
@@ -32,5 +31,5 @@ src_configure() {
 		$(cmake-utils_use_with python PythonLibs)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }

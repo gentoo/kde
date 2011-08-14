@@ -5,8 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE Wallet Management Tool"
 KEYWORDS=""

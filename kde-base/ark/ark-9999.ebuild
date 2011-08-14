@@ -5,8 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeutils"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE Archiving tool"
 KEYWORDS=""
@@ -26,10 +25,10 @@ src_configure() {
 		$(cmake-utils_use_with bzip2 BZip2)
 		$(cmake-utils_use_with lzma LibLZMA)
 	)
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 	elog "For creating rar archives, install app-arch/rar"
 }
