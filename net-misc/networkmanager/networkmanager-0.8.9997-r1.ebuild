@@ -1,44 +1,34 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/networkmanager-0.8.995.ebuild,v 1.1 2011/03/09 07:56:21 qiaomuf Exp $
 
 EAPI="4"
+GNOME_ORG_MODULE="NetworkManager"
 
-# NetworkManager likes itself with capital letters
-MY_PN=${PN/networkmanager/NetworkManager}
-MY_P=${MY_PN}-${PV}
-
-if [[ ${PV} == *9999 ]]; then
-	git_eclass="git-2"
-	EGIT_REPO_URI="git://anongit.freedesktop.org/${MY_PN}/${MY_PN}"
-	KEYWORDS=""
-else
-	SRC_URI="http://cgit.freedesktop.org/${MY_PN}/${MY_PN}/snapshot/${MY_P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~x86"
-fi
-
-inherit autotools eutils linux-info ${git_eclass}
+inherit autotools eutils gnome.org linux-info systemd
 
 DESCRIPTION="Network configuration and management in an easy way. Desktop environment independent."
 HOMEPAGE="http://www.gnome.org/projects/NetworkManager/"
-SRC_URI="${SRC_URI}
-		http://dev.gentoo.org/~dagger/files/ifnet-0.9.tar.bz2
-		"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="avahi bluetooth doc +nss gnutls dhclient +dhcpcd +introspection kernel_linux +ppp resolvconf connection-sharing wimax"
+IUSE="avahi bluetooth doc +nss gnutls dhclient +dhcpcd +introspection
+kernel_linux +ppp resolvconf connection-sharing wimax"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 
 REQUIRED_USE="
-	nss? ( !gnutls ) !nss? ( gnutls )
-	dhcpcd? ( !dhclient ) !dhcpcd? ( dhclient )"
+	^^ ( nss gnutls )
+	^^ ( dhclient dhcpcd )"
 
-RDEPEND=">=sys-apps/dbus-1.2
+# gobject-introspection-0.10.3 is needed due to gnome bug 642300
+# wpa_supplicant-0.7.3-r3 is needed due to bug 359271
+# make consolekit and/or polkit support optional ?
+COMMON_DEPEND=">=sys-apps/dbus-1.2
 	>=dev-libs/dbus-glib-0.75
 	>=net-wireless/wireless-tools-28_pre9
-	>=sys-fs/udev-147[extras]
+	|| ( >=sys-fs/udev-171[gudev] >=sys-fs/udev-147[extras] )
 	>=dev-libs/glib-2.26
-	>=sys-auth/polkit-0.96
+	>=sys-auth/polkit-0.97
 	>=dev-libs/libnl-1.1
 	>=net-misc/modemmanager-0.4
 	>=net-wireless/wpa_supplicant-0.7.3-r3[dbus]
@@ -58,13 +48,14 @@ RDEPEND=">=sys-apps/dbus-1.2
 		net-firewall/iptables )
 	wimax? ( >=net-wireless/wimax-1.5.1 )"
 
-DEPEND="${RDEPEND}
-	dev-util/pkgconfig
-	dev-util/intltool
-	>=dev-util/gtk-doc-1.15
-	doc? ( >=dev-util/gtk-doc-1.8 )"
+RDEPEND="${COMMON_DEPEND}
+	sys-auth/consolekit"
 
-S=${WORKDIR}/${MY_P}
+DEPEND="${COMMON_DEPEND}
+	dev-util/pkgconfig
+	>=dev-util/intltool-0.40
+	>=sys-devel/gettext-0.17
+	doc? ( >=dev-util/gtk-doc-1.8 )"
 
 sysfs_deprecated_check() {
 	ebegin "Checking for SYSFS_DEPRECATED support"
@@ -78,7 +69,7 @@ sysfs_deprecated_check() {
 	eend $?
 }
 
-pkg_setup() {
+pkg_pretend() {
 	if use kernel_linux; then
 		get_version
 		if linux_config_exists; then
@@ -93,10 +84,14 @@ pkg_setup() {
 }
 
 src_prepare() {
-		gtkdocize
-		eautopoint --force
-		intltoolize --force --automake --copy
-		eautoreconf
+	# Add useful patches from upstream git (fixing crashes, SSID parsing bugs,
+	# and significant usability problems).
+	epatch "${FILESDIR}/${PV}/"*.patch
+
+	# Don't build tests
+	epatch "${FILESDIR}/${PN}-fix-tests.patch"
+	eautoreconf
+	default
 }
 
 src_configure() {
@@ -104,7 +99,7 @@ src_configure() {
 		--localstatedir=/var
 		--with-distro=gentoo
 		--with-dbus-sys-dir=/etc/dbus-1/system.d
-		--with-udev-dir=/etc/udev
+		--with-udev-dir=/lib/udev
 		--with-iptables=/sbin/iptables
 		$(use_enable doc gtk-doc)
 		$(use_enable introspection)
@@ -113,7 +108,8 @@ src_configure() {
 		$(use_with dhclient)
 		$(use_with dhcpcd)
 		$(use_with doc docs)
-		$(use_with resolvconf)"
+		$(use_with resolvconf)
+		$(systemd_with_unitdir)"
 
 		if use nss ; then
 			ECONF="${ECONF} $(use_with nss crypto=nss)"
@@ -132,17 +128,11 @@ src_install() {
 	# Need to keep the /etc/NetworkManager/dispatched.d for dispatcher scripts
 	keepdir /etc/NetworkManager/dispatcher.d
 
-	dodoc AUTHORS ChangeLog NEWS README TODO || die "dodoc failed"
-
 	# Add keyfile plugin support
 	keepdir /etc/NetworkManager/system-connections
 	insinto /etc/NetworkManager
-	newins "${FILESDIR}/nm-system-settings.conf" nm-system-settings.conf \
-		|| die "newins failed"
-}
+	newins "${FILESDIR}/nm-system-settings.conf-ifnet" nm-system-settings.conf
 
-pkg_postinst() {
-	elog "You will need to reload DBus if this is your first time installing"
-	elog "NetworkManager, or if you're upgrading from 0.7 or older."
-	elog ""
+	# Remove useless .la files
+	find "${D}" -name '*.la' -exec rm -f {} +
 }
