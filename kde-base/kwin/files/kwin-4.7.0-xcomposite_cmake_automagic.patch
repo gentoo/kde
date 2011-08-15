@@ -1,0 +1,16 @@
+diff -ruN kwin-4.7.0.orig/ConfigureChecks.cmake kwin-4.7.0/ConfigureChecks.cmake
+--- kwin-4.7.0.orig/ConfigureChecks.cmake	2011-05-20 22:32:06.000000000 +0200
++++ kwin-4.7.0/ConfigureChecks.cmake	2011-08-15 16:56:52.165002024 +0200
+@@ -67,6 +67,12 @@
+ macro_bool_to_01(X11_XShm_FOUND HAVE_XSHM) # kwin, ksplash
+ macro_bool_to_01(X11_XTest_FOUND HAVE_XTEST) # khotkeys, kxkb, kdm
+ macro_bool_to_01(X11_Xcomposite_FOUND HAVE_XCOMPOSITE) # kicker, kwin
++
++if(NOT WITH_X11_Xcomposite)
++  set(X11_Xcomposite_FOUND FALSE)
++  MESSAGE(STATUS "Disabling Xcomposite as requested on commandline.")
++endif(NOT WITH_X11_Xcomposite)
++
+ macro_bool_to_01(X11_Xcursor_FOUND HAVE_XCURSOR) # many uses
+ macro_bool_to_01(X11_Xdamage_FOUND HAVE_XDAMAGE) # kwin
+ macro_bool_to_01(X11_Xfixes_FOUND HAVE_XFIXES) # klipper, kicker, kwin

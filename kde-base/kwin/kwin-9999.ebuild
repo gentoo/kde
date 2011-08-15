@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS=""
-IUSE="debug gles xcomposite xinerama"
+IUSE="debug gles +xcomposite xinerama"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kephal)
@@ -45,6 +45,7 @@ KMEXTRACTONLY="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
+	"${FILESDIR}/${PN}-4.7.0-xcomposite_cmake_automagic.patch"
 )
 
 # you can use just gles or opengl or none
@@ -59,6 +60,7 @@ src_configure() {
 		$(cmake-utils_use gles KWIN_BUILD_WITH_OPENGLES)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xinerama X11_Xinerama)
+		$(cmake-utils_use_with xcomposite X11_Xcomposite)
 	)
 
 	kde4-meta_src_configure
