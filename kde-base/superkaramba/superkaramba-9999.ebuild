@@ -5,6 +5,7 @@
 EAPI=3
 
 PYTHON_DEPEND="python? 2"
+KDE_SCM="git"
 inherit python kde4-base
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
