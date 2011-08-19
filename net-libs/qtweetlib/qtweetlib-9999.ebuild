@@ -18,8 +18,8 @@ HOMEPAGE="https://github.com/minimoog/QTweetLib"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="debug"
-IUSE=""
+KEYWORDS=""
+IUSE="debug"
 
 DEPEND="
 	>=dev-libs/qjson-0.7.1
