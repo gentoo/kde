@@ -575,11 +575,11 @@ _calculate_live_repo() {
 					# every package is listed explicitly now, as upstream
 					# seems to love being different :(
 					case ${_kmname} in
-						blinken|cantor|kalgebra|kalzium|kanagram|kbruch| \
-						kdeplasma-addons|kdepim|kdepim-runtime|kdepimlibs| \
-						kgeography|khangman|kig|kiten|klettres|kmplot|kstars| \
-						ktouch|kturtle|kwordquiz|libkdeedu|mobipocket|okular| \
-						parley|rocs|step)
+						ark|blinken|cantor|filelight|kalgebra|kalzium|kanagram|kbruch| \
+						kcalc|kcharselect|kdeplasma-addons|kdepim|kdepim-runtime|kdepimlibs| \
+						kdf|kgeography|kgpg|khangman|kig|kiten|klettres|kmplot|kremotecontrol| \
+						kstars|ktimer|ktouch|kturtle|kwallet|kwordquiz|libkdeedu|mobipocket| \
+						okular|parley|printer-applet|rocs|step|superkaramba|sweeper)
 							EGIT_BRANCH="$(get_kde_version)"
 							;;
 						marble)
