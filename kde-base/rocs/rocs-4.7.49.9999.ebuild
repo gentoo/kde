@@ -16,3 +16,6 @@ DEPEND="
 	>=dev-cpp/eigen-2.0.3:2
 "
 RDEPEND=""
+
+RESTRICT="test"
+# bug 376909
