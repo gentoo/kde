@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="kdeaccessibility"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Provides accessibility services like focus tracking"
 KEYWORDS=""
@@ -18,5 +18,5 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with speechd Speechd)
 	)
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }

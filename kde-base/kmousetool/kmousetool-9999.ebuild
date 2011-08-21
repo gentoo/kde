@@ -5,9 +5,9 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdeaccessibility"
+KDE_SCM="git"
 
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE program that clicks the mouse for you."
 KEYWORDS=""
