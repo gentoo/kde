@@ -13,7 +13,7 @@ IUSE="akonadi debug plasma semantic-desktop"
 
 DEPEND="
 	dev-lang/mono
-	$(add_kdebase_dep qyoto)
+	$(add_kdebase_dep qyoto 'webkit')
 	$(add_kdebase_dep smokeqt)
 	$(add_kdebase_dep smokekde 'akonadi?,semantic-desktop=')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
