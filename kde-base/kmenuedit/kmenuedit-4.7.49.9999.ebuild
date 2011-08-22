@@ -15,6 +15,7 @@ IUSE="debug"
 RDEPEND="
 	$(add_kdebase_dep khotkeys)
 "
+DEPEND=${RDEPEND}
 
 KMEXTRACTONLY="
 	libs/kworkspace/
