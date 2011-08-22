@@ -7,14 +7,14 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
 KEYWORDS=""
-IUSE=""
+IUSE="+wallpapers"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
 	$(add_kdebase_dep freespacenotifier)
 	$(add_kdebase_dep kcheckpass)
 	$(add_kdebase_dep kcminit)
-	$(add_kdebase_dep kde-wallpapers)
+	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
 	$(add_kdebase_dep kdebase-cursors)
 	$(add_kdebase_dep kdebase-runtime-meta)
 	$(add_kdebase_dep kdebase-startkde)
