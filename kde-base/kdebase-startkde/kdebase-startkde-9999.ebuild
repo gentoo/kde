@@ -10,14 +10,14 @@ inherit kde4-meta multilib prefix
 
 DESCRIPTION="Startkde script, which starts a complete KDE session, and associated scripts"
 KEYWORDS=""
-IUSE=""
+IUSE="+wallpapers"
 
 # The KDE apps called from the startkde script.
 # These provide the most minimal KDE desktop.
 RDEPEND="
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep kdebase-runtime-meta)
-	$(add_kdebase_dep kde-wallpapers)
+	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
 	$(add_kdebase_dep kfmclient)
 	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep kreadconfig)
