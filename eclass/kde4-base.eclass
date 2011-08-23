@@ -575,9 +575,9 @@ _calculate_live_repo() {
 					# every package is listed explicitly now, as upstream
 					# seems to love being different :(
 					case ${_kmname} in
-						ark|blinken|cantor|filelight|jovie|kaccessible|kalgebra|kalzium|kanagram|kbruch| \
+						ark|blinken|cantor|filelight|kalgebra|kalzium|kanagram|kbruch| \
 						kcalc|kcharselect|kdeplasma-addons|kdepim|kdepim-runtime|kdepimlibs| \
-						kdf|kgeography|kgpg|khangman|kig|kiten|klettres|kmag|kmousetool|kmouth|kmplot|kremotecontrol| \
+						kdf|kgeography|kgpg|khangman|kig|kiten|klettres|kmplot|kremotecontrol| \
 						kstars|ktimer|ktouch|kturtle|kwallet|kwordquiz|libkdeedu|mobipocket| \
 						okular|parley|printer-applet|rocs|step|superkaramba|sweeper)
 							EGIT_BRANCH="$(get_kde_version)"
@@ -585,10 +585,10 @@ _calculate_live_repo() {
 						marble)
 							EGIT_BRANCH="kde-$(get_kde_version)"
 							;;
-						gwenview|kamera|kate|kcolorchooser|kde-baseapps| \
+						gwenview|jovie|kaccessible|kamera|kate|kcolorchooser|kde-baseapps| \
 						kde-runtime|kde-workspace|kgamma| \
 						kdegraphics-strigi-analyzer|kdegraphics-thumbnailers| \
-						kdelibs|kimono|kolourpaint|konsole|korundum| \
+						kdelibs|kimono|kmag|kmousetool|kmouth|kolourpaint|konsole|korundum| \
 						kross-interpreters|kruler|ksaneplugin|ksnapshot| \
 						libkdcraw|libkexiv2|libkipi|libksane|perlqt|perlkde| \
 						pykde4|qtruby|qyoto|smokegen|smokekde|smokeqt|svgpart)
