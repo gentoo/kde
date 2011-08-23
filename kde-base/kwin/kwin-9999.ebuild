@@ -47,8 +47,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
 )
 
-# you can use just gles or opengl or none
-REQUIRED_USE="opengl? ( !gles ) gles? ( !opengl )"
+# normally, you can use just gles or opengl or none
+#REQUIRED_USE="opengl? ( !gles ) gles? ( !opengl )"
+
+# right now, upstream requires opengl to always be enabled with gles
+REQUIRED_USE="gles? ( opengl )"
 
 src_configure() {
 	# FIXME Remove when activity API moved away from libkworkspace
