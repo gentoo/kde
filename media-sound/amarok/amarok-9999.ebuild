@@ -35,6 +35,7 @@ COMMONDEPEND="
 		app-crypt/qca:2
 		>=app-misc/strigi-0.5.7[dbus,qt4]
 		$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
+		$(add_kdebase_dep kdebase-kioslaves)
 		sys-libs/zlib
 		>=virtual/mysql-5.1
 		x11-libs/qt-script
