@@ -1,0 +1,20 @@
+Agenda topics for the next KDE team meeting
+-------------------------------------------
+
+
+Road towards KDE 5 - what news is there from the Desktop Summit?
+
+
+Build system architecture bugs
+
+https://bugs.gentoo.org/show_bug.cgi?id=358059
+cmake-utils.eclass PREFIX is not defined
+
+https://bugs.gentoo.org/show_bug.cgi?id=356681
+Please remove media-libs/phonon dependency from kde-base/kdelibs
+
+https://bugs.gentoo.org/show_bug.cgi?id=332829
+Inconsistency between distro's KDE4WorkspaceConfig.cmake and the actual layout
+
+https://bugs.gentoo.org/show_bug.cgi?id=380415
+Qt and KDE libs and plugins should not have an RPATH
