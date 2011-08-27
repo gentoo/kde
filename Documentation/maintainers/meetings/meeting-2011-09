@@ -2,6 +2,9 @@ Agenda topics for the next KDE team meeting
 -------------------------------------------
 
 
+KDE 4.7.0 stabilization (without kdepim)
+
+
 Road towards KDE 5 - what news is there from the Desktop Summit?
 
 
@@ -18,3 +21,7 @@ Inconsistency between distro's KDE4WorkspaceConfig.cmake and the actual layout
 
 https://bugs.gentoo.org/show_bug.cgi?id=380415
 Qt and KDE libs and plugins should not have an RPATH
+
+https://bugs.gentoo.org/show_bug.cgi?id=379747
+kde-4.7: add x11-libs/libxkbfile in DEPEND
+
