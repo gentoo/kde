@@ -12,10 +12,11 @@ DESCRIPTION="KDE4 interface to work with Graph Theory"
 KEYWORDS=""
 IUSE="debug"
 
+RDEPEND="dev-libs/boost"
 DEPEND="
+	${RDEPEND}
 	>=dev-cpp/eigen-2.0.3:2
 "
-RDEPEND=""
 
 RESTRICT="test"
 # bug 376909
