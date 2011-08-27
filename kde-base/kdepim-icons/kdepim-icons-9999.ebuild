@@ -12,3 +12,6 @@ inherit kde4-meta
 DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS=""
+
+DEPEND="$(add_kdebase_dep kdepimlibs)"
+RDEPEND=""
