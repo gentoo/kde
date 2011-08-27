@@ -14,11 +14,10 @@ IUSE="debug test"
 
 DEPEND="
 	$(add_kdebase_dep kephal)
-"
-
-RDEPEND="${DEPEND}
 	$(add_kdebase_dep libkworkspace)
 "
+
+RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
 
