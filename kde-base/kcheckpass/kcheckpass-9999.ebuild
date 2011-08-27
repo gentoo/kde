@@ -11,13 +11,15 @@ DESCRIPTION="A simple password checker, used by any software in need of user aut
 KEYWORDS=""
 IUSE="debug pam"
 
-DEPEND="
+RDEPEND="
 	pam? (
 		>=kde-base/kdebase-pam-7
 		virtual/pam
 	)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	x11-libs/libxkbfile
+"
 
 PATCHES=(
 	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
