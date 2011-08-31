@@ -305,6 +305,7 @@ kdecommondepend="
 		x11-libs/libXt
 		x11-libs/libXxf86vm
 		x11-libs/libXcomposite
+		x11-libs/libxkbfile
 	)
 "
 
