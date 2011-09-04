@@ -4,6 +4,8 @@
 
 EAPI=3
 
+inherit autotools
+
 DESCRIPTION="Libqrencode is a C library for encoding data in a QR Code"
 HOMEPAGE="http://fukuchi.org/works/qrencode/index.en.html"
 SRC_URI="http://fukuchi.org/works/${PN}/${P}.tar.bz2"
@@ -16,3 +18,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	sed -e 's:libpng12:libpng:g' -i configure.ac || die
+	eautoreconf
+}
