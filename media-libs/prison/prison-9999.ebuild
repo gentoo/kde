@@ -16,5 +16,8 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND="${DEPEND}"
+DEPEND="
+	media-libs/qrencode
+	media-libs/libdmtx
+"
 RDEPEND="${DEPEND}"
