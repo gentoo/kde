@@ -17,7 +17,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	media-libs/qrencode
+	media-gfx/qrencode
 	media-libs/libdmtx
 "
 RDEPEND="${DEPEND}"
