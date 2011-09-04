@@ -14,7 +14,7 @@ HOMEPAGE="http://www.kde.org/"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="debug ldap semantic-desktop"
+IUSE="barcode debug ldap semantic-desktop"
 
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	barcode? ( media-libs/prison )
 	semantic-desktop? (
 		>=app-office/akonadi-server-1.5.80
 		media-libs/phonon
