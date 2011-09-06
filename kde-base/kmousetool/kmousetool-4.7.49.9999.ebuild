@@ -6,8 +6,14 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdeaccessibility"
+	kde_eclass="kde4-meta"
+fi
 
-inherit kde4-base
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE program that clicks the mouse for you."
 KEYWORDS=""
