@@ -7,7 +7,13 @@ EAPI=4
 KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="optional"
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdeutils"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE calculator"
 KEYWORDS=""
@@ -23,5 +29,5 @@ PATCHES=(
 )
 
 src_test() {
-	LANG=C kde4-base_src_test
+	LANG=C ${kde_eclass}_src_test
 }

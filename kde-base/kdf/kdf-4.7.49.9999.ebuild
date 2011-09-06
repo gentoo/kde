@@ -6,12 +6,18 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SCM="git"
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdeutils"
+	kde_eclass="kde4-meta"
+fi
+inherit ${kde_eclass}
 
 DESCRIPTION="KDE free disk space utility"
 KEYWORDS=""
 IUSE="debug"
 
 src_unpack() {
-	kde4-base_src_unpack
+	${kde_eclass}_src_unpack
 }

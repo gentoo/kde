@@ -6,7 +6,13 @@ EAPI=3
 
 PYTHON_DEPEND="python? 2"
 KDE_SCM="git"
-inherit python kde4-base
+if [[ ${PV} == *9999 ]]; then
+	kde_eclass="kde4-base"
+else
+	KMNAME="kdeutils"
+	kde_eclass="kde4-meta"
+fi
+inherit python ${kde_eclass}
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS=""
@@ -23,7 +29,7 @@ RDEPEND="${DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
 
 pkg_setup() {
-	kde4-base_pkg_setup
+	${kde_eclass}_pkg_setup
 	python_set_active_version 2
 }
 
@@ -32,5 +38,5 @@ src_configure() {
 		$(cmake-utils_use_with python PythonLibs)
 	)
 
-	kde4-base_src_configure
+	${kde_eclass}_src_configure
 }
