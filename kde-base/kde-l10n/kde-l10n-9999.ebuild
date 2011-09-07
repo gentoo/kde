@@ -11,6 +11,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 DEPEND=">=sys-devel/gettext-0.17"
+RDEPEND="${DEPEND}"
 
 KEYWORDS=""
 IUSE=""
