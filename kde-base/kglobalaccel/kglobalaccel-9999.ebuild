@@ -11,9 +11,6 @@ DESCRIPTION="KDE's Global Shortcut Daemon"
 KEYWORDS=""
 IUSE="debug"
 
-# Module renamed upstream
-add_blocker kdedglobalaccel
-
 src_configure() {
 	mycmakeargs=(
 		-DKDEBASE_KGLOBALACCEL_REMOVE_OBSOLETE_KDED_DESKTOP_FILE=NOTFOUND
