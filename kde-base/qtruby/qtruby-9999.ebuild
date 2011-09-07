@@ -26,7 +26,6 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
-	!dev-ruby/qt4-qtruby
 "
 
 # Split from kdebindings-ruby in 4.7
