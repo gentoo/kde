@@ -16,5 +16,3 @@ RDEPEND="
 	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep khotkeys)
 "
-
-add_blocker systemsettings '<4.2.91'
