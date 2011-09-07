@@ -52,8 +52,6 @@ KMEXTRACTONLY="
 	plasma/
 "
 
-add_blocker kcontrol '<4.3.98'
-add_blocker konqueror '<4.4.70'
 add_blocker kdeaccessibility-colorschemes '<4.6.50'
 
 PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
