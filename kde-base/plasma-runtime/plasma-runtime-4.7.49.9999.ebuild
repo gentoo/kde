@@ -12,7 +12,3 @@ inherit kde4-meta
 DESCRIPTION="Script engine and package tool for plasma"
 KEYWORDS=""
 IUSE="debug"
-
-# cloned from workspace thus introduce collisions.
-add_blocker plasma-workspace '<4.5.60'
-add_blocker kdelibs '<4.5.60'
