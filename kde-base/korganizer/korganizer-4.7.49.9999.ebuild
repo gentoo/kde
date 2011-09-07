@@ -20,12 +20,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Moved after 4.3.90
-add_blocker kontact-specialdates
-
 KMLOADLIBS="kdepim-common-libs"
 
-# xml targets from kmail are being uncommented by kde4-meta.eclass
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarviews/
