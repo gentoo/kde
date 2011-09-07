@@ -26,7 +26,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!sci-geosciences/marble
 "
 
 PATCHES=(
