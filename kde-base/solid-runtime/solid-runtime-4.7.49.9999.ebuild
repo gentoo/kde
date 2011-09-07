@@ -12,14 +12,6 @@ DESCRIPTION="KDE SC solid runtime modules (autoeject, automounter and others)"
 KEYWORDS=""
 IUSE="debug"
 
-# Packages merged around 4.3.77
-add_blocker solidautoeject
-add_blocker solid-device-automounter
-add_blocker solid-hardware
-add_blocker soliduiserver
-# Moved away from workspace
-add_blocker solid '<4.5.69'
-
 KMEXTRA="
 	solid-device-automounter/
 	solid-hardware/
