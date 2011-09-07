@@ -29,11 +29,6 @@ add_blocker akonadi
 add_blocker libkdepim
 add_blocker libkleo
 add_blocker libkpgp
-add_blocker messagecomposer
-add_blocker messagecore
-add_blocker messagelist
-add_blocker messageviewer
-add_blocker templateparser
 add_blocker kaddressbook '<4.4.90'
 add_blocker kmail '<4.4.80'
 add_blocker korganizer '<4.5.67'
