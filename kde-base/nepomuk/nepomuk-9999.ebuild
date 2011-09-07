@@ -19,7 +19,3 @@ DEPEND="
 	!kde-misc/nepomukcontroller
 "
 RDEPEND="${DEPEND}"
-
-# BLOCKS:
-# kde-base/akonadi: installed nepomuk ontologies, which were supposed to be here
-add_blocker akonadi '<4.2.60'
