@@ -17,6 +17,4 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}
-	!kde-misc/bilbo
-	!kde-misc/blogilo
 "
