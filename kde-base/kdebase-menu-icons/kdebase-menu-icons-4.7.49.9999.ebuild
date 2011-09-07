@@ -11,5 +11,3 @@ inherit kde4-meta
 DESCRIPTION="KDE menu icons"
 KEYWORDS=""
 IUSE=""
-
-add_blocker kde-menu-icons
