@@ -93,11 +93,7 @@ DEPEND="${COMMONDEPEND}
 	nls? ( virtual/libintl )
 "
 RDEPEND="${COMMONDEPEND}
-	!dev-libs/conversion
-	!dev-libs/kunitconversion
 	!x11-libs/qt-phonon
-	!<=kde-misc/kdnssd-avahi-0.1.2:0
-	!<=kde-misc/knetworkmanager-4.4.0_p20100820
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
@@ -118,20 +114,6 @@ PDEPEND="
 	)
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
-
-# Blockers added due to packages from old versions, removed in the meanwhile
-# as well as for file collisions
-add_blocker libknotificationitem
-add_blocker libkworkspace '<4.3.66'
-add_blocker kcontrol '<4.5.80'
-# @since 4.4 - kpilot is gone (blocker added to help upgrades)
-add_blocker kpilot
-# Block some old versions of KDE-3.5 packages that don't work well with KDE-4
-add_blocker kdebase 0 3.5.9-r4:3.5
-add_blocker kdebase-startkde 0 3.5.10:3.5
-add_blocker kdelibs 0 '<3.5.10:3.5'
-# libnepomukquery moved to kdelibs from plasma-workspace between 4.3.74 -> 4.3.75
-add_blocker plasma-workspace '<4.3.75'
 
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix-1.patch"
