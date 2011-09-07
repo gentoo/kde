@@ -15,7 +15,6 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND=""
-add_blocker kde-l10n 4.5.50
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
