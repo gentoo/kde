@@ -20,9 +20,6 @@ RDEPEND="${DEPEND}
 	subversion? ( dev-vcs/subversion )
 "
 
-# SCM plugins moved from dolphin somewhere before 4.4.75
-add_blocker dolphin '<4.4.75'
-
 KMLOADLIBS="libkonq"
 
 #
