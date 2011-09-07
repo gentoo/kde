@@ -11,5 +11,3 @@ inherit kde4-meta
 DESCRIPTION="KDE Menu query tool."
 KEYWORDS=""
 IUSE="debug"
-
-add_blocker kde-menu
