@@ -17,6 +17,3 @@ DEPEND="
 	app-accessibility/speech-dispatcher
 "
 RDEPEND="${DEPEND}"
-
-# Renamed from kttsd just after 4.4.80
-add_blocker kttsd
