@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.55 2011/06/15 00:11:05 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.56 2011/07/10 17:53:37 tampakrap Exp $
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
@@ -350,6 +350,10 @@ kde4-meta_create_extractlists() {
 				KMEXTRA+="
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
 			fi
+			;;
+		kdeutils)
+			KMEXTRACTONLY+="
+				kdeutils-version.h"
 			;;
 		koffice)
 			KMEXTRACTONLY+="

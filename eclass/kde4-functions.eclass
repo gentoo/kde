@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.55 2011/07/08 11:35:01 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.56 2011/08/22 04:46:32 vapier Exp $
 
 inherit versionator
 
@@ -472,6 +472,7 @@ _enable_selected_linguas_dir() {
 }
 
 # @FUNCTION: get_kde_version
+# @DESCRIPTION:
 # Translates an ebuild version into a major.minor KDE SC
 # release version. If no version is specified, ${PV} is used.
 get_kde_version() {
