@@ -38,13 +38,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}"
 
-# libakonadi-kcal moved here from akonadi in 4.3.86
-add_blocker akonadi '<4.3.86'
-# @since 4.3 - libkholidays is in kdepimlibs now
-add_blocker libkholidays
-# @since 4.4 - kontactinterfaces is in kdepimlibs now
-add_blocker kontactinterfaces
-
 src_prepare() {
 	kde4-base_src_prepare
 
