@@ -15,7 +15,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!media-video/mplayerthumbs
 	|| (
 		$(add_kdebase_dep dolphin)
 		$(add_kdebase_dep konqueror)
