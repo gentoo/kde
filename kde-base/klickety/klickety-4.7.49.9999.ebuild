@@ -11,6 +11,3 @@ inherit kde4-meta
 DESCRIPTION="A KDE game almost the same as ksame, but a bit different."
 KEYWORDS=""
 IUSE="debug"
-
-# Replaced ksame around 4.5.74
-add_blocker ksame
