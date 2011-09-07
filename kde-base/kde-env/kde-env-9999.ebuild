@@ -16,7 +16,7 @@ KEYWORDS=""
 LICENSE="as-is"
 IUSE="aqua"
 
-add_blocker kdelibs 4.6.80 '<3.5.10-r3:3.5'
+add_blocker kdelibs 4.6.80
 
 S=${WORKDIR}
 
