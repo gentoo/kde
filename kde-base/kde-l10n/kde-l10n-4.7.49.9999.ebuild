@@ -11,7 +11,6 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 DEPEND=">=sys-devel/gettext-0.17"
-RDEPEND="!<kde-misc/konq-plugins-4.6"
 
 KEYWORDS=""
 IUSE=""
