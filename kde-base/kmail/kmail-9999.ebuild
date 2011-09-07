@@ -21,10 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker kmailcvt
-add_blocker libksieve
-add_blocker mimelib
-
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
