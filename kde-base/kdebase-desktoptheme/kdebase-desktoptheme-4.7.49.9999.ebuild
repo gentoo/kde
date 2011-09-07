@@ -11,7 +11,3 @@ inherit kde4-meta
 DESCRIPTION="Oxygen KDE4 desktop theme."
 IUSE=""
 KEYWORDS=""
-
-RDEPEND="
-	!<=kde-misc/knetworkmanager-4.4.0_p20100820
-"
