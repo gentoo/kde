@@ -578,7 +578,7 @@ _calculate_live_repo() {
 					case ${_kmname} in
 						ark|blinken|cantor|filelight|kalgebra|kalzium|kanagram|kbruch| \
 						kcalc|kcharselect|kdeplasma-addons|kdepim|kdepim-runtime|kdepimlibs| \
-						kdf|kgeography|kgpg|khangman|kig|kiten|klettres|kmplot|kremotecontrol| \
+						kdf|kfloppy|kgeography|kgpg|khangman|kig|kiten|klettres|kmplot|kremotecontrol| \
 						kstars|ktimer|ktouch|kturtle|kwallet|kwordquiz|libkdeedu|mobipocket| \
 						okular|parley|printer-applet|rocs|step|superkaramba|sweeper)
 							EGIT_BRANCH="$(get_kde_version)"
