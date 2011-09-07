@@ -19,6 +19,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker kdegraphics-strigi-analyzer '<4.2.91'
-
 S="${WORKDIR}/${KMNAME}-${PV}"
