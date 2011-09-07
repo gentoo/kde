@@ -19,7 +19,6 @@ DEPEND="
 	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}
-	!sys-power/powerdevil
 	pm-utils? ( sys-power/pm-utils )
 "
 
