@@ -418,6 +418,11 @@ add_kdebase_dep() {
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
+	# There will be no kdelibs 4.8+ (the next kdelibs will be a non-BC 5.0, apparently)
+	if [[ ${1} == kdelibs ]] && version_is_at_least 4.7.50 ${ver}; then
+		ver=4.7.1
+	fi
+
 	echo " >=kde-base/${1}-${ver}:4[aqua=${2:+,${2}}]"
 }
 
