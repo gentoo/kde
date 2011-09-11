@@ -9,13 +9,14 @@ inherit kde4-meta
 
 DESCRIPTION="Extra Dolphin plugins"
 KEYWORDS=""
-IUSE="debug +git +subversion"
+IUSE="debug +bazaar +git +subversion"
 
 DEPEND="
 	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kompare)
+	bazaar? ( dev-vcs/bzr )
 	git? ( dev-vcs/git )
 	subversion? ( dev-vcs/subversion )
 "
@@ -28,6 +29,7 @@ KMLOADLIBS="libkonq"
 src_prepare() {
 	echo 'macro_optional_add_subdirectory ( dolphin-plugins )' >> CMakeLists.txt || die
 	echo > dolphin-plugins/CMakeLists.txt || die
+	use bazaar && echo 'add_subdirectory ( bazaar )' >> dolphin-plugins/CMakeLists.txt
 	use git && echo 'add_subdirectory ( git )' >> dolphin-plugins/CMakeLists.txt
 	use subversion && echo 'add_subdirectory ( svn )' >> dolphin-plugins/CMakeLists.txt
 
@@ -35,5 +37,5 @@ src_prepare() {
 }
 
 src_install() {
-	{ use git || use subversion; } && kde4-meta_src_install
+	{ use bazaar || use git || use subversion; } && kde4-meta_src_install
 }
