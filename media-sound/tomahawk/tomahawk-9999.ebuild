@@ -31,9 +31,11 @@ IUSE="debug fftw libsamplerate"
 #)
 
 DEPEND="
+	dev-libs/libattica
 	>=dev-cpp/clucene-2.3.3.4
 	>=dev-libs/boost-1.41
 	>=dev-libs/qjson-0.7.1
+	>=dev-libs/quazip-0.4.3
 	>=media-libs/libechonest-1.1.8
 	>=media-libs/phonon-4.5.0
 	media-libs/taglib
@@ -72,11 +74,4 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-}
-
-pkg_postinst() {
-	echo
-	elog "Information on how to get more resolvers for ${PN}"
-	elog "is available at ${HOMEPAGE}resolvers"
-	echo
 }
