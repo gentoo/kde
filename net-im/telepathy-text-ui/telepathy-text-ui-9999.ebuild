@@ -11,7 +11,7 @@ DESCRIPTION="This application provides a text chat window."
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug"
 

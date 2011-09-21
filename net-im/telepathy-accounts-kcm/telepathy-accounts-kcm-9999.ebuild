@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE UI for account management"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
 IUSE="debug"

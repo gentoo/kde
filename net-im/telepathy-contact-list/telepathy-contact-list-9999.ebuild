@@ -12,12 +12,12 @@ DESCRIPTION="UI for contaclist"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug"
 
 DEPEND="
 	>=net-libs/telepathy-qt4-0.7.1
-	>=net-im/telepathy-accounts-kcm-9999
+	>=net-im/telepathy-accounts-kcm-${PV}
 "
 RDEPEND="${DEPEND}"

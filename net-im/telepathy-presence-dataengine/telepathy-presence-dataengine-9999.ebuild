@@ -11,7 +11,7 @@ DESCRIPTION="KDE Telepathy presence dataengine"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 
-LICENSE="GPL-2"
+LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="debug"
 
