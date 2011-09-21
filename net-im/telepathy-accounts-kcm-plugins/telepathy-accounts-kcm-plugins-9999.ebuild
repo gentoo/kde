@@ -13,12 +13,13 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="debug purple jabber msn"
+IUSE="debug purple jabber msn zeroconf"
 
 DEPEND="
 	net-im/telepathy-accounts-kcm
 	purple? ( net-voip/telepathy-haze )
 	jabber? ( net-voip/telepathy-gabble )
 	msn? ( net-voip/telepathy-butterfly )
+	zeroconf? ( net-voip/telepathy-salut )
 "
 RDEPEND="${DEPEND}"
