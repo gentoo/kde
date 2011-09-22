@@ -16,6 +16,7 @@ IUSE="debug"
 # Althrought they are purely runtime, its too useless without them
 DEPEND="
 	>=app-text/hunspell-1.2.8
+	dev-libs/soprano
 	>=x11-libs/qt-sql-4.5.0:4[sqlite]
 "
 RDEPEND="${DEPEND}
