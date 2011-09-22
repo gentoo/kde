@@ -3,7 +3,8 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="purple">Enable libpurple supported protocols ICQ/Yahoo</flag>
+		<flag name="irc">Enable Internet Relay Chat (IRC) support.</flag>
+		<flag name="purple">Enable libpurple supported protocols ICQ/Yahoo.</flag>
 		<flag name="zeroconf">Enable Link-Local Messaging via the zeroconf or Bonjour protocol.</flag>
 	</use>
 </pkgmetadata>
