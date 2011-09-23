@@ -15,7 +15,7 @@ HOMEPAGE="http://websvn.kde.org/trunk/playground/base/kio_sysinfo/"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 src_configure() {

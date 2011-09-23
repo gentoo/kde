@@ -12,7 +12,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="graphviz"
 
 DEPEND="graphviz? ( media-gfx/kgraphviewer )"

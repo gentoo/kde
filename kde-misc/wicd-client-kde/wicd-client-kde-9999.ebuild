@@ -17,7 +17,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
 	SRC_URI="http://kde-apps.org/CONTENT/content-files/132366-${MY_P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="net-misc/wicd"
