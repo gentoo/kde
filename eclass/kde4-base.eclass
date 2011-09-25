@@ -719,21 +719,23 @@ kde4-base_src_prepare() {
 
 	# Replace KDE4Workspace library targets
 	find "${S}" -name CMakeLists.txt \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_TASKMANAGER_(LIBRARY|LIBS)\}/taskmanager/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KWORKSPACE_(LIBRARY|LIBS)\}/kworkspace/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_SOLIDCONTROLIFACES_(LIBRARY|LIBS)\}/solidcontrolifaces/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_SOLIDCONTROL_(LIBRARY|LIBS)\}/solidcontrol/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_PROCESSUI_(LIBRARY|LIBS)\}/processui/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_LSOFUI_(LIBRARY|LIBS)\}/lsofui/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_PLASMACLOCK_(LIBRARY|LIBS)\}/plasmaclock/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_NEPOMUKQUERYCLIENT_(LIBRARY|LIBS)\}/nepomukqueryclient/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_NEPOMUKQUERY_(LIBRARY|LIBS)\}/nepomukquery/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KSCREENSAVER_(LIBRARY|LIBS)\}/kscreensaver/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_WEATHERION_(LIBRARY|LIBS)\}/weather_ion/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KWINEFFECTS_(LIBRARY|LIBS)\}/kwineffects/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KDECORATIONS_(LIBRARY|LIBS)\}/kdecorations/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KSGRD_(LIBRARY|LIBS)\}/ksgrd/g' {} + \
-		-exec sed -i -r -e 's/\$\{KDE4WORKSPACE_KEPHAL_(LIBRARY|LIBS)\}/kephal/g' {} + \
+		-exec sed -i -r \
+			-e 's/\$\{KDE4WORKSPACE_TASKMANAGER_(LIBRARY|LIBS)\}/taskmanager/g' \
+			-e 's/\$\{KDE4WORKSPACE_KWORKSPACE_(LIBRARY|LIBS)\}/kworkspace/g' \
+			-e 's/\$\{KDE4WORKSPACE_SOLIDCONTROLIFACES_(LIBRARY|LIBS)\}/solidcontrolifaces/g' \
+			-e 's/\$\{KDE4WORKSPACE_SOLIDCONTROL_(LIBRARY|LIBS)\}/solidcontrol/g' \
+			-e 's/\$\{KDE4WORKSPACE_PROCESSUI_(LIBRARY|LIBS)\}/processui/g' \
+			-e 's/\$\{KDE4WORKSPACE_LSOFUI_(LIBRARY|LIBS)\}/lsofui/g' \
+			-e 's/\$\{KDE4WORKSPACE_PLASMACLOCK_(LIBRARY|LIBS)\}/plasmaclock/g' \
+			-e 's/\$\{KDE4WORKSPACE_NEPOMUKQUERYCLIENT_(LIBRARY|LIBS)\}/nepomukqueryclient/g' \
+			-e 's/\$\{KDE4WORKSPACE_NEPOMUKQUERY_(LIBRARY|LIBS)\}/nepomukquery/g' \
+			-e 's/\$\{KDE4WORKSPACE_KSCREENSAVER_(LIBRARY|LIBS)\}/kscreensaver/g' \
+			-e 's/\$\{KDE4WORKSPACE_WEATHERION_(LIBRARY|LIBS)\}/weather_ion/g' \
+			-e 's/\$\{KDE4WORKSPACE_KWINEFFECTS_(LIBRARY|LIBS)\}/kwineffects/g' \
+			-e 's/\$\{KDE4WORKSPACE_KDECORATIONS_(LIBRARY|LIBS)\}/kdecorations/g' \
+			-e 's/\$\{KDE4WORKSPACE_KSGRD_(LIBRARY|LIBS)\}/ksgrd/g' \
+			-e 's/\$\{KDE4WORKSPACE_KEPHAL_(LIBRARY|LIBS)\}/kephal/g' \
+			{} + \
 		|| die 'failed to replace KDE4Workspace library targets'
 
 	# Hack for manuals relying on outdated DTD, only outside kde-base/koffice/...

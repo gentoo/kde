@@ -559,7 +559,11 @@ kde4-meta_change_cmakelists() {
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
 			if [[ ${PN} != libkworkspace ]]; then
 				sed -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
-					-i CMakeLists.txt || die "${LINENO}: sed died in kdebase-workspace strip config install and fix EXPORT section"
+					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace strip config install and fix EXPORT section"
+			fi
+			if [[ ${PN} != plasma-workspace ]]; then
+				sed -e '/KActivities/s/REQUIRED//' \
+					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section"
 			fi
 			;;
 		kdebase-runtime | kde-runtime)
