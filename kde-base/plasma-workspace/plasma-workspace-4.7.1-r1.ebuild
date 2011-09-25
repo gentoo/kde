@@ -11,7 +11,7 @@ PYTHON_DEPEND="python? 2"
 inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop xinerama"
 
 COMMONDEPEND="
