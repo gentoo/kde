@@ -17,16 +17,7 @@ IUSE="debug xine"
 
 RDEPEND="
 	>=media-libs/phonon-4.4.3
-	xine? ( media-libs/xine-lib[xcb] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with xine)
-	)
-
-	kde4-meta_src_configure
-}
