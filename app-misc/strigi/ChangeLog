@@ -1,0 +1,9 @@
+# ChangeLog for app-misc/strigi
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Sep 2011; Andreas K. Huettel <dilfridge@gentoo.org>
+  -strigi-0.7.5-r3.ebuild, -files/strigi-0.7.5-clucene23.patch,
+  -files/strigi-0.7.5-ffmpeg.patch, strigi-9999.ebuild:
+  Version bump to main tree. Should be packaged from git tags in the future.
+

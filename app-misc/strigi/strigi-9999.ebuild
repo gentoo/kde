@@ -1,11 +1,11 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/strigi/strigi-0.7.6.ebuild,v 1.1 2011/09/25 19:11:25 dilfridge Exp $
 
 EAPI=4
 
 if [[ "${PV}" != "9999" ]]; then
-	SRC_URI="http://www.vandenoever.info/software/${PN}/${P}.tar.bz2"
+	SRC_URI="http://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.xz"
 	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	EGIT_REPO_URI="git://anongit.kde.org/strigi"
@@ -17,7 +17,7 @@ fi
 inherit cmake-utils ${GIT_ECLASS}
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
-HOMEPAGE="http://strigi.sourceforge.net/"
+HOMEPAGE="https://projects.kde.org/projects/kdesupport/strigi/strigi"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,6 +46,10 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.7.5-no-qt4.patch"
+)
 
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
