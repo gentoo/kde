@@ -22,7 +22,10 @@ COMMONDEPEND="
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
 	opengl? ( >=media-libs/mesa-7.10 )
-	gles? ( >=media-libs/mesa-7.10[egl(+),gles] )
+	gles? (
+		|| (  ( >=media-libs/mesa-7.10[egl(+),gles] <media-libs/mesa-7.12[egl(+),gles] )
+			>=media-libs/mesa-7.12[egl(+),gles2] )
+	)
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
