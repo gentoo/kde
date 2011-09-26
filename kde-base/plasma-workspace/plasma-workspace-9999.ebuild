@@ -51,7 +51,6 @@ DEPEND="${COMMONDEPEND}
 	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep activitymanager)
 	$(add_kdebase_dep plasma-runtime)
 "
 
