@@ -11,13 +11,12 @@ inherit python kde4-meta
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug semantic-desktop"
 
-# Althrought they are purely runtime, its too useless without them
 DEPEND="
 	>=app-text/hunspell-1.2.8
-	dev-libs/soprano
 	>=x11-libs/qt-sql-4.5.0:4[sqlite]
+	semantic-desktop? ( dev-libs/soprano )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesdk-strigi-analyzer)
