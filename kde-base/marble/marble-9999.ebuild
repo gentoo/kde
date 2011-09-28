@@ -30,7 +30,6 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 			"${FILESDIR}/${PN}-4.7-magic-r1.patch"
-			"${FILESDIR}/${PN}-4.5.5-gpsd.patch"
 )
 
 pkg_setup() {
