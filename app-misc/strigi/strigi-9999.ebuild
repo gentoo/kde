@@ -48,10 +48,6 @@ DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.7.5-no-qt4.patch"
-)
-
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
