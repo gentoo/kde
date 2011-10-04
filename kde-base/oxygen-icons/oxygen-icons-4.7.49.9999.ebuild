@@ -21,7 +21,7 @@ HOMEPAGE="http://www.oxygen-icons.org/"
 # filename of one of the tarballs
 [[ ${PV} == *9999 ]] || \
 SRC_URI="
-	!bindist? ( http://dev.gentoo.org/~dilfridge/distfiles/${MY_P}.tar.xz )
+	!bindist? ( http://dev.gentoo.org/~alexxy/distfiles/${MY_P}.tar.xz )
 	bindist? ( ${SRC_URI//${PV}/${MY_PV}} )
 "
 
