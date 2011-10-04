@@ -16,8 +16,8 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	>=sys-block/parted-1.8
-	>=sys-fs/lvm2-2.02.73
+	>=sys-block/parted-2.3
+	>=sys-fs/lvm2-2.02.86
 	sys-libs/e2fsprogs-libs
 "
 DEPEND="${RDEPEND}"
