@@ -2,7 +2,7 @@
 # Edit profiles/package.mask.d/ files instead.
 
 # Available on mirrors, but not announced officially
-~app-office/akonadi-server-1.6.1
+~app-office/akonadi-server-1.6.2
 
 # Dennis Schridde <devurandom@gmx.net> (06 Feb 2011)
 # Beta versions of the Ayatana ebuilds
