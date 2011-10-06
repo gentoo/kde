@@ -15,13 +15,13 @@ IUSE=""
 DEPEND=""
 RDEPEND="
 	>=net-im/telepathy-accounts-kcm-${PV}
-	>=net-im/telepathy-accounts-kcm-plugins-${PV}
 	>=net-im/telepathy-approver-${PV}
 	>=net-im/telepathy-contact-list-${PV}
 	>=net-im/telepathy-filetransfer-handler-${PV}
 	>=net-im/telepathy-presence-applet-${PV}
 	>=net-im/telepathy-send-file-${PV}
-	>=net-im/telepathy-text-ui-${PV}"
+	>=net-im/telepathy-text-ui-${PV}
+	net-voip/telepathy-connection-managers"
 
 pkg_postinst() {
 	echo
