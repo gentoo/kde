@@ -35,11 +35,13 @@ src_prepare() {
 
 	# Rename printer-applet -> printer-applet-kde
 	local newname="printer-applet-kde"
+	local srcdir=.
+	[[ ${kde_eclass} == "kde4-meta" ]] && srcdir="${KMMODULE}"
 	sed -e "/PYKDE4_ADD_EXECUTABLE/s/ printer-applet[[:space:]]*)/ ${newname})/" \
 		-e "/install/s/)/ RENAME ${newname}.desktop)/" \
-		-i CMakeLists.txt || die "failed to rename printer-applet executable"
+		-i "${srcdir}"/CMakeLists.txt || die "failed to rename printer-applet executable"
 	sed -e "/Exec/s/printer-applet/${newname}/" \
-		-i printer-applet.desktop || die "failed to patch .desktop file"
+		-i "${srcdir}"/printer-applet.desktop || die "failed to patch .desktop file"
 }
 
 src_install() {
