@@ -18,4 +18,7 @@ IUSE="debug"
 DEPEND="
 	>=net-libs/telepathy-qt4-0.7.1
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=net-im/telepathy-contact-list-${PV}
+	>=net-im/telepathy-filetransfer-handler-${PV}
+"
