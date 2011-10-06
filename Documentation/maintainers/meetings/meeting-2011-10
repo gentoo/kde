@@ -1,0 +1,28 @@
+Agenda topics for the next KDE team meeting
+-------------------------------------------
+
+
+Thin manifests in overlay? Manifest hash in overlay?
+
+
+KDE 4.7.1 stabilization (without kdepim)
+
+
+KDEPIM 4.7.1 stabilization ???
+
+
+Important bugs
+
+?
+
+
+From last meeting
+
+https://bugs.gentoo.org/show_bug.cgi?id=358059
+cmake-utils.eclass PREFIX is not defined
+
+https://bugs.gentoo.org/show_bug.cgi?id=356681
+Please remove media-libs/phonon dependency from kde-base/kdelibs
+
+https://bugs.gentoo.org/show_bug.cgi?id=332829
+Inconsistency between distro's KDE4WorkspaceConfig.cmake and the actual layout
