@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="KDE UI for account management"
+DESCRIPTION="KDE account management UI"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"

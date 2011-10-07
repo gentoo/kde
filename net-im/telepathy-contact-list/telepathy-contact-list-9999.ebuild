@@ -8,7 +8,7 @@ KDE_SCM="git"
 inherit kde4-base
 #EGIT_REPO_URI="git://anongit.kde.org/clones/telepathy-contact-list/mklapetek/telepathy-contact-list-new"
 
-DESCRIPTION="UI for contaclist"
+DESCRIPTION="KDE Telepathy contact list"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 

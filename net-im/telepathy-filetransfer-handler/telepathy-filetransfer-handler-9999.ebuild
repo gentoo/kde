@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="Telepathy file transfer handler."
+DESCRIPTION="KDE Telepathy file transfer handler"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"

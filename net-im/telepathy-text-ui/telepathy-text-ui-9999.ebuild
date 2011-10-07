@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="This application provides a text chat window."
+DESCRIPTION="KDE Telepathy text chat window"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 

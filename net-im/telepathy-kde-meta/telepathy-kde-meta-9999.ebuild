@@ -4,7 +4,8 @@
 
 EAPI=4
 
-DESCRIPTION="Telepathy client for KDE"
+DESCRIPTION="KDE Telepathy client - merge this to pull in all net-im/telepathy*
+kde packages"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 

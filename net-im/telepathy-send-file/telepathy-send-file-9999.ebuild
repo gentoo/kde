@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="File manager plugin to launch a file transfer job with a specified contact."
+DESCRIPTION="KDE Telepathy file manager plugin to send files to contacts"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
