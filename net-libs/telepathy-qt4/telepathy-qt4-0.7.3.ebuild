@@ -37,10 +37,6 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-src_prepare() {
-	epatch "${FILESDIR}"/telepathy-qt4-doxygen_remove.patch
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_enable debug DEBUG_OUTPUT)
