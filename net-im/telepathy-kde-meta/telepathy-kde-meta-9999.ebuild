@@ -18,6 +18,7 @@ RDEPEND="
 	>=net-im/telepathy-accounts-kcm-${PV}
 	>=net-im/telepathy-approver-${PV}
 	>=net-im/telepathy-auth-handler-${PV}
+	>=net-im/telepathy-contact-applet-${PV}
 	>=net-im/telepathy-contact-list-${PV}
 	>=net-im/telepathy-filetransfer-handler-${PV}
 	>=net-im/telepathy-kded-module-${PV}
