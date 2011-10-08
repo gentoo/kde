@@ -12,7 +12,7 @@ HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 KEYWORDS=""
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
