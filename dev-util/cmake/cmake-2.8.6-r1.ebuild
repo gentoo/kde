@@ -56,6 +56,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.3-more-no_host_paths.patch
 	"${FILESDIR}"/${PN}-2.8.3-ruby_libname.patch
 	"${FILESDIR}"/${PN}-2.8.4-FindBoost.patch
+	"${FILESDIR}"/${PN}-2.8.6-FindBLAS.patch
+	"${FILESDIR}"/${PN}-2.8.6-FindLAPACK.patch
 )
 cmake_src_bootstrap() {
 	# Cleanup args to extract only JOBS.
