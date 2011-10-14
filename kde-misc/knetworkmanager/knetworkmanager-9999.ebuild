@@ -5,36 +5,34 @@
 EAPI=4
 
 KDE_MINIMAL="4.6"
+KDE_LINGUAS="ar ast bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hr
+hu is it ja km ko lt lv mai ms nb nds nl nn pa pl pt pt_BR ro ru sk sl sq sv th
+tr ug uk wa zh_CN zh_TW"
+
+MY_PN="networkmanagement"
+MY_P="${MY_PN}-${PV}"
 
 KDE_SCM="git"
-EGIT_REPONAME="networkmanagement"
-
-if use nm09; then
-	EGIT_BRANCH="nm09"
-else
-	EGIT_BRANCH="master"
-fi
-
+EGIT_REPONAME="${MY_PN}"
+EGIT_BRANCH="nm09"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
-[[ ${PV} != 9999* ]] && SRC_URI="mirror://gentoo/${P}.tar.bz2"
+[[ ${PV} = 9999* ]] || SRC_URI="mirror://kde/unstable/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="consolekit nm09 debug"
+IUSE="consolekit debug"
 
-# From 0.9 networkmanager the solid is not used
 DEPEND="
 	net-misc/mobile-broadband-provider-info
-	nm09?	( >=net-misc/networkmanager-0.9.0 )
-	!nm09?	( $(add_kdebase_dep solid 'networkmanager') )
+	>=net-misc/networkmanager-0.9.0
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
+S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	kde4-base_src_prepare
