@@ -28,10 +28,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 "
 
-PATCHES=(
-			"${FILESDIR}/${PN}-4.7-magic-r1.patch"
-)
-
 pkg_setup() {
 	python_set_active_version 2
 	kde4-base_pkg_setup
