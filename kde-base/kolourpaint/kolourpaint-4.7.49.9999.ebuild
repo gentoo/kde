@@ -11,7 +11,8 @@ inherit kde4-base
 DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
-IUSE="debug"
+IUSE="debug scanner"
 
 DEPEND="media-libs/qimageblitz"
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}
+	scanner? ( kde-base/ksaneplugin )"
