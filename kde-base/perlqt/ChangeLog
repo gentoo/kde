@@ -1,0 +1,9 @@
+# ChangeLog for kde-base/perlqt
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Oct 2011; Andreas K. Huettel <dilfridge@gentoo.org>
+  +files/perlqt-4.7.2-vendor.patch, perlqt-4.7.49.9999.ebuild,
+  perlqt-9999.ebuild:
+  [kde-base/perlqt] vendor-perl, not site-perl
+
