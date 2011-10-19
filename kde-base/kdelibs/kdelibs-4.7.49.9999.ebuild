@@ -106,6 +106,7 @@ RDEPEND="${COMMONDEPEND}
 	)
 "
 PDEPEND="
+	$(add_kdebase_dep katepart)
 	|| ( ( $(add_kdebase_dep kfmclient) ) x11-misc/xdg-utils )
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
