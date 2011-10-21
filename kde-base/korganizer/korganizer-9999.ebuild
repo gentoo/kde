@@ -18,7 +18,9 @@ DEPEND="
 	$(add_kdebase_dep kdepim-common-libs)
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep ktimezoned)
+"
 
 KMLOADLIBS="kdepim-common-libs"
 
