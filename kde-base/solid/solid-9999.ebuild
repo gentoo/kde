@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug bluetooth networkmanager wicd"
 
 DEPEND="
-	networkmanager? ( >=net-misc/networkmanager-0.7 )
+	networkmanager? ( net-misc/networkmanager )
 	wicd? ( net-misc/wicd )
 "
 RDEPEND="${DEPEND}
