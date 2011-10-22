@@ -66,9 +66,9 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		"-DAKONADI_USE_STRIGI_SEARCH=OFF"
+		-DAKONADI_USE_STRIGI_SEARCH=OFF
 		$(cmake-utils_use test AKONADI_BUILD_TESTS)
-		$(cmake-utils_use sqlite INSTALL_QSQLITE_IN_QT_PREFIX)
+		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
 	)
 
 	cmake-utils_src_configure
