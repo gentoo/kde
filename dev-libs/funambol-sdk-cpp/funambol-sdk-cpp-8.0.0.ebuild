@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit eutils autotools
 
@@ -19,17 +19,8 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${P}/build/autotools"
+
 src_prepare() {
-	cd "${S}/build/autotools"
-	eautoreconf || die "Failed to autotoolize"
-}
-
-src_compile() {
-	cd "${S}/build/autotools"
-	emake || die "Failed to compilerize"
-}
-
-src_install() {
-	cd "${S}/build/autotools"
-	emake DESTDIR="${D}" install || die "Failed to installerize"
+	eautoreconf
 }

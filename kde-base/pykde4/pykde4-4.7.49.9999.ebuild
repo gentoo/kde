@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 PYTHON_DEPEND="*:2.5"
 RESTRICT_PYTHON_ABIS="*-jython 2.4"
@@ -120,7 +120,7 @@ src_compile() {
 src_install() {
 	installation() {
 		cd "${S}_build-${PYTHON_ABI}"
-		emake DESTDIR="${T}/images/${PYTHON_ABI}" install || die "emake install failed for Python ${PYTHON_ABI}"
+		emake DESTDIR="${T}/images/${PYTHON_ABI}" install
 	}
 	python_execute_function installation
 

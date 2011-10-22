@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=4
 PYTHON_DEPEND="2"
 
-EAPI=3
 inherit python base cmake-utils
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"

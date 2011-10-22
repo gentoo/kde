@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
@@ -31,7 +31,7 @@ pkg_setup() {
 
 src_install() {
 	kde4-meta_src_install
-	python_convert_shebangs -q -r $(python_get_version) "${ED}${PREFIX}/share/apps/${PN}"
+	python_convert_shebangs -q -r $(python_get_version) "${ED}/usr/share/apps/${PN}"
 }
 
 pkg_postinst() {
