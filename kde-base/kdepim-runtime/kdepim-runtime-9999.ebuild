@@ -28,3 +28,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
 "
+
+# nepomuk_email_feeder moved here in 4.8
+add_blocker kdepim-common-libs 4.7.50
