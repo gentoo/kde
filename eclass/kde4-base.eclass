@@ -880,6 +880,9 @@ kde4-base_pkg_preinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_savelist
+	if [[ ${BUILD_TYPE} == live && ${KDE_SCM} == svn ]]; then
+		subversion_pkg_preinst
+	fi
 }
 
 # @FUNCTION: kde4-base_pkg_postinst
