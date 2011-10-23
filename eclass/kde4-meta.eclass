@@ -584,13 +584,13 @@ kde4-meta_change_cmakelists() {
 			sed -r -e '/find_package\(KdepimLibs/s/REQUIRED//' \
 				-e '/find_package\((KdepimLibs|Boost|QGpgme|Akonadi|ZLIB|Strigi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
 				-e '/macro_log_feature\((Boost|QGPGME|Akonadi|ZLIB|STRIGI|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
-				-e '/if[[:space:]]*([[:space:]]*BUILD_.*)/s/^/#OVERRIDE /' \
-				-e '/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)/s/^/#OVERRIDE /' \
+				-e 's/if[[:space:]]*([[:space:]]*BUILD_.*)[[:space:]]*/if(1) # &/' \
+				-e 's/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)[[:space:]]*$/if(1) # &/' \
 				-i CMakeLists.txt || die "failed to disable hardcoded checks"
 			# Disable broken or redundant build logic
 			if ( has kontact ${IUSE//+} && use kontact ) || [[ ${PN} = kontact ]]; then
-				sed -e '/if[[:space:]]*([[:space:]]*BUILD_.*)/s/^/#OVERRIDE /' \
-					-e '/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)/s/^/#OVERRIDE /' \
+				sed -e 's/if[[:space:]]*([[:space:]]*BUILD_.*)[[:space:]]*$/if(1) # &/' \
+					-e 's/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)[[:space:]]*$/if(1) # &/' \
 					-i kontact/plugins/CMakeLists.txt || die 'failed to override build logic'
 			fi
 			if [[ $(get_kde_version) < 4.5 ]]; then
