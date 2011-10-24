@@ -14,7 +14,6 @@ MY_P="${MY_PN}-${PV}"
 
 KDE_SCM="git"
 EGIT_REPONAME="${MY_PN}"
-EGIT_BRANCH="nm09"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
@@ -27,6 +26,8 @@ SLOT="4"
 IUSE="consolekit debug"
 
 DEPEND="
+	kde-misc/libmm-qt
+	kde-misc/libnm-qt
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.0
 "
