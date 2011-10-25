@@ -21,6 +21,9 @@ DEPEND="${RDEPEND}
 	>=dev-cpp/eigen-2.0.3:2
 "
 
+# bug 386491
+RESTRICT="test"
+
 src_configure() {
 	mycmakeargs+="
 		$(cmake-utils_use_with ps LibSpectre)
