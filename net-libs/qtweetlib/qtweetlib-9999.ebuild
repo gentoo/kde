@@ -4,16 +4,14 @@
 
 EAPI=4
 
-# use domme's/dschmidt's clone for now, until the CMake support is merge
-# back to minimoog's original repository. See also:
-# https://github.com/minimoog/QTweetLib/network
-#EGIT_REPO_URI="git://github.com/minimoog/QTweetLib.git"
+MY_PN=QTweetLib
+
 if [[ ${PV} != *9999* ]]; then
-	SRC_URI="http://dev.gentoo.org/~jmbsvicetto/distfiles/snapshots/${P}.tar.bz2"
+	SRC_URI="https://github.com/minimoog/${MY_PN}/tarball/${PV} -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	GIT_ECLASS="git-2"
-	EGIT_REPO_URI="git://github.com/dschmidt/QTweetLib.git"
+	EGIT_REPO_URI="git://github.com/minimoog/QTweetLib.git"
 	KEYWORDS=""
 fi
 
@@ -32,4 +30,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}"/"${PN}"
+src_unpack() {
+	if [[ ${PV} != *9999* ]]; then
+		unpack ${A}
+		mv *-${MY_PN}-* "${S}"
+	else
+		git-2_src_unpack
+	fi
+}
