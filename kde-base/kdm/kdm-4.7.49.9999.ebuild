@@ -70,6 +70,9 @@ src_install() {
 
 	kde4-meta_src_install
 
+	# an equivalent file is already installed by kde-base/startkde, bug 377151
+	rm "${ED}/usr/share/apps/kdm/sessions/kde-plasma.desktop" || die
+
 	# Customize the kdmrc configuration:
 	# - SessionDirs set to /usr/share/xsessions
 	# - increase server timeout to 30s
