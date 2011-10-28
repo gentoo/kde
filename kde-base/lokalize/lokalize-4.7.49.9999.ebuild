@@ -28,6 +28,7 @@ PATCHES=( "${FILESDIR}/${PN}"-4.6.5-hunspell.patch )
 
 pkg_setup() {
 	kde4-meta_pkg_setup
+	python_pkg_setup
 	python_set_active_version 2
 }
 

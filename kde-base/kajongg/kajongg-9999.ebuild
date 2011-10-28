@@ -21,3 +21,8 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep libkmahjongg)
 	>=dev-python/twisted-8.2.0
 "
+
+pkg_setup() {
+	python_pkg_setup
+	kde4-meta_pkg_setup
+}
