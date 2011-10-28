@@ -10,9 +10,6 @@ MY_PN="libnm-qt"
 MY_P="${MY_PN}-${PV}"
 
 KDE_SCM="git"
-EGIT_REPONAME="clones/kde-workspace/iliakats/libnm-qt"
-
-CMAKE_USE_DIR="${S}/libmm-qt"
 
 inherit kde4-base
 
@@ -30,4 +27,3 @@ DEPEND="
 	>=net-misc/networkmanager-0.9.0
 "
 RDEPEND="${DEPEND}"
-
