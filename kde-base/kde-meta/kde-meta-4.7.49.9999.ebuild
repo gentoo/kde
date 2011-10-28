@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
 KEYWORDS=""
-IUSE="accessibility nls oldpim sdk semantic-desktop"
+IUSE="accessibility nls sdk semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep kate)
@@ -30,7 +30,6 @@ RDEPEND="
 		$(add_kdebase_dep kdewebdev-meta)
 	)
 	semantic-desktop? (
-		!oldpim? ( $(add_kdebase_dep kdepim-meta) )
-		oldpim? ( $(add_kdebase_dep kdepim-meta "" 4.4.11.1) )
+		$(add_kdebase_dep kdepim-meta "" 4.4.11.1)
 	)
 "

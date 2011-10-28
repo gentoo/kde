@@ -3,7 +3,6 @@
 <pkgmetadata>
   <herd>kde</herd>
   <use>
-    <flag name="oldpim">Allow the use of non-akonadi kdepim-4.4</flag>
     <flag name="sdk">Pull in developer-specific meta-packages</flag>
   </use>
 </pkgmetadata>
