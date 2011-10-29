@@ -600,7 +600,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if has kdeprefix ${IUSE//+} && use kdeprefix; then
+	if use_if_iuse kdeprefix; then
 		eerror "Sorry, kdeprefix support has been removed."
 		eerror "Please remove kdeprefix from your USE variable."
 		die "kdeprefix support has been removed"
@@ -682,7 +682,7 @@ kde4-base_src_prepare() {
 	# Enable/disable handbooks for kde4-base packages
 	# kde-l10n inherits kde4-base but is metpackage, so no check for doc
 	# kdelibs inherits kde4-base but handle installing the handbook itself
-	if ! has kde4-meta ${INHERITED} && has handbook ${IUSE//+}; then
+	if ! has kde4-meta ${INHERITED} && in_iuse handbook; then
 		if [[ ${KDEBASE} == kde-base ]]; then
 			if [[ ${PN} != kde-l10n && ${PN} != kdepim-l10n && ${PN} != kdelibs ]] && use !handbook; then
 				# documentation in kde4-functions
@@ -760,11 +760,11 @@ kde4-base_src_configure() {
 	# Build tests in src_test only, where we override this value
 	local cmakeargs=(-DKDE4_BUILD_TESTS=OFF)
 
-	if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
+	if use_if_iuse kdeenablefinal; then
 		cmakeargs+=(-DKDE4_ENABLE_FINAL=ON)
 	fi
 
-	if has debug ${IUSE//+} && use debug; then
+	if use_if_iuse debug; then
 		# Set "real" debug mode
 		CMAKE_BUILD_TYPE="Debugfull"
 	else
@@ -897,7 +897,7 @@ kde4-base_pkg_postinst() {
 	buildsycoca
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-		if has kdeenablefinal ${IUSE//+} && use kdeenablefinal; then
+		if use_if_iuse kdeenablefinal; then
 			echo
 			ewarn "WARNING! you have kdeenable final useflag enabled."
 			ewarn "This useflag needs to be enabled on ALL kde using packages and"
