@@ -33,7 +33,7 @@
 =kde-base/juk-4.7.2
 =kde-base/kaccessible-4.7.2
 =kde-base/kactivities-4.7.2
-=kde-base/kajongg-4.7.2
+=kde-base/kajongg-4.7.2-r1
 =kde-base/kalgebra-4.7.2
 =kde-base/kalzium-4.7.2
 =kde-base/kamera-4.7.2
@@ -59,9 +59,9 @@
 =kde-base/kcontrol-4.7.2
 =kde-base/kcron-4.7.2
 =kde-base/kde-env-4.7.2
-=kde-base/kde-l10n-4.7.2
+=kde-base/kde-l10n-4.7.2-r1
 =kde-base/kde-meta-4.7.2
-=kde-base/kde-wallpapers-4.7.2
+=kde-base/kde-wallpapers-4.7.2-r1
 =kde-base/kdeaccessibility-meta-4.7.2
 =kde-base/kdeaccounts-plugin-4.7.2
 =kde-base/kdeadmin-meta-4.7.2
@@ -90,7 +90,7 @@
 =kde-base/kdegames-meta-4.7.2
 =kde-base/kdegraphics-meta-4.7.2
 =kde-base/kdegraphics-strigi-analyzer-4.7.2
-=kde-base/kdelibs-4.7.2
+=kde-base/kdelibs-4.7.2-r1
 =kde-base/kdemultimedia-kioslaves-4.7.2
 =kde-base/kdemultimedia-meta-4.7.2
 =kde-base/kdenetwork-filesharing-4.7.2
@@ -181,7 +181,7 @@
 =kde-base/kreversi-4.7.2
 =kde-base/krfb-4.7.2
 =kde-base/krossjava-4.7.2
-=kde-base/krosspython-4.7.2
+=kde-base/krosspython-4.7.2-r1
 =kde-base/krossruby-4.7.2
 =kde-base/kruler-4.7.2
 =kde-base/krunner-4.7.2
@@ -239,9 +239,9 @@
 =kde-base/libplasmaclock-4.7.2
 =kde-base/libplasmagenericshell-4.7.2
 =kde-base/libtaskmanager-4.7.2
-=kde-base/lokalize-4.7.2
+=kde-base/lokalize-4.7.2-r1
 =kde-base/lskat-4.7.2
-=kde-base/marble-4.7.2
+=kde-base/marble-4.7.2-r1
 =kde-base/mplayerthumbs-4.7.2
 =kde-base/nepomuk-4.7.2
 =kde-base/nsplugins-4.7.2
@@ -255,10 +255,10 @@
 =kde-base/phonon-kde-4.7.2
 =kde-base/plasma-apps-4.7.2
 =kde-base/plasma-runtime-4.7.2
-=kde-base/plasma-workspace-4.7.2
+=kde-base/plasma-workspace-4.7.2-r1
 =kde-base/powerdevil-4.7.2
 =kde-base/printer-applet-4.7.2
-=kde-base/pykde4-4.7.2
+=kde-base/pykde4-4.7.2-r1
 =kde-base/qguiplatformplugin_kde-4.7.2
 =kde-base/qtruby-4.7.2
 =kde-base/qyoto-4.7.2
@@ -270,7 +270,7 @@
 =kde-base/solid-4.7.2
 =kde-base/solid-runtime-4.7.2
 =kde-base/step-4.7.2
-=kde-base/superkaramba-4.7.2
+=kde-base/superkaramba-4.7.2-r1
 =kde-base/svgpart-4.7.2
 =kde-base/sweeper-4.7.2
 =kde-base/system-config-printer-kde-4.7.2-r1
