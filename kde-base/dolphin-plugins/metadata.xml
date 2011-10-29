@@ -5,5 +5,6 @@
 <use>
 <flag name="bazaar">Enable support for the bazaar VCS</flag>
 <flag name="git">Enable support for the git VCS</flag>
+<flag name="mercurial">Enable support for the mercurial VCS</flag>
 </use>
 </pkgmetadata>
