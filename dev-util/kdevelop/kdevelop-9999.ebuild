@@ -17,7 +17,7 @@ IUSE="+cmake +cxx debug okteta +qmake qthelp"
 
 # Remove ksysguard dep after libprocessui moved into kdelibs
 DEPEND="
-	dev-util/kdevplatform[subversion]
+	dev-util/kdevplatform
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
 	okteta? ( $(add_kdebase_dep okteta) )
