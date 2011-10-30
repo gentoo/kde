@@ -10,3 +10,4 @@ slotmove net-im/telepathy-presence-applet 0 4
 slotmove net-im/telepathy-presence-dataengine 0 4
 slotmove net-im/telepathy-send-file 0 4
 slotmove net-im/telepathy-text-ui 0 4
+move kde-misc/knetworkmanager kde-misc/networkmanagement
