@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug ssl v4l2"
+IUSE="debug ssl v4l"
 
 # tests hang, last checked for 4.2.96
 RESTRICT=test
@@ -80,7 +80,7 @@ COMMONDEPEND="
 	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-3.2.0 )
 	statistics? ( dev-db/sqlite:3 )
-	v4l2? ( media-libs/libv4l )
+	v4l? ( media-libs/libv4l )
 	webpresence? (
 		dev-libs/libxml2
 		dev-libs/libxslt
@@ -123,7 +123,7 @@ src_configure() {
 		$(cmake-utils_use_with jingle LiboRTP)
 		$(cmake-utils_use_with jingle Mediastreamer)
 		$(cmake-utils_use_with jingle Speex)
-		$(cmake-utils_use_disable v4l2 VIDEOSUPPORT)
+		$(cmake-utils_use_disable v4l VIDEOSUPPORT)
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
