@@ -11,18 +11,16 @@ HOMEPAGE="https://projects.kde.org/projects/playground/base/plasmate"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-    >=dev-libs/libattica-0.1.4
-    x11-libs/qt-webkit
-    app-crypt/gpgme
-    kde-base/knewstuff
-    $(add_kdebase_dep kdelibs)
+	>=dev-libs/libattica-0.1.4
+	app-crypt/gpgme
+	$(add_kdebase_dep knewstuff)
 "
 
 RDEPEND="
-    dev-vcs/git
-    ${DEPEND}
+	dev-vcs/git
+	${DEPEND}
 "
