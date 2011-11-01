@@ -27,7 +27,6 @@ DEPEND="
 	>=net-im/telepathy-mission-control-5.7.9
 "
 RDEPEND="${DEPEND}
-	>=net-im/telepathy-contact-list-${PV}
 "
 
 S=${WORKDIR}/${MY_P}
