@@ -1,7 +1,0 @@
-# Andreas K. Huettel <dilfridge@gentoo.org> (27 Sep 2011)
-# Preepmtive package mask, should anyone bump it. KDE advises not to use
-# soprano-2.[67].1 as it introduces major breakage.
-~dev-libs/soprano-2.6.1
-~dev-libs/soprano-2.7.1
-
-
