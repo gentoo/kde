@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/marble/marble-4.7.0-r1.ebuild,v 1.1 2011/07/31 18:24:35 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/marble/marble-4.7.3.ebuild,v 1.2 2011/11/03 10:52:25 tampakrap Exp $
 
 EAPI=4
 
@@ -30,6 +30,10 @@ RDEPEND="${DEPEND}
 
 REQUIRED_USE="plasma? ( kde )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.7-magic-r1.patch"
+)
+
 pkg_setup() {
 	python_set_active_version 2
 	kde4-base_pkg_setup
@@ -39,10 +43,12 @@ pkg_setup() {
 src_prepare() {
 	kde4-base_src_prepare
 	python_convert_shebangs -r $(python_get_version) .
+
+	find "${S}/marble/src/bindings/python/sip" -name "*.sip" | xargs -- sed -i 's/#include <marble\//#include </'
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
 		$(cmake-utils_use python EXPERIMENTAL_PYTHON_BINDINGS)
 		$(cmake-utils_use_with python PyQt4)
