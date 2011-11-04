@@ -52,7 +52,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-clucene.patch"
+	"${FILESDIR}/${P}-clucene.patch"
 )
 
 src_configure() {
