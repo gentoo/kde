@@ -7,7 +7,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A multimedia player for different online platforms."
-HOMEPAGE="projects.kde.org/projects/playground/multimedia/kubeplayer"
+HOMEPAGE="http://projects.kde.org/projects/playground/multimedia/kubeplayer"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -16,10 +16,10 @@ IUSE="debug gstreamer"
 
 DEPEND="
 	dev-ruby/json
-	kde-base/korundum
-	kde-base/smokegen
-	kde-base/smokekde
-	kde-base/smokeqt
+	$(add_kdebase_dep korundum)
+	$(add_kdebase_dep smokegen)
+	$(add_kdebase_dep smokekde)
+	$(add_kdebase_dep smokeqt)
 	gstreamer? (
 		media-plugins/gst-plugins-faad
 		media-plugins/gst-plugins-ffmpeg
