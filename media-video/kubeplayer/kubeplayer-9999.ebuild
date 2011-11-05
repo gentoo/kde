@@ -11,19 +11,19 @@ HOMEPAGE="projects.kde.org/projects/playground/multimedia/kubeplayer"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug gstreamer"
 
 DEPEND="
-       kde-base/smokekde
-       kde-base/smokegen
-       kde-base/smokeqt
-       dev-ruby/json
-       kde-base/korundum
-       gstreamer? (
-                               media-plugins/gst-plugins-faad
-                               media-plugins/gst-plugins-soup
-                               media-plugins/gst-plugins-ffmpeg
-       )
+	dev-ruby/json
+	kde-base/korundum
+	kde-base/smokegen
+	kde-base/smokekde
+	kde-base/smokeqt
+	gstreamer? (
+		media-plugins/gst-plugins-faad
+		media-plugins/gst-plugins-ffmpeg
+		media-plugins/gst-plugins-soup
+	)
 "
 RDEPEND="${DEPEND}"
