@@ -58,7 +58,6 @@ PATCHES=(
 src_configure() {
 	mycmakeargs=(
 		-DINTERNAL_JREEN=OFF
-		-DINTERNAL_QTWEETLIB=OFF
 	)
 
 	if [[ ${PV} != *9999* ]]; then
