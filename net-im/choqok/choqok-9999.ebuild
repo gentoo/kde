@@ -4,19 +4,21 @@
 
 EAPI=4
 
-KDE_LINGUAS="bg da de en_GB es et fr ja nb nds nl pa pl pt pt_BR ru sv tr uk zh_CN zh_TW"
-KDE_SCM="git"
 if [[ ${PV} != *9999* ]]; then
+	KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fa fi fr ga gl
+	hr hu is ja km lt ms nb nds nl pa pl pt pt_BR ro ru sk sq sv tr ug uk zh_CN
+	zh_TW"
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 	KDE_HANDBOOK="optional"
 	KEYWORDS="~amd64 ~x86"
 else
+	KDE_SCM="git"
 	KEYWORDS=""
 fi
 
 inherit kde4-base
 
-DESCRIPTION="A Free/Open Source micro-blogging client for KDE"
+DESCRIPTION="Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 
 LICENSE="GPL-3"
