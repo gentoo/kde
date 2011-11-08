@@ -49,3 +49,12 @@ src_configure() {
 
 	kde4-base_src_configure
 }
+
+src_install() {
+	kde4-base_src_install
+
+	# drop some icons that collies with solid-4.7.1
+	for x in 22 32 64; do
+		rm "${ED}/usr/share/icons/oxygen/${x}x${x}/apps/networkmanager.png"
+	done
+}
