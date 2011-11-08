@@ -33,7 +33,7 @@ COMMONDEPEND="
 	>=media-libs/taglib-extras-1.0.1
 	player? (
 		app-crypt/qca:2
-		>=app-misc/strigi-0.5.7[dbus,qt4]
+		app-misc/strigi
 		$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?')
 		$(add_kdebase_dep kdebase-kioslaves)
 		sys-libs/zlib
