@@ -22,13 +22,7 @@ HOMEPAGE="http://tomahawk-player.org/"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="debug fftw libsamplerate"
-
-# Broken -X (Headless mode) by upstream
-# X? (
-#	>=x11-libs/qt-gui-${QT_MINIMAL}:4
-#	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
-#)
+IUSE="debug fftw jabber libsamplerate twitter"
 
 DEPEND="
 	dev-libs/libattica
@@ -39,15 +33,15 @@ DEPEND="
 	>=media-libs/libechonest-1.1.10
 	>=media-libs/phonon-4.5.0
 	media-libs/taglib
-	net-libs/jreen
-	net-libs/qtweetlib
 	>=x11-libs/qt-core-${QT_MINIMAL}:4
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4
 	>=x11-libs/qt-sql-${QT_MINIMAL}:4[sqlite]
 	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
 	>=x11-libs/qt-xmlpatterns-${QT_MINIMAL}:4
 	fftw? ( sci-libs/fftw:3.0 )
+	jabber? ( net-libs/jreen )
 	libsamplerate? ( media-libs/libsamplerate )
+	twitter? ( net-libs/qtweetlib )
 "
 RDEPEND="${DEPEND}"
 
@@ -57,6 +51,8 @@ PATCHES=(
 
 src_configure() {
 	mycmakeargs=(
+		$(cmake-utils_use_with jabber Jreen)
+		$(cmake-utils_use_with twitter QTweetLib)
 		-DINTERNAL_JREEN=OFF
 	)
 
