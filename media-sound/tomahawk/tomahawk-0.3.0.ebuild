@@ -22,41 +22,43 @@ HOMEPAGE="http://tomahawk-player.org/"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="debug fftw libsamplerate"
-
-# Broken -X (Headless mode) by upstream
-# X? (
-#	>=x11-libs/qt-gui-${QT_MINIMAL}:4
-#	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
-#)
+IUSE="debug fftw jabber libsamplerate +resolver twitter"
 
 DEPEND="
 	>=dev-cpp/clucene-2.3.3.4
 	>=dev-libs/boost-1.41
 	>=dev-libs/qjson-0.7.1
-	>=media-libs/libechonest-1.1.8
+	>=media-libs/libechonest-1.1.10
 	>=media-libs/phonon-4.5.0
 	media-libs/taglib
-	net-libs/jreen
-	net-libs/qtweetlib
 	>=x11-libs/qt-core-${QT_MINIMAL}:4
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4
 	>=x11-libs/qt-sql-${QT_MINIMAL}:4[sqlite]
 	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
 	>=x11-libs/qt-xmlpatterns-${QT_MINIMAL}:4
 	fftw? ( sci-libs/fftw:3.0 )
+	jabber? ( net-libs/jreen )
 	libsamplerate? ( media-libs/libsamplerate )
+	resolver? (
+		dev-libs/libattica
+		>=dev-libs/quazip-0.4.3
+	)
+	twitter? ( net-libs/qtweetlib )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-clucene.patch"
+	"${FILESDIR}/${P}-remove-quazip.patch"
 )
 
 src_configure() {
 	mycmakeargs=(
+		$(cmake-utils_use_with jabber Jreen)
+		$(cmake-utils_use_with resolver LibAttica)
+		$(cmake-utils_use_with resolver QuaZip)
+		$(cmake-utils_use_with twitter QTweetLib)
 		-DINTERNAL_JREEN=OFF
-		-DINTERNAL_QTWEETLIB=OFF
 	)
 
 	if [[ ${PV} != *9999* ]]; then
@@ -75,8 +77,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	echo
-	elog "Information on how to get more resolvers for ${PN}"
-	elog "is available at ${HOMEPAGE}resolvers"
-	echo
+	if ! use resolver; then
+		echo
+		elog "Information on how to get more resolvers for ${PN}"
+		elog "is available at ${HOMEPAGE}resolvers"
+		echo
+	fi
 }
