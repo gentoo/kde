@@ -22,14 +22,12 @@ HOMEPAGE="http://tomahawk-player.org/"
 
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="debug fftw jabber libsamplerate twitter"
+IUSE="debug fftw jabber libsamplerate +resolver twitter"
 
 DEPEND="
-	dev-libs/libattica
 	>=dev-cpp/clucene-2.3.3.4
 	>=dev-libs/boost-1.41
 	>=dev-libs/qjson-0.7.1
-	>=dev-libs/quazip-0.4.3
 	>=media-libs/libechonest-1.1.10
 	>=media-libs/phonon-4.5.0
 	media-libs/taglib
@@ -41,17 +39,24 @@ DEPEND="
 	fftw? ( sci-libs/fftw:3.0 )
 	jabber? ( net-libs/jreen )
 	libsamplerate? ( media-libs/libsamplerate )
+	resolver? (
+		dev-libs/libattica
+		>=dev-libs/quazip-0.4.3
+	)
 	twitter? ( net-libs/qtweetlib )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-clucene.patch"
+	"${FILESDIR}/${PN}-0.3.0-clucene.patch"
+	"${FILESDIR}/${PN}-0.3.0-remove-quazip.patch"
 )
 
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with jabber Jreen)
+		$(cmake-utils_use_with resolver LibAttica)
+		$(cmake-utils_use_with resolver QuaZip)
 		$(cmake-utils_use_with twitter QTweetLib)
 		-DINTERNAL_JREEN=OFF
 	)
@@ -69,4 +74,13 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+}
+
+pkg_postinst() {
+	if ! use resolver; then
+		echo
+		elog "Information on how to get more resolvers for ${PN}"
+		elog "is available at ${HOMEPAGE}resolvers"
+		echo
+	fi
 }
