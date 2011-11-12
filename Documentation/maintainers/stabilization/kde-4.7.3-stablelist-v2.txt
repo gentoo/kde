@@ -256,7 +256,7 @@
 =kde-base/phonon-kde-4.7.3
 =kde-base/plasma-apps-4.7.3
 =kde-base/plasma-runtime-4.7.3
-=kde-base/plasma-workspace-4.7.3
+=kde-base/plasma-workspace-4.7.3-r2
 =kde-base/powerdevil-4.7.3
 =kde-base/printer-applet-4.7.3
 =kde-base/pykde4-4.7.3
