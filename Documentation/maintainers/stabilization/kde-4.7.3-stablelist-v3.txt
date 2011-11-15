@@ -314,15 +314,16 @@
 #
 
 # digikam
-=media-gfx/digikam-2.2.0
-=media-libs/libkface-2.2.0
-=media-libs/libkgeomap-2.2.0
+=media-gfx/digikam-2.3.0
+=media-libs/libkface-2.3.0
+=media-libs/libkgeomap-2.3.0
 =media-libs/libpgf-6.11.32
 =sci-libs/clapack-3.2.1-r6
 
 # kipi-plugins
-=media-libs/libmediawiki-2.2.0
-=net-libs/libkvkontakte-2.2.0
+=media-plugins/kipi-plugins-2.3.0
+=media-libs/libmediawiki-2.3.0
+=net-libs/libkvkontakte-2.3.0
 
 # rekonq
 =www-client/rekonq-0.8.0
