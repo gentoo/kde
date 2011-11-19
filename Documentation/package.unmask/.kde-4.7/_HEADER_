@@ -1,2 +1,2 @@
-# Live packages are masked by default.
+# You can use this file to mask/unmask KDE SC 4.7 release.
 # Edit Documentation/package.unmask/.kde-4.7/ files instead.
