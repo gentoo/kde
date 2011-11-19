@@ -49,6 +49,10 @@ VOS_EXTRACT="
 
 DOCS=(AUTHORS ChangeLog CREDITS INSTALL NEWS README)
 
+PATCHES=(
+	"${FILESDIR}/${P}-unbundle-minizip.patch"
+	)
+
 src_prepare() {
 	sed -e '/^lib_LTLIBRARIES\s*=.*/s/lib_/noinst_/' -i binsrc/virtuoso/Makefile.am \
 		|| die "failed to disable installation of static lib"
