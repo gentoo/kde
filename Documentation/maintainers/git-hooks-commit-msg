@@ -28,6 +28,9 @@ elif [[ -n `grep -e '^\[sets' <<< "$summary"` ]] ; then
 elif [[ -n `grep -e '^\[profiles' <<< "$summary"` ]] ; then
 	# Do not enforce usage of repoman where it makes no sense
 	exit 0
+elif [[ -n `grep -e '^\[eclass' <<< "$summary"` ]] ; then
+	# Do not enforce usage of repoman where it makes no sense
+	exit 0
 elif grep '^NO_REPOMAN' "$FILE" >& /dev/null ; then
 	# Allow i-know-what-i-am-doing override
 	sed -i -e '/^NO_REPOMAN/d' "$FILE"
