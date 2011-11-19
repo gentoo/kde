@@ -10,8 +10,8 @@ DESCRIPTION="A repository for developing declarative plasmoids for the plasma de
 HOMEPAGE="https://projects.kde.org/projects/playground/base/declarative-plasmoids"
 
 LICENSE="GPL-2"
-SLOT="0"
-KEYWORDS="~amd64"
+SLOT="4"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
