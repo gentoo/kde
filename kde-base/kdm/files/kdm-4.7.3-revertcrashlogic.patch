@@ -1,0 +1,145 @@
+diff --git a/kdm/backend/greet.h b/kdm/backend/greet.h
+index 2ef7026..41f0791 100644
+--- a/kdm/backend/greet.h
++++ b/kdm/backend/greet.h
+@@ -146,8 +146,6 @@ from the copyright holder.
+ #define G_DChoose  3    /* run chooser */
+ #endif
+ 
+-#define G_Interact 4    /* greeter got user input. possible crash is probably not spontaneous. */
+-
+ #define G_Shutdown      101 /* 5*int, string; async */
+ # define SHUT_REBOOT      1     /* how */
+ # define SHUT_HALT        2
+diff --git a/kdm/backend/session.c b/kdm/backend/session.c
+index 85ab1d7..1b47e9c 100644
+--- a/kdm/backend/session.c
++++ b/kdm/backend/session.c
+@@ -409,12 +409,16 @@ void
+ openGreeter()
+ {
+     char *name, **env;
++    static time_t lastStart;
+     int cmd;
+     Cursor xcursor;
+ 
+     gSet(&grttalk);
+     if (grtproc.pid > 0)
+         return;
++    updateNow();
++    if (now < lastStart + 10) /* XXX should use some readiness indicator instead */
++        sessionExit(EX_UNMANAGE_DPY);
+     ASPrintf(&name, "greeter for display %s", td->name);
+     debug("starting %s\n", name);
+ 
+@@ -443,6 +447,8 @@ openGreeter()
+         sessionExit(EX_UNMANAGE_DPY);
+     }
+     debug("%s ready\n", name);
++    updateNow();
++    lastStart = now;
+ }
+ 
+ int
+@@ -544,7 +550,7 @@ manageSession(void)
+ {
+     int ex, cmd;
+     volatile int clientPid = -1;
+-    time_t tdiff, startt;
++    time_t tdiff;
+ 
+     debug("manageSession %s\n", td->name);
+     if ((ex = Setjmp(abortSession))) {
+@@ -576,13 +582,10 @@ manageSession(void)
+     updateNow();
+     tdiff = now - td->hstent->lastExit - td->openDelay;
+     if (autoLogon(tdiff)) {
+-        if (!verify(conv_auto, False)) {
+-            startt = now;
++        if (!verify(conv_auto, False))
+             goto gcont;
+-        }
+     } else {
+       regreet:
+-        startt = now;
+         openGreeter();
+ #ifdef XDMCP
+         if (((td->displayType & d_location) == dLocal) &&
+@@ -596,10 +599,6 @@ manageSession(void)
+                           G_GreetTimed : G_Greet);
+           gcont:
+             cmd = ctrlGreeterWait(True);
+-            if (cmd == G_Interact) {
+-                startt = 0;
+-                goto gcont;
+-            }
+ #ifdef XDMCP
+             while (cmd == G_DChoose) {
+               choose:
+@@ -616,9 +615,6 @@ manageSession(void)
+                 logError("Received unknown command %d from greeter\n", cmd);
+                 closeGreeter(True);
+             }
+-            updateNow();
+-            if (now < startt + 120) /* Greeter crashed spontaneously. Avoid endless loop. */
+-                sessionExit(EX_UNMANAGE_DPY);
+             goto regreet;
+         }
+     }
+diff --git a/kdm/kfrontend/kgapp.cpp b/kdm/kfrontend/kgapp.cpp
+index f169248..1bb744c 100644
+--- a/kdm/kfrontend/kgapp.cpp
++++ b/kdm/kfrontend/kgapp.cpp
+@@ -74,7 +74,7 @@ sigAlarm(int)
+ 
+ GreeterApp::GreeterApp(int &argc, char **argv) :
+     inherited(argc, argv),
+-    regrabPtr(false), regrabKbd(false), initalBusy(true), sendInteract(false),
++    regrabPtr(false), regrabKbd(false), initalBusy(true),
+     dragWidget(0)
+ {
+     pingInterval = _isLocal ? 0 : _pingInterval;
+@@ -203,14 +203,6 @@ GreeterApp::x11EventFilter(XEvent * ev)
+             break;
+         }
+         break;
+-    default:
+-        return false;
+-    }
+-    if (sendInteract) {
+-        sendInteract = false;
+-        // We assume that no asynchronous communication is going on
+-        // before the first user interaction.
+-        gSendInt(G_Interact);
+     }
+     return false;
+ }
+@@ -487,7 +479,6 @@ main(int argc ATTR_UNUSED, char **argv)
+             }
+         }
+         QObject::connect(dialog, SIGNAL(ready()), &app, SLOT(markReady()));
+-        app.enableSendInteract();
+         debug("entering event loop\n");
+         rslt = dialog->exec();
+         debug("left event loop\n");
+diff --git a/kdm/kfrontend/kgapp.h b/kdm/kfrontend/kgapp.h
+index b7c1b97..0979950 100644
+--- a/kdm/kfrontend/kgapp.h
++++ b/kdm/kfrontend/kgapp.h
+@@ -37,7 +37,6 @@ class GreeterApp : public QApplication {
+   public:
+     GreeterApp(int &argc, char **argv);
+     void markBusy();
+-    void enableSendInteract() { sendInteract = true; }
+     virtual bool x11EventFilter(XEvent *);
+ 
+   public Q_SLOTS:
+@@ -51,7 +50,7 @@ class GreeterApp : public QApplication {
+ 
+   private:
+     int pingInterval, pingTimerId;
+-    bool regrabPtr, regrabKbd, initalBusy, sendInteract;
++    bool regrabPtr, regrabKbd, initalBusy;
+     QPoint mouseStartPos, dialogStartPos;
+     QWidget *dragWidget;
+ };
