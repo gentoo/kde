@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdm/kdm-4.7.3.ebuild,v 1.1 2011/11/02 20:48:16 alexxy Exp $
 
 EAPI=4
 
@@ -40,6 +40,7 @@ KMEXTRA="
 PATCHES=(
 	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
 	"${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch"
+	"${FILESDIR}/${PN}-4.7.3-revertcrashlogic.patch"
 )
 
 pkg_setup() {
