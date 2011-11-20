@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit perl-module qt4 cmake-utils git-2
+inherit perl-module qt4-r2 cmake-utils git-2
 
 DESCRIPTION="Source code sanity checker for KDE developers."
 HOMEPAGE="http://www.kde.org/"
@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://gitorious.org/krazy/krazy.git"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug"
+IUSE="cxx debug"
 
 DEPEND="
 	>=dev-perl/HTML-Parser-2.20
@@ -40,13 +40,13 @@ src_prepare() {
 }
 
 src_configure() {
-	cmake-utils_src_configure
+	use cxx && cmake-utils_src_configure
 	cd src
 	eqmake4 src.pro
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	use cxx && cmake-utils_src_compile
 	cd src
 	emake
 }
@@ -54,7 +54,7 @@ src_compile() {
 src_install() {
 	dodoc README TODO
 
-	cmake-utils_src_install
+	use cxx && cmake-utils_src_install
 
 	cd src
 	emake install INSTALL_ROOT="${D}/usr"
