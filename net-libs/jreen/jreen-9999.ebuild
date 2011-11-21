@@ -32,11 +32,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	if [[ ${PV} != *9999* ]]; then
-		unpack ${A}
-		mv ${MY_P} "${S}" || die move failed
-	else
-		git-2_src_unpack
-	fi
-}
+S="${WORKDIR}/${MY_P}"
