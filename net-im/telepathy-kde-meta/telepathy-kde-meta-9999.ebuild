@@ -30,7 +30,7 @@ RDEPEND="
 	>=net-im/telepathy-presence-applet-${PV}
 	>=net-im/telepathy-send-file-${PV}
 	>=net-im/telepathy-text-ui-${PV}
-	net-voip/telepathy-connection-managers"
+	net-im/telepathy-connection-managers"
 
 pkg_postinst() {
 	echo
