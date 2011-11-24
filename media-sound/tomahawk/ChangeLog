@@ -1,0 +1,13 @@
+# ChangeLog for media-sound/tomahawk
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/tomahawk/ChangeLog,v 1.1 2011/11/12 19:22:24 dilfridge Exp $
+
+*tomahawk-9999 (12 Nov 2011)
+*tomahawk-0.3.0 (12 Nov 2011)
+
+  12 Nov 2011; Andreas K. Huettel <dilfridge@gentoo.org>
+  +tomahawk-0.3.0.ebuild, +files/tomahawk-0.3.0-clucene.patch,
+  +files/tomahawk-0.3.0-remove-quazip.patch, +tomahawk-9999.ebuild,
+  +metadata.xml:
+  New application, bug 379385. Thanks to eliasp, johu and jmbsvicetto...
+
