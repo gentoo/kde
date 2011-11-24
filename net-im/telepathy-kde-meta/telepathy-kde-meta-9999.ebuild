@@ -23,14 +23,15 @@ RDEPEND="
 	>=net-im/telepathy-accounts-kcm-${PV}
 	>=net-im/telepathy-approver-${PV}
 	>=net-im/telepathy-auth-handler-${PV}
+	>=net-im/telepathy-common-internals-${PV}
+	net-im/telepathy-connection-managers
 	>=net-im/telepathy-contact-applet-${PV}
 	>=net-im/telepathy-contact-list-${PV}
 	>=net-im/telepathy-filetransfer-handler-${PV}
 	>=net-im/telepathy-kded-module-${PV}
 	>=net-im/telepathy-presence-applet-${PV}
 	>=net-im/telepathy-send-file-${PV}
-	>=net-im/telepathy-text-ui-${PV}
-	net-im/telepathy-connection-managers"
+	>=net-im/telepathy-text-ui-${PV}"
 
 pkg_postinst() {
 	echo
