@@ -23,17 +23,17 @@ HOMEPAGE="http://choqok.gnufolks.org/"
 
 LICENSE="GPL-3"
 SLOT="4"
-IUSE="debug indicate"
+IUSE="ayatana debug"
 
 DEPEND="dev-libs/qjson
 	>=dev-libs/qoauth-1.0.1
-	indicate? ( dev-libs/libindicate-qt )
+	ayatana? ( dev-libs/libindicate-qt )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare(){
 	mycmakeargs=(
-		$(cmake-utils_use !indicate QTINDICATE_DISABLE)
+		$(cmake-utils_use !ayatana QTINDICATE_DISABLE)
 	)
 
 	kde4-base_src_prepare
