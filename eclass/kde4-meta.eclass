@@ -556,6 +556,9 @@ kde4-meta_change_cmakelists() {
 				sed -e '/startkde/s/^/#DONOTINSTALL /' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in the kdebase-startkde collision prevention section"
 			fi
+			# Remove workspace target prefix in order to get direct linking to workspace libs
+			sed -e '/set(KDE4WORKSPACE_TARGET_PREFIX/s/^/#OVERRIDE /' \
+				-i CMakeLists.txt || die "${LINENO}: sed died in KDE4WORKSPACE_TARGET_PREFIX removal section"
 			# Strip EXPORT feature section from workspace for KDE4 versions > 4.1.82
 			if [[ ${PN} != libkworkspace ]]; then
 				sed -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
