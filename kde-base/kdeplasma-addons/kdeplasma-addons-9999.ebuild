@@ -39,10 +39,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.7.3-knowledge.patch"
-)
-
 src_prepare() {
 	use semantic-desktop || epatch "${FILESDIR}/${PN}-4.6.2-optional-akonadi.patch"
 	kde4-base_src_prepare
