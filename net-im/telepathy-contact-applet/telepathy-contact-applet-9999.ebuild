@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_SCM="git"
-MY_P="${PN/telepathy/telepathy-kde}_${PV}"
+MY_P="${PN/telepathy/telepathy-kde}-${PV}"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy contact applet"

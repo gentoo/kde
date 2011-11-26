@@ -4,8 +4,9 @@
 
 EAPI=4
 
+KDE_LINGUAS="cs da de et fr hu it ja km lt nds nl pl pt pt_BR sv ug uk"
 KDE_SCM="git"
-MY_P="${PN/telepathy/telepathy-kde}_${PV}"
+MY_P="${PN/telepathy/telepathy-kde}-${PV}"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy contact list"

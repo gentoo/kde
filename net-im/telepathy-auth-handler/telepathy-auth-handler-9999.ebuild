@@ -4,8 +4,9 @@
 
 EAPI=4
 
+KDE_LINGUAS="cs da de hu it lt nds nl pt pt_BR sv uk"
 KDE_SCM="git"
-MY_P="${PN/telepathy/telepathy-kde}_${PV}"
+MY_P="${PN/telepathy/telepathy-kde}-${PV}"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy authentication handler"
