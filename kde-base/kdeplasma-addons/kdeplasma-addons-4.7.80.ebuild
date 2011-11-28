@@ -41,6 +41,9 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.7.3-knowledge.patch"
+	"${FILESDIR}/${PN}-4.7.80-fix-build-lancelot.patch"
+	"${FILESDIR}/${PN}-4.7.80-remove-outdated-statements.patch"
+	"${FILESDIR}/${PN}-4.7.80-fix-build-marble-wallpaper.patch"
 )
 
 src_prepare() {

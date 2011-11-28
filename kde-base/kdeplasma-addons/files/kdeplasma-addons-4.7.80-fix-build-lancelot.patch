@@ -1,0 +1,122 @@
+commit 6967ee53518136651b4fd5d691293a3c866d7a47
+Author: Aaron Seigo <aseigo@kde.org>
+Date:   Tue Nov 22 21:10:45 2011 +0100
+
+    fix build
+
+diff --git a/libs/lancelot-datamodels/OpenDocuments.cpp b/libs/lancelot-datamodels/OpenDocuments.cpp
+index 4b2bec5..b9f24ec 100644
+--- a/libs/lancelot-datamodels/OpenDocuments.cpp
++++ b/libs/lancelot-datamodels/OpenDocuments.cpp
+@@ -66,41 +66,41 @@ OpenDocuments::~OpenDocuments()
+     delete d;
+ }
+ 
+-void OpenDocuments::Private::connectTask(TaskPtr task)
++void OpenDocuments::Private::connectTask(::TaskManager::Task *task)
+ {
+     Q_ASSERT(task);
+     connect(
+-        task.constData(), SIGNAL(changed(::TaskManager::TaskChanges)),
++        task, SIGNAL(changed(::TaskManager::TaskChanges)),
+         this, SLOT(taskChanged())
+     );
+ }
+ 
+ void OpenDocuments::load()
+ {
+-    foreach (TaskPtr task, TaskManager::TaskManager::self()->tasks()) {
++    foreach (TaskManager::Task *task, TaskManager::TaskManager::self()->tasks()) {
+         if (d->setDataForTask(task)) {
+             d->connectTask(task);
+         }
+     }
+ 
+     connect(
+-        TaskManager::TaskManager::self(), SIGNAL(taskAdded(TaskPtr)),
+-        d, SLOT(taskAdded(TaskPtr))
++        TaskManager::TaskManager::self(), SIGNAL(taskAdded(::TaskManager::Task*)),
++        d, SLOT(taskAdded(::TaskManager::Task*))
+     );
+ 
+     connect(
+-        TaskManager::TaskManager::self(), SIGNAL(taskRemoved(TaskPtr)),
+-        d, SLOT(taskRemoved(TaskPtr))
++        TaskManager::TaskManager::self(), SIGNAL(taskRemoved(::TaskManager::Task*)),
++        d, SLOT(taskRemoved(::TaskManager::Task*))
+     );
+ }
+ 
+-void OpenDocuments::Private::taskAdded(TaskPtr task)
++void OpenDocuments::Private::taskAdded(::TaskManager::Task *task)
+ {
+     connectTask(task);
+     setDataForTask(task);
+ }
+ 
+-void OpenDocuments::Private::taskRemoved(TaskPtr task)
++void OpenDocuments::Private::taskRemoved(::TaskManager::Task *task)
+ {
+     Q_ASSERT(task);
+     int index = indexOf(task->window());
+@@ -115,10 +115,10 @@ void OpenDocuments::Private::taskChanged()
+     TaskManager::Task* task = qobject_cast<TaskManager::Task*>(sender());
+     Q_ASSERT(task);
+ 
+-    setDataForTask(TaskPtr(task));
++    setDataForTask(task);
+ }
+ 
+-bool OpenDocuments::Private::setDataForTask(TaskPtr task)
++bool OpenDocuments::Private::setDataForTask(::TaskManager::Task *task)
+ {
+     Q_ASSERT(task);
+ 
+diff --git a/libs/lancelot-datamodels/OpenDocuments.h b/libs/lancelot-datamodels/OpenDocuments.h
+index 00b0910..f9c5461 100644
+--- a/libs/lancelot-datamodels/OpenDocuments.h
++++ b/libs/lancelot-datamodels/OpenDocuments.h
+@@ -26,8 +26,6 @@
+ #include <taskmanager/taskmanager.h>
+ #include <QSet>
+ 
+-using TaskManager::TaskPtr;
+-
+ namespace Lancelot {
+ namespace Models {
+ 
+diff --git a/libs/lancelot-datamodels/OpenDocuments_p.h b/libs/lancelot-datamodels/OpenDocuments_p.h
+index 5fdfe70..d2dc374 100644
+--- a/libs/lancelot-datamodels/OpenDocuments_p.h
++++ b/libs/lancelot-datamodels/OpenDocuments_p.h
+@@ -24,8 +24,6 @@
+ #include <taskmanager/taskmanager.h>
+ #include <QSet>
+ 
+-using TaskManager::TaskPtr;
+-
+ namespace Lancelot {
+ namespace Models {
+ 
+@@ -44,16 +42,16 @@ public:
+ 
+ public Q_SLOTS:
+     void taskChanged();
+-    void taskAdded(TaskPtr task);
+-    void taskRemoved(TaskPtr task);
++    void taskAdded(::TaskManager::Task *task);
++    void taskRemoved(::TaskManager::Task *task);
+ 
+-    void connectTask(TaskPtr task);
+-    bool setDataForTask(TaskPtr task);
++    void connectTask(::TaskManager::Task *task);
++    bool setDataForTask(::TaskManager::Task *task);
+ 
+     int indexOf(WId wid);
+ 
+ public:
+-    QMap <WId, TaskPtr > tasks;
++    QMap <WId, TaskManager::Task *> tasks;
+     QList <SupportedTask> supportedTasks;
+ 
+ private:
