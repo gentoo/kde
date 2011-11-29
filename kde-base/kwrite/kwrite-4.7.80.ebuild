@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="never"
 KMNAME="kate"
 KDE_SCM="git"
 inherit kde4-meta
