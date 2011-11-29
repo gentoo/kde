@@ -600,6 +600,11 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 kde4-base_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	if has handbook ${IUSE} || has "+handbook" ${IUSE} && [ "${KDE_HANDBOOK}" != optional ] ; then
+		eqawarn "Handbook support is enabled via KDE_HANDBOOK=optional in the ebuild."
+		eqawarn "Please do not just set IUSE=handbook, as this leads to dependency errors."
+	fi
+
 	if use_if_iuse kdeprefix; then
 		eerror "Sorry, kdeprefix support has been removed."
 		eerror "Please remove kdeprefix from your USE variable."
