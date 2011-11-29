@@ -304,18 +304,3 @@
 kde-misc/kobby
 net-libs/libqinfinity
 
-
-# Johannes Huber <johu@gmx.de> (26 Nov 2011)
-# Tarballs not released yet
-=net-im/telepathy-accounts-kcm-0.2.0
-=net-im/telepathy-approver-0.2.0
-=net-im/telepathy-auth-handler-0.2.0
-=net-im/telepathy-contact-applet-0.2.0
-=net-im/telepathy-contact-list-0.2.0
-=net-im/telepathy-filetransfer-handler-0.2.0
-=net-im/telepathy-kde-meta-0.2.0
-=net-im/telepathy-kded-module-0.2.0
-=net-im/telepathy-presence-applet-0.2.0
-=net-im/telepathy-presence-dataengine-0.2.0
-=net-im/telepathy-send-file-0.2.0
-=net-im/telepathy-text-ui-0.2.0
