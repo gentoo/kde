@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/networkmanagement/networkmanagement-0.8.95.ebuild,v 1.1 2011/11/04 09:45:24 scarabeus Exp $
+# $Header: $
 
 EAPI=4
 
