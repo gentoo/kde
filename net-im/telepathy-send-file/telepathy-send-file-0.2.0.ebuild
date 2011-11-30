@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_MINIMAL="4.7"
 KDE_LINGUAS="cs da de hu it lt nds nl pt pt_BR sv uk"
 KDE_SCM="git"
 MY_P="${PN/telepathy/telepathy-kde}-${PV}"
