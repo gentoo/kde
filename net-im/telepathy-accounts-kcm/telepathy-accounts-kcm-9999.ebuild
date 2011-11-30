@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_MINIMAL="4.7"
 KDE_LINGUAS="cs da de en_GB eo es et fi fr hu it ja km lt mai nds nl pl pt pt_BR
 ru sv tr ug uk zh_TW"
 KDE_SCM="git"
