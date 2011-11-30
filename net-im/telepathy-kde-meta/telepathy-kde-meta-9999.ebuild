@@ -35,7 +35,7 @@ RDEPEND="
 
 pkg_postinst() {
 	echo
-	elog "You will need in KDE System Settings configure accounts"
-	elog "and then open contact list and/or add plasma applet."
+	elog "You can configure the accounts in the KDE System Settings"
+	elog "and then add the Instant Messaging plasma applet to access the contact list."
 	echo
 }
