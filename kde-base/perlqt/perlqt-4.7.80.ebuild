@@ -14,15 +14,14 @@ inherit kde4-base
 
 DESCRIPTION="Qt Perl bindings"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug phonon qimageblitz qscintilla qwt test webkit"
+IUSE="debug phonon qimageblitz qscintilla qwt webkit"
 
 RDEPEND="
 	>=dev-lang/perl-5.10.1
+	dev-perl/List-MoreUtils
 	$(add_kdebase_dep smokeqt 'declarative?,multimedia?,opengl?,phonon?,qimageblitz?,qscintilla?,qthelp?,qwt?,webkit?')
 "
-DEPEND="${RDEPEND}
-	test? ( dev-perl/List-MoreUtils )
-"
+DEPEND=${RDEPEND}
 
 # Split from kdebindings-perl in 4.7
 add_blocker kdebindings-perl
