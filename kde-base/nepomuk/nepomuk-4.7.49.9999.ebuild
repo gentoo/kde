@@ -19,3 +19,6 @@ DEPEND="
 	!kde-misc/nepomukcontroller
 "
 RDEPEND="${DEPEND}"
+
+RESTRICT="test"
+# bug 392989
