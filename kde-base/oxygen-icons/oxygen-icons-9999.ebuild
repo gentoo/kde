@@ -8,7 +8,7 @@ if [[ ${PV} == *9999 ]]; then
 	KMNAME="kdesupport"
 else
 	# Upstream does not ship releases properly so we dont want all versions
-	MY_PV="4.7.2"
+	MY_PV="4.7.90"
 	MY_P="${PN}-${MY_PV}"
 fi
 KDE_REQUIRED="never"
@@ -21,7 +21,7 @@ HOMEPAGE="http://www.oxygen-icons.org/"
 # filename of one of the tarballs
 [[ ${PV} == *9999 ]] || \
 SRC_URI="
-	!bindist? ( http://dev.gentoo.org/~dilfridge/distfiles/${MY_P}.tar.xz )
+	!bindist? ( http://dev.gentoo.org/~alexxy/distfiles/${MY_P}.tar.xz )
 	bindist? ( ${SRC_URI//${PV}/${MY_PV}} )
 "
 
