@@ -26,6 +26,9 @@ DEPEND=${RDEPEND}
 # Split from kdebindings-perl in 4.7
 add_blocker kdebindings-perl
 
+RESTRICT="test"
+# bug 392991
+
 PATCHES=( "${FILESDIR}/${PN}-4.7.2-vendor.patch" )
 
 src_configure() {
