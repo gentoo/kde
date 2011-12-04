@@ -22,6 +22,9 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep ktimezoned)
 "
 
+RESTRICT="test"
+# bug 393135
+
 KMLOADLIBS="kdepim-common-libs"
 
 KMEXTRACTONLY="
