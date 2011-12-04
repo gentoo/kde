@@ -19,6 +19,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# bug 393099
+
 KMEXTRACTONLY="
 	libkcompactdisc/
 "
