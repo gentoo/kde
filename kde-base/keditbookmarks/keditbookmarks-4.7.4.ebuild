@@ -19,3 +19,6 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	lib/konq/
 "
+
+RESTRICT="test"
+# bug 392703
