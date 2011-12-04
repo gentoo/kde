@@ -18,6 +18,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# bug 393093
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.3.2-solaris-knumber_priv.patch
 )
