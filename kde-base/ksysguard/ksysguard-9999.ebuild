@@ -24,6 +24,9 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
+RESTRICT="test"
+# bug 393091
+
 KMEXTRA="
 	libs/ksysguard/
 "
