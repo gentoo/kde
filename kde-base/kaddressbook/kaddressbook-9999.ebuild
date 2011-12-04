@@ -21,6 +21,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# bug 393127
+
 KMEXTRA="
 	plugins/kaddressbook/
 	plugins/ktexteditor/
