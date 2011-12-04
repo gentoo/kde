@@ -13,6 +13,13 @@
 # NOTE: KDE 4 ebuilds currently support EAPI "3".  This will be reviewed
 # over time as new EAPI versions are approved.
 
+# @ECLASS-VARIABLE: KDE_SELINUX_MODULE
+# @DESCRIPTION:
+# If set to "none", do nothing.
+# For any other value, add selinux to IUSE, and depending on that useflag
+# add a dependency on sec-policy/selinux-${KDE_SELINUX_MODULE} to (R)DEPEND
+: ${KDE_SELINUX_MODULE:=none}
+
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
 # For proper description see virtualx.eclass manpage.
@@ -380,6 +387,14 @@ case ${KDE_HANDBOOK} in
 	*) ;;
 esac
 unset kdehandbookdepend kdehandbookrdepend
+
+case ${KDE_SELINUX_MODULE} in
+	none)	;;
+	*)
+		IUSE+=" selinux"
+		kdecommondepend+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
+		;;
+esac
 
 case ${KDE_REQUIRED} in
 	always)
