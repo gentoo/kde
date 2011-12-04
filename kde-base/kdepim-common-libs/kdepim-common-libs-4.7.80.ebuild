@@ -33,6 +33,9 @@ add_blocker kaddressbook '<4.4.90'
 add_blocker kmail '<4.4.80'
 add_blocker korganizer '<4.5.67'
 
+RESTRICT="test"
+# bug 393131
+
 KMEXTRA="
 	akonadi_next/
 	calendarsupport/
