@@ -32,6 +32,9 @@ PDEPEND="
 
 KMLOADLIBS="libkonq"
 
+RESTRICT="test"
+# bug 393129
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
