@@ -10,3 +10,6 @@ inherit kde4-meta
 DESCRIPTION="KDED Password Module"
 KEYWORDS=""
 IUSE="debug"
+
+RESTRICT="test"
+# bug 393097
