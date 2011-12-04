@@ -21,6 +21,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# bug 393147
+
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
