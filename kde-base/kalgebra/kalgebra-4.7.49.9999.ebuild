@@ -26,6 +26,9 @@ KMEXTRA="
 	libkdeedu/qtmmlwidget/
 "
 
+RESTRICT="test"
+# bug 382561
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.5.73-solaris-graph2d.patch
 )

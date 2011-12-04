@@ -27,6 +27,9 @@ KMEXTRA="
 	libkdeedu/qtmmlwidget/
 "
 
+RESTRICT="test"
+# bug 382561
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
