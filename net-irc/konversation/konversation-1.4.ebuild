@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB es et fi fr gl hu it ja nb
-nds nl pl pt pt_BR ru sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN
-zh_TW"
+nds nl pl pt pt_BR ru si sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk
+zh_CN zh_TW"
 KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
 KDE_HANDBOOK="optional"
 inherit kde4-base
@@ -15,7 +15,7 @@ MY_PV="${PV/_/-}"
 MY_P="${PN}-${MY_PV}"
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
-SRC_URI="mirror://kde/unstable/${PN}/${MY_PV}/src/${MY_P}.tar.xz"
+SRC_URI="mirror://kde/stable/${PN}/${MY_PV}/src/${MY_P}.tar.xz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
