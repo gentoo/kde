@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<herd>qt</herd>
-	<use>
-		<flag name='glib'>Enable support for various telepathy/glib related packages</flag>
-		<flag name='farsight'>Enable support for farsight connection manager</flag>
-	</use>
-</pkgmetadata>
