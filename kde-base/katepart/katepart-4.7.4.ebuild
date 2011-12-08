@@ -14,6 +14,9 @@ DESCRIPTION="KDE Editor KPart"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="debug"
 
+RESTRICT="test"
+# bug 392993
+
 add_blocker kdelibs 4.6.50
 
 src_configure() {
