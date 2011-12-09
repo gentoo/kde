@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # To enable this hook, link it into .git/hooks/commit-msg like this:
-# ln -s ../../Documentation/git-hooks-commit-msg .git/hooks/commit-msg
+# ln -s ../../Documentation/maintainers/git-hooks-commit-msg .git/hooks/commit-msg
 
 FILE=$1
 
