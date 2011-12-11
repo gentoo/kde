@@ -28,7 +28,7 @@ DEPEND="
 	>=net-im/telepathy-common-internals-${PV}
 	>=net-im/telepathy-mission-control-5.7.9
 	>=net-libs/telepathy-glib-0.14
-	>=net-libs/telepathy-qt4-0.7.3
+	>=net-libs/telepathy-qt4-0.9.0
 "
 RDEPEND="${DEPEND}
 "
