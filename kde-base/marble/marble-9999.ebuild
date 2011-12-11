@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug designer-plugin gps +kde plasma python"
 
 # tests fail / segfault. Last checked for 4.2.88
-RESTRICT=test
+# RESTRICT=test
 
 DEPEND="
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
@@ -58,4 +58,12 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
+}
+
+src_test() {
+	if use kde; then 
+		elog "Marble tests can only be run in the qt-only version"
+	else
+		kde4-base_src_test
+	fi
 }
