@@ -43,3 +43,7 @@ src_configure() {
 	)
 	kde4-base_src_configure
 }
+
+src_test() {
+	PERL5LIB="${CMAKE_BUILD_DIR}/blib/arch:${CMAKE_BUILD_DIR}/blib/lib" kde4-base_src_test
+}
