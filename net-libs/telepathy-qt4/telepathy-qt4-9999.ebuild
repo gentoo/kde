@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-qt4/telepathy-qt4-0.8.0.ebuild,v 1.1 2011/12/03 19:26:48 pesa Exp $
+# $Header:$
 
 EAPI=4
 
