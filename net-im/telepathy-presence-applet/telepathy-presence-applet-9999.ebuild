@@ -26,7 +26,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=net-im/telepathy-contact-list-${PV}
-	>=net-im/telepathy-presence-dataengine-${PV}
 "
 
 S=${WORKDIR}/${MY_P}
