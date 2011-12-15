@@ -1,11 +1,11 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/strigi/strigi-0.7.6.ebuild,v 1.1 2011/09/25 19:11:25 dilfridge Exp $
+# $Header: $
 
 EAPI=4
 
 if [[ "${PV}" != "9999" ]]; then
-	SRC_URI="http://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.xz"
+	SRC_URI="http://dev.gentoo.org/~johu/distfiles/${P}.tar.xz"
 	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	EGIT_REPO_URI="git://anongit.kde.org/strigi"
@@ -57,7 +57,7 @@ src_configure() {
 		-DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
 		-DENABLE_XINE=OFF
-		$(cmake-utils_use_enable clucene)
+		$(cmake-utils_use_enable clucene CLUCENE)
 		$(cmake-utils_use_enable dbus)
 		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam)
