@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	>=dev-libs/shared-desktop-ontologies-0.6.51
+	dev-libs/shared-desktop-ontologies
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
 "
