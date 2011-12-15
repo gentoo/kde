@@ -33,7 +33,7 @@ RESTRICT="test"
 
 COMMONDEPEND="
 	app-crypt/qca:2
-	>=app-misc/strigi-0.7.6
+	>=app-misc/strigi-0.7.7
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
 	>=dev-libs/libattica-0.1.90
