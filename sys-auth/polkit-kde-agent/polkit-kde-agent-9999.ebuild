@@ -22,7 +22,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=sys-auth/polkit-qt-0.98
+	>=sys-auth/polkit-qt-0.103.0
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-kde
