@@ -17,16 +17,14 @@ IUSE="debug examples"
 
 COMMON_DEPEND="
 	dev-libs/glib:2
-	>=sys-auth/polkit-0.99
+	>=sys-auth/polkit-0.103
 	x11-libs/qt-core[glib]
 	x11-libs/qt-gui[dbus,glib]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/automoc
 "
-RDEPEND="${COMMON_DEPEND}
-	examples? ( !sys-auth/policykit-qt[examples] )
-"
+RDEPEND="${COMMON_DEPEND}"
 
 DOCS=(AUTHORS README README.porting TODO)
 
