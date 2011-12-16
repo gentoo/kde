@@ -15,7 +15,6 @@ IUSE="debug"
 
 RDEPEND="
 	app-arch/advancecomp
-	media-gfx/optipng
 "
 
 src_prepare() {
