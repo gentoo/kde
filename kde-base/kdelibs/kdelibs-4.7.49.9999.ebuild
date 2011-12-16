@@ -119,6 +119,9 @@ PDEPEND="
 # Force the upgrade of plasma-workspace to a version that explicitly depends on kactivities
 add_blocker plasma-workspace 4.7.1
 
+# file collision, bug 394991
+add_blocker kcontrol 4.4.50
+
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix-1.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs-1.patch"
