@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SELINUX_MODULE="games"
 inherit kde4-meta
 
 DESCRIPTION="A KDE game almost the same as ksame, but a bit different."
