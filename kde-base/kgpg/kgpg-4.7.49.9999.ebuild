@@ -12,6 +12,7 @@ else
 	KMNAME="kdeutils"
 	kde_eclass="kde4-meta"
 fi
+KDE_SELINUX_MODULE="gpg"
 inherit ${kde_eclass}
 
 DESCRIPTION="KDE gpg keyring manager"
