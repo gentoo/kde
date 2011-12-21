@@ -35,15 +35,20 @@ REQUIRED_USE="|| ( sqlite mysql postgres )"
 
 pkg_setup() {
 	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
+	# reverse driver check to keep the order
+	if use postgres; then
+		DRIVER="QPSQL"
+		AVAILABLE+=" ${DRIVER}"
+	fi
+
+	if use mysql; then
+		DRIVER="QMYSQL"
+		AVAILABLE+=" ${DRIVER}"
+	fi
+
 	if use sqlite; then
 		DRIVER="QSQLITE3"
-		AVAILABLE+=" ${driver}"
-	elif use mysql; then
-		DRIVER="QMYSQL"
-		AVAILABLE+=" ${driver}"
-	elif use postgres; then
-		DRIVER="QPSQL"
-		AVAILABLE+=" ${driver}"
+		AVAILABLE+=" ${DRIVER}"
 	fi
 
 	# Notify about driver name change
