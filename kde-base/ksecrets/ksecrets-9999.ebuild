@@ -11,7 +11,6 @@ DESCRIPTION="KDE secrets service"
 KEYWORDS=""
 IUSE="debug"
 
-# >=x11-libs/qt-core-${QT_MINIMAL}:4[ssl]
 DEPEND="
 	app-crypt/qca:2
 	net-libs/libssh2
