@@ -17,6 +17,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+add_blocker kalgebra 4.7.50
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
