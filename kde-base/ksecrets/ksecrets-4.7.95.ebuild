@@ -18,5 +18,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-build.patch"
+	"${FILESDIR}/${PN}-9999-fix-build.patch"
 )
