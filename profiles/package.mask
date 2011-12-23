@@ -291,6 +291,7 @@ kde-misc/akonadi-googledata
 ~kde-base/kdf-4.7.95
 ~kde-base/kgpg-4.7.95
 ~kde-base/kremotecontrol-4.7.95
+~kde-base/ksecrets-4.7.95
 ~kde-base/ktimer-4.7.95
 ~kde-base/kwallet-4.7.95
 ~kde-base/printer-applet-4.7.95
