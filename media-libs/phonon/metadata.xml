@@ -4,6 +4,6 @@
 <herd>kde</herd>
 <use>
 	<flag name="vlc">Install VLC Phonon backend</flag>
-	<flag name="zeitgeist"> Add support for zeitgeist</flag>
+	<flag name="zeitgeist">Add support for Zeitgeist event tracking system</flag>
 </use>
 </pkgmetadata>
