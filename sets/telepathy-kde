@@ -1,0 +1,12 @@
+net-im/telepathy-common-internals
+net-im/telepathy-kded-module
+net-im/telepathy-accounts-kcm
+net-im/telepathy-approver
+net-im/telepathy-contact-list
+net-im/telepathy-filetransfer-handler
+net-im/telepathy-kde-meta
+net-im/telepathy-presence-applet
+net-im/telepathy-send-file
+net-im/telepathy-text-ui
+net-im/telepathy-auth-handler
+net-im/telepathy-contact-applet
