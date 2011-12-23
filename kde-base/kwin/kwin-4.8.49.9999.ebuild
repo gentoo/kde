@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug gles xinerama"
 
 COMMONDEPEND="
+	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep liboxygenstyle)
