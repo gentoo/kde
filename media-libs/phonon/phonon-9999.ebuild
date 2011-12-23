@@ -1,21 +1,29 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/phonon/phonon-9999.ebuild,v 1.10 2011/10/20 20:23:37 dilfridge Exp $
+# $Header: $
 
 EAPI=4
 
-inherit cmake-utils git-2
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="mirror://kde/stable/phonon/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+else
+	SCM_ECLASS="git-2"
+	EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+	KEYWORDS=""
+fi
+
+inherit cmake-utils ${SCM_ECLASS}
 
 DESCRIPTION="KDE multimedia API"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
 SLOT="0"
 IUSE="aqua debug +gstreamer pulseaudio vlc xine zeitgeist"
 
 COMMON_DEPEND="
+	!!x11-libs/qt-phonon:4
 	>=x11-libs/qt-core-4.6.0:4
 	>=x11-libs/qt-dbus-4.6.0:4
 	>=x11-libs/qt-gui-4.6.0:4
@@ -25,7 +33,6 @@ COMMON_DEPEND="
 		>=media-sound/pulseaudio-0.9.21[glib]
 	)
 	zeitgeist? ( dev-libs/libqzeitgeist )
-	!x11-libs/qt-phonon:4
 "
 # directshow? ( media-sound/phonon-directshow )
 # mmf? ( media-sound/phonon-mmf )
