@@ -33,6 +33,18 @@ for release in 4.7; do
 		cat ".kde-${release}.9999"/* >> "kde-${release}.9999.keywords"
 	fi
 done
+for release in 4.8; do
+	if [[ -d ".kde-${release}" ]]; then
+		rm -rf ".kde-${release}.49.9999"
+		mkdir -p ".kde-${release}.49.9999"
+		echo -e "${HEADER}" > "kde-${release}.49.9999.keywords"
+		for file in ".kde-${release}"/*; do
+			newfile=".kde-${release}.49.9999"/$(basename "${file}")
+			sed "/^>=kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}.49.9999/;s/^>=/~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
+		done
+		cat ".kde-${release}.49.9999"/* >> "kde-${release}.49.9999.keywords"
+	fi
+done
 
 if [[ -d .kde-live.base ]]; then
 	rm -rf .kde-live
@@ -56,7 +68,7 @@ popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-for release in 4.6 4.7 4.8 live; do
+for release in 4.6 4.7 4.8 4.8.49.9999 live; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d ".kde-${release}" ]]; then
 		cat ".kde-${release}/"* >> "kde-${release}"
