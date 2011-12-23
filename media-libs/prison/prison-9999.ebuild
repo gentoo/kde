@@ -8,7 +8,7 @@ KDE_SCM="git"
 
 inherit kde4-base
 
-DESCRIPTION="prison is QRCode barcodes and DataMatrix barcodes library"
+DESCRIPTION="QRCode and data matrix barcode library"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/prison"
 
 LICENSE="GPL-2"
