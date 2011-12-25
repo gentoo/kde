@@ -1,0 +1,30 @@
+diff -U2 -rxi kde-workspace-4.7.3.orig/kcontrol/keyboard/keyboard_config.cpp kde-workspace-4.7.3/kcontrol/keyboard/keyboard_config.cpp
+--- kde-workspace-4.7.3.orig/kcontrol/keyboard/keyboard_config.cpp	2011-05-20 22:32:06.000000000 +0200
++++ kde-workspace-4.7.3/kcontrol/keyboard/keyboard_config.cpp	2011-12-25 12:46:50.529622540 +0100
+@@ -25,5 +25,5 @@
+ 
+ static const char* SWITCHING_POLICIES[] = {"Global", "Desktop", "WinClass", "Window", NULL };
+-static const char* LIST_SEPARATOR = ",";
++#define LIST_SEPARATOR ","
+ //static const char* DEFAULT_LAYOUT = "us";
+ static const char* DEFAULT_MODEL = "pc104";
+@@ -183,2 +183,4 @@
+ 	return layouts.mid(layoutLoopCount, layouts.size());
+ }
++
++#undef LIST_SEPARATOR
+diff -U2 -rxi kde-workspace-4.7.3.orig/kcontrol/keyboard/layout_memory_persister.cpp kde-workspace-4.7.3/kcontrol/keyboard/layout_memory_persister.cpp
+--- kde-workspace-4.7.3.orig/kcontrol/keyboard/layout_memory_persister.cpp	2011-05-20 22:32:06.000000000 +0200
++++ kde-workspace-4.7.3/kcontrol/keyboard/layout_memory_persister.cpp	2011-12-25 12:46:05.173189572 +0100
+@@ -42,5 +42,5 @@
+ static const char* LAYOUTS_ATTRIBUTE = "layouts";
+ 
+-static const char* LIST_SEPARATOR = ",";
++#define LIST_SEPARATOR ","
+ 
+ static const char* REL_SESSION_FILE_PATH = "/session/keyboard/layout_memory.xml";
+@@ -259,2 +259,4 @@
+ 	return !windowMode;
+ }
++
++#undef LIST_SEPARATOR
