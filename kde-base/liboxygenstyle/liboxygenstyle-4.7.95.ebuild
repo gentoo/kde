@@ -11,3 +11,5 @@ inherit kde4-meta
 DESCRIPTION="Library to support the Oxygen style in KDE"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+PATCHES=( "${FILESDIR}/${PN}-4.7.4-enablefinal.patch" )
