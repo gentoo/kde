@@ -17,6 +17,7 @@ IUSE="debug +pm-utils"
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
+	$(add_kdebase_dep kactivities)
 "
 RDEPEND="${DEPEND}
 	pm-utils? ( sys-power/pm-utils )
