@@ -19,8 +19,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
-# bug 393099
+PATCHES=( "${FILESDIR}/${PN}-4.7.3-underlinking.patch" )
 
 KMEXTRACTONLY="
 	libkcompactdisc/

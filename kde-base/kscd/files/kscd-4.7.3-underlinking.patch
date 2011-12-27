@@ -1,0 +1,18 @@
+--- kscd/tests/CMakeLists.txt
++++ kscd/tests/CMakeLists.txt
+@@ -16,6 +16,7 @@
+ 
+ # libraries needed for HWControler tests
+ target_link_libraries(HWControler_test
++	${KDE4_KDECORE_LIBS}
+ 	${KDE4_SOLID_LIBS}
+ 	${KDE4_PHONON_LIBS}
+ 	${QT_QTTEST_LIBRARY}
+@@ -26,6 +27,7 @@
+ 
+ # libraries needed for AudioCD tests
+ target_link_libraries(AudioCD_test
++	${KDE4_KDECORE_LIBS}
+ 	${KDE4_SOLID_LIBS}
+ 	${KDE4_PHONON_LIBS}
+ 	${QT_QTTEST_LIBRARY}
