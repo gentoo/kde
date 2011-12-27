@@ -12,7 +12,7 @@ inherit kde4-base fdo-mime toolchain-funcs
 
 # The "master" branch is out of date, so use KDE/4.7 per upstream's
 # recommendation (KDE/4.8 will be branched off of KDE/4.7)
-EGIT_BRANCH="KDE/4.7"
+EGIT_BRANCH="KDE/4.8"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
@@ -129,7 +129,7 @@ add_blocker kcontrol 4.4.50
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix-1.patch"
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs-1.patch"
-	"${FILESDIR}/${PN}-4.5.90-mimetypes.patch"
+	"${FILESDIR}/${PN}-4.7.96-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.6.3-bytecode.patch"
