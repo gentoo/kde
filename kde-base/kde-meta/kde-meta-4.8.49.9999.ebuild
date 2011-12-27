@@ -29,5 +29,7 @@ RDEPEND="
 		$(add_kdebase_dep kdesdk-meta)
 		$(add_kdebase_dep kdewebdev-meta)
 	)
-	semantic-desktop? ( $(add_kdebase_dep kdepim-meta) )
+	semantic-desktop? (
+		$(add_kdebase_dep kdepim-meta "" 4.4.11.1)
+	)
 "
