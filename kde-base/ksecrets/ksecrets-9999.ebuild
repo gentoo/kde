@@ -16,7 +16,3 @@ DEPEND="
 	net-libs/libssh2
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-fix-build.patch"
-)
