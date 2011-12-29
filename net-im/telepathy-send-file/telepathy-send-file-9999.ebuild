@@ -16,6 +16,7 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/unstable/telepathy-kde/${PV}/src/${MY_P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 else
+	EGIT_REPO_URI="git://anongit.kde.org/${PN/telepathy/ktp}"
 	KEYWORDS=""
 fi
 
