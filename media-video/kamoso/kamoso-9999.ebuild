@@ -8,7 +8,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A webcam application to attract sweet girls to kde :)"
-HOMEPAGE="http://projects.kde.org/projects/playground/multimedia/kamoso"
+HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
 
 LICENSE="GPL-3"
 KEYWORDS=""
