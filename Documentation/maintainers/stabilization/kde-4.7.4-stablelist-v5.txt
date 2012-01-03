@@ -1,3 +1,25 @@
+#
+# dependencies, target: amd64 ppc x86
+#
+
+=app-misc/strigi-0.7.7
+=app-office/akonadi-server-1.6.2-r1
+=dev-libs/shared-desktop-ontologies-0.8.1
+
+
+#
+# dependencies, amd64 and x86 already done, 
+#   only ppc still missing
+#
+
+=dev-libs/grantlee-0.1.8
+=dev-libs/qjson-0.7.1-r1
+
+
+#
+# KDE 4.7.4, target: amd64 ppc x86
+#
+
 =kde-base/activitymanager-4.7.4
 =kde-base/akonadiconsole-4.7.4
 =kde-base/akregator-4.7.4
@@ -152,7 +174,7 @@
 =kde-base/klipper-4.7.4
 =kde-base/kmag-4.7.4
 =kde-base/kmahjongg-4.7.4
-=kde-base/kmail-4.7.4
+=kde-base/kmail-4.7.4-r1
 =kde-base/kmenuedit-4.7.4
 =kde-base/kmimetypefinder-4.7.4
 =kde-base/kmines-4.7.4
@@ -287,3 +309,23 @@
 =kde-base/systemsettings-4.7.4
 =kde-base/thumbnailers-4.7.4
 =kde-base/umbrello-4.7.4
+
+
+#
+# applications, target: amd64 x86
+#
+
+# digikam
+=media-gfx/digikam-2.4.1
+=media-libs/libkface-2.4.1
+=media-libs/libkgeomap-2.4.1
+
+# kipi-plugins
+=media-plugins/kipi-plugins-2.4.1
+=net-libs/libkvkontakte-2.4.1
+
+# rekonq
+=www-client/rekonq-0.8.1
+
+# choqok
+=net-im/choqok-1.2
