@@ -19,9 +19,9 @@ RDEPEND=""
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl he hr
-hu ia id is it ja kk km kn ko lt lv nb nds nl nn pa pl pt pt_BR ro ru sk sl sv
-th tr ug uk wa zh_CN zh_TW"
+MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl he
+hr hu ia id is it ja kk km kn ko lt lv nb nds nl nn pa pl pt pt_BR ro ru si sk
+sl sr sv th tr ug uk wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.bz2/}"
 SRC_URI=""
