@@ -26,11 +26,3 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="kdepim-common-libs"
-
-src_install() {
-	kde4-meta_src_install
-
-	# Install headers needed by kdepim-wizards, egroupware and slox stuff gone
-	insinto "${PREFIX}"/include/${PN}
-	doins "${CMAKE_BUILD_DIR}"/${KMMODULE}/groupwise/*.h
-}
