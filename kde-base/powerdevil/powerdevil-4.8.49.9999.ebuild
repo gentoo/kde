@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE="debug +pm-utils"
 
 DEPEND="
+	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
 "
