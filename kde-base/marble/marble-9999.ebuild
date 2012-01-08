@@ -61,7 +61,7 @@ src_configure() {
 }
 
 src_test() {
-	if use kde; then 
+	if use kde; then
 		elog "Marble tests can only be run in the qt-only version"
 	else
 		kde4-base_src_test
