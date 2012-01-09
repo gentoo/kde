@@ -19,19 +19,15 @@ IUSE="debug doc examples semantic-desktop"
 
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
-	>=dev-python/sip-4.12.3-r2
+	>=dev-python/sip-4.13.1
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
-	aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.8.2[dbus,declarative,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,X] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/libtool
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.6.3-python-3.2.patch
-)
 
 pkg_setup() {
 	python_pkg_setup
