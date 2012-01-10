@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,6 +26,12 @@ RDEPEND="${DEPEND}"
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 
+# Fix for GCC-4.4 (bug 268086), Qt 4.8 (bug 397917)
+PATCHES=(
+	"${FILESDIR}/${PN}-gcc44.patch"
+	"${FILESDIR}/${PN}-0.1.0-qt48.patch"
+)
+
 src_prepare() {
 	# remove phonon
 	sed -i "/typesystem_phonon.xml/d" generator/generator.qrc \
@@ -33,7 +39,6 @@ src_prepare() {
 	sed -i "/qtscript_phonon/d" qtbindings/qtbindings.pro \
 		|| die "sed failed"
 
-	epatch "${FILESDIR}/${PN}-gcc44.patch"
 	qt4-r2_src_prepare
 }
 
