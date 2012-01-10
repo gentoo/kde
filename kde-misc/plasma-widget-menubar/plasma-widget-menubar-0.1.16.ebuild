@@ -23,3 +23,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-misc/plasma-indicatordisplay
 "
+
+# last checked 0.1.1{4,6}
+RESTRIC="test"
