@@ -13,10 +13,10 @@ HOMEPAGE="http://phonon.kde.org"
 
 KEYWORDS=""
 LICENSE="GPL-2"
-IUSE="alsa debug xine pulseaudio"
+IUSE="alsa debug pulseaudio"
 
 DEPEND="
-	>=media-libs/phonon-4.4.3[xine?]
+	>=media-libs/phonon-4.4.3
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? (
 		dev-libs/glib:2
@@ -30,7 +30,6 @@ src_configure() {
 	mycmakeargs=(
 		-DBUILD_tests=OFF
 		$(cmake-utils_use_with alsa)
-		$(cmake-utils_use_with xine)
 		$(cmake-utils_use_with pulseaudio PulseAudio)
 	)
 
