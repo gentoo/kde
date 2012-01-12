@@ -5,14 +5,14 @@
 EAPI=4
 
 QT_MINIMAL="4.5.0"
-inherit cmake-utils git-2
+inherit cmake-utils
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-EGIT_REPO_URI="git://gitorious.org/grantlee/grantlee.git"
+SRC_URI="http://www.loegria.net/grantlee/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug doc test"
 
@@ -27,6 +27,9 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}"
 
 DOCS=(AUTHORS CHANGELOG GOALS README)
+
+# Some tests fail
+#RESTRICT="test"
 
 src_configure() {
 	mycmakeargs=(
