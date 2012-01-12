@@ -30,6 +30,8 @@ RDEPEND="${DEPEND}
 
 REQUIRED_USE="plasma? ( kde )"
 
+PATCHES=( "${FILESDIR}/${P}-python.patch.bz2" )
+
 pkg_setup() {
 	python_set_active_version 2
 	kde4-base_pkg_setup
