@@ -2,4 +2,3 @@
 # bug 394245
 ~kde-base/marble-4.7.90 python
 ~kde-base/marble-4.7.95 python
-~kde-base/marble-4.7.97 python
