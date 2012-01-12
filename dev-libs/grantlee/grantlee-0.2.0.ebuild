@@ -29,7 +29,7 @@ RDEPEND="${COMMON_DEPEND}"
 DOCS=(AUTHORS CHANGELOG GOALS README)
 
 # Some tests fail
-#RESTRICT="test"
+RESTRICT="test"
 
 src_configure() {
 	mycmakeargs=(
