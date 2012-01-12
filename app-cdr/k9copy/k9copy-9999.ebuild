@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=4
 
 KDE_DOC_DIRS="doc"
 KDE_HANDBOOK="optional"
-KDE_LINGUAS="ca cs da de el es_AR es fr it ja nl pl pt_BR ru sr@Latn sr tr zh_TW"
+KDE_LINGUAS="ca cs da de el es es_AR fr it ja nl pl pt_BR ru sr sr@Latn tr uk zh_TW"
 KDE_LINGUAS_LIVE_OVERRIDE="true"
 MY_P=${P}-Source
 
@@ -25,7 +25,7 @@ IUSE="debug"
 
 DEPEND="
 	media-libs/libdvdread
-	>=media-libs/libmpeg2-0.5.1
+	media-libs/libmpeg2
 	media-libs/xine-lib
 	virtual/ffmpeg
 "
