@@ -199,6 +199,7 @@ kde-misc/akonadi-googledata
 ~kde-base/kamera-4.7.97
 ~kde-base/kcolorchooser-4.7.97
 ~kde-base/kdegraphics-meta-4.7.97
+~kde-base/kdegraphics-mobipocket-4.7.97
 ~kde-base/kdegraphics-strigi-analyzer-4.7.97
 ~kde-base/kgamma-4.7.97
 ~kde-base/kolourpaint-4.7.97
@@ -209,7 +210,6 @@ kde-misc/akonadi-googledata
 ~kde-base/libkexiv2-4.7.97
 ~kde-base/libksane-4.7.97
 ~kde-base/libkipi-4.7.97
-~kde-base/mobipocket-4.7.97
 ~kde-base/okular-4.7.97
 ~kde-base/svgpart-4.7.97
 ~kde-base/thumbnailers-4.7.97

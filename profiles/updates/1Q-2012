@@ -1,1 +1,2 @@
+move kde-base/mobipocket kde-base/kdegraphics-mobipocket
 slotmove kde-misc/miniplayer 0 4
