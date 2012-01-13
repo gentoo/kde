@@ -3,20 +3,27 @@ Agenda topics for the next KDE team meeting
 
 1. Roll call (5 minutes)
 
-2. What shall we do with kdepim-4.4 (15 minutes)
-   * Discuss/vote:
+2. Electing a new team leader (5 minutes, please make your mind up beforehand!)
 
-3. kdeenablefinal revisited (15 minutes)
+3. What shall we do with kdepim-4.4 (15 minutes)
+   * Discuss/vote: At the moment KDEpim-4.4 is still fully functional, no known 
+   regressions. Functionality of KDEpim-4.7 is slowly stabilizing, with occasional
+   pains. Do we want to keep KDEpim-4.4 in the main tree?
+
+4. kdeenablefinal revisited (15 minutes)
    * Discuss/vote: See last test run bug #353246. Should we provide this
    feature anymore? What is the purpose nowadays, in fact of upstream keep
    going split the huge packages (kde frameworks, kdepim)?
 
-4. phonon-xine removal (5 mintus)
+5. phonon-xine removal (5 minutes)
    * Discuss/vote: Upstream declared it as dead. Already masked since 1. Dec
    2011. We have two other working and maintained backends. Current open bugs
    #359979, #397585.
 
-5. Bugs (20 minutes)
+6. qt-4.8 (5 minutes)
+   * Short discussion about potential problems.
+
+7. Bugs (20 minutes)
    * dev-util/cmake picks always the latest boost.
    * Fix in overlay since 13. Dec. Move to tree?
    https://bugs.gentoo.org/show_bug.cgi?id=335108
@@ -34,5 +41,6 @@ Agenda topics for the next KDE team meeting
    * MacOSX request for cmake-utils.eclass: 
    Remove force of CMAKE_BUILD_WITH_INSTALL_RPATH=TRUE 
    https://bugs.gentoo.org/show_bug.cgi?id=398437
+   -> can easily be done, because the FORCE affects only prefix anyway
 
-6. Open floor (15 minutes)
+8. Open floor (15 minutes)
