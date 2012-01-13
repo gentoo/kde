@@ -7,16 +7,32 @@ Agenda topics for the next KDE team meeting
    * Discuss/vote:
 
 3. kdeenablefinal revisited (15 minutes)
-   * Discuss/vote: See last test run [x]. Should we provide this feature
-   anymore? What is the purpose nowadays?
+   * Discuss/vote: See last test run bug #353246. Should we provide this
+   feature anymore? What is the purpose nowadays, in fact of upstream keep
+   going split the huge packages (kde frameworks, kdepim)?
 
 4. phonon-xine removal (5 mintus)
-   * Discuss/vote:
+   * Discuss/vote: Upstream declared it as dead. Already masked since 1. Dec
+   2011. We have two other working and maintained backends. Current open bugs
+   #359979, #397585.
 
-5. Bugs (15 minutes)
+5. Bugs (20 minutes)
+   * dev-util/cmake picks always the latest boost.
+   * Fix in overlay since 13. Dec. Move to tree?
+   https://bugs.gentoo.org/show_bug.cgi?id=335108
 
-x. Open floor (15 minutes)
+   * cmake-utils.eclass PREFIX is not defined, any progress? 
+   https://bugs.gentoo.org/show_bug.cgi?id=358059
 
-[x]
-[x]
-[x]
+   * Remove hard dep on media-libs/phonon from kde-base/kdelibs
+   https://bugs.gentoo.org/show_bug.cgi?id=356681
+   https://bugs.gentoo.org/show_bug.cgi?id=388041
+
+   * Eclass problem with handbook without LINGUAS.
+   https://bugs.gentoo.org/show_bug.cgi?id=372457
+
+   * MacOSX request for cmake-utils.eclass: 
+   Remove force of CMAKE_BUILD_WITH_INSTALL_RPATH=TRUE 
+   https://bugs.gentoo.org/show_bug.cgi?id=398437
+
+6. Open floor (15 minutes)
