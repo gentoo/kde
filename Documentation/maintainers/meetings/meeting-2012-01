@@ -23,7 +23,11 @@ Agenda topics for the next KDE team meeting
 6. qt-4.8 (5 minutes)
    * Short discussion about potential problems.
 
-7. Bugs (20 minutes)
+7. Dropping RPATH from installed binaries (5 minutes)
+   * Short discussion- any objections to testing this in the overlay eclasses and later 
+   moving it to the main tree if it works?
+
+8. Bugs (20 minutes)
    * dev-util/cmake picks always the latest boost.
    * Fix in overlay since 13. Dec. Move to tree?
    https://bugs.gentoo.org/show_bug.cgi?id=335108
@@ -43,4 +47,4 @@ Agenda topics for the next KDE team meeting
    https://bugs.gentoo.org/show_bug.cgi?id=398437
    -> can easily be done, because the FORCE affects only prefix anyway
 
-8. Open floor (15 minutes)
+9. Open floor (15 minutes)
