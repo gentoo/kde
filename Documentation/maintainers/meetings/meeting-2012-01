@@ -27,7 +27,7 @@ Agenda topics for the next KDE team meeting
    * Short discussion- any objections to testing this in the overlay eclasses and later 
    moving it to the main tree if it works?
 
-8. Bugs (20 minutes)
+8. Bugs (30 minutes)
    * dev-util/cmake picks always the latest boost.
    * Fix in overlay since 13. Dec. Move to tree?
    https://bugs.gentoo.org/show_bug.cgi?id=335108
@@ -46,5 +46,9 @@ Agenda topics for the next KDE team meeting
    Remove force of CMAKE_BUILD_WITH_INSTALL_RPATH=TRUE 
    https://bugs.gentoo.org/show_bug.cgi?id=398437
    -> can easily be done, because the FORCE affects only prefix anyway
+
+   * Revise the change "semantic-desktop? -> semantic-desktop=".
+   Why was the change needed.
+   https://bugs.gentoo.org/show_bug.cgi?id=396491
 
 9. Open floor (15 minutes)
