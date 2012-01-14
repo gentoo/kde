@@ -27,7 +27,10 @@ Agenda topics for the next KDE team meeting
    * Short discussion- any objections to testing this in the overlay eclasses and later 
    moving it to the main tree if it works?
 
-8. Bugs (30 minutes)
+8. To eselect Boost or not to eselect boost (10 minutes)
+   We need to figure out what is actually the best desired behaviour :|
+
+9. Bugs (30 minutes)
    * dev-util/cmake picks always the latest boost.
    * Fix in overlay since 13. Dec. Move to tree?
    https://bugs.gentoo.org/show_bug.cgi?id=335108
@@ -51,4 +54,4 @@ Agenda topics for the next KDE team meeting
    Why was the change needed.
    https://bugs.gentoo.org/show_bug.cgi?id=396491
 
-9. Open floor (15 minutes)
+10. Open floor (15 minutes)
