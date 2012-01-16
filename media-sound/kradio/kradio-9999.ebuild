@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ ESVN_PROJECT="kradio"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="alsa debug encode ffmpeg lirc +mp3 +vorbis v4l2"
+IUSE="alsa debug encode ffmpeg lirc +mp3 +vorbis v4l"
 
 DEPEND="
 	media-libs/libsndfile
@@ -40,7 +40,7 @@ src_configure() {
 		$(cmake-utils_use_with vorbis OGG_VORBIS)
 		$(cmake-utils_use_with lirc)
 		$(cmake-utils_use_with ffmpeg)
-		$(cmake-utils_use_with v4l2)
+		$(cmake-utils_use_with v4l v4l2)
 	)
 
 	kde4-base_src_configure
