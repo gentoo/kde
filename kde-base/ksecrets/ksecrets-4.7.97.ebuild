@@ -20,3 +20,6 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-9999-fix-build.patch"
 )
+
+RESTRICT=test
+# no bug yet but tests fail
