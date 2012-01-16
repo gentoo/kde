@@ -8,8 +8,9 @@ KDE_REQUIRED="optional"
 QT_MINIMAL="4.4.0"
 
 if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="ar bg br cs cy da de el en_GB es et fr ga gl hi hu it ja ka lt nb
-	nds nl pl pt pt_BR ro ru rw sv ta tg tr uk zh_CN"
+	KDE_LINGUAS="ar bg br bs ca ca@valencia cs cy da de el en_GB eo es et fr ga
+	gl hi hne hr hu is it ja ka lt mai ml nb nds nl nn pl pt pt_BR ro ru rw sk
+	sv ta tg tr ug uk zh_CN zh_TW"
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 	KDE_HANDBOOK="optional"
 fi
@@ -49,9 +50,10 @@ src_unpack(){
 src_prepare() {
 	if ! use kde; then
 		# adapt to Gentoo paths
-		sed -e s,documentation.path.*$,documentation.path\ =\ /usr/share/doc/${PF}, \
-			-e s,target.path.*$,target.path\ =\ /usr/bin, \
-			"${S}"/src-QT4/kdiff3.pro > "${S}"/src-QT4/kdiff3_fixed.pro
+		sed -e s,documentation.path.*$,documentation.path\ =\
+		"${EPREFIX}"/usr/share/doc/"${PF}", \
+		-e s,target.path.*$,target.path\ =\ "${EPREFIX}"/usr/bin, \
+		"${S}"/src-QT4/kdiff3.pro > "${S}"/src-QT4/kdiff3_fixed.pro
 	else
 		kde4-base_src_prepare
 	fi
