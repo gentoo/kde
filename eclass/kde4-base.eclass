@@ -423,9 +423,6 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
-# Add experimental kdeenablefinal, masked by default
-IUSE+=" kdeenablefinal"
-
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # koffice ebuild, the URI should be set in the ebuild itself
 _calculate_src_uri() {
@@ -759,10 +756,6 @@ kde4-base_src_configure() {
 	# Build tests in src_test only, where we override this value
 	local cmakeargs=(-DKDE4_BUILD_TESTS=OFF)
 
-	if use_if_iuse kdeenablefinal; then
-		cmakeargs+=(-DKDE4_ENABLE_FINAL=ON)
-	fi
-
 	if use_if_iuse debug; then
 		# Set "real" debug mode
 		CMAKE_BUILD_TYPE="Debugfull"
@@ -896,15 +889,6 @@ kde4-base_pkg_postinst() {
 	buildsycoca
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-		if use_if_iuse kdeenablefinal; then
-			echo
-			ewarn "WARNING! you have kdeenable final useflag enabled."
-			ewarn "This useflag needs to be enabled on ALL kde using packages and"
-			ewarn "is known to cause issues."
-			ewarn "You are using this setup at your own risk and the kde team does not"
-			ewarn "take responsibilities for dead kittens."
-			echo
-		fi
 		if [[ ${BUILD_TYPE} = live ]]; then
 			echo
 			einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
