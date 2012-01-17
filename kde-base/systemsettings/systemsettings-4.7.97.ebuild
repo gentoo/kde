@@ -59,7 +59,6 @@ add_blocker kdeaccessibility-colorschemes '<4.6.50'
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-	"${FILESDIR}/${PN}-4.7.3-enablefinal.patch"
 )
 
 src_unpack() {
