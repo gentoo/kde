@@ -42,3 +42,10 @@ src_configure() {
 
 	kde4-meta_src_configure
 }
+
+pkg_postinst() {
+	kde4-base_pkg_postinst
+	echo
+	elog "For .exe file preview support, install media-gfx/icoutils."
+	echo
+}
