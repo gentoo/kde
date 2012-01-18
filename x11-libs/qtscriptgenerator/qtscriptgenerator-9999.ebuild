@@ -61,5 +61,5 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/qt4/plugins/script/
 	insopts -m0755
-	doins -r "${S}"/plugins/script/*.so || die "doins failed"
+	doins -r "${S}"/plugins/script/* || die "doins failed"
 }
