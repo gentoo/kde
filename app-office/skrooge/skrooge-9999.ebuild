@@ -4,26 +4,32 @@
 
 EAPI=4
 
-#KDE_LINGUAS="bg ca da de en_GB es et fr gl it lt ms nds nl pl pt pt_BR ro sk sv
-#tr uk zh_CN"
-#KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
-KMNAME="extragear/office"
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fr ga gl hu it ja
+ko lt ms nb nl pl pt pt_BR ro ru sk sv tr ug zh_CN zh_TW"
+KDE_DOC_DIRS="doc"
+KDE_HANDBOOK=optional
+KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
-HOMEPAGE="http://www.kde-apps.org/content/show.php/skrooge?content=92458"
+HOMEPAGE="http://www.skrooge.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
 SLOT="4"
-IUSE="debug test"
+KEYWORDS=""
+IUSE="debug"
 
 DEPEND="
 	app-crypt/qca:2
-	dev-libs/libofx
-	x11-libs/qt-sql[sqlite]
+	dev-libs/grantlee
+	>=dev-libs/libofx-0.9.1
+	x11-libs/qt-sql:4[sqlite]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep kdesdk-scripts)
+"
+
+DOCS=( AUTHORS CHANGELOG README TODO )
 
 src_configure() {
 	mycmakeargs=(
