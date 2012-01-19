@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kde-baseapps"
+VIRTUALX_REQUIRED=test
 inherit kde4-meta
 
 DESCRIPTION="KDE's bookmarks editor"
@@ -19,6 +20,3 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	lib/konq/
 "
-
-RESTRICT="test"
-# bug 392703
