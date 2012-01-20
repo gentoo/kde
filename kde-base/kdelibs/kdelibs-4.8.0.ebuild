@@ -71,7 +71,6 @@ COMMONDEPEND="
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
-	lzma? ( app-arch/xz-utils )
 	openexr? (
 		media-libs/openexr
 		media-libs/ilmbase
