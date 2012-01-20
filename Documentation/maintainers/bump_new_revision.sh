@@ -100,7 +100,10 @@ update_keywords() {
 		local version_minor=${BASH_REMATCH[2]}
 		local version_patch=${BASH_REMATCH[3]}
 		if [[ -n ${version_patch} ]]; then
-			if (( version_patch == 49 )); then
+			if (( version_patch == 0 )); then
+				# Major release we want minimum keywords
+				KEYWORDS=${MINIMAL_KEYWORDS}
+			elif (( version_patch == 49 )); then
 				# We don't want any keywords for live ebuilds
 				KEYWORDS=
 			elif (( version_patch < 50 )); then
