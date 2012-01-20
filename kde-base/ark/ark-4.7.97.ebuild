@@ -16,7 +16,6 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 	sys-libs/zlib
 	archive? ( >=app-arch/libarchive-2.6.1[bzip2?,lzma?,zlib] )
-	lzma? ( app-arch/xz-utils )
 "
 RDEPEND="${DEPEND}"
 
