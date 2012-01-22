@@ -8,8 +8,8 @@ KMNAME="playground/base/plasma"
 KMMODULE="applets/${PN}"
 inherit kde4-meta
 
-DESCRIPTION="plasmoid that shows the state of keyboard leds"
-HOMEPAGE="kde-look.org"
+DESCRIPTION="Plasmoid that shows the state of keyboard leds"
+HOMEPAGE="http://websvn.kde.org/trunk/playground/base/plasma/applets/kbstateapplet"
 
 LICENSE="GPL-2"
 KEYWORDS=""
