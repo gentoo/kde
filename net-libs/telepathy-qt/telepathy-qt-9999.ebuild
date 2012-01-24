@@ -29,6 +29,7 @@ RDEPEND="
 		>=net-libs/telepathy-glib-0.15.1
 	)
 	glib? ( dev-libs/glib:2 )
+	!net-libs/telepathy-qt4
 "
 DEPEND="${RDEPEND}
 	dev-libs/libxslt
