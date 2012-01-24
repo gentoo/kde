@@ -1,2 +1,3 @@
 move kde-base/mobipocket kde-base/kdegraphics-mobipocket
 slotmove kde-misc/miniplayer 0 4
+move net-libs/telepathy-qt4 net-libs/telepathy-qt
