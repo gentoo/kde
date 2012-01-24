@@ -1,11 +1,11 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Header: $
 
 EAPI=4
 
 PYTHON_DEPEND="2:2.5"
-EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/telepathy-qt4"
+EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/${PN}"
 
 inherit python base cmake-utils git-2
 
@@ -19,8 +19,8 @@ IUSE="debug farsight glib"
 
 RDEPEND="
 	dev-python/dbus-python
-	>=x11-libs/qt-core-4.6.0:4[glib?]
-	>=x11-libs/qt-dbus-4.6.0:4
+	x11-libs/qt-core:4[glib?]
+	x11-libs/qt-dbus:4
 	farsight? (
 		dev-libs/dbus-glib
 		dev-libs/libxml2
