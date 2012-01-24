@@ -22,7 +22,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/telepathy-qt4-0.7.3
+	>=net-libs/telepathy-qt-0.7.3
 "
 RDEPEND="${DEPEND}"
 

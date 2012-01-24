@@ -26,7 +26,7 @@ IUSE="debug"
 DEPEND="
 	>=net-im/telepathy-mission-control-5.7.9
 	>=net-libs/telepathy-glib-0.14
-	>=net-libs/telepathy-qt4-0.7.3
+	>=net-libs/telepathy-qt-0.7.3
 "
 RDEPEND="${DEPEND}
 "
