@@ -10,8 +10,8 @@ OPENGL_REQUIRED="optional"
 KDE_SCM="git"
 inherit kde4-base fdo-mime toolchain-funcs
 
-# The "master" branch is out of date, so use KDE/4.7 per upstream's
-# recommendation (KDE/4.8 will be branched off of KDE/4.7)
+# The "master" branch is out of date, so use KDE/4.8 per upstream's
+# recommendation.
 EGIT_BRANCH="KDE/4.8"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
