@@ -16,6 +16,7 @@ IUSE="debug"
 
 COMMONDEPEND="
 	!aqua? (
+		$(add_kdebase_dep libkonq)
 		x11-libs/libX11
 		x11-libs/libXext
 		>=x11-libs/libxklavier-3.2
