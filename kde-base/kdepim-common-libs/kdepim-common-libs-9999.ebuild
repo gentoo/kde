@@ -30,6 +30,8 @@ add_blocker libkdepim
 add_blocker libkleo
 add_blocker libkpgp
 add_blocker kaddressbook '<4.4.90'
+# kdepim-wizards removed since 4.8.0
+add_blocker kdepim-wizards
 add_blocker kmail '<4.4.80'
 add_blocker korganizer '<4.5.67'
 
