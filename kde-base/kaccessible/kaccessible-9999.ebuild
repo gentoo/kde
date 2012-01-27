@@ -11,7 +11,7 @@ DESCRIPTION="Provides accessibility services like focus tracking"
 KEYWORDS=""
 IUSE="debug +speechd"
 
-DEPEND="app-accessibility/speech-dispatcher"
+DEPEND="speechd? ( app-accessibility/speech-dispatcher )"
 RDEPEND=${DEPEND}
 
 src_configure() {
