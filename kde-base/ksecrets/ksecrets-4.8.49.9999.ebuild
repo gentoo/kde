@@ -11,11 +11,13 @@ DESCRIPTION="KDE secrets service"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	app-crypt/qca:2
 	net-libs/libssh2
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_kdebase_dep libkworkspace)
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-9999-fix-build.patch"
