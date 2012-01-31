@@ -20,7 +20,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="aqua debug +gstreamer pulseaudio vlc xine zeitgeist"
+IUSE="aqua debug +gstreamer pulseaudio vlc zeitgeist"
 
 COMMON_DEPEND="
 	!!x11-libs/qt-phonon:4
@@ -42,17 +42,14 @@ PDEPEND="
 	aqua? ( media-libs/phonon-qt7 )
 	gstreamer? ( media-libs/phonon-gstreamer )
 	vlc? ( >=media-libs/phonon-vlc-0.3.2 )
-	xine? ( >=media-libs/phonon-xine-0.4.4 )
 "
-RDEPEND="${COMMON_DEPEND}
-	!kde-base/phonon-xine
-"
+RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/automoc-0.9.87
 	dev-util/pkgconfig
 "
 
-REQUIRED_USE="|| ( aqua gstreamer vlc xine )"
+REQUIRED_USE="|| ( aqua gstreamer vlc )"
 
 src_configure() {
 	local mycmakeargs=(
