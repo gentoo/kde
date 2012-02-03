@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE screensaver framework"
 KEYWORDS=""
-IUSE="debug pam"
+IUSE="debug"
 
 RDEPEND="
 	dev-libs/glib:2
@@ -19,7 +19,6 @@ RDEPEND="
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
-	pam? ( >=kde-base/kdebase-pam-7 )
 "
 DEPEND="${RDEPEND}
 	x11-proto/randrproto
@@ -33,7 +32,6 @@ PATCHES=(
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with pam)
 	)
 
 	kde4-meta_src_configure
