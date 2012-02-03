@@ -26,7 +26,6 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
 	"${FILESDIR}/${PN}-4.5.95-nsfw.patch"
 	"${FILESDIR}/${PN}-4.6.4-xf86misc.patch"
 )
