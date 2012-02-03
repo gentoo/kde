@@ -21,10 +21,6 @@ DEPEND="${RDEPEND}
 	x11-libs/libxkbfile
 "
 
-PATCHES=(
-	"${FILESDIR}/kdebase-4.0.2-pam-optional.patch"
-)
-
 src_prepare() {
 	kde4-meta_src_prepare
 
