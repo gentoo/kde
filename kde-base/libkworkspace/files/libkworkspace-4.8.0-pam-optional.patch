@@ -1,19 +1,10 @@
-diff --git a/cmake/modules/FindPAM.cmake b/cmake/modules/FindPAM.cmake
-index 3499836..92527b5 100644
---- a/cmake/modules/FindPAM.cmake
-+++ b/cmake/modules/FindPAM.cmake
-@@ -5,6 +5,8 @@
- #  PAM_INCLUDE_DIR - the pam include directory
- #  PAM_LIBRARIES - libpam library
+diff --git a/cmake/modules/UnixAuth.cmake b/cmake/modules/UnixAuth.cmake
+index 904f0cb..0347251 100644
+--- a/cmake/modules/UnixAuth.cmake
++++ b/cmake/modules/UnixAuth.cmake
+@@ -1,4 +1,4 @@
+-find_package(PAM)
++macro_optional_find_package(PAM)
  
-+if (WITH_PAM)
-+
- if (PAM_INCLUDE_DIR AND PAM_LIBRARY)
- 	# Already in cache, be silent
- 	set(PAM_FIND_QUIETLY TRUE)
-@@ -72,3 +74,5 @@ else (PAM_FOUND)
- endif (PAM_FOUND)
- 
- mark_as_advanced(PAM_INCLUDE_DIR PAM_LIBRARY DL_LIBRARY PAM_MESSAGE_CONST)
-+
-+endif (WITH_PAM)
+ include(CheckFunctionExists)
+ include(CheckLibraryExists)
