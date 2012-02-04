@@ -199,7 +199,10 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-if version_is_at_least 4.7.80 "${KDE_MINIMAL}"; then
+if version_is_at_least 4.8.50 "${KDE_MINIMAL}"; then
+	# Upstream has added an *undeclared* dependency on Qt 4.8...
+	QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
+elif version_is_at_least 4.7.80 "${KDE_MINIMAL}"; then
 	QT_MINIMAL="${QT_MINIMAL:-4.7.4}"
 else
 	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
