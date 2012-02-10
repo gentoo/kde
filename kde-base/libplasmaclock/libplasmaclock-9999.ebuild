@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kde-workspace"
 KMMODULE="libs/plasmaclock"
-OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
