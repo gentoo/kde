@@ -5,6 +5,16 @@
 # Dead project, use kde-misc/akonadi-google instead
 kde-misc/akonadi-googledata
 
+dev-util/kdevelop
+
+dev-util/kdevelop-pg-qt
+
+dev-util/kdevelop-php
+
+dev-util/kdevelop-php-docs
+
+dev-util/kdevplatform
+
 # Masked as net-libs/libinfinity is masked on the tree.
 # To drop this mask we need to unmask libinfinity in the overlay and or
 # someone needs to talk to dev-zero and see why it's masked in the tee.

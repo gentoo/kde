@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,18 +7,19 @@ EAPI=4
 KMNAME="kdevelop"
 KDE_SCM="git"
 EGIT_REPONAME="${PN}"
-KDE_MINIMAL="4.6"
+KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
-KDE_LINGUAS="ca ca@valencia da de en_GB es et fi gl it nds nl pt pt_BR sl sv th uk zh_CN zh_TW"
+KDE_LINGUAS="ca ca@valencia da de en_GB es et fr it nb nds nl pt pt_BR ru sl sv th uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # Moved to playground for now
 # bazaar kompare mercurial
 LICENSE="GPL-2 LGPL-2"
 IUSE="cvs debug git reviewboard subversion"
+SLOT=0
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
@@ -28,15 +29,15 @@ IUSE="cvs debug git reviewboard subversion"
 DEPEND="
 	dev-libs/boost
 	reviewboard? ( dev-libs/qjson )
-	subversion? ( >=dev-vcs/subversion-1.3 )
+	subversion? ( dev-vcs/subversion )
 "
 RDEPEND="${DEPEND}
-	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
+	!<dev-util/kdevelop-${KDEVELOP_VERSION}
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "
-#!dev-util/kdevelop-git
+
 # Quite few fails and upstream is aware
 RESTRICT="test"
 

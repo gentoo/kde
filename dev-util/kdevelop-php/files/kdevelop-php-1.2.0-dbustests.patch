@@ -1,0 +1,98 @@
+diff -ruN kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt kdevelop-php-1.2.0/completion/tests/CMakeLists.txt
+--- kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt	2011-01-23 20:42:54.000000000 +0100
++++ kdevelop-php-1.2.0/completion/tests/CMakeLists.txt	2011-03-05 18:01:34.000000000 +0100
+@@ -8,24 +8,6 @@
+ 
+ set(completiontest_SRCS test_completion.cpp
+     ../../duchain/tests/duchaintestbase.cpp)
+-kde4_add_unit_test(completiontest ${completiontest_SRCS})
+-target_link_libraries(completiontest
+-    kdev4phpcompletion
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+ 
+ set(completionbench_SRCS bench_completion.cpp
+     ../../duchain/tests/duchaintestbase.cpp)
+-kde4_add_unit_test(completionbenchmark ${completionbench_SRCS})
+-target_link_libraries(completionbenchmark
+-    kdev4phpcompletion
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.0/duchain/tests/CMakeLists.txt
+--- kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt	2011-01-23 20:42:54.000000000 +0100
++++ kdevelop-php-1.2.0/duchain/tests/CMakeLists.txt	2011-03-05 17:54:27.000000000 +0100
+@@ -9,66 +9,21 @@
+ set(duchain_SRCS
+     duchain.cpp
+     duchaintestbase.cpp)
+-kde4_add_unit_test(duchain ${duchain_SRCS})
+-target_link_libraries(duchain
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+-
+ 
+ set(expressionparser_SRCS
+     expressionparser.cpp
+     duchaintestbase.cpp)
+-kde4_add_unit_test(expressionparser ${expressionparser_SRCS})
+-target_link_libraries(expressionparser
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+ 
+ set(uses_SRCS
+     uses.cpp
+     duchaintestbase.cpp)
+-kde4_add_unit_test(uses ${uses_SRCS})
+-target_link_libraries(uses
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_INTERFACES_LIBRARIES}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+ 
+ set(benchmarks_SRCS
+     benchmarks.cpp
+     duchaintestbase.cpp
+ )
+-kde4_add_unit_test(benchmarks ${benchmarks_SRCS})
+-target_link_libraries(benchmarks
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_INTERFACES_LIBRARIES}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
+-
+ 
+ set(duchain_multiplefiles_SRCS
+     duchain_multiplefiles.cpp
+     duchaintestbase.cpp
+ )
+-kde4_add_unit_test(duchain_multiplefiles ${duchain_multiplefiles_SRCS})
+-target_link_libraries(duchain_multiplefiles
+-    kdev4phpduchain
+-    kdev4phpparser
+-    ${QT_QTTEST_LIBRARY}
+-    ${KDEVPLATFORM_INTERFACES_LIBRARIES}
+-    ${KDEVPLATFORM_TESTS_LIBRARIES}
+-    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+-)
