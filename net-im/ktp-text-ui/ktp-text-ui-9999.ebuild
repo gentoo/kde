@@ -20,11 +20,20 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="debug"
+IUSE="debug +history"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.0
+	history? ( net-libs/telepathy-logger-qt )
 "
 RDEPEND="${DEPEND}
 	>=net-im/ktp-contact-list-${PV}
 "
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with history TelepathyLoggerQt4)
+	)
+
+	cmake-utils_src_configure
+}
