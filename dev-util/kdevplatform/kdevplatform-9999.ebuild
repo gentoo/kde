@@ -32,11 +32,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
+	!dev-util/kdevelop-git
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "
-#!dev-util/kdevelop-git
 # Quite few fails and upstream is aware
 RESTRICT="test"
 
