@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,11 +11,12 @@ KDE_LINGUAS="ca ca@valencia da de en_GB es et fr it nb nds nl pt pt_BR sv th uk 
 
 KMNAME="kdevelop"
 KMMODULE="php"
-#KDEVELOP_VERSION="4.2.3"
+KDEVELOP_VERSION="4.2.81"
 VIRTUALX_REQUIRED=test
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
+SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2 LGPL-2"

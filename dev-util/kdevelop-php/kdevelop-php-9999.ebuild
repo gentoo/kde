@@ -16,7 +16,7 @@ LICENSE="GPL-2 LGPL-2"
 IUSE="debug doc"
 
 DEPEND="
-	>=dev-util/kdevelop-pg-qt-0.9.0
+	>=dev-util/kdevelop-pg-qt-0.9.82
 "
 RDEPEND="
 	dev-util/kdevelop
