@@ -5,11 +5,6 @@
 # Dead project, use kde-misc/akonadi-google instead
 kde-misc/akonadi-googledata
 
-=dev-util/kdevelop-4.2.81
-=dev-util/kdevelop-php-1.2.81
-=dev-util/kdevelop-php-docs-1.2.81
-=dev-util/kdevplatform-1.2.81
-
 ~dev-util/kdevelop-4.2.82
 ~dev-util/kdevelop-php-1.2.82
 ~dev-util/kdevelop-php-docs-1.2.82
