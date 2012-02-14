@@ -14,8 +14,9 @@ pt_BR ru sl sv th uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
+SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # Moved to playground for now
 # bazaar kompare mercurial
 LICENSE="GPL-2 LGPL-2"
@@ -38,6 +39,7 @@ RDEPEND="${DEPEND}
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "
+
 # Quite few fails and upstream is aware
 RESTRICT="test"
 
