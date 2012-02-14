@@ -7,7 +7,7 @@ EAPI=4
 KMNAME="kdevelop"
 KDE_SCM="git"
 EGIT_REPONAME="${PN}"
-KDE_MINIMAL="4.6"
+KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
 KDE_LINGUAS="ca ca@valencia da de en_GB es et fi gl it nds nl pt pt_BR sl sv th uk zh_CN zh_TW"
 inherit kde4-base
@@ -28,7 +28,7 @@ IUSE="cvs debug git reviewboard subversion"
 DEPEND="
 	dev-libs/boost
 	reviewboard? ( dev-libs/qjson )
-	subversion? ( >=dev-vcs/subversion-1.3 )
+	subversion? ( dev-vcs/subversion )
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4

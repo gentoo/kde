@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,6 +12,7 @@ VIRTUALX_REQUIRED=test
 KDE_LINGUAS="ca ca@valencia da de en_GB es et fr it nb nds nl pt pt_BR ru sl sv th uk zh_CN zh_TW"
 inherit kde4-base
 
+SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
 DESCRIPTION="KDE development support libraries and apps"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
@@ -19,7 +20,6 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 # bazaar kompare mercurial
 LICENSE="GPL-2 LGPL-2"
 IUSE="cvs debug git reviewboard subversion"
-SLOT=0
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
@@ -32,7 +32,8 @@ DEPEND="
 	subversion? ( dev-vcs/subversion )
 "
 RDEPEND="${DEPEND}
-	!<dev-util/kdevelop-${KDEVELOP_VERSION}
+	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
+	!dev-util/kdevelop-git
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
