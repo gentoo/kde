@@ -1,14 +1,11 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=4
 
-KDE_SCM=git
+KDE_SCM="git"
 inherit kde4-base
-
-EGIT_REPO_URI="git://anongit.kde.org/kdevelop-pg-qt.git"
-EGIT_COMMIT="v${PV}"
 
 DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="http://www.kdevelop.org"
@@ -25,4 +22,3 @@ DEPEND="
 	sys-devel/flex
 "
 S=${WORKDIR}/${PN}-v${PV}
-#PATCHES=( "${FILESDIR}/${P}-underlinking.patch" )
