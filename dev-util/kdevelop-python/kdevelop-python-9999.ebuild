@@ -8,6 +8,7 @@ PYTHON_DEPEND="2"
 KMNAME="kdevelop"
 KDE_SCM="git"
 EGIT_REPONAME="kdev-python"
+KDEVPLATFORM_VERSION="1.2.82"
 inherit kde4-base python
 
 DESCRIPTION="Python plugin for KDevelop 4"
@@ -29,14 +30,10 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-src_configure() {
-	mycmakeargs=( -DCMAKE_INSTALL_PREFIX=/usr/ )
-	cmake-utils_src_configure
-}
-
 src_compile() {
-	pushd ${WORKDIR}/kdevelop-python-9999_build
+	pushd ${WORKDIR}/${P}_build
 	emake parser
 	popd
 
+	kde4-base_src_compile
 }
