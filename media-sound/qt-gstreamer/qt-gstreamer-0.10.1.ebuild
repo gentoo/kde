@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API."
 HOMEPAGE="http://gstreamer.freedesktop.org/wiki/QtGStreamer"
-SRC_URI="http://gstreamer.freedesktop.org/src/qt-gstreamer/${P}.tar.bz2"
+SRC_URI="http://gstreamer.freedesktop.org/src/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -29,3 +29,13 @@ DEPEND="
 	sys-devel/bison
 	${RDEPEND}
 "
+
+src_configure() {
+	sed -e "s#/lib#/$(get_libdir)#" \
+		-i src/CMakeLists.txt || die "sed fixing multilib failed"
+
+	sed -e "s#/lib#/$(get_libdir)#" \
+		-i elements/CMakeLists.txt || die "sed fixing multilib failed"
+
+	cmake-utils_src_configure
+}
