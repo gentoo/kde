@@ -20,7 +20,7 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="consolekit debug"
+IUSE="debug"
 
 DEPEND="
 	kde-misc/libmm-qt
@@ -29,26 +29,6 @@ DEPEND="
 	>=net-misc/networkmanager-0.9.0
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	if ! use consolekit; then
-		# Fix dbus policy
-		sed -i \
-			-e 's/at_console=".*"/group="plugdev"/' \
-			"${S}/NetworkManager-kde4.conf" \
-			|| die "Fixing dbus policy failed"
-	fi
-}
-
-src_configure() {
-	local mycmakeargs=(
-		-DDBUS_SYSTEM_POLICY_DIR=/etc/dbus-1/system.d
-	)
-
-	kde4-base_src_configure
-}
 
 src_install() {
 	kde4-base_src_install
