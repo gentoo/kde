@@ -56,3 +56,8 @@ src_configure() {
 
 	kde4-base_src_configure
 }
+
+src_install() {
+	kde4-base_src_install
+}
+
