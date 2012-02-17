@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevplatform/kdevplatform-1.2.82.ebuild,v 1.1 2012/02/11 15:04:07
+# $Header: $
 
 EAPI=4
 
@@ -9,7 +9,8 @@ KDE_SCM="git"
 EGIT_REPONAME="${PN}"
 KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
-KDE_LINGUAS="ca ca@valencia da de en_GB es et fr it nb nds nl pt pt_BR ru sl sv th uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt 
+pt_BR ru sl sv th uk zh_CN zh_TW"
 
 if [[ $PV == *9999 ]]; then
 	KEYWORDS=""
@@ -45,10 +46,6 @@ RDEPEND="${DEPEND}
 #!dev-util/kdevelop-git
 # Quite few fails and upstream is aware
 RESTRICT="test"
-
-PATCHES=(
-	"${FILESDIR}/${P}"-svn17-[12].patch
-)
 
 src_prepare() {
 	kde4-base_src_prepare
