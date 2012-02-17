@@ -20,7 +20,6 @@ fi
 inherit kde4-base
 
 DESCRIPTION="PHP documentation plugin for KDevelop 4"
-KEYWORDS=""
 LICENSE="GPL-2 LGPL-2"
 IUSE="debug"
 
