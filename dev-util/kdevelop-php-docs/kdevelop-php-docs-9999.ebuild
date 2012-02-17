@@ -3,14 +3,23 @@
 # $Header: $
 
 EAPI=4
-
 KMNAME="kdevelop"
-KDE_SCM="git"
-EGIT_REPONAME="kdev-php-docs"
+
+if [[ $PV == *9999 ]]; then
+	KDE_SCM="git"
+	EGIT_REPONAME="kdev-php-docs"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	KMMODULE="php-docs"
+	KDEVELOP_VERSION="4.2.82"
+	SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 inherit kde4-base
 
 DESCRIPTION="PHP documentation plugin for KDevelop 4"
-
 KEYWORDS=""
 LICENSE="GPL-2 LGPL-2"
 IUSE="debug"
