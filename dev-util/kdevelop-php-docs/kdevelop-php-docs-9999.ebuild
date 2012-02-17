@@ -3,6 +3,9 @@
 # $Header: $
 
 EAPI=4
+
+KDE_LINGUAS="ca ca@valencia da de en_GB es et fi fr gl it nb nds nl pl pt pt_BR
+ru sv uk zh_CN zh_TW"
 KMNAME="kdevelop"
 
 if [[ $PV == *9999 ]]; then
