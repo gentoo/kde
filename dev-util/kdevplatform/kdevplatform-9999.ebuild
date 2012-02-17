@@ -11,11 +11,17 @@ KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
 pt_BR ru sl sv th uk zh_CN zh_TW"
+
+if [[ $PV == *9999 ]]; then
+	KEYWORDS=""
+else
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+fi
+
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
 
-KEYWORDS=""
 # Moved to playground for now
 # bazaar kompare mercurial
 LICENSE="GPL-2 LGPL-2"
@@ -33,11 +39,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
-	!dev-util/kdevelop-git
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 "
+#!dev-util/kdevelop-git
 # Quite few fails and upstream is aware
 RESTRICT="test"
 
