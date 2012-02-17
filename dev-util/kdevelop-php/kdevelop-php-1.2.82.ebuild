@@ -4,19 +4,15 @@
 
 EAPI=4
 
-# Bug 330051
-# RESTRICT="test"
-
 KDE_LINGUAS="ca ca@valencia da de en_GB es et fi fr it nb nds nl pl pt pt_BR sv
 th uk zh_CN zh_TW"
 KMNAME="kdevelop"
 VIRTUALX_REQUIRED=test
-
 if [[ $PV == *9999 ]]; then
 	KDE_SCM="git"
 	EGIT_REPONAME="kdev-php"
 	KEYWORDS=""
-	SRC_URI	=""
+	SRC_URI=""
 else
 	KMMODULE="php"
 	KDEVELOP_VERSION="4.2.82"
@@ -37,5 +33,7 @@ RDEPEND="
 	dev-util/kdevelop
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
+# Bug 330051
+# RESTRICT="test"
 
 PATCHES=( "${FILESDIR}/${PN}"-1.2.0-{dbustests,parmake}.patch )
