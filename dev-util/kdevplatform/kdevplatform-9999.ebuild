@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,26 +6,23 @@ EAPI=4
 
 KMNAME="kdevelop"
 KDE_SCM="git"
-EGIT_REPONAME="${PN}"
 KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt 
 pt_BR ru sl sv th uk zh_CN zh_TW"
+
+inherit kde4-base
+
+DESCRIPTION="KDE development support libraries and apps"
+
+LICENSE="GPL-2 LGPL-2"
+IUSE="cvs debug git reviewboard subversion"
 
 if [[ $PV == *9999 ]]; then
 	KEYWORDS=""
 else
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
-
-inherit kde4-base
-
-DESCRIPTION="KDE development support libraries and apps"
-
-# Moved to playground for now
-# bazaar kompare mercurial
-LICENSE="GPL-2 LGPL-2"
-IUSE="cvs debug git reviewboard subversion"
 
 # Moved to playground for now
 # bazaar? ( dev-vcs/bzr )
