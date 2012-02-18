@@ -8,7 +8,7 @@ KMNAME="kdevelop"
 KDE_SCM="git"
 KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt 
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
 pt_BR ru sl sv th uk zh_CN zh_TW"
 
 inherit kde4-base
@@ -28,19 +28,17 @@ fi
 # bazaar? ( dev-vcs/bzr )
 # kompare? ( $(add_kdebase_dep kompare) )
 # mercurial? ( dev-vcs/mercurial )
-# block - some plugins moved to kdevplatform from kdevelop
 DEPEND="
 	dev-libs/boost
-	reviewboard? ( dev-libs/qjson )
-	subversion? ( dev-vcs/subversion )
 "
 RDEPEND="${DEPEND}
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
 	$(add_kdebase_dep konsole)
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
+	reviewboard? ( dev-libs/qjson )
+	subversion? ( dev-vcs/subversion )
 "
-#!dev-util/kdevelop-git
 # Quite few fails and upstream is aware
 RESTRICT="test"
 
