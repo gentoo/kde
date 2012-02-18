@@ -479,8 +479,11 @@ _calculate_src_uri() {
 				*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 			esac
 			;;
-		kdevelop)
-			SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2"
+		kdevelop|kdevplatform)
+			case ${KDEVELOP_VERSION} in
+				4.[12].[6-8]*) SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
+				*) SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
+			esac
 			;;
 	esac
 }
