@@ -480,6 +480,8 @@ _calculate_src_uri() {
 			esac
 			;;
 		kdevelop|kdevplatform)
+			[[ $PN != "kdevelop" ]] &&
+			KDEVELOP_VERSION="$(($(get_major_version)+3)).$(get_after.major_version)"
 			case ${KDEVELOP_VERSION} in
 				4.[12].[6-8]*) SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
 				*) SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
