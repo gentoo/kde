@@ -21,9 +21,7 @@ else
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
 
-# Remove ksysguard dep after libprocessui moved into kdelibs
 DEPEND="
-	dev-util/kdevplatform[subversion]
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
 	okteta? ( $(add_kdebase_dep okteta) )
@@ -33,8 +31,6 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
-# see bug 347547 about the kdevplatform[subversion] dependency
-
 RESTRICT="test"
 # see bug 366471
 
@@ -54,8 +50,3 @@ src_configure() {
 
 	kde4-base_src_configure
 }
-
-src_install() {
-	kde4-base_src_install
-}
-
