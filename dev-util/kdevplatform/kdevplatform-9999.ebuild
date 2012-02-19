@@ -10,11 +10,11 @@ KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
 pt_BR ru sl sv th uk zh_CN zh_TW"
+EGIT_REPONAME="${PN}"
 
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
-
 LICENSE="GPL-2 LGPL-2"
 IUSE="cvs debug git reviewboard subversion"
 
