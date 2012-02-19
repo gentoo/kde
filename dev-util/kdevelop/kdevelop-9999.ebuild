@@ -13,7 +13,7 @@ inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug okteta +qmake qthelp"
+IUSE="+cmake +cxx debug okteta qthelp"
 
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
@@ -42,9 +42,6 @@ src_configure() {
 		$(cmake-utils_use_with okteta LibKasten)
 		$(cmake-utils_use_with okteta LibOkteta)
 		$(cmake-utils_use_with okteta LibOktetaKasten)
-		$(cmake-utils_use_build qmake)
-		$(cmake-utils_use_build qmake qmakebuilder)
-		$(cmake-utils_use_build qmake qmake_parser)
 		$(cmake-utils_use_build qthelp)
 	)
 
