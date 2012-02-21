@@ -13,7 +13,7 @@ inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug okteta +qmake qthelp"
+IUSE="+cmake +cxx debug okteta qthelp"
 
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
@@ -21,9 +21,7 @@ else
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
 
-# Remove ksysguard dep after libprocessui moved into kdelibs
 DEPEND="
-	dev-util/kdevplatform[subversion]
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
 	okteta? ( $(add_kdebase_dep okteta) )
@@ -33,8 +31,6 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
-# see bug 347547 about the kdevplatform[subversion] dependency
-
 RESTRICT="test"
 # see bug 366471
 
@@ -46,16 +42,8 @@ src_configure() {
 		$(cmake-utils_use_with okteta LibKasten)
 		$(cmake-utils_use_with okteta LibOkteta)
 		$(cmake-utils_use_with okteta LibOktetaKasten)
-		$(cmake-utils_use_build qmake)
-		$(cmake-utils_use_build qmake qmakebuilder)
-		$(cmake-utils_use_build qmake qmake_parser)
 		$(cmake-utils_use_build qthelp)
 	)
 
 	kde4-base_src_configure
 }
-
-src_install() {
-	kde4-base_src_install
-}
-

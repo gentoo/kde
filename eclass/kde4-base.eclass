@@ -83,7 +83,7 @@ case ${KDEBASE} in
 					KDEVELOP_VERSION=${PV}
 					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
 					;;
-				kdevplatform)
+				kdevplatform|kdevelop-php*)
 					KDEVELOP_VERSION="$(($(get_major_version)+3)).$(get_after_major_version)"
 					KDEVPLATFORM_VERSION=${PV}
 					;;
@@ -479,7 +479,7 @@ _calculate_src_uri() {
 				*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 			esac
 			;;
-		kdevelop|kdevplatform)
+		kdevelop|kdevelop-php*|kdevplatform)
 			case ${KDEVELOP_VERSION} in
 				4.[12].[6-8]*) SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
 				*) SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
