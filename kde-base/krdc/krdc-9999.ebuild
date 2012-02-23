@@ -18,12 +18,7 @@ IUSE="debug jpeg rdesktop vnc zeroconf"
 DEPEND="
 	jpeg? ( virtual/jpeg )
 	vnc? ( >=net-libs/libvncserver-0.9 )
-	zeroconf? (
-		|| (
-			net-dns/avahi
-			net-misc/mDNSResponder
-		)
-	)
+	zeroconf? ( net-dns/avahi )
 "
 RDEPEND="${DEPEND}
 	rdesktop? ( net-misc/rdesktop )
