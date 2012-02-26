@@ -20,7 +20,6 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs semantic-desktop)
 	dev-libs/libxslt
 	dev-libs/qjson
-	net-libs/libgcal
 	oldpim? ( dev-libs/boost )
 	!oldpim? ( $(add_kdebase_dep kdepimlibs semantic-desktop 4.6.0) )
 "
