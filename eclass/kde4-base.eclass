@@ -287,29 +287,18 @@ case ${CPPUNIT_REQUIRED} in
 esac
 unset cppuintdepend
 
-
-# WebKit use dependencies
-case ${KDE_REQUIRED} in
-	always)
-		qtwebkitusedeps="[kde]"
-		;;
-	optional)
-		qtwebkitusedeps="[kde?]"
-		;;
-	*) ;;
-esac
 # KDE dependencies
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
 	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
-	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility,kde]
+	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility]
 	>=x11-libs/qt-script-${QT_MINIMAL}:4
 	>=x11-libs/qt-sql-${QT_MINIMAL}:4[qt3support]
 	>=x11-libs/qt-svg-${QT_MINIMAL}:4
 	>=x11-libs/qt-test-${QT_MINIMAL}:4
-	>=x11-libs/qt-webkit-${QT_MINIMAL}:4${qtwebkitusedeps}
+	>=x11-libs/qt-webkit-${QT_MINIMAL}:4
 	!aqua? (
 		x11-libs/libXext
 		x11-libs/libXt
@@ -481,7 +470,7 @@ _calculate_src_uri() {
 			;;
 		kdevelop|kdevelop-php*|kdevplatform)
 			case ${KDEVELOP_VERSION} in
-				4.[12].[6-8]*) SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
+				4.[12].[6-9]*) SRC_URI="mirror://kde/unstable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
 				*) SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.bz2" ;;
 			esac
 			;;

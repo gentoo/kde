@@ -10,7 +10,7 @@ inherit kde4-base
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
 else
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${PN}-v${PV}.tar.bz2"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -25,4 +25,3 @@ DEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
-S=${WORKDIR}/${PN}-v${PV}

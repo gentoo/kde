@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	>=x11-libs/qt-script-${QT_MINIMAL}:4
 "
 DEPEND="${COMMON_DEPEND}
-	doc? ( app-doc/doxygen[-nodot] )
+	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
 "
 RDEPEND="${COMMON_DEPEND}"
 

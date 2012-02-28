@@ -7,15 +7,18 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="Git commit integration in Akonadi"
-HOMEPAGE="https://projects.kde.org/projects/playground/pim/akonadi-git-resource"
-LICENSE="GPL-2"
+DESCRIPTION="Facebook services integration in Akonadi"
+HOMEPAGE="https://projects.kde.org/akonadi-facebook"
 
+LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs semantic-desktop)
-	=dev-libs/libgit2-0.16*
+	dev-libs/boost
+	dev-libs/libxslt
+	dev-libs/qjson
 "
+RDEPEND="${DEPEND}"
