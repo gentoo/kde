@@ -28,6 +28,7 @@ RESTRICT="test"
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
+	kde4-base_pkg_setup
 }
 
 src_compile() {
