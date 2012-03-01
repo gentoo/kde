@@ -11,3 +11,7 @@ kde-misc/akonadi-googledata
 kde-misc/kobby
 net-libs/libqinfinity
 
+
+media-libs/libtvdb
+
+kde-misc/nepomuk-tvnamer
