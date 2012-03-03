@@ -49,6 +49,7 @@ KMEXTRA="
 	libksieve/
 	mailcommon/
 	mailfilteragent/
+	mailimporter/
 	ontologies/
 	plugins/messageviewer/
 "
