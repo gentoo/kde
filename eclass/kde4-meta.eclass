@@ -210,8 +210,13 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist postfix
 
-		KMTARPARAMS+=" --bzip2"
-		postfix="bz2"
+		if [[ ${PV} == 4.8.1 ]]; then
+			postfix="xz"
+			KMTARPARAMS+=" --xz"
+		else
+			postfix="bz2"
+			KMTARPARAMS+=" --bzip2"
+		fi
 
 		case ${KMNAME} in
 			kdebase-apps)
