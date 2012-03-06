@@ -29,7 +29,7 @@ SRC_URI=""
 
 for MY_LANG in ${MY_LANGS} ; do
 	IUSE="${IUSE} linguas_${MY_LANG}"
-	SRC_URI="${SRC_URI} linguas_${MY_LANG}? ( ${URI_BASE}/${PN}-${MY_LANG}-${PV}.tar.bz2 )"
+	SRC_URI="${SRC_URI} linguas_${MY_LANG}? ( ${URI_BASE}/${PN}-${MY_LANG}-${PV}.tar.xz )"
 done
 
 S="${WORKDIR}"
