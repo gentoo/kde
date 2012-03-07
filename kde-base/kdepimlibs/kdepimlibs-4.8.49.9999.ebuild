@@ -62,6 +62,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use !semantic-desktop KALARM_USE_KRESOURCES)
 		$(cmake-utils_use_with prison Prison)
 	)
 
