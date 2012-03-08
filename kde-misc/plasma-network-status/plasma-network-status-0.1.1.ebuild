@@ -6,7 +6,7 @@ EAPI=4
 
 inherit kde4-base
 
-DESCRIPTION="Network Status is a KDE applet to monitor the network interface status."
+DESCRIPTION="KDE applet to monitor the network interface status."
 HOMEPAGE="http://sourceforge.net/projects/pa-net-stat/"
 SRC_URI="http://downloads.sourceforge.net/project/pa-net-stat/${P}-Source.tar.bz2"
 
@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 DEPEND=""
-RDEPEND="${DEPEND} 
+RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 "
 
