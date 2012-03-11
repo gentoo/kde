@@ -441,25 +441,19 @@ _calculate_src_uri() {
 	case ${KDEBASE} in
 		kde-base)
 			case ${PV} in
+				4.4.11.1)
+					# KDEPIM 4.4, special case
+					# TODO: Remove this part when KDEPIM 4.4 gets out of the tree
+					SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2" ;;
 				4.[456789].8[05] | 4.[456789].9[0235678])
 					# Unstable KDE SC releases
-					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2"
-					if ! version_is_at_least 4.6.80 ${PV}
-					then
-						# KDEPIM IS SPECIAL
-						[[ ${KMNAME} == "kdepim" || ${KMNAME} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/unstable/kdepim/${PV}/${_kmname_pv}.tar.bz2"
-					fi
-					;;
+					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+				4.8.1)
+					# Stable KDE SC releases with .xz support
+					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2"
-					if ! version_is_at_least 4.6.80 ${PV}
-					then
-						# KDEPIM IS SPECIAL
-						# TODO: It might not be with KDE 4.7 (see above)
-						[[ ${KMNAME} == "kdepim" || ${KMNAME} == "kdepim-runtime" ]] && SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2"
-					fi
-						;;
+					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 			esac
 			;;
 		koffice)

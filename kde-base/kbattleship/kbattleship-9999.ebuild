@@ -21,20 +21,3 @@ src_prepare() {
 
 	kde4-meta_src_prepare
 }
-
-src_install() {
-	kde4-meta_src_install
-	# and also we have to prepare the ggz dir
-	insinto "${GGZ_MODDIR}"
-	newins ${PN}/src/module.dsc ${P}.dsc
-}
-
-pkg_postinst() {
-	kde4-meta_pkg_postinst
-	games-ggz_pkg_postinst
-}
-
-pkg_postrm() {
-	kde4-meta_pkg_postrm
-	games-ggz_pkg_postrm
-}

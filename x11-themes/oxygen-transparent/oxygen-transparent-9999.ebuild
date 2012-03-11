@@ -5,6 +5,9 @@
 EAPI=4
 
 KDE_SCM="git"
+if use !experimental; then
+	EGIT_BRANCH="stable"
+fi
 EGIT_REPONAME="oxygen-transparent"
 inherit kde4-base
 
@@ -14,7 +17,7 @@ HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-transparen
 LICENSE="as-is"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug"
+IUSE="experimental debug"
 
 RDEPEND="
 	x11-libs/libX11
