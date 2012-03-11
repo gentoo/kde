@@ -29,7 +29,6 @@ PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"
 # Fix for GCC-4.4 (bug 268086), Qt 4.8 (bug 397917)
 PATCHES=(
 	"${FILESDIR}/${PN}-gcc44.patch"
-	"${FILESDIR}/${PN}-0.1.0-qt48.patch"
 )
 
 src_prepare() {
