@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ KMNAME="kdevelop"
 KDE_SCM="git"
 KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
 pt_BR ru sl sv th uk zh_CN zh_TW"
 EGIT_REPONAME="${PN}"
 
