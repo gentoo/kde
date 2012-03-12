@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr it nb nds nl pl pt
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
 pt_BR ru sl sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KDE_SCM="git"
