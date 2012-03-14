@@ -3,6 +3,8 @@
 # $Header: $
 
 EAPI=4
+KDE_DOC_DIRS="docbook"
+KDE_HANDBOOK="optional"
 
 inherit kde4-base
 
@@ -16,10 +18,8 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
+	sys-apps/util-linux
 	>=sys-block/parted-2.3
 	>=sys-fs/lvm2-2.02.86
-	sys-libs/e2fsprogs-libs
 "
 DEPEND="${RDEPEND}"
-
-CMAKE_USE_DIR=${S}/${PN}
