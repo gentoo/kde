@@ -20,5 +20,5 @@ DEPEND="
 	$(add_kdebase_dep libkipi)
 "
 RDEPEND="${DEPEND}
-		media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
+	media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
 "
