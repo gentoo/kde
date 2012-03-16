@@ -19,4 +19,6 @@ DEPEND="
 	>=media-sound/qt-gstreamer-0.10
 	$(add_kdebase_dep libkipi)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+		media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
+"
