@@ -25,7 +25,7 @@ else
 fi
 
 DEPEND="
-	>=dev-util/kdevelop-pg-qt-0.9.82
+	>=dev-util/kdevelop-pg-qt-1.0.0
 "
 RDEPEND="
 	dev-util/kdevelop
