@@ -10,15 +10,15 @@ inherit kde4-meta
 
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 KEYWORDS=""
-IUSE="debug jpeg rdesktop vnc zeroconf"
+IUSE="debug jpeg rdesktop vnc zeroconf telepathy"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
-#telepathy? ( >=net-libs/telepathy-qt4-0.18 ) not yet in portage/overlay
 
 DEPEND="
 	jpeg? ( virtual/jpeg )
 	vnc? ( >=net-libs/libvncserver-0.9 )
 	zeroconf? ( net-dns/avahi )
+	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}
 	rdesktop? ( net-misc/rdesktop )
@@ -26,9 +26,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	mycmakeargs=(
-		-DWITH_TelepathyQt4=OFF
 		$(cmake-utils_use_with jpeg)
-		# $(cmake-utils_use_with telepathy TelepathyQt4)
+		$(cmake-utils_use_with telepathy TelepathyQt4)
 		$(cmake-utils_use_with vnc LibVNCServer)
 		$(cmake-utils_use_with zeroconf DNSSD)
 	)

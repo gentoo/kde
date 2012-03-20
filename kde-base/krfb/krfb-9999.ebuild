@@ -10,11 +10,20 @@ inherit kde4-meta
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug telepathy"
 
 DEPEND="
 	sys-libs/zlib
 	virtual/jpeg
 	!aqua? ( x11-libs/libXdamage )
+	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+        mycmakeargs=(
+                $(cmake-utils_use_with telepathy TelepathyQt4)
+        )
+
+        kde4-meta_src_configure
+}
