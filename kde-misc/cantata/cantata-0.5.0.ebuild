@@ -18,8 +18,10 @@ IUSE="kde"
 DEPEND=""
 RDEPEND=${DEPEND}
 
-src_configure()
-{
-	mycmakeargs=($(cmake-utils_use_want kde KDE_SUPPORT))
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_want kde KDE_SUPPORT)
+	)
+
 	kde4-base_src_configure
 }
