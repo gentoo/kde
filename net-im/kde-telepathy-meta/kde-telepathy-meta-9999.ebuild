@@ -14,7 +14,7 @@ else
 	KEYWORDS=""
 fi
 
-LICENSE="|| ( GPL-2 LGPL-2.1 )"
+LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
 SLOT="4"
 IUSE=""
 
@@ -26,6 +26,7 @@ RDEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	>=net-im/ktp-contact-applet-${PV}
 	>=net-im/ktp-contact-list-${PV}
+	>=net-im/ktp-contact-runner-${PV}
 	>=net-im/ktp-filetransfer-handler-${PV}
 	>=net-im/ktp-kded-module-${PV}
 	>=net-im/ktp-presence-applet-${PV}
