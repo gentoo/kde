@@ -7,10 +7,10 @@ EAPI=4
 KDE_LINGUAS="pt_BR"
 PYTHON_DEPEND="2:2.6"
 
-inherit kde4-base python git-2
+KDE_SCM="git"
+inherit kde4-base python
 
 EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
-KDE_SCM="git"
 
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
