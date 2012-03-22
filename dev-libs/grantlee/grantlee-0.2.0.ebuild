@@ -23,6 +23,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
+	test? ( >=x11-libs/qt-test-${QT_MINIMAL}:4 )
 "
 RDEPEND="${COMMON_DEPEND}"
 
@@ -30,6 +31,8 @@ DOCS=(AUTHORS CHANGELOG GOALS README)
 
 # Some tests fail
 RESTRICT="test"
+
+PATCHES=( "${FILESDIR}/${PN}-0.1.9-qt-test-optional.patch" )
 
 src_configure() {
 	mycmakeargs=(
