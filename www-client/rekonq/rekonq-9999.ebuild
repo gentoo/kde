@@ -4,13 +4,15 @@
 
 EAPI=4
 
+WEBKIT_REQUIRED="always"
 QT_MINIMAL="4.8"
 KDE_MINIMAL="4.7"
 KDE_SCM="git"
-KDE_LINGUAS_DIR="i18n"
-KDE_LINGUAS="ca cs da de el en_GB es et fr hu it ja ko lt nb nds nl pt_BR pt ru sl sr sv uk zh_CN"
-KDE_DOC_DIRS="docs"
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
+hu is it ja ko lt nb nds pl pt pt_BR ro ru sk sl sr sr@ijekavian
+sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
+VIRTUALX_REQUIRED=test
 inherit kde4-base
 
 DESCRIPTION="A browser based on qt-webkit"
@@ -23,7 +25,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=x11-libs/qt-xmlpatterns-${QT_MINIMAL}
+	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
 "
 RDEPEND="${DEPEND}"
 
