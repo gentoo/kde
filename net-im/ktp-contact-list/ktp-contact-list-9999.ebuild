@@ -25,6 +25,6 @@ IUSE="debug"
 DEPEND="
 	>=net-im/ktp-accounts-kcm-${PV}
 	>=net-im/ktp-common-internals-${PV}
-	>=net-libs/telepathy-qt-0.9.0
+	>net-libs/telepathy-qt-0.9.0
 "
 RDEPEND="${DEPEND}"
