@@ -28,7 +28,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 "
 
-REQUIRED_USE="plasma? ( kde )"
+REQUIRED_USE="
+	plasma? ( kde )
+	python? ( kde )
+"
 
 pkg_setup() {
 	python_set_active_version 2
