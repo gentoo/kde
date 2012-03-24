@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdelibs/kdelibs-4.8.1-r2.ebuild,v 1.2 2012/03/23 21:41:16 johu Exp $
 
 EAPI=4
 
@@ -17,7 +17,7 @@ EGIT_BRANCH="KDE/4.8"
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam +handbook jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
@@ -127,6 +127,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.6.3-bytecode.patch"
+	"${FILESDIR}/${PN}-4.8.1-nepomuk-kmail.patch"
+	"${FILESDIR}/${PN}-4.8.1-sonnet-highlighter.patch"
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 )
 

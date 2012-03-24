@@ -127,6 +127,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.6.3-bytecode.patch"
+	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 )
 
 pkg_pretend() {

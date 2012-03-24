@@ -1,0 +1,40 @@
+commit 20f73c2150bcd2220fe3604c2ec251b4026a3891
+Author: Montel Laurent <montel@kde.org>
+Date:   Mon Mar 19 12:30:49 2012 +0100
+
+    Fix Bug 295615 - kmail crashes trying to edit subject/message body with
+    
+    some dictionary languages set in identity properties
+    
+    Patch from Matt Whitlock from https://bugs.gentoo.org/show_bug.cgi?id=407709
+    it's right timer can be uninitialize when we change language => it will
+    crash
+    
+    FIXED-IN: 4.8.2
+    BUG: 295615
+
+diff --git a/kdeui/sonnet/highlighter.cpp b/kdeui/sonnet/highlighter.cpp
+index 05f7ed1..b10310a 100644
+--- a/kdeui/sonnet/highlighter.cpp
++++ b/kdeui/sonnet/highlighter.cpp
+@@ -108,6 +108,10 @@ Highlighter::Highlighter(QTextEdit *textEdit,
+ 
+     d->dict = new Sonnet::Speller();
+     d->spellCheckerFound = d->dict->isValid();
++    d->rehighlightRequest = new QTimer(this);
++    connect( d->rehighlightRequest, SIGNAL(timeout()),
++             this, SLOT(slotRehighlight()));
++
+     if(!d->spellCheckerFound)
+         return;
+ 
+@@ -121,9 +125,6 @@ Highlighter::Highlighter(QTextEdit *textEdit,
+     for ( QStringList::ConstIterator it = l.begin(); it != l.end(); ++it ) {
+         d->dict->addToSession( *it );
+     }
+-    d->rehighlightRequest = new QTimer(this);
+-    connect( d->rehighlightRequest, SIGNAL(timeout()),
+-             this, SLOT(slotRehighlight()));
+     d->completeRehighlightRequired = true;
+     d->rehighlightRequest->setInterval(0);
+     d->rehighlightRequest->setSingleShot(true);
