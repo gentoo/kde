@@ -1,4 +1,0 @@
-# fails to build, will be fixed in next version
-# bug 394245
-~kde-base/marble-4.7.90 python
-~kde-base/marble-4.7.95 python
