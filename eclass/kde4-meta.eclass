@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.58 2011/10/29 15:07:16 abcd Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.61 2012/03/24 20:44:51 dilfridge Exp $
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
@@ -572,6 +572,10 @@ kde4-meta_change_cmakelists() {
 			if [[ ${PN} != plasma-workspace ]]; then
 				sed -e '/KActivities/s/REQUIRED//' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section"
+			fi
+			if [[ "${PN}" != "kwin" ]]; then
+				sed -i -e "/^    macro_log_feature(OPENGL_OR_ES_FOUND/s/TRUE/FALSE/" \
+					"${S}"/CMakeLists.txt || die "${LINENO}: sed died removing kde-workspace opengl dependency"
 			fi
 			;;
 		kdebase-runtime | kde-runtime)
