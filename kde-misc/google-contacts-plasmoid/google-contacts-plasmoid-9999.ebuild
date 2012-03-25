@@ -15,7 +15,7 @@ SRC_URI="http://www.kde-apps.org/CONTENT/content-files/${MY_PN} -> ${MY_P}.tar.g
 LICENSE="GPL-2"
 
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="kde-misc/akonadi-google"
@@ -23,7 +23,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${MY_P}"
 
 src_unpack() {
-	mkdir ${S} && cd ${S} || die
+	mkdir "${S}" && cd "${S}" || die
 	kde4-base_src_unpack
 }
-
