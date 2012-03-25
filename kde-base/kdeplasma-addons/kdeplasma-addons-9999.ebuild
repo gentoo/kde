@@ -7,12 +7,12 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="Extra Plasma applets and engines."
+DESCRIPTION="Extra Plasma applets and engines"
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="attica debug desktopglobe exif qalculate qwt scim semantic-desktop"
+IUSE="attica debug desktopglobe exif fcitx ibus qalculate qwt scim semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
@@ -25,6 +25,8 @@ COMMON_DEPEND="
 	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
+	fcitx? ( app-i18n/fcitx[dbus] )
+	ibus? ( app-i18n/ibus )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
@@ -50,6 +52,7 @@ src_configure() {
 		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with exif Kexiv2)
+		$(cmake-utils_use_with ibus)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
 		$(cmake-utils_use_with semantic-desktop KdepimLibs)
@@ -62,5 +65,5 @@ src_configure() {
 
 src_install () {
 	kde4-base_src_install
-	rm ${D}/usr/share/apps/cmake/modules/FindQJSON.cmake || die "Couldn't fix file collision"
+	rm "${D}"/usr/share/apps/cmake/modules/FindQJSON.cmake || die "Couldn't fix file collision"
 }
