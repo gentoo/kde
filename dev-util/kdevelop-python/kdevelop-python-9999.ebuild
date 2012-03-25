@@ -32,7 +32,7 @@ pkg_setup() {
 }
 
 src_compile() {
-	pushd ${WORKDIR}/${P}_build
+	pushd "${WORKDIR}"/${P}_build
 	emake parser
 	popd
 
