@@ -21,9 +21,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-        mycmakeargs=(
-                $(cmake-utils_use_with telepathy TelepathyQt4)
-        )
+	mycmakeargs=(
+		$(cmake-utils_use_with telepathy TelepathyQt4)
+	)
 
-        kde4-meta_src_configure
+	kde4-meta_src_configure
 }
