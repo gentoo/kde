@@ -11,7 +11,7 @@ RESTRICT_PYTHON_ABIS="2.5 3.*"
 
 DESCRIPTION="Extension to sphinx to create links to issue trackers"
 HOMEPAGE="http://packages.python.org/sphinxcontrib-issuetracker/"
-SRC_URI="mirror://pypi/packages/source/s/sphinxcontrib-issuetracker/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
