@@ -19,9 +19,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT=test
-# tests hang, no bug yet
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with archive LibArchive)
