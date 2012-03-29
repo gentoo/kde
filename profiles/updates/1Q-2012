@@ -14,3 +14,4 @@ move net-im/telepathy-presence-applet net-im/ktp-presence-applet
 move net-im/telepathy-send-file net-im/ktp-send-file
 move net-im/telepathy-text-ui net-im/ktp-text-ui
 move kde-misc/cantata media-sound/cantata
+move media-sound/qt-gstreamer media-libs/qt-gstreamer
