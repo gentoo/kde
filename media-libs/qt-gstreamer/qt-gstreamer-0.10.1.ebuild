@@ -30,6 +30,10 @@ DEPEND="
 	${RDEPEND}
 "
 
+src_prepare() {
+	epatch "${FILESDIR}/${P}-boost.patch"
+}
+
 src_configure() {
 	sed -e "s#/lib#/$(get_libdir)#" \
 		-i src/CMakeLists.txt || die "sed fixing multilib failed"

@@ -1,0 +1,65 @@
+diff --git a/src/QGlib/global.h b/src/QGlib/global.h
+index 314ed02..e73474b 100644
+--- a/src/QGlib/global.h
++++ b/src/QGlib/global.h
+@@ -17,6 +17,11 @@
+ #ifndef QGLIB_GLOBAL_H
+ #define QGLIB_GLOBAL_H
+ 
++// workaround for https://bugreports.qt-project.org/browse/QTBUG-22829
++#if defined(Q_MOC_RUN) && !defined(BOOST_TT_HAS_OPERATOR_HPP_INCLUDED)
++#define BOOST_TT_HAS_OPERATOR_HPP_INCLUDED
++#endif
++
+ #include <QtCore/QtGlobal>
+ #include <boost/config.hpp>
+ 
+diff --git a/src/QGst/Ui/global.h b/src/QGst/Ui/global.h
+index cba1806..85c55ea 100644
+--- a/src/QGst/Ui/global.h
++++ b/src/QGst/Ui/global.h
+@@ -18,6 +18,11 @@
+ #ifndef QTGSTREAMERUI_EXPORT_H
+ #define QTGSTREAMERUI_EXPORT_H
+ 
++// workaround for https://bugreports.qt-project.org/browse/QTBUG-22829
++#if defined(Q_MOC_RUN) && !defined(BOOST_TT_HAS_OPERATOR_HPP_INCLUDED)
++#define BOOST_TT_HAS_OPERATOR_HPP_INCLUDED
++#endif
++
+ #include <QtCore/QtGlobal>
+ 
+ /* defined by cmake when building this library */
+diff --git a/src/QGst/Utils/global.h b/src/QGst/Utils/global.h
+index ed598e6..871c778 100644
+--- a/src/QGst/Utils/global.h
++++ b/src/QGst/Utils/global.h
+@@ -18,6 +18,11 @@
+ #ifndef QGST_UTILS_GLOBAL_H
+ #define QGST_UTILS_GLOBAL_H
+ 
++// workaround for https://bugreports.qt-project.org/browse/QTBUG-22829
++#if defined(Q_MOC_RUN) && !defined(BOOST_TT_HAS_OPERATOR_HPP_INCLUDED)
++#define BOOST_TT_HAS_OPERATOR_HPP_INCLUDED
++#endif
++
+ #include <QtCore/QtGlobal>
+ 
+ /* defined by cmake when building this library */
+diff --git a/src/QGst/global.h b/src/QGst/global.h
+index ae64cfd..cadf3a4 100644
+--- a/src/QGst/global.h
++++ b/src/QGst/global.h
+@@ -17,6 +17,11 @@
+ #ifndef QGST_GLOBAL_H
+ #define QGST_GLOBAL_H
+ 
++// workaround for https://bugreports.qt-project.org/browse/QTBUG-22829
++#if defined(Q_MOC_RUN) && !defined(BOOST_TT_HAS_OPERATOR_HPP_INCLUDED)
++#define BOOST_TT_HAS_OPERATOR_HPP_INCLUDED
++#endif
++
+ #include "../QGlib/type.h"
+ #include <QtCore/QtGlobal>
+ #include <QtCore/QDate>
+--
