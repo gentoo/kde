@@ -307,3 +307,10 @@
 
 # choqok
 =net-im/choqok-1.3
+
+# digikam, kipi-plugins et al
+=media-gfx/digikam-2.5.0
+=media-libs/libkface-2.5.0
+=media-libs/libkgeomap-2.5.0
+=media-plugins/kipi-plugins-2.5.0
+=net-libs/libkvkontakte-2.5.0
