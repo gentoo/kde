@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-sound/qt-gstreamer
+	media-libs/qt-gstreamer
 	>=net-im/telepathy-logger-0.2.12-r1
 "
 RDEPEND="${DEPEND}"
