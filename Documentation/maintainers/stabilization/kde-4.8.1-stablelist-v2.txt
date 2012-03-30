@@ -2,6 +2,7 @@
 # dependencies, target: amd64 ppc x86
 #
 
+=sys-auth/polkit-qt-0.103.0
 =dev-libs/grantlee-0.1.9
 =media-libs/libdmtx-0.7.4
 =media-libs/prison-1.0
