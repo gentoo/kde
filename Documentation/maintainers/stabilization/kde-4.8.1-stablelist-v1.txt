@@ -324,3 +324,6 @@
 
 # kbibtex
 =app-text/kbibtex-0.4
+
+# kdesvn
+=dev-vcs/kdesvn-1.5.5-r1
