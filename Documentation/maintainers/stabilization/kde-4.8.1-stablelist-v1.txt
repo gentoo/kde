@@ -319,3 +319,5 @@
 =app-office/kmymoney-4.6.2
 =app-office/libalkimia-4.3.2
 
+# kile
+=app-editors/kile-2.1.1
