@@ -327,3 +327,10 @@
 
 # kdesvn
 =dev-vcs/kdesvn-1.5.5-r1
+
+# kde-misc
+=kde-misc/nightmode-0.3
+=kde-misc/steamcompanion-0.5.4
+=kde-misc/tellico-2.3.5
+=kde-misc/yawp-0.4.2
+=kde-misc/zanshin-0.2.1
