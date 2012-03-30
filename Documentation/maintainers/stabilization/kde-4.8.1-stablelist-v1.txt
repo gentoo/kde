@@ -321,3 +321,6 @@
 
 # kile
 =app-editors/kile-2.1.1
+
+# kbibtex
+=app-text/kbibtex-0.4
