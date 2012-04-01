@@ -26,10 +26,10 @@ DEPEND=${RDEPEND}
 # Split from kdebindings-perl in 4.7
 add_blocker kdebindings-perl
 
-RESTRICT="test"
-# bug 392991
-
-PATCHES=( "${FILESDIR}/${PN}-4.7.2-vendor.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.7.2-vendor.patch"
+	"${FILESDIR}/${PN}-4.8.1-tests.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
