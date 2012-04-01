@@ -6,6 +6,7 @@
 =dev-libs/grantlee-0.1.9
 =media-libs/libdmtx-0.7.4
 =media-libs/prison-1.0
+=media-gfx/qrencode-3.2.0
 
 #
 # KDE 4.8.1, target: amd64 ppc x86
