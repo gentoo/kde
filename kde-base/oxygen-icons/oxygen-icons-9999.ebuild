@@ -16,9 +16,6 @@ inherit kde4-base
 
 DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
-# Note that the upstream tarball is .bz2, ours is .xz -- if upstream
-# changes its compression format to .xz, we will need to change the
-# filename of one of the tarballs
 [[ ${PV} == *9999 ]] || \
 SRC_URI="
 	!bindist? ( http://dev.gentoo.org/~dilfridge/distfiles/${MY_P}.repacked.tar.xz )
