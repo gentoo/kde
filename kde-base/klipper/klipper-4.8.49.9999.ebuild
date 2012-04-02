@@ -10,11 +10,20 @@ inherit kde4-meta
 
 DESCRIPTION="Applet for KDE and X clipboard management"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug prison"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libtaskmanager)
+	prison? ( media-libs/prison )
 	!aqua? ( x11-libs/libXfixes )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with prison Prison)
+	)
+
+	kde4-meta_src_configure
+}
