@@ -448,7 +448,7 @@ _calculate_src_uri() {
 				4.[456789].8[05] | 4.[456789].9[0235678])
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.8.1)
+				4.8.[12345])
 					# Stable KDE SC releases with .xz support
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
 				*)

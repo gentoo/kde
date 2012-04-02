@@ -210,7 +210,7 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist postfix
 
-		if [[ ${PV} == 4.8.1 ]]; then
+		if [[ ${PV} =~ 4.8.[12345] ]]; then
 			postfix="xz"
 			KMTARPARAMS+=" --xz"
 		else
