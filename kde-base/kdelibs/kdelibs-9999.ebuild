@@ -128,6 +128,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.6.3-bytecode.patch"
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
+	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 )
 
 pkg_pretend() {
