@@ -7,6 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KMNAME="kde-workspace"
 OPENGL_REQUIRED="optional"
+VIRTUALX_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
@@ -40,9 +41,6 @@ RDEPEND="${COMMONDEPEND}
 	x11-misc/xkeyboard-config
 	gtk? ( kde-misc/kcm-gtk-config )
 "
-
-RESTRICT="test"
-# bug 393133
 
 KMEXTRA="
 	kcontrol/
