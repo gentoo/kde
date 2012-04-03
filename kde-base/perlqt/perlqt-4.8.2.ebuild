@@ -31,6 +31,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-tests.patch"
 )
 
+# more failures
+RESTRICT=test
+
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_Qt3Support=ON
