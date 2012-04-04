@@ -268,7 +268,7 @@
 =kde-base/lskat-4.8.1
 =kde-base/marble-4.8.1
 =kde-base/mplayerthumbs-4.8.1
-=kde-base/nepomuk-4.8.1
+=kde-base/nepomuk-4.8.1-r1
 =kde-base/nsplugins-4.8.1
 =kde-base/okteta-4.8.1
 =kde-base/okular-4.8.1
