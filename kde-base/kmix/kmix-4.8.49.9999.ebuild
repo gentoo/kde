@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE mixer gui"
 KEYWORDS=""
@@ -24,5 +24,5 @@ src_configure() {
 		$(cmake-utils_use_with alsa)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
