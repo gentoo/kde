@@ -5,9 +5,9 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdemultimedia"
-KMMODULE="kioslave"
-inherit kde4-meta
+KMNAME="audiocd-kio"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
@@ -27,13 +27,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	libkcompactdisc/
-"
-KMCOMPILEONLY="
-	libkcddb/
-"
-
 KMLOADLIBS="libkcddb"
 
 src_configure() {
@@ -46,5 +39,5 @@ src_configure() {
 		mycmakeargs=(-DWITH_OggVorbis=OFF -DWITH_Flac=OFF)
 	fi
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
