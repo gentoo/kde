@@ -213,7 +213,6 @@
 =kde-base/ksaneplugin-4.8.1
 =kde-base/kscd-4.8.1
 =kde-base/kscreensaver-4.8.1
-=kde-base/ksecrets-4.8.1
 =kde-base/kshisen-4.8.1
 =kde-base/ksirk-4.8.1
 =kde-base/ksmserver-4.8.1
