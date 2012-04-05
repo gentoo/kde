@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE CD player"
 KEYWORDS=""
@@ -28,5 +28,5 @@ KMEXTRACTONLY="
 src_unpack() {
 	use handbook && KMEXTRA="doc/kcontrol/cddbretrieval"
 
-	kde4-meta_src_unpack
+	kde4-base_src_unpack
 }
