@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="Jukebox and music manager for KDE."
 KEYWORDS=""
@@ -23,5 +23,5 @@ src_configure() {
 		-DWITH_TunePimp=OFF
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
