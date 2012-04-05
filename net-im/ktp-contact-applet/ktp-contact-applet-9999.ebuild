@@ -5,8 +5,8 @@
 EAPI=4
 
 KDE_SCM="git"
-KDE_LINGUAS="cs da de el es et ga hu it ja lt nds nl pl pt pt_BR sv uk zh_CN
-zh_TW"
+KDE_LINGUAS="cs da de el es et ga gl hu it ja lt nb nds nl pl pt pt_BR sk sr
+sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy contact applet"
