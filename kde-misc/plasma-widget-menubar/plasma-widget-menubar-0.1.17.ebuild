@@ -4,7 +4,6 @@
 
 EAPI=4
 
-VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="A Plasma widget to display menubar of application windows"
@@ -14,15 +13,16 @@ SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="4"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug test"
+IUSE="debug"
 
 DEPEND="
 	>=dev-libs/libdbusmenu-qt-0.6.0
 	>=dev-libs/qjson-0.7.1
+	x11-libs/qt-dbus:4
 "
 RDEPEND="${DEPEND}
 	!kde-misc/plasma-indicatordisplay
 "
 
-# last checked 0.1.1{4,6}
+# last checked 0.1.17
 RESTRICT="test"
