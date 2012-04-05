@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE library for playing & ripping CDs"
 KEYWORDS=""
@@ -15,5 +15,5 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with alsa)
 	)
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
