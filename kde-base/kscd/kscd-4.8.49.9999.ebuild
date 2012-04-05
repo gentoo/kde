@@ -20,13 +20,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-4.7.3-underlinking.patch" )
-
-KMEXTRACTONLY="
-	libkcompactdisc/
-"
-
-src_unpack() {
-	use handbook && KMEXTRA="doc/kcontrol/cddbretrieval"
-
-	kde4-base_src_unpack
-}
