@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="A FFmpeg based thumbnail Generator for Video Files."
 KEYWORDS=""
