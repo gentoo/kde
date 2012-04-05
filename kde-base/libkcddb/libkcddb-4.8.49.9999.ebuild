@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE library for CDDB"
 KEYWORDS=""
@@ -27,5 +27,5 @@ src_configure() {
 		$(cmake-utils_use_with musicbrainz MusicBrainz3)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
