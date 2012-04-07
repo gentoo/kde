@@ -42,6 +42,9 @@ RDEPEND="${COMMONDEPEND}
 	gtk? ( kde-misc/kcm-gtk-config )
 "
 
+RESTRICT="test"
+# bug 393133
+
 KMEXTRA="
 	kcontrol/
 "
