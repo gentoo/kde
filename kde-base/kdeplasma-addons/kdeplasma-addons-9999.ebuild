@@ -44,11 +44,6 @@ RDEPEND="${COMMON_DEPEND}
 # bug 410253
 RESTRICT="test"
 
-src_prepare() {
-	use semantic-desktop || epatch "${FILESDIR}/${PN}-4.6.2-optional-akonadi.patch"
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	mycmakeargs=(
 		-DDBUS_INTERFACES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/interfaces/"
