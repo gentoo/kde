@@ -18,5 +18,3 @@ DEPEND="
 	media-libs/musicbrainz:3
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-4.7.3-underlinking.patch" )
