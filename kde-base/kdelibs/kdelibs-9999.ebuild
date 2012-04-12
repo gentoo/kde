@@ -191,7 +191,7 @@ src_configure() {
 		if has_version net-dns/avahi; then
 			mycmakeargs=(-DWITH_Avahi=ON -DWITH_DNSSD=OFF)
 		else
-			die "USE=\"zeroconf\" but net-dns/avahi wasn't found."
+			die "USE=\"zeroconf\" enabled but net-dns/avahi wasn't found."
 		fi
 	else
 		mycmakeargs=(-DWITH_Avahi=OFF -DWITH_DNSSD=OFF)
