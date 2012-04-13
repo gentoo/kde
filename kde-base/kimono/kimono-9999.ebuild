@@ -15,7 +15,7 @@ DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep qyoto 'webkit')
 	$(add_kdebase_dep smokeqt)
-	$(add_kdebase_dep smokekde 'akonadi?,semantic-desktop=')
+	$(add_kdebase_dep smokekde 'semantic-desktop=')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
 	semantic-desktop? ( >=dev-libs/soprano-2.6.51[clucene] )
 "
