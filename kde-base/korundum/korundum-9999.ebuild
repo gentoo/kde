@@ -26,7 +26,7 @@ IUSE="akonadi debug kate okular"
 
 DEPEND="
 	$(add_kdebase_dep qtruby)
-	$(add_kdebase_dep smokekde 'akonadi?,kate?,okular?,semantic-desktop')
+	$(add_kdebase_dep smokekde 'kate?,okular?,semantic-desktop')
 	$(add_kdebase_dep smokeqt)
 "
 RDEPEND="${DEPEND}
