@@ -774,6 +774,9 @@ kde4-base_src_configure() {
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 
 	if [[ $(declare -p mycmakeargs 2>&-) != "declare -a mycmakeargs="* ]]; then
+		if [[ ${mycmakeargs} ]]; then
+			eqawarn "mycmakeargs should always be declared as an array, not a string"
+		fi
 		mycmakeargs=(${mycmakeargs})
 	fi
 
