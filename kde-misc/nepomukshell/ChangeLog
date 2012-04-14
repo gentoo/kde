@@ -1,8 +1,0 @@
-2012-04-14    <david@BlackPearl>
-
-	* nepomukshell-0.8.0.ebuild (SRC_URI): Added e-build for unstable version of nepomukshell
-
-2012-04-09    <david.narvaez@computer.org>
-
-	* nepomukshell-9999.ebuild: Added live e-build for nepomukshell
-
