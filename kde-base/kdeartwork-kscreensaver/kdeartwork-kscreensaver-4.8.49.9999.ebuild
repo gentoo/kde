@@ -33,7 +33,7 @@ src_configure() {
 	mycmakeargs=(
 		-DKSCREENSAVER_SOUND_SUPPORT=ON
 		$(cmake-utils_use_with eigen Eigen2)
-		$(cmake-utils_use_with kexiv2 Kexiv2)
+		$(cmake-utils_use_with kexiv2)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xscreensaver)
 	)

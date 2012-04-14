@@ -23,11 +23,11 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs+="
-		$(cmake-utils_use_with analitza Analitza)
+	mycmakeargs=(
+		$(cmake-utils_use_with analitza)
 		$(cmake-utils_use_with ps LibSpectre)
 		$(cmake-utils_use_with R)
-	"
+	)
 	kde4-base_src_configure
 }
 

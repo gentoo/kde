@@ -20,11 +20,11 @@ IUSE=""
 
 src_configure() {
 	# What the heck is HD library??
-	mycmakeargs+="
+	mycmakeargs=(
 		-DSYSINFO_DISTRO:STRING=generic
 		-DWITH_HD=OFF
 		$(cmake-utils_use_with opengl OpenGL)
-	"
+	)
 
 	kde4-base_src_configure
 }

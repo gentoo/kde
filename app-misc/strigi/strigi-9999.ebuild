@@ -57,7 +57,7 @@ src_configure() {
 		-DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
 		-DENABLE_XINE=OFF
-		$(cmake-utils_use_enable clucene CLUCENE)
+		$(cmake-utils_use_enable clucene)
 		$(cmake-utils_use_enable dbus)
 		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam)

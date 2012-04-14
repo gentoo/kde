@@ -32,9 +32,9 @@ RDEPEND="${CDEPEND}
 "
 
 src_configure() {
-	mycmakeargs+="
+	mycmakeargs=(
 		$(cmake-utils_use_with mplayer Mencoder)
 		$(cmake-utils_use_with ffmpeg)
-	"
+	)
 	kde4-base_src_configure
 }

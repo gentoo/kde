@@ -63,7 +63,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use !semantic-desktop KALARM_USE_KRESOURCES)
-		$(cmake-utils_use_with prison Prison)
+		$(cmake-utils_use_with prison)
 	)
 
 	kde4-base_src_configure
