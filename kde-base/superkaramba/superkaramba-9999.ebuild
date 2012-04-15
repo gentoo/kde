@@ -20,8 +20,6 @@ RDEPEND="${DEPEND}
 	python? ( $(add_kdebase_dep krosspython) )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-as-needed.patch" )
-
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
