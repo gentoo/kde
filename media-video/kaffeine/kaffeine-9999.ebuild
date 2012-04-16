@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-video/vlc
+	>=media-video/vlc-1.2
 	x11-libs/libXScrnSaver
 	x11-libs/qt-sql:4[sqlite]
 	$(add_kdebase_dep solid)
