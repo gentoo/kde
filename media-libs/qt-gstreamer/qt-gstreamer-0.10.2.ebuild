@@ -22,9 +22,9 @@ HOMEPAGE="http://gstreamer.freedesktop.org/wiki/QtGStreamer"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE=""
+IUSE="test"
 
-DEPEND="
+RDEPEND="
 	dev-libs/glib
 	>=dev-util/boost-build-1.40
 	>=media-libs/gstreamer-0.10.33
@@ -34,4 +34,15 @@ DEPEND="
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4
 	>=x11-libs/qt-opengl-${QT_MINIMAL}:4
 "
-RDEPEND="${DEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( >=x11-libs/qt-test-${QT_MINIMAL}:4 )
+"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use test QTGSTREAMER_TESTS)
+	)
+
+	cmake-utils_src_configure
+}
