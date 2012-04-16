@@ -60,8 +60,3 @@ src_configure() {
 
 	kde4-base_src_configure
 }
-
-src_install () {
-	kde4-base_src_install
-	rm "${D}"/usr/share/apps/cmake/modules/FindQJSON.cmake || die "Couldn't fix file collision"
-}
