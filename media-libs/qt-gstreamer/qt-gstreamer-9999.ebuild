@@ -15,17 +15,14 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	dev-libs/glib
-	>=media-libs/gstreamer-0.10.31
-	>=media-libs/gst-plugins-base-0.10.31
-	>=x11-libs/qt-core-4.6
-	>=dev-util/automoc-0.9
-	>=dev-util/boost-build-1.40
-"
 DEPEND="
-	>=dev-util/cmake-2.8
-	sys-devel/flex
-	sys-devel/bison
-	${RDEPEND}
+	dev-libs/glib
+	>=dev-util/boost-build-1.40
+	>=media-libs/gstreamer-0.10.33
+	>=media-libs/gst-plugins-base-0.10.33
+	>=x11-libs/qt-core-4.7:4
+	>=x11-libs/qt-declarative-4.7:4
+	>=x11-libs/qt-gui-4.7:4
+	>=x11-libs/qt-opengl-4.7:4
 "
+RDEPEND="${DEPEND}"
