@@ -11,15 +11,18 @@ DESCRIPTION="A Plasma widget displaying new and important email"
 HOMEPAGE="http://www.kde.org http://www.vizzzion.org"
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-		kde-base/kdepimlibs
-		x11-libs/qt-webkit
-		app-office/akonadi-server
+	$(add_kdebase_dep kdelibs)
+	$(add_kdebase_dep kdepimlibs)
+	app-office/akonadi-server
+	x11-libs/qt-core:4
+	x11-libs/qt-gui:4
+	x11-libs/qt-webkit:4
 "
 RDEPEND="${DEPEND}
-		kde-base/kdepim-runtime
+	$(add_kdebase_dep kdepim-runtime)
 "
