@@ -38,6 +38,7 @@ DEPEND="${RDEPEND}
 		dev-libs/dbus-glib
 		dev-libs/glib
 		dev-python/dbus-python
+		x11-libs/qt-test:4
 	)
 "
 
