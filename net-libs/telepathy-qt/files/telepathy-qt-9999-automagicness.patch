@@ -1,0 +1,109 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b61c12f..7110d51 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -73,6 +73,13 @@ include(TpQtMacros)
+ 
+ include(MacroLogFeature)
+ 
++# options
++option(WITH_Farsight "Enable building with farsight features" ON)
++option(WITH_Farstream "Enable building with farstream features" ON)
++option(ENABLE_DEBUG_OUTPUT "Compile support for printing debug output to stderr" ON)
++option(ENABLE_EXAMPLES "Enable building of examples" ON)
++option(ENABLE_TEST "Enable test suite" ON)
++
+ # external dependencies
+ 
+ # Required dependencies
+@@ -122,7 +129,6 @@ include_directories(${CMAKE_SOURCE_DIR}
+ 
+ add_definitions(-DQT_NO_CAST_FROM_ASCII)
+ 
+-set(ENABLE_DEBUG_OUTPUT ON CACHE BOOL "If activated, compiles support for printing debug output to stderr")
+ if (ENABLE_DEBUG_OUTPUT)
+     add_definitions(-DENABLE_DEBUG)
+ endif (ENABLE_DEBUG_OUTPUT)
+@@ -176,7 +182,9 @@ macro_log_feature(HAVE_TEST_PYTHON "dbus-python"
+                   "Needed to build some additional unit tests")
+ 
+ # Find GLib2, GObject, DBus and LibXml2
+-# Those are needed for the insane include dir dependency hell
++# These packages are not actually required by telepathy-qt
++# Rather, we call these macros to get the include dir required
++# to compile the dependencies of our actual dependencies
+ find_package(GLIB2)
+ find_package(GObject)
+ find_package(GIO)
+@@ -185,29 +193,33 @@ find_package(DBus)
+ find_package(DBusGLib)
+ find_package(LibXml2)
+ 
+-# Find tp-farsight
+-set(TELEPATHY_FARSIGHT_MIN_VERSION "0.0.4")
+-find_package(TelepathyFarsight)
+-macro_log_feature(TELEPATHYFARSIGHT_FOUND "Telepathy-Farsight"
+-                  "A Framework for dealing with audio/video conferencing protocols"
+-                  "http://farsight.freedesktop.org/wiki/" FALSE "${TELEPATHY_FARSIGHT_MIN_VERSION}"
+-                  "Needed, together with GStreamer, to build telepathy-qt-farsight and some additional examples")
+-
+-# Find tp-farsight
+-set(FARSTREAM_MIN_VERSION "0.1.0")
+-find_package(Farstream)
+-macro_log_feature(FARSTREAM_FOUND "Farstream"
+-                  "A Framework for dealing with audio/video conferencing protocols"
+-                  "http://www.freedesktop.org/wiki/Software/Farstream" FALSE "${FARSTREAM_MIN_VERSION}"
+-                  "Needed, together with GStreamer and Telepathy-Farstream, to build telepathy-qt-farstream")
+-
+-# Find tp-farsight
+-set(TELEPATHY_FARSTREAM_MIN_VERSION "0.2.2")
+-find_package(TelepathyFarstream)
+-macro_log_feature(TELEPATHYFARSTREAM_FOUND "Telepathy-Farstream"
+-                  "A Framework for dealing with audio/video conferencing protocols"
+-                  "http://telepathy.freedesktop.org/wiki/" FALSE "${TELEPATHY_FARSTREAM_MIN_VERSION}"
+-                  "Needed, together with GStreamer and Farstream, to build telepathy-qt-farstream")
++if(WITH_Farsight)
++    # Find tp-farsight
++    set(TELEPATHY_FARSIGHT_MIN_VERSION "0.0.4")
++    find_package(TelepathyFarsight)
++    macro_log_feature(TELEPATHYFARSIGHT_FOUND "Telepathy-Farsight"
++                      "A Framework for dealing with audio/video conferencing protocols"
++                      "http://farsight.freedesktop.org/wiki/" FALSE "${TELEPATHY_FARSIGHT_MIN_VERSION}"
++                      "Needed, together with GStreamer, to build telepathy-qt-farsight and some additional examples")
++endif(WITH_Farsight)
++
++if(WITH_Farstream)
++    # Find farstream
++    set(FARSTREAM_MIN_VERSION "0.1.0")
++    find_package(Farstream)
++    macro_log_feature(FARSTREAM_FOUND "Farstream"
++                      "A Framework for dealing with audio/video conferencing protocols"
++                      "http://www.freedesktop.org/wiki/Software/Farstream" FALSE "${FARSTREAM_MIN_VERSION}"
++                      "Needed, together with GStreamer and Telepathy-Farstream, to build telepathy-qt-farstream")
++
++    # Find tp-farstream
++    set(TELEPATHY_FARSTREAM_MIN_VERSION "0.2.2")
++    find_package(TelepathyFarstream)
++    macro_log_feature(TELEPATHYFARSTREAM_FOUND "Telepathy-Farstream"
++                      "A Framework for dealing with audio/video conferencing protocols"
++                      "http://telepathy.freedesktop.org/wiki/" FALSE "${TELEPATHY_FARSTREAM_MIN_VERSION}"
++                      "Needed, together with GStreamer and Farstream, to build telepathy-qt-farstream")
++endif(WITH_Farstream)
+ 
+ # Find GStreamer
+ find_package(GStreamer)
+@@ -258,8 +270,12 @@ endif(QT_GLIB_SUPPORT AND TELEPATHYGLIB_FOUND AND GLIB2_FOUND AND DBUS_FOUND)
+ 
+ # Add the source subdirectories
+ add_subdirectory(TelepathyQt)
+-add_subdirectory(examples)
+-add_subdirectory(tests)
++if(ENABLE_EXAMPLES)
++    add_subdirectory(examples)
++endif(ENABLE_EXAMPLES)
++if(ENABLE_TEST)
++    add_subdirectory(tests)
++endif(ENABLE_TEST)
+ add_subdirectory(tools)
+ 
+ # Generate config.h and config-version.h

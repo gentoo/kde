@@ -15,27 +15,35 @@ HOMEPAGE="http://telepathy.freedesktop.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug farsight glib"
+IUSE="debug farsight farstream test"
 
 RDEPEND="
-	dev-python/dbus-python
-	x11-libs/qt-core:4[glib?]
+	x11-libs/qt-core:4
 	x11-libs/qt-dbus:4
 	farsight? (
-		dev-libs/dbus-glib
-		dev-libs/libxml2
-		media-libs/gstreamer
 		net-libs/telepathy-farsight
-		>=net-libs/telepathy-glib-0.15.1
 	)
-	glib? ( dev-libs/glib:2 )
+	farstream? (
+		net-libs/telepathy-farstream
+		>=net-libs/telepathy-glib-0.17.5
+	)
 	!net-libs/telepathy-qt4
 "
 DEPEND="${RDEPEND}
-	dev-libs/libxslt
 	dev-util/pkgconfig
+	farsight? (
+		>=net-libs/telepathy-glib-0.17.5
+	)
+	test? (
+		dev-libs/dbus-glib
+		dev-libs/glib
+		dev-python/dbus-python
+	)
 "
 
+REQUIRED_USE="farsight? ( !farstream )"
+
+PATCHES=( "${FILESDIR}/${P}-automagicness.patch" )
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 pkg_setup() {
@@ -43,17 +51,13 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-src_prepare() {
-	base_src_prepare
-
-	sed -i -e '/^add_subdirectory(examples)$/d' CMakeLists.txt || die
-}
-
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable debug DEBUG_OUTPUT)
-		$(cmake-utils_use_with glib)
 		$(cmake-utils_use_with farsight)
+		$(cmake-utils_use_with farstream)
+		$(cmake-utils_use_enable debug DEBUG_OUTPUT)
+		$(cmake-utils_use_enable test)
+		-DENABLE_EXAMPLES=OFF
 	)
 	cmake-utils_src_configure
 }
