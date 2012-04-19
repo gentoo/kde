@@ -17,8 +17,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.7-kipi.patch" )
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with kipi)
