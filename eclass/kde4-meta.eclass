@@ -253,12 +253,7 @@ kde4-meta_src_extract() {
 		# Print out all issues found executing tar / kmextract files
 		# Set on if you want to find issues in kde-base ebuild unpack sequences
 		[[ -n ${KDE4_STRICTER} ]] && echo 'tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist}'
-		if [[ ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-			# to make the devs happy - bug 338397
-			tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} || ewarn "tar extract command failed at least partially - continuing anyway"
-		else
-			tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null || echo "tar extract command failed at least partially - continuing anyway"
-		fi
+		tar -xpf "${tarfile}" ${KMTARPARAMS} ${extractlist} 2> /dev/null || echo "tar extract command failed at least partially - continuing anyway"
 
 		# Default $S is based on $P; rename the extracted directory to match $S if necessary
 		if [[ ${KMNAME} != ${PN} ]]; then
