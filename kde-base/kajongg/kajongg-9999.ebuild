@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+PYTHON_DEPEND="2:2.6"
 inherit kde4-meta python
 
 DESCRIPTION="The classical Mah Jongg for four players"
@@ -23,6 +24,12 @@ RDEPEND="${DEPEND}
 "
 
 pkg_setup() {
+	python_set_active_version 2
 	python_pkg_setup
 	kde4-meta_pkg_setup
+}
+
+src_prepare() {
+	python_convert_shebangs -r 2 kajongg/src
+	kde4-meta_src_prepare
 }
