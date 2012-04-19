@@ -24,7 +24,7 @@ RDEPEND="
 		net-libs/telepathy-farsight
 	)
 	farstream? (
-		net-libs/telepathy-farstream
+		>=net-libs/telepathy-farstream-0.2.2
 		>=net-libs/telepathy-glib-0.17.5
 	)
 	!net-libs/telepathy-qt4
