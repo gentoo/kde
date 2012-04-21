@@ -5,10 +5,10 @@
 EAPI=4
 
 QT_DEPEND="4.6.3"
-EGIT_REPO_URI="git://gitorious.org/dbusmenu/dbusmenu-qt.git"
+EBZR_REPO_URI="lp:libdbusmenu-qt"
 
-[[ ${PV} == 9999* ]] && GIT_ECLASS="git-2"
-inherit cmake-utils virtualx ${GIT_ECLASS}
+[[ ${PV} == 9999* ]] && BZR_ECLASS="bzr"
+inherit cmake-utils virtualx ${BZR_ECLASS}
 
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
@@ -28,6 +28,7 @@ IUSE="debug doc"
 
 RDEPEND="
 	>=x11-libs/qt-core-${QT_DEPEND}:4
+	>=x11-libs/qt-dbus-${QT_DEPEND}:4
 	>=x11-libs/qt-gui-${QT_DEPEND}:4[dbus]
 "
 DEPEND="${RDEPEND}
