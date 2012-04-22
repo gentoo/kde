@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	mycmakeargs=(
 		-DBUILD_tests=OFF
+		-DWITH_Xine=OFF
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with pulseaudio PulseAudio)
 	)
