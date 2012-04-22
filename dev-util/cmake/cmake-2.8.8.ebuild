@@ -18,6 +18,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86
 SLOT="0"
 IUSE="emacs ncurses qt4 vim-syntax"
 
+#Test 62 wiped out /usr/local/, restricting until that's fixed
+RESTRICT="test"
+
 DEPEND="
 	>=app-arch/libarchive-2.8.0
 	>=net-misc/curl-7.20.0-r1[ssl]
