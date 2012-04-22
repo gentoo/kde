@@ -1,13 +1,13 @@
 Set some proper paths to make cmake find our tools.
-Original patch by Heiko Przybyl
+Original patch by Heiko Przybyl, updated for cmake-2.8.8 by Chris Reffett
 
 The ebuild now adds an extra / at the end of $EPREFIX so that it is
 never the empty string (so that CMAKE_SYSTEM_PREFIX_PATH remains
 correct)
 
---- cmake-2.8.3/Modules/Platform/Darwin.cmake
-+++ cmake-2.8.3/Modules/Platform/Darwin.cmake
-@@ -217,19 +217,23 @@
+--- cmake-2.8.8/Modules/Platform/Darwin.cmake
++++ cmake-2.8.8/Modules/Platform/Darwin.cmake
+@@ -229,20 +229,24 @@
  
  
   
@@ -29,15 +29,16 @@ correct)
 +# default to searching for application bundles last
 +SET(CMAKE_FIND_APPBUNDLE LAST)
  # set up the default search directories for application bundles
- SET(CMAKE_SYSTEM_APPBUNDLE_PATH
+ SET(_apps_paths)
+ FOREACH(_path
 +  @GENTOO_PORTAGE_EPREFIX@Applications
 +  @GENTOO_PORTAGE_EPREFIX@usr/bin
-   ~/Applications
-   /Applications
-   /Developer/Applications)
-diff -ruN cmake-2.8.3.orig/Modules/Platform/UnixPaths.cmake cmake-2.8.3/Modules/Platform/UnixPaths.cmake
---- cmake-2.8.3/Modules/Platform/UnixPaths.cmake
-+++ cmake-2.8.3/Modules/Platform/UnixPaths.cmake
+   "~/Applications"
+   "/Applications"
+   "${OSX_DEVELOPER_ROOT}/../Applications" # Xcode 4.3+
+diff -ruN cmake-2.8.8.orig/Modules/Platform/UnixPaths.cmake cmake-2.8.8/Modules/Platform/UnixPaths.cmake
+--- cmake-2.8.8/Modules/Platform/UnixPaths.cmake
++++ cmake-2.8.8/Modules/Platform/UnixPaths.cmake
 @@ -33,6 +33,7 @@
  # search types.
  LIST(APPEND CMAKE_SYSTEM_PREFIX_PATH
