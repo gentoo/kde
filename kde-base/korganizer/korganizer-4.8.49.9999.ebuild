@@ -41,10 +41,6 @@ KMCOMPILEONLY="
 	calendarsupport/
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.5.64_missing_header.patch"
-)
-
 src_unpack() {
 	if use kontact; then
 		KMEXTRA="${KMEXTRA}
