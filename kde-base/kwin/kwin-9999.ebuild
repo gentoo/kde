@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS=""
-IUSE="debug gles opengl xinerama"
+IUSE="debug gles opengl"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kactivities)
@@ -28,7 +28,6 @@ COMMONDEPEND="
 		|| (  ( >=media-libs/mesa-7.10[egl(+),gles] <media-libs/mesa-7.12[egl(+),gles] )
 			>=media-libs/mesa-7.12[egl(+),gles2] )
 	)
-	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/compositeproto
@@ -36,7 +35,6 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/fixesproto
 	x11-proto/randrproto
 	x11-proto/renderproto
-	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
 	x11-apps/scripts
@@ -47,10 +45,6 @@ KMEXTRACTONLY="
 	libs/kephal/
 	libs/oxygen/
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-)
 
 # you need one of these
 REQUIRED_USE="!opengl? ( gles ) !gles? ( opengl )"
@@ -63,7 +57,6 @@ src_configure() {
 		$(cmake-utils_use_with gles OpenGLES)
 		$(cmake-utils_use gles KWIN_BUILD_WITH_OPENGLES)
 		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with xinerama X11_Xinerama)
 		-DWITH_X11_Xcomposite=ON
 	)
 
