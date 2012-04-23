@@ -12,7 +12,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop xinerama"
+IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kactivities)
@@ -40,7 +40,6 @@ COMMONDEPEND="
 		$(add_kdebase_dep libplasmaclock 'holidays')
 	)
 	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )
-	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
 	rss? ( dev-libs/boost )
@@ -48,7 +47,6 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/damageproto
 	x11-proto/fixesproto
 	x11-proto/renderproto
-	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep plasma-runtime)
@@ -70,10 +68,6 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-)
 
 pkg_setup() {
 	python_set_active_version 2
@@ -107,7 +101,6 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with xinerama X11_Xinerama)
 		-DWITH_Xmms=OFF
 	)
 
