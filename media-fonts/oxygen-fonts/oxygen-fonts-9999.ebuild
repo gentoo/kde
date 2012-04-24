@@ -9,7 +9,7 @@ EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
 
 DESCRIPTION="A Font for the KDE Desktop"
 HOMEPAGE="https://projects.kde.org/"
-IUSE="bold flab-old monospace +regular"
+IUSE="bold flab-old italic monospace +regular"
 
 LICENSE="OFL-1.1"
 SLOT="0"
@@ -21,21 +21,25 @@ src_install() {
 	fi
 
 	if use monospace; then
-		FONT_S="${S}/Monospace" FONT_SUFFIX="otf ttf" font_src_install
+		FONT_S="${S}/Monospace" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/Monospace/src" FONT_SUFFIX="otf sfd" font_src_install
 	fi
 
 	if use bold; then
-		FONT_S="${S}/Oxygen-Bold" FONT_SUFFIX="otf ttf sfd" font_src_install
+		FONT_S="${S}/Oxygen-Bold" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/Oxygen-Bold/src" FONT_SUFFIX="otf sfd" font_src_install
+	fi
+
+	if use italic; then
+		FONT_S="${S}/Oxygen-Italic" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/Oxygen-Italic/src" FONT_SUFFIX="otf sfd" font_src_install
 	fi
 
 	if use regular; then
-		dodir $FONTDIR/Brand $FONTDIR/hinting $FONTDIR/Oxygen.ufo $FONTDIR/Oxygen.ufo/glyphs
-		FONT_S="${S}/Oxygen-Regular" FONT_SUFFIX="ttf sfd" font_src_install
-		insinto $FONTDIR/Brand
-		doins Oxygen-Regular/Brand/Oxygen.sfd
-		insinto $FONTDIR/hinting
-		doins Oxygen-Regular/hinting/OxygenVTT.ttf
+		dodir $FONTDIR/Oxygen.ufo $FONTDIR/Oxygen.ufo/glyphs
+		FONT_S="${S}/Oxygen-Regular" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/Oxygen-Regular/src" FONT_SUFFIX="otf sfd" font_src_install
 		insinto $FONTDIR/
-		cd Oxygen-Regular && doins -r Oxygen.ufo
+		cd Oxygen-Regular/src && doins -r Oxygen.ufo
 	fi
 }
