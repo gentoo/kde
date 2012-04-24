@@ -16,4 +16,4 @@ RESTRICT="test"
 
 KMSAVELIBS="true"
 
-PATCHES=( "${FILESDIR}/${PN}-4.5.56-cmake.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.9.0-cmake.patch" )
