@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Portage emerge progress plasmoid"
 HOMEPAGE="http://kde-apps.org/content/show.php/Emerging+Plasmoid?content=147414 "
-SRC_URI="https://github.com/downloads/leonardo2d/${PN}/${P}.tar.gz"
+SRC_URI="mirror://github/leonardo2d/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
