@@ -292,6 +292,7 @@ unset cppuintdepend
 kdecommondepend="
 	dev-lang/perl
 	>=x11-libs/qt-core-${QT_MINIMAL}:4[qt3support,ssl]
+	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4[accessibility,dbus]
 	>=x11-libs/qt-qt3support-${QT_MINIMAL}:4[accessibility]
 	>=x11-libs/qt-script-${QT_MINIMAL}:4
