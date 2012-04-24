@@ -18,12 +18,12 @@ RDEPEND="
 	$(add_kdebase_dep kscreensaver 'opengl?')
 	$(add_kdebase_dep libkworkspace)
 	media-libs/libart_lgpl
+	kexiv2? ( $(add_kdebase_dep libkexiv2) )
 	opengl? ( virtual/opengl )
 	xscreensaver? ( x11-misc/xscreensaver )
 "
 DEPEND="${RDEPEND}
 	eigen? ( dev-cpp/eigen:2 )
-	kexiv2? ( $(add_kdebase_dep libkexiv2) )
 "
 
 PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
