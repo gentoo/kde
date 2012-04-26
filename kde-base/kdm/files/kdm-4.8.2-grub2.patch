@@ -1,0 +1,14 @@
+diff -uNr kdm-4.8.2_orig/kdm/backend/bootman.c kdm-4.8.2/kdm/backend/bootman.c
+--- kdm-4.8.2_orig/kdm/backend/bootman.c	2012-03-30 05:02:31.000000000 +0700
++++ kdm-4.8.2/kdm/backend/bootman.c	2012-04-26 09:33:58.683462475 +0700
+@@ -224,8 +224,8 @@
+ static int
+ getGrub2(char ***opts, int *def, int *cur)
+ {
+-    grubConfig = "/boot/grub/grub.cfg";
+-    return getGrub2OrBurg(opts, def, cur, "grub-reboot");
++    grubConfig = "/boot/grub2/grub.cfg";
++    return getGrub2OrBurg(opts, def, cur, "grub2-reboot");
+ }
+ 
+ static int
