@@ -4,8 +4,9 @@
 
 EAPI=4
 
-KDE_LINGUAS="ar be bg ca cs da de el en_GB eo es et fi fr ga gl hi hne is it ja
-km lt nb nds nl nn pa pl pt pt_BR ro se sk sv tr uk vi zh_CN zh_TW"
+KDE_LINGUAS="ar be bg bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl
+hi hne hr is it ja km lt mai nb nds nl nn pa pl pt pt_BR ro ru se sk sv tr ug uk
+vi zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE Photo Album is a tool for indexing, searching, and viewing images."
@@ -16,8 +17,6 @@ LICENSE="GPL-2 FDL-1.2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug +exif +geolocation +kipi +raw +semantic-desktop"
-
-DOCS="ChangeLog README TODO"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
@@ -31,6 +30,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
+
+DOCS=( ChangeLog README TODO )
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with exif Exiv2)
