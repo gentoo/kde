@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit multilib git-2
+inherit eutils multilib git-2
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="http://github.com/mxcl/liblastfm/"
@@ -30,6 +30,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_prepare() {
+	epatch "${FILESDIR}"/${PN}-0.3.3-ruby-1.9-fix.patch
+
 	# Fix multilib paths
 	find . -name *.pro -exec sed -i -e "/target.path/s/lib/$(get_libdir)/g" {} + \
 		|| die "failed to fix multilib paths"
