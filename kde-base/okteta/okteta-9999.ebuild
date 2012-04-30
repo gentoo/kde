@@ -17,5 +17,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Tests hang, last checked in 4.3.3
-RESTRICT="test"
+# bug #264917, removes failing test
+PATCHES=( "${FILESDIR}/${PN}-4.8.2-test.patch" )
