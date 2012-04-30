@@ -60,6 +60,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.7-FindBoost-python.patch
 	"${FILESDIR}"/${PN}-2.8.7-FindBLAS.patch
 	"${FILESDIR}"/${PN}-2.8.7-FindLAPACK.patch
+	"${FILESDIR}"/${PN}-2.8.8-FindPkgConfig.patch
 	"${FILESDIR}"/${PN}-2.8.8-more-no_host_paths.patch
 )
 cmake_src_bootstrap() {
