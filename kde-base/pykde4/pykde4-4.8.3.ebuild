@@ -16,6 +16,7 @@ inherit python portability kde4-base
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples semantic-desktop"
+REQUIRED_USE="test? ( semantic-desktop )"
 
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
