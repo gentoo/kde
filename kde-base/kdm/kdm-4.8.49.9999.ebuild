@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdm/kdm-4.7.3.ebuild,v 1.1 2011/11/02 20:48:16 alexxy Exp $
+# $Header: $
 
 EAPI=4
 
