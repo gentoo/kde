@@ -24,7 +24,7 @@ RDEPEND="
 	x11-libs/pango
 "
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 "
 
