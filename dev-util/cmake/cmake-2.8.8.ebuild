@@ -44,9 +44,6 @@ S="${WORKDIR}/${MY_P}"
 
 CMAKE_BINARY="${S}/Bootstrap.cmk/cmake"
 
-# TODO "${FILESDIR}"/${PN}-2.8.3-more-no_host_paths.patch
-# needs replacement in 2.8.8.
-
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.3-darwin-bundle.patch
 	"${FILESDIR}"/${PN}-2.6.3-no-duplicates-in-rpath.patch
@@ -61,6 +58,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.8-more-no_host_paths.patch
 	"${FILESDIR}"/${PN}-2.8.8-tests.patch
 )
+
 cmake_src_bootstrap() {
 	# Cleanup args to extract only JOBS.
 	# Because bootstrap does not know anything else.
