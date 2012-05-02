@@ -46,7 +46,7 @@ PDEPEND="
 RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/automoc-0.9.87
-	dev-util/pkgconfig
+	virtual/pkgconfig
 "
 
 REQUIRED_USE="|| ( aqua gstreamer vlc )"
