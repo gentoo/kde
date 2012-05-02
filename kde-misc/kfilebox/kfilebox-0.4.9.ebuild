@@ -4,7 +4,7 @@
 
 EAPI=4
 
-LANGS="ar br cs de el es fr gl it lt nl pl pt ru si tr zh zh_CN"
+LANGS="ar br cs de el es fr gl it lt nl pl pt ru si tr zh"
 inherit qt4-r2
 
 MY_P="${PN}_${PV}"
