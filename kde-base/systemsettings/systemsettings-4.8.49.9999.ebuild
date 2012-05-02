@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug gtk +usb xinerama"
+IUSE="debug gtk +usb"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -28,12 +28,10 @@ COMMONDEPEND="
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
 	usb? ( =virtual/libusb-0* )
-	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/kbproto
 	x11-proto/xextproto
-	xinerama? ( x11-proto/xineramaproto )
 "
 RDEPEND="${COMMONDEPEND}
 	sys-libs/timezone-data
@@ -57,10 +55,6 @@ KMEXTRACTONLY="
 "
 
 add_blocker kdeaccessibility-colorschemes '<4.6.50'
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch"
-)
 
 src_unpack() {
 	if use handbook; then
@@ -90,7 +84,6 @@ src_configure() {
 		-DWITH_GLIB2=ON -DWITH_GObject=ON
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with usb)
-		$(cmake-utils_use_with xinerama X11_Xinerama)
 	)
 
 	kde4-meta_src_configure
