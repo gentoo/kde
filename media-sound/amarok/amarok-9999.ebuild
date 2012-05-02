@@ -66,7 +66,7 @@ COMMONDEPEND="
 "
 DEPEND="${COMMONDEPEND}
 	dev-util/automoc
-	dev-util/pkgconfig
+	virtual/pkgconfig
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
