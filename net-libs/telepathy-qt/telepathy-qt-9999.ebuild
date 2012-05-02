@@ -30,7 +30,7 @@ RDEPEND="
 	!net-libs/telepathy-qt4
 "
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	farsight? (
 		>=net-libs/telepathy-glib-0.17.5
 	)
