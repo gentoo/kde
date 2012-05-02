@@ -20,8 +20,6 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.4.2-xinerama_cmake_automagic.patch" )
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
@@ -29,7 +27,7 @@ src_configure() {
 		$(cmake-utils_use_has mmx X86_MMX)
 		$(cmake-utils_use_has sse X86_SSE)
 		$(cmake-utils_use_has sse2 X86_SSE2)
-		$(cmake-utils_use_with xinerama X11_Xinerama)
+		$(cmake-utils_use_with xinerama)
 	)
 
 	kde4-meta_src_configure
