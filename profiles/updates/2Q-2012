@@ -1,2 +1,3 @@
 slotmove kde-misc/plasma-lionmail 0 4
 move kde-misc/akonadi-google kde-misc/libkgoogle
+move kde-misc/libkgoogle kde-misc/akonadi-google

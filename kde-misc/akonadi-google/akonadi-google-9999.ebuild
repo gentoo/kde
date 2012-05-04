@@ -8,7 +8,7 @@ KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Google services integration in Akonadi"
-HOMEPAGE="https://projects.kde.org/projects/playground/pim/akonadi-google"
+HOMEPAGE="https://projects.kde.org/projects/scratch/dvratil/akonadi-google"
 LICENSE="GPL-2"
 
 SLOT="4"
