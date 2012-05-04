@@ -316,3 +316,7 @@
 
 # rekonq
 =www-client/rekonq-0.9.2
+
+# bluetooth
+=net-libs/libbluedevil-1.9.2
+=net-wireless/bluedevil-1.2.3
