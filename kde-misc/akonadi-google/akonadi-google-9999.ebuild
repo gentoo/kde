@@ -7,6 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
+EGIT_REPO_URI="git://anongit.kde.org/scratch/dvratil/akonadi-google.git"
 DESCRIPTION="Google services integration in Akonadi"
 HOMEPAGE="https://projects.kde.org/projects/scratch/dvratil/akonadi-google"
 LICENSE="GPL-2"
