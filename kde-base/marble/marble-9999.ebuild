@@ -42,8 +42,6 @@ pkg_setup() {
 src_prepare() {
 	kde4-base_src_prepare
 	python_convert_shebangs -r $(python_get_version) .
-
-	find "${S}/marble/src/bindings/python/sip" -name "*.sip" | xargs -- sed -i 's/#include <marble\//#include </'
 }
 
 src_configure() {
