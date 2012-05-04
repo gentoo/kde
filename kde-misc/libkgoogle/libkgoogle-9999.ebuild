@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_SCM="git"
-EGIT_REPONAME="akonadi-google"
 inherit kde4-base
 
 DESCRIPTION="Google services integration in Akonadi"
