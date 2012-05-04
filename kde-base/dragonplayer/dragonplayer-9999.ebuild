@@ -5,9 +5,13 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="dragon"
-KDE_SCM="git"
-inherit kde4-base
+#KMNAME="dragon"
+#KDE_SCM="git"
+#inherit kde4-base
+# temporary switch back to svn repository as long as kdemultimedia git repo is
+# broken
+KMNAME="kdemultimedia"
+inherit kde4-meta
 
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"
 HOMEPAGE="http://www.dragonplayer.net/"
