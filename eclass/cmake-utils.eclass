@@ -139,7 +139,8 @@ _use_me_now_inverted() {
 
 # @ECLASS-VARIABLE: CMAKE_VERBOSE
 # @DESCRIPTION:
-# Set to enable verbose messages during compilation.
+# Set to OFF to disable verbose messages during compilation
+: ${CMAKE_VERBOSE:=ON}
 
 # @ECLASS-VARIABLE: PREFIX
 # @DESCRIPTION:
@@ -404,7 +405,7 @@ cmake-utils_src_make() {
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	# first check if Makefile exist otherwise die
 	[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
-	if [[ -n ${CMAKE_VERBOSE} ]]; then
+	if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
 		emake VERBOSE=1 "$@" || die "Make failed!"
 	else
 		emake "$@" || die "Make failed!"
