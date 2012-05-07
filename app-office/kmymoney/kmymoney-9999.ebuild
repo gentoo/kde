@@ -4,20 +4,20 @@
 
 EAPI=4
 
-KMNAME="extragear/office"
-
 if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu it lt
-	ms nds nl pl pt pt_BR ro ru sk sv tr uk zh_CN zh_TW"
+	KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et
+			eu fi fr ga gl hu it ja lt ms nds nl pl pt
+			pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
 	KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
 	KDE_HANDBOOK="optional"
-else
 	SRC_URI="mirror://sourceforge/kmymoney2/${P}.tar.bz2"
 fi
 
-inherit virtualx kde4-base
+VIRTUALX_REQUIRED=test
 
-DESCRIPTION="A personal finance manager for KDE"
+inherit kde4-base
+
+DESCRIPTION="Personal finance manager for KDE"
 HOMEPAGE="http://kmymoney2.sourceforge.net/"
 
 LICENSE="GPL-2"
@@ -27,24 +27,34 @@ IUSE="debug calendar doc hbci ofx quotes test"
 
 COMMON_DEPEND="
 	app-crypt/gpgme
-	>=dev-libs/boost-1.33.1
+	>=app-office/libalkimia-4.3.2
+	dev-cpp/glibmm:2
+	dev-cpp/libxmlpp:2.6
+	dev-libs/boost
+	dev-libs/glib:2
+	dev-libs/gmp
 	dev-libs/libgpg-error
 	dev-libs/libxml2
 	$(add_kdebase_dep kdepimlibs)
+	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical )
 	hbci? (
-		>=net-libs/aqbanking-5.0.0
-		>=sys-libs/gwenhywfar-4.0.0
+		>=net-libs/aqbanking-5.0.1
+		>=sys-libs/gwenhywfar-4.0.1[qt4]
 	)
-	ofx? ( >=dev-libs/libofx-0.9.1 )
+	ofx? ( >=dev-libs/libofx-0.9.4 )
 "
 RDEPEND="${COMMON_DEPEND}
-	quotes? ( >=dev-perl/Finance-Quote-1.17 )
+	quotes? ( dev-perl/Finance-Quote )
 "
 DEPEND="${COMMON_DEPEND}
+	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )
-	test? ( >=dev-util/cppunit-1.12.1 )
+	test? ( dev-util/cppunit )
 "
+
+RESTRICT=test
+# bug 399467
 
 src_configure() {
 	mycmakeargs=(
@@ -60,15 +70,11 @@ src_configure() {
 
 src_compile() {
 	kde4-base_src_compile
+
 	use doc && kde4-base_src_compile apidoc
 }
 
 src_install() {
 	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
 	kde4-base_src_install
-}
-
-src_test() {
-	export maketype="kde4-base_src_test"
-	virtualmake
 }
