@@ -5,12 +5,8 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-#KDE_SCM="git"
-#inherit kde4-base
-# temporary switch back to svn repository as long as kdemultimedia git repo is
-# broken
-KMNAME="kdemultimedia"
-inherit kde4-meta
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE CD player"
 KEYWORDS=""

@@ -5,21 +5,9 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-#KMNAME="audiocd-kio"
-#KDE_SCM="git"
-#inherit kde4-base
-# temporary switch back to svn repository as long as kdemultimedia git repo is
-# broken
-KMNAME="kdemultimedia"
-KMMODULE="kioslave"
-inherit kde4-meta
-
-KMEXTRACTONLY="
-	libkcompactdisc/
-"
-KMCOMPILEONLY="
-	libkcddb/
-"
+KMNAME="audiocd-kio"
+KDE_SCM="git"
+inherit kde4-base
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
