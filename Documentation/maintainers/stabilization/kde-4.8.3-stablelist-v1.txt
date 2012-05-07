@@ -27,7 +27,7 @@
 =kde-base/cantor-4.8.3
 =kde-base/cervisia-4.8.3
 =kde-base/dolphin-plugins-4.8.3
-=kde-base/dolphin-4.8.3
+=kde-base/dolphin-4.8.3-r1
 =kde-base/dragonplayer-4.8.3
 =kde-base/drkonqi-4.8.3
 =kde-base/ffmpegthumbs-4.8.3
