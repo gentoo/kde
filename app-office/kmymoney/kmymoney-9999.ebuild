@@ -48,7 +48,7 @@ RDEPEND="${COMMON_DEPEND}
 	quotes? ( dev-perl/Finance-Quote )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 	test? ( dev-util/cppunit )
 "
