@@ -3,4 +3,25 @@ Agenda topics for the next KDE team meeting
 
 1. Roll call (5 minutes)
 
-...
+2. Add LINGUAS support to cmake-utils.eclass (5 minutes)
+   * Discuss/vote: Add basic LINGUAS support to cmake-utils.eclass, where LANGS
+   is automatically expanded to IUSE+=" linguas_${lang}" (see qt4-r2). About 10
+   packages currently do something with LINGUAS, compare to about 16 with qt4-r2.
+
+3. Bugs (30 minutes)
+    * Trying to change full name in KDE System Settings results in error or crash
+    chfn parsing is broken. Do we want to apply a workaround (like Ubuntu) and
+    disable that field to prevent crashes?
+    https://bugs.gentoo.org/show_bug.cgi?id=380899
+
+   * app-cdr/k3b: use media-libs/musicbrainz:3 instead of :1
+   Testing indicates that we can drop the dep completely, any objections?
+   https://bugs.gentoo.org/show_bug.cgi?id=410347
+
+   * dev-util/cmake: FindPythonLibs behaviour broken by Gentoo patches
+   https://bugs.gentoo.org/show_bug.cgi?id=405181
+
+   * kde-misc/networkmanagement-0.9.0 and kde-misc/networkmanagement-0.8_p20110714 wrong doc dir specified
+   https://bugs.gentoo.org/show_bug.cgi?id=410139
+
+4. Open floor (15 minutes)
