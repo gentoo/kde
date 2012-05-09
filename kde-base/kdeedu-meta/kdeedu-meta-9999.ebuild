@@ -29,6 +29,7 @@ RDEPEND="
 	$(add_kdebase_dep kwordquiz)
 	$(add_kdebase_dep libkdeedu)
 	$(add_kdebase_dep marble)
+	$(add_kdebase_dep pairs)
 	$(add_kdebase_dep parley)
 	$(add_kdebase_dep rocs)
 	$(add_kdebase_dep step)
