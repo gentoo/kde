@@ -19,9 +19,6 @@ RDEPEND="${DEPEND}"
 
 add_blocker kalgebra 4.7.50
 
-RESTRICT=test
-# bug 397705
-
 PATCHES=( "${FILESDIR}/${PN}-solaris-graph2d.patch" )
 
 src_configure() {
