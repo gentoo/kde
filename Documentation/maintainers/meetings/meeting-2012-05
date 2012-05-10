@@ -24,4 +24,7 @@ Agenda topics for the next KDE team meeting
    * kde-misc/networkmanagement-0.9.0 and kde-misc/networkmanagement-0.8_p20110714 wrong doc dir specified
    https://bugs.gentoo.org/show_bug.cgi?id=410139
 
+   * kde-misc/interceptor - KDE4 Plasmoid - intercept (catch) the log info from the syslog
+   Seems like there's way too much work here for a simple plasma applet, and has a lot of trouble with permissions on the FIFOs.
+   https://bugs.gentoo.org/show_bug.cgi?id=383733
 4. Open floor (15 minutes)
