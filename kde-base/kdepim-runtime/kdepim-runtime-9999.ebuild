@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug google"
 
 RESTRICT="test"
 # Would need test programs _testrunner and akonaditest from kdepimlibs, see bug 313233
@@ -24,6 +24,7 @@ DEPEND="
 	dev-libs/shared-desktop-ontologies
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
+	google? ( kde-misc/libkgoogle[-oldpim] )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
@@ -31,3 +32,18 @@ RDEPEND="${DEPEND}
 
 # nepomuk_email_feeder moved here in 4.8
 add_blocker kdepim-common-libs 4.7.50
+
+src_prepare() {
+	sed -e "s:find_package(LibKGoogle):macro_optional_find_package(LibKGoogle):g" \
+	    -i "${S}/CMakeLists.txt" || die "fixing automagic dependencies failed"
+
+	kde4-base_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with google LibKGoogle)
+	)
+
+	kde4-base_src_configure
+}
