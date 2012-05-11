@@ -22,7 +22,9 @@ DEPEND="
 	oldpim? ( dev-libs/boost )
 	!oldpim? ( $(add_kdebase_dep kdepimlibs semantic-desktop 4.6.0) )
 "
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}
+	!kde-misc/akonadi-google
+"
 
 src_configure() {
 	mycmakeargs=(
