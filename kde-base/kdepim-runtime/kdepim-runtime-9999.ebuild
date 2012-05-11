@@ -24,7 +24,7 @@ DEPEND="
 	dev-libs/shared-desktop-ontologies
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
-	google? ( kde-misc/libkgoogle[-oldpim] )
+	google? ( net-libs/libkgoogle[-oldpim] )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
