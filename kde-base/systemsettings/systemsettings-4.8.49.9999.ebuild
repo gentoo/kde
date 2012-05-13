@@ -37,7 +37,7 @@ RDEPEND="${COMMONDEPEND}
 	sys-libs/timezone-data
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
-	gtk? ( kde-misc/kcm-gtk-config )
+	gtk? ( kde-misc/kde-gtk-config )
 "
 
 RESTRICT="test"
