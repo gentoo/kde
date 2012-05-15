@@ -18,5 +18,14 @@ DEPEND="
 	>=dev-cpp/eigen-2.0.3:2
 "
 
-RESTRICT="test"
-# bug 376909
+src_test() {
+	local mycmakeargs=(-DKDE4_BUILD_TESTS=ON)
+	cmake-utils_src_configure
+	kde4-base_src_compile
+
+	cd "${CMAKE_BUILD_DIR}"
+	emake DESTDIR="${T}/tests" install
+	export KDEDIRS="${KDEDIRS}:${T}/tests/${PREFIX}"
+	kbuildsycoca4
+	ctest || die "tests failed"
+}
