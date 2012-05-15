@@ -20,16 +20,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	libkdeedu/kdeeduui/
-"
-KMEXTRA="
-	libkdeedu/qtmmlwidget/
-"
-
-RESTRICT="test"
-# bug 382561
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
@@ -38,13 +28,4 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
-}
-
-src_test() {
-	# disable broken test
-	sed -i -e '/mathmlpresentationtest/ s/^/#DO_NOT_RUN_TEST /' \
-		"${S}"/analitza/tests/CMakeLists.txt || \
-		die "sed to disable mathmlpresentationtest failed."
-
-	kde4-base_src_test
 }
