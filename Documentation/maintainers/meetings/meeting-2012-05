@@ -1,7 +1,7 @@
 Agenda topics for the next KDE team meeting
 -------------------------------------------
 
-1. Roll call (5 minutes)
+1. Roll call (5 minutes), big welcome for the new team members!
 
 2. Add LINGUAS support to cmake-utils.eclass (5 minutes)
    * Discuss/vote: Add basic LINGUAS support to cmake-utils.eclass, where LANGS
