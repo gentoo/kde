@@ -111,7 +111,7 @@
 =kde-base/kdepim-kresources-4.8.3
 =kde-base/kdepim-l10n-4.8.3
 =kde-base/kdepim-meta-4.8.3
-=kde-base/kdepim-runtime-4.8.3
+=kde-base/kdepim-runtime-4.8.3-r2
 =kde-base/kdepim-strigi-analyzer-4.8.3
 =kde-base/kdepimlibs-4.8.3
 =kde-base/kdeplasma-addons-4.8.3
