@@ -12,7 +12,15 @@ Agenda topics for the next KDE team meeting
    * Discuss/vote: Add a condition so that tests are run. Is I_KNOW_WHAT_I_AM_DOING
    going to be disruptive for existing users?
 
-4. Bugs (30 minutes)
+4. KDE 4.8 stabilization and powerpc (15 minutes)
+   * gcc 4.7 needed!? https://bugs.gentoo.org/show_bug.cgi?id=402989
+   * ppc64 never stabilized
+   * Does the support of ppc/ppc64 makes realy sense nowadays?
+   * Discuss/vote:
+	(a) Drop ppc64 from kde-base and reverse dependencies
+	(b) Drop ppc from kde-base and reverse dependencies
+
+5. Bugs (30 minutes)
     * Trying to change full name in KDE System Settings results in error or crash
     chfn parsing is broken. Do we want to apply a workaround (like Ubuntu) and
     disable that field to prevent crashes?
