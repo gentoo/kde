@@ -5,10 +5,10 @@
 EAPI=4
 
 QT_DEPEND="4.6.3"
-EBZR_REPO_URI="lp:libdbusmenu-qt"
+EGIT_REPO_URI="git://gitorious.org/dbusmenu/dbusmenu-qt.git"
 
-[[ ${PV} == 9999* ]] && BZR_ECLASS="bzr"
-inherit cmake-utils virtualx ${BZR_ECLASS}
+[[ ${PV} == 9999* ]] && GIT_ECLASS="git-2"
+inherit cmake-utils virtualx ${GIT_ECLASS}
 
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
@@ -18,8 +18,8 @@ else
 	#SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
 	# upstream has no permissions to use some kde written code so repack git
 	# repo every time
-	SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+	SRC_URI="http://dev.gentoo.org/~creffett/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="LGPL-2"
@@ -28,7 +28,6 @@ IUSE="debug doc"
 
 RDEPEND="
 	>=x11-libs/qt-core-${QT_DEPEND}:4
-	>=x11-libs/qt-dbus-${QT_DEPEND}:4
 	>=x11-libs/qt-gui-${QT_DEPEND}:4[dbus]
 "
 DEPEND="${RDEPEND}
