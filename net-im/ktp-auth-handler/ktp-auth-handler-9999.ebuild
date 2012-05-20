@@ -23,6 +23,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	dev-libs/qjson
 	>=net-im/ktp-common-internals-${PV}
 	>=net-libs/telepathy-qt-0.9.1
 "
