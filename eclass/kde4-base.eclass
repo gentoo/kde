@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-base.eclass,v 1.110 2011/10/29 15:07:16 abcd Exp $
+# $Header: $
 
 # @ECLASS: kde4-base.eclass
 # @MAINTAINER:
@@ -166,8 +166,8 @@ case ${KDEBASE} in
 	kde-base)
 		HOMEPAGE="http://www.kde.org/"
 		LICENSE="GPL-2"
-		if [[ $BUILD_TYPE = live ]]; then
-			# Disable tests for live ebuilds
+		if [[ ${BUILD_TYPE} = live && -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+			# Disable tests for live ebuilds by default
 			RESTRICT+=" test"
 		fi
 
