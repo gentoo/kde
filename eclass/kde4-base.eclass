@@ -20,6 +20,10 @@
 # add a dependency on sec-policy/selinux-${KDE_SELINUX_MODULE} to (R)DEPEND
 : ${KDE_SELINUX_MODULE:=none}
 
+# @ECLASS-VARIABLE: VIRTUALDBUS_TEST
+# @DESCRIPTION:
+# If defined, launch and use a private dbus session during src_test.
+
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
 # For proper description see virtualx.eclass manpage.
@@ -801,16 +805,28 @@ kde4-base_src_compile() {
 kde4-base_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Override this value, set in kde4-base_src_configure()
-	mycmakeargs+=(-DKDE4_BUILD_TESTS=ON)
-	cmake-utils_src_configure
-	kde4-base_src_compile
+	local kded4_pid
+
+	_test_runner() {
+		if [[ -n "${VIRTUALDBUS_TEST}" ]]; then
+			export $(dbus-launch)
+			kded4 2>&1 > /dev/null &
+			kded4_pid=$!
+		fi
+
+		cmake-utils_src_test
+	}		
 
 	# When run as normal user during ebuild development with the ebuild command, the
 	# kde tests tend to access the session DBUS. This however is not possible in a real
 	# emerge or on the tinderbox.
 	# > make sure it does not happen, so bad tests can be recognized and disabled
-	unset DBUS_SESSION_BUS_ADDRESS
+	unset DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
+
+	# Override this value, set in kde4-base_src_configure()
+	mycmakeargs+=(-DKDE4_BUILD_TESTS=ON)
+	cmake-utils_src_configure
+	kde4-base_src_compile
 
 	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
 		# check for sanity if anyone already redefined VIRTUALX_COMMAND from the default
@@ -820,12 +836,20 @@ kde4-base_src_test() {
 			debug-print "           You may NOT set VIRTUALX_COMMAND or call virtualmake from the ebuild."
 			debug-print "           Setting VIRTUALX_REQUIRED is completely sufficient. See the"
 			debug-print "           kde4-base.eclass docs for details... Applying workaround."
-			cmake-utils_src_test
+			_test_runner
 		else
-			VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
+			VIRTUALX_COMMAND="_test_runner" virtualmake
 		fi
 	else
-		cmake-utils_src_test
+		_test_runner
+	fi
+
+	if [ -n "${kded4_pid}" ] ; then
+		kill ${kded4_pid}
+	fi
+
+	if [ -n "${DBUS_SESSION_BUS_PID}" ] ; then
+		kill ${DBUS_SESSION_BUS_PID}
 	fi
 }
 
