@@ -1,0 +1,4 @@
+  20 May 2012; Michael Palimaka <kensington@gentoo.org>
+  systemsettings-4.8.49.9999.ebuild, systemsettings-9999.ebuild:
+  [kde-base/systemsettings] Unrestrict tests that now pass with virtualdbus.
+
