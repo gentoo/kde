@@ -21,7 +21,7 @@ DEPEND="
 	djvu? ( app-text/djvu )
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( virtual/jpeg:0 )
-	pdf? ( >=app-text/poppler-0.12.3-r3[lcms,qt4,-exceptions(-)] )
+	pdf? ( >=app-text/poppler-0.12.3-r3[qt4,-exceptions(-)] )
 	ps? ( app-text/libspectre )
 	tiff? ( media-libs/tiff )
 "
