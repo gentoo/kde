@@ -39,7 +39,8 @@ DEPEND="${RDEPEND}
 	)
 "
 
-DOCS=(NEWS README)
+DOCS=( NEWS README )
+PATCHES=( "${FILESDIR}/${PN}-0.9.2-optionaltests.patch" )
 
 # tests fail due to missing conection to dbus
 RESTRICT="test"
