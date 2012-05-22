@@ -61,6 +61,16 @@ RDEPEND="${DEPEND}
 
 DOCS+=( ChangeLog )
 
+PATCHES=(
+	"${FILESDIR}/${P}-ffmpeg.patch"
+	"${FILESDIR}/${P}-libavformat54.patch"
+)
+
+REQUIRED_USE="
+	lame? ( encode )
+	sox? ( encode )
+"
+
 src_configure() {
 	mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
@@ -85,6 +95,12 @@ src_configure() {
 			$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
 			$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
 			$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
+		)
+	else
+		mycmakeargs+=(
+			-DK3B_BUILD_LAME_ENCODER_PLUGIN=OFF
+			-DK3B_BUILD_SOX_ENCODER_PLUGIN=OFF
+			-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=OFF
 		)
 	fi
 
