@@ -9,17 +9,15 @@ EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
 
 DESCRIPTION="A Font for the KDE Desktop"
 HOMEPAGE="https://projects.kde.org/"
-IUSE="bold flab-old italic monospace +regular"
+IUSE="bold italic monospace +regular"
 
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 
-src_install() {
-	if use flab-old; then
-		FONT_S="${S}/Fontlab-Old" FONT_SUFFIX="vfb" font_src_install
-	fi
+S="${WORKDIR}/${P}/in-progress"
 
+src_install() {
 	if use monospace; then
 		FONT_S="${S}/Monospace" FONT_SUFFIX="ttf" font_src_install
 		FONT_S="${S}/Monospace/src" FONT_SUFFIX="otf sfd" font_src_install

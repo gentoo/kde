@@ -3,7 +3,7 @@
 <pkgmetadata>
 <herd>kde</herd>
 <use>
-        <flag name="flab-old">Installs Fontlab-Old style font files</flag>
+        <flag name="italic">Installs italic style font files</flag>
         <flag name="monospace">Installs Monospace style font files</flag>
         <flag name="bold">Installs bold style font files</flag>
         <flag name="regular">Installs all the Oxygen-Regular content from the source package including glyphs</flag>
