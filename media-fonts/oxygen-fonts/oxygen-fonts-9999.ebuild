@@ -15,29 +15,27 @@ LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 
-S="${WORKDIR}/${P}/in-progress"
-
 src_install() {
 	if use monospace; then
-		FONT_S="${S}/Monospace" FONT_SUFFIX="ttf" font_src_install
-		FONT_S="${S}/Monospace/src" FONT_SUFFIX="otf sfd" font_src_install
+		FONT_S="${S}/in-progress/Monospace" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/in-progress/Monospace/src" FONT_SUFFIX="otf sfd" font_src_install
 	fi
 
 	if use bold; then
-		FONT_S="${S}/Oxygen-Bold" FONT_SUFFIX="ttf" font_src_install
-		FONT_S="${S}/Oxygen-Bold/src" FONT_SUFFIX="otf sfd" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Bold" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Bold/src" FONT_SUFFIX="otf sfd" font_src_install
 	fi
 
 	if use italic; then
-		FONT_S="${S}/Oxygen-Italic" FONT_SUFFIX="ttf" font_src_install
-		FONT_S="${S}/Oxygen-Italic/src" FONT_SUFFIX="otf sfd" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Italic" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Italic/src" FONT_SUFFIX="otf sfd" font_src_install
 	fi
 
 	if use regular; then
 		dodir $FONTDIR/Oxygen.ufo $FONTDIR/Oxygen.ufo/glyphs
-		FONT_S="${S}/Oxygen-Regular" FONT_SUFFIX="ttf" font_src_install
-		FONT_S="${S}/Oxygen-Regular/src" FONT_SUFFIX="otf sfd" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Regular" FONT_SUFFIX="ttf" font_src_install
+		FONT_S="${S}/in-progress/Oxygen-Regular/src" FONT_SUFFIX="otf sfd" font_src_install
 		insinto $FONTDIR/
-		cd Oxygen-Regular/src && doins -r Oxygen.ufo
+		cd in-progress/Oxygen-Regular/src && doins -r Oxygen.ufo
 	fi
 }
