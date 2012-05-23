@@ -11,7 +11,7 @@ SUPPORT_PYTHON_ABIS="1"
 
 OPENGL_REQUIRED="always"
 KDE_SCM="git"
-inherit python portability kde4-base
+inherit python portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
