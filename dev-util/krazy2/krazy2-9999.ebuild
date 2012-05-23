@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit perl-module qt4-r2 cmake-utils git-2
+inherit perl-module qt4-r2 cmake-utils multilib git-2
 
 DESCRIPTION="Source code sanity checker for KDE developers."
 HOMEPAGE="http://www.kde.org/"
