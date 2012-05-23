@@ -6,7 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdenetwork"
-inherit kde4-meta
+inherit kde4-meta multilib
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS=""
