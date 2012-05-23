@@ -36,9 +36,9 @@ DEPEND="
 	$(add_kdebase_dep libkcddb)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
-	encode? ( lame? ( media-sound/lame ) )
 	ffmpeg? ( virtual/ffmpeg )
 	flac? ( >=media-libs/flac-1.2[cxx] )
+	lame? ( media-sound/lame )
 	mad? ( media-libs/libmad )
 	musepack? ( >=media-sound/musepack-tools-444 )
 	sndfile? ( media-libs/libsndfile )
@@ -55,7 +55,7 @@ RDEPEND="${DEPEND}
 		encode? ( media-video/transcode[dvd] )
 	)
 	emovix? ( media-video/emovix )
-	encode? ( sox? ( media-sound/sox ) )
+	sox? ( media-sound/sox )
 	vcd? ( media-video/vcdimager )
 "
 
@@ -65,11 +65,6 @@ PATCHES=(
 	"${FILESDIR}/${P}-ffmpeg.patch"
 	"${FILESDIR}/${P}-libavformat54.patch"
 )
-
-REQUIRED_USE="
-	lame? ( encode )
-	sox? ( encode )
-"
 
 src_configure() {
 	mycmakeargs=(
@@ -83,23 +78,21 @@ src_configure() {
 		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
 		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
+		$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
 		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
 		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
+		$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
 		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
 	)
 
 	if use encode; then
 		mycmakeargs+=(
-			$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
-			$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
 			$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
 		)
 	else
 		mycmakeargs+=(
-			-DK3B_BUILD_LAME_ENCODER_PLUGIN=OFF
-			-DK3B_BUILD_SOX_ENCODER_PLUGIN=OFF
 			-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=OFF
 		)
 	fi
