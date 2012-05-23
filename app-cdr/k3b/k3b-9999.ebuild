@@ -28,9 +28,9 @@ DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
-SLOT="4"
 KEYWORDS=""
-IUSE="debug dvd emovix encode ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis +wav"
+SLOT="4"
+IUSE="debug dvd emovix ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
 	$(add_kdebase_dep libkcddb)
@@ -52,7 +52,7 @@ RDEPEND="${DEPEND}
 	virtual/cdrtools
 	dvd? (
 		>=app-cdr/dvd+rw-tools-7
-		encode? ( media-video/transcode[dvd] )
+		media-video/transcode[dvd]
 	)
 	emovix? ( media-video/emovix )
 	sox? ( media-sound/sox )
@@ -69,34 +69,24 @@ PATCHES=(
 src_configure() {
 	mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
+		-DK3B_BUILD_EXTERNAL_ENCODER_PLUGIN=ON
 		-DK3B_BUILD_K3BSETUP=OFF
+		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
 		$(cmake-utils_use debug K3B_DEBUG)
 		$(cmake-utils_use dvd K3B_ENABLE_DVD_RIPPING)
-		$(cmake-utils_use taglib K3B_ENABLE_TAGLIB)
-		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
-		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
+		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
 		$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
 		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
 		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
 		$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
+		$(cmake-utils_use taglib K3B_ENABLE_TAGLIB)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
-		$(cmake-utils_use wav K3B_BUILD_WAVE_DECODER_PLUGIN)
+		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
 	)
-
-	if use encode; then
-		mycmakeargs+=(
-			$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
-		)
-	else
-		mycmakeargs+=(
-			-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=OFF
-		)
-	fi
-
 	kde4-base_src_configure
 }
 

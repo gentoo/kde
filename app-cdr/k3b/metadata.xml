@@ -5,6 +5,5 @@
 <herd>media-optical</herd>
 <use>
 	<flag name="emovix">Enable burning support for eMoviX images</flag>
-	<flag name="wav">Enable support for reading WAVE files</flag>
 </use>
 </pkgmetadata>
