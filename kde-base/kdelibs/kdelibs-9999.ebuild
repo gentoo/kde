@@ -8,7 +8,7 @@ CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 KDE_SCM="git"
-inherit kde4-base fdo-mime toolchain-funcs
+inherit kde4-base fdo-mime multilib toolchain-funcs
 
 # The "master" branch is out of date, so use KDE/4.8 per upstream's
 # recommendation.
