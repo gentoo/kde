@@ -28,7 +28,7 @@ COMMONDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
-	usb? ( =virtual/libusb-0* )
+	usb? ( virtual/libusb:0 )
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/kbproto
