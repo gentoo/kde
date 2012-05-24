@@ -5,9 +5,9 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
-
 KDE_DOC_DIRS="doc/manual"
+KDE_SCM="git"
+VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="X terminal for use with KDE"
