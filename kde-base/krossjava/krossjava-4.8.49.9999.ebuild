@@ -20,8 +20,6 @@ RDEPEND="
 	>=virtual/jre-1.5
 "
 
-RESTRICT="test"
-
 pkg_setup() {
 	kde4-meta_pkg_setup
 	java-pkg-2_pkg_setup
