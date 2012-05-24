@@ -62,8 +62,7 @@ RDEPEND="${DEPEND}
 DOCS+=( ChangeLog )
 
 PATCHES=(
-	"${FILESDIR}/${P}-ffmpeg.patch"
-	"${FILESDIR}/${P}-libavformat54.patch"
+	"${FILESDIR}/${PN}-2.0.2-libavformat54.patch"
 )
 
 src_configure() {
