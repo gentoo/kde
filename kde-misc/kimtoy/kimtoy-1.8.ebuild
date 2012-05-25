@@ -17,9 +17,9 @@ LICENSE="GPL-2"
 IUSE=""
 
 DEPEND=">=app-i18n/fcitx-4.0
+	>=app-i18n/ibus-1.3.0
 	>=app-i18n/scim-1.4.9
 	dev-libs/dbus-c++
-	>=app-i18n/ibus-1.3.0
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
