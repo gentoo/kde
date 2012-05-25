@@ -312,6 +312,7 @@ kde4-meta_create_extractlists() {
 			;;
 		kdebase-runtime | kde-runtime)
 			KMEXTRACTONLY+="
+				CTestConfig.cmake
 				config-runtime.h.cmake"
 			;;
 		kdebase-workspace | kde-workspace)
