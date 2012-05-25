@@ -22,3 +22,4 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
+add_blocker dragonplayer
