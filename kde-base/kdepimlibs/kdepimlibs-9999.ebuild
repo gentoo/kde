@@ -24,6 +24,7 @@ COMMON_DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
+	$(add_kdebase_dep nepomuk-core)
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	prison? ( media-libs/prison )
 	semantic-desktop? (
