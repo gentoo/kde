@@ -383,7 +383,7 @@ kde4-meta_create_extractlists() {
 			kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
 				case ${PN} in
 					libkdegames|libkdeedu|libkworkspace)
-						KMEXTRA+="
+						KMEXTRACTONLY+="
 							cmake/modules/"
 						;;
 					*)
