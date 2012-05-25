@@ -77,7 +77,7 @@
 ~kde-base/freespacenotifier-4.8.80
 ~kde-base/kcheckpass-4.8.80
 ~kde-base/kcminit-4.8.80
-~kde-base/kdebase-artwork-4.8.80
+~kde-base/kde-base-artwork-4.8.80
 ~kde-base/kdebase-cursors-4.8.80
 ~kde-base/kdebase-startkde-4.8.80
 ~kde-base/kde-wallpapers-4.8.80
@@ -211,7 +211,7 @@
 ~kde-base/kdepimlibs-4.8.80
 ~kde-base/oxygen-icons-4.8.80
 ~kde-base/katepart-4.8.80
-~kde-base/dragonplayer-4.8.80
+~kde-base/dragon-4.8.80
 ~kde-base/ffmpegthumbs-4.8.80
 ~kde-base/juk-4.8.80
 ~kde-base/kdemultimedia-kioslaves-4.8.80
