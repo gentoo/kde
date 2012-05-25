@@ -77,7 +77,7 @@
 ~kde-base/freespacenotifier-9999 **
 ~kde-base/kcheckpass-9999 **
 ~kde-base/kcminit-9999 **
-~kde-base/kdebase-artwork-9999 **
+~kde-base/kde-base-artwork-9999 **
 ~kde-base/kdebase-cursors-9999 **
 ~kde-base/kdebase-startkde-9999 **
 ~kde-base/kde-wallpapers-9999 **
@@ -234,7 +234,7 @@
 ~kde-base/kdepimlibs-9999 **
 ~kde-base/oxygen-icons-9999 **
 ~kde-base/katepart-9999 **
-~kde-base/dragonplayer-9999 **
+~kde-base/dragon-9999 **
 ~kde-base/ffmpegthumbs-9999 **
 ~kde-base/juk-9999 **
 ~kde-base/kdemultimedia-kioslaves-9999 **

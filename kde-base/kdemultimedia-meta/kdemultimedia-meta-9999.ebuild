@@ -10,7 +10,7 @@ KEYWORDS=""
 IUSE="ffmpeg +mplayer"
 
 RDEPEND="
-	$(add_kdebase_dep dragonplayer)
+	$(add_kdebase_dep dragon)
 	$(add_kdebase_dep juk)
 	$(add_kdebase_dep kdemultimedia-kioslaves)
 	$(add_kdebase_dep kmix)
