@@ -22,3 +22,13 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 392989
+
+src_install() {
+	kde4-base_src_install
+
+	# Fix file collisions with nepomuk-core
+	rm -f \
+	 "${ED}/usr/$(get_libdir)/debug/usr/$(get_libdir)/libnepomukcommon.so.debug" \
+	 || die
+	rm -f "${ED}/usr/$(get_libdir)/libnepomukcommon.so" || die
+}
