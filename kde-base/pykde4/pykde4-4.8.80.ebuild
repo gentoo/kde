@@ -30,6 +30,10 @@ DEPEND="${RDEPEND}
 	sys-devel/libtool
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.8.80-tcpclient.patch"
+)
+
 pkg_setup() {
 	python_pkg_setup
 	kde4-base_pkg_setup
