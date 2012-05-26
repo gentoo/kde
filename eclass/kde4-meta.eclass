@@ -381,16 +381,8 @@ kde4-meta_create_extractlists() {
 		&& ! [[ ${KMNAME} == kdeedu && ( ${PV} == 4.6.4 || ${PV} == 4.6.5 ) ]]; then
 		case ${KMNAME} in
 			kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
-				case ${PN} in
-					libkdegames|libkdeedu|libkworkspace)
-						KMEXTRACTONLY+="
-							cmake/modules/"
-						;;
-					*)
-						KMCOMPILEONLY+="
-							cmake/modules/"
-						;;
-				esac
+				KMEXTRACTONLY+="
+					cmake/modules/"
 			;;
 		esac
 	fi
