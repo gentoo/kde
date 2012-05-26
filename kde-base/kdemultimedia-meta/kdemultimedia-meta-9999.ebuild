@@ -12,7 +12,7 @@ IUSE="ffmpeg +mplayer"
 RDEPEND="
 	$(add_kdebase_dep dragon)
 	$(add_kdebase_dep juk)
-	$(add_kdebase_dep kdemultimedia-kioslaves)
+	$(add_kdebase_dep audiocd-kio)
 	$(add_kdebase_dep kmix)
 	$(add_kdebase_dep kscd)
 	$(add_kdebase_dep libkcddb)
