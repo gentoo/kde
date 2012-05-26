@@ -43,7 +43,10 @@ COMMONDEPEND="
 		cdda? (
 			$(add_kdebase_dep libkcddb)
 			$(add_kdebase_dep libkcompactdisc)
-			$(add_kdebase_dep kdemultimedia-kioslaves)
+			|| (
+				$(add_kdebase_dep audiocd-kio)
+				$(add_kdebase_dep kdemultimedia-kioslaves)
+			)
 		)
 		ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
 		lastfm? ( >=media-libs/liblastfm-0.3.0 )
