@@ -26,6 +26,7 @@ RESTRICT="test"
 
 KMEXTRACTONLY="
 	akonadi_next/
+	archivemailagent/
 	calendarsupport/
 	korganizer/
 	kresources/
