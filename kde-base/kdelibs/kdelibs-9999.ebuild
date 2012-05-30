@@ -278,10 +278,6 @@ src_install() {
 	echo "COLON_SEPARATED=QT_PLUGIN_PATH" > "${T}/77kde"
 	echo "QT_PLUGIN_PATH=${EPREFIX}/usr/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
 	doenvd "${T}/77kde"
-
-	# Fix file collisions with nepomuk-core
-	rm -f "${ED}/usr/bin/nepomuk-rcgen" || die
-	rm -f "${ED}/usr/$(get_libdir)/debug/usr/bin/nepomuk-rcgen.debug" || die
 }
 
 pkg_postinst() {
