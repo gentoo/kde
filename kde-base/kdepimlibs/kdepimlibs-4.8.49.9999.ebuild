@@ -19,8 +19,9 @@ IUSE="debug ldap prison semantic-desktop"
 # some akonadi tests timeout, that probaly needs more work as its ~700 tests
 RESTRICT="test"
 
-COMMON_DEPEND="
+DEPEND="
 	>=app-crypt/gpgme-1.1.6
+	>=dev-libs/boost-1.35.0-r5
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
@@ -33,10 +34,9 @@ COMMON_DEPEND="
 	)
 	ldap? ( net-nds/openldap )
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-libs/boost-1.35.0-r5
-"
-RDEPEND="${COMMON_DEPEND}"
+# boost is not linked to, but headers which include it are installed
+# bug #418071
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde4-base_src_prepare
