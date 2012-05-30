@@ -300,3 +300,7 @@ kde-misc/kobby
 ~kde-base/kommander-4.8.80
 ~kde-base/kdebase-meta-4.8.80
 ~kde-base/kde-meta-4.8.80
+
+# Johannes Huber <johu@gentoo.org> (30 May 2012)
+# Beta release, needed for KDE SC 4.9.
+~dev-libs/soprano-2.7.56
