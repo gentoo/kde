@@ -16,6 +16,6 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	media-libs/oyranos
+	>=media-libs/oyranos-0.4.0
 "
 RDEPEND="${DEPEND}"
