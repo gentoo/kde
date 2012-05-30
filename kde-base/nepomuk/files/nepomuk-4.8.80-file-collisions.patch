@@ -1,0 +1,989 @@
+commit 959412fdd7a3bbff6921474342d1209c212a410d
+Author: Vishesh Handa <handa.vish@gmail.com>
+Date:   Fri May 25 23:20:49 2012 +0530
+
+    Remove the nepomukcommon shared library
+    
+    It turns out that only the kcm is using it. None of the kioslaves
+    or anyone else really need it.
+    
+    It is also being installed by nepomuk-core, and that causes clashes.
+
+diff --git a/nepomuk/CMakeLists.txt b/nepomuk/CMakeLists.txt
+index 428f332..2918236 100644
+--- a/nepomuk/CMakeLists.txt
++++ b/nepomuk/CMakeLists.txt
+@@ -14,7 +14,6 @@ include_directories(
+   ${nepomuk_BINARY_DIR}/common
+ )
+ 
+-add_subdirectory(common)
+ add_subdirectory(kcm)
+ add_subdirectory(kioslaves)
+ add_subdirectory(controller)
+diff --git a/nepomuk/common/CMakeLists.txt b/nepomuk/common/CMakeLists.txt
+deleted file mode 100644
+index 957e6b0..0000000
+--- a/nepomuk/common/CMakeLists.txt
++++ /dev/null
+@@ -1,20 +0,0 @@
+-project(nepomuk_common)
+-
+-set(nepomukcommon_SRCS
+-  fileexcludefilters.cpp
+-  regexpcache.cpp
+-  removablemediacache.cpp
+-)
+-
+-kde4_add_library(nepomukcommon SHARED ${nepomukcommon_SRCS})
+-
+-target_link_libraries(nepomukcommon
+-  ${QT_QTCORE_LIBRARY}
+-  ${KDE4_KDECORE_LIBRARY}
+-  ${KDE4_SOLID_LIBRARY}
+-  ${NEPOMUK_CORE_LIBRARY}
+-  )
+-
+-install(TARGETS nepomukcommon EXPORT ${INSTALL_TARGETS_DEFAULT_ARGS})
+-
+-# Note: no headers installed since this is a private shared lib
+diff --git a/nepomuk/common/fileexcludefilters.cpp b/nepomuk/common/fileexcludefilters.cpp
+deleted file mode 100644
+index 846e4bd..0000000
+--- a/nepomuk/common/fileexcludefilters.cpp
++++ /dev/null
+@@ -1,116 +0,0 @@
+-/* This file is part of the KDE Project
+-   Copyright (c) 2008-2010 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Library General Public
+-   License version 2 as published by the Free Software Foundation.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Library General Public License for more details.
+-
+-   You should have received a copy of the GNU Library General Public License
+-   along with this library; see the file COPYING.LIB.  If not, write to
+-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+-   Boston, MA 02110-1301, USA.
+-*/
+-
+-#include "fileexcludefilters.h"
+-
+-namespace {
+-    const char* s_defaultFileExcludeFilters[] = {
+-        // tmp files
+-        "*~",
+-        "*.part",
+-
+-        // temporary build files
+-        "*.o",
+-        "*.la",
+-        "*.lo",
+-        "*.loT",
+-        "*.moc",
+-        "moc_*.cpp",
+-        "cmake_install.cmake",
+-        "CMakeCache.txt",
+-        "CTestTestfile.cmake",
+-        "libtool",
+-        "config.status",
+-        "confdefs.h",
+-        "autom4te",
+-        "conftest",
+-        "confstat",
+-        "Makefile.am",
+-
+-        // misc
+-        "*.csproj",
+-        "*.m4",
+-        "*.rej",
+-        "*.gmo",
+-        "*.pc",
+-        "*.omf",
+-        "*.aux",
+-        "*.tmp",
+-        "*.po",
+-        "*.vm*",
+-        "*.nvram",
+-        "*.rcore",
+-        "lzo",
+-        "litmain.sh",
+-        "*.orig",
+-        ".histfile.*",
+-        ".xsession-errors*",
+-
+-        // Compiled files
+-        "*.class", // Java
+-        "*.pyc",   // Python
+-        "*.elc",   // Emacs Lisp
+-
+-        // end of list
+-        0
+-    };
+-
+-    const int s_defaultFileExcludeFiltersVersion = 2;
+-
+-    const char* s_defaultFolderExcludeFilters[] = {
+-        "po",
+-
+-        // VCS
+-        "CVS",
+-        ".svn",
+-        ".git",
+-        "_darcs",
+-        ".bzr",
+-        ".hg",
+-
+-        // development
+-        "CMakeFiles",
+-        "CMakeTmp",
+-        "CMakeTmpQmake",
+-
+-        //misc
+-        "core-dumps",
+-        "lost+found",
+-
+-        // end of list
+-        0
+-    };
+-
+-    const int s_defaultFolderExcludeFiltersVersion = 1;
+-}
+-
+-
+-QStringList Nepomuk2::defaultExcludeFilterList()
+-{
+-    QStringList l;
+-    for ( int i = 0; s_defaultFileExcludeFilters[i]; ++i )
+-        l << QLatin1String( s_defaultFileExcludeFilters[i] );
+-    for ( int i = 0; s_defaultFolderExcludeFilters[i]; ++i )
+-        l << QLatin1String( s_defaultFolderExcludeFilters[i] );
+-    return l;
+-}
+-
+-int Nepomuk2::defaultExcludeFilterListVersion()
+-{
+-    return qMax(s_defaultFileExcludeFiltersVersion, s_defaultFolderExcludeFiltersVersion);
+-}
+diff --git a/nepomuk/common/fileexcludefilters.h b/nepomuk/common/fileexcludefilters.h
+deleted file mode 100644
+index 0f438f7..0000000
+--- a/nepomuk/common/fileexcludefilters.h
++++ /dev/null
+@@ -1,42 +0,0 @@
+-/* This file is part of the KDE Project
+-   Copyright (c) 2008-2010 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Library General Public
+-   License version 2 as published by the Free Software Foundation.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Library General Public License for more details.
+-
+-   You should have received a copy of the GNU Library General Public License
+-   along with this library; see the file COPYING.LIB.  If not, write to
+-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+-   Boston, MA 02110-1301, USA.
+-*/
+-
+-#ifndef _FILE_EXCLUDE_FILTERS_H_
+-#define _FILE_EXCLUDE_FILTERS_H_
+-
+-#include <QtCore/QStringList>
+-
+-#include "nepomukcommon_export.h"
+-
+-namespace Nepomuk2 {
+-    /**
+-     * \return A list of default exclude filters to be used
+-     * in the filewatch service to ignore temporary files
+-     * and folders that change a lot and as a basis for the
+-     * user configurable exclude filters in the strigi service.
+-     */
+-    NEPOMUKCOMMON_EXPORT QStringList defaultExcludeFilterList();
+-
+-    /**
+-     * \return The version of the default exclude filter list.
+-     * This is increased whenever the list changes.
+-     */
+-    NEPOMUKCOMMON_EXPORT int defaultExcludeFilterListVersion();
+-}
+-
+-#endif
+diff --git a/nepomuk/common/nepomukcommon_export.h b/nepomuk/common/nepomukcommon_export.h
+deleted file mode 100644
+index e690000..0000000
+--- a/nepomuk/common/nepomukcommon_export.h
++++ /dev/null
+@@ -1,40 +0,0 @@
+-/*  This file is part of the KDE project
+-    Copyright (C) 2007 David Faure <faure@kde.org>
+-
+-    This library is free software; you can redistribute it and/or
+-    modify it under the terms of the GNU Library General Public
+-    License as published by the Free Software Foundation; either
+-    version 2 of the License, or (at your option) any later version.
+-
+-    This library is distributed in the hope that it will be useful,
+-    but WITHOUT ANY WARRANTY; without even the implied warranty of
+-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-    Library General Public License for more details.
+-
+-    You should have received a copy of the GNU Library General Public License
+-    along with this library; see the file COPYING.LIB.  If not, write to
+-    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+-    Boston, MA 02110-1301, USA.
+-*/
+-
+-#ifndef NEPOMUKCOMMON_EXPORT_H
+-#define NEPOMUKCOMMON_EXPORT_H
+-
+-/* needed for KDE_EXPORT and KDE_IMPORT macros */
+-#include <kdemacros.h>
+-
+-#ifndef NEPOMUKCOMMON_EXPORT
+-# if defined(MAKE_NEPOMUKCOMMON_LIB)
+-   /* We are building this library */ 
+-#  define NEPOMUKCOMMON_EXPORT KDE_EXPORT
+-# else
+-   /* We are using this library */ 
+-#  define NEPOMUKCOMMON_EXPORT KDE_IMPORT
+-# endif
+-#endif
+-
+-# ifndef NEPOMUKCOMMON_EXPORT_DEPRECATED
+-#  define NEPOMUKCOMMON_EXPORT_DEPRECATED KDE_DEPRECATED NEPOMUKCOMMON_EXPORT
+-# endif
+-
+-#endif
+diff --git a/nepomuk/common/nepomuktools.h b/nepomuk/common/nepomuktools.h
+deleted file mode 100644
+index 853f2ff..0000000
+--- a/nepomuk/common/nepomuktools.h
++++ /dev/null
+@@ -1,61 +0,0 @@
+-/*
+-   This file is part of the Nepomuk KDE project.
+-   Copyright (C) 2011 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Lesser General Public
+-   License as published by the Free Software Foundation; either
+-   version 2.1 of the License, or (at your option) version 3, or any
+-   later version accepted by the membership of KDE e.V. (or its
+-   successor approved by the membership of KDE e.V.), which shall
+-   act as a proxy defined in Section 6 of version 3 of the license.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Lesser General Public License for more details.
+-
+-   You should have received a copy of the GNU Lesser General Public
+-   License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+-*/
+-
+-#ifndef NEPOMUKTOOLS_H
+-#define NEPOMUKTOOLS_H
+-
+-#include <KUrl>
+-#include <QtCore/QStringList>
+-#include <Soprano/Node>
+-
+-namespace Nepomuk2 {
+-const int MAX_SPLIT_LIST_ITEMS = 20;
+-
+-/**
+- * Convert a list or set or QUrls into a list of N3 formatted strings.
+- */
+-template<typename T> QStringList resourcesToN3(const T& urls) {
+-    QStringList n3;
+-    Q_FOREACH(const QUrl& url, urls) {
+-        n3 << Soprano::Node::resourceToN3(url);
+-    }
+-    return n3;
+-}
+-
+-/**
+- * Split a list into several lists, each not containing more than \p max items
+- */
+-template<typename T> QList<QList<T> > splitList(const QList<T>& list, int max = MAX_SPLIT_LIST_ITEMS) {
+-    QList<QList<T> > splitted;
+-    int i = 0;
+-    QList<T> single;
+-    foreach(const T& item, list) {
+-        single.append(item);
+-        if(++i >= max) {
+-            splitted << single;
+-            single.clear();
+-        }
+-    }
+-    return splitted;
+-}
+-}
+-
+-#endif // NEPOMUKTOOLS_H
+diff --git a/nepomuk/common/regexpcache.cpp b/nepomuk/common/regexpcache.cpp
+deleted file mode 100644
+index df45277..0000000
+--- a/nepomuk/common/regexpcache.cpp
++++ /dev/null
+@@ -1,66 +0,0 @@
+-/*
+-   This file is part of the Nepomuk KDE project.
+-   Copyright (C) 2010 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Lesser General Public
+-   License as published by the Free Software Foundation; either
+-   version 2.1 of the License, or (at your option) version 3, or any
+-   later version accepted by the membership of KDE e.V. (or its
+-   successor approved by the membership of KDE e.V.), which shall
+-   act as a proxy defined in Section 6 of version 3 of the license.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Lesser General Public License for more details.
+-
+-   You should have received a copy of the GNU Lesser General Public
+-   License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+-*/
+-
+-#include "regexpcache.h"
+-
+-#include <QtCore/QStringList>
+-
+-
+-RegExpCache::RegExpCache()
+-{
+-}
+-
+-
+-RegExpCache::~RegExpCache()
+-{
+-}
+-
+-
+-bool RegExpCache::exactMatch( const QString& s ) const
+-{
+-    Q_FOREACH( const QRegExp& filter, m_regexpCache ) {
+-        if ( filter.exactMatch( s ) ) {
+-            return true;
+-        }
+-    }
+-    return false;
+-}
+-
+-
+-bool RegExpCache::filenameMatch( const QString& path ) const
+-{
+-    QString name;
+-    int i = path.lastIndexOf( '/' );
+-    if( i >= 0 )
+-        name = path.mid(i+1);
+-    else
+-        name = path;
+-    return exactMatch( name );
+-}
+-
+-
+-void RegExpCache::rebuildCacheFromFilterList( const QStringList& filters )
+-{
+-    m_regexpCache.clear();
+-    Q_FOREACH( const QString& filter, filters ) {
+-        m_regexpCache.append( QRegExp( filter, Qt::CaseSensitive, QRegExp::Wildcard ) );
+-    }
+-}
+diff --git a/nepomuk/common/regexpcache.h b/nepomuk/common/regexpcache.h
+deleted file mode 100644
+index d89f968..0000000
+--- a/nepomuk/common/regexpcache.h
++++ /dev/null
+@@ -1,48 +0,0 @@
+-/*
+-   This file is part of the Nepomuk KDE project.
+-   Copyright (C) 2010 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Lesser General Public
+-   License as published by the Free Software Foundation; either
+-   version 2.1 of the License, or (at your option) version 3, or any
+-   later version accepted by the membership of KDE e.V. (or its
+-   successor approved by the membership of KDE e.V.), which shall
+-   act as a proxy defined in Section 6 of version 3 of the license.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Lesser General Public License for more details.
+-
+-   You should have received a copy of the GNU Lesser General Public
+-   License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+-*/
+-
+-#ifndef _REGEXP_CACHE_H_
+-#define _REGEXP_CACHE_H_
+-
+-#include <QtCore/QList>
+-#include <QtCore/QRegExp>
+-
+-#include "nepomukcommon_export.h"
+-
+-class NEPOMUKCOMMON_EXPORT RegExpCache
+-{
+-public:
+-    RegExpCache();
+-    ~RegExpCache();
+-
+-    bool exactMatch( const QString& s ) const;
+-    bool filenameMatch( const QString& path ) const;
+-
+-    void rebuildCacheFromFilterList( const QStringList& filters );
+-
+-    QList<QRegExp> regExps() const { return m_regexpCache; }
+-
+-private:
+-    QList<QRegExp> m_regexpCache;
+-};
+-
+-#endif
+-
+diff --git a/nepomuk/common/removablemediacache.cpp b/nepomuk/common/removablemediacache.cpp
+deleted file mode 100644
+index 437c133..0000000
+--- a/nepomuk/common/removablemediacache.cpp
++++ /dev/null
+@@ -1,308 +0,0 @@
+-/*
+-   This file is part of the Nepomuk KDE project.
+-   Copyright (C) 2011 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Lesser General Public
+-   License as published by the Free Software Foundation; either
+-   version 2.1 of the License, or (at your option) version 3, or any
+-   later version accepted by the membership of KDE e.V. (or its
+-   successor approved by the membership of KDE e.V.), which shall
+-   act as a proxy defined in Section 6 of version 3 of the license.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Lesser General Public License for more details.
+-
+-   You should have received a copy of the GNU Lesser General Public
+-   License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+-*/
+-
+-#include "removablemediacache.h"
+-
+-#include <Solid/DeviceNotifier>
+-#include <Solid/DeviceInterface>
+-#include <Solid/Block>
+-#include <Solid/Device>
+-#include <Solid/StorageDrive>
+-#include <Solid/StorageVolume>
+-#include <Solid/StorageAccess>
+-#include <Solid/NetworkShare>
+-#include <Solid/OpticalDisc>
+-#include <Solid/Predicate>
+-
+-#include <KDebug>
+-
+-#include <QtCore/QMutexLocker>
+-
+-
+-namespace {
+-    bool isUsableVolume( const Solid::Device& dev ) {
+-        if ( dev.is<Solid::StorageAccess>() ) {
+-            if( dev.is<Solid::StorageVolume>() &&
+-                    dev.parent().is<Solid::StorageDrive>() &&
+-                    ( dev.parent().as<Solid::StorageDrive>()->isRemovable() ||
+-                      dev.parent().as<Solid::StorageDrive>()->isHotpluggable() ) ) {
+-                const Solid::StorageVolume* volume = dev.as<Solid::StorageVolume>();
+-                if ( !volume->isIgnored() && volume->usage() == Solid::StorageVolume::FileSystem )
+-                    return true;
+-            }
+-            else if(dev.is<Solid::NetworkShare>()) {
+-                return !dev.as<Solid::NetworkShare>()->url().isEmpty();
+-            }
+-        }
+-
+-        // fallback
+-        return false;
+-    }
+-
+-    bool isUsableVolume( const QString& udi ) {
+-        Solid::Device dev( udi );
+-        return isUsableVolume( dev );
+-    }
+-}
+-
+-
+-Nepomuk2::RemovableMediaCache::RemovableMediaCache(QObject *parent)
+-    : QObject(parent)
+-{
+-    initCacheEntries();
+-
+-    connect( Solid::DeviceNotifier::instance(), SIGNAL( deviceAdded( const QString& ) ),
+-             this, SLOT( slotSolidDeviceAdded( const QString& ) ) );
+-    connect( Solid::DeviceNotifier::instance(), SIGNAL( deviceRemoved( const QString& ) ),
+-             this, SLOT( slotSolidDeviceRemoved( const QString& ) ) );
+-}
+-
+-
+-Nepomuk2::RemovableMediaCache::~RemovableMediaCache()
+-{
+-}
+-
+-
+-void Nepomuk2::RemovableMediaCache::initCacheEntries()
+-{
+-    QList<Solid::Device> devices
+-            = Solid::Device::listFromQuery(QLatin1String("StorageVolume.usage=='FileSystem'"))
+-            + Solid::Device::listFromType(Solid::DeviceInterface::NetworkShare);
+-    foreach( const Solid::Device& dev, devices ) {
+-        if ( isUsableVolume( dev ) ) {
+-            if(Entry* entry = createCacheEntry( dev )) {
+-                const Solid::StorageAccess* storage = entry->device().as<Solid::StorageAccess>();
+-                if ( storage && storage->isAccessible() )
+-                    slotAccessibilityChanged( true, dev.udi() );
+-            }
+-        }
+-    }
+-}
+-
+-QList<const Nepomuk2::RemovableMediaCache::Entry *> Nepomuk2::RemovableMediaCache::allMedia() const
+-{
+-    QList<const Entry*> media;
+-    for(QHash<QString, Entry>::const_iterator it = m_metadataCache.begin(); it != m_metadataCache.end(); ++it)
+-        media.append(&(*it));
+-    return media;
+-}
+-
+-Nepomuk2::RemovableMediaCache::Entry* Nepomuk2::RemovableMediaCache::createCacheEntry( const Solid::Device& dev )
+-{
+-    QMutexLocker lock(&m_entryCacheMutex);
+-
+-    Entry entry(dev);
+-    if(!entry.url().isEmpty()) {
+-        kDebug() << "Usable" << dev.udi();
+-
+-        // we only add to this set and never remove. This is no problem as this is a small set
+-        m_usedSchemas.insert(KUrl(entry.url()).scheme());
+-
+-        connect( dev.as<Solid::StorageAccess>(), SIGNAL(accessibilityChanged(bool, QString)),
+-                 this, SLOT(slotAccessibilityChanged(bool, QString)) );
+-
+-        m_metadataCache.insert( dev.udi(), entry );
+-
+-        emit deviceAdded(&m_metadataCache[dev.udi()]);
+-
+-        return &m_metadataCache[dev.udi()];
+-    }
+-    else {
+-        kDebug() << "Cannot use device due to empty identifier:" << dev.udi();
+-        return 0;
+-    }
+-}
+-
+-
+-const Nepomuk2::RemovableMediaCache::Entry* Nepomuk2::RemovableMediaCache::findEntryByFilePath( const QString& path ) const
+-{
+-    QMutexLocker lock(&m_entryCacheMutex);
+-
+-    for( QHash<QString, Entry>::const_iterator it = m_metadataCache.begin();
+-         it != m_metadataCache.end(); ++it ) {
+-        const Entry& entry = *it;
+-        const Solid::StorageAccess* storage = entry.device().as<Solid::StorageAccess>();
+-        if ( storage &&
+-             storage->isAccessible() &&
+-             path.startsWith( storage->filePath() ) )
+-            return &entry;
+-    }
+-
+-    return 0;
+-}
+-
+-
+-const Nepomuk2::RemovableMediaCache::Entry* Nepomuk2::RemovableMediaCache::findEntryByUrl(const KUrl &url) const
+-{
+-    QMutexLocker lock(&m_entryCacheMutex);
+-
+-    const QString encodedUrl = QString::fromAscii(url.toEncoded());
+-    for( QHash<QString, Entry>::const_iterator it = m_metadataCache.constBegin();
+-        it != m_metadataCache.constEnd(); ++it ) {
+-        const Entry& entry = *it;
+-        if(encodedUrl.startsWith(entry.url())) {
+-            return &entry;
+-        }
+-    }
+-
+-    return 0;
+-}
+-
+-
+-QList<const Nepomuk2::RemovableMediaCache::Entry*> Nepomuk2::RemovableMediaCache::findEntriesByMountPath(const QString &path) const
+-{
+-    QList<const Entry*> entries;
+-    for( QHash<QString, Entry>::const_iterator it = m_metadataCache.constBegin();
+-        it != m_metadataCache.constEnd(); ++it ) {
+-        const Entry& entry = *it;
+-        if(entry.isMounted() &&
+-           entry.mountPath().startsWith(path)) {
+-            entries.append(&entry);
+-        }
+-    }
+-    return entries;
+-}
+-
+-
+-bool Nepomuk2::RemovableMediaCache::hasRemovableSchema(const KUrl &url) const
+-{
+-    return m_usedSchemas.contains(url.scheme());
+-}
+-
+-
+-void Nepomuk2::RemovableMediaCache::slotSolidDeviceAdded( const QString& udi )
+-{
+-    kDebug() << udi;
+-
+-    if ( isUsableVolume( udi ) ) {
+-        createCacheEntry( Solid::Device( udi ) );
+-    }
+-}
+-
+-
+-void Nepomuk2::RemovableMediaCache::slotSolidDeviceRemoved( const QString& udi )
+-{
+-    kDebug() << udi;
+-    if ( m_metadataCache.contains( udi ) ) {
+-        kDebug() << "Found removable storage volume for Nepomuk undocking:" << udi;
+-        m_metadataCache.remove( udi );
+-    }
+-}
+-
+-
+-void Nepomuk2::RemovableMediaCache::slotAccessibilityChanged( bool accessible, const QString& udi )
+-{
+-    kDebug() << accessible << udi;
+-
+-    //
+-    // cache new mount path
+-    //
+-    if ( accessible ) {
+-        QMutexLocker lock(&m_entryCacheMutex);
+-        Entry* entry = &m_metadataCache[udi];
+-        kDebug() << udi << "accessible at" << entry->device().as<Solid::StorageAccess>()->filePath() << "with identifier" << entry->url();
+-        emit deviceMounted(entry);
+-    }
+-}
+-
+-
+-Nepomuk2::RemovableMediaCache::Entry::Entry()
+-{
+-}
+-
+-
+-Nepomuk2::RemovableMediaCache::Entry::Entry(const Solid::Device& device)
+-    : m_device(device)
+-{
+-    if(device.is<Solid::StorageVolume>()) {
+-        const Solid::StorageVolume* volume = m_device.as<Solid::StorageVolume>();
+-        if(device.is<Solid::OpticalDisc>() &&
+-           !volume->label().isEmpty()) {
+-            // we use the label as is - it is not even close to unique but
+-            // so far we have nothing better
+-
+-            // QUrl does convert the host to lower case
+-            QString label = volume->label().toLower();
+-            // QUrl does not allow spaces in the host
+-            label.replace(' ', '_');
+-
+-            m_urlPrefix = QLatin1String("optical://") + label;
+-        }
+-        else if(!volume->uuid().isEmpty()) {
+-            // we always use lower-case uuids
+-            m_urlPrefix = QLatin1String("filex://") + volume->uuid().toLower();
+-        }
+-    }
+-    else if(device.is<Solid::NetworkShare>()) {
+-        m_urlPrefix = device.as<Solid::NetworkShare>()->url().toString();
+-    }
+-}
+-
+-KUrl Nepomuk2::RemovableMediaCache::Entry::constructRelativeUrl( const QString& path ) const
+-{
+-    if(const Solid::StorageAccess* sa = m_device.as<Solid::StorageAccess>()) {
+-        if(sa->isAccessible()) {
+-            const QString relativePath = path.mid( sa->filePath().count() );
+-            return KUrl( m_urlPrefix + relativePath );
+-        }
+-    }
+-
+-    // fallback
+-    return KUrl();
+-}
+-
+-
+-KUrl Nepomuk2::RemovableMediaCache::Entry::constructLocalFileUrl( const KUrl& filexUrl ) const
+-{
+-    if(const Solid::StorageAccess* sa = m_device.as<Solid::StorageAccess>()) {
+-        if(sa->isAccessible()) {
+-            // the base of the path: the mount path
+-            KUrl fileUrl( sa->filePath() );
+-            fileUrl.addPath(QUrl::fromEncoded(filexUrl.toEncoded().mid(m_urlPrefix.count())).toString());
+-            return fileUrl;
+-        }
+-    }
+-
+-    // fallback
+-    return QString();
+-}
+-
+-QString Nepomuk2::RemovableMediaCache::Entry::mountPath() const
+-{
+-    if(const Solid::StorageAccess* sa = m_device.as<Solid::StorageAccess>()) {
+-        return sa->filePath();
+-    }
+-    else {
+-        return QString();
+-    }
+-}
+-
+-bool Nepomuk2::RemovableMediaCache::Entry::isMounted() const
+-{
+-    if(const Solid::StorageAccess* sa = m_device.as<Solid::StorageAccess>()) {
+-        return sa->isAccessible();
+-    }
+-    else {
+-        return false;
+-    }
+-}
+-
+-#include "removablemediacache.moc"
+diff --git a/nepomuk/common/removablemediacache.h b/nepomuk/common/removablemediacache.h
+deleted file mode 100644
+index 4da7ab5..0000000
+--- a/nepomuk/common/removablemediacache.h
++++ /dev/null
+@@ -1,122 +0,0 @@
+-/*
+-   This file is part of the Nepomuk KDE project.
+-   Copyright (C) 2011 Sebastian Trueg <trueg@kde.org>
+-
+-   This library is free software; you can redistribute it and/or
+-   modify it under the terms of the GNU Lesser General Public
+-   License as published by the Free Software Foundation; either
+-   version 2.1 of the License, or (at your option) version 3, or any
+-   later version accepted by the membership of KDE e.V. (or its
+-   successor approved by the membership of KDE e.V.), which shall
+-   act as a proxy defined in Section 6 of version 3 of the license.
+-
+-   This library is distributed in the hope that it will be useful,
+-   but WITHOUT ANY WARRANTY; without even the implied warranty of
+-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-   Lesser General Public License for more details.
+-
+-   You should have received a copy of the GNU Lesser General Public
+-   License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+-*/
+-
+-#ifndef NEPOMUK_REMOVABLEMEDIACACHE_H
+-#define NEPOMUK_REMOVABLEMEDIACACHE_H
+-
+-#include "nepomukcommon_export.h"
+-
+-#include <QtCore/QObject>
+-#include <QtCore/QMutex>
+-#include <QtCore/QSet>
+-
+-#include <Solid/Device>
+-
+-#include <KUrl>
+-
+-
+-namespace Nepomuk2 {
+-
+-/**
+- * The removable media cache provides access to all removable
+- * media that are supported by Nepomuk. It allows to convert
+- * URLs the way RemovableMediaModel requires it and provides
+- * more or less unique URIs for each device allowing to store
+- * device-specific configuration.
+- */
+-class NEPOMUKCOMMON_EXPORT RemovableMediaCache : public QObject
+-{
+-    Q_OBJECT
+-
+-public:
+-    RemovableMediaCache(QObject *parent = 0);
+-    ~RemovableMediaCache();
+-
+-    class NEPOMUKCOMMON_EXPORT Entry {
+-    public:
+-        Entry();
+-        Entry(const Solid::Device& device);
+-
+-        KUrl constructRelativeUrl( const QString& path ) const;
+-        KUrl constructLocalFileUrl( const KUrl& filexUrl ) const;
+-
+-        Solid::Device device() const { return m_device; }
+-        QString url() const { return m_urlPrefix; }
+-
+-        bool isMounted() const;
+-        QString mountPath() const;
+-
+-    private:
+-        Solid::Device m_device;
+-
+-        /// The prefix to be used for URLs
+-        QString m_urlPrefix;
+-    };
+-
+-    const Entry* findEntryByFilePath( const QString& path ) const;
+-    const Entry* findEntryByUrl(const KUrl& url) const;
+-
+-    /**
+-     * Searches for entries which are mounted at a path which starts with
+-     * the given one. Example: a \p path \p /media will result in all
+-     * entries which are mounted under \p /media like \p /media/disk1 or
+-     * \p /media/cdrom.
+-     */
+-    QList<const Entry*> findEntriesByMountPath(const QString& path) const;
+-
+-    QList<const Entry*> allMedia() const;
+-
+-    /**
+-     * Returns true if the URL might be pointing to a file on a
+-     * removable device as handled by this class, ie. a non-local
+-     * URL which can be converted to a local one.
+-     * This method is primarily used for performance gain.
+-     */
+-    bool hasRemovableSchema(const KUrl& url) const;
+-
+-signals:
+-    void deviceAdded(const Nepomuk2::RemovableMediaCache::Entry* entry);
+-    void deviceMounted(const Nepomuk2::RemovableMediaCache::Entry* entry);
+-
+-private slots:
+-    void slotSolidDeviceAdded(const QString &udi);
+-    void slotSolidDeviceRemoved(const QString &udi);
+-    void slotAccessibilityChanged(bool accessible, const QString &udi);
+-
+-private:
+-    void initCacheEntries();
+-
+-    Entry* createCacheEntry( const Solid::Device& dev );
+-
+-    /// maps Solid UDI to Entry
+-    QHash<QString, Entry> m_metadataCache;
+-
+-    /// contains all schemas that are used as url prefixes in m_metadataCache
+-    /// this is used to avoid trying to convert each and every resource in
+-    /// convertFilexUrl
+-    QSet<QString> m_usedSchemas;
+-
+-    mutable QMutex m_entryCacheMutex;
+-};
+-
+-} // namespace Nepomuk2
+-
+-#endif // NEPOMUK_REMOVABLEMEDIACACHE_H
+diff --git a/nepomuk/kcm/CMakeLists.txt b/nepomuk/kcm/CMakeLists.txt
+index 1578704..9d94650 100644
+--- a/nepomuk/kcm/CMakeLists.txt
++++ b/nepomuk/kcm/CMakeLists.txt
+@@ -28,7 +28,6 @@ kde4_add_ui_files(kcmnepomuk_SRCS
+ kde4_add_plugin(kcm_nepomuk ${kcmnepomuk_SRCS})
+ 
+ target_link_libraries(kcm_nepomuk
+-  nepomukcommon
+   ${KDE4_KDEUI_LIBS}
+   ${KDE4_KIO_LIBS}
+   ${NEPOMUK_CORE_LIBRARY}
+diff --git a/nepomuk/kcm/fileexcludefilters.h b/nepomuk/kcm/fileexcludefilters.h
+index 0f438f7..52d75a2 100644
+--- a/nepomuk/kcm/fileexcludefilters.h
++++ b/nepomuk/kcm/fileexcludefilters.h
+@@ -21,8 +21,6 @@
+ 
+ #include <QtCore/QStringList>
+ 
+-#include "nepomukcommon_export.h"
+-
+ namespace Nepomuk2 {
+     /**
+      * \return A list of default exclude filters to be used
+@@ -30,13 +28,13 @@ namespace Nepomuk2 {
+      * and folders that change a lot and as a basis for the
+      * user configurable exclude filters in the strigi service.
+      */
+-    NEPOMUKCOMMON_EXPORT QStringList defaultExcludeFilterList();
++    QStringList defaultExcludeFilterList();
+ 
+     /**
+      * \return The version of the default exclude filter list.
+      * This is increased whenever the list changes.
+      */
+-    NEPOMUKCOMMON_EXPORT int defaultExcludeFilterListVersion();
++    int defaultExcludeFilterListVersion();
+ }
+ 
+ #endif
+diff --git a/nepomuk/kioslaves/nepomuk/CMakeLists.txt b/nepomuk/kioslaves/nepomuk/CMakeLists.txt
+index c78fd58..4ad9812 100644
+--- a/nepomuk/kioslaves/nepomuk/CMakeLists.txt
++++ b/nepomuk/kioslaves/nepomuk/CMakeLists.txt
+@@ -13,7 +13,6 @@ set(kio_nepomuk_PART_SRCS
+ kde4_add_plugin(kio_nepomuk ${kio_nepomuk_PART_SRCS})
+ 
+ target_link_libraries(kio_nepomuk
+-  nepomukcommon
+   ${KDE4_KIO_LIBS}
+   ${KDE4_SOLID_LIBS}
+   ${NEPOMUK_CORE_LIBRARY}
+diff --git a/nepomuk/kioslaves/search/CMakeLists.txt b/nepomuk/kioslaves/search/CMakeLists.txt
+index d7bf1e0..9321791 100644
+--- a/nepomuk/kioslaves/search/CMakeLists.txt
++++ b/nepomuk/kioslaves/search/CMakeLists.txt
+@@ -28,7 +28,6 @@ kde4_add_plugin(kio_nepomuksearch
+   ${kio_nepomuksearch_PART_SRCS})
+ 
+ target_link_libraries(kio_nepomuksearch
+-  nepomukcommon
+   ${KDE4_KIO_LIBS}
+   ${KDE4_SOLID_LIBS}
+   ${NEPOMUK_CORE_LIBRARY}
+diff --git a/nepomuk/kioslaves/search/kdedmodule/CMakeLists.txt b/nepomuk/kioslaves/search/kdedmodule/CMakeLists.txt
+index 2f82c6b..fff309d 100644
+--- a/nepomuk/kioslaves/search/kdedmodule/CMakeLists.txt
++++ b/nepomuk/kioslaves/search/kdedmodule/CMakeLists.txt
+@@ -34,7 +34,6 @@ qt4_add_dbus_interface(nepomuksearchmodule_SRCS
+ kde4_add_plugin(kded_nepomuksearchmodule ${nepomuksearchmodule_SRCS})
+ 
+ target_link_libraries(kded_nepomuksearchmodule
+-  nepomukcommon
+   ${KDE4_KDECORE_LIBS}
+   ${KDE4_KIO_LIBS}
+   ${NEPOMUK_CORE_LIBRARY}
+diff --git a/nepomuk/kioslaves/timeline/CMakeLists.txt b/nepomuk/kioslaves/timeline/CMakeLists.txt
+index d914436..b465110 100644
+--- a/nepomuk/kioslaves/timeline/CMakeLists.txt
++++ b/nepomuk/kioslaves/timeline/CMakeLists.txt
+@@ -20,7 +20,6 @@ qt4_add_dbus_interface(kio_timeline_PART_SRCS ${NEPOMUK_CORE_DBUS_INTERFACES_DIR
+ kde4_add_plugin(kio_timeline ${kio_timeline_PART_SRCS})
+ 
+ target_link_libraries(kio_timeline
+-  nepomukcommon
+   ${KDE4_KIO_LIBS}
+   ${NEPOMUK_CORE_LIBRARY}
+   ${SOPRANO_LIBRARIES}
