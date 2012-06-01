@@ -23,5 +23,3 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 392989
-
-PATCHES=( "${FILESDIR}/${P}-file-collisions.patch" )
