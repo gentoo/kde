@@ -21,8 +21,3 @@ add_blocker nepomuk '<4.8.80'
 
 RESTRICT="test"
 # bug 392989
-
-PATCHES=(
-	"${FILESDIR}/${P}-remove-rcgen.patch"
-	"${FILESDIR}/${P}-workspace.patch"
-)
