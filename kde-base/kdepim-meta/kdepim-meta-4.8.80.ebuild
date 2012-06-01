@@ -22,6 +22,7 @@ RDEPEND="
 	$(add_kdebase_dep kdepim-strigi-analyzer)
 	$(add_kdebase_dep kjots)
 	$(add_kdebase_dep kleopatra)
+	$(add_kdebase_dep kdepim-l10n)
 	$(add_kdebase_dep kmail)
 	$(add_kdebase_dep knode)
 	$(add_kdebase_dep knotes)
