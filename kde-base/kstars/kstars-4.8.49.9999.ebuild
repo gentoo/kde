@@ -16,7 +16,7 @@ DEPEND="
 	dev-cpp/eigen:2
 	$(add_kdebase_dep libkdeedu)
 	fits? ( >=sci-libs/cfitsio-0.390 )
-	indi? ( >=sci-libs/indilib-0.6.2[fits?] )
+	indi? ( >=sci-libs/indilib-0.9.1 )
 "
 RDEPEND="${DEPEND}"
 
