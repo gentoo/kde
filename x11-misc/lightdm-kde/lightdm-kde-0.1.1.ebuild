@@ -5,11 +5,13 @@
 EAPI=4
 
 KDE_MINIMAL="4.8"
+KDE_SCM="git"
+EGIT_REPONAME="${PN/-kde/}"
 inherit kde4-base
 
 DESCRIPTION="LightDM KDE greeter"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/lightdm"
-SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
+[[ ${PV} = 9999* ]] || SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
