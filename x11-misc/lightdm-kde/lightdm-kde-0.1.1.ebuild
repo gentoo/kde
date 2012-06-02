@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="LightDM KDE greeter"
 HOMEPAGE="http://kde.org/"
-SRC_URI="http://download.kde.org/unstable/${PN}/src/${P}.tar.bz2"
+SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
