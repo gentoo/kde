@@ -17,7 +17,7 @@ SRC_URI="http://download.kde.org/unstable/${MY_PN}/src/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 S=$WORKDIR/${MY_P}
