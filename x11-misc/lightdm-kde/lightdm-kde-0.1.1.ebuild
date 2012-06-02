@@ -8,7 +8,7 @@ KDE_MINIMAL="4.8"
 inherit kde4-base
 
 DESCRIPTION="LightDM KDE greeter"
-HOMEPAGE="http://kde.org/"
+HOMEPAGE="https://projects.kde.org/projects/playground/base/lightdm"
 SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
