@@ -15,3 +15,5 @@ DEPEND="
 	virtual/ffmpeg
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-4.8.1-ffmpeg.patch" )
