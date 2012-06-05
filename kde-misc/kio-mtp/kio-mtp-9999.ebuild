@@ -13,7 +13,7 @@ HOMEPAGE="http://quickgit.kde.org/index.php?p=scratch%2Fschmidt%2Fkio-mtp.git&a=
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug"
 
 COMMONDEPEND="
