@@ -12,7 +12,7 @@ HOMEPAGE="http://kde-look.org/content/show.php/translatoid?content=97511"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
