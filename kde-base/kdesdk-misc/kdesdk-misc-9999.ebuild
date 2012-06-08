@@ -23,10 +23,8 @@ KMEXTRA="
 	kmtrace/
 	kpartloader/
 	kprofilemethod/
-	kspy/
 	kunittest/
 	poxml/
-	scheck/
 "
 
 src_configure() {
