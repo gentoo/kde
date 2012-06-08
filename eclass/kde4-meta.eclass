@@ -488,6 +488,13 @@ kde4-meta_change_cmakelists() {
 			-i CMakeLists.txt || die "${LINENO}: cmake sed died"
 	fi
 
+	# Restore "add_subdirectory( ${ ..." (this is done in kdesdk)
+	if [[ -f CMakeLists.txt ]]; then
+		sed -e '/add_subdirectory[[:space:]]*([[:space:]]*\${/s/^#DONOTCOMPILE //' \
+			-e '/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*\${/s/^#DONOTCOMPILE //' \
+			-i CMakeLists.txt || die "${LINENO}: cmake sed died"
+	fi
+
 	if [[ -z ${KMNOMODULE} ]]; then
 		# Restore "add_subdirectory" in $KMMODULE subdirectories
 		find "${S}"/${KMMODULE} -name CMakeLists.txt -print0 | \
