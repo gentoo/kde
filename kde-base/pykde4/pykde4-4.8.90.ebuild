@@ -22,7 +22,10 @@ REQUIRED_USE="test? ( semantic-desktop )"
 RDEPEND="
 	>=dev-python/sip-4.13.1
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
-	semantic-desktop? ( $(add_kdebase_dep kdepimlibs 'semantic-desktop') )
+	semantic-desktop? (
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+		>=dev-libs/soprano-2.7.56-r1
+	)
 	aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,X] )
 "
