@@ -1,0 +1,2 @@
+# bindings not updated yet
+~kde-base/marble-4.8.90 python
