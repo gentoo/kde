@@ -19,8 +19,6 @@ add_blocker kdelibs 4.7.1-r1
 # Moved here in 4.8
 add_blocker activitymanager
 
-RESTRICT="test"
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
