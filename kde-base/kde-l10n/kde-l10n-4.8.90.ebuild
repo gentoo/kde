@@ -21,7 +21,7 @@ IUSE="+handbook"
 # /usr/portage/distfiles $ ls -1 kde-l10n-*-${PV}.* |sed -e 's:-${PV}.tar.xz::' -e 's:kde-l10n-::' |tr '\n' ' '
 MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl he
 hr hu ia id is it ja kk km ko lt lv nb nds nl nn pa pl pt pt_BR ro ru si sk sl
-sr sv tg th tr ug uk vi wa zh_CN zh_TW"
+sr sv tg th ug uk vi tr wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
 SRC_URI=""
