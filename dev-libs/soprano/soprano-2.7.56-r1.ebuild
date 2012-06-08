@@ -49,6 +49,7 @@ CMAKE_IN_SOURCE_BUILD="1"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4.4-make-broken-redland-fatal.cmake"
+	"${FILESDIR}/${PN}-2.7.56-tcpclient.patch"
 )
 
 pkg_setup() {
