@@ -23,7 +23,6 @@ KMEXTRA="
 	kmtrace/
 	kpartloader/
 	kprofilemethod/
-	kunittest/
 	poxml/
 "
 
