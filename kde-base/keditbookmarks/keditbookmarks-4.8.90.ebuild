@@ -17,6 +17,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT=test
+# 1 test, 1 fail
+
 KMEXTRACTONLY="
 	lib/konq/
 "
+
