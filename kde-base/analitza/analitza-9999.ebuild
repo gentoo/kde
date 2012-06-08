@@ -21,9 +21,6 @@ add_blocker kalgebra 4.7.50
 
 PATCHES=( "${FILESDIR}/${PN}-solaris-graph2d.patch" )
 
-RESTRICT=test
-# bug 420253
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
