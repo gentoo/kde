@@ -15,7 +15,6 @@ RDEPEND="
 	$(add_kdebase_dep kapptemplate)
 	$(add_kdebase_dep kate)
 	$(add_kdebase_dep kcachegrind)
-	$(add_kdebase_dep kdeaccounts-plugin)
 	$(add_kdebase_dep kdesdk-kioslaves)
 	$(add_kdebase_dep kdesdk-misc)
 	$(add_kdebase_dep kdesdk-scripts)
