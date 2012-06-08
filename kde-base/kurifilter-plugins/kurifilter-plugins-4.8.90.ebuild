@@ -10,3 +10,6 @@ inherit kde4-meta
 DESCRIPTION="KDE: Plugins to manage filtering URIs."
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+RESTRICT=test
+# bug 420255
