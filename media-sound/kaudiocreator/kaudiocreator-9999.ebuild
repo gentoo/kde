@@ -4,7 +4,7 @@
 
 EAPI=4
 
-KMNAME="extragear/multimedia"
+KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE CD ripper and audio encoder frontend"
@@ -16,7 +16,7 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdemultimedia-kioslaves)
+	$(add_kdebase_dep audiocd-kio)
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
 	media-libs/libdiscid
