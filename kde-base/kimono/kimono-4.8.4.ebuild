@@ -16,7 +16,7 @@ DEPEND="
 	$(add_kdebase_dep smokeqt)
 	$(add_kdebase_dep smokekde 'semantic-desktop=')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
-	semantic-desktop? ( >=dev-libs/soprano-2.6.51[clucene] )
+	semantic-desktop? ( >=dev-libs/soprano-2.7.56-r1[clucene] )
 "
 RDEPEND="${DEPEND}"
 
