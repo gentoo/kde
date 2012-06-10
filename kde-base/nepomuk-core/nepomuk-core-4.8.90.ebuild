@@ -13,7 +13,7 @@ IUSE="debug"
 
 DEPEND="
 	>=app-misc/strigi-0.7.7[dbus,qt4]
-	>=dev-libs/soprano-2.7.56[dbus,raptor,redland,virtuoso]
+	>=dev-libs/soprano-2.7.56-r1[dbus,raptor,redland,virtuoso]
 "
 RDEPEND="${DEPEND}"
 
