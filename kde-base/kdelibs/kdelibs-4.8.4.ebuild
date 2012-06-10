@@ -7,7 +7,7 @@ EAPI=4
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
-inherit kde4-base fdo-mime multilib toolchain-funcs
+inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
 # The "master" branch is out of date, so use KDE/4.8 per upstream's
 # recommendation.
