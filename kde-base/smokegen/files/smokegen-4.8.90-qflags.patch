@@ -1,0 +1,29 @@
+From 7b67ac626f27e1d405ab92a2d2a8bb91ffa98c2d Mon Sep 17 00:00:00 2001
+From: Arno Rehn <arno@arnorehn.de>
+Date: Sun, 10 Jun 2012 22:27:42 +0200
+Subject: [PATCH] QFlags references are valid unless they are return types of
+ field accessors.
+
+Fixes compilation of smokekde.
+
+CCMAIL: kde-bindings@kde.org
+---
+ generators/smoke/helpers.cpp |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/generators/smoke/helpers.cpp b/generators/smoke/helpers.cpp
+index b15791d..4fb2c98 100644
+--- a/generators/smoke/helpers.cpp
++++ b/generators/smoke/helpers.cpp
+@@ -609,7 +609,7 @@ void Util::addAccessorMethods(const Field& field, QSet<Type*> *usedTypes)
+ {
+     Class* klass = field.getClass();
+     Type* type = field.type();
+-    if (type->getClass() && type->pointerDepth() == 0) {
++    if (type->getClass() && type->pointerDepth() == 0 && !(ParserOptions::qtMode && type->getClass()->name() == "QFlags")) {
+         Type newType = *type;
+         newType.setIsRef(true);
+         type = Type::registerType(newType);
+-- 
+1.7.9.2
+

@@ -18,3 +18,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 add_blocker smoke
+
+PATCHES=( "${FILESDIR}/${P}-qflags.patch" )
