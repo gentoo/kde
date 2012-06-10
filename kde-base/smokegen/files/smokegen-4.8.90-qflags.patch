@@ -1,21 +1,44 @@
-From 7b67ac626f27e1d405ab92a2d2a8bb91ffa98c2d Mon Sep 17 00:00:00 2001
-From: Arno Rehn <arno@arnorehn.de>
-Date: Sun, 10 Jun 2012 22:27:42 +0200
-Subject: [PATCH] QFlags references are valid unless they are return types of
- field accessors.
-
-Fixes compilation of smokekde.
-
-CCMAIL: kde-bindings@kde.org
----
- generators/smoke/helpers.cpp |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 diff --git a/generators/smoke/helpers.cpp b/generators/smoke/helpers.cpp
-index b15791d..4fb2c98 100644
+index a76ed54..4fb2c98 100644
 --- a/generators/smoke/helpers.cpp
 +++ b/generators/smoke/helpers.cpp
-@@ -609,7 +609,7 @@ void Util::addAccessorMethods(const Field& field, QSet<Type*> *usedTypes)
+@@ -472,7 +472,7 @@ QChar Util::munge(const Type *type) {
+         // reference to array or hash or unknown
+         return '?';
+     } else if (type->isIntegral() || type->getEnum() || Options::scalarTypes.contains(type->name()) ||
+-                (Options::qtMode && type->pointerDepth() == 0 &&
++                (Options::qtMode && !type->isRef() && type->pointerDepth() == 0 &&
+                 (type->getClass() && type->getClass()->isTemplate() && type->getClass()->name() == "QFlags")))
+     {
+         // plain scalar
+@@ -516,7 +516,7 @@ QString Util::stackItemField(const Type* type)
+         return stackItemField(&resolved);
+     }
+ 
+-    if (Options::qtMode && type->pointerDepth() == 0 &&
++    if (Options::qtMode && !type->isRef() && type->pointerDepth() == 0 &&
+         type->getClass() && type->getClass()->isTemplate() && type->getClass()->name() == "QFlags")
+     {
+         return "s_uint";
+@@ -555,14 +555,15 @@ QString Util::assignmentString(const Type* type, const QString& var)
+ 
+     if (type->pointerDepth() > 0 || type->isFunctionPointer()) {
+         return "(void*)" + var;
+-    } else if (Options::qtMode && type->getClass() && type->getClass()->isTemplate() && type->getClass()->name() == "QFlags") {
+-        return "(uint)" + var;
+     } else if (type->isRef()) {
+         return "(void*)&" + var;
+     } else if (type->isIntegral() && !Options::voidpTypes.contains(type->name())) {
+         return var;
+     } else if (type->getEnum()) {
+         return var;
++    } else if (Options::qtMode && type->getClass() && type->getClass()->isTemplate() && type->getClass()->name() == "QFlags")
++    {
++        return "(uint)" + var;
+     } else {
+         QString ret = "(void*)new " + type->toString();
+         ret += '(' + var + ')';
+@@ -608,7 +609,7 @@ void Util::addAccessorMethods(const Field& field, QSet<Type*> *usedTypes)
  {
      Class* klass = field.getClass();
      Type* type = field.type();
@@ -24,6 +47,43 @@ index b15791d..4fb2c98 100644
          Type newType = *type;
          newType.setIsRef(true);
          type = Type::registerType(newType);
--- 
-1.7.9.2
-
+diff --git a/generators/smoke/writeSmokeDataFile.cpp b/generators/smoke/writeSmokeDataFile.cpp
+index 2445e6d..6c15fd9 100644
+--- a/generators/smoke/writeSmokeDataFile.cpp
++++ b/generators/smoke/writeSmokeDataFile.cpp
+@@ -118,7 +118,7 @@ QString SmokeDataFile::getTypeFlags(const Type *t, int *classIdx)
+         flags += "|Smoke::t_voidp";
+     } else if (t->getClass()) {
+         if (t->getClass()->isTemplate()) {
+-            if (Options::qtMode && t->getClass()->name() == "QFlags" && t->pointerDepth() == 0) {
++            if (Options::qtMode && t->getClass()->name() == "QFlags" && !t->isRef() && t->pointerDepth() == 0) {
+                 flags += "|Smoke::t_uint";
+             } else {
+                 flags += "|Smoke::t_voidp";
+@@ -157,21 +157,14 @@ QString SmokeDataFile::getTypeFlags(const Type *t, int *classIdx)
+         flags += "|Smoke::t_voidp";
+     }
+ 
+-    // special case QFlags references
+-    if (Options::qtMode && t->pointerDepth() == 0 && t->getClass() && t->getClass()->isTemplate() && t->getClass()->name() == "QFlags") {
++    if (t->isRef())
++        flags += "|Smoke::tf_ref";
++    if (t->pointerDepth() > 0)
++        flags += "|Smoke::tf_ptr";
++    if (!t->isRef() && t->pointerDepth() == 0)
+         flags += "|Smoke::tf_stack";
+-    } else {
+-        if (t->isRef())
+-            flags += "|Smoke::tf_ref";
+-        if (t->pointerDepth() > 0)
+-            flags += "|Smoke::tf_ptr";
+-        if (!t->isRef() && t->pointerDepth() == 0)
+-            flags += "|Smoke::tf_stack";
+-    }
+-
+     if (t->isConst())
+         flags += "|Smoke::tf_const";
+-
+     flags.replace("0|", "");
+ 
+     return flags;
