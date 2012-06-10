@@ -14,7 +14,7 @@ RDEPEND="
 	>=dev-lang/perl-5.10.1
 	$(add_kdebase_dep perlqt)
 	$(add_kdebase_dep smokekde 'attica?,kate?,okular?,semantic-desktop=')
-	semantic-desktop? ( >=dev-libs/soprano-2.6.51 )
+	semantic-desktop? ( >=dev-libs/soprano-2.7.56-r1 )
 "
 DEPEND="${RDEPEND}
 	test? ( dev-perl/List-MoreUtils )
