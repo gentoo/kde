@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-inherit kde4-base
+inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDE Desktop Planetarium"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
