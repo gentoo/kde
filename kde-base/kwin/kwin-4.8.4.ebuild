@@ -6,7 +6,7 @@ EAPI=4
 
 KMNAME="kde-workspace"
 OPENGL_REQUIRED="always"
-inherit kde4-meta
+inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
