@@ -1,10 +1,10 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header $
+# $Header: $
 
 EAPI=4
 
-inherit eutils autotools
+inherit eutils
 
 PYTHON_DEPEND="2:2.6"
 
@@ -15,12 +15,11 @@ SRC_URI="mirror://sourceforge/idjc/${P}.tar.gz"
 SLOT="0"
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-IUSE="aac ffmpeg flac mp3 mp3-streaming mp3-tagging speex"
+IUSE="aac ffmpeg flac mp3 speex"
 
 DEPEND="
-	>=dev-util/pkgconfig-0.9.0
+	virtual/pkgconfig
 "
-	
 RDEPEND="${DEPEND}
 	dev-python/pygtk
 	media-libs/libsamplerate
@@ -32,9 +31,11 @@ RDEPEND="${DEPEND}
 	aac? ( media-libs/faad2 )
 	ffmpeg? ( virtual/ffmpeg )
 	flac? ( >=media-libs/flac-1.1.3 )
-	mp3? ( >=media-libs/libmad-0.15.1b )
-	mp3-streaming? ( media-sound/lame )
-	mp3-tagging? ( dev-python/eyeD3 )
+	mp3? (
+			dev-python/eyeD3
+			media-sound/lame
+			>=media-libs/libmad-0.15.1b
+	)
 	speex? ( >=media-libs/speex-1.2_rc1 )
 "
 
