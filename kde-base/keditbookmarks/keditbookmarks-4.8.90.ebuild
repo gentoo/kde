@@ -23,4 +23,3 @@ RESTRICT=test
 KMEXTRACTONLY="
 	lib/konq/
 "
-
