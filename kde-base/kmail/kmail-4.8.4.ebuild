@@ -7,7 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 VIRTUALX_REQUIRED=test
-inherit kde4-meta
+inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
