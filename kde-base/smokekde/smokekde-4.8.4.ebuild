@@ -4,7 +4,6 @@
 
 EAPI=4
 
-
 inherit kde4-base
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine - KDE bindings"
