@@ -3,7 +3,13 @@ Agenda topics for the next KDE team meeting
 
 1. Roll call (5 minutes)
 
-2. Bugs (30 minutes)
+2. Move KDE 4.8.4 to the tree? (5 minutes)
+   It seems that the problems have been solved with newer soprano.
+
+3. Once it's out, should we move KDE 4.9.0 to the tree? (10 minutes)
+   Currently 4.8.90 looks quite solid, so this is a real option.
+
+4. Bugs (30 minutes)
    * app-cdr/k3b: Excessive use of REQUIRED_USE (and wrong combination USE="lame"+"encode")
     REQUIRED_USE was added, otherwise USE="-encode lame" does nothing
     Options:
@@ -13,4 +19,4 @@ Agenda topics for the next KDE team meeting
         4. Drop the encode flag and keep optional RDEPS (current behaviour)
     https://bugs.gentoo.org/show_bug.cgi?id=417235    
 
-3. Open floor (15 minutes)
+5. Open floor (15 minutes)
