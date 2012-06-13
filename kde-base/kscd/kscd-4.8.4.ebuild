@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_HANDBOOK="optional"
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
@@ -22,9 +21,3 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	libkcompactdisc/
 "
-
-src_unpack() {
-	use handbook && KMEXTRA="doc/kcontrol/cddbretrieval"
-
-	kde4-meta_src_unpack
-}
