@@ -20,6 +20,7 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:3 )
 "
 RDEPEND="${DEPEND}"
+add_blocker kscd "<4.8.4"
 
 KMSAVELIBS="true"
 
