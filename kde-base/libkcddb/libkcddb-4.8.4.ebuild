@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_HANDBOOK="optional"
 KMNAME="kdemultimedia"
 inherit kde4-meta
 
@@ -27,12 +26,6 @@ KMSAVELIBS="true"
 KMEXTRACTONLY="
 	libkcddb/kcmcddb/doc
 "
-
-src_unpack() {
-	use handbook && KMEXTRA="libkcddb/kcmcddb/doc"
-
-	kde4-meta_src_unpack
-}
 
 src_configure() {
 	mycmakeargs=(
