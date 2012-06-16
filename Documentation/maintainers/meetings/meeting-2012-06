@@ -3,8 +3,9 @@ Agenda topics for the next KDE team meeting
 
 1. Roll call (5 minutes)
 
-2. Move KDE 4.8.4 to the tree? (5 minutes)
-   It seems that the problems have been solved with newer soprano.
+2. Move KDE 4.8.4 to the tree, and in which variant? (5 minutes)
+   It seems that the problems have been solved with a) newer soprano or b) reverted commit.
+   Which way do we want to go?
 
 3. Once it's out, should we move KDE 4.9.0 to the tree? (10 minutes)
    Currently 4.8.90 looks quite solid, so this is a real option.
