@@ -10,12 +10,12 @@ inherit kde4-base
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="analitza debug ps +R"
+IUSE="analitza debug postscript +R"
 
 # TODO Add Sage Mathematics Software backend (http://www.sagemath.org)
 RDEPEND="
 	analitza? ( $(add_kdebase_dep analitza) )
-	ps? ( app-text/libspectre )
+	postscript? ( app-text/libspectre )
 	R? ( dev-lang/R )
 "
 DEPEND="${RDEPEND}
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with analitza)
-		$(cmake-utils_use_with ps LibSpectre)
+		$(cmake-utils_use_with postscript LibSpectre)
 		$(cmake-utils_use_with R)
 	)
 	kde4-base_src_configure

@@ -4,7 +4,6 @@
 <herd>kde</herd>
 <use>
 	<flag name="analitza">Enable support <pkg>kde-base/analitza</pkg></flag>
-	<flag name="ps">Enable rendering EPS files</flag>
 	<flag name="R">Enable R backend support</flag>
 </use>
 </pkgmetadata>
