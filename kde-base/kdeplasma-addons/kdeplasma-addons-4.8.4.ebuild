@@ -24,7 +24,10 @@ COMMON_DEPEND="
 	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
-	fcitx? ( app-i18n/fcitx[dbus] )
+	fcitx? ( || (
+		>=app-i18n/fcitx-4.2.4
+		app-i18n/fcitx[dbus]
+	) )
 	ibus? ( app-i18n/ibus )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
