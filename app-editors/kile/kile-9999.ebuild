@@ -25,7 +25,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdebase-data)
 	|| (
-		$(add_kdebase_dep okular 'pdf?,ps')
+		$(add_kdebase_dep okular 'pdf?,postscript')
 		app-text/acroread
 	)
 	virtual/latex-base
