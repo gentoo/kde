@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_SCM="git"
-inherit kde4-base
+inherit kde4-base python
 
 DESCRIPTION="Qt4 bindings for the Telepathy logger"
 HOMEPAGE="https://projects.kde.org/projects/kdereview/telepathy-logger-qt"
@@ -26,3 +26,8 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.1
 "
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
