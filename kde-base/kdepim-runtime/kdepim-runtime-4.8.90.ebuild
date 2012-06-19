@@ -24,17 +24,18 @@ DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.10.0
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
-	google? ( net-libs/libkgoogle[-oldpim] )
+	google? ( >=net-libs/libkgapi-0.4.0[-oldpim] )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
+	!kde-misc/akonadi-google
 "
 
 # nepomuk_email_feeder moved here in 4.8
 add_blocker kdepim-common-libs 4.7.50
 
 src_prepare() {
-	sed -e "s:find_package(LibKGoogle):macro_optional_find_package(LibKGoogle):g" \
+	sed -e "s:find_package(LibKGAPI QUIET NO_MODULE):macro_optional_find_package(LibKGAPI):g" \
 	    -i "${S}/CMakeLists.txt" || die "fixing automagic dependencies failed"
 
 	kde4-base_src_prepare
@@ -42,7 +43,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with google LibKGoogle)
+		$(cmake-utils_use_with google LibKGAPI)
 	)
 
 	kde4-base_src_configure
