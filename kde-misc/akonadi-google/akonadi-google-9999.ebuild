@@ -23,6 +23,7 @@ DEPEND="
 	net-libs/libkgapi
 	oldpim? ( dev-libs/boost )
 	!oldpim? ( $(add_kdebase_dep kdepimlibs semantic-desktop 4.6.0) )
+	!>=kde-base/kdepim-runtime-4.8.50
 "
 RDEPEND=${DEPEND}
 
