@@ -99,7 +99,7 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		udisks? ( sys-fs/udisks:0 )
+		udisks? ( sys-fs/udisks:2 )
 		upower? ( sys-power/upower )
 	)
 "
@@ -129,6 +129,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
+	"${FILESDIR}/${PN}-4.8.90-udisks2"_{prep,backend,post}.patch
 )
 
 pkg_pretend() {

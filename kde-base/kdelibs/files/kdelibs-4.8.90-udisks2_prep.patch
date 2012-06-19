@@ -1,0 +1,65 @@
+diff -up kdelibs-4.8.2/solid/solid/CMakeLists.txt.udisks2_prep kdelibs-4.8.2/solid/solid/CMakeLists.txt
+--- kdelibs-4.8.2/solid/solid/CMakeLists.txt.udisks2_prep	2011-07-27 13:34:38.000000000 -0500
++++ kdelibs-4.8.2/solid/solid/CMakeLists.txt	2012-04-17 16:02:06.153985974 -0500
+@@ -1,6 +1,7 @@
+ set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+ add_subdirectory( ifaces )
+ include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
++include_directories( ${QT_QTDBUS_INCLUDE_DIR} )
+ 
+ if(WIN32)
+    include_directories( ${KDEWIN_INCLUDES} )
+diff -up kdelibs-4.8.2/solid/solid/managerbase.cpp.udisks2_prep kdelibs-4.8.2/solid/solid/managerbase.cpp
+--- kdelibs-4.8.2/solid/solid/managerbase.cpp.udisks2_prep	2011-07-27 13:34:39.000000000 -0500
++++ kdelibs-4.8.2/solid/solid/managerbase.cpp	2012-04-17 16:02:06.154985961 -0500
+@@ -21,7 +21,7 @@
+ #include "managerbase_p.h"
+ 
+ #include <stdlib.h>
+-#if !defined (Q_WS_WIN) && !defined (Q_OS_MAC)
++#if !defined (Q_OS_WIN) && !defined (Q_OS_MAC)
+ #include <config-solid.h>
+ #endif
+ 
+@@ -44,7 +44,7 @@
+ 
+ #include "backends/fstab/fstabmanager.h"
+ 
+-#elif defined (Q_WS_WIN) && defined(HAVE_WBEM) && !defined(_WIN32_WCE)
++#elif defined (Q_OS_WIN) && defined(HAVE_WBEM) && !defined(_WIN32_WCE)
+ #include "backends/wmi/wmimanager.h"
+ #endif
+ 
+@@ -68,7 +68,7 @@ void Solid::ManagerBasePrivate::loadBack
+ #        if defined(Q_OS_MAC)
+             m_backends << new Solid::Backends::IOKit::IOKitManager(0);
+ 
+-#        elif defined(Q_WS_WIN) && defined(HAVE_WBEM) && !defined(_WIN32_WCE)
++#        elif defined(Q_OS_WIN) && defined(HAVE_WBEM) && !defined(_WIN32_WCE)
+             m_backends << new Solid::Backends::Wmi::WmiManager(0);
+ 
+ #        elif defined(Q_OS_UNIX) && !defined(Q_OS_LINUX)
+diff -up kdelibs-4.8.2/solid/tests/CMakeLists.txt.udisks2_prep kdelibs-4.8.2/solid/tests/CMakeLists.txt
+--- kdelibs-4.8.2/solid/tests/CMakeLists.txt.udisks2_prep	2011-10-20 15:52:04.000000000 -0500
++++ kdelibs-4.8.2/solid/tests/CMakeLists.txt	2012-04-17 16:02:44.584505527 -0500
+@@ -16,20 +16,6 @@ target_link_libraries(fakehardwaretest s
+ add_definitions(-DTEST_DATA="\\"${CMAKE_CURRENT_SOURCE_DIR}/../solid/backends/fakehw/fakecomputer.xml\\"")
+ 
+ 
+-########### halbasictest ###############
+-
+-if(NOT WIN32 AND NOT APPLE)
+-set(halbasictest_SRCS halbasictest.cpp )
+-
+-kde4_add_executable(halbasictest ${halbasictest_SRCS})
+-
+-if(WIN32)
+-  set_target_properties(halbasictest PROPERTIES COMPILE_FLAGS -DSOLID_EXPORT=)
+-endif(WIN32)
+-
+-target_link_libraries(halbasictest solid_static ${KDEWIN_LIBRARIES} ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTTEST_LIBRARY} )
+-endif(NOT WIN32 AND NOT APPLE)
+-
+ ########### solidhwtest ###############
+ 
+ set(solidhwtest_SRCS 
