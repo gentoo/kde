@@ -7,7 +7,7 @@ EAPI=4
 KDE_SCM="git"
 inherit kde4-base
 
-EGIT_REPO_URI="git://anongit.kde.org/scratch/dvratil/akonadi-google.git"
+EGIT_REPO_URI="git://anongit.kde.org/scratch/dvratil/akonadi-google-resources"
 DESCRIPTION="Google services integration in Akonadi"
 HOMEPAGE="https://projects.kde.org/projects/scratch/dvratil/akonadi-google"
 LICENSE="GPL-2"
@@ -20,6 +20,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs semantic-desktop)
 	dev-libs/libxslt
 	dev-libs/qjson
+	net-libs/libkgapi
 	oldpim? ( dev-libs/boost )
 	!oldpim? ( $(add_kdebase_dep kdepimlibs semantic-desktop 4.6.0) )
 "
