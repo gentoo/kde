@@ -2103,7 +2103,7 @@ diff -ruN kdelibs-4.8.90.orig/solid/solid/backends/udisks2/udisksopticaldisc.cpp
 +#include <QtCore/QFile>
 +#include <QtDBus/QDBusConnection>
 +
-+#include "../shared/udevqtclient.h"
++#include "../shared/udevqt.h"
 +
 +#include "udisks2.h"
 +#include "udisksopticaldisc.h"
@@ -2381,7 +2381,7 @@ diff -ruN kdelibs-4.8.90.orig/solid/solid/backends/udisks2/udisksopticaldisc.h k
 +
 +#include <solid/ifaces/opticaldisc.h>
 +
-+#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
 +
 +#include "udisksstoragevolume.h"
 +#include "udisksdevice.h"
@@ -3199,7 +3199,7 @@ diff -ruN kdelibs-4.8.90.orig/solid/solid/backends/udisks2/udisksstoragedrive.cp
 +
 +#include "udisksstoragedrive.h"
 +
-+#include "../shared/udevqtclient.h"
++#include "../shared/udevqt.h"
 +
 +#include <QtCore/QDebug>
 +#include <QtCore/QFile>
@@ -3353,7 +3353,7 @@ diff -ruN kdelibs-4.8.90.orig/solid/solid/backends/udisks2/udisksstoragedrive.h 
 +
 +#include <ifaces/storagedrive.h>
 +
-+#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
 +
 +#include "udisksblock.h"
 +
