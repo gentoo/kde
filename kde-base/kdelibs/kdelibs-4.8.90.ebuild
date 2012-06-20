@@ -22,7 +22,6 @@ LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam +handbook jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
 +upower upnp zeroconf"
-SRC_URI+=" http://dev.gentoo.org/~dilfridge/distfiles/kdelibs-4.8.90-udisks2_backend.patch.bz2"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -130,9 +129,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
-	"${FILESDIR}/${PN}-4.8.90-udisks2_prep.patch"
-	"${WORKDIR}/${PN}-4.8.90-udisks2_backend.patch"
-	"${FILESDIR}/${PN}-4.8.90-udisks2_post.patch"
+	"${FILESDIR}/${PN}-4.8.90-udisks2.patch"
 )
 
 pkg_pretend() {
