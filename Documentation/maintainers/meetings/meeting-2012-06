@@ -10,7 +10,13 @@ Agenda topics for the next KDE team meeting
 3. Once it's out, should we move KDE 4.9.0 to the tree? (10 minutes)
    Currently 4.8.90 looks quite solid, so this is a real option.
 
-4. Bugs (30 minutes)
+4. Udisks2 (5 minutes)
+   On request from Samuli I've added the Udisks2 patch from RedHat to kdelibs. This
+   *replaces* the udisks:0 solid backend with a new udisks:2 version. Has according 
+   to Wulf (philantrop) still some issues.
+   Feedback? Experiences? Keep for 4.9.0 or (temporarily) ditch again?
+
+5. Bugs (30 minutes)
    * app-cdr/k3b: Excessive use of REQUIRED_USE (and wrong combination USE="lame"+"encode")
     REQUIRED_USE was added, otherwise USE="-encode lame" does nothing
     Options:
@@ -20,4 +26,4 @@ Agenda topics for the next KDE team meeting
         4. Drop the encode flag and keep optional RDEPS (current behaviour)
     https://bugs.gentoo.org/show_bug.cgi?id=417235    
 
-5. Open floor (15 minutes)
+6. Open floor (15 minutes)
