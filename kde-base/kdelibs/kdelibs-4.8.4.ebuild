@@ -77,7 +77,7 @@ COMMONDEPEND="
 	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.8.1
-		>=dev-libs/soprano-2.7.56-r1[dbus,raptor,redland]
+		>=dev-libs/soprano-2.7.6[dbus,raptor,redland]
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
@@ -128,6 +128,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
+	"${FILESDIR}/${PN}-4.8.4-sopranorevert1.patch"
+	"${FILESDIR}/${PN}-4.8.4-sopranorevert2.patch"
+	"${FILESDIR}/${PN}-4.8.4-power.patch"
 )
 
 pkg_pretend() {
