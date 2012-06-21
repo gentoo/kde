@@ -16,7 +16,7 @@ IUSE="debug semantic-desktop"
 DEPEND="
 	>=app-text/hunspell-1.2.8
 	>=x11-libs/qt-sql-4.5.0:4[sqlite]
-	semantic-desktop? ( >=dev-libs/soprano-2.7.56-r1 )
+	semantic-desktop? ( >=dev-libs/soprano-2.7.6 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesdk-strigi-analyzer)
