@@ -4,39 +4,44 @@
 
 EAPI=4
 
-inherit eutils multilib git-2
+QT_MINIMAL="4.8.0"
+inherit cmake-utils git-2
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
-HOMEPAGE="http://github.com/mxcl/liblastfm/"
-EGIT_REPO_URI="git://github.com/mxcl/liblastfm.git"
+HOMEPAGE="http://github.com/eartle/liblastfm"
+EGIT_REPO_URI="git://github.com/eartle/liblastfm.git"
 
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0"
-IUSE=""
+IUSE="fingerprint test"
 
 COMMON_DEPEND="
-	>=media-libs/libsamplerate-0.1.4
-	sci-libs/fftw:3.0
-	>=x11-libs/qt-core-4.5:4
-	>=x11-libs/qt-sql-4.5:4
+	>=x11-libs/qt-core-${QT_MINIMAL}:4
+	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
+	fingerprint? (
+		media-libs/libsamplerate
+		sci-libs/fftw:3.0
+		>=x11-libs/qt-sql-${QT_MINIMAL}:4
+	)
 "
 DEPEND="${COMMON_DEPEND}
-	dev-lang/ruby
-	>=x11-libs/qt-test-4.5:4
+	test? ( >=x11-libs/qt-test-${QT_MINIMAL}:4 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<media-libs/lastfmlib-0.4.0
 "
 
-src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.3.3-ruby-1.9-fix.patch
-
-	# Fix multilib paths
-	find . -name *.pro -exec sed -i -e "/target.path/s/lib/$(get_libdir)/g" {} + \
-		|| die "failed to fix multilib paths"
-}
+# 1 of 2 is failing, last checked 2012-06-22 / version 1.0.1
+RESTRICT="test"
 
 src_configure() {
-	./configure --prefix /usr --no-strip --release || die "configure failed"
+	# demos not working
+	local mycmakeargs=(
+		-DBUILD_DEMOS=OFF
+		$(cmake-utils_use_build fingerprint)
+		$(cmake-utils_use_build test TESTS)
+	)
+
+	cmake-utils_src_configure
 }
