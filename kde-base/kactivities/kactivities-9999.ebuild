@@ -23,7 +23,6 @@ add_blocker activitymanager
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_build semantic-desktop sqlite)
 	)
 	kde4-base_src_configure
 }
