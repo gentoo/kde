@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-meta.eclass,v 1.61 2012/03/24 20:44:51 dilfridge Exp $
+# $Header: $
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
