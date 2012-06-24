@@ -4,36 +4,32 @@
 
 EAPI=4
 
-OPENGL_REQUIRED="always"
 KDE_SCM="git"
-inherit kde4-base
+OPENGL_REQUIRED="always"
+inherit kde4-base versionator
 
-DESCRIPTION="Free and Open Source framework for creating and distributing games"
+DESCRIPTION="Gluon is a Free and Open Source framework for creating and distributing games."
 HOMEPAGE="http://gluon.tuxfamily.org/"
-SRC_URI=""
 
-LICENSE="GPL-2"
-SLOT="0"
-IUSE=""
+LICENSE="LGPL-2.1"
+KEYWORDS=""
+SLOT="4"
+IUSE="debug examples"
 
-COMMON_DEPEND="
-	media-libs/glew
-	media-libs/libogg
+DEPEND="
+	media-libs/alure
 	media-libs/libsndfile
-	media-libs/libvorbis
 	media-libs/openal
 	virtual/glu
 	virtual/opengl
-	x11-libs/libXrandr
+	x11-libs/qt-declarative:4
 "
-DEPEND="${COMMON_DEPEND}
-	dev-cpp/eigen:2
-	x11-proto/randrproto
-"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${DEPEND}"
 
-src_prepare() {
-	kde4-base_src_prepare
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use examples INSTALL_EXAMPLES)
+	)
 
-	sed -i '/add_subdirectory(src)/s/^#//' "${S}"/CMakeLists.txt || die "couldn't re-enable main library"
+	kde4-base_src_configure
 }
