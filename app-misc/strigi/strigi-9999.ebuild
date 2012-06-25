@@ -48,6 +48,13 @@ DEPEND="${COMMONDEPEND}
 	test? ( dev-util/cppunit )"
 RDEPEND="${COMMONDEPEND}"
 
+if [[ ${PV} == 9999 ]] ; then
+	src_unpack() {
+		git config --global url."git://anongit.kde.org/".insteadOf "kde:"
+		git-2_src_unpack
+	}
+fi
+
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
