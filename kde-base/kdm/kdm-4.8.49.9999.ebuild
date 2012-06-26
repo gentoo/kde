@@ -39,7 +39,6 @@ KMEXTRA="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4-gentoo-xinitrc.d.patch"
-	"${FILESDIR}/${PN}-4.7.3-revertcrashlogic.patch"
 )
 
 pkg_setup() {
