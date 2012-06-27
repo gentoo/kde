@@ -1,0 +1,24 @@
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.h kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.h
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.h	2012-06-28 00:02:46.022033586 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.h	2012-06-28 00:03:53.791036528 +0200
+@@ -24,7 +24,7 @@
+ 
+ #include <solid/ifaces/opticaldisc.h>
+ 
+-#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
+ 
+ #include "udisksstoragevolume.h"
+ #include "udisksdevice.h"
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.h kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.h
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.h	2012-06-28 00:02:46.024033586 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.h	2012-06-28 00:03:39.134040443 +0200
+@@ -24,7 +24,7 @@
+ 
+ #include <ifaces/storagedrive.h>
+ 
+-#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
+ 
+ #include "udisksblock.h"
+ 

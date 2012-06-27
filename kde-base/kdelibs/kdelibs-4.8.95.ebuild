@@ -130,6 +130,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
 	"${FILESDIR}/${PN}-4.8.95-udisks2.patch"
+	"${FILESDIR}/${PN}-4.8.95-udisks2-includes.patch"
 )
 
 pkg_pretend() {
