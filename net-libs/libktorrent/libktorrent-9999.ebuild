@@ -25,7 +25,7 @@ if [[ ${PV} != 9999* ]]; then
 else
 	KEYWORDS=""
 fi
-VIRTUALX_REQUIRED=test
+VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent library based on KDE Platform"
@@ -38,6 +38,7 @@ IUSE="debug"
 RDEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
+	dev-libs/libgcrypt
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
