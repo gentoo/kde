@@ -1,0 +1,48 @@
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.cpp kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.cpp
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.cpp	2012-06-28 00:14:38.443073422 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.cpp	2012-06-28 00:18:20.459086056 +0200
+@@ -27,7 +27,7 @@
+ #include <QtCore/QFile>
+ #include <QtDBus/QDBusConnection>
+ 
+-#include "../shared/udevqtclient.h"
++#include "../shared/udevqt.h"
+ 
+ #include "udisks2.h"
+ #include "udisksopticaldisc.h"
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.h kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.h
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksopticaldisc.h	2012-06-28 00:14:38.444073422 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksopticaldisc.h	2012-06-28 00:15:14.569076596 +0200
+@@ -24,7 +24,7 @@
+ 
+ #include <solid/ifaces/opticaldisc.h>
+ 
+-#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
+ 
+ #include "udisksstoragevolume.h"
+ #include "udisksdevice.h"
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.cpp kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.cpp
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.cpp	2012-06-28 00:14:38.445073422 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.cpp	2012-06-28 00:18:02.424084839 +0200
+@@ -21,7 +21,7 @@
+ 
+ #include "udisksstoragedrive.h"
+ 
+-#include "../shared/udevqtclient.h"
++#include "../shared/udevqt.h"
+ 
+ #include <QtCore/QDebug>
+ #include <QtCore/QFile>
+diff -ruN kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.h kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.h
+--- kdelibs-4.8.95.orig/solid/solid/backends/udisks2/udisksstoragedrive.h	2012-06-28 00:14:38.445073422 +0200
++++ kdelibs-4.8.95/solid/solid/backends/udisks2/udisksstoragedrive.h	2012-06-28 00:15:14.569076596 +0200
+@@ -24,7 +24,7 @@
+ 
+ #include <ifaces/storagedrive.h>
+ 
+-#include "../shared/udevqtdevice.h"
++#include "../shared/udevqt.h"
+ 
+ #include "udisksblock.h"
+ 
