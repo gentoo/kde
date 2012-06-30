@@ -20,6 +20,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 add_blocker kscd "<4.8.50"
+add_blocker kdemultimedia-kioslaves
 
 KMSAVELIBS="true"
 
