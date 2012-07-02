@@ -21,10 +21,11 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam +handbook jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
-+upower upnp zeroconf"
++udisks2 +upower upnp zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
+	udisks2? ( udisks )
 	upower? ( udev )
 "
 
@@ -99,7 +100,10 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		udisks? ( sys-fs/udisks:2 )
+		udisks? (
+			udisks2? ( sys-fs/udisks:2 )
+			!udisks2? ( sys-fs/udisks:0 )
+		)
 		upower? ( sys-power/upower )
 	)
 "
@@ -129,8 +133,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
-	"${FILESDIR}/${PN}-4.8.95-udisks2.patch"
-	"${FILESDIR}/${PN}-4.8.95-udisks2-includes.patch"
 )
 
 pkg_pretend() {
@@ -144,6 +146,11 @@ pkg_pretend() {
 src_prepare() {
 	kde4-base_src_prepare
 	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"
+
+	if use udisks2; then
+		epatch "${FILESDIR}/${PN}-4.8.95-udisks2.patch"
+		epatch "${FILESDIR}/${PN}-4.8.95-udisks2-includes.patch"
+	fi
 
 	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix-1.patch to work)
 	sed -e 's|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-4-applications.menu|g' \
