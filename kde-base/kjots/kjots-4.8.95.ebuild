@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	>=dev-libs/grantlee-0.1
+	>=dev-libs/grantlee-0.2.0
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep kdepim-common-libs)
 "
