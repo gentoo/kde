@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=dev-libs/grantlee-0.1.4
+	>=dev-libs/grantlee-0.2.0
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	$(add_kdebase_dep kdepim-common-libs)
