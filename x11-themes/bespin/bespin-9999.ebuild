@@ -12,7 +12,7 @@ ESVN_REPO_URI="https://cloudcity.svn.sourceforge.net/svnroot/cloudcity"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 src_configure() {

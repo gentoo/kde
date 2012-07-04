@@ -1,1 +1,2 @@
 move net-libs/libkgoogle net-libs/libkgapi
+slotmove x11-themes/bespin 0 4
