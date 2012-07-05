@@ -129,6 +129,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.2-calculator_key.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
+	"${FILESDIR}/${PN}-4.8.4-kiopointer.patch"
 )
 
 pkg_pretend() {
