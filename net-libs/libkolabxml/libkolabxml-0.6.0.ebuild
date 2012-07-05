@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="Kolab XML Format Schema Definitions Library"
 HOMEPAGE="kolab.org"
-SRC_URI="http://git.kolab.org/${PN}/snapshot/${P}.tar.gz"
+SRC_URI="http://dev.gentoo.org/~creffett/distfiles/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="4"
@@ -19,12 +19,12 @@ DEPEND="
 	dev-cpp/xsd
 	|| ( >=dev-libs/boost-1.42.0 ( <dev-libs/boost-1.42.0 dev-libs/ossp-uuid ) )
 	dev-libs/xerces-c
+	x11-libs/qt-test
 	csharp? ( dev-lang/swig )
 	java? ( dev-lang/swig )
 	python? ( dev-lang/swig )
 	php? ( dev-lang/swig )
 	test? ( x11-libs/qt-test )
-
 "
 RDEPEND="${DEPEND}"
 
