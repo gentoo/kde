@@ -19,7 +19,6 @@ DEPEND="
 	dev-cpp/xsd
 	|| ( >=dev-libs/boost-1.42.0 ( <dev-libs/boost-1.42.0 dev-libs/ossp-uuid ) )
 	dev-libs/xerces-c
-	x11-libs/qt-test
 	csharp? ( dev-lang/swig )
 	java? ( dev-lang/swig )
 	python? ( dev-lang/swig )
@@ -30,11 +29,11 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with csharp CSHARP_BINDINGS)
-		$(cmake-utils_use_with java JAVA_BINDINGS)
-		$(cmake-utils_use_with python PYTHON_BINDINGS)
-		$(cmake-utils_use_with php PHP_BINDINGS)
-		$(cmake-utils_use_with test BUILD_TESTS)
+		$(cmake-utils_use csharp CSHARP_BINDINGS)
+		$(cmake-utils_use java JAVA_BINDINGS)
+		$(cmake-utils_use python PYTHON_BINDINGS)
+		$(cmake-utils_use php PHP_BINDINGS)
+		$(cmake-utils_use_build test TESTS)
 	)
 	cmake-utils_src_configure
 }
