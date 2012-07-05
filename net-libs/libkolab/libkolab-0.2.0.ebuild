@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Advanced Kolab Object Handling Library"
 HOMEPAGE="kolab.org"
-SRC_URI="http://git.kolab.org/${PN}/snapshot/${P}.tar.gz"
+SRC_URI="http://dev.gentoo.org/~creffett/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2 GPL-3"
 SLOT="4"
