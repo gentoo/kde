@@ -21,7 +21,7 @@ DEPEND="
 	$(add_kdebase_dep kmimetypefinder)
 	$(add_kdebase_dep kabcclient)
 	app-office/akonadi-server
-	>=kde-misc/libkolabxml-0.4.0
+	>=net-libs/libkolabxml-0.4.0
 "
 RDEPEND="${DEPEND}"
 

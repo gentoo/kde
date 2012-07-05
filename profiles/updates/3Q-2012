@@ -1,3 +1,4 @@
 move net-libs/libkgoogle net-libs/libkgapi
 slotmove x11-themes/bespin 0 4
 move kde-misc/libkolabxml net-libs/libkolabxml
+move kde-misc/libkolab net-libs/libkolab
