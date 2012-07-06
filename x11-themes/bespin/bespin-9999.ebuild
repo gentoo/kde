@@ -3,23 +3,35 @@
 # $Header: $
 
 EAPI=4
-
+KDE_REQUIRED="optional"
 inherit kde4-base
 
-DESCRIPTION="A KDE4 follow-up to Baghira KDE Theme Engine, which resembles Mac OS X"
+DESCRIPTION="Very configurable Qt4/KDE4 style derived from the Oxygen project."
 HOMEPAGE="http://cloudcity.sourceforge.net/"
 ESVN_REPO_URI="https://cloudcity.svn.sourceforge.net/svnroot/cloudcity"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug kde plasma windeco"
+
+REQUIRED_USE="
+		windeco? ( kde )
+		plasma? ( kde )
+"
+
+DEPEND="
+	x11-libs/qt-core
+	x11-libs/qt-gui
+	windeco? ( $(add_kdebase_dep kwin) )
+	plasma? ( $(add_kdebase_dep kdelibs) x11-libs/qt-gui[dbus] )
+"
 
 src_configure() {
-	# these two are no-deps options
-	# no need to have them useflaged
 	mycmakeargs=(
-		-DENABLE_XBAR=ON
+		$(cmake-utils_use_enable kde KDE)
+		$(cmake-utils_use_enable windeco KWIN)
+		$(cmake-utils_use_enable plasma XBAR)
 		-DENABLE_ARGB=ON
 	)
 
