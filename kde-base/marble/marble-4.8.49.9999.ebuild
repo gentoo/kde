@@ -19,6 +19,10 @@ IUSE="debug designer-plugin gps +kde plasma python"
 # RESTRICT=test
 
 DEPEND="
+	x11-libs/qt-core
+	x11-libs/qt-gui[dbus]
+	x11-libs/qt-script
+	x11-libs/qt-webkit
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
@@ -27,6 +31,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 "
+# the qt dependencies are needed because with USE=-kde nothing is pulled in
+# by default... bug 414165
 
 REQUIRED_USE="
 	plasma? ( kde )
