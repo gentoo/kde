@@ -66,7 +66,7 @@ COMMONDEPEND="
 		x11-libs/libXrender
 		x11-libs/libXScrnSaver
 		x11-libs/libXtst
-		!kernel_SunOS? ( sys-libs/libutempter )
+		!kernel_SunOS? ( || ( sys-libs/libutempter >=sys-freebsd/freebsd-lib-9.0 ) )
 	)
 	bzip2? ( app-arch/bzip2 )
 	fam? ( virtual/fam )
