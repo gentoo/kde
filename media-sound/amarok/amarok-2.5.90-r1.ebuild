@@ -21,7 +21,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp opengl +player semantic-desktop +utils"
+IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp ofa opengl +player semantic-desktop +utils"
 
 # Tests require gmock - http://code.google.com/p/gmock/
 # It's not in the tree yet
@@ -49,7 +49,8 @@ COMMONDEPEND="
 			)
 		)
 		ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
-		lastfm? ( >=media-libs/liblastfm-0.3.0 )
+		lastfm? ( =media-libs/liblastfm-0.3* )
+		ofa? ( >=media-libs/libofa-0.9.0 )
 		mp3tunes? (
 			dev-libs/glib:2
 			dev-libs/libxml2
@@ -103,6 +104,7 @@ src_configure() {
 			$(cmake-utils_use_with ipod)
 			$(cmake-utils_use_with ipod Gdk)
 			$(cmake-utils_use_with lastfm LibLastFm)
+			$(cmake-utils_use_with ofa LibOFA)
 			$(cmake-utils_use_with mtp)
 			$(cmake-utils_use_with mp3tunes MP3Tunes)
 		)

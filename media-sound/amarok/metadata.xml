@@ -32,6 +32,10 @@
 		GPL-incompatible license.
 	</flag>
 	<flag name="njb">Enable support for NJB (Creative) devices access through libnjb</flag>
+	<flag name="ofa">
+		Use <pkg>media-libs/libofa</pkg> to compute MusicDNS acoustic
+		fingerprints (used by MusicBrainz)
+	</flag>
 	<flag name="python">
 		Install the Amarok scripts written in Python, depending on
 		<pkg>dev-python/PyQt</pkg>. At the moment the only script
