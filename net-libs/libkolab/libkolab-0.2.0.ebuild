@@ -18,11 +18,10 @@ IUSE="test"
 PATCHES=( "${FILESDIR}/libkolab-fix-include.patch" )
 
 DEPEND="
-	$(add_kdebase_dep kabcclient)
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep kmimetypefinder)
-	app-office/akonadi-server
 	>=net-libs/libkolabxml-0.4.0
+	x11-libs/qt-core
+	x11-libs/qt-gui
 "
 RDEPEND="${DEPEND}"
 
