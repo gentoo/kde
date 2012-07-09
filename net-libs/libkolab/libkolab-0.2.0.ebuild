@@ -20,8 +20,6 @@ PATCHES=( "${FILESDIR}/libkolab-fix-include.patch" )
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	>=net-libs/libkolabxml-0.4.0
-	x11-libs/qt-core
-	x11-libs/qt-gui
 "
 RDEPEND="${DEPEND}"
 
