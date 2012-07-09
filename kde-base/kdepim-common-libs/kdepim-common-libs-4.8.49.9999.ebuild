@@ -16,7 +16,7 @@ IUSE="debug"
 DEPEND="
 	app-crypt/gpgme
 	>=app-office/akonadi-server-1.7.0
-	>=dev-libs/shared-desktop-ontologies-0.6.50
+	>=dev-libs/shared-desktop-ontologies-0.8.1
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 "
 RDEPEND="${DEPEND}
