@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE="debug google"
+IUSE="debug google kolab"
 
 RESTRICT="test"
 # Would need test programs _testrunner and akonaditest from kdepimlibs, see bug 313233
@@ -25,6 +25,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
 	google? ( >=net-libs/libkgapi-0.4.0[-oldpim] )
+	kolab? ( net-libs/libkolab )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
@@ -44,6 +45,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with google LibKGAPI)
+		$(cmake-utils_use_with kolab Libkolab)
 	)
 
 	kde4-base_src_configure
