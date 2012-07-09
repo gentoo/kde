@@ -102,6 +102,7 @@ RDEPEND="${COMMONDEPEND}
 		udisks? ( sys-fs/udisks:0 )
 		upower? ( sys-power/upower )
 	)
+	udev? ( app-misc/media-player-info )
 "
 PDEPEND="
 	$(add_kdebase_dep katepart)
