@@ -69,7 +69,7 @@ debug-print "line ${LINENO} ${ECLASS}: DEPEND ${DEPEND} - after metapackage-spec
 debug-print "line ${LINENO} ${ECLASS}: RDEPEND ${RDEPEND} - after metapackage-specific dependencies"
 
 # Useful to build kde4-meta style stuff from extragear/playground (plasmoids etc)
-case ${BUILD_TYPE} in
+case ${KDE_BUILD_TYPE} in
 	live)
 		if [[ ${KDE_SCM} == svn ]]; then
 			case ${KMNAME} in
@@ -147,7 +147,7 @@ kde4-meta_pkg_setup() {
 kde4-meta_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${BUILD_TYPE} = live ]]; then
+	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case "${KDE_SCM}" in
 			svn)
 				migrate_store_dir
@@ -173,7 +173,7 @@ kde4-meta_src_unpack() {
 kde4-meta_src_extract() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${BUILD_TYPE} = live ]]; then
+	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		# Export working copy to ${S}
 		einfo "Exporting parts of working copy to ${S}"
 		kde4-meta_create_extractlists

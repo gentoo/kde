@@ -46,15 +46,15 @@ fi
 
 # determine the build type
 if [[ ${PV} = *9999* ]]; then
-	BUILD_TYPE="live"
+	KDE_BUILD_TYPE="live"
 else
-	BUILD_TYPE="release"
+	KDE_BUILD_TYPE="release"
 fi
-export BUILD_TYPE
+export KDE_BUILD_TYPE
 
 # Set reponame and SCM for moduleses that have fully migrated to git
 # (hack - it's here because it needs to be before SCM inherits from kde4-base)
-if [[ ${BUILD_TYPE} == live ]]; then
+if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	case "${KMNAME}" in
 		kdebase-workspace)
 			KDE_SCM="git"
@@ -93,7 +93,7 @@ esac
 # this for you.
 #
 # Example: KDE_LINGUAS="en_GB de nl"
-if [[ ${BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
+if [[ ${KDE_BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
 		IUSE="${IUSE} linguas_${_lingua}"
 	done

@@ -33,7 +33,7 @@
 
 inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils base virtualx versionator eutils multilib
 
-if [[ ${BUILD_TYPE} = live ]]; then
+if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
 		git) inherit git-2 ;;
@@ -70,7 +70,7 @@ case ${KDEBASE} in
 		SLOT="2"
 		;;
 	kdevelop)
-		if [[ ${BUILD_TYPE} = live ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			# @ECLASS-VARIABLE: KDEVELOP_VERSION
 			# @DESCRIPTION:
 			# Specifies KDevelop version. Default is 4.0.0 for tagged packages and 9999 for live packages.
@@ -159,7 +159,7 @@ KDE_HANDBOOK="${KDE_HANDBOOK:-never}"
 # Set this varible if you want your live package to manage its
 # translations. (Mostly all kde ebuilds does not ship documentation
 # and translations in live ebuilds)
-if [[ ${BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
+if [[ ${KDE_BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
 	# Kdebase actualy provides the handbooks even for live stuff
 	[[ ${KDEBASE} == kde-base ]] || KDE_HANDBOOK=never
 	KDE_LINGUAS=""
@@ -170,7 +170,7 @@ case ${KDEBASE} in
 	kde-base)
 		HOMEPAGE="http://www.kde.org/"
 		LICENSE="GPL-2"
-		if [[ ${BUILD_TYPE} = live && -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live && -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 			# Disable tests for live ebuilds by default
 			RESTRICT+=" test"
 		fi
@@ -590,7 +590,7 @@ _calculate_live_repo() {
 	esac
 }
 
-case ${BUILD_TYPE} in
+case ${KDE_BUILD_TYPE} in
 	live) _calculate_live_repo ;;
 	*) _calculate_src_uri ;;
 esac
@@ -662,7 +662,7 @@ kde4-base_pkg_setup() {
 kde4-base_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${BUILD_TYPE} = live ]]; then
+	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case ${KDE_SCM} in
 			svn)
 				migrate_store_dir
@@ -716,7 +716,7 @@ kde4-base_src_prepare() {
 	fi
 
 	# SCM bootstrap
-	if [[ ${BUILD_TYPE} = live ]]; then
+	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case ${KDE_SCM} in
 			svn) subversion_src_prepare ;;
 		esac
@@ -755,7 +755,7 @@ kde4-base_src_configure() {
 
 	if use_if_iuse debug; then
 		# Set "real" debug mode
-		CMAKE_BUILD_TYPE="Debugfull"
+		CMAKE_KDE_BUILD_TYPE="Debugfull"
 	else
 		# Handle common release builds
 		append-cppflags -DQT_NO_DEBUG
@@ -892,7 +892,7 @@ kde4-base_pkg_preinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_savelist
-	if [[ ${BUILD_TYPE} == live && ${KDE_SCM} == svn ]]; then
+	if [[ ${KDE_BUILD_TYPE} == live && ${KDE_SCM} == svn ]]; then
 		subversion_pkg_preinst
 	fi
 }
@@ -909,7 +909,7 @@ kde4-base_pkg_postinst() {
 	buildsycoca
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
-		if [[ ${BUILD_TYPE} = live ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			echo
 			einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
 			einfo "Use it at your own risk."
