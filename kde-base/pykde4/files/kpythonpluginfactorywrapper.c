@@ -34,10 +34,18 @@ static void init() {
 	char buf[VERSION_LEN + 1];
 	memset(buf, 0, VERSION_LEN + 1);
 	get_python_version(buf);
+	char *s = buf;
+	while(*s != '\0') {
+		if(*s == '\n') {
+			*s = '\0';
+			break;
+			}
+		++s;
+	}
 	int length = strlen(FORMAT) + strlen(buf) + 1;
 	char *name = malloc(length + 1);
 	snprintf(name, length, FORMAT, buf);
-	void *handle = dlopen(name, RTLD_NOW);
+	handle = dlopen(name, RTLD_NOW);
 	free(name);
 	wrapped_qt_plugin_instance = dlsym(handle, "qt_plugin_instance");
 }
