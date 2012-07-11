@@ -52,7 +52,7 @@ else
 fi
 export KDE_BUILD_TYPE
 
-# Set reponame and SCM for moduleses that have fully migrated to git
+# Set reponame and SCM for modules that have fully migrated to git
 # (hack - it's here because it needs to be before SCM inherits from kde4-base)
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	case "${KMNAME}" in
