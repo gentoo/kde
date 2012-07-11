@@ -44,7 +44,6 @@ DEPEND="${RDEPEND}
 
 REQUIRED_USE="farsight? ( !farstream )"
 
-PATCHES=( "${FILESDIR}/${P}-automagicness.patch" )
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 pkg_setup() {
