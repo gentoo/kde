@@ -24,7 +24,7 @@ DEPEND="
 	>=media-libs/qt-gstreamer-0.10.2
 	>=net-im/ktp-common-internals-${PV}
 	net-libs/telepathy-farstream
-	>=net-libs/telepathy-qt-0.9.1[farstream]
+	>=net-libs/telepathy-qt-0.9.2[farstream]
 "
 RDEPEND="${DEPEND}
 	|| (

@@ -23,7 +23,7 @@ SLOT="4"
 IUSE="debug +history"
 
 DEPEND="
-	>=net-libs/telepathy-qt-0.9.1
+	>=net-libs/telepathy-qt-0.9.2
 	history? ( net-libs/telepathy-logger-qt )
 "
 RDEPEND="${DEPEND}
