@@ -1,3 +1,7 @@
 # bindings not updated yet
 ~kde-base/marble-4.8.90 python
 ~kde-base/marble-4.8.95 python
+
+# net-libs/telepathy-farstream is still masked
+# bug 422989
+net-libs/telepathy-qt farstream
