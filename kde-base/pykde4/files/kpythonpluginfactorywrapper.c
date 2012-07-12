@@ -39,7 +39,7 @@ static void init() {
 		if(*s == '\n') {
 			*s = '\0';
 			break;
-			}
+		}
 		++s;
 	}
 	int length = strlen(FORMAT) + strlen(buf) + 1;
