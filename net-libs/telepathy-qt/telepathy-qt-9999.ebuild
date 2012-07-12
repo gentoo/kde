@@ -31,9 +31,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	farsight? (
-		>=net-libs/telepathy-glib-0.17.5
-	)
 	test? (
 		dev-libs/dbus-glib
 		dev-libs/glib
@@ -53,10 +50,10 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with farsight)
-		$(cmake-utils_use_with farstream)
+		$(cmake-utils_use_enable farsight)
+		$(cmake-utils_use_enable farstream)
 		$(cmake-utils_use_enable debug DEBUG_OUTPUT)
-		$(cmake-utils_use_enable test)
+		$(cmake-utils_use_enable test TESTS)
 		-DENABLE_EXAMPLES=OFF
 	)
 	cmake-utils_src_configure
