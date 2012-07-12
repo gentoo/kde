@@ -4,6 +4,8 @@
 
 EAPI=4
 
+KDE_LINGUAS="bg cs da de en_GB es et fr ga gl hu it ja km lt mai nds nl pl pt
+pt_BR sk sv th tr ug uk zh_TW"
 KDE_SCM="git"
 inherit kde4-base
 
