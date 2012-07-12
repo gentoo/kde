@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug extras"
 
 DEPEND="
-	extras? ( >=dev-java/antlr-2.7.7:0[cxx,script] )
+	extras? ( >=dev-java/antlr-2.7.7:0[cxx,java,script] )
 "
 RDEPEND="${DEPEND}"
 
