@@ -19,6 +19,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# dbus problem
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with archive LibArchive)
