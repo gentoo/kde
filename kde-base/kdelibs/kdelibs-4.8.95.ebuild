@@ -16,6 +16,7 @@ EGIT_BRANCH="KDE/4.8"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
+SRC_URI+=" http://dev.gentoo.org/~johu/distfiles/${PN}-4.8.95-udisks2.patch.xz"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
@@ -147,7 +148,7 @@ src_prepare() {
 	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"
 
 	if use udisks2; then
-		epatch "${FILESDIR}/${PN}-4.8.95-udisks2.patch"
+		epatch "${WORKDIR}/${PN}-4.8.95-udisks2.patch"
 		epatch "${FILESDIR}/${PN}-4.8.95-udisks2-includes.patch"
 	fi
 
