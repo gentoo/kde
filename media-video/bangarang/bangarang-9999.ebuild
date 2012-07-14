@@ -26,7 +26,7 @@ RDEPEND="
 	$(add_kdebase_dep kdemultimedia-kioslaves)
 	media-libs/taglib
 	media-libs/phonon
-	x11-libs/qt-script
+	x11-libs/qt-script:4
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
