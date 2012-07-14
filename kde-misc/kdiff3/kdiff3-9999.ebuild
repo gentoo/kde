@@ -26,8 +26,8 @@ SLOT="4"
 IUSE="debug kde"
 
 DEPEND="
-	>=x11-libs/qt-core-${QT_MINIMAL}
-	>=x11-libs/qt-gui-${QT_MINIMAL}
+	>=x11-libs/qt-core-${QT_MINIMAL}:4
+	>=x11-libs/qt-gui-${QT_MINIMAL}:4
 	kde? ( $(add_kdebase_dep kdelibs) )
 "
 RDEPEND="${DEPEND}
