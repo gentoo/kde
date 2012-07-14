@@ -23,7 +23,7 @@ DEPEND="
 	java? ( dev-lang/swig )
 	python? ( dev-lang/swig )
 	php? ( dev-lang/swig )
-	test? ( x11-libs/qt-test )
+	test? ( x11-libs/qt-test:4 )
 "
 RDEPEND="${DEPEND}"
 
