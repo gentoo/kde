@@ -13,9 +13,13 @@ HOMEPAGE="http://websvn.kde.org/trunk/playground/base/plasma/applets/kbstateappl
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
+DEPEND="
+	x11-libs/libX11
+"
 RDEPEND="
+	${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 "
