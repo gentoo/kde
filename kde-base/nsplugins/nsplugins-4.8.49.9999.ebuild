@@ -5,7 +5,7 @@
 EAPI=4
 
 KMNAME="kde-baseapps"
-inherit kde4-meta
+inherit kde4-meta pax-utils
 
 DESCRIPTION="Netscape plugins support for Konqueror."
 KEYWORDS=""
@@ -21,3 +21,10 @@ RDEPEND="${DEPEND}
 KMEXTRACTONLY="
 	konqueror/settings/
 "
+
+src_install() {
+	kde4-base_src_install
+
+	# bug 419513
+	pax-mark m "${ED}"/usr/bin/nspluginviewer
+}
