@@ -3,7 +3,13 @@ Agenda topics for the next KDE team meeting
 
 1. Roll call (5 minutes)
 
-2. Bugs (30 minutes)
+2. Solaris patches (5 minutes)
+   We apply many patches to support Solaris, but there seems to be no prefix keyword.
+   Does anyone know anything about them? If we are supporting Solaris, Kensington 
+   would like to push these patches upstream. Does anyone have access to a box to test
+   if they are still useful?
+
+3. Bugs (30 minutes)
    * app-cdr/k3b: Excessive use of REQUIRED_USE (and wrong combination USE="lame"+"encode")
     REQUIRED_USE was added, otherwise USE="-encode lame" does nothing
     Options:
@@ -13,4 +19,4 @@ Agenda topics for the next KDE team meeting
         4. Drop the encode flag and keep optional RDEPS (current behaviour)
     https://bugs.gentoo.org/show_bug.cgi?id=417235
 
-3. Open floor (15 minutes)
+4. Open floor (15 minutes)
