@@ -12,7 +12,7 @@ ESVN_REPO_URI="https://kgrubeditor.svn.sourceforge.net/svnroot/kgrubeditor/trunk
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
