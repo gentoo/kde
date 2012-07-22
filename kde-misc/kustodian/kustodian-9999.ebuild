@@ -13,7 +13,7 @@ HOMEPAGE="http://www.kdedevelopers.org/node/4038"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
