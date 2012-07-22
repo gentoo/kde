@@ -14,7 +14,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/89524-${MY_PN}-${PV}.tar.
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
