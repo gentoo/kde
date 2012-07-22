@@ -12,7 +12,7 @@ SRC_URI="http://dev.gentooexperimental.org/~hwoarang/projects/plasma-emergelog/$
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="

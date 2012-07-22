@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/hwoarang/plasma-emergelog.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
