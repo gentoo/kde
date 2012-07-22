@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 
 SRC_URI="http://kde-look.org/CONTENT/content-files/${CONTENT_NUMBER}-photo-of-the-day.tar.gz -> ${CONTENT_NUMBER}-photo-of-the-day-${PV}.tar.gz"
 
