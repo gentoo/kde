@@ -14,7 +14,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/91009-${MY_PN}-4.4.tbz"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
