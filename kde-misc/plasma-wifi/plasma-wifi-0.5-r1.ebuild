@@ -12,7 +12,7 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/79476-${P}.tgz"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
