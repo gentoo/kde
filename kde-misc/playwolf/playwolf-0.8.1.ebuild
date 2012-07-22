@@ -15,7 +15,7 @@ SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
