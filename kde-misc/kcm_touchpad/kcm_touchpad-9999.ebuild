@@ -13,7 +13,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="git://github.com/mishaaq/kcm_touchpad.git"
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE=""
 
