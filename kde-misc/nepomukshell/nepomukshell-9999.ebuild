@@ -10,7 +10,7 @@ DESCRIPTION="The Nepomuk Swiss Army Knife aka. NepomukShell allows to browse, qu
 HOMEPAGE="https://projects.kde.org/projects/extragear/utils/nepomukshell"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
