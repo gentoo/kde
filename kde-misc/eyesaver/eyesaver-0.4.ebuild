@@ -12,7 +12,7 @@ SRC_URI="http://www.kde-look.org/CONTENT/content-files/89989-${P}.tar.gz"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="media-libs/phonon"
