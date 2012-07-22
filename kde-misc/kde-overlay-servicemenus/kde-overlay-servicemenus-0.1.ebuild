@@ -14,7 +14,7 @@ SRC_URI="http://dev.gentoo.org/~reavertm/${P}.tar.xz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~x86"
-SLOT="0"
+SLOT="4"
 IUSE=""
 
 RDEPEND="
