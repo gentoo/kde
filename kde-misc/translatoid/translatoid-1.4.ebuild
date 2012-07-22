@@ -11,7 +11,7 @@ HOMEPAGE="http://kde-look.org/content/show.php/translatoid?content=97511"
 SRC_URI="http://212.158.157.7/translatoid/${P}.tar.xz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 

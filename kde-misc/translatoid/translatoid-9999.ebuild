@@ -11,7 +11,7 @@ DESCRIPTION="Translator plasmoid using google translator"
 HOMEPAGE="http://kde-look.org/content/show.php/translatoid?content=97511"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
