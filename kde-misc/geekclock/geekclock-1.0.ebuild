@@ -13,7 +13,7 @@ HOMEPAGE="http://kde-look.org/content/show.php/Geek+Clock?content=107807"
 SRC_URI="http://w2f2.com/projects/${PN}/${MY_PN}-${PV}-src.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
