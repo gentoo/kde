@@ -18,7 +18,7 @@ S="${WORKDIR}/socketsentry-${PV}"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
