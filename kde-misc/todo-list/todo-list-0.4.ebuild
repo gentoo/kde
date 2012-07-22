@@ -15,7 +15,7 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/90706-${MY_P}.tar.bz"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
