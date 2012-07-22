@@ -5,3 +5,4 @@ move kde-misc/libkolab net-libs/libkolab
 slotmove kde-misc/kbstateapplet 0 4
 slotmove kde-misc/wicd-client-kde 0 4
 slotmove kde-misc/devicemanager 0 4
+slotmove kde-misc/drop2ftp 0 4
