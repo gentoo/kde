@@ -14,7 +14,7 @@ SRC_URI="http://konstruktor.influx.kr/${MY_P}.tar.bz2"
 KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 IUSE=""
 
 DEPEND="dev-db/sqlite:3"
