@@ -32,3 +32,4 @@ slotmove kde-misc/simplemonitor 0 4
 slotmove kde-misc/simpleweatherforecast 0 4
 slotmove kde-misc/socket-sentry 0 4
 slotmove kde-misc/stdin-plasmoid 0 4
+slotmove kde-misc/todo-list 0 4
