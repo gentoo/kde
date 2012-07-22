@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde-apps.org/content/show.php?content=73968"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug oscar zeroconf"
 
 RDEPEND="
