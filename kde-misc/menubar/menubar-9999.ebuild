@@ -13,7 +13,7 @@ HOMEPAGE="http://plasma.kde.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 RDEPEND="
