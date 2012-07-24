@@ -16,3 +16,5 @@ DEPEND="
 	media-libs/libgphoto2
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-4.8.5-libgphoto2-2.5.patch" )

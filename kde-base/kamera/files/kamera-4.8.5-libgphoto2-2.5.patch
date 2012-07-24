@@ -1,0 +1,192 @@
+From d2eb25e1e7a7937b2ff4dcad9a581cd295820747 Mon Sep 17 00:00:00 2001
+From: Marcus Meissner <marcus@beiboot.suse.de>
+Date: Mon, 23 Jul 2012 17:19:52 +0200
+Subject: [PATCH] port to libgphoto2 2.5
+
+Hi,
+
+This ports kamera ioslave to be able to use either libgphoto2 2.4 or libgphoto2 2.5.
+---
+ CMakeLists.txt            |  9 +++++++++
+ config-kamera.h.cmake     |  3 +++
+ kcontrol/kameradevice.cpp | 11 ++++++++++-
+ kioslave/kamera.cpp       | 39 +++++++++++++++++++++++++++++++++++----
+ 4 files changed, 57 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8b317b4..1c343ad 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,6 +10,15 @@ include(MacroOptionalAddSubdirectory)
+ find_package(Gphoto2)
+ macro_log_feature(GPHOTO2_FOUND "gphoto2" "Required to build kamera" "http://heanet.dl.sourceforge.net/sourceforge/gphoto" TRUE "" "")
+ 
++check_library_exists(gphoto2_port gp_port_info_get_name "" GPHOTO2_5)
++if(GPHOTO2_5)
++    message(STATUS "Found libgphoto 2.5")
++else(GPHOTO2_5)
++    message(STATUS "libgphoto 2.5 not found, assuming libgphoto2 2.4")
++endif(GPHOTO2_5)
++set(HAVE_GPHOTO2_5 ${GPHOTO2_5})
++
++
+ 
+ configure_file(config-kamera.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kamera.h)
+ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+diff --git a/config-kamera.h.cmake b/config-kamera.h.cmake
+index e21ea9a..95a6a5d 100644
+--- a/config-kamera.h.cmake
++++ b/config-kamera.h.cmake
+@@ -3,3 +3,6 @@
+ 
+ /* Define if we have __va_copy */
+ #cmakedefine HAVE___VA_COPY 1
++
++/* Define if we have gp_port_info_get_name (trigger for 2.5) */
++#cmakedefine HAVE_GPHOTO2_5 1
+diff --git a/kcontrol/kameradevice.cpp b/kcontrol/kameradevice.cpp
+index 4abc16f..38f1787 100644
+--- a/kcontrol/kameradevice.cpp
++++ b/kcontrol/kameradevice.cpp
+@@ -35,6 +35,8 @@
+ #include <KConfig>
+ #include <KMessageBox>
+ 
++#include "config-kamera.h"
++
+ extern "C" {
+ 	#include <gphoto2.h>
+ }
+@@ -117,9 +119,9 @@ bool KCamera::initCamera()
+ 		gp_port_info_list_new(&il);
+ 		gp_port_info_list_load(il);
+ 		gp_port_info_list_get_info(il, gp_port_info_list_lookup_path(il, m_path.toLocal8Bit().data()), &info);
+-		gp_port_info_list_free(il);
+ 		gp_camera_set_abilities(m_camera, m_abilities);
+ 		gp_camera_set_port_info(m_camera, info);
++		gp_port_info_list_free(il);
+ 
+ 		// this might take some time (esp. for non-existent camera) - better be done asynchronously
+ 		result = gp_camera_init(m_camera, glob_context);
+@@ -373,8 +375,15 @@ KameraDeviceSelectDialog::KameraDeviceSelectDialog(QWidget *parent, KCamera *dev
+ 	}
+ 	for (int i = 0; i < gphoto_ports; i++) {
+ 		if (gp_port_info_list_get_info(list, i, &info) >= 0) {
++#ifdef HAVE_GPHOTO2_5
++			char *xpath;
++			gp_port_info_get_path (info, &xpath);
++			if (strncmp(xpath, "serial:", 7) == 0)
++				m_serialPortCombo->addItem(QString::fromLocal8Bit(xpath).mid(7));
++#else
+ 			if (strncmp(info.path, "serial:", 7) == 0)
+ 				m_serialPortCombo->addItem(QString::fromLocal8Bit(info.path).mid(7));
++#endif
+ 		}
+ 	}
+ 	gp_port_info_list_free(list);
+diff --git a/kioslave/kamera.cpp b/kioslave/kamera.cpp
+index 9596b16..8549db0 100644
+--- a/kioslave/kamera.cpp
++++ b/kioslave/kamera.cpp
+@@ -59,11 +59,19 @@ extern "C"
+ {
+ 	KDE_EXPORT int kdemain(int argc, char **argv);
+ 
++#ifdef HAVE_GPHOTO2_5
++	static void frontendCameraStatus(GPContext *context, const char *status, void *data);
++	static unsigned int frontendProgressStart(
++		GPContext *context, float totalsize, const char *status,
++		void *data
++	);
++#else
+ 	static void frontendCameraStatus(GPContext *context, const char *format, va_list args, void *data);
+ 	static unsigned int frontendProgressStart(
+ 		GPContext *context, float totalsize, const char *format,
+ 		va_list args, void *data
+ 	);
++#endif
+ 	static void frontendProgressUpdate(
+ 		GPContext *context, unsigned int id, float current, void *data
+ 	);
+@@ -816,13 +824,13 @@ void KameraProtocol::setCamera(const QString& camera, const QString& port)
+ 			return;
+ 		}
+ 		gp_port_info_list_get_info(port_info_list, idx, &port_info);
+-		gp_port_info_list_free(port_info_list);
+ 
+ 		current_camera	= camera;
+ 		current_port	= port;
+ 		// create a new camera object
+ 		gpr = gp_camera_new(&m_camera);
+ 		if(gpr != GP_OK) {
++			gp_port_info_list_free(port_info_list);
+ 			error(KIO::ERR_UNKNOWN, QString::fromLocal8Bit(gp_result_as_string(gpr)));
+ 			return;
+ 		}
+@@ -838,6 +846,8 @@ void KameraProtocol::setCamera(const QString& camera, const QString& port)
+ 		gp_camera_set_port_speed(m_camera, 0); // TODO: the value needs to be configurable
+ 		kDebug(7123) << "Opening camera model " << camera << " at " << port;
+ 
++		gp_port_info_list_free(port_info_list);
++
+ 		QString errstr;
+ 		if (!openCamera(errstr)) {
+ 			if (m_camera)
+@@ -972,10 +982,16 @@ void frontendProgressUpdate(
+ }
+ 
+ unsigned int frontendProgressStart(
+-	GPContext * /*context*/, float totalsize, const char *format, va_list args,
++	GPContext * /*context*/, float totalsize,
++#ifdef HAVE_GPHOTO2_5
++	const char *status,
++#else
++	const char *format, va_list args,
++#endif
+ 	void *data
+ ) {
+ 	KameraProtocol *object = (KameraProtocol*)data;
++#ifndef HAVE_GPHOTO2_5
+ 	char *status;
+ 
+ 	/* We must copy the va_list to walk it twice, or all hell
+@@ -1009,14 +1025,26 @@ unsigned int frontendProgressStart(
+ 
+ 	object->infoMessage(QString::fromLocal8Bit(status));
+ 	delete [] status;
++#else
++	/* libgphoto2 2.5 has resolved this already, no need for print */
++	object->infoMessage(QString::fromLocal8Bit(status));
++#endif
+ 	object->totalSize((int)totalsize); // hack: call slot directly
+ 	return GP_OK;
+ }
+ 
+ // this callback function is activated on every status message from gphoto2
+-static void frontendCameraStatus(GPContext * /*context*/, const char *format, va_list args, void *data)
+-{
++static void frontendCameraStatus(
++	GPContext * /*context*/,
++#ifdef HAVE_GPHOTO2_5
++	const char *status,
++#else
++	const char *format, va_list args,
++#endif
++	void *data
++) {
+ 	KameraProtocol *object = (KameraProtocol*)data;
++#ifndef HAVE_GPHOTO2_5
+ 	char *status;
+ 
+ 	/* We must copy the va_list to walk it twice, or all hell
+@@ -1049,4 +1077,7 @@ static void frontendCameraStatus(GPContext * /*context*/, const char *format, va
+ #endif
+ 	object->infoMessage(QString::fromLocal8Bit(status));
+ 	delete [] status;
++#else
++	object->infoMessage(QString::fromLocal8Bit(status));
++#endif
+ }
+-- 
+1.7.11.1
+
