@@ -26,7 +26,6 @@ IUSE="debug opera semantic-desktop"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
-	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
 	opera? (
 		app-crypt/qca:2
 		dev-libs/qoauth
