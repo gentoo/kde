@@ -9,7 +9,7 @@ QT_MINIMAL="4.8"
 KDE_MINIMAL="4.7"
 KDE_SCM="git"
 KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
-hu is it ja ko lt nb nds pl pt pt_BR ro ru sk sl sr sr@ijekavian
+hu is it ja km ko lt nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 VIRTUALX_REQUIRED=test
@@ -22,11 +22,27 @@ HOMEPAGE="http://rekonq.kde.org/"
 LICENSE="GPL-3"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug opera semantic-desktop"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
+	opera? (
+		app-crypt/qca:2
+		dev-libs/qoauth
+	)
 "
 RDEPEND="${DEPEND}"
 
+# Almost all test fails
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with opera QCA2)
+		$(cmake-utils_use_with opera QtOAuth)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+	)
+
+	kde4-base_src_configure
+}
