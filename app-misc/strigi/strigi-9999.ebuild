@@ -50,8 +50,11 @@ RDEPEND="${COMMONDEPEND}"
 
 if [[ ${PV} == 9999 ]] ; then
 	src_unpack() {
-		git config --global url."git://anongit.kde.org/".insteadOf "kde:"
+		git config --global url."git://anongit.kde.org/".insteadOf "kde:" || die
 		git-2_src_unpack
+		pushd "${S}" > /dev/null || die
+		git submodule foreach git checkout master || die
+		popd > /dev/null || die
 	}
 fi
 
