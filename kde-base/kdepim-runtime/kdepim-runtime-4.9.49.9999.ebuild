@@ -17,7 +17,7 @@ RESTRICT="test"
 
 DEPEND="
 	app-misc/strigi
-	>=app-office/akonadi-server-1.7.90
+	>=app-office/akonadi-server-1.8.0
 	dev-libs/boost
 	dev-libs/libxml2:2
 	dev-libs/libxslt
