@@ -4,6 +4,7 @@ net-im/ktp-auth-handler
 net-im/ktp-common-internals
 net-im/ktp-contact-applet
 net-im/ktp-contact-list
+net-im/ktp-contact-runner
 net-im/ktp-filetransfer-handler
 net-im/ktp-kded-module
 net-im/ktp-presence-applet
