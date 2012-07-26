@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_SCM="git"
-KDE_LINGUAS="ca cs da de el et ga gl hu it lt nds nl pl pt pt_BR sk sr
+KDE_LINGUAS="ca cs da de el et fi ga gl hu it lt nds nl pl pt pt_BR sk sr
 sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 inherit kde4-base
 
