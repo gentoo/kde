@@ -450,18 +450,18 @@ _calculate_src_uri() {
 					# KDEPIM 4.4, special case
 					# TODO: Remove this part when KDEPIM 4.4 gets out of the tree
 					SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.[4567].8[05] | 4.[4567].9[0235678])
+				4.[89].8[05] | 4.[89].9[0235678])
 					# Unstable KDE SC releases
-					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.8.[12345])
-					# Stable KDE SC releases with .xz support
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
+					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
+				4.[1234567].[12345])
+					# Stable KDE SC with old .bz2 support
+					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
 				4.[89].8[05] | 4.[89].9[0235678])
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
 			esac
 			;;
 		koffice)
