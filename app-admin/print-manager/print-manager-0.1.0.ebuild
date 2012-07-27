@@ -12,7 +12,7 @@ HOMEPAGE="https://projects.kde.org/projects/playground/base/print-manager"
 [[ "${PV}" != "9999" ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
