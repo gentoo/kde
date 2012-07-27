@@ -5,6 +5,7 @@
 EAPI=4
 
 KDE_SCM="git"
+KDE_LINGUAS="cs da de et hu km nl pl pt pt_BR sk sv uk"
 inherit kde4-base
 
 DESCRIPTION="A tool for managing print jobs and printers"
