@@ -6,8 +6,8 @@ EAPI=4
 
 inherit cmake-utils
 
-DESCRIPTION="Kolab XML Format Schema Definitions Library"
-HOMEPAGE="kolab.org"
+DESCRIPTION="Kolab XML format schema definitions library"
+HOMEPAGE="http://www.kolab.org"
 SRC_URI="http://dev.gentoo.org/~creffett/distfiles/${P}.tar.gz"
 
 LICENSE="LGPL-3"
@@ -15,17 +15,19 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="csharp java python php test"
 
-DEPEND="
+RDEPEND="
 	dev-cpp/xsd
 	|| ( >=dev-libs/boost-1.42.0 ( <dev-libs/boost-1.42.0 dev-libs/ossp-uuid ) )
 	dev-libs/xerces-c
+"
+DEPEND="
+	${RDEPEND}
 	csharp? ( dev-lang/swig )
 	java? ( dev-lang/swig )
-	python? ( dev-lang/swig )
 	php? ( dev-lang/swig )
+	python? ( dev-lang/swig )
 	test? ( x11-libs/qt-test:4 )
 "
-RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
