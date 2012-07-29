@@ -6,55 +6,58 @@ EAPI=4
 
 inherit cmake-utils mercurial
 
-DESCRIPTION="Lightweight C++ template library for vector and matrix math, a.k.a. linear algebra"
+DESCRIPTION="C++ template library for linear algebra: vectors, matrices, and related algorithms"
 HOMEPAGE="http://eigen.tuxfamily.org/"
-#SRC_URI="http://bitbucket.org/eigen/eigen2/get/${PV}.tar.bz2"
-EHG_REPO_URI="https://bitbucket.org/eigen/eigen"
+EHG_REPO_URI="https://bitbucket.org/${PN}/${PN}"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-2 GPL-3"
 KEYWORDS=""
 SLOT="3"
-IUSE="debug doc examples test"
+IUSE="debug doc"
 
-RDEPEND="
-	examples? (
-		x11-libs/qt-gui:4
-		x11-libs/qt-opengl:4
-	)
-"
-DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )
-"
+DEPEND="doc? ( app-doc/doxygen )"
+RDEPEND="!dev-cpp/eigen:0"
 
-S="${WORKDIR}/eigen"
-
-CMAKE_BUILD_TYPE="Release"
+src_prepare() {
+	sed -i CMakeLists.txt \
+		-e "/add_subdirectory(demos/d" \
+		-e "/add_subdirectory(blas/d" \
+		-e "/add_subdirectory(lapack/d" \
+		|| die "sed disable unused bundles failed"
+}
 
 src_configure() {
 	# benchmarks (BTL) brings up damn load of external deps including fortran
 	# compiler
-	# library hangs up complete compilation proccess, test later
+	CMAKE_BUILD_TYPE="release"
 	mycmakeargs=(
-		-DEIGEN_BUILD_LIB=OFF
 		-DEIGEN_BUILD_BTL=OFF
-		$(cmake-utils_use examples EIGEN_BUILD_DEMOS)
-		$(cmake-utils_use test EIGEN_BUILD_TESTS)
-		$(cmake-utils_use test EIGEN_TEST_NO_FORTRAN)
 	)
 	cmake-utils_src_configure
 }
 
 src_compile() {
 	cmake-utils_src_compile
-	use doc && cmake-utils_src_compile doc
+	if use doc; then
+		cmake-utils_src_compile doc
+	fi
+}
+
+src_test() {
+	mycmakeargs=(
+		-DEIGEN_BUILD_TESTS=ON
+		-DEIGEN_TEST_NO_FORTRAN=ON
+		-DEIGEN_TEST_NO_OPENGL=ON
+	)
+	cmake-utils_src_configure
+	cmake-utils_src_compile buildtests
+	cmake-utils_src_test
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/doc/html/")
 	cmake-utils_src_install
-
-	if use examples; then
-		cd "${CMAKE_BUILD_DIR}"/demos
-		dobin mandelbrot/mandelbrot opengl/quaternion_demo
+	if use doc; then
+		cd "${CMAKE_BUILD_DIR}"/doc
+		dohtml -r html/*
 	fi
 }
