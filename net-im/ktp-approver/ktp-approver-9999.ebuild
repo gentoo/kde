@@ -23,7 +23,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/telepathy-qt-0.9.2
+	>=net-libs/telepathy-qt-0.9.3
 "
 RDEPEND="${DEPEND}
 	>=net-im/ktp-contact-list-${PV}
