@@ -13,15 +13,18 @@ inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS=""
-IUSE="debug designer-plugin gps +kde plasma python"
+IUSE="debug designer-plugin gps +kde plasma python test"
 
-# tests fail / segfault. Last checked for 4.2.88
-# RESTRICT=test
+# tests fail / segfault. Last checked for 4.9.0
+RESTRICT="test"
 
-DEPEND="
+RDEPEND="
 	x11-libs/qt-core:4
+	x11-libs/qt-declarative:4
 	x11-libs/qt-gui:4[dbus]
 	x11-libs/qt-script:4
+	x11-libs/qt-sql:4
+	x11-libs/qt-svg:4
 	x11-libs/qt-webkit:4
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
 	python? (
@@ -29,10 +32,12 @@ DEPEND="
 		kde? ( $(add_kdebase_dep pykde4) )
 	)
 "
-RDEPEND="${DEPEND}
+DEPEND="
+	${RDEPEND}
+	test? ( x11-libs/qt-test:4 )
 "
 # the qt dependencies are needed because with USE=-kde nothing is pulled in
-# by default... bug 414165
+# by default... bugs 414165 & 414165
 
 REQUIRED_USE="
 	plasma? ( kde )
@@ -60,6 +65,7 @@ src_configure() {
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use !kde QTONLY)
 		$(cmake-utils_use_with plasma)
+		-DBUILD_MARBLE_TESTS=OFF
 		-DWITH_liblocation=0
 		$(use kde && cmake-utils_use_with python PyKDE4)
 	)
@@ -71,6 +77,9 @@ src_test() {
 	if use kde; then
 		elog "Marble tests can only be run in the qt-only version"
 	else
+		local mycmakeargs=(
+			-DBUILD_MARBLE_TESTS=ON
+		)
 		kde4-base_src_test
 	fi
 }
