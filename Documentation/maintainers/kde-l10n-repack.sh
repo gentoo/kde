@@ -10,7 +10,7 @@ svn up -r ${SVNREV} kde-l10n
 cp -r kde-l10n kde-l10n_packages
 cd kde-l10n_packages
 for L in ${LANGS}; do
-	rm -rf ./${L}/messages/{extragear-*,koffice,playground-*,qt,kdevelop,kdereview}
+	rm -rf ./${L}/messages/{extragear-*,playground-*,qt,kdevelop,kdereview}
 	./scripts/autogen.sh ${L}
 	mv ${L} kde-l10n-${L}-${KDEVER}
 	cd kde-l10n-${L}-${KDEVER}

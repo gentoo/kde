@@ -3,7 +3,7 @@
 # KDE Version bumper
 # Created by Gentoo kde-herd
 # This tool is meant to be used for ease of version bumping for KDE ebuilds
-# v 0.21
+# v 0.22
 ###############################################################################
 # functions
 ###############################################################################
@@ -13,7 +13,7 @@ get_packages_from_slot() {
 
 	# if user specify set then use desired one only
 	find ${PORTDIR_BUMPING}/sets/ -maxdepth 1 -type f -name ${SET}\*-${SLOT} -print \
-			| grep -v kdedeps | grep -v koffice | while read SLOTFILE; do
+			| grep -v kdedeps | while read SLOTFILE; do
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild

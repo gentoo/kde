@@ -46,7 +46,7 @@ if [[ -d .kde-live.base ]]; then
 fi
 
 # keywords for miscleanous packages from package.unmask/
-for misc in kde-extras-live koffice-live; do
+for misc in kde-extras-live; do
 	if [[ -f "../package.unmask/${misc}" ]]; then
 		echo -e "${HEADER}" > "${misc}.keywords"
 		sed '/^~.*[.-]9999$/s/$/ **/' "../package.unmask/${misc}" >> "${misc}.keywords"
