@@ -62,7 +62,7 @@ src_prepare() {
 
 	if ${have_python2}; then
 		mkdir -p "${WORKDIR}/wrapper" || die "failed to copy wrapper"
-		cp "${FILESDIR}/kpythonpluginfactorywrapper.c" "${WORKDIR}/wrapper" || die "failed to copy wrapper"
+		cp "${FILESDIR}/kpythonpluginfactorywrapper.c-r1" "${WORKDIR}/wrapper/kpythonpluginfactorywrapper.c" || die "failed to copy wrapper"
 	fi
 }
 
