@@ -199,10 +199,8 @@ esac
 if version_is_at_least 4.8.50 "${KDE_MINIMAL}"; then
 	# Upstream has added an *undeclared* dependency on Qt 4.8...
 	QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
-elif version_is_at_least 4.7.80 "${KDE_MINIMAL}"; then
-	QT_MINIMAL="${QT_MINIMAL:-4.7.4}"
 else
-	QT_MINIMAL="${QT_MINIMAL:-4.7.0}"
+	QT_MINIMAL="${QT_MINIMAL:-4.7.4}"
 fi
 
 # Declarative dependencies
