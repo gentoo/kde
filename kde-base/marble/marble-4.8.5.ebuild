@@ -37,7 +37,7 @@ DEPEND="
 	test? ( x11-libs/qt-test:4 )
 "
 # the qt dependencies are needed because with USE=-kde nothing is pulled in
-# by default... bugs 414165 & 414165
+# by default... bugs 414165 & 429346
 
 REQUIRED_USE="
 	plasma? ( kde )
