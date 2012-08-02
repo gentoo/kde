@@ -22,6 +22,9 @@ VOS_EXTRACT="
 	libsrc/JDBCDriverType4
 "
 
+pkg_pretend() {
+	java-pkg_ensure-vm-version-eq 1.6
+}
 src_prepare() {
 	java-pkg-2_src_prepare
 	virtuoso_src_prepare
