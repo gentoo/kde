@@ -11,6 +11,11 @@ DESCRIPTION="KDE crash handler, gives the user feedback if a program crashed"
 KEYWORDS=""
 IUSE="debug"
 
+DEPEND="
+	$(add_kdebase_dep kdepimlibs)
+"
+RDEPEND="${DEPEND}"
+
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 	if ! has_version "sys-devel/gdb"; then
