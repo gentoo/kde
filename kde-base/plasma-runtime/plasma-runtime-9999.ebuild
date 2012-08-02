@@ -15,3 +15,8 @@ IUSE="debug"
 
 # file collisions, bug 394997
 add_blocker plasma-workspace 4.4.50
+
+DEPEND="
+	$(add_kdebase_dep kactivities)
+"
+RDEPEND="${DEPEND}"
