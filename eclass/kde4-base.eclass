@@ -66,9 +66,6 @@ case ${KDEBASE} in
 		SLOT=4
 		KDE_MINIMAL="${PV}"
 		;;
-	koffice)
-		SLOT="2"
-		;;
 	kdevelop)
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			# @ECLASS-VARIABLE: KDEVELOP_VERSION
@@ -189,10 +186,6 @@ case ${KDEBASE} in
 				RESTRICT+=" mirror"
 				;;
 		esac
-		;;
-	koffice)
-		HOMEPAGE="http://www.koffice.org/"
-		LICENSE="GPL-2"
 		;;
 	kdevelop)
 		HOMEPAGE="http://www.kdevelop.org/"
@@ -421,7 +414,7 @@ RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
-# koffice ebuild, the URI should be set in the ebuild itself
+# kdevelop ebuild, the URI should be set in the ebuild itself
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -462,12 +455,6 @@ _calculate_src_uri() {
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
-			esac
-			;;
-		koffice)
-			case ${PV} in
-				2.[1234].[6-9]*) SRC_URI="mirror://kde/unstable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
-				*) SRC_URI="mirror://kde/stable/${_kmname_pv}/${_kmname_pv}.tar.bz2" ;;
 			esac
 			;;
 		kdevelop|kdevelop-php*|kdevplatform)
@@ -537,9 +524,6 @@ _calculate_live_repo() {
 						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
 						ESVN_PROJECT="${PN}${ESVN_PROJECT_SUFFIX}"
 						;;
-					koffice)
-						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}"
-						;;
 					*)
 						ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${KMNAME}/${KMMODULE}"
 						;;
@@ -552,9 +536,9 @@ _calculate_live_repo() {
 			# @ECLASS-VARIABLE: ESVN_UP_FREQ
 			# @DESCRIPTION:
 			# This variable is used for specifying the timeout between svn synces
-			# for kde-base and koffice modules. Does not affect misc apps.
+			# for kde-base modules. Does not affect misc apps.
 			# Default value is 1 hour.
-			[[ ${KDEBASE} = kde-base || ${KDEBASE} = koffice ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
+			[[ ${KDEBASE} = kde-base ]] && ESVN_UP_FREQ=${ESVN_UP_FREQ:-1}
 			;;
 		git)
 			local _kmname
@@ -735,7 +719,7 @@ kde4-base_src_prepare() {
 		load_library_dependencies
 	fi
 
-	# Hack for manuals relying on outdated DTD, only outside kde-base/koffice/...
+	# Hack for manuals relying on outdated DTD, only outside kde-base/...
 	if [[ -z ${KDEBASE} ]]; then
 		find "${S}" -name "*.docbook" \
 			-exec sed -i -r \
