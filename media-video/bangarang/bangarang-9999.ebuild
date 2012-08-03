@@ -23,7 +23,10 @@ RDEPEND="
 	dev-libs/soprano
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep nepomuk)
-	$(add_kdebase_dep kdemultimedia-kioslaves)
+	|| (
+		$(add_kdebase_dep audiocd-kio)
+		$(add_kdebase_dep kdemultimedia-kioslaves)
+	)
 	media-libs/taglib
 	media-libs/phonon
 	x11-libs/qt-script:4
