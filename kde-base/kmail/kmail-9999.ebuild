@@ -45,8 +45,11 @@ KMCOMPILEONLY="
 	calendarsupport/
 "
 KMEXTRA="
+	archivemailagent/
+	backupmail/
 	kmailcvt/
 	ksendemail/
+	importwizard/
 	libksieve/
 	mailcommon/
 	mailfilteragent/
