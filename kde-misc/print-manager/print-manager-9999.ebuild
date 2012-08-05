@@ -18,6 +18,11 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	>=net-print/cups-1.4.6[dbus]
+	>=net-print/cups-1.6.0[dbus]
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	mycmakeargs=( -DCUPS_1_6=ON )
+	kde4-base_src_configure
+}
