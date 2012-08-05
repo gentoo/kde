@@ -18,9 +18,6 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep nepomuk-core)
 	!kde-misc/nepomukcontroller
-	!~dev-db/virtuoso-server-6.1.5
-	!~dev-db/virtuoso-odbc-6.1.5
-	!~dev-db/virtuoso-jdbc-6.1.5
 "
 RDEPEND="${DEPEND}"
 
