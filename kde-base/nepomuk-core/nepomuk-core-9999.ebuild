@@ -14,9 +14,6 @@ IUSE="debug"
 DEPEND="
 	>=app-misc/strigi-0.7.7[dbus,qt4]
 	>=dev-libs/soprano-2.8.0[dbus,raptor,redland,virtuoso]
-	!~dev-db/virtuoso-server-6.1.5
-	!~dev-db/virtuoso-odbc-6.1.5
-	!~dev-db/virtuoso-jdbc-6.1.5
 "
 RDEPEND="${DEPEND}"
 
