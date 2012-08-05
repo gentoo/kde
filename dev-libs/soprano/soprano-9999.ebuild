@@ -38,7 +38,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=x11-libs/qt-test-4.5.0:4 )
 "
 RDEPEND="${COMMON_DEPEND}
-	virtuoso? ( >=dev-db/virtuoso-server-6.1.0 )
+	virtuoso? ( >=dev-db/virtuoso-server-6.1.6 )
 "
 
 CMAKE_IN_SOURCE_BUILD="1"
