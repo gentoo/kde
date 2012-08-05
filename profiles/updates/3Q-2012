@@ -35,3 +35,4 @@ slotmove kde-misc/stdin-plasmoid 0 4
 slotmove kde-misc/todo-list 0 4
 slotmove kde-misc/toggle-compositing 0 4
 slotmove kde-misc/translatoid 0 4
+move app-admin/print-manager kde-misc/print-manager
