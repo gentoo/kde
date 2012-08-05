@@ -12,8 +12,8 @@ net-libs/libkolabxml ~arm ~ppc ~ppc64
 # kde-base/kdepim-runtime[google]
 net-libs/libkgapi ~arm ~ppc ~ppc64
 
-# krdc/krdc[telepathy]
-# krfb/krfb[telepathy]
+# kde-base/krdc[telepathy]
+# kde-base/krfb[telepathy]
 net-libs/telepathy-qt ~ppc ~ppc64 
 
 # 
