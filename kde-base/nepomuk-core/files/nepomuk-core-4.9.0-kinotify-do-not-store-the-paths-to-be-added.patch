@@ -1,0 +1,80 @@
+diff --git a/services/filewatch/kinotify.cpp b/services/filewatch/kinotify.cpp
+index e8843c8..5e6ff05 100644
+--- a/services/filewatch/kinotify.cpp
++++ b/services/filewatch/kinotify.cpp
+@@ -79,8 +79,8 @@ public:
+     QHash<int, QByteArray> watchPathHash;
+     QHash<QByteArray, int> pathWatchHash;
+ 
+-    /// queue of paths to install watches for
+-    QQueue<QByteArray> pathsToWatch;
++    /// A list of all the current dirIterators
++    QQueue<QDirIterator*> dirIterators;
+ 
+     unsigned char eventBuffer[EVENT_BUFFER_SIZE];
+ 
+@@ -136,20 +136,6 @@ public:
+         }
+     }
+ 
+-    bool addWatchesRecursively( const QByteArray& path )
+-    {
+-        if ( !addWatch( path ) )
+-            return false;
+-
+-        const QString stringPath = QFile::decodeName(path);
+-        QDirIterator iter( stringPath, QDir::Dirs | QDir::NoDotAndDotDot );
+-        while( iter.hasNext() ) {
+-            pathsToWatch.enqueue( QFile::encodeName(iter.next()) );
+-        }
+-
+-        return true;
+-    }
+-
+     void removeWatch( int wd ) {
+         kDebug() << wd << watchPathHash[wd];
+         pathWatchHash.remove( watchPathHash.take( wd ) );
+@@ -159,19 +145,24 @@ public:
+     void _k_addWatches() {
+         // add the next batch of paths
+         for ( int i = 0; i < 100; ++i ) {
+-            if ( pathsToWatch.isEmpty() ||
+-                 !addWatchesRecursively( pathsToWatch.dequeue() ) ) {
+-                return;
++            QDirIterator* it = dirIterators.front();
++            if( it->hasNext() ) {
++                it->next();
++                addWatch( QFile::encodeName(it->filePath()) );
++            }
++            else {
++                delete dirIterators.dequeue();
++                if( dirIterators.isEmpty() ) {
++                    kDebug() << "Done adding watches";
++                    return;
++                }
+             }
+         }
+ 
+         // asyncroneously add the next batch
+-        if ( !pathsToWatch.isEmpty() ) {
++        if ( !dirIterators.isEmpty() ) {
+             QMetaObject::invokeMethod( q, "_k_addWatches", Qt::QueuedConnection );
+         }
+-        else {
+-            kDebug() << "All watches installed";
+-        }
+     }
+ 
+ private:
+@@ -245,7 +236,10 @@ bool KInotify::addWatch( const QString& path, WatchEvents mode, WatchFlags flags
+ 
+     d->mode = mode;
+     d->flags = flags;
+-    d->pathsToWatch.append( QFile::encodeName( path ) );
++    d->addWatch( QFile::encodeName(path) );
++    QDirIterator* iter = new QDirIterator( path, QDir::Dirs | QDir::NoDotAndDotDot,
++                                           QDirIterator::Subdirectories );
++    d->dirIterators.append( iter );
+     d->_k_addWatches();
+     return true;
+ }
