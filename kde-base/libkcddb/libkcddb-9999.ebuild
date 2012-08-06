@@ -16,7 +16,7 @@ IUSE="debug musicbrainz"
 RESTRICT=test
 
 DEPEND="
-	musicbrainz? ( media-libs/musicbrainz:3 )
+	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
 add_blocker kscd "<4.8.50"
@@ -26,7 +26,7 @@ KMSAVELIBS="true"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with musicbrainz MusicBrainz3)
+		$(cmake-utils_use_with musicbrainz MusicBrainz5)
 	)
 
 	kde4-base_src_configure
