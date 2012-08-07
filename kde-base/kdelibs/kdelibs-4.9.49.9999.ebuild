@@ -103,6 +103,7 @@ RDEPEND="${COMMONDEPEND}
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
+	sys-apps/dbus[X]
 	!aqua? (
 		x11-apps/iceauth
 		x11-apps/rgb
