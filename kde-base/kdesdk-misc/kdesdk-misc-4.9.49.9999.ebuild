@@ -25,6 +25,9 @@ KMEXTRA="
 	kprofilemethod/
 	poxml/
 "
+# java deps on anltr cant be properly explained to cmake deps
+# needs to be run in one thread
+MAKEOPTS+=" -j1"
 
 src_configure() {
 	mycmakeargs=(
