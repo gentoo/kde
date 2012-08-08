@@ -83,12 +83,6 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
-src_prepare() {
-	sed -i -e '1ifind_package(KdepimLibs)' plasma/CMakeLists.txt || die
-
-	kde4-meta_src_prepare
-}
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
