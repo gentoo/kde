@@ -89,7 +89,7 @@ esac
 # translations, ebuilds must call enable_selected_linguas(). kde4-{base,meta}.eclass does
 # this for you.
 #
-# Example: KDE_LINGUAS="en_GB de nl"
+# Example: KDE_LINGUAS="de en_GB nl"
 if [[ ${KDE_BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
 		IUSE="${IUSE} linguas_${_lingua}"
