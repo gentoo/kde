@@ -20,12 +20,15 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	media-libs/qt-gstreamer
 	>=net-im/telepathy-logger-0.2.12-r1
 	>=net-libs/telepathy-qt-0.9.1
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	<sys-devel/bison-2.6
+	sys-devel/flex
+"
 
 pkg_setup() {
 	python_set_active_version 2
