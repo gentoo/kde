@@ -16,9 +16,6 @@ Agenda topics for the next KDE team meeting
    access to a box to test if they are still useful?
 
 4. Bugs (30 minutes)
-   * kde-base/kmail-4.9.0 fails compiling with gcc-4.4.7
-   https://bugs.gentoo.org/show_bug.cgi?id=429742
-
    * app-cdr/k3b: Excessive use of REQUIRED_USE (and wrong combination
    USE="lame"+"encode") REQUIRED_USE was added, otherwise USE="-encode lame"
    does nothing. https://bugs.gentoo.org/show_bug.cgi?id=417235
