@@ -27,6 +27,9 @@ Agenda topics for the next KDE team meeting
         3. Drop the encode flag, but move the optional RDEPS to an elog
         4. Drop the encode flag and keep optional RDEPS (current behaviour)
 
+   * cmake-utils.eclass: add support for dev-util/ninja
+   https://bugs.gentoo.org/show_bug.cgi?id=430608
+
    * app-office/calligra-2.4.3: move fonts to separate packages
    https://bugs.gentoo.org/show_bug.cgi?id=427910
 
