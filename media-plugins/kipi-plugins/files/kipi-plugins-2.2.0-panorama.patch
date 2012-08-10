@@ -1,0 +1,16 @@
+diff -ruN digikam-2.2.0.orig/extra/kipi-plugins/CMakeLists.txt digikam-2.2.0/extra/kipi-plugins/CMakeLists.txt
+--- digikam-2.2.0.orig/extra/kipi-plugins/CMakeLists.txt	2011-10-03 12:34:09.000000000 +0200
++++ digikam-2.2.0/extra/kipi-plugins/CMakeLists.txt	2011-11-05 20:14:23.000000000 +0100
+@@ -389,7 +389,11 @@
+     ADD_SUBDIRECTORY(batchprocessimages)
+     ADD_SUBDIRECTORY(rajceexport)
+     ADD_SUBDIRECTORY(kmlexport)
+-    ADD_SUBDIRECTORY(panorama)
++
++    IF(ENABLE_panorama)
++        ADD_SUBDIRECTORY(panorama)
++    ENDIF(ENABLE_panorama)
++
+     ADD_SUBDIRECTORY(photolayoutseditor)
+ 
+     # Plugins which are optional depencies.
