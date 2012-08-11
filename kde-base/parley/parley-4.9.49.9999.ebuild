@@ -15,6 +15,7 @@ IUSE="debug +plasma"
 DEPEND="
 	$(add_kdebase_dep libkdeedu)
 "
+RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libkdeedu/keduvocdocument
