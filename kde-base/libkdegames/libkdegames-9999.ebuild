@@ -9,11 +9,23 @@ inherit kde4-meta
 
 DESCRIPTION="Base library common to many KDE games."
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug openal"
 
 DEPEND="
 	>=dev-games/ggz-client-libs-0.0.14
+	openal? (
+		media-libs/libsndfile
+		media-libs/openal
+	)
 "
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use openal USE_OPENAL_SNDFILE)
+	)
+
+	kde4-base_src_configure
+}
