@@ -15,3 +15,4 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep libkdeedu)
 "
+RDEPEND=${DEPEND}
