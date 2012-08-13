@@ -35,5 +35,12 @@ Agenda topics for the next KDE team meeting
 
    * www-client/rekonq-1.0: please move Nunito-Regular.ttf to separate package
    https://bugs.gentoo.org/show_bug.cgi?id=427914
+   
+   * net-libs/libkolabxml-0.8.0[php] fails
+   https://bugs.gentoo.org/show_bug.cgi?id=430858
+   The cause here appears to be that FindPHP4.cmake does not look in
+   /usr/include/php5.*. (and there is no FindPHP5.cmake). This potentially means 
+   that every search for PHP in cmake is broken (though it appears that nothing
+   in kde-base at least has IUSE="php, explaining this not being caught)
 
 5. Open floor (15 minutes)
