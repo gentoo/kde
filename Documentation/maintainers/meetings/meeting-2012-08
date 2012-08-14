@@ -15,7 +15,10 @@ Agenda topics for the next KDE team meeting
    Kensington would like to push these patches upstream. Does anyone have
    access to a box to test if they are still useful?
 
-4. Bugs (30 minutes)
+4. KDE stable subproject (10 minutes)
+   * Discuss the new KDE stable subproject, as proposed by ago.
+
+5. Bugs (30 minutes)
    * app-cdr/k3b: Excessive use of REQUIRED_USE (and wrong combination
    USE="lame"+"encode") REQUIRED_USE was added, otherwise USE="-encode lame"
    does nothing. https://bugs.gentoo.org/show_bug.cgi?id=417235
@@ -43,4 +46,4 @@ Agenda topics for the next KDE team meeting
    that every search for PHP in cmake is broken (though it appears that nothing
    in kde-base at least has IUSE="php, explaining this not being caught)
 
-5. Open floor (15 minutes)
+6. Open floor (15 minutes)
