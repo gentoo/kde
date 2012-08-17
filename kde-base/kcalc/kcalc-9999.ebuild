@@ -21,10 +21,6 @@ RDEPEND="${DEPEND}"
 RESTRICT="test"
 # bug 393093
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.2-solaris-knumber_priv.patch
-)
-
 src_test() {
 	LANG=C kde4-base_src_test
 }
