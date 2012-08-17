@@ -197,14 +197,6 @@ src_prepare() {
 		# Try to fix kkeyserver_mac
 		epatch "${FILESDIR}"/${PN}-4.3.80-kdeui_util_kkeyserver_mac.patch
 	fi
-
-	if [[ ${CHOST} == *-solaris* ]] ; then
-		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-ksyscoca.patch"
-		# getgrouplist not in solaris libc
-		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-getgrouplist.patch"
-		# solaris has no d_type element in dir_ent
-		epatch "${FILESDIR}/kdelibs-4.3.2-solaris-fileunix.patch"
-	fi
 }
 
 src_configure() {
