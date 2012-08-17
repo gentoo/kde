@@ -21,10 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.2-solaris.patch
-)
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with gsl)
