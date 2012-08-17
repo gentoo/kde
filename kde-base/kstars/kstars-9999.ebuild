@@ -20,10 +20,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.4.65-solaris.patch
-)
-
 src_configure() {
 	# Bug 308903
 	use ppc64 && append-flags -mminimal-toc
