@@ -19,8 +19,6 @@ RDEPEND="${DEPEND}"
 
 add_blocker kalgebra 4.7.50
 
-PATCHES=( "${FILESDIR}/${PN}-solaris-graph2d.patch" )
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with readline)
