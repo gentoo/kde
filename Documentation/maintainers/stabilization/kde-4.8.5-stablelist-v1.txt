@@ -1,11 +1,4 @@
 #
-# dependencies, target: ppc
-#
-
-=media-libs/libdmtx-0.7.4
-=media-libs/prison-1.0
-
-#
 # KDE 4.8.5, target: amd64 ppc x86
 #
 
