@@ -2,7 +2,6 @@
 # dependencies, target: ppc
 #
 
-=sys-auth/polkit-qt-0.103.0
 =media-libs/libdmtx-0.7.4
 =media-libs/prison-1.0
 =app-i18n/fcitx-4.2.1
