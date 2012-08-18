@@ -271,7 +271,7 @@
 =kde-base/nepomuk-4.8.5
 =kde-base/nsplugins-4.8.5
 =kde-base/okteta-4.8.5
-=kde-base/okular-4.8.5-r1
+=kde-base/okular-4.8.5-r2
 =kde-base/oxygen-icons-4.8.5
 =kde-base/palapeli-4.8.5
 =kde-base/parley-4.8.5
