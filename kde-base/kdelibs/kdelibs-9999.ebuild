@@ -13,7 +13,7 @@ inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
 # The "master" branch is out of date, so use KDE/4.9 per upstream's
 # recommendation.
-EGIT_BRANCH="KDE/4.9"
+EGIT_BRANCH="KDE/4.10"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 HOMEPAGE="http://www.kde.org/"
