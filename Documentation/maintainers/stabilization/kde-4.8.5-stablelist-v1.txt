@@ -291,9 +291,3 @@
 =kde-base/systemsettings-4.8.5
 =kde-base/thumbnailers-4.8.5
 =kde-base/umbrello-4.8.5
-
-#
-# applications, target: amd64 x86
-#
-
-# TODO
