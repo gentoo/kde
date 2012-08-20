@@ -59,13 +59,12 @@ src_unpack() {
 }
 
 src_prepare() {
-	# we dont want l10n for all playgraund stuff we need ti only for kde!
 	for lng in ${enabled_linguas}; do
+		# we dont want l10n for all playground stuff we need it only for kde!
 		rm -r "${S}/${lng}"/data/calligra
 		rm -r "${S}/${lng}"/docs/extragear*
 		rm -r "${S}/${lng}"/docs/playground*
 		rm -r "${S}/${lng}"/docs/kdereview
-		rm -r "${S}/${lng}"/docs/kdevelop
 		rm -r "${S}/${lng}"/docs/calligra
 		rm -r "${S}/${lng}"/docs/koffice
 		rm -r "${S}/${lng}"/messages/extragear*
@@ -73,6 +72,11 @@ src_prepare() {
 		rm -r "${S}/${lng}"/messages/kdereview
 		rm -r "${S}/${lng}"/messages/calligra
 		rm -r "${S}/${lng}"/messages/koffice
+
+		# remove kdepim stuff as well, we have it in seperate kdepim-l10n package
+		rm -r "${S}/${lng}"/messages/kdepim*
+		rm -r "${S}/${lng}"/docmessages/kdepim*
+		rm -r "${S}/${lng}"/docs/kdepim*
 	done
 }
 
