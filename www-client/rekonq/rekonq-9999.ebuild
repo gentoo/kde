@@ -6,7 +6,7 @@ EAPI=4
 
 WEBKIT_REQUIRED="always"
 QT_MINIMAL="4.8"
-KDE_MINIMAL="4.7"
+KDE_MINIMAL="4.9"
 KDE_SCM="git"
 KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
 hu is it ja km ko lt nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian
