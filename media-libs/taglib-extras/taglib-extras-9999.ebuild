@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdesupport"
+KDE_SCM="svn"
 KDE_REQUIRED="optional"
 inherit kde4-base
 
