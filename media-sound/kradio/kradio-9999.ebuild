@@ -5,6 +5,7 @@
 EAPI=4
 
 KDE_LINGUAS="cs de es pl pt ru uk"
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="kradio is a radio tuner application for KDE"
