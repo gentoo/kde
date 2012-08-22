@@ -12,15 +12,16 @@ if [[ ${PV} != *9999* ]]; then
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux"
 	KDE_HANDBOOK="optional"
 else
-	ESVN_REPO_URI="https://kdiff3.svn.sourceforge.net/svnroot/kdiff3/trunk/kdiff3"
 	KEYWORDS=""
 fi
 
 KDE_REQUIRED="optional"
+KDE_SCM="svn"
 inherit kde4-base qt4-r2
 
 DESCRIPTION="Qt/KDE based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
+ESVN_REPO_URI="https://kdiff3.svn.sourceforge.net/svnroot/kdiff3/trunk/kdiff3"
 
 LICENSE="GPL-2"
 SLOT="4"
