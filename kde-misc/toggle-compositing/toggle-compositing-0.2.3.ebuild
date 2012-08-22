@@ -6,8 +6,6 @@ EAPI=4
 
 inherit kde4-base
 
-MY_P="${PN}"
-
 DESCRIPTION="KDE4 plasmoid. Switch between KWin's compositing and traditional mode with ease."
 HOMEPAGE="http://www.kde-look.org/content/show.php/Toggle-Compositing?content=78299"
 SRC_URI="http://ivplasma.googlecode.com/files/${P}.tar.gz"
@@ -22,4 +20,4 @@ RDEPEND="
 	$(add_kdebase_dep plasma-workspace)
 "
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}"
