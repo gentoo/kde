@@ -7,7 +7,6 @@ EAPI=4
 MY_PN="${PN}-1"
 MY_P="${MY_PN}-${PV}"
 EGIT_REPONAME="${MY_PN}"
-KDE_SCM="git"
 KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
 
 inherit kde4-base
