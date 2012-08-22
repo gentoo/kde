@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="playground/base/plasma/applets"
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="Translator plasmoid using google translator"
