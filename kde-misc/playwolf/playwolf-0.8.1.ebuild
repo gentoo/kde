@@ -7,8 +7,6 @@ EAPI=4
 KDE_MINIMAL="4.6"
 inherit kde4-base
 
-MY_P="${PN}"
-
 DESCRIPTION="KDE4 plasmoid. Controller and visualizer of information about the songs for amarok 2.0."
 HOMEPAGE="http://www.kde-look.org/content/show.php/PlayWolf?content=93882"
 SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.bz2"
@@ -23,4 +21,4 @@ RDEPEND="
 	$(add_kdebase_dep plasma-workspace)
 "
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}"
