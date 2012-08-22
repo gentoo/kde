@@ -14,7 +14,6 @@ if [[ ${PV} != *9999* ]]; then
 fi
 
 VIRTUALX_REQUIRED=test
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Personal finance manager for KDE"
