@@ -8,7 +8,6 @@ KDE_LINGUAS="cs da de en_GB es et fr hu it nb nl pa pt pt_BR ru sv uk zh_CN
 zh_TW"
 EGIT_REPONAME="wicd-kde"
 MY_P=${P/-client/}
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Wicd client built on the KDE Development Platform"
