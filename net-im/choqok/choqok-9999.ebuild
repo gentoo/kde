@@ -12,7 +12,6 @@ if [[ ${PV} != *9999* ]]; then
 	KDE_HANDBOOK="optional"
 	KEYWORDS="~amd64 ~x86"
 else
-	KDE_SCM="git"
 	KEYWORDS=""
 fi
 
