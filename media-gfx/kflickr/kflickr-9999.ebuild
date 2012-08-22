@@ -8,7 +8,7 @@ KDE_LINGUAS="ar bg ca cs de es eu fr he hu id it ko ku lv nb nds nl pl pt_BR
 	ru sl sr sv tr uk zh_CN"
 
 KDE_LINGUAS_DIR="${S}/src/po"
-
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="KDE App for easy upload of your favourite photos to your Flickr.com account"
