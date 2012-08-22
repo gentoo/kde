@@ -4,8 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
-
 inherit kde4-base
 
 DESCRIPTION="QRCode and data matrix barcode library"
