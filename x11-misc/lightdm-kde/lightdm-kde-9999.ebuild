@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_MINIMAL="4.8"
-KDE_SCM="git"
 EGIT_REPONAME="${PN/-kde/}"
 inherit kde4-base
 
