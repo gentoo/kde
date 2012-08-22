@@ -4,17 +4,16 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
-DESCRIPTION="simple backup system for KDE"
+DESCRIPTION="Simple backup system for KDE"
 HOMEPAGE="http://gitorious.org/timevault"
 EGIT_REPO_URI="git://gitorious.org/timevault/mainline.git"
 
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="app-backup/rdiff-backup"
 RDEPEND="${DEPEND}"
