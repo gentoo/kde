@@ -8,7 +8,6 @@ KDE_LINGUAS="ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
 pt_BR sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KMNAME="kdevelop"
-KDE_SCM="git"
 EGIT_REPONAME="kdev-php"
 
 inherit kde4-base
