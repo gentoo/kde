@@ -5,19 +5,15 @@
 EAPI=4
 
 KDE_MINIMAL="4.6"
-
-KDE_SCM="git"
-EGIT_REPONAME="plasma-mobile"
-
 inherit kde4-base
 
 DESCRIPTION="Plasma mobile shell for internet tablets"
-HOMEPAGE="http://kde.org/"
+HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE=""
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep nepomuk)
