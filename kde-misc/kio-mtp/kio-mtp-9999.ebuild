@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 EGIT_REPONAME="scratch/schmidt/kio-mtp.git"
 inherit kde4-base
 
@@ -16,12 +15,9 @@ SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
-COMMONDEPEND="
+DEPEND="
 	>=media-libs/libmtp-1.1.3
 "
-DEPEND="
-	${COMMONDEPEND}
-"
 RDEPEND="
-	${COMMONDEPEND}
+	${DEPEND}
 "
