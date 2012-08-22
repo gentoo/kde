@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_LINGUAS="ca cs da de el en_GB es et fr ga gl hr it ja ko nb nds nl nn pl pt
 pt_BR ro ru sk sv th tr uk wa zh_CN"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A quake-style terminal emulator based on KDE konsole technology"
@@ -16,7 +15,7 @@ HOMEPAGE="http://yakuake.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE=""
+IUSE="debug"
 
 DEPEND="$(add_kdebase_dep konsole)
 	sys-devel/gettext"
