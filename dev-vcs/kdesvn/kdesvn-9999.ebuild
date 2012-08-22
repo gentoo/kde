@@ -7,6 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro"
 KDE_LINGUAS_LIVE_OVERRIDE="true"
+KDE_SCM="svn"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
