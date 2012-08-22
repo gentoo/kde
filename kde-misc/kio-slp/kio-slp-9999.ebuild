@@ -6,7 +6,7 @@ EAPI=4
 
 KMNAME="playground/network"
 KMMODULE="${PN/-/_}"
-
+KDE_SCM="svn"
 OPENGL_REQUIRED="optional"
 inherit kde4-base
 
