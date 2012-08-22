@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="extragear/base"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE tool that looks for well-known apps in your path and creates entries for them in the KDE menu"
