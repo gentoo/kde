@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="Grub frontend for KDE4."
