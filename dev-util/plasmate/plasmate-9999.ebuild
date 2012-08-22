@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=4
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A small IDE taylored for development of Plasma components, such as Widgets, Runners, Dataengines."
