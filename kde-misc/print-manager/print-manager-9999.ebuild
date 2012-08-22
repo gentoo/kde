@@ -7,7 +7,7 @@ EAPI=4
 KDE_LINGUAS="cs da de et hu km nl pl pt pt_BR sk sv uk"
 inherit kde4-base
 
-DESCRIPTION="A tool for managing print jobs and printers"
+DESCRIPTION="Manage print jobs and printers in KDE"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/print-manager"
 [[ "${PV}" != "9999" ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
