@@ -9,7 +9,7 @@ KDE_HANDBOOK="optional"
 KDE_LINGUAS="ca cs da de el es es_AR fr it ja nl pl pt_BR ru sr sr@Latn tr uk zh_TW"
 KDE_LINGUAS_LIVE_OVERRIDE="true"
 MY_P=${P}-Source
-
+KDE_SCM="svn"
 inherit kde4-base
 
 ESVN_REPO_URI="https://k9copy.svn.sourceforge.net/svnroot/k9copy/kde4"
