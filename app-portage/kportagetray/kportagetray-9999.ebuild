@@ -7,7 +7,6 @@ EAPI=4
 KDE_LINGUAS="pt_BR"
 PYTHON_DEPEND="2:2.6"
 
-KDE_SCM="git"
 inherit kde4-base python
 
 EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
