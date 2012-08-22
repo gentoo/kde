@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Kde4 plasmoid for monitoring emerge progress on Gentoo Linux"
