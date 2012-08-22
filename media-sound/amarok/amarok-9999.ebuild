@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_LINGUAS="bg ca cs da de en_GB es et eu fi fr it ja km nb nds nl pa
 pl pt pt_BR ru sl sr sr@latin sv th tr uk wa zh_TW"
-KDE_SCM="git"
 KDE_REQUIRED="never"
 inherit flag-o-matic kde4-base
 
