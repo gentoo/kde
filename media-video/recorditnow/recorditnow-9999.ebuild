@@ -7,7 +7,6 @@ EAPI=4
 #KDE_LINGUAS="en cs de hu pt_BR fr"
 # need patch to work select linguas
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="RecordItNow is a plugin based desktop recorder for KDE"
