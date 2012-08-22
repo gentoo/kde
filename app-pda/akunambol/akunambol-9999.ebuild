@@ -4,16 +4,16 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Akonadi Syncml client"
 HOMEPAGE="http://akunambol.ruphy.org/"
 
 LICENSE="GPL-3"
+# TODO needs slot move
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="
 	app-office/akonadi-server
