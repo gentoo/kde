@@ -5,7 +5,6 @@
 EAPI=4
 
 KMNAME="kdev-qmake"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Adds suppport for qmake projects to kdevelop."
