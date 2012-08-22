@@ -8,9 +8,6 @@ KDE_MINIMAL="4.6"
 KDE_LINGUAS="ar ast bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hr
 hu is it ja km ko lt lv mai ms nb nds nl nn pa pl pt pt_BR ro ru sk sl sq sv th
 tr ug uk wa zh_CN zh_TW"
-
-KDE_SCM="git"
-EGIT_REPONAME="${PN}"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for NetworkManager"
