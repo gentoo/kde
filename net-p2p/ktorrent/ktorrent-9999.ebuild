@@ -4,8 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
-KDE_MINIMAL="4.5"
 LIBKT_VERSION_MIN="${PV}"
 LIBKT_VERSION_MAX="99999999"
 if [[ ${PV} != 9999* ]]; then
