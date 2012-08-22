@@ -5,7 +5,6 @@
 EAPI=4
 
 KMNAME="kdevelop"
-KDE_SCM="git"
 KDE_MINIMAL="4.7"
 VIRTUALX_REQUIRED=test
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
