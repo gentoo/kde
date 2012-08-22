@@ -8,7 +8,6 @@ KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fr ga gl hu it ja
 ko lt ms nb nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
 KDE_DOC_DIRS="doc"
 KDE_HANDBOOK=optional
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
