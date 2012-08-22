@@ -7,7 +7,6 @@ EAPI=4
 MULTIMEDIA_REQUIRED="always"
 WEBKIT_REQUIRED="always"
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
 
 # Translations are only in the tarballs, not in the git repo
 if [[ ${PV} != *9999* ]]; then
