@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 if [[ ${PV} != 9999* ]]; then
 	inherit versionator
 	# upstream likes to skip that _ in beta releases
