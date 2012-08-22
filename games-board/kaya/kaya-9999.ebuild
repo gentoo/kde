@@ -4,7 +4,6 @@
 
 EAPI=4
 USE_RUBY="ruby18"
-KDE_SCM="git"
 inherit kde4-base ruby-ng
 
 DESCRIPTION="Board game suite for KDE"
