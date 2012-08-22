@@ -4,8 +4,6 @@
 
 EAPI=4
 
-KMNAME="playground/utils"
-KMMODULE="${PN}"
 inherit kde4-base
 
 DESCRIPTION="KDE: Editor for Regular Expressions"
