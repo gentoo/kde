@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdesdk"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Extra Dolphin plugins"

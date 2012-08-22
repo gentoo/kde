@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="kdesdk"
 KMMODULE="kioslave"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="kioslaves from kdesdk package"

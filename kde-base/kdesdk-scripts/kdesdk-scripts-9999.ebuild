@@ -7,6 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
 KMMODULE="scripts"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE SDK Scripts"

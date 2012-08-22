@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kross-interpreters"
 KMMODULE="ruby"
-KDE_SCM="git"
 
 USE_RUBY="ruby18"
 # No ruby19 for three reasons:

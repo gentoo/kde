@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="kdesdk"
 KMNOMODULE="true"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"

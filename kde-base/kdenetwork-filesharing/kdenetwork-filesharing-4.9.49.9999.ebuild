@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="kdenetwork"
 KMMODULE="filesharing"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="kcontrol filesharing config module for NFS, SMB etc"

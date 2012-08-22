@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdenetwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."

@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdeadmin"
+KDE_SCM="svn"
 PYTHON_DEPEND="2"
 inherit python kde4-meta
 

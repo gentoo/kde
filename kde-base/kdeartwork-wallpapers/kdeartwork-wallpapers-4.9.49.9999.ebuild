@@ -8,6 +8,7 @@ RESTRICT="binchecks strip"
 
 KMMODULE="wallpapers"
 KMNAME="kdeartwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Wallpapers from kde"

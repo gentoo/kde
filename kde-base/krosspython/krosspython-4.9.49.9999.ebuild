@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 KMNAME="kross-interpreters"
 KMMODULE="python"
 PYTHON_DEPEND="2"

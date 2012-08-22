@@ -10,8 +10,6 @@ QTHELP_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
 KDE_REQUIRED="never"
 
-KDE_SCM="git"
-
 inherit kde4-base
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine - Qt bindings"

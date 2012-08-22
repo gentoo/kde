@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kate"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."

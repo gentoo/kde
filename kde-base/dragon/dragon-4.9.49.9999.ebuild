@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="dragon"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"

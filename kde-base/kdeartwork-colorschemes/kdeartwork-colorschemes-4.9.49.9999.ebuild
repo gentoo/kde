@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdeartwork"
+KDE_SCM="svn"
 KMMODULE="ColorSchemes"
 inherit kde4-meta
 

@@ -12,6 +12,7 @@ else
 	MY_P="${PN}-${MY_PV}"
 fi
 KDE_REQUIRED="never"
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="Oxygen SVG icon theme."

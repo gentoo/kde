@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_REQUIRED="never"
-KDE_SCM="git"
 inherit kde4-base mono
 
 DESCRIPTION="C# bindings for Qt"

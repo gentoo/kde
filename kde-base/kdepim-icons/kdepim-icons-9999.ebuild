@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kdepim"
 KMMODULE="icons"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE PIM icons"

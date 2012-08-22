@@ -6,6 +6,7 @@ EAPI=4
 
 KMMODULE="styles"
 KMNAME="kdeartwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Extra KWin styles and window decorations"

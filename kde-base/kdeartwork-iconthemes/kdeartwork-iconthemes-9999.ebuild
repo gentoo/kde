@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="kdeartwork"
 KMMODULE="IconThemes"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Icon themes for kde"

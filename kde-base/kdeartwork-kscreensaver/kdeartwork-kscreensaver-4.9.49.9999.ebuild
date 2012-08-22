@@ -7,6 +7,7 @@ EAPI=4
 KMMODULE="kscreensaver"
 KMNAME="kdeartwork"
 OPENGL_REQUIRED="optional"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"

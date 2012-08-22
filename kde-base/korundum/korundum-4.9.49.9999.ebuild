@@ -5,7 +5,6 @@
 EAPI=4
 
 OPENGL_REQUIRED="always"
-KDE_SCM="git"
 
 USE_RUBY="ruby18"
 # No ruby19 for three reasons:

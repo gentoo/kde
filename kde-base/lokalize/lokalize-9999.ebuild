@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
+KDE_SCM="svn"
 PYTHON_DEPEND="2"
 inherit python kde4-meta
 

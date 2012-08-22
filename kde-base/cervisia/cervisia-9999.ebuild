@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdesdk"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Cervisia - A KDE CVS frontend"

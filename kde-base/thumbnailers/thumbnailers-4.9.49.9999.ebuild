@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 KMNAME="kdegraphics-thumbnailers"
 inherit kde4-base
 

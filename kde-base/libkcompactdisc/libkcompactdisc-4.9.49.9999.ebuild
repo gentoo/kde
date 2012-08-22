@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE library for playing & ripping CDs"

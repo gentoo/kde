@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="A Personal Organizer for KDE"

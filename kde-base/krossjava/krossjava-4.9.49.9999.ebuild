@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kross-interpreters"
 KMMODULE="java"
-KDE_SCM="git"
 inherit java-pkg-2 java-ant-2 kde4-meta multilib
 
 DESCRIPTION="Java plugin for the kdelibs/kross scripting framework."

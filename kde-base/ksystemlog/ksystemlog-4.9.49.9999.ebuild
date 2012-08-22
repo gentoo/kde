@@ -6,7 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdeadmin"
-
+KDE_SCM="svn"
 VIRTUALX_REQUIRED=test
 inherit kde4-meta
 

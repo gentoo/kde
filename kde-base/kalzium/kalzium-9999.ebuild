@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
 inherit kde4-base flag-o-matic

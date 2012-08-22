@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."

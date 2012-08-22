@@ -5,7 +5,6 @@
 EAPI=4
 
 KMNAME="kdepim"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Akonadi developer console"

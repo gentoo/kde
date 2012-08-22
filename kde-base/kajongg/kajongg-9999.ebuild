@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SCM="svn"
 PYTHON_DEPEND="2:2.6"
 inherit kde4-meta python
 

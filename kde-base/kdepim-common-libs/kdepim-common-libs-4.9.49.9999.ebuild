@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kdepim"
 KMNOMODULE="true"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Common libraries for KDE PIM apps"

@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdetoys"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"

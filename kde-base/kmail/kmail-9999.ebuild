@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
-KDE_SCM="git"
 VIRTUALX_REQUIRED=test
 inherit flag-o-matic kde4-meta
 

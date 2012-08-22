@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Kblocks is a single-player Tetris-like game."

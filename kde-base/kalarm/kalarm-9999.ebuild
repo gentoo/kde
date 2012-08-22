@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"

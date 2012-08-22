@@ -8,6 +8,7 @@ RESTRICT="binchecks strip"
 
 KMMODULE="sounds"
 KMNAME="kdeartwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Extra sound themes for kde"

@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdetoys"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"

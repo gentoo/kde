@@ -7,7 +7,6 @@ EAPI=4
 OPENGL_REQUIRED="always"
 DECLARATIVE_REQUIRED="optional"
 KDE_REQUIRED="never"
-KDE_SCM="git"
 USE_RUBY="ruby18"
 # No ruby19 for three reasons:
 # 1) it does not build (yet) - will likely be solved soon

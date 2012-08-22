@@ -9,7 +9,6 @@ MULTIMEDIA_REQUIRED="optional"
 OPENGL_REQUIRED="optional"
 QTHELP_REQUIRED="optional"
 KDE_REQUIRED="never"
-KDE_SCM="git"
 VIRTUALX_REQUIRED="test"
 inherit kde4-base
 

@@ -7,7 +7,6 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KMNAME="kate"
 KMMODULE="part"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="KDE Editor KPart"

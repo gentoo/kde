@@ -6,6 +6,7 @@ EAPI=4
 
 KMMODULE="desktopthemes"
 KMNAME="kdeartwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Additional KDE4 Plasma themes"

@@ -8,7 +8,6 @@ KDE_HANDBOOK="optional"
 KDE_REQUIRED="optional"
 CPPUNIT_REQUIRED="optional"
 PYTHON_DEPEND="python? 2"
-KDE_SCM="git"
 inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"

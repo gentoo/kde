@@ -7,7 +7,6 @@ EAPI=4
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 KMMODULE="console/${PN}"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="A command line client for accessing the KDE addressbook"

@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_HANDBOOK="never"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="KDE library for mathematical features"

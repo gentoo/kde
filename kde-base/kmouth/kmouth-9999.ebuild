@@ -5,8 +5,6 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
-
 inherit kde4-base
 
 DESCRIPTION="KDE application that reads what you type out loud. Doesn't include a speech synthesizer."

@@ -8,7 +8,6 @@ CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
 inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
 # The "master" branch is out of date, so use KDE/4.9 per upstream's

@@ -5,7 +5,6 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KDE_SCM="git"
 KDE_SELINUX_MODULE="gpg"
 inherit kde4-base
 

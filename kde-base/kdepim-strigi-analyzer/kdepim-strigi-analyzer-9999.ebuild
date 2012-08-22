@@ -6,7 +6,6 @@ EAPI=4
 
 KMNAME="kdepim"
 KMMODULE="strigi-analyzer"
-KDE_SCM="git"
 inherit kde4-meta
 
 DESCRIPTION="kdepim: strigi plugins"

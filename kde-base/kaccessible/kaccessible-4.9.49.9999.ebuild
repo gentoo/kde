@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Provides accessibility services like focus tracking"

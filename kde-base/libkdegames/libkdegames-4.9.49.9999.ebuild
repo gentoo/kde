@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdegames"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Base library common to many KDE games."

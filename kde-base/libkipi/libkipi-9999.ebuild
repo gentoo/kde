@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A library for image plugins accross KDE applications."

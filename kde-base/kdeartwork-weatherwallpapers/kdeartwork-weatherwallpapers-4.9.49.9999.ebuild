@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="kdeartwork"
 KMMODULE="WeatherWallpapers"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Weather aware wallpapers. Changes with weather outside."

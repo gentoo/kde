@@ -6,7 +6,6 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 PYTHON_DEPEND="2"
-KDE_SCM="git"
 inherit python kde4-base
 
 DESCRIPTION="KDE printer system tray utility"

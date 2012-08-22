@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdenetwork"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"

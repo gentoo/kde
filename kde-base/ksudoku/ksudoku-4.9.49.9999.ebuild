@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SCM="svn"
 OPENGL_REQUIRED="always"
 inherit kde4-meta
 

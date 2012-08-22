@@ -5,6 +5,7 @@
 EAPI=4
 
 KMNAME="kdesdk"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Measures starting performance of applications"

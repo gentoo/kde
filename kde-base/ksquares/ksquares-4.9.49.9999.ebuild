@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SCM="svn"
 inherit games-ggz kde4-meta
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"

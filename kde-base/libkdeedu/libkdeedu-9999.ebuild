@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Common library for KDE educational apps"

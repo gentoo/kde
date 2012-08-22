@@ -6,6 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kdegames"
+KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
 inherit kde4-meta
 
