@@ -4,6 +4,7 @@
 
 EAPI=4
 KDE_REQUIRED="optional"
+KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="Very configurable Qt4/KDE4 style derived from the Oxygen project."
