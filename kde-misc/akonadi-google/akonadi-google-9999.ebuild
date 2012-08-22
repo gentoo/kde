@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 EGIT_REPO_URI="git://anongit.kde.org/scratch/dvratil/akonadi-google-resources"
