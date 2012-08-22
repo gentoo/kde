@@ -3,8 +3,6 @@
 # $Header: $
 
 EAPI=4
-KDE_MINIMAL=4.5
-KDE_OVERRIDE_MINIMAL=4.5.1
 
 inherit kde4-base
 
