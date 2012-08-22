@@ -8,7 +8,6 @@ KDE_LINGUAS="da en_GB et gl lt nl pt pt_BR sk sv uk zh_TW"
 MY_PN=${PN}-1
 MY_P=${MY_PN}-${PV}
 EGIT_REPONAME=${MY_PN}
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="PolKit agent module for KDE."
