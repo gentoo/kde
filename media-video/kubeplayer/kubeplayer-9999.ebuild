@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=4
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A multimedia player for different online platforms."
