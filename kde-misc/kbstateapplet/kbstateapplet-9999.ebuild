@@ -6,6 +6,7 @@ EAPI=4
 
 KMNAME="playground/base/plasma"
 KMMODULE="applets/${PN}"
+KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Plasmoid that shows the state of keyboard leds"
