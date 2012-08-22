@@ -5,7 +5,6 @@
 EAPI=4
 
 VIRTUALX_REQUIRED=test
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A DropDrawers clone. Multiple information organizer"
