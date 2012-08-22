@@ -4,6 +4,7 @@
 
 EAPI=4
 
+KDE_SCM="svn"
 inherit versionator kde4-base
 
 DESCRIPTION="BibTeX editor for KDE to edit bibliographies used with LaTeX"
