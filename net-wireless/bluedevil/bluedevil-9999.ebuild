@@ -4,8 +4,6 @@
 
 EAPI=4
 
-EGIT_REPONAME="bluedevil"
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
