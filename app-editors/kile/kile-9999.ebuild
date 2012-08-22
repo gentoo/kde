@@ -7,7 +7,6 @@ EAPI=4
 KDE_DOC_DIRS="doc"
 KDE_HANDBOOK="optional"
 MY_P=${P/_beta/b}
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A Latex Editor and TeX shell for KDE"
