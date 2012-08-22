@@ -20,10 +20,12 @@ DEPEND="
 	>=dev-perl/Tie-IxHash-1.20
 	>=dev-perl/XML-LibXML-1.57
 	dev-perl/yaml
+	>=x11-libs/qt-core-4.4:4
 	>=x11-libs/qt-gui-4.4:4
 "
 RDEPEND="${DEPEND}
 	dev-util/desktop-file-utils
+	virtual/perl-ExtUtils-MakeMaker
 "
 
 CMAKE_USE_DIR="${S}/cppchecks"
@@ -32,8 +34,6 @@ src_prepare() {
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
 		src/src.pro || die "failed to apply nostrip"
 
-	sed -i "s:$TOP/lib:$TOP/$(get_libdir):" install.sh || die "sed failed"
-
 	sed -i "s:lib\$(LIBSUFFIX):$(get_libdir):" src/passbyvalue/passbyvalue.pro || die "sed failed"
 
 	base_src_prepare
@@ -41,14 +41,14 @@ src_prepare() {
 
 src_configure() {
 	use cxx && cmake-utils_src_configure
-	cd src
-	eqmake4 src.pro
+	perl-module_src_configure
+	eqmake4 src/src.pro
 }
 
 src_compile() {
 	use cxx && cmake-utils_src_compile
-	cd src
-	emake
+	perl-module_src_compile
+	emake -C src
 }
 
 src_install() {
@@ -56,9 +56,17 @@ src_install() {
 
 	use cxx && cmake-utils_src_install
 
-	cd src
-	emake install INSTALL_ROOT="${D}/usr"
-	cd ..
+	perl-module_src_install
 
-	./install.sh "${D}/usr" || die "install failed"
+	emake -C src install INSTALL_ROOT="${D}/usr"
+	emake -C extras install PREFIX="${D}/usr"
+	emake -C helpers install PREFIX="${D}/usr"
+	emake -C sets install PREFIX="${D}/usr"
+	emake -C plugins install DESTDIR="${D}/usr"
+
+	insinto /usr/share/dtd
+	doins share/*.*
+
+	insinto /usr/share/xsl
+	doins stylesheets/*.*
 }
