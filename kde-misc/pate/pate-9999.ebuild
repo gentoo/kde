@@ -5,7 +5,6 @@
 EAPI=4
 
 PYTHON_DEPEND="2"
-KDE_SCM="git"
 inherit python kde4-base
 
 DESCRIPTION="Tasty Python plugins for Kate"
