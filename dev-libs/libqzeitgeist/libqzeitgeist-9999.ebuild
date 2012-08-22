@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 PYTHON_DEPEND="2"
 
 inherit python kde4-base
