@@ -15,9 +15,8 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
-	x11-libs/qt-core:4
-"
-RDEPEND="${DEPEND}"
+RDEPEND="x11-libs/qt-core:4"
+DEPEND="${RDEPEND}
+	x11-libs/qt-test:4"
 
 DOCS=(AUTHORS ChangeLog README)
