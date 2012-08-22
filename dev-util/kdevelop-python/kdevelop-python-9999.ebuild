@@ -6,7 +6,6 @@ EAPI=4
 
 PYTHON_DEPEND="2"
 KMNAME="kdevelop"
-KDE_SCM="git"
 EGIT_REPONAME="kdev-python"
 KDEVPLATFORM_VERSION="1.2.82"
 inherit kde4-base python
