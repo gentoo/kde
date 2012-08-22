@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
