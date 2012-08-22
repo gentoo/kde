@@ -4,7 +4,6 @@
 
 EAPI=4
 
-KDE_SCM="git"
 inherit kde4-base
 
 DESCRIPTION="A Plasma widget displaying new and important email"
@@ -13,7 +12,7 @@ HOMEPAGE="http://www.kde.org http://www.vizzzion.org"
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs)
