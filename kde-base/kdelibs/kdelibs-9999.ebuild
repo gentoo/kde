@@ -144,7 +144,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.8.4-bytecode.patch"
 )
-#"${FILESDIR}/${PN}-4.8.2-calculator_key.patch" doesn't apply at all anymore
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
