@@ -25,7 +25,7 @@ RDEPEND="
 	>=net-libs/telepathy-qt-0.9.1
 "
 DEPEND="${RDEPEND}
-	<sys-devel/bison-2.6
+	sys-devel/bison
 	sys-devel/flex
 "
 
