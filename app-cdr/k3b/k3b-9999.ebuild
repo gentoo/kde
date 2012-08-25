@@ -29,7 +29,7 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug dvd emovix ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis"
+IUSE="debug dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
 	$(add_kdebase_dep libkcddb)
@@ -37,7 +37,7 @@ DEPEND="
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? ( virtual/ffmpeg )
 	flac? ( >=media-libs/flac-1.2[cxx] )
-	lame? ( media-sound/lame )
+	mp3? ( media-sound/lame )
 	mad? ( media-libs/libmad )
 	musepack? ( >=media-sound/musepack-tools-444 )
 	sndfile? ( media-libs/libsndfile )
@@ -64,19 +64,24 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.0.2-libavformat54.patch"
 )
 
+REQUIRED_USE="
+	mp3? ( encode )
+	sox? ( encode )
+"
+
 src_configure() {
 	mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
-		-DK3B_BUILD_EXTERNAL_ENCODER_PLUGIN=ON
 		-DK3B_BUILD_K3BSETUP=OFF
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
 		$(cmake-utils_use debug K3B_DEBUG)
 		$(cmake-utils_use dvd K3B_ENABLE_DVD_RIPPING)
+		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
 		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
 		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
-		$(cmake-utils_use lame K3B_BUILD_LAME_ENCODER_PLUGIN)
+		$(cmake-utils_use mp3 K3B_BUILD_LAME_ENCODER_PLUGIN)
 		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
 		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
 		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
