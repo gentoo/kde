@@ -342,7 +342,8 @@ kde4-meta_create_extractlists() {
 	#   it may be possible to formulate this shorter, but it should also
 	#   still be understandable...
 	if [[ ${KMNAME} != kdegraphics || ( ( $(get_kde_version) != 4.6 || ${PV} < 4.6.2 ) && $(get_kde_version) < 4.7 ) ]] \
-		&& ! [[ ${KMNAME} == kdeedu && ( ${PV} == 4.6.4 || ${PV} == 4.6.5 ) ]]; then
+		&& ! [[ ${KMNAME} == kdeedu && ( ${PV} == 4.6.4 || ${PV} == 4.6.5 ) ]] \
+		&& ! [[ ${KMNAME} == kdegames && ${PV} > 4.9.0 ]]; then
 		case ${KMNAME} in
 			kdebase-runtime|kde-runtime|kdebase-workspace|kde-workspace|kdeedu|kdegames|kdegraphics)
 				KMEXTRACTONLY+="
