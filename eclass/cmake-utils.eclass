@@ -446,7 +446,8 @@ enable_cmake-utils_src_install() {
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	if [[ $(_generator_to_use) = Ninja ]]; then
-		DESTDIR=${D} ninja install "$@"
+		DESTDIR=${D} ninja install "$@" || die "died running ninja install"
+		base_src_install_docs
 	else
 		base_src_install "$@"
 	fi
