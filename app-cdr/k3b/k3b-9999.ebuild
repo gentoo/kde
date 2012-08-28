@@ -60,10 +60,6 @@ RDEPEND="${DEPEND}
 
 DOCS+=( ChangeLog )
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.0.2-libavformat54.patch"
-)
-
 REQUIRED_USE="
 	mp3? ( encode )
 	sox? ( encode )
