@@ -126,7 +126,10 @@ PDEPEND="
 		>=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
 		>=sys-auth/polkit-kde-agent-0.99
 	)
-	semantic-desktop? ( $(add_kdebase_dep nepomuk-core) )
+	semantic-desktop? (
+		$(add_kdebase_dep nepomuk-core)
+		$(add_kdebase_dep nepomuk-widgets)
+	)
 "
 
 # Force the upgrade of plasma-workspace to a version that explicitly depends on kactivities
