@@ -4,8 +4,8 @@
 
 EAPI=4
 
-KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it ja lt nb nds nl pl pt pt_BR
-sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
+KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it ja km lt nb nds nl pl pt
+pt_BR ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 MY_P=${PN/kded/kded-integration}-${PV}
 inherit kde4-base
 
