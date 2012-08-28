@@ -4,8 +4,9 @@
 
 EAPI=4
 
-KDE_LINGUAS="bg cs da de en_GB es et fr ga gl hu it ja km lt mai nds nl pl pt
-pt_BR sk sv th tr ug uk zh_TW"
+KDE_LINGUAS="bg ca cs da de en_GB eo es et fi fr ga gl hu it ja km lt mai nds nl
+pl pt pt_BR ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv th tr ug uk
+zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy audio/video conferencing ui"
