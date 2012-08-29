@@ -156,7 +156,7 @@
 =kde-base/klipper-4.8.5
 =kde-base/kmag-4.8.5
 =kde-base/kmahjongg-4.8.5
-=kde-base/kmail-4.8.5
+=kde-base/kmail-4.8.5-r1
 =kde-base/kmenuedit-4.8.5
 =kde-base/kmimetypefinder-4.8.5
 =kde-base/kmines-4.8.5
