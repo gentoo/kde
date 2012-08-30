@@ -26,6 +26,7 @@ IUSE="test"
 
 RDEPEND="
 	dev-libs/glib
+	>=dev-libs/boost-1.40
 	>=dev-util/boost-build-1.40
 	>=media-libs/gstreamer-0.10.33
 	>=media-libs/gst-plugins-base-0.10.33
