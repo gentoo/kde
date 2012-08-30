@@ -33,3 +33,10 @@ pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
 }
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_SHARED_LIBS=ON
+	)
+	kde4-base_src_configure
+}
