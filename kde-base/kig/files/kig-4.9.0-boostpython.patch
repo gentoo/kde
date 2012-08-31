@@ -1,21 +1,21 @@
-From 693ebdb3cb0db3abcec759a5f344c40322a5be0a Mon Sep 17 00:00:00 2001
+From 0eb0768a4c66543b4ce716869eea744cb09b55ad Mon Sep 17 00:00:00 2001
 From: Johannes Huber <johu@gentoo.org>
 Date: Thu, 30 Aug 2012 14:02:44 +0200
 Subject: [PATCH] Use standard cmake module to find boost python.
 
 ---
- CMakeLists.txt                      |  30 +++----
+ CMakeLists.txt                      |  34 ++++----
  KigConfigureChecks.cmake            |   4 +-
  cmake/COPYING-CMAKE-SCRIPTS         |  22 ------
  cmake/FindBoostPython.cmake         | 153 ------------------------------------
  cmake/modules/FindBoostPython.cmake | 134 -------------------------------
- 5 Dateien geändert, 16 Zeilen hinzugefügt(+), 327 Zeilen entfernt(-)
+ 5 Dateien geändert, 20 Zeilen hinzugefügt(+), 327 Zeilen entfernt(-)
  delete mode 100644 cmake/COPYING-CMAKE-SCRIPTS
  delete mode 100644 cmake/FindBoostPython.cmake
  delete mode 100644 cmake/modules/FindBoostPython.cmake
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ba3e377..67926ab 100644
+index ba3e377..092fde3 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,9 +1,6 @@
@@ -29,7 +29,7 @@ index ba3e377..67926ab 100644
  
  # search packages used by KDE
  find_package(KDE4 4.3.80 REQUIRED)
-@@ -30,7 +27,10 @@ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_D
+@@ -30,7 +27,14 @@ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_D
  
  # ...to here
  
@@ -38,10 +38,14 @@ index ba3e377..67926ab 100644
 +  find_package(PythonLibs)
 +  find_package(Boost COMPONENTS python)
 +endif(WITH_SCRIPTING)
++
++if(Boost_PYTHON_FOUND AND PYTHONLIBS_FOUND)
++  set(KIG_ENABLE_PYTHON_SCRIPTING 1)
++endif(Boost_PYTHON_FOUND AND PYTHONLIBS_FOUND)
  
  kde4_no_enable_final(kig)
  
-@@ -45,14 +45,14 @@ add_subdirectory( macros )
+@@ -45,14 +49,14 @@ add_subdirectory( macros )
  #add_subdirectory( kfile )
  add_subdirectory( data )
  add_subdirectory( pykig )
@@ -61,7 +65,7 @@ index ba3e377..67926ab 100644
  
  # kigpart
  
-@@ -173,7 +173,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
+@@ -173,7 +177,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
     misc/kigcoordinateprecisiondialog.ui
  )
  
@@ -70,7 +74,7 @@ index ba3e377..67926ab 100644
    set(kigpart_PART_SRCS ${kigpart_PART_SRCS}
       scripting/newscriptwizard.cc
       scripting/python_scripter.cc
-@@ -183,15 +183,15 @@ if(BOOST_PYTHON_FOUND)
+@@ -183,15 +187,15 @@ if(BOOST_PYTHON_FOUND)
    )
  
    set_source_files_properties(scripting/python_scripter.cc PROPERTIES COMPILE_FLAGS "${KDE4_ENABLE_EXCEPTIONS}")
