@@ -3,6 +3,7 @@
 <pkgmetadata>
 <use>
 	<flag name="designer-plugin">Enable designer plugin</flag>
+	<flag name="shapefile">Enable support for ESRI shapefiles</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>

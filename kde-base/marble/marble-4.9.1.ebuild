@@ -12,7 +12,7 @@ inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug designer-plugin gps +kde plasma python test"
+IUSE="debug designer-plugin gps +kde plasma python shapefile test"
 
 # tests fail / segfault. Last checked for 4.9.0
 RESTRICT="test"
@@ -30,6 +30,7 @@ RDEPEND="
 		>=dev-python/PyQt4-4.4.4-r1
 		kde? ( $(add_kdebase_dep pykde4) )
 	)
+	shapefile? ( sci-libs/shapelib )
 "
 DEPEND="
 	${RDEPEND}
@@ -42,6 +43,8 @@ REQUIRED_USE="
 	plasma? ( kde )
 	python? ( kde )
 "
+
+PATCHES=( "${FILESDIR}/${P}-shapelib.patch" )
 
 pkg_setup() {
 	python_set_active_version 2
@@ -64,6 +67,7 @@ src_configure() {
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use !kde QTONLY)
 		$(cmake-utils_use_with plasma)
+		$(cmake-utils_use_with shapefile libshp)
 		-DBUILD_MARBLE_TESTS=OFF
 		-DWITH_liblocation=0
 		$(use kde && cmake-utils_use_with python PyKDE4)
