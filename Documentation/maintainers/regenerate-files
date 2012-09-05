@@ -28,7 +28,7 @@ for release in 4.9; do
 		echo -e "${HEADER}" > "kde-${release}.49.9999.keywords"
 		for file in ".kde-${release}"/*; do
 			newfile=".kde-${release}.49.9999"/$(basename "${file}")
-			sed "/^>=kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}.49.9999/;s/^>=/~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
+			sed "/^<kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
 		done
 		cat ".kde-${release}.49.9999"/* >> "kde-${release}.49.9999.keywords"
 	fi
@@ -83,6 +83,6 @@ pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
 	newfile=${set/%-${RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${RELEASE}//g;/9999$/s/~//;s/>=//;\@kde-base/@s/-(9999|4\..\.50)/:4/" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${RELEASE}//g;/9999$/s/~//;s/<//;\@kde-base/@s/-(9999|4\..\.50)/:4/" "${set}" >> "${newfile}"
 done
 popd > /dev/null
