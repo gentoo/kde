@@ -64,6 +64,17 @@ for release in 4.8 4.9 live; do
 done
 popd > /dev/null
 
+# regenerate mask entries (base for package mask)
+pushd ../package.mask/ > /dev/null
+for release in 4.8 4.9 live; do
+	echo -e "${HEADER}" > "kde-${release}"
+	if [[ -d "../package.unmask/.kde-${release}" ]]; then
+		cat "../package.unmask/.kde-${release}/"* >> "kde-${release}"
+		sed -i "kde-${release}" -e "/^<kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}/;s/^</>=/};/^~.*[.-]9999$/s/$/ **/"
+	fi
+done
+popd > /dev/null
+
 # regenerate package mask
 pushd ../../profiles/ > /dev/null
 echo -e "\
