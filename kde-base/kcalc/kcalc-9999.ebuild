@@ -17,9 +17,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
-# bug 393093
-
 src_test() {
 	LANG=C kde4-base_src_test
 }
