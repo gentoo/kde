@@ -49,9 +49,6 @@ KMEXTRACTONLY="
 # you need one of these
 REQUIRED_USE="!opengl? ( gles ) !gles? ( opengl )"
 
-RESTRICT=test
-# bug 428348
-
 src_configure() {
 	# FIXME Remove when activity API moved away from libkworkspace
 	append-cppflags "-I${EPREFIX}/usr/include/kworkspace"
