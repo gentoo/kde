@@ -11,7 +11,8 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
 
 KEYWORDS=""
-IUSE="attica debug desktopglobe exif fcitx ibus qalculate qwt scim semantic-desktop"
+IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
+semantic-desktop"
 
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
@@ -26,6 +27,8 @@ COMMON_DEPEND="
 	exif? ( $(add_kdebase_dep libkexiv2) )
 	fcitx? ( app-i18n/fcitx[dbus(+)] )
 	ibus? ( app-i18n/ibus )
+	json? ( dev-libs/qjson )
+	oauth? ( dev-libs/qoauth )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
@@ -47,6 +50,8 @@ src_configure() {
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_with ibus)
+		$(cmake-utils_use_with json QJSON)
+		$(cmake-utils_use_with oauth QtOAuth)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
 		$(cmake-utils_use_with semantic-desktop KdepimLibs)
