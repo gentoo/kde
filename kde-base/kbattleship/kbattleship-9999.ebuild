@@ -5,20 +5,23 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
-inherit games-ggz kde4-meta
+# TODO move package
+EGIT_REPONAME="knavalbattle"
+inherit games-ggz kde4-base
 
 DESCRIPTION="The KDE Battleship clone"
 KEYWORDS=""
 IUSE="debug"
 
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"
+
 src_prepare() {
 	# cmake is doing this really weird
 	sed -i \
 		-e "s:register_ggz_module:#register_ggz_module:g" \
-		"${PN}"/src/CMakeLists.txt || die "ggz removal failed"
+		src/CMakeLists.txt || die "ggz removal failed"
 
-	kde4-meta_src_prepare
+	kde4-base_src_prepare
 }

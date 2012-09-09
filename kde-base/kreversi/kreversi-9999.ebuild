@@ -5,11 +5,12 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
-inherit games-ggz kde4-meta
+inherit games-ggz kde4-base
 
 DESCRIPTION="KDE Board Game"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"

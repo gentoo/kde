@@ -5,9 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE: Ksirk is a KDE port of the board game risk"
 KEYWORDS=""
@@ -15,5 +13,7 @@ IUSE="debug"
 
 DEPEND="
 	app-crypt/qca:2
+	$(add_kdebase_dep libkdegames)
+	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"

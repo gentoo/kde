@@ -5,13 +5,14 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="Kill the bots or they kill you!"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"
 
 # Tests hang, last checked in 4.3.3
 RESTRICT="test"

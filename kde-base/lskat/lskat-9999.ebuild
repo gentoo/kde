@@ -5,11 +5,12 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="Skat game for KDE"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"

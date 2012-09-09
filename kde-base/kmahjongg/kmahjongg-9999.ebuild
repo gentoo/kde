@@ -5,21 +5,15 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="Mahjongg for KDE"
 KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	$(add_kdebase_dep libkdegames)
 	$(add_kdebase_dep libkmahjongg)
 "
 RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="
-	libkdegames/
-	libkmahjongg/
-"

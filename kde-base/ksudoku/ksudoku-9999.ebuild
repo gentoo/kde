@@ -5,11 +5,12 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 OPENGL_REQUIRED="always"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE Sudoku"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"

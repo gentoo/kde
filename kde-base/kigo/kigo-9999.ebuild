@@ -5,9 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit games-ggz kde4-meta
+inherit games-ggz kde4-base
 
 DESCRIPTION="KDE Go game"
 KEYWORDS=""
@@ -21,15 +19,15 @@ src_install() {
 	kde4-meta_src_install
 	# and also we have to prepare the ggz dir
 	insinto "${GGZ_MODDIR}"
-	newins ${PN}/src/module.dsc ${P}.dsc
+	newins src/module.dsc ${P}.dsc
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 	games-ggz_pkg_postinst
 }
 
 pkg_postrm() {
-	kde4-meta_pkg_postrm
+	kde4-base_pkg_postrm
 	games-ggz_pkg_postrm
 }
