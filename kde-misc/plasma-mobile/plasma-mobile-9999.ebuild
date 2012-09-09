@@ -20,8 +20,3 @@ DEPEND="
 	$(add_kdebase_dep plasma-workspace)
 "
 RDEPEND="${DEPEND}"
-
-src_install() {
-	kde4-base_src_install
-	rm "${ED}/usr/share/apps/plasma/services/powermanagementservice.operations"	|| die
-}
