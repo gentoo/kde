@@ -37,6 +37,8 @@ DEPEND="
 # bug #418071
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
+
 src_prepare() {
 	kde4-base_src_prepare
 
