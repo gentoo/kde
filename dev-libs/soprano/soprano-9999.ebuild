@@ -20,11 +20,10 @@ HOMEPAGE="http://sourceforge.net/projects/soprano"
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="clucene +dbus debug doc elibc_FreeBSD +raptor +redland test +virtuoso"
+IUSE="+dbus debug doc elibc_FreeBSD +raptor +redland test +virtuoso"
 
 COMMON_DEPEND="
 	>=x11-libs/qt-core-4.5.0:4
-	clucene? ( dev-cpp/clucene )
 	dbus? ( >=x11-libs/qt-dbus-4.5.0:4 )
 	raptor? ( >=media-libs/raptor-2.0.4:2 )
 	redland? (
@@ -74,7 +73,7 @@ src_configure() {
 		-DSOPRANO_BUILD_TESTS=OFF
 		-DCMAKE_SKIP_RPATH=OFF
 		-DSOPRANO_DISABLE_SESAME2_BACKEND=ON
-		$(cmake-utils_use !clucene SOPRANO_DISABLE_CLUCENE_INDEX)
+		-DSOPRANO_DISABLE_CLUCENE_INDEX=ON
 		$(cmake-utils_use !dbus SOPRANO_DISABLE_DBUS)
 		$(cmake-utils_use !raptor SOPRANO_DISABLE_RAPTOR_PARSER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_RAPTOR_SERIALIZER)
