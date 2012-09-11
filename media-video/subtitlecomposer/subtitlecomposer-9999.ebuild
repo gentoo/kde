@@ -19,7 +19,7 @@ IUSE="debug gstreamer unicode xine"
 
 RDEPEND="
 	media-libs/phonon
-	gstreamer? ( media-libs/gstreamer )
+	gstreamer? ( media-libs/gstreamer:0.10 )
 	unicode? ( dev-libs/icu )
 	xine? ( media-libs/xine-lib )
 "
