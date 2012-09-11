@@ -16,7 +16,6 @@ DEPEND="
 	$(add_kdebase_dep smokeqt)
 	$(add_kdebase_dep smokekde 'semantic-desktop=')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
-	semantic-desktop? ( >=dev-libs/soprano-2.8.0[clucene] )
 "
 RDEPEND="${DEPEND}"
 
@@ -35,7 +34,7 @@ src_configure() {
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_disable plasma)
 		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
+		-DWITH_Soprano=OFF
 	)
 	kde4-base_src_configure
 }
