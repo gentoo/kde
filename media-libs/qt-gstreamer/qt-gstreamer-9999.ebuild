@@ -28,8 +28,8 @@ RDEPEND="
 	dev-libs/glib
 	>=dev-libs/boost-1.40
 	>=dev-util/boost-build-1.40
-	>=media-libs/gstreamer-0.10.33
-	>=media-libs/gst-plugins-base-0.10.33
+	>=media-libs/gstreamer-0.10.33:0.10
+	>=media-libs/gst-plugins-base-0.10.33:0.10
 	>=x11-libs/qt-core-${QT_MINIMAL}:4
 	>=x11-libs/qt-declarative-${QT_MINIMAL}:4
 	>=x11-libs/qt-gui-${QT_MINIMAL}:4
