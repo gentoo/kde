@@ -7,7 +7,7 @@ EAPI=4
 PYTHON_DEPEND="2:2.5"
 EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/${PN}"
 
-inherit python base cmake-utils git-2
+inherit python base cmake-utils virtualx git-2
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
@@ -25,7 +25,7 @@ RDEPEND="
 	)
 	farstream? (
 		>=net-libs/telepathy-farstream-0.2.2
-		>=net-libs/telepathy-glib-0.17.5
+		>=net-libs/telepathy-glib-0.18.0
 	)
 	!net-libs/telepathy-qt4
 "
@@ -57,4 +57,10 @@ src_configure() {
 		-DENABLE_EXAMPLES=OFF
 	)
 	cmake-utils_src_configure
+}
+
+src_test() {
+	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	Xemake test || die "tests failed"
+	popd > /dev/null
 }
