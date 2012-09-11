@@ -1,5 +1,0 @@
-# Gentoo developers, please move the following into Getnoo mainline:
-
-# Dennis Schridde <devurandom@gmx.net> (13 Feb 2011)
-# Fixes bugs #201948, #226823 and #256574.
-sys-auth/nss-mdns-0.10-r1
