@@ -51,7 +51,7 @@ RDEPEND="${DEPEND}
 	virtual/cdrtools
 	dvd? (
 		>=app-cdr/dvd+rw-tools-7
-		media-video/transcode[dvd]
+		encode? ( media-video/transcode[dvd] )
 	)
 	emovix? ( media-video/emovix )
 	sox? ( media-sound/sox )
