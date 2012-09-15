@@ -67,8 +67,6 @@ case ${EAPI:-0} in
 esac
 EXPORT_FUNCTIONS ${CMAKE_EXPF}
 
-: ${DESCRIPTION:="Based on the ${ECLASS} eclass"}
-
 if [[ ${PN} != cmake ]]; then
 	CMAKEDEPEND+=" >=dev-util/cmake-${CMAKE_MIN_VERSION}"
 fi
