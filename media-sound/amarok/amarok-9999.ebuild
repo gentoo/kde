@@ -28,7 +28,7 @@ RESTRICT="test"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
-	>=media-libs/taglib-1.6.1[asf,mp4]
+	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
 	app-crypt/qca:2
 	>=app-misc/strigi-0.5.7
