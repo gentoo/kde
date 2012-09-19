@@ -4,11 +4,10 @@
 
 EAPI=4
 
-EGIT_REPONAME="scratch/schmidt/kio-mtp.git"
 inherit kde4-base
 
-DESCRIPTION="A MTP KIO-Client for KDE"
-HOMEPAGE="http://quickgit.kde.org/index.php?p=scratch%2Fschmidt%2Fkio-mtp.git&a=summary"
+DESCRIPTION="MTP KIO-Client for KDE"
+HOMEPAGE="https://projects.kde.org/projects/playground/base/kio-mtp"
 
 LICENSE="GPL-2"
 SLOT="4"
