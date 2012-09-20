@@ -21,3 +21,5 @@ RDEPEND="
 	oscar? ( $(add_kdebase_dep kopete oscar) )
 	zeroconf? ( $(add_kdebase_dep kdnssd) )
 "
+
+PATCHES=( "${FILESDIR}/${P}-as-needed.patch" )
