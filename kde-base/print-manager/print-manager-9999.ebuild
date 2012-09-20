@@ -17,6 +17,8 @@ RDEPEND="${DEPEND}
 	!kde-misc/print-manager
 "
 
+add_blocker printer-applet
+
 src_configure() {
 	mycmakeargs=( -DCUPS_1_6=ON )
 	kde4-base_src_configure
