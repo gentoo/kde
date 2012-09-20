@@ -21,6 +21,6 @@ RDEPEND="
 	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep superkaramba)
 	$(add_kdebase_dep sweeper)
-	cups? ( $(add_kdebase_dep printer-applet) )
+	cups? ( $(add_kdebase_dep print-manager) )
 	floppy? ( $(add_kdebase_dep kfloppy) )
 "
