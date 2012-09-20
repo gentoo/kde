@@ -4,9 +4,9 @@
 
 EAPI=4
 
-inherit eutils
+inherit autotools eutils
 
-PYTHON_DEPEND="2:2.6"
+PYTHON_DEPEND="2"
 
 DESCRIPTION="A DJ console for ShoutCast/IceCast streaming"
 HOMEPAGE="http://idjc.sourceforge.net/"
@@ -20,7 +20,7 @@ IUSE="aac ffmpeg flac mp3 speex"
 DEPEND="
 	virtual/pkgconfig
 "
-RDEPEND="${DEPEND}
+RDEPEND="
 	dev-python/pygtk
 	media-libs/libsamplerate
 	media-libs/libshout
@@ -39,9 +39,20 @@ RDEPEND="${DEPEND}
 	speex? ( >=media-libs/speex-1.2_rc1 )
 "
 
+src_prepare() {
+	epatch "${FILESDIR}/${P}-fix-compressed-docs.1.patch"
+	epatch "${FILESDIR}/${P}-fix-compressed-docs.2.patch"
+	epatch "${FILESDIR}/${P}-qa-desktop-file.patch"
+	eautoreconf
+}
+
 src_configure() {
 	econf \
 		$(use_enable aac mp4)
+}
+
+src_install() {
+	dodoc AUTHORS NEWS README ChangeLog || die
 }
 
 pkg_postinst() {
