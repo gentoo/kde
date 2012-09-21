@@ -18,6 +18,7 @@ RDEPEND="${DEPEND}
 "
 
 add_blocker printer-applet
+add_blocker system-config-printer-kde
 
 src_configure() {
 	mycmakeargs=( -DCUPS_1_6=ON )
