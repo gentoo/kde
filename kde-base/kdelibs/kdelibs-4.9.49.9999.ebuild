@@ -198,18 +198,10 @@ src_prepare() {
 }
 
 src_configure() {
-	if use zeroconf; then
-		if has_version net-dns/avahi; then
-			mycmakeargs=(-DWITH_Avahi=ON -DWITH_DNSSD=OFF)
-		else
-			die "USE=\"zeroconf\" enabled but net-dns/avahi wasn't found."
-		fi
-	else
-		mycmakeargs=(-DWITH_Avahi=OFF -DWITH_DNSSD=OFF)
-	fi
-	mycmakeargs+=(
+	mycmakeargs=(
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
+		-DWITH_DNSSD=OFF
 		-DKDE_DEFAULT_HOME=.kde4
 		-DKAUTH_BACKEND=POLKITQT-1
 		-DBUILD_libkactivities=OFF
@@ -236,6 +228,7 @@ src_configure() {
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
 		$(cmake-utils_use_with upnp HUpnp)
+		$(cmake-utils_use_with zeroconf Avahi)
 	)
 	kde4-base_src_configure
 }
