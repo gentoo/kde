@@ -32,8 +32,6 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}"-4.6.2-noxf86misc.patch )
-
 KMEXTRACTONLY="
 	libs/kdm/
 	libs/kephal/
