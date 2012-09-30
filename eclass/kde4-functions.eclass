@@ -16,7 +16,7 @@ inherit versionator
 # @DESCRIPTION:
 # Currently kde4 eclasses support EAPI 3 and 4.
 case ${EAPI:-0} in
-	4|3) : ;;
+	3|4|5) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
@@ -68,7 +68,7 @@ fi
 # @ECLASS-VARIABLE: KDE_SCM
 # @DESCRIPTION:
 # If this is a live package which scm does it use
-# Everything else uses svn by default
+# Everything else uses git by default
 KDE_SCM="${KDE_SCM:-git}"
 case ${KDE_SCM} in
 	svn|git) ;;
