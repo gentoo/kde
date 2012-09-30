@@ -10,8 +10,8 @@
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
-# NOTE: KDE 4 ebuilds currently support EAPI "3".  This will be reviewed
-# over time as new EAPI versions are approved.
+# NOTE: KDE 4 ebuilds currently support EAPIs 3, 4, and 5.  This will be
+# reviewed over time as new EAPI versions are approved.
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
