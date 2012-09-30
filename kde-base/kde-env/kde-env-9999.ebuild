@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 CMAKE_REQUIRED="never"
 KDE_REQUIRED="never"
@@ -30,22 +30,20 @@ src_prepare() {
 
 src_install() {
 	# number goes down with version
-	cat <<-EOF > 43kdepaths
+	newenvd - 43kdepaths <<EOF
 CONFIG_PROTECT="/usr/share/config"
 #KDE_IS_PRELINKED=1
 EOF
-	doenvd 43kdepaths
 
 	# Properly place xinitrc.d file that exports XDG_MENU_PREFIX to env
-	cat <<EOF > 11-xdg-menu-kde-4
+	exeinto /etc/X11/xinit/xinitrc.d/
+	newexe - 11-xdg-menu-kde-4 <<EOF
 #!/bin/sh
 
-if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "KDE-4" ]; then
+if [ -z "\${XDG_MENU_PREFIX}" ] && [ "\${DESKTOP_SESSION}" = "KDE-4" ]; then
 	export XDG_MENU_PREFIX="kde-4-"
 fi
 EOF
-	exeinto /etc/X11/xinit/xinitrc.d/
-	doexe 11-xdg-menu-kde-4
 }
 
 pkg_preinst() {
