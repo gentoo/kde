@@ -4,12 +4,19 @@
 
 EAPI=4
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 KDE_SELINUX_MODULE="games"
-inherit kde4-meta
+inherit ${eclass}
 
 DESCRIPTION="A KDE game almost the same as ksame, but a bit different."
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"
