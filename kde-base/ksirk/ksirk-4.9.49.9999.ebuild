@@ -4,10 +4,14 @@
 
 EAPI=4
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit ${eclass}
 
 DESCRIPTION="KDE: Ksirk is a KDE port of the board game risk"
 KEYWORDS=""
@@ -15,5 +19,7 @@ IUSE="debug"
 
 DEPEND="
 	app-crypt/qca:2
+	$(add_kdebase_dep libkdegames)
+	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
