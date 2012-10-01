@@ -4,11 +4,15 @@
 
 EAPI=4
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
 PYTHON_DEPEND="2:2.6"
-inherit kde4-meta python
+inherit ${eclass} python
 
 DESCRIPTION="The classical Mah Jongg for four players"
 KEYWORDS=""
@@ -27,10 +31,14 @@ RDEPEND="${DEPEND}
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
-	kde4-meta_pkg_setup
+	${eclass}_pkg_setup
 }
 
 src_prepare() {
-	python_convert_shebangs -r 2 kajongg/src
-	kde4-meta_src_prepare
+	if [[ ${PV} == *9999 ]]; then
+		python_convert_shebangs -r 2 src
+	else
+		python_convert_shebangs -r 2 kajongg/src
+	fi
+	${eclass}_src_prepare
 }
