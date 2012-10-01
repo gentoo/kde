@@ -4,11 +4,18 @@
 
 EAPI=4
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit ${eclass}
 
 DESCRIPTION="KDE: Kblocks is a single-player Tetris-like game."
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkdegames)"
+RDEPEND="${DEPEND}"
