@@ -4,10 +4,14 @@
 
 EAPI=4
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
 KDE_HANDBOOK="optional"
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit games-ggz kde4-meta
+inherit games-ggz ${eclass}
 
 DESCRIPTION="KDE Go game"
 KEYWORDS=""
@@ -18,18 +22,22 @@ RDEPEND="
 "
 
 src_install() {
-	kde4-meta_src_install
+	${eclass}_src_install
 	# and also we have to prepare the ggz dir
 	insinto "${GGZ_MODDIR}"
-	newins ${PN}/src/module.dsc ${P}.dsc
+	if [[ ${PV} == *9999 ]]; then
+		newins src/module.dsc ${P}.dsc
+	else
+		newins ${PN}/src/module.dsc ${P}.dsc
+	fi
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	${eclass}_pkg_postinst
 	games-ggz_pkg_postinst
 }
 
 pkg_postrm() {
-	kde4-meta_pkg_postrm
+	${eclass}_pkg_postrm
 	games-ggz_pkg_postrm
 }
