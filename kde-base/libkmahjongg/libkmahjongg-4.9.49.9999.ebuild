@@ -4,9 +4,13 @@
 
 EAPI=4
 
-KMNAME="kdegames"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdegames"
+fi
+inherit ${eclass}
 
 DESCRIPTION="LibKMahjongg for KDE"
 KEYWORDS=""
