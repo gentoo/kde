@@ -472,6 +472,8 @@ enable_cmake-utils_src_test() {
 
 	if ctest ${ctestargs} "$@" ; then
 		einfo "Tests succeeded."
+		popd > /dev/null
+		return 0
 	else
 		if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]] ; then
 			# on request from Diego
@@ -483,8 +485,11 @@ enable_cmake-utils_src_test() {
 		else
 			die "Tests failed. When you file a bug, please attach the following file: \n\t${CMAKE_BUILD_DIR}/Testing/Temporary/LastTest.log"
 		fi
+
+		# die might not die due to nonfatal
+		popd > /dev/null
+		return 1
 	fi
-	popd > /dev/null
 }
 
 # @FUNCTION: cmake-utils_src_configure
