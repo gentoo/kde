@@ -19,8 +19,12 @@ RDEPEND="
 	$(add_kdebase_dep kscreensaver 'opengl?')
 	$(add_kdebase_dep libkworkspace)
 	media-libs/libart_lgpl
+	x11-libs/libX11
 	kexiv2? ( $(add_kdebase_dep libkexiv2) )
-	opengl? ( virtual/opengl )
+	opengl? (
+		virtual/glu
+		virtual/opengl
+	)
 	xscreensaver? ( x11-misc/xscreensaver )
 "
 DEPEND="${RDEPEND}
