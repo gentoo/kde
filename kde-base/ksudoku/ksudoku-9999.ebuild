@@ -5,12 +5,22 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-OPENGL_REQUIRED="always"
+OPENGL_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Sudoku"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="
+	$(add_kdebase_dep libkdegames)
+	opengl? ( virtual/glu )
+"
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with opengl OpenGL)
+	)
+	kde4-base_src_configure
+}
