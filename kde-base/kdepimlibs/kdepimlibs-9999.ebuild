@@ -24,6 +24,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
+	dev-libs/qjson
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	prison? ( media-libs/prison )
 	semantic-desktop? (
@@ -68,4 +69,9 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
+}
+
+src_install() {
+	kde4-base_src_install
+	rm ${D}/usr/share/apps/cmake/modules/FindQJSON.cmake
 }
