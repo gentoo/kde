@@ -18,6 +18,7 @@ RDEPEND="
 	editor? ( >=sci-chemistry/openbabel-2.2 )
 "
 DEPEND="${RDEPEND}
+	sci-chemistry/avogadro
 	editor? ( >=dev-cpp/eigen-2.0.3:2 )
 	solver? ( dev-ml/facile[ocamlopt] )
 "
@@ -26,6 +27,11 @@ KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
 	libkdeedu/libscience/
 "
+
+src_prepare() {
+	cd ${S}
+	epatch ${FILESDIR}/fix-kalzium-cmake.patch
+}
 
 src_configure(){
 	# Fix missing finite()
