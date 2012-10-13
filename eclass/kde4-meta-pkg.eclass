@@ -13,7 +13,7 @@ inherit kde4-functions
 
 HOMEPAGE="http://www.kde.org/"
 
-LICENSE="GPL-2"
+LICENSE="metapackage"
 IUSE="aqua"
 
 # Only add the kdeprefix USE flag for older versions, to help
