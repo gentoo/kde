@@ -9,10 +9,7 @@ KMNAME="dragon"
 inherit kde4-base
 
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"
-HOMEPAGE="http://www.dragonplayer.net/"
-
 KEYWORDS=""
-LICENSE="GPL-2"
 IUSE="debug xine"
 
 RDEPEND="
