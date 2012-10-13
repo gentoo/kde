@@ -7,9 +7,6 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
-HOMEPAGE="http://www.kipi-plugins.org"
-
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"
 
