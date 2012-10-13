@@ -8,9 +8,6 @@ KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="Various plugins for konqueror"
-HOMEPAGE="http://kde.org/"
-
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug tidy"
 
