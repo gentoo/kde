@@ -10,9 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Phonon KDE Integration"
 HOMEPAGE="http://phonon.kde.org"
-
 KEYWORDS=""
-LICENSE="GPL-2"
 IUSE="alsa debug pulseaudio"
 
 DEPEND="
