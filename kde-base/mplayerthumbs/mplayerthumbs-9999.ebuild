@@ -7,9 +7,6 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="A Thumbnail Generator for Video Files on KDE filemanagers."
-HOMEPAGE="http://www.kde-apps.org/content/show.php?content=41180"
-LICENSE="GPL-2"
-
 KEYWORDS=""
 IUSE="debug"
 
