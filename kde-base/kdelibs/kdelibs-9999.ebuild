@@ -15,7 +15,6 @@ inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 EGIT_BRANCH="KDE/4.10"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
-HOMEPAGE="http://www.kde.org/"
 SRC_URI+=" http://dev.gentoo.org/~johu/distfiles/${PN}-4.8.95-udisks2.patch.xz"
 
 KEYWORDS=""
