@@ -8,9 +8,6 @@ KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="KDE internationalization package"
-HOMEPAGE="http://www.kde.org/"
-LICENSE="GPL-2"
-
 DEPEND=">=sys-devel/gettext-0.17"
 RDEPEND="${DEPEND}"
 
