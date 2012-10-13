@@ -7,7 +7,6 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="SANE Library interface for KDE"
-HOMEPAGE="http://www.kipi-plugins.org"
 KEYWORDS=""
 IUSE="debug"
 LICENSE="LGPL-2"
