@@ -7,8 +7,5 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="A library for image plugins accross KDE applications."
-HOMEPAGE="http://www.kipi-plugins.org"
-
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"

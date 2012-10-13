@@ -10,8 +10,5 @@ KDE_OVERRIDE_MINIMAL="4.9.0"
 inherit kde4-base
 
 DESCRIPTION="A library for image plugins accross KDE applications."
-HOMEPAGE="http://www.kipi-plugins.org"
-
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="debug"
