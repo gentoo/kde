@@ -7,9 +7,7 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="Extra Plasma applets and engines"
-HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2 LGPL-2"
-
 KEYWORDS=""
 IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
 semantic-desktop"
