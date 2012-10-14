@@ -1,2 +1,3 @@
 move kde-base/kbattleship kde-base/knavalbattle
 move kde-base/ktron kde-base/ksnakeduel
+move media-libs/libmediawiki net-libs/libmediawiki
