@@ -4,11 +4,12 @@
 
 EAPI=4
 
-KDE_LINGUAS="cs da de en_GB es et fr hu it nb nl pa pt pt_BR ru sv uk zh_CN
-zh_TW"
+KDE_LINGUAS="cs da de el en_GB es et fr hu it lt nb nds nl pa pl pt pt_BR ru sv
+uk zh_CN zh_TW"
 EGIT_REPONAME="wicd-kde"
 MY_P=${P/-client/}
-inherit kde4-base
+PYTHON_DEPEND="2"
+inherit python kde4-base
 
 DESCRIPTION="Wicd client built on the KDE Development Platform"
 HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
@@ -23,3 +24,16 @@ RDEPEND="net-misc/wicd"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${PN/-client/}
+
+pkg_setup() {
+	python_pkg_setup
+	kde4-base_pkg_setup
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DPYTHONBIN=/usr/bin/python2
+	)
+
+	kde4-base_src_configure
+}
