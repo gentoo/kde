@@ -14,3 +14,5 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
+
+DOCS=( changelog README )
