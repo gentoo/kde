@@ -16,12 +16,11 @@ else
 fi
 
 KDE_REQUIRED="optional"
-KDE_SCM="svn"
 inherit kde4-base qt4-r2
 
 DESCRIPTION="Qt/KDE based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
-ESVN_REPO_URI="https://kdiff3.svn.sourceforge.net/svnroot/kdiff3/trunk/kdiff3"
+EGIT_REPO_URI="git://git.code.sf.net/p/kdiff3/code"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -40,7 +39,8 @@ RESTRICT="!kde? ( test )"
 
 src_unpack(){
 	if [[ ${PV} == *9999* ]]; then
-		subversion_src_unpack
+		git-2_src_unpack
+		mv "${S}"/${PN}/* "${S}" || die
 	elif use kde; then
 		kde4-base_src_unpack
 	else
