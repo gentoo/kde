@@ -21,6 +21,7 @@ inherit kde4-base qt4-r2
 DESCRIPTION="Qt/KDE based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
 EGIT_REPO_URI="git://git.code.sf.net/p/kdiff3/code"
+EGIT_PROJECT="${PN}"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -58,8 +59,6 @@ src_prepare() {
 	else
 		kde4-base_src_prepare
 	fi
-
-	echo "Categories=Qt;KDE;Development;" >> "${S}"/src-QT4/kdiff3.desktop
 }
 
 src_configure() {
