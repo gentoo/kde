@@ -52,6 +52,7 @@ KMEXTRA="
 	messagelist/
 	messageviewer/
 	ontologies/
+	pimcommon/
 	templateparser/
 "
 
