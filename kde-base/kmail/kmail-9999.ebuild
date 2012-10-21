@@ -39,6 +39,7 @@ KMCOMPILEONLY="
 	messagecore/
 	messagelist/
 	messageviewer/
+	pimcommon/
 	templateparser/
 	incidenceeditor-ng/
 	calendarsupport/
