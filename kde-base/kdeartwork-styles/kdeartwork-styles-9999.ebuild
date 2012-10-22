@@ -21,6 +21,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRA="
-	aurorae/
 	kwin-styles/
 "
