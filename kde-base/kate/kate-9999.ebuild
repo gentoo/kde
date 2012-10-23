@@ -6,22 +6,33 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KMNAME="kate"
-inherit kde4-meta
+PYTHON_DEPEND="pate? 2"
+inherit python kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS=""
-IUSE="debug +plasma"
+IUSE="debug pate +plasma"
 
 DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
+	pate? ( $(add_kdebase_dep pykde4 '' 4.9.2-r1) )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep katepart)
 "
 
+pkg_setup() {
+	if use pate; then
+		python_set_active_version 2
+		python_pkg_setup
+	fi
+	kde4-meta_pkg_setup
+}
+
 src_configure() {
 	mycmakeargs=(
+		$(cmake-utils_use_build pate)
 		$(cmake-utils_use_with plasma)
 	)
 
