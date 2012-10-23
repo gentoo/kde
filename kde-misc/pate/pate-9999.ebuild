@@ -18,9 +18,11 @@ IUSE=""
 
 DEPEND="
 	$(add_kdebase_dep kate)
-	$(add_kdebase_dep pykde4)
+	$(add_kdebase_dep pykde4 '' 4.9.2-r1)
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-pyqt.patch" )
 
 pkg_setup() {
 	python_set_active_version 2
