@@ -16,7 +16,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.9.0-boostpython.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.10.0-boostpython.patch" )
 
 src_configure() {
 	mycmakeargs=(
