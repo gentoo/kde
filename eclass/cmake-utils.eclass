@@ -45,7 +45,7 @@ CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
 # @ECLASS-VARIABLE: CMAKE_MAKEFILE_GENERATOR
 # @DESCRIPTION:
 # Specify a makefile generator to be used by cmake.
-# At this point only "emake" and "ninja" is supported.
+# At this point only "emake" and "ninja" are supported.
 CMAKE_MAKEFILE_GENERATOR="${CMAKE_MAKEFILE_GENERATOR:-emake}"
 
 CMAKEDEPEND=""
@@ -490,8 +490,8 @@ enable_cmake-utils_src_install() {
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 
-	DESTDIR=${D} ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ninja install"
-		base_src_install_docs
+	DESTDIR=${D} ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
+	base_src_install_docs
 
 	popd > /dev/null
 
