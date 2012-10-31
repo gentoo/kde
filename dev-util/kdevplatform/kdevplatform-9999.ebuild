@@ -26,6 +26,7 @@ fi
 
 DEPEND="
 	dev-libs/boost
+	dev-libs/grantlee
 	reviewboard? ( dev-libs/qjson )
 	subversion? (
 		dev-libs/apr
