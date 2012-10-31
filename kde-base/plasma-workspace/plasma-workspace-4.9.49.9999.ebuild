@@ -4,6 +4,7 @@
 
 EAPI=4
 
+DECLARATIVE_REQUIRED="always"
 KDE_HANDBOOK="optional"
 KMNAME="kde-workspace"
 KMMODULE="plasma"
@@ -70,7 +71,9 @@ KMEXTRACTONLY="
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
 pkg_setup() {
-	python_set_active_version 2
+	if use python ; then
+		python_set_active_version 2
+	fi
 	python_pkg_setup
 	kde4-meta_pkg_setup
 }
@@ -87,9 +90,7 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with google-gadgets Googlegadgets)
 		$(cmake-utils_use_with gps libgps)
-		$(cmake-utils_use_with python SIP)
-		$(cmake-utils_use_with python PyQt4)
-		$(cmake-utils_use_with python PyKDE4)
+		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with rss KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop Akonadi)
