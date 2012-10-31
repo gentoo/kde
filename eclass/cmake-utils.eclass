@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/eclass/cmake-utils.eclass,v 1.85 2012/10/25 12:48:58 scarabeus Exp $
 
 # @ECLASS: cmake-utils.eclass
 # @MAINTAINER:
@@ -44,9 +44,9 @@ CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
 
 # @ECLASS-VARIABLE: CMAKE_MAKEFILE_GENERATOR
 # @DESCRIPTION:
-# Specify a makefile generator to be used by cmake. At this point only "make"
-# and "ninja" is supported.
-CMAKE_MAKEFILE_GENERATOR="${CMAKE_MAKEFILE_GENERATOR:-make}"
+# Specify a makefile generator to be used by cmake.
+# At this point only "emake" and "ninja" is supported.
+CMAKE_MAKEFILE_GENERATOR="${CMAKE_MAKEFILE_GENERATOR:-emake}"
 
 CMAKEDEPEND=""
 case ${WANT_CMAKE} in
@@ -66,6 +66,19 @@ case ${EAPI:-0} in
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
 EXPORT_FUNCTIONS ${CMAKE_EXPF}
+
+case ${CMAKE_MAKEFILE_GENERATOR} in
+	emake)
+		CMAKEDEPEND+=" sys-devel/make"
+		;;
+	ninja)
+		CMAKEDEPEND+=" dev-util/ninja"
+		;;
+	*)
+		eerror "Unknown value for \${CMAKE_MAKEFILE_GENERATOR}"
+		die "Value ${CMAKE_MAKEFILE_GENERATOR} is not supported"
+		;;
+esac
 
 if [[ ${PN} != cmake ]]; then
 	CMAKEDEPEND+=" >=dev-util/cmake-${CMAKE_MIN_VERSION}"
@@ -173,10 +186,22 @@ _check_build_dir() {
 
 # Determine which generator to use
 _generator_to_use() {
-	if [[ ${CMAKE_MAKEFILE_GENERATOR} = "ninja" ]]; then
-		has_version dev-util/ninja && echo "Ninja" && return
-	fi
-	echo "Unix Makefiles"
+	local generator_name
+
+	case ${CMAKE_MAKEFILE_GENERATOR} in
+		ninja)
+			generator_name="Ninja"
+			;;
+		emake)
+			generator_name="Unix Makefiles"
+			;;
+		*)
+			eerror "Unknown value for \${CMAKE_MAKEFILE_GENERATOR}"
+			die "Value ${CMAKE_MAKEFILE_GENERATOR} is not supported"
+			;;
+	esac
+
+	echo ${generator_name}
 }
 
 # @FUNCTION: cmake-utils_use_with
@@ -410,6 +435,40 @@ enable_cmake-utils_src_compile() {
 	cmake-utils_src_make "$@"
 }
 
+# @FUNCTION: ninja_src_make
+# @INTERNAL
+# @DESCRIPTION:
+# Build the package using ninja generator
+ninja_src_make() {
+	debug-print-function ${FUNCNAME} "$@"
+
+		[[ -e build.ninja ]] || die "Makefile not found. Error during configure stage."
+
+		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
+		# TODO: get load average from portage (-l option)
+		ninja ${MAKEOPTS} -v "$@" || die
+	else
+		ninja "$@" || die
+	fi
+}
+
+# @FUNCTION: make_src_make
+# @INTERNAL
+# @DESCRIPTION:
+# Build the package using make generator
+emake_src_make() {
+	debug-print-function ${FUNCNAME} "$@"
+
+		[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
+
+		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
+		emake VERBOSE=1 "$@" || die
+		else
+		emake "$@" || die
+	fi
+
+}
+
 # @FUNCTION: cmake-utils_src_make
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
@@ -419,24 +478,9 @@ cmake-utils_src_make() {
 
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	if [[ $(_generator_to_use) = Ninja ]]; then
-		# first check if Makefile exist otherwise die
-		[[ -e build.ninja ]] || die "Makefile not found. Error during configure stage."
-		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
-			#TODO get load average from portage (-l option)
-			ninja ${MAKEOPTS} -v "$@"
-		else
-			ninja "$@"
-		fi || die "ninja failed!"
-	else
-		# first check if Makefile exist otherwise die
-		[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
-		if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
-			emake VERBOSE=1 "$@" || die "Make failed!"
-		else
-			emake "$@" || die "Make failed!"
-		fi
-	fi
+
+	${CMAKE_MAKEFILE_GENERATOR}_src_make $@
+
 	popd > /dev/null
 }
 
@@ -445,12 +489,10 @@ enable_cmake-utils_src_install() {
 
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
-	if [[ $(_generator_to_use) = Ninja ]]; then
-		DESTDIR=${D} ninja install "$@" || die "died running ninja install"
+
+	DESTDIR=${D} ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ninja install"
 		base_src_install_docs
-	else
-		base_src_install "$@"
-	fi
+
 	popd > /dev/null
 
 	# Backward compatibility, for non-array variables
