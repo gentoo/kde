@@ -45,7 +45,7 @@ if [ -z \${XDG_MENU_PREFIX} ] && [ "\${DESKTOP_SESSION}" = "KDE-4" ]; then
 fi
 EOF
 	exeinto /etc/X11/xinit/xinitrc.d/
-	doexe 11-xdg-menu-kde-4 || die "doexe failed"
+	doexe 11-xdg-menu-kde-4
 }
 
 pkg_preinst() {
