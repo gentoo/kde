@@ -47,5 +47,3 @@ src_configure(){
 
 	kde4-base_src_configure
 }
-
-src_test(){ :; } #see bug 376911
