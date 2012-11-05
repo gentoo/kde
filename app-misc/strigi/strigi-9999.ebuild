@@ -53,10 +53,15 @@ if [[ ${PV} == 9999 ]] ; then
 		git config --global url."git://anongit.kde.org/".insteadOf "kde:" || die
 		git-2_src_unpack
 		pushd "${S}" > /dev/null || die
-		git submodule foreach git pull origin master || die
+		git submodule foreach git checkout master || die
 		popd > /dev/null || die
 	}
 fi
+
+src_prepare() {
+	cd ${S}/strigidaemon/bin/daemon/eventlistener
+	epatch ${FILESDIR}/strigi-fix-sleep.patch || die "Fail"
+}
 
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
