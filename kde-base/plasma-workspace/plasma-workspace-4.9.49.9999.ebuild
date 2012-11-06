@@ -73,8 +73,8 @@ KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 pkg_setup() {
 	if use python ; then
 		python_set_active_version 2
+		python_pkg_setup
 	fi
-	python_pkg_setup
 	kde4-meta_pkg_setup
 }
 
@@ -102,20 +102,12 @@ src_configure() {
 	kde4-meta_src_configure
 }
 
-src_install() {
-	kde4-meta_src_install
-
-	rm -f \
-		"${ED}$(python_get_sitedir)"/PyKDE4/*.py[co] \
-		"${ED}"/usr/share/apps/plasma_scriptengine_python/*.py[co]
-}
-
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
 	if use python; then
 		python_mod_optimize \
-			PyKDE4 \
+			PyKDE4/plasmascript.py \
 			/usr/share/apps/plasma_scriptengine_python
 	fi
 }
@@ -123,9 +115,9 @@ pkg_postinst() {
 pkg_postrm() {
 	kde4-meta_pkg_postrm
 
-	if [[ -d ${EPREFIX}/usr/share/apps/plasma_scriptengine_python ]]; then
+	if use python; then
 		python_mod_cleanup \
-			PyKDE4 \
+			PyKDE4/plasmascript.py \
 			/usr/share/apps/plasma_scriptengine_python
 	fi
 }
