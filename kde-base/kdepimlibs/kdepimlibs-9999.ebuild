@@ -26,7 +26,7 @@ DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	prison? ( media-libs/prison )
 	semantic-desktop? (
-		>=app-office/akonadi-server-1.8.0
+		>=app-office/akonadi-server-1.8.1
 		media-libs/phonon
 		x11-misc/shared-mime-info
 	)
