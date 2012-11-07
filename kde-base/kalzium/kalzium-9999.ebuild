@@ -28,11 +28,6 @@ KMEXTRACTONLY="
 	libkdeedu/libscience/
 "
 
-src_prepare() {
-	cd ${S}
-	epatch ${FILESDIR}/fix-kalzium-cmake.patch
-}
-
 src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
