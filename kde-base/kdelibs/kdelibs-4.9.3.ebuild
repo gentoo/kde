@@ -142,6 +142,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.9.3-python-bytecompilation.patch"
+	"${FILESDIR}/${PN}-4.9.3-werror.patch"
 )
 
 pkg_pretend() {
