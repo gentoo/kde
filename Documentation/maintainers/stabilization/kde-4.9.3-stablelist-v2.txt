@@ -10,15 +10,16 @@
 #
 
 # kde-base/kdepim-runtime[kolab]
-net-libs/libkolab   
-net-libs/libkolabxml   
+=net-libs/libkolab-0.3.2
+=net-libs/libkolabxml-0.8.1
 
 # kde-base/kdepim-runtime[google]
-net-libs/libkgapi   
+# 0.4.3 has not been in tree for 30 days yet, so use 0.4.2
+=net-libs/libkgapi-0.4.2
 
 # kde-base/krdc[telepathy]
 # kde-base/krfb[telepathy]
-net-libs/telepathy-qt  
+=net-libs/telepathy-qt-0.9.3
 
 #
 # KDE BASE
