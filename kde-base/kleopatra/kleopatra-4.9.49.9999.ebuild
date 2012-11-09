@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	app-crypt/gpgme
+	>=app-crypt/gpgme-1.3.2
 	dev-libs/boost
 	dev-libs/libassuan
 	dev-libs/libgpg-error
