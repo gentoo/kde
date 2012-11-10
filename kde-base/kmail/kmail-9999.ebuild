@@ -46,7 +46,6 @@ KMCOMPILEONLY="
 "
 KMEXTRA="
 	archivemailagent/
-	backupmail/
 	kmailcvt/
 	ksendemail/
 	importwizard/
@@ -55,6 +54,7 @@ KMEXTRA="
 	mailfilteragent/
 	mailimporter/
 	ontologies/
+	pimsettingexporter/
 	plugins/messageviewer/
 "
 
