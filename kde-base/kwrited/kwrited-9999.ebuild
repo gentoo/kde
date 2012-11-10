@@ -11,6 +11,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=sys-libs/libutempter-1.1.5
+	|| ( >=sys-libs/libutempter-1.1.5 >=sys-freebsd/freebsd-lib-9.0 )
 "
 RDEPEND="${DEPEND}"
