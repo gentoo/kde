@@ -1,0 +1,12 @@
+diff -ruN digikam-2.9.0.orig/core/CMakeLists.txt digikam-2.9.0/core/CMakeLists.txt
+--- digikam-2.9.0.orig/core/CMakeLists.txt	2012-09-02 12:38:13.000000000 +0200
++++ digikam-2.9.0/core/CMakeLists.txt	2012-11-10 14:20:11.000000000 +0100
+@@ -288,7 +288,7 @@
+ #       under MACOS-X, through macports project, mysql_install_db PERL script is named "mysql_install_db5"
+     FIND_PROGRAM( INITCMD_MYSQL mysql_install_db mysql_install_db5 mysql_install_db.pl
+                   PATHS /usr/sbin /usr/local/sbin /usr/libexec /usr/local/libexec
+-                        /opt/mysql/libexec /usr/mysql/bin /opt/mysql/bin ${MYSQL_TOOLS_PATH}
++                        /opt/mysql/libexec /usr/mysql/bin /opt/mysql/bin /usr/share/mysql/scripts ${MYSQL_TOOLS_PATH}
+                        ENV MYSQL_TOOLS_PATH )
+     MESSAGE(STATUS "Found MySQL install_db executable at: ${INITCMD_MYSQL}")
+     SET(DATABASESERVERDIR "${CMAKE_CURRENT_SOURCE_DIR}/databaseserver")
