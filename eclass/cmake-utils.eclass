@@ -506,15 +506,14 @@ enable_cmake-utils_src_install() {
 
 enable_cmake-utils_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
-	local ctestargs
 
 	_check_build_dir
 	pushd "${CMAKE_BUILD_DIR}" > /dev/null
 	[[ -e CTestTestfile.cmake ]] || { echo "No tests found. Skipping."; return 0 ; }
 
-	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
+	[[ -n ${TEST_VERBOSE} ]] && myctestargs+=( --extra-verbose --output-on-failure )
 
-	if ctest ${ctestargs} "$@" ; then
+	if ctest "${myctestargs[@]}" "$@" ; then
 		einfo "Tests succeeded."
 		popd > /dev/null
 		return 0
