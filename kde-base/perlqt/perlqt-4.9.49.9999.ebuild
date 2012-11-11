@@ -28,7 +28,6 @@ add_blocker kdebindings-perl
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.7.2-vendor.patch"
-	"${FILESDIR}/${PN}-4.8.1-tests.patch"
 )
 
 src_configure() {
