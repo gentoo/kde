@@ -59,8 +59,8 @@ if [[ ${PV} == 9999 ]] ; then
 fi
 
 src_prepare() {
-	cd ${S}/strigidaemon/bin/daemon/eventlistener
-	epatch ${FILESDIR}/strigi-fix-sleep.patch || die "Fail"
+	cd "${S}/strigidaemon/bin/daemon/eventlistener"
+	epatch "${FILESDIR}/strigi-fix-sleep.patch" || die "Fail"
 }
 
 src_configure() {
