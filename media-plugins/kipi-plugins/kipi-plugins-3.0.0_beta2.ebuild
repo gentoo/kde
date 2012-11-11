@@ -22,7 +22,7 @@ MY_P="digikam-${MY_PV}"
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="http://www.digikam.org/"
-SRC_URI="mirror://kde/unstable/${PN}/${MY_P}.tar.bz2"
+SRC_URI="mirror://kde/unstable/digikam/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
