@@ -49,3 +49,9 @@ src_prepare() {
 	# do not build non-installed example binary
 	sed -i -e '/add_subdirectory(examples)/d' CMakeLists.txt || die
 }
+
+src_test() {
+	# bug 442514
+	local myctestargs=( -E utppolltest )
+	kde4-base_src_test
+}
