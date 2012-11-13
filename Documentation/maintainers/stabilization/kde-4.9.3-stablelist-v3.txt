@@ -14,12 +14,35 @@
 =net-libs/libkolabxml-0.8.1
 
 # kde-base/kdepim-runtime[google]
-# 0.4.3 has not been in tree for 30 days yet, so use 0.4.2
-=net-libs/libkgapi-0.4.2
+=net-libs/libkgapi-0.4.3
 
 # kde-base/krdc[telepathy]
 # kde-base/krfb[telepathy]
 =net-libs/telepathy-qt-0.9.3
+
+#required by kde-base/kjots-4.9.3
+=dev-libs/grantlee-0.2.0
+
+#required by kde-base/libkcddb-4.9.3[musicbrainz]
+=media-libs/musicbrainz-5.0.1
+
+#required by kde-base/kdepimlibs-4.9.3[semantic-desktop]
+=app-office/akonadi-server-1.8.1
+
+#required by kde-base/kdelibs-4.9.3[semantic-desktop]
+=dev-libs/soprano-2.8.0
+
+#required by kde-base/kleopatra-4.9.3
+=app-crypt/gpgme-1.3.2
+
+#required by kde-base/okular-4.9.3
+>=app-test/poppler-0.20
+
+#required by libkolab
+=dev-cpp/xsd-3.3.0
+=dev-cpp/libcult-1.4.6-r1
+=dev-cpp/libxsd-frontend-1.17.0
+=dev-cpp/libbackend-elements-1.7.2
 
 #
 # KDE BASE
@@ -96,7 +119,6 @@
 =kde-base/kde-meta-4.9.3  
 =kde-base/kde-wallpapers-4.9.3   
 =kde-base/kdeaccessibility-meta-4.9.3  
-=kde-base/kdeaccounts-plugin-4.9.3  
 =kde-base/kdeadmin-meta-4.9.3  
 =kde-base/kdeartwork-colorschemes-4.9.3  
 =kde-base/kdeartwork-desktopthemes-4.9.3  
@@ -362,10 +384,4 @@
 =www-client/rekonq-1.2 # due 2012-11-13
 =x11-themes/oxygen-gtk-1.1.1 # due 2012-11-08
 =x11-themes/oxygen-gtk-1.3.1 # due 2012-11-08
-
-
-#
-# kmuddy, target: amd64 ppc x86
-#
-=games-mud/kmuddy-1.0.1-r2
 
