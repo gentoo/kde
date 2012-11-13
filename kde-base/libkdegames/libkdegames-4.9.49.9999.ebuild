@@ -17,7 +17,6 @@ KEYWORDS=""
 IUSE="debug openal"
 
 DEPEND="
-	>=dev-games/ggz-client-libs-0.0.14
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
