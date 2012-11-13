@@ -21,7 +21,7 @@ DEPEND="
 	bzip2? ( app-arch/bzip2 )
 	exif? ( media-gfx/exiv2 )
 	openexr? ( media-libs/openexr )
-	samba? ( net-fs/samba[smbclient] )
+	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
 	sftp? ( >=net-libs/libssh-0.4.0[sftp] )
 "
 RDEPEND="${DEPEND}
