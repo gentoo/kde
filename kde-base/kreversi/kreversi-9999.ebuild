@@ -6,7 +6,7 @@ EAPI=4
 
 KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
-inherit games-ggz kde4-base
+inherit kde4-base
 
 DESCRIPTION="KDE Board Game"
 KEYWORDS=""

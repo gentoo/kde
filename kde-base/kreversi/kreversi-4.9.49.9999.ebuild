@@ -12,7 +12,7 @@ else
 fi
 KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
-inherit games-ggz ${eclass}
+inherit ${eclass}
 
 DESCRIPTION="KDE Board Game"
 KEYWORDS=""
