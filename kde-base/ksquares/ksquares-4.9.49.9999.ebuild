@@ -11,7 +11,7 @@ else
 	KMNAME="kdegames"
 fi
 KDE_HANDBOOK="optional"
-inherit games-ggz ${eclass}
+inherit ${eclass}
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
 KEYWORDS=""

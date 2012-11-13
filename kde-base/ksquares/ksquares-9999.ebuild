@@ -5,7 +5,7 @@
 EAPI=4
 
 KDE_HANDBOOK="optional"
-inherit games-ggz kde4-base
+inherit kde4-base
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
 KEYWORDS=""
