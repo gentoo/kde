@@ -11,7 +11,7 @@ else
 	KMNAME="kdegames"
 fi
 KDE_HANDBOOK="optional"
-inherit games-ggz ${eclass}
+inherit ${eclass}
 
 DESCRIPTION="The KDE Battleship clone"
 KEYWORDS=""
@@ -21,18 +21,3 @@ DEPEND="$(add_kdebase_dep libkdegames)"
 RDEPEND="${DEPEND}"
 
 add_blocker kbattleship
-
-src_prepare() {
-	# cmake is doing this really weird
-	if [[ ${PV} == *9999 ]]; then
-		sed -i \
-			-e "s:register_ggz_module:#register_ggz_module:g" \
-			src/CMakeLists.txt || die "ggz removal failed"
-	else
-		sed -i \
-			-e "s:register_ggz_module:#register_ggz_module:g" \
-			"${PN}"/src/CMakeLists.txt || die "ggz removal failed"
-	fi
-
-	${eclass}_src_prepare
-}
