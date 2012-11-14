@@ -12,7 +12,7 @@ HOMEPAGE="https://projects.kde.org/projects/playground/base/homerun"
 [[ ${PV} == *9999 ]] || SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1 BSD"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
