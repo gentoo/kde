@@ -28,9 +28,6 @@
 #required by kde-base/kdelibs-4.9.3[semantic-desktop]
 =dev-libs/soprano-2.8.0
 
-#required by kde-base/kleopatra-4.9.3
-=app-crypt/gpgme-1.3.2
-
 #required by kde-base/okular-4.9.3
 >=app-test/poppler-0.20
 
