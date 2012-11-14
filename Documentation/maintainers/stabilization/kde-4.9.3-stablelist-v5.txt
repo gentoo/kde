@@ -16,10 +16,6 @@
 # kde-base/kdepim-runtime[google]
 =net-libs/libkgapi-0.4.3
 
-# kde-base/krdc[telepathy]
-# kde-base/krfb[telepathy]
-=net-libs/telepathy-qt-0.9.3
-
 #required by kde-base/kjots-4.9.3
 =dev-libs/grantlee-0.2.0
 
