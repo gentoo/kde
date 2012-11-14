@@ -234,7 +234,7 @@
 =kde-base/kommander-4.9.3  
 =kde-base/kompare-4.9.3   
 =kde-base/konq-plugins-4.9.3   
-=kde-base/konqueror-4.9.3   
+=kde-base/konqueror-4.9.3-r1   
 =kde-base/konquest-4.9.3  
 =kde-base/konsole-4.9.3   
 =kde-base/konsolekalendar-4.9.3  
