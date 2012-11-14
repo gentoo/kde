@@ -46,7 +46,7 @@
 # - kde-base/nepomuk-core
 # - kde-base/pairs
 #
-# Renamed since 4.9.3
+# Renamed since 4.9.2
 # kde-base/kbattleship -> kde-base/knavalbattle
 # kde-base/ktron -> kde-base/ksnakeduel
 #
