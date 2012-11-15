@@ -13,7 +13,7 @@ SRC_URI=""
 ESVN_REPO_URI=""
 
 KEYWORDS=""
-LICENSE="as-is"
+LICENSE="GPL-2"
 IUSE="aqua"
 
 add_blocker kdelibs 4.6.80
