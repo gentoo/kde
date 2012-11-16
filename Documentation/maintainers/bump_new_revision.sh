@@ -17,7 +17,15 @@ get_packages_from_slot() {
 		echo ${SLOTFILE} # debug
 		# remove empty lines, another slots and comments, replace slot by
 		# version.ebuild
-		sed -e '/^[@#]/d;/^$/d;\@kde-base/@!d;s/^>=//g;s/^~//g;s/-4\..\.50$//g;s/-9999$//g' \
+		sed -e '/^[@#]/d' \
+		    -e '/^$/d' \
+		    -e '\@kde-base/@!d' \
+		    -e 's/^>=//g' \
+		    -e 's/^~//g' \
+		    -e 's/^<//g' \
+		    -e 's/-4\..\.50$//g' \
+		    -e 's/-4\.1.\.50$//g' \
+		    -e 's/-9999$//g' \
 			${SLOTFILE} >> ${TMPFILE}
 	done
 }
