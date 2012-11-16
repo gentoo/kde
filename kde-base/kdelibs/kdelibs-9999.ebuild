@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
