@@ -280,6 +280,7 @@ kde-misc/kobby
 ~kde-base/perlkde-4.9.80
 ~kde-base/perlqt-4.9.80
 ~kde-base/phonon-kde-4.9.80
+~kde-base/picmi-4.9.80
 ~kde-base/plasma-apps-4.9.80
 ~kde-base/plasma-runtime-4.9.80
 ~kde-base/plasma-workspace-4.9.80
