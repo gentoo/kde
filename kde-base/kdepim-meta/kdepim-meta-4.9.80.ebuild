@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="nls"
+IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep akonadiconsole)
@@ -29,8 +29,4 @@ RDEPEND="
 	$(add_kdebase_dep kontact)
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep ktimetracker)
-	nls? (
-		$(add_kdebase_dep kde-l10n)
-		$(add_kdebase_dep kdepim-l10n)
-	)
 "
