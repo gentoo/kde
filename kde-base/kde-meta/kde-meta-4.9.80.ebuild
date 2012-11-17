@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="accessibility sdk semantic-desktop"
+IUSE="accessibility nls sdk semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep kate)
@@ -23,6 +23,7 @@ RDEPEND="
 	$(add_kdebase_dep kdetoys-meta)
 	$(add_kdebase_dep kdeutils-meta)
 	accessibility? ( $(add_kdebase_dep kdeaccessibility-meta) )
+	nls? ( $(add_kdebase_dep kde-l10n) )
 	sdk? (
 		$(add_kdebase_dep kdebindings-meta)
 		$(add_kdebase_dep kdesdk-meta)
