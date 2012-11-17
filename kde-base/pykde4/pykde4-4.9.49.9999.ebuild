@@ -14,7 +14,7 @@ inherit python portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="debug doc examples semantic-desktop"
+IUSE="debug doc examples semantic-desktop test"
 REQUIRED_USE="test? ( semantic-desktop )"
 
 # blocker added due to compatibility issues and error during compile time
