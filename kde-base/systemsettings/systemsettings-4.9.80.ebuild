@@ -47,6 +47,7 @@ KMEXTRA="
 KMEXTRACTONLY="
 	krunner/dbus/org.kde.krunner.App.xml
 	krunner/dbus/org.kde.screensaver.xml
+	ksmserver/screenlocker/dbus/org.kde.screensaver.xml
 	kwin/
 	libs/
 	plasma/
