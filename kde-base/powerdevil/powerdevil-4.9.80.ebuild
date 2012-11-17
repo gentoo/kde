@@ -23,4 +23,5 @@ RDEPEND="${DEPEND}
 KMEXTRACTONLY="
 	krunner/
 	ksmserver/org.kde.KSMServerInterface.xml
+	ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml
 "
