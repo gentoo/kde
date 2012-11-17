@@ -19,3 +19,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	x11-proto/randrproto
 "
+
+KMEXTRACTONLY+="
+	kephal/kephal/screens.h
+	"
