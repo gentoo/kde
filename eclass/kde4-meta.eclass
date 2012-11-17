@@ -285,6 +285,7 @@ kde4-meta_create_extractlists() {
 	case ${KMNAME} in
 		kdebase | kdebase-apps | kde-baseapps)
 			KMEXTRACTONLY+="
+				CTestConfig.cmake
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
 			;;
