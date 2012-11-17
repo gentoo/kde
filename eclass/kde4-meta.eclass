@@ -317,15 +317,10 @@ kde4-meta_create_extractlists() {
 			fi
 			KMEXTRACTONLY+="
 				config-enterprise.h.cmake
-				kleopatra/ConfigureChecks.cmake"
-			if ! [[ $(get_kde_version) < 4.5 ]]; then
-				KMEXTRACTONLY+="
-					CTestCustom.cmake
-					kdepim-version.h.cmake"
-			else
-				KMEXTRACTONLY+="
-					kdepim-version.h"
-			fi
+				kleopatra/ConfigureChecks.cmake
+				CTestCustom.cmake
+				kdepim-version.h.cmake
+				kdepim-version.h"
 			if use_if_iuse kontact; then
 				KMEXTRA+="
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
