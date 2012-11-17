@@ -384,15 +384,20 @@ case ${KDE_SELINUX_MODULE} in
 		;;
 esac
 
+# We always need the aqua useflag because otherwise we cannot = refer to it inside
+# add_kdebase_dep. This was always kind of a bug, but came to light with EAPI=5
+# (where referring to a use flag not in IUSE masks the ebuild).
+# The only alternative would be to prohibit using add_kdebase_dep if KDE_REQUIRED=never
+IUSE+=" aqua"
+
 case ${KDE_REQUIRED} in
 	always)
-		IUSE+=" aqua"
 		[[ -n ${kdecommondepend} ]] && COMMONDEPEND+=" ${kdecommondepend}"
 		[[ -n ${kdedepend} ]] && DEPEND+=" ${kdedepend}"
 		[[ -n ${kderdepend} ]] && RDEPEND+=" ${kderdepend}"
 		;;
 	optional)
-		IUSE+=" aqua kde"
+		IUSE+=" kde"
 		[[ -n ${kdecommondepend} ]] && COMMONDEPEND+=" kde? ( ${kdecommondepend} )"
 		[[ -n ${kdedepend} ]] && DEPEND+=" kde? ( ${kdedepend} )"
 		[[ -n ${kderdepend} ]] && RDEPEND+=" kde? ( ${kderdepend} )"
