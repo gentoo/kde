@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 KMEXTRACTONLY="
 	kcminit/main.h
 	libs/kworkspace/
-	kephal/kephal/screens.h
+	libs/kephal/kephal/screens.h
 	solid/
 "
 
