@@ -26,7 +26,7 @@ SRC_URI="mirror://kde/unstable/digikam/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="cdr calendar crypt debug expoblending gpssync +imagemagick ipod mediawiki mjpeg panorama redeyes scanner vkontakte"
 
@@ -48,7 +48,7 @@ DEPEND="
 			  media-libs/libgpod
 			  x11-libs/gtk+:2
 			)
-	mediawiki?	( >=media-libs/libmediawiki-2.6.0 )
+	mediawiki?	( >=net-libs/libmediawiki-2.6.0 )
 	panorama?	( dev-libs/boost )
 	redeyes?	( media-libs/opencv )
 	scanner? 	(

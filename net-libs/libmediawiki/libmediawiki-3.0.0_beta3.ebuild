@@ -19,7 +19,7 @@ DESCRIPTION="KDE C++ interface for MediaWiki based web service as wikipedia.org"
 HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 SLOT=4
 

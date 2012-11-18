@@ -19,7 +19,7 @@ DESCRIPTION="Library for accessing the features of social networking site vkonta
 HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 SLOT=4
 
