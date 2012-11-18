@@ -20,3 +20,6 @@ RDEPEND="${DEPEND}"
 
 # file collisions, bug 394997
 add_blocker plasma-workspace 4.4.50
+
+RESTRICT=test
+# bug 443748
