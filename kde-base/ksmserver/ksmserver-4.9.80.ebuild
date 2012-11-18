@@ -22,6 +22,7 @@ KMEXTRACTONLY="
 	kcminit/main.h
 	libs/kworkspace/
 	libs/kephal/
+	kcheckpass/
 	solid/
 "
 
