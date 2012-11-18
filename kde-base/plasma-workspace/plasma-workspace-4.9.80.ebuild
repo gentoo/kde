@@ -60,6 +60,7 @@ KMEXTRACTONLY="
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
 	krunner/dbus/org.kde.krunner.App.xml
 	ksmserver/org.kde.KSMServerInterface.xml
+	ksmserver/screenlocker/kcfg/kscreensaversettings.kcfgc
 	libs/kephal/
 	libs/kworkspace/
 	libs/taskmanager/
