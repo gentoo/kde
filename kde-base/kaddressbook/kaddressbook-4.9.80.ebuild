@@ -28,6 +28,7 @@ KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
 	libkleo/
+	pimcommon/
 "
 
 KMLOADLIBS="kdepim-common-libs"
