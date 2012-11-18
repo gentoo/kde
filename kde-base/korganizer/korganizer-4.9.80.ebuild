@@ -31,6 +31,7 @@ KMEXTRACTONLY="
 	calendarviews/
 	kdgantt2/
 	kmail/
+	pimcommon/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/
 "
