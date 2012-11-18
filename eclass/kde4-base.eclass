@@ -182,7 +182,7 @@ case ${KDEBASE} in
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
 		case ${PV} in
-			*9999* | 4.?.[6-10]?)
+			*9999* | 4.?.[6-9]?)
 				RESTRICT+=" mirror"
 				;;
 		esac
@@ -446,7 +446,7 @@ _calculate_src_uri() {
 					# KDEPIM 4.4, special case
 					# TODO: Remove this part when KDEPIM 4.4 gets out of the tree
 					SRC_URI="mirror://kde/stable/kdepim-${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.[8-10].8[05] | 4.[89].9[0235678])
+				4.?.[6-9]? | 4.??.[6-9]?)
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
 				4.[1-7].[12345])
