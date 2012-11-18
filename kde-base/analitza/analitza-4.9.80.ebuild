@@ -16,6 +16,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT=test
+# bug 443746
+
 add_blocker kalgebra 4.7.50
 
 src_configure() {
