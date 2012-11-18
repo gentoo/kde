@@ -561,16 +561,18 @@ kde4-meta_change_cmakelists() {
 					-e 's/if[[:space:]]*([[:space:]]*[[:alnum:]]*_FOUND[[:space:]]*)[[:space:]]*$/if(1) # &/' \
 					-i kontact/plugins/CMakeLists.txt || die 'failed to override build logic'
 			fi
-			if [[ $(get_kde_version) < 4.5 ]]; then
-				case ${PN} in
-					kalarm|kmailcvt|kontact|korganizer|korn)
-						sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
-							-e '/add_custom_target(kmail_xml /,/)/p' \
-							-i kmail/CMakeLists.txt || die "uncommenting xml failed"
-						_change_cmakelists_parent_dirs kmail
+			case ${PV} in
+				4.4*)
+					case ${PN} in
+						kalarm|kmailcvt|kontact|korganizer|korn)
+							sed -n -e '/qt4_generate_dbus_interface(.*org\.kde\.kmail\.\(kmail\|mailcomposer\)\.xml/p' \
+								-e '/add_custom_target(kmail_xml /,/)/p' \
+								-i kmail/CMakeLists.txt || die "uncommenting xml failed"
+							_change_cmakelists_parent_dirs kmail
+							;;
+					esac
 					;;
-				esac
-			fi
+			esac
 			;;
 		kdewebdev)
 			# Disable hardcoded checks
