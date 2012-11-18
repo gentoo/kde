@@ -67,6 +67,11 @@ kde-misc/kobby
 ~kde-base/kcolorchooser-4.9.80
 ~kde-base/kcontrol-4.9.80
 ~kde-base/kcron-4.9.80
+~kde-base/kde-base-artwork-4.9.80
+~kde-base/kde-env-4.9.80
+~kde-base/kde-l10n-4.9.80
+~kde-base/kde-meta-4.9.80
+~kde-base/kde-wallpapers-4.9.80
 ~kde-base/kdeaccessibility-meta-4.9.80
 ~kde-base/kdeadmin-meta-4.9.80
 ~kde-base/kdeartwork-colorschemes-4.9.80
@@ -79,7 +84,6 @@ kde-misc/kobby
 ~kde-base/kdeartwork-styles-4.9.80
 ~kde-base/kdeartwork-wallpapers-4.9.80
 ~kde-base/kdeartwork-weatherwallpapers-4.9.80
-~kde-base/kde-base-artwork-4.9.80
 ~kde-base/kdebase-cursors-4.9.80
 ~kde-base/kdebase-data-4.9.80
 ~kde-base/kdebase-desktoptheme-4.9.80
@@ -92,13 +96,11 @@ kde-misc/kobby
 ~kde-base/kdebindings-meta-4.9.80
 ~kde-base/kdebugdialog-4.9.80
 ~kde-base/kdeedu-meta-4.9.80
-~kde-base/kde-env-4.9.80
 ~kde-base/kdegames-meta-4.9.80
 ~kde-base/kdegraphics-meta-4.9.80
 ~kde-base/kdegraphics-mobipocket-4.9.80
 ~kde-base/kdegraphics-strigi-analyzer-4.9.80
 ~kde-base/kdelibs-4.9.80
-~kde-base/kde-meta-4.9.80
 ~kde-base/kdemultimedia-meta-4.9.80
 ~kde-base/kdenetwork-filesharing-4.9.80
 ~kde-base/kdenetwork-meta-4.9.80
@@ -106,10 +108,11 @@ kde-misc/kobby
 ~kde-base/kdepim-common-libs-4.9.80
 ~kde-base/kdepim-icons-4.9.80
 ~kde-base/kdepim-kresources-4.9.80
-~kde-base/kdepimlibs-4.9.80
+~kde-base/kdepim-l10n-4.9.80
 ~kde-base/kdepim-meta-4.9.80
 ~kde-base/kdepim-runtime-4.9.80
 ~kde-base/kdepim-strigi-analyzer-4.9.80
+~kde-base/kdepimlibs-4.9.80
 ~kde-base/kdeplasma-addons-4.9.80
 ~kde-base/kdesdk-kioslaves-4.9.80
 ~kde-base/kdesdk-meta-4.9.80
@@ -119,7 +122,6 @@ kde-misc/kobby
 ~kde-base/kdesu-4.9.80
 ~kde-base/kdetoys-meta-4.9.80
 ~kde-base/kdeutils-meta-4.9.80
-~kde-base/kde-wallpapers-4.9.80
 ~kde-base/kdewebdev-meta-4.9.80
 ~kde-base/kdf-4.9.80
 ~kde-base/kdialog-4.9.80
