@@ -1,7 +1,6 @@
 #%PAM-1.0
 
 auth       required     pam_nologin.so
-session	   optional	pam_selinux.so
 
 auth       include      system-local-login
 

@@ -2,7 +2,6 @@
 
 auth       required     pam_nologin.so
 auth	   required     pam_permit.so
-session	   optional	pam_selinux.so
 
 account    include      system-local-login
 
