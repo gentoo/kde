@@ -17,6 +17,7 @@ IUSE="debug ldap prison semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
+	!kde-misc/akonadi-social-utils
 	>=app-crypt/gpgme-1.1.6
 	>=dev-libs/boost-1.35.0-r5
 	dev-libs/libgpg-error
@@ -72,4 +73,5 @@ src_configure() {
 src_install() {
 	kde4-base_src_install
 	rm "${D}"/usr/share/apps/cmake/modules/FindQJSON.cmake
+	rm "${D}"/usr/share/apps/cmake/modules/FindQtOAuth.cmake #Collides with	net-im/choqok
 }
