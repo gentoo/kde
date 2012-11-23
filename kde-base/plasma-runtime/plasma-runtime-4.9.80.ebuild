@@ -7,6 +7,7 @@ EAPI=5
 KMNAME="kde-runtime"
 KMMODULE="plasma"
 DECLARATIVE_REQUIRED="always"
+VIRTUALX_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="Script engine and package tool for plasma"
@@ -20,6 +21,3 @@ RDEPEND="${DEPEND}"
 
 # file collisions, bug 394997
 add_blocker plasma-workspace 4.4.50
-
-RESTRICT=test
-# bug 443748
