@@ -16,8 +16,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT=test
-# bug 443746
+PATCHES=( "${FILESDIR}/${PN}-4.9.80-removetest.patch" )
 
 add_blocker kalgebra 4.7.50
 

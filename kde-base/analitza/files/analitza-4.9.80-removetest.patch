@@ -1,0 +1,10 @@
+diff -ruN analitza-4.9.80/analitzaplot/tests/CMakeLists.txt analitza-4.9.80-tweaked/analitzaplot/tests/CMakeLists.txt
+--- analitza-4.9.80/analitzaplot/tests/CMakeLists.txt	2012-11-14 11:14:51.000000000 -0500
++++ analitza-4.9.80-tweaked/analitzaplot/tests/CMakeLists.txt	2012-11-23 12:34:21.961015833 -0500
+@@ -11,6 +11,3 @@
+ 
+ kde4_add_unit_test(plotsmodeltest plotsmodeltest.cpp)
+ target_link_libraries(plotsmodeltest ${testLibs})
+-
+-kde4_add_unit_test(plotsdictionarymodeltest plotsdictionarymodeltest.cpp)
+-target_link_libraries(plotsdictionarymodeltest ${testLibs})
