@@ -17,5 +17,5 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND=">=x11-misc/lightdm-1.3.2[qt4]"
+DEPEND=">=x11-misc/lightdm-1.4.0[qt4]"
 RDEPEND="${DEPEND}"
