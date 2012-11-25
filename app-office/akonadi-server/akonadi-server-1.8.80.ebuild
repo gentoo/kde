@@ -33,6 +33,8 @@ RDEPEND="${CDEPEND}
 
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 
+RESTRICT=test
+
 pkg_setup() {
 	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
 	# reverse driver check to keep the order
