@@ -16,7 +16,3 @@ DEPEND="
 	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	kde4-base_src_unpack
-}
