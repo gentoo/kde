@@ -20,9 +20,10 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	kcminit/main.h
-	libs/kworkspace/
-	libs/kephal/
+	libs/kdm/kgreeterplugin.h
 	kcheckpass/
+	libs/kephal/
+	libs/kworkspace/
 	solid/
 "
 
