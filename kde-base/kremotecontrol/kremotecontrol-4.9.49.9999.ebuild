@@ -7,7 +7,7 @@ EAPI=4
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE frontend for remote controls"
+DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 KEYWORDS=""
 IUSE="debug"
 
@@ -15,4 +15,6 @@ DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-misc/lirc
+"
