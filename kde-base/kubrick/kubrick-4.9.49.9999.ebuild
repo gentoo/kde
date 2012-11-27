@@ -14,9 +14,13 @@ KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="always"
 inherit ${eclass}
 
-DESCRIPTION="KDE: Kubrick is a game based on \"Rubik's Cube\" puzzle."
+DESCRIPTION="A game based on the \"Rubik's Cube\" puzzle."
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
-RDEPEND="${DEPEND}"
+RDEPEND="$(add_kdebase_dep libkdegames)
+	virtual/glu
+"
+DEPEND="${RDEPEND}
+	virtual/opengl
+"
