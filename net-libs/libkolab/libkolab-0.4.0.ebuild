@@ -7,7 +7,7 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="Advanced Kolab Object Handling Library"
-HOMEPAGE="kolab.org"
+HOMEPAGE="http://kolab.org"
 SRC_URI="http://mirror.kolabsys.com/pub/releases/${P}.tar.gz"
 
 LICENSE="LGPL-2+ LGPL-2.1+ LGPL-3+"
