@@ -27,13 +27,12 @@ RDEPEND="
 DEPEND="${DEPEND}
 	app-text/asciidoc
 	doc? ( app-doc/doxygen )
+	test? ( dev-util/cmocka )
 "
-
-RESTRICT="test"
-#until we have an ebuild for cmocka at least
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.60.2-automagicness.patch"
+	"${FILESDIR}/${PN}-0.60.2-removebadtest.patch"
 )
 
 S="${WORKDIR}/o${P}"
@@ -47,10 +46,6 @@ src_prepare() {
 			CMakeLists.txt || die
 	fi
 
-	# punt owncloud test as it uses weird cmocka framework
-	sed -i \
-		-e 's:add_subdirectory(ownCloud)::' \
-		tests/CMakeLists.txt || die
 	# proper docdir
 	sed -i \
 		-e "s:/doc/ocsync:/doc/${PF}:" \
