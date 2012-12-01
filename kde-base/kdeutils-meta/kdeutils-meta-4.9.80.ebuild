@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="cups floppy"
+IUSE="cups floppy lirc"
 
 RDEPEND="
 	$(add_kdebase_dep ark)
@@ -16,11 +16,11 @@ RDEPEND="
 	$(add_kdebase_dep kcharselect)
 	$(add_kdebase_dep kdf)
 	$(add_kdebase_dep kgpg)
-	$(add_kdebase_dep kremotecontrol)
 	$(add_kdebase_dep ktimer)
 	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep superkaramba)
 	$(add_kdebase_dep sweeper)
 	cups? ( $(add_kdebase_dep print-manager) )
 	floppy? ( $(add_kdebase_dep kfloppy) )
+	lirc? ( $(add_kdebase_dep kremotecontrol) )
 "
