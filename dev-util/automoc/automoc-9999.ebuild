@@ -10,7 +10,7 @@ DESCRIPTION="KDE Meta Object Compiler"
 HOMEPAGE="http://www.kde.org"
 EGIT_REPO_URI="git://anongit.kde.org/automoc"
 
-LICENSE="as-is"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
