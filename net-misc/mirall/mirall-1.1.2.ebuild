@@ -39,11 +39,10 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	if !has_version csync[samba]; then
+	if ! has_version net-misc/csync[samba]; then
 		elog "For samba support, build net-misc/csync with USE=samba"
 	fi
-	if !has_version csync[sftp]; then
+	if ! has_version net-misc/csync[sftp]; then
 		elog "For sftp support, build net-misc/csync with USE=sftp"
 	fi
-	cmake-utils_pkg_postinst
 }
