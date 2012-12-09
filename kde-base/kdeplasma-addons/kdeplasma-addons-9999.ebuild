@@ -12,6 +12,9 @@ KEYWORDS=""
 IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
 semantic-desktop"
 
+RESTRICT=test
+# tests hang
+
 # krunner is only needed to generate dbus interface for lancelot
 COMMON_DEPEND="
 	app-crypt/qca:2
