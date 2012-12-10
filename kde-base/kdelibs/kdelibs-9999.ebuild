@@ -88,7 +88,7 @@ COMMONDEPEND="
 	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
-	udev? ( sys-fs/udev )
+	udev? ( virtual/udev )
 	upnp? ( media-libs/herqq )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
