@@ -20,7 +20,7 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~ppc ~x86"
 else
 	KEYWORDS=""
 fi
