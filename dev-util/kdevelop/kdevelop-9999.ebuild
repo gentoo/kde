@@ -17,7 +17,7 @@ IUSE="+cmake +cxx debug okteta qthelp"
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
 DEPEND="
