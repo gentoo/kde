@@ -1,9 +1,0 @@
---- a/tests/vio_tests/check_vio.c
-+++ b/tests/vio_tests/check_vio.c
-@@ -505,7 +505,6 @@
-         unit_test_setup_teardown(check_csync_vio_mkdirs_some_exist, setup_dir, teardown),
-         unit_test_setup_teardown(check_csync_vio_rmdir, setup, teardown),
-         unit_test_setup_teardown(check_csync_vio_opendir, setup_dir, teardown),
--        unit_test_setup_teardown(check_csync_vio_opendir_perm, setup, teardown),
-         unit_test(check_csync_vio_closedir_null),
-         unit_test_setup_teardown(check_csync_vio_readdir, setup_dir, teardown),
