@@ -31,7 +31,7 @@ fi
 COMMONDEPEND="
 	app-crypt/qca:2
 	>=app-misc/strigi-0.5.7
-	$(add_kdebase_dep >=kdelibs-4.8.4 'opengl?,semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?' 4.8.4)
 	$(add_kdebase_dep kdebase-kioslaves)
 	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
