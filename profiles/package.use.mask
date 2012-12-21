@@ -2,3 +2,5 @@
 ~kde-base/marble-4.8.90 python
 ~kde-base/marble-4.8.95 python
 ~kde-base/marble-4.9.80 python
+~kde-base/marble-4.9.90 python
+~kde-base/marble-4.9.95 python
