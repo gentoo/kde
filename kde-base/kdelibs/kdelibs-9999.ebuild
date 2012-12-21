@@ -10,9 +10,7 @@ OPENGL_REQUIRED="optional"
 KDE_HANDBOOK="optional"
 inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
-# The "master" branch is out of date, so use KDE/4.10 per upstream's
-# recommendation.
-EGIT_BRANCH="KDE/4.10"
+EGIT_BRANCH="master"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 SRC_URI+=" http://dev.gentoo.org/~johu/distfiles/${PN}-4.8.95-udisks2.patch.xz"
