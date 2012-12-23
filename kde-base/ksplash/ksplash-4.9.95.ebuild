@@ -11,8 +11,6 @@ DESCRIPTION="KDE splashscreen framework (the splashscreen of KDE itself, not of 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
-SRC_URI="${SRC_URI} http://dev.gentoo.org/~dilfridge/distfiles/${P}-removetheme.patch.xz"
-
 COMMONDEPEND="
 	media-libs/libpng
 	xinerama? ( x11-libs/libXinerama )
