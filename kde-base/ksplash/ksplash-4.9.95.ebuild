@@ -20,8 +20,6 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}"
 
-PATCHES=( "${DISTDIR}/${P}-removetheme.patch.xz" )
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
