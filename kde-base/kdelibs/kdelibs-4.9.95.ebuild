@@ -146,6 +146,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.9.3-werror.patch"
 	"${FILESDIR}/${PN}-4.9.90-findkipi.patch"
+	"${FILESDIR}/${PN}-4.9.95-findkexiv2.patch"
 )
 
 pkg_pretend() {

@@ -1,0 +1,22 @@
+diff --git a/cmake/modules/FindKexiv2.cmake b/cmake/modules/FindKexiv2.cmake
+index 4487537..8edd591 100644
+--- a/cmake/modules/FindKexiv2.cmake
++++ b/cmake/modules/FindKexiv2.cmake
+@@ -67,13 +67,13 @@ else (KEXIV2_INCLUDE_DIR AND KEXIV2_LIBRARIES AND KEXIV2_DEFINITIONS)
+       PKGCONFIG(libkexiv2 _KEXIV2IncDir _KEXIV2LinkDir _KEXIV2LinkFlags _KEXIV2Cflags)
+ 
+       if(_KEXIV2LinkFlags)
+-        # query pkg-config asking for a libkexiv2 >= 0.2.0
+-        exec_program(${PKGCONFIG_EXECUTABLE} ARGS --atleast-version=0.2.0 libkexiv2 RETURN_VALUE _return_VALUE OUTPUT_VARIABLE _pkgconfigDevNull )
++        # query pkg-config asking for a libkexiv2 >= 1.0.0
++        exec_program(${PKGCONFIG_EXECUTABLE} ARGS --atleast-version=1.0.0 libkexiv2 RETURN_VALUE _return_VALUE OUTPUT_VARIABLE _pkgconfigDevNull )
+         if(_return_VALUE STREQUAL "0")
+-            message(STATUS "Found libkexiv2 release >= 0.2.0")
++            message(STATUS "Found libkexiv2 release >= 1.0.0")
+             set(KEXIV2_VERSION_GOOD_FOUND TRUE)
+         else(_return_VALUE STREQUAL "0")
+-            message(STATUS "Found libkexiv2 release < 0.2.0, too old")
++            message(STATUS "Found libkexiv2 release < 1.0.0, too old")
+             set(KEXIV2_VERSION_GOOD_FOUND FALSE)
+             set(KEXIV2_FOUND FALSE)
+         endif(_return_VALUE STREQUAL "0")
