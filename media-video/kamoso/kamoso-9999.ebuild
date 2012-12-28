@@ -6,7 +6,7 @@ EAPI=4
 
 inherit kde4-base
 
-DESCRIPTION="A webcam application to attract sweet girls to kde :)"
+DESCRIPTION="A KDE application to take pictures and videos from your webcam"
 HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
 
 LICENSE="GPL-3"
