@@ -2,10 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_MINIMAL="4.8"
 EGIT_REPONAME="${PN/-kde/}"
+KDE_LINGUAS="cs da de el es et fi fr ga hu it ja km lt nds nl pl pt pt_BR ro sk sv uk"
 inherit kde4-base
 
 DESCRIPTION="LightDM KDE greeter"
@@ -17,5 +18,9 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND=">=x11-misc/lightdm-1.4.0[qt4]"
+DEPEND="
+	x11-libs/libX11
+	x11-libs/qt-declarative:4
+	>=x11-misc/lightdm-1.3.2[qt4]
+"
 RDEPEND="${DEPEND}"
