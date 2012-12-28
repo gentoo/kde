@@ -44,6 +44,8 @@ REQUIRED_USE="
 	python? ( kde )
 "
 
+PATCHES=( "${FILESDIR}/${P}-python.patch" )
+
 pkg_setup() {
 	python_set_active_version 2
 	kde4-base_pkg_setup
