@@ -25,8 +25,8 @@ RDEPEND="
 		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 		>=dev-libs/soprano-2.8.0
 	)
-	aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.9[dbus,declarative,sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,sql,svg,webkit,X] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/libtool
