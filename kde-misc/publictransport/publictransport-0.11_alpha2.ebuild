@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,12 +13,12 @@ SRC_URI="http://dev.gentoo.org/~creffett/distfiles/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug gps test"
+IUSE="debug gps protobuf marble test"
 
 DEPEND="
-	$(add_kdebase_dep marble)
 	$(add_kdebase_dep plasma-workspace)
-	dev-libs/protobuf
+	marble? ( $(add_kdebase_dep marble) )
+	protobuf? ( dev-libs/protobuf )
 "
 RDEPEND="${DEPEND}"
 
@@ -28,6 +28,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DINSTALL_APPLET_FLIGHTS=ON -DINSTALL_APPLET_GRAPHICALTIMETABLE=ON
 		$(cmake-utils_use gps INSTALL_ENGINE_OPENSTREETMAP)
+		$(cmake-utils_use_with marble)
+		$(cmake-utils_use_with protobuf ProtocolBuffers)
 		$(cmake-utils_use test BUILD_TESTS)
 	)
 	kde4-base_src_configure
