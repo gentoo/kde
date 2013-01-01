@@ -7,6 +7,6 @@
 	<flag name="udisks">Use udisks for block device access (e.g., automounting)</flag>
 	<flag name="udisks2">Use the udisks2 support backported from kf5</flag>
 	<flag name="upower">Use upower for power management</flag>
-	<flag name="upnp">Enable UPnP support</flag>
+	<flag name="upnp">Build the Solid backend to provide information about UPnP devices on the network</flag>
   </use>
 </pkgmetadata>
