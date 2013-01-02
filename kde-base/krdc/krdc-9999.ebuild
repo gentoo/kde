@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -22,7 +22,7 @@ DEPEND="
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}
-	rdesktop? ( net-misc/rdesktop )
+	rdesktop? ( >=net-misc/freerdp-1.1.0_pre20121004 )
 "
 
 src_configure() {
