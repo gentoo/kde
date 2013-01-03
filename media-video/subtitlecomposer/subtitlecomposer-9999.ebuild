@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="bg cs de el es fr it pl pt_BR sr"
 KDE_SCM="svn"
@@ -20,7 +20,7 @@ IUSE="debug gstreamer unicode xine"
 RDEPEND="
 	media-libs/phonon
 	gstreamer? ( media-libs/gstreamer:0.10 )
-	unicode? ( dev-libs/icu )
+	unicode? ( dev-libs/icu:= )
 	xine? ( media-libs/xine-lib )
 "
 DEPEND="${RDEPEND}
