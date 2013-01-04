@@ -12,6 +12,7 @@ if [[ $PV = *9999* ]]; then
 else
 	SRC_URI="mirror://kde/stable/${PN/-server/}/src/${P/-server/}.tar.bz2"
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+	S="${WORKDIR}/${P/-server/}"
 fi
 
 inherit cmake-utils ${scm_eclass}
