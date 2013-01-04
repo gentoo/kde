@@ -60,11 +60,11 @@ KMEXTRA="
 	statusnotifierwatcher/
 "
 KMEXTRACTONLY="
+	kcheckpass/
 	krunner/dbus/org.freedesktop.ScreenSaver.xml
 	krunner/dbus/org.kde.krunner.App.xml
 	ksmserver/org.kde.KSMServerInterface.xml
 	ksmserver/screenlocker/
-	plasma/screensaver/shell/
 	libs/kephal/
 	libs/kworkspace/
 	libs/taskmanager/
