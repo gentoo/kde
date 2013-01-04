@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE="debug google-gadgets gps python qalculate +rss semantic-desktop"
 
 COMMONDEPEND="
+	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	$(add_kdebase_dep kephal)
@@ -54,6 +55,8 @@ RDEPEND="${COMMONDEPEND}
 "
 
 KMEXTRA="
+	appmenu/
+	ktouchpadenabler/
 	statusnotifierwatcher/
 "
 KMEXTRACTONLY="
