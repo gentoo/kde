@@ -4,14 +4,22 @@
 
 EAPI=4
 
-inherit cmake-utils git-2
+if [[ $PV = *9999* ]]; then
+	scm_eclass=git-2
+	EGIT_REPO_URI="git://anongit.kde.org/akonadi"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="mirror://kde/stable/${PN/-server/}/src/${P/-server/}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+fi
+
+inherit cmake-utils ${scm_eclass}
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
-EGIT_REPO_URI="git://anongit.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 SLOT="0"
 IUSE="mysql postgres +sqlite test"
 
