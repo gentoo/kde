@@ -44,7 +44,7 @@ src_prepare() {
 
 	# Disable hardcoded checks
 	sed -r -e '/find_package\((Akonadi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
-		-e '/macro_log_feature\((Akonadi|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
+		-e '/set_package_properties\((Akonadi|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)/s/ REQUIRED / OPTIONAL /' \
 		-e '/add_subdirectory\((akonadi|mailtransport)/{/macro_optional_/!s/add/macro_optional_&/}' \
 		-i CMakeLists.txt || die
 	if ! use semantic-desktop; then
