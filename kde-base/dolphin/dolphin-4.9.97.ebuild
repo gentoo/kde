@@ -10,12 +10,12 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug semantic-desktop thumbnail"
+IUSE="debug thumbnail"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep libkonq)
-	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.10.0 )
+	>=dev-libs/shared-desktop-ontologies-0.10.0
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
