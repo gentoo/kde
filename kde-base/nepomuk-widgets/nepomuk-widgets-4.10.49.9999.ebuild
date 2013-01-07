@@ -12,7 +12,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep nepomuk-core)
-	>=dev-libs/soprano-2.8.0
+	>=dev-libs/soprano-2.9.0
 "
 RDEPEND="${DEPEND}"
 

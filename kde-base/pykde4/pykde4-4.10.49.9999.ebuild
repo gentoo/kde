@@ -23,7 +23,7 @@ RDEPEND="
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
-		>=dev-libs/soprano-2.8.0
+		>=dev-libs/soprano-2.9.0
 	)
 	aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,script(+),sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,script(+),sql,svg,webkit,X] )
