@@ -44,6 +44,8 @@ REQUIRED_USE="|| ( sqlite mysql postgres )"
 
 RESTRICT=test
 
+PATCHES=( "${FILESDIR}/${P}-qt5.patch" )
+
 pkg_setup() {
 	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
 	# reverse driver check to keep the order
@@ -83,6 +85,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DAKONADI_USE_STRIGI_SEARCH=OFF
+		-DWITH_QT5=OFF
 		$(cmake-utils_use test AKONADI_BUILD_TESTS)
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
 	)
