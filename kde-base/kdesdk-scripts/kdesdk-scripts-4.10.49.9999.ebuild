@@ -17,6 +17,7 @@ IUSE="debug"
 RDEPEND="
 	app-arch/advancecomp
 	media-gfx/optipng
+	dev-perl/XML-DOM
 "
 
 src_prepare() {
