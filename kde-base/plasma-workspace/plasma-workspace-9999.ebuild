@@ -70,6 +70,7 @@ KMEXTRACTONLY="
 	libs/taskmanager/
 	libs/plasmagenericshell/
 	libs/ksysguard/
+	libs/kdm/kgreeterplugin.h
 	ksysguard/
 "
 
