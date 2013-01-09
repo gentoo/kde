@@ -59,7 +59,7 @@ case ${WANT_CMAKE} in
 esac
 inherit toolchain-funcs multilib flag-o-matic base
 
-CMAKE_EXPF="src_compile src_test src_install"
+CMAKE_EXPF="src_prepare src_compile src_test src_install"
 case ${EAPI:-0} in
 	2|3|4|5) CMAKE_EXPF+=" src_configure" ;;
 	1|0) ;;
@@ -556,6 +556,15 @@ enable_cmake-utils_src_test() {
 		popd > /dev/null
 		return 1
 	fi
+}
+
+# @FUNCTION: cmake-utils_src_prepare
+# @DESCRIPTION:
+# Wrapper function around base_src_prepare, just to expand the eclass API.
+cmake-utils_src_prepare() {
+	debug-print-function $FUNCNAME "$@"
+
+	base_src_prepare "$@"
 }
 
 # @FUNCTION: cmake-utils_src_configure
