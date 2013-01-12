@@ -23,6 +23,7 @@ RDEPEND="
 	>=net-im/ktp-accounts-kcm-${PV}
 	>=net-im/ktp-approver-${PV}
 	>=net-im/ktp-auth-handler-${PV}
+	>=net-im/ktp-call-ui-${PV}
 	>=net-im/ktp-common-internals-${PV}
 	>=net-im/ktp-contact-applet-${PV}
 	>=net-im/ktp-contact-list-${PV}
