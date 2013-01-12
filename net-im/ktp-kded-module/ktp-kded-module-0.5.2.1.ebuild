@@ -6,9 +6,11 @@ EAPI=4
 
 KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it ja km lt nb nds nl pl pt
 pt_BR ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
-MY_P=${PN/kded/kded-integration}-${PV}
 inherit kde4-base versionator
+MY_PN=${PN/kded/kded-integration}
+MY_P=${MY_PN}-${PV}
 KTP_PV=$(get_version_component_range 1-3)
+KTP_P=${MY_PN}-${KTP_PV}
 
 DESCRIPTION="KDE Telepathy workspace integration"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
@@ -29,4 +31,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${KTP_P}
