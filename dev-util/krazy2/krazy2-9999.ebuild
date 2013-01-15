@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit perl-module qt4-r2 cmake-utils multilib git-2
 
@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}
 "
 
 CMAKE_USE_DIR="${S}/cppchecks"
+
+PATCHES=( "${FILESDIR}/${P}-libs.patch" )
 
 src_prepare() {
 	sed -i -e 's/+= ordered/+= ordered nostrip/' \
