@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-util/cmake/cmake-2.8.10.2-r1.ebuild,v 1.1 2013/01/01 19:25:58 creffett Exp $
 
-EAPI=4
+EAPI=5
 
 CMAKE_REMOVE_MODULES="no"
 inherit elisp-common toolchain-funcs eutils versionator flag-o-matic base cmake-utils virtualx
@@ -17,7 +17,7 @@ SLOT="0"
 IUSE="emacs ncurses qt4 vim-syntax"
 
 DEPEND="
-	>=app-arch/libarchive-2.8.0
+	>=app-arch/libarchive-2.8.0:=
 	>=dev-libs/expat-2.0.1
 	>=net-misc/curl-7.20.0-r1[ssl]
 	sys-libs/zlib
