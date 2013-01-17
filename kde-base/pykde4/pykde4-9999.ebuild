@@ -19,7 +19,7 @@ REQUIRED_USE="test? ( semantic-desktop )"
 
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
-	>=dev-python/sip-4.14
+	>=dev-python/sip-4.14:=
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
