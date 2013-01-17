@@ -1,14 +1,16 @@
-From fa1b3798477b91492330a6db9e81834d64ce8ec1 Mon Sep 17 00:00:00 2001
-From: "Andreas K. Huettel" <mail@akhuettel.de>
-Date: Thu, 17 Jan 2013 17:33:46 +0100
-Subject: [PATCH] Revert "Use a slightly better strategy for symlinking:
- although the previous"
-
-This reverts commit 4e8ee28f3a314edef2a8489854c0ed58ac668070.
----
- tools/pykdeuic4/CMakeLists.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
+diff --git a/kpythonpluginfactory/CMakeLists.txt b/kpythonpluginfactory/CMakeLists.txt
+index c24160e..9597cd1 100644
+--- a/kpythonpluginfactory/CMakeLists.txt
++++ b/kpythonpluginfactory/CMakeLists.txt
+@@ -4,7 +4,7 @@ set(kpythonpluginfactory_SRCS
+     kpythonpluginfactory.cpp)
+ 
+ GET_FILENAME_COMPONENT(LIB_PYTHON ${PYTHON_LIBRARIES} NAME)
+-ADD_DEFINITIONS(-DLIB_PYTHON="${LIB_PYTHON}")
++ADD_DEFINITIONS(-DLIB_PYTHON="\\"${LIB_PYTHON}\\"")
+ ADD_DEFINITIONS(-DKDE_DEFAULT_DEBUG_AREA=15000)
+ 
+ kde4_add_plugin(kpythonpluginfactory ${kpythonpluginfactory_SRCS})
 diff --git a/tools/pykdeuic4/CMakeLists.txt b/tools/pykdeuic4/CMakeLists.txt
 index 092985d..2209fba 100644
 --- a/tools/pykdeuic4/CMakeLists.txt
@@ -22,6 +24,3 @@ index 092985d..2209fba 100644
  endif()
  
  unset(_uic_name)
--- 
-1.8.1
-
