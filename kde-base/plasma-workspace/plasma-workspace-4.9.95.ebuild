@@ -32,7 +32,6 @@ COMMONDEPEND="
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	python? (
 		>=dev-python/PyQt4-4.4.0[X]
-		>=dev-python/sip-4.7.1
 		$(add_kdebase_dep pykde4)
 	)
 	qalculate? ( sci-libs/libqalculate )
