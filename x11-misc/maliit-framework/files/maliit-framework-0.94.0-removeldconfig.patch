@@ -1,0 +1,27 @@
+--- a/gtk-input-context/client-gtk3/client-gtk3.pro
++++ b/gtk-input-context/client-gtk3/client-gtk3.pro
+@@ -38,10 +38,6 @@
+ INSTALLS += target
+ 
+ !disable-gtk-cache-update {
+-    # need to make sure dynamic linker can find maliit libraries when running gtk-query-module
+-    ldconfig.extra = ldconfig
+-    ldconfig.path = . # dummy path
+-    INSTALLS += ldconfig
+ 
+     DISTRO = $$system(lsb_release -s -i)
+     DISTRO_VERSION = $$system(lsb_release -s -r)
+
+--- a/gtk-input-context/client-gtk/client-gtk.pro
++++ b/gtk-input-context/client-gtk/client-gtk.pro
+@@ -38,10 +38,6 @@
+ INSTALLS += target
+ 
+ !disable-gtk-cache-update {
+-    # need to make sure dynamic linker can find maliit libraries when running gtk-query-module
+-    ldconfig.extra = ldconfig
+-    ldconfig.path = . # dummy path
+-    INSTALLS += ldconfig
+ 
+     DISTRO = $$system(lsb_release -s -i)
+     DISTRO_VERSION = $$system(lsb_release -s -r)
