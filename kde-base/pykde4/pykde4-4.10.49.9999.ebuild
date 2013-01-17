@@ -32,6 +32,8 @@ DEPEND="${RDEPEND}
 	sys-devel/libtool
 "
 
+PATCHES=( "${FILESDIR}/${PN}-4.9.98-symlink.patch" )
+
 pkg_setup() {
 	python_pkg_setup
 	kde4-base_pkg_setup
