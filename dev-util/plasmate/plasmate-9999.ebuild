@@ -6,7 +6,7 @@ EAPI=4
 inherit kde4-base
 
 DESCRIPTION="A small IDE taylored for development of Plasma components, such as Widgets, Runners, Dataengines."
-HOMEPAGE="https://projects.kde.org/projects/playground/base/plasmate"
+HOMEPAGE="https://projects.kde.org/projects/kdereview/plasmate"
 
 LICENSE="GPL-2"
 SLOT="0"
