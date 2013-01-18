@@ -77,6 +77,7 @@ src_configure() {
 			$(cmake-utils_use_with semantic-desktop Nepomuk)
 			$(cmake-utils_use_with semantic-desktop KdepimLibs)
 			-DPYTHON_EXECUTABLE=$(PYTHON -a)
+			-DPYKDEUIC4_ALTINSTALL=TRUE
 		)
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_configure
