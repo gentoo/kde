@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/stable/phonon/${PV}/src/${P}.tar.xz"
@@ -19,7 +19,7 @@ DESCRIPTION="KDE multimedia API"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
+SLOT="0/0"
 IUSE="aqua debug +gstreamer pulseaudio vlc zeitgeist"
 
 COMMON_DEPEND="
