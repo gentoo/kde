@@ -11,7 +11,7 @@ HOMEPAGE="https://projects.kde.org/projects/playground/libs/libkscreen"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=">=dev-libs/qjson-0.8"
