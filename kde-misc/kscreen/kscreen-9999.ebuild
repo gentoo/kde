@@ -21,12 +21,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	einfo "To make use of kscreen, run the following"
-	einfo "# qdbus org.kde.kded /kded org.kde.kded.unloadModule randrmonitor"
-	einfo "# qdbus org.kde.kded /kded org.kde.kded.setModuleAutoloading randrmonitor false"
-	einfo "# qdbus org.kde.kded /kded org.kde.kded.loadModule kscreen"
-	einfo "Now simply (un-)plugging displays should enable/disable them, while"
-	einfo "the last state is remembered."
+	elog "To make use of kscreen, run the following"
+	elog "# qdbus org.kde.kded /kded org.kde.kded.unloadModule randrmonitor"
+	elog "# qdbus org.kde.kded /kded org.kde.kded.setModuleAutoloading randrmonitor false"
+	elog "# qdbus org.kde.kded /kded org.kde.kded.loadModule kscreen"
+	elog "Now simply (un-)plugging displays should enable/disable them, while"
+	elog "the last state is remembered."
 
 	kde4-base_pkg_postinst
 }
