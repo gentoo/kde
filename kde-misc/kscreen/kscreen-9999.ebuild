@@ -21,9 +21,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	elog "To make use of kscreen, run the following"
+	elog "Disable the old screen management:"
 	elog "# qdbus org.kde.kded /kded org.kde.kded.unloadModule randrmonitor"
 	elog "# qdbus org.kde.kded /kded org.kde.kded.setModuleAutoloading randrmonitor false"
+	elog "Enable the kded module for the kscreen based screen management:"
 	elog "# qdbus org.kde.kded /kded org.kde.kded.loadModule kscreen"
 	elog "Now simply (un-)plugging displays should enable/disable them, while"
 	elog "the last state is remembered."
