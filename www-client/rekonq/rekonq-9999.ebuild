@@ -2,16 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 WEBKIT_REQUIRED="always"
-QT_MINIMAL="4.8"
-KDE_MINIMAL="4.9"
-KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
-hu is it ja km ko lt nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian
-sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
+KDE_LINGUAS="ca da de el es et fi fr hu ia it km lt nb nl pl pt pt_BR sk sl
+sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
-VIRTUALX_REQUIRED=test
 inherit kde4-base
 
 DESCRIPTION="A browser based on qt-webkit"
@@ -31,9 +27,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-# Almost all test fails
-RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
