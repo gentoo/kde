@@ -3,46 +3,46 @@
 # $Header: $
 
 EAPI=5
-
-PYTHON_DEPEND="*:2.5"
-RESTRICT_PYTHON_ABIS="*-jython 2.4 2.7-pypy-*"
-PYTHON_USE_WITH="threads"
-SUPPORT_PYTHON_ABIS="1"
-
+PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2} )
+PYTHON_REQ_USE="threads"
 OPENGL_REQUIRED="always"
-inherit python portability kde4-base multilib
+
+inherit python-r1 portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 IUSE="debug doc examples semantic-desktop test"
 REQUIRED_USE="test? ( semantic-desktop )"
 
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
-	>=dev-python/sip-4.14:=
+	${PYTHON_DEPS}
+	>=dev-python/sip-4.14:=[${PYTHON_USEDEP}]
+
 	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 		>=dev-libs/soprano-2.9.0
 	)
-	aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,script(+),sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.9.5[dbus,declarative,script(+),sql,svg,webkit,X] )
+	aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,aqua] )
+	!aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/libtool
 "
 
 pkg_setup() {
-	python_pkg_setup
 	kde4-base_pkg_setup
 
 	have_python2=false
 
 	scan_python_versions() {
-		[[ ${PYTHON_ABI} == 2.* ]] && have_python2=true
-		:
+		if [[ ${EPYTHON} == python2.* ]]; then
+			have_python2=true
+		fi
 	}
-	python_execute_function -q scan_python_versions
+	python_foreach_impl scan_python_versions
+
 	if ! ${have_python2}; then
 		ewarn "You do not have a Python 2 version selected."
 		ewarn "kpythonpluginfactory will not be built"
@@ -60,30 +60,35 @@ src_prepare() {
 	# See bug 322351
 	use arm && epatch "${FILESDIR}/${PN}-4.4.4-arm-sip.patch"
 
-	sed -i -e 's/kpythonpluginfactory /kpython${PYTHON_SHORT_VERSION}pluginfactory /g' kpythonpluginfactory/CMakeLists.txt
+	sed -e 's/kpythonpluginfactory /kpython${PYTHON_SHORT_VERSION}pluginfactory /g' \
+		-i kpythonpluginfactory/CMakeLists.txt || die
 
 	if ${have_python2}; then
 		mkdir -p "${WORKDIR}/wrapper" || die "failed to copy wrapper"
 		cp "${FILESDIR}/kpythonpluginfactorywrapper.c-r1" "${WORKDIR}/wrapper/kpythonpluginfactorywrapper.c" || die "failed to copy wrapper"
 	fi
+	python_copy_sources
+
 }
 
 src_configure() {
 	configuration() {
+		pushd "${BUILD_DIR}" > /dev/null
 		local mycmakeargs=(
 			-DWITH_PolkitQt=OFF
 			-DWITH_QScintilla=OFF
 			$(cmake-utils_use_with semantic-desktop Soprano)
 			$(cmake-utils_use_with semantic-desktop Nepomuk)
 			$(cmake-utils_use_with semantic-desktop KdepimLibs)
-			-DPYTHON_EXECUTABLE=$(PYTHON -a)
+			-DPYTHON_EXECUTABLE=${PYTHON}
 			-DPYKDEUIC4_ALTINSTALL=TRUE
 		)
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_configure
+		popd > /dev/null
 	}
 
-	python_execute_function configuration
+	python_foreach_impl configuration
 }
 
 echo_and_run() {
@@ -93,13 +98,15 @@ echo_and_run() {
 
 src_compile() {
 	compilation() {
+		pushd "${BUILD_DIR}" > /dev/null
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_compile
+		popd > /dev/null
 	}
-	python_execute_function compilation
+	python_foreach_impl compilation
 
 	if ${have_python2}; then
-		cd "${WORKDIR}/wrapper"
+		pushd "${WORKDIR}/wrapper" > /dev/null
 		echo_and_run libtool --tag=CC --mode=compile $(tc-getCC) \
 			-shared \
 			${CFLAGS} ${CPPFLAGS} \
@@ -114,17 +121,22 @@ src_compile() {
 			-rpath "${EPREFIX}/usr/$(get_libdir)/kde4" \
 			kpythonpluginfactorywrapper.lo \
 			$(dlopen_lib)
+		popd > /dev/null
 	fi
 }
 
 src_install() {
 	installation() {
-		cd "${S}_build-${PYTHON_ABI}"
-		emake DESTDIR="${T}/images/${PYTHON_ABI}" install
-	}
-	python_execute_function installation
+		pushd "${BUILD_DIR}" > /dev/null
+		emake DESTDIR="${D}" install
+		popd > /dev/null
 
-	python_merge_intermediate_installation_images "${T}/images"
+		mv "${ED}"/usr/bin/pykdeuic4{,-${EPYTHON}} || die
+		python_optimize
+	}
+	python_foreach_impl installation
+
+	dosym python-exec /usr/bin/pykdeuic4
 
 	# As we don't call the eclass's src_install, we have to install the docs manually
 	DOCS=("${S}"/{AUTHORS,NEWS,README})
@@ -132,16 +144,15 @@ src_install() {
 	base_src_install_docs
 
 	if ${have_python2}; then
-		cd "${WORKDIR}/wrapper"
+		pushd "${WORKDIR}/wrapper" > /dev/null
 		echo_and_run libtool --mode=install install kpythonpluginfactory.la "${ED}/usr/$(get_libdir)/kde4/kpythonpluginfactory.la"
 		rm "${ED}/usr/$(get_libdir)/kde4/kpythonpluginfactory.la"
+		popd > /dev/null
 	fi
 }
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-
-	python_mod_optimize PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 
 	if use examples; then
 		echo
@@ -149,10 +160,4 @@ pkg_postinst() {
 		elog "${EPREFIX}/usr/share/apps/${PN}/examples"
 		echo
 	fi
-}
-
-pkg_postrm() {
-	kde4-base_pkg_postrm
-
-	python_mod_cleanup PyKDE4 PyQt4/uic/pykdeuic4.py PyQt4/uic/widget-plugins/kde4.py
 }
