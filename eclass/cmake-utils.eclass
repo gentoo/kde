@@ -340,6 +340,12 @@ _modify-cmakelists() {
 	_EOF_
 }
 
+enable_cmake-utils_src_prepare() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	base_src_prepare
+}
+
 enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -562,9 +568,7 @@ enable_cmake-utils_src_test() {
 # @DESCRIPTION:
 # Wrapper function around base_src_prepare, just to expand the eclass API.
 cmake-utils_src_prepare() {
-	debug-print-function $FUNCNAME "$@"
-
-	base_src_prepare "$@"
+	_execute_optionaly "src_prepare" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_configure
