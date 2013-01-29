@@ -28,8 +28,8 @@ WANT_CMAKE="${WANT_CMAKE:-always}"
 
 # @ECLASS-VARIABLE: CMAKE_MIN_VERSION
 # @DESCRIPTION:
-# Specify the minimum required CMake version.  Default is 2.8.4
-CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.8.4}"
+# Specify the minimum required CMake version.
+CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.8.8}"
 
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
 # @DESCRIPTION:
