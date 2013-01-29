@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 LIBKT_VERSION_MIN="${PV}"
 LIBKT_VERSION_MAX="99999999"
@@ -10,16 +10,16 @@ if [[ ${PV} != 9999* ]]; then
 	inherit versionator
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
-	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3)
+	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
 	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
 	KDE_HANDBOOK="optional"
 	KDE_DOC_DIRS="doc"
 
-	KDE_LINGUAS="ar ast be bg ca ca@valencia cs da de el en_GB eo es et eu
-		fi fr ga gl hi hne hr hu is it ja km lt lv mai ms nb nds nl nn oc
-		pl pt pt_BR ro ru se si sk sl sr sr@ijekavian sr@ijekavianlatin
-		sr@latin sv tr uk zh_CN zh_TW"
+	KDE_LINGUAS="ar ast be bg bs ca ca@valencia cs da de el en_GB eo es et eu
+		fi fr ga gl hi hne hr hu is it ja km ku lt lv mai ms nb nds nl nn oc
+		pl pt pt_BR ro ru se si sk sl sq sr sr@ijekavian sr@ijekavianlatin
+		sr@latin sv tr ug uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
@@ -44,6 +44,7 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 COMMONDEPEND="
 	<net-libs/libktorrent-${LIBKT_VERSION_MAX}
 	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}
+	infowidget? ( dev-libs/geoip )
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( $(add_kdebase_dep libtaskmanager) )
 	rss? ( $(add_kdebase_dep kdepimlibs) )
@@ -57,7 +58,6 @@ DEPEND="${COMMONDEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMONDEPEND}
-	infowidget? ( dev-libs/geoip )
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
