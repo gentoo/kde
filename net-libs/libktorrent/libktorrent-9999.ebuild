@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 if [[ ${PV} != 9999* ]]; then
 	inherit versionator
@@ -13,14 +13,14 @@ if [[ ${PV} != 9999* ]]; then
 	KDE_HANDBOOK="optional"
 	KDE_DOC_DIRS="doc"
 
-	KDE_LINGUAS="ar ast be bg ca ca@valencia cs da de el en_GB eo es et eu
+	KDE_LINGUAS="ar ast be bg bs ca ca@valencia cs da de el en_GB eo es et eu
 		fi fr ga gl hi hne hr hu is it ja km ku lt lv ms nb nds nl nn oc pl
 		pt pt_BR ro ru se si sk sl sr sr@ijekavian sr@ijekavianlatin
-		sr@latin sv tr uk zh_CN zh_TW"
+		sr@latin sv tr ug uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="~amd64 ~ppc ~x86"
+	KEYWORDS="~amd64 ~arm ~ppc x86"
 else
 	KEYWORDS=""
 fi
@@ -48,10 +48,4 @@ src_prepare() {
 	kde4-base_src_prepare
 	# do not build non-installed example binary
 	sed -i -e '/add_subdirectory(examples)/d' CMakeLists.txt || die
-}
-
-src_test() {
-	# bug 442514
-	local myctestargs=( -E utppolltest )
-	kde4-base_src_test
 }
