@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
 COMMONDEPEND="
-	media-libs/libpng
+	media-libs/libpng:=
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}

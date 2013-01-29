@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
 COMMONDEPEND="
-	media-libs/libpng
+	media-libs/libpng:=
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}
