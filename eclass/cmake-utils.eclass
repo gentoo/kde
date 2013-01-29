@@ -59,9 +59,9 @@ case ${WANT_CMAKE} in
 esac
 inherit toolchain-funcs multilib flag-o-matic base
 
-CMAKE_EXPF="src_prepare src_compile src_test src_install"
+CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2|3|4|5) CMAKE_EXPF+=" src_configure" ;;
+	2|3|4|5) CMAKE_EXPF+=" src_prepare src_configure" ;;
 	1|0) ;;
 	*) die "Unknown EAPI, Bug eclass maintainers." ;;
 esac
@@ -513,7 +513,7 @@ enable_cmake-utils_src_install() {
 	_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null
 
-	DESTDIR=${D} ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
+	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
 	base_src_install_docs
 
 	popd > /dev/null
