@@ -128,7 +128,7 @@ src_compile() {
 src_install() {
 	installation() {
 		pushd "${BUILD_DIR}" > /dev/null
-		emake DESTDIR="${D}" install
+		emake DESTDIR="${ED}" install
 		popd > /dev/null
 
 		mv "${ED}"/usr/bin/pykdeuic4-{${EPYTHON/python/},${EPYTHON}} || die
