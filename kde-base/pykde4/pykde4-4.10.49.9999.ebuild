@@ -131,7 +131,7 @@ src_install() {
 		emake DESTDIR="${D}" install
 		popd > /dev/null
 
-		mv "${ED}"/usr/bin/pykdeuic4{,-${EPYTHON}} || die
+		mv "${ED}"/usr/bin/pykdeuic4-{${EPYTHON/python/},${EPYTHON}} || die
 		python_optimize
 	}
 	python_foreach_impl installation
