@@ -13,17 +13,15 @@ inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 EGIT_BRANCH="master"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
-SRC_URI+=" http://dev.gentoo.org/~johu/distfiles/${PN}-4.8.95-udisks2.patch.xz"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
-udisks2 +upower upnp zeroconf"
++upower upnp zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
-	udisks2? ( udisks )
 	upower? ( udev )
 "
 
@@ -104,10 +102,7 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		udisks? (
-			udisks2? ( sys-fs/udisks:2 )
-			!udisks2? ( sys-fs/udisks:0 )
-		)
+		udisks? ( sys-fs/udisks:2 )
 		upower? ( sys-power/upower )
 	)
 	udev? ( app-misc/media-player-info )
@@ -156,11 +151,6 @@ pkg_pretend() {
 src_prepare() {
 	kde4-base_src_prepare
 	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"
-
-	if use udisks2; then
-		epatch "${WORKDIR}/${PN}-4.8.95-udisks2.patch"
-		epatch "${FILESDIR}/${PN}-4.8.95-udisks2-includes.patch"
-	fi
 
 	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix-1.patch to work)
 	sed -e 's|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-4-applications.menu|g' \
@@ -227,6 +217,7 @@ src_configure() {
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
+		$(cmake-utils_use_with udisks SOLID_UDISKS2)
 		$(cmake-utils_use_with upnp HUpnp)
 		$(cmake-utils_use_with zeroconf Avahi)
 	)
