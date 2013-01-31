@@ -1,9 +1,0 @@
---- a/analitzaplot/tests/CMakeLists.txt
-+++ b/analitzaplot/tests/CMakeLists.txt
-@@ -11,6 +11,3 @@
- 
- kde4_add_unit_test(plotsmodeltest plotsmodeltest.cpp)
- target_link_libraries(plotsmodeltest ${testLibs})
--
--kde4_add_unit_test(plotsdictionarymodeltest plotsdictionarymodeltest.cpp)
--target_link_libraries(plotsdictionarymodeltest ${testLibs})
