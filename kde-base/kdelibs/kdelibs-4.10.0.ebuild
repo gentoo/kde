@@ -10,8 +10,6 @@ OPENGL_REQUIRED="optional"
 KDE_HANDBOOK="optional"
 inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
-# The "master" branch is out of date, so use KDE/4.10 per upstream's
-# recommendation.
 EGIT_BRANCH="KDE/4.10"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
@@ -19,11 +17,10 @@ DESCRIPTION="KDE libraries needed by all KDE programs."
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma
-mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
+mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev
 +upower upnp zeroconf"
 
 REQUIRED_USE="
-	udisks? ( udev )
 	upower? ( udev )
 "
 
@@ -101,10 +98,10 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep kde-env)
 	sys-apps/dbus[X]
 	!aqua? (
+		sys-fs/udisks:2
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		udisks? ( sys-fs/udisks:2 )
 		upower? ( sys-power/upower )
 	)
 	udev? ( app-misc/media-player-info )
@@ -194,6 +191,7 @@ src_configure() {
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
 		-DWITH_DNSSD=OFF
+		-DWITH_SOLID_UDISKS2=ON
 		-DKDE_DEFAULT_HOME=.kde4
 		-DKAUTH_BACKEND=POLKITQT-1
 		-DBUILD_libkactivities=OFF
@@ -219,7 +217,6 @@ src_configure() {
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
-		$(cmake-utils_use_with udisks SOLID_UDISKS2)
 		$(cmake-utils_use_with upnp HUpnp)
 		$(cmake-utils_use_with zeroconf Avahi)
 	)
