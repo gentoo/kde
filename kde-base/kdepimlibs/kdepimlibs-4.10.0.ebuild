@@ -28,6 +28,7 @@ DEPEND="
 	prison? ( media-libs/prison )
 	semantic-desktop? (
 		>=app-office/akonadi-server-1.9.0
+		$(add_kdebase_dep nepomuk-core)
 		media-libs/phonon
 		x11-misc/shared-mime-info
 	)
@@ -62,7 +63,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use !semantic-desktop KALARM_USE_KRESOURCES)
 		$(cmake-utils_use_with prison)
 	)
