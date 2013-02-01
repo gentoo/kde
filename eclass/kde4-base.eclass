@@ -172,12 +172,6 @@ case ${KDEBASE} in
 			RESTRICT+=" test"
 		fi
 
-		# Only add the kdeprefix USE flag for older versions, to help
-		# non-portage package managers handle the upgrade
-		if [[ ${PV} < 4.6.4 && ( ( ${KMNAME} != kdepim && ${PN} != kdepim-runtime ) || ${PV} < 4.6 ) ]]; then
-			IUSE+=" kdeprefix"
-		fi
-
 		# This code is to prevent portage from searching GENTOO_MIRRORS for
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
@@ -596,20 +590,6 @@ kde4-base_pkg_setup() {
 	if has handbook ${IUSE} || has "+handbook" ${IUSE} && [ "${KDE_HANDBOOK}" != optional ] ; then
 		eqawarn "Handbook support is enabled via KDE_HANDBOOK=optional in the ebuild."
 		eqawarn "Please do not just set IUSE=handbook, as this leads to dependency errors."
-	fi
-
-	if use_if_iuse kdeprefix; then
-		eerror "Sorry, kdeprefix support has been removed."
-		eerror "Please remove kdeprefix from your USE variable."
-		die "kdeprefix support has been removed"
-	fi
-
-	if [[ ${CATEGORY}/${PN} != kde-base/kdelibs && ${CATEGORY}/${PN} != kde-base/kde-env ]] && \
-			{ [[ ${KDE_REQUIRED} == always ]] || { [[ ${KDE_REQUIRED} == optional ]] && use kde; }; } && \
-			has_version kde-base/kdelibs[kdeprefix]; then
-		eerror "Sorry, kdeprefix support has been removed."
-		eerror "Please rebuild kdelibs without kdeprefix support."
-		die "kdeprefix support has been removed"
 	fi
 
 	# Don't set KDEHOME during compilation, it will cause access violations

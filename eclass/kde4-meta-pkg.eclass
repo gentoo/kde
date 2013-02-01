@@ -16,10 +16,4 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="metapackage"
 IUSE="aqua"
 
-# Only add the kdeprefix USE flag for older versions, to help
-# non-portage package managers handle the upgrade
-if [[ ${PV} < 4.6.4 && ( ${PN} != kdepim-meta || ${PV} < 4.6 ) ]]; then
-	IUSE+=" kdeprefix"
-fi
-
 SLOT=4
