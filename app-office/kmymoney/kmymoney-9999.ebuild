@@ -2,27 +2,26 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et
-			eu fi fr ga gl hu it ja lt ms nds nl pl pt
-			pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
-	KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
-	KDE_HANDBOOK="optional"
-	SRC_URI="mirror://sourceforge/kmymoney2/${P}.tar.bz2"
-fi
-
-VIRTUALX_REQUIRED=test
+EAPI=5
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fi fr ga gl
+hu it ja kk lt ms nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
+KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
+KDE_HANDBOOK="optional"
+CPPUNIT_REQUIRED="test"
+VIRTUALX_REQUIRED="test"
+VIRTUALDBUS_TEST="true"
 inherit kde4-base
 
 DESCRIPTION="Personal finance manager for KDE"
 HOMEPAGE="http://kmymoney2.sourceforge.net/"
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://sourceforge/kmymoney2/${P}.tar.bz2"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug calendar doc hbci ofx quotes test"
+IUSE="debug calendar doc hbci ofx quotes"
 
 COMMON_DEPEND="
 	app-crypt/gpgme
@@ -49,11 +48,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
-	test? ( dev-util/cppunit )
 "
-
-RESTRICT=test
-# bug 399467
 
 src_configure() {
 	mycmakeargs=(
@@ -62,7 +57,6 @@ src_configure() {
 		$(cmake-utils_use_use doc DEVELOPER_DOC)
 		$(cmake-utils_use_enable hbci KBANKING)
 		$(cmake-utils_use_enable ofx LIBOFX)
-		$(cmake-utils_use test KDE4_BUILD_TESTS)
 	)
 	kde4-base_src_configure
 }
