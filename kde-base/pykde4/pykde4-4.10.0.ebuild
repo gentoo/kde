@@ -125,6 +125,15 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	testing() {
+		pushd "${BUILD_DIR}" > /dev/null
+		kde4-base_src_test
+		popd > /dev/null
+	}
+	python_foreach_impl testing
+}
+
 src_install() {
 	installation() {
 		pushd "${BUILD_DIR}" > /dev/null
