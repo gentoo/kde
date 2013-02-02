@@ -13,9 +13,15 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
+	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
 	$(add_kdebase_dep libkonq)
-	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.10.0 )
+	semantic-desktop? (
+		>=dev-libs/shared-desktop-ontologies-0.10.0
+		dev-libs/soprano
+		$(add_kdebase_dep nepomuk-core)
+		$(add_kdebase_dep nepomuk-widgets)
+	)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
@@ -37,7 +43,9 @@ RESTRICT="test"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop NepomukCore)
+		$(cmake-utils_use_with semantic-desktop NepomukWidgets)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 	)
 
 	kde4-meta_src_configure
