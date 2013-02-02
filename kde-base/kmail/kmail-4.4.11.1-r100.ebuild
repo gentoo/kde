@@ -52,6 +52,7 @@ KMEXTRA="
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.9-nodbus.patch"
 	"${FILESDIR}/4.4/"000{2,4,5}-*.patch
+	"${FILESDIR}/${P}-separate.patch"
 )
 
 pkg_pretend() {

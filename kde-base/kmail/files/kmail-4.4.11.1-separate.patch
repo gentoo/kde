@@ -1,0 +1,12 @@
+diff -ruN kdepim-4.4.11.1.orig/messageviewer/CMakeLists.txt kdepim-4.4.11.1/messageviewer/CMakeLists.txt
+--- kdepim-4.4.11.1.orig/messageviewer/CMakeLists.txt	2011-04-20 22:03:31.000000000 +0200
++++ kdepim-4.4.11.1/messageviewer/CMakeLists.txt	2013-02-02 23:58:57.000000000 +0100
+@@ -54,7 +54,7 @@
+ kde4_add_library(messageviewer SHARED ${libmessageviewer_SRCS})
+ 
+ 
+-target_link_libraries(messageviewer messagecore kdepim kpgp kleo
++target_link_libraries(messageviewer messagecore kdepim kpgp kleo akonadi-contact
+  ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS}
+  ${KDEPIMLIBS_KPIMUTILS_LIBS} ${KDEPIMLIBS_KABC_LIBS}
+  ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBS} ${KDE4_KTNEF_LIBRARY}
