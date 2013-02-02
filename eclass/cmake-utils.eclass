@@ -244,6 +244,16 @@ cmake-utils_use_with() { _use_me_now WITH_ "$@" ; }
 # and -DENABLE_FOO=OFF if it is disabled.
 cmake-utils_use_enable() { _use_me_now ENABLE_ "$@" ; }
 
+# @FUNCTION: cmake-utils_use_find_package
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on use_enable. See ebuild(5).
+#
+# `cmake-utils_use_find_package foo FOO` echoes -DCMAKE_DISABLE_FIND_PACKAGE=OFF
+# if foo is enabled and -DCMAKE_DISABLE_FIND_PACKAGE=ON if it is disabled.
+# This can be used to make find_package optional (since cmake-2.8.6).
+cmake-utils_use_find_package() { _use_me_now_inverted CMAKE_DISABLE_FIND_PACKAGE_ "$@" ; }
+
 # @FUNCTION: cmake-utils_use_disable
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
