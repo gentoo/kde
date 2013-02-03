@@ -5,14 +5,14 @@
 EAPI=5
 
 KDE_LINGUAS="ar bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga hu
-it ja ko lt mai ms nb nds nl pa pl pt pt_BR ro ru sk sl sr sr@ijekavian
+it ja kk ko lt mai ms nb nds nl pa pl pt pt_BR ro ru sk sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://projects.kde.org/projects/extragear/base/bluedevil"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2+"
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
