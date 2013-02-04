@@ -3,14 +3,14 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2} )
+PYTHON_COMPAT=( python{2_5,2_6,2_7,3_1,3_2,3_3} )
 PYTHON_REQ_USE="threads"
 OPENGL_REQUIRED="always"
 
 inherit python-r1 portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples semantic-desktop test"
 REQUIRED_USE="test? ( semantic-desktop )"
 
@@ -73,7 +73,6 @@ src_prepare() {
 
 src_configure() {
 	configuration() {
-		pushd "${BUILD_DIR}" > /dev/null
 		local mycmakeargs=(
 			-DWITH_PolkitQt=OFF
 			-DWITH_QScintilla=OFF
@@ -85,10 +84,9 @@ src_configure() {
 		)
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_configure
-		popd > /dev/null
 	}
 
-	python_foreach_impl configuration
+	python_foreach_impl run_in_build_dir configuration
 }
 
 echo_and_run() {
@@ -98,12 +96,10 @@ echo_and_run() {
 
 src_compile() {
 	compilation() {
-		pushd "${BUILD_DIR}" > /dev/null
 		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_compile
-		popd > /dev/null
 	}
-	python_foreach_impl compilation
+	python_foreach_impl run_in_build_dir compilation
 
 	if ${have_python2}; then
 		pushd "${WORKDIR}/wrapper" > /dev/null
@@ -126,24 +122,17 @@ src_compile() {
 }
 
 src_test() {
-	testing() {
-		pushd "${BUILD_DIR}" > /dev/null
-		kde4-base_src_test
-		popd > /dev/null
-	}
-	python_foreach_impl testing
+	python_foreach_impl run_in_build_dir kde4-base_src_test
 }
 
 src_install() {
 	installation() {
-		pushd "${BUILD_DIR}" > /dev/null
 		emake DESTDIR="${D}" install
-		popd > /dev/null
 
 		mv "${ED}"/usr/bin/pykdeuic4-{${EPYTHON/python/},${EPYTHON}} || die
 		python_optimize
 	}
-	python_foreach_impl installation
+	python_foreach_impl run_in_build_dir installation
 
 	dosym python-exec /usr/bin/pykdeuic4
 
