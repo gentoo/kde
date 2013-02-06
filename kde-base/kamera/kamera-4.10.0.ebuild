@@ -12,6 +12,6 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	media-libs/libgphoto2
+	media-libs/libgphoto2:=
 "
 RDEPEND="${DEPEND}"

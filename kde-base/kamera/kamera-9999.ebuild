@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	media-libs/libgphoto2
+	media-libs/libgphoto2:=
 "
 RDEPEND="${DEPEND}"
