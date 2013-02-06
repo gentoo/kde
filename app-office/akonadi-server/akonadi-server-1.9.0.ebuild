@@ -22,7 +22,7 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="mysql postgres +sqlite test"
+IUSE="+mysql postgres sqlite test"
 
 CDEPEND="
 	dev-libs/boost
