@@ -22,7 +22,7 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="mysql postgres +sqlite test"
+IUSE="+mysql postgres sqlite test"
 
 CDEPEND="
 	dev-libs/boost
@@ -45,20 +45,20 @@ REQUIRED_USE="|| ( sqlite mysql postgres )"
 RESTRICT=test
 
 pkg_setup() {
-	# Set default storage backend in order: SQLite, MySQL, PostgreSQL
+	# Set default storage backend in order: MySQL, SQLite PostgreSQL
 	# reverse driver check to keep the order
 	if use postgres; then
 		DRIVER="QPSQL"
 		AVAILABLE+=" ${DRIVER}"
 	fi
 
-	if use mysql; then
-		DRIVER="QMYSQL"
+	if use sqlite; then
+		DRIVER="QSQLITE3"
 		AVAILABLE+=" ${DRIVER}"
 	fi
 
-	if use sqlite; then
-		DRIVER="QSQLITE3"
+	if use mysql; then
+		DRIVER="QMYSQL"
 		AVAILABLE+=" ${DRIVER}"
 	fi
 
@@ -70,12 +70,12 @@ pkg_setup() {
 	fi
 
 	# Notify about MySQL not being default anymore
-	if ! use mysql && has_version "<=${CATEGORY}/${PN}-1.4.0[mysql]"; then
+	if ! use sqlite && has_version "<=${CATEGORY}/${PN}-1.9.0[sqlite]"; then
 		ewarn
-		ewarn "MySQL driver is not enabled by default in Gentoo anymore."
-		ewarn "If you intend to use it, please enable mysql USE flag and reinstall"
+		ewarn "The default storage drive has changed from SQLite to MySQL."
+		ewarn "If you want to stay with SQLite, enable the sqlite USE flag and reinstall"
 		ewarn "${CATEGORY}/${PN}."
-		ewarn "Otherwise select different driver in your ~/.config/akonadi/akonadiserverrc."
+		ewarn "Otherwise, select a different driver in your ~/.config/akonadi/akonadiserverrc."
 		ewarn "Available drivers are:${AVAILABLE}"
 	fi
 }
