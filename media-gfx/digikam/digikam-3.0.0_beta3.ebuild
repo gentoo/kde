@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-2.9.0.ebuild,v 1.2 2012/09/04 14:56:27 creffett Exp $
+# $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="af ar az be bg bn br bs ca cs csb cy da de el en_GB eo es et eu fa fi fo fr fy ga gl ha he hi hr hsb
 hu id is it ja ka kk km ko ku lb lo lt lv mi mk mn ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru
@@ -45,14 +45,14 @@ CDEPEND="
 	media-libs/libkgeomap
 	media-libs/liblqr
 	>=media-libs/libpgf-6.12.27
-	media-libs/libpng
+	media-libs/libpng:=
 	media-libs/tiff
 	sci-libs/clapack
 	virtual/jpeg
 	x11-libs/qt-gui:4[qt3support]
 	|| ( x11-libs/qt-sql:4[mysql] x11-libs/qt-sql:4[sqlite] )
 	addressbook? ( $(add_kdebase_dep kdepimlibs) )
-	gphoto2? ( media-libs/libgphoto2 )
+	gphoto2? ( media-libs/libgphoto2:= )
 	mysql? ( virtual/mysql )
 "
 RDEPEND="${CDEPEND}
