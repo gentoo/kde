@@ -5,18 +5,6 @@
 # Latest akonadi-facebook requires kdepimlibs 4.10
 =kde-misc/akonadi-facebook-0_p20121207
 
-
-# Andreas K. Hüttel <dilfridge@gentoo.org>
-# digikam-3 and friends requires kde-4.10
-=media-gfx/digikam-3*
-=media-plugins/kipi-plugins-3*
-=media-libs/libkface-3*
-=media-libs/libkgeomap-3*
-=net-libs/libmediawiki-3*
-=net-libs/libkvkontakte-3*
-
-
-
 # Dennis Schridde <devurandom@gmx.net> (25 Mar 2012)
 # Dependency net-libs/libinfinity is p-masked
 net-libs/libqinfinity
