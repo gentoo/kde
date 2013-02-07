@@ -55,6 +55,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.10-desktop.patch
 	"${FILESDIR}"/${PN}-2.8.10-libform.patch
 	"${FILESDIR}"/${PN}-2.8.10-more-no_host_paths.patch
+	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonInterp.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonLibs.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-implicit-include.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-qt5.patch
