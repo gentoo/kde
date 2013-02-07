@@ -1,0 +1,139 @@
+diff --git a/plasma/generic/applets/systemtray/package/contents/ui/IconsList.qml b/plasma/generic/applets/systemtray/package/contents/ui/IconsList.qml
+index 348d3dd..16277b5 100644
+--- a/plasma/generic/applets/systemtray/package/contents/ui/IconsList.qml
++++ b/plasma/generic/applets/systemtray/package/contents/ui/IconsList.qml
+@@ -34,13 +34,13 @@ MouseArea {
+ 
+     property int icons_size:     24  ///< Size of icons, icons are square i.e. width == height
+     property int icons_margins:  4  ///< Margins for icons
+-    property alias icons_number: repeater.count  ///< [readonly] Number of icons
+-    property alias model:    repeater.model; ///< Model for grid
++    property alias icons_number: list.count  ///< [readonly] Number of icons
++    property alias model:    list.model; ///< Model for grid
+     property int cell_size: icons_size + 2*icons_margins ///< [readonly] size of grid cell
+ 
+     //Those properties are used by PlasmaCore.Dialog for size hints
+-    property int minimumWidth:   layoutColumn.childrenRect.width ///< [readonly] minimum width of component required to show whole grid
+-    property int minimumHeight:  layoutColumn.childrenRect.height ///< [readonly] minimum height of compontn required to show whole grid
++    property int minimumWidth:   list.contentItem.childrenRect.width ///< [readonly] minimum width of component required to show whole grid
++    property int minimumHeight:  list.contentItem.childrenRect.height ///< [readonly] minimum height of compontn required to show whole grid
+     property int maximumWidth: minimumWidth
+     property int maximumHeight: minimumHeight
+ 
+@@ -53,6 +53,7 @@ MouseArea {
+             id: delegate_root_item
+             width: childrenRect.width
+             height: childrenRect.height
++            z: 0
+ 
+             // we redirect some events to IconWidget or applet
+             target: task.type == TypeStatusItem ? ui_item.getIconWidget() : task
+@@ -63,8 +64,9 @@ MouseArea {
+             onClickRight: ui_item.click(Qt.RightButton)
+             onScrollVert: ui_item.scrollVert(delta)
+             onScrollHorz: ui_item.scrollHorz(delta)
+-            onEntered: {
+-                delegate_highlight.y = delegate_root_item.y
++            onChangedMousePos: {
++                var pos = mapToItem(list.contentItem, mouseX, mouseY)
++                list.currentIndex = list.indexAt(pos.x, pos.y)
+             }
+ 
+             Row {
+@@ -108,38 +110,42 @@ MouseArea {
+             }
+ 
+         }
+-
+     }
+ 
+ 
+ 
+-    PlasmaWidgets.ItemBackground {
++    Component {
+         id: delegate_highlight
+-        height: cell_size
+-        width: minimumWidth
+-
+-        opacity: root_item.containsMouse
+-        Behavior on opacity {
+-            NumberAnimation {
+-                duration: 150
+-                easing: Easing.InOutQuad
++        Item {
++            height: cell_size
++            width: minimumWidth
++
++            PlasmaWidgets.ItemBackground {
++                anchors.fill: parent
+             }
+-        }
+-        Behavior on y {
+-            NumberAnimation {
+-                duration: 250
+-                easing: Easing.InOutQuad
++            opacity: root_item.containsMouse
++            Behavior on opacity {
++                NumberAnimation {
++                    duration: 150
++                    easing: Easing.InOutQuad
++                }
+             }
+         }
+     }
+ 
+-
+-    Column {
+-        id: layoutColumn
++    ListView {
++        id: list
++        anchors.fill: parent
++        //never delete items
++        cacheBuffer: 1000
++
++        interactive: false
++        delegate: delegate_task
++        highlight: delegate_highlight
++        highlightFollowsCurrentItem: true
++        highlightMoveSpeed: -1
++        highlightMoveDuration: 250
+         spacing: 0
+-        Repeater {
+-            id: repeater
+-            delegate: delegate_task
+-        }
++        snapMode: ListView.SnapToItem
+     }
+ }
+diff --git a/plasma/generic/applets/systemtray/ui/mouseredirectarea.cpp b/plasma/generic/applets/systemtray/ui/mouseredirectarea.cpp
+index 79f5ca0..38bb815 100644
+--- a/plasma/generic/applets/systemtray/ui/mouseredirectarea.cpp
++++ b/plasma/generic/applets/systemtray/ui/mouseredirectarea.cpp
+@@ -146,14 +146,12 @@ void MouseRedirectArea::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+ void MouseRedirectArea::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+ {
+     forwardEvent(event);
+-    emit entered();
+ }
+ 
+ 
+ void MouseRedirectArea::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+ {
+     forwardEvent(event);
+-    emit exited();
+ }
+ 
+ void MouseRedirectArea::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+diff --git a/plasma/generic/applets/systemtray/ui/mouseredirectarea.h b/plasma/generic/applets/systemtray/ui/mouseredirectarea.h
+index 9c60070..ed1a806 100644
+--- a/plasma/generic/applets/systemtray/ui/mouseredirectarea.h
++++ b/plasma/generic/applets/systemtray/ui/mouseredirectarea.h
+@@ -67,8 +67,6 @@ signals:
+     void scrollVert(int delta);
+     void scrollHorz(int delta);
+     void changedMousePos(qreal mouseX, qreal mouseY);
+-    void entered();
+-    void exited();
+ 
+ private: //Events
+     virtual void wheelEvent(QGraphicsSceneWheelEvent *event);
