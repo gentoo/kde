@@ -18,7 +18,7 @@ if [[ ${PV} != *9999 ]]; then
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
-LICENSE="|| ( BSD CCPL-Attribution-ShareAlike-3.0 )"
+LICENSE="|| ( BSD CC-BY-SA-3.0 )"
 SLOT="0"
 IUSE=""
 
