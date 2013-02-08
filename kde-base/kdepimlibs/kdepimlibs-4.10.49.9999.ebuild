@@ -59,13 +59,13 @@ src_prepare() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build handbook doc)
-		$(cmake-utils_use_with ldap)
+		$(cmake-utils_use_find_package ldap)
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use !semantic-desktop KALARM_USE_KRESOURCES)
-		$(cmake-utils_use_with prison)
+		$(cmake-utils_use_find_package prison)
 	)
 
 	kde4-base_src_configure
