@@ -16,7 +16,9 @@ IUSE="debug gtk +usb"
 KEYWORDS=""
 
 COMMONDEPEND="
+	app-misc/strigi
 	dev-libs/glib:2
+	$(add_kdebase_dep kwin)
 	$(add_kdebase_dep libkworkspace)
 	media-libs/fontconfig
 	>=media-libs/freetype-2
@@ -25,6 +27,7 @@ COMMONDEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXft
+	x11-libs/libXi
 	x11-libs/libXrandr
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
