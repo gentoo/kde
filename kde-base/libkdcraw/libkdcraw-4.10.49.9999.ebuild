@@ -4,9 +4,6 @@
 
 EAPI=5
 
-# needed for digikam
-KDE_OVERRIDE_MINIMAL="4.9.0"
-
 inherit kde4-base
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
