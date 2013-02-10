@@ -5,9 +5,13 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdesdk"
+fi
+inherit ${eclass}
 
 DESCRIPTION="Cervisia - A KDE CVS frontend"
 KEYWORDS=""
