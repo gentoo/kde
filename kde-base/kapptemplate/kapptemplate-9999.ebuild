@@ -5,9 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications."
 KEYWORDS=""
