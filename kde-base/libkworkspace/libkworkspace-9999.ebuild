@@ -22,6 +22,7 @@ KMSAVELIBS="true"
 DEPEND="
 	x11-libs/libxkbfile
 	x11-libs/libXcomposite
+	x11-libs/xcb-util-renderutil
 "
 RDEPEND=${DEPEND}
 
