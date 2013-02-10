@@ -26,5 +26,3 @@ RDEPEND="${DEPEND}
 	app-mobilephone/obexd[-server]
 	app-mobilephone/obex-data-server
 "
-
-PATCHES=( "${FILESDIR}/${PN}-1.2.4-desktop.patch" )
