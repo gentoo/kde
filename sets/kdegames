@@ -5,7 +5,6 @@ kde-base/granatier:4
 kde-base/kapman:4
 kde-base/kajongg:4
 kde-base/katomic:4
-kde-base/kbattleship:4
 kde-base/kblackbox:4
 kde-base/kblocks:4
 kde-base/kbounce:4
@@ -22,6 +21,7 @@ kde-base/klickety:4
 kde-base/klines:4
 kde-base/kmahjongg:4
 kde-base/kmines:4
+kde-base/knavalbattle:4
 kde-base/knetwalk:4
 kde-base/kolf:4
 kde-base/kollision:4
@@ -30,10 +30,10 @@ kde-base/kpat:4
 kde-base/kreversi:4
 kde-base/kshisen:4
 kde-base/ksirk:4
+kde-base/ksnakeduel:4
 kde-base/kspaceduel:4
 kde-base/ksquares:4
 kde-base/ksudoku:4
-kde-base/ktron:4
 kde-base/ktuberling:4
 kde-base/kubrick:4
 kde-base/libkdegames:4
