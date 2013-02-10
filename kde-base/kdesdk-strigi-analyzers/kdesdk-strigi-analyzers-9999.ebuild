@@ -4,10 +4,7 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KMMODULE="strigi-analyzer"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="kdesdk: strigi plugins"
 KEYWORDS=""

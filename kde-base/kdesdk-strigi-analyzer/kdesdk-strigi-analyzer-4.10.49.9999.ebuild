@@ -4,10 +4,15 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KMMODULE="strigi-analyzer"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+	KMNAME="kdesdk-strigi-analyzers"
+else
+	eclass="kde4-meta"
+	KMNAME="kdesdk"
+	KMMODULE="strigi-analyzer"
+fi
+inherit ${eclass}
 
 DESCRIPTION="kdesdk: strigi plugins"
 KEYWORDS=""

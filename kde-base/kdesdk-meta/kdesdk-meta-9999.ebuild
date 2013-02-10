@@ -18,7 +18,7 @@ RDEPEND="
 	$(add_kdebase_dep kde-dev-scripts)
 	$(add_kdebase_dep kdesdk-kioslaves)
 	$(add_kdebase_dep kdesdk-misc)
-	$(add_kdebase_dep kdesdk-strigi-analyzer)
+	$(add_kdebase_dep kdesdk-strigi-analyzers)
 	$(add_kdebase_dep kompare)
 	$(add_kdebase_dep kstartperf)
 	$(add_kdebase_dep kuiviewer)

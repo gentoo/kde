@@ -20,7 +20,7 @@ DEPEND="
 	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesdk-strigi-analyzer)
+	$(add_kdebase_dep kdesdk-strigi-analyzers)
 	$(add_kdebase_dep krosspython)
 	$(add_kdebase_dep pykde4)
 "
