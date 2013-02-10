@@ -4,9 +4,7 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="Extra Dolphin plugins"
 KEYWORDS=""
@@ -26,7 +24,7 @@ RDEPEND="${DEPEND}
 KMLOADLIBS="libkonq"
 
 src_install() {
-	{ use bazaar || use git || use mercurial || use subversion; } && kde4-meta_src_install
+	{ use bazaar || use git || use mercurial || use subversion; } && kde4-base_src_install
 }
 
 pkg_postinst() {
