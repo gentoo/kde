@@ -4,8 +4,14 @@
 
 EAPI=5
 
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdetoys"
+fi
 KDE_HANDBOOK="optional"
-inherit kde4-base
+inherit ${eclass}
 
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
 KEYWORDS=""
