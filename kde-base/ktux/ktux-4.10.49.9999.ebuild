@@ -4,7 +4,13 @@
 
 EAPI=5
 
-inherit kde4-base
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+else
+	eclass="kde4-meta"
+	KMNAME="kdetoys"
+fi
+inherit ${eclass}
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
 KEYWORDS=""
