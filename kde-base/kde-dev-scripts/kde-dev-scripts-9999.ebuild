@@ -5,12 +5,9 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-KMMODULE="scripts"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
-DESCRIPTION="KDE SDK Scripts"
+DESCRIPTION="KDE Development Scripts"
 KEYWORDS=""
 IUSE="debug"
 
@@ -19,10 +16,11 @@ RDEPEND="
 	media-gfx/optipng
 	dev-perl/XML-DOM
 "
+add_blocker kdesdk-scripts
 
 src_prepare() {
 	# bug 275069
-	sed -ie 's:colorsvn::' scripts/CMakeLists.txt || die
+	sed -ie 's:colorsvn::' CMakeLists.txt || die
 
-	kde4-meta_src_prepare
+	kde4-base_src_prepare
 }

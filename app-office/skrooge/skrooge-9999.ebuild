@@ -25,7 +25,10 @@ DEPEND="
 	x11-libs/qt-sql:4[sqlite]
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesdk-scripts)
+	|| (
+		( $(add_kdebase_dep kde-dev-scripts) )
+		( $(add_kdebase_dep kdesdk-scripts) )
+	)
 "
 
 DOCS=( AUTHORS CHANGELOG README TODO )

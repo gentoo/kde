@@ -5,10 +5,16 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-KMMODULE="scripts"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ ${PV} == *9999 ]]; then
+	eclass="kde4-base"
+	KMNAME="kde-dev-scripts"
+	KMMODULE="."
+else
+	eclass="kde4-meta"
+	KMNAME="kdesdk"
+	KMMODULE="scripts"
+fi
+inherit ${eclass}
 
 DESCRIPTION="KDE SDK Scripts"
 KEYWORDS=""
@@ -22,7 +28,7 @@ RDEPEND="
 
 src_prepare() {
 	# bug 275069
-	sed -ie 's:colorsvn::' scripts/CMakeLists.txt || die
+	sed -ie 's:colorsvn::' ${KMMODULE}/CMakeLists.txt || die
 
-	kde4-meta_src_prepare
+	${eclass}_src_prepare
 }
