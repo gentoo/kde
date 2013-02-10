@@ -4,10 +4,7 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KMMODULE="kioslave"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
@@ -29,5 +26,5 @@ src_configure() {
 		$(cmake-utils_use_with subversion SVN)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
