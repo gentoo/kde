@@ -6,7 +6,7 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="cvs"
 
 RDEPEND="

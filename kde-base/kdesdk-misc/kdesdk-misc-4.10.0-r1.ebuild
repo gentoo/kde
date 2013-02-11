@@ -13,10 +13,11 @@ KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 KMEXTRA="
+	doc/kmtrace/
 	kmtrace/
 	kpartloader/
 	kprofilemethod/

@@ -4,10 +4,12 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
-DESCRIPTION="Measures starting performance of applications"
+DESCRIPTION="KDE Development Utilities"
 KEYWORDS=""
 IUSE="debug"
+
+add_blocker kdesdk-misc
+add_blocker kstartperf
+add_blocker kuiviewer

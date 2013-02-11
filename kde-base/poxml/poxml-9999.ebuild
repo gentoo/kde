@@ -4,12 +4,9 @@
 
 EAPI=5
 
-KMNAME="kdesdk"
-KMNOMODULE="true"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
-DESCRIPTION="KDE miscellaneous SDK tools"
+DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
 KEYWORDS=""
 IUSE="debug extras"
 
@@ -18,12 +15,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRA="
-	kmtrace/
-	kpartloader/
-	kprofilemethod/
-	poxml/
-"
+add_blocker kdesdk-misc '<4.10.0-r1'
+
 # java deps on anltr cant be properly explained to cmake deps
 # needs to be run in one thread
 MAKEOPTS+=" -j1"
@@ -33,5 +26,5 @@ src_configure() {
 		$(cmake-utils_use_with extras Antlr2)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
