@@ -5,10 +5,8 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdesdk"
-KDE_SCM="svn"
 PYTHON_DEPEND="2"
-inherit python kde4-meta
+inherit python kde4-base
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
@@ -28,16 +26,16 @@ RDEPEND="${DEPEND}
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
-	kde4-meta_pkg_setup
+	kde4-base_pkg_setup
 }
 
 src_install() {
-	kde4-meta_src_install
+	kde4-base_src_install
 	python_convert_shebangs -q -r $(python_get_version) "${ED}/usr/share/apps/${PN}"
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 	echo
 	elog "To be able to autofetch KDE translations in new project wizard, install subversion client:"
 	elog "	emerge -vau subversion"
