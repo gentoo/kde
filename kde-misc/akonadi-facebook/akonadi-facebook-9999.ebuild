@@ -19,5 +19,6 @@ DEPEND="
 	dev-libs/boost
 	dev-libs/libxslt
 	dev-libs/qjson
+	kde-misc/libkfbapi
 "
 RDEPEND="${DEPEND}"
