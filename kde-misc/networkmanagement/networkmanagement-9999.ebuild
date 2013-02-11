@@ -15,12 +15,20 @@ HOMEPAGE="http://kde.org/"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug openconnect"
 
 DEPEND="
 	kde-misc/libmm-qt
 	kde-misc/libnm-qt
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.0
+	openconnect? ( net-misc/openconnect )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with openconnect)
+	)
+	kde4-base_src_configure
+}
