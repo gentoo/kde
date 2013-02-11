@@ -11,6 +11,8 @@ DESCRIPTION="KDE Go game"
 KEYWORDS=""
 IUSE="debug"
 
+DEPEND="$(add_kdebase_dep libkdegames)"
 RDEPEND="
+	${DEPEND}
 	games-board/gnugo
 "
