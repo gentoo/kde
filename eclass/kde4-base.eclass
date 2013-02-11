@@ -176,7 +176,7 @@ case ${KDEBASE} in
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
 		case ${PV} in
-			*9999* | 4.?.[6-9]?)
+			*9999* | 4.?.[6-9]? | 4.??.[6-9]?)
 				RESTRICT+=" mirror"
 				;;
 		esac
