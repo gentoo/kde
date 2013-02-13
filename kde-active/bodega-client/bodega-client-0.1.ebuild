@@ -20,12 +20,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-1.0-fixautomagicness.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.0-build.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with epub Soprano)
-		$(cmake-utils_use_with epub Nepomuk)
+		$(cmake-utils_use_find_package epub Soprano)
+		$(cmake-utils_use_find_package epub Nepomuk)
 	)
 	kde4-base_src_configure
 }
