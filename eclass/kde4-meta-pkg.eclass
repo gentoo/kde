@@ -9,6 +9,9 @@
 # @DESCRIPTION:
 # This eclass should only be used for defining meta packages for KDE4.
 
+if [[ ${___ECLASS_ONCE_KDE4_META_PKG} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_META_PKG="recur -_+^+_- spank"
+
 inherit kde4-functions
 
 HOMEPAGE="http://www.kde.org/"
@@ -17,3 +20,5 @@ LICENSE="metapackage"
 IUSE="aqua"
 
 SLOT=4
+
+fi

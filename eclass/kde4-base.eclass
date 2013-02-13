@@ -13,6 +13,9 @@
 # NOTE: KDE 4 ebuilds currently support EAPIs 3, 4, and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
 
+if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
+
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
 # If set to "none", do nothing.
@@ -901,3 +904,5 @@ kde4-base_pkg_postrm() {
 	fdo-mime_mime_database_update
 	buildsycoca
 }
+
+fi

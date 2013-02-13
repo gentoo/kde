@@ -12,6 +12,9 @@ inherit versionator
 # This eclass contains all functions shared by the different eclasses,
 # for KDE 4 ebuilds.
 
+if [[ ${___ECLASS_ONCE_KDE4_FUNCTIONS} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_FUNCTIONS="recur -_+^+_- spank"
+
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # Currently kde4 eclasses support EAPI 3 and 4.
@@ -477,3 +480,5 @@ get_kde_version() {
 		(( micro < 50 )) && echo ${major}.${minor} || echo ${major}.$((minor + 1))
 	fi
 }
+
+fi

@@ -12,6 +12,9 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
+if [[ ${___ECLASS_ONCE_KDE4_META} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE4_META="recur -_+^+_- spank"
+
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
 inherit kde4-base versionator
@@ -682,3 +685,5 @@ kde4-meta_pkg_postrm() {
 
 	kde4-base_pkg_postrm
 }
+
+fi

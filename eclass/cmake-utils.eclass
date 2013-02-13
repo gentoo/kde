@@ -18,6 +18,9 @@
 # builds (default), in-source builds and an implementation of the well-known use_enable
 # and use_with functions for CMake.
 
+if [[ ${___ECLASS_ONCE_CMAKE_UTILS} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
+
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
 # Specify if cmake-utils eclass should depend on cmake optionaly or not.
@@ -621,3 +624,5 @@ _execute_optionaly() {
 		use ${WANT_CMAKE} && enable_cmake-utils_${phase} "$@"
 	fi
 }
+
+fi
