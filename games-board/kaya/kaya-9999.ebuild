@@ -17,8 +17,8 @@ IUSE=""
 
 DEPEND=""
 RDEPEND=""
-ruby_add_bdepend "$(add_kdebase_dep kdebindings-ruby)"
-ruby_add_rdepend "$(add_kdebase_dep kdebindings-ruby)"
+ruby_add_rdepend "kde-base/korundum"
+ruby_add_rdepend "dev-ruby/builder"
 
 EGIT_SOURCE_UNPACK="${WORKDIR}/all/${P}"
 
