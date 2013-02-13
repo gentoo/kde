@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit cmake-utils mercurial
 
@@ -15,7 +15,7 @@ KEYWORDS=""
 SLOT="3"
 IUSE="debug doc"
 
-DEPEND="doc? ( app-doc/doxygen )"
+DEPEND="doc? ( app-doc/doxygen[dot,latex] )"
 RDEPEND="!dev-cpp/eigen:0"
 
 src_prepare() {
