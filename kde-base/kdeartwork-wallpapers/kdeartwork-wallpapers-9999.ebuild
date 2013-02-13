@@ -18,3 +18,5 @@ IUSE=""
 KMEXTRA="
 	HighResolutionWallpapers/
 "
+
+add_blocker kde-wallpapers '<4.9.50'
