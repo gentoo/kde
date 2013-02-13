@@ -41,7 +41,7 @@ COMMONDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
-	>=media-libs/libpng-1.4:=
+	media-libs/libpng:0=
 	>=media-libs/phonon-4.4.3
 	sys-libs/zlib
 	virtual/jpeg
