@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/s/${PN}/${P}.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="4"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug doc +upower"
 
 RDEPEND=">=dev-python/PyQt4-4.7
