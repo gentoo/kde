@@ -32,7 +32,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with opera QCA2)
 		$(cmake-utils_use_with opera QtOAuth)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_find_package semantic-desktop NepomukCore)
 	)
 
 	kde4-base_src_configure
