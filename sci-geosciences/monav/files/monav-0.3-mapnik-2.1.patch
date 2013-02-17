@@ -1,0 +1,12 @@
+--- monav.orig/plugins/osmrenderer/mapnikrenderer.cpp	2013-02-17 20:26:43.070848326 +0100
++++ monav/plugins/osmrenderer/mapnikrenderer.cpp	2013-02-17 20:27:49.242941943 +0100
+@@ -30,6 +30,9 @@
+ #include <mapnik/agg_renderer.hpp>
+ #include <mapnik/image_util.hpp>
+ #include <mapnik/load_map.hpp>
++#include <mapnik/graphics.hpp>
++#include <mapnik/image_view.hpp>
++#include <mapnik/config_error.hpp>
+ #include <omp.h>
+ #include <QFile>
+ #include <QTemporaryFile>

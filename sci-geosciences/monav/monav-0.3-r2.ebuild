@@ -25,11 +25,11 @@ DEPEND="x11-libs/qt-core:4
 		dev-libs/protobuf )"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	epatch \
-		"${FILESDIR}"/${P}-qmake.patch \
-		"${FILESDIR}"/${P}-mapnik2.patch
-}
+PATCHES=(
+		"${FILESDIR}"/${P}-qmake.patch
+		"${FILESDIR}"/${P}-mapnik-2.0.patch
+		"${FILESDIR}"/${P}-mapnik-2.1.patch
+)
 
 src_configure() {
 	eqmake4 "${S}"/monavroutingdaemon.pro CONFIG+=nogui -o "${S}"/Makefile.routingdaemon
