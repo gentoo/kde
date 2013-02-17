@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE="debug opera semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	opera? (
 		app-crypt/qca:2
 		dev-libs/qoauth
