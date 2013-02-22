@@ -20,6 +20,7 @@ KMEXTRACTONLY="
 KMSAVELIBS="true"
 
 DEPEND="
+	kde-base/kactivities
 	x11-libs/libxkbfile
 	x11-libs/libXcomposite
 	x11-libs/xcb-util-renderutil
