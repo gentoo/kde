@@ -16,8 +16,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT=test
-# bug 443750
-
 # bug #264917, removes failing test
 PATCHES=( "${FILESDIR}/${PN}-4.8.2-test.patch" )
