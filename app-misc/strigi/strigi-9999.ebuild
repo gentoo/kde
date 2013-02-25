@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 if [[ "${PV}" != "9999" ]]; then
 	SRC_URI="http://dev.gentoo.org/~johu/distfiles/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	EGIT_REPO_URI="git://anongit.kde.org/strigi"
 	GIT_ECLASS="git-2"
@@ -53,7 +53,7 @@ if [[ ${PV} == 9999 ]] ; then
 		git config --global url."git://anongit.kde.org/".insteadOf "kde:" || die
 		git-2_src_unpack
 		pushd "${S}" > /dev/null || die
-		git submodule foreach git checkout master || die
+		git submodule foreach git checkout origin/master || die
 		popd > /dev/null || die
 	}
 fi
@@ -67,7 +67,8 @@ src_configure() {
 		-DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
 		-DENABLE_XINE=OFF
-		$(cmake-utils_use_enable clucene)
+		$(cmake-utils_use_enable clucene CLUCENE)
+		$(cmake-utils_use_enable clucene CLUCENE_NG)
 		$(cmake-utils_use_enable dbus)
 		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam)
