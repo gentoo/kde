@@ -20,12 +20,12 @@ KMEXTRACTONLY="
 KMSAVELIBS="true"
 
 DEPEND="
-	kde-base/kactivities
+	$(add_kdebase_dep kactivities)
 	x11-libs/libxkbfile
 	x11-libs/libXcomposite
 	x11-libs/xcb-util-renderutil
 "
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	sed -i -e 's/install( FILES kdisplaymanager.h/install( FILES kdisplaymanager.h screenpreviewwidget.h/' \

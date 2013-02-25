@@ -24,7 +24,7 @@ DEPEND="
 	x11-libs/libXcomposite
 	x11-libs/xcb-util-renderutil
 "
-RDEPEND=${DEPEND}
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	sed -i -e 's/install( FILES kdisplaymanager.h/install( FILES kdisplaymanager.h screenpreviewwidget.h/' \
