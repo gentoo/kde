@@ -66,3 +66,5 @@ KMEXTRACTONLY="
 "
 
 KMSAVELIBS="true"
+
+PATCHES=( "${FILESDIR}/install-composereditorng.patch" )
