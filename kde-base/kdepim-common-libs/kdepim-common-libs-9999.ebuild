@@ -41,6 +41,7 @@ KMEXTRA="
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
+	composereditor-ng/
 	incidenceeditor-ng/
 	libkdepim/
 	libkdepimdbusinterfaces/
