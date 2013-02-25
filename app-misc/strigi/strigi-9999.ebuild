@@ -58,11 +58,6 @@ if [[ ${PV} == 9999 ]] ; then
 	}
 fi
 
-src_prepare() {
-	cd "${S}/strigidaemon/bin/daemon/eventlistener"
-	epatch "${FILESDIR}/strigi-fix-sleep.patch" || die "Fail"
-}
-
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
