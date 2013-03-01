@@ -5,8 +5,9 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
+KMNAME="kate"
 PYTHON_DEPEND="pate? 2"
-inherit python kde4-base
+inherit python kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS=""
@@ -26,7 +27,7 @@ pkg_setup() {
 		python_set_active_version 2
 		python_pkg_setup
 	fi
-	kde4-base_pkg_setup
+	kde4-meta_pkg_setup
 }
 
 src_configure() {
@@ -35,11 +36,11 @@ src_configure() {
 		$(cmake-utils_use_with plasma)
 	)
 
-	kde4-base_src_configure
+	kde4-meta_src_configure
 }
 
 pkg_postinst() {
-	kde4-base_pkg_postinst
+	kde4-meta_pkg_postinst
 
 	if ! has_version kde-base/kaddressbook:${SLOT}; then
 		echo
