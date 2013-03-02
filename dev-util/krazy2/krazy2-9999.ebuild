@@ -20,8 +20,8 @@ DEPEND="
 	>=dev-perl/Tie-IxHash-1.20
 	>=dev-perl/XML-LibXML-1.57
 	dev-perl/yaml
-	>=x11-libs/qt-core-4.4:4
-	>=x11-libs/qt-gui-4.4:4
+	>=dev-qt/qtcore-4.4:4
+	>=dev-qt/qtgui-4.4:4
 "
 RDEPEND="${DEPEND}
 	dev-util/desktop-file-utils

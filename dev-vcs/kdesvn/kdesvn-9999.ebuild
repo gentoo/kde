@@ -29,7 +29,7 @@ DEPEND="
 	dev-libs/apr-util:1
 	>=dev-vcs/subversion-1.4
 	sys-devel/gettext
-	x11-libs/qt-sql:4[sqlite]
+	dev-qt/qtsql:4[sqlite]
 "
 RDEPEND="${DEPEND}"
 

@@ -68,7 +68,7 @@ COMMONDEPEND="
 	dev-libs/libpcre
 	$(add_kdebase_dep kdepimlibs)
 	media-libs/qimageblitz
-	>=x11-libs/qt-gui-4.4.0:4[mng]
+	>=dev-qt/qtgui-4.4.0:4[mng]
 	!aqua? ( x11-libs/libXScrnSaver )
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2 )

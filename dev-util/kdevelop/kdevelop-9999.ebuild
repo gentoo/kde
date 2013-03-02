@@ -24,11 +24,11 @@ DEPEND="
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
 	okteta? ( $(add_kdebase_dep okteta) )
-	qthelp? ( x11-libs/qt-assistant:4 )
+	qthelp? ( dev-qt/qthelp:4 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
-	x11-libs/qt-declarative:4[webkit]
+	dev-qt/qtdeclarative:4[webkit]
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 RESTRICT="test"

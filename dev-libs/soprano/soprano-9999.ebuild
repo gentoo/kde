@@ -23,8 +23,8 @@ SLOT="0"
 IUSE="+dbus debug doc elibc_FreeBSD +raptor +redland test +virtuoso"
 
 COMMON_DEPEND="
-	>=x11-libs/qt-core-4.5.0:4
-	dbus? ( >=x11-libs/qt-dbus-4.5.0:4 )
+	>=dev-qt/qtcore-4.5.0:4
+	dbus? ( >=dev-qt/qtdbus-4.5.0:4 )
 	raptor? ( >=media-libs/raptor-2.0.4:2 )
 	redland? (
 		>=dev-libs/rasqal-0.9.26
@@ -34,7 +34,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
-	test? ( >=x11-libs/qt-test-4.5.0:4 )
+	test? ( >=dev-qt/qttest-4.5.0:4 )
 "
 RDEPEND="${COMMON_DEPEND}
 	virtuoso? ( >=dev-db/virtuoso-server-6.1.6 )

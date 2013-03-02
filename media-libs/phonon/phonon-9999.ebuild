@@ -23,11 +23,11 @@ SLOT="0/0"
 IUSE="aqua debug +gstreamer pulseaudio vlc zeitgeist"
 
 COMMON_DEPEND="
-	!!x11-libs/qt-phonon:4
-	>=x11-libs/qt-core-4.6.0:4
-	>=x11-libs/qt-dbus-4.6.0:4
-	>=x11-libs/qt-gui-4.6.0:4
-	>=x11-libs/qt-test-4.6.0:4
+	!!dev-qt/qtphonon:4
+	>=dev-qt/qtcore-4.6.0:4
+	>=dev-qt/qtdbus-4.6.0:4
+	>=dev-qt/qtgui-4.6.0:4
+	>=dev-qt/qttest-4.6.0:4
 	pulseaudio? (
 		dev-libs/glib:2
 		>=media-sound/pulseaudio-0.9.21[glib]

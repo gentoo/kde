@@ -19,7 +19,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/libxml2
 	>=net-libs/libinfinity-0.4.1
-	x11-libs/qt-core:4
+	dev-qt/qtcore:4
 	>=virtual/gsasl-1.4.0
 "
 RDEPEND="${DEPEND}"

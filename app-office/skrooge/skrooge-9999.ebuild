@@ -22,7 +22,7 @@ DEPEND="
 	app-crypt/qca:2
 	dev-libs/grantlee
 	>=dev-libs/libofx-0.9.1
-	x11-libs/qt-sql:4[sqlite]
+	dev-qt/qtsql:4[sqlite]
 "
 RDEPEND="${DEPEND}
 	|| (

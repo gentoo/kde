@@ -23,7 +23,7 @@ IUSE="debug"
 
 RDEPEND="
 	dev-libs/libzeitgeist
-	x11-libs/qt-declarative:4
+	dev-qt/qtdeclarative:4
 "
 DEPEND="
 	${RDEPEND}

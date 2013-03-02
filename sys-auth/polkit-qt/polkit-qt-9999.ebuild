@@ -18,8 +18,8 @@ IUSE="debug examples"
 COMMON_DEPEND="
 	dev-libs/glib:2
 	>=sys-auth/polkit-0.103
-	x11-libs/qt-core:4[glib]
-	x11-libs/qt-gui:4[dbus,glib]
+	dev-qt/qtcore:4[glib]
+	dev-qt/qtgui:4[dbus,glib]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/automoc

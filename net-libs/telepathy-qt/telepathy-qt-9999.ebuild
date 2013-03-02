@@ -18,8 +18,8 @@ KEYWORDS=""
 IUSE="debug farsight farstream test"
 
 RDEPEND="
-	x11-libs/qt-core:4
-	x11-libs/qt-dbus:4
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	farsight? (
 		net-libs/telepathy-farsight
 	)
@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 		dev-libs/dbus-glib
 		dev-libs/glib
 		dev-python/dbus-python
-		x11-libs/qt-test:4
+		dev-qt/qttest:4
 	)
 "
 

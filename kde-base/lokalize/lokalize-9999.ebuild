@@ -14,7 +14,7 @@ IUSE="debug semantic-desktop"
 
 DEPEND="
 	>=app-text/hunspell-1.2.8
-	>=x11-libs/qt-sql-4.5.0:4[sqlite]
+	>=dev-qt/qtsql-4.5.0:4[sqlite]
 	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}

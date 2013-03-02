@@ -27,15 +27,15 @@ SLOT="0"
 IUSE="debug doc"
 
 RDEPEND="
-	>=x11-libs/qt-core-${QT_DEPEND}:4
-	>=x11-libs/qt-dbus-${QT_DEPEND}:4
-	>=x11-libs/qt-gui-${QT_DEPEND}:4[dbus]
+	>=dev-qt/qtcore-${QT_DEPEND}:4
+	>=dev-qt/qtdbus-${QT_DEPEND}:4
+	>=dev-qt/qtgui-${QT_DEPEND}:4[dbus]
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? (
 		dev-libs/qjson
-		>=x11-libs/qt-test-${QT_DEPEND}:4
+		>=dev-qt/qttest-${QT_DEPEND}:4
 	)
 "
 

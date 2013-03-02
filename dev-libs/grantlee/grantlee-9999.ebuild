@@ -17,13 +17,13 @@ SLOT="0"
 IUSE="debug doc test"
 
 COMMON_DEPEND="
-	>=x11-libs/qt-core-${QT_MINIMAL}:4
-	>=x11-libs/qt-gui-${QT_MINIMAL}:4
-	>=x11-libs/qt-script-${QT_MINIMAL}:4
+	>=dev-qt/qtcore-${QT_MINIMAL}:4
+	>=dev-qt/qtgui-${QT_MINIMAL}:4
+	>=dev-qt/qtscript-${QT_MINIMAL}:4
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
-	test? ( >=x11-libs/qt-test-${QT_MINIMAL}:4 )
+	test? ( >=dev-qt/qttest-${QT_MINIMAL}:4 )
 "
 RDEPEND="${COMMON_DEPEND}"
 

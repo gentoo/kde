@@ -93,7 +93,7 @@ DEPEND="${COMMONDEPEND}
 	nls? ( virtual/libintl )
 "
 RDEPEND="${COMMONDEPEND}
-	!x11-libs/qt-phonon
+	!dev-qt/qtphonon
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)

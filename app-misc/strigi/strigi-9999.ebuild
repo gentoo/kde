@@ -32,7 +32,7 @@ COMMONDEPEND="
 	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
 		sys-apps/dbus
-		qt4? ( x11-libs/qt-dbus:4 )
+		qt4? ( dev-qt/qtdbus:4 )
 	)
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
@@ -40,8 +40,8 @@ COMMONDEPEND="
 	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
-		x11-libs/qt-core:4
-		x11-libs/qt-gui:4
+		dev-qt/qtcore:4
+		dev-qt/qtgui:4
 	)
 "
 DEPEND="${COMMONDEPEND}

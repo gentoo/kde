@@ -28,7 +28,7 @@ RDEPEND="
 	)
 	media-libs/taglib
 	media-libs/phonon
-	x11-libs/qt-script:4
+	dev-qt/qtscript:4
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

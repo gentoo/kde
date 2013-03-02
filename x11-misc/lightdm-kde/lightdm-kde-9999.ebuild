@@ -20,7 +20,7 @@ IUSE="debug"
 
 DEPEND="
 	x11-libs/libX11
-	x11-libs/qt-declarative:4
+	dev-qt/qtdeclarative:4
 	>=x11-misc/lightdm-1.3.2[qt4]
 "
 RDEPEND="${DEPEND}"

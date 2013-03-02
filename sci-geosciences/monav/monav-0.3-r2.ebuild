@@ -16,9 +16,9 @@ IUSE="client +preprocessor preprocessor-gui"
 
 REQUIRED_USE="preprocessor? ( preprocessor-gui )"
 
-DEPEND="x11-libs/qt-core:4
-	preprocessor-gui? ( client? ( x11-libs/qt-gui:4 )
-		x11-libs/qt-mobility[location] )
+DEPEND="dev-qt/qtcore:4
+	preprocessor-gui? ( client? ( dev-qt/qtgui:4 )
+		dev-qt/qt-mobility[location] )
 	preprocessor? (	dev-libs/libxml2
 		app-arch/bzip2
 		sci-geosciences/mapnik

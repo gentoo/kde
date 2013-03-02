@@ -21,7 +21,7 @@ IUSE="debug"
 DEPEND="
 	>=media-video/vlc-1.2
 	x11-libs/libXScrnSaver
-	x11-libs/qt-sql:4[sqlite]
+	dev-qt/qtsql:4[sqlite]
 	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}"

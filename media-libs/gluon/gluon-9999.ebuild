@@ -21,7 +21,7 @@ DEPEND="
 	media-libs/openal
 	virtual/glu
 	virtual/opengl
-	x11-libs/qt-declarative:4
+	dev-qt/qtdeclarative:4
 "
 RDEPEND="${DEPEND}"
 

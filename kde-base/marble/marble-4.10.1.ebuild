@@ -18,13 +18,13 @@ IUSE="debug designer-plugin gps +kde plasma python shapefile test"
 RESTRICT="test"
 
 RDEPEND="
-	x11-libs/qt-core:4
-	x11-libs/qt-declarative:4
-	x11-libs/qt-gui:4[dbus]
-	x11-libs/qt-script:4
-	x11-libs/qt-sql:4
-	x11-libs/qt-svg:4
-	x11-libs/qt-webkit:4
+	dev-qt/qtcore:4
+	dev-qt/qtdeclarative:4
+	dev-qt/qtgui:4[dbus]
+	dev-qt/qtscript:4
+	dev-qt/qtsql:4
+	dev-qt/qtsvg:4
+	dev-qt/qtwebkit:4
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
 	python? (
 		>=dev-python/PyQt4-4.4.4-r1
@@ -34,7 +34,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? ( x11-libs/qt-test:4 )
+	test? ( dev-qt/qttest:4 )
 "
 # the qt dependencies are needed because with USE=-kde nothing is pulled in
 # by default... bugs 414165 & 429346

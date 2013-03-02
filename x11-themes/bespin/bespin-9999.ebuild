@@ -22,10 +22,10 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	windeco? ( $(add_kdebase_dep kwin) )
-	plasma? ( $(add_kdebase_dep kdelibs) x11-libs/qt-gui:4[dbus] )
+	plasma? ( $(add_kdebase_dep kdelibs) dev-qt/qtgui:4[dbus] )
 "
 
 src_configure() {

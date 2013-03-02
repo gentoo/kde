@@ -15,13 +15,13 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="x11-libs/qt-gui:4
-	x11-libs/qt-opengl:4
-	x11-libs/qt-script:4
-	x11-libs/qt-sql:4
-	x11-libs/qt-svg:4
-	x11-libs/qt-webkit:4
-	x11-libs/qt-xmlpatterns:4"
+DEPEND="dev-qt/qtgui:4
+	dev-qt/qtopengl:4
+	dev-qt/qtscript:4
+	dev-qt/qtsql:4
+	dev-qt/qtsvg:4
+	dev-qt/qtwebkit:4
+	dev-qt/qtxmlpatterns:4"
 RDEPEND="${DEPEND}"
 
 PLUGINS="core gui network opengl sql svg uitools webkit xml xmlpatterns"

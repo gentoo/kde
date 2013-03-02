@@ -18,9 +18,9 @@ DEPEND="
 	$(add_kdebase_dep kdelibs)
 	$(add_kdebase_dep kdepimlibs)
 	app-office/akonadi-server
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	x11-libs/qt-webkit:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtwebkit:4
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)

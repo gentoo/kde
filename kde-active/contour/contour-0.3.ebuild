@@ -17,7 +17,7 @@ IUSE=""
 DEPEND="
 	dev-libs/shared-desktop-ontologies
 	dev-libs/soprano
-	x11-libs/qt-mobility
+	dev-qt/qt-mobility
 	$(add_kdebase_dep nepomuk)
 "
 RDEPEND="${DEPEND}"

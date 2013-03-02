@@ -17,16 +17,16 @@ SLOT="0/0"
 IUSE="fingerprint test"
 
 COMMON_DEPEND="
-	>=x11-libs/qt-core-${QT_MINIMAL}:4
-	>=x11-libs/qt-dbus-${QT_MINIMAL}:4
+	>=dev-qt/qtcore-${QT_MINIMAL}:4
+	>=dev-qt/qtdbus-${QT_MINIMAL}:4
 	fingerprint? (
 		media-libs/libsamplerate
 		sci-libs/fftw:3.0
-		>=x11-libs/qt-sql-${QT_MINIMAL}:4
+		>=dev-qt/qtsql-${QT_MINIMAL}:4
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( >=x11-libs/qt-test-${QT_MINIMAL}:4 )
+	test? ( >=dev-qt/qttest-${QT_MINIMAL}:4 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<media-libs/lastfmlib-0.4.0

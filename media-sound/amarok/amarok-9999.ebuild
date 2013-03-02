@@ -37,9 +37,9 @@ COMMONDEPEND="
 	>=media-libs/taglib-extras-1.0.1
 	sys-libs/zlib
 	>=virtual/mysql-5.1[embedded?]
-	>=x11-libs/qt-core-4.8:4
-	>=x11-libs/qt-dbus-4.8:4
-	>=x11-libs/qt-script-4.8:4
+	>=dev-qt/qtcore-4.8:4
+	>=dev-qt/qtdbus-4.8:4
+	>=dev-qt/qtscript-4.8:4
 	>=x11-libs/qtscriptgenerator-0.1.0
 	cdda? (
 		$(add_kdebase_dep libkcddb)
@@ -54,7 +54,7 @@ COMMONDEPEND="
 		dev-libs/openssl
 		net-libs/loudmouth
 		net-misc/curl
-		>=x11-libs/qt-core-4.8.4:4[glib]
+		>=dev-qt/qtcore-4.8.4:4[glib]
 	)
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	ofa? ( >=media-libs/libofa-0.9.0 )

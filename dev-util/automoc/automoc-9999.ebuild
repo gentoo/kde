@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	x11-libs/qt-core:4
+	dev-qt/qtcore:4
 "
 RDEPEND="${DEPEND}"
 

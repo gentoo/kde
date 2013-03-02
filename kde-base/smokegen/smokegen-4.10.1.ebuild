@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="aqua debug"
 
 DEPEND="
-	x11-libs/qt-core:4[aqua=]
+	dev-qt/qtcore:4[aqua=]
 "
 RDEPEND="${DEPEND}"
 
