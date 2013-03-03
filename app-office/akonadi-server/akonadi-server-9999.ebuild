@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 if [[ $PV = *9999* ]]; then
 	scm_eclass=git-2
@@ -25,7 +25,7 @@ SLOT="0"
 IUSE="+mysql postgres sqlite test"
 
 CDEPEND="
-	dev-libs/boost
+	dev-libs/boost:=
 	>=dev-libs/soprano-2.6.51
 	>=dev-qt/qtgui-4.5.0:4[dbus]
 	>=dev-qt/qtsql-4.5.0:4[mysql?,postgres?]
