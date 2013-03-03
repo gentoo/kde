@@ -54,7 +54,7 @@ COMMONDEPEND="
 	)
 "
 DEPEND="${COMMONDEPEND}
-	dev-libs/boost
+	dev-libs/boost:=
 	sys-devel/gettext
 "
 RDEPEND="${COMMONDEPEND}

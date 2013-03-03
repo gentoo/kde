@@ -28,7 +28,7 @@ COMMON_DEPEND="
 	>=app-office/libalkimia-4.3.2
 	dev-cpp/glibmm:2
 	dev-cpp/libxmlpp:2.6
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/glib:2
 	dev-libs/gmp
 	dev-libs/libgpg-error

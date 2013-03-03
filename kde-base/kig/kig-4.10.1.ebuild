@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug scripting"
 
 DEPEND="
-	scripting? ( >=dev-libs/boost-1.48[python] )
+	scripting? ( >=dev-libs/boost-1.48:=[python] )
 "
 RDEPEND="${DEPEND}"
 

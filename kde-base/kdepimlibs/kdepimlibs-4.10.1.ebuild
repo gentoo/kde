@@ -19,7 +19,7 @@ RESTRICT="test"
 DEPEND="
 	!kde-misc/akonadi-social-utils
 	>=app-crypt/gpgme-1.1.6
-	>=dev-libs/boost-1.35.0-r5
+	>=dev-libs/boost-1.35.0-r5:=
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl

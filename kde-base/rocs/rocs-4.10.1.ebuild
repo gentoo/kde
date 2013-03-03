@@ -11,7 +11,7 @@ DESCRIPTION="KDE4 interface to work with Graph Theory"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-RDEPEND=">=dev-libs/boost-1.43"
+RDEPEND=">=dev-libs/boost-1.43:="
 DEPEND="
 	${RDEPEND}
 	>=dev-cpp/eigen-2.0.3:2

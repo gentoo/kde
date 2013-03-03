@@ -25,7 +25,7 @@ IUSE="clucene +dbus debug exif fam ffmpeg hyperestraier inotify log +qt4 test"
 
 COMMONDEPEND="
 	app-arch/bzip2:0
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/libxml2:2
 	sys-libs/zlib:0
 	virtual/libiconv

@@ -5,12 +5,12 @@
 EAPI=5
 
 WEBKIT_REQUIRED="always"
-KDE_LINGUAS="ca da de el es et fi fr hu ia it km lt nb nl pl pt pt_BR sk sl
-sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
+KDE_LINGUAS="ca da de el es et fi fr hu ia it km mr nb nl pl pt pt_BR sk sl
+sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="A browser based on qt-webkit"
+DESCRIPTION="A browser based on qtwebkit"
 HOMEPAGE="http://rekonq.kde.org/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
@@ -24,6 +24,10 @@ DEPEND="
 	opera? (
 		app-crypt/qca:2
 		dev-libs/qoauth
+	)
+	semantic-desktop? (
+		$(add_kdebase_dep nepomuk-core)
+		dev-libs/soprano
 	)
 "
 RDEPEND="${DEPEND}"

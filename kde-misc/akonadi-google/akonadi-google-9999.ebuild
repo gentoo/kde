@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/libxslt
 	dev-libs/qjson
 	net-libs/libkgapi
-	oldpim? ( dev-libs/boost )
+	oldpim? ( dev-libs/boost:= )
 	!oldpim? ( $(add_kdebase_dep kdepimlibs semantic-desktop 4.6.0) )
 	!>=kde-base/kdepim-runtime-4.8.50
 "
