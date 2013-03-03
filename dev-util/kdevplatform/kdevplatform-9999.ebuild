@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KMNAME="kdevelop"
 KDE_MINIMAL="4.7"
@@ -25,7 +25,7 @@ else
 fi
 
 DEPEND="
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/grantlee
 	reviewboard? ( dev-libs/qjson )
 	subversion? (
