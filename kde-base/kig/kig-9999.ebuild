@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug scripting"
 
 DEPEND="
-	scripting? ( >=dev-libs/boost-1.48[python] )
+	scripting? ( >=dev-libs/boost-1.48:=[python] )
 "
 RDEPEND="${DEPEND}"
 
