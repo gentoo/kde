@@ -14,7 +14,7 @@ IUSE="debug"
 
 DEPEND="
 	>=app-crypt/gpgme-1.3.2
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
 	$(add_kdebase_dep kdepimlibs)
