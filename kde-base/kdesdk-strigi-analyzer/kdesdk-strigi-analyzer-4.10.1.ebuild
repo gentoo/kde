@@ -10,7 +10,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	eclass="kde4-meta"
 	KMNAME="kdesdk"
-	KMMODULE="strigi-analyzer"
+	KMMODULE="kdesdk-strigi-analyzers"
 fi
 inherit ${eclass}
 
