@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	eclass="kde4-meta"
 	KMNAME="kdesdk"
-	KMMODULE="scripts"
+	KMMODULE="kde-dev-scripts"
 fi
 inherit ${eclass}
 
