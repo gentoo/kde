@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -16,7 +16,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs semantic-desktop)
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/libxslt
 	dev-libs/qjson
 	kde-misc/libkfbapi
