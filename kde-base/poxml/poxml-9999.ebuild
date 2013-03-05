@@ -15,7 +15,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker kdesdk-misc '<4.10.0-r1'
+add_blocker kdesdk-misc 4.10.50
 
 # java deps on anltr cant be properly explained to cmake deps
 # needs to be run in one thread
