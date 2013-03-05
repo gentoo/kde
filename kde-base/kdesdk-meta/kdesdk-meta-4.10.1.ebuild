@@ -24,6 +24,5 @@ RDEPEND="
 	$(add_kdebase_dep kuiviewer)
 	$(add_kdebase_dep lokalize)
 	$(add_kdebase_dep okteta)
-	$(add_kdebase_dep poxml)
 	$(add_kdebase_dep umbrello)
 "
