@@ -1,23 +1,7 @@
-From 0eb0768a4c66543b4ce716869eea744cb09b55ad Mon Sep 17 00:00:00 2001
-From: Johannes Huber <johu@gentoo.org>
-Date: Thu, 30 Aug 2012 14:02:44 +0200
-Subject: [PATCH] Use standard cmake module to find boost python.
-
----
- CMakeLists.txt                      |  34 ++++----
- KigConfigureChecks.cmake            |   4 +-
- cmake/COPYING-CMAKE-SCRIPTS         |  22 ------
- cmake/FindBoostPython.cmake         | 153 ------------------------------------
- cmake/modules/FindBoostPython.cmake | 134 -------------------------------
- 5 Dateien geändert, 20 Zeilen hinzugefügt(+), 327 Zeilen entfernt(-)
- delete mode 100644 cmake/COPYING-CMAKE-SCRIPTS
- delete mode 100644 cmake/FindBoostPython.cmake
- delete mode 100644 cmake/modules/FindBoostPython.cmake
-
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ba3e377..092fde3 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+diff --git CMakeLists.txt CMakeLists.txt
+index aa4cc11..647a270 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
 @@ -1,9 +1,6 @@
  project(kig)
  
@@ -29,12 +13,13 @@ index ba3e377..092fde3 100644
  
  # search packages used by KDE
  find_package(KDE4 4.3.80 REQUIRED)
-@@ -30,7 +27,14 @@ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_D
+@@ -30,7 +27,15 @@ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_D
  
  # ...to here
  
 -find_package(BoostPython)
 +if(WITH_SCRIPTING)
++  set(PythonLibs_FIND_VERSION "2.2")
 +  find_package(PythonLibs)
 +  find_package(Boost COMPONENTS python)
 +endif(WITH_SCRIPTING)
@@ -45,7 +30,7 @@ index ba3e377..092fde3 100644
  
  kde4_no_enable_final(kig)
  
-@@ -45,14 +49,14 @@ add_subdirectory( macros )
+@@ -45,16 +50,16 @@ add_subdirectory( macros )
  #add_subdirectory( kfile )
  add_subdirectory( data )
  add_subdirectory( pykig )
@@ -67,7 +52,7 @@ index ba3e377..092fde3 100644
  
  # kigpart
  
-@@ -173,7 +177,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
+@@ -176,7 +181,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
     misc/kigcoordinateprecisiondialog.ui
  )
  
@@ -76,7 +61,7 @@ index ba3e377..092fde3 100644
    set(kigpart_PART_SRCS ${kigpart_PART_SRCS}
       scripting/newscriptwizard.cc
       scripting/python_scripter.cc
-@@ -183,15 +187,15 @@ if(BOOST_PYTHON_FOUND)
+@@ -186,15 +191,15 @@ if(BOOST_PYTHON_FOUND)
    )
  
    set_source_files_properties(scripting/python_scripter.cc PROPERTIES COMPILE_FLAGS "${KDE4_ENABLE_EXCEPTIONS}")
@@ -96,10 +81,10 @@ index ba3e377..092fde3 100644
  
  install(TARGETS kigpart DESTINATION ${PLUGIN_INSTALL_DIR})
  
-diff --git a/KigConfigureChecks.cmake b/KigConfigureChecks.cmake
+diff --git KigConfigureChecks.cmake KigConfigureChecks.cmake
 index fed38b3..a53ea73 100644
---- a/KigConfigureChecks.cmake
-+++ b/KigConfigureChecks.cmake
+--- KigConfigureChecks.cmake
++++ KigConfigureChecks.cmake
 @@ -9,8 +9,6 @@ check_function_exists(trunc      HAVE_TRUNC)
  set(CMAKE_REQUIRED_INCLUDES)
  set(CMAKE_REQUIRED_LIBRARIES)
@@ -118,10 +103,10 @@ index fed38b3..a53ea73 100644
     "Boost.Python"
     "Kig can optionally use Boost.Python for Python scripting"
     "http://www.boost.org/"
-diff --git a/cmake/COPYING-CMAKE-SCRIPTS b/cmake/COPYING-CMAKE-SCRIPTS
+diff --git cmake/COPYING-CMAKE-SCRIPTS cmake/COPYING-CMAKE-SCRIPTS
 deleted file mode 100644
 index 4b41776..0000000
---- a/cmake/COPYING-CMAKE-SCRIPTS
+--- cmake/COPYING-CMAKE-SCRIPTS
 +++ /dev/null
 @@ -1,22 +0,0 @@
 -Redistribution and use in source and binary forms, with or without
@@ -146,10 +131,10 @@ index 4b41776..0000000
 -THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 -(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 -THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-diff --git a/cmake/FindBoostPython.cmake b/cmake/FindBoostPython.cmake
+diff --git cmake/FindBoostPython.cmake cmake/FindBoostPython.cmake
 deleted file mode 100644
 index 6d5f05e..0000000
---- a/cmake/FindBoostPython.cmake
+--- cmake/FindBoostPython.cmake
 +++ /dev/null
 @@ -1,153 +0,0 @@
 -# - Try to find the a valid boost+python combination
@@ -305,10 +290,10 @@ index 6d5f05e..0000000
 -endif(BOOST_PYTHON_FOUND)
 -
 -mark_as_advanced(BOOST_PYTHON_INCLUDES BOOST_PYTHON_LIBS)
-diff --git a/cmake/modules/FindBoostPython.cmake b/cmake/modules/FindBoostPython.cmake
+diff --git cmake/modules/FindBoostPython.cmake cmake/modules/FindBoostPython.cmake
 deleted file mode 100644
 index 72aae54..0000000
---- a/cmake/modules/FindBoostPython.cmake
+--- cmake/modules/FindBoostPython.cmake
 +++ /dev/null
 @@ -1,134 +0,0 @@
 -# - Try to find the a valid boost+python combination
@@ -445,6 +430,3 @@ index 72aae54..0000000
 -endif(BOOST_PYTHON_FOUND)
 -
 -mark_as_advanced(BOOST_PYTHON_INCLUDES BOOST_PYTHON_LIBS)
--- 
-1.7.12
-
