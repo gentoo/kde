@@ -6,13 +6,19 @@ EAPI=5
 
 if [[ ${PV} == *9999 ]]; then
 	KMNAME="kde-dev-util"
-	KMNOMODULE="true"
 else
 	KMNAME="kdesdk"
 	KMMODULE="kde-dev-utils"
 fi
+KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="KDE miscellaneous SDK tools"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
+
+KMEXTRA="
+	${KMMODULE}/kmtrace/
+	${KMMODULE}/kpartloader/
+	${KMMODULE}/kprofilemethod/
+"
