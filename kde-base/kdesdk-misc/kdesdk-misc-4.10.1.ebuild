@@ -29,6 +29,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+add_blocker poxml '<4.10.1'
+
 # java deps on anltr cant be properly explained to cmake deps
 # needs to be run in one thread
 MAKEOPTS+=" -j1"
