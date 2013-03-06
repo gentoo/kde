@@ -53,7 +53,8 @@ src_configure() {
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-	echo
-	elog "For .exe file preview support, install media-gfx/icoutils."
-	echo
+
+	if ! has_version media-gfx/icoutils ; then
+		elog "For .exe file preview support, install media-gfx/icoutils."
+	fi
 }
