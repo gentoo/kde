@@ -31,7 +31,7 @@ src_configure() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	echo
-	elog "To use scripting in ${PN}, install dev-lang/ruby."
-	echo
+	if ! has_version dev-lang/ruby ; then
+		elog "To use scripting in ${PN}, install dev-lang/ruby."
+	fi
 }
