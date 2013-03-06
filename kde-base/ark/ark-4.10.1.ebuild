@@ -32,5 +32,8 @@ src_configure() {
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-	elog "For creating rar archives, install app-arch/rar"
+
+	if ! has_version app-arch/rar ; then
+		elog "For creating rar archives, install app-arch/rar"
+	fi
 }
