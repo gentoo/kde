@@ -42,10 +42,12 @@ src_prepare() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	echo
-	elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
-	elog "emerge -1 kde-base/dolphin:${SLOT}"
-	elog
-	elog "To use Java on webpages: emerge jre"
-	echo
+	if ! has_version kde-base/dolphin:${SLOT} ; then
+		elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
+		elog "kde-base/dolphin:${SLOT}"
+	fi
+
+	if ! has_version virtual/jre ; then
+		elog "To use Java on webpages install virtual/jre."
+	fi
 }
