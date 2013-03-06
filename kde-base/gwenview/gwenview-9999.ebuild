@@ -44,9 +44,11 @@ src_configure() {
 pkg_postinst() {
 	kde4-base_pkg_postinst
 
-	echo
-	elog "For SVG support, emerge -va kde-base/svgpart"
-	echo
-	use kipi && elog "The plugins for the KIPI inteface can be found in media-plugins/kipi-plugins"
-	use kipi && echo
+	if ! has_version kde-base/svgpart:${SLOT} ; then
+		elog "For SVG support, install kde-base/svgpart:${SLOT}"
+	fi
+
+	if use kipi && ! has_version media-plugins/kipi-plugins ; then
+		elog "The plugins for the KIPI inteface can be found in media-plugins/kipi-plugins"
+	fi
 }
