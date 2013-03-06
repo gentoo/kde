@@ -36,8 +36,8 @@ src_install() {
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-	echo
-	elog "To be able to autofetch KDE translations in new project wizard, install subversion client:"
-	elog "	emerge -vau subversion"
-	echo
+
+	if ! has_version dev-vcs/subversion ; then
+		elog "To be able to autofetch KDE translations in new project wizard, install dev-vcs/subversion."
+	fi
 }
