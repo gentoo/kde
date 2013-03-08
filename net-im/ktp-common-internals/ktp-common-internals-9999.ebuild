@@ -19,11 +19,10 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="4"
-IUSE="debug history"
+IUSE="debug"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.3
-	history? ( >=net-libs/telepathy-logger-qt-0.5.80 )
 	!!<net-im/ktp-contact-list-0.4.0
 "
 RDEPEND="${DEPEND}"
