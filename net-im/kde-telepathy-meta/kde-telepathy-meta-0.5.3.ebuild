@@ -27,6 +27,7 @@ RDEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	>=net-im/ktp-contact-list-${PV}
 	>=net-im/ktp-contact-runner-${PV}
+	>=net-im/ktp-desktop-applets-0.5.2
 	>=net-im/ktp-filetransfer-handler-${PV}
 	>=net-im/ktp-kded-module-${PV}
 	>=net-im/ktp-send-file-${PV}
