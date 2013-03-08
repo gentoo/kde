@@ -25,12 +25,10 @@ RDEPEND="
 	>=net-im/ktp-auth-handler-${PV}
 	>=net-im/ktp-call-ui-${PV}
 	>=net-im/ktp-common-internals-${PV}
-	>=net-im/ktp-contact-applet-${PV}
 	>=net-im/ktp-contact-list-${PV}
 	>=net-im/ktp-contact-runner-${PV}
 	>=net-im/ktp-filetransfer-handler-${PV}
 	>=net-im/ktp-kded-module-${PV}
-	>=net-im/ktp-presence-applet-${PV}
 	>=net-im/ktp-send-file-${PV}
 	>=net-im/ktp-text-ui-${PV}
 	net-im/telepathy-connection-managers
