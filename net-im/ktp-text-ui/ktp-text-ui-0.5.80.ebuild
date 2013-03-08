@@ -23,7 +23,7 @@ IUSE="debug +history"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.3
-	history? ( >=net-libs/telepathy-logger-qt-0.5.80 )
+	history? ( >=net-libs/telepathy-logger-qt-0.5.0 )
 "
 RDEPEND="${DEPEND}
 	>=net-im/ktp-contact-list-${PV}
