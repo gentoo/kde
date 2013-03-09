@@ -23,8 +23,6 @@ IUSE="debug"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.3
-	>=net-libs/telepathy-logger-qt-0.5.80
-	!<net-im/ktp-text-ui-0.5.80
 	!!<net-im/ktp-contact-list-0.4.0
 "
 RDEPEND="${DEPEND}"

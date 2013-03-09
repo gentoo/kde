@@ -8,7 +8,7 @@ KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it ja lt nb nds nl pl pt pt_BR
 ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 inherit kde4-base
 
-DESCRIPTION="KDE Telepathy common library"
+DESCRIPTION="KDE Telepathy file transfer handler"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/unstable/kde-telepathy/${PV}/src/${P}.tar.bz2"
@@ -17,14 +17,12 @@ else
 	KEYWORDS=""
 fi
 
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	>=net-im/ktp-common-internals-${PV}
 	>=net-libs/telepathy-qt-0.9.3
-	>=net-libs/telepathy-logger-qt-0.5.80
-	!<net-im/ktp-text-ui-0.5.80
-	!!<net-im/ktp-contact-list-0.4.0
 "
 RDEPEND="${DEPEND}"
