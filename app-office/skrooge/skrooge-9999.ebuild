@@ -2,12 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fr ga gl hu it ja
-ko lt ms nb nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
-KDE_DOC_DIRS="doc"
-KDE_HANDBOOK=optional
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu it
+ja ko lt ms nb nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
+KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
@@ -19,7 +18,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs)
 	app-crypt/qca:2
+	dev-db/sqlite:3
 	dev-libs/grantlee
 	>=dev-libs/libofx-0.9.1
 	dev-qt/qtsql:4[sqlite]
@@ -31,11 +32,28 @@ RDEPEND="${DEPEND}
 	)
 "
 
+# upstream does not ship tests in releases
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	RESTRICT="test"
+fi
+
 DOCS=( AUTHORS CHANGELOG README TODO )
 
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use test SKG_BUILD_TEST)
+src_prepare() {
+	if [[ ${KDE_BUILD_TYPE} != live ]]; then
+		# KDE_LINGUAS is also used to install appropriate handbooks
+		# since there is no en_US 'translation', it cannot be added
+		# hence making this impossible to install
+		mv doc/en_US doc/en || die "doc move failed"
+		sed -i -e 's/en_US/en/' doc/CMakeLists.txt || die "sed failed"
+	fi
+
+	kde4-base_src_prepare
+}
+
+src_test() {
+	local mycmakeargs=(
+		-DSKG_BUILD_TEST=ON
 	)
-	kde4-base_src_configure
+	kde4-base_src_test
 }
