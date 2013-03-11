@@ -22,15 +22,33 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="+mysql postgres sqlite test"
+IUSE="+mysql postgres +qt4 qt5 sqlite test"
+
+REQUIRED_USE="^^ ( qt4 qt5 ) || ( sqlite mysql postgres )"
 
 CDEPEND="
 	dev-libs/boost:=
 	>=dev-libs/soprano-2.6.51
-	>=dev-qt/qtgui-4.5.0:4[dbus]
-	>=dev-qt/qtsql-4.5.0:4[mysql?,postgres?]
-	>=dev-qt/qttest-4.5.0:4
 	x11-misc/shared-mime-info
+	qt4? (
+		>=dev-qt/qtcore-4.5.0:4
+		>=dev-qt/qtdbus-4.5.0:4
+		>=dev-qt/qtgui-4.5.0:4[dbus]
+		>=dev-qt/qtsql-4.5.0:4[mysql?,postgres?]
+		>=dev-qt/qttest-4.5.0:4
+	)
+	qt5? (
+		>=dev-libs/soprano-2.6.51[-qt4,qt5]
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtgui:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtsql:5[mysql?,postgres?]
+		dev-qt/qttest:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtxml:5
+	)
+	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${CDEPEND}
 	dev-libs/libxslt
@@ -40,9 +58,7 @@ RDEPEND="${CDEPEND}
 	postgres? ( dev-db/postgresql-server )
 "
 
-REQUIRED_USE="|| ( sqlite mysql postgres )"
-
-RESTRICT=test
+RESTRICT="test"
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -69,7 +85,7 @@ pkg_setup() {
 		ewarn "Please edit your ~/.config/akonadi/akonadiserverrc."
 	fi
 
-	# Notify about MySQL not being default anymore
+	# Notify about SQLite not being default anymore
 	if ! use sqlite && has_version "<=${CATEGORY}/${PN}-1.9.0[sqlite]"; then
 		ewarn
 		ewarn "The default storage drive has changed from SQLite to MySQL."
@@ -85,6 +101,7 @@ src_configure() {
 		-DAKONADI_USE_STRIGI_SEARCH=OFF
 		$(cmake-utils_use test AKONADI_BUILD_TESTS)
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
+		$(cmake-utils_use_find_package qt5 Qt5Core)
 	)
 
 	cmake-utils_src_configure
@@ -103,7 +120,6 @@ EOF
 }
 
 pkg_postinst() {
-	echo
 	elog "${DRIVER} has been set as your default akonadi storage backend."
 	elog "You can override it in your ~/.config/akonadi/akonadiserverrc."
 	elog "Available drivers are: ${AVAILABLE}"
