@@ -18,7 +18,7 @@ KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
-+upower upnp zeroconf"
++upower zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -85,7 +85,6 @@ COMMONDEPEND="
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
 	udev? ( virtual/udev )
-	upnp? ( media-libs/herqq )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
 DEPEND="${COMMONDEPEND}
@@ -219,7 +218,6 @@ src_configure() {
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
 		$(cmake-utils_use_with udisks SOLID_UDISKS2)
-		$(cmake-utils_use_with upnp HUpnp)
 		$(cmake-utils_use_with zeroconf Avahi)
 	)
 	kde4-base_src_configure
