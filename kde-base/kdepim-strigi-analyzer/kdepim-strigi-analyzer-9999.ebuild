@@ -24,3 +24,10 @@ KMEXTRACTONLY="
 	libkpgp/
 	messageviewer/
 "
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	sed -e 's/if(AKONADI_USE_STRIGI_SEARCH/if(1'/ -i \
+		CMakeLists.txt || die
+}
