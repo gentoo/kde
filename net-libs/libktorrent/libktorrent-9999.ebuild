@@ -37,7 +37,7 @@ IUSE="debug"
 RDEPEND="
 	app-crypt/qca:2
 	dev-libs/gmp
-	dev-libs/libgcrypt
+	dev-libs/libgcrypt:=
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
