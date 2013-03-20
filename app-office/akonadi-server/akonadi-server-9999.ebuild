@@ -99,6 +99,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DAKONADI_USE_STRIGI_SEARCH=OFF
+		-DINSTALL_QSQLITE_IN_QT_PREFIX=ON
 		$(cmake-utils_use test AKONADI_BUILD_TESTS)
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
 		$(cmake-utils_use_find_package qt5 Qt5Core)
