@@ -34,5 +34,5 @@ RDEPEND="${DEPEND}
 		>=net-im/ktp-contact-list-${PV}
 		>=net-im/ktp-text-ui-${PV}
 	)
-	v4l? ( media-plugins/gst-plugins-v4l2 )
+	v4l? ( media-plugins/gst-plugins-v4l2:0.10 )
 "
