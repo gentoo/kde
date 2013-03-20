@@ -14,7 +14,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets gps json python qalculate +rss semantic-desktop"
+IUSE="debug gps json python qalculate +rss semantic-desktop"
 
 COMMONDEPEND="
 	dev-libs/libdbusmenu-qt
@@ -31,7 +31,6 @@ COMMONDEPEND="
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	x11-libs/libXrender
-	google-gadgets? ( >=x11-misc/google-gadgets-0.11.0[qt4] )
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	json? ( dev-libs/qjson )
 	python? (
@@ -100,7 +99,6 @@ src_unpack() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with google-gadgets Googlegadgets)
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with python PythonLibrary)
@@ -109,6 +107,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		-DWITH_Googlegadgets=OFF
 		-DWITH_Xmms=OFF
 	)
 
