@@ -10,3 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE: Amusing Misuse Of Resources - desktop-dwelling creature"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="x11-libs/libX11
+	x11-libs/libXext"
+RDEPEND="${DEPEND}"
