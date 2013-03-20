@@ -12,6 +12,9 @@ KEYWORDS=""
 IUSE="debug kipi"
 
 DEPEND="
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libXfixes
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
 RDEPEND="${DEPEND}"
