@@ -18,6 +18,7 @@ IUSE="debug gps json python qalculate +rss semantic-desktop"
 
 COMMONDEPEND="
 	dev-libs/libdbusmenu-qt
+	>=dev-qt/qtcore-4.8.4-r3
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdelibs 'semantic-desktop=')
