@@ -21,7 +21,7 @@ COMMONDEPEND="
 	>=dev-qt/qtcore-4.8.4-r3
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
@@ -40,7 +40,7 @@ COMMONDEPEND="
 	)
 	qalculate? ( sci-libs/libqalculate )
 	rss? (
-		$(add_kdebase_dep kdepimlibs 'semantic-desktop=')
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop?')
 		$(add_kdebase_dep libplasmaclock 'holidays')
 	)
 	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )

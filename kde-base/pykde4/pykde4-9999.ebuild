@@ -19,7 +19,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-python/sip-4.14:=[${PYTHON_USEDEP}]
 
-	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 		>=dev-libs/soprano-2.9.0

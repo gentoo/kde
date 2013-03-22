@@ -24,7 +24,7 @@ DEPEND="
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
 	dev-libs/qjson
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	prison? ( media-libs/prison )
 	semantic-desktop? (
 		>=app-office/akonadi-server-1.9.0
