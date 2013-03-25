@@ -13,6 +13,6 @@ fi
 KDE_HANDBOOK="optional"
 inherit ${eclass}
 
-DESCRIPTION="KDE utility for making a fine cup of tea"
+DESCRIPTION="KDE timer for making a fine cup of tea"
 KEYWORDS=""
 IUSE="debug"
