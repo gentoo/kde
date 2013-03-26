@@ -82,6 +82,8 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
+PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
+
 pkg_setup() {
 	if use python ; then
 		python_set_active_version 2
