@@ -15,6 +15,11 @@ DEPEND="
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
+	!aqua? (
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXrandr
+	)
 "
 RDEPEND="${DEPEND}
 	pm-utils? ( sys-power/pm-utils )
