@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 DECLARATIVE_REQUIRED="always"
+KDE_MINIMAL="4.10"
 inherit kde4-base
 
 DESCRIPTION="Application launcher for KDE Plasma desktop"
@@ -23,6 +24,3 @@ RDEPEND="
 	${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 "
-
-# Fails 3 out of 5, check later again.
-RESTRICT="test"
