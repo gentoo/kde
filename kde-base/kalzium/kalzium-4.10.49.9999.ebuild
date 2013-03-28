@@ -13,15 +13,16 @@ DESCRIPTION="KDE: periodic table of the elements."
 KEYWORDS=""
 IUSE="editor debug +plasma solver"
 
-RDEPEND="
+DEPEND="
 	$(add_kdebase_dep libkdeedu)
-	editor? ( >=sci-chemistry/openbabel-2.2 )
-"
-DEPEND="${RDEPEND}
-	sci-chemistry/avogadro
-	editor? ( >=dev-cpp/eigen-2.0.3:2 )
+	editor? (
+		>=dev-cpp/eigen-2.0.3:2
+		sci-chemistry/avogadro
+		>=sci-chemistry/openbabel-2.2
+	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "
+RDEPEND=${DEPEND}
 
 KMEXTRACTONLY="
 	libkdeedu/kdeeduui/
@@ -34,6 +35,7 @@ src_configure(){
 
 	mycmakeargs=(
 		$(cmake-utils_use_with editor Eigen2)
+		$(cmake-utils_use_with editor Avogadro)
 		$(cmake-utils_use_with editor OpenBabel2)
 		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
