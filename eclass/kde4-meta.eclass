@@ -485,8 +485,8 @@ kde4-meta_change_cmakelists() {
 		find "${S}"/${i} -name CMakeLists.txt -print0 | \
 			xargs -0 sed -i \
 				-e 's/^#DONOTCOMPILE //g' \
-				-e '/install(.*)/{s/^/#DONOTINSTALL /;}' \
-				-e '/^install(/,/)/{s/^/#DONOTINSTALL /;}' \
+				-e '/install(.*)/I{s/^/#DONOTINSTALL /;}' \
+				-e '/^install(/,/)/I{s/^/#DONOTINSTALL /;}' \
 				-e '/kde4_install_icons(.*)/{s/^/#DONOTINSTALL /;}' || \
 				die "${LINENO}: sed died in the KMCOMPILEONLY section while processing ${i}"
 		_change_cmakelists_parent_dirs ${i}

@@ -7,6 +7,6 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE utility for making a fine cup of tea"
+DESCRIPTION="KDE timer for making a fine cup of tea"
 KEYWORDS=""
 IUSE="debug"

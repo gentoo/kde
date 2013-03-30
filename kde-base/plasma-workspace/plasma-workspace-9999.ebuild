@@ -14,13 +14,14 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug google-gadgets gps json python qalculate +rss semantic-desktop"
+IUSE="debug gps json python qalculate +rss semantic-desktop"
 
 COMMONDEPEND="
 	dev-libs/libdbusmenu-qt
+	>=dev-qt/qtcore-4.8.4-r3:4
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
@@ -31,7 +32,6 @@ COMMONDEPEND="
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	x11-libs/libXrender
-	google-gadgets? ( >=x11-misc/google-gadgets-0.11.0[qt4] )
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	json? ( dev-libs/qjson )
 	python? (
@@ -40,7 +40,7 @@ COMMONDEPEND="
 	)
 	qalculate? ( sci-libs/libqalculate )
 	rss? (
-		$(add_kdebase_dep kdepimlibs 'semantic-desktop=')
+		$(add_kdebase_dep kdepimlibs 'semantic-desktop?')
 		$(add_kdebase_dep libplasmaclock 'holidays')
 	)
 	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )
@@ -82,6 +82,8 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
 
+PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
+
 pkg_setup() {
 	if use python ; then
 		python_set_active_version 2
@@ -100,7 +102,6 @@ src_unpack() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with google-gadgets Googlegadgets)
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with python PythonLibrary)
@@ -109,6 +110,7 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use_with semantic-desktop Soprano)
+		-DWITH_Googlegadgets=OFF
 		-DWITH_Xmms=OFF
 	)
 

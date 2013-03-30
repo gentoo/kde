@@ -18,7 +18,7 @@ KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma
 mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
-+upower upnp zeroconf"
++upower zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -85,7 +85,6 @@ COMMONDEPEND="
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
 	udev? ( virtual/udev )
-	upnp? ( media-libs/herqq )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
 DEPEND="${COMMONDEPEND}
@@ -135,6 +134,7 @@ PATCHES=(
 	"${FILESDIR}/dist/02_gentoo_append_xdg_config_dirs-1.patch"
 	"${FILESDIR}/${PN}-4.7.96-mimetypes.patch"
 	"${FILESDIR}/${PN}-4.4.90-xslt.patch"
+	"${FILESDIR}/${PN}-4.6.2-armlinking.patch"
 	"${FILESDIR}/${PN}-4.6.3-no_suid_kdeinit.patch"
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.9.3-werror.patch"
@@ -151,7 +151,6 @@ pkg_pretend() {
 
 src_prepare() {
 	kde4-base_src_prepare
-	use arm && epatch "${FILESDIR}/${PN}-4.6.2-armlinking.patch"
 
 	# Rename applications.menu (needs 01_gentoo_set_xdg_menu_prefix-1.patch to work)
 	sed -e 's|FILES[[:space:]]applications.menu|FILES applications.menu RENAME kde-4-applications.menu|g' \
@@ -219,7 +218,6 @@ src_configure() {
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
 		$(cmake-utils_use_with udisks SOLID_UDISKS2)
-		$(cmake-utils_use_with upnp HUpnp)
 		$(cmake-utils_use_with zeroconf Avahi)
 	)
 	kde4-base_src_configure

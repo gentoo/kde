@@ -12,7 +12,7 @@ DESCRIPTION="KDE Command Runner"
 IUSE="debug"
 KEYWORDS=""
 
-COMMONDEPEND="
+DEPEND="
 	$(add_kdebase_dep kcheckpass)
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksmserver)
@@ -20,17 +20,12 @@ COMMONDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libplasmagenericshell)
 	!aqua? (
+		x11-libs/libX11
 		x11-libs/libXcursor
-		x11-libs/libXScrnSaver
+		x11-libs/libXext
 	)
 "
-DEPEND="${COMMONDEPEND}
-	!aqua? (
-		x11-libs/libXcursor
-		x11-proto/scrnsaverproto
-	)
-"
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	libs/kdm/

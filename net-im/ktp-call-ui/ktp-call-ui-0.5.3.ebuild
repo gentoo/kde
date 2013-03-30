@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="debug"
+IUSE="debug v4l"
 
 DEPEND="
 	>=media-libs/qt-gstreamer-0.10.2
@@ -34,4 +34,5 @@ RDEPEND="${DEPEND}
 		>=net-im/ktp-contact-list-${PV}
 		>=net-im/ktp-text-ui-${PV}
 	)
+	v4l? ( media-plugins/gst-plugins-v4l2:0.10 )
 "

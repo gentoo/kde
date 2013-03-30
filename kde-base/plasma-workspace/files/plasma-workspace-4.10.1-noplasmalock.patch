@@ -1,0 +1,11 @@
+diff --git a/plasma/screensaver/CMakeLists.txt b/plasma/screensaver/CMakeLists.txt
+index 514c856..9dcb5f4 100644
+--- a/plasma/screensaver/CMakeLists.txt
++++ b/plasma/screensaver/CMakeLists.txt
+@@ -1,6 +1,3 @@
+ add_subdirectory(containments)
+-if(NOT WIN32)
+-add_subdirectory(shell)
+-endif(NOT WIN32)
+ 
+ 

@@ -5,8 +5,8 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-PYTHON_DEPEND="2"
-inherit python kde4-base
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+inherit python-single-r1 kde4-base
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
@@ -19,19 +19,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesdk-strigi-analyzers)
-	$(add_kdebase_dep krosspython)
-	$(add_kdebase_dep pykde4)
+	$(add_kdebase_dep krosspython "${PYTHON_USEDEP}")
+	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
 
 src_install() {
 	kde4-base_src_install
-	python_convert_shebangs -q -r $(python_get_version) "${ED}/usr/share/apps/${PN}"
+	python_fix_shebang "${ED}/usr/share/apps/${PN}"
 }
 
 pkg_postinst() {

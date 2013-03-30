@@ -1,6 +1,0 @@
->=app-misc/strigi-0.7.7
-~app-office/akonadi-server-1.8.1
->=dev-libs/grantlee-0.2.0
->=dev-libs/shared-desktop-ontologies-0.9.0
->=dev-libs/soprano-2.7.7
->=net-libs/libkgapi-0.4.3

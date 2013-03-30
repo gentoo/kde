@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cmake/cmake-2.8.10.2-r1.ebuild,v 1.1 2013/01/01 19:25:58 creffett Exp $
+# $Header: $
 
 EAPI=5
 
 CMAKE_REMOVE_MODULES="no"
-inherit elisp-common toolchain-funcs eutils versionator flag-o-matic base cmake-utils virtualx
+inherit elisp-common toolchain-funcs eutils versionator cmake-utils virtualx
 
 DESCRIPTION="Cross platform Make"
 HOMEPAGE="http://www.cmake.org/"
@@ -14,7 +14,9 @@ SRC_URI="http://www.cmake.org/files/v$(get_version_component_range 1-2)/${P}.tar
 LICENSE="CMake"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 SLOT="0"
-IUSE="emacs ncurses qt4 vim-syntax"
+IUSE="emacs ncurses +qt4 qt5 vim-syntax"
+
+REQUIRED_USE="?? ( qt4 qt5 )"
 
 DEPEND="
 	>=app-arch/libarchive-2.8.0:=
@@ -26,6 +28,11 @@ DEPEND="
 	qt4? (
 		dev-qt/qtcore:4
 		dev-qt/qtgui:4
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
 	)
 "
 RDEPEND="${DEPEND}
@@ -58,7 +65,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonInterp.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonLibs.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-implicit-include.patch
-	"${FILESDIR}"/${PN}-2.8.10.2-qt5.patch
 )
 
 cmake_src_bootstrap() {
@@ -104,13 +110,12 @@ cmake_src_test() {
 }
 
 pkg_setup() {
-	einfo "Fixing java access violations ..."
 	# bug 387227
 	addpredict /proc/self/coredump_filter
 }
 
 src_prepare() {
-	base_src_prepare
+	cmake-utils_src_prepare
 
 	# disable running of cmake in boostrap command
 	sed -i \
@@ -139,8 +144,14 @@ src_configure() {
 		-DCMAKE_MAN_DIR=/share/man
 		-DCMAKE_DATA_DIR=/share/${PN}
 		$(cmake-utils_use_build ncurses CursesDialog)
-		$(cmake-utils_use_build qt4 QtDialog)
 	)
+
+	if use qt4 || use qt5 ; then
+		mycmakeargs+=(
+			-DBUILD_QtDialog=ON
+			$(cmake-utils_use_find_package qt5 Qt5Widgets)
+		)
+	fi
 	cmake-utils_src_configure
 }
 

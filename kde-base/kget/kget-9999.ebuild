@@ -15,7 +15,7 @@ IUSE="debug bittorrent mms semantic-desktop sqlite webkit"
 
 RDEPEND="
 	app-crypt/qca:2
-	$(add_kdebase_dep kdelibs 'semantic-desktop=')
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace)

@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=net-print/cups-1.6.0[dbus]
+	net-print/cups[dbus]
 "
 RDEPEND="${DEPEND}
 	!kde-misc/print-manager
@@ -19,8 +19,3 @@ RDEPEND="${DEPEND}
 
 add_blocker printer-applet
 add_blocker system-config-printer-kde
-
-src_configure() {
-	mycmakeargs=( -DCUPS_1_6=ON )
-	kde4-base_src_configure
-}

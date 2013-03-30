@@ -4,6 +4,7 @@
 
 EAPI=5
 
+DECLARATIVE_REQUIRED="always"
 KMNAME="kde-workspace"
 inherit kde4-meta
 
@@ -13,6 +14,9 @@ IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
 COMMONDEPEND="
 	media-libs/libpng:0=
+	virtual/jpeg
+	x11-libs/libX11
+	x11-libs/libXext
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="${COMMONDEPEND}

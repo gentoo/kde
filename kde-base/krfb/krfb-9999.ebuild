@@ -16,7 +16,12 @@ IUSE="debug telepathy"
 DEPEND="
 	sys-libs/zlib
 	virtual/jpeg
-	!aqua? ( x11-libs/libXdamage )
+	!aqua? (
+		x11-libs/libX11
+		x11-libs/libXdamage
+		x11-libs/libXext
+		x11-libs/libXtst
+	)
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}"
