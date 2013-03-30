@@ -58,7 +58,7 @@ KMEXTRACTONLY="
 
 add_blocker kdeaccessibility-colorschemes '<4.6.50'
 
-PATCHES=( "${FILESDIR}/${P}-noplasmalock.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
 
 src_unpack() {
 	if use handbook; then
