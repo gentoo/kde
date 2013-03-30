@@ -1,0 +1,19 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2a60c9d..bd66ad1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -20,13 +20,7 @@ include_directories(
+     ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}
+ )
+ 
+-find_package(Qt5Widgets QUIET)
+-find_package(Qt5DBus QUIET)
+-
+-
+-if (${Qt5Widgets_FOUND} AND ${Qt5DBus_FOUND})
+-    set(QT5_BUILD True)
+-endif (${Qt5Widgets_FOUND} AND ${Qt5DBus_FOUND})
++set(QT5_BUILD False)
+ 
+ if (QT5_BUILD)
+     message("Using Qt 5")
