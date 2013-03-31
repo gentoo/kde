@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs cs da de el en_GB eo es et fi fr ga gl hu ja kk km lt mai nb nds nl pa pl pt
-pt_BR ro sk sl sv tr ug uk zh_CN zh_TW"
+KDE_LINGUAS="bs cs da de el en_GB eo es et fi fr ga gl hu ja kk km lt mai mr nb nds nl pa pl
+pt pt_BR ro sk sl sv tr ug uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
@@ -19,8 +19,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	dev-libs/libwacom
 	sys-devel/gettext
-	x11-drivers/xf86-input-wacom
+	>=x11-drivers/xf86-input-wacom-0.20.0
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	dev-libs/libwacom
+	${DEPEND}
+"
