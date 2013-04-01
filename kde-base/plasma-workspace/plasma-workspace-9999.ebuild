@@ -110,7 +110,6 @@ src_configure() {
 		$(cmake-utils_use_with semantic-desktop Akonadi)
 		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use_with semantic-desktop Soprano)
-		-DWITH_Googlegadgets=OFF
 		-DWITH_Xmms=OFF
 	)
 
