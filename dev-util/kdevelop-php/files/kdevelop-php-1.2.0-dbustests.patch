@@ -1,7 +1,6 @@
-diff -ruN kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt kdevelop-php-1.2.0/completion/tests/CMakeLists.txt
---- kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt	2011-01-23 20:42:54.000000000 +0100
-+++ kdevelop-php-1.2.0/completion/tests/CMakeLists.txt	2011-03-05 18:01:34.000000000 +0100
-@@ -8,24 +8,6 @@
+--- kdevelop-php-9999/completion/tests/CMakeLists.txt
++++ kdevelop-php-9999/completion/tests/CMakeLists.txt
+@@ -8,16 +8,8 @@
  
  set(completiontest_SRCS test_completion.cpp
      ../../duchain/tests/duchaintestbase.cpp)
@@ -14,6 +13,12 @@ diff -ruN kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt kdevelop-php-1
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
+ # hack to make ../../duchain/tests/duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
++
+ if (MINGW)
+     set_property(TARGET completiontest APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+ endif (MINGW)
+@@ -25,15 +17,7 @@
  
  set(completionbench_SRCS bench_completion.cpp
      ../../duchain/tests/duchaintestbase.cpp)
@@ -26,10 +31,14 @@ diff -ruN kdevelop-php-1.2.0.orig/completion/tests/CMakeLists.txt kdevelop-php-1
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
-diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.0/duchain/tests/CMakeLists.txt
---- kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt	2011-01-23 20:42:54.000000000 +0100
-+++ kdevelop-php-1.2.0/duchain/tests/CMakeLists.txt	2011-03-05 17:54:27.000000000 +0100
-@@ -9,66 +9,21 @@
++
+ # hack to make ../../duchain/tests/duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET completionbenchmark APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+
+--- kdevelop-php-9999/duchain/tests/CMakeLists.txt
++++ kdevelop-php-9999-patched/duchain/tests/CMakeLists.txt
+@@ -9,14 +9,7 @@
  set(duchain_SRCS
      duchain.cpp
      duchaintestbase.cpp)
@@ -41,8 +50,11 @@ diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
--
- 
++
+ # hack to make ../duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET duchain APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+@@ -26,14 +19,7 @@
  set(expressionparser_SRCS
      expressionparser.cpp
      duchaintestbase.cpp)
@@ -54,7 +66,11 @@ diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
- 
++
+ # hack to make ../duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET expressionparser APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+@@ -43,15 +29,7 @@
  set(uses_SRCS
      uses.cpp
      duchaintestbase.cpp)
@@ -67,8 +83,11 @@ diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
- 
- set(benchmarks_SRCS
++
+ # hack to make ../duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET uses APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+@@ -62,15 +40,7 @@
      benchmarks.cpp
      duchaintestbase.cpp
  )
@@ -81,9 +100,11 @@ diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
--
- 
- set(duchain_multiplefiles_SRCS
++
+ # hack to make ../duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET benchmarks APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
+@@ -81,15 +51,7 @@
      duchain_multiplefiles.cpp
      duchaintestbase.cpp
  )
@@ -96,3 +117,7 @@ diff -ruN kdevelop-php-1.2.0.orig/duchain/tests/CMakeLists.txt kdevelop-php-1.2.
 -    ${KDEVPLATFORM_TESTS_LIBRARIES}
 -    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
 -)
++
+ # hack to make ../duchaintestbase.h use the correct EXPORT tags when compiling with MinGW
+ if (MINGW)
+     set_property(TARGET duchain_multiplefiles APPEND_STRING PROPERTY COMPILE_FLAGS " -DMAKE_KDEV4PHPDUCHAIN_LIB")
