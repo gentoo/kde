@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	net-print/cups[dbus]
+	>=net-print/cups-1.5.0[dbus]
 "
 RDEPEND="${DEPEND}
 	!kde-misc/print-manager
