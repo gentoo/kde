@@ -278,10 +278,10 @@ unset cppuintdepend
 # Qt accessibility classes are needed in various places, bug 325461
 kdecommondepend="
 	dev-lang/perl
+	>=dev-qt/qt3support-${QT_MINIMAL}:4[accessibility]
 	>=dev-qt/qtcore-${QT_MINIMAL}:4[qt3support,ssl]
 	>=dev-qt/qtdbus-${QT_MINIMAL}:4
 	>=dev-qt/qtgui-${QT_MINIMAL}:4[accessibility,dbus]
-	>=dev-qt/qt3support-${QT_MINIMAL}:4[accessibility]
 	>=dev-qt/qtscript-${QT_MINIMAL}:4
 	>=dev-qt/qtsql-${QT_MINIMAL}:4[qt3support]
 	>=dev-qt/qtsvg-${QT_MINIMAL}:4
