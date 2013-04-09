@@ -4,6 +4,7 @@
 
 EAPI=5
 
+DECLARATIVE_REQUIRED="always"
 KMNAME="kde-workspace"
 inherit kde4-meta
 
@@ -15,6 +16,11 @@ DEPEND="
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep solid)
+	media-libs/qimageblitz
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libX11
+	x11-libs/libXrender
 "
 RDEPEND="${DEPEND}"
 
