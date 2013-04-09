@@ -6,7 +6,7 @@ EAPI=5
 
 KMNAME="kde-workspace"
 KMNOMODULE="true"
-inherit kde4-meta multilib prefix
+inherit kde4-meta prefix
 
 DESCRIPTION="Startkde script, which starts a complete KDE session, and associated scripts"
 KEYWORDS=""
