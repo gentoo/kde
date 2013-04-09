@@ -15,13 +15,14 @@ IUSE="debug prison"
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libtaskmanager)
+	sys-libs/zlib
+	x11-libs/libX11
 	prison? ( media-libs/prison )
-	!aqua? ( x11-libs/libXfixes )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with prison)
 	)
 
