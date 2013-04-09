@@ -13,6 +13,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
+	x11-libs/libX11
 	x11-libs/libXtst
 "
 RDEPEND="${DEPEND}"
