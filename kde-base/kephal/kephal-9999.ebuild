@@ -13,12 +13,13 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	x11-libs/libxkbfile
+	x11-libs/libX11
 	x11-libs/libXrandr
 "
 DEPEND="${RDEPEND}
 	x11-proto/randrproto
 "
+
 KMEXTRACTONLY+="
 	kephal/kephal/screens.h
-	"
+"
