@@ -10,3 +10,6 @@ inherit kde4-meta
 DESCRIPTION="Ksystraycmd embeds applications given as argument into the system tray."
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="x11-libs/libX11"
+RDEPEND="${DEPEND}"
