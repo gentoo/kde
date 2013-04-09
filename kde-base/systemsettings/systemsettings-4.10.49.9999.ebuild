@@ -23,11 +23,13 @@ COMMONDEPEND="
 	media-libs/fontconfig
 	>=media-libs/freetype-2
 	>=x11-libs/libxklavier-3.2
+	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXft
 	x11-libs/libXi
+	x11-libs/libxkbfile
 	x11-libs/libXrandr
 	x11-libs/libXtst
 	opengl? ( virtual/opengl )
