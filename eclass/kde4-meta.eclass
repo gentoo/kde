@@ -529,7 +529,7 @@ kde4-meta_change_cmakelists() {
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace strip config install and fix EXPORT section"
 			fi
 			if [[ ${PN} != plasma-workspace ]]; then
-				sed -e '/KActivities/s/REQUIRED//' \
+				sed -e '/find_package(KActivities/s/^/#DONOTDEPEND /' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section"
 			fi
 			if [[ "${PN}" != "kwin" ]]; then
