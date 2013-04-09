@@ -16,6 +16,7 @@ IUSE="debug ieee1394"
 DEPEND="
 	$(add_kdebase_dep solid)
 	sys-apps/pciutils
+	x11-libs/libX11
 	ieee1394? ( sys-libs/libraw1394 )
 	opengl? (
 		virtual/glu
@@ -27,7 +28,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with ieee1394 RAW1394)
 		$(cmake-utils_use_with opengl OpenGL)
 	)
