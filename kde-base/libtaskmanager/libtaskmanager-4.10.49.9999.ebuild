@@ -17,6 +17,7 @@ DEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
+	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
 
