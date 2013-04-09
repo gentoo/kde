@@ -528,10 +528,14 @@ kde4-meta_change_cmakelists() {
 				sed -e '/install(FILES ${CMAKE_CURRENT_BINARY_DIR}\/KDE4WorkspaceConfig.cmake/,/^[[:space:]]*FILE KDE4WorkspaceLibraryTargets.cmake )[[:space:]]*^/d' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace strip config install and fix EXPORT section"
 			fi
+			# <KDE/4.11
 			if [[ ${PN} != plasma-workspace ]]; then
-				sed -e '/find_package(KActivities/s/^/#DONOTDEPEND /' \
+				sed -e '/KActivities/s/REQUIRED//' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section"
 			fi
+			# >=KDE/4.11
+			sed -e 's/TYPE REQUIRED/TYPE OPTIONAL/' -i CMakeLists.txt \
+				|| die "${LINENO}: sed died in kde-workspace dep reduction section"
 			if [[ "${PN}" != "kwin" ]]; then
 				sed -i -e "/^    macro_log_feature(OPENGL_OR_ES_FOUND/s/TRUE/FALSE/" \
 					"${S}"/CMakeLists.txt || die "${LINENO}: sed died removing kde-workspace opengl dependency"
