@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kde-workspace"
+DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="always"
 inherit flag-o-matic kde4-meta
 
@@ -18,11 +19,17 @@ COMMONDEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep liboxygenstyle)
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libX11
+	x11-libs/libxcb
 	x11-libs/libXcomposite
+	x11-libs/libXcursor
 	x11-libs/libXdamage
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
+	x11-libs/libXxf86vm
 	opengl? ( >=media-libs/mesa-7.10 )
 	gles? (
 		|| (  ( >=media-libs/mesa-7.10[egl(+),gles] <media-libs/mesa-7.12[egl(+),gles] )
