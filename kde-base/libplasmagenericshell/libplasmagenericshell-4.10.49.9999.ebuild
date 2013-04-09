@@ -4,6 +4,7 @@
 
 EAPI=5
 
+DECLARATIVE_REQUIRED="always"
 KMNAME="kde-workspace"
 KMMODULE="libs/plasmagenericshell"
 inherit kde4-meta
@@ -15,8 +16,8 @@ IUSE="debug test"
 DEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
+	x11-libs/libX11
 "
-
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
