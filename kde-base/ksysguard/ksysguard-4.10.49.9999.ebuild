@@ -7,22 +7,20 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KMNAME="kde-workspace"
 CPPUNIT_REQUIRED="optional"
-VIRTUALX_REQUIRED=test
+VIRTUALX_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="KSysguard is a network enabled task manager and system monitor application."
 KEYWORDS=""
 IUSE="debug lm_sensors test"
 
-COMMONDEPEND="
-	x11-libs/libXrender
+DEPEND="
+	sys-libs/zlib
+	x11-libs/libX11
 	x11-libs/libXres
 	lm_sensors? ( sys-apps/lm_sensors )
 "
-DEPEND="${COMMONDEPEND}
-	x11-proto/renderproto
-"
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 393091
@@ -32,7 +30,7 @@ KMEXTRA="
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with lm_sensors Sensors)
 	)
 
