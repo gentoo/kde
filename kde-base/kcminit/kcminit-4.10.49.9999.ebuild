@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep ksplash)
+	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
