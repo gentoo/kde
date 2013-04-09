@@ -13,6 +13,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep liboxygenstyle)
+	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
 
