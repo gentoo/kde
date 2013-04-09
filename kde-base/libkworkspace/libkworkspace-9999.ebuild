@@ -20,10 +20,9 @@ KMEXTRACTONLY="
 KMSAVELIBS="true"
 
 DEPEND="
-	$(add_kdebase_dep kactivities)
-	x11-libs/libxkbfile
-	x11-libs/libXcomposite
-	x11-libs/xcb-util-renderutil
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libXau
 "
 RDEPEND="${DEPEND}"
 
