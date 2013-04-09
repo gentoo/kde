@@ -17,9 +17,6 @@ RDEPEND="
 		virtual/pam
 	)
 "
-DEPEND="${RDEPEND}
-	x11-libs/libxkbfile
-"
 
 src_prepare() {
 	kde4-meta_src_prepare
@@ -28,7 +25,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with pam)
 	)
 
