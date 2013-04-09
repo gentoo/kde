@@ -28,9 +28,12 @@ COMMONDEPEND="
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
 	$(add_kdebase_dep solid)
+	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
+	x11-libs/libXext
 	x11-libs/libXfixes
+	x11-libs/libXi
 	x11-libs/libXrender
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	json? ( dev-libs/qjson )
