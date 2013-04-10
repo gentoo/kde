@@ -12,19 +12,17 @@ inherit kde4-meta
 
 DESCRIPTION="Extra screensavers for kde"
 KEYWORDS=""
-IUSE="debug +eigen +kexiv2 opengl xscreensaver"
+IUSE="debug +eigen +kexiv2 xscreensaver"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config
 RDEPEND="
-	$(add_kdebase_dep kscreensaver 'opengl?')
+	$(add_kdebase_dep kscreensaver)
 	$(add_kdebase_dep libkworkspace)
 	media-libs/libart_lgpl
 	x11-libs/libX11
 	kexiv2? ( $(add_kdebase_dep libkexiv2) )
-	opengl? (
-		virtual/glu
-		virtual/opengl
-	)
+	virtual/glu
+	virtual/opengl
 	xscreensaver? ( x11-misc/xscreensaver )
 "
 DEPEND="${RDEPEND}
@@ -37,9 +35,9 @@ PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
 src_configure() {
 	mycmakeargs=(
 		-DKSCREENSAVER_SOUND_SUPPORT=ON
+		-DOPENGL=ON
 		$(cmake-utils_use_with eigen Eigen2)
 		$(cmake-utils_use_with kexiv2)
-		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with xscreensaver)
 	)
 
