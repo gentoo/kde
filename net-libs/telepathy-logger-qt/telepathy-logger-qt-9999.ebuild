@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit kde4-base python-r1
+inherit kde4-base python-single-r1
 
 DESCRIPTION="Qt4 bindings for the Telepathy logger"
 HOMEPAGE="https://projects.kde.org/projects/extragear/network/telepathy/telepathy-logger-qt"
@@ -27,9 +27,15 @@ RDEPEND="
 	>=net-libs/telepathy-qt-0.9.1
 "
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	sys-devel/bison
 	sys-devel/flex
 "
+
+pkg_setup() {
+	python-single-r1_pkg_setup
+	kde4-base_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
