@@ -25,7 +25,7 @@ IUSE="debug v4l"
 DEPEND="
 	>=media-libs/qt-gstreamer-0.10.2
 	>=net-im/ktp-common-internals-${PV}
-	net-libs/telepathy-farstream
+	<net-libs/telepathy-farstream-0.6
 	>=net-libs/telepathy-qt-0.9.3[farstream]
 "
 RDEPEND="${DEPEND}
