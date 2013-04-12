@@ -58,7 +58,7 @@ src_prepare() {
 	fi
 
 	# See bug 322351
-	use arm && epatch "${FILESDIR}/${PN}-4.4.4-arm-sip.patch"
+	use arm && epatch "${FILESDIR}/${PN}-4.10.1-arm-sip.patch"
 
 	sed -e 's/kpythonpluginfactory /kpython${PYTHON_SHORT_VERSION}pluginfactory /g' \
 		-i kpythonpluginfactory/CMakeLists.txt || die
