@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	app-crypt/qca:2
 	dev-db/sqlite:3
 	dev-libs/grantlee
