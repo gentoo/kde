@@ -68,6 +68,7 @@ src_configure() {
 		$(cmake-utils_use_with shapefile libshp)
 		-DBUILD_MARBLE_TESTS=OFF
 		-DWITH_liblocation=0
+		-DWITH_QextSerialPort=OFF
 		$(use kde && cmake-utils_use_with python PyKDE4)
 	)
 
