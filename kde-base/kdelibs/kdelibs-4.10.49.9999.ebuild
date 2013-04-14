@@ -74,8 +74,8 @@ COMMONDEPEND="
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
 	openexr? (
-		media-libs/openexr
-		media-libs/ilmbase
+		media-libs/openexr:=
+		media-libs/ilmbase:=
 	)
 	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
 	semantic-desktop? (
