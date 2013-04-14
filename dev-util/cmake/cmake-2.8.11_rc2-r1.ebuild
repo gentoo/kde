@@ -7,9 +7,12 @@ EAPI=5
 CMAKE_REMOVE_MODULES="no"
 inherit elisp-common toolchain-funcs eutils versionator cmake-utils virtualx
 
+MY_PV=${PV/_/-}
+MY_P=${PN}-${MY_PV}
+
 DESCRIPTION="Cross platform Make"
 HOMEPAGE="http://www.cmake.org/"
-SRC_URI="http://www.cmake.org/files/v$(get_version_component_range 1-2)/${P}.tar.gz"
+SRC_URI="http://www.cmake.org/files/v$(get_version_component_range 1-2)/${MY_P}.tar.gz"
 
 LICENSE="CMake"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
@@ -45,6 +48,8 @@ RDEPEND="${DEPEND}
 	)
 "
 
+S="${WORKDIR}/${MY_P}"
+
 SITEFILE="50${PN}-gentoo.el"
 VIMFILE="${PN}.vim"
 
@@ -54,18 +59,20 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.3-fix_broken_lfs_on_aix.patch
 	"${FILESDIR}"/${PN}-2.6.3-no-duplicates-in-rpath.patch
 	"${FILESDIR}"/${PN}-2.8.0-darwin-default-install_name.patch
-	"${FILESDIR}"/${PN}-2.8.7-FindBLAS.patch
-	"${FILESDIR}"/${PN}-2.8.7-FindBoost-python.patch
 	"${FILESDIR}"/${PN}-2.8.7-FindLAPACK.patch
 	"${FILESDIR}"/${PN}-2.8.8-FindPkgConfig.patch
 	"${FILESDIR}"/${PN}-2.8.10-darwin-bundle.patch
 	"${FILESDIR}"/${PN}-2.8.10-desktop.patch
 	"${FILESDIR}"/${PN}-2.8.10-libform.patch
-	"${FILESDIR}"/${PN}-2.8.10-more-no_host_paths.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonInterp.patch
 	"${FILESDIR}"/${PN}-2.8.10.2-FindPythonLibs.patch
-	"${FILESDIR}"/${PN}-2.8.10.2-implicit-include.patch
+	"${FILESDIR}"/${PN}-2.8.11-FindBLAS.patch
+	"${FILESDIR}"/${PN}-2.8.11-FindBoost-python.patch
+	"${FILESDIR}"/${PN}-2.8.11-FindImageMagick.patch
+	"${FILESDIR}"/${PN}-2.8.11-more-no_host_paths.patch
 )
+
+RESTRICT="test"
 
 cmake_src_bootstrap() {
 	# Cleanup args to extract only JOBS.
