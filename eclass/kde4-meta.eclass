@@ -131,7 +131,6 @@ kde4-meta_src_unpack() {
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case "${KDE_SCM}" in
 			svn)
-				migrate_store_dir
 				S="${WORKDIR}/${P}"
 				mkdir -p "${S}"
 				ESVN_RESTRICT="export" subversion_src_unpack

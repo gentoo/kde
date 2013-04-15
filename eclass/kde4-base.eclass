@@ -621,7 +621,6 @@ kde4-base_src_unpack() {
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
 		case ${KDE_SCM} in
 			svn)
-				migrate_store_dir
 				subversion_src_unpack
 				;;
 			git)
