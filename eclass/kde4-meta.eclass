@@ -24,7 +24,7 @@ EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kdebase-apps|kde-baseapps|kdebase-runtime|kde-runtime|kdegraphics)
+	kdebase|kde-baseapps|kdebase-runtime|kde-runtime|kdegraphics)
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
@@ -199,16 +199,7 @@ kde4-meta_src_extract() {
 			KMTARPARAMS+=" --xz"
 		fi
 
-		case ${KMNAME} in
-			kdebase-apps)
-				# kdebase/apps -> kdebase-apps
-				tarball="kdebase-${PV}.tar.${postfix}"
-				;;
-			*)
-				# Create tarball name from module name (this is the default)
-				tarball="${KMNAME}-${PV}.tar.${postfix}"
-				;;
-		esac
+		tarball="${KMNAME}-${PV}.tar.${postfix}"
 
 		# Full path to source tarball
 		tarfile="${DISTDIR}/${tarball}"
@@ -286,7 +277,7 @@ kde4-meta_create_extractlists() {
 	# Note that this actually doesn't include KMEXTRA handling.
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
-		kdebase | kdebase-apps | kde-baseapps)
+		kdebase | kde-baseapps)
 			KMEXTRACTONLY+="
 				CTestConfig.cmake
 				config-apps.h.cmake

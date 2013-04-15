@@ -62,9 +62,6 @@ if [[ ${KDE_BUILD_TYPE} == live ]]; then
 		kdebase-runtime)
 			EGIT_REPONAME=${EGIT_REPONAME:=kde-runtime}
 		;;
-		kdebase-apps)
-			EGIT_REPONAME=${EGIT_REPONAME:=kde-baseapps}
-		;;
 	esac
 fi
 

@@ -420,13 +420,7 @@ _calculate_src_uri() {
 
 	# calculate tarball module name
 	if [[ -n ${KMNAME} ]]; then
-		# fixup kdebase-apps name
-		case ${KMNAME} in
-			kdebase-apps)
-				_kmname="kdebase" ;;
-			*)
-				_kmname="${KMNAME}" ;;
-		esac
+		_kmname="${KMNAME}"
 	else
 		_kmname=${PN}
 	fi
