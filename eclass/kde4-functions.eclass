@@ -17,9 +17,9 @@ ___ECLASS_ONCE_KDE4_FUNCTIONS="recur -_+^+_- spank"
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently kde4 eclasses support EAPI 3 and 4.
+# Currently kde4 eclasses support EAPI 4 and 5.
 case ${EAPI:-0} in
-	3|4|5) : ;;
+	4|5) : ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 

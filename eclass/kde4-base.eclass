@@ -10,7 +10,7 @@
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
-# NOTE: KDE 4 ebuilds currently support EAPIs 3, 4, and 5.  This will be
+# NOTE: KDE 4 ebuilds currently support EAPIs 4 and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
 
 if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
@@ -333,8 +333,8 @@ if [[ ${PN} != oxygen-icons ]]; then
 	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
 fi
 
-# add a dependency over kde-l10n if EAPI4 or better is around
-if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} && ${EAPI:-0} != 3 ]]; then
+# add a dependency over kde-l10n
+if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
 		# if our package has lignuas, pull in kde-l10n with selected lingua enabled,
 		# but only for selected ones.
@@ -591,14 +591,10 @@ kde4-base_pkg_setup() {
 	# In theory should be in pkg_pretend but we check it only for kdelibs there
 	# and for others we do just quick scan in pkg_setup because pkg_pretend
 	# executions consume quite some time.
-	# We can only do this for EAPI 4 or later because the MERGE_TYPE variable
-	# is otherwise undefined.
-	if [[ ${EAPI:-0} != 3 ]]; then 
-		if [[ ${MERGE_TYPE} != binary ]]; then
-			[[ $(gcc-major-version) -lt 4 ]] || \
-					( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
-				&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
-		fi
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		[[ $(gcc-major-version) -lt 4 ]] || \
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
+			&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
 	fi
 
 	KDEDIR=/usr
@@ -834,9 +830,9 @@ kde4-base_src_install() {
 
 	cmake-utils_src_install
 
-	# In EAPI 4+, we don't want ${PREFIX}/share/doc/HTML to be compressed,
+	# We don't want ${PREFIX}/share/doc/HTML to be compressed,
 	# because then khelpcenter can't find the docs
-	[[ ${EAPI:-0} != 3 && -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
+	[[ -d ${ED}/${PREFIX}/share/doc/HTML ]] &&
 		docompress -x ${PREFIX}/share/doc/HTML
 }
 
