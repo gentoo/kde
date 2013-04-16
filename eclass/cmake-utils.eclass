@@ -12,8 +12,7 @@
 # Original author: Zephyrus (zephyrus@mirach.it)
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
-# The cmake-utils eclass is base.eclass(5) wrapper that makes creating ebuilds for
-# cmake-based packages much easier.
+# The cmake-utils eclass makes creating ebuilds for cmake-based packages much easier.
 # It provides all inherited features (DOCS, HTML_DOCS, PATCHES) along with out-of-source
 # builds (default), in-source builds and an implementation of the well-known use_enable
 # and use_with functions for CMake.
@@ -60,13 +59,14 @@ case ${WANT_CMAKE} in
 		CMAKEDEPEND+="${WANT_CMAKE}? ( "
 		;;
 esac
-inherit toolchain-funcs multilib flag-o-matic base
+inherit toolchain-funcs multilib flag-o-matic eutils
 
 CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
 	2|3|4|5) CMAKE_EXPF+=" src_prepare src_configure" ;;
-	1|0) ;;
-	*) die "Unknown EAPI, Bug eclass maintainers." ;;
+	1|0) ewarn "EAPI 0 and 1 support will be removed soon. If you are the
+	package maintainer, please update this package to a newer EAPI";;
+	*) die "Unknown EAPI, bug eclass maintainers." ;;
 esac
 EXPORT_FUNCTIONS ${CMAKE_EXPF}
 
@@ -356,7 +356,18 @@ _modify-cmakelists() {
 enable_cmake-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	base_src_prepare
+    debug-print "$FUNCNAME: PATCHES=$PATCHES"
+
+    local patches_failed=0
+
+    pushd "${S}" > /dev/null
+    [[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+		
+	debug-print "$FUNCNAME: applying user patches"
+    epatch_user
+
+    popd > /dev/null
+
 }
 
 enable_cmake-utils_src_configure() {
@@ -534,9 +545,25 @@ enable_cmake-utils_src_install() {
 	pushd "${BUILD_DIR}" > /dev/null
 
 	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
-	base_src_install_docs
 
-	popd > /dev/null
+    #Install docs, copied from base_src_install_docs
+	local x
+
+    if [[ "$(declare -p DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
+        for x in "${DOCS[@]}"; do
+            debug-print "$FUNCNAME: docs: creating document from ${x}"
+            dodoc "${x}" || die "dodoc failed"
+        done
+    fi
+    if [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
+        for x in "${HTML_DOCS[@]}"; do
+            debug-print "$FUNCNAME: docs: creating html document from ${x}"
+            dohtml -r "${x}" || die "dohtml failed"
+        done
+    fi
+
+    popd > /dev/null
+
 
 	# Backward compatibility, for non-array variables
 	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
