@@ -26,7 +26,6 @@
 	-->
 	<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
 	<flag name="msn">Enable "Windows live messenger" protocol support.</flag>
-	<flag name="qq">enable support for the Chinese network protocol.</flag>
 	<flag name="skype">Enable Skype protocol handler (not fully functional yet).</flag>
 	<!-- uncomment this when enabled in ebuild
 	<flag name="telepathy">Enable support for the real-time communication framework telepathy.</flag>

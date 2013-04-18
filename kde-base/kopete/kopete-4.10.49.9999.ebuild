@@ -49,18 +49,18 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	meanwhile: net-libs/meanwhile
 #	msn: libmsn == this is wlm plugin, we disable msn one
 #	oscar: NO DEPS
-#	qq: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="gadu groupwise jingle meanwhile msn oscar qq skype
+PROTOCOLS="gadu groupwise jingle meanwhile msn oscar skype
 sms testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
 #   irc: NO DEPS
+#	qq: NO DEPS
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
