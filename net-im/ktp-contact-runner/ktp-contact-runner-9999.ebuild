@@ -4,14 +4,15 @@
 
 EAPI=5
 
-KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it km lt nds nl pl pt pt_BR ru
-sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia cs da de el es et fi fr ga gl hu ia it kk km lt
+mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin
+sv tr uk vi zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy krunner plugin"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://kde/unstable/kde-telepathy/${PV}/src/${P}.tar.bz2"
+	SRC_URI="mirror://kde/stable/kde-telepathy/${PV}/src/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 else
 	KEYWORDS=""
