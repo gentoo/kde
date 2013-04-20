@@ -543,9 +543,10 @@ enable_cmake-utils_src_install() {
 
 	_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null
-
 	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
+	popd > /dev/null
 
+	pushd "${S}" > /dev/null
     #Install docs, copied from base_src_install_docs
 	local x
 
@@ -562,9 +563,6 @@ enable_cmake-utils_src_install() {
         done
     fi
 
-    popd > /dev/null
-
-
 	# Backward compatibility, for non-array variables
 	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
 		dodoc ${DOCS} || die "dodoc failed"
@@ -572,6 +570,8 @@ enable_cmake-utils_src_install() {
 	if [[ -n "${HTML_DOCS}" ]] && [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
 		dohtml -r ${HTML_DOCS} || die "dohtml failed"
 	fi
+
+	popd > /dev/null
 }
 
 enable_cmake-utils_src_test() {
