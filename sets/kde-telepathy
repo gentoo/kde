@@ -1,17 +1,13 @@
 net-im/ktp-accounts-kcm
 net-im/ktp-approver
 net-im/ktp-auth-handler
+net-im/ktp-call-ui
 net-im/ktp-common-internals
-# TODO: remove net-im/ktp-contact-applet, once ktp-* 0.6 is released
-net-im/ktp-contact-applet
 net-im/ktp-contact-list
 net-im/ktp-contact-runner
-# TODO: enable ktp-desktop-applets, once ktp-* 0.6 is released
-#net-im/ktp-desktop-applets
+net-im/ktp-desktop-applets
 net-im/ktp-filetransfer-handler
 net-im/ktp-kded-module
-# TODO: remove net-im/ktp-presence-applet, once ktp-* 0.6 is released
-net-im/ktp-presence-applet
 net-im/ktp-send-file
 net-im/ktp-text-ui
 net-im/kde-telepathy-meta
