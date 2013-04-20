@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="ca cs da de el es et fi fr ga gl hu it ja km lt nb nds nl pl pt
 pt_BR ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv ug uk zh_CN zh_TW"
@@ -28,11 +28,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=net-im/ktp-contact-list-${PV}
 "
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with history TelepathyLoggerQt4)
-	)
-
-	cmake-utils_src_configure
-}

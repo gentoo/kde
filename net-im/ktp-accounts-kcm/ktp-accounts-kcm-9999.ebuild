@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_MINIMAL="4.7"
 KDE_LINGUAS="ca cs da de el en_GB eo es et fi fr ga gl hu it ja km lt mai nb nds
