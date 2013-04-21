@@ -28,7 +28,10 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	qt5? ( dev-libs/extra-cmake-modules )
+	qt5? (
+		dev-libs/extra-cmake-modules
+		dev-qt/qtconcurrent:5
+	)
 	test? (
 		qt4? (
 			dev-qt/qtgui:4
