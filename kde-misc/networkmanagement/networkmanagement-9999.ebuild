@@ -18,7 +18,7 @@ SLOT="4"
 IUSE="debug openconnect"
 
 DEPEND="
-	kde-misc/libmm-qt
+	net-libs/libmm-qt
 	kde-misc/libnm-qt
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.0
