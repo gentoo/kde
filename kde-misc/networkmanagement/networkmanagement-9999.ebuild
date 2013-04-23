@@ -19,7 +19,7 @@ IUSE="debug openconnect"
 
 DEPEND="
 	net-libs/libmm-qt
-	kde-misc/libnm-qt
+	net-libs/libnm-qt
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.0
 	openconnect? ( net-misc/openconnect )
