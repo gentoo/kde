@@ -2,22 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
-KDE_MINIMAL="4.6"
+EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="MM bindings for QT"
-HOMEPAGE="http://kde.org/"
+DESCRIPTION="Modemmanager bindings for Qt"
+HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE=""
+IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.9.0
+	>=net-misc/networkmanager-0.9.0[modemmanager]
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
