@@ -5,6 +5,10 @@
 EAPI=5
 
 DECLARATIVE_REQUIRED="always"
+VIRTUALX_REQUIRED="test"
+VIRTUALDBUS_TEST="true"
+KDE_LINGUAS="bs cs da de el es et fi fr ga gl hu lt mr nl pa pt pt_BR ro ru sk
+sv tr uk zh_CN"
 KDE_MINIMAL="4.10"
 inherit kde4-base
 
@@ -24,3 +28,7 @@ RDEPEND="
 	${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 "
+
+# Fails 2 out of 6, check later again.
+# With virtualx/virtualdbus it hangs
+RESTRICT="test"
