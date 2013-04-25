@@ -30,8 +30,6 @@ RDEPEND="${DEPEND}
 	crypt? ( app-crypt/qca-ossl )
 "
 
-DOCS="AUTHORS ChangeLog NEWS README TODO"
-
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
