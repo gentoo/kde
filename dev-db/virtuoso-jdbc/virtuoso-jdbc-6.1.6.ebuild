@@ -22,6 +22,8 @@ VOS_EXTRACT="
 	libsrc/JDBCDriverType4
 "
 
+PATCHES=( "${FILESDIR}/${PN}-6.1.6-am_config_header.patch" )
+
 pkg_pretend() {
 	java-pkg_ensure-vm-version-eq 1.6
 }
