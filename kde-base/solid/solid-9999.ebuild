@@ -22,9 +22,7 @@ RDEPEND="${DEPEND}
 
 PDEPEND="bluetooth? ( net-wireless/bluedevil )"
 
-KMEXTRA="
-	libs/solid/
-"
+src_prepare() { :; }
 
 src_configure() {
 	mycmakeargs=(
