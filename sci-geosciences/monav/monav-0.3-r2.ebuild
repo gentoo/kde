@@ -1,13 +1,14 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=4
+
+EAPI=5
 
 inherit qt4-r2
 
 DESCRIPTION="State-of-the-art fast and exact routing with OpenStreetMap Data"
 HOMEPAGE="http://code.google.com/p/monav/"
-SRC_URI="http://monav.googlecode.com/files/monav-${PV}.tar.gz"
+SRC_URI="http://monav.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -16,13 +17,19 @@ IUSE="client +preprocessor preprocessor-gui"
 
 REQUIRED_USE="preprocessor? ( preprocessor-gui )"
 
-DEPEND="dev-qt/qtcore:4
-	preprocessor-gui? ( client? ( dev-qt/qtgui:4 )
-		dev-qt/qt-mobility[location] )
-	preprocessor? (	dev-libs/libxml2
+DEPEND="
+	dev-qt/qtcore:4
+	preprocessor? (
 		app-arch/bzip2
+		dev-libs/libxml2
+		dev-libs/protobuf
 		sci-geosciences/mapnik
-		dev-libs/protobuf )"
+	)
+	preprocessor-gui? (
+		dev-qt/qt-mobility[location]
+		client? ( dev-qt/qtgui:4 )
+	)
+"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
