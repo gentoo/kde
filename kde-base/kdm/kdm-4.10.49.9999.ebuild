@@ -52,10 +52,6 @@ pkg_setup() {
 }
 
 src_configure() {
-	# genkdmconf breaks with -O3
-	# last checked in 4.2.95
-	replace-flags -O3 -O2
-
 	mycmakeargs=(
 		$(cmake-utils_use kerberos KDE4_KRB5AUTH)
 		$(cmake-utils_use_with pam)
