@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-KMNAME="kdevelop"
+KDEBASE="kdevelop"
+KMNAME="kdev-mercurial"
 KDEVPLATFORM_VERSION="1.0.2"
 inherit kde4-base
 
