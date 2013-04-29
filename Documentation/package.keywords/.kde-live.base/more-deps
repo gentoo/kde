@@ -2,5 +2,4 @@ app-admin/system-config-printer-common
 app-admin/system-config-printer-gnome
 dev-libs/grantlee
 dev-libs/libdbusmenu-qt
-dev-python/pycups
 net-libs/libktorrent
