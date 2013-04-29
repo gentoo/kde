@@ -5,8 +5,9 @@
 EAPI=5
 
 KDE_SCM="git"
+EGIT_BRANCH="1.5"
 KMNAME="kdev-python"
-KDEVPLATFORM_VERSION="1.5.60"
+KDEVPLATFORM_VERSION="1.4.60"
 PYTHON_DEPEND="2"
 
 inherit kde4-base python
@@ -33,7 +34,7 @@ IUSE="debug"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
-	>=dev-util/kdevplatform-1.5.60
+	>=dev-util/kdevplatform-1.4.60
 	dev-util/kdevelop
 "
 RDEPEND="${DEPEND}"

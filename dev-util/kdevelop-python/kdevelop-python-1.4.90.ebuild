@@ -6,7 +6,7 @@ EAPI=5
 
 KDE_SCM="git"
 KMNAME="kdev-python"
-KDEVPLATFORM_VERSION="1.5.60"
+KDEVPLATFORM_VERSION="1.3.60"
 PYTHON_DEPEND="2"
 
 inherit kde4-base python
@@ -16,7 +16,7 @@ MY_PV="v${PV}"
 MY_P="${MY_PN}-${MY_PV}"
 
 if [[ $PV != *9999* ]]; then
-	SRC_URI="mirror://kde/stable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
+	SRC_URI="mirror://kde/unstable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 	S=${WORKDIR}/${MY_P}
 else
@@ -33,7 +33,7 @@ IUSE="debug"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
-	>=dev-util/kdevplatform-1.5.60
+	>=dev-util/kdevplatform-1.3.60
 	dev-util/kdevelop
 "
 RDEPEND="${DEPEND}"

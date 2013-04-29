@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
 pt_BR sv th uk zh_CN zh_TW"
@@ -29,4 +29,4 @@ RDEPEND="
 	dev-util/kdevelop
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
-PATCHES=( "${FILESDIR}/${PN}"-1.2.0-{dbustests,parmake}.patch )
+PATCHES=( "${FILESDIR}/${PN}"-1.2.0-parmake.patch )
