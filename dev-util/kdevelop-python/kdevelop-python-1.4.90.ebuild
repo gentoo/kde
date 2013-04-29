@@ -1,22 +1,30 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop-python/kdevelop-python-1.4.1.ebuild,v 1.2 2012/12/12 12:26:18 dastergon Exp $
+# $Header: $
 
 EAPI=5
 
-KDE_SCM="git"
+KDEBASE="kdevelop"
 KMNAME="kdev-python"
-KDEVPLATFORM_VERSION="1.3.60"
-PYTHON_DEPEND="2"
+PYTHON_COMPAT=( python{2_7,3_1,3_2,3_3} )
 
-inherit kde4-base python
+if [[ $PV == *.9999* ]]; then
+	EGIT_BRANCH="${PV/\.9999/}"
+	KDEVPLATFORM_VERSION="${EGIT_BRANCH}"
+fi
 
-MY_PN="kdev-python"
+inherit kde4-base python-r1
+
+MY_PN="${KMNAME}"
 MY_PV="v${PV}"
 MY_P="${MY_PN}-${MY_PV}"
 
 if [[ $PV != *9999* ]]; then
-	SRC_URI="mirror://kde/unstable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
+	if [[ $PV == *[6-9][0-9]* ]]; then
+		SRC_URI="mirror://kde/unstable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
+	else
+		SRC_URI="mirror://kde/stable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
+	fi
 	KEYWORDS="~amd64 ~x86"
 	S=${WORKDIR}/${MY_P}
 else
@@ -28,24 +36,18 @@ DESCRIPTION="Python plugin for KDevelop 4"
 HOMEPAGE="http://www.kdevelop.org"
 
 LICENSE="GPL-2"
-SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	${PYTHON_DEPS}
 	>=dev-util/kdevelop-pg-qt-1.0.0
-	>=dev-util/kdevplatform-1.3.60
+"
+RDEPEND="
+	${PYTHON_DEPS}
 	dev-util/kdevelop
 "
-RDEPEND="${DEPEND}"
 
 RESTRICT="test"
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-
-	kde4-base_pkg_setup
-}
 
 src_compile() {
 	pushd "${WORKDIR}"/${P}_build
