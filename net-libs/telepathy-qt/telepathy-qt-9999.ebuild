@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-PYTHON_DEPEND="2:2.5"
+PYTHON_COMPAT=( python{2_6,2_7} )
 EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/${PN}"
 
-inherit python base cmake-utils virtualx git-2
+inherit python-r1 base cmake-utils virtualx git-2
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
@@ -30,6 +30,7 @@ RDEPEND="
 	!net-libs/telepathy-qt4
 "
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	virtual/pkgconfig
 	test? (
 		dev-libs/dbus-glib
@@ -42,11 +43,6 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="farsight? ( !farstream )"
 
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
 
 src_configure() {
 	local mycmakeargs=(
