@@ -5,7 +5,7 @@
 EAPI=5
 
 WEBKIT_REQUIRED="always"
-KDE_LINGUAS="ca da de el es et fi fr hu ia it km mr nb nl pl pt pt_BR sk sl
+KDE_LINGUAS="cs da de el es et fi fr hu ia it km lt mr nb nl pl pt pt_BR sk sl
 sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 KDE_MINIMAL="4.10"
@@ -18,10 +18,11 @@ HOMEPAGE="http://rekonq.kde.org/"
 LICENSE="GPL-3"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug opera semantic-desktop"
+IUSE="debug kde opera semantic-desktop"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	kde? ( $(add_kdebase_dep kactivities) )
 	opera? (
 		app-crypt/qca:2
 		dev-libs/qoauth
@@ -35,6 +36,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_with kde KActivities)
 		$(cmake-utils_use_with opera QCA2)
 		$(cmake-utils_use_with opera QtOAuth)
 		$(cmake-utils_use_find_package semantic-desktop NepomukCore)

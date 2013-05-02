@@ -5,7 +5,7 @@
 EAPI=5
 
 WEBKIT_REQUIRED="always"
-KDE_LINGUAS="cs da de el es et fi fr hu ia it km mr nb nl pl pt pt_BR sk sl
+KDE_LINGUAS="cs da de el es et fi fr hu ia it km lt mr nb nl pl pt pt_BR sk sl
 sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 KDE_MINIMAL="4.10"
@@ -17,7 +17,7 @@ HOMEPAGE="http://rekonq.kde.org/"
 
 LICENSE="GPL-3"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug opera semantic-desktop"
 
 DEPEND="
@@ -32,15 +32,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# KDE_LINGUAS is also used to install appropriate handbooks
-	# since there is no en_US 'translation', it cannot be added
-	# hence making this impossible to install
-	mv doc/en_US doc/en || die "doc move failed"
-	sed -i -e 's/en_US/en/' doc/CMakeLists.txt || die "sed failed"
-	kde4-base_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
