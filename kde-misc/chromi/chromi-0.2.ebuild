@@ -9,7 +9,7 @@ RESTRICT="$RESTRICT mirror"
 
 DESCRIPTION="Titlebar-less decoration, inspired by Google Chrome, and Nitrogen minimal mod"
 HOMEPAGE="http://kde-look.org/content/show.php/Chromi?content=119069"
-SRC_URI="https://github.com/jinliu/kwin-deco-chromi/archive/v0.2.zip"
+SRC_URI="https://github.com/jinliu/kwin-deco-chromi/archive/v${PV}.zip"
 
 SLOT="4"
 LICENSE="GPL-2"
