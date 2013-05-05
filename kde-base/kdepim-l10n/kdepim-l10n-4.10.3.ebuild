@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-l10n/kdepim-l10n-4.10.2.ebuild,v 1.4 2013/05/01 11:50:52 ago Exp $
+# $Header: $
 
 EAPI=5
 
@@ -14,12 +14,12 @@ DEPEND="
 "
 RDEPEND=""
 
-KEYWORDS="amd64 ~arm ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl
-he hi hr hu ia is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro ru
-si sk sl sr sv tg th tr ug uk vi wa zh_CN zh_TW"
+MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl he
+hi hr hu ia is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro ru si sk
+sl sr sv tg th tr ug uk vi wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
 SRC_URI=""
