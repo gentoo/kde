@@ -11,7 +11,7 @@ if [[ $PV = *9999* ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://kde/stable/${PN/-server/}/src/${P/-server/}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 	S="${WORKDIR}/${P/-server/}"
 fi
 
@@ -78,21 +78,16 @@ pkg_setup() {
 		AVAILABLE+=" ${DRIVER}"
 	fi
 
-	# Notify about driver name change
-	if use sqlite && has_version "<=${CATEGORY}/${PN}-1.4.0[sqlite]"; then
+	# Notify about MySQL is recommend by upstream
+	if use sqlite || has_version "<${CATEGORY}/${P}[sqlite]"; then
 		ewarn
-		ewarn "SQLite driver name changed from QSQLITE to QSQLITE3."
-		ewarn "Please edit your ~/.config/akonadi/akonadiserverrc."
-	fi
-
-	# Notify about SQLite not being default anymore
-	if ! use sqlite && has_version "<=${CATEGORY}/${PN}-1.9.0[sqlite]"; then
-		ewarn
-		ewarn "The default storage drive has changed from SQLite to MySQL."
-		ewarn "If you want to stay with SQLite, enable the sqlite USE flag and reinstall"
-		ewarn "${CATEGORY}/${PN}."
-		ewarn "Otherwise, select a different driver in your ~/.config/akonadi/akonadiserverrc."
+		ewarn "We strongly recommend you change your Akonadi database backend to MySQL in your"
+		ewarn "user configuration. This is the backend recommended by KDE upstream."
+		ewarn "In particular, kde-base/kmail-4.10 does not work properly with the sqlite"
+		ewarn "backend anymore."
+		ewarn "You can select the backend in your ~/.config/akonadi/akonadiserverrc."
 		ewarn "Available drivers are:${AVAILABLE}"
+		ewarn
 	fi
 }
 
