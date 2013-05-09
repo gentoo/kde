@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs cs da de el en_GB eo es et fi fr ga gl hu ja kk km lt mai mr nb nds nl pa pl
+KDE_LINGUAS="bs ca cs da de el en_GB eo es et fi fr ga gl hu ja kk km lt mai mr nb nds nl pa pl
 pt pt_BR ro sk sl sv tr ug uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
