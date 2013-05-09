@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -17,6 +17,4 @@ IUSE="debug"
 DEPEND="
 	>=media-libs/libmtp-1.1.3
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
