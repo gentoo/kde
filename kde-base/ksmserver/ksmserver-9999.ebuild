@@ -15,7 +15,6 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep solid)
 	media-libs/qimageblitz
 	x11-libs/libICE
 	x11-libs/libSM
@@ -30,9 +29,8 @@ KMEXTRACTONLY="
 	kcheckpass/
 	libs/kephal/
 	libs/kworkspace/
-	solid/
 "
 
 KMLOADLIBS="libkworkspace"
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.10.50-noplasmalock.patch" )
