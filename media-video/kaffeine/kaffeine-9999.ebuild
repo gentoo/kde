@@ -22,7 +22,6 @@ DEPEND="
 	>=media-video/vlc-1.2
 	x11-libs/libXScrnSaver
 	dev-qt/qtsql:4[sqlite]
-	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}"
 

@@ -27,7 +27,6 @@ COMMONDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
-	$(add_kdebase_dep solid)
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage

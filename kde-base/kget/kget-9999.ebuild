@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep solid)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )

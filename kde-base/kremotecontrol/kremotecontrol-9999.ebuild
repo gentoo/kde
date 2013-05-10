@@ -13,7 +13,6 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep solid)
 "
 RDEPEND="${DEPEND}
 	app-misc/lirc

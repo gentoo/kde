@@ -48,10 +48,7 @@ COMMONDEPEND="
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( $(add_kdebase_dep libtaskmanager) )
 	rss? ( $(add_kdebase_dep kdepimlibs) )
-	shutdown? (
-		$(add_kdebase_dep libkworkspace)
-		$(add_kdebase_dep solid)
-	)
+	shutdown? ( $(add_kdebase_dep libkworkspace) )
 "
 DEPEND="${COMMONDEPEND}
 	dev-libs/boost:=
