@@ -6,7 +6,7 @@ EAPI=5
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/stable/phonon/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 else
 	SCM_ECLASS="git-2"
 	EGIT_REPO_URI="git://anongit.kde.org/${PN}"
@@ -19,7 +19,7 @@ DESCRIPTION="KDE multimedia API"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/phonon"
 
 LICENSE="LGPL-2.1"
-SLOT="0/0"
+SLOT="0"
 IUSE="aqua debug +gstreamer pulseaudio vlc zeitgeist"
 
 COMMON_DEPEND="
