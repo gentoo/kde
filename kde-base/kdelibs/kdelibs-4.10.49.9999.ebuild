@@ -279,7 +279,7 @@ pkg_postinst() {
 
 	if use zeroconf; then
 		echo
-		elog "To make zeroconf support available in KDE make sure that the 'mdnsd' daemon"
+		elog "To make zeroconf support available in KDE make sure that the avahi daemon"
 		elog "is running."
 		echo
 		einfo "If you also want to use zeroconf for hostname resolution, emerge sys-auth/nss-mdns"
