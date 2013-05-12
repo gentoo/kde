@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE="debug google kolab"
+IUSE="debug facebook google kolab"
 
 RESTRICT="test"
 # Would need test programs _testrunner and akonaditest from kdepimlibs, see bug 313233
@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.10.0
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
 	x11-misc/shared-mime-info
+	facebook? ( net-libs/libkfbapi )
 	google? ( >=net-libs/libkgapi-0.4.3[-oldpim] )
 	kolab? ( net-libs/libkolab )
 "
@@ -43,8 +44,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_with facebook LibKFbAPI)
 		$(cmake-utils_use_with google LibKGAPI)
 		$(cmake-utils_use_with kolab Libkolab)
+		$(cmake-utils_use_with kolab Libkolabxml)
 	)
 
 	kde4-base_src_configure
