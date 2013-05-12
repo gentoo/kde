@@ -29,6 +29,4 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${P/_}
 
-src_prepare() {
-	epatch "${FILESDIR}/${PV}-no_consolekit_fix.patch"
-}
+PATCHES=("${FILESDIR}/${PV}-no_consolekit_fix.patch")
