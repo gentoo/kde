@@ -35,11 +35,6 @@ case ${KMNAME} in
 				;;
 		esac
 		;;
-	kdegames)
-		if [[ ${PN} != libkdegames ]]; then
-			COMMONDEPEND+=" $(add_kdebase_dep libkdegames)"
-		fi
-		;;
 esac
 
 DEPEND+=" ${COMMONDEPEND}"
@@ -296,13 +291,6 @@ kde4-meta_create_extractlists() {
 				startkde.cmake
 				KDE4WorkspaceConfig.cmake.in"
 			;;
-		kdegames)
-			if [[ ${PN} != libkdegames ]]; then
-				KMEXTRACTONLY+="
-					libkdegames/"
-				KMLOADLIBS="${KMLOADLIBS} libkdegames"
-			fi
-			;;
 		kdepim)
 			if [[ ${PN} != libkdepim ]]; then
 				KMEXTRACTONLY+="
@@ -327,10 +315,9 @@ kde4-meta_create_extractlists() {
 	#   it may be possible to formulate this shorter, but it should also
 	#   still be understandable...
 	if [[ ${KMNAME} != kdegraphics || ( ( $(get_kde_version) != 4.6 || ${PV} < 4.6.2 ) && $(get_kde_version) < 4.7 ) ]] \
-		&& ! [[ ${KMNAME} == kdeedu && ( ${PV} == 4.6.4 || ${PV} == 4.6.5 ) ]] \
-		&& ! [[ ${KMNAME} == kdegames && ${PV} > 4.9.0 ]]; then
+		&& ! [[ ${KMNAME} == kdeedu && ( ${PV} == 4.6.4 || ${PV} == 4.6.5 ) ]]; then
 		case ${KMNAME} in
-			kdebase-runtime|kde-runtime|kde-workspace|kdeedu|kdegames|kdegraphics)
+			kdebase-runtime|kde-runtime|kde-workspace|kdeedu|kdegraphics)
 				KMEXTRACTONLY+="
 					cmake/modules/"
 			;;
