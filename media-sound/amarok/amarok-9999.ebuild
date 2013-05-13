@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr
 ga gl hu it ja lt lv nb nl pl pt pt_BR ru sl sr sr@ijekavian
