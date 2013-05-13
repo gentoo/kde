@@ -575,11 +575,6 @@ kde4-meta_change_cmakelists() {
 kde4-meta_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# backwards-compatibility: make mycmakeargs an array, if it isn't already
-	if [[ $(declare -p mycmakeargs 2>&-) != "declare -a mycmakeargs="* ]]; then
-		mycmakeargs=(${mycmakeargs})
-	fi
-
 	# Set some cmake default values here (usually workarounds for automagic deps)
 	case ${KMNAME} in
 		kdewebdev)
