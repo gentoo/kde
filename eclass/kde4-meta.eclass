@@ -319,10 +319,6 @@ kde4-meta_create_extractlists() {
 					kontact/plugins/${PLUGINNAME:-${PN}}/"
 			fi
 			;;
-		kdeutils)
-			KMEXTRACTONLY+="
-				kdeutils-version.h"
-			;;
 	esac
 	# Don't install cmake modules for split ebuilds, to avoid collisions.
 	# note: kdegraphics >= 4.6.2 does not even have code to do that, so we
