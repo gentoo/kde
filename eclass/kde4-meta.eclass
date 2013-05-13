@@ -24,7 +24,7 @@ EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kdebase|kde-baseapps|kdebase-runtime|kde-runtime|kdegraphics)
+	kde-baseapps|kde-runtime)
 		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
 		;;
 	kdepim|kdepim-runtime)
@@ -271,13 +271,13 @@ kde4-meta_create_extractlists() {
 	# Note that this actually doesn't include KMEXTRA handling.
 	# In those cases you should care to add the relevant files to KMEXTRACTONLY
 	case ${KMNAME} in
-		kdebase | kde-baseapps)
+		kde-baseapps)
 			KMEXTRACTONLY+="
 				CTestConfig.cmake
 				config-apps.h.cmake
 				ConfigureChecks.cmake"
 			;;
-		kdebase-runtime | kde-runtime)
+		kde-runtime)
 			KMEXTRACTONLY+="
 				CTestConfig.cmake
 				config-runtime.h.cmake"
@@ -500,7 +500,7 @@ kde4-meta_change_cmakelists() {
 					"${S}"/CMakeLists.txt || die "${LINENO}: sed died removing kde-workspace opengl dependency"
 			fi
 			;;
-		kdebase-runtime | kde-runtime)
+		kde-runtime)
 			# COLLISION PROTECT section
 			# Only install the kde4 script as part of kde-base/kdebase-data
 			if [[ ${PN} != kdebase-data && -f CMakeLists.txt ]]; then
