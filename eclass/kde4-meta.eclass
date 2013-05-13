@@ -279,11 +279,13 @@ kde4-meta_create_extractlists() {
 			;;
 		kde-runtime)
 			KMEXTRACTONLY+="
+				cmake/modules/
 				CTestConfig.cmake
 				config-runtime.h.cmake"
 			;;
 		kde-workspace)
 			KMEXTRACTONLY+="
+				cmake/modules/
 				config-unix.h.cmake
 				ConfigureChecks.cmake
 				config-workspace.h.cmake
