@@ -137,7 +137,7 @@ src_configure() {
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
 
-	mycmakeargs+="-DWITH_qq=OFF"
+	mycmakeargs+=( -DWITH_qq=OFF )
 
 	# enable plugins
 	for x in ${PLUGINS}; do
