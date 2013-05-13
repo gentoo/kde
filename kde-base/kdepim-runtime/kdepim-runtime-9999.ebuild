@@ -35,19 +35,12 @@ RDEPEND="${DEPEND}
 # nepomuk_email_feeder moved here in 4.8
 add_blocker kdepim-common-libs 4.7.50
 
-src_prepare() {
-	sed -e "s:find_package(LibKGAPI QUIET NO_MODULE):macro_optional_find_package(LibKGAPI):g" \
-	    -i "${S}/CMakeLists.txt" || die "fixing automagic dependencies failed"
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with facebook LibKFbAPI)
-		$(cmake-utils_use_with google LibKGAPI)
-		$(cmake-utils_use_with kolab Libkolab)
-		$(cmake-utils_use_with kolab Libkolabxml)
+		$(cmake-utils_use_find_package facebook LibKFbAPI)
+		$(cmake-utils_use_find_package google LibKGAPI)
+		$(cmake-utils_use_find_package kolab Libkolab)
+		$(cmake-utils_use_find_package kolab Libkolabxml)
 	)
 
 	kde4-base_src_configure
