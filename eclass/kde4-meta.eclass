@@ -539,14 +539,6 @@ kde4-meta_change_cmakelists() {
 					;;
 			esac
 			;;
-		kdewebdev)
-			# Disable hardcoded checks
-			sed -e 's/find_package(KdepimLibs REQUIRED)/macro_optional_find_package(KdepimLibs)/' \
-				-e 's/find_package(LibXml2 REQUIRED)/macro_optional_find_package(LibXml2)/' \
-				-e 's/find_package(LibXslt REQUIRED)/macro_optional_find_package(LibXslt)/' \
-				-e 's/find_package(Boost REQUIRED)/macro_optional_find_package(Boost)/' \
-				-i CMakeLists.txt || die "failed to disable hardcoded checks"
-			;;
 	esac
 
 	popd > /dev/null
