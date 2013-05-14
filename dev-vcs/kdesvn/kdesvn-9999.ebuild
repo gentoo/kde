@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_HANDBOOK="optional"
-KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro"
+KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro ru"
 KDE_LINGUAS_LIVE_OVERRIDE="true"
 KDE_SCM="svn"
 inherit flag-o-matic kde4-base
@@ -27,7 +27,7 @@ IUSE="debug"
 DEPEND="
 	dev-libs/apr:1
 	dev-libs/apr-util:1
-	>=dev-vcs/subversion-1.4
+	>=dev-vcs/subversion-1.7
 	sys-devel/gettext
 	dev-qt/qtsql:4[sqlite]
 "
