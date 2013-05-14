@@ -559,20 +559,6 @@ kde4-meta_change_cmakelists() {
 kde4-meta_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Set some cmake default values here (usually workarounds for automagic deps)
-	case ${KMNAME} in
-		kdewebdev)
-			mycmakeargs=(
-				-DWITH_KdepimLibs=OFF
-				-DWITH_LibXml2=OFF
-				-DWITH_LibXslt=OFF
-				-DWITH_Boost=OFF
-				-DWITH_LibTidy=OFF
-				"${mycmakeargs[@]}"
-			)
-			;;
-	esac
-
 	kde4-base_src_configure
 }
 
