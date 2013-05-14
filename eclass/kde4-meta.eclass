@@ -24,9 +24,6 @@ EXPORT_FUNCTIONS ${KDEMETA_EXPF}
 
 # Add dependencies that all packages in a certain module share.
 case ${KMNAME} in
-	kde-baseapps|kde-runtime)
-		COMMONDEPEND+=" >=media-libs/qimageblitz-0.0.4"
-		;;
 	kdepim|kdepim-runtime)
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
