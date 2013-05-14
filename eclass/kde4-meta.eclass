@@ -17,7 +17,7 @@ ___ECLASS_ONCE_KDE4_META="recur -_+^+_- spank"
 
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
-inherit kde4-base versionator
+inherit kde4-base
 
 KDEMETA_EXPF="pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm"
 EXPORT_FUNCTIONS ${KDEMETA_EXPF}
