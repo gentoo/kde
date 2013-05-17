@@ -15,7 +15,7 @@ KDE_RELEASES="4.10"
 RELEASE=${RELEASE:-4.10}
 
 # regenerate keywords
-pushd ../package.keywords/ > /dev/null
+pushd ../package.accept_keywords/ > /dev/null
 for release in $KDE_RELEASES; do
 	echo -e "${HEADER}" > "kde-${release}.keywords"
 	if [[ -d ".kde-${release}" ]]; then
