@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_kdebase_dep libkworkspace)
 	media-libs/libart_lgpl
 	x11-libs/libX11
+	x11-libs/libXt
 	kexiv2? ( $(add_kdebase_dep libkexiv2) )
 	opengl? (
 		virtual/glu
