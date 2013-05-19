@@ -287,13 +287,6 @@ kdecommondepend="
 	>=dev-qt/qtsvg-${QT_MINIMAL}:4
 	>=dev-qt/qttest-${QT_MINIMAL}:4
 	>=dev-qt/qtwebkit-${QT_MINIMAL}:4
-	!aqua? (
-		x11-libs/libXext
-		x11-libs/libXt
-		x11-libs/libXxf86vm
-		x11-libs/libXcomposite
-		x11-libs/libxkbfile
-	)
 "
 
 if [[ ${PN} != kdelibs ]]; then
