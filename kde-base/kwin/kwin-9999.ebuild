@@ -26,6 +26,7 @@ COMMONDEPEND="
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
 	x11-libs/libXdamage
+	x11-libs/libXext
 	x11-libs/libXfixes
 	>=x11-libs/libXrandr-1.2.1
 	x11-libs/libXrender
