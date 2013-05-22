@@ -14,7 +14,7 @@ inherit kde4-base
 
 DESCRIPTION="Application launcher for KDE Plasma desktop"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/homerun"
-[[ ${PV} == *9999 ]] || SRC_URI="mirror://kde/unstable/${PN}/src/${P}.tar.bz2"
+[[ ${PV} == *9999 ]] || SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1 BSD"
 KEYWORDS="~amd64 ~x86"
