@@ -289,9 +289,6 @@ pkg_postinst() {
 		echo
 	fi
 
-	elog "Your homedir is set to \${HOME}/.kde4"
-	echo
-
 	kde4-base_pkg_postinst
 }
 
