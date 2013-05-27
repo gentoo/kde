@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="pt_BR"
-PYTHON_DEPEND="2:2.6"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit kde4-base python
+inherit kde4-base python-r1
 
 EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
 
@@ -21,6 +21,7 @@ SLOT="4"
 IUSE=""
 
 DEPEND="
+	${PYTHON_DEPS}
 	dev-python/PyQt4[svg,dbus]
 	$(add_kdebase_dep pykde4)
 "
@@ -31,18 +32,3 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep konsole)
 "
-
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-	kde4-base_pkg_setup
-}
-
-src_prepare() {
-	python_convert_shebangs -r 2 .
-	kde4-base_src_prepare
-}
-
-pkg_postinst() {
-	kde4-base_pkg_postinst
-}
