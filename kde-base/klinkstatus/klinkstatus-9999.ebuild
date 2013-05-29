@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="debug tidy"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+	$(add_kdebase_dep kdepimlibs)
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}"
