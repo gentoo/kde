@@ -17,7 +17,7 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
 	$(add_kdebase_dep plasma-workspace)
 "
 
