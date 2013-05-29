@@ -15,6 +15,7 @@ IUSE="debug semantic-desktop"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
+	${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8
 	>=dev-qt/qtsql-4.5.0:4[sqlite]
 	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
