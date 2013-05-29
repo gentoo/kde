@@ -13,6 +13,8 @@ DESCRIPTION="Kross scripting framework: Python interpreter"
 KEYWORDS=""
 IUSE="debug"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
 
