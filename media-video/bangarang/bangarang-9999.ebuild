@@ -20,7 +20,7 @@ IUSE="debug"
 
 RDEPEND="
 	dev-libs/soprano
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
 	$(add_kdebase_dep nepomuk)
 	|| (
 		$(add_kdebase_dep audiocd-kio)
