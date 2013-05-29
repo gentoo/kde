@@ -13,10 +13,15 @@ DESCRIPTION="Kate is an MDI texteditor."
 KEYWORDS=""
 IUSE="debug +plasma python"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
-	python? ( $(add_kdebase_dep pykde4 "${PYTHON_USEDEP}" 4.9.2-r1) )
+	python? (
+		${PYTHON_DEPEND}
+		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}" 4.9.2-r1)
+	)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep katepart)
