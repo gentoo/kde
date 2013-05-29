@@ -11,20 +11,17 @@ inherit python-r1 portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="debug doc examples semantic-desktop test"
+IUSE="debug doc examples test"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( semantic-desktop )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-python/sip-4.14:=[${PYTHON_USEDEP}]
-
-	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
-	semantic-desktop? (
-		$(add_kdebase_dep kdepimlibs 'semantic-desktop')
-		>=dev-libs/soprano-2.9.0
-	)
+	>=dev-libs/soprano-2.9.0
+	$(add_kdebase_dep kdelibs 'opengl')
+	$(add_kdebase_dep kdepimlibs)
 	aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,aqua] )
 	!aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X] )
 "
@@ -77,9 +74,6 @@ src_configure() {
 		local mycmakeargs=(
 			-DWITH_PolkitQt=OFF
 			-DWITH_QScintilla=OFF
-			$(cmake-utils_use_with semantic-desktop Soprano)
-			$(cmake-utils_use_with semantic-desktop Nepomuk)
-			$(cmake-utils_use_with semantic-desktop KdepimLibs)
 			-DPYTHON_EXECUTABLE=${PYTHON}
 			-DPYKDEUIC4_ALTINSTALL=TRUE
 		)
