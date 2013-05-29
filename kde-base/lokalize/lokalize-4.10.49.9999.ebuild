@@ -18,6 +18,8 @@ DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
 IUSE="debug semantic-desktop"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="
 	>=app-text/hunspell-1.2.8
 	>=dev-qt/qtsql-4.5.0:4[sqlite]
