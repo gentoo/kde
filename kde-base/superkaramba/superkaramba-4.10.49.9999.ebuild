@@ -4,29 +4,35 @@
 
 EAPI=5
 
-PYTHON_DEPEND="python? 2"
-inherit python kde4-base
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+inherit python-single-r1 kde4-base
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
 KEYWORDS=""
 IUSE="debug python"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 DEPEND="
 	media-libs/qimageblitz
-	python? ( $(add_kdebase_dep pykde4) )
+	x11-libs/libX11
+	x11-libs/libXrender
+	python? (
+		${PYTHON_DEPEND}
+		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
+	)
 "
 RDEPEND="${DEPEND}
-	python? ( $(add_kdebase_dep krosspython) )
+	python? ( $(add_kdebase_dep krosspython "${PYTHON_USEDEP}") )
 "
 
 pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with python PythonLibs)
 	)
 
