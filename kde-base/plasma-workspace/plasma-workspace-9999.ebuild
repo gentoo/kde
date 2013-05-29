@@ -14,7 +14,7 @@ inherit python kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug gps json python qalculate +rss"
+IUSE="debug gps json python qalculate"
 
 COMMONDEPEND="
 	dev-libs/libdbusmenu-qt
@@ -22,8 +22,10 @@ COMMONDEPEND="
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kephal)
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libplasmaclock)
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
 	$(add_kdebase_dep nepomuk-core)
@@ -42,14 +44,9 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4)
 	)
 	qalculate? ( sci-libs/libqalculate )
-	rss? (
-		$(add_kdebase_dep kdepimlibs)
-		$(add_kdebase_dep libplasmaclock 'holidays')
-	)
-	!rss? ( $(add_kdebase_dep libplasmaclock '-holidays') )
 "
 DEPEND="${COMMONDEPEND}
-	rss? ( dev-libs/boost )
+	dev-libs/boost
 	x11-proto/compositeproto
 	x11-proto/damageproto
 	x11-proto/fixesproto
@@ -105,7 +102,6 @@ src_configure() {
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with qalculate)
-		$(cmake-utils_use_with rss KdepimLibs)
 		-DWITH_Xmms=OFF
 	)
 
