@@ -17,8 +17,7 @@ DESCRIPTION="KDE libraries needed by all KDE programs."
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma
-mmx nls openexr +policykit semantic-desktop spell sse sse2 ssl +udev +udisks
-+upower zeroconf"
+mmx nls openexr +policykit spell sse sse2 ssl +udev +udisks +upower zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -38,6 +37,8 @@ COMMONDEPEND="
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
+	>=dev-libs/shared-desktop-ontologies-0.10.0
+	>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/giflib
@@ -78,10 +79,6 @@ COMMONDEPEND="
 		media-libs/ilmbase:=
 	)
 	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
-	semantic-desktop? (
-		>=dev-libs/shared-desktop-ontologies-0.10.0
-		>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
-	)
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl )
 	udev? ( virtual/udev )
@@ -108,6 +105,8 @@ RDEPEND="${COMMONDEPEND}
 "
 PDEPEND="
 	$(add_kdebase_dep katepart)
+	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep nepomuk-widgets)
 	|| (
 		$(add_kdebase_dep kfmclient)
 		x11-misc/xdg-utils
@@ -116,10 +115,6 @@ PDEPEND="
 	policykit? (
 		>=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
 		>=sys-auth/polkit-kde-agent-0.99
-	)
-	semantic-desktop? (
-		$(add_kdebase_dep nepomuk-core)
-		$(add_kdebase_dep nepomuk-widgets)
 	)
 "
 
@@ -212,8 +207,6 @@ src_configure() {
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)
 		$(cmake-utils_use_with policykit PolkitQt-1)
-		$(cmake-utils_use_with semantic-desktop Soprano)
-		$(cmake-utils_use_with semantic-desktop SharedDesktopOntologies)
 		$(cmake-utils_use_with spell ENCHANT)
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with udev UDev)
