@@ -10,15 +10,15 @@ inherit python-single-r1 kde4-base
 
 DESCRIPTION="KDE4 translation tool"
 KEYWORDS=""
-IUSE="debug semantic-desktop"
+IUSE="debug"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8
+	>=dev-libs/soprano-2.9.0
 	>=dev-qt/qtsql-4.5.0:4[sqlite]
-	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesdk-strigi-analyzers)
