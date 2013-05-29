@@ -18,18 +18,17 @@ HOMEPAGE="http://rekonq.kde.org/"
 LICENSE="GPL-3"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug kde opera semantic-desktop"
+IUSE="debug kde opera"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	kde? ( $(add_kdebase_dep kactivities) )
+	kde? (
+		$(add_kdebase_dep kactivities)
+		$(add_kdebase_dep nepomuk-core)
+		dev-libs/soprano
+	)
 	opera? (
 		app-crypt/qca:2
 		dev-libs/qoauth
-	)
-	semantic-desktop? (
-		$(add_kdebase_dep nepomuk-core)
-		dev-libs/soprano
 	)
 "
 RDEPEND="${DEPEND}"
@@ -37,9 +36,9 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with kde KActivities)
+		$(cmake-utils_use_find_package kde NepomukCore)
 		$(cmake-utils_use_with opera QCA2)
 		$(cmake-utils_use_with opera QtOAuth)
-		$(cmake-utils_use_find_package semantic-desktop NepomukCore)
 	)
 
 	kde4-base_src_configure
