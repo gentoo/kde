@@ -14,7 +14,7 @@ IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kactivities)
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)?')
 	$(add_kdebase_dep libkonq)
 	semantic-desktop? (
 		>=dev-libs/shared-desktop-ontologies-0.10.0
