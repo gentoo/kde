@@ -23,6 +23,7 @@ IUSE="debug kde opera"
 DEPEND="
 	kde? (
 		$(add_kdebase_dep kactivities)
+		$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
 		$(add_kdebase_dep nepomuk-core)
 		dev-libs/soprano
 	)
