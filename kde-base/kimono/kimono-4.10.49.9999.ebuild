@@ -14,7 +14,7 @@ DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep qyoto 'webkit')
 	$(add_kdebase_dep smokeqt)
-	$(add_kdebase_dep smokekde 'semantic-desktop?')
+	$(add_kdebase_dep smokekde 'semantic-desktop(+)?')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
 "
 RDEPEND="${DEPEND}"
