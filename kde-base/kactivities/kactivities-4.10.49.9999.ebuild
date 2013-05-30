@@ -11,7 +11,7 @@ DESCRIPTION="KDE Activity Manager"
 KEYWORDS=""
 IUSE="semantic-desktop"
 
-DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop?')"
+DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop(+)?')"
 RDEPEND="${DEPEND}"
 
 # Split out from kdelibs in 4.7.1-r2
