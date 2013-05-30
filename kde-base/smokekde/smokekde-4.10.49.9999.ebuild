@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="attica debug kate okular semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)?')
 	$(add_kdebase_dep smokeqt)
 	attica? ( dev-libs/libattica )
 	kate? ( $(add_kdebase_dep kate) )
