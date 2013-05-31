@@ -15,7 +15,7 @@ IUSE="debug"
 DEPEND="
 	>=app-misc/strigi-0.7.7[dbus,qt4]
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland,virtuoso]
-	$(add_kdebase_dep kdelibs 'semantic-desktop')
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
 	$(add_kdebase_dep nepomuk-core)
 	!kde-misc/nepomukcontroller
 "

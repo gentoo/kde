@@ -9,13 +9,12 @@ inherit kde4-base
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS=""
-IUSE="debug kipi semantic-desktop"
+IUSE="debug kipi"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep kactivities)
 	>=media-gfx/exiv2-0.19
@@ -28,15 +27,8 @@ KMLOADLIBS="libkonq"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with kipi)
 	)
-
-	if use semantic-desktop; then
-		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Nepomuk)
-	else
-		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
-	fi
 
 	kde4-base_src_configure
 }

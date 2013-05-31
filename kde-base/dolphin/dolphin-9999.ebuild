@@ -10,18 +10,15 @@ inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 KEYWORDS=""
-IUSE="debug semantic-desktop thumbnail"
+IUSE="debug thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kactivities)
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
-	semantic-desktop? (
-		>=dev-libs/shared-desktop-ontologies-0.10.0
-		dev-libs/soprano
-		$(add_kdebase_dep nepomuk-core)
-		$(add_kdebase_dep nepomuk-widgets)
-	)
+	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep nepomuk-widgets)
+	>=dev-libs/shared-desktop-ontologies-0.10.0
+	dev-libs/soprano
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
@@ -40,16 +37,6 @@ KMLOADLIBS="libkonq"
 
 RESTRICT="test"
 # bug 393129
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop NepomukCore)
-		$(cmake-utils_use_with semantic-desktop NepomukWidgets)
-		$(cmake-utils_use_with semantic-desktop Soprano)
-	)
-
-	kde4-meta_src_configure
-}
 
 pkg_postinst() {
 	kde4-base_pkg_postinst

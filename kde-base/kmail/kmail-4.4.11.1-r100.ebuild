@@ -15,8 +15,8 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop' 4.6)
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop' 4.6)
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)' 4.6)
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)' 4.6)
 	$(add_kdebase_dep libkdepim '' 4.4.11.1-r1)
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)

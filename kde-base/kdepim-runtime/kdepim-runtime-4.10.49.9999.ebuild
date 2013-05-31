@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	>=dev-libs/shared-desktop-ontologies-0.10.0
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)')
 	x11-misc/shared-mime-info
 	google? ( >=net-libs/libkgapi-0.4.3[-oldpim] )
 	kolab? ( net-libs/libkolab )

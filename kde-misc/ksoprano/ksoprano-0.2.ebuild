@@ -16,7 +16,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs semantic-desktop)
+	$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep nepomuk)

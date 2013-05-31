@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop')
+	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep korganizer)
 	$(add_kdebase_dep kdepim-common-libs)
 "

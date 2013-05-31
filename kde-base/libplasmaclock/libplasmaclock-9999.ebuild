@@ -10,11 +10,10 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
-IUSE="debug +holidays"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kephal)
-	holidays? ( $(add_kdebase_dep kdepimlibs) )
 "
 RDEPEND="${DEPEND}"
 
@@ -23,11 +22,3 @@ KMSAVELIBS="true"
 KMEXTRACTONLY="
 	libs/kephal/
 "
-
-src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with holidays KdepimLibs)
-	)
-
-	kde4-meta_src_configure
-}
