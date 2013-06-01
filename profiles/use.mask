@@ -1,2 +1,0 @@
-# Needs Qt overlay to work
-qt5
