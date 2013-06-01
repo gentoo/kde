@@ -114,7 +114,6 @@ PDEPEND="
 	)
 	handbook? ( $(add_kdebase_dep khelpcenter) )
 	policykit? (
-		>=kde-misc/polkit-kde-kcmodules-0.98_pre20101127
 		>=sys-auth/polkit-kde-agent-0.99
 	)
 	semantic-desktop? (
