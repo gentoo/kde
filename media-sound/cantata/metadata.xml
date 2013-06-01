@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>kde</herd>
-  <herd>proxy-maintainers</herd>
-  <herd>qt</herd>
-  <maintainer>
-    <email>dastergon@gmail.com</email>
-    <name>Pavlos Ratis</name>
-  </maintainer>
-  <use>
-    <flag name="phonon">Enable support for Phonon</flag>
-    <flag name="qt5">Adds support for the Qt GUI/Application Toolkit version 5.x</flag>
-	<flag name="replaygain">Enable ReplayGain support, for relative volume adjustments.</flag>
-  </use>
+	<herd>kde</herd>
+	<herd>qt</herd>
+	<use>
+		<flag name="phonon">Enable support for Phonon</flag>
+		<flag name="replaygain">Enable ReplayGain support, for relative volume adjustments.</flag>
+	</use>
 </pkgmetadata>
