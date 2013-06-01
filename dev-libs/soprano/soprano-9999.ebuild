@@ -43,7 +43,7 @@ RDEPEND="${COMMON_DEPEND}
 CMAKE_IN_SOURCE_BUILD="1"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.4.4-make-broken-redland-fatal.cmake"
+	"${FILESDIR}/${PN}-2.9.3-make-broken-redland-fatal.cmake"
 )
 
 pkg_setup() {
