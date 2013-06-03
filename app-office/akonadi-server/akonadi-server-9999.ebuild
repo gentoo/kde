@@ -53,12 +53,11 @@ CDEPEND="
 DEPEND="${CDEPEND}
 	dev-libs/libxslt
 	>=dev-util/automoc-0.9.88
+	test? ( sys-apps/dbus )
 "
 RDEPEND="${CDEPEND}
 	postgres? ( dev-db/postgresql-server )
 "
-
-RESTRICT="test"
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -101,6 +100,11 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
+}
+
+src_test() {
+	export $(dbus-launch)
+	cmake-utils_src_test
 }
 
 src_install() {
