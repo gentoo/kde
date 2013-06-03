@@ -10,8 +10,15 @@ inherit kde4-base
 DESCRIPTION="Paint Program for KDE"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
-IUSE="debug scanner"
+IUSE="debug"
 
 DEPEND="media-libs/qimageblitz"
-RDEPEND="${DEPEND}
-	scanner? ( kde-base/ksaneplugin )"
+RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	kde4-meta_pkg_postinst
+
+	if ! has_version kde-base/ksaneplugin:${SLOT} ; then
+		elog "To enable scanner support, please install kde-base/ksaneplugin:${SLOT}"
+	fi
+}
