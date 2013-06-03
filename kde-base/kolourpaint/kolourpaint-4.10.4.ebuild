@@ -16,7 +16,7 @@ DEPEND="media-libs/qimageblitz"
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 
 	if ! has_version kde-base/ksaneplugin:${SLOT} ; then
 		elog "To enable scanner support, please install kde-base/ksaneplugin:${SLOT}"
