@@ -15,7 +15,7 @@ SRC_URI="http://socket-sentry.googlecode.com/files/socketsentry-${PV}.tar.gz"
 S="${WORKDIR}/socketsentry-${PV}"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
