@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -15,7 +15,7 @@ SRC_URI="http://socket-sentry.googlecode.com/files/socketsentry-${PV}.tar.gz"
 S="${WORKDIR}/socketsentry-${PV}"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 SLOT="4"
 IUSE="debug"
 
