@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
 semantic-desktop"
 
@@ -43,6 +43,8 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 "
+
+PATCHES=( "${FILESDIR}/${PN}-4.10.3-cve-2013-2120.patch" )
 
 src_configure() {
 	mycmakeargs=(
