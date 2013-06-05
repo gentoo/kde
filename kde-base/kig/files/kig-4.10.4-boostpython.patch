@@ -1,7 +1,7 @@
-diff --git CMakeLists.txt CMakeLists.txt
-index aa4cc11..647a270 100644
---- CMakeLists.txt
-+++ CMakeLists.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e27b470..2db327f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -1,9 +1,6 @@
  project(kig)
  
@@ -13,11 +13,12 @@ index aa4cc11..647a270 100644
  
  # search packages used by KDE
  find_package(KDE4 4.3.80 REQUIRED)
-@@ -30,7 +27,15 @@ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_D
+@@ -29,7 +26,16 @@ add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS} -DQT_USE_FAST_CONCATENATI
+ include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
  
  # ...to here
- 
 -find_package(BoostPython)
++
 +if(WITH_SCRIPTING)
 +  set(PythonLibs_FIND_VERSION "2.2")
 +  find_package(PythonLibs)
@@ -30,7 +31,7 @@ index aa4cc11..647a270 100644
  
  kde4_no_enable_final(kig)
  
-@@ -45,16 +50,16 @@ add_subdirectory( macros )
+@@ -44,16 +50,16 @@ add_subdirectory( macros )
  #add_subdirectory( kfile )
  add_subdirectory( data )
  add_subdirectory( pykig )
@@ -52,16 +53,16 @@ index aa4cc11..647a270 100644
  
  # kigpart
  
-@@ -176,7 +181,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
+@@ -182,7 +188,7 @@ kde4_add_ui_files(kigpart_PART_SRCS
     misc/kigcoordinateprecisiondialog.ui
  )
  
 -if(BOOST_PYTHON_FOUND)
 +if(Boost_PYTHON_FOUND AND PYTHONLIBS_FOUND)
    set(kigpart_PART_SRCS ${kigpart_PART_SRCS}
+      modes/popup/scriptactionsprovider.cc
       scripting/newscriptwizard.cc
-      scripting/python_scripter.cc
-@@ -186,15 +191,15 @@ if(BOOST_PYTHON_FOUND)
+@@ -193,15 +199,15 @@ if(BOOST_PYTHON_FOUND)
    )
  
    set_source_files_properties(scripting/python_scripter.cc PROPERTIES COMPILE_FLAGS "${KDE4_ENABLE_EXCEPTIONS}")
@@ -81,10 +82,10 @@ index aa4cc11..647a270 100644
  
  install(TARGETS kigpart DESTINATION ${PLUGIN_INSTALL_DIR})
  
-diff --git KigConfigureChecks.cmake KigConfigureChecks.cmake
+diff --git a/KigConfigureChecks.cmake b/KigConfigureChecks.cmake
 index fed38b3..a53ea73 100644
---- KigConfigureChecks.cmake
-+++ KigConfigureChecks.cmake
+--- a/KigConfigureChecks.cmake
++++ b/KigConfigureChecks.cmake
 @@ -9,8 +9,6 @@ check_function_exists(trunc      HAVE_TRUNC)
  set(CMAKE_REQUIRED_INCLUDES)
  set(CMAKE_REQUIRED_LIBRARIES)
@@ -103,10 +104,10 @@ index fed38b3..a53ea73 100644
     "Boost.Python"
     "Kig can optionally use Boost.Python for Python scripting"
     "http://www.boost.org/"
-diff --git cmake/COPYING-CMAKE-SCRIPTS cmake/COPYING-CMAKE-SCRIPTS
+diff --git a/cmake/COPYING-CMAKE-SCRIPTS b/cmake/COPYING-CMAKE-SCRIPTS
 deleted file mode 100644
 index 4b41776..0000000
---- cmake/COPYING-CMAKE-SCRIPTS
+--- a/cmake/COPYING-CMAKE-SCRIPTS
 +++ /dev/null
 @@ -1,22 +0,0 @@
 -Redistribution and use in source and binary forms, with or without
@@ -131,12 +132,12 @@ index 4b41776..0000000
 -THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 -(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 -THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-diff --git cmake/FindBoostPython.cmake cmake/FindBoostPython.cmake
+diff --git a/cmake/FindBoostPython.cmake b/cmake/FindBoostPython.cmake
 deleted file mode 100644
-index 6d5f05e..0000000
---- cmake/FindBoostPython.cmake
+index 50339fd..0000000
+--- a/cmake/FindBoostPython.cmake
 +++ /dev/null
-@@ -1,153 +0,0 @@
+@@ -1,163 +0,0 @@
 -# - Try to find the a valid boost+python combination
 -# Once done this will define
 -#
@@ -171,6 +172,15 @@ index 6d5f05e..0000000
 -set(PYTHON_LIBRARY_DIRS "/usr/lib${LIB_SUFFIX};/usr/local/lib${LIB_SUFFIX};/usr/lib${LIB_SUFFIX}/$pyver/config")
 -set(PYTHON_LIBS "boost_python-gcc-mt;boost_python-mt;boost_python-gcc-mt-1_33;boost_python-gcc-mt-1_33_1;boost_python;boost_python-gcc-mt-1_32;boost_python")
 -
+-if(WIN32)
+-    set(PythonLibs_FIND_VERSION 2.7.0)
+-    find_package(PythonLibs)
+-    find_package(Boost COMPONENTS python QUIET)
+-    if(PYTHONLIBS_FOUND AND Boost_FOUND)
+-        set(BOOST_PYTHON_INCLUDES ${PYTHON_INCLUDE_DIRS} ${Boost_INCLUDE_DIR})
+-        set(BOOST_PYTHON_LIBS ${Boost_PYTHON_LIBRARY} ${PYTHON_LIBRARIES})
+-    endif(PYTHONLIBS_FOUND AND Boost_FOUND)
+-else(WIN32)
 -# 1st: check for boost/shared_ptr.hpp
 -check_include_file_cxx(boost/shared_ptr.hpp HAVE_BOOST_SHARED_PTR_HPP)
 -
@@ -272,6 +282,7 @@ index 6d5f05e..0000000
 -  set(CMAKE_CXX_FLAGS ${_save_CMAKE_CXX_FLAGS})
 -
 -endif(HAVE_BOOST_SHARED_PTR_HPP AND NOT _found)
+-endif(WIN32)
 -
 -if(BOOST_PYTHON_INCLUDES AND BOOST_PYTHON_LIBS)
 -  set(BOOST_PYTHON_FOUND TRUE)
@@ -290,10 +301,10 @@ index 6d5f05e..0000000
 -endif(BOOST_PYTHON_FOUND)
 -
 -mark_as_advanced(BOOST_PYTHON_INCLUDES BOOST_PYTHON_LIBS)
-diff --git cmake/modules/FindBoostPython.cmake cmake/modules/FindBoostPython.cmake
+diff --git a/cmake/modules/FindBoostPython.cmake b/cmake/modules/FindBoostPython.cmake
 deleted file mode 100644
 index 72aae54..0000000
---- cmake/modules/FindBoostPython.cmake
+--- a/cmake/modules/FindBoostPython.cmake
 +++ /dev/null
 @@ -1,134 +0,0 @@
 -# - Try to find the a valid boost+python combination
