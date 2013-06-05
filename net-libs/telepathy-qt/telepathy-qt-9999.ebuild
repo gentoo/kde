@@ -4,10 +4,9 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7,2_8} )
 EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/${PN}"
-
-inherit python-r1 base cmake-utils virtualx git-2
+inherit base python-any-r1 cmake-utils virtualx git-2
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
@@ -43,6 +42,10 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="farsight? ( !farstream )"
 
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
