@@ -4,10 +4,15 @@
 
 EAPI=5
 
+if [[ $PV != *9999 ]]; then
+	KMNAME="kdeadmin"
+	KDE_ECLASS=meta
+else
+	KDE_ECLASS=base
+fi
+
 KDE_HANDBOOK="optional"
-KMNAME="kdeadmin"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-${KDE_ECLASS}
 
 DESCRIPTION="KDE application that helps you manage system users"
 KEYWORDS=""
