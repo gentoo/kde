@@ -4,10 +4,14 @@
 
 EAPI=5
 
-KMNAME="kdenetwork"
-KMMODULE="filesharing"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ $PV != *9999 ]]; then
+	KMNAME="kdenetwork"
+	KDE_ECLASS=meta
+else
+	KDE_ECLASS=base
+fi
+
+inherit kde4-${KDE_ECLASS}
 
 DESCRIPTION="kcontrol filesharing config module for NFS, SMB etc"
 KEYWORDS=""
