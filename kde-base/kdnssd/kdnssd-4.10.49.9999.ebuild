@@ -4,9 +4,14 @@
 
 EAPI=5
 
-KMNAME="kdenetwork"
-KDE_SCM="svn"
-inherit kde4-meta
+if [[ $PV != *9999 ]]; then
+	KMNAME="kdenetwork"
+	KDE_ECLASS=meta
+else
+	KDE_ECLASS=base
+fi
+
+inherit kde4-${KDE_ECLASS}
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
 KEYWORDS=""
@@ -20,5 +25,5 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	mycmakeargs=(-DWITH_Xmms=OFF -DWITH_DNSSD=ON)
 
-	kde4-meta_src_configure
+	kde4-${KDE_ECLASS}_src_configure
 }
