@@ -77,8 +77,10 @@ RDEPEND="${COMMONDEPEND}
 "
 
 src_prepare() {
-	mv doc/en_US doc/en || die
-	sed -e "s/en_US/en/" -i doc/CMakeLists.txt || die
+	if [[ ${KDE_BUILD_TYPE} != live ]]; then
+		mv doc/en_US doc/en || die
+		sed -e "s/en_US/en/" -i doc/CMakeLists.txt || die
+	fi
 
 	kde4-base_src_prepare
 }
