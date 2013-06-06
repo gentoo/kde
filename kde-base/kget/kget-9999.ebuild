@@ -5,9 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kdenetwork"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="An advanced download manager for KDE"
 KEYWORDS=""
@@ -34,5 +32,5 @@ src_configure() {
 		$(cmake-utils_use_with sqlite)
 		$(cmake-utils_use_with webkit KWebKitPart)
 	)
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
