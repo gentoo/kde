@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
@@ -11,6 +12,7 @@ IUSE="ppp"
 
 RDEPEND="
 	$(add_kdebase_dep kdenetwork-filesharing)
+	$(add_kdebase_dep kdenetwork-strigi-analyzers)
 	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep kget)
 	$(add_kdebase_dep kopete)
