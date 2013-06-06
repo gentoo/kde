@@ -4,10 +4,15 @@
 
 EAPI=5
 
+if [[ $PV != *9999 ]]; then
+	KMNAME="kdenetwork"
+	KDE_ECLASS=meta
+else
+	KDE_ECLASS=base
+fi
+
 KDE_HANDBOOK="optional"
-KMNAME="kdenetwork"
-KDE_SCM="svn"
-inherit kde4-meta multilib
+inherit kde4-${KDE_ECLASS} multilib
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS=""
@@ -111,9 +116,9 @@ DEPEND="${COMMONDEPEND}
 
 src_prepare() {
 	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
-		-i kopete/protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
+		-i protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
 
-	kde4-meta_src_prepare
+	kde4-${KDE_ECLASS}_src_prepare
 }
 
 src_configure() {
@@ -144,11 +149,11 @@ src_configure() {
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/}))
 	done
 
-	kde4-meta_src_configure
+	kde4-${KDE_ECLASS}_src_configure
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-${KDE_ECLASS}_pkg_postinst
 
 	#if use telepathy; then
 	#	elog "To use kopete telepathy plugins, you need to start gabble first:"
