@@ -2,3 +2,4 @@ move kde-misc/libmm-qt net-libs/libmm-qt
 move kde-misc/libnm-qt net-libs/libnm-qt
 slotmove x11-libs/libkscreen 0 4
 move kde-misc/libkfbapi net-libs/libkfbapi
+slotmove kde-misc/bekwinfx 0 4
