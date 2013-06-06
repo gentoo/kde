@@ -4,10 +4,15 @@
 
 EAPI=5
 
+if [[ $PV != *9999 ]]; then
+	KMNAME="kdenetwork"
+	KDE_ECLASS=meta
+else
+	KDE_ECLASS=base
+fi
+
 KDE_HANDBOOK="optional"
-KMNAME="kdenetwork"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-${KDE_ECLASS}
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."
 KEYWORDS=""
