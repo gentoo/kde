@@ -11,7 +11,7 @@ inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE window manager"
 KEYWORDS=""
-IUSE="debug gles opengl"
+IUSE="debug gles opengl wayland"
 
 COMMONDEPEND="
 	$(add_kdebase_dep kactivities)
@@ -32,10 +32,8 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXxf86vm
 	opengl? ( >=media-libs/mesa-7.10 )
-	gles? (
-		|| (  ( >=media-libs/mesa-7.10[egl(+),gles] <media-libs/mesa-7.12[egl(+),gles] )
-			>=media-libs/mesa-7.12[egl(+),gles2] )
-	)
+	gles? ( >=media-libs/mesa-7.12[egl(+),gles2] )
+	wayland? ( >=media-libs/mesa-9.0[egl(+),wayland] )
 "
 DEPEND="${COMMONDEPEND}
 	x11-proto/compositeproto
@@ -55,7 +53,7 @@ KMEXTRACTONLY="
 "
 
 # you need one of these
-REQUIRED_USE="!opengl? ( gles ) !gles? ( opengl )"
+REQUIRED_USE="!opengl? ( gles ) !gles? ( opengl ) wayland? ( gles )"
 
 src_configure() {
 	# FIXME Remove when activity API moved away from libkworkspace
@@ -65,6 +63,7 @@ src_configure() {
 		$(cmake-utils_use_with gles OpenGLES)
 		$(cmake-utils_use gles KWIN_BUILD_WITH_OPENGLES)
 		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_with wayland Wayland)
 		-DWITH_X11_Xcomposite=ON
 	)
 
