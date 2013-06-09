@@ -16,6 +16,8 @@ RDEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep nepomuk-widgets)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
