@@ -72,8 +72,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.8.11-more-no_host_paths.patch
 )
 
-RESTRICT="test"
-
 cmake_src_bootstrap() {
 	# Cleanup args to extract only JOBS.
 	# Because bootstrap does not know anything else.
