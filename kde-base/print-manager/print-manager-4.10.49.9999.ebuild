@@ -14,6 +14,7 @@ DEPEND="
 	>=net-print/cups-1.5.0[dbus]
 "
 RDEPEND="${DEPEND}
+	app-admin/system-config-printer-gnome
 	!kde-misc/print-manager
 "
 
