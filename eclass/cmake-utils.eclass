@@ -6,7 +6,7 @@
 # @MAINTAINER:
 # kde@gentoo.org
 # @AUTHOR:
-# Tomáš Chvátal <scarabeus@gentoo.org>
+# TomÃ¡Å¡ ChvÃ¡tal <scarabeus@gentoo.org>
 # Maciej Mrozowski <reavertm@gentoo.org>
 # (undisclosed contributors)
 # Original author: Zephyrus (zephyrus@mirach.it)
@@ -369,6 +369,20 @@ enable_cmake-utils_src_prepare() {
     popd > /dev/null
 
 }
+
+# @VARIABLE: mycmakeargs
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optional cmake defines as a bash array. Should be defined before calling
+# src_configure.
+# @CODE
+# src_configure() {
+# 	local mycmakeargs=(
+#		$(cmake-utils_use_with openconnect)
+# 	)
+# 	cmake-utils_src_configure
+# }
+					
 
 enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
