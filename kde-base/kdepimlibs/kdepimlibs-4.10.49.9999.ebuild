@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
-	dev-libs/qjson
+	>=dev-libs/qjson-0.8.1
 	$(add_kdebase_dep kdelibs 'semantic-desktop(+)?')
 	prison? ( media-libs/prison )
 	semantic-desktop? (

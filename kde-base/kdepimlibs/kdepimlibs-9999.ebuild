@@ -25,7 +25,7 @@ DEPEND="
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.43
 	dev-libs/cyrus-sasl
-	dev-libs/qjson
+	>=dev-libs/qjson-0.8.1
 	media-libs/phonon
 	x11-misc/shared-mime-info
 	prison? ( media-libs/prison )
