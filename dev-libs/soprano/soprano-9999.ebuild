@@ -13,14 +13,17 @@ else
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
-inherit base cmake-utils flag-o-matic ${git_eclass}
+inherit cmake-utils flag-o-matic ${git_eclass}
 
-DESCRIPTION="Library that provides a nice Qt interface to RDF storage solutions"
-HOMEPAGE="http://sourceforge.net/projects/soprano"
+DESCRIPTION="Library that provides a nice Qt interface to RDF storage solution"
+HOMEPAGE="http://soprano.sourceforge.net/"
 
 LICENSE="LGPL-2"
 SLOT="0"
 IUSE="+dbus debug doc elibc_FreeBSD +raptor +redland test +virtuoso"
+
+# bug 281712
+RESTRICT="test"
 
 COMMON_DEPEND="
 	>=dev-qt/qtcore-4.5.0:4
@@ -48,19 +51,15 @@ PATCHES=(
 
 pkg_setup() {
 	if [[ ${PV} = *9999* && -z $I_KNOW_WHAT_I_AM_DOING ]]; then
-		echo
 		ewarn "WARNING! This is an experimental ebuild of ${PN} Git tree. Use at your own risk."
 		ewarn "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
-		echo
 	fi
 
 	if ! use virtuoso; then
-		echo
 		ewarn "You have explicitly disabled the default soprano backend."
 		ewarn "Applications using soprano may need at least one backend"
 		ewarn "to be functional. If you experience any problems, enable"
 		ewarn "the virtuoso USE flag."
-		echo
 	fi
 }
 
@@ -70,7 +69,6 @@ src_configure() {
 	use elibc_FreeBSD && append-flags -pthread
 
 	local mycmakeargs=(
-		-DSOPRANO_BUILD_TESTS=OFF
 		-DCMAKE_SKIP_RPATH=OFF
 		-DSOPRANO_DISABLE_SESAME2_BACKEND=ON
 		-DSOPRANO_DISABLE_CLUCENE_INDEX=ON
