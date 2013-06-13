@@ -7,7 +7,7 @@ EAPI=5
 if [[ ${PV} == *9999 ]]; then
 	SCM_ECLASS="git-2"
 fi
-EGIT_REPO_URI="git://oscaf.git.sourceforge.net/gitroot/oscaf/shared-desktop-ontologies"
+EGIT_REPO_URI="git://git.code.sf.net/p/oscaf/shared-desktop-ontologies"
 inherit cmake-utils ${SCM_ECLASS}
 unset SCM_ECLASS
 
