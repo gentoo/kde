@@ -64,8 +64,8 @@ inherit toolchain-funcs multilib flag-o-matic eutils
 CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
 	2|3|4|5) CMAKE_EXPF+=" src_prepare src_configure" ;;
-	1|0) ewarn "EAPI 0 and 1 support will be removed soon. If you are the
-	package maintainer, please update this package to a newer EAPI";;
+	1|0) eerror "cmake-utils no longer supports EAPI 0-1." && die
+	;;
 	*) die "Unknown EAPI, bug eclass maintainers." ;;
 esac
 EXPORT_FUNCTIONS ${CMAKE_EXPF}
@@ -378,11 +378,11 @@ enable_cmake-utils_src_prepare() {
 # @CODE
 # src_configure() {
 # 	local mycmakeargs=(
-#		$(cmake-utils_use_with openconnect)
+# 		$(cmake-utils_use_with openconnect)
 # 	)
 # 	cmake-utils_src_configure
 # }
-					
+
 
 enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
