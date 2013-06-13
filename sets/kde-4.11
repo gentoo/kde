@@ -4,22 +4,22 @@
 <kde-base/kde-meta-4.11.50
 <kde-base/kdeplasma-addons-4.11.50
 
-@kdeaccessibility-live
-@kdeadmin-live
-@kdeartwork-live
-@kdebase-live
-@kdedeps-live
-@kdeedu-live
-@kdegames-live
-@kdegraphics-live
-@kdelibs-live
-@kdemultimedia-live
-@kdenetwork-live
-@kdepim-live
-@kdetoys-live
-@kdeutils-live
-@kdewebdev-live
+@kdeaccessibility-4.11
+@kdeadmin-4.11
+@kdeartwork-4.11
+@kdebase-4.11
+@kdedeps-4.11
+@kdeedu-4.11
+@kdegames-4.11
+@kdegraphics-4.11
+@kdelibs-4.11
+@kdemultimedia-4.11
+@kdenetwork-4.11
+@kdepim-4.11
+@kdetoys-4.11
+@kdeutils-4.11
+@kdewebdev-4.11
 
 #for developers
-#@kdebindings-live
-#@kdesdk-live
+#@kdebindings-4.11
+#@kdesdk-4.11

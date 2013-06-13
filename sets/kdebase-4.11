@@ -1,4 +1,4 @@
 <kde-base/kdebase-meta-4.11.50
-@kde-baseapps-live
-@kdebase-runtime-live
-@kdebase-workspace-live
+@kde-baseapps-4.11
+@kdebase-runtime-4.11
+@kdebase-workspace-4.11
