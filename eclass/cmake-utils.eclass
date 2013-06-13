@@ -358,8 +358,6 @@ enable_cmake-utils_src_prepare() {
 
     debug-print "$FUNCNAME: PATCHES=$PATCHES"
 
-    local patches_failed=0
-
     pushd "${S}" > /dev/null
     [[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
 		
