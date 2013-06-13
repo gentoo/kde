@@ -17,7 +17,7 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep nepomuk-core)
 	$(add_kdebase_dep nepomuk-widgets)
-	>=dev-libs/shared-desktop-ontologies-0.10.0
+	>=dev-libs/shared-desktop-ontologies-0.11.0
 	dev-libs/soprano
 "
 RDEPEND="${DEPEND}
