@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug exif ffmpeg pdf taglib"
 
 DEPEND="
-	>=dev-libs/shared-desktop-ontologies-0.10.0
+	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland,virtuoso]
 	exif? ( media-gfx/exiv2 )
 	ffmpeg? ( virtual/ffmpeg )
