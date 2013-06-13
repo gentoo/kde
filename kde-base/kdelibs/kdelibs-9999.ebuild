@@ -37,7 +37,7 @@ COMMONDEPEND="
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2
 	dev-libs/libxslt
-	>=dev-libs/shared-desktop-ontologies-0.10.0
+	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
 	media-libs/fontconfig
 	media-libs/freetype:2
