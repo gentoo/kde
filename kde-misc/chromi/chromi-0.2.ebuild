@@ -18,5 +18,7 @@ IUSE=""
 
 S="${WORKDIR}/kwin-deco-chromi-${PV}"
 
+PATCHES=( "${FILESDIR}/add_KWIN_DECORATION_API_VERSION.patch" )
+
 DEPEND="$(add_kdebase_dep kwin)"
 RDEPEND="${DEPEND}"
