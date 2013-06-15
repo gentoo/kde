@@ -8,7 +8,7 @@ KMNAME="kdepim-runtime"
 inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug facebook google kolab"
 
 RESTRICT="test"
@@ -24,7 +24,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	x11-misc/shared-mime-info
 	facebook? ( net-libs/libkfbapi )
-	google? ( >=net-libs/libkgapi-0.4.3 )
+	google? ( >=net-libs/libkgapi-2.0 )
 	kolab? ( net-libs/libkolab )
 "
 RDEPEND="${DEPEND}
@@ -38,7 +38,7 @@ add_blocker kdepim-common-libs 4.7.50
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package facebook LibKFbAPI)
-		$(cmake-utils_use_find_package google LibKGAPI)
+		$(cmake-utils_use_find_package google LibKGAPI2)
 		$(cmake-utils_use_find_package kolab Libkolab)
 		$(cmake-utils_use_find_package kolab Libkolabxml)
 	)
