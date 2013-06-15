@@ -33,6 +33,7 @@ KMEXTRACTONLY="
 	libkpgp/
 	libkdepimdbusinterfaces/
 	kdgantt2/
+	sendlateragent/
 "
 KMCOMPILEONLY="
 	messagecomposer/
