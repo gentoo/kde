@@ -23,7 +23,7 @@ DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.10.0
 	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)')
 	x11-misc/shared-mime-info
-	google? ( >=net-libs/libkgapi-0.4.3[-oldpim] )
+	google? ( >=net-libs/libkgapi-0.4.3 )
 	kolab? ( net-libs/libkolab )
 "
 RDEPEND="${DEPEND}

@@ -24,7 +24,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	x11-misc/shared-mime-info
 	facebook? ( net-libs/libkfbapi )
-	google? ( >=net-libs/libkgapi-0.4.3[-oldpim] )
+	google? ( >=net-libs/libkgapi-0.4.3 )
 	kolab? ( net-libs/libkolab )
 "
 RDEPEND="${DEPEND}
