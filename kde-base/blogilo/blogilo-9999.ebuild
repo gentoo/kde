@@ -17,5 +17,8 @@ DEPEND="
 	$(add_kdebase_dep kdepim-common-libs)
 	$(add_kdebase_dep kdepimlibs)
 "
-RDEPEND="${DEPEND}
+RDEPEND="${DEPEND}"
+
+KMEXTRACTONLY="
+	composereditor-ng
 "
