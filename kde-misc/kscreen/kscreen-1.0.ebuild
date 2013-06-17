@@ -8,10 +8,11 @@ inherit kde4-base
 
 DESCRIPTION="Intelligent KDE screen management"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/kscreen"
+SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
