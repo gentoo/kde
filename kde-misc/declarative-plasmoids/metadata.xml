@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<maintainer>
-		<email>terietor@gmail.com</email>
-		<name>Giorgos Tsiapaliwkas</name>
-		<description>A collection of existing plasmoids which are using the Plasma Quick</description>
-	</maintainer>
-</pkgmetadata>
