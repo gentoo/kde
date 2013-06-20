@@ -13,6 +13,6 @@ fi
 
 inherit kde4-${KDE_ECLASS}
 
-DESCRIPTION="kcontrol filesharing config module for NFS, SMB etc"
+DESCRIPTION="kcontrol filesharing config module for SMB"
 KEYWORDS=""
 IUSE="debug"
