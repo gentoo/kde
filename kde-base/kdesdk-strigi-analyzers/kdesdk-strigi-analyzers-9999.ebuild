@@ -14,3 +14,5 @@ DEPEND="
 	app-misc/strigi
 "
 RDEPEND="${DEPEND}"
+
+add_blocker kdesdk-strigi-analyzer
