@@ -27,7 +27,7 @@ DEPEND=${RDEPEND}
 add_blocker kdebindings-perl
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.7.2-vendor.patch"
+	"${FILESDIR}/${PN}-4.10.80-vendor.patch"
 )
 
 src_configure() {
