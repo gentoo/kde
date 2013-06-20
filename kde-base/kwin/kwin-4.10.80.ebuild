@@ -7,6 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="always"
+VIRTUALX_REQUIRED=test
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE window manager"
