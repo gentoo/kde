@@ -7,7 +7,11 @@ EAPI=5
 KMNAME="kde-workspace"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="always"
-VIRTUALX_REQUIRED=test
+
+#VIRTUALX_REQUIRED=test
+RESTRICT=test
+# test 8: kwin-TestVirtualDesktops hangs even with virtualx
+
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE window manager"
