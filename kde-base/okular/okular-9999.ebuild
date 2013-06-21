@@ -5,7 +5,11 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-VIRTUALX_REQUIRED=test
+
+#VIRTUALX_REQUIRED=test
+RESTRICT=test
+# test 2: parttest hangs
+
 inherit kde4-base
 
 DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
