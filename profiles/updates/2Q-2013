@@ -5,3 +5,4 @@ move kde-misc/libkfbapi net-libs/libkfbapi
 slotmove kde-misc/bekwinfx 0 4
 slotmove kde-misc/kscreen 0 4
 move kde-misc/declarative-plasmoids kde-active/declarative-plasmoids
+slotmove dev-util/plasmate 0 4
