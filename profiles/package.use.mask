@@ -1,3 +1,6 @@
 # Upstream currently only maintains bindings in KDE/4.x branches
 # This is not likely to change in the future
 =kde-base/marble-9999 python
+=kde-base/marble-4.10.80 python
+=kde-base/marble-4.10.90 python
+=kde-base/marble-4.10.95 python
