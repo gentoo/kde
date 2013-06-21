@@ -20,14 +20,25 @@ HOMEPAGE="http://soprano.sourceforge.net/"
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="+dbus debug doc elibc_FreeBSD +raptor +redland test +virtuoso"
+IUSE="+dbus debug doc elibc_FreeBSD +qt4 qt5 +raptor +redland test +virtuoso"
+
+REQUIRED_USE="^^ ( qt4 qt5 )"
 
 # bug 281712
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-qt/qtcore-4.5.0:4
 	dbus? ( >=dev-qt/qtdbus-4.5.0:4 )
+	qt4? (
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtxml:5
+	)
 	raptor? ( >=media-libs/raptor-2.0.4:2 )
 	redland? (
 		>=dev-libs/rasqal-0.9.26
@@ -37,7 +48,10 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
-	test? ( >=dev-qt/qttest-4.5.0:4 )
+	test? (
+		qt4? ( dev-qt/qttest:4 )
+		qt5? ( dev-qt/qttest:5 )
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	virtuoso? ( >=dev-db/virtuoso-server-6.1.6 )
@@ -73,12 +87,13 @@ src_configure() {
 		-DSOPRANO_DISABLE_SESAME2_BACKEND=ON
 		-DSOPRANO_DISABLE_CLUCENE_INDEX=ON
 		$(cmake-utils_use !dbus SOPRANO_DISABLE_DBUS)
+		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
+		$(cmake-utils_use qt5 QT5_BUILD)
 		$(cmake-utils_use !raptor SOPRANO_DISABLE_RAPTOR_PARSER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_RAPTOR_SERIALIZER)
 		$(cmake-utils_use !redland SOPRANO_DISABLE_REDLAND_BACKEND)
-		$(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
-		$(cmake-utils_use doc SOPRANO_BUILD_API_DOCS)
 		$(cmake-utils_use test SOPRANO_BUILD_TESTS)
+		$(cmake-utils_use !virtuoso SOPRANO_DISABLE_VIRTUOSO_BACKEND)
 	)
 
 	cmake-utils_src_configure
