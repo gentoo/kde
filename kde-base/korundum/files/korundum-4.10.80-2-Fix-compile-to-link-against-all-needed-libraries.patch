@@ -1,0 +1,36 @@
+From 5fe6f5893b4fb6b2b130ba7f657ff16f9c35862b Mon Sep 17 00:00:00 2001
+From: Jonathan Riddell <jr@jriddell.org>
+Date: Wed, 19 Jun 2013 14:10:39 +0100
+Subject: [PATCH 2/4] Fix compile to link against all needed libraries Patch by
+ Raymond Wooninck for opensuse
+
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 563442d..2484fa6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,7 +6,9 @@ find_package(Ruby REQUIRED)
+ find_package(KDE4 REQUIRED)
+ find_package(QtRuby4 REQUIRED)
+ find_package(Smoke REQUIRED 
+-    COMPONENTS KdeCore 
++    COMPONENTS Akonadi
++        Kate
++        KdeCore
+         KdeUi 
+         KFile 
+         KHtml 
+@@ -16,6 +18,7 @@ find_package(Smoke REQUIRED
+         KParts
+         KTextEditor
+         KUtils
++        Okular
+         Phonon
+         Plasma
+         QtCore
+-- 
+1.8.2.1
+

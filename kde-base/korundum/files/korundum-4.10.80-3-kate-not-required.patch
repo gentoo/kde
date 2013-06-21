@@ -1,0 +1,24 @@
+From fad8e25b0c7d2e4734726d01aad2b9f93d7b992c Mon Sep 17 00:00:00 2001
+From: Jonathan Riddell <jr@jriddell.org>
+Date: Thu, 20 Jun 2013 16:03:04 +0100
+Subject: [PATCH 3/4] kate not required
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2484fa6..f6bf35a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,7 +7,6 @@ find_package(KDE4 REQUIRED)
+ find_package(QtRuby4 REQUIRED)
+ find_package(Smoke REQUIRED 
+     COMPONENTS Akonadi
+-        Kate
+         KdeCore
+         KdeUi 
+         KFile 
+-- 
+1.8.2.1
+

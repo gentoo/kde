@@ -1,0 +1,45 @@
+From 70114cd9653d430fabd948c0e817075f28db9682 Mon Sep 17 00:00:00 2001
+From: Jonathan Riddell <jr@jriddell.org>
+Date: Wed, 19 Jun 2013 14:09:13 +0100
+Subject: [PATCH 1/4] Fix compile with Ruby 1.9 patch by Hrvoje Senjan for
+ opensuse
+
+---
+ src/krubypluginfactory.cpp | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/krubypluginfactory.cpp b/src/krubypluginfactory.cpp
+index c471b33..7cd43a3 100644
+--- a/src/krubypluginfactory.cpp
++++ b/src/krubypluginfactory.cpp
+@@ -39,7 +39,6 @@
+ extern "C" {
+ extern VALUE rb_load_path;
+ extern VALUE qt_internal_module;
+-void Init_prelude(void);
+ }
+ 
+ //
+@@ -165,7 +164,8 @@ QObject *KRubyPluginFactory::create(const char *iface, QWidget *parentWidget, QO
+ #if RUBY_VERSION >= 0x10900
+     VALUE gem = rb_define_module("Gem");
+     rb_const_set(gem, rb_intern("Enable"), Qtrue);
+-    Init_prelude(); 
++    char *opts[] = { "ruby", "-e;" };
++    ruby_options(2, opts);
+ #endif
+ 
+     ruby_incpush(QFile::encodeName(program.path()));
+@@ -342,7 +342,8 @@ int kdemain(int argc, char **argv)
+ #if RUBY_VERSION >= 0x10900
+     VALUE gem = rb_define_module("Gem");
+     rb_const_set(gem, rb_intern("Enable"), Qtrue);
+-    Init_prelude();                                             
++    char *opts[] = { "ruby", "-e;" };
++    ruby_options(2, opts);
+ #endif
+ 
+     ruby_incpush(QFile::encodeName(program.path()));
+-- 
+1.8.2.1
+

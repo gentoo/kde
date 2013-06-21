@@ -33,6 +33,8 @@ RDEPEND="${DEPEND}
 # Split from kdebindings-ruby in 4.7
 add_blocker kdebindings-ruby
 
+PATCHES=( "${FILESDIR}/${P}-"[1-4]-*.patch )
+
 pkg_setup() {
 	ruby-ng_pkg_setup
 	kde4-base_pkg_setup
