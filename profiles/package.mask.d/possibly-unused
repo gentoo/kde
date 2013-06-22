@@ -1,0 +1,8 @@
+# Chris Reffett <creffett@gentoo.org>
+# Masking possibly-unused overlay packages, will remove
+# in 60 days. Ping me if you are using these and do not
+# have an alternative package.
+kde-misc/kannasaver
+kde-misc/simpleweatherforecast
+kde-misc/togglecompositing
+kde-misc/translatoid
