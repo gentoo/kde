@@ -2,15 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="Kde4 plasmoid for monitoring emerge progress on Gentoo Linux"
+DESCRIPTION="KDE4 plasmoid for monitoring emerge progress on Gentoo Linux"
 HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
 EGIT_REPO_URI="git://github.com/hwoarang/plasma-emergelog.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
+# Included LICENSE is GPL-2, but all headers say 3+. hwoarang said 
+# that it can be licensed as 3+
 KEYWORDS=""
 SLOT="4"
 IUSE="debug"
