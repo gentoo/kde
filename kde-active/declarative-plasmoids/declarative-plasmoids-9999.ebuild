@@ -11,7 +11,7 @@ HOMEPAGE="https://projects.kde.org/projects/playground/base/declarative-plasmoid
 
 LICENSE="LGPL-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug"
 
 DEPEND=""
