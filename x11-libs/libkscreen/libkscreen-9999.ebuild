@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
-DESCRIPTION="Supporting library for new intelligent KDE screen management"
+DESCRIPTION="KDE screen management library"
 HOMEPAGE="https://projects.kde.org/projects/playground/libs/libkscreen"
 
 LICENSE="GPL-2"
@@ -25,3 +25,5 @@ DEPEND="
 	${RDEPEND}
 	test? ( dev-qt/qttest:4 )
 "
+
+RESTRICT="test"
