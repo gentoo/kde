@@ -6,7 +6,7 @@ diff -Naur a/services/fileindexer/indexer/ffmpegextractor.cpp b/services/fileind
  
                  int aspectRatio = codec->sample_aspect_ratio.num;
 -                int frameRate = stream->r_frame_rate.num;
-+                int frameRate = stream->avg_frame_rate.num;
++                float frameRate = stream->avg_frame_rate.num;
  
                  if( codec->sample_aspect_ratio.den )
                      aspectRatio /= codec->sample_aspect_ratio.den;

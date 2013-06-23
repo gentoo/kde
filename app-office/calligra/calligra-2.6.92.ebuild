@@ -23,10 +23,10 @@ HOMEPAGE="http://www.calligra.org/"
 case ${PV} in
 	2.[456789].[789]?)
 		# beta or rc releases
-		SRC_URI="mirror://kde/unstable/${P}/${P}.tar.bz2" ;;
+		SRC_URI="mirror://kde/unstable/${P}/${P}.tar.xz" ;;
 	2.[456789].?)
 		# stable releases
-		SRC_URI="mirror://kde/stable/${P}/${P}.tar.bz2" ;;
+		SRC_URI="mirror://kde/stable/${P}/${P}.tar.xz" ;;
 	2.[456789].9999)
 		# stable branch live ebuild
 		SRC_URI="" ;;
