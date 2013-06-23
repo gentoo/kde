@@ -8,7 +8,7 @@ KMNAME="extragear/sysadmin"
 KDE_SCM="svn"
 inherit kde4-base
 
-DESCRIPTION="KDE utility for management of partitions and file systems."
+DESCRIPTION="KDE utility for management of partitions and file systems"
 HOMEPAGE="http://partitionman.sourceforge.net/"
 
 LICENSE="GPL-2"
@@ -18,8 +18,8 @@ IUSE="debug"
 
 RDEPEND="
 	dev-libs/libatasmart
-	sys-block/parted
-	sys-libs/e2fsprogs-libs
+	>=sys-block/parted-3
+	sys-apps/util-linux
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
@@ -27,8 +27,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	mycmakeargs=(
-		-DPARTMAN_KPART=ON
-		-DPARTMAN_KCM=ON
+		-DENABLE_UDISKS2=ON
 	)
 
 	kde4-base_src_configure
