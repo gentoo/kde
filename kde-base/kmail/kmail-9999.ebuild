@@ -33,7 +33,6 @@ KMEXTRACTONLY="
 	libkpgp/
 	libkdepimdbusinterfaces/
 	kdgantt2/
-	sendlateragent/
 "
 KMCOMPILEONLY="
 	messagecomposer/
@@ -57,6 +56,7 @@ KMEXTRA="
 	ontologies/
 	pimsettingexporter/
 	plugins/messageviewer/
+	sendlateragent/
 "
 
 KMLOADLIBS="kdepim-common-libs"
