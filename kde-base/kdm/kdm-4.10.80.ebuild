@@ -9,8 +9,8 @@ KMNAME="kde-workspace"
 inherit systemd kde4-meta flag-o-matic user
 
 DESCRIPTION="KDE login manager, similar to xdm and gdm"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+consolekit debug kerberos pam"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug kerberos pam systemd"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
@@ -18,14 +18,15 @@ DEPEND="
 	x11-libs/libXau
 	x11-libs/libXdmcp
 	x11-libs/libXtst
-	consolekit? (
-		>=sys-apps/dbus-1.0.2
-		sys-auth/consolekit
-	)
 	kerberos? ( virtual/krb5 )
 	pam? (
 		$(add_kdebase_dep kcheckpass)
 		virtual/pam
+	)
+	systemd? ( sys-apps/systemd )
+	!systemd? (
+		>=sys-apps/dbus-1.0.2
+		sys-auth/consolekit
 	)
 "
 RDEPEND="${DEPEND}
@@ -55,7 +56,7 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use kerberos KDE4_KRB5AUTH)
 		$(cmake-utils_use_with pam)
-		$(cmake-utils_use_with consolekit CkConnector)
+		$(cmake-utils_use_with !systemd CkConnector)
 	)
 
 	kde4-meta_src_configure
@@ -95,7 +96,9 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/kdm-logrotate kdm
 
-	systemd_dounit "${FILESDIR}"/kdm.service
+	if use systemd; then
+		systemd_dounit "${FILESDIR}"/kdm.service
+	fi
 }
 
 pkg_postinst() {
@@ -147,7 +150,7 @@ pkg_postinst() {
 	use prefix || chown root:kdm "${EROOT}${KDM_HOME}"
 	chmod 1770 "${EROOT}${KDM_HOME}"
 
-	if use consolekit; then
+	if use !systemd; then
 		echo
 		elog "You have compiled 'kdm' with consolekit support. If you want to use kdm,"
 		elog "make sure consolekit daemon is running and started at login time"
