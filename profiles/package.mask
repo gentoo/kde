@@ -312,4 +312,3 @@ kde-misc/kobby
 kde-misc/kannasaver
 kde-misc/simpleweatherforecast
 kde-misc/togglecompositing
-kde-misc/translatoid
