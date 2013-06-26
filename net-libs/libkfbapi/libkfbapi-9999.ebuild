@@ -4,12 +4,14 @@
 
 EAPI=5
 
+KDE_LINGUAS="ar be bs cs da de el en_GB eo es et fi fr ga gl hi hu it ja kk km
+lt mai mr nb nds nl nn oc pa pl pt pt_BR ro ru sk sl sv tr ug uk zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Library for accessing Facebook services based on KDE technology"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkfbapi"
 
-LICENSE="|| ( LGPL-2 LGPL-3 )"
+LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
 IUSE="debug"
