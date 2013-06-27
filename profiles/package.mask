@@ -307,7 +307,9 @@ kde-misc/kobby
 
 # Johannes Huber ~johu@gentoo.org> (26 June 2013)
 # KDE SC 4.11 beta2 mask.
-# Unstable release. Tarballs not released yet. 
+# Unstable release.
+# Report any issues about the software to bugs.kde.org and
+# issues about ebuilds to bugs.gentoo.org
 ~kde-base/kdeplasma-addons-4.10.90
 ~kde-base/kde-l10n-4.10.90
 ~kde-base/dolphin-4.10.90
