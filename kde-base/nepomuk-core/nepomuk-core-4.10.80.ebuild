@@ -7,12 +7,13 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Nepomuk core libraries"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug exif ffmpeg pdf taglib"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug epub exif ffmpeg pdf taglib"
 
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland,virtuoso]
+	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2 )
 	ffmpeg? ( virtual/ffmpeg )
 	pdf? ( app-text/poppler[qt4] )
@@ -29,10 +30,11 @@ PATCHES=( "${FILESDIR}/libav_fix.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with exif Exiv2)
-		$(cmake-utils_use_with ffmpeg FFmpeg)
-		$(cmake-utils_use_with pdf PopplerQt4)
-		$(cmake-utils_use_with taglib Taglib)
+		$(cmake-utils_use_find_package epub EPub)
+		$(cmake-utils_use_find_package exif Exiv2)
+		$(cmake-utils_use_find_package ffmpeg FFmpeg)
+		$(cmake-utils_use_find_package pdf PopplerQt4)
+		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
 	kde4-base_src_configure
