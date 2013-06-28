@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>kde</herd>
+	<herd>kde</herd>
+	<use>
+		<flag name="jasper">
+			Use <pkg>media-libs/jasper</pkg> to support RedOne digital movie cameras (R3D format)
+		</flag>
+	</use>
 </pkgmetadata>
