@@ -27,6 +27,11 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep katepart)
 "
 
+KMEXTRA="
+        addons/kate
+        addons/plasma
+"
+
 pkg_setup() {
 	if use python; then
 		python-single-r1_pkg_setup
