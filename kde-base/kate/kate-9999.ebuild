@@ -28,8 +28,8 @@ RDEPEND="${DEPEND}
 "
 
 KMEXTRA="
-        addons/kate
-        addons/plasma
+	addons/kate
+	addons/plasma
 "
 
 pkg_setup() {
