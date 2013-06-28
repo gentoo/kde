@@ -10,8 +10,8 @@ PYTHON_COMPAT=( python{2_7,3_1,3_2,3_3} )
 inherit python-single-r1 kde4-meta
 
 DESCRIPTION="Kate is an MDI texteditor."
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug +plasma python"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -37,7 +37,6 @@ pkg_setup() {
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_build python pate)
-		$(cmake-utils_use_with plasma)
 	)
 
 	kde4-meta_src_configure
