@@ -25,6 +25,8 @@ add_blocker nepomuk '<4.8.80'
 RESTRICT="test"
 # bug 392989
 
+PATCHES=( "${FILESDIR}/libav_fix.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with exif Exiv2)
