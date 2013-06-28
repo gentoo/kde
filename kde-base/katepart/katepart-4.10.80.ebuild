@@ -18,6 +18,10 @@ RESTRICT="test"
 
 add_blocker kdelibs 4.6.50
 
+KMEXTRA="
+	addons/ktexteditor
+"
+
 src_configure() {
 	local mycmakeargs=(
 		"-DKDE4_BUILD_TESTS=OFF"
