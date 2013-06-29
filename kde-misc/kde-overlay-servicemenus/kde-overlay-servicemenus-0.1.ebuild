@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 CMAKE_REQUIRED="never"
 KDE_REQUIRED="never"
@@ -15,7 +15,7 @@ SRC_URI="http://dev.gentoo.org/~reavertm/${P}.tar.xz"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~x86"
 SLOT="4"
-IUSE=""
+IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdialog)
