@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_SCM="svn"
 inherit kde4-base
@@ -18,7 +18,7 @@ IUSE="debug"
 
 RDEPEND="
 	|| (
-		sys-boot/grub
+		sys-boot/grub:0
 		sys-boot/grub-static
 	)
 "
