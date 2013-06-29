@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
 DESCRIPTION="KDE-based PackageKit frontend"
-HOMEPAGE="https://projects.kde.org/projects/playground/sysadmin/apper"
+HOMEPAGE="https://projects.kde.org/projects/extragear/sysadmin/apper"
 
 LICENSE="GPL-2"
 KEYWORDS=""
