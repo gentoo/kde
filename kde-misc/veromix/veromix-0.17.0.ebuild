@@ -2,10 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-PYTHON_DEPEND="2"
+EAPI=5
+
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 CMAKE_REQUIRED="never"
-inherit python kde4-base
+inherit python-single-r1 kde4-base
 
 DESCRIPTION="Plasmoid mixer for the Pulseaudio sound server"
 HOMEPAGE="http://kde-look.org/content/show.php?content=116676"
@@ -16,7 +17,12 @@ SLOT="4"
 KEYWORDS="~amd64"
 IUSE="debug"
 
-DEPEND="app-arch/unzip"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+DEPEND="
+	${PYTHON_DEPS}
+	app-arch/unzip
+"
 RDEPEND="
 	$(add_kdebase_dep plasma-workspace python)
 	dev-python/PyQt4[dbus]
@@ -31,12 +37,12 @@ S=${WORKDIR}
 DOCS=( Changelog )
 
 pkg_setup() {
-	python_pkg_setup
+	python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
 
 src_prepare() {
-	python_convert_shebangs -r 2 "${S}"
+	python_fix_shebang "${S}"
 	sed -e '/^all:/s/build//' -i Makefile || die
 	sed -e 's|/usr/share/kde4/apps/|/usr/share/apps/|' -i Makefile \
 		-i org.veromix.pulseaudio.service || die
