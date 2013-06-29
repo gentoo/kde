@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="KDE4 plasmoid. Switch between KWin's compositing and traditional mode with ease."
+DESCRIPTION="KDE plasmoid to switch between KWin's compositing and traditional mode"
 HOMEPAGE="http://www.kde-look.org/content/show.php/Toggle-Compositing?content=78299"
 SRC_URI="http://ivplasma.googlecode.com/files/${P}.tar.gz"
 
