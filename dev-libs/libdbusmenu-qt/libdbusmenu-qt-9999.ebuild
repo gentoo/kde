@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-QT_DEPEND="4.6.3"
 EBZR_REPO_URI="lp:libdbusmenu-qt"
 
 [[ ${PV} == 9999* ]] && BZR_ECLASS="bzr"
@@ -27,15 +26,15 @@ SLOT="0"
 IUSE="debug doc"
 
 RDEPEND="
-	>=dev-qt/qtcore-${QT_DEPEND}:4
-	>=dev-qt/qtdbus-${QT_DEPEND}:4
-	>=dev-qt/qtgui-${QT_DEPEND}:4[dbus]
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
+	dev-qt/qtgui:4[dbus]
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? (
 		dev-libs/qjson
-		>=dev-qt/qttest-${QT_DEPEND}:4
+		dev-qt/qttest:4
 	)
 "
 
