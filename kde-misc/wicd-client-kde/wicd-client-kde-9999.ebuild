@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="cs da de el en_GB es et fr hu it lt nb nds nl pa pl pt pt_BR ru sv
 uk zh_CN zh_TW"
 EGIT_REPONAME="wicd-kde"
 MY_P=${P/-client/}
-PYTHON_DEPEND="2"
-inherit python kde4-base
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+inherit python-single-r1 kde4-base
 
 DESCRIPTION="Wicd client built on the KDE Development Platform"
 HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
@@ -18,15 +18,19 @@ HOMEPAGE="http://kde-apps.org/content/show.php/Wicd+Client+KDE?content=132366"
 LICENSE="GPL-3"
 SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
-RDEPEND="net-misc/wicd"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+RDEPEND="
+	${PYTHON_DEPS}
+	net-misc/wicd"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${PN/-client/}
 
 pkg_setup() {
-	python_pkg_setup
+	python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
 
