@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit cmake-utils
 
-DESCRIPTION="QT-style Interface for libinfinity"
+DESCRIPTION="Qt-style interface for libinfinity"
 HOMEPAGE="http://kobby.greghaynes.net/wiki/libqinfinity"
 SRC_URI="http://kobby.greghaynes.net/file-cabinet/${P/_beta/b}.tar.gz"
 
