@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit git-2 cmake-utils
 
 DESCRIPTION="Tool that creates dependency graph of C++ code"
 HOMEPAGE="http://gitorious.org/cpp-dependency-analyzer/"
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
 
 LICENSE="LGPL-3"
 KEYWORDS=""
