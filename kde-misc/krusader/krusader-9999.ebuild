@@ -2,11 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_HANDBOOK="optional"
-KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fr ga gl hr hu it
-ja ko lt mai nb nds nl pl pt pt_BR ro ru sk sl sv tr ug uk zh_CN zh_TW"
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fi fr ga
+gl hr hu it ja ko lt mai nb nds nl pa pl pt pt_BR ro ru sk sl sr
+sr@ijekavian sr@ijekavianlatin sr@latin sv tr ug uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras."
