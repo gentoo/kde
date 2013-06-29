@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KMNAME="playground/network"
 KMMODULE="${PN/-/_}"
@@ -16,7 +16,7 @@ HOMEPAGE="http://websvn.kde.org/trunk/playground/network/kio_slp/"
 LICENSE="GPL-1"
 SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="net-libs/openslp"
 RDEPEND="${DEPEND}"
