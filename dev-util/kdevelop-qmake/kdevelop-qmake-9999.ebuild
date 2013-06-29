@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KMNAME="kdev-qmake"
 inherit kde4-base
@@ -11,7 +11,7 @@ DESCRIPTION="Adds suppport for qmake projects to kdevelop."
 HOMEPAGE="http://www.kdevelop.org"
 
 LICENSE="LGPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE="tools"
 
