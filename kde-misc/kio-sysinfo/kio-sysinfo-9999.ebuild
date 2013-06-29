@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KMNAME="playground/base"
 KMMODULE="${PN/-/_}"
@@ -16,7 +16,7 @@ HOMEPAGE="http://websvn.kde.org/trunk/playground/base/kio_sysinfo/"
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 src_configure() {
 	# What the heck is HD library??
