@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -15,6 +15,8 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/oyranos-0.9.0
+	>=media-libs/oyranos-0.9.3
+	media-libs/libXcm
+	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}"
