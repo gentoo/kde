@@ -7,3 +7,4 @@ slotmove kde-misc/kscreen 0 4
 move kde-misc/declarative-plasmoids kde-active/declarative-plasmoids
 slotmove dev-util/plasmate 0 4
 slotmove app-pda/akunambol 0 4
+slotmove sys-auth/kdm-plugin-pam-face-authentication 0 4
