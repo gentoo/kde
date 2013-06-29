@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde4-base mono
+inherit mono-env kde4-base
 
 DESCRIPTION="C# bindings for KDE"
 KEYWORDS=" ~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
@@ -21,6 +21,11 @@ RDEPEND="${DEPEND}"
 
 # Split from kdebindings-csharp in 4.7
 add_blocker kdebindings-csharp
+
+pkg_setup() {
+	mono-env_pkg_setup
+	kde4-base_pkg_setup
+}
 
 src_prepare() {
 	kde4-base_src_prepare
