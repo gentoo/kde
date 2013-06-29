@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit cmake-utils git-2
 
 DESCRIPTION="C/C++ interface to the Google Data API"
 HOMEPAGE="http://code.google.com/p/libgcal/"
-EGIT_REPO_URI="git://gitorious.org/libgcal/libgcal.git"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
 
 LICENSE="BSD"
 KEYWORDS=""
@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-libs/check )
 "
 
-DOCS=(README)
+DOCS=( README )
 
 src_configure() {
 	mycmakeargs=(
