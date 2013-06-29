@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit cmake-utils eutils
 
@@ -18,7 +18,7 @@ IUSE="debug"
 DEPEND="
 	>=media-libs/opencv-1.0.0
 	>=sci-libs/gsl-1.9
-	>=sys-libs/pam-0.99.8
+	virtual/pam
 "
 RDEPEND="${DEPEND}"
 
