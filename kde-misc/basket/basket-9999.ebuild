@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-VIRTUALX_REQUIRED=test
+VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="A DropDrawers clone. Multiple information organizer"
@@ -14,19 +14,19 @@ EGIT_REPO_URI="git://gitorious.org/basket/basket.git"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-
 IUSE="debug crypt"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	media-libs/qimageblitz
+	x11-libs/libX11
 	crypt? ( >=app-crypt/gpgme-1.0 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable crypt)
+		$(cmake-utils_use_find_package crypt Gpgme)
 	)
 	kde4-base_src_configure
 }
