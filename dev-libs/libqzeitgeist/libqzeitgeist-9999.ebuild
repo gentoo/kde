@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-PYTHON_DEPEND="2"
-
-inherit python kde4-base
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+KDE_REQUIRED="never"
+inherit python-single-r1 kde4-base
 
 DESCRIPTION="Qt interface to the Zeitgeist event tracking system"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/libqzeitgeist"
@@ -21,7 +21,10 @@ LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 RDEPEND="
+	${PYTHON_DEPS}
 	dev-libs/libzeitgeist
 	dev-qt/qtdeclarative:4
 "
@@ -31,9 +34,6 @@ DEPEND="
 "
 
 pkg_setup() {
-	# gnome-extra/zeitgeist currently only
-	# supports python-2
-	python_set_active_version 2
-	python_pkg_setup
+	python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
