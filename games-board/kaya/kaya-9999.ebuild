@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
+
 USE_RUBY="ruby18"
 inherit kde4-base ruby-ng
 
@@ -11,9 +12,9 @@ HOMEPAGE="http://pcapriotti.github.com/kaya/"
 EGIT_REPO_URI="git://github.com/pcapriotti/kaya.git"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND=""
 RDEPEND=""
