@@ -2,18 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KDE_LINGUAS="de es it fr ru"
 KDE_SCM="svn"
-inherit kde4-base subversion
+inherit kde4-base
 
 DESCRIPTION="Guitarist helper program focusing on tabulature editing and MIDI synthesizers support"
 HOMEPAGE="http://kguitar.sf.net/"
-ESVN_REPO_URI="https://kguitar.svn.sourceforge.net/svnroot/kguitar/branches/kde4"
+ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/branches/kde4"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="4"
 KEYWORDS=""
 IUSE="midi"
 
