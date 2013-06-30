@@ -18,12 +18,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # blocker added due to compatibility issues and error during compile time
 RDEPEND="
 	${PYTHON_DEPS}
+	>=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X]
 	>=dev-python/sip-4.14:=[${PYTHON_USEDEP}]
 	>=dev-libs/soprano-2.9.0
 	$(add_kdebase_dep kdelibs 'opengl')
 	$(add_kdebase_dep kdepimlibs)
-	aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,aqua] )
-	!aqua? ( >=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X] )
 "
 DEPEND="${RDEPEND}
 	sys-devel/libtool
