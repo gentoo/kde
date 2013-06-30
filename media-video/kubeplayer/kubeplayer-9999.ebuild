@@ -2,10 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
+
 inherit kde4-base
 
-DESCRIPTION="A multimedia player for different online platforms."
+DESCRIPTION="Multimedia player for different online platforms"
 HOMEPAGE="http://projects.kde.org/projects/playground/multimedia/kubeplayer"
 
 LICENSE="GPL-2"
