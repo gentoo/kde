@@ -10,3 +10,4 @@ slotmove app-pda/akunambol 0 4
 slotmove sys-auth/kdm-plugin-pam-face-authentication 0 4
 slotmove net-libs/likeback 0 4
 slotmove dev-util/kdevelop-qmake 0 4
+slotmove media-video/kamoso 0 4
