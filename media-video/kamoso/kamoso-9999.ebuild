@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -11,7 +11,7 @@ HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-SLOT="0"
+SLOT="4"
 IUSE="debug"
 
 DEPEND="
