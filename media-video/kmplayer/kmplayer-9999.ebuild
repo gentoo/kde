@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 KMNAME="extragear/multimedia"
 KDE_SCM="svn"
@@ -29,22 +29,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!media-video/kmplayer:4.1
-	|| (
-		media-video/mplayer
-		media-video/mplayer-bin
-	)
+	media-video/mplayer
 "
-
-pkg_setup() {
-	if has_version "media-video/mplayer-bin"; then
-		echo
-		elog 'NOTICE: You have mplayer-bin installed; you may need to configure'
-		elog 'NOTICE: kmplayer to use it from within the application.'
-		echo
-	fi
-
-	kde4-base_pkg_setup
-}
 
 src_prepare() {
 	# fixup icon install
