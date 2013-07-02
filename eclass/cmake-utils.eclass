@@ -619,7 +619,7 @@ enable_cmake-utils_src_test() {
 
 # @FUNCTION: cmake-utils_src_prepare
 # @DESCRIPTION:
-# Wrapper function around base_src_prepare, just to expand the eclass API.
+# Apply ebuild and user patches.
 cmake-utils_src_prepare() {
 	_execute_optionaly "src_prepare" "$@"
 }
