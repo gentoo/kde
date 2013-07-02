@@ -55,6 +55,7 @@ kde-misc/kobby
 ~kde-base/kdebase-kioslaves-4.10.90
 ~kde-base/kdebase-menu-4.10.90
 ~kde-base/kdebase-menu-icons-4.10.90
+~kde-base/kimgio-4.10.90
 ~kde-base/kdebase-runtime-meta-4.10.90
 ~kde-base/kdebugdialog-4.10.90
 ~kde-base/kdesu-4.10.90
