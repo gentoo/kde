@@ -26,6 +26,7 @@ RDEPEND="
 	$(add_kdebase_dep kfile)
 	$(add_kdebase_dep kglobalaccel)
 	$(add_kdebase_dep kiconfinder)
+	$(add_kdebase_dep kimgio)
 	$(add_kdebase_dep kioclient)
 	$(add_kdebase_dep kmimetypefinder)
 	$(add_kdebase_dep knetattach)
