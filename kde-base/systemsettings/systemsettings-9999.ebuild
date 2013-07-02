@@ -40,6 +40,7 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/xextproto
 "
 RDEPEND="${COMMONDEPEND}
+	$(add_kdebase_dep nepomuk)
 	sys-libs/timezone-data
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config

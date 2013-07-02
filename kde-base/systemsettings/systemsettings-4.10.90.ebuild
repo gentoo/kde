@@ -13,7 +13,7 @@ inherit kde4-meta
 
 DESCRIPTION="System settings utility"
 IUSE="debug gtk +usb"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 COMMONDEPEND="
 	app-misc/strigi
@@ -40,6 +40,7 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/xextproto
 "
 RDEPEND="${COMMONDEPEND}
+	$(add_kdebase_dep nepomuk)
 	sys-libs/timezone-data
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config

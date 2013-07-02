@@ -12,7 +12,7 @@ VIRTUALDBUS_TEST="true"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
-IUSE="debug gtk +usb"
+IUSE="debug gtk +semantic-desktop +usb"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -44,6 +44,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
 	gtk? ( kde-misc/kde-gtk-config )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 KMEXTRA="
