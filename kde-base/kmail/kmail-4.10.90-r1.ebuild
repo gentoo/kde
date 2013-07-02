@@ -46,6 +46,7 @@ KMCOMPILEONLY="
 "
 KMEXTRA="
 	archivemailagent/
+	headerthemeeditor/
 	kmailcvt/
 	ksendemail/
 	importwizard/
