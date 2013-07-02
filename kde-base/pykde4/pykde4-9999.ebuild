@@ -15,7 +15,6 @@ IUSE="debug doc examples test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# blocker added due to compatibility issues and error during compile time
 RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X]
