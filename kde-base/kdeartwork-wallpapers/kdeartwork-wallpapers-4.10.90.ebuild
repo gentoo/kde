@@ -19,4 +19,4 @@ KMEXTRA="
 	HighResolutionWallpapers/
 "
 
-add_blocker kde-wallpapers '<4.9.50'
+RDEPEND="!<kde-base/kde-wallpapers-4.9.50:4"
