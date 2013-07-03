@@ -14,5 +14,5 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep solid-runtime)
+	!kde-base/solid:4
 "
-add_blocker solid
