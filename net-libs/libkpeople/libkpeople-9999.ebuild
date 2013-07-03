@@ -25,7 +25,6 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_usw_with examples)
-		$(cmake-utils_use_with test TESTS)
 	)
 
 	kde4-base_src_configure
