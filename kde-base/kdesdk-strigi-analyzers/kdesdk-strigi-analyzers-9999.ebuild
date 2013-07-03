@@ -13,6 +13,6 @@ IUSE="debug"
 DEPEND="
 	app-misc/strigi
 "
-RDEPEND="${DEPEND}"
-
-add_blocker kdesdk-strigi-analyzer
+RDEPEND="${DEPEND}
+	!kde-base/kdesdk-strigi-analyzer:4
+"
