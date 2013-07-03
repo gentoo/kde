@@ -32,9 +32,6 @@ RDEPEND="${DEPEND}
 	!kde-misc/akonadi-google
 "
 
-# nepomuk_email_feeder moved here in 4.8
-add_blocker kdepim-common-libs 4.7.50
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package facebook LibKFbAPI)
