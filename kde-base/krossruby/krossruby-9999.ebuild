@@ -22,9 +22,6 @@ IUSE="debug"
 DEPEND=""
 RDEPEND=""
 
-# Split from kdebindings-ruby in 4.7
-add_blocker kdebindings-ruby
-
 pkg_setup() {
 	ruby-ng_pkg_setup
 	kde4-meta_pkg_setup
