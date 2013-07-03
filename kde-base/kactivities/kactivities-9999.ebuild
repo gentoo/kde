@@ -10,8 +10,3 @@ DESCRIPTION="KDE Activity Manager"
 
 KEYWORDS=""
 IUSE=""
-
-# Split out from kdelibs in 4.7.1-r2
-add_blocker kdelibs 4.7.1-r1
-# Moved here in 4.8
-add_blocker activitymanager
