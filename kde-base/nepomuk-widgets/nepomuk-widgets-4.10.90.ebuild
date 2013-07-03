@@ -14,9 +14,9 @@ DEPEND="
 	$(add_kdebase_dep nepomuk-core)
 	>=dev-libs/soprano-2.9.0
 "
-RDEPEND="${DEPEND}"
-
-add_blocker nepomuk-core '<4.9.80'
+RDEPEND="${DEPEND}
+	!<kde-base/nepomuk-core-4.9.80:4
+"
 
 # tests hangs
 RESTRICT="test"
