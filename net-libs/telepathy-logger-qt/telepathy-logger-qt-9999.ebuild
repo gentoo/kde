@@ -5,7 +5,7 @@
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
-
+KDE_REQUIRED="never"
 inherit kde4-base python-any-r1
 
 DESCRIPTION="Qt4 bindings for the Telepathy logger"
@@ -23,7 +23,8 @@ IUSE="debug"
 
 RDEPEND="
 	media-libs/qt-gstreamer
-	>=net-im/telepathy-logger-0.2.12-r1
+	>=net-im/telepathy-logger-0.8.0
+	net-libs/telepathy-glib
 	>=net-libs/telepathy-qt-0.9.1
 "
 DEPEND="${RDEPEND}
