@@ -11,6 +11,8 @@ DESCRIPTION="KDE Interactive Geometry tool"
 KEYWORDS=""
 IUSE="debug scripting"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="
 	scripting? ( >=dev-libs/boost-1.48:=[python] )
 "
