@@ -19,9 +19,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Split from kdebindings-csharp in 4.7
-add_blocker kdebindings-csharp
-
 pkg_setup() {
 	mono-env_pkg_setup
 	kde4-base_pkg_setup
