@@ -14,9 +14,8 @@ DEPEND="
 	>=net-print/cups-1.5.0[dbus]
 "
 RDEPEND="${DEPEND}
-	app-admin/system-config-printer-gnome
+	!kde-base/printer-applet:4
+	!kde-base/system-config-printer-kde:4
 	!kde-misc/print-manager
+	app-admin/system-config-printer-gnome
 "
-
-add_blocker printer-applet
-add_blocker system-config-printer-kde
