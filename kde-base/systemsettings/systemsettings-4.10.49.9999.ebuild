@@ -59,8 +59,6 @@ KMEXTRACTONLY="
 	plasma/
 "
 
-add_blocker kdeaccessibility-colorschemes '<4.6.50'
-
 PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
 
 src_unpack() {
