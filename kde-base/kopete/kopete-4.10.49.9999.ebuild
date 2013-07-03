@@ -12,7 +12,7 @@ else
 fi
 
 KDE_HANDBOOK="optional"
-inherit kde4-${KDE_ECLASS} multilib
+inherit kde4-${KDE_ECLASS}
 
 DESCRIPTION="KDE multi-protocol IM client"
 KEYWORDS=""
@@ -113,13 +113,6 @@ RDEPEND="${COMMONDEPEND}
 DEPEND="${COMMONDEPEND}
 	!aqua? ( x11-proto/scrnsaverproto )
 "
-
-src_prepare() {
-	sed -e "s:lib/mozilla:$(get_libdir)/mozilla:" \
-		-i protocols/skype/skypebuttons/CMakeLists.txt || die "sed failed"
-
-	kde4-${KDE_ECLASS}_src_prepare
-}
 
 src_configure() {
 	local x x2
