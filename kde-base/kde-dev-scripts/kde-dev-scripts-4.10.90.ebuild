@@ -12,11 +12,11 @@ KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="
+	!kde-base/kdesdk-scripts:4
 	app-arch/advancecomp
 	media-gfx/optipng
 	dev-perl/XML-DOM
 "
-add_blocker kdesdk-scripts
 
 src_prepare() {
 	# bug 275069
