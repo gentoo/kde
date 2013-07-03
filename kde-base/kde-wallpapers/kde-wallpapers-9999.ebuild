@@ -12,8 +12,6 @@ DESCRIPTION="KDE wallpapers"
 KEYWORDS=""
 IUSE=""
 
-add_blocker kdebase-wallpapers
-
 src_configure() {
 	mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
