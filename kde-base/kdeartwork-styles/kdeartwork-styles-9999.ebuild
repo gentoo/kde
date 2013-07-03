@@ -13,10 +13,8 @@ DESCRIPTION="Extra KWin styles and window decorations"
 KEYWORDS=""
 IUSE="debug"
 
-add_blocker kwin '<4.5.67'
-
 DEPEND="
-		$(add_kdebase_dep kwin)
+	$(add_kdebase_dep kwin)
 "
 RDEPEND="${DEPEND}"
 
