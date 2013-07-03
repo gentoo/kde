@@ -16,8 +16,6 @@ KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-2"
 IUSE="aqua"
 
-add_blocker kdelibs 4.6.80
-
 S=${WORKDIR}
 
 src_unpack() {
