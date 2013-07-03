@@ -19,6 +19,3 @@ KMEXTRA="
 	solidautoeject/
 	soliduiserver/
 "
-
-# file collisions, bug 395001
-add_blocker solid 4.4.50
