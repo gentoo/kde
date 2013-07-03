@@ -34,9 +34,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Split in 4.7
-add_blocker smoke
-
 src_configure() {
 	mycmakeargs=(
 		-DDISABLE_Qt3Support=ON
