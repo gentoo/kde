@@ -18,7 +18,7 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXrender
 	python? (
-		${PYTHON_DEPEND}
+		${PYTHON_DEPS}
 		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 	)
 "
