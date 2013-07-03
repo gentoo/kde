@@ -19,8 +19,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker smoke
-
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with attica LibAttica)
