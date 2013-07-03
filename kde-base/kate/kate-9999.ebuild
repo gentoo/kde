@@ -19,7 +19,7 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	python? (
-		${PYTHON_DEPEND}
+		${PYTHON_DEPS}
 		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}" 4.9.2-r1)
 	)
 "
