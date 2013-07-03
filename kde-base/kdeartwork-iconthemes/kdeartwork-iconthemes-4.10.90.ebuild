@@ -17,6 +17,3 @@ IUSE=""
 RDEPEND="
 	!x11-themes/nuvola
 "
-
-# Moved here in 4.7
-add_blocker kdeaccessibility-iconthemes
