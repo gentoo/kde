@@ -20,9 +20,6 @@ DEPEND="${RDEPEND}
 	test? ( dev-perl/List-MoreUtils )
 "
 
-# Split from kdebindings-perl in 4.7
-add_blocker kdebindings-perl
-
 PATCHES=( "${FILESDIR}/${PN}-4.7.2-vendor.patch" )
 
 src_configure() {
