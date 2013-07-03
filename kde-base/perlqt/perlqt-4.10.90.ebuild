@@ -23,9 +23,6 @@ RDEPEND="
 "
 DEPEND=${RDEPEND}
 
-# Split from kdebindings-perl in 4.7
-add_blocker kdebindings-perl
-
 PATCHES=(
 	"${FILESDIR}/${PN}-4.10.80-vendor.patch"
 )
