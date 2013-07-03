@@ -25,8 +25,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-add_blocker kdemultimedia-kioslaves
-
 KMLOADLIBS="libkcddb"
 
 src_configure() {
