@@ -15,5 +15,3 @@ DEPEND="
 	dev-qt/qtcore:4[aqua=]
 "
 RDEPEND="${DEPEND}"
-
-add_blocker smoke
