@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug jasper lcms"
 
 DEPEND="
@@ -17,7 +17,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.5-extlibraw.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.10.90-extlibraw.patch" )
 
 src_configure() {
 	local mycmakeargs=(

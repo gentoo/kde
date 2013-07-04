@@ -1,0 +1,163 @@
+Patch by Pino Toscano
+Source: https://git.reviewboard.kde.org/r/110962/diff/
+
+
+diff -ruN libkdcraw-4.10.5.orig/CMakeLists.txt libkdcraw-4.10.5/CMakeLists.txt
+--- libkdcraw-4.10.5.orig/CMakeLists.txt	2013-06-28 19:36:41.000000000 +0200
++++ libkdcraw-4.10.5/CMakeLists.txt	2013-07-04 23:25:14.000000000 +0200
+@@ -29,15 +29,14 @@
+ MESSAGE(STATUS "----------------------------------------------------------------------------------")
+ MESSAGE(STATUS "Starting CMake configuration for: libkdcraw")
+ 
+-OPTION(ENABLE_LCMS2    "Link libraw to LCMS2 else LCMS1 (default=OFF)"    OFF)
+-OPTION(ENABLE_RAWSPEED "Compile libraw with RawSpeed codec (default=OFF)" OFF)
+-
+ FIND_PACKAGE(KDE4 REQUIRED)
+ INCLUDE(KDE4Defaults)
+ INCLUDE(MacroLibrary)
+ INCLUDE(MacroOptionalAddSubdirectory)
+ INCLUDE(FindPackageHandleStandardArgs)
+ 
++FIND_PACKAGE(LibRaw 0.15 REQUIRED)
++
+ ADD_DEFINITIONS (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS})
+ INCLUDE_DIRECTORIES (${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+ 
+@@ -106,7 +105,6 @@
+ 
+ # ==================================================================================================
+ 
+-ADD_SUBDIRECTORY(libraw)
+ ADD_SUBDIRECTORY(libkdcraw)
+ ADD_SUBDIRECTORY(test)
+ ADD_SUBDIRECTORY(icons)
+diff -ruN libkdcraw-4.10.5.orig/cmake/modules/FindLibRaw.cmake libkdcraw-4.10.5/cmake/modules/FindLibRaw.cmake
+--- libkdcraw-4.10.5.orig/cmake/modules/FindLibRaw.cmake	1970-01-01 01:00:00.000000000 +0100
++++ libkdcraw-4.10.5/cmake/modules/FindLibRaw.cmake	2013-07-04 23:25:14.000000000 +0200
+@@ -0,0 +1,63 @@
++# - Find LibRaw
++# Find the LibRaw library
++# This module defines
++#  LibRaw_INCLUDE_DIR, where to find libraw.h
++#  LibRaw_LIBRARIES, the libraries needed to use LibRaw
++#  LibRaw_VERSION_STRING, the version string of LibRaw
++#  LibRaw_DEFINITIONS, the definitions needed to use LibRaw
++
++
++# Copyright (c) 2013, Pino Toscano <pino@kde.org>
++#
++# Redistribution and use is allowed according to the terms of the BSD license.
++# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
++
++
++find_package(PkgConfig)
++if(PKG_CONFIG_FOUND)
++   pkg_check_modules(PC_LIBRAW libraw)
++   set(LibRaw_DEFINITIONS ${PC_LIBRAW_CFLAGS_OTHER})
++endif()
++
++find_path(LibRaw_INCLUDE_DIR libraw.h
++   HINTS
++   ${PC_LIBRAW_INCLUDEDIR}
++   ${PC_LibRaw_INCLUDE_DIRS}
++   PATH_SUFFIXES libraw
++)
++
++find_library(LibRaw_LIBRARIES NAMES raw
++   HINTS
++   ${PC_LIBRAW_LIBDIR}
++   ${PC_LIBRAW_LIBRARY_DIRS}
++)
++
++if(LibRaw_INCLUDE_DIR)
++   file(READ ${LibRaw_INCLUDE_DIR}/libraw_version.h _libraw_version_content)
++   string(REGEX MATCH "#define LIBRAW_MAJOR_VERSION[ ]*([0-9]*)\n" _version_major_match ${_libraw_version_content})
++   set(_libraw_version_major "${CMAKE_MATCH_1}")
++   string(REGEX MATCH "#define LIBRAW_MINOR_VERSION[ ]*([0-9]*)\n" _version_minor_match ${_libraw_version_content})
++   set(_libraw_version_minor "${CMAKE_MATCH_1}")
++   string(REGEX MATCH "#define LIBRAW_PATCH_VERSION[ ]*([0-9]*)\n" _version_patch_match ${_libraw_version_content})
++   set(_libraw_version_patch "${CMAKE_MATCH_1}")
++   if(_version_major_match AND _version_minor_match AND _version_patch_match)
++      set(LibRaw_VERSION_STRING "${_libraw_version_major}.${_libraw_version_minor}.${_libraw_version_patch}")
++   else()
++      if(NOT LibRaw_FIND_QUIETLY)
++         message(STATUS "Failed to get version information from ${LibRaw_INCLUDE_DIR}/libraw_version.h")
++      endif()
++   endif()
++endif()
++
++include(FindPackageHandleStandardArgs)
++find_package_handle_standard_args(LibRaw
++   REQUIRED_VARS LibRaw_LIBRARIES LibRaw_INCLUDE_DIR
++   VERSION_VAR LibRaw_VERSION_STRING
++)
++
++mark_as_advanced(LibRaw_INCLUDE_DIR
++   LibRaw_LIBRARIES
++   LibRaw_VERSION_STRING
++   LibRaw_DEFINITIONS
++)
++
+diff -ruN libkdcraw-4.10.5.orig/libkdcraw/CMakeLists.txt libkdcraw-4.10.5/libkdcraw/CMakeLists.txt
+--- libkdcraw-4.10.5.orig/libkdcraw/CMakeLists.txt	2013-06-28 19:36:41.000000000 +0200
++++ libkdcraw-4.10.5/libkdcraw/CMakeLists.txt	2013-07-04 23:29:38.000000000 +0200
+@@ -22,7 +22,27 @@
+ #
+ # ============================================================
+ 
+-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/../libraw)
++# In some versions LibRaw is not linked against OpenMP stuff,
++# so manually link libkdcraw against it for now.
++
++IF(NOT APPLE)
++    # OpenMP library detection (requires CMake >= 2.6.3)
++    # NOTE: OpenMP under MacOSX do not support multithreading.
++
++    MACRO_OPTIONAL_FIND_PACKAGE(OpenMP)
++
++    IF(OPENMP_FOUND)
++        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
++        IF("${OpenMP_CXX_FLAGS}" STREQUAL "-fopenmp")
++            SET(OPENMP_LDFLAGS "-lgomp")
++        ENDIF("${OpenMP_CXX_FLAGS}" STREQUAL "-fopenmp")
++        IF("${OpenMP_CXX_FLAGS}" STREQUAL "-xopenmp")
++            SET(OPENMP_LDFLAGS "-xopenmp")
++        ENDIF("${OpenMP_CXX_FLAGS}" STREQUAL "-xopenmp")
++    ENDIF(OPENMP_FOUND)
++ENDIF(NOT APPLE)
++
++INCLUDE_DIRECTORIES(${LibRaw_INCLUDE_DIR})
+ 
+ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/version.h)
+ 
+@@ -42,15 +62,15 @@
+ KDE4_ADD_LIBRARY(kdcraw SHARED ${kdcraw_LIB_SRCS})
+ 
+ TARGET_LINK_LIBRARIES(kdcraw
+-                      libraw
++                      ${LibRaw_LIBRARIES}
+                       ${KDE4_KDEUI_LIBS}
+                       ${KDE4_KIO_LIBS}
+                       ${KDE4_SOLID_LIBS}
+                       ${KDE4_THREADWEAVER_LIBRARIES}
++                      ${OPENMP_LDFLAGS}
+                      )
+ 
+-SET_TARGET_PROPERTIES(kdcraw PROPERTIES VERSION ${DCRAW_LIB_SO_VERSION_STRING} SOVERSION ${DCRAW_LIB_SO_CUR_VERSION}
+-                                        DEFINE_SYMBOL LIBRAW_BUILDLIB)
++SET_TARGET_PROPERTIES(kdcraw PROPERTIES VERSION ${DCRAW_LIB_SO_VERSION_STRING} SOVERSION ${DCRAW_LIB_SO_CUR_VERSION})
+ 
+ INSTALL(TARGETS kdcraw ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+diff -ruN libkdcraw-4.10.5.orig/libkdcraw/libkdcraw_export.h libkdcraw-4.10.5/libkdcraw/libkdcraw_export.h
+--- libkdcraw-4.10.5.orig/libkdcraw/libkdcraw_export.h	2013-06-28 19:36:41.000000000 +0200
++++ libkdcraw-4.10.5/libkdcraw/libkdcraw_export.h	2013-07-04 23:25:14.000000000 +0200
+@@ -31,7 +31,7 @@
+ #include <kdemacros.h>
+ 
+ #ifndef LIBKDCRAW_EXPORT
+-# if defined(LIBRAW_BUILDLIB)
++# if defined(MAKE_KDCRAW_LIB)
+    /* We are building this library */ 
+ #  define LIBKDCRAW_EXPORT KDE_EXPORT
+ # else

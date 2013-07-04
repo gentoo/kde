@@ -11,18 +11,17 @@ KEYWORDS=""
 IUSE="debug jasper lcms"
 
 DEPEND="
-	media-libs/lcms:0
+	>=media-libs/libraw-0.15:=
 	virtual/jpeg
 	jasper? ( media-libs/jasper )
-	lcms? ( media-libs/lcms:2 )
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-4.10.90-extlibraw.patch" )
+
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_LCMS=ON
 		$(cmake-utils_use_find_package jasper)
-		$(cmake-utils_use_find_package lcms LCMS2)
 	)
 
 	kde4-base_src_configure
