@@ -1,0 +1,22 @@
+commit bb58cdc9dd1a166e886b091602483f20f61c3130
+Author: Montel Laurent <montel@kde.org>
+Date:   Thu Jul 4 08:31:35 2013 +0200
+
+    Fix Bug 321927 - autoconfig support not working properly
+    
+    FIXED-IN: 4.11
+    BUG: 321927
+
+diff --git a/accountwizard/ispdb/ispdb.cpp b/accountwizard/ispdb/ispdb.cpp
+index 0c04cf2..24d274f 100644
+--- a/accountwizard/ispdb/ispdb.cpp
++++ b/accountwizard/ispdb/ispdb.cpp
+@@ -68,7 +68,7 @@ void Ispdb::lookupInDb()
+   {
+   case IspAutoConfig:
+   {
+-    url = KUrl( "http://autoconfig." + mAddr.domain.toLower() + "/mail/config-v1.1.xml" );
++    url = KUrl( "http://autoconfig." + mAddr.domain.toLower() + "/mail/config-v1.1.xml?emailaddress=" + mAddr.asString().toLower() );
+   }
+   break;
+   case IspWellKnow:

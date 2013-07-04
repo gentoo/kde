@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
+	epatch "${FILESDIR}/${PN}-4.10.5-fix-autoconfig.patch"
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package google LibKGAPI)
 		$(cmake-utils_use_find_package kolab Libkolab)
