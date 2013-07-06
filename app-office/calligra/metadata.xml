@@ -15,6 +15,7 @@
 		<flag name="okular">Enable bindings for <pkg>kde-base/okular</pkg></flag>
 		<flag name="opengtl">Enable support for transformation algorithms via <pkg>media-libs/opengtl</pkg></flag>
 		<flag name="spacenav">Enable support for the 3Dconnexion spacenav input device via <pkg>dev-libs/libspnav</pkg></flag>
+		<flag name="vc">Enable support for <pkg>dev-libs/vc</pkg>, could be a significant speed boost on kria</flag>
 		<flag name="word-perfect">Enable support for various WordPerfect file formats</flag>
 		<flag name="xbase">Enable support for xbase compatible database formats</flag>
 		<flag name="xslt">Enable xslt and exslt support format support</flag>

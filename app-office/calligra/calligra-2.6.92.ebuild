@@ -40,12 +40,12 @@ SLOT="4"
 
 # Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
 [[ ${PV} == *9999 ]] || \
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
 gsl +jpeg jpeg2k +kdcraw kdepim +lcms marble mysql +okular opengtl openexr
-+pdf postgres spacenav +ssl sybase test tiff +threads +truetype word-perfect xbase
-+xml +xslt"
++pdf postgres spacenav +ssl sybase test tiff +threads +truetype vc word-perfect
+xbase +xml +xslt"
 
 # please do not sort here, order is same as in CMakeLists.txt
 CAL_FTS="author kexi words flow plan stage sheets krita karbon braindump"
@@ -61,6 +61,7 @@ REQUIRED_USE="
 	calligra_features_krita? ( eigen exif lcms )
 	calligra_features_plan? ( kdepim )
 	calligra_features_sheets? ( eigen )
+	vc? ( calligra_features_krita )
 	test? ( calligra_features_karbon )
 "
 
@@ -122,6 +123,7 @@ RDEPEND="
 	sybase? ( dev-db/freetds )
 	tiff? ( media-libs/tiff )
 	truetype? ( media-libs/freetype:2 )
+	vc? ( dev-libs/vc )
 	word-perfect? (
 		app-text/libwpd
 		app-text/libwps
@@ -166,6 +168,7 @@ src_configure() {
 		"-DBUILD_active=OFF"         # we dont support active gui, maybe arm could
 		"-DWITH_LCMS=OFF"            # we use lcms:2
 		"-DCREATIVEONLY=OFF"
+		"-DPACKAGERS_BUILD=OFF"
 		"-DWITH_TINY=OFF"
 		"-DWITH_CreateResources=OFF" # NOT PACKAGED: http://create.freedesktop.org/
 		"-DWITH_DCMTK=OFF"           # NOT PACKAGED: http://www.dcmtk.org/dcmtk.php.en
@@ -209,6 +212,7 @@ src_configure() {
 		$(cmake-utils_use_with tiff TIFF)
 		$(cmake-utils_use_with threads Threads)
 		$(cmake-utils_use_with truetype Freetype)
+		$(cmake-utils_use_with vc Vc)
 		$(cmake-utils_use_with word-perfect WPD)
 		$(cmake-utils_use_with word-perfect WPG)
 		$(cmake-utils_use_with xbase XBase)
