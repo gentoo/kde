@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
 KEYWORDS=""
-IUSE="debug jasper lcms"
+IUSE="debug jasper"
 
 DEPEND="
 	>=media-libs/libraw-0.15:=
