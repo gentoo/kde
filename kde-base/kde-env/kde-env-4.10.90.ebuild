@@ -14,7 +14,7 @@ ESVN_REPO_URI=""
 
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-2"
-IUSE="aqua"
+IUSE=""
 
 S=${WORKDIR}
 
