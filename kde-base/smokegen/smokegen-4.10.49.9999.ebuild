@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine - generators"
 KEYWORDS=""
-IUSE="aqua debug"
+IUSE="debug"
 
 DEPEND="
 	dev-qt/qtcore:4[aqua=]
