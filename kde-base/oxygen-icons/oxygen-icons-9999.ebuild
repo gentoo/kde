@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="LGPL-3"
 KEYWORDS=""
-IUSE="aqua bindist"
+IUSE="bindist"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
