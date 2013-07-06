@@ -22,10 +22,13 @@ IUSE="test"
 
 src_unpack() {
 	vcs-snapshot_src_unpack
-	mkdir -p "${WORKDIR}"/${P}_build/tests || die
-	for i in ${VC_TEST_DATA[@]}; do
-		cp "${DISTDIR}"/${P}-$i "${WORKDIR}"/${P}_build/tests/${i} || die
-	done
+
+	if use test ; then
+		mkdir -p "${WORKDIR}"/${P}_build/tests || die
+		for i in ${VC_TEST_DATA[@]}; do
+			cp "${DISTDIR}"/${P}-$i "${WORKDIR}"/${P}_build/tests/${i} || die
+		done
+	fi
 }
 
 src_configure() {
