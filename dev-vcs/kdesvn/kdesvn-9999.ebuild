@@ -6,16 +6,11 @@ EAPI=5
 
 KDE_HANDBOOK="optional"
 KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro ru"
-KDE_LINGUAS_LIVE_OVERRIDE="true"
-KDE_SCM="svn"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDESvn is a frontend to the subversion vcs."
 HOMEPAGE="http://kdesvn.alwins-world.de/"
-if [[ ${PV} = 9999* ]]; then
-	ESVN_REPO_URI="http://www.alwins-world.de/repos/kdesvn/trunk/"
-	ESVN_PROJECT="kdesvn"
-else
+if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
 fi
 
