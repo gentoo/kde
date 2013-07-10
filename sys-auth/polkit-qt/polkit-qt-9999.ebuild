@@ -19,7 +19,7 @@ COMMON_DEPEND="
 	dev-libs/glib:2
 	>=sys-auth/polkit-0.103
 	dev-qt/qtcore:4[glib]
-	dev-qt/qtgui:4[dbus,glib]
+	dev-qt/qtgui:4[dbus(+),glib]
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/automoc

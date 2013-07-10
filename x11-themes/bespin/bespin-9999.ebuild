@@ -34,7 +34,7 @@ DEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
 	windeco? ( $(add_kdebase_dep kwin) )
-	plasma? ( $(add_kdebase_dep kdelibs) dev-qt/qtgui:4[dbus] )
+	plasma? ( $(add_kdebase_dep kdelibs) dev-qt/qtgui:4[dbus(+)] )
 "
 
 src_configure() {
