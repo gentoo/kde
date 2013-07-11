@@ -9,10 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="The KDE Battleship clone"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="$(add_kdebase_dep libkdegames)"
-RDEPEND="${DEPEND}"
-
-add_blocker kbattleship
+RDEPEND="${DEPEND}
+	!kde-base/kbattleship:4
+"

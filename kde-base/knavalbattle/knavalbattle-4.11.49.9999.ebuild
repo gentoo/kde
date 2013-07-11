@@ -13,6 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="$(add_kdebase_dep libkdegames)"
-RDEPEND="${DEPEND}"
-
-add_blocker kbattleship
+RDEPEND="${DEPEND}
+	!kde-base/kbattleship:4
+"
