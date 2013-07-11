@@ -25,13 +25,6 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-runtime)
 "
 
-add_blocker kmailcvt
-add_blocker libksieve
-add_blocker messagecore
-add_blocker messagelist
-add_blocker messageviewer
-add_blocker mimelib
-
 KMEXTRACTONLY="
 	korganizer/org.kde.Korganizer.Calendar.xml
 	libkleo/
