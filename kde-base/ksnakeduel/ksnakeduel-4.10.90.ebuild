@@ -8,10 +8,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Tron game"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="$(add_kdebase_dep libkdegames)"
-RDEPEND="${DEPEND}"
-
-add_blocker ktron
+RDEPEND="${DEPEND}
+	!kde-base/ktron:4
+"

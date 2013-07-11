@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="$(add_kdebase_dep libkdegames)"
-RDEPEND="${DEPEND}"
-
-add_blocker ktron
+RDEPEND="${DEPEND}
+	!kde-base/ktron:4
+"
