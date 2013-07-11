@@ -13,9 +13,9 @@ IUSE="debug extras"
 DEPEND="
 	extras? ( >=dev-java/antlr-2.7.7:0[cxx,java,script] )
 "
-RDEPEND="${DEPEND}"
-
-add_blocker kdesdk-misc 4.10.50
+RDEPEND="${DEPEND}
+	!<=kde-base/kdesdk-misc-4.10.50:4
+"
 
 # java deps on anltr cant be properly explained to cmake deps
 # needs to be run in one thread
