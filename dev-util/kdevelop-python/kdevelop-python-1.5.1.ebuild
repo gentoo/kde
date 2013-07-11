@@ -6,14 +6,13 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-PYTHON_COMPAT=( python{2_7,3_1,3_2,3_3} )
 
 if [[ $PV == *.9999* ]]; then
 	EGIT_BRANCH="${PV/\.9999/}"
 	KDEVPLATFORM_VERSION="${EGIT_BRANCH}"
 fi
 
-inherit kde4-base python-r1
+inherit kde4-base
 
 MY_PN="${KMNAME}"
 MY_PV="v${PV}"
@@ -39,20 +38,18 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 DEPEND="
-	${PYTHON_DEPS}
 	>=dev-util/kdevelop-pg-qt-1.0.0
 "
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-util/kdevelop
 "
 
 RESTRICT="test"
 
 src_compile() {
-	pushd "${WORKDIR}"/${P}_build
+	pushd "${WORKDIR}"/${P}_build > /dev/null
 	emake parser
-	popd
+	popd > /dev/null
 
 	kde4-base_src_compile
 }
