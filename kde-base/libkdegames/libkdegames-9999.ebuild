@@ -16,11 +16,11 @@ DEPEND="
 		media-libs/openal
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-base/kbreakout-4.10.50:4
+"
 
 KMSAVELIBS="true"
-
-add_blocker kbreakout '<4.10.50'
 
 src_configure() {
 	local mycmakeargs=(
