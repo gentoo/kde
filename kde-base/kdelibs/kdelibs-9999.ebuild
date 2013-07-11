@@ -90,6 +90,8 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!dev-qt/qtphonon
+	!<=kde-base/plasma-workspace-4.7.1:4
+	!<=kde-base/kcontrol-4.4.50:4
 	>=app-crypt/gnupg-2.0.11
 	app-misc/ca-certificates
 	$(add_kdebase_dep kde-env)
@@ -116,12 +118,6 @@ PDEPEND="
 		>=sys-auth/polkit-kde-agent-0.99
 	)
 "
-
-# Force the upgrade of plasma-workspace to a version that explicitly depends on kactivities
-add_blocker plasma-workspace 4.7.1
-
-# file collision, bug 394991
-add_blocker kcontrol 4.4.50
 
 PATCHES=(
 	"${FILESDIR}/dist/01_gentoo_set_xdg_menu_prefix-1.patch"
