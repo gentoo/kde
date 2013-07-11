@@ -26,9 +26,9 @@ DEPEND="
 	sys-devel/gettext
 	dev-qt/qtsql:4[sqlite]
 "
-RDEPEND="${DEPEND}"
-
-add_blocker "kdesdk-kioslaves[subversion(+)]"
+RDEPEND="${DEPEND}
+	!kde-base/kdesdk-kioslaves:4[subversion(+)]
+"
 
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
