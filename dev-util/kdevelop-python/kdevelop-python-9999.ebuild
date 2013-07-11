@@ -39,6 +39,7 @@ IUSE="debug"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
+	>=dev-util/kdevplatform-1.4.60
 "
 RDEPEND="
 	dev-util/kdevelop
