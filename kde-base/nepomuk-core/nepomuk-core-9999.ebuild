@@ -19,9 +19,9 @@ DEPEND="
 	pdf? ( app-text/poppler[qt4] )
 	taglib? ( media-libs/taglib )
 "
-RDEPEND="${DEPEND}"
-
-add_blocker nepomuk '<4.8.80'
+RDEPEND="${DEPEND}
+	!<kde-base/nepomuk-4.8.80:4
+"
 
 RESTRICT="test"
 # bug 392989
