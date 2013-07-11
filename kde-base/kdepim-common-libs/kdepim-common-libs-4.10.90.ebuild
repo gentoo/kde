@@ -9,7 +9,7 @@ KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="Common libraries for KDE PIM apps"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
@@ -20,20 +20,17 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}
+	!kde-base/akonadi:4
+	!kde-base/libkdepim:4
+	!kde-base/libkleo:4
+	!kde-base/libkpgp:4
+	!<kde-base/kaddressbook-4.4.90:4
+	!kde-base/kdepim-wizards:4
+	!<kde-base/kmail-4.4.80:4
+	!<kde-base/korganizer-4.5.67:4
 	app-crypt/gnupg
 	$(add_kdebase_dep kdepim-runtime)
 "
-
-# @Since >4.4.76 merged here
-add_blocker akonadi
-add_blocker libkdepim
-add_blocker libkleo
-add_blocker libkpgp
-add_blocker kaddressbook '<4.4.90'
-# kdepim-wizards removed since 4.8.0
-add_blocker kdepim-wizards
-add_blocker kmail '<4.4.80'
-add_blocker korganizer '<4.5.67'
 
 RESTRICT="test"
 # bug 393131
