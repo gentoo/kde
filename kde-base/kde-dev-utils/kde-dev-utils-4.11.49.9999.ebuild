@@ -10,6 +10,8 @@ DESCRIPTION="KDE Development Utilities"
 KEYWORDS=""
 IUSE="debug"
 
-add_blocker kdesdk-misc
-add_blocker kstartperf
-add_blocker kuiviewer
+RDEPEND="
+	!kde-base/kdesdk-misc:4
+	!kde-base/kstartperf:4
+	!kde-base/kuiviewer:4
+"
