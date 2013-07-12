@@ -19,6 +19,7 @@ COMMONDEPEND="
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep liboxygenstyle)
+	|| ( <dev-qt/qtgui-4.8.5:4 ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer ) )
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
