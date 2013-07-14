@@ -15,6 +15,3 @@ DEPEND="
 	app-crypt/qca:2
 "
 RDEPEND="${DEPEND}"
-
-# bug #264917, removes failing test
-PATCHES=( "${FILESDIR}/${PN}-4.8.2-test.patch" )
