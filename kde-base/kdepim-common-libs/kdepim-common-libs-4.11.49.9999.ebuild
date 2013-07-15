@@ -52,6 +52,7 @@ KMEXTRA="
 	messageviewer/
 	ontologies/
 	pimcommon/
+	sendlateragent/
 	templateparser/
 "
 
