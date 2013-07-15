@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 	!kde-base/kdepim-wizards:4
 	!<kde-base/kmail-4.4.80:4
 	!<kde-base/korganizer-4.5.67:4
+	!<kde-base/kmail-4.10.95:4
 	app-crypt/gnupg
 	$(add_kdebase_dep kdepim-runtime)
 "
