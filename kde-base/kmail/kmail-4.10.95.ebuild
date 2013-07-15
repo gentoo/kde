@@ -57,7 +57,6 @@ KMEXTRA="
 	ontologies/
 	pimsettingexporter/
 	plugins/messageviewer/
-	sendlateragent/
 "
 
 KMLOADLIBS="kdepim-common-libs"
