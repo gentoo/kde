@@ -52,7 +52,6 @@ KMEXTRA="
 	messageviewer/
 	ontologies/
 	pimcommon/
-	sendlateragent/
 	templateparser/
 "
 
@@ -62,6 +61,7 @@ KMEXTRACTONLY="
 	knode/org.kde.knode.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
+	sendlateragent/
 "
 
 KMSAVELIBS="true"
