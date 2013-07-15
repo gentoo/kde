@@ -14,7 +14,6 @@ RDEPEND="
 	$(add_kdebase_dep kamera)
 	$(add_kdebase_dep kcolorchooser)
 	$(add_kdebase_dep kdegraphics-mobipocket)
-	$(add_kdebase_dep kdegraphics-strigi-analyzer)
 	$(add_kdebase_dep kgamma)
 	$(add_kdebase_dep kolourpaint)
 	$(add_kdebase_dep kruler)

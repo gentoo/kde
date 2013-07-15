@@ -192,7 +192,6 @@
 ~kde-base/kcolorchooser-4.11.49.9999 **
 ~kde-base/kdegraphics-meta-4.11.49.9999 **
 ~kde-base/kdegraphics-mobipocket-4.11.49.9999 **
-~kde-base/kdegraphics-strigi-analyzer-4.11.49.9999 **
 ~kde-base/kgamma-4.11.49.9999 **
 ~kde-base/kolourpaint-4.11.49.9999 **
 ~kde-base/kruler-4.11.49.9999 **
@@ -225,7 +224,6 @@
 ~kde-base/mplayerthumbs-4.11.49.9999 **
 ~kde-base/kdenetwork-filesharing-4.11.49.9999 **
 ~kde-base/kdenetwork-meta-4.11.49.9999 **
-~kde-base/kdenetwork-strigi-analyzers-4.11.49.9999 **
 ~kde-base/kdnssd-4.11.49.9999 **
 ~kde-base/kget-4.11.49.9999 **
 ~kde-base/kopete-4.11.49.9999 **
@@ -244,7 +242,6 @@
 ~kde-base/kdepim-kresources-4.11.49.9999 **
 ~kde-base/kdepim-l10n-4.11.49.9999 **
 ~kde-base/kdepim-meta-4.11.49.9999 **
-~kde-base/kdepim-strigi-analyzer-4.11.49.9999 **
 ~kde-base/kdepim-runtime-4.11.49.9999 **
 ~kde-base/kjots-4.11.49.9999 **
 ~kde-base/kleopatra-4.11.49.9999 **
@@ -264,7 +261,6 @@
 ~kde-base/kde-dev-utils-4.11.49.9999 **
 ~kde-base/kdesdk-kioslaves-4.11.49.9999 **
 ~kde-base/kdesdk-meta-4.11.49.9999 **
-~kde-base/kdesdk-strigi-analyzers-4.11.49.9999 **
 ~kde-base/kompare-4.11.49.9999 **
 ~kde-base/lokalize-4.11.49.9999 **
 ~kde-base/okteta-4.11.49.9999 **

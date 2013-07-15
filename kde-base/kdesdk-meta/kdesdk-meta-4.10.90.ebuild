@@ -18,7 +18,6 @@ RDEPEND="
 	$(add_kdebase_dep kde-dev-scripts)
 	$(add_kdebase_dep kde-dev-utils)
 	$(add_kdebase_dep kdesdk-kioslaves)
-	$(add_kdebase_dep kdesdk-strigi-analyzers)
 	$(add_kdebase_dep kompare)
 	$(add_kdebase_dep lokalize)
 	$(add_kdebase_dep okteta)

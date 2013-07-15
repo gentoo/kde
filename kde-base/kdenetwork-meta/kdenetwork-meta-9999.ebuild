@@ -12,7 +12,6 @@ IUSE="ppp"
 
 RDEPEND="
 	$(add_kdebase_dep kdenetwork-filesharing)
-	$(add_kdebase_dep kdenetwork-strigi-analyzers)
 	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep kget)
 	$(add_kdebase_dep kopete)

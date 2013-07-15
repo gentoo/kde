@@ -202,7 +202,6 @@ kde-misc/kobby
 ~kde-base/kcolorchooser-4.10.90
 ~kde-base/kdegraphics-meta-4.10.90
 ~kde-base/kdegraphics-mobipocket-4.10.90
-~kde-base/kdegraphics-strigi-analyzer-4.10.90
 ~kde-base/kgamma-4.10.90
 ~kde-base/kolourpaint-4.10.90
 ~kde-base/kruler-4.10.90
@@ -235,7 +234,6 @@ kde-misc/kobby
 ~kde-base/mplayerthumbs-4.10.90
 ~kde-base/kdenetwork-filesharing-4.10.90
 ~kde-base/kdenetwork-meta-4.10.90
-~kde-base/kdenetwork-strigi-analyzers-4.10.90
 ~kde-base/kdnssd-4.10.90
 ~kde-base/kget-4.10.90
 ~kde-base/kopete-4.10.90
@@ -254,7 +252,6 @@ kde-misc/kobby
 ~kde-base/kdepim-kresources-4.10.90
 ~kde-base/kdepim-l10n-4.10.90
 ~kde-base/kdepim-meta-4.10.90
-~kde-base/kdepim-strigi-analyzer-4.10.90
 ~kde-base/kdepim-runtime-4.10.90
 ~kde-base/kjots-4.10.90
 ~kde-base/kleopatra-4.10.90
@@ -274,7 +271,6 @@ kde-misc/kobby
 ~kde-base/kde-dev-utils-4.10.90
 ~kde-base/kdesdk-kioslaves-4.10.90
 ~kde-base/kdesdk-meta-4.10.90
-~kde-base/kdesdk-strigi-analyzers-4.10.90
 ~kde-base/kompare-4.10.90
 ~kde-base/lokalize-4.10.90
 ~kde-base/okteta-4.10.90

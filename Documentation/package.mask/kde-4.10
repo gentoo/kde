@@ -191,7 +191,6 @@
 <kde-base/kcolorchooser-4.10.50
 <kde-base/kdegraphics-meta-4.10.50
 <kde-base/kdegraphics-mobipocket-4.10.50
-<kde-base/kdegraphics-strigi-analyzer-4.10.50
 <kde-base/kgamma-4.10.50
 <kde-base/kolourpaint-4.10.50
 <kde-base/kruler-4.10.50
@@ -242,7 +241,6 @@
 <kde-base/kdepim-kresources-4.10.50
 <kde-base/kdepim-l10n-4.10.50
 <kde-base/kdepim-meta-4.10.50
-<kde-base/kdepim-strigi-analyzer-4.10.50
 <kde-base/kdepim-runtime-4.10.50
 <kde-base/kjots-4.10.50
 <kde-base/kleopatra-4.10.50
@@ -262,7 +260,6 @@
 <kde-base/kdesdk-meta-4.10.50
 <kde-base/kdesdk-misc-4.10.50
 <kde-base/kdesdk-scripts-4.10.50
-<kde-base/kdesdk-strigi-analyzer-4.10.50
 <kde-base/kompare-4.10.50
 <kde-base/kstartperf-4.10.50
 <kde-base/kuiviewer-4.10.50

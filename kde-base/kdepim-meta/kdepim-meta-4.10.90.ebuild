@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdebase_dep kdepim-icons)
 	$(add_kdebase_dep kdepim-kresources)
 	$(add_kdebase_dep kdepim-runtime)
-	$(add_kdebase_dep kdepim-strigi-analyzer)
 	$(add_kdebase_dep kjots)
 	$(add_kdebase_dep kleopatra)
 	$(add_kdebase_dep kmail)
