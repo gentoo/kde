@@ -12,7 +12,7 @@ IUSE="debug epub exif ffmpeg pdf taglib"
 
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
-	>=dev-libs/soprano-2.9.0[dbus,raptor,redland,virtuoso]
+	>=dev-libs/soprano-2.9.3[dbus,raptor,redland,virtuoso]
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2 )
 	ffmpeg? ( virtual/ffmpeg )
