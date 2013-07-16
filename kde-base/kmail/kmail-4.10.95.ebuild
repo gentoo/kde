@@ -43,6 +43,7 @@ KMCOMPILEONLY="
 	templateparser/
 	incidenceeditor-ng/
 	calendarsupport/
+	sendlateragent/
 "
 KMEXTRA="
 	archivemailagent/
