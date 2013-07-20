@@ -5,7 +5,7 @@
 EAPI=5
 
 if [ ${PV} != "9999" ]; then
-	GIT_REV="8a4ec9bae5880fcc5177c7846b50698f6e6a5c7b"
+	GIT_REV="5c44e5fd6d13d56c338341c293db701a6f75f781"
 	SRC_URI="http://sourceforge.net/code-snapshots/git/b/be/${PN}/code.git/${PN}-code-${GIT_REV}.zip
 			-> ${P}.zip"
 	KEYWORDS="~amd64 ~x86"
