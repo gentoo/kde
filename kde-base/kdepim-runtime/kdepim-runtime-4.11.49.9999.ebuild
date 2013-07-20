@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	>=dev-libs/shared-desktop-ontologies-0.11.0
-	|| ( <dev-qt/qtgui-4.8.5:4 ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer[-phonon] ) )
+	|| ( <dev-qt/qtgui-4.8.5:4 ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4[-phonon] ) )
 	$(add_kdebase_dep kdepimlibs)
 	x11-misc/shared-mime-info
 	facebook? ( net-libs/libkfbapi )
