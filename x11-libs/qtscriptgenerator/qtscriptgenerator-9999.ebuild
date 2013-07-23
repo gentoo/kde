@@ -15,7 +15,9 @@ KEYWORDS=""
 SLOT="0"
 IUSE="debug"
 
-DEPEND="dev-qt/qtgui:4
+DEPEND="dev-qt/qtcore:4
+	dev-qt/designer:4
+	dev-qt/qtgui:4
 	dev-qt/qtopengl:4
 	dev-qt/qtscript:4
 	dev-qt/qtsql:4
