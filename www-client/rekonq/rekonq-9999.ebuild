@@ -32,7 +32,10 @@ DEPEND="
 		dev-libs/qoauth
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	$(add_kdebase_dep keditbookmarks)
+"
 
 src_configure() {
 	local mycmakeargs=(
