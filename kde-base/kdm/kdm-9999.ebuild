@@ -12,7 +12,7 @@ DESCRIPTION="KDE login manager, similar to xdm and gdm"
 KEYWORDS=""
 IUSE="debug +consolekit kerberos pam systemd"
 
-REQUIRED_USE="systemd? ( !consolekit )"
+REQUIRED_USE="consolekit? ( !systemd ) systemd? ( !consolekit )"
 
 DEPEND="
 	$(add_kdebase_dep libkworkspace)
