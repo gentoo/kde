@@ -72,7 +72,7 @@ for release in $KDE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d "../package.unmask/.kde-${release}" ]]; then
 		cat "../package.unmask/.kde-${release}/"* >> "kde-${release}"
-		sed -i "kde-${release}" -e "/^<kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}/;s/^</>=/};/^~.*[.-]9999$/s/$/ **/"
+		sed -i "kde-${release}" -e "/^<kde-base\/.*-4\..\.50$/{s/-4\..\.50/-${release}/;s/^</>=/}"
 	fi
 done
 popd > /dev/null
