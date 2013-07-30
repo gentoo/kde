@@ -12,7 +12,6 @@ IUSE="debug"
 
 DEPEND="
 	>=media-gfx/exiv2-0.20
-	media-libs/lcms:0
 	virtual/jpeg
 "
 RDEPEND="${DEPEND}"
