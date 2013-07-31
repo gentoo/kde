@@ -8,5 +8,6 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Educational: Learn calculating with fractions"
+HOMEPAGE="http://kde.org/applications/education/kbruch http://edu.kde.org/kbruch"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
