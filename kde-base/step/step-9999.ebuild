@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="The KDE physics simulator"
+HOMEPAGE="http://edu.kde.org/step"
 KEYWORDS=""
 IUSE="debug +gsl +qalculate"
 
