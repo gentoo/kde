@@ -11,6 +11,7 @@ PYTHON_DEPEND="python? 2"
 inherit kde4-base python
 
 DESCRIPTION="Generic geographical map widget"
+HOMEPAGE="http://marble.kde.org/"
 KEYWORDS=""
 IUSE="debug designer-plugin gps +kde plasma python shapefile test"
 
