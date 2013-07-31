@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: Educational programming environment using the Logo programming language"
+HOMEPAGE="http://kde.org/applications/education/kturtle http://edu.kde.org/kturtle"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
