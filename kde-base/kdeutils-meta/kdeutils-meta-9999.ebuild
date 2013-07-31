@@ -6,6 +6,7 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
+HOMEPAGE="http://kde.org/applications/utilities http://utils.kde.org"
 KEYWORDS=""
 IUSE="cups floppy lirc"
 
