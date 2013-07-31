@@ -9,7 +9,7 @@ inherit kde4-base
 DESCRIPTION="KCM displaying distribution and system information"
 HOMEPAGE="http://quickgit.kde.org/?p=about-distro.git"
 SRC_URI="http://www.gentoo.org/images/glogo-small.png"
-EGIT_REPO_URI="git://anongit.kde.org/about-distro.git"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="GPL-3"
 SLOT="4"
