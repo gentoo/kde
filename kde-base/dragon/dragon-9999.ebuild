@@ -9,6 +9,7 @@ KMNAME="dragon"
 inherit kde4-base
 
 DESCRIPTION="Dragon Player is a simple video player for KDE 4"
+HOMEPAGE="http://www.kde.org/applications/multimedia/dragonplayer"
 KEYWORDS=""
 IUSE="debug xine"
 
