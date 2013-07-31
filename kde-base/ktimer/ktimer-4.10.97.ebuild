@@ -8,5 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Timer"
+HOMEPAGE="http://kde.org/applications/utilities/ktimer
+http://utils.kde.org/projects/ktimer"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
