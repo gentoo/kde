@@ -9,6 +9,7 @@ CPPUNIT_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="KDE control module for Solid actions"
+HOMEPAGE="http://solid.kde.org"
 KEYWORDS=""
 IUSE="debug"
 
