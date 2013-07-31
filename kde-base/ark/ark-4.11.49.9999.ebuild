@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Archiving tool"
+HOMEPAGE="http://kde.org/applications/utilities/ark
+http://utils.kde.org/projects/ark"
 KEYWORDS=""
 IUSE="+archive +bzip2 debug lzma"
 
