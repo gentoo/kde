@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE UML Modeller"
+HOMEPAGE="http://www.kde.org/applications/development/umbrello
+http://uml.sourceforge.net"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
