@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
+HOMEPAGE="http://kde.org/applications/education/klettres
+http://edu.kde.org/klettres"
 KEYWORDS=""
 IUSE="debug"
 
