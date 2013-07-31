@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
+HOMEPAGE="http://kde.org/applications/education/cantor http://edu.kde.org/cantor"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="analitza debug postscript qalculate +R"
 
