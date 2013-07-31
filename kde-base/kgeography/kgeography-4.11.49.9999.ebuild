@@ -8,5 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: a geography learning tool"
+HOMEPAGE="http://edu.kde.org/applications/miscellaneous/kgeography
+http://edu.kde.org/applications/all/kgeography"
 KEYWORDS=""
 IUSE="debug"
