@@ -9,6 +9,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="KDE Interactive Geometry tool"
+HOMEPAGE="http://kde.org/applications/education/kig http://edu.kde.org/kig"
 KEYWORDS=""
 IUSE="debug scripting"
 
