@@ -8,9 +8,6 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE free disk space utility"
+HOMEPAGE="http://utils.kde.org/projects/kdf"
 KEYWORDS=""
 IUSE="debug"
-
-src_unpack() {
-	kde4-base_src_unpack
-}
