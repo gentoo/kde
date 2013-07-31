@@ -9,6 +9,7 @@ KMNOMODULE=true
 inherit kde4-meta
 
 DESCRIPTION="KDE SC solid runtime modules (autoeject, automounter and others)"
+HOMEPAGE="http://solid.kde.org"
 KEYWORDS=""
 IUSE="debug"
 
