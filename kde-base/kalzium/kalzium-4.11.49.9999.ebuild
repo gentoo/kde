@@ -10,6 +10,8 @@ OPENGL_REQUIRED="always"
 inherit kde4-base flag-o-matic
 
 DESCRIPTION="KDE: periodic table of the elements."
+HOMEPAGE="http://www.kde.org/applications/education/kalzium
+http://edu.kde.org/kalzium"
 KEYWORDS=""
 IUSE="editor debug +plasma solver"
 
