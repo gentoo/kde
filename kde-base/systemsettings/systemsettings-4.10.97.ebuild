@@ -12,6 +12,7 @@ VIRTUALDBUS_TEST="true"
 inherit kde4-meta
 
 DESCRIPTION="System settings utility"
+HOMEPAGE+=" http://userbase.kde.org/System_Settings"
 IUSE="debug gtk +usb"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 
