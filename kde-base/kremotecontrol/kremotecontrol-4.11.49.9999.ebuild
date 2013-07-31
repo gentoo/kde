@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
+HOMEPAGE="http://kde.org/applications/utilities/kremotecontrol
+http://utils.kde.org/projects/kremotecontrol"
 KEYWORDS=""
 IUSE="debug"
 
