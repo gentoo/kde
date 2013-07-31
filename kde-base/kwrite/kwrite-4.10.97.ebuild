@@ -10,6 +10,7 @@ KMEXTRACTONLY="doc/kate"
 inherit kde4-meta
 
 DESCRIPTION="KDE MDI editor/IDE"
+HOMEPAGE="http://www.kde.org/applications/utilities/kwrite"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
