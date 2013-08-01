@@ -8,6 +8,7 @@ KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement."
+HOMEPAGE="http://solid.kde.org"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +pm-utils"
 
