@@ -11,26 +11,25 @@ HOMEPAGE="http://kde.org/"
 EGIT_REPO_URI="git://anongit.kde.org/polkit-qt-1"
 
 LICENSE="LGPL-2"
-KEYWORDS=""
 SLOT="0"
+KEYWORDS=""
 IUSE="debug examples"
 
-COMMON_DEPEND="
+RDEPEND="
 	dev-libs/glib:2
 	dev-qt/qtcore:4[glib]
 	dev-qt/qtdbus:4
 	dev-qt/qtgui:4[glib]
 	>=sys-auth/polkit-0.103
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-util/automoc
 "
-RDEPEND="${COMMON_DEPEND}"
 
-DOCS=(AUTHORS README README.porting TODO)
+DOCS=( AUTHORS README README.porting TODO )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build examples)
 	)
 	cmake-utils_src_configure
