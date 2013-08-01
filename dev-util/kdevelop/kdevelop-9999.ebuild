@@ -23,6 +23,7 @@ fi
 DEPEND="
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
+	dev-libs/qjson
 	okteta? ( $(add_kdebase_dep okteta) )
 	qthelp? ( dev-qt/qthelp:4 )
 "
