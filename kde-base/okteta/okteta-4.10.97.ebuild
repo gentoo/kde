@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE hexeditor"
+HOMEPAGE="http://kde.org/applications/utilities/okteta
+http://utils.kde.org/projects/okteta"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
