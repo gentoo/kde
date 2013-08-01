@@ -4,11 +4,11 @@
 
 EAPI=5
 
-KDE_LINGUAS="ca ca@valencia cs da de el es et eu fi fr ga gl hu it ja lt lv nb
-nl pl pt pt_BR ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN
-zh_TW"
-KDE_REQUIRED="never"
-VIRTUALX_REQUIRED=test
+KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr
+ga gl hu it ja lt lv nb nl pa pl pt pt_BR ru sl sr sr@ijekavian
+sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
+KDE_HANDBOOK="optional"
+VIRTUALX_REQUIRED="test"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -28,7 +28,7 @@ LICENSE="GPL-2"
 SLOT="4"
 IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp ofa opengl test +utils"
 
-if [[ ${PV} == *9999* ]]; then
+if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
 fi
 
@@ -76,12 +76,20 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep phonon-kde)
 "
 
+src_prepare() {
+	if [[ ${KDE_BUILD_TYPE} != live ]]; then
+		mv doc/en_US doc/en || die
+		sed -e "s/en_US/en/" -i doc/CMakeLists.txt || die
+	fi
+
+	kde4-base_src_prepare
+}
+
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
 	use ppc64 && append-flags -mminimal-toc
-	local mycmakeargs
 
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DWITH_PLAYER=ON
 		-DWITH_Libgcrypt=OFF
 		-DWITH_SPECTRUM_ANALYZER=OFF
@@ -92,9 +100,6 @@ src_configure() {
 		$(cmake-utils_use_with mtp)
 		$(cmake-utils_use_with mp3tunes MP3Tunes)
 		$(cmake-utils_use_with ofa LibOFA)
-	)
-
-	mycmakeargs+=(
 		$(cmake-utils_use_with utils UTILITIES)
 	)
 
@@ -104,7 +109,7 @@ src_configure() {
 pkg_postinst() {
 	kde4-base_pkg_postinst
 
-	if use daap; then
+	if use daap && ! has_version www-servers/mongrel ; then
 		echo
 		elog "You have installed amarok with daap support."
 		elog "You may be interested in installing www-servers/mongrel as well."
