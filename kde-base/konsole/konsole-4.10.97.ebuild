@@ -10,6 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="X terminal for use with KDE"
+HOMEPAGE="http://kde.org/applications/system/konsole http://konsole.kde.org"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
