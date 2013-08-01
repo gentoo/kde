@@ -8,6 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Frontend for Cachegrind"
+HOMEPAGE="http://kde.org/applications/development/kcachegrind
+http://kcachegrind.sourceforge.net"
 KEYWORDS=""
 IUSE="debug"
 
