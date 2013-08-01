@@ -8,5 +8,6 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE timer for making a fine cup of tea"
+HOMEPAGE="http://www.kde.org/applications/games/kteatime"
 KEYWORDS=""
 IUSE="debug"
