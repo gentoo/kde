@@ -12,3 +12,6 @@ HOMEPAGE="http://kde.org/applications/development/kompare
 http://www.caffeinated.me.uk/kompare"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="$(add_kdebase_dep libkomparediff2)"
+RDEPEND="${DEPEND}"
