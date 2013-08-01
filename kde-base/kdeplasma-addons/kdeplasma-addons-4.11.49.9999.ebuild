@@ -45,12 +45,12 @@ src_configure() {
 		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_with desktopglobe Marble)
 		$(cmake-utils_use_with exif Kexiv2)
-		$(cmake-utils_use_with ibus)
+		$(cmake-utils_use_build ibus)
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with oauth QtOAuth)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
-		$(cmake-utils_use_with scim)
+		$(cmake-utils_use_build scim)
 	)
 
 	kde4-base_src_configure
