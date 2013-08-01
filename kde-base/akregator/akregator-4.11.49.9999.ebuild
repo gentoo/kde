@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE news feed aggregator."
+HOMEPAGE="http://www.kde.org/applications/internet/akregator"
 KEYWORDS=""
 IUSE="debug"
 
