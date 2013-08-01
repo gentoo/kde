@@ -26,7 +26,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="cdda daap debug +embedded ipod lastfm mp3tunes mtp ofa opengl test +utils"
+IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp ofa opengl test +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -108,13 +108,6 @@ src_configure() {
 
 pkg_postinst() {
 	kde4-base_pkg_postinst
-
-	if use daap && ! has_version www-servers/mongrel ; then
-		echo
-		elog "You have installed amarok with daap support."
-		elog "You may be interested in installing www-servers/mongrel as well."
-		echo
-	fi
 
 	if ! use embedded; then
 		echo

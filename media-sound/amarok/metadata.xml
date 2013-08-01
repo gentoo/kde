@@ -8,11 +8,6 @@
 	<name>Jorge Manuel B. S. Vicetto</name>
 </maintainer>
 <use>
-	<flag name="daap">Enable the scripts for music sharing through DAAP. This flag adds
-		dependencies on <pkg>www-servers/mongrel</pkg> to allow sharing of
-		the Amarok music collection through DAAP protocol. Please note
-		that turning this flag off has no effect on DAAP browsing.
-	</flag>
 	<flag name="embedded">Use libmysqld, MySQL embedded server library.
 		Try disabling this if you encounter -PIC related in amarok,
 		it will make amarok rely only on standalone MySQL server.
