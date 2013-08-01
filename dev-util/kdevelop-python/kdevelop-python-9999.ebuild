@@ -37,14 +37,11 @@ HOMEPAGE="http://www.kdevelop.org"
 LICENSE="GPL-2"
 IUSE="debug"
 
-COMMON_DEPEND="
+DEPEND="
 	>=dev-util/kdevplatform-1.4.60
 "
-DEPEND="${COMMON_DEPEND}
-	>=dev-util/kdevelop-pg-qt-1.0.0
-"
 RDEPEND="
-	${COMMON_DEPEND}
+	${DEPEND}
 	dev-util/kdevelop
 "
 
