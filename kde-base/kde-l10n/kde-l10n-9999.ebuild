@@ -8,6 +8,7 @@ KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="KDE internationalization package"
+HOMEPAGE="http://l10n.kde.org"
 DEPEND=">=sys-devel/gettext-0.17"
 RDEPEND="${DEPEND}"
 
