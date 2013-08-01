@@ -8,5 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Privacy Settings Widget"
+HOMEPAGE="http://kde.org/applications/utilities/sweeper
+http://utils.kde.org/projects/sweeper"
 KEYWORDS=""
 IUSE="debug"
