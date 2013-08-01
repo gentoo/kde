@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_kdebase_dep kde-dev-utils)
 	$(add_kdebase_dep kdesdk-kioslaves)
 	$(add_kdebase_dep kompare)
+	$(add_kdebase_dep libkomparediff2)
 	$(add_kdebase_dep lokalize)
 	$(add_kdebase_dep okteta)
 	$(add_kdebase_dep poxml)
