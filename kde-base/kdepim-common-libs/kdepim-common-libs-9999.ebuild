@@ -40,6 +40,7 @@ KMEXTRA="
 	calendarsupport/
 	calendarviews/
 	composereditor-ng/
+	grantleetheme/
 	incidenceeditor-ng/
 	libkdepim/
 	libkdepimdbusinterfaces/
