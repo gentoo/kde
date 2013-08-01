@@ -12,7 +12,6 @@ IUSE="debug jasper"
 
 DEPEND="
 	>=media-libs/libraw-0.15:=
-	virtual/jpeg
 	jasper? ( media-libs/jasper )
 "
 RDEPEND="${DEPEND}"
