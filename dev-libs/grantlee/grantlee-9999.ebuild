@@ -29,7 +29,6 @@ RDEPEND="${COMMON_DEPEND}"
 DOCS=(AUTHORS CHANGELOG GOALS README)
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.1.9-qt-test-optional.patch"
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
 )
 
