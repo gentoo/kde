@@ -35,6 +35,7 @@ KMEXTRACTONLY="
 	kdgantt2/
 "
 KMCOMPILEONLY="
+	grantleetheme/
 	messagecomposer/
 	messagecore/
 	messagelist/
@@ -46,6 +47,8 @@ KMCOMPILEONLY="
 "
 KMEXTRA="
 	archivemailagent/
+	folderarchiveagent/
+	grantleethemeeditor/
 	headerthemeeditor/
 	kmailcvt/
 	ksendemail/
