@@ -11,7 +11,7 @@ inherit kde4-base
 
 DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
 HOMEPAGE="http://www.skrooge.org/"
-SRC_URI="http://www.skrooge.org/files/${P}.tar.bz2"
+SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="4"
