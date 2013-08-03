@@ -33,6 +33,11 @@ src_configure() {
 		$(cmake-utils_use_with kipi)
 	)
 
+	# Workaround for bug #479510
+	if [[ -e ${EPREFIX}/usr/include/${CHOST}/jconfig.h ]]; then
+		mycmakeargs+=( -DJCONFIG_H="${EPREFIX}/usr/include/${CHOST}/jconfig.h" )
+	fi
+
 	kde4-base_src_configure
 }
 
