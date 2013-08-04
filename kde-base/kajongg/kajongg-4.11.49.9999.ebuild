@@ -22,7 +22,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep libkmahjongg)
-	>=dev-python/twisted-8.2.0
+	>=dev-python/twisted-core-8.2.0
 "
 
 pkg_setup() {
