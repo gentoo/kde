@@ -18,6 +18,7 @@ inherit kde4-base ruby-ng
 DESCRIPTION="Qt Ruby bindings"
 KEYWORDS=""
 IUSE="debug phonon qscintilla qwt webkit"
+HOMEPAGE="http://techbase.kde.org/Development/Languages/Ruby"
 
 DEPEND="
 	$(add_kdebase_dep smokeqt 'declarative?,opengl,phonon?,qscintilla?,qwt?,webkit?')
