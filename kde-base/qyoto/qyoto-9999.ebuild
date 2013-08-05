@@ -10,6 +10,7 @@ inherit mono-env kde4-base
 DESCRIPTION="C# bindings for Qt"
 KEYWORDS=""
 IUSE="debug +phonon qscintilla webkit"
+HOMEPAGE="http://techbase.kde.org/Development/Languages/Qyoto"
 
 DEPEND="
 	dev-lang/mono
