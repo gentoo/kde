@@ -9,6 +9,7 @@ inherit kde4-base
 DESCRIPTION="Scripting Meta Object Kompiler Engine - KDE bindings"
 KEYWORDS=""
 IUSE="attica debug kate okular"
+HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
