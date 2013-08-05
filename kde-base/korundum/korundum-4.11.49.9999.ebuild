@@ -17,6 +17,7 @@ inherit kde4-base ruby-ng
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
 IUSE="akonadi debug kate okular"
+HOMEPAGE="http://techbase.kde.org/Development/Languages/Ruby"
 
 # unfortunately single modules cannot be disabled with cmake defines
 # possible more useflags have no effect... does anyone actually build this stuff?
