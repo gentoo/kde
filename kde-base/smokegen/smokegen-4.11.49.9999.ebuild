@@ -10,6 +10,7 @@ inherit kde4-base
 DESCRIPTION="Scripting Meta Object Kompiler Engine - generators"
 KEYWORDS=""
 IUSE="debug"
+HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 
 DEPEND="
 	dev-qt/qtcore:4[aqua=]
