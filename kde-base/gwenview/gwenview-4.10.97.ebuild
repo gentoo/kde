@@ -20,7 +20,7 @@ DEPEND="
 	>=media-gfx/exiv2-0.19
 	media-libs/lcms:2
 	media-libs/libpng:0=
-	virtual/jpeg
+	virtual/jpeg:0
 	x11-libs/libX11
 	kipi? ( $(add_kdebase_dep libkipi) )
 "
