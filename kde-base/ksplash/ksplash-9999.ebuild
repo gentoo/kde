@@ -14,7 +14,7 @@ IUSE="3dnow altivec debug mmx sse sse2 xinerama"
 
 COMMONDEPEND="
 	media-libs/libpng:0=
-	virtual/jpeg
+	virtual/jpeg:0
 	x11-libs/libX11
 	x11-libs/libXext
 	xinerama? ( x11-libs/libXinerama )
