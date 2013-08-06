@@ -45,7 +45,7 @@ COMMONDEPEND="
 	media-libs/libpng:0=
 	>=media-libs/phonon-4.4.3
 	sys-libs/zlib
-	virtual/jpeg
+	virtual/jpeg:0
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
