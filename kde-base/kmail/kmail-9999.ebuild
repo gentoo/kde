@@ -25,7 +25,6 @@ RESTRICT="test"
 
 KMEXTRACTONLY="
 	akonadi_next/
-	archivemailagent/
 	calendarsupport/
 	korganizer/
 	kresources/
@@ -46,8 +45,7 @@ KMCOMPILEONLY="
 	calendarsupport/
 "
 KMEXTRA="
-	archivemailagent/
-	folderarchiveagent/
+	agents/
 	grantleethemeeditor/
 	headerthemeeditor/
 	kmailcvt/
@@ -55,12 +53,10 @@ KMEXTRA="
 	importwizard/
 	libksieve/
 	mailcommon/
-	mailfilteragent/
 	mailimporter/
 	ontologies/
 	pimsettingexporter/
 	plugins/messageviewer/
-	sendlateragent/
 "
 
 KMLOADLIBS="kdepim-common-libs"
