@@ -14,7 +14,7 @@ IUSE="debug jpeg rdesktop vnc zeroconf telepathy"
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
 
 DEPEND="
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	vnc? ( >=net-libs/libvncserver-0.9 )
 	zeroconf? ( net-dns/avahi )
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
