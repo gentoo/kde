@@ -13,7 +13,7 @@ IUSE="debug telepathy"
 
 DEPEND="
 	sys-libs/zlib
-	virtual/jpeg
+	virtual/jpeg:0
 	!aqua? (
 		x11-libs/libX11
 		x11-libs/libXdamage
