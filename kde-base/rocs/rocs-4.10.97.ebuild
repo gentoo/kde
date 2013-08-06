@@ -10,16 +10,16 @@ inherit kde4-base
 DESCRIPTION="KDE4 interface to work with Graph Theory"
 HOMEPAGE="http://kde.org/applications/education/rocs
 http://edu.kde.org/applications/mathematics/rocs"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="
-	>=dev-libs/boost-1.43:=
 	dev-libs/grantlee
+	dev-qt/qtxmlpatterns:4
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-cpp/eigen-2.0.3:2
+	>=dev-libs/boost-1.49
 "
 
 RESTRICT=test

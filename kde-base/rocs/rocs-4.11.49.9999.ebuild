@@ -14,12 +14,12 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	>=dev-libs/boost-1.43:=
 	dev-libs/grantlee
+	dev-qt/qtxmlpatterns:4
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-cpp/eigen-2.0.3:2
+	>=dev-libs/boost-1.49
 "
 
 RESTRICT=test
