@@ -21,7 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.11.0-boostpython.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.12.0-boostpython.patch" )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
