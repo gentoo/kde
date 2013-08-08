@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop."
