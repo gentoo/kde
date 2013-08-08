@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python{2_6,2_7} )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="KDE4 translation tool"
