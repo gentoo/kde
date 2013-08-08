@@ -24,6 +24,9 @@ KMEXTRA="
 	plugins/kaddressbook/
 	plugins/ktexteditor/
 "
+KMCOMPILEONLY="
+	grantleetheme/
+"
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
