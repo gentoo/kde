@@ -36,7 +36,6 @@ RESTRICT="test"
 # bug 393131
 
 KMEXTRA="
-	agents/sendlateragent
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
@@ -56,13 +55,15 @@ KMEXTRA="
 	pimcommon/
 	templateparser/
 "
-
 KMEXTRACTONLY="
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml
 	korganizer/korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
+"
+KMCOMPILEONLY="
+	agents/sendlateragent
 "
 
 KMSAVELIBS="true"
