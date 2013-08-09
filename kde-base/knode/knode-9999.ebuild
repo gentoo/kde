@@ -27,6 +27,9 @@ KMEXTRACTONLY="
 	messagecomposer/
 	messageviewer/
 "
+KMCOMPILEONLY="
+	agents/sendlateragent
+"
 
 KMLOADLIBS="kdepim-common-libs"
 
