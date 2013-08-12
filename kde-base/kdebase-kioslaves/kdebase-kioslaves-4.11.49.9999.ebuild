@@ -17,6 +17,7 @@ IUSE="+bzip2 exif debug lzma openexr samba +sftp"
 RESTRICT="test"
 
 DEPEND="
+	virtual/jpeg:0
 	!aqua? ( x11-libs/libXcursor )
 	bzip2? ( app-arch/bzip2 )
 	exif? ( media-gfx/exiv2 )
