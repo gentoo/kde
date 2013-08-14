@@ -28,7 +28,7 @@ IUSE="debug doc"
 RDEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
-	dev-qt/qtgui:4[dbus(+)]
+	dev-qt/qtgui:4
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
