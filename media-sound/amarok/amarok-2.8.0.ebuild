@@ -4,9 +4,9 @@
 
 EAPI=5
 
-KDE_LINGUAS="ca ca@valencia cs da de el es et eu fi fr ga gl hu it ja lt lv nb
-nl pl pt pt_BR ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv uk zh_CN
-zh_TW"
+KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it ja
+lt lv nb nl pa pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin
+sv tr uk zh_CN zh_TW"
 KDE_REQUIRED="never"
 VIRTUALX_REQUIRED=test
 inherit flag-o-matic kde4-base
