@@ -6,7 +6,7 @@
 net-libs/libqinfinity
 kde-misc/kobby
 
-# Chris Reffett <creffett@gentoo.org>
+# Chris Reffett <creffett@gentoo.org> (22 Jun 2013)
 # Masking possibly-unused overlay packages, will remove
 # in 60 days. Ping me if you are using these and do not
 # have an alternative package.
