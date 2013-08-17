@@ -22,6 +22,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-0.4-dirmodel.patch" )
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use handset BUILD_HANDSET)
