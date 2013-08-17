@@ -4,11 +4,12 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it ja
-lt lv nb nl pa pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin
-sv tr uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it
+ja lt lv nb nl pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin
+sr@latin sv tr uk zh_CN zh_TW"
 KDE_REQUIRED="never"
-VIRTUALX_REQUIRED=test
+KDE_HANDBOOK="optional"
+VIRTUALX_REQUIRED="test"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
@@ -75,6 +76,13 @@ RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
 	$(add_kdebase_dep phonon-kde)
 "
+
+src_prepare() {
+	mv doc/en_US doc/en || die
+	sed -e "s/en_US/en/" -i doc/CMakeLists.txt || die
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
