@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Five-in-a-row Board Game"
+HOMEPAGE="http://www.kde.org/applications/games/bovo/"
 KEYWORDS=""
 IUSE="debug"
 
