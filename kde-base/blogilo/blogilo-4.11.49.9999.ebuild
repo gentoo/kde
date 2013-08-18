@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE Blogging Client"
+HOMEPAGE="http://www.kde.org/applications/internet/blogilo"
 KEYWORDS=""
 IUSE="debug"
 
