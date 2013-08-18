@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE arcade bombing game"
+HOMEPAGE="http://www.kde.org/applications/games/bomber/"
 KEYWORDS=""
 IUSE="debug"
 
