@@ -30,7 +30,7 @@ DEPEND="
 	phonon? ( >=media-libs/phonon-4.4.3 )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
 	qscintilla? ( x11-libs/qscintilla:= )
-	qwt? ( x11-libs/qwt:5 )
+	qwt? ( x11-libs/qwt:5[svg] )
 	webkit? ( dev-qt/qtwebkit:4 )
 "
 RDEPEND="${DEPEND}"
