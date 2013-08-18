@@ -98,9 +98,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/kdm-logrotate kdm
 
-	if use systemd; then
-		systemd_dounit "${FILESDIR}"/kdm.service
-	fi
+	systemd_dounit "${FILESDIR}"/kdm.service
 }
 
 pkg_postinst() {
