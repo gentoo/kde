@@ -30,6 +30,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
 	!kde-misc/akonadi-google
+	!kde-misc/akonadi-facebook
 "
 
 src_configure() {
