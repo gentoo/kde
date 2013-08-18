@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Bomberman game"
+HOMEPAGE="http://www.kde.org/applications/games/granatier/"
 KEYWORDS=""
 IUSE="debug"
 
