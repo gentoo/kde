@@ -13,7 +13,7 @@ inherit kde4-base python
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
 KEYWORDS=""
-IUSE="debug designer-plugin gps +kde plasma python shapefile test"
+IUSE="debug designer-plugin gps +kde plasma python shapefile test zip"
 
 # tests fail / segfault. Last checked for 4.9.0
 RESTRICT="test"
@@ -32,6 +32,7 @@ RDEPEND="
 		kde? ( $(add_kdebase_dep pykde4) )
 	)
 	shapefile? ( sci-libs/shapelib )
+	zip? ( dev-libs/quazip )
 "
 DEPEND="
 	${RDEPEND}
@@ -67,6 +68,7 @@ src_configure() {
 		$(cmake-utils_use !kde QTONLY)
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with shapefile libshp)
+		$(cmake-utils_use_with zip quazip)
 		-DBUILD_MARBLE_TESTS=OFF
 		-DWITH_liblocation=0
 		-DWITH_QextSerialPort=OFF

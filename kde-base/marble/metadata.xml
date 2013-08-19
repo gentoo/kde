@@ -4,6 +4,7 @@
 <use>
 	<flag name="designer-plugin">Enable designer plugin</flag>
 	<flag name="shapefile">Enable support for ESRI shapefiles</flag>
+	<flag name="zip">Enable support for reading and displaying .kmz files</flag>
 </use>
 <herd>kde</herd>
 </pkgmetadata>
