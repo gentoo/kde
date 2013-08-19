@@ -8,13 +8,15 @@ DECLARATIVE_REQUIRED="always"
 KDE_HANDBOOK="optional"
 KMNAME="kde-workspace"
 KMMODULE="plasma"
-PYTHON_DEPEND="python? 2"
+PYTHON_COMPAT=( python2_{6,7} )
 OPENGL_REQUIRED="always"
-inherit python kde4-meta
+inherit python-single-r1 kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
 IUSE="debug gps json python qalculate"
+
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMONDEPEND="
 	dev-libs/libdbusmenu-qt
@@ -40,8 +42,9 @@ COMMONDEPEND="
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	json? ( dev-libs/qjson )
 	python? (
-		>=dev-python/PyQt4-4.4.0[X]
-		$(add_kdebase_dep pykde4)
+		${PYTHON_DEPS}
+		>=dev-python/PyQt4-4.4.0[X,${PYTHON_USEDEP}]
+		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 	)
 	qalculate? ( sci-libs/libqalculate )
 "
@@ -82,8 +85,7 @@ PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
 
 pkg_setup() {
 	if use python ; then
-		python_set_active_version 2
-		python_pkg_setup
+		python-single-r1_pkg_setup
 	fi
 	kde4-meta_pkg_setup
 }
@@ -108,22 +110,10 @@ src_configure() {
 	kde4-meta_src_configure
 }
 
-pkg_postinst() {
-	kde4-meta_pkg_postinst
+src_install() {
+	kde4-meta_src_install
 
 	if use python; then
-		python_mod_optimize \
-			PyKDE4/plasmascript.py \
-			/usr/share/apps/plasma_scriptengine_python
-	fi
-}
-
-pkg_postrm() {
-	kde4-meta_pkg_postrm
-
-	if use python; then
-		python_mod_cleanup \
-			PyKDE4/plasmascript.py \
-			/usr/share/apps/plasma_scriptengine_python
+		python_optimize "${ED}"
 	fi
 }
