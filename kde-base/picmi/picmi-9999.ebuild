@@ -7,7 +7,6 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Nonogram logic game for KDE"
-SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
