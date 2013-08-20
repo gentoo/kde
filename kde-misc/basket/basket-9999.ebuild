@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="A DropDrawers clone. Multiple information organizer"
 HOMEPAGE="http://basket.kde.org/"
-EGIT_REPO_URI="git://gitorious.org/basket/basket.git"
+EGIT_REPO_URI="git://github.com/kelvie/basket.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
