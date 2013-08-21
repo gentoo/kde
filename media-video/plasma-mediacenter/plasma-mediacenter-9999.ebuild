@@ -6,13 +6,14 @@ EAPI=5
 
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="always"
+KDE_LINGUAS="ca cs da de es fi fr gl hu lv nl pt pt_BR sk sl sv uk zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Unified media experience for any device capable of running KDE"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="http://www.kde.org/ http://community.kde.org/Plasma/Plasma_Media_Center"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.gz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 fi
 
 LICENSE="GPL-2+"
