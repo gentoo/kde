@@ -490,6 +490,9 @@ kde4-meta_change_cmakelists() {
 				sed -e '/KActivities/s/REQUIRED//' \
 					-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section"
 			fi
+			sed -e '/QImageBlitz/s/REQUIRED//' \
+				-i CMakeLists.txt || die "${LINENO}: sed died in kde-workspace dep reduction section 2"
+
 			# >=KDE/4.11
 			sed -e 's/TYPE REQUIRED/TYPE OPTIONAL/' -e 's/XCB REQUIRED/XCB/' -e 's/X11 REQUIRED/X11/' \
 				-e 's/message(FATAL_ERROR/message(/' -i CMakeLists.txt \
