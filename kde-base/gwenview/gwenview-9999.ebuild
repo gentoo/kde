@@ -5,13 +5,14 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
+OPENGL_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="KDE image viewer"
 KEYWORDS=""
 IUSE="debug kipi"
 
-# tests hang, last checked for 4.2.96
+# tests fail, last checked 4.11.0
 RESTRICT="test"
 
 DEPEND="
@@ -26,10 +27,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-KMLOADLIBS="libkonq"
-
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with kipi)
 	)
 
