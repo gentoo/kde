@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
+DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 inherit kde4-base
 
@@ -12,19 +13,17 @@ DESCRIPTION="MathML-based graph calculator for KDE."
 HOMEPAGE="http://www.kde.org/applications/education/kalgebra
 http://edu.kde.org/kalgebra"
 KEYWORDS=""
-IUSE="debug +plasma readline"
+IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep analitza)
 	$(add_kdebase_dep libkdeedu)
-	readline? ( sys-libs/readline )
+	opengl? ( virtual/glu )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_with readline)
-		$(cmake-utils_use_with plasma)
+	local mycmakeargs=(
 		$(cmake-utils_use_with opengl OpenGL)
 	)
 
