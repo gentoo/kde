@@ -9,33 +9,25 @@ inherit kde4-base
 
 DESCRIPTION="KDE kioslaves from the kdemultimedia package"
 KEYWORDS=""
-IUSE="debug encode flac vorbis"
-
-# 4 of 9 tests fail. Last checked for 4.2.88
-RESTRICT=test
+IUSE="debug flac vorbis"
 
 DEPEND="
 	$(add_kdebase_dep libkcddb)
 	$(add_kdebase_dep libkcompactdisc)
 	media-sound/cdparanoia
-	encode? (
-		flac? ( >=media-libs/flac-1.1.2 )
-		vorbis? ( media-libs/libvorbis )
+	flac? ( >=media-libs/flac-1.1.2 )
+	vorbis? (
+		media-libs/libogg
+		media-libs/libvorbis
 	)
 "
 RDEPEND="${DEPEND}"
 
-KMLOADLIBS="libkcddb"
-
 src_configure() {
-	if use encode; then
-		mycmakeargs=(
-			$(cmake-utils_use_with flac)
-			$(cmake-utils_use_with vorbis OggVorbis)
-		)
-	else
-		mycmakeargs=(-DWITH_OggVorbis=OFF -DWITH_Flac=OFF)
-	fi
+	local mycmakeargs=(
+		$(cmake-utils_use_with flac)
+		$(cmake-utils_use_with vorbis OggVorbis)
+	)
 
 	kde4-base_src_configure
 }
