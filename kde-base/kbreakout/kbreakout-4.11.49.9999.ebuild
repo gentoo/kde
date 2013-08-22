@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
+DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="KDE: A Breakout-like game for KDE."
