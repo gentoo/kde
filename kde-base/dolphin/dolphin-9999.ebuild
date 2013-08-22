@@ -20,6 +20,7 @@ DEPEND="
 	$(add_kdebase_dep nepomuk-widgets)
 	>=dev-libs/shared-desktop-ontologies-0.11.0
 	dev-libs/soprano
+	x11-libs/libXrender
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
@@ -33,8 +34,6 @@ PDEPEND="
 		)
 	)
 "
-
-KMLOADLIBS="libkonq"
 
 RESTRICT="test"
 # bug 393129
