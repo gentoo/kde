@@ -16,6 +16,7 @@ RDEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
 	media-libs/phonon
+	x11-libs/libX11
 "
 DEPEND="${RDEPEND}"
 
