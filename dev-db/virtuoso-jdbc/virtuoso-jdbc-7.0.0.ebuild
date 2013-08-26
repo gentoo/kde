@@ -8,7 +8,8 @@ inherit virtuoso java-pkg-2
 
 DESCRIPTION="JDBC driver for OpenLink Virtuoso Open-Source Edition"
 
-KEYWORDS="~amd64 ~x86"
+#Upstream says no 32-bit (yet), https://github.com/openlink/virtuoso-opensource/issues/69
+KEYWORDS="~amd64 -x86"
 IUSE=""
 
 #Force 1.7 until we decide on how to handle multiple versions at once
