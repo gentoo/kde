@@ -8,7 +8,8 @@ inherit virtuoso
 
 DESCRIPTION="ODBC driver for OpenLink Virtuoso Open-Source Edition"
 
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+#Upstream says no 32-bit (yet), https://github.com/openlink/virtuoso-opensource/issues/69
+KEYWORDS="~amd64 -x86"
 IUSE=""
 
 RDEPEND="
