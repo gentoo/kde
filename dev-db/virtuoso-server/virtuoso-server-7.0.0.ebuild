@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/virtuoso-server/virtuoso-server-6.1.6.ebuild,v 1.6 2013/04/26 00:43:55 creffett Exp $
+# $Header: $
 
 EAPI=5
 
@@ -8,7 +8,8 @@ inherit virtuoso
 
 DESCRIPTION="Server binaries for Virtuoso, high-performance object-relational SQL database"
 
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+#Upstream says no 32-bit (yet), https://github.com/openlink/virtuoso-opensource/issues/69
+KEYWORDS="~amd64 -x86"
 IUSE="kerberos ldap readline"
 
 # Bug 305077
