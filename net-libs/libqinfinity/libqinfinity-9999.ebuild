@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
