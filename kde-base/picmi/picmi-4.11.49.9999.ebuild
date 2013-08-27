@@ -7,6 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Nonogram logic game for KDE"
+HOMEPAGE="http://games.kde.org/game.php?game=picmi"
 KEYWORDS=""
 IUSE="debug"
 
