@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Space Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kspaceduel/
+	http://games.kde.org/game.php?game=kspaceduel
+"
 KEYWORDS=""
 IUSE="debug"
 
