@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KMines is a classic mine sweeper game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kmines/
+	http://games.kde.org/game.php?game=kmines
+"
 KEYWORDS=""
 IUSE="debug"
 
