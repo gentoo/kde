@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Minigolf Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kolf/
+	http://games.kde.org/game.php?game=kolf
+"
 KEYWORDS=""
 IUSE="debug"
 
