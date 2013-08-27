@@ -8,6 +8,10 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: Knetwalk is the kde version of the popular NetWalk game for system administrators"
+HOMEPAGE="
+	http://www.kde.org/applications/games/knetwalk/
+	http://games.kde.org/game.php?game=knetwalk
+"
 KEYWORDS=""
 IUSE="debug"
 
