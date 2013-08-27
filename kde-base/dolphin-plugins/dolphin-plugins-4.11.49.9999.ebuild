@@ -21,8 +21,6 @@ RDEPEND="${DEPEND}
 	subversion? ( dev-vcs/subversion )
 "
 
-KMLOADLIBS="libkonq"
-
 src_install() {
 	{ use bazaar || use git || use mercurial || use subversion; } && kde4-base_src_install
 }
