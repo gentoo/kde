@@ -8,6 +8,10 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: A simple ball dodging game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kollision/
+	http://games.kde.org/game.php?game=kollision
+"
 KEYWORDS=""
 IUSE="debug"
 
