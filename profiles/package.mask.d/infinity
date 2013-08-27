@@ -1,5 +1,0 @@
-# Dennis Schridde <devurandom@gmx.net> (25 Mar 2012)
-# Dependency net-libs/libinfinity is p-masked
-kde-misc/kobby
-kde-misc/kte-collaborative
-net-libs/libqinfinity
