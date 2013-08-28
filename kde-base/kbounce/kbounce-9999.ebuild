@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Bounce Ball Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kbounce/
+	http://games.kde.org/game.php?game=kbounce
+"
 KEYWORDS=""
 IUSE="debug"
 
