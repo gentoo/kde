@@ -9,6 +9,10 @@ OPENGL_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="KDE image viewer"
+HOMEPAGE="
+	http://kde.org/applications/graphics/gwenview/
+	http://gwenview.sourceforge.net/
+"
 KEYWORDS=""
 IUSE="debug kipi"
 
