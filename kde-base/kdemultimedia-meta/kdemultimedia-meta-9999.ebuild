@@ -6,6 +6,10 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
+HOMEPAGE="
+	http://www.kde.org/applications/multimedia/
+	http://multimedia.kde.org/
+"
 KEYWORDS=""
 IUSE="ffmpeg +mplayer"
 
