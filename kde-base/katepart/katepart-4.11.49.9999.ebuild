@@ -10,6 +10,7 @@ KMMODULE="part"
 inherit kde4-meta
 
 DESCRIPTION="KDE Editor KPart"
+HOMEPAGE+=" http://kate-editor.org/about-katepart/"
 KEYWORDS=""
 IUSE="debug"
 
