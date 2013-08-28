@@ -6,6 +6,7 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
+HOMEPAGE="http://kde.org/applications/graphics/"
 KEYWORDS=""
 IUSE="scanner"
 
