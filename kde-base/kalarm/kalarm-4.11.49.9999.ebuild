@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
+HOMEPAGE+=" http://userbase.kde.org/KAlarm"
 KEYWORDS=""
 IUSE="debug"
 
