@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Atomic Entertainment Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/katomic/
+	http://games.kde.org/game.php?game=katomic
+"
 KEYWORDS=""
 IUSE="debug"
 
