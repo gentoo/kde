@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Pac-Man clone for KDE"
+HOMEPAGE="http://www.kde.org/applications/games/kapman/"
 KEYWORDS=""
 IUSE="debug"
 
