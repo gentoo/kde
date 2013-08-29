@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
+HOMEPAGE="http://www.kde.org/applications/utilities/kleopatra/"
 KEYWORDS=""
 IUSE="debug"
 
