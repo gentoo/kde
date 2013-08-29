@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE mixer gui"
+HOMEPAGE="http://www.kde.org/applications/multimedia/kmix/"
 KEYWORDS=""
 IUSE="alsa debug canberra pulseaudio"
 
