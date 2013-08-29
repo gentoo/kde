@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE Notes application"
+HOMEPAGE="http://www.kde.org/applications/utilities/knotes/"
 KEYWORDS=""
 IUSE="debug"
 
