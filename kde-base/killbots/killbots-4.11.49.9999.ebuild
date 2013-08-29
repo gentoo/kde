@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Kill the bots or they kill you!"
+HOMEPAGE="http://www.kde.org/applications/games/killbots/"
 KEYWORDS=""
 IUSE="debug"
 
