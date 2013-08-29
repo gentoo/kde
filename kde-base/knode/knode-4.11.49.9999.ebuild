@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
+HOMEPAGE="http://www.kde.org/applications/internet/knode/"
 KEYWORDS=""
 IUSE="debug"
 
