@@ -9,6 +9,7 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Help Center"
+HOMEPAGE+=" http://userbase.kde.org/KHelpCenter"
 KEYWORDS=""
 IUSE="debug"
 
