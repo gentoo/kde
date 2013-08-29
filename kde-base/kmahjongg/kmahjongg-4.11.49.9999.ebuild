@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="Mahjongg for KDE"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kmahjongg/
+	http://games.kde.org/game.php?game=kmahjongg
+"
 KEYWORDS=""
 IUSE="debug"
 
