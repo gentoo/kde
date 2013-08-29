@@ -4,20 +4,22 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit cmake-utils git-2
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="http://www.kde.org/"
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 
 LICENSE="BSD"
 SLOT=0
 KEYWORDS=""
-IUSE="debug"
 
+DEPEND="
+	>=dev-util/cmake-2.8.11
+"
 RESTRICT="test"
 
 src_prepare() {
-	kde4-base_src_prepare
-
 	sed -e 's|man/man7|share/&|' -i CMakeLists.txt || die
+	cmake-utils_src_prepare
 }
