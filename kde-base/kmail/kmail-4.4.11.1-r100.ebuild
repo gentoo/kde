@@ -11,6 +11,7 @@ VIRTUALX_REQUIRED=test
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE."
+HOMEPAGE="http://www.kde.org/applications/internet/kmail/"
 KEYWORDS=""
 IUSE="debug"
 
