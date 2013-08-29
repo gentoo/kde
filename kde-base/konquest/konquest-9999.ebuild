@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="Galactic Strategy KDE Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/konquest/
+	http://games.kde.org/game.php?game=konquest
+"
 KEYWORDS=""
 IUSE="debug"
 
