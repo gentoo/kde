@@ -9,6 +9,7 @@ KMNAME="kde-workspace"
 inherit kde4-meta
 
 DESCRIPTION="Applet for KDE and X clipboard management"
+HOMEPAGE+=" http://userbase.kde.org/Klipper"
 KEYWORDS=""
 IUSE="debug prison"
 
