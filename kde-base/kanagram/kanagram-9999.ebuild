@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: letter order game."
-HOMEPAGE="http://kde.org/applications/education/kanagram
+HOMEPAGE="http://www.kde.org/applications/education/kanagram
 http://edu.kde.org/kanagram"
 KEYWORDS=""
 IUSE="debug"

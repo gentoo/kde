@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE jigsaw puzzle game"
-HOMEPAGE="http://kde.org/applications/games/palapeli/"
+HOMEPAGE="http://www.kde.org/applications/games/palapeli/"
 KEYWORDS=""
 IUSE="debug"
 

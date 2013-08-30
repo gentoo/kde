@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
-HOMEPAGE="http://kde.org/applications/education/parley
+HOMEPAGE="http://www.kde.org/applications/education/parley
 http://edu.kde.org/applications/school/parley"
 KEYWORDS=""
 IUSE="debug +plasma"

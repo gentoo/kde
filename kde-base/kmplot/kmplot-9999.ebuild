@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Mathematical function plotter for KDE"
-HOMEPAGE="http://kde.org/applications/education/kmplot http://edu.kde.org/kmplot"
+HOMEPAGE="http://www.kde.org/applications/education/kmplot http://edu.kde.org/kmplot"
 KEYWORDS=""
 IUSE="debug"
 

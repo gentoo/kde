@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
-HOMEPAGE="http://kde.org/applications/education/kwordquiz
+HOMEPAGE="http://www.kde.org/applications/education/kwordquiz
 http://edu.kde.org/kwordquiz"
 KEYWORDS=""
 IUSE="debug"
