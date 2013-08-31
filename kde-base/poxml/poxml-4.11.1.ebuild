@@ -4,7 +4,8 @@
 
 EAPI=5
 
-inherit kde4-base
+JAVA_PKG_OPT_USE=extras
+inherit java-pkg-opt-2 java-ant-2 kde4-base
 
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
@@ -21,10 +22,26 @@ RDEPEND="${DEPEND}
 # needs to be run in one thread
 MAKEOPTS+=" -j1"
 
+pkg_setup() {
+	kde4-base_pkg_setup
+	java-pkg-opt-2_pkg_setup
+}
+
+src_prepare() {
+	kde4-base_src_prepare
+	java-pkg-opt-2_src_prepare
+}
+
 src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with extras Antlr2)
 	)
 
 	kde4-base_src_configure
+	java-ant-2_src_configure
+}
+
+pkg_preinst() {
+	kde4-base_pkg_preinst
+	java-pkg-2_pkg_preinst
 }
