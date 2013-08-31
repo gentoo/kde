@@ -12,7 +12,10 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-l
 IUSE="debug extras"
 
 DEPEND="
-	extras? ( >=dev-java/antlr-2.7.7:0[cxx,java,script] )
+	extras? (
+		virtual/jdk
+		>=dev-java/antlr-2.7.7:0[cxx,java,script]
+	)
 "
 RDEPEND="${DEPEND}
 	!<=kde-base/kdesdk-misc-4.10.50:4
