@@ -60,7 +60,10 @@ KMEXTRACTONLY="
 	plasma/
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.10.1-noplasmalock.patch"
+	"${FILESDIR}/${P}-deps.patch"
+)
 
 src_unpack() {
 	if use handbook; then
