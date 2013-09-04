@@ -34,6 +34,8 @@ DEPEND="${RDEPEND}
 	app-arch/xz-utils
 "
 
+DOCS=( AUTHORS README TODO changelog )
+
 src_prepare(){
 	local mycmakeargs=(
 		$(cmake-utils_use !ayatana QTINDICATE_DISABLE)
