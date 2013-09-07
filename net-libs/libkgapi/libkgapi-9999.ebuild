@@ -4,6 +4,8 @@
 
 EAPI=5
 
+KDE_MINIMAL="4.10"
+
 inherit kde4-base
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
