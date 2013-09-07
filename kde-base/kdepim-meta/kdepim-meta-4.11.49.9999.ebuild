@@ -6,6 +6,7 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="kdepim - merge this to pull in all kdepim-derived packages"
+HOMEPAGE+=" http://community.kde.org/KDE_PIM"
 KEYWORDS=""
 IUSE="nls"
 

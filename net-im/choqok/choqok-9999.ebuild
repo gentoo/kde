@@ -4,34 +4,40 @@
 
 EAPI=5
 
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fa fi fr ga gl
-	hr hu is ja km lt ms nb nds nl pa pl pt pt_BR ro ru sk sq sv tr ug uk zh_CN
-	zh_TW"
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-	KDE_HANDBOOK="optional"
-	KEYWORDS="~amd64 ~ppc ~x86"
-else
-	KEYWORDS=""
-fi
-
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fa fi fr ga gl
+hr hu is it ja km lt mr ms nb nds nl pa pl pt pt_BR ro ru sk sq sl sv tr ug
+uk zh_CN zh_TW"
+KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 
-LICENSE="GPL-3"
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~ppc ~x86"
+else
+	KEYWORDS=""
+fi
+
+LICENSE="GPL-2+"
 SLOT="4"
 IUSE="ayatana debug"
 
-DEPEND="dev-libs/qjson
+RDEPEND="
+	dev-libs/libattica
+	dev-libs/qjson
 	>=dev-libs/qoauth-1.0.1
 	ayatana? ( dev-libs/libindicate-qt )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	app-arch/xz-utils
+"
+
+DOCS=( AUTHORS README TODO changelog )
 
 src_prepare(){
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use !ayatana QTINDICATE_DISABLE)
 	)
 

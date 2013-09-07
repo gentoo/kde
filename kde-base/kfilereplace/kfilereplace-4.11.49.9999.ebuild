@@ -9,5 +9,6 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - powerful search and replace in multiple files"
+HOMEPAGE="http://www.kde.org/applications/utilities/kfilereplace/"
 KEYWORDS=""
 IUSE="debug"

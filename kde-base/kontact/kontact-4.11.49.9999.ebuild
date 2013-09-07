@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KDE personal information manager"
+HOMEPAGE="http://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 IUSE="debug"
 

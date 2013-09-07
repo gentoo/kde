@@ -10,6 +10,7 @@ KMMODULE="console/${PN}"
 inherit kde4-meta
 
 DESCRIPTION="A command line interface to KDE calendars"
+HOMEPAGE+=" http://userbase.kde.org/KonsoleKalendar"
 KEYWORDS=""
 IUSE="debug"
 

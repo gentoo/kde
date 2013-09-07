@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE4 interface to work with Graph Theory"
-HOMEPAGE="http://kde.org/applications/education/rocs
+HOMEPAGE="http://www.kde.org/applications/education/rocs
 http://edu.kde.org/applications/mathematics/rocs"
 KEYWORDS=""
 IUSE="debug"

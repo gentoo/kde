@@ -9,6 +9,10 @@ KMNAME="kde-baseapps"
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser, file manager, ..."
+HOMEPAGE="
+	http://www.kde.org/applications/internet/konqueror/
+	http://konqueror.org/
+"
 KEYWORDS=""
 IUSE="+bookmarks debug svg"
 # 4 of 4 tests fail. Last checked for 4.0.3

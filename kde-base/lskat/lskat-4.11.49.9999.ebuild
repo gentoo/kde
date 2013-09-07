@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="Skat game for KDE"
+HOMEPAGE="
+	http://www.kde.org/applications/games/lskat/
+	http://games.kde.org/game.php?game=lskat
+"
 KEYWORDS=""
 IUSE="debug"
 

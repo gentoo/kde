@@ -132,7 +132,7 @@ RDEPEND="
 	xbase? ( dev-db/xbase )
 	xslt? ( dev-libs/libxslt )
 	calligra_features_kexi? (
-		>=dev-db/sqlite-3.7.9:3[extensions]
+		>=dev-db/sqlite-3.7.9:3[extensions(+)]
 		dev-libs/icu:=
 	)
 "

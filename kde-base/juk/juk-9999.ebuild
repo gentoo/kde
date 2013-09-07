@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Jukebox and music manager for KDE."
+HOMEPAGE="http://www.kde.org/applications/multimedia/juk/"
 KEYWORDS=""
 IUSE="debug"
 

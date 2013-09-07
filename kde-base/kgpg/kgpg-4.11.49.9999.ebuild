@@ -9,7 +9,7 @@ KDE_SELINUX_MODULE="gpg"
 inherit kde4-base
 
 DESCRIPTION="KDE gpg keyring manager"
-HOMEPAGE="http://kde.org/applications/utilities/kgpg
+HOMEPAGE="http://www.kde.org/applications/utilities/kgpg
 http://utils.kde.org/projects/kgpg"
 KEYWORDS=""
 IUSE="debug"

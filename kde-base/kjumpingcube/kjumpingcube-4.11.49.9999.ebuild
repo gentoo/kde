@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE: Tactical one or two player game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kjumpingcube/
+	http://games.kde.org/game.php?game=kjumpingcube
+"
 KEYWORDS=""
 IUSE="debug"
 

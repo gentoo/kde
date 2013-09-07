@@ -8,6 +8,10 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KSquares is an implementation of the game squares for KDE4"
+HOMEPAGE="
+	http://www.kde.org/applications/games/ksquares/
+	http://games.kde.org/game.php?game=ksquares
+"
 KEYWORDS=""
 IUSE="debug"
 

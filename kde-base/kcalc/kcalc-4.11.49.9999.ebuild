@@ -9,7 +9,7 @@ CPPUNIT_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE calculator"
-HOMEPAGE="http://kde.org/applications/utilities/kcalc
+HOMEPAGE="http://www.kde.org/applications/utilities/kcalc
 http://utils.kde.org/projects/kcalc"
 KEYWORDS=""
 IUSE="debug"

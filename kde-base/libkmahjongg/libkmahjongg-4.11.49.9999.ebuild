@@ -9,5 +9,3 @@ inherit kde4-base
 DESCRIPTION="LibKMahjongg for KDE"
 KEYWORDS=""
 IUSE="debug"
-
-KMLOADLIBS="libkdegames"

@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="An advanced download manager for KDE"
+HOMEPAGE="http://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="debug bittorrent mms sqlite webkit"
 

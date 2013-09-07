@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE screen magnifier"
+HOMEPAGE="http://www.kde.org/applications/utilities/kmag/"
 KEYWORDS=""
 IUSE="debug"
 

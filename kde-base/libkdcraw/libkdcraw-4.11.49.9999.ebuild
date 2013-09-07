@@ -8,20 +8,11 @@ inherit kde4-base
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
 KEYWORDS=""
-IUSE="debug jasper"
+IUSE="debug"
 
 DEPEND="
 	>=media-libs/libraw-0.15:=
-	jasper? ( media-libs/jasper )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-4.10.90-extlibraw.patch" )
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package jasper)
-	)
-
-	kde4-base_src_configure
-}

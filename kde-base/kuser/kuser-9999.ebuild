@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE application that helps you manage system users"
+HOMEPAGE="http://www.kde.org/applications/system/kuser/"
 KEYWORDS=""
 IUSE="debug"
 

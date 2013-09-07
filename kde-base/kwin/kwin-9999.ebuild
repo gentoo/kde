@@ -15,6 +15,7 @@ RESTRICT=test
 inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE window manager"
+HOMEPAGE+=" http://userbase.kde.org/KWin"
 KEYWORDS=""
 IUSE="debug gles opengl wayland"
 

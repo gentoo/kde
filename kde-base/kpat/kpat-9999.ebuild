@@ -9,6 +9,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE patience game"
+HOMEPAGE="http://games.kde.org/game.php?game=kpat"
 KEYWORDS=""
 IUSE="debug"
 

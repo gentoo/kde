@@ -10,6 +10,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Info Center"
+HOMEPAGE="http://www.kde.org/applications/system/kinfocenter/"
 KEYWORDS=""
 IUSE="debug ieee1394"
 

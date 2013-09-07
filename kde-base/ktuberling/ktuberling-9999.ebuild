@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE: potato game for kids"
+HOMEPAGE="
+	http://www.kde.org/applications/games/ktuberling/
+	http://games.kde.org/game.php?game=ktuberling
+"
 KEYWORDS=""
 IUSE="debug"
 

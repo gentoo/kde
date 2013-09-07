@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Classical hangman game for KDE"
-HOMEPAGE="http://kde.org/applications/education/khangman
+HOMEPAGE="http://www.kde.org/applications/education/khangman
 http://edu.kde.org/khangman"
 KEYWORDS=""
 IUSE="debug"

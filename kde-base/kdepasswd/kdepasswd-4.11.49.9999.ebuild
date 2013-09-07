@@ -18,5 +18,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesu)
 "
-
-KMLOADLIBS="libkonq"

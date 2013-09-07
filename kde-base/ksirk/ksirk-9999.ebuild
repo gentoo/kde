@@ -8,6 +8,10 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: Ksirk is a KDE port of the board game risk"
+HOMEPAGE="
+	http://www.kde.org/applications/games/ksirk/
+	http://games.kde.org/game.php?game=ksirk
+"
 KEYWORDS=""
 IUSE="debug"
 

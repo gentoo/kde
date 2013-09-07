@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Address Book"
+HOMEPAGE="http://www.kde.org/applications/office/kaddressbook/"
 KEYWORDS=""
 IUSE="debug"
 

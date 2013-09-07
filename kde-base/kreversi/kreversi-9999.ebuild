@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Board Game"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kreversi/
+	http://games.kde.org/game.php?game=kreversi
+"
 KEYWORDS=""
 IUSE="debug"
 

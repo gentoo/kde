@@ -8,6 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE: A dialer and front-end to pppd."
+HOMEPAGE="http://www.kde.org/applications/internet/kppp"
 KEYWORDS=""
 IUSE="debug"
 

@@ -9,6 +9,7 @@ KMNAME="kdepim"
 inherit kde4-meta
 
 DESCRIPTION="KTimeTracker tracks time spent on various tasks."
+HOEMPAGE="http://www.kde.org/applications/utilities/ktimetracker/"
 KEYWORDS=""
 IUSE="debug"
 

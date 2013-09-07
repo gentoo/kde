@@ -9,6 +9,10 @@ OPENGL_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Sudoku"
+HOMEPAGE="
+	http://www.kde.org/applications/games/ksudoku/
+	http://games.kde.org/game.php?game=ksudoku
+"
 KEYWORDS=""
 IUSE="debug"
 

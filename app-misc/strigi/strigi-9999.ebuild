@@ -5,8 +5,8 @@
 EAPI=5
 
 if [[ "${PV}" != "9999" ]]; then
-	SRC_URI="http://dev.gentoo.org/~johu/distfiles/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+	SRC_URI="http://www.vandenoever.info/software/strigi/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	EGIT_REPO_URI="git://anongit.kde.org/strigi"
 	GIT_ECLASS="git-2"
@@ -21,13 +21,12 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/strigi/strigi"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="clucene +dbus debug exif fam ffmpeg hyperestraier inotify log +qt4 test"
+IUSE="clucene +dbus debug exif fam ffmpeg inotify log +qt4 test"
 
-COMMONDEPEND="
-	app-arch/bzip2:0
-	dev-libs/boost:=
+RDEPEND="
+	app-arch/bzip2
 	dev-libs/libxml2:2
-	sys-libs/zlib:0
+	sys-libs/zlib
 	virtual/libiconv
 	clucene? ( >=dev-cpp/clucene-0.9.21[-debug] )
 	dbus? (
@@ -37,16 +36,15 @@ COMMONDEPEND="
 	exif? ( >=media-gfx/exiv2-0.17 )
 	fam? ( virtual/fam )
 	ffmpeg? ( virtual/ffmpeg )
-	hyperestraier? ( app-text/hyperestraier )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		dev-qt/qtcore:4
 		dev-qt/qtgui:4
 	)
 "
-DEPEND="${COMMONDEPEND}
-	test? ( dev-util/cppunit )"
-RDEPEND="${COMMONDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-util/cppunit )
+"
 
 if [[ ${PV} == 9999 ]] ; then
 	src_unpack() {
@@ -61,10 +59,9 @@ fi
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DENABLE_POLLING=ON
 		-DFORCE_DEPS=ON
-		-DENABLE_CPPUNIT=OFF
 		-DENABLE_REGENERATEXSD=OFF
 		-DENABLE_XINE=OFF
 		$(cmake-utils_use_enable clucene CLUCENE)
@@ -73,28 +70,23 @@ src_configure() {
 		$(cmake-utils_use_enable exif EXIV2)
 		$(cmake-utils_use_enable fam)
 		$(cmake-utils_use_enable ffmpeg)
-		$(cmake-utils_use_enable hyperestraier)
 		$(cmake-utils_use_enable inotify)
 		$(cmake-utils_use_enable log LOG4CXX)
 		$(cmake-utils_use_enable qt4)
-		$(cmake-utils_use_enable test CPPUNIT)
+		$(cmake-utils_use_find_package test CPPUNIT)
 	)
 
 	if use qt4; then
-		mycmakeargs+=(-DENABLE_DBUS=ON)
+		mycmakeargs+=( -DENABLE_DBUS=ON )
 	fi
 
 	cmake-utils_src_configure
 }
 
 pkg_postinst() {
-	if ! use clucene && ! use hyperestraier; then
-		echo
-		elog "Because you didn't enable either of the available backends:"
-		elog "clucene or hyperestraier, strigi may not be functional."
+	if ! use clucene ; then
+		elog "Because you didn't enable the clucene backend, strigi may not be functional."
 		elog "If you intend to use standalone strigi indexer (not needed for KDE),"
-		elog "be sure to reinstall app-misc/strigi with either clucene (recommended)"
-		elog "or hyperestraier (unreliable) USE flag enabled."
-		echo
+		elog "be sure to reinstall app-misc/strigi with the clucene USE flag enabled."
 	fi
 }

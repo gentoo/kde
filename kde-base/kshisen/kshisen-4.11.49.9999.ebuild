@@ -9,6 +9,10 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="A KDE game similiar to Mahjongg"
+HOMEPAGE="
+	http://www.kde.org/applications/games/kshisen/
+	http://games.kde.org/game.php?game=kshisen
+"
 KEYWORDS=""
 IUSE="debug"
 

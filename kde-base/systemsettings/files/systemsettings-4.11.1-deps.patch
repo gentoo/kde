@@ -1,0 +1,49 @@
+From 9dba719eb2c8d563eb512bb05451f8939d5d0b4b Mon Sep 17 00:00:00 2001
+From: Michael Palimaka <kensington@gentoo.org>
+Date: Mon, 2 Sep 2013 00:21:24 +1000
+Subject: [PATCH] Remove unused CMake qimageblitz includes and links.
+
+REVIEW: 112200
+---
+ kcontrol/desktoptheme/CMakeLists.txt | 2 +-
+ kcontrol/style/CMakeLists.txt        | 5 ++---
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/kcontrol/desktoptheme/CMakeLists.txt b/kcontrol/desktoptheme/CMakeLists.txt
+index cc8fd99..a93fb41 100644
+--- a/kcontrol/desktoptheme/CMakeLists.txt
++++ b/kcontrol/desktoptheme/CMakeLists.txt
+@@ -5,7 +5,7 @@ set(kcmdesktoptheme_SRCS kcmdesktoptheme.cpp desktopthemedetails.cpp thememodel.
+ kde4_add_ui_files(kcmdesktoptheme_SRCS DesktopTheme.ui DesktopThemeDetails.ui)
+ 
+ kde4_add_plugin(kcm_desktoptheme ${kcmdesktoptheme_SRCS})
+-target_link_libraries(kcm_desktoptheme ${QIMAGEBLITZ_LIBRARIES} ${X11_LIBRARIES}
++target_link_libraries(kcm_desktoptheme ${X11_LIBRARIES}
+     ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KNEWSTUFF3_LIBS}
+     ${KDE4_KCMUTILS_LIBRARY} ${KDE4_PLASMA_LIBS} ${KDE4_KIO_LIBS})
+ 
+diff --git a/kcontrol/style/CMakeLists.txt b/kcontrol/style/CMakeLists.txt
+index 6e93bed..d832b20 100644
+--- a/kcontrol/style/CMakeLists.txt
++++ b/kcontrol/style/CMakeLists.txt
+@@ -1,6 +1,5 @@
+ KDE4_NO_ENABLE_FINAL(styles)
+ 
+-include_directories( ${QIMAGEBLITZ_INCLUDES} )
+ # needed for including kdecoration.h
+ include_directories (
+     ${KDEBASE_WORKSPACE_SOURCE_DIR}/kwin/libkwineffects
+@@ -17,8 +16,8 @@ kde4_add_ui_files(kcm_style_PART_SRCS stylepreview.ui finetuning.ui)
+ 
+ kde4_add_plugin(kcm_style ${kcm_style_PART_SRCS})
+ 
+-target_link_libraries(kcm_style ${KDE4_KIO_LIBS} ${QIMAGEBLITZ_LIBRARIES}
+-    ${X11_LIBRARIES} ${KDE4_PLASMA_LIBS} ${KDE4_KNEWSTUFF3_LIBS})
++target_link_libraries(kcm_style ${KDE4_KIO_LIBS} ${X11_LIBRARIES}
++    ${KDE4_PLASMA_LIBS} ${KDE4_KNEWSTUFF3_LIBS})
+ if(NOT WIN32)
+     target_link_libraries(kcm_style kdecorations)
+ endif(NOT WIN32)
+-- 
+1.8.3.2
+

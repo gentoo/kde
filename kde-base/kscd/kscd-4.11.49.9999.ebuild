@@ -7,6 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE CD player"
+HOMEPAGE="http://www.kde.org/applications/multimedia/kscd/"
 KEYWORDS=""
 IUSE="debug"
 
