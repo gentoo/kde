@@ -150,8 +150,8 @@ kde-frameworks_pkg_setup() {
 	# executions consume quite some time.
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
-				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 3 ]] ) \
-			&& die "Sorry, but gcc-4.3 and earlier wont work for KDE (see bug 354837)."
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 5 ]] ) \
+			&& die "Sorry, but gcc-4.5 or later is required for KDE frameworks."
 	fi
 
 	: ${PREFIX:=/usr}
