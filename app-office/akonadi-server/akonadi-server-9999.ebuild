@@ -33,7 +33,7 @@ CDEPEND="
 	qt4? (
 		>=dev-qt/qtcore-4.5.0:4
 		>=dev-qt/qtdbus-4.5.0:4
-		>=dev-qt/qtgui-4.5.0:4[dbus(+)]
+		>=dev-qt/qtgui-4.5.0:4
 		>=dev-qt/qtsql-4.5.0:4[mysql?,postgres?]
 		>=dev-qt/qttest-4.5.0:4
 	)
