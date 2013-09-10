@@ -10,8 +10,10 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_PN=${PN}-kde
 	MY_P=${MY_PN}-${PV}
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${MY_P}.tar.xz"
+	KEYWORDS="~amd64"
 else
 	EGIT_REPO_URI="git://anongit.kde.org/kdeconnect-kde"
+	KEYWORDS=""
 fi
 
 DESCRIPTION="Adds communication between KDE and your smartphone"
@@ -19,7 +21,6 @@ HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2+"
 SLOT="4"
-KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="$(add_kdebase_dep kdelibs )
