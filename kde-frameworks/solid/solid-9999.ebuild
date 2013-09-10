@@ -16,7 +16,7 @@ IUSE="+udev"
 
 RDEPEND="
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative
+	dev-qt/qtdeclarative:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	udev? ( virtual/udev )
