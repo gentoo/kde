@@ -215,6 +215,10 @@ kde-frameworks_src_configure() {
 	# currently tier2/kauth, but possibly more later
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 
+	if ! use_if_iuse test ; then
+		cmakeargs+=( -DBUILD_TESTING=OFF )
+	fi
+
 	# allow the ebuild to override what we set here
 	mycmakeargs=("${cmakeargs[@]}" "${mycmakeargs[@]}")
 
