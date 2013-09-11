@@ -26,8 +26,11 @@ IUSE=""
 DEPEND="$(add_kdebase_dep kdelibs )
 	app-crypt/qca:2
 	dev-libs/qjson
-	dev-qt/qtdbus"
-RDEPEND="${DEPEND}"
+	dev-qt/qtdbus
+"
+RDEPEND="${DEPEND}
+	net-dns/avahi
+"
 
 S=${WORKDIR}/${MY_P}
 
