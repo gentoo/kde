@@ -11,7 +11,7 @@ inherit kde4-meta
 DESCRIPTION="KDE SC solid runtime modules (autoeject, automounter and others)"
 HOMEPAGE="http://solid.kde.org"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug bluetooth networkmanager"
 
 KMEXTRA="
 	solid-device-automounter/
@@ -19,4 +19,10 @@ KMEXTRA="
 	solid-networkstatus/
 	solidautoeject/
 	soliduiserver/
+"
+
+DEPEND=""
+RDEPEND="${DEPEND}
+	bluetooth? ( net-wireless/bluedevil )
+	networkmanager? ( kde-misc/networkmanagement )
 "
