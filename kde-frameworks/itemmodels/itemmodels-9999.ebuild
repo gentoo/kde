@@ -10,3 +10,9 @@ inherit kde-frameworks
 DESCRIPTION="KDE item models"
 KEYWORDS=""
 IUSE=""
+
+# tests are not enabled upstream due to unconverted dependencies.
+# restrict to avoid issues when enabled due to missing dependencies
+# etc, and as a personal reminder to check if upstream has properly
+# specified all dependencies.
+RESTRICT="test"
