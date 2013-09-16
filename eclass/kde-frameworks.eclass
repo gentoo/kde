@@ -58,6 +58,7 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 SLOT=5
+IUSE+=" debug"
 
 COMMONDEPEND+="
 	>=dev-qt/qtcore-${QT_MINIMAL}:5
@@ -191,9 +192,7 @@ kde4-base_src_prepare() {
 kde-frameworks_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# having the use flag is only useful in a few packages
-	# it should not be used indiscriminately as with KDE 4
-	# todo: look at KDE_NO_DEBUG too
+	# we rely on cmake-utils.eclass to append -DNDEBUG too
 	if ! use_if_iuse debug; then
 		append-cppflags -DQT_NO_DEBUG
 	fi
