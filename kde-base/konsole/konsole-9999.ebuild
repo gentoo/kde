@@ -7,6 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KDE_DOC_DIRS="doc/manual"
 VIRTUALX_REQUIRED="test"
+VIRTUALDBUS_TEST="true"
 inherit kde4-base
 
 DESCRIPTION="X terminal for use with KDE"
@@ -32,7 +33,3 @@ DEPEND="${COMMONDEPEND}
 	)
 "
 RDEPEND="${COMMONDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.7.0-tests.patch"
-)
