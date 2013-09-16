@@ -10,7 +10,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Convenience access to certain properties and features of the window manager"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
 	dev-qt/qtdbus:5

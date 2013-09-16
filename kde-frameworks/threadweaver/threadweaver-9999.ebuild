@@ -11,7 +11,7 @@ inherit kde-frameworks
 DESCRIPTION="Helper library for multithreaded programming"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
 	dev-qt/qtgui:5
