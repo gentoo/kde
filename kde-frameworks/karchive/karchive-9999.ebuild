@@ -17,9 +17,6 @@ RDEPEND="
 	lzma? ( app-arch/lzma )
 	sys-libs/zlib
 "
-DEPEND="${RDEPEND}
-	test? (	dev-qt/qtnetwork:5 )
-"
 
 src_configure() {
 	local mycmakeargs=(
