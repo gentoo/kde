@@ -18,9 +18,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	spell? ( app-text/enchant )
 "
-DEPEND="${RDEPEND}
-	test? ( dev-qt/qtxml:5 )
-"
+DEPEND="${RDEPEND}"
 
 DOCS=( README )
 
