@@ -8,7 +8,7 @@ FRAMEWORKS_TYPE="tier1"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="An assortment of extra KDE widgets"
+DESCRIPTION="An assortment of high-level widgets for common tasks"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
