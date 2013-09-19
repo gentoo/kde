@@ -7,7 +7,7 @@ EAPI=5
 FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
-DESCRIPTION="A common API for various archive formats"
+DESCRIPTION="Easy packing and unpacking of files in various archive formats"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="+bzip2 lzma"
