@@ -8,7 +8,7 @@ FRAMEWORKS_TYPE="tier1"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="A virtual baseclass for data plotting"
+DESCRIPTION="Graph drawing functions"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
