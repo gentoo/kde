@@ -1,0 +1,481 @@
+From ce1fed4fc2bda012a93b207a76ce0d050e048cdb Mon Sep 17 00:00:00 2001
+From: Gilles Caulier <caulier.gilles@gmail.com>
+Date: Wed, 11 Sep 2013 15:48:28 +0200
+Subject: [PATCH] Remove all Libraw implementation embeded in libkdcraw. Adjust
+ all settings in config widget accordingly with extra packs used by libraw,
+ especially Raw quality setting. Add new methods to get whole options used to
+ compile Libraw. Bump API/ABI id. This version of libkdcraw break BC. It must
+ be published with next KDE 4.12.0 and next digiKam 4.0.0. Libraw compatible
+ with this implementation is 0.16.0 which have been ported. BUGS: 307146
+ FIXED-IN: 4.0.0 REVIEW: 110962
+
+---
+ CMakeLists.txt                    | 40 +++++++++--------
+ README                            | 21 ++-------
+ libkdcraw/CMakeLists.txt          |  9 +---
+ libkdcraw/dcrawsettingswidget.cpp | 95 +++++++++++++++++++++++++--------------
+ libkdcraw/kdcraw.cpp              | 18 ++++++++
+ libkdcraw/kdcraw.h                |  8 ++++
+ libkdcraw/libkdcraw_export.h      |  2 +-
+ libkdcraw/rawdecodingsettings.h   | 15 +++++--
+ test/CMakeLists.txt               |  1 -
+ test/libinfo.cpp                  |  2 +
+ 10 files changed, 128 insertions(+), 83 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f2f2696..8d4a419 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,17 +29,27 @@ SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_P
+ MESSAGE(STATUS "----------------------------------------------------------------------------------")
+ MESSAGE(STATUS "Starting CMake configuration for: libkdcraw")
+ 
+-OPTION(ENABLE_LCMS2    "Link libraw to LCMS2 else LCMS1 (default=OFF)"    OFF)
+-OPTION(ENABLE_RAWSPEED "Compile libraw with RawSpeed codec (default=OFF)" OFF)
+-
+ FIND_PACKAGE(KDE4 REQUIRED)
+ INCLUDE(KDE4Defaults)
+ INCLUDE(MacroLibrary)
+ INCLUDE(MacroOptionalAddSubdirectory)
+ INCLUDE(FindPackageHandleStandardArgs)
+ 
+-ADD_DEFINITIONS (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS})
+-INCLUDE_DIRECTORIES (${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
++# NOTE: Libraw 0.16.0 is ported to Cmake and will work fine.
++FIND_PACKAGE(LibRaw 0.16 REQUIRED)
++
++ADD_DEFINITIONS(${QT_DEFINITIONS}
++                ${QT_QTDBUS_DEFINITIONS}
++                ${KDE4_DEFINITIONS}
++                ${LibRaw_r_DEFINITIONS}
++               )
++
++INCLUDE_DIRECTORIES(${QDBUS_INCLUDE_DIRS} 
++                    ${CMAKE_SOURCE_DIR}
++                    ${CMAKE_BINARY_DIR}
++                    ${KDE4_INCLUDES}
++                    ${LibRaw_INCLUDE_DIR}
++                   )
+ 
+ SET(LIBKDCRAW_AREA_CODE_GENERAL 51002)
+ ADD_DEFINITIONS(-DKDE_DEFAULT_DEBUG_AREA=${LIBKDCRAW_AREA_CODE_GENERAL})
+@@ -69,11 +79,12 @@ ADD_DEFINITIONS(-DKDE_DEFAULT_DEBUG_AREA=${LIBKDCRAW_AREA_CODE_GENERAL})
+ # 2.2.0 => 22.0.0 (Released with KDE 4.10.0 - Including RawSpeed Codec)
+ # 2.3.0 => 22.1.0 (Released with KDE 4.11.0 - Including Coverity Report fixes)
+ # 2.3.1 => 22.1.1 (Released with KDE 4.11.2 - Including settings widget fixes)
++# 2.4.0 => 23.0.0 (Released with KDE 4.12.0 - Drop internal Libraw source code)
+ 
+ # Library API version
+ SET(DCRAW_LIB_MAJOR_VERSION "2")
+-SET(DCRAW_LIB_MINOR_VERSION "3")
+-SET(DCRAW_LIB_PATCH_VERSION "1")
++SET(DCRAW_LIB_MINOR_VERSION "4")
++SET(DCRAW_LIB_PATCH_VERSION "0")
+ 
+ # Suffix to add at end of version string. Usual values are:
+ # "-git"   : alpha code unstable from git. Do not use in production
+@@ -86,9 +97,9 @@ SET(DCRAW_LIB_SUFFIX_VERSION "")
+ 
+ # Library ABI version used by linker.
+ # For details : http://www.gnu.org/software/libtool/manual/libtool.html#Updating-version-info
+-SET(DCRAW_LIB_SO_CUR_VERSION "22")
+-SET(DCRAW_LIB_SO_REV_VERSION "1")
+-SET(DCRAW_LIB_SO_AGE_VERSION "1")
++SET(DCRAW_LIB_SO_CUR_VERSION "23")
++SET(DCRAW_LIB_SO_REV_VERSION "0")
++SET(DCRAW_LIB_SO_AGE_VERSION "0")
+ 
+ # ==================================================================================================
+ # Set env. variables accordinly.
+@@ -99,16 +110,7 @@ SET(DCRAW_LIB_VERSION_ID "0x0${DCRAW_LIB_MAJOR_VERSION}0${DCRAW_LIB_MINOR_VERSIO
+ SET(DCRAW_LIB_SO_VERSION_STRING "${DCRAW_LIB_SO_CUR_VERSION}.${DCRAW_LIB_SO_REV_VERSION}.${DCRAW_LIB_SO_AGE_VERSION}")
+ 
+ # ==================================================================================================
+-# Compiler optimizations for Release target.
+-
+-IF(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+-    SET(CMAKE_C_FLAGS_RELEASE "-O4 -DNDEBUG -DQT_NO_DEBUG")
+-    SET(CMAKE_CXX_FLAGS_RELEASE "-O4 -DNDEBUG -DQT_NO_DEBUG")
+-ENDIF(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+-
+-# ==================================================================================================
+ 
+-ADD_SUBDIRECTORY(libraw)
+ ADD_SUBDIRECTORY(libkdcraw)
+ ADD_SUBDIRECTORY(test)
+ ADD_SUBDIRECTORY(icons)
+diff --git a/README b/README
+index 0ee68d5..729a5ae 100644
+--- a/README
++++ b/README
+@@ -1,6 +1,6 @@
+ LibRaw C++ interface for KDE
+ 
+-This library is a part of Kipi-Plugins project (http://www.digikam.org)
++This library is a part of digiKam project (http://www.digikam.org)
+ 
+ -- AUTHORS -----------------------------------------------------------
+ 
+@@ -20,26 +20,11 @@ The library documentation is available on header files.
+ CMake      >= 2.4.3                    http://www.cmake.org
+ libqt      >= 4.2.x                    http://www.qtsoftware.com
+ libkde     >= 4.0.x                    http://www.kde.org
+-liblcms    >= 1.14.x (used by libraw)  http://www.littlecms.com
+-
+-Optional :
+-
+-libjpeg    >= 8      (used by libraw)  http://www.ijg.org
+-libjasper  >= 1.7.x  (used by libraw)  http://www.ece.uvic.ca/~mdadams/jasper8
+-libxml2    >= 2.7.x  (used by libraw)  http://xmlsoft.org
+-libgomp    >= 4.3.x  (used by libraw)  http://gcc.gnu.org/projects/gomp
+-
+-Note: OpenMP support is hightly recommended to speed-up RAW demosaicing
+-operations using parallelized code.
++libraw     >= 0.16.x                   http://www.libraw.org
+ 
+ Note: all library dependencies require development and binary packages installed on your
+ computer to compile digiKam.
+ 
+-CMake compilation option de customized for libkdcraw:
+-
+-Use CMake "-ENABLE_LCMS2=on"     flag to link libraw to LCMS2 else LCMS1         (disabled by default).
+-Use CMake "-ENABLE_RAWSPEED=on"  flag to compile libraw with RawSpeed codec      (disabled by default).
+-
+ -- INSTALL ------------------------------------------------------------
+ 
+ In order to compile, especially when QT3/Qt4 are installed at the same time, 
+@@ -88,4 +73,4 @@ or a devel wish.
+ The current Kipi bugs and devel wish reported to the Kde bugs report can be see 
+ at this url :
+ 
+-http://bugs.kde.org/buglist.cgi?product=kipiplugins&component=libkdcraw&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
++http://bugs.kde.org/buglist.cgi?product=digikam&component=libkdcraw&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
+diff --git a/libkdcraw/CMakeLists.txt b/libkdcraw/CMakeLists.txt
+index f632bcb..4d1119e 100644
+--- a/libkdcraw/CMakeLists.txt
++++ b/libkdcraw/CMakeLists.txt
+@@ -22,10 +22,6 @@
+ #
+ # ============================================================
+ 
+-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/../libraw/libraw
+-                    ${CMAKE_CURRENT_BINARY_DIR}/../libraw
+-                   )
+-
+ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/version.h)
+ 
+ SET(kdcraw_LIB_SRCS kdcraw.cpp
+@@ -44,15 +40,14 @@ SET(kdcraw_LIB_SRCS kdcraw.cpp
+ KDE4_ADD_LIBRARY(kdcraw SHARED ${kdcraw_LIB_SRCS})
+ 
+ TARGET_LINK_LIBRARIES(kdcraw
+-                      libraw
+                       ${KDE4_KDEUI_LIBS}
+                       ${KDE4_KIO_LIBS}
+                       ${KDE4_SOLID_LIBS}
+                       ${KDE4_THREADWEAVER_LIBRARIES}
++                      ${LibRaw_r_LIBRARIES}
+                      )
+ 
+-SET_TARGET_PROPERTIES(kdcraw PROPERTIES VERSION ${DCRAW_LIB_SO_VERSION_STRING} SOVERSION ${DCRAW_LIB_SO_CUR_VERSION}
+-                                        DEFINE_SYMBOL LIBRAW_BUILDLIB)
++SET_TARGET_PROPERTIES(kdcraw PROPERTIES VERSION ${DCRAW_LIB_SO_VERSION_STRING} SOVERSION ${DCRAW_LIB_SO_CUR_VERSION})
+ 
+ INSTALL(TARGETS kdcraw ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+diff --git a/libkdcraw/dcrawsettingswidget.cpp b/libkdcraw/dcrawsettingswidget.cpp
+index 78f2a74..f7c56f7 100644
+--- a/libkdcraw/dcrawsettingswidget.cpp
++++ b/libkdcraw/dcrawsettingswidget.cpp
+@@ -278,16 +278,31 @@ void DcrawSettingsWidget::setup(int advSettings)
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::PPG,      i18nc("@item:inlistbox Quality", "PPG"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::AHD,      i18nc("@item:inlistbox Quality", "AHD"));
+ 
+-    // Extended demosaicing method
++    // Extended demosaicing method from GPL2 pack
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::DCB,      i18nc("@item:inlistbox Quality", "DCB"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::PL_AHD,   i18nc("@item:inlistbox Quality", "AHD v2"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::AFD,      i18nc("@item:inlistbox Quality", "AFD"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::VCD,      i18nc("@item:inlistbox Quality", "VCD"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::VCD_AHD,  i18nc("@item:inlistbox Quality", "VCD & AHD"));
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::LMMSE,    i18nc("@item:inlistbox Quality", "LMMSE"));
++    // Extended demosaicing method from GPL3 pack
+     d->RAWQualityComboBox->insertItem(RawDecodingSettings::AMAZE,    i18nc("@item:inlistbox Quality", "AMaZE"));
+ 
++    // If Libraw do not support GPL2 pack, disable entries relevant.
++    if (!KDcraw::librawUseGPL2DemosaicPack())
++    {
++        for (int i=RawDecodingSettings::DCB ; i <=RawDecodingSettings::LMMSE ; ++i)
++            d->RAWQualityComboBox->combo()->setItemData(i, false, Qt::UserRole-1);
++    }
++
++    // If Libraw do not support GPL3 pack, disable entries relevant.
++    if (!KDcraw::librawUseGPL3DemosaicPack())
++    {
++        d->RAWQualityComboBox->combo()->setItemData(RawDecodingSettings::AMAZE, false, Qt::UserRole-1);
++    }
++
+     d->RAWQualityComboBox->setDefaultIndex(RawDecodingSettings::BILINEAR);
++    d->RAWQualityComboBox->setCurrentIndex(RawDecodingSettings::BILINEAR);
+     d->RAWQualityComboBox->setWhatsThis(i18nc("@info:whatsthis", "<title>Quality (interpolation)</title>"
+                                 "<para>Select here the demosaicing method to use when decoding RAW "
+                                 "images. A demosaicing algorithm is a digital image process used to "
+@@ -345,7 +360,10 @@ void DcrawSettingsWidget::setup(int advSettings)
+ 
+                                 "<item><emphasis strong='true'>AMaZE</emphasis>: Aliasing Minimization "
+                                 "interpolation and Zipper Elimination to apply color aberration removal "
+-                                "from RawTherapee project.</item></list></para>"));
++                                "from RawTherapee project.</item></list></para>"
++                                
++                                "<para>Note: some methods can be unavailable if RAW decoder have been built "
++                                "without extention packs.</para>"));
+ 
+     demosaicingLayout->addWidget(d->RAWQualityLabel,    line, 0, 1, 1);
+     demosaicingLayout->addWidget(d->RAWQualityComboBox, line, 1, 1, 2);
+@@ -377,6 +395,14 @@ void DcrawSettingsWidget::setup(int advSettings)
+                                 "enhanced effective color interpolation (EECI) refine to improve "
+                                 "sharpness.</item></list></para>"));
+     demosaicingLayout->addWidget(d->refineInterpolationBox, line, 0, 1, 2);
++         
++    // If Libraw do not support GPL2 pack, disable options relevant.
++    if (!KDcraw::librawUseGPL2DemosaicPack())
++    {
++        d->medianFilterPassesLabel->setEnabled(false);
++        d->medianFilterPassesSpinBox->setEnabled(false);
++        d->refineInterpolationBox->setEnabled(false);
++    }
+ 
+     addItem(d->demosaicingSettings, SmallIcon("kdcraw"), i18nc("@label", "Demosaicing"), QString("demosaicing"), true);
+ 
+@@ -1021,41 +1047,17 @@ void DcrawSettingsWidget::slotRAWQualityChanged(int quality)
+     switch(quality)
+     {
+         case RawDecodingSettings::DCB:
+-            d->medianFilterPassesLabel->setEnabled(true);
+-            d->medianFilterPassesSpinBox->setEnabled(true);
+-            d->refineInterpolationBox->setEnabled(true);
++        case RawDecodingSettings::VCD_AHD:
++            // These options can be only avaialble if Libraw use GPL2 pack.
++            d->medianFilterPassesLabel->setEnabled(KDcraw::librawUseGPL2DemosaicPack());
++            d->medianFilterPassesSpinBox->setEnabled(KDcraw::librawUseGPL2DemosaicPack());
++            d->refineInterpolationBox->setEnabled(KDcraw::librawUseGPL2DemosaicPack());
+             break;
+ 
+         case RawDecodingSettings::PL_AHD:
+-            d->medianFilterPassesLabel->setEnabled(false);
+-            d->medianFilterPassesSpinBox->setEnabled(false);
+-            d->refineInterpolationBox->setEnabled(false);
+-            break;
+-
+         case RawDecodingSettings::AFD:
+-            d->medianFilterPassesLabel->setEnabled(false);
+-            d->medianFilterPassesSpinBox->setEnabled(false);
+-            d->refineInterpolationBox->setEnabled(false);
+-            break;
+-
+         case RawDecodingSettings::VCD:
+-            d->medianFilterPassesLabel->setEnabled(false);
+-            d->medianFilterPassesSpinBox->setEnabled(false);
+-            d->refineInterpolationBox->setEnabled(false);
+-            break;
+-
+-        case RawDecodingSettings::VCD_AHD:
+-            d->medianFilterPassesLabel->setEnabled(true);
+-            d->medianFilterPassesSpinBox->setEnabled(true);
+-            d->refineInterpolationBox->setEnabled(true);
+-            break;
+-
+         case RawDecodingSettings::LMMSE:
+-            d->medianFilterPassesLabel->setEnabled(false);
+-            d->medianFilterPassesSpinBox->setEnabled(false);
+-            d->refineInterpolationBox->setEnabled(false);
+-            break;
+-
+         case RawDecodingSettings::AMAZE:
+             d->medianFilterPassesLabel->setEnabled(false);
+             d->medianFilterPassesSpinBox->setEnabled(false);
+@@ -1137,8 +1139,32 @@ void DcrawSettingsWidget::setSettings(const RawDecodingSettings& settings)
+     d->whitePointSpinBox->setEnabled(settings.enableWhitePoint);
+     d->whitePointSpinBox->setValue(settings.whitePoint);
+ 
+-    d->RAWQualityComboBox->setCurrentIndex(settings.RAWQuality);
+-    switch(settings.RAWQuality)
++    int q = settings.RAWQuality;
++    
++    // If Libraw do not support GPL2 pack, reset to BILINEAR.
++    if (!KDcraw::librawUseGPL2DemosaicPack())
++    {
++        for (int i=RawDecodingSettings::DCB ; i <=RawDecodingSettings::LMMSE ; ++i)
++        {
++            if (q == i)
++            {
++                q = RawDecodingSettings::BILINEAR;
++                kDebug() << "Libraw GPL2 pack not avaialble. Raw quality set to Bilinear";
++                break;
++            }
++        }
++    }
++
++    // If Libraw do not support GPL3 pack, reset to BILINEAR.
++    if (!KDcraw::librawUseGPL3DemosaicPack() && (q == RawDecodingSettings::AMAZE))
++    {
++        q = RawDecodingSettings::BILINEAR;
++        kDebug() << "Libraw GPL3 pack not avaialble. Raw quality set to Bilinear";
++    }
++    
++    d->RAWQualityComboBox->setCurrentIndex(q);
++
++    switch(q)
+     {
+         case RawDecodingSettings::DCB:
+             d->medianFilterPassesSpinBox->setValue(settings.dcbIterations);
+@@ -1153,7 +1179,8 @@ void DcrawSettingsWidget::setSettings(const RawDecodingSettings& settings)
+             d->refineInterpolationBox->setChecked(false); // option not used.
+             break;
+     }
+-    slotRAWQualityChanged(settings.RAWQuality);
++
++    slotRAWQualityChanged(q);
+ 
+     d->inputColorSpaceComboBox->setCurrentIndex((int)settings.inputColorSpace);
+     slotInputColorSpaceChanged((int)settings.inputColorSpace);
+diff --git a/libkdcraw/kdcraw.cpp b/libkdcraw/kdcraw.cpp
+index 424bb34..6c02b43 100644
+--- a/libkdcraw/kdcraw.cpp
++++ b/libkdcraw/kdcraw.cpp
+@@ -502,4 +502,22 @@ bool KDcraw::librawUseRawSpeed()
+ #endif
+ }
+ 
++bool KDcraw::librawUseGPL2DemosaicPack()
++{
++#ifdef LIBRAW_USE_DEMOSAIC_PACK_GPL2
++    return true;
++#else
++    return false;
++#endif
++}
++
++bool KDcraw::librawUseGPL3DemosaicPack()
++{
++#ifdef LIBRAW_USE_DEMOSAIC_PACK_GPL3
++    return true;
++#else
++    return false;
++#endif
++}
++
+ }  // namespace KDcrawIface
+diff --git a/libkdcraw/kdcraw.h b/libkdcraw/kdcraw.h
+index 96b80e5..91f85d8 100644
+--- a/libkdcraw/kdcraw.h
++++ b/libkdcraw/kdcraw.h
+@@ -133,6 +133,14 @@ public:
+      */
+     static bool librawUseRawSpeed();
+ 
++    /** Return true if LibRaw use Demosaic Pack GPL2.
++     */
++    static bool librawUseGPL2DemosaicPack();
++    
++    /** Return true if LibRaw use Demosaic Pack GPL3.
++     */
++    static bool librawUseGPL3DemosaicPack();
++    
+ public:
+ 
+     /** Extract Raw image data undemosaiced and without post processing from 'filePath' picture file.
+diff --git a/libkdcraw/libkdcraw_export.h b/libkdcraw/libkdcraw_export.h
+index 1a222a0..56b9cbc 100644
+--- a/libkdcraw/libkdcraw_export.h
++++ b/libkdcraw/libkdcraw_export.h
+@@ -31,7 +31,7 @@
+ #include <kdemacros.h>
+ 
+ #ifndef LIBKDCRAW_EXPORT
+-# if defined(LIBRAW_BUILDLIB)
++# if defined(MAKE_DCRAW_LIB)
+    /* We are building this library */ 
+ #  define LIBKDCRAW_EXPORT KDE_EXPORT
+ # else
+diff --git a/libkdcraw/rawdecodingsettings.h b/libkdcraw/rawdecodingsettings.h
+index c9dbb59..db09e46 100644
+--- a/libkdcraw/rawdecodingsettings.h
++++ b/libkdcraw/rawdecodingsettings.h
+@@ -54,6 +54,8 @@ public:
+ 
+     /** RAW decoding Interpolation methods
+      *
++     * NOTE: from original dcraw demosaic
++     * 
+      *  Bilinear: use high-speed but low-quality bilinear
+      *            interpolation (default - for slow computer). In this method,
+      *            the red value of a non-red pixel is computed as the average of
+@@ -69,29 +71,36 @@ public:
+      *  AHD:      use Adaptive Homogeneity-Directed interpolation.
+      *            This method selects the direction of interpolation so as to
+      *            maximize a homogeneity metric, thus typically minimizing color artifacts.
++     * 
++     * NOTE: from GPL2 demosaic pack.
++     * 
+      *  DCB:      DCB interpolation (see http://www.linuxphoto.org/html/dcb.html for details)
+      *  PL_AHD:   modified AHD interpolation (see http://sites.google.com/site/demosaicalgorithms/modified-dcraw
+-     *            for details)
++     *            for details).
+      *  AFD:      demosaicing through 5 pass median filter from PerfectRaw project.
+      *  VCD:      VCD interpolation.
+      *  VCD_AHD:  mixed demosaicing between VCD and AHD.
+      *  LMMSE:    LMMSE interpolation from PerfectRaw.
++     * 
++     * NOTE: from GPL3 demosaic pack.
++     * 
+      *  AMAZE:    AMaZE interpolation and color aberration removal from RawTherapee project.
+      */
+     enum DecodingQuality
+     {
+-        // Original dcraw demosaicing methods
++        // from original dcraw demosaic
+         BILINEAR = 0,
+         VNG      = 1,
+         PPG      = 2,
+         AHD      = 3,
+-        // Extended demosaicing method
++        // Extended demosaicing method from GPL2 demosaic pack
+         DCB      = 4,
+         PL_AHD   = 5,
+         AFD      = 6,
+         VCD      = 7,
+         VCD_AHD  = 8,
+         LMMSE    = 9,
++        // Extended demosaicing methods from GPL3 demosaic pack
+         AMAZE    = 10
+     };
+ 
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 0ba4457..3b77686 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -22,7 +22,6 @@
+ #
+ # ============================================================
+ 
+-KDE4_NO_ENABLE_FINAL(kdcraw)
+ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/../libkdcraw)
+ 
+ SET(raw2png_SRCS raw2png.cpp)
+diff --git a/test/libinfo.cpp b/test/libinfo.cpp
+index 30246b5..e3a05e2 100644
+--- a/test/libinfo.cpp
++++ b/test/libinfo.cpp
+@@ -39,6 +39,8 @@ int main(int /*argc*/, char** /*argv*/)
+     qDebug() << "Libraw version    : " << KDcraw::librawVersion();
+     qDebug() << "Use OpenMP        : " << KDcraw::librawUseGomp();
+     qDebug() << "Use RawSpeed      : " << KDcraw::librawUseRawSpeed();
++    qDebug() << "Use GPL2 Pack     : " << KDcraw::librawUseGPL2DemosaicPack();
++    qDebug() << "Use GPL3 Pack     : " << KDcraw::librawUseGPL3DemosaicPack();
+     qDebug() << "Raw files list    : " << KDcraw::rawFilesList();
+     qDebug() << "Raw files version : " << KDcraw::rawFilesVersion();
+     qDebug() << "Supported camera  : " << KDcraw::supportedCamera();
+-- 
+1.8.3.2
+
