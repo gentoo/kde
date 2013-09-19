@@ -36,6 +36,7 @@ KMEXTRACTONLY="
 "
 KMCOMPILEONLY="
 	grantleetheme/
+	kaddressbookgrantlee/
 	messagecomposer/
 	messagecore/
 	messagelist/

@@ -27,6 +27,7 @@ KMEXTRA="
 "
 KMCOMPILEONLY="
 	grantleetheme/
+	kaddressbookgrantlee/
 "
 KMEXTRACTONLY="
 	akonadi_next/
