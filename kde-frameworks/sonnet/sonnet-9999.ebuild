@@ -8,7 +8,7 @@ FRAMEWORKS_DOXYGEN="true"
 FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
-DESCRIPTION="Multilingual language processing architecture"
+DESCRIPTION="An abstraction layer for common spell checking applications"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="spell"
