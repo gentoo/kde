@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="Modemmanager bindings for Qt"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libmm-qt"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="4"
