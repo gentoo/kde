@@ -7,7 +7,7 @@ EAPI=5
 FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
-DESCRIPTION="ECMAScipt compatible interpreter"
+DESCRIPTION="ECMAScipt compatible parser and engine"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
