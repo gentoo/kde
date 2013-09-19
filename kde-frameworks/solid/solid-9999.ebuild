@@ -9,7 +9,7 @@ FRAMEWORKS_TYPE="tier1"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Hardware discovery and power and network management framework"
+DESCRIPTION="A platform independent hardware discovery, abstraction, and management layer"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="+udev"
