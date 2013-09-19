@@ -7,7 +7,7 @@ EAPI=5
 FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
-DESCRIPTION="Idle time reporting"
+DESCRIPTION="Detection and notification of device idle time"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
