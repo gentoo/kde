@@ -8,7 +8,7 @@ FRAMEWORKS_TYPE="tier1"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Convenience access to certain properties and features of the window manager"
+DESCRIPTION="Provides access to certain properties and features of the window manager"
 KEYWORDS=""
 IUSE=""
 
