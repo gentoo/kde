@@ -8,10 +8,10 @@ inherit kde4-base
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug +xmp"
 
 DEPEND="
-	>=media-gfx/exiv2-0.20
+	>=media-gfx/exiv2-0.20[xmp=]
 	virtual/jpeg:0
 "
 RDEPEND="${DEPEND}"
