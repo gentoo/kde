@@ -36,6 +36,7 @@ PATCHES=(
 		"${FILESDIR}"/${P}-qmake.patch
 		"${FILESDIR}"/${P}-mapnik-2.0.patch
 		"${FILESDIR}"/${P}-mapnik-2.1.patch
+		"${FILESDIR}"/${P}-mapnik-2.2.patch
 )
 
 src_configure() {
