@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
@@ -22,8 +21,6 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "
-DEPEND="${RDEPEND}
-	test? ( dev-qt/qtnetwork:5 )
-"
+DEPEND="${RDEPEND}"
 
 DOCS=( "docs/README.kstartupinfo" )
