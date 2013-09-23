@@ -15,4 +15,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.90-extlibraw.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.12.0-extlibraw.patch" )
