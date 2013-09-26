@@ -21,7 +21,7 @@ DEPEND="
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}
-	rdesktop? ( >=net-misc/freerdp-1.1.0_beta1 )
+	rdesktop? ( >=net-misc/freerdp-1.1.0_beta1[X] )
 "
 
 src_configure() {
