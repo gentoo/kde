@@ -4,11 +4,9 @@
 
 EAPI=5
 
-KMNAME="extragear/multimedia"
-KDE_SCM="svn"
 inherit kde4-base
 
-DESCRIPTION="KMPlayer is a Video player plugin for Konqueror and basic MPlayer/Xine/ffmpeg/ffserver/VDR frontend."
+DESCRIPTION="Video player plugin for Konqueror and basic MPlayer/Xine/ffmpeg/ffserver/VDR frontend."
 HOMEPAGE="http://kmplayer.kde.org/"
 
 LICENSE="GPL-2"
