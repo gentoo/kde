@@ -12,11 +12,11 @@ inherit kde4-base
 DESCRIPTION="MathML-based graph calculator for KDE."
 HOMEPAGE="http://www.kde.org/applications/education/kalgebra
 http://edu.kde.org/kalgebra"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep analitza opengl?)
+	$(add_kdebase_dep analitza)
 	$(add_kdebase_dep libkdeedu)
 	opengl? ( virtual/glu )
 "
