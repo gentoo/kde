@@ -1,2 +1,3 @@
 move kde-active/bodega-client plasma-active/bodega-client
 move kde-active/contour plasma-active/contour
+move kde-active/declarative-plasmoids plasma-active/declarative-plasmoids
