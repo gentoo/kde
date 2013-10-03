@@ -14,7 +14,6 @@ dev-util
 dev-vcs
 games-board
 games-puzzle
-kde-active
 kde-base
 kde-misc
 media-gfx
@@ -26,6 +25,7 @@ net-irc
 net-libs
 net-p2p
 net-wireless
+plasma-active
 sys-auth
 sys-block
 www-client
