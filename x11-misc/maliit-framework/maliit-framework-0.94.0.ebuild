@@ -17,6 +17,7 @@ IUSE="+dbus doc examples gtk test"
 DEPEND="
 	dbus? ( sys-apps/dbus )
 	gtk? ( x11-libs/gtk+ )
+	dev-qt/qtdeclarative
 "
 
 RDEPEND="${DEPEND}"
