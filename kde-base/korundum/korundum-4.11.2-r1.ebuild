@@ -15,16 +15,17 @@ USE_RUBY="ruby19"
 inherit kde4-base ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="akonadi debug kate okular"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Ruby"
 
 # unfortunately single modules cannot be disabled with cmake defines
 # possible more useflags have no effect... does anyone actually build this stuff?
+# may need some hacking, for now semantic-desktop just becomes a hard dependency
 
 DEPEND="
 	$(add_kdebase_dep qtruby)
-	$(add_kdebase_dep smokekde 'kate?,okular?')
+	$(add_kdebase_dep smokekde 'kate?,okular?,semantic-desktop')
 	$(add_kdebase_dep smokeqt)
 "
 RDEPEND="${DEPEND}
