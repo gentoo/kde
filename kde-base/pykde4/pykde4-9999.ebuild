@@ -11,18 +11,20 @@ inherit python-r1 portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
 KEYWORDS=""
-IUSE="debug doc examples test"
+IUSE="debug doc examples semantic-desktop test"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Python"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( semantic-desktop )"
 
 RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-python/PyQt4-4.9.5[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X]
 	>=dev-python/sip-4.14:=[${PYTHON_USEDEP}]
-	>=dev-libs/soprano-2.9.0
-	$(add_kdebase_dep kdelibs 'opengl')
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdelibs 'opengl,semantic-desktop?')
+	semantic-desktop? (
+		$(add_kdebase_dep kdepimlibs)
+		>=dev-libs/soprano-2.9.0
+	)
 "
 DEPEND="${RDEPEND}
 	sys-devel/libtool
@@ -73,6 +75,9 @@ src_configure() {
 		local mycmakeargs=(
 			-DWITH_PolkitQt=OFF
 			-DWITH_QScintilla=OFF
+			$(cmake-utils_use_with semantic-desktop Soprano)
+			$(cmake-utils_use_with semantic-desktop Nepomuk)
+			$(cmake-utils_use_with semantic-desktop KdepimLibs)
 			-DPYTHON_EXECUTABLE=${PYTHON}
 			-DPYKDEUIC4_ALTINSTALL=TRUE
 		)
