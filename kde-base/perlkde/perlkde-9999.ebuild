@@ -8,13 +8,13 @@ inherit kde4-base
 
 DESCRIPTION="KDE Perl bindings"
 KEYWORDS=""
-IUSE="akonadi attica debug kate okular test"
+IUSE="akonadi attica debug kate okular semantic-desktop test"
 
 RDEPEND="
 	>=dev-lang/perl-5.10.1
-	>=dev-libs/soprano-2.9.0
 	$(add_kdebase_dep perlqt)
-	$(add_kdebase_dep smokekde 'attica?,kate?,okular?')
+	$(add_kdebase_dep smokekde 'attica?,kate?,okular?,semantic-desktop?')
+	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 DEPEND="${RDEPEND}
 	test? ( dev-perl/List-MoreUtils )
@@ -29,6 +29,8 @@ src_configure() {
 		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_disable kate)
 		$(cmake-utils_use_with okular)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 	)
 	kde4-base_src_configure
 }
