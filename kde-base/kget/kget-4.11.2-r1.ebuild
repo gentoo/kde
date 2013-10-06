@@ -9,11 +9,12 @@ inherit kde4-base
 
 DESCRIPTION="An advanced download manager for KDE"
 HOMEPAGE="http://www.kde.org/applications/internet/kget/"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug bittorrent mms sqlite webkit"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug bittorrent mms semantic-desktop sqlite webkit"
 
 RDEPEND="
 	app-crypt/qca:2
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace)
@@ -32,6 +33,8 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with bittorrent KTorrent)
 		$(cmake-utils_use_with mms LibMms)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with sqlite)
 		$(cmake-utils_use_with webkit KWebKitPart)
 	)
