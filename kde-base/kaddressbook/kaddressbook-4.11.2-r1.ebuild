@@ -10,12 +10,12 @@ inherit kde4-meta
 
 DESCRIPTION="The KDE Address Book"
 HOMEPAGE="http://www.kde.org/applications/office/kaddressbook/"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
 	>=dev-libs/grantlee-0.2.0
-	$(add_kdebase_dep kdelibs)
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
 "
