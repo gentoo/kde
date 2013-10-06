@@ -13,13 +13,14 @@ HOMEPAGE="
 	http://www.kde.org/applications/graphics/gwenview/
 	http://gwenview.sourceforge.net/
 "
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug kipi"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug kipi semantic-desktop"
 
 # tests fail, last checked 4.11.0
 RESTRICT="test"
 
 DEPEND="
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep kactivities)
 	>=media-gfx/exiv2-0.19
@@ -33,12 +34,18 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with kipi)
 	)
-
 	# Workaround for bug #479510
 	if [[ -e ${EPREFIX}/usr/include/${CHOST}/jconfig.h ]]; then
 		mycmakeargs+=( -DJCONFIG_H="${EPREFIX}/usr/include/${CHOST}/jconfig.h" )
+	fi
+
+	if use semantic-desktop; then
+		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Nepomuk)
+	else
+		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
 	fi
 
 	kde4-base_src_configure
