@@ -6,8 +6,8 @@ EAPI=5
 inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+handbook"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+IUSE="+handbook semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep attica)
@@ -40,9 +40,9 @@ RDEPEND="
 	$(add_kdebase_dep kurifilter-plugins)
 	$(add_kdebase_dep kwallet)
 	$(add_kdebase_dep kwalletd)
-	$(add_kdebase_dep nepomuk)
 	$(add_kdebase_dep plasma-runtime)
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
 	handbook? ( $(add_kdebase_dep khelpcenter) )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
