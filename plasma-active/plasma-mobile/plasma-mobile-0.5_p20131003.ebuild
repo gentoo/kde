@@ -16,7 +16,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="handset"
 
 DEPEND="
-	!kde-base/libkworkspace
 	dev-libs/soprano
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdepimlibs)
