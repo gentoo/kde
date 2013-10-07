@@ -14,10 +14,13 @@ KEYWORDS=""
 IUSE="handset"
 
 DEPEND="
+	!kde-base/libkworkspace
 	dev-libs/soprano
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep nepomuk-core)
+	net-libs/libnm-qt
+	x11-libs/libkscreen
 "
 RDEPEND="${DEPEND}"
 
