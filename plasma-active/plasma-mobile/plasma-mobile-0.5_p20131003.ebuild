@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="handset"
 
 DEPEND="
-	$(add_kdebase_dep kactivities)
+	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep nepomuk-core)
 	dev-libs/soprano

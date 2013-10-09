@@ -14,13 +14,15 @@ KEYWORDS=""
 IUSE="handset"
 
 DEPEND="
-	dev-libs/soprano
-	$(add_kdebase_dep kactivities)
+	$(add_kdebase_dep libkworkspace)
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep nepomuk-core)
+	dev-libs/soprano
+	dev-qt/qt-mobility[sensors]
 	net-libs/libnm-qt
 	x11-libs/libkscreen
 "
+
 RDEPEND="${DEPEND}"
 
 src_configure() {
