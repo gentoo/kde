@@ -361,7 +361,8 @@ case ${OPERATION} in
 				# we need to copy the file we want to play with
 				## first generate the correct filename, we expect that if someone added -rX to the package it has reason.
 				pushd "${OVERLAY}/${dir}" &> /dev/null
-				EBUILD=`find ./ -name \*.ebuild |grep "${VERSION}\\." | sort |tail -n 1`
+				EBUILD=`find ./ -name \*.ebuild | grep "${VERSION}\(\-r[0-9]\+\)\?\\." | sort |tail -n 1`
+				echo ${EBUILD}
 				cp -f ${EBUILD} "${WRKDIR}"
 				popd &> /dev/null
 				_addcvsfile "${WRKDIR}" ${EBUILD/*\//}
