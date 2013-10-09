@@ -15,7 +15,7 @@ USE_RUBY="ruby19"
 inherit kde4-base ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="akonadi debug kate okular"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Ruby"
 
