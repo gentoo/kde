@@ -14,7 +14,7 @@ LICENSE="LGPL-2.1"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep akonadi-server '' 1.9.51)
+	>=app-office/akonadi-server-1.9.51
 	$(add_kdebase_dep kdepimlibs)
 "
 # boost is not linked to, but headers which include it are installed
