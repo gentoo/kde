@@ -31,3 +31,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-libmm-qt-api-fix.patch"
+)
+
