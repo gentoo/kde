@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
 HOMEPAGE="http://kde.org/"
-EGIT_REPO_URI="git://anongit.kde.org/polkit-qt-1"
+EGIT_REPO_URI=( "git://anongit.kde.org/polkit-qt-1" )
 
 LICENSE="LGPL-2"
 SLOT="0"
