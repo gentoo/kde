@@ -8,8 +8,8 @@ if [[ "${PV}" != "9999" ]]; then
 	SRC_URI="http://www.vandenoever.info/software/strigi/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 else
-	EGIT_REPO_URI="git://anongit.kde.org/strigi"
-	GIT_ECLASS="git-2"
+	EGIT_REPO_URI=( "git://anongit.kde.org/strigi" )
+	GIT_ECLASS="git-r3"
 	EGIT_HAS_SUBMODULES="true"
 	KEYWORDS=""
 fi
@@ -49,7 +49,7 @@ DEPEND="${RDEPEND}
 if [[ ${PV} == 9999 ]] ; then
 	src_unpack() {
 		git config --global url."git://anongit.kde.org/".insteadOf "kde:" || die
-		git-2_src_unpack
+		git-r3_src_unpack
 		pushd "${S}" > /dev/null || die
 		git submodule foreach git checkout origin/master || die
 		popd > /dev/null || die
