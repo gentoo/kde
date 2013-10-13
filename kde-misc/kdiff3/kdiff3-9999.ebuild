@@ -20,8 +20,7 @@ inherit kde4-base qt4-r2
 
 DESCRIPTION="Qt/KDE based frontend to diff3"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
-EGIT_REPO_URI="git://git.code.sf.net/p/kdiff3/code"
-EGIT_PROJECT="${PN}"
+EGIT_REPO_URI=( "git://git.code.sf.net/p/kdiff3/code" )
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -40,7 +39,7 @@ RESTRICT="!kde? ( test )"
 
 src_unpack(){
 	if [[ ${PV} == *9999* ]]; then
-		git-2_src_unpack
+		git-r3_src_unpack
 		mv "${S}"/${PN}/* "${S}" || die
 	elif use kde; then
 		kde4-base_src_unpack
