@@ -5,8 +5,8 @@
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
-EGIT_REPO_URI="git://anongit.freedesktop.org/telepathy/${PN}"
-inherit base python-any-r1 cmake-utils virtualx git-2
+EGIT_REPO_URI=( "git://anongit.freedesktop.org/telepathy/${PN}" )
+inherit base python-any-r1 cmake-utils virtualx git-r3
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
