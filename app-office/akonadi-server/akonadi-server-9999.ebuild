@@ -5,8 +5,8 @@
 EAPI=5
 
 if [[ $PV = *9999* ]]; then
-	scm_eclass=git-2
-	EGIT_REPO_URI="git://anongit.kde.org/akonadi"
+	scm_eclass=git-r3
+	EGIT_REPO_URI=( "git://anongit.kde.org/akonadi" )
 	SRC_URI=""
 	KEYWORDS=""
 else
