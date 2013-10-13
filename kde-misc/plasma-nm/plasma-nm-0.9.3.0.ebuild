@@ -11,7 +11,7 @@ DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 else
 	KEYWORDS=""
@@ -29,4 +29,6 @@ DEPEND="
 	net-libs/libnm-qt
 	>=net-misc/networkmanager-0.9.8.0
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/networkmanagement
+"

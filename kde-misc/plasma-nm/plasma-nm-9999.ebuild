@@ -11,7 +11,7 @@ DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 else
 	KEYWORDS=""
@@ -22,11 +22,21 @@ HOMEPAGE="https://projects.kde.org/projects/playground/network/plasma-nm"
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="debug"
+IUSE="debug modemmanager"
 
 DEPEND="
-	net-libs/libmm-qt
-	net-libs/libnm-qt
+	net-libs/libnm-qt[modemmanager?]
 	>=net-misc/networkmanager-0.9.8.0
+	modemmanager? ( net-libs/libmm-qt )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/networkmanagement
+"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use !modemmanager DISABLE_MODEMMANAGER_SUPPORT)
+	)
+
+	kde4-base_src_configure
+}
