@@ -6,8 +6,8 @@ EAPI=5
 
 MY_PN="phonon-backend-vlc"
 MY_P="${MY_PN}-${PV}"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
-[[ ${PV} == 9999 ]] && git_eclass=git-2
+EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
+[[ ${PV} == 9999 ]] && git_eclass=git-r3
 inherit cmake-utils multibuild ${git_eclass}
 unset git_eclass
 
