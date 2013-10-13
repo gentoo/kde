@@ -4,8 +4,8 @@
 
 EAPI=5
 
-[[ ${PV} == *9999 ]] && git_eclass="git-2"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+[[ ${PV} == *9999 ]] && git_eclass="git-r3"
+EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 MY_PN="phonon-backend-gstreamer"
 MY_P=${MY_PN}-${PV}
