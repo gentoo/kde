@@ -5,11 +5,11 @@
 EAPI=5
 MY_P="${PN}-v${PV}"
 
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="Qt-style interface for libinfinity"
 HOMEPAGE="https://projects.kde.org/projects/playground/libs/libqinfinity"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="GPL-2"
 SLOT="0"
