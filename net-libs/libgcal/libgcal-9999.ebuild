@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="C/C++ interface to the Google Data API"
 HOMEPAGE="http://code.google.com/p/libgcal/"
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
+EGIT_REPO_URI=( "git://gitorious.org/${PN}/${PN}" )
 
 LICENSE="BSD"
 KEYWORDS=""
