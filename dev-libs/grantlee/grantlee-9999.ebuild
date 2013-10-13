@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-EGIT_REPO_URI="git://gitorious.org/grantlee/${PN}"
+EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
