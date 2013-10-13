@@ -8,8 +8,8 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://kde/stable/phonon/${PV}/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 else
-	SCM_ECLASS="git-2"
-	EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+	SCM_ECLASS="git-r3"
+	EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 	KEYWORDS=""
 fi
 
