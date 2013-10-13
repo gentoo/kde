@@ -5,11 +5,11 @@
 EAPI=5
 
 QT_MINIMAL="4.8.0"
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="http://github.com/eartle/liblastfm"
-EGIT_REPO_URI="git://github.com/eartle/liblastfm.git"
+EGIT_REPO_URI=( "git://github.com/eartle/${PN}" )
 
 LICENSE="GPL-3"
 KEYWORDS=""
