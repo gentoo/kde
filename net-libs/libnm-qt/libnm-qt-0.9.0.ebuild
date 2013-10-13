@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_REQUIRED="never"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -21,6 +22,8 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	net-libs/libmm-qt
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8.0
