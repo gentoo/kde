@@ -4,10 +4,11 @@
 
 EAPI=5
 
+KDE_REQUIRED="never"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="mirror://kde/unstable/modemmanager-qt/${PV}/src/${P}.tar.xz"
 else
 	KEYWORDS=""
@@ -17,10 +18,12 @@ DESCRIPTION="Modemmanager bindings for Qt"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libmm-qt"
 
 LICENSE="GPL-2 LGPL-2"
-SLOT="4"
+SLOT="0"
 IUSE="debug"
 
 RDEPEND="
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.0[modemmanager]
 "
