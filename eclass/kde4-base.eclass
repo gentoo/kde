@@ -547,6 +547,10 @@ _calculate_live_repo() {
 			[[ ${PV} != 9999* && ${KDEBASE} == kde-base ]] && \
 				EGIT_BRANCH="KDE/$(get_kde_version)"
 
+			# kde-workspace master needs Qt5/kf5
+			[[ ${PV} == 9999 && ${_kmname} == kde-workspace ]] && \
+				EGIT_BRANCH="KDE/4.11"
+
 			# default repo uri
 			EGIT_REPO_URI+=( "${EGIT_MIRROR}/${_kmname}" )
 
