@@ -53,7 +53,7 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog README )
 
-S=${WORKDIR}/${MY_P}
+[[ ${PV} != *9999 ]] && S=${WORKDIR}/${MY_P}
 
 src_configure() {
 	local mycmakeargs=(
