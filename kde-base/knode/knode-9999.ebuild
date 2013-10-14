@@ -30,6 +30,9 @@ KMEXTRACTONLY="
 "
 KMCOMPILEONLY="
 	agents/sendlateragent
+	grantleetheme/
+	kaddressbookgrantlee/
+	pimcommon/
 "
 
 KMLOADLIBS="kdepim-common-libs"
