@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 	!kde-base/libkdepim:4
 	!kde-base/libkleo:4
 	!kde-base/libkpgp:4
-	!<kde-base/kaddressbook-4.4.90:4
+	!<kde-base/kaddressbook-4.11.50:4
 	!kde-base/kdepim-wizards:4
 	!<kde-base/kmail-4.4.80:4
 	!<kde-base/korganizer-4.5.67:4
