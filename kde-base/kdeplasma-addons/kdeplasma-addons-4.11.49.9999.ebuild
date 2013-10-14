@@ -20,7 +20,6 @@ COMMON_DEPEND="
 	app-crypt/qca:2
 	app-crypt/qca-ossl:2
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep krunner)
 	$(add_kdebase_dep plasma-workspace 'semantic-desktop?')
 	x11-misc/shared-mime-info
@@ -36,7 +35,6 @@ COMMON_DEPEND="
 	scim? ( app-i18n/scim )
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)
-		$(add_kdebase_dep plasma-workspace)
 	)
 "
 DEPEND="${COMMON_DEPEND}
