@@ -14,6 +14,7 @@ HOMEPAGE="http://www.kde.org/ http://community.kde.org/Plasma/Plasma_Media_Cente
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
+	S=${WORKDIR}/${PN}
 fi
 
 LICENSE="GPL-2+"
@@ -27,5 +28,3 @@ DEPEND="
 	media-libs/taglib
 "
 RDEPEND="${DEPEND}"
-
-S=${WORKDIR}/${PN}
