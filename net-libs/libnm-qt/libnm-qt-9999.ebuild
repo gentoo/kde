@@ -9,7 +9,7 @@ inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/unstable/networkmanagement/${PV}/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/networkmanager-qt/${PV}/src/${P}.tar.xz"
 else
 	KEYWORDS=""
 fi
