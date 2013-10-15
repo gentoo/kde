@@ -7,3 +7,4 @@ move kde-active/plasma-mobile plasma-active/plasma-mobile
 move kde-active/plasma-mobile-config plasma-active/plasma-mobile-config
 move kde-active/share-like-connect plasma-active/share-like-connect
 move kde-active/startactive plasma-active/startactive
+slotmove net-libs/libnm-qt 4 0
