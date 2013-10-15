@@ -18,7 +18,7 @@ DESCRIPTION="NetworkManager bindings for Qt"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libnm-qt"
 
 LICENSE="LGPL-2"
-SLOT="4"
+SLOT="0"
 IUSE="debug doc modemmanager test"
 
 RDEPEND="
