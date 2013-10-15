@@ -17,7 +17,7 @@ fi
 DESCRIPTION="Modemmanager bindings for Qt"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libmm-qt"
 
-LICENSE="GPL-2 LGPL-2"
+LICENSE="LGPL-2"
 SLOT="0"
 IUSE="debug"
 
