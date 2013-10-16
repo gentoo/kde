@@ -59,7 +59,7 @@ src_configure() {
 }
 
 src_test() {
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 	Xemake test || die "tests failed"
 	popd > /dev/null
 }
