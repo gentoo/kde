@@ -57,7 +57,7 @@ src_test() {
 src_install() {
 	cmake-utils_src_install
 	if use doc; then
-		cd "${CMAKE_BUILD_DIR}"/doc
+		cd "${BUILD_DIR}"/doc
 		dohtml -r html/*
 	fi
 }
