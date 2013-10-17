@@ -43,7 +43,7 @@ src_compile() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/docs/doxygen/html/")
+	use doc && HTML_DOCS=("${BUILD_DIR}/docs/doxygen/html/")
 	cmake-utils_src_install
 }
 
