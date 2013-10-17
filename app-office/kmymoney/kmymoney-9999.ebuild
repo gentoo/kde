@@ -4,18 +4,19 @@
 
 EAPI=5
 KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et eu fi fr ga gl
-hu it ja kk lt ms nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
+hu it ja kk lt mr ms nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
 KDE_DOC_DIRS="doc doc-translations/%lingua_${PN}"
 KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="test"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
+
 inherit kde4-base
 
 DESCRIPTION="Personal finance manager for KDE"
 HOMEPAGE="http://kmymoney2.sourceforge.net/"
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://sourceforge/kmymoney2/${P}.tar.bz2"
+	SRC_URI="mirror://sourceforge/kmymoney2/${P}.tar.xz"
 fi
 
 LICENSE="GPL-2"
@@ -68,6 +69,6 @@ src_compile() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${CMAKE_BUILD_DIR}/apidocs/html/")
+	use doc && HTML_DOCS=("${BUILD_DIR}/apidocs/html/")
 	kde4-base_src_install
 }
