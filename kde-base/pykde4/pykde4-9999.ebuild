@@ -81,7 +81,7 @@ src_configure() {
 			-DPYTHON_EXECUTABLE=${PYTHON}
 			-DPYKDEUIC4_ALTINSTALL=TRUE
 		)
-		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
+		local BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_configure
 	}
 
@@ -95,7 +95,7 @@ echo_and_run() {
 
 src_compile() {
 	compilation() {
-		local CMAKE_BUILD_DIR=${S}_build-${PYTHON_ABI}
+		local BUILD_DIR=${S}_build-${PYTHON_ABI}
 		kde4-base_src_compile
 	}
 	python_foreach_impl run_in_build_dir compilation
