@@ -98,7 +98,7 @@ cmake_src_test() {
 		"${S}"/Tests/{OutDir,CMakeOnly/SelectLibraryConfigurations}/CMakeLists.txt \
 		|| die
 
-	pushd "${CMAKE_BUILD_DIR}" > /dev/null
+	pushd "${BUILD_DIR}" > /dev/null
 
 	local ctestargs
 	[[ -n ${TEST_VERBOSE} ]] && ctestargs="--extra-verbose --output-on-failure"
@@ -108,7 +108,7 @@ cmake_src_test() {
 	#    CTest.updatecvs, which fails to commit as root
 	#    Qt4Deploy, which tries to break sandbox and ignores prefix
 	#    TestUpload, which requires network access
-	"${CMAKE_BUILD_DIR}"/bin/ctest ${ctestargs} \
+	"${BUILD_DIR}"/bin/ctest ${ctestargs} \
 		-E "(BootstrapTest|CTest.UpdateCVS|Qt4Deploy|TestUpload)" \
 		|| die "Tests failed"
 
