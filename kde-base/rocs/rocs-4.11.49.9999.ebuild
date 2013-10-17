@@ -30,7 +30,7 @@ src_test() {
 	cmake-utils_src_configure
 	kde4-base_src_compile
 
-	cd "${CMAKE_BUILD_DIR}"
+	cd "${BUILD_DIR}"
 	emake DESTDIR="${T}/tests" install
 	export KDEDIRS="${KDEDIRS}:${T}/tests/${PREFIX}"
 	kbuildsycoca4
