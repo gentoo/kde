@@ -11,8 +11,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/libraw-0.15:=
+	>=media-libs/libraw-0.16:=
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-4.12.0-extlibraw.patch" )
