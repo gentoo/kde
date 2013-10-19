@@ -37,6 +37,8 @@ RDEPEND="${DEPEND}
 
 RESTRICT="!kde? ( test )"
 
+PATCHES=( "${FILESDIR}/${PN}-build.patch" )
+
 src_unpack(){
 	if [[ ${PV} == *9999* ]]; then
 		git-r3_src_unpack
