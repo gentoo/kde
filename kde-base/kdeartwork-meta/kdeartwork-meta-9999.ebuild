@@ -15,7 +15,6 @@ RDEPEND="
 	$(add_kdebase_dep kdeartwork-emoticons)
 	$(add_kdebase_dep kdeartwork-iconthemes)
 	$(add_kdebase_dep kdeartwork-kscreensaver)
-	$(add_kdebase_dep kdeartwork-sounds)
 	$(add_kdebase_dep kdeartwork-styles)
 	$(add_kdebase_dep kdeartwork-wallpapers)
 	$(add_kdebase_dep kdeartwork-weatherwallpapers)
