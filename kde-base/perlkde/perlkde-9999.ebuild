@@ -20,7 +20,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-perl/List-MoreUtils )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.7.2-vendor.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.11.3-vendor.patch" )
 
 src_configure() {
 	mycmakeargs=(
