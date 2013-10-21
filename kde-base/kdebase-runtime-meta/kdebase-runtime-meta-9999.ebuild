@@ -11,7 +11,6 @@ IUSE="+handbook semantic-desktop"
 
 RDEPEND="
 	$(add_kdebase_dep attica)
-	$(add_kdebase_dep drkonqi)
 	$(add_kdebase_dep kcmshell)
 	$(add_kdebase_dep kcontrol)
 	$(add_kdebase_dep kdebase-data)
@@ -44,5 +43,8 @@ RDEPEND="
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
 	handbook? ( $(add_kdebase_dep khelpcenter) )
-	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
+	semantic-desktop? (
+		$(add_kdebase_dep drkonqi)
+		$(add_kdebase_dep nepomuk)
+	)
 "
