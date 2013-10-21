@@ -9,7 +9,7 @@ KDE_SCM="svn"
 inherit kde4-base
 
 if [[ $PV != *9999 ]]; then
-	REV="1669"
+	REV="1688"
 	S="${WORKDIR}/cloudcity-code-${REV}"
 	SRC_URI="http://sourceforge.net/code-snapshots/svn/c/cl/cloudcity/code/cloudcity-code-${REV}.zip"
 	KEYWORDS="~amd64 ~x86"
