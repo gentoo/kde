@@ -10,10 +10,11 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug semantic-desktop"
 
 DEPEND="
 	$(add_kdebase_dep kephal)
+	semantic-desktop? ( $(add_kdebase_dep kdepimlibs) )
 "
 RDEPEND="${DEPEND}"
 
@@ -22,3 +23,11 @@ KMSAVELIBS="true"
 KMEXTRACTONLY="
 	libs/kephal/
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
+	)
+
+	kde4-meta_src_configure
+}
