@@ -24,11 +24,10 @@ COMMONDEPEND="
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kephal)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep libplasmaclock)
+	$(add_kdebase_dep libplasmaclock 'semantic-desktop?')
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
 	x11-libs/libX11
@@ -48,6 +47,7 @@ COMMONDEPEND="
 	qalculate? ( sci-libs/libqalculate )
 	semantic-desktop? (
 		dev-libs/soprano
+		$(add_kdebase_dep kdepimlibs)
 		$(add_kdebase_dep nepomuk-core)
 	)
 "
@@ -108,6 +108,7 @@ src_configure() {
 		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with semantic-desktop Akonadi)
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
 		$(cmake-utils_use_with semantic-desktop NepomukCore)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		-DWITH_Xmms=OFF
