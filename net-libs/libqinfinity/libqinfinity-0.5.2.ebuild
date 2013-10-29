@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI=5
-MY_P="${PN}-v${PV}"
 
+MY_P="${PN}-v${PV}"
 inherit cmake-utils
 
 DESCRIPTION="Qt-style interface for libinfinity"
@@ -13,7 +13,7 @@ SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${MY_P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

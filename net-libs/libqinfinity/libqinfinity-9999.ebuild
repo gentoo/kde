@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI=5
-MY_P="${PN}-v${PV}"
 
+MY_P="${PN}-v${PV}"
 inherit cmake-utils git-r3
 
 DESCRIPTION="Qt-style interface for libinfinity"
