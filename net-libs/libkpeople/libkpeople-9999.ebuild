@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-KDE_LINGUAS="da de pt pt_BR sk sv uk"
+KDE_LINGUAS="cs da de hu nl pt pt_BR sk sv uk"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
