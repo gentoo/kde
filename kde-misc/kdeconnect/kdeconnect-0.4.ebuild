@@ -5,6 +5,7 @@
 EAPI=5
 
 MY_PN=${PN}-kde
+DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -26,10 +27,9 @@ IUSE="debug"
 DEPEND="
 	app-crypt/qca:2
 	dev-libs/qjson
-	dev-qt/qtdbus
-	$(add_kdebase_dep kdelibs)
 "
 RDEPEND="${DEPEND}
+	$(add_kdebase_dep plasma-workspace)
 	net-dns/avahi
 "
 
