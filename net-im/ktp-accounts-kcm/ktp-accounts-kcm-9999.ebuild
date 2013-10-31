@@ -32,8 +32,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-0.7.0-libmm-qt-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_build modemmanager pintxo)
