@@ -11,7 +11,7 @@ uk zh_CN"
 inherit kde4-base
 
 DESCRIPTION="Alternative KDE screen management"
-HOMEPAGE="https://projects.kde.org/projects/playground/base/kscreen"
+HOMEPAGE="https://projects.kde.org/projects/kdereview/kscreen"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
