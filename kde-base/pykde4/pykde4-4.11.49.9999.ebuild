@@ -27,6 +27,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	dev-lang/python-exec:0[${PYTHON_USEDEP}]
 	sys-devel/libtool
 "
 
