@@ -29,16 +29,16 @@ REQUIRED_USE="|| ( qt4 qt5 )"
 RDEPEND="
 	media-libs/gstreamer:0.10
 	media-plugins/gst-plugins-meta:0.10[alsa?,ogg,vorbis]
-	>=media-libs/phonon-4.6.0
+	>=media-libs/phonon-4.7.0[qt4?,qt5?]
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4[glib]
-		>=dev-qt/qtgui-4.6.0:4[glib]
-		>=dev-qt/qtopengl-4.6.0:4
+		dev-qt/qtcore:4[glib]
+		dev-qt/qtgui:4[glib]
+		dev-qt/qtopengl:4
 	)
 	qt5? (
-		>=dev-qt/qtcore-5.0.0:5[glib]
-		>=dev-qt/qtgui-5.0.0:5[glib]
-		>=dev-qt/qtopengl-5.0.0:5
+		dev-qt/qtcore:5[glib]
+		dev-qt/qtgui:5[glib]
+		dev-qt/qtopengl:5
 	)
 	virtual/opengl
 	network? ( media-plugins/gst-plugins-soup:0.10 )
