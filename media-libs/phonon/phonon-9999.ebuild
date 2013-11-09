@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/phonon/phonon-9999.ebuild,v 1.19 2013/05/10 17:39:09 kensington Exp $
+# $Header: $
 
 EAPI=5
 
@@ -25,18 +25,18 @@ IUSE="aqua debug +gstreamer pulseaudio +qt4 qt5 vlc zeitgeist"
 COMMON_DEPEND="
 	!!dev-qt/qtphonon:4
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4
-		>=dev-qt/qtdbus-4.6.0:4
-		>=dev-qt/qtgui-4.6.0:4
-		>=dev-qt/qttest-4.6.0:4
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+		dev-qt/qtgui:4
+		dev-qt/qttest:4
 	)
 	qt5? (
-		>=dev-qt/qtcore-5.0.0:5
-		>=dev-qt/qtdbus-5.0.0:5
-		>=dev-qt/qtdeclarative-5.0.0:5
-		>=dev-qt/qtgui-5.0.0:5
-		>=dev-qt/qtopengl-5.0.0:5
-		>=dev-qt/qttest-5.0.0:5
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtdeclarative:5
+		dev-qt/qtgui:5
+		dev-qt/qtopengl:5
+		dev-qt/qttest:5
 	)
 	pulseaudio? (
 		dev-libs/glib:2
@@ -44,20 +44,10 @@ COMMON_DEPEND="
 	)
 	zeitgeist? ( dev-libs/libqzeitgeist )
 "
-# directshow? ( media-sound/phonon-directshow )
-# mmf? ( media-sound/phonon-mmf )
-# mplayer? ( media-sound/phonon-mplayer )
-# waveout? ( media-sound/phonon-waveout )
 PDEPEND="
 	aqua? ( media-libs/phonon-qt7 )
-	gstreamer? (
-		|| ( <media-libs/phonon-gstreamer-9999 =media-libs/phonon-gstreamer-9999[qt4=,qt5=] )
-		qt5? ( =media-libs/phonon-gstreamer-9999[qt5] )
-	)
-	vlc? (
-		|| ( ( >=media-libs/phonon-vlc-0.3.2 <media-libs/phonon-vlc-9999 ) =media-libs/phonon-vlc-9999[qt4=,qt5=] )
-		qt5? ( =media-libs/phonon-vlc-9999[qt5] )
-	)
+	gstreamer? ( >=media-libs/phonon-gstreamer-4.7.0[qt4?,qt5?] )
+	vlc? ( >=media-libs/phonon-vlc-0.7.0[qt4?,qt5?] )
 "
 RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}
