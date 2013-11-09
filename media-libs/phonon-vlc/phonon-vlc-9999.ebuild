@@ -26,17 +26,17 @@ IUSE="debug +qt4 qt5"
 REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
-	=media-libs/phonon-9999[qt4=,qt5=]
+	>=media-libs/phonon-4.7.0[qt4=,qt5=]
 	>=media-video/vlc-2.0.1[dbus,ogg,vorbis]
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4
-		>=dev-qt/qtdbus-4.6.0:4
-		>=dev-qt/qtgui-4.6.0:4
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+		dev-qt/qtgui:4
 	)
 	qt5? (
-		>=dev-qt/qtcore-5.0.0:5
-		>=dev-qt/qtdbus-5.0.0:5
-		>=dev-qt/qtgui-5.0.0:5
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtgui:5
 	)
 "
 DEPEND="${RDEPEND}
