@@ -14,14 +14,11 @@ HOMEPAGE="http://telepathy.freedesktop.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug farsight farstream test"
+IUSE="debug farstream test"
 
 RDEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
-	farsight? (
-		net-libs/telepathy-farsight
-	)
 	farstream? (
 		>=net-libs/telepathy-farstream-0.2.2
 		>=net-libs/telepathy-glib-0.18.0
@@ -39,8 +36,6 @@ DEPEND="${RDEPEND}
 	)
 "
 
-REQUIRED_USE="farsight? ( !farstream )"
-
 DOCS=( AUTHORS ChangeLog HACKING NEWS README )
 
 pkg_setup() {
@@ -49,7 +44,6 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable farsight)
 		$(cmake-utils_use_enable farstream)
 		$(cmake-utils_use_enable debug DEBUG_OUTPUT)
 		$(cmake-utils_use_enable test TESTS)
