@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	!!dev-qt/qtphonon:4
 	qt4? (
 		dev-qt/qtcore:4
+		dev-qt/designer:4
 		dev-qt/qtdbus:4
 		dev-qt/qtgui:4
 		dev-qt/qttest:4
@@ -61,6 +62,8 @@ REQUIRED_USE="
 	zeitgeist? ( qt4 )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-4.7.0-plugin-install.patch" )
+
 pkg_setup() {
 	MULTIBUILD_VARIANTS=()
 	if use qt4; then
@@ -74,6 +77,7 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
+			-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE
 			$(cmake-utils_use_with pulseaudio GLIB2)
 			$(cmake-utils_use_with pulseaudio PulseAudio)
 		)
