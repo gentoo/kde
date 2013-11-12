@@ -74,7 +74,7 @@ COMMONDEPEND="
 	jingle? (
 		>=media-libs/mediastreamer-2.3.0
 		media-libs/speex
-		net-libs/ortp
+		net-libs/ortp:=
 	)
 	meanwhile? ( net-libs/meanwhile )
 	msn? ( >=net-libs/libmsn-4.1 )

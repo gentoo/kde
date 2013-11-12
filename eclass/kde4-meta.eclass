@@ -130,7 +130,7 @@ kde4-meta_src_unpack() {
 				subversion_bootstrap
 				;;
 			git)
-				git-2_src_unpack
+				git-r3_src_unpack
 				;;
 		esac
 	fi

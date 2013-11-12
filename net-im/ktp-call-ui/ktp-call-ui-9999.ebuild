@@ -18,7 +18,7 @@ else
 	KEYWORDS=""
 fi
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
 IUSE="debug v4l"
 
@@ -30,8 +30,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	|| (
-		>=net-im/ktp-contact-applet-${PV}
 		>=net-im/ktp-contact-list-${PV}
+		>=net-im/ktp-desktop-applets-${PV}
 		>=net-im/ktp-text-ui-${PV}
 	)
 	v4l? ( media-plugins/gst-plugins-v4l2:0.10 )

@@ -14,7 +14,7 @@ inherit python-single-r1 kde4-meta
 
 DESCRIPTION="Plasma: KDE desktop framework"
 KEYWORDS=""
-IUSE="debug gps json python qalculate"
+IUSE="debug gps json python qalculate semantic-desktop"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -23,15 +23,13 @@ COMMONDEPEND="
 	>=dev-qt/qtcore-4.8.4-r3:4
 	!kde-misc/ktouchpadenabler
 	$(add_kdebase_dep kactivities)
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep kephal)
-	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
-	$(add_kdebase_dep libplasmaclock)
+	$(add_kdebase_dep libplasmaclock 'semantic-desktop?')
 	$(add_kdebase_dep libplasmagenericshell)
 	$(add_kdebase_dep libtaskmanager)
-	$(add_kdebase_dep nepomuk-core)
-	dev-libs/soprano
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
@@ -47,6 +45,11 @@ COMMONDEPEND="
 		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 	)
 	qalculate? ( sci-libs/libqalculate )
+	semantic-desktop? (
+		dev-libs/soprano
+		$(add_kdebase_dep kdepimlibs)
+		$(add_kdebase_dep nepomuk-core)
+	)
 "
 DEPEND="${COMMONDEPEND}
 	dev-libs/boost
@@ -104,6 +107,10 @@ src_configure() {
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with python PythonLibrary)
 		$(cmake-utils_use_with qalculate)
+		$(cmake-utils_use_with semantic-desktop Akonadi)
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
+		$(cmake-utils_use_with semantic-desktop NepomukCore)
+		$(cmake-utils_use_with semantic-desktop Soprano)
 		-DWITH_Xmms=OFF
 	)
 

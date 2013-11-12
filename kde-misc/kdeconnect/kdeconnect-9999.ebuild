@@ -4,15 +4,16 @@
 
 EAPI=5
 
+MY_PN=${PN}-kde
+DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	MY_PN=${PN}-kde
 	MY_P=${MY_PN}-${PV}
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${MY_P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 else
-	EGIT_REPO_URI="git://anongit.kde.org/kdeconnect-kde"
+	EGIT_REPO_URI="git://anongit.kde.org/${MY_PN}"
 	KEYWORDS=""
 fi
 
@@ -21,17 +22,18 @@ HOMEPAGE="http://www.kde.org/"
 
 LICENSE="GPL-2+"
 SLOT="4"
-IUSE=""
+IUSE="debug"
 
-DEPEND="$(add_kdebase_dep kdelibs )
+DEPEND="
 	app-crypt/qca:2
 	dev-libs/qjson
-	dev-qt/qtdbus"
+"
 RDEPEND="${DEPEND}
+	$(add_kdebase_dep plasma-workspace)
 	net-dns/avahi
 "
 
-S=${WORKDIR}/${MY_P}
+[[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
 src_prepare(){
 	sed -i -e "s:QtCrypto/QtCrypto:QtCrypto:" kded/networkpackage.cpp || die

@@ -6,7 +6,7 @@ EAPI=5
 
 KDE_MINIMAL="4.7"
 KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu ia it
-ja kk km lt mai mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian
+ja kk km lt mai mr nb nds nl pa pl pt pt_BR ro ru sk sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv tr ug uk vi wa zh_CN zh_TW"
 inherit kde4-base
 
@@ -21,13 +21,21 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="4"
-IUSE="debug"
+IUSE="debug modemmanager"
 
 DEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	net-im/telepathy-mission-control
 	net-libs/telepathy-glib
 	>=net-libs/telepathy-qt-0.9.3
+	modemmanager? ( net-libs/libmm-qt )
 "
-RDEPEND="${DEPEND}
-"
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_build modemmanager pintxo)
+	)
+
+	kde4-base_src_configure
+}

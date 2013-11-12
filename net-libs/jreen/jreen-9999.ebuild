@@ -8,8 +8,8 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/euroelessar/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
-	GIT_ECLASS="git-2"
-	EGIT_REPO_URI="git://github.com/euroelessar/${PN}"
+	GIT_ECLASS="git-r3"
+	EGIT_REPO_URI=( "git://github.com/euroelessar/${PN}" )
 	KEYWORDS=""
 fi
 

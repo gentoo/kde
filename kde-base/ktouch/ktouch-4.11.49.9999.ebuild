@@ -14,4 +14,5 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep knotify)
+	$(add_kdebase_dep plasma-workspace)
 "

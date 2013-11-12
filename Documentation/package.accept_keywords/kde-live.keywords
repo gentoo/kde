@@ -32,7 +32,6 @@
 ~kde-base/kdeartwork-iconthemes-9999 **
 ~kde-base/kdeartwork-kscreensaver-9999 **
 ~kde-base/kdeartwork-meta-9999 **
-~kde-base/kdeartwork-sounds-9999 **
 ~kde-base/kdeartwork-styles-9999 **
 ~kde-base/kdeartwork-wallpapers-9999 **
 ~kde-base/kdeartwork-weatherwallpapers-9999 **
@@ -274,6 +273,7 @@
 ~kde-base/kontact-9999 **
 ~kde-base/korganizer-9999 **
 ~kde-base/ktimetracker-9999 **
+~kde-base/ktnef-9999 **
 ~kde-base/cervisia-9999 **
 ~kde-base/dolphin-plugins-9999 **
 ~kde-base/kapptemplate-9999 **

@@ -4,18 +4,18 @@
 
 EAPI=5
 
-inherit cmake-utils git-2
+inherit cmake-utils git-r3
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="http://www.kde.org/"
-EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="BSD"
 SLOT=0
 KEYWORDS=""
 
 DEPEND="
-	>=dev-util/cmake-2.8.11
+	>=dev-util/cmake-2.8.12
 "
 RESTRICT="test"
 

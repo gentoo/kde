@@ -39,7 +39,7 @@ inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils base v
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
-		git) inherit git-2 ;;
+		git) inherit git-r3 ;;
 	esac
 fi
 
@@ -547,8 +547,12 @@ _calculate_live_repo() {
 			[[ ${PV} != 9999* && ${KDEBASE} == kde-base ]] && \
 				EGIT_BRANCH="KDE/$(get_kde_version)"
 
+			# kde-workspace master needs Qt5/kf5
+			[[ ${PV} == 9999 && ${_kmname} == kde-workspace ]] && \
+				EGIT_BRANCH="KDE/4.11"
+
 			# default repo uri
-			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			EGIT_REPO_URI+=( "${EGIT_MIRROR}/${_kmname}" )
 
 			debug-print "${FUNCNAME}: Repository: ${EGIT_REPO_URI}"
 			debug-print "${FUNCNAME}: Branch: ${EGIT_BRANCH}"
@@ -616,7 +620,7 @@ kde4-base_src_unpack() {
 				subversion_src_unpack
 				;;
 			git)
-				git-2_src_unpack
+				git-r3_src_unpack
 				;;
 		esac
 	else

@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="KDE screen management library"
-HOMEPAGE="https://projects.kde.org/projects/playground/libs/libkscreen"
+HOMEPAGE="https://projects.kde.org/projects/kdereview/libkscreen"
 
 LICENSE="GPL-2"
 SLOT="4"

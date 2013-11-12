@@ -6,12 +6,12 @@ EAPI=5
 
 VIRTUALX_REQUIRED="test"
 DECLARATIVE_REQUIRED="always"
-KDE_LINGUAS="bs cs da de el es et fi fr ga gl lt mr nl pt pt_BR ro ru sk sv tr
-uk zh_CN"
+KDE_LINGUAS="bs cs da de el es et fi fr ga gl hu it lt mr nl pt pt_BR ro ru sk
+sl sv tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Alternative KDE screen management"
-HOMEPAGE="https://projects.kde.org/projects/playground/base/kscreen"
+HOMEPAGE="https://projects.kde.org/projects/kdereview/kscreen"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"

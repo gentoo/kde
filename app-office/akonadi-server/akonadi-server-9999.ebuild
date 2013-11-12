@@ -5,8 +5,8 @@
 EAPI=5
 
 if [[ $PV = *9999* ]]; then
-	scm_eclass=git-2
-	EGIT_REPO_URI="git://anongit.kde.org/akonadi"
+	scm_eclass=git-r3
+	EGIT_REPO_URI=( "git://anongit.kde.org/akonadi" )
 	SRC_URI=""
 	KEYWORDS=""
 else
@@ -31,11 +31,11 @@ CDEPEND="
 	>=dev-libs/soprano-2.6.51
 	x11-misc/shared-mime-info
 	qt4? (
-		>=dev-qt/qtcore-4.5.0:4
-		>=dev-qt/qtdbus-4.5.0:4
-		>=dev-qt/qtgui-4.5.0:4
-		>=dev-qt/qtsql-4.5.0:4[mysql?,postgres?]
-		>=dev-qt/qttest-4.5.0:4
+		>=dev-qt/qtcore-4.8.5:4
+		>=dev-qt/qtdbus-4.8.5:4
+		>=dev-qt/qtgui-4.8.5:4
+		>=dev-qt/qtsql-4.8.5:4[mysql?,postgres?]
+		>=dev-qt/qttest-4.8.5:4
 	)
 	qt5? (
 		>=dev-libs/soprano-2.6.51[-qt4,qt5]

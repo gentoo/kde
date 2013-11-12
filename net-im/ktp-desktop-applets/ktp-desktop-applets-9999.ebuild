@@ -18,7 +18,7 @@ else
 	KEYWORDS=""
 fi
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
 IUSE="debug"
 

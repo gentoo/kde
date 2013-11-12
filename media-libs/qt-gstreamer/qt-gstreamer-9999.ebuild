@@ -10,8 +10,8 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="http://gstreamer.freedesktop.org/src/${PN}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 else
-	GIT_ECLASS="git-2"
-	EGIT_REPO_URI="git://anongit.freedesktop.org/gstreamer/${PN}"
+	GIT_ECLASS="git-r3"
+	EGIT_REPO_URI=( "git://anongit.freedesktop.org/gstreamer/${PN}" )
 	KEYWORDS=""
 fi
 

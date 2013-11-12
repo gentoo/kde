@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep analitza)
+	$(add_kdebase_dep analitza opengl?)
 	$(add_kdebase_dep libkdeedu)
 	opengl? ( virtual/glu )
 "

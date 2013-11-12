@@ -12,15 +12,15 @@ DESCRIPTION="KDE4 translation tool"
 HOMEPAGE="http://www.kde.org/applications/development/lokalize
 http://l10n.kde.org/tools"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug semantic-desktop"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8
-	>=dev-libs/soprano-2.9.0
 	>=dev-qt/qtsql-4.5.0:4[sqlite]
+	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep krosspython "${PYTHON_USEDEP}")

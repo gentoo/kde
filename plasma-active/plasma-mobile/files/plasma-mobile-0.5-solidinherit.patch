@@ -1,0 +1,13 @@
+diff -ruN plasma-mobile-0.5_p20131003/contourd/location/network-engines/solid/SolidNetworkNotifier.cpp plasma-mobile-0.5_p20131003-patched/contourd/location/network-engines/solid/SolidNetworkNotifier.cpp
+--- plasma-mobile-0.5_p20131003/contourd/location/network-engines/solid/SolidNetworkNotifier.cpp        2013-10-03 16:27:42.000000000 -0400
++++ plasma-mobile-0.5_p20131003-patched/contourd/location/network-engines/solid/SolidNetworkNotifier.cpp        2013-10-03 16:38:51.716948019 -0400
+@@ -19,10 +19,6 @@
+ 
+ #include "SolidNetworkNotifier.h"
+ 
+-#include <solid/control/networkmanager.h>
+-#include <solid/control/wirelessnetworkinterface.h>
+-#include <solid/control/wirelessaccesspoint.h>
+-
+ #include <NetworkManagerQt/manager.h>
+ #include <NetworkManagerQt/wirelessdevice.h>

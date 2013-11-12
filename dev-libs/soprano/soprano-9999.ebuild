@@ -5,8 +5,8 @@
 EAPI=5
 
 if [[ ${PV} == *9999* ]]; then
-	git_eclass="git-2"
-	EGIT_REPO_URI="git://anongit.kde.org/soprano"
+	git_eclass="git-r3"
+	EGIT_REPO_URI=( "git://anongit.kde.org/soprano" )
 	KEYWORDS=""
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"

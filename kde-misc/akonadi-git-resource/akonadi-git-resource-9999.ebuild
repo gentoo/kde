@@ -15,6 +15,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'semantic-desktop(+)')
-	=dev-libs/libgit2-0.17*
+	$(add_kdebase_dep kdepimlibs)
+	>=dev-libs/libgit2-0.17
 "

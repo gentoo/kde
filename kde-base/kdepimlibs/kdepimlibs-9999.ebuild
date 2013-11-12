@@ -19,6 +19,7 @@ RESTRICT="test"
 DEPEND="
 	!kde-misc/akonadi-social-utils
 	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	>=app-crypt/gpgme-1.1.6
 	>=app-office/akonadi-server-1.10.43
 	>=dev-libs/boost-1.35.0-r5:=
@@ -33,7 +34,9 @@ DEPEND="
 "
 # boost is not linked to, but headers which include it are installed
 # bug #418071
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-base/kdepim-runtime-4.11.50
+"
 
 PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
 

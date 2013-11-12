@@ -11,16 +11,19 @@ inherit kde4-meta
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="http://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
 KEYWORDS=""
-IUSE="debug thumbnail"
+IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kactivities)
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
-	$(add_kdebase_dep nepomuk-core)
-	$(add_kdebase_dep nepomuk-widgets)
-	>=dev-libs/shared-desktop-ontologies-0.11.0
-	dev-libs/soprano
 	x11-libs/libXrender
+	semantic-desktop? (
+		>=dev-libs/shared-desktop-ontologies-0.11.0
+		dev-libs/soprano
+		$(add_kdebase_dep nepomuk-core)
+		$(add_kdebase_dep nepomuk-widgets)
+	)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
@@ -37,6 +40,16 @@ PDEPEND="
 
 RESTRICT="test"
 # bug 393129
+
+src_configure() {
+	mycmakeargs=(
+		$(cmake-utils_use_with semantic-desktop NepomukCore)
+		$(cmake-utils_use_with semantic-desktop NepomukWidgets)
+		$(cmake-utils_use_with semantic-desktop Soprano)
+	)
+
+	kde4-meta_src_configure
+}
 
 pkg_postinst() {
 	kde4-base_pkg_postinst

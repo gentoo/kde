@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
+	$(add_kdebase_dep kdelibs 'semantic-desktop')
 "
 
 RDEPEND="${DEPEND}"

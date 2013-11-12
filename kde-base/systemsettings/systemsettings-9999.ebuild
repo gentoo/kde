@@ -13,7 +13,7 @@ inherit kde4-meta
 
 DESCRIPTION="System settings utility"
 HOMEPAGE+=" http://userbase.kde.org/System_Settings"
-IUSE="debug gtk +usb"
+IUSE="debug gtk semantic-desktop +usb"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -41,11 +41,11 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/xextproto
 "
 RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep nepomuk)
 	sys-libs/timezone-data
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
 	gtk? ( kde-misc/kde-gtk-config )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk) )
 "
 
 KMEXTRA="

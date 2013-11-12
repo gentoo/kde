@@ -9,7 +9,8 @@ inherit kde4-base
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim"
+IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
+semantic-desktop"
 
 RESTRICT=test
 # tests hang
@@ -18,9 +19,9 @@ RESTRICT=test
 COMMON_DEPEND="
 	app-crypt/qca:2
 	app-crypt/qca-ossl:2
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep plasma-workspace 'semantic-desktop?')
 	x11-misc/shared-mime-info
 	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
@@ -32,6 +33,9 @@ COMMON_DEPEND="
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
+	semantic-desktop? (
+		$(add_kdebase_dep kdepimlibs)
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -51,6 +55,8 @@ src_configure() {
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
 		$(cmake-utils_use_build scim)
+		$(cmake-utils_use_with semantic-desktop KdepimLibs)
+		$(cmake-utils_use_with semantic-desktop Nepomuk)
 	)
 
 	kde4-base_src_configure

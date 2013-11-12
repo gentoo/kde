@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit font git-2
+inherit font git-r3
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
 HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-fonts"
-EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
+EGIT_REPO_URI=( "git://anongit.kde.org/oxygen-fonts" )
 EGIT_BRANCH="in-progress"
 
 LICENSE="OFL-1.1"

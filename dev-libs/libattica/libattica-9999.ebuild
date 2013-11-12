@@ -8,9 +8,9 @@ MY_P="${P#lib}"
 MY_PN="${PN#lib}"
 
 if [[ $PV = *9999* ]]; then
-	EGIT_REPO_URI="git://anongit.kde.org/attica"
+	EGIT_REPO_URI=( "git://anongit.kde.org/attica" )
 	KEYWORDS=""
-	scm_eclass=git-2
+	scm_eclass=git-r3
 else
 	SRC_URI="mirror://kde/stable/${MY_PN}/${MY_P}.tar.bz2"
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
@@ -53,7 +53,7 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog README )
 
-S=${WORKDIR}/${MY_P}
+[[ ${PV} != *9999 ]] && S=${WORKDIR}/${MY_P}
 
 src_configure() {
 	local mycmakeargs=(
