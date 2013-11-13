@@ -12,6 +12,8 @@
 if [[ ${___ECLASS_ONCE_KDE_FRAMEWORKS} != "recur -_+^+_- spank" ]] ; then
 ___ECLASS_ONCE_KDE_FRAMEWORKS="recur -_+^+_- spank"
 
+CMAKE_MIN_VERSION="2.8.12"
+
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
 # For proper description see virtualx.eclass manpage.
