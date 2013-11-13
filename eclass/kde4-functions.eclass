@@ -39,6 +39,9 @@ esac
 if [[ ${CATEGORY} = kde-base ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
+elif [[ ${CATEGORY} = kde-frameworks ]]; then
+	debug-print "${ECLASS}: KDEFRAMEWORKS ebuild recognized"
+	KDEBASE=kde-frameworks
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE=kdevelop
@@ -356,6 +359,44 @@ add_kdebase_dep() {
 	[[ -z ${1} ]] && die "Missing parameter"
 
 	echo " >=kde-base/${1}-${ver}:4[aqua=${2:+,${2}}]"
+}
+
+# @FUNCTION: add_frameworks_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-frameworks/ dependencies.
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
+add_frameworks_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local ver
+
+	if [[ -n ${3} ]]; then
+		ver=${3}
+	elif [[ -n ${KDE_OVERRIDE_MINIMAL} ]]; then
+		ver=${KDE_OVERRIDE_MINIMAL}
+	elif [[ ${KDEBASE} != kde-frameworks ]]; then
+		ver=${KDE_MINIMAL}
+	# if building stable-live version depend just on the raw KDE version
+	# to allow merging packages against more stable basic stuff
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=$(get_kde_version)
+	else
+		ver=${PV}
+	fi
+
+	[[ -z ${1} ]] && die "Missing parameter"
+
+	local usedep=
+	if [[ -n ${2} ]] ; then
+		usedep="[${2}]"
+	fi
+
+	echo " >=kde-frameworks/${1}-${ver}:5${usedep}"
 }
 
 # local function to enable specified translations for specified directory
