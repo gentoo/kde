@@ -216,6 +216,11 @@ kde-frameworks_src_configure() {
 	# currently tier2/kauth, but possibly more later
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 
+	# to support slotting with KDE 4
+	cmakeargs+=(
+		-DINCLUDE_INSTALL_DIR="${EPREFIX}"/usr/include/kf5/
+	)
+
 	if ! use_if_iuse test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
 	fi
