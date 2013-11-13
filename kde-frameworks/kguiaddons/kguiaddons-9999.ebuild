@@ -15,6 +15,7 @@ IUSE="eps jpeg2k openexr"
 
 RDEPEND="
 	dev-qt/qtgui:5
+	x11-libs/libX11
 	eps? ( dev-qt/qtprintsupport:5 )
 	jpeg2k? ( media-libs/jasper )
 	openexr? ( media-libs/openexr:= )
