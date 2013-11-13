@@ -36,6 +36,12 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_test src_ins
 # Determine version of qt we enforce as minimal for the package.
 QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 
+# @ECLASS-VARIABLE: FRAMEWORKS_DEBUG
+# @DESCRIPTION:
+# If set to "false", do nothing.
+# For any other value, add debug to IUSE.
+: ${FRAMEWORKS_DEBUG:=true}
+
 # @ECLASS-VARIABLE: FRAMEWORKS_DOXYGEN
 # @DESCRIPTION:
 # If defined, add doc to IUSE, add a dependency on doxygen,
@@ -60,7 +66,6 @@ HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 SLOT=5
-IUSE+=" debug"
 
 COMMONDEPEND+="
 	>=dev-qt/qtcore-${QT_MINIMAL}:5
@@ -71,6 +76,13 @@ if [[ -n "${FRAMEWORKS_DOXYGEN}" ]]; then
 	IUSE+=" doc"
 	DEPEND+=" doc? ( app-doc/doxygen )"
 fi
+
+case ${FRAMEWORKS_DEBUG} in
+	false)	;;
+	*)
+		IUSE+=" debug"
+		;;
+esac
 
 case ${FRAMEWORKS_TEST} in
 	false)	;;
