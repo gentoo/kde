@@ -11,8 +11,6 @@ DESCRIPTION="KDE Password Server"
 KEYWORDS=""
 IUSE="debug"
 
-PATCHES=( "${FILESDIR}/${PN}-4.12-include-qgpgme.patch" )
-
 DEPEND="
 	app-crypt/gpgme
 	$(add_kdebase_dep kdepimlibs)
