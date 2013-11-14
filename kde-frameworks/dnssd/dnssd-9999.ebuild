@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="zeroconf"
 
 RDEPEND="
+	$(add_frameworks_dep kconfig)
 	dev-qt/qtnetwork:5
 	zeroconf? (
 		dev-qt/qtdbus:5
