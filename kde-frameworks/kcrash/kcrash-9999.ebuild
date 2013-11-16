@@ -5,7 +5,6 @@
 EAPI=5
 
 FRAMEWORKS_TYPE="tier2"
-FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
 DESCRIPTION="Library which offers crash handling functions"
@@ -18,5 +17,6 @@ RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
+	x11-libs/libX11
 "
 DEPEND="${RDEPEND}"
