@@ -17,6 +17,5 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}"
