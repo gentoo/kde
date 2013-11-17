@@ -29,7 +29,7 @@ if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	EGIT_SOURCEDIR=${S}
 fi
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
@@ -191,11 +191,21 @@ kde-frameworks_src_unpack() {
 	fi
 }
 
-# @FUNCTION: kde4-base_src_prepare
+# @FUNCTION: kde-frameworks_src_prepare
 # @DESCRIPTION:
 # Function for preparing the KDE frameworks sources.
-kde4-base_src_prepare() {
+kde-frameworks_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
+
+	# never build manual tests
+	sed -e "/add_subdirectory[[:space:]]*([[:space:]]*tests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+		-i CMakeLists.txt || die
+
+	# only build unit tests when required
+	if ! use test ; then
+		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*autotests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+			-i CMakeLists.txt || die
+	fi
 
 	cmake-utils_src_prepare
 }
