@@ -23,18 +23,29 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug doc"
+IUSE="debug doc +qt4 qt5"
+
+REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtdbus:4
-	dev-qt/qtgui:4
+	qt4? (
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+		dev-qt/qtgui:4
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+	)
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? (
 		dev-libs/qjson
-		dev-qt/qttest:4
+		qt4? ( dev-qt/qttest:4 )
+		qt5? ( dev-qt/qttest:5 )
 	)
 "
 
@@ -48,6 +59,8 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_build test TESTS)
 		$(cmake-utils_use_with doc)
+		$(cmake-utils_use_use qt4)
+		$(cmake-utils_use_use qt5)
 	)
 	cmake-utils_src_configure
 }
