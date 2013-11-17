@@ -15,7 +15,6 @@ IUSE=""
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
 "
