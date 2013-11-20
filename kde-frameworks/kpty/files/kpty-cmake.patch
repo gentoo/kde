@@ -1,0 +1,40 @@
+From 8af58e5c5171acff24cf14d79295a0d95deda083 Mon Sep 17 00:00:00 2001
+From: Johannes Huber <johu@gentoo.org>
+Date: Wed, 20 Nov 2013 23:36:17 +0100
+Subject: [PATCH] Improve dependency specifications
+
+Depends only on Qt5 core for src. Move Qt test dependency spec to
+subdir.
+---
+ tier3/kpty/CMakeLists.txt           | 2 +-
+ tier3/kpty/autotests/CMakeLists.txt | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/tier3/kpty/CMakeLists.txt b/tier3/kpty/CMakeLists.txt
+index 12d977e..fc28e03 100644
+--- a/tier3/kpty/CMakeLists.txt
++++ b/tier3/kpty/CMakeLists.txt
+@@ -10,7 +10,7 @@ set(KF5_VERSION "5.0.0")
+ include(KDEInstallDirs)
+ include(KDECompilerSettings)
+ include(KDECMakeSettings)
+-find_package(Qt5 "${REQUIRED_QT_VERSION}" CONFIG REQUIRED Test)
++find_package(Qt5 "${REQUIRED_QT_VERSION}" CONFIG REQUIRED Core)
+ 
+ if ("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
+   find_package(KCoreAddons ${KF5_VERSION} REQUIRED)
+diff --git a/tier3/kpty/autotests/CMakeLists.txt b/tier3/kpty/autotests/CMakeLists.txt
+index aa28cfc..4f0a164 100644
+--- a/tier3/kpty/autotests/CMakeLists.txt
++++ b/tier3/kpty/autotests/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ include(ECMMarkAsTest)
+ 
++find_package(Qt5 "${REQUIRED_QT_VERSION}" CONFIG REQUIRED Test)
++
+ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+ 
+ add_executable(kptyprocesstest kptyprocesstest.cpp)
+-- 
+1.8.4.3
+
