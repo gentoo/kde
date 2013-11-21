@@ -295,4 +295,6 @@
 >=app-office/akonadi-server-1.9.80
 >=dev-libs/libattica-0.4.2
 >=dev-libs/shared-desktop-ontologies-0.11.0
+>=kde-misc/networkmanagement-0.9.0.9
 >=net-libs/libkgapi-2.0.1
+>=net-misc/networkmanager-0.9.8.2
