@@ -236,6 +236,9 @@ src_install() {
 	rm -f "${ED}"/usr/share/apps/kssl/ca-bundle.crt || die
 	dosym /etc/ssl/certs/ca-certificates.crt /usr/share/apps/kssl/ca-bundle.crt
 
+	# conflict with kf5 tier2 - kdoctools
+	rm -rf "${ED}"/usr/share/man/ || die
+
 	if use doc; then
 		einfo "Installing API documentation. This could take a bit of time."
 		cd "${S}"/doc/api/
