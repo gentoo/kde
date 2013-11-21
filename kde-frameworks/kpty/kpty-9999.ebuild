@@ -18,5 +18,3 @@ DEPEND="
 	sys-libs/libutempter
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-cmake.patch" )
