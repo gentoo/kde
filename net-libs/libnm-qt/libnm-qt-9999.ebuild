@@ -26,7 +26,7 @@ RDEPEND="
 	dev-qt/qtdbus:4
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8.0
-	modemmanager? ( net-libs/libmm-qt )
+	modemmanager? ( >=net-libs/libmm-qt-1.0.0 )
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
