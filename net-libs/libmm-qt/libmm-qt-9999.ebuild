@@ -25,6 +25,6 @@ RDEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
 	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.9.0[modemmanager]
+	>=net-misc/networkmanager-0.9.8[modemmanager]
 "
 DEPEND="${RDEPEND}"
