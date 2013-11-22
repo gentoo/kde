@@ -18,4 +18,5 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-lang/perl
+	test? ( dev-qt/qtconcurrent:5 )
 "
