@@ -25,9 +25,9 @@ SLOT="4"
 IUSE="debug modemmanager"
 
 DEPEND="
-	net-libs/libnm-qt[modemmanager?]
+	>=net-libs/libnm-qt-0.9.8.0[modemmanager?]
 	>=net-misc/networkmanager-0.9.8.0
-	modemmanager? ( net-libs/libmm-qt )
+	modemmanager? ( >=net-libs/libmm-qt-1.0.0 )
 "
 RDEPEND="${DEPEND}
 	!kde-misc/networkmanagement
