@@ -336,7 +336,6 @@ kde-frameworks_pkg_postinst() {
 
 	gnome2_icon_cache_update
 	fdo-mime_desktop_database_update
-	fdo-mime_mime_database_update
 }
 
 # @FUNCTION: kde-frameworks_pkg_postrm
@@ -347,7 +346,6 @@ kde-frameworks_pkg_postrm() {
 
 	gnome2_icon_cache_update
 	fdo-mime_desktop_database_update
-	fdo-mime_mime_database_update
 }
 
 fi
