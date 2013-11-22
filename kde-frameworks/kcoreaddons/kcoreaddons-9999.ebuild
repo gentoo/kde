@@ -25,10 +25,3 @@ src_configure() {
 
 	kde-frameworks_src_configure
 }
-
-src_install() {
-	kde-frameworks_src_install
-
-	# avoid collision with kdelibs:4
-	mv "${D}"/usr/share/mime/packages/{kde,kde5}.xml || die
-}
