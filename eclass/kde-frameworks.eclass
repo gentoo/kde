@@ -199,7 +199,7 @@ kde-frameworks_src_prepare() {
 
 	# never build manual tests or examples
 	sed -e "/add_subdirectory[[:space:]]*([[:space:]]*tests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-		"/add_subdirectory[[:space:]]*([[:space:]]*examples[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+		-e "/add_subdirectory[[:space:]]*([[:space:]]*examples[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 		-i CMakeLists.txt || die
 
 	# only build unit tests when required
