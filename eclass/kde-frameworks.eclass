@@ -202,7 +202,7 @@ kde-frameworks_src_prepare() {
 		-i CMakeLists.txt || die
 
 	# only build unit tests when required
-	if ! use test ; then
+	if ! use_if_use test ; then
 		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*autotests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 			-i CMakeLists.txt || die
 	fi
