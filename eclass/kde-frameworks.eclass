@@ -24,9 +24,8 @@ CMAKE_MIN_VERSION="2.8.12"
 inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils base virtualx versionator eutils multilib cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_BRANCH="frameworks"
-	EGIT_SOURCEDIR=${S}
 fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
@@ -185,7 +184,7 @@ kde-frameworks_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
-		git-2_src_unpack
+		git-r3_src_unpack
 	else
 		unpack ${A}
 	fi
