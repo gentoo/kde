@@ -5,18 +5,20 @@
 EAPI=5
 
 FRAMEWORKS_TYPE="tier1"
-inherit kde-frameworks
+inherit fdo-mime kde-frameworks
 
 DESCRIPTION="Solutions for common problems like caching, randomisation etc."
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="fam"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5[icu]
 	fam? ( virtual/fam )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	x11-misc/shared-mime-info
+"
 
 src_configure() {
 	local mycmakeargs=(
@@ -24,4 +26,14 @@ src_configure() {
 	)
 
 	kde-frameworks_src_configure
+}
+
+pkg_postinst() {
+	kde-frameworks_pkg_postinst
+	fdo-mime_mime_database_update
+}
+
+pkg_postrm() {
+	kde-frameworks_pkg_postinst
+	fdo-mime_mime_database_update
 }
