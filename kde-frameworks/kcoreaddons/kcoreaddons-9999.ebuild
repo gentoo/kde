@@ -20,6 +20,8 @@ DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
 "
 
+PATCHES=( "${FILESDIR}/${PN}-mimetypes.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package fam FAM)
