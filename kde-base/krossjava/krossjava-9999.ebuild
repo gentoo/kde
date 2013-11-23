@@ -15,8 +15,8 @@ IUSE="debug"
 DEPEND="
 	>=virtual/jdk-1.5
 "
-RDEPEND="
-	>=virtual/jre-1.5
+RDEPEND="${DEPEND}
+	!!dev-java/ibm-jdk-bin
 "
 
 pkg_setup() {
