@@ -9,6 +9,7 @@ ga gl hu it ja lt lv nb nl pa pl pt pt_BR ru sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 VIRTUALX_REQUIRED="test"
+VIRTUALDBUS_TEST="true"
 inherit flag-o-matic kde4-base
 
 DESCRIPTION="Advanced audio player based on KDE framework."
