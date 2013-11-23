@@ -7,7 +7,7 @@ EAPI=5
 EBZR_REPO_URI="lp:libdbusmenu-qt"
 
 [[ ${PV} == 9999* ]] && BZR_ECLASS="bzr"
-inherit cmake-utils virtualx ${BZR_ECLASS}
+inherit cmake-utils multibuild virtualx ${BZR_ECLASS}
 
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
@@ -55,21 +55,49 @@ PATCHES=( "${FILESDIR}/${PN}-0.9.2-optionaltests.patch" )
 # tests fail due to missing conection to dbus
 RESTRICT="test"
 
+pkg_setup() {
+	MULTIBUILD_VARIANTS=()
+	use qt4 && MULTIBUILD_VARIANTS+=( qt4 )
+	use qt5 && MULTIBUILD_VARIANTS+=( qt5 )
+}
+
 src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_build test TESTS)
-		$(cmake-utils_use_with doc)
-		$(cmake-utils_use_use qt4)
-		$(cmake-utils_use_use qt5)
-	)
-	cmake-utils_src_configure
+	myconfigure() {
+		local mycmakeargs=(
+			$(cmake-utils_use_build test TESTS)
+			$(cmake-utils_use_with doc)
+		)
+
+		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
+			mycmakeargs+=( -DUSE_QT4=ON )
+		fi
+		if [[ ${MULTIBUILD_VARIANT} = qt5 ]] ; then
+			mycmakeargs+=( -DUSE_QT5=ON )
+		fi
+
+		cmake-utils_src_configure
+	}
+
+	multibuild_foreach_variant myconfigure
+}
+
+src_compile() {
+	multibuild_foreach_variant cmake-utils_src_compile
 }
 
 src_test() {
-	local builddir=${BUILD_DIR}
+	mytest() {
+		local builddir=${BUILD_DIR}
 
-	BUILD_DIR=${BUILD_DIR}/tests \
-		VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
+		BUILD_DIR=${BUILD_DIR}/tests \
+			VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
 
-	BUILD_DIR=${builddir}
+		BUILD_DIR=${builddir}
+	}
+
+	multibuild_foreach_variant mytest
+}
+
+src_install() {
+	multibuild_foreach_variant cmake-utils_src_install
 }
