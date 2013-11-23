@@ -1,9 +1,10 @@
 #!/bin/bash
 
-run_scanelf()
+# Returns colon separated list of linking dependencies
+get_link_deps()
 {
 	KEY=
-	for dep in `scanelf -yBF '%f %n' "$1"`; do
+	for dep in `scanelf --use-ldpath -yBF '%f %n' "$1"`; do
 		if [[ -z $KEY ]]; then
 			KEY="$dep"
 			continue
@@ -12,12 +13,19 @@ run_scanelf()
 	done
 }
 
-if [[ "$1" = --internal ]]; then
+# Print linking deps for given executable or shared object in alphabetical order.
+# Also try to dlopen shared objects in order to detect missing/broken dependencies.
+if [[ "$1" = --linking-deps ]]; then
+	# Sanity check, file-5.12 is broken, bail out early
+	if [[ `file --version | grep --color=never file- | cut -d'-' -f2` == '5.12' ]]; then
+		echo "file-5.12 is broken, bailing out"
+		exit 1
+	fi
 	mime=`file -b --mime-type "$2"`
 	if [[ "$mime" == 'application/x-executable' ]] || [[ "${mime}" == 'application/x-sharedlib' ]]; then
-		LINK=`run_scanelf "$2"`
+		LINK=`get_link_deps "$2"`
 		[[ "$mime" == 'application/x-sharedlib' ]] && /tmp/try_dlopen "$2"
-		[[ -n $LINK ]] && echo -e ${LINK//,/\\n}
+		[[ -n $LINK ]] && echo -e ${LINK//,/\\n} | sort -u
 		exit 0
 	fi
 	exit 1
@@ -25,17 +33,23 @@ fi
 
 [[ -z $* ]] && echo "usage: `basename $0` <package>" && exit 0
 
+# Check whether package is installed
 if ! portageq has_version $ROOT/ $1; then
 	echo "$1 is not installed"
 	exit 1
 fi
 
-LDLIBS=`/sbin/ldconfig -p`
+# Compile dlopen test application, we will use it to check for broken linking dependencies
 gcc "`dirname $0`/try_dlopen.c" -o /tmp/try_dlopen -ldl
 
+# For each installed slot
 for cpv in `portageq match $ROOT/ $1`; do
 	echo "Processing $cpv"
-	qfile -eR $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --internal | sort -u` | cut -f1 -d' ' | sort -u
+	# For each file that belongs to package
+	#     run dynlink-scanner --linking-deps <file> to obtain its linking dependencies
+	# Assign all linking deps to packages and print package names
+	qfile -eR $ROOT `portageq contents $ROOT/ $cpv | xargs -r -L 1 "$0" --linking-deps` | cut -f1 -d' ' | sort -u
 done
 
+# Cleanup
 rm -f /tmp/try_dlopen
