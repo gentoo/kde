@@ -46,6 +46,12 @@ QT_MINIMAL="${QT_MINIMAL:-5.1.90}"
 # If defined, add doc to IUSE, add a dependency on doxygen,
 # and generate and install API documentation.
 
+# @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
+# @DESCRIPTION:
+# If set to "false", do nothing.
+# For any other value, add examples to IUSE.
+: ${FRAMEWORKS_EXAMPLES:=false}
+
 # @ECLASS-VARIABLE: FRAMEWORKS_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -80,6 +86,13 @@ case ${FRAMEWORKS_DEBUG} in
 	false)	;;
 	*)
 		IUSE+=" debug"
+		;;
+esac
+
+case ${FRAMEWORKS_EXAMPLES} in
+	false)  ;;
+	*)
+		IUSE+=" examples"
 		;;
 esac
 
@@ -198,8 +211,13 @@ kde-frameworks_src_prepare() {
 
 	# never build manual tests or examples
 	sed -e "/add_subdirectory[[:space:]]*([[:space:]]*tests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-		-e "/add_subdirectory[[:space:]]*([[:space:]]*examples[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 		-i CMakeLists.txt || die
+
+	# only build examples when required
+	if ! in_iuse examples || ! use examples ; then
+		sed	-e "/add_subdirectory[[:space:]]*([[:space:]]*examples[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+			-i CMakeLists.txt || die
+	fi
 
 	# only build unit tests when required
 	if ! in_iuse test || ! use test ; then
