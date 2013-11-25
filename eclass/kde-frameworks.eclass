@@ -209,7 +209,7 @@ kde-frameworks_src_unpack() {
 kde-frameworks_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# never build manual tests or examples
+	# never build manual tests
 	sed -e "/add_subdirectory[[:space:]]*([[:space:]]*tests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 		-i CMakeLists.txt || die
 
