@@ -8,7 +8,7 @@ FRAMEWORKS_TYPE="tier2"
 inherit kde-frameworks
 
 DESCRIPTION="Documentation tools library"
-LICENSE="LGPL-2+"
+LICENSE="MIT"
 KEYWORDS=""
 IUSE=""
 
