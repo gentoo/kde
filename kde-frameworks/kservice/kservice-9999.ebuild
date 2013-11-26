@@ -5,21 +5,21 @@
 EAPI=5
 
 FRAMEWORKS_TYPE="tier3"
-FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
 DESCRIPTION="Application framework for file type association and plugin locating"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep ki18n)
 	dev-qt/qtdbus:5
 	dev-qt/qtxml:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_frameworks_dep kdoctools)
+"
