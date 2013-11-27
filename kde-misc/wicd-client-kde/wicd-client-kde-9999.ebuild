@@ -27,7 +27,7 @@ RDEPEND="
 	net-misc/wicd"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${PN/-client/}
+[[ ${PV} == 9999 ]] || S=${WORKDIR}/${MY_P}
 
 pkg_setup() {
 	python-single-r1_pkg_setup
