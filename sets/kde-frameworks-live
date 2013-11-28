@@ -23,6 +23,7 @@
 ~kde-frameworks/kpty-9999
 ~kde-frameworks/kplotting-9999
 ~kde-frameworks/kservice-9999
+~kde-frameworks/kdesu-9999
 ~kde-frameworks/ktextwidgets-9999
 ~kde-frameworks/kunitconversion-9999
 ~kde-frameworks/kwallet-9999
@@ -31,4 +32,3 @@
 ~kde-frameworks/solid-9999
 ~kde-frameworks/sonnet-9999
 ~kde-frameworks/threadweaver-9999
-
