@@ -19,4 +19,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMCOMPILEONLY="
+	noteshared/
+"
+
 KMLOADLIBS="kdepim-common-libs"

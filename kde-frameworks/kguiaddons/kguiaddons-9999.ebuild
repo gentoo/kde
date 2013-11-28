@@ -11,23 +11,10 @@ inherit kde-frameworks
 DESCRIPTION="Assorted high-level user interface components"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="eps jpeg2k openexr"
+IUSE=""
 
 RDEPEND="
 	dev-qt/qtgui:5
 	x11-libs/libX11
-	eps? ( dev-qt/qtprintsupport:5 )
-	jpeg2k? ( media-libs/jasper )
-	openexr? ( media-libs/openexr:= )
 "
 DEPEND="${RDEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package eps Qt5PrintSupport)
-		$(cmake-utils_use_find_package jpeg2k Jasper)
-		$(cmake-utils_use_find_package openexr OpenEXR)
-	)
-
-	kde-frameworks_src_configure
-}

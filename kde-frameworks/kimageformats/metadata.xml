@@ -2,4 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="eps">Support the EPS graphics file format</flag>
+	</use>
 </pkgmetadata>
