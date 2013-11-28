@@ -36,7 +36,6 @@ fi
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
 	app-crypt/qca:2
-	>=app-misc/strigi-0.5.7
 	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?' 4.8.4)
 	$(add_kdebase_dep kdebase-kioslaves)
 	>=media-libs/taglib-1.7[asf,mp4]
