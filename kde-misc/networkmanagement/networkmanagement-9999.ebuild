@@ -4,15 +4,17 @@
 
 EAPI=5
 
-KDE_LINGUAS="ar bs ca cs da de el es et fa fi fr ga gl hu ia it ja kk km lt mr
-nb nds nl nn pl pt pt_BR ro ru se sk sl sr sr@ijekavian sr@ijekavianlatin
+KDE_LINGUAS="ar bs ca cs da de el es et fa fi fr ga gl hu ia it ja kk km ko lt
+mr nb nds nl nn pl pt pt_BR ro ru se sk sl sr sr@ijekavian sr@ijekavianlatin
 sr@Latn sv tr uk zh_CN zh_TW"
 KDE_SCM="git"
+KDE_MINIMAL="4.11"
 inherit kde4-base
 
+EGIT_BRANCH="nm09"
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/networkmanagement"
-[[ ${PV} = 9999* ]] || SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
+[[ ${PV} = 9999* ]] || SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
@@ -20,13 +22,14 @@ SLOT="4"
 IUSE="debug openconnect"
 
 DEPEND="
-	net-libs/libmm-qt
-	net-libs/libnm-qt
 	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.9.8.2
+	>=net-misc/networkmanager-0.9.6
 	openconnect? ( net-misc/openconnect )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/solid
+	!kde-misc/plasma-nm
+"
 
 src_configure() {
 	local mycmakeargs=(
