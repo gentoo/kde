@@ -29,7 +29,7 @@ KMEXTRACTONLY="
 	messageviewer/
 "
 KMCOMPILEONLY="
-	agents/sendlateragent
+	agents/sendlateragent/
 	grantleetheme/
 	kaddressbookgrantlee/
 	pimcommon/
