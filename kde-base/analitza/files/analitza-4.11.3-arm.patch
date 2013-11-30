@@ -1,0 +1,64 @@
+commit 07dc31770db7a7d2e5273db0c2b32578a7e13c4e
+Author: Maximiliano Curia <maxy@debian.org>
+Date:   Wed Oct 30 23:53:19 2013 +0100
+
+    Fix compile in armhf
+    
+    Acked by Aleix
+    REVIEW: 111121
+    BUGS: 321244
+
+diff --git a/analitzaplot/plotter3d.cpp b/analitzaplot/plotter3d.cpp
+index accac1a..476b31a 100644
+--- a/analitzaplot/plotter3d.cpp
++++ b/analitzaplot/plotter3d.cpp
+@@ -143,6 +143,10 @@ void Plotter3D::setViewport(const QRectF& vp)
+     renderGL();
+ }
+ 
++// add overloaded functions which call the underlying OpenGL function
++inline void glMultMatrix(const GLfloat  *m) { glMultMatrixf(m); }
++inline void glMultMatrix(const GLdouble *m) { glMultMatrixd(m); }
++
+ void Plotter3D::drawPlots()
+ {
+     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+@@ -153,7 +157,7 @@ void Plotter3D::drawPlots()
+ 
+     glMatrixMode(GL_MODELVIEW);
+     glLoadIdentity();
+-    glMultMatrixd(m_rot.data());
++    glMultMatrix(m_rot.constData());
+ 
+     // Object Drawing :
+     glCallList(m_sceneObjects.value(Axes));
+@@ -398,6 +402,14 @@ void Plotter3D::scale(GLdouble factor)
+     renderGL();
+ }
+ 
++inline QMatrix4x4 get_matrix(GLfloat *m)
++{
++    return QMatrix4x4(m[0],  m[1],  m[2],  m[3],
++                      m[4],  m[5],  m[6],  m[7],
++                      m[8],  m[9],  m[10], m[11],
++                      m[12], m[13], m[14], m[15]);
++}
++
+ void Plotter3D::rotate(int dx, int dy)
+ {
+     GLdouble ax = -dy;
+@@ -412,11 +424,11 @@ void Plotter3D::rotate(int dx, int dy)
+         m_rot.rotate(angle, m_rotFixed.normalized());
+         renderGL();
+     } else {
+-        GLdouble matrix[16] = {0}; // model view matrix from current OpenGL state
++        GLfloat matrix[16] = {0}; // model view matrix from current OpenGL state
+ 
+-        glGetDoublev(GL_MODELVIEW_MATRIX, matrix);
++        glGetFloatv(GL_MODELVIEW_MATRIX, matrix);
+ 
+-        QMatrix4x4 matrix4(matrix);
++        QMatrix4x4 matrix4(get_matrix(matrix));
+         bool couldInvert;
+         matrix4 = matrix4.inverted(&couldInvert);
+ 

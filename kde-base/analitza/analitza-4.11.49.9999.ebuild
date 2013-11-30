@@ -18,6 +18,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-4.11.3-arm.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with opengl OpenGL)
