@@ -33,4 +33,4 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkworkspace"
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.50-noplasmalock.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.11.97-noplasmalock.patch" )
