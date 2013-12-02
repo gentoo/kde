@@ -1,0 +1,210 @@
+From 3a4a7ac959c17ffd08b104bc4c5d550b5f1dfcb6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Thomas=20L=C3=BCbking?= <thomas.luebking@gmail.com>
+Date: Sat, 26 Jan 2013 22:27:48 +0100
+Subject: [PATCH] improve screenlocker multiscreen behavior
+
+- pass focus to greeter under the mouse
+- share keyboard events
+- let through keyboard events for one hidden locker
+  (mouse wakeup case)
+- remove double filtering
+
+BUG: 311188
+FIXED-IN: 4.11.4
+REVIEW: 113971
+---
+ ksmserver/screenlocker/greeter/greeterapp.cpp | 92 +++++++++++++++++++++++++--
+ ksmserver/screenlocker/greeter/greeterapp.h   |  1 +
+ 2 files changed, 87 insertions(+), 6 deletions(-)
+
+diff --git a/ksmserver/screenlocker/greeter/greeterapp.cpp b/ksmserver/screenlocker/greeter/greeterapp.cpp
+index 30987c1..c5e2f85 100644
+--- a/ksmserver/screenlocker/greeter/greeterapp.cpp
++++ b/ksmserver/screenlocker/greeter/greeterapp.cpp
+@@ -32,6 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ #include <KDE/KDebug>
+ #include <KDE/KStandardDirs>
+ #include <KDE/KUser>
++#include <KDE/KWindowSystem>
+ #include <Solid/PowerManagement>
+ #include <kdeclarative.h>
+ //Plasma
+@@ -52,6 +53,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ #include <X11/Xlib.h>
+ #include <fixx11h.h>
+ 
++// this is usable to fake a "screensaver" installation for testing
++// *must* be "0" for every public commit!
++#define TEST_SCREENSAVER 0
++
+ namespace ScreenLocker
+ {
+ 
+@@ -98,7 +103,11 @@ void UnlockApp::initialize()
+     KCrash::setDrKonqiEnabled(false);
+ 
+     KScreenSaverSettings::self()->readConfig();
++#if TEST_SCREENSAVER
++    m_showScreenSaver = true;
++#else
+     m_showScreenSaver = KScreenSaverSettings::legacySaverEnabled();
++#endif
+ 
+     m_structure = Plasma::PackageStructure::load("Plasma/Generic");
+     m_package = new Plasma::Package(KStandardDirs::locate("data", "ksmserver/screenlocker/"), KScreenSaverSettings::greeterQML(), m_structure);
+@@ -148,7 +157,6 @@ void UnlockApp::desktopResized()
+                 this, SLOT(viewStatusChanged(QDeclarativeView::Status)));
+         view->setWindowFlags(Qt::X11BypassWindowManagerHint);
+         view->setFrameStyle(QFrame::NoFrame);
+-        view->installEventFilter(this);
+ 
+         // engine stuff
+         KDeclarative kdeclarative;
+@@ -232,11 +240,15 @@ void UnlockApp::desktopResized()
+             ScreenSaverWindow *screensaverWindow = m_screensaverWindows.at(i);
+             screensaverWindow->setGeometry(view->geometry());
+ 
++#if TEST_SCREENSAVER
++            screensaverWindow->setAutoFillBackground(true);
++#else
+             QPixmap backgroundPix(screensaverWindow->size());
+             QPainter p(&backgroundPix);
+             view->render(&p);
+             p.end();
+             screensaverWindow->setBackground(backgroundPix);
++#endif
+             screensaverWindow->show();
+             screensaverWindow->activateWindow();
+             connect(screensaverWindow, SIGNAL(hidden()), this, SLOT(getFocus()));
+@@ -244,14 +256,52 @@ void UnlockApp::desktopResized()
+     }
+     // random state update, actually rather required on init only
+     QMetaObject::invokeMethod(this, "getFocus", Qt::QueuedConnection);
++    // getFocus on the next event cycle does not work as expected for multiple views
++    // if there's no screensaver, hiding it won't happen and thus not trigger getFocus either
++    // so we call it again in a few miliseconds - the value is nearly random but "must cross some event cycles"
++    // while 150ms worked for me, 250ms gets us a bit more padding without being notable to a human user
++    if (nScreens > 1 && m_screensaverWindows.isEmpty()) {
++        QTimer::singleShot(250, this, SLOT(getFocus()));
++    }
+     capsLocked();
+ }
+ 
+ void UnlockApp::getFocus()
+ {
+-    if (!m_views.isEmpty()) {
+-        m_views.first()->activateWindow();
++    if (m_views.isEmpty()) {
++        return;
+     }
++    QWidget *w = 0;
++    // this loop is required to make the qml/graphicsscene properly handle the shared keyboard input
++    // ie. "type something into the box of every greeter"
++    foreach (QDeclarativeView *view, m_views) {
++        view->activateWindow();
++        view->grabKeyboard();
++        view->setFocus(Qt::OtherFocusReason);
++    }
++    // determine which window should actually be active and have the real input focus/grab
++    foreach (QDeclarativeView *view, m_views) {
++        if (view->underMouse()) {
++            w = view;
++            break;
++        }
++    }
++    if (!w) { // try harder
++        foreach (QDeclarativeView *view, m_views) {
++            if (view->geometry().contains(QCursor::pos())) {
++                w = view;
++                break;
++            }
++        }
++    }
++    if (!w) { // fallback solution
++        w = m_views.first();
++    }
++    // activate window and grab input to be sure it really ends up there.
++    // focus setting is still required for proper internal QWidget state (and eg. visual reflection)
++    w->grabKeyboard();
++    w->activateWindow();
++    w->setFocus(Qt::OtherFocusReason);
+ }
+ 
+ void UnlockApp::setLockedPropertyOnViews()
+@@ -354,14 +404,15 @@ bool UnlockApp::eventFilter(QObject *obj, QEvent *event)
+ 
+     static bool ignoreNextEscape = false;
+     if (event->type() == QEvent::KeyPress) { // react if saver is visible
+-        bool saverVisible = false;
++        bool saverVisible = !m_screensaverWindows.isEmpty();
+         foreach (ScreenSaverWindow *screensaverWindow, m_screensaverWindows) {
+-            if (screensaverWindow->isVisible()) {
+-                saverVisible = true;
++            if (!screensaverWindow->isVisible()) {
++                saverVisible = false;
+                 break;
+             }
+         }
+         if (!saverVisible) {
++            shareEvent(event, qobject_cast<QDeclarativeView*>(obj));
+             return false; // we don't care
+         }
+         ignoreNextEscape = bool(static_cast<QKeyEvent *>(event)->key() == Qt::Key_Escape);
+@@ -378,6 +429,7 @@ bool UnlockApp::eventFilter(QObject *obj, QEvent *event)
+             return false;
+         }
+         if (ke->key() != Qt::Key_Escape) {
++            shareEvent(event, qobject_cast<QDeclarativeView*>(obj));
+             return false; // irrelevant
+         }
+         if (ignoreNextEscape) {
+@@ -428,6 +480,34 @@ void UnlockApp::capsLocked()
+     }
+ }
+ 
++/*
++ * This function forwards an event from one greeter window to all others
++ * It's used to have the keyboard operate on all greeter windows (on every screen)
++ * at once so that the user gets visual feedback on the screen he's looking at -
++ * even if the focus is actually on a powered off screen.
++ */
++
++void UnlockApp::shareEvent(QEvent *e, QDeclarativeView *from)
++{
++    // from can be NULL any time (because the parameter is passed as qobject_cast)
++    // m_views.contains(from) is atm. supposed to be true but required if any further
++    // QDeclarativeViews are added (which are not part of m_views)
++    // this makes "from" an optimization (nullptr check aversion)
++    if (from && m_views.contains(from)) {
++        // NOTICE any recursion in the event sharing will prevent authentication on multiscreen setups!
++        // Any change in regarded event processing shall be tested thoroughly!
++        removeEventFilter(this); // prevent recursion!
++        const bool accepted = e->isAccepted(); // store state
++        foreach (QDeclarativeView *view, m_views) {
++            if (view != from) {
++                QApplication::sendEvent(view, e);
++                e->setAccepted(accepted);
++            }
++        }
++        installEventFilter(this);
++    }
++}
++
+ } // namespace
+ 
+ #include "greeterapp.moc"
+diff --git a/ksmserver/screenlocker/greeter/greeterapp.h b/ksmserver/screenlocker/greeter/greeterapp.h
+index 76b9824..8b79188 100644
+--- a/ksmserver/screenlocker/greeter/greeterapp.h
++++ b/ksmserver/screenlocker/greeter/greeterapp.h
+@@ -63,6 +63,7 @@ private Q_SLOTS:
+ private:
+     void initialize();
+     void capsLocked();
++    void shareEvent(QEvent *e, QDeclarativeView *from);
+ 
+     QString m_mainQmlPath;
+     QList<QDeclarativeView*> m_views;
+-- 
+1.8.4.4
+
