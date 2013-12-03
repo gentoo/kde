@@ -1,0 +1,24 @@
+# We don't include kdesdk on the global set
+<kde-base/kate-4.12.50
+<kde-base/kde-l10n-4.12.50
+<kde-base/kde-meta-4.12.50
+<kde-base/kdeplasma-addons-4.12.50
+
+@kdeaccessibility-4.12
+@kdeadmin-4.12
+@kdeartwork-4.12
+@kdebase-4.12
+@kdeedu-4.12
+@kdegames-4.12
+@kdegraphics-4.12
+@kdelibs-4.12
+@kdemultimedia-4.12
+@kdenetwork-4.12
+@kdepim-4.12
+@kdetoys-4.12
+@kdeutils-4.12
+@kdewebdev-4.12
+
+#for developers
+#@kdebindings-4.12
+#@kdesdk-4.12
