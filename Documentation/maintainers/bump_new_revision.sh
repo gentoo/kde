@@ -299,7 +299,8 @@ case ${OPERATION} in
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
 			pushd "${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}" > /dev/null
 			if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
-				git rm "${EBUILD_BASENAME}-${VERSION}"*.ebuild
+				EBUILD=`find ./ -name \*.ebuild | grep "${VERSION}\(\-r[0-9]\+\)\?\\." | sort |tail -n 1`
+				git rm "${EBUILD}"
 			elif [[ -d CVS ]]; then
 				cvs remove -f "${EBUILD_BASENAME}-${VERSION}"*.ebuild
 				echangelog "Remove KDE SC ${VERSION}"
@@ -330,7 +331,7 @@ case ${OPERATION} in
 #			fi
 			repoman manifest
 			if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
-				git add .
+				git add --all .
 			fi
 			popd &> /dev/null #go back to workdir
 		done
