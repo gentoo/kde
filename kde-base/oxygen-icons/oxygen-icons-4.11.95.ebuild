@@ -15,7 +15,7 @@ DESCRIPTION="Oxygen SVG icon theme."
 HOMEPAGE="http://www.oxygen-icons.org/"
 [[ ${PV} == *9999 ]] || \
 SRC_URI="
-	!bindist? ( http://dev.gentoo.org/~johu/distfiles/${P}.repacked.tar.xz )
+	!bindist? ( http://dev.gentoo.org/~dilfridge/distfiles/${P}.repacked.tar.xz )
 	bindist? ( ${SRC_URI} )
 "
 
