@@ -13,9 +13,6 @@ http://utils.kde.org/projects/kremotecontrol"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="
-	$(add_kdebase_dep libkworkspace)
-"
-RDEPEND="${DEPEND}
+RDEPEND="
 	app-misc/lirc
 "
