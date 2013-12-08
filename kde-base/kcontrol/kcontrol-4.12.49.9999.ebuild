@@ -14,5 +14,5 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdnssd)
-	$(add_kdebase_dep khotkeys)
+	$(add_kdebase_dep khotkeys '' 4.11)
 "

@@ -13,7 +13,7 @@ IUSE="+wallpapers"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
-	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
+	wallpapers? ( $(add_kdebase_dep kde-wallpapers '' 4.11) )
 	$(add_kdebase_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
