@@ -52,7 +52,6 @@ KMEXTRA="
 	messagecore/
 	messagelist/
 	messageviewer/
-	noteshared/
 	ontologies/
 	pimcommon/
 	templateparser/
