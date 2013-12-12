@@ -45,6 +45,7 @@ KMCOMPILEONLY="
 	templateparser/
 	incidenceeditor-ng/
 	calendarsupport/
+	noteshared/
 "
 KMEXTRA="
 	agents/
