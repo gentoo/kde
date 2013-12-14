@@ -21,5 +21,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	composereditor-ng
+	composereditor-ng/
+	pimcommon/
 "
