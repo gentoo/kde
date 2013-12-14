@@ -30,5 +30,5 @@ kde-base/libtaskmanager:4
 kde-base/plasma-workspace:4
 kde-base/powerdevil:4
 kde-base/qguiplatformplugin_kde:4
-kde-base/solid:4
+kde-base/solid-actions-kcm:4
 kde-base/systemsettings:4
