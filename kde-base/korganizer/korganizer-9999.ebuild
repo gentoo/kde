@@ -35,6 +35,7 @@ KMEXTRACTONLY="
 	pimcommon/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/
+	korgac/org.kde.korganizer.KOrgac.xml
 "
 
 KMCOMPILEONLY="
