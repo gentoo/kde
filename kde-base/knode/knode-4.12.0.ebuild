@@ -27,6 +27,7 @@ KMEXTRACTONLY="
 	libkpgp/
 	messagecomposer/
 	messageviewer/
+	messagecore/
 "
 KMCOMPILEONLY="
 	agents/sendlateragent/
