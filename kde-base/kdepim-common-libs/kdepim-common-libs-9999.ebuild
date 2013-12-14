@@ -60,7 +60,7 @@ KMEXTRACTONLY="
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml
-	korganizer/korgac/org.kde.korganizer.KOrgac.xml
+	korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
 "
 KMCOMPILEONLY="
