@@ -19,4 +19,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRACTONLY="
+	pimcommon/
+"
+
 KMLOADLIBS="kdepim-common-libs"
