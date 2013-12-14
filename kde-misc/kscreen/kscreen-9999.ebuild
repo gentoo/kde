@@ -11,7 +11,7 @@ sl sv tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="Alternative KDE screen management"
-HOMEPAGE="https://projects.kde.org/projects/kdereview/kscreen"
+HOMEPAGE="https://projects.kde.org/projects/extragear/base/kscreen"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
