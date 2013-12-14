@@ -23,4 +23,8 @@ RDEPEND="${DEPEND}"
 KMCOMPILEONLY="
 	calendarsupport/
 "
+KMEXTRACTONLY="
+	libkdepimdbusinterfaces/
+"
+
 KMLOADLIBS="kdepim-common-libs"
