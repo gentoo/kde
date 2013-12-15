@@ -291,3 +291,5 @@
 ~kde-base/kdebase-meta-4.12.0
 ~kde-base/kde-meta-4.12.0
 
+# this one needs to go together with kde-4.12
+=kdepim-runtime/kdepim-runtime-4.4.11.1-r2
