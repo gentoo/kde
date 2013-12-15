@@ -7,7 +7,6 @@
 ~media-libs/phonon-vlc-9999 **
 ~sys-auth/polkit-qt-9999 **
 ~sys-auth/polkit-kde-agent-9999 **
-~kde-misc/polkit-kde-kcmodules-9999 **
 ~media-libs/prison-9999 **
 #~dev-libs/libqzeitgeist-9999
 
