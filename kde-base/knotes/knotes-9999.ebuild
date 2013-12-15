@@ -19,6 +19,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMCOMPILEONLY="
+	noteshared/
+"
+
 KMEXTRACTONLY="
 	pimcommon/
 "
