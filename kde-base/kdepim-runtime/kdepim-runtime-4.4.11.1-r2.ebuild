@@ -40,5 +40,5 @@ add_blocker akonadi '<4.3.90'
 
 PATCHES=(
 	"${FILESDIR}/4.4/"000[1-2]-*.patch
-	"${FILESDIR}/4.4/"999*.patch
+	"${FILESDIR}/4.4/"999[6-9]-*.patch
 )
