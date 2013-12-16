@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug fits indi"
 
 DEPEND="
-	dev-cpp/eigen:2
+	dev-cpp/eigen:3
 	$(add_kdebase_dep libkdeedu)
 	fits? ( >=sci-libs/cfitsio-0.390 )
 	indi? ( >=sci-libs/indilib-0.9.1 )
