@@ -11,6 +11,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/libraw-0.16:=
+	>=media-libs/libraw-0.15:=
 "
 RDEPEND="${DEPEND}"
