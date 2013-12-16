@@ -26,10 +26,7 @@ DEPEND="
 	dev-qt/qtsql:4[sqlite]
 "
 RDEPEND="${DEPEND}
-	|| (
-		( $(add_kdebase_dep kde-dev-scripts) )
-		( $(add_kdebase_dep kdesdk-scripts) )
-	)
+	$(add_kdebase_dep kde-dev-scripts)
 "
 
 # upstream does not ship tests in releases
