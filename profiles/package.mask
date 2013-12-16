@@ -589,7 +589,7 @@
 ~kde-base/kde-meta-4.12.0
 
 # this one needs to go together with kde-4.12
-=kdepim-runtime/kdepim-runtime-4.4.11.1-r2
+=kde-base/kdepim-runtime-4.4.11.1-r2
 
 # Chris Reffett <creffett@gentoo.org> (29 Aug 2013)
 # Virtuoso 6.1.7 does not work for KDE 4.11 according to upstream report.

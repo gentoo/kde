@@ -1,0 +1,198 @@
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using egencache *
+
+app-cdr/k3b:emovix - Enable burning support for eMoviX images
+app-misc/strigi:clucene - Enable dev-cpp/clucene backend support.
+app-misc/strigi:inotify - Enable support for inotify.
+app-misc/strigi:log - Enables advanced logging through dev-libs/log4cxx.
+app-office/kmymoney:hbci - Enable HBCI banking support.
+app-office/kmymoney:quotes - Enable support for downloading stock data.
+dev-libs/soprano:raptor - Enables support for media-libs/raptor RDF parser/serializer.
+dev-libs/soprano:redland - Enables support for the dev-libs/redland storage backend (really slow one).
+dev-libs/soprano:virtuoso - Enables support for dev-db/virtuoso storage backend.
+dev-util/kdevelop:cmake - Enable support for CMake build system
+dev-util/kdevelop:okteta - Enable hex editor plugin
+dev-util/kdevelop:qthelp - Enable support for QtHelp documentation browsing
+dev-util/kdevelop-qmake:tools - Build and install the qmake-parser debugging tool
+dev-util/kdevplatform:reviewboard - Enable reviewboard support
+kde-base/ark:archive - Enable support for a variety of archive formats through libarchive
+kde-base/cantor:R - Enable dev-lang/R backend support
+kde-base/cantor:analitza - Enable kde-base/analitza backend support
+kde-base/cantor:qalculate - Enable sci-libs/libqalculate backend support
+kde-base/dolphin:thumbnail - Enables video thumbnails generation for kde-base/dolphin file manager.
+kde-base/dolphin-plugins:bazaar - Enable support for the bazaar VCS
+kde-base/dolphin-plugins:git - Enable support for the git VCS
+kde-base/dolphin-plugins:mercurial - Enable support for the mercurial VCS
+kde-base/gwenview:kipi - Support for the KDE Image Plugin Interface.
+kde-base/kaccessible:speechd - Enable support for the speech-dispatcher speech synthesizer
+kde-base/kalzium:editor - Enable the embedded molecule editor/viewer
+kde-base/kalzium:solver - Enable the equation solver
+kde-base/kde-meta:sdk - Pull in developer-specific meta-packages
+kde-base/kdeartwork-kscreensaver:eigen - Enable various arithmetic screensavers which use Eigen2 for computations.
+kde-base/kdeartwork-kscreensaver:kexiv2 - Enable image rotation based on exif tags with libkexiv2.
+kde-base/kdebase-data:wallpapers - Install the KDE wallpapers
+kde-base/kdebase-kioslaves:sftp - Enable SFTP protocol support using net-libs/libssh
+kde-base/kdebase-meta:wallpapers - Install the KDE wallpapers
+kde-base/kdebase-startkde:wallpapers - Install the KDE wallpapers
+kde-base/kdebindings-meta:csharp - Enable C# language bindings for KDE and Qt
+kde-base/kdelibs:opengl - Enable OpenGL support for Plasma (GLApplet)
+kde-base/kdelibs:udisks - Use udisks for block device access (e.g., automounting)
+kde-base/kdelibs:upower - Use upower for power management
+kde-base/kdenetwork-meta:ppp - Enable support for net-dialup/ppp.
+kde-base/kdepim-runtime:facebook - Facebook service integration via net-libs/libkfbapi
+kde-base/kdepim-runtime:google - Google service integration via net-libs/libkgapi
+kde-base/kdepimlibs:prison - Enable support for QRcodes in contacts
+kde-base/kdeplasma-addons:attica - Enable support for dev-libs/libattica
+kde-base/kdeplasma-addons:desktopglobe - Enable Desktop Globe wallpaper using kde-base/marble
+kde-base/kdeplasma-addons:fcitx - Use fcitx input method via app-i18n/fcitx
+kde-base/kdeplasma-addons:ibus - Use ibus input method via app-i18n/ibus
+kde-base/kdeplasma-addons:json - Enable JSON support via dev-libs/qjson
+kde-base/kdeplasma-addons:oauth - Enable OAuth support via dev-libs/qoauth
+kde-base/kdeplasma-addons:qalculate - Enable Qalculate runner using sci-libs/libqalculate
+kde-base/kdeplasma-addons:qwt - Enable applets that use x11-libs/qwt:5.
+kde-base/kdeplasma-addons:scim - Enable applets that use app-i18n/scim.
+kde-base/kdeutils-meta:floppy - Install kde-base/kfloppy to format and create DOS or ext2fs filesystems in a floppy.
+kde-base/kdm:consolekit - Enables support for authorization using consolekit
+kde-base/kget:bittorrent - Enable bittorrent transfer plugin through net-libs/libktorrent
+kde-base/kget:mms - Enable MMS (Microsoft Media Server) plugin through media-libs/libmms
+kde-base/kget:webkit - Enable KdeWebkit browser plugin using kde-misc/kwebkitpart
+kde-base/kig:scripting - Support Python scripting
+kde-base/kimono:akonadi - Compile bindings for Akonadi.
+kde-base/kimono:plasma - Compile bindings for KDE's Plasma.
+kde-base/klipper:prison - Enable support for barcodes/QRcodes
+kde-base/kmix:canberra - Enable sound event support using media-libs/libcanberra
+kde-base/konqueror:bookmarks - Add dependency on bookmark package.
+kde-base/kopete:addbookmarks - Automatically add incoming urls to bookmarks.
+kde-base/kopete:autoreplace - Automatically replace selected text
+kde-base/kopete:contactnotes - Enables writing personal notes for contacts.
+kde-base/kopete:gadu - Enable the Gadu protocol handler.
+kde-base/kopete:groupwise - Enable the Groupwise protocol handler.
+kde-base/kopete:highlight - Allows you to specify highlights on specific events.
+kde-base/kopete:history - Enables saving chat history.
+kde-base/kopete:latex - Embed latex formatted text into messages.
+kde-base/kopete:meanwhile - Enable the Sametime protocol handler.
+kde-base/kopete:msn - Enable "Windows live messenger" protocol support.
+kde-base/kopete:nowlistening - Shows song you currently listen to in your status/etc. Bindings for many players.
+kde-base/kopete:otr - Allows crypting your chat (drugs and talking nonsense are considered as good alternatives ;]).
+kde-base/kopete:pipes - Send messages to external pipe.
+kde-base/kopete:privacy - Filter for incoming messages
+kde-base/kopete:skype - Enable Skype protocol handler (not fully functional yet).
+kde-base/kopete:sms - Enable SMS sendinge functionality.
+kde-base/kopete:statistics - Everybody loves statistic graphs, especially cake ones. ;]
+kde-base/kopete:testbed - Enable the testbed protocol.
+kde-base/kopete:texteffect - Various fancy text effects for your messages (don't ever consider writing us with this enabled ;]).
+kde-base/kopete:translator - Translate incoming and outgoing messages.
+kde-base/kopete:urlpicpreview - Enables in conversation pictures preview.
+kde-base/kopete:webpresence - Show your status and some more information on web.
+kde-base/kopete:winpopup - Enable pop-up messages sending on windows. (same as good old "net send" messages ;])
+kde-base/kopete:xmpp - Enable XMPP protocol handler (this is also gmail).
+kde-base/kopete:yahoo - Enable yahoo protocol support.
+kde-base/kopete:zeroconf - Enable Link-Local Messaging via the bonjour protocol.
+kde-base/korundum:akonadi - Compile bindings for Akonadi.
+kde-base/korundum:kate - Compile bindings for KDE Advanced Text Editor.
+kde-base/korundum:okular - Compile bindings for kde-base/okular.
+kde-base/krdc:rdesktop - Enable runtime dependency for net-misc/rdesktop
+kde-base/krdc:telepathy - Enable desktop sharing through a telepathy client
+kde-base/krfb:telepathy - Enable desktop sharing through a telepathy client
+kde-base/ksnapshot:kipi - Support for the KDE Image Plugin Interface.
+kde-base/kstars:fits - Enable support for the FITS image format through cfitsio
+kde-base/kstars:indi - Enable support for Astronomical control library using libindi
+kde-base/kwin:gles - Enable support for GLES.
+kde-base/marble:designer-plugin - Enable designer plugin
+kde-base/marble:shapefile - Enable support for ESRI shapefiles
+kde-base/marble:zip - Enable support for reading and displaying .kmz files
+kde-base/nepomuk-core:epub - Adds support for reading EPUB ebook metadata
+kde-base/okular:chm - Enable support for Microsoft Compiled HTML Help files
+kde-base/okular:ebook - Add E-Book suppport
+kde-base/oxygen-icons:bindist - Additionally install the svg sources of the bitmap icons (needed for redistribution)
+kde-base/perlkde:akonadi - Compile bindings for Akonadi.
+kde-base/perlkde:attica - Compile bindings for dev-libs/libattica.
+kde-base/perlkde:kate - Compile bindings for KDE Advanced Text Editor.
+kde-base/perlkde:okular - Compile bindings for kde-base/okular.
+kde-base/perlqt:declarative - Compile bindings for x11-libs/qt-declarative.
+kde-base/perlqt:multimedia - Compile bindings for x11-libs/qt-multimedia.
+kde-base/perlqt:phonon - Compile bindings for Phonon.
+kde-base/perlqt:qimageblitz - Compile bindings for media-libs/qimageblitz.
+kde-base/perlqt:qscintilla - Compile bindings for x11-libs/qscintilla.
+kde-base/perlqt:qthelp - Compile bindings for QtHelp from x11-libs/qt-assistant.
+kde-base/perlqt:qwt - Compile bindings for x11-libs/qwt.
+kde-base/perlqt:webkit - Compile bindings for x11-libs/qt-webkit.
+kde-base/plasma-workspace:json - Enable JSON support via dev-libs/qjson
+kde-base/plasma-workspace:qalculate - Enable Qalculate runner using sci-libs/libqalculate
+kde-base/powerdevil:pm-utils - Adds support for suspend/resume the system through sys-power/pm-utils
+kde-base/poxml:extras - Build po2xml and swappo tools
+kde-base/qtruby:declarative - Compile bindings for x11-libs/qt-declarative.
+kde-base/qtruby:phonon - Compile bindings for Phonon.
+kde-base/qtruby:qscintilla - Compile bindings for x11-libs/qscintilla.
+kde-base/qtruby:qwt - Compile bindings for x11-libs/qwt.
+kde-base/qtruby:webkit - Compile bindings for x11-libs/qt-webkit.
+kde-base/qyoto:phonon - Compile bindings for Phonon.
+kde-base/qyoto:qscintilla - Compile bindings for x11-libs/qscintilla.
+kde-base/qyoto:webkit - Compile bindings for x11-libs/qt-webkit.
+kde-base/smokekde:attica - Compile bindings for dev-libs/libattica.
+kde-base/smokekde:kate - Compile bindings for KDE Advanced Text Editor.
+kde-base/smokekde:okular - Compile bindings for kde-base/okular.
+kde-base/smokeqt:declarative - Compile bindings for x11-libs/qt-declarative.
+kde-base/smokeqt:multimedia - Compile bindings for x11-libs/qt-multimedia.
+kde-base/smokeqt:phonon - Compile bindings for Phonon.
+kde-base/smokeqt:qimageblitz - Compile bindings for media-libs/qimageblitz.
+kde-base/smokeqt:qscintilla - Compile bindings for x11-libs/qscintilla.
+kde-base/smokeqt:qthelp - Compile bindings for QtHelp from x11-libs/qt-assistant.
+kde-base/smokeqt:qwt - Compile bindings for x11-libs/qwt.
+kde-base/smokeqt:webkit - Compile bindings for x11-libs/qt-webkit.
+kde-base/step:qalculate - Enable the libqalculate library for unit conversion
+kde-frameworks/kimageformats:eps - Support the EPS graphics file format
+kde-misc/ark2:archive - Enable support for a variety of archive formats through libarchive
+kde-misc/bekwinfx:beanimated - Enable animation plugin
+kde-misc/bekwinfx:beclock - Enable clock plugin
+kde-misc/bekwinfx:bedistorted - Enable distorted plugin
+kde-misc/bekwinfx:befaded - Enable fading plugin
+kde-misc/bekwinfx:bereflected - Enable reflection plugin
+kde-misc/bekwinfx:gles - Build set with OpenGLES support.
+kde-misc/bekwinfx:xrandr - Build set with xrandr support.
+kde-misc/krusader:bookmarks - Add dependency on bookmark package.
+kde-misc/networkmanagement:openconnect - Build support for the OpenConnect VPN client
+kde-misc/plasma-nm:modemmanager - Enable support for mobile broadband devices
+kde-misc/publictransport:marble - Build marble support to show transit stops on a map
+kde-misc/publictransport:protobuf - Enable GTFS-realtime support
+kde-misc/translatoid:remember - Enables "Do you remember" functionality
+media-libs/liblastfm:fingerprint - Build the lastfm-fingerprint library
+media-sound/amarok:embedded - Use libmysqld, MySQL embedded server library. Try disabling this if you encounter -PIC related in amarok, it will make amarok rely only on standalone MySQL server.
+media-sound/amarok:lastfm - Enable Last.fm streaming services support through media-libs/liblastfm
+media-sound/amarok:mp3tunes - Enable mp3tunes integration
+media-sound/amarok:mtp - Enable support for libMTP (Plays4Sure) devices access through libmtp
+media-sound/amarok:ofa - Use media-libs/libofa to compute MusicDNS acoustic fingerprints (used by MusicBrainz)
+media-sound/amarok:utils - Build the utils - old media-sound/amarok-utils
+media-sound/kguitar:midi - Add TSE3 midi sequencer support
+media-video/kmplayer:npp - Compile the npp backend that plays xembed style browser plugins.
+net-im/choqok:ayatana - Build in support for Ayatana notification using the libindicate-qt plugin.
+net-im/ktp-accounts-kcm:modemmanager - Enable support for mobile broadband devices
+net-libs/libnm-qt:modemmanager - Enable support for mobile broadband devices
+net-libs/telepathy-qt:farstream - Enable support for audio/video calls via farstream
+net-p2p/ktorrent:bwscheduler - Schedule upload and download limits over a period of a week
+net-p2p/ktorrent:downloadorder - Specify the download order of a multi-file torrent
+net-p2p/ktorrent:infowidget - Displays general information about a torrent in several tabs
+net-p2p/ktorrent:ipfilter - Filter IP addresses through a blocklist
+net-p2p/ktorrent:kross - Enable kross scripting support
+net-p2p/ktorrent:logviewer - Displays the logging output
+net-p2p/ktorrent:magnetgenerator - Generates magnet URI's
+net-p2p/ktorrent:mediaplayer - Phonon-based media player
+net-p2p/ktorrent:rss - Syndication plugin for KTorrent, supporting RSS and Atom feeds
+net-p2p/ktorrent:scanfolder - Scan folders for torrent files and load them
+net-p2p/ktorrent:search - Search for torrents
+net-p2p/ktorrent:shutdown - Shutdown when done
+net-p2p/ktorrent:stats - Shows statistics about torrents in several graphs
+net-p2p/ktorrent:upnp - Forward ports using UPnP
+net-p2p/ktorrent:webinterface - Allows control of KTorrent via a web interface
+net-p2p/ktorrent:zeroconf - Discover peers on the local network using the Zeroconf protocol
+plasma-active/bodega-client:epub - Add epub support
+plasma-active/kde-artwork-active:phone - Install artwork optimized for low-resolution devices such as smartphones
+plasma-active/plasma-active-maliit:hunspell - Add spelling correction support using app-text/hunspell
+plasma-active/plasma-active-maliit:presage - Add text prediction support using app-text/presage
+plasma-active/plasma-mobile:handset - Build extensions suitable for phones
+sci-geosciences/monav:client - Build the monav client
+sci-geosciences/monav:preprocessor - Build the monav preprocessor to turn OSM maps into monav maps
+sci-geosciences/monav:preprocessor-gui - Build the GUI for the monav preprocessor
+www-client/rekonq:opera - Support for Opera sync handler
+x11-themes/bespin:windeco - Enable window decoration for KWin.
