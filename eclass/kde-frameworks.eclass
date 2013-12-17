@@ -25,7 +25,7 @@ inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils base v
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	inherit git-r3
-	EGIT_BRANCH="frameworks"
+	EGIT_BRANCH="master"
 fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
@@ -61,11 +61,6 @@ QT_MINIMAL="${QT_MINIMAL:-5.1.90}"
 # @ECLASS-VARIABLE: FRAMEWORKS_TYPE
 # @DESCRIPTION:
 # Framework source (eg. tier1, tier2 etc.)
-
-if [[ ${FRAMEWORKS_TYPE} = tier* ]] ; then
-	KMNAME="kdelibs"
-	S=${WORKDIR}/${P}/${FRAMEWORKS_TYPE}/${PN}
-fi
 
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
