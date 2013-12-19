@@ -5,6 +5,7 @@
 EAPI=5
 
 FRAMEWORKS_DOXYGEN="true"
+KMNAME="${PN}-framework"
 inherit kde-frameworks
 
 DESCRIPTION="Library for handling the DNS-SD layer of Zeroconf"
