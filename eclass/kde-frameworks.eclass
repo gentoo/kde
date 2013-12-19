@@ -33,7 +33,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-QT_MINIMAL="${QT_MINIMAL:-5.1.90}"
+QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 
 # @ECLASS-VARIABLE: FRAMEWORKS_DEBUG
 # @DESCRIPTION:
