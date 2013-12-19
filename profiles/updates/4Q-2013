@@ -9,3 +9,4 @@ move kde-active/share-like-connect plasma-active/share-like-connect
 move kde-active/startactive plasma-active/startactive
 slotmove net-libs/libnm-qt 4 0
 move kde-frameworks/itemmodels kde-frameworks/kitemmodels
+move kde-frameworks/itemviews kde-frameworks/kitemviews
