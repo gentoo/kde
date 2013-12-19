@@ -58,10 +58,6 @@ QT_MINIMAL="${QT_MINIMAL:-5.1.90}"
 # For any other value, add test to IUSE and add a dependency on qttest.
 : ${FRAMEWORKS_TEST:=true}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_TYPE
-# @DESCRIPTION:
-# Framework source (eg. tier1, tier2 etc.)
-
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
