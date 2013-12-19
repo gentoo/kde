@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
 DESCRIPTION="Easy packing and unpacking of files in various archive formats"

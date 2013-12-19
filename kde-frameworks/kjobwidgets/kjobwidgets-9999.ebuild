@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier2"
 inherit kde-frameworks
 
 DESCRIPTION="Library for managing widgets handling the status of a job"

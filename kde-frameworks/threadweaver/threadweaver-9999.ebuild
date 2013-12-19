@@ -5,7 +5,6 @@
 EAPI=5
 
 FRAMEWORKS_DOXYGEN="true"
-FRAMEWORKS_TYPE="tier1"
 inherit kde-frameworks
 
 DESCRIPTION="High-level API to manage threads using job and queue-based interfaces"

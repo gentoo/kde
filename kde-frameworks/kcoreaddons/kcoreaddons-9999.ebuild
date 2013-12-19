@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier1"
 inherit fdo-mime kde-frameworks
 
 DESCRIPTION="Solutions for common problems like caching, randomisation etc."

@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier1"
 VIRTUALDBUS_TEST="true"
 inherit kde-frameworks
 

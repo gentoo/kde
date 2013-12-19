@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier2"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 

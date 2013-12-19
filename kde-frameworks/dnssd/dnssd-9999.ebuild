@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier2"
 FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 

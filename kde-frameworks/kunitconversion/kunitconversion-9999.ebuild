@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_TYPE="tier3"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for converting units"
