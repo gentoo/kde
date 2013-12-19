@@ -1,4 +1,3 @@
-~kde-frameworks/dnssd-9999
 ~kde-frameworks/karchive-9999
 ~kde-frameworks/kauth-9999
 ~kde-frameworks/kcodecs-9999
@@ -8,6 +7,7 @@
 ~kde-frameworks/kcoreaddons-9999
 ~kde-frameworks/kcrash-9999
 ~kde-frameworks/kdbusaddons-9999
+~kde-frameworks/kdnssd-9999
 ~kde-frameworks/kdoctools-9999
 ~kde-frameworks/kf5umbrella-9999
 ~kde-frameworks/kguiaddons-9999
