@@ -250,7 +250,6 @@ kde-frameworks_src_configure() {
 	# to support slotting with KDE 4
 	cmakeargs+=(
 		-DBIN_INSTALL_DIR="${EPREFIX}"/usr/bin/kf5/
-		-DINCLUDE_INSTALL_DIR="${EPREFIX}"/usr/include/kf5/
 	)
 
 	if ! use_if_iuse test ; then
