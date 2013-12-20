@@ -7,7 +7,7 @@ EAPI=5
 inherit cmake-utils git-r3
 
 DESCRIPTION="Extra modules and scripts for CMake"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="BSD"
