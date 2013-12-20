@@ -14,7 +14,7 @@ DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.3[dbus,raptor,redland,virtuoso]
 	epub? ( app-text/ebook-tools )
-	exif? ( media-gfx/exiv2 )
+	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
 	pdf? ( app-text/poppler[qt4] )
 	taglib? ( media-libs/taglib )
