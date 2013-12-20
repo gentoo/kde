@@ -32,7 +32,7 @@ RDEPEND="
 		sys-apps/dbus
 		qt4? ( dev-qt/qtdbus:4 )
 	)
-	exif? ( >=media-gfx/exiv2-0.17 )
+	exif? ( media-gfx/exiv2:= )
 	fam? ( virtual/fam )
 	ffmpeg? ( virtual/ffmpeg )
 	log? ( >=dev-libs/log4cxx-0.10.0 )
