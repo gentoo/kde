@@ -35,7 +35,9 @@ DEPEND="
 # boost is not linked to, but headers which include it are installed
 # bug #418071
 RDEPEND="${DEPEND}
-	|| ( !<kde-base/kdepim-runtime-4.11.50 =kde-base/kdepim-runtime-4.4.11.1-r2 )
+	!=kde-base/kdepim-runtime-4.10*
+	!=kde-base/kdepim-runtime-4.11*
+	!<kde-base/kdepim-runtime-4.4.11.1-r2
 "
 
 PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
