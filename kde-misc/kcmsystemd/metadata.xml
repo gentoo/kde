@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>kde</herd>
+	<longdescription lang="en">
+Systemd control module for KDE. Provides a graphical frontend for the systemd daemon, which allow for viewing and controlling systemd units, as well as modifying configuration files.
+Integrates in the System Settings dialogue in KDE.
+	</longdescription>
+	<upstream>
+		<maintainer status="active">
+			<email>rthomsen6@gmail.com</email>
+			<name>Ragnar Thomsen</name>
+		</maintainer>
+		<bugs-to>https://github.com/rthomsen/kcmsystemd/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
