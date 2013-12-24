@@ -327,6 +327,15 @@ cmake-utils_use_use() { _use_me_now USE_ "$@" ; }
 # and -DFOO=OFF if it is disabled.
 cmake-utils_use() { _use_me_now "" "$@" ; }
 
+# @FUNCTION: cmake-utils_useno
+# @USAGE: <USE flag> [flag name]
+# @DESCRIPTION:
+# Based on use_enable. See ebuild(5).
+#
+# `cmake-utils_useno foo NOFOO` echoes -DNOFOO=OFF if foo is enabled
+# and -DNOFOO=ON if it is disabled.
+cmake-utils_useno() { _use_me_now_inverted "" "$@" ; }
+
 # Internal function for modifying hardcoded definitions.
 # Removes dangerous definitions that override Gentoo settings.
 _modify-cmakelists() {
