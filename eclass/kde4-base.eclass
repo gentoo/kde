@@ -87,7 +87,7 @@ case ${KDEBASE} in
 					KDEVELOP_VERSION=${PV}
 					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
 					;;
-				kdevplatform|kdevelop-php*)
+				kdevplatform|kdevelop-php*|kdevelop-python)
 					KDEVELOP_VERSION="$(($(get_major_version)+3)).$(get_after_major_version)"
 					KDEVPLATFORM_VERSION=${PV}
 					;;
