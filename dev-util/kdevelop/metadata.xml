@@ -6,5 +6,6 @@
 	<flag name="cmake">Enable support for CMake build system</flag>
 	<flag name="okteta">Enable hex editor plugin</flag>
 	<flag name="qthelp">Enable support for QtHelp documentation browsing</flag>
+	<flag name="reviewboard">Enable reviewboard support</flag>
 </use>
 </pkgmetadata>
