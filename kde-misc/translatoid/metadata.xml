@@ -2,7 +2,17 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>kde</herd>
+<maintainer>
+	<email>david.heidelberger@ixit.cz</email>
+	<name>David Heidelberger</name>
+</maintainer>
 <use>
 	<flag name='remember'>Enables "Do you remember" functionality</flag>
 </use>
+<upstream>
+	<maintainer status="active">
+		<email>david.heidelberger@ixit.cz</email>
+		<name>David Heidelberger</name>
+	</maintainer>
+</upstream>
 </pkgmetadata>
