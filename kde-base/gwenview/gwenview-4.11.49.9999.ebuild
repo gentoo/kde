@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -29,6 +29,7 @@ DEPEND="
 	virtual/jpeg:0
 	x11-libs/libX11
 	kipi? ( $(add_kdebase_dep libkipi) )
+	semantic-desktop? ( $(add_kdebase_dep nepomuk-core) )
 "
 RDEPEND="${DEPEND}"
 
