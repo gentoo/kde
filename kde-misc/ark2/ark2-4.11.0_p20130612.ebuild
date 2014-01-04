@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-SRC_URI="http://212.158.157.7/gentoo/${P}.tar.xz"
+SRC_URI="http://download.ixit.cz/distfiles/${P}.tar.xz"
 
 DESCRIPTION="KDE Archiving tool"
 HOMEPAGE="http://lamarque-lvs.blogspot.cz/2013/06/my-work-in-basyskom.html"
