@@ -233,6 +233,7 @@
 >=kde-base/akonadiconsole-4.12
 >=kde-base/akregator-4.12
 >=kde-base/blogilo-4.12
+>=kde-base/calendarjanitor-4.12
 >=kde-base/kabcclient-4.12
 >=kde-base/kaddressbook-4.12
 >=kde-base/kalarm-4.12
