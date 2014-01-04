@@ -34,7 +34,14 @@ ___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils base virtualx versionator eutils multilib
+inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx versionator eutils multilib
+
+case ${EAPI:-0} in
+    4|5) ;;
+    3|2|1|0) eerror "kde4-base.eclass only supports EAPIs >= 4." && die
+    ;;
+    *) die "Unknown EAPI, bug eclass maintainers." ;;
+esac
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -673,8 +680,8 @@ kde4-base_src_prepare() {
 		esac
 	fi
 
-	# Apply patches
-	base_src_prepare
+	# Apply patches, cmake-utils does the job already
+	cmake-utils_src_prepare
 
 	# Save library dependencies
 	if [[ -n ${KMSAVELIBS} ]] ; then
