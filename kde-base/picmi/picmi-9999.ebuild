@@ -13,3 +13,6 @@ IUSE="debug"
 
 DEPEND="$(add_kdebase_dep libkdegames)"
 RDEPEND="${DEPEND}"
+
+RESTRICT=test
+# needs X server
