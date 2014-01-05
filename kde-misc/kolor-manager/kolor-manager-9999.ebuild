@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/oyranos-0.9.3
+	>=media-libs/oyranos-0.9.5
 	media-libs/libXcm
 	x11-libs/libXrandr
 "
