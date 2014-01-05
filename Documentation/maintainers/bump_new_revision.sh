@@ -117,7 +117,7 @@ update_keywords() {
 			elif (( version_patch < 50 )); then
 				# Patch version is < 50 - stable release, try to obtain keywords from tree
 				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
-					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | grep -v 4.4.11 | grep ${SLOT} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
+					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | grep -v 4\\.4\\.11 | grep ${SLOT} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
 					[[ -z ${KEYWORDS} ]] && KEYWORDS=${MINIMAL_KEYWORDS}
 				else
 					KEYWORDS=${MINIMAL_KEYWORDS}
