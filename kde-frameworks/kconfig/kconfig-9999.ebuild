@@ -15,7 +15,7 @@ IUSE=""
 DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtxml:5
-	test? ( dev-qt/qtconcurrent:5 )
+	dev-qt/qtconcurrent:5
 "
 RDEPEND="${DEPEND}"
 
