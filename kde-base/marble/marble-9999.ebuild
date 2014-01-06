@@ -7,8 +7,8 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KDE_REQUIRED="optional"
 CPPUNIT_REQUIRED="optional"
-PYTHON_DEPEND="python? 2"
-inherit kde4-base python
+PYTHON_COMPAT=( python{2_6,2_7} )
+inherit kde4-base python-r1
 
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
@@ -29,8 +29,9 @@ RDEPEND="
 	dev-qt/qtwebkit:4
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
 	python? (
-		>=dev-python/PyQt4-4.4.4-r1
-		kde? ( $(add_kdebase_dep pykde4) )
+		${PYTHON_DEPS}
+		>=dev-python/PyQt4-4.4.4-r1[${PYTHON_USEDEP}]
+		kde? ( $(add_kdebase_dep pykde4 "${PYTHON_USEDEP}" ) )
 	)
 	shapefile? ( sci-libs/shapelib )
 	zip? ( dev-libs/quazip )
@@ -48,14 +49,8 @@ REQUIRED_USE="
 "
 
 pkg_setup() {
-	python_set_active_version 2
 	kde4-base_pkg_setup
-	python_pkg_setup
-}
-
-src_prepare() {
-	kde4-base_src_prepare
-	python_convert_shebangs -r $(python_get_version) .
+	python_setup
 }
 
 src_configure() {
