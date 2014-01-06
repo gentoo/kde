@@ -19,4 +19,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+KMEXTRACTONLY="
+	calendarsupport/
+"
+
 KMLOADLIBS="kdepim-common-libs"
