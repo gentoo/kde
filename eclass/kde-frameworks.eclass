@@ -66,7 +66,7 @@ SLOT=5
 COMMONDEPEND+="
 	>=dev-qt/qtcore-${QT_MINIMAL}:5
 "
-DEPEND+="dev-libs/extra-cmake-modules"
+DEPEND+=">=dev-libs/extra-cmake-modules-0.0.9"
 
 if [[ -n "${FRAMEWORKS_DOXYGEN}" ]]; then
 	IUSE+=" doc"
