@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALDBUS_TEST="true"
 inherit kde-frameworks
 
-DESCRIPTION="Tools to register applications on the session bus"
+DESCRIPTION="Framework for registering services and applications according to freedesktop standards"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
