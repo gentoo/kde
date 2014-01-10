@@ -7,15 +7,14 @@ EAPI=5
 FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
-DESCRIPTION="High-level API to manage threads using job and queue-based interfaces"
+DESCRIPTION="Framework for managing threads using job and queue-based interfaces"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-"
-DEPEND="${RDEPEND}"
+src_prepare() {
+	sed -e "/add_subdirectory(benchmarks)/s/^/#DONOTCOMPILE /" \
+		-i CMakeLists.txt || die
 
-DOCS=( Announce-0.5.txt ChangeLog ChangeLog-Pre-KDESVN Ideas-RFC.txt TODO )
+	kde-frameworks_src_prepare
+}
