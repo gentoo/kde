@@ -9,6 +9,7 @@ FRAMEWORKS_QTCORE="false"
 FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
-DESCRIPTION="CMake files for KF5"
+DESCRIPTION="CMake files that simplify the code needed to find KDE Frameworks"
+LICENSE="BSD"
 KEYWORDS=""
 IUSE=""
