@@ -6,7 +6,8 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Data models that help with tasks such as sorting and filtering"
+DESCRIPTION="Framework providing data models that help with tasks such as sorting and filtering"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
