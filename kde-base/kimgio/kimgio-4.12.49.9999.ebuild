@@ -11,5 +11,5 @@ DESCRIPTION="KDE WebP image format plugin"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="media-libs/libwebp"
+DEPEND="media-libs/libwebp:="
 RDEPEND="${DEPEND}"
