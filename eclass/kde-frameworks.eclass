@@ -52,6 +52,12 @@ QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 # For any other value, add examples to IUSE.
 : ${FRAMEWORKS_EXAMPLES:=false}
 
+# @ECLASS-VARIABLE: FRAMEWORKS_QTCORE
+# @DESCRIPTION:
+# If set to "false", do nothing.
+# For any other value, add a dependency on dev-qt/qtcore.
+: ${FRAMEWORKS_QTCORE:=true}
+
 # @ECLASS-VARIABLE: FRAMEWORKS_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -63,9 +69,6 @@ LICENSE="GPL-2"
 
 SLOT=5
 
-COMMONDEPEND+="
-	>=dev-qt/qtcore-${QT_MINIMAL}:5
-"
 DEPEND+=">=dev-libs/extra-cmake-modules-0.0.9"
 
 if [[ -n "${FRAMEWORKS_DOXYGEN}" ]]; then
@@ -84,6 +87,13 @@ case ${FRAMEWORKS_EXAMPLES} in
 	false)  ;;
 	*)
 		IUSE+=" examples"
+		;;
+esac
+
+case ${FRAMEWORKS_QTCORE} in
+	false)	;;
+	*)
+		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 		;;
 esac
 
