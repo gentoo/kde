@@ -36,13 +36,6 @@ ___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
 
 inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx versionator eutils multilib
 
-case ${EAPI:-0} in
-    4|5) ;;
-    3|2|1|0) eerror "kde4-base.eclass only supports EAPIs >= 4." && die
-    ;;
-    *) die "Unknown EAPI, bug eclass maintainers." ;;
-esac
-
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
 		svn) inherit subversion ;;
