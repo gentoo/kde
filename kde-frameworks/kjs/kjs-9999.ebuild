@@ -7,13 +7,15 @@ EAPI=5
 inherit kde-frameworks
 
 DESCRIPTION="ECMAScipt compatible parser and engine"
-LICENSE="LGPL-2+"
+LICENSE="BSD-2 LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
 	dev-libs/libpcre
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-lang/perl
+"
 
 DOCS=( src/README )
