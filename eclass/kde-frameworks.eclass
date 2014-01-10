@@ -113,7 +113,16 @@ unset COMMONDEPEND
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	die "not implemented yet"
+	local _kmname
+
+	if [[ -n ${KMNAME} ]]; then
+		_kmname=${KMNAME}
+	else
+		_kmname=${PN}
+	fi
+
+	DEPEND+=" app-arch/xz-utils"
+	SRC_URI="mirror://kde/unstable/frameworks/${PV}/${P}.tar.xz"
 }
 
 # Determine fetch location for live sources
