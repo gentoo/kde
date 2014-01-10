@@ -6,7 +6,7 @@ EAPI=5
 
 inherit fdo-mime kde-frameworks
 
-DESCRIPTION="Solutions for common problems like caching, randomisation etc."
+DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="fam"
