@@ -9,11 +9,11 @@ inherit kde-frameworks
 DESCRIPTION="Library for easy reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
-IUSE="+bzip2 lzma"
+IUSE="+bzip2 +lzma"
 
 RDEPEND="
 	bzip2? ( app-arch/bzip2 )
-	lzma? ( app-arch/lzma )
+	lzma? ( app-arch/xz-utils )
 	sys-libs/zlib
 "
 
