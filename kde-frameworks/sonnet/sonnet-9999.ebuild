@@ -7,28 +7,23 @@ EAPI=5
 FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
-DESCRIPTION="An abstraction layer for common spell checking applications"
-LICENSE="LGPL-2.1+"
+DESCRIPTION="Framework for providing spell-checking capabilities through abstraction of popular backends"
+LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE="spell"
+IUSE="aspell hunspell"
 
 RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	spell? ( app-text/enchant )
+	aspell? ( app-text/aspell )
+	hunspell? ( app-text/hunspell )
 "
 DEPEND="${RDEPEND}"
 
-DOCS=( README )
-
 src_configure() {
-	# The features provided by aspell, hspell, and hunspell
-	# are all available via enchant.
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_ASPELL=true
-		-DCMAKE_DISABLE_FIND_PACKAGE_HSPELL=true
-		-DCMAKE_DISABLE_FIND_PACKAGE_HUNSPELL=true
-		$(cmake-utils_use_find_package spell ENCHANT)
+		$(cmake-utils_use_find_package aspell)
+		$(cmake-utils_use_find_package hunspell)
 	)
 
 	kde-frameworks_src_configure
