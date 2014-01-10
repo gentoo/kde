@@ -17,9 +17,3 @@ KEYWORDS=""
 DEPEND="
 	>=dev-util/cmake-2.8.12
 "
-RESTRICT="test"
-
-src_prepare() {
-	sed -e 's|man/man7|share/&|' -i CMakeLists.txt || die
-	cmake-utils_src_prepare
-}
