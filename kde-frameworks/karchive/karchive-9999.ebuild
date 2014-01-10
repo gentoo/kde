@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Library for easy reading, creation, and manipulation of various archive formats"
+DESCRIPTION="Framework for easy reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
 IUSE="+bzip2 +lzma"
