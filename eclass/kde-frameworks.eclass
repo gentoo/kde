@@ -69,7 +69,7 @@ LICENSE="GPL-2"
 
 SLOT=5
 
-DEPEND+=">=dev-libs/extra-cmake-modules-0.0.9"
+DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.9"
 
 if [[ -n "${FRAMEWORKS_DOXYGEN}" ]]; then
 	IUSE+=" doc"
