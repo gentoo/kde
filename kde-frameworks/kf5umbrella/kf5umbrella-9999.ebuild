@@ -5,6 +5,7 @@
 EAPI=5
 
 FRAMEWORKS_DEBUG="false"
+FRAMEWORKS_QTCORE="false"
 FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
