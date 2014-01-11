@@ -7,7 +7,8 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Provides access to certain properties and features of the window manager"
+DESCRIPTION="Framework providing access to certain properties and features of the window manager"
+LICENSE="LGPL-2+ MIT"
 KEYWORDS=""
 IUSE=""
 
