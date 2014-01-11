@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Graph drawing functions"
+DESCRIPTION="Framework providing easy data-plotting functions"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
@@ -17,5 +17,3 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}"
-
-DOCS=( README )
