@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework to handle global shortcuts"
 KEYWORDS=""
-LICENSE="LGPL-2.1+"
+LICENSE="LGPL-2+"
 IUSE="X"
 
 DEPEND="
