@@ -73,7 +73,14 @@ KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
-		SLOT=4
+		case ${EAPI} in
+			5)
+				SLOT=4/$(get_version_component_range 1-2)
+				;;
+			*)
+				SLOT=4
+				;;
+		esac
 		KDE_MINIMAL="${PV}"
 		;;
 	kdevelop)
