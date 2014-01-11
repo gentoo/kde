@@ -8,7 +8,7 @@ FRAMEWORKS_DOXYGEN="true"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="A platform independent hardware discovery, abstraction, and management layer"
+DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="+udev"
@@ -24,9 +24,9 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
-DOCS=( README TODO )
-
 src_configure() {
+	# HUpnp is currently disabled upstream due to
+	# being buggy and unmaintained
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_HUpnp=true
 		$(cmake-utils_use_find_package udev UDev)
