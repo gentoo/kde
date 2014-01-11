@@ -12,11 +12,12 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtxml:5
-	dev-qt/qtconcurrent:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qtconcurrent:5 )
+"
 
 DOCS=( DESIGN TODO docs/DESIGN.kconfig docs/README.kiosk )
