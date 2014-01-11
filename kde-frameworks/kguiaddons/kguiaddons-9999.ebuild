@@ -7,8 +7,8 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Assorted high-level user interface components"
-LICENSE="LGPL-2.1+"
+DESCRIPTION="Framework providing assorted high-level user interface components"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
