@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Format plugins for Qt's image I/O system"
+DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="eps jpeg2k openexr"
@@ -22,7 +22,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-DOCS=( src/imageformats/{AUTHORS,README} )
+DOCS=( src/imageformats/AUTHORS )
 
 src_configure() {
 	local mycmakeargs=(
