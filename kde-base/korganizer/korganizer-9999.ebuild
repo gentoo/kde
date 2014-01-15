@@ -27,6 +27,10 @@ RESTRICT="test"
 
 KMLOADLIBS="kdepim-common-libs"
 
+KMEXTRA="
+	korgac/
+"
+
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarviews/
