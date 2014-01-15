@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Library for completion tasks"
+DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
 KEYWORDS=""
 IUSE=""
 
