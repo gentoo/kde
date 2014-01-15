@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="Authorisation framework that can be used in combination with PolicyKit"
+DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="+policykit"
