@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Documentation tools library"
+DESCRIPTION="Framework providing tools to generate documentation in various formats from DocBook files"
 LICENSE="MIT"
 KEYWORDS=""
 IUSE=""
