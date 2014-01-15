@@ -224,19 +224,16 @@ kde-frameworks_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# never build manual tests
-	sed -e "/add_subdirectory[[:space:]]*([[:space:]]*tests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-		-i CMakeLists.txt || die
+	comment_add_subdirectory tests
 
 	# only build examples when required
 	if ! in_iuse examples || ! use examples ; then
-		sed	-e "/add_subdirectory[[:space:]]*([[:space:]]*examples[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-			-i CMakeLists.txt || die
+		comment_add_subdirectory examples
 	fi
 
 	# only build unit tests when required
 	if ! in_iuse test || ! use test ; then
-		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*autotests[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-			-i CMakeLists.txt || die
+		comment_add_subdirectory autotests
 	fi
 
 	cmake-utils_src_prepare
