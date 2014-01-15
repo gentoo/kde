@@ -109,6 +109,10 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
+if [[ -n ${KMNAME} && ${KMNAME} != ${PN} ]]; then
+	S=${WORKDIR}/${KMNAME}-${PV}
+fi
+
 # Determine fetch location for released tarballs
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
