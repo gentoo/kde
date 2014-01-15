@@ -7,7 +7,7 @@ EAPI=5
 FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
-DESCRIPTION="Gettext-based translation framework"
+DESCRIPTION="Framework based on Gettext for internationalizing user interface text"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
