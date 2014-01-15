@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
-DESCRIPTION="An assortment of configuration-related widgets"
+DESCRIPTION="Framework providing an assortment of configuration-related widgets"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
