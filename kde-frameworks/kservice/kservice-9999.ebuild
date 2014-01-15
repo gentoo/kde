@@ -6,7 +6,8 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Application framework for file type association and plugin locating"
+DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
+LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
