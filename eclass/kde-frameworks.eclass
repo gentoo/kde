@@ -43,8 +43,10 @@ QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 
 # @ECLASS-VARIABLE: FRAMEWORKS_DOXYGEN
 # @DESCRIPTION:
-# If defined, add doc to IUSE, add a dependency on doxygen,
+# If set to "false", do nothing.
+# For any other value, add doc to IUSE, add a dependency on doxygen,
 # and generate and install API documentation.
+: ${FRAMEWORKS_DOXYGEN:=false}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
 # @DESCRIPTION:
@@ -71,10 +73,12 @@ SLOT=5
 
 DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.9"
 
-if [[ -n "${FRAMEWORKS_DOXYGEN}" ]]; then
-	IUSE+=" doc"
-	DEPEND+=" doc? ( app-doc/doxygen )"
-fi
+case ${FRAMEWORKS_DOXYGEN} in
+	false)	;;
+	*)
+		IUSE+=" doc"
+		DEPEND+=" doc? ( app-doc/doxygen )"
+esac
 
 case ${FRAMEWORKS_DEBUG} in
 	false)	;;
