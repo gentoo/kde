@@ -122,7 +122,7 @@ _calculate_src_uri() {
 	fi
 
 	DEPEND+=" app-arch/xz-utils"
-	SRC_URI="mirror://kde/unstable/frameworks/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
 }
 
 # Determine fetch location for live sources
