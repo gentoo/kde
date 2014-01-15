@@ -16,8 +16,6 @@ IUSE=""
 DEPEND="dev-qt/qttest:5"
 
 src_prepare() {
-	sed -e "/add_subdirectory(benchmarks)/s/^/#DONOTCOMPILE /" \
-		-i CMakeLists.txt || die
-
+	comment_add_subdirectory benchmarks
 	kde-frameworks_src_prepare
 }
