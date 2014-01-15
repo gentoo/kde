@@ -8,6 +8,7 @@ FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
 DESCRIPTION="Framework to handle super user actions"
+LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE="X"
 
@@ -16,10 +17,9 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kpty)
 	$(add_frameworks_dep kservice)
-	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}
-	X? ( dev-qt/qtx11extras:5 )
+	X? ( x11-proto/xproto )
 "
 
 src_configure() {
