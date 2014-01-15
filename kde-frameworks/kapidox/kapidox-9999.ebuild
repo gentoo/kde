@@ -18,12 +18,6 @@ RDEPEND="
 	app-doc/doxygen
 "
 
-src_prepare() {
-	comment_add_subdirectory licenses
-
-	kde-frameworks_src_prepare
-}
-
 src_install() {
 	insinto /usr/share/${PN}
 	doins src/*.local src/*.sh
