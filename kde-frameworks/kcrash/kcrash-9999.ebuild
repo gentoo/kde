@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="Library which offers crash handling functions"
+DESCRIPTION="Framework for intercepting and handling application crashes"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
