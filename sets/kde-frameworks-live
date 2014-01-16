@@ -1,3 +1,4 @@
+~kde-frameworks/kapidox-9999
 ~kde-frameworks/karchive-9999
 ~kde-frameworks/kauth-9999
 ~kde-frameworks/kcodecs-9999
@@ -7,6 +8,7 @@
 ~kde-frameworks/kcoreaddons-9999
 ~kde-frameworks/kcrash-9999
 ~kde-frameworks/kdbusaddons-9999
+~kde-frameworks/kdesu-9999
 ~kde-frameworks/kdnssd-9999
 ~kde-frameworks/kdoctools-9999
 ~kde-frameworks/kf5umbrella-9999
@@ -21,15 +23,15 @@
 ~kde-frameworks/kjobwidgets-9999
 ~kde-frameworks/kjs-9999
 ~kde-frameworks/knotifications-9999
-~kde-frameworks/kpty-9999
 ~kde-frameworks/kplotting-9999
+~kde-frameworks/kpty-9999
 ~kde-frameworks/kservice-9999
-~kde-frameworks/kdesu-9999
 ~kde-frameworks/ktextwidgets-9999
 ~kde-frameworks/kunitconversion-9999
 ~kde-frameworks/kwallet-9999
 ~kde-frameworks/kwidgetsaddons-9999
 ~kde-frameworks/kwindowsystem-9999
+~kde-frameworks/kxmlgui-9999
 ~kde-frameworks/solid-9999
 ~kde-frameworks/sonnet-9999
 ~kde-frameworks/threadweaver-9999
