@@ -5,12 +5,15 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-inherit kde4-base
+PYTHON_COMPAT=( python2_7 )
+inherit kde4-base python-single-r1
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 HOMEPAGE="http://www.kde.org/applications/education/cantor http://edu.kde.org/cantor"
 KEYWORDS=""
-IUSE="analitza debug postscript qalculate +R"
+IUSE="analitza debug postscript python qalculate +R"
+
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 # TODO Add Sage Mathematics Software backend (http://www.sagemath.org)
 RDEPEND="
@@ -20,6 +23,7 @@ RDEPEND="
 		sci-libs/libqalculate
 	)
 	postscript? ( app-text/libspectre )
+	python? ( ${PYTHON_DEPS} )
 	R? ( dev-lang/R )
 	dev-qt/qtxmlpatterns:4
 "
@@ -33,6 +37,7 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with analitza)
 		$(cmake-utils_use_with postscript LibSpectre)
+		$(cmake-utils_use_with python PythonLibs)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with R)
 	)
@@ -42,11 +47,11 @@ src_configure() {
 pkg_postinst() {
 	kde4-base_pkg_postinst
 
-	if ! use analitza && ! use qalculate && ! use R; then
+	if ! use analitza && ! use python && ! use qalculate && ! use R; then
 		echo
 		ewarn "You have decided to build ${PN} with no backend."
 		ewarn "To have this application functional, please do one of below:"
-		ewarn "    # emerge -va1 '='${CATEGORY}/${P} with 'analitza', 'qalculate' or 'R' USE flag enabled"
+		ewarn "    # emerge -va1 '='${CATEGORY}/${P} with 'analitza', 'python', 'qalculate' or 'R' USE flag enabled"
 		ewarn "    # emerge -vaDu sci-mathematics/maxima"
 		echo
 	fi
