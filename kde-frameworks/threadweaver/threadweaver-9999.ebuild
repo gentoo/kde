@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for managing threads using job and queue-based interfaces"

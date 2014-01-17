@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_DOXYGEN="true"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for pseudo terminal devices and running child processes"

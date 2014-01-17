@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_DOXYGEN="true"
 KMNAME="${PN}-framework"
 inherit kde-frameworks
 

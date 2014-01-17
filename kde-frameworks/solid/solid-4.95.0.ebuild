@@ -4,7 +4,6 @@
 
 EAPI=5
 
-FRAMEWORKS_DOXYGEN="true"
 VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
