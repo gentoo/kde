@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine - KDE bindings"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="attica debug kate okular semantic-desktop"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 

@@ -11,7 +11,7 @@ DESCRIPTION="Filelight creates an interactive map of concentric, segmented rings
 HOMEPAGE="http://utils.kde.org/projects/filelight"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="

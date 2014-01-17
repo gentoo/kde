@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
 HOMEPAGE="http://www.kde.org/applications/education/kwordquiz
 http://edu.kde.org/kwordquiz"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="

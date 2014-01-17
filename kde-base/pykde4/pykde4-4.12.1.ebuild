@@ -10,7 +10,7 @@ OPENGL_REQUIRED="always"
 inherit python-r1 portability kde4-base multilib
 
 DESCRIPTION="Python bindings for KDE4"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc examples semantic-desktop test"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Python"
 

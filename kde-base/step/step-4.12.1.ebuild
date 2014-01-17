@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="The KDE physics simulator"
 HOMEPAGE="http://edu.kde.org/step"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug +gsl +qalculate"
 
 DEPEND="

@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 HOMEPAGE+=" http://userbase.kde.org/KAlarm"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND="

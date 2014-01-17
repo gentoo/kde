@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="http://www.kde.org/applications/utilities http://utils.kde.org"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="cups floppy lirc"
 
 RDEPEND="
