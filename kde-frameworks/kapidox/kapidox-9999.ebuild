@@ -7,25 +7,41 @@ EAPI=5
 FRAMEWORKS_DEBUG="false"
 FRAMEWORKS_DOXYGEN="false"
 FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+PYTHON_COMPAT=( python2_7 )
+inherit kde-frameworks python-single-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
 LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 RDEPEND="
 	app-doc/doxygen
+	dev-python/pystache[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]
+	${PYTHON_DEPS}
 "
+
+src_configure() {
+	:
+}
+
+src_compile() {
+	:
+}
 
 src_install() {
 	insinto /usr/share/${PN}
-	doins src/*.local src/*.sh
+	doins src/*.local src/*.sh src/*.py
+
+	python_fix_shebang "${D}"/usr/share/${PN}
+
+	fperms +x /usr/share/${PN}/{doxygen-preprocess-kcfg.sh,kgenapidox.py,kgenframeworksapidox.py}
 
 	docompress -x /usr/share/doc/HTML/en/common
 	insinto /usr/share/doc/HTML/en/common
-	doins common/{api_searchbox.html,Doxyfile.global,flat.css,kde-localised.css.template}
-	doins common/{kde.css,kde_logo.png,kmenu.png,print.css}
-
-	kde-frameworks_src_install
+	doins common/{*.html,dependencies.md,Doxyfile.global,doxygen.css}
+	doins -r common/htmlresource
 }
