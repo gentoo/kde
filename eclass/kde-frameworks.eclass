@@ -46,7 +46,7 @@ QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 # If set to "false", do nothing.
 # For any other value, add doc to IUSE, add a dependency on doxygen,
 # and generate and install API documentation.
-: ${FRAMEWORKS_DOXYGEN:=false}
+: ${FRAMEWORKS_DOXYGEN:=true}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
 # @DESCRIPTION:
@@ -77,7 +77,10 @@ case ${FRAMEWORKS_DOXYGEN} in
 	false)	;;
 	*)
 		IUSE+=" doc"
-		DEPEND+=" doc? ( app-doc/doxygen )"
+		DEPEND+=" doc? (
+				app-doc/doxygen
+				$(add_frameworks_dep kapidox)
+			)"
 esac
 
 case ${FRAMEWORKS_DEBUG} in
@@ -292,7 +295,7 @@ kde-frameworks_src_compile() {
 
 	# Build doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		doxygen "${S}"
+		/usr/share/kapidox/kgenapidox.py --doxdatadir=/usr/share/doc/HTML/en/common/ .
 	fi
 }
 
@@ -341,7 +344,7 @@ kde-frameworks_src_install() {
 
 	# Install doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		dohtml -r html/*
+		dohtml -r ${P}-apidocs/html/*
 	fi
 
 	cmake-utils_src_install
