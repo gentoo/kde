@@ -12,7 +12,7 @@ RESTRICT=test
 
 inherit kde4-base
 
-DESCRIPTION="Okular is an universal document viewer based on KPDF for KDE 4."
+DESCRIPTION="Okular is a universal document viewer based on KPDF for KDE 4."
 HOMEPAGE="http://okular.kde.org http://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
 IUSE="chm crypt debug djvu ebook +jpeg +postscript +pdf +tiff"
