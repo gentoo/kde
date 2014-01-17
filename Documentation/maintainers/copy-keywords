@@ -1,0 +1,48 @@
+#!/bin/bash
+
+SOURCE=${1:-~/Gentoo/gentoo-x86}
+SOURCEVER=${2:-4.11.2}
+
+DEST=${3:-~/Gentoo/kde}
+DESTVER=${4:-4.12.1}
+
+TESTING=${5:-yes}
+
+for pd in ${SOURCE}/kde-base/* ; do 
+
+  if [ "`basename ${pd}`x" == 'CVSx' ]; then 
+
+     true
+
+  else
+
+     p="`basename $pd`"
+     kw=`cat ${pd}/${p}-${SOURCEVER}*ebuild | grep "^KEYWORDS" | head -n 1 | sed -e 's:^KEYWORDS="::' -e 's:".*$::'`
+
+     if [ "${kw}x" == x ]; then 
+
+       echo "error: $p ebuild not found"
+     
+     else
+
+       if [ -f "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild" ]; then 
+
+         echo "processing $p"
+
+         sed -i "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild" -e "/^KEYWORDS/cKEYWORDS=\"${kw}\""
+
+         if [ ${TESTING} == yes ]; then 
+           ekeyword ~all "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild"
+         fi
+
+       else 
+
+         echo "error: no file ${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild"
+
+       fi
+
+     fi
+
+  fi
+
+done
