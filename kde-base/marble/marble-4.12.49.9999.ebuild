@@ -8,12 +8,14 @@ KDE_HANDBOOK="optional"
 KDE_REQUIRED="optional"
 CPPUNIT_REQUIRED="optional"
 PYTHON_COMPAT=( python{2_6,2_7} )
-inherit kde4-base python-r1
+inherit kde4-base python-single-r1
 
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
 KEYWORDS=""
 IUSE="debug designer-plugin gps +kde plasma python shapefile test zip"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # tests fail / segfault. Last checked for 4.9.0
 RESTRICT="test"
@@ -50,15 +52,15 @@ REQUIRED_USE="
 
 pkg_setup() {
 	kde4-base_pkg_setup
-	python_setup
+	use python && python-single-r1_pkg_setup
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
 		$(cmake-utils_use python EXPERIMENTAL_PYTHON_BINDINGS)
-		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python PythonLibrary)
+		$(cmake-utils_use_with python PyQt4)
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use !kde QTONLY)
@@ -68,7 +70,6 @@ src_configure() {
 		-DBUILD_MARBLE_TESTS=OFF
 		-DWITH_liblocation=0
 		-DWITH_QextSerialPort=OFF
-		$(use kde && cmake-utils_use_with python PyKDE4)
 	)
 
 	kde4-base_src_configure
