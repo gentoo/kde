@@ -4,14 +4,17 @@
 
 EAPI=5
 
-KDE_SCM="svn"
 inherit versionator kde4-base
 
 DESCRIPTION="BibTeX editor for KDE to edit bibliographies used with LaTeX"
 HOMEPAGE="http://home.gna.org/kbibtex/"
-ESVN_REPO_URI="svn://svn.gna.org/svn/${PN}/branches/${PV/.9999/}"
-ESVN_PROJECT="${PN}"
-KEYWORDS=""
+if [[ ${PV} != *9999* ]]; then
+	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
+else
+	EGIT_BRANCH="${PN}/$(get_version_component_range 1-2)"
+	KEYWORDS=""
+fi
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -22,6 +25,7 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	virtual/tex-base
+	x11-libs/libqxt
 "
 RDEPEND="${DEPEND}
 	dev-tex/bibtex2html"

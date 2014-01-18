@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_SCM="svn"
 inherit versionator kde4-base
 
 DESCRIPTION="BibTeX editor for KDE to edit bibliographies used with LaTeX"
@@ -13,8 +12,7 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 else
-	ESVN_REPO_URI="svn://svn.gna.org/svn/${PN}/trunk"
-	ESVN_PROJECT="${PN}"
+	EGIT_BRANCH="master"
 	KEYWORDS=""
 fi
 
