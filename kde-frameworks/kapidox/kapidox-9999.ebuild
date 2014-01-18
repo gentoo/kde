@@ -7,7 +7,7 @@ EAPI=5
 FRAMEWORKS_DEBUG="false"
 FRAMEWORKS_DOXYGEN="false"
 FRAMEWORKS_TEST="false"
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python{2_7,3_3} )
 inherit kde-frameworks python-single-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
