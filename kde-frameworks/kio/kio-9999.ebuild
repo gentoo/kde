@@ -44,9 +44,20 @@ RDEPEND="
 	dev-qt/qtxml:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
+	dev-libs/libxml2
+	dev-libs/libxslt
 	acl? ( virtual/acl )
 	ssl? ( dev-libs/openssl )
 "
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md )
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package acl ACL)
+		$(cmake-utils_use_find_package ssl OpenSSL)
+	)
+
+	kde-frameworks_src_configure
+}
