@@ -1,7 +1,7 @@
 kde-frameworks/kapidox:5
 kde-frameworks/karchive:5
 kde-frameworks/kauth:5
-kde-frameworks/kbookmarks:5
+#kde-frameworks/kbookmarks:5
 kde-frameworks/kcodecs:5
 kde-frameworks/kcompletion:5
 kde-frameworks/kconfig:5
