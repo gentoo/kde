@@ -295,7 +295,7 @@ kde-frameworks_src_compile() {
 
 	# Build doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		/usr/share/kapidox/kgenapidox.py --doxdatadir=/usr/share/doc/HTML/en/common/ .
+		/usr/share/kapidox/kgenapidox.py --doxdatadir=/usr/share/doc/HTML/en/common/ . || die
 	fi
 }
 
