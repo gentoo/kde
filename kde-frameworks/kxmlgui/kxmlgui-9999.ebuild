@@ -10,7 +10,7 @@ inherit kde-frameworks
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
 KEYWORDS=""
 LICENSE="LGPL-2+"
-IUSE=""
+IUSE="attica"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -29,13 +29,13 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	attica? ( $(add_frameworks_dep attica qt5) )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	# libattica changes for KF5 not finalised yet
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_LibAttica=ON
+		$(cmake-utils_use_find_package attica KF5Attica)
 	)
 
 	kde-frameworks_src_configure
