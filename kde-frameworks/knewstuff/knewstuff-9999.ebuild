@@ -22,6 +22,7 @@ RDEPEND="
 	$(add_frameworks_dep solid)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep attica qt5)
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtxml:5
@@ -30,12 +31,3 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md )
-
-src_configure() {
-	# libattica changes for KF5 not finalised yet
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_LibAttica=ON
-	)
-
-	kde-frameworks_src_configure
-}
