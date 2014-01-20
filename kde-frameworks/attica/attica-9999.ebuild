@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="debug +qt4 qt5 test"
 
-REQUIRED_USE="^^ ( qt4 qt5 )"
+REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
 	qt4? ( dev-qt/qtcore:4 )
