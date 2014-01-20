@@ -24,4 +24,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-DOCS=( README* )
+DOCS=( "README.autostart" "README.wrapper" "README.md" )
