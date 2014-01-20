@@ -35,6 +35,12 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # Determine version of qt we enforce as minimal for the package.
 QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 
+# @ECLASS-VARIABLE: FRAMEWORKS_AUTODEPS
+# @DESCRIPTION:
+# If set to "false", do nothing.
+# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore.
+: ${FRAMEWORKS_AUTODEPS:=true}
+
 # @ECLASS-VARIABLE: FRAMEWORKS_DEBUG
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -54,12 +60,6 @@ QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 # For any other value, add examples to IUSE.
 : ${FRAMEWORKS_EXAMPLES:=false}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_QTCORE
-# @DESCRIPTION:
-# If set to "false", do nothing.
-# For any other value, add a dependency on dev-qt/qtcore.
-: ${FRAMEWORKS_QTCORE:=true}
-
 # @ECLASS-VARIABLE: FRAMEWORKS_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -71,7 +71,13 @@ LICENSE="GPL-2"
 
 SLOT=5
 
-DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.9"
+case ${FRAMEWORKS_AUTODEPS} in
+	false)	;;
+	*)
+		DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.9"
+		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
+		;;
+esac
 
 case ${FRAMEWORKS_DOXYGEN} in
 	false)	;;
@@ -94,13 +100,6 @@ case ${FRAMEWORKS_EXAMPLES} in
 	false)  ;;
 	*)
 		IUSE+=" examples"
-		;;
-esac
-
-case ${FRAMEWORKS_QTCORE} in
-	false)	;;
-	*)
-		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 		;;
 esac
 
