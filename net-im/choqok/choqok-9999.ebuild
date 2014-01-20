@@ -25,7 +25,7 @@ SLOT="4"
 IUSE="ayatana debug"
 
 RDEPEND="
-	dev-libs/libattica
+	dev-libs/libattica[qt4]
 	dev-libs/qjson
 	>=dev-libs/qoauth-1.0.1
 	ayatana? ( dev-libs/libindicate-qt )
