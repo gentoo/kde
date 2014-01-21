@@ -6,16 +6,21 @@ EAPI=5
 
 inherit kde-frameworks
 
-DESCRIPTION="User notification framework based on freedesktop protocol"
+DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 KEYWORDS=""
 IUSE="X dbus"
 
 RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	X? ( dev-qt/qtx11extras:5 )
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	X? (
+		dev-qt/qtx11extras:5
+		x11-libs/libX11
+		x11-libs/libXtst
+	)
 "
 DEPEND="${RDEPEND}"
 
