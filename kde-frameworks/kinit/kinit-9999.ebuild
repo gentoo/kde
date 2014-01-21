@@ -10,7 +10,7 @@ inherit kde-frameworks
 DESCRIPTION="Helper library to speed up start of applications on KDE work spaces"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="X"
+IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -22,8 +22,8 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	X? ( x11-libs/libX11 )
+	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
-	X? ( x11-proto/xproto )
+	x11-proto/xproto
 "
