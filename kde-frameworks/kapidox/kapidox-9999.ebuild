@@ -11,7 +11,7 @@ PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 inherit kde-frameworks distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
-LICENSE="GPL-2 LGPL-2.1"
+LICENSE="BSD-2"
 KEYWORDS=""
 IUSE=""
 
