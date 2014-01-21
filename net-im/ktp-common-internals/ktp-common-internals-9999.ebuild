@@ -23,6 +23,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs)
 	net-libs/libkpeople
 	>=net-libs/telepathy-qt-0.9.3
 	>=net-libs/telepathy-logger-qt-0.5.80
