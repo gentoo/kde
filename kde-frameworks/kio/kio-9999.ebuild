@@ -10,7 +10,7 @@ inherit kde-frameworks
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="acl kerberos X"
+IUSE="acl kerberos ssl X"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
