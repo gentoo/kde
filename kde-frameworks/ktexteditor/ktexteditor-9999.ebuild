@@ -4,6 +4,7 @@
 
 EAPI=5
 
+VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
 DESCRIPTION="Framework providing a full text editor component"
@@ -28,7 +29,6 @@ RDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kprintutils)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)

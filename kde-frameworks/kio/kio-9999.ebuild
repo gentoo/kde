@@ -10,7 +10,7 @@ inherit kde-frameworks
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="acl kerberos X"
+IUSE="acl kerberos ssl X"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -32,6 +32,7 @@ RDEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	dev-qt/qtdbus:5
+	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
@@ -44,6 +45,7 @@ RDEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
+	ssl? ( dev-libs/openssl )
 "
 DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
@@ -58,6 +60,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package acl)
 		$(cmake-utils_use_find_package kerberos GSSAPI)
+		$(cmake-utils_use_find_package ssl OpenSSL)
 		$(cmake-utils_use_find_package X X11)
 	)
 
