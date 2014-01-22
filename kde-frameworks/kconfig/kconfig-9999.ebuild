@@ -20,4 +20,4 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
-DOCS=( DESIGN TODO docs/DESIGN.kconfig docs/README.kiosk )
+DOCS=( DESIGN docs/DESIGN.kconfig docs/README.kiosk )
