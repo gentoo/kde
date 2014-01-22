@@ -20,7 +20,10 @@ RDEPEND="
 	X? ( dev-qt/qtx11extras:5 )
 "
 DEPEND="${RDEPEND}
-	X? ( x11-proto/xproto )
+	X? (
+		x11-libs/libX11
+		x11-proto/xproto
+	)
 "
 
 src_configure() {
