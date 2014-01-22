@@ -19,7 +19,10 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 "
 DEPEND="${RDEPEND}
-	X? ( x11-proto/xproto )
+	X? (
+		x11-libs/libX11
+		x11-proto/xproto
+	)
 "
 
 src_configure() {
