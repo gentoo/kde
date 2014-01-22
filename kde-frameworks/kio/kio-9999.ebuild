@@ -56,8 +56,6 @@ DEPEND="${RDEPEND}
 	)
 "
 
-DOCS=( README.md )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package acl)

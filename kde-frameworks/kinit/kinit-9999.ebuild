@@ -27,5 +27,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	x11-proto/xproto
 "
-
-DOCS=( "README.autostart" "README.wrapper" "README.md" )
