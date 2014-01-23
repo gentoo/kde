@@ -7,13 +7,12 @@ EAPI=5
 KMNAME="${PN}-framework"
 inherit kde-frameworks
 
-DESCRIPTION="Library for handling the DNS-SD layer of Zeroconf"
+DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="zeroconf"
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
 	dev-qt/qtnetwork:5
 	zeroconf? (
 		dev-qt/qtdbus:5
@@ -24,6 +23,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_DNSSD=ON
 		$(cmake-utils_use_find_package zeroconf Avahi)
 	)
 
