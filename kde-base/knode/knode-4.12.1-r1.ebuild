@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/knode/knode-4.12.1.ebuild,v 1.1 2014/01/18 11:24:01 dilfridge Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="A newsreader for KDE"
 HOMEPAGE="http://www.kde.org/applications/internet/knode/"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 # test fails, last checked for 4.2.96

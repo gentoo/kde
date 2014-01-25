@@ -18,11 +18,12 @@ RESTRICT=test
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	$(add_kdebase_dep kdepim-common-libs)
+	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r1)
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
+	agents/
 	libkleo/
 	libkpgp/
 	messagecomposer/
@@ -30,7 +31,6 @@ KMEXTRACTONLY="
 	messagecore/
 "
 KMCOMPILEONLY="
-	agents/sendlateragent/
 	grantleetheme/
 	kaddressbookgrantlee/
 	pimcommon/
