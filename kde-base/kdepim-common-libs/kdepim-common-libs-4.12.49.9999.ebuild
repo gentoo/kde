@@ -27,6 +27,9 @@ RDEPEND="${DEPEND}
 	!<kde-base/kaddressbook-4.11.50:4
 	!kde-base/kdepim-wizards:4
 	!<kde-base/kmail-4.4.80:4
+	!=kde-base/kmail-4.12.0
+	!=kde-base/kmail-4.12.1
+	!=kde-base/kmail-4.11*
 	!<kde-base/korganizer-4.5.67:4
 	app-crypt/gnupg
 	$(add_kdebase_dep kdepim-runtime)
@@ -36,6 +39,7 @@ RESTRICT="test"
 # bug 393131
 
 KMEXTRA="
+	agents/
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
@@ -63,10 +67,6 @@ KMEXTRACTONLY="
 	korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
 "
-KMCOMPILEONLY="
-	agents/sendlateragent
-"
-
 KMSAVELIBS="true"
 
 PATCHES=( "${FILESDIR}/install-composereditorng.patch" )
