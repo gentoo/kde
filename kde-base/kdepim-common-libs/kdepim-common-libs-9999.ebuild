@@ -67,6 +67,7 @@ KMEXTRACTONLY="
 	knode/org.kde.knode.xml
 	korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
+	mailcommon/
 "
 KMSAVELIBS="true"
 
