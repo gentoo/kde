@@ -17,7 +17,7 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep kdepim-common-libs)
+	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r1)
 "
 RDEPEND="${DEPEND}"
 
@@ -25,6 +25,7 @@ RESTRICT="test"
 # bug 393147
 
 KMEXTRACTONLY="
+	agents/
 	akonadi_next/
 	calendarsupport/
 	korganizer/
@@ -48,7 +49,6 @@ KMCOMPILEONLY="
 	noteshared/
 "
 KMEXTRA="
-	agents/
 	grantleethemeeditor/
 	headerthemeeditor/
 	kmailcvt/
