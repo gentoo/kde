@@ -65,6 +65,8 @@ src_configure() {
 }
 
 src_install() {
+	kde-frameworks_src_install
+
 	# temporary fix to avoid colliding with kdelibs:4
 	mv "${D}"/usr/share/doc/HTML/en/kioslave{,5}
 }
