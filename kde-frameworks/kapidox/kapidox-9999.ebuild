@@ -15,11 +15,8 @@ LICENSE="BSD-2"
 KEYWORDS=""
 IUSE=""
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
 RDEPEND="
 	app-doc/doxygen
 	dev-python/pystache[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	${PYTHON_DEPS}
 "
