@@ -18,6 +18,5 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtscript:5
 "
 RDEPEND="${DEPEND}"
