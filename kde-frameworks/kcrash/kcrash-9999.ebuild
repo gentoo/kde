@@ -17,4 +17,6 @@ RDEPEND="
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qtwidgets:5 )
+"
