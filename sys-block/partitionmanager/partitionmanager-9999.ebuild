@@ -4,8 +4,6 @@
 
 EAPI=5
 
-KMNAME="extragear/sysadmin"
-KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
