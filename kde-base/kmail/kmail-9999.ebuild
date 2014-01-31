@@ -17,9 +17,12 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r1)
+	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r2)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	!=kde-base/kdepim-common-libs-4.12.1-r1
+"
 
 RESTRICT="test"
 # bug 393147
