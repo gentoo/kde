@@ -25,7 +25,6 @@ RESTRICT="test"
 # bug 393147
 
 KMEXTRACTONLY="
-	agents/
 	akonadi_next/
 	calendarsupport/
 	korganizer/
@@ -48,6 +47,9 @@ KMCOMPILEONLY="
 	calendarsupport/
 "
 KMEXTRA="
+	agents/archivemailagent/
+	agents/folderarchiveagent/
+	agents/mailfilteragent/
 	grantleethemeeditor/
 	headerthemeeditor/
 	kmailcvt/
