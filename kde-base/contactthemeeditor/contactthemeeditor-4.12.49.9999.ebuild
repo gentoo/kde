@@ -15,6 +15,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kaddressbook)
+	$(add_kdebase_dep kmail)
 "
 RDEPEND="${DEPEND}"
 
