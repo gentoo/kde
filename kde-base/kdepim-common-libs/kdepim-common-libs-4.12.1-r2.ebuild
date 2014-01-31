@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdepim-common-libs/kdepim-common-libs-4.12.1-r1.ebuild,v 1.1 2014/01/27 23:24:51 dilfridge Exp $
 
 EAPI=5
 
@@ -9,7 +9,7 @@ KMNOMODULE="true"
 inherit kde4-meta
 
 DESCRIPTION="Common libraries for KDE PIM apps"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
@@ -57,7 +57,6 @@ KMEXTRA="
 	messagecore/
 	messagelist/
 	messageviewer/
-	noteshared/
 	ontologies/
 	pimcommon/
 	templateparser/
