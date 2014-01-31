@@ -28,6 +28,7 @@ RESTRICT="test"
 # bug 393147
 
 KMEXTRACTONLY="
+	agents/sendlateragent/
 	akonadi_next/
 	calendarsupport/
 	korganizer/
