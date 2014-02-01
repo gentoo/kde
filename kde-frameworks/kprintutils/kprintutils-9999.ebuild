@@ -4,13 +4,13 @@
 
 EAPI=5
 
-FRAMEWORK_TESTS="false"
+FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
 DESCRIPTION="Framework providing enhanced print dialogs"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 RDEPEND="
 	$(add_frameworks_dep ki18n)
@@ -21,3 +21,11 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package X X11)
+	)
+
+	kde-frameworks_src_configure
+}
