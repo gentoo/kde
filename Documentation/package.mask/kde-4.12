@@ -263,6 +263,7 @@
 >=kde-base/kde-dev-utils-4.12
 >=kde-base/kdesdk-kioslaves-4.12
 >=kde-base/kdesdk-meta-4.12
+>=kde-base/kdesdk-strigi-analyzer-4.12
 >=kde-base/kompare-4.12
 >=kde-base/libkomparediff2-4.12
 >=kde-base/lokalize-4.12
