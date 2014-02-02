@@ -20,7 +20,12 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	X? (
+		x11-libs/libX11
+		x11-proto/xproto
+	)
+"
 
 src_configure() {
 	local mycmakeargs=(
