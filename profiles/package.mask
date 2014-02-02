@@ -262,6 +262,7 @@
 ~kde-base/sweeper-4.12.2
 ~kde-base/thumbnailers-4.12.2
 ~kde-base/umbrello-4.12.2
+~kde-base/kdesdk-strigi-analyzer-4.12.2
 
 # KDE Workspaces 4.11.6
 # Not released yet
