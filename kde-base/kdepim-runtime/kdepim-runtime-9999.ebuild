@@ -15,7 +15,6 @@ RESTRICT="test"
 # Would need test programs _testrunner and akonaditest from kdepimlibs, see bug 313233
 
 DEPEND="
-	app-misc/strigi
 	>=app-office/akonadi-server-1.10.43
 	dev-libs/boost:=
 	dev-libs/libxml2:2
