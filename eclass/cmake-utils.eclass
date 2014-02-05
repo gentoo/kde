@@ -22,8 +22,8 @@ ___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
 
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
-# Specify if cmake-utils eclass should depend on cmake optionaly or not.
-# This is usefull when only part of aplication is using cmake build system.
+# Specify if cmake-utils eclass should depend on cmake optionally or not.
+# This is useful when only part of application is using cmake build system.
 # Valid values are: always [default], optional (where the value is the useflag
 # used for optionality)
 : ${WANT_CMAKE:=always}
@@ -141,7 +141,7 @@ _use_me_now_inverted() {
 # @DESCRIPTION:
 # Build directory where all cmake processed files should be generated.
 # For in-source build it's fixed to ${CMAKE_USE_DIR}.
-# For out-of-source build it can be overriden, by default it uses
+# For out-of-source build it can be overridden, by default it uses
 # ${WORKDIR}/${P}_build.
 #
 # This variable has been called CMAKE_BUILD_DIR formerly.
