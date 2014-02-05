@@ -20,6 +20,84 @@
 if [[ ${___ECLASS_ONCE_CMAKE_UTILS} != "recur -_+^+_- spank" ]] ; then
 ___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
 
+
+# @ECLASS-VARIABLE: BUILD_DIR
+# @DESCRIPTION:
+# Build directory where all cmake processed files should be generated.
+# For in-source build it's fixed to ${CMAKE_USE_DIR}.
+# For out-of-source build it can be overridden, by default it uses
+# ${WORKDIR}/${P}_build.
+#
+# This variable has been called CMAKE_BUILD_DIR formerly.
+# It is set under that name for compatibility.
+
+# @ECLASS-VARIABLE: CMAKE_BINARY
+# @DESCRIPTION:
+# Eclass can use different cmake binary than the one provided in by system.
+: ${CMAKE_BINARY:=cmake}
+
+# @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
+# @DESCRIPTION:
+# Set to override default CMAKE_BUILD_TYPE. Only useful for packages
+# known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
+# If about to be set - needs to be set before invoking cmake-utils_src_configure.
+# You usualy do *NOT* want nor need to set it as it pulls CMake default build-type
+# specific compiler flags overriding make.conf.
+: ${CMAKE_BUILD_TYPE:=Gentoo}
+
+# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
+# @DESCRIPTION:
+# Set to enable in-source build.
+
+# @ECLASS-VARIABLE: CMAKE_MAKEFILE_GENERATOR
+# @DESCRIPTION:
+# Specify a makefile generator to be used by cmake.
+# At this point only "emake" and "ninja" are supported.
+: ${CMAKE_MAKEFILE_GENERATOR:=emake}
+
+# @ECLASS-VARIABLE: CMAKE_MIN_VERSION
+# @DESCRIPTION:
+# Specify the minimum required CMake version.
+: ${CMAKE_MIN_VERSION:=2.8.9}
+
+# @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES
+# @DESCRIPTION:
+# Do we want to remove anything? yes or whatever else for no
+: ${CMAKE_REMOVE_MODULES:=yes}
+CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
+
+# @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
+# @DESCRIPTION:
+# Space-separated list of CMake modules that will be removed in $S during src_prepare,
+# in order to force packages to use the system version.
+: ${CMAKE_REMOVE_MODULES_LIST:=FindBLAS FindLAPACK}
+
+# @ECLASS-VARIABLE: CMAKE_USE_DIR
+# @DESCRIPTION:
+# Sets the directory where we are working with cmake.
+# For example when application uses autotools and only one
+# plugin needs to be done by cmake.
+# By default it uses ${S}.
+
+# @ECLASS-VARIABLE: CMAKE_VERBOSE
+# @DESCRIPTION:
+# Set to OFF to disable verbose messages during compilation
+: ${CMAKE_VERBOSE:=ON}
+
+# @ECLASS-VARIABLE: CMAKE_WARN_UNUSED_CLI
+# @DESCRIPTION:
+# Warn about variables that are declared on the command line
+# but not used. Might give false-positives.
+# "no" to disable (default) or anything else to enable.
+: ${CMAKE_WARN_UNUSED_CLI:=no}
+
+# @ECLASS-VARIABLE: PREFIX
+# @DESCRIPTION:
+# Eclass respects PREFIX variable, though it's not recommended way to set
+# install/lib/bin prefixes.
+# Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
+: ${PREFIX:=/usr}
+
 # @ECLASS-VARIABLE: WANT_CMAKE
 # @DESCRIPTION:
 # Specify if cmake-utils eclass should depend on cmake optionally or not.
@@ -28,35 +106,6 @@ ___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
 # used for optionality)
 : ${WANT_CMAKE:=always}
 
-# @ECLASS-VARIABLE: CMAKE_MIN_VERSION
-# @DESCRIPTION:
-# Specify the minimum required CMake version.
-: ${CMAKE_MIN_VERSION:=2.8.9}
-
-# @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
-# @DESCRIPTION:
-# Space-separated list of CMake modules that will be removed in $S during src_prepare,
-# in order to force packages to use the system version.
-: ${CMAKE_REMOVE_MODULES_LIST:=FindBLAS FindLAPACK}
-
-# @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES
-# @DESCRIPTION:
-# Do we want to remove anything? yes or whatever else for no
-: ${CMAKE_REMOVE_MODULES:=yes}
-CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
-
-# @ECLASS-VARIABLE: CMAKE_MAKEFILE_GENERATOR
-# @DESCRIPTION:
-# Specify a makefile generator to be used by cmake.
-# At this point only "emake" and "ninja" are supported.
-: ${CMAKE_MAKEFILE_GENERATOR:=emake}
-
-# @ECLASS-VARIABLE: CMAKE_WARN_UNUSED_CLI
-# @DESCRIPTION:
-# Warn about variables that are declared on the command line
-# but not used. Might give false-positives.
-# "no" to disable (default) or anything else to enable.
-: ${CMAKE_WARN_UNUSED_CLI:=no}
 
 CMAKEDEPEND=""
 case ${WANT_CMAKE} in
@@ -136,53 +185,6 @@ _use_me_now_inverted() {
 		done
 	fi
 }
-
-# @ECLASS-VARIABLE: BUILD_DIR
-# @DESCRIPTION:
-# Build directory where all cmake processed files should be generated.
-# For in-source build it's fixed to ${CMAKE_USE_DIR}.
-# For out-of-source build it can be overridden, by default it uses
-# ${WORKDIR}/${P}_build.
-#
-# This variable has been called CMAKE_BUILD_DIR formerly.
-# It is set under that name for compatibility.
-
-# @ECLASS-VARIABLE: CMAKE_BUILD_TYPE
-# @DESCRIPTION:
-# Set to override default CMAKE_BUILD_TYPE. Only useful for packages
-# known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
-# If about to be set - needs to be set before invoking cmake-utils_src_configure.
-# You usualy do *NOT* want nor need to set it as it pulls CMake default build-type
-# specific compiler flags overriding make.conf.
-: ${CMAKE_BUILD_TYPE:=Gentoo}
-
-# @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
-# @DESCRIPTION:
-# Set to enable in-source build.
-
-# @ECLASS-VARIABLE: CMAKE_USE_DIR
-# @DESCRIPTION:
-# Sets the directory where we are working with cmake.
-# For example when application uses autotools and only one
-# plugin needs to be done by cmake.
-# By default it uses ${S}.
-
-# @ECLASS-VARIABLE: CMAKE_VERBOSE
-# @DESCRIPTION:
-# Set to OFF to disable verbose messages during compilation
-: ${CMAKE_VERBOSE:=ON}
-
-# @ECLASS-VARIABLE: PREFIX
-# @DESCRIPTION:
-# Eclass respects PREFIX variable, though it's not recommended way to set
-# install/lib/bin prefixes.
-# Use -DCMAKE_INSTALL_PREFIX=... CMake variable instead.
-: ${PREFIX:=/usr}
-
-# @ECLASS-VARIABLE: CMAKE_BINARY
-# @DESCRIPTION:
-# Eclass can use different cmake binary than the one provided in by system.
-: ${CMAKE_BINARY:=cmake}
 
 # Determine using IN or OUT source build
 _check_build_dir() {
