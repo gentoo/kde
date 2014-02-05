@@ -372,16 +372,15 @@ _modify-cmakelists() {
 enable_cmake-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-    debug-print "$FUNCNAME: PATCHES=$PATCHES"
+	pushd "${S}" > /dev/null
 
-    pushd "${S}" > /dev/null
-    [[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+	debug-print "$FUNCNAME: PATCHES=$PATCHES"
+	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
 		
 	debug-print "$FUNCNAME: applying user patches"
-    epatch_user
+	epatch_user
 
-    popd > /dev/null
-
+	popd > /dev/null
 }
 
 # @VARIABLE: mycmakeargs
