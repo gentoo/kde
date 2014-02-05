@@ -260,7 +260,7 @@ cmake-utils_use_enable() { _use_me_now ENABLE_ "$@" ; }
 #
 # `cmake-utils_use_find_package foo LibFoo` echoes -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=OFF
 # if foo is enabled and -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=ON if it is disabled.
-# This can be used to make find_package optional (since cmake-2.8.6).
+# This can be used to make find_package optional.
 cmake-utils_use_find_package() { _use_me_now_inverted CMAKE_DISABLE_FIND_PACKAGE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_disable
