@@ -53,7 +53,6 @@ KMCOMPILEONLY="
 "
 KMEXTRA="
 	agents/archivemailagent/
-	agents/folderarchiveagent/
 	agents/mailfilteragent/
 	grantleethemeeditor/
 	headerthemeeditor/
