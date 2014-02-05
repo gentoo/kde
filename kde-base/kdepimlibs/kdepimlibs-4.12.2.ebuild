@@ -54,6 +54,5 @@ src_configure() {
 
 src_install() {
 	kde4-base_src_install
-	rm "${ED}"/usr/share/apps/cmake/modules/FindQJSON.cmake
 	rm "${ED}"/usr/share/apps/cmake/modules/FindQtOAuth.cmake #Collides with net-im/choqok
 }
