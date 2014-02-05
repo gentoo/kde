@@ -392,9 +392,10 @@ enable_cmake-utils_src_prepare() {
 # 	local mycmakeargs=(
 # 		$(cmake-utils_use_with openconnect)
 # 	)
+#
 # 	cmake-utils_src_configure
 # }
-
+# @CODE
 
 enable_cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
