@@ -68,13 +68,12 @@ case ${WANT_CMAKE} in
 esac
 inherit toolchain-funcs multilib flag-o-matic eutils
 
-CMAKE_EXPF="src_compile src_test src_install"
 case ${EAPI:-0} in
-	2|3|4|5) CMAKE_EXPF+=" src_prepare src_configure" ;;
-	1|0) eerror "cmake-utils no longer supports EAPI 0-1." && die
-	;;
-	*) die "Unknown EAPI, bug eclass maintainers." ;;
+	2|3|4|5) : ;;
+	*) die "EAPI=${EAPI} is not supported" ;;
 esac
+
+CMAKE_EXPF="src_prepare src_configure src_compile src_test src_install"
 EXPORT_FUNCTIONS ${CMAKE_EXPF}
 
 case ${CMAKE_MAKEFILE_GENERATOR} in
