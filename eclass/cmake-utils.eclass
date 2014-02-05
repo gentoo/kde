@@ -26,36 +26,37 @@ ___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
 # This is usefull when only part of aplication is using cmake build system.
 # Valid values are: always [default], optional (where the value is the useflag
 # used for optionality)
-WANT_CMAKE="${WANT_CMAKE:-always}"
+: ${WANT_CMAKE:=always}
 
 # @ECLASS-VARIABLE: CMAKE_MIN_VERSION
 # @DESCRIPTION:
 # Specify the minimum required CMake version.
-CMAKE_MIN_VERSION="${CMAKE_MIN_VERSION:-2.8.9}"
+: ${CMAKE_MIN_VERSION:=2.8.9}
 
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
 # @DESCRIPTION:
 # Space-separated list of CMake modules that will be removed in $S during src_prepare,
 # in order to force packages to use the system version.
-CMAKE_REMOVE_MODULES_LIST="${CMAKE_REMOVE_MODULES_LIST:-FindBLAS FindLAPACK}"
+: ${CMAKE_REMOVE_MODULES_LIST:=FindBLAS FindLAPACK}
 
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES
 # @DESCRIPTION:
 # Do we want to remove anything? yes or whatever else for no
+: ${CMAKE_REMOVE_MODULES:=yes}
 CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
 
 # @ECLASS-VARIABLE: CMAKE_MAKEFILE_GENERATOR
 # @DESCRIPTION:
 # Specify a makefile generator to be used by cmake.
 # At this point only "emake" and "ninja" are supported.
-CMAKE_MAKEFILE_GENERATOR="${CMAKE_MAKEFILE_GENERATOR:-emake}"
+: ${CMAKE_MAKEFILE_GENERATOR:=emake}
 
 # @ECLASS-VARIABLE: CMAKE_WARN_UNUSED_CLI
 # @DESCRIPTION:
 # Warn about variables that are declared on the command line
 # but not used. Might give false-positives.
 # "no" to disable (default) or anything else to enable.
-CMAKE_WARN_UNUSED_CLI="${CMAKE_WARN_UNUSED_CLI:-no}"
+: ${CMAKE_WARN_UNUSED_CLI:=no}
 
 CMAKEDEPEND=""
 case ${WANT_CMAKE} in
