@@ -21,9 +21,9 @@ RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
+	dev-qt/qtwidgets:5
 	x11-proto/xproto
 "
