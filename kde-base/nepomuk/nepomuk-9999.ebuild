@@ -28,3 +28,11 @@ src_prepare() {
 	pushd nepomuk/kioslaves > /dev/null
 	comment_add_subdirectory timeline
 }
+
+src_configure() {
+	local mycmakeargs=(
+		-DKDERUNTIME_BUILD_NEPOMUK=true
+	)
+
+	kde4-meta_src_configure
+}
