@@ -517,7 +517,6 @@ enable_cmake-utils_src_configure() {
 enable_cmake-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	has src_configure ${CMAKE_EXPF} || cmake-utils_src_configure
 	cmake-utils_src_make "$@"
 }
 
@@ -680,8 +679,7 @@ cmake-utils_src_configure() {
 
 # @FUNCTION: cmake-utils_src_compile
 # @DESCRIPTION:
-# General function for compiling with cmake. Default behaviour is to check for
-# EAPI and respectively to configure as well or just compile.
+# General function for compiling with cmake.
 # Automatically detects the build type. All arguments are passed to emake.
 cmake-utils_src_compile() {
 	_execute_optionaly "src_compile" "$@"
