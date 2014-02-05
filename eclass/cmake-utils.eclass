@@ -595,6 +595,37 @@ cmake-utils_src_make() {
 	popd > /dev/null
 }
 
+enable_cmake-utils_src_test() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	_check_build_dir
+	pushd "${BUILD_DIR}" > /dev/null
+	[[ -e CTestTestfile.cmake ]] || { echo "No tests found. Skipping."; return 0 ; }
+
+	[[ -n ${TEST_VERBOSE} ]] && myctestargs+=( --extra-verbose --output-on-failure )
+
+	if ctest "${myctestargs[@]}" "$@" ; then
+		einfo "Tests succeeded."
+		popd > /dev/null
+		return 0
+	else
+		if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]] ; then
+			# on request from Diego
+			eerror "Tests failed. Test log ${BUILD_DIR}/Testing/Temporary/LastTest.log follows:"
+			eerror "--START TEST LOG--------------------------------------------------------------"
+			cat "${BUILD_DIR}/Testing/Temporary/LastTest.log"
+			eerror "--END TEST LOG----------------------------------------------------------------"
+			die "Tests failed."
+		else
+			die "Tests failed. When you file a bug, please attach the following file: \n\t${BUILD_DIR}/Testing/Temporary/LastTest.log"
+		fi
+
+		# die might not die due to nonfatal
+		popd > /dev/null
+		return 1
+	fi
+}
+
 enable_cmake-utils_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -631,37 +662,6 @@ enable_cmake-utils_src_install() {
 	popd > /dev/null
 }
 
-enable_cmake-utils_src_test() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	_check_build_dir
-	pushd "${BUILD_DIR}" > /dev/null
-	[[ -e CTestTestfile.cmake ]] || { echo "No tests found. Skipping."; return 0 ; }
-
-	[[ -n ${TEST_VERBOSE} ]] && myctestargs+=( --extra-verbose --output-on-failure )
-
-	if ctest "${myctestargs[@]}" "$@" ; then
-		einfo "Tests succeeded."
-		popd > /dev/null
-		return 0
-	else
-		if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]] ; then
-			# on request from Diego
-			eerror "Tests failed. Test log ${BUILD_DIR}/Testing/Temporary/LastTest.log follows:"
-			eerror "--START TEST LOG--------------------------------------------------------------"
-			cat "${BUILD_DIR}/Testing/Temporary/LastTest.log"
-			eerror "--END TEST LOG----------------------------------------------------------------"
-			die "Tests failed."
-		else
-			die "Tests failed. When you file a bug, please attach the following file: \n\t${BUILD_DIR}/Testing/Temporary/LastTest.log"
-		fi
-
-		# die might not die due to nonfatal
-		popd > /dev/null
-		return 1
-	fi
-}
-
 # @FUNCTION: cmake-utils_src_prepare
 # @DESCRIPTION:
 # Apply ebuild and user patches.
@@ -685,18 +685,18 @@ cmake-utils_src_compile() {
 	_execute_optionaly "src_compile" "$@"
 }
 
-# @FUNCTION: cmake-utils_src_install
-# @DESCRIPTION:
-# Function for installing the package. Automatically detects the build type.
-cmake-utils_src_install() {
-	_execute_optionaly "src_install" "$@"
-}
-
 # @FUNCTION: cmake-utils_src_test
 # @DESCRIPTION:
 # Function for testing the package. Automatically detects the build type.
 cmake-utils_src_test() {
 	_execute_optionaly "src_test" "$@"
+}
+
+# @FUNCTION: cmake-utils_src_install
+# @DESCRIPTION:
+# Function for installing the package. Automatically detects the build type.
+cmake-utils_src_install() {
+	_execute_optionaly "src_install" "$@"
 }
 
 # Optionally executes phases based on WANT_CMAKE variable/USE flag.
