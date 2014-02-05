@@ -20,3 +20,11 @@ DEPEND="
 	!kde-misc/nepomukcontroller
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde4-meta_src_prepare
+
+	# Collides with baloo
+	pushd nepomuk/kioslaves > /dev/null
+	comment_add_subdirectory timeline
+}
