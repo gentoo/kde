@@ -4,12 +4,47 @@
 
 EAPI=5
 
-DESCRIPTION="A library providing access to Open Collaboration Services (dummy package)"
+MY_P="${P#lib}"
+MY_PN="${PN#lib}"
+
+if [[ $PV = *9999* ]]; then
+	EGIT_REPO_URI="git://anongit.kde.org/attica"
+	EGIT_BRANCH="qt4"
+	KEYWORDS=""
+	scm_eclass=git-r3
+else
+	SRC_URI="mirror://kde/stable/${MY_PN}/${MY_P}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~ppc ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+fi
+
+inherit cmake-utils ${scm_eclass}
+
+DESCRIPTION="A library providing access to Open Collaboration Services"
 HOMEPAGE="http://www.kde.org/"
 
-LICENSE=""
+LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="debug +qt4 qt5 test"
+IUSE="debug test"
 
-RDEPEND="kde-frameworks/attica[debug?,qt4?,qt5?,test?]"
+RDEPEND="
+	dev-qt/qtcore:4
+"
+DEPEND="${RDEPEND}
+	test? (
+		dev-qt/qtgui:4
+		dev-qt/qttest:4
+	)
+"
+
+DOCS=( AUTHORS ChangeLog README )
+
+[[ ${PV} != *9999 ]] && S=${WORKDIR}/${MY_P}
+
+src_configure() {
+	local mycmakeargs=(
+		-DQT4_BUILD=true
+		$(cmake-utils_use test ATTICA_ENABLE_TESTS)
+	)
+
+	cmake-utils_src_configure
+}
