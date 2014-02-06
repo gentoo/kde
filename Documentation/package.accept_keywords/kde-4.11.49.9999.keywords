@@ -48,6 +48,7 @@
 ~kde-base/kdebase-runtime-meta-4.11.49.9999 **
 ~kde-base/kdebugdialog-4.11.49.9999 **
 ~kde-base/kdesu-4.11.49.9999 **
+~kde-base/kde-wallpapers-4.11.49.9999 **
 ~kde-base/kdontchangethehostname-4.11.49.9999 **
 ~kde-base/keditfiletype-4.11.49.9999 **
 ~kde-base/kfile-4.11.49.9999 **
@@ -74,7 +75,6 @@
 ~kde-base/plasma-runtime-4.11.49.9999 **
 ~kde-base/renamedlg-plugins-4.11.49.9999 **
 ~kde-base/solid-runtime-4.11.49.9999 **
-~kde-base/kde-wallpapers-4.11.49.9999 **
 ~kde-base/freespacenotifier-4.11.49.9999 **
 ~kde-base/kcheckpass-4.11.49.9999 **
 ~kde-base/kcminit-4.11.49.9999 **

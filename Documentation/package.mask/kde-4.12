@@ -47,6 +47,7 @@
 >=kde-base/kdebase-runtime-meta-4.12
 >=kde-base/kdebugdialog-4.12
 >=kde-base/kdesu-4.12
+>=kde-base/kde-wallpapers-4.12
 >=kde-base/kdontchangethehostname-4.12
 >=kde-base/keditfiletype-4.12
 >=kde-base/kfile-4.12

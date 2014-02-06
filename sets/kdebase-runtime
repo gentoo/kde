@@ -11,6 +11,7 @@ kde-base/kdebase-menu-icons:4
 kde-base/kdebase-runtime-meta:4
 kde-base/kdebugdialog:4
 kde-base/kdesu:4
+kde-base/kde-wallpapers:4
 kde-base/kdontchangethehostname:4
 kde-base/keditfiletype:4
 kde-base/kfile:4
@@ -37,4 +38,3 @@ kde-base/phonon-kde:4
 kde-base/plasma-runtime:4
 kde-base/renamedlg-plugins:4
 kde-base/solid-runtime:4
-kde-base/kde-wallpapers:4

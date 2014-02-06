@@ -10,6 +10,7 @@
 ~kde-base/kdebase-runtime-meta-9999
 ~kde-base/kdebugdialog-9999
 ~kde-base/kdesu-9999
+~kde-base/kde-wallpapers-9999
 ~kde-base/kdontchangethehostname-9999
 ~kde-base/keditfiletype-9999
 ~kde-base/kfile-9999
@@ -36,4 +37,3 @@
 ~kde-base/plasma-runtime-9999
 ~kde-base/renamedlg-plugins-9999
 ~kde-base/solid-runtime-9999
-~kde-base/kde-wallpapers-9999
