@@ -29,7 +29,7 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	attica? ( $(add_frameworks_dep attica qt5) )
+	attica? ( $(add_frameworks_dep attica) )
 "
 DEPEND="${RDEPEND}"
 
