@@ -395,7 +395,8 @@ case ${OPERATION} in
 				fi
 				# now we have to check up the keywords
 				pushd "${WRKDIR}" &> /dev/null
-				update_keywords "${EBUILD/*\//}" ${dir}
+				# update_keywords "${EBUILD/*\//}" ${dir}
+				# ^for unknown reason this is broken, but the keywords are already correct from the initial bump
 				echangelog "Version bump KDE SC ${VERSION}"
 				repoman manifest
 				popd &> /dev/null
