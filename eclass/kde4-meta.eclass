@@ -517,7 +517,7 @@ kde4-meta_change_cmakelists() {
 			;;
 		kdepim)
 			# Disable hardcoded checks
-			sed -r -e '/find_package\(KdepimLibs/s/REQUIRED//' \
+			sed -r -e 's/TYPE REQUIRED/TYPE OPTIONAL/' -e '/find_package\(KdepimLibs/s/REQUIRED//' \
 				-e '/find_package\((KdepimLibs|Boost|QGpgme|Akonadi|ZLIB|Strigi|SharedDesktopOntologies|Soprano|Nepomuk)/{/macro_optional_/!s/find/macro_optional_&/}' \
 				-e '/macro_log_feature\((Boost|QGPGME|Akonadi|ZLIB|STRIGI|SHAREDDESKTOPONTOLOGIES|Soprano|Nepomuk)_FOUND/s/ TRUE / FALSE /' \
 				-e 's/if[[:space:]]*([[:space:]]*BUILD_.*)[[:space:]]*/if(1) # &/' \
