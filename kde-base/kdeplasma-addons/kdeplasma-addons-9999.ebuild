@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	$(add_kdebase_dep krunner)
 	$(add_kdebase_dep plasma-workspace 'semantic-desktop?')
 	x11-misc/shared-mime-info
-	attica? ( dev-libs/libattica[qt4] )
+	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
 	exif? ( $(add_kdebase_dep libkexiv2) )
 	fcitx? ( app-i18n/fcitx[dbus(+)] )

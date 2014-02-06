@@ -14,7 +14,7 @@ HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep smokeqt)
-	attica? ( dev-libs/libattica[qt4] )
+	attica? ( dev-libs/libattica )
 	kate? ( $(add_kdebase_dep kate) )
 	okular? ( $(add_kdebase_dep okular) )
 	semantic-desktop? ( $(add_kdebase_dep kdepimlibs) )

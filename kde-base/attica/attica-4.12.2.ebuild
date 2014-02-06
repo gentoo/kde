@@ -12,6 +12,6 @@ KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	dev-libs/libattica[qt4]
+	dev-libs/libattica
 "
 RDEPEND="${DEPEND}"

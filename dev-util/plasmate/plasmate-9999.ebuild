@@ -17,7 +17,7 @@ IUSE="debug"
 
 DEPEND="
 	app-crypt/gpgme
-	dev-libs/libattica[qt4]
+	dev-libs/libattica
 	dev-libs/soprano
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep knewstuff)

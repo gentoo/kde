@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	dev-libs/libattica[qt4]
+	dev-libs/libattica
 "
 RDEPEND="${DEPEND}"
