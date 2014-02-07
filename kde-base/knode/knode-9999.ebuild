@@ -33,7 +33,6 @@ KMEXTRACTONLY="
 KMCOMPILEONLY="
 	grantleetheme/
 	kaddressbookgrantlee/
-	pimcommon/
 "
 
 KMLOADLIBS="kdepim-common-libs"
