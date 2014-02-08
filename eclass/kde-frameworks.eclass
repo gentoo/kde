@@ -25,7 +25,6 @@ inherit kde4-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtua
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	inherit git-r3
-	EGIT_BRANCH="master"
 fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
