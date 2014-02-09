@@ -17,6 +17,7 @@ DEPEND="
 	>=app-office/akonadi-server-1.10.43
 	dev-libs/grantlee
 	>=dev-libs/shared-desktop-ontologies-0.11.0
+	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}
