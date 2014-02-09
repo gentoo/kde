@@ -15,7 +15,7 @@ RDEPEND="
 	$(add_kdebase_dep kcheckpass '' 4.11)
 	$(add_kdebase_dep kcminit '' 4.11)
 	wallpapers? ( $(add_kdebase_dep kde-wallpapers '' 4.11) )
-	$(add_kdebase_dep kde-base-artwork '' 4.11)
+	$(add_kdebase_dep kde-base-artwork)
 	$(add_kdebase_dep kdebase-cursors '' 4.11)
 	$(add_kdebase_dep kdebase-runtime-meta)
 	$(add_kdebase_dep kdebase-startkde '' 4.11)
