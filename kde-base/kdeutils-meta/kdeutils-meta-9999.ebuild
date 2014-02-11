@@ -18,7 +18,7 @@ RDEPEND="
 	$(add_kdebase_dep kdf)
 	$(add_kdebase_dep kgpg)
 	$(add_kdebase_dep ktimer)
-	$(add_kdebase_dep kwallet)
+	$(add_kdebase_dep kwalletmanager)
 	$(add_kdebase_dep superkaramba)
 	$(add_kdebase_dep sweeper)
 	cups? ( $(add_kdebase_dep print-manager) )
