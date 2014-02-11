@@ -31,8 +31,8 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
-# Determine version of qt we enforce as minimal for the package.
-QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
+# Minimal Qt version to require for the package.
+: ${QT_MINIMAL:=5.2.0}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_AUTODEPS
 # @DESCRIPTION:
@@ -42,21 +42,21 @@ QT_MINIMAL="${QT_MINIMAL:-5.2.0}"
 
 # @ECLASS-VARIABLE: FRAMEWORKS_DEBUG
 # @DESCRIPTION:
-# If set to "false", do nothing.
-# For any other value, add debug to IUSE.
+# If set to "false", unconditionally build with -DNDEBUG.
+# Otherwise, add debug to IUSE to control building with that flag.
 : ${FRAMEWORKS_DEBUG:=true}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_DOXYGEN
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add doc to IUSE, add a dependency on doxygen,
-# and generate and install API documentation.
+# Otherwise, add "doc" to IUSE, add appropriate dependencies, and generate and
+# install API documentation.
 : ${FRAMEWORKS_DOXYGEN:=true}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
 # @DESCRIPTION:
-# If set to "false", do nothing.
-# For any other value, add examples to IUSE.
+# If set to "false", unconditionally ignore a top-level examples subdirectory.
+# Otherwise, add "examples" to IUSE to toggle adding that subdirectory.
 : ${FRAMEWORKS_EXAMPLES:=false}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_TEST
