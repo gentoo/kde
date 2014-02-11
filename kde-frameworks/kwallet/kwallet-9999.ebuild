@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KMNAME="${PN}-framework"
 inherit kde-frameworks
 
 DESCRIPTION="Library for working with KDE wallets"
