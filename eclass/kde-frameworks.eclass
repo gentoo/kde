@@ -171,12 +171,6 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
-# @ECLASS-VARIABLE: PREFIX
-# @DESCRIPTION:
-# Set the installation PREFIX for non kde-base applications. It defaults to /usr.
-# kde-base packages go into KDE4 installation directory (/usr).
-# No matter the PREFIX, package will be built against KDE installed in /usr.
-
 # @FUNCTION: kde-frameworks_pkg_setup
 # @DESCRIPTION:
 # Do some basic settings
@@ -195,8 +189,6 @@ kde-frameworks_pkg_setup() {
 				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 5 ]] ) \
 			&& die "Sorry, but gcc-4.5 or later is required for KDE frameworks."
 	fi
-
-	: ${PREFIX:=/usr}
 
 	# Point to correct QT plugins path
 	QT_PLUGIN_PATH="${EPREFIX}/usr/$(get_libdir)/kde4/plugins/"
