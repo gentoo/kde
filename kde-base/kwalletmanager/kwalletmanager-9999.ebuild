@@ -12,3 +12,5 @@ HOMEAGE="http://www.kde.org/applications/system/kwalletmanager
 http://utils.kde.org/projects/kwalletmanager"
 KEYWORDS=""
 IUSE="debug"
+
+RDEPEND="!kde-base/kwallet:4"
