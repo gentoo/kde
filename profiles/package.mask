@@ -65,6 +65,11 @@
 ~kde-frameworks/sonnet-4.96.0
 ~kde-frameworks/threadweaver-4.96.0
 
+# David Heidelberger <david.heidelberger@ixit.cz> (12 Feb 2014)
+# Mask qt-gstreamer 1.0 branch
+# http://ghic.org/~diane/qtgstreamer-1.0-proposed.html
+=media-libs/qt-gstreamer-1.0_pre20140212
+
 # Chris Reffett <creffett@gentoo.org> (29 Aug 2013)
 # Virtuoso 6.1.7 does not work for KDE 4.11 according to upstream report.
 =dev-db/virtuoso-server-6.1.7

@@ -1,0 +1,4 @@
+# David Heidelberger <david.heidelberger@ixit.cz> (12 Feb 2014)
+# Mask qt-gstreamer 1.0 branch
+# http://ghic.org/~diane/qtgstreamer-1.0-proposed.html
+=media-libs/qt-gstreamer-1.0_pre20140212
