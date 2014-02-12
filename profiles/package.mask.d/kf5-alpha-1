@@ -1,5 +1,6 @@
 # Mask KF5 alpha 1 due to cross-overlay dependencies
 ~kde-frameworks/attica-4.96.0
+~kde-frameworks/frameworkintegration-4.96.0
 ~kde-frameworks/kactivities-4.96.0
 ~kde-frameworks/kapidox-4.96.0
 ~kde-frameworks/karchive-4.96.0
@@ -13,6 +14,7 @@
 ~kde-frameworks/kcoreaddons-4.96.0
 ~kde-frameworks/kcrash-4.96.0
 ~kde-frameworks/kdbusaddons-4.96.0
+~kde-frameworks/kde4support-4.96.0
 ~kde-frameworks/kdeclarative-4.96.0
 ~kde-frameworks/kded-4.96.0
 ~kde-frameworks/kdesignerplugin-4.96.0
@@ -25,6 +27,7 @@
 ~kde-frameworks/kfileaudiopreview-4.96.0
 ~kde-frameworks/kglobalaccel-4.96.0
 ~kde-frameworks/kguiaddons-4.96.0
+~kde-frameworks/khtml-4.96.0
 ~kde-frameworks/ki18n-4.96.0
 ~kde-frameworks/kiconthemes-4.96.0
 ~kde-frameworks/kidletime-4.96.0
@@ -45,6 +48,7 @@
 ~kde-frameworks/kprintutils-4.96.0
 ~kde-frameworks/kpty-4.96.0
 ~kde-frameworks/kross-4.96.0
+~kde-frameworks/krunner-4.96.0
 ~kde-frameworks/kservice-4.96.0
 ~kde-frameworks/ktexteditor-4.96.0
 ~kde-frameworks/ktextwidgets-4.96.0
@@ -53,6 +57,7 @@
 ~kde-frameworks/kwidgetsaddons-4.96.0
 ~kde-frameworks/kwindowsystem-4.96.0
 ~kde-frameworks/kxmlgui-4.96.0
+~kde-frameworks/plasma-4.96.0
 ~kde-frameworks/solid-4.96.0
 ~kde-frameworks/sonnet-4.96.0
 ~kde-frameworks/threadweaver-4.96.0
