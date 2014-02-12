@@ -19,7 +19,7 @@ get_packages_from_slot() {
 		# version.ebuild
 		sed -e '/^[@#]/d' \
 		    -e '/^$/d' \
-		    -e '\@kde-base/@!d' \
+		    -e "\@${CATEGORY}/@!d" \
 		    -e 's/^>=//g' \
 		    -e 's/^~//g' \
 		    -e 's/^<//g' \
@@ -45,7 +45,7 @@ add_new_sloted_version() {
 		cp ${SLOTFILE} ${NEWSLOTFILE}
 		# fix versioning
 		sed -r -i \
-			-e "\@kde-base/@{s:~:>=:;s:-(9999|4\..\.50)$:-${PREVVER}.50:};/@kde/s:${SLOT}:${BUMP_VERSION}:" \
+			-e "\@${CATEGORY}/@{s:~:>=:;s:-(9999|4\..\.50)$:-${PREVVER}.50:};/@kde/s:${SLOT}:${BUMP_VERSION}:" \
 			${NEWSLOTFILE} || die "unable to update slotfile versioning"
 		# add to git
 		git add ${NEWSLOTFILE}
@@ -54,9 +54,9 @@ add_new_sloted_version() {
 
 # write ebuild directories in which i will work to file.
 find_packagedirs_for_removal() {
-	find ${PORTDIR_BUMPING}/kde-base/ -name \*${VERSION}\*.ebuild -print |while read FILE; do
-		echo ${FILE} |sed -e "s:${PORTDIR_BUMPING}/kde-base/::" \
-			|awk -F'/' '{print "kde-base/"$1}' \
+	find ${PORTDIR_BUMPING}/${CATEGORY}/ -name \*${VERSION}\*.ebuild -print |while read FILE; do
+		echo ${FILE} |sed -e "s:${PORTDIR_BUMPING}/${CATEGORY}/::" \
+			|awk -F'/' '{print "'${CATEGORY}'/"$1}' \
 			>> ${TMPFILE}
 	done
 }
@@ -203,7 +203,8 @@ BUMP_VERSION=
 SET=
 DIR=
 OUTPUT_DIR=
-while getopts a:s:v:b:l:p:o: arg ; do
+CATEGORY="kde-base"
+while getopts a:s:v:b:l:p:o:c: arg ; do
 	case ${arg} in
 		a) OPERATION=${OPTARG} ;;
 		s) SLOT=${OPTARG} ;;
@@ -212,6 +213,7 @@ while getopts a:s:v:b:l:p:o: arg ; do
 		l) SET="${OPTARG}" ;;
 		p) DIR="${OPTARG}" ;;
 		o) OUTPUT_DIR="${OPTARG}" ;;
+		c) CATEGORY="${OPTARG}" ;;
 		*) help ;;
 		?) help ;;
 	esac
@@ -347,7 +349,7 @@ case ${OPERATION} in
 		# then start going per each dir
 		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest
 		#_cvsupdate "${MAINTREE}"
-		find ./kde-base/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
+		find ./${CATEGORY}/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
 			# we also have to check if directory contains our version if not, we dont copy it
 			pushd "${OVERLAY}/${dir}" &> /dev/null
 			if [[ `find ./ -name \*.ebuild|grep ${VERSION} |wc -l` -gt 0 ]]; then
