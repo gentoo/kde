@@ -19,4 +19,8 @@ RDEPEND="
 	app-doc/doxygen
 	dev-python/pystache[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	media-gfx/graphviz[python]
 "
+# graphviz is currently python-single-r1 so we can't enforce a USE dep yet
+# and things will break if you try to generate a dependency diagram with a
+# different python version
