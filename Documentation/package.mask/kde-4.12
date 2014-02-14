@@ -284,7 +284,7 @@
 >=kde-base/kgpg-4.12
 >=kde-base/kremotecontrol-4.12
 >=kde-base/ktimer-4.12
->=kde-base/kwallet-4.12
+>=kde-base/kwalletmanager-4.12
 >=kde-base/print-manager-4.12
 >=kde-base/superkaramba-4.12
 >=kde-base/sweeper-4.12
