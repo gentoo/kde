@@ -503,6 +503,9 @@ kde4-meta_change_cmakelists() {
 			fi
 			;;
 		kde-runtime)
+			sed -e 's/TYPE REQUIRED/TYPE OPTIONAL/' -e '/LibGcrypt/s/REQUIRED//' -i CMakeLists.txt \
+				|| die "${LINENO}: sed died in kde-runtime dep reduction section"
+
 			# COLLISION PROTECT section
 			# Only install the kde4 script as part of kde-base/kdebase-data
 			if [[ ${PN} != kdebase-data && -f CMakeLists.txt ]]; then
