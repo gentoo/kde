@@ -46,6 +46,7 @@ RDEPEND="
 	kerberos? ( virtual/krb5 )
 "
 DEPEND="${RDEPEND}
+	$(add_frameworks_dep kdoctools)
 	dev-qt/qtconcurrent:5
 	test? ( sys-libs/zlib )
 	X? (
