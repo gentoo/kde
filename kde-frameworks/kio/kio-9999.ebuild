@@ -51,6 +51,7 @@ DEPEND="${RDEPEND}
 	test? ( sys-libs/zlib )
 	X? (
 		x11-libs/libX11
+		x11-libs/libXrender
 		x11-proto/xproto
 	)
 "
