@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="${PN}-framework"
 inherit kde-frameworks
 
-DESCRIPTION="Framework providing elaborate user-interface components"
+DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64"
 IUSE="opengl X"
