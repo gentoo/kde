@@ -42,7 +42,7 @@ RDEPEND="
 	media-libs/giflib
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
-	sys-libs/zlib	
+	sys-libs/zlib
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -52,7 +52,7 @@ DEPEND="${RDEPEND}
 	dev-lang/perl
 	dev-libs/openssl
 	test? ( dev-qt/qtx11extras:5 )
-	X? ( x11-proto/xeproto )
+	X? ( x11-proto/xproto )
 "
 
 src_configure() {
