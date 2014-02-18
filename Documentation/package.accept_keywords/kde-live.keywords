@@ -137,10 +137,6 @@
 #>=dev-libs/rasqal-0.9.20
 #~dev-libs/soprano-9999
 #media-libs/raptor:2
-
-# kde-base/pykde4 deps
->=dev-python/PyQt4-4.9
->=dev-python/sip-4.13.1
 ~kde-base/analitza-9999 **
 ~kde-base/blinken-9999 **
 ~kde-base/cantor-9999 **

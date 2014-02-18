@@ -78,7 +78,6 @@
 >=kde-base/freespacenotifier-4.12
 >=kde-base/kcheckpass-4.12
 >=kde-base/kcminit-4.12
->=kde-base/kde-base-artwork-4.12
 >=kde-base/kdebase-cursors-4.12
 >=kde-base/kdebase-startkde-4.12
 >=kde-base/kdm-4.12
