@@ -30,9 +30,3 @@ DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/designer:5
 "
-
-src_install() {
-	kde-frameworks_src_install
-
-	mv "${D}"/usr/share/man/man1/{kross,kf5kross}.1
-}
