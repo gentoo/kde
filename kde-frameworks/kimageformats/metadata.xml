@@ -4,5 +4,6 @@
 	<herd>kde</herd>
 	<use>
 		<flag name="eps">Support the EPS graphics file format</flag>
+		<flag name="webp">Support the WebP image format</flag>
 	</use>
 </pkgmetadata>
