@@ -62,7 +62,6 @@ KMEXTRA="
 	libksieve/
 	mailcommon/
 	mailimporter/
-	ontologies/
 	pimsettingexporter/
 	plugins/messageviewer/
 "
