@@ -24,7 +24,7 @@ DEPEND="
 	x11-misc/shared-mime-info
 	facebook? ( net-libs/libkfbapi )
 	google? ( >=net-libs/libkgapi-2.0 )
-	kolab? ( net-libs/libkolab )
+	kolab? ( >=net-libs/libkolab-0.5 )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepim-icons)
