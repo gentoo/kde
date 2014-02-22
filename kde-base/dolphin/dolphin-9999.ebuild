@@ -19,10 +19,9 @@ DEPEND="
 	$(add_kdebase_dep libkonq)
 	x11-libs/libXrender
 	semantic-desktop? (
-		>=dev-libs/shared-desktop-ontologies-0.11.0
-		dev-libs/soprano
-		$(add_kdebase_dep nepomuk-core)
-		$(add_kdebase_dep nepomuk-widgets)
+		$(add_kdebase_dep baloo)
+		$(add_kdebase_dep baloo-widgets)
+		$(add_kdebase_dep kfilemetadata)
 	)
 "
 RDEPEND="${DEPEND}
@@ -43,9 +42,9 @@ RESTRICT="test"
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop NepomukCore)
-		$(cmake-utils_use_with semantic-desktop NepomukWidgets)
-		$(cmake-utils_use_with semantic-desktop Soprano)
+		$(cmake-utils_use_with semantic-desktop Baloo)
+		$(cmake-utils_use_with semantic-desktop BalooWidgets)
+		$(cmake-utils_use_with semantic-desktop KFileMetaData)
 	)
 
 	kde4-meta_src_configure
