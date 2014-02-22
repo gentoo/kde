@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kjs)
+	dev-qt/qtscript:5
 "
 DEPEND="${RDEPEND}
 	dev-lang/perl
