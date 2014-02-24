@@ -35,13 +35,3 @@ src_configure() {
 
 	kde-frameworks_src_configure
 }
-
-src_install() {
-	kde-frameworks_src_install
-
-	# collides with kde-base/kimgio
-	# part of shared-mime-info upstream at 7612a110f9a42db4730a8c6d1fff6d78c899d53d
-	if use webp ; then
-		"${D}"/usr/share/mime/packages/{,kimageformats}webp.xml || die "rename failed"
-	fi
-}
