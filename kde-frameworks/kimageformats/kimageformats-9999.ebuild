@@ -41,5 +41,7 @@ src_install() {
 
 	# collides with kde-base/kimgio
 	# part of shared-mime-info upstream at 7612a110f9a42db4730a8c6d1fff6d78c899d53d
-	mv "${D}"/usr/share/mime/packages/{,kimageformats}webp.xml || die "rename failed"
+	if use webp ; then
+		"${D}"/usr/share/mime/packages/{,kimageformats}webp.xml || die "rename failed"
+	fi
 }
