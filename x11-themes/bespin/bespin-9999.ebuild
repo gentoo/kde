@@ -9,7 +9,7 @@ KDE_SCM="svn"
 inherit kde4-base qmake-utils
 
 if [[ $PV != *9999 ]]; then
-	REV="1669"
+	REV="1712"
 	S="${WORKDIR}/cloudcity-code-${REV}"
 	SRC_URI="http://sourceforge.net/code-snapshots/svn/c/cl/cloudcity/code/cloudcity-code-${REV}.zip"
 	KEYWORDS="~amd64 ~x86"
@@ -30,7 +30,7 @@ REQUIRED_USE="
 	plasma? ( kde )
 "
 
-DEPEND="
+RDEPEND="
 	dev-qt/qt3support:4
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
@@ -39,7 +39,9 @@ DEPEND="
 	x11-libs/libXrender
 	windeco? ( $(add_kdebase_dep kwin) )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	app-arch/unzip
+"
 
 src_configure() {
 	if use kde ; then
