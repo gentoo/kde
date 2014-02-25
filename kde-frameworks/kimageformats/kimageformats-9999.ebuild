@@ -9,7 +9,7 @@ inherit kde-frameworks
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="eps jpeg2k openexr webp"
+IUSE="eps jpeg2k openexr"
 
 RDEPEND="
 	dev-qt/qtgui:5
@@ -19,7 +19,6 @@ RDEPEND="
 		media-libs/ilmbase:=
 		media-libs/openexr:=
 	)
-	webp? ( media-libs/libwebp:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -30,7 +29,6 @@ src_configure() {
 		$(cmake-utils_use_find_package eps Qt5PrintSupport)
 		$(cmake-utils_use_find_package jpeg2k Jasper)
 		$(cmake-utils_use_find_package openexr OpenEXR)
-		$(cmake-utils_use_find_package webp WebP)
 	)
 
 	kde-frameworks_src_configure
