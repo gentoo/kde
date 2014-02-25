@@ -6,7 +6,7 @@ EAPI=5
 KDE_REQUIRED="optional"
 KDE_SCM="svn"
 
-inherit kde4-base
+inherit kde4-base qmake-utils
 
 if [[ $PV != *9999 ]]; then
 	REV="1669"
@@ -38,12 +38,32 @@ DEPEND="
 "
 
 src_configure() {
-	mycmakeargs=(
-		$(cmake-utils_use_enable kde KDE)
-		$(cmake-utils_use_enable windeco KWIN)
-		$(cmake-utils_use_enable plasma XBAR)
-		-DENABLE_ARGB=ON
-	)
+	if use kde ; then
+		local mycmakeargs=(
+			$(cmake-utils_use_enable kde KDE)
+			$(cmake-utils_use_enable windeco KWIN)
+			$(cmake-utils_use_enable plasma XBAR)
+			-DENABLE_ARGB=ON
+		)
 
-	kde4-base_src_configure
+		kde4-base_src_configure
+	else
+		eqmake4
+	fi
+}
+
+src_compile() {
+	if use kde ; then
+		kde4-base_src_compile
+	else
+		default
+	fi
+}
+
+src_install() {
+	if use kde ; then
+		kde4-base_src_install
+	else
+		emake INSTALL_ROOT="${D}" install
+	fi
 }
