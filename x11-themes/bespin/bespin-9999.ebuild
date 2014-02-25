@@ -14,7 +14,7 @@ if [[ $PV != *9999 ]]; then
 	SRC_URI="http://sourceforge.net/code-snapshots/svn/c/cl/cloudcity/code/cloudcity-code-${REV}.zip"
 	KEYWORDS="~amd64 ~x86"
 else
-	ESVN_REPO_URI="https://cloudcity.svn.sourceforge.net/svnroot/cloudcity"
+	ESVN_REPO_URI="http://svn.code.sf.net/p/cloudcity/code/"
 	KEYWORDS=""
 fi
 
