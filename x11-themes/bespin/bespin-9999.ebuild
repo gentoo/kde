@@ -31,11 +31,15 @@ REQUIRED_USE="
 "
 
 DEPEND="
+	dev-qt/qt3support:4
 	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	dev-qt/qtgui:4
+	x11-libs/libX11
+	x11-libs/libXrender
 	windeco? ( $(add_kdebase_dep kwin) )
-	plasma? ( $(add_kdebase_dep kdelibs) dev-qt/qtgui:4[dbus(+)] )
 "
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	if use kde ; then
