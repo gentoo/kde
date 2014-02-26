@@ -4,11 +4,12 @@
 
 EAPI=5
 
+DISABLE_AUTOFORMATTING="true"
 DECLARATIVE_REQUIRED="always"
 VIRTUALX_REQUIRED="test"
 KDE_LINGUAS="bs cs da de el es et fi fr ga gl hu it lt mr nl pt pt_BR ro ru sk
 sl sv tr uk zh_CN zh_TW"
-inherit kde4-base
+inherit kde4-base readme.gentoo
 
 DESCRIPTION="Alternative KDE screen management"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/kscreen"
@@ -24,31 +25,23 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DISTPLAY_MESSAGE=false
-pkg_preinst() {
-	if ! has_version ${CATEGORY}/${PN} ; then
-		DISPLAY_MESSAGE=true
-	fi
+DOC_CONTENTS="Disable the old screen management:
+# qdbus org.kde.kded /kded org.kde.kded.unloadModule randrmonitor
+# qdbus org.kde.kded /kded org.kde.kded.setModuleAutoloading randrmonitor false
 
-	kde4-base_pkg_preinst
+Enable the kded module for the kscreen based screen management:
+# qdbus org.kde.kded /kded org.kde.kded.loadModule kscreen
+
+Now simply (un-)plugging displays should enable/disable them, while
+the last state is remembered.
+"
+
+src_install() {
+	kde4-base_src_install
+	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
-	if [[ "${DISPLAY_MESSAGE}" = true ]]; then
-		echo
-		elog "Disable the old screen management:"
-		elog "# qdbus org.kde.kded /kded org.kde.kded.unloadModule randrmonitor"
-		elog "# qdbus org.kde.kded /kded org.kde.kded.setModuleAutoloading randrmonitor false"
-		elog
-		elog "Enable the kded module for the kscreen based screen management:"
-		elog "# qdbus org.kde.kded /kded org.kde.kded.loadModule kscreen"
-		elog
-		elog "Now simply (un-)plugging displays should enable/disable them, while"
-		elog "the last state is remembered."
-		echo
-	fi
-
-	unset DISPLAY_MESSAGE
-
 	kde4-base_pkg_postinst
+	readme.gentoo_print_elog
 }
