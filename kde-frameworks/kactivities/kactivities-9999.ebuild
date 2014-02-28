@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for working with KDE activities"
