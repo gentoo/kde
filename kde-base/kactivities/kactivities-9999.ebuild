@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="KDE/4.13"
 inherit kde4-base
 
 DESCRIPTION="KDE Activity Manager"
