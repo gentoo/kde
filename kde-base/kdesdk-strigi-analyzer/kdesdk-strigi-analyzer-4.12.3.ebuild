@@ -15,3 +15,7 @@ DEPEND="
 	app-misc/strigi
 "
 RDEPEND="${DEPEND}"
+
+if [[ ${KDE_BUILD_TYPE} != live ]] ; then
+	S="${WORKDIR}/${KMNAME}-${PV}"
+fi
