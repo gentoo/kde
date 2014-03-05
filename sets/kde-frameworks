@@ -45,6 +45,7 @@ kde-frameworks/kparts:5
 kde-frameworks/kplotting:5
 kde-frameworks/kpty:5
 kde-frameworks/kross:5
+kde-frameworks/krunner:5
 kde-frameworks/kservice:5
 kde-frameworks/ktexteditor:5
 kde-frameworks/ktextwidgets:5
