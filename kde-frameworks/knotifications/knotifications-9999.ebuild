@@ -11,10 +11,16 @@ KEYWORDS=""
 IUSE="X dbus"
 
 RDEPEND="
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	X? (
 		dev-qt/qtx11extras:5
