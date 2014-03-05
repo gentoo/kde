@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
-SRC_URI="mirror://kde/unstable/frameworks/4.96.0/${P}.tar.xz"
+SRC_URI="mirror://kde/unstable/frameworks/4.97.0/${P}.tar.xz"
 
 LICENSE="BSD"
 SLOT=0
