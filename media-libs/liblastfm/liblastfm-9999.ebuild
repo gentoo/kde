@@ -4,29 +4,41 @@
 
 EAPI=5
 
-QT_MINIMAL="4.8.0"
 inherit cmake-utils git-r3
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
-HOMEPAGE="http://github.com/eartle/liblastfm"
-EGIT_REPO_URI=( "git://github.com/eartle/${PN}" )
+HOMEPAGE="https://github.com/lastfm/liblastfm"
+EGIT_REPO_URI=( "git://github.com/lastfm/${PN}" )
 
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0/0"
-IUSE="fingerprint test"
+IUSE="fingerprint test +qt4 qt5"
+REQUIRED_USE="^^ ( qt4 qt5 )"
 
 COMMON_DEPEND="
-	>=dev-qt/qtcore-${QT_MINIMAL}:4
-	>=dev-qt/qtdbus-${QT_MINIMAL}:4
+	qt4? (
+		dev-qt/qtcore:4
+		dev-qt/qtdbus:4
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtxml:5
+	)
 	fingerprint? (
 		media-libs/libsamplerate
 		sci-libs/fftw:3.0
-		>=dev-qt/qtsql-${QT_MINIMAL}:4
+		qt4? ( dev-qt/qtsql:4 )
+		qt5? ( dev-qt/qtsql:5 )
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( >=dev-qt/qttest-${QT_MINIMAL}:4 )
+	test? (
+		qt4? ( dev-qt/qttest:4 )
+		qt5? ( dev-qt/qttest:5 )
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!<media-libs/lastfmlib-0.4.0
@@ -39,6 +51,7 @@ src_configure() {
 	# demos not working
 	local mycmakeargs=(
 		-DBUILD_DEMOS=OFF
+		$(cmake-utils_use_build qt4 WITH_QT4)
 		$(cmake-utils_use_build fingerprint)
 		$(cmake-utils_use_build test TESTS)
 	)
