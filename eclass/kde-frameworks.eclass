@@ -73,7 +73,7 @@ SLOT=5
 case ${FRAMEWORKS_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.10"
+		DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.11"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 		;;
 esac
