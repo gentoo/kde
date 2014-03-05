@@ -441,6 +441,9 @@ _calculate_src_uri() {
 				4.[1-7].[12345])
 					# Stable KDE SC with old .bz2 support
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
+				4.11.7)
+					# Part of 4.12 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.12.3/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
