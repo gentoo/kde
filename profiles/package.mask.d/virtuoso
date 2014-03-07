@@ -1,5 +1,5 @@
 # Chris Reffett <creffett@gentoo.org> (29 Aug 2013)
 # Virtuoso 7 doesn't work with KDE at all yet.
-=dev-db/virtuoso-server-7.0.0
-=dev-db/virtuoso-odbc-7.0.0
-=dev-db/virtuoso-jdbc-7.0.0
+>=dev-db/virtuoso-server-7.0.0
+>=dev-db/virtuoso-odbc-7.0.0
+>=dev-db/virtuoso-jdbc-7.0.0
