@@ -80,7 +80,7 @@ src_configure() {
 }
 
 src_install() {
-	virtuoso_src_install
+	default_src_install
 
 	keepdir /var/lib/virtuoso/db
 }
