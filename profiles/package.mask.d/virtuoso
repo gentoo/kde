@@ -1,10 +1,4 @@
 # Chris Reffett <creffett@gentoo.org> (29 Aug 2013)
-# Virtuoso 6.1.7 does not work for KDE 4.11 according to upstream report.
-=dev-db/virtuoso-server-6.1.7
-=dev-db/virtuoso-odbc-6.1.7
-=dev-db/virtuoso-jdbc-6.1.7
-
-# Chris Reffett <creffett@gentoo.org> (29 Aug 2013)
 # Virtuoso 7 doesn't work with KDE at all yet.
 =dev-db/virtuoso-server-7.0.0
 =dev-db/virtuoso-odbc-7.0.0
