@@ -20,8 +20,8 @@ COMMON_DEPEND="
 	app-crypt/qca:2
 	app-crypt/qca-ossl:2
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
-	$(add_kdebase_dep krunner)
-	$(add_kdebase_dep plasma-workspace 'semantic-desktop?')
+	$(add_kdebase_dep krunner '' 4.11)
+	$(add_kdebase_dep plasma-workspace 'semantic-desktop?' 4.11)
 	x11-misc/shared-mime-info
 	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )

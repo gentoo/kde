@@ -16,7 +16,7 @@ RDEPEND="
 	app-crypt/qca:2
 	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
-	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libkworkspace '' 4.11)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
 	mms? ( media-libs/libmms )
 	semantic-desktop? (
