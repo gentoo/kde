@@ -365,7 +365,7 @@ __list_needed_subdirectories() {
 # @DESCRIPTION:
 # Meta-package build system configuration handling - commenting out targets, etc..
 kde4-meta_src_prepare() {
-	debug-print-function  ${FUNCNAME} "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	kde4-meta_change_cmakelists
 	kde4-base_src_prepare
@@ -575,7 +575,7 @@ kde4-meta_src_compile() {
 # Currently just calls its equivalent in kde4-base.eclass(5) if
 # I_KNOW_WHAT_I_AM_DOING is set. Use this in split ebuilds.
 kde4-meta_src_test() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ $I_KNOW_WHAT_I_AM_DOING ]]; then
 		kde4-base_src_test
@@ -588,7 +588,7 @@ kde4-meta_src_test() {
 # @DESCRIPTION:
 # Function for installing KDE4 split applications.
 kde4-meta_src_install() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	# Search ${S}/${KMMODULE} and install common documentation files found
 	local doc
