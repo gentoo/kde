@@ -594,7 +594,7 @@ cmake-utils_src_make() {
 	_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null
 
-	${CMAKE_MAKEFILE_GENERATOR}_src_make $@
+	${CMAKE_MAKEFILE_GENERATOR}_src_make "$@"
 
 	popd > /dev/null
 }
