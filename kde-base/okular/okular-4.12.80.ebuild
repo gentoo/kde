@@ -15,7 +15,7 @@ inherit kde4-base
 DESCRIPTION="Okular is a universal document viewer based on KPDF for KDE 4."
 HOMEPAGE="http://okular.kde.org http://www.kde.org/applications/graphics/okular"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="chm crypt debug djvu ebook +jpeg mobi +postscript +pdf +tiff"
+IUSE="chm crypt debug djvu dpi ebook +jpeg mobi +postscript +pdf +tiff"
 
 DEPEND="
 	media-libs/freetype
@@ -24,6 +24,7 @@ DEPEND="
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2 )
 	djvu? ( app-text/djvu )
+	dpi? ( x11-libs/libkscreen )
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( virtual/jpeg:0 )
 	mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) )
@@ -38,6 +39,7 @@ src_configure() {
 		$(cmake-utils_use_with chm)
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with djvu DjVuLibre)
+		$(cmake-utils_use_with dpi LibKScreen)
 		$(cmake-utils_use_with ebook EPub)
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with mobi QMobiPocket)
