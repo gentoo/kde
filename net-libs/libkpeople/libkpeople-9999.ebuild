@@ -23,9 +23,7 @@ SLOT="4"
 IUSE="debug examples test"
 
 DEPEND="
-	dev-libs/shared-desktop-ontologies
-	dev-libs/soprano
-	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"
 
