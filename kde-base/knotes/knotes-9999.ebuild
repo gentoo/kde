@@ -24,6 +24,7 @@ KMCOMPILEONLY="
 "
 
 KMEXTRACTONLY="
+	akonadi_next/
 	pimcommon/
 "
 
