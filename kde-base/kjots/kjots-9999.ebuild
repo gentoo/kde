@@ -22,4 +22,5 @@ RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	akonadi_next/
+	noteshared/
 "
