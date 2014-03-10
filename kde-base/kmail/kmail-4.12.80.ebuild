@@ -31,6 +31,7 @@ KMEXTRACTONLY="
 	agents/sendlateragent/
 	akonadi_next/
 	calendarsupport/
+	calendarviews/
 	korganizer/
 	kresources/
 	libkleo/
