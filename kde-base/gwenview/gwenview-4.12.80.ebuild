@@ -20,8 +20,6 @@ IUSE="debug kipi semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep baloo)
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep kactivities)
 	media-gfx/exiv2:=
@@ -30,13 +28,12 @@ DEPEND="
 	virtual/jpeg:0
 	x11-libs/libX11
 	kipi? ( $(add_kdebase_dep libkipi) )
-	semantic-desktop? ( $(add_kdebase_dep nepomuk-core) )
+	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with kipi)
 	)
 	# Workaround for bug #479510
@@ -45,7 +42,7 @@ src_configure() {
 	fi
 
 	if use semantic-desktop; then
-		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Nepomuk)
+		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Baloo)
 	else
 		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
 	fi
