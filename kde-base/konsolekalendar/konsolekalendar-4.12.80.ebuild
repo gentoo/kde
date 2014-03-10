@@ -24,6 +24,7 @@ KMCOMPILEONLY="
 	calendarsupport/
 "
 KMEXTRACTONLY="
+	calendarviews/
 	libkdepimdbusinterfaces/
 "
 
