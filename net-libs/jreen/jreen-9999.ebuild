@@ -13,7 +13,7 @@ else
 	KEYWORDS=""
 fi
 
-inherit qt4-r2 cmake-utils ${GIT_ECLASS}
+inherit cmake-utils ${GIT_ECLASS}
 
 DESCRIPTION="Qt XMPP library"
 HOMEPAGE="https://github.com/euroelessar/jreen"
@@ -25,15 +25,16 @@ IUSE="debug +qt4 qt5"
 REQUIRED_USE="^^ ( qt4 qt5 )"
 
 DEPEND="
-	>=app-crypt/qca-2.0.3
 	media-libs/speex
 	>=net-dns/libidn-1.20
 	net-libs/libgsasl
 	qt4? (
+		>=app-crypt/qca-2.0.3[qt4(+)]
 		>=dev-qt/qtcore-4.6.0:4
 		>=dev-qt/qtgui-4.6.0:4
 	)
 	qt5? (
+		=app-crypt/qca-9999[qt5]
 		dev-qt/qtcore:5
 		dev-qt/qtnetwork:5
 	)
