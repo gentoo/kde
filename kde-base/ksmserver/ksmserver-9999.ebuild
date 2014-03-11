@@ -21,7 +21,9 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXrender
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep kdm)
+"
 
 KMEXTRACTONLY="
 	kcminit/main.h
