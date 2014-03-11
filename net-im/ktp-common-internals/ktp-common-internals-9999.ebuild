@@ -24,7 +24,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	net-libs/libkpeople
+	>=net-libs/libkpeople-0.2.1
 	>=net-libs/telepathy-qt-0.9.3
 	>=net-libs/telepathy-logger-qt-0.5.80
 "
