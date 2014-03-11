@@ -20,6 +20,7 @@ IUSE="debug kipi semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
+	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep kactivities)
 	media-gfx/exiv2:=
