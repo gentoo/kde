@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/kdeconnect/kdeconnect-0.5.1.ebuild,v 1.1 2014/03/11 03:27:01 mrueg Exp $
 
 EAPI=5
 
@@ -41,8 +41,11 @@ src_prepare(){
 }
 
 pkg_postinst(){
-	einfo
-	einfo "The Android .apk file is available via"
-	einfo "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
-	einfo
+	elog
+	elog "Optional dependency:"
+	elog "sys-fs/sshfs-fuse (for 'remote filesystem browser' plugin)"
+	elog
+	elog "The Android .apk file is available via"
+	elog "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
+	elog
 }
