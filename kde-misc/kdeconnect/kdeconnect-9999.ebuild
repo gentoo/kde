@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/kdeconnect/kdeconnect-0.5.1.ebuild,v 1.1 2014/03/11 03:27:01 mrueg Exp $
+# $Header: $
 
 EAPI=5
 
