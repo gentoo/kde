@@ -4,9 +4,9 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs ca ca@valencia cs da de el es et fi fr ga gl hu ia it kk km lt
-mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin
-sv tr uk vi zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia cs da de el es et fi fr ga gl hu ia it kk km ko
+lt mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin
+sr@latin sv tr uk vi zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy krunner plugin"
