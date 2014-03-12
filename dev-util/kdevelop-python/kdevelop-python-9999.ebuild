@@ -6,24 +6,15 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-
-if [[ $PV == *.9999* ]]; then
-	EGIT_BRANCH="${PV/\.9999/}"
-	KDEVPLATFORM_VERSION="${EGIT_BRANCH}"
-fi
-
+KDE_LINGUAS="bs ca ca@valencia da de es fi fr gl it kk nl pt pt_BR sk sl sv uk
+zh_TW"
 inherit kde4-base
 
 MY_PN="${KMNAME}"
-MY_PV="v${PV}"
-MY_P="${MY_PN}-${MY_PV}"
+MY_P="${MY_PN}-${PV}"
 
 if [[ $PV != *9999* ]]; then
-	if [[ $PV == *[6-9][0-9]* ]]; then
-		SRC_URI="mirror://kde/unstable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
-	else
-		SRC_URI="mirror://kde/stable/kdevelop/${MY_PN}/${PV}/src/${MY_P}.tar.bz2"
-	fi
+	SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 	S=${WORKDIR}/${MY_P}
 else
@@ -38,7 +29,8 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 DEPEND="
-	>=dev-util/kdevplatform-1.4.60
+	>=dev-util/kdevelop-pg-qt-1.0.0
+	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
 "
 RDEPEND="
 	${DEPEND}
