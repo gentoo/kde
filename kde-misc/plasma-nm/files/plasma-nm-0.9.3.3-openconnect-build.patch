@@ -1,0 +1,101 @@
+diff --git a/vpn/openconnect/openconnectauth.cpp b/vpn/openconnect/openconnectauth.cpp
+index 33e8c93..e2eb15a 100644
+--- a/vpn/openconnect/openconnectauth.cpp
++++ b/vpn/openconnect/openconnectauth.cpp
+@@ -414,7 +414,7 @@ void OpenconnectAuthWidget::processAuthForm(struct oc_auth_form *form)
+     int passwordnumber = 0;
+     bool focusSet = false;
+     for (opt = form->opts; opt; opt = opt->next) {
+-        if (opt->type == OC_FORM_OPT_HIDDEN)
++        if (opt->type == OC_FORM_OPT_HIDDEN || IGNORE_OPT(opt))
+             continue;
+         QLabel *text = new QLabel(this);
+         text->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+@@ -441,9 +441,20 @@ void OpenconnectAuthWidget::processAuthForm(struct oc_auth_form *form)
+             KComboBox *cmb = new KComboBox(this);
+             struct oc_form_opt_select *sopt = reinterpret_cast<oc_form_opt_select *>(opt);
+             for (int i = 0; i < sopt->nr_choices; i++) {
+-                cmb->addItem(QString::fromUtf8(sopt->choices[i].label), QString::fromUtf8(sopt->choices[i].name));
+-                if (value == QString::fromUtf8(sopt->choices[i].name))
++                cmb->addItem(QString::fromUtf8(FORMCHOICE(sopt, i)->label),
++                             QString::fromUtf8(FORMCHOICE(sopt, i)->name));
++                if (value == QString::fromUtf8(FORMCHOICE(sopt, i)->name)) {
+                     cmb->setCurrentIndex(i);
++                    if (sopt == AUTHGROUP_OPT(form) &&
++                        i != AUTHGROUP_SELECTION(form)) {
++                        // XXX: Immediately return OC_FORM_RESULT_NEWGROUP to
++                        //      change group
++                    }
++                }
++            }
++            if (sopt == AUTHGROUP_OPT(form)) {
++                /// XXX: Hook up signal when the KComboBox entry changes, to
++                //       return OC_FORM_RESULT_NEWGROUP
+             }
+             widget = qobject_cast<QWidget*>(cmb);
+         }
+@@ -540,6 +551,7 @@ void OpenconnectAuthWidget::validatePeerCert(const QString &fingerprint,
+ void OpenconnectAuthWidget::formLoginClicked()
+ {
+     Q_D(OpenconnectAuthWidget);
++    /// XXX: This, or something like it, needs to be called when the KComboBox for the auth group changes too.
+     const int lastIndex = d->ui.loginBoxLayout->count() - 1;
+     QLayout *layout = d->ui.loginBoxLayout->itemAt(lastIndex - 2)->layout();
+     struct oc_auth_form *form = (struct oc_auth_form *) d->ui.loginBoxLayout->itemAt(lastIndex)->widget()->property("openconnect_form").value<quintptr>();
+diff --git a/vpn/openconnect/openconnectauthworkerthread.cpp b/vpn/openconnect/openconnectauthworkerthread.cpp
+index 4c16388..194b164 100644
+--- a/vpn/openconnect/openconnectauthworkerthread.cpp
++++ b/vpn/openconnect/openconnectauthworkerthread.cpp
+@@ -59,7 +59,7 @@ public:
+     {
+         if (obj)
+             return static_cast<OpenconnectAuthWorkerThread*>(obj)->processAuthFormP(form);
+-        return -1;
++        return OC_FORM_RESULT_ERR;
+     }
+     static void writeProgress(void *obj, int level, const char *str, ...)
+     {
+@@ -181,9 +181,11 @@ int OpenconnectAuthWorkerThread::processAuthFormP(struct oc_auth_form *form)
+     m_waitForUserInput->wait(m_mutex);
+     m_mutex->unlock();
+     if (*m_userDecidedToQuit)
+-        return -1;
++        return OC_FORM_RESULT_CANCELLED;
+ 
+-    return 0;
++    /// XXX: If group changed, return OC_FORM_RESULT_NEWGROUP
++
++    return OC_FORM_RESULT_OK;
+ }
+ 
+ void OpenconnectAuthWorkerThread::writeProgress(int level, const char *fmt, va_list argPtr)
+diff --git a/vpn/openconnect/openconnectauthworkerthread.h b/vpn/openconnect/openconnectauthworkerthread.h
+index 37c854f..39d68b3 100644
+--- a/vpn/openconnect/openconnectauthworkerthread.h
++++ b/vpn/openconnect/openconnectauthworkerthread.h
+@@ -40,6 +40,25 @@ struct x509_st;
+ #define OPENCONNECT_OPENSSL
+ #endif
+ 
++#if OPENCONNECT_CHECK_VER(3,0)
++#define NEWGROUP_SUPPORTED	1
++#define AUTHGROUP_OPT(form)	(void *)(form)->authgroup_opt
++#define AUTHGROUP_SELECTION(form) (form)->authgroup_selection
++#define FORMCHOICE(sopt, i)	((sopt)->choices[i])
++#define IGNORE_OPT(opt)		((opt)->flags & OC_FORM_OPT_IGNORE)
++#else
++#define NEWGROUP_SUPPORTED	0
++#define AUTHGROUP_OPT(form)	NULL
++#define AUTHGROUP_SELECTION(form) 0
++#define FORMCHOICE(sopt, i)	(&(sopt)->choices[i])
++#define IGNORE_OPT(opt)		0
++
++#define OC_FORM_RESULT_ERR	-1
++#define OC_FORM_RESULT_OK	0
++#define OC_FORM_RESULT_CANCELLED 1
++#define OC_FORM_RESULT_NEWGROUP	2
++#endif
++
+ #include <QThread>
+ 
+ class QMutex;
