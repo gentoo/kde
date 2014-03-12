@@ -4,15 +4,14 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
-pt_BR ru sl sv th uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
+pl pt pt_BR ru sk sl sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
-
 inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug okteta qthelp"
+IUSE="+cmake +cxx debug okteta qthelp reviewboard"
 
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
@@ -21,11 +20,12 @@ else
 fi
 
 DEPEND="
+	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}[reviewboard?]
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
-	dev-libs/qjson
 	okteta? ( $(add_kdebase_dep okteta) )
 	qthelp? ( dev-qt/qthelp:4 )
+	reviewboard? ( dev-libs/qjson )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
@@ -44,6 +44,7 @@ src_configure() {
 		$(cmake-utils_use_with okteta LibOkteta)
 		$(cmake-utils_use_with okteta LibOktetaKasten)
 		$(cmake-utils_use_build qthelp)
+		$(cmake-utils_use_find_package reviewboard QJSON)
 	)
 
 	kde4-base_src_configure
