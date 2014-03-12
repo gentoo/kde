@@ -4,13 +4,12 @@
 
 EAPI=5
 
-KDE_LINGUAS="ca ca@valencia da de el en_GB es et fi fr gl it nb nds nl pl pt
-pt_BR sv th uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it kk nb nds nl pl
+pt pt_BR ru sl sv uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KDEBASE="kdevelop"
 KMNAME="kdev-php"
 EGIT_REPONAME="${KMNAME}"
-
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
