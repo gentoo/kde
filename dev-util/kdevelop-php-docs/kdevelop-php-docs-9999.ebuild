@@ -4,11 +4,10 @@
 
 EAPI=5
 
-KDE_LINGUAS="ca ca@valencia da de en_GB es et fi fr gl hu it nb nds nl pl pt
-pt_BR ru sk sv uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
+pl pt pt_BR ru sk sl sv tr uk zh_CN zh_TW"
 KMNAME="kdevelop"
 EGIT_REPONAME="kdev-php-docs"
-
 inherit kde4-base
 
 DESCRIPTION="PHP documentation plugin for KDevelop 4"
