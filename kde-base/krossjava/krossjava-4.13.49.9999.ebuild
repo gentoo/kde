@@ -45,7 +45,7 @@ src_install() {
 	kde4-meta_src_install
 	java-pkg_dojar "${ED}/usr/$(get_libdir)/kde4/kross/kross.jar"
 
-	dosym ../../../share/${PN}-${SLOT}/lib/kross.jar \
+	dosym ../../../share/${PN}-$(get_major_version ${SLOT})/lib/kross.jar \
 		/usr/$(get_libdir)/kde4/kross/kross.jar
 	java-pkg_regso "${ED}/usr/$(get_libdir)/kde4/krossjava.so"
 }
