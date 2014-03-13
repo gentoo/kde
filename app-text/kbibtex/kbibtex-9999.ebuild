@@ -9,7 +9,7 @@ inherit versionator kde4-base
 DESCRIPTION="BibTeX editor for KDE to edit bibliographies used with LaTeX"
 HOMEPAGE="http://home.gna.org/kbibtex/"
 if [[ ${PV} != *9999* ]]; then
-	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.bz2"
+	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 else
 	EGIT_BRANCH="master"
