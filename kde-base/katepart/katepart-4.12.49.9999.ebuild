@@ -21,6 +21,8 @@ KMEXTRA="
 	addons/ktexteditor
 "
 
+PATCHES=( "${FILESDIR}/${PN}-4.12.3-crash-fix.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		"-DKDE4_BUILD_TESTS=OFF"
