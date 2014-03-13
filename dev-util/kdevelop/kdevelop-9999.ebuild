@@ -11,7 +11,7 @@ inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug okteta qthelp reviewboard"
+IUSE="+cmake +cxx debug okteta qthelp"
 
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
@@ -20,12 +20,12 @@ else
 fi
 
 DEPEND="
-	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}[reviewboard?]
+	dev-libs/qjson
+	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
 	$(add_kdebase_dep ksysguard)
 	$(add_kdebase_dep libkworkspace)
 	okteta? ( $(add_kdebase_dep okteta) )
 	qthelp? ( dev-qt/qthelp:4 )
-	reviewboard? ( dev-libs/qjson )
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
@@ -44,7 +44,6 @@ src_configure() {
 		$(cmake-utils_use_with okteta LibOkteta)
 		$(cmake-utils_use_with okteta LibOktetaKasten)
 		$(cmake-utils_use_build qthelp)
-		$(cmake-utils_use_find_package reviewboard QJSON)
 	)
 
 	kde4-base_src_configure
