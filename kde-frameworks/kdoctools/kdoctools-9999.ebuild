@@ -13,7 +13,7 @@ IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
-	app-text/docbook-xml-dtd
+	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxml2:2
 	dev-libs/libxslt
