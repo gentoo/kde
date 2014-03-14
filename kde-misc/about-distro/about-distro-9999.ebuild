@@ -24,6 +24,10 @@ LICENSE="GPL-3"
 SLOT="4"
 IUSE="debug"
 
+RDEPEND="${DEPEND}
+	sys-apps/lsb-release
+"
+
 src_install() {
 	kde4-base_src_install
 
