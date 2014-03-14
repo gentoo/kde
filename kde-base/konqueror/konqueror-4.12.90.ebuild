@@ -24,6 +24,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
 	$(add_kdebase_dep kfmclient)
+	$(add_kdebase_dep kurifilter-plugins)
 	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
 	svg? ( $(add_kdebase_dep svgpart) )
 "
