@@ -4,13 +4,14 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr
-ga gl hu it ja lt lv nb nl pa pl pt pt_BR ru sl sr sr@ijekavian
-sr@ijekavianlatin sr@latin sv uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it ja
+lt lv nb nl pa pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin
+sv tr uk zh_CN zh_TW"
+KDE_REQUIRED="never"
 KDE_HANDBOOK="optional"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-inherit flag-o-matic kde4-base
+inherit flag-o-matic kde4-base pax-utils
 
 DESCRIPTION="Advanced audio player based on KDE framework."
 HOMEPAGE="http://amarok.kde.org/"
@@ -106,6 +107,13 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
+}
+
+src_install() {
+	kde4-base_src_install
+
+	# bug 481592
+	pax-mark m "${ED}"/usr/bin/amarok
 }
 
 pkg_postinst() {
