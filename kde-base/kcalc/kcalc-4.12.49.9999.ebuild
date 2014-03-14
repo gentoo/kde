@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-CPPUNIT_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE calculator"
@@ -18,10 +17,3 @@ DEPEND="
 	dev-libs/gmp
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT=test
-# Testing result of: KNumber("nan") ^ KNumber("inf") should give nan and gives inf ...
-
-src_test() {
-	LANG=C kde4-base_src_test
-}
