@@ -8,7 +8,7 @@ CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 KDE_HANDBOOK="optional"
-inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
+inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic pax-utils
 
 EGIT_BRANCH="KDE/4.12"
 
@@ -231,6 +231,9 @@ src_compile() {
 
 src_install() {
 	kde4-base_src_install
+
+	# bug 473842
+	pax-mark m "${ED}"/usr/bin/kdeinit4
 
 	# use system certificates
 	rm -f "${ED}"/usr/share/apps/kssl/ca-bundle.crt || die
