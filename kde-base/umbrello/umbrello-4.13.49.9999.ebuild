@@ -19,6 +19,4 @@ RDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+DEPEND="${RDEPEND}"
