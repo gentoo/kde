@@ -30,7 +30,10 @@ DEPEND="
 		$(add_kdebase_dep kcheckpass)
 		virtual/pam
 	)
-	systemd? ( sys-apps/systemd )
+	systemd? (
+		sys-apps/systemd
+		sys-apps/systemd-sysv-utils
+	)
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepasswd)
