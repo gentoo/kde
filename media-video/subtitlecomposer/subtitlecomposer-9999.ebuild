@@ -4,13 +4,13 @@
 
 EAPI=5
 
-KDE_LINGUAS="bg cs de el es fr it pl pt_BR sr"
-KDE_SCM="svn"
+KDE_LINGUAS="bg cs de el es fr hu pl pt_BR ru sr sr@latin uk"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 inherit kde4-base
 
-DESCRIPTION="Text-based subtitles editor."
-HOMEPAGE="http://www.sourceforge.net/projects/subcomposer/"
-ESVN_REPO_URI="https://subcomposer.svn.sourceforge.net/svnroot/subcomposer/trunk"
+DESCRIPTION="Text-based subtitles editor"
+HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
+EGIT_REPO_URI="git://github.com/maxrd2/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -26,14 +26,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	sed -e '/ADD_SUBDIRECTORY( api )/s/^/# DISABLED/' \
-		-i src/main/scripting/examples/CMakeLists.txt \
-		|| die "failed to disable installation of scripting API"
-}
 
 src_configure() {
 	mycmakeargs=(
