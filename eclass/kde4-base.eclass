@@ -200,7 +200,7 @@ esac
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Determine version of qt we enforce as minimal for the package.
-QT_MINIMAL="${QT_MINIMAL:-4.8.0}"
+QT_MINIMAL="${QT_MINIMAL:-4.8.5}"
 
 # Declarative dependencies
 qtdeclarativedepend="
@@ -288,10 +288,8 @@ kdecommondepend="
 	>=dev-qt/qt3support-${QT_MINIMAL}:4[accessibility]
 	>=dev-qt/qtcore-${QT_MINIMAL}:4[qt3support,ssl]
 	>=dev-qt/qtdbus-${QT_MINIMAL}:4
-	|| (
-		( >=dev-qt/qtgui-4.8.5:4[accessibility,dbus(+)] dev-qt/designer:4[-phonon] )
-		<dev-qt/qtgui-4.8.5:4[accessibility,dbus(+)]
-	)
+	>=dev-qt/designer-${QT_MINIMAL}:4[-phonon]
+	>=dev-qt/qtgui-${QT_MINIMAL}:4[accessibility,dbus(+)]
 	>=dev-qt/qtscript-${QT_MINIMAL}:4
 	>=dev-qt/qtsql-${QT_MINIMAL}:4[qt3support]
 	>=dev-qt/qtsvg-${QT_MINIMAL}:4
