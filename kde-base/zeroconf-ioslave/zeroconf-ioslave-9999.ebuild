@@ -8,17 +8,6 @@ inherit kde4-base
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
 KEYWORDS=""
-IUSE="debug zeroconf"
+IUSE="debug"
 
-DEPEND="
-	zeroconf? ( $(add_kdebase_dep kdelibs zeroconf) )
-"
-RDEPEND="${DEPEND}
-	!kde-base/kdnssd:4
-"
-
-src_configure() {
-	mycmakeargs=(-DWITH_Xmms=OFF -DWITH_DNSSD=ON)
-
-	kde4-base_src_configure
-}
+RDEPEND="!kde-base/kdnssd:4"
