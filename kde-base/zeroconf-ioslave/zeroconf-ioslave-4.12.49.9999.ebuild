@@ -13,7 +13,9 @@ IUSE="debug zeroconf"
 DEPEND="
 	zeroconf? ( $(add_kdebase_dep kdelibs zeroconf) )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kdnssd:4
+"
 
 src_configure() {
 	mycmakeargs=(-DWITH_Xmms=OFF -DWITH_DNSSD=ON)

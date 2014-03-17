@@ -226,11 +226,11 @@
 >=kde-base/mplayerthumbs-4.13
 >=kde-base/kdenetwork-filesharing-4.13
 >=kde-base/kdenetwork-meta-4.13
->=kde-base/kdnssd-4.13
 >=kde-base/kget-4.13
 >=kde-base/kopete-4.13
 >=kde-base/krdc-4.13
 >=kde-base/krfb-4.13
+>=kde-base/zeroconf-ioslave-4.13
 >=kde-base/kfloppy-4.13
 >=kde-base/kppp-4.13
 >=kde-base/akonadiconsole-4.13

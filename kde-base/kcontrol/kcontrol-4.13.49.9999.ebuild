@@ -13,6 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdnssd)
 	$(add_kdebase_dep khotkeys '' 4.11)
+	$(add_kdebase_dep zeroconf-ioslave)
 "

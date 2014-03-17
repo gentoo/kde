@@ -243,11 +243,11 @@
 ~kde-base/mplayerthumbs-9999 **
 ~kde-base/kdenetwork-filesharing-9999 **
 ~kde-base/kdenetwork-meta-9999 **
-~kde-base/kdnssd-9999 **
 ~kde-base/kget-9999 **
 ~kde-base/kopete-9999 **
 ~kde-base/krdc-9999 **
 ~kde-base/krfb-9999 **
+~kde-base/zeroconf-ioslave-9999 **
 ~kde-base/kfloppy-9999 **
 ~kde-base/kppp-9999 **
 ~kde-base/akonadiconsole-9999 **

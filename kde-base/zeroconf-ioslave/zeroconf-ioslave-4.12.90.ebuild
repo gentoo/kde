@@ -4,16 +4,21 @@
 
 EAPI=5
 
+KMNAME="kdnssd"
 inherit kde4-base
 
 DESCRIPTION="A DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug zeroconf"
 
 DEPEND="
 	zeroconf? ( $(add_kdebase_dep kdelibs zeroconf) )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kdnssd:4
+"
+
+S=${WORKDIR}/${KMNAME}-${PV}
 
 src_configure() {
 	mycmakeargs=(-DWITH_Xmms=OFF -DWITH_DNSSD=ON)
