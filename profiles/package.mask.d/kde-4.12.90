@@ -226,7 +226,6 @@
 ~kde-base/mplayerthumbs-4.12.90
 ~kde-base/kdenetwork-filesharing-4.12.90
 ~kde-base/kdenetwork-meta-4.12.90
-~kde-base/kdnssd-4.12.90
 ~kde-base/kget-4.12.90
 ~kde-base/kopete-4.12.90
 ~kde-base/krdc-4.12.90
@@ -297,4 +296,4 @@
 ~kde-base/kommander-4.12.90
 ~kde-base/kdebase-meta-4.12.90
 ~kde-base/kde-meta-4.12.90
-
+~kde-base/zeroconf-ioslave-4.12.90
