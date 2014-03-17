@@ -29,7 +29,6 @@ LICENSE="GPL-2"
 IUSE="debug"
 
 DEPEND="
-	>=dev-util/kdevelop-pg-qt-1.0.0
 	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
 "
 RDEPEND="
