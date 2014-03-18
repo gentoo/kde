@@ -22,14 +22,16 @@ SLOT="0"
 IUSE="debug doc modemmanager test"
 
 RDEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtdbus:4
+	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
+	dev-qt/qtnetwork:5
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8.0
 	modemmanager? ( >=net-libs/libmm-qt-1.0.0 )
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
+	test? ( dev-qt/qttest:5 )
 "
 
 src_configure() {
