@@ -3,8 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<longdescription lang="en">
-Systemd control module for KDE. Provides a graphical frontend for the systemd daemon, which allow for viewing and controlling systemd units, as well as modifying configuration files.
-Integrates in the System Settings dialogue in KDE.
+KDE control module for systemd. Provides a graphical frontend for the systemd daemon, which allows to view and control systemd units, as well as modifying configuration files. Integrates in the KDE System Settings dialogue.
 	</longdescription>
 	<upstream>
 		<maintainer status="active">
