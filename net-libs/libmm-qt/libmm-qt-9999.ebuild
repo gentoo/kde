@@ -22,8 +22,10 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtdbus:4
+	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtxml:5
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8[modemmanager]
 "
