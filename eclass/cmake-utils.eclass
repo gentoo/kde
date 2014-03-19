@@ -639,30 +639,7 @@ enable_cmake-utils_src_install() {
 	popd > /dev/null
 
 	pushd "${S}" > /dev/null
-    #Install docs, copied from base_src_install_docs
-	local x
-
-    if [[ "$(declare -p DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
-        for x in "${DOCS[@]}"; do
-            debug-print "$FUNCNAME: docs: creating document from ${x}"
-            dodoc "${x}" || die "dodoc failed"
-        done
-    fi
-    if [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" == "declare -a"* ]]; then
-        for x in "${HTML_DOCS[@]}"; do
-            debug-print "$FUNCNAME: docs: creating html document from ${x}"
-            dohtml -r "${x}" || die "dohtml failed"
-        done
-    fi
-
-	# Backward compatibility, for non-array variables
-	if [[ -n "${DOCS}" ]] && [[ "$(declare -p DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
-		dodoc ${DOCS} || die "dodoc failed"
-	fi
-	if [[ -n "${HTML_DOCS}" ]] && [[ "$(declare -p HTML_DOCS 2>/dev/null 2>&1)" != "declare -a"* ]]; then
-		dohtml -r ${HTML_DOCS} || die "dohtml failed"
-	fi
-
+	einstalldocs
 	popd > /dev/null
 }
 
