@@ -7,6 +7,7 @@ EAPI=5
 inherit kde-frameworks
 
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="X dbus"
 
