@@ -22,6 +22,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	media-fonts/oxygen-fonts
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kwidgetsaddons)
