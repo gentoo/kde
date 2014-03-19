@@ -242,11 +242,6 @@ kde-frameworks_src_configure() {
 	#kde-config -path data unavailable when cross-compiling
 	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
 
-	# sysconf needs to be /etc, not /usr/etc
-	# todo: move this to frameworks that require it
-	# currently tier2/kauth, but possibly more later
-	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
-
 	if ! use_if_iuse test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
 	fi
