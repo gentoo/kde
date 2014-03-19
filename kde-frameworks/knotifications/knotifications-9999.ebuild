@@ -29,7 +29,9 @@ RDEPEND="
 		x11-libs/libXtst
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	X? ( x11-proto/xproto )
+"
 
 src_configure() {
 	local mycmakeargs=(
