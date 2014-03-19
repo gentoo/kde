@@ -21,17 +21,17 @@ HOMEPAGE="http://k9copy.sourceforge.net/"
 LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug mplayer"
 
 DEPEND="
 	media-libs/libdvdread
 	media-libs/libmpeg2
 	media-libs/xine-lib
-	virtual/ffmpeg
+	media-video/ffmpeg
 "
 RDEPEND="${DEPEND}
 	media-video/dvdauthor
-	media-video/mplayer
+	mplayer? ( media-video/mplayer )
 "
 DOCS=( README )
 
