@@ -33,3 +33,11 @@ src_configure() {
 
 	kde-frameworks_src_configure
 }
+
+pkg_postinst() {
+	kde-frameworks_pkg_postinst
+
+	if use udev && ! has_version "app-misc/media-player-info" ; then
+		einfo "For media player support, install app-misc/media-player-info"
+	fi
+}
