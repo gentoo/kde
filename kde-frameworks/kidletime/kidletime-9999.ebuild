@@ -4,6 +4,7 @@
 
 EAPI=5
 
+FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for detection and notification of device idle time"
