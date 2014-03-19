@@ -21,6 +21,6 @@ RDEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qtconcurrent:5 )
 	$(add_frameworks_dep kdoctools)
+	test? ( dev-qt/qtconcurrent:5 )
 "
