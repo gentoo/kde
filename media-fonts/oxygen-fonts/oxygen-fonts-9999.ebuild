@@ -4,23 +4,24 @@
 
 EAPI=5
 
-inherit font git-r3
+inherit cmake-utils font git-r3
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
 HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-fonts"
-EGIT_REPO_URI=( "git://anongit.kde.org/oxygen-fonts" )
-EGIT_BRANCH="in-progress"
+EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
 
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-src_install() {
-	FONTS="Bold Mono Regular"
-	FONT_SUFFIX="ttf"
+DEPEND="dev-libs/extra-cmake-modules"
 
-	for f in ${FONTS} ; do
-		FONT_S="${S}/${f}" font_src_install
-	done
+src_install() {
+	cmake-utils_src_install
+
+	# move cmake-installed fonts to the font.eclass location
+	mv "${D}"/usr/share/fonts/{oxygen,${PN}} || die
+
+	font_src_install
 }
