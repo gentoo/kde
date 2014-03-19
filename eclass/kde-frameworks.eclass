@@ -236,12 +236,6 @@ kde-frameworks_src_configure() {
 
 	local cmakeargs
 
-	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
-	# todo: is this still relevant?
-	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/$(get_libdir)/qt4)
-	#kde-config -path data unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
-
 	if ! use_if_iuse test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
 	fi
