@@ -234,6 +234,8 @@ kde-frameworks_src_configure() {
 		append-cppflags -DQT_NO_DEBUG
 	fi
 
+	local cmakeargs
+
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
 	# todo: is this still relevant?
 	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/$(get_libdir)/qt4)
