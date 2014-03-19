@@ -4,6 +4,7 @@
 
 EAPI=5
 
+FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
