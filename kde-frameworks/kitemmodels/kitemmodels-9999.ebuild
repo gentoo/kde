@@ -10,3 +10,6 @@ DESCRIPTION="Framework providing data models that help with tasks such as sortin
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
+
+DEPEND="test? ( dev-qt/qtwidgets:5 )"
+RDEPEND="${DEPEND}"
