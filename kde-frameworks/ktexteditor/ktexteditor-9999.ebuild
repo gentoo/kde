@@ -32,6 +32,7 @@ RDEPEND="
 	$(add_frameworks_dep sonnet)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
