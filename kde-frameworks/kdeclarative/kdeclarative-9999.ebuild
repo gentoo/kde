@@ -4,6 +4,7 @@
 
 EAPI=5
 
+FRAMEWORKS_TEST="false"
 inherit kde-frameworks
 
 DESCRIPTION="Framework providing integration of QML and KDE work spaces"
