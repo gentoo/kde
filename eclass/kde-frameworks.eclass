@@ -234,9 +234,6 @@ kde-frameworks_src_configure() {
 		append-cppflags -DQT_NO_DEBUG
 	fi
 
-	# Here we set the install prefix
-	tc-is-cross-compiler || cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
-
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
 	# todo: is this still relevant?
 	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/$(get_libdir)/qt4)
