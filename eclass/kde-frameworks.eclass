@@ -177,9 +177,6 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 kde-frameworks_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Don't set KDEHOME during compilation, it will cause access violations
-	unset KDEHOME
-
 	# Check if gcc compiler is fresh enough.
 	# In theory should be in pkg_pretend but we check it only for kdelibs there
 	# and for others we do just quick scan in pkg_setup because pkg_pretend
@@ -189,12 +186,6 @@ kde-frameworks_pkg_setup() {
 				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 5 ]] ) \
 			&& die "Sorry, but gcc-4.5 or later is required for KDE frameworks."
 	fi
-
-	# Point to correct QT plugins path
-	QT_PLUGIN_PATH="${EPREFIX}/usr/$(get_libdir)/kde4/plugins/"
-
-	# Fix XDG collision with sandbox
-	export XDG_CONFIG_HOME="${T}"
 }
 
 # @FUNCTION: kde-frameworks_src_unpack
@@ -245,9 +236,6 @@ kde-frameworks_src_configure() {
 
 	# Here we set the install prefix
 	tc-is-cross-compiler || cmakeargs+=(-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}")
-
-	# Shadow existing installations
-	unset KDEDIRS
 
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
 	# todo: is this still relevant?
