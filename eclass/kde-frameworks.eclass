@@ -297,12 +297,6 @@ kde-frameworks_src_test() {
 kde-frameworks_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# Install common documentation
-	local doc
-	for doc in "${S}"/{AUTHORS,CHANGELOG,ChangeLog*,README*,NEWS,TODO,HACKING}; do
-		[[ -f ${doc} && -s ${doc} ]] && dodoc "${doc}"
-	done
-
 	# Install doxygen documentation if applicable
 	if use_if_iuse doc ; then
 		dohtml -r ${P}-apidocs/html/*
