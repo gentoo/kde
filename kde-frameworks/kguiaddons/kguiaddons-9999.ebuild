@@ -14,6 +14,10 @@ IUSE=""
 
 RDEPEND="
 	dev-qt/qtgui:5
+	dev-qt/qtx11extras:5
 	x11-libs/libX11
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	x11-libs/libxcb
+	x11-proto/xproto
+"
