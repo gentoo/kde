@@ -4,6 +4,7 @@
 
 EAPI=5
 
+VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
 DESCRIPTION="Framework providing data models that help with tasks such as sorting and filtering"
