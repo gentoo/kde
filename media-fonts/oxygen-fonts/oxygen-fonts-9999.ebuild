@@ -15,13 +15,20 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-libs/extra-cmake-modules"
+DEPEND="
+	dev-libs/extra-cmake-modules
+	media-gfx/fontforge
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DOXYGEN_FONT_INSTALL_DIR="/usr/share/fonts/${PN}"
+	)
+
+	cmake-utils_src_configure
+}
 
 src_install() {
 	cmake-utils_src_install
-
-	# move cmake-installed fonts to the font.eclass location
-	mv "${D}"/usr/share/fonts/{oxygen,${PN}} || die
-
 	font_src_install
 }
