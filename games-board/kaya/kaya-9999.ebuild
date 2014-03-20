@@ -3,8 +3,9 @@
 # $Header: $
 
 EAPI=5
+USE_RUBY="ruby19"
+CMAKE_IN_SOURCE_BUILD=1
 
-USE_RUBY="ruby18"
 inherit kde4-base ruby-ng
 
 DESCRIPTION="Board game suite for KDE"
@@ -18,7 +19,7 @@ IUSE="debug"
 
 DEPEND=""
 RDEPEND=""
-ruby_add_rdepend "kde-base/korundum"
+ruby_add_rdepend "|| ( kde-base/korundum kde-base/kdebindings-ruby )"
 ruby_add_rdepend "dev-ruby/builder"
 
 EGIT_SOURCE_UNPACK="${WORKDIR}/all/${P}"
@@ -28,35 +29,35 @@ pkg_setup() {
 	kde4-base_pkg_setup
 }
 
-all_ruby_unpack() {
+src_unpack() {
 	kde4-base_src_unpack
+
+	cd "${WORKDIR}"
+	mkdir all
+	mv ${P} all/ || die "Could not move sources"
 }
 
 all_ruby_prepare() {
 	kde4-base_src_prepare
 }
 
-each_ruby_configure() {
+all_ruby_configure() {
 	CMAKE_USE_DIR=${S}
-	mycmakeargs=(
-		-DRUBY_LIBRARY=$(ruby_get_libruby)
-		-DRUBY_INCLUDE_PATH=$(ruby_get_hdrdir)
-		-DRUBY_EXECUTABLE=${RUBY}
-	)
 	kde4-base_src_configure
 }
 
-each_ruby_compile() {
+all_ruby_compile() {
 	CMAKE_USE_DIR=${S}
 	kde4-base_src_compile
 }
 
-each_ruby_install() {
+all_ruby_install() {
 	CMAKE_USE_DIR=${S}
 	kde4-base_src_install
 }
 
 pkg_postinst() {
+	kde4-base_pkg_postinst
 	elog "To be able to use the kaya board game front-end, you need to install at least one"
 	elog "of the following game engines: "
 	elog "    games-board/gnuchess"
