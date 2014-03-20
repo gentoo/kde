@@ -22,7 +22,7 @@ DEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DOXYGEN_FONT_INSTALL_DIR="/usr/share/fonts/${PN}"
+		-DOXYGEN_FONT_INSTALL_DIR="${FONTDIR}"
 	)
 
 	cmake-utils_src_configure
