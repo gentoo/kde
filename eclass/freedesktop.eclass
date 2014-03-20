@@ -45,7 +45,7 @@ freedesktop_setup() {
 # @DESCRIPTION:
 # Updates the desktop database.
 # Generates a list of mimetypes linked to applications that can handle them
-fdo-mime_desktop_database_update() {
+freedesktop_desktop_database_update() {
 	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
 	has "${EAPI:-0}" 0 1 2 && ! use prefix && EROOT="${ROOT}"
 	if [ -x "${EPREFIX}/usr/bin/update-desktop-database" ]
