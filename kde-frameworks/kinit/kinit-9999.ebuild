@@ -24,6 +24,5 @@ RDEPEND="
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
-	dev-qt/qtwidgets:5
 	x11-proto/xproto
 "
