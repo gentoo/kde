@@ -11,7 +11,7 @@ KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="akonadi attica debug kate okular semantic-desktop test"
 
 RDEPEND="
-	>=dev-lang/perl-5.10.1
+	>=dev-lang/perl-5.10.1:=
 	$(add_kdebase_dep perlqt)
 	$(add_kdebase_dep smokekde 'attica?,kate?,okular?,semantic-desktop?')
 	semantic-desktop? ( >=dev-libs/soprano-2.9.0 )
