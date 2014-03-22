@@ -6,10 +6,9 @@ EAPI=5
 
 KDE_LINGUAS="pt_BR"
 PYTHON_COMPAT=( python{2_6,2_7} )
+inherit kde4-base python-single-r1
 
-inherit kde4-base python-r1
-
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}.git"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
 
 DESCRIPTION="Graphical application for Portage's daily tasks"
 HOMEPAGE="http://gitorious.org/kportagetray"
@@ -18,12 +17,14 @@ HOMEPAGE="http://gitorious.org/kportagetray"
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="4"
-IUSE=""
+IUSE="debug"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
-	dev-python/PyQt4[svg,dbus]
-	$(add_kdebase_dep pykde4)
+	dev-python/PyQt4[svg,dbus,${PYTHON_USEDEP}]
+	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "
 RDEPEND="${DEPEND}
 	app-portage/eix
@@ -32,3 +33,16 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep konsole)
 "
+
+pkg_setup() {
+	python-single-r1_pkg_setup
+	kde4-base_pkg_setup
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DPYTHONBIN=/usr/bin/python2
+	)
+
+	kde4-base_src_configure
+}
