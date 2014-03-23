@@ -62,7 +62,6 @@ KMEXTRA="
 	templateparser/
 "
 KMEXTRACTONLY="
-	agents/folderarchiveagent.desktop
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml
@@ -72,4 +71,4 @@ KMEXTRACTONLY="
 "
 KMSAVELIBS="true"
 
-PATCHES=( "${FILESDIR}/install-composereditorng.patch" )
+PATCHES=( "${FILESDIR}/install-composereditorng.patch" "${FILESDIR}/${P}-dont-install-folderarchiveagent.patch" )
