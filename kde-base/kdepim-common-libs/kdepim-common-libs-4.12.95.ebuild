@@ -62,6 +62,7 @@ KMEXTRA="
 	templateparser/
 "
 KMEXTRACTONLY="
+	agents/folderarchiveagent.desktop
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml
