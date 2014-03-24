@@ -50,6 +50,7 @@
 >=kde-base/kde-base-artwork-4.12
 >=kde-base/kde-wallpapers-4.12
 >=kde-base/kdontchangethehostname-4.12
+>=kde-base/kdnssd-4.12
 >=kde-base/keditfiletype-4.12
 >=kde-base/kfile-4.12
 >=kde-base/kglobalaccel-4.12
