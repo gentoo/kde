@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Nepomuk core libraries"
 KEYWORDS=""
-IUSE="debug epub exif ffmpeg pdf taglib"
+IUSE="debug epub exif ffmpeg +migrator pdf taglib"
 
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
@@ -16,6 +16,7 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
+	migrator? ( $(add_kdebase_dep baloo) )
 	pdf? ( app-text/poppler[qt4] )
 	taglib? ( media-libs/taglib )
 "
@@ -31,6 +32,7 @@ src_configure() {
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
+		$(cmake-utils_use_find_package migrator Baloo)
 		$(cmake-utils_use_find_package pdf PopplerQt4)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
