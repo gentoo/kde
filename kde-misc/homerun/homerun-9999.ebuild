@@ -7,7 +7,8 @@ EAPI=5
 DECLARATIVE_REQUIRED="always"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-KDE_LINGUAS="cs da de el es fi lt mr nl pl pt pt_BR ru sk sl sv tr uk"
+KDE_LINGUAS="ca cs da de el es fi fr gl hu it lt nl pl pt pt_BR ro ru sk sl sv
+tr uk zh_CN"
 KDE_MINIMAL="4.10"
 inherit kde4-base
 
