@@ -21,6 +21,7 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	dev-libs/libgcrypt:0=
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
