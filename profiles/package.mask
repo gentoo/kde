@@ -364,6 +364,9 @@
 ~kde-frameworks/sonnet-4.97.0
 ~kde-frameworks/threadweaver-4.97.0
 
+# Unreleased
+~media-fonts/oxygen-fonts-3.95.0
+
 # David Heidelberger <david.heidelberger@ixit.cz> (12 Feb 2014)
 # Mask qt-gstreamer 1.0 branch
 # http://ghic.org/~diane/qtgstreamer-1.0-proposed.html
