@@ -22,7 +22,7 @@ RESTRICT="test"
 DEPEND="
 	$(add_kdebase_dep libkdcraw)
 	$(add_kdebase_dep libkonq)
-	$(add_kdebase_dep kactivities)
+	$(add_kdebase_dep kactivities '' 4.13)
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=

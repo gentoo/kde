@@ -15,7 +15,7 @@ RDEPEND="
 	net-libs/libssh2
 "
 DEPEND="${RDEPEND}
-	$(add_kdebase_dep libkworkspace)
+	$(add_kdebase_dep libkworkspace '' 4.11)
 "
 
 RESTRICT=test
