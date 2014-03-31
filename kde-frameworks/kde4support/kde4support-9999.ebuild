@@ -36,6 +36,8 @@ RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	app-text/docbook-xml-dtd:4.2
+	dev-libs/openssl
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -43,6 +45,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
+	virtual/libintl
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libICE
