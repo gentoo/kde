@@ -41,6 +41,7 @@ RESTRICT="test"
 KMEXTRA="
 	agents/followupreminderagent/
 	agents/sendlateragent/
+	agents/folderarchiveagent.desktop
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
