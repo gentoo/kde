@@ -73,3 +73,9 @@ KMEXTRACTONLY="
 KMSAVELIBS="true"
 
 PATCHES=( "${FILESDIR}/install-composereditorng.patch" )
+
+src_prepare() {
+	kde4-meta_src_prepare
+	sed -e '/folderarchiveagent.desktop/d' \
+		-i agents/CMakeLists.txt || die
+}
