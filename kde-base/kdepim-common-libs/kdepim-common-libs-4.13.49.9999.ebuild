@@ -39,8 +39,7 @@ RESTRICT="test"
 # bug 393131
 
 KMEXTRA="
-	agents/followupreminderagent/
-	agents/sendlateragent/
+	agents/
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
