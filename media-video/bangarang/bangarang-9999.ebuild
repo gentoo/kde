@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_MINIMAL="4.6"
 KDE_LINGUAS="cs da de el es fi fr hu it lt nl pl pt pt_BR ru uk zh_CN"
 inherit kde4-base
 
@@ -22,10 +21,7 @@ RDEPEND="
 	dev-libs/soprano
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	$(add_kdebase_dep nepomuk)
-	|| (
-		$(add_kdebase_dep audiocd-kio)
-		$(add_kdebase_dep kdemultimedia-kioslaves)
-	)
+	$(add_kdebase_dep audiocd-kio)
 	media-libs/taglib
 	media-libs/phonon
 	dev-qt/qtscript:4
