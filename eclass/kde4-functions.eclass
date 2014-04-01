@@ -394,7 +394,7 @@ add_frameworks_dep() {
 		ver=${3}
 	elif [[ -n ${KDE_OVERRIDE_MINIMAL} ]]; then
 		ver=${KDE_OVERRIDE_MINIMAL}
-	elif [[ ${KDEBASE} != kde-frameworks ]]; then
+	elif [[ ${KDEBASE} != kde-frameworks && ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
 	# if building stable-live version depend just on the raw KDE version
 	# to allow merging packages against more stable basic stuff
