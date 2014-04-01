@@ -82,8 +82,6 @@ KMEXTRACTONLY="
 	ksysguard/
 "
 
-KMLOADLIBS="libkworkspace libplasmaclock libplasmagenericshell libtaskmanager"
-
 PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
 
 pkg_setup() {
