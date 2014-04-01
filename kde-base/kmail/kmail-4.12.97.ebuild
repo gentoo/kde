@@ -28,6 +28,7 @@ RESTRICT="test"
 # bug 393147
 
 KMEXTRACTONLY="
+	agents/folderarchiveagent.desktop
 	agents/sendlateragent/
 	akonadi_next/
 	calendarsupport/
@@ -69,12 +70,6 @@ KMEXTRA="
 "
 
 KMLOADLIBS="kdepim-common-libs"
-
-src_prepare() {
-	kde4-meta_src_prepare
-	sed -e '/folderarchiveagent.desktop/d' \
-		-i agents/CMakeLists.txt || die
-}
 
 src_configure() {
 	# Bug 308903
