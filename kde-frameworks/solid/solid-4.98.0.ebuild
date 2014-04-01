@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
 LICENSE="LGPL-2.1+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="+udev"
 
 RDEPEND="

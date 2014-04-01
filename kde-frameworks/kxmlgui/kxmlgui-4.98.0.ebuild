@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 LICENSE="LGPL-2+"
 IUSE="attica"
 

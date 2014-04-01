@@ -8,7 +8,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework for easy reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="+bzip2 +lzma"
 
 RDEPEND="

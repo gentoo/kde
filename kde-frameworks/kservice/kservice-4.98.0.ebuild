@@ -8,7 +8,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
 LICENSE="LGPL-2 LGPL-2.1+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE=""
 
 RDEPEND="

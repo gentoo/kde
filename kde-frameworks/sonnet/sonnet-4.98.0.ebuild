@@ -8,7 +8,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework for providing spell-checking capabilities through abstraction of popular backends"
 LICENSE="LGPL-2+ LGPL-2.1+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="aspell hunspell"
 
 RDEPEND="

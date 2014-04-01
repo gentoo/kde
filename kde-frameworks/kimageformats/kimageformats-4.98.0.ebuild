@@ -8,7 +8,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="eps jpeg2k openexr"
 
 RDEPEND="

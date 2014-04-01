@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Helper library to speed up start of applications on KDE work spaces"
 LICENSE="LGPL-2+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE=""
 
 RDEPEND="

@@ -8,7 +8,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="zeroconf"
 
 RDEPEND="

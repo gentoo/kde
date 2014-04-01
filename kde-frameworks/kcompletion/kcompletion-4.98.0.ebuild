@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde-frameworks
 
 DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE=""
 
 RDEPEND="

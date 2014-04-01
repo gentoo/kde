@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 LICENSE="LGPL-2.1+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="X dbus"
 
 RDEPEND="

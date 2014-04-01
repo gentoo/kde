@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework providing an assortment of widgets for displaying and editing text"
 LICENSE="LGPL-2+ LGPL-2.1+"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE=""
 
 RDEPEND="

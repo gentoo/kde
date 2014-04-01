@@ -9,7 +9,7 @@ inherit kde-frameworks
 
 DESCRIPTION="Framework providing access to certain properties and features of the window manager"
 LICENSE="LGPL-2+ MIT"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64"
 IUSE="X"
 
 RDEPEND="
