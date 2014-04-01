@@ -229,7 +229,6 @@
 >=kde-base/kopete-4.11
 >=kde-base/krdc-4.11
 >=kde-base/krfb-4.11
->=kde-base/zeroconf-ioslave-4.11
 >=kde-base/kfloppy-4.11
 >=kde-base/kppp-4.11
 >=kde-base/akonadiconsole-4.11
