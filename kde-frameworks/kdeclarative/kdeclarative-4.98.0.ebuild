@@ -4,8 +4,8 @@
 
 EAPI=5
 
-FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+KDE_TEST="false"
+inherit kde5
 
 DESCRIPTION="Framework providing integration of QML and KDE work spaces"
 LICENSE="LGPL-2+"

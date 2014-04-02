@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
@@ -48,5 +48,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

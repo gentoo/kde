@@ -4,11 +4,11 @@
 
 EAPI=5
 
-FRAMEWORKS_DEBUG="false"
-FRAMEWORKS_DOXYGEN="false"
-FRAMEWORKS_TEST="false"
+KDE_DEBUG="false"
+KDE_DOXYGEN="false"
+KDE_TEST="false"
 PYTHON_COMPAT=( python{2_7,3_2,3_3} )
-inherit kde-frameworks distutils-r1
+inherit kde5 distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
 LICENSE="BSD-2"

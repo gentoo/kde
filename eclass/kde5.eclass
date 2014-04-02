@@ -2,15 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# @ECLASS: kde-frameworks.eclass
+# @ECLASS: kde5.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @BLURB: Support eclass for KDE Frameworks
+# @BLURB: Support eclass for KDE 5-related packages.
 # @DESCRIPTION:
-# The kde-frameworks.eclass provides support for building KDE Frameworks.
+# The kde5.eclass provides support for building KDE 5-related packages.
 
-if [[ ${___ECLASS_ONCE_KDE_FRAMEWORKS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE_FRAMEWORKS="recur -_+^+_- spank"
+if [[ ${___ECLASS_ONCE_KDE5} != "recur -_+^+_- spank" ]] ; then
+___ECLASS_ONCE_KDE5="recur -_+^+_- spank"
 
 CMAKE_MIN_VERSION="2.8.12"
 
@@ -34,47 +34,47 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # Minimal Qt version to require for the package.
 : ${QT_MINIMAL:=5.2.0}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_AUTODEPS
+# @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore.
-: ${FRAMEWORKS_AUTODEPS:=true}
+: ${KDE_AUTODEPS:=true}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_DEBUG
+# @ECLASS-VARIABLE: KDE_DEBUG
 # @DESCRIPTION:
 # If set to "false", unconditionally build with -DNDEBUG.
 # Otherwise, add debug to IUSE to control building with that flag.
-: ${FRAMEWORKS_DEBUG:=true}
+: ${KDE_DEBUG:=true}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_DOXYGEN
+# @ECLASS-VARIABLE: KDE_DOXYGEN
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # Otherwise, add "doc" to IUSE, add appropriate dependencies, and generate and
 # install API documentation.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
-	: ${FRAMEWORKS_DOXYGEN:=true}
+	: ${KDE_DOXYGEN:=true}
 else
-	: ${FRAMEWORKS_DOXYGEN:=false}
+	: ${KDE_DOXYGEN:=false}
 fi
 
-# @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
+# @ECLASS-VARIABLE: KDE_EXAMPLES
 # @DESCRIPTION:
 # If set to "false", unconditionally ignore a top-level examples subdirectory.
 # Otherwise, add "examples" to IUSE to toggle adding that subdirectory.
-: ${FRAMEWORKS_EXAMPLES:=false}
+: ${KDE_EXAMPLES:=false}
 
-# @ECLASS-VARIABLE: FRAMEWORKS_TEST
+# @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # For any other value, add test to IUSE and add a dependency on qttest.
-: ${FRAMEWORKS_TEST:=true}
+: ${KDE_TEST:=true}
 
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
 SLOT=5
 
-case ${FRAMEWORKS_AUTODEPS} in
+case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
 		DEPEND+=" >=dev-libs/extra-cmake-modules-0.0.12"
@@ -82,7 +82,7 @@ case ${FRAMEWORKS_AUTODEPS} in
 		;;
 esac
 
-case ${FRAMEWORKS_DOXYGEN} in
+case ${KDE_DOXYGEN} in
 	false)	;;
 	*)
 		IUSE+=" doc"
@@ -92,21 +92,21 @@ case ${FRAMEWORKS_DOXYGEN} in
 			)"
 esac
 
-case ${FRAMEWORKS_DEBUG} in
+case ${KDE_DEBUG} in
 	false)	;;
 	*)
 		IUSE+=" debug"
 		;;
 esac
 
-case ${FRAMEWORKS_EXAMPLES} in
+case ${KDE_EXAMPLES} in
 	false)  ;;
 	*)
 		IUSE+=" examples"
 		;;
 esac
 
-case ${FRAMEWORKS_TEST} in
+case ${KDE_TEST} in
 	false)	;;
 	*)
 		IUSE+=" test"
@@ -168,10 +168,10 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
-# @FUNCTION: kde-frameworks_pkg_setup
+# @FUNCTION: kde5_pkg_setup
 # @DESCRIPTION:
 # Do some basic settings
-kde-frameworks_pkg_setup() {
+kde5_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Check if gcc compiler is fresh enough.
@@ -181,14 +181,14 @@ kde-frameworks_pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
 				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 5 ]] ) \
-			&& die "Sorry, but gcc-4.5 or later is required for KDE frameworks."
+			&& die "Sorry, but gcc-4.5 or later is required for KDE 5."
 	fi
 }
 
-# @FUNCTION: kde-frameworks_src_unpack
+# @FUNCTION: kde5_src_unpack
 # @DESCRIPTION:
-# Function for unpacking KDE frameworks.
-kde-frameworks_src_unpack() {
+# Function for unpacking KDE 5.
+kde5_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
@@ -198,10 +198,10 @@ kde-frameworks_src_unpack() {
 	fi
 }
 
-# @FUNCTION: kde-frameworks_src_prepare
+# @FUNCTION: kde5_src_prepare
 # @DESCRIPTION:
-# Function for preparing the KDE frameworks sources.
-kde-frameworks_src_prepare() {
+# Function for preparing the KDE 5 sources.
+kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# never build manual tests
@@ -220,10 +220,10 @@ kde-frameworks_src_prepare() {
 	cmake-utils_src_prepare
 }
 
-# @FUNCTION: kde-frameworks_src_configure
+# @FUNCTION: kde5_src_configure
 # @DESCRIPTION:
-# Function for configuring the build of KDE frameworks.
-kde-frameworks_src_configure() {
+# Function for configuring the build of KDE 5.
+kde5_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# we rely on cmake-utils.eclass to append -DNDEBUG too
@@ -243,10 +243,10 @@ kde-frameworks_src_configure() {
 	cmake-utils_src_configure
 }
 
-# @FUNCTION: kde-frameworks_src_compile
+# @FUNCTION: kde5_src_compile
 # @DESCRIPTION:
-# Function for compiling KDE frameworks.
-kde-frameworks_src_compile() {
+# Function for compiling KDE 5.
+kde5_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	cmake-utils_src_compile "$@"
@@ -257,10 +257,10 @@ kde-frameworks_src_compile() {
 	fi
 }
 
-# @FUNCTION: kde-frameworks_src_test
+# @FUNCTION: kde5_src_test
 # @DESCRIPTION:
-# Function for testing KDE frameworks.
-kde-frameworks_src_test() {
+# Function for testing KDE 5.
+kde5_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_test_runner() {
@@ -288,10 +288,10 @@ kde-frameworks_src_test() {
 	fi
 }
 
-# @FUNCTION: kde-frameworks_src_install
+# @FUNCTION: kde5_src_install
 # @DESCRIPTION:
-# Function for installing KDE frameworks.
-kde-frameworks_src_install() {
+# Function for installing KDE 5.
+kde5_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# Install doxygen documentation if applicable
@@ -302,29 +302,29 @@ kde-frameworks_src_install() {
 	cmake-utils_src_install
 }
 
-# @FUNCTION: kde-frameworks_pkg_preinst
+# @FUNCTION: kde5_pkg_preinst
 # @DESCRIPTION:
 # Function storing icon caches
-kde-frameworks_pkg_preinst() {
+kde5_pkg_preinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_savelist
 }
 
-# @FUNCTION: kde-frameworks_pkg_postinst
+# @FUNCTION: kde5_pkg_postinst
 # @DESCRIPTION:
 # Function to rebuild the KDE System Configuration Cache after an application has been installed.
-kde-frameworks_pkg_postinst() {
+kde5_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_cache_update
 	fdo-mime_desktop_database_update
 }
 
-# @FUNCTION: kde-frameworks_pkg_postrm
+# @FUNCTION: kde5_pkg_postrm
 # @DESCRIPTION:
 # Function to rebuild the KDE System Configuration Cache after an application has been removed.
-kde-frameworks_pkg_postrm() {
+kde5_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	gnome2_icon_cache_update

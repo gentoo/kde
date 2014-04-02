@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
@@ -31,5 +31,5 @@ src_configure() {
 		$(cmake-utils_use_find_package openexr OpenEXR)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

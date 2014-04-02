@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="ECMAScipt compatible parser and engine"
 LICENSE="BSD-2 LGPL-2+"

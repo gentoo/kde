@@ -4,8 +4,8 @@
 
 EAPI=5
 
-FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+KDE_TEST="false"
+inherit kde5
 
 DESCRIPTION="Central daemon of KDE workspaces"
 LICENSE="LGPL-2+"

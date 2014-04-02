@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for working with KDE activities"
 LICENSE="LGPL-2+"
@@ -22,5 +22,5 @@ src_configure() {
 		-DKACTIVITIES_LIBRARY_ONLY=true
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

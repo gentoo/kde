@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for managing bookmarks stored in XBEL format"
 LICENSE="LGPL-2+"

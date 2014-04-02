@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing easy data-plotting functions"
 LICENSE="LGPL-2+"

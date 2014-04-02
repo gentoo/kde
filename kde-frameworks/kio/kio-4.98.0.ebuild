@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
@@ -64,11 +64,11 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }
 
 src_install() {
-	kde-frameworks_src_install
+	kde5_src_install
 
 	# temporary fix to avoid colliding with kdelibs:4
 	mv "${D}"/usr/share/doc/HTML/en/kioslave{,5}

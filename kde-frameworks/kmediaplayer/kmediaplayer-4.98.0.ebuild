@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing a common interface for KParts that can play media files"
 LICENSE="MIT"

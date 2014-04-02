@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for easy reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
@@ -23,5 +23,5 @@ src_configure() {
 		$(cmake-utils_use_find_package lzma LibLZMA)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

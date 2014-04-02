@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing assorted widgets for showing the progress of jobs"
 LICENSE="LGPL-2+"
@@ -31,5 +31,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

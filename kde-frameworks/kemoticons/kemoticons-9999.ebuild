@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for converting text emoticons to graphical representations"
 LICENSE="LGPL-2.1+"

@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing data models that help with tasks such as sorting and filtering"
 LICENSE="LGPL-2+"

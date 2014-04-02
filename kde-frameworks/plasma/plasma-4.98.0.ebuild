@@ -5,7 +5,7 @@
 EAPI=5
 
 KMNAME="${PN}-framework"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
@@ -64,5 +64,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X XCB)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

@@ -5,7 +5,7 @@
 EAPI=5
 
 FRAMEWORK_TEST="false"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework to work with KDE System Settings modules"
 LICENSE="LGPL-2"

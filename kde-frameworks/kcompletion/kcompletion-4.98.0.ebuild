@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
 KEYWORDS=" ~amd64"

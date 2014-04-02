@@ -4,8 +4,8 @@
 
 EAPI=5
 
-FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+KDE_TEST="false"
+inherit kde5
 
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 LICENSE="LGPL-2.1+"
@@ -40,5 +40,5 @@ src_configure() {
 		$(cmake-utils_use_find_package dbus DBusMenuQt5)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit fdo-mime kde-frameworks
+inherit fdo-mime kde5
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
@@ -24,15 +24,15 @@ src_configure() {
 		$(cmake-utils_use_find_package fam FAM)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }
 
 pkg_postinst() {
-	kde-frameworks_pkg_postinst
+	kde5_pkg_postinst
 	fdo-mime_mime_database_update
 }
 
 pkg_postrm() {
-	kde-frameworks_pkg_postinst
+	kde5_pkg_postinst
 	fdo-mime_mime_database_update
 }

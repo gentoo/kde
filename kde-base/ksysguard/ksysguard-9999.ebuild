@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Network-enabled task manager and system monitor"
 LICENSE="GPL-2+"
@@ -42,5 +42,5 @@ src_configure() {
 		$(cmake-utils_use_find_package lm_sensors Sensors)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

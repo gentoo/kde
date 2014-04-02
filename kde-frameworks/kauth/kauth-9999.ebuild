@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
@@ -28,5 +28,5 @@ src_configure() {
 		$(cmake-utils_use_find_package policykit PolkitQt-1)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing access to Open Collaboration Services"
 LICENSE="LGPL-2.1+"

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
 LICENSE="LGPL-2 LGPL-2.1+"
@@ -30,5 +30,5 @@ src_configure() {
 		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for managing threads using job and queue-based interfaces"
 LICENSE="LGPL-2+"
@@ -16,5 +16,5 @@ RESTRICT="test"
 
 src_prepare() {
 	comment_add_subdirectory benchmarks
-	kde-frameworks_src_prepare
+	kde5_src_prepare
 }

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for manipulating strings using various encodings"
 LICENSE="GPL-2+ LGPL-2+"

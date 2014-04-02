@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing an assortment of widgets for displaying and editing text"
 LICENSE="LGPL-2+ LGPL-2.1+"

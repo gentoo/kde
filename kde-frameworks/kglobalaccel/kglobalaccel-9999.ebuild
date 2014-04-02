@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework to handle global shortcuts"
 KEYWORDS=""
@@ -24,5 +24,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

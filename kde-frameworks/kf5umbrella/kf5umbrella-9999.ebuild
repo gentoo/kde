@@ -4,9 +4,9 @@
 
 EAPI=5
 
-FRAMEWORKS_DEBUG="false"
-FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+KDE_DEBUG="false"
+KDE_TEST="false"
+inherit kde5
 
 DESCRIPTION="CMake files that simplify the code needed to find KDE Frameworks"
 LICENSE="BSD"

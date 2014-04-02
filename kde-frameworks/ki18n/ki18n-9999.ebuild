@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework based on Gettext for internationalizing user interface text"
 LICENSE="LGPL-2+"

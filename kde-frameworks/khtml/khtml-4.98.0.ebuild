@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="KHTML web rendering engine"
 LICENSE="LGPL-2"
@@ -60,5 +60,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

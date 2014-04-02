@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
 LICENSE="LGPL-2+"

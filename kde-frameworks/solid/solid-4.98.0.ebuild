@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
 LICENSE="LGPL-2.1+"
@@ -31,11 +31,11 @@ src_configure() {
 		$(cmake-utils_use_find_package udev UDev)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }
 
 pkg_postinst() {
-	kde-frameworks_pkg_postinst
+	kde5_pkg_postinst
 
 	if use udev && ! has_version "app-misc/media-player-info" ; then
 		einfo "For media player support, install app-misc/media-player-info"

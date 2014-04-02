@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
@@ -26,5 +26,5 @@ src_configure() {
 		$(cmake-utils_use_find_package zeroconf Avahi)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

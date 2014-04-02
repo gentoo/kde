@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for integrating Qt applications with KDE workspaces"
 LICENSE="LGPL-2+"
@@ -37,5 +37,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X XCB)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }

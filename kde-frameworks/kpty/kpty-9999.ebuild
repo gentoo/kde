@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde-frameworks
+inherit kde5
 
 DESCRIPTION="Framework for pseudo terminal devices and running child processes"
 LICENSE="LGPL-2+"

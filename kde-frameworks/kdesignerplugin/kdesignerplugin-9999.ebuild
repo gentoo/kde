@@ -4,8 +4,8 @@
 
 EAPI=5
 
-FRAMEWORKS_TEST="false"
-inherit kde-frameworks
+KDE_TEST="false"
+inherit kde5
 
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"
 LICENSE="LGPL-2.1+"
@@ -49,5 +49,5 @@ src_configure() {
 		$(cmake-utils_use_find_package webkit KF5WebKit)
 	)
 
-	kde-frameworks_src_configure
+	kde5_src_configure
 }
