@@ -11,6 +11,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# tests hang
+RESTRICT="test"
+
 src_prepare() {
 	comment_add_subdirectory benchmarks
 	kde-frameworks_src_prepare
