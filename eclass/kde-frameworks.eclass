@@ -51,7 +51,11 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # If set to "false", do nothing.
 # Otherwise, add "doc" to IUSE, add appropriate dependencies, and generate and
 # install API documentation.
-: ${FRAMEWORKS_DOXYGEN:=true}
+if [[ ${CATEGORY} = kde-frameworks ]]; then
+	: ${FRAMEWORKS_DOXYGEN:=true}
+else
+	: ${FRAMEWORKS_DOXYGEN:=false}
+fi
 
 # @ECLASS-VARIABLE: FRAMEWORKS_EXAMPLES
 # @DESCRIPTION:
