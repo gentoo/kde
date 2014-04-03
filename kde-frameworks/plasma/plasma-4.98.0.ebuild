@@ -39,6 +39,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
+	dev-qt/qtquickcontrols:5
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
