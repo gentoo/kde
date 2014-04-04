@@ -18,4 +18,6 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kpty)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kwrited:4
+"
