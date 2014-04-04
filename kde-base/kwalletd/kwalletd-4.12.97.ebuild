@@ -19,6 +19,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+# testpamopen crashes with a buffer overflow (__fortify_fail)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package semantic-desktop Gpgme)
