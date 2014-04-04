@@ -18,3 +18,6 @@ DEPEND="
 	sys-apps/attr
 "
 RDEPEND="${DEPEND}"
+
+RESTRICT="test"
+
