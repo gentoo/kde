@@ -20,4 +20,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 RESTRICT="test"
-
