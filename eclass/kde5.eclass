@@ -74,7 +74,11 @@ KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # For any other value, add test to IUSE and add a dependency on qttest.
-: ${KDE_TEST:=true}
+if [[ ${CATEGORY} = kde-frameworks ]]; then
+	: ${KDE_TEST:=true}
+else
+	: ${KDE_TEST:=false}
+fi
 
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
