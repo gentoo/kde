@@ -35,7 +35,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
@@ -64,6 +63,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
+	x11-proto/xproto
 "
 
 src_configure() {
