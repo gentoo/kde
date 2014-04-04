@@ -63,6 +63,13 @@ fi
 # Otherwise, add "examples" to IUSE to toggle adding that subdirectory.
 : ${KDE_EXAMPLES:=false}
 
+# @ECLASS-VARIABLE: KDE_HANDBOOK
+# @DESCRIPTION:
+# If set to "false", do notthing".
+# Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and
+# generate and install KDE handbook.
+KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
+
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -103,6 +110,14 @@ case ${KDE_EXAMPLES} in
 	false)  ;;
 	*)
 		IUSE+=" examples"
+		;;
+esac
+
+case ${KDE_HANDBOOK} in
+	false)	;;
+	*)
+		IUSE+=" +handbook"
+		DEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
 		;;
 esac
 
@@ -215,6 +230,11 @@ kde5_src_prepare() {
 	# only build unit tests when required
 	if ! in_iuse test || ! use test ; then
 		comment_add_subdirectory autotests
+	fi
+
+	# only enable handbook when required
+	if ! use_if_iuse handbook ; then
+		comment_add_subdirectory doc
 	fi
 
 	cmake-utils_src_prepare
