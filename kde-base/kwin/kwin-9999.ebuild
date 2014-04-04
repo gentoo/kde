@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="wayland"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -53,6 +53,10 @@ COMMON_DEPEND="
 	x11-libs/libXxf86vm
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
+	wayland? (
+		>=dev-libs/wayland-1.2
+		x11-libs/libxkbcommon
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-base/kwin:4
@@ -61,3 +65,11 @@ DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package wayland)
+	)
+
+	kde5_src_configure
+}
