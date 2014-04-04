@@ -4,13 +4,6 @@
 
 EAPI=5
 
-if [[ $PV == 9999 ]]; then
-	KDE_MINIMAL=9999
-else
-	KDE_MINIMAL=${PV/\.9999/}
-	EGIT_BRANCH="KDE/${KDE_MINIMAL}"
-fi
-
 inherit kde4-base
 
 DESCRIPTION="Oxygen style and decoration with support for transparency"
