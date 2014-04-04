@@ -12,7 +12,9 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="wayland"
+IUSE="gles2 +opengl wayland"
+
+REQUIRED_USE="^^ ( gles2 opengl )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -38,10 +40,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
-	|| (
-		dev-qt/qtgui:5[opengl]
-		dev-qt/qtgui:5[gles2]
-	)
+	dev-qt/qtgui:5[gles2=,opengl=]
 	dev-qt/qtmultimedia:5
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
@@ -65,12 +64,10 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
-	|| (
-		( dev-qt/qtgui:5[opengl] media-libs/mesa[egl] )
-		( dev-qt/qtgui:5[gles2] media-libs/mesa[egl,gles2] )
-	)
 	dev-qt/qtconcurrent:5
 	x11-proto/xproto
+	gles2? ( media-libs/mesa[egl,gles2] )
+	opengl? ( media-libs/mesa[egl] )
 "
 
 src_configure() {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <herd>kde</herd>
-  <use>
-    <flag name="gles">Enable support for GLES.</flag>
-  </use>
+	<herd>kde</herd>
+	<use>
+		<flag name="gles">Enable support for GLES.</flag>
+		<flag name="gles2">Enable support for GLES2.</flag>
+	</use>
 </pkgmetadata>
