@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="System settings utility"
