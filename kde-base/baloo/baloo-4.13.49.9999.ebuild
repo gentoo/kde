@@ -16,6 +16,7 @@ DEPEND="
 	dev-libs/qjson
 	dev-libs/xapian
 	sys-apps/attr
+	!<kde-base/nepomuk-4.12.50
 "
 RDEPEND="${DEPEND}"
 
