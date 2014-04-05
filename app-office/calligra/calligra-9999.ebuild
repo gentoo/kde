@@ -11,7 +11,8 @@ EAPI=5
 OPENGL_REQUIRED=optional
 KDE_HANDBOOK=optional
 KDE_LINGUAS_LIVE_OVERRIDE=true
-inherit kde4-base versionator
+CHECKREQS_DISK_BUILD="4G"
+inherit check-reqs kde4-base versionator
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="http://www.calligra.org/"
@@ -143,6 +144,15 @@ PDEPEND=">=app-office/calligra-l10n-${LANGVERSION}"
 
 RESTRICT=test
 # bug 394273
+
+pkg_pretend() {
+	check-reqs_pkg_pretend
+}
+
+pkg_setup() {
+	kde4-base_pkg_setup
+	check-reqs_pkg_setup
+}
 
 src_configure() {
 	local cal_ft
