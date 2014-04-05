@@ -8,17 +8,10 @@ inherit kde5
 
 DESCRIPTION="KDE window manager theme"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen"
-
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	x11-libs/libxcb
-	$(add_kdebase_dep kwin)
 	$(add_frameworks_dep frameworkintegration)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -28,6 +21,12 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_kdebase_dep kwin)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
+	x11-libs/libxcb
 "
 RDEPEND="${DEPEND}
 	!kde-base/kdebase-cursors:4
