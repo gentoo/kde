@@ -62,6 +62,9 @@ KMEXTRACTONLY="
 
 PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
 
+# fails to connect to a kded instance
+RESTRICT="test"
+
 src_unpack() {
 	if use handbook; then
 		KMEXTRA+="
