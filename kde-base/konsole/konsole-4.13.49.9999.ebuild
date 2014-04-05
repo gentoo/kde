@@ -33,3 +33,6 @@ DEPEND="${COMMONDEPEND}
 	)
 "
 RDEPEND="${COMMONDEPEND}"
+
+# can't connect to a kded instance, fails to connect to dbus
+RESTRICT="test"
