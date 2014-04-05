@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep liboxygenstyle)
+	kde-base/liboxygenstyle:4=
 	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
