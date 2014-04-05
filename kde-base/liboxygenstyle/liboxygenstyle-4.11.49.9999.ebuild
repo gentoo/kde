@@ -11,6 +11,7 @@ inherit kde4-meta
 DESCRIPTION="Library to support the Oxygen style in KDE"
 KEYWORDS=""
 IUSE="debug"
+SLOT="4/${PV}"
 
 DEPEND="x11-libs/libX11"
 RDEPEND="${DEPEND}"
