@@ -8,12 +8,8 @@
 
 EAPI=5
 
-KDE_MINIMAL=4.6.4
-QT_MINIMAL=4.8.1
 OPENGL_REQUIRED=optional
-
 KDE_HANDBOOK=optional
-
 KDE_LINGUAS_LIVE_OVERRIDE=true
 inherit kde4-base versionator
 
