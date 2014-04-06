@@ -40,6 +40,9 @@ DOCS=( AUTHORS ChangeLog README )
 
 [[ ${PV} != *9999 ]] && S=${WORKDIR}/${MY_P}
 
+# Fails to build with test enabled
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		-DQT4_BUILD=true
