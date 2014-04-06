@@ -40,9 +40,9 @@ SLOT="4"
 KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
-gsl +jpeg jpeg2k +kdcraw kde kdepim +lcms marble mysql +okular opengtl openexr
-+pdf postgres semantic-desktop spacenav +ssl sybase test tiff +threads
-+truetype vc word-perfect xbase +xml +xslt"
+gsl import-filter +jpeg jpeg2k +kdcraw kde kdepim +lcms marble mysql +okular
+opengtl openexr +pdf postgres semantic-desktop spacenav +ssl sybase test tiff
++threads +truetype vc xbase +xml +xslt"
 
 # please do not sort here, order is same as in CMakeLists.txt
 CAL_FTS="author kexi words flow plan stage sheets krita karbon braindump"
@@ -96,6 +96,14 @@ RDEPEND="
 	glib? ( dev-libs/glib:2 )
 	gsf? ( gnome-extra/libgsf )
 	gsl? ( sci-libs/gsl )
+	import-filter? (
+		app-text/libetonyek
+		app-text/libodfgen
+		app-text/libwpd
+		app-text/libwpg
+		app-text/libwps
+		media-libs/libvisio
+	)
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
 	kdcraw? ( $(add_kdebase_dep libkdcraw) )
@@ -125,11 +133,6 @@ RDEPEND="
 	tiff? ( media-libs/tiff )
 	truetype? ( media-libs/freetype:2 )
 	vc? ( dev-libs/vc )
-	word-perfect? (
-		app-text/libwpd
-		app-text/libwps
-		app-text/libwpg
-	)
 	xbase? ( dev-db/xbase )
 	xslt? ( dev-libs/libxslt )
 	calligra_features_kexi? (
@@ -199,6 +202,12 @@ src_configure() {
 		$(cmake-utils_use_with glib GObject)
 		$(cmake-utils_use_with gsf LIBGSF)
 		$(cmake-utils_use_with gsl GSL)
+		$(cmake-utils_use_with import-filter LibEtonyek)
+		$(cmake-utils_use_with import-filter LibOdfGen)
+		$(cmake-utils_use_with import-filter LibVisio)
+		$(cmake-utils_use_with import-filter LibWpd)
+		$(cmake-utils_use_with import-filter LibWpg)
+		$(cmake-utils_use_with import-filter LibWps)
 		$(cmake-utils_use_with jpeg JPEG)
 		$(cmake-utils_use_with jpeg2k OpenJPEG)
 		$(cmake-utils_use_with kdcraw Kdcraw)
@@ -216,7 +225,6 @@ src_configure() {
 		$(cmake-utils_use_with pdf Pstoedit)
 		$(cmake-utils_use_with postgres PostgreSQL)
 		$(cmake-utils_use_build postgres pqxx)
-		$(cmake-utils_use semantic-desktop NEPOMUK)
 		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with spacenav Spnav)
 		$(cmake-utils_use_with ssl OpenSSL)
@@ -226,8 +234,6 @@ src_configure() {
 		$(cmake-utils_use_with threads Threads)
 		$(cmake-utils_use_with truetype Freetype)
 		$(cmake-utils_use_with vc Vc)
-		$(cmake-utils_use_with word-perfect WPD)
-		$(cmake-utils_use_with word-perfect WPG)
 		$(cmake-utils_use_with xbase XBase)
 		$(cmake-utils_use_build xbase xbase)
 		$(cmake-utils_use_with xslt LibXslt)
