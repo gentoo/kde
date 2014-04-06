@@ -16,7 +16,7 @@ RDEPEND="!app-office/koffice-l10n"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc"
 
-MY_LANGS="bs ca ca@valencia cs da de el es et fi fr gl hu it kk nb nds nl pl
+MY_LANGS="bs ca ca@valencia cs da de el es et eu fi fr gl hu it kk nb nds nl pl
 pt pt_BR ru sk sl sv uk zh_CN zh_TW"
 
 case ${PV} in
