@@ -60,6 +60,7 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_kdebase_dep oxygen)
 	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "
