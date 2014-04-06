@@ -25,7 +25,6 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	virtual/tex-base
-	x11-libs/libqxt
 "
 RDEPEND="${DEPEND}
 	dev-tex/bibtex2html"
