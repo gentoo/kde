@@ -37,6 +37,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/systemsettings:4
 "
-
-# fails to connect to a kded instance
-RESTRICT="test"
