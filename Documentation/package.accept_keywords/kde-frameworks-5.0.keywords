@@ -63,6 +63,7 @@
 <kde-frameworks/sonnet-5.0.50
 <kde-frameworks/threadweaver-5.0.50
 >=dev-libs/extra-cmake-modules-0.0.12
+>=kde-frameworks/kf-env-1
 >=dev-qt/designer-5.2.1:5
 >=dev-qt/qtconcurrent-5.2.1:5
 >=dev-qt/qtcore-5.2.1:5

@@ -1,4 +1,5 @@
 ~dev-libs/extra-cmake-modules-9999 **
+>=kde-frameworks/kf-env-1
 >=dev-qt/designer-5.2.1:5
 >=dev-qt/qtconcurrent-5.2.1:5
 >=dev-qt/qtcore-5.2.1:5
