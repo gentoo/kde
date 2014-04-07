@@ -44,6 +44,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	$(add_frameworks_dep kdoctools)
 	dev-qt/qtquick1:5
 	opengl? ( virtual/opengl )
 	X? ( x11-proto/xproto )
