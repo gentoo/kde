@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="opengl X"
+IUSE="egl opengl X"
 
 RDEPEND="
 	$(add_frameworks_dep kactivities)
@@ -46,13 +46,18 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/qtquick1:5
-	opengl? ( virtual/opengl )
+	egl? ( media-libs/mesa[egl] )
+	opengl? (
+		dev-qt/qtgui:5[opengl,-gles2]
+		virtual/opengl
+	)
 	X? ( x11-proto/xproto )
 "
 
 src_configure() {
 	local mycmakeargs=(
 		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
+		$(cmake-utils_use_find_package egl EGL)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package X X11)
 		$(cmake-utils_use_find_package X XCB)
