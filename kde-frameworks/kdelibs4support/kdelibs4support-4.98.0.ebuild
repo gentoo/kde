@@ -5,6 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
+KMNAME="kde4support"
 inherit kde5
 
 DESCRIPTION="Framework easing the development transition from KDE 4 to KF 5"
