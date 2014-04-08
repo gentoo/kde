@@ -31,6 +31,9 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXtst
+	x11-proto/xproto
 "
 RDEPEND="${DEPEND}
 	!kde-base/khotkeys:4
