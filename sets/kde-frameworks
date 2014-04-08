@@ -14,9 +14,9 @@ kde-frameworks/kconfigwidgets:5
 kde-frameworks/kcoreaddons:5
 kde-frameworks/kcrash:5
 kde-frameworks/kdbusaddons:5
-kde-frameworks/kde4support:5
 kde-frameworks/kdeclarative:5
 kde-frameworks/kded:5
+kde-frameworks/kdelibs4support:5
 kde-frameworks/kdesignerplugin:5
 kde-frameworks/kdesu:5
 kde-frameworks/kdewebkit:5

@@ -13,9 +13,9 @@
 <kde-frameworks/kcoreaddons-5.0.50
 <kde-frameworks/kcrash-5.0.50
 <kde-frameworks/kdbusaddons-5.0.50
-<kde-frameworks/kde4support-5.0.50
 <kde-frameworks/kdeclarative-5.0.50
 <kde-frameworks/kded-5.0.50
+<kde-frameworks/kdelibs4support-5.0.50
 <kde-frameworks/kdesignerplugin-5.0.50
 <kde-frameworks/kdesu-5.0.50
 <kde-frameworks/kdewebkit-5.0.50
