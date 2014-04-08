@@ -36,5 +36,6 @@ RDEPEND="${DEPEND}
 	!kde-base/keditfiletype:4
 	!kde-base/kioclient:4
 	!kde-base/kmimetypefinder:4
+	!kde-base/kstart:4
 	!kde-base/ktraderclient:4
 "
