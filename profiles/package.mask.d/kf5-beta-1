@@ -15,8 +15,8 @@
 ~kde-frameworks/kcrash-4.98.0
 ~kde-frameworks/kdbusaddons-4.98.0
 ~kde-frameworks/kdeclarative-4.98.0
-~kde-frameworks/kde4support-4.98.0
 ~kde-frameworks/kded-4.98.0
+~kde-frameworks/kdelibs4support-4.98.0
 ~kde-frameworks/kdesignerplugin-4.98.0
 ~kde-frameworks/kdesu-4.98.0
 ~kde-frameworks/kdewebkit-4.98.0
