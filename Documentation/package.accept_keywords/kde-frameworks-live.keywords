@@ -16,9 +16,9 @@
 ~kde-frameworks/kcoreaddons-9999 **
 ~kde-frameworks/kcrash-9999 **
 ~kde-frameworks/kdbusaddons-9999 **
-~kde-frameworks/kde4support-9999 **
 ~kde-frameworks/kdeclarative-9999 **
 ~kde-frameworks/kded-9999 **
+~kde-frameworks/kdelibs4support-9999 **
 ~kde-frameworks/kdesignerplugin-9999 **
 ~kde-frameworks/kdesu-9999 **
 ~kde-frameworks/kdewebkit-9999 **
