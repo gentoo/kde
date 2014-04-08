@@ -10,7 +10,7 @@ DESCRIPTION="KDE workspace hotkey module"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -31,10 +31,10 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
+	!kde-base/khotkeys:4
+"
+DEPEND="${RDEPEND}
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-proto/xproto
-"
-RDEPEND="${DEPEND}
-	!kde-base/khotkeys:4
 "
