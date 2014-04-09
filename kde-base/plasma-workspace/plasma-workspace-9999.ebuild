@@ -98,3 +98,12 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+src_install() {
+	kde5_src_install
+
+	# x11 session script
+	echo startkde > "${T}"/KDE-5
+	exeinto /etc/X11/Sessions
+	doexe "${T}"/KDE-5
+}
