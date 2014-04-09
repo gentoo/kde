@@ -87,7 +87,7 @@ _add_kdecategory_dep() {
 	[[ -z ${1} ]] && die "Missing parameter"
 
 	if [[ -n ${use} ]] ; then
-		usedep="[${usedep}]"
+		usedep="[${use}]"
 	fi
 
 	echo " >=${category}/${package}-${version}:5${usedep}"
