@@ -65,7 +65,7 @@ fi
 
 # @ECLASS-VARIABLE: KDE_HANDBOOK
 # @DESCRIPTION:
-# If set to "false", do notthing".
+# If set to "false", do nothing".
 # Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and
 # generate and install KDE handbook.
 KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
