@@ -87,6 +87,9 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
+# Needed until bug 457024 is resolved
+PATCHES=( "${FILESDIR}/${P}-missing-qttools.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
