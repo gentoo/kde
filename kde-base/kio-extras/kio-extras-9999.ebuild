@@ -39,7 +39,7 @@ DEPEND="
 	exif? ( media-gfx/exiv2:= )
 	openexr? ( media-libs/openexr:= )
 	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
-	sftp? ( >=net-libs/libssh-0.6.0:= )
+	sftp? ( >=net-libs/libssh-0.6.0:=[sftp] )
 	slp? ( net-libs/openslp )
 "
 RDEPEND="${DEPEND}
