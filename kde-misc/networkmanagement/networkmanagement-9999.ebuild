@@ -24,7 +24,10 @@ IUSE="debug openconnect"
 DEPEND="
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.6
-	openconnect? ( net-misc/openconnect )
+	openconnect? (
+		net-misc/networkmanager-openconnect
+		net-misc/openconnect
+	)
 "
 RDEPEND="${DEPEND}
 	!kde-base/solid
