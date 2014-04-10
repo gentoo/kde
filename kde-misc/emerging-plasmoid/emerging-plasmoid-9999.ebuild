@@ -15,7 +15,10 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND=""
+DEPEND="
+	dev-lang/perl
+	dev-perl/DateManip
+"
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 "
