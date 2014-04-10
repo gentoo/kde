@@ -1,5 +1,5 @@
 diff --git a/startkde/startkde.cmake b/startkde/startkde.cmake
-index e845603..e49dd5f 100644
+index 14ce47a..58c3a7a 100644
 --- a/startkde/startkde.cmake
 +++ b/startkde/startkde.cmake
 @@ -1,6 +1,6 @@
@@ -10,15 +10,34 @@ index e845603..e49dd5f 100644
  #
  
  if test "x$1" = x--failsafe; then
-@@ -19,7 +19,7 @@ unset DYLD_FORCE_FLAT_NAMESPACE
+@@ -17,17 +17,17 @@ trap 'echo GOT SIGHUP' HUP
+ unset DYLD_FORCE_FLAT_NAMESPACE
+ 
  # in case we have been started with full pathname spec without being in PATH
- bindir=`echo "$0" | sed -n 's,^\(/.*\)/[^/][^/]*$,\1,p'`
- if [ -n "$bindir" ]; then
+-bindir=`echo "$0" | sed -n 's,^\(/.*\)/[^/][^/]*$,\1,p'`
+-if [ -n "$bindir" ]; then
 -  qbindir=`qtpaths --binaries-dir`
-+  qbindir=`kf5-config --qt-binaries`
-   qdbus=$qbindir/qdbus
-   case $PATH in
-     $bindir|$bindir:*|*:$bindir|*:$bindir:*) ;;
+-  qdbus=$qbindir/qdbus
+-  case $PATH in
+-    $bindir|$bindir:*|*:$bindir|*:$bindir:*) ;;
+-    *) PATH=$bindir:$PATH; export PATH;;
+-  esac
+-else
++#bindir=`echo "$0" | sed -n 's,^\(/.*\)/[^/][^/]*$,\1,p'`
++#if [ -n "$bindir" ]; then
++#  qbindir=`qtpaths --binaries-dir`
++#  qdbus=$qbindir/qdbus
++#  case $PATH in
++#    $bindir|$bindir:*|*:$bindir|*:$bindir:*) ;;
++#    *) PATH=$bindir:$PATH; export PATH;;
++#  esac
++#else
+   qdbus=qdbus
+-fi
++#fi
+ 
+ # Check if a KDE session already is running and whether it's possible to connect to X
+ kcheckrunning
 @@ -64,7 +64,7 @@ fi
  
  mkdir -p $configDir
@@ -37,15 +56,6 @@ index e845603..e49dd5f 100644
    KLOCALE_LANGUAGES="$klocale_languages"
    export KLOCALE_LANGUAGES
    # the splashscreen and progress indicator
-@@ -191,7 +191,7 @@ fi
- # For anything else (that doesn't set env vars, or that needs a window manager),
- # better use the Autostart folder.
- 
--libpath=`kde4-config --path lib | tr : '\n'`
-+libpath=`kf5-config --path lib | tr : '\n'`
- 
- for prefix in `echo "$libpath" | sed -n -e 's,/lib[^/]*/,/env/,p'`; do
-   for file in "$prefix"*.sh; do
 @@ -200,7 +200,7 @@ for prefix in `echo "$libpath" | sed -n -e 's,/lib[^/]*/,/env/,p'`; do
  done
  
