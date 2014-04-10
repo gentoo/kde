@@ -28,7 +28,10 @@ DEPEND="
 	>=net-libs/libnm-qt-0.9.8.1[modemmanager?]
 	>=net-misc/networkmanager-0.9.8.0
 	modemmanager? ( >=net-libs/libmm-qt-1.0.0 )
-	openconnect? ( net-misc/openconnect )
+	openconnect? (
+		net-misc/networkmanager-openconnect
+		net-misc/openconnect
+	)
 "
 RDEPEND="${DEPEND}
 	!kde-misc/networkmanagement
