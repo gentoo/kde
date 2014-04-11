@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_MINIMAL="4.10"
-
+KDE_LINGUAS=""
+KDE_MINIMAL="4.12"
 inherit kde4-base
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
@@ -17,7 +17,7 @@ IUSE="debug"
 SLOT=4
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs )
+	$(add_kdebase_dep kdepimlibs)
 	dev-libs/qjson
 "
 RDEPEND=${DEPEND}
