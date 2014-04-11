@@ -2,4 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="egl">Retrieve information about OpenGL via EGL</flag>
+		<flag name="gles">Show OpenGL ES information in kinfocenter</flag>
+		<flag name="nfs">Show information about NFS mounts, shares and log entries</flag>
+		<flag name="pci">Show advanced PCI information</flag>
+		<flag name="samba">Show information about Samba mounts, shares and log entries</flag>
+		<flag name="server">Show server specific information in the Samba/NFS module</flag>
+	</use>
 </pkgmetadata>
