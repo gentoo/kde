@@ -15,6 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-libs/libdbusmenu-qt
-	dev-qt/qtcore"
-DEPEND="${RDEPEND}"
+DEPEND="
+	dev-libs/libdbusmenu-qt[qt4(+)]
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
+	dev-qt/qtgui:4
+"
+RDEPEND="${DEPEND}"
