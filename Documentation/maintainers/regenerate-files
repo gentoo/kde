@@ -140,3 +140,10 @@ for set in *-${KF_RELEASE}; do
 	sed -r "/@/s/-${KF_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-frameworks/@s/-(9999|5\..\.50)/:5/" "${set}" >> "${newfile}"
 done
 popd > /dev/null
+
+# regenerate CONTRIBUTORS file
+pushd ../ > /dev/null
+newfile="CONTRIBUTORS"
+echo -e "${HEADER}" > "${newfile}"
+git log --all --format='%aN <%aE>' | sort -u >> "${newfile}"
+popd > /dev/null
