@@ -1,0 +1,25 @@
+commit da0aa13642dfc8d4dbaf1f0f5d223714077c1e50
+Author: Jonathan Riddell <jr@jriddell.org>
+Date:   Tue Apr 1 15:42:47 2014 +0100
+
+    rename solid-hardware to solid-hardware5 to stop it clashing with the
+    equivalent binary from kde-runtime in kdelibs4 land
+    
+    REVIEW:117208
+
+diff --git a/src/tools/solid-hardware/CMakeLists.txt b/src/tools/solid-hardware/CMakeLists.txt
+index 7cb604e..dbda0d4 100644
+--- a/src/tools/solid-hardware/CMakeLists.txt
++++ b/src/tools/solid-hardware/CMakeLists.txt
+@@ -1,7 +1,4 @@
+-add_executable(solid-hardware solid-hardware.cpp)
+-ecm_mark_nongui_executable(solid-hardware)
+-target_link_libraries(solid-hardware KF5::Solid)
+-install(TARGETS solid-hardware ${INSTALL_TARGETS_DEFAULT_ARGS})
+-
+-
+-
++add_executable(solid-hardware5 solid-hardware.cpp)
++ecm_mark_nongui_executable(solid-hardware5)
++target_link_libraries(solid-hardware5 KF5::Solid)
++install(TARGETS solid-hardware5 ${INSTALL_TARGETS_DEFAULT_ARGS})

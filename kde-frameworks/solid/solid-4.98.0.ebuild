@@ -23,6 +23,10 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
+PATCHES=(
+	"${FILESDIR}/solid-4.98.0-collision-kdelibs4-fix.patch"
+)
+
 src_configure() {
 	# HUpnp is currently disabled upstream due to
 	# being buggy and unmaintained
