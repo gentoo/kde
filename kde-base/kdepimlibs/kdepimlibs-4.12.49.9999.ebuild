@@ -24,7 +24,7 @@ DEPEND="
 	>=app-office/akonadi-server-1.10.43
 	>=dev-libs/boost-1.35.0-r5:=
 	dev-libs/libgpg-error
-	>=dev-libs/libical-0.43
+	>=dev-libs/libical-0.48-r2:=
 	dev-libs/cyrus-sasl
 	>=dev-libs/qjson-0.8.1
 	media-libs/phonon
