@@ -24,10 +24,7 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	# HUpnp is currently disabled upstream due to
-	# being buggy and unmaintained
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_HUpnp=true
 		$(cmake-utils_use_find_package udev UDev)
 	)
 
