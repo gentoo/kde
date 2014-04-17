@@ -25,6 +25,9 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
+# requires running kde environment
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
