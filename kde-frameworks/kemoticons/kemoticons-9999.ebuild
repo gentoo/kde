@@ -20,3 +20,6 @@ RDEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}"
+
+# requires running kde environment
+RESTRICT="test"
