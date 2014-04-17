@@ -12,6 +12,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="X"
 
+# requires running kde environment
+RESTRICT="test"
+
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
