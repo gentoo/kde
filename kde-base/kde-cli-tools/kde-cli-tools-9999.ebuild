@@ -4,6 +4,8 @@
 
 EAPI=5
 
+KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
@@ -39,3 +41,6 @@ RDEPEND="${DEPEND}
 	!kde-base/kstart:4
 	!kde-base/ktraderclient:4
 "
+
+# requires running kde environment
+RESTRICT="test"
