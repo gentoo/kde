@@ -32,6 +32,9 @@ DEPEND="${RDEPEND}
 	)
 "
 
+# requires running kde environment
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package X XCB)
