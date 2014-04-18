@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="${PN}-framework"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Plasma framework"
