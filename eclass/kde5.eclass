@@ -224,8 +224,11 @@ kde5_src_unpack() {
 kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	# never build manual tests
-	comment_add_subdirectory tests
+	# in frameworks, tests = manual tests so never
+	# build them
+	if [[ ${CATEGORY} = kde-frameworks ]]; then
+		comment_add_subdirectory tests
+	fi
 
 	# only build examples when required
 	if ! in_iuse examples || ! use examples ; then
