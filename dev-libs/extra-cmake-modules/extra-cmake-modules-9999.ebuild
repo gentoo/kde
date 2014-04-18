@@ -4,7 +4,9 @@
 
 EAPI=5
 
-inherit cmake-utils git-r3
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} )
+
+inherit cmake-utils git-r3 python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
@@ -13,7 +15,30 @@ EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 LICENSE="BSD"
 SLOT=0
 KEYWORDS=""
+IUSE="doc"
 
 DEPEND="
 	>=dev-util/cmake-2.8.12
+	doc? (
+		${PYTHON_DEPS}
+		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
+	)
 "
+
+python_check_deps() {
+	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use doc && python-any-r1_pkg_setup
+}
+
+src_configure() {
+	# demos not working
+	local mycmakeargs=(
+		$(cmake-utils_use_build doc HTML_DOCS)
+		$(cmake-utils_use_build doc MAN_DOCS)
+	)
+
+	cmake-utils_src_configure
+}
