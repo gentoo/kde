@@ -4,6 +4,7 @@
 
 EAPI=5
 
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KHTML web rendering engine"
