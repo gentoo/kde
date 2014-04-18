@@ -37,7 +37,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_find_package hotkeys KHotKeysDBusInterface)
+		$(cmake-utils_use_find_package hotkeys KHotKeysDBusInterface)
 	)
 
 	kde5_src_configure
