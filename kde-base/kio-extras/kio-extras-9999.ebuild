@@ -4,6 +4,8 @@
 
 EAPI=5
 
+KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
@@ -45,6 +47,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/kdebase-kioslaves:4
 "
+
+# requires running kde environment
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
