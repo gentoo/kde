@@ -17,7 +17,7 @@ DEPEND="
 	$(add_kdebase_dep kdepim-common-libs)
 	$(add_kdebase_dep nepomuk-core)
 	$(add_kdebase_dep nepomuk-widgets)
-	app-office/akonadi-server
+	app-office/akonadi-server[soprano(+)]
 "
 RDEPEND="${DEPEND}"
 

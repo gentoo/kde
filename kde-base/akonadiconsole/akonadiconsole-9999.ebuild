@@ -16,7 +16,7 @@ DEPEND="
 	$(add_kdebase_dep baloo-widgets)
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
-	app-office/akonadi-server
+	app-office/akonadi-server[-soprano]
 "
 RDEPEND="${DEPEND}"
 
