@@ -21,7 +21,7 @@ DEPEND="
 	$(add_kdebase_dep nepomuk-core)
 	$(add_kdebase_dep kdelibs 'semantic-desktop')
 	>=app-crypt/gpgme-1.1.6
-	>=app-office/akonadi-server-1.10.43
+	>=app-office/akonadi-server-1.10.43[soprano(+)]
 	>=dev-libs/boost-1.35.0-r5:=
 	dev-libs/libgpg-error
 	>=dev-libs/libical-0.48-r2:=
