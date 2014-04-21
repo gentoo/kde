@@ -28,6 +28,7 @@ REQUIRED_USE="^^ ( qt4 qt5 ) || ( sqlite mysql postgres )"
 
 CDEPEND="
 	dev-libs/boost:=
+	x11-misc/shared-mime-info
 	qt4? (
 		>=dev-qt/qtcore-4.8.5:4
 		>=dev-qt/qtdbus-4.8.5:4
@@ -46,10 +47,7 @@ CDEPEND="
 		dev-qt/qtxml:5
 		soprano? ( dev-libs/soprano[-qt4,qt5] )
 	)
-	soprano? (
-		dev-libs/soprano
-		x11-misc/shared-mime-info
-	)
+	soprano? ( dev-libs/soprano )
 	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${CDEPEND}
