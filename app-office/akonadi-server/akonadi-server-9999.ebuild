@@ -22,14 +22,12 @@ HOMEPAGE="http://pim.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="+mysql postgres +qt4 qt5 sqlite test"
+IUSE="+mysql postgres +qt4 qt5 soprano sqlite test"
 
 REQUIRED_USE="^^ ( qt4 qt5 ) || ( sqlite mysql postgres )"
 
 CDEPEND="
 	dev-libs/boost:=
-	>=dev-libs/soprano-2.6.51
-	x11-misc/shared-mime-info
 	qt4? (
 		>=dev-qt/qtcore-4.8.5:4
 		>=dev-qt/qtdbus-4.8.5:4
@@ -38,7 +36,6 @@ CDEPEND="
 		>=dev-qt/qttest-4.8.5:4
 	)
 	qt5? (
-		>=dev-libs/soprano-2.6.51[-qt4,qt5]
 		dev-qt/qtcore:5
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5
@@ -47,6 +44,11 @@ CDEPEND="
 		dev-qt/qttest:5
 		dev-qt/qtwidgets:5
 		dev-qt/qtxml:5
+		soprano? ( dev-libs/soprano[-qt4,qt5] )
+	)
+	soprano? (
+		dev-libs/soprano
+		x11-misc/shared-mime-info
 	)
 	sqlite? ( dev-db/sqlite:3 )
 "
@@ -94,6 +96,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DINSTALL_QSQLITE_IN_QT_PREFIX=ON
 		$(cmake-utils_use test AKONADI_BUILD_TESTS)
+		$(cmake-utils_use_with soprano)
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
 		$(cmake-utils_use qt5 QT5_BUILD)
 	)
