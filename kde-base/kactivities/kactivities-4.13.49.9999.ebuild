@@ -12,7 +12,10 @@ DESCRIPTION="KDE Activity Manager"
 KEYWORDS=""
 IUSE="semantic-desktop"
 
-DEPEND="$(add_kdebase_dep kdelibs 'semantic-desktop?')"
+DEPEND="
+	$(add_kdebase_dep nepomuk-core)
+	dev-libs/soprano
+"
 RDEPEND="
 	${DEPEND}
 	!kde-base/activitymanager
