@@ -24,6 +24,7 @@ RDEPEND="
 	$(add_kdebase_dep kiten)
 	$(add_kdebase_dep klettres)
 	$(add_kdebase_dep kmplot)
+	$(add_kdebase_dep kqtquickcharts)
 	$(add_kdebase_dep kstars)
 	$(add_kdebase_dep ktouch)
 	$(add_kdebase_dep kturtle)
