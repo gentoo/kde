@@ -20,11 +20,3 @@ RESTRICT="test"
 KMEXTRA="
 	addons/ktexteditor
 "
-
-src_configure() {
-	local mycmakeargs=(
-		"-DKDE4_BUILD_TESTS=OFF"
-	)
-
-	kde4-meta_src_configure
-}

@@ -22,11 +22,3 @@ KMEXTRA="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-4.12.3-crash-fix.patch" )
-
-src_configure() {
-	local mycmakeargs=(
-		"-DKDE4_BUILD_TESTS=OFF"
-	)
-
-	kde4-meta_src_configure
-}
