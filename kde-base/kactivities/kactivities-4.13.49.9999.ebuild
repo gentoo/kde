@@ -13,8 +13,10 @@ KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep nepomuk-core)
-	dev-libs/soprano
+	semantic-desktop? (
+		$(add_kdebase_dep nepomuk-core)
+		dev-libs/soprano
+	)
 "
 RDEPEND="
 	${DEPEND}
