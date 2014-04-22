@@ -14,7 +14,7 @@ LICENSE="LGPL-2.1"
 IUSE="debug"
 
 DEPEND="
-	app-office/akonadi-server[-soprano]
+	app-office/akonadi-server
 	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"
