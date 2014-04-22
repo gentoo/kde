@@ -12,11 +12,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep baloo)
-	$(add_kdebase_dep baloo-widgets)
+	>=app-office/akonadi-server-1.12.1
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
-	app-office/akonadi-server
 "
 RDEPEND="${DEPEND}"
 
