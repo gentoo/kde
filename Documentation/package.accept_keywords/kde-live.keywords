@@ -138,6 +138,7 @@
 #~dev-libs/soprano-9999
 #media-libs/raptor:2
 ~kde-base/analitza-9999 **
+~kde-base/artikulate-9999 **
 ~kde-base/blinken-9999 **
 ~kde-base/cantor-9999 **
 ~kde-base/kalgebra-9999 **
