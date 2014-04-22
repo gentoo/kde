@@ -15,7 +15,6 @@ IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kactivities '' 4.13)
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
 	$(add_kdebase_dep libkonq)
 	x11-libs/libXrender
 	semantic-desktop? (
