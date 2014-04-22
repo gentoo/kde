@@ -9,24 +9,13 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Password Server"
 KEYWORDS=""
-IUSE="debug semantic-desktop"
+IUSE="debug"
 
 DEPEND="
-	semantic-desktop? (
-		app-crypt/gpgme
-		$(add_kdebase_dep kdepimlibs)
-	)
+	app-crypt/gpgme
+	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # testpamopen crashes with a buffer overflow (__fortify_fail)
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package semantic-desktop Gpgme)
-		$(cmake-utils_use_find_package semantic-desktop QGpgme)
-	)
-
-	kde4-base_src_configure
-}
