@@ -4,7 +4,7 @@
 
 EAPI=5
 
-DECLARATIVE_REQUIRED="true"
+DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="Qt Quick 1 plugin for beautiful and interactive charts"
