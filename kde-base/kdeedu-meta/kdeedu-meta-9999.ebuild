@@ -12,6 +12,7 @@ IUSE=""
 
 RDEPEND="
 	$(add_kdebase_dep analitza)
+	$(add_kdebase_dep artikulate)
 	$(add_kdebase_dep blinken)
 	$(add_kdebase_dep cantor)
 	$(add_kdebase_dep kalgebra)
