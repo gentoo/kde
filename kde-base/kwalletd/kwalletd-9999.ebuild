@@ -9,13 +9,24 @@ inherit kde4-meta
 
 DESCRIPTION="KDE Password Server"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug gpg"
 
 DEPEND="
-	app-crypt/gpgme
-	$(add_kdebase_dep kdepimlibs)
+	gpg? (
+		app-crypt/gpgme
+		$(add_kdebase_dep kdepimlibs)
+	)
 "
 RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # testpamopen crashes with a buffer overflow (__fortify_fail)
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package gpg Gpgme)
+		$(cmake-utils_use_find_package gpg QGpgme)
+	)
+
+	kde4-base_src_configure
+}
