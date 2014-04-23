@@ -4,8 +4,7 @@
 
 EAPI=5
 
-KDE_REQUIRED="never"
-inherit kde4-base
+inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -18,13 +17,12 @@ DESCRIPTION="Modemmanager bindings for Qt"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libmm-qt"
 
 LICENSE="LGPL-2"
+# maybe remove SLOT when it becomes a official KDE Framework
 SLOT="0"
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
-	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
-	dev-qt/qtnetwork:5
 	dev-qt/qtxml:5
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8[modemmanager]
