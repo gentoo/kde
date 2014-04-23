@@ -20,6 +20,7 @@ RDEPEND="
 	udev? ( virtual/udev )
 "
 DEPEND="${RDEPEND}
+	dev-qt/linguist-tools:5
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
