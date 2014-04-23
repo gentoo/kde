@@ -4,8 +4,9 @@
 
 EAPI=5
 
-KDE_REQUIRED="never"
-inherit kde4-base
+KDE_TEST="true"
+KDE_DOXYGEN="true"
+inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -18,38 +19,21 @@ DESCRIPTION="NetworkManager bindings for Qt"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libnm-qt"
 
 LICENSE="LGPL-2"
+# maybe remove SLOT when it becomes official KDE Framework
 SLOT="0"
-IUSE="debug doc modemmanager test"
+IUSE=""
 
 RDEPEND="
-	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5
-	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.9.8.0
-	modemmanager? ( >=net-libs/libmm-qt-1.0.0 )
+	>=net-misc/networkmanager-0.9.8.4
 "
 DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )
-	test? ( dev-qt/qttest:5 )
+	virtual/pkgconfig
 "
 
 src_configure() {
-	local mycmakeargs=(
-		-DBUILD_EXAMPLES=OFF
-		$(cmake-utils_use_find_package doc Doxygen)
-		$(cmake-utils_use !modemmanager DISABLE_MODEMMANAGERQT)
-		$(cmake-utils_use !test DISABLE_TESTING)
-	)
+	local mycmakeargs=(	-DBUILD_EXAMPLES=FALSE )
 
-	kde4-base_src_configure
-}
-
-src_install() {
-	if use doc; then
-		{ cd "${BUILD_DIR}" && doxygen; } || die "Generating documentation failed"
-		HTML_DOCS=( "${BUILD_DIR}/doc/html/" )
-	fi
-
-	cmake-utils_src_install
+	kde5_src_configure
 }
