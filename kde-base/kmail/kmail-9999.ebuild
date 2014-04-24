@@ -56,7 +56,6 @@ KMCOMPILEONLY="
 KMEXTRA="
 	agents/archivemailagent/
 	agents/mailfilteragent/
-	grantleeeditor/grantleethemeeditor/
 	grantleeeditor/headerthemeeditor/
 	kmailcvt/
 	ksendemail/
