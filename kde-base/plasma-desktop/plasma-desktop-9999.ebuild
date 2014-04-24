@@ -67,8 +67,8 @@ RDEPEND="
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
-		x11-libs/xcb-util-image
 		x11-libs/libXft
+		x11-libs/xcb-util-image
 	)
 	pulseaudio? (
 		dev-libs/glib:2
