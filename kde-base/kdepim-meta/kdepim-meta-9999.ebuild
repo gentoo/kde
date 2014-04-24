@@ -15,7 +15,6 @@ RDEPEND="
 	$(add_kdebase_dep akregator)
 	$(add_kdebase_dep blogilo)
 	$(add_kdebase_dep calendarjanitor)
-	$(add_kdebase_dep contactthemeeditor)
 	$(add_kdebase_dep kabcclient)
 	$(add_kdebase_dep kaddressbook)
 	$(add_kdebase_dep kalarm)
