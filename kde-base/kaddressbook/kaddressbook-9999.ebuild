@@ -17,10 +17,12 @@ DEPEND="
 	>=dev-libs/grantlee-0.2.0
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
+	!kde-base/contactthemeeditor
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRA="
+	grantleeeditor/contactthemeeditor
 	plugins/kaddressbook/
 	plugins/ktexteditor/
 "
