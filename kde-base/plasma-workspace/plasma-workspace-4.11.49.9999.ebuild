@@ -82,8 +82,6 @@ KMEXTRACTONLY="
 	ksysguard/
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
-
 pkg_setup() {
 	if use python ; then
 		python-single-r1_pkg_setup
