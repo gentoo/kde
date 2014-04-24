@@ -59,9 +59,6 @@ KMEXTRACTONLY="
 	libs/
 	plasma/
 "
-
-PATCHES=( "${FILESDIR}/${PN}-4.10.1-noplasmalock.patch" )
-
 # fails to connect to a kded instance
 RESTRICT="test"
 
