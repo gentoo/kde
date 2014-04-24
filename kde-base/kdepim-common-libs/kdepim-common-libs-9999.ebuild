@@ -27,9 +27,10 @@ RDEPEND="${DEPEND}
 	!<kde-base/kaddressbook-4.11.50:4
 	!kde-base/kdepim-wizards:4
 	!<kde-base/kmail-4.4.80:4
+	!=kde-base/kmail-4.11*
 	!=kde-base/kmail-4.12.0
 	!=kde-base/kmail-4.12.1
-	!=kde-base/kmail-4.11*
+	!<kde-base/kmail-4.13.60
 	!<kde-base/korganizer-4.5.67:4
 	app-crypt/gnupg
 	$(add_kdebase_dep kdepim-runtime)
@@ -44,6 +45,7 @@ KMEXTRA="
 	calendarsupport/
 	calendarviews/
 	composereditor-ng/
+	grantleeeditor/grantleethemeeditor/
 	grantleetheme/
 	kaddressbookgrantlee/
 	incidenceeditor-ng/
