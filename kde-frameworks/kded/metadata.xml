@@ -2,7 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
-	<use>
-		<flag name="phonon">Add sound support via <pkg>media-libs/phonon</pkg></flag>
-	</use>
 </pkgmetadata>
