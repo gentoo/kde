@@ -15,6 +15,7 @@ IUSE=""
 RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtxml:5
+	!kde-base/kreadconfig:4
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qtconcurrent:5 )
