@@ -17,6 +17,7 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kservice)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
@@ -24,5 +25,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
-	$(add_frameworks_dep kinit)
 "
