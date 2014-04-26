@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-KDE_LINGUAS="cs da de hu nl pt pt_BR sk sv uk"
+KDE_LINGUAS="bs cs da de fi fr hu lt nl pt pt_BR ro ru sk sl sv uk"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -22,10 +22,12 @@ LICENSE="LGPL-2.1"
 SLOT="4"
 IUSE="debug examples test"
 
-DEPEND="
+RDEPEND="
 	$(add_kdebase_dep kdepimlibs)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-devel/gettext
+"
 
 src_configure() {
 	local mycmakeargs=(
