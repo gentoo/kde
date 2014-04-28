@@ -27,13 +27,13 @@ IUSE="test"
 RDEPEND="
 	dev-libs/glib:2
 	>=dev-libs/boost-1.40:=
-	>=dev-util/boost-build-1.40
-	>=media-libs/gstreamer-0.10.33:0.10
-	>=media-libs/gst-plugins-base-0.10.33:0.10
 	>=dev-qt/qtcore-${QT_MINIMAL}:4
 	>=dev-qt/qtdeclarative-${QT_MINIMAL}:4
 	>=dev-qt/qtgui-${QT_MINIMAL}:4
 	>=dev-qt/qtopengl-${QT_MINIMAL}:4
+	>=dev-util/boost-build-1.40
+	>=media-libs/gstreamer-0.10.33:0.10
+	>=media-libs/gst-plugins-base-0.10.33:0.10
 "
 DEPEND="
 	${RDEPEND}
