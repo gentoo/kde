@@ -471,7 +471,7 @@ _calculate_live_repo() {
 			# Determine branch URL based on live type
 			local branch_prefix
 			case ${PV} in
-				9999*)
+				4.9999*)
 					# trunk
 					branch_prefix="trunk/KDE"
 					;;
