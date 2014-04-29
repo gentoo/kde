@@ -15,18 +15,18 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc examples gtk python sqlite test"
 
 RDEPEND="
+	app-text/unix2dos
 	examples? ( sys-libs/ncurses )
 	gtk? ( x11-libs/gtk+ )
 	python? ( dev-lang/python dev-python/dbus-python )
 	sqlite? ( dev-db/sqlite )
-	app-text/unix2dos
 "
 
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
+	sys-apps/help2man
 	doc? ( app-doc/doxygen )
 	python? ( dev-lang/swig )
 	test? ( dev-util/cppunit )
-	sys-apps/help2man
 "
 
 src_prepare() {
@@ -37,9 +37,9 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		$(use_enable doc documentation)
+		$(use_enable examples curses)
 		$(use_enable gtk gpresagemate)
 		$(use_enable gtk gprompter)
-		$(use_enable examples curses)
 		$(use_enable python)
 		$(use_enable python python-binding)
 		$(use_enable sqlite)
