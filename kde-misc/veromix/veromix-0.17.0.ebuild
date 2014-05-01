@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 CMAKE_REQUIRED="never"
 inherit python-single-r1 kde4-base
 
