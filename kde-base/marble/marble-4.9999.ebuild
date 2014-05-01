@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KDE_REQUIRED="optional"
 CPPUNIT_REQUIRED="optional"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit kde4-base python-single-r1
 
 DESCRIPTION="Generic geographical map widget"
