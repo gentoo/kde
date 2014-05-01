@@ -8,7 +8,7 @@ KDE_LINGUAS="cs da de el en_GB es et fr hu it lt nb nds nl pa pl pt pt_BR ru sv
 uk zh_CN zh_TW"
 EGIT_REPONAME="wicd-kde"
 MY_P=${P/-client/}
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="Wicd client built on the KDE Development Platform"
