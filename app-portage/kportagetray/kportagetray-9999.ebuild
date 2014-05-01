@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_LINGUAS="pt_BR"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit kde4-base python-single-r1
 
 EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
