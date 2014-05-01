@@ -6,7 +6,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KDE_MINIMAL="4.10"
 KMNAME="nepomuk-webminer"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit python-single-r1 kde4-base
 
