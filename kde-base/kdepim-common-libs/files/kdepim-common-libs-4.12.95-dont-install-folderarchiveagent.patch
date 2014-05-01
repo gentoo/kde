@@ -1,8 +1,0 @@
---- a/agents/CMakeLists.txt	2014-03-20 23:18:57.934117532 +0100
-+++ b/agents/CMakeLists.txt	2014-03-20 23:39:40.801138867 +0100
-@@ -8,4 +8,3 @@
- #DONOTCOMPILE add_subdirectory(notesagent)
- #comment until 4.13
- #add_subdirectory(followupreminderagent)
--install(FILES folderarchiveagent.desktop DESTINATION "${CMAKE_INSTALL_PREFIX}/share/akonadi/agents")
-
