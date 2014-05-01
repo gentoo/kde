@@ -6,7 +6,7 @@ EAPI=5
 
 KMNAME="kross-interpreters"
 KMMODULE="python"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-meta
 
 DESCRIPTION="Kross scripting framework: Python interpreter"
