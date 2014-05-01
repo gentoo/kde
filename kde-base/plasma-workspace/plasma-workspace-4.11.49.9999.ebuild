@@ -8,7 +8,7 @@ DECLARATIVE_REQUIRED="always"
 KDE_HANDBOOK="optional"
 KMNAME="kde-workspace"
 KMMODULE="plasma"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 OPENGL_REQUIRED="always"
 inherit python-single-r1 kde4-meta
 
