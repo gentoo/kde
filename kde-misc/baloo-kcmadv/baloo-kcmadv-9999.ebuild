@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Alternative configuration module for the Baloo search framework"
 HOMEPAGE="https://gitorious.org/baloo-kcmadv"
-EGIT_REPO_URI="git://gitorious.org/baloo-kcmadv/baloo-kcmadv.git"
+EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -16,8 +16,8 @@ SLOT="4"
 IUSE=""
 
 DEPEND="
+	$(add_kdebase_dep kfilemetadata)
 	dev-libs/qjson
-	kde-base/kfilemetadata
 	dev-libs/xapian
 "
 RDEPEND="${DEPEND}"
