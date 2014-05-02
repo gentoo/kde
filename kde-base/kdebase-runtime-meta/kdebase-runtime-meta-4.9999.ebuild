@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS=""
-IUSE="+handbook semantic-desktop"
+IUSE="+handbook nepomuk"
 
 RDEPEND="
 	$(add_kdebase_dep attica)
@@ -43,7 +43,7 @@ RDEPEND="
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
 	handbook? ( $(add_kdebase_dep khelpcenter) )
-	semantic-desktop? (
+	nepomuk? (
 		$(add_kdebase_dep drkonqi)
 		$(add_kdebase_dep nepomuk)
 	)
