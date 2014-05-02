@@ -22,9 +22,9 @@ IUSE="debug"
 DEPEND="
 	dev-libs/apr:1
 	dev-libs/apr-util:1
+	dev-qt/qtsql:4[sqlite]
 	>=dev-vcs/subversion-1.7
 	sys-devel/gettext
-	dev-qt/qtsql:4[sqlite]
 "
 RDEPEND="${DEPEND}
 	!kde-base/kdesdk-kioslaves:4[subversion(+)]
