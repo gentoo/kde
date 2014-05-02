@@ -10,10 +10,10 @@ inherit kde4-base
 DESCRIPTION="KDE Activity Manager"
 
 KEYWORDS=""
-IUSE="semantic-desktop"
+IUSE="nepomuk"
 
 DEPEND="
-	semantic-desktop? (
+	nepomuk? (
 		$(add_kdebase_dep nepomuk-core)
 		dev-libs/soprano
 	)
@@ -25,7 +25,7 @@ RDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop NepomukCore)
+		$(cmake-utils_use_with nepomuk NepomukCore)
 	)
 	kde4-base_src_configure
 }
