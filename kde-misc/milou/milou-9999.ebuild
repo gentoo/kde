@@ -8,7 +8,7 @@ KDE_MINIMAL="4.13"
 inherit kde4-base
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
-HOMEPAGE="https://projects.kde.org/projects/kdereview/milou"
+HOMEPAGE="https://projects.kde.org/projects/extragear/base/milou"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="4"
