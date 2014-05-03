@@ -83,7 +83,11 @@ fi
 HOMEPAGE="http://www.kde.org/"
 LICENSE="GPL-2"
 
-SLOT=5
+if [[ ${CATEGORY} = kde-frameworks ]]; then
+	SLOT=5/$(get_version_component_range 1-2)
+else
+	SLOT=5
+fi
 
 case ${KDE_AUTODEPS} in
 	false)	;;
