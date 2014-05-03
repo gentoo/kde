@@ -38,15 +38,6 @@ index 14ce47a..58c3a7a 100644
  
  # Check if a KDE session already is running and whether it's possible to connect to X
  kcheckrunning
-@@ -64,7 +64,7 @@ fi
- 
- mkdir -p $configDir
- 
--#This is basically setting defaults so we can use them with kstartupconfig4
-+#This is basically setting defaults so we can use them with kstartupconfig5
- cat >$configDir/startupconfigkeys <<EOF
- kcminputrc Mouse cursorTheme 'Oxygen_White'
- kcminputrc Mouse cursorSize ''
 @@ -162,7 +162,7 @@ unset DESKTOP_LOCKED # Don't want it in the environment
  ksplash_pid=
  if test -z "$dl"; then
