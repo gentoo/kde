@@ -269,6 +269,9 @@ kde5_src_configure() {
 		cmakeargs+=( -DBUILD_TESTING=OFF )
 	fi
 
+	# make sure config files go to /etc instead of /usr/etc
+	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
+
 	# allow the ebuild to override what we set here
 	mycmakeargs=("${cmakeargs[@]}" "${mycmakeargs[@]}")
 
