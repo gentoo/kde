@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS=""
-IUSE="+handbook nepomuk"
+IUSE="+crash-reporter +handbook nepomuk"
 
 RDEPEND="
 	$(add_kdebase_dep attica)
@@ -42,9 +42,7 @@ RDEPEND="
 	$(add_kdebase_dep plasma-runtime)
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
+	crash-reporter? ( $(add_kdebase_dep drkonqi ) )
 	handbook? ( $(add_kdebase_dep khelpcenter) )
-	nepomuk? (
-		$(add_kdebase_dep drkonqi)
-		$(add_kdebase_dep nepomuk)
-	)
+	nepomuk? ( $(add_kdebase_dep nepomuk) )
 "
