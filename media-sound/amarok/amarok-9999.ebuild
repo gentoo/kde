@@ -28,7 +28,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp ofa opengl semantic-desktop test +utils"
+IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp nepomuk ofa opengl test +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -37,7 +37,7 @@ fi
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
 	app-crypt/qca:2
-	$(add_kdebase_dep kdelibs 'opengl?,semantic-desktop?' 4.8.4)
+	$(add_kdebase_dep kdelibs 'nepomuk?,opengl?' 4.8.4)
 	$(add_kdebase_dep kdebase-kioslaves)
 	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
@@ -63,9 +63,9 @@ COMMONDEPEND="
 		>=dev-qt/qtcore-4.8.4:4[glib]
 	)
 	mtp? ( >=media-libs/libmtp-1.0.0 )
+	nepomuk? ( >=kde-base/nepomuk-core-4.9.0 )
 	ofa? ( >=media-libs/libofa-0.9.0 )
 	opengl? ( virtual/opengl )
-	semantic-desktop? ( >=kde-base/nepomuk-core-4.9.0 )
 "
 DEPEND="${COMMONDEPEND}
 	dev-util/automoc
@@ -100,9 +100,9 @@ src_configure() {
 		$(cmake-utils_use_with lastfm LibLastFm)
 		$(cmake-utils_use_with mtp)
 		$(cmake-utils_use_with mp3tunes MP3Tunes)
+		$(cmake-utils_use_with nepomuk)
+		$(cmake-utils_use_with nepomuk Soprano)
 		$(cmake-utils_use_with ofa LibOFA)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with utils UTILITIES)
 	)
 
