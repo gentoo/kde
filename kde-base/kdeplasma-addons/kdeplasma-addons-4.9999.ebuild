@@ -9,8 +9,8 @@ inherit kde4-base
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="attica debug desktopglobe exif fcitx ibus json oauth qalculate qwt scim
-semantic-desktop"
+IUSE="attica debug desktopglobe exif fcitx ibus json +kdepim nepomuk oauth
+qalculate qwt scim"
 
 RESTRICT=test
 # tests hang
@@ -19,9 +19,9 @@ RESTRICT=test
 COMMON_DEPEND="
 	app-crypt/qca:2
 	app-crypt/qca-ossl:2
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'nepomuk?')
 	$(add_kdebase_dep krunner '' 4.11)
-	$(add_kdebase_dep plasma-workspace 'semantic-desktop?' 4.11)
+	$(add_kdebase_dep plasma-workspace 'nepomuk?' 4.11)
 	x11-misc/shared-mime-info
 	attica? ( dev-libs/libattica )
 	desktopglobe? ( $(add_kdebase_dep marble) )
@@ -29,13 +29,11 @@ COMMON_DEPEND="
 	fcitx? ( app-i18n/fcitx[dbus(+)] )
 	ibus? ( app-i18n/ibus )
 	json? ( dev-libs/qjson )
+	kdepim? ( $(add_kdebase_dep kdepimlibs) )
 	oauth? ( dev-libs/qoauth )
 	qalculate? ( sci-libs/libqalculate )
 	qwt? ( x11-libs/qwt:5 )
 	scim? ( app-i18n/scim )
-	semantic-desktop? (
-		$(add_kdebase_dep kdepimlibs)
-	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:2
@@ -51,12 +49,12 @@ src_configure() {
 		$(cmake-utils_use_with exif Kexiv2)
 		$(cmake-utils_use_build ibus)
 		$(cmake-utils_use_with json QJSON)
+		$(cmake-utils_use_with kdepim KdepimLibs)
+		$(cmake-utils_use_with nepomuk)
 		$(cmake-utils_use_with oauth QtOAuth)
 		$(cmake-utils_use_with qalculate)
 		$(cmake-utils_use_with qwt)
 		$(cmake-utils_use_build scim)
-		$(cmake-utils_use_with semantic-desktop KdepimLibs)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
 	)
 
 	kde4-base_src_configure
