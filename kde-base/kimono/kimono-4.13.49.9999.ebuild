@@ -8,13 +8,13 @@ inherit mono-env kde4-base
 
 DESCRIPTION="C# bindings for KDE"
 KEYWORDS=""
-IUSE="akonadi debug plasma semantic-desktop"
+IUSE="akonadi debug nepomuk plasma"
 
 DEPEND="
 	dev-lang/mono
 	$(add_kdebase_dep qyoto 'webkit')
 	$(add_kdebase_dep smokeqt)
-	$(add_kdebase_dep smokekde 'semantic-desktop?')
+	$(add_kdebase_dep smokekde 'nepomuk?')
 	plasma? ( $(add_kdebase_dep smokeqt 'webkit') )
 "
 RDEPEND="${DEPEND}"
@@ -34,8 +34,8 @@ src_configure() {
 	mycmakeargs=(
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with nepomuk)
 		$(cmake-utils_use_disable plasma)
-		$(cmake-utils_use_with semantic-desktop Nepomuk)
 		-DWITH_Soprano=OFF
 	)
 	kde4-base_src_configure
