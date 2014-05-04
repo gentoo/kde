@@ -24,7 +24,6 @@ PDEPEND="policykit? ( sys-auth/polkit-kde-agent )"
 
 src_configure() {
 	local mycmakeargs=(
-		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 		$(cmake-utils_use_find_package policykit PolkitQt-1)
 	)
 

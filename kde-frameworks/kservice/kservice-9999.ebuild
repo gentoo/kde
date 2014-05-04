@@ -27,11 +27,3 @@ DEPEND="${RDEPEND}
 
 # requires running kde environment
 RESTRICT="test"
-
-src_configure() {
-	local mycmakeargs=(
-		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
-	)
-
-	kde5_src_configure
-}

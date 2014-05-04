@@ -24,11 +24,3 @@ DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	test? ( dev-qt/qtconcurrent:5 )
 "
-
-src_configure() {
-	local mycmakeargs=(
-		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
-	)
-
-	kde5_src_configure
-}

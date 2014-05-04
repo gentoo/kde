@@ -57,7 +57,6 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 		$(cmake-utils_use_find_package egl EGL)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package X X11)
