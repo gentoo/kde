@@ -162,6 +162,19 @@ _calculate_src_uri() {
 		_kmname=${PN}
 	fi
 
+	case ${PN} in
+		kdelibs4support | \
+		kfileaudiopreview | \
+		khtml | \
+		kjs | \
+		kjsembed | \
+		kmediaplayer | \
+		kross | \
+		krunner)
+			_kmname="portingAids/${_kmname}"
+			;;
+	esac
+
 	DEPEND+=" app-arch/xz-utils"
 	SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
 }
