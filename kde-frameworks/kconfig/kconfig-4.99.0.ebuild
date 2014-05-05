@@ -17,6 +17,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
