@@ -16,16 +16,12 @@ inherit kde4-base ruby-ng
 
 DESCRIPTION="KDE Ruby bindings"
 KEYWORDS=""
-IUSE="akonadi debug kate okular"
+IUSE="akonadi debug kate nepomuk okular"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Ruby"
-
-# unfortunately single modules cannot be disabled with cmake defines
-# possible more useflags have no effect... does anyone actually build this stuff?
-# may need some hacking, for now nepomuk just becomes a hard dependency
 
 DEPEND="
 	$(add_kdebase_dep qtruby)
-	$(add_kdebase_dep smokekde 'akonadi?,kate?,okular?,nepomuk')
+	$(add_kdebase_dep smokekde 'akonadi?,kate?,okular?,nepomuk?')
 	$(add_kdebase_dep smokeqt)
 "
 RDEPEND="${DEPEND}
@@ -57,6 +53,8 @@ each_ruby_configure() {
 		-DRUBY_EXECUTABLE=${RUBY}
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
+		$(cmake-utils_use_with nepomuk)
+		$(cmake-utils_use_with nepomuk Soprano)
 		$(cmake-utils_use_disable kate)
 		$(cmake-utils_use_with okular)
 	)
