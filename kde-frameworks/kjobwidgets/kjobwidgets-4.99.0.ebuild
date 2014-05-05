@@ -20,6 +20,7 @@ RDEPEND="
 	X? ( dev-qt/qtx11extras:5 )
 "
 DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
 	X? (
 		x11-libs/libX11
 		x11-proto/xproto
