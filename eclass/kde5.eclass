@@ -278,11 +278,11 @@ kde5_src_prepare() {
 	if use_if_iuse nls ; then
 		for lang in $(ls po) ; do
 			if ! has ${lang} ${LINGUAS} ; then
-				rm -r po/${lang}
+				rm -rf po/${lang}
 			fi
 		done
 	else
-		rm -r po
+		rm -rf po
 	fi
 
 	# in frameworks, tests = manual tests so never
