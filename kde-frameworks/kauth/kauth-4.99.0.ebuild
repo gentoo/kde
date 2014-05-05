@@ -12,14 +12,16 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+policykit"
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	policykit? ( sys-auth/polkit-qt )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
+"
 PDEPEND="policykit? ( sys-auth/polkit-kde-agent )"
 
 src_configure() {
