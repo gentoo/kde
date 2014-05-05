@@ -17,7 +17,9 @@ RDEPEND="
 	aspell? ( app-text/aspell )
 	hunspell? ( app-text/hunspell )
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
+"
 
 src_configure() {
 	local mycmakeargs=(
