@@ -36,6 +36,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
+	nls? ( dev-qt/linguist-tools:5 )
 "
 
 src_configure() {
