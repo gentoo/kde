@@ -19,5 +19,6 @@ DEPEND="
 	$(add_frameworks_dep krunner)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
+	kde-base/baloo:5
 "
 RDEPEND="${DEPEND}"
