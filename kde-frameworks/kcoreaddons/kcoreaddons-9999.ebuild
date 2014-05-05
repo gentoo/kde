@@ -17,6 +17,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
+	nls? ( dev-qt/linguist-tools:5 )
 "
 
 src_configure() {
