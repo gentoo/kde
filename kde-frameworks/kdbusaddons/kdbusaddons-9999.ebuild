@@ -15,4 +15,6 @@ IUSE=""
 RDEPEND="
 	dev-qt/qtdbus:5
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
+"
