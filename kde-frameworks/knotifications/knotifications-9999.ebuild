@@ -31,6 +31,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
 	X? ( x11-proto/xproto )
 "
 
