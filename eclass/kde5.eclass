@@ -70,6 +70,17 @@ fi
 # generate and install KDE handbook.
 KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
 
+# @ECLASS-VARIABLE: KDE_NLS
+# @DESCRIPTION:
+# If set to "false", do nothing.
+# Otherwise, add "nls" to IUSE, generate and install translations based on
+# the LINGUAS environment variable.
+if [[ ${CATEGORY} = kde-frameworks ]]; then
+	: ${KDE_NLS:=true}
+else
+	: ${KDE_NLS:=false}
+fi
+
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -131,6 +142,13 @@ case ${KDE_HANDBOOK} in
 	*)
 		IUSE+=" +handbook"
 		DEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
+		;;
+esac
+
+case ${KDE_NLS} in
+	false)	;;
+	*)
+		IUSE+=" nls"
 		;;
 esac
 
@@ -245,15 +263,32 @@ kde5_src_unpack() {
 kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	# only build examples when required
+	if ! in_iuse examples || ! use examples ; then
+		comment_add_subdirectory examples
+	fi
+
+	# only enable handbook when required
+	if ! use_if_iuse handbook ; then
+		comment_add_subdirectory doc
+	fi
+
+	# enable only the requested translations
+	# when required
+	if use_if_iuse nls ; then
+		for lang in $(ls po) ; do
+			if ! has ${lang} ${LINGUAS} ; then
+				rm -r po/${lang}
+			fi
+		done
+	else
+		rm -r po
+	fi
+
 	# in frameworks, tests = manual tests so never
 	# build them
 	if [[ ${CATEGORY} = kde-frameworks ]]; then
 		comment_add_subdirectory tests
-	fi
-
-	# only build examples when required
-	if ! in_iuse examples || ! use examples ; then
-		comment_add_subdirectory examples
 	fi
 
 	# only build unit tests when required
@@ -261,10 +296,6 @@ kde5_src_prepare() {
 		comment_add_subdirectory autotests
 	fi
 
-	# only enable handbook when required
-	if ! use_if_iuse handbook ; then
-		comment_add_subdirectory doc
-	fi
 
 	cmake-utils_src_prepare
 }
