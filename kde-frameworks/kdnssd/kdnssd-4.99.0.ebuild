@@ -18,7 +18,9 @@ RDEPEND="
 		net-dns/avahi[mdnsresponder-compat]
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
+"
 
 src_configure() {
 	local mycmakeargs=(
