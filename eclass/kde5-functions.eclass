@@ -123,6 +123,21 @@ add_kdebase_dep() {
 	_add_kdecategory_dep kde-base ${1} ${2} ${3}
 }
 
+# @FUNCTION: add_kdemisc_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-misc/ dependencies.
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
+add_kdemisc_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	_add_kdecategory_dep kde-misc ${1} ${2} ${3}
+}
+
 # @FUNCTION: get_kde_version
 # @DESCRIPTION:
 # Translates an ebuild version into a major.minor KDE SC
