@@ -10,3 +10,5 @@ DESCRIPTION="Framework for manipulating strings using various encodings"
 LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
 IUSE=""
+
+DEPEND="nls? ( dev-qt/linguist-tools:5 )"
