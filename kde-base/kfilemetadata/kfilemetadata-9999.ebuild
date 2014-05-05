@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="A library for extracting file metadata"
 KEYWORDS=""
-IUSE="debug epub exif ffmpeg taglib"
+IUSE="epub exif ffmpeg taglib"
 
 # pdf? ( app-text/poppler[qt5] ) NOTE: need popper qt5
 # mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream 
