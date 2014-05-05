@@ -4,20 +4,19 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+KDE_MINIMAL="4.13"
+inherit kde4-base
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/milou"
 
 LICENSE="GPL-2 LGPL-2.1"
+SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep krunner)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
+	$(add_kdebase_dep baloo)
+	$(add_kdebase_dep kdepimlibs)
 "
 RDEPEND="${DEPEND}"
