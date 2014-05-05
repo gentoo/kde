@@ -70,6 +70,7 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_kdemisc_dep milou)
 	dev-qt/qtquickcontrols:5
 	!kde-base/freespacenotifier:4
 	!kde-base/libkworkspace:4
