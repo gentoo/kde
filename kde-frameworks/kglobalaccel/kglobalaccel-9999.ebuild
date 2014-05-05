@@ -12,12 +12,14 @@ KEYWORDS=""
 LICENSE="LGPL-2+"
 IUSE="X"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtwidgets:5
 	X? ( dev-qt/qtx11extras:5 )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	nls? ( dev-qt/linguist-tools:5 )
+"
 
 # requires running kde environment
 RESTRICT="test"
