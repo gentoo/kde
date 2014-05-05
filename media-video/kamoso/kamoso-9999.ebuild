@@ -12,12 +12,22 @@ HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="4"
-IUSE="debug"
+IUSE="debug nepomuk"
 
 DEPEND="
-	>=media-libs/qt-gstreamer-0.10
+	$(add_kdebase_dep kdelibs 'nepomuk?')
 	$(add_kdebase_dep libkipi)
+	media-libs/phonon
+	media-libs/qt-gstreamer
 "
 RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_with nepomuk)
+	)
+
+	kde4-base_src_configure
+}
