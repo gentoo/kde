@@ -26,4 +26,5 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kconfigwidgets)
+	nls? ( dev-qt/linguist-tools:5 )
 "
