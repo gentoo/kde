@@ -18,6 +18,7 @@ RESTRICT="test"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
+	dev-qt/qtgui:5
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
