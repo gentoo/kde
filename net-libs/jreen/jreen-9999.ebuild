@@ -26,13 +26,12 @@ DEPEND="
 	media-libs/speex
 	>=net-dns/libidn-1.20
 	net-libs/libgsasl
+	sys-libs/zlib
 	qt4? (
-		>=app-crypt/qca-2.0.3[qt4(+)]
 		>=dev-qt/qtcore-4.6.0:4
 		>=dev-qt/qtgui-4.6.0:4
 	)
 	qt5? (
-		=app-crypt/qca-9999[qt5]
 		dev-qt/qtcore:5
 		dev-qt/qtnetwork:5
 	)
