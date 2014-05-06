@@ -14,6 +14,7 @@ IUSE="X"
 
 RDEPEND="
 	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	X? ( dev-qt/qtx11extras:5 )
 "
