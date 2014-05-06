@@ -13,7 +13,7 @@ else
 	KEYWORDS=""
 fi
 
-inherit cmake-utils ${GIT_ECLASS}
+inherit cmake-utils multibuild ${GIT_ECLASS}
 
 DESCRIPTION="Qt XMPP library"
 HOMEPAGE="https://github.com/euroelessar/jreen"
@@ -21,8 +21,6 @@ HOMEPAGE="https://github.com/euroelessar/jreen"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug +qt4 qt5"
-
-REQUIRED_USE="^^ ( qt4 qt5 )"
 
 DEPEND="
 	media-libs/speex
@@ -43,10 +41,39 @@ RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS ChangeLog README )
 
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use qt4 JREEN_FORCE_QT4)
-	)
+pkg_setup() {
+	MULTIBUILD_VARIANTS=()
+	if use qt4; then
+		MULTIBUILD_VARIANTS+=(qt4)
+	fi
+	if use qt5; then
+		MULTIBUILD_VARIANTS+=(qt5)
+	fi
+}
 
-	cmake-utils_src_configure
+src_configure() {
+	myconfigure() {
+		local mycmakeargs=()
+		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
+			mycmakeargs+=(-DJREEN_FORCE_QT4=ON)
+		fi
+		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
+			mycmakeargs+=(-DJREEN_FORCE_QT4=OFF)
+		fi
+		cmake-utils_src_configure
+	}
+
+	multibuild_foreach_variant myconfigure
+}
+
+src_compile() {
+	multibuild_foreach_variant cmake-utils_src_compile
+}
+
+src_install() {
+	multibuild_foreach_variant cmake-utils_src_install
+}
+
+src_test() {
+	multibuild_foreach_variant cmake-utils_src_test
 }
