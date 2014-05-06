@@ -15,7 +15,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep krunner)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
