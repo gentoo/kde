@@ -30,7 +30,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-base/kdebase-cursors:4
-	!kde-base/knotify:4
-	!kde-base/kstyles:4
-	!kde-base/liboxygenstyle:4
 "
