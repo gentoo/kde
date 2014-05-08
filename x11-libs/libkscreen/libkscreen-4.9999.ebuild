@@ -5,23 +5,25 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-EGIT_BRANCH="frameworks"
-inherit kde5
+inherit kde4-base
 
 DESCRIPTION="KDE screen management library"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkscreen"
 
 LICENSE="GPL-2"
+SLOT="4"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
-# TODO: add X use flag, does not build at the moment
-
-DEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtx11extras:5
+RDEPEND="
+	>=dev-libs/qjson-0.8
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-qt/qttest:4 )
+"
+
+RESTRICT="test"
