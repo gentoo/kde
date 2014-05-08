@@ -56,7 +56,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	wayland? (
 		>=dev-libs/wayland-1.2
-		x11-libs/libxkbcommon
+		>=x11-libs/libxkbcommon-0.4.1
 	)
 "
 RDEPEND="${COMMON_DEPEND}
