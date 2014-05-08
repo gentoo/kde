@@ -8,7 +8,7 @@ kde-base/kdf:4
 kde-base/kgpg:4
 kde-base/kremotecontrol:4
 kde-base/ktimer:4
-kde-base/kwallet:4
+kde-base/kwalletmanager:4
 kde-base/print-manager:4
 kde-base/superkaramba:4
 kde-base/sweeper:4

@@ -2,4 +2,4 @@
 kde-base/kdebase-meta:4
 @kde-baseapps
 @kdebase-runtime
-@kdebase-workspace
+@kdebase-workspace-4.11

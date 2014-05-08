@@ -8,7 +8,9 @@ kde-base/kde-dev-scripts:4
 kde-base/kde-dev-utils:4
 kde-base/kdesdk-kioslaves:4
 kde-base/kdesdk-meta:4
+kde-base/kdesdk-strigi-analyzer:4
 kde-base/kompare:4
+kde-base/libkomparediff2:4
 kde-base/lokalize:4
 kde-base/okteta:4
 kde-base/poxml:4
