@@ -57,6 +57,7 @@ COMMON_DEPEND="
 	media-libs/phonon[qt5]
 	sys-libs/pam
 	sys-libs/zlib
+	x11-libs/libkscreen:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	X? (
 		dev-qt/qtx11extras:5
