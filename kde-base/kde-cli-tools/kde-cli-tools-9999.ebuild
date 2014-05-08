@@ -33,14 +33,7 @@ DEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}
-	!kde-base/kdebase-data:4
-	!kde-base/keditfiletype:4
-	!kde-base/kioclient:4
-	!kde-base/kmimetypefinder:4
-	!kde-base/kstart:4
-	!kde-base/ktraderclient:4
-"
+RDEPEND="${DEPEND}"
 
 # requires running kde environment
 RESTRICT="test"
