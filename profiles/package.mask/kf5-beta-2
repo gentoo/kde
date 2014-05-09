@@ -1,5 +1,4 @@
-# Mask KF5 beta 2 due to being unreleased
-~dev-libs/extra-cmake-modules-0.0.13
+# Mask KF5 beta 2 due to cross-overlay dependencies.
 ~kde-frameworks/attica-4.99.0
 ~kde-frameworks/frameworkintegration-4.99.0
 ~kde-frameworks/kactivities-4.99.0
