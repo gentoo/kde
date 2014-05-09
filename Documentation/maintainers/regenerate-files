@@ -113,19 +113,6 @@ for release in $KF_RELEASES live; do
 done
 popd > /dev/null
 
-# regenerate package mask
-pushd ../../profiles/ > /dev/null
-echo -e "\
-${HEADER}
-# Edit profiles/package.mask.d/ files instead." > package.mask
-if [[ -d package.mask.d ]]; then
-	for masks in package.mask.d/*; do
-		echo >> package.mask
-		cat ${masks} >> package.mask
-	done
-fi
-popd > /dev/null
-
 # regenerate unversioned sets
 pushd ../../sets/ > /dev/null
 for set in *-${RELEASE}; do
