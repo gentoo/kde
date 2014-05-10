@@ -8,10 +8,7 @@
 	<name>Maciej Mrozowski</name>
 </maintainer>
 <use>
-	<flag name='abiword'>Enable support for <pkg>app-office/abiword</pkg> output. Requires <pkg>dev-libs/libxml2</pkg>.</flag>
-	<flag name='exceptions'>Enable exceptions throwing.</flag>
 	<flag name='introspection'>Enable GObject introspection.</flag>
 	<flag name='utils'>Install command-line PDF converters and various utilities.</flag>
-	<flag name='xpdf-headers'></flag>
 </use>
 </pkgmetadata>
