@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://git.freedesktop.org/git/${PN}/${PN}"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0/46"
-IUSE="cairo cjk curl cxx debug doc +introspection +jpeg jpeg2k +lcms png qt4 tiff +utils"
+IUSE="cairo cjk curl cxx debug doc +introspection +jpeg jpeg2k +lcms png qt4 qt5 tiff +utils"
 
 # No test data provided
 RESTRICT="test"
@@ -36,6 +36,11 @@ COMMON_DEPEND="
 		dev-qt/qtcore:4
 		dev-qt/qtgui:4
 	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtxml:5
+	)
 	tiff? ( media-libs/tiff:0 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -46,6 +51,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 DOCS=(AUTHORS NEWS README README-XPDF TODO)
+
+PATCHES=( "${FILESDIR}/${PN}-0.26.0-qt5-dependencies.patch" )
 
 src_configure() {
 	# this is needed for multilib, see bug 459394
@@ -72,7 +79,7 @@ src_configure() {
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with png)
 		$(cmake-utils_use_with qt4)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Core=ON
+		$(cmake-utils_use_find_package qt5 Qt5Core)
 		$(cmake-utils_use_with tiff)
 	)
 	if use lcms; then
