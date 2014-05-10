@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>kde</herd>
+<herd>printing</herd>
+<maintainer>
+	<email>reavertm@gentoo.org</email>
+	<name>Maciej Mrozowski</name>
+</maintainer>
+<use>
+	<flag name='abiword'>Enable support for <pkg>app-office/abiword</pkg> output. Requires <pkg>dev-libs/libxml2</pkg>.</flag>
+	<flag name='exceptions'>Enable exceptions throwing.</flag>
+	<flag name='introspection'>Enable GObject introspection.</flag>
+	<flag name='utils'>Install command-line PDF converters and various utilities.</flag>
+	<flag name='xpdf-headers'></flag>
+</use>
+</pkgmetadata>
