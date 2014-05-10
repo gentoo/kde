@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit cmake-utils toolchain-funcs git-2
+inherit cmake-utils toolchain-funcs git-r3
 
 DESCRIPTION="PDF rendering library based on the xpdf-3.0 code base"
 HOMEPAGE="http://poppler.freedesktop.org/"
-EGIT_REPO_URI="git://git.freedesktop.org/git/poppler/poppler"
+EGIT_REPO_URI="git://git.freedesktop.org/git/${PN}/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
