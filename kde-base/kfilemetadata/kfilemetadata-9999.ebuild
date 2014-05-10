@@ -7,12 +7,11 @@ EAPI=5
 EGIT_BRANCH="frameworks"
 inherit kde5
 
-DESCRIPTION="A library for extracting file metadata"
+DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
-IUSE="epub exif ffmpeg taglib"
+IUSE="epub exif ffmpeg pdf taglib"
 
-# pdf? ( app-text/poppler[qt5] ) NOTE: need popper qt5
-# mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream 
+# TODO: mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcoreaddons)
@@ -22,6 +21,7 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
+	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
 RDEPEND="${DEPEND}
@@ -33,6 +33,7 @@ src_configure() {
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
+		$(cmake-utils_use_find_package pdf PopplerQt5)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
