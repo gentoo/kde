@@ -11,14 +11,11 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	|| (
-		$(add_kdebase_dep dolphin)
-		$(add_kdebase_dep konqueror)
-	)
+	$(add_kdebase_dep kdebase-kioslaves)
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DENABLE_PHONON_SUPPORT=ON
 	)
 

@@ -11,7 +11,7 @@ HOMEPAGE="
 	http://multimedia.kde.org/
 "
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="ffmpeg +mplayer"
+IUSE="+ffmpeg mplayer"
 
 RDEPEND="
 	$(add_kdebase_dep dragon)

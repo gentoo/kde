@@ -13,4 +13,6 @@ IUSE="debug"
 DEPEND="
 	virtual/ffmpeg
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdebase_dep kdebase-kioslaves)
+"

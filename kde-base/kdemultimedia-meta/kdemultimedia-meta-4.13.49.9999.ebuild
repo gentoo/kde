@@ -11,7 +11,7 @@ HOMEPAGE="
 	http://multimedia.kde.org/
 "
 KEYWORDS=""
-IUSE="ffmpeg +mplayer"
+IUSE="+ffmpeg mplayer"
 
 RDEPEND="
 	$(add_kdebase_dep dragon)

@@ -25,8 +25,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kfind)
-"
-PDEPEND="
 	thumbnail? (
 		$(add_kdebase_dep thumbnailers)
 		|| (
