@@ -44,6 +44,7 @@ RDEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	sys-libs/zlib
+	virtual/jpeg:0
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
