@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Libraries for KDE Plasma's clocks"
 KEYWORDS=""
-IUSE="debug kdepim"
+IUSE="debug +kdepim"
 
 DEPEND="
 	$(add_kdebase_dep kephal)
