@@ -12,6 +12,7 @@ OPENGL_REQUIRED=optional
 KDE_HANDBOOK=optional
 KDE_LINGUAS_LIVE_OVERRIDE=true
 CHECKREQS_DISK_BUILD="4G"
+KDE_MINIMAL="4.13.1"
 inherit check-reqs kde4-base versionator
 
 DESCRIPTION="KDE Office Suite"
@@ -39,10 +40,10 @@ SLOT="4"
 [[ ${PV} == *9999 ]] || \
 KEYWORDS="~amd64 ~arm ~x86"
 
-IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif glew +glib +gsf
-gsl import-filter +jpeg jpeg2k +kdcraw kde kdepim +lcms marble mysql +okular
-opengtl openexr +pdf postgres semantic-desktop spacenav +ssl sybase test tiff
-+threads +truetype vc xbase +xml +xslt"
+IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif +glew +glib +gsf
+gsl import-filter +jpeg jpeg2k +kdcraw kde kdepim +lcms marble mysql nepomuk
++okular opengtl openexr +pdf postgres spacenav +ssl sybase test tiff +threads
++truetype vc xbase +xml +xslt"
 
 # please do not sort here, order is same as in CMakeLists.txt
 CAL_FTS="author kexi words flow plan stage sheets krita karbon braindump"
@@ -55,10 +56,9 @@ REQUIRED_USE="
 	calligra_features_author? ( calligra_features_words )
 	calligra_features_kexi? ( calligra_features_sheets )
 	calligra_features_words? ( calligra_features_sheets )
-	calligra_features_krita? ( eigen exif lcms )
+	calligra_features_krita? ( eigen exif glew lcms )
 	calligra_features_plan? ( kdepim )
 	calligra_features_sheets? ( eigen )
-	kdepim? ( semantic-desktop )
 	vc? ( calligra_features_krita )
 	test? ( calligra_features_karbon )
 "
@@ -75,7 +75,7 @@ RDEPEND="
 	!app-office/krita
 	!app-office/kspread
 	!app-office/kword
-	$(add_kdebase_dep kdelibs 'semantic-desktop?')
+	$(add_kdebase_dep kdelibs 'nepomuk?')
 	dev-lang/perl
 	dev-libs/boost
 	dev-libs/libxml2
@@ -112,6 +112,7 @@ RDEPEND="
 	lcms? ( media-libs/lcms:2 )
 	marble? ( $(add_kdebase_dep marble) )
 	mysql? ( virtual/mysql )
+	nepomuk? ( dev-libs/soprano )
 	okular? ( $(add_kdebase_dep okular) )
 	opengl? ( virtual/glu )
 	opengtl? ( >=media-libs/opengtl-0.9.15 )
@@ -123,9 +124,6 @@ RDEPEND="
 	postgres? (
 		dev-db/postgresql-base
 		dev-libs/libpqxx
-	)
-	semantic-desktop? (
-		dev-libs/soprano
 	)
 	spacenav? ( dev-libs/libspnav  )
 	ssl? ( dev-libs/openssl )
@@ -217,6 +215,7 @@ src_configure() {
 		$(cmake-utils_use_with marble Marble)
 		$(cmake-utils_use_with mysql MySQL)
 		$(cmake-utils_use_build mysql mySQL)
+		$(cmake-utils_use_with nepomuk Soprano)
 		$(cmake-utils_use_with okular Okular)
 		$(cmake-utils_use_with opengtl OpenCTL)
 		$(cmake-utils_use_with openexr OpenEXR)
@@ -225,7 +224,6 @@ src_configure() {
 		$(cmake-utils_use_with pdf Pstoedit)
 		$(cmake-utils_use_with postgres PostgreSQL)
 		$(cmake-utils_use_build postgres pqxx)
-		$(cmake-utils_use_with semantic-desktop Soprano)
 		$(cmake-utils_use_with spacenav Spnav)
 		$(cmake-utils_use_with ssl OpenSSL)
 		$(cmake-utils_use_with sybase FreeTDS)
