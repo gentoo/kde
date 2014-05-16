@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KMNAME="libkscreen"
 VIRTUALX_REQUIRED="test"
 EGIT_BRANCH="frameworks"
 inherit kde5
