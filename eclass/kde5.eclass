@@ -194,7 +194,15 @@ _calculate_src_uri() {
 	esac
 
 	DEPEND+=" app-arch/xz-utils"
-	SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+
+	case ${CATEGORY} in
+	kde-frameworks)
+		SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+		;;
+	kde-base)
+		SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz"
+		;;
+	esac
 }
 
 # Determine fetch location for live sources
