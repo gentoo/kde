@@ -21,7 +21,7 @@ IUSE="debug"
 
 DEPEND="
 	>=dev-libs/qjson-0.8
-	>=x11-libs/libkscreen-${PV}
+	>=x11-libs/libkscreen-${PV}:4
 "
 RDEPEND="${DEPEND}"
 
