@@ -13,8 +13,8 @@ else
 fi
 inherit kde5
 
-DESCRIPTION="Dedicated search application built on top of Baloo"
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/milou"
+DESCRIPTION="Manages the power consumption settings of a Plasma Shell"
+HOMEPAGE="https://projects.kde.org/projects/extragear/base/powerdevil"
 
 LICENSE="GPL-2 LGPL-2.1"
 IUSE=""
