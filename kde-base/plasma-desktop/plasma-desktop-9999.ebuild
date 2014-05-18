@@ -80,6 +80,7 @@ RDEPEND="
 		x11-libs/libXfixes
 		virtual/libusb:0
 	)
+	!kde-base/attica:4
 	!kde-base/knetattach:4
 "
 DEPEND="${RDEPEND}
