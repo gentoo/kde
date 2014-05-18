@@ -1,0 +1,5 @@
+# Michael Palimaka <kensington@gentoo.org> (18 May 2014)
+# Cross-overlay dependencies.
+~kde-misc/milou-4.96.0
+~kde-misc/powerdevil-4.96.0
+~x11-libs/libkscreen-1.71
