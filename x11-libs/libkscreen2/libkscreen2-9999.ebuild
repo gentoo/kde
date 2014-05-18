@@ -4,10 +4,10 @@
 
 EAPI=5
 
-KMNAME="libkscreen"
 VIRTUALX_REQUIRED="test"
 if [[ $PV = *9999* ]]; then
 	EGIT_BRANCH="frameworks"
+	KMNAME="libkscreen"
 	KEYWORDS=""
 else
 	SRC_URI="mirror://kde/unstable/plasma/4.96.0/src/${P}.tar.xz"
