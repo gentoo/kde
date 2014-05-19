@@ -246,7 +246,7 @@ kde5_pkg_setup() {
 	# executions consume quite some time.
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
-				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 8 ]] ) \
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 8 ]] ) \
 			&& die "Sorry, but gcc-4.8 or later is required for KDE 5."
 	fi
 }
