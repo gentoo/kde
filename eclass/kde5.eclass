@@ -182,7 +182,6 @@ _calculate_src_uri() {
 
 	case ${PN} in
 		kdelibs4support | \
-		kfileaudiopreview | \
 		khtml | \
 		kjs | \
 		kjsembed | \
