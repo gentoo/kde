@@ -5,7 +5,6 @@
 EAPI=5
 
 if [[ $PV = *9999* ]]; then
-	EGIT_BRANCH="frameworks"
 	KEYWORDS=""
 else
 	SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${P}.tar.xz"
