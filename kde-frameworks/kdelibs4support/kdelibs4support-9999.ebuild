@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -55,7 +55,12 @@ RDEPEND="
 		x11-libs/libX11
 	)
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kemoticons)
+	$(add_frameworks_dep kinit)
+	$(add_frameworks_dep kitemmodels)
+"
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/designer:5
 	test? ( dev-qt/qtconcurrent:5 )

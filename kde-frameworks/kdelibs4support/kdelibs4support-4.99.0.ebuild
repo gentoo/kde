@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -20,12 +20,14 @@ RDEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdesignerplugin)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kparts)
@@ -53,7 +55,12 @@ RDEPEND="
 		x11-libs/libX11
 	)
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kemoticons)
+	$(add_frameworks_dep kinit)
+	$(add_frameworks_dep kitemmodels)
+"
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/designer:5
 	test? ( dev-qt/qtconcurrent:5 )
