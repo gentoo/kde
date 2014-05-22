@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/applications/internet/krdc/"
 KEYWORDS=""
 IUSE="debug jpeg rdesktop telepathy vnc zeroconf"
 
-#nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
+#nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.13.1
 
 DEPEND="
 	jpeg? ( virtual/jpeg:0 )
@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-4.13.1-freerdp.patch" )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with telepathy TelepathyQt4)
 		$(cmake-utils_use_with vnc LibVNCServer)
