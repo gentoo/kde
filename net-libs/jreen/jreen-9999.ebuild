@@ -42,22 +42,24 @@ DOCS=( AUTHORS ChangeLog README )
 pkg_setup() {
 	MULTIBUILD_VARIANTS=()
 	if use qt4; then
-		MULTIBUILD_VARIANTS+=(qt4)
+		MULTIBUILD_VARIANTS+=( qt4 )
 	fi
 	if use qt5; then
-		MULTIBUILD_VARIANTS+=(qt5)
+		MULTIBUILD_VARIANTS+=( qt5 )
 	fi
 }
 
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
+
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
-			mycmakeargs+=(-DJREEN_FORCE_QT4=ON)
+			mycmakeargs+=( -DJREEN_FORCE_QT4=ON )
 		fi
 		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=(-DJREEN_FORCE_QT4=OFF)
+			mycmakeargs+=( -DJREEN_FORCE_QT4=OFF )
 		fi
+
 		cmake-utils_src_configure
 	}
 
