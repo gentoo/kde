@@ -24,7 +24,6 @@ IUSE="debug +qt4 qt5"
 
 DEPEND="
 	media-libs/speex
-	>=net-dns/libidn-1.20
 	net-libs/libgsasl
 	sys-libs/zlib
 	qt4? (
