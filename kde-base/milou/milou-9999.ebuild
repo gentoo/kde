@@ -9,9 +9,9 @@ inherit kde5
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/milou"
-KEYWORDS=""
 
 LICENSE="GPL-2 LGPL-2.1"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
