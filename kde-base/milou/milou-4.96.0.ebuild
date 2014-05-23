@@ -8,8 +8,8 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
-KEYWORDS=""
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/milou"
+HOMEPAGE="https://projects.kde.org/projects/kde/workspace/milou"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2 LGPL-2.1"
 IUSE=""
