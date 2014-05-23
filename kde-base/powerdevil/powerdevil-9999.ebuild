@@ -4,19 +4,13 @@
 
 EAPI=5
 
-if [[ $PV = *9999* ]]; then
-	EGIT_BRANCH="frameworks"
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
 inherit kde5
 
 DESCRIPTION="Manages the power consumption settings of a Plasma Shell"
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/powerdevil"
+HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 
 LICENSE="GPL-2 LGPL-2.1"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="

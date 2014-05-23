@@ -31,4 +31,6 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!x11-libs/libkscreen:5
+"

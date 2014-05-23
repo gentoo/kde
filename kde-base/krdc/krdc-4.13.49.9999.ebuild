@@ -10,22 +10,24 @@ inherit kde4-base
 DESCRIPTION="KDE remote desktop connection (RDP and VNC) client"
 HOMEPAGE="http://www.kde.org/applications/internet/krdc/"
 KEYWORDS=""
-IUSE="debug jpeg rdesktop vnc zeroconf telepathy"
+IUSE="debug jpeg rdesktop telepathy vnc zeroconf"
 
-#nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.3.61
+#nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 4.13.1
 
 DEPEND="
 	jpeg? ( virtual/jpeg:0 )
+	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 	vnc? ( >=net-libs/libvncserver-0.9 )
 	zeroconf? ( net-dns/avahi )
-	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}
 	rdesktop? ( >=net-misc/freerdp-1.1.0_beta1[X] )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-4.13.1-freerdp.patch" )
+
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with jpeg)
 		$(cmake-utils_use_with telepathy TelepathyQt4)
 		$(cmake-utils_use_with vnc LibVNCServer)

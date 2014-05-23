@@ -6,7 +6,7 @@ EAPI=5
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/euroelessar/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~ppc ~x86"
 else
 	GIT_ECLASS="git-r3"
 	EGIT_REPO_URI=( "git://github.com/euroelessar/${PN}" )
@@ -24,7 +24,6 @@ IUSE="debug +qt4 qt5"
 
 DEPEND="
 	media-libs/speex
-	>=net-dns/libidn-1.20
 	net-libs/libgsasl
 	sys-libs/zlib
 	qt4? (
@@ -43,22 +42,24 @@ DOCS=( AUTHORS ChangeLog README )
 pkg_setup() {
 	MULTIBUILD_VARIANTS=()
 	if use qt4; then
-		MULTIBUILD_VARIANTS+=(qt4)
+		MULTIBUILD_VARIANTS+=( qt4 )
 	fi
 	if use qt5; then
-		MULTIBUILD_VARIANTS+=(qt5)
+		MULTIBUILD_VARIANTS+=( qt5 )
 	fi
 }
 
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
+
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
-			mycmakeargs+=(-DJREEN_FORCE_QT4=ON)
+			mycmakeargs+=( -DJREEN_FORCE_QT4=ON )
 		fi
 		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=(-DJREEN_FORCE_QT4=OFF)
+			mycmakeargs+=( -DJREEN_FORCE_QT4=OFF )
 		fi
+
 		cmake-utils_src_configure
 	}
 

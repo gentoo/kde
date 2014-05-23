@@ -1,1 +1,2 @@
 move kde-frameworks/kde4support kde-frameworks/kdelibs4support
+move kde-misc/powerdevil kde-base/powerdevil
