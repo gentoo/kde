@@ -34,8 +34,11 @@ src_install() {
 	# higher number to be sure not to kill kde4 env
 	local envfile="${T}/78kf"
 	local libdir="${EPREFIX}/usr/$(get_libdir)"
+	local qt5bin="${libdir}/qt5/bin"
 
-	echo "CONFIG_PROTECT=${EPREFIX}/usr/share/config" > ${envfile}
+	echo "PATH=${qt5bin}" > ${envfile}
+	echo "ROOTPATH=${qt5bin}" >> ${envfile}
+	echo "CONFIG_PROTECT=${EPREFIX}/usr/share/config" >> ${envfile}
 	echo "COLON_SEPARATED=QT_PLUGIN_PATH" >> ${envfile}
 	echo "QT_PLUGIN_PATH=${libdir}/plugins:${libdir}/qt5/plugins:${QT_PLUGIN_PATH}" >> ${envfile}
 	echo "QML2_IMPORT_PATH=${libdir}/qml:${libdir}/qt5/qml" >> ${envfile}
