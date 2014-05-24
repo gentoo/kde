@@ -72,7 +72,8 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_kdebase_dep milou)
-	dev-qt/qtquickcontrols:5
+	dev-qt/qdbus:5
+	dev-qt/qtquickcontrols:5[widgets]
 	!kde-base/freespacenotifier:4
 	!kde-base/libkworkspace:4
 	!kde-base/libtaskmanager:4
@@ -89,9 +90,6 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
-
-# Needed until bug 457024 is resolved
-PATCHES=( "${FILESDIR}/${PN}-9999-missing-qttools.patch" )
 
 src_configure() {
 	local mycmakeargs=(
