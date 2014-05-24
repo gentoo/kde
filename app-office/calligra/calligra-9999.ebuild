@@ -41,7 +41,7 @@ SLOT="4"
 KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif +glew +glib +gsf
-gsl import-filter +jpeg jpeg2k +kdcraw kde kdepim +lcms marble mysql nepomuk
+gsl import-filter +jpeg jpeg2k +kdcraw kde +kdepim +lcms marble mysql nepomuk
 +okular opengtl openexr +pdf postgres spacenav +ssl sybase test tiff +threads
 +truetype vc xbase +xml +xslt"
 
