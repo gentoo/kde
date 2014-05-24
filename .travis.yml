@@ -1,3 +1,6 @@
+language: python
+python: 
+    - "3.3"
 before_script:
     - mkdir travis-overlay
     - mv !(travis-overlay) travis-overlay/
