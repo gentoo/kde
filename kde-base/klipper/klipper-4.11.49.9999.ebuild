@@ -18,7 +18,7 @@ DEPEND="
 	$(add_kdebase_dep libtaskmanager)
 	sys-libs/zlib
 	x11-libs/libX11
-	prison? ( media-libs/prison )
+	prison? ( media-libs/prison:4 )
 "
 RDEPEND="${DEPEND}"
 
