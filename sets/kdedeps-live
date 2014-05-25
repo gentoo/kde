@@ -7,7 +7,7 @@
 ~media-libs/phonon-vlc-9999
 ~sys-auth/polkit-qt-9999
 ~sys-auth/polkit-kde-agent-9999
-~media-libs/prison-9999
+~media-libs/prison-4.9999
 #~dev-libs/libqzeitgeist-9999
 
 # Add these once kdelibs supports building with newer soprano using raptor2
