@@ -39,4 +39,6 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/yakuake:4
+"
