@@ -6,10 +6,9 @@ EAPI=5
 
 KMNAME="kate"
 EGIT_BRANCH="frameworks"
-
 inherit kde5
 
-DESCRIPTION="KDE simple text editor."
+DESCRIPTION="KDE simple text editor"
 HOMEPAGE="http://www.kde.org/applications/utilities/kwrite"
 KEYWORDS=""
 
