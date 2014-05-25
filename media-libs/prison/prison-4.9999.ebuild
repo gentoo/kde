@@ -4,27 +4,18 @@
 
 EAPI=5
 
-inherit kde5
+inherit kde4-base
 
 DESCRIPTION="QRCode and data matrix barcode library"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/prison"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+SLOT="4"
+IUSE="debug"
 
 DEPEND="
 	media-gfx/qrencode
 	media-libs/libdmtx
 "
-RDEPEND="${DEPEND}
-	!media-libs/prison:4
-"
-
-src_configure() {
-	local mycmakeargs=(
-		-DQT5_BUILD=TRUE
-	)
-
-	kde5_src_configure
-}
+RDEPEND="${DEPEND}"
