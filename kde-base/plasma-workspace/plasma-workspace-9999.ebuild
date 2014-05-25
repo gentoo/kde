@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus X"
+IUSE="dbus prison X"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
@@ -59,6 +59,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	x11-libs/libkscreen2:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	prison? ( media-libs/prison:5 )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libICE
@@ -92,9 +93,12 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
+PATCHES=( "${FILESDIR}/${P}-cmake-enable-prison.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
+		$(cmake-utils_use_find_package prison)
 		$(cmake-utils_use_find_package X X11)
 	)
 
