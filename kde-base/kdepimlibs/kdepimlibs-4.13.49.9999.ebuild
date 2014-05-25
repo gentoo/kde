@@ -27,7 +27,7 @@ DEPEND="
 	>=dev-libs/qjson-0.8.1
 	media-libs/phonon
 	x11-misc/shared-mime-info
-	prison? ( media-libs/prison )
+	prison? ( media-libs/prison:4 )
 	ldap? ( net-nds/openldap )
 "
 # boost is not linked to, but headers which include it are installed
