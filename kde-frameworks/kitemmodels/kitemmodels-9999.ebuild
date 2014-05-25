@@ -13,4 +13,3 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="test? ( dev-qt/qtwidgets:5 )"
-RDEPEND="${DEPEND}"

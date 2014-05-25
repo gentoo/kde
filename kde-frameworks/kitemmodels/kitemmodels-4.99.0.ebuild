@@ -13,4 +13,3 @@ KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 DEPEND="test? ( dev-qt/qtwidgets:5 )"
-RDEPEND="${DEPEND}"
