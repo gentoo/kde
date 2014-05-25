@@ -9,7 +9,7 @@ KMNAME="kate"
 EGIT_BRANCH="frameworks"
 inherit kde5
 
-DESCRIPTION="Kate is an advanced text editor."
+DESCRIPTION="Kate is an advanced text editor"
 HOMEPAGE="http://www.kde.org/applications/utilities/kate http://kate-editor.org"
 KEYWORDS=""
 IUSE="+addons debug"
@@ -36,6 +36,9 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
+	dev-libs/libxml2
+	dev-libs/libxslt
+	dev-libs/qjson
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -43,10 +46,6 @@ DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-
-	dev-libs/libxml2
-	dev-libs/libxslt
-	dev-libs/qjson
 "
 RDEPEND="${DEPEND}
 	!kde-base/kate:4
