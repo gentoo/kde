@@ -26,7 +26,10 @@ DEPEND="
 	djvu? ( app-text/djvu )
 	dpi? ( x11-libs/libkscreen )
 	ebook? ( app-text/ebook-tools )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? (
+		$(add_kdebase_dep libkexiv2)
+		virtual/jpeg:0
+	)
 	mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) )
 	pdf? ( >=app-text/poppler-0.20[qt4,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
@@ -42,6 +45,7 @@ src_configure() {
 		$(cmake-utils_use_with dpi LibKScreen)
 		$(cmake-utils_use_with ebook EPub)
 		$(cmake-utils_use_with jpeg)
+		$(cmake-utils_use_with jpeg Kexiv2)
 		$(cmake-utils_use_with mobi QMobiPocket)
 		$(cmake-utils_use_with postscript LibSpectre)
 		$(cmake-utils_use_with pdf PopplerQt4)
