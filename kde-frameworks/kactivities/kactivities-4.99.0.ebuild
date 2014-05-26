@@ -11,16 +11,10 @@ LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	dev-qt/qtdbus:5
 "
-DEPEND="${RDEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DKACTIVITIES_LIBRARY_ONLY=true
-	)
-
-	kde5_src_configure
-}
+RDEPEND="${DEPEND}
+	!kde-base/kactivities:4
+"
