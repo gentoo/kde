@@ -1,17 +1,17 @@
-From faf9e0a0af6a2842b9f4ebf4cd901062cc006e04 Mon Sep 17 00:00:00 2001
+From e6e1db527e636649634db97846abd09862861134 Mon Sep 17 00:00:00 2001
 From: Johannes Huber <johu@gentoo.org>
 Date: Sun, 25 May 2014 17:29:16 +0200
 Subject: [PATCH] [klipper] Re-enable prison
 
 ---
- klipper/CMakeLists.txt | 26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
+ klipper/CMakeLists.txt | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/klipper/CMakeLists.txt b/klipper/CMakeLists.txt
-index 57425da..20d88ca 100644
+index c700f9e..7c66022 100644
 --- a/klipper/CMakeLists.txt
 +++ b/klipper/CMakeLists.txt
-@@ -14,16 +14,16 @@ set(libklipper_common_SRCS
+@@ -16,15 +16,15 @@ set(libklipper_common_SRCS
      clipcommandprocess.cpp
  )
  
@@ -22,7 +22,6 @@ index 57425da..20d88ca 100644
 -#                        PURPOSE "Needed to create mobile barcodes from clipboard data"
 -#                       )
 -# if (PRISON_FOUND)
--#     add_definitions(-DHAVE_PRISON)
 -#     include_directories(${PRISON_INCLUDE_DIR})
 -# endif ()
 +find_package(Prison QUIET CONFIG)
@@ -32,13 +31,12 @@ index 57425da..20d88ca 100644
 +                       PURPOSE "Needed to create mobile barcodes from clipboard data"
 +                      )
 +if (PRISON_FOUND)
-+     add_definitions(-DHAVE_PRISON)
 +     include_directories(${PRISON_INCLUDE_DIR})
 +endif ()
  
- 
- kde4_add_app_icon(libklipper_common_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/apps/klipper.png")
-@@ -40,9 +40,9 @@ target_link_libraries(kdeinit_klipper Qt5::X11Extras KF5::GlobalAccel KF5::Windo
+ set(HAVE_PRISON ${PRISON_FOUND})
+ configure_file(config-klipper.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-klipper.h )
+@@ -43,9 +43,9 @@ target_link_libraries(kdeinit_klipper Qt5::X11Extras KF5::GlobalAccel KF5::Windo
  if (X11_Xfixes_FOUND)
    target_link_libraries(kdeinit_klipper ${X11_Xfixes_LIB})
  endif ()
