@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="fontconfig pulseaudio usb"
+IUSE="+fontconfig pulseaudio usb"
 
 RDEPEND="
 	$(add_kdebase_dep kwin)
