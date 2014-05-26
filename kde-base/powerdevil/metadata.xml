@@ -4,5 +4,6 @@
 	<herd>kde</herd>
 	<use>
 		<flag name="pm-utils">Adds support for suspend/resume the system through <pkg>sys-power/pm-utils</pkg></flag>
+		<flag name="upower">Adds support for the <pkg>sys-power/upower</pkg> backend</flag>
 	</use>
 </pkgmetadata>
