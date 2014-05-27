@@ -25,5 +25,5 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
-	!kde-base/kactivities:4[-minimal]
+	!kde-base/kactivities:4[-minimal(-)]
 "
