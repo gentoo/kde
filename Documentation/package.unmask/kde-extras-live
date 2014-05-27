@@ -7,11 +7,11 @@
 ~app-office/skrooge-9999
 ~app-portage/kportagetray-9999
 ~dev-cpp/eigen-9999
-~dev-util/kdevelop-9999
-~dev-util/kdevelop-extra-plugins-9999
-~dev-util/kdevelop-php-9999
-~dev-util/kdevelop-php-docs-9999
-~dev-util/kdevplatform-9999
+~dev-util/kdevelop-4.9999
+~dev-util/kdevelop-extra-plugins-4.9999
+~dev-util/kdevelop-php-4.9999
+~dev-util/kdevelop-php-docs-4.9999
+~dev-util/kdevplatform-4.9999
 ~dev-util/krazy2-9999
 ~dev-util/kxsldbg-9999
 ~dev-vcs/kdesvn-9999
