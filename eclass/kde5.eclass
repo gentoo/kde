@@ -217,7 +217,14 @@ _calculate_live_repo() {
 	# (anongit) with anything else you might want to use.
 	EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org}
 
-	if [[ -n ${KMNAME} ]]; then
+	# @ECLASS-VARIABLE: EGIT_REPONAME
+	# @DESCRIPTION:
+	# This variable allows overriding of default repository
+	# name. Specify only if this differ from PN and KMNAME.
+	if [[ -n ${EGIT_REPONAME} ]]; then
+		# the repository and kmname different
+		_kmname=${EGIT_REPONAME}
+	elif [[ -n ${KMNAME} ]]; then
 		_kmname=${KMNAME}
 	else
 		_kmname=${PN}
