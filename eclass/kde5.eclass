@@ -91,7 +91,12 @@ else
 	: ${KDE_TEST:=false}
 fi
 
-HOMEPAGE="http://www.kde.org/"
+if [[ ${KDEBASE} = kdevelop ]]; then
+	HOMEPAGE="http://www.kdevelop.org/"
+else
+	HOMEPAGE="http://www.kde.org/"
+fi
+
 LICENSE="GPL-2"
 
 if [[ ${CATEGORY} = kde-frameworks ]]; then
