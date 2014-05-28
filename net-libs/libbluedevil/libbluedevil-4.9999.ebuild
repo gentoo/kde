@@ -4,18 +4,16 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+inherit kde4-base
 
 DESCRIPTION="Qt wrapper for bluez used in the KDE bluetooth stack"
 HOMEPAGE="http://projects.kde.org/projects/playground/libs/libbluedevil"
-KEYWORDS=""
-IUSE=""
 
-DEPEND="
-	dev-qt/qtdbus:5
-"
-RDEPEND="${DEPEND}
+LICENSE="GPL-2"
+KEYWORDS=""
+SLOT="4"
+IUSE="debug"
+
+RDEPEND="
 	>=net-wireless/bluez-5
-	!net-libs/libbluedevil:4
 "
