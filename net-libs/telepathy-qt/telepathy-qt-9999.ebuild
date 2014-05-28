@@ -14,7 +14,7 @@ HOMEPAGE="http://telepathy.freedesktop.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug farstream +qt4 qt5 test"
+IUSE="debug experimental farstream +qt4 qt5 test"
 
 RDEPEND="
 	farstream? (
@@ -63,8 +63,9 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
-			$(cmake-utils_use_enable farstream)
 			$(cmake-utils_use_enable debug DEBUG_OUTPUT)
+			$(cmake-utils_use_enable experimental EXPERIMENTAL_SERVICE_SUPPORT)
+			$(cmake-utils_use_enable farstream)
 			$(cmake-utils_use_enable test TESTS)
 			-DENABLE_EXAMPLES=OFF
 		)
