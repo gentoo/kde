@@ -4,25 +4,38 @@
 
 EAPI=5
 
-KDE_LINGUAS="ar bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
-hu it ja kk km ko lt mai mr ms nb nds nl pa pl pt pt_BR ro ru sk sl sr
-sr@ijekavian sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
-inherit kde4-base
+EGIT_BRANCH="frameworks"
+inherit kde5
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://projects.kde.org/projects/extragear/base/bluedevil"
-
-LICENSE="GPL-2+"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	>=net-libs/libbluedevil-2
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	net-libs/libbluedevil:5
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
 	!app-mobilephone/obexd
 	!app-mobilephone/obex-data-server
+	!net-wireless/bluedevil:4
 	!net-wireless/kbluetooth
 "
+
+PATCHES=( "${FILESDIR}/${P}-ecm-cmake.patch" )

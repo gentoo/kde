@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cdfcd06..edfffa6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+     Widgets
+     DBus)
+ 
+-find_package(KF5 CONFIG REQUIRED COMPONENTS
++find_package(KF5 REQUIRED COMPONENTS
+     CoreAddons
+     WidgetsAddons
+     DBusAddons
