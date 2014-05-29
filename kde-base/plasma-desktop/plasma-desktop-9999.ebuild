@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="+fontconfig pulseaudio usb"
+IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 RDEPEND="
 	$(add_kdebase_dep kwin)
@@ -64,12 +64,14 @@ RDEPEND="
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
+	bluetooth? ( net-wireless/bluedevil:5 )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
+	networkmanager? ( kde-misc/plasma-nm:5 )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
