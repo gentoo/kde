@@ -4,22 +4,19 @@
 
 EAPI=5
 
-inherit cmake-utils git-r3
+KDEBASE="kdevelop"
+KMNAME="kdev-clang"
+inherit kde4-base
 
-DESCRIPTION="Integrates Clang into KDevelop for C/C++/Objective-C language support."
-HOMEPAGE="https://projects.kde.org/projects/playground/devtools/plugins/kdev-clang"
-EGIT_REPO_URI="git://anongit.kde.org/kdev-clang"
-SRC_URI=""
-
+DESCRIPTION="Clang plugin for KDevelop 4"
 LICENSE="GPL-2 LGPL-2"
-SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="debug"
 
 DEPEND="
-	sys-devel/llvm[clang]
-	>=dev-util/kdevelop-4.6.90[-cxx]
-	"
+	dev-util/kdevelop:4[-cxx]
+	>=sys-devel/llvm-3.4[clang]
+"
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
