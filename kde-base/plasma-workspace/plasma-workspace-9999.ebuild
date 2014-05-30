@@ -93,10 +93,7 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-startkde-script.patch"
-	"${FILESDIR}/${P}-cmake-enable-prison.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 
 src_configure() {
 	local mycmakeargs=(
