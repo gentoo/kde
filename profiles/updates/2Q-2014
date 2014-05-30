@@ -1,3 +1,4 @@
 move kde-frameworks/kde4support kde-frameworks/kdelibs4support
 move kde-misc/powerdevil kde-base/powerdevil
 move dev-util/kdev-clang dev-util/kdevelop-clang
+slotmove dev-util/kdevelop-clang 0 4
