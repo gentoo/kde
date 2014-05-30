@@ -3,8 +3,5 @@
 ~kde-base/konsole-9999
 ~kde-base/kwrite-9999
 ~kde-base/libkomparediff2-9999
-~kde-misc/plasma-nm-9999
 ~kde-misc/yakuake-9999
-~net-libs/libmm-qt-9999
-~net-libs/libnm-qt-9999
 ~x11-libs/libkscreen2-9999
