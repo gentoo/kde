@@ -26,7 +26,7 @@ DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
 "
 RDEPEND="
-	dev-util/kdevelop
+	dev-util/kdevelop:4
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
 PATCHES=( "${FILESDIR}/${PN}"-1.2.0-parmake.patch )
