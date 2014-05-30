@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDEBASE="kdevelop"
 inherit kde4-base
 
 if [[ $PV == *9999* ]]; then
@@ -14,7 +15,6 @@ else
 fi
 
 DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
-HOMEPAGE="http://www.kdevelop.org"
 LICENSE="LGPL-2"
 SLOT="0"
 IUSE="debug"
