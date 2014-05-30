@@ -4,30 +4,26 @@
 
 EAPI=5
 
+KDEBASE="kdevelop"
 KMNAME="kdev-qmake"
 inherit kde4-base
 
-DESCRIPTION="Adds suppport for qmake projects to kdevelop."
-HOMEPAGE="http://www.kdevelop.org"
-
+DESCRIPTION="qmake plugin for KDevelop 4"
 LICENSE="LGPL-2"
-SLOT="4"
 KEYWORDS=""
-IUSE="tools"
+IUSE="debug tools"
 
-RESTRICT="test" #Tests fail, and we usually don't want to run tests on live
-				#versions anyway
 DEPEND="
-	dev-util/kdevelop
-	>=dev-util/kdevplatform-1.3.60
+	dev-util/kdevelop:4
 	dev-util/kdevelop-pg-qt
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build tools qmake_parser)
 	)
+
 	kde4-base_src_configure
 }
 
