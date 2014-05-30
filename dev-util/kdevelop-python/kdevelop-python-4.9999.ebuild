@@ -18,22 +18,15 @@ if [[ $PV != *9999* ]]; then
 	KEYWORDS="~amd64 ~x86"
 	S=${WORKDIR}/${MY_P}
 else
-	EGIT_REPO_URI="git://anongit.kde.org/kdev-python.git"
 	KEYWORDS=""
 fi
 
 DESCRIPTION="Python plugin for KDevelop 4"
-HOMEPAGE="http://www.kdevelop.org"
-
-LICENSE="GPL-2"
 IUSE="debug"
 
-DEPEND="
-	>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
-"
 RDEPEND="
 	${DEPEND}
-	dev-util/kdevelop
+	dev-util/kdevelop:4
 "
 
 RESTRICT="test"
