@@ -90,7 +90,7 @@ case ${KDEBASE} in
 			KDEVPLATFORM_VERSION="${KDEVPLATFORM_VERSION:-4.9999}"
 		else
 			case ${PN} in
-				kdevelop|quanta)
+				kdevelop)
 					KDEVELOP_VERSION=${PV}
 					KDEVPLATFORM_VERSION="$(($(get_major_version)-3)).$(get_after_major_version)"
 					;;
@@ -309,7 +309,7 @@ if [[ ${PN} != kdelibs ]]; then
 			case ${KDEVPLATFORM_REQUIRED} in
 				always)
 					kdecommondepend+="
-						>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}
+						>=dev-util/kdevplatform-${KDEVPLATFORM_VERSION}:4
 					"
 					;;
 				*) ;;
