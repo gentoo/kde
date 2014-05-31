@@ -104,7 +104,7 @@ RDEPEND="${COMMONDEPEND}
 		x11-apps/iceauth
 		x11-apps/rgb
 		>=x11-misc/xdg-utils-1.0.2-r3
-		upower? ( sys-power/upower )
+		upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
 	)
 	udev? ( app-misc/media-player-info )
 "
