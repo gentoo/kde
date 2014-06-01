@@ -25,13 +25,8 @@ RDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use minimal KACTIVITIES_LIBRARY_ONLY)
 		$(cmake-utils_use_with nepomuk NepomukCore)
 	)
 	kde4-base_src_configure
-}
-
-src_install() {
-	kde4-base_src_install
-
-	use minimal && rm "${D}"/usr/bin/kactivitymanagerd
 }
