@@ -33,7 +33,10 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
+	upower? (
+		|| ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils )
+		virtual/udev
+	)
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
