@@ -33,10 +33,7 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	upower? (
-		|| ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils )
-		virtual/udev
-	)
+	upower? ( virtual/udev )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -47,6 +44,7 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
+	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
 	!kde-base/powerdevil:4
 "
 
