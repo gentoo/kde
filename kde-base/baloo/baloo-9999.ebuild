@@ -26,7 +26,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
 	$(add_kdebase_dep kfilemetadata)
-	dev-libs/qjson
 	=dev-libs/xapian-1.2*[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
