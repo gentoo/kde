@@ -14,7 +14,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 else
 	KEYWORDS=""
-	EGIT_BRANCH="frameworks"
 fi
 
 DESCRIPTION="KDE Plasma applet for NetworkManager"
