@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_NLS="false"
 inherit kde5
 
 DESCRIPTION="Framework for easy reading, creation, and manipulation of various archive formats"
