@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing access to Open Collaboration Services"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="debug test"
+IUSE=""
 
 RDEPEND="
 	dev-qt/qtnetwork:5
