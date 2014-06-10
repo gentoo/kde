@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_NLS="false"
 inherit kde5
 
 DESCRIPTION="Framework providing access to Open Collaboration Services"
