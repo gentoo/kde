@@ -165,7 +165,7 @@ case ${KDE_TEST} in
 		;;
 esac
 
-DEPEND+=" ${COMMONDEPEND}"
+DEPEND+=" ${COMMONDEPEND} dev-util/desktop-file-utils"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
