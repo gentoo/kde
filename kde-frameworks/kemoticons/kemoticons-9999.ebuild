@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_NLS="false"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
