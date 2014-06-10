@@ -294,7 +294,7 @@ kde5_src_prepare() {
 
 	# enable only the requested translations
 	# when required
-	if use_if_iuse nls ; then
+	if [[ ${KDE_BUILD_TYPE} = release ]] && use_if_iuse nls ; then
 		for lang in $(ls po) ; do
 			if ! has ${lang} ${LINGUAS} ; then
 				rm -rf po/${lang}
