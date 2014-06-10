@@ -21,5 +21,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep baloo)
-	!kde-misc/milou
 "
