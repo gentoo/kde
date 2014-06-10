@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_NLS="false"
 inherit kde5
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
