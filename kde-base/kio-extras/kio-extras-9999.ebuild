@@ -76,4 +76,3 @@ pkg_postrm() {
 	kde5_pkg_postinst
 	fdo-mime_mime_database_update
 }
-
