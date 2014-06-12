@@ -54,9 +54,7 @@ unset cal_ft
 
 REQUIRED_USE="
 	calligra_features_author? ( calligra_features_words )
-	calligra_features_kexi? ( calligra_features_sheets )
-	calligra_features_words? ( calligra_features_sheets )
-	calligra_features_krita? ( eigen exif glew lcms )
+	calligra_features_krita? ( eigen exif lcms )
 	calligra_features_plan? ( kdepim )
 	calligra_features_sheets? ( eigen )
 	vc? ( calligra_features_krita )
