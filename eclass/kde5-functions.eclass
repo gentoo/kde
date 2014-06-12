@@ -105,7 +105,7 @@ _add_kdecategory_dep() {
 add_frameworks_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_add_kdecategory_dep kde-frameworks ${1} ${2} ${3}
+	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${3}"
 }
 
 # @FUNCTION: add_kdebase_dep
@@ -120,7 +120,7 @@ add_frameworks_dep() {
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_add_kdecategory_dep kde-base ${1} ${2} ${3}
+	_add_kdecategory_dep kde-base "${1}" "${2}" "${3}"
 }
 
 # @FUNCTION: add_kdemisc_dep
@@ -135,7 +135,7 @@ add_kdebase_dep() {
 add_kdemisc_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_add_kdecategory_dep kde-misc ${1} ${2} ${3}
+	_add_kdecategory_dep kde-misc "${1}" "${2}" "${3}"
 }
 
 # @FUNCTION: get_kde_version
