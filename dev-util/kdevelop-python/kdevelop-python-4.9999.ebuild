@@ -8,7 +8,8 @@ KDEBASE="kdevelop"
 KMNAME="kdev-python"
 KDE_LINGUAS="bs ca ca@valencia da de es fi fr gl it kk nl pt pt_BR sk sl sv uk
 zh_TW"
-inherit kde4-base
+PYTHON_COMPAT=( python2_7 )
+inherit kde4-base python-any-r1
 
 MY_PN="${KMNAME}"
 MY_P="${MY_PN}-${PV}"
@@ -24,13 +25,19 @@ fi
 DESCRIPTION="Python plugin for KDevelop 4"
 IUSE="debug"
 
-DEPEND=">=dev-util/kdevplatform-${PV}:4"
+COMMON_DEPEND=">=dev-util/kdevplatform-${PV}:4"
+DEPEND="${PYTHON_DEPS}"
 RDEPEND="
-	${DEPEND}
+	${COMMON_DEPEND}
 	dev-util/kdevelop:4
 "
 
 RESTRICT="test"
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+	kde4-base_pkg_setup
+}
 
 src_compile() {
 	pushd "${WORKDIR}"/${P}_build > /dev/null
