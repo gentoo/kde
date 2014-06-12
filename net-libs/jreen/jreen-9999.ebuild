@@ -22,6 +22,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug +qt4 qt5"
 
+REQUIRED_USE="|| ( qt4 qt5 )"
+
 DEPEND="
 	media-libs/speex
 	net-libs/libgsasl
