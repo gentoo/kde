@@ -8,11 +8,11 @@
 
 EAPI=5
 
-OPENGL_REQUIRED=optional
-KDE_HANDBOOK=optional
-KDE_LINGUAS_LIVE_OVERRIDE=true
 CHECKREQS_DISK_BUILD="4G"
+KDE_HANDBOOK="optional"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 KDE_MINIMAL="4.13.1"
+OPENGL_REQUIRED="optional"
 inherit check-reqs kde4-base versionator
 
 DESCRIPTION="KDE Office Suite"

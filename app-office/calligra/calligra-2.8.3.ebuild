@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/calligra/calligra-2.8.2.ebuild,v 1.2 2014/05/24 11:28:43 johu Exp $
+# $Header: $
 
 # note: files that need to be checked for dependencies etc:
 # CMakeLists.txt, kexi/CMakeLists.txt kexi/migration/CMakeLists.txt
@@ -8,11 +8,11 @@
 
 EAPI=5
 
-OPENGL_REQUIRED=optional
-KDE_HANDBOOK=optional
-KDE_LINGUAS_LIVE_OVERRIDE=true
 CHECKREQS_DISK_BUILD="4G"
+KDE_HANDBOOK="optional"
+KDE_LINGUAS_LIVE_OVERRIDE="true"
 KDE_MINIMAL="4.13.1"
+OPENGL_REQUIRED="optional"
 inherit check-reqs kde4-base versionator
 
 DESCRIPTION="KDE Office Suite"
