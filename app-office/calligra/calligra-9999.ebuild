@@ -182,7 +182,6 @@ src_configure() {
 		"-DWITH_TINY=OFF"
 		"-DWITH_CreateResources=OFF" # NOT PACKAGED: http://create.freedesktop.org/
 		"-DWITH_DCMTK=OFF"           # NOT PACKAGED: http://www.dcmtk.org/dcmtk.php.en
-		"-DQT3SUPPORT=OFF"			 # Qt5 is on the way!
 	)
 
 	# regular options
