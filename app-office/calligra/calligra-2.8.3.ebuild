@@ -107,7 +107,10 @@ RDEPEND="
 	kdcraw? ( $(add_kdebase_dep libkdcraw) )
 	kde? ( $(add_kdebase_dep kactivities) )
 	kdepim? ( $(add_kdebase_dep kdepimlibs) )
-	lcms? ( media-libs/lcms:2 )
+	lcms? (
+		media-libs/lcms:2
+		x11-libs/libX11
+	)
 	marble? ( $(add_kdebase_dep marble) )
 	mysql? ( virtual/mysql )
 	nepomuk? ( dev-libs/soprano )
@@ -134,6 +137,11 @@ RDEPEND="
 	calligra_features_kexi? (
 		>=dev-db/sqlite-3.7.9:3[extensions(+)]
 		dev-libs/icu:=
+	)
+	calligra_features_krita? (
+		dev-qt/qtdeclarative:4
+		x11-libs/libX11
+		x11-libs/libXi
 	)
 "
 DEPEND="${RDEPEND}"
