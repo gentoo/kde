@@ -24,6 +24,7 @@ fi
 DESCRIPTION="Python plugin for KDevelop 4"
 IUSE="debug"
 
+DEPEND=">=dev-util/kdevplatform-${PV}:4"
 RDEPEND="
 	${DEPEND}
 	dev-util/kdevelop:4
