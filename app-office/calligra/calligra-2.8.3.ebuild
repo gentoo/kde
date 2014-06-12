@@ -46,7 +46,7 @@ gsl import-filter +jpeg jpeg2k +kdcraw kde +kdepim +lcms marble mysql nepomuk
 +truetype vc xbase +xml +xslt"
 
 # please do not sort here, order is same as in CMakeLists.txt
-CAL_FTS="author kexi words flow plan stage sheets krita karbon braindump"
+CAL_FTS="words stage sheets author karbon krita kexi flow plan braindump"
 for cal_ft in ${CAL_FTS}; do
 	IUSE+=" calligra_features_${cal_ft}"
 done
