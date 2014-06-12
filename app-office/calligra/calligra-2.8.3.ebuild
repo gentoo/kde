@@ -36,9 +36,9 @@ esac
 LICENSE="GPL-2"
 SLOT="4"
 
-# Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
-[[ ${PV} == *9999 ]] || \
-KEYWORDS="~amd64 ~arm ~x86"
+if [[ ${KDE_BUILD_TYPE} == release ]] ; then
+	KEYWORDS="~amd64 ~arm ~x86"
+fi
 
 IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +gif +glew +glib +gsf
 gsl import-filter +jpeg jpeg2k +kdcraw kde +kdepim +lcms marble mysql nepomuk
