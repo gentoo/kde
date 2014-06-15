@@ -16,4 +16,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	dev-qt/qtgraphicaleffects:5
+"
