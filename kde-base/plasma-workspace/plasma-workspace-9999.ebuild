@@ -13,6 +13,7 @@ IUSE="dbus prison X"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
+	$(add_kdebase_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
@@ -41,6 +42,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
