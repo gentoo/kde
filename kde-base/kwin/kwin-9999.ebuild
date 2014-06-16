@@ -60,7 +60,6 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
