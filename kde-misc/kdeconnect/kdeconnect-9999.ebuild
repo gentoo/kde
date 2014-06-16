@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
 src_prepare(){
-	sed -i -e "s:QtCrypto/QtCrypto:QtCrypto:" kded/networkpackage.cpp || die
+	sed -i -e "s:QtCrypto/QtCrypto:QtCrypto:" core/networkpackage.cpp || die
 	kde4-base_src_prepare
 }
 
