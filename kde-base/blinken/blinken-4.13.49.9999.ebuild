@@ -12,3 +12,9 @@ HOMEPAGE="http://www.kde.org/applications/education/blinken
 http://edu.kde.org/blinken"
 KEYWORDS=""
 IUSE="debug"
+
+src_install() {
+	kde4-base_src_install
+
+	rm "${D}"/usr/share/apps/${PN}/README.packagers
+}
