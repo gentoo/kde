@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kde-cli-tools"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -31,8 +31,20 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
+	X? (
+		dev-qt/qtx11extras:5
+		x11-libs/libX11
+	)
 "
 RDEPEND="${DEPEND}"
 
 # requires running kde environment
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package X Qt5X11Extras)
+	)
+
+	kde5_src_configure
+}
