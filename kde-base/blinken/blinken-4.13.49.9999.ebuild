@@ -12,10 +12,3 @@ HOMEPAGE="http://www.kde.org/applications/education/blinken
 http://edu.kde.org/blinken"
 KEYWORDS=""
 IUSE="debug"
-
-DEPEND="
-	$(add_kdebase_dep libkdeedu)
-"
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep knotify)
-"
