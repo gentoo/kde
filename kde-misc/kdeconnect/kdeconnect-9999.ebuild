@@ -30,6 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
+	app-crypt/qca-ossl:2
 	net-dns/avahi
 "
 
