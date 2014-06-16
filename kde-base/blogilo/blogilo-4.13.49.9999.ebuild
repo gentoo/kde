@@ -14,7 +14,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	dev-libs/grantlee
 	$(add_kdebase_dep kdepim-common-libs)
 	$(add_kdebase_dep kdepimlibs)
 "
