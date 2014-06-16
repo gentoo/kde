@@ -9,7 +9,5 @@ inherit kde4-base
 
 DESCRIPTION="Filelight creates an interactive map of concentric, segmented rings that help visualise disk usage."
 HOMEPAGE="http://utils.kde.org/projects/filelight"
-
-LICENSE="GPL-3"
 KEYWORDS=""
 IUSE="debug"
