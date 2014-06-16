@@ -4,7 +4,6 @@
 
 EAPI=5
 
-WEBKIT_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for Konqueror"
