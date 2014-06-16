@@ -13,7 +13,3 @@ HOMEPAGE="http://utils.kde.org/projects/filelight"
 LICENSE="GPL-3"
 KEYWORDS=""
 IUSE="debug"
-
-RDEPEND="
-	x11-apps/xdpyinfo
-"
