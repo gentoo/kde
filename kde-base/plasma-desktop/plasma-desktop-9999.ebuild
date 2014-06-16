@@ -41,7 +41,6 @@ RDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kunitconversion)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
