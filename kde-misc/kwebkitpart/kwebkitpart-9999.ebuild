@@ -4,12 +4,13 @@
 
 EAPI=5
 
+WEBKIT_REQUIRED="always"
 inherit kde4-base
 
 DESCRIPTION="A WebKit KPart for Konqueror"
-HOMEPAGE="http://kde.org"
+HOMEPAGE="https://projects.kde.org/projects/extragear/base/kwebkitpart"
 
-LICENSE="GPL-2"
-KEYWORDS=""
+LICENSE="LGPL-2"
 SLOT="4"
+KEYWORDS=""
 IUSE="debug"
