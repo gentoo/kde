@@ -1,6 +1,12 @@
+>=app-office/akonadi-server-1.12.1
 >=dev-libs/libical-0.48-r2
 >=kde-misc/baloo-kcmadv-2014.04.27
 >=media-libs/lcms-2.5-r1
 >=media-libs/libraw-0.16.0_beta1-r1
 >=net-libs/libkgapi-2.0.1
 >=net-misc/networkmanager-0.9.8.2
+
+# temporary keyword to solve portage blockers due to
+# semantic-desktop -> nepomuk USE flag changes
+>=app-office/calligra-2.8.2
+>=app-office/calligra-l10n-2.8.2
