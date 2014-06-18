@@ -5,14 +5,13 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-KMNAME="kate"
 EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
 HOMEPAGE="http://www.kde.org/applications/utilities/kate http://kate-editor.org"
 KEYWORDS=""
-IUSE="+addons debug"
+IUSE="+addons"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
