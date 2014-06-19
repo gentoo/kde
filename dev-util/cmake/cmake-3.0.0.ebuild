@@ -108,11 +108,6 @@ cmake_src_test() {
 	popd > /dev/null
 }
 
-pkg_setup() {
-	# bug 387227
-	addpredict /proc/self/coredump_filter
-}
-
 src_prepare() {
 	cmake-utils_src_prepare
 
@@ -131,11 +126,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# make things work with gentoo java setup
-	# in case java-config cannot be run, the variable just becomes unset
-	# per bug #315229
-	export JAVA_HOME=$(java-config -g JAVA_HOME 2> /dev/null)
-
 	local mycmakeargs=(
 		-DCMAKE_USE_SYSTEM_LIBRARIES=ON
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr
