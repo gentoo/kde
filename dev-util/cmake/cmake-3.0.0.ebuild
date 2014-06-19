@@ -24,6 +24,7 @@ DEPEND="
 	>=net-misc/curl-7.20.0-r1[ssl]
 	sys-libs/zlib
 	virtual/pkgconfig
+	emacs? ( virtual/emacs )
 	ncurses? ( sys-libs/ncurses )
 	qt4? (
 		dev-qt/qtcore:4
@@ -35,9 +36,7 @@ DEPEND="
 		dev-qt/qtwidgets:5
 	)
 "
-RDEPEND="${DEPEND}
-	emacs? ( virtual/emacs )
-"
+RDEPEND="${DEPEND}"
 
 SITEFILE="50${PN}-gentoo.el"
 
