@@ -157,7 +157,7 @@ src_configure() {
 
 src_compile() {
 	cmake-utils_src_compile
-	use emacs && elisp-compile Docs/cmake-mode.el
+	use emacs && elisp-compile Auxiliary/cmake-mode.el
 }
 
 src_test() {
@@ -167,7 +167,7 @@ src_test() {
 src_install() {
 	cmake-utils_src_install
 	if use emacs; then
-		elisp-install ${PN} Docs/cmake-mode.el Docs/cmake-mode.elc
+		elisp-install ${PN} Auxiliary/cmake-mode.el Auxiliary/cmake-mode.elc
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 	fi
 
