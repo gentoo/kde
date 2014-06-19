@@ -140,6 +140,7 @@ src_configure() {
 			$(cmake-utils_use_find_package qt5 Qt5Widgets)
 		)
 	fi
+
 	cmake-utils_src_configure
 }
 
@@ -154,6 +155,7 @@ src_test() {
 
 src_install() {
 	cmake-utils_src_install
+
 	if use emacs; then
 		elisp-install ${PN} Auxiliary/cmake-mode.el Auxiliary/cmake-mode.elc
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
