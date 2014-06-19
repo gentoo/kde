@@ -181,7 +181,8 @@ src_install() {
 	doins "${FILESDIR}/${PN}.vim"
 
 	dobashcomp Auxiliary/bash-completion/{${PN},ctest,cpack}
-	rm -rf "${D}/usr/share/cmake/completions" || die
+
+	rm -rf "${D}/usr/share/cmake/{completions,editors}" || die
 }
 
 pkg_postinst() {
