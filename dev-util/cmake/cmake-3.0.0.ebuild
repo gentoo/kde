@@ -42,7 +42,6 @@ SITEFILE="50${PN}-gentoo.el"
 
 CMAKE_BINARY="${S}/Bootstrap.cmk/cmake"
 
-#	"${FILESDIR}"/${PN}-2.8.12.1-FindFreetype.patch
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.3-fix_broken_lfs_on_aix.patch
 	"${FILESDIR}"/${PN}-2.6.3-no-duplicates-in-rpath.patch
