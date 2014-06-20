@@ -82,13 +82,11 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/libkworkspace:4
 	!kde-base/libtaskmanager:4
 	!kde-base/kcminit:4
-	!kde-base/kdebase-menu-icons:4
 	!kde-base/kdebase-startkde:4
 	!kde-base/klipper:4
 	!kde-base/krunner:4
 	!kde-base/ksmserver:4
 	!kde-base/ksplash:4
-	!kde-base/kuiserver:4
 	!kde-base/plasma-workspace:4
 "
 DEPEND="${COMMON_DEPEND}
