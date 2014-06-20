@@ -10,7 +10,7 @@ if [[ $PV = *9999* ]]; then
 	KMNAME="libkscreen"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://kde/unstable/plasma/4.96.0/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/plasma/4.97.0/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
