@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 KEYWORDS=""
-IUSE="+upower X"
+IUSE="+upower"
 
 DEPEND="
 	$(add_frameworks_dep kauth)
@@ -33,14 +33,12 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXext
+	x11-libs/libXrandr
 	upower? ( virtual/udev )
-	X? (
-		dev-qt/qtx11extras:5
-		x11-libs/libX11
-		x11-libs/libxcb
-		x11-libs/libXext
-		x11-libs/libXrandr
-	)
 "
 
 RDEPEND="
@@ -52,7 +50,6 @@ RDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package upower UDev)
-		$(cmake-utils_use_find_package X X11)
 	)
 
 	kde5_src_configure
