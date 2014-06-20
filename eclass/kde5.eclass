@@ -197,6 +197,13 @@ _calculate_src_uri() {
 			;;
 	esac
 
+	case ${PN} in
+		baloo | \
+		kfilemetadata)
+			_kmname="${_kmname}5"
+			;;
+	esac
+
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
