@@ -116,11 +116,6 @@ src_install() {
 
 	insinto /etc/plasma/shutdown
 	doins "${FILESDIR}/agent-shutdown.sh"
-
-	# x11 session script
-	echo startkde > "${T}"/Plasma
-	exeinto /etc/X11/Sessions
-	doexe "${T}"/Plasma
 }
 
 pkg_postinst () {
