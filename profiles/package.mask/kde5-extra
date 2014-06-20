@@ -1,4 +1,3 @@
 # Michael Palimaka <kensington@gentoo.org> (21 Jun 2014)
 # Cross-overlay dependencies.
-~x11-libs/libkscreen2-1.71
 ~x11-libs/libkscreen2-1.72
