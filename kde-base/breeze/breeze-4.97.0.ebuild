@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_DEBUG="false"
 inherit kde5
 
 DESCRIPTION="Breeze visual style for the Plasma desktop"
@@ -12,6 +11,12 @@ HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	dev-qt/qtwidgets:5
+"
 RDEPEND="
+	${DEPEND}
 	dev-qt/qtgraphicaleffects:5
 "

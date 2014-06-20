@@ -9,10 +9,11 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="dbus X"
+IUSE="dbus prison X"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
+	$(add_kdebase_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
@@ -41,6 +42,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
@@ -59,6 +61,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	x11-libs/libkscreen2:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	prison? ( media-libs/prison:5 )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libICE
@@ -92,9 +95,12 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
+		$(cmake-utils_use_find_package prison)
 		$(cmake-utils_use_find_package X X11)
 	)
 
@@ -108,4 +114,21 @@ src_install() {
 	echo startkde > "${T}"/KDE-5
 	exeinto /etc/X11/Sessions
 	doexe "${T}"/KDE-5
+
+	# startup and shutdown scripts
+	insinto /etc/plasma/startup
+	doins "${FILESDIR}/agent-startup.sh"
+
+	insinto /etc/plasma/shutdown
+	doins "${FILESDIR}/agent-shutdown.sh"
+}
+
+pkg_postinst () {
+	kde5_pkg_postinst
+
+	echo
+	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
+	elog "edit ${EPREFIX}/etc/plasma/startup/agent-startup.sh and"
+	elog "${EPREFIX}/etc/plasma/shutdown/agent-shutdown.sh"
+	echo
 }

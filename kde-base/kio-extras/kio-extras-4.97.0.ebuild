@@ -7,14 +7,14 @@ EAPI=5
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit fdo-mime kde5
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
-KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="exif openexr samba +sftp slp"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="exif openexr phonon samba +sftp slp"
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -41,12 +41,14 @@ DEPEND="
 	virtual/jpeg:0
 	exif? ( media-gfx/exiv2:= )
 	openexr? ( media-libs/openexr:= )
+	phonon? ( media-libs/phonon[qt5] )
 	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
 	sftp? ( >=net-libs/libssh-0.6.0:=[sftp] )
 	slp? ( net-libs/openslp )
-"
-RDEPEND="${DEPEND}
 	!kde-base/kdebase-kioslaves:4
+"
+DEPEND="${RDEPEND}
+	x11-misc/shared-mime-info
 "
 
 # requires running kde environment
@@ -56,10 +58,21 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package openexr OpenEXR)
+		$(cmake-utils_use_find_package phonon Phonon4Qt5)
 		$(cmake-utils_use_find_package samba)
 		$(cmake-utils_use_find_package sftp LibSSH)
 		$(cmake-utils_use_find_package slp)
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+	fdo-mime_mime_database_update
+}
+
+pkg_postrm() {
+	kde5_pkg_postinst
+	fdo-mime_mime_database_update
 }
