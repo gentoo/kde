@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>kde</herd>
-<use>
-	<flag name="hbci">Enable HBCI banking support.</flag>
-	<flag name="quotes">Enable support for downloading stock data.</flag>
-</use>
+	<herd>kde</herd>
+	<use>
+		<flag name="hbci">Enable HBCI banking support.</flag>
+		<flag name="quotes">Enable support for downloading stock data.</flag>
+	</use>
 </pkgmetadata>
