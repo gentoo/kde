@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus prison qalculate X"
+IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
@@ -61,6 +61,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	x11-libs/libkscreen2:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
 	qalculate? ( sci-libs/libqalculate )
 	X? (
@@ -99,6 +100,7 @@ PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
+		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison)
 		$(cmake-utils_use_find_package qalculate Qalculate)
 		$(cmake-utils_use_find_package X X11)
