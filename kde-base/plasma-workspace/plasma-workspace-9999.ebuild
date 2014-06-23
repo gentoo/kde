@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus prison X"
+IUSE="dbus prison qalculate X"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
@@ -62,6 +62,7 @@ COMMON_DEPEND="
 	x11-libs/libkscreen2:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	prison? ( media-libs/prison:5 )
+	qalculate? ( sci-libs/libqalculate )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libICE
@@ -99,6 +100,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
 		$(cmake-utils_use_find_package prison)
+		$(cmake-utils_use_find_package qalculate Qalculate)
 		$(cmake-utils_use_find_package X X11)
 	)
 
