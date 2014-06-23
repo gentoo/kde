@@ -16,6 +16,7 @@ COMMON_DEPEND="
 	$(add_kdebase_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
