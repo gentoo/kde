@@ -50,7 +50,7 @@ if [[ ${PV} == 9999 ]] ; then
 		git config --global url."git://anongit.kde.org/".insteadOf "kde:" || die
 		git-r3_src_unpack
 		pushd "${S}" > /dev/null || die
-		git submodule foreach git checkout origin/master || die
+		git submodule foreach git checkout master || die
 		popd > /dev/null || die
 	}
 fi
