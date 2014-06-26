@@ -35,7 +35,7 @@ src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with editor Eigen2)
 		$(cmake-utils_use_with editor Avogadro)
 		$(cmake-utils_use_with editor OpenBabel2)

@@ -20,7 +20,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with alsa)
 		$(cmake-utils_use_with canberra)
 		$(cmake-utils_use_with pulseaudio PulseAudio)

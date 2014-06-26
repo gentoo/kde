@@ -25,7 +25,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DBUILD_tests=OFF
 		-DWITH_Xine=OFF
 		$(cmake-utils_use_with alsa)

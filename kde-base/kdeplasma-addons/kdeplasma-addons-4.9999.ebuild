@@ -42,7 +42,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DDBUS_INTERFACES_INSTALL_DIR="${EPREFIX}/usr/share/dbus-1/interfaces/"
 		$(cmake-utils_use_with attica LibAttica)
 		$(cmake-utils_use_with desktopglobe Marble)

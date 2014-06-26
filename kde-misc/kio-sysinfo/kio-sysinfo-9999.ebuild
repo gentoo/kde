@@ -20,7 +20,7 @@ IUSE="debug"
 
 src_configure() {
 	# What the heck is HD library??
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DSYSINFO_DISTRO:STRING=generic
 		-DWITH_HD=OFF
 		$(cmake-utils_use_with opengl OpenGL)

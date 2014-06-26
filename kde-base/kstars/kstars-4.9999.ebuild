@@ -24,7 +24,7 @@ src_configure() {
 	# Bug 308903
 	use ppc64 && append-flags -mminimal-toc
 
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with fits CFitsio)
 		$(cmake-utils_use_with indi)
 	)

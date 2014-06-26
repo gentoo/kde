@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="alsa debug"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with alsa)
 	)
 	kde4-base_src_configure

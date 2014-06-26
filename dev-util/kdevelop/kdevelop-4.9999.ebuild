@@ -36,7 +36,7 @@ RESTRICT="test"
 # see bug 366471
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build cxx cpp)

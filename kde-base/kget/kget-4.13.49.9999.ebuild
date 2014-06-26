@@ -34,7 +34,7 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with bittorrent KTorrent)
 		$(cmake-utils_use_with gpg QGpgme)
 		$(cmake-utils_use_with mms LibMms)

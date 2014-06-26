@@ -33,7 +33,7 @@ PATCHES=(
 )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build test TESTS)
 	)
 

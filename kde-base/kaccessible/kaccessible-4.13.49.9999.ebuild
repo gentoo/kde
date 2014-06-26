@@ -14,7 +14,7 @@ DEPEND="speechd? ( app-accessibility/speech-dispatcher )"
 RDEPEND=${DEPEND}
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with speechd)
 	)
 	kde4-base_src_configure

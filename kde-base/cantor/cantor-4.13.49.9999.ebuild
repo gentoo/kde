@@ -34,7 +34,7 @@ DEPEND="${RDEPEND}
 RESTRICT="test"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with analitza)
 		$(cmake-utils_use_with postscript LibSpectre)
 		$(cmake-utils_use_with python PythonLibs)

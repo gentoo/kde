@@ -23,7 +23,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with kde)
 	)
 

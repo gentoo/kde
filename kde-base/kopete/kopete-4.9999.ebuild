@@ -112,7 +112,7 @@ DEPEND="${COMMONDEPEND}
 src_configure() {
 	local x x2
 	# Handle common stuff
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with jingle GOOGLETALK)
 		$(cmake-utils_use_with jingle LiboRTP)
 		$(cmake-utils_use_with jingle Mediastreamer)

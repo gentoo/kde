@@ -24,7 +24,7 @@ RESTRICT="test"
 # dbus problem
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with archive LibArchive)
 		$(cmake-utils_use_with bzip2 BZip2)
 		$(cmake-utils_use_with lzma LibLZMA)

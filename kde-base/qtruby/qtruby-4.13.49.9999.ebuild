@@ -47,7 +47,7 @@ all_ruby_prepare() {
 
 each_ruby_configure() {
 	local CMAKE_USE_DIR=${S}
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DRUBY_LIBRARY=$(ruby_get_libruby)
 		-DRUBY_INCLUDE_PATH=$(ruby_get_hdrdir)
 		-DRUBY_EXECUTABLE=${RUBY}

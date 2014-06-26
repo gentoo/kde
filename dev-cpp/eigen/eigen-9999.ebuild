@@ -30,7 +30,7 @@ src_configure() {
 	# benchmarks (BTL) brings up damn load of external deps including fortran
 	# compiler
 	CMAKE_BUILD_TYPE="release"
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DEIGEN_BUILD_BTL=OFF
 	)
 	cmake-utils_src_configure
@@ -44,7 +44,7 @@ src_compile() {
 }
 
 src_test() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DEIGEN_BUILD_TESTS=ON
 		-DEIGEN_TEST_NO_FORTRAN=ON
 		-DEIGEN_TEST_NO_OPENGL=ON

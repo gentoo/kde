@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build cvs)
 		$(cmake-utils_use_find_package reviewboard QJSON)
 		$(cmake-utils_use_build subversion)

@@ -38,7 +38,7 @@ KMEXTRA="
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DWITH_SLP=OFF
 		$(cmake-utils_use_with bzip2 BZip2)
 		$(cmake-utils_use_with exif Exiv2)

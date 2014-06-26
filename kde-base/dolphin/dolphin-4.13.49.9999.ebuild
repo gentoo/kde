@@ -38,7 +38,7 @@ RESTRICT="test"
 # bug 393129
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop Baloo)
 		$(cmake-utils_use_with semantic-desktop BalooWidgets)
 		$(cmake-utils_use_with semantic-desktop KFileMetaData)

@@ -23,7 +23,7 @@ KMEXTRACTONLY="
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with plasma)
 	)
 

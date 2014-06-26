@@ -66,7 +66,7 @@ REQUIRED_USE="
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
 		-DK3B_BUILD_K3BSETUP=OFF
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON

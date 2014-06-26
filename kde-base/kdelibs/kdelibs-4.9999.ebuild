@@ -183,7 +183,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
 		-DWITH_DNSSD=OFF

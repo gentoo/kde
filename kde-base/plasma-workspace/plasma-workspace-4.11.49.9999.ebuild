@@ -98,7 +98,7 @@ src_unpack() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use_with json QJSON)
 		$(cmake-utils_use_with kdepim Akonadi)

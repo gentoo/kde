@@ -31,7 +31,7 @@ PATCHES=(
 )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use handset BUILD_HANDSET)
 	)
 	kde4-base_src_configure

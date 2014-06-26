@@ -38,7 +38,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with chm)
 		$(cmake-utils_use_with crypt QCA2)
 		$(cmake-utils_use_with djvu DjVuLibre)

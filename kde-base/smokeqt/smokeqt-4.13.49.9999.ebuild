@@ -36,7 +36,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DDISABLE_Qt3Support=ON
 		-DWITH_QT3_SUPPORT=OFF
 		$(cmake-utils_use_disable declarative QtDeclarative)

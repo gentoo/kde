@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DAPRCONFIG_EXECUTABLE="${EPREFIX}"/usr/bin/apr-1-config
 		$(cmake-utils_use_with subversion SVN)
 	)

@@ -43,7 +43,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build python pate)
 	)
 

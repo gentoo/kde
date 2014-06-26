@@ -68,7 +68,7 @@ src_configure() {
 	# FIXME Remove when activity API moved away from libkworkspace
 	append-cppflags "-I${EPREFIX}/usr/include/kworkspace"
 
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with gles OpenGLES)
 		$(cmake-utils_use gles KWIN_BUILD_WITH_OPENGLES)
 		$(cmake-utils_use_with opengl OpenGL)

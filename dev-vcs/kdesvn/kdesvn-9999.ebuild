@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT
 
-	[[ ${PV} = 9999* ]] && mycmakeargs=(-DDAILY_BUILD=ON)
+	[[ ${PV} = 9999* ]] && local mycmakeargs=(-DDAILY_BUILD=ON)
 
 	kde4-base_src_configure
 }

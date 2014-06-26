@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with gstreamer GStreamer)
 		$(cmake-utils_use_with unicode ICU)
 		$(cmake-utils_use_with xine)

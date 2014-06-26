@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 DOCS=( README )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DENABLE_TESTS=OFF
 		$(cmake-utils_use debug CURL_DEBUG)
 	)

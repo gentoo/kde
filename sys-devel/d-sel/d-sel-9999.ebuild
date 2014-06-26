@@ -25,7 +25,7 @@ RDEPEND="
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build kde DSEL_BUILD_DSELRIG)
 	)
 	kde4-base_src_configure

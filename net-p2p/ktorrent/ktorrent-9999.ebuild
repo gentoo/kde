@@ -74,7 +74,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_enable bwscheduler BWSCHEDULER_PLUGIN)
 		$(cmake-utils_use_enable downloadorder DOWNLOADORDER_PLUGIN)
 		$(cmake-utils_use_enable infowidget INFOWIDGET_PLUGIN)

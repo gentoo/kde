@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}
 PATCHES=( "${FILESDIR}/${PN}-4.11.3-vendor.patch" )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
 		$(cmake-utils_use_with attica LibAttica)

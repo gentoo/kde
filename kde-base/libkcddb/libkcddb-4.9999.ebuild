@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}"
 KMSAVELIBS="true"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with musicbrainz MusicBrainz5)
 	)
 

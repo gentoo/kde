@@ -25,7 +25,7 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_has 3dnow X86_3DNOW)
 		$(cmake-utils_use_has altivec PPC_ALTIVEC)
 		$(cmake-utils_use_has mmx X86_MMX)

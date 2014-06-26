@@ -23,7 +23,7 @@ DEPEND="
 RDEPEND=${DEPEND}
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DKGAPI_DISABLE_DEPRECATED=TRUE
 		-DKCAL=OFF
 	)

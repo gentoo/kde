@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DENABLE_UDISKS2=ON
 	)
 

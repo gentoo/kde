@@ -21,7 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DWITH_KdepimLibs=ON
 		$(cmake-utils_use_with tidy LibTidy)
 	)

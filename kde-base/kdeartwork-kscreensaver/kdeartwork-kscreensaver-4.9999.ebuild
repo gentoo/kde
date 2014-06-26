@@ -34,7 +34,7 @@ PATCHES=( "${FILESDIR}/${PN}-xscreensaver.patch"
 	"${FILESDIR}/${PN}-4.5.95-webcollage.patch" )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DKSCREENSAVER_SOUND_SUPPORT=ON
 		-DOPENGL=ON
 		$(cmake-utils_use_with eigen Eigen2)

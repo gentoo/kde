@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_find_package ldap)
 		$(cmake-utils_use_find_package prison)
