@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name='addons'>Build and install additional plugins</flag>
+		<flag name="addons">Build and install additional plugins</flag>
 	</use>
 </pkgmetadata>

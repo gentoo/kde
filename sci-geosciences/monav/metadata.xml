@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
-<maintainer>
-  <email>devurandom@gmx.net</email>
-</maintainer>
-<use>
-  <flag name='client'>Build the monav client</flag>
-  <flag name='preprocessor'>Build the monav preprocessor to turn OSM maps into monav maps</flag>
-  <flag name='preprocessor-gui'>Build the GUI for the monav preprocessor</flag>
-</use>
+	<maintainer>
+		<email>devurandom@gmx.net</email>
+	</maintainer>
+	<use>
+		<flag name="client">Build the monav client</flag>
+		<flag name="preprocessor">Build the monav preprocessor to turn OSM maps into monav maps</flag>
+		<flag name="preprocessor-gui">Build the GUI for the monav preprocessor</flag>
+	</use>
 </pkgmetadata>

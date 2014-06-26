@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<longdescription lang="en">
+	<longdescription lang="en">
 BE::KWinFX Beta
 Several 3rd party plugins for the KDE KWin compositor
 </longdescription>
-<use>
-	<flag name='beanimated'>Enable animation plugin</flag>
-	<flag name='beclock'>Enable clock plugin</flag>
-	<flag name='bedistorted'>Enable distorted plugin</flag>
-	<flag name='befaded'>Enable fading plugin</flag>
-	<flag name='bereflected'>Enable reflection plugin</flag>
-	<flag name='gles'>Build set with OpenGLES support.</flag>
-	<flag name='xrandr'>Build set with xrandr support.</flag>
-</use>
+	<use>
+		<flag name="beanimated">Enable animation plugin</flag>
+		<flag name="beclock">Enable clock plugin</flag>
+		<flag name="bedistorted">Enable distorted plugin</flag>
+		<flag name="befaded">Enable fading plugin</flag>
+		<flag name="bereflected">Enable reflection plugin</flag>
+		<flag name="gles">Build set with OpenGLES support.</flag>
+		<flag name="xrandr">Build set with xrandr support.</flag>
+	</use>
 </pkgmetadata>
-

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>kde</herd>
-<use>
-<flag name="bazaar">Enable support for the bazaar VCS</flag>
-<flag name="git">Enable support for the git VCS</flag>
-<flag name="mercurial">Enable support for the mercurial VCS</flag>
-</use>
+	<herd>kde</herd>
+	<use>
+		<flag name="bazaar">Enable support for the bazaar VCS</flag>
+		<flag name="git">Enable support for the git VCS</flag>
+		<flag name="mercurial">Enable support for the mercurial VCS</flag>
+	</use>
 </pkgmetadata>

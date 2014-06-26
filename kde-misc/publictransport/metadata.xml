@@ -7,4 +7,3 @@
 		<flag name="protobuf">Enable GTFS-realtime support</flag>
 	</use>
 </pkgmetadata>
-
