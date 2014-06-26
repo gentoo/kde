@@ -17,7 +17,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	policykit? ( sys-auth/polkit-qt )
+	policykit? ( sys-auth/polkit-qt[qt5] )
 "
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
