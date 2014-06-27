@@ -11,7 +11,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -24,7 +24,8 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-"
-RDEPEND="${DEPEND}
 	!kde-base/kactivities:4[-minimal(-)]
+"
+DEPEND="${RDEPEND}
+	|| ( >=dev-libs/boost-1.54 <dev-libs/boost-1.53 )
 "
