@@ -322,6 +322,7 @@ kde5_src_prepare() {
 		comment_add_subdirectory autotests
 	fi
 
+	punt_bogus_deps
 
 	cmake-utils_src_prepare
 }

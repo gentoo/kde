@@ -139,4 +139,11 @@ get_kde_version() {
 	fi
 }
 
+# @FUNCTION: punt_bogus_deps
+# @DESCRIPTION:
+# Remove hard-coded upstream dependencies that are not correct.
+punt_bogus_deps() {
+	sed -e "/find_package(Qt5 REQUIRED/s/ Test//" -i CMakeLists.txt || die
+}
+
 fi
