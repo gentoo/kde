@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	media-libs/phonon[qt5]
 	sys-libs/pam
 	sys-libs/zlib
-	x11-libs/libkscreen2:5
+	x11-libs/libkscreen:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	prison? ( media-libs/prison:5 )
 	X? (
