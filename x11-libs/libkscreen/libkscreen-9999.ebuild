@@ -7,10 +7,9 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 if [[ $PV = *9999* ]]; then
 	EGIT_BRANCH="frameworks"
-	KMNAME="libkscreen"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://kde/unstable/plasma/4.97.0/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/plasma/4.97.0/src/${PN}2-${PV}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -31,6 +30,4 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}
-	!x11-libs/libkscreen:5
-"
+RDEPEND="${DEPEND}"
