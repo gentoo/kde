@@ -25,7 +25,7 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	>=x11-libs/libkscreen2-${PV}:5
+	>=x11-libs/libkscreen-${PV}:5
 "
 RDEPEND="
 	${DEPEND}
