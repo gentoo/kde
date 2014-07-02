@@ -105,7 +105,15 @@ _add_kdecategory_dep() {
 add_frameworks_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${3}"
+	local version=${3}
+
+	if [[ ${CATEGORY} = kde-frameworks ]]; then
+		version=${PV}
+	elif [[ -z "${version}" ]] ; then
+		version=4.100.0
+	fi
+
+	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
 }
 
 # @FUNCTION: add_kdebase_dep
