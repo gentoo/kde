@@ -34,7 +34,6 @@ pkg_setup() {
 }
 
 src_configure() {
-	# demos not working
 	local mycmakeargs=(
 		$(cmake-utils_use_build doc HTML_DOCS)
 		$(cmake-utils_use_build doc MAN_DOCS)
