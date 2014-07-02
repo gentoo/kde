@@ -322,6 +322,10 @@ kde5_src_prepare() {
 		comment_add_subdirectory autotests
 	fi
 
+	if [[ ${CATEGORY} = kde-base ]]; then
+		punt_bogus_deps
+	fi
+
 	cmake-utils_src_prepare
 }
 
