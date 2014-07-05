@@ -36,7 +36,7 @@ DEPEND="
 	!<kde-base/nepomuk-4.12.50
 "
 RDEPEND="${DEPEND}
-	!kde-base/baloo:4
+	!kde-base/baloo:4[-minimal(-)]
 "
 
 src_configure() {
