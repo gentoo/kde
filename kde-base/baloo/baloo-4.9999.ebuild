@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Next generation of the Nepomuk project"
 KEYWORDS=""
-IUSE="+alternatekcm debug"
+IUSE="+alternatekcm debug minimal"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
@@ -28,4 +28,15 @@ RESTRICT="test"
 src_prepare() {
 	kde4-base_src_prepare
 	use alternatekcm && epatch "${FILESDIR}/${PN}-4.13.0-nokcm.patch"
+}
+
+src_install() {
+	kde4-base_src_install
+
+	if use minimal ; then
+		rm "${D}"/usr/bin/baloo*
+		rm -r "${D}"/usr/share/dbus-1
+		rm -r "${D}"/usr/share/icons
+		rm -r "${D}"/usr/share/polkit-1
+	fi
 }
