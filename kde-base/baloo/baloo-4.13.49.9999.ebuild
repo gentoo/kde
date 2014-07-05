@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Next generation of the Nepomuk project"
 KEYWORDS=""
-IUSE="debug +alternatekcm"
+IUSE="+alternatekcm debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
