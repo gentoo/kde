@@ -200,7 +200,7 @@ _calculate_src_uri() {
 	case ${PN} in
 		baloo | \
 		kfilemetadata)
-			_kmname="${_kmname}5"
+			[[ ${PV} = 4.97.0 ]] &&_kmname="${_kmname}5"
 			;;
 	esac
 
