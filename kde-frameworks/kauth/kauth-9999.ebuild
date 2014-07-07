@@ -22,7 +22,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
 "
-PDEPEND="policykit? ( sys-auth/polkit-kde-agent )"
 
 src_configure() {
 	local mycmakeargs=(
