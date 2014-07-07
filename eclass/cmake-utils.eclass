@@ -647,7 +647,7 @@ enable_cmake-utils_src_install() {
 # @DESCRIPTION:
 # Apply ebuild and user patches.
 cmake-utils_src_prepare() {
-	_execute_optionaly "src_prepare" "$@"
+	_execute_optionally "src_prepare" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_configure
@@ -655,7 +655,7 @@ cmake-utils_src_prepare() {
 # General function for configuring with cmake. Default behaviour is to start an
 # out-of-source build.
 cmake-utils_src_configure() {
-	_execute_optionaly "src_configure" "$@"
+	_execute_optionally "src_configure" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_compile
@@ -663,25 +663,25 @@ cmake-utils_src_configure() {
 # General function for compiling with cmake.
 # Automatically detects the build type. All arguments are passed to emake.
 cmake-utils_src_compile() {
-	_execute_optionaly "src_compile" "$@"
+	_execute_optionally "src_compile" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_test
 # @DESCRIPTION:
 # Function for testing the package. Automatically detects the build type.
 cmake-utils_src_test() {
-	_execute_optionaly "src_test" "$@"
+	_execute_optionally "src_test" "$@"
 }
 
 # @FUNCTION: cmake-utils_src_install
 # @DESCRIPTION:
 # Function for installing the package. Automatically detects the build type.
 cmake-utils_src_install() {
-	_execute_optionaly "src_install" "$@"
+	_execute_optionally "src_install" "$@"
 }
 
 # Optionally executes phases based on WANT_CMAKE variable/USE flag.
-_execute_optionaly() {
+_execute_optionally() {
 	local phase="$1" ; shift
 	if [[ ${WANT_CMAKE} = always ]]; then
 		enable_cmake-utils_${phase} "$@"
