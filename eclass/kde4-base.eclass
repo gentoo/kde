@@ -782,7 +782,7 @@ kde4-base_src_test() {
 		fi
 
 		cmake-utils_src_test
-	}		
+	}
 
 	# When run as normal user during ebuild development with the ebuild command, the
 	# kde tests tend to access the session DBUS. This however is not possible in a real
