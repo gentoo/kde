@@ -110,7 +110,7 @@ add_frameworks_dep() {
 	if [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=${PV}
 	elif [[ -z "${version}" ]] ; then
-		version=4.100.0
+		version=5.0.0
 	fi
 
 	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
