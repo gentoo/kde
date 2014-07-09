@@ -14,6 +14,7 @@ IUSE="dbus gps prison qalculate X"
 COMMON_DEPEND="
 	$(add_kdebase_dep libksysguard)
 	$(add_kdebase_dep baloo)
+	$(add_kdebase_dep kwin)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
