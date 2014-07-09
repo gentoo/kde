@@ -38,6 +38,16 @@ elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	KDEBASE=kdevelop
 fi
 
+# @ECLASS-VARIABLE: KDE_SCM
+# @DESCRIPTION:
+# SCM to use if this is a live ebuild.
+: ${KDE_SCM:=git}
+
+case ${KDE_SCM} in
+	svn|git) ;;
+	*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
+esac
+
 # determine the build type
 if [[ ${PV} = *9999* ]]; then
 	KDE_BUILD_TYPE="live"

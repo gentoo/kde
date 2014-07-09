@@ -24,7 +24,10 @@ CMAKE_MIN_VERSION="2.8.12"
 inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx eutils cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
-	inherit git-r3
+	case ${KDE_SCM} in
+		svn) inherit subversion ;;
+		git) inherit git-r3 ;;
+	esac
 fi
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
@@ -227,28 +230,40 @@ _calculate_live_repo() {
 
 	SRC_URI=""
 
-	local _kmname
-	# @ECLASS-VARIABLE: EGIT_MIRROR
-	# @DESCRIPTION:
-	# This variable allows easy overriding of default kde mirror service
-	# (anongit) with anything else you might want to use.
-	EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org}
+	case ${KDE_SCM} in
+		svn)
+			# @ECLASS-VARIABLE: ESVN_MIRROR
+			# @DESCRIPTION:
+			# This variable allows easy overriding of default kde mirror service
+			# (anonsvn) with anything else you might want to use.
+			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
+			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
+			;;
+		git)
+			# @ECLASS-VARIABLE: EGIT_MIRROR
+			# @DESCRIPTION:
+			# This variable allows easy overriding of default kde mirror service
+			# (anongit) with anything else you might want to use.
+			EGIT_MIRROR=${EGIT_MIRROR:=git://anongit.kde.org}
 
-	# @ECLASS-VARIABLE: EGIT_REPONAME
-	# @DESCRIPTION:
-	# This variable allows overriding of default repository
-	# name. Specify only if this differ from PN and KMNAME.
-	if [[ -n ${EGIT_REPONAME} ]]; then
-		# the repository and kmname different
-		_kmname=${EGIT_REPONAME}
-	elif [[ -n ${KMNAME} ]]; then
-		_kmname=${KMNAME}
-	else
-		_kmname=${PN}
-	fi
+			local _kmname
 
-	# default repo uri
-	EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			# @ECLASS-VARIABLE: EGIT_REPONAME
+			# @DESCRIPTION:
+			# This variable allows overriding of default repository
+			# name. Specify only if this differ from PN and KMNAME.
+			if [[ -n ${EGIT_REPONAME} ]]; then
+				# the repository and kmname different
+				_kmname=${EGIT_REPONAME}
+			elif [[ -n ${KMNAME} ]]; then
+				_kmname=${KMNAME}
+			else
+				_kmname=${PN}
+			fi
+
+			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
+			;;
+	esac
 }
 
 case ${KDE_BUILD_TYPE} in
@@ -282,7 +297,14 @@ kde5_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ${KDE_BUILD_TYPE} = live ]]; then
-		git-r3_src_unpack
+		case ${KDE_SCM} in
+			svn)
+				subversion_src_unpack
+				;;
+			git)
+				git-r3_src_unpack
+				;;
+		esac
 	else
 		unpack ${A}
 	fi
