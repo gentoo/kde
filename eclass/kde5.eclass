@@ -200,13 +200,6 @@ _calculate_src_uri() {
 			;;
 	esac
 
-	case ${PN} in
-		baloo | \
-		kfilemetadata)
-			[[ ${PV} = 4.97.0 ]] &&_kmname="${_kmname}5"
-			;;
-	esac
-
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
