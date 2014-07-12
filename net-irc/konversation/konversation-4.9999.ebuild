@@ -4,18 +4,18 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+inherit kde4-base
 
-DESCRIPTION="A user friendly IRC Client for KDE"
+DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://konversation.kde.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="5"
+SLOT="4"
 IUSE="+crypt debug"
 
 DEPEND="
+	$(add_kdebase_dep kdepimlibs)
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}
@@ -26,5 +26,5 @@ src_configure() {
 	mycmakeargs+=(
 		$(cmake-utils_use_with crypt QCA2)
 	)
-	kde5_src_configure
+	kde4-base_src_configure
 }
