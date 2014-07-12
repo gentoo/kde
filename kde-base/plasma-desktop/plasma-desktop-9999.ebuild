@@ -83,6 +83,7 @@ RDEPEND="
 	)
 	!kde-base/attica:4
 	!kde-base/knetattach:4
+	!kde-base/kdepasswd:4
 "
 DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
