@@ -26,6 +26,8 @@ DEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${P}-linguas.patch" )
+
 python_check_deps() {
 	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
 }
