@@ -23,8 +23,9 @@ RDEPEND="${DEPEND}
 "
 
 src_configure() {
-	mycmakeargs+=(
+	local mycmakeargs=(
 		$(cmake-utils_use_with crypt QCA2)
 	)
+
 	kde4-base_src_configure
 }
