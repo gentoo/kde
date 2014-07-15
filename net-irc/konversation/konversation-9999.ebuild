@@ -5,6 +5,7 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
+KDE_NLS="true"
 inherit kde5
 
 DESCRIPTION="A user friendly IRC Client for KDE"
@@ -14,10 +15,12 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="+crypt"
 
-DEPEND="
+RDEPEND="
 	crypt? ( app-crypt/qca:2[qt5] )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-devel/gettext
+"
 
 src_configure() {
 	local mycmakeargs=(
