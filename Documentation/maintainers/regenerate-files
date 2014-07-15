@@ -16,7 +16,7 @@ KF_RELEASES="5.0"
 KF_RELEASE=${KF_RELEASE:-5.0}
 
 PLASMA_RELEASES="5.0"
-PLASMA_RELEASE=${KF_RELEASE:-5.0}
+PLASMA_RELEASE=${PLASMA_RELEASE:-5.0}
 
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null
@@ -31,6 +31,13 @@ for release in $KF_RELEASES; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}.keywords"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
 		cat ".kde-frameworks-${release}/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-frameworks-${release}.keywords"
+	fi
+done
+
+for release in $PLASMA_RELEASES; do
+	echo -e "${HEADER}" > "kde-plasma-${release}.keywords"
+	if [[ -d ".kde-plasma-${release}" ]]; then
+		cat ".kde-plasma-${release}/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-plasma-${release}.keywords"
 	fi
 done
 
@@ -71,6 +78,17 @@ if [[ -d .kde-frameworks-live.base ]]; then
 	cat .kde-frameworks-live/* >> kde-frameworks-live.keywords
 fi
 
+if [[ -d .kde-plasma-live.base ]]; then
+	rm -rf .kde-plasma-live
+	mkdir -p .kde-plasma-live
+	echo -e "${HEADER}" > kde-plasma-live.keywords
+	for file in .kde-plasma-live.base/*; do
+		newfile=.kde-plasma-live/$(basename "${file}")
+		sed '/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+	done
+	cat .kde-plasma-live/* >> kde-plasma-live.keywords
+fi
+
 # keywords for miscleanous packages from package.unmask/
 for misc in kde-extras-live; do
 	if [[ -f "../package.unmask/${misc}" ]]; then
@@ -95,6 +113,13 @@ for release in $KF_RELEASES live; do
 		cat ".kde-frameworks-${release}/"* >> "kde-frameworks-${release}"
 	fi
 done
+
+for release in $PLASMA_RELEASES live; do
+	echo -e "${HEADER}" > "kde-plasma-${release}"
+	if [[ -d ".kde-plasma-${release}" ]]; then
+		cat ".kde-plasma-${release}/"* >> "kde-plasma-${release}"
+	fi
+done
 popd > /dev/null
 
 # regenerate mask entries (base for package mask)
@@ -111,7 +136,15 @@ for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d "../package.unmask/.kde-frameworks-${release}" ]]; then
 		cat "../package.unmask/.kde-frameworks-${release}/"* >> "kde-frameworks-${release}"
-		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-4\...\.50$/{s/-4\...\.50/-${release}/;s/^</>=/}"
+		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-5\..\.50$/{s/-5\..\.50/-${release}/;s/^</>=/}"
+	fi
+done
+
+for release in $PLASMA_RELEASES live; do
+	echo -e "${HEADER}" > "kde-plasma-${release}"
+	if [[ -d "../package.unmask/.kde-plasma-${release}" ]]; then
+		cat "../package.unmask/.kde-plasma-${release}/"* >> "kde-plasma-${release}"
+		sed -i "kde-plasma-${release}" -e "/^<kde-base\/.*-5\..\.50$/{s/-5\..\.50/-${release}/;s/^</>=/}"
 	fi
 done
 popd > /dev/null
