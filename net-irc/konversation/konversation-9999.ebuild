@@ -17,5 +17,5 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}
-	sys-devel/gettext
+	nls? ( sys-devel/gettext )
 "
