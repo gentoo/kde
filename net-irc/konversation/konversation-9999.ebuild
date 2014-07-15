@@ -13,19 +13,9 @@ HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="+crypt"
+IUSE=""
 
-RDEPEND="
-	crypt? ( app-crypt/qca:2[qt5] )
-"
+RDEPEND=""
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with crypt QCA2)
-	)
-
-	kde5_src_configure
-}
