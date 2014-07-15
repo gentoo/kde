@@ -12,8 +12,7 @@ HOMEPAGE="http://konversation.kde.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="5"
-IUSE="+crypt debug"
+IUSE="+crypt"
 
 DEPEND="
 	crypt? ( app-crypt/qca:2 )
