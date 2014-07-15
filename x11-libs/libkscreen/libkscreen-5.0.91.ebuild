@@ -9,7 +9,7 @@ if [[ $PV = *9999* ]]; then
 	EGIT_BRANCH="frameworks"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://kde/unstable/plasma/4.98.0/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/plasma/5.0.0/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
