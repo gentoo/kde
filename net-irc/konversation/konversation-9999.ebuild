@@ -8,7 +8,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="A user friendly IRC Client for KDE"
-HOMEPAGE="http://konversation.kde.org"
+HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation.kde.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
