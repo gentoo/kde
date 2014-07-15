@@ -15,6 +15,9 @@ RELEASE=${RELEASE:-4.12}
 KF_RELEASES="5.0"
 KF_RELEASE=${KF_RELEASE:-5.0}
 
+PLASMA_RELEASES="5.0"
+PLASMA_RELEASE=${KF_RELEASE:-5.0}
+
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null
 for release in $KDE_RELEASES; do
@@ -121,10 +124,16 @@ for set in *-${RELEASE}; do
 	sed -r "/@/s/-${RELEASE}//g;/9999$/s/~//;s/<//;\@kde-base/@s/-(9999|4\...\.50)/:4/" "${set}" >> "${newfile}"
 done
 
-for set in *-${KF_RELEASE}; do
+for set in *frameworks-${KF_RELEASE}; do
 	newfile=${set/%-${KF_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
 	sed -r "/@/s/-${KF_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-frameworks/@s/-(9999|5\..\.50)/:5/" "${set}" >> "${newfile}"
+done
+
+for set in *plasma-${PLASMA_RELEASE}; do
+	newfile=${set/%-${PLASMA_RELEASE}}
+	echo -e "${HEADER}" > "${newfile}"
+	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-base/@s/-(9999|5\..\.50)/:5/" "${set}" >> "${newfile}"
 done
 popd > /dev/null
 
