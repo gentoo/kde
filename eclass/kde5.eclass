@@ -156,7 +156,9 @@ esac
 case ${KDE_NLS} in
 	false)	;;
 	*)
-		IUSE+=" nls"
+		if [[ ${KDE_BUILD_TYPE} = release ]]; then
+			IUSE+=" nls"
+		fi
 		;;
 esac
 
