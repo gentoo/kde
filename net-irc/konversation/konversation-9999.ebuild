@@ -15,11 +15,9 @@ KEYWORDS=""
 IUSE="+crypt"
 
 DEPEND="
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt5] )
 "
-RDEPEND="${DEPEND}
-	crypt? ( app-crypt/qca-ossl )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
