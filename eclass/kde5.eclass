@@ -212,7 +212,12 @@ _calculate_src_uri() {
 		esac
 		;;
 	kde-base)
-		SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz"
+		case ${PV} in
+			4.??.? )
+				SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+			*)
+				SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
+		esac
 		;;
 	esac
 }
