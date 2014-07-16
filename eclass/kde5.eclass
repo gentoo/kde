@@ -111,11 +111,7 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		if [[ ${KDE_BUILD_TYPE} = live ]]; then
-			DEPEND+=" >=dev-libs/extra-cmake-modules-9999"
-		else
-			DEPEND+=" >=dev-libs/extra-cmake-modules-1.0.0"
-		fi
+		DEPEND+=" >=dev-libs/extra-cmake-modules-1.0.0"
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 		;;
