@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/soprano
 	dev-qt/qt-mobility[sensors]
 	net-libs/libnm-qt
-	x11-libs/libkscreen
+	x11-libs/libkscreen:4
 "
 
 RDEPEND="${DEPEND}"
