@@ -10,7 +10,7 @@ OPENGL_REQUIRED="optional"
 KDE_HANDBOOK="optional"
 inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
-EGIT_BRANCH="master"
+EGIT_BRANCH="KDE/4.14"
 
 DESCRIPTION="KDE libraries needed by all KDE programs."
 
