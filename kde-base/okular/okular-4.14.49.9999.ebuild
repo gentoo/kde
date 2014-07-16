@@ -24,7 +24,7 @@ DEPEND="
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2 )
 	djvu? ( app-text/djvu )
-	dpi? ( x11-libs/libkscreen )
+	dpi? ( x11-libs/libkscreen:4 )
 	ebook? ( app-text/ebook-tools )
 	jpeg? (
 		$(add_kdebase_dep libkexiv2)
