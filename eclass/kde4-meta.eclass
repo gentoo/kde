@@ -12,8 +12,8 @@
 # You must define KMNAME to use this eclass, and do so before inheriting it. All other variables are optional.
 # Do not include the same item in more than one of KMMODULE, KMMEXTRA, KMCOMPILEONLY, KMEXTRACTONLY.
 
-if [[ ${___ECLASS_ONCE_KDE4_META} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE4_META="recur -_+^+_- spank"
+if [[ -z ${_KDE4_META_ECLASS} ]]; then
+_KDE4_META_ECLASS=1
 
 [[ -z ${KMNAME} ]] && die "kde4-meta.eclass inherited but KMNAME not defined - broken ebuild"
 
@@ -167,7 +167,7 @@ kde4-meta_src_extract() {
 						|| die "${escm}: can't export cmake files to '${S}'."
 				fi
 				# Copy all subdirectories
-				for subdir in $(__list_needed_subdirectories); do
+				for subdir in $(_list_needed_subdirectories); do
 					targetdir=""
 					if [[ $subdir = doc/* && ! -e "$wc_path/$subdir" ]]; then
 						continue
@@ -196,7 +196,7 @@ kde4-meta_src_extract() {
 		tarfile="${DISTDIR}/${tarball}"
 
 		# Detect real toplevel dir from tarball name - it will be used upon extraction
-		# and in __list_needed_subdirectories
+		# and in _list_needed_subdirectories
 		topdir="${tarball%.tar.*}/"
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
@@ -207,7 +207,7 @@ kde4-meta_src_extract() {
 		do
 			extractlist+=" ${topdir}${f}"
 		done
-		extractlist+=" $(__list_needed_subdirectories)"
+		extractlist+=" $(_list_needed_subdirectories)"
 
 		pushd "${WORKDIR}" > /dev/null
 
@@ -228,7 +228,7 @@ kde4-meta_src_extract() {
 		eend $?
 
 		if [[ -n ${KDE4_STRICTER} ]]; then
-			for f in $(__list_needed_subdirectories fatal); do
+			for f in $(_list_needed_subdirectories fatal); do
 				if [[ ! -e ${S}/${f#*/} ]]; then
 					eerror "'${f#*/}' is missing"
 					abort=true
@@ -311,7 +311,7 @@ kde4-meta_create_extractlists() {
 	debug-print "line ${LINENO} ${ECLASS} ${FUNCNAME}: KMEXTRACTONLY ${KMEXTRACTONLY}"
 }
 
-__list_needed_subdirectories() {
+_list_needed_subdirectories() {
 	local i j kmextra kmextra_expanded kmmodule_expanded kmcompileonly_expanded extractlist
 
 	# We expand KMEXTRA by adding CMakeLists.txt files

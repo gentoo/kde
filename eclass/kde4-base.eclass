@@ -13,8 +13,8 @@
 # NOTE: KDE 4 ebuilds currently support EAPIs 4 and 5.  This will be
 # reviewed over time as new EAPI versions are approved.
 
-if [[ ${___ECLASS_ONCE_KDE4_BASE} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE4_BASE="recur -_+^+_- spank"
+if [[ -z ${_KDE4_BASE_ECLASS} ]]; then
+_KDE4_BASE_ECLASS=1
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
@@ -439,12 +439,6 @@ _calculate_src_uri() {
 				4.[1-7].[12345])
 					# Stable KDE SC with old .bz2 support
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.11.7)
-					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.3/src/${_kmname_pv}.tar.xz" ;;
-				4.11.8)
-					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.4/src/${_kmname_pv}.tar.xz" ;;
 				4.11.9)
 					# Part of 4.12 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.12.5/src/${_kmname_pv}.tar.xz" ;;
