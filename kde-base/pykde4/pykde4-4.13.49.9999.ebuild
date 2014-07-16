@@ -29,6 +29,8 @@ DEPEND="${RDEPEND}
 	sys-devel/libtool
 "
 
+PATCHES=( "${FILESDIR}/${PN}-4.13.3-pyqt4-4.11.patch" )
+
 pkg_setup() {
 	kde4-base_pkg_setup
 
