@@ -12,6 +12,8 @@ HOMEPAGE="http://www.kde.org/applications/education/kstars http://edu.kde.org/ks
 KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug fits indi"
 
+REQUIRED_USE="indi? ( fits )"
+
 DEPEND="
 	dev-cpp/eigen:3
 	$(add_kdebase_dep libkdeedu)
