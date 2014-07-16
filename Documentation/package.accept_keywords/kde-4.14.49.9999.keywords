@@ -207,7 +207,7 @@
 ~kde-base/thumbnailers-4.14.49.9999 **
 ~kde-base/baloo-4.14.49.9999 **
 ~kde-base/baloo-widgets-4.14.49.9999 **
-~kde-base/kactivities-4.14.49.9999 **
+~kde-base/kactivities-4.13.49.9999 **
 ~kde-base/kde-env-4.14.49.9999 **
 ~kde-base/kdelibs-4.14.49.9999 **
 ~kde-base/kfilemetadata-4.14.49.9999 **
@@ -239,7 +239,6 @@
 ~kde-base/akregator-4.14.49.9999 **
 ~kde-base/blogilo-4.14.49.9999 **
 ~kde-base/calendarjanitor-4.14.49.9999 **
-~kde-base/contactthemeeditor-4.14.49.9999 **
 ~kde-base/kabcclient-4.14.49.9999 **
 ~kde-base/kaddressbook-4.14.49.9999 **
 ~kde-base/kalarm-4.14.49.9999 **
