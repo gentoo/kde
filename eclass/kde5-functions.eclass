@@ -12,8 +12,8 @@ inherit versionator
 # This eclass contains all functions shared by the different eclasses,
 # for KDE 5 ebuilds.
 
-if [[ ${___ECLASS_ONCE_KDE5_FUNCTIONS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE5_FUNCTIONS="recur -_+^+_- spank"
+if [[ -z ${_KDE5_FUNCTIONS_ECLASS} ]]; then
+_KDE5_FUNCTIONS_ECLASS=1
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:

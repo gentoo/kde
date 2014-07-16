@@ -9,8 +9,8 @@
 # @DESCRIPTION:
 # The kde5.eclass provides support for building KDE 5-related packages.
 
-if [[ ${___ECLASS_ONCE_KDE5} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE5="recur -_+^+_- spank"
+if [[ -z ${_KDE5_ECLASS} ]]; then
+_KDE5_ECLASS=1
 
 CMAKE_MIN_VERSION="2.8.12"
 

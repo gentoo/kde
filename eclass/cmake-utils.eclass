@@ -17,8 +17,8 @@
 # builds (default), in-source builds and an implementation of the well-known use_enable
 # and use_with functions for CMake.
 
-if [[ ${___ECLASS_ONCE_CMAKE_UTILS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_CMAKE_UTILS="recur -_+^+_- spank"
+if [[ -z ${_CMAKE_UTILS_ECLASS} ]]; then
+_CMAKE_UTILS_ECLASS=1
 
 
 # @ECLASS-VARIABLE: BUILD_DIR
