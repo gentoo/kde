@@ -4,8 +4,9 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+KDE_LINGUAS="bs cs da de el es fi fr gl hu lt nl pl pt pt_BR ro ru sk sl sv tr
+ug uk"
+inherit kde4-base
 
 DESCRIPTION="KCM displaying distribution and system information"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/about-distro"
@@ -20,22 +21,17 @@ else
 fi
 
 LICENSE="GPL-3"
+SLOT="4"
+IUSE="debug"
 
-DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep solid)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+RDEPEND="${DEPEND}
+	sys-apps/lsb-release
 "
-RDEPEND="${DEPEND}"
 
 src_install() {
-	kde5_src_install
+	kde4-base_src_install
 
-	insinto /etc/xdg
+	insinto /usr/share/config
 	doins "${FILESDIR}"/kcm-about-distrorc
 
 	insinto /usr/share/${PN}
