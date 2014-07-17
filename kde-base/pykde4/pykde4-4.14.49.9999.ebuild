@@ -18,7 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( nepomuk )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=dev-python/PyQt4-4.11.1[${PYTHON_USEDEP},dbus,declarative,script(+),sql,svg,webkit,X]
+	>=dev-python/PyQt4-4.11.1[${PYTHON_USEDEP},dbus,declarative,script,sql,svg,webkit,X]
 	>=dev-python/sip-4.16.2:=[${PYTHON_USEDEP}]
 	$(add_kdebase_dep kdelibs 'nepomuk?,opengl')
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
