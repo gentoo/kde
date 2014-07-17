@@ -22,6 +22,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
+# bug 516686
+RESTRICT="test"
+
 DEPEND="
 	$(add_kdebase_dep nepomuk-core)
 	dev-qt/qt-mobility[multimedia,qml]
