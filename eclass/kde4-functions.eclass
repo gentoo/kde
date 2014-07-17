@@ -216,6 +216,14 @@ enable_selected_doc_linguas() {
 
 			# Disable subdirectories recursively
 			comment_all_add_subdirectory "${handbookdir}"
+
+			# In certain packages, the default handbook is en_US instead of the usual en. Since there is no en_US 'translation',
+			# it makes no sense to add to KDE_LINGUAS which causes this type of handbook to not be installed.
+			if [[ -d "${handbookdir}/en_US" && ! -d "${handbookdir}/en" ]]; then
+				mv "${handbookdir}/en_US" "${handbookdir}/en" || die
+				sed -e "s/en_US/en/" -i "${handbookdir}/CMakeLists.txt"
+			fi
+
 			# Add requested translations
 			local lingua
 			for lingua in en ${KDE_LINGUAS}; do
