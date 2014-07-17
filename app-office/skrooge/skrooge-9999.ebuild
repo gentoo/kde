@@ -37,18 +37,6 @@ fi
 
 DOCS=( AUTHORS CHANGELOG README TODO )
 
-src_prepare() {
-	if [[ ${KDE_BUILD_TYPE} != live ]]; then
-		# KDE_LINGUAS is also used to install appropriate handbooks
-		# since there is no en_US 'translation', it cannot be added
-		# hence making this impossible to install
-		mv doc/en_US doc/en || die "doc move failed"
-		sed -i -e 's/en_US/en/' doc/CMakeLists.txt || die "sed failed"
-	fi
-
-	kde4-base_src_prepare
-}
-
 src_test() {
 	local mycmakeargs=(
 		-DSKG_BUILD_TEST=ON
