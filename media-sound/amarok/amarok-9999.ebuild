@@ -77,15 +77,6 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdebase_dep phonon-kde)
 "
 
-src_prepare() {
-	if [[ ${KDE_BUILD_TYPE} != live ]]; then
-		mv doc/en_US doc/en || die
-		sed -e "s/en_US/en/" -i doc/CMakeLists.txt || die
-	fi
-
-	kde4-base_src_prepare
-}
-
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
 	use ppc64 && append-flags -mminimal-toc
