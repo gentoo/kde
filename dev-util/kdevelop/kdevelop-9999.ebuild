@@ -30,7 +30,7 @@ DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwidgetsaddon)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep threadweaver)
