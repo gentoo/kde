@@ -1,4 +1,4 @@
->=app-office/akonadi-server-1.12.1
+>=app-office/akonadi-server-1.12.90
 >=dev-libs/libical-0.48-r2
 >=kde-misc/baloo-kcmadv-2014.04.27
 >=media-libs/lcms-2.5-r1
