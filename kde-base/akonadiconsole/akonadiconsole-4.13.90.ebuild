@@ -12,7 +12,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	>=app-office/akonadi-server-1.12.1
+	>=app-office/akonadi-server-1.12.90
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
 "
