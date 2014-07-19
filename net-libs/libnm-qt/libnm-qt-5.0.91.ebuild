@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_TEST="true"
-KDE_DOXYGEN="true"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
