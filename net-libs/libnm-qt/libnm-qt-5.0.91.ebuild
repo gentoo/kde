@@ -31,9 +31,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
-
-src_configure() {
-	local mycmakeargs=(	-DBUILD_EXAMPLES=FALSE )
-
-	kde5_src_configure
-}
