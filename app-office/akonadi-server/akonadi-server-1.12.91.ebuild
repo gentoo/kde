@@ -59,6 +59,8 @@ RDEPEND="${CDEPEND}
 	postgres? ( dev-db/postgresql-server )
 "
 
+RESTRICT="test"
+
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
 	# reverse driver check to keep the order
