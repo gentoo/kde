@@ -10,7 +10,7 @@ sr@ijekavian sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 	SRC_URI="mirror://kde/stable/plasma/5.0.0/${P}.tar.xz"
 else
 	KEYWORDS=""
