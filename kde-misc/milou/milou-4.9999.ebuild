@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="milou/0.1"
 KDE_MINIMAL="4.13"
 KDE_LINGUAS="bs ca cs da de el es fi fr hu ja ko lt nds nl pl pt pt_BR ro sk sv
 uk zh_CN zh_TW"
