@@ -70,7 +70,7 @@ RDEPEND="
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	networkmanager? ( kde-misc/plasma-nm:5 )
+	networkmanager? ( $(add_kdebase_dep plasma-nm) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
