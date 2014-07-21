@@ -20,7 +20,6 @@
 ~kde-base/plasma-workspace-5.0.0
 ~kde-base/powerdevil-5.0.0
 ~kde-base/systemsettings-5.0.0
-~kde-misc/plasma-nm-5.0.0
 ~net-libs/libmm-qt-5.0.91
 ~net-libs/libnm-qt-5.0.91
 ~x11-libs/libkscreen-5.0.91
