@@ -4,9 +4,6 @@
 
 EAPI=5
 
-KDE_LINGUAS="ar bs ca ca@valencia cs da de el en_GB eo es et fa fi fr ga gl hr
-hu is it ja km lt lv mai mr ms nb nds nl nn pa pl pt pt_BR ro ru sk sl sr
-sr@ijekavian sr@ijekavianlatin sr@latin sv th tr ug uk zh_CN zh_TW"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -17,10 +14,10 @@ else
 fi
 
 DESCRIPTION="KDE Plasma applet for NetworkManager"
-HOMEPAGE="https://projects.kde.org/projects/playground/network/plasma-nm"
+HOMEPAGE="https://projects.kde.org/projects/kde/workspace/plasma-nm"
 
 LICENSE="GPL-2 LGPL-2.1"
-IUSE="debug modemmanager openconnect"
+IUSE="modemmanager openconnect"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
