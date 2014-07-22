@@ -33,9 +33,7 @@ RDEPEND="
 		examples? ( dev-qt/qtxml:5 )
 	)
 "
-DEPEND="${RDEPEND}
-	dev-util/automoc
-"
+DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS README README.porting TODO )
 
