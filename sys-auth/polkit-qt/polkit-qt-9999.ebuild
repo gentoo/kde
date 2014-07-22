@@ -7,7 +7,7 @@ EAPI=5
 inherit cmake-utils multibuild git-r3
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library."
-HOMEPAGE="http://kde.org/"
+HOMEPAGE="http://www.kde.org/"
 EGIT_REPO_URI=( "git://anongit.kde.org/polkit-qt-1" )
 
 LICENSE="LGPL-2"
@@ -48,6 +48,7 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
+			-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 			$(cmake-utils_use_build examples)
 		)
 
