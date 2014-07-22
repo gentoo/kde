@@ -6,17 +6,9 @@ EAPI=5
 
 inherit kde5
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64"
-	SRC_URI="mirror://kde/stable/plasma/5.0.0/${P}.tar.xz"
-else
-	KEYWORDS=""
-fi
-
 DESCRIPTION="KDE Plasma applet for NetworkManager"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/plasma-nm"
-
 LICENSE="GPL-2 LGPL-2.1"
+KEYWORDS=""
 IUSE="modemmanager openconnect"
 
 DEPEND="
