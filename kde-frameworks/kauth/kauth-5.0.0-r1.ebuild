@@ -24,6 +24,8 @@ DEPEND="${RDEPEND}
 "
 #PDEPEND="policykit? ( sys-auth/polkit-kde-agent )"
 
+PATCHES=( "${FILESDIR}/${P}-CVE-2014-5033.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package policykit PolkitQt-1)
