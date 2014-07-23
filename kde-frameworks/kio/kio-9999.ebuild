@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="acl kerberos X"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -46,10 +46,7 @@ COMMON_DEPEND="
 	)
 	kerberos? ( virtual/krb5 )
 "
-RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kded)
-"
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/qtconcurrent:5
 	test? ( sys-libs/zlib )
@@ -58,6 +55,9 @@ DEPEND="${COMMON_DEPEND}
 		x11-libs/libXrender
 		x11-proto/xproto
 	)
+"
+PDEPEND="
+	$(add_frameworks_dep kded)
 "
 
 # tests hang
