@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 "
 
 pkg_setup() {
-	python-single-r1_pkg_setup
+	use python && python-single-r1_pkg_setup
 	kde4-base_pkg_setup
 }
 
