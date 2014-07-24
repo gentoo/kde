@@ -19,5 +19,3 @@ RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdesu)
 	sys-apps/accountsservice
 "
-
-PATCHES=( "${FILESDIR}/${PN}-4.13.3-use-accountsservice.patch" )
