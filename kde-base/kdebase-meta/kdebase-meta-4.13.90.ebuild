@@ -41,7 +41,7 @@ RDEPEND="
 	$(add_kdebase_dep ksysguard '' 4.11)
 	$(add_kdebase_dep ksystraycmd '' 4.11)
 	$(add_kdebase_dep kwin '' 4.11)
-	$(add_kdebase_dep kwrite)
+	$(add_kdebase_dep kwrite '' 4.14)
 	$(add_kdebase_dep kwrited '' 4.11)
 	$(add_kdebase_dep libkonq)
 	$(add_kdebase_dep libkworkspace '' 4.11)
