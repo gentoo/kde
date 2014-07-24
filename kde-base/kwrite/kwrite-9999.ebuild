@@ -5,7 +5,6 @@
 EAPI=5
 
 KMNAME="kate"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
