@@ -12,7 +12,7 @@
 ~kde-base/konqueror-4.9999 **
 ~kde-base/konq-plugins-4.9999 **
 ~kde-base/konsole-4.9999 **
-~kde-base/kwrite-4.9999 **
+~kde-base/kwrite-4.14.49.9999 **
 ~kde-base/libkonq-4.9999 **
 ~kde-base/nsplugins-4.9999 **
 ~kde-base/plasma-apps-4.9999 **
@@ -231,7 +231,7 @@
 ~kde-base/nepomuk-widgets-4.9999 **
 ~kde-base/kdepimlibs-4.9999 **
 ~kde-base/oxygen-icons-4.9999 **
-~kde-base/katepart-4.9999 **
+~kde-base/katepart-4.14.49.9999 **
 ~kde-base/dragon-4.9999 **
 ~kde-base/ffmpegthumbs-4.9999 **
 ~kde-base/juk-4.9999 **
@@ -277,7 +277,7 @@
 ~kde-base/cervisia-4.9999 **
 ~kde-base/dolphin-plugins-4.9999 **
 ~kde-base/kapptemplate-4.9999 **
-~kde-base/kate-4.9999 **
+~kde-base/kate-4.14.49.9999 **
 ~kde-base/kcachegrind-4.9999 **
 ~kde-base/kde-dev-scripts-4.9999 **
 ~kde-base/kde-dev-utils-4.9999 **
