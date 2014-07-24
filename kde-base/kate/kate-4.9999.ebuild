@@ -5,6 +5,7 @@
 EAPI=5
 KDE_HANDBOOK="optional"
 KMNAME="kate"
+EGIT_BRANCH="KDE/4.14"
 PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
 
 inherit python-single-r1 kde4-meta

@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_HANDBOOK="optional"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
