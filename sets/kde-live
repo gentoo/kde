@@ -1,5 +1,5 @@
 # We don't include kdesdk on the global set
-~kde-base/kate-4.9999
+~kde-base/kate-4.14.49.9999
 ~kde-base/kde-l10n-4.9999
 ~kde-base/kde-meta-4.9999
 ~kde-base/kdeplasma-addons-4.9999
