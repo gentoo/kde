@@ -11,7 +11,7 @@ DESCRIPTION="KDE Plasma desktop"
 KEYWORDS="~amd64"
 IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_kdebase_dep kwin)
 	$(add_kdebase_dep plasma-workspace)
 	$(add_frameworks_dep attica)
@@ -81,11 +81,14 @@ RDEPEND="
 		x11-libs/libXfixes
 		virtual/libusb:0
 	)
+"
+RDEPEND="${COMMON_DEPEND}
+	sys-apps/accountsservice
 	!kde-base/attica:4
 	!kde-base/knetattach:4
 	!kde-base/kdepasswd:4
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
