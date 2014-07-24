@@ -255,6 +255,10 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
+			if [[ ${PV} != 9999 && ${KDEBASE} == kde-base ]]; then
+				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
+			fi
+
 			EGIT_REPO_URI="${EGIT_MIRROR}/${_kmname}"
 			;;
 	esac
