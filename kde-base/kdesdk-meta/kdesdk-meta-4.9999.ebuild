@@ -14,7 +14,7 @@ RDEPEND="
 	cvs? ( $(add_kdebase_dep cervisia) )
 	$(add_kdebase_dep dolphin-plugins)
 	$(add_kdebase_dep kapptemplate)
-	$(add_kdebase_dep kate)
+	$(add_kdebase_dep kate '' 4.14)
 	$(add_kdebase_dep kcachegrind)
 	$(add_kdebase_dep kde-dev-scripts)
 	$(add_kdebase_dep kde-dev-utils)
