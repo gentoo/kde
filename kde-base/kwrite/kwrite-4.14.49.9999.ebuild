@@ -15,5 +15,5 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep katepart)
+	$(add_kdebase_dep katepart '' 4.14)
 "
