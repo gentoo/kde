@@ -85,6 +85,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/accountsservice
 	!kde-base/attica:4
+	!kde-base/kcontrol:4
 	!kde-base/knetattach:4
 	!kde-base/kdepasswd:4
 "

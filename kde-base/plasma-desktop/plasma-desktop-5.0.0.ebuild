@@ -87,6 +87,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/attica:4
 	!kde-base/knetattach:4
 	!kde-base/kdepasswd:4
+	!kde-base/kcontrol:4
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
