@@ -4,8 +4,10 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+KDE_LINGUAS="bs ca ca@valencia cs da de el es et fi fr ga gl hu ia it ja kk km
+ko lt mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin
+sr@latin sv tr uk vi wa zh_CN zh_TW"
+inherit kde4-base
 
 DESCRIPTION="KDE Telepathy contact, presence and chat Plasma applets"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
@@ -17,16 +19,15 @@ else
 fi
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="5"
-IUSE=""
+SLOT="4"
+IUSE="debug"
 
 DEPEND="
-	$(add_frameworks_dep plasma)
+	>=net-im/ktp-common-internals-${PV}
+	>=net-libs/telepathy-qt-0.9.3
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kdeclarative)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtquickcontrols:5
-	>=net-im/ktp-common-internals-${PV}
-	!net-im/ktp-desktop-applets:4
+	!net-im/ktp-contact-applet
+	!net-im/ktp-presence-applet
+	>=net-im/ktp-contact-list-${PV}
 "
