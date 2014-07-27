@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtgui:5
+	dev-qt/qtgui:5[xcb]
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}
