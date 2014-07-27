@@ -14,7 +14,7 @@ HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
 KEYWORDS="~amd64"
 IUSE="exif openexr phonon samba +sftp slp"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -45,9 +45,12 @@ RDEPEND="
 	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
 	sftp? ( >=net-libs/libssh-0.6.0:=[sftp] )
 	slp? ( net-libs/openslp )
+"
+RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kded)
 	!kde-base/kdebase-kioslaves:4
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
 "
 
