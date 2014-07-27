@@ -83,6 +83,7 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kded)
 	sys-apps/accountsservice
 	!kde-base/attica:4
 	!kde-base/kcontrol:4
