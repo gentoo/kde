@@ -11,7 +11,7 @@ DESCRIPTION="KDE workspace hotkey module"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -32,9 +32,12 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
+"
+RDEPEND="
+	$(add_frameworks_dep kded)
 	!kde-base/khotkeys:4
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-proto/xproto
