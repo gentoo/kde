@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
 "
-RDEPEND="
+RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	!kde-base/khotkeys:4
 "
