@@ -26,7 +26,10 @@ DEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-linguas.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-linguas.patch"
+	"${FILESDIR}/${P}-kxmlgui.patch"
+)
 
 python_check_deps() {
 	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
