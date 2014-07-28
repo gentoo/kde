@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs cs da de el es fi fr gl hu lt nl pl pt pt_BR ro ru sk sl sv tr
-ug uk"
+KDE_LINGUAS="bg bs ca cs da de el es fi fr gl hu ja ko lt nl pl pt pt_BR ro ru
+sk sl sv tr ug uk"
 inherit kde4-base
 
 DESCRIPTION="KCM displaying distribution and system information"
