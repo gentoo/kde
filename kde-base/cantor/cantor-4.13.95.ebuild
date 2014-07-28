@@ -33,6 +33,11 @@ DEPEND="${RDEPEND}
 
 RESTRICT="test"
 
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+	kde4-base_pkg_setup
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with analitza)
