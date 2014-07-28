@@ -30,7 +30,9 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/about-distro:4
+"
 
 src_install() {
 	kde5_src_install
