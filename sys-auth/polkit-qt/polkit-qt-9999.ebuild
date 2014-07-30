@@ -26,9 +26,9 @@ RDEPEND="
 		dev-qt/qtgui:4[glib]
 	)
 	qt5? (
-		dev-qt/qtcore:5[glib]
+		dev-qt/qtcore:5
 		dev-qt/qtdbus:5
-		dev-qt/qtgui:5[glib]
+		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
 		examples? ( dev-qt/qtxml:5 )
 	)
