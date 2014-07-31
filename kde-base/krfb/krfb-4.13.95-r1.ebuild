@@ -13,6 +13,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug telepathy"
 
 DEPEND="
+	>=net-libs/libvncserver-0.9.9
 	sys-libs/zlib
 	virtual/jpeg:0
 	!aqua? (
@@ -24,6 +25,8 @@ DEPEND="
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-4.14.0-CVE-2014-4607-unbundle-libvncserver.patch" )
 
 src_configure() {
 	local mycmakeargs=(
