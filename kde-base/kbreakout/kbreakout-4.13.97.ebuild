@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 DECLARATIVE_REQUIRED="always"
 inherit kde4-base
 
-DESCRIPTION="KDE: A Breakout-like game for KDE."
+DESCRIPTION="KDE: A Breakout-like game for KDE"
 HOMEPAGE="
 	http://www.kde.org/applications/games/kbreakout/
 	http://games.kde.org/game.php?game=kbreakout

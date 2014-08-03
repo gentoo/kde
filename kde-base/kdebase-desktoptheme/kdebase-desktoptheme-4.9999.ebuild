@@ -8,6 +8,6 @@ KMNAME="kde-runtime"
 KMMODULE="desktoptheme"
 inherit kde4-meta
 
-DESCRIPTION="Oxygen KDE4 desktop theme."
+DESCRIPTION="Oxygen KDE4 desktop theme"
 IUSE=""
 KEYWORDS=""

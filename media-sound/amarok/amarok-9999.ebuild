@@ -13,7 +13,7 @@ VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit flag-o-matic kde4-base pax-utils
 
-DESCRIPTION="Advanced audio player based on KDE framework."
+DESCRIPTION="Advanced audio player based on KDE framework"
 HOMEPAGE="http://amarok.kde.org/"
 if [[ ${PV} != *9999* ]]; then
 	if [[ $PV == *[6-9][0-9]* ]]; then

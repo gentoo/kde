@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE: KDiamond is a three-in-a-row game."
+DESCRIPTION="KDE: KDiamond is a three-in-a-row game"
 HOMEPAGE="
 	http://www.kde.org/applications/games/kdiamond/
 	http://games.kde.org/game.php?game=kdiamond

@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="KCMInit - runs startups initialization for Control Modules."
+DESCRIPTION="KCMInit - runs startups initialization for Control Modules"
 KEYWORDS=""
 IUSE="debug"
 

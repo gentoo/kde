@@ -32,7 +32,7 @@ fi
 
 inherit kde4-base
 
-DESCRIPTION="A BitTorrent program for KDE."
+DESCRIPTION="A BitTorrent program for KDE"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"

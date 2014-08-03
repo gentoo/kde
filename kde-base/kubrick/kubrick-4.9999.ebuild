@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="always"
 inherit kde4-base
 
-DESCRIPTION="A game based on the \"Rubik's Cube\" puzzle."
+DESCRIPTION="A game based on the \"Rubik's Cube\" puzzle"
 HOMEPAGE="http://www.kde.org/applications/games/kubrick/"
 KEYWORDS=""
 IUSE="debug"

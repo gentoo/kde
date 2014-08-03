@@ -7,7 +7,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-base
 
-DESCRIPTION="A tool to create interactive applets for the KDE desktop."
+DESCRIPTION="A tool to create interactive applets for the KDE desktop"
 HOMEPAGE="http://www.kde.org/applications/utilities/superkaramba
 http://utils.kde.org/projects/superkaramba"
 KEYWORDS=""

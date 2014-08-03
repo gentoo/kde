@@ -10,7 +10,7 @@ gl hr hu it ja ko lt mai nb nds nl pa pl pt pt_BR ro ru sk sl sr
 sr@ijekavian sr@ijekavianlatin sr@latin sv tr ug uk zh_CN zh_TW"
 inherit kde4-base
 
-DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras."
+DESCRIPTION="An advanced twin-panel (commander-style) file-manager for KDE with many extras"
 HOMEPAGE="http://www.krusader.org/"
 
 LICENSE="GPL-2"

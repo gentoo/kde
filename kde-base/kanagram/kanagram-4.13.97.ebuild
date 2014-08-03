@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE: letter order game."
+DESCRIPTION="KDE: letter order game"
 HOMEPAGE="http://www.kde.org/applications/education/kanagram
 http://edu.kde.org/kanagram"
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"

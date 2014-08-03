@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="KControl module for Oyranos CMS cross desktop settings."
+DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
 HOMEPAGE="http://www.oyranos.org/wiki/index.php?title=Kolor-manager"
 
 LICENSE="BSD-2"

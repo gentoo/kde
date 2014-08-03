@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="KDE news feed aggregator."
+DESCRIPTION="KDE news feed aggregator"
 HOMEPAGE="http://www.kde.org/applications/internet/akregator"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"

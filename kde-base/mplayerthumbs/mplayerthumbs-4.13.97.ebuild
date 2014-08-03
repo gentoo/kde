@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="A Thumbnail Generator for Video Files on KDE filemanagers."
+DESCRIPTION="A Thumbnail Generator for Video Files on KDE filemanagers"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 

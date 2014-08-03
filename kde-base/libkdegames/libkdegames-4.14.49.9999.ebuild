@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="Base library common to many KDE games."
+DESCRIPTION="Base library common to many KDE games"
 KEYWORDS=""
 IUSE="debug openal"
 

@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them."
+DESCRIPTION="KFloppy - formats disks and puts a DOS or ext2fs filesystem on them"
 HOMEPAGE="
 	http://www.kde.org/applications/utilities/kfloppy/
 	http://utils.kde.org/projects/kfloppy/

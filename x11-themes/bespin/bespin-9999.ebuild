@@ -18,7 +18,7 @@ else
 	KEYWORDS=""
 fi
 
-DESCRIPTION="Very configurable Qt4/KDE4 style derived from the Oxygen project."
+DESCRIPTION="Very configurable Qt4/KDE4 style derived from the Oxygen project"
 HOMEPAGE="http://cloudcity.sourceforge.net/"
 
 LICENSE="GPL-2"

@@ -17,7 +17,7 @@ fi
 
 inherit cmake-utils ${GIT_ECLASS}
 
-DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API."
+DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API"
 HOMEPAGE="http://gstreamer.freedesktop.org/modules/qt-gstreamer.html"
 
 LICENSE="LGPL-2.1"

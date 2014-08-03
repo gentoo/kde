@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement."
+DESCRIPTION="PowerDevil is an utility for KDE4 for Laptop Powermanagement"
 HOMEPAGE="http://solid.kde.org"
 KEYWORDS=""
 IUSE="debug +pm-utils"

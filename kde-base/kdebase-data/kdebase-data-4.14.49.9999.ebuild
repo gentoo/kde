@@ -8,7 +8,7 @@ KMNAME="kde-runtime"
 KMNOMODULE="true"
 inherit kde4-meta
 
-DESCRIPTION="Icons, localization data and various .desktop files from kdebase."
+DESCRIPTION="Icons, localization data and various .desktop files from kdebase"
 IUSE="+wallpapers"
 KEYWORDS=""
 

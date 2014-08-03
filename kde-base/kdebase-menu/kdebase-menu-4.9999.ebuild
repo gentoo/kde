@@ -8,6 +8,6 @@ KMNAME="kde-runtime"
 KMMODULE="kde-menu"
 inherit kde4-meta
 
-DESCRIPTION="KDE Menu query tool."
+DESCRIPTION="KDE Menu query tool"
 KEYWORDS=""
 IUSE="debug"

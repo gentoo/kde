@@ -12,7 +12,7 @@ inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
 EGIT_BRANCH="KDE/4.14"
 
-DESCRIPTION="KDE libraries needed by all KDE programs."
+DESCRIPTION="KDE libraries needed by all KDE programs"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"

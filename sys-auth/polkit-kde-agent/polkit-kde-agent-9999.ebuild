@@ -12,7 +12,7 @@ KDE_LINGUAS="ca ca@valencia cs da de en_GB eo es et fi fr ga
 	sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv th tr uk zh_TW"
 inherit kde4-base
 
-DESCRIPTION="PolKit agent module for KDE."
+DESCRIPTION="PolKit agent module for KDE"
 HOMEPAGE="http://www.kde.org"
 if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 	SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"

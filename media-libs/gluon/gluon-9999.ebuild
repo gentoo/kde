@@ -7,7 +7,7 @@ EAPI=5
 OPENGL_REQUIRED="always"
 inherit kde4-base
 
-DESCRIPTION="Gluon is a Free and Open Source framework for creating and distributing games."
+DESCRIPTION="Gluon is a Free and Open Source framework for creating and distributing games"
 HOMEPAGE="http://gluon.tuxfamily.org/"
 
 LICENSE="LGPL-2.1"

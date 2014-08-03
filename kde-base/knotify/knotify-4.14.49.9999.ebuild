@@ -7,6 +7,6 @@ EAPI=5
 KMNAME="kde-runtime"
 inherit kde4-meta
 
-DESCRIPTION="The KDE notification daemon."
+DESCRIPTION="The KDE notification daemon"
 KEYWORDS=""
 IUSE="debug"

@@ -9,7 +9,7 @@ DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
 inherit kde4-base
 
-DESCRIPTION="MathML-based graph calculator for KDE."
+DESCRIPTION="MathML-based graph calculator for KDE"
 HOMEPAGE="http://www.kde.org/applications/education/kalgebra
 http://edu.kde.org/kalgebra"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"

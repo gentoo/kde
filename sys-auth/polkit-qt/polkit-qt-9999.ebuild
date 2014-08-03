@@ -6,7 +6,7 @@ EAPI=5
 
 inherit cmake-utils multibuild git-r3
 
-DESCRIPTION="PolicyKit Qt4 API wrapper library."
+DESCRIPTION="PolicyKit Qt4 API wrapper library"
 HOMEPAGE="http://www.kde.org/"
 EGIT_REPO_URI=( "git://anongit.kde.org/polkit-qt-1" )
 

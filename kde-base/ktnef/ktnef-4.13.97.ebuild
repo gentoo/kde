@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 inherit kde4-meta
 
-DESCRIPTION="A viewer for TNEF attachments."
+DESCRIPTION="A viewer for TNEF attachments"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="LGPL-2.1"
 IUSE="debug"

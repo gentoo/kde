@@ -9,7 +9,7 @@ KMMODULE="WeatherWallpapers"
 KDE_SCM="svn"
 inherit kde4-meta
 
-DESCRIPTION="Weather aware wallpapers. Changes with weather outside."
+DESCRIPTION="Weather aware wallpapers. Changes with weather outside"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 

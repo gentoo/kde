@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE four-in-a-row game."
+DESCRIPTION="KDE four-in-a-row game"
 HOMEPAGE="
 	http://www.kde.org/applications/games/kfourinline/
 	http://games.kde.org/game.php?game=kfourinline

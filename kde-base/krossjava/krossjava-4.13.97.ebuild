@@ -8,7 +8,7 @@ KMNAME="kross-interpreters"
 KMMODULE="java"
 inherit java-pkg-2 java-ant-2 kde4-meta multilib
 
-DESCRIPTION="Java plugin for the kdelibs/kross scripting framework."
+DESCRIPTION="Java plugin for the kdelibs/kross scripting framework"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 

@@ -8,7 +8,7 @@ CMAKE_REQUIRED="never"
 KDE_REQUIRED="never"
 inherit kde4-base
 
-DESCRIPTION="Environment setting required for all KDE4 apps to run."
+DESCRIPTION="Environment setting required for all KDE4 apps to run"
 SRC_URI=""
 ESVN_REPO_URI=""
 

@@ -20,7 +20,7 @@ OPENGL_REQUIRED=always
 
 inherit kde4-base
 
-DESCRIPTION="BE::KWinFW Several 3rd party plugins for the KDE KWin compositor."
+DESCRIPTION="BE::KWinFW Several 3rd party plugins for the KDE KWin compositor"
 HOMEPAGE="http://sourceforge.net/projects/bekwinfx/"
 
 DEPEND="

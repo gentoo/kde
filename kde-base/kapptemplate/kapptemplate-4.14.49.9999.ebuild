@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications."
+DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications"
 HOMEPAGE="http://www.kde.org/applications/development/kapptemplate"
 KEYWORDS=""
 IUSE="debug"

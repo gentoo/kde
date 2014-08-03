@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="Ksystraycmd embeds applications given as argument into the system tray."
+DESCRIPTION="Ksystraycmd embeds applications given as argument into the system tray"
 KEYWORDS=""
 IUSE="debug"
 

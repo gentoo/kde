@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KMNAME="kde-baseapps"
 inherit flag-o-matic kde4-meta
 
-DESCRIPTION="KDE: Web browser, file manager, ..."
+DESCRIPTION="KDE: Web browser, file manager, .."
 HOMEPAGE="
 	http://www.kde.org/applications/internet/konqueror/
 	http://konqueror.org/

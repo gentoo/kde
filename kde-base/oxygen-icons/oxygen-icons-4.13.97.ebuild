@@ -11,7 +11,7 @@ KDE_REQUIRED="never"
 KDE_SCM="svn"
 inherit kde4-base
 
-DESCRIPTION="Oxygen SVG icon theme."
+DESCRIPTION="Oxygen SVG icon theme"
 HOMEPAGE="http://www.oxygen-icons.org/"
 [[ ${PV} == *9999 ]] || \
 SRC_URI="

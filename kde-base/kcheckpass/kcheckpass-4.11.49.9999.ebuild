@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="A simple password checker, used by any software in need of user authentication."
+DESCRIPTION="A simple password checker, used by any software in need of user authentication"
 KEYWORDS=""
 IUSE="debug pam"
 

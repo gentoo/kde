@@ -6,7 +6,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="KDE daemon listening for wall and write messages."
+DESCRIPTION="KDE daemon listening for wall and write messages"
 KEYWORDS=""
 IUSE="debug"
 

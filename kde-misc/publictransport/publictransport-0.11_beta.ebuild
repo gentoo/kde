@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="Find out when your bus/train is going."
+DESCRIPTION="Find out when your bus/train is going"
 HOMEPAGE="http://www.kde-look.org/content/show.php?content=106175"
 SRC_URI="http://dev.gentoo.org/~creffett/distfiles/${P}.tar.xz"
 

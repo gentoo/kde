@@ -6,7 +6,7 @@ EAPI=5
 
 inherit perl-module qt4-r2 cmake-utils multilib git-r3
 
-DESCRIPTION="Source code sanity checker for KDE developers."
+DESCRIPTION="Source code sanity checker for KDE developers"
 HOMEPAGE="http://www.kde.org/"
 EGIT_REPO_URI=( "git://gitorious.org/krazy/krazy.git" )
 

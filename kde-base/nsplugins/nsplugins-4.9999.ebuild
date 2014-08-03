@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-baseapps"
 inherit kde4-meta pax-utils
 
-DESCRIPTION="Netscape plugins support for Konqueror."
+DESCRIPTION="Netscape plugins support for Konqueror"
 KEYWORDS=""
 IUSE="debug"
 

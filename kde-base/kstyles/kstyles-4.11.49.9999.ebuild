@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kde-workspace"
 inherit kde4-meta
 
-DESCRIPTION="KDE: A set of different KDE styles."
+DESCRIPTION="KDE: A set of different KDE styles"
 KEYWORDS=""
 IUSE="debug"
 

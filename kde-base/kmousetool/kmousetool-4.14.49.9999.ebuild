@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE program that clicks the mouse for you."
+DESCRIPTION="KDE program that clicks the mouse for you"
 HOMEPAGE="http://www.kde.org/applications/utilities/kmousetool/"
 KEYWORDS=""
 IUSE="debug"

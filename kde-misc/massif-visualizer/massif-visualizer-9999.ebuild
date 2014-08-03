@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde4-base
 
-DESCRIPTION="Tool visualising massif data."
+DESCRIPTION="Tool visualising massif data"
 HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
 LICENSE="GPL-2"
