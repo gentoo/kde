@@ -26,7 +26,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.14.0-CVE-2014-4607-unbundle-libvncserver.patch" )
+src_prepare() {
+	# bug 518824, patch before eclass magic
+	epatch "${FILESDIR}/${PN}-4.14.0-CVE-2014-4607-unbundle-libvncserver.patch"
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
