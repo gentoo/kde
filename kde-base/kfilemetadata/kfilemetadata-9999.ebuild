@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Library for extracting file metadata"
@@ -16,7 +15,6 @@ DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kservice)
 	dev-qt/qtxml:5
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
