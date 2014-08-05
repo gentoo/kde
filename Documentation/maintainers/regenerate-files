@@ -56,17 +56,6 @@ for release in $KDE_RELEASES; do
 	fi
 done
 
-if [[ -d .kde-live.base ]]; then
-	rm -rf .kde-live
-	mkdir -p .kde-live
-	echo -e "${HEADER}" > kde-live.keywords
-	for file in .kde-live.base/*; do
-		newfile=.kde-live/$(basename "${file}")
-		sed '/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
-	done
-	cat .kde-live/* >> kde-live.keywords
-fi
-
 if [[ -d .kde-frameworks-live.base ]]; then
 	rm -rf .kde-frameworks-live
 	mkdir -p .kde-frameworks-live
@@ -100,7 +89,7 @@ popd > /dev/null
 
 # regenerate unmask entries (base for package mask)
 pushd ../package.unmask/ > /dev/null
-for release in $KDE_RELEASES live; do
+for release in $KDE_RELEASES; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d ".kde-${release}" ]]; then
 		cat ".kde-${release}/"* >> "kde-${release}"
@@ -124,7 +113,7 @@ popd > /dev/null
 
 # regenerate mask entries (base for package mask)
 pushd ../package.mask/ > /dev/null
-for release in $KDE_RELEASES live; do
+for release in $KDE_RELEASES; do
 	echo -e "${HEADER}" > "kde-${release}"
 	if [[ -d "../package.unmask/.kde-${release}" ]]; then
 		cat "../package.unmask/.kde-${release}/"* >> "kde-${release}"
