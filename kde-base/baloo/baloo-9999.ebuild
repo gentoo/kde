@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Framework for searching and managing metadata"
@@ -23,7 +22,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
 	$(add_kdebase_dep kfilemetadata)
