@@ -26,18 +26,19 @@ LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug kde"
 
-DEPEND="
+CDEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
 	kde? ( $(add_kdebase_dep kdelibs) )
 "
-RDEPEND="${DEPEND}
+DEPEND="${CDEPEND}
+	sys-devel/gettext
+"
+RDEPEND="${CDEPEND}
 	sys-apps/diffutils
 "
 
 RESTRICT="!kde? ( test )"
-
-PATCHES=( "${FILESDIR}/${PN}-build.patch" )
 
 src_unpack(){
 	if [[ ${PV} == *9999* ]]; then
