@@ -33,6 +33,7 @@ KMCOMPILEONLY="
 KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
+	grantleeeditor/grantleethemeeditor/
 	libkleo/
 	pimcommon/
 "
