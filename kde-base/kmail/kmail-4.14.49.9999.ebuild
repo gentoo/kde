@@ -33,6 +33,7 @@ KMEXTRACTONLY="
 	akonadi_next/
 	calendarsupport/
 	calendarviews/
+	grantleeeditor/grantleethemeeditor/
 	korganizer/
 	kresources/
 	libkleo/
