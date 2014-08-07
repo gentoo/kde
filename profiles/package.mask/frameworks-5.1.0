@@ -1,6 +1,5 @@
-# Michael Palimaka <kensington@gentoo.org> (02 Aug 2014)
-# Unreleased.
-~dev-libs/extra-cmake-modules-1.1.0
+# Michael Palimaka <kensington@gentoo.org> (07 Aug 2014)
+# Cross-overlay dependencies.
 ~kde-frameworks/attica-5.1.0
 ~kde-frameworks/frameworkintegration-5.1.0
 ~kde-frameworks/kactivities-5.1.0
