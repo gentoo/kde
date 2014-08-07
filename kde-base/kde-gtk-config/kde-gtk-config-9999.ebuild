@@ -11,7 +11,7 @@ DESCRIPTION="KDE systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="http://projects.kde.org/kde-gtk-config"
 LICENSE="GPL-3"
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfigwidgets)
@@ -27,7 +27,9 @@ RDEPEND="
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/kde-gtk-config
+"
 
 pkg_postinst() {
 	kde5_pkg_postinst
