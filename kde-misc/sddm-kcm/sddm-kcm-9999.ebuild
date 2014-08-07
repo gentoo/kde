@@ -31,6 +31,6 @@ DEPEND="
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}
-	x11-misc/sddm[qt5]
+	x11-misc/sddm
 	!kde-misc/sddm-kcm:4
 "
