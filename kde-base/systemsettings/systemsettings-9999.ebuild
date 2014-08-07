@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="System settings utility"
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+IUSE="gtk"
 
 DEPEND="
 	$(add_frameworks_dep kauth)
@@ -35,5 +35,6 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
+	gtk? ( $(add_kdebase_dep kde-gtk-config ) )
 	!kde-base/systemsettings:4
 "
