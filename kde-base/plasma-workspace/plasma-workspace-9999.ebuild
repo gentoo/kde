@@ -100,6 +100,8 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
