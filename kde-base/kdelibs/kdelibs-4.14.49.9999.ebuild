@@ -114,7 +114,12 @@ PDEPEND="
 		$(add_kdebase_dep kfmclient)
 		x11-misc/xdg-utils
 	)
-	handbook? ( $(add_kdebase_dep khelpcenter) )
+	handbook? (
+		|| (
+			$(add_kdebase_dep khelpcenter)
+			kde-base/khelpcenter:5[compat]
+		)
+	)
 	nepomuk? (
 		$(add_kdebase_dep nepomuk-core)
 		$(add_kdebase_dep nepomuk-widgets)
