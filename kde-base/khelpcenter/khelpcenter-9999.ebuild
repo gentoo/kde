@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="The KDE Help Center"
 HOMEPAGE+=" http://userbase.kde.org/KHelpCenter"
 KEYWORDS=""
-IUSE=""
+IUSE="compat"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -38,3 +38,12 @@ DEPEND="
 	!kde-base/khelpcenter:4
 "
 RDEPEND="${DEPEND}"
+
+src_install() {
+	kde5_src_install
+
+	if use compat ; then
+		insinto /usr/share/kde4/services
+		doins /usr/share/kservices5/khelpcenter.desktop
+	fi
+}
