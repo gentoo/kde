@@ -111,7 +111,7 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" >=dev-libs/extra-cmake-modules-1.0.0"
+		DEPEND+=" >=dev-libs/extra-cmake-modules-1.1.0"
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 		;;
