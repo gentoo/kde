@@ -11,4 +11,4 @@ DESCRIPTION="Qt Quick 1 plugin for beautiful and interactive charts"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-RDEPEND="$(add_kdebase_dep plasma-workspace '' 4.11)"
+RDEPEND="$(add_kdebase_dep plasma-runtime)"
