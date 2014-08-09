@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl]
-	dev-qt/qtmultimedia:5
+	dev-qt/qtmultimedia:5[qml]
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras
