@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="minimal">Install a Plasma 5 compatible subset of the package</flag>
 		<flag name="wallpapers">Install the KDE wallpapers</flag>
 	</use>
 </pkgmetadata>
