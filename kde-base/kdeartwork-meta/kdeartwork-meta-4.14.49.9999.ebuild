@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="kdeartwork - merge this to pull in all kdeartwork-derived packages"
 KEYWORDS=""
-IUSE=""
+IUSE="minimal"
 
 RDEPEND="
 	$(add_kdebase_dep kdeartwork-colorschemes)
@@ -15,7 +15,7 @@ RDEPEND="
 	$(add_kdebase_dep kdeartwork-emoticons)
 	$(add_kdebase_dep kdeartwork-iconthemes)
 	$(add_kdebase_dep kdeartwork-kscreensaver)
-	$(add_kdebase_dep kdeartwork-styles)
 	$(add_kdebase_dep kdeartwork-wallpapers)
 	$(add_kdebase_dep kdeartwork-weatherwallpapers)
+	!minimal? ( $(add_kdebase_dep kdeartwork-styles) )
 "
