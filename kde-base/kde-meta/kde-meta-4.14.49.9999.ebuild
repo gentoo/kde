@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="KDE - merge this to pull in all split kde-base/* packages"
 KEYWORDS=""
-IUSE="accessibility kdepim nls sdk"
+IUSE="accessibility kdepim minimal nls sdk"
 
 RDEPEND="
 	$(add_kdebase_dep kate '' 4.14)
@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdebase_dep kdegraphics-meta)
 	$(add_kdebase_dep kdemultimedia-meta)
 	$(add_kdebase_dep kdenetwork-meta)
-	$(add_kdebase_dep kdeplasma-addons)
 	$(add_kdebase_dep kdetoys-meta)
 	$(add_kdebase_dep kdeutils-meta)
 	accessibility? ( $(add_kdebase_dep kdeaccessibility-meta) )
@@ -30,4 +29,5 @@ RDEPEND="
 		$(add_kdebase_dep kdesdk-meta)
 		$(add_kdebase_dep kdewebdev-meta)
 	)
+	!minimal? ( $(add_kdebase_dep kdeplasma-addons) )
 "
