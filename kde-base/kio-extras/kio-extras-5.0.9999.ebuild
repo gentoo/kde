@@ -48,7 +48,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
-	!kde-base/kdebase-kioslaves:4
+	!kde-base/kdebase-kioslaves:4[-minimal(-)]
 "
 DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
