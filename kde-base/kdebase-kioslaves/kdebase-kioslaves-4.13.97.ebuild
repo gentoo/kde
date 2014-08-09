@@ -11,7 +11,7 @@ inherit kde4-meta
 
 KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
-IUSE="+bzip2 exif debug lzma openexr samba +sftp"
+IUSE="+bzip2 exif debug lzma minimal openexr samba +sftp"
 
 # tests hang, last checked for 4.2.96
 RESTRICT="test"
@@ -48,4 +48,13 @@ src_configure() {
 		$(cmake-utils_use_with sftp LibSSH)
 	)
 	kde4-meta_src_configure
+}
+
+src_install() {
+	kde4-meta_src_install
+
+	if use minimal; then
+		rm "${D}"/usr/lib64/libmolletnetwork.so "${D}"/usr/share/config.kcfg/jpegcreatorsettings.kcfg
+		rmdir "${D}"/usr/share/config.kcfg/
+	fi
 }
