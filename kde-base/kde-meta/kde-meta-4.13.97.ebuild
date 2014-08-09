@@ -10,7 +10,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="accessibility kdepim minimal nls sdk"
 
 RDEPEND="
-	$(add_kdebase_dep kate '' 4.14)
+	$(add_kdebase_dep kate)
 	$(add_kdebase_dep kdeadmin-meta)
 	$(add_kdebase_dep kdeartwork-meta)
 	$(add_kdebase_dep kdebase-meta)
