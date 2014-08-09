@@ -15,5 +15,5 @@ IUSE="debug"
 RDEPEND="
 	$(add_kdebase_dep knotify)
 	$(add_kdebase_dep kqtquickcharts)
-	$(add_kdebase_dep plasma-workspace '' 4.11)
+	$(add_kdebase_dep plasma-runtime)
 "
