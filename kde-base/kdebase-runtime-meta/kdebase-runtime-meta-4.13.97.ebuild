@@ -43,6 +43,9 @@ RDEPEND="
 	$(add_kdebase_dep renamedlg-plugins)
 	$(add_kdebase_dep solid-runtime)
 	crash-reporter? ( $(add_kdebase_dep drkonqi ) )
-	handbook? ( $(add_kdebase_dep khelpcenter) )
+	handbook? ( || (
+		$(add_kdebase_dep khelpcenter)
+		kde-base/khelpcenter:5[compat]
+	) )
 	nepomuk? ( $(add_kdebase_dep nepomuk) )
 "
