@@ -5,5 +5,6 @@
 	<use>
 		<flag name="crash-reporter">Builds a gui tool to submit crash information to the upstream backtracker</flag>
 		<flag name="nepomuk">Enable Nepomuk based semantic desktop support (deprecated)</flag>
+		<flag name="minimal">Install a Plasma 5 compatible subset of the package</flag>
 	</use>
 </pkgmetadata>

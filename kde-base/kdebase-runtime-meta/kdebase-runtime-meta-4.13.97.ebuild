@@ -7,15 +7,12 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+crash-reporter +handbook nepomuk"
+IUSE="+crash-reporter +handbook minimal nepomuk"
 
 RDEPEND="
-	$(add_kdebase_dep attica)
 	$(add_kdebase_dep kcmshell)
-	$(add_kdebase_dep kcontrol)
 	$(add_kdebase_dep kdebase-data)
 	$(add_kdebase_dep kdebase-desktoptheme)
-	$(add_kdebase_dep kdebase-kioslaves)
 	$(add_kdebase_dep kdebase-menu)
 	$(add_kdebase_dep kdebase-menu-icons)
 	$(add_kdebase_dep kdebugdialog)
@@ -28,7 +25,6 @@ RDEPEND="
 	$(add_kdebase_dep kimgio)
 	$(add_kdebase_dep kioclient)
 	$(add_kdebase_dep kmimetypefinder)
-	$(add_kdebase_dep knetattach)
 	$(add_kdebase_dep knewstuff)
 	$(add_kdebase_dep kpasswdserver)
 	$(add_kdebase_dep kquitapp)
@@ -48,4 +44,10 @@ RDEPEND="
 		kde-base/khelpcenter:5[compat]
 	) )
 	nepomuk? ( $(add_kdebase_dep nepomuk) )
+	!minimal? (
+		$(add_kdebase_dep attica)
+		$(add_kdebase_dep kcontrol)
+		$(add_kdebase_dep kdebase-kioslaves)
+		$(add_kdebase_dep knetattach)
+	)
 "
