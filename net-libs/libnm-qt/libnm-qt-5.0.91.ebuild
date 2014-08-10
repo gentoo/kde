@@ -25,7 +25,10 @@ IUSE=""
 RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5
-	>=net-misc/networkmanager-0.9.8.4
+	|| (
+		>=net-misc/networkmanager-0.9.8.4[consolekit]
+		>=net-misc/networkmanager-0.9.8.4[systemd]
+	)
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
