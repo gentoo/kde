@@ -44,6 +44,6 @@ src_install() {
 
 	if use compat ; then
 		insinto /usr/share/kde4/services
-		doins /usr/share/kservices5/khelpcenter.desktop
+		doins "${D}"/usr/share/kservices5/khelpcenter.desktop
 	fi
 }
