@@ -90,6 +90,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/knetattach:4
 	!kde-base/kdepasswd:4
 	!kde-base/solid-actions-kcm:4
+	!kde-base/plasma-workspace:4
+	!kde-base/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
