@@ -36,6 +36,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	!kde-base/khotkeys:4
+	!kde-base/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
 	x11-libs/libxcb
