@@ -7,7 +7,7 @@ inherit kde4-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="minimal +wallpapers"
+IUSE="+display-manager minimal +wallpapers"
 
 RDEPEND="
 	$(add_kdebase_dep dolphin)
@@ -58,6 +58,6 @@ RDEPEND="
 		$(add_kdebase_dep powerdevil '' 4.11)
 		$(add_kdebase_dep solid-actions-kcm '' 4.11)
 		$(add_kdebase_dep systemsettings '' 4.11)
-		!prefix? ( $(add_kdebase_dep kdm '' 4.11) )
+		!prefix? ( display-manager? ( || ( $(add_kdebase_dep kdm '' 4.11) x11-misc/lightdm x11-misc/sddm ) ) )
 	)
 "
