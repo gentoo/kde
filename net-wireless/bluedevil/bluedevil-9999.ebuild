@@ -37,5 +37,3 @@ RDEPEND="${DEPEND}
 	!net-wireless/bluedevil:4
 	!net-wireless/kbluetooth
 "
-
-PATCHES=( "${FILESDIR}/${P}-ecm-cmake.patch" )
