@@ -34,8 +34,8 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	$(add_kdebase_dep keditbookmarks)
 	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdebase_dep keditbookmarks)
 "
 
 src_configure() {
