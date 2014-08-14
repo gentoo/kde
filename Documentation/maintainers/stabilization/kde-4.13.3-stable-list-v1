@@ -303,3 +303,11 @@
 =kde-base/thumbnailers-4.13.3
 =kde-base/umbrello-4.13.3
 =kde-base/zeroconf-ioslave-4.13.3
+
+# Target: amd64 ppc x86
+=media-sound/amarok-2.8.0-r3
+
+# Target: amd64 x86
+=media-video/bangarang-2.1-r2
+=media-video/kdenlive-0.9.8
+=www-client/rekonq-2.4.2-r1
