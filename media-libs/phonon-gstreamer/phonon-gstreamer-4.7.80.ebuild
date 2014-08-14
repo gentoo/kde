@@ -31,7 +31,7 @@ RDEPEND="
 	dev-libs/libxml2:2
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
-	media-plugins/gst-plugins-meta:0.10[alsa?,ogg,vorbis]
+	media-plugins/gst-plugins-meta:1.0[alsa?,ogg,vorbis]
 	>=media-libs/phonon-4.7.80[qt4?,qt5?]
 	qt4? (
 		dev-qt/qtcore:4[glib]
