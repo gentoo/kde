@@ -45,7 +45,7 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	media-libs/phonon[qt4]
+	media-libs/phonon[qt5]
 "
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
