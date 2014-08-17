@@ -18,7 +18,7 @@ SLOT="4"
 IUSE="debug gstreamer unicode xine"
 
 RDEPEND="
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	gstreamer? ( media-libs/gstreamer:0.10 )
 	unicode? ( dev-libs/icu:= )
 	xine? ( media-libs/xine-lib )

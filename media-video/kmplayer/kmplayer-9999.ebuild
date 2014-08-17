@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="cairo debug expat npp"
 
 DEPEND="
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	x11-libs/libX11
 	expat? ( >=dev-libs/expat-2.0.1 )
 	cairo? (

@@ -27,7 +27,7 @@ DEPEND="
 	dev-qt/qtsql:4
 	dev-qt/qtsvg:4
 	dev-qt/qttest:4
-	phonon? ( >=media-libs/phonon-4.4.3 )
+	phonon? ( media-libs/phonon[qt4] )
 	qimageblitz? ( >=media-libs/qimageblitz-0.0.4 )
 	qscintilla? ( x11-libs/qscintilla:= )
 	qwt? ( x11-libs/qwt:5[svg] )

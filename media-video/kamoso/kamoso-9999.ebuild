@@ -17,7 +17,7 @@ IUSE="debug nepomuk"
 DEPEND="
 	$(add_kdebase_dep kdelibs 'nepomuk?')
 	$(add_kdebase_dep libkipi)
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	media-libs/qt-gstreamer
 "
 RDEPEND="${DEPEND}

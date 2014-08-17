@@ -16,7 +16,7 @@ IUSE="debug"
 RDEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep kdepim-common-libs)
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}"

@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="alsa debug pulseaudio"
 
 DEPEND="
-	>=media-libs/phonon-4.4.3
+	media-libs/phonon[qt4]
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? (
 		dev-libs/glib:2

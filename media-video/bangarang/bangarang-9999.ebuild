@@ -23,7 +23,7 @@ RDEPEND="
 	$(add_kdebase_dep nepomuk)
 	$(add_kdebase_dep audiocd-kio)
 	media-libs/taglib
-	media-libs/phonon
+	media-libs/phonon[qt4]
 	dev-qt/qtscript:4
 "
 DEPEND="${RDEPEND}
