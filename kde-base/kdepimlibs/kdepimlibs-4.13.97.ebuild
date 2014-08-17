@@ -25,7 +25,7 @@ DEPEND="
 	>=dev-libs/libical-0.48-r2:=
 	dev-libs/cyrus-sasl
 	>=dev-libs/qjson-0.8.1
-	media-libs/phonon
+	+media-libs/phonon[qt4]
 	x11-misc/shared-mime-info
 	prison? ( media-libs/prison:4 )
 	ldap? ( net-nds/openldap )
