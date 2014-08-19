@@ -39,5 +39,5 @@ src_install() {
 	kde4-meta_src_install
 
 	# bug #483236
-	pax-mark m "${ED}/usr/lib64/kde4/libexec/kscreenlocker_greet"
+	pax-mark m "${ED}/usr/$(get_libdir)/kde4/libexec/kscreenlocker_greet"
 }
