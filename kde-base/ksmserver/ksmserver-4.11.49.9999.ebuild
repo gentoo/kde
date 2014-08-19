@@ -6,7 +6,7 @@ EAPI=5
 
 DECLARATIVE_REQUIRED="always"
 KMNAME="kde-workspace"
-inherit kde4-meta
+inherit kde4-meta pax-utils
 
 DESCRIPTION="The reliable KDE session manager that talks the standard X11R6"
 KEYWORDS=""
@@ -34,3 +34,10 @@ KMEXTRACTONLY="
 "
 
 KMLOADLIBS="libkworkspace"
+
+src_install() {
+	kde4-meta_src_install
+
+	# bug #483236
+	pax-mark m "${ED}/usr/lib64/kde4/libexec/kscreenlocker_greet"
+}
