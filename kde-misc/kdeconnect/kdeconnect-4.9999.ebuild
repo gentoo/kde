@@ -27,7 +27,7 @@ IUSE="debug"
 DEPEND="
 	app-crypt/qca:2
 	dev-libs/qjson
-	x11-libs/fakekey
+	x11-libs/libfakekey
 	"
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
