@@ -15,7 +15,6 @@ IUSE=""
 DEPEND="
 	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep baloo-widgets)
-	$(add_kdebase_dep kde-baseapps)
 	$(add_kdebase_dep kfilemetadata)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
