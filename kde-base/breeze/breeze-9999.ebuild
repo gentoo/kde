@@ -12,8 +12,13 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep frameworkintegration)
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwindowsystem)
+	dev-qt/qtdbus:5
 	dev-qt/qtwidgets:5
 "
 RDEPEND="
