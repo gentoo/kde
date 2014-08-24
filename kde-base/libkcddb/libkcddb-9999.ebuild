@@ -22,6 +22,13 @@ RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
 
+src_prepare() {
+	sed -e '/add_subdirectory( test )/ s/^#*/#/' \
+		-i CMakeLists.txt || die
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with musicbrainz MusicBrainz5)
