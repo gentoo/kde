@@ -23,5 +23,6 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
 "
 RDEPEND="${DEPEND}"
