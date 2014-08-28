@@ -16,6 +16,7 @@ IUSE="debug semantic-desktop thumbnail"
 DEPEND="
 	$(add_kdebase_dep kactivities '' 4.13)
 	$(add_kdebase_dep libkonq)
+	media-libs/phonon[qt4]
 	x11-libs/libXrender
 	semantic-desktop? (
 		$(add_kdebase_dep baloo)
