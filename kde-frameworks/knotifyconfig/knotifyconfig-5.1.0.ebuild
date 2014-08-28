@@ -21,7 +21,6 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-"
-DEPEND="${RDEPEND}
 	phonon? ( media-libs/phonon[qt5] )
 "
+DEPEND="${RDEPEND}"
