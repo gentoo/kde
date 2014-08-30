@@ -27,6 +27,7 @@ DEPEND="
 	$(add_kdebase_dep kfilemetadata)
 	=dev-libs/xapian-1.2*[chert]
 	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5

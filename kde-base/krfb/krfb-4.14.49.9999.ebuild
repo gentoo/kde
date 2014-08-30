@@ -10,7 +10,8 @@ inherit kde4-base
 DESCRIPTION="VNC-compatible server to share KDE desktops"
 HOMEPAGE="http://www.kde.org/applications/system/krfb/"
 KEYWORDS=""
-IUSE="debug telepathy"
+IUSE="debug telepathy ktp"
+REQUIRED_USE="ktp? ( telepathy )"
 
 DEPEND="
 	>=net-libs/libvncserver-0.9.9
@@ -36,6 +37,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with telepathy TelepathyQt4)
+		$(cmake-utils_use_with ktp KTp)
 	)
 
 	kde4-base_src_configure

@@ -23,6 +23,7 @@ SLOT="4"
 IUSE="debug examples test"
 
 RDEPEND="
+	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
 "
 DEPEND="${RDEPEND}
