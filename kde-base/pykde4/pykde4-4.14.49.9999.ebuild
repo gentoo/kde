@@ -25,7 +25,7 @@ RDEPEND="
 	nepomuk? ( >=dev-libs/soprano-2.9.0 )
 "
 DEPEND="${RDEPEND}
-	dev-lang/python-exec:0[${PYTHON_USEDEP}]
+	dev-lang/python-exec:2[${PYTHON_USEDEP}]
 	sys-devel/libtool
 "
 
@@ -127,12 +127,16 @@ src_install() {
 	installation() {
 		emake DESTDIR="${D}" install
 
-		mv "${ED}"/usr/bin/pykdeuic4-{${EPYTHON/python/},${EPYTHON}} || die
+		mkdir -p "${D%/}$(python_get_scriptdir)" || die
+		mv "${ED%/}/usr/bin/pykdeuic4-${EPYTHON/python/}" \
+			"${D%/}$(python_get_scriptdir)"/pykdeuic4 || die
+
+		python_fix_shebang "${D%/}$(python_get_scriptdir)"/pykdeuic4
 		python_optimize
 	}
 	python_foreach_impl run_in_build_dir installation
 
-	dosym python-exec /usr/bin/pykdeuic4
+	dosym ../lib/python-exec/python-exec2 /usr/bin/pykdeuic4
 
 	# As we don't call the eclass's src_install, we have to install the docs manually
 	DOCS=("${S}"/{AUTHORS,NEWS,README})
