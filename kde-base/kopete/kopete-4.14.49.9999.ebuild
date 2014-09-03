@@ -46,19 +46,19 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
 #	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
-#	msn: libmsn == this is wlm plugin, we disable msn one
 #	oscar: NO DEPS
 #   telepathy: net-libs/decibel
 #   testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="gadu groupwise jingle meanwhile msn oscar skype
+PROTOCOLS="gadu groupwise jingle meanwhile oscar skype
 sms testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
 #   telepathy: net-libs/decibel
 #   irc: NO DEPS
+#   msn: net-libs/libmsn
 #	qq: NO DEPS
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
@@ -78,7 +78,6 @@ COMMONDEPEND="
 		net-libs/ortp:=
 	)
 	meanwhile? ( net-libs/meanwhile )
-	msn? ( >=net-libs/libmsn-4.1 )
 	otr? ( >=net-libs/libotr-4.0.0 )
 	statistics? ( dev-db/sqlite:3 )
 	v4l? ( media-libs/libv4l )
@@ -122,7 +121,6 @@ src_configure() {
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		case ${x/+/} in
-			msn) x2=Libmsn ;;
 			zeroconf) x2=bonjour ;;
 			xmpp) x2=jabber ;;
 			*) x2='' ;;
@@ -130,7 +128,7 @@ src_configure() {
 		mycmakeargs+=($(cmake-utils_use_with ${x/+/} ${x2}))
 	done
 
-	mycmakeargs+=( -DWITH_qq=OFF )
+	mycmakeargs+=( -DWITH_Libmsn=OFF -DWITH_qq=OFF )
 
 	# enable plugins
 	for x in ${PLUGINS}; do
@@ -150,9 +148,9 @@ pkg_postinst() {
 	#fi
 
 	if ! use ssl; then
-		if use xmpp || use msn; then # || use irc; then
+		if use xmpp ; then # || use irc; then
 			if ! has_version app-crypt/qca-ossl ; then
-				elog "In order to use ssl in xmpp and msn you'll need to"
+				elog "In order to use ssl in xmpp you'll need to"
 				elog "install app-crypt/qca-ossl package."
 			fi
 		fi
