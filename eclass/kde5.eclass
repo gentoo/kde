@@ -374,6 +374,9 @@ kde5_src_configure() {
 	# make sure config files go to /etc instead of /usr/etc
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 
+	# install mkspecs in the same directory as qt stuff
+	cmakeargs+=(-DKDE_INSTALL_USE_QT_SYS_PATHS=ON)
+
 	# allow the ebuild to override what we set here
 	mycmakeargs=("${cmakeargs[@]}" "${mycmakeargs[@]}")
 
