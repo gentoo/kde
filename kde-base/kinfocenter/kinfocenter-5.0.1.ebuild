@@ -45,7 +45,7 @@ RDEPEND="
 		virtual/opengl
 	)
 	pci? ( sys-apps/pciutils )
-	samba? ( net-fs/samba[server=] )
+	samba? ( || ( <net-fs/samba-4.0.0_alpha1[server] >=net-fs/samba-4.0.0_alpha1 ) )
 	wayland? ( >=dev-libs/wayland-1.2 )
 	X? ( x11-libs/libX11 )
 	!kde-base/kcontrol:4
