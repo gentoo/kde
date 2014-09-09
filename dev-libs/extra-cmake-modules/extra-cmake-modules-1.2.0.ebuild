@@ -13,7 +13,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 SRC_URI="mirror://kde/stable/frameworks/5.2.0/${P}.tar.xz"
 
 LICENSE="BSD"
-SLOT=0
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 

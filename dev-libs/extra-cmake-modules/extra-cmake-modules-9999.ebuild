@@ -13,7 +13,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="BSD"
-SLOT=0
+SLOT="0"
 KEYWORDS=""
 IUSE="doc"
 
