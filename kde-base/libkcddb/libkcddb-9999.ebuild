@@ -4,12 +4,12 @@
 
 EAPI=5
 
+EGIT_BRANCH="kf5"
 inherit kde5
 
-EGIT_BRANCH="kf5"
 DESCRIPTION="KDE library for CDDB"
 KEYWORDS=""
-IUSE="debug musicbrainz"
+IUSE="musicbrainz"
 
 # tests require network access and compare static data with online data
 # bug 280996
@@ -19,8 +19,6 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
-
-KMSAVELIBS="true"
 
 src_prepare() {
 	sed -e '/add_subdirectory( test )/ s/^#*/#/' \
