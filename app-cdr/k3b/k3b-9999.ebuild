@@ -5,8 +5,6 @@
 EAPI=5
 
 EGIT_BRANCH="kf5"
-MULTIMEDIA_REQUIRED="always"
-WEBKIT_REQUIRED="always"
 KDE_HANDBOOK="true"
 
 # Translations are only in the tarballs, not in the git repo
@@ -28,9 +26,9 @@ DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
-KEYWORDS=""
 SLOT="5"
-IUSE="debug dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
+KEYWORDS=""
+IUSE="dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
