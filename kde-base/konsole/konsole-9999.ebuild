@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE's terminal emulator"
