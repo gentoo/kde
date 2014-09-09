@@ -12,7 +12,6 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
 	dev-qt/qtnetwork:5
 	dev-qt/qtxml:5
