@@ -18,7 +18,9 @@ RESTRICT=test
 DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/libkcddb:4
+"
 
 src_prepare() {
 	sed -e '/add_subdirectory( test )/ s/^#*/#/' \
