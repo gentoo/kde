@@ -4,47 +4,56 @@
 
 EAPI=5
 
-WEBKIT_REQUIRED="always"
+KDE_HANDBOOK="true"
+EGIT_BRANCH="frameworks"
 KDE_LINGUAS="cs da de el es et eu fi fr gl hu ia it km lt mr nb nl pl pt pt_BR
 sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
-KDE_HANDBOOK="optional"
-KDE_MINIMAL="4.13.1"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="A browser based on qtwebkit"
 HOMEPAGE="http://rekonq.kde.org/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
-SLOT="4"
+SLOT="5"
 KEYWORDS=""
-IUSE="debug kde nepomuk opera"
+IUSE=""
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'nepomuk?')
-	kde? ( $(add_kdebase_dep kactivities) )
-	nepomuk? (
-		$(add_kdebase_dep nepomuk-core)
-		dev-libs/soprano
-	)
-	opera? (
-		app-crypt/qca:2
-		dev-libs/qoauth
-	)
+	$(add_frameworks_dep kauth)
+	$(add_frameworks_dep kbookmarks)
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdewebkit)
+	$(add_frameworks_dep kglobalaccel)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kinit)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwallet)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
+	dev-qt/qtconcurrent:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtscript:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
 "
 RDEPEND="
 	${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
-	$(add_kdebase_dep keditbookmarks)
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with kde KActivities)
-		$(cmake-utils_use_with opera QCA2)
-		$(cmake-utils_use_with opera QtOAuth)
-		$(cmake-utils_use_find_package nepomuk NepomukCore)
-	)
-
-	kde4-base_src_configure
-}

@@ -6,7 +6,6 @@ EAPI=5
 
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE hexeditor"

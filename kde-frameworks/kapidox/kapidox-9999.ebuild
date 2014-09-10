@@ -8,7 +8,7 @@ KDE_DEBUG="false"
 KDE_DOXYGEN="false"
 KDE_NLS="false"
 KDE_TEST="false"
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_3} )
 inherit kde5 distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
 inherit cmake-utils git-r3 python-any-r1
 
@@ -13,7 +13,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="BSD"
-SLOT=0
+SLOT="0"
 KEYWORDS=""
 IUSE="doc"
 

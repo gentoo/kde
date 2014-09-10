@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
 	dev-qt/qtnetwork:5
 	dev-qt/qtxml:5

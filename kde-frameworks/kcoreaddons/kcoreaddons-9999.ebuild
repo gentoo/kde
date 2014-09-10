@@ -14,6 +14,7 @@ IUSE="fam"
 RDEPEND="
 	dev-qt/qtcore:5[icu]
 	fam? ( virtual/fam )
+	!<kde-frameworks/kservice-5.2.0
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info

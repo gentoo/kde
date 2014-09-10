@@ -4,9 +4,8 @@
 
 EAPI=5
 
-MULTIMEDIA_REQUIRED="always"
-WEBKIT_REQUIRED="always"
-KDE_HANDBOOK="optional"
+EGIT_BRANCH="kf5"
+KDE_HANDBOOK="true"
 
 # Translations are only in the tarballs, not in the git repo
 if [[ ${PV} != *9999* ]]; then
@@ -21,18 +20,35 @@ else
 	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
 fi
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
+SLOT="5"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
+IUSE="dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdoctools)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep solid)
 	$(add_kdebase_dep libkcddb)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qttest:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? ( virtual/ffmpeg )
@@ -44,8 +60,8 @@ DEPEND="
 	taglib? ( >=media-libs/taglib-1.5 )
 	vorbis? ( media-libs/libvorbis )
 "
+#	$(add_frameworks_dep kdelibs 'udev,udisks(+)')
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdelibs 'udev,udisks(+)')
 	app-cdr/cdrdao
 	media-sound/cdparanoia
 	virtual/cdrtools
@@ -86,11 +102,11 @@ src_configure() {
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
 	)
-	kde4-base_src_configure
+	kde5_src_configure
 }
 
 pkg_postinst() {
-	kde4-base_pkg_postinst
+	kde5_pkg_postinst
 
 	echo
 	elog "We don't install k3bsetup anymore because Gentoo doesn't need it."

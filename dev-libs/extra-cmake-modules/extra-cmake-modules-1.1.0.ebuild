@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
 inherit cmake-utils python-any-r1
 
@@ -13,7 +13,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 SRC_URI="mirror://kde/stable/frameworks/5.1.0/${P}.tar.xz"
 
 LICENSE="BSD"
-SLOT=0
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
