@@ -41,7 +41,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with musicbrainz MusicBrainz5)
+		$(cmake-utils_use_find_package musicbrainz MusicBrainz5)
 	)
 
 	kde5_src_configure
