@@ -69,6 +69,7 @@ DEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DKDE_INSTALL_USE_QT_SYS_PATHS=OFF
 		$(cmake-utils_use_find_package X X11)
 	)
 
