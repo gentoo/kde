@@ -27,8 +27,6 @@ IUSE="+mysql postgres sqlite test"
 
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 
-# TODO: new optional dep see ENABLE_ASAN
-
 CDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
@@ -81,7 +79,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DKDE_INSTALL_USE_QT_SYS_PATHS=OFF
+		-DENABLE_ASAN=ON
 		-DINSTALL_QSQLITE_IN_QT_PREFIX=ON
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
 	)
