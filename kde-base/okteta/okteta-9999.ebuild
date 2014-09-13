@@ -12,7 +12,7 @@ DESCRIPTION="KDE hexeditor"
 HOMEPAGE="http://www.kde.org/applications/utilities/okteta
 http://utils.kde.org/projects/okteta"
 KEYWORDS=""
-IUSE="examples"
+IUSE="crypt examples"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -29,7 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	app-crypt/qca[qt5]
+	crypt? ( app-crypt/qca[qt5] )
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/designer:5
@@ -46,6 +46,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_enable examples OKTETA_BUILD_EXAMPLES)
 		$(cmake-utils_use_build test TESTING)
+		$(cmake-utils_use_find_package crypt QCA2)
 		$(cmake-utils_use_find_package test Qt5Test)
 	)
 
