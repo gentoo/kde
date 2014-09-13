@@ -44,7 +44,7 @@ DEPEND="
 	sys-devel/gettext
 	sys-libs/zlib
 	chm? ( dev-libs/chmlib )
-	crypt? ( app-crypt/qca[qt5] )
+	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
 	dpi? ( x11-libs/libkscreen )
 	ebook? ( app-text/ebook-tools )
