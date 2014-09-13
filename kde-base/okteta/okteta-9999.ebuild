@@ -29,7 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	crypt? ( app-crypt/qca[qt5] )
+	crypt? ( app-crypt/qca:2[qt5] )
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/designer:5
