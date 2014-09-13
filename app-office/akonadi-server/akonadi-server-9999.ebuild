@@ -5,8 +5,7 @@
 EAPI=5
 
 if [[ $PV = *9999* ]]; then
-	scm_eclass=git-r3
-	EGIT_REPO_URI=( "git://anongit.kde.org/akonadi" )
+	EGIT_REPONAME="${PN/-server/}"
 	SRC_URI=""
 	KEYWORDS=""
 else
@@ -15,51 +14,37 @@ else
 	S="${WORKDIR}/${P/-server/}"
 fi
 
-inherit cmake-utils ${scm_eclass}
+KDE_TESTS=true
+VIRTUALDBUS_TEST=true
+inherit kde5
 
 DESCRIPTION="The server part of Akonadi"
 HOMEPAGE="http://pim.kde.org/akonadi"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="+mysql postgres +qt4 qt5 soprano sqlite test"
+IUSE="+mysql postgres sqlite test"
 
-REQUIRED_USE="^^ ( qt4 qt5 ) || ( sqlite mysql postgres )"
+REQUIRED_USE="|| ( sqlite mysql postgres )"
 
 CDEPEND="
-	dev-libs/boost:=
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtsql:5[mysql?,postgres?]
+	dev-qt/qttest:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 	x11-misc/shared-mime-info
-	qt4? (
-		>=dev-qt/qtcore-4.8.5:4
-		>=dev-qt/qtdbus-4.8.5:4
-		>=dev-qt/qtgui-4.8.5:4
-		>=dev-qt/qtsql-4.8.5:4[mysql?,postgres?]
-		>=dev-qt/qttest-4.8.5:4
-	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtsql:5[mysql?,postgres?]
-		dev-qt/qttest:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-		soprano? ( dev-libs/soprano[-qt4,qt5] )
-	)
-	soprano? ( dev-libs/soprano )
 	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${CDEPEND}
 	dev-libs/libxslt
-	>=dev-util/automoc-0.9.88
 	test? ( sys-apps/dbus )
 "
 RDEPEND="${CDEPEND}
 	postgres? ( dev-db/postgresql-server )
 "
-
-RESTRICT="test"
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -94,19 +79,12 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_ASAN=ON
 		-DINSTALL_QSQLITE_IN_QT_PREFIX=ON
-		$(cmake-utils_use test AKONADI_BUILD_TESTS)
-		$(cmake-utils_use_with soprano)
 		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
-		$(cmake-utils_use qt5 QT5_BUILD)
 	)
 
-	cmake-utils_src_configure
-}
-
-src_test() {
-	export $(dbus-launch)
-	cmake-utils_src_test
+	kde5_src_configure
 }
 
 src_install() {
@@ -118,7 +96,7 @@ EOF
 	insinto /usr/share/config/akonadi
 	doins "${T}"/akonadiserverrc
 
-	cmake-utils_src_install
+	kde5_src_install
 }
 
 pkg_postinst() {

@@ -3,6 +3,8 @@
 >=kde-misc/baloo-kcmadv-2014.04.27
 >=media-libs/lcms-2.5-r1
 >=media-libs/libraw-0.16.0_beta1-r1
+>=media-libs/phonon-4.7.80
+>=media-libs/phonon-gstreamer-4.7.80
 >=media-libs/qt-gstreamer-1.2.0
 >=net-libs/libkgapi-2.0.1
 >=net-misc/networkmanager-0.9.8.2

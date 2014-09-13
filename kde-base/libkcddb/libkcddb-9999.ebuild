@@ -16,9 +16,21 @@ IUSE="musicbrainz"
 RESTRICT=test
 
 DEPEND="
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/libkcddb:4
+"
 
 src_prepare() {
 	sed -e '/add_subdirectory( test )/ s/^#*/#/' \
@@ -29,7 +41,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with musicbrainz MusicBrainz5)
+		$(cmake-utils_use_find_package musicbrainz MusicBrainz5)
 	)
 
 	kde5_src_configure

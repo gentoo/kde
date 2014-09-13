@@ -13,7 +13,7 @@ HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+IUSE="+crypt"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -46,7 +46,16 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
+	crypt? ( app-crypt/qca:2[qt5] )
 "
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package crypt Qca)
+	)
+
+	kde5_src_configure
+}
