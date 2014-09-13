@@ -111,9 +111,17 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" >=dev-libs/extra-cmake-modules-1.2.0"
+		if [[ ${CATEGORY} = kde-frameworks ]]; then
+			ecm_version=1.$(get_version_component_range 2 ${PV}).0
+		else
+			ecm_version=1.2.0
+		fi
+
+		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
+
+		unset ecm_version
 		;;
 esac
 
