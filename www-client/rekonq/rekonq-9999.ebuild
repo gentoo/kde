@@ -54,6 +54,6 @@ DEPEND="
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
+	!www-client/rekonq:4
 "
