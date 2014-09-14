@@ -112,7 +112,11 @@ case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
 		if [[ ${CATEGORY} = kde-frameworks ]]; then
-			ecm_version=1.$(get_version_component_range 2 ${PV}).0
+			if [[ ${PV} = 9999 ]]; then
+				ecm_version=9999
+			else
+				ecm_version=1.$(get_version_component_range 2 ${PV}).0
+			fi
 		else
 			ecm_version=1.2.0
 		fi
