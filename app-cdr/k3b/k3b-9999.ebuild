@@ -72,6 +72,7 @@ RDEPEND="${DEPEND}
 	emovix? ( media-video/emovix )
 	sox? ( media-sound/sox )
 	vcd? ( media-video/vcdimager )
+	!app-cdr/k3b:4
 "
 
 DOCS+=( ChangeLog )
