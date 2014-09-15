@@ -27,7 +27,6 @@ RDEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	dev-qt/qtgui:5[opengl?]
