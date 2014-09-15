@@ -21,7 +21,7 @@ CMAKE_MIN_VERSION="2.8.12"
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx eutils cmake-utils
+inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils versionator virtualx eutils cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
