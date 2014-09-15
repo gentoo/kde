@@ -261,7 +261,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} == kde-base ]]; then
+			if [[ ${PV} != 9999 && ${KDEBASE} = kde-base ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -423,7 +423,7 @@ kde5_src_test() {
 	# > make sure it does not happen, so bad tests can be recognized and disabled
 	unset DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
 
-	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
+	if [[ ${VIRTUALX_REQUIRED} = always || ${VIRTUALX_REQUIRED} = test ]]; then
 		VIRTUALX_COMMAND="_test_runner" virtualmake
 	else
 		_test_runner
