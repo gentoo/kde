@@ -40,7 +40,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore.
+# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore:5.
 : ${KDE_AUTODEPS:=true}
 
 # @ECLASS-VARIABLE: KDE_DEBUG
