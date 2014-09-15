@@ -132,8 +132,8 @@ case ${KDE_DOXYGEN} in
 	*)
 		IUSE+=" doc"
 		DEPEND+=" doc? (
-				app-doc/doxygen
 				$(add_frameworks_dep kapidox)
+				app-doc/doxygen
 			)"
 		;;
 esac
