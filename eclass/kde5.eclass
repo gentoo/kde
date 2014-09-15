@@ -210,22 +210,22 @@ _calculate_src_uri() {
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
-	kde-frameworks)
-		case ${PV} in
-			4.??.? | 4.???.? )
-				SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
-	kde-base)
-		case ${PV} in
-			4.??.? )
-				SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
+		kde-frameworks)
+			case ${PV} in
+				4.??.? | 4.???.? )
+					SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
+				*)
+					SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
+			esac
+			;;
+		kde-base)
+			case ${PV} in
+				4.??.? )
+					SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+				*)
+					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
+			esac
+			;;
 	esac
 }
 
