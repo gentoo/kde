@@ -87,7 +87,7 @@ fi
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add test to IUSE and add a dependency on qttest.
+# For any other value, add test to IUSE and add a dependency on dev-qt/qttest:5.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_TEST:=true}
 else
