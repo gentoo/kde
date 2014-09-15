@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
-	sys-libs/pam
+	kde-base/kdebase-pam
 	sys-libs/zlib
 	x11-libs/libkscreen:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
@@ -84,7 +84,6 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
-	>=kde-base/kcheckpass-4.11.9
 	!kde-base/freespacenotifier:4
 	!kde-base/libtaskmanager:4
 	!kde-base/kcminit:4
