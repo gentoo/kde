@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_frameworks_dep sonnet)
+	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
@@ -60,6 +61,8 @@ COMMON_DEPEND="
 	media-libs/phonon[qt5]
 	x11-libs/libX11
 	x11-libs/libxcb
+	x11-libs/libXcursor
+	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
@@ -94,7 +97,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/qtconcurrent:5
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
 "
