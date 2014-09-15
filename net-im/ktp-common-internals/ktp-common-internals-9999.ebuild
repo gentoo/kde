@@ -45,7 +45,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	net-libs/telepathy-qt[qt5]
+	>=net-libs/telepathy-qt-0.9.5[qt5]
 "
 RDEPEND="${DEPEND}
 	!net-im/ktp-common-internals:4

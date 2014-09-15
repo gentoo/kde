@@ -25,7 +25,7 @@ IUSE="debug semantic-desktop"
 DEPEND="
 	>=net-im/ktp-accounts-kcm-${PV}
 	>=net-im/ktp-common-internals-${PV}[semantic-desktop?]
-	>=net-libs/telepathy-qt-0.9.3
+	>=net-libs/telepathy-qt-0.9.5[qt4]
 	semantic-desktop? ( >=net-libs/libkpeople-0.2.1 )
 "
 RDEPEND="${DEPEND}"

@@ -23,7 +23,7 @@ SLOT="4"
 IUSE="debug semantic-desktop"
 
 DEPEND="
-	>=net-libs/telepathy-qt-0.9.3
+	>=net-libs/telepathy-qt-0.9.5[qt4]
 	>=net-libs/telepathy-logger-qt-0.5.80
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)

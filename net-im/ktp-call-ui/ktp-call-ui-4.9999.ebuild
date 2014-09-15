@@ -27,7 +27,7 @@ DEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	net-libs/farstream:0.2
 	>=net-libs/telepathy-farstream-0.6.0
-	>=net-libs/telepathy-qt-0.9.3[farstream]
+	>=net-libs/telepathy-qt-0.9.5[farstream,qt4]
 "
 RDEPEND="${DEPEND}
 	|| (
