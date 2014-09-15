@@ -135,6 +135,7 @@ case ${KDE_DOXYGEN} in
 				app-doc/doxygen
 				$(add_frameworks_dep kapidox)
 			)"
+		;;
 esac
 
 case ${KDE_DEBUG} in
