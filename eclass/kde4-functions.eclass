@@ -37,12 +37,12 @@ esac
 # This gets set to a non-zero value when a package is considered a kde or
 # kdevelop ebuild.
 if [[ ${CATEGORY} = kde-base ]]; then
-	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
-	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE=kdevelop
 fi
+
+debug-print "${ECLASS}: ${KDEBASE} ebuild recognized"
 
 # determine the build type
 if [[ ${PV} = *9999* ]]; then
