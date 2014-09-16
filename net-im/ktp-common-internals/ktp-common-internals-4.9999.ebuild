@@ -20,11 +20,15 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="4"
-IUSE="debug semantic-desktop"
+IUSE="debug otr semantic-desktop"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 	>=net-libs/telepathy-logger-qt-0.5.80
+	otr? (
+		dev-libs/libgcrypt:=
+		>=net-libs/libotr-4.0.0
+	)
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)
 		>=net-libs/libkpeople-0.3.0:=
@@ -37,6 +41,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package otr Libgcrypt)
+		$(cmake-utils_use_find_package otr LibOTR)
 		$(cmake-utils_use_find_package semantic-desktop KPeople)
 		$(cmake-utils_use_find_package semantic-desktop KdepimLibs)
 	)
