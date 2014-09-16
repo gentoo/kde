@@ -18,9 +18,9 @@ _KDE4_FUNCTIONS_ECLASS=1
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # Currently kde4 eclasses support EAPI 4 and 5.
-case ${EAPI:-0} in
+case ${EAPI} in
 	4|5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 # @ECLASS-VARIABLE: KDE_OVERRIDE_MINIMAL

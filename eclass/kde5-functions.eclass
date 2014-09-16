@@ -18,9 +18,9 @@ _KDE5_FUNCTIONS_ECLASS=1
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # Currently EAPI 5 is supported.
-case ${EAPI:-0} in
+case ${EAPI} in
 	5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 # @ECLASS-VARIABLE: KDEBASE

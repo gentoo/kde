@@ -118,9 +118,9 @@ case ${WANT_CMAKE} in
 esac
 inherit toolchain-funcs multilib flag-o-matic eutils
 
-case ${EAPI:-0} in
+case ${EAPI} in
 	2|3|4|5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 CMAKE_EXPF="src_prepare src_configure src_compile src_test src_install"
