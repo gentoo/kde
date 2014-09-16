@@ -28,4 +28,6 @@ DEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/qca-ossl:2
+"
