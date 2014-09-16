@@ -93,8 +93,6 @@ _add_kdecategory_dep() {
 		version=${PV}
 	fi
 
-	[[ -z ${1} ]] && die "Missing parameter"
-
 	if [[ -n ${use} ]] ; then
 		usedep="[${use}]"
 	fi
