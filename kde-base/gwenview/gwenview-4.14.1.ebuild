@@ -13,6 +13,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/graphics/gwenview/
 	http://gwenview.sourceforge.net/
 "
+SRC_URI+=" http://dev.gentoo.org/~kensington/distfiles/${P}-jpeg9.patch"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug kipi semantic-desktop"
 
@@ -32,6 +33,8 @@ DEPEND="
 	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${DISTDIR}/${P}-jpeg9.patch" )
 
 src_configure() {
 	local mycmakeargs=(
