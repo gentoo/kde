@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator
-
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
@@ -14,6 +12,8 @@ inherit versionator
 
 if [[ -z ${_KDE4_FUNCTIONS_ECLASS} ]]; then
 _KDE4_FUNCTIONS_ECLASS=1
+
+inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
