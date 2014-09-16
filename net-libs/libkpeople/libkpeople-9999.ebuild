@@ -20,11 +20,11 @@ HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
 
 LICENSE="LGPL-2.1"
 SLOT="4"
-IUSE="debug examples test"
+IUSE="debug examples semantic-desktop test"
 
 RDEPEND="
-	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
+	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with examples)
+		$(cmake-utils_use_find_package semantic-desktop Baloo)
 	)
 
 	kde4-base_src_configure
