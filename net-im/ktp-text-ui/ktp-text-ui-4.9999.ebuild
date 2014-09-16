@@ -20,12 +20,24 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="debug"
+IUSE="debug semantic-desktop"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 	>=net-libs/telepathy-logger-qt-0.8
+	semantic-desktop? (
+		$(add_kdebase_dep kdepimlibs)
+		>=net-libs/libkpeople-0.3.0:=
+	)
 "
 RDEPEND="${DEPEND}
 	>=net-im/ktp-contact-list-${PV}
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package semantic-desktop KPeople)
+	)
+
+	kde4-base_src_configure
+}
