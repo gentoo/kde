@@ -19,7 +19,7 @@ DESCRIPTION="KDE contact person abstraction library"
 HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
 
 LICENSE="LGPL-2.1"
-SLOT="4"
+SLOT="4/4"
 IUSE="debug examples semantic-desktop test"
 
 RDEPEND="
