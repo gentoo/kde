@@ -65,7 +65,7 @@ comment_add_subdirectory() {
 	fi
 
 	if [[ -e "CMakeLists.txt" ]]; then
-	        sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+	        sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1//\//\\/}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 			-i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
 	fi
 }
