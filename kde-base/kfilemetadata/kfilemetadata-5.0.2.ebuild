@@ -13,7 +13,6 @@ IUSE="epub exif ffmpeg pdf taglib"
 # TODO: mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
 DEPEND="
 	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
 	dev-qt/qtxml:5
