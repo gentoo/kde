@@ -21,7 +21,7 @@ CMAKE_MIN_VERSION="2.8.12"
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx eutils cmake-utils
+inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils versionator virtualx eutils cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -40,7 +40,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore.
+# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore:5.
 : ${KDE_AUTODEPS:=true}
 
 # @ECLASS-VARIABLE: KDE_DEBUG
@@ -68,10 +68,10 @@ fi
 
 # @ECLASS-VARIABLE: KDE_HANDBOOK
 # @DESCRIPTION:
-# If set to "false", do nothing".
+# If set to "false", do nothing.
 # Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and
 # generate and install KDE handbook.
-KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
+: ${KDE_HANDBOOK:=false}
 
 # @ECLASS-VARIABLE: KDE_NLS
 # @DESCRIPTION:
@@ -87,7 +87,7 @@ fi
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add test to IUSE and add a dependency on qttest.
+# For any other value, add test to IUSE and add a dependency on dev-qt/qttest:5.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_TEST:=true}
 else
@@ -111,9 +111,19 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" >=dev-libs/extra-cmake-modules-1.2.0"
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			ecm_version=9999
+		elif [[ ${CATEGORY} = kde-frameworks ]]; then
+			ecm_version=1.$(get_version_component_range 2).0
+		else
+			ecm_version=1.2.0
+		fi
+
+		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
+
+		unset ecm_version
 		;;
 esac
 
@@ -122,9 +132,10 @@ case ${KDE_DOXYGEN} in
 	*)
 		IUSE+=" doc"
 		DEPEND+=" doc? (
-				app-doc/doxygen
 				$(add_frameworks_dep kapidox)
+				app-doc/doxygen
 			)"
+		;;
 esac
 
 case ${KDE_DEBUG} in
@@ -199,22 +210,17 @@ _calculate_src_uri() {
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
-	kde-frameworks)
-		case ${PV} in
-			4.??.? | 4.???.? )
-				SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
-	kde-base)
-		case ${PV} in
-			4.??.? )
-				SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
+		kde-frameworks)
+			SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+			;;
+		kde-base)
+			case ${PV} in
+				4.??.? )
+					SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+				*)
+					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
+			esac
+			;;
 	esac
 }
 
@@ -255,7 +261,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} == kde-base ]]; then
+			if [[ ${PV} != 9999 && ${KDEBASE} = kde-base ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -417,7 +423,7 @@ kde5_src_test() {
 	# > make sure it does not happen, so bad tests can be recognized and disabled
 	unset DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
 
-	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
+	if [[ ${VIRTUALX_REQUIRED} = always || ${VIRTUALX_REQUIRED} = test ]]; then
 		VIRTUALX_COMMAND="_test_runner" virtualmake
 	else
 		_test_runner

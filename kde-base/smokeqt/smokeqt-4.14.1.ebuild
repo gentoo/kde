@@ -20,9 +20,10 @@ HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 # Maybe make more of Qt optional?
 DEPEND="
 	$(add_kdebase_dep smokegen)
+	dev-qt/designer:4
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
-	|| ( ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 ) <dev-qt/qtgui-4.8.5:4 )
+	dev-qt/qtgui:4
 	dev-qt/qtscript:4
 	dev-qt/qtsql:4
 	dev-qt/qtsvg:4

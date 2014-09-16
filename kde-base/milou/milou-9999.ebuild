@@ -14,7 +14,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep krunner)
+	$(add_frameworks_dep kservice)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 "

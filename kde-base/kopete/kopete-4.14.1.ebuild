@@ -100,7 +100,7 @@ RDEPEND="${COMMONDEPEND}
 		virtual/latex-base
 	)
 	sms? ( app-mobilephone/smssend )
-	ssl? ( app-crypt/qca-ossl )
+	ssl? ( app-crypt/qca-ossl:2 )
 	winpopup? ( net-fs/samba )
 "
 #	telepathy? ( net-libs/decibel )"
