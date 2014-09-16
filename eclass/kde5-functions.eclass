@@ -19,7 +19,7 @@ inherit versionator
 # @DESCRIPTION:
 # Currently EAPI 5 is supported.
 case ${EAPI} in
-	5) : ;;
+	5) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
