@@ -56,7 +56,7 @@ fi
 export KDE_BUILD_TYPE
 
 # @FUNCTION: comment_add_subdirectory
-# @USAGE: subdirectory
+# @USAGE: <subdirectory>
 # @DESCRIPTION:
 # Comment out an add_subdirectory call in CMakeLists.txt in the current directory
 comment_add_subdirectory() {
@@ -101,6 +101,7 @@ _add_kdecategory_dep() {
 }
 
 # @FUNCTION: add_frameworks_dep
+# @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-frameworks/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
@@ -124,6 +125,7 @@ add_frameworks_dep() {
 }
 
 # @FUNCTION: add_kdebase_dep
+# @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-base/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
