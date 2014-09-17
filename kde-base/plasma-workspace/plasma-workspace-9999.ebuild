@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
-	sys-libs/pam
+	kde-base/kdebase-pam
 	sys-libs/zlib
 	x11-libs/libkscreen:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
