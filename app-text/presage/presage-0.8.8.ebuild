@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc examples gtk python sqlite test"
 
 RDEPEND="
-	app-text/unix2dos
+	app-text/dos2unix
 	examples? ( sys-libs/ncurses )
 	gtk? ( x11-libs/gtk+ )
 	python? ( dev-lang/python dev-python/dbus-python )
