@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="KDE window manager theme"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen"
 KEYWORDS=""
-IUSE=""
+IUSE="+kwin"
 
 DEPEND="
 	$(add_frameworks_dep frameworkintegration)
@@ -22,13 +22,21 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	$(add_kdebase_dep kwin)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
+	kwin? ( $(add_kdebase_dep kwin) )
 "
 RDEPEND="${DEPEND}
 	!kde-base/kdebase-cursors:4
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package kwin KDecorations)
+	)
+
+	kde5_src_configure
+}
