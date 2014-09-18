@@ -10,6 +10,7 @@ ru sk sl sv th uk zh_CN zh_TW"
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
 EGIT_REPONAME="${PN}"
+EGIT_BRANCH="1.7"
 inherit kde4-base
 
 DESCRIPTION="KDE development support libraries and apps"
