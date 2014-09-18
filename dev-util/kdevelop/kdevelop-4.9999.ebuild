@@ -8,6 +8,7 @@ KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
 pl pt pt_BR ru sk sl sv th uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KDEBASE="${PN}"
+EGIT_BRANCH="4.7"
 inherit kde4-base
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"

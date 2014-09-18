@@ -5,7 +5,6 @@
 EAPI=5
 
 VIRTUALX_REQUIRED=test
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
