@@ -13,6 +13,7 @@ IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kwin)
+	$(add_kdebase_dep oxygen kwin)
 	$(add_kdebase_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
