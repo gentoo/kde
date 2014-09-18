@@ -6,6 +6,7 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-qmake"
+EGIT_BRANCH="1.7"
 inherit kde4-base
 
 DESCRIPTION="qmake plugin for KDevelop 4"
