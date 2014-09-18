@@ -13,7 +13,7 @@ inherit kde4-base python-single-r1
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
 KEYWORDS=""
-IUSE="debug designer-plugin gps +kde plasma python shapefile test zip"
+IUSE="debug designer-plugin gps +kde phonon plasma python shapefile test zip"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -30,6 +30,8 @@ RDEPEND="
 	dev-qt/qtsvg:4
 	dev-qt/qtwebkit:4
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
+	kde? ( media-libs/phonon[qt4] )
+	phonon? ( media-libs/phonon[qt4] )
 	python? (
 		${PYTHON_DEPS}
 		>=dev-python/PyQt4-4.4.4-r1[${PYTHON_USEDEP}]
@@ -64,6 +66,7 @@ src_configure() {
 		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with gps libgps)
 		$(cmake-utils_use !kde QTONLY)
+		$(cmake-utils_use_with phonon)
 		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with shapefile libshp)
 		$(cmake-utils_use_with zip quazip)
