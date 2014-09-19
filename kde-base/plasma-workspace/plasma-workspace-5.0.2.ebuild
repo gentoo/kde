@@ -99,7 +99,10 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-startkde-script.patch"
+	"${FILESDIR}/${P}-qt54.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
