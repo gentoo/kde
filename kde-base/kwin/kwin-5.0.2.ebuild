@@ -69,6 +69,8 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 "
 
+PATCHES=( "${FILESDIR}/${P}-qt54.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package wayland)
