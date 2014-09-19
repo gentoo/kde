@@ -35,9 +35,10 @@ RDEPEND="
 	gles? (
 		dev-qt/qtgui:5[gles2]
 		|| (
-		media-libs/mesa[egl,gles1]
-		media-libs/mesa[egl,gles2]
-	) )
+			media-libs/mesa[egl,gles1]
+			media-libs/mesa[egl,gles2]
+		)
+	)
 	ieee1394? ( sys-libs/libraw1394 )
 	nfs? ( net-fs/nfs-utils )
 	opengl? (
