@@ -54,6 +54,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	wayland? (
+		$(add_kdebase_dep kwayland)
 		>=dev-libs/wayland-1.2
 		>=x11-libs/libxkbcommon-0.4.1
 	)
@@ -72,6 +73,7 @@ DEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package wayland)
+		$(cmake-utils_use_find_package wayland KF5Wayland)
 	)
 
 	kde5_src_configure
