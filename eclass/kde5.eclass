@@ -399,7 +399,7 @@ kde5_src_compile() {
 
 	# Build doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		kgenapidox --doxdatadir=/usr/share/doc/HTML/en/common/ . || die
+		kgenapidox . || die
 	fi
 }
 
@@ -442,7 +442,7 @@ kde5_src_install() {
 
 	# Install doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		dohtml -r ${P}-apidocs/html/*
+		dohtml -r apidocs/html/*
 	fi
 
 	cmake-utils_src_install
