@@ -310,7 +310,7 @@ kde5_src_unpack() {
 				;;
 		esac
 	else
-		unpack ${A}
+		default
 	fi
 }
 
