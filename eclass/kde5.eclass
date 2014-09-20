@@ -429,7 +429,7 @@ kde5_src_test() {
 		_test_runner
 	fi
 
-	if [ -n "${DBUS_SESSION_BUS_PID}" ] ; then
+	if [[ -n "${DBUS_SESSION_BUS_PID}" ]] ; then
 		kill ${DBUS_SESSION_BUS_PID}
 	fi
 }
