@@ -171,7 +171,7 @@ case ${KDE_TEST} in
 	false)	;;
 	*)
 		IUSE+=" test"
-		DEPEND+=" test? ( dev-qt/qttest:5 )"
+		DEPEND+=" test? ( >=dev-qt/qttest-${QT_MINIMAL}:5 )"
 		;;
 esac
 
