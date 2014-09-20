@@ -34,10 +34,7 @@ DEPEND="
 		>=net-libs/libkpeople-0.3.0:=
 	)
 "
-RDEPEND="${DEPEND}
-	!!<net-im/ktp-contact-list-0.4.0
-	!<net-im/ktp-text-ui-0.5.80
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
