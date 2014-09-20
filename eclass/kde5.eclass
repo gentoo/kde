@@ -442,7 +442,7 @@ kde5_src_install() {
 
 	# Install doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		dohtml -r apidocs/html/*
+		dodoc -r apidocs/html
 	fi
 
 	cmake-utils_src_install
