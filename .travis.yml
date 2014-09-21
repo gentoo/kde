@@ -3,7 +3,7 @@
 #
 language: python
 python:
-    - "3.3"
+    - "3.4"
 env:
     - PORTAGE_VER="2.2.13"
 before_script:
