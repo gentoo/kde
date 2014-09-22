@@ -321,7 +321,7 @@ kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# only build examples when required
-	if ! in_iuse examples || ! use examples ; then
+	if ! use_if_iuse examples || ! use examples ; then
 		comment_add_subdirectory examples
 	fi
 
@@ -349,7 +349,7 @@ kde5_src_prepare() {
 	fi
 
 	# only build unit tests when required
-	if ! in_iuse test || ! use test ; then
+	if ! use_if_iuse test ; then
 		comment_add_subdirectory autotests
 	fi
 
