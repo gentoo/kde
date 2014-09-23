@@ -7,6 +7,7 @@
 >=media-libs/phonon-gstreamer-4.7.80
 >=media-libs/qt-gstreamer-1.2.0
 >=net-libs/libkgapi-2.0.1
+>=net-libs/libndp-1.4
 >=net-misc/networkmanager-0.9.8.2
 
 # temporary keyword to solve portage blockers due to
