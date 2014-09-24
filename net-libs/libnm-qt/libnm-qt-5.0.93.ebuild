@@ -26,8 +26,8 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5
 	|| (
-		>=net-misc/networkmanager-0.9.8.4[consolekit]
-		>=net-misc/networkmanager-0.9.8.4[systemd]
+		>=net-misc/networkmanager-0.9.10.0[consolekit,teamd]
+		>=net-misc/networkmanager-0.9.10.0[systemd,teamd]
 	)
 "
 DEPEND="${RDEPEND}
