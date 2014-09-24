@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5[widgets]
+	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
 	X? (
