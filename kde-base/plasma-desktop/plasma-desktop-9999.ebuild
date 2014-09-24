@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
+	$(add_kdebase_dep breeze)
 	$(add_kdebase_dep kwin)
 	$(add_kdebase_dep oxygen kwin)
 	$(add_kdebase_dep plasma-workspace)
