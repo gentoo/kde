@@ -39,7 +39,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	>=net-libs/libnm-qt-5.0
 	net-misc/mobile-broadband-provider-info
-	>=net-misc/networkmanager-0.9.8.0
+	>=net-misc/networkmanager-0.9.10.0[teamd]
 	modemmanager? ( >=net-libs/libmm-qt-5.0 )
 	openconnect? (
 		net-misc/networkmanager-openconnect
