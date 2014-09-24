@@ -84,6 +84,7 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
+	kde-base/kdebase-pam
 	!kde-base/freespacenotifier:4
 	!kde-base/libtaskmanager:4
 	!kde-base/kcminit:4
