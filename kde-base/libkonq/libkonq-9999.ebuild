@@ -35,6 +35,7 @@ DEPEND="
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}
+	!kde-base/kde-baseapps:5
 	!kde-base/libkonq:4
 "
 
