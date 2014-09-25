@@ -38,3 +38,5 @@ RDEPEND="${DEPEND}
 "
 
 RESTRICT="test"
+
+S=${S}/lib/konq
