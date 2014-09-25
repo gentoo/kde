@@ -5,6 +5,7 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
+KDE_DOXYGEN="true"
 KDE_TEST="true"
 KMNAME="kde-baseapps"
 VIRTUALX_REQUIRED="test"
