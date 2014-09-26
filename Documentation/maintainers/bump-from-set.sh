@@ -9,6 +9,7 @@ get_package_list_from_set() {
 
 	local SET="${1}"
 
+	IFS=$'\n'
 	for entry in $(cat "${PORTDIR}/sets/${SET}") ; do
 		if [[ ${entry} == \#*  || ${entry} == @* ]] ; then
 			continue
