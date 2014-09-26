@@ -9,9 +9,6 @@ get_package_list_from_set() {
 	local SET="${1}"
 
 	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${SET}") ; do
-		if [[ ${entry} == \#*  || ${entry} == @* ]] ; then
-			continue
-		fi
 		echo $(qatom ${entry} | cut -d " " -f 1-2 | tr " " "/")
 	done
 
