@@ -20,7 +20,9 @@ DEPEND="
 	marble? ( $(add_kdebase_dep marble) )
 	protobuf? ( dev-libs/protobuf )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	x11-libs/qtscriptgenerator
+"
 
 RESTRICT="test"
 
