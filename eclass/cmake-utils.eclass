@@ -238,6 +238,21 @@ _generator_to_use() {
 	echo ${generator_name}
 }
 
+# @FUNCTION: comment_add_subdirectory
+# @USAGE: <subdirectory>
+# @DESCRIPTION:
+# Comment out an add_subdirectory call in CMakeLists.txt in the current directory
+comment_add_subdirectory() {
+        if [[ -z ${1} ]]; then
+                die "comment_add_subdirectory must be passed the directory name to comment"
+        fi
+
+        if [[ -e "CMakeLists.txt" ]]; then
+                sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1//\//\\/}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+                        -i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
+        fi
+}
+
 # @FUNCTION: cmake-utils_use_with
 # @USAGE: <USE flag> [flag name]
 # @DESCRIPTION:
