@@ -7,7 +7,7 @@ EAPI=5
 inherit cmake-utils font
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
-HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-fonts"
+HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen-fonts"
 SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}.tar.xz"
 
 LICENSE="OFL-1.1"

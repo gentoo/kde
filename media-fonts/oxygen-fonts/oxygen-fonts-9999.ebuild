@@ -7,7 +7,7 @@ EAPI=5
 inherit cmake-utils font git-r3
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
-HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-fonts"
+HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen-fonts"
 EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
 
 LICENSE="OFL-1.1"
