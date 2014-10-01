@@ -50,7 +50,6 @@ DEPEND="${RDEPEND}
 "
 
 DOCS=( NEWS README )
-PATCHES=( "${FILESDIR}/${PN}-0.9.2-optionaltests.patch" )
 
 # tests fail due to missing conection to dbus
 RESTRICT="test"
@@ -61,10 +60,16 @@ pkg_setup() {
 	use qt5 && MULTIBUILD_VARIANTS+=( qt5 )
 }
 
+src_prepare() {
+	[[ ${PV} == 9999* ]] && bzr_src_prepare
+	cmake-utils_src_prepare
+
+	use test || comment_add_subdirectory tests
+}
+
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
-			$(cmake-utils_use_build test TESTS)
 			$(cmake-utils_use_with doc)
 		)
 
