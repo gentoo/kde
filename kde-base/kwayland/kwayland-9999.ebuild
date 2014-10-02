@@ -23,4 +23,4 @@ RDEPEND="${DEPEND}"
 # All failing, i guess we need a virtual wayland server
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${P}-wayland-1.5.patch" )
+PATCHES=( "${FILESDIR}/${PN}-wayland-1.5.patch" )
