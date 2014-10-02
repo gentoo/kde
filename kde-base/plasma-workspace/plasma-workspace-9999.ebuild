@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit kde5 multilib
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
@@ -102,6 +102,12 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 
 RESTRICT="test"
+
+src_prepare() {
+	kde5_src_prepare
+
+	sed -e "s|\`qtpaths|\`/usr/$(get_libdir)/qt5/bin/qtpaths|" -i startkde/startkde.cmake || die
+}
 
 src_configure() {
 	local mycmakeargs=(
