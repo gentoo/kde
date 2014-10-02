@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/wayland-1.2.0
+	>=dev-libs/wayland-1.3.0
 	dev-qt/qtgui:5
 "
 RDEPEND="${DEPEND}"
