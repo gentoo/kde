@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_TEST=true
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Qt-style client and server library wrapper for Wayland libraries"
