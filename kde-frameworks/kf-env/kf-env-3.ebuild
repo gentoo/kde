@@ -4,8 +4,6 @@
 
 EAPI=5
 
-inherit multilib
-
 DESCRIPTION="Environment setting required for all KDE Frameworks apps to run"
 HOMEPAGE="http://community.kde.org/Frameworks"
 SRC_URI=""
@@ -33,11 +31,7 @@ src_install() {
 
 	# higher number to be sure not to kill kde4 env
 	local envfile="${T}/78kf"
-	local libdir="${EPREFIX}/usr/$(get_libdir)"
-	local qt5bin="${libdir}/qt5/bin"
 
-	echo "PATH=${qt5bin}" > ${envfile}
-	echo "ROOTPATH=${qt5bin}" >> ${envfile}
 	echo "CONFIG_PROTECT=${EPREFIX}/usr/share/config" >> ${envfile}
 	doenvd ${envfile}
 }
