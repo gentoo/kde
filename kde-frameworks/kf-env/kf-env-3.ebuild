@@ -20,12 +20,6 @@ RDEPEND="${DEPEND}
 
 S=${WORKDIR}
 
-src_unpack() { :; }
-
-src_prepare() { :; }
-
-pkg_preinst() { :; }
-
 src_install() {
 	einfo "Installing environment file..."
 
@@ -35,5 +29,3 @@ src_install() {
 	echo "CONFIG_PROTECT=${EPREFIX}/usr/share/config" >> ${envfile}
 	doenvd ${envfile}
 }
-
-src_test() { :; }
