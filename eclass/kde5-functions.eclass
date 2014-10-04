@@ -98,9 +98,11 @@ _add_kdecategory_dep() {
 add_frameworks_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local version=${3}
+	local version
 
-	if [[ ${CATEGORY} = kde-frameworks ]]; then
+	if [[ -n ${3} ]]; then
+		version=${3}
+	elif [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=${PV}
 	elif [[ -z "${version}" ]] ; then
 		version=5.2.0
