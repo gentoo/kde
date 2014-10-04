@@ -28,6 +28,8 @@ DEPEND="${RDEPEND}
 	X? ( x11-proto/xproto )
 "
 
+RESTRICT="test"
+
 DOCS=( "docs/README.kstartupinfo" )
 
 src_configure() {
