@@ -104,6 +104,11 @@ add_frameworks_dep() {
 		version=${3}
 	elif [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=${PV}
+	elif [[ ${CATEGORY} = kde-base ]]; then
+		case $(get_kde_version) in
+			5.1) version=5.3.0 ;;
+			*) version=5.2.0 ;;
+		esac
 	elif [[ -z "${version}" ]] ; then
 		version=5.2.0
 	fi
