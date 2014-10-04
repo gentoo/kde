@@ -23,6 +23,11 @@ case ${EAPI} in
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
+# @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
+# @DESCRIPTION:
+# Minimal Qt version to require for the package.
+: ${FRAMEWORKS_MINIMAL:=5.2.0}
+
 # @ECLASS-VARIABLE: KDEBASE
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
@@ -107,10 +112,10 @@ add_frameworks_dep() {
 	elif [[ ${CATEGORY} = kde-base ]]; then
 		case $(get_kde_version) in
 			5.1) version=5.3.0 ;;
-			*) version=5.2.0 ;;
+			*) version=${FRAMEWORKS_MINIMAL} ;;
 		esac
 	elif [[ -z "${version}" ]] ; then
-		version=5.2.0
+		version=${FRAMEWORKS_MINIMAL}
 	fi
 
 	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
