@@ -23,6 +23,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	!<kde-frameworks/kdelibs4support-5.3.0:5
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
