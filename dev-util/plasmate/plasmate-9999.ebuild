@@ -36,6 +36,7 @@ DEPEND="
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	dev-util/kdevplatform:5
 "
 RDEPEND="${DEPEND}
 	!kde-misc/plasmate:4
