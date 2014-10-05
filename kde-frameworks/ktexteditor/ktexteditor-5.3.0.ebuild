@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing a full text editor component"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE=""
+IUSE="git"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -38,7 +38,16 @@ RDEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	git? ( dev-libs/libgit2 )
 "
 DEPEND="${RDEPEND}"
 
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package git LibGit2)
+	)
+
+	kde5_src_configure
+}
