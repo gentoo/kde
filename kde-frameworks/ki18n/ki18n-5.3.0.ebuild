@@ -15,7 +15,6 @@ RDEPEND="
 	dev-qt/qtscript:5
 "
 DEPEND="${RDEPEND}
-	dev-lang/perl
 	virtual/libintl
 	test? ( dev-qt/qtconcurrent:5 )
 "
