@@ -17,6 +17,7 @@ RDEPEND="
 	lzma? ( app-arch/xz-utils )
 	sys-libs/zlib
 "
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
