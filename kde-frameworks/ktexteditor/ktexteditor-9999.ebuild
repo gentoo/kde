@@ -40,3 +40,5 @@ RDEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}"
+
+RESTRICT="test"
