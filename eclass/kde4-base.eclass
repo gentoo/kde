@@ -600,7 +600,7 @@ kde4-base_pkg_setup() {
 	# Check if gcc compiler is fresh enough.
 	# In theory should be in pkg_pretend but we check it only for kdelibs there
 	# and for others we do just quick scan in pkg_setup because pkg_pretend
-	# executions consume quite some time.
+	# executions consume quite some time (ie. when merging 300 packages at once will cause 300 checks)
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
 				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 6 ]] ) \
