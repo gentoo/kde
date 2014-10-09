@@ -25,7 +25,7 @@ esac
 
 # @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
 # @DESCRIPTION:
-# Minimal Qt version to require for the package.
+# Minimal Frameworks version to require for the package.
 : ${FRAMEWORKS_MINIMAL:=5.3.0}
 
 # @ECLASS-VARIABLE: KDEBASE
