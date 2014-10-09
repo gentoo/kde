@@ -21,7 +21,7 @@ CMAKE_MIN_VERSION="2.8.12"
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils versionator virtualx eutils cmake-utils
+inherit kde5-functions fdo-mime flag-o-matic gnome2-utils versionator virtualx eutils cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -30,7 +30,7 @@ if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	esac
 fi
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
@@ -281,21 +281,20 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
+# @FUNCTION: kde5_pkg_pretend
+# @DESCRIPTION:
+# Do some basic settings
+kde5_pkg_pretend() {
+	debug-print-function ${FUNCNAME} "$@"
+	_check_gcc_version
+}
+
 # @FUNCTION: kde5_pkg_setup
 # @DESCRIPTION:
 # Do some basic settings
 kde5_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Check if gcc compiler is fresh enough.
-	# In theory should be in pkg_pretend but we check it only for kdelibs there
-	# and for others we do just quick scan in pkg_setup because pkg_pretend
-	# executions consume quite some time.
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		[[ $(gcc-major-version) -lt 4 ]] || \
-				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 8 ]] ) \
-			&& die "Sorry, but gcc-4.8 or later is required for KDE 5."
-	fi
+	_check_gcc_version
 }
 
 # @FUNCTION: kde5_src_unpack

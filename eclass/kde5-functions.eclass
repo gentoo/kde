@@ -13,7 +13,7 @@
 if [[ -z ${_KDE5_FUNCTIONS_ECLASS} ]]; then
 _KDE5_FUNCTIONS_ECLASS=1
 
-inherit versionator
+inherit toolchain-funcs versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
@@ -59,6 +59,22 @@ else
 	KDE_BUILD_TYPE="release"
 fi
 export KDE_BUILD_TYPE
+
+# @FUNCTION: _check_gcc_version
+# @INTERNAL
+# @DESCRIPTION:
+# Determine if the current GCC version is acceptable, otherwise die.
+_check_gcc_version() {
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		local version=$(gcc-version)
+		local major=${version%.*}
+		local minor=${version#*.}
+
+		[[ ${major} -lt 4 ]] || \
+				( [[ ${major} -eq 4 && ${minor} -lt 8 ]] ) \
+			&& die "Sorry, but gcc-4.8 or later is required for KDE 5."
+	fi
+}
 
 # @FUNCTION: _add_kdecategory_dep
 # @INTERNAL
