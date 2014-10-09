@@ -58,6 +58,12 @@ DEPEND="${COMMON_DEPEND}
 # requires running kde environment
 RESTRICT="test"
 
+src_prepare() {
+	comment_add_subdirectory trash
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
