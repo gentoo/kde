@@ -8,7 +8,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KControl module for xf86-input-synaptics"
-HOMEPAGE="http://kde-apps.org/content/show.php/kcm_touchpad?content=113335"
+HOMEPAGE="https://projects.kde.org/projects/playground/utils/kcm-touchpad"
 
 LICENSE="GPL-2"
 SLOT="5"
