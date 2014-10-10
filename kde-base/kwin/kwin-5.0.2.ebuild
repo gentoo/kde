@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kwindowsystem X)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
