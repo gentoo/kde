@@ -49,7 +49,9 @@ DEPEND="
 		$(add_kdebase_dep kfilemetadata)
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/dolphin:4
+"
 
 S=${S}/${PN}
 
