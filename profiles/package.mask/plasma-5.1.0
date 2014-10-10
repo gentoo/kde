@@ -1,0 +1,36 @@
+# Michael Palimaka <kensington@gentoo.org> (10 Oct 2014)
+# Unreleased
+~kde-base/baloo-5.1.0
+~kde-base/breeze-5.1.0
+~kde-base/kde-cli-tools-5.1.0
+~kde-base/kdeplasma-addons-5.1.0
+~kde-base/kfilemetadata-5.1.0
+~kde-base/khelpcenter-5.1.0
+~kde-base/khotkeys-5.1.0
+~kde-base/kinfocenter-5.1.0
+~kde-base/kio-extras-5.1.0
+~kde-base/kmenuedit-5.1.0
+~kde-base/ksysguard-5.1.0
+~kde-base/kwayland-5.1.0
+~kde-base/kwin-5.1.0
+~kde-base/kwrited-5.1.0
+~kde-base/libksysguard-5.1.0
+~kde-base/milou-5.1.0
+~kde-base/oxygen-5.1.0
+~kde-base/plasma-desktop-5.1.0
+~kde-base/plasma-nm-5.1.0
+~kde-base/plasma-workspace-5.1.0
+~kde-base/powerdevil-5.1.0
+~kde-base/systemsettings-5.1.0
+
+# Due to upstream versioning change, it's not clear yet
+# whether these packages will move to kde-base or stay in
+# their original locations so mask both for now.
+~kde-base/oxygen-fonts-5.1.0
+~kde-base/libmm-qt-5.1.0
+~kde-base/libnm-qt-5.1.0
+~kde-base/libkscreen-5.1.0
+~media-fonts/oxygen-fonts-5.1.0
+~net-libs/libmm-qt-5.1.0
+~net-libs/libnm-qt-5.1.0
+~x11-libs/libkscreen-5.1.0
