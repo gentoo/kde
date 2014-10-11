@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-l
 LICENSE="LGPL-2.1"
 IUSE="3dnow acl alsa altivec +bzip2 debug doc fam jpeg2k kerberos lzma mmx
 nepomuk nls openexr +policykit spell sse sse2 ssl +udev +udisks +upower
-zeroconf"
+zeroconf crypt"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -29,7 +29,7 @@ REQUIRED_USE="
 RESTRICT="test"
 
 COMMONDEPEND="
-	app-crypt/qca:2
+	crypt? ( app-crypt/qca:2 )
 	>=app-misc/strigi-0.7.7
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
@@ -219,6 +219,7 @@ src_configure() {
 		$(cmake-utils_use_with udev UDev)
 		$(cmake-utils_use_with udisks SOLID_UDISKS2)
 		$(cmake-utils_use_with zeroconf Avahi)
+		$(cmake-utils_use_with crypt QCA2)
 	)
 	kde4-base_src_configure
 }
