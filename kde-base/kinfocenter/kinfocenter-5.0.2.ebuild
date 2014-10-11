@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="A utility that provides information about a computer system"
 HOMEPAGE="http://www.kde.org/applications/system/kinfocenter/"
 KEYWORDS=" ~amd64"
-IUSE="egl gles ieee1394 +opengl +pci samba nfs server wayland X"
+IUSE="egl gles ieee1394 +opengl +pci samba nfs wayland X"
 
 REQUIRED_USE="egl? ( || ( gles opengl ) )"
 
@@ -35,9 +35,10 @@ RDEPEND="
 	gles? (
 		dev-qt/qtgui:5[gles2]
 		|| (
-		media-libs/mesa[egl,gles1]
-		media-libs/mesa[egl,gles2]
-	) )
+			media-libs/mesa[egl,gles1]
+			media-libs/mesa[egl,gles2]
+		)
+	)
 	ieee1394? ( sys-libs/libraw1394 )
 	nfs? ( net-fs/nfs-utils )
 	opengl? (
@@ -45,7 +46,7 @@ RDEPEND="
 		virtual/opengl
 	)
 	pci? ( sys-apps/pciutils )
-	samba? ( net-fs/samba[server=] )
+	samba? ( net-fs/samba[server(+)] )
 	wayland? ( >=dev-libs/wayland-1.2 )
 	X? ( x11-libs/libX11 )
 	!kde-base/kcontrol:4

@@ -1,7 +1,7 @@
 ~kde-base/baloo-9999
 ~kde-base/breeze-9999
 ~kde-base/kde-cli-tools-9999
-~kde-base/kde-gtk-config-9999
+~kde-base/kdeplasma-addons-9999
 ~kde-base/kfilemetadata-9999
 ~kde-base/khelpcenter-9999
 ~kde-base/khotkeys-9999
@@ -9,6 +9,7 @@
 ~kde-base/kio-extras-9999
 ~kde-base/kmenuedit-9999
 ~kde-base/ksysguard-9999
+~kde-base/kwayland-9999
 ~kde-base/kwin-9999
 ~kde-base/kwrited-9999
 ~kde-base/libksysguard-9999

@@ -9,7 +9,7 @@ inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/stable/plasma/5.0.0/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
 else
 	KEYWORDS=""
 fi
@@ -20,14 +20,14 @@ HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libnm-qt"
 LICENSE="LGPL-2"
 # maybe remove SLOT when it becomes official KDE Framework
 SLOT="0"
-IUSE=""
+IUSE="teamd"
 
 RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5
 	|| (
-		>=net-misc/networkmanager-0.9.8.4[consolekit]
-		>=net-misc/networkmanager-0.9.8.4[systemd]
+		>=net-misc/networkmanager-0.9.10.0[consolekit,teamd=]
+		>=net-misc/networkmanager-0.9.10.0[systemd,teamd=]
 	)
 "
 DEPEND="${RDEPEND}

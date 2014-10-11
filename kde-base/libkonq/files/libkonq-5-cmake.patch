@@ -1,0 +1,14 @@
+Install headers required by kfind.
+
+diff --git a/lib/konq/src/CMakeLists.txt b/lib/konq/src/CMakeLists.txt
+index 1186f32..9c05b9f 100644
+--- a/lib/konq/src/CMakeLists.txt
++++ b/lib/konq/src/CMakeLists.txt
+@@ -60,6 +60,7 @@ install(FILES
+     konq_historyentry.h
+     konq_historyprovider.h
+     konq_operations.h
++    konq_popupmenu.h
+     konq_popupmenuplugin.h
+     kversioncontrolplugin.h
+     kversioncontrolplugin2.h

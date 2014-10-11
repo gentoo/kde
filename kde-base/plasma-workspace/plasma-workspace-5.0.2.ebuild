@@ -84,6 +84,7 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
+	kde-base/kdebase-pam
 	!kde-base/freespacenotifier:4
 	!kde-base/libkworkspace:4
 	!kde-base/libtaskmanager:4
@@ -99,7 +100,10 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-startkde-script.patch"
+	"${FILESDIR}/${P}-qt54.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

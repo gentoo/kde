@@ -442,12 +442,12 @@ _calculate_src_uri() {
 				4.11.9)
 					# Part of 4.12 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.12.5/src/${_kmname_pv}.tar.xz" ;;
-				4.11.10)
-					# Part of 4.13 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.13.2/src/${_kmname_pv}.tar.xz" ;;
 				4.11.11)
 					# Part of 4.13 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.13.3/src/${_kmname_pv}.tar.xz" ;;
+				4.11.12)
+					# Part of 4.14 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.14.1/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
@@ -600,7 +600,7 @@ kde4-base_pkg_setup() {
 	# Check if gcc compiler is fresh enough.
 	# In theory should be in pkg_pretend but we check it only for kdelibs there
 	# and for others we do just quick scan in pkg_setup because pkg_pretend
-	# executions consume quite some time.
+	# executions consume quite some time (ie. when merging 300 packages at once will cause 300 checks)
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		[[ $(gcc-major-version) -lt 4 ]] || \
 				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 6 ]] ) \

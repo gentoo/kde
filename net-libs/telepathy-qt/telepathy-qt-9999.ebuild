@@ -14,7 +14,7 @@ HOMEPAGE="http://telepathy.freedesktop.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug experimental farstream +qt4 qt5 test"
+IUSE="debug farstream +qt4 qt5 test"
 
 RDEPEND="
 	farstream? (
@@ -30,7 +30,6 @@ RDEPEND="
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5
 		dev-qt/qtnetwork:5
-		dev-qt/qtwidgets:5
 		dev-qt/qtxml:5
 	)
 	!net-libs/telepathy-qt4
@@ -64,10 +63,10 @@ src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
 			$(cmake-utils_use_enable debug DEBUG_OUTPUT)
-			$(cmake-utils_use_enable experimental EXPERIMENTAL_SERVICE_SUPPORT)
 			$(cmake-utils_use_enable farstream)
 			$(cmake-utils_use_enable test TESTS)
 			-DENABLE_EXAMPLES=OFF
+			-ENABLE_SERVICE_SUPPORT=ON
 		)
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=(-DDESIRED_QT_VERSION=4)

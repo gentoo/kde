@@ -9,6 +9,7 @@ KMNAME="kdev-python"
 KDE_LINGUAS="bs ca ca@valencia da de es fi fr gl it kk nl pt pt_BR sk sl sv uk
 zh_TW"
 PYTHON_COMPAT=( python2_7 )
+EGIT_BRANCH="1.7"
 inherit kde4-base python-any-r1
 
 MY_PN="${KMNAME}"

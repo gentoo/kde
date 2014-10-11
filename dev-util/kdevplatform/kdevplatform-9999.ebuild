@@ -11,7 +11,6 @@ EAPI=5
 RESTRICT="test"
 KMNAME="kdevelop"
 EGIT_REPONAME="${PN}"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"

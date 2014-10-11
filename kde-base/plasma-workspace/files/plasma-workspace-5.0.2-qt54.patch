@@ -1,0 +1,82 @@
+From: Aleix Pol <aleixpol@kde.org>
+Date: Fri, 01 Aug 2014 09:36:43 +0000
+Subject: Fix build in Qt 5.4
+X-Git-Url: http://quickgit.kde.org/?p=plasma-workspace.git&a=commitdiff&h=04cb7ba53ebf8959cb783f62f343795ca4baa69c
+---
+Fix build in Qt 5.4
+
+See https://git.reviewboard.kde.org/r/119242/
+---
+
+
+--- a/containmentactions/applauncher/launch.cpp
++++ b/containmentactions/applauncher/launch.cpp
+@@ -54,7 +54,7 @@
+ {
+     foreach (KSycocaEntry::Ptr p, group->entries(true, false, true)) {
+         if (p->isType(KST_KService)) {
+-            const KService::Ptr service = p;
++            const KService::Ptr service(static_cast<KService*>(p.data()));
+             QAction *action = new QAction(QIcon::fromTheme(service->icon()), service->genericName().isEmpty() ? service->name() : service->genericName(), this);
+             connect(action, &QAction::triggered, [action](){
+                 KService::Ptr service = KService::serviceByStorageId(action->data().toString());
+@@ -67,7 +67,7 @@
+                 m_actions << action;
+             }
+         } else if (p->isType(KST_KServiceGroup)) {
+-            const KServiceGroup::Ptr service = p;
++            const KServiceGroup::Ptr service(static_cast<KServiceGroup*>(p.data()));
+             if (service->childCount() == 0) {
+                 continue;
+             }
+
+From: Kevin Funk <kfunk@kde.org>
+Date: Wed, 06 Aug 2014 06:23:06 +0000
+Subject: Make compile with Qt 5.4
+X-Git-Url: http://quickgit.kde.org/?p=plasma-workspace.git&a=commitdiff&h=0686e449ac4cf611ac3aa2e0bbf37b79aa172582
+---
+Make compile with Qt 5.4
+
+BUG: 337929
+---
+
+
+--- a/dataengines/apps/appsource.cpp
++++ b/dataengines/apps/appsource.cpp
+@@ -73,11 +73,11 @@
+     QStringList entries;
+     foreach (KSycocaEntry::Ptr p, m_group->entries(true, false, true)) {
+         if (p->isType(KST_KService)) {
+-            const KService::Ptr service = p;
++            const KService::Ptr service(static_cast<KService*>(p.data()));
+             entries << service->storageId();
+         } else if (p->isType(KST_KServiceGroup)) {
+-            const KServiceGroup::Ptr service = p;
+-            entries << service->entryPath();
++            const KServiceGroup::Ptr serviceGroup(static_cast<KServiceGroup*>(p.data()));
++            entries << serviceGroup->entryPath();
+         } else if (p->isType(KST_KServiceSeparator)) {
+             entries << "---";
+         } else {
+
+--- a/kioslave/applications/kio_applications.cpp
++++ b/kioslave/applications/kio_applications.cpp
+@@ -155,7 +155,7 @@
+ 
+     foreach (const KSycocaEntry::Ptr &e, grp->entries(true, true)) {
+         if (e->isType(KST_KServiceGroup)) {
+-            KServiceGroup::Ptr g(e);
++            KServiceGroup::Ptr g(static_cast<KServiceGroup*>(e.data()));
+             QString groupCaption = g->caption();
+ 
+             kDebug() << "ADDING SERVICE GROUP WITH PATH " << g->relPath();
+@@ -177,7 +177,7 @@
+             createDirEntry(entry, groupCaption, dirUrl.url(), "inode/directory", g->icon());
+ 
+         } else {
+-            KService::Ptr service(e);
++            KService::Ptr service(static_cast<KService*>(e.data()));
+ 
+             kDebug() << "the entry name is" << service->desktopEntryName()
+                      << "with path" << service->entryPath();
+

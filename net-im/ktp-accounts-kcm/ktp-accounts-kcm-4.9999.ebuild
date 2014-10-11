@@ -26,7 +26,7 @@ DEPEND="
 	>=net-im/ktp-common-internals-${PV}
 	net-im/telepathy-mission-control
 	net-libs/telepathy-glib
-	>=net-libs/telepathy-qt-0.9.3
+	>=net-libs/telepathy-qt-0.9.5[qt4]
 	modemmanager? ( net-libs/libmm-qt )
 "
 RDEPEND="${DEPEND}"

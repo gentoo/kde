@@ -3,9 +3,9 @@
 #
 language: python
 python:
-    - "3.3"
+    - "3.4"
 env:
-    - PORTAGE_VER="2.2.12"
+    - PORTAGE_VER="2.2.13"
 before_script:
     - mkdir travis-overlay
     - mv !(travis-overlay) travis-overlay/

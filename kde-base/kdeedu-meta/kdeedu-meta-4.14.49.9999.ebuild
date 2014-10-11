@@ -34,6 +34,6 @@ RDEPEND="
 	$(add_kdebase_dep marble)
 	$(add_kdebase_dep pairs)
 	$(add_kdebase_dep parley)
-	!ppc64? ( $(add_kdebase_dep rocs) )
+	$(add_kdebase_dep rocs)
 	$(add_kdebase_dep step)
 "

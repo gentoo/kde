@@ -14,7 +14,7 @@ IUSE="fam"
 RDEPEND="
 	dev-qt/qtcore:5[icu]
 	fam? ( virtual/fam )
-	!<kde-frameworks/kservice-5.2.0
+	!<kde-frameworks/kservice-5.2.0:5
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
@@ -23,6 +23,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-D_KDE4_DEFAULT_HOME_POSTFIX=4
 		$(cmake-utils_use_find_package fam FAM)
 	)
 

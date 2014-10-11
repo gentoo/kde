@@ -29,7 +29,6 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	crypt? ( app-crypt/qca[qt5] )
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/designer:5
@@ -37,6 +36,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	dev-qt/qtscript:5[scripttools]
+	crypt? ( app-crypt/qca:2[qt5] )
 "
 RDEPEND="${DEPEND}
 	!kde-base/okteta:4
@@ -44,6 +44,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package crypt QCA2)
 		$(cmake-utils_use_enable examples OKTETA_BUILD_EXAMPLES)
 		$(cmake-utils_use_build test TESTING)
 		$(cmake-utils_use_find_package crypt QCA2)

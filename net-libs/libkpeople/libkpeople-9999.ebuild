@@ -5,7 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-KDE_LINGUAS="bs cs da de fi fr hu lt nl pt pt_BR ro ru sk sl sv uk"
+KDE_LINGUAS="bs cs da de el fi fr hu ja lt nl pl pt pt_BR ro ru sk sl sv uk"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -19,12 +19,12 @@ DESCRIPTION="KDE contact person abstraction library"
 HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
 
 LICENSE="LGPL-2.1"
-SLOT="4"
-IUSE="debug examples test"
+SLOT="4/4"
+IUSE="debug examples semantic-desktop test"
 
 RDEPEND="
-	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
+	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with examples)
+		$(cmake-utils_use_find_package semantic-desktop Baloo)
 	)
 
 	kde4-base_src_configure

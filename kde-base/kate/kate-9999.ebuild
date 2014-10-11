@@ -20,6 +20,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -44,6 +45,11 @@ DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	addons? (
+		$(add_frameworks_dep knotifications)
+		$(add_frameworks_dep kwallet)
+		$(add_frameworks_dep plasma)
+	)
 "
 RDEPEND="${DEPEND}
 	!kde-base/kate:4

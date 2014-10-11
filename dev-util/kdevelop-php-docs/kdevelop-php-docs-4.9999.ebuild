@@ -8,6 +8,7 @@ KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
 pl pt pt_BR ru sk sl sv tr uk zh_CN zh_TW"
 KMNAME="kdevelop"
 EGIT_REPONAME="kdev-php-docs"
+EGIT_BRANCH="1.7"
 inherit kde4-base
 
 DESCRIPTION="PHP documentation plugin for KDevelop 4"

@@ -55,6 +55,8 @@ DEPEND="${RDEPEND}
 	X? ( x11-proto/xproto )
 "
 
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package egl EGL)

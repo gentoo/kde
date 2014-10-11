@@ -13,6 +13,7 @@ IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
 	$(add_kdebase_dep kwin)
+	$(add_kdebase_dep oxygen kwin)
 	$(add_kdebase_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
@@ -97,6 +98,8 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
 "
+
+PATCHES=( "${FILESDIR}/${P}-qt54.patch" )
 
 src_configure() {
 	local mycmakeargs=(

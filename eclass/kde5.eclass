@@ -21,7 +21,7 @@ CMAKE_MIN_VERSION="2.8.12"
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : ${VIRTUALX_REQUIRED:=manual}
 
-inherit kde5-functions toolchain-funcs fdo-mime flag-o-matic gnome2-utils virtualx eutils cmake-utils
+inherit kde5-functions fdo-mime flag-o-matic gnome2-utils versionator virtualx eutils cmake-utils
 
 if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	case ${KDE_SCM} in
@@ -30,7 +30,7 @@ if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	esac
 fi
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_compile src_test src_install pkg_preinst pkg_postinst pkg_postrm
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
@@ -40,7 +40,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_configure src_compile src_
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore.
+# For any other value, add a dependency on dev-libs/extra-cmake-modules and dev-qt/qtcore:5.
 : ${KDE_AUTODEPS:=true}
 
 # @ECLASS-VARIABLE: KDE_DEBUG
@@ -68,10 +68,10 @@ fi
 
 # @ECLASS-VARIABLE: KDE_HANDBOOK
 # @DESCRIPTION:
-# If set to "false", do nothing".
+# If set to "false", do nothing.
 # Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and
 # generate and install KDE handbook.
-KDE_HANDBOOK="${KDE_HANDBOOK:-false}"
+: ${KDE_HANDBOOK:=false}
 
 # @ECLASS-VARIABLE: KDE_NLS
 # @DESCRIPTION:
@@ -87,7 +87,7 @@ fi
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# For any other value, add test to IUSE and add a dependency on qttest.
+# For any other value, add test to IUSE and add a dependency on dev-qt/qttest:5.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_TEST:=true}
 else
@@ -111,9 +111,19 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" >=dev-libs/extra-cmake-modules-1.2.0"
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			ecm_version=9999
+		elif [[ ${CATEGORY} = kde-frameworks ]]; then
+			ecm_version=1.$(get_version_component_range 2).0
+		else
+			ecm_version=1.3.0
+		fi
+
+		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
+
+		unset ecm_version
 		;;
 esac
 
@@ -122,9 +132,10 @@ case ${KDE_DOXYGEN} in
 	*)
 		IUSE+=" doc"
 		DEPEND+=" doc? (
-				app-doc/doxygen
 				$(add_frameworks_dep kapidox)
+				app-doc/doxygen
 			)"
+		;;
 esac
 
 case ${KDE_DEBUG} in
@@ -160,7 +171,7 @@ case ${KDE_TEST} in
 	false)	;;
 	*)
 		IUSE+=" test"
-		DEPEND+=" test? ( dev-qt/qttest:5 )"
+		DEPEND+=" test? ( >=dev-qt/qttest-${QT_MINIMAL}:5 )"
 		;;
 esac
 
@@ -199,22 +210,21 @@ _calculate_src_uri() {
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
-	kde-frameworks)
-		case ${PV} in
-			4.??.? | 4.???.? )
-				SRC_URI="mirror://kde/unstable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
-	kde-base)
-		case ${PV} in
-			4.??.? )
-				SRC_URI="mirror://kde/unstable/plasma/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
-			*)
-				SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
-		esac
-		;;
+		kde-frameworks)
+			SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+			;;
+		kde-base)
+			case ${PV} in
+				5.?.[6-9]? )
+					# Plasma 5 beta releases
+					SRC_URI="mirror://kde/unstable/plasma/${PV}/${_kmname}-${PV}.tar.xz"
+					RESTRICT+=" mirror"
+					;;
+				*)
+					# Plasma 5 stable releases
+					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
+			esac
+			;;
 	esac
 }
 
@@ -255,7 +265,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} == kde-base ]]; then
+			if [[ ${PV} != 9999 && ${KDEBASE} = kde-base ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -271,21 +281,20 @@ esac
 
 debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 
+# @FUNCTION: kde5_pkg_pretend
+# @DESCRIPTION:
+# Do some basic settings
+kde5_pkg_pretend() {
+	debug-print-function ${FUNCNAME} "$@"
+	_check_gcc_version
+}
+
 # @FUNCTION: kde5_pkg_setup
 # @DESCRIPTION:
 # Do some basic settings
 kde5_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Check if gcc compiler is fresh enough.
-	# In theory should be in pkg_pretend but we check it only for kdelibs there
-	# and for others we do just quick scan in pkg_setup because pkg_pretend
-	# executions consume quite some time.
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		[[ $(gcc-major-version) -lt 4 ]] || \
-				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 8 ]] ) \
-			&& die "Sorry, but gcc-4.8 or later is required for KDE 5."
-	fi
+	_check_gcc_version
 }
 
 # @FUNCTION: kde5_src_unpack
@@ -304,7 +313,7 @@ kde5_src_unpack() {
 				;;
 		esac
 	else
-		unpack ${A}
+		default
 	fi
 }
 
@@ -315,7 +324,7 @@ kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	# only build examples when required
-	if ! in_iuse examples || ! use examples ; then
+	if ! use_if_iuse examples || ! use examples ; then
 		comment_add_subdirectory examples
 	fi
 
@@ -343,7 +352,7 @@ kde5_src_prepare() {
 	fi
 
 	# only build unit tests when required
-	if ! in_iuse test || ! use test ; then
+	if ! use_if_iuse test ; then
 		comment_add_subdirectory autotests
 	fi
 
@@ -393,7 +402,7 @@ kde5_src_compile() {
 
 	# Build doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		kgenapidox --doxdatadir=/usr/share/doc/HTML/en/common/ . || die
+		kgenapidox . || die
 	fi
 }
 
@@ -417,13 +426,13 @@ kde5_src_test() {
 	# > make sure it does not happen, so bad tests can be recognized and disabled
 	unset DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
 
-	if [[ ${VIRTUALX_REQUIRED} == always || ${VIRTUALX_REQUIRED} == test ]]; then
+	if [[ ${VIRTUALX_REQUIRED} = always || ${VIRTUALX_REQUIRED} = test ]]; then
 		VIRTUALX_COMMAND="_test_runner" virtualmake
 	else
 		_test_runner
 	fi
 
-	if [ -n "${DBUS_SESSION_BUS_PID}" ] ; then
+	if [[ -n "${DBUS_SESSION_BUS_PID}" ]] ; then
 		kill ${DBUS_SESSION_BUS_PID}
 	fi
 }
@@ -436,7 +445,7 @@ kde5_src_install() {
 
 	# Install doxygen documentation if applicable
 	if use_if_iuse doc ; then
-		dohtml -r ${P}-apidocs/html/*
+		dodoc -r apidocs/html
 	fi
 
 	cmake-utils_src_install

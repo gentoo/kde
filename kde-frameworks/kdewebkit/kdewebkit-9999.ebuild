@@ -23,7 +23,7 @@ RDEPEND="
 	$(add_frameworks_dep kwallet)
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5[widgets]
+	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}

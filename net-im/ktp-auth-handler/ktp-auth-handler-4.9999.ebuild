@@ -26,6 +26,8 @@ DEPEND="
 	app-crypt/qca:2
 	>=dev-libs/qjson-0.8
 	>=net-im/ktp-common-internals-${PV}
-	>=net-libs/telepathy-qt-0.9.3
+	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-crypt/qca-ossl:2
+"

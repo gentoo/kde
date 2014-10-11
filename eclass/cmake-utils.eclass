@@ -118,9 +118,9 @@ case ${WANT_CMAKE} in
 esac
 inherit toolchain-funcs multilib flag-o-matic eutils
 
-case ${EAPI:-0} in
+case ${EAPI} in
 	2|3|4|5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 CMAKE_EXPF="src_prepare src_configure src_compile src_test src_install"
@@ -236,6 +236,21 @@ _generator_to_use() {
 	esac
 
 	echo ${generator_name}
+}
+
+# @FUNCTION: comment_add_subdirectory
+# @USAGE: <subdirectory>
+# @DESCRIPTION:
+# Comment out an add_subdirectory call in CMakeLists.txt in the current directory
+comment_add_subdirectory() {
+        if [[ -z ${1} ]]; then
+                die "comment_add_subdirectory must be passed the directory name to comment"
+        fi
+
+        if [[ -e "CMakeLists.txt" ]]; then
+                sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1//\//\\/}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+                        -i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
+        fi
 }
 
 # @FUNCTION: cmake-utils_use_with

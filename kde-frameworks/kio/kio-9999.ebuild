@@ -45,6 +45,7 @@ RDEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
+	!<kde-base/kio-extras-5.0.95-r1:5
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)

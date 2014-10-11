@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator
-
 # @ECLASS: kde5-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
@@ -15,28 +13,34 @@ inherit versionator
 if [[ -z ${_KDE5_FUNCTIONS_ECLASS} ]]; then
 _KDE5_FUNCTIONS_ECLASS=1
 
+inherit toolchain-funcs versionator
+
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # Currently EAPI 5 is supported.
-case ${EAPI:-0} in
-	5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+case ${EAPI} in
+	5) ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
+
+# @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
+# @DESCRIPTION:
+# Minimal Frameworks version to require for the package.
+: ${FRAMEWORKS_MINIMAL:=5.3.0}
 
 # @ECLASS-VARIABLE: KDEBASE
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
 # kdevelop ebuild.
 if [[ ${CATEGORY} = kde-base ]]; then
-	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
 elif [[ ${CATEGORY} = kde-frameworks ]]; then
-	debug-print "${ECLASS}: KDEFRAMEWORKS ebuild recognized"
 	KDEBASE=kde-frameworks
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
-	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE=kdevelop
 fi
+
+debug-print "${ECLASS}: ${KDEBASE} ebuild recognized"
 
 # @ECLASS-VARIABLE: KDE_SCM
 # @DESCRIPTION:
@@ -56,18 +60,19 @@ else
 fi
 export KDE_BUILD_TYPE
 
-# @FUNCTION: comment_add_subdirectory
-# @USAGE: subdirectory
+# @FUNCTION: _check_gcc_version
+# @INTERNAL
 # @DESCRIPTION:
-# Comment out an add_subdirectory call in CMakeLists.txt in the current directory
-comment_add_subdirectory() {
-	if [[ -z ${1} ]]; then
-		die "comment_add_subdirectory must be passed the directory name to comment"
-	fi
+# Determine if the current GCC version is acceptable, otherwise die.
+_check_gcc_version() {
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		local version=$(gcc-version)
+		local major=${version%.*}
+		local minor=${version#*.}
 
-	if [[ -a "CMakeLists.txt" ]]; then
-	        sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-			-i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
+		[[ ${major} -lt 4 ]] || \
+				( [[ ${major} -eq 4 && ${minor} -lt 8 ]] ) \
+			&& die "Sorry, but gcc-4.8 or later is required for KDE 5."
 	fi
 }
 
@@ -94,8 +99,6 @@ _add_kdecategory_dep() {
 		version=${PV}
 	fi
 
-	[[ -z ${1} ]] && die "Missing parameter"
-
 	if [[ -n ${use} ]] ; then
 		usedep="[${use}]"
 	fi
@@ -104,6 +107,7 @@ _add_kdecategory_dep() {
 }
 
 # @FUNCTION: add_frameworks_dep
+# @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-frameworks/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
@@ -115,18 +119,26 @@ _add_kdecategory_dep() {
 add_frameworks_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local version=${3}
+	local version
 
-	if [[ ${CATEGORY} = kde-frameworks ]]; then
+	if [[ -n ${3} ]]; then
+		version=${3}
+	elif [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=${PV}
+	elif [[ ${CATEGORY} = kde-base ]]; then
+		case $(get_kde_version) in
+			5.1) version=5.3.0 ;;
+			*) version=${FRAMEWORKS_MINIMAL} ;;
+		esac
 	elif [[ -z "${version}" ]] ; then
-		version=5.2.0
+		version=${FRAMEWORKS_MINIMAL}
 	fi
 
 	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
 }
 
 # @FUNCTION: add_kdebase_dep
+# @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-base/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
