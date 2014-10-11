@@ -13,12 +13,18 @@ SRC_URI="https://github.com/jjk-jacky/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="doc examples"
 
-DEPEND="dev-libs/glib:2
-	x11-libs/gdk-pixbuf"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/glib:2
+	x11-libs/gdk-pixbuf
+	examples? ( x11-libs/gtk+:3 )"
+DEPEND="${RDEPEND}
+	dev-util/gtk-doc"
 
 src_prepare() {
 	eautoreconf
+}
+
+src_configure() {
+	econf $(use_enable examples example)
 }
