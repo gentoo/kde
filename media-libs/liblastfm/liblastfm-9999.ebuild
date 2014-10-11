@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit cmake-utils git-r3
+inherit cmake-utils multibuild git-r3
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="https://github.com/lastfm/liblastfm"
@@ -14,7 +14,6 @@ LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0/0"
 IUSE="fingerprint test +qt4 qt5"
-REQUIRED_USE="^^ ( qt4 qt5 )"
 
 COMMON_DEPEND="
 	qt4? (
@@ -47,14 +46,44 @@ RDEPEND="${COMMON_DEPEND}
 # 1 of 2 is failing, last checked 2012-06-22 / version 1.0.1
 RESTRICT="test"
 
-src_configure() {
-	# demos not working
-	local mycmakeargs=(
-		-DBUILD_DEMOS=OFF
-		$(cmake-utils_use_build qt4 WITH_QT4)
-		$(cmake-utils_use_build fingerprint)
-		$(cmake-utils_use_build test TESTS)
-	)
+pkg_setup() {
+	MULTIBUILD_VARIANTS=()
+	if use qt4; then
+		MULTIBUILD_VARIANTS+=(qt4)
+	fi
+	if use qt5; then
+		MULTIBUILD_VARIANTS+=(qt5)
+	fi
+}
 
-	cmake-utils_src_configure
+src_configure() {
+	myconfigure() {
+		# demos not working
+		local mycmakeargs=(
+			-DBUILD_DEMOS=OFF
+			$(cmake-utils_use_build fingerprint)
+			$(cmake-utils_use_build test TESTS)
+		)
+		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
+			mycmakeargs+=(-DBUILD_WITH_QT4=ON)
+		fi
+		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
+			mycmakeargs+=(-DBUILD_WITH_OT4=OFF)
+		fi
+		cmake-utils_src_configure
+	}
+
+	multibuild_foreach_variant myconfigure
+}
+
+src_compile() {
+	multibuild_foreach_variant cmake-utils_src_compile
+}
+
+src_install() {
+	multibuild_foreach_variant cmake-utils_src_install
+}
+
+src_test() {
+	multibuild_foreach_variant cmake-utils_src_test
 }
