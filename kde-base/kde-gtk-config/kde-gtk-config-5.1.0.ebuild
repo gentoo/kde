@@ -5,10 +5,10 @@
 EAPI=5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
+	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
+else
+	KEYWORDS=""
 fi
 
 inherit kde5
