@@ -9,7 +9,7 @@ inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
 else
 	KEYWORDS=""
 fi
