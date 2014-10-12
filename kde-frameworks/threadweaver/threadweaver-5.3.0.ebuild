@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_NLS="false"
 inherit kde5
 
 DESCRIPTION="Framework for managing threads using job and queue-based interfaces"

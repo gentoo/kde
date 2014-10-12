@@ -6,7 +6,6 @@ EAPI=5
 
 KDE_DEBUG="false"
 KDE_DOXYGEN="false"
-KDE_NLS="false"
 KDE_TEST="false"
 PYTHON_COMPAT=( python{2_7,3_3} )
 inherit kde5 distutils-r1
