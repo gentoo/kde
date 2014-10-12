@@ -46,7 +46,7 @@ RDEPEND="
 	)
 	pci? ( sys-apps/pciutils )
 	samba? ( net-fs/samba[server(+)] )
-	wayland? ( >=dev-libs/wayland-1.2 )
+	wayland? ( $(add_kdebase_dep kwayland) )
 	X? ( x11-libs/libX11 )
 	!kde-base/kcontrol:4
 	!kde-base/kinfocenter:4
@@ -62,7 +62,7 @@ src_configure() {
 		$(cmake-utils_use_find_package ieee1394 RAW1394)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package pci PCIUTILS)
-		$(cmake-utils_use_find_package wayland Wayland)
+		$(cmake-utils_use_find_package wayland KF5Wayland)
 		$(cmake-utils_use_find_package X X11)
 	)
 
