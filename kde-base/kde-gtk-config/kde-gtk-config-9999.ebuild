@@ -4,18 +4,12 @@
 
 EAPI=5
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 inherit kde5
 
 DESCRIPTION="KDE systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="http://projects.kde.org/kde-gtk-config"
 LICENSE="GPL-3"
+KEYWORDS=""
 
 DEPEND="
 	$(add_frameworks_dep karchive)
