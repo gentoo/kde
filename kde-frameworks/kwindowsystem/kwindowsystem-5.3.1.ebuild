@@ -29,8 +29,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
 	X? ( x11-proto/xproto )
-	doc? ( $(add_frameworks_dep kapidox '' 5.3.1)
-		app-doc/doxygen )"
+	doc? (
+		$(add_frameworks_dep kapidox '' 5.3.0)
+		app-doc/doxygen
+	)
+"
 
 RESTRICT="test"
 
