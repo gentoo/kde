@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework for reading and writing configuration"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	dev-qt/qtgui:5

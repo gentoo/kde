@@ -9,6 +9,6 @@ inherit kde5
 DESCRIPTION="Framework for manipulating strings using various encodings"
 LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
 
 DEPEND="nls? ( dev-qt/linguist-tools:5 )"

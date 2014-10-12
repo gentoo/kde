@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE="zeroconf"
+IUSE="nls zeroconf"
 
 RDEPEND="
 	dev-qt/qtnetwork:5

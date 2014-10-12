@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Framework providing assorted widgets for showing the progress of jobs"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE="X"
+IUSE="nls X"
 
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)

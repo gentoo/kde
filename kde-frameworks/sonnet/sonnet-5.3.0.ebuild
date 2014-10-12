@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Framework for providing spell-checking capabilities through abstraction of popular backends"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=" ~amd64"
-IUSE="aspell hunspell"
+IUSE="aspell hunspell nls"
 
 RDEPEND="
 	dev-qt/qtgui:5

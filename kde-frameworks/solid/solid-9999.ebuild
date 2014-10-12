@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	dev-qt/qtdbus:5

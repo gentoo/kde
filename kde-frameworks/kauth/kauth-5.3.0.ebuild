@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64"
-IUSE="+policykit"
+IUSE="nls +policykit"
 
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)

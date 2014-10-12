@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="designer webkit"
+IUSE="designer nls webkit"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)

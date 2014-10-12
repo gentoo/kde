@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework to handle global shortcuts"
 KEYWORDS=""
 LICENSE="LGPL-2+"
-IUSE="X"
+IUSE="nls X"
 
 RDEPEND="
 	dev-qt/qtdbus:5
