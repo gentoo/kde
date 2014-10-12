@@ -16,6 +16,7 @@ COMMON_DEPEND="
 	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kwin)
 	$(add_frameworks_dep kactivities)
+	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
@@ -57,6 +58,7 @@ COMMON_DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
+	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
