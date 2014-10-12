@@ -36,12 +36,15 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 	>=net-libs/libnm-qt-5.0[teamd=]
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.10.0[teamd=]
-	modemmanager? ( >=net-libs/libmm-qt-5.0 )
+	modemmanager? (
+		dev-qt/qtxml:5
+		>=net-libs/libmm-qt-5.0
+	)
 	openconnect? (
+		dev-qt/qtxml:5
 		net-misc/networkmanager-openconnect
 		net-misc/openconnect
 	)
