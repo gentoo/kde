@@ -5,7 +5,6 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
-KDE_NLS="true"
 inherit kde5
 
 DESCRIPTION="A user friendly IRC Client for KDE"
@@ -49,7 +48,7 @@ RDEPEND="
 	crypt? ( app-crypt/qca:2[qt5] )
 "
 DEPEND="${RDEPEND}
-	nls? ( sys-devel/gettext )
+	sys-devel/gettext
 "
 
 src_configure() {
