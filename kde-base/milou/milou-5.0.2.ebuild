@@ -18,6 +18,4 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep baloo)
-"
+RDEPEND="${DEPEND}"
