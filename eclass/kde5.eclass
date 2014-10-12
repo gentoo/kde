@@ -73,19 +73,6 @@ fi
 # generate and install KDE handbook.
 : ${KDE_HANDBOOK:=false}
 
-# @ECLASS-VARIABLE: KDE_NLS
-# @DESCRIPTION:
-# If set to "false", do nothing.
-# Otherwise, add "nls" to IUSE, generate and install translations based on
-# the LINGUAS environment variable.
-if [[ ${CATEGORY} = kde-frameworks ]]; then
-	: ${KDE_NLS:=true}
-elif [[ ${CATEGORY} = kde-base ]]; then
-	: ${KDE_NLS:=true}
-else
-	: ${KDE_NLS:=false}
-fi
-
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -159,13 +146,6 @@ case ${KDE_HANDBOOK} in
 	*)
 		IUSE+=" +handbook"
 		DEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
-		;;
-esac
-
-case ${KDE_NLS} in
-	false)	;;
-	*)
-		IUSE+=" nls"
 		;;
 esac
 
@@ -337,7 +317,7 @@ kde5_src_prepare() {
 
 	# enable only the requested translations
 	# when required
-	if [[ ${KDE_BUILD_TYPE} = release ]] && use_if_iuse nls ; then
+	if [[ ${KDE_BUILD_TYPE} = release ]] ; then
 		for lang in $(ls po) ; do
 			if ! has ${lang} ${LINGUAS} ; then
 				rm -rf po/${lang}
