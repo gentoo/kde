@@ -112,6 +112,10 @@ case ${KDE_AUTODEPS} in
 		RDEPEND+=" >=kde-frameworks/kf-env-2"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
+		if [[ ${CATEGORY} = kde-base ]]; then
+			RDEPEND+=" !kde-base/kde-l10n:4"
+		fi
+
 		unset ecm_version
 		;;
 esac
