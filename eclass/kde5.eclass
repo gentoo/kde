@@ -80,6 +80,8 @@ fi
 # the LINGUAS environment variable.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_NLS:=true}
+elif [[ ${CATEGORY} = kde-base ]]; then
+	: ${KDE_NLS:=true}
 else
 	: ${KDE_NLS:=false}
 fi
