@@ -7,19 +7,9 @@ EAPI=5
 KDE_TEST="true"
 inherit kde5
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}.tar.xz"
-else
-	KEYWORDS=""
-fi
-
 DESCRIPTION="NetworkManager bindings for Qt"
-HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libnm-qt"
-
 LICENSE="LGPL-2"
-# maybe remove SLOT when it becomes official KDE Framework
-SLOT="0"
+KEYWORDS=" ~amd64"
 IUSE="teamd"
 
 RDEPEND="
@@ -29,6 +19,7 @@ RDEPEND="
 		>=net-misc/networkmanager-0.9.10.0[consolekit,teamd=]
 		>=net-misc/networkmanager-0.9.10.0[systemd,teamd=]
 	)
+	!net-libs/libnm-qt
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
