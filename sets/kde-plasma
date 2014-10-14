@@ -11,6 +11,7 @@ kde-base/kmenuedit:5
 kde-base/ksysguard:5
 kde-base/kwin:5
 kde-base/kwrited:5
+kde-base/libkscreen:5
 kde-base/libksysguard:5
 kde-base/milou:5
 kde-base/oxygen:5

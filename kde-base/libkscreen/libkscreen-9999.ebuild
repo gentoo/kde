@@ -5,20 +5,11 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
-if [[ $PV = *9999* ]]; then
-	EGIT_BRANCH="frameworks"
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kde5
 
 DESCRIPTION="KDE screen management library"
-HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkscreen"
-
 LICENSE="GPL-2"
+KEYWORDS=""
 IUSE=""
 
 # TODO: add X use flag, does not build at the moment
@@ -30,4 +21,6 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!x11-libs/libkscreen:5
+"

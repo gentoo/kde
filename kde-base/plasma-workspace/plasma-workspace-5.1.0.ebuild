@@ -12,9 +12,10 @@ KEYWORDS=" ~amd64"
 IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
-	$(add_kdebase_dep libksysguard)
 	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kwin)
+	$(add_kdebase_dep libkscreen)
+	$(add_kdebase_dep libksysguard)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
@@ -64,7 +65,6 @@ COMMON_DEPEND="
 	media-libs/phonon[qt5]
 	sys-libs/pam
 	sys-libs/zlib
-	x11-libs/libkscreen:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )

@@ -13,6 +13,7 @@
 >=kde-base/ksysguard-5.0:5
 >=kde-base/kwin-5.0:5
 >=kde-base/kwrited-5.0:5
+>=kde-base/libkscreen-5.0:5
 >=kde-base/libksysguard-5.0:5
 >=kde-base/milou-5.0:5
 >=kde-base/oxygen-5.0:5

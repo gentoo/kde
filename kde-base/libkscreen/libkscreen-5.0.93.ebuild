@@ -9,7 +9,7 @@ if [[ $PV = *9999* ]]; then
 	EGIT_BRANCH="frameworks"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/plasma/5.0.2/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -30,4 +30,6 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	x11-libs/libkscreen:5
+"
