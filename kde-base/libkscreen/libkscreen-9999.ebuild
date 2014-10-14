@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="frameworks"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
