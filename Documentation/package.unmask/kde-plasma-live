@@ -15,7 +15,9 @@
 ~kde-base/kwayland-9999
 ~kde-base/kwin-9999
 ~kde-base/kwrited-9999
+~kde-base/libkscreen-9999
 ~kde-base/libksysguard-9999
+~kde-base/libmm-qt-9999
 ~kde-base/libnm-qt-9999
 ~kde-base/milou-9999
 ~kde-base/oxygen-9999

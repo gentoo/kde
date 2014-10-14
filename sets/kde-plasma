@@ -13,6 +13,7 @@ kde-base/kwin:5
 kde-base/kwrited:5
 kde-base/libkscreen:5
 kde-base/libksysguard:5
+kde-base/libmm-qt:5
 kde-base/libnm-qt:5
 kde-base/milou:5
 kde-base/oxygen:5

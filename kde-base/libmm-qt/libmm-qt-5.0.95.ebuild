@@ -6,19 +6,9 @@ EAPI=5
 
 inherit kde5
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
-else
-	KEYWORDS=""
-fi
-
 DESCRIPTION="Modemmanager bindings for Qt"
-HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libmm-qt"
-
 LICENSE="LGPL-2"
-# maybe remove SLOT when it becomes a official KDE Framework
-SLOT="0"
+KEYWORDS=" ~amd64"
 IUSE=""
 
 RDEPEND="
