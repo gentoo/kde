@@ -11,7 +11,7 @@ HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen-fonts"
 SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}.tar.xz"
 
 LICENSE="OFL-1.1"
-SLOT="0"
+SLOT="5"
 KEYWORDS="~amd64"
 IUSE=""
 
@@ -19,6 +19,7 @@ DEPEND="
 	dev-libs/extra-cmake-modules
 	media-gfx/fontforge
 "
+RDEPEND="!media-fonts/oxygen-fonts"
 
 src_configure() {
 	local mycmakeargs=(

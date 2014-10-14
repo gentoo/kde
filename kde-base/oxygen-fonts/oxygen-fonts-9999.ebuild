@@ -4,21 +4,22 @@
 
 EAPI=5
 
-inherit cmake-utils font
+inherit cmake-utils font git-r3
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen-fonts"
-SRC_URI="mirror://kde/stable/plasma/${PV}/${P}.tar.xz"
+EGIT_REPO_URI="git://anongit.kde.org/oxygen-fonts"
 
 LICENSE="OFL-1.1"
-SLOT="0"
-KEYWORDS="~amd64"
+SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
 	dev-libs/extra-cmake-modules
 	media-gfx/fontforge
 "
+RDEPEND="!media-fonts/oxygen-fonts"
 
 src_configure() {
 	local mycmakeargs=(
