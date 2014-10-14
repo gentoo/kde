@@ -6,16 +6,15 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-clang"
-EGIT_BRANCH="kde4-legacy"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Clang plugin for KDevelop 4"
+DESCRIPTION="Clang plugin for KDevelop 5"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	dev-util/kdevelop:4[-cxx]
+	dev-util/kdevelop:5[-cxx]
 	>=sys-devel/llvm-3.4[clang]
 "
 RDEPEND="${DEPEND}"
