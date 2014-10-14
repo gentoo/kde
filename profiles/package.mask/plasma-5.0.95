@@ -23,9 +23,8 @@
 ~kde-base/powerdevil-5.0.95
 ~kde-base/systemsettings-5.0.95
 
-# Due to upstream versioning change, it's not clear yet
-# whether these packages will move to kde-base or stay in
-# their original locations so mask both for now.
+# Transitional masks as packages move to kde-base
+# due to being part of Plasma 5 proper.
 ~kde-base/oxygen-fonts-5.0.95
 ~kde-base/libmm-qt-5.0.95
 ~kde-base/libnm-qt-5.0.95
