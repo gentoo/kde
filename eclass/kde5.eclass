@@ -169,6 +169,10 @@ if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KDE_BUILD_TYPE} = release ]]; then
 	S=${WORKDIR}/${KMNAME}-${PV}
 fi
 
+if [[ ${CATEGORY} = kde-base && ${PV} = 5.1.0.1 ]]; then
+	S=${WORKDIR}/${PN}-5.1.0
+fi
+
 # Determine fetch location for released tarballs
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
