@@ -206,6 +206,9 @@ _calculate_src_uri() {
 					SRC_URI="mirror://kde/unstable/plasma/${PV}/${_kmname}-${PV}.tar.xz"
 					RESTRICT+=" mirror"
 					;;
+				5.1.0.1)
+					# Plasma 5 stable releases
+					SRC_URI="mirror://kde/stable/plasma/5.1.0/${_kmname}-${PV}.tar.xz" ;;
 				*)
 					# Plasma 5 stable releases
 					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
