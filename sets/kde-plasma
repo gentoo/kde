@@ -2,6 +2,7 @@
 kde-base/baloo:5
 kde-base/breeze:5
 kde-base/kde-cli-tools:5
+kde-base/kdeplasma-addons:5
 kde-base/kfilemetadata:5
 kde-base/khelpcenter:5
 kde-base/khotkeys:5
@@ -9,6 +10,7 @@ kde-base/kinfocenter:5
 kde-base/kio-extras:5
 kde-base/kmenuedit:5
 kde-base/ksysguard:5
+kde-base/kwayland:5
 kde-base/kwin:5
 kde-base/kwrited:5
 kde-base/libkscreen:5
