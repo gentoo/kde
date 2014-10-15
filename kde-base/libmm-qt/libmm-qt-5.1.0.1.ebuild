@@ -11,10 +11,12 @@ LICENSE="LGPL-2"
 KEYWORDS=" ~amd64"
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtxml:5
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.8[modemmanager]
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	!net-libs/libmm-qt
+"
