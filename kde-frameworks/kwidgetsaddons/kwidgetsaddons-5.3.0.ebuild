@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="An assortment of high-level widgets for common tasks"
 LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64"
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	dev-qt/qtgui:5

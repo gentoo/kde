@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
+	$(add_kdebase_dep oxygen-fonts)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -27,7 +28,6 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	media-fonts/oxygen-fonts
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libxcb

@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing additional widgets for item models"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	dev-qt/qtgui:5

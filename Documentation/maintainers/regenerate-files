@@ -15,8 +15,8 @@ RELEASE=${RELEASE:-4.12} # current stable
 KF_RELEASES="5.3"
 KF_RELEASE=${KF_RELEASE:-5.3}
 
-PLASMA_RELEASES="5.0"
-PLASMA_RELEASE=${PLASMA_RELEASE:-5.0}
+PLASMA_RELEASES="5.1"
+PLASMA_RELEASE=${PLASMA_RELEASE:-5.1}
 
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null

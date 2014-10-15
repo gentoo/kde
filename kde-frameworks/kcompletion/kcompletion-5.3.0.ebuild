@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
 KEYWORDS=" ~amd64"
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)

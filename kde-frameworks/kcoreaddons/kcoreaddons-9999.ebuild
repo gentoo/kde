@@ -9,7 +9,7 @@ inherit fdo-mime kde5
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="fam"
+IUSE="fam nls"
 
 RDEPEND="
 	dev-qt/qtcore:5[icu]

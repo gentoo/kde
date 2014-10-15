@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_NLS="false"
 inherit kde5
 
 DESCRIPTION="ECMAScipt compatible parser and engine"

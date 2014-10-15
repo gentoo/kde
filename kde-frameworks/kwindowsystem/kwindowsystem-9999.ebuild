@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing access to certain properties and features of the window manager"
 LICENSE="LGPL-2+ MIT"
 KEYWORDS=""
-IUSE="X"
+IUSE="nls X"
 
 RDEPEND="
 	dev-qt/qtgui:5

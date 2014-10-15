@@ -12,9 +12,13 @@
 ~kde-base/kwayland-9999 **
 ~kde-base/kwin-9999 **
 ~kde-base/kwrited-9999 **
+~kde-base/libkscreen-9999 **
 ~kde-base/libksysguard-9999 **
+~kde-base/libmm-qt-9999 **
+~kde-base/libnm-qt-9999 **
 ~kde-base/milou-9999 **
 ~kde-base/oxygen-9999 **
+~kde-base/oxygen-fonts-9999 **
 ~kde-base/plasma-desktop-9999 **
 ~kde-base/plasma-nm-9999 **
 ~kde-base/plasma-workspace-9999 **

@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework for managing bookmarks stored in XBEL format"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)

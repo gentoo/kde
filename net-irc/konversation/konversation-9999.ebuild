@@ -5,7 +5,6 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
-KDE_NLS="true"
 inherit kde5
 
 DESCRIPTION="A user friendly IRC Client for KDE"
@@ -15,7 +14,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="+crypt"
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -47,9 +46,10 @@ RDEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	crypt? ( app-crypt/qca:2[qt5] )
+	sys-devel/gettext
 "
-DEPEND="${RDEPEND}
-	nls? ( sys-devel/gettext )
+RDEPEND="${DEPEND}
+	!net-irc/konversation:4
 "
 
 src_configure() {

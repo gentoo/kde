@@ -6,7 +6,7 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-clang"
-EGIT_BRANCH="1.7"
+EGIT_BRANCH="kde4-legacy"
 inherit kde4-base
 
 DESCRIPTION="Clang plugin for KDevelop 4"

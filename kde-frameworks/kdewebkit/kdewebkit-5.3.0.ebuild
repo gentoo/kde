@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_NLS="false"
 KDE_TEST="false"
 inherit kde5
 
