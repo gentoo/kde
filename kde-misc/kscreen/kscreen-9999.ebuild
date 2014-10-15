@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_kdebase_dep libkscreen)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -25,7 +26,6 @@ DEPEND="
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	>=x11-libs/libkscreen-${PV}:5
 "
 RDEPEND="
 	${DEPEND}

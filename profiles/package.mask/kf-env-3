@@ -1,4 +1,0 @@
-# Michael Palimaka <kensington@gentoo.org> (24 Sep 2013)
-# Requires the release of ECM-1.3.0 and a rebuild of all
-# revdeps.
-=kde-frameworks/kf-env-3

@@ -86,24 +86,18 @@ _add_kdecategory_dep() {
 	local category=${1}
 	local package=${2}
 	local use=${3}
-	local minversion=${4}
-	local version
-
-	if [[ -n ${minversion} ]]; then
-		version=${minversion}
-	# if building stable-live version depend just on the raw KDE version
-	# to allow merging packages against more stable basic stuff
-	elif [[ ${PV} == *.9999 ]]; then
-		version=$(get_kde_version)
-	else
-		version=${PV}
-	fi
+	local version=${4}
 
 	if [[ -n ${use} ]] ; then
-		usedep="[${use}]"
+		local use="[${use}]"
 	fi
 
-	echo " >=${category}/${package}-${version}:5${usedep}"
+	if [[ -n ${version} ]] ; then
+		local operator=">="
+		local version="-${version}"
+	fi
+
+	echo " ${operator}${category}/${package}${version}:5${use}"
 }
 
 # @FUNCTION: add_frameworks_dep
@@ -150,7 +144,15 @@ add_frameworks_dep() {
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	_add_kdecategory_dep kde-base "${1}" "${2}" "${3}"
+	local version
+
+	if [[ -n ${3} ]]; then
+		version=${3}
+	elif [[ ${CATEGORY} = kde-base ]]; then
+		version=${PV}
+	fi
+
+	_add_kdecategory_dep kde-base "${1}" "${2}" "${version}"
 }
 
 # @FUNCTION: get_kde_version
