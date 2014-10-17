@@ -19,3 +19,5 @@ RDEPEND="${DEPEND}
 	!kde-misc/print-manager
 	app-admin/system-config-printer-gnome
 "
+
+PATCHES=( "${FILESDIR}/${PN}-4.14.1-cups20.patch" )
