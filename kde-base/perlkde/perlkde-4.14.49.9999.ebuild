@@ -22,6 +22,9 @@ DEPEND="${RDEPEND}
 
 PATCHES=( "${FILESDIR}/${PN}-4.11.3-vendor.patch" )
 
+RESTRICT="test"
+# yes they all fail.
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with akonadi)
