@@ -23,6 +23,8 @@ RDEPEND="
 "
 DEPEND=${RDEPEND}
 
+RESTRICT="test"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-4.10.80-vendor.patch"
 )
