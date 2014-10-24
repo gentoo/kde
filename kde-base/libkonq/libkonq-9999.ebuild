@@ -41,6 +41,4 @@ RDEPEND="${DEPEND}
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-5-cmake.patch" )
-
 S=${S}/lib/konq
