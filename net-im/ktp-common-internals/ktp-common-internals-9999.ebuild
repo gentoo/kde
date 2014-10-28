@@ -48,7 +48,7 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt5]
 	otr? (
 		dev-libs/libgcrypt:0=
-		>=net-im/libotr-4.0.0
+		>=net-libs/libotr-4.0.0
 	)
 "
 RDEPEND="${DEPEND}
