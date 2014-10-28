@@ -118,7 +118,7 @@ add_frameworks_dep() {
 	if [[ -n ${3} ]]; then
 		version=${3}
 	elif [[ ${CATEGORY} = kde-frameworks ]]; then
-		version=${PV}
+		version=$(get_version_component_range 1-2)
 	elif [[ ${CATEGORY} = kde-base ]]; then
 		case $(get_kde_version) in
 			5.1) version=5.3.0 ;;
