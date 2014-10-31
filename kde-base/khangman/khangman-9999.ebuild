@@ -30,4 +30,6 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/khangman:4
+"
