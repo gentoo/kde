@@ -19,7 +19,7 @@ LICENSE="GPL-2+"
 
 DEPEND="
 	app-crypt/qca:2[qt5,openssl]
-	dev-libs/qjson[qt5]
+	x11-libs/libfakekey
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
