@@ -201,7 +201,12 @@ _calculate_src_uri() {
 
 	case ${CATEGORY} in
 		kde-frameworks)
-			SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+			case ${PV} in 
+				5.0.0|5.1.0|5.2.0|5.3.0)
+				SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
+				*)
+				SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
+			esac
 			;;
 		kde-base)
 			case ${PV} in
