@@ -109,7 +109,7 @@ case ${KDE_AUTODEPS} in
 		fi
 
 		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
-		RDEPEND+=" >=kde-frameworks/kf-env-2"
+		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
 		if [[ ${CATEGORY} = kde-base ]]; then
