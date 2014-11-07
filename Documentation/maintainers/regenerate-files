@@ -30,7 +30,7 @@ done
 for release in $KF_RELEASES; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}.keywords"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
-		cat ".kde-frameworks-${release}/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-frameworks-${release}.keywords"
+		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' |sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-frameworks-${release}.keywords"
 	fi
 done
 
@@ -99,7 +99,7 @@ done
 for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d ".kde-frameworks-${release}" ]]; then
-		cat ".kde-frameworks-${release}/"* >> "kde-frameworks-${release}"
+		cat ".kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
 	fi
 done
 
@@ -124,7 +124,7 @@ done
 for release in $KF_RELEASES live; do
 	echo -e "${HEADER}" > "kde-frameworks-${release}"
 	if [[ -d "../package.unmask/.kde-frameworks-${release}" ]]; then
-		cat "../package.unmask/.kde-frameworks-${release}/"* >> "kde-frameworks-${release}"
+		cat "../package.unmask/.kde-frameworks-${release}/"* | grep -P -v '^>=kde-frameworks/(?!kf-env)' >> "kde-frameworks-${release}"
 		sed -i "kde-frameworks-${release}" -e "/^<kde-frameworks\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
 	fi
 done
