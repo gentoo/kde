@@ -4,18 +4,23 @@
 
 EAPI=5
 
+KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB es et fi fr gl he hu it ja
+kk km ko lt nb nds nl pa pl pt pt_BR ru si sk sl sr sr@ijekavian
+sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
+KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation.kde.org"
 
-LICENSE="GPL-2"
-KEYWORDS=""
+LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
+KEYWORDS=""
 IUSE="+crypt debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
+	media-libs/phonon[qt4]
 	crypt? ( app-crypt/qca:2 )
 "
 RDEPEND="${DEPEND}
