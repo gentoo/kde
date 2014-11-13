@@ -451,6 +451,9 @@ _calculate_src_uri() {
 				4.11.13)
 					# Part of 4.14 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.14.2/src/${_kmname_pv}.tar.xz" ;;
+				4.11.14)
+					# Part of 4.14 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.14.3/src/${_kmname_pv}.tar.xz" ;;
 				*)
 					# Stable KDE SC releases
 					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
