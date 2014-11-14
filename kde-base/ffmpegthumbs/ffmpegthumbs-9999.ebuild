@@ -11,10 +11,12 @@ DESCRIPTION="A FFmpeg based thumbnail Generator for Video Files"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kio)
 	dev-qt/qtgui:5
-	virtual/ffmpeg
+	virtual/ffmpeg"
+
+DEPEND="
+	${RDEPEND}
 	virtual/pkgconfig
 "
-RDEPEND="${DEPEND}"
