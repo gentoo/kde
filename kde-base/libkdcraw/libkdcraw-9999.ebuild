@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE digital camera raw image library wrapper"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
