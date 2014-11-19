@@ -1,0 +1,275 @@
+diff --git a/common-project-config.pri b/common-project-config.pri
+index 545f1c6..505baa9 100644
+--- a/common-project-config.pri
++++ b/common-project-config.pri
+@@ -36,9 +36,11 @@ DEFINES += NO_SIGNON_USER
+ # Qt4/Qt5 common checks
+ greaterThan(QT_MAJOR_VERSION, 4) {
+     LIBSIGNON = libsignon-qt5
++    CMAKE_BASENAME = SignOnQt5
+     LIBQTCORE = Qt5Core
+ } else {
+     LIBSIGNON = libsignon-qt
++    CMAKE_BASENAME = SignOnQt
+     LIBQTCORE = QtCore
+ }
+ 
+@@ -84,7 +86,7 @@ isEmpty( LIBDIR ) {
+ }
+ 
+ isEmpty ( CMAKE_CONFIG_PATH ) {
+-    CMAKE_CONFIG_PATH = $${INSTALL_LIBDIR}/cmake/SignOnQt/
++    CMAKE_CONFIG_PATH = $${INSTALL_LIBDIR}/cmake/$${CMAKE_BASENAME}
+     message("====")
+     message("==== NOTE: To override the cmake module installation path run: `qmake CMAKE_CONFIG_PATH=/custom/path'")
+     message("==== (current installation path is `$${CMAKE_CONFIG_PATH}')")
+diff --git a/common-vars.pri b/common-vars.pri
+index d91831d..c2b8ef3 100644
+--- a/common-vars.pri
++++ b/common-vars.pri
+@@ -14,7 +14,7 @@ PROJECT_NAME = signon
+ # Project version
+ # remember to update debian/* files if you changes this
+ #-----------------------------------------------------------------------------
+-PROJECT_VERSION = 8.56
++PROJECT_VERSION = 8.57
+ 
+ #-----------------------------------------------------------------------------
+ # Library version
+diff --git a/lib/SignOn/SignOnQt5Config.cmake.in b/lib/SignOn/SignOnQt5Config.cmake.in
+new file mode 100644
+index 0000000..523fffb
+--- /dev/null
++++ b/lib/SignOn/SignOnQt5Config.cmake.in
+@@ -0,0 +1,7 @@
++#  SIGNONQT_INCLUDE_DIRS - The libsignon-qt include directories
++#  SIGNONQT_LIBRARIES - The libraries needed to use libsignon-qt
++#  SIGNONQT_LIBRARIES_STATIC - The static version of libsignon-qt
++
++set(SIGNONQT_LIBRARIES $${INSTALL_LIBDIR}/lib$${TARGET}.so)
++set(SIGNONQT_LIBRARIES_STATIC $${INSTALL_LIBDIR}/lib$${TARGET}.a)
++set(SIGNONQT_INCLUDE_DIRS $${INSTALL_PREFIX}/include/$${TARGET})
+\ No newline at end of file
+diff --git a/lib/SignOn/SignOnQt5ConfigVersion.cmake.in b/lib/SignOn/SignOnQt5ConfigVersion.cmake.in
+new file mode 100644
+index 0000000..d086b47
+--- /dev/null
++++ b/lib/SignOn/SignOnQt5ConfigVersion.cmake.in
+@@ -0,0 +1,10 @@
++set(PACKAGE_VERSION $${PROJECT_VERSION})
++
++if("${PACKAGE_VERSION}" VERSION_LESS "${PACKAGE_FIND_VERSION}" )
++   set(PACKAGE_VERSION_COMPATIBLE FALSE)
++else("${PACKAGE_VERSION}" VERSION_LESS "${PACKAGE_FIND_VERSION}" )
++   set(PACKAGE_VERSION_COMPATIBLE TRUE)
++   if( "${PACKAGE_FIND_VERSION}" STREQUAL "${PACKAGE_VERSION}")
++      set(PACKAGE_VERSION_EXACT TRUE)
++   endif( "${PACKAGE_FIND_VERSION}" STREQUAL "${PACKAGE_VERSION}")
++endif("${PACKAGE_VERSION}" VERSION_LESS "${PACKAGE_FIND_VERSION}" )
+\ No newline at end of file
+diff --git a/lib/SignOn/connection-manager.cpp b/lib/SignOn/connection-manager.cpp
+index 62b7dd7..d08edb6 100644
+--- a/lib/SignOn/connection-manager.cpp
++++ b/lib/SignOn/connection-manager.cpp
+@@ -103,7 +103,7 @@ ConnectionManager::setupSocketConnection()
+     if (!connection.isConnected()) {
+         QDBusError error = connection.lastError();
+         QString name = error.name();
+-        BLAME() << "p2p error:" << error << error.type();
++        TRACE() << "p2p error:" << error << error.type();
+         if (name == QLatin1String("org.freedesktop.DBus.Error.FileNotFound") &&
+             m_serviceStatus != ServiceActivated) {
+             return SocketConnectionNoService;
+diff --git a/lib/SignOn/libsignon-qt.pri b/lib/SignOn/libsignon-qt.pri
+index 7f6a0dc..0356509 100644
+--- a/lib/SignOn/libsignon-qt.pri
++++ b/lib/SignOn/libsignon-qt.pri
+@@ -73,10 +73,10 @@ pkgconfig.files = lib$${TARGET}.pc
+ include($${TOP_SRC_DIR}/common-pkgconfig.pri)
+ INSTALLS += pkgconfig
+ 
+-QMAKE_SUBSTITUTES += SignOnQtConfig.cmake.in \
+-    SignOnQtConfigVersion.cmake.in
+-cmake_modules.files = SignOnQtConfig.cmake \
+-    SignOnQtConfigVersion.cmake
++QMAKE_SUBSTITUTES += $${CMAKE_BASENAME}Config.cmake.in \
++    $${CMAKE_BASENAME}ConfigVersion.cmake.in
++cmake_modules.files = $${CMAKE_BASENAME}Config.cmake \
++    $${CMAKE_BASENAME}ConfigVersion.cmake
+ cmake_modules.path = $${CMAKE_CONFIG_PATH}
+ 
+-INSTALLS += cmake_modules
+\ No newline at end of file
++INSTALLS += cmake_modules
+diff --git a/lib/plugins/signon-plugins-common/SignOn/blobiohandler.cpp b/lib/plugins/signon-plugins-common/SignOn/blobiohandler.cpp
+index a1022cc..bb00e7d 100644
+--- a/lib/plugins/signon-plugins-common/SignOn/blobiohandler.cpp
++++ b/lib/plugins/signon-plugins-common/SignOn/blobiohandler.cpp
+@@ -137,8 +137,9 @@ QVariantMap expandDBusArgumentValue(const QVariant &value, bool *success)
+     // first, convert the QDBusArgument to a map
+     QDBusArgument dbusValue = value.value<QDBusArgument>();
+     QVariantMap converted;
+-    if (dbusValue.currentType() == QDBusArgument::MapType) {
+-        //Assume that all maps are a{sv}
++    if (dbusValue.currentType() == QDBusArgument::MapType &&
++        // We only care about a{sv}
++        dbusValue.currentSignature() == "a{sv}") {
+         converted = qdbus_cast<QVariantMap>(dbusValue);
+     } else {
+         *success = false;
+@@ -152,7 +153,7 @@ QVariantMap expandDBusArgumentValue(const QVariant &value, bool *success)
+     for (i = converted.constBegin(); i != converted.constEnd(); ++i) {
+         if (qstrcmp(i.value().typeName(), "QDBusArgument") == 0) {
+             QVariantMap convertedValue = expandDBusArgumentValue(i.value(), success);
+-            if (success == false) {
++            if (*success == false) {
+                 //bail out to prevent error in serialization
+                 return QVariantMap();
+             }
+diff --git a/lib/plugins/signon-plugins.pro b/lib/plugins/signon-plugins.pro
+index 5a96a4f..bca4975 100644
+--- a/lib/plugins/signon-plugins.pro
++++ b/lib/plugins/signon-plugins.pro
+@@ -5,8 +5,6 @@ include( ../../common-project-config.pri )
+ include($${TOP_SRC_DIR}/common-installs-config.pri)
+ include($${TOP_SRC_DIR}/common-vars.pri)
+ 
+-CONFIG += static
+-
+ HEADERS = \
+     SignOn/authpluginif.h \
+     SignOn/uisessiondata.h \
+diff --git a/src/remotepluginprocess/remotepluginprocess.pro b/src/remotepluginprocess/remotepluginprocess.pro
+index d2112f5..fa7aabb 100644
+--- a/src/remotepluginprocess/remotepluginprocess.pro
++++ b/src/remotepluginprocess/remotepluginprocess.pro
+@@ -32,9 +32,12 @@ system(pkg-config --exists libproxy-1.0) {
+ }
+ 
+ QMAKE_LIBDIR += \
+-    $${TOP_BUILD_DIR}/lib/plugins/signon-plugins-common
++    $${TOP_BUILD_DIR}/lib/plugins/signon-plugins-common \
++    $${TOP_BUILD_DIR}/lib/plugins
+ 
+-LIBS += -lsignon-plugins-common
++LIBS += \
++    -lsignon-plugins-common \
++    -lsignon-plugins
+ 
+ QMAKE_CXXFLAGS += -fno-exceptions \
+                   -fno-rtti
+diff --git a/src/signond/credentialsdb.cpp b/src/signond/credentialsdb.cpp
+index a33667d..ea1e398 100644
+--- a/src/signond/credentialsdb.cpp
++++ b/src/signond/credentialsdb.cpp
+@@ -1432,6 +1432,8 @@ quint32 CredentialsDB::updateCredentials(const SignonIdentityInfo &info)
+         }
+     }
+ 
++    Q_EMIT credentialsUpdated(id);
++
+     return id;
+ }
+ 
+diff --git a/src/signond/credentialsdb.h b/src/signond/credentialsdb.h
+index 5e6e7ac..cc22b03 100644
+--- a/src/signond/credentialsdb.h
++++ b/src/signond/credentialsdb.h
+@@ -134,6 +134,9 @@ public:
+     QStringList references(const quint32 id,
+                            const QString &token = QString());
+ 
++Q_SIGNALS:
++    void credentialsUpdated(quint32 id);
++
+ private:
+     SignOn::AbstractSecretsStorage *secretsStorage;
+     SecretsCache *m_secretsCache;
+diff --git a/src/signond/signonidentity.cpp b/src/signond/signonidentity.cpp
+index 958fb42..074273f 100644
+--- a/src/signond/signonidentity.cpp
++++ b/src/signond/signonidentity.cpp
+@@ -103,6 +103,12 @@ SignonIdentity::SignonIdentity(quint32 id, int timeout,
+                                      SIGNON_UI_DAEMON_OBJECTPATH,
+                                      QDBusConnection::sessionBus(),
+                                      this);
++
++    /* Watch for credential updates happening outside of this object (this can
++     * happen on request of authentication plugins) */
++    CredentialsDB *db = CredentialsAccessManager::instance()->credentialsDB();
++    QObject::connect(db, SIGNAL(credentialsUpdated(quint32)),
++                     this, SLOT(onCredentialsUpdated(quint32)));
+ }
+ 
+ SignonIdentity::~SignonIdentity()
+@@ -434,6 +440,22 @@ void SignonIdentity::signOutCompleted(QDBusPendingCallWatcher *call)
+     context->connection().send(reply);
+ }
+ 
++void SignonIdentity::onCredentialsUpdated(quint32 id)
++{
++    if (id != m_id) return;
++
++    TRACE() << m_id;
++
++    /* Clear the cached information about the identity; some of it might not be
++     * valid anymore */
++    if (m_pInfo) {
++        delete m_pInfo;
++        m_pInfo = NULL;
++    }
++
++    emit infoUpdated((int)SignOn::IdentityDataUpdated);
++}
++
+ quint32 SignonIdentity::store(const QVariantMap &info)
+ {
+     keepInUse();
+diff --git a/src/signond/signonidentity.h b/src/signond/signonidentity.h
+index 88c7199..c87367e 100644
+--- a/src/signond/signonidentity.h
++++ b/src/signond/signonidentity.h
+@@ -85,6 +85,7 @@ Q_SIGNALS:
+ private Q_SLOTS:
+     void removeCompleted(QDBusPendingCallWatcher *call);
+     void signOutCompleted(QDBusPendingCallWatcher *call);
++    void onCredentialsUpdated(quint32 id);
+ 
+ private:
+     SignonIdentity(quint32 id, int timeout, SignonDaemon *parent);
+diff --git a/tests/run-with-signond.sh b/tests/run-with-signond.sh
+index 7f0705e..3af5eaf 100755
+--- a/tests/run-with-signond.sh
++++ b/tests/run-with-signond.sh
+@@ -12,7 +12,7 @@ export SSO_DAEMON_TIMEOUT=5
+ export SSO_IDENTITY_TIMEOUT=5
+ export SSO_AUTHSESSION_TIMEOUT=5
+ export PATH="${BUILDDIR}/src/remotepluginprocess:$PATH"
+-export LD_LIBRARY_PATH="${BUILDDIR}/lib/plugins/signon-plugins-common":"${BUILDDIR}/lib/signond/SignOn":"$LD_LIBRARY_PATH"
++export LD_LIBRARY_PATH="${BUILDDIR}/lib/plugins":"${BUILDDIR}/lib/plugins/signon-plugins-common":"${BUILDDIR}/lib/signond/SignOn":"$LD_LIBRARY_PATH"
+ export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/runtime-$(whoami)}/signon-tests"
+ mkdir -p "$XDG_RUNTIME_DIR"
+ 
+diff --git a/tests/signond-tests/databasetest.cpp b/tests/signond-tests/databasetest.cpp
+index c6ec5b2..5276d6f 100644
+--- a/tests/signond-tests/databasetest.cpp
++++ b/tests/signond-tests/databasetest.cpp
+@@ -348,7 +348,17 @@ void TestDatabase::updateCredentialsTest()
+     QCOMPARE(retInfo.userName(), updateInfo.userName());
+     QCOMPARE(retInfo.password(), updateInfo.password());
+     QCOMPARE(retInfo.storePassword(), updateInfo.storePassword());
+-    QCOMPARE(retInfo.methods(), updateInfo.methods());
++
++    /* The sorting of the method's mechanisms might vary, so we cannot just
++     * compare the whole method map as a whole. */
++    QCOMPARE(retInfo.methods().keys().toSet(),
++             updateInfo.methods().keys().toSet());
++    QMapIterator<QString, QStringList> it(retInfo.methods());
++    while (it.hasNext()) {
++        it.next();
++        QCOMPARE(it.value().toSet(), umethods.value(it.key()).toSet());
++    }
++
+     QCOMPARE(retInfo.realms().toSet(), updateInfo.realms().toSet());
+     QCOMPARE(retInfo.accessControlList().toSet(),
+              updateInfo.accessControlList().toSet());
