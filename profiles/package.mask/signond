@@ -1,2 +1,3 @@
 net-libs/accounts-qt
 net-libs/signond
+net-libs/signon-oauth2
