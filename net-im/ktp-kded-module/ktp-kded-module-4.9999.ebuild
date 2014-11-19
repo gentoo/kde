@@ -8,6 +8,7 @@ KDE_LINGUAS="bs ca ca@valencia cs da de el es et fi fr ga gl hu ia it ja kk km
 ko lt mr nb nds nl pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin
 sr@latin sv uk zh_CN zh_TW"
 MY_P=${PN/kded/kded-integration}-${PV}
+EGIT_BRANCH="kde-telepathy-0.9"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy workspace integration"
