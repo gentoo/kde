@@ -4,37 +4,19 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
-inherit kde5
+inherit kde4-base
 
 DESCRIPTION="Manage print jobs and printers in KDE"
 KEYWORDS=""
-IUSE="gtk"
+IUSE="debug +gtk"
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	net-print/cups
+	>=net-print/cups-1.5.0[dbus]
 "
 RDEPEND="${DEPEND}
-	!kde-base/print-manager:4
+	!kde-base/printer-applet:4
+	!kde-base/system-config-printer-kde:4
+	!kde-misc/print-manager
 	gtk? ( app-admin/system-config-printer-gnome )
 "
 
