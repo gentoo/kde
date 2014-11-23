@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
