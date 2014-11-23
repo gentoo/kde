@@ -8,24 +8,14 @@ inherit kde4-base
 
 DESCRIPTION="Base library common to many KDE games"
 KEYWORDS=""
-IUSE="debug openal"
+IUSE="debug"
 
 DEPEND="
-	openal? (
-		media-libs/libsndfile
-		media-libs/openal
-	)
+	media-libs/libsndfile
+	media-libs/openal
 "
 RDEPEND="${DEPEND}
 	!<kde-base/kbreakout-4.10.50:4
 "
 
 KMSAVELIBS="true"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use openal USE_OPENAL_SNDFILE)
-	)
-
-	kde4-base_src_configure
-}
