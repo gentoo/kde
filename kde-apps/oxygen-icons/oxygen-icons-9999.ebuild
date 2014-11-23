@@ -24,4 +24,6 @@ KEYWORDS=""
 IUSE="bindist"
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/oxygen-icons
+"
