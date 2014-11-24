@@ -23,7 +23,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	$(add_kdebase_dep libkeduvocdocument)
+	$(add_kdeapps_dep libkeduvocdocument)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5[qml]
