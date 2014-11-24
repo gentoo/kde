@@ -169,10 +169,6 @@ if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KDE_BUILD_TYPE} = release ]]; then
 	S=${WORKDIR}/${KMNAME}-${PV}
 fi
 
-if [[ ${CATEGORY} = kde-base && ${PN} != breeze && ${PN} != oxygen && ${PN} != plasma-nm && ${PV} = 5.1.0.1 ]]; then
-	S=${WORKDIR}/${PN}-5.1.0
-fi
-
 # Determine fetch location for released tarballs
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
@@ -211,13 +207,7 @@ _calculate_src_uri() {
 			esac
 			;;
 		kde-frameworks)
-			case ${PV} in 
-				5.0.0|5.1.0|5.2.0|5.3.0)
-				SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz" ;;
-				*)
-				SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
-			esac
-			;;
+			SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
 		kde-base)
 			case ${PV} in
 				5.?.[6-9]? )
@@ -225,9 +215,6 @@ _calculate_src_uri() {
 					SRC_URI="mirror://kde/unstable/plasma/${PV}/${_kmname}-${PV}.tar.xz"
 					RESTRICT+=" mirror"
 					;;
-				5.1.0.1)
-					# Plasma 5 stable releases
-					SRC_URI="mirror://kde/stable/plasma/5.1.0/${_kmname}-${PV}.tar.xz" ;;
 				*)
 					# Plasma 5 stable releases
 					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;
