@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE library for CDDB"
@@ -20,6 +21,16 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMSAVELIBS="true"
+
+src_prepare() {
+	kde4-base_src_prepare
+
+	if ! use handbook ; then
+		pushd kcmcddb > /dev/null
+		comment_add_subdirectory doc
+		popd > /dev/null
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
