@@ -288,7 +288,9 @@ add_kdebase_dep() {
 
 	if [[ ${CATEGORY} == kde-apps && ${1} != kdelibs && ${1} != kdepimlibs && ${1} != baloo-widgets &&
 		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata && ${1} != pykde4 &&
-		${1} != krosspython && ${1} != nepomuk-core && ${1} != nepomuk-widgets && ${1} != kwin ]] ; then
+		${1} != krosspython && ${1} != nepomuk-core && ${1} != nepomuk-widgets && ${1} != kwin &&
+		${1} != khotkeys && ${1} != systemsettings && ${1} != powerdevil && ${1} != plasma-workspace &&
+		${1} != krunner && ${1} != plasma-workspace && ${1} != ksysguard && ${1} != kinfocenter ]] ; then
 		category=kde-apps
 	fi
 
