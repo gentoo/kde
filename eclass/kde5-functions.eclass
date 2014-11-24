@@ -131,6 +131,30 @@ add_frameworks_dep() {
 	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
 }
 
+# @FUNCTION: add_kdeapps_dep
+# @USAGE: <package> [USE flags] [minimum version]
+# @DESCRIPTION:
+# Create proper dependency for kde-apps/ dependencies.
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
+add_kdeapps_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local version
+
+	if [[ -n ${3} ]]; then
+		version=${3}
+	elif [[ ${CATEGORY} = kde-apps ]]; then
+		version=${PV}
+	fi
+
+	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
+}
+
 # @FUNCTION: add_kdebase_dep
 # @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:

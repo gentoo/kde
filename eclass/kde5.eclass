@@ -200,6 +200,16 @@ _calculate_src_uri() {
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
+		kde-apps)
+			case ${PV} in
+				??.?.[6-9]? | ??.??.[6-9]? )
+					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz"
+					RESTRICT+=" mirror"
+					;;
+				*)
+					SRC_URI="mirror://kde/stable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+			esac
+			;;
 		kde-frameworks)
 			case ${PV} in 
 				5.0.0|5.1.0|5.2.0|5.3.0)
