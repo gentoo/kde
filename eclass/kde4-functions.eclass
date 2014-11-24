@@ -294,7 +294,7 @@ add_kdebase_dep() {
 		${1} != khotkeys && ${1} != systemsettings && ${1} != powerdevil && ${1} != plasma-workspace &&
 		${1} != krunner && ${1} != plasma-workspace && ${1} != ksysguard && ${1} != kinfocenter &&
 		${1} != kdeplasma-addons && ${1} != kmenuedit && ${1} != kwrited && ${1} != libtaskmanager &&
-		${1} != klipper ]] ; then
+		${1} != klipper && ${1} != khelpcenter && ${1} != kdebindings-meta ]] ; then
 		category=kde-apps
 	fi
 
