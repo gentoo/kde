@@ -106,6 +106,11 @@ CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
 # used for optionality)
 : ${WANT_CMAKE:=always}
 
+# @ECLASS-VARIABLE: CMAKE_EXTRA_CACHE_FILE
+# @DESCRIPTION:
+# Specifies an extra cache file to pass to cmake. This is the analog of EXTRA_ECONF
+# for econf and is needed to pass TRY_RUN results when cross-compiling.
+# Should be set by user in a per-package basis in /etc/portage/package.env.
 
 CMAKEDEPEND=""
 case ${WANT_CMAKE} in
@@ -454,13 +459,43 @@ enable_cmake-utils_src_configure() {
 	cat > "${build_rules}" <<- _EOF_
 		SET (CMAKE_AR $(type -P $(tc-getAR)) CACHE FILEPATH "Archive manager" FORCE)
 		SET (CMAKE_ASM_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "ASM compile command" FORCE)
-		SET (CMAKE_C_COMPILER $(type -P $(tc-getCC)) CACHE FILEPATH "C compiler" FORCE)
 		SET (CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C compile command" FORCE)
-		SET (CMAKE_CXX_COMPILER $(type -P $(tc-getCXX)) CACHE FILEPATH "C++ compiler" FORCE)
 		SET (CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
 		SET (CMAKE_RANLIB $(type -P $(tc-getRANLIB)) CACHE FILEPATH "Archive index generator" FORCE)
 		SET (PKG_CONFIG_EXECUTABLE $(type -P $(tc-getPKG_CONFIG)) CACHE FILEPATH "pkg-config executable" FORCE)
 	_EOF_
+
+	local toolchain_file=${BUILD_DIR}/gentoo_toolchain.cmake
+	cat > ${toolchain_file} <<- _EOF_
+		SET (CMAKE_C_COMPILER $(tc-getCC))
+		SET (CMAKE_CXX_COMPILER $(tc-getCXX))
+	_EOF_
+
+	if tc-is-cross-compiler; then
+		local sysname
+		case "${KERNEL:-linux}" in
+			Cygwin) sysname="CYGWIN_NT-5.1" ;;
+			HPUX) sysname="HP-UX" ;;
+			linux) sysname="Linux" ;;
+			Winnt) sysname="Windows" ;;
+			*) sysname="${KERNEL}" ;;
+		esac
+
+		cat >> "${toolchain_file}" <<- _EOF_
+			SET (CMAKE_SYSTEM_NAME "${sysname}")
+		_EOF_
+
+		if [ "${SYSROOT:-/}" != "/" ] ; then
+			# When cross-compiling with a sysroot (e.g. with crossdev's emerge wrappers)
+			# we need to tell cmake to use libs/headers from the sysroot but programs from / only.
+			cat >> "${toolchain_file}" <<- _EOF_
+				set(CMAKE_FIND_ROOT_PATH "${SYSROOT}")
+				set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+				set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+				set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+			_EOF_
+		fi
+	fi
 
 	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
 
@@ -523,8 +558,13 @@ enable_cmake-utils_src_configure() {
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
 		-DCMAKE_INSTALL_DO_STRIP=OFF
 		-DCMAKE_USER_MAKE_RULES_OVERRIDE="${build_rules}"
+		-DCMAKE_TOOLCHAIN_FILE="${toolchain_file}"
 		"${MYCMAKEARGS}"
 	)
+
+	if [[ -n "${CMAKE_EXTRA_CACHE_FILE}" ]] ; then
+		cmakeargs+=( -C "${CMAKE_EXTRA_CACHE_FILE}" )
+	fi
 
 	pushd "${BUILD_DIR}" > /dev/null
 	debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}"

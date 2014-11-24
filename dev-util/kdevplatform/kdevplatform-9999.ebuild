@@ -50,7 +50,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep threadweaver)
-	$(add_kdebase_dep libkomparediff2)
+	$(add_kdeapps_dep libkomparediff2)
 	dev-libs/boost:=
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

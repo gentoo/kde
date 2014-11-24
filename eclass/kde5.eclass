@@ -109,7 +109,7 @@ case ${KDE_AUTODEPS} in
 		fi
 
 		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
-		RDEPEND+=" >=kde-frameworks/kf-env-2"
+		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
 		if [[ ${CATEGORY} = kde-base ]]; then
@@ -196,9 +196,18 @@ _calculate_src_uri() {
 	DEPEND+=" app-arch/xz-utils"
 
 	case ${CATEGORY} in
-		kde-frameworks)
-			SRC_URI="mirror://kde/stable/frameworks/${PV}/${_kmname}-${PV}.tar.xz"
+		kde-apps)
+			case ${PV} in
+				??.?.[6-9]? | ??.??.[6-9]? )
+					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz"
+					RESTRICT+=" mirror"
+					;;
+				*)
+					SRC_URI="mirror://kde/stable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+			esac
 			;;
+		kde-frameworks)
+			SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
 		kde-base)
 			case ${PV} in
 				5.?.[6-9]? )
@@ -206,9 +215,6 @@ _calculate_src_uri() {
 					SRC_URI="mirror://kde/unstable/plasma/${PV}/${_kmname}-${PV}.tar.xz"
 					RESTRICT+=" mirror"
 					;;
-				5.1.0.1)
-					# Plasma 5 stable releases
-					SRC_URI="mirror://kde/stable/plasma/5.1.0/${_kmname}-${PV}.tar.xz" ;;
 				*)
 					# Plasma 5 stable releases
 					SRC_URI="mirror://kde/stable/plasma/${PV}/${_kmname}-${PV}.tar.xz" ;;

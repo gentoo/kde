@@ -18,7 +18,7 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-IUSE=""
+IUSE="otr"
 
 # todo: telepathy-logger-qt, libkpeople, kdepimlibs
 DEPEND="
@@ -46,7 +46,20 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	>=net-libs/telepathy-qt-0.9.5[qt5]
+	otr? (
+		dev-libs/libgcrypt:0=
+		>=net-libs/libotr-4.0.0
+	)
 "
 RDEPEND="${DEPEND}
 	!net-im/ktp-common-internals:4
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package otr Libgcrypt)
+		$(cmake-utils_use_find_package otr LibOTR)
+	)
+
+	kde5_src_configure
+}

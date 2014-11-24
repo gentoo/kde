@@ -186,7 +186,7 @@ case ${KDEBASE} in
 		# packages that will never be mirrored. (As they only will ever be in
 		# the overlay).
 		case ${PV} in
-			*9999* | 4.?.[6-9]? | 4.??.[6-9]?)
+			*9999* | 4.?.[6-9]? | 4.??.[6-9]? | ??.?.[6-9]? | ??.??.[6-9]?)
 				RESTRICT+=" mirror"
 				;;
 		esac
@@ -329,9 +329,13 @@ kdedepend="
 
 kderdepend=""
 
+if [[ ${CATEGORY} == kde-apps ]]; then
+	kderdepend+=" !kde-base/${PN}"
+fi
+
 # all packages needs oxygen icons for basic iconset
 if [[ ${PN} != oxygen-icons ]]; then
-	kderdepend+=" $(add_kdebase_dep oxygen-icons)"
+	kderdepend+=" || ( kde-apps/oxygen-icons $(add_kdebase_dep oxygen-icons) )"
 fi
 
 # add a dependency over kde-l10n
@@ -448,9 +452,24 @@ _calculate_src_uri() {
 				4.11.12)
 					# Part of 4.14 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.14.1/src/${_kmname_pv}.tar.xz" ;;
+				4.11.13)
+					# Part of 4.14 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.14.2/src/${_kmname_pv}.tar.xz" ;;
+				4.11.14)
+					# Part of 4.14 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/4.14.3/src/${_kmname_pv}.tar.xz" ;;
+				??.?.[6-9]? | ??.??.[4-9]?)
+					# Unstable KDE Applications releases
+					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
 				*)
-					# Stable KDE SC releases
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz" ;;
+					if [[ ${CATEGORY} == kde-apps ]]; then
+						# Stable KDE Applications releases
+						SRC_URI="mirror://kde/stable/applications/${PV}/src/${_kmname}-${PV}.tar.xz"
+					else
+						# Stable KDE SC releases
+						SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.xz"
+					fi
+				;;
 			esac
 			;;
 		kdevelop|kdevelop-php*|kdevplatform)

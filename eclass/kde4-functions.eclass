@@ -36,7 +36,8 @@ esac
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
 # kdevelop ebuild.
-if [[ ${CATEGORY} = kde-base ]]; then
+if [[ ${CATEGORY} = kde-base || ${CATEGORY} = kde-apps ]]; then
+	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
 	KDEBASE=kdevelop
@@ -283,7 +284,15 @@ load_library_dependencies() {
 add_kdebase_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local ver
+	local ver category=kde-base
+
+	if [[ ${CATEGORY} == kde-apps && ${1} != kdelibs && ${1} != kdepimlibs && ${1} != baloo-widgets &&
+		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata && ${1} != pykde4 &&
+		${1} != krosspython && ${1} != nepomuk-core && ${1} != nepomuk-widgets && ${1} != kwin &&
+		${1} != khotkeys && ${1} != systemsettings && ${1} != powerdevil && ${1} != plasma-workspace &&
+		${1} != krunner && ${1} != plasma-workspace && ${1} != ksysguard && ${1} != kinfocenter ]] ; then
+		category=kde-apps
+	fi
 
 	if [[ -n ${3} ]]; then
 		ver=${3}
@@ -296,12 +305,16 @@ add_kdebase_dep() {
 	elif [[ ${PV} == *.9999 ]]; then
 		ver=$(get_kde_version)
 	else
-		ver=${PV}
+		if [[ ${CATEGORY} == kde-apps && ${category} == kde-base ]]; then
+			ver=4.14.3
+		else
+			ver=${PV}
+		fi
 	fi
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
-	echo " >=kde-base/${1}-${ver}:4[aqua=${2:+,${2}}]"
+	echo " >=${category}/${1}-${ver}:4[aqua=${2:+,${2}}]"
 }
 
 # local function to enable specified translations for specified directory

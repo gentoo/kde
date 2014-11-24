@@ -120,7 +120,7 @@ RDEPEND="
 		media-gfx/pstoedit
 	)
 	postgres? (
-		dev-db/postgresql-base
+		virtual/postgresql
 		dev-libs/libpqxx
 	)
 	spacenav? ( dev-libs/libspnav  )

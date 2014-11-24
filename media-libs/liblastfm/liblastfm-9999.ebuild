@@ -15,6 +15,8 @@ KEYWORDS=""
 SLOT="0/0"
 IUSE="fingerprint test +qt4 qt5"
 
+REQUIRED_USE="|| ( qt4 qt5 )"
+
 COMMON_DEPEND="
 	qt4? (
 		dev-qt/qtcore:4

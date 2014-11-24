@@ -18,7 +18,7 @@ else
 	# upstream has no permissions to use some kde written code so repack git
 	# repo every time
 	SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="LGPL-2"
