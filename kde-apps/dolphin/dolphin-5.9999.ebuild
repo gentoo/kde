@@ -15,7 +15,6 @@ KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -38,6 +37,7 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_kdeapps_dep libkonq)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
