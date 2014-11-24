@@ -117,7 +117,7 @@ PDEPEND="
 	handbook? (
 		|| (
 			$(add_kdebase_dep khelpcenter)
-			kde-base/khelpcenter:5[compat]
+			kde-base/khelpcenter:5[compat(+)]
 		)
 	)
 	nepomuk? (
