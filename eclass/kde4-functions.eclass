@@ -288,7 +288,7 @@ add_kdebase_dep() {
 
 	if [[ ${CATEGORY} == kde-apps && ${1} != kdelibs && ${1} != kdepimlibs && ${1} != baloo-widgets &&
 		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata && ${1} != pykde4 &&
-		${1} != krosspython && ${1} != nepomuk-core]] ; then
+		${1} != krosspython && ${1} != nepomuk-core ]] ; then
 		category=kde-apps
 	fi
 
