@@ -1,0 +1,10 @@
+# Michael Palimaka <kensington@gentoo.org> (24 Nov 2014)
+# Depends on Qt5 which is masked
+kde-apps/gwenview
+kde-apps/kanagram
+kde-apps/kate
+kde-apps/khangman
+kde-apps/konsole
+kde-apps/kwrite
+kde-apps/libkeduvocdocument
+kde-apps/okteta
