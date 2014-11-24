@@ -27,7 +27,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
