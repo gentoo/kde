@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator
-
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
 # kde@gentoo.org
@@ -15,12 +13,14 @@ inherit versionator
 if [[ -z ${_KDE4_FUNCTIONS_ECLASS} ]]; then
 _KDE4_FUNCTIONS_ECLASS=1
 
+inherit versionator
+
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
 # Currently kde4 eclasses support EAPI 4 and 5.
-case ${EAPI:-0} in
+case ${EAPI} in
 	4|5) : ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 # @ECLASS-VARIABLE: KDE_OVERRIDE_MINIMAL
@@ -40,9 +40,10 @@ if [[ ${CATEGORY} = kde-base || ${CATEGORY} = kde-apps ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
-	debug-print "${ECLASS}: KDEVELOP ebuild recognized"
 	KDEBASE=kdevelop
 fi
+
+debug-print "${ECLASS}: ${KDEBASE} ebuild recognized"
 
 # determine the build type
 if [[ ${PV} = *9999* ]]; then
@@ -119,21 +120,6 @@ buildsycoca() {
 			find "${EROOT}${x}" -type d -print0 | xargs -0 chmod 755
 		fi
 	done
-}
-
-# @FUNCTION: comment_add_subdirectory
-# @USAGE: subdirectory
-# @DESCRIPTION:
-# Comment out an add_subdirectory call in CMakeLists.txt in the current directory
-comment_add_subdirectory() {
-	if [[ -z ${1} ]]; then
-		die "comment_add_subdirectory must be passed the directory name to comment"
-	fi
-
-	if [[ -a "CMakeLists.txt" ]]; then
-		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
-			-i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
-	fi
 }
 
 # @FUNCTION: comment_all_add_subdirectory
