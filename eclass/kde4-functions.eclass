@@ -287,7 +287,7 @@ add_kdebase_dep() {
 	local ver category=kde-base
 
 	if [[ ${CATEGORY} == kde-apps && ${1} != kdelibs && ${1} != kdepimlibs && ${1} != baloo-widgets &&
-		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata ]] ; then
+		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata && ${1} != pykde4 ]] ; then
 		category=kde-apps
 	fi
 
