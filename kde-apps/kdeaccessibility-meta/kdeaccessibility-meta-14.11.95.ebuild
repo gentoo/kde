@@ -3,16 +3,16 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derived packages"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdebase_dep jovie)
-	$(add_kdebase_dep kaccessible)
-	$(add_kdebase_dep kmag)
-	$(add_kdebase_dep kmousetool)
-	$(add_kdebase_dep kmouth)
+	$(add_kdeapps_dep jovie)
+	$(add_kdeapps_dep kaccessible)
+	$(add_kdeapps_dep kmag)
+	$(add_kdeapps_dep kmousetool)
+	$(add_kdeapps_dep kmouth)
 "
