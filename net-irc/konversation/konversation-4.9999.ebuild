@@ -8,6 +8,7 @@ KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB es et fi fr gl he hu it ja
 kk km ko lt nb nds nl pa pl pt pt_BR ru si sk sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
+EGIT_BRANCH="1.5"
 inherit kde4-base
 
 DESCRIPTION="A user friendly IRC Client for KDE4"
