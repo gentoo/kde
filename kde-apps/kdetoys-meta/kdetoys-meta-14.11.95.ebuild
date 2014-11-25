@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+inherit kde5-meta-pkg
 
 DESCRIPTION="KDE toys - merge this to pull in all kdetoys-derived packages"
 HOMEPAGE+=" http://techbase.kde.org/Projects/Kdetoys"
@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdebase_dep amor)
-	$(add_kdebase_dep kteatime)
-	$(add_kdebase_dep ktux)
+	$(add_kdeapps_dep amor)
+	$(add_kdeapps_dep kteatime)
+	$(add_kdeapps_dep ktux)
 "
