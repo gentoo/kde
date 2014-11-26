@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug +xmp"
 
 DEPEND="
-	>=media-gfx/exiv2-0.20:=[xmp=]
+	>=media-gfx/exiv2-0.24:=[xmp=]
 	virtual/jpeg:0
 "
 RDEPEND="${DEPEND}"
