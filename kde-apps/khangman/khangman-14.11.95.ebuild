@@ -31,5 +31,6 @@ DEPEND="
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
+	$(add_kdeapps_dep kdeedu-data)
 	!kde-base/khangman:4
 "
