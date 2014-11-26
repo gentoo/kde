@@ -31,6 +31,7 @@ DEPEND="
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
+	$(add_kdeapps_dep kdeedu-data)
 	dev-qt/qtquickcontrols:5
 	!kde-base/kanagram:4
 "
