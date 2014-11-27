@@ -4,28 +4,22 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
 HOMEPAGE="http://www.kde.org/applications/education/parley
 http://edu.kde.org/applications/school/parley"
 KEYWORDS=""
-IUSE="debug +plasma"
+IUSE="+plasma"
 
 DEPEND="
+	$(add_kdeapps_dep libkeduvocdocument)
+	dev-qt/qtconcurrent:5
+	dev-qt/qtmultimedia:5
+	dev-qt/qtsvg:5
 	$(add_kdebase_dep libkdeedu)
 "
-RDEPEND="${DEPEND}"
-
-KMEXTRACTONLY="
-	libkdeedu/keduvocdocument
+RDEPEND="${DEPEND}
+	!kde-base/parley:4
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with plasma)
-	)
-
-	kde4-base_src_configure
-}
