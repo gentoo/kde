@@ -13,6 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdeapps_dep khotkeys '' 4.11)
+	$(add_kdebase_dep khotkeys '' 4.11)
 	$(add_kdeapps_dep zeroconf-ioslave)
 "

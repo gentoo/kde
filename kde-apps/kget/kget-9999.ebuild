@@ -24,7 +24,7 @@ RDEPEND="
 		dev-libs/shared-desktop-ontologies
 		dev-libs/soprano
 		$(add_kdebase_dep nepomuk-core)
-		$(add_kdeapps_dep nepomuk-widgets)
+		$(add_kdebase_dep nepomuk-widgets)
 	)
 	sqlite? ( dev-db/sqlite:3 )
 	webkit? ( >=kde-misc/kwebkitpart-0.9.6 )
