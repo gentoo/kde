@@ -22,6 +22,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=media-gfx/exiv2-0.21:=[xmp=]
+	>=media-gfx/exiv2-0.24:=[xmp=]
 "
 RDEPEND="${DEPEND}"
