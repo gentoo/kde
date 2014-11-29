@@ -13,5 +13,5 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kaccessible)
+	$(add_kdeapps_dep kaccessible)
 "

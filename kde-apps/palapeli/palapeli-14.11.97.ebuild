@@ -12,5 +12,5 @@ HOMEPAGE="http://www.kde.org/applications/games/palapeli/"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}"

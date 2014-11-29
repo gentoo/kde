@@ -13,8 +13,8 @@ IUSE="+wallpapers"
 KEYWORDS=""
 
 RDEPEND="
-	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
-	$(add_kdebase_dep oxygen-icons)
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
+	$(add_kdeapps_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
 

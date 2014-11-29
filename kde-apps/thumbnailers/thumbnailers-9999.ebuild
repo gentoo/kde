@@ -12,11 +12,11 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdcraw)
-	$(add_kdebase_dep libkexiv2)
+	$(add_kdeapps_dep libkdcraw)
+	$(add_kdeapps_dep libkexiv2)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdeapps_dep kdebase-kioslaves)
 "
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then

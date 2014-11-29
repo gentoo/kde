@@ -11,7 +11,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdeapps_dep kdebase-kioslaves)
 "
 
 src_configure() {

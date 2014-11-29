@@ -13,9 +13,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesu)
+	$(add_kdeapps_dep kdesu)
 	sys-apps/accountsservice
 "

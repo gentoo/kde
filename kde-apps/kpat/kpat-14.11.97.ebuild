@@ -13,5 +13,5 @@ HOMEPAGE="http://games.kde.org/game.php?game=kpat"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}"

@@ -23,9 +23,9 @@ DEPEND="
 	nepomuk? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesdk-strigi-analyzer)
-	$(add_kdebase_dep krosspython "${PYTHON_USEDEP}")
-	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
+	$(add_kdeapps_dep kdesdk-strigi-analyzer)
+	$(add_kdeapps_dep krosspython "${PYTHON_USEDEP}")
+	$(add_kdeapps_dep pykde4 "${PYTHON_USEDEP}")
 "
 
 pkg_setup() {

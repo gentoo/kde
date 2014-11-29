@@ -46,7 +46,7 @@ DEPEND="
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
-	dpi? ( $(add_kdebase_dep libkscreen) )
+	dpi? ( $(add_kdeapps_dep libkscreen) )
 	ebook? ( app-text/ebook-tools )
 	jpeg? ( virtual/jpeg:0 )
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )

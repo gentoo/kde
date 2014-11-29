@@ -13,9 +13,9 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdeapps_dep kdepimlibs)
 "
 # notify is needed for dialogs
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep knotify)
+	$(add_kdeapps_dep knotify)
 "
