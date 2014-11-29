@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="http://www.kde.org/applications/development"
@@ -11,7 +12,6 @@ KEYWORDS=""
 IUSE="cvs"
 
 RDEPEND="
-	cvs? ( $(add_kdeapps_dep cervisia) )
 	$(add_kdeapps_dep dolphin-plugins)
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kate)
@@ -25,4 +25,5 @@ RDEPEND="
 	$(add_kdeapps_dep okteta)
 	$(add_kdeapps_dep poxml)
 	$(add_kdeapps_dep umbrello)
+	cvs? ( $(add_kdeapps_dep cervisia) )
 "
