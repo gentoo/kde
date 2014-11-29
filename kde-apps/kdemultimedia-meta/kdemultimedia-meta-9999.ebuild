@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
 HOMEPAGE="
