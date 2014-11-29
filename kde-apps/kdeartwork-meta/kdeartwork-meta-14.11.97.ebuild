@@ -3,11 +3,12 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdeartwork - merge this to pull in all kdeartwork-derived packages"
 KEYWORDS=""
-IUSE="minimal"
+IUSE=""
 
 RDEPEND="
 	$(add_kdeapps_dep kdeartwork-colorschemes)
@@ -17,5 +18,4 @@ RDEPEND="
 	$(add_kdeapps_dep kdeartwork-kscreensaver)
 	$(add_kdeapps_dep kdeartwork-wallpapers)
 	$(add_kdeapps_dep kdeartwork-weatherwallpapers)
-	!minimal? ( $(add_kdeapps_dep kdeartwork-styles) )
 "
