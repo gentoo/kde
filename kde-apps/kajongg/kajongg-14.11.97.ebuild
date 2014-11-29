@@ -19,7 +19,7 @@ DEPEND="
 	${PYTHON_DEPS}
 	dev-db/sqlite:3
 	$(add_kdeapps_dep libkdegames)
-	$(add_kdeapps_dep pykde4 "${PYTHON_USEDEP}")
+	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep libkmahjongg)

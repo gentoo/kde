@@ -14,7 +14,7 @@ IUSE="debug gpg"
 DEPEND="
 	gpg? (
 		app-crypt/gpgme
-		$(add_kdeapps_dep kdepimlibs)
+		$(add_kdebase_dep kdepimlibs)
 	)
 "
 RDEPEND="${DEPEND}"

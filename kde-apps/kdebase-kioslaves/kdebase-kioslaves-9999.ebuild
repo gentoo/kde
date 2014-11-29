@@ -26,7 +26,7 @@ DEPEND="
 	sftp? ( >=net-libs/libssh-0.4.0:=[sftp] )
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kdelibs 'bzip2?,lzma?')
+	$(add_kdebase_dep kdelibs 'bzip2?,lzma?')
 	$(add_kdeapps_dep kdialog)
 	virtual/ssh
 	!aqua? ( !kernel_SunOS? ( virtual/eject ) )

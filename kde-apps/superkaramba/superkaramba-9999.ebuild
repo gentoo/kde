@@ -21,7 +21,7 @@ DEPEND="
 	x11-libs/libXrender
 	python? (
 		${PYTHON_DEPS}
-		$(add_kdeapps_dep pykde4 "${PYTHON_USEDEP}")
+		$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 	)
 "
 RDEPEND="${DEPEND}
