@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="http://www.kde.org/applications/graphics/"
