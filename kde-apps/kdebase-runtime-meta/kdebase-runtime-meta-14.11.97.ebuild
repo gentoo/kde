@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS=""
@@ -26,8 +27,10 @@ RDEPEND="
 	$(add_kdeapps_dep kioclient)
 	$(add_kdeapps_dep kmimetypefinder)
 	$(add_kdeapps_dep knewstuff)
+	$(add_kdeapps_dep knotify)
 	$(add_kdeapps_dep kpasswdserver)
 	$(add_kdeapps_dep kquitapp)
+	$(add_kdeapps_dep kreadconfig)
 	$(add_kdeapps_dep kstart)
 	$(add_kdeapps_dep ktimezoned)
 	$(add_kdeapps_dep ktraderclient)
@@ -35,12 +38,13 @@ RDEPEND="
 	$(add_kdeapps_dep kurifilter-plugins)
 	$(add_kdeapps_dep kwalletd)
 	$(add_kdeapps_dep kwalletmanager)
+	$(add_kdeapps_dep phonon-kde)
 	$(add_kdeapps_dep plasma-runtime)
 	$(add_kdeapps_dep renamedlg-plugins)
 	$(add_kdeapps_dep solid-runtime)
 	crash-reporter? ( $(add_kdeapps_dep drkonqi ) )
 	handbook? ( || (
-		$(add_kdeapps_dep khelpcenter)
+		$(add_kdebase_dep khelpcenter)
 		kde-base/khelpcenter:5[compat(+)]
 	) )
 	nepomuk? ( $(add_kdeapps_dep nepomuk) )
