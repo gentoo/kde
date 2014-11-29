@@ -272,31 +272,19 @@ load_library_dependencies() {
 	eend $?
 }
 
-# @FUNCTION: add_kdebase_dep
+# @FUNCTION: add_kdeapps_dep
 # @DESCRIPTION:
-# Create proper dependency for kde-base/ dependencies.
+# Create proper dependency for kde-apps/ dependencies.
 # This takes 1 to 3 arguments. The first being the package name, the optional
 # second is additional USE flags to append, and the optional third is the
 # version to use instead of the automatic version (use sparingly).
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
-add_kdebase_dep() {
+add_kdeapps_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	local ver category=kde-base
-
-	# There is no kde-apps version available, only kde-base/${1}:4 or it was moved to plasma
-	# right now kde-base/${1}:5, probably soon kde-plasma/${1}:5.
-	if [[ ${CATEGORY} == kde-apps && ${1} != kdelibs && ${1} != kdepimlibs && ${1} != baloo-widgets &&
-		${1} != kactivities && ${1} != baloo && ${1} != kfilemetadata && ${1} != pykde4 &&
-		${1} != krosspython && ${1} != nepomuk-core && ${1} != nepomuk-widgets && ${1} != kwin &&
-		${1} != khotkeys && ${1} != systemsettings && ${1} != powerdevil && ${1} != plasma-workspace &&
-		${1} != krunner && ${1} != plasma-workspace && ${1} != ksysguard && ${1} != kinfocenter &&
-		${1} != kdeplasma-addons && ${1} != kmenuedit && ${1} != kwrited && ${1} != libtaskmanager &&
-		${1} != klipper && ${1} != khelpcenter && ${1} != kdebindings-meta ]] ; then
-		category=kde-apps
-	fi
+	local ver
 
 	if [[ -n ${3} ]]; then
 		ver=${3}
@@ -309,7 +297,42 @@ add_kdebase_dep() {
 	elif [[ ${PV} == *.9999 ]]; then
 		ver=$(get_kde_version)
 	else
-		if [[ ${CATEGORY} == kde-apps && ${category} == kde-base ]]; then
+		ver=${PV}
+	fi
+
+	[[ -z ${1} ]] && die "Missing parameter"
+
+	#FIXME
+	# Drop aqua= from kf5 packages
+	echo " >=kde-apps/${1}-${ver}:4[aqua=${2:+,${2}}]"
+}
+
+# @FUNCTION: add_kdebase_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-base/ dependencies.
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
+add_kdebase_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local ver
+
+	if [[ -n ${3} ]]; then
+		ver=${3}
+	elif [[ -n ${KDE_OVERRIDE_MINIMAL} ]]; then
+		ver=${KDE_OVERRIDE_MINIMAL}
+	elif [[ ${KDEBASE} != kde-base ]]; then
+		ver=${KDE_MINIMAL}
+	# if building stable-live version depend just on the raw KDE version
+	# to allow merging packages against more stable basic stuff
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=$(get_kde_version)
+	else
+		if [[ ${CATEGORY} == kde-apps ]]; then
 			ver=4.14.3
 		else
 			ver=${PV}
@@ -318,9 +341,7 @@ add_kdebase_dep() {
 
 	[[ -z ${1} ]] && die "Missing parameter"
 
-	#FIXME 
-	# Drop aqua= from kf5 packages
-	echo " >=${category}/${1}-${ver}:4[aqua=${2:+,${2}}]"
+	echo " >=kde-base/${1}-${ver}:4[aqua=${2:+,${2}}]"
 }
 
 # local function to enable specified translations for specified directory
