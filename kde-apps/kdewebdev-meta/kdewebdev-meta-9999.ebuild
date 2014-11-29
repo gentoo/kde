@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="KDE WebDev - merge this to pull in all kdewebdev-derived packages"
 KEYWORDS=""
