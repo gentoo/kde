@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Nonogram logic game for KDE"
 HOMEPAGE="http://games.kde.org/game.php?game=picmi"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE version of the Simon Says game"
 HOMEPAGE="http://www.kde.org/applications/education/blinken
 http://edu.kde.org/blinken"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 src_install() {

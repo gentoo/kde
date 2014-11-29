@@ -7,5 +7,5 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Svgpart is a kpart for viewing SVGs"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

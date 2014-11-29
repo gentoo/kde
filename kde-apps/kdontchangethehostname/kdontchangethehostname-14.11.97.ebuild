@@ -8,7 +8,7 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Tool to inform KDE about a change in hostname"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

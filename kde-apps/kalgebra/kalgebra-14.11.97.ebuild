@@ -12,7 +12,7 @@ inherit kde4-base
 DESCRIPTION="MathML-based graph calculator for KDE"
 HOMEPAGE="http://www.kde.org/applications/education/kalgebra
 http://edu.kde.org/kalgebra"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

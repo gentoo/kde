@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE screen magnifier"
 HOMEPAGE="http://www.kde.org/applications/utilities/kmag/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

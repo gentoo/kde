@@ -10,5 +10,5 @@ inherit kde4-base
 DESCRIPTION="KDE Timer"
 HOMEPAGE="http://www.kde.org/applications/utilities/ktimer
 http://utils.kde.org/projects/ktimer"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

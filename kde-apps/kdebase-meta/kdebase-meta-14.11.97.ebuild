@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+wallpapers"
 
 RDEPEND="

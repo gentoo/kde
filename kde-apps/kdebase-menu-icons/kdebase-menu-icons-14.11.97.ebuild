@@ -9,5 +9,5 @@ KMMODULE="menu"
 inherit kde4-meta
 
 DESCRIPTION="KDE menu icons"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""

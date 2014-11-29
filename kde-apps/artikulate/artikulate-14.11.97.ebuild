@@ -10,7 +10,7 @@ inherit kde4-base multilib
 
 DESCRIPTION="Language learning application that helps improving pronunciation skills"
 HOMEPAGE="http://edu.kde.org/applications/language/artikulate"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

@@ -8,5 +8,5 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KCMShell is a utility to host KDE control modules independently of SystemSettings"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

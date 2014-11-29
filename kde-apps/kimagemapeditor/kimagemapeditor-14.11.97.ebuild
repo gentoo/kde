@@ -11,5 +11,5 @@ inherit kde4-meta
 
 DESCRIPTION="KDE web development - image map editor"
 HOMEPAGE="http://www.kde.org/applications/development/kimagemapeditor/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

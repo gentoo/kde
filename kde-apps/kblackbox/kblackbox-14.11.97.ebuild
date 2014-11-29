@@ -9,7 +9,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="KDE Blackbox Game"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

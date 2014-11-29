@@ -12,7 +12,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/ksirk/
 	http://games.kde.org/game.php?game=ksirk
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

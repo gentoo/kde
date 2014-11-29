@@ -13,7 +13,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/ksudoku/
 	http://games.kde.org/game.php?game=ksudoku
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

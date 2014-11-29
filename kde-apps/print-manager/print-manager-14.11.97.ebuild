@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Manage print jobs and printers in KDE"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug +gtk"
 
 DEPEND="

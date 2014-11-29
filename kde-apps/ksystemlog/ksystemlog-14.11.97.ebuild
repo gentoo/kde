@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE system log viewer"
 HOMEPAGE="http://www.kde.org/applications/system/ksystemlog/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug test"
 
 RESTRICT=test

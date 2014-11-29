@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Classical hangman game for KDE"
 HOMEPAGE="http://www.kde.org/applications/education/khangman
 http://edu.kde.org/khangman"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 DEPEND="

@@ -13,7 +13,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/kbreakout/
 	http://games.kde.org/game.php?game=kbreakout
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Meta package for the KDE Applications collection"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="accessibility nls sdk"
 
 RDEPEND="

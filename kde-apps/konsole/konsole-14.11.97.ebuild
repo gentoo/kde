@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="KDE's terminal emulator"
 HOMEPAGE="http://www.kde.org/applications/system/konsole http://konsole.kde.org"
 
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="X"
 
 DEPEND="

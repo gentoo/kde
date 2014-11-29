@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Extra Dolphin plugins"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug bazaar git mercurial subversion"
 
 DEPEND="

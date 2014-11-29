@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Icons, localization data and various .desktop files from kdebase"
 IUSE="+wallpapers"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 
 RDEPEND="
 	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )

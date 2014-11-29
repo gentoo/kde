@@ -10,5 +10,5 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Additional KDE4 Plasma themes"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""

@@ -11,7 +11,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/graphics/gwenview/
 	http://gwenview.sourceforge.net/
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="semantic-desktop"
 
 DEPEND="

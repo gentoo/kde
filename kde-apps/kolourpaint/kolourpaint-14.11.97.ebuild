@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="Paint Program for KDE"
 HOMEPAGE="http://www.kde.org/applications/graphics/kolourpaint/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 LICENSE="BSD LGPL-2"
 IUSE="debug"
 

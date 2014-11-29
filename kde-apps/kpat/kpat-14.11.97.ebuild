@@ -10,7 +10,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE patience game"
 HOMEPAGE="http://games.kde.org/game.php?game=kpat"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

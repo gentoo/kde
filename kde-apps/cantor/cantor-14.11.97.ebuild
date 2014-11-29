@@ -10,7 +10,7 @@ inherit kde4-base python-single-r1
 
 DESCRIPTION="KDE4 interface for doing mathematics and scientific computing"
 HOMEPAGE="http://www.kde.org/applications/education/cantor http://edu.kde.org/cantor"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="analitza debug postscript python qalculate +R"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"

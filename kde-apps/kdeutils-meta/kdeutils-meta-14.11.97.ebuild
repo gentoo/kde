@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="http://www.kde.org/applications/utilities http://utils.kde.org"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="cups floppy lirc"
 
 RDEPEND="

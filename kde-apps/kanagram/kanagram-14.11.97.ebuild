@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Game based on anagrams of works"
 HOMEPAGE="http://www.kde.org/applications/education/kanagram
 http://edu.kde.org/kanagram"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 DEPEND="

@@ -12,7 +12,7 @@ inherit kde4-base python-single-r1
 
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug designer-plugin gps +kde phonon plasma python shapefile test zip"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+crash-reporter +handbook minimal nepomuk"
 
 RDEPEND="

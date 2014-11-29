@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE simple text editor"
 HOMEPAGE="http://www.kde.org/applications/utilities/kwrite"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 
 DEPEND="
 	$(add_frameworks_dep karchive)

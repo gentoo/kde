@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE mixer gui"
 HOMEPAGE="http://www.kde.org/applications/multimedia/kmix/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="alsa debug canberra pulseaudio"
 
 DEPEND="

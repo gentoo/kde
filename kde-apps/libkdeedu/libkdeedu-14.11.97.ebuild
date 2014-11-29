@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Common library for KDE educational apps"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 # 4 of 4 tests fail. Last checked for 4.6.1. Tests are fundamentally broken,

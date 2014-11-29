@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
 HOMEPAGE="http://www.kde.org/applications/education/klettres
 http://edu.kde.org/klettres"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

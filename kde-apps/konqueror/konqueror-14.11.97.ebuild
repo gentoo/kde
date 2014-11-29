@@ -13,7 +13,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/internet/konqueror/
 	http://konqueror.org/
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+bookmarks debug svg"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"

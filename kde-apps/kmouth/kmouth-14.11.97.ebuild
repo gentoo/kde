@@ -9,5 +9,5 @@ inherit kde4-base
 
 DESCRIPTION="KDE application that reads what you type out loud. Doesn't include a speech synthesizer"
 HOMEPAGE="http://www.kde.org/applications/utilities/kmouth/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

@@ -7,5 +7,5 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="A library for image plugins accross KDE applications"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

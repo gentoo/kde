@@ -11,7 +11,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/multimedia/
 	http://multimedia.kde.org/
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+ffmpeg mplayer"
 
 RDEPEND="

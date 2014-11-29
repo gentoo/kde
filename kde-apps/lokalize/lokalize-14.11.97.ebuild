@@ -11,7 +11,7 @@ inherit python-single-r1 kde4-base
 DESCRIPTION="KDE4 translation tool"
 HOMEPAGE="http://www.kde.org/applications/development/lokalize
 http://l10n.kde.org/tools"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug nepomuk"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

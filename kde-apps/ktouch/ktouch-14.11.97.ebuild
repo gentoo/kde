@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE: A program that helps you to learn and practice touch typing"
 HOMEPAGE="http://edu.kde.org/applications/miscellaneous/ktouch"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

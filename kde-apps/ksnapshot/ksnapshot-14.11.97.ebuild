@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE Screenshot Utility"
 HOMEPAGE="http://www.kde.org/applications/graphics/ksnapshot/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug kipi"
 
 DEPEND="

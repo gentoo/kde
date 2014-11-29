@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="KDE arcade bombing game"
 HOMEPAGE="http://www.kde.org/applications/games/bomber/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

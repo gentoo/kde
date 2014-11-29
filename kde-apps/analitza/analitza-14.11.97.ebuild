@@ -9,7 +9,7 @@ OPENGL_REQUIRED="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE library for mathematical features"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug readline"
 
 DEPEND="

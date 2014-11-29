@@ -9,5 +9,5 @@ inherit kde4-base
 
 DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications"
 HOMEPAGE="http://www.kde.org/applications/development/kapptemplate"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

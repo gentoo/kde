@@ -13,7 +13,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/kspaceduel/
 	http://games.kde.org/game.php?game=kspaceduel
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

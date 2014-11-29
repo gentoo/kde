@@ -12,7 +12,7 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/kiriki/
 	http://games.kde.org/game.php?game=kiriki
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames)"

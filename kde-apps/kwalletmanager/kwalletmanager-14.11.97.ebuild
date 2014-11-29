@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE Wallet Management Tool"
 HOMEAGE="http://www.kde.org/applications/system/kwalletmanager
 http://utils.kde.org/projects/kwalletmanager"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="!kde-base/kwallet:4"

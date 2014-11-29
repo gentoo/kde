@@ -8,7 +8,7 @@ KMNAME="kdesdk-strigi-analyzers"
 inherit kde4-base
 
 DESCRIPTION="kdesdk: strigi plugins"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

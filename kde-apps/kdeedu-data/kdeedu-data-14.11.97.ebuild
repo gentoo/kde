@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
