@@ -327,10 +327,11 @@ add_kdebase_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building stable-live version depend just on the raw KDE version
-	# to allow merging packages against more stable basic stuff
-	elif [[ ${PV} == *.9999 ]]; then
-		ver=$(get_kde_version)
+	# if building live version depend on the final release since there will
+	# not be any more major development. this solves dep errors as not all
+	# packages have kde-base live versions now
+	elif [[ ${PV} == *9999 ]]; then
+		ver=4.14.3
 	else
 		if [[ ${CATEGORY} == kde-apps ]]; then
 			ver=4.14.3
