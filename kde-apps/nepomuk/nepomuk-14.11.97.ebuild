@@ -16,7 +16,7 @@ IUSE="debug"
 DEPEND="
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland,virtuoso]
 	$(add_kdebase_dep kdelibs 'nepomuk')
-	$(add_kdeapps_dep nepomuk-core)
+	$(add_kdebase_dep nepomuk-core)
 	!kde-misc/nepomukcontroller
 "
 RDEPEND="${DEPEND}"

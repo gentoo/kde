@@ -43,7 +43,7 @@ DEPEND="
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
 	x11-libs/libX11
-	semantic-desktop? ( $(add_kdebase_dep kactivities) )
+	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 RDEPEND="${DEPEND}
 	!kde-base/gwenview:4

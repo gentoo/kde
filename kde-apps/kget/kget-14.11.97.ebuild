@@ -23,7 +23,7 @@ RDEPEND="
 	nepomuk? (
 		dev-libs/shared-desktop-ontologies
 		dev-libs/soprano
-		$(add_kdeapps_dep nepomuk-core)
+		$(add_kdebase_dep nepomuk-core)
 		$(add_kdeapps_dep nepomuk-widgets)
 	)
 	sqlite? ( dev-db/sqlite:3 )

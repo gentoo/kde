@@ -25,7 +25,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	python? ( $(add_kdeapps_dep krosspython "${PYTHON_USEDEP}") )
+	python? ( $(add_kdebase_dep krosspython "${PYTHON_USEDEP}") )
 "
 
 pkg_setup() {
