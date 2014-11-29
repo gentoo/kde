@@ -14,6 +14,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 "
 RDEPEND=${DEPEND}

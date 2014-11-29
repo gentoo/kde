@@ -11,6 +11,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libksane)
+	$(add_kdeapps_dep libksane)
 "
 RDEPEND="${DEPEND}"

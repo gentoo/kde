@@ -14,5 +14,5 @@ DEPEND="
 	virtual/ffmpeg
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdeapps_dep kdebase-kioslaves)
 "

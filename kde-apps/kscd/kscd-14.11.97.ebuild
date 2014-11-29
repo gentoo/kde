@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkcddb)
-	$(add_kdebase_dep libkcompactdisc)
+	$(add_kdeapps_dep libkcddb)
+	$(add_kdeapps_dep libkcompactdisc)
 	media-libs/musicbrainz:3
 "
 RDEPEND="${DEPEND}"

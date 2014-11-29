@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep knotify)
-	$(add_kdebase_dep kqtquickcharts)
-	$(add_kdebase_dep plasma-runtime)
+	$(add_kdeapps_dep knotify)
+	$(add_kdeapps_dep kqtquickcharts)
+	$(add_kdeapps_dep plasma-runtime)
 "

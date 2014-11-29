@@ -15,7 +15,7 @@ DEPEND="
 	x11-libs/libXt
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep konqueror)
+	$(add_kdeapps_dep konqueror)
 "
 
 KMEXTRACTONLY="

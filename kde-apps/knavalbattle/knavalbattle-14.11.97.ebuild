@@ -16,7 +16,7 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}
 	!kde-base/kbattleship:4
 "

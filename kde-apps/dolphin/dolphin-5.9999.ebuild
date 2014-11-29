@@ -44,9 +44,9 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	semantic-desktop? (
-		$(add_kdebase_dep baloo)
-		$(add_kdebase_dep baloo-widgets)
-		$(add_kdebase_dep kfilemetadata)
+		$(add_kdeapps_dep baloo)
+		$(add_kdeapps_dep baloo-widgets)
+		$(add_kdeapps_dep kfilemetadata)
 	)
 "
 RDEPEND="${DEPEND}

@@ -16,12 +16,12 @@ IUSE="debug +eigen +kexiv2 xscreensaver"
 
 # libkworkspace - only as a stub to provide KDE4Workspace config
 RDEPEND="
-	$(add_kdebase_dep kscreensaver '' 4.11)
+	$(add_kdeapps_dep kscreensaver '' 4.11)
 	$(add_kdebase_dep libkworkspace '' 4.11)
 	media-libs/libart_lgpl
 	x11-libs/libX11
 	x11-libs/libXt
-	kexiv2? ( $(add_kdebase_dep libkexiv2) )
+	kexiv2? ( $(add_kdeapps_dep libkexiv2) )
 	virtual/glu
 	virtual/opengl
 	xscreensaver? ( x11-misc/xscreensaver )

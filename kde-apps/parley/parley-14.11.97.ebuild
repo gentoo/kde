@@ -18,7 +18,7 @@ DEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtmultimedia:5
 	dev-qt/qtsvg:5
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 "
 RDEPEND="${DEPEND}
 	!kde-base/parley:4

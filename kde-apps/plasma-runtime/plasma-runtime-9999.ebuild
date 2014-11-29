@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kactivities '' 4.13)
+	$(add_kdeapps_dep kactivities '' 4.13)
 "
 RDEPEND="${DEPEND}"
 

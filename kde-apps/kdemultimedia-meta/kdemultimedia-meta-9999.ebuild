@@ -14,13 +14,13 @@ KEYWORDS=""
 IUSE="+ffmpeg mplayer"
 
 RDEPEND="
-	$(add_kdebase_dep dragon)
-	$(add_kdebase_dep juk)
-	$(add_kdebase_dep audiocd-kio)
-	$(add_kdebase_dep kmix)
-	$(add_kdebase_dep kscd)
-	$(add_kdebase_dep libkcddb)
-	$(add_kdebase_dep libkcompactdisc)
-	mplayer? ( $(add_kdebase_dep mplayerthumbs) )
-	ffmpeg? ( $(add_kdebase_dep ffmpegthumbs) )
+	$(add_kdeapps_dep dragon)
+	$(add_kdeapps_dep juk)
+	$(add_kdeapps_dep audiocd-kio)
+	$(add_kdeapps_dep kmix)
+	$(add_kdeapps_dep kscd)
+	$(add_kdeapps_dep libkcddb)
+	$(add_kdeapps_dep libkcompactdisc)
+	mplayer? ( $(add_kdeapps_dep mplayerthumbs) )
+	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
 "
