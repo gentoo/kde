@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-derived packages"
