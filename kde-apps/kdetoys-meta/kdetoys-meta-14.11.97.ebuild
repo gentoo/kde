@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE toys - merge this to pull in all kdetoys-derived packages"
