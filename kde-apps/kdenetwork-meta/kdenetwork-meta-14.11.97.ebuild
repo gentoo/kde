@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde4-meta-pkg
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
 KEYWORDS=""
