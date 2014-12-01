@@ -56,9 +56,11 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kitemmodels)
+	dev-qt/qtxml:5
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
