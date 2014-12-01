@@ -5,27 +5,24 @@
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
-KDE_REQUIRED="never"
-inherit kde4-base python-any-r1
+EGIT_BRANCH="qt5"
+inherit kde5 python-any-r1
 
-DESCRIPTION="Qt4 bindings for the Telepathy logger"
+DESCRIPTION="Qt bindings for the Telepathy logger"
 HOMEPAGE="https://projects.kde.org/projects/extragear/network/telepathy/telepathy-logger-qt"
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
-else
-	KEYWORDS=""
-fi
 
 LICENSE="LGPL-2.1"
-SLOT="0"
-IUSE="debug"
+SLOT="5"
+IUSE=""
 
 RDEPEND="
-	media-libs/qt-gstreamer
-	>=net-im/telepathy-logger-0.8.0
+	dev-libs/glib
+	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
+	media-libs/qt-gstreamer[qt5]
+	net-im/telepathy-logger
 	net-libs/telepathy-glib
-	>=net-libs/telepathy-qt-0.9.1
+	net-libs/telepathy-qt[qt5]
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
@@ -33,14 +30,12 @@ DEPEND="${RDEPEND}
 	sys-devel/flex
 "
 
-pkg_setup() {
-	python-any-r1_pkg_setup
-	kde4-base_pkg_setup
+
+src_prepare() {
+	sed -i -e 's/INCLUDE(Qt5Macros)//g' cmake/modules/FindQt5.cmake || die "couldn't remove Qt5Macros include"
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DBUILD_SHARED_LIBS=ON
-	)
-	kde4-base_src_configure
+	export QT_SELECT=5
+	cmake-utils_src_configure
 }

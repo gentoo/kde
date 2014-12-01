@@ -6,59 +6,45 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="KDE Telepathy common library"
+DESCRIPTION="KDE Telepathy text chat window"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://kde/stable/kde-telepathy/${PV}/src/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
-else
-	KEYWORDS=""
-fi
 
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2"
 SLOT="5"
-IUSE="otr"
+IUSE=""
 
-# todo: telepathy-logger-qt, libkpeople, kdepimlibs
 DEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdewebkit)
+	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwallet)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
+	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
+	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=net-libs/telepathy-qt-0.9.5[qt5]
-	otr? (
-		dev-libs/libgcrypt:0=
-		>=net-libs/libotr-4.0.0
-	)
+	net-im/ktp-common-internals:5
+	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}
-	!net-im/ktp-common-internals:4
+	>=net-im/ktp-contact-list-${PV}
+	!net-im/ktp-text-ui:4
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package otr Libgcrypt)
-		$(cmake-utils_use_find_package otr LibOTR)
-	)
-
-	kde5_src_configure
-}
