@@ -13,6 +13,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 KMEXTRACTONLY="
+	konqueror/konqueror.appdata.xml
 	konqueror/kfmclient.desktop
 	konqueror/kfmclient_dir.desktop
 	konqueror/kfmclient_html.desktop
