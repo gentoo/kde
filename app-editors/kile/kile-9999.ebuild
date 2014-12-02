@@ -30,7 +30,10 @@ RDEPEND="${DEPEND}
 	virtual/latex-base
 	virtual/tex-base
 	pdf? (
-		app-text/dvipdfmx
+		|| (
+			app-text/dvipdfmx
+			>=app-text/texlive-core-2014
+		)
 		app-text/ghostscript-gpl
 	)
 	png? (
