@@ -3,7 +3,6 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="gles">Enable support for GLES.</flag>
 		<flag name="gles2">Use OpenGL ES 2 instead of full GL</flag>
 	</use>
 </pkgmetadata>
