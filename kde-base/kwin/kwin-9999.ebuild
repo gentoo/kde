@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem X)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
+	$(add_kdebase_dep kdecoration)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl]
