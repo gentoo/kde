@@ -7,7 +7,7 @@ EAPI=5
 KMNAME="kross-interpreters"
 KMMODULE="ruby"
 
-USE_RUBY="ruby19"
+USE_RUBY="ruby20"
 # Only one ruby version is supported:
 # 1) cmake bails when configuring twice or more - solved with CMAKE_IN_SOURCE_BUILD=1
 # 2) the ebuild can only be installed for one ruby variant, otherwise the compiled
