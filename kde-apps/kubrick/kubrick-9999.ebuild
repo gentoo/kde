@@ -13,7 +13,7 @@ HOMEPAGE="http://www.kde.org/applications/games/kubrick/"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="$(add_kdebase_dep libkdegames)
+RDEPEND="$(add_kdeapps_dep libkdegames)
 	virtual/glu
 "
 DEPEND="${RDEPEND}

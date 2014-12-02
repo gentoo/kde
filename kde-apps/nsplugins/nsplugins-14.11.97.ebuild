@@ -8,14 +8,14 @@ KMNAME="kde-baseapps"
 inherit kde4-meta pax-utils
 
 DESCRIPTION="Netscape plugins support for Konqueror"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
 	x11-libs/libXt
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep konqueror)
+	$(add_kdeapps_dep konqueror)
 "
 
 KMEXTRACTONLY="

@@ -15,7 +15,7 @@ IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
 	$(add_kdebase_dep kactivities '' 4.13)
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	media-libs/phonon[qt4]
 	x11-libs/libXrender
 	semantic-desktop? (
@@ -25,12 +25,12 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kfind)
+	$(add_kdeapps_dep kfind)
 	thumbnail? (
-		$(add_kdebase_dep thumbnailers)
+		$(add_kdeapps_dep thumbnailers)
 		|| (
-			$(add_kdebase_dep ffmpegthumbs)
-			$(add_kdebase_dep mplayerthumbs)
+			$(add_kdeapps_dep ffmpegthumbs)
+			$(add_kdeapps_dep mplayerthumbs)
 		)
 	)
 "

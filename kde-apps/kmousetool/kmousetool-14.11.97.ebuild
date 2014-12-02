@@ -9,9 +9,9 @@ inherit kde4-base
 
 DESCRIPTION="KDE program that clicks the mouse for you"
 HOMEPAGE="http://www.kde.org/applications/utilities/kmousetool/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep knotify)
+	$(add_kdeapps_dep knotify)
 "

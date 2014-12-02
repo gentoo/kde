@@ -11,7 +11,7 @@ inherit python-single-r1 kde4-base
 DESCRIPTION="KDE4 translation tool"
 HOMEPAGE="http://www.kde.org/applications/development/lokalize
 http://l10n.kde.org/tools"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug nepomuk"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -23,7 +23,7 @@ DEPEND="
 	nepomuk? ( >=dev-libs/soprano-2.9.0 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesdk-strigi-analyzer)
+	$(add_kdeapps_dep kdesdk-strigi-analyzer)
 	$(add_kdebase_dep krosspython "${PYTHON_USEDEP}")
 	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "

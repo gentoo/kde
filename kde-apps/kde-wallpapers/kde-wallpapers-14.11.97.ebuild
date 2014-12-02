@@ -9,7 +9,7 @@ KDE_SCM="svn"
 inherit kde4-base
 
 DESCRIPTION="KDE wallpapers"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 src_configure() {

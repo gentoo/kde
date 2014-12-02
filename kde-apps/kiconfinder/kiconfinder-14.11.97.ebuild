@@ -8,5 +8,5 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="Finds an icon based on its name"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

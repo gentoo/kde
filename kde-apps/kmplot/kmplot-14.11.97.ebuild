@@ -9,9 +9,9 @@ inherit kde4-base
 
 DESCRIPTION="Mathematical function plotter for KDE"
 HOMEPAGE="http://www.kde.org/applications/education/kmplot http://edu.kde.org/kmplot"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep knotify)
+	$(add_kdeapps_dep knotify)
 "

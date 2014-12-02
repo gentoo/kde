@@ -8,5 +8,5 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="KDE: Progress Info UI server"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

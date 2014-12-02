@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE Development Utilities"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

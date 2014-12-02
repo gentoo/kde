@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Task Scheduler"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="!prefix? ( virtual/cron )"

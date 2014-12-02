@@ -9,10 +9,10 @@ KMMODULE="plasma"
 inherit kde4-meta
 
 DESCRIPTION="Additional Applets for Plasma"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}"

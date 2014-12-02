@@ -15,7 +15,7 @@ IUSE="debug bittorrent gpg mms nepomuk sqlite webkit"
 RDEPEND="
 	app-crypt/qca:2
 	$(add_kdebase_dep kdelibs 'nepomuk?')
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	$(add_kdebase_dep libkworkspace '' 4.11)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
 	gpg? ( $(add_kdebase_dep kdepimlibs) )

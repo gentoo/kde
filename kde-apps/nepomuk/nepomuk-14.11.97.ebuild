@@ -10,7 +10,7 @@ inherit kde4-meta
 
 DESCRIPTION="Nepomuk KDE4 client"
 HOMEPAGE+=" http://userbase.kde.org/Nepomuk"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

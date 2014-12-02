@@ -9,10 +9,11 @@ KMMODULE="konqueror/client"
 inherit kde4-meta
 
 DESCRIPTION="KDE tool for opening URLs from the command line"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 KMEXTRACTONLY="
+	konqueror/konqueror.appdata.xml
 	konqueror/kfmclient.desktop
 	konqueror/kfmclient_dir.desktop
 	konqueror/kfmclient_html.desktop

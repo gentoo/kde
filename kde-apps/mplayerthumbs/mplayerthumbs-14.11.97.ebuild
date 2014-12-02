@@ -7,11 +7,11 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="A Thumbnail Generator for Video Files on KDE filemanagers"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdeapps_dep kdebase-kioslaves)
 "
 
 src_configure() {

@@ -11,7 +11,7 @@ inherit kde4-base
 DESCRIPTION="KDE gpg keyring manager"
 HOMEPAGE="http://www.kde.org/applications/utilities/kgpg
 http://utils.kde.org/projects/kgpg"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="

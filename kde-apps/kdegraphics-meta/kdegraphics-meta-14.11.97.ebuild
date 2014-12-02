@@ -3,30 +3,31 @@
 # $Header: $
 
 EAPI=5
-inherit kde4-meta-pkg
+
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="http://www.kde.org/applications/graphics/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="scanner"
 
 RDEPEND="
-	$(add_kdebase_dep gwenview)
-	$(add_kdebase_dep kamera)
-	$(add_kdebase_dep kcolorchooser)
-	$(add_kdebase_dep kdegraphics-mobipocket)
-	$(add_kdebase_dep kgamma)
-	$(add_kdebase_dep kolourpaint)
-	$(add_kdebase_dep kruler)
-	$(add_kdebase_dep ksnapshot)
-	$(add_kdebase_dep libkdcraw)
-	$(add_kdebase_dep libkexiv2)
-	$(add_kdebase_dep libkipi)
-	$(add_kdebase_dep okular)
-	$(add_kdebase_dep svgpart)
-	$(add_kdebase_dep thumbnailers)
+	$(add_kdeapps_dep gwenview)
+	$(add_kdeapps_dep kamera)
+	$(add_kdeapps_dep kcolorchooser)
+	$(add_kdeapps_dep kdegraphics-mobipocket)
+	$(add_kdeapps_dep kgamma)
+	$(add_kdeapps_dep kolourpaint)
+	$(add_kdeapps_dep kruler)
+	$(add_kdeapps_dep ksnapshot)
+	$(add_kdeapps_dep libkdcraw)
+	$(add_kdeapps_dep libkexiv2)
+	$(add_kdeapps_dep libkipi)
+	$(add_kdeapps_dep okular)
+	$(add_kdeapps_dep svgpart)
+	$(add_kdeapps_dep thumbnailers)
 	scanner? (
-		$(add_kdebase_dep ksaneplugin)
-		$(add_kdebase_dep libksane)
+		$(add_kdeapps_dep ksaneplugin)
+		$(add_kdeapps_dep libksane)
 	)
 "

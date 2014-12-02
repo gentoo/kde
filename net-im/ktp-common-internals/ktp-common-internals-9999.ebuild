@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy common library"

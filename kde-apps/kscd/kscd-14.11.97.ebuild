@@ -8,12 +8,12 @@ inherit kde4-base
 
 DESCRIPTION="KDE CD player"
 HOMEPAGE="http://www.kde.org/applications/multimedia/kscd/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkcddb)
-	$(add_kdebase_dep libkcompactdisc)
+	$(add_kdeapps_dep libkcddb)
+	$(add_kdeapps_dep libkcompactdisc)
 	media-libs/musicbrainz:3
 "
 RDEPEND="${DEPEND}"

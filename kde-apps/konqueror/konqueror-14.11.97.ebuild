@@ -13,20 +13,20 @@ HOMEPAGE="
 	http://www.kde.org/applications/internet/konqueror/
 	http://konqueror.org/
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+bookmarks debug svg"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kfind)
-	$(add_kdebase_dep kfmclient)
-	$(add_kdebase_dep kurifilter-plugins)
-	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
-	svg? ( $(add_kdebase_dep svgpart) )
+	$(add_kdeapps_dep kfind)
+	$(add_kdeapps_dep kfmclient)
+	$(add_kdeapps_dep kurifilter-plugins)
+	bookmarks? ( $(add_kdeapps_dep keditbookmarks) )
+	svg? ( $(add_kdeapps_dep svgpart) )
 "
 
 KMEXTRACTONLY="

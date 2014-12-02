@@ -12,11 +12,11 @@ inherit kde4-base flag-o-matic
 DESCRIPTION="KDE: periodic table of the elements"
 HOMEPAGE="http://www.kde.org/applications/education/kalzium
 http://edu.kde.org/kalzium"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="editor debug +plasma solver"
 
 DEPEND="
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 	editor? (
 		>=dev-cpp/eigen-2.0.3:2
 		sci-chemistry/avogadro

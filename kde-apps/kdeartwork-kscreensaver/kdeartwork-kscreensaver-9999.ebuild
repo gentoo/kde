@@ -21,7 +21,7 @@ RDEPEND="
 	media-libs/libart_lgpl
 	x11-libs/libX11
 	x11-libs/libXt
-	kexiv2? ( $(add_kdebase_dep libkexiv2) )
+	kexiv2? ( $(add_kdeapps_dep libkexiv2) )
 	virtual/glu
 	virtual/opengl
 	xscreensaver? ( x11-misc/xscreensaver )

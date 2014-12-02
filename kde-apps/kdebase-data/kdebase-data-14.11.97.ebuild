@@ -10,11 +10,11 @@ inherit kde4-meta
 
 DESCRIPTION="Icons, localization data and various .desktop files from kdebase"
 IUSE="+wallpapers"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 
 RDEPEND="
-	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
-	$(add_kdebase_dep oxygen-icons)
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
+	$(add_kdeapps_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
 

@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE frontend for the Linux Infrared Remote Control system"
 HOMEPAGE="http://www.kde.org/applications/utilities/kremotecontrol
 http://utils.kde.org/projects/kremotecontrol"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

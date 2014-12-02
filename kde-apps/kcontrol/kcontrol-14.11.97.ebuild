@@ -9,10 +9,10 @@ KMNAME="kde-runtime"
 inherit kde4-meta
 
 DESCRIPTION="The KDE Control Center"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep khotkeys '' 4.11)
-	$(add_kdebase_dep zeroconf-ioslave)
+	$(add_kdeapps_dep zeroconf-ioslave)
 "

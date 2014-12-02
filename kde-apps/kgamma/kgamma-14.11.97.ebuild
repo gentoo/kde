@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE screen gamma values kcontrol module"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

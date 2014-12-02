@@ -13,5 +13,5 @@ http://www.caffeinated.me.uk/kompare"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkomparediff2)"
+DEPEND="$(add_kdeapps_dep libkomparediff2)"
 RDEPEND="${DEPEND}"

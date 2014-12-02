@@ -7,21 +7,20 @@ EAPI=5
 if [[ ${PV} == *9999 ]]; then
 	KMNAME="kdesupport"
 fi
-KDE_REQUIRED="never"
+KDE_AUTODEPS="false"
 KDE_SCM="svn"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="Oxygen SVG icon theme"
 HOMEPAGE="http://www.oxygen-icons.org/"
-[[ ${PV} == *9999 ]] || \
-#SRC_URI="
-#	!bindist? ( http://dev.gentoo.org/~johu/distfiles/${P}.repacked.tar.xz )
-#	bindist? ( ${SRC_URI} )
-#"
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="
+		bindist? ( ${SRC_URI} )
+	"
+fi
 
 LICENSE="LGPL-3"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS=" ~amd64 ~x86"
 IUSE="bindist"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="!kde-base/oxygen-icons:4"

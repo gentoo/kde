@@ -10,11 +10,11 @@ inherit kde4-base
 DESCRIPTION="KDE Archiving tool"
 HOMEPAGE="http://www.kde.org/applications/utilities/ark
 http://utils.kde.org/projects/ark"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+archive +bzip2 debug lzma"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	sys-libs/zlib
 	archive? ( >=app-arch/libarchive-2.6.1:=[bzip2?,lzma?,zlib] )
 "

@@ -9,5 +9,5 @@ inherit kde4-base
 
 DESCRIPTION="KDE Japanese dictionary and reference"
 HOMEPAGE="http://www.kde.org/applications/education/kiten http://edu.kde.org/kiten"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

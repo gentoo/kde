@@ -10,10 +10,10 @@ inherit kde4-base
 
 DESCRIPTION="A game based on the \"Rubik's Cube\" puzzle"
 HOMEPAGE="http://www.kde.org/applications/games/kubrick/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
-RDEPEND="$(add_kdebase_dep libkdegames)
+RDEPEND="$(add_kdeapps_dep libkdegames)
 	virtual/glu
 "
 DEPEND="${RDEPEND}

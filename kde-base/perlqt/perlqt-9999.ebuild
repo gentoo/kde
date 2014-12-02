@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug phonon qimageblitz qscintilla qwt webkit"
 
 RDEPEND="
-	>=dev-lang/perl-5.10.1
+	dev-lang/perl:=
 	dev-perl/List-MoreUtils
 	$(add_kdebase_dep smokeqt 'declarative?,multimedia?,opengl?,phonon?,qimageblitz?,qscintilla?,qthelp?,qwt?,webkit?')
 "

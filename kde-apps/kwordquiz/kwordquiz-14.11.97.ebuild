@@ -10,10 +10,10 @@ inherit kde4-base
 DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
 HOMEPAGE="http://www.kde.org/applications/education/kwordquiz
 http://edu.kde.org/kwordquiz"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 "
 RDEPEND=${DEPEND}

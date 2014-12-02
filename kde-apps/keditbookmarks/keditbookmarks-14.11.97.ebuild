@@ -9,11 +9,11 @@ VIRTUALX_REQUIRED="test"
 inherit kde4-meta
 
 DESCRIPTION="KDE's bookmarks editor"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}"
 

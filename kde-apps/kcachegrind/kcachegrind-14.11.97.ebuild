@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="KDE Frontend for Cachegrind"
 HOMEPAGE="http://www.kde.org/applications/development/kcachegrind
 http://kcachegrind.sourceforge.net"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="

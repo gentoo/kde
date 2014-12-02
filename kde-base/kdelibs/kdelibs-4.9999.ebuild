@@ -33,7 +33,7 @@ COMMONDEPEND="
 	>=app-misc/strigi-0.7.7
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
-	>=dev-libs/libattica-0.4.2[qt4]
+	>=dev-libs/libattica-0.4.2
 	>=dev-libs/libdbusmenu-qt-0.3.2
 	dev-libs/libpcre[unicode]
 	dev-libs/libxml2

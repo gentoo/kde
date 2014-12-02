@@ -9,8 +9,8 @@ KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
 DESCRIPTION="A KDE game almost the same as ksame, but a bit different"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}"

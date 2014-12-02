@@ -7,6 +7,7 @@ EAPI=5
 KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu ia it
 ja kk km ko lt mai mr nb nds nl pa pl pt pt_BR ro ru sk sl sr sr@ijekavian
 sr@ijekavianlatin sr@latin sv tr ug uk vi wa zh_CN zh_TW"
+EGIT_BRANCH="kde-telepathy-0.9"
 inherit kde4-base
 
 DESCRIPTION="KDE Telepathy account management kcm"

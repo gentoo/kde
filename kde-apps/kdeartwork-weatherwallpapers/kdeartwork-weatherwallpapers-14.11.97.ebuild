@@ -10,9 +10,9 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="Weather aware wallpapers. Changes with weather outside"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_kdebase_dep kdeartwork-wallpapers)
+	$(add_kdeapps_dep kdeartwork-wallpapers)
 "

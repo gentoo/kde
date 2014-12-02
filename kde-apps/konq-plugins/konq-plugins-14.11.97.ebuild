@@ -8,17 +8,17 @@ KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="Various plugins for konqueror"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug tidy"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}
 	!kde-misc/konq-plugins
-	$(add_kdebase_dep kcmshell)
-	$(add_kdebase_dep konqueror)
+	$(add_kdeapps_dep kcmshell)
+	$(add_kdeapps_dep konqueror)
 "
 
 src_configure() {

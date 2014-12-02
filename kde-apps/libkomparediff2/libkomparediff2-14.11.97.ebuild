@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE library to compare files and strings"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug test"
 
 RDEPEND="${DEPEND}

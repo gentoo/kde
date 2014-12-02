@@ -13,8 +13,8 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/konquest/
 	http://games.kde.org/game.php?game=konquest
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}"

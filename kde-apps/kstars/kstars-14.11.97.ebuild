@@ -9,14 +9,14 @@ inherit flag-o-matic kde4-base
 
 DESCRIPTION="KDE Desktop Planetarium"
 HOMEPAGE="http://www.kde.org/applications/education/kstars http://edu.kde.org/kstars"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug fits indi"
 
 REQUIRED_USE="indi? ( fits )"
 
 DEPEND="
 	dev-cpp/eigen:3
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 	fits? ( >=sci-libs/cfitsio-0.390 )
 	indi? ( >=sci-libs/indilib-0.9.8 )
 "

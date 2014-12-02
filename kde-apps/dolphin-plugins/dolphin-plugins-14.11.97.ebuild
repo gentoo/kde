@@ -7,14 +7,14 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Extra Dolphin plugins"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug bazaar git mercurial subversion"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kompare)
+	$(add_kdeapps_dep kompare)
 	bazaar? ( dev-vcs/bzr )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )

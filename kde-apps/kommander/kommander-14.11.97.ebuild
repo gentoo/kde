@@ -11,5 +11,5 @@ inherit kde4-meta
 
 DESCRIPTION="KDE dialog system for scripting"
 HOMEPAGE="http://www.kde.org/applications/development/kommander/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

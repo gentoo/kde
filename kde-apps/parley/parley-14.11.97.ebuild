@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="KDE Educational: vocabulary trainer"
 HOMEPAGE="http://www.kde.org/applications/education/parley
 http://edu.kde.org/applications/school/parley"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+plasma"
 
 DEPEND="
@@ -18,7 +18,7 @@ DEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtmultimedia:5
 	dev-qt/qtsvg:5
-	$(add_kdebase_dep libkdeedu)
+	$(add_kdeapps_dep libkdeedu)
 "
 RDEPEND="${DEPEND}
 	!kde-base/parley:4

@@ -10,7 +10,7 @@ inherit python-single-r1 kde4-base
 
 DESCRIPTION="KDE Interactive Geometry tool"
 HOMEPAGE="http://www.kde.org/applications/education/kig http://edu.kde.org/kig"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

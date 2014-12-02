@@ -7,5 +7,5 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="LibKMahjongg for KDE"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"

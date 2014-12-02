@@ -13,11 +13,11 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/kgoldrunner/
 	http://games.kde.org/game.php?game=kgoldrunner
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkdegames)
+	$(add_kdeapps_dep libkdegames)
 	media-libs/libsndfile
 	media-libs/openal
 "

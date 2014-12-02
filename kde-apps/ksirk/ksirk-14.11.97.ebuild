@@ -12,12 +12,12 @@ HOMEPAGE="
 	http://www.kde.org/applications/games/ksirk/
 	http://games.kde.org/game.php?game=ksirk
 "
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
 	app-crypt/qca:2
-	$(add_kdebase_dep libkdegames)
+	$(add_kdeapps_dep libkdegames)
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"

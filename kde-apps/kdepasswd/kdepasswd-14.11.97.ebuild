@@ -9,13 +9,13 @@ KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="KDE GUI for passwd"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdesu)
+	$(add_kdeapps_dep kdesu)
 	sys-apps/accountsservice
 "

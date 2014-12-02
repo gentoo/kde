@@ -14,5 +14,5 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep khotkeys '' 4.11)
-	$(add_kdebase_dep zeroconf-ioslave)
+	$(add_kdeapps_dep zeroconf-ioslave)
 "

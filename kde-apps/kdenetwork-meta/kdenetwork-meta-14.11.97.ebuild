@@ -4,18 +4,18 @@
 
 EAPI=5
 
-inherit kde4-meta-pkg
+inherit kde5-meta-pkg
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="ppp"
 
 RDEPEND="
-	$(add_kdebase_dep kdenetwork-filesharing)
-	$(add_kdebase_dep kget)
-	$(add_kdebase_dep kopete)
-	$(add_kdebase_dep krdc)
-	$(add_kdebase_dep krfb)
-	$(add_kdebase_dep zeroconf-ioslave)
-	ppp? ( $(add_kdebase_dep kppp) )
+	$(add_kdeapps_dep kdenetwork-filesharing)
+	$(add_kdeapps_dep kget)
+	$(add_kdeapps_dep kopete)
+	$(add_kdeapps_dep krdc)
+	$(add_kdeapps_dep krfb)
+	$(add_kdeapps_dep zeroconf-ioslave)
+	ppp? ( $(add_kdeapps_dep kppp) )
 "

@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="+archive +bzip2 debug lzma"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	sys-libs/zlib
 	archive? ( >=app-arch/libarchive-2.6.1:=[bzip2?,lzma?,zlib] )
 "

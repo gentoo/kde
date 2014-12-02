@@ -9,7 +9,7 @@ inherit kde4-base
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
 HOMEPAGE="http://www.kde.org/applications/system/krfb/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="debug telepathy ktp"
 REQUIRED_USE="ktp? ( telepathy )"
 
@@ -26,13 +26,6 @@ DEPEND="
 	telepathy? ( >=net-libs/telepathy-qt-0.9 )
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# bug 518824, patch before eclass magic
-	epatch "${FILESDIR}/${PN}-4.14.0-CVE-2014-4607-unbundle-libvncserver.patch"
-
-	kde4-base_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(

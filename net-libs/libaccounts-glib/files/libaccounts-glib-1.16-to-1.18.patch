@@ -1,0 +1,517 @@
+diff --git a/NEWS b/NEWS
+index 38a210c..e645c4a 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,5 +1,19 @@
+ libaccounts-glib NEWS
+ 
++Version 1.18
++------------
++
++* Python: fix Accounts.Manager() constructor, which got broken when version
++  1.17 was released.
++
++Version 1.17
++------------
++
++* Allow instantiation of AgManager with no D-Bus
++* Tests: increase timeout in test_store_locked_cancel
++* AgManager: expose DB timeout parameters as properties
++* Fix build with -Werror
++
+ Version 1.16
+ ------------
+ 
+diff --git a/configure.ac b/configure.ac
+index 64329c1..4ddc07d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1,7 +1,7 @@
+ dnl Process this file with autoconf to produce a configure script.
+ AC_PREREQ([2.64])
+ AC_INIT([libaccounts-glib],
+-        [1.16],
++        [1.18],
+         [http://code.google.com/p/accounts-sso/issues/entry],
+         [libaccounts-glib],
+         [http://code.google.com/p/accounts-sso/])
+diff --git a/libaccounts-glib/ag-manager.c b/libaccounts-glib/ag-manager.c
+index 8a4b2d0..781242b 100644
+--- a/libaccounts-glib/ag-manager.c
++++ b/libaccounts-glib/ag-manager.c
+@@ -78,8 +78,14 @@ enum
+     PROP_0,
+ 
+     PROP_SERVICE_TYPE,
++    PROP_DB_TIMEOUT,
++    PROP_ABORT_ON_DB_TIMEOUT,
++    PROP_USE_DBUS,
++    N_PROPERTIES
+ };
+ 
++static GParamSpec *properties[N_PROPERTIES];
++
+ enum
+ {
+     ACCOUNT_CREATED,
+@@ -129,6 +135,7 @@ struct _AgManagerPrivate {
+     guint db_timeout;
+ 
+     guint abort_on_db_timeout : 1;
++    guint use_dbus : 1;
+     guint is_disposed : 1;
+     guint is_readonly : 1;
+ 
+@@ -154,7 +161,12 @@ typedef struct {
+     struct timespec ts;
+ } ProcessedSignalData;
+ 
+-G_DEFINE_TYPE (AgManager, ag_manager, G_TYPE_OBJECT);
++static void ag_manager_initable_iface_init(gpointer g_iface,
++                                           gpointer iface_data);
++
++G_DEFINE_TYPE_WITH_CODE (AgManager, ag_manager, G_TYPE_OBJECT,
++                         G_IMPLEMENT_INTERFACE (G_TYPE_INITABLE,
++                                            ag_manager_initable_iface_init));
+ 
+ #define AG_MANAGER_PRIV(obj) (AG_MANAGER(obj)->priv)
+ 
+@@ -199,13 +211,24 @@ ag_manager_store_dbus_async (AgManager *manager, AgAccount *account,
+                              GSimpleAsyncResult *async_result,
+                              GCancellable *cancellable)
+ {
++    AgManagerPrivate *priv = manager->priv;
+     AgAccountChanges *changes;
+     GVariant *dbus_changes;
+ 
++    if (G_UNLIKELY (!priv->use_dbus)) {
++        g_simple_async_result_set_error (async_result,
++                                         AG_ACCOUNTS_ERROR,
++                                         AG_ACCOUNTS_ERROR_READONLY,
++                                         "DB read-only and D-Bus disabled");
++        g_simple_async_result_complete_in_idle (async_result);
++        g_object_unref (async_result);
++        return;
++    }
++
+     changes = _ag_account_steal_changes (account);
+     dbus_changes = _ag_account_build_dbus_changes (account, changes, NULL);
+ 
+-    g_dbus_connection_call (manager->priv->dbus_conn,
++    g_dbus_connection_call (priv->dbus_conn,
+                             AG_MANAGER_SERVICE_NAME,
+                             AG_MANAGER_OBJECT_PATH,
+                             AG_MANAGER_INTERFACE,
+@@ -225,14 +248,23 @@ static gboolean
+ ag_manager_store_dbus_sync (AgManager *manager, AgAccount *account,
+                             GError **error)
+ {
++    AgManagerPrivate *priv = manager->priv;
+     AgAccountChanges *changes;
+     GVariant *dbus_changes;
+     GError *error_int = NULL;
+ 
++    if (G_UNLIKELY (!priv->use_dbus)) {
++        g_set_error_literal (error,
++                             AG_ACCOUNTS_ERROR,
++                             AG_ACCOUNTS_ERROR_READONLY,
++                             "DB read-only and D-Bus disabled");
++        return FALSE;
++    }
++
+     changes = _ag_account_steal_changes (account);
+     dbus_changes = _ag_account_build_dbus_changes (account, changes, NULL);
+ 
+-    g_dbus_connection_call_sync (manager->priv->dbus_conn,
++    g_dbus_connection_call_sync (priv->dbus_conn,
+                             AG_MANAGER_SERVICE_NAME,
+                             AG_MANAGER_OBJECT_PATH,
+                             AG_MANAGER_INTERFACE,
+@@ -972,8 +1004,11 @@ exec_transaction (AgManager *manager, AgAccount *account,
+                              account);
+     }
+ 
+-    /* emit DBus signals to notify other processes */
+-    signal_account_changes (manager, account, changes);
++    if (G_LIKELY (priv->use_dbus))
++    {
++        /* emit DBus signals to notify other processes */
++        signal_account_changes (manager, account, changes);
++    }
+ 
+     updated = ag_manager_must_emit_updated(manager, changes);
+ 
+@@ -1387,16 +1422,16 @@ add_typeless_match (AgManager *manager)
+ }
+ 
+ static gboolean
+-setup_dbus (AgManager *manager)
++setup_dbus (AgManager *manager, GError **error)
+ {
+     AgManagerPrivate *priv = manager->priv;
+-    GError *error = NULL;
++    GError *error_int = NULL;
+ 
+-    priv->dbus_conn = g_bus_get_sync (G_BUS_TYPE_SESSION, NULL, &error);
+-    if (G_UNLIKELY (error != NULL))
++    priv->dbus_conn = g_bus_get_sync (G_BUS_TYPE_SESSION, NULL, &error_int);
++    if (G_UNLIKELY (error_int != NULL))
+     {
+-        g_warning ("Failed to get D-Bus connection (%s)", error->message);
+-        g_error_free (error);
++        g_warning ("Failed to get D-Bus connection (%s)", error_int->message);
++        g_propagate_error (error, error_int);
+         return FALSE;
+     }
+ 
+@@ -1442,32 +1477,11 @@ ag_manager_init (AgManager *manager)
+                                NULL, (GDestroyNotify)account_weak_unref);
+ 
+     priv->db_timeout = MAX_SQLITE_BUSY_LOOP_TIME_MS; /* 5 seconds */
++    priv->use_dbus = TRUE;
+ 
+     priv->object_paths = g_ptr_array_new_with_free_func (g_free);
+ }
+ 
+-static GObject *
+-ag_manager_constructor (GType type, guint n_params,
+-                        GObjectConstructParam *params)
+-{
+-    GObjectClass *object_class = (GObjectClass *)ag_manager_parent_class;
+-    AgManager *manager;
+-    GObject *object;
+-
+-    object = object_class->constructor (type, n_params, params);
+-
+-    g_return_val_if_fail (object != NULL, NULL);
+-
+-    manager = AG_MANAGER (object);
+-    if (G_UNLIKELY (!open_db (manager) || !setup_dbus (manager)))
+-    {
+-        g_object_unref (object);
+-        return NULL;
+-    }
+-
+-    return object;
+-}
+-
+ static void
+ ag_manager_get_property (GObject *object, guint property_id,
+                          GValue *value, GParamSpec *pspec)
+@@ -1480,6 +1494,15 @@ ag_manager_get_property (GObject *object, guint property_id,
+     case PROP_SERVICE_TYPE:
+         g_value_set_string (value, priv->service_type);
+         break;
++    case PROP_DB_TIMEOUT:
++        g_value_set_uint (value, priv->db_timeout);
++        break;
++    case PROP_ABORT_ON_DB_TIMEOUT:
++        g_value_set_boolean (value, priv->abort_on_db_timeout);
++        break;
++    case PROP_USE_DBUS:
++        g_value_set_boolean (value, priv->use_dbus);
++        break;
+     default:
+         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+         break;
+@@ -1499,6 +1522,15 @@ ag_manager_set_property (GObject *object, guint property_id,
+         g_assert (priv->service_type == NULL);
+         priv->service_type = g_value_dup_string (value);
+         break;
++    case PROP_DB_TIMEOUT:
++        priv->db_timeout = g_value_get_uint (value);
++        break;
++    case PROP_ABORT_ON_DB_TIMEOUT:
++        priv->abort_on_db_timeout = g_value_get_boolean (value);
++        break;
++    case PROP_USE_DBUS:
++        priv->use_dbus = g_value_get_boolean (value);
++        break;
+     default:
+         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+         break;
+@@ -1588,6 +1620,36 @@ ag_manager_finalize (GObject *object)
+     G_OBJECT_CLASS (ag_manager_parent_class)->finalize (object);
+ }
+ 
++static gboolean
++ag_manager_initable_init (GInitable *initable,
++                          G_GNUC_UNUSED GCancellable *cancellable,
++                          GError **error)
++{
++    AgManager *manager = AG_MANAGER (initable);
++
++    if (G_UNLIKELY (!open_db (manager)))
++    {
++        g_set_error_literal (error, AG_ACCOUNTS_ERROR, AG_ACCOUNTS_ERROR_DB,
++                             "Could not open accounts DB file");
++        return FALSE;
++    }
++
++    if (G_UNLIKELY (manager->priv->use_dbus && !setup_dbus (manager, error)))
++    {
++        return FALSE;
++    }
++
++    return TRUE;
++}
++
++static void
++ag_manager_initable_iface_init (gpointer g_iface,
++                                G_GNUC_UNUSED gpointer iface_data)
++{
++    GInitableIface *iface = (GInitableIface *)g_iface;
++    iface->init = ag_manager_initable_init;
++}
++
+ static void
+ ag_manager_account_deleted (AgManager *manager, AgAccountId id)
+ {
+@@ -1606,7 +1668,6 @@ ag_manager_class_init (AgManagerClass *klass)
+     g_type_class_add_private (object_class, sizeof (AgManagerPrivate));
+ 
+     klass->account_deleted = ag_manager_account_deleted;
+-    object_class->constructor = ag_manager_constructor;
+     object_class->dispose = ag_manager_dispose;
+     object_class->get_property = ag_manager_get_property;
+     object_class->set_property = ag_manager_set_property;
+@@ -1619,11 +1680,53 @@ ag_manager_class_init (AgManagerClass *klass)
+      * as ag_manager_list() and ag_manager_list_services(), will be restricted
+      * to only affect accounts or services with that service type.
+      */
+-    g_object_class_install_property
+-        (object_class, PROP_SERVICE_TYPE,
+-         g_param_spec_string ("service-type", "service type", "Set service type",
+-                              NULL,
+-                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
++    properties[PROP_SERVICE_TYPE] =
++        g_param_spec_string ("service-type", "service type", "Set service type",
++                             NULL,
++                             G_PARAM_STATIC_STRINGS |
++                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
++
++    /**
++     * AgManager:db-timeout:
++     *
++     * Timeout for database operations, in milliseconds.
++     */
++    properties[PROP_DB_TIMEOUT] =
++        g_param_spec_uint ("db-timeout", "DB timeout",
++                           "Timeout for DB operations (ms)",
++                           0, G_MAXUINT, MAX_SQLITE_BUSY_LOOP_TIME_MS,
++                           G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
++
++    /**
++     * AgManager:abort-on-db-timeout:
++     *
++     * Whether to abort the application when a database timeout occurs.
++     */
++    properties[PROP_ABORT_ON_DB_TIMEOUT] =
++        g_param_spec_boolean ("abort-on-db-timeout", "Abort on DB timeout",
++                              "Whether to abort the application on DB timeout",
++                              FALSE,
++                              G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
++
++    /**
++     * AgManager:use-dbus:
++     *
++     * Whether to use D-Bus for inter-process change notification. Setting this
++     * property to %FALSE causes libaccounts not to emit the change
++     * notification signals, and also not react to changes made by other
++     * processes. Disabling D-Bus is only meant to be used for specific cases,
++     * such as maintenance programs.
++     */
++    properties[PROP_USE_DBUS] =
++        g_param_spec_boolean ("use-dbus", "Use D-Bus",
++                              "Whether to use D-Bus for IPC",
++                              TRUE,
++                              G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE |
++                              G_PARAM_CONSTRUCT_ONLY);
++
++    g_object_class_install_properties (object_class,
++                                       N_PROPERTIES,
++                                       properties);
+ 
+     /**
+      * AgManager::account-created:
+@@ -1716,7 +1819,8 @@ ag_manager_class_init (AgManagerClass *klass)
+ AgManager *
+ ag_manager_new ()
+ {
+-    return g_object_new (AG_TYPE_MANAGER, NULL);
++    return g_initable_new (AG_TYPE_MANAGER, NULL, NULL,
++                           NULL);
+ }
+ 
+ GList *
+@@ -2549,14 +2653,11 @@ ag_manager_list_providers (AgManager *manager)
+ AgManager *
+ ag_manager_new_for_service_type (const gchar *service_type)
+ {
+-    AgManager *manager;
+-
+     g_return_val_if_fail (service_type != NULL, NULL);
+ 
+-    manager = g_object_new (AG_TYPE_MANAGER, "service-type", service_type, NULL);
+-    g_return_val_if_fail (AG_IS_MANAGER (manager), NULL);
+-
+-    return manager;
++    return g_initable_new (AG_TYPE_MANAGER, NULL, NULL,
++                           "service-type", service_type,
++                           NULL);
+ }
+ 
+ /**
+diff --git a/libaccounts-glib/ag-provider.c b/libaccounts-glib/ag-provider.c
+index 426cb2c..187614b 100644
+--- a/libaccounts-glib/ag-provider.c
++++ b/libaccounts-glib/ag-provider.c
+@@ -441,7 +441,7 @@ ag_provider_get_plugin_name (AgProvider *provider)
+ gboolean
+ ag_provider_get_single_account (AgProvider *provider)
+ {
+-    g_return_val_if_fail (provider != NULL, NULL);
++    g_return_val_if_fail (provider != NULL, FALSE);
+     return provider->single_account;
+ }
+ 
+diff --git a/pygobject/Accounts.py b/pygobject/Accounts.py
+index 2cae5e8..88cebca 100644
+--- a/pygobject/Accounts.py
++++ b/pygobject/Accounts.py
+@@ -30,6 +30,16 @@ def _get_bool(self, key, default_value=None):
+     else:
+         return default_value
+ 
++class Manager(Accounts.Manager):
++    def __new__(cls):
++        # Since AgManager implements GInitable, g_object_new() doesn't
++        # initialize it properly
++        # See also: https://bugzilla.gnome.org/show_bug.cgi?id=724275
++        return Accounts.Manager.new()
++
++Manager = override(Manager)
++__all__.append('Manager')
++
+ class Account(Accounts.Account):
+     get_string = _get_string
+     get_int = _get_int
+diff --git a/tests/check_ag.c b/tests/check_ag.c
+index f9b4a4e..6b9aba0 100644
+--- a/tests/check_ag.c
++++ b/tests/check_ag.c
+@@ -225,6 +225,34 @@ START_TEST(test_init)
+ }
+ END_TEST
+ 
++START_TEST(test_timeout_properties)
++{
++    gboolean abort_on_db_timeout;
++    guint db_timeout;
++
++    manager = ag_manager_new ();
++    ck_assert (AG_IS_MANAGER (manager));
++
++    g_object_get (manager,
++                  "db-timeout", &db_timeout,
++                  "abort-on-db-timeout", &abort_on_db_timeout,
++                  NULL);
++
++    ck_assert (!abort_on_db_timeout);
++    ck_assert (!ag_manager_get_abort_on_db_timeout (manager));
++    ck_assert_uint_eq (db_timeout, ag_manager_get_db_timeout (manager));
++
++    g_object_set (manager,
++                  "db-timeout", 120,
++                  "abort_on_db_timeout", TRUE,
++                  NULL);
++    ck_assert (ag_manager_get_abort_on_db_timeout (manager));
++    ck_assert_uint_eq (ag_manager_get_db_timeout (manager), 120);
++
++    end_test ();
++}
++END_TEST
++
+ START_TEST(test_object)
+ {
+     manager = ag_manager_new ();
+@@ -521,8 +549,8 @@ START_TEST(test_store_locked_cancel)
+     main_loop = g_main_loop_new (NULL, FALSE);
+     cancellable = g_cancellable_new ();
+     ag_account_store_async (account, cancellable, account_store_locked_cancel_cb, &cb_called);
+-    g_timeout_add (10, (GSourceFunc)cancel_store, cancellable);
+-    g_timeout_add (20, (GSourceFunc)release_lock_cancel, db);
++    g_timeout_add (100, (GSourceFunc)cancel_store, cancellable);
++    g_timeout_add (200, (GSourceFunc)release_lock_cancel, db);
+     fail_unless (main_loop != NULL, "Callback invoked too early");
+     g_debug ("Running loop");
+     g_main_loop_run (main_loop);
+@@ -2655,6 +2683,43 @@ START_TEST(test_watches)
+ }
+ END_TEST
+ 
++START_TEST(test_no_dbus)
++{
++    gchar *bus_address;
++    gboolean use_dbus = TRUE;
++
++    /* Unset the DBUS_SESSION_BUS_ADDRESS variable, so that the connection
++     * to D-Bus will fail.
++     */
++    bus_address = g_strdup (g_getenv ("DBUS_SESSION_BUS_ADDRESS"));
++    g_unsetenv("DBUS_SESSION_BUS_ADDRESS");
++
++    manager = g_initable_new (AG_TYPE_MANAGER, NULL, NULL,
++                              "use-dbus", FALSE,
++                              NULL);
++    ck_assert_msg (manager != NULL, "AgManager creation failed even "
++                   "with use-dbus set to FALSE");
++
++    g_object_get (manager, "use-dbus", &use_dbus, NULL);
++    ck_assert (!use_dbus);
++
++    /* Test creating an account */
++    account = ag_manager_create_account (manager, PROVIDER);
++    ag_account_set_enabled (account, TRUE);
++    ag_account_store (account, account_store_now_cb, TEST_STRING);
++    run_main_loop_for_n_seconds(0);
++    ck_assert_msg (data_stored, "Callback not invoked immediately");
++    ck_assert_msg (account->id != 0, "Account ID is still 0!");
++
++    /* Restore the initial value */
++    g_setenv ("DBUS_SESSION_BUS_ADDRESS", bus_address, TRUE);
++
++    g_free (bus_address);
++
++    end_test ();
++}
++END_TEST
++
+ static void
+ on_account_created (AgManager *manager, AgAccountId account_id,
+                     AgAccountId *id)
+@@ -3079,7 +3144,7 @@ START_TEST(test_blocking)
+      *
+      * Instead, let's just check that we haven't been locking for too long.
+      */
+-    fail_unless (block_ms < timeout_ms + 2000);
++    fail_unless (block_ms < timeout_ms + 10000);
+ 
+     end_test ();
+ }
+@@ -3825,6 +3890,7 @@ ag_suite(const char *test_case)
+ 
+     tc = tcase_create("Core");
+     tcase_add_test (tc, test_init);
++    tcase_add_test (tc, test_timeout_properties);
+     IF_TEST_CASE_ENABLED("Core")
+         suite_add_tcase (s, tc);
+ 
+@@ -3895,6 +3961,7 @@ ag_suite(const char *test_case)
+         suite_add_tcase (s, tc);
+ 
+     tc = tcase_create("Concurrency");
++    tcase_add_test (tc, test_no_dbus);
+     tcase_add_test (tc, test_concurrency);
+     tcase_add_test (tc, test_blocking);
+     tcase_add_test (tc, test_manager_new_for_service_type);
