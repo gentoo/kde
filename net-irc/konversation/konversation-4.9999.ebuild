@@ -14,7 +14,6 @@ inherit kde4-base
 DESCRIPTION="A user friendly IRC Client for KDE4"
 HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation.kde.org"
 
-EGIT_BRANCH="1.5"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
 KEYWORDS=""
