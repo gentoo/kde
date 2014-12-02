@@ -30,7 +30,6 @@ DEPEND="${RDEPEND}
 	sys-devel/flex
 "
 
-
 src_prepare() {
 	sed -i -e 's/INCLUDE(Qt5Macros)//g' cmake/modules/FindQt5.cmake || die "couldn't remove Qt5Macros include"
 }
