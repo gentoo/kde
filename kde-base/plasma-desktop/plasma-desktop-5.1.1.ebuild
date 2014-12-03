@@ -94,8 +94,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/attica:4
 	!kde-apps/kcontrol:4
 	!kde-base/kcontrol:4
-	!kde-apps/knetattach:4[-handbook(-)]
-	!kde-base/knetattach:4[-handbook(-)]
+	!kde-apps/knetattach:4[handbook]
+	!kde-base/knetattach:4[handbook]
 	!kde-apps/kdepasswd:4
 	!kde-base/kdepasswd:4
 	!kde-base/solid-actions-kcm:4
