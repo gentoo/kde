@@ -14,12 +14,9 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
