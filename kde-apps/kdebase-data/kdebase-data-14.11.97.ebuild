@@ -14,7 +14,6 @@ KEYWORDS=" ~amd64 ~x86"
 
 RDEPEND="
 	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
-	$(add_kdeapps_dep oxygen-icons)
 	x11-themes/hicolor-icon-theme
 "
 
