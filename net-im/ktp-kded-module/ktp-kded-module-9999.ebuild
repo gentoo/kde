@@ -15,12 +15,10 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
@@ -29,6 +27,7 @@ DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	net-im/ktp-common-internals:5
