@@ -87,7 +87,7 @@ _add_kdecategory_dep() {
 	local package=${2}
 	local use=${3}
 	local version=${4}
-	local slot=${5}
+	local slot=
 
 	if [[ -n ${use} ]] ; then
 		local use="[${use}]"
@@ -98,8 +98,8 @@ _add_kdecategory_dep() {
 		local version="-${version}"
 	fi
 
-	if [[ -n ${slot} ]] ; then
-		slot=":5"
+	if [[ ${SLOT} = 4 || ${SLOT} = 5 ]] && ! has kde5-meta-pkg ${INHERITED} ; then
+		slot=":${SLOT}"
 	fi
 
 	echo " ${operator}${category}/${package}${version}${slot}${use}"
@@ -157,7 +157,7 @@ add_kdeapps_dep() {
 		version=${PV}
 	fi
 
-	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}" ""
+	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
 }
 
 # @FUNCTION: add_kdebase_dep
