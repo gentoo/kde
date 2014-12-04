@@ -27,12 +27,12 @@ DEPEND="
 	$(add_kdeapps_dep libkeduvocdocument)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5[qml]
 	dev-qt/qtwidgets:5
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
 	dev-qt/qtquickcontrols:5
+	dev-qt/qtwebkit:5[qml]
 	!kde-base/kanagram:4
 "
