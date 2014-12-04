@@ -4,10 +4,26 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="KAppTemplate - A shell script to create the necessary framework to develop KDE applications"
+DESCRIPTION="A shell script to create the necessary framework to develop KDE applications"
 HOMEPAGE="http://www.kde.org/applications/development/kapptemplate"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+"
+RDEPEND="${DEPEND}
+	!kde-base/kapptemplate:4
+"
