@@ -49,6 +49,8 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
+	!kde-apps/kcontrol:4
+	!kde-apps/kdebase-kioslaves:4[-minimal(-)]
 	!kde-base/kcontrol:4
 	!kde-base/kdebase-kioslaves:4[-minimal(-)]
 "

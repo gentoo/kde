@@ -4,25 +4,29 @@
 
 EAPI=5
 
-KDE_HANDBOOK="never"
-OPENGL_REQUIRED="optional"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="KDE library for mathematical features"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="debug readline"
+IUSE="eigen opengl"
 
 DEPEND="
-	opengl? ( virtual/glu )
-	readline? ( sys-libs/readline )
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtopengl:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	eigen? ( dev-cpp/eigen:3 )
+	opengl? ( virtual/opengl )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with readline)
+		$(cmake-utils_use_find_package eigen Eigen3)
+		$(cmake-utils_use_find_package opengl OpenGL)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }

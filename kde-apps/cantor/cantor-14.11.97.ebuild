@@ -17,7 +17,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 # TODO Add Sage Mathematics Software backend (http://www.sagemath.org)
 RDEPEND="
-	analitza? ( $(add_kdeapps_dep analitza) )
+	analitza? ( $(add_kdebase_dep analitza) )
 	qalculate? (
 		sci-libs/cln
 		sci-libs/libqalculate

@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 KMEXTRACTONLY="
-	konqueror/konqueror.appdata.xml
 	konqueror/kfmclient.desktop
 	konqueror/kfmclient_dir.desktop
 	konqueror/kfmclient_html.desktop
@@ -29,6 +28,7 @@ src_prepare() {
 	sed -e "/konqbrowser\.desktop/d" \
 		-e "/konqueror\.desktop/s/^/#DONOTWANT/" \
 		-e "/install(FILES profile/s/^/#DONOTWANT/" \
+		-e "/install(FILES konqueror.appdata.xml/s/^/#DONOTWANT/" \
 		-i konqueror/CMakeLists.txt \
 		|| die "Failed to omit .desktop files"
 }

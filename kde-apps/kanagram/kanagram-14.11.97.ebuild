@@ -17,6 +17,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep knewstuff)
@@ -26,12 +27,12 @@ DEPEND="
 	$(add_kdeapps_dep libkeduvocdocument)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5[qml]
 	dev-qt/qtwidgets:5
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
 	dev-qt/qtquickcontrols:5
+	dev-qt/qtwebkit:5[qml]
 	!kde-base/kanagram:4
 "

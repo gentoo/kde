@@ -341,12 +341,12 @@ fi
 # add a dependency over kde-l10n
 if [[ ${KDEBASE} != "kde-base" && -n ${KDE_LINGUAS} ]]; then
 	for _lingua in ${KDE_LINGUAS}; do
-		# if our package has lignuas, pull in kde-l10n with selected lingua enabled,
+		# if our package has linguas, pull in kde-l10n with selected lingua enabled,
 		# but only for selected ones.
 		# this can't be done on one line because if user doesn't use any localisation
 		# then he is probably not interested in kde-l10n at all.
 		kderdepend+="
-			linguas_${_lingua}? ( $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)") )
+		linguas_${_lingua}? ( || ( kde-apps/kde-l10n[linguas_${_lingua}(+)] $(add_kdebase_dep kde-l10n "linguas_${_lingua}(+)") ) )
 		"
 	done
 	unset _lingua
