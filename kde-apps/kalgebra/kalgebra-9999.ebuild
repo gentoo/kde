@@ -4,28 +4,49 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-DECLARATIVE_REQUIRED="always"
-OPENGL_REQUIRED="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
 DESCRIPTION="MathML-based graph calculator for KDE"
 HOMEPAGE="http://www.kde.org/applications/education/kalgebra
 http://edu.kde.org/kalgebra"
 KEYWORDS=""
-IUSE="debug"
+IUSE="ncurses opengl"
 
 DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep analitza opengl?)
-	$(add_kdeapps_dep libkdeedu)
-	opengl? ( virtual/glu )
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
+	ncurses? (
+		sys-libs/ncurses
+		sys-libs/readline
+	)
+	opengl? (
+		dev-qt/qtopengl:5
+		dev-qt/qtprintsupport:5
+		virtual/glu
+	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/analitza:4
+	!kde-base/kalgebra:4
+"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with opengl OpenGL)
+		$(cmake-utils_use_find_package ncurses Curses)
+		$(cmake-utils_use_find_package ncurses Readline)
+		$(cmake-utils_use_find_package opengl OpenGL)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
