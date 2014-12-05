@@ -11,7 +11,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-IUSE=""
+IUSE="test"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -33,3 +33,9 @@ DEPEND="
 	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	if ! use test; then
+		sed -i -e 's/add_subdirectory(tests)//' CMakeLists.txt || die "couldn't disable tests"
+	fi
+}
