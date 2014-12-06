@@ -236,7 +236,14 @@ _calculate_live_repo() {
 			# This variable allows easy overriding of default kde mirror service
 			# (anonsvn) with anything else you might want to use.
 			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
-			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
+
+			local branch_prefix="KDE"
+
+			if [[ -n ${KMNAME} ]]; then
+				branch_prefix="${KMNAME}"
+			fi
+
+			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${branch_prefix}/${PN}"
 			;;
 		git)
 			# @ECLASS-VARIABLE: EGIT_MIRROR
