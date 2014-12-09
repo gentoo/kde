@@ -14,9 +14,11 @@ inherit kde5
 DESCRIPTION="Oxygen SVG icon theme"
 HOMEPAGE="http://www.oxygen-icons.org/"
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="
-		!bindist? ( http://dev.gentoo.org/~johu/distfiles/${P}.repacked.tar.xz )
-		bindist? ( ${SRC_URI} )
+	# This gets repackaged for stable releases
+	SRC_URI_BINDIST="${SRC_URI}"
+
+	SRC_URI=" !bindist? ( ${SRC_URI} )
+		bindist? ( ${SRC_URI_BINDIST} )
 	"
 fi
 
