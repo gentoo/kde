@@ -11,7 +11,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-IUSE="test"
+IUSE="kdepim test"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -23,7 +23,9 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdebase_dep kdepimlibs)
+	kdepim? (
+		$(add_kdebase_dep kdepimlibs)
+	)
 	net-libs/accounts-qt
 	net-libs/signond
 	dev-qt/qtcore:5
@@ -38,4 +40,11 @@ src_prepare() {
 	if ! use test; then
 		sed -i -e 's/add_subdirectory(tests)//' CMakeLists.txt || die "couldn't disable tests"
 	fi
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package kdepim KF5Akonadi)
+	)
+	cmake-utils_src_configure
 }
