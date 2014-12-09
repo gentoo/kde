@@ -14,7 +14,7 @@ inherit kde4-base
 
 DESCRIPTION="Scripting Meta Object Kompiler Engine - Qt bindings"
 KEYWORDS=""
-IUSE="debug +phonon qimageblitz qscintilla qwt webkit"
+IUSE="debug +phonon qimageblitz qscintilla qwt webkit xmlpatterns"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 
 # Maybe make more of Qt optional?
@@ -33,6 +33,7 @@ DEPEND="
 	qscintilla? ( x11-libs/qscintilla:= )
 	qwt? ( x11-libs/qwt:5[svg] )
 	webkit? ( dev-qt/qtwebkit:4 )
+	xmlpatterns? ( dev-qt/qtxmlpatterns:4 )
 "
 RDEPEND="${DEPEND}"
 
@@ -47,8 +48,9 @@ src_configure() {
 		$(cmake-utils_use_with qimageblitz QImageBlitz)
 		$(cmake-utils_use_with qscintilla QScintilla)
 		$(cmake-utils_use_disable qthelp QtHelp)
-		$(cmake-utils_use_disable qwt Qwt5)
+		$(cmake-utils_use_with qwt Qwt5)
 		$(cmake-utils_use_disable webkit QtWebKit)
+		$(cmake-utils_use_disable xmlpatterns QtXmlPatterns)
 	)
 	kde4-base_src_configure
 }
