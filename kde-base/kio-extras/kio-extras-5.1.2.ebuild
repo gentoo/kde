@@ -61,8 +61,6 @@ DEPEND="${COMMON_DEPEND}
 # requires running kde environment
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${P}-CVE-2014-8600.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
