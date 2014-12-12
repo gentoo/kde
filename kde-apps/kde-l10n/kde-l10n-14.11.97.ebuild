@@ -56,7 +56,9 @@ src_unpack() {
 				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
 				# Drop translations that get installed with plasma 5 and kde apps 5 packages
 				if use minimal; then
-					rm "${S}"/${DIR}/4/${LNG}/messages/kde-workspace/{freespacenotifier,\
+
+					# KDE Workspace 4
+					rm -f "${S}"/${DIR}/4/${LNG}/messages/kde-workspace/{freespacenotifier,\
 joystick,kaccess,kcmaccess,kcm_autostart,kcmbell,kcmcolors,kcm_desktoppaths,\
 kcm_desktopthemedetails,kcmdevinfo,kcmfonts,kcm_infobase,kcminfo,\
 kcm_infosummary,kcminit,kcminput,kcmkclock,kcmkeyboard,kcmkeys,\
@@ -80,16 +82,19 @@ plasma_runner_powerdevil,plasma_runner_recentdocuments,plasma_runner_services,\
 plasma_runner_sessions,plasma_runner_shell,plasma_runner_solid,\
 plasma_runner_webshortcuts,plasma_runner_windowedwidgets,plasma_runner_windows,\
 powerdevilactivitiesconfig,powerdevilglobalconfig,powerdevil,\
-powerdevilprofilesconfig,processcore,processui,systemsettings}.po\
-|| die "Removing kde-workspace translations failed."
-					rm "${S}"/${DIR}/4/${LNG}/messages/kde-runtime/{attica_kde,drkonqi,\
+powerdevilprofilesconfig,processcore,processui,systemsettings}.po
+
+					# KDE Runtime 4
+					rm -f "${S}"/${DIR}/4/${LNG}/messages/kde-runtime/{attica_kde,drkonqi,\
 filetypes,htmlsearch,kcmcomponentchooser,kcm_emoticons,kcmhtmlsearch,\
 kcmicons,kcmkded,kcmnotify,kcm_phonon,kcmshell,kdesu,kglobalaccel,\
 khelpcenter,kio_applications,kio_archive,kio_bookmarks,kioclient,\
 kio_fish,kio_info,kio_man,kio_nfs,kio_recentdocuments,kio_remote,\
 kio_sftp,kio_smb,kio_thumbnail,kmimetypefinder,knetattach,kstart,\
-ktraderclient,phonon_kde,soliduiserver}.po || die "Removing kde-runtime translations failed."
-					rm "${S}"/${DIR}/4/${LNG}/messages/kdeplasma-addons/{konqprofiles,\
+ktraderclient,phonon_kde,soliduiserver}.po
+
+					# KDE Plasma Addons 4
+					rm -f "${S}"/${DIR}/4/${LNG}/messages/kdeplasma-addons/{konqprofiles,\
 konsoleprofiles,lancelot,liblancelot-datamodels,libplasma_groupingcontainment,\
 libplasmaweather,plasma_applet_binaryclock,plasma_applet_bookmarks,\
 plasma_applet_bubblemon,plasma_applet_CharSelectApplet,plasma_applet_comic,\
@@ -108,13 +113,15 @@ plasma_runner_contacts,plasma_runner_converterrunner,plasma_runner_datetime,\
 plasma_runner_events,plasma_runner_katesessions,\
 plasma_runner_konquerorsessions,plasma_runner_konsolesessions,\
 plasma_runner_kopete,plasma_runner_krunner_dictionary,plasma_runner_mediawiki,\
-plasma_runner_spellcheckrunner,plasma_runner_translator,plasma_runner_youtube}.po\
-|| die "Removing kdeplasma-addons translations failed."
-					rm "${S}"/${DIR}/4/${LNG}/messages/kdelibs/{akonadi_baloo_indexer,\
+plasma_runner_spellcheckrunner,plasma_runner_translator,plasma_runner_youtube}.po
+
+					# KDELIBS 4
+					rm -f "${S}"/${DIR}/4/${LNG}/messages/kdelibs/{akonadi_baloo_indexer,\
 baloo_file,baloo_file_extractor,baloosearch,balooshow,kcm_baloofile,\
-kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po ||\
-die "Removing kdelibs translations failed."
-					rm "${S}"/${DIR}/4/${LNG}/messages/applications/useraccount.po || die "Removing applications translation failed."
+kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
+
+					# KDE Applications 4
+					rm -f "${S}"/${DIR}/4/${LNG}/messages/applications/useraccount.po
 				fi
 			fi
 		done
