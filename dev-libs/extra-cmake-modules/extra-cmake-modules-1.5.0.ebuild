@@ -6,11 +6,13 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
-inherit cmake-utils python-any-r1
+inherit versionator cmake-utils python-any-r1
+
+FRAMEWORKS_DIR=5.$(get_version_component_range 2)
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
-SRC_URI="mirror://kde/stable/frameworks/5.4/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/frameworks/${FRAMEWORKS_DIR}/${P}.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
