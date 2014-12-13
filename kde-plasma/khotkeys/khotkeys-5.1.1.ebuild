@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdeplasma_dep plasma-workspace)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5

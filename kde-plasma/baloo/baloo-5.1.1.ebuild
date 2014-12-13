@@ -25,7 +25,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
-	$(add_kdebase_dep kfilemetadata)
+	$(add_kdeplasma_dep kfilemetadata)
 	=dev-libs/xapian-1.2*[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5

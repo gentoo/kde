@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="lm_sensors"
 
 DEPEND="
-	$(add_kdebase_dep libksysguard)
+	$(add_kdeplasma_dep libksysguard)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)

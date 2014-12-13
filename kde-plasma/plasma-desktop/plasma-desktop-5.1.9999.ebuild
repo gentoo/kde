@@ -12,10 +12,10 @@ KEYWORDS=""
 IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
-	$(add_kdebase_dep breeze)
-	$(add_kdebase_dep kwin)
-	$(add_kdebase_dep oxygen kwin)
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdeplasma_dep breeze)
+	$(add_kdeplasma_dep kwin)
+	$(add_kdeplasma_dep oxygen kwin)
+	$(add_kdeplasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -75,7 +75,7 @@ COMMON_DEPEND="
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	networkmanager? ( $(add_kdebase_dep plasma-nm) )
+	networkmanager? ( $(add_kdeplasma_dep plasma-nm) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra

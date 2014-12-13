@@ -13,7 +13,7 @@ KEYWORDS=" ~amd64"
 IUSE="X"
 
 RDEPEND="
-	$(add_kdebase_dep oxygen-fonts)
+	$(add_kdeplasma_dep oxygen-fonts)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)

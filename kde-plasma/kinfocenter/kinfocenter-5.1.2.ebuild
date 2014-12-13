@@ -46,7 +46,7 @@ RDEPEND="
 	)
 	pci? ( sys-apps/pciutils )
 	samba? ( net-fs/samba[server(+)] )
-	wayland? ( $(add_kdebase_dep kwayland) )
+	wayland? ( $(add_kdeplasma_dep kwayland) )
 	X? ( x11-libs/libX11 )
 	!kde-apps/kcontrol:4
 	!kde-base/kcontrol:4

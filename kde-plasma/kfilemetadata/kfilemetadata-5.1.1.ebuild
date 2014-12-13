@@ -10,7 +10,7 @@ DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=" ~amd64"
 IUSE="epub exif ffmpeg pdf taglib"
 
-# TODO: mobi? ( $(add_kdebase_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
+# TODO: mobi? ( $(add_kdeplasma_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)

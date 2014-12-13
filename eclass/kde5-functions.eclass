@@ -170,7 +170,7 @@ add_kdeapps_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
-add_kdebase_dep() {
+add_kdeplasma_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local version

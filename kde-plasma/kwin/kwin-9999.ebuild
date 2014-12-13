@@ -36,7 +36,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem X)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
-	$(add_kdebase_dep kdecoration)
+	$(add_kdeplasma_dep kdecoration)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl]
@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	wayland? (
-		$(add_kdebase_dep kwayland)
+		$(add_kdeplasma_dep kwayland)
 		>=dev-libs/wayland-1.2
 		>=x11-libs/libxkbcommon-0.4.1
 	)

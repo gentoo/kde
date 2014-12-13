@@ -27,7 +27,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
-	kwin? ( $(add_kdebase_dep kwin) )
+	kwin? ( $(add_kdeplasma_dep kwin) )
 "
 RDEPEND="${DEPEND}
 	!kde-base/kdebase-cursors:4

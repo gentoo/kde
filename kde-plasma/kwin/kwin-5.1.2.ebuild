@@ -54,7 +54,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	wayland? (
-		$(add_kdebase_dep kwayland)
+		$(add_kdeplasma_dep kwayland)
 		>=dev-libs/wayland-1.2
 		>=x11-libs/libxkbcommon-0.4.1
 	)

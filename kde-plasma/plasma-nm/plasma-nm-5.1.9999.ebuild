@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE="modemmanager openconnect teamd"
 
 DEPEND="
-	$(add_kdebase_dep libnm-qt 'teamd=')
+	$(add_kdeplasma_dep libnm-qt 'teamd=')
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -40,7 +40,7 @@ DEPEND="
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.10.0[teamd=]
 	modemmanager? (
-		$(add_kdebase_dep libmm-qt)
+		$(add_kdeplasma_dep libmm-qt)
 		dev-qt/qtxml:5
 	)
 	openconnect? (
