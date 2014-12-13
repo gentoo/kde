@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_kdebase_dep libkscreen '' '5.1.90')
+	$(add_kdeplasma_dep libkscreen '' '5.1.90')
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)

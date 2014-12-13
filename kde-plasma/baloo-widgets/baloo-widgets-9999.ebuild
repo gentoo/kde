@@ -18,8 +18,8 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdebase_dep baloo)
-	$(add_kdebase_dep kfilemetadata)
+	$(add_kdeplasma_dep baloo)
+	$(add_kdeplasma_dep kfilemetadata)
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5

@@ -24,7 +24,7 @@ DEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	kdepim? (
-		$(add_kdebase_dep kdepimlibs)
+		$(add_kdeplasma_dep kdepimlibs)
 	)
 	net-libs/accounts-qt
 	net-libs/signond

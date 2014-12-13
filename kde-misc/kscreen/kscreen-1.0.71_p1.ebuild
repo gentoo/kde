@@ -17,7 +17,7 @@ IUSE=""
 S=${WORKDIR}/${PN}
 
 DEPEND="
-	$(add_kdebase_dep libkscreen)
+	$(add_kdeplasma_dep libkscreen)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
