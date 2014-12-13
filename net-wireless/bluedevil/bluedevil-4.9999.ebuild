@@ -18,7 +18,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=net-libs/libbluedevil-2
+	>=net-libs/libbluedevil-2:4
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}

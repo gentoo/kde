@@ -577,7 +577,7 @@ _calculate_live_repo() {
 			fi
 
 			# default branching
-			[[ ${PV} != 4.9999* && ${KDEBASE} == kde-base ]] && \
+			[[ ${PV} != 4.9999* && ${PV} != 9999 && ${KDEBASE} == kde-base ]] && \
 				EGIT_BRANCH="KDE/$(get_kde_version)"
 
 			# default repo uri

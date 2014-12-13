@@ -14,13 +14,16 @@ inherit kde5
 DESCRIPTION="Oxygen SVG icon theme"
 HOMEPAGE="http://www.oxygen-icons.org/"
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="
-		bindist? ( ${SRC_URI} )
+	# This gets repackaged for stable releases
+	SRC_URI_BINDIST="${SRC_URI}"
+
+	SRC_URI=" !bindist? ( ${SRC_URI} )
+		bindist? ( ${SRC_URI_BINDIST} )
 	"
 fi
 
 LICENSE="LGPL-3"
-KEYWORDS=" ~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="bindist"
 
 RDEPEND="!kde-base/oxygen-icons:4"

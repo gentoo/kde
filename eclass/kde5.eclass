@@ -35,7 +35,7 @@ EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimal Qt version to require for the package.
-: ${QT_MINIMAL:=5.3.0}
+: ${QT_MINIMAL:=5.4.0}
 
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
@@ -112,7 +112,7 @@ case ${KDE_AUTODEPS} in
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
-		if [[ ${CATEGORY} = kde-base ]]; then
+		if [[ ${CATEGORY} = kde-plasma ]]; then
 			RDEPEND+=" !kde-base/kde-l10n:4"
 		fi
 
@@ -208,7 +208,7 @@ _calculate_src_uri() {
 			;;
 		kde-frameworks)
 			SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
-		kde-base)
+		kde-plasma)
 			case ${PV} in
 				5.?.[6-9]? )
 					# Plasma 5 beta releases
@@ -236,7 +236,14 @@ _calculate_live_repo() {
 			# This variable allows easy overriding of default kde mirror service
 			# (anonsvn) with anything else you might want to use.
 			ESVN_MIRROR=${ESVN_MIRROR:=svn://anonsvn.kde.org/home/kde}
-			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/KDE/${PN}"
+
+			local branch_prefix="KDE"
+
+			if [[ -n ${KMNAME} ]]; then
+				branch_prefix="${KMNAME}"
+			fi
+
+			ESVN_REPO_URI="${ESVN_MIRROR}/trunk/${branch_prefix}/${PN}"
 			;;
 		git)
 			# @ECLASS-VARIABLE: EGIT_MIRROR
@@ -260,7 +267,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} = kde-base ]]; then
+			if [[ ${PV} != 9999 && ${KDEBASE} = kde-plasma ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -351,7 +358,7 @@ kde5_src_prepare() {
 		comment_add_subdirectory autotests
 	fi
 
-	if [[ ${CATEGORY} = kde-base ]]; then
+	if [[ ${CATEGORY} = kde-plasma ]]; then
 		punt_bogus_deps
 	fi
 
