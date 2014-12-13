@@ -112,7 +112,7 @@ case ${KDE_AUTODEPS} in
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
-		if [[ ${CATEGORY} = kde-base ]]; then
+		if [[ ${CATEGORY} = kde-plasma ]]; then
 			RDEPEND+=" !kde-base/kde-l10n:4"
 		fi
 
@@ -208,7 +208,7 @@ _calculate_src_uri() {
 			;;
 		kde-frameworks)
 			SRC_URI="mirror://kde/stable/frameworks/${PV%.*}/${_kmname}-${PV}.tar.xz" ;;
-		kde-base)
+		kde-plasma)
 			case ${PV} in
 				5.?.[6-9]? )
 					# Plasma 5 beta releases
@@ -267,7 +267,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} = kde-base ]]; then
+			if [[ ${PV} != 9999 && ${KDEBASE} = kde-plasma ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -358,7 +358,7 @@ kde5_src_prepare() {
 		comment_add_subdirectory autotests
 	fi
 
-	if [[ ${CATEGORY} = kde-base ]]; then
+	if [[ ${CATEGORY} = kde-plasma ]]; then
 		punt_bogus_deps
 	fi
 

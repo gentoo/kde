@@ -79,7 +79,7 @@ _check_gcc_version() {
 # @FUNCTION: _add_kdecategory_dep
 # @INTERNAL
 # @DESCRIPTION:
-# Implementation of add_kdebase_dep and add_frameworks_dep.
+# Implementation of add_kdeplasma_dep and add_frameworks_dep.
 _add_kdecategory_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -160,7 +160,7 @@ add_kdeapps_dep() {
 	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
 }
 
-# @FUNCTION: add_kdebase_dep
+# @FUNCTION: add_kdeplasma_dep
 # @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-base/ dependencies.
@@ -177,11 +177,11 @@ add_kdebase_dep() {
 
 	if [[ -n ${3} ]]; then
 		version=${3}
-	elif [[ ${CATEGORY} = kde-base ]]; then
+	elif [[ ${CATEGORY} = kde-plasma ]]; then
 		version=${PV}
 	fi
 
-	_add_kdecategory_dep kde-base "${1}" "${2}" "${version}"
+	_add_kdecategory_dep kde-plasma "${1}" "${2}" "${version}"
 }
 
 # @FUNCTION: get_kde_version
