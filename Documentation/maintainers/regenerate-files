@@ -133,7 +133,7 @@ for release in $PLASMA_RELEASES live; do
 	echo -e "${HEADER}" > "kde-plasma-${release}"
 	if [[ -d "../package.unmask/.kde-plasma-${release}" ]]; then
 		cat "../package.unmask/.kde-plasma-${release}/"* >> "kde-plasma-${release}"
-		sed -i "kde-plasma-${release}" -e "/^<kde-base\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
+		sed -i "kde-plasma-${release}" -e "/^<kde-plasma\/.*-5\..\.50:5$/{s/-5\..\.50/-${release}/;s/^</>=/}"
 	fi
 done
 popd > /dev/null
@@ -155,7 +155,7 @@ done
 for set in *plasma-${PLASMA_RELEASE}; do
 	newfile=${set/%-${PLASMA_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-base/@s/-(9999|5\..\.50)//" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|5\..\.50)//" "${set}" >> "${newfile}"
 done
 popd > /dev/null
 
