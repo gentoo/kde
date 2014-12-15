@@ -2,4 +2,15 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name='btrfs'>Include Btrfs support (<pkg>sys-fs/btrfs-progs</pkg>)</flag>
+		<flag name='fat'>Include FAT16/FAT32 support (<pkg>sys-fs/dosfstools</pkg>)</flag>
+		<flag name='hfs'>Include HFS support (<pkg>sys-fs/hfsutils</pkg>)</flag>
+		<flag name='jfs'>Include JFS support (<pkg>sys-fs/jfsutils</pkg>)</flag>
+		<flag name='ntfs'>Include NTFS support (<pkg>sys-fs/ntfsprogs</pkg>)</flag>
+		<flag name='reiser4'>Include ReiserFS4 support (<pkg>sys-fs/reiser4progs</pkg>)</flag>
+		<flag name='reiserfs'>Include ReiserFS support (<pkg>sys-fs/reiserfsprogs</pkg>)</flag>
+		<flag name='xfs'>Include XFS support (<pkg>sys-fs/xfsprogs</pkg>)</flag>
+		<flag name='zfs'>Include ZFS support (<pkg>sys-fs/zfs</pkg>)</flag>
+	</use>
 </pkgmetadata>
