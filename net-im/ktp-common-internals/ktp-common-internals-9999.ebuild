@@ -19,7 +19,7 @@ LICENSE="LGPL-2.1"
 SLOT="5"
 IUSE="otr"
 
-# todo: telepathy-logger-qt, libkpeople, kdepimlibs
+# todo: libkpeople, kdepimlibs
 DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
@@ -44,8 +44,10 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	kde-misc/kaccounts-integration
+	media-libs/qt-gstreamer
 	net-libs/accounts-qt
 	>=net-libs/telepathy-qt-0.9.5[qt5]
+	net-libs/telepathy-logger-qt:5
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
