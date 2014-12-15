@@ -60,5 +60,5 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=( -DBUILD_TESTING=ON )
-	cmake-utils_src_configure
+	kde5_src_configure
 }

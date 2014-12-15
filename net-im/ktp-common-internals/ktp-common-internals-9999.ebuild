@@ -22,7 +22,6 @@ IUSE="otr"
 # todo: telepathy-logger-qt, libkpeople, kdepimlibs
 DEPEND="
 	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
