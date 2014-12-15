@@ -6,6 +6,7 @@ EAPI=5
 
 VIRTUALX_REQUIRED="test"
 KDE_LINGUAS="bs cs da de el fi fr hu ja lt nl pl pt pt_BR ro ru sk sl sv uk"
+EGIT_BRANCH="libkpeople-0.3"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
