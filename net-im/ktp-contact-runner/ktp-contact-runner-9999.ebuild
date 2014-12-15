@@ -15,12 +15,12 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep krunner)
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	net-im/ktp-common-internals:5
 	net-libs/telepathy-qt[qt5]
 "
