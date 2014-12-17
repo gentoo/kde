@@ -17,7 +17,7 @@ IUSE=""
 
 RDEPEND="
 	app-doc/doxygen
-	dev-python/pystache[${PYTHON_USEDEP}]
+	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	media-gfx/graphviz[python]
 "
