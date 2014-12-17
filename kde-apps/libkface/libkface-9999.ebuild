@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libkface/libkface-4.4.0.ebuild,v 1.2 2014/12/12 15:52:10 zlogene Exp $
+# $Header: $
 
 EAPI=5
 
