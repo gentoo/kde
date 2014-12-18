@@ -450,6 +450,7 @@ enable_cmake-utils_src_configure() {
 	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
 		# Handle release builds
 		if ! has debug ${IUSE//+} || ! use debug; then
+			local CPPFLAGS=${CPPFLAGS}
 			append-cppflags -DNDEBUG
 		fi
 	fi
