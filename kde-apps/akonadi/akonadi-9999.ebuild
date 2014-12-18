@@ -4,61 +4,54 @@
 
 EAPI=5
 
+QT_MINIMAL="5.4.0"
+KMNAME="kdepimlibs"
 inherit kde5
 
-DESCRIPTION="Common library for KDE PIM apps"
+DESCRIPTION="Akonadi library for KDE PIM apps"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE=""
-
-# some akonadi tests timeout, that probaly needs more work as its ~700 tests
+IUSE="test"
 RESTRICT="test"
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kemoticons)
-	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	app-crypt/gpgme
-	>=app-office/akonadi-server-5
-	dev-libs/cyrus-sasl
-	dev-libs/libical
-	dev-libs/libxml2
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsql:5
-	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	media-libs/phonon[qt5]
-	net-nds/openldap
-	sys-apps/util-linux
+	app-office/akonadi-server
+	dev-libs/boost
+	dev-libs/libxml2
 "
-
 RDEPEND="${DEPEND}"
 
+S="${S}"/${PN}
+
+src_prepare() {
+	if ! use test; then
+		find -name CMakeLists.txt -exec sed -i -e 's/add_subdirectory(autotests)//' -e 's/add_subdirectory(tests)//' {} \; || die "couldn't remove autotests"
+	fi
+}
+
 src_configure() {
-	local mycmakeargs=( -DBUILD_TESTING=ON )
-	cmake-utils_src_configure
+	local mycmakeargs=(
+		$(cmake-utils_use_build test TESTING)
+	)
+	kde5_src_configure
 }

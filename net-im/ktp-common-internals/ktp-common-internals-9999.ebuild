@@ -17,12 +17,11 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-IUSE="otr"
+IUSE="doc otr"
 
-# todo: telepathy-logger-qt, libkpeople, kdepimlibs
+# todo: libkpeople, kdepimlibs
 DEPEND="
 	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -45,8 +44,13 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	kde-misc/kaccounts-integration
+	media-libs/qt-gstreamer
 	net-libs/accounts-qt
 	>=net-libs/telepathy-qt-0.9.5[qt5]
+	net-libs/telepathy-logger-qt:5
+	doc? (
+		app-doc/doxygen
+	)
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
@@ -58,9 +62,20 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package doc Doxygen)
 		$(cmake-utils_use_find_package otr Libgcrypt)
 		$(cmake-utils_use_find_package otr LibOTR)
 	)
 
 	kde5_src_configure
+}
+
+src_compile() {
+	kde5_src_compile
+	use doc && kde5_src_compile apidox
+}
+
+src_install() {
+	kde5_src_install
+	use doc && dodoc "${BUILD_DIR}"/KTp/docs/html/*
 }
