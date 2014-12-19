@@ -40,11 +40,14 @@ src_prepare() {
 	if ! use test; then
 		sed -i -e 's/add_subdirectory(tests)//' CMakeLists.txt || die "couldn't disable tests"
 	fi
+
+	kde5_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package kdepim KF5Akonadi)
 	)
-	cmake-utils_src_configure
+
+	kde5_src_configure
 }
