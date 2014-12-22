@@ -7,6 +7,7 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="C++ bindings for gpgme"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
