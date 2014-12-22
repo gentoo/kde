@@ -9,6 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
