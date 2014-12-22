@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Plugin based library to create window decorations"
