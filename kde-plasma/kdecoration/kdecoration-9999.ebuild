@@ -10,8 +10,5 @@ DESCRIPTION="Plugin based library to create window decorations"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qttest:5
-"
+DEPEND="dev-qt/qtgui:5"
+RDEPEND="${DEPEND}"
