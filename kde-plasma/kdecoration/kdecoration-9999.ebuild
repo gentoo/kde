@@ -7,7 +7,6 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="Plugin based library to create window decorations"
-HOMEPAGE="http://www.kde.org/"
 KEYWORDS=""
 IUSE=""
 
