@@ -14,6 +14,7 @@ IUSE="ibus scim"
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
@@ -29,6 +30,9 @@ DEPEND="
 	ibus? (
 		app-i18n/ibus
 		dev-libs/glib:2
+		dev-qt/qtx11extras:5
+		x11-libs/libxcb
+		x11-libs/xcb-util-keysyms
 	)
 	scim? ( app-i18n/scim )
 "
