@@ -10,7 +10,6 @@ DESCRIPTION="Framework for searching and managing metadata"
 KEYWORDS=""
 IUSE=""
 
-# TODO re-enable kdepim integration
 DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcmutils)
@@ -38,9 +37,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/baloo:4[-minimal(-)]
 "
-
-src_configure() {
-	local mycmakeargs=( -DKDEPIM_SUPPORT_BUILD=OFF )
-
-	kde5_src_configure
-}
