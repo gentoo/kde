@@ -1,6 +1,8 @@
 ~kde-plasma/baloo-9999
 ~kde-plasma/breeze-9999
 ~kde-plasma/kde-cli-tools-9999
+~kde-plasma/kde-gtk-config-9999
+~kde-plasma/kdecoration-9999
 ~kde-plasma/kdeplasma-addons-9999
 ~kde-plasma/kfilemetadata-9999
 ~kde-plasma/khelpcenter-9999
@@ -17,6 +19,7 @@
 ~kde-plasma/libmm-qt-9999
 ~kde-plasma/libnm-qt-9999
 ~kde-plasma/milou-9999
+~kde-plasma/muon-9999
 ~kde-plasma/oxygen-9999
 ~kde-plasma/oxygen-fonts-9999
 ~kde-plasma/plasma-desktop-9999
@@ -24,4 +27,5 @@
 ~kde-plasma/plasma-workspace-9999
 ~kde-plasma/plasma-workspace-wallpapers-9999
 ~kde-plasma/powerdevil-9999
+~kde-plasma/sddm-kcm-9999
 ~kde-plasma/systemsettings-9999
