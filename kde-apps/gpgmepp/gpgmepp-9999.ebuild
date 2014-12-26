@@ -14,6 +14,4 @@ IUSE=""
 DEPEND="
 	app-crypt/gpgme:=
 "
-RDEPEND="${DEPEND}
-	!kde-base/kdepimlibs:4
-"
+RDEPEND="${DEPEND}"
