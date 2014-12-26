@@ -15,9 +15,7 @@ DESCRIPTION="PHP documentation plugin for KDevelop 4"
 LICENSE="GPL-2 LGPL-2"
 IUSE="debug"
 
-if [[ $PV == *9999* ]]; then
-	KEYWORDS=""
-else
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
