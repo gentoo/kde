@@ -7,5 +7,6 @@
 		<flag name="gdbui">Enable GUI for attaching GDB to a running process</flag>
 		<flag name="okteta">Enable hex editor plugin</flag>
 		<flag name="qthelp">Enable support for QtHelp documentation browsing</flag>
+		<flag name="runner">Enable the runner plugin for Plasma 5</flag>
 	</use>
 </pkgmetadata>
