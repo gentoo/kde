@@ -11,22 +11,21 @@ HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
 EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
 SLOT="0"
+KEYWORDS=""
 IUSE="debug doc test"
 
-COMMON_DEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtgui:4
-	dev-qt/qtscript:4
+RDEPEND="
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtscript:5
 "
-DEPEND="${COMMON_DEPEND}
-	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
-	test? ( dev-qt/qttest:4 )
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen[dot] )
+	test? ( dev-qt/qttest:5 )
 "
-RDEPEND="${COMMON_DEPEND}"
 
-DOCS=(AUTHORS CHANGELOG README)
+DOCS=( AUTHORS CHANGELOG README )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
@@ -34,7 +33,7 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build test TESTS)
+		-DBUILD_TESTS=$(usex test)
 	)
 
 	cmake-utils_src_configure
