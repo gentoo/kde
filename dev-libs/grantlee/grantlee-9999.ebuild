@@ -4,14 +4,15 @@
 
 EAPI=5
 
-inherit cmake-utils git-r3
+VIRTUALX_REQUIRED="test"
+inherit cmake-utils virtualx git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
 EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
 
 LICENSE="LGPL-2.1"
-SLOT="0"
+SLOT="5"
 KEYWORDS=""
 IUSE="debug doc test"
 
@@ -29,6 +30,7 @@ DOCS=( AUTHORS CHANGELOG README )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
+	"${FILESDIR}/${PN}-slot.patch"
 )
 
 src_configure() {
@@ -43,6 +45,10 @@ src_compile() {
 	cmake-utils_src_compile
 
 	use doc && cmake-utils_src_compile docs
+}
+
+src_test() {
+	VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
 }
 
 src_install() {
