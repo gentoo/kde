@@ -5,6 +5,7 @@
 EAPI=5
 
 KDEBASE="kdevelop"
+EGIT_BRANCH="1.1"
 inherit kde4-base
 
 if [[ $PV == *9999* ]]; then
