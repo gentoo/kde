@@ -14,7 +14,6 @@ IUSE="+addons"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -33,22 +32,21 @@ DEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	dev-libs/libxml2
-	dev-libs/libxslt
-	dev-libs/qjson
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	addons? (
+		$(add_frameworks_dep kbookmarks)
+		$(add_frameworks_dep knewstuff)
 		$(add_frameworks_dep knotifications)
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
+		$(add_frameworks_dep threadweaver)
+		dev-libs/libgit2:=
 	)
 "
 RDEPEND="${DEPEND}
