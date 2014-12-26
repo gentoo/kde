@@ -10,8 +10,8 @@ DESCRIPTION="KDE contact person abstraction library"
 HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
 
 LICENSE="LGPL-2.1"
-IUSE="semantic-desktop"
 KEYWORDS=""
+IUSE="semantic-desktop"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -21,14 +21,20 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep kcontacts)
-	semantic-desktop? (
-		$(add_kdeplasma_dep baloo)
-	)
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
+	semantic-desktop? ( $(add_kdeplasma_dep baloo) )
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
+	)
+
+	kde5_src_configure
+}
