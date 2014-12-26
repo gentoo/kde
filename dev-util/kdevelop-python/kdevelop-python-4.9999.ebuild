@@ -6,28 +6,25 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-KDE_LINGUAS="bs ca ca@valencia da de es fi fr gl it kk nl pt pt_BR sk sl sv uk
-zh_TW"
+KDE_LINGUAS="ca de en_GB es et fi fr nl pl pt pt_BR sk sl sv uk"
 PYTHON_COMPAT=( python2_7 )
 EGIT_BRANCH="1.7"
+MY_P="${KMNAME}-${PV}"
 inherit kde4-base python-any-r1
 
-MY_PN="${KMNAME}"
-MY_P="${MY_PN}-${PV}"
-
-if [[ $PV != *9999* ]]; then
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 	S=${WORKDIR}/${MY_P}
-else
-	KEYWORDS=""
 fi
 
 DESCRIPTION="Python plugin for KDevelop 4"
 IUSE="debug"
 
 COMMON_DEPEND=">=dev-util/kdevplatform-${PV}:4"
-DEPEND="${PYTHON_DEPS}"
+DEPEND="${COMMON_DEPEND}
+	${PYTHON_DEPS}
+"
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-util/kdevelop:4
