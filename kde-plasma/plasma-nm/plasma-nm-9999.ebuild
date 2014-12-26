@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="modemmanager openconnect teamd"
 
 DEPEND="
-	$(add_kdeplasma_dep libnm-qt 'teamd=')
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -30,6 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep libnm-qt 'teamd=')
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	dev-qt/qtdbus:5
