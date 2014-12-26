@@ -21,7 +21,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	app-crypt/qca:2
 	dev-db/sqlite:3
-	dev-libs/grantlee
+	dev-libs/grantlee:0
 	>=dev-libs/libofx-0.9.1
 	dev-libs/qjson
 	dev-qt/qtsql:4[sqlite]
