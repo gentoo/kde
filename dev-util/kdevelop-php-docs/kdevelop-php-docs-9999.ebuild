@@ -26,7 +26,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kxmlgui)
-	>=dev-util/kdevplatform-${PV}
+	>=dev-util/kdevplatform-${PV}:${SLOT}
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
