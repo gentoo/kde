@@ -10,24 +10,24 @@ VIRTUALX_REQUIRED=test
 KDEBASE="kdevelop"
 KMNAME="kdev-php"
 EGIT_REPONAME="${KMNAME}"
-EGIT_BRANCH="1.7"
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
 LICENSE="GPL-2 LGPL-2"
 IUSE="debug doc"
 
-if [[ $PV != *9999* ]]; then
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
-else
-	KEYWORDS=""
 fi
+
+RESTRICT="test"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
 "
 RDEPEND="
-	dev-util/kdevelop:4
+	dev-util/kdevelop:${SLOT}
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
+
 PATCHES=( "${FILESDIR}/${PN}"-1.2.0-parmake.patch )
