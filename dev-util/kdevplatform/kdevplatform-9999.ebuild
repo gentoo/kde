@@ -56,12 +56,12 @@ COMMON_DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtquick1:5
-	dev-qt/qttest:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
 DEPEND="${COMMON_DEPEND}
+	dev-qt/qttest:5
 	classbrowser? ( dev-libs/boost )
 "
 RDEPEND="${COMMON_DEPEND}
