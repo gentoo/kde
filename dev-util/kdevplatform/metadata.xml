@@ -3,6 +3,8 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="classbrowser">Enable the class browser plugin</flag>
+		<flag name="konsole">Enable Konsole integration</flag>
 		<flag name="reviewboard">Enable reviewboard support</flag>
 	</use>
 </pkgmetadata>
