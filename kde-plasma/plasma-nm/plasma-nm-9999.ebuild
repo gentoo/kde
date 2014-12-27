@@ -29,7 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep libnm-qt 'teamd=')
+	$(add_frameworks_dep networkmanager-qt 'teamd=')
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	dev-qt/qtdbus:5
