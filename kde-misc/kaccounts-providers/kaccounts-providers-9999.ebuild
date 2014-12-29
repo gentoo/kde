@@ -15,7 +15,7 @@ IUSE="telepathy"
 
 DEPEND=""
 RDEPEND="
-	telepathy? ( net-im/telepathy-connection-managers[jabber] )
+	telepathy? ( net-im/telepathy-connection-managers[xmpp] )
 	net-libs/signon-ui
 	net-libs/signon-oauth2
 "
