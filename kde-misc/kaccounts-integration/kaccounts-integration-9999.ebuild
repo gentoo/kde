@@ -29,10 +29,8 @@ DEPEND="
 	net-libs/accounts-qt
 	net-libs/signond
 	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}"
 
