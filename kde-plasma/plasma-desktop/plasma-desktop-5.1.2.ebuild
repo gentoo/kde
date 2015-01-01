@@ -90,13 +90,10 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	sys-apps/accountsservice
-	!kde-apps/attica:4
 	!kde-base/attica:4
-	!kde-apps/kcontrol:4
 	!kde-base/kcontrol:4
 	!kde-apps/knetattach:4[handbook]
 	!kde-base/knetattach:4[handbook]
-	!kde-apps/kdepasswd:4
 	!kde-base/kdepasswd:4
 	!kde-base/solid-actions-kcm:4
 	!kde-base/plasma-workspace:4

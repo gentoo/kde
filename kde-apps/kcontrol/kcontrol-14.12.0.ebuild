@@ -13,6 +13,6 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep khotkeys '' 4.11)
+	$(add_kdeplasma_dep khotkeys)
 	$(add_kdeapps_dep zeroconf-ioslave)
 "
