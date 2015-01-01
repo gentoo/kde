@@ -13,6 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdeplasma_dep khotkeys)
 	$(add_kdeapps_dep zeroconf-ioslave)
+	kde-plasma/khotkeys
 "
