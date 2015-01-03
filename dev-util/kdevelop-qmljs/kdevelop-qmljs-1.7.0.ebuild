@@ -19,8 +19,6 @@ SRC_URI="mirror://kde/stable/kdevelop/${KMNAME}/${PV}/src/${MY_P}.tar.xz"
 KEYWORDS="~amd64 ~x86"
 S=${WORKDIR}/${MY_P}
 
-RESTRICT="mirror"
-
 COMMON_DEPEND=">=dev-util/kdevplatform-${PV}:4"
 
 RDEPEND="
