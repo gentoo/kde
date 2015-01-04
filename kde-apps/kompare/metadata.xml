@@ -2,4 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="printsupport">Enable printing via <pkg>dev-qt/qtprintsupport</pkg></flag>
+	</use>
 </pkgmetadata>
