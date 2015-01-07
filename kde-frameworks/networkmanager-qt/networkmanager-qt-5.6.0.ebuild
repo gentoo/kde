@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="NetworkManager bindings for Qt"
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="teamd"
 
 RDEPEND="

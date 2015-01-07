@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="nls zeroconf"
 
 RDEPEND="

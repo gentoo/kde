@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing data models that help with tasks such as sorting and filtering"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 DEPEND="test? ( dev-qt/qtwidgets:5 )"

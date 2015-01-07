@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="acl kerberos X"
 
 RDEPEND="

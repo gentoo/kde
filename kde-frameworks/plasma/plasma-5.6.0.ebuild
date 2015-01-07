@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="egl opengl X"
 
 RDEPEND="

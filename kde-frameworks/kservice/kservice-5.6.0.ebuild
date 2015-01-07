@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
 LICENSE="LGPL-2 LGPL-2.1+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

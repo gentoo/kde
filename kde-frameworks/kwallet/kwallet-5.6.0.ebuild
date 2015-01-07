@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Framework for common completion tasks such as filename or URL completion"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="nls"
 
 RDEPEND="

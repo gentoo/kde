@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KHTML web rendering engine"
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="X"
 
 RDEPEND="
