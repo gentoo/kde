@@ -68,7 +68,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
-	bluetooth? ( net-wireless/bluedevil:5 )
+	bluetooth? ( $(add_kdeplasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
