@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing an assortment of widgets for displaying and editing text"
 LICENSE="LGPL-2+ LGPL-2.1+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

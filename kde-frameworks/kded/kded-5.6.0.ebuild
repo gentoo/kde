@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Central daemon of KDE workspaces"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

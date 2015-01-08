@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework for providing different actions given a string query"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

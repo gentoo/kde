@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="nls +policykit"
 
 RDEPEND="

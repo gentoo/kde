@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="eps openexr"
 
 RDEPEND="

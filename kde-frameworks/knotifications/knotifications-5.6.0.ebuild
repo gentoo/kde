@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 LICENSE="LGPL-2.1+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="dbus X nls"
 
 RDEPEND="

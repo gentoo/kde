@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework to work with KDE System Settings modules"
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

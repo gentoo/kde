@@ -8,7 +8,7 @@ inherit fdo-mime kde5
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="fam nls"
 
 RDEPEND="

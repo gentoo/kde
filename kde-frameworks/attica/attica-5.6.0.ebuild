@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing access to Open Collaboration Services"
 LICENSE="LGPL-2.1+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

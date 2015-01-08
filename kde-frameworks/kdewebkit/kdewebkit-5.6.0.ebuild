@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing KDE integration of QtWebKit"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

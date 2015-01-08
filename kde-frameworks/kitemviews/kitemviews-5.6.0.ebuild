@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework providing additional widgets for item models"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="nls"
 
 RDEPEND="

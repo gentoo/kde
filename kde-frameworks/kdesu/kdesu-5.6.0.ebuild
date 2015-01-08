@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Framework to handle super user actions"
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="X"
 
 RDEPEND="
