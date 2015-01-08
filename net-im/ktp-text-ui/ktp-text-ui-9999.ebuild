@@ -42,6 +42,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	net-im/ktp-common-internals:5
+	net-libs/libkpeople:5
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}
