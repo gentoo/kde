@@ -17,5 +17,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=net-wireless/bluez-5
-	!net-libs/libbluedevil:4
+	!net-libs/libbluedevil
 "
