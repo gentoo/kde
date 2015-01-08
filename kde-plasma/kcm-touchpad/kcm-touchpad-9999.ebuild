@@ -44,5 +44,5 @@ DEPEND="${RDEPEND}
 	>=x11-proto/inputproto-2.0
 	x11-proto/xproto
 	!kde-misc/kcm_touchpad
-	!kde-misc/kcm-touchpad:4
+	!kde-misc/kcm-touchpad
 "

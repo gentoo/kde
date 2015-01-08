@@ -22,4 +22,6 @@ IUSE="debug"
 DEPEND="x11-drivers/xf86-input-synaptics
 	x11-libs/libxcb
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/kcm_touchpad
+	!kde-plasma/kcm_touchpad"
