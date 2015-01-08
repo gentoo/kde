@@ -5,6 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
+EGIT_BRANCH="kdelibs4"
 inherit kde4-base
 
 DESCRIPTION="KDE screen management library"
