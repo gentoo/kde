@@ -6,7 +6,6 @@ EAPI=5
 
 MY_PN="${PN}-1"
 EGIT_REPONAME="${MY_PN}"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="PolKit agent module for KDE"
