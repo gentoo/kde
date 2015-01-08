@@ -4,20 +4,16 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE screen management"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/kscreen"
-COMMIT_ID="d6380ef623501a4a97aaeac8798e424c22716988"
-SRC_URI="http://quickgit.kde.org/?p=kscreen.git&a=snapshot&h=${COMMIT_ID}&fmt=tgz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
+
+KEYWORDS=""
 IUSE=""
 
-S=${WORKDIR}/${PN}
-
 DEPEND="
-	$(add_kdeplasma_dep libkscreen)
+	$(add_kdeplasma_dep libkscreen '' '5.1.90')
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -32,5 +28,5 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	!kde-misc/kscreen:4
+	!kde-misc/kscreen
 "
