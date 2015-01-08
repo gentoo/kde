@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,6 +7,7 @@ EAPI=5
 MY_PN="${PN}-1"
 MY_P="${MY_PN}-${PV}"
 EGIT_REPONAME="${MY_PN}"
+EGIT_BRANCH="kdelibs4"
 KDE_LINGUAS="ca ca@valencia cs da de en_GB eo es et fi fr ga
 	gl hr hu is it ja km lt nb mai ms nds nl pa pt pt_BR ro ru
 	sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv th tr uk zh_TW"
