@@ -9,6 +9,7 @@ DECLARATIVE_REQUIRED="always"
 VIRTUALX_REQUIRED="test"
 KDE_LINGUAS="bs cs da de el es et fi fr ga gl hu it lt mr nl pt pt_BR ro ru sk
 sl sv tr uk zh_CN zh_TW"
+EGIT_BRANCH="kdelibs4"
 inherit kde4-base readme.gentoo
 
 DESCRIPTION="Alternative KDE screen management"
