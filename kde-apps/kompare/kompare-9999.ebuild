@@ -25,7 +25,7 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep libkomparediff2)
 	dev-qt/qtwidgets:5
-	printsupport? ( dev-qt/printsupport:5 )
+	printsupport? ( dev-qt/qtprintsupport:5 )
 "
 
 DEPEND="${RDEPEND}"
