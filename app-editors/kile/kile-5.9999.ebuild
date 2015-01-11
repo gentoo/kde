@@ -4,6 +4,7 @@
 
 EAPI=5
 
+CMAKE_MIN_VERSION="3.0.2"
 KDE_HANDBOOK=true
 EGIT_BRANCH="frameworks"
 MY_P=${P/_beta/b}
@@ -18,10 +19,6 @@ KEYWORDS=""
 IUSE="debug +pdf +png"
 
 DEPEND="
-	>=dev-util/cmake-3.0.2
-"
-
-RDEPEND="${DEPEND}
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdoctools)
@@ -35,16 +32,20 @@ RDEPEND="${DEPEND}
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	|| (
-		$(add_kdeapps_dep konsole)
-		$(add_kdeapps_dep okular 'pdf?,postscript')
-		app-text/acroread
-	)
-	dev-qt/qtcore:5
+	$(add_kdeapps_dep okular)
 	dev-qt/qtdbus:5
 	dev-qt/qtscript:5
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
+"
+
+RDEPEND="${DEPEND}
+	!app-editors/kile:4
+	$(add_kdeapps_dep konsole)
+	|| (
+		$(add_kdeapps_dep okular 'pdf?')
+		app-text/acroread
+	)
 	virtual/latex-base
 	virtual/tex-base
 	pdf? (
