@@ -11,7 +11,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-IUSE="kdepim test"
+IUSE="test"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -23,12 +23,8 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	kdepim? (
-		$(add_kdeplasma_dep kdepimlibs)
-	)
 	net-libs/accounts-qt
 	net-libs/signond
-	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
@@ -40,12 +36,4 @@ src_prepare() {
 	fi
 
 	kde5_src_prepare
-}
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package kdepim KF5Akonadi)
-	)
-
-	kde5_src_configure
 }
