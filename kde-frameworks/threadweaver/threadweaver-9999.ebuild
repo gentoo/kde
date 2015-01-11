@@ -11,6 +11,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+RDEPEND="dev-qt/qtwidgets:5"
+DEPEND="${RDEPEND}"
+
 src_prepare() {
 	comment_add_subdirectory benchmarks
 	kde5_src_prepare
