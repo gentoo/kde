@@ -1,0 +1,37 @@
+# Johannes Huber <johu@gentoo.org> (14 Jan 2015)
+# Unstable release and depends on Qt5 which is masked.
+>=kde-plasma/baloo-5.5.95
+>=kde-plasma/bluedevil-5.1.95
+>=kde-plasma/breeze-5.1.95
+>=kde-plasma/kcm-touchpad-5.1.95
+>=kde-plasma/kde-cli-tools-5.1.95
+>=kde-plasma/kde-gtk-config-5.1.95
+>=kde-plasma/kdecoration-5.1.95
+>=kde-plasma/kdeplasma-addons-5.1.95
+>=kde-plasma/kfilemetadata-5.5.95
+>=kde-plasma/khelpcenter-5.1.95
+>=kde-plasma/khotkeys-5.1.95
+>=kde-plasma/kinfocenter-5.1.95
+>=kde-plasma/kio-extras-5.1.95
+>=kde-plasma/kmenuedit-5.1.95
+>=kde-plasma/kscreen-5.1.95
+>=kde-plasma/ksysguard-5.1.95
+>=kde-plasma/kwayland-5.1.95
+>=kde-plasma/kwin-5.1.95
+>=kde-plasma/kwrited-5.1.95
+>=kde-plasma/libbluedevil-5.1.95
+>=kde-plasma/libkscreen-5.1.95
+>=kde-plasma/libksysguard-5.1.95
+>=kde-plasma/libmm-qt-5.1.95
+>=kde-plasma/milou-5.1.95
+>=kde-plasma/oxygen-5.1.95
+>=kde-plasma/oxygen-fonts-5.1.95
+>=kde-plasma/plasma-desktop-5.1.95
+>=kde-plasma/plasma-nm-5.1.95
+>=kde-plasma/plasma-workspace-5.1.95
+>=kde-plasma/plasma-workspace-wallpapers-5.1.95
+>=kde-plasma/polkit-kde-agent-5.1.95
+>=kde-plasma/powerdevil-5.1.95
+>=kde-plasma/sddm-kcm-5.1.95
+>=kde-plasma/systemsettings-5.1.95
+>=kde-plasma/user-manager-5.1.95
