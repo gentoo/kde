@@ -105,7 +105,7 @@ case ${KDE_AUTODEPS} in
 		elif [[ ${CATEGORY} = kde-frameworks ]]; then
 			ecm_version=1.$(get_version_component_range 2).0
 		else
-			ecm_version=1.5.0
+			ecm_version=1.6.1
 		fi
 
 		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
