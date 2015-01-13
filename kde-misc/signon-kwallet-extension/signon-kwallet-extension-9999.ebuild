@@ -15,7 +15,6 @@ LICENSE="LGPL-2.1"
 
 DEPEND="
 	$(add_frameworks_dep kwallet)
-	dev-qt/qtcore:5
 	net-libs/signond
 "
 RDEPEND="${DEPEND}"
