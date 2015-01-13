@@ -20,7 +20,6 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
