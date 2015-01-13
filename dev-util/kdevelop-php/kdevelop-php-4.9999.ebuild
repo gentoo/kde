@@ -10,6 +10,7 @@ VIRTUALX_REQUIRED=test
 KDEBASE="kdevelop"
 KMNAME="kdev-php"
 EGIT_REPONAME="${KMNAME}"
+EGIT_BRANCH="1.7"
 inherit kde4-base
 
 DESCRIPTION="PHP plugin for KDevelop 4"
@@ -24,6 +25,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-util/kdevelop-pg-qt-1.0.0
+	<=dev-util/kdevelop-pg-qt-5
 "
 RDEPEND="
 	dev-util/kdevelop:${SLOT}
