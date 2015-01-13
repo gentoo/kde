@@ -2,7 +2,9 @@
 # Live packages are masked by default.
 # Edit Documentation/package.unmask/.kde-plasma-live/ files instead.
 ~kde-plasma/baloo-9999
+~kde-plasma/bluedevil-9999
 ~kde-plasma/breeze-9999
+~kde-plasma/kcm-touchpad-9999
 ~kde-plasma/kde-cli-tools-9999
 ~kde-plasma/kde-gtk-config-9999
 ~kde-plasma/kdecoration-9999
@@ -13,10 +15,12 @@
 ~kde-plasma/kinfocenter-9999
 ~kde-plasma/kio-extras-9999
 ~kde-plasma/kmenuedit-9999
+~kde-plasma/kscreen-9999
 ~kde-plasma/ksysguard-9999
 ~kde-plasma/kwayland-9999
 ~kde-plasma/kwin-9999
 ~kde-plasma/kwrited-9999
+~kde-plasma/libbluedevil-9999
 ~kde-plasma/libkscreen-9999
 ~kde-plasma/libksysguard-9999
 ~kde-plasma/libmm-qt-9999
@@ -27,6 +31,8 @@
 ~kde-plasma/plasma-nm-9999
 ~kde-plasma/plasma-workspace-9999
 ~kde-plasma/plasma-workspace-wallpapers-9999
+~kde-plasma/polkit-kde-agent-9999
 ~kde-plasma/powerdevil-9999
 ~kde-plasma/sddm-kcm-9999
 ~kde-plasma/systemsettings-9999
+~kde-plasma/user-manager-9999
