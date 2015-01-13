@@ -32,7 +32,6 @@ DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep threadweaver)
 	dev-util/kdevplatform:5
-	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
