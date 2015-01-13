@@ -16,7 +16,6 @@ DEPEND="
 	$(add_kdeapps_dep libkdcraw)
 	$(add_kdeapps_dep libkexiv2)
 	$(add_frameworks_dep kio)
-	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 "
 
