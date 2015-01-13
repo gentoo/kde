@@ -20,7 +20,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeplasma_dep baloo)
 	$(add_kdeplasma_dep kfilemetadata)
-	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
