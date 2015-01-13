@@ -29,7 +29,6 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/designer:5
 	dev-qt/qtprintsupport:5
