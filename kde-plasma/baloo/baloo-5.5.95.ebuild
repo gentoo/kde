@@ -12,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/unstable/plasma/${PLASMA_VERSION}/${PN}-${PV}.tar.xz"
 fi
 DESCRIPTION="Framework for searching and managing metadata"
-KEYWORDS=""
+KEYWORDS=" ~amd64"
 IUSE=""
 
 DEPEND="
