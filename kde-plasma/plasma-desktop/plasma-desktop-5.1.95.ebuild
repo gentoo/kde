@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=" ~amd64"
-IUSE="+fontconfig networkmanager pulseaudio usb"
+IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
 	$(add_kdeplasma_dep breeze)
@@ -68,6 +68,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
+	bluetooth? ( $(add_kdeplasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
