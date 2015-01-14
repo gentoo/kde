@@ -117,7 +117,7 @@ plasma_runner_spellcheckrunner,plasma_runner_translator,plasma_runner_youtube}.p
 
 					# KDELIBS 4
 					rm -f "${S}"/${DIR}/4/${LNG}/messages/kdelibs/{akonadi_baloo_indexer,\
-baloo_file,baloo_file_extractor,baloosearch,balooshow,kcm_baloofile,kfilemetadata\
+baloo_file,baloo_file_extractor,baloosearch,balooshow,kcm_baloofile,kfilemetadata,\
 kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 
 					# KDE Applications 4
