@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_AUTODEPS=true
+KDE_AUTODEPS="false"
 inherit kde5 font
 
 DESCRIPTION="Desktop/GUI font family for integrated use with the KDE desktop"
