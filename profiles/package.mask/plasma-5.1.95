@@ -15,6 +15,7 @@
 >=kde-plasma/kio-extras-5.1.95
 >=kde-plasma/kmenuedit-5.1.95
 >=kde-plasma/kscreen-5.1.95
+>=kde-plasma/ksshaskpass-5.1.95:5
 >=kde-plasma/ksysguard-5.1.95
 >=kde-plasma/kwayland-5.1.95
 >=kde-plasma/kwin-5.1.95
