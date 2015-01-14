@@ -14,6 +14,9 @@ IUSE=""
 
 # TODO: add X use flag, does not build at the moment
 
+# does not build
+RESTRICT="test"
+
 DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtx11extras:5
