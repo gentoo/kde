@@ -11,7 +11,7 @@ DESCRIPTION="PolKit agent module for KDE"
 HOMEPAGE="http://www.kde.org"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="5"
 IUSE=""
 
@@ -20,5 +20,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-kde
-	!sys-auth/polkit-kde-agent
+	!sys-auth/polkit-kde-agent:5
 "

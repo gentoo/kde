@@ -20,5 +20,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-kde
-	!sys-auth/polkit-kde-agent
+	!sys-auth/polkit-kde-agent:5
 "
