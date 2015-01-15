@@ -13,6 +13,7 @@ IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
 	$(add_kdeplasma_dep baloo)
+	$(add_kdeplasma_dep kwayland)
 	$(add_kdeplasma_dep kwin)
 	$(add_kdeplasma_dep libkscreen)
 	$(add_kdeplasma_dep libksysguard)
@@ -53,6 +54,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
+	dev-libs/wayland
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5[jpeg]
