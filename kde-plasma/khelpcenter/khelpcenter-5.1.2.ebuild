@@ -35,9 +35,10 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	!kde-base/khelpcenter:4
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/khelpcenter
+"
 
 src_install() {
 	kde5_src_install
