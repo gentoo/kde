@@ -18,5 +18,6 @@ DEPEND="
 	>=net-misc/networkmanager-0.9.8[modemmanager]
 "
 RDEPEND="${DEPEND}
+	!kde-base/libmm-qt
 	!net-libs/libmm-qt
 "
