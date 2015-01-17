@@ -35,5 +35,5 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
-	!kde-base/systemsettings:4
+	!kde-base/systemsettings
 "
