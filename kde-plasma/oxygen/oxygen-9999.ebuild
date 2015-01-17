@@ -30,7 +30,8 @@ DEPEND="
 	kwin? ( $(add_kdeplasma_dep kwin) )
 "
 RDEPEND="${DEPEND}
-	!kde-base/kdebase-cursors:4
+	!kde-base/kdebase-cursors
+	!kde-base/oxygen
 "
 
 src_configure() {
