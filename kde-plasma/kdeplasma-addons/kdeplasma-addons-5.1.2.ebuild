@@ -32,7 +32,9 @@ DEPEND="
 	)
 	scim? ( app-i18n/scim )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kdeplasma-addons
+"
 
 src_configure() {
 	local mycmakeargs=(
