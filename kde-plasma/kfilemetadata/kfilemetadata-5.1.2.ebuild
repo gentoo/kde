@@ -21,7 +21,9 @@ DEPEND="
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kfilemetadata:5
+"
 
 src_configure() {
 	local mycmakeargs=(
