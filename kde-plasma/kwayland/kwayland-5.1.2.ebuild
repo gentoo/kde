@@ -18,7 +18,9 @@ DEPEND="
 	>=dev-libs/wayland-1.3.0
 	dev-qt/qtgui:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kwayland
+"
 
 # All failing, i guess we need a virtual wayland server
 RESTRICT="test"
