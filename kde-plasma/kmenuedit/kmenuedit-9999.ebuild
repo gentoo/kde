@@ -32,7 +32,7 @@ DEPEND="
 	hotkeys? ( $(add_kdeplasma_dep khotkeys) )
 "
 RDEPEND="${DEPEND}
-	!kde-base/kmenuedit:4
+	!kde-base/kmenuedit
 "
 
 src_configure() {
