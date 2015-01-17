@@ -52,6 +52,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdebase-kioslaves:4[-minimal(-)]
 	!kde-base/kcontrol:4
 	!kde-base/kdebase-kioslaves:4[-minimal(-)]
+	!kde-base/kio-extras
 "
 DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
