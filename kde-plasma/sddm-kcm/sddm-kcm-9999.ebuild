@@ -28,5 +28,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	x11-misc/sddm
-	!kde-misc/sddm-kcm:4
+	!kde-misc/sddm-kcm
 "
