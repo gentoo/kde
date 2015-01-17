@@ -87,15 +87,15 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
 	kde-base/kdebase-pam
-	!kde-base/freespacenotifier:4
-	!kde-base/libtaskmanager:4
-	!kde-base/kcminit:4
-	!kde-base/kdebase-startkde:4
-	!kde-base/klipper:4
-	!kde-base/krunner:4
-	!kde-base/ksmserver:4
-	!kde-base/ksplash:4
-	!kde-base/plasma-workspace:4
+	!kde-base/freespacenotifier
+	!kde-base/libtaskmanager
+	!kde-base/kcminit
+	!kde-base/kdebase-startkde
+	!kde-base/klipper
+	!kde-base/krunner
+	!kde-base/ksmserver
+	!kde-base/ksplash
+	!kde-base/plasma-workspace
 "
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
