@@ -19,5 +19,5 @@ DEPEND="
 	$(add_frameworks_dep kpty)
 "
 RDEPEND="${DEPEND}
-	!kde-base/kwrited:4
+	!kde-base/kwrited
 "
