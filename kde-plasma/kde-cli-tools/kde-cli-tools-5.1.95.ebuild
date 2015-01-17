@@ -36,7 +36,9 @@ DEPEND="
 		x11-libs/libX11
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kde-cli-tools
+"
 
 # requires running kde environment
 RESTRICT="test"
