@@ -61,8 +61,8 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-base/kwin:4
-	!kde-base/systemsettings:4
+	!kde-base/kwin
+	!kde-base/systemsettings
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
