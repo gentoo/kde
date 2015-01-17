@@ -33,6 +33,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	dev-qt/qtgraphicaleffects:5
+	!kde-base/breeze
 "
 
 pkg_setup() {
