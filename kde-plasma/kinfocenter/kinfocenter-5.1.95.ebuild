@@ -48,8 +48,8 @@ RDEPEND="
 	samba? ( net-fs/samba[server(+)] )
 	wayland? ( $(add_kdeplasma_dep kwayland) )
 	X? ( x11-libs/libX11 )
-	!kde-base/kcontrol:4
-	!kde-base/kinfocenter:4
+	!kde-base/kcontrol
+	!kde-base/kinfocenter
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep plasma)
