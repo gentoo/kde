@@ -35,7 +35,7 @@ DEPEND="
 	lm_sensors? ( sys-apps/lm_sensors )
 "
 RDEPEND="${DEPEND}
-	!kde-base/ksysguard:4
+	!kde-base/ksysguard
 "
 
 src_configure() {
