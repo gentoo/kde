@@ -90,14 +90,14 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	sys-apps/accountsservice
-	!kde-base/attica:4
-	!kde-base/kcontrol:4
-	!kde-apps/knetattach:4[handbook]
-	!kde-base/knetattach:4[handbook]
-	!kde-base/kdepasswd:4
-	!kde-base/solid-actions-kcm:4
-	!kde-base/plasma-workspace:4
-	!kde-base/systemsettings:4
+	!kde-base/attica
+	!kde-base/kcontrol
+	!kde-base/kdepasswd
+	!kde-base/knetattach[handbook]
+	!kde-base/plasma-desktop
+	!kde-base/plasma-workspace
+	!kde-base/solid-actions-kcm
+	!kde-base/systemsettings
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
