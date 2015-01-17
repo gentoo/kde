@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="compat">Make <pkg>kde-base/khelpcenter:5</pkg> compatible with <pkg>kde-base/kdelibs:4</pkg> applications</flag>
+		<flag name="compat">Enable compatibility with <pkg>kde-base/kdelibs:4</pkg> applications</flag>
 	</use>
 </pkgmetadata>
