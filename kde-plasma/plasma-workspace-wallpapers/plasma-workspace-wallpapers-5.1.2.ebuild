@@ -13,4 +13,9 @@ DESCRIPTION="Additional wallpapers for the Plasma workspace"
 KEYWORDS=" ~amd64"
 IUSE=""
 
-DEPEND="dev-libs/extra-cmake-modules"
+RDEPEND="
+	!kde-base/plasma-workspace-wallpapers
+"
+DEPEND="${RDEPEND}
+	dev-libs/extra-cmake-modules
+"
