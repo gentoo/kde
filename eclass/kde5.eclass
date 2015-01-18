@@ -83,6 +83,13 @@ else
 	: ${KDE_TEST:=false}
 fi
 
+# @ECLASS-VARIABLE: KDE_SELINUX_MODULE
+# @DESCRIPTION:
+# If set to "none", do nothing.
+# For any other value, add selinux to IUSE, and depending on that useflag
+# add a dependency on sec-policy/selinux-${KDE_SELINUX_MODULE} to (R)DEPEND
+: ${KDE_SELINUX_MODULE:=none}
+
 if [[ ${KDEBASE} = kdevelop ]]; then
 	HOMEPAGE="http://www.kdevelop.org/"
 else
@@ -158,6 +165,14 @@ case ${KDE_TEST} in
 	*)
 		IUSE+=" test"
 		DEPEND+=" test? ( >=dev-qt/qttest-${QT_MINIMAL}:5 )"
+		;;
+esac
+
+case ${KDE_SELINUX_MODULE} in
+	none)   ;;
+	*)
+		IUSE+=" selinux"
+		COMMONDEPEND+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
 		;;
 esac
 
