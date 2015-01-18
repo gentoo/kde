@@ -16,5 +16,5 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	>=dev-libs/libgit2-0.17
+	>=dev-libs/libgit2-0.17:=
 "
