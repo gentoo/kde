@@ -24,16 +24,16 @@ IUSE="debug v4l"
 
 DEPEND="
 	>=media-libs/qt-gstreamer-1.2.0
-	>=net-im/ktp-common-internals-${PV}
+	>=net-im/ktp-common-internals-${PV}:4
 	net-libs/farstream:0.2
 	>=net-libs/telepathy-farstream-0.6.0
 	>=net-libs/telepathy-qt-0.9.5[farstream,qt4]
 "
 RDEPEND="${DEPEND}
 	|| (
-		>=net-im/ktp-contact-list-${PV}
-		>=net-im/ktp-desktop-applets-${PV}
-		>=net-im/ktp-text-ui-${PV}
+		>=net-im/ktp-contact-list-${PV}:4
+		>=net-im/ktp-desktop-applets-${PV}:4
+		>=net-im/ktp-text-ui-${PV}:4
 	)
 	v4l? ( media-plugins/gst-plugins-v4l2:0.10 )
 "

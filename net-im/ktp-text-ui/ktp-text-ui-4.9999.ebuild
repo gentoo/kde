@@ -32,7 +32,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	>=net-im/ktp-contact-list-${PV}
+	>=net-im/ktp-contact-list-${PV}:4
 "
 
 src_configure() {

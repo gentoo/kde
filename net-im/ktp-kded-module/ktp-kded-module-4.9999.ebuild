@@ -25,7 +25,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=net-im/ktp-common-internals-${PV}
+	>=net-im/ktp-common-internals-${PV}:4
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
 RDEPEND="${DEPEND}"

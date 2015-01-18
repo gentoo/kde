@@ -24,10 +24,10 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=net-im/ktp-common-internals-${PV}
+	>=net-im/ktp-common-internals-${PV}:4
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
 RDEPEND="${DEPEND}
-	>=net-im/ktp-contact-list-${PV}
-	>=net-im/ktp-filetransfer-handler-${PV}
+	>=net-im/ktp-contact-list-${PV}:4
+	>=net-im/ktp-filetransfer-handler-${PV}:4
 "

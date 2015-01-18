@@ -27,5 +27,5 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
 RDEPEND="${DEPEND}
-	>=net-im/ktp-contact-list-${PV}
+	>=net-im/ktp-contact-list-${PV}:4
 "
