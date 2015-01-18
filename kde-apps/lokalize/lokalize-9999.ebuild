@@ -34,6 +34,8 @@ DEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep pykde5 "${PYTHON_USEDEP}")
+	!kde-apps/lokalize:4
+	!kde-base/lokalize
 "
 
 pkg_setup() {
