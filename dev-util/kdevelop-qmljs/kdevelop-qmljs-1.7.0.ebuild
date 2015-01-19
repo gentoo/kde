@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,11 +17,12 @@ LICENSE="GPL-2 LGPL-2"
 IUSE="debug"
 SRC_URI="mirror://kde/stable/kdevelop/${KMNAME}/${PV}/src/${MY_P}.tar.xz"
 KEYWORDS="~amd64 ~x86"
+
 S=${WORKDIR}/${MY_P}
 
-COMMON_DEPEND=">=dev-util/kdevplatform-${PV}:4"
-
-RDEPEND="
-    ${COMMON_DEPEND}
-    dev-util/kdevelop:4
+DEPEND="
+	>=dev-util/kdevplatform-${PV}:4
+"
+RDEPEND="${DEPEND}
+	dev-util/kdevelop:4
 "
