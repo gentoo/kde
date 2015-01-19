@@ -5,6 +5,8 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE's terminal emulator"
@@ -45,6 +47,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/konsole:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
