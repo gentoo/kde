@@ -7,7 +7,6 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="KDE daemon listening for wall and write messages"
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
