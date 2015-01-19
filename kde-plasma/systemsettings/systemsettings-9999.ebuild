@@ -8,7 +8,6 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="System settings utility"
-LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="gtk"
 
