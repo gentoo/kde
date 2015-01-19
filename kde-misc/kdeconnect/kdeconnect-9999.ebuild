@@ -7,7 +7,7 @@ EAPI=5
 EGIT_BRANCH="frameworks"
 MY_PN=${PN}-kde
 KMNAME=${MY_PN}
-
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Adds communication between KDE and your smartphone"
@@ -25,6 +25,8 @@ RDEPEND="${DEPEND}
 	$(add_kdeplasma_dep plasma-workspace)
 	net-dns/avahi
 "
+
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
