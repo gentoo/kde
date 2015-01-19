@@ -4,14 +4,14 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
 EGIT_BRANCH="kf5_port"
 inherit kde5
 
 DESCRIPTION="An advanced download manager for KDE"
 HOMEPAGE="http://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
-IUSE="debug gpg mms sqlite"
+IUSE="gpg mms sqlite"
 
 # TODO: not yet ported
 # 	bittorrent? ( 
