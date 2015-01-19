@@ -1,0 +1,11 @@
+--- a/src/CMakeLists.txt	2015-01-19 02:45:45.207037408 +0100
++++ b/src/CMakeLists.txt	2015-01-19 02:52:38.558025089 +0100
+@@ -334,4 +334,7 @@
+ install( PROGRAMS settings/services/servicemenuinstallation DESTINATION ${BIN_INSTALL_DIR} )
+ install( PROGRAMS settings/services/servicemenudeinstallation DESTINATION ${BIN_INSTALL_DIR} )
+ 
+-add_subdirectory(tests)
++if(BUILD_TESTING)
++    find_package(Qt5Test ${QT_MIN_VERSION} CONFIG REQUIRED)
++    add_subdirectory(tests)
++endif()
