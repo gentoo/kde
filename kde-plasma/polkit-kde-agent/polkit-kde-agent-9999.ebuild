@@ -9,10 +9,7 @@ inherit kde5
 
 DESCRIPTION="PolKit agent module for KDE"
 HOMEPAGE="http://www.kde.org"
-
-LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="5"
 IUSE=""
 
 DEPEND="
