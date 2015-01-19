@@ -9,9 +9,6 @@ inherit kde5
 
 DESCRIPTION="KControl module for xf86-input-synaptics"
 HOMEPAGE="https://projects.kde.org/projects/playground/utils/kcm-touchpad"
-
-LICENSE="GPL-2"
-SLOT="5"
 KEYWORDS=" ~amd64"
 IUSE=""
 
