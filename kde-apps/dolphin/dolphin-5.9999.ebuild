@@ -6,7 +6,9 @@ EAPI=5
 
 EGIT_BRANCH="frameworks"
 KMNAME="kde-baseapps"
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
+KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE filemanager focusing on usability"
@@ -52,6 +54,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/dolphin:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
 
 S=${S}/${PN}
 
