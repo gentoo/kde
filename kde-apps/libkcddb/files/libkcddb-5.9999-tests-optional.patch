@@ -1,0 +1,27 @@
+--- a/CMakeLists.txt	2015-01-20 00:43:05.096398998 +0100
++++ b/CMakeLists.txt	2015-01-20 00:44:37.340010389 +0100
+@@ -12,7 +12,7 @@
+ include(GenerateExportHeader)
+ include(ECMSetupVersion)
+ 
+-find_package(Qt5 REQUIRED COMPONENTS Network Widgets Test)
++find_package(Qt5 REQUIRED COMPONENTS Network Widgets)
+ find_package(KF5 REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
+ 
+ ecm_setup_version(${KF5_VERSION}
+@@ -36,10 +36,14 @@
+ 
+ include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+ 
+-add_subdirectory( test )
+ add_subdirectory( kcmcddb )
+ add_subdirectory( libkcddb )
+ 
++if(BUILD_TESTING)
++    find_package(Qt5Test REQUIRED)
++    add_subdirectory( test )
++endif()
++
+ feature_summary(WHAT PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ 
+ # Figure out the relative path from the installed Config.cmake file to the install prefix (which may be at
