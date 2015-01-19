@@ -16,7 +16,7 @@ HOMEPAGE="http://kile.sourceforge.net/"
 
 LICENSE="FDL-1.2 GPL-2"
 KEYWORDS=""
-IUSE="debug +pdf +png"
+IUSE="+pdf +png"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
