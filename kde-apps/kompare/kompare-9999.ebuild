@@ -11,7 +11,7 @@ DESCRIPTION="Kompare is a program to view the differences between files"
 HOMEPAGE="http://www.kde.org/applications/development/kompare
 http://www.caffeinated.me.uk/kompare"
 KEYWORDS=""
-IUSE="debug printsupport"
+IUSE="printsupport"
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
