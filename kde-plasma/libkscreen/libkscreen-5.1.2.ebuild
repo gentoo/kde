@@ -8,7 +8,6 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE screen management library"
-LICENSE="GPL-2"
 KEYWORDS=" ~amd64"
 IUSE=""
 
