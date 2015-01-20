@@ -64,6 +64,13 @@ PDEPEND="
 # tests hang
 RESTRICT="test"
 
+src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package acl)
