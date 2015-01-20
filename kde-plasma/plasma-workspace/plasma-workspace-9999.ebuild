@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5 multilib
 
@@ -108,6 +109,9 @@ PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 RESTRICT="test"
 
 src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
+
 	kde5_src_prepare
 
 	sed -e "s|\`qtpaths|\`/usr/$(get_libdir)/qt5/bin/qtpaths|" -i startkde/startkde.cmake || die
