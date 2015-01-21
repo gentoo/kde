@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
@@ -103,6 +104,8 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
