@@ -28,12 +28,3 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-devel/flex
 "
-
-src_prepare() {
-	sed -i -e 's/INCLUDE(Qt5Macros)//g' cmake/modules/FindQt5.cmake || die "couldn't remove Qt5Macros include"
-}
-
-src_configure() {
-	export QT_SELECT=5
-	cmake-utils_src_configure
-}
