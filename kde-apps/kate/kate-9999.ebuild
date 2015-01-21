@@ -4,7 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
@@ -52,6 +53,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/kate:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
