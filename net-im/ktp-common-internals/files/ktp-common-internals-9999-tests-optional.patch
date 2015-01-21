@@ -1,0 +1,28 @@
+--- a/CMakeLists.txt	2015-01-20 21:49:46.354302243 +0100
++++ b/CMakeLists.txt	2015-01-21 01:45:39.660978780 +0100
+@@ -10,10 +10,9 @@
+ cmake_policy(SET CMP0002 OLD)
+ 
+ find_package (Qt5 REQUIRED CONFIG COMPONENTS
+-              Qml
+-              Test)
++              Qml)
+ 
+-find_package (KF5 REQUIRED COMPONENTS 
++find_package (KF5 REQUIRED COMPONENTS
+               CoreAddons
+               Notifications
+               KIO
+@@ -101,7 +100,11 @@
+ add_subdirectory(KTp)
+ add_subdirectory(tools)
+ add_subdirectory(data)
+-add_subdirectory(tests)
++
++if(BUILD_TESTING)
++    find_package(Qt5Test REQUIRED CONFIG)
++    add_subdirectory(tests)
++endif()
+ 
+ if (OTR_LIBS_FOUND)
+     include_directories (${LIBOTR_INCLUDE_DIR}
