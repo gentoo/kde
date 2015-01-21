@@ -25,6 +25,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
-	sys-devel/bison
-	sys-devel/flex
 "
