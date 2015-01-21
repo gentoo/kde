@@ -117,16 +117,17 @@ PDEPEND="
 	handbook? (
 		|| (
 			$(add_kdebase_dep khelpcenter)
-			kde-base/khelpcenter:5[compat(+)]
+			kde-plasma/khelpcenter:5[compat(+)]
 		)
 	)
 	nepomuk? (
 		$(add_kdebase_dep nepomuk-core)
 		$(add_kdebase_dep nepomuk-widgets)
 	)
-	policykit? (
+	policykit? ( || (
 		>=sys-auth/polkit-kde-agent-0.99
-	)
+		kde-plasma/polkit-kde-agent
+	) )
 "
 
 PATCHES=(
