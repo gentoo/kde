@@ -38,6 +38,8 @@ RDEPEND="${DEPEND}
 	!kde-base/kwrite:4
 "
 
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_addons=FALSE
