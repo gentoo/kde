@@ -11,7 +11,6 @@ DESCRIPTION="MTP KIO-Client for KDE"
 HOMEPAGE="https://projects.kde.org/projects/playground/base/kio-mtp"
 
 LICENSE="GPL-2"
-SLOT="4"
 KEYWORDS=""
 IUSE="debug"
 
