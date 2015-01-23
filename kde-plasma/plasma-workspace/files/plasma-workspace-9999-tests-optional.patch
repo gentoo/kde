@@ -11,13 +11,14 @@
  
 --- a/drkonqi/internalkxmlrpcclient/CMakeLists.txt	2015-01-20 23:55:55.857657633 +0100
 +++ b/drkonqi/internalkxmlrpcclient/CMakeLists.txt	2015-01-21 00:05:27.684341452 +0100
-@@ -33,7 +33,10 @@
+@@ -33,7 +33,11 @@
  
  ########### Targets ###########
  add_subdirectory(src)
 -add_subdirectory(autotests)
 +
 +if(BUILD_TESTING)
++  find_package(Qt5Test ${QT_MIN_VERSION} CONFIG REQUIRED)
 +  add_subdirectory(autotests)
 +endif()
  
