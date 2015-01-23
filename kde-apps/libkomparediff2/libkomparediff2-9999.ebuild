@@ -24,6 +24,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
+	!kde-apps/libkomparediff2:4
 	!<=kde-base/kompare-4.11.50
-	!kde-base/libkomparediff2:4
+	!kde-base/libkomparediff2
 "
