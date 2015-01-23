@@ -58,6 +58,13 @@ RDEPEND="${DEPEND}
 RESTRICT=test
 # test 2: parttest hangs
 
+src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-5.9999-tests-optional.patch"
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with chm)

@@ -1,0 +1,24 @@
+--- a/CMakeLists.txt	2015-01-25 14:40:33.935040773 +0100
++++ b/CMakeLists.txt	2015-01-25 14:42:53.287043165 +0100
+@@ -20,7 +20,7 @@
+ include(ECMAddTests)
+ 
+ 
+-find_package(Qt5 CONFIG REQUIRED COMPONENTS Core DBus Test Widgets PrintSupport Svg Qml Quick)
++find_package(Qt5 CONFIG REQUIRED COMPONENTS Core DBus Widgets PrintSupport Svg Qml Quick)
+ find_package(KF5 REQUIRED COMPONENTS
+     Activities
+     Archive
+@@ -68,7 +68,11 @@
+ add_subdirectory( ui )
+ add_subdirectory( shell )
+ add_subdirectory( generators )
+-add_subdirectory( autotests )
++
++if(BUILD_TESTING)
++    find_package(Qt5Test CONFIG REQUIRED)
++    add_subdirectory( autotests )
++endif()
+ 
+ add_subdirectory(doc)
+ 
