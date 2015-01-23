@@ -53,6 +53,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kcontrol:4
 	!kde-base/kdebase-kioslaves:4[-minimal(-)]
 	!kde-base/kio-extras
+	!kde-misc/kio-mtp
 "
 DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
