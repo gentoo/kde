@@ -45,7 +45,8 @@ DEPEND="
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
-	!kde-base/konsole:4
+	!kde-apps/konsole:4
+	!kde-base/konsole
 "
 
 PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )

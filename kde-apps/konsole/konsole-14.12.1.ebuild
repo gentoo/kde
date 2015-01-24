@@ -43,7 +43,7 @@ DEPEND="
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}
-	!kde-base/konsole:4
+	!kde-base/konsole
 "
 
 src_configure() {
