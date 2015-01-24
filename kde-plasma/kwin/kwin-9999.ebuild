@@ -56,7 +56,9 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	wayland? (
 		$(add_kdeplasma_dep kwayland)
+		dev-libs/libinput
 		>=dev-libs/wayland-1.2
+		virtual/libudev
 		>=x11-libs/libxkbcommon-0.4.1
 	)
 "
@@ -75,6 +77,8 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package wayland)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
+		$(cmake-utils_use_find_package wayland Libinput)
+		$(cmake-utils_use_find_package wayland UDev)
 	)
 
 	kde5_src_configure
