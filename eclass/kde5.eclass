@@ -123,6 +123,13 @@ case ${KDE_AUTODEPS} in
 			RDEPEND+=" !kde-base/kde-l10n:4"
 		fi
 
+		if [[ ${CATEGORY} == kde-apps ]]; then
+			RDEPEND+="
+				!kde-apps/${PN}:4
+				!kde-base/${PN}
+			"
+		fi
+
 		unset ecm_version
 		;;
 esac
