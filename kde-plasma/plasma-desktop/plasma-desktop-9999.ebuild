@@ -90,6 +90,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
+	$(add_kdeplasma_dep kio-extras)
 	sys-apps/accountsservice
 	!kde-base/attica
 	!kde-base/kcontrol
