@@ -52,6 +52,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_kdeplasma_dep kio-extras)
 	!kde-base/dolphin:4
 "
 
