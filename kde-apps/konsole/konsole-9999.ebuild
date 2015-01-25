@@ -49,8 +49,6 @@ RDEPEND="${DEPEND}
 	!kde-base/konsole
 "
 
-PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package X X11)
