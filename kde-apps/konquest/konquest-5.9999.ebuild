@@ -41,10 +41,7 @@ DEPEND="
 	media-libs/phonon[qt5]
 "
 
-RDEPEND="${DEPEND}
-	!kde-apps/konquest:4
-	!kde-base/konquest
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# fix copy-paste (?) error, there are no tests
