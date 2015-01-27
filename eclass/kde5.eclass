@@ -120,7 +120,10 @@ case ${KDE_AUTODEPS} in
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
 		if [[ ${CATEGORY} = kde-plasma ]]; then
-			RDEPEND+=" !kde-base/kde-l10n:4"
+			RDEPEND+="
+				!kde-apps/kde-l10n[-minimal]
+				!kde-base/kde-l10n:4
+			"
 		fi
 
 		if [[ ${CATEGORY} == kde-apps ]]; then
