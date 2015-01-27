@@ -113,7 +113,7 @@ src_install() {
 
 	if use doc; then
 		pushd "${BUILD_DIR}" >/dev/null
-		doxygen Doxyfile || die
+		doxygen Doxyfile.in || die
 		dohtml apidocs/html/*
 		popd >/dev/null
 	fi
@@ -122,6 +122,8 @@ src_install() {
 		insinto /usr/share/doc/${PF}
 		doins -r "${S}"/examples
 	fi
+
+	cmake-utils_src_install
 }
 
 src_test() {
