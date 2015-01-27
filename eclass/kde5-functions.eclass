@@ -95,7 +95,7 @@ _add_kdecategory_dep() {
 
 	if [[ -n ${version} ]] ; then
 		local operator=">="
-		local version="-${version}"
+		local version="-$(get_version_component_range 1-3 ${version})"
 	fi
 
 	if [[ ${SLOT} = 4 || ${SLOT} = 5 ]] && ! has kde5-meta-pkg ${INHERITED} ; then
