@@ -13,7 +13,6 @@ IUSE="kde4"
 
 DEPEND="
 	$(add_frameworks_dep frameworkintegration)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -31,9 +30,7 @@ DEPEND="
 		x11-libs/libX11
 	)
 "
-RDEPEND="
-	${DEPEND}
-	dev-qt/qtgraphicaleffects:5
+RDEPEND="${DEPEND}
 	!kde-base/breeze
 "
 
