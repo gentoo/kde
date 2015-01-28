@@ -53,6 +53,8 @@ DOCS=( README TODO )
 
 S=${WORKDIR}/${MY_PN}-${PV}
 
+PATCHES=( "${FILESDIR}/${PN}-disable-pgp-test.patch" )
+
 qca_plugin_use() {
 	echo "-DWITH_${2:-$1}_PLUGIN=$(use $1 && echo yes || echo no)"
 }
