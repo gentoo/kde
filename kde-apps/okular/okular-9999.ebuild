@@ -22,7 +22,7 @@ DEPEND="
 	media-libs/qimageblitz
 	sys-libs/zlib
 	chm? ( dev-libs/chmlib )
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt4] )
 	djvu? ( app-text/djvu )
 	dpi? ( x11-libs/libkscreen:4 )
 	ebook? ( app-text/ebook-tools )
