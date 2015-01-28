@@ -12,7 +12,7 @@ inherit fdo-mime kde5
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
 KEYWORDS=" ~amd64"
-IUSE="exif openexr phonon samba +sftp slp"
+IUSE="exif mtp openexr phonon samba +sftp slp"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	dev-qt/qtxml:5
 	virtual/jpeg:0
 	exif? ( media-gfx/exiv2:= )
+	mtp? ( media-libs/libmtp:= )
 	openexr? ( media-libs/openexr:= )
 	phonon? ( media-libs/phonon[qt5] )
 	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
@@ -65,6 +66,7 @@ RESTRICT="test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
+		$(cmake-utils_use_find_package mtp)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
 		$(cmake-utils_use_find_package samba)
