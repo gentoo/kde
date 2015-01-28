@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="A shell script to create the necessary framework to develop KDE applications"
@@ -24,6 +25,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}
-	!kde-base/kapptemplate:4
-"
+
+RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}"-9999-tests-optional.patch )
