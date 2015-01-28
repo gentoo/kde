@@ -16,7 +16,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4]
 	$(add_kdeapps_dep libkdegames)
 	sys-libs/zlib
 "
