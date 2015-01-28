@@ -69,7 +69,7 @@ COMMONDEPEND="
 		)
 	)
 	bzip2? ( app-arch/bzip2 )
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt4] )
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
