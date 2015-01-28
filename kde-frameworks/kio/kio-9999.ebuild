@@ -27,6 +27,7 @@ RDEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -45,6 +46,7 @@ RDEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
+	X? ( dev-qt/qtx11extras:5 )
 	!<kde-base/kio-extras-5.0.95-r1:5
 "
 DEPEND="${RDEPEND}
