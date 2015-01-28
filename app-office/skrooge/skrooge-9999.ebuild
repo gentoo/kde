@@ -19,7 +19,7 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4]
 	dev-db/sqlite:3
 	dev-libs/grantlee:0
 	>=dev-libs/libofx-0.9.1
