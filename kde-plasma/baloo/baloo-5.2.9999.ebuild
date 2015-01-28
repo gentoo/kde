@@ -17,9 +17,7 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
@@ -27,7 +25,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
 	$(add_kdeplasma_dep kfilemetadata)
 	=dev-libs/xapian-1.2*[chert]
