@@ -1,0 +1,28 @@
+--- a/CMakeLists.txt	2015-01-29 00:15:10.245160459 +0100
++++ b/CMakeLists.txt	2015-01-29 00:16:41.950314278 +0100
+@@ -36,7 +36,7 @@
+     set(GWENVIEW_SEMANTICINFO_BACKEND_BALOO ON)
+ endif()
+ 
+-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus Widgets Script Test Concurrent Svg OpenGL)
++find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus Widgets Script Concurrent Svg OpenGL)
+ 
+ find_package(Phonon4Qt5 4.6.60 NO_MODULE)
+ include_directories(BEFORE ${PHONON_INCLUDES})
+@@ -101,11 +101,15 @@
+ add_subdirectory(app)
+ # add_subdirectory(importer)
+ add_subdirectory(part)
+-add_subdirectory(tests)
+ add_subdirectory(icons)
+ add_subdirectory(images)
+ add_subdirectory(cursors)
+ add_subdirectory(color-schemes)
+ add_subdirectory(doc)
+ 
++if(BUILD_TESTING)
++   find_package(Qt5Test CONFIG REQUIRED)
++   add_subdirectory(tests)
++endif()
++
+ feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
