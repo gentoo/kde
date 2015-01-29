@@ -35,7 +35,7 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4]
 	dev-libs/gmp
 	dev-libs/libgcrypt:=
 "
