@@ -14,7 +14,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
-	dev-libs/grantlee
+	dev-libs/grantlee:0
 	dev-qt/qtxmlpatterns:4
 "
 DEPEND="
