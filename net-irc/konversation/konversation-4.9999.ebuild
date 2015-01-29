@@ -22,10 +22,10 @@ IUSE="+crypt debug"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	media-libs/phonon[qt4]
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt4] )
 "
 RDEPEND="${DEPEND}
-	crypt? ( app-crypt/qca-ossl:2 )
+	crypt? ( app-crypt/qca:2[openssl] )
 "
 
 src_configure() {
