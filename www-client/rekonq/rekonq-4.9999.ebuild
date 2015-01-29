@@ -28,7 +28,7 @@ DEPEND="
 		dev-libs/soprano
 	)
 	opera? (
-		app-crypt/qca:2
+		app-crypt/qca:2[qt4]
 		dev-libs/qoauth
 	)
 "
