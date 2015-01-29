@@ -30,6 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
+	$(add_kdebase_dep kdebase-kioslaves)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 RESTRICT="test"

@@ -44,6 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kapptemplate)
+	$(add_kdeplasma_dep kio-extras)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 	!dev-util/kdevelop:4
 "
