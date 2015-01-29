@@ -15,7 +15,7 @@ IUSE="debug"
 DEPEND="
 	app-crypt/gpgme
 	>=app-office/akonadi-server-1.12.90
-	dev-libs/grantlee
+	dev-libs/grantlee:0
 	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
 "
