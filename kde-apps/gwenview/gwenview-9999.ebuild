@@ -4,6 +4,8 @@
 
 EAPI=5
 
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE image viewer"
@@ -12,7 +14,7 @@ HOMEPAGE="
 	http://gwenview.sourceforge.net/
 "
 KEYWORDS=""
-IUSE="semantic-desktop"
+IUSE="kipi raw semantic-desktop"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -43,13 +45,21 @@ DEPEND="
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
 	x11-libs/libX11
+	kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
+	raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
 	semantic-desktop? ( $(add_kdeplasma_dep baloo) )
 "
-RDEPEND="${DEPEND}
-	!kde-base/gwenview:4
-"
+
+RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}"-9999-tests-optional.patch )
 
 src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package kipi KF5Kipi)
+		$(cmake-utils_use_find_package raw KF5KDcraw)
+	)
+
 	# Workaround for bug #479510
 	if [[ -e ${EPREFIX}/usr/include/${CHOST}/jconfig.h ]]; then
 		mycmakeargs+=( -DJCONFIG_H="${EPREFIX}/usr/include/${CHOST}/jconfig.h" )
