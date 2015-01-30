@@ -36,9 +36,7 @@ RDEPEND="${DEPEND}
 
 pkg_setup() {
 	kde5_pkg_setup
-
-	MULTIBUILD_VARIANTS=( kf5 )
-	use kde4 && MULTIBUILD_VARIANTS+=( kde4 )
+	MULTIBUILD_VARIANTS=( kf5 $(usev kde4) )
 }
 
 src_configure() {
