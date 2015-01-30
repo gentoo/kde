@@ -19,9 +19,9 @@ SLOT="4"
 IUSE="+bookmarks debug"
 
 RDEPEND="
-	|| ( kde-base/libkonq kde-apps/libkonq )
+	|| ( kde-base/libkonq:4 kde-apps/libkonq:4 )
 	sys-libs/zlib
-	bookmarks? ( || ( kde-base/keditbookmarks kde-apps/keditbookmarks ) )
+	bookmarks? ( || ( kde-base/keditbookmarks:4 kde-apps/keditbookmarks:4 ) )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
