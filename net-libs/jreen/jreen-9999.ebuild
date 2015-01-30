@@ -42,13 +42,7 @@ RDEPEND="${DEPEND}"
 DOCS=( AUTHORS ChangeLog README )
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=()
-	if use qt4; then
-		MULTIBUILD_VARIANTS+=( qt4 )
-	fi
-	if use qt5; then
-		MULTIBUILD_VARIANTS+=( qt5 )
-	fi
+	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
 }
 
 src_configure() {
