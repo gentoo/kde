@@ -19,7 +19,7 @@ SLOT="4"
 IUSE="+bookmarks debug"
 
 RDEPEND="
-	$(add_kdebase_dep libkonq)
+	|| ( kde-base/libkonq kde-apps/libkonq )
 	sys-libs/zlib
 	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
 "
