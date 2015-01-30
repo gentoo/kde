@@ -21,7 +21,7 @@ IUSE="+bookmarks debug"
 RDEPEND="
 	|| ( kde-base/libkonq kde-apps/libkonq )
 	sys-libs/zlib
-	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
+	bookmarks? ( || ( kde-base/keditbookmarks kde-apps/keditbookmarks ) )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
