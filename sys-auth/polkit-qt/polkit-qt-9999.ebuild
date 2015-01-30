@@ -38,9 +38,7 @@ DEPEND="${RDEPEND}"
 DOCS=( AUTHORS README README.porting TODO )
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=()
-	use qt4 && MULTIBUILD_VARIANTS+=( qt4 )
-	use qt5 && MULTIBUILD_VARIANTS+=( qt5 )
+	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
 }
 
 src_configure() {
