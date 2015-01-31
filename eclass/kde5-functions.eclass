@@ -28,6 +28,11 @@ esac
 # Minimal Frameworks version to require for the package.
 : ${FRAMEWORKS_MINIMAL:=5.6.0}
 
+# @ECLASS-VARIABLE: PLASMA_MINIMAL
+# @DESCRIPTION:
+# Minimal Plasma version to require for the package.
+: ${PLASMA_MINIMAL:=5.2.0}
+
 # @ECLASS-VARIABLE: KDEBASE
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
@@ -174,6 +179,8 @@ add_kdeplasma_dep() {
 		version=${3}
 	elif [[ ${CATEGORY} = kde-plasma ]]; then
 		version=${PV}
+	elif [[ -z "${version}" ]] ; then
+		version=${PLASMA_MINIMAL}
 	fi
 
 	_add_kdecategory_dep kde-plasma "${1}" "${2}" "${version}"
