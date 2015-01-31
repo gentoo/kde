@@ -109,11 +109,22 @@ case ${KDE_AUTODEPS} in
 	*)
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			ecm_version=9999
-			FRAMEWORKS_MINIMAL=9999
 		elif [[ ${CATEGORY} = kde-frameworks ]]; then
 			ecm_version=1.$(get_version_component_range 2).0
 		else
 			ecm_version=1.6.1
+		fi
+
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			case ${CATEGORY} in
+				kde-frameworks)
+					FRAMEWORKS_MINIMAL=9999
+				;;
+				kde-plasma)
+					FRAMEWORKS_MINIMAL=9999
+				;;
+				*) ;;
+			esac
 		fi
 
 		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
