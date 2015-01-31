@@ -22,7 +22,7 @@ DEPEND="
 	x11-libs/libfakekey
 "
 RDEPEND="${DEPEND}
-	$(add_kdeplasma_dep plasma-workspace)
+	$(add_plasma_dep plasma-workspace)
 	net-dns/avahi
 "
 

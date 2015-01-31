@@ -89,7 +89,7 @@ _check_gcc_version() {
 # @FUNCTION: _add_kdecategory_dep
 # @INTERNAL
 # @DESCRIPTION:
-# Implementation of add_kdeplasma_dep and add_frameworks_dep.
+# Implementation of add_plasma_dep and add_frameworks_dep.
 _add_kdecategory_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -141,7 +141,7 @@ add_frameworks_dep() {
 	_add_kdecategory_dep kde-frameworks "${1}" "${2}" "${version}"
 }
 
-# @FUNCTION: add_kdeplasma_dep
+# @FUNCTION: add_plasma_dep
 # @USAGE: <package> [USE flags] [minimum version]
 # @DESCRIPTION:
 # Create proper dependency for kde-base/ dependencies.
@@ -151,7 +151,7 @@ add_frameworks_dep() {
 # The output of this should be added directly to DEPEND/RDEPEND, and may be
 # wrapped in a USE conditional (but not an || conditional without an extra set
 # of parentheses).
-add_kdeplasma_dep() {
+add_plasma_dep() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local version

@@ -25,7 +25,7 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	semantic-desktop? ( $(add_kdeplasma_dep baloo) )
+	semantic-desktop? ( $(add_plasma_dep baloo) )
 "
 DEPEND="${RDEPEND}"
 

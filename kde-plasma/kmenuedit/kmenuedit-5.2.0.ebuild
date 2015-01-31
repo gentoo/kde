@@ -29,7 +29,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	hotkeys? ( $(add_kdeplasma_dep khotkeys) )
+	hotkeys? ( $(add_plasma_dep khotkeys) )
 "
 RDEPEND="${DEPEND}
 	!kde-base/kmenuedit

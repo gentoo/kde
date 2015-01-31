@@ -13,7 +13,7 @@ KEYWORDS=" ~amd64"
 IUSE="lm_sensors"
 
 DEPEND="
-	$(add_kdeplasma_dep libksysguard)
+	$(add_plasma_dep libksysguard)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)

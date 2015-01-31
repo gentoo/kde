@@ -12,11 +12,11 @@ KEYWORDS=" ~amd64"
 IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
-	$(add_kdeplasma_dep baloo)
-	$(add_kdeplasma_dep kwayland)
-	$(add_kdeplasma_dep kwin)
-	$(add_kdeplasma_dep libkscreen)
-	$(add_kdeplasma_dep libksysguard)
+	$(add_plasma_dep baloo)
+	$(add_plasma_dep kwayland)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep libkscreen)
+	$(add_plasma_dep libksysguard)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
@@ -84,7 +84,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
-	$(add_kdeplasma_dep milou)
+	$(add_plasma_dep milou)
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]

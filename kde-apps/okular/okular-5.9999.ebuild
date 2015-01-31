@@ -43,7 +43,7 @@ DEPEND="
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
-	dpi? ( $(add_kdeplasma_dep libkscreen) )
+	dpi? ( $(add_plasma_dep libkscreen) )
 	ebook? ( app-text/ebook-tools )
 	jpeg? (
 		$(add_kdeapps_dep libkexiv2)

@@ -47,7 +47,7 @@ DEPEND="
 	x11-libs/libX11
 	kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
 	raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
-	semantic-desktop? ( $(add_kdeplasma_dep baloo) )
+	semantic-desktop? ( $(add_plasma_dep baloo) )
 "
 
 RDEPEND="${DEPEND}"

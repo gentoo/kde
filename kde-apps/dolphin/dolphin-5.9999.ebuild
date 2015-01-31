@@ -46,13 +46,13 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	semantic-desktop? (
-		$(add_kdeplasma_dep baloo)
-		$(add_kdeplasma_dep baloo-widgets)
-		$(add_kdeplasma_dep kfilemetadata)
+		$(add_plasma_dep baloo)
+		$(add_plasma_dep baloo-widgets)
+		$(add_plasma_dep kfilemetadata)
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_kdeplasma_dep kio-extras)
+	$(add_plasma_dep kio-extras)
 	!kde-base/dolphin:4
 "
 

@@ -12,10 +12,10 @@ KEYWORDS=""
 IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
-	$(add_kdeplasma_dep breeze)
-	$(add_kdeplasma_dep kwin)
-	$(add_kdeplasma_dep oxygen kwin)
-	$(add_kdeplasma_dep plasma-workspace)
+	$(add_plasma_dep breeze)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep oxygen kwin)
+	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -68,14 +68,14 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
-	bluetooth? ( $(add_kdeplasma_dep bluedevil) )
+	bluetooth? ( $(add_plasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	networkmanager? ( $(add_kdeplasma_dep plasma-nm) )
+	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
@@ -89,7 +89,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
-	$(add_kdeplasma_dep kio-extras)
+	$(add_plasma_dep kio-extras)
 	sys-apps/accountsservice
 	!kde-apps/kcontrol
 	!kde-base/attica
