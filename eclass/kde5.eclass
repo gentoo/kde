@@ -109,6 +109,7 @@ case ${KDE_AUTODEPS} in
 	*)
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			ecm_version=9999
+			FRAMEWORKS_MINIMAL=9999
 		elif [[ ${CATEGORY} = kde-frameworks ]]; then
 			ecm_version=1.$(get_version_component_range 2).0
 		else

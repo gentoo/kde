@@ -124,11 +124,6 @@ add_frameworks_dep() {
 		version=${3}
 	elif [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=$(get_version_component_range 1-2)
-	elif [[ ${CATEGORY} = kde-base ]]; then
-		case $(get_kde_version) in
-			5.1) version=5.3.0 ;;
-			*) version=${FRAMEWORKS_MINIMAL} ;;
-		esac
 	elif [[ -z "${version}" ]] ; then
 		version=${FRAMEWORKS_MINIMAL}
 	fi
