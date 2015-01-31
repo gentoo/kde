@@ -4,19 +4,34 @@
 
 EAPI=6
 
+KDE_TEST="true"
 KMNAME="kde-baseapps"
 VIRTUALX_REQUIRED="test"
-inherit kde4-meta
+inherit kde5
 
-DESCRIPTION="KDE's bookmarks editor"
+DESCRIPTION="Bookmarks editor for konqueror"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	$(add_kdeapps_dep libkonq)
+	$(add_frameworks_dep kbookmarks)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	lib/konq/
-"
+S="${S}/${PN}"
