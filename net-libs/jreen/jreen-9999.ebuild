@@ -39,7 +39,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( AUTHORS ChangeLog README )
+DOCS=( AUTHORS ChangeLog README.md )
 
 pkg_setup() {
 	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
