@@ -33,6 +33,11 @@ esac
 # Minimal Plasma version to require for the package.
 : ${PLASMA_MINIMAL:=5.2.0}
 
+# @ECLASS-VARIABLE: KDE_APPS_MINIMAL
+# @DESCRIPTION:
+# Minimal KDE Applicaions version to require for the package.
+: ${KDE_APPS_MINIMAL:=14.12.0}
+
 # @ECLASS-VARIABLE: KDEBASE
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
@@ -155,6 +160,8 @@ add_kdeapps_dep() {
 		version=${3}
 	elif [[ ${CATEGORY} = kde-apps ]]; then
 		version=${PV}
+	elif [[ -z "${version}" ]] ; then
+		version=${KDE_APPS_MINIMAL}
 	fi
 
 	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
