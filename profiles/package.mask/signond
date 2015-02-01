@@ -1,0 +1,4 @@
+net-libs/accounts-qt
+net-libs/signond
+net-libs/signon-oauth2
+net-libs/signon-ui
