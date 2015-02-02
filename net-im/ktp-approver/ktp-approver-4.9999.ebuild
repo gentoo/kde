@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,5 +27,5 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
 RDEPEND="${DEPEND}
-	>=net-im/ktp-contact-list-${PV}
+	>=net-im/ktp-contact-list-${PV}:4
 "

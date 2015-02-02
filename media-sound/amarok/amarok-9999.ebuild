@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -36,7 +36,7 @@ fi
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4(+)]
 	$(add_kdebase_dep kdelibs 'nepomuk?,opengl?' 4.8.4)
 	$(add_kdebase_dep kdebase-kioslaves)
 	>=media-libs/taglib-1.7[asf,mp4]

@@ -1,40 +1,41 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
-inherit cmake-utils git-r3
+VIRTUALX_REQUIRED="test"
+inherit cmake-utils virtualx git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
 EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
 
 LICENSE="LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
-SLOT="0"
 IUSE="debug doc test"
 
-COMMON_DEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtgui:4
-	dev-qt/qtscript:4
+RDEPEND="
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtscript:5
 "
-DEPEND="${COMMON_DEPEND}
-	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
-	test? ( dev-qt/qttest:4 )
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen[dot] )
+	test? ( dev-qt/qttest:5 )
 "
-RDEPEND="${COMMON_DEPEND}"
 
-DOCS=(AUTHORS CHANGELOG README)
+DOCS=( AUTHORS CHANGELOG README )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
+	"${FILESDIR}/${PN}-slot.patch"
 )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build test TESTS)
+		-DBUILD_TESTS=$(usex test)
 	)
 
 	cmake-utils_src_configure
@@ -44,6 +45,10 @@ src_compile() {
 	cmake-utils_src_compile
 
 	use doc && cmake-utils_src_compile docs
+}
+
+src_test() {
+	VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
 }
 
 src_install() {

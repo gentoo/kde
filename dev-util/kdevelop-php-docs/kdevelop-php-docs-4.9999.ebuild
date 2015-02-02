@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,9 +15,7 @@ DESCRIPTION="PHP documentation plugin for KDevelop 4"
 LICENSE="GPL-2 LGPL-2"
 IUSE="debug"
 
-if [[ $PV == *9999* ]]; then
-	KEYWORDS=""
-else
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 

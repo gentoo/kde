@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -39,16 +39,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( AUTHORS ChangeLog README )
+DOCS=( AUTHORS ChangeLog README.md )
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=()
-	if use qt4; then
-		MULTIBUILD_VARIANTS+=( qt4 )
-	fi
-	if use qt5; then
-		MULTIBUILD_VARIANTS+=( qt5 )
-	fi
+	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
 }
 
 src_configure() {

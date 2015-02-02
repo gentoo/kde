@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -22,10 +22,10 @@ IUSE="+crypt debug"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	media-libs/phonon[qt4]
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt4] )
 "
 RDEPEND="${DEPEND}
-	crypt? ( app-crypt/qca-ossl:2 )
+	crypt? ( app-crypt/qca:2[openssl] )
 "
 
 src_configure() {

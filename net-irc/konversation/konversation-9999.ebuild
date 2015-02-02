@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -49,6 +49,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!net-irc/konversation:4
+	crypt? ( app-crypt/qca:2[openssl] )
 "
 
 src_configure() {

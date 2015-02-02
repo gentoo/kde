@@ -1,10 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
@@ -14,7 +15,6 @@ IUSE="+addons"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -33,27 +33,28 @@ DEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	dev-libs/libxml2
-	dev-libs/libxslt
-	dev-libs/qjson
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	addons? (
+		$(add_frameworks_dep kbookmarks)
+		$(add_frameworks_dep knewstuff)
 		$(add_frameworks_dep knotifications)
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
+		$(add_frameworks_dep threadweaver)
+		dev-libs/libgit2:=
 	)
 "
 RDEPEND="${DEPEND}
 	!kde-base/kate:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(

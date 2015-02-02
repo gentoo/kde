@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,10 +18,11 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeplasma_dep baloo)
-	$(add_kdeplasma_dep kfilemetadata)
-	dev-qt/qtcore:5
+	$(add_plasma_dep baloo)
+	$(add_plasma_dep kfilemetadata)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/baloo-widgets:5
+"

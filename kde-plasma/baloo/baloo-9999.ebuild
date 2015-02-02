@@ -1,21 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
 inherit kde5
-
 DESCRIPTION="Framework for searching and managing metadata"
 KEYWORDS=""
 IUSE=""
 
-# TODO re-enable kdepim integration
 DEPEND="
 	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
@@ -23,9 +19,8 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
-	$(add_kdeplasma_dep kfilemetadata)
+	$(add_plasma_dep kfilemetadata)
 	=dev-libs/xapian-1.2*[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
@@ -37,10 +32,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-base/baloo:4[-minimal(-)]
+	!kde-base/baloo:5
 "
-
-src_configure() {
-	local mycmakeargs=( -DKDEPIM_SUPPORT_BUILD=OFF )
-
-	kde5_src_configure
-}

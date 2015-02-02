@@ -1,0 +1,20 @@
+--- a/CMakeLists.txt	2015-01-28 23:35:43.818842308 +0100
++++ b/CMakeLists.txt	2015-01-28 23:39:20.690063158 +0100
+@@ -12,7 +12,6 @@
+ include(FeatureSummary)
+ include(KAppTemplateMacro)
+ 
+-find_package(Qt5 REQUIRED COMPONENTS Test)
+ find_package(KF5 REQUIRED COMPONENTS CoreAddons ConfigWidgets Completion Archive KIO I18n DocTools)
+ 
+ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+@@ -20,4 +19,8 @@
+ add_subdirectory(doc)
+ add_subdirectory(icons)
+ add_subdirectory(src)
+-add_subdirectory(tests)
++
++if(BUILD_TESTING)
++    find_package(Qt5Test REQUIRED)
++    add_subdirectory(tests)
++endif()

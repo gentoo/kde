@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -71,7 +71,7 @@ COMMONDEPEND="
 	>=dev-qt/qtgui-4.4.0:4[mng]
 	!aqua? ( x11-libs/libXScrnSaver )
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
-	groupwise? ( app-crypt/qca:2 )
+	groupwise? ( app-crypt/qca:2[qt4] )
 	jingle? (
 		>=media-libs/mediastreamer-2.3.0
 		media-libs/speex
@@ -86,7 +86,7 @@ COMMONDEPEND="
 		dev-libs/libxslt
 	)
 	xmpp? (
-		app-crypt/qca:2
+		app-crypt/qca:2[qt4]
 		net-dns/libidn
 	)
 	yahoo? ( media-libs/jasper )
@@ -100,7 +100,7 @@ RDEPEND="${COMMONDEPEND}
 		virtual/latex-base
 	)
 	sms? ( app-mobilephone/smssend )
-	ssl? ( app-crypt/qca-ossl:2 )
+	ssl? ( || ( app-crypt/qca-ossl:2 app-crypt/qca:2[openssl] ) )
 	winpopup? ( net-fs/samba )
 "
 #	telepathy? ( net-libs/decibel )"

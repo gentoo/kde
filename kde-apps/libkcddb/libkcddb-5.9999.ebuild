@@ -1,10 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
 EGIT_BRANCH="kf5"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE library for CDDB"
@@ -32,12 +33,7 @@ RDEPEND="${DEPEND}
 	!kde-base/libkcddb:4
 "
 
-src_prepare() {
-	sed -e '/add_subdirectory( test )/ s/^#*/#/' \
-		-i CMakeLists.txt || die
-
-	kde5_src_prepare
-}
+PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(

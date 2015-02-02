@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,6 @@ IUSE=""
 
 RDEPEND="
 	dev-libs/glib
-	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	media-libs/qt-gstreamer[qt5]
 	net-im/telepathy-logger
@@ -26,15 +25,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
-	sys-devel/bison
-	sys-devel/flex
 "
-
-src_prepare() {
-	sed -i -e 's/INCLUDE(Qt5Macros)//g' cmake/modules/FindQt5.cmake || die "couldn't remove Qt5Macros include"
-}
-
-src_configure() {
-	export QT_SELECT=5
-	cmake-utils_src_configure
-}

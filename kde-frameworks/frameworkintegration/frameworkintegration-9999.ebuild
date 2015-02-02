@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
-	$(add_kdeplasma_dep oxygen-fonts)
+	$(add_plasma_dep oxygen-fonts)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)

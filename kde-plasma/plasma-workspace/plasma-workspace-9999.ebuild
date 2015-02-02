@@ -1,9 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5 multilib
 
@@ -12,10 +13,11 @@ KEYWORDS=""
 IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
-	$(add_kdeplasma_dep baloo)
-	$(add_kdeplasma_dep kwin)
-	$(add_kdeplasma_dep libkscreen)
-	$(add_kdeplasma_dep libksysguard)
+	$(add_plasma_dep baloo)
+	$(add_plasma_dep kwayland)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep libkscreen)
+	$(add_plasma_dep libksysguard)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
@@ -53,6 +55,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
+	dev-libs/wayland
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5[jpeg]
@@ -82,20 +85,20 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
-	$(add_kdeplasma_dep milou)
+	$(add_plasma_dep milou)
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
 	kde-base/kdebase-pam
-	!kde-base/freespacenotifier:4
-	!kde-base/libtaskmanager:4
-	!kde-base/kcminit:4
-	!kde-base/kdebase-startkde:4
-	!kde-base/klipper:4
-	!kde-base/krunner:4
-	!kde-base/ksmserver:4
-	!kde-base/ksplash:4
-	!kde-base/plasma-workspace:4
+	!kde-base/freespacenotifier
+	!kde-base/libtaskmanager
+	!kde-base/kcminit
+	!kde-base/kdebase-startkde
+	!kde-base/klipper
+	!kde-base/krunner
+	!kde-base/ksmserver
+	!kde-base/ksplash
+	!kde-base/plasma-workspace
 "
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
@@ -106,6 +109,9 @@ PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
 RESTRICT="test"
 
 src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
+
 	kde5_src_prepare
 
 	sed -e "s|\`qtpaths|\`/usr/$(get_libdir)/qt5/bin/qtpaths|" -i startkde/startkde.cmake || die

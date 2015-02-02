@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -83,6 +83,13 @@ else
 	: ${KDE_TEST:=false}
 fi
 
+# @ECLASS-VARIABLE: KDE_SELINUX_MODULE
+# @DESCRIPTION:
+# If set to "none", do nothing.
+# For any other value, add selinux to IUSE, and depending on that useflag
+# add a dependency on sec-policy/selinux-${KDE_SELINUX_MODULE} to (R)DEPEND
+: ${KDE_SELINUX_MODULE:=none}
+
 if [[ ${KDEBASE} = kdevelop ]]; then
 	HOMEPAGE="http://www.kdevelop.org/"
 else
@@ -105,7 +112,19 @@ case ${KDE_AUTODEPS} in
 		elif [[ ${CATEGORY} = kde-frameworks ]]; then
 			ecm_version=1.$(get_version_component_range 2).0
 		else
-			ecm_version=1.3.0
+			ecm_version=1.6.1
+		fi
+
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			case ${CATEGORY} in
+				kde-frameworks)
+					FRAMEWORKS_MINIMAL=9999
+				;;
+				kde-plasma)
+					FRAMEWORKS_MINIMAL=9999
+				;;
+				*) ;;
+			esac
 		fi
 
 		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
@@ -113,7 +132,17 @@ case ${KDE_AUTODEPS} in
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
 		if [[ ${CATEGORY} = kde-plasma ]]; then
-			RDEPEND+=" !kde-base/kde-l10n:4"
+			RDEPEND+="
+				!kde-apps/kde-l10n[-minimal]
+				!kde-base/kde-l10n:4
+			"
+		fi
+
+		if [[ ${CATEGORY} == kde-apps ]]; then
+			RDEPEND+="
+				!kde-apps/${PN}:4
+				!kde-base/${PN}
+			"
 		fi
 
 		unset ecm_version
@@ -158,6 +187,14 @@ case ${KDE_TEST} in
 	*)
 		IUSE+=" test"
 		DEPEND+=" test? ( >=dev-qt/qttest-${QT_MINIMAL}:5 )"
+		;;
+esac
+
+case ${KDE_SELINUX_MODULE} in
+	none)   ;;
+	*)
+		IUSE+=" selinux"
+		COMMONDEPEND+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
 		;;
 esac
 
@@ -267,7 +304,7 @@ _calculate_live_repo() {
 				_kmname=${PN}
 			fi
 
-			if [[ ${PV} != 9999 && ${KDEBASE} = kde-plasma ]]; then
+			if [[ ${PV} != 9999 && ${CATEGORY} = kde-plasma ]]; then
 				EGIT_BRANCH="Plasma/$(get_version_component_range 1-2)"
 			fi
 
@@ -381,9 +418,6 @@ kde5_src_configure() {
 	if ! use_if_iuse test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
 	fi
-
-	# make sure config files go to /etc instead of /usr/etc
-	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 
 	# install mkspecs in the same directory as qt stuff
 	cmakeargs+=(-DKDE_INSTALL_USE_QT_SYS_PATHS=ON)

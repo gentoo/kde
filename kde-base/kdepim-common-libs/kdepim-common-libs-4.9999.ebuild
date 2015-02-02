@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ IUSE="debug"
 DEPEND="
 	app-crypt/gpgme
 	>=app-office/akonadi-server-1.12.90
-	dev-libs/grantlee
+	dev-libs/grantlee:0
 	$(add_kdebase_dep baloo)
 	$(add_kdebase_dep kdepimlibs)
 "

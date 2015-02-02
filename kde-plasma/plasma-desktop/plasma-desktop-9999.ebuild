@@ -1,10 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
@@ -12,10 +13,10 @@ KEYWORDS=""
 IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 
 COMMON_DEPEND="
-	$(add_kdeplasma_dep breeze)
-	$(add_kdeplasma_dep kwin)
-	$(add_kdeplasma_dep oxygen kwin)
-	$(add_kdeplasma_dep plasma-workspace)
+	$(add_plasma_dep breeze)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep oxygen kwin)
+	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -68,14 +69,14 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxkbfile
 	x11-libs/libXtst
-	bluetooth? ( net-wireless/bluedevil:5 )
+	bluetooth? ( $(add_plasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	networkmanager? ( $(add_kdeplasma_dep plasma-nm) )
+	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
@@ -89,18 +90,17 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
+	$(add_plasma_dep kio-extras)
 	sys-apps/accountsservice
-	!kde-apps/attica:4
-	!kde-base/attica:4
-	!kde-apps/kcontrol:4
-	!kde-base/kcontrol:4
-	!kde-apps/knetattach:4[handbook]
-	!kde-base/knetattach:4[handbook]
-	!kde-apps/kdepasswd:4
-	!kde-base/kdepasswd:4
-	!kde-base/solid-actions-kcm:4
-	!kde-base/plasma-workspace:4
-	!kde-base/systemsettings:4
+	!kde-apps/kcontrol
+	!kde-base/attica
+	!kde-base/kcontrol
+	!kde-base/kdepasswd
+	!kde-base/knetattach[handbook]
+	!kde-base/plasma-desktop
+	!kde-base/plasma-workspace
+	!kde-base/solid-actions-kcm
+	!kde-base/systemsettings
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto

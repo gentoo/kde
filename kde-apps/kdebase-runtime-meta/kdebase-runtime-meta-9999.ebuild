@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -44,8 +44,8 @@ RDEPEND="
 	$(add_kdeapps_dep solid-runtime)
 	crash-reporter? ( $(add_kdeapps_dep drkonqi ) )
 	handbook? ( || (
-		$(add_kdeplasma_dep khelpcenter)
-		kde-base/khelpcenter:5[compat(+)]
+		$(add_plasma_dep khelpcenter)
+		kde-base/khelpcenter:4
 	) )
 	nepomuk? ( $(add_kdeapps_dep nepomuk) )
 	!minimal? (

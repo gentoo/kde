@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,7 +20,6 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep ki18n)
@@ -35,13 +34,13 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	net-im/ktp-common-internals:5
+	net-libs/libkpeople:5
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}

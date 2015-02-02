@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,9 @@ EAPI=5
 
 EGIT_BRANCH="frameworks"
 KMNAME="kde-baseapps"
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
+KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE filemanager focusing on usability"
@@ -44,14 +46,17 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	semantic-desktop? (
-		$(add_kdeplasma_dep baloo)
-		$(add_kdeplasma_dep baloo-widgets)
-		$(add_kdeplasma_dep kfilemetadata)
+		$(add_plasma_dep baloo)
+		$(add_plasma_dep baloo-widgets)
+		$(add_plasma_dep kfilemetadata)
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kio-extras)
 	!kde-base/dolphin:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
 
 S=${S}/${PN}
 

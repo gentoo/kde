@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,14 +14,12 @@ EGIT_REPONAME="${PN}"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
-IUSE="cvs reviewboard"
+IUSE="classbrowser cvs konsole reviewboard"
 KEYWORDS=""
 
 # TODO features disabled by upstream, maybe more
-# Templates: dev-libs/grantlee
-# Konsole support: $(add_kdebase_dep konsole)
 # Subversion integration: subversion? (dev-libs/apr dev-libs/apr-util dev-vcs/subversion )
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
@@ -30,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
@@ -51,25 +50,33 @@ DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep threadweaver)
 	$(add_kdeapps_dep libkomparediff2)
-	dev-libs/boost:=
+	dev-libs/grantlee:5
 	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtquick1:5
-	dev-qt/qttest:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-qt/qtconcurrent:5
+	dev-qt/qttest:5
+	classbrowser? ( dev-libs/boost )
+"
+RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
+	konsole? ( $(add_kdeapps_dep konsole) )
 	!dev-util/kdevelop:4
 	!dev-util/kdevplatform:4
 "
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_build classbrowser)
 		$(cmake-utils_use_build cvs)
+		$(cmake-utils_use_build konsole)
 		$(cmake-utils_use_build reviewboard)
 	)
 

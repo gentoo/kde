@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ IUSE="telepathy"
 
 DEPEND=""
 RDEPEND="
-	telepathy? ( net-im/telepathy-connection-managers[jabber] )
+	telepathy? ( net-im/telepathy-connection-managers[xmpp] )
 	net-libs/signon-ui
 	net-libs/signon-oauth2
 "

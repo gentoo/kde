@@ -1,40 +1,38 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
-VIRTUALX_REQUIRED="test"
-KDE_LINGUAS="bs cs da de el fi fr hu ja lt nl pl pt pt_BR ro ru sk sl sv uk"
-inherit kde4-base
-
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
-else
-	KEYWORDS=""
-fi
+inherit kde5
 
 DESCRIPTION="KDE contact person abstraction library"
 HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
 
 LICENSE="LGPL-2.1"
-SLOT="4/4"
-IUSE="debug examples semantic-desktop test"
+KEYWORDS=""
+IUSE="semantic-desktop"
 
 RDEPEND="
-	$(add_kdebase_dep kdepimlibs)
-	semantic-desktop? ( $(add_kdebase_dep baloo) )
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtsql:5
+	dev-qt/qtwidgets:5
+	semantic-desktop? ( $(add_plasma_dep baloo) )
 "
-DEPEND="${RDEPEND}
-	sys-devel/gettext
-"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with examples)
-		$(cmake-utils_use_find_package semantic-desktop Baloo)
+		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }

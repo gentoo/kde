@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,6 +27,7 @@ RDEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -45,6 +46,7 @@ RDEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
+	X? ( dev-qt/qtx11extras:5 )
 	!<kde-base/kio-extras-5.0.95-r1:5
 "
 DEPEND="${RDEPEND}
@@ -63,6 +65,13 @@ PDEPEND="
 
 # tests hang
 RESTRICT="test"
+
+src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
+
+	kde5_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(

@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,9 +19,9 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4]
 	dev-db/sqlite:3
-	dev-libs/grantlee
+	dev-libs/grantlee:0
 	>=dev-libs/libofx-0.9.1
 	dev-libs/qjson
 	dev-qt/qtsql:4[sqlite]

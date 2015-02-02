@@ -1,9 +1,0 @@
---- a/lib/bodega/CMakeLists.txt
-+++ b/lib/bodega/CMakeLists.txt
-@@ -1,6 +1,4 @@
- 
--find_package(QJSON)
--
- set (bodega_HEADERS
-      assetjob.h
-      assetoperations.h

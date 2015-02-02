@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
 IUSE="epub exif ffmpeg pdf taglib"
 
-# TODO: mobi? ( $(add_kdeplasma_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
+# TODO: mobi? ( $(add_plasma_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)
@@ -21,7 +21,9 @@ DEPEND="
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-base/kfilemetadata:5
+"
 
 src_configure() {
 	local mycmakeargs=(

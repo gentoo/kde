@@ -1,0 +1,35 @@
+From ba81da53e540ce9ca08ce794a92329ed15f726bc Mon Sep 17 00:00:00 2001
+From: Nick Shaforostoff <shafff@ukr.net>
+Date: Tue, 27 Jan 2015 01:53:17 +0000
+Subject: [PATCH] =?UTF-8?q?fix=20total=20system=20freeze=20on=20some=20sys?=
+ =?UTF-8?q?tems=20like=20my=2010=20inch=20netbook=20thanks=20Thomas=20L?=
+ =?UTF-8?q?=C3=BCbking=20for=20providing=20the=20patch=20BUG:=20340294?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ lookandfeel/contents/windowswitcher/WindowSwitcher.qml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lookandfeel/contents/windowswitcher/WindowSwitcher.qml b/lookandfeel/contents/windowswitcher/WindowSwitcher.qml
+index acb212f..e4a4636 100644
+--- a/lookandfeel/contents/windowswitcher/WindowSwitcher.qml
++++ b/lookandfeel/contents/windowswitcher/WindowSwitcher.qml
+@@ -52,7 +52,7 @@ KWin.Switcher {
+ 
+             property bool canStretchX: false
+             property bool canStretchY: false
+-            width: tabBox.screenGeometry.width * 0.15
++            width: tabBox.screenGeometry.width * 0.15 + (__verticalScrollBar.visible ? __verticalScrollBar.width : 0)
+             height: tabBox.screenGeometry.height
+             clip: true
+             focus: true
+@@ -155,3 +155,4 @@ KWin.Switcher {
+         }
+     }
+ }
++
+-- 
+2.2.2
+

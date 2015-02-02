@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,14 +25,13 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4(+)]
 	dev-libs/qjson
 	x11-libs/libfakekey
 	"
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep plasma-workspace)
-	app-crypt/qca-ossl:2
-	net-dns/avahi
+	|| ( app-crypt/qca-ossl:2 app-crypt/qca:2[openssl] )
 "
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}

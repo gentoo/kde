@@ -2,4 +2,5 @@
 # This is not likely to change in the future
 # Aside, they are sloppy in updating even for releases.
 >=kde-base/marble-4.12.49.9999 python
-=kde-apps/marble-14.11.97 python
+>=kde-apps/marble-14.11.97 python
+

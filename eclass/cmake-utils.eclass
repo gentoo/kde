@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -450,6 +450,7 @@ enable_cmake-utils_src_configure() {
 	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
 		# Handle release builds
 		if ! has debug ${IUSE//+} || ! use debug; then
+			local CPPFLAGS=${CPPFLAGS}
 			append-cppflags -DNDEBUG
 		fi
 	fi

@@ -1,0 +1,58 @@
+--- a/CMakeLists.txt	2015-01-18 21:48:57.436568121 +0100
++++ b/CMakeLists.txt	2015-01-18 21:49:04.667567906 +0100
+@@ -1,5 +1,3 @@
+-enable_testing()
+-
+ project(libkdegames)
+ 
+ cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+@@ -9,7 +7,7 @@
+ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+ 
+ 
+-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
++find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg)
+ find_package(KF5 REQUIRED COMPONENTS CoreAddons Config WidgetsAddons Codecs Archive
+     DBusAddons DNSSD Declarative
+     I18n GuiAddons Service ConfigWidgets ItemViews IconThemes Completion JobWidgets TextWidgets GlobalAccel XmlGui Crash
+@@ -51,7 +49,10 @@
+ add_subdirectory( highscore )
+ add_subdirectory( includes )
+ add_subdirectory( libkdegamesprivate )
+-add_subdirectory( tests )
++
++if(BUILD_TESTING)
++    add_subdirectory( tests )
++endif()
+ 
+ include_directories(
+     ${CMAKE_CURRENT_SOURCE_DIR}/highscore
+--- a/tests/CMakeLists.txt	2015-01-18 21:34:42.477593601 +0100
++++ b/tests/CMakeLists.txt	2015-01-18 21:39:09.461585644 +0100
+@@ -1,3 +1,5 @@
++find_package(Qt5Test ${QT_MIN_VERSION} REQUIRED NO_MODULE)
++
+ set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+ include_directories(  ${CMAKE_SOURCE_DIR}/libkdegames )
+ 
+--- a/libkdegamesprivate/CMakeLists.txt	2015-01-18 21:49:50.737566533 +0100
++++ b/libkdegamesprivate/CMakeLists.txt	2015-01-18 21:51:18.496563917 +0100
+@@ -1,7 +1,8 @@
+-enable_testing()
+ project(libkdegamesprivate)
+ 
+-add_subdirectory(tests)
++if(BUILD_TESTING)
++    add_subdirectory( tests )
++endif()
+ 
+ # NOTE: The libkdegamesprivate target is compiled in the parent directory,
+ # because CMake can't cope with exported libraries in two different
+--- a/libkdegamesprivate/tests/CMakeLists.txt	2015-01-18 21:49:50.737566533 +0100
++++ b/libkdegamesprivate/tests/CMakeLists.txt	2015-01-18 21:54:04.201558979 +0100
+@@ -1,3 +1,5 @@
++find_package(Qt5Test ${QT_MIN_VERSION} REQUIRED NO_MODULE)
++
+ set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
+ 

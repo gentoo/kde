@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=5
 
 EGIT_BRANCH="kf5"
 KDE_HANDBOOK="true"
-
+KDE_TEST="true"
 # Translations are only in the tarballs, not in the git repo
 if [[ ${PV} != *9999* ]]; then
 	KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
@@ -81,6 +81,8 @@ REQUIRED_USE="
 	mp3? ( encode )
 	sox? ( encode )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(

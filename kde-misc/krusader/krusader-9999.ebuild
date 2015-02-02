@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,9 +19,9 @@ SLOT="4"
 IUSE="+bookmarks debug"
 
 RDEPEND="
-	$(add_kdebase_dep libkonq)
+	|| ( kde-base/libkonq:4 kde-apps/libkonq:4 )
 	sys-libs/zlib
-	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
+	bookmarks? ( || ( kde-base/keditbookmarks:4 kde-apps/keditbookmarks:4 ) )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

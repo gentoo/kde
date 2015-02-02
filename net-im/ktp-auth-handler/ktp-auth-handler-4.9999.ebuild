@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,11 +24,11 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4(+)]
 	>=dev-libs/qjson-0.8
-	>=net-im/ktp-common-internals-${PV}
+	>=net-im/ktp-common-internals-${PV}:4
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 "
 RDEPEND="${DEPEND}
-	app-crypt/qca-ossl:2
+	|| ( app-crypt/qca-ossl:2 app-crypt/qca:2[openssl] )
 "

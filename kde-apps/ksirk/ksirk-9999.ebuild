@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	app-crypt/qca:2
+	app-crypt/qca:2[qt4]
 	$(add_kdeapps_dep libkdegames)
 	sys-libs/zlib
 "

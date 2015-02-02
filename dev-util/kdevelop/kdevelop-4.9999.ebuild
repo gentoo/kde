@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,8 +6,7 @@ EAPI=5
 
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
 pl pt pt_BR ru sk sl sv th uk zh_CN zh_TW"
-VIRTUALX_REQUIRED=test
-KDEBASE="${PN}"
+VIRTUALX_REQUIRED="test"
 EGIT_BRANCH="4.7"
 inherit kde4-base
 
@@ -15,14 +14,13 @@ DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C
 LICENSE="GPL-2 LGPL-2"
 IUSE="+cmake +cxx debug +gdbui okteta qthelp"
 
-if [[ $PV == *9999* ]]; then
-	KEYWORDS=""
-else
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
 DEPEND="
 	dev-libs/qjson
+	dev-qt/qtdeclarative:4[webkit]
 	gdbui? (
 		$(add_kdebase_dep ksysguard)
 		$(add_kdebase_dep libkworkspace)
@@ -32,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
-	dev-qt/qtdeclarative:4[webkit]
+	$(add_kdebase_dep kdebase-kioslaves)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 RESTRICT="test"

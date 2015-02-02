@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,11 +11,8 @@ inherit kde5
 DESCRIPTION="Universal document viewer based on KPDF"
 HOMEPAGE="http://okular.kde.org http://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt dpi djvu ebook +jpeg +pdf +tiff"
+IUSE="chm crypt dpi djvu ebook +jpeg +pdf +postscript +tiff"
 # TODO:
-# * Temporarily deactivated +postscript USE as upstream has it deactivated.
-#   postscript? ( app-text/libspectre )
-# 	$(cmake-utils_use_with postscript LibSpectre)
 # * Deactivated dependency media-libs/qimageblitz as there is no Qt5 version
 #   yet
 
@@ -46,10 +43,14 @@ DEPEND="
 	chm? ( dev-libs/chmlib )
 	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
-	dpi? ( $(add_kdeplasma_dep libkscreen) )
+	dpi? ( $(add_plasma_dep libkscreen) )
 	ebook? ( app-text/ebook-tools )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? (
+		$(add_kdeapps_dep libkexiv2)
+		virtual/jpeg:0
+	)
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
+	postscript? ( app-text/libspectre )
 	tiff? ( media-libs/tiff )
 "
 RDEPEND="${DEPEND}
@@ -58,17 +59,24 @@ RDEPEND="${DEPEND}
 RESTRICT=test
 # test 2: parttest hangs
 
+src_prepare() {
+	# whole patch should be upstreamed, doesn't work in PATCHES
+	epatch "${FILESDIR}/${PN}-5.9999-tests-optional.patch"
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with chm)
-		$(cmake-utils_use_with crypt QCA2)
-		$(cmake-utils_use_with djvu DjVuLibre)
+		$(cmake-utils_use_find_package chm CHM)
+		$(cmake-utils_use_find_package crypt Qca-qt5)
+		$(cmake-utils_use_find_package djvu DjVuLibre)
 		$(cmake-utils_use_find_package dpi KF5Screen)
-		$(cmake-utils_use_with ebook EPub)
-		$(cmake-utils_use_with jpeg)
-		$(cmake-utils_use_with jpeg Kexiv2)
-		$(cmake-utils_use_with pdf Poppler)
-		$(cmake-utils_use_with tiff)
+		$(cmake-utils_use_find_package ebook EPub)
+		$(cmake-utils_use_find_package jpeg KF5KExiv2)
+		$(cmake-utils_use_find_package pdf Poppler)
+		$(cmake-utils_use_find_package postscript LibSpectre)
+		$(cmake-utils_use_find_package tiff)
 	)
 
 	kde5_src_configure

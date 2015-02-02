@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -55,9 +55,7 @@ DOCS=( NEWS README )
 RESTRICT="test"
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=()
-	use qt4 && MULTIBUILD_VARIANTS+=( qt4 )
-	use qt5 && MULTIBUILD_VARIANTS+=( qt5 )
+	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
 }
 
 src_prepare() {

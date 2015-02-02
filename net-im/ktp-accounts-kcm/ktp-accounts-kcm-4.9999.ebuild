@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,7 +24,7 @@ SLOT="4"
 IUSE="debug modemmanager"
 
 DEPEND="
-	>=net-im/ktp-common-internals-${PV}
+	>=net-im/ktp-common-internals-${PV}:4
 	net-im/telepathy-mission-control
 	net-libs/telepathy-glib
 	>=net-libs/telepathy-qt-0.9.5[qt4]

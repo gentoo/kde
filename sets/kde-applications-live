@@ -8,10 +8,12 @@
 ~kde-apps/kmix-5.9999
 ~kde-apps/konsole-9999
 ~kde-apps/ksnapshot-5.9999
+~kde-apps/kwalletmanager-5.9999
 ~kde-apps/kwrite-9999
 ~kde-apps/libkcddb-5.9999
-~kde-apps/libkomparediff2-5.9999
+~kde-apps/libkomparediff2-9999
 ~kde-apps/libkonq-5.9999
 ~kde-apps/okteta-9999
 ~kde-apps/okular-5.9999
 ~kde-misc/yakuake-5.9999
+@kdegames-live
