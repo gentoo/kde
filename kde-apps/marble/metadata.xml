@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<use>
+		<flag name="aprs">Enable support for APRS data sources</flag>
 		<flag name="designer-plugin">Enable designer plugin</flag>
 		<flag name="phonon">Enable sound support via <pkg>media-libs/phonon</pkg></flag>
 		<flag name="shapefile">Enable support for ESRI shapefiles</flag>
