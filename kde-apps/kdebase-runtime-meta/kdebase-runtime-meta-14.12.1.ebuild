@@ -45,7 +45,7 @@ RDEPEND="
 	crash-reporter? ( $(add_kdeapps_dep drkonqi ) )
 	handbook? ( || (
 		$(add_plasma_dep khelpcenter)
-		kde-base/khelpcenter:5[compat(+)]
+		kde-base/khelpcenter:4
 	) )
 	nepomuk? ( $(add_kdeapps_dep nepomuk) )
 	!minimal? (
