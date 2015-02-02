@@ -4,88 +4,71 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-KDE_REQUIRED="optional"
-CPPUNIT_REQUIRED="optional"
-PYTHON_COMPAT=( python2_7 )
-inherit kde4-base python-single-r1
+KDE_HANDBOOK="true"
+KDE_TEST="true"
+inherit kde5
 
 DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="http://marble.kde.org/"
 KEYWORDS=""
-IUSE="debug designer-plugin gps +kde phonon plasma python shapefile test zip"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="aprs designer-plugin gps +kde phonon shapefile zip"
 
-# tests fail / segfault. Last checked for 4.9.0
-RESTRICT="test"
-
+# FIXME (new packages):
+# libwlocate, WLAN-based geolocation
+# qextserialport, interface to old fashioned serial ports
 RDEPEND="
-	dev-qt/qtcore:4
-	dev-qt/qtdbus:4
-	dev-qt/qtdeclarative:4
-	dev-qt/qtgui:4
-	dev-qt/qtscript:4
-	dev-qt/qtsql:4
-	dev-qt/qtsvg:4
-	dev-qt/qtwebkit:4
-	designer-plugin? ( dev-qt/designer:4 )
-	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
-	kde? ( media-libs/phonon[qt4] )
-	phonon? ( media-libs/phonon[qt4] )
-	python? (
-		${PYTHON_DEPS}
-		>=dev-python/PyQt4-4.4.4-r1[${PYTHON_USEDEP}]
-		kde? ( $(add_kdebase_dep pykde4 "${PYTHON_USEDEP}" ) )
+	dev-qt/qtconcurrent:5
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtopengl:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtscript:5
+	dev-qt/qtsql:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	gps? ( >=sci-geosciences/gpsd-2.95 )
+	kde? (
+		$(add_frameworks_dep kconfig)
+		$(add_frameworks_dep kcoreaddons)
+		$(add_frameworks_dep kdoctools)
+		$(add_frameworks_dep ki18n)
+		$(add_frameworks_dep kio)
+		$(add_frameworks_dep knewstuff)
+		$(add_frameworks_dep kparts)
+		$(add_frameworks_dep krunner)
+		$(add_frameworks_dep kservice)
+		$(add_frameworks_dep kwallet)
 	)
+	phonon? ( media-libs/phonon[qt5] )
 	shapefile? ( sci-libs/shapelib )
-	zip? ( dev-libs/quazip )
+	zip? ( dev-libs/quazip[qt5] )
 "
-DEPEND="
-	${RDEPEND}
-	test? ( dev-qt/qttest:4 )
-"
-# the qt dependencies are needed because with USE=-kde nothing is pulled in
-# by default... bugs 414165 & 429346
-
-REQUIRED_USE="
-	plasma? ( kde )
-	python? ( kde )
+DEPEND="${RDEPEND}
+	aprs? ( dev-lang/perl )
 "
 
-pkg_setup() {
-	kde4-base_pkg_setup
-	use python && python-single-r1_pkg_setup
+src_prepare() {
+	use handbook || comment_add_subdirectory doc
+	kde5_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_build test MARBLE_TESTS)
+		$(cmake-utils_use_find_package aprs Perl)
 		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
-		$(cmake-utils_use python EXPERIMENTAL_PYTHON_BINDINGS)
-		$(cmake-utils_use_with python PythonLibrary)
-		$(cmake-utils_use_with python PyQt4)
-		$(cmake-utils_use_with python SIP)
 		$(cmake-utils_use_with gps libgps)
-		$(cmake-utils_use !kde QTONLY)
+		$(cmake-utils_use_with kde KF5)
 		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with plasma)
 		$(cmake-utils_use_with shapefile libshp)
 		$(cmake-utils_use_with zip quazip)
-		-DBUILD_MARBLE_TESTS=OFF
-		-DWITH_liblocation=0
 		-DWITH_QextSerialPort=OFF
+		-DWITH_liblocation=0
 	)
-
-	kde4-base_src_configure
-}
-
-src_test() {
-	if use kde; then
-		elog "Marble tests can only be run in the qt-only version"
-	else
-		local mycmakeargs=(
-			-DBUILD_MARBLE_TESTS=ON
-		)
-		kde4-base_src_test
-	fi
+	kde5_src_configure
 }
