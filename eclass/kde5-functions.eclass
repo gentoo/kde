@@ -187,7 +187,8 @@ add_kdeapps_dep() {
 	elif [[ ${CATEGORY} = kde-apps ]]; then
 		version=${PV}
 	elif [[ -z "${version}" ]] ; then
-		version=${KDE_APPS_MINIMAL}
+		# In KDE applications world, 5.9999 > yy.mm.x
+		[[ ${PV} = 5.9999 ]] && version=5.9999 || version=${KDE_APPS_MINIMAL}
 	fi
 
 	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
