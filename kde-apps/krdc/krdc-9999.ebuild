@@ -24,8 +24,6 @@ RDEPEND="${DEPEND}
 	rdesktop? ( >=net-misc/freerdp-1.1.0_beta1[X] )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.13.1-freerdp.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with jpeg)

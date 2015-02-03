@@ -90,6 +90,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	$(add_plasma_dep kio-extras)
+	dev-qt/qtgraphicaleffects:5
 	sys-apps/accountsservice
 	!kde-apps/kcontrol
 	!kde-base/attica
