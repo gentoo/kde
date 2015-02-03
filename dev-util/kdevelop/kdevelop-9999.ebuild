@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug qthelp runner"
+IUSE="+cmake +cxx debug +plasma qthelp"
 KEYWORDS=""
 
 # TODO: disabled upstream
@@ -29,7 +29,6 @@ DEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep threadweaver)
 	dev-util/kdevplatform:5
 	dev-qt/qtdbus:5
@@ -39,8 +38,11 @@ DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
+	plasma? (
+		$(add_frameworks_dep krunner)
+		$(add_frameworks_dep plasma)
+	)
 	qthelp? ( dev-qt/qthelp:5 )
-	runner? ( $(add_frameworks_dep krunner) )
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kapptemplate)
@@ -58,7 +60,7 @@ src_configure() {
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
-		$(cmake-utils_use_find_package runner KF5Runner)
+		$(cmake-utils_use_find_package plasma KF5Plasma)
 	)
 
 	kde5_src_configure
