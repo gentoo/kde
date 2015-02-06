@@ -14,7 +14,8 @@ IUSE=""
 
 S=${WORKDIR}/${P}/${PN}
 
-RDEPEND="$(add_frameworks_dep kde4libs)
+DEPEND="
+	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kwidgetsaddons)
 	dev-qt/qtdbus:5"
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
