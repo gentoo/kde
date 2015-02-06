@@ -32,10 +32,9 @@ DEPEND="
 		dev-libs/qoauth
 	)
 "
-RDEPEND="
-	${DEPEND}
-	$(add_kdebase_dep kdebase-kioslaves)
-	$(add_kdebase_dep keditbookmarks)
+RDEPEND="${DEPEND}
+	|| ( $(add_kdeapps_dep kdebase-kioslaves) $(add_kdebase_dep kdebase-kioslaves) )
+	|| ( $(add_kdeapps_dep keditbookmarks) $(add_kdebase_dep keditbookmarks) )
 "
 
 src_configure() {
