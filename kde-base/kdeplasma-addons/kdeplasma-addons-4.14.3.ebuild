@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdeplasma-addons/kdeplasma-addons-4.14.3.ebuild,v 1.4 2015/02/14 14:35:09 ago Exp $
+# $Header: $
 
 EAPI=5
 
@@ -23,8 +23,8 @@ COMMON_DEPEND="
 	$(add_kdebase_dep plasma-workspace 'nepomuk?' 4.11)
 	x11-misc/shared-mime-info
 	attica? ( dev-libs/libattica )
-	desktopglobe? ( $(add_kdebase_dep marble) )
-	exif? ( $(add_kdebase_dep libkexiv2) )
+	desktopglobe? ( || ( $(add_kdeapps_dep marble) $(add_kdebase_dep marble) ) )
+	exif? ( || ( $(add_kdeapps_dep libkexiv2) $(add_kdebase_dep libkexiv2) ) )
 	fcitx? ( app-i18n/fcitx[dbus(+)] )
 	ibus? ( app-i18n/ibus )
 	json? ( dev-libs/qjson )
