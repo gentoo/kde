@@ -58,7 +58,7 @@ RDEPEND="${COMMONDEPEND}
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
-		$(add_kdebase_dep kdebase-kioslaves)
+		|| ( $(add_kdeapps_dep kdebase-kioslaves) $(add_kdebase_dep kdebase-kioslaves) )
 	)
 	kross? ( $(add_kdebase_dep krosspython) )
 "
