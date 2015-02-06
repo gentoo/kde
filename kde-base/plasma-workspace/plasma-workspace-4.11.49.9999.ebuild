@@ -59,7 +59,7 @@ DEPEND="${COMMONDEPEND}
 	x11-proto/renderproto
 "
 RDEPEND="${COMMONDEPEND}
-	$(add_kdebase_dep plasma-runtime)
+	|| ( $(add_kdeapps_dep plasma-runtime) $(add_kdebase_dep plasma-runtime) )
 "
 
 KMEXTRA="
