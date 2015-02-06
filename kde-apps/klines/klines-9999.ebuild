@@ -4,17 +4,42 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="true"
 KDE_SELINUX_MODULE="games"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="KDE: Kolor Lines - a little game about balls and how to get rid of them"
+DESCRIPTION="A little KDE game about balls and how to get rid of them"
 HOMEPAGE="
 	http://www.kde.org/applications/games/klines/
 	http://games.kde.org/game.php?game=klines
 "
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkdegames)
+	dev-qt/qtdeclarative[widgets]
+	dev-qt/qtsvg
+	dev-qt/qtwidgets
+"
+
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	# fix copy-paste (?) error, there are no tests
+	sed -i "/find_package(Qt5/ s/ Test//" CMakeLists.txt || die
+
+	kde5_src_prepare
+}
