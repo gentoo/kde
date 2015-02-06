@@ -17,17 +17,16 @@ IUSE="+wallpapers"
 RDEPEND="
 	$(add_kdebase_dep kcminit)
 	$(add_kdebase_dep kdebase-runtime-meta)
-	wallpapers? ( $(add_kdebase_dep kde-wallpapers) )
-	$(add_kdebase_dep kfmclient)
-	$(add_kdebase_dep knotify)
-	$(add_kdebase_dep kreadconfig)
+	|| ( $(add_kdeapps_dep kfmclient) $(add_kdebase_dep kfmclient) )
+	|| ( $(add_kdeapps_dep knotify) $(add_kdebase_dep knotify) )
+	|| ( $(add_kdeapps_dep kreadconfig) $(add_kdebase_dep kreadconfig) )
 	$(add_kdebase_dep krunner)
 	$(add_kdebase_dep ksmserver)
 	$(add_kdebase_dep ksplash)
 	$(add_kdebase_dep kstartupconfig)
 	$(add_kdebase_dep kwin)
-	$(add_kdebase_dep phonon-kde)
-	$(add_kdebase_dep plasma-apps)
+	|| ( $(add_kdeapps_dep phonon-kde) $(add_kdebase_dep phonon-kde) )
+	|| ( $(add_kdeapps_dep plasma-apps) $(add_kdebase_dep plasma-apps) )
 	$(add_kdebase_dep plasma-workspace)
 	$(add_kdebase_dep systemsettings)
 	x11-apps/mkfontdir
@@ -37,6 +36,7 @@ RDEPEND="
 	x11-apps/xrdb
 	x11-apps/xsetroot
 	x11-apps/xset
+	wallpapers? ( || ( $(add_kdeapps_dep kde-wallpapers) $(add_kdebase_dep kde-wallpapers) ) )
 "
 
 KMEXTRACTONLY="
