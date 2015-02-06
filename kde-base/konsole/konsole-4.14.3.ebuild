@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/konsole/konsole-4.14.3.ebuild,v 1.3 2015/02/14 14:35:09 ago Exp $
+# $Header: $
 
 EAPI=5
 
@@ -17,7 +17,7 @@ IUSE="debug"
 
 COMMONDEPEND="
 	!aqua? (
-		$(add_kdebase_dep libkonq)
+		|| ( $(add_kdeapps_dep libkonq) $(add_kdebase_dep libkonq) )
 		x11-libs/libX11
 		x11-libs/libXext
 		>=x11-libs/libxklavier-3.2
