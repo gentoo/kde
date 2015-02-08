@@ -26,7 +26,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
-	dev-qt/qtwidgets
+	dev-qt/qtwidgets:5
 "
 
 RDEPEND="${DEPEND}"
