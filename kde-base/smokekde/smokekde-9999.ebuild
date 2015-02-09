@@ -17,7 +17,7 @@ DEPEND="
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	attica? ( dev-libs/libattica )
 	kate? ( $(add_kdebase_dep kate) )
-	okular? ( $(add_kdebase_dep okular) )
+	okular? ( || ( $(add_kdeapps_dep okular) $(add_kdebase_dep okular) ) )
 "
 RDEPEND="${DEPEND}"
 
