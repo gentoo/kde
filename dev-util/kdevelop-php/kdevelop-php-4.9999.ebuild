@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it kk nb nds nl pl
-pt pt_BR ru sl sv uk zh_CN zh_TW"
+KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it kk nl pl pt
+pt_BR ru sk sl sv tr uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 KDEBASE="kdevelop"
 KMNAME="kdev-php"
