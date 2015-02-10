@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl hu it kk nb nds nl
-pl pt pt_BR ru sk sl sv th uk zh_CN zh_TW"
+pl pt pt_BR ru sk sl sv th tr uk zh_CN zh_TW"
 VIRTUALX_REQUIRED="test"
 EGIT_BRANCH="4.7"
 inherit kde4-base
@@ -30,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kapptemplate)
-	$(add_kdebase_dep kdebase-kioslaves)
+	|| ( $(add_kdeapps_dep kdebase-kioslaves) $(add_kdebase_dep kdebase-kioslaves) )
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 RESTRICT="test"
