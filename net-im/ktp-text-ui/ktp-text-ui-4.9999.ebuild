@@ -28,7 +28,7 @@ DEPEND="
 	>=net-libs/telepathy-logger-qt-0.8
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)
-		>=net-libs/libkpeople-0.3.0:=
+		|| ( >=net-libs/libkpeople-0.3.0:= >=net-libs/kpeople-0.3.0:= )
 	)
 "
 RDEPEND="${DEPEND}

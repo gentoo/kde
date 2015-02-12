@@ -17,7 +17,7 @@ else
 fi
 
 DESCRIPTION="KDE contact person abstraction library"
-HOMEPAGE="https://projects.kde.org/projects/playground/network/libkpeople"
+HOMEPAGE="https://projects.kde.org/projects/playground/network/kpeople"
 
 LICENSE="LGPL-2.1"
 SLOT="4/4"

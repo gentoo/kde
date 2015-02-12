@@ -20,7 +20,7 @@ LICENSE="LGPL-2.1"
 SLOT="5"
 IUSE="doc otr"
 
-# todo: libkpeople, kdepimlibs
+# todo: kpeople, kdepimlibs
 DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)

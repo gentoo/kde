@@ -32,7 +32,7 @@ DEPEND="
 	)
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)
-		>=net-libs/libkpeople-0.3.0:=
+		|| ( >=net-libs/libkpeople-0.3.0:= >=net-libs/kpeople-0.3.0:= )
 	)
 "
 RDEPEND="${DEPEND}"
