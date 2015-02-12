@@ -30,4 +30,6 @@ before_script:
     - cd travis-overlay
 script:
     - ./../spinner.sh "./../portage-${PORTAGE_VER}/bin/repoman full -d"
+notifications:
+  irc: "chat.freenode.net#gentoo-kde"
 # You can append own scripts after this line
