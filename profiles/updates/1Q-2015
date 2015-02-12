@@ -1,1 +1,2 @@
 move net-libs/libkpeople net-libs/kpeople
+move kde-apps/kxmlrpcclient kde-frameworks/kxmlrpcclient

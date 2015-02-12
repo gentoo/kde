@@ -8,7 +8,7 @@ KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Library providing client-side support for the XML-RPC protocol"
+DESCRIPTION="Framework providing client-side support for the XML-RPC protocol"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
