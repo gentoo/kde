@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KMNAME="kpeople"
 inherit kde5
 
 DESCRIPTION="KDE contact person abstraction library"
