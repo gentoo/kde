@@ -9,18 +9,3 @@
  find_package(ECM 0.0.11 REQUIRED NO_MODULE)
  set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
  
---- a/drkonqi/internalkxmlrpcclient/CMakeLists.txt	2015-01-20 23:55:55.857657633 +0100
-+++ b/drkonqi/internalkxmlrpcclient/CMakeLists.txt	2015-01-21 00:05:27.684341452 +0100
-@@ -33,7 +33,11 @@
- 
- ########### Targets ###########
- add_subdirectory(src)
--add_subdirectory(autotests)
-+
-+if(BUILD_TESTING)
-+  find_package(Qt5Test ${QT_MIN_VERSION} CONFIG REQUIRED)
-+  add_subdirectory(autotests)
-+endif()
- 
- ########### CMake Config Files ###########
- set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5XmlRpcClientPrivate")
