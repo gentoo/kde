@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/gwenview/gwenview-4.14.3.ebuild,v 1.3 2015/02/14 14:34:58 ago Exp $
+# $Header: $
 
 EAPI=5
 
@@ -20,15 +20,15 @@ IUSE="debug kipi semantic-desktop"
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdebase_dep libkdcraw)
-	$(add_kdebase_dep libkonq)
+	|| ( $(add_kdeapps_dep libkdcraw) $(add_kdebase_dep libkdcraw) )
+	|| ( $(add_kdeapps_dep libkonq) $(add_kdebase_dep libkonq) )
 	$(add_kdebase_dep kactivities '' 4.13)
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=
 	virtual/jpeg:0
 	x11-libs/libX11
-	kipi? ( $(add_kdebase_dep libkipi) )
+	kipi? ( || ( $(add_kdeapps_dep libkipi) $(add_kdebase_dep libkipi) ) )
 	semantic-desktop? ( $(add_kdebase_dep baloo) )
 "
 RDEPEND="${DEPEND}"
