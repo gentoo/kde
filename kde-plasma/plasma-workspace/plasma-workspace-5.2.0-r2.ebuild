@@ -9,7 +9,7 @@ FRAMEWORKS_MINIMAL="5.7"
 inherit kde5 multilib
 
 DESCRIPTION="KDE Plasma workspace"
-KEYWORDS=""
+KEYWORDS=" ~amd64"
 IUSE="dbus gps prison qalculate X"
 
 COMMON_DEPEND="
@@ -106,7 +106,7 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-startkde-script.patch"
-	"${FILESDIR}/${PN}-5.2.0-freeze.patch"
+	"${FILESDIR}/${P}-freeze.patch"
 )
 
 RESTRICT="test"
