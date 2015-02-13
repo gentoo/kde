@@ -27,7 +27,7 @@ RDEPEND="
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
-	!<kde-plasma/plasma-workspace-5.2.50
+	!<kde-plasma/plasma-workspace-5.2.0-r2
 "
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
