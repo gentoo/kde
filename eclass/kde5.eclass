@@ -112,7 +112,7 @@ case ${KDE_AUTODEPS} in
 		elif [[ ${CATEGORY} = kde-frameworks ]]; then
 			ecm_version=1.$(get_version_component_range 2).0
 		else
-			ecm_version=1.6.1
+			ecm_version=1.7.0
 		fi
 
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
