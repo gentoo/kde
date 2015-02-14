@@ -26,11 +26,7 @@ RDEPEND="${DEPEND}
 	!kde-base/libkpgp:4
 	!<kde-base/kaddressbook-4.11.50:4
 	!kde-base/kdepim-wizards:4
-	!<kde-base/kmail-4.4.80:4
-	!=kde-base/kmail-4.11*
-	!=kde-base/kmail-4.12.0
-	!=kde-base/kmail-4.12.1
-	!<kde-base/kmail-4.13.60
+	!<kde-base/kmail-4.14.5
 	!<kde-base/korganizer-4.5.67:4
 	app-crypt/gnupg
 	$(add_kdebase_dep kdepim-runtime)
@@ -54,6 +50,8 @@ KMEXTRA="
 	libkleo/
 	libkpgp/
 	kdgantt2/
+	mailcommon/
+	mailimporter/
 	messagecomposer/
 	messagecore/
 	messagelist/
@@ -63,12 +61,13 @@ KMEXTRA="
 	templateparser/
 "
 KMEXTRACTONLY="
+	agents/mailfilteragent/org.freedesktop.Akonadi.MailFilterAgent.xml
 	kleopatra/
 	kmail/
 	knode/org.kde.knode.xml
 	korgac/org.kde.korganizer.KOrgac.xml
 	korganizer/org.kde.korganizer.Korganizer.xml
-	mailcommon/
+	korganizer/org.kde.Korganizer.Calendar.xml
 "
 KMSAVELIBS="true"
 
