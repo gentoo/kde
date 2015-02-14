@@ -17,7 +17,7 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep kdepimlibs)
 	$(add_kdebase_dep korganizer)
-	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r2)
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="
 	${DEPEND}
@@ -44,6 +44,8 @@ KMEXTRACTONLY="
 KMCOMPILEONLY="
 	grantleetheme/
 	kaddressbookgrantlee/
+	mailcommon/
+	mailimporter/
 	messagecomposer/
 	messagecore/
 	messagelist/
@@ -63,8 +65,6 @@ KMEXTRA="
 	ksendemail/
 	importwizard/
 	libksieve/
-	mailcommon/
-	mailimporter/
 	mboximporter/
 	pimsettingexporter/
 	plugins/messageviewer/
