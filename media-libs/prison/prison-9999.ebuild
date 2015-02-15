@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="QRCode and data matrix barcode library"
