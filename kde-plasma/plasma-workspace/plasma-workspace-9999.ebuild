@@ -57,6 +57,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	dev-libs/wayland
+	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5[jpeg]
