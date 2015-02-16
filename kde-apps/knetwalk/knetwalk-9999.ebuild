@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK="true"
 KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE version of the popular NetWalk game for system administrators"
