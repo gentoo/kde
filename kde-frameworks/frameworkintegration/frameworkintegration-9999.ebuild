@@ -31,6 +31,7 @@ RDEPEND="
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libxcb
+		x11-libs/libXcursor
 	)
 "
 DEPEND="${RDEPEND}"
