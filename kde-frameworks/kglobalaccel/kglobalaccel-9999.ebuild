@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework to handle global shortcuts"
 KEYWORDS=""
 LICENSE="LGPL-2+"
-IUSE="nls X"
+IUSE="nls"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -22,22 +22,11 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	X? (
-		dev-qt/qtx11extras:5
-		x11-libs/libxcb
-		x11-libs/xcb-util-keysyms
-	)
+	dev-qt/qtx11extras:5
+	x11-libs/libxcb
+	x11-libs/xcb-util-keysyms
 	!<kde-plasma/plasma-workspace-5.2.0-r2
 "
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package X X11)
-		$(cmake-utils_use_find_package X XCB)
-	)
-
-	kde5_src_configure
-}
