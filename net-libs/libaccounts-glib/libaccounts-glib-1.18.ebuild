@@ -19,7 +19,7 @@ IUSE="debug"
 
 DEPEND="
 	dev-db/sqlite
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-libs/libxml2"
 
 RDEPEND="$DEPEND"
