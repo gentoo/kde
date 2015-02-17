@@ -4,19 +4,32 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Manage print jobs and printers in KDE"
+DESCRIPTION="Manage print jobs and printers in Plasma"
 KEYWORDS=""
-IUSE="debug +gtk"
+IUSE="gtk"
 
 DEPEND="
-	>=net-print/cups-1.5.0[dbus]
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	net-print/cups
 "
 RDEPEND="${DEPEND}
-	!kde-base/printer-applet:4
-	!kde-base/system-config-printer-kde:4
-	!kde-misc/print-manager
 	gtk? ( app-admin/system-config-printer-gnome )
 "
 
