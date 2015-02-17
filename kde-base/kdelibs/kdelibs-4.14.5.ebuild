@@ -83,7 +83,7 @@ COMMONDEPEND="
 	)
 	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
 	spell? ( app-text/enchant )
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:0 )
 	udev? ( virtual/udev )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
