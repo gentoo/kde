@@ -27,7 +27,7 @@ DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
 	>=net-libs/telepathy-logger-qt-0.5.80
 	otr? (
-		dev-libs/libgcrypt:=
+		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
 	)
 	semantic-desktop? (
