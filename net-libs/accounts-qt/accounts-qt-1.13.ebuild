@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	net-libs/libaccounts-glib
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-qt/qtcore:5
 	dev-qt/qttest:5
 	dev-qt/qtxml:5
