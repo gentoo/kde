@@ -5,29 +5,25 @@
 EAPI=5
 
 EGIT_BRANCH="1.1"
+KDE_HANDBOOK="optional"
+KDE_LINGUAS="ar bg bs ca ca@valencia cs da de el en_GB es et fi fr gl it lt nb
+nds nl pa pl pt pt_BR ro ru sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv
+tr uk zh_CN zh_TW"
 inherit kde4-base
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
-HOMEPAGE="http://partitionman.sourceforge.net/"
+HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
 
 LICENSE="GPL-2"
-KEYWORDS=""
 SLOT="0"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
 	dev-libs/libatasmart
-	>=sys-block/parted-3
 	sys-apps/util-linux
+	>=sys-block/parted-3
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
-
-src_configure() {
-	local mycmakeargs=(
-		-DENABLE_UDISKS2=ON
-	)
-
-	kde4-base_src_configure
-}

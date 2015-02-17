@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
-HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager/"
+HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
 
 LICENSE="GPL-2 GPL-3"
 SLOT="5"
@@ -30,7 +30,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	dev-libs/libatasmart
-	>=sys-block/parted-3
 	sys-apps/util-linux
+	>=sys-block/parted-3
 	!sys-block/partitionmanager:0
 "
