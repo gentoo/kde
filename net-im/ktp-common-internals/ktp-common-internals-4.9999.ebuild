@@ -25,7 +25,7 @@ IUSE="debug otr semantic-desktop"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
-	>=net-libs/telepathy-logger-qt-0.5.80
+	>=net-libs/telepathy-logger-qt-0.5.80:0
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
