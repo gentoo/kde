@@ -78,7 +78,7 @@ COMMONDEPEND="
 	groupwise? ( app-crypt/qca:2[qt4(+)] )
 	jingle? (
 		dev-libs/expat
-		dev-libs/openssl
+		dev-libs/openssl:0
 		>=media-libs/mediastreamer-2.3.0
 		media-libs/speex
 		net-libs/libsrtp
