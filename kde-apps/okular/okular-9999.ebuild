@@ -33,7 +33,7 @@ DEPEND="
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
 	pdf? ( >=app-text/poppler-0.20[qt4,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
-	tiff? ( media-libs/tiff )
+	tiff? ( media-libs/tiff:0 )
 "
 RDEPEND="${DEPEND}"
 
