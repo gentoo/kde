@@ -14,7 +14,7 @@ inherit kde4-meta
 DESCRIPTION="System settings utility"
 HOMEPAGE+=" http://userbase.kde.org/System_Settings"
 IUSE="debug gtk +kscreen nepomuk +usb"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
 COMMONDEPEND="
 	app-misc/strigi
