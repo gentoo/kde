@@ -25,7 +25,7 @@ IUSE="debug semantic-desktop"
 
 DEPEND="
 	>=net-libs/telepathy-qt-0.9.5[qt4]
-	>=net-libs/telepathy-logger-qt-0.8
+	>=net-libs/telepathy-logger-qt-0.8:0
 	semantic-desktop? (
 		$(add_kdebase_dep kdepimlibs)
 		|| ( >=net-libs/libkpeople-0.3.0:= >=net-libs/kpeople-0.3.0:= )
