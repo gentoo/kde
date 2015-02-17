@@ -16,7 +16,7 @@ SLOT="5"
 IUSE=""
 
 RDEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-qt/qtdbus:5
 	media-libs/qt-gstreamer[qt5]
 	net-im/telepathy-logger
