@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	app-text/docbook-xml-dtd:4.2
-	dev-libs/openssl
+	dev-libs/openssl:0
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
