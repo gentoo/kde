@@ -32,4 +32,11 @@ script:
     - ./../spinner.sh "./../portage-${PORTAGE_VER}/bin/repoman full -d"
 # You can append own scripts after this line
 notifications:
-  irc: "chat.freenode.net#gentoo-kde"
+  irc:
+    channels:
+      - "chat.freenode.net#gentoo-kde"
+    template:
+      - "%{repository}#%{build_number} (%{branch} - %{commit}): %{message}"
+      - "%{author} - %{commit_message}"
+      - "Change view : %{compare_url}"
+      - "Build details : %{build_url}"
