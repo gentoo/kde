@@ -11,7 +11,7 @@ KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE filemanager focusing on usability"
+DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="http://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
 KEYWORDS=""
 IUSE="semantic-desktop"
@@ -53,10 +53,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kio-extras)
-	!kde-base/dolphin:4
 "
-
-PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
 
 S=${S}/${PN}
 
