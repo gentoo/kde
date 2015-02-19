@@ -14,5 +14,5 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdeapps_dep zeroconf-ioslave)
-	kde-plasma/khotkeys
+	|| ( $(add_kdebase_dep khotkeys '' 4.11) kde-plasma/khotkeys )
 "
