@@ -18,7 +18,7 @@ RDEPEND="
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kwindowsystem X)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
