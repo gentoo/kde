@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="QRCode and data matrix barcode library"
@@ -14,17 +15,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-qt/qtgui:5
 	media-gfx/qrencode
 	media-libs/libdmtx
 "
-RDEPEND="${DEPEND}
-	!media-libs/prison:4
-"
+RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-disable-testapp.patch" )
 
 src_configure() {
-	local mycmakeargs=(
-		-DQT5_BUILD=TRUE
-	)
+	local mycmakeargs=(-DQT5_BUILD=TRUE)
 
 	kde5_src_configure
 }
