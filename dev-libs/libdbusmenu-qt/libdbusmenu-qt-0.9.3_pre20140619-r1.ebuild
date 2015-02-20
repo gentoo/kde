@@ -14,16 +14,19 @@ HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
 if [[ ${PV} == 9999* ]] ; then
 	KEYWORDS=""
 else
-	#SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
+	MY_PV=${PV/_pre/+14.10.}
+	SRC_URI="http://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${MY_PV}.orig.tar.gz"
 	# upstream has no permissions to use some kde written code so repack git
 	# repo every time
-	SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.xz"
+	#SRC_URI="http://dev.gentoo.org/~scarabeus/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+	PATCHES=( "${FILESDIR}/${P}-optionaltests.patch" )
 fi
 
 LICENSE="LGPL-2"
 SLOT="0"
 IUSE="debug doc +qt4 qt5"
+S=${WORKDIR}/${PN}-${MY_PV}
 
 REQUIRED_USE="|| ( qt4 qt5 )"
 
@@ -51,7 +54,7 @@ DEPEND="${RDEPEND}
 
 DOCS=( NEWS README )
 
-# tests fail due to missing conection to dbus
+# tests fail due to missing connection to dbus
 RESTRICT="test"
 
 pkg_setup() {
