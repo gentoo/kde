@@ -3,7 +3,6 @@
 ~kde-apps/dolphin-5.9999
 ~kde-apps/filelight-5.9999
 ~kde-apps/gwenview-9999
-~kde-apps/kate-9999
 ~kde-apps/kfind-5.9999
 ~kde-apps/kmix-5.9999
 ~kde-apps/konsole-9999
@@ -11,10 +10,9 @@
 ~kde-apps/kwalletmanager-5.9999
 ~kde-apps/kwrite-9999
 ~kde-apps/libkcddb-5.9999
-~kde-apps/libkomparediff2-9999
 ~kde-apps/libkonq-5.9999
-~kde-apps/okteta-9999
 ~kde-apps/okular-5.9999
 ~kde-misc/yakuake-5.9999
 @kdeadmin-live
 @kdegames-live
+@kdesdk-live
