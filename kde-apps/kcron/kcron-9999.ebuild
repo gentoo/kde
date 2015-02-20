@@ -4,11 +4,24 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
 DESCRIPTION="KDE Task Scheduler"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-RDEPEND="!prefix? ( virtual/cron )"
+DEPEND="
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtwidgets:5
+"
+RDEPEND="${DEPEND}
+	!prefix? ( virtual/cron )
+"
