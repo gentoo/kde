@@ -440,29 +440,14 @@ _calculate_src_uri() {
 				4.?.[6-9]? | 4.??.[6-9]?)
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
-				4.[1-7].[12345])
-					# Stable KDE SC with old .bz2 support
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.11.9)
-					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.5/src/${_kmname_pv}.tar.xz" ;;
-				4.11.11)
-					# Part of 4.13 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.13.3/src/${_kmname_pv}.tar.xz" ;;
-				4.11.12)
-					# Part of 4.14 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.14.1/src/${_kmname_pv}.tar.xz" ;;
-				4.11.13)
-					# Part of 4.14 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.14.2/src/${_kmname_pv}.tar.xz" ;;
 				4.11.14)
 					# Part of 4.14 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.14.3/src/${_kmname_pv}.tar.xz" ;;
 				4.11.16)
-					# Part of 14.12.1 actually, sigh. Not stable for next release!
+					# Part of 14.12.2 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/14.12.2/src/${_kmname_pv}.tar.xz" ;;
 				4.14.5)
-					# Part of 14.12.1 actually, sigh. Not stable for next release!
+					# Part of 14.12.2 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/14.12.2/src/${_kmname_pv}.tar.xz" ;;
 				??.?.[6-9]? | ??.??.[4-9]?)
 					# Unstable KDE Applications releases
