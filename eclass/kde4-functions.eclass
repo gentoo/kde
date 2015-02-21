@@ -330,10 +330,7 @@ add_kdebase_dep() {
 	# if building live version depend on the final release since there will
 	# not be any more major development. this solves dep errors as not all
 	# packages have kde-base live versions now
-
-	# depend on the last sane released version where the normal >=${PV} dep
-	# is not possible
-	elif [[ ${CATEGORY} == kde-apps || ${PV} > 4.14.3 || ${PV} == *9999 ]]; then
+	elif [[ ${PV} == *9999 || ${CATEGORY} == kde-apps ]]; then
 		ver=4.14.3
 	else
 		ver=${PV}
