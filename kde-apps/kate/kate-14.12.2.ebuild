@@ -4,7 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
@@ -46,7 +47,8 @@ DEPEND="
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
-		dev-libs/libgit2:=
+		dev-qt/qtsql:5
+		>=dev-libs/libgit2-0.22.0:=
 	)
 "
 RDEPEND="${DEPEND}
