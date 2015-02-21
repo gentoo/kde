@@ -4,12 +4,13 @@
 
 EAPI=5
 
-MY_PN=${PN}-kde
+MY_PN="${PN}-kde"
 DECLARATIVE_REQUIRED="always"
+KDE_LINGUAS="ar bg bs ca cs da de es fi fr gl hu it ja ko lt nl pl pt pt_BR ro ru sk sv tr uk"
 inherit kde4-base
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	MY_P=${MY_PN}-${PV}
+	MY_P="${MY_PN}-${PV}"
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 else
@@ -24,14 +25,19 @@ LICENSE="GPL-2+"
 SLOT="4"
 IUSE="debug"
 
-DEPEND="
+COMMON_DEPEND="
 	app-crypt/qca:2[qt4(+)]
 	dev-libs/qjson
 	x11-libs/libfakekey
-	"
-RDEPEND="${DEPEND}
+	x11-libs/libX11
+	x11-libs/libXtst
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdebase_dep plasma-workspace)
 	|| ( app-crypt/qca-ossl:2 app-crypt/qca:2[openssl] )
+"
+DEPEND="${COMMON_DEPEND}
+	sys-devel/gettext
 "
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
