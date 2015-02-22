@@ -327,12 +327,12 @@ add_kdebase_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
+	# if building a live version branch (eg. 4.11.49.9999) use the major version
 	elif [[ ${PV} == *.9999 ]]; then
 		ver=$(get_kde_version)
-	# if building live version depend on the final release since there will
-	# not be any more major development. this solves dep errors as not all
-	# packages have kde-base live versions now
-	elif [[ ${CATEGORY} == kde-apps ]]; then
+	# if building live master or kde-apps, use the final SC version
+	# since there are no further general releases.
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == 9999 ]]; then
 		ver=4.14.3
 	else
 		ver=${PV}
