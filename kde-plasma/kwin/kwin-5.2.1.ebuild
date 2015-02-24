@@ -10,7 +10,6 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE window manager"
-SRC_URI="mirror://kde/stable/plasma/5.2.0/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 KEYWORDS=" ~amd64"
