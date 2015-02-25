@@ -2,7 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
-	<use>
-		<flag name="modemmanager">Enable support for mobile broadband devices</flag>
-	</use>
 </pkgmetadata>
