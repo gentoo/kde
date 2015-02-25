@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy authentication handler"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -32,5 +32,5 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
-	!net-im/ktp-auth-handler:4
+	!net-im/ktp-auth-handler
 "
