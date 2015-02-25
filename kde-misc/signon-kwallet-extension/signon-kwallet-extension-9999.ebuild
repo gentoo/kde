@@ -6,10 +6,8 @@ EAPI=5
 
 inherit kde5
 
-SLOT="0"
 DESCRIPTION="KWallet extension for signond"
 HOMEPAGE="https://01.org/gsso/"
-
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 
