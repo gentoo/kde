@@ -24,8 +24,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kdeclarative)
+	$(add_kdeapps_dep ktp-common-internals)
 	dev-qt/qtdeclarative:5
 	dev-qt/qtquickcontrols:5
-	>=net-im/ktp-common-internals-${PV}
 	!net-im/ktp-desktop-applets:4
 "

@@ -23,13 +23,13 @@ DEPEND="
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
+	$(add_kdeapps_dep ktp-common-internals)
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	net-im/ktp-common-internals:5
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}

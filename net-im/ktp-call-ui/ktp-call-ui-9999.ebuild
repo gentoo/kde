@@ -25,13 +25,13 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep ktp-common-internals)
 	dev-libs/boost
 	dev-libs/glib:2
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	media-libs/qt-gstreamer[qt5]
-	net-im/ktp-common-internals:5
 	net-libs/farstream:0.2
 	net-libs/telepathy-farstream
 	net-libs/telepathy-qt[farstream,qt5]

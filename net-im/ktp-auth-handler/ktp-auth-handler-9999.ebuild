@@ -20,13 +20,13 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep kaccounts-integration)
+	$(add_kdeapps_dep ktp-common-internals)
 	app-crypt/qca[qt5]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	net-libs/accounts-qt
-	net-im/ktp-common-internals:5
 	net-libs/signond
 	net-libs/telepathy-qt[qt5]
 "

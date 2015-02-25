@@ -4,21 +4,16 @@
 
 EAPI=5
 
+KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy common library"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://kde/stable/kde-telepathy/${PV}/src/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
-else
-	KEYWORDS=""
-fi
 
 LICENSE="LGPL-2.1"
-SLOT="5"
-IUSE="doc otr"
+KEYWORDS=""
+IUSE="otr"
 
 # todo: kpeople, kdepimlibs
 DEPEND="
@@ -43,21 +38,20 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	media-libs/qt-gstreamer
+	media-libs/qt-gstreamer[qt5]
 	net-libs/accounts-qt
-	>=net-libs/telepathy-qt-0.9.5[qt5]
 	net-libs/telepathy-logger-qt:5
-	doc? ( app-doc/doxygen )
+	>=net-libs/telepathy-qt-0.9.5[qt5]
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
 	)
 "
 RDEPEND="${DEPEND}
-	!net-im/ktp-common-internals:4
+	!net-im/ktp-common-internals
 "
 
-PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
