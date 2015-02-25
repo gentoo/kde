@@ -102,6 +102,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/plasma-workspace
 	!kde-base/solid-actions-kcm
 	!kde-base/systemsettings
+	!kde-misc/kcm_touchpad
+	!kde-misc/kcm-touchpad
+	!kde-plasma/kcm-touchpad
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
