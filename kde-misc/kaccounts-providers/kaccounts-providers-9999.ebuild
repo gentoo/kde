@@ -6,16 +6,14 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="KDE KAccount providers"
+DESCRIPTION="KDE accounts providers"
 HOMEPAGE="https://community.kde.org/KTp"
-
 LICENSE="LGPL-2.1"
-SLOT="5"
-IUSE="telepathy"
+IUSE=""
 
 DEPEND=""
 RDEPEND="
-	telepathy? ( net-im/telepathy-connection-managers[xmpp] )
+	net-im/telepathy-connection-managers[xmpp]
 	net-libs/signon-ui
 	net-libs/signon-oauth2
 "
