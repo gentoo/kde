@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy file manager plugin to send files to contacts"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -28,5 +28,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
 	$(add_kdeapps_dep ktp-filetransfer-handler)
-	!net-im/ktp-send-file:4
+	!net-im/ktp-send-file
 "
