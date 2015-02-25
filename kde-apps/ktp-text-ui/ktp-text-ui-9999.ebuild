@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy text chat window"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -45,5 +45,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
-	!net-im/ktp-text-ui:4
+	!net-im/ktp-text-ui
 "
