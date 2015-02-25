@@ -31,5 +31,6 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
+	$(add_kdeapps_dep kaccounts-providers)
 	!net-im/ktp-accounts-kcm:4
 "
