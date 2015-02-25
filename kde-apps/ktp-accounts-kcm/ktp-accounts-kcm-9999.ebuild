@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy account management kcm"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -32,5 +32,5 @@ DEPEND="
 
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kaccounts-providers)
-	!net-im/ktp-accounts-kcm:4
+	!net-im/ktp-accounts-kcm
 "
