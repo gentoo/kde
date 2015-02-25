@@ -1,3 +1,4 @@
 move net-libs/libkpeople net-libs/kpeople
 move kde-apps/kxmlrpcclient kde-frameworks/kxmlrpcclient
 move kde-misc/kaccounts-providers kde-apps/kaccounts-providers
+move kde-misc/kaccounts-integration kde-apps/kaccounts-integration

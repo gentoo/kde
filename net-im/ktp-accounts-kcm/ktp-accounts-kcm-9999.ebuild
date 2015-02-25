@@ -22,12 +22,12 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_kdeapps_dep kaccounts-integration)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	net-libs/telepathy-qt[qt5]
-	kde-misc/kaccounts-integration
 "
 
 RDEPEND="${DEPEND}

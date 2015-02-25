@@ -37,19 +37,17 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep kaccounts-integration)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	kde-misc/kaccounts-integration
 	media-libs/qt-gstreamer
 	net-libs/accounts-qt
 	>=net-libs/telepathy-qt-0.9.5[qt5]
 	net-libs/telepathy-logger-qt:5
-	doc? (
-		app-doc/doxygen
-	)
+	doc? ( app-doc/doxygen )
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
