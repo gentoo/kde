@@ -11,7 +11,7 @@ DESCRIPTION="KDE Telepathy workspace integration"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -34,7 +34,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep signon-kwallet-extension)
-	!net-im/ktp-kded-module:4
+	!net-im/ktp-kded-module
 "
 
 [[ ${PV} == *9999* ]] || S=${WORKDIR}/${MY_P}
