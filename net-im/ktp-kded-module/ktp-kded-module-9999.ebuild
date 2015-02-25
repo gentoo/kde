@@ -33,6 +33,7 @@ DEPEND="
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}
+	$(add_kdeapps_dep signon-kwallet-extension)
 	!net-im/ktp-kded-module:4
 "
 
