@@ -30,21 +30,29 @@ KMLOADLIBS="kdepim-common-libs"
 KMEXTRA="
 	korgac/
 "
-
 KMEXTRACTONLY="
+	agents/mailfilteragent/org.freedesktop.Akonadi.MailFilterAgent.xml
 	akonadi_next/
 	calendarviews/
 	kdgantt2/
 	kmail/
-	pimcommon/
 	knode/org.kde.knode.xml
 	libkdepimdbusinterfaces/
-	korgac/org.kde.korganizer.KOrgac.xml
+	libkleo/
+	libkpgp/
+	mailimporter/
+	messagecomposer/
 "
-
 KMCOMPILEONLY="
-	incidenceeditor-ng/
 	calendarsupport/
+	grantleetheme/
+	incidenceeditor-ng/
+	kaddressbookgrantlee/
+	mailcommon/
+	messagecore/
+	messageviewer/
+	pimcommon/
+	templateparser/
 "
 
 src_unpack() {

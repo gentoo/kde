@@ -43,12 +43,12 @@ KMEXTRA="
 	composereditor-ng/
 	grantleeeditor/grantleethemeeditor/
 	grantleetheme/
-	kaddressbookgrantlee/
 	incidenceeditor-ng/
 	libkdepim/
 	libkdepimdbusinterfaces/
 	libkleo/
 	libkpgp/
+	kaddressbookgrantlee/
 	kdgantt2/
 	mailcommon/
 	mailimporter/

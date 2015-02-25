@@ -31,18 +31,19 @@ KMEXTRACTONLY="
 	agents/folderarchiveagent.desktop
 	agents/sendlateragent/
 	akonadi_next/
-	calendarsupport/
 	calendarviews/
 	grantleeeditor/grantleethemeeditor/
+	kdgantt2/
 	korganizer/
 	kresources/
+	libkdepimdbusinterfaces/
 	libkleo/
 	libkpgp/
-	libkdepimdbusinterfaces/
-	kdgantt2/
 "
 KMCOMPILEONLY="
+	calendarsupport/
 	grantleetheme/
+	incidenceeditor-ng/
 	kaddressbookgrantlee/
 	mailcommon/
 	mailimporter/
@@ -50,20 +51,20 @@ KMCOMPILEONLY="
 	messagecore/
 	messagelist/
 	messageviewer/
+	mailcommon/
+	mailimporter/
+	noteshared/
 	pimcommon/
 	templateparser/
-	incidenceeditor-ng/
-	calendarsupport/
-	noteshared/
 "
 KMEXTRA="
 	agents/archivemailagent/
 	agents/followupreminderagent/
 	agents/mailfilteragent/
 	grantleeeditor/headerthemeeditor/
+	importwizard/
 	kmailcvt/
 	ksendemail/
-	importwizard/
 	libksieve/
 	mboximporter/
 	pimsettingexporter/
