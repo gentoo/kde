@@ -26,6 +26,6 @@ DEPEND="
 	net-libs/telepathy-qt[qt5]"
 
 RDEPEND="${DEPEND}
-	>=net-im/ktp-contact-list-${PV}
+	$(add_kdeapps_dep ktp-contact-list)
 	!net-im/ktp-approver
 "
