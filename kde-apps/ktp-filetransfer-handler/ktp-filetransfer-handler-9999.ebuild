@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy file transfer handler"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"
-SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -25,5 +25,5 @@ DEPEND="
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}
-	!net-im/ktp-filetransfer-handler:4
+	!net-im/ktp-filetransfer-handler
 "
