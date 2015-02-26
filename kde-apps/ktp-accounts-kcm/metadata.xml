@@ -2,4 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="experimental">Enables disabled services</flag>
+		<flag name="gadu">Enable Gadu Gadu protocol support</flag>
+		<flag name="haze">Enable support for <pkg>net-im/pidgin</pkg> provided protocols</flag>
+		<flag name="meanwhile">Enable the Sametime protocol handler.</flag>
+		<flag name="steam">Enable the Opensteamworks protocol support</flag>
+	</use>
 </pkgmetadata>
