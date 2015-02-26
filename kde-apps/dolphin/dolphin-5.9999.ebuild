@@ -5,7 +5,6 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
-KMNAME="kde-baseapps"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -17,6 +16,7 @@ KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
+	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -24,7 +24,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -39,7 +39,6 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	$(add_kdeapps_dep libkonq)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -55,7 +54,7 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep kio-extras)
 "
 
-S=${S}/${PN}
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
