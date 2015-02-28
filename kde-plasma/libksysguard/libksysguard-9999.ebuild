@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="X"
+IUSE="+processui X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
@@ -26,7 +26,9 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
+	processui? (
+		dev-qt/qtwebkit:5
+	)
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
 	X? (
@@ -44,6 +46,14 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
 	X? ( x11-proto/xproto )
 "
+
+src_prepare() {
+	if ! use processui; then
+		comment_add_subdirectory processui
+	fi
+
+	kde5_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
