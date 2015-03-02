@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
