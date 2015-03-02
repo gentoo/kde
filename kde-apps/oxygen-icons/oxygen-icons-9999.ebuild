@@ -17,13 +17,11 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	# This gets repackaged for stable releases
 	SRC_URI_BINDIST="${SRC_URI}"
 
-	SRC_URI=" !bindist? ( ${SRC_URI} )
-		bindist? ( ${SRC_URI_BINDIST} )
+	SRC_URI=" !sources? ( ${SRC_URI} )
+		sources? ( ${SRC_URI_BINDIST} )
 	"
 fi
 
 LICENSE="LGPL-3"
 KEYWORDS=""
-IUSE="bindist"
-
-RDEPEND="!kde-base/oxygen-icons:4"
+IUSE="sources"
