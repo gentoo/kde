@@ -1,6 +1,5 @@
 # sort them later to the appropriate sets
 ~kde-apps/ark-5.9999
-~kde-apps/gwenview-9999
 ~kde-apps/kfind-5.9999
 ~kde-apps/kmix-5.9999
 ~kde-apps/ksnapshot-5.9999
@@ -13,6 +12,7 @@
 @kdeadmin-live
 @kdeedu-live
 @kdegames-live
+@kdegraphics-live
 @kdemultimedia-live
 @kdesdk-live
 @kdetoys-live
