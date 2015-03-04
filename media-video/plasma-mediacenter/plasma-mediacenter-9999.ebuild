@@ -27,6 +27,7 @@ RESTRICT="test"
 
 DEPEND="
 	$(add_kdebase_dep nepomuk-core)
+	$(add_kdebase_dep plasma-workspace)
 	dev-qt/qt-mobility[multimedia,qml]
 	media-libs/taglib
 "
