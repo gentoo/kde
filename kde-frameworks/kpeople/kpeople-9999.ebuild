@@ -11,7 +11,7 @@ HOMEPAGE="https://projects.kde.org/projects/frameworks/kpeople"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
-IUSE="semantic-desktop"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
