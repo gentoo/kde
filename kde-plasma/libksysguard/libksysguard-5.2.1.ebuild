@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64"
-IUSE="X"
+IUSE="+processui X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
@@ -26,9 +26,9 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
+	processui? ( dev-qt/qtwebkit:5 )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -47,6 +47,7 @@ DEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package processui Qt5WebKitWidgets)
 		$(cmake-utils_use_find_package X X11)
 	)
 
