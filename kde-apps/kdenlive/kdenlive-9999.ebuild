@@ -44,7 +44,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=media-libs/mlt-0.9.0[ffmpeg,sdl,xml,melt,qt4,kdenlive]
+	>=media-libs/mlt-0.9.0[ffmpeg,-kde,kdenlive,melt,-qt4,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl
 	v4l? ( media-libs/libv4l )
