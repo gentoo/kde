@@ -5,7 +5,6 @@
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
-EGIT_BRANCH="qt5"
 inherit kde5 python-any-r1
 
 DESCRIPTION="Qt bindings for the Telepathy logger"
@@ -18,7 +17,6 @@ IUSE=""
 RDEPEND="
 	dev-libs/glib:2
 	dev-qt/qtdbus:5
-	media-libs/qt-gstreamer[qt5]
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
 	net-libs/telepathy-qt[qt5]
