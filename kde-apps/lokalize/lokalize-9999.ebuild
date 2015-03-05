@@ -34,6 +34,7 @@ DEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep pykde5 "${PYTHON_USEDEP}")
+	dev-python/translate-toolkit[${PYTHON_USEDEP}]
 	!kde-apps/lokalize:4
 	!kde-base/lokalize
 "
