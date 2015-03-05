@@ -10,7 +10,7 @@ inherit kde5 multilib
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus gps prison qalculate X"
+IUSE="dbus +drkonqi gps prison qalculate +systemmonitor X"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdesu)
-	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
@@ -64,16 +63,23 @@ COMMON_DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
-	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	sys-libs/pam
 	sys-libs/zlib
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	drkonqi? (
+		$(add_frameworks_dep kdewebkit)
+		dev-qt/qtwebkit:5
+	)
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
 	qalculate? ( sci-libs/libqalculate )
+	systemmonitor? (
+		$(add_plasma_dep libksysguard processui)
+		dev-qt/qtwebkit:5
+	)
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libICE
@@ -117,6 +123,14 @@ src_prepare() {
 	kde5_src_prepare
 
 	sed -e "s|\`qtpaths|\`/usr/$(get_libdir)/qt5/bin/qtpaths|" -i startkde/startkde.cmake || die
+
+	if ! use drkonqi; then
+		comment_add_subdirectory drkonqi
+	fi
+
+	if ! use systemmonitor; then
+		comment_add_subdirectory systemmonitor
+	fi
 }
 
 src_configure() {
