@@ -38,7 +38,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	media-libs/qt-gstreamer[qt5]
 	net-libs/accounts-qt
 	net-libs/telepathy-logger-qt:5
 	>=net-libs/telepathy-qt-0.9.5[qt5]
