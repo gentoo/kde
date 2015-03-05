@@ -7,13 +7,13 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="KDE contact person abstraction library"
-HOMEPAGE="https://projects.kde.org/projects/playground/network/kpeople"
+HOMEPAGE="https://projects.kde.org/projects/frameworks/kpeople"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="semantic-desktop"
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -25,14 +25,7 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	semantic-desktop? ( $(add_plasma_dep baloo) )
 "
-DEPEND="${RDEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
-	)
-
-	kde5_src_configure
-}
+RDEPEND="${DEPEND}
+	!net-libs/kpeople:5
+"

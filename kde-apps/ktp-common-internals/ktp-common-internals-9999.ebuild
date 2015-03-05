@@ -15,7 +15,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="otr"
 
-# todo: kpeople, kdepimlibs
+# todo: kdepimlibs
 DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
@@ -26,6 +26,7 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kpeople)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwallet)

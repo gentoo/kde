@@ -28,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kpeople)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
@@ -40,7 +41,6 @@ DEPEND="
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	net-libs/kpeople:5
 	net-libs/telepathy-qt[qt5]
 "
 RDEPEND="${DEPEND}
