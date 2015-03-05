@@ -4,10 +4,22 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
-DESCRIPTION="KDE Educational: Learn calculating with fractions"
+DESCRIPTION="Educational application to learn calculating with fractions"
 HOMEPAGE="http://www.kde.org/applications/education/kbruch http://edu.kde.org/kbruch"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+"
+RDEPEND="${DEPEND}"
