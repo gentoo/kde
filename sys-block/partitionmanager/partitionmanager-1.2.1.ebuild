@@ -9,9 +9,10 @@ inherit kde5
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
 HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
+SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
