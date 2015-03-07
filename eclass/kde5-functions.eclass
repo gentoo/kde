@@ -194,6 +194,33 @@ add_kdeapps_dep() {
 	_add_kdecategory_dep kde-apps "${1}" "${2}" "${version}"
 }
 
+# @FUNCTION: add_kdebase_dep
+# @DESCRIPTION:
+# Create proper dependency for kde-base/ dependencies.
+# This takes 1 to 3 arguments. The first being the package name, the optional
+# second is additional USE flags to append, and the optional third is the
+# version to use instead of the automatic version (use sparingly).
+# The output of this should be added directly to DEPEND/RDEPEND, and may be
+# wrapped in a USE conditional (but not an || conditional without an extra set
+# of parentheses).
+add_kdebase_dep() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	local version
+
+	if [[ -n ${3} ]]; then
+		version=${3}
+	# if building live master use the latest available stable version
+	# since not every ebuild has a live version anymore
+	elif [[ ${CATEGORY} == kde-apps && ${PV} == 9999 ]]; then
+		version=${KDE_APPS_MINIMAL}
+	else
+		version=${PV}
+	fi
+
+	_add_kdecategory_dep kde-base "${1}" "${2}" "${version}"
+}
+
 # @FUNCTION: get_kde_version
 # @DESCRIPTION:
 # Translates an ebuild version into a major.minor KDE SC
