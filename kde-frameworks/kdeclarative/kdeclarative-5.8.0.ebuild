@@ -26,6 +26,7 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 	media-libs/libepoxy
 "
 RDEPEND="${DEPEND}"
