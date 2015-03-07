@@ -40,6 +40,11 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	egl? ( media-libs/mesa[egl] )
+	opengl? (
+		dev-qt/qtgui:5[opengl,-gles2]
+		virtual/opengl
+	)
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -49,11 +54,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/qtquick1:5
-	egl? ( media-libs/mesa[egl] )
-	opengl? (
-		dev-qt/qtgui:5[opengl,-gles2]
-		virtual/opengl
-	)
 	X? ( x11-proto/xproto )
 "
 
