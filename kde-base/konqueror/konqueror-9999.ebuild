@@ -19,14 +19,14 @@ IUSE="+bookmarks debug svg"
 RESTRICT="test"
 
 DEPEND="
-	$(add_kdeapps_dep libkonq)
+	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kfind)
-	$(add_kdeapps_dep kfmclient)
-	$(add_kdeapps_dep kurifilter-plugins)
-	bookmarks? ( $(add_kdeapps_dep keditbookmarks) )
-	svg? ( $(add_kdeapps_dep svgpart) )
+	$(add_kdebase_dep kfind)
+	$(add_kdebase_dep kfmclient)
+	$(add_kdebase_dep kurifilter-plugins)
+	bookmarks? ( $(add_kdebase_dep keditbookmarks) )
+	svg? ( $(add_kdebase_dep svgpart) )
 "
 
 KMEXTRACTONLY="

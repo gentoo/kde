@@ -13,6 +13,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdeapps_dep libkonq)
+	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}"

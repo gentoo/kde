@@ -11,10 +11,10 @@ KEYWORDS=""
 IUSE="debug bazaar git mercurial subversion"
 
 DEPEND="
-	$(add_kdeapps_dep libkonq)
+	$(add_kdebase_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kompare)
+	$(add_kdebase_dep kompare)
 	bazaar? ( dev-vcs/bzr )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )

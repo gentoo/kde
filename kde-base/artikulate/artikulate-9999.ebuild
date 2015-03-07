@@ -18,5 +18,5 @@ DEPEND="
 	>=media-libs/qt-gstreamer-1.2.0[qt4(+)]
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kqtquickcharts)
+	$(add_kdebase_dep kqtquickcharts)
 "

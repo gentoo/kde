@@ -14,5 +14,5 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kdeartwork-wallpapers)
+	$(add_kdebase_dep kdeartwork-wallpapers)
 "

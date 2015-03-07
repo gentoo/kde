@@ -13,5 +13,5 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdeapps_dep knotify)
+	$(add_kdebase_dep knotify)
 "

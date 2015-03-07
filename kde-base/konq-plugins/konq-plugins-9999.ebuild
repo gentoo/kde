@@ -12,13 +12,13 @@ KEYWORDS=""
 IUSE="debug tidy"
 
 DEPEND="
-	$(add_kdeapps_dep libkonq)
+	$(add_kdebase_dep libkonq)
 	tidy? ( app-text/htmltidy )
 "
 RDEPEND="${DEPEND}
 	!kde-misc/konq-plugins
-	$(add_kdeapps_dep kcmshell)
-	$(add_kdeapps_dep konqueror)
+	$(add_kdebase_dep kcmshell)
+	$(add_kdebase_dep konqueror)
 "
 
 src_configure() {

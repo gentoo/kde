@@ -17,5 +17,5 @@ DEPEND="
 "
 # notify is needed for dialogs
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep knotify)
+	$(add_kdebase_dep knotify)
 "

@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdeapps_dep libkdegames)
+	$(add_kdebase_dep libkdegames)
 	opengl? ( virtual/glu )
 "
 RDEPEND="${DEPEND}"

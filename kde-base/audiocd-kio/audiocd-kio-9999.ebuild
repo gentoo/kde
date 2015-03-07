@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE="debug flac vorbis"
 
 DEPEND="
-	$(add_kdeapps_dep libkcddb)
-	$(add_kdeapps_dep libkcompactdisc)
+	$(add_kdebase_dep libkcddb)
+	$(add_kdebase_dep libkcompactdisc)
 	media-sound/cdparanoia
 	flac? ( >=media-libs/flac-1.1.2 )
 	vorbis? (
