@@ -9,7 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Framework providing client-side support for the XML-RPC protocol"
-LICENSE="LGPL-2+"
+LICENSE="BSD-2"
 KEYWORDS=" ~amd64"
 IUSE=""
 
