@@ -14,7 +14,7 @@ IUSE="egl gles ieee1394 +opengl +pci samba nfs wayland X"
 
 REQUIRED_USE="egl? ( || ( gles opengl ) )"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -51,7 +51,10 @@ RDEPEND="
 	!kde-base/kcontrol
 	!kde-base/kinfocenter
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
+"
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
 "
 

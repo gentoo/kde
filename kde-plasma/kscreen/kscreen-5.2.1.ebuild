@@ -26,7 +26,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-misc/kscreen
 "

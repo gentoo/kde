@@ -30,6 +30,7 @@ DEPEND="
 	kwin? ( $(add_plasma_dep kwin) )
 "
 RDEPEND="${DEPEND}
+	kwin? ( $(add_plasma_dep kde-cli-tools) )
 	!kde-base/kdebase-cursors
 	!kde-base/oxygen
 "

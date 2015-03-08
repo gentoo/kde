@@ -31,6 +31,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/breeze
 "
 

@@ -37,5 +37,6 @@ DEPEND="
 	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/khelpcenter
 "

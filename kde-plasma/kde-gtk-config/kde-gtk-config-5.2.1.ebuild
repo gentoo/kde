@@ -28,6 +28,7 @@ DEPEND="
 	x11-libs/gtk+:3
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/kde-gtk-config
 	!kde-misc/kde-gtk-config
 "

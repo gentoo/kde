@@ -64,6 +64,7 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/kwin
 	!kde-base/systemsettings
 "

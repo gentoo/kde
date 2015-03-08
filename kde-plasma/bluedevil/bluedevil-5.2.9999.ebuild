@@ -31,6 +31,7 @@ DEPEND="
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!app-mobilephone/obexd
 	!app-mobilephone/obex-data-server
 	!net-wireless/bluedevil

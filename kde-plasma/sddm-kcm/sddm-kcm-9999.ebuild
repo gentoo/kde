@@ -27,6 +27,7 @@ DEPEND="
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	x11-misc/sddm
 	!kde-misc/sddm-kcm
 "

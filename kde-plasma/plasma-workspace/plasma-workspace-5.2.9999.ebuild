@@ -92,6 +92,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
+	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep milou)
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
