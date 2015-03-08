@@ -107,27 +107,25 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		if [[ ${KDE_BUILD_TYPE} = live ]]; then
-			ecm_version=9999
-		elif [[ ${CATEGORY} = kde-frameworks ]]; then
-			ecm_version=1.$(get_version_component_range 2).0
-		else
-			ecm_version=1.7.0
+		if [[ ${CATEGORY} = kde-frameworks ]]; then
+			ECM_MINIMAL=1.$(get_version_component_range 2).0
 		fi
 
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			case ${CATEGORY} in
 				kde-frameworks)
+					ECM_MINIMAL=9999
 					FRAMEWORKS_MINIMAL=9999
 				;;
 				kde-plasma)
+					ECM_MINIMAL=9999
 					FRAMEWORKS_MINIMAL=9999
 				;;
 				*) ;;
 			esac
 		fi
 
-		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
+		DEPEND+=" >=dev-libs/extra-cmake-modules-${ECM_MINIMAL}"
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
