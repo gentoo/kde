@@ -140,6 +140,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.9.3-werror.patch"
 	"${FILESDIR}/${PN}-4.10.0-udisks.patch"
+	"${FILESDIR}/${PN}-4.15.6-fix-bic.patch"
 )
 
 pkg_pretend() {
