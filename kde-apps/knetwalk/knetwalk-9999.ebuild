@@ -37,5 +37,3 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
