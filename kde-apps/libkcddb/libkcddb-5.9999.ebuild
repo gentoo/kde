@@ -29,11 +29,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
-RDEPEND="${DEPEND}
-	!kde-base/libkcddb:4
-"
-
-PATCHES=( "${FILESDIR}/${PN}-5.9999-tests-optional.patch" )
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
