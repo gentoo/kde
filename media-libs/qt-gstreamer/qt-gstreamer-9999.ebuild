@@ -20,7 +20,9 @@ HOMEPAGE="http://gstreamer.freedesktop.org/modules/qt-gstreamer.html"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="qt4 qt5 test"
+IUSE="+qt4 qt5 test"
+
+REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
 	dev-libs/glib:2
