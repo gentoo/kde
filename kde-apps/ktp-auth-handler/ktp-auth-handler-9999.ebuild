@@ -21,7 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep kaccounts-integration)
 	$(add_kdeapps_dep ktp-common-internals)
-	app-crypt/qca[qt5]
+	app-crypt/qca[openssl,qt5]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
