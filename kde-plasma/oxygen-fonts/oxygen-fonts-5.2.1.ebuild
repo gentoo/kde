@@ -20,6 +20,8 @@ DEPEND="
 "
 RDEPEND="!media-fonts/oxygen-fonts"
 
+DOCS=( README.md )
+
 src_configure() {
 	local mycmakeargs=(
 		-DOXYGEN_FONT_INSTALL_DIR="${FONTDIR}"
