@@ -40,7 +40,6 @@ RDEPEND="
 	$(add_plasma_dep plasma-workspace)
 	$(add_plasma_dep polkit-kde-agent)
 	$(add_plasma_dep powerdevil)
-	$(add_plasma_dep sddm-kcm)
 	$(add_plasma_dep systemsettings)
 	bluetooth? (
 		$(add_plasma_dep bluedevil)
