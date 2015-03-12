@@ -13,6 +13,7 @@ LICENSE="LGPL-2.1"
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -28,3 +29,10 @@ DEPEND="
 	net-libs/signond
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Akonadi=ON
+	)
+	kde5_src_configure
+}

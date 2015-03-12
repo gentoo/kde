@@ -13,15 +13,16 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep kaccounts-integration)
 	$(add_kdeapps_dep ktp-common-internals)
-	app-crypt/qca[openssl,qt5]
+	app-crypt/qca[qt5]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -30,7 +31,11 @@ DEPEND="
 	net-libs/signond
 	net-libs/telepathy-qt[qt5]
 "
-
-RDEPEND="${DEPEND}
+DEPEND="
+	$(add_frameworks_dep kdewebkit)
+	${COMMON_DEPEND}
+"
+RDEPEND="${COMMON_DEPEND}
+	app-crypt/qca[openssl]
 	!net-im/ktp-auth-handler
 "
