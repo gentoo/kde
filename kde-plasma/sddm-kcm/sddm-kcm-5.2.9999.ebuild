@@ -32,3 +32,5 @@ RDEPEND="${DEPEND}
 	x11-misc/sddm
 	!kde-misc/sddm-kcm
 "
+
+DOCS=( CONTRIBUTORS )
