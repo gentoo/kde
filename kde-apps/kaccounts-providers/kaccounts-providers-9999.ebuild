@@ -11,7 +11,9 @@ HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="LGPL-2.1"
 IUSE=""
 
-DEPEND=""
+DEPEND="
+	net-libs/libaccounts-glib
+"
 RDEPEND="
 	net-im/telepathy-connection-managers[xmpp]
 	net-libs/signon-ui

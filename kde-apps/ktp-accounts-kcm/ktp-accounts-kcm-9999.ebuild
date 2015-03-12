@@ -13,12 +13,13 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="experimental"
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
@@ -27,13 +28,20 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
+	net-libs/accounts-qt
+	net-libs/signond
 	net-libs/telepathy-qt[qt5]
 "
-
-RDEPEND="${DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kio)
+	net-libs/libaccounts-glib
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kaccounts-providers)
 	net-im/telepathy-connection-managers
-	experimental? ( net-im/telepathy-connection-managers[steam] )
 	!net-im/ktp-accounts-kcm
 "
 

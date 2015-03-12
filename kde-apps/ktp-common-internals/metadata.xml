@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="sso">Enable support for Single sign-on through KAccounts</flag>
 		<flag name="otr">Enable support for encrypted conversations using Off-The-Records messaging</flag>
 	</use>
 </pkgmetadata>

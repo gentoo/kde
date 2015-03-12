@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -33,7 +33,14 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	net-libs/telepathy-qt[qt5]
 "
-
-RDEPEND="${DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifyconfig)
+	dev-qt/qtxml:5
+"
+RDEPEND="
+	${COMMON_DEPEND}
 	!net-im/ktp-contact-list
 "

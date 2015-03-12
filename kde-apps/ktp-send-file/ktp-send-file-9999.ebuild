@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -25,7 +25,12 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	net-libs/telepathy-qt[qt5]
 "
-RDEPEND="${DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	$(add_frameworks_dep kcmutils)
+"
+RDEPEND="
+	${COMMON_DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
 	$(add_kdeapps_dep ktp-filetransfer-handler)
 	!net-im/ktp-send-file

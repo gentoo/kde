@@ -13,13 +13,14 @@ LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
+COMMON_DEPEND="
+	$(add_frameworks_dep kwindowsystem)
+	dev-qt/qtdeclarative:5
+"
 DEPEND="
+	${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
 "
-RDEPEND="${DEPEND}
-	$(add_frameworks_dep kdeclarative)
-	$(add_kdeapps_dep ktp-common-internals)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtquickcontrols:5
+RDEPEND="${COMMON_DEPEND}
 	!net-im/ktp-desktop-applets
 "

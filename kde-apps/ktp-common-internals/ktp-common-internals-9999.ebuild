@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_DOXYGEN="true"
-KDE_TEST="true"
+KDE_TEST="false"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy common library"
@@ -13,10 +13,10 @@ HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
-IUSE="otr"
+IUSE="otr sso"
 
 # todo: kdepimlibs
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -31,23 +31,32 @@ DEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep kaccounts-integration)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
+	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	net-libs/accounts-qt
 	net-libs/telepathy-logger-qt:5
 	>=net-libs/telepathy-qt-0.9.5[qt5]
+	sso? (
+		$(add_kdeapps_dep kaccounts-integration)
+		net-libs/accounts-qt
+	)
 	otr? (
 		dev-libs/libgcrypt:0=
 		>=net-libs/libotr-4.0.0
 	)
 "
-RDEPEND="${DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	$(add_frameworks_dep kio)
+	dev-qt/qtnetwork:5
+"
+RDEPEND="
+	${COMMON_DEPEND}
 	!net-im/ktp-common-internals
 "
 
@@ -56,6 +65,8 @@ PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package doc Doxygen)
+		$(cmake-utils_use_find_package sso KAccounts)
+		$(cmake-utils_use_find_package sso AccountsQt5)
 		$(cmake-utils_use_find_package otr Libgcrypt)
 		$(cmake-utils_use_find_package otr LibOTR)
 	)
