@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64"
-IUSE="bluetooth +display-manager +sddm networkmanager +wallpapers"
+IUSE="bluetooth +display-manager +sddm modemmanager networkmanager +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep baloo)
@@ -33,7 +33,6 @@ RDEPEND="
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep kwrited)
 	$(add_plasma_dep libkscreen)
-	$(add_plasma_dep libmm-qt)
 	$(add_plasma_dep milou)
 	$(add_plasma_dep oxygen)
 	$(add_plasma_dep oxygen-fonts)
@@ -51,6 +50,7 @@ RDEPEND="
 		sddm? ( x11-misc/sddm )
 		!sddm? ( x11-misc/lightdm )
 	)
+	modemmanager? ( $(add_plasma_dep libmm-qt) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	sddm? ( $(add_plasma_dep sddm-kcm) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
