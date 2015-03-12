@@ -38,7 +38,7 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXext
 	x11-libs/libXrandr
-	upower? ( virtual/udev )
+	upower? ( virtual/libudev:= )
 "
 
 RDEPEND="${DEPEND}
