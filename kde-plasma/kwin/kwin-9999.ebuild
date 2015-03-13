@@ -59,7 +59,7 @@ COMMON_DEPEND="
 		$(add_plasma_dep kwayland)
 		dev-libs/libinput
 		>=dev-libs/wayland-1.2
-		virtual/libudev
+		virtual/libudev:=
 		>=x11-libs/libxkbcommon-0.4.1
 	)
 "
