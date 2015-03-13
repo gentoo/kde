@@ -15,6 +15,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
@@ -22,15 +23,17 @@ DEPEND="
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kunitconversion)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
+	dev-qt/qtdeclarative:5[qml]
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
 	ibus? (
 		app-i18n/ibus
 		dev-libs/glib:2
-		dev-qt/qtx11extras:5
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
