@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy account management kcm"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="experimental"
 
 COMMON_DEPEND="
