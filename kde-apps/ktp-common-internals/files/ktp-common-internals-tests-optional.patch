@@ -1,6 +1,8 @@
---- a/CMakeLists.txt	2015-01-20 21:49:46.354302243 +0100
-+++ b/CMakeLists.txt	2015-01-21 01:45:39.660978780 +0100
-@@ -10,10 +10,9 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 97d5e82..f59e361 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,8 +10,7 @@ set (CMAKE_MODULE_PATH
  cmake_policy(SET CMP0002 OLD)
  
  find_package (Qt5 REQUIRED CONFIG COMPONENTS
@@ -8,12 +10,9 @@
 -              Test)
 +              Qml)
  
--find_package (KF5 REQUIRED COMPONENTS 
-+find_package (KF5 REQUIRED COMPONENTS
+ find_package (KF5 REQUIRED COMPONENTS
                CoreAddons
-               Notifications
-               KIO
-@@ -101,7 +100,11 @@
+@@ -101,7 +100,11 @@ ecm_setup_version(${KTP_VERSION} VARIABLE_PREFIX KTP
  add_subdirectory(KTp)
  add_subdirectory(tools)
  add_subdirectory(data)
