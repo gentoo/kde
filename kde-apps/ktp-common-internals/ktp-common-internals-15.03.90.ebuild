@@ -12,7 +12,7 @@ DESCRIPTION="KDE Telepathy common library"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="kaccounts kpeople otr"
 
 # todo: kdepimlibs

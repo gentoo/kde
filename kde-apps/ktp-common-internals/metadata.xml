@@ -3,6 +3,8 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="kaccounts">Enable support for KAccounts</flag>
+		<flag name="kpeople">Enable support for KDE Contact Aggregation</flag>
 		<flag name="otr">Enable support for encrypted conversations using Off-The-Records messaging</flag>
 	</use>
 </pkgmetadata>
