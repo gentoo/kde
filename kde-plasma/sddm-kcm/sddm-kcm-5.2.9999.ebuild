@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -27,7 +27,10 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXcursor
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	x11-libs/libXfixes
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	x11-misc/sddm
 	!kde-misc/sddm-kcm
