@@ -24,3 +24,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-base/milou
 "
+
+PATCHES=( "${FILESDIR}/${P}-build.patch" )
