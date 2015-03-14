@@ -4,7 +4,6 @@
 
 EAPI=5
 
-MY_P=${PN/kded/kded-integration}-${PV}
 inherit kde5
 
 DESCRIPTION="KDE Telepathy workspace integration"
@@ -14,7 +13,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -32,9 +31,13 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	net-libs/telepathy-qt[qt5]
 "
-RDEPEND="${DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kwidgetsaddons)
+"
+RDEPEND="
+	${COMMON_DEPEND}
 	$(add_kdeapps_dep signon-kwallet-extension)
 	!net-im/ktp-kded-module
 "
-
-[[ ${PV} == *9999* ]] || S=${WORKDIR}/${MY_P}

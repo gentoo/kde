@@ -11,12 +11,11 @@ HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+IUSE="kpeople"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -28,7 +27,6 @@ DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kpeople)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
@@ -42,8 +40,16 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	net-libs/telepathy-qt[qt5]
+	kpeople? ( $(add_frameworks_dep kpeople) )
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
 	!net-im/ktp-text-ui
 "
+
+src_prepare() {
+	mycmakeargs=(
+		$(cmake-utils_use_find_package kpeople KF5People)
+	)
+	kde5_src_prepare
+}

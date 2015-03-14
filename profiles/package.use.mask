@@ -1,3 +1,6 @@
+# KF5Akonadi is a mess and currently there is no usable ebuild in the tree
+kde-apps/kaccounts-integration semantic-desktop
+
 # Upstream currently only maintains bindings in KDE/4.x branches
 # This is not likely to change in the future
 # Aside, they are sloppy in updating even for releases.

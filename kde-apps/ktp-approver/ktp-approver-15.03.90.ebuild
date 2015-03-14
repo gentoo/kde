@@ -6,27 +6,26 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="KDE Telepathy krunner plugin"
+DESCRIPTION="KDE Telepathy notification handler"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep krunner)
-	$(add_kdeapps_dep ktp-common-internals)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kservice)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	net-libs/telepathy-qt[qt5]
-"
-DEPEND="
-	${COMMON_DEPEND}
-	$(add_frameworks_dep kservice)
-"
-RDEPEND="${COMMON_DEPEND}
-	!net-im/ktp-contact-runner
+	net-libs/telepathy-qt[qt5]"
+
+RDEPEND="${DEPEND}
+	$(add_kdeapps_dep ktp-contact-list)
+	!net-im/ktp-approver
 "

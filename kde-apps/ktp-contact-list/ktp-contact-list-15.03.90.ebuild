@@ -10,7 +10,7 @@ DESCRIPTION="KDE Telepathy contact list"
 HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="kpeople"
 
 COMMON_DEPEND="
