@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -34,12 +34,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdebase_dep kdepasswd)
+	$(add_kdebase_dep libkgreeter)
 	>=x11-apps/xinit-1.0.5-r2
 	x11-apps/xmessage
 "
 
-KMEXTRA="
-	libs/kdm/
+KMEXTRACTONLY="
+	libs/kdm/kgreeterplugin.h
 "
 
 PATCHES=(
