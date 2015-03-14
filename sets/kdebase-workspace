@@ -20,6 +20,7 @@ kde-base/ksysguard:4
 kde-base/ksystraycmd:4
 kde-base/kwin:4
 kde-base/kwrited:4
+kde-base/libkgreeter:4
 kde-base/libkworkspace:4
 kde-base/liboxygenstyle:4
 kde-base/libplasmaclock:4

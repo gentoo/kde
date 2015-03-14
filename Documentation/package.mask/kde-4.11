@@ -22,6 +22,7 @@
 >=kde-base/ksystraycmd-4.11
 >=kde-base/kwin-4.11
 >=kde-base/kwrited-4.11
+>=kde-base/libkgreeter-4.11
 >=kde-base/libkworkspace-4.11
 >=kde-base/liboxygenstyle-4.11
 >=kde-base/libplasmaclock-4.11
