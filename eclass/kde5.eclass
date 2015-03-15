@@ -391,6 +391,7 @@ kde5_src_prepare() {
 	# only build unit tests when required
 	if ! use_if_iuse test ; then
 		comment_add_subdirectory autotests
+		comment_add_subdirectory tests
 	fi
 
 	if [[ ${CATEGORY} = kde-plasma ]]; then
