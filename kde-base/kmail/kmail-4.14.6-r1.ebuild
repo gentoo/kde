@@ -27,6 +27,8 @@ RDEPEND="
 RESTRICT="test"
 # bug 393147
 
+PATCHES=( "${FILESDIR}/${P}-fix-crash.patch" )
+
 KMEXTRACTONLY="
 	agents/folderarchiveagent.desktop
 	agents/sendlateragent/
