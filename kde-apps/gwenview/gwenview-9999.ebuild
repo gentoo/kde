@@ -52,7 +52,11 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}"-9999-tests-optional.patch )
+src_prepare() {
+	epatch "${FILESDIR}/${PN}"-9999-tests-optional.patch
+
+	kde5_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
