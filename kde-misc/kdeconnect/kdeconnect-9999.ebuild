@@ -25,7 +25,11 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
+src_prepare() {
+	epatch "${FILESDIR}/${PN}"-9999-tests-optional.patch
+
+	kde5_src_prepare
+}
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
