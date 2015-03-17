@@ -19,5 +19,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-base/libmm-qt
-	!net-libs/libmm-qt
 "
