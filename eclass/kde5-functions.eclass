@@ -31,7 +31,7 @@ esac
 # @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
 # @DESCRIPTION:
 # Minimal Frameworks version to require for the package.
-: ${FRAMEWORKS_MINIMAL:=5.6.0}
+: ${FRAMEWORKS_MINIMAL:=5.7.0}
 
 # @ECLASS-VARIABLE: PLASMA_MINIMAL
 # @DESCRIPTION:
