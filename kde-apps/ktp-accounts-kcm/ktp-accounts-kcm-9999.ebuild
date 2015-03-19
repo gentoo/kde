@@ -32,7 +32,7 @@ DEPEND="
 
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kaccounts-providers)
-	net-im/telepathy-connection-managers[gadu,icq,meanwhile,xmpp,yahoo]
+	net-im/telepathy-connection-managers
 	experimental? ( net-im/telepathy-connection-managers[steam] )
 	!net-im/ktp-accounts-kcm
 "
