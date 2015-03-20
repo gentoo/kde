@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 MY_PN=${PN}-kde
 KMNAME=${MY_PN}
 KDE_TEST="true"

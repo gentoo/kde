@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="kde4"
 MY_PN="${PN}-kde"
 DECLARATIVE_REQUIRED="always"
 KDE_LINGUAS="ar bg bs ca cs da de es fi fr gl hu it ja ko lt nl pl pt pt_BR ro ru sk sv tr uk"
