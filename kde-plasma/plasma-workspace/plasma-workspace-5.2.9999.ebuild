@@ -114,7 +114,6 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-startkde-script.patch"
-	"${FILESDIR}/${PN}-5.2.0-freeze.patch"
 )
 
 RESTRICT="test"
