@@ -4,17 +4,31 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
 DESCRIPTION="KDE version of the Simon Says game"
 HOMEPAGE="http://www.kde.org/applications/education/blinken
 http://edu.kde.org/blinken"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
+"
+RDEPEND="${DEPEND}"
 
 src_install() {
-	kde4-base_src_install
+	kde5_src_install
 
 	rm "${D}"/usr/share/apps/${PN}/README.packagers
 }

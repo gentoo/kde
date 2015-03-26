@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 EGIT_REPO_URI=( "git://anongit.freedesktop.org/telepathy/${PN}" )
-inherit base python-any-r1 cmake-utils virtualx git-r3 multibuild
+inherit python-any-r1 cmake-utils virtualx git-r3 multibuild
 
 DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
@@ -78,16 +78,16 @@ src_compile() {
 	multibuild_foreach_variant cmake-utils_src_compile
 }
 
-src_install() {
-	multibuild_foreach_variant cmake-utils_src_install
-}
-
 src_test() {
 	mytest() {
 		pushd "${BUILD_DIR}" > /dev/null
-		Xemake test || die "tests failed"
+		VIRTUALX_COMMAND="ctest -E '(CallChannel)'" virtualmake || die "tests failed"
 		popd > /dev/null
 	}
 
 	multibuild_foreach_variant mytest
+}
+
+src_install() {
+	multibuild_foreach_variant cmake-utils_src_install
 }

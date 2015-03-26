@@ -35,7 +35,7 @@ EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure src_
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimal Qt version to require for the package.
-: ${QT_MINIMAL:=5.4.0}
+: ${QT_MINIMAL:=5.4.1}
 
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
@@ -107,27 +107,25 @@ fi
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		if [[ ${KDE_BUILD_TYPE} = live ]]; then
-			ecm_version=9999
-		elif [[ ${CATEGORY} = kde-frameworks ]]; then
-			ecm_version=1.$(get_version_component_range 2).0
-		else
-			ecm_version=1.6.1
+		if [[ ${CATEGORY} = kde-frameworks ]]; then
+			ECM_MINIMAL=1.$(get_version_component_range 2).0
 		fi
 
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
 			case ${CATEGORY} in
 				kde-frameworks)
+					ECM_MINIMAL=9999
 					FRAMEWORKS_MINIMAL=9999
 				;;
 				kde-plasma)
+					ECM_MINIMAL=9999
 					FRAMEWORKS_MINIMAL=9999
 				;;
 				*) ;;
 			esac
 		fi
 
-		DEPEND+=" >=dev-libs/extra-cmake-modules-${ecm_version}"
+		DEPEND+=" >=dev-libs/extra-cmake-modules-${ECM_MINIMAL}"
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
@@ -393,6 +391,7 @@ kde5_src_prepare() {
 	# only build unit tests when required
 	if ! use_if_iuse test ; then
 		comment_add_subdirectory autotests
+		comment_add_subdirectory tests
 	fi
 
 	if [[ ${CATEGORY} = kde-plasma ]]; then

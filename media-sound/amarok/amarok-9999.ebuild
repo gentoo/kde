@@ -57,7 +57,7 @@ COMMONDEPEND="
 	mp3tunes? (
 		dev-libs/glib:2
 		dev-libs/libxml2
-		dev-libs/openssl
+		dev-libs/openssl:0
 		net-libs/loudmouth
 		net-misc/curl
 		>=dev-qt/qtcore-4.8.4:4[glib]

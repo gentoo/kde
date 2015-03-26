@@ -51,7 +51,7 @@ DEPEND="
 	)
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
-	tiff? ( media-libs/tiff )
+	tiff? ( media-libs/tiff:0 )
 "
 RDEPEND="${DEPEND}
 	!kde-base/okular:4

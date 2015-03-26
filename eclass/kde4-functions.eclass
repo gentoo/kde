@@ -17,9 +17,9 @@ inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently kde4 eclasses support EAPI 4 and 5.
+# Currently kde4 eclasses support EAPI 5.
 case ${EAPI} in
-	4|5) : ;;
+	5) : ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
@@ -327,17 +327,15 @@ add_kdebase_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building live version depend on the final release since there will
-	# not be any more major development. this solves dep errors as not all
-	# packages have kde-base live versions now
-	elif [[ ${PV} == *9999 ]]; then
+	# if building a live version branch (eg. 4.11.49.9999) use the major version
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=$(get_kde_version)
+	# if building live master or kde-apps, use the final SC version
+	# since there are no further general releases.
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == 9999 ]]; then
 		ver=4.14.3
 	else
-		if [[ ${CATEGORY} == kde-apps ]]; then
-			ver=4.14.3
-		else
-			ver=${PV}
-		fi
+		ver=${PV}
 	fi
 
 	[[ -z ${1} ]] && die "Missing parameter"

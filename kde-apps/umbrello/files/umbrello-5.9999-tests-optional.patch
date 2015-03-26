@@ -1,0 +1,33 @@
+--- a/CMakeLists.txt	2015-02-03 20:04:23.900153480 +0100
++++ b/CMakeLists.txt	2015-02-03 20:25:08.164973819 +0100
+@@ -26,11 +26,19 @@
+     Gui
+     PrintSupport
+     Svg
+-    Test
+     Widgets
+     Xml
+ )
+ 
++find_package(Qt5Test ${QT_MIN_VERSION} QUIET)
++set_package_properties(Qt5Test PROPERTIES
++    PURPOSE "Required for tests"
++    TYPE OPTIONAL)
++add_feature_info("Qt5Test" Qt5Test_FOUND "Required for building tests")
++if (NOT Qt5Test_FOUND)
++    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
++endif()
++
+ # search packages used by KDE
+ find_package(KF5 REQUIRED COMPONENTS
+     Archive
+@@ -105,6 +113,8 @@
+ endif(LIBXSLT_FOUND AND LIBXML2_FOUND)
+ 
+ # for automatic unit tests
+-ecm_optional_add_subdirectory(unittests)
++if (BUILD_TESTING)
++    ecm_optional_add_subdirectory(unittests)
++endif()
+ 
+ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

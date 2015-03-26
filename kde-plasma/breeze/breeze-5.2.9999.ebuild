@@ -18,6 +18,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kdecoration)
 	dev-qt/qtdbus:5
@@ -31,6 +32,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/breeze
 "
 

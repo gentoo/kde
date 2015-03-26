@@ -4,9 +4,6 @@
 
 EAPI=5
 
-QT4_MINIMAL="4.7.0"
-QT5_MINIMAL="5.0.0"
-
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="http://gstreamer.freedesktop.org/src/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~x86"
@@ -23,24 +20,26 @@ HOMEPAGE="http://gstreamer.freedesktop.org/modules/qt-gstreamer.html"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="qt4 qt5 test"
+IUSE="+qt4 qt5 test"
+
+REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
 	dev-libs/glib:2
 	>=dev-libs/boost-1.40:=
 	qt4? (
-		>=dev-qt/qtcore-${QT4_MINIMAL}:4
-		>=dev-qt/qtdeclarative-${QT4_MINIMAL}:4
-		>=dev-qt/qtgui-${QT4_MINIMAL}:4
-		>=dev-qt/qtopengl-${QT4_MINIMAL}:4
+		dev-qt/qtcore:4
+		dev-qt/qtdeclarative:4
+		dev-qt/qtgui:4
+		dev-qt/qtopengl:4
 	)
 	qt5? (
-		>=dev-qt/qtcore-${QT5_MINIMAL}:5
-		>=dev-qt/qtdeclarative-${QT5_MINIMAL}:5
-		>=dev-qt/qtgui-${QT5_MINIMAL}:5
-		>=dev-qt/qtopengl-${QT5_MINIMAL}:5
-		>=dev-qt/qtquick1-${QT5_MINIMAL}:5
-		>=dev-qt/qtwidgets-${QT5_MINIMAL}:5
+		dev-qt/qtcore:5
+		dev-qt/qtdeclarative:5
+		dev-qt/qtgui:5
+		dev-qt/qtopengl:5
+		dev-qt/qtquick1:5
+		dev-qt/qtwidgets:5
 	)
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
@@ -49,7 +48,7 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		qt4? (
-			>=dev-qt/qttest-${QT4_MINIMAL}:4
+			dev-qt/qttest:4
 		)
 	)
 "
@@ -58,7 +57,7 @@ DEPEND="
 RESTRICT="test"
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
+	MULTIBUILD_VARIANTS=( $(usex qt4 4 '') $(usex qt5 5 '') )
 }
 
 src_configure() {
@@ -66,13 +65,8 @@ src_configure() {
 		local mycmakeargs=(
 			-DQTGSTREAMER_EXAMPLES=OFF
 			$(cmake-utils_use test QTGSTREAMER_TESTS)
+			-DQT_VERSION=${MULTIBUILD_VARIANT}
 		)
-		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
-			mycmakeargs+=(-DQT_VERSION=4)
-		fi
-		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=(-DQT_VERSION=5)
-		fi
 		cmake-utils_src_configure
 	}
 

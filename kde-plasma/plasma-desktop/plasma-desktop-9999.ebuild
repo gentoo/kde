@@ -15,7 +15,7 @@ IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
 COMMON_DEPEND="
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kwin)
-	$(add_plasma_dep oxygen kwin)
+	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
@@ -90,6 +90,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
+	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kio-extras)
 	dev-qt/qtgraphicaleffects:5
 	sys-apps/accountsservice
@@ -102,6 +103,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/plasma-workspace
 	!kde-base/solid-actions-kcm
 	!kde-base/systemsettings
+	!kde-misc/kcm_touchpad
+	!kde-misc/kcm-touchpad
+	!kde-plasma/kcm-touchpad
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto

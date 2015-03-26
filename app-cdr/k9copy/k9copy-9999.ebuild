@@ -27,7 +27,7 @@ DEPEND="
 	media-libs/libdvdread
 	media-libs/libmpeg2
 	media-libs/xine-lib
-	media-video/ffmpeg
+	media-video/ffmpeg:0
 "
 RDEPEND="${DEPEND}
 	media-video/dvdauthor

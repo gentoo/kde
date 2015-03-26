@@ -2,6 +2,7 @@
 # Live packages are masked by default.
 # Edit Documentation/package.unmask/.kde-frameworks-live/ files instead.
 ~kde-frameworks/attica-9999
+~kde-frameworks/bluez-qt-9999
 ~kde-frameworks/frameworkintegration-9999
 ~kde-frameworks/kactivities-9999
 ~kde-frameworks/kapidox-9999
@@ -45,6 +46,7 @@
 ~kde-frameworks/knotifyconfig-9999
 ~kde-frameworks/kpackage-9999
 ~kde-frameworks/kparts-9999
+~kde-frameworks/kpeople-9999
 ~kde-frameworks/kplotting-9999
 ~kde-frameworks/kpty-9999
 ~kde-frameworks/kross-9999
@@ -57,6 +59,7 @@
 ~kde-frameworks/kwidgetsaddons-9999
 ~kde-frameworks/kwindowsystem-9999
 ~kde-frameworks/kxmlgui-9999
+~kde-frameworks/kxmlrpcclient-9999
 ~kde-frameworks/networkmanager-qt-9999
 ~kde-frameworks/plasma-9999
 ~kde-frameworks/solid-9999

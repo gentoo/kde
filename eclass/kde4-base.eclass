@@ -10,7 +10,7 @@
 # The kde4-base.eclass provides support for building KDE4 based ebuilds
 # and KDE4 applications.
 #
-# NOTE: KDE 4 ebuilds currently support EAPIs 4 and 5.  This will be
+# NOTE: KDE 4 ebuilds currently support EAPI 5. This will be
 # reviewed over time as new EAPI versions are approved.
 
 if [[ -z ${_KDE4_BASE_ECLASS} ]]; then
@@ -66,14 +66,7 @@ KDE_MINIMAL="${KDE_MINIMAL:-4.4}"
 # Set slot for KDEBASE known packages
 case ${KDEBASE} in
 	kde-base)
-		case ${EAPI} in
-			5)
-				SLOT=4/$(get_version_component_range 1-2)
-				;;
-			*)
-				SLOT=4
-				;;
-		esac
+		SLOT=4/$(get_version_component_range 1-2)
 		KDE_MINIMAL="${PV}"
 		;;
 	kdevelop)
@@ -335,7 +328,7 @@ fi
 
 # all packages needs oxygen icons for basic iconset
 if [[ ${PN} != oxygen-icons ]]; then
-	kderdepend+=" || ( kde-apps/oxygen-icons $(add_kdebase_dep oxygen-icons) )"
+	kderdepend+=" || ( kde-apps/oxygen-icons $(add_kdebase_dep oxygen-icons '' 4.14.3) )"
 fi
 
 # add a dependency over kde-l10n
@@ -440,27 +433,15 @@ _calculate_src_uri() {
 				4.?.[6-9]? | 4.??.[6-9]?)
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
-				4.[1-7].[12345])
-					# Stable KDE SC with old .bz2 support
-					SRC_URI="mirror://kde/stable/${PV}/src/${_kmname_pv}.tar.bz2" ;;
-				4.11.9)
-					# Part of 4.12 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.12.5/src/${_kmname_pv}.tar.xz" ;;
-				4.11.11)
-					# Part of 4.13 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.13.3/src/${_kmname_pv}.tar.xz" ;;
-				4.11.12)
-					# Part of 4.14 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.14.1/src/${_kmname_pv}.tar.xz" ;;
-				4.11.13)
-					# Part of 4.14 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.14.2/src/${_kmname_pv}.tar.xz" ;;
 				4.11.14)
 					# Part of 4.14 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/4.14.3/src/${_kmname_pv}.tar.xz" ;;
-				4.14.5)
-					# Part of 14.12.1 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/applications/14.12.2/src/${_kmname_pv}.tar.xz" ;;
+				4.11.17)
+					# Part of 14.12.3 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/applications/14.12.3/src/${_kmname_pv}.tar.xz" ;;
+				4.14.6)
+					# Part of 14.12.3 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/applications/14.12.3/src/${_kmname_pv}.tar.xz" ;;
 				??.?.[6-9]? | ??.??.[4-9]?)
 					# Unstable KDE Applications releases
 					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;

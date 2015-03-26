@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="debug doc"
 
 RDEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	x11-libs/cairo
 	x11-libs/gtk+:2
 	x11-libs/libX11

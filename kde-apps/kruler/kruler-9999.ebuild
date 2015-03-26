@@ -4,10 +4,36 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
-DESCRIPTION="A screen ruler for KDE"
+DESCRIPTION="Screen ruler for Plasma"
 HOMEPAGE="http://www.kde.org/applications/graphics/kruler/"
 KEYWORDS=""
-IUSE="debug"
+IUSE="X"
+
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	X? (
+		dev-qt/qtx11extras:5
+		x11-libs/libxcb
+	)
+"
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package X X11)
+	)
+
+	kde5_src_configure
+}

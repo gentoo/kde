@@ -4,15 +4,28 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
-DESCRIPTION="KDE: KLettres helps a very young child or an adult learning "
+DESCRIPTION="Alphabet learning application"
 HOMEPAGE="http://www.kde.org/applications/education/klettres
 http://edu.kde.org/klettres"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-RDEPEND="
-	$(add_kdeapps_dep knotify)
+DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	media-libs/phonon[qt5]
 "
+RDEPEND="${DEPEND}"

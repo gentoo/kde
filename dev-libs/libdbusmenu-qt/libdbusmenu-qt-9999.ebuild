@@ -62,6 +62,7 @@ src_prepare() {
 	[[ ${PV} == 9999* ]] && bzr_src_prepare
 	cmake-utils_src_prepare
 
+	comment_add_subdirectory tools
 	use test || comment_add_subdirectory tests
 }
 

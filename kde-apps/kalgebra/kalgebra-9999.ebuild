@@ -28,7 +28,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	ncurses? (
 		sys-libs/ncurses
-		sys-libs/readline
+		sys-libs/readline:0
 	)
 	opengl? (
 		dev-qt/qtopengl:5

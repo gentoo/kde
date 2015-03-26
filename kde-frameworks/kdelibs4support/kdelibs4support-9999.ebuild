@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	app-text/docbook-xml-dtd:4.2
-	dev-libs/openssl
+	dev-libs/openssl:0
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -64,6 +64,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
+	dev-lang/perl
+	dev-perl/URI
 	dev-qt/designer:5
 	test? ( dev-qt/qtconcurrent:5 )
 	X? ( x11-proto/xproto )

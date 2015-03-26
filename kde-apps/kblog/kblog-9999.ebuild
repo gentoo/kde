@@ -15,12 +15,12 @@ IUSE=""
 
 RDEPEND="
 	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kxmlrpcclient)
 	$(add_kdeapps_dep syndication)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kxmlrpcclient)
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}"

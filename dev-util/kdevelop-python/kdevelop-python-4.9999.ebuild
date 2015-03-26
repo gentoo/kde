@@ -6,7 +6,7 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-KDE_LINGUAS="ca de en_GB es et fi fr nl pl pt pt_BR sk sl sv uk"
+KDE_LINGUAS="ca de en_GB es et fi fr it nl pl pt pt_BR sk sl sv tr uk"
 PYTHON_COMPAT=( python2_7 )
 EGIT_BRANCH="1.7"
 MY_P="${KMNAME}-${PV}"

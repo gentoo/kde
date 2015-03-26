@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK=true
 EGIT_BRANCH="frameworks"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
@@ -36,9 +37,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}
-	!kde-base/ark:4
-"
+RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	kde5_pkg_postinst

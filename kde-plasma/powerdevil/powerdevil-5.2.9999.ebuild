@@ -38,11 +38,11 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXext
 	x11-libs/libXrandr
-	upower? ( virtual/udev )
+	upower? ( virtual/libudev:= )
 "
 
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
 	!kde-base/powerdevil
 "

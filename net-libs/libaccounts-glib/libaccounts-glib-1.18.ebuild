@@ -18,8 +18,8 @@ KEYWORDS="~x86 ~amd64"
 IUSE="debug"
 
 DEPEND="
-	dev-db/sqlite
-	dev-libs/glib
+	dev-db/sqlite:3
+	dev-libs/glib:2
 	dev-libs/libxml2"
 
 RDEPEND="$DEPEND"

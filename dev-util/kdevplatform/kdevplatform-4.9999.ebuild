@@ -7,7 +7,7 @@ EAPI=5
 DECLARATIVE_REQUIRED="always"
 KMNAME="kdevelop"
 KDE_LINGUAS="bs ca ca@valencia da de el en_GB es et fi fr gl it kk nb nl pl pt
-pt_BR ru sk sl sv th uk zh_CN zh_TW"
+pt_BR ru sk sl sv th tr uk zh_CN zh_TW"
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
 EGIT_REPONAME="${PN}"

@@ -1,24 +1,21 @@
---- a/CMakeLists.txt	2015-01-25 14:40:33.935040773 +0100
-+++ b/CMakeLists.txt	2015-01-25 14:42:53.287043165 +0100
-@@ -20,7 +20,7 @@
+--- a/CMakeLists.txt	2015-02-23 23:12:24.420881583 +0100
++++ b/CMakeLists.txt	2015-02-23 23:17:07.173858317 +0100
+@@ -18,7 +18,17 @@
  include(ECMAddTests)
  
  
 -find_package(Qt5 CONFIG REQUIRED COMPONENTS Core DBus Test Widgets PrintSupport Svg Qml Quick)
 +find_package(Qt5 CONFIG REQUIRED COMPONENTS Core DBus Widgets PrintSupport Svg Qml Quick)
- find_package(KF5 REQUIRED COMPONENTS
-     Activities
-     Archive
-@@ -68,7 +68,11 @@
- add_subdirectory( ui )
- add_subdirectory( shell )
- add_subdirectory( generators )
--add_subdirectory( autotests )
 +
-+if(BUILD_TESTING)
-+    find_package(Qt5Test CONFIG REQUIRED)
-+    add_subdirectory( autotests )
++find_package(Qt5Test CONFIG QUIET)
++set_package_properties(Qt5Test PROPERTIES
++    PURPOSE "Required for tests"
++    TYPE OPTIONAL)
++add_feature_info("Qt5Test" Qt5Test_FOUND "Required for building tests")
++if (NOT Qt5Test_FOUND)
++    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
 +endif()
- 
- add_subdirectory(doc)
- 
++
+ find_package(Qt5 OPTIONAL_COMPONENTS TextToSpeech)
+ if (NOT Qt5TextToSpeech_FOUND)
+     message(STATUS "Qt5TextToSpeech not found, speech features will be disabled")

@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9afe09b..0ed53b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,13 +24,13 @@ set(QT_REQUIRED_VERSION "5.2.0")
+ 
+ find_package(Qt5Core ${QT_REQUIRED_VERSION} CONFIG  REQUIRED)
+ find_package(Qt5Gui ${QT_REQUIRED_VERSION} CONFIG  REQUIRED)
+-find_package(Qt5Test ${QT_REQUIRED_VERSION} CONFIG  REQUIRED)
++# find_package(Qt5Test ${QT_REQUIRED_VERSION} CONFIG  REQUIRED)
+ 
+ if (Qt5_POSITION_INDEPENDENT_CODE)
+   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ endif()
+ 
+ add_subdirectory(lib)
+-add_subdirectory(testapp)
++# add_subdirectory(testapp)
+ 
+ add_subdirectory(tools)

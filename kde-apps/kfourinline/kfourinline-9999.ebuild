@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
 DESCRIPTION="KDE four-in-a-row game"
 HOMEPAGE="
@@ -13,7 +13,21 @@ HOMEPAGE="
 	http://games.kde.org/game.php?game=kfourinline
 "
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdnssd)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkdegames)
+	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+"
 RDEPEND="${DEPEND}"

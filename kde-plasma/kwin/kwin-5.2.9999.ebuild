@@ -56,13 +56,14 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	wayland? (
 		$(add_plasma_dep kwayland)
-		dev-libs/libinput
+		<dev-libs/libinput-0.8.0
 		>=dev-libs/wayland-1.2
-		virtual/libudev
+		virtual/libudev:=
 		>=x11-libs/libxkbcommon-0.4.1
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/kwin
 	!kde-base/systemsettings
 "

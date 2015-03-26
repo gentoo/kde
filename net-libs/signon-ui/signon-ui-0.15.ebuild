@@ -17,7 +17,7 @@ RESTRICT="test"
 
 # libproxy[kde] results into segfaults
 DEPEND="
-	dev-libs/glib
+	dev-libs/glib:2
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

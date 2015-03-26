@@ -11,7 +11,7 @@ DESCRIPTION="Kompare is a program to view the differences between files"
 HOMEPAGE="http://www.kde.org/applications/development/kompare
 http://www.caffeinated.me.uk/kompare"
 KEYWORDS=""
-IUSE="printsupport"
+IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -24,8 +24,8 @@ RDEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep libkomparediff2)
+	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
-	printsupport? ( dev-qt/qtprintsupport:5 )
 "
 
 DEPEND="${RDEPEND}"

@@ -5,14 +5,14 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
-inherit kde5
+inherit fdo-mime kde5
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://projects.kde.org/projects/extragear/base/bluedevil"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -28,11 +28,24 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+"
+DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!app-mobilephone/obexd
 	!app-mobilephone/obex-data-server
 	!net-wireless/bluedevil
 	!net-wireless/kbluetooth
 "
+
+pkg_postinst() {
+	kde5_pkg_postinst
+	fdo-mime_mime_database_update
+}
+
+pkg_postrm() {
+	kde5_pkg_postinst
+	fdo-mime_mime_database_update
+}

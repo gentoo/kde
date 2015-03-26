@@ -20,6 +20,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
@@ -47,14 +48,13 @@ DEPEND="
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
-		dev-libs/libgit2:=
+		dev-qt/qtsql:5
+		>=dev-libs/libgit2-0.22.0:=
 	)
 "
 RDEPEND="${DEPEND}
 	!kde-base/kate:4
 "
-
-PATCHES=( "${FILESDIR}/${PN}-9999-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(

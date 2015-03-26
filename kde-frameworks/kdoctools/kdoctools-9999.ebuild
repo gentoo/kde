@@ -18,4 +18,7 @@ RDEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-lang/perl
+	dev-perl/URI
+"
