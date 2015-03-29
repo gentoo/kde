@@ -19,7 +19,7 @@ DEPEND="
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep ktimezoned '' 4.14.3)
+	|| ( $(add_kdebase_dep ktimezoned '' 4.14.3) $(add_kdeapps_dep ktimezoned) )
 "
 
 RESTRICT="test"
