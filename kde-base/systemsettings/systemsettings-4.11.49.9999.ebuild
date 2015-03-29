@@ -45,7 +45,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/setxkbmap
 	x11-misc/xkeyboard-config
 	gtk? ( kde-misc/kde-gtk-config )
-	kscreen? ( kde-misc/kscreen )
+	kscreen? ( kde-misc/kscreen:4 )
 	nepomuk? ( $(add_kdebase_dep nepomuk) )
 "
 
