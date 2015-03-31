@@ -81,7 +81,7 @@ COMMONDEPEND="
 		media-libs/openexr:=
 		media-libs/ilmbase:=
 	)
-	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
+	policykit? ( >=sys-auth/polkit-qt-0.103.0[qt4(+)] )
 	spell? ( app-text/enchant )
 	ssl? ( dev-libs/openssl:0 )
 	udev? ( virtual/udev )
