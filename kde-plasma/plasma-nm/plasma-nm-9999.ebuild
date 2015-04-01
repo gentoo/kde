@@ -40,7 +40,7 @@ DEPEND="
 	net-misc/mobile-broadband-provider-info
 	>=net-misc/networkmanager-0.9.10.0[teamd=]
 	modemmanager? (
-		$(add_plasma_dep libmm-qt)
+		$(add_frameworks_dep modemmanager-qt)
 		dev-qt/qtxml:5
 	)
 	openconnect? (
