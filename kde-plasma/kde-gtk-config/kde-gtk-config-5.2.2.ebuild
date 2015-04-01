@@ -33,6 +33,14 @@ RDEPEND="${DEPEND}
 	!kde-misc/kde-gtk-config
 "
 
+src_configure() {
+	local mycmakeargs=(
+		-DDATA_INSTALL_DIR="${EPREFIX}/usr/share"
+	)
+
+	kde5_src_configure
+}
+
 pkg_postinst() {
 	kde5_pkg_postinst
 	einfo
