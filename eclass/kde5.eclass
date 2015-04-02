@@ -12,8 +12,6 @@
 if [[ -z ${_KDE5_ECLASS} ]]; then
 _KDE5_ECLASS=1
 
-CMAKE_MIN_VERSION="2.8.12"
-
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @DESCRIPTION:
 # For proper description see virtualx.eclass manpage.
