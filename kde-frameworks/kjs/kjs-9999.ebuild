@@ -15,6 +15,7 @@ RDEPEND="
 	dev-libs/libpcre
 "
 DEPEND="${RDEPEND}
+	$(add_frameworks_dep kdoctools)
 	dev-lang/perl
 "
 
