@@ -378,6 +378,16 @@ kde5_src_prepare() {
 				rm -rf po/${lang}
 			fi
 		done
+
+		if [[ ${KDE_HANDBOOK} = true ]] ; then
+			pushd doc > /dev/null
+			for lang in $(ls) ; do
+				if ! has ${lang} ${LINGUAS} ; then
+					comment_add_subdirectory ${lang}
+				fi
+			done
+			popd > /dev/null
+		fi
 	else
 		rm -rf po
 	fi
