@@ -9,6 +9,7 @@ inherit kde5
 
 DESCRIPTION="A utility that provides information about a computer system"
 HOMEPAGE="http://www.kde.org/applications/system/kinfocenter/"
+SRC_URI+=" http://www.gentoo.org/images/glogo-small.png"
 KEYWORDS=""
 IUSE="egl gles ieee1394 +opengl +pci samba nfs wayland X"
 
@@ -50,6 +51,7 @@ COMMON_DEPEND="
 	X? ( x11-libs/libX11 )
 	!kde-base/kcontrol
 	!kde-base/kinfocenter
+	!kde-misc/about-distro
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
@@ -70,4 +72,14 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+
+	insinto /etc/xdg
+	doins "${FILESDIR}"/kcm-about-distrorc
+
+	insinto /usr/share/${PN}
+	doins "${DISTDIR}"/glogo-small.png
 }
