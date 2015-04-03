@@ -15,7 +15,7 @@ IUSE="debug"
 
 DEPEND="
 	dev-qt/qtxmlpatterns:4
-	>=media-libs/qt-gstreamer-1.2.0
+	>=media-libs/qt-gstreamer-1.2.0[qt4(+)]
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kqtquickcharts)
