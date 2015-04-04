@@ -43,6 +43,7 @@ kde-frameworks/knotifications:5
 kde-frameworks/knotifyconfig:5
 kde-frameworks/kpackage:5
 kde-frameworks/kparts:5
+kde-frameworks/kpeople:5
 kde-frameworks/kplotting:5
 kde-frameworks/kpty:5
 kde-frameworks/kross:5
@@ -55,6 +56,7 @@ kde-frameworks/kwallet:5
 kde-frameworks/kwidgetsaddons:5
 kde-frameworks/kwindowsystem:5
 kde-frameworks/kxmlgui:5
+kde-frameworks/kxmlrpcclient:5
 kde-frameworks/networkmanager-qt:5
 kde-frameworks/plasma:5
 kde-frameworks/solid:5
