@@ -6,6 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 KDE_AUTODEPS="false"
+KDE_DEBUG="false"
 inherit kde5 python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
