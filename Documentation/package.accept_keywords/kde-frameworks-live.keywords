@@ -3,6 +3,7 @@
 # Edit Documentation/package.keywords/.kde-frameworks-live.base/ files instead.
 ~kde-frameworks/attica-9999 **
 ~kde-frameworks/bluez-qt-9999 **
+~kde-frameworks/extra-cmake-modules-9999 **
 ~kde-frameworks/frameworkintegration-9999 **
 ~kde-frameworks/kactivities-9999 **
 ~kde-frameworks/kapidox-9999 **
