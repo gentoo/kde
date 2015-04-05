@@ -21,11 +21,12 @@ RDEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	$(add_frameworks_dep ktextwidgets)
+"
