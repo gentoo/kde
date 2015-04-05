@@ -11,7 +11,7 @@ DESCRIPTION="Shared icons, artwork and data files for educational applications"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-libs/extra-cmake-modules"
+DEPEND="$(add_frameworks_dep extra-cmake-modules)"
 RDEPEND="
 	!kde-base/libkdeedu:4
 "
