@@ -6,13 +6,11 @@
 : ${PORTDIR:="$(pwd)"}
 
 get_package_list_from_set() {
+	local set="${1}"
 
-	local SET="${1}"
-
-	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${SET}") ; do
+	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${set}") ; do
 		echo $(qatom ${entry} | cut -d " " -f 1-2 | tr " " "/")
 	done
-
 }
 
 help() {
