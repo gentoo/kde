@@ -15,7 +15,7 @@ KEYWORDS=" ~amd64"
 IUSE=""
 
 DEPEND="
-	dev-libs/extra-cmake-modules
+	$(add_frameworks_dep extra-cmake-modules)
 	media-gfx/fontforge
 "
 RDEPEND="!media-fonts/oxygen-fonts"
