@@ -5,15 +5,13 @@
 EAPI=5
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-
-inherit cmake-utils git-r3 python-any-r1
+KDE_AUTODEPS="false"
+inherit kde5 python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
-EGIT_REPO_URI=( "git://anongit.kde.org/${PN}" )
 
 LICENSE="BSD"
-SLOT="0"
 KEYWORDS=""
 IUSE="doc"
 
