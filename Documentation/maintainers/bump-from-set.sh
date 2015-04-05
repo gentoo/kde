@@ -2,7 +2,6 @@
 
 # requires app-portage/portage-utils and app-portage/gentoolkit-dev
 
-: ${KEYWORDS:="~amd64"}
 : ${PORTDIR:="$(pwd)"}
 
 get_package_list_from_set() {
@@ -11,6 +10,13 @@ get_package_list_from_set() {
 	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${set}") ; do
 		echo $(qatom ${entry} | cut -d " " -f 1-2 | tr " " "/")
 	done
+}
+
+get_main_tree_keyword() {
+	local portdir="$(portageq portdir)"
+	local cp="${1}"
+
+	echo $(sed -ne 's/^KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
 }
 
 help() {
@@ -46,8 +52,8 @@ fi
 
 packages=$(get_package_list_from_set ${SETNAME})
 
-for package in ${packages} ; do
-	pushd "${PORTDIR}/${package}" > /dev/null
+for cp in ${packages} ; do
+	pushd "${PORTDIR}/${cp}" > /dev/null
 
 	pn=$(basename $(pwd))
 	source=${pn}-${SOURCEVERSION}.ebuild
@@ -57,7 +63,7 @@ for package in ${packages} ; do
 	ekeyword ^all ${destination} > /dev/null
 
 	if [[ ${destination} != *9999* ]] ; then
-		ekeyword ${KEYWORDS} ${destination} > /dev/null
+		ekeyword $(get_main_tree_keyword ${cp}) ${destination} > /dev/null
 	fi
 
 	repoman manifest
