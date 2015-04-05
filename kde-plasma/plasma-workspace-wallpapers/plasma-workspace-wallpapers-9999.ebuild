@@ -17,5 +17,5 @@ RDEPEND="
 	!kde-base/plasma-workspace-wallpapers
 "
 DEPEND="${RDEPEND}
-	dev-libs/extra-cmake-modules
+	$(add_frameworks_dep extra-cmake-modules)
 "
