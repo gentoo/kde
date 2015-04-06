@@ -1,4 +1,3 @@
-~dev-libs/extra-cmake-modules-9999 **
 >=kde-frameworks/kf-env-3
 
 dev-qt/qtchooser
