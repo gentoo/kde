@@ -43,7 +43,7 @@ RDEPEND="
 	$(add_plasma_dep systemsettings)
 	bluetooth? (
 		$(add_plasma_dep bluedevil)
-		$(add_plasma_dep libbluedevil)
+		$(add_plasma_dep bluez-qt)
 	)
 	display-manager? (
 		sddm? ( x11-misc/sddm )
