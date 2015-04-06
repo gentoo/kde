@@ -17,7 +17,6 @@ RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kservice)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
