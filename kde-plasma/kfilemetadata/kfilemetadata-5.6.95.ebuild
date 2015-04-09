@@ -15,7 +15,7 @@ fi
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=" ~amd64"
-IUSE="epub exif ffmpeg pdf taglib"
+IUSE="epub exif ffmpeg libav pdf taglib"
 
 # TODO: mobi? ( $(add_plasma_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
 DEPEND="
@@ -24,7 +24,10 @@ DEPEND="
 	dev-qt/qtxml:5
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? (
+		libav? ( media-video/libav:= )
+		!libav? ( media-video/ffmpeg:= )
+	)
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
