@@ -21,15 +21,16 @@
 ~kde-plasma/kwayland-9999
 ~kde-plasma/kwin-9999
 ~kde-plasma/kwrited-9999
-~kde-plasma/libbluedevil-9999
 ~kde-plasma/libkscreen-9999
 ~kde-plasma/libksysguard-9999
 ~kde-plasma/milou-9999
 ~kde-plasma/oxygen-9999
 ~kde-plasma/oxygen-fonts-9999
 ~kde-plasma/plasma-desktop-9999
+~kde-plasma/plasma-mediacenter-9999
 ~kde-plasma/plasma-meta-9999
 ~kde-plasma/plasma-nm-9999
+~kde-plasma/plasma-sdk-9999
 ~kde-plasma/plasma-workspace-9999
 ~kde-plasma/plasma-workspace-wallpapers-9999
 ~kde-plasma/polkit-kde-agent-9999
