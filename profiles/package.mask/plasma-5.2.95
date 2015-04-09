@@ -1,0 +1,62 @@
+# Michael Palimaka <kensington@gentoo.org> (09 Apr 2015)
+# _   _  ___ _____  __   _______ _____  
+#| \ | |/ _ \_   _| \ \ / / ____|_   _| 
+#|  \| | | | || |    \ V /|  _|   | |   
+#| |\  | |_| || |     | | | |___  | |   
+#|_| \_|\___/ |_|     |_| |_____| |_|   
+#
+# ____  _____ _     _____    _    ____  _____ ____  
+#|  _ \| ____| |   | ____|  / \  / ___|| ____|  _ \ 
+#| |_) |  _| | |   |  _|   / _ \ \___ \|  _| | | | |
+#|  _ <| |___| |___| |___ / ___ \ ___) | |___| |_| |
+#|_| \_\_____|_____|_____/_/   \_\____/|_____|____/ 
+#
+# ____  _   _ ____  _     ___ ____ _  __   __
+#|  _ \| | | | __ )| |   |_ _/ ___| | \ \ / /
+#| |_) | | | |  _ \| |    | | |   | |  \ V / 
+#|  __/| |_| | |_) | |___ | | |___| |___| |  
+#|_|    \___/|____/|_____|___\____|_____|_|
+#
+# _   _ ____  ____ _____ ____  _____    _    __  __ 
+#| | | |  _ \/ ___|_   _|  _ \| ____|  / \  |  \/  |
+#| | | | |_) \___ \ | | | |_) |  _|   / _ \ | |\/| |
+#| |_| |  __/ ___) || | |  _ <| |___ / ___ \| |  | |
+# \___/|_|   |____/ |_| |_| \_\_____/_/   \_\_|  |_|
+#
+~kde-plasma/baloo-5.2.95
+~kde-plasma/bluedevil-5.2.95
+~kde-plasma/bluez-qt-5.2.95
+~kde-plasma/breeze-5.2.95
+~kde-plasma/kde-cli-tools-5.2.95
+~kde-plasma/kde-gtk-config-5.2.95
+~kde-plasma/kdecoration-5.2.95
+~kde-plasma/kdeplasma-addons-5.2.95
+~kde-plasma/kfilemetadata-5.2.95
+~kde-plasma/khelpcenter-5.2.95
+~kde-plasma/khotkeys-5.2.95
+~kde-plasma/kinfocenter-5.2.95
+~kde-plasma/kio-extras-5.2.95
+~kde-plasma/kmenuedit-5.2.95
+~kde-plasma/kscreen-5.2.95
+~kde-plasma/ksshaskpass-5.2.95
+~kde-plasma/ksysguard-5.2.95
+~kde-plasma/kwayland-5.2.95
+~kde-plasma/kwin-5.2.95
+~kde-plasma/kwrited-5.2.95
+~kde-plasma/libkscreen-5.2.95
+~kde-plasma/libksysguard-5.2.95
+~kde-plasma/milou-5.2.95
+~kde-plasma/oxygen-5.2.95
+~kde-plasma/oxygen-fonts-5.2.95
+~kde-plasma/plasma-desktop-5.2.95
+~kde-plasma/plasma-mediacenter-5.2.95
+~kde-plasma/plasma-meta-5.2.95
+~kde-plasma/plasma-nm-5.2.95
+~kde-plasma/plasma-sdk-5.2.95
+~kde-plasma/plasma-workspace-5.2.95
+~kde-plasma/plasma-workspace-wallpapers-5.2.95
+~kde-plasma/polkit-kde-agent-5.2.95
+~kde-plasma/powerdevil-5.2.95
+~kde-plasma/sddm-kcm-5.2.95
+~kde-plasma/systemsettings-5.2.95
+~kde-plasma/user-manager-5.2.95
