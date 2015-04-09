@@ -23,7 +23,7 @@
 #| |_| |  __/ ___) || | |  _ <| |___ / ___ \| |  | |
 # \___/|_|   |____/ |_| |_| \_\_____/_/   \_\_|  |_|
 #
-~kde-plasma/baloo-5.2.95
+~kde-plasma/baloo-5.6.95
 ~kde-plasma/bluedevil-5.2.95
 ~kde-plasma/bluez-qt-5.2.95
 ~kde-plasma/breeze-5.2.95
@@ -31,7 +31,7 @@
 ~kde-plasma/kde-gtk-config-5.2.95
 ~kde-plasma/kdecoration-5.2.95
 ~kde-plasma/kdeplasma-addons-5.2.95
-~kde-plasma/kfilemetadata-5.2.95
+~kde-plasma/kfilemetadata-5.6.95
 ~kde-plasma/khelpcenter-5.2.95
 ~kde-plasma/khotkeys-5.2.95
 ~kde-plasma/kinfocenter-5.2.95
