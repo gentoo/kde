@@ -13,12 +13,12 @@ IUSE="kde4"
 
 DEPEND="
 	$(add_frameworks_dep frameworkintegration)
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kdecoration)
 	dev-qt/qtdbus:5
