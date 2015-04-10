@@ -120,7 +120,8 @@ case ${KDE_AUTODEPS} in
 		if [[ ${CATEGORY} = kde-frameworks ]] && version_is_at_least 5.9.0 ; then
 			DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
 		else
-			DEPEND+=" >=dev-libs/extra-cmake-modules-1.8.0"
+			DEPEND+=" || ( $(add_frameworks_dep extra-cmake-modules)
+					>=dev-libs/extra-cmake-modules-1.8.0 )"
 		fi
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
