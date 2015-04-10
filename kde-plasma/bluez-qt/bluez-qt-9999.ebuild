@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit kde5
+inherit kde5 udev
 
 DESCRIPTION="Qt wrapper for Bluez 5 DBus API"
 LICENSE="LGPL-2"
@@ -17,3 +17,11 @@ DEPEND="
 	dev-qt/qtnetwork:5
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DUDEV_RULES_INSTALL_DIR="$(get_udevdir)/rules.d"
+	)
+
+	kde5_src_configure
+}
