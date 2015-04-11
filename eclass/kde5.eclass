@@ -134,8 +134,6 @@ case ${KDE_AUTODEPS} in
 				!kde-base/${PN}
 			"
 		fi
-
-		unset ecm_version
 		;;
 esac
 
