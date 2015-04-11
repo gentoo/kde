@@ -4,15 +4,13 @@
 
 EAPI=5
 
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE screen management library"
 KEYWORDS=" ~amd64"
 IUSE=""
-
-# does not build
-RESTRICT="test"
 
 DEPEND="
 	dev-qt/qtdbus:5
