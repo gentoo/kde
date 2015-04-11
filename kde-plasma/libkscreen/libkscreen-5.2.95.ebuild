@@ -19,7 +19,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
-	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}
 	!x11-libs/libkscreen:5
