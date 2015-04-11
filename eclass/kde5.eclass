@@ -394,7 +394,7 @@ kde5_src_prepare() {
 		comment_add_subdirectory tests
 	fi
 
-	if [[ ${CATEGORY} = kde-plasma ]]; then
+	if [[ ${CATEGORY} = kde-plasma ]] && ! use_if_iuse test ; then
 		punt_bogus_deps
 	fi
 
