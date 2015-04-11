@@ -117,11 +117,7 @@ case ${KDE_AUTODEPS} in
 			esac
 		fi
 
-		if [[ ${CATEGORY} = kde-frameworks ]] && version_is_at_least 5.9.0 ; then
-			DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
-		else
-			DEPEND+=" >=dev-libs/extra-cmake-modules-1.8.0"
-		fi
+		DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
 
