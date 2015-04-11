@@ -11,8 +11,6 @@ DESCRIPTION="KDE screen management library"
 KEYWORDS=""
 IUSE=""
 
-# TODO: add X use flag, does not build at the moment
-
 # does not build
 RESTRICT="test"
 
@@ -20,7 +18,6 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtx11extras:5
-	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXrandr
 "
