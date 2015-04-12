@@ -93,6 +93,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kio-extras)
 	dev-qt/qtgraphicaleffects:5
 	sys-apps/accountsservice
+	x11-apps/setxkbmap
 	!kde-apps/kcontrol
 	!kde-base/attica
 	!kde-base/kcontrol
