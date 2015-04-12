@@ -30,5 +30,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	!dev-util/plasmate:5
 "
 RDEPEND="${DEPEND}"
