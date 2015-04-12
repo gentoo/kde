@@ -31,4 +31,6 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!dev-util/plasmate
+"
