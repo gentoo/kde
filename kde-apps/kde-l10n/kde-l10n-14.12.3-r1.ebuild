@@ -143,7 +143,8 @@ kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 
 					sed -i -e '/joystick/ s/^/#/' -e '/kcmaccess/ s/^/#/'\
 						-e '/kcmstyle/ s/^/#/' -e '/solid-actions/ s/^/#/'\
-						-e '/splashscreen/ s/^/#/'\
+						-e '/splashscreen/ s/^/#/' -e '/clock/ s/^/#/' -e '/colors/ s/^/#/'\
+						-e '/desktopthemedetails/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/kcontrol/CMakeLists.txt
 
 				fi
