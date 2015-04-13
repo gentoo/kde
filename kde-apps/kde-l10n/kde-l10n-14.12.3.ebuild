@@ -123,9 +123,15 @@ kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 					# KDE Applications 4
 					rm -f "${S}"/${DIR}/4/${LNG}/messages/applications/useraccount.po
 
-					# Plasma 5.3 - kdesu
-					sed -i -e '/kdesu/ s/^/#/' "${S}"/${DIR}/4/${LNG}/docs/kde-runtime/CMakeLists.txt
-					sed -i -e '/ksysguard/ s/^/#/' "${S}"/${DIR}/4/${LNG}/docs/kde-workspace/CMakeLists.txt
+					# Plasma 5.3 - kdesu, ksysguard, kio-extras, khelpcenter, systemsettings
+					sed -i -e '/kdesu/ s/^/#/' -e '/fundamentals/ s/^/#/' -e '/onlinehelp/ s/^/#/' -e '/khelpcenter/ s/^/#/'\
+						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/CMakeLists.txt
+
+					sed -i -e '/ksysguard/ s/^/#/' -e '/systemsettings/ s/^/#/'\
+						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/CMakeLists.txt
+
+					sed -i -e '/kcmcgi/ s/^/#/' -e '/trash/ s/^/#/'\
+						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/kcontrol/CMakeLists.txt
 
 				fi
 			fi
