@@ -123,15 +123,28 @@ kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 					# KDE Applications 4
 					rm -f "${S}"/${DIR}/4/${LNG}/messages/applications/useraccount.po
 
-					# Plasma 5.3 - kdesu, ksysguard, kio-extras, khelpcenter, systemsettings, kinfocenter
-					sed -i -e '/kdesu/ s/^/#/' -e '/fundamentals/ s/^/#/' -e '/onlinehelp/ s/^/#/' -e '/khelpcenter/ s/^/#/'\
+					# Plasma 5.3 
+					# kdesu, ksysguard, kio-extras, khelpcenter, systemsettings, kinfocenter, kmenuedit, plasma-desktop
+					sed -i -e '/kdesu/ s/^/#/' -e '/fundamentals/ s/^/#/'\
+						-e '/onlinehelp/ s/^/#/' -e '/khelpcenter/ s/^/#/'\
+						-e '/knetattach/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/CMakeLists.txt
 
-					sed -i -e '/ksysguard/ s/^/#/' -e '/systemsettings/ s/^/#/' -e '/kinfocenter/ s/^/#/'\
+					sed -i -e '/ksysguard/ s/^/#/' -e '/systemsettings/ s/^/#/'\
+						-e '/kinfocenter/ s/^/#/' -e '/kmenuedit/ s/^/#/'\
+						-e '/kfontview/ s/^/#/' -e '/plasma-desktop/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/CMakeLists.txt
 
-					sed -i -e '/kcmcgi/ s/^/#/' -e '/trash/ s/^/#/'\
+					sed -i -e '/kcmcgi/ s/^/#/' -e '/trash/ s/^/#/' -e '/bookmarks/ s/^/#/'\
+						-e '/cookies/ s/^/#/' -e '/ebrowsing/ s/^/#/' -e '/emoticons/ s/^/#/'\
+						-e '/icons/ s/^/#/' -e '/khtml/ s/^/#/' -e '/smb/ s/^/#/'\
+						-e '/useragent/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/kcontrol/CMakeLists.txt
+
+					sed -i -e '/joystick/ s/^/#/' -e '/kcmaccess/ s/^/#/'\
+						-e '/kcmstyle/ s/^/#/' -e '/solid-actions/ s/^/#/'\
+						-e '/splashscreen/ s/^/#/'\
+						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/kcontrol/CMakeLists.txt
 
 				fi
 			fi
