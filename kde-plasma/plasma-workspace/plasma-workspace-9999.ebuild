@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
@@ -53,6 +54,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep kxmlrpcclient)
+	$(add_frameworks_dep networkmanager-qt)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	dev-libs/wayland
@@ -74,6 +76,8 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXau
 	x11-libs/libxcb
+	x11-libs/libXfixes
+	x11-libs/libXi
 	x11-libs/libXrender
 	x11-libs/xcb-util-keysyms
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
