@@ -10,7 +10,7 @@ inherit kde5 multilib
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus +drkonqi gps prison qalculate +systemmonitor X"
+IUSE="dbus +drkonqi gps prison qalculate +systemmonitor"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -64,10 +64,18 @@ COMMON_DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	sys-libs/pam
 	sys-libs/zlib
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libX11
+	x11-libs/libXau
+	x11-libs/libxcb
+	x11-libs/libXrender
+	x11-libs/xcb-util-keysyms
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	drkonqi? (
 		$(add_frameworks_dep kdewebkit)
@@ -79,16 +87,6 @@ COMMON_DEPEND="
 	systemmonitor? (
 		$(add_plasma_dep libksysguard processui)
 		dev-qt/qtwebkit:5
-	)
-	X? (
-		dev-qt/qtx11extras:5
-		x11-libs/libICE
-		x11-libs/libSM
-		x11-libs/libX11
-		x11-libs/libXau
-		x11-libs/libxcb
-		x11-libs/libXrender
-		x11-libs/xcb-util-keysyms
 	)
 "
 RDEPEND="${COMMON_DEPEND}
@@ -110,7 +108,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/plasma-workspace
 "
 DEPEND="${COMMON_DEPEND}
-	X? ( x11-proto/xproto )
+	x11-proto/xproto
 "
 
 PATCHES=( "${FILESDIR}/${PN}-startkde-script.patch" )
@@ -140,7 +138,6 @@ src_configure() {
 		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison)
 		$(cmake-utils_use_find_package qalculate Qalculate)
-		$(cmake-utils_use_find_package X X11)
 	)
 
 	kde5_src_configure
