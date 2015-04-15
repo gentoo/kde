@@ -48,10 +48,7 @@ COMMON_DEPEND="
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
-	x11-libs/libxcb
-	x11-libs/libXcursor
-	x11-libs/libXext
-	x11-libs/libXxf86vm
+	>=x11-libs/libxcb-1.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
