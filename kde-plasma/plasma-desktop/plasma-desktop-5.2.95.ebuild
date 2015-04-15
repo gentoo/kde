@@ -14,9 +14,7 @@ IUSE="bluetooth +fontconfig networkmanager pulseaudio touchpad usb"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
-	$(add_plasma_dep breeze)
 	$(add_plasma_dep kwin)
-	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
@@ -94,8 +92,10 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kio-extras)
+	$(add_plasma_dep oxygen)
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
 	!kde-apps/kcontrol
