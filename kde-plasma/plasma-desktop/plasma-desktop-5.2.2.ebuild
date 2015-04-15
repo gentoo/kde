@@ -67,7 +67,6 @@ COMMON_DEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxkbfile
-	x11-libs/libXtst
 	bluetooth? ( $(add_plasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
@@ -91,7 +90,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kio-extras)
-	dev-qt/qtgraphicaleffects:5
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
 	!kde-apps/kcontrol
