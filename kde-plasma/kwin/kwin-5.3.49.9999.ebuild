@@ -73,6 +73,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
 	media-libs/mesa[egl,gles2?]
 	x11-proto/xproto
+	test? ( x11-libs/xcb-util-wm )
 "
 
 src_configure() {
