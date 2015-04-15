@@ -10,9 +10,10 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=" ~amd64"
-IUSE="bluetooth +fontconfig networkmanager pulseaudio usb"
+IUSE="bluetooth +fontconfig networkmanager pulseaudio touchpad usb"
 
 COMMON_DEPEND="
+	$(add_plasma_dep baloo)
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep oxygen)
@@ -29,6 +30,8 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep kglobalaccel)
@@ -42,6 +45,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kpeople)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwallet)
@@ -57,6 +61,7 @@ COMMON_DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
+	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
@@ -82,6 +87,7 @@ COMMON_DEPEND="
 		media-libs/libcanberra
 		media-sound/pulseaudio
 	)
+	touchpad? ( x11-drivers/xf86-input-synaptics )
 	usb? (
 		x11-libs/libXcursor
 		x11-libs/libXfixes
@@ -89,7 +95,6 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kded)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kio-extras)
 	dev-qt/qtgraphicaleffects:5
@@ -109,6 +114,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kcm-touchpad
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
 "
@@ -118,6 +124,7 @@ src_configure() {
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 		$(cmake-utils_use_find_package usb USB)
+		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
 	kde5_src_configure
