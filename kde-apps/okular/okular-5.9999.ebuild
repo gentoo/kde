@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_PUNT_BOGUS_DEPS="true"
 EGIT_BRANCH="frameworks"
 inherit kde5
 
@@ -58,13 +59,6 @@ RDEPEND="${DEPEND}
 "
 RESTRICT=test
 # test 2: parttest hangs
-
-src_prepare() {
-	# whole patch should be upstreamed, doesn't work in PATCHES
-	epatch "${FILESDIR}/${PN}-5.9999-tests-optional.patch"
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
