@@ -102,6 +102,12 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
 	kde-base/kdebase-pam
+	x11-apps/mkfontdir
+	x11-apps/xmessage
+	x11-apps/xprop
+	x11-apps/xrdb
+	x11-apps/xset
+	x11-apps/xsetroot
 	!kde-base/freespacenotifier
 	!kde-base/libtaskmanager
 	!kde-base/kcminit
