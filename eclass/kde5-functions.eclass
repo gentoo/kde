@@ -210,11 +210,24 @@ get_kde_version() {
 	fi
 }
 
-# @FUNCTION: punt_bogus_deps
+# @FUNCTION: punt_bogus_dep
+# @USAGE: <prefix> <dependency>
 # @DESCRIPTION:
-# Remove hard-coded upstream dependencies that are not correct.
-punt_bogus_deps() {
-	sed -e "/find_package(Qt5 /s/ Test//" -i CMakeLists.txt || die
+# Removes a specified dependency from a find_package call with multiple components.
+punt_bogus_dep() {
+	local prefix=${1}
+	local dep=${2}
+
+	pcregrep -Mn "(?s)find_package\(\s*${prefix}.[^)]*?${dep}.*?\)" CMakeLists.txt > "${T}/bogus${dep}"
+	local length=$(wc -l "${T}/bogus${dep}" | cut -d " " -f 1)
+	local first=$(head -n 1 "${T}/bogus${dep}" | cut -d ":" -f 1)
+	local last=$(( ${length} + ${first} - 1))
+
+	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
+
+	if [[ ${length} = 1 ]] ; then
+		sed -e "/find_package(\s*${prefix}\s*REQUIRED\s*COMPONENTS\s*)/d" -i CMakeLists.txt || die
+	fi
 }
 
 fi

@@ -81,6 +81,13 @@ else
 	: ${KDE_TEST:=false}
 fi
 
+# @ECLASS-VARIABLE: KDE_PUNT_BOGUS_DEPS
+# @DESCRIPTION:
+# If set to "none", do nothing.
+# For any other value, do black magic to make hardcoded-but-optional dependencies
+# optional again. An upstream solution is preferable and this is a last resort.
+: ${KDE_PUNT_BOGUS_DEPS:=none}
+
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
 # If set to "none", do nothing.
@@ -396,9 +403,17 @@ kde5_src_prepare() {
 		fi
 	fi
 
-	if [[ ${CATEGORY} = kde-plasma ]] && ! use_if_iuse test ; then
-		punt_bogus_deps
-	fi
+	case ${KDE_PUNT_BOGUS_DEPS} in
+		false)	;;
+		*)
+			if ! use_if_iuse test ; then
+				punt_bogus_dep Qt5 Test
+			fi
+			if ! use_if_iuse handbook ; then
+				punt_bogus_dep KF5 DocTools
+			fi
+			;;
+	esac
 
 	cmake-utils_src_prepare
 }
