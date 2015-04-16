@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE systemsettings kcm to set GTK application look&feel"
