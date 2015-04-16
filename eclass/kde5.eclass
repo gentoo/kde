@@ -388,10 +388,12 @@ kde5_src_prepare() {
 		comment_add_subdirectory tests
 	fi
 
-	# only build unit tests when required
-	if ! use_if_iuse test ; then
-		comment_add_subdirectory autotests
-		comment_add_subdirectory tests
+	if [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma || ${CATEGORY} = kde-apps ]] ; then
+		# only build unit tests when required
+		if ! use_if_iuse test ; then
+			comment_add_subdirectory autotests
+			comment_add_subdirectory tests
+		fi
 	fi
 
 	if [[ ${CATEGORY} = kde-plasma ]] && ! use_if_iuse test ; then
