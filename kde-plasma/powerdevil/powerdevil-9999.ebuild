@@ -38,10 +38,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	virtual/libudev:=
-	x11-libs/libX11
 	x11-libs/libxcb
-	x11-libs/libXext
-	x11-libs/libXrandr
 "
 
 RDEPEND="${DEPEND}
