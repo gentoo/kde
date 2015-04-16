@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=" ~amd64"
-IUSE="bluetooth +fontconfig networkmanager pulseaudio touchpad usb"
+IUSE="bluetooth +fontconfig pulseaudio touchpad usb"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -78,7 +78,6 @@ COMMON_DEPEND="
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
-	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
