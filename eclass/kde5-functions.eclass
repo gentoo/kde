@@ -219,6 +219,12 @@ punt_bogus_dep() {
 	local dep=${2}
 
 	pcregrep -Mn "(?s)find_package\(\s*${prefix}.[^)]*?${dep}.*?\)" CMakeLists.txt > "${T}/bogus${dep}"
+
+	# pcregrep returns non-zero on no matches/error
+	if [[ $? != 0 ]] ; then
+		return
+	fi
+
 	local length=$(wc -l "${T}/bogus${dep}" | cut -d " " -f 1)
 	local first=$(head -n 1 "${T}/bogus${dep}" | cut -d ":" -f 1)
 	local last=$(( ${length} + ${first} - 1))
