@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="ibus scim"
 
 DEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcmutils)
@@ -20,13 +21,18 @@ DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kross)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kunitconversion)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
+	$(add_frameworks_dep sonnet)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
