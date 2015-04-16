@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="bluetooth +fontconfig pulseaudio touchpad usb"
+IUSE="+fontconfig pulseaudio touchpad usb"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -71,7 +71,6 @@ COMMON_DEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libxkbfile
-	bluetooth? ( $(add_plasma_dep bluedevil) )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
