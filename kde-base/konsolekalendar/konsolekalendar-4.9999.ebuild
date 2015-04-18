@@ -22,10 +22,26 @@ RDEPEND="${DEPEND}"
 
 KMCOMPILEONLY="
 	calendarsupport/
+	grantleetheme/
+	incidenceeditor-ng/
+	kaddressbookgrantlee/
+	mailcommon/
+	messagecore/
+	messageviewer/
+	pimcommon/
+	templateparser/
 "
 KMEXTRACTONLY="
+	akonadi_next/
+	agents/mailfilteragent/org.freedesktop.Akonadi.MailFilterAgent.xml
 	calendarviews/
+	kdgantt2/
+	korganizer/org.kde.Korganizer.Calendar.xml
+	mailimporter/
+	messagecomposer/
 	libkdepimdbusinterfaces/
+	libkleo/
+	libkpgp/
 "
 
 KMLOADLIBS="kdepim-common-libs"
