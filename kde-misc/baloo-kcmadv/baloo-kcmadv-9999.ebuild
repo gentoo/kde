@@ -8,8 +8,8 @@ KDE_MINIMAL=4.13.0
 inherit kde4-base
 
 DESCRIPTION="Alternative configuration module for the Baloo search framework"
-HOMEPAGE="https://gitorious.org/baloo-kcmadv"
-EGIT_REPO_URI="git://gitorious.org/${PN}/${PN}"
+HOMEPAGE="https://gitlab.com/baloo-kcmadv/baloo-kcmadv"
+EGIT_REPO_URI="https://gitlab.com/${PN}/${PN}.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
