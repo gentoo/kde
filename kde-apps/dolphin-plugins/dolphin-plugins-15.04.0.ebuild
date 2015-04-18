@@ -14,7 +14,7 @@ DEPEND="
 	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kompare)
+	$(add_kdeapps_dep kompare '' '14.12.3')
 	bazaar? ( dev-vcs/bzr )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )
