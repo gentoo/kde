@@ -12,5 +12,5 @@ DESCRIPTION="A KDE game almost the same as ksame, but a bit different"
 KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="$(add_kdeapps_dep libkdegames '14.12.3')"
+DEPEND="$(add_kdeapps_dep libkdegames '' '14.12.3')"
 RDEPEND="${DEPEND}"
