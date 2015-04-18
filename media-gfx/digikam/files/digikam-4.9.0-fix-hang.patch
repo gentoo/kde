@@ -1,0 +1,21 @@
+commit 685e0764bb3b771afbc465e246307e278a12e18d
+Author: Maik Qualmann <metzpinguin@gmail.com>
+Date:   Tue Apr 7 21:24:05 2015 +0200
+
+    apply patch #91925 from Kristian Karl to corrects the signal connection in the ProgressManager
+    BUGS: 345954
+    FIXED-IN: 4.10.0
+
+diff --git a/libs/progressmanager/progressmanager.cpp b/libs/progressmanager/progressmanager.cpp
+index 840362c..74a806e 100644
+--- a/libs/progressmanager/progressmanager.cpp
++++ b/libs/progressmanager/progressmanager.cpp
+@@ -483,7 +483,7 @@ void ProgressManager::addProgressItemImpl(ProgressItem* const t, ProgressItem* c
+     connect(t, SIGNAL(progressItemCompleted(ProgressItem*)),
+             this, SLOT(slotTransactionCompleted(ProgressItem*)), Qt::DirectConnection);
+ 
+-    connect(this, SIGNAL(completeTransactionDeferred(ProgressItem*)),
++    connect(t, SIGNAL(completeTransactionDeferred(ProgressItem*)),
+             this, SLOT(slotTransactionCompletedDeferred(ProgressItem*)));
+ 
+     connect(t, SIGNAL(progressItemProgress(ProgressItem*,uint)),
