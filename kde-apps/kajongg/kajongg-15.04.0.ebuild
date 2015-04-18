@@ -22,7 +22,7 @@ DEPEND="
 	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep libkmahjongg)
+	$(add_kdeapps_dep libkmahjongg '' '14.12.3')
 	>=dev-python/twisted-core-8.2.0
 "
 
