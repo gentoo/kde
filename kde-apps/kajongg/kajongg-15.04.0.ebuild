@@ -18,7 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="
 	${PYTHON_DEPS}
 	dev-db/sqlite:3
-	$(add_kdeapps_dep libkdegames)
+	$(add_kdeapps_dep libkdegames '14.12.3')
 	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
 "
 RDEPEND="${DEPEND}
