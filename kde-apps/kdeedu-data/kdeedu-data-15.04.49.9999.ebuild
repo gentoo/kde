@@ -13,5 +13,5 @@ IUSE=""
 
 DEPEND="$(add_frameworks_dep extra-cmake-modules)"
 RDEPEND="
-	!kde-base/libkdeedu:4
+	!<kde-base/libkdeedu-14.12:4
 "
