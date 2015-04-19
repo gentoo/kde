@@ -147,6 +147,9 @@ kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 						-e '/desktopthemedetails/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/kcontrol/CMakeLists.txt
 
+					sed -i -e '/docbook/ s/^/#/'\
+						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/klipper/CMakeLists.txt
+
 				fi
 			fi
 		done
