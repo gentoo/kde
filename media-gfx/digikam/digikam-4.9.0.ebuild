@@ -52,8 +52,8 @@ CDEPEND="
 	media-libs/libpng:0=
 	>=media-libs/opencv-2.4.9
 	media-libs/phonon[qt4]
-	>=media-libs/tiff-3.8.2
-	virtual/jpeg
+	>=media-libs/tiff-3.8.2:0
+	virtual/jpeg:0
 	x11-libs/libX11
 	|| ( dev-qt/qtsql:4[mysql] dev-qt/qtsql:4[sqlite] )
 	addressbook? ( $(add_kdebase_dep kdepimlibs) )
