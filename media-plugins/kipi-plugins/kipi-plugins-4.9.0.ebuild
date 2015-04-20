@@ -46,8 +46,8 @@ COMMONDEPEND="
 	dev-qt/qtxmlpatterns:4
 	gpssync?	( >=media-libs/libkgeomap-4.6.0 )
 	media-libs/libpng:0=
-	media-libs/tiff
-	virtual/jpeg
+	media-libs/tiff:0
+	virtual/jpeg:0
 	calendar?	( $(add_kdebase_dep kdepimlibs) )
 	crypt?		( app-crypt/qca:2[qt4(+)] )
 	ipod?		(
