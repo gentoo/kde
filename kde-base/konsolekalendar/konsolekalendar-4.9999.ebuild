@@ -36,7 +36,7 @@ KMEXTRACTONLY="
 	agents/mailfilteragent/org.freedesktop.Akonadi.MailFilterAgent.xml
 	calendarviews/
 	kdgantt2/
-	korganizer/org.kde.Korganizer.Calendar.xml
+	korganizer/data/org.kde.Korganizer.Calendar.xml
 	mailimporter/
 	messagecomposer/
 	libkdepimdbusinterfaces/
