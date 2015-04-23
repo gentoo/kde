@@ -4,16 +4,33 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="KDE: A powerful flashcard and vocabulary learning program"
-HOMEPAGE="http://www.kde.org/applications/education/kwordquiz
-http://edu.kde.org/kwordquiz"
+DESCRIPTION="A powerful flashcard and vocabulary learning program"
+HOMEPAGE="http://www.kde.org/applications/education/kwordquiz http://edu.kde.org/kwordquiz"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	$(add_kdeapps_dep libkdeedu)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep sonnet)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkeduvocdocument)
+	dev-qt/qtprintsupport:5
+	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
 "
 RDEPEND=${DEPEND}
