@@ -4,35 +4,49 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+KDE_TEST="true"
+inherit kde5
 
-DESCRIPTION="KDE4 interface to work with Graph Theory"
+DESCRIPTION="Interface to work with Graph Theory"
 HOMEPAGE="http://www.kde.org/applications/education/rocs
 http://edu.kde.org/applications/mathematics/rocs"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
-	dev-libs/grantlee:0
-	dev-qt/qtxmlpatterns:4
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktexteditor)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kxmlgui)
+	dev-libs/grantlee:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtdeclarative:5[widgets]
+	dev-qt/qtgui:5
+	dev-qt/qtscript:5[scripttools]
+	dev-qt/qtsvg:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	dev-qt/qtxmlpatterns:5
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.49
 "
 
-RESTRICT=test
-# bug 443752
+RESTRICT=test	# 1/10 tests currently fails
 
-src_test() {
-	local mycmakeargs=(-DKDE4_BUILD_TESTS=ON)
-	cmake-utils_src_configure
-	kde4-base_src_compile
+src_prepare() {
+	# Duplicate
+	sed -e '/^find_package.*KF5DocTools/ s/^/#/' -i CMakeLists.txt || die
 
-	cd "${BUILD_DIR}"
-	emake DESTDIR="${T}/tests" install
-	export KDEDIRS="${KDEDIRS}:${T}/tests/${PREFIX}"
-	kbuildsycoca4
-	ctest || die "tests failed"
+	kde5_src_prepare
 }
