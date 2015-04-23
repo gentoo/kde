@@ -4,14 +4,22 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="Mathematical function plotter for KDE"
+DESCRIPTION="Mathematical function plotter"
 HOMEPAGE="http://www.kde.org/applications/education/kmplot http://edu.kde.org/kmplot"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep knotify)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
 "
