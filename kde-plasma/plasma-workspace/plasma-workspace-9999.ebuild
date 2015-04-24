@@ -92,7 +92,6 @@ COMMON_DEPEND="
 	qalculate? ( sci-libs/libqalculate )
 	systemmonitor? (
 		$(add_plasma_dep libksysguard processui)
-		dev-qt/qtwebkit:5
 	)
 "
 RDEPEND="${COMMON_DEPEND}
