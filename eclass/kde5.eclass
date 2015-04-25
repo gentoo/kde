@@ -83,10 +83,10 @@ fi
 
 # @ECLASS-VARIABLE: KDE_PUNT_BOGUS_DEPS
 # @DESCRIPTION:
-# If set to "none", do nothing.
+# If set to "false", do nothing.
 # For any other value, do black magic to make hardcoded-but-optional dependencies
 # optional again. An upstream solution is preferable and this is a last resort.
-: ${KDE_PUNT_BOGUS_DEPS:=none}
+: ${KDE_PUNT_BOGUS_DEPS:=false}
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @DESCRIPTION:
