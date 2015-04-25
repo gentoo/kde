@@ -17,6 +17,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
@@ -29,6 +30,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep plasma-workspace)
 	dev-qt/qtmultimedia:5[qml]
 	!media-video/plasma-mediacenter
 "
