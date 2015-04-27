@@ -28,7 +28,7 @@ HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS=""
-IUSE="dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
+IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -51,7 +51,10 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? (
+		libav? ( media-video/libav:= )
+		!libav? ( media-video/ffmpeg:0= )
+	)
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	mp3? ( media-sound/lame )
 	mad? ( media-libs/libmad )
