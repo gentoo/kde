@@ -350,7 +350,7 @@ _get_release_date() {
 _check_fetch_restriction() {
 	debug-print-function ${FUNCNAME} "$@"
 	if [[ ${KDE_RELEASE_DATE} == "none" ]]; then
-		KDE_RELEASE_DATE=_get_releasedate
+		KDE_RELEASE_DATE=$(_get_release_date)
 	fi
 	if [[ ${KDE_RELEASE_DATE} != "none" ]]; then
 		if [[ $(date +"%Y%m%d") <  ${KDE_RELEASE_DATE} ]]; then
