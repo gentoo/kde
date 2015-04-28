@@ -9,8 +9,8 @@ inherit kde5
 
 # version scheme fail by upstream
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	PLASMA_VERSION=5.2.95
-	SRC_URI="mirror://kde/unstable/plasma/${PLASMA_VERSION}/${PN}-${PV}.tar.xz"
+	PLASMA_VERSION=5.3.1
+	SRC_URI="mirror://kde/stable/plasma/${PLASMA_VERSION}/${PN}-${PV}.tar.xz"
 fi
 
 DESCRIPTION="Library for extracting file metadata"
