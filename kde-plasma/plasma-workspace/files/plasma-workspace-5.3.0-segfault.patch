@@ -1,0 +1,30 @@
+From a234c0923767649cc6545866a563ffc4dba58de2 Mon Sep 17 00:00:00 2001
+From: Marco Martin <notmart@gmail.com>
+Date: Wed, 29 Apr 2015 09:28:11 +0200
+Subject: [PATCH] check for model existence
+
+BUG:346870
+---
+ wallpapers/image/image.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/wallpapers/image/image.cpp b/wallpapers/image/image.cpp
+index a3b9c10..f5920bf 100644
+--- a/wallpapers/image/image.cpp
++++ b/wallpapers/image/image.cpp
+@@ -799,6 +799,12 @@ void Image::removeWallpaper(QString name)
+ 
+ void Image::commitDeletion()
+ {
++    //This is invokable from qml, so at any moment
++    //we can't be sure the model exists
++    if (!m_model) {
++        return;
++    }
++
+     for (const QString wallpaperCandidate : m_model->wallpapersAwaitingDeletion()) {
+         removeWallpaper(wallpaperCandidate);
+     }
+-- 
+2.0.5
+
