@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="optional"
+EGIT_BRANCH="KDE/4.14"
 inherit kde4-base
 
 DESCRIPTION="Common library for KDE PIM apps"
