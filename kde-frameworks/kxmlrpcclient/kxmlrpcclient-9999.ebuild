@@ -18,5 +18,6 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	dev-qt/qtxml:5
+	!<kde-plasma/plasma-workspace-5.2.95
 "
 DEPEND="${RDEPEND}"
