@@ -11,10 +11,11 @@ inherit kde4-base
 
 DESCRIPTION="Personal finances manager for KDE4, aiming at being simple and intuitive"
 HOMEPAGE="http://www.skrooge.org/"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="
