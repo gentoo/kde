@@ -4,12 +4,12 @@
 
 EAPI=5
 
-KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu ia
-it ja ko lt mr ms nb nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
+KDE_LINGUAS="ast bg bs ca ca@valencia cs da de el en_GB eo es et fi fr ga gl hu
+ia it ja ko lt mr ms nb nds nl pl pt pt_BR ro ru sk sv tr ug uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="personal finances manager for KDE4, aiming at being simple and intuitive"
+DESCRIPTION="Personal finances manager for KDE4, aiming at being simple and intuitive"
 HOMEPAGE="http://www.skrooge.org/"
 
 LICENSE="GPL-2"
@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	$(add_kdebase_dep kactivities)
 	$(add_kdebase_dep kdepimlibs)
 	app-crypt/qca:2[qt4]
 	dev-db/sqlite:3
