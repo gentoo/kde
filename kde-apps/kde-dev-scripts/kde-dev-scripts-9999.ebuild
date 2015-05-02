@@ -4,13 +4,14 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
 DESCRIPTION="KDE Development Scripts"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
+DEPEND="$(add_frameworks_dep kdoctools)" # to use ECM instead of kdelibs4
 RDEPEND="
 	app-arch/advancecomp
 	media-gfx/optipng
@@ -21,5 +22,5 @@ src_prepare() {
 	# bug 275069
 	sed -ie 's:colorsvn::' CMakeLists.txt || die
 
-	kde4-base_src_prepare
+	kde5_src_prepare
 }
