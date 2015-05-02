@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr gl
-hu it kk nds nl pl pt pt_BR ro ru sv uk zh_TW"
+hu it kk nds nl pl pt pt_BR ro ru sk sv tr uk zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
@@ -31,8 +31,8 @@ COMMON_DEPEND="
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-5.0.1
-		>=sys-libs/gwenhywfar-4.0.1[qt4]
+		>=net-libs/aqbanking-5.3.3
+		>=sys-libs/gwenhywfar-4.13.1[qt4]
 	)
 	ofx? ( >=dev-libs/libofx-0.9.4 )
 "
