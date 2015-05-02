@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug calendar doc hbci ofx quotes"
 
 COMMON_DEPEND="
@@ -31,8 +31,8 @@ COMMON_DEPEND="
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-5.3.3
-		>=sys-libs/gwenhywfar-4.13.1[qt4]
+		>=net-libs/aqbanking-5.0.1
+		>=sys-libs/gwenhywfar-4.0.1[qt4]
 	)
 	ofx? ( >=dev-libs/libofx-0.9.4 )
 "
