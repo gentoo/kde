@@ -7,7 +7,7 @@ EAPI=5
 inherit qt4-r2
 DESCRIPTION="A flexible and cross platform input method framework"
 HOMEPAGE="http://maliit.org"
-SRC_URI="http://maliit.org/releases/${PN}/${PF}.tar.bz2"
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/${PN}/${P}.tar.bz2/fb60280410be256d49e3f2228db5f055/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
