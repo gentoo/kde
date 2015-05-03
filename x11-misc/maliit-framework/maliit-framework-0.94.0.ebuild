@@ -15,9 +15,25 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+dbus doc examples gtk test"
 
 DEPEND="
-	dbus? ( sys-apps/dbus )
-	gtk? ( x11-libs/gtk+ )
-	dev-qt/qtdeclarative
+	dbus? (
+		dev-libs/dbus-glib
+		dev-libs/glib:2
+		dev-qt/qtdbus:4
+		sys-apps/dbus
+	)
+	gtk? (
+		x11-libs/gtk+:2
+		x11-libs/gtk+:3
+		x11-libs/pango
+	)
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtdeclarative:4
+	virtual/libudev:=
+	x11-libs/libX11
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
 "
 
 RDEPEND="${DEPEND}"
