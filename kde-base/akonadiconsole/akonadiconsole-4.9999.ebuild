@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kdepim"
+EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
 DESCRIPTION="Akonadi developer console"

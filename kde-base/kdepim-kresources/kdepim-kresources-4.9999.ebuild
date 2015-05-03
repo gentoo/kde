@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kdepim"
+EGIT_BRANCH="KDE/4.14"
 KMMODULE="kresources"
 inherit kde4-meta
 
