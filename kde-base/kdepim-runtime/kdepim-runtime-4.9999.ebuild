@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kdepim-runtime"
+EGIT_BRANCH="KDE/4.14"
 inherit kde4-base
 
 DESCRIPTION="KDE PIM runtime plugin collection"
