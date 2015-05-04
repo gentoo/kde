@@ -1,6 +1,4 @@
 # Manuel Rüger <mrueg@gentoo.org> (18 April 2015)
-# Only kde4-based packages have been added yet.
-# It is still incomplete regarding kf5 and meta packages.
 ~kde-apps/amor-15.04.0
 ~kde-apps/analitza-15.04.0
 ~kde-apps/ark-15.04.0
@@ -158,6 +156,7 @@
 ~kde-apps/kruler-15.04.0
 ~kde-apps/ktp-accounts-kcm-15.04.0
 ~kde-apps/ktp-approver-15.04.0
+~kde-apps/ktp-auth-handler-15.04.0
 ~kde-apps/ktp-common-internals-15.04.0
 ~kde-apps/ktp-contact-list-15.04.0
 ~kde-apps/ktp-contact-runner-15.04.0
@@ -224,6 +223,7 @@
 ~kde-apps/picmi-15.04.0
 ~kde-apps/plasma-apps-15.04.0
 ~kde-apps/plasma-runtime-15.04.0
+~kde-apps/plasma-telepathy-meta-15.04.0
 ~kde-apps/poxml-15.04.0
 ~kde-apps/print-manager-15.04.0
 ~kde-apps/renamedlg-plugins-15.04.0
