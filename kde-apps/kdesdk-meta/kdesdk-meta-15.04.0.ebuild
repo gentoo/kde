@@ -12,15 +12,19 @@ KEYWORDS=" ~amd64"
 IUSE="cvs"
 
 RDEPEND="
-	$(add_kdeapps_dep dolphin-plugins)
+	|| (
+		( 	$(add_kdeapps_dep dolphin-plugins)
+			kde-apps/kompare:4
+			kde-apps/libkomparediff2:4	)
+		(	$(add_kdeapps_dep kompare)
+			$(add_kdeapps_dep libkomparediff2)	)
+	)
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kcachegrind)
 	$(add_kdeapps_dep kde-dev-scripts)
 	$(add_kdeapps_dep kde-dev-utils)
 	$(add_kdeapps_dep kdesdk-kioslaves)
-	$(add_kdeapps_dep kompare)
-	$(add_kdeapps_dep libkomparediff2)
 	$(add_kdeapps_dep lokalize)
 	$(add_kdeapps_dep okteta)
 	$(add_kdeapps_dep poxml)
