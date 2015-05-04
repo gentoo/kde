@@ -14,8 +14,11 @@ HOMEPAGE="
 	http://gwenview.sourceforge.net/
 "
 KEYWORDS=" ~amd64"
-IUSE="kipi raw semantic-desktop"
+IUSE="semantic-desktop"
 
+# Not released: USE="kipi raw"
+# kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
+# raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
 DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
@@ -45,18 +48,17 @@ DEPEND="
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
 	x11-libs/libX11
-	kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
-	raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
 	semantic-desktop? ( $(add_plasma_dep baloo) )
 "
 
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package kipi KF5Kipi)
-		$(cmake-utils_use_find_package raw KF5KDcraw)
-	)
+#	Not released:
+#	local mycmakeargs=(
+#		$(cmake-utils_use_find_package kipi KF5Kipi)
+#		$(cmake-utils_use_find_package raw KF5KDcraw)
+#	)
 
 	# Workaround for bug #479510
 	if [[ -e ${EPREFIX}/usr/include/${CHOST}/jconfig.h ]]; then
