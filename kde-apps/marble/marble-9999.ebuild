@@ -29,6 +29,7 @@ RDEPEND="
 	dev-qt/qtsql:4
 	dev-qt/qtsvg:4
 	dev-qt/qtwebkit:4
+	designer-plugin? ( dev-qt/designer:4 )
 	gps? ( >=sci-geosciences/gpsd-2.95[qt4] )
 	kde? ( media-libs/phonon[qt4] )
 	phonon? ( media-libs/phonon[qt4] )
