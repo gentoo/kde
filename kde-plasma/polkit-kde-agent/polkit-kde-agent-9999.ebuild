@@ -27,6 +27,5 @@ DEPEND="
 	>=sys-auth/polkit-qt-0.112.0[qt5]
 "
 RDEPEND="${DEPEND}
-	!sys-auth/polkit-kde
 	!sys-auth/polkit-kde-agent:5
 "
