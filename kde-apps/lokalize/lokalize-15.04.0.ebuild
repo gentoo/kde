@@ -33,10 +33,7 @@ DEPEND="${PYTHON_DEPS}
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep pykde5 "${PYTHON_USEDEP}")
 	dev-python/translate-toolkit[${PYTHON_USEDEP}]
-	!kde-apps/lokalize:4
-	!kde-base/lokalize
 "
 
 pkg_setup() {
