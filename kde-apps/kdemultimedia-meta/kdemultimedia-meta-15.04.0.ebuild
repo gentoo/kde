@@ -15,9 +15,10 @@ KEYWORDS=" ~amd64"
 IUSE="+ffmpeg mplayer"
 
 RDEPEND="
+	$(add_kdeapps_dep audiocd-kio)
 	$(add_kdeapps_dep dragon)
 	$(add_kdeapps_dep juk)
-	$(add_kdeapps_dep audiocd-kio)
+	$(add_kdeapps_dep kdenlive)
 	$(add_kdeapps_dep kmix)
 	$(add_kdeapps_dep kscd)
 	$(add_kdeapps_dep libkcddb)
