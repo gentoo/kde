@@ -34,7 +34,7 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	$(add_kdeapps_dep ktp-common-internals)
+	$(add_kdeapps_dep ktp-common-internals 'otr')
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5
