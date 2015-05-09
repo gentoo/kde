@@ -11,6 +11,8 @@ DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://l10n.kde.org"
 
 DEPEND="
+	kde-frameworks/extra-cmake-modules
+	kde-frameworks/kdoctools
 	sys-devel/gettext
 "
 
@@ -54,6 +56,12 @@ src_unpack() {
 			DIR="${PN}-${LNG}-${PV}"
 			if [[ -d "${DIR}" ]] ; then
 				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
+
+				# Drop KDE PIM 4 files - collision with kde-base/kdepim-l10n
+				rm -f "${S}"/${DIR}/4/${LNG}/messages/kde{pim,pimlibs,pim-runtime}/*.po
+				sed -i -e '/add_subdirectory/ s/^/#/'\
+					"${S}"/${DIR}/4/${LNG}/docs/kde{pim,pimlibs,pim-runtime}/CMakeLists.txt
+
 				# Drop translations that get installed with plasma 5 and kde apps 5 packages
 				if use minimal; then
 
