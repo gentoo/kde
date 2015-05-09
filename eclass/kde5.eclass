@@ -322,10 +322,10 @@ _get_release_date() {
 	case ${CATEGORY} in
 		kde-frameworks)
 			case ${PV} in
-				5.10) echo "20150507" ;;
-				5.11) echo "20150611" ;;
-				5.12) echo "20150709" ;;
-				5.13) echo "20150806" ;;
+				5.10.0) echo "20150507" ;;
+				5.11.0) echo "20150611" ;;
+				5.12.0) echo "20150709" ;;
+				5.13.0) echo "20150806" ;;
 				*) echo "none" ;;
 			esac
 			;;
@@ -339,7 +339,7 @@ _get_release_date() {
 				*) echo "none" ;;
 			esac
 			;;
-		kde-applications)
+		kde-apps)
 			case ${PV} in
 				15.04.1) echo "20150512" ;;
 				15.04.2) echo "20150602" ;;
