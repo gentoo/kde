@@ -359,7 +359,7 @@ _check_fetch_restriction() {
 		KDE_RELEASE_DATE=$(_get_release_date)
 	fi
 	if [[ ${KDE_RELEASE_DATE} != "none" ]]; then
-		if [[ $(date +"%Y%m%d") <  ${KDE_RELEASE_DATE} ]]; then
+		if [[ $(date -u +"%Y%m%d") <  ${KDE_RELEASE_DATE} ]]; then
 			RESTRICT+=" fetch"
 		fi
 	fi
