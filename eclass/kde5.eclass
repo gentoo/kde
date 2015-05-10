@@ -41,6 +41,12 @@ EXPORT_FUNCTIONS pkg_pretend pkg_setup pkg_nofetch src_unpack src_prepare src_co
 # For any other value, add a dependency on dev-qt/qtcore:5 and kde-frameworks/extra-cmake-modules:5.
 : ${KDE_AUTODEPS:=true}
 
+# @ECLASS-VARIABLE: KDE_BLOCK_SLOT4
+# @DESCRIPTION:
+# This variable is used when KDE_AUTODEPS is set.
+# If set to "true", add RDEPEND block on kde-{base,apps}/${PN}:4
+: ${KDE_BLOCK_SLOT4:=true}
+
 # @ECLASS-VARIABLE: KDE_DEBUG
 # @DESCRIPTION:
 # If set to "false", unconditionally build with -DNDEBUG.
@@ -143,7 +149,7 @@ case ${KDE_AUTODEPS} in
 			"
 		fi
 
-		if [[ ${CATEGORY} == kde-apps ]]; then
+		if [[ ${KDE_BLOCK_SLOT4} = true && ${CATEGORY} = kde-apps ]]; then
 			RDEPEND+="
 				!kde-apps/${PN}:4
 				!kde-base/${PN}
