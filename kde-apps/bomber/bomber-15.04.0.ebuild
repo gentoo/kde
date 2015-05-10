@@ -19,6 +19,7 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
 	dev-qt/qtgui:5
