@@ -21,7 +21,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	media-libs/phonon[qt5]
