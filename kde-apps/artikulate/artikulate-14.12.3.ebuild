@@ -6,7 +6,7 @@ EAPI=5
 
 DECLARATIVE_REQUIRED="always"
 KDE_HANDBOOK="optional"
-inherit kde4-base multilib
+inherit kde4-base
 
 DESCRIPTION="Language learning application that helps improving pronunciation skills"
 HOMEPAGE="http://edu.kde.org/applications/language/artikulate"
