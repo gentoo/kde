@@ -30,5 +30,5 @@ RDEPEND="${DEPEND}"
 src_install() {
 	kde5_src_install
 
-	rm "${D}"/usr/share/apps/${PN}/README.packagers
+	rm "${D}"/usr/share/${PN}/README.packagers
 }
