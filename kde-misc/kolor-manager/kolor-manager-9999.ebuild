@@ -15,7 +15,8 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	>=media-libs/oyranos-0.9.5
+	media-gfx/synnefo[-qt5]
+	=media-libs/oyranos-9999
 	media-libs/libXcm
 	x11-libs/libXrandr
 "
