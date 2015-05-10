@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="Cervisia - A KDE CVS frontend"
+DESCRIPTION="A KDE CVS frontend"
 HOMEPAGE="http://www.kde.org/applications/development/cervisia"
 KEYWORDS=""
 IUSE="debug"
