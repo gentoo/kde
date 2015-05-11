@@ -13,20 +13,25 @@ SRC_URI="https://accounts-sso.googlecode.com/files/${PN}-1.11.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="doc"
 
-DEPEND="
+RDEPEND="
 	net-libs/libaccounts-glib
 	dev-libs/glib:2
 	dev-qt/qtcore:5
 	dev-qt/qttest:5
 	dev-qt/qtxml:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )
+"
 
 S="${WORKDIR}/${PN}-1.11"
+
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.11-to-1.13.patch
 	sed -i -e '/^SUBDIRS/s/tests//' accounts-qt.pro || die "couldn't disable tests"
+	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${PN}.pro || die
 }
 
 src_configure() {
