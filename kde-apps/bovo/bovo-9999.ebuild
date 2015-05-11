@@ -16,14 +16,11 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
 	dev-qt/qtconcurrent:5
-	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
