@@ -15,6 +15,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="debug"
 
+RESTRICT="test"
+
 DEPEND="
 	dev-db/sqlite:3
 	dev-libs/glib:2
