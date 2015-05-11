@@ -6,15 +6,13 @@ EAPI=5
 
 inherit autotools eutils
 
-SRC_URI="https://accounts-sso.googlecode.com/files/${PN}-1.16.tar.gz"
-SLOT=0
 DESCRIPTION="Accounts and SSO (Single Sign-On) framework for Linux and POSIX based platforms."
 HOMEPAGE="https://01.org/gsso/"
+SRC_URI="https://accounts-sso.googlecode.com/files/${PN}-1.16.tar.gz"
 
 LICENSE="LGPL-2.1"
-
+SLOT="0"
 KEYWORDS="~x86 ~amd64"
-
 IUSE="debug"
 
 DEPEND="
