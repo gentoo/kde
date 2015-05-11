@@ -29,7 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kfilemetadata)
-	=dev-libs/xapian-1.2*[chert]
+	dev-db/lmdb
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
