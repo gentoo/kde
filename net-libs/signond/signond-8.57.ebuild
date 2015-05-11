@@ -6,13 +6,13 @@ EAPI=5
 
 inherit qmake-utils
 
-SRC_URI="https://accounts-sso.googlecode.com/files/signon-8.56.tar.bz2"
-SLOT="0"
 DESCRIPTION="Signon daemon for libaccounts-glib"
 HOMEPAGE="https://01.org/gsso/"
+SRC_URI="https://accounts-sso.googlecode.com/files/signon-8.56.tar.bz2"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="LGPL-2.1"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 # libproxy[kde] results to segfaults
