@@ -15,6 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
+RESTRICT="test"
+
 # libproxy[kde] results to segfaults
 DEPEND="
 	dev-qt/qtcore:5
