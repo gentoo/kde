@@ -4,6 +4,7 @@
 
 EAPI=5
 
+MY_PN="signon"
 inherit qmake-utils
 
 DESCRIPTION="Signon daemon for libaccounts-glib"
@@ -13,12 +14,12 @@ SRC_URI="https://accounts-sso.googlecode.com/files/signon-8.56.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE="doc test"
 
 RESTRICT="test"
 
 # libproxy[kde] results to segfaults
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
@@ -26,7 +27,9 @@ DEPEND="
 	dev-qt/qtsql:5
 	net-libs/libproxy[-kde]
 "
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}
+	doc? ( app-doc/doxygen )
+"
 
 S="${WORKDIR}/signon-8.56"
 
@@ -35,6 +38,7 @@ src_prepare() {
 	if use !test; then
 		sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
 	fi
+	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${MY_PN}.pro || die
 }
 
 src_configure() {
