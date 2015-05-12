@@ -33,6 +33,7 @@ S="${WORKDIR}/${PN}-1.11"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.11-to-1.13.patch
+	sed -e "s|share/doc/\$\${PROJECT_NAME}|share/doc/${PF}|" -i doc/doc.pri || die
 	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${PN}.pro || die
 	use test || sed -i -e '/^SUBDIRS/s/tests//' accounts-qt.pro || die "couldn't disable tests"
 }
