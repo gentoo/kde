@@ -28,7 +28,7 @@ RDEPEND="
 	dev-qt/qtsql:5
 	net-libs/libproxy[-kde]
 "
-DEPEND="${DEPEND}
+DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? ( dev-qt/qttest:5 )
 "
