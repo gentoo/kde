@@ -30,14 +30,13 @@ RDEPEND="
 "
 DEPEND="${DEPEND}
 	doc? ( app-doc/doxygen )
+	test? ( dev-qt/qttest:5 )
 "
 
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	if use !test; then
-		sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
-	fi
+	use test || sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
 	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${MY_PN}.pro || die
 }
 
