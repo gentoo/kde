@@ -4,11 +4,9 @@
 
 EAPI=5
 
-inherit autotools eutils
-
 DESCRIPTION="Accounts and SSO (Single Sign-On) framework for Linux and POSIX based platforms."
 HOMEPAGE="https://01.org/gsso/"
-SRC_URI="https://accounts-sso.googlecode.com/files/${PN}-1.16.tar.gz"
+SRC_URI="http://dev.gentoo.org/~kensington/distfiles/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -23,13 +21,6 @@ DEPEND="
 	dev-libs/libxml2"
 
 RDEPEND="$DEPEND"
-
-S="${WORKDIR}/${PN}-1.16"
-
-src_prepare() {
-	epatch "${FILESDIR}"/${PN}-1.16-to-1.18.patch
-	eautoreconf
-}
 
 src_configure() {
 	export HAVE_GCOV_FALSE='#'
