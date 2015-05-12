@@ -6,22 +6,23 @@ EAPI=5
 
 inherit qmake-utils
 
-SRC_URI="https://accounts-sso.googlecode.com/files/${P}.tar.bz2"
-SLOT="0"
 DESCRIPTION="OAuth2 plugin for Signon daemon"
 HOMEPAGE="https://01.org/gsso/"
+SRC_URI="http://dev.gentoo.org/~kensington/distfiles/${P}.tar.bz2"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="LGPL-2.1"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
-	dev-qt/qttest:5
 	net-libs/signond
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qttest:5 )
+"
 
 src_prepare() {
 	if use !test; then
