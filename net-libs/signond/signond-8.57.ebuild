@@ -38,7 +38,8 @@ S="${WORKDIR}/${MY_P}"
 src_prepare() {
 	sed -e "s|share/doc/\$\${PROJECT_NAME}|share/doc/${PF}|" -i doc/doc.pri || die
 	use test || sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
-	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${MY_PN}.pro || die
+	use doc || sed -e "/include(\s*doc\/doc.pri\s*)/d" -i \
+		${MY_PN}.pro -i lib/SignOn/SignOn.pro lib/plugins/plugins.pro || die
 }
 
 src_configure() {
