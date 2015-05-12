@@ -6,13 +6,14 @@ EAPI=5
 
 inherit qmake-utils
 
-SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
-SLOT="0"
 DESCRIPTION="Signon UI"
 HOMEPAGE="https://launchpad.net/signon-ui"
+SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2 GPL-3"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
 RESTRICT="test"
 
 # libproxy[kde] results into segfaults
