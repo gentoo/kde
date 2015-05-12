@@ -36,6 +36,7 @@ DEPEND="${DEPEND}
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
+	sed -e "s|share/doc/\$\${PROJECT_NAME}|share/doc/${PF}|" -i doc/doc.pri || die
 	use test || sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
 	use doc || sed -e "/include( doc\/doc.pri )/d" -i ${MY_PN}.pro || die
 }
