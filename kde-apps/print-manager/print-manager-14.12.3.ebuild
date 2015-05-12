@@ -17,7 +17,7 @@ RDEPEND="${DEPEND}
 	!kde-base/printer-applet:4
 	!kde-base/system-config-printer-kde:4
 	!kde-misc/print-manager
-	gtk? ( app-admin/system-config-printer-gnome )
+	gtk? ( || ( app-admin/system-config-printer-gnome app-admin/system-config-printer ) )
 "
 
 pkg_postinst(){
@@ -26,7 +26,7 @@ pkg_postinst(){
 		ewarn "By switching off \"gtk\" USE flag, you have chosen to do without"
 		ewarn "an important, though optional, runtime dependency:"
 		ewarn
-		ewarn "app-admin/system-config-printer-gnome"
+		ewarn "app-admin/system-config-printer"
 		ewarn
 		ewarn "${PN} will work nevertheless, but is going to be less comfortable"
 		ewarn "and will show the following error status during runtime:"
