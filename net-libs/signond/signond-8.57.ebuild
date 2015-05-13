@@ -36,6 +36,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
+	sed -e "s|qdbusxml2cpp|$(qt5_get_bindir)/&|" -i src/signond/signond.pro || die
 	sed -e "s|share/doc/\$\${PROJECT_NAME}|share/doc/${PF}|" -i doc/doc.pri || die
 	use test || sed -i -e '/^SUBDIRS/s/tests//' signon.pro || die "couldn't disable tests"
 	use doc || sed -e "/include(\s*doc\/doc.pri\s*)/d" -i \
