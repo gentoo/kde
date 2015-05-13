@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 KDE_REQUIRED="never"
-inherit python-single-r1 kde4-base
+inherit python-any-r1 kde4-base
 
 DESCRIPTION="Qt interface to the Zeitgeist event tracking system"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/libqzeitgeist"
@@ -21,19 +21,28 @@ LICENSE="GPL-2"
 SLOT="4"
 IUSE="debug"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-libs/libzeitgeist
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	dev-qt/qtdeclarative:4
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
+	$(python_gen_any_dep 'gnome-extra/zeitgeist[${PYTHON_USEDEP}]')
 	gnome-extra/zeitgeist
 "
 
+python_check_deps() {
+	has_version "gnome-extra/zeitgeist[${PYTHON_USEDEP}]"
+}
+
 pkg_setup() {
-	python-single-r1_pkg_setup
+	python-any-r1_pkg_setup
 	kde4-base_pkg_setup
+}
+
+src_prepare() {
+	sed -e "/^find_package(Qt4/s/QtTest//" -i CMakeLists.txt || die
+
+	kde4-base_src_prepare
 }
