@@ -29,5 +29,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
+	dev-qt/qtgraphicaleffects:5
 	!kde-misc/kscreen
 "
