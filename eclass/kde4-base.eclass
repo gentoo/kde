@@ -440,6 +440,9 @@ _calculate_src_uri() {
 					# Part of 14.12.3 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/14.12.3/src/${_kmname_pv}.tar.xz" ;;
 				4.11.18)
+					# Part of 15.04.1 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/applications/15.04.1/src/${_kmname_pv}.tar.xz" ;;
+				4.11.19)
 					# Part of 15.04.0 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/15.04.0/src/${_kmname_pv}.tar.xz" ;;
 				4.14.6)
@@ -448,6 +451,9 @@ _calculate_src_uri() {
 				4.14.7)
 					# Part of 15.04.0 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/15.04.0/src/${_kmname_pv}.tar.xz" ;;
+				4.14.8)
+					# Part of 15.04.1 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/applications/15.04.1/src/${_kmname_pv}.tar.xz" ;;
 				??.?.[6-9]? | ??.??.[4-9]?)
 					# Unstable KDE Applications releases
 					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
