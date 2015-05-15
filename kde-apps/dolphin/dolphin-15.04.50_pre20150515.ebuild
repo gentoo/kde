@@ -12,7 +12,7 @@ inherit kde5 git-r3
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="http://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="semantic-desktop"
+IUSE="semantic-desktop thumbnail"
 
 EGIT_REPO_URI="git://anongit.kde.org/${PN}"
 EGIT_COMMIT="8b12612bbf8ae4500a84634087a074d94a495eec"
@@ -56,6 +56,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kio-extras)
+	thumbnail? (
+		>=kde-apps/ffmpegthumbs-15.04.50_pre20150515
+		>=kde-apps/thumbnailers-15.04.50_pre20150515
+	)
 "
 
 RESTRICT="test"
