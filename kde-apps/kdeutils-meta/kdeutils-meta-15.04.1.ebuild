@@ -12,17 +12,17 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="cups floppy lirc"
 
 RDEPEND="
-	$(add_kdeapps_dep ark)
+	$(add_kdebase_dep ark)
 	$(add_kdeapps_dep filelight)
 	$(add_kdeapps_dep kcalc)
 	$(add_kdeapps_dep kcharselect)
-	$(add_kdeapps_dep kdf)
-	$(add_kdeapps_dep kgpg)
+	$(add_kdebase_dep kdf)
+	$(add_kdebase_dep kgpg)
 	$(add_kdeapps_dep ktimer)
-	$(add_kdeapps_dep kwalletmanager)
-	$(add_kdeapps_dep superkaramba)
-	$(add_kdeapps_dep sweeper)
+	$(add_kdebase_dep kwalletmanager)
+	$(add_kdebase_dep superkaramba)
+	$(add_kdebase_dep sweeper)
 	cups? ( $(add_kdeapps_dep print-manager) )
-	floppy? ( $(add_kdeapps_dep kfloppy) )
-	lirc? ( $(add_kdeapps_dep kremotecontrol) )
+	floppy? ( $(add_kdebase_dep kfloppy) )
+	lirc? ( $(add_kdebase_dep kremotecontrol) )
 "

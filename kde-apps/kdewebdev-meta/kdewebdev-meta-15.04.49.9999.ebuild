@@ -11,8 +11,8 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kfilereplace)
-	$(add_kdeapps_dep kimagemapeditor)
-	$(add_kdeapps_dep klinkstatus)
-	$(add_kdeapps_dep kommander)
+	$(add_kdebase_dep kfilereplace)
+	$(add_kdebase_dep kimagemapeditor)
+	$(add_kdebase_dep klinkstatus)
+	$(add_kdebase_dep kommander)
 "

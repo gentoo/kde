@@ -11,9 +11,9 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep jovie)
-	$(add_kdeapps_dep kaccessible)
-	$(add_kdeapps_dep kmag)
-	$(add_kdeapps_dep kmousetool)
-	$(add_kdeapps_dep kmouth)
+	$(add_kdebase_dep jovie)
+	$(add_kdebase_dep kaccessible)
+	$(add_kdebase_dep kmag)
+	$(add_kdebase_dep kmousetool)
+	$(add_kdebase_dep kmouth)
 "

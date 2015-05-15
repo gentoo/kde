@@ -12,18 +12,22 @@ KEYWORDS=""
 IUSE="cvs"
 
 RDEPEND="
-	$(add_kdeapps_dep dolphin-plugins)
+	|| (
+		( 	$(add_kdebase_dep dolphin-plugins)
+			kde-base/kompare:4
+			kde-base/libkomparediff2:4	)
+		(	$(add_kdeapps_dep kompare)
+			$(add_kdeapps_dep libkomparediff2)	)
+	)
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kate)
-	$(add_kdeapps_dep kcachegrind)
-	$(add_kdeapps_dep kde-dev-scripts)
-	$(add_kdeapps_dep kde-dev-utils)
-	$(add_kdeapps_dep kdesdk-kioslaves)
-	$(add_kdeapps_dep kompare)
-	$(add_kdeapps_dep libkomparediff2)
+	$(add_kdebase_dep kcachegrind)
+	$(add_kdebase_dep kde-dev-scripts)
+	$(add_kdebase_dep kde-dev-utils)
+	$(add_kdebase_dep kdesdk-kioslaves)
 	$(add_kdeapps_dep lokalize)
 	$(add_kdeapps_dep okteta)
-	$(add_kdeapps_dep poxml)
-	$(add_kdeapps_dep umbrello)
-	cvs? ( $(add_kdeapps_dep cervisia) )
+	$(add_kdebase_dep poxml)
+	$(add_kdebase_dep umbrello)
+	cvs? ( $(add_kdebase_dep cervisia) )
 "
