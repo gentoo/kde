@@ -1,0 +1,35 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI=5
+
+EGIT_BRANCH="frameworks"
+inherit kde5 git-r3
+
+DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
+KEYWORDS=" ~amd64 ~x86"
+IUSE="+xmp"
+
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+EGIT_COMMIT="bba8e5f2ccaa0047a81c376e0d2efd0f57b3e8de"
+SRC_URI=""
+
+DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep khtml)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep ktextwidgets)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	>=media-gfx/exiv2-0.24:=[xmp=]
+"
+RDEPEND="${DEPEND}"
+
+src_unpack() {
+	git-r3_src_unpack
+}
