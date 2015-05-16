@@ -36,6 +36,8 @@ RDEPEND="${DEPEND}
 	!kde-base/kmix:4
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.9999-alsa-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DKMIX_KF5_BUILD=ON
