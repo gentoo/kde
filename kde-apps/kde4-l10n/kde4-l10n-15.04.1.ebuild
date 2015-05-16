@@ -23,13 +23,24 @@ RDEPEND="
 KEYWORDS=" ~amd64 ~x86"
 IUSE="minimal"
 
+LV="4.14.3"
+LEGACY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl
+he hi hr hu ia id is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro ru
+sk sl sr sv tr ug uk wa zh_CN zh_TW"
+
 # /usr/portage/distfiles $ ls -1 kde-l10n-*-${PV}.* |sed -e 's:-${PV}.tar.xz::' -e 's:kde-l10n-::' |tr '\n' ' '
 MY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga gl
 he hi hr hu ia id is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro ru
 sk sl sr sv tr ug uk wa zh_CN zh_TW"
 
 URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
+LURI_BASE="mirror://kde/stable/${LV}/src/${KMNAME}"
 SRC_URI=""
+
+for MY_LANG in ${LEGACY_LANGS} ; do
+	IUSE="${IUSE} linguas_${MY_LANG}"
+	SRC_URI="${SRC_URI} linguas_${MY_LANG}? ( ${LURI_BASE}/${KMNAME}-${MY_LANG}-${LV}.tar.xz )"
+done
 
 for MY_LANG in ${MY_LANGS} ; do
 	IUSE="${IUSE} linguas_${MY_LANG}"
@@ -169,6 +180,12 @@ kio_baloosearch,kio_tags,kio_timeline,plasma_runner_baloosearchrunner}.po
 					sed -i -e '/docbook/ s/^/#/'\
 						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/klipper/CMakeLists.txt
 
+				else
+					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
+						# Merge legacy localisation
+						find "${KMNAME}-${LNG}-${LV}" -name "*.po" | while read file; \
+							do cp -rn "${file}" "${file/${LV}/${PV}/4/${LNG}}"; done
+					fi
 				fi
 			fi
 		done
