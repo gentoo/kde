@@ -11,7 +11,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	app-crypt/gpgme:=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/boost
+"
