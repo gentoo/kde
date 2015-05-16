@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdeapps_dep libkdegames)
+	$(add_kdeapps_dep libkdegames '' '14.12.3')
 	media-libs/libsndfile
 	media-libs/openal
 "

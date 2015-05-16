@@ -17,7 +17,7 @@ IUSE="debug"
 
 DEPEND="
 	app-crypt/qca:2[qt4]
-	$(add_kdeapps_dep libkdegames)
+	$(add_kdeapps_dep libkdegames '' '14.12.3')
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"

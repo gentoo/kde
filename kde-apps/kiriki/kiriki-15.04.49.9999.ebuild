@@ -15,5 +15,5 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames '' '14.12.3')"
 RDEPEND="${DEPEND}"

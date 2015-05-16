@@ -11,7 +11,7 @@ HOMEPAGE="http://games.kde.org/game.php?game=picmi"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="$(add_kdeapps_dep libkdegames '' '14.12.3')"
 RDEPEND="${DEPEND}"
 
 RESTRICT=test
