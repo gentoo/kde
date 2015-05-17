@@ -4,68 +4,67 @@
 
 EAPI=5
 
+KDE_HANDBOOK=true
+KDE_TEST=true
 inherit kde5
 
 DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="designer prison ssl test"
+IUSE="designer prison ssl"
 
-# some akonadi tests timeout, that probaly needs more work as its ~700 tests
+# some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-COMMON_DEPEND="
+RDEPEND="
+	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kldap)
-	app-office/akonadi-server
-	dev-libs/libxml2
-	dev-qt/qtgui:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
-	media-libs/phonon[qt5]
-	prison? ( media-libs/prison:5 )
-	ssl? ( dev-libs/cyrus-sasl )
-	test? ( dev-qt/qttest:5 )
-"
-RDEPEND="
-	${COMMON_DEPEND}
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kservice)
-	$(add_kdeapps_dep kmime)
-	dev-qt/qtdbus:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtxml:5
-"
-DEPEND="
-	${COMMON_DEPEND}
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kdoctools)
+	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmbox)
-	dev-libs/boost
+	$(add_kdeapps_dep kmime)
+	app-office/akonadi-server
+	dev-libs/libxml2
 	dev-libs/libxslt
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtsql:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	media-libs/phonon[qt5]
 	x11-misc/shared-mime-info
-	designer? ( dev-qt/designer )
+	designer? ( dev-qt/designer:5 )
+	prison? ( media-libs/prison:5 )
+	ssl? ( dev-libs/cyrus-sasl )
 "
+DEPEND="${RDEPEND}
+	dev-libs/boost"
 
 src_prepare() {
+	use handbook || \
+		sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
+			-e '/^add_subdirectory(docs)/ s/^/#/' \
+			-i kioslave/CMakeLists.txt || die
 	# kdepimlibs contains many projects for which we have to run our kde5_src_prepare
 	for d in $(find "${S}" -maxdepth 1 -type d); do
 		pushd "$d"
