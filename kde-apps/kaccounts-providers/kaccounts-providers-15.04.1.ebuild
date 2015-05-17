@@ -13,6 +13,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 DEPEND="
+	dev-util/intltool
 	net-libs/libaccounts-glib
 "
 RDEPEND="
