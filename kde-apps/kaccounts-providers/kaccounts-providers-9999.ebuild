@@ -13,6 +13,7 @@ IUSE=""
 
 DEPEND="
 	$(add_kdeapps_dep kaccounts-integration)
+	dev-util/intltool
 "
 RDEPEND="
 	net-im/telepathy-connection-managers[xmpp]

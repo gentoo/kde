@@ -12,6 +12,7 @@ LICENSE="LGPL-2.1"
 IUSE=""
 
 DEPEND="
+	dev-util/intltool
 	net-libs/libaccounts-glib
 "
 RDEPEND="
