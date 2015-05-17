@@ -14,11 +14,15 @@ IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwallet)
 	$(add_kdeapps_dep kdepimlibs)
 	$(add_kdeapps_dep kmime)
+	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}"
 
