@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdeapps_dep libkdegames)
-	$(add_kdeapps_dep libkmahjongg)
+	$(add_kdeapps_dep libkdegames '' '14.12.3')
+	$(add_kdeapps_dep libkmahjongg '' '14.12.3')
 "
 RDEPEND="${DEPEND}"
