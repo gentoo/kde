@@ -12,7 +12,7 @@ LICENSE="LGPL-2.1"
 IUSE=""
 
 DEPEND="
-	net-libs/libaccounts-glib
+	$(add_kdeapps_dep kaccounts-integration)
 "
 RDEPEND="
 	net-im/telepathy-connection-managers[xmpp]
