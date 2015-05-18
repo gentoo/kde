@@ -13,7 +13,7 @@ DESCRIPTION="KDE Archiving tool"
 HOMEPAGE="http://www.kde.org/applications/utilities/ark
 http://utils.kde.org/projects/ark"
 KEYWORDS=""
-IUSE=""
+IUSE="dolphin"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -36,8 +36,16 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
+	dolphin? ( $(add_kdeapps_dep libkonq) )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package dolphin KF5Konq)
+	)
+	kde5_src_configure
+}
 
 pkg_postinst() {
 	kde5_pkg_postinst
