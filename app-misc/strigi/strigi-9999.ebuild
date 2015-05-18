@@ -20,7 +20,7 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/strigi/strigi"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="clucene +dbus debug exif fam ffmpeg inotify log +qt4 test"
+IUSE="clucene +dbus debug exif fam ffmpeg inotify libav log +qt4 test"
 
 RDEPEND="
 	app-arch/bzip2
@@ -34,7 +34,10 @@ RDEPEND="
 	)
 	exif? ( media-gfx/exiv2:= )
 	fam? ( virtual/fam )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? (
+		libav? ( media-video/libav:0= )
+		!libav? ( media-video/ffmpeg:0= )
+	)
 	log? ( >=dev-libs/log4cxx-0.10.0 )
 	qt4? (
 		dev-qt/qtcore:4
