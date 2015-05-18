@@ -52,6 +52,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kio-extras)
+	$(add_kdeapps_dep libkonq '' 5.9999)
 "
 
 RESTRICT="test"
