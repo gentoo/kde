@@ -576,6 +576,10 @@ _calculate_live_repo() {
 			[[ ${PV} != 4.9999* && ${PV} != 9999 && ${KDEBASE} == kde-base ]] && \
 				EGIT_BRANCH="KDE/$(get_kde_version)"
 
+			# Applications branching
+			[[ ${PV} == ??.??.49.9999 && ${KDEBASE} == kde-base ]] && \
+				EGIT_BRANCH="Applications/$(get_kde_version)"
+
 			# default repo uri
 			EGIT_REPO_URI+=( "${EGIT_MIRROR}/${_kmname}" )
 
