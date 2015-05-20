@@ -4,34 +4,16 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
-inherit kde5
+KDE_HANDBOOK="optional"
+inherit kde4-base
 
-DESCRIPTION="A simple video player"
+DESCRIPTION="Dragon Player is a simple video player for KDE 4"
 HOMEPAGE="http://www.kde.org/applications/multimedia/dragonplayer"
 KEYWORDS=""
-IUSE=""
+IUSE="debug xine"
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	media-libs/phonon[qt5]
+	media-libs/phonon[qt4]
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
