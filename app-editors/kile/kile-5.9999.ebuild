@@ -20,14 +20,15 @@ IUSE="+pdf +png"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwindowsystem)
