@@ -8,7 +8,7 @@ inherit kde5 udev
 
 DESCRIPTION="Qt wrapper for Bluez 5 DBus API"
 LICENSE="LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="

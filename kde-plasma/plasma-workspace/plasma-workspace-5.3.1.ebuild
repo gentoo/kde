@@ -11,7 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5 multilib
 
 DESCRIPTION="KDE Plasma workspace"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="dbus +drkonqi gps prison qalculate +systemmonitor"
 
 COMMON_DEPEND="

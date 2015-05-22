@@ -8,7 +8,7 @@ inherit fdo-mime kde5
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://projects.kde.org/projects/extragear/base/bluedevil"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 COMMON_DEPEND="

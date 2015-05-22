@@ -9,7 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="+fontconfig pulseaudio touchpad usb"
 
 COMMON_DEPEND="

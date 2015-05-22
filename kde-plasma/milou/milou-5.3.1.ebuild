@@ -10,7 +10,7 @@ DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/milou"
 
 LICENSE="GPL-2 LGPL-2.1"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="

@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="Unified media experience for any device capable of running KDE"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="semantic-desktop"
 
 DEPEND="

@@ -10,7 +10,7 @@ KDE_SCM="svn"
 inherit kde5
 
 DESCRIPTION="Additional wallpapers for the Plasma workspace"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
