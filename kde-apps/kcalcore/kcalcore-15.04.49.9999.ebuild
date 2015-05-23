@@ -8,20 +8,18 @@ KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Library for interacting with IMAP servers"
+DESCRIPTION="Library for handling calendar data"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	$(add_kdeapps_dep kmime)
+DEPEND="
 	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	dev-libs/cyrus-sasl
+	dev-libs/libical:=
+	dev-qt/qtgui:5
+	sys-apps/util-linux
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+RDEPEND="${DEPEND}"
