@@ -13,6 +13,8 @@ LICENSE="GPL-2"
 IUSE=""
 SLOT=4
 
+KEYWORDS=""
+
 DEPEND=">=media-libs/opencv-2.4.9"
 RDEPEND="${DEPEND}
 	!media-libs/libkface"

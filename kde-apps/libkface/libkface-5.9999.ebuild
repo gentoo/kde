@@ -13,12 +13,14 @@ HOMEPAGE="http://api.kde.org/4.x-api/kdegraphics-apidocs/libs/libkface/libkface/
 LICENSE="GPL-2"
 IUSE=""
 
-CDEPEND=">=media-libs/opencv-2.4.9
-	dev-qt/qtwidgets:5
-	dev-qt/qtsql:5
-	dev-qt/qtxml:5
+CDEPEND="
+	$(add_frameworks_dep ki18n)
 	dev-qt/qtgui:5
-	kde-frameworks/ki18n"
+	dev-qt/qtsql:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	>=media-libs/opencv-2.4.9
+"
 DEPEND="${CDEPEND}
 	sys-devel/gettext"
 RDEPEND="${CDEPEND}

@@ -14,13 +14,13 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kmime)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_kdeapps_dep kmime)
 	dev-libs/cyrus-sasl
+	dev-qt/qtgui:5
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
