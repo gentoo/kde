@@ -8,20 +8,18 @@ KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Library for interacting with IMAP servers"
+DESCRIPTION="Library for interacting with LDAP servers"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kmime)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
 	dev-libs/cyrus-sasl
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	net-nds/openldap
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+DEPEND="${RDEPEND}"

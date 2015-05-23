@@ -296,10 +296,6 @@ add_kdeapps_dep() {
 	# to allow merging packages against more stable basic stuff
 	elif [[ ${PV} == *.9999 ]]; then
 		ver=$(get_kde_version)
-	# if building live master depend on final stable applications version
-	# as live KDE4 ebuilds are slowly being shown the door
-	elif [[ ${CATEGORY} == kde-apps && ${PV} == 9999 ]]; then
-		ver=14.12.3
 	else
 		ver=${PV}
 	fi

@@ -23,7 +23,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	net-libs/accounts-qt

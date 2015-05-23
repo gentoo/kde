@@ -54,7 +54,6 @@ src_install() {
 	kde4-meta_src_install
 
 	if use minimal; then
-		rm "${D}"/usr/lib64/libmolletnetwork.so
 		rm -rf "${D}"/usr/share/config.kcfg/
 	fi
 }

@@ -5,23 +5,24 @@
 EAPI=5
 
 KDE_DOXYGEN="true"
-KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Library for interacting with IMAP servers"
+DESCRIPTION="Library for embedding KParts in a Kontact component"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kmime)
-	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
-	dev-libs/cyrus-sasl
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+DEPEND="${RDEPEND}"
