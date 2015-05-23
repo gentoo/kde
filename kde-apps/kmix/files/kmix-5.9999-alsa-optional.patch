@@ -1,0 +1,26 @@
+--- a/CMakeLists.txt	2015-05-16 22:31:57.555962909 +0200
++++ b/CMakeLists.txt	2015-05-16 22:19:13.393985683 +0200
+@@ -79,7 +79,9 @@
+ endif()
+ 
+ find_package(Alsa)
+-alsa_configure_file(${CMAKE_BINARY_DIR}/config-alsa.h)
++if(Alsa_FOUND)
++    alsa_configure_file(${CMAKE_BINARY_DIR}/config-alsa.h)
++endif()
+ 
+ add_definitions (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS} )
+ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=67100)
+--- a/backends/kmix-backends.cpp	2015-05-16 22:31:36.650963532 +0200
++++ b/backends/kmix-backends.cpp	2015-05-16 22:22:57.761978996 +0200
+@@ -23,7 +23,10 @@
+ /* This code is being #include'd from mixer.cpp */
+ 
+ #include <config.h>
++
++#if defined(HAVE_LIBASOUND2)
+ #include <config-alsa.h>
++#endif
+ 
+ #include "mixer_backend.h"
+ #include "core/mixer.h"
