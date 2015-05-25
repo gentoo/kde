@@ -55,14 +55,24 @@ src_prepare() {
 			DIR="${PN}-${LNG}-${PV}"
 			if [[ -d "${DIR}" ]] ; then
 				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
+
 				# Drop KDE4-based part
 				sed -e '/add_subdirectory(4)/ s/^/#/'\
 					-i "${S}"/${DIR}/CMakeLists.txt || die
+
 				# Handbook optional
 				sed -e '/KF5DocTools/ s/ REQUIRED//'\
 					-i "${S}"/${DIR}/5/${LNG}/CMakeLists.txt || die
-				use handbook || sed -e '/add_subdirectory(docs)/ s/^/#/'\
-					-i "${S}"/${DIR}/5/${LNG}/CMakeLists.txt || dies
+				if ! use handbook ; then
+					sed -e '/add_subdirectory(docs)/ s/^/#/'\
+						-i "${S}"/${DIR}/5/${LNG}/CMakeLists.txt || die
+				fi
+
+				# Fix broken LINGUAS=sr (KDE4 leftover)
+				if [[ ${LNG} = "sr" ]] ; then
+					sed -e '/add_subdirectory(lokalize)/ s/^/#/'\
+						-i "${S}"/${DIR}/5/${LNG}/data/kdesdk/CMakeLists.txt || die
+				fi
 			fi
 		done
 	fi
