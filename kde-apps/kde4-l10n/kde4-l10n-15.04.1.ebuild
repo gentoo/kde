@@ -23,6 +23,7 @@ RDEPEND="
 KEYWORDS=" ~amd64 ~x86"
 IUSE="minimal"
 
+REMOVE_DIRS="${FILESDIR}/${PN}-15.04.1-remove-dirs"
 REMOVE_MSGS="${FILESDIR}/${PN}-15.04.1-remove-messages"
 
 LV="4.14.3"
@@ -82,45 +83,18 @@ src_prepare() {
 				if use minimal; then
 					einfo "Removing paths from ${LNG}"
 
-					# kde-l10n 5
-					sed -e '/kig/ s/^/#/' -e '/step/ s/^/#/'\
-						-i "${S}"/${DIR}/4/${LNG}/docs/kdeedu/CMakeLists.txt
-					sed -e '/kruler/ s/^/#/'\
-						-i "${S}"/${DIR}/4/${LNG}/docs/kdegraphics/CMakeLists.txt
-					sed -e '/okteta/ s/^/#/' -e '/kapptemplate/ s/^/#/'\
-						-i "${S}"/${DIR}/4/${LNG}/docs/kdesdk/CMakeLists.txt
+					# Remove dirs
+					while read path; do
+						if [[ -e "${S}"/${DIR}/4/${LNG}/${path%\ *}/CMakeLists.txt ]] ; then
+							sed -e "/${path#*\ }/ s/^/#/"\
+								-i "${S}"/${DIR}/4/${LNG}/${path%\ *}/CMakeLists.txt
+						fi
+					done < <(grep -v "^#" "${REMOVE_DIRS}")
 
 					# Remove messages
 					for path in $(grep -v "^#" "${REMOVE_MSGS}") ; do
 						rm -f "${S}"/${DIR}/4/${LNG}/messages/${path}
 					done
-
-					# Plasma 5.3
-					# kdesu, ksysguard, kio-extras, khelpcenter, systemsettings, kinfocenter, kmenuedit, plasma-desktop
-					sed -i -e '/kdesu/ s/^/#/' -e '/fundamentals/ s/^/#/'\
-						-e '/onlinehelp/ s/^/#/' -e '/khelpcenter/ s/^/#/'\
-						-e '/knetattach/ s/^/#/'\
-						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/CMakeLists.txt
-
-					sed -i -e '/ksysguard/ s/^/#/' -e '/systemsettings/ s/^/#/'\
-						-e '/kinfocenter/ s/^/#/' -e '/kmenuedit/ s/^/#/'\
-						-e '/kfontview/ s/^/#/' -e '/plasma-desktop/ s/^/#/'\
-						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/CMakeLists.txt
-
-					sed -i -e '/kcmcgi/ s/^/#/' -e '/trash/ s/^/#/' -e '/bookmarks/ s/^/#/'\
-						-e '/cookies/ s/^/#/' -e '/ebrowsing/ s/^/#/' -e '/emoticons/ s/^/#/'\
-						-e '/icons/ s/^/#/' -e '/khtml/ s/^/#/' -e '/smb/ s/^/#/'\
-						-e '/useragent/ s/^/#/'\
-						"${S}"/${DIR}/4/${LNG}/docs/kde-runtime/kcontrol/CMakeLists.txt
-
-					sed -i -e '/joystick/ s/^/#/' -e '/kcmaccess/ s/^/#/'\
-						-e '/kcmstyle/ s/^/#/' -e '/solid-actions/ s/^/#/'\
-						-e '/splashscreen/ s/^/#/' -e '/clock/ s/^/#/' -e '/colors/ s/^/#/'\
-						-e '/desktopthemedetails/ s/^/#/'\
-						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/kcontrol/CMakeLists.txt
-
-					sed -i -e '/docbook/ s/^/#/'\
-						"${S}"/${DIR}/4/${LNG}/docs/kde-workspace/klipper/CMakeLists.txt
 
 				else
 					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
