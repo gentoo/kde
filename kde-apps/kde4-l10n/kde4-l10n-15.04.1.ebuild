@@ -82,6 +82,9 @@ src_prepare() {
 				# Drop translations that get installed with plasma 5 and kde apps 5 packages
 				if use minimal; then
 					einfo "Removing paths from ${LNG}"
+					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
+						rm -rf "${KMNAME}-${LNG}-${LV}"
+					fi
 
 					# Remove dirs
 					while read path; do
@@ -99,8 +102,10 @@ src_prepare() {
 				else
 					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
 						# Merge legacy localisation
-						find "${KMNAME}-${LNG}-${LV}" -name "*.po" | while read file; \
-							do cp -rn "${file}" "${file/${LV}/${PV}/4/${LNG}}"; done
+						for path in $(find "${KMNAME}-${LNG}-${LV}" -name "*.po"); do
+							cp -rn "${path}" "${path/${LV}/${PV}/4/${LNG}}" || die
+						done
+						rm -rf "${KMNAME}-${LNG}-${LV}"
 					fi
 				fi
 			fi
