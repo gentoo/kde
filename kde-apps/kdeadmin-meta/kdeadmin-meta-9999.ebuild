@@ -12,6 +12,6 @@ IUSE=""
 
 RDEPEND="
 	$(add_kdeapps_dep kcron)
-	$(add_kdeapps_dep ksystemlog)
-	$(add_kdeapps_dep kuser)
+	$(add_kdebase_dep ksystemlog)
+	$(add_kdebase_dep kuser)
 "

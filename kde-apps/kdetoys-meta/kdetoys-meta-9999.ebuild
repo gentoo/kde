@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep amor)
-	$(add_kdeapps_dep kteatime)
-	$(add_kdeapps_dep ktux)
+	$(add_kdebase_dep amor)
+	$(add_kdebase_dep kteatime)
+	$(add_kdebase_dep ktux)
 "

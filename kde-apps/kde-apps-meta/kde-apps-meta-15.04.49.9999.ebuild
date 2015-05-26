@@ -25,7 +25,7 @@ RDEPEND="
 	accessibility? ( $(add_kdeapps_dep kdeaccessibility-meta) )
 	nls? (
 		$(add_kdeapps_dep kde-l10n)
-		$(add_kdeapps_dep kde4-l10n)
+		$(add_kdebase_dep kde4-l10n)
 	)
 	sdk? (
 		$(add_kdeapps_dep kdesdk-meta)
