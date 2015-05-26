@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_BLOCK_SLOT4="false"
 KDE_HANDBOOK="true"
 EGIT_BRANCH="frameworks"
 inherit kde5
@@ -36,5 +37,6 @@ DEPEND="
 	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}
+	!kde-apps/kwalletmanager:4[-minimal(-)]
 	!kde-base/kwalletmanager:4
 "
