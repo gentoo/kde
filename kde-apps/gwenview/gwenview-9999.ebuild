@@ -58,11 +58,6 @@ src_configure() {
 		$(cmake-utils_use_find_package raw KF5KDcraw)
 	)
 
-	# Workaround for bug #479510
-	if [[ -e ${EPREFIX}/usr/include/${CHOST}/jconfig.h ]]; then
-		mycmakeargs+=( -DJCONFIG_H="${EPREFIX}/usr/include/${CHOST}/jconfig.h" )
-	fi
-
 	if use semantic-desktop; then
 		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Baloo)
 	else
