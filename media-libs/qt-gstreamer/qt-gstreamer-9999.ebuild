@@ -53,6 +53,8 @@ DEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-1.2.0-boost157.patch" )
+
 # bug 497880
 RESTRICT="test"
 
