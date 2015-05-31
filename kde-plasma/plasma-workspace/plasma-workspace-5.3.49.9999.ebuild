@@ -129,7 +129,7 @@ RESTRICT="test"
 
 src_prepare() {
 	# whole patch should be upstreamed, doesn't work in PATCHES
-	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
+	epatch "${FILESDIR}/${PN}-tests-optional.patch"
 
 	kde5_src_prepare
 
