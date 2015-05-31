@@ -370,7 +370,7 @@ case ${KDE_SELINUX_MODULE} in
 	none)	;;
 	*)
 		IUSE+=" selinux"
-		kdecommondepend+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
+		kderdepend+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
 		;;
 esac
 
