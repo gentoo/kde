@@ -16,7 +16,9 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtnetwork:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-plasma/bluez-qt
+"
 
 src_configure() {
 	local mycmakeargs=(

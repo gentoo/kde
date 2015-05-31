@@ -1,3 +1,2 @@
 move dev-libs/extra-cmake-modules kde-frameworks/extra-cmake-modules
 slotmove kde-frameworks/extra-cmake-modules 0 5
-move kde-frameworks/bluez-qt kde-plasma/bluez-qt
