@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5 multilib
+inherit kde5 multilib pam
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
@@ -102,7 +102,6 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
-	kde-base/kdebase-pam
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -157,6 +156,9 @@ src_configure() {
 
 src_install() {
 	kde5_src_install
+
+	newpamd "${FILESDIR}/kde.pam" kde
+	newpamd "${FILESDIR}/kde-np.pam" kde-np
 
 	# startup and shutdown scripts
 	insinto /etc/plasma/startup
