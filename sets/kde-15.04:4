@@ -1,0 +1,24 @@
+# We don't include kdesdk on the global set
+<kde-apps/kate-15.04.50:4
+<kde-apps/kde4-l10n-15.04.50:4
+<kde-apps/kde-meta-15.04.50:4
+<kde-base/kdeplasma-addons-4.14.50
+
+@kdeaccessibility-15.04:4
+@kdeadmin-15.04:4
+@kdeartwork-15.04:4
+@kdebase-15.04:4
+@kdeedu-15.04:4
+@kdegames-15.04:4
+@kdegraphics-15.04:4
+@kdelibs-15.04:4
+@kdemultimedia-15.04:4
+@kdenetwork-15.04:4
+@kdepim-15.04:4
+@kdetoys-15.04:4
+@kdeutils-15.04:4
+@kdewebdev-15.04:4
+
+#for developers
+#@kdebindings-15.04:4
+#@kdesdk-15.04:4
