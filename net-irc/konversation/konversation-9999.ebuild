@@ -56,7 +56,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package crypt Qca)
+		$(cmake-utils_use_find_package crypt Qca-qt5)
 	)
 
 	kde5_src_configure
