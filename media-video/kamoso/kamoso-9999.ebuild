@@ -16,7 +16,7 @@ IUSE="debug nepomuk"
 
 DEPEND="
 	$(add_kdebase_dep kdelibs 'nepomuk?')
-	$(add_kdebase_dep libkipi)
+	|| ( $(add_kdeapps_dep libkipi) $(add_kdebase_dep libkipi) )
 	media-libs/phonon[qt4]
 	media-libs/qt-gstreamer[qt4(+)]
 "

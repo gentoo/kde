@@ -28,7 +28,7 @@ DEPEND="
 	)
 	npp? (
 		dev-libs/dbus-glib
-		$(add_kdebase_dep kreadconfig)
+		|| ( $(add_kdeapps_dep kreadconfig) $(add_kdebase_dep kreadconfig) )
 		>=x11-libs/gtk+-2.10.14:2
 		www-plugins/adobe-flash
 	)

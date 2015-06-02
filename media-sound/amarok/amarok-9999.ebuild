@@ -38,7 +38,7 @@ fi
 COMMONDEPEND="
 	app-crypt/qca:2[qt4(+)]
 	$(add_kdebase_dep kdelibs 'nepomuk?,opengl?' 4.8.4)
-	$(add_kdebase_dep kdebase-kioslaves)
+	|| ( $(add_kdeapps_dep kdebase-kioslaves) $(add_kdebase_dep kdebase-kioslaves) )
 	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
 	sys-libs/zlib
@@ -48,9 +48,9 @@ COMMONDEPEND="
 	>=dev-qt/qtscript-4.8:4
 	>=x11-libs/qtscriptgenerator-0.1.0
 	cdda? (
-		$(add_kdebase_dep libkcddb)
-		$(add_kdebase_dep libkcompactdisc)
-		$(add_kdebase_dep audiocd-kio)
+		|| ( $(add_kdeapps_dep libkcddb) $(add_kdebase_dep libkcddb) )
+		|| ( $(add_kdeapps_dep libkcompactdisc) $(add_kdebase_dep libkcompactdisc) )
+		|| ( $(add_kdeapps_dep audiocd-kio) $(add_kdebase_dep audiocd-kio) )
 	)
 	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
 	lastfm? ( >=media-libs/liblastfm-1.0.3 )
@@ -74,7 +74,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
-	$(add_kdebase_dep phonon-kde)
+	|| ( $(add_kdeapps_dep phonon-kde) $(add_kdebase_dep phonon-kde) )
 "
 
 src_configure() {
