@@ -4,30 +4,29 @@
 
 EAPI=5
 
-KDE_LINGUAS="cs da de el es fi fr hu it lt nl pl pt pt_BR ru uk zh_CN"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Media player for KDE utilizing Nepomuk for tagging"
+DESCRIPTION="Media player based on KF5"
 HOMEPAGE="http://bangarangkde.wordpress.com"
-EGIT_REPO_URI="git://anongit.kde.org/bangarang"
-[[ ${PV} == 9999 ]] || SRC_URI="http://opendesktop.org/CONTENT/content-files/113305-${P}.tar.gz"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
-	dev-libs/soprano
-	$(add_kdebase_dep kdelibs 'nepomuk')
-	$(add_kdebase_dep nepomuk)
-	$(add_kdebase_dep audiocd-kio)
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep solid)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
 	media-libs/taglib
-	media-libs/phonon[qt4]
-	dev-qt/qtscript:4
+	!media-video/bangarang:4
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
-
-S=${WORKDIR}/bangarang-bangarang
