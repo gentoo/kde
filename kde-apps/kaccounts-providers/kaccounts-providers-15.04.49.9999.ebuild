@@ -9,6 +9,8 @@ inherit kde5
 DESCRIPTION="KDE accounts providers"
 HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="LGPL-2.1"
+
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
