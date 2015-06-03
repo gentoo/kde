@@ -10,6 +10,7 @@ inherit kde5
 DESCRIPTION="Administer web accounts for the sites and services across the KDE desktop"
 HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="LGPL-2.1"
+
 KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
