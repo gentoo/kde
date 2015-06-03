@@ -7,12 +7,16 @@ EAPI=5
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit kde5 git-r3
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="http://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="semantic-desktop thumbnail"
+
+EGIT_REPO_URI="git://anongit.kde.org/${PN}"
+EGIT_COMMIT="8b12612bbf8ae4500a84634087a074d94a495eec"
+SRC_URI=""
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -52,14 +56,17 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kio-extras)
-	$(add_kdeapps_dep libkonq '' 5.9999)
 	thumbnail? (
-		$(add_kdeapps_dep ffmpegthumbs '' 5.9999)
-		$(add_kdeapps_dep thumbnailers '' 5.9999)
+		>=kde-apps/ffmpegthumbs-15.04.50_pre20150515
+		>=kde-apps/thumbnailers-15.04.50_pre20150515
 	)
 "
 
 RESTRICT="test"
+
+src_unpack() {
+	git-r3_src_unpack
+}
 
 src_configure() {
 	local mycmakeargs=(
