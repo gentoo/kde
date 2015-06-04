@@ -72,7 +72,10 @@ KMEXTRACTONLY="
 "
 KMSAVELIBS="true"
 
-PATCHES=( "${FILESDIR}/install-composereditorng.patch" )
+PATCHES=(
+	"${FILESDIR}/install-composereditorng.patch"
+	"${FILESDIR}/${PN}-install-headers.patch"
+)
 
 src_prepare() {
 	kde4-meta_src_prepare
