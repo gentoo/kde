@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 KEYWORDS=""
-IUSE=""
+IUSE="systemd"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -43,6 +43,27 @@ DEPEND="
 
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	|| ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils )
+	|| ( sys-power/upower-pm-utils >=sys-power/upower-0.9.23 )
+	!systemd? ( sys-auth/polkit-pkla-compat )
 	!kde-base/powerdevil
 "
+
+src_install() {
+	kde5_src_install
+
+	if ! use systemd ; then
+		insinto /etc/polkit-1/localauthority/10-vendor.d/
+		doins "${FILESDIR}"/10-org.freedesktop.upower.pkla
+		doins "${FILESDIR}"/20-org.freedesktop.consolekit.system.stop-multiple-users.pkla
+		doins "${FILESDIR}"/30-org.freedesktop.consolekit.system.restart-multiple-users.pkla
+	fi
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version sys-power/upower-pm-utils && ! use systemd ; then
+		ewarn "Suspend and hibernate will not be available as it requires sys-power/upower-pm-utils"
+		ewarn "on non-systemd systems. Please install it if you require this functionality."
+	fi
+}
