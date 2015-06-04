@@ -30,6 +30,8 @@ KMEXTRACTONLY="
 	libkleo/
 "
 
+PATCHES=( "${FILESDIR}/${P}-install-headers.patch" )
+
 src_unpack() {
 	if use handbook; then
 		KMEXTRA="
