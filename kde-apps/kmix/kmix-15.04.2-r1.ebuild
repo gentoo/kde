@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="Plasma mixer gui"
 HOMEPAGE="http://www.kde.org/applications/multimedia/kmix/"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa canberra pulseaudio"
 
 DEPEND="
