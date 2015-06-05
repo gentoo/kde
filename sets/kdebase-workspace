@@ -14,12 +14,12 @@ kde-base/krunner:4
 kde-base/kscreensaver:4
 kde-base/ksmserver:4
 kde-base/ksplash:4
-kde-base/kstartupconfig:4
+kde-apps/kstartupconfig:4
 kde-base/kstyles:4
 kde-base/ksysguard:4
 kde-base/ksystraycmd:4
 kde-base/kwin:4
-kde-base/kwrited:4
+kde-apps/kwrited:4
 kde-base/libkgreeter:4
 kde-base/libkworkspace:4
 kde-base/liboxygenstyle:4
