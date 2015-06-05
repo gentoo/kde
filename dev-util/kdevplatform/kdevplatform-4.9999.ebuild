@@ -39,7 +39,7 @@ DEPEND="${COMMON_DEPEND}
 	classbrowser? ( dev-libs/boost )
 "
 RDEPEND="${COMMON_DEPEND}
-	konsole? ( $(add_kdebase_dep konsole) )
+	konsole? ( $(add_kdeapps_dep konsole) )
 	cvs? ( dev-vcs/cvs )
 	!<dev-util/kdevelop-${KDEVELOP_VERSION}:4
 "

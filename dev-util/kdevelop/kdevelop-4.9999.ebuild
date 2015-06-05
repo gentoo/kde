@@ -25,12 +25,12 @@ DEPEND="
 		$(add_kdebase_dep ksysguard)
 		$(add_kdebase_dep libkworkspace)
 	)
-	okteta? ( $(add_kdebase_dep okteta) )
+	okteta? ( $(add_kdeapps_dep okteta) )
 	qthelp? ( dev-qt/qthelp:4 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kapptemplate)
-	|| ( $(add_kdeapps_dep kdebase-kioslaves) $(add_kdebase_dep kdebase-kioslaves) )
+	$(add_kdeapps_dep kapptemplate)
+	$(add_kdeapps_dep kdebase-kioslaves)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 "
 RESTRICT="test"

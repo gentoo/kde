@@ -22,10 +22,10 @@ DEPEND="
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdebase-data)
-	$(add_kdebase_dep konsole)
+	$(add_kdeapps_dep kdebase-data)
+	$(add_kdeapps_dep konsole)
 	|| (
-		$(add_kdebase_dep okular 'pdf?,postscript')
+		$(add_kdeapps_dep okular 'pdf?,postscript')
 		app-text/acroread
 	)
 	virtual/latex-base

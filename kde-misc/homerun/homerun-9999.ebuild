@@ -22,7 +22,7 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep libkonq)
+	$(add_kdeapps_dep libkonq)
 	$(add_kdebase_dep libkworkspace)
 "
 RDEPEND="

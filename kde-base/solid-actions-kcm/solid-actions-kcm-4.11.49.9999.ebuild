@@ -14,6 +14,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep solid-runtime)
+	$(add_kdeapps_dep solid-runtime)
 	!kde-base/solid:4
 "

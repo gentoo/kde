@@ -13,7 +13,7 @@ IUSE="+cmake +cxx debug +plasma qthelp"
 KEYWORDS=""
 
 # TODO: disabled upstream
-# okteta? ( $(add_kdebase_dep okteta) )
+# okteta? ( $(add_kdeapps_dep okteta) )
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)

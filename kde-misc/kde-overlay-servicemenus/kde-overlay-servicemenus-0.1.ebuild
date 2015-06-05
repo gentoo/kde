@@ -18,11 +18,11 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdialog)
-	$(add_kdebase_dep kompare)
+	$(add_kdeapps_dep kdialog)
+	$(add_kdeapps_dep kompare)
 	|| (
-		( $(add_kdebase_dep dolphin) )
-		( $(add_kdebase_dep konqueror) )
+		( $(add_kdeapps_dep dolphin) )
+		( $(add_kdeapps_dep konqueror) )
 	)
 "
 
