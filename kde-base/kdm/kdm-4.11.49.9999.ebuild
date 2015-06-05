@@ -33,7 +33,7 @@ DEPEND="
 	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepasswd)
+	$(add_kdeapps_dep kdepasswd)
 	$(add_kdebase_dep libkgreeter)
 	>=x11-apps/xinit-1.0.5-r2
 	x11-apps/xmessage

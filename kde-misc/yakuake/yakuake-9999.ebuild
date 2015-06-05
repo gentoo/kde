@@ -17,6 +17,6 @@ KEYWORDS=""
 SLOT="4"
 IUSE="debug"
 
-DEPEND="$(add_kdebase_dep konsole)
+DEPEND="$(add_kdeapps_dep konsole)
 	sys-devel/gettext"
 RDEPEND="${DEPEND}"

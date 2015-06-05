@@ -17,7 +17,7 @@ IUSE=""
 DEPEND="
 	dev-libs/soprano
 	$(add_kdebase_dep kactivities)
-	$(add_kdebase_dep nepomuk)
+	$(add_kdeapps_dep nepomuk)
 "
 RDEPEND="${DEPEND}"
 

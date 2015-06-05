@@ -111,7 +111,7 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	$(add_kdebase_dep katepart '' 4.14.3)
 	|| (
-		$(add_kdebase_dep kfmclient '' 4.14.3)
+		$(add_kdeapps_dep kfmclient '' 4.14.3)
 		x11-misc/xdg-utils
 	)
 	handbook? (

@@ -16,15 +16,15 @@ SLOT="4"
 IUSE="debug"
 
 COMMON_DEPEND="
-	$(add_kdebase_dep libkcddb)
-	$(add_kdebase_dep libkcompactdisc)
+	$(add_kdeapps_dep libkcddb)
+	$(add_kdeapps_dep libkcompactdisc)
 	media-libs/libdiscid
 	>=media-libs/taglib-1.5
 "
 
 RDEPEND="${COMMON_DEPEND}
 	$(add_kdebase_dep kdelibs 'udev,udisks(+)')
-	$(add_kdebase_dep audiocd-kio)
+	$(add_kdeapps_dep audiocd-kio)
 "
 
 DEPEND="${COMMON_DEPEND}"

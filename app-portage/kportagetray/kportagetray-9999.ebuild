@@ -29,9 +29,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-portage/eix
 	app-portage/genlop
-	$(add_kdebase_dep kdesu)
-	$(add_kdebase_dep knotify)
-	$(add_kdebase_dep konsole)
+	$(add_kdeapps_dep kdesu)
+	$(add_kdeapps_dep knotify)
+	$(add_kdeapps_dep konsole)
 "
 
 pkg_setup() {

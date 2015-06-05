@@ -32,7 +32,7 @@ SLOT="4"
 IUSE="debug dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
-	$(add_kdebase_dep libkcddb)
+	$(add_kdeapps_dep libkcddb)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? (

@@ -17,7 +17,7 @@ IUSE="debug gps protobuf marble test"
 
 DEPEND="
 	$(add_kdebase_dep plasma-workspace)
-	marble? ( $(add_kdebase_dep marble) )
+	marble? ( $(add_kdeapps_dep marble) )
 	protobuf? ( dev-libs/protobuf )
 "
 RDEPEND="${DEPEND}
