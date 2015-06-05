@@ -95,7 +95,7 @@
 ~kde-base/ksysguard-4.11.49.9999 **
 ~kde-base/ksystraycmd-4.11.49.9999 **
 ~kde-base/kwin-4.11.49.9999 **
-<kde-apps/kwrited-4.11.50
+~kde-base/kwrited-4.11.49.9999 **
 ~kde-base/libkgreeter-4.11.49.9999 **
 ~kde-base/libkworkspace-4.11.49.9999 **
 ~kde-base/liboxygenstyle-4.11.49.9999 **
