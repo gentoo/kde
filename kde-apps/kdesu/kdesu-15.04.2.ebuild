@@ -15,6 +15,11 @@ HOMEPAGE+=" http://techbase.kde.org/Projects/kdesu"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
+src_prepare() {
+	sed -i -e '/doc/ s/^/#/' CMakeLists.txt || die
+	kde4-meta_src_prepare
+}
+
 src_configure() {
 	# Upstream moved kdesu to libexec first, then decided to move it back
 	# to /${PREFIX}/bin/ , so I'm doing that now already.
