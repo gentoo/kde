@@ -1,13 +1,13 @@
-~kde-base/ark-4.14.49.9999 **
-~kde-base/filelight-4.14.49.9999 **
-~kde-base/kcalc-4.14.49.9999 **
-~kde-base/kcharselect-4.14.49.9999 **
-~kde-base/kdeutils-meta-4.14.49.9999 **
-~kde-base/kdf-4.14.49.9999 **
-~kde-base/kgpg-4.14.49.9999 **
-~kde-base/kremotecontrol-4.14.49.9999 **
-~kde-base/ktimer-4.14.49.9999 **
-~kde-base/kwalletmanager-4.14.49.9999 **
-~kde-base/print-manager-4.14.49.9999 **
-~kde-base/superkaramba-4.14.49.9999 **
-~kde-base/sweeper-4.14.49.9999 **
+<kde-apps/ark-4.14.50
+<kde-apps/filelight-4.14.50
+<kde-apps/kcalc-4.14.50
+<kde-apps/kcharselect-4.14.50
+<kde-apps/kdeutils-meta-4.14.50
+<kde-apps/kdf-4.14.50
+<kde-apps/kgpg-4.14.50
+<kde-apps/kremotecontrol-4.14.50
+<kde-apps/ktimer-4.14.50
+<kde-apps/kwalletmanager-4.14.50
+<kde-apps/print-manager-4.14.50
+<kde-apps/superkaramba-4.14.50
+<kde-apps/sweeper-4.14.50
