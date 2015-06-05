@@ -328,7 +328,7 @@ fi
 
 # all packages needs oxygen icons for basic iconset
 if [[ ${PN} != oxygen-icons ]]; then
-	kderdepend+=" $(add_kdeapps_dep oxygen-icons '' 4.14.3)"
+	kderdepend+=" kde-apps/oxygen-icons"
 fi
 
 # add a dependency over kde-l10n
