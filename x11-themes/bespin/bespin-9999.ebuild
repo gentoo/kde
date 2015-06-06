@@ -37,6 +37,10 @@ RDEPEND="
 	dev-qt/qtgui:4
 	x11-libs/libX11
 	x11-libs/libXrender
+	plasma? (
+		$(add_kdebase_dep libkworkspace)
+		$(add_kdebase_dep plasma-workspace)
+	)
 	windeco? ( $(add_kdebase_dep kwin) )
 "
 DEPEND="${RDEPEND}
