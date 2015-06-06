@@ -17,7 +17,7 @@ kde-base/kleopatra:4
 kde-base/kmail:4
 kde-base/knode:4
 kde-base/knotes:4
-kde-apps/konsolekalendar-4.14.50
+kde-base/konsolekalendar:4
 kde-base/kontact:4
 kde-base/korganizer:4
 kde-base/ktimetracker:4
