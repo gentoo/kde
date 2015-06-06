@@ -20,7 +20,7 @@ RDEPEND="
 	)
 	!kde-frameworks/libnm-qt
 	!kde-plasma/libnm-qt
-	!net-libs/libnm-qt
+	!net-libs/libnm-qt:5
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
