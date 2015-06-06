@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Common libraries for KDE PIM apps"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug google"
 
 DEPEND="
 	app-crypt/gpgme
@@ -19,6 +19,7 @@ DEPEND="
 	dev-libs/grantlee:0
 	$(add_kdebase_dep baloo '' 4.14.3)
 	$(add_kdebase_dep kdepimlibs)
+	google? ( net-libs/libkgapi:4 )
 "
 RDEPEND="${DEPEND}
 	!kde-base/akonadi:4
@@ -81,4 +82,12 @@ src_prepare() {
 	kde4-meta_src_prepare
 	sed -e '/folderarchiveagent.desktop/d' \
 		-i agents/CMakeLists.txt || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package google LibKGAPI2)
+	)
+
+	kde4-meta_src_configure
 }
