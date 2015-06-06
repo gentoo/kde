@@ -46,7 +46,7 @@ DEPEND="
 	openconnect? (
 		dev-qt/qtxml:5
 		net-misc/networkmanager-openconnect
-		net-misc/openconnect
+		net-misc/openconnect:=
 	)
 "
 RDEPEND="${DEPEND}
