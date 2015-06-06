@@ -37,15 +37,18 @@ RDEPEND="
 	dev-qt/qtgui:4
 	x11-libs/libX11
 	x11-libs/libXrender
-	plasma? (
-		$(add_kdebase_dep libkworkspace)
-		$(add_kdebase_dep plasma-workspace)
-	)
 	windeco? ( $(add_kdebase_dep kwin) )
 "
 DEPEND="${RDEPEND}
 	app-arch/unzip
 "
+
+src_prepare() {
+	# bug #542976
+	sed -e "s/kworkspace//" -i XBar/CMakeLists.txt || die
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	if use kde ; then
