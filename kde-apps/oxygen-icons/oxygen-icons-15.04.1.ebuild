@@ -25,3 +25,5 @@ fi
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~x86"
 IUSE="sources"
+
+RDEPEND="!kde-apps/oxygen-icons:4"
