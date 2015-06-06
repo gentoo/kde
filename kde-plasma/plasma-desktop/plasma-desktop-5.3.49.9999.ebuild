@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="+fontconfig pulseaudio touchpad usb"
+IUSE="+fontconfig pulseaudio +qt4 touchpad usb"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -96,6 +96,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep oxygen)
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
+	qt4? ( kde-base/qguiplatformplugin_kde )
 	!kde-apps/kcontrol
 	!kde-base/attica
 	!kde-base/kcontrol
