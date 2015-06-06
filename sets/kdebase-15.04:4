@@ -1,4 +1,4 @@
 <kde-apps/kdebase-meta-15.04.50:4
-@kde-baseapps-4.14
-@kdebase-runtime-4.14
+@kde-baseapps-15.04:4
+@kdebase-runtime-15.04:4
 @kdebase-workspace-4.11
