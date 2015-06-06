@@ -10,13 +10,13 @@
 <kde-apps/kdebase-runtime-meta-15.04.50:4
 <kde-apps/kdebugdialog-15.04.50:4
 <kde-apps/kdesu-15.04.50:4
-<kde-apps/kde-apps-artwork-15.04.50:4
+<kde-apps/kde-base-artwork-15.04.50:4
 <kde-apps/kde-wallpapers-15.04.50:4
 <kde-apps/kdontchangethehostname-15.04.50:4
 <kde-apps/keditfiletype-15.04.50:4
 <kde-apps/kfile-15.04.50:4
 <kde-apps/kglobalaccel-15.04.50:4
-<kde-apps/khelpcenter-15.04.50:4
+<kde-base/khelpcenter-15.04.50:4
 <kde-apps/kiconfinder-15.04.50:4
 <kde-apps/kimgio-15.04.50:4
 <kde-apps/kioclient-15.04.50:4
