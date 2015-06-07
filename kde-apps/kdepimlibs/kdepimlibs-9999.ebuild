@@ -42,7 +42,7 @@ RDEPEND="
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
-	app-office/akonadi-server
+	>=app-office/akonadi-server-5.0.41
 	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-qt/qtdbus:5
