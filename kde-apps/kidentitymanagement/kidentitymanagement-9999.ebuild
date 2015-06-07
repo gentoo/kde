@@ -21,6 +21,7 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
