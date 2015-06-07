@@ -216,7 +216,7 @@
 <kde-base/nepomuk-core-4.14.50
 <kde-base/nepomuk-widgets-4.14.50
 <kde-base/kdepimlibs-4.14.50
-<kde-apps/oxygen-icons-15.04.50:4
+<kde-apps/oxygen-icons-15.04.50
 <kde-base/katepart-4.14.50
 <kde-apps/dragon-15.04.50:4
 <kde-apps/ffmpegthumbs-15.04.50:4
@@ -297,5 +297,5 @@
 <kde-apps/kimagemapeditor-15.04.50:4
 <kde-apps/klinkstatus-15.04.50:4
 <kde-apps/kommander-15.04.50:4
-<kde-base/kdebase-meta-4.14.50
+<kde-apps/kdebase-meta-4.14.50
 <kde-base/kde-meta-4.14.50
