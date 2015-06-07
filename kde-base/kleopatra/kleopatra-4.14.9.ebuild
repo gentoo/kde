@@ -11,7 +11,7 @@ inherit kde4-meta
 
 DESCRIPTION="Kleopatra - KDE X.509 key manager"
 HOMEPAGE="http://www.kde.org/applications/utilities/kleopatra/"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
