@@ -15,7 +15,8 @@ IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/boost
+"
