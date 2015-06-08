@@ -341,7 +341,7 @@ case ${OPERATION} in
 	slot) add_new_sloted_version ;;
 	diff) check_cmakelists ;;
 	cvsmove)
-		MAINTREE="$(portageq portdir)"
+		MAINTREE="$(portageq get_repo_path / gentoo)"
 		OVERLAY="`pwd`"
 		BUMP_VERSION=${VERSION}
 		# course of action we are doing here
