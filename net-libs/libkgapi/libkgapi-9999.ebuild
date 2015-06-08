@@ -4,18 +4,26 @@
 
 EAPI=5
 
-inherit kde4-base
+EGIT_BRANCH="frameworks"
+inherit kde5
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkgapi"
 
 LICENSE="GPL-2"
-SLOT="4"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs '' 4.14)
-	dev-libs/qjson
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kcontacts)
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwebkit:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}"
