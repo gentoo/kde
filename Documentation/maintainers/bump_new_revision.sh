@@ -116,7 +116,7 @@ update_keywords() {
 				KEYWORDS=
 			elif (( version_patch < 50 )); then
 				# Patch version is < 50 - stable release, try to obtain keywords from tree
-				if pushd "$(portageq portdir)/${2}" &> /dev/null; then
+				if pushd "$(portageq get_repo_path / gentoo)/${2}" &> /dev/null; then
 					KEYWORDS=$(ls -1r *-4*.ebuild | grep -v ${BUMP_VERSION} | grep -v 4\\.4\\.11 | grep ${SLOT} | head -n 1 | xargs sed -ne 's/^KEYWORDS="\(.*\)"/\1/p')
 					[[ -z ${KEYWORDS} ]] && KEYWORDS=${MINIMAL_KEYWORDS}
 				else
@@ -258,7 +258,7 @@ case ${OPERATION} in
 		INFO_LIST=
 		for EBUILD_BASEDIR in ${EBUILD_BASEDIR_LIST}; do
 			EBUILD_BASENAME=${EBUILD_BASEDIR/*\//}
-			#OLD_BASE="$(portageq portdir)"/"${EBUILD_BASEDIR}"/
+			#OLD_BASE="$(portageq get_repo_path / gentoo)"/"${EBUILD_BASEDIR}"/
 			OLD_BASE="${PORTDIR_BUMPING}"/"${EBUILD_BASEDIR}"/ # uncoment if you work in overlay only
 			# by default we should pick-up live stable or live ebuilds. But we need to restore the keywords from the previous version of kde
 			# ie. bumping 4.4.92 you set keywords to "~amd64 ~x86" but ebuilds from 9999 (before tagging) or 4.5.9999 (after tagging).
