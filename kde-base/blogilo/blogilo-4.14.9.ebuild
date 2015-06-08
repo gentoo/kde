@@ -17,7 +17,7 @@ IUSE="debug"
 DEPEND="
 	$(add_kdebase_dep kdepim-common-libs)
 	$(add_kdebase_dep kdepimlibs)
-	>=net-libs/libkgapi-2.2.0
+	>=net-libs/libkgapi-2.2.0:4
 "
 RDEPEND="${DEPEND}"
 
