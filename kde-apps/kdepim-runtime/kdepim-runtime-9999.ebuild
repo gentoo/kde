@@ -10,7 +10,7 @@ DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
 IUSE="google"
 
-# TODO facebook, kolab, Qt5TextToSpeech
+# TODO kolab, Qt5TextToSpeech
 
 RDEPEND="
 	$(add_kdeapps_dep akonadi-calendar)
