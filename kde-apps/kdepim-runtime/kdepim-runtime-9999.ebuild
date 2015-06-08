@@ -8,9 +8,9 @@ inherit kde5
 
 DESCRIPTION="KDE PIM runtime plugin collection"
 KEYWORDS=""
-IUSE=""
+IUSE="google"
 
-# TODO facebook, google, kolab, Qt5TextToSpeech
+# TODO facebook, kolab, Qt5TextToSpeech
 
 RDEPEND="
 	$(add_kdeapps_dep akonadi-calendar)
@@ -62,4 +62,13 @@ DEPEND="${RDEPEND}
 	dev-libs/libxslt
 	sys-devel/gettext
 	x11-misc/shared-mime-info
+	google? ( net-libs/libkgapi:5 )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package google KF5GAPI)
+	)
+
+	kde5_src_configure
+}
