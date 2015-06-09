@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepimlibs)
-	$(add_kdeapps_dep kdepim-runtime)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
 	$(add_kdeapps_dep kmailtransport)
