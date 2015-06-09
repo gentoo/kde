@@ -216,3 +216,4 @@ move kde-base/sweeper kde-apps/sweeper
 move kde-base/thumbnailers kde-apps/thumbnailers
 move kde-base/umbrello kde-apps/umbrello
 move kde-base/zeroconf-ioslave kde-apps/zeroconf-ioslave
+move kde-misc/kcmsystemd kde-misc/systemd-kcm
