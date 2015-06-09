@@ -8,18 +8,18 @@ CMAKE_MIN_VERSION="3.0.0"
 inherit kde5
 
 DESCRIPTION="KDE control module for systemd"
-HOMEPAGE="https://github.com/rthomsen/kcmsystemd"
-SRC_URI="https://github.com/rthomsen/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://projects.kde.org/projects/playground/sysadmin/systemd-kcm"
 
 IUSE=""
-LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
+LICENSE="GPL-2+"
+KEYWORDS=""
 
 DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	>=dev-libs/boost-1.45
 	dev-qt/qtdbus:5
