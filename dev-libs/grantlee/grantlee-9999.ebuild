@@ -8,8 +8,8 @@ VIRTUALX_REQUIRED="test"
 inherit cmake-utils virtualx git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
-HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
+HOMEPAGE="https://github.com/steveire/grantlee"
+EGIT_REPO_URI=( "https://github.com/steveire/${PN}" )
 
 LICENSE="LGPL-2.1"
 SLOT="5"
