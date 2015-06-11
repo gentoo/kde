@@ -29,10 +29,18 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	sys-apps/util-linux
+	sys-block/kpmcore
 "
 RDEPEND="${DEPEND}
 	dev-libs/libatasmart
-	sys-apps/util-linux
 	>=sys-block/parted-3
 	!sys-block/partitionmanager:0
 "
+
+src_install() {
+	kde5_src_install
+
+	# sys-block/kpmcore file collision
+	rm "${D}"/usr/share/config.kcfg/partitionmanager.kcfg
+}
