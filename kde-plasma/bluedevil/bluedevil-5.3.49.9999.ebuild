@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
+	$(add_frameworks_dep bluez-qt)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -24,7 +25,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep plasma)
-	$(add_plasma_dep bluez-qt)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
@@ -40,6 +40,8 @@ RDEPEND="${COMMON_DEPEND}
 	!net-wireless/bluedevil
 	!net-wireless/kbluetooth
 "
+
+PATCHES=( "${FILESDIR}"/${PN}-5.3.1-frameworks-fix.patch )
 
 pkg_postinst() {
 	kde5_pkg_postinst
