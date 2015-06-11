@@ -73,6 +73,8 @@ DEPEND="${COMMON_DEPEND}
 	test? (	x11-libs/xcb-util-wm )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.3.1-gles2.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package wayland)
