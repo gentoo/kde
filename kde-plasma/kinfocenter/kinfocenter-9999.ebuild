@@ -30,7 +30,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	dev-qt/qtgui:5[opengl?]
+	dev-qt/qtgui:5[opengl(+)]
 	dev-qt/qtwidgets:5
 	gles? (
 		dev-qt/qtgui:5[gles2]
