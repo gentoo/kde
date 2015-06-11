@@ -42,7 +42,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	egl? ( media-libs/mesa[egl] )
 	opengl? (
-		dev-qt/qtgui:5[opengl,-gles2]
+		dev-qt/qtgui:5[opengl(+),-gles2]
 		virtual/opengl
 	)
 	X? (
