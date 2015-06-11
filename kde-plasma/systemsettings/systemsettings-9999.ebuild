@@ -33,6 +33,6 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
-	gtk? ( $(add_plasma_dep kde-gtk-config ) )
+	gtk? ( $(add_plasma_dep kde-gtk-config) )
 	!kde-base/systemsettings
 "
