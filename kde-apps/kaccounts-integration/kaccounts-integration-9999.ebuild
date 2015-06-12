@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_TEST=true
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Administer web accounts for the sites and services across the KDE desktop"
@@ -34,8 +34,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Akonadi=ON
 	)
+
 	kde5_src_configure
 }
