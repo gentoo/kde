@@ -16,7 +16,6 @@ DEPEND="
 "
 RDEPEND="
 	!<kde-apps/kde-l10n-15.04.0-r1
-	!kde-base/kde-l10n
 	!kde-base/kdepim-l10n
 "
 
