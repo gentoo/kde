@@ -47,9 +47,9 @@ src_prepare() {
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
-	if ! has_version kde-base/dolphin:${SLOT} ; then
+	if ! has_version kde-apps/dolphin:${SLOT} ; then
 		elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
-		elog "kde-base/dolphin:${SLOT}"
+		elog "kde-apps/dolphin:${SLOT}"
 	fi
 
 	if ! has_version virtual/jre ; then
