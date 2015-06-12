@@ -22,7 +22,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	nls? ( dev-qt/linguist-tools:5 )
 "
-PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
+# Plasma is still masked
+#PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
 
 src_configure() {
 	local mycmakeargs=(
