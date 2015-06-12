@@ -14,7 +14,7 @@ HOMEPAGE="
 	http://gwenview.sourceforge.net/
 "
 KEYWORDS=""
-IUSE="kipi raw semantic-desktop"
+IUSE="kipi raw semantic-desktop X"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -44,10 +44,13 @@ DEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
-	x11-libs/libX11
 	kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
 	raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
 	semantic-desktop? ( $(add_plasma_dep baloo) )
+	X? (
+		dev-qt/qtx11extras:5
+		x11-libs/libX11
+	)
 "
 
 RDEPEND="${DEPEND}"
@@ -56,6 +59,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
+		$(cmake-utils_use_find_package X X11)
 	)
 
 	if use semantic-desktop; then
