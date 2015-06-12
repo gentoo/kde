@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE library for mathematical features"
@@ -21,6 +22,12 @@ DEPEND="
 	opengl? ( virtual/opengl )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	sed -e "/add_subdirectory(examples)/d" -i analitzaplot/CMakeLists.txt || die
+
+	kde5_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
