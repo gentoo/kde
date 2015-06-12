@@ -31,8 +31,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-RDEPEND="${DEPEND}
-	!kde-base/kfind:4
-"
+RDEPEND="${DEPEND}"
 
 S=${S}/${PN}

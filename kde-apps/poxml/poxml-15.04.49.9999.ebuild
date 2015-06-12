@@ -22,7 +22,6 @@ RDEPEND="
 		>=virtual/jre-1.5
 		>=dev-java/antlr-2.7.7:0[cxx,java,script]
 	)
-	!<=kde-base/kdesdk-misc-4.10.50:4
 "
 
 # java deps on anltr cant be properly explained to cmake deps

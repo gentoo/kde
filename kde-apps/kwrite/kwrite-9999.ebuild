@@ -35,9 +35,7 @@ DEPEND="
 	$(add_frameworks_dep sonnet)
 "
 
-RDEPEND="${DEPEND}
-	!kde-base/kwrite:4
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

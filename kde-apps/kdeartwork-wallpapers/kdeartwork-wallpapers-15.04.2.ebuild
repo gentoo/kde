@@ -18,5 +18,3 @@ IUSE=""
 KMEXTRA="
 	HighResolutionWallpapers/
 "
-
-RDEPEND="!<kde-base/kde-wallpapers-4.9.50:4"

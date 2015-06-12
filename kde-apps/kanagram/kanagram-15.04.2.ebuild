@@ -34,5 +34,4 @@ RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtwebkit:5[qml]
-	!kde-base/kanagram:4
 "

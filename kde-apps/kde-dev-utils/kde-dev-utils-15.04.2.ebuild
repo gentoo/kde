@@ -9,9 +9,3 @@ inherit kde4-base
 DESCRIPTION="KDE Development Utilities"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
-
-RDEPEND="
-	!kde-base/kdesdk-misc:4
-	!kde-base/kstartperf:4
-	!kde-base/kuiviewer:4
-"

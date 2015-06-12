@@ -34,6 +34,4 @@ DEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 "
-RDEPEND="${DEPEND}
-	!kde-base/ksnapshot:4
-"
+RDEPEND="${DEPEND}"

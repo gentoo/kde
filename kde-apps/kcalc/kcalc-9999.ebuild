@@ -28,6 +28,4 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
-RDEPEND="${DEPEND}
-	!kde-base/kcalc:4
-"
+RDEPEND="${DEPEND}"

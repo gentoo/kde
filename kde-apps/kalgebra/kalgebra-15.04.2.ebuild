@@ -37,8 +37,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-base/analitza:4
-	!kde-base/kalgebra:4
+	!kde-apps/analitza:4
 "
 
 src_configure() {

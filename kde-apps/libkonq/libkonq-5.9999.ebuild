@@ -34,10 +34,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}
-	!kde-base/kde-baseapps:5
-	!kde-base/libkonq:4
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 

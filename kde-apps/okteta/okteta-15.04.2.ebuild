@@ -37,9 +37,7 @@ DEPEND="
 	dev-qt/qtscript:5[scripttools]
 	crypt? ( app-crypt/qca:2[qt5] )
 "
-RDEPEND="${DEPEND}
-	!kde-base/okteta:4
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

@@ -13,6 +13,4 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 DEPEND="$(add_kdeapps_dep libkdegames '' '14.12.3')"
-RDEPEND="${DEPEND}
-	!kde-base/ktron:4
-"
+RDEPEND="${DEPEND}"

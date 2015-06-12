@@ -43,5 +43,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
-	!kde-base/parley:4
 "

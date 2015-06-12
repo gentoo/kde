@@ -33,5 +33,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
-	!kde-base/khangman:4
 "

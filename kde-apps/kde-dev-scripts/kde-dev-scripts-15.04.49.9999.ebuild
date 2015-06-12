@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="debug"
 
 RDEPEND="
-	!kde-base/kdesdk-scripts:4
 	app-arch/advancecomp
 	media-gfx/optipng
 	dev-perl/XML-DOM

@@ -38,5 +38,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kwalletmanager:4[-minimal(-)]
-	!kde-base/kwalletmanager:4
 "

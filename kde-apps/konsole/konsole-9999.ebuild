@@ -46,10 +46,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	X? ( x11-libs/libX11 )
 "
-RDEPEND="${DEPEND}
-	!kde-apps/konsole:4
-	!kde-base/konsole
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

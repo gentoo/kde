@@ -52,9 +52,7 @@ DEPEND="
 		>=dev-libs/libgit2-0.22.0:=
 	)
 "
-RDEPEND="${DEPEND}
-	!kde-base/kate:4
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

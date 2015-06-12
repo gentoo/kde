@@ -12,6 +12,4 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="$(add_frameworks_dep extra-cmake-modules)"
-RDEPEND="
-	!kde-base/libkdeedu:4
-"
+RDEPEND=""

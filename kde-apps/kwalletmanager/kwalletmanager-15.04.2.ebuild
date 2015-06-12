@@ -13,8 +13,6 @@ http://utils.kde.org/projects/kwalletmanager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug minimal"
 
-RDEPEND="!kde-base/kwallet:4"
-
 src_install() {
 	kde4-base_src_install
 
