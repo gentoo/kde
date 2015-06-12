@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 pkg_postinst() {
 	kde4-base_pkg_postinst
 
-	if ! has_version kde-base/ksaneplugin:${SLOT} ; then
-		elog "To enable scanner support, please install kde-base/ksaneplugin:${SLOT}"
+	if ! has_version kde-apps/ksaneplugin:${SLOT} ; then
+		elog "To enable scanner support, please install kde-apps/ksaneplugin:${SLOT}"
 	fi
 }
