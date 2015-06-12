@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_AUTODEPS="false"
 inherit kde5
 
 DESCRIPTION="KDE accounts providers"
@@ -14,6 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep extra-cmake-modules)
 	$(add_kdeapps_dep kaccounts-integration)
 	dev-util/intltool
 "
