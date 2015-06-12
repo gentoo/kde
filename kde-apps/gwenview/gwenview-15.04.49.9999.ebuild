@@ -16,7 +16,7 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE="kipi raw semantic-desktop X"
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -30,8 +30,8 @@ DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
@@ -53,7 +53,9 @@ DEPEND="
 	)
 "
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-qt/qtconcurrent:5
+"
 
 src_configure() {
 	local mycmakeargs=(
