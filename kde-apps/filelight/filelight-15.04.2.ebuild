@@ -4,7 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"
