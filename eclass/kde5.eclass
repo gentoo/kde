@@ -142,10 +142,7 @@ case ${KDE_AUTODEPS} in
 		fi
 
 		if [[ ${KDE_BLOCK_SLOT4} = true && ${CATEGORY} = kde-apps ]]; then
-			RDEPEND+="
-				!kde-apps/${PN}:4
-				!kde-base/${PN}
-			"
+			RDEPEND+=" !kde-apps/${PN}:4"
 		fi
 		;;
 esac
