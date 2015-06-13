@@ -37,10 +37,3 @@ RDEPEND="${DEPEND}
 	>=sys-block/parted-3
 	!sys-block/partitionmanager:0
 "
-
-src_install() {
-	kde5_src_install
-
-	# sys-block/kpmcore file collision
-	rm "${D}"/usr/share/config.kcfg/partitionmanager.kcfg
-}
