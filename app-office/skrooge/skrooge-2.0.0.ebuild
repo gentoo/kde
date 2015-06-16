@@ -16,7 +16,7 @@ HOMEPAGE="http://www.skrooge.org/"
 [[ ${PV} == 9999 ]] || SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="activities ofx"
 
 RDEPEND="
