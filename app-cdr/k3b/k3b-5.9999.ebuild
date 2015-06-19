@@ -87,7 +87,7 @@ REQUIRED_USE="
 
 src_prepare() {
 	# we have to patch first, because some doc sed magic in kde5.eclass will make the patch invalid
-	epatch "${FILESDIR}/${PN}-5.9999-tests-optional.patch"
+	epatch "${FILESDIR}/${PN}-tests-optional.patch"
 	kde5_src_prepare
 }
 
