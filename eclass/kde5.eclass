@@ -373,18 +373,20 @@ kde5_src_prepare() {
 	# enable only the requested translations
 	# when required
 	if [[ ${KDE_BUILD_TYPE} = release ]] ; then
-		pushd po > /dev/null
-		for lang in $(ls) ; do
-			if ! has ${lang} ${LINGUAS} ; then
-				if [[ ${lang} != CMakeLists.txt ]] ; then
-					rm -rf ${lang}
+		if [[ -d po ]] ; then
+			pushd po > /dev/null
+			for lang in $(ls) ; do
+				if ! has ${lang} ${LINGUAS} ; then
+					if [[ ${lang} != CMakeLists.txt ]] ; then
+						rm -rf ${lang}
+					fi
+					if [[ -e CMakeLists.txt ]] ; then
+						comment_add_subdirectory ${lang}
+					fi
 				fi
-				if [[ -e CMakeLists.txt ]] ; then
-					comment_add_subdirectory ${lang}
-				fi
-			fi
-		done
-		popd > /dev/null
+			done
+			popd > /dev/null
+		fi
 
 		if [[ ${KDE_HANDBOOK} = true ]] ; then
 			pushd doc > /dev/null
