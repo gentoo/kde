@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2015-06-21 21:38:48.127207366 +0200
++++ b/CMakeLists.txt	2015-06-21 21:58:13.564111471 +0200
+@@ -168,6 +168,8 @@
+ 
+ include_directories(${kdepim_SOURCE_DIR} ${kdepim_BINARY_DIR})
+ 
++find_package(Gpgme REQUIRED)
++
+ set(KF5AkonadiServer_MIN_VERSION "5.0.51")
+ find_package(KF5AkonadiServer ${KF5AkonadiServer_MIN_VERSION} CONFIG REQUIRED)
+ 
