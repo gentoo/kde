@@ -64,6 +64,7 @@ RDEPEND="
 	x11-misc/shared-mime-info
 	activities? ( $(add_frameworks_dep kactivities) )
 	ofx? ( >=dev-libs/libofx-0.9.1 )
+	!app-office/skrooge:4
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
