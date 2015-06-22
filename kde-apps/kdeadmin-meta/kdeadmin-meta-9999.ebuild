@@ -8,10 +8,10 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-derived packages"
 KEYWORDS=""
-IUSE=""
+IUSE="+cron"
 
 RDEPEND="
-	$(add_kdeapps_dep kcron)
 	$(add_kdeapps_dep ksystemlog)
 	$(add_kdeapps_dep kuser)
+	cron? ( $(add_kdeapps_dep kcron) )
 "
