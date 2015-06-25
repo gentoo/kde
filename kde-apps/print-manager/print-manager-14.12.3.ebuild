@@ -17,7 +17,7 @@ RDEPEND="${DEPEND}
 	!kde-base/printer-applet:4
 	!kde-base/system-config-printer-kde:4
 	!kde-misc/print-manager
-	gtk? ( || ( app-admin/system-config-printer-gnome app-admin/system-config-printer ) )
+	gtk? ( app-admin/system-config-printer )
 "
 
 pkg_postinst(){

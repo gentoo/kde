@@ -30,7 +30,7 @@ DEPEND="
 	net-print/cups
 "
 RDEPEND="${DEPEND}
-	gtk? ( || ( app-admin/system-config-printer-gnome app-admin/system-config-printer ) )
+	gtk? ( app-admin/system-config-printer )
 "
 
 pkg_postinst(){
