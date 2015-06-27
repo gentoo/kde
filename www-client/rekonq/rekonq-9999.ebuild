@@ -6,8 +6,6 @@ EAPI=5
 
 KDE_HANDBOOK="true"
 EGIT_BRANCH="frameworks"
-KDE_LINGUAS="cs da de el es et eu fi fr gl hu ia it km lt mr nb nl pl pt pt_BR
-sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 inherit kde5
 
 DESCRIPTION="A browser based on qtwebkit"
