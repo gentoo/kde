@@ -375,7 +375,7 @@ kde5_src_prepare() {
 	if [[ ${KDE_BUILD_TYPE} = release ]] ; then
 		if [[ -d po ]] ; then
 			pushd po > /dev/null
-			for lang in $(ls) ; do
+			for lang in *; do
 				if ! has ${lang} ${LINGUAS} ; then
 					if [[ ${lang} != CMakeLists.txt ]] ; then
 						rm -rf ${lang}
@@ -390,7 +390,7 @@ kde5_src_prepare() {
 
 		if [[ ${KDE_HANDBOOK} = true ]] ; then
 			pushd doc > /dev/null
-			for lang in $(ls) ; do
+			for lang in *; do
 				if ! has ${lang} ${LINGUAS} ; then
 					comment_add_subdirectory ${lang}
 				fi
