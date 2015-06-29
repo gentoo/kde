@@ -9,7 +9,7 @@ inherit kde5 multibuild
 DESCRIPTION="Breeze visual style for the Plasma desktop"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze"
 KEYWORDS=""
-IUSE="kde4"
+IUSE="qt4"
 
 DEPEND="
 	$(add_frameworks_dep frameworkintegration)
@@ -26,7 +26,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
-	kde4? (
+	qt4? (
 		kde-base/kdelibs:4
 		x11-libs/libX11
 	)
@@ -38,14 +38,14 @@ RDEPEND="${DEPEND}
 
 pkg_setup() {
 	kde5_pkg_setup
-	MULTIBUILD_VARIANTS=( kf5 $(usev kde4) )
+	MULTIBUILD_VARIANTS=( kf5 $(usev qt4) )
 }
 
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
 
-		if [[ ${MULTIBUILD_VARIANT} = kde4 ]] ; then
+		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
 			mycmakeargs+=( -DUSE_KDE4=true )
 		fi
 
