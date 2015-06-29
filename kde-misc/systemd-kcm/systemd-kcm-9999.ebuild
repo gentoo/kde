@@ -3,8 +3,8 @@
 # $Header: $
 
 EAPI=5
-CMAKE_MIN_VERSION="3.0.0"
 
+CMAKE_MIN_VERSION="3.0.0"
 inherit kde5
 
 DESCRIPTION="KDE control module for systemd"
