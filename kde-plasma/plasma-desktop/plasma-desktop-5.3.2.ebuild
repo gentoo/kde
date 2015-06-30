@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS="~amd64"
-IUSE="+fontconfig pulseaudio +qt4 touchpad usb"
+IUSE="+fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad usb"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -96,6 +96,11 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep oxygen)
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
+	legacy-systray? (
+		gtk2? ( dev-libs/libappindicator:2 )
+		gtk3? ( dev-libs/libappindicator:3 )
+		qt4? ( dev-libs/sni-qt )
+	)
 	qt4? ( kde-base/qguiplatformplugin_kde )
 	!kde-apps/kcontrol
 	!kde-base/attica
@@ -115,6 +120,16 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
 "
+
+REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
+
+pkg_setup() {
+	if has_version net-im/skype && use legacy-systray && use amd64; then
+		einfo
+		elog "You need to install dev-libs/sni-qt[abi_x86_32] as skype is a 32-bit binary."
+		einfo
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
