@@ -102,11 +102,10 @@ RDEPEND="${COMMON_DEPEND}
 		qt4? ( dev-libs/sni-qt )
 	)
 	qt4? ( kde-base/qguiplatformplugin_kde )
+	!kde-apps/attica
 	!kde-apps/kcontrol
-	!kde-base/attica
-	!kde-base/kcontrol
-	!kde-base/kdepasswd
-	!kde-base/knetattach[handbook]
+	!kde-apps/kdepasswd
+	!kde-apps/knetattach[handbook]
 	!kde-base/plasma-desktop
 	!kde-base/plasma-workspace
 	!kde-base/solid-actions-kcm
