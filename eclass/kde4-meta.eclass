@@ -182,7 +182,7 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist postfix
 
-		if [[ ${PV} =~ 4.[47].[12345] ]]; then
+		if [[ ${PV} =~ '4\.4\.[12].*' ]]; then
 			postfix="bz2"
 			KMTARPARAMS+=" --bzip2"
 		else
