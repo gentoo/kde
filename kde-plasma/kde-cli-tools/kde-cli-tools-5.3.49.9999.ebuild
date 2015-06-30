@@ -38,7 +38,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	handbook? ( !kde-base/kdesu[handbook] )
+	handbook? ( !kde-apps/kdesu[handbook] )
 	!kde-base/kde-cli-tools
 "
 
