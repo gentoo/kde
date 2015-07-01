@@ -20,9 +20,7 @@ DEPEND="
 	$(add_kdebase_dep libkleo)
 	$(add_kdebase_dep libkpgp)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
 	korganizer/org.kde.Korganizer.Calendar.xml

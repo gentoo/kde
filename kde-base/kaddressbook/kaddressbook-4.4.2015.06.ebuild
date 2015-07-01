@@ -18,9 +18,7 @@ DEPEND="
 	$(add_kdebase_dep libkdepim)
 	$(add_kdebase_dep libkleo)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 KMEXTRA="
 	plugins/kaddressbook/

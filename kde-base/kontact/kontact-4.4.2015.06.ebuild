@@ -16,9 +16,7 @@ DEPEND="
 	$(add_kdebase_dep kdepimlibs '' 4.6)
 	$(add_kdebase_dep libkdepim)
 "
-RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
-"
+RDEPEND="${DEPEND}"
 
 KMLOADLIBS="libkdepim"
 KMSAVELIBS="true"
