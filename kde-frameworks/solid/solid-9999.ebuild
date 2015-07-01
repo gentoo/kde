@@ -20,6 +20,7 @@ RDEPEND="
 	virtual/udev
 "
 DEPEND="${RDEPEND}
+	sys-fs/udisks:2
 	nls? ( dev-qt/linguist-tools:5 )
 	test? ( dev-qt/qtconcurrent:5 )
 "
