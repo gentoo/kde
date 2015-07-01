@@ -30,6 +30,13 @@ KMEXTRACTONLY="
 
 KMLOADLIBS="libkdepim"
 
+src_install() {
+	kde4-meta_src_install
+
+	# file collision with kde-base/kdepimlibs-4.14.9
+	rm -f "${ED}/usr/share/kde4/servicetypes/kaddressbookimprotocol.desktop"
+}
+
 pkg_postinst() {
 	kde4-meta_pkg_postinst
 
