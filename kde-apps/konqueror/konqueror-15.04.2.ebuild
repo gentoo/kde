@@ -21,12 +21,15 @@ RESTRICT="test"
 DEPEND="
 	$(add_kdeapps_dep libkonq)
 "
+
+# bug #544630: evince[nsplugin] crashes konqueror
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kfind)
 	$(add_kdeapps_dep kfmclient)
 	$(add_kdeapps_dep kurifilter-plugins)
 	bookmarks? ( $(add_kdeapps_dep keditbookmarks) )
 	svg? ( $(add_kdeapps_dep svgpart) )
+	!app-text/evince[nsplugin]
 "
 
 KMEXTRACTONLY="
