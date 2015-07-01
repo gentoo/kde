@@ -14,7 +14,8 @@ KEYWORDS=""
 
 DEPEND="
 	$(add_kdebase_dep kdepimlibs '' 4.6)
-	$(add_kdebase_dep libkdepim '' 4.4.2015)
+	$(add_kdebase_dep libkdepim '')
+	$(add_kdebase_dep kaddressbook '' 4.4.2015)
 "
 RDEPEND="${DEPEND}"
 
