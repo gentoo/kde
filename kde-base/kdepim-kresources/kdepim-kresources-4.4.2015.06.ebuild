@@ -20,13 +20,24 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
+	kaddressbook/common/
 	kmail/
 	knotes/
 	korganizer/version.h
-	kaddressbook/common/kabprefs.h
 "
 
 KMLOADLIBS="libkdepim"
+
+src_prepare() {
+	local kconfig_compiler="${EKDEDIR}/bin/kconfig_compiler"
+
+	pushd kaddressbook/common
+	# create the kabprefs_base.h file
+	"${kconfig_compiler}" kaddressbook.kcfg kabprefs_base.kcfgc
+	popd
+
+	kde4-meta_src_prepare
+}
 
 src_install() {
 	kde4-meta_src_install
