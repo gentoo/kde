@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'nepomuk' 4.13.1)
+	$(add_kdebase_dep kdelibs '' 4.13.1)
 	$(add_kdebase_dep kdepimlibs '' 4.13.1)
 	$(add_kdebase_dep libkdepim '' 4.4.11.1-r1)
 	$(add_kdebase_dep libkleo)
