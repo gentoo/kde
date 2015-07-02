@@ -13,5 +13,5 @@ DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
-DEPEND="$(add_kdebase_dep kdepimlibs)"
+DEPEND="$(add_kdebase_dep kdepimlibs 'akonadi(+)')"
 RDEPEND=""

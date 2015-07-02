@@ -15,7 +15,7 @@ KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 "
 RDEPEND="${DEPEND}"
 

@@ -18,7 +18,7 @@ DEPEND="
 	>=app-office/akonadi-server-1.12.90
 	dev-libs/grantlee:0
 	$(add_kdebase_dep baloo '' 4.14.3)
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	google? ( net-libs/libkgapi:4 )
 "
 RDEPEND="${DEPEND}

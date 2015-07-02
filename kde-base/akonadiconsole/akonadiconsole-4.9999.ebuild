@@ -14,7 +14,7 @@ IUSE="debug"
 
 DEPEND="
 	>=app-office/akonadi-server-1.12.90
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"

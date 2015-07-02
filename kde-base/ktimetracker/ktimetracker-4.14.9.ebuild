@@ -16,7 +16,7 @@ IUSE="debug"
 
 RDEPEND="
 	$(add_kdebase_dep kdepim-kresources)
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
 	x11-libs/libXScrnSaver
 "
