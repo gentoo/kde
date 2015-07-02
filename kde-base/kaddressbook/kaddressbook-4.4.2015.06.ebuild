@@ -35,6 +35,11 @@ src_install() {
 
 	# file collision with kde-base/kdepimlibs-4.14.9
 	rm -f "${ED}/usr/share/kde4/servicetypes/kaddressbookimprotocol.desktop"
+
+	# install additional headers needed by kresources
+	insinto "${KDEDIR}"/include/${PN}
+	doins "${CMAKE_BUILD_DIR}"/${PN}/common/*.h
+	doins "${S}"/${PN}/common/*.h
 }
 
 pkg_postinst() {
