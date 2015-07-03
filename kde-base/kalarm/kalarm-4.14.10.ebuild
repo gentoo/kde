@@ -4,23 +4,24 @@
 
 EAPI=5
 
+KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
-DESCRIPTION="Akonadi developer console"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
+HOMEPAGE+=" http://userbase.kde.org/KAlarm"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-DEPEND="
-	>=app-office/akonadi-server-1.12.90
+RDEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
+	media-libs/phonon[qt4]
+	x11-libs/libX11
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 
 KMEXTRACTONLY="
-	akonadi_next/
-	calendarsupport/
-	messageviewer/
+	kmail/
 "

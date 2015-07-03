@@ -4,29 +4,23 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
-DESCRIPTION="KDE Notes application"
-HOMEPAGE="http://www.kde.org/applications/utilities/knotes/"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="Akonadi developer console"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
+	>=app-office/akonadi-server-1.12.90
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
-KMCOMPILEONLY="
-	noteshared/
-"
-
 KMEXTRACTONLY="
 	akonadi_next/
-	pimcommon/
+	calendarsupport/
+	messageviewer/
 "
-
-KMLOADLIBS="kdepim-common-libs"

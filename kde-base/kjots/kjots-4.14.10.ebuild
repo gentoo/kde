@@ -9,19 +9,19 @@ KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
-DESCRIPTION="KDE Blogging Client"
-HOMEPAGE="http://www.kde.org/applications/internet/blogilo"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="KDE note taking utility"
+HOMEPAGE="http://www.kde.org/applications/utilities/kjots/"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepim-common-libs)
+	dev-libs/grantlee:0
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
-	>=net-libs/libkgapi-2.2.0:4
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	composereditor-ng/
-	pimcommon/
+	akonadi_next/
+	noteshared/
 "

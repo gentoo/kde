@@ -10,19 +10,18 @@ EGIT_BRANCH="KDE/4.14"
 KMMODULE="console/${PN}"
 inherit kde4-meta
 
-DESCRIPTION="A tool to scan calendar data for buggy instances"
-HOMEPAGE="http://www.kde.org/"
-KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="A command line client for accessing the KDE addressbook"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepim-common-libs)
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	calendarsupport/
-"
+src_install() {
+	kde4-meta_src_install
 
-KMLOADLIBS="kdepim-common-libs"
+	# work around NULL DT_RPATH in kabc2mutt
+	dosym kabcclient ${PREFIX}/bin/kabc2mutt
+}

@@ -9,17 +9,24 @@ KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
-DESCRIPTION="A viewer for TNEF attachments"
+DESCRIPTION="KDE Notes application"
+HOMEPAGE="http://www.kde.org/applications/utilities/knotes/"
 KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-LICENSE="LGPL-2.1"
 IUSE="debug"
 
 DEPEND="
-	app-office/akonadi-server
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
+	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	akonadi/
+KMCOMPILEONLY="
+	noteshared/
 "
+
+KMEXTRACTONLY="
+	akonadi_next/
+	pimcommon/
+"
+
+KMLOADLIBS="kdepim-common-libs"

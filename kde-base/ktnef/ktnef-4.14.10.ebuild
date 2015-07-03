@@ -7,21 +7,19 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
-KMMODULE="console/${PN}"
 inherit kde4-meta
 
-DESCRIPTION="A command line client for accessing the KDE addressbook"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="A viewer for TNEF attachments"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+LICENSE="LGPL-2.1"
 IUSE="debug"
 
 DEPEND="
+	app-office/akonadi-server
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 "
 RDEPEND="${DEPEND}"
 
-src_install() {
-	kde4-meta_src_install
-
-	# work around NULL DT_RPATH in kabc2mutt
-	dosym kabcclient ${PREFIX}/bin/kabc2mutt
-}
+KMEXTRACTONLY="
+	akonadi/
+"

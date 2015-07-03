@@ -9,19 +9,15 @@ KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
 inherit kde4-meta
 
-DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
-HOMEPAGE+=" http://userbase.kde.org/KAlarm"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="KDE news feed aggregator"
+HOMEPAGE="http://www.kde.org/applications/internet/akregator"
+KEYWORDS=" ~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
-RDEPEND="
+DEPEND="
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
-	media-libs/phonon[qt4]
-	x11-libs/libX11
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
-KMEXTRACTONLY="
-	kmail/
-"
+KMLOADLIBS="kdepim-common-libs"

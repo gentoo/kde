@@ -7,21 +7,22 @@ EAPI=5
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
+KMMODULE="console/${PN}"
 inherit kde4-meta
 
-DESCRIPTION="KDE note taking utility"
-HOMEPAGE="http://www.kde.org/applications/utilities/kjots/"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+DESCRIPTION="A tool to scan calendar data for buggy instances"
+HOMEPAGE="http://www.kde.org/"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	dev-libs/grantlee:0
-	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	akonadi_next/
-	noteshared/
+	calendarsupport/
 "
+
+KMLOADLIBS="kdepim-common-libs"

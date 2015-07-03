@@ -4,25 +4,24 @@
 
 EAPI=5
 
+KDE_HANDBOOK="optional"
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
-KMMODULE="kresources"
 inherit kde4-meta
 
-DESCRIPTION="KDE PIM groupware plugin collection"
+DESCRIPTION="KDE Blogging Client"
+HOMEPAGE="http://www.kde.org/applications/internet/blogilo"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
-KEYWORDS=" ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	$(add_kdebase_dep kdepim-common-libs)
+	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
+	>=net-libs/libkgapi-2.2.0:4
 "
 RDEPEND="${DEPEND}"
 
 KMEXTRACTONLY="
-	kmail/
-	knotes/
-	korganizer/version.h
+	composereditor-ng/
+	pimcommon/
 "
-
-KMLOADLIBS="kdepim-common-libs"
