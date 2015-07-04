@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<upstream>
+		<remote-id type="github">oyranos-cms/Synnefo</remote-id>
+	</upstream>
 	<use>
-		<flag name="qt5">Build Qt5 frontend instead of Qt4</flag>
+		<flag name="qt5">Build default Qt5 frontend (Qt4 fallback)</flag>
 	</use>
 </pkgmetadata>
