@@ -12,9 +12,9 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/oyranos-cms/Synnefo.git"
 	inherit git-r3
 	KEYWORDS=""
-#else
-#	SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
-#	KEYWORDS="~amd64 ~x86"
+else
+	SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD-2"
@@ -37,7 +37,7 @@ RDEPEND="${DEPEND}
 	x11-misc/xcalib
 "
 
-DOCS=( "AUTHORS.md" "README.md" )
+DOCS=( AUTHORS.md README.md )
 
 src_configure() {
 	local mycmakeargs=(
