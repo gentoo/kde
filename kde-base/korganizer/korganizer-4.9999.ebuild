@@ -67,6 +67,12 @@ src_unpack() {
 	kde4-meta_src_unpack
 }
 
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-4.10.0-handbook.patch"
+
+	kde4-meta_src_prepare
+}
+
 src_install() {
 	kde4-meta_src_install
 	# colliding with kdepim-common-libs
