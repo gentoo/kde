@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug +plasma qthelp"
+IUSE="+cmake +cxx debug +ninja +plasma qthelp"
 KEYWORDS=""
 
 # TODO: disabled upstream
@@ -48,16 +48,20 @@ RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kapptemplate)
 	$(add_plasma_dep kio-extras)
 	cxx? ( >=sys-devel/gdb-7.0[python] )
+	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
 "
 
 RESTRICT="test"
 # see bug 366471
 
+PATCHES=( "${FILESDIR}/${PN}-ninja-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
+		$(cmake-utils_use_build ninja ninjabuilder)
 		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
