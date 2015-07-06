@@ -31,10 +31,10 @@ DEPEND="
 	$(add_frameworks_dep threadweaver)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	>=dev-util/kdevelop-pg-qt-1.0.0
+	dev-util/kdevelop-pg-qt:5
 	>=dev-util/kdevplatform-${PV}:${SLOT}
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
+	dev-util/kdevelop:${SLOT}
 	doc? ( >=dev-util/kdevelop-php-docs-${PV}:${SLOT} )
 "
