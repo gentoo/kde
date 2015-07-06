@@ -14,10 +14,13 @@ fi
 
 DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
 LICENSE="LGPL-2"
-SLOT="0"
 IUSE=""
 
 DEPEND="
 	sys-devel/bison
 	sys-devel/flex
+"
+RDEPEND="
+	!dev-util/kdevelop-pg-qt:4
+	dev-util/kdevelop:5
 "
