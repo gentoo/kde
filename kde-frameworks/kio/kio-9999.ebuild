@@ -47,7 +47,6 @@ RDEPEND="
 	)
 	kerberos? ( virtual/krb5 )
 	X? ( dev-qt/qtx11extras:5 )
-	!<kde-base/kio-extras-5.0.95-r1:5
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
