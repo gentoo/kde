@@ -46,7 +46,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-4.4.2015.06-handbook.patch"
+	use handbook && epatch "${FILESDIR}/${PN}-4.4.2015.06-handbook.patch"
 
 	kde4-meta_src_prepare
 }
