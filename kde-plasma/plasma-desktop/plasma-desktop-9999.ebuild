@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="+fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad usb"
+IUSE="+evdev +fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad"
 
 COMMON_DEPEND="
 	$(add_plasma_dep baloo)
@@ -66,10 +66,10 @@ COMMON_DEPEND="
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
 	x11-libs/libX11
-	x11-libs/libxcb
 	x11-libs/libXcursor
 	x11-libs/libXfixes
 	x11-libs/libXi
+	x11-libs/libxcb
 	x11-libs/libxkbfile
 	fontconfig? (
 		media-libs/fontconfig
@@ -83,11 +83,6 @@ COMMON_DEPEND="
 		media-sound/pulseaudio
 	)
 	touchpad? ( x11-drivers/xf86-input-synaptics )
-	usb? (
-		x11-libs/libXcursor
-		x11-libs/libXfixes
-		virtual/libusb:0
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
@@ -117,6 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-proto/xproto
+	evdev? ( x11-drivers/xf86-input-evdev )
 	fontconfig? ( x11-libs/libXrender )
 "
 
@@ -132,9 +128,9 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package evdev)
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
-		$(cmake-utils_use_find_package usb USB)
 		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
