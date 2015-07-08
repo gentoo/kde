@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="plasma"
 KDE_HANDBOOK="true"
 inherit kde5
 
@@ -13,7 +12,7 @@ HOMEPAGE="http://www.krusader.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="xattr"
+IUSE=""
 
 CDEPEND="
 	$(add_frameworks_dep karchive)
@@ -42,8 +41,8 @@ CDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	sys-apps/attr
 	sys-libs/zlib
-	xattr? ( sys-apps/attr )
 "
 DEPEND="${CDEPEND}
 	sys-devel/gettext
@@ -51,11 +50,3 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	!kde-misc/krusader:4
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package xattr ACL)
-	)
-
-	kde5_src_configure
-}
