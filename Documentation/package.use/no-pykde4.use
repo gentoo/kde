@@ -6,4 +6,5 @@ kde-base/plasma-workspace -python
 kde-base/superkaramba -python
 kde-base/kdeadmin-meta -cups
 kde-base/kdeutils-meta -cups
-
+kde-apps/superkaramba -python
+kde-apps/kdegames-meta -python
