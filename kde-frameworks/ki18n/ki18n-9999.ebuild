@@ -13,8 +13,9 @@ IUSE=""
 
 RDEPEND="
 	dev-qt/qtscript:5
+	sys-devel/gettext
+	virtual/libintl
 "
 DEPEND="${RDEPEND}
-	virtual/libintl
 	test? ( dev-qt/qtconcurrent:5 )
 "
