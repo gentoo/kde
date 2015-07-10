@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package policykit PolkitQt-1)
+		$(cmake-utils_use_find_package policykit PolkitQt5-1)
 	)
 
 	kde5_src_configure
