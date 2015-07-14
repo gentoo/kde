@@ -7,17 +7,26 @@ EAPI=5
 KDEBASE="kdevelop"
 KMNAME="kdev-krazy2"
 VIRTUALX_REQUIRED="test"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="Plugin for KDevelop to perform Krazy2 analysis"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 RESTRICT="test"
 
-DEPEND="dev-util/kdevplatform:4"
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kxmlgui)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-util/kdevplatform:5
+"
 
 RDEPEND="${DEPEND}
-	dev-util/kdevelop:4
+	dev-util/kdevelop:5
 "
