@@ -7,8 +7,8 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE4 plasmoid for monitoring emerge progress on Gentoo Linux"
-HOMEPAGE="http://github.com/hwoarang/plasma-emergelog/tree/master"
-EGIT_REPO_URI="git://github.com/hwoarang/plasma-emergelog.git"
+HOMEPAGE="https://github.com/gentoo/plasma-emergelog"
+EGIT_REPO_URI="https://github.com/gentoo/${PN}"
 
 LICENSE="GPL-3+"
 # Included LICENSE is GPL-2, but all headers say 3+. hwoarang said 
