@@ -16,7 +16,7 @@ IUSE="designer prison ssl"
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -57,8 +57,12 @@ RDEPEND="
 	prison? ( media-libs/prison:5 )
 	ssl? ( dev-libs/cyrus-sasl )
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost"
+DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
+"
+RDEPEND="${COMMON_DEPEND}
+	!kde-base/kdepimlibs
+"
 
 src_prepare() {
 	use handbook || \
