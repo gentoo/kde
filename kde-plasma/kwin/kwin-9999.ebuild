@@ -54,6 +54,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	wayland? (
 		$(add_plasma_dep kwayland)
+		dev-qt/qtwayland:5
 		>=dev-libs/libinput-0.10
 		>=dev-libs/wayland-1.2
 		virtual/libudev:=
