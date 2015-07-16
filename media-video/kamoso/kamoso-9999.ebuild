@@ -4,30 +4,30 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="A KDE application to take pictures and videos from your webcam"
+DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
 HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug nepomuk"
+IUSE=""
 
 DEPEND="
-	$(add_kdebase_dep kdelibs 'nepomuk?')
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep libkipi)
-	media-libs/phonon[qt4]
-	media-libs/qt-gstreamer[qt4(+)]
+	dev-libs/purpose:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
+	media-libs/qt-gstreamer[qt5]
+	virtual/udev
 "
 RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with nepomuk)
-	)
-
-	kde4-base_src_configure
-}
