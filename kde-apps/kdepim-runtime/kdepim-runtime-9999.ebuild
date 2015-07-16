@@ -12,7 +12,7 @@ IUSE="google"
 
 # TODO kolab, Qt5TextToSpeech
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kcalcore)
@@ -54,7 +54,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	dev-qt/qtxmlpatterns:5
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_RDEPEND}
 	dev-libs/boost
 	dev-libs/cyrus-sasl:2
 	dev-libs/libxml2:2
@@ -62,6 +62,9 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 	x11-misc/shared-mime-info
 	google? ( net-libs/libkgapi:5 )
+"
+RDEPEND="${COMMON_RDEPEND}
+	!kde-base/kdepim-runtime
 "
 
 src_configure() {
