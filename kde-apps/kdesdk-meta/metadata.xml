@@ -3,6 +3,6 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name='relaxed_deps'> Allow relaxed dependency on lower version to enable coninstabillity with other meta packages.</flag>
+		<flag name='hard_deps'> Force KF5 dependencies. It may cause incompatibilities with other packages.</flag>
 	</use>
 </pkgmetadata>
