@@ -4,15 +4,30 @@
 
 EAPI=5
 
-inherit kde4-base
+KDE_TEST=true
+VIRTUALX_REQUIRED=test
+inherit kde5
 
 DESCRIPTION="Nonogram logic game for KDE"
 HOMEPAGE="http://games.kde.org/game.php?game=picmi"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkdegames)
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+"
 RDEPEND="${DEPEND}"
-
-RESTRICT=test
-# needs X server
