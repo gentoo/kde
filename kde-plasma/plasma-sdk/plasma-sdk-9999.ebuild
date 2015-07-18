@@ -35,3 +35,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!dev-util/plasmate
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.3.2-remove-qtwebkit.patch" )
