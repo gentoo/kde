@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="false"
 inherit kde5
 
@@ -13,14 +12,18 @@ KEYWORDS=""
 IUSE="bazaar dropbox git subversion"
 
 DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep dolphin)
-	$(add_kdeapps_dep libkonq)
-	dev-qt/qtnetwork
-	dev-qt/qtwidgets
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kompare)
