@@ -24,7 +24,6 @@ RDEPEND="
 	$(add_plasma_dep khelpcenter)
 	$(add_plasma_dep khotkeys)
 	$(add_plasma_dep kinfocenter)
-	$(add_plasma_dep kio-extras)
 	$(add_plasma_dep kmenuedit)
 	$(add_plasma_dep kscreen)
 	$(add_plasma_dep ksshaskpass)

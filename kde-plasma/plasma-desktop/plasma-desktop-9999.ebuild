@@ -85,9 +85,9 @@ COMMON_DEPEND="
 	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_kdeapps_dep kio-extras)
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
-	$(add_plasma_dep kio-extras)
 	$(add_plasma_dep oxygen)
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
