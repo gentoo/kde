@@ -1,1 +1,2 @@
 slotmove dev-util/kdevelop-pg-qt 0 5
+move kde-plasma/baloo-widgets kde-apps/baloo-widgets
