@@ -4,29 +4,38 @@
 
 EAPI=5
 
-inherit kde4-base
+EGIT_BRANCH="frameworks"
+KDE_HANDBOOK="false"
+inherit kde5
 
 DESCRIPTION="Extra Dolphin plugins"
 KEYWORDS=""
-IUSE="debug bazaar git mercurial subversion"
+IUSE="bazaar dropbox git subversion"
 
 DEPEND="
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep dolphin)
 	$(add_kdeapps_dep libkonq)
+	dev-qt/qtnetwork
+	dev-qt/qtwidgets
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kompare)
 	bazaar? ( dev-vcs/bzr )
+	dropbox? ( net-misc/dropbox-cli )
 	git? ( dev-vcs/git )
-	mercurial? ( dev-vcs/mercurial )
 	subversion? ( dev-vcs/subversion )
 "
 
 src_install() {
-	{ use bazaar || use git || use mercurial || use subversion; } && kde4-base_src_install
+	{ use bazaar || use dropbox || use git || use subversion; } && kde5_src_install
 }
 
 pkg_postinst() {
-	if ! use bazaar && ! use git && ! use mercurial && ! use subversion ; then
+	if ! use bazaar && ! use dropbox && ! use git && ! use subversion ; then
 		einfo
 		einfo "You have disabled all plugin use flags. If you want to have vcs"
 		einfo "integration in dolphin, enable those of your needs."
