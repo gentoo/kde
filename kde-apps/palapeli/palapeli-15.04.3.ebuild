@@ -12,5 +12,5 @@ HOMEPAGE="http://www.kde.org/applications/games/palapeli/"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
-DEPEND="$(add_kdeapps_dep libkdegames '' '14.12.3')"
+DEPEND="$(add_kdeapps_dep libkdegames)"
 RDEPEND="${DEPEND}"

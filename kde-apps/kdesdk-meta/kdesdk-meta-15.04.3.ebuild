@@ -9,7 +9,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="http://www.kde.org/applications/development"
 KEYWORDS="~amd64 ~x86"
-IUSE="cvs relaxed_deps"
+IUSE="cvs"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin-plugins)
@@ -19,13 +19,11 @@ RDEPEND="
 	$(add_kdeapps_dep kde-dev-scripts)
 	$(add_kdeapps_dep kde-dev-utils)
 	$(add_kdeapps_dep kdesdk-kioslaves)
+	$(add_kdeapps_dep kompare)
+	$(add_kdeapps_dep libkomparediff2)
 	$(add_kdeapps_dep lokalize)
 	$(add_kdeapps_dep okteta)
 	$(add_kdeapps_dep poxml)
 	$(add_kdeapps_dep umbrello)
-	relaxed_deps? ( $(add_kdeapps_dep kompare '' '14.12.3')
-		$(add_kdeapps_dep libkomparediff2 '' '14.12.3') )
-	!relaxed_deps? ( $(add_kdeapps_dep kompare)
-		$(add_kdeapps_dep libkomparediff2) )
 	cvs? ( $(add_kdeapps_dep cervisia) )
 "
