@@ -79,9 +79,8 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_ASAN=ON
-		-DINSTALL_QSQLITE_IN_QT_PREFIX=ON
-		$(cmake-utils_use sqlite AKONADI_BUILD_QSQLITE)
+		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 	)
 
 	kde5_src_configure
