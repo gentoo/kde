@@ -17,7 +17,7 @@ index 2664fd4..32f453b 100644
  find_package(KF5 REQUIRED COMPONENTS CoreAddons Config WidgetsAddons Codecs Archive
      DBusAddons DNSSD Declarative
      I18n GuiAddons Service ConfigWidgets ItemViews IconThemes Completion JobWidgets TextWidgets GlobalAccel XmlGui Crash
-     Bookmarks KIO NewStuff KDELibs4Support)
+     Bookmarks KIO NewStuff)
  
 +find_package(Qt5Test ${QT_MIN_VERSION} QUIET)
 +set_package_properties(Qt5Test PROPERTIES
