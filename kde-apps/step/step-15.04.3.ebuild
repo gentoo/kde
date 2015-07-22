@@ -30,7 +30,7 @@ DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	>=dev-cpp/eigen-3.2.4:3
+	=dev-cpp/eigen-3.2*:3
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtopengl:5
