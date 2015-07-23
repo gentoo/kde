@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KDE_DOC_DIR="docs"
 inherit kde5
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
