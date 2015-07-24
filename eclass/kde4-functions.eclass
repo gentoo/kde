@@ -292,13 +292,9 @@ add_kdeapps_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building stable-live version depend just on the raw KDE version
-	# to allow merging packages against more stable basic stuff
-	elif [[ ${PV} == *.9999 ]]; then
-		ver=$(get_kde_version)
-	# if building live master or kde-apps, use the final SC version
-	# since there are no further general releases.
-	elif [[ ${CATEGORY} == kde-apps || ${PV} == 9999 ]]; then
+	# if building kde-apps, live master or stable-live branch,
+	# use the final SC version since there are no further general releases.
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == *9999 ]]; then
 		ver=4.14.3
 	else
 		ver=${PV}
