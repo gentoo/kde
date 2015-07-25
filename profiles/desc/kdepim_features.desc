@@ -1,0 +1,19 @@
+# Copyright 1999-2015 Gentoo Foundation.
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# This file contains descriptions of KDEPIM_FEATURES USE_EXPAND flags.
+
+# Keep it sorted.
+akonadiconsole - KDEPIM_FEATURES option to build akonadi developer console
+akregator - KDEPIM_FEATURES option to build news feed aggregator
+blogilo - KDEPIM_FEATURES option to build blogging client
+console - KDEPIM_FEATURES option to build cli access
+kaddressbook - KDEPIM_FEATURES option to build address book
+kalarm - KDEPIM_FEATURES option to build personal alarm message, command and email scheduler
+kleopatra - KDEPIM_FEATURES option to build X.509 key manager
+kmail - KDEPIM_FEATURES option to build email component
+knotes - KDEPIM_FEATURES option to build notes application
+kontact - KDEPIM_FEATURES option to build personal information manager
+korganizer - KDEPIM_FEATURES option to build personal organizer
+ktnef - KDEPIM_FEATURES option to build a viewer for TNEF attachments
