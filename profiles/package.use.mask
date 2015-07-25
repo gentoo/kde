@@ -4,3 +4,6 @@
 >=kde-base/marble-4.12.49.9999 python
 >=kde-apps/marble-14.11.97 python
 
+# Unreleased dependencies
+=kde-apps/dolphin-15.08* thumbnail
+=kde-apps/gwenview-15.08* kipi raw
