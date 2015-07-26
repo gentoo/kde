@@ -4,16 +4,32 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK=true
+inherit kde5
 
-DESCRIPTION="Kiriki - a gtali clone for KDE4"
+DESCRIPTION="A gtali clone"
 HOMEPAGE="
 	http://www.kde.org/applications/games/kiriki/
 	http://games.kde.org/game.php?game=kiriki
 "
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="$(add_kdeapps_dep libkdegames)"
+DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkdegames)
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+"
 RDEPEND="${DEPEND}"
