@@ -1,0 +1,19 @@
+--- a/CMakeLists.txt	2015-07-26 22:10:03.158276297 +0200
++++ b/CMakeLists.txt	2015-07-26 22:11:22.380277657 +0200
+@@ -45,14 +45,8 @@
+     Network
+ )
+ 
+-find_package(
+-    Qt5 ${QT_MIN_VERSION}
+-    QUIET
+-    CONFIG
+-    COMPONENTS
+-    WebEngineWidgets
+-    WebKitWidgets
+-)
++find_package(Qt5WebEngineWidgets ${QT_MIN_VERSION} QUIET CONFIG COMPONENTS)
++find_package(Qt5WebKitWidgets ${QT_MIN_VERSION} QUIET CONFIG COMPONENTS)
+ 
+ find_package(
+     KF5 ${KF5_MIN_VERSION}
