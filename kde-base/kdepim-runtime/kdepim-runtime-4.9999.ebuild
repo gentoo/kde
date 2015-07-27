@@ -22,7 +22,7 @@ DEPEND="
 	dev-libs/libxslt
 	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
 	x11-misc/shared-mime-info
-	facebook? ( net-libs/libkfbapi )
+	facebook? ( net-libs/libkfbapi:4 )
 	google? ( >=net-libs/libkgapi-2.0:4 )
 	kolab? ( >=net-libs/libkolab-0.5 )
 "
