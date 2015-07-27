@@ -13,5 +13,5 @@ DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS=""
 
-DEPEND="$(add_kdebase_dep kdepimlibs 'akonadi(+)')"
+DEPEND="$(add_kdebase_dep kdepimlibs '-minimal(-)')"
 RDEPEND=""
