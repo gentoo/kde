@@ -5,14 +5,14 @@
 EAPI=5
 
 KDE_HANDBOOK=true
-KDE_TEST="true"
+KDE_TEST=true
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
 HOMEPAGE="http://www.kde.org/applications/utilities/ark
 http://utils.kde.org/projects/ark"
 KEYWORDS=""
-IUSE="dolphin"
+IUSE=""
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -32,17 +32,9 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
-	dolphin? ( $(add_kdeapps_dep libkonq '' '5.9999') )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package dolphin KF5Konq)
-	)
-	kde5_src_configure
-}
 
 pkg_postinst() {
 	kde5_pkg_postinst
