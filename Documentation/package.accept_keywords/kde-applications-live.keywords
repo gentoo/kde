@@ -74,6 +74,7 @@
 ~kde-apps/ktp-text-ui-9999 **
 ~kde-apps/plasma-telepathy-meta-9999 **
 ~kde-apps/signon-kwallet-extension-9999 **
+~kde-apps/akonadi-9999 **
 ~kde-apps/akonadi-calendar-9999 **
 ~kde-apps/akonadi-search-9999 **
 ~kde-apps/gpgmepp-9999 **
@@ -111,5 +112,4 @@
 ~kde-apps/ktimer-9999 **
 ~kde-apps/kwalletmanager-9999 **
 ~kde-apps/print-manager-9999 **
-~app-office/akonadi-server-9999 **
 ~net-libs/libkgapi-9999 **

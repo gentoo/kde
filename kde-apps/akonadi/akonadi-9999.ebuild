@@ -4,25 +4,14 @@
 
 EAPI=5
 
-if [[ $PV = *9999* ]]; then
-	EGIT_REPONAME="${PN/-server/}"
-	SRC_URI=""
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/stable/${PN/-server/}/src/${P/-server/}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
-	S="${WORKDIR}/${P/-server/}"
-fi
-
 KDE_TESTS=true
 VIRTUALDBUS_TEST=true
 inherit kde5
 
-DESCRIPTION="The server part of Akonadi"
+DESCRIPTION="Storage service for PIM data"
 HOMEPAGE="http://pim.kde.org/akonadi"
-
+KEYWORDS=""
 LICENSE="LGPL-2.1"
-SLOT="0"
 IUSE="+mysql postgres sqlite test"
 
 REQUIRED_USE="|| ( sqlite mysql postgres )"
@@ -44,6 +33,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	postgres? ( dev-db/postgresql )
+	!app-office/akonadi-server
 "
 
 pkg_setup() {

@@ -13,6 +13,7 @@ IUSE="google"
 # TODO kolab, Qt5TextToSpeech
 
 COMMON_DEPEND="
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kcalcore)
@@ -45,7 +46,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	>=app-office/akonadi-server-5.0.41
 	dev-libs/libical:=
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

@@ -37,12 +37,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
-	>=app-office/akonadi-server-5.0.41
 	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-qt/qtdbus:5
