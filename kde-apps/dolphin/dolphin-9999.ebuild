@@ -52,7 +52,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kio-extras)
-	$(add_kdeapps_dep libkonq '' 5.9999)
 	thumbnail? (
 		$(add_kdeapps_dep ffmpegthumbs '' 5.9999)
 		$(add_kdeapps_dep thumbnailers '' 5.9999)
@@ -69,4 +68,14 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ( ! has_version kde-apps/ark:${SLOT} || ! has_version kde-apps/libkonq:${SLOT} ); then
+		echo
+		elog "For compress/extract actions, please install kde-apps/ark:${SLOT} and kde-apps/libkonq:${SLOT}"
+		echo
+	fi
 }
