@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Portage emerge progress plasmoid"
 HOMEPAGE="http://kde-apps.org/content/show.php/Emerging+Plasmoid?content=147414 "
-EGIT_REPO_URI="git://github.com/leonardo2d/${PN}"
+EGIT_REPO_URI="git://github.com/mobius3/${PN}"
 
 LICENSE="GPL-3"
 KEYWORDS=""
