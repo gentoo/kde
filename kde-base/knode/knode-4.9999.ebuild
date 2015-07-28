@@ -18,7 +18,7 @@ IUSE="debug"
 RESTRICT=test
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
+	$(add_kdebase_dep kdepimlibs '-minimal(-)')
 	$(add_kdebase_dep kdepim-common-libs "" 4.12.1-r1)
 "
 RDEPEND="${DEPEND}"

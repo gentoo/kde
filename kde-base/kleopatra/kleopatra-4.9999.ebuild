@@ -19,7 +19,7 @@ DEPEND="
 	dev-libs/boost:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
-	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
+	$(add_kdebase_dep kdepimlibs '-minimal(-)')
 	$(add_kdebase_dep kdepim-common-libs)
 "
 RDEPEND="${DEPEND}

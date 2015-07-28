@@ -39,7 +39,7 @@ COMMONDEPEND="
 	x11-libs/libXrender
 	gps? ( >=sci-geosciences/gpsd-2.37 )
 	json? ( dev-libs/qjson )
-	kdepim? ( $(add_kdebase_dep kdepimlibs) )
+	kdepim? ( $(add_kdebase_dep kdepimlibs '-minimal(-)') )
 	nepomuk? (
 		dev-libs/soprano
 		$(add_kdebase_dep nepomuk-core)

@@ -20,7 +20,7 @@ DEPEND="
 	dev-libs/boost:=
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	$(add_kdebase_dep kdepimlibs 'akonadi(+)')
+	$(add_kdebase_dep kdepimlibs '-minimal(-)')
 	x11-misc/shared-mime-info
 	facebook? ( net-libs/libkfbapi:4 )
 	google? ( >=net-libs/libkgapi-2.0:4 )
