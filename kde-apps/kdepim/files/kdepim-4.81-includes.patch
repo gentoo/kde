@@ -1,0 +1,32 @@
+From: Montel Laurent <montel@kde.org>
+Date: Mon, 03 Aug 2015 05:38:26 +0000
+Subject: Add includes needs for gentoo dev
+X-Git-Url: http://quickgit.kde.org/?p=kdepim.git&a=commitdiff&h=34f28a4df9b3266be809bd8b3c338d91db0e3cf5
+---
+Add includes needs for gentoo dev
+---
+
+
+--- a/kleopatra/CMakeLists.txt
++++ b/kleopatra/CMakeLists.txt
+@@ -33,6 +33,7 @@
+   ${CMAKE_SOURCE_DIR}/libkleo
+   ${CMAKE_SOURCE_DIR}/libkdepim
+   ${Boost_INCLUDE_DIR}
++  ${GPGME_INCLUDES}
+ )
+ 
+ if(USABLE_ASSUAN_FOUND)
+
+--- a/messageviewer/CMakeLists.txt
++++ b/messageviewer/CMakeLists.txt
+@@ -27,6 +27,8 @@
+ check_include_files(sys/inotify.h SYS_INOTIFY_H_FOUND)
+ macro_bool_to_01(SYS_INOTIFY_H_FOUND HAVE_SYS_INOTIFY_H)
+ configure_file(config-messageviewer.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-messageviewer.h)
++
++include_directories( ${GPGME_INCLUDES} )
+ 
+ if(BUILD_TESTING)
+    add_subdirectory(autotests)
+
