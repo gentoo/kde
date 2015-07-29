@@ -9,7 +9,7 @@ KMNAME="kdev-qmljs"
 KDE_TEST=true
 inherit kde5
 
-DESCRIPTION="QML and javascrip plugin for KDevelop 5"
+DESCRIPTION="QML and javascript plugin for KDevelop 5"
 LICENSE="GPL-2 LGPL-2"
 IUSE=""
 KEYWORDS=""
