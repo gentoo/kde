@@ -16,7 +16,6 @@ RDEPEND="
 	$(add_kdeapps_dep kamera)
 	$(add_kdeapps_dep kcolorchooser)
 	$(add_kdeapps_dep kdegraphics-mobipocket)
-	$(add_kdeapps_dep kgamma)
 	$(add_kdeapps_dep kolourpaint)
 	$(add_kdeapps_dep kruler)
 	$(add_kdeapps_dep ksnapshot)
