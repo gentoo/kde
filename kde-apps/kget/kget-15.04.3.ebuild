@@ -27,7 +27,7 @@ RDEPEND="
 		$(add_kdebase_dep nepomuk-widgets)
 	)
 	sqlite? ( dev-db/sqlite:3 )
-	webkit? ( >=kde-misc/kwebkitpart-0.9.6 )
+	webkit? ( >=kde-misc/kwebkitpart-0.9.6:4 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
