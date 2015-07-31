@@ -13,7 +13,7 @@ IUSE="+wallpapers"
 KEYWORDS=""
 
 RDEPEND="
-	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
+	wallpapers? ( || ( $(add_kdeapps_dep kde-wallpapers) >=kde-apps/kde-wallpapers-${PV}:5 ) )
 	x11-themes/hicolor-icon-theme
 "
 
