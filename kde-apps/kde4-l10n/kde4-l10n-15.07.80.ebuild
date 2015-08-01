@@ -22,8 +22,8 @@ RDEPEND="
 KEYWORDS=" ~amd64 ~x86"
 IUSE="minimal"
 
-REMOVE_DIRS="${FILESDIR}/${PN}-15.04.1-remove-dirs"
-REMOVE_MSGS="${FILESDIR}/${PN}-15.04.1-remove-messages"
+REMOVE_DIRS="${FILESDIR}/${PN}-15.07.80-remove-dirs"
+REMOVE_MSGS="${FILESDIR}/${PN}-15.07.80-remove-messages"
 
 LV="4.14.3"
 LEGACY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl
