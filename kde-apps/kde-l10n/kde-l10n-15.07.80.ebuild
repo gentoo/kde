@@ -13,6 +13,9 @@ HOMEPAGE="http://l10n.kde.org"
 DEPEND="
 	sys-devel/gettext
 "
+RDEPEND="
+	!<kde-apps/kde4-l10n-15.07.80
+"
 
 KEYWORDS=" ~amd64 ~x86"
 IUSE=""
