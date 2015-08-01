@@ -11,7 +11,6 @@ HOMEPAGE="http://api.kde.org/4.x-api/kdegraphics-apidocs/libs/libkface/libkface/
 
 LICENSE="GPL-2"
 IUSE=""
-SLOT=4
 
 KEYWORDS="~amd64 ~x86"
 

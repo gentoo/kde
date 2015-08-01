@@ -13,6 +13,8 @@ HOMEPAGE="http://api.kde.org/4.x-api/kdegraphics-apidocs/libs/libkface/libkface/
 LICENSE="GPL-2"
 IUSE=""
 
+KEYWORDS=""
+
 CDEPEND="
 	$(add_frameworks_dep ki18n)
 	dev-qt/qtgui:5
