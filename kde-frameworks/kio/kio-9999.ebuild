@@ -5,6 +5,7 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
+KDE_PUNT_BOGUS_DEPS=true
 inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
@@ -64,13 +65,6 @@ PDEPEND="
 
 # tests hang
 RESTRICT="test"
-
-src_prepare() {
-	# whole patch should be upstreamed, doesn't work in PATCHES
-	epatch "${FILESDIR}/${PN}-tests-optional.patch"
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
