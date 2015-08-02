@@ -1,0 +1,42 @@
+From: Martin Koller <kollix@aon.at>
+Date: Sun, 02 Aug 2015 14:30:59 +0000
+Subject: Workaround Qt 5.5.0 bug not detecting a failed db.open()
+X-Git-Url: http://quickgit.kde.org/?p=akonadi.git&a=commitdiff&h=a0d51b01f45f7b4417455218ff91feaac3aa6bf6
+---
+Workaround Qt 5.5.0 bug not detecting a failed db.open()
+
+QTBUG-47475 leads to db.open() not detecting that the mysqld does not
+run (any connection failure still results in open() returning true)
+This patch introduces a workaround to check for the existance of
+the mysql unix socket file before we actually try to open the connection
+
+REVIEW: 124588
+---
+
+
+--- a/src/server/storage/dbconfigmysql.cpp
++++ b/src/server/storage/dbconfigmysql.cpp
+@@ -28,6 +28,7 @@
+ #include <QtCore/QDateTime>
+ #include <QtCore/QDir>
+ #include <QtCore/QProcess>
++#include <QtCore/QThread>
+ #include <QtSql/QSqlDriver>
+ #include <QtSql/QSqlError>
+ #include <QtSql/QSqlQuery>
+@@ -312,6 +313,15 @@
+         akFatal() << "process error:" << mDatabaseProcess->errorString();
+     }
+ 
++#ifndef Q_OS_WIN
++    // wait until mysqld has created the socket file (workaround for QTBUG-47475 in Qt5.5.0)
++    QString socketFile = QString::fromLatin1("%1/mysql.socket").arg(socketDirectory);
++    int counter = 50;  // avoid an endless loop in case mysqld terminated
++    while ((counter-- > 0) && !QFileInfo::exists(socketFile)) {
++      QThread::msleep(100);
++    }
++#endif
++
+     const QLatin1String initCon("initConnection");
+     {
+         QSqlDatabase db = QSqlDatabase::addDatabase(QLatin1String("QMYSQL"), initCon);
