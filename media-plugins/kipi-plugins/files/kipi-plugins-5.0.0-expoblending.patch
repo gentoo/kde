@@ -1,0 +1,16 @@
+--- a/CMakeLists.txt	2015-08-02 14:04:46.650113184 +0200
++++ b/CMakeLists.txt	2015-08-02 14:06:44.499115207 +0200
+@@ -312,9 +312,12 @@
+         add_subdirectory(sendimages)
+         add_subdirectory(timeadjust)
+         add_subdirectory(flashexport)
+-        add_subdirectory(expoblending)
+         add_subdirectory(metadataedit)
+ 
++        if(ENABLE_expoblending)
++            add_subdirectory(expoblending)
++        endif()
++
+         if(KF5Sane_FOUND)
+             add_subdirectory(acquireimages)
+         endif()
