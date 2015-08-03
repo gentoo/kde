@@ -55,7 +55,6 @@ COMMON_DEPEND="
 	dev-qt/qtxmlpatterns:5
 "
 DEPEND="${COMMON_RDEPEND}
-	dev-libs/boost
 	dev-libs/cyrus-sasl:2
 	dev-libs/libxml2:2
 	dev-libs/libxslt
