@@ -533,6 +533,12 @@ kde5_src_install() {
 	fi
 
 	cmake-utils_src_install
+
+	# We don't want ${PREFIX}/share/doc/HTML to be compressed,
+	# because then khelpcenter can't find the docs
+	if [[ -d ${ED}/${PREFIX}/share/doc/HTML ]]; then
+		docompress -x ${PREFIX}/share/doc/HTML
+	fi
 }
 
 # @FUNCTION: kde5_pkg_preinst
