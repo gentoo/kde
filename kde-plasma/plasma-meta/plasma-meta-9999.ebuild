@@ -12,7 +12,7 @@ HOMEPAGE="http://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +display-manager gtk +sddm networkmanager +wallpapers"
+IUSE="bluetooth +display-manager gtk +sddm networkmanager pulseaudio +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -49,6 +49,7 @@ RDEPEND="
 	)
 	gtk? ( $(add_plasma_dep kde-gtk-config) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
+	pulseaudio? ( $(add_plasma_dep plasma-pa) )
 	sddm? ( $(add_plasma_dep sddm-kcm) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
 "
