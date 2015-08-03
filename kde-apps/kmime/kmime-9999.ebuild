@@ -13,10 +13,8 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep ki18n)
 "
-DEPEND="${RDEPEND}
-	dev-libs/boost
-"
+RDEPEND="${DEPEND}"
