@@ -36,8 +36,6 @@ RDEPEND="${CDEPEND}
 	!app-office/akonadi-server
 "
 
-PATCHES=( "${FILESDIR}/${PN}-qt55-sql.patch" )
-
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
 	# reverse driver check to keep the order
