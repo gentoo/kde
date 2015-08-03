@@ -46,7 +46,7 @@ RDEPEND="
 	virtual/jpeg:0
 	kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
 	raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )
-	semantic-desktop? ( $(add_plasma_dep baloo) )
+	semantic-desktop? ( || ( $(add_plasma_dep baloo) $(add_frameworks_dep baloo) ) )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11

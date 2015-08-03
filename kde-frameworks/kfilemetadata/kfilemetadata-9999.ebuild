@@ -33,6 +33,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-base/kfilemetadata:5
+	!kde-plasma/kfilemetadata
 "
 
 src_configure() {

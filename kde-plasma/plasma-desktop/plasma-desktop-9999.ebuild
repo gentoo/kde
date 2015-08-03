@@ -13,10 +13,10 @@ KEYWORDS=""
 IUSE="+evdev +fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad"
 
 COMMON_DEPEND="
-	$(add_plasma_dep baloo)
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
+	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kauth)

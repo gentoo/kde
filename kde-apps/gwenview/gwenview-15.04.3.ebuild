@@ -47,7 +47,7 @@ RDEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
-	semantic-desktop? ( $(add_plasma_dep baloo) )
+	semantic-desktop? ( || ( $(add_plasma_dep baloo) $(add_frameworks_dep baloo) ) )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
