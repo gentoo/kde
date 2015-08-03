@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Library for extracting file metadata"
