@@ -96,6 +96,7 @@ RDEPEND="${COMMON_DEPEND}
 		gtk3? ( dev-libs/libappindicator:3 )
 		qt4? ( dev-libs/sni-qt )
 	)
+	pulseaudio? ( $(add_plasma_dep plasma-pa ) )
 	qt4? ( kde-base/qguiplatformplugin_kde )
 	!kde-apps/attica
 	!kde-apps/kcontrol
