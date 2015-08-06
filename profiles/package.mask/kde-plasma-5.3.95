@@ -1,0 +1,40 @@
+# Johannes Huber <johu@gentoo.org> (06 Aug 2015)
+# KDE Plasma 5.4 beta mask
+# Not released yet. Tarballs not available for public consumption.
+~kde-plasma/bluedevil-5.3.95:5
+~kde-plasma/breeze-5.3.95:5
+~kde-plasma/kde-cli-tools-5.3.95:5
+~kde-plasma/kde-gtk-config-5.3.95:5
+~kde-plasma/kdecoration-5.3.95:5
+~kde-plasma/kdeplasma-addons-5.3.95:5
+~kde-plasma/kgamma-5.3.95:5
+~kde-plasma/khelpcenter-5.3.95:5
+~kde-plasma/khotkeys-5.3.95:5
+~kde-plasma/kinfocenter-5.3.95:5
+~kde-plasma/kmenuedit-5.3.95:5
+~kde-plasma/kscreen-5.3.95:5
+~kde-plasma/ksshaskpass-5.3.95:5
+~kde-plasma/ksysguard-5.3.95:5
+~kde-plasma/kwallet-pam-5.3.95:5
+~kde-plasma/kwayland-5.3.95:5
+~kde-plasma/kwayland-integration-5.3.95:5
+~kde-plasma/kwin-5.3.95:5
+~kde-plasma/kwrited-5.3.95:5
+~kde-plasma/libkscreen-5.3.95:5
+~kde-plasma/libksysguard-5.3.95:5
+~kde-plasma/milou-5.3.95:5
+~kde-plasma/oxygen-5.3.95:5
+~kde-plasma/oxygen-fonts-5.3.95:5
+~kde-plasma/plasma-desktop-5.3.95:5
+~kde-plasma/plasma-mediacenter-5.3.95:5
+~kde-plasma/plasma-meta-5.3.95:5
+~kde-plasma/plasma-nm-5.3.95:5
+~kde-plasma/plasma-pa-5.3.95:5
+~kde-plasma/plasma-sdk-5.3.95:5
+~kde-plasma/plasma-workspace-5.3.95:5
+~kde-plasma/plasma-workspace-wallpapers-5.3.95:5
+~kde-plasma/polkit-kde-agent-5.3.95:5
+~kde-plasma/powerdevil-5.3.95:5
+~kde-plasma/sddm-kcm-5.3.95:5
+~kde-plasma/systemsettings-5.3.95:5
+~kde-plasma/user-manager-5.3.95:5

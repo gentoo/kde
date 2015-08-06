@@ -1,4 +1,5 @@
-# Johannes Huber ~johu@gentoo.org> (04 Aug 2015)
+# Johannes Huber <johu@gentoo.org> (04 Aug 2015)
+# KDE Frameworks 5.13.0 mask
 # Not released yet. Tarballs not available for public consumption.
 ~kde-frameworks/attica-5.13.0:5
 ~kde-frameworks/baloo-5.13.0:5
