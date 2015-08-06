@@ -26,6 +26,7 @@ RDEPEND="
 	$(add_plasma_dep kscreen)
 	$(add_plasma_dep ksshaskpass)
 	$(add_plasma_dep ksysguard)
+	$(add_plasma_dep kwallet-pam)
 	$(add_plasma_dep kwayland)
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep kwrited)
