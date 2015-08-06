@@ -5,15 +5,18 @@
 EAPI=5
 
 KMNAME="kde-wallpapers"
+KDE_AUTODEPS="false"
 KDE_SCM="svn"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="KDE wallpapers"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+RDEPEND="!kde-apps/kde-wallpapers:4"
+
 src_configure() {
 	local mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
-	kde4-base_src_configure
+	kde5_src_configure
 }

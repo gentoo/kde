@@ -11,13 +11,13 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="
+	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
-	|| ( $(add_plasma_dep baloo) $(add_frameworks_dep baloo) )
-	|| ( $(add_plasma_dep kfilemetadata) $(add_frameworks_dep kfilemetadata) )
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
