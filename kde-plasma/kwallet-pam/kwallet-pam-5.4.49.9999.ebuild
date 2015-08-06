@@ -8,16 +8,13 @@ KDE_AUTODEPS=false
 inherit kde5
 
 DESCRIPTION="KWallet PAM module to not enter password again"
+
+LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
+
 DEPEND="
 	dev-libs/libgcrypt:0=
 	virtual/pam
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=( -DKWALLET5=1 )
-
-	kde5_src_configure
-}
