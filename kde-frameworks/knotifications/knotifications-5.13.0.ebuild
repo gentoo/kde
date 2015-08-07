@@ -16,8 +16,6 @@ RDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwindowsystem)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
