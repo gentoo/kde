@@ -22,14 +22,18 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[opengl(+)]
 	dev-qt/qtwidgets:5
 	gles? (
