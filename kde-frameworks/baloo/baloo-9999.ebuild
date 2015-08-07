@@ -30,7 +30,6 @@ DEPEND="
 	sys-apps/attr
 "
 RDEPEND="${DEPEND}
-	!<kde-base/nepomuk-4.12.50
 	!kde-base/baloo:4[-minimal(-)]
 	!kde-base/baloo:5
 	!kde-plasma/baloo
