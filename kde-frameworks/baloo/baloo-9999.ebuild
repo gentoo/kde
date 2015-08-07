@@ -26,7 +26,6 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	sys-apps/attr
 "
