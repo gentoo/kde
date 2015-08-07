@@ -13,7 +13,7 @@ inherit kde4-meta
 
 DESCRIPTION="System settings utility"
 HOMEPAGE+=" http://userbase.kde.org/System_Settings"
-IUSE="debug gtk +kscreen nepomuk +usb"
+IUSE="debug gtk +kscreen +usb"
 KEYWORDS=""
 
 COMMONDEPEND="
@@ -46,7 +46,6 @@ RDEPEND="${COMMONDEPEND}
 	x11-misc/xkeyboard-config
 	gtk? ( kde-misc/kde-gtk-config )
 	kscreen? ( kde-misc/kscreen:4 )
-	nepomuk? ( $(add_kdebase_dep nepomuk) )
 "
 
 KMEXTRA="
