@@ -24,6 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
