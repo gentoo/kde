@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="gpg"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -25,5 +25,17 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	gpg? (
+		$(add_kdeapps_dep gpgmepp)
+		app-crypt/gpgme
+	)
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package gpg Gpgme)
+		$(cmake-utils_use_find_package gpg Gpgmepp)
+	)
+	kde5_src_configure
+}
