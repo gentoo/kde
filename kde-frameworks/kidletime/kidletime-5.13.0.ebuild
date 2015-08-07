@@ -14,6 +14,7 @@ IUSE=""
 
 RDEPEND="
 	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
