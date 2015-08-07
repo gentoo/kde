@@ -13,7 +13,6 @@ IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep bluez-qt)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
