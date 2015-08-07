@@ -9,3 +9,5 @@
 =kde-apps/dolphin-15.08* thumbnail
 =kde-apps/gwenview-15.07* kipi raw
 =kde-apps/gwenview-15.08* kipi raw
+=kde-frameworks/kwallet-15.07* gpg
+=kde-frameworks/kwallet-15.08* gpg
