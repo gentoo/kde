@@ -15,7 +15,7 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	!<kde-apps/kde-l10n-15.04.0-r1
+	!<kde-apps/kde-l10n-${PV}
 	!kde-base/kdepim-l10n
 "
 
