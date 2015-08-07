@@ -37,10 +37,10 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
 	ibus? (
 		app-i18n/ibus
 		dev-libs/glib:2
+		dev-qt/qtx11extras:5
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
