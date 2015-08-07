@@ -70,7 +70,6 @@
 <kde-apps/kuiserver-4.14.50
 <kde-apps/kurifilter-plugins-4.14.50
 <kde-apps/kwalletd-4.14.50
-<kde-apps/nepomuk-4.14.50
 <kde-apps/phonon-kde-4.14.50
 <kde-apps/plasma-runtime-4.14.50
 <kde-apps/renamedlg-plugins-4.14.50
@@ -212,8 +211,6 @@
 <kde-base/kde-env-4.14.50
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50
-<kde-base/nepomuk-core-4.14.50
-<kde-base/nepomuk-widgets-4.14.50
 <kde-base/kdepimlibs-4.14.50
 <kde-apps/oxygen-icons-4.14.50
 <kde-base/katepart-4.14.50
@@ -310,8 +307,3 @@
 >=media-libs/qt-gstreamer-1.2.0
 >=net-libs/libkgapi-2.0.1
 >=net-libs/libndp-1.4
-
-# temporary keyword to solve portage blockers due to
-# semantic-desktop -> nepomuk USE flag changes
->=app-office/calligra-2.8.2
->=app-office/calligra-l10n-2.8.2

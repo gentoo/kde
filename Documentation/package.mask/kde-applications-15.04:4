@@ -70,7 +70,6 @@
 <kde-apps/kuiserver-15.04.50:4
 <kde-apps/kurifilter-plugins-15.04.50:4
 <kde-apps/kwalletd-15.04.50:4
-<kde-apps/nepomuk-15.04.50:4
 <kde-apps/phonon-kde-15.04.50:4
 <kde-apps/plasma-runtime-15.04.50:4
 <kde-apps/renamedlg-plugins-15.04.50:4
@@ -213,8 +212,6 @@
 <kde-base/kde-env-4.14.50
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50
-<kde-base/nepomuk-core-4.14.50
-<kde-base/nepomuk-widgets-4.14.50
 <kde-base/kdepimlibs-4.14.50
 <kde-apps/oxygen-icons-15.04.50
 <kde-base/katepart-4.14.50
