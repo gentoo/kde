@@ -10,22 +10,16 @@ inherit kde4-base
 DESCRIPTION="An advanced download manager for KDE"
 HOMEPAGE="http://www.kde.org/applications/internet/kget/"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug bittorrent gpg mms nepomuk sqlite webkit"
+IUSE="debug bittorrent gpg mms sqlite webkit"
 
 RDEPEND="
 	app-crypt/qca:2[qt4]
-	$(add_kdebase_dep kdelibs 'nepomuk?')
+	$(add_kdebase_dep kdelibs)
 	$(add_kdeapps_dep libkonq)
 	$(add_kdebase_dep libkworkspace '' 4.11)
 	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
-	gpg? ( $(add_kdebase_dep kdepimlibs) )
+	gpg? ( || ( $(add_kdeapps_dep gpgmepp) $(add_kdebase_dep kdepimlibs) ) )
 	mms? ( media-libs/libmms )
-	nepomuk? (
-		dev-libs/shared-desktop-ontologies
-		dev-libs/soprano
-		$(add_kdebase_dep nepomuk-core)
-		$(add_kdebase_dep nepomuk-widgets)
-	)
 	sqlite? ( dev-db/sqlite:3 )
 	webkit? ( >=kde-misc/kwebkitpart-0.9.6:4 )
 "
@@ -35,11 +29,11 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_NepomukCore=OFF
+		-DWITH_NepomukWidgets=OFF
 		$(cmake-utils_use_with bittorrent KTorrent)
 		$(cmake-utils_use_with gpg QGpgme)
 		$(cmake-utils_use_with mms LibMms)
-		$(cmake-utils_use_with nepomuk NepomukCore)
-		$(cmake-utils_use_with nepomuk NepomukWidgets)
 		$(cmake-utils_use_with sqlite)
 		$(cmake-utils_use_with webkit KWebKitPart)
 	)
