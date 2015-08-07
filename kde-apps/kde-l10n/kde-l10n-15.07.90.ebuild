@@ -14,7 +14,7 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	!<kde-apps/kde4-l10n-15.07.80
+	!<kde-apps/kde4-l10n-${PV}
 "
 
 KEYWORDS=" ~amd64 ~x86"
