@@ -51,7 +51,7 @@ each_ruby_configure() {
 		-DRUBY_LIBRARY=$(ruby_get_libruby)
 		-DRUBY_INCLUDE_PATH=$(ruby_get_hdrdir)
 		-DRUBY_EXECUTABLE=${RUBY}
-		-DWITH_nepomuk=OFF
+		-DWITH_Nepomuk=OFF
 		-DWITH_Soprano=OFF
 		$(cmake-utils_use_with akonadi)
 		$(cmake-utils_use_with akonadi KdepimLibs)
