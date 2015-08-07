@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS="~amd64 ~x86"
-IUSE="crash-reporter +handbook minimal nepomuk"
+IUSE="crash-reporter +handbook minimal"
 
 RDEPEND="
 	$(add_kdeapps_dep kcmshell)
@@ -48,7 +48,6 @@ RDEPEND="
 		kde-base/khelpcenter:4
 	) )
 	minimal? ( $(add_kdeapps_dep solid-runtime '-bluetooth') )
-	nepomuk? ( $(add_kdeapps_dep nepomuk) )
 	!minimal? (
 		$(add_kdeapps_dep attica)
 		$(add_kdeapps_dep kcontrol)
