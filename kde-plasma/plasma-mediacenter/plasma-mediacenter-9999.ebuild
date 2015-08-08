@@ -11,6 +11,7 @@ KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
+	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
