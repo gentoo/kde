@@ -4,10 +4,8 @@
 
 EAPI=5
 
-KDE_MINIMAL="4.10"
 REV="f2f067d5542d3c7ea6d09bc8f63d5853b57db4a7"
 SRC_URI="http://quickgit.kde.org/?p=${PN}.git&a=snapshot&h=${REV}&fmt=tbz2 -> ${P}.tar.bz2"
-
 inherit kde4-base
 
 DESCRIPTION="Oxygen style and decoration with support for transparency"
