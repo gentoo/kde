@@ -10,10 +10,6 @@ EAPI=5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 KDE_HANDBOOK=true
-KDE_LINGUAS="af ar az be bg bn br bs ca cs csb cy da de el en_GB eo es et eu fa
-fi fo fr fy ga gl ha he hi hr hsb hu id is it ja ka kk km ko ku lb lo lt lv mi
-mk mn ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sq sr ss sv
-ta te tg th tr tt uk uz ven vi wa xh zh_CN zh_HK zh_TW zu"
 fi
 
 EGIT_BRANCH=frameworks
