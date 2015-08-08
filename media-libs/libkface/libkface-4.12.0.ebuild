@@ -6,9 +6,7 @@ EAPI=5
 
 MY_PV="${PV/_/-}"
 MY_P="digikam-${MY_PV}"
-
 KDE_LINGUAS=""
-KDE_MINIMAL="4.10"
 inherit kde4-base
 
 DESCRIPTION="Qt/C++ wrapper around LibFace to perform face recognition and detection"
