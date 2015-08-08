@@ -6,8 +6,6 @@ EAPI=5
 
 MY_PV="${PV/_/-}"
 MY_P="digikam-${MY_PV}"
-
-KDE_MINIMAL="4.10"
 VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
