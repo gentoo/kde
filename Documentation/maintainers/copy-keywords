@@ -1,48 +1,30 @@
 #!/bin/bash
 
-SOURCE=${1:-~/Gentoo/gentoo-x86}
-SOURCEVER=${2:-4.11.2}
+SOURCE=${1:-~/Gentoo/gentoo}
+SOURCEVER=${2:-15.08.0}
 
 DEST=${3:-~/Gentoo/kde}
-DESTVER=${4:-4.12.1}
+DESTVER=${4:-15.12.0}
 
-TESTING=${5:-yes}
+CATEGORY=${5:-kde-apps}
+TESTING=${6:-yes}
 
-for pd in ${SOURCE}/kde-base/* ; do 
+for pd in ${SOURCE}/${CATEGORY}/* ; do
+    p="`basename $pd`"
+    kw=`cat ${pd}/${p}-${SOURCEVER}*ebuild | grep "^KEYWORDS" | head -n 1 | sed -e 's:^KEYWORDS="::' -e 's:".*$::'`
 
-  if [ "`basename ${pd}`x" == 'CVSx' ]; then 
+    if [ "${kw}x" == x ]; then
+        echo "error: $p ebuild not found"
+    else
+        if [ -f "${DEST}/${CATEGORY}/${p}/${p}-${DESTVER}.ebuild" ]; then
+            echo "processing $p"
+            sed -i "${DEST}/${CATEGORY}/${p}/${p}-${DESTVER}.ebuild" -e "/^KEYWORDS/cKEYWORDS=\"${kw}\""
 
-     true
-
-  else
-
-     p="`basename $pd`"
-     kw=`cat ${pd}/${p}-${SOURCEVER}*ebuild | grep "^KEYWORDS" | head -n 1 | sed -e 's:^KEYWORDS="::' -e 's:".*$::'`
-
-     if [ "${kw}x" == x ]; then 
-
-       echo "error: $p ebuild not found"
-     
-     else
-
-       if [ -f "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild" ]; then 
-
-         echo "processing $p"
-
-         sed -i "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild" -e "/^KEYWORDS/cKEYWORDS=\"${kw}\""
-
-         if [ ${TESTING} == yes ]; then 
-           ekeyword ~all "${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild"
-         fi
-
-       else 
-
-         echo "error: no file ${DEST}/kde-base/${p}/${p}-${DESTVER}.ebuild"
-
-       fi
-
-     fi
-
-  fi
-
+            if [ ${TESTING} == yes ]; then
+                ekeyword ~all "${DEST}/${CATEGORY}/${p}/${p}-${DESTVER}.ebuild"
+            fi
+        else
+            echo "error: no file ${DEST}/${CATEGORY}/${p}/${p}-${DESTVER}.ebuild"
+        fi
+    fi
 done
