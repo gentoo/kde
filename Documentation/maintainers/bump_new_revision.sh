@@ -3,7 +3,7 @@
 # KDE Version bumper
 # Created by Gentoo kde-herd
 # This tool is meant to be used for ease of version bumping for KDE ebuilds
-# v 0.22
+# v 0.23
 ###############################################################################
 # functions
 ###############################################################################
@@ -157,19 +157,14 @@ help() {
 	echo
 	echo "When moving kde from overlay to the main tree"
 	echo "-v VERSION"
-	echo "$0 -a cvsmove -v 4.4.4"
+	echo "$0 -a repomove -v 4.4.4"
 	exit 0
 }
 
-_cvsupdate() {
-	pushd "${1}" &> /dev/null
-	#cvs up
-	popd &> /dev/null
-}
-_addcvsfile() {
+_addgitfile() {
 	pushd "${1}" &> /dev/null
 	echo "${1}/${2}"
-	cvs add ${2}
+	git add ${2}
 	popd &> /dev/null
 }
 _check_patches() {
@@ -232,7 +227,7 @@ case ${OPERATION} in
 		[[ -z "${VERSION}" || -z "${BUMP_VERSION}" || -z "${DIR}" || -z "${OUTPUT_DIR}" ]] && \
 			help
 		;;
-	cvsmove)
+	repomove)
 		[[ -z "${VERSION}" ]] && help
 		;;
 	*)
@@ -303,9 +298,6 @@ case ${OPERATION} in
 			if [[ -d "${PORTDIR_BUMPING}/.git" ]]; then
 				EBUILD=`find ./ -name \*.ebuild | grep "${VERSION}\(\-r[0-9]\+\)\?\\." | sort |tail -n 1`
 				git rm "${EBUILD}"
-			elif [[ -d CVS ]]; then
-				cvs remove -f "${EBUILD_BASENAME}-${VERSION}"*.ebuild
-				echangelog "Remove KDE SC ${VERSION}"
 			fi
 #			if [[ -d files/ ]]; then
 #				# generate list of patches.
@@ -340,15 +332,11 @@ case ${OPERATION} in
 		;;
 	slot) add_new_sloted_version ;;
 	diff) check_cmakelists ;;
-	cvsmove)
+	repomove)
 		MAINTREE="$(portageq get_repo_path / gentoo)"
 		OVERLAY="`pwd`"
 		BUMP_VERSION=${VERSION}
-		# course of action we are doing here
-		# cvs up whole tree, then kde-base
-		# then start going per each dir
-		# cvs up, move the ebuild, its patches if needed, run echangelog, run keywords check, manifest
-		#_cvsupdate "${MAINTREE}"
+		# move the ebuild, its patches if needed, run keywords check, manifest
 		find ./${CATEGORY}/ -mindepth 1 -maxdepth 1 -type d |sed -e "s:./::" | sort |while read dir; do
 			# we also have to check if directory contains our version if not, we dont copy it
 			pushd "${OVERLAY}/${dir}" &> /dev/null
@@ -358,9 +346,8 @@ case ${OPERATION} in
 				if [[ ! -d "${WRKDIR}" ]]; then
 					# we need to add the directory to scm tracking
 					mkdir -p "${WRKDIR}"
-					_addcvsfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//}
+					_addgitfile "${MAINTREE}/${dir/\/*/}" ${dir/*\//}
 				fi
-				_cvsupdate "${WRKDIR}"
 				# we need to copy the file we want to play with
 				## first generate the correct filename, we expect that if someone added -rX to the package it has reason.
 				pushd "${OVERLAY}/${dir}" &> /dev/null
@@ -368,7 +355,7 @@ case ${OPERATION} in
 				echo ${EBUILD}
 				cp -f ${EBUILD} "${WRKDIR}"
 				popd &> /dev/null
-				_addcvsfile "${WRKDIR}" ${EBUILD/*\//}
+				_addgitfile "${WRKDIR}" ${EBUILD/*\//}
 				# now we need to search up all patches ebuild is containing and move them along if they are needed.
 				_check_patches "${OVERLAY}/${dir}" "${WRKDIR}" ${EBUILD/*\//}
 				if [[ `cat ${TMPFILE} |wc -l` -gt 0 ]]; then
@@ -377,7 +364,7 @@ case ${OPERATION} in
 						if [[ ! -d "${WRKDIR}/files" ]]; then
 							# create files dir
 							mkdir -p "${WRKDIR}/files"
-							_addcvsfile "${WRKDIR}" files/
+							_addgitfile "${WRKDIR}" files/
 						fi
 						pushd "${OVERLAY}/${dir}" &> /dev/null
 						PTH=`find ./ -name ${file/*\//} |sed -e "s:./::" -e "s:${file/*\//}::"`
@@ -387,11 +374,11 @@ case ${OPERATION} in
 							# anyway no kde package don't use more than one so i wont bother for now
 							PDIR=${PTH/files\//}
 							mkdir -p "${PDIR}"
-							_addcvsfile "${WRKDIR}/files/" "${PDIR}"
+							_addgitfile "${WRKDIR}/files/" "${PDIR}"
 						fi
 						# note that we always replace the patches, no warnings we just poke ourselves over them :]
 						cp -f "files/${PDIR}${file}" "${WRKDIR}/files/${PDIR}"
-						_addcvsfile "${WRKDIR}/files/${PDIR}" ${file}
+						_addgitfile "${WRKDIR}/files/${PDIR}" ${file}
 						popd &> /dev/null
 					done
 				fi
@@ -399,7 +386,7 @@ case ${OPERATION} in
 				pushd "${WRKDIR}" &> /dev/null
 				# update_keywords "${EBUILD/*\//}" ${dir}
 				# ^for unknown reason this is broken, but the keywords are already correct from the initial bump
-				echangelog "Version bump KDE SC ${VERSION}"
+				# echangelog "Version bump KDE SC ${VERSION}"
 				repoman manifest
 				popd &> /dev/null
 			else
