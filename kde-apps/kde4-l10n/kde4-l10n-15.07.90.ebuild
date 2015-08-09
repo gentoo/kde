@@ -22,7 +22,7 @@ RDEPEND="
 KEYWORDS=" ~amd64 ~x86"
 IUSE="minimal"
 
-REMOVE_DIRS="${FILESDIR}/${PN}-15.07.80-remove-dirs"
+REMOVE_DIRS="${FILESDIR}/${PN}-15.07.90-remove-dirs"
 REMOVE_MSGS="${FILESDIR}/${PN}-15.07.80-remove-messages"
 
 LV="4.14.3"

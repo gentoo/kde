@@ -15,6 +15,7 @@ docs/kdegraphics gwenview
 docs/kdegraphics kruler
 docs/kdesdk kapptemplate
 docs/kdesdk okteta
+docs/kdeutils kwalletmanager
 # Plasma 5.3
 docs/kde-runtime fundamentals
 docs/kde-runtime kdesu
