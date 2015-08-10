@@ -125,12 +125,8 @@ REQUIRED_USE="
 	kdepim_features_kalarm? ( kdepim_features_kmail )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-find-gpgme.patch" )
-
 src_prepare() {
 	kde5_src_prepare
-
-	cp "${FILESDIR}/FindGpgme.cmake" cmake/modules || die
 
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
