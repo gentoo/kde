@@ -70,6 +70,7 @@ DEPEND="
 	$(add_kdeapps_dep syndication)
 	>=app-crypt/gpgme-1.3.2
 	dev-libs/boost:=
+	dev-libs/grantlee:5
 	dev-libs/libxslt
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
