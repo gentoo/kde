@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
+KMNAME="${PN}5"
 inherit kde5
 
 DESCRIPTION="Screen gamma values kcontrol module"
