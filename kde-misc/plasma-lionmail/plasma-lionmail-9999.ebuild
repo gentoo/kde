@@ -15,7 +15,6 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs)
 	$(add_kdebase_dep kdepimlibs)
 	app-office/akonadi-server
 	dev-qt/qtcore:4
