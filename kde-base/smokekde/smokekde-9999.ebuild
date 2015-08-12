@@ -12,7 +12,6 @@ IUSE="akonadi attica debug kate okular"
 HOMEPAGE="http://techbase.kde.org/Development/Languages/Smoke"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs)
 	$(add_kdebase_dep smokeqt)
 	akonadi? ( $(add_kdebase_dep kdepimlibs) )
 	attica? ( dev-libs/libattica )
