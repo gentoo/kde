@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_AUTODEPS=false
+KDE_AUTODEPS="false"
 inherit kde5
 
 DESCRIPTION="KWallet PAM module to not enter password again"
