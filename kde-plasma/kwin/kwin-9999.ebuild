@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="gles2 wayland"
+IUSE="gles2"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -38,29 +38,27 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_plasma_dep kdecoration)
+	$(add_plasma_dep kwayland)
+	>=dev-libs/libinput-0.10
+	>=dev-libs/wayland-1.2
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl(+)]
 	dev-qt/qtmultimedia:5[gstreamer,qml]
 	dev-qt/qtscript:5
+	dev-qt/qtwayland:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras
 	media-libs/libepoxy
+	virtual/libudev:=
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
 	>=x11-libs/libxcb-1.10
+	>=x11-libs/libxkbcommon-0.4.1
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
-	wayland? (
-		$(add_plasma_dep kwayland)
-		dev-qt/qtwayland:5
-		>=dev-libs/libinput-0.10
-		>=dev-libs/wayland-1.2
-		virtual/libudev:=
-		>=x11-libs/libxkbcommon-0.4.1
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
@@ -74,14 +72,3 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 	test? (	x11-libs/xcb-util-wm )
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package wayland)
-		$(cmake-utils_use_find_package wayland KF5Wayland)
-		$(cmake-utils_use_find_package wayland Libinput)
-		$(cmake-utils_use_find_package wayland UDev)
-	)
-
-	kde5_src_configure
-}
