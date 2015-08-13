@@ -14,11 +14,9 @@ EGIT_REPONAME="${PN}"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
-IUSE="classbrowser cvs konsole reviewboard"
+IUSE="classbrowser cvs konsole reviewboard subversion"
 KEYWORDS=""
 
-# TODO features disabled by upstream, maybe more
-# Subversion integration: subversion? (dev-libs/apr dev-libs/apr-util dev-vcs/subversion )
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -58,6 +56,11 @@ COMMON_DEPEND="
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	subversion? (
+		dev-libs/apr:1
+		dev-libs/apr-util:1
+		dev-vcs/subversion
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
@@ -77,6 +80,7 @@ src_configure() {
 		$(cmake-utils_use_build cvs)
 		$(cmake-utils_use_build konsole)
 		$(cmake-utils_use_build reviewboard)
+		$(cmake-utils_use_find_package subversion SubversionLibrary)
 	)
 
 	kde5_src_configure
