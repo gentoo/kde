@@ -14,7 +14,7 @@ SLOT="4"
 KEYWORDS=""
 IUSE="graphviz"
 
-DEPEND="graphviz? ( media-gfx/kgraphviewer )"
+DEPEND="graphviz? ( media-gfx/kgraphviewer:4 )"
 RDEPEND="${DEPEND}"
 
 src_configure() {
