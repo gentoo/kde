@@ -68,7 +68,7 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
-	media-libs/mesa[egl,gles2?]
+	media-libs/mesa[egl,gles2?,wayland]
 	x11-proto/xproto
 	test? (	x11-libs/xcb-util-wm )
 "
