@@ -10,9 +10,10 @@ DESCRIPTION="KDE WebDev - merge this to pull in all kdewebdev-derived packages"
 KEYWORDS=""
 IUSE=""
 
+# FIXME: Add back when ported
+# $(add_kdeapps_dep klinkstatus)
 RDEPEND="
 	$(add_kdeapps_dep kfilereplace)
 	$(add_kdeapps_dep kimagemapeditor)
-	$(add_kdeapps_dep klinkstatus)
 	$(add_kdeapps_dep kommander)
 "
