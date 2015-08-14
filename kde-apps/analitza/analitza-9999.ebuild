@@ -14,12 +14,14 @@ IUSE="eigen opengl"
 DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtopengl:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	eigen? ( dev-cpp/eigen:3 )
-	opengl? ( virtual/opengl )
+	opengl? (
+		dev-qt/qtopengl:5
+		virtual/opengl
+	)
 "
 RDEPEND="${DEPEND}"
 
