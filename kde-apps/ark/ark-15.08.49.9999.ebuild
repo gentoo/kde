@@ -4,8 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
-KDE_TEST=true
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
@@ -34,7 +34,8 @@ RDEPEND="
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
-	sys-devel/gettext"
+	sys-devel/gettext
+"
 
 pkg_postinst() {
 	kde5_pkg_postinst
