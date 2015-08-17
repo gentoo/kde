@@ -14,4 +14,5 @@
 =kde-apps/kdepim-runtime-15.08*
 =kde-apps/kdepimlibs-15.07* prison
 =kde-apps/kdepimlibs-15.08* prison
+=kde-apps/kscreengenie-2* kipi
 =kde-frameworks/kwallet-5.13.0 gpg
