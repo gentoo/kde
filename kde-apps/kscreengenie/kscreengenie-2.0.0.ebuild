@@ -11,7 +11,7 @@ DESCRIPTION="Screenshot capture utility"
 [[ ${KDE_BUILD_TYPE} = live ]] || \
 	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="kipi"
 
 DEPEND="
