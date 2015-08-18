@@ -395,7 +395,6 @@ kde5_pkg_nofetch() {
 	eerror "https://techbase.kde.org/Schedules"
 }
 
-
 # @FUNCTION: kde5_src_unpack
 # @DESCRIPTION:
 # Function for unpacking KDE 5.
