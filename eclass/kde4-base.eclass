@@ -102,7 +102,7 @@ esac
 
 inherit ${buildsystem_eclass}
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare ${export_fns} pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup pkg_nofetch src_unpack src_prepare ${export_fns} pkg_preinst pkg_postinst pkg_postrm
 
 unset buildsystem_eclass
 unset export_fns
@@ -164,6 +164,14 @@ if [[ ${KDE_BUILD_TYPE} == live && -z ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
 	[[ ${KDEBASE} == kde-base ]] || KDE_HANDBOOK=never
 	KDE_LINGUAS=""
 fi
+
+# @ECLASS-VARIABLE: KDE_UNRELEASED
+# @INTERNAL
+# @DESCRIPTION
+# An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
+# Any package matching this will have fetch restriction enabled, and receive
+# a proper error message via pkg_nofetch.
+KDE_UNRELEASED=( kde-apps-15.08.0 )
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
@@ -477,6 +485,13 @@ _calculate_src_uri() {
 			esac
 			;;
 	esac
+
+	local pair
+	for pair in "${KDE_UNRELEASED[@]}" ; do
+		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
+			RESTRICT+=" fetch"
+		fi
+	done
 }
 
 _calculate_live_repo() {
@@ -642,6 +657,32 @@ kde4-base_pkg_setup() {
 
 	# Fix XDG collision with sandbox
 	export XDG_CONFIG_HOME="${T}"
+}
+
+# @FUNCTION: kde4-base_pkg_nofetch
+# @DESCRIPTION:
+# Display package publication status
+kde4-base_pkg_nofetch() {
+	eerror " _   _ _   _ ____  _____ _     _____    _    ____  _____ ____  "
+	eerror "| | | | \ | |  _ \| ____| |   | ____|  / \  / ___|| ____|  _ \ "
+	eerror "| | | |  \| | |_) |  _| | |   |  _|   / _ \ \___ \|  _| | | | |"
+	eerror "| |_| | |\  |  _ <| |___| |___| |___ / ___ \ ___) | |___| |_| |"
+	eerror " \___/|_| \_|_| \_\_____|_____|_____/_/   \_\____/|_____|____/ "
+	eerror "                                                               "
+	eerror " ____   _    ____ _  __    _    ____ _____ "
+	eerror "|  _ \ / \  / ___| |/ /   / \  / ___| ____|"
+	eerror "| |_) / _ \| |   | ' /   / _ \| |  _|  _|  "
+	eerror "|  __/ ___ \ |___| . \  / ___ \ |_| | |___ "
+	eerror "|_| /_/   \_\____|_|\_\/_/   \_\____|_____|"
+	eerror
+	eerror "${CATEGORY}/${P} has not been released to the public yet"
+	eerror "and is only available to packagers right now."
+	eerror ""
+	eerror "This is not a bug. Please do not file bugs or contact upstream about this."
+	eerror ""
+	eerror "Please consult the upstream release schedule to see when this "
+	eerror "package is scheduled to be released:"
+	eerror "https://techbase.kde.org/Schedules"
 }
 
 # @FUNCTION: kde4-base_src_unpack
