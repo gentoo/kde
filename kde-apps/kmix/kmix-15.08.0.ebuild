@@ -44,7 +44,7 @@ PATCHES=( "${FILESDIR}/${PN}-15.04.2-alsa-optional.patch" )
 src_configure() {
 	local mycmakeargs=(
 		-DKMIX_KF5_BUILD=ON
-		$(cmake-utils_use_find_package alsa)
+		$(cmake-utils_use_find_package alsa Alsa)
 		$(cmake-utils_use_find_package pulseaudio Canberra)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 	)
