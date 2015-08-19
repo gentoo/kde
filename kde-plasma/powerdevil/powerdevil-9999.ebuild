@@ -14,7 +14,7 @@ IUSE="systemd"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kauth)
+	$(add_frameworks_dep kauth policykit)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
