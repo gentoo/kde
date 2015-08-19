@@ -23,7 +23,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="minimal"
 
 REMOVE_DIRS="${FILESDIR}/${PN}-15.07.90-remove-dirs"
-REMOVE_MSGS="${FILESDIR}/${PN}-15.07.80-remove-messages"
+REMOVE_MSGS="${FILESDIR}/${PN}-15.08.0-remove-messages"
 
 LV="4.14.3"
 LEGACY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl
@@ -96,6 +96,10 @@ src_prepare() {
 					# Remove messages
 					for path in $(grep -v "^#" "${REMOVE_MSGS}") ; do
 						rm -f "${S}"/${DIR}/4/${LNG}/messages/${path}
+						# Quirk for LINGUAS=sr variants
+						if [[ ${LNG} = "sr" ]] ; then
+							rm -f "${S}"/${DIR}/4/${LNG}/${LNG}\@*/messages/${path} || die
+						fi
 					done
 
 				else
