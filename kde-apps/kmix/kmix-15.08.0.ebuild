@@ -18,6 +18,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
@@ -25,6 +26,7 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
 	dev-libs/glib:2
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
