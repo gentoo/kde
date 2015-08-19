@@ -216,6 +216,17 @@ if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KDE_BUILD_TYPE} = release ]]; then
 	S=${WORKDIR}/${KMNAME}-${PV}
 fi
 
+_kde_is_unreleased() {
+	local pair
+	for pair in "${KDE_UNRELEASED[@]}" ; do
+		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
+			return 0
+		fi
+	done
+
+	return 1
+}
+
 # Determine fetch location for released tarballs
 _calculate_src_uri() {
 	debug-print-function ${FUNCNAME} "$@"
@@ -269,12 +280,9 @@ _calculate_src_uri() {
 			;;
 	esac
 
-	local pair
-	for pair in "${KDE_UNRELEASED[@]}" ; do
-		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
-			RESTRICT+=" fetch"
-		fi
-	done
+	if _kde_is_unreleased ; then
+		RESTRICT+=" fetch"
+	fi
 }
 
 # Determine fetch location for live sources
@@ -373,6 +381,10 @@ kde5_pkg_setup() {
 # @DESCRIPTION:
 # Display package publication status
 kde5_pkg_nofetch() {
+	if ! _kde_is_unreleased ; then
+		return
+	fi
+
 	eerror " _   _ _   _ ____  _____ _     _____    _    ____  _____ ____  "
 	eerror "| | | | \ | |  _ \| ____| |   | ____|  / \  / ___|| ____|  _ \ "
 	eerror "| | | |  \| | |_) |  _| | |   |  _|   / _ \ \___ \|  _| | | | |"
