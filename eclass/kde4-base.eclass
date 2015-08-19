@@ -414,6 +414,17 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
+_kde_is_unreleased() {
+	local pair
+	for pair in "${KDE_UNRELEASED[@]}" ; do
+		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
+			return 0
+		fi
+	done
+
+	return 1
+}
+
 # Fetch section - If the ebuild's category is not 'kde-base' and if it is not a
 # kdevelop ebuild, the URI should be set in the ebuild itself
 _calculate_src_uri() {
@@ -486,12 +497,9 @@ _calculate_src_uri() {
 			;;
 	esac
 
-	local pair
-	for pair in "${KDE_UNRELEASED[@]}" ; do
-		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
-			RESTRICT+=" fetch"
-		fi
-	done
+	if _kde_is_unreleased ; then
+		RESTRICT+=" fetch"
+	fi
 }
 
 _calculate_live_repo() {
@@ -663,6 +671,10 @@ kde4-base_pkg_setup() {
 # @DESCRIPTION:
 # Display package publication status
 kde4-base_pkg_nofetch() {
+	if ! _kde_is_unreleased ; then
+		return
+	fi
+
 	eerror " _   _ _   _ ____  _____ _     _____    _    ____  _____ ____  "
 	eerror "| | | | \ | |  _ \| ____| |   | ____|  / \  / ___|| ____|  _ \ "
 	eerror "| | | |  \| | |_) |  _| | |   |  _|   / _ \ \___ \|  _| | | | |"
