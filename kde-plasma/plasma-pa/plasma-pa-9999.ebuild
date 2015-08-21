@@ -15,6 +15,7 @@ DEPEND="
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep plasma)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
