@@ -51,7 +51,6 @@ RDEPEND="
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl
 	v4l? ( media-libs/libv4l )
-	!media-video/kdenlive
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
