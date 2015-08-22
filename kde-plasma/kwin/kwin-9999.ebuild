@@ -48,7 +48,7 @@ COMMON_DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwayland:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras
+	dev-qt/qtx11extras:5
 	media-libs/libepoxy
 	virtual/libudev:=
 	x11-libs/libICE

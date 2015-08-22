@@ -44,7 +44,7 @@ COMMON_DEPEND="
 	dev-qt/qtmultimedia:5[gstreamer,qml]
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras
+	dev-qt/qtx11extras:5
 	media-libs/libepoxy
 	x11-libs/libICE
 	x11-libs/libSM
