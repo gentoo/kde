@@ -1,9 +1,11 @@
---- a/projectbuilders/CMakeLists.txt	2015-02-02 15:19:46.000000000 +0100
-+++ b/projectbuilders/CMakeLists.txt	2015-07-06 22:51:22.083293634 +0200
+diff --git a/projectbuilders/CMakeLists.txt b/projectbuilders/CMakeLists.txt
+index 80d7866..825ca8b 100644
+--- a/projectbuilders/CMakeLists.txt
++++ b/projectbuilders/CMakeLists.txt
 @@ -1,5 +1,5 @@
- 
  add_subdirectory(makebuilder)
 -add_subdirectory(ninjabuilder)
 +ecm_optional_add_subdirectory(ninjabuilder)
  ecm_optional_add_subdirectory(cmakebuilder)
- 
+ if (KDevelop-PG-Qt_FOUND)
+     ecm_optional_add_subdirectory(qmakebuilder)
