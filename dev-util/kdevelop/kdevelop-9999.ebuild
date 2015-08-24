@@ -50,6 +50,7 @@ RDEPEND="${DEPEND}
 	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-qmake
+	!dev-util/kdevelop-qmljs
 "
 
 RESTRICT="test"
