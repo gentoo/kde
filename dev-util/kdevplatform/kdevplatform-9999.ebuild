@@ -63,9 +63,9 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
 	dev-qt/qtconcurrent:5
 	dev-qt/qttest:5
-	classbrowser? ( dev-libs/boost )
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
