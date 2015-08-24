@@ -28,3 +28,7 @@ DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto
 	!kde-apps/kgamma:5
 "
+# bug 558456, tarball ends with 5 but not packaged dir
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	S="${WORKDIR}/${P}"
+fi
