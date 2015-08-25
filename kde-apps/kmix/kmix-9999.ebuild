@@ -41,8 +41,6 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.04.2-alsa-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DKMIX_KF5_BUILD=ON
