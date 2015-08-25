@@ -41,7 +41,10 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.04.2-alsa-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-15.04.1-deps.patch"
+	"${FILESDIR}/${PN}-15.04.2-alsa-optional.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
