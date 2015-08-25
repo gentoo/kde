@@ -1,4 +1,6 @@
 # Remove any path listed here. Comments are ignored
+# KDE Graphics 4
+kdegraphics/kcmkgamma.po
 # KDE Workspace 4
 kde-workspace/freespacenotifier.po
 kde-workspace/joystick.po
