@@ -67,18 +67,19 @@ src_unpack() {
 }
 
 src_prepare() {
-	local LNG DIR
+	local LNG DIR SDIR
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
 		for LNG in ${LINGUAS}; do
 			DIR="${KMNAME}-${LNG}-${PV}"
+			SDIR="${S}/${DIR}/4/${LNG}"
 			if [[ -d "${DIR}" ]] ; then
 				echo "add_subdirectory( ${DIR} )" >> "${S}"/CMakeLists.txt
 
 				# Drop KF5-based part
 				sed -e '/add_subdirectory(5)/ s/^/#/' -i "${S}"/${DIR}/CMakeLists.txt
 
-				# Drop translations that get installed with plasma 5 and kde apps 5 packages
+				# Drop translations installed with plasma 5 and kde-apps 5 packages
 				if use minimal; then
 					einfo "Removing paths from ${LNG}"
 					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
@@ -87,23 +88,30 @@ src_prepare() {
 
 					# Remove dirs
 					while read path; do
-						if [[ -e "${S}"/${DIR}/4/${LNG}/${path%\ *}/CMakeLists.txt ]] ; then
+						if [[ -e "${SDIR}"/${path%\ *}/CMakeLists.txt ]] ; then
 							sed -e "/${path#*\ }/ s/^/#/"\
-								-i "${S}"/${DIR}/4/${LNG}/${path%\ *}/CMakeLists.txt
+								-i "${SDIR}"/${path%\ *}/CMakeLists.txt
 						fi
 					done < <(grep -v "^#" "${REMOVE_DIRS}")
 
 					# Remove messages
 					for path in $(grep -v "^#" "${REMOVE_MSGS}") ; do
-						rm -f "${S}"/${DIR}/4/${LNG}/messages/${path}
+						rm -f "${SDIR}"/messages/${path}
 						# Quirk for LINGUAS=sr variants
 						if [[ ${LNG} = "sr" ]] ; then
-							rm -f "${S}"/${DIR}/4/${LNG}/${LNG}\@*/messages/${path} || die
+							rm -f "${SDIR}"/${LNG}\@*/messages/${path} || die
 						fi
 					done
-
 				else
 					if [[ -d "${KMNAME}-${LNG}-${LV}" ]] ; then
+						# Create missing kdepim directories
+						local subdirs="kdepim kdepimlibs kdepim-runtime"
+						for path in ${subdirs}; do
+							mkdir -p "${SDIR}"/messages/${path} || die
+							echo "add_subdirectory(${path})" >> \
+								"${SDIR}"/messages/CMakeLists.txt
+						done
+						unset subdirs
 						# Merge legacy localisation
 						for path in $(find "${KMNAME}-${LNG}-${LV}" -name "*.po"); do
 							cp -rn "${path}" "${path/${LV}/${PV}/4/${LNG}}" || die
