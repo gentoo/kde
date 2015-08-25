@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_BLOCK_SLOT4="false"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -46,7 +47,9 @@ DEPEND="
 	dev-qt/qtxml:5
 	X? ( x11-libs/libX11 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/konsole:4[-minimal(+),handbook]
+"
 
 src_configure() {
 	local mycmakeargs=(
