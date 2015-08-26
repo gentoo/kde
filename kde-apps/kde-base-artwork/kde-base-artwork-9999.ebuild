@@ -4,9 +4,12 @@
 
 EAPI=5
 
+KDE_AUTODEPS="false"
 KDE_SCM="svn"
 inherit kde5
 
 DESCRIPTION="KDE base artwork"
 IUSE=""
 KEYWORDS=""
+
+RDEPEND="!kde-apps/kde-base-artwork:4"
