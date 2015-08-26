@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="VNC-compatible server to share KDE desktops"
-HOMEPAGE="http://www.kde.org/applications/system/krfb/"
+HOMEPAGE="https://www.kde.org/applications/system/krfb/"
 KEYWORDS=""
 IUSE="debug telepathy ktp"
 REQUIRED_USE="ktp? ( telepathy )"
