@@ -49,6 +49,9 @@ DEPEND="
 		$(add_frameworks_dep kfilemetadata)
 		$(add_kdeapps_dep baloo-widgets)
 	)
+	!semantic-desktop? (
+		$(add_frameworks_dep kdelibs4support)
+	)
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kio-extras)
