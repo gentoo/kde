@@ -9,7 +9,7 @@ EGIT_BRANCH="kf5_port"
 inherit kde5
 
 DESCRIPTION="An advanced download manager for KDE"
-HOMEPAGE="http://www.kde.org/applications/internet/kget/"
+HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="gpg mms sqlite"
 
