@@ -30,3 +30,5 @@ DEPEND="
 	media-libs/libepoxy
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-5.14.0-revert-plasma-breakage.patch" )

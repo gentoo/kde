@@ -1,0 +1,73 @@
+commit 8d629ddadfdf2d11c83d871f058f375c6dec9a75
+Author: Johannes Huber <johu@gentoo.org>
+Date:   Wed Aug 26 11:32:06 2015 +0200
+
+    Revert "kdeclarative plugins should be built as a bundle plugin and not a shared library"
+    
+    This reverts commit 383aa77ebf0b08adca13ce67a90f61c9c6a65851.
+
+diff --git a/src/qmlcontrols/draganddrop/CMakeLists.txt b/src/qmlcontrols/draganddrop/CMakeLists.txt
+index 10694bb..e8127e4 100644
+--- a/src/qmlcontrols/draganddrop/CMakeLists.txt
++++ b/src/qmlcontrols/draganddrop/CMakeLists.txt
+@@ -9,7 +9,7 @@ set(declarativedragdrop_SRCS
+     MimeDataWrapper.cpp
+ )
+ 
+-add_library(draganddropplugin MODULE ${declarativedragdrop_SRCS})
++add_library(draganddropplugin SHARED ${declarativedragdrop_SRCS})
+ target_link_libraries(draganddropplugin
+         Qt5::Core
+         Qt5::Quick
+diff --git a/src/qmlcontrols/kcoreaddons/CMakeLists.txt b/src/qmlcontrols/kcoreaddons/CMakeLists.txt
+index 585fb1f..3f77f2d 100644
+--- a/src/qmlcontrols/kcoreaddons/CMakeLists.txt
++++ b/src/qmlcontrols/kcoreaddons/CMakeLists.txt
+@@ -6,7 +6,7 @@ set(kcoreaddonsplugin_SRCS
+     kuserproxy.cpp
+     )
+ 
+-add_library(kcoreaddonsplugin MODULE ${kcoreaddonsplugin_SRCS})
++add_library(kcoreaddonsplugin SHARED ${kcoreaddonsplugin_SRCS})
+ target_link_libraries(kcoreaddonsplugin
+         Qt5::Core
+         Qt5::Quick
+diff --git a/src/qmlcontrols/kioplugin/CMakeLists.txt b/src/qmlcontrols/kioplugin/CMakeLists.txt
+index 3cc6b83..7b258e0 100644
+--- a/src/qmlcontrols/kioplugin/CMakeLists.txt
++++ b/src/qmlcontrols/kioplugin/CMakeLists.txt
+@@ -5,7 +5,7 @@ set(kioplugin_SRCS
+     krunproxy.cpp
+     )
+ 
+-add_library(kio MODULE ${kioplugin_SRCS})
++add_library(kio SHARED ${kioplugin_SRCS})
+ target_link_libraries(kio
+         Qt5::Core
+         Qt5::Qml
+diff --git a/src/qmlcontrols/kquickcontrols/private/CMakeLists.txt b/src/qmlcontrols/kquickcontrols/private/CMakeLists.txt
+index 4e7f192..da355c1 100644
+--- a/src/qmlcontrols/kquickcontrols/private/CMakeLists.txt
++++ b/src/qmlcontrols/kquickcontrols/private/CMakeLists.txt
+@@ -6,7 +6,7 @@ set(kquickcontrolsprivate_SRCS
+     translationcontext.cpp
+ )
+ 
+-add_library(kquickcontrolsprivateplugin MODULE ${kquickcontrolsprivate_SRCS})
++add_library(kquickcontrolsprivateplugin SHARED ${kquickcontrolsprivate_SRCS})
+ 
+ target_link_libraries(kquickcontrolsprivateplugin
+         Qt5::Core
+diff --git a/src/qmlcontrols/kquickcontrolsaddons/CMakeLists.txt b/src/qmlcontrols/kquickcontrolsaddons/CMakeLists.txt
+index b0b48b9..5b711e1 100644
+--- a/src/qmlcontrols/kquickcontrolsaddons/CMakeLists.txt
++++ b/src/qmlcontrols/kquickcontrolsaddons/CMakeLists.txt
+@@ -19,7 +19,7 @@ if (NOT WIN32)
+     include_directories(${epoxy_INCLUDE_DIR})
+ endif()
+ 
+-add_library(kquickcontrolsaddonsplugin MODULE ${kquickcontrolsaddons_SRCS})
++add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
+ 
+ target_link_libraries(kquickcontrolsaddonsplugin
+         Qt5::Core
