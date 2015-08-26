@@ -16,7 +16,6 @@ KEYWORDS=""
 IUSE="semantic-desktop thumbnail"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
