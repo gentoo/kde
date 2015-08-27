@@ -115,9 +115,9 @@ fi
 KDE_UNRELEASED=( )
 
 if [[ ${KDEBASE} = kdevelop ]]; then
-	HOMEPAGE="http://www.kdevelop.org/"
+	HOMEPAGE="https://www.kdevelop.org/"
 else
-	HOMEPAGE="http://www.kde.org/"
+	HOMEPAGE="https://www.kde.org/"
 fi
 
 LICENSE="GPL-2"

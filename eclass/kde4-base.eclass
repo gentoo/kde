@@ -176,7 +176,7 @@ KDE_UNRELEASED=( )
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
 	kde-base)
-		HOMEPAGE="http://www.kde.org/"
+		HOMEPAGE="https://www.kde.org/"
 		LICENSE="GPL-2"
 		if [[ ${KDE_BUILD_TYPE} = live && -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 			# Disable tests for live ebuilds by default
@@ -193,7 +193,7 @@ case ${KDEBASE} in
 		esac
 		;;
 	kdevelop)
-		HOMEPAGE="http://www.kdevelop.org/"
+		HOMEPAGE="https://www.kdevelop.org/"
 		LICENSE="GPL-2"
 		;;
 esac
