@@ -14,7 +14,7 @@ HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
-IUSE="otr sso"
+IUSE="otr +sso"
 
 # todo: kdepimlibs
 COMMON_DEPEND="
@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	sso? (
 		$(add_kdeapps_dep kaccounts-integration)
 		net-libs/accounts-qt
+		net-libs/telepathy-accounts-signon
 	)
 	otr? (
 		dev-libs/libgcrypt:0=
