@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_DOXYGEN="true"
 KDE_TEST="false"
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy common library"
@@ -58,8 +59,6 @@ RDEPEND="
 	${COMMON_DEPEND}
 	!net-im/ktp-common-internals
 "
-
-PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
