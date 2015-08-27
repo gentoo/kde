@@ -16,3 +16,8 @@ RDEPEND="
 	$(add_kdeapps_dep zeroconf-ioslave)
 	|| ( $(add_kdebase_dep khotkeys '' 4.11) kde-plasma/khotkeys )
 "
+
+src_prepare() {
+	kde4-meta_src_prepare
+	use handbook && sed -i -e "/add_subdirectory(kcm_ssl)/d" doc/kcontrol/CMakeLists.txt || die
+}
