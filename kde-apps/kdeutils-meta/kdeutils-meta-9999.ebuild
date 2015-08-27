@@ -18,6 +18,7 @@ RDEPEND="
 	$(add_kdeapps_dep kcharselect)
 	$(add_kdeapps_dep kdf)
 	$(add_kdeapps_dep kgpg)
+	$(add_kdeapps_dep kteatime)
 	$(add_kdeapps_dep ktimer)
 	$(add_kdeapps_dep kwalletmanager)
 	$(add_kdeapps_dep superkaramba)

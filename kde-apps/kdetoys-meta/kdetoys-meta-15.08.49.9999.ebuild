@@ -13,6 +13,5 @@ IUSE=""
 
 RDEPEND="
 	$(add_kdeapps_dep amor)
-	$(add_kdeapps_dep kteatime)
 	$(add_kdeapps_dep ktux)
 "
