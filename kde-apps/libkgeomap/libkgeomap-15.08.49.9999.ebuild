@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde4-base
 
 DESCRIPTION="Wrapper library for world map components as marble, openstreetmap and googlemap"
-HOMEPAGE="http://www.digikam.org/"
+HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""

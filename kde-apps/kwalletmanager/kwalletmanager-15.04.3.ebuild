@@ -8,8 +8,8 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE Wallet Management Tool"
-HOMEAGE="http://www.kde.org/applications/system/kwalletmanager
-http://utils.kde.org/projects/kwalletmanager"
+HOMEAGE="https://www.kde.org/applications/system/kwalletmanager
+https://utils.kde.org/projects/kwalletmanager"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug minimal"
 

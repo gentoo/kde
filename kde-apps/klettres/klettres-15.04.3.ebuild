@@ -8,8 +8,8 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Alphabet learning application"
-HOMEPAGE="http://www.kde.org/applications/education/klettres
-http://edu.kde.org/klettres"
+HOMEPAGE="https://www.kde.org/applications/education/klettres
+https://edu.kde.org/klettres"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

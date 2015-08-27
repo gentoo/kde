@@ -10,7 +10,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="A shell script to create the necessary framework to develop KDE applications"
-HOMEPAGE="http://www.kde.org/applications/development/kapptemplate"
+HOMEPAGE="https://www.kde.org/applications/development/kapptemplate"
 KEYWORDS=""
 IUSE=""
 

@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="A KDE CVS frontend"
-HOMEPAGE="http://www.kde.org/applications/development/cervisia"
+HOMEPAGE="https://www.kde.org/applications/development/cervisia"
 KEYWORDS=""
 IUSE="debug"
 

@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="A single-player Tetris-like KDE game"
-HOMEPAGE="http://www.kde.org/applications/games/kblocks/"
+HOMEPAGE="https://www.kde.org/applications/games/kblocks/"
 KEYWORDS=""
 IUSE=""
 

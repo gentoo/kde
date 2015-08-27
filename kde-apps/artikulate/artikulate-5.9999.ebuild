@@ -9,7 +9,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Language learning application that helps improving pronunciation skills"
-HOMEPAGE="http://edu.kde.org/applications/language/artikulate"
+HOMEPAGE="https://edu.kde.org/applications/language/artikulate"
 KEYWORDS=""
 IUSE=""
 

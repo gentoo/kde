@@ -9,7 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Generic geographical map widget"
-HOMEPAGE="http://marble.kde.org/"
+HOMEPAGE="https://marble.kde.org/"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="aprs designer-plugin gps +kde phonon shapefile zip"

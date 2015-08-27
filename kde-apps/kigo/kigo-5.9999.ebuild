@@ -9,7 +9,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Go game by KDE"
-HOMEPAGE="http://www.kde.org/applications/games/kigo/"
+HOMEPAGE="https://www.kde.org/applications/games/kigo/"
 KEYWORDS=""
 IUSE=""
 

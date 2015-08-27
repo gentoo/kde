@@ -10,8 +10,8 @@ inherit kde4-base
 
 DESCRIPTION="The KDE Battleship clone"
 HOMEPAGE="
-	http://www.kde.org/applications/games/navalbattle/
-	http://games.kde.org/game.php?game=kbattleship
+	https://www.kde.org/applications/games/navalbattle/
+	https://games.kde.org/game.php?game=kbattleship
 "
 KEYWORDS=""
 IUSE="debug"

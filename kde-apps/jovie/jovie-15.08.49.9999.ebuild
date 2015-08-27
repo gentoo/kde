@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Jovie is a text to speech application"
-HOMEPAGE="http://www.kde.org/applications/utilities/jovie/"
+HOMEPAGE="https://www.kde.org/applications/utilities/jovie/"
 KEYWORDS=""
 IUSE="debug"
 

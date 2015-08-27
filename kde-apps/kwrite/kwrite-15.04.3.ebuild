@@ -8,7 +8,7 @@ KMNAME="kate"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
-HOMEPAGE="http://www.kde.org/applications/utilities/kwrite"
+HOMEPAGE="https://www.kde.org/applications/utilities/kwrite"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="

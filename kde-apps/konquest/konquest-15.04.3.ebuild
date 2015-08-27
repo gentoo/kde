@@ -10,8 +10,8 @@ inherit kde4-base
 
 DESCRIPTION="Galactic Strategy KDE Game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/konquest/
-	http://games.kde.org/game.php?game=konquest
+	https://www.kde.org/applications/games/konquest/
+	https://games.kde.org/game.php?game=konquest
 "
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"

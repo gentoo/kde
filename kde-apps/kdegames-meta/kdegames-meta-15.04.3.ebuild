@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
-HOMEPAGE="http://games.kde.org/"
+HOMEPAGE="https://games.kde.org/"
 KEYWORDS="~amd64 ~x86"
 IUSE="opengl python"
 

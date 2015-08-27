@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
-HOMEPAGE="http://www.kde.org/applications/development"
+HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS="~amd64 ~x86"
 IUSE="cvs"
 

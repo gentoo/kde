@@ -10,8 +10,8 @@ inherit kde5
 
 DESCRIPTION="KDE UML Modeller"
 HOMEPAGE="
-	http://www.kde.org/applications/development/umbrello
-	http://umbrello.kde.org
+	https://www.kde.org/applications/development/umbrello
+	https://umbrello.kde.org
 "
 KEYWORDS="~amd64 ~x86"
 IUSE=""

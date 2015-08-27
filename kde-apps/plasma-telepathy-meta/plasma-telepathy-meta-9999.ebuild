@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Plasma Telepathy client"
-HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
 KEYWORDS=""

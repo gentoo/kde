@@ -10,8 +10,8 @@ inherit kde4-base
 
 DESCRIPTION="KDE: potato game for kids"
 HOMEPAGE="
-	http://www.kde.org/applications/games/ktuberling/
-	http://games.kde.org/game.php?game=ktuberling
+	https://www.kde.org/applications/games/ktuberling/
+	https://games.kde.org/game.php?game=ktuberling
 "
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"

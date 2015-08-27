@@ -8,7 +8,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Plasma screensaver featuring the Space-Faring Tux"
-HOMEPAGE+=" http://userbase.kde.org/KTux"
+HOMEPAGE+=" https://userbase.kde.org/KTux"
 KEYWORDS=""
 IUSE=""
 

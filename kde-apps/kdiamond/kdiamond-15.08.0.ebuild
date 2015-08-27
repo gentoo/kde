@@ -9,8 +9,8 @@ inherit kde5
 
 DESCRIPTION="A KDE three-in-a-row game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kdiamond/
-	http://games.kde.org/game.php?game=kdiamond
+	https://www.kde.org/applications/games/kdiamond/
+	https://games.kde.org/game.php?game=kdiamond
 "
 KEYWORDS="~amd64 ~x86"
 IUSE=""

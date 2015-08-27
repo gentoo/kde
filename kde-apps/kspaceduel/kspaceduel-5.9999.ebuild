@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="KDE Space Game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kspaceduel/
-	http://games.kde.org/game.php?game=kspaceduel
+	https://www.kde.org/applications/games/kspaceduel/
+	https://games.kde.org/game.php?game=kspaceduel
 "
 KEYWORDS=""
 IUSE=""

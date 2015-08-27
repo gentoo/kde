@@ -9,8 +9,8 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE hexeditor"
-HOMEPAGE="http://www.kde.org/applications/utilities/okteta
-http://utils.kde.org/projects/okteta"
+HOMEPAGE="https://www.kde.org/applications/utilities/okteta
+https://utils.kde.org/projects/okteta"
 KEYWORDS="~amd64 ~x86"
 IUSE="crypt examples"
 

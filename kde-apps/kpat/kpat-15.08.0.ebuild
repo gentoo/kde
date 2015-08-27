@@ -9,7 +9,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="KDE patience game"
-HOMEPAGE="http://games.kde.org/game.php?game=kpat"
+HOMEPAGE="https://games.kde.org/game.php?game=kpat"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

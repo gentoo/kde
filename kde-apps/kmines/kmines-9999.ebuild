@@ -10,8 +10,8 @@ inherit kde5
 
 DESCRIPTION="Classic mine sweeper game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kmines/
-	http://games.kde.org/game.php?game=kmines
+	https://www.kde.org/applications/games/kmines/
+	https://games.kde.org/game.php?game=kmines
 "
 KEYWORDS=""
 IUSE="phonon"

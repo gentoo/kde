@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="Pac-Man clone for KDE"
-HOMEPAGE="http://www.kde.org/applications/games/kapman/"
+HOMEPAGE="https://www.kde.org/applications/games/kapman/"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

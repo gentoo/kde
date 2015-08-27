@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Skat game by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/lskat/
-	http://games.kde.org/game.php?game=lskat
+	https://www.kde.org/applications/games/lskat/
+	https://games.kde.org/game.php?game=lskat
 "
 KEYWORDS=""
 IUSE=""

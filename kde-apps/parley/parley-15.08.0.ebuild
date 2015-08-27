@@ -9,8 +9,8 @@ KDE_DOC_DIR="docs"
 inherit kde5
 
 DESCRIPTION="KDE Educational: vocabulary trainer"
-HOMEPAGE="http://www.kde.org/applications/education/parley
-http://edu.kde.org/applications/school/parley"
+HOMEPAGE="https://www.kde.org/applications/education/parley
+https://edu.kde.org/applications/school/parley"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

@@ -8,7 +8,7 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="KDE Japanese dictionary and reference"
-HOMEPAGE="http://www.kde.org/applications/education/kiten http://edu.kde.org/kiten"
+HOMEPAGE="https://www.kde.org/applications/education/kiten https://edu.kde.org/kiten"
 KEYWORDS=""
 IUSE=""
 

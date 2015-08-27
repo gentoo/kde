@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit kde5 python-single-r1
 
 DESCRIPTION="Desktop Planetarium"
-HOMEPAGE="http://www.kde.org/applications/education/kstars http://edu.kde.org/kstars"
+HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars"
 KEYWORDS="~amd64 ~x86"
 IUSE="fits indi wcs xplanet"
 

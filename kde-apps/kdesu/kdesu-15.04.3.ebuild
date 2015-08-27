@@ -11,7 +11,7 @@ inherit kde4-meta
 # FIXME: Is default command ( su/sudo ) still configurable,
 # if not, USE-flag ?
 DESCRIPTION="KDE: gui for su(1)"
-HOMEPAGE+=" http://techbase.kde.org/Projects/kdesu"
+HOMEPAGE+=" https://techbase.kde.org/Projects/kdesu"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 

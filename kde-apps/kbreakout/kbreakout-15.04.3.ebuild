@@ -9,8 +9,8 @@ inherit kde5
 
 DESCRIPTION="A Breakout-like game for KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kbreakout/
-	http://games.kde.org/game.php?game=kbreakout
+	https://www.kde.org/applications/games/kbreakout/
+	https://games.kde.org/game.php?game=kbreakout
 "
 KEYWORDS="~amd64 ~x86"
 IUSE=""

@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Board game by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kreversi/
-	http://games.kde.org/game.php?game=kreversi
+	https://www.kde.org/applications/games/kreversi/
+	https://games.kde.org/game.php?game=kreversi
 "
 KEYWORDS=""
 IUSE=""

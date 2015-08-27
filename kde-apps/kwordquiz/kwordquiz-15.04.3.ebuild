@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="A powerful flashcard and vocabulary learning program"
-HOMEPAGE="http://www.kde.org/applications/education/kwordquiz http://edu.kde.org/kwordquiz"
+HOMEPAGE="https://www.kde.org/applications/education/kwordquiz https://edu.kde.org/kwordquiz"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

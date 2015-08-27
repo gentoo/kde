@@ -12,7 +12,7 @@ inherit python-r1 portability kde5 multilib eutils
 DESCRIPTION="Python bindings for KDE Applications 5"
 KEYWORDS=""
 IUSE="doc"
-HOMEPAGE="http://techbase.kde.org/Development/Languages/Python"
+HOMEPAGE="https://techbase.kde.org/Development/Languages/Python"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

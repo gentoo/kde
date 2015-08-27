@@ -10,7 +10,7 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - link validity checker"
-HOMEPAGE="http://www.kde.org/applications/development/klinkstatus/"
+HOMEPAGE="https://www.kde.org/applications/development/klinkstatus/"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug tidy"
 

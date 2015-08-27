@@ -10,8 +10,8 @@ inherit flag-o-matic kde4-meta
 
 DESCRIPTION="KDE: Web browser and file manager"
 HOMEPAGE="
-	http://www.kde.org/applications/internet/konqueror/
-	http://konqueror.org/
+	https://www.kde.org/applications/internet/konqueror/
+	https://konqueror.org/
 "
 KEYWORDS=""
 IUSE="+bookmarks debug svg"

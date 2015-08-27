@@ -9,7 +9,7 @@ KMNAME="kde-baseapps"
 inherit kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
-HOMEPAGE="http://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
+HOMEPAGE="https://dolphin.kde.org http://www.kde.org/applications/system/dolphin"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug semantic-desktop thumbnail"
 

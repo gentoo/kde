@@ -9,7 +9,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Jigsaw puzzle game by KDE"
-HOMEPAGE="http://www.kde.org/applications/games/palapeli/"
+HOMEPAGE="https://www.kde.org/applications/games/palapeli/"
 KEYWORDS=""
 IUSE=""
 

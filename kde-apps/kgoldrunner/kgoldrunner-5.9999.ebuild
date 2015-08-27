@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Game of action and puzzle solving by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kgoldrunner/
-	http://games.kde.org/game.php?game=kgoldrunner
+	https://www.kde.org/applications/games/kgoldrunner/
+	https://games.kde.org/game.php?game=kgoldrunner
 "
 KEYWORDS=""
 IUSE=""

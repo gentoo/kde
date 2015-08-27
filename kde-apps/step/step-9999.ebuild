@@ -9,7 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Interactive physics simulator"
-HOMEPAGE="http://edu.kde.org/step"
+HOMEPAGE="https://edu.kde.org/step"
 KEYWORDS=""
 IUSE="+gsl +qalculate"
 

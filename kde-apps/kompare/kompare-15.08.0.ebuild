@@ -8,7 +8,7 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Kompare is a program to view the differences between files"
-HOMEPAGE="http://www.kde.org/applications/development/kompare
+HOMEPAGE="https://www.kde.org/applications/development/kompare
 http://www.caffeinated.me.uk/kompare"
 KEYWORDS="~amd64 ~x86"
 IUSE=""

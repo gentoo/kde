@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE image viewer"
 HOMEPAGE="
-	http://www.kde.org/applications/graphics/gwenview/
+	https://www.kde.org/applications/graphics/gwenview/
 	http://gwenview.sourceforge.net/
 "
 KEYWORDS=""

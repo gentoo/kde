@@ -8,7 +8,7 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Screen ruler for Plasma"
-HOMEPAGE="http://www.kde.org/applications/graphics/kruler/"
+HOMEPAGE="https://www.kde.org/applications/graphics/kruler/"
 KEYWORDS=""
 IUSE="X"
 

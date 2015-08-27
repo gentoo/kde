@@ -10,6 +10,6 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE dialog system for scripting"
-HOMEPAGE="http://www.kde.org/applications/development/kommander/"
+HOMEPAGE="https://www.kde.org/applications/development/kommander/"
 KEYWORDS=""
 IUSE="debug"

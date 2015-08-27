@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
-HOMEPAGE="http://edu.kde.org"
+HOMEPAGE="https://edu.kde.org"
 KEYWORDS=""
 IUSE=""
 

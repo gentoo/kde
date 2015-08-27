@@ -8,8 +8,8 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="MathML-based graph calculator for KDE"
-HOMEPAGE="http://www.kde.org/applications/education/kalgebra
-http://edu.kde.org/kalgebra"
+HOMEPAGE="https://www.kde.org/applications/education/kalgebra
+https://edu.kde.org/kalgebra"
 KEYWORDS="~amd64 ~x86"
 IUSE="ncurses opengl"
 

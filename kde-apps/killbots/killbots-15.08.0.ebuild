@@ -8,7 +8,7 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Kill the bots or they kill you!"
-HOMEPAGE="http://www.kde.org/applications/games/killbots/"
+HOMEPAGE="https://www.kde.org/applications/games/killbots/"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

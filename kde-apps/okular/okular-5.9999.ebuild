@@ -10,7 +10,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Universal document viewer based on KPDF"
-HOMEPAGE="http://okular.kde.org http://www.kde.org/applications/graphics/okular"
+HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
 IUSE="chm crypt dpi djvu ebook +jpeg +pdf +postscript +tiff"
 # TODO:

@@ -9,7 +9,7 @@ VIRTUALDBUS_TEST=true
 inherit kde5
 
 DESCRIPTION="Storage service for PIM data"
-HOMEPAGE="http://pim.kde.org/akonadi"
+HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS="~amd64 ~x86"
 LICENSE="LGPL-2.1"
 IUSE="+mysql postgres sqlite test"

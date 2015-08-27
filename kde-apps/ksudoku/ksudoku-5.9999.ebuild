@@ -10,8 +10,8 @@ inherit kde5
 
 DESCRIPTION="Sudoku by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/ksudoku/
-	http://games.kde.org/game.php?game=ksudoku
+	https://www.kde.org/applications/games/ksudoku/
+	https://games.kde.org/game.php?game=ksudoku
 "
 KEYWORDS=""
 IUSE="opengl"

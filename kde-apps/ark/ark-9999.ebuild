@@ -10,8 +10,8 @@ KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
-HOMEPAGE="http://www.kde.org/applications/utilities/ark
-http://utils.kde.org/projects/ark"
+HOMEPAGE="https://www.kde.org/applications/utilities/ark
+https://utils.kde.org/projects/ark"
 KEYWORDS=""
 IUSE="bzip2 lzma zlib"
 

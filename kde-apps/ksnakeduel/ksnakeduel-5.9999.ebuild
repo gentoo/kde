@@ -10,7 +10,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="KDE Tron game"
-HOMEPAGE="http://www.kde.org/applications/games/ksnakeduel/"
+HOMEPAGE="https://www.kde.org/applications/games/ksnakeduel/"
 KEYWORDS=""
 IUSE=""
 

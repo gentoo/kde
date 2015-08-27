@@ -10,6 +10,6 @@ KDE_SCM="svn"
 inherit kde4-meta
 
 DESCRIPTION="KDE web development - image map editor"
-HOMEPAGE="http://www.kde.org/applications/development/kimagemapeditor/"
+HOMEPAGE="https://www.kde.org/applications/development/kimagemapeditor/"
 KEYWORDS=""
 IUSE="debug"

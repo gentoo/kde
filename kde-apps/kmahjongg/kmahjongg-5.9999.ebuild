@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Mahjongg game by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kmahjongg/
-	http://games.kde.org/game.php?game=kmahjongg
+	https://www.kde.org/applications/games/kmahjongg/
+	https://games.kde.org/game.php?game=kmahjongg
 "
 KEYWORDS=""
 IUSE=""

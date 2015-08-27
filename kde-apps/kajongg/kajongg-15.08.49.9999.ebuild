@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="The classical Mah Jongg for four players"
-HOMEPAGE="http://www.kde.org/applications/games/kajongg/"
+HOMEPAGE="https://www.kde.org/applications/games/kajongg/"
 KEYWORDS=""
 IUSE="debug"
 

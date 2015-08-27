@@ -9,7 +9,7 @@ KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
-HOMEPAGE="http://www.kde.org/applications/utilities/kwrite"
+HOMEPAGE="https://www.kde.org/applications/utilities/kwrite"
 KEYWORDS=""
 
 DEPEND="

@@ -10,8 +10,8 @@ inherit kde5
 
 DESCRIPTION="KDE Atomic Entertainment Game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/katomic/
-	http://games.kde.org/game.php?game=katomic
+	https://www.kde.org/applications/games/katomic/
+	https://games.kde.org/game.php?game=katomic
 "
 KEYWORDS=""
 IUSE=""

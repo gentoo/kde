@@ -10,8 +10,8 @@ inherit kde4-base
 
 DESCRIPTION="Mahjongg for KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kmahjongg/
-	http://games.kde.org/game.php?game=kmahjongg
+	https://www.kde.org/applications/games/kmahjongg/
+	https://games.kde.org/game.php?game=kmahjongg
 "
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"

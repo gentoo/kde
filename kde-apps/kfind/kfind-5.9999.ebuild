@@ -10,7 +10,7 @@ KMNAME="kde-baseapps"
 inherit kde5
 
 DESCRIPTION="KDE file finder utility"
-HOMEPAGE="http://www.kde.org/applications/utilities/kfind/"
+HOMEPAGE="https://www.kde.org/applications/utilities/kfind/"
 KEYWORDS=""
 IUSE=""
 

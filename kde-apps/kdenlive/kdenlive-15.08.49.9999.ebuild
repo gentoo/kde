@@ -9,7 +9,7 @@ KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Non-linear video editing suite by KDE"
-HOMEPAGE="http://www.kdenlive.org/"
+HOMEPAGE="https://www.kdenlive.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""

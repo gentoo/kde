@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE toys - merge this to pull in all kdetoys-derived packages"
-HOMEPAGE+=" http://techbase.kde.org/Projects/Kdetoys"
+HOMEPAGE+=" https://techbase.kde.org/Projects/Kdetoys"
 KEYWORDS=""
 IUSE=""
 

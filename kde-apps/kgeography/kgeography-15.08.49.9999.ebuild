@@ -8,7 +8,7 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Geography learning tool"
-HOMEPAGE="http://edu.kde.org/applications/miscellaneous/kgeography
-http://edu.kde.org/applications/all/kgeography"
+HOMEPAGE="https://edu.kde.org/applications/miscellaneous/kgeography
+https://edu.kde.org/applications/all/kgeography"
 KEYWORDS=""
 IUSE=""

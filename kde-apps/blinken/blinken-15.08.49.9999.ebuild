@@ -9,8 +9,8 @@ KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE version of the Simon Says game"
-HOMEPAGE="http://www.kde.org/applications/education/blinken
-http://edu.kde.org/blinken"
+HOMEPAGE="https://www.kde.org/applications/education/blinken
+https://edu.kde.org/blinken"
 KEYWORDS=""
 IUSE=""
 

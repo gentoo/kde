@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE arcade bombing game"
-HOMEPAGE="http://www.kde.org/applications/games/bomber/"
+HOMEPAGE="https://www.kde.org/applications/games/bomber/"
 KEYWORDS=""
 IUSE=""
 

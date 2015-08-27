@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Minigolf game by KDE"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kolf/
-	http://games.kde.org/game.php?game=kolf
+	https://www.kde.org/applications/games/kolf/
+	https://games.kde.org/game.php?game=kolf
 "
 KEYWORDS=""
 IUSE=""

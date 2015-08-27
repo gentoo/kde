@@ -11,7 +11,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="System log viewer by KDE"
-HOMEPAGE="http://www.kde.org/applications/system/ksystemlog/"
+HOMEPAGE="https://www.kde.org/applications/system/ksystemlog/"
 KEYWORDS=""
 IUSE=""
 

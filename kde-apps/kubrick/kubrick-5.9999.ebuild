@@ -9,7 +9,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Game based on the \"Rubik's Cube\" puzzle by KDE"
-HOMEPAGE="http://www.kde.org/applications/games/kubrick/"
+HOMEPAGE="https://www.kde.org/applications/games/kubrick/"
 KEYWORDS=""
 IUSE=""
 

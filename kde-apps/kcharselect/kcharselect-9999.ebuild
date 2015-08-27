@@ -8,8 +8,8 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE character selection utility"
-HOMEPAGE="http://www.kde.org/applications/utilities/kcharselect
-http://utils.kde.org/projects/kcharselect"
+HOMEPAGE="https://www.kde.org/applications/utilities/kcharselect
+https://utils.kde.org/projects/kcharselect"
 KEYWORDS=""
 IUSE=""
 

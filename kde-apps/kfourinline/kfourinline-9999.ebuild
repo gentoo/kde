@@ -9,8 +9,8 @@ inherit kde5
 
 DESCRIPTION="KDE four-in-a-row game"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kfourinline/
-	http://games.kde.org/game.php?game=kfourinline
+	https://www.kde.org/applications/games/kfourinline/
+	https://games.kde.org/game.php?game=kfourinline
 "
 KEYWORDS=""
 IUSE=""

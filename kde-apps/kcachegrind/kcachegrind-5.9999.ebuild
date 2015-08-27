@@ -9,7 +9,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE Frontend for Cachegrind"
-HOMEPAGE="http://www.kde.org/applications/development/kcachegrind
+HOMEPAGE="https://www.kde.org/applications/development/kcachegrind
 http://kcachegrind.sourceforge.net"
 KEYWORDS=""
 IUSE=""

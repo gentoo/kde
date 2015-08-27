@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="KDE Telepathy notification handler"
-HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"

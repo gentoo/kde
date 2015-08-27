@@ -7,7 +7,7 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE: screensaver featuring the Space-Faring Tux"
-HOMEPAGE+=" http://userbase.kde.org/KTux"
+HOMEPAGE+=" https://userbase.kde.org/KTux"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 

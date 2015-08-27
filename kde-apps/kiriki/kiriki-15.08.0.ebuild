@@ -9,8 +9,8 @@ inherit kde5
 
 DESCRIPTION="A gtali clone"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kiriki/
-	http://games.kde.org/game.php?game=kiriki
+	https://www.kde.org/applications/games/kiriki/
+	https://games.kde.org/game.php?game=kiriki
 "
 KEYWORDS="~amd64 ~x86"
 IUSE=""

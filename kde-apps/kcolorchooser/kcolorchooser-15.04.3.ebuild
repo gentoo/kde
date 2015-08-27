@@ -7,6 +7,6 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="KDE color selector/editor"
-HOMEPAGE="http://www.kde.org/applications/graphics/kcolorchooser/"
+HOMEPAGE="https://www.kde.org/applications/graphics/kcolorchooser/"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"

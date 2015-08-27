@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE Bomberman game"
-HOMEPAGE="http://www.kde.org/applications/games/granatier/"
+HOMEPAGE="https://www.kde.org/applications/games/granatier/"
 KEYWORDS=""
 IUSE=""
 

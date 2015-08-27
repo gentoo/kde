@@ -9,7 +9,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE screenshot utility"
-HOMEPAGE="http://www.kde.org/applications/graphics/ksnapshot/"
+HOMEPAGE="https://www.kde.org/applications/graphics/ksnapshot/"
 KEYWORDS=""
 IUSE=""
 
