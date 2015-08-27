@@ -4,13 +4,14 @@
 
 EAPI=5
 
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Widget library for baloo"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -21,11 +22,12 @@ COMMON_DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 "
-DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kservice)
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-base/baloo-widgets
 "
+
+src_prepare() {
+	kde5_src_prepare
+
+	punt_bogus_dep KF5 KDELibs4Support
+}
