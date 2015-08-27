@@ -9,10 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE image viewer"
-HOMEPAGE="
-	https://www.kde.org/applications/graphics/gwenview/
-	http://gwenview.sourceforge.net/
-"
+HOMEPAGE="https://www.kde.org/applications/graphics/gwenview/"
 KEYWORDS=""
 IUSE="kipi raw semantic-desktop X"
 
