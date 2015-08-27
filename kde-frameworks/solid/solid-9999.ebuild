@@ -17,10 +17,10 @@ RDEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
+	sys-fs/udisks:2
 	virtual/udev
 "
 DEPEND="${RDEPEND}
-	sys-fs/udisks:2
 	nls? ( dev-qt/linguist-tools:5 )
 	test? ( dev-qt/qtconcurrent:5 )
 "
