@@ -4,7 +4,7 @@
 
 EAPI=5
 
-DESCRIPTION="Accounts and SSO (Single Sign-On) framework for Linux and POSIX based platforms."
+DESCRIPTION="Accounts SSO (Single Sign-On) management library for GLib applications"
 HOMEPAGE="https://01.org/gsso/"
 SRC_URI="http://dev.gentoo.org/~kensington/distfiles/${P}.tar.gz"
 
