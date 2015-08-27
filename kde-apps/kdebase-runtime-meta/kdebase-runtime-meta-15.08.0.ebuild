@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS="~amd64 ~x86"
-IUSE="crash-reporter +handbook minimal"
+IUSE="crash-reporter minimal"
 
 RDEPEND="
 	$(add_kdeapps_dep kcmshell)
@@ -37,16 +37,11 @@ RDEPEND="
 	$(add_kdeapps_dep kuiserver)
 	$(add_kdeapps_dep kurifilter-plugins)
 	$(add_kdeapps_dep kwalletd)
-	$(add_kdeapps_dep kwalletmanager)
 	$(add_kdeapps_dep phonon-kde)
 	$(add_kdeapps_dep plasma-runtime)
 	$(add_kdeapps_dep renamedlg-plugins)
 	$(add_kdeapps_dep solid-runtime)
 	crash-reporter? ( $(add_kdeapps_dep drkonqi ) )
-	handbook? ( || (
-		$(add_plasma_dep khelpcenter)
-		kde-base/khelpcenter:4
-	) )
 	minimal? ( $(add_kdeapps_dep solid-runtime '-bluetooth') )
 	!minimal? (
 		$(add_kdeapps_dep attica)
