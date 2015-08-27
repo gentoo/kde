@@ -64,6 +64,8 @@ RDEPEND="${DEPEND}
 
 RESTRICT="test"
 
+PATCHES=( "${FILESDIR}/${PN}-15.08.0-deps.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_with semantic-desktop KF5Baloo)
