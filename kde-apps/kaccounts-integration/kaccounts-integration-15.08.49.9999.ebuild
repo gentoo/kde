@@ -14,7 +14,7 @@ HOMEPAGE="https://community.kde.org/KTp"
 LICENSE="LGPL-2.1"
 
 KEYWORDS=""
-IUSE=""
+IUSE="kdepim"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -32,6 +32,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	net-libs/accounts-qt
 	net-libs/signond
+	kdepim? ( $(add_kdeapps_dep kdepimlibs) )
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kcmutils)
@@ -42,7 +43,7 @@ RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Akonadi=ON
+		$(cmake-utils_use_find_package kdepim KF5Akonadi)
 	)
 
 	kde5_src_configure
