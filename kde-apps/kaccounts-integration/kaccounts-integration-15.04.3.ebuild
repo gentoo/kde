@@ -5,6 +5,8 @@
 EAPI=5
 
 KDE_TEST="true"
+VIRTUALDBUS_TEST="true"
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Administer web accounts for the sites and services across the KDE desktop"
@@ -32,6 +34,9 @@ DEPEND="
 	net-libs/signond
 "
 RDEPEND="${DEPEND}"
+
+# bug #549444
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
