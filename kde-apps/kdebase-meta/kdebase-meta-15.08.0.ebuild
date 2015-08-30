@@ -24,5 +24,5 @@ RDEPEND="
 	$(add_kdeapps_dep libkonq)
 	$(add_kdeapps_dep nsplugins)
 	$(add_kdeapps_dep plasma-apps)
-	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.0) )
 "
