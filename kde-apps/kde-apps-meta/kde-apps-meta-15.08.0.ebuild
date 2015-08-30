@@ -15,7 +15,7 @@ IUSE="accessibility nls pim sdk"
 RDEPEND="
 	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kdeadmin-meta)
-	$(add_kdeapps_dep kdeartwork-meta)
+	$(add_kdeapps_dep kdeartwork-meta '' 15.08.0)
 	$(add_kdeapps_dep kdebase-meta)
 	$(add_kdeapps_dep kdeedu-meta)
 	$(add_kdeapps_dep kdegames-meta)
