@@ -12,9 +12,6 @@ if [[ ${PV} != *9999* ]]; then
 	inherit versionator
 	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
-else
-	EGIT_BRANCH="feature/kf5"
-	KEYWORDS=""
 fi
 
 LICENSE="GPL-2"
@@ -51,7 +48,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-tex/bibtex2html
 "
-
-PATCHES=( "${FILESDIR}/${PN}-fix-cmake.patch" )
 
 S=${WORKDIR}/${P/_/-}
