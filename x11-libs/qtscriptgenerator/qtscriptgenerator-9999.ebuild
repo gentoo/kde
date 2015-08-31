@@ -8,7 +8,7 @@ inherit multilib qt4-r2 git-r3
 
 DESCRIPTION="Tool for generating Qt bindings for Qt Script"
 HOMEPAGE="http://code.google.com/p/qtscriptgenerator/"
-EGIT_REPO_URI=( "git://gitorious.org/qt-labs/qtscriptgenerator.git" )
+EGIT_REPO_URI=( "git://code.qt.io/qt-labs/qtscriptgenerator.git" )
 
 LICENSE="GPL-2"
 KEYWORDS=""
