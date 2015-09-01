@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kate"
+KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
@@ -35,6 +36,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
+		-DBUILD_katepart=FALSE
 	)
 
 	kde5_src_configure

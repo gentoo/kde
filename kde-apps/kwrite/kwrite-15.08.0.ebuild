@@ -5,6 +5,7 @@
 EAPI=5
 
 KMNAME="kate"
+KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
@@ -30,6 +31,13 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde5_src_prepare
+
+	sed -i -e "/add_subdirectory( kate )/d" doc/CMakeLists.txt || die
+	sed -i -e "/add_subdirectory( katepart )/d" doc/CMakeLists.txt || die
+}
 
 src_configure() {
 	local mycmakeargs=(
