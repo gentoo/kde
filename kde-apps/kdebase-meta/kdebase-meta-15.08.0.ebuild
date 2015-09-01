@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-derived packages"
 KEYWORDS="~amd64 ~x86"
-IUSE="+wallpapers"
+IUSE="minimal +wallpapers"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
@@ -23,6 +23,6 @@ RDEPEND="
 	$(add_kdeapps_dep kwrite)
 	$(add_kdeapps_dep libkonq)
 	$(add_kdeapps_dep nsplugins)
-	$(add_kdeapps_dep plasma-apps)
+	!minimal? ( $(add_kdeapps_dep plasma-apps) )
 	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
 "
