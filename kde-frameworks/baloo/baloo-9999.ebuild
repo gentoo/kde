@@ -31,6 +31,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-base/baloo:4[-minimal(-)]
-	!kde-base/baloo:5
-	!kde-plasma/baloo
 "
