@@ -54,6 +54,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	kde5_src_prepare
+
+	sed -i -e "/add_subdirectory( kwrite )/d" doc/CMakeLists.txt || die
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_build addons)
