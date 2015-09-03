@@ -11,7 +11,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/Redshift+Control?content=170746 h
 SRC_URI="https://github.com/kotelnik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="x11-misc/redshift"
