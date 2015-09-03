@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="gles2 wayland"
+IUSE="gles2 gstreamer wayland"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -41,7 +41,6 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl(+)]
-	dev-qt/qtmultimedia:5[gstreamer,qml]
 	dev-qt/qtscript:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
@@ -64,6 +63,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
+	gstreamer? ( dev-qt/qtmultimedia:5[gstreamer,qml] )
 	!kde-base/kwin
 	!kde-base/systemsettings
 "
@@ -74,6 +74,12 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 	test? (	x11-libs/xcb-util-wm )
 "
+
+src_prepare() {
+	kde5_src_prepare
+
+	use gstreamer || epatch "${FILESDIR}/${PN}-gstreamer-optional.patch"
+}
 
 src_configure() {
 	local mycmakeargs=(
