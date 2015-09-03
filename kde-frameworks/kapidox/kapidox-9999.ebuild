@@ -7,7 +7,8 @@ EAPI=5
 KDE_DEBUG="false"
 KDE_DOXYGEN="false"
 KDE_TEST="false"
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+DISTUTILS_SINGLE_IMPL="true"
+PYTHON_COMPAT=( python2_7 )
 inherit kde5 distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
@@ -19,8 +20,10 @@ RDEPEND="
 	app-doc/doxygen
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	media-gfx/graphviz[python]
+	media-gfx/graphviz[python,${PYTHON_USEDEP}]
 "
-# graphviz is currently python-single-r1 so we can't enforce a USE dep yet
-# and things will break if you try to generate a dependency diagram with a
-# different python version
+
+pkg_setup() {
+	python-single-r1_pkg_setup
+	kde5_pkg_setup
+}
