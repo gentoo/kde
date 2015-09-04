@@ -21,6 +21,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep plasma)
 	$(add_plasma_dep kdecoration)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
