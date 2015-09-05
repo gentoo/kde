@@ -43,7 +43,6 @@ fi
 # 		>=media-libs/qt-gstreamer-0.9.0[qt5(+)]
 # 		|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 # 	)
-#	FIXME? media-libs/herqq not optional since >=5.0.0
 
 COMMONDEPEND="
 	$(add_frameworks_dep karchive)
@@ -78,7 +77,6 @@ COMMONDEPEND="
 	kde-apps/libkdcraw:5=
 	kde-apps/libkexiv2:5=
 	kde-apps/libkipi:5=
-	media-libs/herqq
 	media-libs/libpng:0=
 	media-libs/tiff:0
 	virtual/jpeg:0
