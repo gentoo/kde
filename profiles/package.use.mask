@@ -4,15 +4,11 @@
 >=kde-apps/marble-14.11.97 python
 
 # Unreleased dependencies
-=kde-apps/dolphin-15.07* thumbnail
 =kde-apps/dolphin-15.08* thumbnail
-=kde-apps/gwenview-15.07* kipi raw
 =kde-apps/gwenview-15.08* kipi raw
-=kde-apps/kdepim-15.07* google prison
 =kde-apps/kdepim-15.08* google prison
-=kde-apps/kdepim-runtime-15.07* google
-=kde-apps/kdepim-runtime-15.08*
-=kde-apps/kdepimlibs-15.07* prison
+=kde-apps/kdepim-runtime-15.08* google
 =kde-apps/kdepimlibs-15.08* prison
 =kde-apps/kscreengenie-2* kipi
 =kde-frameworks/kwallet-5.13.0 gpg
+=kde-frameworks/kwallet-5.14.0 gpg
