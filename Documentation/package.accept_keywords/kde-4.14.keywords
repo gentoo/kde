@@ -206,7 +206,8 @@
 <kde-apps/svgpart-4.14.50
 <kde-apps/thumbnailers-4.14.50
 <kde-base/baloo-4.14.50
-<kde-base/baloo-widgets-4.14.50
+# move kde-base/baloo-widgets kde-apps/baloo-widgets
+<kde-apps/baloo-widgets-4.14.50
 <kde-base/kactivities-4.13.50
 <kde-base/kde-env-4.14.50
 <kde-base/kdelibs-4.14.50

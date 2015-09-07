@@ -206,7 +206,7 @@
 <kde-apps/svgpart-4.14.50
 <kde-apps/thumbnailers-4.14.50
 >=kde-base/baloo-4.14
->=kde-base/baloo-widgets-4.14
+>=kde-apps/baloo-widgets-4.14
 >=kde-base/kactivities-4.14
 >=kde-base/kde-env-4.14
 >=kde-base/kdelibs-4.14
