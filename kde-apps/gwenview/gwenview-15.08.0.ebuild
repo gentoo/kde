@@ -6,12 +6,16 @@ EAPI=5
 
 KDE_HANDBOOK="true"
 KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE image viewer"
 HOMEPAGE="https://www.kde.org/applications/graphics/gwenview/"
 KEYWORDS="~amd64 ~x86"
 IUSE="kipi raw semantic-desktop X"
+
+# requires running environment
+RESTRICT="test"
 
 RDEPEND="
 	$(add_frameworks_dep kactivities)

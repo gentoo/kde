@@ -13,6 +13,9 @@ HOMEPAGE="https://www.kde.org/applications/graphics/gwenview/"
 KEYWORDS="~amd64 ~x86"
 IUSE="semantic-desktop X"
 
+# requires running environment
+RESTRICT="test"
+
 # Not released: USE="kipi raw"
 # kipi? ( $(add_kdeapps_dep libkipi '' 5.9999) )
 # raw? ( $(add_kdeapps_dep libkdcraw '' 5.9999) )

@@ -13,6 +13,9 @@ HOMEPAGE="https://www.kde.org/applications/graphics/gwenview/"
 KEYWORDS=""
 IUSE="kipi raw semantic-desktop X"
 
+# requires running environment
+RESTRICT="test"
+
 RDEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
