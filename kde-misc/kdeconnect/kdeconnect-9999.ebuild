@@ -36,6 +36,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
+	!kde-misc/kdeconnect:4
 "
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
