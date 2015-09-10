@@ -12,7 +12,7 @@ IUSE="+display-manager minimal +wallpapers"
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
 	$(add_kdeapps_dep kcheckpass '' 4.11)
-	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 4.11) )
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.0) )
 	$(add_kdeapps_dep kde-base-artwork)
 	$(add_kdeapps_dep kdebase-runtime-meta)
 	$(add_kdeapps_dep kdialog)
