@@ -41,6 +41,13 @@ RDEPEND="${DEPEND}
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
+src_prepare() {
+	sed \
+		-e 's#${LIBEXEC_INSTALL_DIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
+		-i daemon/kdeconnectd.desktop.cmake
+	default
+}
+
 pkg_postinst(){
 	elog
 	elog "Optional dependency:"
