@@ -9,3 +9,6 @@ inherit kde4-base
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
 KEYWORDS=""
 IUSE="debug"
+
+DEPEND="sys-devel/gettext"
+RDEPEND="${DEPEND}"
