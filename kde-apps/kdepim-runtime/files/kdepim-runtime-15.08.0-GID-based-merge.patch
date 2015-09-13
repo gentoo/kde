@@ -1,0 +1,140 @@
+From: Dan Vrátil <dvratil@redhat.com>
+Date: Mon, 07 Sep 2015 14:20:39 +0000
+Subject: IMAP: switch to GID-based merge when the Collection can contain something else than emails
+X-Git-Url: http://quickgit.kde.org/?p=kdepim-runtime.git&a=commitdiff&h=038c604aba0cac22275e03c3497672cd254c2568
+---
+IMAP: switch to GID-based merge when the Collection can contain something else than emails
+
+In order to fix the recurrent multiple-merge-candidates issue which was breaking
+ItemSync, ItemSync switched to RID-based merging, which is way more reliable.
+However in some cases the IMAP resource still wants to use GID-based merging,
+because RID might not be stable enough.
+
+(cherry picked from commit 93a2baac05a325b688aea2cc12d9714d6b186f69)
+---
+
+
+--- a/resources/imap/autotests/dummyresourcestate.cpp
++++ b/resources/imap/autotests/dummyresourcestate.cpp
+@@ -27,7 +27,8 @@
+ 
+ DummyResourceState::DummyResourceState()
+     : m_automaticExpunge(true), m_subscriptionEnabled(true),
+-      m_disconnectedMode(true), m_intervalCheckTime(-1)
++      m_disconnectedMode(true), m_intervalCheckTime(-1),
++      m_mergeMode(Akonadi::ItemSync::RIDMerge)
+ {
+     qRegisterMetaType<QList<qint64> >();
+     qRegisterMetaType<QVector<qint64> >();
+@@ -428,6 +429,11 @@
+     return 10;
+ }
+ 
++void DummyResourceState::setItemMergingMode(Akonadi::ItemSync::MergeMode mergeMode)
++{
++    m_mergeMode = mergeMode;
++}
++
+ MessageHelper::Ptr DummyResourceState::messageHelper() const
+ {
+     return MessageHelper::Ptr(new MessageHelper());
+--- a/resources/imap/autotests/dummyresourcestate.h
++++ b/resources/imap/autotests/dummyresourcestate.h
+@@ -143,6 +143,7 @@
+     virtual void showInformationDialog(const QString &message, const QString &title, const QString &dontShowAgainName);
+ 
+     virtual int batchSize() const;
++    virtual void setItemMergingMode(Akonadi::ItemSync::MergeMode mergeMode);
+ 
+     virtual MessageHelper::Ptr messageHelper() const;
+ 
+@@ -163,6 +164,8 @@
+     int m_intervalCheckTime;
+     QChar m_separator;
+ 
++    Akonadi::ItemSync::MergeMode m_mergeMode;
++
+     Akonadi::Collection m_collection;
+     Akonadi::Item::List m_items;
+ 
+--- a/resources/imap/resourcestate.cpp
++++ b/resources/imap/resourcestate.cpp
+@@ -363,2 +363,7 @@
+     m_resource->relationsRetrieved(relations);
+ }
++ 
++void ResourceState::setItemMergingMode(Akonadi::ItemSync::MergeMode mode)
++{
++    m_resource->setItemMergingMode(mode);
++}
+--- a/resources/imap/resourcestate.h
++++ b/resources/imap/resourcestate.h
+@@ -153,6 +153,8 @@
+ 
+     MessageHelper::Ptr messageHelper() const Q_DECL_OVERRIDE;
+ 
++  void setItemMergingMode(Akonadi::ItemSync::MergeMode mergeMode);
++
+ private:
+     ImapResourceBase *m_resource;
+     const TaskArguments m_arguments;
+--- a/resources/imap/resourcestateinterface.h
++++ b/resources/imap/resourcestateinterface.h
+@@ -26,6 +26,7 @@
+ 
+ #include <Collection>
+ #include <Item>
++#include <ItemSync>
+ 
+ #include <kimap/listjob.h>
+ 
+@@ -125,6 +126,8 @@
+ 
+     virtual Akonadi::Relation::List addedRelations() const = 0;
+     virtual Akonadi::Relation::List removedRelations() const = 0;
++
++    virtual void setItemMergingMode(Akonadi::ItemSync::MergeMode mergeMode) = 0;
+ };
+ 
+ #endif
+--- a/resources/imap/resourcetask.cpp
++++ b/resources/imap/resourcetask.cpp
+@@ -592,2 +592,8 @@
+     return KIMAP::Acl::None;
+ }
++
++void ResourceTask::setItemMergingMode(Akonadi::ItemSync::MergeMode mode)
++{
++    m_resource->setItemMergingMode(mode);
++}
++
+--- a/resources/imap/resourcetask.h
++++ b/resources/imap/resourcetask.h
+@@ -140,6 +140,7 @@
+     virtual bool serverSupportsCondstore() const;
+ 
+     int batchSize() const;
++    void setItemMergingMode(Akonadi::ItemSync::MergeMode mode);
+ 
+     ResourceStateInterface::Ptr resourceState();
+ 
+--- a/resources/imap/retrieveitemstask.cpp
++++ b/resources/imap/retrieveitemstask.cpp
+@@ -89,6 +89,16 @@
+     m_session = session;
+ 
+     const Akonadi::Collection col = collection();
++    // Only with emails we can be sure that RID is persistent and thus we can use
++    // it for merging. For other potential content types (like Kolab events etc.)
++    // use GID instead.
++    QStringList cts = col.contentMimeTypes();
++    cts.removeOne(Akonadi::Collection::mimeType());
++    cts.removeOne(KMime::Message::mimeType());
++    if (!cts.isEmpty()) {
++        setItemMergingMode(Akonadi::ItemSync::GIDMerge);
++    }
++
+     if (m_fetchMissingBodies && col.cachePolicy()
+             .localParts().contains(QLatin1String(Akonadi::MessagePart::Body))) {  //disconnected mode, make sure we really have the body cached
+ 
+

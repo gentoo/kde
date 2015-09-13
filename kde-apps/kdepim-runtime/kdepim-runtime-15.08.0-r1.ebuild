@@ -19,7 +19,7 @@ CDEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepimlibs)
+	$(add_kdeapps_dep kdepimlibs '' 15.08.0-r1)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
 	$(add_kdeapps_dep kmailtransport)
@@ -67,6 +67,8 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	!kde-base/kdepim-runtime
 "
+
+PATCHES=( "${FILESDIR}/${PN}-15.08.0-GID-based-merge.patch" )
 
 src_configure() {
 	local mycmakeargs=(
