@@ -54,6 +54,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( ${FILESDIR}/${P}-initialise-libgit2.patch )
+
 src_prepare() {
 	kde5_src_prepare
 
