@@ -68,6 +68,8 @@ RDEPEND="${CDEPEND}
 	!kde-base/kdepim-runtime
 "
 
+PATCHES=( "${FILESDIR}/${PN}-15.08.0-GID-based-merge.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package google KF5GAPI)
