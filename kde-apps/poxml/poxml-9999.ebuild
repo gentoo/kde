@@ -4,11 +4,16 @@
 
 EAPI=5
 
-inherit kde4-base
+KDE_HANDBOOK="true"
+KDE_PUNT_BOGUS_DEPS="true"
+inherit kde5
 
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="sys-devel/gettext"
+DEPEND="
+	dev-qt/qtxml:5
+	sys-devel/gettext
+"
 RDEPEND="${DEPEND}"
