@@ -55,7 +55,7 @@ COMMONDEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
+	dev-qt/qtscript:5[scripttools]
 	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwebkit:5
@@ -74,7 +74,7 @@ COMMONDEPEND="
 		dev-libs/glib:2
 		>=media-libs/libgpod-0.7.0[gtk]
 	)
-	lastfm? ( >=media-libs/liblastfm-1.0.3 )
+	lastfm? ( media-libs/liblastfm[qt5] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	opengl? ( virtual/opengl )
 "
