@@ -65,6 +65,10 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_prepare() {
+
+	epatch "${FILESDIR}/${PN}-15.08.0-GID-merge.patch" \
+		"${FILESDIR}/${PN}-15.08.0-RID-fallback.patch"
+
 	use handbook || \
 		sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 			-e '/^add_subdirectory(docs)/ s/^/#/' \
