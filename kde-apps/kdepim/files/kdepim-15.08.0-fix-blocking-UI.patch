@@ -1,0 +1,33 @@
+From: Montel Laurent <montel@kde.org>
+Date: Mon, 14 Sep 2015 11:50:12 +0000
+Subject: Fix Bug 350737 - KMail/KF5 Blocking UI Call when Opening ODF Mail Attachement
+X-Git-Url: http://quickgit.kde.org/?p=kdepim.git&a=commitdiff&h=ca27705bd161a64a6aa86c0c844036143eea24fb
+---
+Fix Bug 350737 - KMail/KF5 Blocking UI Call when Opening ODF Mail Attachement
+
+FIXED-IN: 15.08.2
+BUG: 350737
+---
+
+
+--- a/messageviewer/viewer/viewer_p.cpp
++++ b/messageviewer/viewer/viewer_p.cpp
+@@ -745,7 +745,6 @@
+     QString name = mNodeHelper->writeNodeToTempFile(node);
+     QString linkName = createAtmFileLink(name);
+     QList<QUrl> lst;
+-    QUrl url;
+     bool autoDelete = true;
+ 
+     if (linkName.isEmpty()) {
+@@ -755,8 +754,7 @@
+ 
+     const QFileDevice::Permissions perms = QFile::permissions(linkName);
+     QFile::setPermissions(linkName, perms | QFileDevice::ReadUser | QFileDevice::WriteUser);
+-
+-    url.setPath(linkName);
++    const QUrl url = QUrl::fromLocalFile(linkName);
+     lst.append(url);
+     if (offer) {
+         if ((!KRun::runService(*offer, lst, 0, autoDelete)) && autoDelete) {
+

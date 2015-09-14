@@ -127,6 +127,8 @@ REQUIRED_USE="
 	kdepim_features_kalarm? ( kdepim_features_kmail )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-15.08.0-fix-blocking-UI.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 
