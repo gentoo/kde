@@ -12,7 +12,7 @@ inherit kde5 multilib pam
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus +drkonqi gps prison qalculate +systemmonitor"
+IUSE="dbus +drkonqi +geolocation gps prison qalculate +systemmonitor"
 
 COMMON_DEPEND="
 	$(add_plasma_dep kwayland)
@@ -56,7 +56,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep kxmlrpcclient)
-	$(add_frameworks_dep networkmanager-qt)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	dev-libs/wayland
@@ -87,6 +86,7 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kdewebkit)
 		dev-qt/qtwebkit:5
 	)
+	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
 	qalculate? ( sci-libs/libqalculate )
@@ -137,6 +137,13 @@ src_prepare() {
 
 	if ! use drkonqi; then
 		comment_add_subdirectory drkonqi
+	fi
+
+	if ! use geolocation; then
+		punt_bogus_deps KF5 NetworkManagerQt
+		pushd dataengines > /dev/null || die
+			comment_add_subdirectory geolocation
+		popd > /dev/null || die
 	fi
 
 	if ! use systemmonitor; then
