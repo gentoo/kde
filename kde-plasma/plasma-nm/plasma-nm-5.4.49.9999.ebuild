@@ -50,6 +50,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep plasma-workspace 'systemmonitor')
 	!kde-misc/plasma-nm
 "
 
