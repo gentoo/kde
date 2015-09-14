@@ -107,6 +107,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	x11-apps/xset
 	x11-apps/xsetroot
+	systemmonitor? ( $(add_plasma_dep ksysguard) )
 	!kde-base/freespacenotifier
 	!kde-base/libtaskmanager
 	!kde-base/kcminit
@@ -143,6 +144,12 @@ src_prepare() {
 
 	if ! use systemmonitor; then
 		comment_add_subdirectory systemmonitor
+		pushd applets > /dev/null || die
+			comment_add_subdirectory systemmonitor
+		popd > /dev/null || die
+		pushd dataengines > /dev/null || die
+			comment_add_subdirectory systemmonitor
+		popd > /dev/null || die
 	fi
 }
 
