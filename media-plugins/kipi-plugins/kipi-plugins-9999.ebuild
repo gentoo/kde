@@ -24,7 +24,7 @@ HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="cdr calendar expoblending geolocator +imagemagick mediawiki opengl panorama scanner vkontakte"
+IUSE="cdr calendar expoblending geolocator +imagemagick mediawiki opengl panorama vkontakte"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	LICENSE="${LICENSE} handbook? ( FDL-1.2 )"
@@ -50,7 +50,6 @@ COMMONDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -92,10 +91,6 @@ COMMONDEPEND="
 		x11-libs/libXrandr
 		virtual/opengl
 	)
-	scanner? (
-		$(add_kdeapps_dep libksane)
-		media-gfx/sane-backends
-	)
 	vkontakte? ( net-libs/libkvkontakte:5 )
 "
 DEPEND="${COMMONDEPEND}
@@ -134,12 +129,9 @@ src_prepare() {
 
 	undetect_lib geolocator KGEOMAP
 	undetect_lib mediawiki
-	undetect_lib scanner KSANE
 	undetect_lib vkontakte KVKONTAKTE
 
-# 	if ! use redeyes ; then
-# 		sed -i -e "/DETECT_OPENCV/d" CMakeLists.txt || die
-# 	fi
+# 	undetect_lib redeyes OPENCV	#TODO: Add back when ported
 
 	if [[ ${KDE_BUILD_TYPE} != live ]]; then
 		# prepare the handbook
@@ -172,8 +164,6 @@ src_configure() {
 # 		$(cmake-utils_use_find_package redeyes OpenCV)
 # 		$(cmake-utils_use_with crypt QCA2)
 # 		$(cmake-utils_use_with videoslideshow QtGStreamer)
-#	FIXME? not optional since >=5.0.0
-# 		$(cmake-utils_use_with upnp Hupnp)
 
 	kde5_src_configure
 }
