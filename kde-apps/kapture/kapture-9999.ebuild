@@ -9,9 +9,9 @@ inherit kde5
 
 DESCRIPTION="Screenshot capture utility"
 [[ ${KDE_BUILD_TYPE} = live ]] || \
-	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV%.*}/src/${P}.tar.xz"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="kipi"
 
 DEPEND="
