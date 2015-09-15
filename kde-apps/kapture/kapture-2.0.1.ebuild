@@ -4,14 +4,14 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
+KMNAME="kscreengenie"
 inherit kde5
 
 DESCRIPTION="Screenshot capture utility"
-[[ ${KDE_BUILD_TYPE} = live ]] || \
-	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/${KMNAME}/${PV%.*}/src/${KMNAME}-${PV}.tar.xz"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="kipi"
 
 DEPEND="
