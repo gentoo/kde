@@ -18,7 +18,7 @@ RDEPEND="
 	$(add_kdeapps_dep kdegraphics-mobipocket)
 	$(add_kdeapps_dep kolourpaint)
 	$(add_kdeapps_dep kruler)
-	|| ( $(add_kdeapps_dep ksnapshot) $(add_kdeapps_dep kscreengenie '' '2.0.0') )
+	|| ( $(add_kdeapps_dep ksnapshot) $(add_kdeapps_dep kapture '' '2.0.0') )
 	$(add_kdeapps_dep libkdcraw)
 	$(add_kdeapps_dep libkexiv2)
 	$(add_kdeapps_dep libkipi)
