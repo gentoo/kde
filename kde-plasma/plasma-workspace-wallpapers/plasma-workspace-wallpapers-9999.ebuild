@@ -6,7 +6,6 @@ EAPI=5
 
 KDE_AUTODEPS="false"
 KDE_DEBUG="false"
-KDE_SCM="svn"
 inherit kde5
 
 DESCRIPTION="Additional wallpapers for the Plasma workspace"
