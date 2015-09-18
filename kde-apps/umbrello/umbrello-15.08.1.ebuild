@@ -45,6 +45,13 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	# File doesn't exist in <15.08.2
+	sed -e "/install.*appdata\.xml/ s/^/#/" \
+		-i umbrello/CMakeLists.txt || die
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KF5=ON
