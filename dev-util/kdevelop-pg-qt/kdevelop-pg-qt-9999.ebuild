@@ -22,5 +22,4 @@ DEPEND="
 "
 RDEPEND="
 	!dev-util/kdevelop-pg-qt:4
-	dev-util/kdevelop:5
 "
