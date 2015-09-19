@@ -49,6 +49,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	>=net-fs/samba-3.4.2[cups]
+	!net-misc/smb4k:4
 "
 
 DOCS=( AUTHORS BUGS ChangeLog README )
