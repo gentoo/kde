@@ -19,6 +19,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DEPEND="
+	$(add_frameworks_dep kapidox)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
