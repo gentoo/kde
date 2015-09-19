@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -27,4 +27,6 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	media-libs/libpng:0=
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/skanlite:4
+"
