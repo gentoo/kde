@@ -80,10 +80,6 @@ COMMONDEPEND="
 	media-libs/tiff:0
 	virtual/jpeg:0
 	calendar? ( $(add_kdeapps_dep kcalcore) )
-	geolocator? (
-		$(add_frameworks_dep kbookmarks)
-		$(add_kdeapps_dep libkgeomap)
-	)
 	mediawiki? ( net-libs/libmediawiki:5 )
 	opengl? (
 		dev-qt/qtopengl:5
@@ -127,7 +123,6 @@ src_prepare() {
 			sed -i -e "/DETECT_LIB${_name}/d" CMakeLists.txt || die
 	}
 
-	undetect_lib geolocator KGEOMAP
 	undetect_lib mediawiki
 	undetect_lib vkontakte KVKONTAKTE
 
