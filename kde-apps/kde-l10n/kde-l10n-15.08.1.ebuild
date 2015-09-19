@@ -11,6 +11,7 @@ DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://l10n.kde.org"
 
 DEPEND="
+	$(add_frameworks_dep ki18n)
 	sys-devel/gettext
 "
 RDEPEND="
