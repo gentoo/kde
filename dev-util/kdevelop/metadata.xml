@@ -5,6 +5,7 @@
 	<use>
 		<flag name="cmake">Enable support for CMake build system</flag>
 		<flag name="ninja">Enable support for Ninja build system</flag>
+		<flag name="qmake">Enable support for QMake build system</flag>
 		<flag name="qthelp">Enable support for QtHelp documentation browsing</flag>
 	</use>
 </pkgmetadata>

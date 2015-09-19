@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug +ninja +plasma qthelp"
+IUSE="+cmake +cxx debug +ninja +plasma +qmake qthelp"
 KEYWORDS=""
 
 # TODO: disabled upstream
@@ -33,7 +33,6 @@ DEPEND="
 	$(add_frameworks_dep threadweaver)
 	dev-util/kdevplatform:5
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
@@ -43,6 +42,7 @@ DEPEND="
 		$(add_frameworks_dep krunner)
 		$(add_frameworks_dep plasma)
 	)
+	qmake? ( dev-util/kdevelop-pg-qt:5 )
 	qthelp? ( dev-qt/qthelp:5 )
 "
 RDEPEND="${DEPEND}
@@ -68,6 +68,7 @@ src_configure() {
 		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
+		$(cmake-utils_use_find_package qmake KDevelop-PG-Qt)
 	)
 
 	kde5_src_configure
