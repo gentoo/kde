@@ -33,7 +33,6 @@ RDEPEND="
 	$(add_kdebase_dep libplasmaclock '' 4.11)
 	$(add_kdeapps_dep nsplugins)
 	$(add_kdeapps_dep phonon-kde)
-	$(add_kdeapps_dep plasma-apps)
 	$(add_kdebase_dep qguiplatformplugin_kde '' 4.11)
 	!minimal? (
 		$(add_kdebase_dep freespacenotifier '' 4.11)
@@ -54,6 +53,7 @@ RDEPEND="
 		$(add_kdebase_dep libkworkspace '' 4.11)
 		$(add_kdebase_dep libplasmagenericshell '' 4.11)
 		$(add_kdebase_dep libtaskmanager '' 4.11)
+		$(add_kdeapps_dep plasma-apps)
 		$(add_kdebase_dep plasma-workspace '' 4.11)
 		$(add_kdebase_dep powerdevil '' 4.11)
 		$(add_kdebase_dep solid-actions-kcm '' 4.11)
