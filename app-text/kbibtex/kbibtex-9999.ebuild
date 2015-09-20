@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_GCC_MINIMAL="4.9"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
@@ -22,7 +23,6 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -47,6 +47,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	dev-tex/bibtex2html
+	!app-text/kbibtex:4
 "
 
 S=${WORKDIR}/${P/_/-}
