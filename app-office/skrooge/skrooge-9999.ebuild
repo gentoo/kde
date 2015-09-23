@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -80,14 +81,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 DOCS=( AUTHORS CHANGELOG README TODO )
-
-pkg_pretend() {
-	if [[ ${MERGE_TYPE} != binary  && $(tc-getCC) == *gcc* ]]; then
-		if [[ $(gcc-major-version) -lt 4 || $(gcc-major-version) == 4 && $(gcc-minor-version) -lt 9 ]] ; then
-			die 'The active compiler needs to be gcc 4.9 (or newer)'
-		fi
-	fi
-}
 
 src_configure() {
 	local mycmakeargs=(
