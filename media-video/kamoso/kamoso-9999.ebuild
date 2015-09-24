@@ -25,7 +25,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	media-libs/qt-gstreamer[qt5]
-	virtual/udev
+	virtual/libudev:=
 "
 RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l,xv]
