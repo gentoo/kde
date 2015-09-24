@@ -24,7 +24,6 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	media-libs/phonon[qt5]
 	media-libs/qt-gstreamer[qt5]
 	virtual/udev
 "
