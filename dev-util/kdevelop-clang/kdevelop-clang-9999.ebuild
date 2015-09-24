@@ -25,7 +25,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-util/kdevplatform:5
-	>=sys-devel/llvm-3.4[clang]
+	>=sys-devel/llvm-3.5[clang]
 "
 
 RDEPEND="${DEPEND}
