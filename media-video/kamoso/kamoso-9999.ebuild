@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
-HOMEPAGE="http://projects.kde.org/projects/extragear/multimedia/kamoso"
+HOMEPAGE="https://userbase.kde.org/Kamoso"
 
 LICENSE="GPL-3"
 KEYWORDS=""
