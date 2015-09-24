@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
 HOMEPAGE="https://userbase.kde.org/Kamoso"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
