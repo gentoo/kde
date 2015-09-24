@@ -15,6 +15,7 @@ LICENSE="LGPL-2"
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
