@@ -331,7 +331,7 @@ kdedepend="
 kderdepend=""
 
 if [[ ${CATEGORY} == kde-apps ]]; then
-	kderdepend+=" !kde-base/${PN}"
+	kderdepend+=" !kde-base/${PN}:4"
 fi
 
 # all packages needs oxygen icons for basic iconset
