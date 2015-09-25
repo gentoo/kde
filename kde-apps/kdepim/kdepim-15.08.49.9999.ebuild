@@ -95,29 +95,29 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-base/akonadiconsole
-	!kde-base/akregator
-	!kde-base/blogilo
-	!kde-base/calendarjanitor
-	!kde-base/kabcclient
-	!kde-base/kaddressbook
-	!kde-base/kalarm
-	!kde-base/kdepim-common-libs
-	!kde-base/kdepim-icons
-	!kde-base/kdepim-kresources
-	!kde-base/kdepim-l10n
-	!kde-base/kdepim-meta
-	!kde-base/kdepim-runtime
-	!kde-base/kjots
-	!kde-base/kleopatra
-	!kde-base/kmail
-	!kde-base/knode
-	!kde-base/knotes
-	!kde-base/konsolekalendar
-	!kde-base/kontact
-	!kde-base/korganizer
-	!kde-base/ktimetracker
-	!kde-base/ktnef
+	!kde-base/akonadiconsole:4
+	!kde-base/akregator:4
+	!kde-base/blogilo:4
+	!kde-base/calendarjanitor:4
+	!kde-base/kabcclient:4
+	!kde-base/kaddressbook:4
+	!kde-base/kalarm:4
+	!kde-base/kdepim-common-libs:4
+	!kde-base/kdepim-icons:4
+	!kde-base/kdepim-kresources:4
+	!kde-base/kdepim-l10n:4
+	!kde-base/kdepim-meta:4
+	!kde-base/kdepim-runtime:4
+	!kde-base/kjots:4
+	!kde-base/kleopatra:4
+	!kde-base/kmail:4
+	!kde-base/knode:4
+	!kde-base/knotes:4
+	!kde-base/konsolekalendar:4
+	!kde-base/kontact:4
+	!kde-base/korganizer:4
+	!kde-base/ktimetracker:4
+	!kde-base/ktnef:4
 	$(add_kdeapps_dep kdepim-runtime)
 	kdepim_features_kleopatra? ( app-crypt/gnupg )
 "

@@ -64,7 +64,7 @@ DEPEND="${CDEPEND}
 	google? ( net-libs/libkgapi:5 )
 "
 RDEPEND="${CDEPEND}
-	!kde-base/kdepim-runtime
+	!kde-base/kdepim-runtime:4
 "
 
 src_configure() {
