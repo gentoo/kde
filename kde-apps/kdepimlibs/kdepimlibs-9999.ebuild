@@ -61,7 +61,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-base/kdepimlibs
+	!kde-base/kdepimlibs:4
 "
 
 src_prepare() {
