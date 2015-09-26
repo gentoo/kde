@@ -55,12 +55,19 @@ DEPEND="
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep akonadi-socialutils)
+	$(add_kdeapps_dep calendarsupport)
+	$(add_kdeapps_dep composereditor)
+	$(add_kdeapps_dep eventviews)
 	$(add_kdeapps_dep gpgmepp)
+	$(add_kdeapps_dep grantleetheme)
+	$(add_kdeapps_dep incidenceeditor)
+	$(add_kdeapps_dep kaddressbookgrantlee)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-kioslaves)
+	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
@@ -72,7 +79,23 @@ DEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep ktnef)
 	$(add_kdeapps_dep libakonadi)
+	$(add_kdeapps_dep libfollowupreminder)
+	$(add_kdeapps_dep libgravatar)
+	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep libkdepimdbusinterfaces)
+	$(add_kdeapps_dep libkleo)
+	$(add_kdeapps_dep libksieve)
+	$(add_kdeapps_dep libsendlater)
+	$(add_kdeapps_dep mailcommon)
+	$(add_kdeapps_dep mailimporter)
+	$(add_kdeapps_dep messagecomposer)
+	$(add_kdeapps_dep messagecore)
+	$(add_kdeapps_dep messagelist)
+	$(add_kdeapps_dep messageviewer)
+	$(add_kdeapps_dep noteshared)
+	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
+	$(add_kdeapps_dep templateparser)
 	>=app-crypt/gpgme-1.3.2
 	dev-libs/boost:=
 	dev-libs/grantlee:5
@@ -105,11 +128,7 @@ RDEPEND="${DEPEND}
 	!kde-base/kabcclient:4
 	!kde-base/kaddressbook:4
 	!kde-base/kalarm:4
-	!kde-base/kdepim-common-libs:4
 	!kde-base/kdepim-icons:4
-	!kde-base/kdepim-kresources:4
-	!kde-base/kdepim-l10n:4
-	!kde-base/kdepim-meta:4
 	!kde-base/kdepim-runtime:4
 	!kde-base/kjots:4
 	!kde-base/kleopatra:4
@@ -133,6 +152,32 @@ REQUIRED_USE="
 src_prepare() {
 	kde5_src_prepare
 
+	rm -r calendarsupport		\
+		composereditor-ng	\
+		eventviews		\
+		grantleetheme		\
+		incidenceeditor-ng	\
+		kaddressbookgrantlee	\
+		kdgantt2		\
+		libfollowupreminder	\
+		libgravatar		\
+		libkdepimdbusinterfaces	\
+		libkleo			\
+		libksieve		\
+		libsendlater		\
+		mailcommon		\
+		mailimporter		\
+		messagecomposer		\
+		messagecore		\
+		messagelist		\
+		messageviewer		\
+		noteshared		\
+		pimcommon		\
+		templateparser		\
+		|| die "Failed to remove split libraries"
+
+	#TODO: Remove libkdepim as well when org.kde.mailtransport.service.xml fixed
+
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
 
@@ -144,7 +189,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DKDEPIM_NO_TEXTTOSPEECH=TRUE
+		-DKDEPIM_BUILD_WITH_INSTALLED_LIB=TRUE
 		$(cmake-utils_use_find_package designer Qt5Designer)
 		$(cmake-utils_use_find_package google KF5GAPI)
 		$(cmake-utils_use_find_package prison KF5Prison)
