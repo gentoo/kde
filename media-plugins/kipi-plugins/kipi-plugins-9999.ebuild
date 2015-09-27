@@ -24,7 +24,7 @@ HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="cdr calendar expoblending geolocator +imagemagick mediawiki opengl panorama vkontakte"
+IUSE="cdr calendar expoblending +imagemagick mediawiki opengl panorama vkontakte"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	LICENSE="${LICENSE} handbook? ( FDL-1.2 )"
@@ -50,11 +50,9 @@ COMMONDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
@@ -103,7 +101,7 @@ RDEPEND="${COMMONDEPEND}
 	imagemagick? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] ) )
 	panorama? (
 		media-gfx/enblend
-		>=media-gfx/hugin-2011.0.0
+		media-gfx/hugin
 	)
 "
 
