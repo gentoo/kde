@@ -48,7 +48,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace 'systemmonitor')
-	!kde-base/kdeplasma-addons
+	!kde-base/kdeplasma-addons:4
 "
 
 src_configure() {
