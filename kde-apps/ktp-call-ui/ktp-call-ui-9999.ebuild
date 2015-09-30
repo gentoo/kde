@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy audio/video conferencing ui"
@@ -31,6 +30,7 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	media-libs/phonon[qt5]
 	media-libs/qt-gstreamer[qt5]
 	net-libs/farstream:0.2
 	net-libs/telepathy-farstream
