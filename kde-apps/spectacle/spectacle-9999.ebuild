@@ -8,8 +8,6 @@ KDE_HANDBOOK=true
 inherit kde5
 
 DESCRIPTION="Screenshot capture utility"
-[[ ${KDE_BUILD_TYPE} = live ]] || \
-	SRC_URI="mirror://kde/stable/${PN}/${PV%.*}/src/${P}.tar.xz"
 
 KEYWORDS=""
 IUSE="kipi"
@@ -17,6 +15,7 @@ IUSE="kipi"
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
