@@ -51,7 +51,7 @@ RDEPEND="${DEPEND}
 	cxx? ( >=sys-devel/gdb-7.0[python] )
 	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
-	!dev-util/kdevelop-qmake
+	!!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
 "
 
