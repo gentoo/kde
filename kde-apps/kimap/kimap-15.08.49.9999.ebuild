@@ -13,10 +13,6 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-PATCHES=(
-	"${FILESDIR}"/kimap-15.08.0-remove-kdelibs4support.patch
-)
-
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
