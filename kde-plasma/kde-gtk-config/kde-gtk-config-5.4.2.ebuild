@@ -11,6 +11,7 @@ DESCRIPTION="KDE systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="https://projects.kde.org/kde-gtk-config"
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
+IUSE="+gtk3"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -26,7 +27,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	x11-libs/gtk+:2
-	x11-libs/gtk+:3
+	gtk3? ( x11-libs/gtk+:3 )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
@@ -34,9 +35,12 @@ RDEPEND="${DEPEND}
 	!kde-misc/kde-gtk-config
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.4.2-gtk3-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DDATA_INSTALL_DIR="${EPREFIX}/usr/share"
+		-DBUILD_gtk3proxies=$(usex gtk3)
 	)
 
 	kde5_src_configure
