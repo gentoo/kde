@@ -36,6 +36,8 @@ RDEPEND="${CDEPEND}
 	!app-office/akonadi-server
 "
 
+PATCHES=( "${FILESDIR}/${PN}-15.08-mysql56-crash.patch" )
+
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
 	# reverse driver check to keep the order
