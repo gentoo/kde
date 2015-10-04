@@ -16,7 +16,7 @@ IUSE="kipi raw semantic-desktop X"
 # requires running environment
 RESTRICT="test"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -52,9 +52,12 @@ RDEPEND="
 		x11-libs/libX11
 	)
 "
-
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
+"
+RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kimageformats)
+	dev-qt/qtimageformats:5
 "
 
 PATCHES=( "${FILESDIR}/${PN}-15.08.1-fix-menu-items.patch" )
