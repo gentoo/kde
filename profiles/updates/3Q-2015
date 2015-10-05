@@ -1,7 +1,7 @@
 slotmove dev-util/kdevelop-pg-qt 0 5
 move kde-plasma/baloo-widgets kde-apps/baloo-widgets
 move kde-plasma/kio-extras kde-apps/kio-extras
-
+move kde-base/kio-extras kde-apps/kio-extras
 move app-office/akonadi-server kde-apps/akonadi
 slotmove kde-apps/akonadi 0 5
 move kde-apps/akonadi app-office/akonadi-server

@@ -117,7 +117,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/ksmserver
 	!kde-base/ksplash
 	!kde-base/plasma-workspace
-	!kde-plasma/kio-extras
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
