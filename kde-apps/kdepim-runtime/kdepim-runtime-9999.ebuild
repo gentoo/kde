@@ -13,18 +13,6 @@ IUSE="google"
 # TODO kolab, Qt5TextToSpeech
 
 CDEPEND="
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep kalarmcal)
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepimlibs)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kimap)
-	$(add_kdeapps_dep kmailtransport)
-	$(add_kdeapps_dep kmbox)
-	$(add_kdeapps_dep kmime)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -46,6 +34,22 @@ CDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadi-calendar)
+	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-mime)
+	$(add_kdeapps_dep akonadi-notes)
+	$(add_kdeapps_dep akonadi-socialutils)
+	$(add_kdeapps_dep kalarmcal)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kcalutils)
+	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kidentitymanagement)
+	$(add_kdeapps_dep kimap)
+	$(add_kdeapps_dep kmailtransport)
+	$(add_kdeapps_dep kmbox)
+	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep libakonadi)
 	dev-libs/libical:=
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

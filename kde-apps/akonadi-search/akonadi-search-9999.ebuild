@@ -20,11 +20,13 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepimlibs)
+	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep libakonadi)
 	=dev-libs/xapian-1.2*[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
