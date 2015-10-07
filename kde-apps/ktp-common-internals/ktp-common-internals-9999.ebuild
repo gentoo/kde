@@ -16,7 +16,6 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="otr +sso"
 
-# todo: kdepimlibs
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
