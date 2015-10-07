@@ -4,6 +4,9 @@
 
 EAPI=5
 
+KDE_DOC_DIR="kioslave/docs"
+KDE_DOX_DIR="akonadi"
+KDE_DOXYGEN=true
 KDE_HANDBOOK=true
 KDE_TEST=true
 inherit kde5
@@ -11,7 +14,7 @@ inherit kde5
 DESCRIPTION="Common library for KDE PIM apps"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="designer prison ssl"
+IUSE="designer prison ssl tools"
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
@@ -43,7 +46,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
-	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
@@ -56,6 +58,7 @@ COMMON_DEPEND="
 	designer? ( dev-qt/designer:5 )
 	prison? ( media-libs/prison:5 )
 	ssl? ( dev-libs/cyrus-sasl )
+	tools? ( dev-libs/libxml2 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -69,6 +72,10 @@ src_prepare() {
 		sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 			-e '/^add_subdirectory(docs)/ s/^/#/' \
 			-i kioslave/CMakeLists.txt || die
+
+	use tools || sed -e "/add_subdirectory(xml)/ s/^/#/" \
+		-i akonadi/src/CMakeLists.txt
+
 	# kdepimlibs contains many projects for which we have to run our kde5_src_prepare
 	for d in $(find "${S}" -maxdepth 1 -type d); do
 		pushd "$d"
