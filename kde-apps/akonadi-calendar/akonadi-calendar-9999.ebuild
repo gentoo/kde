@@ -27,13 +27,15 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepimlibs)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep libakonadi)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
