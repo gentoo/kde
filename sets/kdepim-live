@@ -1,6 +1,10 @@
 ~kde-apps/akonadi-9999
 ~kde-apps/akonadi-calendar-9999
+~kde-apps/akonadi-contact-9999
+~kde-apps/akonadi-mime-9999
+~kde-apps/akonadi-notes-9999
 ~kde-apps/akonadi-search-9999
+~kde-apps/akonadi-socialutils-9999
 ~kde-apps/gpgmepp-9999
 ~kde-apps/kalarmcal-9999
 ~kde-apps/kblog-9999
@@ -9,8 +13,8 @@
 ~kde-apps/kcontacts-9999
 ~kde-apps/kdepim-9999
 ~kde-apps/kdepim-meta-9999
+~kde-apps/kdepim-kioslaves-9999
 ~kde-apps/kdepim-runtime-9999
-~kde-apps/kdepimlibs-9999
 ~kde-apps/kholidays-9999
 ~kde-apps/kidentitymanagement-9999
 ~kde-apps/kimap-9999
@@ -21,4 +25,5 @@
 ~kde-apps/kontactinterface-9999
 ~kde-apps/kpimtextedit-9999
 ~kde-apps/ktnef-9999
+~kde-apps/libakonadi-9999
 ~kde-apps/syndication-9999
