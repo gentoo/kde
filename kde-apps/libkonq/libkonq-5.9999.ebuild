@@ -13,7 +13,7 @@ inherit kde5
 
 DESCRIPTION="The embeddable part of konqueror"
 KEYWORDS=""
-IUSE=""
+IUSE="minimal"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -39,3 +39,14 @@ RDEPEND="${DEPEND}"
 RESTRICT="test"
 
 S=${S}/lib/konq
+
+src_install() {
+	kde5_src_install
+
+	if use minimal; then
+		rm "${D}"/usr/share/templates/{Directory,HTMLFile,TextFile}.desktop || die
+		rm "${D}"/usr/share/templates/{linkPath,linkProgram,linkURL}.desktop || die
+		rm "${D}"/usr/share/templates/.source/{Program,URL}.desktop || die
+		rm "${D}"/usr/share/templates/.source/{HTMLFile.html,TextFile.txt} || die
+	fi
+}
