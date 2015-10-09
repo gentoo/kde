@@ -12,7 +12,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
