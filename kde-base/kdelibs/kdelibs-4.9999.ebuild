@@ -179,6 +179,9 @@ src_prepare() {
 		# Try to fix kkeyserver_mac
 		epatch "${FILESDIR}"/${PN}-4.3.80-kdeui_util_kkeyserver_mac.patch
 	fi
+
+	# updated version ships with cmake
+	sed -i -e "/FindQt4.cmake/d" cmake/modules/CMakeLists.txt || die
 }
 
 src_configure() {
