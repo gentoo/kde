@@ -60,8 +60,6 @@ RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtimageformats:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.08.1-fix-menu-items.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package kipi KF5Kipi)
