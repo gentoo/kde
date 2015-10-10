@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
+		<flag name="clang">Prefer <pkg>sys-devel/clang</pkg> C++ backend over legacy</flag>
 		<flag name="cmake">Enable support for CMake build system</flag>
 		<flag name="ninja">Enable support for Ninja build system</flag>
 		<flag name="qmake">Enable support for QMake build system</flag>
