@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cmake +cxx debug +ninja +plasma +qmake qthelp"
+IUSE="+clang +cmake +cxx debug +ninja +plasma +qmake qthelp"
 KEYWORDS=""
 
 # TODO: disabled upstream
@@ -38,6 +38,7 @@ DEPEND="
 	dev-qt/qtscript:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
+	cxx? ( clang? ( >=sys-devel/clang-3.5.0 ) )
 	plasma? (
 		$(add_frameworks_dep krunner)
 		$(add_frameworks_dep plasma)
@@ -53,6 +54,7 @@ RDEPEND="${DEPEND}
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
+	cxx? ( clang? ( !dev-util/kdevelop-clang ) )
 "
 
 RESTRICT="test"
@@ -62,9 +64,11 @@ PATCHES=( "${FILESDIR}/${PN}-ninja-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
+		-DLEGACY_CPP_SUPPORT=$(usex !clang)
 		$(cmake-utils_use_build cmake)
 		$(cmake-utils_use_build cmake cmakebuilder)
 		$(cmake-utils_use_build ninja ninjabuilder)
+		$(cmake-utils_use_build cxx clang)
 		$(cmake-utils_use_build cxx cpp)
 		$(cmake-utils_use_build qthelp)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
