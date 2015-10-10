@@ -13,9 +13,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kidentitymanagement)
+COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -23,8 +21,13 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kidentitymanagement)
+	dev-libs/grantlee:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 "
-DEPEND="${RDEPEND}"
+DEPEND="${COMMON_DEPEND}
+	sys-devel/gettext
+"
+RDEPEND="${COMMON_DEPEND}"
