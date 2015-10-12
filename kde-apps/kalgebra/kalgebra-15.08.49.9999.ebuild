@@ -11,7 +11,7 @@ DESCRIPTION="MathML-based graph calculator for KDE"
 HOMEPAGE="https://www.kde.org/applications/education/kalgebra
 https://edu.kde.org/kalgebra"
 KEYWORDS=""
-IUSE="ncurses opengl"
+IUSE="opengl readline"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -26,15 +26,12 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
-	ncurses? (
-		sys-libs/ncurses
-		sys-libs/readline:0
-	)
 	opengl? (
 		dev-qt/qtopengl:5
 		dev-qt/qtprintsupport:5
 		virtual/glu
 	)
+	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/analitza:4
@@ -42,9 +39,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package ncurses Curses)
-		$(cmake-utils_use_find_package ncurses Readline)
 		$(cmake-utils_use_find_package opengl OpenGL)
+		$(cmake-utils_use_find_package readline Readline)
 	)
 
 	kde5_src_configure
