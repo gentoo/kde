@@ -6,9 +6,9 @@ EAPI=5
 
 KDE_DOC_DIR="kioslave/docs"
 KDE_DOX_DIR="akonadi"
-KDE_DOXYGEN=true
-KDE_HANDBOOK=true
-KDE_TEST=true
+KDE_DOXYGEN="true"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Common library for KDE PIM apps"
@@ -78,13 +78,14 @@ src_prepare() {
 			-i kioslave/CMakeLists.txt || die
 
 	use tools || sed -e "/add_subdirectory(xml)/ s/^/#/" \
-		-i akonadi/src/CMakeLists.txt
+		-i akonadi/src/CMakeLists.txt || die
 
 	# kdepimlibs contains many projects for which we have to run our kde5_src_prepare
+	local d
 	for d in $(find "${S}" -maxdepth 1 -type d); do
-		pushd "$d"
+		pushd "${d}" > /dev/null || die
 		kde5_src_prepare
-		popd
+		popd > /dev/null || die
 	done
 }
 
