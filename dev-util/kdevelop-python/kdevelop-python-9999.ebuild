@@ -6,7 +6,7 @@ EAPI=5
 
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-PYTHON_COMPAT=( python3_4 )
+PYTHON_COMPAT=( python3_5 )
 inherit kde5 python-any-r1
 
 DESCRIPTION="Python plugin for KDevelop 5"
