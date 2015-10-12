@@ -45,9 +45,9 @@ pkg_setup() {
 }
 
 src_compile() {
-	pushd "${WORKDIR}"/${P}_build > /dev/null
+	pushd "${WORKDIR}"/${P}_build > /dev/null || die
 	emake parser
-	popd > /dev/null
+	popd > /dev/null || die
 
 	kde5_src_compile
 }
