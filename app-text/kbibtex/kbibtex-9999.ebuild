@@ -4,7 +4,9 @@
 
 EAPI=5
 
+KDE_DOXYGEN="true"
 KDE_GCC_MINIMAL="4.9"
+KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
