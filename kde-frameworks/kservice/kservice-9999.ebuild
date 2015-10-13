@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
 LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="man"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -21,7 +21,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
+	man? ( $(add_frameworks_dep kdoctools) )
 	test? ( dev-qt/qtconcurrent:5 )
 "
 
