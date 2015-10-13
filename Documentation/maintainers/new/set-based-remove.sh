@@ -1,28 +1,18 @@
 #!/bin/sh
 
-# requires app-portage/portage-utils and app-portage/gentoolkit-dev
+. $(dirname "$0")/lib.sh
 
-: ${PORTDIR:="$(pwd)"}
-
-get_package_list_from_set() {
-
-	local SET="${1}"
-
-	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${SET}") ; do
-		echo $(qatom ${entry} | cut -d " " -f 1-2 | tr " " "/")
-	done
-
-}
+: ${TARGET_REPO:="$(pwd)"}
 
 help() {
 	echo Simple set-based version removed.
 	echo
 	echo Given a set file, removes all packages of a specified version.
 	echo
-	echo Reads PORTDIR from your environment, defaulting to the current directory.
+	echo Reads TARGET_REPO from your environment, defaulting to the current directory.
 	echo
-	echo Usage: drop-from-set.sh SETNAME VERSION
-	echo Example: drop-from-set.sh kde-plasma-5.0 5.0.1
+	echo Usage: set-based-remove.sh SETNAME VERSION
+	echo Example: set-based-remove.sh kde-plasma-5.0 5.0.1
 	exit 0
 }
 
@@ -43,7 +33,8 @@ fi
 packages=$(get_package_list_from_set ${SETNAME})
 
 for package in ${packages} ; do
-	pushd "${PORTDIR}/${package}" > /dev/null
+	trap "echo Exited without finishing!; exit;" SIGINT SIGTERM
+	pushd "${TARGET_REPO}/${package}" > /dev/null
 
 	pn=$(basename $(pwd))
 
@@ -51,5 +42,5 @@ for package in ${packages} ; do
 	rm -f ${pn}-${VERSION}-r*.ebuild
 
 	repoman manifest
-
+	popd > /dev/null
 done
