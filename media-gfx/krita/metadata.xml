@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>kde</herd>
+	<use>
+		<flag name="color-management">Enable color management via <pkg>media-libs/opencolorio</pkg></flag>
+		<flag name="vc">Enable support for <pkg>dev-libs/vc</pkg>, could be a significant speed boost</flag>
+	</use>
+</pkgmetadata>
