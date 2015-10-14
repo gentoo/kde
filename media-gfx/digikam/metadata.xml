@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>kde</herd>
+<maintainer><email>dilfridge@gentoo.org</email></maintainer>
+<use>
+	<flag name="addressbook">Enable akonadi contact integration</flag>
+	<flag name="kipi">Enable support for <pkg>media-plugins/kipi-plugins</pkg></flag>
+	<flag name="lensfun">Enable support for <pkg>media-libs/lensfun</pkg></flag>
+	<flag name="marble">Enable support for geolocation using <pkg>kde-apps/marble</pkg></flag>
+	<flag name="semantic-desktop">Enable <pkg>kde-frameworks/kfilemetadata</pkg> support</flag>
+	<flag name="video">Enable video player support</flag>
+</use>
+</pkgmetadata>
