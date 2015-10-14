@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_SELINUX_MODULE="games"
 EGIT_BRANCH="frameworks"
