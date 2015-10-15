@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="egl opengl X"
+IUSE="egl gles2 X"
 
 RDEPEND="
 	$(add_frameworks_dep kactivities)
@@ -33,7 +33,7 @@ RDEPEND="
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
+	dev-qt/qtgui:5[gles2=]
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
@@ -41,10 +41,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	egl? ( media-libs/mesa[egl] )
-	opengl? (
-		dev-qt/qtgui:5[opengl(+),-gles2]
-		virtual/opengl
-	)
+	!gles2? ( virtual/opengl )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -62,7 +59,7 @@ RESTRICT="test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package egl EGL)
-		$(cmake-utils_use_find_package opengl OpenGL)
+		$(cmake-utils_use_find_package !gles2 OpenGL)
 		$(cmake-utils_use_find_package X X11)
 		$(cmake-utils_use_find_package X XCB)
 	)
