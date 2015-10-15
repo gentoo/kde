@@ -68,7 +68,6 @@ COMMONDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	dev-qt/qtxmlpatterns:5
-	kde-apps/libkdcraw:5=
 	kde-apps/libkexiv2:5=
 	kde-apps/libkipi:5=
 	media-libs/libpng:0=
