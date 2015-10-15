@@ -4,8 +4,27 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="kcontrol filesharing config module for SMB"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+"
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
+	)
+
+	kde5_src_configure
+}
