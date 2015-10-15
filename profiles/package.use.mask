@@ -9,5 +9,5 @@
 =kde-apps/kdepim-15.08* prison
 =kde-apps/kdepimlibs-15.08* prison
 =kde-apps/spectacle-2* kipi
-=kde-frameworks/kwallet-5.13.0 gpg
 =kde-frameworks/kwallet-5.14.0 gpg
+=kde-frameworks/kwallet-5.15.0 gpg
