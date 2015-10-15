@@ -6,6 +6,7 @@
 ~kde-apps/konsole-9999 **
 ~kde-apps/kwrite-9999 **
 ~kde-apps/kcron-9999 **
+~kde-apps/ksystemlog-9999 **
 ~kde-apps/kross-interpreters-9999 **
 ~kde-apps/pykde5-9999 **
 ~kde-apps/analitza-9999 **
@@ -62,6 +63,7 @@
 ~kde-apps/kaccounts-integration-9999 **
 ~kde-apps/kaccounts-providers-9999 **
 ~kde-apps/kio-extras-9999 **
+~kde-apps/krfb-9999 **
 ~kde-apps/ktp-accounts-kcm-9999 **
 ~kde-apps/ktp-approver-9999 **
 ~kde-apps/ktp-auth-handler-9999 **
