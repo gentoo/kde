@@ -30,7 +30,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
-	kipi? ( $(add_kdeapps_dep libkipi '' '5.9999') )
+	kipi? ( $(add_kdeapps_dep libkipi) )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/ksnapshot
