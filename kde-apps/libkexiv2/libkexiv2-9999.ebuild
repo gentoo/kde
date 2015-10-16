@@ -4,14 +4,16 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
 KEYWORDS=""
-IUSE="debug +xmp"
+IUSE="+xmp"
 
 DEPEND="
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 	>=media-gfx/exiv2-0.25:=[xmp=]
-	virtual/jpeg:0
 "
 RDEPEND="${DEPEND}"
