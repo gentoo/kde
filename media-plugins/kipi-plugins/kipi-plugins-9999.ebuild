@@ -12,7 +12,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 KDE_HANDBOOK=true
 fi
 
-EGIT_BRANCH=frameworks
 KDE_TEST=true
 inherit flag-o-matic kde5
 
