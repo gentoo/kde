@@ -4,13 +4,14 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="KDE digital camera raw image library wrapper"
+DESCRIPTION="Digital camera raw image library wrapper"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	>=media-libs/libraw-0.16_beta1-r1:=
+	>=media-libs/libraw-0.16:=
+	dev-qt/qtgui:5
 "
 RDEPEND="${DEPEND}"
