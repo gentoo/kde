@@ -29,7 +29,7 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	!kde-base/kactivities:4[-minimal(-)]
+	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
 "
 DEPEND="${RDEPEND}
 	|| ( >=dev-libs/boost-1.54 <dev-libs/boost-1.53 )
