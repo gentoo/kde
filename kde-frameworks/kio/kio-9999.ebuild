@@ -5,13 +5,15 @@
 EAPI=5
 
 VIRTUALX_REQUIRED="test"
+KDE_HANDBOOK="true"
+KDE_DOC_DIR="docs"
 KDE_PUNT_BOGUS_DEPS=true
 inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="acl kerberos X"
+IUSE="acl kerberos +kwallet X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -29,7 +31,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
@@ -47,10 +48,10 @@ COMMON_DEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
+	kwallet? ( $(add_frameworks_dep kwallet) )
 	X? ( dev-qt/qtx11extras:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdoctools)
 	dev-qt/qtconcurrent:5
 	test? ( sys-libs/zlib )
 	X? (
@@ -72,7 +73,9 @@ RESTRICT="test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package acl)
+		$(cmake-utils_use_find_package handbook KF5DocTools)
 		$(cmake-utils_use_find_package kerberos GSSAPI)
+		$(cmake-utils_use_find_package kwallet KF5Wallet)
 		$(cmake-utils_use_find_package X X11)
 	)
 
