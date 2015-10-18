@@ -44,7 +44,6 @@ DEPEND="
 	addons? (
 		$(add_frameworks_dep kbookmarks)
 		$(add_frameworks_dep knewstuff)
-		$(add_frameworks_dep knotifications)
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
