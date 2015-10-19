@@ -397,7 +397,7 @@ enable_cmake-utils_src_prepare() {
 
 	debug-print "$FUNCNAME: PATCHES=$PATCHES"
 	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
-		
+
 	debug-print "$FUNCNAME: applying user patches"
 	epatch_user
 
