@@ -209,6 +209,7 @@
 # move kde-base/baloo-widgets kde-apps/baloo-widgets
 <kde-apps/baloo-widgets-4.14.50
 <kde-base/kactivities-4.13.50
+<kde-base/kactivitymanagerd-4.13.50
 <kde-base/kde-env-4.14.50
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50

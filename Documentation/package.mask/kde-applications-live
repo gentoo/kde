@@ -10,6 +10,7 @@
 ~kde-apps/kross-interpreters-9999
 ~kde-apps/pykde5-9999
 ~kde-apps/analitza-9999
+~kde-apps/artikulate-9999
 ~kde-apps/blinken-9999
 ~kde-apps/cantor-9999
 ~kde-apps/kalgebra-9999
@@ -62,6 +63,7 @@
 ~kde-apps/kmix-9999
 ~kde-apps/kaccounts-integration-9999
 ~kde-apps/kaccounts-providers-9999
+~kde-apps/kdenetwork-filesharing-9999
 ~kde-apps/kio-extras-9999
 ~kde-apps/krfb-9999
 ~kde-apps/ktp-accounts-kcm-9999
