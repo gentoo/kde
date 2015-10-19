@@ -3,48 +3,39 @@
 # $Id$
 
 #
-# TODO: complete packaging of qtsoap and qtkoauth, see dilfridge overlay for work in progress
+# TODO: complete packaging of qtsoap and qtkoauth
 #
 
 EAPI=5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-KDE_HANDBOOK=true
+	KDE_HANDBOOK=true
+	SRC_BRANCH=stable
 fi
 
 KDE_TEST=true
-inherit flag-o-matic kde5
+inherit kde5
 
 MY_PV=${PV/_/-}
-MY_P="${PN}-${MY_PV}"
+MY_P=${PN}-${MY_PV}
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="http://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="cdr calendar expoblending +imagemagick mediawiki opengl panorama vkontakte"
+IUSE="calendar expoblending flashexport mediawiki panorama phonon viewers vkontakte"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	LICENSE="${LICENSE} handbook? ( FDL-1.2 )"
 	MY_PV=${PV/_/-}
 	MY_P="digikam-${MY_PV}"
-	SRC_URI="mirror://kde/stable/digikam/${MY_P}.tar.bz2"
+	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
+	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.bz2"
 	S=${WORKDIR}/${MY_P}/extra/${PN}
 fi
 
-# TODO: Add back when ported
-# 	dev-libs/libxml2
-# 	dev-libs/libxslt
-# 	crypt? ( app-crypt/qca:2[qt5(+)] )
-# 	redeyes? ( >=media-libs/opencv-2.4.9 )
-# 	videoslideshow?	(
-# 		>=media-libs/qt-gstreamer-0.9.0[qt5(+)]
-# 		|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
-# 	)
-
-COMMONDEPEND="
-	$(add_frameworks_dep karchive)
+COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -52,13 +43,10 @@ COMMONDEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep threadweaver)
-	dev-libs/qjson
 	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
 	dev-qt/qtprintsupport:5
@@ -67,33 +55,30 @@ COMMONDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	dev-qt/qtxmlpatterns:5
-	kde-apps/libkexiv2:5=
 	kde-apps/libkipi:5=
-	media-libs/libpng:0=
-	media-libs/tiff:0
-	virtual/jpeg:0
 	calendar? ( $(add_kdeapps_dep kcalcore) )
+	flashexport? ( $(add_frameworks_dep karchive) )
 	mediawiki? ( net-libs/libmediawiki:5 )
-	opengl? (
+	panorama? ( $(add_frameworks_dep threadweaver) )
+	phonon? ( media-libs/phonon[qt5] )
+	viewers? (
 		dev-qt/qtopengl:5
-		media-libs/phonon[qt5]
+		x11-libs/libX11
 		x11-libs/libXrandr
 		virtual/opengl
 	)
 	vkontakte? ( net-libs/libkvkontakte:5 )
 "
-DEPEND="${COMMONDEPEND}
+DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	panorama? (
 		sys-devel/bison
 		sys-devel/flex
 	)
 "
-RDEPEND="${COMMONDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!media-plugins/kipi-plugins:4
-	cdr? ( app-cdr/k3b )
 	expoblending? ( media-gfx/hugin )
-	imagemagick? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] ) )
 	panorama? (
 		media-gfx/enblend
 		media-gfx/hugin
@@ -101,11 +86,6 @@ RDEPEND="${COMMONDEPEND}
 "
 
 RESTRICT=test
-
-PATCHES=(
-	"${FILESDIR}/${PN}-5.0.0-expoblending.patch"
-	"${FILESDIR}/${PN}-5.0.0-jpeg.patch"
-)
 
 src_prepare() {
 	undetect_lib() {
@@ -119,39 +99,41 @@ src_prepare() {
 	undetect_lib mediawiki
 	undetect_lib vkontakte KVKONTAKTE
 
-# 	undetect_lib redeyes OPENCV	#TODO: Add back when ported
+	sed -i -e "/add_subdirectory(expoblending)/ s/^/#DONT/" CMakeLists.txt || die
 
 	if [[ ${KDE_BUILD_TYPE} != live ]]; then
 		# prepare the handbook
-		mv "${WORKDIR}/${MY_P}/doc/${PN}" \
-			"${WORKDIR}/${MY_P}/extra/${PN}/doc" || die
+		mv "${WORKDIR}"/${MY_P}/doc/${PN} "${S}"/doc || die
+
 		if use handbook; then
-			echo "add_subdirectory( doc )" >> CMakeLists.txt
+			echo "add_subdirectory( doc )" >> CMakeLists.txt || die
 		fi
 
-		# prepare the translations
-		mv "${WORKDIR}/${MY_P}/po" po || die
-		find po -name "*.po" -and -not -name "kipiplugin*.po" -exec rm {} +
-		echo "find_package(Msgfmt REQUIRED)" >> CMakeLists.txt || die
-		echo "find_package(Gettext REQUIRED)" >> CMakeLists.txt || die
-		echo "add_subdirectory( po )" >> CMakeLists.txt
+		if [[ ${SRC_BRANCH} != unstable ]]; then
+			# prepare the translations
+			mv "${WORKDIR}/${MY_P}/po" po || die
+			find po -name "*.po" -and -not -name "kipiplugin*.po" -delete || die
+			echo "find_package(Msgfmt REQUIRED)" >> CMakeLists.txt || die
+			echo "find_package(Gettext REQUIRED)" >> CMakeLists.txt || die
+			echo "add_subdirectory( po )" >> CMakeLists.txt || die
+		fi
 	fi
 
 	kde5_src_prepare
 }
 
 src_configure() {
-	local mycmakeargs+=(
-		$(cmake-utils_use_enable expoblending)
+	local mycmakeargs=(
 		$(cmake-utils_use_find_package calendar KF5CalendarCore)
-		$(cmake-utils_use_find_package opengl OpenGL)
+		$(cmake-utils_use_find_package flashexport KF5Archive)
 		$(cmake-utils_use_find_package panorama BISON)
 		$(cmake-utils_use_find_package panorama FLEX)
+		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
+		$(cmake-utils_use_find_package phonon Phonon4Qt5)
+		$(cmake-utils_use_find_package viewers OpenGL)
+		$(cmake-utils_use_find_package viewers Qt5OpenGL)
+		$(cmake-utils_use_find_package viewers X11)
 	)
-# 	TODO: Add back when ported
-# 		$(cmake-utils_use_find_package redeyes OpenCV)
-# 		$(cmake-utils_use_with crypt QCA2)
-# 		$(cmake-utils_use_with videoslideshow QtGStreamer)
 
 	kde5_src_configure
 }
