@@ -29,6 +29,4 @@ DEPEND="
 	dev-qt/qtxmlpatterns:5
 	>=media-libs/qt-gstreamer-1.2.0[qt5]
 "
-RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kqtquickcharts)
-"
+RDEPEND="${DEPEND}"
