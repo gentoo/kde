@@ -13,14 +13,17 @@ IUSE=""
 
 # TODO check if newer xapian is working
 RDEPEND="
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep krunner)
+	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
 	=dev-libs/xapian-1.2*[chert]
