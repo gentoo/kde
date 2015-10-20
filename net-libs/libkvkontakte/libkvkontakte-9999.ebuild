@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 KDE_TEST="true"
 inherit kde5
 
@@ -19,9 +18,10 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kdewebkit)
+	$(add_frameworks_dep kwidgetsaddons)
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwebkit:5
