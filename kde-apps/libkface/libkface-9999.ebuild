@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="Qt/C++ wrapper around LibFace to perform face recognition and detection"
@@ -21,9 +22,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	>=media-libs/opencv-3[contrib]
 "
-RDEPEND="${DEPEND}
-	!media-libs/libkface
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
