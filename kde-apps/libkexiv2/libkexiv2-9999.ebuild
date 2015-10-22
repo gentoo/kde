@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
