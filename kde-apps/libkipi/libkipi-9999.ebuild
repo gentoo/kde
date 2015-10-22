@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_BLOCK_SLOT4="false"
 KDE_TEST="true"
 inherit kde5
 
@@ -22,4 +23,6 @@ DEPEND="
 	dev-qt/qtxml:5
 "
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/libkipi:4[-minimal(-)]
+"
