@@ -66,7 +66,7 @@ RDEPEND="${COMMON_DEPEND}
 	multimedia? (
 		|| (
 			dev-qt/qtmultimedia:5[gstreamer,qml]
-			dev-qt/qtmultimedia:5[gstreamer010,qml] )
+			dev-qt/qtmultimedia:5[gstreamer010,qml]
 		)
 	)
 	!kde-base/kwin:4
