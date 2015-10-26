@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="gles2 gstreamer wayland"
+IUSE="gles2 multimedia wayland"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -63,7 +63,10 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	gstreamer? ( dev-qt/qtmultimedia:5[gstreamer,qml] )
+	multimedia? ( ||
+        ( dev-qt/qtmultimedia:5[gstreamer,-gstreamer010,qml]
+          dev-qt/qtmultimedia:5[-gstreamer,gstreamer010,qml] )
+    )
 	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "
@@ -77,8 +80,7 @@ DEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	kde5_src_prepare
-
-	use gstreamer || epatch "${FILESDIR}/${PN}-gstreamer-optional.patch"
+	use multimedia || epatch "${FILESDIR}/${PN}-gstreamer-optional.patch"
 }
 
 src_configure() {
