@@ -79,6 +79,7 @@
 >=dev-qt/qtdeclarative-5.4.2:5
 >=dev-qt/qtgui-5.4.2:5
 >=dev-qt/qtnetwork-5.4.2:5
+>=dev-qt/qtopengl-5.4.2:5
 >=dev-qt/qtprintsupport-5.4.2:5
 >=dev-qt/qtquick1-5.4.2:5
 >=dev-qt/qtquickcontrols-5.4.2:5
