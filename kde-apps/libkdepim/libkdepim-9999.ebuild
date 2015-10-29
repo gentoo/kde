@@ -21,10 +21,11 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kwallet)
-	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep libakonadi)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
