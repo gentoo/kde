@@ -10,8 +10,8 @@ inherit kde5
 DESCRIPTION="Plasma Network Monitor"
 HOMEPAGE="http://kde-apps.org/content/show.php?content=12956"
 
-KEYWORDS=""
 LICENSE="GPL-2"
+KEYWORDS=""
 IUSE="wifi"
 
 DEPEND="
@@ -46,7 +46,7 @@ RDEPEND="${DEPEND}
 DOCS=( AUTHORS ChangeLog README )
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_no wifi WIRELESS_SUPPORT)
 	)
 
