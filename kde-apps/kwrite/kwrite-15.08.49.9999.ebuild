@@ -5,8 +5,7 @@
 EAPI=5
 
 KMNAME="kate"
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
