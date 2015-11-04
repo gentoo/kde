@@ -57,6 +57,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ADDONS=$(usex addons)
 		-DBUILD_kwrite=FALSE
+		$(cmake-utils_use_find_package handbook DocTools)
 	)
 
 	kde5_src_configure
