@@ -12,7 +12,7 @@ inherit kde5 multilib pam
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="dbus +drkonqi +geolocation gps prison qalculate +systemmonitor"
+IUSE="dbus +drkonqi +geolocation gps prison qalculate"
 
 COMMON_DEPEND="
 	$(add_plasma_dep kwayland)
@@ -90,13 +90,11 @@ COMMON_DEPEND="
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
 	qalculate? ( sci-libs/libqalculate )
-	systemmonitor? (
-		$(add_plasma_dep libksysguard processui)
-	)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	$(add_plasma_dep kde-cli-tools)
+	$(add_plasma_dep ksysguard)
 	$(add_plasma_dep milou)
 	dev-qt/qdbus:5
 	dev-qt/qtpaths:5
@@ -107,7 +105,6 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	x11-apps/xset
 	x11-apps/xsetroot
-	systemmonitor? ( $(add_plasma_dep ksysguard) )
 	!kde-base/freespacenotifier:4
 	!kde-base/libtaskmanager:4
 	!kde-base/kcminit:4
@@ -142,16 +139,6 @@ src_prepare() {
 		punt_bogus_dep KF5 NetworkManagerQt
 		pushd dataengines > /dev/null || die
 			comment_add_subdirectory geolocation
-		popd > /dev/null || die
-	fi
-
-	if ! use systemmonitor; then
-		comment_add_subdirectory systemmonitor
-		pushd applets > /dev/null || die
-			comment_add_subdirectory systemmonitor
-		popd > /dev/null || die
-		pushd dataengines > /dev/null || die
-			comment_add_subdirectory systemmonitor
 		popd > /dev/null || die
 	fi
 }
