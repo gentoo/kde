@@ -5,8 +5,7 @@
 EAPI=5
 
 KDE_BLOCK_SLOT4="false"
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
