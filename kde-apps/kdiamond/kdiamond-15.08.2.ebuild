@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A KDE three-in-a-row game"
