@@ -4,22 +4,35 @@
 
 EAPI=5
 
-inherit kde4-base
+KDE_TEST="true"
+inherit kde5
 
 DESCRIPTION="Tool visualising massif data"
 HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
 LICENSE="GPL-2"
-SLOT="4"
 KEYWORDS=""
-IUSE="graphviz"
+IUSE=""
 
-DEPEND="graphviz? ( media-gfx/kgraphviewer:4 )"
-RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_with graphviz KGraphViewer)
-	)
-	kde4-base_src_configure
-}
+COMMON_DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep kdiagram)
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+"
+DEPEND="${COMMON_DEPEND}
+	dev-qt/qtxmlpatterns:5
+	x11-misc/shared-mime-info
+"
+RDEPEND="${COMMON_DEPEND}"
