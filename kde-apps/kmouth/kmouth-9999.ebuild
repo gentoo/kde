@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
