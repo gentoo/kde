@@ -6,7 +6,6 @@ EAPI=5
 
 KMNAME="kate"
 KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
@@ -37,6 +36,7 @@ src_configure() {
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 		-DBUILD_katepart=FALSE
+		$(cmake-utils_use_find_package handbook DocTools)
 	)
 
 	kde5_src_configure
