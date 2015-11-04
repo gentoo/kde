@@ -93,6 +93,8 @@ fi
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # For any other value, add test to IUSE and add a dependency on dev-qt/qttest:5.
+# If set to "forceoptional", remove a Qt5Test dependency from the root
+# CMakeLists.txt in addition to the above.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_TEST:=true}
 else
@@ -415,6 +417,11 @@ kde5_pkg_nofetch() {
 	eerror "This is not a bug. Please do not file bugs or contact upstream about this."
 	eerror ""
 	eerror "Please consult the upstream release schedule to see when this "
+	if [[ ${KDE_HANDBOOK} = forceoptional ]] ; then
+		if ! use_if_iuse handbook ; then
+			punt_bogus_dep KF5 DocTools
+		fi
+	fi
 	eerror "package is scheduled to be released:"
 	eerror "https://techbase.kde.org/Schedules"
 }
@@ -516,6 +523,12 @@ kde5_src_prepare() {
 	if [[ ${KDE_HANDBOOK} = forceoptional ]] ; then
 		if ! use_if_iuse handbook ; then
 			punt_bogus_dep KF5 DocTools
+		fi
+	fi
+
+	if [[ ${KDE_TEST} = forceoptional ]] ; then
+		if ! use_if_iuse test ; then
+			punt_bogus_dep Qt5 Test
 		fi
 	fi
 
