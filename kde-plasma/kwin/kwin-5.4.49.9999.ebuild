@@ -63,10 +63,12 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	multimedia? ( ||
-        ( dev-qt/qtmultimedia:5[gstreamer,-gstreamer010,qml]
-          dev-qt/qtmultimedia:5[-gstreamer,gstreamer010,qml] )
-    )
+	multimedia? (
+		|| (
+			dev-qt/qtmultimedia:5[gstreamer,qml]
+			dev-qt/qtmultimedia:5[gstreamer010,qml]
+		)
+	)
 	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "

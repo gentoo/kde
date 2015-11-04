@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A Breakout-like game for KDE"
@@ -34,5 +34,6 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}"

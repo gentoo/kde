@@ -452,19 +452,13 @@ _calculate_src_uri() {
 				4.4.20*)
 					# KDEPIM 4.4 no-akonadi branch, special case
 					# TODO: Remove this part when KDEPIM 4.4 gets out of the tree
-					SRC_URI="http://dev.gentoo.org/~dilfridge/distfiles/${_kmname_pv}.tar.xz" ;;
+					SRC_URI="https://dev.gentoo.org/~dilfridge/distfiles/${_kmname_pv}.tar.xz" ;;
 				4.?.[6-9]? | 4.??.[6-9]?)
 					# Unstable KDE SC releases
 					SRC_URI="mirror://kde/unstable/${PV}/src/${_kmname_pv}.tar.xz" ;;
-				4.11.14)
-					# Part of 4.14 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/4.14.3/src/${_kmname_pv}.tar.xz" ;;
 				4.11.19)
 					# Part of 15.04.1 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/15.04.1/src/${_kmname_pv}.tar.xz" ;;
-				4.11.21)
-					# Part of 15.04.3 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/applications/15.04.3/src/${_kmname_pv}.tar.xz" ;;
 				4.11.22)
 					# Part of 15.08.0 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/15.08.0/src/${_kmname_pv}.tar.xz" ;;
@@ -477,13 +471,10 @@ _calculate_src_uri() {
 				4.14.10)
 					# Part of 15.04.3 actually, sigh. Not stable for next release!
 					SRC_URI="mirror://kde/stable/applications/15.04.3/src/${_kmname_pv}.tar.xz" ;;
-				4.14.11)
-					# Part of 15.08.0 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/applications/15.08.0/src/${_kmname_pv}.tar.xz" ;;
-				4.14.12)
-					# Part of 15.08.1 actually, sigh. Not stable for next release!
-					SRC_URI="mirror://kde/stable/applications/15.08.1/src/${_kmname_pv}.tar.xz" ;;
-			??.?.[6-9]? | ??.??.[4-9]?)
+				4.14.13)
+					# Part of 15.08.2 actually, sigh. Not stable for next release!
+					SRC_URI="mirror://kde/stable/applications/15.08.2/src/${_kmname_pv}.tar.xz" ;;
+				??.?.[6-9]? | ??.??.[4-9]?)
 					# Unstable KDE Applications releases
 					SRC_URI="mirror://kde/unstable/applications/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
 				*)

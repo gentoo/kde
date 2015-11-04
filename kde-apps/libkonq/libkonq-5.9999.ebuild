@@ -44,9 +44,6 @@ src_install() {
 	kde5_src_install
 
 	if use minimal; then
-		rm "${D}"/usr/share/templates/{Directory,HTMLFile,TextFile}.desktop || die
-		rm "${D}"/usr/share/templates/{linkPath,linkProgram,linkURL}.desktop || die
-		rm "${D}"/usr/share/templates/.source/{Program,URL}.desktop || die
-		rm "${D}"/usr/share/templates/.source/{HTMLFile.html,TextFile.txt} || die
+		rm "${D}"/usr/share/kservicetypes5/konqpopupmenuplugin.desktop || die
 	fi
 }

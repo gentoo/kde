@@ -32,6 +32,7 @@ DEPEND="${CDEPEND}
 	test? ( sys-apps/dbus )
 "
 RDEPEND="${CDEPEND}
+	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 	!app-office/akonadi-server
 "

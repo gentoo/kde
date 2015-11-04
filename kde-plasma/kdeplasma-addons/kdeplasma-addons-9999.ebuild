@@ -47,7 +47,7 @@ DEPEND="
 	scim? ( app-i18n/scim )
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep plasma-workspace 'systemmonitor')
+	$(add_plasma_dep plasma-workspace)
 	!kde-base/kdeplasma-addons:4
 "
 

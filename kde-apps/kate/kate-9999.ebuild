@@ -55,8 +55,9 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build addons)
+		-DBUILD_ADDONS=$(usex addons)
 		-DBUILD_kwrite=FALSE
+		$(cmake-utils_use_find_package handbook DocTools)
 	)
 
 	kde5_src_configure

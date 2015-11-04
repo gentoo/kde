@@ -62,7 +62,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build addons)
+		-DBUILD_ADDONS=$(usex addons)
 		-DBUILD_kwrite=FALSE
 	)
 
