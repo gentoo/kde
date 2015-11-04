@@ -64,7 +64,7 @@ PDEPEND="
 	$(add_frameworks_dep kded)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/libkonq[-minimal(-)]
+	!kde-apps/libkonq:5[-minimal(-)]
 "
 
 # tests hang
