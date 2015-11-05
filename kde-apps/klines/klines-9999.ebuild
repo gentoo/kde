@@ -38,6 +38,8 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+DOCS=( AUTHORS )
+
 src_prepare() {
 	# fix copy-paste (?) error, there are no tests
 	sed -i "/find_package(Qt5/ s/ Test//" CMakeLists.txt || die
