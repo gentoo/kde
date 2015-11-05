@@ -29,3 +29,5 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
+
+DOCS=()
