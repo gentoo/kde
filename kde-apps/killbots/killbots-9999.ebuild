@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_PUNT_BOGUS_DEPS="true"
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
