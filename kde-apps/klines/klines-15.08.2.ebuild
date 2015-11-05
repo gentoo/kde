@@ -31,6 +31,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
 	dev-qt/qtdeclarative:5[widgets]
+	dev-qt/qtgui:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 "
