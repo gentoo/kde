@@ -34,3 +34,5 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
+
+DOCS=( AUTHORS )
