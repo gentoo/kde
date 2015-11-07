@@ -2,4 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="app">Enable experimental kcapp frontend</flag>
+		<flag name="telepathy">Enable <pkg>dev-qt/telepathy-qt</pkg> support to receive text messages and respond to them</flag>
+		<flag name="wayland">Enable kwin_wayland support for mousepad plugin using <pkg>kde-frameworks/kwayland</pkg></flag>
+	</use>
 </pkgmetadata>
