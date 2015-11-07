@@ -10,7 +10,7 @@ inherit kde5 pam
 DESCRIPTION="KWallet PAM module to not enter password again"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
 DEPEND="
@@ -18,6 +18,12 @@ DEPEND="
 	virtual/pam
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-5.4.3-fix-install-prefix.patch"
+	"${FILESDIR}/${PN}-5.4.3-daemonise-forked-process.patch"
+	"${FILESDIR}/${PN}-5.4.3-add-gcrypt-include-path.patch"
+)
 
 src_install() {
 	dopammod "${BUILD_DIR}"/pam_kwallet5.so

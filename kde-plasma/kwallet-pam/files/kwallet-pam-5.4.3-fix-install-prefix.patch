@@ -1,0 +1,23 @@
+From: Pinak Ahuja <pinak.ahuja@gmail.com>
+Date: Mon, 31 Aug 2015 17:18:59 +0000
+Subject: Fix pam_kwallet5.so not being installed in the specified install prefix
+X-Git-Url: http://quickgit.kde.org/?p=kwallet-pam.git&a=commitdiff&h=105cd18dbfe644e510e772a7e8226d8e965477f9
+---
+Fix pam_kwallet5.so not being installed in the specified install prefix
+
+"/" appended to ${CMAKE_INSTALL_LIBDIR} made it an absolute path therefore
+causing install() to not append the CMAKE_INSTALL_PREFIX to it.
+
+REVIEW: 124962
+---
+
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,4 +35,5 @@
+    ${LIBGCRYPT_LIBRARIES}
+ )
+ 
+-install(TARGETS ${library_name} DESTINATION /${CMAKE_INSTALL_LIBDIR}/security)
++install(TARGETS ${library_name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/security)
++
