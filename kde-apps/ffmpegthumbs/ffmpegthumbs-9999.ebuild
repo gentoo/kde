@@ -4,15 +4,17 @@
 
 EAPI=5
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="A FFmpeg based thumbnail Generator for Video Files"
+DESCRIPTION="An FFmpeg based thumbnail generator for video files"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="
+RDEPEND="
+	$(add_frameworks_dep kio)
+	dev-qt/qtgui:5
 	virtual/ffmpeg
 "
-RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kdebase-kioslaves)
+DEPEND="${RDEPEND}
+	virtual/pkgconfig
 "
