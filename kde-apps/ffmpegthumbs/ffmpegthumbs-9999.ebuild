@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="An FFmpeg based thumbnail generator for video files"
+DESCRIPTION="A FFmpeg based thumbnail generator for video files"
 KEYWORDS=""
 IUSE=""
 
