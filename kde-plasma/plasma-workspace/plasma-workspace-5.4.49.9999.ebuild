@@ -126,6 +126,7 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
 	"${FILESDIR}/${PN}-5.4-consolekit2.patch"
+	"${FILESDIR}/${PN}-5.4.3-fix-drkonqi.patch"	#Upstream bug 354110
 )
 
 RESTRICT="test"
