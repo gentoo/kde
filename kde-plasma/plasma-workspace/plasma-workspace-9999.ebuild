@@ -15,6 +15,11 @@ KEYWORDS=""
 IUSE="dbus +drkonqi +geolocation gps prison qalculate"
 
 COMMON_DEPEND="
+	$(add_plasma_dep kscreenlocker)
+	$(add_plasma_dep kwayland)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep libkscreen)
+	$(add_plasma_dep libksysguard)
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
