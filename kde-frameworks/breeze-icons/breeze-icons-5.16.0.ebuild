@@ -5,6 +5,9 @@
 EAPI=5
 
 KDE_AUTODEPS="false"
+KDE_DEBUG="false"
+KDE_DOXYGEN="false"
+KDE_TEST="false"
 inherit kde5
 
 DESCRIPTION="Breeze SVG icon theme"
