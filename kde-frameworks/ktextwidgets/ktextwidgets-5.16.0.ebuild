@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing an assortment of widgets for displaying and editing text"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE=""
+IUSE="speech"
 
 RDEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -25,5 +25,14 @@ RDEPEND="
 	$(add_frameworks_dep sonnet)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	speech? ( dev-qt/qtspeech:5 )
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+	)
+
+	kde5_src_configure
+}
