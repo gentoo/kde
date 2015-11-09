@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="dbus nls X"
+IUSE="dbus nls speech X"
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -22,6 +22,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	media-libs/phonon[qt5]
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
+	speech? ( dev-qt/qtspeech:5 )
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
@@ -36,6 +37,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus DBusMenuQt5)
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
 		$(cmake-utils_use_find_package X X11)
 	)
 
