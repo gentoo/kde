@@ -41,6 +41,15 @@ pkg_setup() {
 	MULTIBUILD_VARIANTS=( kf5 $(usev qt4) )
 }
 
+src_prepare() {
+	# Disable icons packaged separately in kde-frameworks/breeze-icons
+	sed -i \
+		-e "/add_subdirectory(icons/ s/^/#/" \
+		CMakeLists.txt
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
