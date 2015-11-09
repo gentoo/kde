@@ -5,19 +5,20 @@
 EAPI=5
 
 KMNAME="kdegraphics-thumbnailers"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="KDE 4 thumbnail generators for PDF/PS files"
+DESCRIPTION="Thumbnail generators for PDF/PS and RAW files"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
 	$(add_kdeapps_dep libkdcraw)
 	$(add_kdeapps_dep libkexiv2)
+	$(add_frameworks_dep kio)
+	dev-qt/qtgui:5
 "
-RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kdebase-kioslaves)
-"
+
+RDEPEND="${DEPEND}"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	S="${WORKDIR}/${KMNAME}-${PV}"
