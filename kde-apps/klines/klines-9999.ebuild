@@ -21,28 +21,14 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
-	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 "
 
 RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS )
-
-src_prepare() {
-	# fix copy-paste (?) error, there are no tests
-	sed -i "/find_package(Qt5/ s/ Test//" CMakeLists.txt || die
-
-	kde5_src_prepare
-}
