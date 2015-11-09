@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
 LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="dbus X nls"
+IUSE="dbus nls X"
 
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -35,8 +35,8 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package X X11)
 		$(cmake-utils_use_find_package dbus DBusMenuQt5)
+		$(cmake-utils_use_find_package X X11)
 	)
 
 	kde5_src_configure
