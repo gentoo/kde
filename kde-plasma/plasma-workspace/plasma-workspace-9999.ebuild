@@ -130,7 +130,8 @@ src_prepare() {
 
 	kde5_src_prepare
 
-	sed -e "s|\`qtpaths|\`$(qt5_get_bindir)/qtpaths|" -i startkde/startkde.cmake || die
+	sed -e "s|\`qtpaths|\`$(qt5_get_bindir)/qtpaths|" \
+		-i startkde/startkde.cmake startkde/startplasmacompositor.cmake || die
 
 	if ! use drkonqi; then
 		comment_add_subdirectory drkonqi
