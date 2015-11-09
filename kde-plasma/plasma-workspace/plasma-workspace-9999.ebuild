@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5 multilib pam
+inherit kde5 multilib pam qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
@@ -130,7 +130,7 @@ src_prepare() {
 
 	kde5_src_prepare
 
-	sed -e "s|\`qtpaths|\`/usr/$(get_libdir)/qt5/bin/qtpaths|" -i startkde/startkde.cmake || die
+	sed -e "s|\`qtpaths|\`$(qt5_get_bindir)/qtpaths|" -i startkde/startkde.cmake || die
 
 	if ! use drkonqi; then
 		comment_add_subdirectory drkonqi
