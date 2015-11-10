@@ -8,4 +8,12 @@ inherit kde4-base
 
 DESCRIPTION="A library for image plugins accross KDE applications"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug minimal"
+
+src_install() {
+	kde4-base_src_install
+
+	if use minimal ; then
+		rm -r "${D}"/usr/share/icons || die
+	fi
+}
