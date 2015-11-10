@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="Framework providing tools to generate documentation in various formats from DocBook files"
+DESCRIPTION="Tools to generate documentation in various formats from DocBook files"
 LICENSE="MIT"
 KEYWORDS=" ~amd64 ~x86"
 IUSE=""
