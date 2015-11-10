@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
+DESCRIPTION="Advanced plugin and service introspection"
 LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
 IUSE="man"
