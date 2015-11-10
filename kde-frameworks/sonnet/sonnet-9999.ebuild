@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="Framework for providing spell-checking capabilities through abstraction of popular backends"
+DESCRIPTION="Framework for providing spell-checking through abstraction of popular backends"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="+aspell hunspell nls"
