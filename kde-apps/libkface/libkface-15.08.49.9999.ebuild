@@ -7,13 +7,21 @@ EAPI=5
 inherit kde4-base
 
 DESCRIPTION="Qt/C++ wrapper around LibFace to perform face recognition and detection"
-HOMEPAGE="http://api.kde.org/4.x-api/kdegraphics-apidocs/libs/libkface/libkface/html/index.html"
+HOMEPAGE="https://projects.kde.org/projects/kde/kdegraphics/libs/libkface"
 
 LICENSE="GPL-2"
+KEYWORDS=""
 IUSE=""
 
-KEYWORDS=""
+DEPEND=">=media-libs/opencv-3.0.0[contrib]"
+RDEPEND="${DEPEND}"
 
-DEPEND=">=media-libs/opencv-2.4.9"
-RDEPEND="${DEPEND}
-	!media-libs/libkface"
+PATCHES=( "${FILESDIR}/${PN}-15.08.2-opencv3.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		-DENABLE_OPENCV3=ON
+	)
+
+	kde4-base_src_configure
+}
