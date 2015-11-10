@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
+DESCRIPTION="Provider for platform independent hardware discovery, abstraction and management"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
