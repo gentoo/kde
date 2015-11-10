@@ -10,7 +10,7 @@ KMMODULE="kioslave"
 inherit kde4-meta
 
 KEYWORDS=""
-DESCRIPTION="kioslave: the kde VFS framework - kioslave plugins present a filesystem-like view of arbitrary data"
+DESCRIPTION="KDE VFS framework - kioslaves present a filesystem-like view of arbitrary data"
 IUSE="+bzip2 exif debug lzma openexr samba +sftp"
 
 # tests hang, last checked for 4.2.96
