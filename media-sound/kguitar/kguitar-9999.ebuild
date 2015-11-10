@@ -8,7 +8,7 @@ KDE_LINGUAS="de es it fr ru"
 KDE_SCM="svn"
 inherit kde4-base
 
-DESCRIPTION="Guitarist helper program focusing on tabulature editing and MIDI synthesizers support"
+DESCRIPTION="Guitarist helper program wiith tabulature editing and MIDI synthesizers support"
 HOMEPAGE="http://kguitar.sf.net/"
 ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/branches/kde4"
 
