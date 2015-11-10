@@ -33,7 +33,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep breeze-icons)
+	$(add_frameworks_dep breeze-icons '' '5.4.3')
 	$(add_plasma_dep kde-cli-tools)
 "
 
