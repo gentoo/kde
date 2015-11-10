@@ -8,7 +8,7 @@ EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE application that reads what you type out loud. Doesn't include a speech synthesizer"
+DESCRIPTION="Text-to-speech synthesizer front end"
 HOMEPAGE="https://www.kde.org/applications/utilities/kmouth/"
 KEYWORDS=""
 IUSE="debug"
