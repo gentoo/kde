@@ -3,6 +3,7 @@
 # Edit Documentation/package.keywords/.kde-frameworks-live.base/ files instead.
 ~kde-frameworks/attica-9999 **
 ~kde-frameworks/baloo-9999 **
+~kde-frameworks/breeze-icons-9999 **
 ~kde-frameworks/bluez-qt-9999 **
 ~kde-frameworks/extra-cmake-modules-9999 **
 ~kde-frameworks/frameworkintegration-9999 **
@@ -65,6 +66,7 @@
 ~kde-frameworks/kxmlrpcclient-9999 **
 ~kde-frameworks/modemmanager-qt-9999 **
 ~kde-frameworks/networkmanager-qt-9999 **
+~kde-frameworks/oxygen-icons-9999 **
 ~kde-frameworks/plasma-9999 **
 ~kde-frameworks/solid-9999 **
 ~kde-frameworks/sonnet-9999 **
