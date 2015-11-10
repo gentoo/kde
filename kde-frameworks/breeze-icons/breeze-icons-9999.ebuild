@@ -16,4 +16,4 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="$(add_frameworks_dep extra-cmake-modules)"
-RDEPEND="!<kde-plasma/breeze-5.4.50:5"
+RDEPEND="!<kde-plasma/breeze-5.4.3:5"
