@@ -8,7 +8,7 @@ KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Library for determining holidays and other special events for a geographical region"
+DESCRIPTION="Library to determine holidays and other special events for a geographical region"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE="designer"
