@@ -52,7 +52,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-lang/perl
-	dev-libs/openssl
+	dev-libs/openssl:0
 	test? ( dev-qt/qtx11extras:5 )
 	X? ( x11-proto/xproto )
 "
