@@ -18,8 +18,8 @@ DESCRIPTION="KDE libraries needed by all KDE programs"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="cpu_flags_x86_3dnow acl alsa altivec +bzip2 +crypt debug doc fam jpeg2k
-kerberos lzma cpu_flags_x86_mmx nls openexr +policykit spell cpu_flags_x86_sse
-cpu_flags_x86_sse2 ssl +udev +udisks +upower zeroconf"
+kerberos libressl lzma cpu_flags_x86_mmx nls openexr +policykit spell
+cpu_flags_x86_sse cpu_flags_x86_sse2 ssl +udev +udisks +upower zeroconf"
 
 REQUIRED_USE="
 	udisks? ( udev )
@@ -80,7 +80,10 @@ COMMONDEPEND="
 	)
 	policykit? ( >=sys-auth/polkit-qt-0.103.0[qt4(+)] )
 	spell? ( app-text/enchant )
-	ssl? ( dev-libs/openssl:0 )
+	ssl? (
+		libressl? ( dev-libs/libressl )
+		!libressl? ( dev-libs/openssl:0 )
+	)
 	udev? ( virtual/udev )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
