@@ -10,7 +10,7 @@ zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="Video player plugin for Konqueror and basic MPlayer/Xine/ffmpeg/ffserver/VDR frontend"
+DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
 HOMEPAGE="https://projects.kde.org/projects/extragear/multimedia/kmplayer"
 
 LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
