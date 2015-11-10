@@ -7,7 +7,7 @@ EAPI=5
 KDE_TEST="false"
 inherit kde5
 
-DESCRIPTION="Framework for notifying the user of an event, including feedback and persistant events"
+DESCRIPTION="Framework for notifying the user of an event"
 LICENSE="LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86"
 IUSE="dbus nls speech X"
