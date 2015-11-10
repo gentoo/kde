@@ -11,8 +11,6 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-"
-RDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
@@ -28,4 +26,8 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "
-DEPEND="${RDEPEND}"
+RDEPEND="
+    ${COMMON_DEPEND}
+	!<kde-plasma/plasma-workspace-5.4.50
+"
+DEPEND="${COMMON_DEPEND}"
