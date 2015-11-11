@@ -38,6 +38,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_plasma_dep kdecoration)
+	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep kwayland)
 	>=dev-libs/libinput-0.10
 	>=dev-libs/wayland-1.2
