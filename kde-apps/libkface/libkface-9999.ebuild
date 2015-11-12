@@ -8,12 +8,11 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="Qt/C++ wrapper around LibFace to perform face recognition and detection"
-HOMEPAGE="http://api.kde.org/4.x-api/kdegraphics-apidocs/libs/libkface/libkface/html/index.html"
+HOMEPAGE="https://projects.kde.org/projects/kde/kdegraphics/libs/libkface"
 
 LICENSE="GPL-2"
-IUSE=""
-
 KEYWORDS=""
+IUSE=""
 
 DEPEND="
 	dev-qt/qtgui:5
