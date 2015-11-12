@@ -8,17 +8,13 @@ KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5 multilib pam qmake-utils
+inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
 IUSE="dbus +drkonqi +geolocation gps prison qalculate"
 
 COMMON_DEPEND="
-	$(add_plasma_dep kwayland)
-	$(add_plasma_dep kwin)
-	$(add_plasma_dep libkscreen)
-	$(add_plasma_dep libksysguard)
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
@@ -58,7 +54,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlrpcclient)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
-	dev-libs/wayland
+	$(add_plasma_dep kwayland)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep libkscreen)
+	$(add_plasma_dep libksysguard)
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5[widgets]
@@ -70,7 +69,6 @@ COMMON_DEPEND="
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
 	media-libs/phonon[qt5]
-	sys-libs/pam
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
@@ -78,9 +76,7 @@ COMMON_DEPEND="
 	x11-libs/libXau
 	x11-libs/libxcb
 	x11-libs/libXfixes
-	x11-libs/libXi
 	x11-libs/libXrender
-	x11-libs/xcb-util-keysyms
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	drkonqi? (
 		$(add_frameworks_dep kdewebkit)
@@ -158,9 +154,6 @@ src_configure() {
 
 src_install() {
 	kde5_src_install
-
-	newpamd "${FILESDIR}/kde.pam" kde
-	newpamd "${FILESDIR}/kde-np.pam" kde-np
 
 	# startup and shutdown scripts
 	insinto /etc/plasma/startup
