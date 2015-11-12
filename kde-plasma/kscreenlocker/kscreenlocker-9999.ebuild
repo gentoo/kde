@@ -4,30 +4,74 @@
 
 EAPI=5
 
-inherit kde5
+KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
+inherit kde5 pam
 
-DESCRIPTION="KDE Plasma Screen Locker"
+DESCRIPTION="Library and components for secure lock screen architecture"
 KEYWORDS=""
-IUSE=""
+IUSE="pam"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kglobalaccel)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kpackage)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_plasma_dep kwayland)
 	dev-libs/wayland
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5[widgets]
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
-"
-RDEPEND="
-    ${COMMON_DEPEND}
-	!<kde-plasma/plasma-workspace-5.4.50
+	pam? ( virtual/pam )
 "
 DEPEND="${COMMON_DEPEND}"
+
+RDEPEND="${COMMON_DEPEND}
+	!kde-base/kcheckpass:4
+	!<kde-plasma/plasma-workspace-5.4.50
+"
+
+PATCHES=( "${FILESDIR}/${PN}-5.4.90-no-SUID-no-GUID.patch" )
+
+src_prepare() {
+	kde5_src_prepare
+
+	use test || sed -i \
+		-e "/add_subdirectory(autotests)/ s/^/#/" greeter/CMakeLists.txt || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package pam)
+	)
+	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+	if ! use pam; then
+		chown root "${ED}"usr/lib64/libexec/kcheckpass || die
+		chmod +s "${ED}"usr/lib64/libexec/kcheckpass || die
+	else
+		newpamd "${FILESDIR}/kde.pam" kde
+		newpamd "${FILESDIR}/kde-np.pam" kde-np
+	fi
+}
