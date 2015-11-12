@@ -47,7 +47,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-misc/kdeconnect:4
 	$(add_plasma_dep plasma-workspace)
-	wayland? ( $(add_plasma_dep kwin 'wayland') )
+	wayland? ( $(add_plasma_dep kwin) )
 "
 
 [[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
