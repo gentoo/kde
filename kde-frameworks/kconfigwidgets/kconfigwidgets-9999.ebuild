@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing an assortment of configuration-related widgets"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="+man"
 
 RDEPEND="
 	$(add_frameworks_dep kauth)
@@ -26,5 +26,13 @@ RDEPEND="
 	!<kde-frameworks/kdelibs4support-5.3.0:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
+	man? ( $(add_frameworks_dep kdoctools) )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}
