@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Central daemon of KDE workspaces"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE=""
+IUSE="+man"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -24,5 +24,13 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
+	man? ( $(add_frameworks_dep kdoctools) )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}
