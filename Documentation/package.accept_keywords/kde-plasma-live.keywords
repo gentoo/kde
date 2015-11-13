@@ -3,6 +3,7 @@
 # Edit Documentation/package.keywords/.kde-plasma-live.base/ files instead.
 ~kde-plasma/bluedevil-9999 **
 ~kde-plasma/breeze-9999 **
+~kde-plasma/breeze-gtk-9999 **
 ~kde-plasma/kde-cli-tools-9999 **
 ~kde-plasma/kde-gtk-config-9999 **
 ~kde-plasma/kdecoration-9999 **
@@ -13,6 +14,7 @@
 ~kde-plasma/kinfocenter-9999 **
 ~kde-plasma/kmenuedit-9999 **
 ~kde-plasma/kscreen-9999 **
+~kde-plasma/kscreenlocker-9999 **
 ~kde-plasma/ksshaskpass-9999 **
 ~kde-plasma/ksysguard-9999 **
 ~kde-plasma/kwallet-pam-9999 **
@@ -24,7 +26,6 @@
 ~kde-plasma/libksysguard-9999 **
 ~kde-plasma/milou-9999 **
 ~kde-plasma/oxygen-9999 **
-~kde-plasma/oxygen-fonts-9999 **
 ~kde-plasma/plasma-desktop-9999 **
 ~kde-plasma/plasma-mediacenter-9999 **
 ~kde-plasma/plasma-meta-9999 **
