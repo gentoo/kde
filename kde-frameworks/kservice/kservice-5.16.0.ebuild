@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Advanced plugin and service introspection"
 LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="man"
+IUSE="+man"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -27,3 +27,11 @@ DEPEND="${RDEPEND}
 
 # requires running kde environment
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}
