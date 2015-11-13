@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Helper library to speed up start of applications on KDE work spaces"
 LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64 ~x86"
-IUSE="+caps"
+IUSE="+caps +man"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -26,12 +26,14 @@ RDEPEND="
 	caps? ( sys-libs/libcap )
 "
 DEPEND="${RDEPEND}
+	man? ( $(add_frameworks_dep kdoctools) )
 	x11-proto/xproto
 "
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package caps Libcap)
+		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
 	kde5_src_configure
