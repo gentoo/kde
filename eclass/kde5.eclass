@@ -417,11 +417,6 @@ kde5_pkg_nofetch() {
 	eerror "This is not a bug. Please do not file bugs or contact upstream about this."
 	eerror ""
 	eerror "Please consult the upstream release schedule to see when this "
-	if [[ ${KDE_HANDBOOK} = forceoptional ]] ; then
-		if ! use_if_iuse handbook ; then
-			punt_bogus_dep KF5 DocTools
-		fi
-	fi
 	eerror "package is scheduled to be released:"
 	eerror "https://techbase.kde.org/Schedules"
 }
