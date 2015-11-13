@@ -4,16 +4,19 @@
 
 EAPI=5
 
-KMNAME="oxygen-icons5"
 KDE_AUTODEPS="false"
+KDE_DEBUG="false"
+KDE_DOXYGEN="false"
+KMNAME="oxygen-icons5"
 inherit kde5
 
 DESCRIPTION="Oxygen SVG icon theme"
-HOMEPAGE="https://kde.org/"
-
 LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="$(add_frameworks_dep extra-cmake-modules)"
-RDEPEND="!kde-apps/oxygen-icons:4"
+RDEPEND="
+	!kde-apps/oxygen-icons
+	!kde-frameworks/oxygen-icons:4
+"
