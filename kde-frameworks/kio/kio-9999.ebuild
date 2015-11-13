@@ -4,16 +4,14 @@
 
 EAPI=5
 
-VIRTUALX_REQUIRED="test"
-KDE_HANDBOOK="true"
-KDE_DOC_DIR="docs"
 KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="acl kerberos +kwallet X"
+IUSE="acl +handbook kerberos +kwallet X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -53,6 +51,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-qt/qtconcurrent:5
+	handbook? ( $(add_frameworks_dep kdoctools) )
 	test? ( sys-libs/zlib )
 	X? (
 		x11-libs/libX11
