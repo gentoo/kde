@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALX_REQUIRED="test"
 KDE_HANDBOOK="true"
 KDE_DOC_DIR="docs"
-KDE_PUNT_BOGUS_DEPS=true
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
