@@ -45,7 +45,8 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}"
 
 RDEPEND="${COMMON_DEPEND}
-	!kde-base/kcheckpass:4
+	!<kde-base/kcheckpass-4.11.22-r1:4
+	!kde-base/kdebase-pam:4
 	!<kde-plasma/plasma-workspace-5.4.50
 "
 
