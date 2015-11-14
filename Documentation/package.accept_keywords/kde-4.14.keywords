@@ -2,7 +2,7 @@
 # You can use this file to keyword/unkeyword the KDE SC 4.14 release.
 # Edit Documentation/package.keywords/.kde-4.14/ files instead.
 <kde-base/kdeplasma-addons-4.14.50
-<kde-base/kde-l10n-4.14.50
+<kde-apps/kde4-l10n-4.14.50
 <kde-apps/dolphin-4.14.50
 <kde-apps/kdepasswd-4.14.50
 <kde-apps/kdialog-4.14.50
@@ -206,7 +206,6 @@
 <kde-apps/svgpart-4.14.50
 <kde-apps/thumbnailers-4.14.50
 <kde-base/baloo-4.14.50
-# move kde-base/baloo-widgets kde-apps/baloo-widgets
 <kde-apps/baloo-widgets-4.14.50
 <kde-base/kactivities-4.13.50
 <kde-base/kactivitymanagerd-4.13.50
@@ -214,7 +213,7 @@
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50
 <kde-base/kdepimlibs-4.14.50
-<kde-apps/oxygen-icons-4.14.50
+<kde-frameworks/oxygen-icons-4.14.50
 <kde-base/katepart-4.14.50
 <kde-apps/dragon-4.14.50
 <kde-apps/ffmpegthumbs-4.14.50
