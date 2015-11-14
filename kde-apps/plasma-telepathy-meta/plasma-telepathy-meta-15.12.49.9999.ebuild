@@ -20,7 +20,6 @@ RDEPEND="
 	$(add_kdeapps_dep ktp-accounts-kcm)
 	$(add_kdeapps_dep ktp-approver)
 	$(add_kdeapps_dep ktp-auth-handler)
-	$(add_kdeapps_dep ktp-call-ui)
 	$(add_kdeapps_dep ktp-common-internals)
 	$(add_kdeapps_dep ktp-contact-list)
 	$(add_kdeapps_dep ktp-contact-runner)
