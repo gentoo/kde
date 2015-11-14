@@ -19,6 +19,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ki18n)
