@@ -5,6 +5,7 @@
 EAPI=5
 
 EGIT_BRANCH="frameworks"
+FRAMEWORKS_MINIMAL="5.16.0"
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 KMNAME="kde-baseapps"
@@ -13,7 +14,7 @@ inherit kde5
 
 DESCRIPTION="The embeddable part of konqueror"
 KEYWORDS=""
-IUSE="minimal"
+IUSE="+minimal"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -44,6 +45,8 @@ src_install() {
 	kde5_src_install
 
 	if use minimal; then
-		rm "${D}"/usr/share/kservicetypes5/konqpopupmenuplugin.desktop || die
+		if [[ -e "${ED}"usr/share/kservicetypes5/konqpopupmenuplugin.desktop ]] ; then
+			rm "${ED}"usr/share/kservicetypes5/konqpopupmenuplugin.desktop || die
+		fi
 	fi
 }
