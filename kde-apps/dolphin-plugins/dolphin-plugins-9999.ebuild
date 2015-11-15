@@ -49,8 +49,6 @@ RDEPEND="${COMMON_DEPEND}
 	subversion? ( dev-vcs/subversion )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.11.80-plugins-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_build bazaar)
