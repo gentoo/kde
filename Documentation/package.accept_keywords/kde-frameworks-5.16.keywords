@@ -74,13 +74,14 @@
 >=kde-frameworks/kf-env-3
 
 >=dev-qt/designer-5.5.1:5
->=dev-qt/qtconcurrent-5.5.1:5
 >=dev-qt/linguist-tools-5.5.1:5
+>=dev-qt/qtconcurrent-5.5.1:5
 >=dev-qt/qtcore-5.5.1:5
 >=dev-qt/qtdbus-5.5.1:5
 >=dev-qt/qtdeclarative-5.5.1:5
 >=dev-qt/qtgui-5.5.1:5
 >=dev-qt/qtnetwork-5.5.1:5
+>=dev-qt/qtpaths-5.5.1:5
 >=dev-qt/qtprintsupport-5.5.1:5
 >=dev-qt/qtquick1-5.5.1:5
 >=dev-qt/qtquickcontrols-5.5.1:5
