@@ -4,14 +4,26 @@
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="KDE digital camera manager"
+DESCRIPTION="Plasma integration for gphoto2 cameras"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	media-libs/libgphoto2:=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	sys-devel/gettext
+"
+RDEPEND="${COMMON_DEPEND}"
