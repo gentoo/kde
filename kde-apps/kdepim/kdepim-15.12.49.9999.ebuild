@@ -161,6 +161,7 @@ src_prepare() {
 		kdgantt2		\
 		libfollowupreminder	\
 		libgravatar		\
+		libkdepim		\
 		libkdepimdbusinterfaces	\
 		libkleo			\
 		libksieve		\
@@ -175,8 +176,6 @@ src_prepare() {
 		pimcommon		\
 		templateparser		\
 		|| die "Failed to remove split libraries"
-
-	#TODO: Remove libkdepim as well when org.kde.mailtransport.service.xml fixed
 
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
