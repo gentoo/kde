@@ -12,7 +12,5 @@ DESCRIPTION="Additional wallpapers for the Plasma workspace"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	$(add_frameworks_dep extra-cmake-modules)
-"
-RDEPEND=""
+DEPEND="$(add_frameworks_dep extra-cmake-modules)"
+RDEPEND="!<kde-apps/kde-wallpapers-15.08.3-r1[-minimal(-)]"
