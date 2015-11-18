@@ -220,7 +220,7 @@ _check_build_dir() {
 	# Backwards compatibility for getting the value.
 	CMAKE_BUILD_DIR=${BUILD_DIR}
 
-	mkdir -p "${BUILD_DIR}"
+	mkdir -p "${BUILD_DIR}" || die
 	echo ">>> Working in BUILD_DIR: \"$BUILD_DIR\""
 }
 
@@ -405,7 +405,7 @@ _cleanup_cmake() {
 	[[ "${CMAKE_REMOVE_MODULES}" == "yes" ]] && {
 		local name
 		for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
-			find "${S}" -name ${name}.cmake -exec rm -v {} +
+			find "${S}" -name ${name}.cmake -exec rm -v {} + || die
 		done
 	}
 
