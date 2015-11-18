@@ -426,13 +426,18 @@ enable_cmake-utils_src_prepare() {
 
 	pushd "${S}" > /dev/null || die
 
-	has "${EAPI:-0}" 6 && _cleanup_cmake
+	if has "${EAPI:-0}" 6 ; then
+		_cleanup_cmake
+		default_src_prepare
+	fi
 
-	debug-print "$FUNCNAME: PATCHES=$PATCHES"
-	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+	if has "${EAPI:-0}" 2 3 4 5 ; then
+		debug-print "$FUNCNAME: PATCHES=$PATCHES"
+		[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
 
-	debug-print "$FUNCNAME: applying user patches"
-	epatch_user
+		debug-print "$FUNCNAME: applying user patches"
+		epatch_user
+	fi
 
 	popd > /dev/null || die
 }
