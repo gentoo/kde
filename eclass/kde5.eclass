@@ -527,7 +527,11 @@ kde5_src_prepare() {
 		fi
 	fi
 
-	cmake-utils_src_prepare
+	if [[ ${EAPI} == 5 ]]; then
+		cmake-utils_src_prepare
+	else
+		default_src_prepare
+	fi
 }
 
 # @FUNCTION: kde5_src_configure
