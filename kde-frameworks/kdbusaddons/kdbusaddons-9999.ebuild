@@ -7,7 +7,7 @@ EAPI=5
 VIRTUALDBUS_TEST="true"
 inherit kde5
 
-DESCRIPTION="Framework for registering services and applications according to freedesktop standards"
+DESCRIPTION="Framework for registering services and applications per freedesktop standards"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls X"
