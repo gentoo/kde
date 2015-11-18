@@ -126,6 +126,7 @@ case ${WANT_CMAKE} in
 	always)
 		;;
 	*)
+		! has "${EAPI:-0}" 2 3 4 5 && die "WANT_CMAKE is banned in EAPI 6 and later"
 		IUSE+=" ${WANT_CMAKE}"
 		CMAKEDEPEND+="${WANT_CMAKE}? ( "
 		;;
