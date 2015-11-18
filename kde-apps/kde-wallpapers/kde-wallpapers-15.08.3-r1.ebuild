@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="KDE wallpapers"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+minimal"
 
 DEPEND="$(add_frameworks_dep extra-cmake-modules)"
 RDEPEND="!kde-apps/kde-wallpapers:4"
@@ -22,4 +22,12 @@ src_configure() {
 	local mycmakeargs=( -DWALLPAPER_INSTALL_DIR="${EPREFIX}/usr/share/wallpapers" )
 
 	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+
+	if use minimal ; then
+		rm -r "${ED}"usr/share/wallpapers/Autumn || die
+	fi
 }
