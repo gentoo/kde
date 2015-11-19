@@ -4,6 +4,5 @@
 	<herd>kde</herd>
 	<use>
 		<flag name="detailedmemory">Enable display of detailed memory information using <pkg>dev-qt/qtwebkit</pkg>.</flag>
-		<flag name="processui">Enables the Interface to view process libs.</flag>
 	</use>
 </pkgmetadata>
