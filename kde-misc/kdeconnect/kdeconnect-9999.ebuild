@@ -4,20 +4,19 @@
 
 EAPI=5
 
-MY_PN=${PN}-kde
-KMNAME=${MY_PN}
 KDE_HANDBOOK="true"
 KDE_TEST="true"
+KMNAME="${PN}-kde"
 inherit kde5
 
 DESCRIPTION="Adds communication between KDE and your smartphone"
-HOMEPAGE="https://kde.org/ https://community.kde.org/KDEConnect"
+HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
 
-KEYWORDS=""
 LICENSE="GPL-2+"
+KEYWORDS=""
 IUSE="app +telepathy wayland"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -28,6 +27,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
 	>=app-crypt/qca-2.1.0:2[qt5,openssl]
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
@@ -38,19 +38,15 @@ COMMON_DEPEND="
 	x11-libs/libfakekey
 	x11-libs/libX11
 	x11-libs/libXtst
-	telepathy? ( net-libs/telepathy-qt[qt5] )
+	app? ( $(add_frameworks_dep kdeclarative) )
+	telepathy? ( >=net-libs/telepathy-qt-0.9.7[qt5] )
 	wayland? ( $(add_plasma_dep kwayland) )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-misc/kdeconnect:4
+RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
 	wayland? ( $(add_plasma_dep kwin) )
+	!kde-misc/kdeconnect:4
 "
-
-[[ ${KDE_BUILD_TYPE} != live ]] && S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	sed \
@@ -73,6 +69,8 @@ src_configure() {
 }
 
 pkg_postinst(){
+	kde5_pkg_postinst
+
 	elog
 	elog "Optional dependency:"
 	elog "sys-fs/sshfs-fuse (for 'remote filesystem browser' plugin)"
