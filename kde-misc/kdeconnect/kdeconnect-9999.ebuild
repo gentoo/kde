@@ -51,7 +51,7 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	sed \
 		-e 's#${LIBEXEC_INSTALL_DIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
-		-i daemon/kdeconnectd.desktop.cmake
+		-i daemon/kdeconnectd.desktop.cmake || die
 
 	kde5_src_prepare
 }
