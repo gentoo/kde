@@ -137,18 +137,12 @@ src_prepare() {
 	if ! use drkonqi; then
 		comment_add_subdirectory drkonqi
 	fi
-
-	if ! use geolocation; then
-		punt_bogus_dep KF5 NetworkManagerQt
-		pushd dataengines > /dev/null || die
-			comment_add_subdirectory geolocation
-		popd > /dev/null || die
-	fi
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
+		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison)
 		$(cmake-utils_use_find_package qalculate Qalculate)
