@@ -48,10 +48,10 @@ src_configure() {
 
 src_install() {
 	kde4-base_src_install
-	rm -f "${ED}"/usr/share/apps/cmake/modules/CheckTimezone.cmake \
-		"${ED}"/usr/share/apps/cmake/modules/Find{Ldap,Libical,QtOAuth}.cmake \
-		"${ED}"/usr/share/doc/"${PF}"/{akonadi,kabc,kalarmcal,kresources,kxmlrpcclient}.README* \
-		"${ED}"/usr/share/doc/"${PF}"/{kabc,kmime,kresources,mailtransport}.TODO* \
-		"${ED}"/usr/share/doc/"${PF}"/kabc.HACKING* \
-		"${ED}"/usr/share/doc/"${PF}"/ktnef.AUTHORS || die
+	rm -f "${ED}"usr/share/apps/cmake/modules/CheckTimezone.cmake \
+		"${ED}"usr/share/apps/cmake/modules/Find{Ldap,Libical,QtOAuth}.cmake \
+		"${ED}"usr/share/doc/"${PF}"/{akonadi,kabc,kalarmcal,kresources,kxmlrpcclient}.README* \
+		"${ED}"usr/share/doc/"${PF}"/{kabc,kmime,kresources,mailtransport}.TODO* \
+		"${ED}"usr/share/doc/"${PF}"/kabc.HACKING* \
+		"${ED}"usr/share/doc/"${PF}"/ktnef.AUTHORS || die
 }

@@ -26,5 +26,5 @@ src_install() {
 	kde4-base_src_install
 
 	# bug 419513
-	pax-mark m "${ED}"/usr/bin/nspluginviewer
+	pax-mark m "${ED}"usr/bin/nspluginviewer
 }
