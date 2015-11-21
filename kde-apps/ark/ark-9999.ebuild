@@ -4,9 +4,8 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
-KDE_TEST="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
@@ -46,6 +45,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package bzip2 BZip2)
 		$(cmake-utils_use_find_package lzma LibLZMA)
+		$(cmake-utils_use_find_package test Qt5Test)
 		$(cmake-utils_use_find_package zlib ZLIB)
 	)
 
