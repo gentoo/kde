@@ -106,6 +106,7 @@ kde-runtime/drkonqi.po
 kde-runtime/filetypes.po
 kde-runtime/htmlsearch.po
 kde-runtime/kcmcomponentchooser.po
+kde-runtime/kcm_device_automounter.po
 kde-runtime/kcm_emoticons.po
 kde-runtime/kcmhtmlsearch.po
 kde-runtime/kcmicons.po
