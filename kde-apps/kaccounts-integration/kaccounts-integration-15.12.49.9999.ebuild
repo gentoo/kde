@@ -4,9 +4,8 @@
 
 EAPI=5
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 VIRTUALDBUS_TEST="true"
-KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Administer web accounts for the sites and services across the Plasma desktop"

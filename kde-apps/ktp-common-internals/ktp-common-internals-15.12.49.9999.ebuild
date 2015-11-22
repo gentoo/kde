@@ -5,8 +5,7 @@
 EAPI=5
 
 KDE_DOXYGEN="true"
-KDE_TEST="false"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy common library"

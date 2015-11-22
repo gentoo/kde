@@ -4,8 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Non-linear video editing suite by KDE"
