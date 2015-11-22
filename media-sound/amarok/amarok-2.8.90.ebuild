@@ -16,11 +16,7 @@ inherit flag-o-matic kde4-base pax-utils
 DESCRIPTION="Advanced audio player based on KDE framework"
 HOMEPAGE="http://amarok.kde.org/"
 if [[ ${PV} != *9999* ]]; then
-	if [[ $PV == *[6-9][0-9]* ]]; then
-		SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
-	else
-		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	fi
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc ~x86"
 else
 	KEYWORDS=""
