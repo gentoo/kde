@@ -9,7 +9,10 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE image viewer"
-HOMEPAGE="https://www.kde.org/applications/graphics/gwenview/"
+HOMEPAGE="
+	https://www.kde.org/applications/graphics/gwenview/
+	https://userbase.kde.org/Gwenview
+"
 KEYWORDS=""
 IUSE="kipi raw semantic-desktop X"
 
@@ -32,6 +35,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
@@ -46,7 +50,10 @@ COMMON_DEPEND="
 	virtual/jpeg:0
 	kipi? ( $(add_kdeapps_dep libkipi) )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
-	semantic-desktop? ( $(add_frameworks_dep baloo) )
+	semantic-desktop? (
+		$(add_frameworks_dep baloo)
+		$(add_frameworks_dep kfilemetadata)
+	)
 	X? (
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
