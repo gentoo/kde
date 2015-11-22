@@ -4,7 +4,8 @@
 
 EAPI=5
 
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE library for mathematical features"
@@ -26,7 +27,16 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	sed -e "/add_subdirectory(examples)/d" -i analitzaplot/CMakeLists.txt || die
+	# Nothing is installed
+	sed -i \
+		-e "/add_subdirectory(examples)/ s/^/#DONT/" \
+		analitzaplot/CMakeLists.txt || die
+
+	if ! use test ; then
+		sed -i \
+			-e "/add_subdirectory(tests)/ s/^/#DONT/" \
+			analitza{,gui,plot}/CMakeLists.txt || die
+	fi
 
 	kde5_src_prepare
 }
