@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
