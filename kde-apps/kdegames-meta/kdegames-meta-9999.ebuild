@@ -45,12 +45,14 @@ RDEPEND="
 	$(add_kdeapps_dep kspaceduel)
 	$(add_kdeapps_dep ksquares)
 	$(add_kdeapps_dep ktuberling)
-	$(add_kdeapps_dep kubrick)
 	$(add_kdeapps_dep libkdegames)
 	$(add_kdeapps_dep libkmahjongg)
 	$(add_kdeapps_dep lskat)
 	$(add_kdeapps_dep palapeli)
 	$(add_kdeapps_dep picmi)
-	opengl? ( $(add_kdeapps_dep ksudoku) )
+	opengl? (
+		$(add_kdeapps_dep ksudoku)
+		$(add_kdeapps_dep kubrick)
+	)
 	python? ( $(add_kdeapps_dep kajongg) )
 "
