@@ -15,8 +15,3 @@ IUSE=""
 
 DEPEND=""
 RDEPEND=""
-
-src_prepare() {
-	sed -e "/find_package(Qt5 .*Test/ s/Test/Core/" -i CMakeLists.txt
-	kde5_src_prepare
-}
