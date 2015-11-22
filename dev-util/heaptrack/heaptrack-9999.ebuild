@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_AUTODEPS="false"
+KDE_TEST="forceoptional"
 QT_MINIMAL="5.5.1"
 inherit kde5
 
@@ -14,7 +15,7 @@ HOMEPAGE="http://milianw.de/blog/heaptrack-a-heap-memory-profiler-for-linux"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="+qt5 test"
+IUSE="+qt5"
 
 COMMON_DEPEND="
 	dev-libs/boost
@@ -40,13 +41,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	qt5? ( >=kde-frameworks/kf-env-3 )
 "
-
-src_prepare() {
-	use test || \
-		 sed -i -e "/add_subdirectory(tests)/ s/^/#/" CMakeLists.txt || die
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
