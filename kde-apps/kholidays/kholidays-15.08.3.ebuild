@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_DOXYGEN="true"
 KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Library to determine holidays and other special events for a geographical region"
