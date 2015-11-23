@@ -1,0 +1,78 @@
+From: Weng Xuetian <wengxt@gmail.com>
+Date: Mon, 14 Sep 2015 18:42:31 +0000
+Subject: daemonize the forked kwalletd{,5} process.
+X-Git-Url: http://quickgit.kde.org/?p=kwallet-pam.git&a=commitdiff&h=115ad562baf0cb0534876cbcb705fd9190e290b4
+---
+daemonize the forked kwalletd{,5} process.
+
+Use the old school fork twice to make kwalletd{,5} a session leader to
+avoid zombie process or being a child of display manager. Becuase kwalletd
+will fork itself, while kwalletd5 doesn't fork itself, uses --nofork to
+start kwalletd and handle all 2 forks in pam module.
+
+REVIEW: 125190
+---
+
+
+--- a/pam_kwallet.c
++++ b/pam_kwallet.c
+@@ -30,6 +30,7 @@
+ #include <pwd.h>
+ #include <sys/stat.h>
+ #include <sys/syslog.h>
++#include <sys/wait.h>
+ #include <security/pam_modules.h>
+ #include <security/pam_ext.h>
+ #include <security/_pam_types.h>
+@@ -330,13 +331,29 @@
+         goto cleanup;
+     }
+ 
++    // Fork twice to daemonize kwallet
++    setsid();
++    pid_t pid = fork();
++    if (pid != 0) {
++        if (pid == -1) {
++            exit(EXIT_FAILURE);
++        } else {
++            exit(0);
++        }
++    }
++
+     //TODO use a pam argument for full path kwalletd
+     char pipeInt[4];
+     sprintf(pipeInt, "%d", toWalletPipe[0]);
+     char sockIn[4];
+     sprintf(sockIn, "%d", envSocket);
+ 
+-    char *args[] = {strdup(kwalletd), "--pam-login", pipeInt, sockIn, NULL};
++#ifdef KWALLET5
++    char* extraArg = NULL;
++#else
++    char* extraArg = "--nofork";
++#endif
++    char *args[] = {strdup(kwalletd), "--pam-login", pipeInt, sockIn, extraArg, NULL};
+     execve(args[0], args, pam_getenvlist(pamh));
+     syslog(LOG_ERR, "%s: could not execute kwalletd from %s", logPrefix, kwalletd);
+ 
+@@ -422,6 +439,7 @@
+     }
+ 
+     pid_t pid;
++    int status;
+     switch (pid = fork ()) {
+     case -1:
+         pam_syslog(pamh, LOG_ERR, "%s: Couldn't fork to execv kwalletd", logPrefix);
+@@ -435,6 +453,11 @@
+ 
+     //Parent
+     default:
++        waitpid(pid, &status, 0);
++        if (status != 0) {
++            pam_syslog(pamh, LOG_ERR, "%s: Couldn't fork to execv kwalletd", logPrefix);
++            return;
++        }
+         break;
+     };
+ 
+
