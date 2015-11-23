@@ -20,3 +20,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/boost
 "
+
+src_test() {
+	# kmime-dateformattertest fails because of PM
+	LC_TIME=en_US kde5_src_test
+}
