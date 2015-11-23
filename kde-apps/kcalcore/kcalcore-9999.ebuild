@@ -24,3 +24,5 @@ DEPEND="
 	sys-apps/util-linux
 "
 RDEPEND="${DEPEND}"
+
+RESTRICT="test" # multiple tests fail or hang indefinitely
