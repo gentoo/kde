@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Kompare is a program to view the differences between files"
