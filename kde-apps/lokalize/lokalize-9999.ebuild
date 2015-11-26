@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK=true
 PYTHON_COMPAT=( python2_7 )
+QT_MINIMAL="5.5"
 inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Applications 5 translation tool"
