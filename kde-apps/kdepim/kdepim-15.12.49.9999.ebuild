@@ -92,7 +92,6 @@ DEPEND="
 	$(add_kdeapps_dep messagecore)
 	$(add_kdeapps_dep messagelist)
 	$(add_kdeapps_dep messageviewer)
-	$(add_kdeapps_dep noteshared)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	$(add_kdeapps_dep templateparser)
@@ -118,6 +117,9 @@ DEPEND="
 	kdepim_features_kleopatra? (
 		dev-libs/libassuan
 		dev-libs/libgpg-error
+	)
+	kdepim_features_knotes? (
+		$(add_kdeapps_dep noteshared)
 	)
 "
 RDEPEND="${DEPEND}
@@ -179,6 +181,15 @@ src_prepare() {
 
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
+
+	if ! use kdepim_features_knotes ; then
+		sed -i \
+			-e '/find_package(KF5NoteShared/ s/^/#DONT/' \
+			CMakeLists.txt || die
+		sed -i \
+			-e '/add_subdirectory(notesagent)/ s/^/#DONT/' \
+			agents/CMakeLists.txt || die
+	fi
 
 	# applications
 	for pim_ft in ${PIM_FTS}; do
