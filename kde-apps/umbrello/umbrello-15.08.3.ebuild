@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="true"
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE UML Modeller"
@@ -48,6 +48,7 @@ DEPEND="${RDEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KF5=ON
+		-DBUILD_unittests=$(usex test)
 	)
 
 	kde5_src_configure
