@@ -18,20 +18,29 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kross)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
 	>=app-text/hunspell-1.2.8
 	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5[sqlite]
 	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}
 	dev-python/translate-toolkit[${PYTHON_USEDEP}]
