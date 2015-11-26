@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde5
 
@@ -19,7 +19,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep knotifications)
