@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="forceoptional"
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="A gtali clone"
