@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK=true
 KDE_TEST=true
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Personal Information Management Suite"
@@ -15,7 +16,7 @@ KEYWORDS=""
 PIM_FTS="akonadiconsole akregator blogilo console kaddressbook kalarm kleopatra kmail knotes kontact korganizer ktnef"
 IUSE="designer google prison $(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcmutils)
@@ -119,7 +120,15 @@ DEPEND="
 		dev-libs/libgpg-error
 	)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	sys-devel/gettext
+	test? (
+		$(add_kdeapps_dep akonadi sqlite)
+		$(add_kdeapps_dep libakonadi tools)
+		dev-qt/qtsql:5[sqlite]
+	)
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/noteshared
 	!kde-base/akonadiconsole:4
 	!kde-base/akregator:4
