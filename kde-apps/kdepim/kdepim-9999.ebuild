@@ -92,7 +92,6 @@ DEPEND="
 	$(add_kdeapps_dep messagecore)
 	$(add_kdeapps_dep messagelist)
 	$(add_kdeapps_dep messageviewer)
-	$(add_kdeapps_dep noteshared)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	$(add_kdeapps_dep templateparser)
@@ -121,6 +120,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	!kde-apps/noteshared
 	!kde-base/akonadiconsole:4
 	!kde-base/akregator:4
 	!kde-base/blogilo:4
@@ -172,7 +172,6 @@ src_prepare() {
 		messagecore		\
 		messagelist		\
 		messageviewer		\
-		noteshared		\
 		pimcommon		\
 		templateparser		\
 		|| die "Failed to remove split libraries"

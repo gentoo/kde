@@ -61,7 +61,6 @@ RDEPEND="
 	$(add_kdeapps_dep messagecore)
 	$(add_kdeapps_dep messagelist)
 	$(add_kdeapps_dep messageviewer)
-	$(add_kdeapps_dep noteshared)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	$(add_kdeapps_dep templateparser)
