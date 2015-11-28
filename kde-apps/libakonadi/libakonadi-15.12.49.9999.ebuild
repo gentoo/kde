@@ -7,6 +7,7 @@ EAPI=5
 KDE_DOXYGEN=true
 KDE_TEST=true
 KMNAME=kdepimlibs
+VIRTUALX_REQUIRED=test
 inherit kde5
 
 DESCRIPTION="Common akonadi libraries for PIM apps"
@@ -57,8 +58,11 @@ REQUIRED_USE="test? ( tools )"
 S="${WORKDIR}/${P}/akonadi"
 
 src_prepare() {
-	use tools || sed -e "/add_subdirectory(xml)/ s/^/#/" \
-		-i src/CMakeLists.txt
+	epatch "${FILESDIR}/${PN}-15.11.80-testtools-optional.patch"
+	if ! use tools ; then
+		sed -e "/add_subdirectory(xml)/ s/^/#DONT/" \
+			-i src/CMakeLists.txt || die
+	fi
 
 	kde5_src_prepare
 }
@@ -66,6 +70,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package designer Qt5Designer)
+		$(cmake-utils_use_build tools)
 		$(cmake-utils_use_build test TESTING)
 	)
 	kde5_src_configure
