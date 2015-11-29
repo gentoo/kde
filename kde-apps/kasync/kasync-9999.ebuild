@@ -4,7 +4,8 @@
 
 EAPI=5
 
-KDE_TEST=true
+KDE_DOXYGEN="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="C++ library for controlling asynchronous tasks"
