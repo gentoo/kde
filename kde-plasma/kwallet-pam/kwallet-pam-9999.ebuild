@@ -16,7 +16,9 @@ DEPEND="
 	dev-libs/libgcrypt:0=
 	virtual/pam
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	net-misc/socat
+"
 
 src_configure() {
 	local mycmakeargs=(
