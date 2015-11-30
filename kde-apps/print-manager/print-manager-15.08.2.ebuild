@@ -11,6 +11,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="gtk"
 
 DEPEND="
+	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
