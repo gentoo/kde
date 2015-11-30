@@ -46,6 +46,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
+	!<kde-apps/kdepim-15.12.50
 	!kde-apps/kdepimlibs
 	!kde-base/kdepimlibs:4
 "
