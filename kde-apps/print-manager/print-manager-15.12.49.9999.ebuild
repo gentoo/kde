@@ -31,6 +31,7 @@ DEPEND="
 	net-print/cups
 "
 RDEPEND="${DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	gtk? ( app-admin/system-config-printer )
 "
 
