@@ -5,7 +5,7 @@
 EAPI=5
 
 KDE_BLOCK_SLOT4="false"
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Wallet management tool"
