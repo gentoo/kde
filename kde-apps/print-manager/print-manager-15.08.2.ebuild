@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Manage print jobs and printers in Plasma"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk"
+IUSE="+gtk"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
