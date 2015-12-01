@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Simple ball dodging game"
@@ -15,6 +15,7 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE=""
 
+# FIXME: bogus upstream deps
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
