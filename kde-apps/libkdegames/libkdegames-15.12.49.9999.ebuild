@@ -5,7 +5,8 @@
 EAPI=5
 
 KDE_BLOCK_SLOT4="false"
-KDE_TEST="true"
+KDE_DOXYGEN="true"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -42,6 +43,7 @@ DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtsvg:5
+	dev-qt/qtxml:5
 	media-libs/libsndfile
 	media-libs/openal
 "
