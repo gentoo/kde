@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_BLOCK_SLOT4="false"
+KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
 DESCRIPTION="LibKMahjongg for KDE"
@@ -24,10 +25,3 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# fix copy-paste (?) error, there are no tests
-	sed -i "/find_package(Qt5/ s/ Test//" CMakeLists.txt || die
-
-	kde5_src_prepare
-}
