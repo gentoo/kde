@@ -7,6 +7,7 @@ EAPI=5
 EGIT_BRANCH="frameworks"
 KDE_DOXYGEN="true"
 KDE_HANDBOOK="true"
+KDE_PUNT_BOGUS_DEPS="true"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit kde5
