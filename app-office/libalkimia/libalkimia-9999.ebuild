@@ -4,7 +4,6 @@
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 KDE_DOX_DIR="libalkimia"
 KDE_DOXYGEN="true"
 KMNAME="alkimia"
