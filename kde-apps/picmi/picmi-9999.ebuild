@@ -4,8 +4,9 @@
 
 EAPI=5
 
-KDE_TEST=true
-VIRTUALX_REQUIRED=test
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Nonogram logic game for KDE"
