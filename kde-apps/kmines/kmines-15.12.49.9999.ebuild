@@ -5,6 +5,7 @@
 EAPI=5
 
 KDE_HANDBOOK="forceoptional"
+KDE_PUNT_BOGUS_DEPS="true"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
@@ -36,13 +37,6 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# fix copy-paste (?) error, there are no tests
-	sed -i "/find_package(Qt5/ s/ Test//" CMakeLists.txt || die
-
-	kde5_src_prepare
-}
 
 src_configure(){
 	local mycmakeargs=(
