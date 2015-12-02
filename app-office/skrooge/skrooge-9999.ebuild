@@ -75,15 +75,11 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/skrooge:4
 "
 
-# upstream does not ship tests in releases
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	RESTRICT="test"
-fi
-
 DOCS=( AUTHORS CHANGELOG README TODO )
 
 src_configure() {
 	local mycmakeargs=(
+		-DSKG_BUILD_TEST=$(usex test)
 		-DSKG_CIPHER=$(usex crypt)
 		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package ofx LibOfx)
