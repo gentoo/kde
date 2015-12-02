@@ -72,6 +72,9 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/skrooge:4
 "
 
+# hangs + installs files
+RESTRICT="test"
+
 DOCS=( AUTHORS CHANGELOG README TODO )
 
 src_configure() {
