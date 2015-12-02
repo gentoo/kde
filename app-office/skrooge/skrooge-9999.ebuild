@@ -63,11 +63,8 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwindowsystem)
-	dev-libs/boost
 	dev-libs/libxslt
-	dev-libs/qjson
 	dev-qt/designer:5
-	dev-qt/qtnetwork:5
 	virtual/pkgconfig
 	x11-misc/shared-mime-info
 "
