@@ -26,3 +26,5 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-15.11.80-kcrash-initialise.patch" )
