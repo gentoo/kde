@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5 pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="pam"
 
 COMMON_DEPEND="
