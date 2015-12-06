@@ -8,22 +8,25 @@ KDE_TEST="true"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Libary and plugins for viewing various message types and styles"
+DESCRIPTION="Libraries for messaging functions"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
@@ -32,6 +35,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
@@ -41,6 +45,8 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-lib)
+	$(add_kdeapps_dep kidentitymanagement)
+	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
@@ -49,7 +55,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
-	$(add_kdeapps_dep messagecore)
 	$(add_kdeapps_dep pimcommon)
 	dev-libs/grantlee:5
 	dev-qt/designer:5
@@ -64,7 +69,28 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
+	!kde-apps/messagecomposer:5
+	!kde-apps/messagecore:5
+	!kde-apps/messagelist:5
+	!kde-apps/messageviewer:5
+	!kde-apps/templateparser:5
 	!kde-base/kdepim-common-libs:4
+	!kde-base/kmail:4
 "
 
 S="${WORKDIR}/${P}/${PN}"
+
+src_prepare() {
+	kde5_src_prepare
+
+	if ! use test ; then
+		sed -i \
+			-e '/add_subdirectory(autotests)/ s/^/#DONT/' \
+			-e '/add_subdirectory(tests)/ s/^/#DONT/' \
+			messagecomposer/CMakeLists.txt \
+			messagecore/CMakeLists.txt \
+			messagelist/CMakeLists.txt \
+			messageviewer/CMakeLists.txt \
+			templateparser/CMakeLists.txt || die
+	fi
+}
