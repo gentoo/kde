@@ -8,27 +8,41 @@ KDE_TEST="false"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Grantlee templating for kaddressbook"
+DESCRIPTION="Libraries for KDE PIM applications"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="prison"
 
 COMMON_DEPEND="
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkleo)
+	$(add_kdeapps_dep pimcommon)
 	dev-libs/grantlee:5
 	dev-qt/designer:5
+	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	prison? ( media-libs/prison:5 )
 "
@@ -37,7 +51,13 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
+	!kde-apps/composereditor:5
+	!kde-apps/kaddressbookgrantlee:5
+	!kde-apps/libfollowupreminder:5
+	!kde-apps/libkdepimdbusinterfaces:5
+	!kde-apps/libsendlater:5
 	!kde-base/kdepim-common-libs:4
+	!kde-base/kmail:4
 "
 
 S="${WORKDIR}/${P}/${PN}"

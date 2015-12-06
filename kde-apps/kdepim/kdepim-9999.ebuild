@@ -57,16 +57,15 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep akonadi-socialutils)
 	$(add_kdeapps_dep calendarsupport)
-	$(add_kdeapps_dep composereditor)
 	$(add_kdeapps_dep eventviews)
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
-	$(add_kdeapps_dep kaddressbookgrantlee)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kdepim-apps-lib)
 	$(add_kdeapps_dep kdepim-kioslaves)
 	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kholidays)
@@ -80,13 +79,10 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep ktnef)
 	$(add_kdeapps_dep libakonadi)
-	$(add_kdeapps_dep libfollowupreminder)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkdepimdbusinterfaces)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
-	$(add_kdeapps_dep libsendlater)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
 	$(add_kdeapps_dep messagecomposer)
@@ -162,19 +158,15 @@ src_prepare() {
 	kde5_src_prepare
 
 	rm -r calendarsupport		\
-		composereditor-ng	\
 		eventviews		\
 		grantleetheme		\
 		incidenceeditor-ng	\
-		kaddressbookgrantlee	\
+		kdepim-apps-lib		\
 		kdgantt2		\
-		libfollowupreminder	\
 		libgravatar		\
 		libkdepim		\
-		libkdepimdbusinterfaces	\
 		libkleo			\
 		libksieve		\
-		libsendlater		\
 		mailcommon		\
 		mailimporter		\
 		messagecomposer		\
