@@ -31,11 +31,8 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep mailimporter)
-	$(add_kdeapps_dep messagecomposer)
-	$(add_kdeapps_dep messagecore)
-	$(add_kdeapps_dep messageviewer)
+	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
-	$(add_kdeapps_dep templateparser)
 	dev-libs/libxslt
 	dev-qt/designer:5
 	dev-qt/qtgui:5

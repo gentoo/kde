@@ -85,13 +85,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libksieve)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
-	$(add_kdeapps_dep messagecomposer)
-	$(add_kdeapps_dep messagecore)
-	$(add_kdeapps_dep messagelist)
-	$(add_kdeapps_dep messageviewer)
+	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
-	$(add_kdeapps_dep templateparser)
 	>=app-crypt/gpgme-1.3.2
 	dev-libs/boost:=
 	dev-libs/grantlee:5
@@ -169,12 +165,8 @@ src_prepare() {
 		libksieve		\
 		mailcommon		\
 		mailimporter		\
-		messagecomposer		\
-		messagecore		\
-		messagelist		\
-		messageviewer		\
+		messagelib		\
 		pimcommon		\
-		templateparser		\
 		|| die "Failed to remove split libraries"
 
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
