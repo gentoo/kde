@@ -31,12 +31,12 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
+	$(add_kdeapps_dep kdepim-apps-lib)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkdepimdbusinterfaces)
 	$(add_kdeapps_dep pimcommon)
 	dev-libs/libical
 	dev-qt/designer:5
