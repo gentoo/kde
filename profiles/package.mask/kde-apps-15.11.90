@@ -65,6 +65,8 @@
 ~kde-apps/kdeaccessibility-meta-15.11.90
 ~kde-apps/kdeadmin-meta-15.11.90
 ~kde-apps/kde-apps-meta-15.11.90
+~kde-apps/kde4-l10n-15.11.90
+~kde-apps/kde-l10n-15.11.90
 ~kde-apps/kdebase-data-15.11.90
 ~kde-apps/kdebase-desktoptheme-15.11.90
 ~kde-apps/kdebase-kioslaves-15.11.90
