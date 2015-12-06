@@ -47,3 +47,6 @@ docs/kde-workspace/kcontrol kcmaccess
 docs/kde-workspace/kcontrol kcmstyle
 docs/kde-workspace/kcontrol solid-actions
 docs/kde-workspace/kcontrol splashscreen
+# kdepim-l10n 5
+docs kdepim
+docs kdepimlibs
