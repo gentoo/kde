@@ -18,5 +18,6 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kwayland)
 	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
