@@ -49,5 +49,3 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
