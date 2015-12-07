@@ -47,6 +47,7 @@ RDEPEND="
 		x11-libs/libX11
 		x11-libs/libxcb
 	)
+	!<kde-apps/kapptemplate-15.12.0
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
