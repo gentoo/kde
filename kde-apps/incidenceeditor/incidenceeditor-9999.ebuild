@@ -4,7 +4,6 @@
 
 EAPI=5
 
-MY_PN="${PN}-ng"
 KDE_TEST="true"
 KMNAME="kdepim"
 inherit kde5
@@ -60,4 +59,4 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepim-common-libs:4
 "
 
-S="${WORKDIR}/${P}/${MY_PN}"
+S="${WORKDIR}/${P}/${PN}"
