@@ -156,7 +156,7 @@ src_prepare() {
 	rm -r calendarsupport		\
 		eventviews		\
 		grantleetheme		\
-		incidenceeditor-ng	\
+		incidenceeditor		\
 		kdepim-apps-lib		\
 		kdgantt2		\
 		libgravatar		\
