@@ -31,6 +31,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_plasma_dep kwayland)
 	$(add_plasma_dep libkscreen)
 	$(add_plasma_dep plasma-workspace)
 	dev-qt/qtdbus:5
