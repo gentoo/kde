@@ -55,7 +55,11 @@ RDEPEND="${COMMON_DEPEND}
 
 REQUIRED_USE="test? ( tools )"
 
-S="${WORKDIR}/${P}/akonadi"
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/akonadi"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/akonadi"
+fi
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-15.11.80-testtools-optional.patch"

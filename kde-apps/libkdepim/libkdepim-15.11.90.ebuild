@@ -40,4 +40,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/libkdepim:4
 "
 
-S="${WORKDIR}/${P}/${PN}"
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
+fi

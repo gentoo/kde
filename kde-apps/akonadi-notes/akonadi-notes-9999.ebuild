@@ -31,7 +31,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepimlibs:4
 "
 
-S="${WORKDIR}/${P}/${PN}"
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${PN}"
+fi
 
 src_configure() {
 	local mycmakeargs=(
