@@ -27,6 +27,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knewstuff)
@@ -46,14 +47,17 @@ COMMON_DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[gles2=,opengl(+)]
 	dev-qt/qtscript:5
-	dev-qt/qtwayland:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
+	media-libs/fontconfig
+	media-libs/freetype
 	media-libs/libepoxy
+	media-libs/mesa[egl,gbm,gles2?,wayland]
 	virtual/libudev:=
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
+	x11-libs/libdrm
 	>=x11-libs/libxcb-1.10
 	>=x11-libs/libxkbcommon-0.4.1
 	x11-libs/xcb-util-cursor
@@ -74,7 +78,6 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
-	media-libs/mesa[egl,gles2?,wayland]
 	x11-proto/xproto
 	test? (	x11-libs/xcb-util-wm )
 "
