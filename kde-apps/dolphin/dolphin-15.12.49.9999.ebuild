@@ -4,6 +4,7 @@
 
 EAPI=5
 
+FRAMEWORKS_MINIMAL="5.16.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
