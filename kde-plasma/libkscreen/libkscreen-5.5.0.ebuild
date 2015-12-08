@@ -4,8 +4,7 @@
 
 EAPI=5
 
-KDE_PUNT_BOGUS_DEPS="true"
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
