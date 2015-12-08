@@ -78,6 +78,8 @@ COMMON_DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXfixes
 	x11-libs/libXrender
+	x11-libs/xcb-util
+	x11-libs/xcb-util-image
 	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
