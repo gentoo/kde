@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_TEST="false"
-KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="Library for encryption handling"
@@ -38,5 +37,3 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepim-common-libs:4
 	!kde-base/libkleo:4
 "
-
-S="${WORKDIR}/${P}/${PN}"
