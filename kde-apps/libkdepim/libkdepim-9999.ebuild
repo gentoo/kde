@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_TEST="true"
-KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
@@ -39,5 +38,3 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepim-common-libs:4
 	!kde-base/libkdepim:4
 "
-
-S="${WORKDIR}/${P}/${PN}"

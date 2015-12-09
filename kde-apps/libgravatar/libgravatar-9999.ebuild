@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_TEST="true"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -31,5 +30,3 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
 	!kde-base/kdepim-common-libs:4
 "
-
-S="${WORKDIR}/${P}/${PN}"
