@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep incidenceeditor)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepim-apps-lib)
+	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)

@@ -32,7 +32,7 @@ RDEPEND="
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim)
-	$(add_kdeapps_dep kdepim-apps-lib)
+	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kdepim-kioslaves)
 	$(add_kdeapps_dep kdepim-runtime)
 	$(add_kdeapps_dep kdgantt2)

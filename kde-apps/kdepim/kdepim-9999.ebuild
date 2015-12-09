@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepim-apps-lib)
+	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kdepim-kioslaves)
 	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kholidays)

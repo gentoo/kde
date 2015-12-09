@@ -1,2 +1,3 @@
 move kde-apps/kapture kde-apps/spectacle
 move kde-apps/oxygen-icons kde-frameworks/oxygen-icons
+move kde-apps/kdepim-apps-lib kde-apps/kdepim-apps-libs

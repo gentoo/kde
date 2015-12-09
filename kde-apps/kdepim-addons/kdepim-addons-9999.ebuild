@@ -34,7 +34,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepim-apps-lib)
+	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
