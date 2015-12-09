@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_TEST="true"
-KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="Libraries for messaging functions"
@@ -77,8 +76,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepim-common-libs:4
 	!kde-base/kmail:4
 "
-
-S="${WORKDIR}/${P}/${PN}"
 
 src_prepare() {
 	kde5_src_prepare
