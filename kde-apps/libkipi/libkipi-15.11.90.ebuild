@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_BLOCK_SLOT4="false"
-KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="A library for image plugins accross KDE applications"
