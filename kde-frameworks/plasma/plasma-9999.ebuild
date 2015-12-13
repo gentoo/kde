@@ -53,7 +53,7 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kapptemplate-15.18.3-r1:5
+	!<kde-apps/kapptemplate-15.08.3-r1:5
 	!<kde-plasma/kdeplasma-addons-5.4.3-r1
 "
 
