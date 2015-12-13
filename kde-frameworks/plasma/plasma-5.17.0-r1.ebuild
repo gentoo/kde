@@ -13,7 +13,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=" ~amd64 ~x86"
 IUSE="egl gles2 X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
@@ -46,12 +46,17 @@ RDEPEND="
 		x11-libs/libX11
 		x11-libs/libxcb
 	)
-	!<kde-apps/kapptemplate-15.12.0
+	!<kde-apps/kapptemplate-15.18.3-r1:5
+	!<kde-plasma/kdeplasma-addons-5.4.3-r1
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-qt/qtquick1:5
 	X? ( x11-proto/xproto )
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-apps/kapptemplate-15.18.3-r1:5
+	!<kde-plasma/kdeplasma-addons-5.4.3-r1
 "
 
 RESTRICT="test"
