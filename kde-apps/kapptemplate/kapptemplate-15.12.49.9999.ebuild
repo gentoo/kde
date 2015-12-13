@@ -4,6 +4,7 @@
 
 EAPI=5
 
+FRAMEWORKS_MINIMAL="5.17.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 inherit kde5
@@ -27,3 +28,8 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
+
+src_install() {
+	kde5_src_install
+	rm "${ED}"usr/share/kdevappwizard/templates/qml-plasmoid.tar.bz2 || die
+}
