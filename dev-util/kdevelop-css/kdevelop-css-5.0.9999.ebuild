@@ -4,22 +4,17 @@
 
 EAPI=5
 
+EGIT_BRANCH="5.0"
 KDEBASE="kdevelop"
-KDE_DOXYGEN="true"
-KMNAME="kdev-php"
-VIRTUALX_REQUIRED="test"
+KMNAME="kdev-css"
 inherit kde5
 
-DESCRIPTION="PHP plugin for KDevelop 5"
-LICENSE="GPL-2 LGPL-2"
+DESCRIPTION="CSS Language Support plugin for KDevelop 5"
+LICENSE="GPL-2"
+KEYWORDS=""
 IUSE=""
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	KEYWORDS="~amd64 ~x86"
-fi
-
-DEPEND="
-	$(add_frameworks_dep kapidox)
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -28,21 +23,17 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep threadweaver)
 	dev-qt/qtgui:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-util/kdevelop-pg-qt:5
-	>=dev-util/kdevplatform-${PV}:${SLOT}
+	dev-util/kdevplatform:5
 "
-RDEPEND="${DEPEND}
-	!dev-util/kdevelop-php-docs
-	dev-util/kdevelop:${SLOT}
+DEPEND="${COMMON_DEPEND}
+	sys-devel/flex
 "
-
-src_prepare() {
-	use doc || comment_add_subdirectory docs
-	kde5_src_prepare
-}
+RDEPEND="${COMMON_DEPEND}
+	dev-util/kdevelop:5
+"
