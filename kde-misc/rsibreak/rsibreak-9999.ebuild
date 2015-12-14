@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 fi
 
-LICENSE="GPL-2+ FDL-1.2"
+LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE=""
 
