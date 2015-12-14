@@ -4,6 +4,7 @@
 
 EAPI=5
 
+KDE_HANDBOOK="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -31,13 +32,13 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep threadweaver)
-	dev-util/kdevplatform:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
+	>=dev-util/kdevplatform-${PV}:5
 	cxx? ( clang? ( >=sys-devel/clang-3.5.0 ) )
 	plasma? (
 		$(add_frameworks_dep krunner)
@@ -54,6 +55,7 @@ RDEPEND="${DEPEND}
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
+	!<kde-apps/kapptemplate-15.12.50
 	cxx? ( clang? ( !dev-util/kdevelop-clang ) )
 "
 
