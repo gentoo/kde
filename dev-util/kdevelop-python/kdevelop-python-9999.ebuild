@@ -12,15 +12,13 @@ inherit kde5 python-any-r1
 DESCRIPTION="Python plugin for KDevelop 5"
 IUSE=""
 
-COMMON_DEPEND=""
 DEPEND="
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ktexteditor)
@@ -32,8 +30,7 @@ DEPEND="
 	dev-util/kdevplatform:5
 	${PYTHON_DEPS}
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
 	dev-util/kdevelop:5
 "
 
