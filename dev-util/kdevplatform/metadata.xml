@@ -6,5 +6,6 @@
 		<flag name="classbrowser">Enable the class browser plugin</flag>
 		<flag name="konsole">Enable Konsole integration</flag>
 		<flag name="reviewboard">Enable reviewboard support</flag>
+		<flag name="templates">Enable file templates through <pkg>dev-libs/grantlee</pkg></flag>
 	</use>
 </pkgmetadata>

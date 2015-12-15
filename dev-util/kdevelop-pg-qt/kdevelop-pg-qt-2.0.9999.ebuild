@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="2.0"
 KDEBASE="kdevelop"
 inherit kde5
 
