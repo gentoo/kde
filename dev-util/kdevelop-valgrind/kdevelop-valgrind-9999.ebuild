@@ -13,12 +13,10 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep ktexteditor)
@@ -30,7 +28,11 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-util/kdevplatform:5
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kitemmodels)
+"
+RDEPEND="${COMMON_DEPEND}
 	dev-util/valgrind
 	dev-util/kdevelop:5
 "
