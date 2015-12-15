@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
