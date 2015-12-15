@@ -5,6 +5,7 @@
 EAPI=5
 
 KDEBASE="kdevelop"
+KDE_TEST="forceoptional"
 KMNAME="kdev-krazy2"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -14,19 +15,21 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT="test"
-
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-util/kdevplatform:5
 "
-
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep threadweaver)
+"
+RDEPEND="${COMMON_DEPEND}
 	dev-util/kdevelop:5
 "

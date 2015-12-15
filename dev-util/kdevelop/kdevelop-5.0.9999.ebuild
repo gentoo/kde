@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="5.0"
 KDE_HANDBOOK="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -55,7 +56,6 @@ RDEPEND="${DEPEND}
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
-	!<kde-apps/kapptemplate-15.12.50
 	cxx? ( clang? ( !dev-util/kdevelop-clang ) )
 "
 
@@ -78,4 +78,10 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+	# fix file collision with <kde-apps/kapptemplate-15.12.50
+	rm "${ED}"usr/share/kdevappwizard/templates/qmake_qt4guiapp.tar.bz2 || die
 }

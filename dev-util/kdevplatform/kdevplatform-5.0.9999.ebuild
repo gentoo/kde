@@ -8,6 +8,7 @@ EAPI=5
 # KDE_TEST="true"
 # VIRTUALDBUS_TEST="true"
 # VIRTUALX_REQUIRED="test"
+EGIT_BRANCH="5.0"
 RESTRICT="test"
 KDE_DOXYGEN="true"
 KDEBASE="kdevelop"

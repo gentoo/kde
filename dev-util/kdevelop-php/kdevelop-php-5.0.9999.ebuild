@@ -4,6 +4,7 @@
 
 EAPI=5
 
+EGIT_BRANCH="5.0"
 KDEBASE="kdevelop"
 KDE_DOXYGEN="true"
 KMNAME="kdev-php"
