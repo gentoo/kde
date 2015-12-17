@@ -1,0 +1,59 @@
+From: Weng Xuetian <wengxt@gmail.com>
+Date: Thu, 17 Dec 2015 16:19:36 +0000
+Subject: Fix possible crash upon application exits (e.g. kmail)
+X-Git-Url: http://quickgit.kde.org/?p=kdepimlibs.git&a=commitdiff&h=c6bf33a9018587e96a350bfd0b2bffde1859db27
+---
+Fix possible crash upon application exits (e.g. kmail)
+
+Qt lambda connection will not automatically disconnect if no context
+qobject is provided. Since SessionPrivate is not a qobject, disconnect
+the connection in the destructor to prevent accessing deleted object.
+
+REVIEW: 126395
+---
+
+
+--- a/src/core/session.cpp
++++ b/src/core/session.cpp
+@@ -301,15 +301,16 @@
+     // Shutdown the thread before QApplication event loop quits - the
+     // thread()->wait() mechanism in ConnectionThread dtor crashes sometimes
+     // when called from QApplication destructor
+-    QObject::connect(qApp, &QCoreApplication::aboutToQuit,
+-                     [this]() {
+-                        delete connThread;
+-                        connThread = Q_NULLPTR;
+-                     });
++    connThreadCleanUp = QObject::connect(qApp, &QCoreApplication::aboutToQuit,
++                                         [this]() {
++                                             delete connThread;
++                                             connThread = Q_NULLPTR;
++                                         });
+ }
+ 
+ SessionPrivate::~SessionPrivate()
+ {
++    QObject::disconnect(connThreadCleanUp);
+     delete connThread;
+ }
+ 
+
+--- a/src/core/session_p.h
++++ b/src/core/session_p.h
+@@ -29,6 +29,7 @@
+ 
+ #include <QtCore/QQueue>
+ #include <QtCore/QThreadStorage>
++#include <QtCore/QMetaObject>
+ #include <QFile>
+ 
+ class QIODevice;
+@@ -125,6 +126,7 @@
+     Session *mParent;
+     QThread *thread;
+     ConnectionThread *connThread;
++    QMetaObject::Connection connThreadCleanUp;
+     QByteArray sessionId;
+     bool connected;
+     qint64 theNextTag;
+
