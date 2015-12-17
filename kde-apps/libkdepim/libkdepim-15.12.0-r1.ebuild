@@ -5,11 +5,12 @@
 EAPI=5
 
 KDE_TEST="true"
+KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
 LICENSE="LGPL-2+"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="designer"
 
 COMMON_DEPEND="
@@ -39,6 +40,14 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/kdepim-common-libs:4
 	!kde-base/libkdepim:4
 "
+
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
+fi
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.0-find-qt5designer.patch" )
 
 src_configure() {
 	local mycmakeargs=(

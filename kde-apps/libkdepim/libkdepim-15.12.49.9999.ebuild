@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="designer"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -33,6 +33,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
+	designer? ( dev-qt/designer:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
@@ -45,3 +46,12 @@ if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 else
 	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.0-find-qt5designer.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package designer Qt5Designer)
+	)
+	kde5_src_configure
+}
