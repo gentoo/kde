@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="designer"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -44,7 +44,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-libs/libxslt
-	dev-qt/designer:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -54,8 +53,16 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
+	designer? ( dev-qt/designer:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
 	!kde-base/kdepim-common-libs:4
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package designer Qt5Designer)
+	)
+	kde5_src_configure
+}
