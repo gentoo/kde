@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Common mail library"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="designer"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -37,13 +37,13 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep templateparser)
 	dev-libs/libxslt
-	dev-qt/designer:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	media-libs/phonon[qt5]
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
+	designer? ( dev-qt/designer:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
@@ -55,3 +55,12 @@ if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 else
 	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.0-find-qt5designer.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package designer Qt5Designer)
+	)
+	kde5_src_configure
+}
