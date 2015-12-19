@@ -25,7 +25,7 @@ RDEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
-	>=dev-libs/xapian-1.3[chert]
+	>=dev-libs/xapian-1.3:=[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
