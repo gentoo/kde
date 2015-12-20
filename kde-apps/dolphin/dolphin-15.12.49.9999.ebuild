@@ -78,9 +78,10 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ( ! has_version kde-apps/ark:${SLOT} || ! has_version kde-apps/libkonq:${SLOT} ); then
+	if ( ! has_version "kde-apps/ark:${SLOT}" || has_version "<kde-frameworks/kio-5.17.0" ); then
 		echo
-		elog "For compress/extract actions, please install kde-apps/ark:${SLOT} and kde-apps/libkonq:${SLOT}"
+		elog "For compress/extract and other actions, please install"
+		elog "kde-apps/ark:${SLOT} and >=kde-frameworks/kio-5.17.0"
 		echo
 	fi
 }
