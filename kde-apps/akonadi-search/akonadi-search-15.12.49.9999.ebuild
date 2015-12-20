@@ -11,7 +11,6 @@ HOMEPAGE="https://projects.kde.org/projects/playground/pim/akonadi-search"
 KEYWORDS=""
 IUSE=""
 
-# TODO check if newer xapian is working
 RDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -26,7 +25,7 @@ RDEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
-	=dev-libs/xapian-1.2*[chert]
+	>=dev-libs/xapian-1.3:=[chert]
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
