@@ -4,12 +4,12 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="System settings utility"
 KEYWORDS=""
-IUSE="gtk"
+IUSE="classic gtk"
 
 DEPEND="
 	$(add_frameworks_dep kauth)
@@ -19,7 +19,6 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -31,8 +30,17 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	classic? ( $(add_frameworks_dep khtml) )
 "
 RDEPEND="${DEPEND}
 	gtk? ( $(add_plasma_dep kde-gtk-config) )
 	!kde-base/systemsettings:4
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package classic KF5KHtml)
+	)
+
+	kde5_src_configure
+}
