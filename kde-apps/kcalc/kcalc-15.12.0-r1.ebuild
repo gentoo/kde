@@ -30,6 +30,8 @@ COMMON_DEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kinit)
 	dev-libs/mpfr:0
+	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}"
