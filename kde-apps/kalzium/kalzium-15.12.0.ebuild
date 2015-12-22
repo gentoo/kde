@@ -13,7 +13,7 @@ DESCRIPTION="KDE: periodic table of the elements"
 HOMEPAGE="https://www.kde.org/applications/education/kalzium
 https://edu.kde.org/kalzium"
 KEYWORDS="~amd64 ~x86"
-IUSE="editor debug +plasma solver"
+IUSE="editor debug solver"
 
 DEPEND="
 	$(add_kdeapps_dep libkdeedu)
