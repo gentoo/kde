@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kde-cli-tools"
 KEYWORDS="~amd64 ~x86"
-IUSE="X"
+IUSE="+kdesu X"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -20,8 +20,6 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kdesu)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -32,7 +30,9 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
+	kdesu? ( $(add_frameworks_dep kdesu) )
 	X? (
+		$(add_frameworks_dep kdelibs4support)
 		dev-qt/qtx11extras:5
 		x11-libs/libX11
 	)
@@ -46,8 +46,15 @@ RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package kdesu KF5Su)
+		$(cmake-utils_use_find_package X KF5KDELibs4Support)
 		$(cmake-utils_use_find_package X Qt5X11Extras)
 	)
 
 	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+	use kdesu && dosym /usr/$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu5
 }
