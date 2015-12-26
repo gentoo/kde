@@ -8,8 +8,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 240f497..9af6b67 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -2,7 +2,7 @@ project(breeze-gtk)
- set(PROJECT_VERSION "5.5.2")
+@@ -3,6 +3,6 @@ project(breeze-gtk)
  set(PROJECT_VERSION_MAJOR 5)
  
 -cmake_minimum_required(VERSION 3.2)
