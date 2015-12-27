@@ -35,5 +35,5 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
-	!kde-base/kmail:4
+	!kde-apps/kmail:4
 "

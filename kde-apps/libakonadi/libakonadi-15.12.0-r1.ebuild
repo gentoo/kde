@@ -50,7 +50,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepimlibs
-	!kde-base/kdepimlibs:4
 "
 
 REQUIRED_USE="test? ( tools )"

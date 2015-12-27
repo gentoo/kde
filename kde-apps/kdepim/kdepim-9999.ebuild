@@ -122,25 +122,25 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/noteshared
-	!kde-base/akonadiconsole:4
-	!kde-base/akregator:4
-	!kde-base/blogilo:4
-	!kde-base/calendarjanitor:4
-	!kde-base/kabcclient:4
-	!kde-base/kaddressbook:4
-	!kde-base/kalarm:4
-	!kde-base/kdepim-icons:4
-	!kde-base/kdepim-runtime:4
-	!kde-base/kjots:4
-	!kde-base/kleopatra:4
-	!kde-base/kmail:4
-	!kde-base/knode:4
-	!kde-base/knotes:4
-	!kde-base/konsolekalendar:4
-	!kde-base/kontact:4
-	!kde-base/korganizer:4
-	!kde-base/ktimetracker:4
-	!kde-base/ktnef:4
+	!kde-apps/akonadiconsole:4
+	!kde-apps/akregator:4
+	!kde-apps/blogilo:4
+	!kde-apps/calendarjanitor:4
+	!kde-apps/kabcclient:4
+	!kde-apps/kaddressbook:4
+	!kde-apps/kalarm:4
+	!kde-apps/kdepim-icons:4
+	!kde-apps/kdepim-runtime:4
+	!kde-apps/kjots:4
+	!kde-apps/kleopatra:4
+	!kde-apps/kmail:4
+	!kde-apps/knode:4
+	!kde-apps/knotes:4
+	!kde-apps/konsolekalendar:4
+	!kde-apps/kontact:4
+	!kde-apps/korganizer:4
+	!kde-apps/ktimetracker:4
+	!kde-apps/ktnef:4
 	$(add_kdeapps_dep kdepim-runtime)
 	kdepim_features_kleopatra? ( app-crypt/gnupg )
 "

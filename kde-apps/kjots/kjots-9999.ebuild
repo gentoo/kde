@@ -37,6 +37,5 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}
-	!kde-base/kjots:4
 	sys-devel/gettext
 "

@@ -73,8 +73,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/messagelist:5
 	!kde-apps/messageviewer:5
 	!kde-apps/templateparser:5
-	!kde-base/kdepim-common-libs:4
-	!kde-base/kmail:4
+	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kmail:4
 "
 
 src_prepare() {
