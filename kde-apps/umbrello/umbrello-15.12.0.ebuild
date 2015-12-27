@@ -41,6 +41,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-fix-compile.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KF5=ON
