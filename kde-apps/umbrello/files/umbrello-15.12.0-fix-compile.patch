@@ -1,0 +1,24 @@
+commit 1948e771e0e54ef0dd8290ef31cb5b09ee59f1aa
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Mon Dec 28 16:50:07 2015 +0100
+
+    Remove unused header from frameworks build
+
+diff --git a/umbrello/main.cpp b/umbrello/main.cpp
+index 80a9337..1a68163 100644
+--- a/umbrello/main.cpp
++++ b/umbrello/main.cpp
+@@ -26,11 +26,12 @@
+ #include <kconfig.h>
+ #include <KLocalizedString>
+ #include <ktip.h>
+-#include <kwindowsystem.h>
+ 
+ #if QT_VERSION >= 0x050000
+ #include <QApplication>
+ #include <QCommandLineParser>
++#else
++#include <kwindowsystem.h>
+ #endif
+ 
+ #include <unistd.h>
