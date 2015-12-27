@@ -62,7 +62,7 @@ pkg_setup() {
 		ewarn
 		ewarn "We strongly recommend you change your Akonadi database backend to MySQL in your"
 		ewarn "user configuration. This is the backend recommended by KDE upstream."
-		ewarn "In particular, kde-base/kmail-4.10 does not work properly with the sqlite"
+		ewarn "In particular, kde-apps/kmail-4.10 does not work properly with the sqlite"
 		ewarn "backend anymore."
 		ewarn "You can select the backend in your ~/.config/akonadi/akonadiserverrc."
 		ewarn "Available drivers are:${AVAILABLE}"

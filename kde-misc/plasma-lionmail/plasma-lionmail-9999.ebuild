@@ -15,12 +15,12 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdeapps_dep kdepimlibs)
 	app-office/akonadi-server
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
 	dev-qt/qtwebkit:4
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
+	$(add_kdeapps_dep kdepim-runtime)
 "

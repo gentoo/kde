@@ -38,7 +38,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepimlibs
-	!kde-base/kdepimlibs:4
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then

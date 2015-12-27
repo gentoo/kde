@@ -54,9 +54,9 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.12.50:5
 	!kde-apps/messageviewer:5
 	!<kde-apps/pimcommon-15.12.50:5
-	!kde-base/kaddressbook:4
-	!kde-base/kmail:4
-	!kde-base/korganizer:4
+	!kde-apps/kaddressbook:4
+	!kde-apps/kmail:4
+	!kde-apps/korganizer:4
 	$(add_kdeapps_dep kdepim)
 "
 

@@ -63,9 +63,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
-RDEPEND="${COMMON_DEPEND}
-	!kde-base/kdepimlibs:4
-"
+RDEPEND="${COMMON_DEPEND}"
 
 src_prepare() {
 	use handbook || \

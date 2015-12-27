@@ -55,8 +55,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/libfollowupreminder:5
 	!kde-apps/libkdepimdbusinterfaces:5
 	!kde-apps/libsendlater:5
-	!kde-base/kdepim-common-libs:4
-	!kde-base/kmail:4
+	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kmail:4
 "
 
 src_configure() {
