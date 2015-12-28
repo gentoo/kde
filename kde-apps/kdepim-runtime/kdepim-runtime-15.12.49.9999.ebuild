@@ -65,7 +65,7 @@ DEPEND="${CDEPEND}
 	dev-libs/libxslt
 	sys-devel/gettext
 	x11-misc/shared-mime-info
-	google? ( net-libs/libkgapi:5 )
+	google? ( >=net-libs/libkgapi-5.1.0:5 )
 "
 RDEPEND="${CDEPEND}
 	!kde-base/kdepim-runtime:4
