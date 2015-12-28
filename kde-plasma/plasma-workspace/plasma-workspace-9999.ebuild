@@ -148,10 +148,10 @@ src_install() {
 
 	# startup and shutdown scripts
 	insinto /etc/plasma/startup
-	doins "${FILESDIR}/agent-startup.sh"
+	doins "${FILESDIR}/10-agent-startup.sh"
 
 	insinto /etc/plasma/shutdown
-	doins "${FILESDIR}/agent-shutdown.sh"
+	doins "${FILESDIR}/10-agent-shutdown.sh"
 }
 
 pkg_postinst () {
@@ -159,7 +159,7 @@ pkg_postinst () {
 
 	echo
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
-	elog "edit ${EPREFIX}/etc/plasma/startup/agent-startup.sh and"
-	elog "${EPREFIX}/etc/plasma/shutdown/agent-shutdown.sh"
+	elog "edit ${EPREFIX}/etc/plasma/startup/10-agent-startup.sh and"
+	elog "${EPREFIX}/etc/plasma/shutdown/10-agent-shutdown.sh"
 	echo
 }
