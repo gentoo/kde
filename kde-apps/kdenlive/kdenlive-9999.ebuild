@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kdenlive.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="v4l"
+IUSE="v4l semantic-desktop"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -50,6 +50,7 @@ RDEPEND="
 	>=media-libs/mlt-0.9.8[ffmpeg,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl
+	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	v4l? ( media-libs/libv4l )
 "
 DEPEND="${RDEPEND}
@@ -59,6 +60,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package v4l LibV4L2)
+		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
 	)
 
 	kde5_src_configure
