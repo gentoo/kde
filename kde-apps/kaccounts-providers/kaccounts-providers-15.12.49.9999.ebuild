@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_AUTODEPS="false"
 inherit kde5
 
 DESCRIPTION="KDE accounts providers"
@@ -14,12 +13,21 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	$(add_frameworks_dep extra-cmake-modules)
+COMMON_DEPEND="
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kpackage)
 	$(add_kdeapps_dep kaccounts-integration)
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtxml:5
+"
+DEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
-RDEPEND="
+RDEPEND="${COMMON_DEPEND}
 	net-im/telepathy-connection-managers[xmpp]
 	net-libs/signon-ui
 	net-libs/signon-oauth2
