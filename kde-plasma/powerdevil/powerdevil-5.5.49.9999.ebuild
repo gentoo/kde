@@ -44,8 +44,14 @@ DEPEND="
 
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	|| ( sys-power/upower-pm-utils >=sys-power/upower-0.9.23 )
-	!systemd? ( sys-auth/polkit-pkla-compat )
+	systemd? ( >=sys-power/upower-0.9.23 )
+	!systemd? (
+		sys-auth/polkit-pkla-compat
+		|| (
+			( >=sys-auth/consolekit-1.0.0 >=sys-power/upower-0.9.23 )
+			sys-power/upower-pm-utils
+		)
+	)
 	!kde-base/powerdevil:4
 	!kde-base/systemsettings:4[handbook]
 "
@@ -58,6 +64,7 @@ src_install() {
 		doins "${FILESDIR}"/10-org.freedesktop.upower.pkla
 		doins "${FILESDIR}"/20-org.freedesktop.consolekit.system.stop-multiple-users.pkla
 		doins "${FILESDIR}"/30-org.freedesktop.consolekit.system.restart-multiple-users.pkla
+		doins "${FILESDIR}"/40-org.freedesktop.consolekit.system.suspend-multiple-users.pkla
 	fi
 }
 
