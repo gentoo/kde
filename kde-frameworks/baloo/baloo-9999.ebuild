@@ -21,7 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep solid)
-	dev-db/lmdb
+	>=dev-db/lmdb-0.9.17
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
