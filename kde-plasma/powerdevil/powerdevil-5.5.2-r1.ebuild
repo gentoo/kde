@@ -71,8 +71,11 @@ src_install() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version sys-power/upower-pm-utils && ! use systemd ; then
-		ewarn "Suspend and hibernate will not be available as it requires sys-power/upower-pm-utils"
-		ewarn "on non-systemd systems. Please install it if you require this functionality."
+	if has_version sys-power/upower-pm-utils && ! use systemd ; then
+		ewarn "You have sys-power/upower-pm-utils installed, which was recommended in the past to"
+		ewarn "enable suspend and hibernate support. This workaround is no longer required, and it"
+		ewarn "is now recommended to use a recent version of upower and consolekit instead:"
+		ewarn
+		ewarn "emerge --ask --update \">=sys-auth/consolekit-1.0.0\" sys-power/upower"
 	fi
 }
