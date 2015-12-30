@@ -6,7 +6,7 @@ EAPI=5
 
 inherit kde5
 
-DESCRIPTION="Plasma 5 applet for controlling redshift"
+DESCRIPTION="Plasma 5 applet for weather forecasts"
 HOMEPAGE="http://kde-look.org/content/show.php/Weather+Widget?content=169572 https://github.com/kotelnik/plasma-applet-weather-widget"
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
