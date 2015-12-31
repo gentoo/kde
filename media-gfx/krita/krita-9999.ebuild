@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
-	media-gfx/exiv2
+	media-gfx/exiv2:=
 	media-libs/lcms
 	sys-libs/zlib
 	virtual/opengl
