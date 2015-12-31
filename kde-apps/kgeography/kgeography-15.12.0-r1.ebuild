@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Geography learning tool"
 HOMEPAGE="https://edu.kde.org/applications/miscellaneous/kgeography
 https://edu.kde.org/applications/all/kgeography"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
