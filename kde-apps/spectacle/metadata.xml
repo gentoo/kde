@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<herd>kde</herd>
 	<use>
-		<flag name="kipi">Support for the KDE Image Plugin Interface.</flag>
+		<flag name="kipi">Enable support for the KDE Image Plugin Interface</flag>
+		<flag name="share">Enable support for a share menu using <pkg>kde-apps/purpose</pkg></flag>
 	</use>
 </pkgmetadata>
