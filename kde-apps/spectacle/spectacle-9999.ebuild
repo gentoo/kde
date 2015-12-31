@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Screenshot capture utility"
 
 KEYWORDS=""
-IUSE="kipi"
+IUSE="kipi share"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -31,6 +31,7 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
 	kipi? ( $(add_kdeapps_dep libkipi) )
+	share? ( $(add_kdeapps_dep purpose) )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/ksnapshot
@@ -39,6 +40,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package kipi KF5Kipi)
+		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
 	)
 	kde5_src_configure
 }
