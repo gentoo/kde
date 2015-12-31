@@ -16,7 +16,7 @@ else
 fi
 
 LICENSE="GPL-2+"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
