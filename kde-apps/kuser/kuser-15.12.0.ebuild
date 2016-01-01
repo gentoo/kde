@@ -19,5 +19,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep knotify)
 "
-
-PATCHES=( "${FILESDIR}/${PN}-15.08.3-cmake34.patch" )
