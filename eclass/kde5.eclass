@@ -449,6 +449,8 @@ kde5_src_unpack() {
 kde5_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	cmake-utils_src_prepare
+
 	# only build examples when required
 	if ! use_if_iuse examples || ! use examples ; then
 		comment_add_subdirectory examples
@@ -525,8 +527,6 @@ kde5_src_prepare() {
 			comment_add_subdirectory tests
 		fi
 	fi
-
-	cmake-utils_src_prepare
 }
 
 # @FUNCTION: kde5_src_configure
