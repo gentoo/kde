@@ -20,31 +20,27 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kplotting)
-	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtmultimedia:5
 	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	>=sci-libs/cfitsio-0.390
 	sys-libs/zlib
-	indi? ( >=sci-libs/indilib-1.0.0 )
+	indi? (
+		$(add_frameworks_dep knotifications)
+		>=sci-libs/indilib-1.0.0
+	)
 	wcs? ( sci-astronomy/wcslib )
 	xplanet? ( x11-misc/xplanet )
 "
@@ -55,11 +51,10 @@ RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
 "
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-15.08.3-qtopengl-optional.patch"
-
-	kde5_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-15.12.0-unused-qt-deps.patch"
+	"${FILESDIR}/${PN}-15.12.0-unused-kf5-deps.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
