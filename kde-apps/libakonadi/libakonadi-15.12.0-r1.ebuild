@@ -60,16 +60,17 @@ else
 	S="${WORKDIR}/${KMNAME}-${PV}/akonadi"
 fi
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-15.11.80-testtools-optional.patch" \
-		"${FILESDIR}/${PN}-15.12.0-fix-possible-crash.patch"
+PATCHES=(
+	"${FILESDIR}/${PN}-15.11.80-testtools-optional.patch"
+	"${FILESDIR}/${PN}-15.12.0-fix-possible-crash.patch"
+)
 
+src_prepare() {
+	kde5_src_prepare
 	if ! use tools ; then
 		sed -e "/add_subdirectory(xml)/ s/^/#DONT/" \
 			-i src/CMakeLists.txt || die
 	fi
-
-	kde5_src_prepare
 }
 
 src_configure() {
