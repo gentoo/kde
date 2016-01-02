@@ -29,9 +29,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-15.12.0-kcrash.patch" \
-		"${FILESDIR}/${PN}-15.12.0-kservice.patch"
-
-	kde5_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-15.12.0-kcrash.patch"
+	"${FILESDIR}/${PN}-15.12.0-kservice.patch"
+)
