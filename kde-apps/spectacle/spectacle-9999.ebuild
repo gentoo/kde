@@ -31,7 +31,7 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	x11-libs/libxcb
 	kipi? ( $(add_kdeapps_dep libkipi) )
-	share? ( $(add_kdeapps_dep purpose) )
+	share? ( dev-libs/purpose:5 )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/ksnapshot
