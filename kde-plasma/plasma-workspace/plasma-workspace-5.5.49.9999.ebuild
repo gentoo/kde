@@ -117,14 +117,14 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.4-startkde-script.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
+	"${FILESDIR}/${PN}-tests-optional.patch"
+)
 
 RESTRICT="test"
 
 src_prepare() {
-	# whole patch should be upstreamed, doesn't work in PATCHES
-	epatch "${FILESDIR}/${PN}-tests-optional.patch"
-
 	kde5_src_prepare
 
 	sed -e "s|\`qtpaths|\`$(qt5_get_bindir)/qtpaths|" \
