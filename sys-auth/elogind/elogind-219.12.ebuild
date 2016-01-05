@@ -13,15 +13,17 @@ SRC_URI="https://github.com/andywingo/elogind/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="acl pam policykit +seccomp"
+IUSE="acl apparmor pam policykit selinux +seccomp"
 
 DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
 	virtual/libudev:=
 	acl? ( sys-apps/acl )
+	apparmor? ( sys-libs/libapparmor )
 	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
+	selinux? ( sys-libs/libselinux )
 "
 RDEPEND="${DEPEND}
 	sys-apps/dbus
@@ -39,8 +41,10 @@ src_configure() {
 	econf \
 		--with-pamlibdir=$(getpam_mod_dir) \
 		$(use_enable acl) \
+		$(use_enable apparmor) \
 		$(use_enable pam) \
-		$(use_enable seccomp)
+		$(use_enable seccomp) \
+		$(use_enable selinux)
 }
 
 src_install() {
