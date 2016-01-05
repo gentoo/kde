@@ -10,7 +10,7 @@ DESCRIPTION="The systemd project's logind, extracted to a standalone package"
 HOMEPAGE="https://github.com/andywingo/elogind"
 SRC_URI="https://github.com/andywingo/elogind/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="LGPL-2.1"
+LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="pam policykit"
