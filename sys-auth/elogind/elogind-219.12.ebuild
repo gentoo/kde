@@ -18,13 +18,14 @@ IUSE="acl pam policykit +seccomp"
 DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
-	sys-apps/dbus
 	acl? ( sys-apps/acl )
 	pam? ( virtual/pam )
-	policykit? ( sys-auth/polkit )
 	seccomp? ( sys-libs/libseccomp )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	sys-apps/dbus
+	policykit? ( sys-auth/polkit )
+"
 
 PATCHES=( "${FILESDIR}/${PN}-lrt.patch" )
 
