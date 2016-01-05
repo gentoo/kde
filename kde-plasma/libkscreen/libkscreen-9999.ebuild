@@ -8,15 +8,16 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE screen management library"
+DESCRIPTION="Plasma screen management library"
 KEYWORDS=""
-IUSE=""
+IUSE="X"
 
 DEPEND="
+	$(add_plasma_dep kwayland)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtx11extras:5
-	x11-libs/libxcb
+	X? ( x11-libs/libxcb )
 "
 RDEPEND="${DEPEND}
 	!x11-libs/libkscreen:5
@@ -24,3 +25,11 @@ RDEPEND="${DEPEND}
 
 # requires running session
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package X XCB)
+	)
+
+	kde5_src_configure
+}
