@@ -19,7 +19,7 @@ DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
 	sys-apps/dbus
-	pam? ( sys-libs/pam )
+	pam? ( virtual/pam )
 	policykit? ( sys-auth/polkit )
 	seccomp? ( sys-libs/libseccomp )
 "
@@ -34,6 +34,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		--with-pamlibdir=$(getpam_mod_dir) \
+		$(use_enable pam) \
 		$(use_enable seccomp)
 }
 
