@@ -1,5 +1,5 @@
---- Makefile.am	2015-09-01 14:19:31.000000000 +0300
-+++ Makefile.am	2016-01-05 17:18:44.834511975 +0300
+--- a/Makefile.am
++++ b/Makefile.am
 @@ -778,6 +778,7 @@
  
  libelogind_core_la_LIBADD = \

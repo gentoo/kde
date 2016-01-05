@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools pam
 
@@ -30,10 +30,14 @@ RDEPEND="${DEPEND}
 	policykit? ( sys-auth/polkit )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-lrt.patch" )
+DOCS=( NEWS README TODO )
+PATCHES=(
+	"${FILESDIR}/${PN}-docs.patch"
+	"${FILESDIR}/${PN}-lrt.patch"
+)
 
 src_prepare() {
-	epatch ${PATCHES[@]}
+	default
 	eautoreconf
 }
 
@@ -45,10 +49,4 @@ src_configure() {
 		$(use_enable pam) \
 		$(use_enable seccomp) \
 		$(use_enable selinux)
-}
-
-src_install() {
-	default
-
-	rm -r "${D}"/usr/share/doc/elogind/ || die
 }
