@@ -18,6 +18,7 @@ IUSE="acl pam policykit +seccomp"
 DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
+	virtual/libudev:=
 	acl? ( sys-apps/acl )
 	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
