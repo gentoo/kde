@@ -30,3 +30,9 @@ src_prepare() {
 	epatch ${PATCHES[@]}
 	eautoreconf
 }
+
+src_install() {
+	default
+
+	rm -r "${D}"/usr/share/doc/elogind/ || die
+}
