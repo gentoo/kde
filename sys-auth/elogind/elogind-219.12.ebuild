@@ -13,12 +13,13 @@ SRC_URI="https://github.com/andywingo/elogind/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="pam policykit +seccomp"
+IUSE="acl pam policykit +seccomp"
 
 DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
 	sys-apps/dbus
+	acl? ( sys-apps/acl )
 	pam? ( virtual/pam )
 	policykit? ( sys-auth/polkit )
 	seccomp? ( sys-libs/libseccomp )
@@ -35,6 +36,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--with-pamlibdir=$(getpam_mod_dir) \
+		$(use_enable acl) \
 		$(use_enable pam) \
 		$(use_enable seccomp)
 }
