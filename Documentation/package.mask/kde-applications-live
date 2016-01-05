@@ -46,6 +46,7 @@
 ~kde-apps/kiriki-9999
 ~kde-apps/kjumpingcube-9999
 ~kde-apps/klines-9999
+~kde-apps/kmahjongg-9999
 ~kde-apps/kmines-9999
 ~kde-apps/knetwalk-9999
 ~kde-apps/kollision-9999
@@ -72,6 +73,7 @@
 ~kde-apps/kdenlive-9999
 ~kde-apps/kmix-9999
 ~kde-apps/kaccounts-integration-9999
+~kde-apps/kaccounts-mobile-9999
 ~kde-apps/kaccounts-providers-9999
 ~kde-apps/kdenetwork-filesharing-9999
 ~kde-apps/kio-extras-9999
