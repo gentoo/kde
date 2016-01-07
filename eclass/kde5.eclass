@@ -152,6 +152,12 @@ case ${KDE_AUTODEPS} in
 			esac
 		fi
 
+		if [[ ${CATEGORY} = kde-plasma ]]; then
+			if [[ ${PV} = 5.5* || ${PV} = 9999 ]]; then
+				QT_MINIMAL=5.5.0
+			fi
+		fi
+
 		DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+="	>=dev-qt/qtcore-${QT_MINIMAL}:5"
