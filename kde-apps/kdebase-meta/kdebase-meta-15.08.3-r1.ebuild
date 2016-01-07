@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Transitional package to pull in plasma-meta plus basic applications"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+display-manager minimal +wallpapers"
 
 RDEPEND="
@@ -15,7 +15,7 @@ RDEPEND="
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
 	$(add_plasma_dep plasma-meta)
-	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.3) )
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers) )
 	!minimal? ( $(add_kdeapps_dep kdebase-runtime-meta 'minimal') )
 	!prefix? ( display-manager? ( || ( x11-misc/lightdm x11-misc/sddm ) ) )
 "
