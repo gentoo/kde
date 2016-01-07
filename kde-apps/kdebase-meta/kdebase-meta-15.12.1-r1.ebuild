@@ -7,7 +7,7 @@ EAPI=5
 inherit kde5-meta-pkg
 
 DESCRIPTION="Transitional package to pull in plasma-meta plus basic applications"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86"
 IUSE="+display-manager minimal +wallpapers"
 
 RDEPEND="

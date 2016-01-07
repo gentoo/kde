@@ -6,23 +6,16 @@ EAPI=5
 
 inherit kde5-meta-pkg
 
-DESCRIPTION="Merge this to pull in all kdebase-derived packages"
+DESCRIPTION="Transitional package to pull in plasma-meta plus basic applications"
 KEYWORDS=""
-IUSE="+wallpapers"
+IUSE="+display-manager minimal +wallpapers"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
-	$(add_kdeapps_dep kdebase-runtime-meta)
-	$(add_kdeapps_dep kdialog)
-	$(add_kdeapps_dep keditbookmarks)
-	$(add_kdeapps_dep kfind)
-	$(add_kdeapps_dep kfmclient)
-	$(add_kdeapps_dep konq-plugins)
-	$(add_kdeapps_dep konqueror)
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
-	$(add_kdeapps_dep libkonq)
-	$(add_kdeapps_dep nsplugins)
 	$(add_plasma_dep plasma-meta)
-	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.0) )
+	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.3) )
+	!minimal? ( $(add_kdeapps_dep kdebase-runtime-meta 'minimal') )
+	!prefix? ( display-manager? ( || ( x11-misc/lightdm x11-misc/sddm ) ) )
 "
