@@ -2,6 +2,7 @@
 kde-frameworks/attica:5
 kde-frameworks/baloo:5
 kde-frameworks/bluez-qt:5
+kde-frameworks/breeze-icons:5
 kde-frameworks/extra-cmake-modules:5
 kde-frameworks/frameworkintegration:5
 kde-frameworks/kactivities:5
@@ -63,6 +64,7 @@ kde-frameworks/kxmlgui:5
 kde-frameworks/kxmlrpcclient:5
 kde-frameworks/modemmanager-qt:5
 kde-frameworks/networkmanager-qt:5
+kde-frameworks/oxygen-icons:5
 kde-frameworks/plasma:5
 kde-frameworks/solid:5
 kde-frameworks/sonnet:5
