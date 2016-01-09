@@ -36,4 +36,5 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
+	!media-gfx/kgraphviewer:4
 "
