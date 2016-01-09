@@ -84,6 +84,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	media-plugins/kipi-plugins:5
+	!media-gfx/digikam:4
 "
 
 RESTRICT=test
