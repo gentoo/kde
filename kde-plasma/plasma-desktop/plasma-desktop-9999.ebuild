@@ -13,8 +13,6 @@ KEYWORDS=""
 IUSE="+evdev +fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad"
 
 COMMON_DEPEND="
-	$(add_plasma_dep kwin)
-	$(add_plasma_dep plasma-workspace)
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
@@ -54,6 +52,8 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_frameworks_dep sonnet)
+	$(add_plasma_dep kwin)
+	$(add_plasma_dep plasma-workspace)
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
@@ -108,6 +108,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-misc/kcm_touchpad
 	!kde-misc/kcm-touchpad
 	!kde-plasma/kcm-touchpad
+	!<kde-plasma/kdeplasma-addons-5.5.50
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
