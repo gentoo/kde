@@ -6,6 +6,7 @@ EAPI=5
 
 KDE_HANDBOOK="forceoptional"
 EGIT_BRANCH="frameworks"
+FRAMEWORKS_MINIMAL="5.18.0"
 inherit kde5
 
 DESCRIPTION="Universal document viewer based on KPDF"
