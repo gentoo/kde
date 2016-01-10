@@ -94,6 +94,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep ksysguard)
 	$(add_plasma_dep milou)
 	dev-qt/qdbus:5
+	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtpaths:5
 	dev-qt/qtquickcontrols:5[widgets]
 	x11-apps/mkfontdir
