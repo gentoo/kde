@@ -4,13 +4,12 @@
 >=kde-apps/marble-14.11.97 python
 
 # Unreleased dependencies
+<kde-apps/akonadi-contact-15.12.49:5 prison
 =kde-apps/dolphin-15.08* thumbnail
 =kde-apps/gwenview-15.08* kipi raw
-=kde-apps/kdepim-15.08* prison
-=kde-apps/kdepimlibs-15.08* prison
-=kde-apps/spectacle-2* kipi
-=kde-frameworks/kwallet-5.14.0 gpg
-=kde-frameworks/kwallet-5.15.0 gpg
+<kde-apps/kaddressbookgrantlee-15.12.49:5 prison
+<kde-apps/kdepim-15.12.49:5 prison
+<kde-apps/kdepimlibs-15.12.49:5 prison
 kde-frameworks/knotifications speech
 kde-frameworks/ktextwidgets speech
 kde-misc/kdeconnect telepathy
