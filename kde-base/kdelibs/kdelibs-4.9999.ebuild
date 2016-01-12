@@ -40,7 +40,7 @@ COMMONDEPEND="
 	dev-libs/libxslt
 	media-libs/fontconfig
 	media-libs/freetype:2
-	media-libs/giflib
+	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt4]
 	sys-libs/zlib
