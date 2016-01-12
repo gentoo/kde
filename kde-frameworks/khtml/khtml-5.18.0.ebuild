@@ -40,7 +40,7 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	media-libs/giflib
+	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	sys-libs/zlib
