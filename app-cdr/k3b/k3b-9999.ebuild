@@ -7,14 +7,6 @@ EAPI=5
 EGIT_BRANCH="kf5"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
-# Translations are only in the tarballs, not in the git repo
-if [[ ${KDE_BUILD_TYPE} != live ]] ; then
-	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
-	DOCS=( FAQ PERMISSIONS README )
-	S=${WORKDIR}/${P/_*}
-else
-	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
-fi
 
 inherit kde5
 
@@ -25,6 +17,15 @@ LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS=""
 IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
+
+# Translations are only in the tarballs, not in the git repo
+if [[ ${KDE_BUILD_TYPE} != live ]] ; then
+	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
+	DOCS=( FAQ PERMISSIONS README )
+	S=${WORKDIR}/${P/_*}
+else
+	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
+fi
 
 DEPEND="
 	$(add_frameworks_dep karchive)
