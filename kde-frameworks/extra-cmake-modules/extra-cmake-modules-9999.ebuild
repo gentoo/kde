@@ -37,6 +37,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DDOC_INSTALL_DIR="/usr/share/doc/${PF}"
 		$(cmake-utils_use_build doc HTML_DOCS)
 		$(cmake-utils_use_build doc MAN_DOCS)
 	)
