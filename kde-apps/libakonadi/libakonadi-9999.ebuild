@@ -60,7 +60,7 @@ else
 	S="${WORKDIR}/${KMNAME}-${PV}/akonadi"
 fi
 
-PATCHES=( "${FILESDIR}/${PN}-15.11.80-testtools-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-testtools-optional.patch" )
 
 src_prepare() {
 	kde5_src_prepare
@@ -73,8 +73,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package designer Qt5Designer)
-		$(cmake-utils_use_build tools)
-		$(cmake-utils_use_build test TESTING)
+		-DBUILD_TESTING=$(usex test)
+		-DBUILD_TOOLS=$(usex tools)
 	)
 	kde5_src_configure
 }
