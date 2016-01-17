@@ -24,7 +24,7 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	>=sys-auth/polkit-qt-0.112.0[qt5]
+	|| ( $(add_frameworks_dep polkit-qt) >=sys-auth/polkit-qt-0.112.0[qt5] )
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-kde-agent:4[-minimal(-)]
