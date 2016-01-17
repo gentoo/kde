@@ -104,6 +104,8 @@ CMAKE_REMOVE_MODULES="${CMAKE_REMOVE_MODULES:-yes}"
 # This is useful when only part of application is using cmake build system.
 # Valid values are: always [default], optional (where the value is the useflag
 # used for optionality)
+#
+# This is banned in EAPI 6 and later.
 : ${WANT_CMAKE:=always}
 
 # @ECLASS-VARIABLE: CMAKE_EXTRA_CACHE_FILE
