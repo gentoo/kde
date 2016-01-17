@@ -428,7 +428,7 @@ enable_cmake-utils_src_prepare() {
 
 	pushd "${S}" > /dev/null || die
 
-	if has "${EAPI:-0}" 6 ; then
+	if ! has "${EAPI:-0}" 2 3 4 5 ; then
 		default_src_prepare
 		_cleanup_cmake
 	fi
