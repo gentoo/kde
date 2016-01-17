@@ -431,9 +431,7 @@ enable_cmake-utils_src_prepare() {
 	if ! has "${EAPI:-0}" 2 3 4 5 ; then
 		default_src_prepare
 		_cleanup_cmake
-	fi
-
-	if has "${EAPI:-0}" 2 3 4 5 ; then
+	else
 		debug-print "$FUNCNAME: PATCHES=$PATCHES"
 		[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
 
