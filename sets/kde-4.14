@@ -1,7 +1,7 @@
 # We don't include kdesdk on the global set
 <kde-apps/kate-4.14.50
 <kde-apps/kde4-l10n-4.14.50
-<kde-base/kde-meta-4.14.50
+<kde-apps/kde-meta-4.14.50
 <kde-base/kdeplasma-addons-4.14.50
 
 @kdeaccessibility-4.14
