@@ -2,9 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
-	<use>
-		<flag name="display-manager">Pull in a graphical display manager</flag>
-		<flag name="minimal">Disable install of various KDE SC 4 based packages</flag>
-		<flag name="wallpapers">Install the KDE wallpapers</flag>
-	</use>
 </pkgmetadata>
