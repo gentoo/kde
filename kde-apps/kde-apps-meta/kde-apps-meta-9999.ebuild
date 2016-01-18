@@ -15,7 +15,7 @@ IUSE="accessibility minimal nls pim sdk"
 RDEPEND="
 	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kdeadmin-meta)
-	$(add_kdeapps_dep kdebase-meta)
+	$(add_kdeapps_dep kdecore-meta)
 	$(add_kdeapps_dep kdeedu-meta)
 	$(add_kdeapps_dep kdegames-meta)
 	$(add_kdeapps_dep kdegraphics-meta)
