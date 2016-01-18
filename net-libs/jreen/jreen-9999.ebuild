@@ -29,7 +29,7 @@ DEPEND="
 	net-libs/libgsasl
 	sys-libs/zlib
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4
+		>=dev-qt/qtcore-4.6.0:4[ssl]
 		>=dev-qt/qtgui-4.6.0:4
 	)
 	qt5? (
