@@ -32,5 +32,5 @@ RDEPEND="
 		$(add_kdeapps_dep kdesdk-meta)
 		$(add_kdeapps_dep kdewebdev-meta)
 	)
-	!minimal? ( $(add_kdeapps_dep kdeartwork-meta 'minimal' 15.08.3) )
+ 	!minimal? ( $(add_kdeapps_dep kdeartwork-meta '' 15.08.3) )
 "
