@@ -15,5 +15,5 @@ RDEPEND="
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
 	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.3) )
-	!minimal? ( $(add_kdeapps_dep kdebase-runtime-meta 'minimal') )
+	!minimal? ( $(add_kdeapps_dep kdebase-runtime-meta '' 15.08.3-r1) )
 "
