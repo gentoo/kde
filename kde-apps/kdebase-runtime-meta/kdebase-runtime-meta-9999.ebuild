@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="Merge this to pull in all kdebase-runtime-derived packages"
 KEYWORDS=""
-IUSE="crash-reporter minimal +oldwallet"
+IUSE="+oldwallet"
 
 RDEPEND="
 	$(add_kdeapps_dep kcmshell)
@@ -37,20 +37,6 @@ RDEPEND="
 	$(add_kdeapps_dep phonon-kde)
 	$(add_kdeapps_dep plasma-runtime)
 	$(add_kdeapps_dep renamedlg-plugins)
-	$(add_kdeapps_dep solid-runtime)
-	crash-reporter? ( $(add_kdeapps_dep drkonqi ) )
-	minimal? (
-		$(add_kdeapps_dep solid-runtime '-bluetooth')
-		oldwallet? ( $(add_kdeapps_dep kwalletd) )
-	)
-	!minimal? (
-		$(add_kdeapps_dep attica)
-		$(add_kdeapps_dep kcontrol)
-		$(add_kdeapps_dep kdebase-kioslaves)
-		$(add_kdeapps_dep kglobalaccel)
-		$(add_kdeapps_dep knetattach)
-		$(add_kdeapps_dep kuiserver)
-		$(add_kdeapps_dep kwalletd)
-	)
+	$(add_kdeapps_dep solid-runtime '-bluetooth')
+	oldwallet? ( $(add_kdeapps_dep kwalletd) )
 "
-REQUIRED_USE="minimal? ( !crash-reporter )"
