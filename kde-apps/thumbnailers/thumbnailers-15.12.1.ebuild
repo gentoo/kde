@@ -17,9 +17,4 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	dev-qt/qtgui:5
 "
-
 RDEPEND="${DEPEND}"
-
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	S="${WORKDIR}/${KMNAME}-${PV}"
-fi
