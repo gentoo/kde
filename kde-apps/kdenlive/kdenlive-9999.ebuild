@@ -46,7 +46,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=media-libs/mlt-0.9.8[ffmpeg,kdenlive,melt,qt5,sdl,xml]
+	>=media-libs/mlt-0.9.8-r1[ffmpeg,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
