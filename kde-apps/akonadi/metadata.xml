@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<herd>kde</herd>
+	<use>
+		<flag name="designer">Install plugin for <pkg>dev-qt/designer</pkg></flag>
+		<flag name="tools">Install tools for developers and testing</flag>
+	</use>
 </pkgmetadata>
