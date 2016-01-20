@@ -8,12 +8,13 @@ inherit kde5
 
 DESCRIPTION="FFmpeg based thumbnail generator for video files"
 KEYWORDS=""
-IUSE=""
+IUSE="libav"
 
 RDEPEND="
 	$(add_frameworks_dep kio)
 	dev-qt/qtgui:5
-	virtual/ffmpeg
+	libav? ( media-video/libav:= )
+	!libav? ( media-video/ffmpeg:= )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
