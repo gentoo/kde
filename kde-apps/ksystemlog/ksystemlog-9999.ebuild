@@ -4,10 +4,10 @@
 
 EAPI=5
 
-KDE_DOXYGEN=true
-KDE_HANDBOOK=true
-KDE_TEST=true
-VIRTUALX_REQUIRED=test
+KDE_DOXYGEN="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="System log viewer by KDE"
