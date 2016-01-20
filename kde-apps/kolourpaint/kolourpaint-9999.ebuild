@@ -11,15 +11,20 @@ DESCRIPTION="Paint Program for KDE"
 HOMEPAGE="https://www.kde.org/applications/graphics/kolourpaint/"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
-IUSE="debug"
+IUSE="debug scanner"
 
-DEPEND="media-libs/qimageblitz"
-RDEPEND="${DEPEND}"
+DEPEND="
+	media-libs/qimageblitz
+	scanner? ( $(add_kdeapps_dep libksane) )
+"
+RDEPEND="${DEPEND}
+	scanner? ( $(add_kdeapps_dep ksaneplugin) )
+"
 
-pkg_postinst() {
-	kde4-base_pkg_postinst
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package scanner KSane)
+	)
 
-	if ! has_version kde-apps/ksaneplugin:${SLOT} ; then
-		elog "To enable scanner support, please install kde-apps/ksaneplugin:${SLOT}"
-	fi
+	kde4-base_src_configure
 }
