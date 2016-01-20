@@ -4,19 +4,36 @@
 
 EAPI=5
 
+KDE_DOXYGEN=true
 KDE_TESTS=true
 VIRTUALDBUS_TEST=true
+VIRTUALX_REQUIRED=test
 inherit kde5
 
-DESCRIPTION="Storage service for PIM data"
+DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="+mysql postgres sqlite test"
+IUSE="designer +mysql postgres sqlite test tools xml"
 
-REQUIRED_USE="|| ( sqlite mysql postgres )"
+REQUIRED_USE="|| ( sqlite mysql postgres ) test? ( tools )"
 
-CDEPEND="
+COMMON_DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdesignerplugin)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -25,19 +42,31 @@ CDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	x11-misc/shared-mime-info
+	designer? ( dev-qt/designer:5 )
 	sqlite? ( dev-db/sqlite:3 )
+	tools? ( xml? ( dev-libs/libxml2 ) )
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
 	dev-libs/libxslt
 	test? ( sys-apps/dbus )
 "
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 	!app-office/akonadi-server
+	!kde-apps/kdepimlibs
+	!kde-apps/libakonadi
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.12-mysql56-crash.patch" )
+# some akonadi tests time out, that probably needs more work as it's ~700 tests
+RESTRICT="test"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-15.12-mysql56-crash.patch"
+	"${FILESDIR}/${PN}-libxml2-optional.patch"
+	"${FILESDIR}/${PN}-tools-optional.patch"
+)
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -72,8 +101,12 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+		$(cmake-utils_use_find_package designer Qt5Designer)
+		$(cmake-utils_use_find_package xml LibXml2)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
+		-DBUILD_TESTING=$(usex test)
+		-DBUILD_TOOLS=$(usex tools)
+		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 	)
 
 	kde5_src_configure

@@ -1,0 +1,77 @@
+commit 108770da124b52c089acb976f4d8f2070f73fac4
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Thu Jan 21 00:29:49 2016 +0100
+
+    Add switch to build development/testing tools optionally
+    
+    BUILD_TESTING=TRUE currently alters the install image, this change
+    introduces BUILD_TOOLS to conditionally build akonadixml as well as
+    akonadi_knut_resource, akonaditest and akonadi_test_searchplugin.
+    BUILD_TESTING=TRUE however will still trigger BUILD_TOOLS=TRUE.
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b05eb4d..aeabc34 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -80,6 +80,11 @@ endif()
+ ############### Build Options ###############
+ option(AKONADI_BUILD_QSQLITE "Build the Sqlite backend." TRUE)
+ option(ENABLE_ASAN "Build Akonadi with AddressSanitzer - https://code.google.com/p/address-sanitizer/" FALSE)
++option(BUILD_TOOLS "Build and install tools for development and testing purposes." TRUE)
++
++if(BUILD_TESTING)
++   set(BUILD_TOOLS TRUE)
++endif()
+ 
+ set(SMI_MIN_VERSION "0.20")
+ find_package(SharedMimeInfo ${SMI_MIN_VERSION} REQUIRED)
+@@ -289,9 +294,17 @@ include_directories(
+ 
+ add_subdirectory(src)
+ 
++if(BUILD_TOOLS)
++    # add testrunner (application for managing a self-contained
++    # test environment)
++    add_subdirectory(autotests/libs/testrunner)
++    add_subdirectory(autotests/libs/testresource)
++    add_subdirectory(autotests/libs/testsearchplugin)
++endif()
++
+ if(BUILD_TESTING)
+-   add_subdirectory(autotests)
+-   add_subdirectory(tests)
++    add_subdirectory(autotests)
++    add_subdirectory(tests)
+ endif()
+ 
+ 
+diff --git a/autotests/libs/CMakeLists.txt b/autotests/libs/CMakeLists.txt
+index 562454d..7e3a2b4 100644
+--- a/autotests/libs/CMakeLists.txt
++++ b/autotests/libs/CMakeLists.txt
+@@ -22,13 +22,6 @@ include_directories(
+   ${Boost_INCLUDE_DIR}
+ )
+ 
+-# add testrunner (application for managing a self-contained test
+-# environment)
+-
+-add_subdirectory(testrunner)
+-add_subdirectory(testresource)
+-add_subdirectory(testsearchplugin)
+-
+ # convenience macro to add akonadi qtestlib unit-tests
+ macro(add_akonadi_test _source)
+   set(_test ${_source} ${CMAKE_BINARY_DIR}/src/core/akonadicore_debug.cpp)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 4e79dc0..4141947 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -16,4 +16,6 @@ add_subdirectory(core)
+ add_subdirectory(agentbase)
+ add_subdirectory(widgets)
+ add_subdirectory(selftest)
+-add_subdirectory(xml)
++if(BUILD_TOOLS)
++    add_subdirectory(xml)
++endif()
