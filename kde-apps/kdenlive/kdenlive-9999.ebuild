@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kdenlive.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="v4l semantic-desktop"
+IUSE="gles2 v4l semantic-desktop"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -40,7 +40,7 @@ RDEPEND="
 	$(add_frameworks_dep solid)
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
+	dev-qt/qtgui:5[gles2=]
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
 	dev-qt/qtsvg:5
