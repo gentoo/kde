@@ -42,7 +42,6 @@ RDEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtopengl:5
 	dev-qt/qtscript:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
