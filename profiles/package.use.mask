@@ -5,8 +5,6 @@
 
 # Unreleased dependencies
 <kde-apps/akonadi-contact-15.12.49:5 prison
-=kde-apps/dolphin-15.08* thumbnail
-=kde-apps/gwenview-15.08* kipi raw
 <kde-apps/kaddressbookgrantlee-15.12.49:5 prison
 <kde-apps/kdepim-15.12.49:5 prison
 <kde-apps/kdepimlibs-15.12.49:5 prison
