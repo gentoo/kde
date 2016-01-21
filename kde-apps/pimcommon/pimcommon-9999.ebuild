@@ -35,13 +35,13 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kimap)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-libs/libxslt
 	dev-qt/qtdbus:5

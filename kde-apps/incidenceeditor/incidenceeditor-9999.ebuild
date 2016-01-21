@@ -28,6 +28,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
@@ -42,7 +43,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-qt/designer:5
 	dev-qt/qtdbus:5

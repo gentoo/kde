@@ -78,7 +78,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep ktnef)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
@@ -115,8 +114,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	test? (
-		$(add_kdeapps_dep akonadi sqlite)
-		$(add_kdeapps_dep libakonadi tools)
+		$(add_kdeapps_dep akonadi 'sqlite,tools')
 		dev-qt/qtsql:5[sqlite]
 	)
 "

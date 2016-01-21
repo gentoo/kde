@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep kcalcore)
@@ -33,7 +34,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-libs/libical
 	dev-qt/designer:5

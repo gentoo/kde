@@ -49,7 +49,6 @@ CDEPEND="
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	dev-libs/libical:=
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5

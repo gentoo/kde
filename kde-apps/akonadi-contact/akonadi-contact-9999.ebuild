@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libakonadi)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)

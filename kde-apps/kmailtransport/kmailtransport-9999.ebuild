@@ -22,9 +22,9 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
