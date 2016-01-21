@@ -25,7 +25,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libakonadi)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kmime)
 	dev-libs/libxslt
 	dev-qt/qtdbus:5

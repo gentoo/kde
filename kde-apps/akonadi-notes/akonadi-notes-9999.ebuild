@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	dev-qt/qtxml:5
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep libakonadi)
+	$(add_kdeapps_dep akonadi)
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}

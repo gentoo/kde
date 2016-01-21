@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
-	$(add_kdeapps_dep libakonadi)
+	$(add_kdeapps_dep akonadi)
 	dev-qt/qtgui:5
 	x11-misc/shared-mime-info
 "

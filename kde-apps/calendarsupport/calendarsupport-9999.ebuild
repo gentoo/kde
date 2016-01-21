@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
 	dev-libs/libical

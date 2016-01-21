@@ -17,10 +17,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-qt/designer:5
 	dev-qt/qtgui:5

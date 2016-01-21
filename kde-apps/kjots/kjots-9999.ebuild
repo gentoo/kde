@@ -24,11 +24,11 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libakonadi)
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 	dev-qt/qtdbus:5
