@@ -89,6 +89,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep oxygen)
+	dev-qt/qtgraphicaleffects:5
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
 	legacy-systray? (
