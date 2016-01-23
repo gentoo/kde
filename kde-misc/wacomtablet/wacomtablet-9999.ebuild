@@ -4,9 +4,9 @@
 
 EAPI=5
 
-EGIT_BRANCH="kf5-port"
+EGIT_BRANCH="releng3.0"
 KDE_DOC_DIR="doc/user"
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
