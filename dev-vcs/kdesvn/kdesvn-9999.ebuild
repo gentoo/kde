@@ -8,10 +8,10 @@ KDE_HANDBOOK="optional"
 KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro ru"
 inherit flag-o-matic kde4-base
 
-DESCRIPTION="KDESvn is a frontend to the subversion vcs"
+DESCRIPTION="A frontend to the subversion vcs"
 HOMEPAGE="http://kdesvn.alwins-world.de/"
 if [[ ${PV} != 9999* ]]; then
-	SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 fi
 
 LICENSE="GPL-2"
@@ -27,7 +27,7 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}
-	!kde-base/kdesdk-kioslaves:4[subversion(+)]
+	!kde-apps/kdesdk-kioslaves:4[subversion(+)]
 "
 
 src_configure() {
