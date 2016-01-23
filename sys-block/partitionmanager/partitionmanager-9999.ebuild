@@ -32,7 +32,7 @@ DEPEND="
 	sys-libs/kpmcore
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools kdesu)
+	$(add_plasma_dep kde-cli-tools kdesu 5.5.2)
 	!sys-block/partitionmanager:0
 "
 
