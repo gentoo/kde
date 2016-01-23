@@ -28,11 +28,8 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	sys-apps/util-linux
 	sys-libs/kpmcore
 "
 RDEPEND="${DEPEND}
-	dev-libs/libatasmart
-	>=sys-block/parted-3
 	!sys-block/partitionmanager:0
 "
