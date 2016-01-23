@@ -30,7 +30,7 @@ DEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	sys-apps/util-linux
-	sys-block/kpmcore
+	sys-libs/kpmcore
 "
 RDEPEND="${DEPEND}
 	dev-libs/libatasmart

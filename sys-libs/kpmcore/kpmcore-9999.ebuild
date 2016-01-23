@@ -29,5 +29,5 @@ DEPEND="${CDEPEND}
 	virtual/pkgconfig
 "
 RDEPEND="${CDEPEND}
-	!sys-block/partitionmanager:0
+	<sys-block/partitionmanager-2.0.0
 "
