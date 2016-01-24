@@ -6,6 +6,7 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="ayatana">Build in support for Ayatana notification using the libindicate-qt plugin.</flag>
+		<flag name="attica">Build Open Collaboration Services plugin using <pkg>dev-libs/libattica</pkg></flag>
+		<flag name="konqueror">Build Konqueror Choqok plugin</flag>
 	</use>
 </pkgmetadata>
