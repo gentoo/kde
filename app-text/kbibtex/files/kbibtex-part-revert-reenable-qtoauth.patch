@@ -1,0 +1,43 @@
+commit 345ef2b7f11da68d9a2fbd92ace3fada85f70140
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Jan 24 13:16:54 2016 +0100
+
+    Partially revert "Re-enabling code for QtOAuth"
+    
+    This partially reverts commit 7b6937326ba2a4e4072692add38a4abd28bd0cd4
+    so that kbibtex is using system-qoauth instead of bundled one.
+
+diff --git a/src/networking/CMakeLists.txt b/src/networking/CMakeLists.txt
+index 4408821..bd80b26 100644
+--- a/src/networking/CMakeLists.txt
++++ b/src/networking/CMakeLists.txt
+@@ -35,8 +35,6 @@ set(
+     internalnetworkaccessmanager.cpp
+     ${CMAKE_SOURCE_DIR}/src/global/kbibtex.cpp
+     logging_networking.cpp
+-    # QOAuth for Qt5 from Git
+-    ../3rdparty/qoauth/src/interface.cpp
+ )
+ 
+ set(
+@@ -79,7 +77,6 @@ if(UNITY_BUILD)
+ endif(UNITY_BUILD)
+ 
+ include_directories(
+-    ${CMAKE_SOURCE_DIR}/src/3rdparty/qoauth/include
+     ${CMAKE_BINARY_DIR}/src/config
+     ${CMAKE_SOURCE_DIR}/src/config
+     ${CMAKE_BINARY_DIR}/src/data
+diff --git a/src/networking/zotero/oauthwizard.cpp b/src/networking/zotero/oauthwizard.cpp
+index 61cf8b7..691fb40 100644
+--- a/src/networking/zotero/oauthwizard.cpp
++++ b/src/networking/zotero/oauthwizard.cpp
+@@ -34,7 +34,7 @@
+ #include "internalnetworkaccessmanager.h"
+ #include "logging_networking.h"
+ 
+-#include <QtOAuth>
++#include <QtOAuth/QtOAuth>
+ 
+ using namespace Zotero;
+ 
