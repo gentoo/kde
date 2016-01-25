@@ -54,17 +54,17 @@ COMMON_DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep plasma-workspace)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
+	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5]
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -89,7 +89,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep oxygen)
-	dev-qt/qtgraphicaleffects:5
+	$(add_qt_dep qtgraphicaleffects)
 	sys-apps/accountsservice
 	x11-apps/setxkbmap
 	legacy-systray? (

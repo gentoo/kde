@@ -21,11 +21,11 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep plasma)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtxml)
 	media-libs/taglib
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
@@ -34,7 +34,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
-	dev-qt/qtmultimedia:5[qml]
+	$(add_qt_dep qtmultimedia 'qml')
 	!media-video/plasma-mediacenter
 "
 

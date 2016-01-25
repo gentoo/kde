@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_TEST="forceoptional"
-QT_MINIMAL="5.5.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5 pam
 
@@ -29,13 +28,13 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kwayland)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	dev-libs/wayland
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/libxcb

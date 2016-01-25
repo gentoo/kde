@@ -17,7 +17,7 @@ DEPEND="
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kwayland)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
