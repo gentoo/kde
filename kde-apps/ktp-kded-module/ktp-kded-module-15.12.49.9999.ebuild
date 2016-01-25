@@ -23,12 +23,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_kdeapps_dep ktp-common-internals)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtwidgets)
 	net-libs/telepathy-qt[qt5]
 "
 DEPEND="

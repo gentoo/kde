@@ -13,6 +13,6 @@ IUSE=""
 
 DEPEND="
 	>=media-libs/libraw-0.16:=
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}"

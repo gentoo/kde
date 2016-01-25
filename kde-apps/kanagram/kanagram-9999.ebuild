@@ -25,13 +25,13 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep libkeduvocdocument)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
-	dev-qt/qtquickcontrols:5
-	dev-qt/qtwebkit:5[qml]
+	$(add_qt_dep qtquickcontrols)
+	$(add_qt_dep qtwebkit 'qml')
 "

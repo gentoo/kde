@@ -37,13 +37,13 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep templateparser)
 	dev-libs/libxslt
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5]
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
-	designer? ( dev-qt/designer:5 )
+	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5

@@ -37,12 +37,12 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep pimcommon)
 	dev-libs/grantlee:5
-	dev-qt/designer:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}

@@ -22,9 +22,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmbox)
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 	ssl? ( dev-libs/cyrus-sasl )
 "
 DEPEND="${COMMON_DEPEND}

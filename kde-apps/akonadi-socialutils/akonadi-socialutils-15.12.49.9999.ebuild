@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
 	$(add_kdeapps_dep libakonadi)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	x11-misc/shared-mime-info
 "
 DEPEND="${COMMON_DEPEND}

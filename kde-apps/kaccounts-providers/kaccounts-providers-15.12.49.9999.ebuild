@@ -20,9 +20,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kpackage)
 	$(add_kdeapps_dep kaccounts-integration)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/intltool

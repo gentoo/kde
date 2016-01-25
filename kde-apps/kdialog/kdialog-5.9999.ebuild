@@ -17,5 +17,5 @@ S=${WORKDIR}/${P}/${PN}
 DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtdbus:5"
+	$(add_qt_dep qtdbus)"
 RDEPEND="${DEPEND}"

@@ -34,15 +34,15 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsql:5[mysql?,postgres?]
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtsql 'mysql?,postgres?')
+	$(add_qt_dep qttest)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
-	designer? ( dev-qt/designer:5 )
+	designer? ( $(add_qt_dep designer) )
 	sqlite? ( dev-db/sqlite:3 )
 	tools? ( xml? ( dev-libs/libxml2 ) )
 "

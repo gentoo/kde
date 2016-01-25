@@ -23,7 +23,7 @@ DEPEND="
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"

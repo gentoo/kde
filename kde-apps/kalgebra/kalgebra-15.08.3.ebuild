@@ -22,13 +22,13 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep analitza opengl?)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 	opengl? (
-		dev-qt/qtopengl:5
-		dev-qt/qtprintsupport:5
+		$(add_qt_dep qtopengl)
+		$(add_qt_dep qtprintsupport)
 		virtual/glu
 	)
 	readline? ( sys-libs/readline:0= )

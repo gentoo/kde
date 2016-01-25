@@ -15,10 +15,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	>=media-libs/opencv-3[contrib]
 "
 RDEPEND="${DEPEND}"

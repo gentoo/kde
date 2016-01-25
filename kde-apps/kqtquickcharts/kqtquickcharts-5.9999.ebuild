@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}"

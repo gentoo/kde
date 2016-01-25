@@ -19,8 +19,8 @@ RESTRICT="test"
 COMMON_DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep kmime)
-	dev-qt/qtgui:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep libakonadi)
