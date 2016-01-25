@@ -7,7 +7,6 @@ EAPI=6
 KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_TEST="true"
-QT_MINIMAL="5.5.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5 multilib qmake-utils
 
@@ -60,16 +59,16 @@ COMMON_DEPEND="
 	$(add_plasma_dep kwin)
 	$(add_plasma_dep libkscreen)
 	$(add_plasma_dep libksysguard)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5[jpeg]
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui 'jpeg')
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
+	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5]
 	sys-libs/zlib
 	x11-libs/libICE
@@ -93,10 +92,10 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep ksysguard)
 	$(add_plasma_dep milou)
-	dev-qt/qdbus:5
-	dev-qt/qtgraphicaleffects:5
-	dev-qt/qtpaths:5
-	dev-qt/qtquickcontrols:5[widgets]
+	$(add_qt_dep qdbus)
+	$(add_qt_dep qtgraphicaleffects)
+	$(add_qt_dep qtpaths)
+	$(add_qt_dep qtquickcontrols 'widgets')
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop

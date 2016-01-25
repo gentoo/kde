@@ -27,10 +27,10 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_plasma_dep kwayland)
-	dev-qt/qtdbus:5
+	$(add_qt_dep qtdbus)
 	dev-qt/qtgui:5=
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}

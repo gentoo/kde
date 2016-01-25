@@ -25,8 +25,8 @@ DEPEND="
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
 	dev-libs/glib:2
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	x11-libs/gtk+:2
 	gtk3? ( x11-libs/gtk+:3 )
 "

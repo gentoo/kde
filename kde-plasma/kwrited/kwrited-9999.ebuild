@@ -16,8 +16,8 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kpty)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
 	!kde-base/kwrited:4

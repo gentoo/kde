@@ -43,12 +43,12 @@ COMMON_DEPEND="
 	$(add_plasma_dep kwayland)
 	>=dev-libs/libinput-0.10
 	>=dev-libs/wayland-1.2
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5[gles2=,opengl(+)]
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui 'gles2=,opengl(+)')
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libepoxy
@@ -68,16 +68,16 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	multimedia? (
 		|| (
-			dev-qt/qtmultimedia:5[gstreamer,qml]
-			dev-qt/qtmultimedia:5[gstreamer010,qml]
+			$(add_qt_dep qtmultimedia 'gstreamer,qml')
+			$(add_qt_dep qtmultimedia 'gstreamer010,qml')
 		)
 	)
 	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/designer:5
-	dev-qt/qtconcurrent:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtconcurrent)
 	x11-proto/xproto
 	test? (	x11-libs/xcb-util-wm )
 "

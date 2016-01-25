@@ -16,7 +16,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="
 	${DEPEND}

@@ -33,19 +33,19 @@ DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	>=app-crypt/qca-2.1.0.3-r1:2[qt5]
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 	>=net-misc/networkmanager-0.9.10.0[teamd=]
 	modemmanager? (
 		$(add_frameworks_dep modemmanager-qt)
-		dev-qt/qtxml:5
+		$(add_qt_dep qtxml)
 		net-misc/mobile-broadband-provider-info
 	)
 	openconnect? (
-		dev-qt/qtxml:5
+		$(add_qt_dep qtxml)
 		net-misc/networkmanager-openconnect
 		net-misc/openconnect:=
 	)

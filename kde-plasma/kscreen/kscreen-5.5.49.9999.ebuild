@@ -22,13 +22,13 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	dev-qt/qtgraphicaleffects:5
+	$(add_qt_dep qtgraphicaleffects)
 	!kde-misc/kscreen
 "

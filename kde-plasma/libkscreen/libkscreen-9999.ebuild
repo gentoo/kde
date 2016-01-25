@@ -14,9 +14,9 @@ IUSE="X"
 
 DEPEND="
 	$(add_plasma_dep kwayland)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtx11extras)
 	X? ( x11-libs/libxcb )
 "
 RDEPEND="${DEPEND}

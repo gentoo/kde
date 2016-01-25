@@ -17,10 +17,10 @@ DEPEND="
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep plasma)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	media-sound/pulseaudio
 "
 

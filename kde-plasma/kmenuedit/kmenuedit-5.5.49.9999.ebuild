@@ -26,10 +26,10 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	hotkeys? ( $(add_plasma_dep khotkeys) )
 "
 RDEPEND="${DEPEND}
