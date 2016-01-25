@@ -26,7 +26,7 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdbus)
-	dev-qt/qtgui:5=
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtwidgets)
 	media-fonts/noto
 	X? (
