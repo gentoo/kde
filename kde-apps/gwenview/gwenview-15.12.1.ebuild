@@ -38,11 +38,11 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtopengl:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=
@@ -55,16 +55,16 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kfilemetadata)
 	)
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/qtconcurrent:5
+	$(add_qt_dep qtconcurrent)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kimageformats)
-	dev-qt/qtimageformats:5
+	$(add_qt_dep qtimageformats)
 "
 
 src_configure() {

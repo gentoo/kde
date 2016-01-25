@@ -20,7 +20,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	dev-libs/libical:=
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	sys-apps/util-linux
 "
 RDEPEND="${DEPEND}"

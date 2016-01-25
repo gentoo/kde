@@ -29,12 +29,12 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtnetwork:5
-	dev-qt/designer:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-qt/qtscript:5[scripttools]
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep designer)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	$(add_qt_dep qtscript 'scripttools')
 	crypt? ( app-crypt/qca:2[qt5] )
 "
 RDEPEND="${DEPEND}"

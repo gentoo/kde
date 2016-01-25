@@ -6,7 +6,6 @@ EAPI=5
 
 KDE_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python2_7 )
-QT_MINIMAL="5.5"
 inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Applications 5 translation tool"
@@ -34,13 +33,13 @@ DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql 'sqlite')
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	>=app-text/hunspell-1.2.8
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5[sqlite]
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 "
 RDEPEND="${DEPEND}
 	dev-python/translate-toolkit[${PYTHON_USEDEP}]

@@ -31,12 +31,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	net-libs/telepathy-logger-qt:5
 	>=net-libs/telepathy-qt-0.9.5[qt5]
 	sso? (
@@ -52,7 +52,7 @@ COMMON_DEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	$(add_frameworks_dep kio)
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtnetwork)
 "
 RDEPEND="
 	${COMMON_DEPEND}

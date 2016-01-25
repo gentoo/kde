@@ -50,12 +50,12 @@ CDEPEND="
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
 	dev-libs/libical:=
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-qt/qtxmlpatterns:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)

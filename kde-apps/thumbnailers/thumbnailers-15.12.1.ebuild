@@ -15,6 +15,6 @@ DEPEND="
 	$(add_kdeapps_dep libkdcraw)
 	$(add_kdeapps_dep libkexiv2)
 	$(add_frameworks_dep kio)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}"

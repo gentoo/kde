@@ -27,9 +27,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkleo)
 	dev-libs/grantlee:5
-	dev-qt/designer:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}

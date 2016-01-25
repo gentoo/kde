@@ -46,11 +46,11 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkdepimdbusinterfaces)
-	dev-qt/designer:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext

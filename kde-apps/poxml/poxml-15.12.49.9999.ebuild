@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtxml:5
+	$(add_qt_dep qtxml)
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}"

@@ -35,11 +35,11 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep threadweaver)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 	media-libs/freetype
 	media-libs/phonon[qt5]
 	sys-libs/zlib

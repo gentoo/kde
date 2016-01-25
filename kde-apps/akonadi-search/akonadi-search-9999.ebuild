@@ -26,9 +26,9 @@ RDEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	>=dev-libs/xapian-1.3:=[chert]
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost

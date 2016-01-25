@@ -36,18 +36,18 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	addons? (
 		$(add_frameworks_dep kbookmarks)
 		$(add_frameworks_dep knewstuff)
 		$(add_frameworks_dep kwallet)
 		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
-		dev-qt/qtsql:5
+		$(add_qt_dep qtsql)
 		>=dev-libs/libgit2-0.22.0:=
 	)
 "

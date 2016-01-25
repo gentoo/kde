@@ -19,8 +19,8 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep knewstuff)
 	$(add_kdeapps_dep libakonadi)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext

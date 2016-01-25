@@ -17,13 +17,13 @@ IUSE="+mysql postgres sqlite test"
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 
 CDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsql:5[mysql?,postgres?]
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtsql 'mysql?,postgres?')
+	$(add_qt_dep qttest)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
 	sqlite? ( dev-db/sqlite:3 )
 "

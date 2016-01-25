@@ -21,11 +21,11 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktextwidgets)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	kde-apps/libkexiv2:5=
 	kde-apps/marble:5=[kde]
 "

@@ -26,14 +26,14 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmime)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
-	designer? ( dev-qt/designer:5 )
+	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5

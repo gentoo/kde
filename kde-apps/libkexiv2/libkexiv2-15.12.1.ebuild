@@ -12,7 +12,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="+xmp"
 
 DEPEND="
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	>=media-gfx/exiv2-0.25:=[xmp=]
 "
 RDEPEND="${DEPEND}"

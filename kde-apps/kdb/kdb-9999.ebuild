@@ -16,9 +16,9 @@ IUSE="mysql postgres sqlite"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	dev-libs/icu:=
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite:3 )

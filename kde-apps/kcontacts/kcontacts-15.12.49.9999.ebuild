@@ -19,8 +19,8 @@ RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
 "
 DEPEND="${RDEPEND}"
 

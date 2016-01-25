@@ -37,9 +37,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep libkdepim)
 	dev-libs/libical
-	dev-qt/designer:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
