@@ -13,11 +13,11 @@ KEYWORDS=""
 IUSE="nls X"
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	X? ( dev-qt/qtx11extras:5 )
+	$(add_qt_dep qtdbus)
+	X? ( $(add_qt_dep qtx11extras) )
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {

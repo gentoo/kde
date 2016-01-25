@@ -13,12 +13,12 @@ KEYWORDS=""
 IUSE="nls"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtconcurrent:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 
 # bug 560086

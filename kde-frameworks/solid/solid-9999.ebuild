@@ -13,16 +13,16 @@ KEYWORDS=""
 IUSE="nls"
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	sys-fs/udisks:2
 	virtual/udev
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtconcurrent:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 pkg_postinst() {
 	kde5_pkg_postinst

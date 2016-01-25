@@ -33,12 +33,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5[ssl]
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork 'ssl')
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	dev-libs/libxml2
 	dev-libs/libxslt
 	acl? (
@@ -47,10 +47,10 @@ COMMON_DEPEND="
 	)
 	kerberos? ( virtual/krb5 )
 	kwallet? ( $(add_frameworks_dep kwallet) )
-	X? ( dev-qt/qtx11extras:5 )
+	X? ( $(add_qt_dep qtx11extras) )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/qtconcurrent:5
+	$(add_qt_dep qtconcurrent)
 	handbook? ( $(add_frameworks_dep kdoctools) )
 	test? ( sys-libs/zlib )
 	X? (

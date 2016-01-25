@@ -12,13 +12,13 @@ KEYWORDS=""
 IUSE="fam nls"
 
 RDEPEND="
-	dev-qt/qtcore:5[icu]
+	$(add_qt_dep qtcore 'icu')
 	fam? ( virtual/fam )
 	!<kde-frameworks/kservice-5.2.0:5
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {

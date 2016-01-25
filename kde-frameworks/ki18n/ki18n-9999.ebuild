@@ -12,10 +12,10 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtscript:5
+	$(add_qt_dep qtscript)
 	sys-devel/gettext
 	virtual/libintl
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qtconcurrent:5 )
+	test? ( $(add_qt_dep qtconcurrent) )
 "

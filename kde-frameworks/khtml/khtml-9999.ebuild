@@ -34,26 +34,26 @@ RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5[ssl]
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork 'ssl')
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	sys-libs/zlib
 	virtual/jpeg:0
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
 DEPEND="${RDEPEND}
 	dev-lang/perl
 	dev-libs/openssl:0
-	test? ( dev-qt/qtx11extras:5 )
+	test? ( $(add_qt_dep qtx11extras) )
 	X? ( x11-proto/xproto )
 "
 

@@ -24,7 +24,7 @@ DEPEND="
 	)
 "
 RDEPEND="
-	dev-qt/qtcore:5
+	$(add_qt_dep qtcore)
 "
 
 python_check_deps() {

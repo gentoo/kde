@@ -13,8 +13,8 @@ KEYWORDS=""
 IUSE="eps openexr"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	eps? ( dev-qt/qtprintsupport:5 )
+	$(add_qt_dep qtgui)
+	eps? ( $(add_qt_dep qtprintsupport) )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr:=

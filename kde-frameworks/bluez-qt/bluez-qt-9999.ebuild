@@ -12,9 +12,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtnetwork)
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/bluez-qt
