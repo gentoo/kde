@@ -14,13 +14,13 @@ IUSE="nls +policykit"
 
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	policykit? ( || ( $(add_frameworks_dep polkit-qt) sys-auth/polkit-qt[qt5] ) )
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
 

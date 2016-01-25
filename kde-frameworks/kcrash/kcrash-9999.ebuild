@@ -18,15 +18,15 @@ RESTRICT="test"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtwidgets:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtwidgets) )
 	X? ( x11-proto/xproto )
 "
 

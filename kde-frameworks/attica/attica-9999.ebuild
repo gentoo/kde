@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtnetwork)
 "
 DEPEND="${RDEPEND}"

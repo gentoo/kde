@@ -22,9 +22,9 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	dev-libs/libgcrypt:0=
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	gpg? (
 		$(add_kdeapps_dep gpgmepp)
 		app-crypt/gpgme

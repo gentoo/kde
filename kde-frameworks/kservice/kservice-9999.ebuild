@@ -17,12 +17,12 @@ RDEPEND="
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
-	dev-qt/qtdbus:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
 	man? ( $(add_frameworks_dep kdoctools) )
-	test? ( dev-qt/qtconcurrent:5 )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 
 # requires running kde environment

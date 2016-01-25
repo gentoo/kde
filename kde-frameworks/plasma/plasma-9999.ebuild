@@ -30,26 +30,26 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5[gles2=]
-	dev-qt/qtquickcontrols:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui 'gles2=')
+	$(add_qt_dep qtquickcontrols)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	egl? ( media-libs/mesa[egl] )
 	!gles2? ( virtual/opengl )
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 		x11-libs/libxcb
 	)
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
-	dev-qt/qtquick1:5
+	$(add_qt_dep qtquick1)
 	X? ( x11-proto/xproto )
 "
 RDEPEND="${COMMON_DEPEND}

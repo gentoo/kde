@@ -12,13 +12,13 @@ KEYWORDS=""
 IUSE="aspell +hunspell nls"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	aspell? ( app-text/aspell )
 	hunspell? ( app-text/hunspell )
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {

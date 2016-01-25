@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtxml)
 	net-misc/modemmanager
 	!kde-plasma/libmm-qt
 "
