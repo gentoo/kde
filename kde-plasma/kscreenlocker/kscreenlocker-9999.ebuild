@@ -20,7 +20,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kidletime)
@@ -28,6 +27,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep solid)
 	$(add_plasma_dep kwayland)
 	dev-libs/wayland
 	dev-qt/qtdbus:5
