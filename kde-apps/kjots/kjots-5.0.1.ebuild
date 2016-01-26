@@ -8,8 +8,9 @@ inherit kde5
 
 DESCRIPTION="KDE note taking utility"
 HOMEPAGE="https://www.kde.org/applications/utilities/kjots/"
+SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -40,3 +41,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
+
+PATCHES=( "${FILESDIR}/${P}-fix-startup.patch" )
