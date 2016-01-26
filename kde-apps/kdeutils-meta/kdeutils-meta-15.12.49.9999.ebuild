@@ -18,6 +18,7 @@ RDEPEND="
 	$(add_kdeapps_dep filelight)
 	$(add_kdeapps_dep kcalc)
 	$(add_kdeapps_dep kcharselect)
+	$(add_kdeapps_dep kdebugsettings)
 	$(add_kdeapps_dep kdf)
 	$(add_kdeapps_dep kteatime)
 	$(add_kdeapps_dep ktimer)
