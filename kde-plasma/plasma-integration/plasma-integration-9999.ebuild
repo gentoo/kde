@@ -5,7 +5,6 @@
 EAPI=6
 
 FRAMEWORKS_MINIMAL="5.17.0"
-QT_MINIMAL="5.5.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -28,7 +27,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_plasma_dep kwayland)
 	$(add_qt_dep qtdbus)
-	dev-qt/qtgui:5=
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libXcursor
