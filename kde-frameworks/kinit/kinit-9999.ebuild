@@ -23,6 +23,7 @@ RDEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
 	x11-libs/libX11
+	x11-libs/libxcb
 	caps? ( sys-libs/libcap )
 "
 DEPEND="${RDEPEND}
