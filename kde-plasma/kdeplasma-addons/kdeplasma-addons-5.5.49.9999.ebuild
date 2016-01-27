@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -57,7 +57,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package ibus IBus)
-		$(cmake-utils_use_find_package scim)
+		$(cmake-utils_use_find_package scim SCIM)
 	)
 
 	kde5_src_configure

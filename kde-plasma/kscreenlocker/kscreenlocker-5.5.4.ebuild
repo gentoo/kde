@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="forceoptional"
 QT_MINIMAL="5.5.0"
@@ -72,7 +72,7 @@ src_test() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package pam)
+		$(cmake-utils_use_find_package pam PAM)
 	)
 	kde5_src_configure
 }

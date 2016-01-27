@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 FRAMEWORKS_MINIMAL="5.17.0"
 QT_MINIMAL="5.5.0"
