@@ -8,9 +8,10 @@ inherit kde5
 
 DESCRIPTION="KDE image scanning application"
 HOMEPAGE="http://www.kde.org/applications/graphics/skanlite/"
+SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
