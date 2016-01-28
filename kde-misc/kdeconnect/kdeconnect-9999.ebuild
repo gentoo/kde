@@ -28,13 +28,13 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	>=app-crypt/qca-2.1.0:2[qt5,openssl]
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
 	x11-libs/libfakekey
 	x11-libs/libX11
 	x11-libs/libXtst
