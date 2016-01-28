@@ -4,7 +4,6 @@
 
 EAPI=5
 
-KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="forceoptional"
 QT_MINIMAL="5.5.1"
 inherit kde5
