@@ -40,19 +40,19 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5]
 	dev-libs/grantlee:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 	activities? ( $(add_frameworks_dep kactivities) )
 	crypt? ( dev-db/sqlcipher )
 	!crypt? ( dev-db/sqlite:3 )
@@ -63,8 +63,8 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_qt_dep designer)
 	dev-libs/libxslt
-	dev-qt/designer:5
 	virtual/pkgconfig
 	x11-misc/shared-mime-info
 "
