@@ -19,7 +19,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtwidgets)
 	media-gfx/synnefo[qt5]
 	=media-libs/oyranos-9999
 	media-libs/libXcm

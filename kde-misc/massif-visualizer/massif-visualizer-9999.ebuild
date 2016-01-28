@@ -26,13 +26,13 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep kdiagram)
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/qtxmlpatterns:5
+	$(add_qt_dep qtxmlpatterns)
 	x11-misc/shared-mime-info
 "
 RDEPEND="${COMMON_DEPEND}"

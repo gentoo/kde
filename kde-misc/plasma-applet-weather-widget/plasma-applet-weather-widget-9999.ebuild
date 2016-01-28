@@ -21,7 +21,7 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep plasma)
-	dev-qt/qtdeclarative:5
+	$(add_qt_dep qtdeclarative)
 "
 RDEPEND="${DEPEND}"
 
