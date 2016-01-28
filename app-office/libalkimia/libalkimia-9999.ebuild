@@ -17,15 +17,15 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	$(add_qt_dep qtdbus)
 	dev-libs/gmp[cxx]
-	dev-qt/qtdbus:5
 "
 DEPEND="${RDEPEND}
 	!app-office/libalkimia:4
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtxml)
 	virtual/pkgconfig
 "

@@ -50,21 +50,21 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdiagram)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep libakonadi)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	app-office/libalkimia:5
 	dev-libs/gmp:0
 	dev-libs/libgpg-error
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )
 	crypt? ( $(add_kdeapps_dep gpgmepp) )

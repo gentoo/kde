@@ -33,12 +33,12 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kdb 'mysql?,postgres?,sqlite?')
 	$(add_kdeapps_dep kproperty)
 	$(add_kdeapps_dep kreport)
-	dev-qt/designer:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	activities? ( $(add_frameworks_dep kactivities) )
 	marble? ( $(add_kdeapps_dep marble) )
 	mdb? ( dev-libs/glib:2 )
@@ -48,7 +48,7 @@ COMMON_DEPEND="
 		dev-libs/libpqxx
 	)
 	sybase? ( dev-db/freetds )
-	webform? ( dev-qt/qtwebkit:5 )
+	webform? ( $(add_qt_dep qtwebkit) )
 	xbase? ( dev-db/xbase )
 "
 DEPEND="${COMMON_DEPEND}
