@@ -35,9 +35,3 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools kdesu 5.5.2)
 	!sys-block/partitionmanager:0
 "
-
-src_prepare() {
-	kde5_src_prepare
-
-	sed -i -e 's/"kdesu"/"kdesu5"/' src/util/guihelpers.cpp || die
-}
