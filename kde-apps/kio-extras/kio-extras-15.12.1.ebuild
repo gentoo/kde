@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit fdo-mime kde5
+inherit kde5
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
@@ -70,14 +70,4 @@ src_configure() {
 	)
 
 	kde5_src_configure
-}
-
-pkg_postinst() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
-}
-
-pkg_postrm() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
 }
