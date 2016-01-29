@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit fdo-mime kde5
+inherit kde5
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/bluedevil"
@@ -40,13 +40,3 @@ RDEPEND="${COMMON_DEPEND}
 	!net-wireless/bluedevil
 	!net-wireless/kbluetooth
 "
-
-pkg_postinst() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
-}
-
-pkg_postrm() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
-}
