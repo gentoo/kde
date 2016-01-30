@@ -54,7 +54,7 @@ COMMON_DEPEND="
 	media-libs/liblqr
 	>=media-libs/libpgf-6.12.27
 	media-libs/libpng:0=
-	>=media-libs/opencv-3.0.0
+	>=media-libs/opencv-3.0.0:=
 	media-libs/tiff:0
 	virtual/jpeg:0
 	addressbook? (
