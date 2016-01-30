@@ -33,5 +33,5 @@ RDEPEND="
 	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
 "
 DEPEND="${RDEPEND}
-	|| ( >=dev-libs/boost-1.54 <dev-libs/boost-1.53 )
+	>=dev-libs/boost-1.54
 "
