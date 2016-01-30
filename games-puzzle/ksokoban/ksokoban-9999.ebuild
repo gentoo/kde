@@ -28,21 +28,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!games-puzzle/ksokoban:0
 "
-
-src_prepare() {
-	sed -i \
-		-e "/Exec/ s/%i.*//" \
-		"data/${PN}.desktop" || die "sed for desktop file failed"
-
-	kde5_src_prepare
-}
-
-# source lacks install target
-src_install() {
-	dobin "${BUILD_DIR}"/ksokoban
-	dodoc AUTHORS NEWS TODO
-	domenu "data/${PN}.desktop"
-	for i in 16 22 32 48 64 128; do
-		doicon -s "${i}" "data/hi${i}-app-${PN}.png"
-	done
-}
