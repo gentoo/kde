@@ -19,7 +19,7 @@ DEPEND="
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=media-libs/opencv-3[contrib]
+	>=media-libs/opencv-3:=[contrib]
 "
 RDEPEND="${DEPEND}"
 
