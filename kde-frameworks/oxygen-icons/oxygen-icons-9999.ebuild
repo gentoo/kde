@@ -18,6 +18,6 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
-	test? ( dev-qt/qttest:5 )
+	test? ( $(add_qt_dep qttest) )
 "
 RDEPEND="!kde-frameworks/oxygen-icons:4"

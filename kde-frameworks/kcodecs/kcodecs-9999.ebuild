@@ -11,4 +11,4 @@ LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
-DEPEND="nls? ( dev-qt/linguist-tools:5 )"
+DEPEND="nls? ( $(add_qt_dep linguist-tools) )"

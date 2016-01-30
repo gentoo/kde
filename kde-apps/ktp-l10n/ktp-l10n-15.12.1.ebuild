@@ -12,7 +12,7 @@ HOMEPAGE="http://l10n.kde.org"
 
 DEPEND="
 	$(add_frameworks_dep ki18n)
-	dev-qt/linguist-tools:5
+	$(add_qt_dep linguist-tools)
 	sys-devel/gettext
 "
 RDEPEND="

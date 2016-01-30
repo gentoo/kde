@@ -20,6 +20,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep kmime)
 	dev-libs/cyrus-sasl
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}"

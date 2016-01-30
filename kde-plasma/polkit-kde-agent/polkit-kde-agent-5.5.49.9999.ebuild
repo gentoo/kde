@@ -21,9 +21,9 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	|| ( $(add_frameworks_dep polkit-qt) >=sys-auth/polkit-qt-0.112.0[qt5] )
 "
 RDEPEND="${DEPEND}

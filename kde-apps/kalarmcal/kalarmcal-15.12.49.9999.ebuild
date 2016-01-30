@@ -17,7 +17,7 @@ RDEPEND="
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep libakonadi)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

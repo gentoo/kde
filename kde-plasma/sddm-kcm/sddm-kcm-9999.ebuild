@@ -20,10 +20,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libX11
 	x11-libs/libXcursor
 "

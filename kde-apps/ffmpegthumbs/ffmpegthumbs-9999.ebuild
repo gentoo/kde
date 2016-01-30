@@ -12,7 +12,7 @@ IUSE="libav"
 
 RDEPEND="
 	$(add_frameworks_dep kio)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	libav? ( media-video/libav:= )
 	!libav? ( media-video/ffmpeg:= )
 "

@@ -15,7 +15,7 @@ IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtdeclarative:5
+	$(add_qt_dep qtdeclarative)
 "
 DEPEND="
 	${COMMON_DEPEND}

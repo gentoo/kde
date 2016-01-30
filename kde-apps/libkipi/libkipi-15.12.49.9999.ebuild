@@ -17,9 +17,9 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 "
 
 RDEPEND="${DEPEND}

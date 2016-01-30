@@ -13,8 +13,8 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}

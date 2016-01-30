@@ -32,9 +32,9 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	>=app-arch/libarchive-3.0.0[bzip2?,lzma?,zlib?]
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

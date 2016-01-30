@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND="
 	>=dev-libs/wayland-1.7.0
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	media-libs/mesa[egl]
 "
 RDEPEND="${DEPEND}"

@@ -21,12 +21,12 @@ RDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
-	dev-qt/designer:5
+	$(add_qt_dep designer)
 "

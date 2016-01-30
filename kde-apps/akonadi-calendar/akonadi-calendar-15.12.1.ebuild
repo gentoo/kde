@@ -36,9 +36,9 @@ RDEPEND="
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${RDEPEND}"
 

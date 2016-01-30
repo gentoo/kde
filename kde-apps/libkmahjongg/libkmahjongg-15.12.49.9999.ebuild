@@ -19,9 +19,9 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 "
 
 RDEPEND="${DEPEND}"

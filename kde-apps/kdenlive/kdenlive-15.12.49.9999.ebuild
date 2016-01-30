@@ -38,14 +38,14 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5[gles2=]
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui 'gles2=')
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	>=media-libs/mlt-0.9.8-r1[ffmpeg,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl

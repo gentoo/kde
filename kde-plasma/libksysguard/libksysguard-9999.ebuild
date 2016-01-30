@@ -22,14 +22,14 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 	sys-libs/zlib
-	detailedmemory? ( dev-qt/qtwebkit:5 )
+	detailedmemory? ( $(add_qt_dep qtwebkit) )
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 		x11-libs/libXres
 	)

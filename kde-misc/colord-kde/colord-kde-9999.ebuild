@@ -29,9 +29,9 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
 	media-libs/lcms:2
-	dev-qt/qtdbus:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libxcb
 	x11-libs/libX11
 "

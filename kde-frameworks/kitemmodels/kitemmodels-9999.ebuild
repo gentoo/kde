@@ -12,4 +12,4 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="test? ( dev-qt/qtwidgets:5 )"
+DEPEND="test? ( $(add_qt_dep qtwidgets) )"

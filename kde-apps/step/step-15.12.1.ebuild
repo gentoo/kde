@@ -31,13 +31,13 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	=dev-cpp/eigen-3.2*:3
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtopengl:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	sci-libs/cln
 	gsl? ( >=sci-libs/gsl-1.9-r1 )
 	qalculate? ( >=sci-libs/libqalculate-0.9.5 )

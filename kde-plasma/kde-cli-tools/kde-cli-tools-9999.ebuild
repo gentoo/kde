@@ -26,14 +26,14 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 	kdesu? ( $(add_frameworks_dep kdesu) )
 	X? (
 		$(add_frameworks_dep kdelibs4support)
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "

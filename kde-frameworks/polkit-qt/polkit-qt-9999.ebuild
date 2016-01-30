@@ -16,12 +16,12 @@ IUSE="examples"
 
 DEPEND="
 	dev-libs/glib:2
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtcore)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	>=sys-auth/polkit-0.103
-	examples? ( dev-qt/qtxml:5 )
+	examples? ( $(add_qt_dep qtxml) )
 "
 RDEPEND="${DEPEND}
 	!sys-auth/polkit-qt[qt5]

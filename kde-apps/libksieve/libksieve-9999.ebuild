@@ -24,11 +24,11 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
-	dev-qt/designer:5
-	dev-qt/qtgui:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext

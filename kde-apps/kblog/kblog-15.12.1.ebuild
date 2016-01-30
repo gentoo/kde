@@ -21,6 +21,6 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kxmlrpcclient)
-	dev-qt/qtxml:5
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}"

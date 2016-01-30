@@ -19,14 +19,14 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep kcontacts)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtxml)
 	net-libs/accounts-qt
 	net-libs/signond
 	google? (
-		dev-qt/qtwebkit:5
+		$(add_qt_dep qtwebkit)
 		net-libs/libkgapi:5
 	)
 "

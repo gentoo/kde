@@ -29,15 +29,15 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kxmlgui)
 	dev-libs/grantlee:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtscript:5[scripttools]
-	dev-qt/qtsvg:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-qt/qtxmlpatterns:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtscript 'scripttools')
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.49

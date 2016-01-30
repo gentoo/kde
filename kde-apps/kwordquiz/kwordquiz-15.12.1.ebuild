@@ -29,8 +29,8 @@ DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkeduvocdocument)
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5]
 "
 RDEPEND=${DEPEND}

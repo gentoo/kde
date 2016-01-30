@@ -17,12 +17,12 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kio)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kasync)
 	$(add_kdeapps_dep kcalcore)
-	|| ( $(add_kdeapps_dep kdepimlibs) $(add_kdeapps_dep libakonadi) )
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
 	dev-libs/libxslt
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
 "
 RDEPEND="${DEPEND}"

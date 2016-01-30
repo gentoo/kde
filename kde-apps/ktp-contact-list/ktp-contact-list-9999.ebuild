@@ -28,9 +28,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep ktp-common-internals)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	net-libs/telepathy-qt[qt5]
 "
 DEPEND="
@@ -38,7 +38,7 @@ DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifyconfig)
-	dev-qt/qtxml:5
+	$(add_qt_dep qtxml)
 "
 RDEPEND="
 	${COMMON_DEPEND}

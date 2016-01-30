@@ -20,9 +20,9 @@ RDEPEND="
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	!<kde-frameworks/kdelibs4support-5.3.0:5
 "
 DEPEND="${RDEPEND}

@@ -18,19 +18,19 @@ IUSE="aprs designer-plugin gps +kde phonon shapefile zip"
 # libwlocate, WLAN-based geolocation
 # qextserialport, interface to old fashioned serial ports
 RDEPEND="
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtopengl:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	gps? ( >=sci-geosciences/gpsd-2.95 )
 	kde? (
 		$(add_frameworks_dep kconfig)

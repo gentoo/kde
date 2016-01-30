@@ -28,9 +28,9 @@ RDEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep sonnet)
 	dev-python/PyQt5[${PYTHON_USEDEP},gui,widgets]
 	>=dev-python/sip-4.16.2:=[${PYTHON_USEDEP}]
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 
 DEPEND="${RDEPEND}

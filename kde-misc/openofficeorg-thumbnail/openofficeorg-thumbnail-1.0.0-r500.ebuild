@@ -19,7 +19,7 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kio)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}"
 

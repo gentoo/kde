@@ -18,8 +18,9 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libX11
 	x11-libs/libXxf86vm
 "

@@ -13,10 +13,10 @@ KEYWORDS=""
 IUSE="nls X"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 		x11-libs/libXfixes
 		x11-libs/libxcb
@@ -24,7 +24,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 	X? ( x11-proto/xproto )
 "
 
