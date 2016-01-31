@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -21,12 +21,12 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktextwidgets)
+	$(add_kdeapps_dep libkexiv2 '' '' '5=')
+	$(add_kdeapps_dep marble 'kde' '' '5=')
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	kde-apps/libkexiv2:5=
-	kde-apps/marble:5=[kde]
 "
 RDEPEND="${DEPEND}"
