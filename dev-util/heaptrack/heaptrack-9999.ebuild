@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_AUTODEPS="false"
 KDE_TEST="forceoptional"
@@ -30,9 +30,9 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kitemmodels)
 		$(add_frameworks_dep threadweaver)
 		$(add_kdeapps_dep kdiagram)
-		>=dev-qt/qtcore-${QT_MINIMAL}:5
-		>=dev-qt/qtgui-${QT_MINIMAL}:5
-		>=dev-qt/qtwidgets-${QT_MINIMAL}:5
+		$(add_qt_dep qtcore)
+		$(add_qt_dep qtgui)
+		$(add_qt_dep qtwidgets)
 	)
 "
 DEPEND="${COMMON_DEPEND}
@@ -44,7 +44,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package qt5)
+		$(cmake-utils_use_find_package qt5 Qt5)
 		$(cmake-utils_use_find_package qt5 ECM)
 		$(cmake-utils_use_find_package qt5 KChart)
 	)
