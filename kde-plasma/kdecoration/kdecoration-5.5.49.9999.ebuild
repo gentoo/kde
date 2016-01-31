@@ -13,5 +13,5 @@ LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-qt/qtgui:5"
+DEPEND="$(add_qt_dep qtgui)"
 RDEPEND="${DEPEND}"
