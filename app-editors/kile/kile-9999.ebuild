@@ -33,10 +33,10 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep okular)
-	dev-qt/qtdbus:5
-	dev-qt/qtscript:5
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qttest)
+	$(add_qt_dep qtwidgets)
 "
 
 RDEPEND="${DEPEND}

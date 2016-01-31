@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	media-gfx/qrencode
 	media-libs/libdmtx
 "

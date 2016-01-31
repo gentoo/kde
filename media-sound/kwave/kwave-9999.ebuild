@@ -34,9 +34,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	media-libs/audiofile:=
 	>=sci-libs/fftw-3
 	media-libs/libsamplerate
@@ -47,7 +47,7 @@ COMMON_DEPEND="
 		media-libs/libmad
 		|| ( media-sound/lame media-sound/twolame media-sound/toolame )
 	)
-	qtmedia? ( dev-qt/qtmultimedia:5 )
+	qtmedia? ( $(add_qt_dep qtmultimedia) )
 	opus? (
 		media-libs/libogg
 		media-libs/opus

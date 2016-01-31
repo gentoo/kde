@@ -38,11 +38,11 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext

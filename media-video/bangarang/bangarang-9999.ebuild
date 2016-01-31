@@ -21,8 +21,8 @@ RDEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep solid)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5]
 	media-libs/taglib
 	!media-video/bangarang:4

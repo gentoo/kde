@@ -22,7 +22,7 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtnetwork)
 "
 RDEPEND="${DEPEND}
 	!net-libs/libmediawiki:4

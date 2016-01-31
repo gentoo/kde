@@ -32,12 +32,12 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep threadweaver)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 	>=dev-util/kdevplatform-${PV}:5
 	cxx? ( clang? ( >=sys-devel/clang-3.5.0 ) )
 	plasma? (
@@ -45,7 +45,7 @@ DEPEND="
 		$(add_frameworks_dep plasma)
 	)
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
-	qthelp? ( dev-qt/qthelp:5 )
+	qthelp? ( $(add_qt_dep qthelp) )
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kapptemplate)

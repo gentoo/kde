@@ -14,9 +14,9 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtx11extras:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtx11extras)
 	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image

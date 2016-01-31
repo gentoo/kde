@@ -48,13 +48,13 @@ COMMON_DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep threadweaver)
 	$(add_kdeapps_dep libkomparediff2)
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	subversion? (
 		dev-libs/apr:1
 		dev-libs/apr-util:1
@@ -64,8 +64,8 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	dev-qt/qtconcurrent:5
-	dev-qt/qttest:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qttest)
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )

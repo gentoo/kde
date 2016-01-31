@@ -30,19 +30,19 @@ COMMON_DEPEND="
 	dev-cpp/eigen:3
 	dev-lang/perl
 	dev-libs/boost
-	dev-qt/designer:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtopengl:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtxml:5
+	$(add_qt_dep designer)
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
+	$(add_qt_dep qtxml)
 	media-gfx/exiv2:=
 	media-libs/lcms
 	sys-libs/zlib
@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	tiff? ( media-libs/tiff:0 )
 	vc? ( dev-libs/vc )
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 		x11-libs/libxcb
 	)

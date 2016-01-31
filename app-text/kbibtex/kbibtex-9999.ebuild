@@ -40,12 +40,12 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-libs/qoauth:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	virtual/tex-base
 "
 RDEPEND="${DEPEND}

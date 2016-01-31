@@ -47,14 +47,14 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dev-qt/qtxmlpatterns:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 	kde-apps/libkipi:5=
 	calendar? ( $(add_kdeapps_dep kcalcore) )
 	flashexport? ( $(add_frameworks_dep karchive) )
@@ -62,7 +62,7 @@ COMMON_DEPEND="
 	panorama? ( $(add_frameworks_dep threadweaver) )
 	phonon? ( media-libs/phonon[qt5] )
 	viewers? (
-		dev-qt/qtopengl:5
+		$(add_qt_dep qtopengl)
 		x11-libs/libX11
 		x11-libs/libXrandr
 		virtual/opengl

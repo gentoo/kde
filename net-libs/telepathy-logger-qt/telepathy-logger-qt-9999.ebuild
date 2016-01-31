@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/dbus-glib
 	dev-libs/glib:2
 	dev-libs/libxml2
-	dev-qt/qtdbus:5
+	$(add_qt_dep qtdbus)
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
 	net-libs/telepathy-qt[qt5]

@@ -33,11 +33,11 @@ DEPEND="
 	$(add_plasma_dep libksysguard)
 	dev-libs/libnl:3
 	sys-apps/net-tools
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtsql:5[sqlite]
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsql 'sqlite')
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	wifi? ( net-wireless/wireless-tools )
 "
 RDEPEND="${DEPEND}

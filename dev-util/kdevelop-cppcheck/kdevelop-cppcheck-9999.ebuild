@@ -22,9 +22,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep threadweaver)
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 	dev-util/kdevplatform:5
 "
 DEPEND="${COMMON_DEPEND}

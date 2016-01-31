@@ -20,8 +20,8 @@ CDEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
 	dev-libs/libatasmart
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	sys-apps/util-linux
 	>=sys-block/parted-3
 "

@@ -35,13 +35,13 @@ DEPEND="
 	app-crypt/qca[qt5]
 	dev-libs/qjson
 	dev-libs/qoauth:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	net-libs/telepathy-qt[qt5]
 	attica? ( dev-libs/libattica )
 	konqueror? (

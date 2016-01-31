@@ -39,15 +39,15 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkexiv2)
 	dev-libs/boost[threads]
 	dev-libs/expat
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5[mysql]
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtsql 'mysql')
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	>=media-gfx/exiv2-0.24:=
 	media-libs/jasper
 	media-libs/lcms:2
@@ -74,7 +74,7 @@ COMMON_DEPEND="
 	mysql? ( virtual/mysql )
 	video? ( dev-qt/qtmultimedia[widgets] )
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
