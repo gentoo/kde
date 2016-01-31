@@ -6,7 +6,7 @@
 # TODO: complete packaging of qtsoap and qtkoauth
 #
 
-EAPI=5
+EAPI=6
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KDE_HANDBOOK=true
@@ -47,6 +47,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkipi '' '' '5=')
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
@@ -55,7 +56,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
-	kde-apps/libkipi:5=
 	calendar? ( $(add_kdeapps_dep kcalcore) )
 	flashexport? ( $(add_frameworks_dep karchive) )
 	mediawiki? ( net-libs/libmediawiki:5 )
