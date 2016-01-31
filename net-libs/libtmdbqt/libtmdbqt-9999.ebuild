@@ -7,7 +7,7 @@ EAPI=5
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Qt library to query the novie database API (themoviedb.org)"
+DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
 HOMEPAGE="https://projects.kde.org/projects/playground/network/libtmdbqt"
 
 LICENSE="LGPL-2.1"
