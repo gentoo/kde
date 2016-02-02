@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_TESTS=true
+KDE_TEST=true
 VIRTUALDBUS_TEST=true
 inherit kde5
 
@@ -12,7 +12,7 @@ DESCRIPTION="Storage service for PIM data"
 HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS=" ~amd64 ~x86"
 LICENSE="LGPL-2.1"
-IUSE="+mysql postgres sqlite test"
+IUSE="+mysql postgres sqlite"
 
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 
@@ -21,7 +21,6 @@ CDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtsql 'mysql?,postgres?')
-	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
