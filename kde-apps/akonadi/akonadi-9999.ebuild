@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOXYGEN=true
-KDE_TESTS=true
+KDE_TEST=true
 VIRTUALDBUS_TEST=true
 VIRTUALX_REQUIRED=test
 inherit kde5
@@ -14,7 +14,7 @@ DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="designer +mysql postgres sqlite test tools xml"
+IUSE="designer +mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( sqlite mysql postgres ) test? ( tools )"
 
@@ -38,7 +38,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtsql 'mysql?,postgres?')
-	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
@@ -62,11 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-15.12-mysql56-crash.patch"
-	"${FILESDIR}/${PN}-libxml2-optional.patch"
-	"${FILESDIR}/${PN}-tools-optional.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-15.12-mysql56-crash.patch" )
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -104,7 +99,6 @@ src_configure() {
 		$(cmake-utils_use_find_package designer Qt5Designer)
 		$(cmake-utils_use_find_package xml LibXml2)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
-		-DBUILD_TESTING=$(usex test)
 		-DBUILD_TOOLS=$(usex tools)
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 	)
