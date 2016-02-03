@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="true"
 inherit kde5
@@ -20,7 +20,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -55,13 +54,13 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep pimcommon)
-	dev-libs/grantlee:5
 	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
+	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
