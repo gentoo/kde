@@ -294,7 +294,8 @@ add_kdeapps_dep() {
 		ver=${KDE_MINIMAL}
 	# if building kde-apps, live master or stable-live branch,
 	# use the final SC version since there are no further general releases.
-	elif [[ ${CATEGORY} == kde-apps || ${PV} == *9999 ]]; then
+	# except when it is kdepim split packages, which rely on same-version deps
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == *9999 ]] && [[ ${KMNAME} != "kdepim" ]]; then
 		ver=4.14.3
 	else
 		ver=${PV}
