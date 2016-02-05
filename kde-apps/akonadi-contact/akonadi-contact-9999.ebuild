@@ -2,10 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_TEST=true
-KMNAME=kdepimlibs
+FRAMEWORKS_MINIMAL="5.19.0"
+KDE_TEST="forceoptional"
+KMNAME="kdepimlibs"
+QT_MINIMAL="5.5.0"
 inherit kde5
 
 DESCRIPTION="Library for akonadi contact integration"
@@ -38,8 +40,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
-	media-libs/phonon[qt5]
+	dev-libs/grantlee:5
 	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -47,7 +50,8 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.12.50
-	!kde-apps/kdepimlibs
+	!kde-apps/kdepimlibs:4
+	!kde-apps/kdepimlibs:5
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
@@ -57,7 +61,6 @@ fi
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package prison KF5Prison)
-		$(cmake-utils_use_build test TESTING)
 	)
 	kde5_src_configure
 }
