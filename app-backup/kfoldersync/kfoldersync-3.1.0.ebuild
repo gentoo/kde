@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_GCC_MINIMAL="4.9"
 inherit kde5
@@ -25,7 +25,9 @@ RDEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
