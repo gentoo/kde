@@ -25,7 +25,9 @@ RDEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
