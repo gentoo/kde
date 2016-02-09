@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -57,7 +57,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package scim)
+		$(cmake-utils_use_find_package scim SCIM)
 		$(cmake-utils_use_find_package scim DBusCXX)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
 	)
