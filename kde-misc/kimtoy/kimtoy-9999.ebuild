@@ -29,6 +29,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	app-i18n/ibus
 	dev-libs/glib:2
