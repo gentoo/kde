@@ -20,4 +20,7 @@ DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	test? ( $(add_qt_dep qttest) )
 "
-RDEPEND="!kde-frameworks/oxygen-icons:4"
+RDEPEND="
+	!kde-apps/kdepim-icons:4
+	!kde-frameworks/oxygen-icons:4
+"
