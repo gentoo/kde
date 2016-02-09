@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	app-i18n/ibus
 	dev-libs/glib:2
-	!libressl? ( dev-libs/openssl:0= )
+	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl:= )
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
