@@ -84,5 +84,5 @@ DEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	kde5_src_prepare
-	use multimedia || epatch "${FILESDIR}/${PN}-gstreamer-optional.patch"
+	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
 }
