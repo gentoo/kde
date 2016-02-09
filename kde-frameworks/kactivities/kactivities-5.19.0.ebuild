@@ -35,3 +35,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54
 "
+
+PATCHES=( "${FILESDIR}/${P}-crash.patch" )
