@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 KDE_AUTODEPS="false"
@@ -37,9 +37,9 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_HTML_DOCS="$(usex doc)"
+		-DBUILD_MAN_DOCS="$(usex doc)"
 		-DDOC_INSTALL_DIR="/usr/share/doc/${PF}"
-		$(cmake-utils_use_build doc HTML_DOCS)
-		$(cmake-utils_use_build doc MAN_DOCS)
 	)
 
 	cmake-utils_src_configure

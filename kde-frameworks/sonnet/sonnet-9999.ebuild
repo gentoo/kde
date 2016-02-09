@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -23,8 +23,8 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package aspell)
-		$(cmake-utils_use_find_package hunspell)
+		$(cmake-utils_use_find_package aspell ASPELL)
+		$(cmake-utils_use_find_package hunspell HUNSPELL)
 	)
 
 	kde5_src_configure
