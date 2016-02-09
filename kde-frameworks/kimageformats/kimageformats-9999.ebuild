@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="eps openexr"
 
 RDEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_qt_dep qtgui)
 	eps? ( $(add_qt_dep qtprintsupport) )
 	openexr? (
