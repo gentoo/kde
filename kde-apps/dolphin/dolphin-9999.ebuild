@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-FRAMEWORKS_MINIMAL="5.16.0"
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -25,6 +25,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kinit)
@@ -48,7 +49,6 @@ DEPEND="
 	media-libs/phonon[qt5]
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
-		$(add_frameworks_dep kfilemetadata)
 		$(add_kdeapps_dep baloo-widgets)
 	)
 	!semantic-desktop? (
@@ -78,10 +78,9 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ( ! has_version "kde-apps/ark:${SLOT}" || has_version "<kde-frameworks/kio-5.17.0" ); then
+	if ! has_version "kde-apps/ark:${SLOT}" ; then
 		echo
-		elog "For compress/extract and other actions, please install"
-		elog "kde-apps/ark:${SLOT} and >=kde-frameworks/kio-5.17.0"
+		elog "For compress/extract and other actions, please install kde-apps/ark:${SLOT}"
 		echo
 	fi
 }
