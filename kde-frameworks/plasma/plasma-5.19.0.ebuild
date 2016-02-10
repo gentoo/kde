@@ -49,7 +49,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
-	$(add_qt_dep qtquick1)
 	X? ( x11-proto/xproto )
 "
 RDEPEND="${COMMON_DEPEND}
