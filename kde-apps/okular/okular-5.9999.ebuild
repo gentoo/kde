@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 EGIT_BRANCH="frameworks"
-FRAMEWORKS_MINIMAL="5.18.0"
+FRAMEWORKS_MINIMAL="5.19.0"
 inherit kde5
 
 DESCRIPTION="Universal document viewer based on KPDF"
@@ -79,7 +79,7 @@ src_configure() {
 		$(cmake-utils_use_find_package jpeg KF5KExiv2)
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package postscript LibSpectre)
-		$(cmake-utils_use_find_package tiff)
+		$(cmake-utils_use_find_package tiff TIFF)
 	)
 
 	kde5_src_configure
