@@ -41,14 +41,14 @@ COMMON_DEPEND="
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep kwayland)
-	>=dev-libs/libinput-0.10
-	>=dev-libs/wayland-1.2
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui 'gles2=,opengl(+)')
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
+	>=dev-libs/libinput-0.10
+	>=dev-libs/wayland-1.2
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libepoxy
@@ -72,6 +72,7 @@ RDEPEND="${COMMON_DEPEND}
 			$(add_qt_dep qtmultimedia 'gstreamer010,qml')
 		)
 	)
+	!<kde-apps/kdeartwork-meta-15.08.3-r1:4
 	!kde-base/kwin:4
 	!kde-base/systemsettings:4
 "
