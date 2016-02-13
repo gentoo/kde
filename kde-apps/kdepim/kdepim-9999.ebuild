@@ -124,7 +124,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
 	!kde-apps/kalarm:4
 	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-icons:4
 	!kde-apps/kdepim-runtime:4
 	!kde-apps/kjots:4
 	!kde-apps/kmail:4

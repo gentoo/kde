@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK=true
-KDE_TEST=true
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -96,10 +96,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	$(add_kdeapps_dep templateparser)
-	>=app-crypt/gpgme-1.3.2
-	dev-libs/boost:=
-	dev-libs/grantlee:5
-	dev-libs/libxslt
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -111,6 +107,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
+	>=app-crypt/gpgme-1.3.2
+	dev-libs/boost:=
+	dev-libs/grantlee:5
+	dev-libs/libxslt
 	media-libs/phonon[qt5]
 	designer? ( $(add_qt_dep designer) )
 	google? ( net-libs/libkgapi:5 )
@@ -140,7 +140,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
 	!kde-apps/kalarm:4
 	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-icons:4
 	!kde-apps/kdepim-runtime:4
 	!kde-apps/kjots:4
 	!kde-apps/kleopatra:4
@@ -168,6 +167,7 @@ src_prepare() {
 		composereditor-ng	\
 		eventviews		\
 		grantleetheme		\
+		icons			\
 		incidenceeditor-ng	\
 		kaddressbookgrantlee	\
 		kdgantt2		\
@@ -189,6 +189,8 @@ src_prepare() {
 		templateparser		\
 		|| die "Failed to remove split libraries"
 
+	cmake_comment_add_subdirectory icons
+
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
 
@@ -203,7 +205,7 @@ src_prepare() {
 
 	# applications
 	for pim_ft in ${PIM_FTS}; do
-		use kdepim_features_${pim_ft} || comment_add_subdirectory ${pim_ft}
+		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
 	done
 }
 

@@ -140,7 +140,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
 	!kde-apps/kalarm:4
 	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-icons:4
 	!kde-apps/kdepim-runtime:4
 	!kde-apps/kjots:4
 	!kde-apps/kleopatra:4
@@ -168,6 +167,7 @@ src_prepare() {
 		composereditor-ng	\
 		eventviews		\
 		grantleetheme		\
+		icons			\
 		incidenceeditor-ng	\
 		kaddressbookgrantlee	\
 		kdgantt2		\
@@ -188,6 +188,8 @@ src_prepare() {
 		pimcommon		\
 		templateparser		\
 		|| die "Failed to remove split libraries"
+
+	comment_add_subdirectory icons
 
 	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
 		-i CMakeLists.txt || die
