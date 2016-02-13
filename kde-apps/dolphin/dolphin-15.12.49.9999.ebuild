@@ -66,9 +66,8 @@ RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with semantic-desktop KF5Baloo)
-		$(cmake-utils_use_with semantic-desktop KF5BalooWidgets)
-		$(cmake-utils_use_with semantic-desktop KF5FileMetaData)
+		-DWITH_KF5Baloo=$(usex semantic-desktop)
+		-DWITH_KF5BalooWidgets=$(usex semantic-desktop)
 	)
 
 	kde5_src_configure
