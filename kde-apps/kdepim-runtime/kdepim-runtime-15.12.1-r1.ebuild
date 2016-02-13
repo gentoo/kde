@@ -50,13 +50,13 @@ CDEPEND="
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libakonadi)
-	dev-libs/libical:=
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
+	dev-libs/libical:=
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)
@@ -69,6 +69,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-runtime:4
+	|| ( $(add_kdeapps_dep kdepim-icons) $(add_frameworks_dep oxygen-icons) )
 "
 
 src_configure() {

@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
+FRAMEWORKS_MINIMAL="5.19.0"
 inherit kde5
 
 DESCRIPTION="KDE PIM runtime plugin collection"
@@ -49,13 +50,13 @@ CDEPEND="
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
-	dev-libs/libical:=
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
+	dev-libs/libical:=
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)
@@ -68,6 +69,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-runtime:4
+	$(add_frameworks_dep oxygen-icons)
 "
 
 src_configure() {
