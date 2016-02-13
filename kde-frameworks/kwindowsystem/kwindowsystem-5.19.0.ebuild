@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Framework providing access to properties and features of the window manager"
-LICENSE="LGPL-2+ MIT"
+LICENSE="|| ( LGPL-2.1 LGPL-3 ) MIT"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="nls X"
 
