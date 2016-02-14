@@ -9,23 +9,28 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS=""
-IUSE="cvs nls"
+IUSE="nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
 	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadiconsole)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep akonadi-socialutils)
+	$(add_kdeapps_dep akregator)
+	$(add_kdeapps_dep blogilo)
+	$(add_kdeapps_dep calendarjanitor)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep eventviews)
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
+	$(add_kdeapps_dep kaddressbook)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcalcore)
@@ -44,6 +49,8 @@ RDEPEND="
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep knotes)
+	$(add_kdeapps_dep konsolekalendar)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep ktnef)
@@ -51,6 +58,7 @@ RDEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
+	$(add_kdeapps_dep libktnef)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
 	$(add_kdeapps_dep messagelib)
