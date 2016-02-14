@@ -72,6 +72,8 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdeapps_dep phonon-kde)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-2.8.0-taglib110.patch" )
+
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
 	use ppc64 && append-flags -mminimal-toc
