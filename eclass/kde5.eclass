@@ -101,6 +101,19 @@ else
 	: ${KDE_TEST:=false}
 fi
 
+# @ECLASS-VARIABLE: KDE_PIM_KEEP_SUBDIR
+# @DESCRIPTION:
+# If building a split package from KMNAME="kdepim", provide a list of
+# subdirectories that need to be present for a successful build.
+: ${KDE_PIM_KEEP_SUBDIR:=}
+
+# @ECLASS-VARIABLE: KDE_PIM_KONTACTPLUGIN
+# @DESCRIPTION:
+# This variable is used when building a split package from KMNAME="kdepim".
+# If set to "true", add "+kontact" to IUSE and add the appropriate dependency.
+# If set to "false", find plugin subdir and remove it from build.
+: ${KDE_PIM_KONTACTPLUGIN:=false}
+
 # @ECLASS-VARIABLE: KDE_PUNT_BOGUS_DEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -206,6 +219,14 @@ case ${KDE_HANDBOOK} in
 		IUSE+=" +handbook"
 		DEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
 		;;
+esac
+
+case ${KDE_PIM_KONTACTPLUGIN} in
+	true)
+		IUSE+=" +kontact"
+		DEPEND+=" $(add_kdeapps_dep kontactinterface)"
+		;;
+	*)	;;
 esac
 
 case ${KDE_TEST} in
@@ -531,6 +552,63 @@ kde5_src_prepare() {
 			cmake_comment_add_subdirectory autotests
 			cmake_comment_add_subdirectory test
 			cmake_comment_add_subdirectory tests
+		fi
+	fi
+
+	# kdepim split packaging handling (drop other applications != {PN})
+	if [[ ${KMNAME} = "kdepim" && $(basename "${S}") != ${PN} ]] || [[ ${PN} = "kdepim" ]] ; then
+		# make optional a lot of otherwise required dependencies in root CMakeLists.txt
+		sed -e "/find_package(KF5/ s/ REQUIRED//" \
+			-e "/find_package(Qt5 / s/ REQUIRED/ OPTIONAL_COMPONENTS/" \
+			-i CMakeLists.txt || die "Failed to make dependencies optional"
+		# FIXME: try to push these down into subdirs @upstream
+		# AkonadiSearch:	kaddressbook, knotes, kdepim (kmail, korganizer)
+		# Boost: 			kleopatra, kdepim (kmail, agents)
+		# Gpgme: 			kleopatra
+		# Grantlee:			akregator, kaddressbook, knotes, kdepim (grantleeeditor, kmail, kontact)
+		# MailTransportDBusService: kdepim (kmail)
+		# Phonon4Qt5:		kdepim (kalarm, korgac)
+		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
+			-e "/set_package_properties(Boost/ s/ REQUIRED/ OPTIONAL/" \
+			-e "/find_package(Gpgme/ s/ REQUIRED//" \
+			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
+			-e "/find_package(MailTransportDBusService/ s/ REQUIRED//" \
+			-e "/find_package(Phonon4Qt5/ s/ REQUIRED//" \
+			-i CMakeLists.txt || die "Failed to make dependencies optional"
+
+		# remove anything else not listed here
+		local _pim_keep_subdir="${PN} ${KDE_PIM_KEEP_SUBDIR}"
+		einfo "Building: ${_pim_keep_subdir}"
+		_pim_keep_subdir="cmake doc examples grantlee-extractor-pot-scripts ${_pim_keep_subdir}"
+
+		einfo "Removing other subdirectories:"
+		pushd "${S}" > /dev/null || die
+		for subdir in *; do
+			if ! has ${subdir} ${_pim_keep_subdir} ; then
+				if [[ -d "${subdir}" ]] ; then
+					einfo "   ${subdir}"
+					rm -r ${subdir} || die "Failed to remove ${subdir} application"
+					cmake_comment_add_subdirectory ${subdir}
+				fi
+			fi
+		done
+		popd > /dev/null || die
+
+		# disable build of kontactplugin in kdepim and split kdepim packages
+		if ! use_if_iuse kontact ; then
+			for x in $(find ./ -name CMakeLists.txt -exec grep -l "add_subdirectory.*kontactplugin" "{}" ";"); do
+				einfo "Disabling kontactplugin in: ${x}"
+				pushd $(dirname "${x}") > /dev/null || die
+				cmake_comment_add_subdirectory kontactplugin
+				popd > /dev/null || die
+			done
+		fi
+	fi
+
+	# only build select handbook
+	if [[ ${KMNAME} = "kdepim" && $(basename "${S}") != ${PN} ]] ; then
+		if use_if_iuse handbook && [[ -e doc/CMakeLists.txt ]] ; then
+			echo "add_subdirectory(${PN})" > doc/CMakeLists.txt
 		fi
 	fi
 }
