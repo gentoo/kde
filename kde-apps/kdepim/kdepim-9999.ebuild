@@ -15,7 +15,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
 PIM_FTS="akonadiconsole akregator blogilo console kaddressbook kalarm kmail knotes kontact korganizer ktnef"
-IUSE="designer google prison $(printf 'kdepim_features_%s ' ${PIM_FTS})"
+IUSE="google prison $(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -103,7 +103,6 @@ COMMON_DEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 	media-libs/phonon[qt5]
-	designer? ( $(add_qt_dep designer) )
 	google? ( net-libs/libkgapi:5 )
 	prison? ( media-libs/prison:5 )
 "
@@ -159,7 +158,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package designer Qt5Designer)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
 		$(cmake-utils_use_find_package google KF5GAPI)
 		$(cmake-utils_use_find_package prison KF5Prison)
 	)

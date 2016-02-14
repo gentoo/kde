@@ -6,7 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="designer">Build the Qt Designer plugins</flag>
 		<flag name="google">Google service integration via <pkg>net-libs/libkgapi</pkg></flag>
 		<flag name="prison">Enable support for QRcodes in contacts</flag>
 	</use>
