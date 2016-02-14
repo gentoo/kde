@@ -4,8 +4,13 @@
 
 EAPI=6
 
+PIM_FTS="kalarm kmail kontact korganizer"
+
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
+KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard agents grantleeeditor importwizard korgac
+mboximporter pimsettingexporter plugins sieveeditor storageservicemanager"
+KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -14,8 +19,7 @@ DESCRIPTION="Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
-PIM_FTS="akonadiconsole akregator blogilo console kaddressbook kalarm kmail knotes kontact korganizer ktnef"
-IUSE="google prison $(printf 'kdepim_features_%s ' ${PIM_FTS})"
+IUSE="$(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -59,11 +63,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-socialutils)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep eventviews)
-	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
 	$(add_kdeapps_dep kalarmcal)
-	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
@@ -78,10 +80,8 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep ktnef)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
@@ -103,8 +103,6 @@ COMMON_DEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 	media-libs/phonon[qt5]
-	google? ( net-libs/libkgapi:5 )
-	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
@@ -114,25 +112,16 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/noteshared
-	!kde-apps/akonadiconsole:4
-	!kde-apps/akregator:4
-	!kde-apps/blogilo:4
-	!kde-apps/calendarjanitor:4
 	!kde-apps/kabcclient:4
-	!kde-apps/kaddressbook:4
 	!kde-apps/kalarm:4
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-runtime:4
 	!kde-apps/kjots:4
 	!kde-apps/kmail:4
 	!kde-apps/knode:4
-	!kde-apps/knotes:4
-	!kde-apps/konsolekalendar:4
 	!kde-apps/kontact:4
 	!kde-apps/korganizer:4
 	!kde-apps/ktimetracker:4
-	!kde-apps/ktnef:4
 	$(add_kdeapps_dep kdepim-runtime)
 "
 # kontact: summary plugin; kalarm: email scheduler
@@ -144,11 +133,14 @@ REQUIRED_USE="
 src_prepare() {
 	kde5_src_prepare
 
-	rm -r kleopatra || die "Failed to remove kleopatra subdirectory"
-	cmake_comment_add_subdirectory kleopatra
-
-	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
-		-i CMakeLists.txt || die
+	sed -i \
+		-e "/akregator/ s/^/#DONT/" \
+		-e "/blogilo/ s/^/#DONT/" \
+		-e "/kleopatra/ s/^/#DONT/" \
+		-e "/knotes/ s/^/#DONT/" \
+		-e "/konsolekalendar/ s/^/#DONT/" \
+		-e "/ktnef/ s/^/#DONT/" \
+		doc/CMakeLists.txt || die "Failed to disable split docs"
 
 	# applications
 	for pim_ft in ${PIM_FTS}; do
@@ -158,9 +150,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		$(cmake-utils_use_find_package google KF5GAPI)
-		$(cmake-utils_use_find_package prison KF5Prison)
 	)
 
 	kde5_src_configure
