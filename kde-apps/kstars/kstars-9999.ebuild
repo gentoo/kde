@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
@@ -58,7 +58,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package indi)
+		$(cmake-utils_use_find_package indi INDI)
 		$(cmake-utils_use_find_package wcs WCSLIB)
 		$(cmake-utils_use_find_package xplanet Xplanet)
 	)

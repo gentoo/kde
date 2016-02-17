@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="true"
 KDE_TEST="true"
@@ -12,7 +12,7 @@ DESCRIPTION="Generic geographical map widget"
 HOMEPAGE="https://marble.kde.org/"
 KEYWORDS=""
 
-IUSE="aprs designer-plugin gps +kde phonon shapefile zip"
+IUSE="aprs designer-plugin gps +kde phonon shapefile"
 
 # FIXME (new packages):
 # libwlocate, WLAN-based geolocation
@@ -47,7 +47,6 @@ RDEPEND="
 	)
 	phonon? ( media-libs/phonon[qt5] )
 	shapefile? ( sci-libs/shapelib )
-	zip? ( dev-libs/quazip[qt5] )
 "
 DEPEND="${RDEPEND}
 	aprs? ( dev-lang/perl )
@@ -60,14 +59,13 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build test MARBLE_TESTS)
 		$(cmake-utils_use_find_package aprs Perl)
-		$(cmake-utils_use_with designer-plugin DESIGNER_PLUGIN)
-		$(cmake-utils_use_with gps libgps)
-		$(cmake-utils_use_with kde KF5)
-		$(cmake-utils_use_with phonon)
-		$(cmake-utils_use_with shapefile libshp)
-		$(cmake-utils_use_with zip quazip)
+		-DBUILD_MARBLE_TESTS=$(usex test)
+		-DWITH_DESIGNER_PLUGIN=$(usex designer-plugin)
+		-DWITH_libgps=$(usex gps)
+		-DWITH_KF5=$(usex kde)
+		-DWITH_Phonon=$(usex phonon)
+		-DWITH_libshp=$(usex shapefile)
 		-DWITH_QextSerialPort=OFF
 		-DWITH_liblocation=0
 	)

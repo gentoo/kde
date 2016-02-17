@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="false"
 inherit kde5
@@ -51,11 +51,11 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build bazaar)
-		$(cmake-utils_use_build dropbox)
-		$(cmake-utils_use_build git)
-		$(cmake-utils_use_build mercurial hg)
-		$(cmake-utils_use_build subversion svn)
+		-DBUILD_bazaar=$(usex bazaar)
+		-DBUILD_dropbox=$(usex dropbox)
+		-DBUILD_git=$(usex git)
+		-DBUILD_hg=$(usex mercurial)
+		-DBUILD_svn=$(usex subversion)
 	)
 
 	kde5_src_configure

@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
 
@@ -41,9 +41,9 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_OKTETA_BUILD_EXAMPLES=$(usex examples)
+		-DBUILD_TESTING=$(usex test)
 		$(cmake-utils_use_find_package crypt QCA2)
-		$(cmake-utils_use_enable examples OKTETA_BUILD_EXAMPLES)
-		$(cmake-utils_use_build test TESTING)
 		$(cmake-utils_use_find_package test Qt5Test)
 	)
 
