@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="true"
 KDE_TEST="true"
 KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
@@ -57,3 +58,10 @@ if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 else
 	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
+
+src_prepare() {
+	mv "${WORKDIR}/${P}/doc/${PN}" doc || die "Failed to move handbook"
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+
+	kde5_src_prepare
+}
