@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_TEST=true
-KMNAME=kdepimlibs
+KDE_TEST="true"
+KMNAME="kdepimlibs"
 inherit kde5
 
 DESCRIPTION="Library for akonadi mime types"
@@ -27,17 +27,18 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libakonadi)
 	$(add_kdeapps_dep kmime)
-	dev-libs/libxslt
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/libxslt
 	x11-misc/shared-mime-info
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepimlibs
+	!kde-apps/kdepimlibs:4
+	!kde-apps/kdepimlibs:5
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
@@ -45,10 +46,3 @@ if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 else
 	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_build test TESTING)
-	)
-	kde5_src_configure
-}

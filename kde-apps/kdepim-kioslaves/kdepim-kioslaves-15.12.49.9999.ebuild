@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_DOC_DIR=docs
-KDE_HANDBOOK=true
-KDE_TEST=true
-KMNAME=kdepimlibs
-VIRTUALX_REQUIRED=test
+KDE_DOC_DIR="docs"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
+KMNAME="kdepimlibs"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Kioslave plugins for various PIM apps"
@@ -31,7 +31,8 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepimlibs
+	!kde-apps/kdepimlibs:4
+	!kde-apps/kdepimlibs:5
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
@@ -43,7 +44,6 @@ fi
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package ssl Sasl2)
-		$(cmake-utils_use_build test TESTING)
 	)
 	kde5_src_configure
 }

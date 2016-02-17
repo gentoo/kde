@@ -4,10 +4,10 @@ Date:   Sun Jan 17 13:34:17 2016 +0100
 
     [libakonadi] Make tools optional
 
-diff --git a/akonadi/CMakeLists.txt b/akonadi/CMakeLists.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
 index c80db92..e36c0ab 100644
---- a/akonadi/CMakeLists.txt
-+++ b/akonadi/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -43,6 +43,8 @@ else()
      set(KF5Akonadi_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_DATADIR_KF5}/akonadi")
  endif()
@@ -39,10 +39,10 @@ index c80db92..e36c0ab 100644
  endif()
  ########### CMake Config Files ###########
  
-diff --git a/akonadi/autotests/CMakeLists.txt b/akonadi/autotests/CMakeLists.txt
+diff --git a/autotests/CMakeLists.txt b/autotests/CMakeLists.txt
 index 308cf22..dc69a26 100644
---- a/akonadi/autotests/CMakeLists.txt
-+++ b/akonadi/autotests/CMakeLists.txt
+--- a/autotests/CMakeLists.txt
++++ b/autotests/CMakeLists.txt
 @@ -25,11 +25,6 @@ include_directories(
    ${Boost_INCLUDE_DIR}
  )

@@ -9,7 +9,7 @@ KDE_DOC_DIR="docs"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 KMNAME="kdepimlibs"
-VIRTUALX_REQUIRED=test
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Kioslave plugins for various PIM apps"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 MY_PN="${PN}-ng"
 KDE_TEST="true"
@@ -60,8 +60,16 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${MY_PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${MY_PN}"
-fi
+src_prepare() {
+	if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+		S="${WORKDIR}/${P}/${PN}"
+		mv "${WORKDIR}/${P}/${MY_PN}" "${S}" \
+			|| die "Failed to prepare source directory"
+	else
+		S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
+		mv "${WORKDIR}/${KMNAME}-${PV}/${MY_PN}" "${S}" \
+			|| die "Failed to prepare source directory"
+	fi
+
+	kde5_src_prepare
+}
