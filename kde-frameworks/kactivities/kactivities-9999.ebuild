@@ -22,7 +22,6 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
-	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54
