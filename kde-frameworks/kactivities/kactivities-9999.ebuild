@@ -11,7 +11,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -23,6 +23,9 @@ RDEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kactivitymanagerd)
+"
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/boost-1.54
 "
