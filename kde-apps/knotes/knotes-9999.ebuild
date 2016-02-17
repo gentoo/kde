@@ -39,7 +39,6 @@ DEPEND="
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -47,8 +46,9 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
-	x11-libs/libX11
 	dev-libs/grantlee:5
+	dev-libs/libxslt
+	x11-libs/libX11
 	kontact? (
 		$(add_frameworks_dep kitemviews)
 		$(add_frameworks_dep kparts)
@@ -57,13 +57,6 @@ DEPEND="
 		$(add_kdeapps_dep kcontacts)
 		$(add_kdeapps_dep libkdepim)
 	)
-"
-# Imposed by root CMakeLists.txt
-DEPEND="${DEPEND}
-	>=app-crypt/gpgme-1.3.2
-	dev-libs/boost:=
-	dev-libs/libxslt
-	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.12.2:5
