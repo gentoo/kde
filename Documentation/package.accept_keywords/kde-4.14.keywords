@@ -96,6 +96,7 @@
 <kde-base/ksystraycmd-4.11.50
 <kde-base/kwin-4.11.50
 <kde-base/kwrited-4.11.50
+<kde-base/legacy-icons-4.11.50
 <kde-base/libkgreeter-4.11.50
 <kde-base/libkworkspace-4.11.50
 <kde-base/liboxygenstyle-4.11.50
@@ -214,7 +215,7 @@
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50
 <kde-apps/kdepimlibs-4.14.50
-<kde-frameworks/oxygen-icons-4.14.50
+
 <kde-base/katepart-4.14.50
 <kde-apps/dragon-4.14.50
 <kde-apps/ffmpegthumbs-4.14.50
