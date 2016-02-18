@@ -70,6 +70,10 @@ else
 	S="${WORKDIR}/${KMNAME}-${PV}"
 fi
 
+# ONLY for 15.12 branch: special handling for
+# KDEPIM_BUILD_WITH_INSTALLED_LIB=TRUE except noteshared
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-add-noteshared.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 
