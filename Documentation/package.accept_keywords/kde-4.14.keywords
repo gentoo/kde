@@ -215,7 +215,6 @@
 <kde-base/kdelibs-4.14.50
 <kde-base/kfilemetadata-4.14.50
 <kde-apps/kdepimlibs-4.14.50
-
 <kde-base/katepart-4.14.50
 <kde-apps/dragon-4.14.50
 <kde-apps/ffmpegthumbs-4.14.50
@@ -299,6 +298,7 @@
 <kde-apps/kommander-4.14.50
 <kde-apps/kdebase-meta-4.14.50
 <kde-apps/kde-meta-4.14.50
+<kde-frameworks/oxygen-icons-4.14.50
 
 >=kde-misc/baloo-kcmadv-2014.04.27
 >=media-libs/phonon-4.7.80

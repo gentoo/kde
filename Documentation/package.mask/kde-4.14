@@ -2,7 +2,7 @@
 # You can use this file to unmask the KDE SC 4.14 release.
 # Edit Documentation/package.unmask/.kde-4.14/ files instead.
 >=kde-base/kdeplasma-addons-4.14
->=kde-base/kde-l10n-4.14
+>=kde-apps/kde4-l10n-4.14
 <kde-apps/dolphin-4.14.50
 <kde-apps/kdepasswd-4.14.50
 <kde-apps/kdialog-4.14.50
@@ -297,4 +297,4 @@
 <kde-apps/kommander-4.14.50
 <kde-apps/kdebase-meta-4.14.50
 >=kde-apps/kde-meta-4.14
-
+<kde-frameworks/oxygen-icons-4.14.50
