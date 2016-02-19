@@ -121,7 +121,7 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		$(cmake-utils_use_find_package handbook KF5DocTools)
 	)
 	[[ -n ${A} ]] && kde5_src_configure
