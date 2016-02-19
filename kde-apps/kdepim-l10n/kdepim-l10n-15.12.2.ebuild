@@ -57,10 +57,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	default
+
 	local LNG DIR
 	# add all linguas to cmake
 	if [[ -n ${A} ]]; then
-		eapply_user
 		for LNG in ${LINGUAS}; do
 			DIR="kde-l10n-${LNG}-${PV}"
 			SDIR="${S}/${DIR}/5/${LNG}"
