@@ -53,7 +53,7 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
-	use handbook || comment_add_subdirectory doc
+	use handbook || cmake_comment_add_subdirectory doc
 	kde5_src_prepare
 }
 
