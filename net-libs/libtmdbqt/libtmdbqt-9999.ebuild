@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="true"
 inherit kde5
@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use test TMDBQT_ENABLE_TESTS)
+		-DTMDBQT_ENABLE_TESTS=$(usex test)
 	)
 
 	kde5_src_configure
