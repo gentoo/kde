@@ -15,7 +15,7 @@ fi
 
 LICENSE="BSD GPL-2 LGPL-2
 	handbook? ( FDL-1.2 )"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa flac mp3 +qtmedia opus oss pulseaudio vorbis"
 
 COMMON_DEPEND="
