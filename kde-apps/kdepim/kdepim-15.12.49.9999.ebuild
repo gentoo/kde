@@ -85,7 +85,9 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkdepimdbusinterfaces)
+	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
+	$(add_kdeapps_dep libktnef)
 	$(add_kdeapps_dep libsendlater)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
@@ -113,13 +115,13 @@ COMMON_DEPEND="
 	media-libs/phonon[qt5]
 	kdepim_features_kleopatra? (
 		$(add_kdeapps_dep gpgmepp)
-		$(add_kdeapps_dep libkleo)
 		>=app-crypt/gpgme-1.3.2
 		dev-libs/libassuan
 		dev-libs/libgpg-error
 	)
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_kdeapps_dep gpgmepp)
 	sys-devel/gettext
 	test? (
 		$(add_kdeapps_dep akonadi sqlite)
@@ -158,11 +160,17 @@ src_prepare() {
 	sed -i \
 		-e "/akregator/ s/^/#DONT/" \
 		-e "/blogilo/ s/^/#DONT/" \
-		-e "/kleopatra/ s/^/#DONT/" \
 		-e "/knotes/ s/^/#DONT/" \
 		-e "/konsolekalendar/ s/^/#DONT/" \
 		-e "/ktnef/ s/^/#DONT/" \
 		doc/CMakeLists.txt || die "Failed to disable split docs"
+
+	if ! use kdepim_features_kleopatra ; then
+		sed -i \
+			-e "/kleopatra/ s/^/#DONT/" \
+			-e "/kwatchgnupg/ s/^/#DONT/" \
+			doc/CMakeLists.txt || die "Failed to disable kleopatra docs"
+	fi
 
 	# applications
 	for pim_ft in ${PIM_FTS}; do

@@ -82,6 +82,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
@@ -140,6 +141,7 @@ src_prepare() {
 		-e "/knotes/ s/^/#DONT/" \
 		-e "/konsolekalendar/ s/^/#DONT/" \
 		-e "/ktnef/ s/^/#DONT/" \
+		-e "/kwatchgnupg/ s/^/#DONT/" \
 		doc/CMakeLists.txt || die "Failed to disable split docs"
 
 	# applications
