@@ -47,10 +47,10 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kleopatra:4
 	!kde-apps/kdepim[kdepim_features_kleopatra]
+	!<kde-apps/kdepim-15.12.2-r1
 	$(add_kdeapps_dep kdepim-runtime)
-	app-crypt/gnupg
+	>=app-crypt/gnupg-2.1
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
@@ -60,8 +60,18 @@ else
 fi
 
 src_prepare() {
-	mv "${WORKDIR}/${P}/doc/${PN}" doc || die "Failed to move handbook"
+	# kleopatra subproject does not contain doc nor searches for DocTools
+	# at least until properly split upstream
 	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+
+	mkdir doc || die "Failed to create doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
+	mv ../doc/kwatchgnupg doc || die "Failed to move handbook"
+	cat <<-EOF > doc/CMakeLists.txt
+find_package(KF5DocTools)
+add_subdirectory(${PN})
+add_subdirectory(kwatchgnupg)
+EOF
 
 	kde5_src_prepare
 }
