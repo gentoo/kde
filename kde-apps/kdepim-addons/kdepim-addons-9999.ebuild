@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_EXAMPLES="true"
 KDE_PUNT_BOGUS_DEPS="true"
@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
+	$(add_kdeapps_dep libktnef)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
@@ -48,6 +49,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_kdeapps_dep gpgmepp)
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
