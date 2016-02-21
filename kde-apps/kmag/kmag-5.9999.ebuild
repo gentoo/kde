@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="forceoptional"
@@ -24,7 +24,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
-	keyboardfocus? ( media-libs/libkdeaccessibilityclient )
+	keyboardfocus? ( media-libs/libkdeaccessibilityclient:5 )
 "
 RDEPEND="${DEPEND}"
 
