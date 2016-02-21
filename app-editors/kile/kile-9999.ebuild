@@ -2,10 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 CMAKE_MIN_VERSION="3.0.2"
-KDE_HANDBOOK=true
+FRAMEWORKS_MINIMAL="5.19.0"
+KDE_HANDBOOK="forceoptional"
 MY_P=${P/_beta/b}
 inherit kde5
 
@@ -37,6 +38,7 @@ DEPEND="
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
+	pdf? ( app-text/poppler[qt5] )
 "
 
 RDEPEND="${DEPEND}
@@ -71,4 +73,12 @@ src_prepare() {
 	# I know upstream wants to help us but it doesn't work..
 	sed -e '/INSTALL( FILES AUTHORS/s/^/#DISABLED /' \
 		-i CMakeLists.txt || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package pdf Poppler)
+	)
+
+	kde5_src_configure
 }
