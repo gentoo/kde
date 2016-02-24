@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="forceoptional"
 VIRTUALDBUS_TEST="true"
@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	net-libs/accounts-qt
+	>=net-libs/libaccounts-glib-1.21
 	net-libs/signond
 "
 DEPEND="${COMMON_DEPEND}
