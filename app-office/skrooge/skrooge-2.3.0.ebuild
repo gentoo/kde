@@ -77,6 +77,8 @@ RESTRICT="test"
 
 DOCS=( AUTHORS CHANGELOG README TODO )
 
+PATCHES=( "${FILESDIR}/${P}-glibc-2.23.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DSKG_BUILD_TEST=$(usex test)
