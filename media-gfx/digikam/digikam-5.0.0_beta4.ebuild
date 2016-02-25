@@ -75,7 +75,7 @@ COMMON_DEPEND="
 	)
 	scanner? ( $(add_kdeapps_dep libksane) )
 	gphoto2? ( media-libs/libgphoto2:= )
-	kipi? ( $(add_kdeapps_dep libkipi) )
+	kipi? ( $(add_kdeapps_dep libkipi '' '16.03.80') )
 	lensfun? ( media-libs/lensfun )
 	marble? (
 		$(add_frameworks_dep kbookmarks)
