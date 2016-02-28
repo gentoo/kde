@@ -22,10 +22,10 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-libs/libgcrypt:0=
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/libgcrypt:0=
 	gpg? (
 		$(add_kdeapps_dep gpgmepp)
 		app-crypt/gpgme
@@ -39,4 +39,13 @@ src_configure() {
 		$(cmake-utils_use_find_package gpg KF5Gpgmepp)
 	)
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	if ! has_version "kde-plasma/kwallet-pam" || ! has_version "kde-apps/kwalletmanager:5" ; then
+		elog
+		elog "Install kde-plasma/kwallet-pam for auto-unlocking after account login."
+		elog "Install kde-apps/kwalletmanager:5 to manage your kwallet."
+		elog
+	fi
 }
