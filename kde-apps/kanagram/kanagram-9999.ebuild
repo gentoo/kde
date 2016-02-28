@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="Game based on anagrams of works"
+DESCRIPTION="Game based on anagrams of words"
 HOMEPAGE="https://www.kde.org/applications/education/kanagram
 https://edu.kde.org/kanagram"
 KEYWORDS=""
@@ -32,6 +32,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
+	$(add_qt_dep qtmultimedia 'qml')
 	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtwebkit 'qml')
 "
