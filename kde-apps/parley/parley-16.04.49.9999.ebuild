@@ -4,11 +4,11 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_DOC_DIR="docs"
 inherit kde5
 
-DESCRIPTION="KDE Educational: vocabulary trainer"
+DESCRIPTION="A vocabulary trainer to help you memorize things"
 HOMEPAGE="https://www.kde.org/applications/education/parley
 https://edu.kde.org/applications/school/parley"
 KEYWORDS=""
