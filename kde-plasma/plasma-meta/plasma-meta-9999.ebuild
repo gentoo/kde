@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +display-manager gtk mediacenter networkmanager pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth +display-manager gtk mediacenter networkmanager pam pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -28,7 +28,6 @@ RDEPEND="
 	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep ksshaskpass)
 	$(add_plasma_dep ksysguard)
-	$(add_plasma_dep kwallet-pam)
 	$(add_plasma_dep kwayland)
 	$(add_plasma_dep kwayland-integration)
 	$(add_plasma_dep kwin)
@@ -56,6 +55,7 @@ RDEPEND="
 	)
 	mediacenter? ( $(add_plasma_dep plasma-mediacenter) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
+	pam? ( $(add_plasma_dep kwallet-pam) )
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
 	sddm? ( $(add_plasma_dep sddm-kcm) )
 	sdk? ( $(add_plasma_dep plasma-sdk) )
