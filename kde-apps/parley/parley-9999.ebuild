@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_DOC_DIR="docs"
 inherit kde5
 
-DESCRIPTION="KDE Educational: vocabulary trainer"
+DESCRIPTION="A vocabulary trainer to help you memorize things"
 HOMEPAGE="https://www.kde.org/applications/education/parley
 https://edu.kde.org/applications/school/parley"
 KEYWORDS=""
@@ -33,14 +33,14 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-libs/libxml2:2
-	dev-libs/libxslt
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
+	dev-libs/libxml2:2
+	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
