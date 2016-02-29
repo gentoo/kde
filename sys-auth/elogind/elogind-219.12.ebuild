@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="acl apparmor pam policykit selinux +seccomp"
 
-DEPEND="
+COMMON_DEPEND="
 	sys-libs/libcap
 	sys-apps/util-linux
 	virtual/libudev:=
@@ -25,9 +25,15 @@ DEPEND="
 	seccomp? ( sys-libs/libseccomp )
 	selinux? ( sys-libs/libselinux )
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	sys-apps/dbus
 	policykit? ( sys-auth/polkit )
+"
+DEPEND="${COMMON_DEPEND}
+	dev-util/gperf
+	dev-util/intltool
+	sys-devel/libtool
+	virtual/pkgconfig
 "
 
 DOCS=( NEWS README TODO )
