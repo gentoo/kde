@@ -7,8 +7,8 @@ EAPI=6
 inherit autotools eutils pam
 
 DESCRIPTION="The systemd project's logind, extracted to a standalone package"
-HOMEPAGE="https://github.com/andywingo/elogind"
-SRC_URI="https://github.com/andywingo/elogind/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/wingo/elogind"
+SRC_URI="https://github.com/wingo/elogind/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
