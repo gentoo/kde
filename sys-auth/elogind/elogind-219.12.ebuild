@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit autotools pam
+inherit autotools eutils pam
 
 DESCRIPTION="The systemd project's logind, extracted to a standalone package"
 HOMEPAGE="https://github.com/andywingo/elogind"
@@ -49,4 +49,9 @@ src_configure() {
 		$(use_enable pam) \
 		$(use_enable seccomp) \
 		$(use_enable selinux)
+}
+
+src_install() {
+	default
+	prune_libtool_files --modules
 }
