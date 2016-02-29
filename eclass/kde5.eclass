@@ -570,6 +570,7 @@ kde5_src_prepare() {
 		# Phonon4Qt5:		kdepim (kalarm, korgac)
 		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/set_package_properties(Boost/ s/ REQUIRED/ OPTIONAL/" \
+			-e "/set_package_properties(Xsltproc/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/find_package(Gpgme/ s/ REQUIRED//" \
 			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
 			-e "/find_package(MailTransportDBusService/ s/ REQUIRED//" \
