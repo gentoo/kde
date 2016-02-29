@@ -1,3 +1,5 @@
+Install headers to a custom location to permit slotting with Qt4 version.
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index dca14ec..d25656d 100644
 --- a/CMakeLists.txt
