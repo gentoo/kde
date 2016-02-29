@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
-DOCS=( AUTHORS CHANGELOG README )
+DOCS=( AUTHORS CHANGELOG README.md )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
