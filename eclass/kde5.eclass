@@ -532,19 +532,24 @@ kde5_src_prepare() {
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
 		# FIXME: try to push these down into subdirs @upstream
 		# AkonadiSearch:	kaddressbook, knotes, kdepim (kmail, korganizer)
-		# Boost: 			kleopatra, kdepim (kmail, agents)
-		# Gpgme: 			kleopatra
+		# Gpgme: 			kleopatra (removed in >= 16.03.80)
 		# Grantlee:			akregator, kaddressbook, knotes, kdepim (grantleeeditor, kmail, kontact)
-		# MailTransportDBusService: kdepim (kmail)
-		# Phonon4Qt5:		kdepim (kalarm, korgac)
 		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
-			-e "/set_package_properties(Boost/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/set_package_properties(Xsltproc/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/find_package(Gpgme/ s/ REQUIRED//" \
 			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
-			-e "/find_package(MailTransportDBusService/ s/ REQUIRED//" \
-			-e "/find_package(Phonon4Qt5/ s/ REQUIRED//" \
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
+
+		# Boost: kdepim (kmail, mailfilteragent)
+		# MailTransportDBusService: kdepim (kmail)
+		# Phonon4Qt5: kdepim (kalarm, korgac)
+		if [[ ${PN} != "kdepim" ]] ; then
+			sed -e "/find_package(Boost/ s/^/#DONT/" \
+				-e "/set_package_properties(Boost/ s/^/#DONT/" \
+				-e "/find_package(MailTransportDBusService/ s/^/#DONT/" \
+				-e "/find_package(Phonon4Qt5/ s/^/#DONT/" \
+				-i CMakeLists.txt || die "Failed to disable dependencies"
+		fi
 
 		# remove anything else not listed here
 		local _pim_keep_subdir="${PN} ${KDE_PIM_KEEP_SUBDIR}"
