@@ -7,7 +7,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Framework for working with KDE activities"
-LICENSE="LGPL-2+"
+LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 KEYWORDS=""
 IUSE=""
 
