@@ -14,14 +14,11 @@ IUSE=""
 COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative widgets)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
-	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kactivitymanagerd)
