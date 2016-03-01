@@ -16,7 +16,7 @@ RDEPEND="
 	app-crypt/qca:2[qt4]
 	$(add_kdeapps_dep libkonq)
 	$(add_kdebase_dep libkworkspace '' 4.11)
-	bittorrent? ( >=net-libs/libktorrent-1.0.3 )
+	bittorrent? ( >=net-libs/libktorrent-1.0.3:4 )
 	gpg? ( || ( $(add_kdeapps_dep gpgmepp) $(add_kdeapps_dep kdepimlibs) ) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
