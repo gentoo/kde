@@ -14,7 +14,6 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
