@@ -31,8 +31,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -49,7 +47,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim[kdepim_features_kleopatra]
 	!<kde-apps/kdepim-15.12.2-r1
-	$(add_kdeapps_dep kdepim-runtime)
 	>=app-crypt/gnupg-2.1
 "
 
