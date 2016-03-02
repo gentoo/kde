@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 # @ECLASS: kde4-meta-pkg.eclass
 # @MAINTAINER:
@@ -14,7 +14,7 @@ _KDE4_META_PKG_ECLASS=1
 
 inherit kde4-functions
 
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="https://www.kde.org/"
 
 LICENSE="metapackage"
 IUSE="aqua"

@@ -1,9 +1,0 @@
-Topics
-- Review work flow for KDE minor bumps and improve collaboration with arch teams
-	- A draft is available:
-- KDE-4.4 status
-- enterprise useflag for kdepim stuff (a use flag to follow the enterprise branch of the kdepim repo, only for trunk)
-- koffice status
-- change kde-meta (and @kde-*) to include all modules (plus the developer specific ones)
-- patches of kde-packager
-- split of desktop profile

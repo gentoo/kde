@@ -1,23 +1,23 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALDBUS_TEST="true"
 inherit kde5
 
-DESCRIPTION="Framework for registering services and applications according to freedesktop standards"
+DESCRIPTION="Framework for registering services and applications per freedesktop standards"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls X"
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	X? ( dev-qt/qtx11extras:5 )
+	$(add_qt_dep qtdbus)
+	X? ( $(add_qt_dep qtx11extras) )
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {

@@ -1,0 +1,46 @@
+commit d29d2ad26bb15be0c229267e196c398e389358cb
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Feb 14 14:57:54 2016 +0100
+
+    [console] Build console applications independently
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6fd1994..b137a56 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -261,7 +261,8 @@ add_subdirectory(blogilo)
+ add_subdirectory(kontact)
+ 
+ add_subdirectory(akonadiconsole)
+-add_subdirectory(console)
++add_subdirectory(calendarjanitor)
++add_subdirectory(konsolekalendar)
+ 
+ add_subdirectory(plugins) # Must be after KMail
+ 
+diff --git a/calendarjanitor/CMakeLists.txt b/calendarjanitor/CMakeLists.txt
+index 36d322a..511a12f 100644
+--- a/calendarjanitor/CMakeLists.txt
++++ b/calendarjanitor/CMakeLists.txt
+@@ -1,5 +1,8 @@
+ project(calendarjanitor)
+ 
++add_definitions( -DQT_NO_CAST_FROM_ASCII )
++add_definitions( -DQT_NO_CAST_TO_ASCII )
++
+ ########### next target ###############
+ 
+ set(calendarjanitor_SRCS
+diff --git a/konsolekalendar/CMakeLists.txt b/konsolekalendar/CMakeLists.txt
+index 7b0c6e0..f1b045a 100644
+--- a/konsolekalendar/CMakeLists.txt
++++ b/konsolekalendar/CMakeLists.txt
+@@ -1,5 +1,8 @@
+ project(konsolekalendar)
+ 
++add_definitions( -DQT_NO_CAST_FROM_ASCII )
++add_definitions( -DQT_NO_CAST_TO_ASCII )
++
+ add_subdirectory(pics) 
+ 
+ ########### next target ###############

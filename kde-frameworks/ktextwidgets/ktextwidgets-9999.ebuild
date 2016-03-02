@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing an assortment of widgets for displaying and editing text"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="speech"
 
 RDEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -23,8 +23,16 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	speech? ( $(add_qt_dep qtspeech) )
 "
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+	)
+
+	kde5_src_configure
+}

@@ -1,0 +1,24 @@
+From: Montel Laurent <montel@kde.org>
+Date: Fri, 18 Dec 2015 06:27:49 +0000
+Subject: Generate designer plugins
+X-Git-Url: http://quickgit.kde.org/?p=mailcommon.git&a=commitdiff&h=a5f3593adc2e13124adf3a5258685c6954d12278
+---
+Generate designer plugins
+---
+
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,6 +52,12 @@
+ find_package(KF5Ldap ${KLDAP_LIB_VERSION} CONFIG REQUIRED)
+ find_package(Phonon4Qt5 CONFIG REQUIRED)
+ 
++find_package(Qt5Designer CONFIG)
++set_package_properties(Qt5Designer PROPERTIES
++   PURPOSE "Required to build the Qt Designer plugins"
++   TYPE OPTIONAL
++)
++
+ find_package(Xsltproc)
+ set_package_properties(Xsltproc PROPERTIES DESCRIPTION "XSLT processor from libxslt" TYPE REQUIRED PURPOSE "Required to generate D-Bus interfaces for all Akonadi resources.")
+ 

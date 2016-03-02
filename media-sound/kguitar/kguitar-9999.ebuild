@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ KDE_LINGUAS="de es it fr ru"
 KDE_SCM="svn"
 inherit kde4-base
 
-DESCRIPTION="Guitarist helper program focusing on tabulature editing and MIDI synthesizers support"
+DESCRIPTION="Guitarist helper program wiith tabulature editing and MIDI synthesizers support"
 HOMEPAGE="http://kguitar.sf.net/"
 ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/branches/kde4"
 

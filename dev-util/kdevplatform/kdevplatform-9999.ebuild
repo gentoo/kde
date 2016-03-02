@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -9,16 +9,14 @@ EAPI=5
 # VIRTUALDBUS_TEST="true"
 # VIRTUALX_REQUIRED="test"
 RESTRICT="test"
-KMNAME="kdevelop"
-EGIT_REPONAME="${PN}"
+KDE_DOXYGEN="true"
+KDEBASE="kdevelop"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
-IUSE="classbrowser cvs konsole reviewboard"
+IUSE="classbrowser cvs konsole reviewboard subversion +templates"
 KEYWORDS=""
 
-# TODO features disabled by upstream, maybe more
-# Subversion integration: subversion? (dev-libs/apr dev-libs/apr-util dev-vcs/subversion )
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -29,7 +27,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -50,20 +47,24 @@ COMMON_DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep threadweaver)
 	$(add_kdeapps_dep libkomparediff2)
-	dev-libs/grantlee:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtquick1:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative 'widgets')
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	subversion? (
+		dev-libs/apr:1
+		dev-libs/apr-util:1
+		dev-vcs/subversion
+	)
+	templates? ( dev-libs/grantlee:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-qt/qtconcurrent:5
-	dev-qt/qttest:5
-	classbrowser? ( dev-libs/boost )
+	dev-libs/boost
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qttest)
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
@@ -78,6 +79,8 @@ src_configure() {
 		$(cmake-utils_use_build cvs)
 		$(cmake-utils_use_build konsole)
 		$(cmake-utils_use_build reviewboard)
+		$(cmake-utils_use_find_package subversion SubversionLibrary)
+		$(cmake-utils_use_find_package templates Grantlee5)
 	)
 
 	kde5_src_configure

@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -13,12 +13,15 @@ KEYWORDS=""
 IUSE="nls"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtconcurrent:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
+
+# bug 560086
+RESTRICT="test"
 
 DOCS=( DESIGN docs/DESIGN.kconfig docs/options.md )

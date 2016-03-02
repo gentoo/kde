@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Portage emerge progress plasmoid"
 HOMEPAGE="http://kde-apps.org/content/show.php/Emerging+Plasmoid?content=147414 "
-EGIT_REPO_URI="git://github.com/leonardo2d/${PN}"
+EGIT_REPO_URI="git://github.com/mobius3/${PN}"
 
 LICENSE="GPL-3"
 KEYWORDS=""

@@ -1,27 +1,28 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Framework providing platform independent hardware discovery, abstraction, and management"
+DESCRIPTION="Provider for platform independent hardware discovery, abstraction and management"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	sys-fs/udisks:2
 	virtual/udev
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtconcurrent:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 pkg_postinst() {
 	kde5_pkg_postinst

@@ -1,14 +1,13 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KDE Telepathy audio/video conferencing ui"
-HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -28,9 +27,10 @@ DEPEND="
 	$(add_kdeapps_dep ktp-common-internals)
 	dev-libs/boost
 	dev-libs/glib:2
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	media-libs/phonon[qt5]
 	media-libs/qt-gstreamer[qt5]
 	net-libs/farstream:0.2
 	net-libs/telepathy-farstream

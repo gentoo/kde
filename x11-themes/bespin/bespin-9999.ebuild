@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 KDE_REQUIRED="optional"
@@ -42,6 +42,13 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	app-arch/unzip
 "
+
+src_prepare() {
+	# bug #542976
+	sed -e "s/kworkspace//" -i XBar/CMakeLists.txt || die
+
+	kde4-base_src_prepare
+}
 
 src_configure() {
 	if use kde ; then

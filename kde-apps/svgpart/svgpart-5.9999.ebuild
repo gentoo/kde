@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,9 +15,9 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 "
 
 RDEPEND="${DEPEND}"

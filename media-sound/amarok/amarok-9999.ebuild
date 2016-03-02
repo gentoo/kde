@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -19,7 +19,7 @@ if [[ ${PV} != *9999* ]]; then
 	if [[ $PV == *[6-9][0-9]* ]]; then
 		SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
 	else
-		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
+		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 	fi
 	KEYWORDS="~amd64 ~ppc ~x86"
 else
@@ -28,7 +28,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="4"
-IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp nepomuk ofa opengl test +utils"
+IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp ofa opengl test +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -37,8 +37,8 @@ fi
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
 	app-crypt/qca:2[qt4(+)]
-	$(add_kdebase_dep kdelibs 'nepomuk?,opengl?' 4.8.4)
-	$(add_kdebase_dep kdebase-kioslaves)
+	$(add_kdebase_dep kdelibs 'opengl?' 4.8.4)
+	$(add_kdeapps_dep kdebase-kioslaves)
 	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
 	sys-libs/zlib
@@ -48,12 +48,12 @@ COMMONDEPEND="
 	>=dev-qt/qtscript-4.8:4
 	>=x11-libs/qtscriptgenerator-0.1.0
 	cdda? (
-		$(add_kdebase_dep libkcddb)
-		$(add_kdebase_dep libkcompactdisc)
-		$(add_kdebase_dep audiocd-kio)
+		$(add_kdeapps_dep libkcddb)
+		$(add_kdeapps_dep libkcompactdisc)
+		$(add_kdeapps_dep audiocd-kio)
 	)
 	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
-	lastfm? ( >=media-libs/liblastfm-1.0.3 )
+	lastfm? ( >=media-libs/liblastfm-1.0.3[qt4(+)] )
 	mp3tunes? (
 		dev-libs/glib:2
 		dev-libs/libxml2
@@ -63,7 +63,6 @@ COMMONDEPEND="
 		>=dev-qt/qtcore-4.8.4:4[glib]
 	)
 	mtp? ( >=media-libs/libmtp-1.0.0 )
-	nepomuk? ( >=kde-base/nepomuk-core-4.9.0 )
 	ofa? ( >=media-libs/libofa-0.9.0 )
 	opengl? ( virtual/opengl )
 "
@@ -74,7 +73,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok-utils
-	$(add_kdebase_dep phonon-kde)
+	$(add_kdeapps_dep phonon-kde)
 "
 
 src_configure() {
@@ -85,14 +84,14 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_Libgcrypt=OFF
 		-DWITH_SPECTRUM_ANALYZER=OFF
+		-DWITH_NepomukCore=OFF
+		-DWITH_Soprano=OFF
 		$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
 		$(cmake-utils_use_with ipod)
 		$(cmake-utils_use_with ipod Gdk)
 		$(cmake-utils_use_with lastfm LibLastFm)
 		$(cmake-utils_use_with mtp)
 		$(cmake-utils_use_with mp3tunes MP3Tunes)
-		$(cmake-utils_use_with nepomuk)
-		$(cmake-utils_use_with nepomuk Soprano)
 		$(cmake-utils_use_with ofa LibOFA)
 		$(cmake-utils_use_with utils UTILITIES)
 	)

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -18,11 +18,11 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep kdialog)
-	$(add_kdebase_dep kompare)
+	$(add_kdeapps_dep kdialog)
+	$(add_kdeapps_dep kompare)
 	|| (
-		( $(add_kdebase_dep dolphin) )
-		( $(add_kdebase_dep konqueror) )
+		( $(add_kdeapps_dep dolphin) )
+		( $(add_kdeapps_dep konqueror) )
 	)
 "
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -14,7 +14,7 @@ if [[ ${KDE_BUILD_TYPE} = live ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="mirror://kde/unstable/kde-telepathy/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="LGPL-2.1"
@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/dbus-glib
 	dev-libs/glib:2
 	dev-libs/libxml2
-	dev-qt/qtdbus:5
+	$(add_qt_dep qtdbus)
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
 	net-libs/telepathy-qt[qt5]

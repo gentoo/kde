@@ -1,15 +1,15 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit cmake-utils virtualx git-r3
 
 DESCRIPTION="C++ string template engine based on the Django template system"
-HOMEPAGE="http://www.gitorious.org/grantlee/pages/Home"
-EGIT_REPO_URI=( "git://gitorious.org/grantlee/${PN}" )
+HOMEPAGE="https://github.com/steveire/grantlee"
+EGIT_REPO_URI=( "https://github.com/steveire/${PN}" )
 
 LICENSE="LGPL-2.1"
 SLOT="5"
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
-DOCS=( AUTHORS CHANGELOG README )
+DOCS=( AUTHORS CHANGELOG README.md )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
@@ -48,7 +48,7 @@ src_compile() {
 }
 
 src_test() {
-	VIRTUALX_COMMAND="cmake-utils_src_test" virtualmake
+	virtx cmake-utils_src_test
 }
 
 src_install() {

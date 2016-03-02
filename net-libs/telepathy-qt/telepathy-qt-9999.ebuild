@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -63,10 +63,10 @@ src_configure() {
 			-ENABLE_SERVICE_SUPPORT=ON
 		)
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
-			mycmakeargs+=(-DDESIRED_QT_VERSION=4)
+			mycmakeargs+=( -DDESIRED_QT_VERSION=4 )
 		fi
 		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=(-DDESIRED_QT_VERSION=5)
+			mycmakeargs+=( -DDESIRED_QT_VERSION=5 )
 		fi
 		cmake-utils_src_configure
 	}
@@ -80,9 +80,9 @@ src_compile() {
 
 src_test() {
 	mytest() {
-		pushd "${BUILD_DIR}" > /dev/null
+		pushd "${BUILD_DIR}" > /dev/null || die
 		VIRTUALX_COMMAND="ctest -E '(CallChannel)'" virtualmake || die "tests failed"
-		popd > /dev/null
+		popd > /dev/null || die
 	}
 
 	multibuild_foreach_variant mytest

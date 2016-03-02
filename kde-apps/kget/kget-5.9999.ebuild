@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ EGIT_BRANCH="kf5_port"
 inherit kde5
 
 DESCRIPTION="An advanced download manager for KDE"
-HOMEPAGE="http://www.kde.org/applications/internet/kget/"
+HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="gpg mms sqlite"
 
@@ -33,12 +33,12 @@ RDEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep solid)
-	dev-qt/qtdbus:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsql:5
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qttest)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	gpg? ( $(add_kdeapps_dep gpgmepp) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )

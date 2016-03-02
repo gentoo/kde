@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>kde</herd>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
 	<use>
 		<flag name="classbrowser">Enable the class browser plugin</flag>
 		<flag name="konsole">Enable Konsole integration</flag>
 		<flag name="reviewboard">Enable reviewboard support</flag>
+		<flag name="templates">Enable file templates through <pkg>dev-libs/grantlee</pkg></flag>
 	</use>
 </pkgmetadata>

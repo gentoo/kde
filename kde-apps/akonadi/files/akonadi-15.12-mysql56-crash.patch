@@ -1,0 +1,23 @@
+Gentoo-bug: 530012
+
+diff --git a/src/server/storage/dbconfigmysql.cpp b/src/server/storage/dbconfigmysql.cpp
+index 517f4bc..a7a3f38 100644
+--- a/src/server/storage/dbconfigmysql.cpp
++++ b/src/server/storage/dbconfigmysql.cpp
+@@ -78,6 +78,7 @@ bool DbConfigMysql::init(QSettings &settings)
+                                          << QStringLiteral("/usr/local/sbin")
+                                          << QStringLiteral("/usr/local/libexec")
+                                          << QStringLiteral("/usr/libexec")
++                                         << QStringLiteral("/usr/share/mysql/scripts")
+                                          << QStringLiteral("/opt/mysql/libexec")
+                                          << QStringLiteral("/opt/local/lib/mysql5/bin")
+                                          << QStringLiteral("/opt/mysql/sbin");
+@@ -287,7 +288,7 @@ bool DbConfigMysql::startInternalServer()
+     // first run, some MySQL versions need a mysql_install_db run for that
+     const QString confFile = XdgBaseDirs::findResourceFile("config", QStringLiteral("akonadi/mysql-global.conf"));
+     if (QDir(dataDir).entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty() && !mMysqlInstallDbPath.isEmpty()) {
+-        const QStringList arguments = QStringList() << QStringLiteral("--force") << QStringLiteral("--defaults-file=%1").arg(confFile) << QStringLiteral("--datadir=%1/").arg(dataDir);
++        const QStringList arguments = QStringList() << QStringLiteral("--force") << QStringLiteral("--defaults-file=%1").arg(confFile) << QStringLiteral("--datadir=%1/").arg(dataDir) << QString::fromLatin1( "--basedir=/usr" ) ;
+         QProcess::execute(mMysqlInstallDbPath, arguments);
+     }
+ 

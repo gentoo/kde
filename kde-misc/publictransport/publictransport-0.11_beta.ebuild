@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -17,7 +17,7 @@ IUSE="debug gps protobuf marble test"
 
 DEPEND="
 	$(add_kdebase_dep plasma-workspace)
-	marble? ( $(add_kdebase_dep marble) )
+	marble? ( $(add_kdeapps_dep marble) )
 	protobuf? ( dev-libs/protobuf )
 "
 RDEPEND="${DEPEND}

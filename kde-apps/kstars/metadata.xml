@@ -2,8 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<use>
-		<flag name="fits">Enable support for the FITS image format through cfitsio</flag>
 		<flag name="indi">Enable support for Astronomical control library using libindi</flag>
+		<flag name="wcs">Enable support for World Coordinate System library using wcslib</flag>
+		<flag name="xplanet">Enable support for Xplanet</flag>
 	</use>
-	<herd>kde</herd>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
 </pkgmetadata>

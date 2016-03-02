@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -29,7 +29,7 @@ DEPEND="
 	net-libs/libgsasl
 	sys-libs/zlib
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4
+		>=dev-qt/qtcore-4.6.0:4[ssl]
 		>=dev-qt/qtgui-4.6.0:4
 	)
 	qt5? (

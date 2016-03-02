@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>kde</herd>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
 	<use>
+		<flag name="clang">Prefer <pkg>sys-devel/clang</pkg> C++ backend over legacy</flag>
 		<flag name="cmake">Enable support for CMake build system</flag>
-		<flag name="gdbui">Enable GUI for attaching GDB to a running process</flag>
-		<flag name="okteta">Enable hex editor plugin</flag>
+		<flag name="ninja">Enable support for Ninja build system</flag>
+		<flag name="qmake">Enable support for QMake build system</flag>
 		<flag name="qthelp">Enable support for QtHelp documentation browsing</flag>
 	</use>
 </pkgmetadata>

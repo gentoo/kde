@@ -1,22 +1,45 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-KDE_LINGUAS="ca cs da de el en_GB es et fr ga gl hr it ja ko nb nds nl nn pl pt
-pt_BR ro ru sk sv th tr uk wa zh_CN"
-inherit kde4-base
+EGIT_BRANCH="frameworks"
+inherit kde5
 
-DESCRIPTION="A quake-style terminal emulator based on KDE konsole technology"
+DESCRIPTION="Quake-style terminal emulator based on konsole"
 HOMEPAGE="http://yakuake.kde.org/"
-[[ ${PV} == *9999 ]] || SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug"
+IUSE=""
 
-DEPEND="$(add_kdebase_dep konsole)
-	sys-devel/gettext"
-RDEPEND="${DEPEND}"
+DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kglobalaccel)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep konsole)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
+	x11-libs/libX11
+"
+RDEPEND="${DEPEND}
+	!kde-misc/yakuake:4
+"

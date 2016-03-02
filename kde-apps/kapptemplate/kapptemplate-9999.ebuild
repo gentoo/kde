@@ -1,15 +1,15 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-KDE_HANDBOOK="true"
-KDE_TEST="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="A shell script to create the necessary framework to develop KDE applications"
-HOMEPAGE="http://www.kde.org/applications/development/kapptemplate"
+HOMEPAGE="https://www.kde.org/applications/development/kapptemplate"
 KEYWORDS=""
 IUSE=""
 
@@ -22,10 +22,8 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}"-9999-tests-optional.patch )

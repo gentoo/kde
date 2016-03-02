@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ KMNAME="kde-baseapps"
 inherit kde5
 
 DESCRIPTION="KDE file finder utility"
-HOMEPAGE="http://www.kde.org/applications/utilities/kfind/"
+HOMEPAGE="https://www.kde.org/applications/utilities/kfind/"
 KEYWORDS=""
 IUSE=""
 
@@ -28,11 +28,9 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkonq)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!kde-base/kfind:4
-"
+RDEPEND="${DEPEND}"
 
 S=${S}/${PN}

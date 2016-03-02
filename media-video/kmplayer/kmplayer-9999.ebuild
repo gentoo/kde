@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="Video player plugin for Konqueror and basic MPlayer/Xine/ffmpeg/ffserver/VDR frontend"
+DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
 HOMEPAGE="https://projects.kde.org/projects/extragear/multimedia/kmplayer"
 
 LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
@@ -28,7 +28,7 @@ DEPEND="
 	)
 	npp? (
 		dev-libs/dbus-glib
-		$(add_kdebase_dep kreadconfig)
+		$(add_kdeapps_dep kreadconfig)
 		>=x11-libs/gtk+-2.10.14:2
 		www-plugins/adobe-flash
 	)

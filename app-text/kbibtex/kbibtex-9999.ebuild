@@ -1,32 +1,67 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-inherit versionator kde4-base
+KDE_DOXYGEN="true"
+KDE_GCC_MINIMAL="4.9"
+KDE_HANDBOOK="forceoptional"
+inherit kde5
 
-DESCRIPTION="BibTeX editor for KDE to edit bibliographies used with LaTeX"
+DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="http://home.gna.org/kbibtex/"
 if [[ ${PV} != *9999* ]]; then
+	inherit versionator
 	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
-else
-	EGIT_BRANCH="master"
-	KEYWORDS=""
 fi
 
 LICENSE="GPL-2"
-SLOT="4"
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	app-text/poppler[qt4]
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	app-text/poppler[qt5]
+	dev-libs/icu:=
 	dev-libs/libxml2
 	dev-libs/libxslt
+	dev-libs/qoauth:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	virtual/tex-base
 "
 RDEPEND="${DEPEND}
-	dev-tex/bibtex2html"
+	dev-tex/bibtex2html
+	!app-text/kbibtex:4
+"
 
 S=${WORKDIR}/${P/_/-}
+
+PATCHES=(
+	"${FILESDIR}/${PN}-revert-removing-qtoauth.patch"
+	"${FILESDIR}/${PN}-part-revert-reenable-qtoauth.patch"
+)
+
+src_prepare() {
+	kde5_src_prepare
+
+	rm -r src/3rdparty/qoauth || die "Failed to remove bundled qoauth"
+}

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -20,14 +20,15 @@ EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="4"
-IUSE="alsa debug encode ffmpeg lirc +mp3 +vorbis v4l"
+IUSE="alsa debug encode ffmpeg libav lirc +mp3 +vorbis v4l"
 
 DEPEND="
 	media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
 	ffmpeg? (
 		>=media-libs/libmms-0.4
-		virtual/ffmpeg
+		libav? ( media-video/libav:= )
+		!libav? ( media-video/ffmpeg:0= )
 	)
 	lirc? ( app-misc/lirc )
 	mp3? ( media-sound/lame )

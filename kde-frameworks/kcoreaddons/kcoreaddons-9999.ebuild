@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit fdo-mime kde5
+inherit kde5
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
@@ -12,13 +12,13 @@ KEYWORDS=""
 IUSE="fam nls"
 
 RDEPEND="
-	dev-qt/qtcore:5[icu]
+	$(add_qt_dep qtcore 'icu')
 	fam? ( virtual/fam )
 	!<kde-frameworks/kservice-5.2.0:5
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {
@@ -28,14 +28,4 @@ src_configure() {
 	)
 
 	kde5_src_configure
-}
-
-pkg_postinst() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
-}
-
-pkg_postrm() {
-	kde5_pkg_postinst
-	fdo-mime_mime_database_update
 }

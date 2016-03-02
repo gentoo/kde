@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit cmake-utils multibuild git-r3
 
@@ -57,8 +57,8 @@ src_configure() {
 		# demos not working
 		local mycmakeargs=(
 			-DBUILD_DEMOS=OFF
-			$(cmake-utils_use_build fingerprint)
-			$(cmake-utils_use_build test TESTS)
+			-DBUILD_FINGERPRINT=$(usex fingerprint)
+			-DBUILD_TESTS=$(usex test)
 		)
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=(-DBUILD_WITH_QT4=ON)

@@ -1,10 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 KMNAME="kde-baseapps"
@@ -20,7 +21,6 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjobwidgets)
@@ -28,16 +28,13 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}
-	!kde-base/kde-baseapps:5
-	!kde-base/libkonq:4
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT="test"
 

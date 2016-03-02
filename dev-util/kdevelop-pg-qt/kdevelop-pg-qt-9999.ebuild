@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -12,12 +12,14 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="A LL(1) parser generator used mainly by KDevelop language plugins"
+DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
 LICENSE="LGPL-2"
-SLOT="0"
 IUSE=""
 
 DEPEND="
 	sys-devel/bison
 	sys-devel/flex
+"
+RDEPEND="
+	!dev-util/kdevelop-pg-qt:4
 "

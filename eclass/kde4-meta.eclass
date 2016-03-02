@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 #
 # @ECLASS: kde4-meta.eclass
 # @MAINTAINER:
@@ -28,7 +28,7 @@ case ${KMNAME} in
 		case ${PN} in
 			akregator|kaddressbook|kjots|kmail|knode|knotes|korganizer|ktimetracker)
 				IUSE+=" +kontact"
-				RDEPEND+=" kontact? ( $(add_kdebase_dep kontact) )"
+				RDEPEND+=" kontact? ( $(add_kdeapps_dep kontact '' ${PV}) )"
 				;;
 		esac
 		;;
@@ -182,9 +182,12 @@ kde4-meta_src_extract() {
 	else
 		local abort tarball tarfile f extractlist postfix
 
-		if [[ ${PV} =~ 4.[47].[12345] ]]; then
+		if [[ ${PV} =~ 4.4.11 ]]; then
 			postfix="bz2"
 			KMTARPARAMS+=" --bzip2"
+		elif [[ ${PV} =~ _pre ]]; then
+			postfix="gz"
+			KMTARPARAMS+=" --gz"
 		else
 			postfix="xz"
 			KMTARPARAMS+=" --xz"
@@ -198,6 +201,9 @@ kde4-meta_src_extract() {
 		# Detect real toplevel dir from tarball name - it will be used upon extraction
 		# and in _list_needed_subdirectories
 		topdir="${tarball%.tar.*}/"
+		if [[ ${topdir} =~ _pre ]]; then
+			topdir="${topdir%-$PV*}/"
+		fi
 
 		ebegin "Unpacking parts of ${tarball} to ${WORKDIR}"
 
@@ -209,7 +215,7 @@ kde4-meta_src_extract() {
 		done
 		extractlist+=" $(_list_needed_subdirectories)"
 
-		pushd "${WORKDIR}" > /dev/null
+		pushd "${WORKDIR}" > /dev/null || die
 
 		# @ECLASS-VARIABLE: KDE4_STRICTER
 		# @DESCRIPTION:
@@ -223,7 +229,7 @@ kde4-meta_src_extract() {
 			mv ${topdir} ${P} || die "Died while moving \"${topdir}\" to \"${P}\""
 		fi
 
-		popd > /dev/null
+		popd > /dev/null || die
 
 		eend $?
 
@@ -398,7 +404,7 @@ _change_cmakelists_parent_dirs() {
 kde4-meta_change_cmakelists() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	pushd "${S}" > /dev/null
+	pushd "${S}" > /dev/null || die
 
 	comment_all_add_subdirectory ./
 
@@ -547,7 +553,7 @@ kde4-meta_change_cmakelists() {
 			;;
 	esac
 
-	popd > /dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: kde4-meta_src_configure

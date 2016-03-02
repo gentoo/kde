@@ -1,19 +1,25 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-MULTIMEDIA_REQUIRED="always"
-WEBKIT_REQUIRED="always"
-KDE_HANDBOOK="optional"
+EGIT_BRANCH="kf5"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="true"
+
+inherit kde5
+
+DESCRIPTION="The CD/DVD Kreator for KDE"
+HOMEPAGE="http://www.k3b.org/"
+
+LICENSE="GPL-2 FDL-1.2"
+SLOT="5"
+KEYWORDS=""
+IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 # Translations are only in the tarballs, not in the git repo
-if [[ ${PV} != *9999* ]]; then
-	KDE_LINGUAS="ast be bg ca ca@valencia cs csb da de el en_GB eo es et eu fi fr ga
-	gl he hi hne hr hu is it ja km ko ku lt mai nb nds nl nn oc pa pl pt pt_BR ro ru
-	se sk sl sv th tr uk zh_CN zh_TW"
-
+if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
 	DOCS=( FAQ PERMISSIONS README )
 	S=${WORKDIR}/${P/_*}
@@ -21,21 +27,30 @@ else
 	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
 fi
 
-inherit kde4-base
-
-DESCRIPTION="The CD/DVD Kreator for KDE"
-HOMEPAGE="http://www.k3b.org/"
-
-LICENSE="GPL-2 FDL-1.2"
-KEYWORDS=""
-SLOT="4"
-IUSE="debug dvd emovix encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
-
 DEPEND="
-	$(add_kdebase_dep libkcddb)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kfilemetadata)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep solid)
+	$(add_kdeapps_dep libkcddb)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? (
+		libav? ( media-video/libav:= )
+		!libav? ( media-video/ffmpeg:0= )
+	)
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	mp3? ( media-sound/lame )
 	mad? ( media-libs/libmad )
@@ -45,7 +60,6 @@ DEPEND="
 	vorbis? ( media-libs/libvorbis )
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdelibs 'udev,udisks(+)')
 	app-cdr/cdrdao
 	media-sound/cdparanoia
 	virtual/cdrtools
@@ -56,6 +70,7 @@ RDEPEND="${DEPEND}
 	emovix? ( media-video/emovix )
 	sox? ( media-sound/sox )
 	vcd? ( media-video/vcdimager )
+	!app-cdr/k3b:4
 "
 
 DOCS+=( ChangeLog )
@@ -64,6 +79,8 @@ REQUIRED_USE="
 	mp3? ( encode )
 	sox? ( encode )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -86,11 +103,11 @@ src_configure() {
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
 		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
 	)
-	kde4-base_src_configure
+	kde5_src_configure
 }
 
 pkg_postinst() {
-	kde4-base_pkg_postinst
+	kde5_pkg_postinst
 
 	echo
 	elog "We don't install k3bsetup anymore because Gentoo doesn't need it."

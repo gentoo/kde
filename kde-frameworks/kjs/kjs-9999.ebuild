@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -15,6 +15,7 @@ RDEPEND="
 	dev-libs/libpcre
 "
 DEPEND="${RDEPEND}
+	$(add_frameworks_dep kdoctools)
 	dev-lang/perl
 "
 

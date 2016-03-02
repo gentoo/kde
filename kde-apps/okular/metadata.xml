@@ -5,7 +5,11 @@
 		<flag name="chm">Enable support for Microsoft Compiled HTML Help files</flag>
 		<flag name="dpi">DPI detection support for PDF rendering via <pkg>x11-libs/libkscreen</pkg></flag>
 		<flag name="ebook">Add E-Book support</flag>
+		<flag name="kde">Enable kactivities support</flag>
 		<flag name="mobi">Add mobipocket support</flag>
 	</use>
-	<herd>kde</herd>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
 </pkgmetadata>

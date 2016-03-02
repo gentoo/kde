@@ -1,13 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 KDE_HANDBOOK="true"
 EGIT_BRANCH="frameworks"
-KDE_LINGUAS="cs da de el es et eu fi fr gl hu ia it km lt mr nb nl pl pt pt_BR
-sk sl sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 inherit kde5
 
 DESCRIPTION="A browser based on qtwebkit"
@@ -46,13 +44,13 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtconcurrent:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
 	!www-client/rekonq:4

@@ -2,7 +2,10 @@
 # Live packages are masked by default.
 # Edit Documentation/package.unmask/.kde-frameworks-live/ files instead.
 ~kde-frameworks/attica-9999
+~kde-frameworks/baloo-9999
 ~kde-frameworks/bluez-qt-9999
+~kde-frameworks/breeze-icons-9999
+~kde-frameworks/extra-cmake-modules-9999
 ~kde-frameworks/frameworkintegration-9999
 ~kde-frameworks/kactivities-9999
 ~kde-frameworks/kapidox-9999
@@ -26,6 +29,7 @@
 ~kde-frameworks/kdnssd-9999
 ~kde-frameworks/kdoctools-9999
 ~kde-frameworks/kemoticons-9999
+~kde-frameworks/kfilemetadata-9999
 ~kde-frameworks/kglobalaccel-9999
 ~kde-frameworks/kguiaddons-9999
 ~kde-frameworks/khtml-9999
@@ -60,7 +64,9 @@
 ~kde-frameworks/kwindowsystem-9999
 ~kde-frameworks/kxmlgui-9999
 ~kde-frameworks/kxmlrpcclient-9999
+~kde-frameworks/modemmanager-qt-9999
 ~kde-frameworks/networkmanager-qt-9999
+~kde-frameworks/oxygen-icons-9999
 ~kde-frameworks/plasma-9999
 ~kde-frameworks/solid-9999
 ~kde-frameworks/sonnet-9999

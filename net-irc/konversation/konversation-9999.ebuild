@@ -1,12 +1,13 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
+KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="A user friendly IRC Client for KDE"
+DESCRIPTION="A user friendly IRC Client"
 HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation.kde.org"
 
 LICENSE="GPL-2"
@@ -21,8 +22,9 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kemoticons)
+	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kidletime)
@@ -39,10 +41,10 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5]
 	crypt? ( app-crypt/qca:2[qt5] )
 	sys-devel/gettext
@@ -54,7 +56,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package crypt Qca)
+		$(cmake-utils_use_find_package crypt Qca-qt5)
 	)
 
 	kde5_src_configure

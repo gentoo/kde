@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -30,15 +30,15 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	git? ( dev-libs/libgit2 )
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	git? ( dev-libs/libgit2:= )
 "
 DEPEND="${RDEPEND}
-	dev-qt/qtxmlpatterns:5
+	$(add_qt_dep qtxmlpatterns)
 	test? ( $(add_frameworks_dep kservice) )
 "
 

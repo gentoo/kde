@@ -1,15 +1,15 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
-DESCRIPTION="Framework providing advanced features for plugins, such as file type association and locating"
+DESCRIPTION="Advanced plugin and service introspection"
 LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="+man"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -17,13 +17,21 @@ RDEPEND="
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
-	dev-qt/qtdbus:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
-	test? ( dev-qt/qtconcurrent:5 )
+	man? ( $(add_frameworks_dep kdoctools) )
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 
 # requires running kde environment
 RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}

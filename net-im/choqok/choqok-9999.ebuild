@@ -1,45 +1,66 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fa fi fr ga gl
-hr hu is it ja km lt mr ms nb nds nl pa pl pt pt_BR ro ru sk sq sl sv tr ug
-uk zh_CN zh_TW"
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="forceoptional"
+QT_MINIMAL="5.5.1"
+inherit kde5
 
 DESCRIPTION="Free/Open Source micro-blogging client for KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc ~x86"
-else
-	KEYWORDS=""
-fi
-
 LICENSE="GPL-2+"
-SLOT="4"
-IUSE="ayatana debug"
+IUSE="attica konqueror"
 
-RDEPEND="
-	dev-libs/libattica
+DEPEND="
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kemoticons)
+	$(add_frameworks_dep kglobalaccel)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwallet)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
+	app-crypt/qca[qt5]
 	dev-libs/qjson
-	>=dev-libs/qoauth-1.0.1
-	ayatana? ( dev-libs/libindicate-qt )
+	dev-libs/qoauth:5
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	net-libs/telepathy-qt[qt5]
+	attica? ( dev-libs/libattica )
+	konqueror? (
+		$(add_frameworks_dep kparts)
+		$(add_frameworks_dep kdewebkit)
+	)
 "
-DEPEND="${RDEPEND}
-	app-arch/xz-utils
+RDEPEND="${DEPEND}
+	!net-im/choqok:4
 "
 
 DOCS=( AUTHORS README TODO changelog )
 
-src_prepare(){
+src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use !ayatana QTINDICATE_DISABLE)
+		$(cmake-utils_use_find_package attica KF5Attica)
+		$(cmake-utils_use_find_package konqueror KF5Parts)
+		$(cmake-utils_use_find_package konqueror KF5WebKit)
 	)
 
-	kde4-base_src_prepare
+	kde5_src_configure
 }

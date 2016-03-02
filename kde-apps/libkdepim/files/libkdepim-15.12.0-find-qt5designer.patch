@@ -1,0 +1,27 @@
+From: Heiko Becker <heirecka@exherbo.org>
+Date: Thu, 17 Dec 2015 15:22:42 +0000
+Subject: Search for Qt5Designer
+X-Git-Url: http://quickgit.kde.org/?p=libkdepim.git&a=commitdiff&h=b6005eb9e45965ae2249aaa41d03919824ec6dfc
+---
+Search for Qt5Designer
+
+Otherwise Qt5Designer_FOUND in src/designer/CMakeLists.txt is always
+false and the corresponding code never built.
+---
+
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,6 +45,11 @@
+ find_package(KF5AkonadiSearch ${AKONADISEARCH_LIB_VERSION} CONFIG REQUIRED)
+ set_package_properties(KF5AkonadiSearch PROPERTIES DESCRIPTION "The Akonadi Search libraries" URL "http://www.kde.org" TYPE REQUIRED PURPOSE "Provides search capabilities in KMail and Akonadi")
+ 
++find_package(Qt5Designer CONFIG)
++set_package_properties(Qt5Designer PROPERTIES
++   PURPOSE "Required to build the Qt Designer plugins"
++   TYPE OPTIONAL
++)
+ 
+ ecm_setup_version(${LIBKDEPIM_LIB_VERSION} VARIABLE_PREFIX LIBKDEPIM
+                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkdepim_version.h"
+

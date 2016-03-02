@@ -1,17 +1,19 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 inherit kde5-meta-pkg
 
 DESCRIPTION="Plasma Telepathy client"
-HOMEPAGE="http://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 DEPEND=""
 RDEPEND="
@@ -28,6 +30,9 @@ RDEPEND="
 	$(add_kdeapps_dep ktp-send-file)
 	$(add_kdeapps_dep ktp-text-ui)
 	!net-im/kde-telepathy-meta
+	nls? (
+		$(add_kdeapps_dep ktp-l10n '' ${L10N_MINIMAL})
+	)
 "
 
 pkg_postinst() {

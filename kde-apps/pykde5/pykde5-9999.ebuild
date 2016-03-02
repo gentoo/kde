@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
@@ -12,7 +12,7 @@ inherit python-r1 portability kde5 multilib eutils
 DESCRIPTION="Python bindings for KDE Applications 5"
 KEYWORDS=""
 IUSE="doc"
-HOMEPAGE="http://techbase.kde.org/Development/Languages/Python"
+HOMEPAGE="https://techbase.kde.org/Development/Languages/Python"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -28,9 +28,9 @@ RDEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep sonnet)
 	dev-python/PyQt5[${PYTHON_USEDEP},gui,widgets]
 	>=dev-python/sip-4.16.2:=[${PYTHON_USEDEP}]
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 
 DEPEND="${RDEPEND}

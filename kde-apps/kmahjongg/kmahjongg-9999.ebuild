@@ -1,23 +1,38 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Mahjongg for KDE"
+DESCRIPTION="A tile matching game for one or two players"
 HOMEPAGE="
-	http://www.kde.org/applications/games/kmahjongg/
-	http://games.kde.org/game.php?game=kmahjongg
+	https://www.kde.org/applications/games/kmahjongg/
+	https://games.kde.org/game.php?game=kmahjongg
 "
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
 	$(add_kdeapps_dep libkmahjongg)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 "
+
 RDEPEND="${DEPEND}"

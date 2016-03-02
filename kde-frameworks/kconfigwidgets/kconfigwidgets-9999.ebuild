@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing an assortment of configuration-related widgets"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="+man"
 
 RDEPEND="
 	$(add_frameworks_dep kauth)
@@ -20,11 +20,19 @@ RDEPEND="
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	!<kde-frameworks/kdelibs4support-5.3.0:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
+	man? ( $(add_frameworks_dep kdoctools) )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}

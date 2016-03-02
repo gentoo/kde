@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -12,15 +12,15 @@ KEYWORDS=""
 IUSE="teamd"
 
 RDEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtnetwork)
 	|| (
 		>=net-misc/networkmanager-0.9.10.0[consolekit,teamd=]
 		>=net-misc/networkmanager-0.9.10.0[systemd,teamd=]
 	)
 	!kde-frameworks/libnm-qt
 	!kde-plasma/libnm-qt
-	!net-libs/libnm-qt
+	!net-libs/libnm-qt:5
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

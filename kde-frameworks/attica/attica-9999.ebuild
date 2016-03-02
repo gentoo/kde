@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -12,6 +12,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtnetwork)
 "
 DEPEND="${RDEPEND}"

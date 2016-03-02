@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 LIBKT_VERSION_MIN="${PV}"
 LIBKT_VERSION_MAX="99999999"
@@ -13,13 +13,7 @@ if [[ ${PV} != 9999* ]]; then
 	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
 	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
-	KDE_HANDBOOK="optional"
-	KDE_DOC_DIRS="doc"
 
-	KDE_LINGUAS="ar ast be bg bs ca ca@valencia cs da de el en_GB eo es et eu
-		fi fr ga gl hi hne hr hu is it ja km ku lt lv mai ms nb nds nl nn oc
-		pl pt pt_BR ro ru se si sk sl sq sr sr@ijekavian sr@ijekavianlatin
-		sr@latin sv tr ug uk zh_CN zh_TW"
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
@@ -30,68 +24,101 @@ else
 	KEYWORDS=""
 fi
 
-inherit kde4-base
+KDE_HANDBOOK="forceoptional"
+QT_MINIMAL="5.5.1"
+inherit kde5
 
-DESCRIPTION="A BitTorrent program for KDE"
+DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
 HOMEPAGE="http://ktorrent.org/"
 
 LICENSE="GPL-2"
-SLOT="4"
-IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
-+magnetgenerator +mediaplayer plasma rss +scanfolder +search +shutdown +stats
-+upnp webinterface +zeroconf"
+IUSE="+bwscheduler +downloadorder +infowidget +logviewer
++magnetgenerator +mediaplayer +shutdown +upnp +zeroconf"
 
-COMMONDEPEND="
-	<net-libs/libktorrent-${LIBKT_VERSION_MAX}
-	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}
+COMMON_DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdewebkit)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep solid)
+	$(add_frameworks_dep sonnet)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:5
+	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:5
 	infowidget? ( dev-libs/geoip )
-	mediaplayer? ( >=media-libs/taglib-1.5 )
-	plasma? ( $(add_kdebase_dep libtaskmanager) )
-	rss? ( $(add_kdebase_dep kdepimlibs) )
-	shutdown? ( $(add_kdebase_dep libkworkspace) )
+	mediaplayer? (
+		media-libs/phonon[qt5]
+		>=media-libs/taglib-1.5
+	)
+	shutdown? ( $(add_plasma_dep plasma-workspace) )
+	zeroconf? ( $(add_frameworks_dep kdnssd) )
 "
-DEPEND="${COMMONDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-libs/boost:=
 	sys-devel/gettext
 "
-RDEPEND="${COMMONDEPEND}
-	ipfilter? (
-		app-arch/bzip2
-		app-arch/unzip
-		$(add_kdebase_dep kdebase-kioslaves)
-	)
-	kross? ( $(add_kdebase_dep krosspython) )
+RDEPEND="${COMMON_DEPEND}
+	!net-p2p/ktorrent:4
 "
+# add back when ported - DEPEND
+# 	kross? ( $(add_frameworks_dep kross) )
+# 	rss? ( $(add_kdeapps_dep kdepimlibs) )
+# add back when ported - RDEPEND
+# 	ipfilter? (
+# 		app-arch/bzip2
+# 		app-arch/unzip
+# 		$(add_kdeapps_dep kdebase-kioslaves)
+# 	)
+# 	kross? ( $(add_kdebase_dep krosspython) )
 
-src_prepare() {
-	if ! use plasma; then
-		sed -i \
-			-e "s:add_subdirectory(plasma):#nada:g" \
-			CMakeLists.txt || die "Failed to make plasmoid optional"
-	fi
-
-	kde4-base_src_prepare
-}
+# src_prepare() {
+# add back when ported
+# 	if ! use plasma; then
+# 		sed -i \
+# 			-e "s:add_subdirectory(plasma):#nada:g" \
+# 			CMakeLists.txt || die "Failed to make plasmoid optional"
+# 	fi
+# 
+# 	kde5_src_prepare
+# }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable bwscheduler BWSCHEDULER_PLUGIN)
-		$(cmake-utils_use_enable downloadorder DOWNLOADORDER_PLUGIN)
-		$(cmake-utils_use_enable infowidget INFOWIDGET_PLUGIN)
-		$(cmake-utils_use_with infowidget SYSTEM_GEOIP)
-		$(cmake-utils_use_enable ipfilter IPFILTER_PLUGIN)
-		$(cmake-utils_use_enable kross SCRIPTING_PLUGIN)
-		$(cmake-utils_use_enable logviewer LOGVIEWER_PLUGIN)
-		$(cmake-utils_use_enable magnetgenerator MAGNETGENERATOR_PLUGIN)
-		$(cmake-utils_use_enable mediaplayer MEDIAPLAYER_PLUGIN)
-		$(cmake-utils_use_enable rss SYNDICATION_PLUGIN)
-		$(cmake-utils_use_enable scanfolder SCANFOLDER_PLUGIN)
-		$(cmake-utils_use_enable search SEARCH_PLUGIN)
-		$(cmake-utils_use_enable shutdown SHUTDOWN_PLUGIN)
-		$(cmake-utils_use_enable stats STATS_PLUGIN)
-		$(cmake-utils_use_enable upnp UPNP_PLUGIN)
-		$(cmake-utils_use_enable webinterface WEBINTERFACE_PLUGIN)
-		$(cmake-utils_use_enable zeroconf ZEROCONF_PLUGIN)
+		-DENABLE_BWSCHEDULER_PLUGIN=$(usex bwscheduler)
+		-DENABLE_DOWNLOADORDER_PLUGIN=$(usex downloadorder)
+		-DENABLE_INFOWIDGET_PLUGIN=$(usex infowidget)
+		-DWITH_SYSTEM_GEOIP=$(usex infowidget)
+		-DENABLE_LOGVIEWER_PLUGIN=$(usex logviewer)
+		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
+		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
+		-DENABLE_SHUTDOWN_PLUGIN=$(usex shutdown)
+		-DENABLE_UPNP_PLUGIN=$(usex upnp)
+		-DENABLE_ZEROCONF_PLUGIN=$(usex zeroconf)
 	)
-	kde4-base_src_configure
+# add back when ported
+# 		-DENABLE_IPFILTER_PLUGIN=$(usex ipfilter)
+# 		-DENABLE_SCRIPTING_PLUGIN=$(usex kross)
+# 		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
+# 		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
+# 		-DENABLE_SEARCH_PLUGIN=$(usex search)
+# 		-DENABLE_STATS_PLUGIN=$(usex stats)
+# 		-DENABLE_WEBINTERFACE_PLUGIN=$(usex webinterface)
+	kde5_src_configure
 }

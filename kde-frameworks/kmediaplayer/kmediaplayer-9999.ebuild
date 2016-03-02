@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -15,7 +15,7 @@ IUSE=""
 RDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtdbus:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtwidgets)
 "
 DEPEND="${RDEPEND}"

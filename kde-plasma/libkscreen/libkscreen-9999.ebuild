@@ -1,29 +1,35 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE screen management library"
+DESCRIPTION="Plasma screen management library"
 KEYWORDS=""
-IUSE=""
-
-# TODO: add X use flag, does not build at the moment
-
-# does not build
-RESTRICT="test"
+IUSE="X"
 
 DEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtx11extras:5
-	x11-libs/libX11
-	x11-libs/libxcb
-	x11-libs/libXrandr
+	$(add_plasma_dep kwayland)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtx11extras)
+	X? ( x11-libs/libxcb )
 "
 RDEPEND="${DEPEND}
 	!x11-libs/libkscreen:5
 "
+
+# requires running session
+RESTRICT="test"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package X XCB)
+	)
+
+	kde5_src_configure
+}

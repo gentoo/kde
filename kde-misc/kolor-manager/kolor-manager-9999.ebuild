@@ -1,21 +1,27 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-inherit kde4-base
+EGIT_BRANCH="frameworks"
+inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
 HOMEPAGE="http://www.oyranos.org/wiki/index.php?title=Kolor-manager"
 
 LICENSE="BSD-2"
 KEYWORDS=""
-SLOT="4"
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	>=media-libs/oyranos-0.9.5
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_qt_dep qtwidgets)
+	media-gfx/synnefo[qt5]
+	=media-libs/oyranos-9999
 	media-libs/libXcm
 	x11-libs/libXrandr
 "

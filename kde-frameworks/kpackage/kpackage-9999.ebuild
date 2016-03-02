@@ -1,15 +1,15 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
 DESCRIPTION="Framework to install and load packages of non binary content"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="man"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -18,5 +18,13 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
+	man? ( $(add_frameworks_dep kdoctools) )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package man KF5DocTools)
+	)
+
+	kde5_src_configure
+}

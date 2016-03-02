@@ -1,18 +1,19 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Framework providing transparent file and data management"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="acl kerberos X"
+IUSE="acl +handbook kerberos +kwallet X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -28,17 +29,16 @@ RDEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork 'ssl')
+	$(add_qt_dep qtscript)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	dev-libs/libxml2
 	dev-libs/libxslt
 	acl? (
@@ -46,12 +46,12 @@ RDEPEND="
 		virtual/acl
 	)
 	kerberos? ( virtual/krb5 )
-	X? ( dev-qt/qtx11extras:5 )
-	!<kde-base/kio-extras-5.0.95-r1:5
+	kwallet? ( $(add_frameworks_dep kwallet) )
+	X? ( $(add_qt_dep qtx11extras) )
 "
-DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
-	dev-qt/qtconcurrent:5
+DEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtconcurrent)
+	handbook? ( $(add_frameworks_dep kdoctools) )
 	test? ( sys-libs/zlib )
 	X? (
 		x11-libs/libX11
@@ -62,21 +62,17 @@ DEPEND="${RDEPEND}
 PDEPEND="
 	$(add_frameworks_dep kded)
 "
+RDEPEND="${COMMON_DEPEND}"
 
 # tests hang
 RESTRICT="test"
 
-src_prepare() {
-	# whole patch should be upstreamed, doesn't work in PATCHES
-	epatch "${FILESDIR}/${PN}-9999-tests-optional.patch"
-
-	kde5_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package acl)
+		$(cmake-utils_use_find_package acl ACL)
+		$(cmake-utils_use_find_package handbook KF5DocTools)
 		$(cmake-utils_use_find_package kerberos GSSAPI)
+		$(cmake-utils_use_find_package kwallet KF5Wallet)
 		$(cmake-utils_use_find_package X X11)
 	)
 

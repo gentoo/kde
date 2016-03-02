@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -13,8 +13,9 @@ KEYWORDS=""
 IUSE="eps openexr"
 
 RDEPEND="
-	dev-qt/qtgui:5
-	eps? ( dev-qt/qtprintsupport:5 )
+	$(add_frameworks_dep karchive)
+	$(add_qt_dep qtgui)
+	eps? ( $(add_qt_dep qtprintsupport) )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr:=

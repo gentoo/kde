@@ -10,7 +10,7 @@ The overlay is hosted on Github and on the official Gentoo Overlays
 infrastructure at:
 
 - https://github.com/gentoo/kde
-- https://git.overlays.gentoo.org/gitweb/?p=proj/kde.git
+- https://gitweb.gentoo.org/proj/kde.git
 
 If you have questions, you can find us on IRC in #gentoo-kde on Freenode or at
 [kde@gentoo.org](mailto:kde@gentoo.org).

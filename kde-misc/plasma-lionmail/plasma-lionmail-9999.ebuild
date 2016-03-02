@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,13 +15,12 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep kdelibs)
-	$(add_kdebase_dep kdepimlibs)
+	$(add_kdeapps_dep kdepimlibs)
 	app-office/akonadi-server
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
 	dev-qt/qtwebkit:4
 "
 RDEPEND="${DEPEND}
-	$(add_kdebase_dep kdepim-runtime)
+	$(add_kdeapps_dep kdepim-runtime)
 "

@@ -1,35 +1,67 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="optional"
-inherit flag-o-matic kde4-base
+KDE_HANDBOOK="forceoptional"
+KDE_PUNT_BOGUS_DEPS="true"
+PYTHON_COMPAT=( python2_7 )
+inherit kde5 python-single-r1
 
-DESCRIPTION="KDE Desktop Planetarium"
-HOMEPAGE="http://www.kde.org/applications/education/kstars http://edu.kde.org/kstars"
+DESCRIPTION="Desktop Planetarium"
+HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars"
 KEYWORDS=""
-IUSE="debug fits indi"
+IUSE="indi wcs xplanet"
 
-REQUIRED_USE="indi? ( fits )"
-
-DEPEND="
-	dev-cpp/eigen:3
-	$(add_kdeapps_dep libkdeedu)
-	fits? ( >=sci-libs/cfitsio-0.390 )
-	indi? ( >=sci-libs/indilib-0.9.8 )
+# TODO: AstrometryNet requires new package
+# FIXME: doesn't build without sci-libs/cfitsio as of 15.04.0
+COMMON_DEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kinit)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kplotting)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	>=sci-libs/cfitsio-0.390
+	sys-libs/zlib
+	indi? (
+		$(add_frameworks_dep knotifications)
+		>=sci-libs/indilib-1.1.0
+	)
+	wcs? ( sci-astronomy/wcslib )
+	xplanet? ( x11-misc/xplanet )
 "
-RDEPEND="${DEPEND}"
+# TODO: Add back when re-enabled by upstream
+# 	opengl? (
+# 		$(add_qt_dep qtopengl)
+# 		virtual/opengl
+# 	)
+DEPEND="${COMMON_DEPEND}
+	dev-cpp/eigen:3
+"
+RDEPEND="${COMMON_DEPEND}
+	${PYTHON_DEPS}
+"
 
 src_configure() {
-	# Bug 308903
-	use ppc64 && append-flags -mminimal-toc
-
 	local mycmakeargs=(
-		$(cmake-utils_use_with fits CFitsio)
-		$(cmake-utils_use_with indi)
+		$(cmake-utils_use_find_package indi INDI)
+		$(cmake-utils_use_find_package wcs WCSLIB)
+		$(cmake-utils_use_find_package xplanet Xplanet)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }

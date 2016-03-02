@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,9 +15,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-KDE_MINIMAL="4.10"
 OPENGL_REQUIRED=always
-
 inherit kde4-base
 
 DESCRIPTION="BE::KWinFW Several 3rd party plugins for the KDE KWin compositor"

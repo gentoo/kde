@@ -1,9 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
+CMAKE_MIN_VERSION="3.3.1-r1"
 CPPUNIT_REQUIRED="optional"
 DECLARATIVE_REQUIRED="always"
 OPENGL_REQUIRED="optional"
@@ -17,7 +18,7 @@ DESCRIPTION="KDE libraries needed by all KDE programs"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
 IUSE="cpu_flags_x86_3dnow acl alsa altivec +bzip2 +crypt debug doc fam jpeg2k
-kerberos lzma cpu_flags_x86_mmx nepomuk nls openexr +policykit spell
+kerberos libressl lzma cpu_flags_x86_mmx nls openexr +policykit spell
 cpu_flags_x86_sse cpu_flags_x86_sse2 ssl +udev +udisks +upower zeroconf"
 
 REQUIRED_USE="
@@ -39,7 +40,7 @@ COMMONDEPEND="
 	dev-libs/libxslt
 	media-libs/fontconfig
 	media-libs/freetype:2
-	media-libs/giflib
+	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt4]
 	sys-libs/zlib
@@ -73,17 +74,16 @@ COMMONDEPEND="
 	fam? ( virtual/fam )
 	jpeg2k? ( media-libs/jasper )
 	kerberos? ( virtual/krb5 )
-	nepomuk? (
-		>=dev-libs/shared-desktop-ontologies-0.11.0
-		>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
-	)
 	openexr? (
 		media-libs/openexr:=
 		media-libs/ilmbase:=
 	)
-	policykit? ( >=sys-auth/polkit-qt-0.103.0 )
+	policykit? ( >=sys-auth/polkit-qt-0.103.0[qt4(+)] )
 	spell? ( app-text/enchant )
-	ssl? ( dev-libs/openssl:0 )
+	ssl? (
+		libressl? ( dev-libs/libressl )
+		!libressl? ( dev-libs/openssl:0 )
+	)
 	udev? ( virtual/udev )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
@@ -111,7 +111,7 @@ RDEPEND="${COMMONDEPEND}
 PDEPEND="
 	$(add_kdebase_dep katepart '' 4.14.3)
 	|| (
-		$(add_kdebase_dep kfmclient '' 4.14.3)
+		$(add_kdeapps_dep kfmclient '' 4.14.3)
 		x11-misc/xdg-utils
 	)
 	handbook? (
@@ -119,10 +119,6 @@ PDEPEND="
 			$(add_kdebase_dep khelpcenter '' 4.14.3)
 			kde-plasma/khelpcenter:5[compat(+)]
 		)
-	)
-	nepomuk? (
-		$(add_kdebase_dep nepomuk-core '' 4.14.3)
-		$(add_kdebase_dep nepomuk-widgets '' 4.14.3)
 	)
 	policykit? ( || (
 		>=sys-auth/polkit-kde-agent-0.99
@@ -140,6 +136,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.8.1-norpath.patch"
 	"${FILESDIR}/${PN}-4.9.3-werror.patch"
 	"${FILESDIR}/${PN}-4.10.0-udisks.patch"
+	"${FILESDIR}/${PN}-4.14.13-FindQt4.patch"
 )
 
 pkg_pretend() {
@@ -196,6 +193,8 @@ src_configure() {
 		-DKDE_DEFAULT_HOME=.kde4
 		-DKAUTH_BACKEND=POLKITQT-1
 		-DBUILD_libkactivities=OFF
+		-DWITH_Soprano=OFF
+		-DWITH_SharedDesktopOntologies=OFF
 		$(cmake-utils_use_build handbook doc)
 		$(cmake-utils_use_has cpu_flags_x86_3dnow X86_3DNOW)
 		$(cmake-utils_use_has altivec PPC_ALTIVEC)
@@ -210,8 +209,6 @@ src_configure() {
 		$(cmake-utils_use_with jpeg2k Jasper)
 		$(cmake-utils_use_with kerberos GSSAPI)
 		$(cmake-utils_use_with lzma LibLZMA)
-		$(cmake-utils_use_with nepomuk Soprano)
-		$(cmake-utils_use_with nepomuk SharedDesktopOntologies)
 		$(cmake-utils_use_with nls Libintl)
 		$(cmake-utils_use_with openexr OpenEXR)
 		$(cmake-utils_use_with opengl OpenGL)

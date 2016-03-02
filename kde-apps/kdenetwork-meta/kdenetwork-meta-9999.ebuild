@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -16,6 +16,7 @@ RDEPEND="
 	$(add_kdeapps_dep kopete)
 	$(add_kdeapps_dep krdc)
 	$(add_kdeapps_dep krfb)
+	$(add_kdeapps_dep plasma-telepathy-meta)
 	$(add_kdeapps_dep zeroconf-ioslave)
 	ppp? ( $(add_kdeapps_dep kppp) )
 "

@@ -6,15 +6,18 @@ Alexey Shvetsov <alexxy@gentoo.org>
 Andreas Eckstein <andreas.eckstein@gmx.net>
 Andreas K. Hüttel <dilfridge@gentoo.org>
 Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Andrew Wilcox <AWilcox@Wilcox-Tech.com>
 Andrius Štikonas <andrius@stikonas.eu>
 Anthony Basile <blueness@gentoo.org>
 Arfrever Frehtes Taifersar Arahesis <arfrever.fta@gmail.com>
 Ben de Groot <yngwin@gentoo.org>
+CapitalLetterC <zarathustra.zoroaster@gmail.com>
 Chris Reffett <creffett@gentoo.org>
 Christian Ruppert <idl0r@gentoo.org>
 Christian Schmitt <chris@ilovelinux.de>
 Christoph Junghans <ottxor@gentoo.org>
 Cyrill Helg <bugs@phlogi.net>
+Daniel Scharrer <daniel@constexpr.org>
 David E. Narvaez <david.narvaez@computer.org>
 David E. Narváez <david.narvaez@computer.org>
 David Heidelberger <david.heidelberger@ixit.cz>
@@ -26,6 +29,7 @@ Dror Levin <spatz@gentoo.org>
 Elias Probst <mail@eliasprobst.eu>
 Enrico Tagliavini <enrico.tagliavini@gmail.com>
 Eugene Shalygin <eugene.shalygin@gmail.com>
+Fabian Köster <fabian.koester@bringnow.com>
 Fabio Erculiani <lxnay@gentoo.org>
 Franz Fellner <alpine.art.de@gmail.com>
 Friedrich Kröner <twinbase@gmail.com>
@@ -34,8 +38,11 @@ Giorgos Tsiapaliwkas <terietor@gmail.com>
 Gustaw Smolarczyk <wielkiegie@gmail.com>
 Ian Delaney <idell5@iinet.com.au>
 Ian Whyman <thev00d00@gentoo.org>
+Ilya Tumaykin <itumaykin@gmail.com>
 Jakub Caban <kuba@whyblack.pl>
+James Le Cuirot <chewi@gentoo.org>
 Jan Kundrát <jkt@flaska.net>
+Jan Kundrát <jkt@kde.org>
 Jason A. Donenfeld <Jason@zx2c4.com>
 Jean-Baptiste Rouault <jbrouault@gmail.com>
 Jekyll Wu <adaptee@gmail.com>
@@ -43,30 +50,39 @@ Joao Carreira <jfmcarreira@gmail.com>
 Johannes Huber <johu@gentoo.org>
 Jonathan Callen <jcallen@gentoo.org>
 Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+Julian Ospald <hasufell@gentoo.org>
+Justin Lecher <jlec@gentoo.org>
 Karol Herbst <git@karolherbst.de>
 Lars Wendler <polynomial-c@gentoo.org>
 Locke Shinseiko <wizzleby@gmail.com>
+Lorenzo Porta <vindex17@outlook.it>
 Maciej Mrozowski <reavertm@gentoo.org>
 Magnus Kessler <Magnus.Kessler@gmx.net>
 Manuel Nickschas <sputnick@quassel-irc.org>
 Manuel Rüger <mrueg@gentoo.org>
 Marc Schiffbauer <mschiff@gentoo.org>
 Marcus D. Hanwell <cryos@gentoo.org>
+Marek Behun <kabel@blackhole.sk>
 Marek Hakala (Greg) <hakala.marek@gmail.com>
 Markos Chandras <hwoarang@gentoo.org>
 Markus Ullmann <jokey@gentoo.org>
 Martin Jansa <Martin.Jansa@gmail.com>
 Matthew Dawson <matthew@mjdsystems.ca>
 Michael Palimaka <kensington@gentoo.org>
+Michael Seifert <mseifert@error-reports.org>
 Michael Skiba <opensource@michael-skiba.de>
+Mike Frysinger <vapier@gentoo.org>
 My Th <rei4dan@gmail.com>
+Nikoli <nikoli@gmx.us>
 Oldřich Jedlička <oldium.pro@seznam.cz>
 Ondrej Sukup <mimi.vx@gmail.com>
+Pablo Cholaky <waltercool@slash.cl>
 Patrick Lauer <patrick@gentoo.org>
 Pavlos Ratis <dastergon@gentoo.org>
 Petteri Räty <betelgeuse@gentoo.org>
 Přemysl Vohout <premek@vohnout.cz>
 Richard Yao <ryao@cs.stonybrook.edu>
+Rinaldus <forreg@rinaldus.ru>
 Robert Förster <Dessa@gmake.de>
 Robert Piasek <dagger@gentoo.org>
 Romain Perier <mrpouet@gentoo.org>
@@ -75,12 +91,14 @@ Samuli Suominen <ssuominen@gentoo.org>
 Scarlett Clark <scarlett@scarlettgatelyclark.com>
 Steffen Stramm <krytzz@soylent.eu>
 Theo Chatzimichos <tampakrap@gentoo.org>
+Till Schäfer <till2.schaefer@uni-dortmund.de>
 Tobias Heinlein <keytoaster@gentoo.org>
 Tomáš Chvátal <scarabeus@gentoo.org>
 Torgny Nyblom <kde@nyblom.org>
 Unknown <root@localhost>
 Uwe L. Korn <uwelk@xhochy.com>
 Vadim A. Misbakh-Soloviev <mva@mva.name>
+Vadim A. Misbakh-Soloviov <git@mva.name>
 Vladimir Civil Smirnov <civil.over@gmail.com>
 Vladimir Smirnov <civil.over@gmail.com>
 kensington <kensington@gentoo.org>

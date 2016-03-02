@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -21,6 +21,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdesignerplugin)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
@@ -40,16 +41,16 @@ COMMON_DEPEND="
 	$(add_frameworks_dep solid)
 	app-text/docbook-xml-dtd:4.2
 	dev-libs/openssl:0
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork 'ssl')
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qttest)
+	$(add_qt_dep qtwidgets)
 	virtual/libintl
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
@@ -60,16 +61,19 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kitemmodels)
-	dev-qt/qtxml:5
+	$(add_qt_dep qtxml)
+	!<kde-apps/kcontrol-15.08.0[handbook]
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)
 	dev-lang/perl
 	dev-perl/URI
-	dev-qt/designer:5
-	test? ( dev-qt/qtconcurrent:5 )
+	$(add_qt_dep designer)
+	test? ( $(add_qt_dep qtconcurrent) )
 	X? ( x11-proto/xproto )
 "
+
+RESTRICT="test"
 
 src_configure() {
 	local mycmakeargs=(

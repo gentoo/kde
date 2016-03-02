@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -18,15 +18,15 @@ RESTRICT="test"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
-	dev-qt/qtgui:5
+	$(add_qt_dep qtgui)
 	X? (
-		dev-qt/qtx11extras:5
+		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
-	test? ( dev-qt/qtwidgets:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtwidgets) )
 	X? ( x11-proto/xproto )
 "
 

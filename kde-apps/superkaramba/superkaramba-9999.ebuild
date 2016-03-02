@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -8,8 +8,8 @@ PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde4-base
 
 DESCRIPTION="A tool to create interactive applets for the KDE desktop"
-HOMEPAGE="http://www.kde.org/applications/utilities/superkaramba
-http://utils.kde.org/projects/superkaramba"
+HOMEPAGE="https://www.kde.org/applications/utilities/superkaramba
+https://utils.kde.org/projects/superkaramba"
 KEYWORDS=""
 IUSE="debug python"
 

@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
@@ -25,14 +25,13 @@ DEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	sys-apps/util-linux
+	sys-libs/kpmcore
 "
 RDEPEND="${DEPEND}
-	dev-libs/libatasmart
-	sys-apps/util-linux
-	>=sys-block/parted-3
+	$(add_plasma_dep kde-cli-tools kdesu 5.5.2)
 	!sys-block/partitionmanager:0
 "

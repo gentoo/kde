@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="false"
 inherit kde5
@@ -16,7 +16,7 @@ RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	designer? (
-		dev-qt/designer:5
+		$(add_qt_dep designer)
 		$(add_frameworks_dep kcompletion)
 		$(add_frameworks_dep kconfigwidgets)
 		$(add_frameworks_dep kiconthemes)
@@ -29,14 +29,14 @@ RDEPEND="
 		$(add_frameworks_dep sonnet)
 	)
 	webkit? (
-		dev-qt/designer:5
-		dev-qt/qtgui:5
+		$(add_qt_dep designer)
+		$(add_qt_dep qtgui)
 		$(add_frameworks_dep kdewebkit)
 	)
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {

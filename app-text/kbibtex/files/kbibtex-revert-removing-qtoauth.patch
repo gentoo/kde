@@ -1,0 +1,114 @@
+commit 77047809b742c3b53ad0f31feddd4029525038e7
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Jan 24 13:04:26 2016 +0100
+
+    Revert "Removing references to QtOAuth and Qca-Qt5"
+    
+    This reverts commit ff4b966f13b1b8da8471f92f44751b58012a53e8.
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index eb33c9e..082b1bd 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -160,6 +160,26 @@ endif(
+ )
+ 
+ find_package(
++    QtOAuth
++)
++if(
++    QTOAUTH_FOUND
++)
++    add_definitions(
++        -DHAVE_QTOAUTH
++    )
++else(
++    QTOAUTH_FOUND
++)
++    message(
++        STATUS
++        "No QtOAuth installed, disabling Zotero OAuth wizard"
++    )
++endif(
++    QTOAUTH_FOUND
++)
++
++find_package(
+     Qca-qt5 "2.1.0"
+     REQUIRED
+ )
+@@ -168,7 +188,7 @@ find_package(
+ # TODO isn't there an "official" way to determine this directory?
+ find_path(
+     QTCRYPTO_INCLUDE_DIR qca.h
+-    HINTS ENV ${Qt5Core_INCLUDE_DIRS} ENV ${QT_INCLUDES}
++    HINTS ${QTOAUTH_INCLUDE_DIR} ENV ${Qt5Core_INCLUDE_DIRS} ENV ${QT_INCLUDES}
+     PATH_SUFFIXES QtCrypto
+ )
+ 
+diff --git a/src/networking/CMakeLists.txt b/src/networking/CMakeLists.txt
+index f2f725b..4408821 100644
+--- a/src/networking/CMakeLists.txt
++++ b/src/networking/CMakeLists.txt
+@@ -30,7 +30,6 @@ set(
+     zotero/tags.cpp
+     zotero/tagmodel.cpp
+     zotero/items.cpp
+-    zotero/oauthwizard.cpp
+     associatedfiles.cpp
+     findpdf.cpp
+     internalnetworkaccessmanager.cpp
+@@ -70,7 +69,6 @@ set(
+     zotero/tagmodel.h
+     zotero/items.h
+     zotero/api.h
+-    zotero/oauthwizard.h
+     associatedfiles.h
+     findpdf.h
+     internalnetworkaccessmanager.h
+@@ -94,6 +92,26 @@ include_directories(
+     ${LIBXML2_INCLUDE_DIR}
+ )
+ 
++if(
++    QTOAUTH_FOUND
++)
++    include_directories(
++        ${QTOAUTH_INCLUDE_DIR}
++    )
++    set(
++        kbibtexnetworking_HDRS
++        ${kbibtexnetworking_HDRS}
++        zotero/oauthwizard.h
++    )
++    set(
++        kbibtexnetworking_LIB_SRCS
++        ${kbibtexnetworking_LIB_SRCS}
++        zotero/oauthwizard.cpp
++    )
++endif(
++    QTOAUTH_FOUND
++)
++
+ add_library(
+     kbibtexnetworking
+     SHARED
+@@ -119,6 +137,18 @@ target_link_libraries(
+     qca-qt5
+ )
+ 
++if(
++    QTOAUTH_FOUND
++)
++    target_link_libraries(
++      kbibtexnetworking
++      ${cmake_2_8_12_PRIVATE}
++      ${QTOAUTH_LIBRARY}
++    )
++endif(
++    QTOAUTH_FOUND
++)
++
+ set_target_properties(
+     kbibtexnetworking
+     PROPERTIES

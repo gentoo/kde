@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit kde5
+inherit kde5 udev
 
 DESCRIPTION="Qt wrapper for Bluez 5 DBus API"
 LICENSE="LGPL-2"
@@ -12,8 +12,18 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtnetwork)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-plasma/bluez-qt
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DUDEV_RULES_INSTALL_DIR="$(get_udevdir)/rules.d"
+	)
+
+	kde5_src_configure
+}

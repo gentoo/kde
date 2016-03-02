@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -12,14 +12,14 @@ KEYWORDS=""
 IUSE="nls zeroconf"
 
 RDEPEND="
-	dev-qt/qtnetwork:5
+	$(add_qt_dep qtnetwork)
 	zeroconf? (
-		dev-qt/qtdbus:5
+		$(add_qt_dep qtdbus)
 		net-dns/avahi[mdnsresponder-compat]
 	)
 "
 DEPEND="${RDEPEND}
-	nls? ( dev-qt/linguist-tools:5 )
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_configure() {
