@@ -2,13 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Quake-style terminal emulator based on konsole"
 HOMEPAGE="http://yakuake.kde.org/"
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+fi
 
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
