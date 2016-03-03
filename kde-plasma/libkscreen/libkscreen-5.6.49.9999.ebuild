@@ -9,6 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Plasma screen management library"
+SLOT="5/7"
 KEYWORDS=""
 IUSE="X"
 
