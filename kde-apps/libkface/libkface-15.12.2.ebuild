@@ -23,6 +23,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-opencv3.1.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OPENCV3=ON
