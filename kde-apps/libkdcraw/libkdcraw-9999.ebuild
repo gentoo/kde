@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_BLOCK_SLOT4="false"
 inherit kde5
@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=media-libs/libraw-0.16:=
 	$(add_qt_dep qtgui)
+	>=media-libs/libraw-0.16:=
 "
 RDEPEND="${DEPEND}"
