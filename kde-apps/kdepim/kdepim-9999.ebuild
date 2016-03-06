@@ -137,11 +137,9 @@ src_prepare() {
 	sed -i \
 		-e "/akregator/ s/^/#DONT/" \
 		-e "/blogilo/ s/^/#DONT/" \
-		-e "/kleopatra/ s/^/#DONT/" \
 		-e "/knotes/ s/^/#DONT/" \
 		-e "/konsolekalendar/ s/^/#DONT/" \
 		-e "/ktnef/ s/^/#DONT/" \
-		-e "/kwatchgnupg/ s/^/#DONT/" \
 		doc/CMakeLists.txt || die "Failed to disable split docs"
 
 	# applications
