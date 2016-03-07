@@ -2,17 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="true"
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
 KEYWORDS=""
-IUSE="exif mtp phonon samba +sftp slp"
+IUSE="exif mtp openexr phonon samba +sftp slp"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
@@ -32,6 +32,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kpty)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
@@ -43,6 +44,7 @@ COMMON_DEPEND="
 	virtual/jpeg:0
 	exif? ( media-gfx/exiv2:= )
 	mtp? ( media-libs/libmtp:= )
+	openexr? ( media-libs/openexr )
 	phonon? ( media-libs/phonon[qt5] )
 	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
 	sftp? ( >=net-libs/libssh-0.6.0:=[sftp] )
@@ -62,11 +64,12 @@ RESTRICT="test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
-		$(cmake-utils_use_find_package mtp)
+		$(cmake-utils_use_find_package mtp Mtp)
+		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
-		$(cmake-utils_use_find_package samba)
+		$(cmake-utils_use_find_package samba Samba)
 		$(cmake-utils_use_find_package sftp LibSSH)
-		$(cmake-utils_use_find_package slp)
+		$(cmake-utils_use_find_package slp SLP)
 	)
 
 	kde5_src_configure
