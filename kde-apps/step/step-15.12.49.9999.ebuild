@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_TEST="true"
+KDE_HANDBOOK="forceoptional" # not optional until !kdelibs4support
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Interactive physics simulator"
@@ -30,7 +30,6 @@ DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	=dev-cpp/eigen-3.2*:3
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtopengl)
@@ -38,29 +37,27 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	=dev-cpp/eigen-3.2*:3
 	sci-libs/cln
 	gsl? ( >=sci-libs/gsl-1.9-r1 )
 	qalculate? ( >=sci-libs/libqalculate-0.9.5 )
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	use handbook || sed -e '/^find_package.*KF5DocTools/ s/^/#/' \
-		-i CMakeLists.txt || die
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-doctools.patch" )
 
-	# Duplicate
-	sed -e '/^find_package.*Qt5Test/ s/^/#/' \
-		-i autotests/CMakeLists.txt || die
+src_prepare() {
+	kde5_src_prepare
+
+	# FIXME: Drop duplicate upstream
 	sed -e '/find_package.*Xml Test/ s/^/#/' \
 		-i stepcore/CMakeLists.txt || die
-
-	kde5_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package gsl)
-		$(cmake-utils_use_find_package qalculate)
+		$(cmake-utils_use_find_package gsl GSL)
+		$(cmake-utils_use_find_package qalculate Qalculate)
 	)
 	kde5_src_configure
 }
