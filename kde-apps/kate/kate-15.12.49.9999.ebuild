@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="optional"
 KDE_TEST="true"
 inherit kde5
 
@@ -57,7 +57,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ADDONS=$(usex addons)
 		-DBUILD_kwrite=FALSE
-		$(cmake-utils_use_find_package handbook DocTools)
 	)
 
 	kde5_src_configure
