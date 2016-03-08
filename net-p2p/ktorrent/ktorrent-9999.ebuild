@@ -29,7 +29,7 @@ QT_MINIMAL="5.5.1"
 inherit kde5
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
-HOMEPAGE="http://ktorrent.org/"
+HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 IUSE="+bwscheduler +downloadorder +infowidget +logviewer
