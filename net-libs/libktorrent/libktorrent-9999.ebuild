@@ -26,7 +26,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="A BitTorrent library based on KDE Frameworks"
-HOMEPAGE="http://ktorrent.org/"
+HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 IUSE=""
