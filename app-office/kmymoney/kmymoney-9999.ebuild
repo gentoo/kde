@@ -63,7 +63,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-office/libalkimia:5
-	dev-libs/gmp:0
+	dev-libs/gmp:0=
 	dev-libs/libgpg-error
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )
