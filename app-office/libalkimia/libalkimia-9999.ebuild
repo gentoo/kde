@@ -18,7 +18,7 @@ IUSE=""
 
 RDEPEND="
 	$(add_qt_dep qtdbus)
-	dev-libs/gmp[cxx]
+	dev-libs/gmp:0=[cxx]
 "
 DEPEND="${RDEPEND}
 	!app-office/libalkimia:4
