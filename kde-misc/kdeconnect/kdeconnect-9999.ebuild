@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="optional"
 KDE_TEST="true"
 KMNAME="${PN}-kde"
 inherit kde5
@@ -59,7 +59,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
-		$(cmake-utils_use_find_package handbook KF5DocTools)
 		$(cmake-utils_use_find_package telepathy TelepathyQt5)
 		$(cmake-utils_use_find_package telepathy TelepathyQt5Service)
 		$(cmake-utils_use_find_package wayland KF5Wayland)

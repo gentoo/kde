@@ -4,7 +4,7 @@
 
 EAPI=5
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="optional"
 KDE_TEST="true"
 KMNAME="${PN}-kde"
 inherit kde5
@@ -29,13 +29,13 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	>=app-crypt/qca-2.1.0:2[qt5,openssl]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
+	>=app-crypt/qca-2.1.0:2[qt5,openssl]
 	x11-libs/libfakekey
 	x11-libs/libX11
 	x11-libs/libXtst
@@ -60,7 +60,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
-		$(cmake-utils_use_find_package handbook KF5DocTools)
 		$(cmake-utils_use_find_package telepathy TelepathyQt5)
 		$(cmake-utils_use_find_package telepathy TelepathyQt5Service)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
