@@ -5,7 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+KDE_TEST="optional"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
@@ -16,8 +16,8 @@ IUSE="bzip2 lzma zlib"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -31,10 +31,10 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	>=app-arch/libarchive-3.0.0[bzip2?,lzma?,zlib?]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	>=app-arch/libarchive-3.0.0[bzip2?,lzma?,zlib?]
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
@@ -44,7 +44,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package bzip2 BZip2)
 		$(cmake-utils_use_find_package lzma LibLZMA)
-		$(cmake-utils_use_find_package test Qt5Test)
 		$(cmake-utils_use_find_package zlib ZLIB)
 	)
 
