@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK="true"
+CMAKE_MIN_VERSION="3.0.0"
+KDE_HANDBOOK="optional"
 KDE_TEST="true"
 inherit kde5
 
@@ -28,7 +29,6 @@ RDEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kxmlgui)
-	dev-libs/grantlee:5
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
@@ -38,6 +38,7 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
+	dev-libs/grantlee:5
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.49
@@ -45,9 +46,4 @@ DEPEND="${RDEPEND}
 
 RESTRICT=test	# 1/10 tests currently fails
 
-src_prepare() {
-	# Duplicate
-	sed -e '/^find_package.*KF5DocTools/ s/^/#/' -i CMakeLists.txt || die
-
-	kde5_src_prepare
-}
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-doctools-optional.patch" )
