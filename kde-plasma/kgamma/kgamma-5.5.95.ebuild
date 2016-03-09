@@ -20,7 +20,6 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
 	x11-libs/libX11
 	x11-libs/libXxf86vm
 "
