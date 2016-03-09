@@ -57,6 +57,7 @@ COMMON_DEPEND="
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
+	x11-libs/libXi
 	x11-libs/libdrm
 	>=x11-libs/libxcb-1.10
 	>=x11-libs/libxkbcommon-0.4.1
