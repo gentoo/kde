@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="+evdev +fontconfig gtk2 gtk3 legacy-systray pulseaudio +qt4 touchpad"
+IUSE="+evdev +fontconfig gtk2 gtk3 ibus legacy-systray pulseaudio +qt4 scim touchpad"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
@@ -78,11 +78,19 @@ COMMON_DEPEND="
 		x11-libs/libXft
 		x11-libs/xcb-util-image
 	)
+	ibus? (
+		$(add_qt_dep qtx11extras)
+		app-i18n/ibus
+		dev-libs/glib:2
+		x11-libs/libxcb
+		x11-libs/xcb-util-keysyms
+	)
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
 		media-sound/pulseaudio
 	)
+	scim? ( app-i18n/scim )
 	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -133,7 +141,9 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package evdev Evdev)
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
+		$(cmake-utils_use_find_package ibus IBus)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
+		$(cmake-utils_use_find_package scim SCIM)
 		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
