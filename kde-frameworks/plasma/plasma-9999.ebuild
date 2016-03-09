@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
