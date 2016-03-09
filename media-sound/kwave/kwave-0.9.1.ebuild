@@ -13,8 +13,11 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${P}-1.tar.bz2"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2
-	handbook? ( FDL-1.2 )"
+LICENSE="
+	CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+
+	handbook? ( FDL-1.2 )
+	opus? ( BSD-2 )
+"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa flac mp3 +qtmedia opus oss pulseaudio vorbis"
 
