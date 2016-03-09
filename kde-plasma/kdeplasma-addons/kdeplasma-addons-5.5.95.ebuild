@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="ibus quickshare scim"
+IUSE="quickshare"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -41,15 +41,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
-	ibus? (
-		app-i18n/ibus
-		dev-libs/glib:2
-		$(add_qt_dep qtx11extras)
-		x11-libs/libxcb
-		x11-libs/xcb-util-keysyms
-	)
 	quickshare? ( dev-libs/purpose:5 )
-	scim? ( app-i18n/scim )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
@@ -58,9 +50,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package ibus IBus)
 		$(cmake-utils_use_find_package quickshare KDEExperimentalPurpose)
-		$(cmake-utils_use_find_package scim SCIM)
 	)
 
 	kde5_src_configure
