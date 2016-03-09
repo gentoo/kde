@@ -16,6 +16,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
+	$(add_frameworks_dep kactivities-stats)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
