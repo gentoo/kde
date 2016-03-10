@@ -34,6 +34,7 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 	scripting? ( >=dev-libs/boost-1.48:=[python,${PYTHON_USEDEP}] )
 "
 RDEPEND="${DEPEND}"
