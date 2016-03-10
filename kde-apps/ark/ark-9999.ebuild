@@ -54,7 +54,7 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version app-arch/rar ; then
-		elog "For creating rar archives, install app-arch/rar"
+	if ! has_version app-arch/unar ; then
+		elog "For handling rar archives, install app-arch/unar"
 	fi
 }
