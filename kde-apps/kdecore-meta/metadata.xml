@@ -6,7 +6,7 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="minimal">Disable install of various KDE SC 4 based packages</flag>
+		<flag name="qt4">Install KDE4-based applications</flag>
 		<flag name="wallpapers">Install the KDE wallpapers</flag>
 	</use>
 </pkgmetadata>
