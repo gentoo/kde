@@ -11,7 +11,7 @@ inherit python-single-r1 kde5
 DESCRIPTION="KDE Interactive Geometry tool"
 HOMEPAGE="https://www.kde.org/applications/education/kig https://edu.kde.org/kig"
 KEYWORDS=""
-IUSE="scripting"
+IUSE="geogebra scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -33,7 +33,7 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
+	geogebra? ( $(add_qt_dep qtxmlpatterns) )
 	scripting? ( >=dev-libs/boost-1.48:=[python,${PYTHON_USEDEP}] )
 "
 RDEPEND="${DEPEND}"
@@ -53,6 +53,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package geogebra Qt5XmlPatterns)
 		$(cmake-utils_use_find_package scripting BoostPython)
 	)
 
