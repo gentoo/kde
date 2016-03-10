@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1 kde5
 
