@@ -32,7 +32,7 @@ DEPEND="
 	$(add_frameworks_dep networkmanager-qt 'teamd=')
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
-	>=app-crypt/qca-2.1.0.3-r1:2[qt5]
+	>=app-crypt/qca-2.1.1:2[qt5]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
