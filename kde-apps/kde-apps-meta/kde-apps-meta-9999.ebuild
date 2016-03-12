@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5-meta-pkg
 
 DESCRIPTION="Meta package for the KDE Applications collection"
 KEYWORDS=""
-IUSE="accessibility minimal nls pim sdk"
+IUSE="accessibility nls pim sdk"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -32,5 +32,4 @@ RDEPEND="
 		$(add_kdeapps_dep kdesdk-meta)
 		$(add_kdeapps_dep kdewebdev-meta)
 	)
-	!minimal? ( $(add_kdeapps_dep kdeartwork-meta '' 15.08.3) )
 "
