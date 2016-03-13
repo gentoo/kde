@@ -25,7 +25,6 @@ else
 fi
 
 KDE_HANDBOOK="forceoptional"
-QT_MINIMAL="5.5.1"
 inherit kde5
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
