@@ -23,6 +23,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
@@ -35,16 +36,17 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	plasmate? (
 		$(add_frameworks_dep kdelibs4support)
-		$(add_frameworks_dep kitemmodels)
 		$(add_frameworks_dep knewstuff)
 		$(add_frameworks_dep kparts)
+		$(add_kdeapps_dep kdevplatform)
+		$(add_qt_dep qtwebkit)
 	)
 "
 RDEPEND="${DEPEND}
 	!dev-util/plasmate
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.5.5-dependencies.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.5.5-dependencies.patch" ) # RR pending
 
 src_configure() {
 	local mycmakeargs=(
