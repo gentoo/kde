@@ -32,7 +32,7 @@ EXPORT_FUNCTIONS pkg_pretend pkg_setup pkg_nofetch src_unpack src_prepare src_co
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimal Qt version to require for the package.
-: ${QT_MINIMAL:=5.4.2}
+: ${QT_MINIMAL:=5.5.1}
 
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
@@ -166,12 +166,6 @@ case ${KDE_AUTODEPS} in
 				;;
 				*) ;;
 			esac
-		fi
-
-		if [[ ${CATEGORY} = kde-plasma ]]; then
-			if [[ ${PV} = 5.5* || ${PV} = 9999 ]]; then
-				QT_MINIMAL=5.5.0
-			fi
 		fi
 
 		DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
