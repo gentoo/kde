@@ -7,7 +7,6 @@ EAPI=6
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="forceoptional"
 KMNAME="kdepimlibs"
-QT_MINIMAL="5.5.0"
 inherit kde5
 
 DESCRIPTION="Library for akonadi contact integration"
