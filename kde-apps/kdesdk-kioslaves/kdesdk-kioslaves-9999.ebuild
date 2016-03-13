@@ -14,7 +14,7 @@ KMNAME="kdesdk-kioslaves"
 DEPEND="
 	subversion? (
 		dev-libs/apr
-		dev-vcs/subversion
+		=dev-vcs/subversion-1.8*
 	)
 "
 RDEPEND="${DEPEND}
