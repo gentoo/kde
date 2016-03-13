@@ -11,7 +11,7 @@ KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Akonadi developer console"
+DESCRIPTION="KDE Notes application"
 HOMEPAGE="https://www.kde.org/"
 KEYWORDS=" ~amd64 ~x86"
 
