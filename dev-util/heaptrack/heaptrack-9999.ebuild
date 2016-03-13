@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_AUTODEPS="false"
 KDE_TEST="forceoptional"
-QT_MINIMAL="5.5.1"
 inherit kde5
 
 DESCRIPTION="A fast heap memory profiler"
