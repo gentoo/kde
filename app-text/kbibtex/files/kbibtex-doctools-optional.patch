@@ -1,0 +1,40 @@
+commit d23557e8a5c4170c5d2a20cb17421e5f0b303f94
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Mar 13 12:22:09 2016 +0100
+
+    Make KF5DocTools optional
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index eb33c9e..0525db1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,7 +61,6 @@ find_package(
+ find_package(
+     KF5 ${KF5_MIN_VERSION}
+     REQUIRED
+-    DocTools
+     I18n
+     XmlGui
+     KIO
+@@ -74,6 +73,8 @@ find_package(
+     Wallet
+ )
+ 
++find_package(KF5DocTools)
++
+ # Version number for the exported headers / libs
+ set(
+     VERSION_BRANCH "0.8"
+@@ -182,9 +183,9 @@ add_subdirectory(
+ add_subdirectory(
+     xslt
+ )
++if(KF5DocTools_FOUND)
++	add_subdirectory(doc)
++endif()
+-add_subdirectory(
+-    doc
+-)
+ add_subdirectory(
+     mime
+ )
