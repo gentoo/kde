@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.17.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
