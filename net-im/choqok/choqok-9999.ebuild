@@ -5,7 +5,6 @@
 EAPI=5
 
 KDE_HANDBOOK="forceoptional"
-QT_MINIMAL="5.5.1"
 inherit kde5
 
 DESCRIPTION="Free/Open Source micro-blogging client for KDE"
