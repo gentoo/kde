@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -17,8 +17,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_qt_dep qtdeclarative)
 "
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
 "
 RDEPEND="${COMMON_DEPEND}

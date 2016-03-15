@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -22,18 +22,17 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep kaccounts-integration)
 	$(add_kdeapps_dep ktp-common-internals)
-	app-crypt/qca:2[qt5]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
+	app-crypt/qca:2[qt5]
 	net-libs/accounts-qt
 	net-libs/signond
 	net-libs/telepathy-qt[qt5]
 "
-DEPEND="
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdewebkit)
-	${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	app-crypt/qca:2[openssl]

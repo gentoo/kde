@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOXYGEN="true"
 KDE_TEST="forceoptional"
@@ -39,23 +39,21 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	net-libs/telepathy-logger-qt:5
 	>=net-libs/telepathy-qt-0.9.5[qt5]
+	otr? (
+		dev-libs/libgcrypt:0=
+		>=net-libs/libotr-4.0.0
+	)
 	sso? (
 		$(add_kdeapps_dep kaccounts-integration)
 		net-libs/accounts-qt
 		net-libs/telepathy-accounts-signon
 	)
-	otr? (
-		dev-libs/libgcrypt:0=
-		>=net-libs/libotr-4.0.0
-	)
 "
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtnetwork)
 "
-RDEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!net-im/ktp-common-internals
 "
 

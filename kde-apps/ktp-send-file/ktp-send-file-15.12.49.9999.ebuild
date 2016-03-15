@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -25,12 +25,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	net-libs/telepathy-qt[qt5]
 "
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 "
-RDEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
 	$(add_kdeapps_dep ktp-filetransfer-handler)
 	!net-im/ktp-send-file

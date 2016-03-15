@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5-meta-pkg
 
@@ -15,7 +15,6 @@ IUSE="nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
-DEPEND=""
 RDEPEND="
 	$(add_kdeapps_dep ktp-accounts-kcm)
 	$(add_kdeapps_dep ktp-approver)

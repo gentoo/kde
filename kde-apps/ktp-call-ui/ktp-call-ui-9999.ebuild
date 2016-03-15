@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -25,11 +25,11 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep ktp-common-internals)
-	dev-libs/boost
-	dev-libs/glib:2
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/boost
+	dev-libs/glib:2
 	media-libs/phonon[qt5]
 	media-libs/qt-gstreamer[qt5]
 	net-libs/farstream:0.2

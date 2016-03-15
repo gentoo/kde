@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -32,8 +32,7 @@ COMMON_DEPEND="
 	net-libs/signond
 	net-libs/telepathy-qt[qt5]
 "
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kio)

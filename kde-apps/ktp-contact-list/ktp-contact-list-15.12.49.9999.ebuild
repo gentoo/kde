@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -33,14 +33,12 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	net-libs/telepathy-qt[qt5]
 "
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!net-im/ktp-contact-list
 "
