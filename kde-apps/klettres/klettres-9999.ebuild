@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Alphabet learning application"
@@ -18,6 +18,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
