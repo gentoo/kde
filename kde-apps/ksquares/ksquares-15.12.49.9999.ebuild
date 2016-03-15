@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
@@ -30,3 +30,5 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-unused-deps.patch" )

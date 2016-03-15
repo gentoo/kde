@@ -30,3 +30,5 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.2-unused-deps.patch" )
