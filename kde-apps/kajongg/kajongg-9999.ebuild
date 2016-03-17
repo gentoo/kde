@@ -15,11 +15,10 @@ IUSE="debug"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
-	${PYTHON_DEPS}
-	dev-db/sqlite:3
+DEPEND="${PYTHON_DEPS}
 	$(add_kdeapps_dep libkdegames)
 	$(add_kdebase_dep pykde4 "${PYTHON_USEDEP}")
+	dev-db/sqlite:3
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep libkmahjongg)

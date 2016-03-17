@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
-DESCRIPTION="KDE: KGoldrunner is a game of action and puzzle solving"
+DESCRIPTION="Game of action and puzzle solving by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/games/kgoldrunner/
 	https://games.kde.org/game.php?game=kgoldrunner
