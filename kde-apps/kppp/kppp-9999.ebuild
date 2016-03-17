@@ -7,7 +7,7 @@ EAPI=5
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE: A dialer and front-end to pppd"
+DESCRIPTION="A dialer and front-end to pppd"
 HOMEPAGE="https://www.kde.org/applications/internet/kppp"
 KEYWORDS=""
 IUSE="debug"
