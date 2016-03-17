@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
-DESCRIPTION="A gtali clone"
+DESCRIPTION="An addictive and fun dice game"
 HOMEPAGE="
 	https://www.kde.org/applications/games/kiriki/
 	https://games.kde.org/game.php?game=kiriki
