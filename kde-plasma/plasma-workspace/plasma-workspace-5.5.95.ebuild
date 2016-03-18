@@ -4,9 +4,8 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
-KDE_TEST="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5 multilib qmake-utils
 
@@ -117,10 +116,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
-	"${FILESDIR}/${PN}-tests-optional.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-5.4-startkde-script.patch" )
 
 RESTRICT="test"
 
