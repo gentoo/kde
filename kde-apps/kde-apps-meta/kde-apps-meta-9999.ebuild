@@ -30,6 +30,6 @@ RDEPEND="
 	pim? ( $(add_kdeapps_dep kdepim-meta) )
 	sdk? (
 		$(add_kdeapps_dep kdesdk-meta)
-		$(add_kdeapps_dep kdewebdev-meta)
+		$(add_kdeapps_dep kdewebdev-meta '' 15.08.3)
 	)
 "
