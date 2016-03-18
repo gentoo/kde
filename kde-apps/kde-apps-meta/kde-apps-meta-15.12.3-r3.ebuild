@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5-meta-pkg
 
@@ -19,7 +19,7 @@ RDEPEND="
 	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kdeadmin-meta)
 	$(add_kdeapps_dep kdecore-meta)
-	$(add_kdeapps_dep kdeedu-meta '' 4.14.3)
+	$(add_kdeapps_dep kdeedu-meta)
 	$(add_kdeapps_dep kdegames-meta)
 	$(add_kdeapps_dep kdegraphics-meta)
 	$(add_kdeapps_dep kdemultimedia-meta)
@@ -33,7 +33,7 @@ RDEPEND="
 	pim? ( >=kde-apps/kdepim-meta-4.4.2015:4 )
 	sdk? (
 		$(add_kdeapps_dep kdesdk-meta)
-		$(add_kdeapps_dep kdewebdev-meta)
+		$(add_kdeapps_dep kdewebdev-meta '' 15.08.3)
 	)
 	!minimal? ( $(add_kdeapps_dep kdeartwork-meta '' 15.08.3) )
 "

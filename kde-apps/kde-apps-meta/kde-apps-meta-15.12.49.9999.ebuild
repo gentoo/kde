@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5-meta-pkg
 
@@ -30,7 +30,7 @@ RDEPEND="
 	pim? ( $(add_kdeapps_dep kdepim-meta) )
 	sdk? (
 		$(add_kdeapps_dep kdesdk-meta)
-		$(add_kdeapps_dep kdewebdev-meta)
+		$(add_kdeapps_dep kdewebdev-meta '' 15.08.3)
 	)
 	!minimal? ( $(add_kdeapps_dep kdeartwork-meta '' 15.08.3) )
 "
