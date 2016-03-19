@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE screen management"
@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_plasma_dep libkscreen)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -22,6 +22,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_plasma_dep libkscreen)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
