@@ -4,8 +4,8 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_TEST="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Generic geographical map widget"
@@ -34,9 +34,9 @@ RDEPEND="
 	gps? ( >=sci-geosciences/gpsd-2.95 )
 	kde? (
 		$(add_frameworks_dep kconfig)
+		$(add_frameworks_dep kconfigwidgets)
 		$(add_frameworks_dep kcoreaddons)
 		$(add_frameworks_dep kcrash)
-		$(add_frameworks_dep kdoctools)
 		$(add_frameworks_dep ki18n)
 		$(add_frameworks_dep kio)
 		$(add_frameworks_dep knewstuff)
@@ -51,11 +51,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	aprs? ( dev-lang/perl )
 "
-
-src_prepare() {
-	use handbook || cmake_comment_add_subdirectory doc
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(

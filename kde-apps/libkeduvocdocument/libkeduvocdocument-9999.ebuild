@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="true"
 inherit kde5
@@ -19,3 +19,13 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
+
+src_prepare(){
+	kde5_src_prepare
+
+	if ! use test; then
+		sed -e "/add_subdirectory(autotests)/ s/^/#DONT/" \
+			-e "/add_subdirectory(tests)/ s/^/#DONT/" \
+			-i keduvocdocument/CMakeLists.txt
+	fi
+}
