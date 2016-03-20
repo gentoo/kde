@@ -1,7 +1,9 @@
 # unreleased
 ~kde-plasma/bluedevil-5.6.0
 ~kde-plasma/breeze-5.6.0
+~kde-plasma/breeze-grub-5.6.0
 ~kde-plasma/breeze-gtk-5.6.0
+~kde-plasma/breeze-plymouth-5.6.0
 ~kde-plasma/kactivitymanagerd-5.6.0
 ~kde-plasma/kde-cli-tools-5.6.0
 ~kde-plasma/kdecoration-5.6.0
