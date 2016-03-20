@@ -13,21 +13,19 @@ DESCRIPTION="KDE: periodic table of the elements"
 HOMEPAGE="https://www.kde.org/applications/education/kalzium
 https://edu.kde.org/kalzium"
 KEYWORDS=""
-IUSE="editor debug solver"
+IUSE="debug editor +plasma solver"
 
 DEPEND="
 	editor? (
-		>=dev-cpp/eigen-2.0.3:2
+		dev-cpp/eigen:3
 		sci-chemistry/avogadro
 		>=sci-chemistry/openbabel-2.2
+		dev-qt/qtopengl:4
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "
-RDEPEND=${DEPEND}
-
-KMEXTRACTONLY="
-	libkdeedu/kdeeduui/
-	libkdeedu/libscience/
+RDEPEND="${DEPEND}
+	sci-chemistry/chemical-mime-data
 "
 
 src_configure(){
@@ -35,10 +33,10 @@ src_configure(){
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
 	local mycmakeargs=(
-		$(cmake-utils_use_with editor Eigen2)
+		$(cmake-utils_use_build plasma plasmoid)
+		$(cmake-utils_use_with editor Eigen3)
 		$(cmake-utils_use_with editor Avogadro)
 		$(cmake-utils_use_with editor OpenBabel2)
-		$(cmake-utils_use_with editor OpenGL)
 		$(cmake-utils_use_with solver OCaml)
 		$(cmake-utils_use_with solver Libfacile)
 	)
