@@ -10,7 +10,7 @@ EGIT_BRANCH="KDE/4.14"
 VIRTUALX_REQUIRED=test
 inherit flag-o-matic kde4-meta
 
-DESCRIPTION="KMail is the email component of Kontact, the integrated personal information manager of KDE"
+DESCRIPTION="Email component of Kontact, the integrated personal information manager of KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kmail/"
 COMMIT_ID="2aec255c6465676404e4694405c153e485e477d9"
 SRC_URI="https://quickgit.kde.org/?p=kdepim.git&a=snapshot&h=${COMMIT_ID}&fmt=tgz -> ${KMNAME}-${PV}.tar.gz"
