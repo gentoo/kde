@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 MY_P="${PN}-v${PV}"
 inherit cmake-utils git-r3
@@ -26,4 +26,4 @@ DEPEND="${RDEPEND}
 	app-arch/xz-utils
 "
 
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
