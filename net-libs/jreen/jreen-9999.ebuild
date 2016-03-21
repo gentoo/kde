@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/euroelessar/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -29,8 +29,8 @@ DEPEND="
 	net-libs/libgsasl
 	sys-libs/zlib
 	qt4? (
-		>=dev-qt/qtcore-4.6.0:4[ssl]
-		>=dev-qt/qtgui-4.6.0:4
+		dev-qt/qtcore:4[ssl]
+		dev-qt/qtgui:4
 	)
 	qt5? (
 		dev-qt/qtcore:5
