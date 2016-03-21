@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EBZR_REPO_URI="lp:libdbusmenu-qt"
 
@@ -64,13 +64,13 @@ src_prepare() {
 	[[ ${PV} == 9999* ]] && bzr_src_prepare
 	cmake-utils_src_prepare
 
-	comment_add_subdirectory tools
-	use test || comment_add_subdirectory tests
+	cmake_comment_add_subdirectory tools
+	use test || cmake_comment_add_subdirectory tests
 }
 
 multilib_src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with doc)
+		-DWITH_DOC=$(usex doc)
 		-DUSE_QT${QT_MULTIBUILD_VARIANT}=ON
 		-DQT_QMAKE_EXECUTABLE="/usr/$(get_libdir)/qt${QT_MULTIBUILD_VARIANT}/bin/qmake"
 	)
