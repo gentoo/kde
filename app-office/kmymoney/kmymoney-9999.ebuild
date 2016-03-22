@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
 KDE_DOXYGEN="true"
@@ -22,11 +22,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="crypt calendar doc ofx quotes"
 
-# Not yet ported to qt5
-# 	hbci? (
-# 		>=net-libs/aqbanking-5.3.3
-# 		>=sys-libs/gwenhywfar-4.0.1[qt4]
-# 	)
+# TODO: hbci (not yet ported to qt5)
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -80,14 +76,12 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_configure() {
-# Not yet ported
-# 		$(cmake-utils_use_enable hbci KBANKING)
 	local mycmakeargs=(
 		-DUSE_QT_DESIGNER=OFF
+		-DENABLE_LIBICAL=$(usex calendar)
 		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
-		$(cmake-utils_use_enable calendar LIBICAL)
-		$(cmake-utils_use_use doc DEVELOPER_DOC)
-		$(cmake-utils_use_enable ofx LIBOFX)
+		-DUSE_DEVELOPER_DOC=$(usex doc)
+		-DENABLE_LIBOFX=$(usex ofx)
 	)
 	kde5_src_configure
 }
