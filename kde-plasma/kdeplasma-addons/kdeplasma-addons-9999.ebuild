@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="quickshare"
+IUSE="share"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -41,7 +41,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
-	quickshare? ( dev-libs/purpose:5 )
+	share? ( dev-libs/purpose:5 )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
@@ -50,7 +50,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package quickshare KDEExperimentalPurpose)
+		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
 	)
 
 	kde5_src_configure
