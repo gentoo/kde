@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOX_DIR="libalkimia"
 KDE_DOXYGEN="true"
@@ -16,12 +16,14 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+CDEPEND="
 	$(add_qt_dep qtdbus)
 	dev-libs/gmp:0=[cxx]
 "
-DEPEND="${RDEPEND}
+RDEPEND="${CDEPEND}
 	!app-office/libalkimia:4
+"
+DEPEND="${CDEPEND}
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_qt_dep qtnetwork)
