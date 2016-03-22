@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOXYGEN="true"
 # KDE_HANDBOOK="true"
 KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="A visual database applications creator"
+DESCRIPTION="Visual database applications creator"
 HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.org/"
 KEYWORDS=""
 IUSE="activities marble mdb mysql postgres sqlite sybase webform xbase"
