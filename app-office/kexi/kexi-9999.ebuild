@@ -55,7 +55,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	!app-office/calligra[calligra_features_kexi]
+	!app-office/calligra:4[calligra_features_kexi]
 "
 
 src_configure() {
