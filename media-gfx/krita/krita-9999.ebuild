@@ -70,7 +70,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
 "
 RDEPEND="${COMMON_DEPEND}
-	!app-office/calligra[calligra_features_krita]
+	!app-office/calligra:4[calligra_features_krita]
 "
 
 src_configure() {
