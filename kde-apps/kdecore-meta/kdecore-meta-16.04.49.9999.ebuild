@@ -8,12 +8,13 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="kdecore - merge this to pull in the most basic applications"
 KEYWORDS=""
-IUSE="minimal +wallpapers"
+IUSE="+handbook minimal +wallpapers"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
+	handbook? ( $(add_kdeapps_dep khelpcenter) )
 	wallpapers? ( $(add_kdeapps_dep kde-wallpapers '' 15.08.3-r1) )
 	!minimal? ( $(add_kdeapps_dep kdebase-runtime-meta '' 15.08.3-r1) )
 "
