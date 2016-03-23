@@ -46,8 +46,6 @@ RDEPEND="${DEPEND}
 	!dev-util/plasmate
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.5.5-dependencies.patch" ) # RR pending
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package plasmate KDevPlatform)
