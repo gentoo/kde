@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
 inherit kde5
@@ -15,7 +15,6 @@ KEYWORDS=""
 IUSE="wifi"
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -30,14 +29,15 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep plasma)
 	$(add_plasma_dep libksysguard)
-	dev-libs/libnl:3
-	sys-apps/net-tools
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql 'sqlite')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/libnl:3
+	sys-apps/net-tools
 	wifi? ( net-wireless/wireless-tools )
 "
 RDEPEND="${DEPEND}
@@ -47,7 +47,7 @@ DOCS=( AUTHORS ChangeLog README )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_no wifi WIRELESS_SUPPORT)
+		-DNO_WIRELESS_SUPPORT=$(usex !wifi)
 	)
 
 	kde5_src_configure
