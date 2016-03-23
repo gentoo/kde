@@ -36,5 +36,5 @@ DEPEND="${RDEPEND}
 src_install() {
 	kde5_src_install
 	# File collisions with kde-plasma/plasma-desktop...
-	rm -r ${ED}usr/share/locale
+	rm -r "${ED}"usr/share/locale
 }
