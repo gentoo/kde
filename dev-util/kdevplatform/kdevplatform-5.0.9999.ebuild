@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # TODO tests hang + fail
 # KDE_TEST="true"
@@ -76,10 +76,10 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build classbrowser)
-		$(cmake-utils_use_build cvs)
-		$(cmake-utils_use_build konsole)
-		$(cmake-utils_use_build reviewboard)
+		-DBUILD_classbrowser=$(usex classbrowser)
+		-DBUILD_cvs=$(usex cvs)
+		-DBUILD_konsole=$(usex konsole)
+		-DBUILD_reviewboard=$(usex reviewboard)
 		$(cmake-utils_use_find_package subversion SubversionLibrary)
 		$(cmake-utils_use_find_package templates Grantlee5)
 	)
