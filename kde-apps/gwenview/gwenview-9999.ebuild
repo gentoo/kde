@@ -48,7 +48,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5]
 	virtual/jpeg:0
-	kipi? ( $(add_kdeapps_dep libkipi) )
+	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
