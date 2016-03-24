@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDEBASE="kdevelop"
 KMNAME="kdev-cppcheck"
 inherit kde5
 
-DESCRIPTION="cppcheck support for kdevelop"
+DESCRIPTION="cppcheck support for KDevelop"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
