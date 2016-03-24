@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDEBASE="kdevelop"
 KDE_DOXYGEN="true"
@@ -10,7 +10,7 @@ KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="PHP plugin for KDevelop 5"
+DESCRIPTION="PHP plugin for KDevelop"
 LICENSE="GPL-2 LGPL-2"
 IUSE=""
 
@@ -43,6 +43,6 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
-	use doc || comment_add_subdirectory docs
+	use doc || cmake_comment_add_subdirectory docs
 	kde5_src_prepare
 }
