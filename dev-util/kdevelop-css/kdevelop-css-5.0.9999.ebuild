@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="5.0"
 KDEBASE="kdevelop"
 KMNAME="kdev-css"
 inherit kde5
 
-DESCRIPTION="CSS Language Support plugin for KDevelop 5"
+DESCRIPTION="CSS Language Support plugin for KDevelop"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
