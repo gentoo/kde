@@ -8,6 +8,7 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="A library for image plugins accross KDE applications"
+SLOT="5/31"
 KEYWORDS=""
 IUSE=""
 
