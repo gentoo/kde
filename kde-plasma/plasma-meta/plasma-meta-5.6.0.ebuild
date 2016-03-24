@@ -12,11 +12,10 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="bluetooth +display-manager gtk mediacenter networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth +display-manager grub gtk mediacenter networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
-	$(add_plasma_dep breeze-grub)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kdeplasma-addons)
@@ -50,6 +49,7 @@ RDEPEND="
 		sddm? ( x11-misc/sddm )
 		!sddm? ( x11-misc/lightdm )
 	)
+	grub? ( $(add_plasma_dep breeze-grub) )
 	gtk? (
 		$(add_plasma_dep breeze-gtk)
 		$(add_plasma_dep kde-gtk-config)
