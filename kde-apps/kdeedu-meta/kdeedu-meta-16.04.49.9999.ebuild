@@ -34,6 +34,7 @@ RDEPEND="
 	$(add_kdeapps_dep kwordquiz)
 	$(add_kdeapps_dep libkeduvocdocument)
 	$(add_kdeapps_dep marble)
+	$(add_kdeapps_dep minuet)
 	$(add_kdeapps_dep parley)
 	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
