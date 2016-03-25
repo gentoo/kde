@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.20.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
@@ -114,7 +115,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-base/plasma-workspace:4
 	!kde-base/solid-actions-kcm:4
 	!kde-base/systemsettings:4
-	!<kde-frameworks/kactivities-5.20.0
 	!kde-misc/kcm_touchpad
 	!kde-misc/kcm-touchpad
 	!kde-plasma/kcm-touchpad
