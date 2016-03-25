@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -28,10 +28,10 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
-	media-libs/lcms:2
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
+	media-libs/lcms:2
 	x11-libs/libxcb
 	x11-libs/libX11
 "
