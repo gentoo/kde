@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="+evdev +fontconfig gtk2 gtk3 ibus legacy-systray pulseaudio +qt4 scim touchpad"
+IUSE="+fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics ibus legacy-systray pulseaudio +qt4 scim"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
@@ -85,13 +85,13 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
+	input_devices_synaptics? ( x11-drivers/xf86-input-synaptics )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
 		media-sound/pulseaudio
 	)
 	scim? ( app-i18n/scim )
-	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
@@ -123,8 +123,8 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-proto/xproto
-	evdev? ( x11-drivers/xf86-input-evdev )
 	fontconfig? ( x11-libs/libXrender )
+	input_devices_evdev? ( x11-drivers/xf86-input-evdev )
 "
 
 REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
@@ -139,12 +139,12 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package evdev Evdev)
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
 		$(cmake-utils_use_find_package ibus IBus)
+		$(cmake-utils_use_find_package input_devices_evdev Evdev)
+		$(cmake-utils_use_find_package input_devices_synaptics Synaptics)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 		$(cmake-utils_use_find_package scim SCIM)
-		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
 	kde5_src_configure
