@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
