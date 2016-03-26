@@ -7,6 +7,7 @@ EAPI=6
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 KDE_AUTODEPS="false"
 KDE_DEBUG="false"
+KDE_TEST="false"
 inherit kde5 python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
@@ -14,13 +15,17 @@ HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
 
 LICENSE="BSD"
 KEYWORDS=""
-IUSE="doc"
+IUSE="doc test"
 
 DEPEND="
 	>=dev-util/cmake-2.8.12
 	doc? (
 		${PYTHON_DEPS}
 		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
+	)
+	test? (
+		$(add_qt_dep qtcore)
+		$(add_qt_dep linguist-tools)
 	)
 "
 
