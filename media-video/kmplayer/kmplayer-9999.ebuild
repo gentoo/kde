@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_LINGUAS="bg bs ca ca@valencia cs da de el en_GB eo es et fr ga gl hr hu it
 ja km ku lt lv mai nb nds nl nn pl pt pt_BR ro ru sk sr sr@latin sv th tr ug uk
@@ -21,16 +21,16 @@ IUSE="cairo debug expat npp"
 DEPEND="
 	media-libs/phonon[qt4]
 	x11-libs/libX11
-	expat? ( >=dev-libs/expat-2.0.1 )
 	cairo? (
 		x11-libs/cairo
 		x11-libs/pango
 	)
+	expat? ( >=dev-libs/expat-2.0.1 )
 	npp? (
-		dev-libs/dbus-glib
 		$(add_kdeapps_dep kreadconfig)
-		>=x11-libs/gtk+-2.10.14:2
+		dev-libs/dbus-glib
 		www-plugins/adobe-flash
+		>=x11-libs/gtk+-2.10.14:2
 	)
 "
 RDEPEND="${DEPEND}
@@ -47,10 +47,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use cairo KMPLAYER_BUILT_WITH_CAIRO)
-		$(cmake-utils_use expat KMPLAYER_BUILT_WITH_EXPAT)
-		$(cmake-utils_use npp KMPLAYER_BUILT_WITH_NPP)
+		-DKMPLAYER_BUILT_WITH_CAIRO=$(usex cairo)
+		-DKMPLAYER_BUILT_WITH_EXPAT=$(usex expat)
+		-DKMPLAYER_BUILT_WITH_NPP=$(usex npp)
 	)
+
 	kde4-base_src_configure
 }
 
