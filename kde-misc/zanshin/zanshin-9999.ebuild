@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="A getting things done application for KDE"
+DESCRIPTION="Getting things done application by KDE"
 HOMEPAGE="https://zanshin.kde.org/"
 
 LICENSE="|| ( GPL-2 GPL-3 )"
@@ -41,12 +41,12 @@ RDEPEND="
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmime)
-	dev-libs/boost
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
+	dev-libs/boost
 "
 DEPEND="${RDEPEND}
 	!kde-misc/zanshin:4
