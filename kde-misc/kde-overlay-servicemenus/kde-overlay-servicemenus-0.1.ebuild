@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 CMAKE_REQUIRED="never"
 KDE_REQUIRED="never"
@@ -21,8 +21,8 @@ RDEPEND="
 	$(add_kdeapps_dep kdialog)
 	$(add_kdeapps_dep kompare)
 	|| (
-		( $(add_kdeapps_dep dolphin) )
-		( $(add_kdeapps_dep konqueror) )
+		$(add_kdeapps_dep dolphin)
+		$(add_kdeapps_dep konqueror)
 	)
 "
 
