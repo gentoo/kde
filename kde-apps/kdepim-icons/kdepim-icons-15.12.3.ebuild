@@ -12,7 +12,10 @@ DESCRIPTION="KDE PIM icons"
 IUSE=""
 KEYWORDS=" ~amd64 ~x86"
 
-DEPEND="$(add_frameworks_dep extra-cmake-modules)"
+DEPEND="
+	$(add_frameworks_dep extra-cmake-modules)
+	$(add_qt_dep qtcore)
+"
 RDEPEND="
 	!<kde-apps/kdepim-15.12.1-r1:5
 	!kde-apps/kdepim-icons:4
