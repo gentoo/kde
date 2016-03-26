@@ -23,9 +23,6 @@ DEPEND="
 		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
 	)
 "
-RDEPEND="
-	$(add_qt_dep qtcore)
-"
 
 python_check_deps() {
 	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
