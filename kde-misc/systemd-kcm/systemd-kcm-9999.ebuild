@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 CMAKE_MIN_VERSION="3.0.0"
 inherit kde5
@@ -22,10 +22,10 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	>=dev-libs/boost-1.45
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	>=dev-libs/boost-1.45
 	sys-apps/systemd
 "
 RDEPEND="${DEPEND}
