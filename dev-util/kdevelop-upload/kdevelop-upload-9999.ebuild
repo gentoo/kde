@@ -5,7 +5,6 @@
 EAPI=6
 
 KDEBASE="kdevelop"
-KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdev-upload"
 inherit kde5
 
