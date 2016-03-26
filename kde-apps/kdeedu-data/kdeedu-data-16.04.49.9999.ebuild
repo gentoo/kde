@@ -11,5 +11,8 @@ DESCRIPTION="Shared icons, artwork and data files for educational applications"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="$(add_frameworks_dep extra-cmake-modules)"
+DEPEND="
+	$(add_frameworks_dep extra-cmake-modules)
+	$(add_qt_dep qtcore)
+"
 RDEPEND=""
