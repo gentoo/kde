@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Unified media experience for any device capable of running KDE"
