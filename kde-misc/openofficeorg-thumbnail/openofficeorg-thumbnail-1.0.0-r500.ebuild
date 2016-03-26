@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
+
 MY_PN="OpenOfficeorgThumbnail"
 MY_P="${MY_PN}-${PV}"
-
 inherit kde5
 
 DESCRIPTION="KDE thumbnail-plugin that generates thumbnails for ODF files"
@@ -24,4 +24,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
+
 PATCHES=( "${FILESDIR}"/${P}-kf5-support.patch )
