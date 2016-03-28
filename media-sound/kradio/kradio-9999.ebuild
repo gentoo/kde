@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_LINGUAS_DIR=( po convert-presets/po )
 PLUGINS=(
@@ -59,12 +59,12 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with alsa)
-		$(cmake-utils_use_with ffmpeg)
-		$(cmake-utils_use_with lirc)
-		$(cmake-utils_use_with mp3 LAME)
-		$(cmake-utils_use_with vorbis OGG_VORBIS)
-		$(cmake-utils_use_with v4l V4L2)
+		-DWITH_ALSA=$(usex alsa)
+		-DWITH_FFMPEG=$(usex ffmpeg)
+		-DWITH_LIRC=$(usex lirc)
+		-DWITH_LAME=$(usex mp3)
+		-DWITH_OGG_VORBIS=$(usex vorbis)
+		-DWITH_V4L2=$(usex v4l)
 	)
 
 	kde4-base_src_configure
