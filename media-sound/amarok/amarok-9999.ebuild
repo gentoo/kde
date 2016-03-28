@@ -2,33 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it ja
-lt lv nb nl pa pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin
-sv tr uk zh_CN zh_TW"
-KDE_REQUIRED="never"
-KDE_HANDBOOK="optional"
+EGIT_BRANCH="kf5"
+KDE_HANDBOOK="true"
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-inherit flag-o-matic kde4-base pax-utils
+inherit flag-o-matic kde5 pax-utils
 
-DESCRIPTION="Advanced audio player based on KDE framework"
-HOMEPAGE="http://amarok.kde.org/"
-if [[ ${PV} != *9999* ]]; then
-	if [[ $PV == *[6-9][0-9]* ]]; then
-		SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.bz2"
-	else
-		SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	fi
-	KEYWORDS="~amd64 ~ppc ~x86"
-else
-	KEYWORDS=""
-fi
+DESCRIPTION="Advanced audio player based on KDE frameworks"
+HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-SLOT="4"
-IUSE="cdda debug +embedded ipod lastfm mp3tunes mtp ofa opengl test +utils"
+IUSE="+embedded ffmpeg ipod lastfm mtp ofa opengl +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -36,78 +23,103 @@ fi
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
-	app-crypt/qca:2[qt4(+)]
-	$(add_kdebase_dep kdelibs 'opengl?' 4.8.4)
-	$(add_kdeapps_dep kdebase-kioslaves)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdnssd)
+	$(add_frameworks_dep kglobalaccel)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktexteditor)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep plasma)
+	$(add_frameworks_dep solid)
+	$(add_frameworks_dep threadweaver)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtscript 'scripttools')
+	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	app-crypt/qca:2[qt5]
+	media-libs/phonon[qt5]
 	>=media-libs/taglib-1.7[asf,mp4]
 	>=media-libs/taglib-extras-1.0.1
 	sys-libs/zlib
 	>=virtual/mysql-5.1[embedded?]
-	>=dev-qt/qtcore-4.8:4
-	>=dev-qt/qtdbus-4.8:4
-	>=dev-qt/qtscript-4.8:4
-	>=x11-libs/qtscriptgenerator-0.1.0
-	cdda? (
-		$(add_kdeapps_dep libkcddb)
-		$(add_kdeapps_dep libkcompactdisc)
-		$(add_kdeapps_dep audiocd-kio)
+	ffmpeg? (
+		virtual/ffmpeg
+		ofa? ( >=media-libs/libofa-0.9.0 )
 	)
-	ipod? ( >=media-libs/libgpod-0.7.0[gtk] )
-	lastfm? ( >=media-libs/liblastfm-1.0.3[qt4(+)] )
-	mp3tunes? (
+	ipod? (
 		dev-libs/glib:2
-		dev-libs/libxml2
-		dev-libs/openssl:0
-		net-libs/loudmouth
-		net-misc/curl
-		>=dev-qt/qtcore-4.8.4:4[glib]
+		>=media-libs/libgpod-0.7.0[gtk]
 	)
+	lastfm? ( media-libs/liblastfm[qt5] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
-	ofa? ( >=media-libs/libofa-0.9.0 )
 	opengl? ( virtual/opengl )
 "
+# 	cdda? (
+# 		$(add_kdeapps_dep libkcddb)
+# 		$(add_kdeapps_dep libkcompactdisc)
+# 		$(add_kdeapps_dep audiocd-kio)
+# 	)
 DEPEND="${COMMONDEPEND}
-	dev-util/automoc
 	virtual/pkgconfig
 	test? ( dev-cpp/gmock )
 "
-RDEPEND="${COMMONDEPEND}
-	!media-sound/amarok-utils
-	$(add_kdeapps_dep phonon-kde)
-"
+RDEPEND="${COMMONDEPEND}"
 
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
-	use ppc64 && append-flags -mminimal-toc
+# 	use ppc64 && append-flags -mminimal-toc
 
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_QJSON=ON
+		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
-		-DWITH_Libgcrypt=OFF
 		-DWITH_SPECTRUM_ANALYZER=OFF
-		-DWITH_NepomukCore=OFF
-		-DWITH_Soprano=OFF
-		$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
-		$(cmake-utils_use_with ipod)
-		$(cmake-utils_use_with ipod Gdk)
-		$(cmake-utils_use_with lastfm LibLastFm)
-		$(cmake-utils_use_with mtp)
-		$(cmake-utils_use_with mp3tunes MP3Tunes)
-		$(cmake-utils_use_with ofa LibOFA)
-		$(cmake-utils_use_with utils UTILITIES)
+		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
+		$(cmake-utils_use_find_package ffmpeg FFmpeg)
+		-DWITH_IPOD=$(usex ipod)
+		$(cmake-utils_use_find_package ipod GDKPixBuf)
+		$(cmake-utils_use_find_package lastfm LibLastFm)
+		$(cmake-utils_use_find_package mtp Mtp)
+		$(cmake-utils_use_find_package ofa LibOFA)
+		-DWITH_UTILITIES=$(usex utils)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
 
 src_install() {
-	kde4-base_src_install
+	kde5_src_install
 
 	# bug 481592
 	pax-mark m "${ED}"/usr/bin/amarok
 }
 
 pkg_postinst() {
-	kde4-base_pkg_postinst
+	kde5_pkg_postinst
 
 	if ! use embedded; then
 		echo
