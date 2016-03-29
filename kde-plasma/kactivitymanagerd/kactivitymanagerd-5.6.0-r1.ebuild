@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.20.0"
 inherit kde5
 
 DESCRIPTION="System service to manage user's activities, track the usage patterns etc."
@@ -27,7 +28,6 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
 	!kde-base/kactivitymanagerd
-	!<kde-frameworks/kactivities-5.20.0
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54
