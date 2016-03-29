@@ -32,3 +32,9 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54
 "
+
+src_install() {
+	kde5_src_install
+	# File collisions with kde-plasma/plasma-desktop...
+	rm -r "${ED}"usr/share/locale
+}
