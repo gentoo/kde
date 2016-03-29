@@ -28,8 +28,6 @@ RDEPEND="${DEPEND}
 	sci-chemistry/chemical-mime-data
 "
 
-PATCHES=( "${FILESDIR}/${PN}-15.12.3-plasmoids.patch" )
-
 src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
