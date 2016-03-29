@@ -15,4 +15,6 @@ DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_qt_dep qtcore)
 "
-RDEPEND=""
+RDEPEND="
+	!kde-apps/libkdeedu:4
+"
