@@ -28,13 +28,8 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
 	!kde-base/kactivitymanagerd
+	!<kde-plasma/plasma-desktop-5.6.1
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54
 "
-
-src_install() {
-	kde5_src_install
-	# File collisions with kde-plasma/plasma-desktop...
-	rm -r "${ED}"usr/share/locale
-}
