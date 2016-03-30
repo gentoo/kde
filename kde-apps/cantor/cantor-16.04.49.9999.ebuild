@@ -56,8 +56,6 @@ DEPEND="${RDEPEND}
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-15.12.3-tests.patch" )
-
 pkg_setup() {
 	use python && python_setup
 	kde5_pkg_setup
@@ -69,13 +67,6 @@ src_prepare() {
 	# FIXME: shipped FindPythonLibs3.cmake does not work for Gentoo
 	sed -e "/^find_package(PythonLibs3)/ s/^/#/" \
 		-i src/backends/CMakeLists.txt || die
-
-	if ! use test ; then
-		sed -e "/add_subdirectory(test)/ s/^/#DONT/" \
-			-i src/lib/CMakeLists.txt || die
-		sed -e "/add_subdirectory(tests)/ s/^/#DONT/" \
-			-i src/backends/python3/CMakeLists.txt || die
-	fi
 }
 
 src_configure() {
