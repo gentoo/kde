@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Remote desktop connection (RDP and VNC) client"
