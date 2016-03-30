@@ -15,4 +15,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="x11-misc/redshift"
+DEPEND="$(add_frameworks_dep plasma)"
+RDEPEND="${DEPEND}
+	x11-misc/redshift
+"
