@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 inherit kde4-base
@@ -34,7 +34,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with musicbrainz MusicBrainz5)
+		-DWITH_MusicBrainz5=$(usex musicbrainz)
 	)
 
 	kde4-base_src_configure
