@@ -12,7 +12,6 @@ inherit kde5
 DESCRIPTION="A viewer for TNEF attachments"
 HOMEPAGE="https://www.kde.org/"
 KEYWORDS=" ~amd64 ~x86"
-
 IUSE=""
 
 DEPEND="
