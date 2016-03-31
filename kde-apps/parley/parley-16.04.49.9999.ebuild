@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 KDE_DOC_DIR="docs"
 inherit kde5
 
-DESCRIPTION="A vocabulary trainer to help you memorize things"
+DESCRIPTION="KDE Educational: vocabulary trainer"
 HOMEPAGE="https://www.kde.org/applications/education/parley
 https://edu.kde.org/applications/school/parley"
 KEYWORDS=""
