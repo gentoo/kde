@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="games"
 inherit kde4-base
 
-DESCRIPTION="KDE Space Game"
+DESCRIPTION="Space Game by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/games/kspaceduel/
 	https://games.kde.org/game.php?game=kspaceduel
