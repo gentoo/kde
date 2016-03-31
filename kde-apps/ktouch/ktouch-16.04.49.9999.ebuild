@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE: A program that helps you to learn and practice touch typing"
+DESCRIPTION="Program that helps to learn and practice touch typing"
 HOMEPAGE="https://edu.kde.org/applications/miscellaneous/ktouch"
 KEYWORDS=""
 IUSE="debug"
