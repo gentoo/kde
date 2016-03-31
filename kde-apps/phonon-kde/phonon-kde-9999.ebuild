@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KMNAME="kde-runtime"
 KMMODULE="phonon"
@@ -28,8 +28,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_tests=OFF
 		-DWITH_Xine=OFF
-		$(cmake-utils_use_with alsa)
-		$(cmake-utils_use_with pulseaudio PulseAudio)
+		-DWITH_ALSA=$(usex alsa)
+		-DWITH_PulseAudio=$(usex pulseaudio)
 	)
 
 	kde4-meta_src_configure
