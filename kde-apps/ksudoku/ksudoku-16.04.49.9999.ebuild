@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 OPENGL_REQUIRED="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE Sudoku"
+DESCRIPTION="Sudoku by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/games/ksudoku/
 	https://games.kde.org/game.php?game=ksudoku
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with opengl OpenGL)
+		-DWITH_OpenGL=$(usex opengl)
 	)
 	kde4-base_src_configure
 }
