@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
