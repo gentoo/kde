@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.3.2
 	dev-libs/boost:=
@@ -47,4 +48,5 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim[kdepim_features_kleopatra]
 	!<kde-apps/kdepim-15.12.2-r1
 	>=app-crypt/gnupg-2.1
+	app-crypt/paperkey
 "
