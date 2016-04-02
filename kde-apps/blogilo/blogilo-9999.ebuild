@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
@@ -42,6 +41,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.12.2:5
+	!<kde-apps/kdepim-apps-libs-16.04.50
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
