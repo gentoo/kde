@@ -4,7 +4,8 @@
 
 EAPI=6
 
-KDE_TEST="false"
+FRAMEWORKS_MINIMAL="5.19.0"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
@@ -43,13 +44,14 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
-	dev-libs/libxslt
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/grantlee:5
+	dev-libs/libxslt
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
