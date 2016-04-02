@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="Jovie is a text to speech application"
+DESCRIPTION="Text to speech application"
 HOMEPAGE="https://www.kde.org/applications/utilities/jovie/"
 KEYWORDS=""
 IUSE="debug"
