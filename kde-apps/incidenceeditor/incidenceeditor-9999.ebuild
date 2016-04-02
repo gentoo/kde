@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Incidence editor for korganizer"
@@ -44,10 +44,8 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
