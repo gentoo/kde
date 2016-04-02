@@ -5,9 +5,10 @@
 EAPI=6
 
 FRAMEWORKS_MINIMAL="5.19.0"
+KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="KDE PIM runtime plugin collection"
+DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 KEYWORDS=""
 IUSE="google"
 
