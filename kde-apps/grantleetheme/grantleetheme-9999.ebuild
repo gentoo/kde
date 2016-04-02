@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Library for Grantlee plugins"
@@ -19,9 +19,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-libs/grantlee:5
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtnetwork)
