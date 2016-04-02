@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 inherit kde5
@@ -13,14 +14,13 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep syndication)
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kxmlrpcclient)
-	$(add_qt_dep qtxml)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep syndication)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
