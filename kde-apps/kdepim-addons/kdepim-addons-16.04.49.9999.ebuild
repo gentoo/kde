@@ -68,7 +68,7 @@ src_prepare() {
 	kde5_src_prepare
 
 	for pim_ft in ${PIM_FTS}; do
-		use kdepim_features_${pim_ft} || comment_add_subdirectory ${pim_ft}
+		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
 	done
 }
 
