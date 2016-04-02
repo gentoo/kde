@@ -44,6 +44,10 @@ PATCHES=(
 
 src_prepare() {
 	default
+
+	# launch elogind when called via dbus
+	sed -i -e "s|/bin/false|/usr/libexec/elogind/elogind|" src/login/org.freedesktop.login1.service || die
+
 	eautoreconf
 }
 
