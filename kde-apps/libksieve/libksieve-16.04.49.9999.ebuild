@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="true"
 inherit kde5
 
@@ -24,7 +25,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
