@@ -4,8 +4,8 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
 EGIT_BRANCH="frameworks"
+KDE_HANDBOOK="forceoptional" # not optional until kdelibs4support is gone
 inherit kde5
 
 DESCRIPTION="Jigsaw puzzle game by KDE"
@@ -13,7 +13,7 @@ HOMEPAGE="https://www.kde.org/applications/games/palapeli/"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -33,5 +33,7 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 "
-
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_qt_dep qtconcurrent)
+	x11-misc/shared-mime-info
+"
