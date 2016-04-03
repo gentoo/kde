@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="optional"
 OPENGL_REQUIRED="always"
 inherit kde4-base flag-o-matic
 
-DESCRIPTION="KDE: periodic table of the elements"
+DESCRIPTION="Periodic table of the elements"
 HOMEPAGE="https://www.kde.org/applications/education/kalzium
 https://edu.kde.org/kalzium"
 KEYWORDS=""
@@ -33,12 +33,12 @@ src_configure(){
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
 	local mycmakeargs=(
-		$(cmake-utils_use_build plasma plasmoid)
-		$(cmake-utils_use_with editor Eigen3)
-		$(cmake-utils_use_with editor Avogadro)
-		$(cmake-utils_use_with editor OpenBabel2)
-		$(cmake-utils_use_with solver OCaml)
-		$(cmake-utils_use_with solver Libfacile)
+		-DBUILD_plasmoid=$(usex plasma)
+		-DWITH_Eigen3=$(usex editor)
+		-DWITH_Avogadro=$(usex editor)
+		-DWITH_OpenBabel2=$(usex editor)
+		-DWITH_OCaml=$(usex solver)
+		-DWITH_Libfacile=$(usex solver)
 	)
 
 	kde4-base_src_configure
