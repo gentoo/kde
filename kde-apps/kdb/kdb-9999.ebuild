@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 
@@ -15,10 +15,10 @@ IUSE="mysql postgres sqlite"
 
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	dev-libs/icu:=
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/icu:=
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite:3 )
@@ -32,9 +32,9 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package mysql)
-		$(cmake-utils_use_find_package postgres)
-		$(cmake-utils_use_find_package sqlite)
+		$(cmake-utils_use_find_package mysql MySQL)
+		$(cmake-utils_use_find_package postgres PostgreSQL)
+		$(cmake-utils_use_find_package sqlite Sqlite)
 	)
 
 	kde5_src_configure
