@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Library for interacting with LDAP servers"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="ssl"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -19,7 +19,14 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-libs/cyrus-sasl
 	net-nds/openldap
+	ssl? ( dev-libs/cyrus-sasl )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package ssl Sasl2)
+	)
+	kde5_src_configure
+}
