@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KMNAME="kde-runtime"
 KMMODULE="desktoptheme"
 inherit kde4-meta
 
-DESCRIPTION="Oxygen KDE4 desktop theme"
+DESCRIPTION="Oxygen Plasma 4 desktop theme"
 IUSE=""
 KEYWORDS=" ~amd64 ~x86"
