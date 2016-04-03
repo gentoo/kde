@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KMNAME="kdepim"
 EGIT_BRANCH="KDE/4.14"
@@ -17,11 +17,11 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug google"
 
 DEPEND="
+	$(add_kdebase_dep baloo '' 4.14.3)
+	$(add_kdeapps_dep kdepimlibs 'akonadi(+)')
 	app-crypt/gpgme
 	>=app-office/akonadi-server-1.12.90
 	dev-libs/grantlee:0
-	$(add_kdebase_dep baloo '' 4.14.3)
-	$(add_kdeapps_dep kdepimlibs 'akonadi(+)')
 	google? ( net-libs/libkgapi:4 )
 "
 RDEPEND="${DEPEND}
@@ -32,8 +32,8 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-wizards:4
 	!<kde-apps/kmail-4.14.5:4
 	!<kde-apps/korganizer-4.5.67:4
-	app-crypt/gnupg
 	$(add_kdeapps_dep kdepim-runtime)
+	app-crypt/gnupg
 "
 
 RESTRICT="test"
