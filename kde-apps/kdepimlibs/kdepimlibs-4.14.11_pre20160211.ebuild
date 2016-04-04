@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 	!kde-misc/akonadi-social-utils
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.14.11-boostincludes.patch" )
 
 src_configure() {
 	local mycmakeargs=(
