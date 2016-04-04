@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepimlibs:4
 "
 
-PATCHES=( "${FILESDIR}/kdepimlibs-4.9.1-boostincludes.patch" )
+PATCHES=( "${FILESDIR}/kdepimlibs-4.14.11-boostincludes.patch" )
 
 S=${WORKDIR}/${KMNAME}
 
