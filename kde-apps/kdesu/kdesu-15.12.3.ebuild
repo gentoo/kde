@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KMNAME="kde-runtime"
@@ -10,7 +10,7 @@ inherit kde4-meta
 
 # FIXME: Is default command ( su/sudo ) still configurable,
 # if not, USE-flag ?
-DESCRIPTION="KDE: gui for su(1)"
+DESCRIPTION="KDE gui for su(1)"
 HOMEPAGE+=" https://techbase.kde.org/Projects/kdesu"
 KEYWORDS=" ~amd64 ~x86"
 IUSE="debug"
