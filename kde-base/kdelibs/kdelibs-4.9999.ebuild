@@ -12,8 +12,11 @@ KDE_HANDBOOK="optional"
 inherit kde4-base fdo-mime multilib toolchain-funcs flag-o-matic
 
 EGIT_BRANCH="KDE/4.14"
+APPS_VERSION="16.04.0" # Don't forget to bump this
 
 DESCRIPTION="KDE libraries needed by all KDE programs"
+[[ ${KDE_BUILD_TYPE} != live ]] && \
+SRC_URI="mirror://kde/Attic/applications/${APPS_VERSION}/src/${P}.tar.xz"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
