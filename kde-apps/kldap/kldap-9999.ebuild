@@ -17,6 +17,7 @@ DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_kdeapps_dep kmbox)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/cyrus-sasl
