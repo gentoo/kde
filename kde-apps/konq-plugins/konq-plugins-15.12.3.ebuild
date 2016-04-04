@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KMNAME="kde-baseapps"
 inherit kde4-meta
@@ -25,7 +25,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DKdeWebKit=OFF
 		-DWebKitPart=OFF
-		$(cmake-utils_use_with tidy LibTidy)
+		-DWITH_LibTidy=$(usex tidy)
 	)
 
 	kde4-meta_src_configure
