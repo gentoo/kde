@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
@@ -20,8 +20,8 @@ IUSE="debug"
 
 DEPEND="
 	$(add_kdeapps_dep kdepimlibs 'akonadi(+)')
-	$(add_kdeapps_dep korganizer)
 	$(add_kdeapps_dep kdepim-common-libs)
+	$(add_kdeapps_dep korganizer)
 "
 RDEPEND="
 	${DEPEND}
