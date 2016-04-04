@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KMNAME="kdewebdev"
@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with tidy LibTidy)
+		-DWITH_LibTidy=$(usex tidy)
 	)
 
 	kde4-meta_src_configure
