@@ -98,7 +98,7 @@ src_configure() {
 		-DK3B_BUILD_SNDFILE_DECODER_PLUGIN=$(usex sndfile)
 		-DK3B_BUILD_SOX_ENCODER_PLUGIN=$(usex sox)
 		-DK3B_ENABLE_TAGLIB=$(usex taglib)
-		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbix)
+		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbis)
 		-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=$(usex vorbis)
 	)
 
