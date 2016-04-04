@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>kde@gentoo.org</email>
+		<name>Gentoo KDE Project</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>office@gentoo.org</email>
+		<name>Gentoo Office project</name>
+	</maintainer>
+	<use>
+		<flag name="activities">Enable kactivities support</flag>
+		<flag name="eigen">Enable <pkg>dev-cpp/eigen</pkg> mathematical templates support</flag>
+		<flag name="glib">Enable support for C library routines from <pkg>dev-libs/glib</pkg></flag>
+		<flag name="import-filter">Enable support for various import filter file formats like WordPerfect, Visio and Apple Keynote</flag>
+		<flag name="kdepim">Enable support for KDEPIM resources integration</flag>
+		<flag name="marble">Enable displaying of maps using Marble</flag>
+		<flag name="okular">Enable bindings for <pkg>kde-apps/okular</pkg></flag>
+		<flag name="spacenav">Enable support for the 3Dconnexion spacenav input device via <pkg>dev-libs/libspnav</pkg></flag>
+		<flag name="vc">Enable support for <pkg>dev-libs/vc</pkg>, could be a significant speed boost on krita</flag>
+	</use>
+</pkgmetadata>
