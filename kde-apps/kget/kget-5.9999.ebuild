@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="true"
 EGIT_BRANCH="kf5_port"
 inherit kde5
 
-DESCRIPTION="An advanced download manager for KDE"
+DESCRIPTION="An advanced download manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="gpg mms sqlite"
@@ -50,9 +50,10 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with gpg QGpgme)
-		$(cmake-utils_use_with mms LibMms)
-		$(cmake-utils_use_with sqlite)
+		-DWITH_QGpgme=$(usex gpg)
+		-DWITH_LibMms=$(usex mms)
+		-DWITH_Sqlite=$(usex sqlite)
 	)
+
 	kde5_src_configure
 }

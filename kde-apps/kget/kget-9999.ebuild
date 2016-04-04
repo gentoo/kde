@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="An advanced download manager for KDE"
+DESCRIPTION="An advanced download manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="debug bittorrent gpg mms sqlite webkit"
@@ -30,11 +30,12 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_NepomukCore=OFF
 		-DWITH_NepomukWidgets=OFF
-		$(cmake-utils_use_with bittorrent KTorrent)
-		$(cmake-utils_use_with gpg QGpgme)
-		$(cmake-utils_use_with mms LibMms)
-		$(cmake-utils_use_with sqlite)
-		$(cmake-utils_use_with webkit KWebKitPart)
+		-DWITH_KTorrent=$(usex bittorrent)
+		-DWITH_QGpgme=$(usex gpg)
+		-DWITH_LibMms=$(usex mms)
+		-DWITH_Sqlite=$(usex sqlite)
+		-DWITH_KWebKitPart=$(usex webkit)
 	)
+
 	kde4-base_src_configure
 }
