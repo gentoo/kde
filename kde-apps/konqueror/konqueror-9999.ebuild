@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KMNAME="kde-baseapps"
 inherit flag-o-matic kde4-meta
 
-DESCRIPTION="KDE: Web browser and file manager"
+DESCRIPTION="Web browser and file manager"
 HOMEPAGE="
 	https://www.kde.org/applications/internet/konqueror/
 	https://konqueror.org/
