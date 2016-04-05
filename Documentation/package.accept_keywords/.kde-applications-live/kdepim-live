@@ -5,7 +5,6 @@
 ~kde-apps/akonadi-mime-9999 **
 ~kde-apps/akonadi-notes-9999 **
 ~kde-apps/akonadi-search-9999 **
-~kde-apps/akonadi-socialutils-9999 **
 ~kde-apps/akregator-9999 **
 ~kde-apps/blogilo-9999 **
 ~kde-apps/calendarjanitor-9999 **
@@ -23,7 +22,6 @@
 ~kde-apps/kdepim-addons-9999 **
 ~kde-apps/kdepim-apps-libs-9999 **
 ~kde-apps/kdepim-meta-9999 **
-~kde-apps/kdepim-kioslaves-9999 **
 ~kde-apps/kdepim-runtime-9999 **
 ~kde-apps/kdgantt2-9999 **
 ~kde-apps/kholidays-9999 **
