@@ -53,7 +53,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
-	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
