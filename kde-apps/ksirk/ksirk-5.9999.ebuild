@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A KDE port of the board game risk"
+DESCRIPTION="Port of the board game risk"
 HOMEPAGE="
 	https://www.kde.org/applications/games/ksirk/
 	https://games.kde.org/game.php?game=ksirk
@@ -37,13 +37,13 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
-	app-crypt/qca:2[qt5]
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	app-crypt/qca:2[qt5]
 	media-libs/phonon[qt5]
 	sys-libs/zlib
 "
