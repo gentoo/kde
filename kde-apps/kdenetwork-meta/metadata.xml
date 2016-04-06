@@ -6,6 +6,7 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
+		<flag name="qt4">Installs KDE4-based applications</flag>
 		<flag name="ppp">Enable support for <pkg>net-dialup/ppp</pkg>.</flag>
 		<flag name="telepathy">Enable build of <pkg>kde-apps/plasma-telepathy-meta</pkg>, otherwise <pkg>kde-apps/kopete</pkg>.</flag>
 	</use>

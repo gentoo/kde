@@ -6,6 +6,7 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
+		<flag name="qt4">Installs KDE4-based applications</flag>
 		<flag name="pim">Pull in KDE PIM suite</flag>
 		<flag name="sdk">Pull in developer-specific meta-packages</flag>
 	</use>
