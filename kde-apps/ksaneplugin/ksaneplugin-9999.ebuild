@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde4-base
 
-DESCRIPTION="SANE Plugin for KDE"
+DESCRIPTION="SANE Plugin by KDE"
 KEYWORDS=""
 IUSE="debug"
 
