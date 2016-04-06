@@ -40,6 +40,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	$(add_qt_dep qtdbus)
