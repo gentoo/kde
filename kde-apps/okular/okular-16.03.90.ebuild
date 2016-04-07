@@ -2,17 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
-
 #VIRTUALX_REQUIRED=test
 RESTRICT=test
 # test 2: parttest hangs
 
 inherit kde4-base
 
-DESCRIPTION="Okular is a universal document viewer based on KPDF for KDE 4"
+DESCRIPTION="Universal document viewer based on KPDF"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=" ~amd64 ~x86"
 IUSE="chm crypt debug djvu dpi ebook +jpeg kde mobi +postscript +pdf +tiff"
@@ -40,19 +39,19 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with chm)
-		$(cmake-utils_use_with crypt QCA2)
-		$(cmake-utils_use_with djvu DjVuLibre)
-		$(cmake-utils_use_with dpi LibKScreen)
-		$(cmake-utils_use_with ebook EPub)
-		$(cmake-utils_use_with jpeg)
-		$(cmake-utils_use_with jpeg Kexiv2)
-		$(cmake-utils_use_with kde KActivities)
-		$(cmake-utils_use_with mobi QMobipocket)
-		$(cmake-utils_use_with postscript LibSpectre)
-		$(cmake-utils_use_with pdf PopplerQt4)
-		$(cmake-utils_use_with pdf Poppler)
-		$(cmake-utils_use_with tiff)
+		-DWITH_CHM=$(usex chm)
+		-DWITH_QCA2=$(usex crypt)
+		-DWITH_DjVuLibre=$(usex djvu)
+		-DWITH_LibKScreen=$(usex dpi)
+		-DWITH_EPub=$(usex ebook)
+		-DWITH_JPEG=$(usex jpeg)
+		-DWITH_Kexiv2=$(usex jpeg)
+		-DWITH_KActivities=$(usex kde)
+		-DWITH_QMobipocket=$(usex mobi)
+		-DWITH_LibSpectre=$(usex postscript)
+		-DWITH_PopplerQt4=$(usex pdf)
+		-DWITH_Poppler=$(usex pdf)
+		-DWITH_TIFF=$(usex tiff)
 	)
 
 	kde4-base_src_configure
