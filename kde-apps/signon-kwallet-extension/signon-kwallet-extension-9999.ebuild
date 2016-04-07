@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="KWallet extension for signond"
 HOMEPAGE="https://01.org/gsso/"
 KEYWORDS=""
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2+"
 
 DEPEND="
 	$(add_frameworks_dep kwallet)
