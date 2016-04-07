@@ -113,4 +113,8 @@ src_test() {
 
 src_install() {
 	[[ -n ${A} ]] && kde5_src_install
+
+	# FIXME: Temporary removal of file conflict with kde-plasma/khelpcenter
+	# Files should be removed in khelpcenter after pkgmove to kde-apps/
+	rm -rf "${ED}"usr/share/locale/*/LC_MESSAGES/khelpcenter.mo || die
 }
