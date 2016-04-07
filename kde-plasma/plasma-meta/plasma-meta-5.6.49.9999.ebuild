@@ -16,6 +16,7 @@ IUSE="bluetooth +display-manager grub gtk +handbook mediacenter networkmanager p
 
 RDEPEND="
 	$(add_plasma_dep breeze)
+	$(add_plasma_dep kactivitymanagerd)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kdeplasma-addons)
@@ -36,6 +37,7 @@ RDEPEND="
 	$(add_plasma_dep milou)
 	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-desktop)
+	$(add_plasma_dep plasma-integration)
 	$(add_plasma_dep plasma-workspace)
 	$(add_plasma_dep polkit-kde-agent)
 	$(add_plasma_dep powerdevil)
