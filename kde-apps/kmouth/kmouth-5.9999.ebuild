@@ -5,7 +5,7 @@
 EAPI=6
 
 EGIT_BRANCH="frameworks"
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Text-to-speech synthesizer front end"
