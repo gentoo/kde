@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="KDE Telepathy file manager plugin to send files to contacts"
 HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
-LICENSE="LGPL-2.1"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
