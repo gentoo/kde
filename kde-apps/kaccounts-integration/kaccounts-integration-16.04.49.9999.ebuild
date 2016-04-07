@@ -31,6 +31,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
+	$(add_plasma_dep kde-cli-tools)
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}"
