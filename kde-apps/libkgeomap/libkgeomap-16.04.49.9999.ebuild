@@ -21,7 +21,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktextwidgets)
-	$(add_kdeapps_dep libkexiv2 '' '' '5=')
 	$(add_kdeapps_dep marble 'kde' '' '5=')
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
@@ -30,3 +29,11 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5KExiv2=true
+	)
+
+	kde5_src_configure
+}
