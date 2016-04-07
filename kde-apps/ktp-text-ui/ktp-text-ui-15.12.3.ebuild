@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="KDE Telepathy text chat window"
 HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
-LICENSE="GPL-2"
+LICENSE="Apache-2.0 AFL-2.1 BSD GPL-2+ LGPL-2.1+ MIT"
 KEYWORDS=" ~amd64 ~x86"
 IUSE=""
 
