@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_AUTODEPS="false"
+KDE_DEBUG="false"
 inherit kde5
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
@@ -15,6 +16,4 @@ DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_qt_dep qtcore)
 "
-RDEPEND="
-	!kde-apps/libkdeedu:4
-"
+RDEPEND="!kde-apps/libkdeedu:4"
