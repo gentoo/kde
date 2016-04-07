@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DAPRCONFIG_EXECUTABLE="${EPREFIX}"/usr/bin/apr-1-config
-		$(cmake-utils_use_with subversion SVN)
+		-DWITH_SVN=$(usex subversion)
 	)
 
 	kde4-base_src_configure
