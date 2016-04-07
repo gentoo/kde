@@ -10,8 +10,8 @@ DESCRIPTION="KDE Telepathy text chat window"
 HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="Apache-2.0 AFL-2.1 BSD GPL-2+ LGPL-2.1+ MIT"
-KEYWORDS=" ~amd64 ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="speech"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -42,8 +42,17 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	net-libs/telepathy-qt[qt5]
+	speech? ( $(add_qt_dep qtspeech) )
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
 	!net-im/ktp-text-ui
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+	)
+
+	kde5_src_configure
+}
