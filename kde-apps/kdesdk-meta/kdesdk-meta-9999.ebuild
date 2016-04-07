@@ -19,6 +19,7 @@ RDEPEND="
 	$(add_kdeapps_dep kde-dev-scripts)
 	$(add_kdeapps_dep kde-dev-utils)
 	$(add_kdeapps_dep kdesdk-kioslaves)
+	$(add_kdeapps_dep kdesdk-thumbnailers)
 	$(add_kdeapps_dep kompare)
 	$(add_kdeapps_dep libkomparediff2)
 	$(add_kdeapps_dep lokalize)
