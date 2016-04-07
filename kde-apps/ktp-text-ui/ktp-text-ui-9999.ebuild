@@ -19,6 +19,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep ki18n)
