@@ -44,4 +44,6 @@ RDEPEND="${COMMON_DEPEND}
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 	S="${WORKDIR}/${P}/${PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
