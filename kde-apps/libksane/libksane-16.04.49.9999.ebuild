@@ -21,4 +21,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	media-gfx/sane-backends
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/libksane:4[-minimal(-)]
+"
