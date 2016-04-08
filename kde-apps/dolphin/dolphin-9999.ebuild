@@ -83,4 +83,10 @@ pkg_postinst() {
 		elog "For compress/extract and other actions, please install kde-apps/ark:${SLOT}"
 		echo
 	fi
+
+	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
+		echo
+		elog "For crypto actions, please install kde-apps/kleopatra:${SLOT}"
+		echo
+	fi
 }
