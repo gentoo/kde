@@ -157,3 +157,19 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-apps/kdepim-addons:${SLOT}" ; then
+		echo
+		elog "Install kde-apps/kdepim-addons:${SLOT} for fancy e-mail headers and various useful plugins."
+		echo
+	fi
+
+	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
+		echo
+		elog "Install kde-apps/kleopatra:${SLOT} to get a crypto config and certificate details GUI."
+		echo
+	fi
+}
