@@ -206,12 +206,6 @@ kdelibs/kio_timeline.po
 kdelibs/plasma_runner_baloosearchrunner.po
 # KDE Applications 4
 applications/useraccount.po
-# KDE Edu 4
-kdeedu/pairs.po
-kdeedu/pairseditor.po
-kdeedu/pairs.appdata.po
 # KDE SDK 4
 kdesdk/org.kde.umbrello.appdata.po
 kdesdk/umbrello.po
-# KDE Utils 4
-kdeutils/org.kde.kteatime.appdata.po
