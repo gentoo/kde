@@ -7,7 +7,6 @@ docs/applications kate
 docs/applications konsole
 docs/applications kwrite
 docs/kdeedu kig
-docs/kdeedu pairseditor
 docs/kdeedu parley
 docs/kdeedu step
 docs/kdegames bomber
@@ -16,7 +15,7 @@ docs/kdegraphics kruler
 docs/kdesdk kapptemplate
 docs/kdesdk okteta
 docs/kdeutils kwalletmanager
-# Plasma 5.3
+# Plasma 5
 docs/kde-runtime fundamentals
 docs/kde-runtime kdesu
 docs/kde-runtime khelpcenter
@@ -28,7 +27,6 @@ docs/kde-runtime/kcontrol ebrowsing
 docs/kde-runtime/kcontrol emoticons
 docs/kde-runtime/kcontrol icons
 docs/kde-runtime/kcontrol kcmcgi
-docs/kde-runtime/kcontrol khtml
 docs/kde-runtime/kcontrol smb
 docs/kde-runtime/kcontrol trash
 docs/kde-runtime/kcontrol useragent

@@ -20,8 +20,8 @@ RDEPEND="
 	!<kde-apps/kde-l10n-${PV}
 "
 
-REMOVE_DIRS="${FILESDIR}/${PN}-15.11.90-remove-dirs"
-REMOVE_MSGS="${FILESDIR}/${PN}-16.03.90-remove-messages"
+REMOVE_DIRS="${FILESDIR}/${PN}-16.03.90-remove-dirs"
+REMOVE_MSGS="${FILESDIR}/${PN}-16.03.91-remove-messages"
 
 LV="4.14.3"
 LEGACY_LANGS="ar bg bs ca ca@valencia cs da de el en_GB es et eu fa fi fr ga gl
@@ -93,16 +93,22 @@ EOF
 
 		einfo "   directories..."
 		while read path; do
-			if [[ -n ${path} ]] ; then
-				find ./*/4/*/${path%\ *}/CMakeLists.txt -exec \
-					sed -i -e ":${path#*\ }: s:^:#:" {} + || die
+			if ls -U ./*/4/*/${path%\ *}/${path#*\ } > /dev/null 2>&1; then
+				sed -i -e ":${path#*\ }: s:^:#:" ./*/4/*/${path%\ *}/CMakeLists.txt || \
+					die "Failed to comment out ${path}"
+			else
+				einfo "   F: ${path}"	# run with LINGUAS="*" to cut down list
 			fi
-		done < <(grep -v "^#" "${REMOVE_DIRS}")
+		done < <(grep -ve "^$\|^\s*\#" "${REMOVE_DIRS}")
 
 		einfo "   messages..."
-		for path in $(grep -v "^#" "${REMOVE_MSGS}") ; do
-			rm -f ./*/4/*/messages/${path}
-		done
+		while read path; do
+			if ls -U ./*/4/*/messages/${path} > /dev/null 2>&1; then
+				rm ./*/4/*/messages/${path} || die "Failed to remove ${path}"
+			else
+				einfo "   F: ${path}"	# run with LINGUAS="*" to cut down list
+			fi
+		done < <(grep -ve "^$\|^\s*\#" "${REMOVE_MSGS}")
 	else
 		local LNG LDIR
 		for LNG in ${LINGUAS}; do
