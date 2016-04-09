@@ -33,7 +33,7 @@ MY_LANGS="ar ast bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga
 gl he hi hr hu ia id is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro
 ru sk sl sr sv tr ug uk wa zh_CN zh_TW"
 
-IUSE="minimal $(printf 'linguas_%s ' ${MY_LANGS})"
+IUSE="minimal test $(printf 'linguas_%s ' ${MY_LANGS})"
 
 URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
 LURI_BASE="mirror://kde/stable/${LV}/src/${KMNAME}"
@@ -90,23 +90,50 @@ EOF
 
 	if use minimal; then
 		einfo "Removing file collisions with Plasma 5 and Applications"
+		use test && einfo "Tests enabled: Listing LINGUAS causing file collisions"
 
-		einfo "   directories..."
+		einfo "Directories..."
 		while read path; do
+			if use test ; then	# build a report w/ LINGUAS="*" to submit @upstream
+				local lngs
+				for lng in ${LINGUAS}; do
+					SDIR="${S}/${KMNAME}-${lng}-${PV}/4/${lng}"
+					if [[ -d "${SDIR}" ]] ; then
+						if [[ -d "${SDIR}"/${path%\ *}/${path#*\ } ]] ; then
+							lngs+=" ${lng}"
+						fi
+					fi
+				done
+				[[ -n ${lngs} ]] && einfo "${path%\ *}/${path#*\ }${lngs}"
+				unset lngs
+			fi
 			if ls -U ./*/4/*/${path%\ *}/${path#*\ } > /dev/null 2>&1; then
 				sed -i -e ":${path#*\ }: s:^:#:" ./*/4/*/${path%\ *}/CMakeLists.txt || \
 					die "Failed to comment out ${path}"
 			else
-				einfo "   F: ${path}"	# run with LINGUAS="*" to cut down list
+				einfo "F: ${path}"	# run with LINGUAS="*" to cut down list
 			fi
 		done < <(grep -ve "^$\|^\s*\#" "${REMOVE_DIRS}")
-
-		einfo "   messages..."
+		einfo
+		einfo "Messages..."
 		while read path; do
+			if use test ; then	# build a report w/ LINGUAS="*" to submit @upstream
+				local lngs
+				for lng in ${LINGUAS}; do
+					SDIR="${S}/${KMNAME}-${lng}-${PV}/4/${lng}"
+					if [[ -d "${SDIR}" ]] ; then
+						if [[ -e "${SDIR}"/messages/${path} ]] ; then
+							lngs+=" ${lng}"
+						fi
+					fi
+				done
+				[[ -n ${lngs} ]] && einfo "${path}${lngs}"
+				unset lngs
+			fi
 			if ls -U ./*/4/*/messages/${path} > /dev/null 2>&1; then
 				rm ./*/4/*/messages/${path} || die "Failed to remove ${path}"
 			else
-				einfo "   F: ${path}"	# run with LINGUAS="*" to cut down list
+				einfo "F: ${path}"	# run with LINGUAS="*" to cut down list
 			fi
 		done < <(grep -ve "^$\|^\s*\#" "${REMOVE_MSGS}")
 	else
@@ -154,9 +181,7 @@ src_compile() {
 	[[ -n ${A} ]] && kde4-base_src_compile
 }
 
-src_test() {
-	[[ -n ${A} ]] && kde4-base_src_test
-}
+src_test() { :; }
 
 src_install() {
 	[[ -n ${A} ]] && kde4-base_src_install
