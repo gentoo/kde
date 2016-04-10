@@ -33,5 +33,5 @@ src_install() {
 	kde5_src_install
 	rm "${ED}"usr/share/kdevappwizard/templates/qml-plasmoid.tar.bz2 || die
 	rm "${ED}"usr/share/kdevappwizard/template_previews/runner.png || die
-	rm "${ED}"usr/share/kdevappwizard/templates/runner.tar.bz2
+	rm "${ED}"usr/share/kdevappwizard/templates/runner.tar.bz2 || die
 }
