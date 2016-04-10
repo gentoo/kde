@@ -6,6 +6,8 @@ data/kdeedu khangman
 docs/applications kate
 docs/applications konsole
 docs/applications kwrite
+docs/kde-runtime glossary
+docs/kde-runtime khelpcenter
 docs/kdeedu kig
 docs/kdeedu parley
 docs/kdeedu step
@@ -14,8 +16,10 @@ docs/kdegraphics gwenview
 docs/kdegraphics kruler
 docs/kdesdk kapptemplate
 docs/kdesdk okteta
+docs/kdesdk umbrello
 docs/kdeutils kwalletmanager
 # Plasma 5
+docs kde-workspace
 docs/kde-runtime fundamentals
 docs/kde-runtime kdesu
 docs/kde-runtime khelpcenter
@@ -30,21 +34,8 @@ docs/kde-runtime/kcontrol kcmcgi
 docs/kde-runtime/kcontrol smb
 docs/kde-runtime/kcontrol trash
 docs/kde-runtime/kcontrol useragent
-docs/kde-workspace kfontview
-docs/kde-workspace kinfocenter
-docs/kde-workspace klipper
-docs/kde-workspace kmenuedit
-docs/kde-workspace ksysguard
-docs/kde-workspace plasma-desktop
-docs/kde-workspace systemsettings
-docs/kde-workspace/kcontrol clock
-docs/kde-workspace/kcontrol colors
-docs/kde-workspace/kcontrol desktopthemedetails
-docs/kde-workspace/kcontrol joystick
-docs/kde-workspace/kcontrol kcmaccess
-docs/kde-workspace/kcontrol kcmstyle
-docs/kde-workspace/kcontrol solid-actions
-docs/kde-workspace/kcontrol splashscreen
+messages kde-workspace
+messages kdeplasma-addons
 # kdepim-l10n 5
 docs kdepim
 docs kdepimlibs
