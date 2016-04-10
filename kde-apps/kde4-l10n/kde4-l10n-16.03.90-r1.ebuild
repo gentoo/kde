@@ -20,7 +20,7 @@ RDEPEND="
 	!<kde-apps/kde-l10n-${PV}
 "
 
-REMOVE_DIRS="${FILESDIR}/${PN}-16.03.90-remove-dirs"
+REMOVE_DIRS="${FILESDIR}/${PN}-16.03.91-remove-dirs"
 REMOVE_MSGS="${FILESDIR}/${PN}-16.03.91-remove-messages"
 
 LV="4.14.3"
@@ -98,17 +98,16 @@ EOF
 				local lngs
 				for lng in ${LINGUAS}; do
 					SDIR="${S}/${KMNAME}-${lng}-${PV}/4/${lng}"
-					if [[ -d "${SDIR}" ]] ; then
-						if [[ -d "${SDIR}"/${path%\ *}/${path#*\ } ]] ; then
-							lngs+=" ${lng}"
-						fi
+					if [[ -d "${SDIR}"/${path%\ *}/${path#*\ } ]] ; then
+						lngs+=" ${lng}"
 					fi
 				done
-				[[ -n ${lngs} ]] && einfo "${path%\ *}/${path#*\ }${lngs}"
+				[[ -n "${lngs}" ]] && einfo "${path%\ *}/${path#*\ }${lngs}"
 				unset lngs
 			fi
 			if ls -U ./*/4/*/${path%\ *}/${path#*\ } > /dev/null 2>&1; then
-				sed -i -e ":${path#*\ }: s:^:#:" ./*/4/*/${path%\ *}/CMakeLists.txt || \
+				sed -e "\:add_subdirectory(\s*${path#*\ }\s*): s:^:#:" \
+					-i ./*/4/*/${path%\ *}/CMakeLists.txt || \
 					die "Failed to comment out ${path}"
 			else
 				einfo "F: ${path}"	# run with LINGUAS="*" to cut down list
@@ -121,13 +120,11 @@ EOF
 				local lngs
 				for lng in ${LINGUAS}; do
 					SDIR="${S}/${KMNAME}-${lng}-${PV}/4/${lng}"
-					if [[ -d "${SDIR}" ]] ; then
-						if [[ -e "${SDIR}"/messages/${path} ]] ; then
-							lngs+=" ${lng}"
-						fi
+					if [[ -e "${SDIR}"/messages/${path} ]] ; then
+						lngs+=" ${lng}"
 					fi
 				done
-				[[ -n ${lngs} ]] && einfo "${path}${lngs}"
+				[[ -n "${lngs}" ]] && einfo "${path}${lngs}"
 				unset lngs
 			fi
 			if ls -U ./*/4/*/messages/${path} > /dev/null 2>&1; then
