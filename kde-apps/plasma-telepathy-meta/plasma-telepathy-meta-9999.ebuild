@@ -11,7 +11,7 @@ HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
 KEYWORDS=""
-IUSE="nls"
+IUSE="gstreamer nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_kdeapps_dep ktp-accounts-kcm)
 	$(add_kdeapps_dep ktp-approver)
 	$(add_kdeapps_dep ktp-auth-handler)
-	$(add_kdeapps_dep ktp-call-ui)
 	$(add_kdeapps_dep ktp-common-internals)
 	$(add_kdeapps_dep ktp-contact-list)
 	$(add_kdeapps_dep ktp-contact-runner)
@@ -29,6 +28,7 @@ RDEPEND="
 	$(add_kdeapps_dep ktp-send-file)
 	$(add_kdeapps_dep ktp-text-ui)
 	!net-im/kde-telepathy-meta
+	gstreamer? ( $(add_kdeapps_dep ktp-call-ui) )
 	nls? ( $(add_kdeapps_dep ktp-l10n '' ${L10N_MINIMAL}) )
 "
 
