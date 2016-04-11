@@ -21,6 +21,8 @@ RDEPEND="
 	!<kde-apps/kde4-l10n-${PV}
 	!kde-apps/kde4-l10n[-minimal]
 	!<kde-apps/kdepim-l10n-${PV}:5
+	!<kde-apps/khelpcenter-5.5.5-r1
+	!=kde-apps/khelpcenter-5.6.2
 	!<kde-apps/ktp-l10n-${PV}
 "
 
@@ -107,14 +109,8 @@ src_compile() {
 	[[ -n ${A} ]] && kde5_src_compile
 }
 
-src_test() {
-	[[ -n ${A} ]] && kde5_src_test
-}
+src_test() { :; }
 
 src_install() {
 	[[ -n ${A} ]] && kde5_src_install
-
-	# FIXME: Temporary removal of file conflict with kde-plasma/khelpcenter
-	# Files should be removed in khelpcenter after pkgmove to kde-apps/
-	rm -rf "${ED}"usr/share/locale/*/LC_MESSAGES/khelpcenter.mo || die
 }
