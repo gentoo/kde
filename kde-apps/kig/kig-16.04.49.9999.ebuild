@@ -15,7 +15,7 @@ IUSE="geogebra scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -36,7 +36,9 @@ DEPEND="${PYTHON_DEPS}
 	geogebra? ( $(add_qt_dep qtxmlpatterns) )
 	scripting? ( >=dev-libs/boost-1.48:=[python,${PYTHON_USEDEP}] )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_frameworks_dep ktexteditor)
+"
 
 PATCHES=( "${FILESDIR}/${PN}-4.12.0-boostpython.patch" )
 
