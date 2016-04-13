@@ -33,7 +33,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	net-dns/avahi
 	vnc? ( >=net-libs/libvncserver-0.9 )
 "
 RDEPEND="${DEPEND}
