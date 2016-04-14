@@ -20,13 +20,13 @@ DEPEND="
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	dev-libs/purpose:5
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/purpose:5
 	media-libs/qt-gstreamer[qt5]
 	virtual/libudev:=
 "
 RDEPEND="${DEPEND}
-	media-plugins/gst-plugins-meta[alsa,theora,vorbis,v4l]
+	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
