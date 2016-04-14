@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="KHTML web rendering engine"
 LICENSE="LGPL-2"
 KEYWORDS=""
-IUSE="X libressl"
+IUSE="libressl X"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
