@@ -46,7 +46,7 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/jpeg:0
 	!libressl? ( dev-libs/openssl:0 )
-	libressl? ( dev-libs/libressl:0 )
+	libressl? ( dev-libs/libressl )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
