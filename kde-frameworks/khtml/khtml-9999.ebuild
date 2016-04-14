@@ -45,6 +45,8 @@ RDEPEND="
 	media-libs/phonon[qt5]
 	sys-libs/zlib
 	virtual/jpeg:0
+	!libressl? ( dev-libs/openssl:0 )
+	libressl? ( dev-libs/libressl:0 )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -52,8 +54,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-lang/perl
-	!libressl? ( dev-libs/openssl:0 )
-	libressl? ( dev-libs/libressl:0 )
 	test? ( $(add_qt_dep qtx11extras) )
 	X? ( x11-proto/xproto )
 "
