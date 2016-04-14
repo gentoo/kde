@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -29,7 +29,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	sys-apps/util-linux
-	sys-libs/kpmcore
+	sys-libs/kpmcore:5
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools kdesu 5.5.2)

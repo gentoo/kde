@@ -2,20 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="http://gstreamer.freedesktop.org/src/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 else
-	GIT_ECLASS="git-r3"
 	EGIT_REPO_URI=( "git://anongit.freedesktop.org/gstreamer/${PN}" )
-	KEYWORDS=""
+	inherit git-r3
 fi
 
-inherit cmake-utils ${GIT_ECLASS} multibuild
+inherit cmake-utils multibuild
 
-DESCRIPTION="QtGStreamer provides C++ bindings for GStreamer with a Qt-style API"
+DESCRIPTION="C++ bindings for GStreamer with a Qt-style API"
 HOMEPAGE="http://gstreamer.freedesktop.org/modules/qt-gstreamer.html"
 
 LICENSE="LGPL-2.1"
@@ -27,6 +26,8 @@ REQUIRED_USE="|| ( qt4 qt5 )"
 RDEPEND="
 	dev-libs/glib:2
 	>=dev-libs/boost-1.40:=
+	media-libs/gstreamer:1.0
+	media-libs/gst-plugins-base:1.0
 	qt4? (
 		dev-qt/qtcore:4
 		dev-qt/qtdeclarative:4
@@ -38,18 +39,13 @@ RDEPEND="
 		dev-qt/qtdeclarative:5
 		dev-qt/qtgui:5
 		dev-qt/qtopengl:5
-		dev-qt/qtquick1:5
 		dev-qt/qtwidgets:5
 	)
-	media-libs/gstreamer:1.0
-	media-libs/gst-plugins-base:1.0
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	test? (
-		qt4? (
-			dev-qt/qttest:4
-		)
+		qt4? ( dev-qt/qttest:4 )
+		qt5? ( dev-qt/qttest:5 )
 	)
 "
 
@@ -63,8 +59,9 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
+			-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Declarative=ON
 			-DQTGSTREAMER_EXAMPLES=OFF
-			$(cmake-utils_use test QTGSTREAMER_TESTS)
+			-DQTGSTREAMER_TESTS=$(usex test)
 			-DQT_VERSION=${MULTIBUILD_VARIANT}
 		)
 		cmake-utils_src_configure

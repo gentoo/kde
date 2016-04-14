@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit cmake-utils
 
@@ -22,7 +22,7 @@ SLOT="0"
 IUSE="qt5"
 
 DEPEND="
-	=media-libs/oyranos-9999
+	>=media-libs/oyranos-0.9.6
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -41,7 +41,8 @@ DOCS=( AUTHORS.md README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_use !qt5 qt4)
+		-DUSE_Qt4=$(usex !qt5)
 	)
+
 	cmake-utils_src_configure
 }

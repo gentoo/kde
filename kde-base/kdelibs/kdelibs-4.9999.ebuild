@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 CMAKE_MIN_VERSION="3.3.1-r1"
 CPPUNIT_REQUIRED="optional"
@@ -17,7 +17,7 @@ DESCRIPTION="KDE libraries needed by all KDE programs"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="cpu_flags_x86_3dnow acl alsa altivec +bzip2 +crypt debug doc fam jpeg2k
+IUSE="cpu_flags_x86_3dnow acl altivec +bzip2 +crypt debug doc fam jpeg2k
 kerberos libressl lzma cpu_flags_x86_mmx nls openexr +policykit spell
 cpu_flags_x86_sse cpu_flags_x86_sse2 ssl +udev +udisks +upower zeroconf"
 
@@ -47,7 +47,6 @@ COMMONDEPEND="
 	virtual/jpeg:0
 	>=x11-misc/shared-mime-info-0.60
 	acl? ( virtual/acl )
-	alsa? ( media-libs/alsa-lib )
 	!aqua? (
 		x11-libs/libICE
 		x11-libs/libSM
@@ -117,6 +116,7 @@ PDEPEND="
 	handbook? (
 		|| (
 			$(add_kdebase_dep khelpcenter '' 4.14.3)
+			kde-apps/khelpcenter:5
 			kde-plasma/khelpcenter:5[compat(+)]
 		)
 	)
@@ -195,30 +195,30 @@ src_configure() {
 		-DBUILD_libkactivities=OFF
 		-DWITH_Soprano=OFF
 		-DWITH_SharedDesktopOntologies=OFF
-		$(cmake-utils_use_build handbook doc)
-		$(cmake-utils_use_has cpu_flags_x86_3dnow X86_3DNOW)
-		$(cmake-utils_use_has altivec PPC_ALTIVEC)
-		$(cmake-utils_use_has cpu_flags_x86_mmx X86_MMX)
-		$(cmake-utils_use_has cpu_flags_x86_sse X86_SSE)
-		$(cmake-utils_use_has cpu_flags_x86_sse2 X86_SSE2)
-		$(cmake-utils_use_with acl)
-		$(cmake-utils_use_with alsa)
-		$(cmake-utils_use_with bzip2 BZip2)
-		$(cmake-utils_use_with crypt QCA2)
-		$(cmake-utils_use_with fam)
-		$(cmake-utils_use_with jpeg2k Jasper)
-		$(cmake-utils_use_with kerberos GSSAPI)
-		$(cmake-utils_use_with lzma LibLZMA)
-		$(cmake-utils_use_with nls Libintl)
-		$(cmake-utils_use_with openexr OpenEXR)
-		$(cmake-utils_use_with opengl OpenGL)
-		$(cmake-utils_use_with policykit PolkitQt-1)
-		$(cmake-utils_use_with spell ENCHANT)
-		$(cmake-utils_use_with ssl OpenSSL)
-		$(cmake-utils_use_with udev UDev)
-		$(cmake-utils_use_with udisks SOLID_UDISKS2)
-		$(cmake-utils_use_with zeroconf Avahi)
+		-DBUILD_doc=$(usex handbook)
+		-DHAVE_X86_3DNOW=$(usex cpu_flags_x86_3dnow)
+		-DHAVE_PPC_ALTIVEC=$(usex altivec)
+		-DHAVE_X86_MMX=$(usex cpu_flags_x86_mmx)
+		-DHAVE_X86_SSE=$(usex cpu_flags_x86_sse)
+		-DHAVE_X86_SSE2=$(usex cpu_flags_x86_sse2)
+		-DWITH_ACL=$(usex acl)
+		-DWITH_BZip2=$(usex bzip2)
+		-DWITH_QCA2=$(usex crypt)
+		-DWITH_FAM=$(usex fam)
+		-DWITH_Jasper=$(usex jpeg2k)
+		-DWITH_GSSAPI=$(usex kerberos)
+		-DWITH_LibLZMA=$(usex lzma)
+		-DWITH_Libintl=$(usex nls)
+		-DWITH_OpenEXR=$(usex openexr)
+		-DWITH_OpenGL=$(usex opengl)
+		-DWITH_PolkitQt-1=$(usex policykit)
+		-DWITH_ENCHANT=$(usex spell)
+		-DWITH_OpenSSL=$(usex ssl)
+		-DWITH_UDev=$(usex udev)
+		-DWITH_SOLID_UDISKS2=$(usex udisks2)
+		-DWITH_Avahi=$(usex zeroconf)
 	)
+
 	kde4-base_src_configure
 }
 

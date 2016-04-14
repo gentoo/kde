@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -19,9 +19,9 @@ CDEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
-	dev-libs/libatasmart
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/libatasmart
 	sys-apps/util-linux
 	>=sys-block/parted-3
 "

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_LINGUAS="bs ca ca@valencia cs da de el en_GB es et eu fi fr ga gl hu it ja
 lt lv nb nl pa pl pt pt_BR ro ru sl sr sr@ijekavian sr@ijekavianlatin sr@latin
@@ -72,7 +72,10 @@ RDEPEND="${COMMONDEPEND}
 	$(add_kdeapps_dep phonon-kde)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-2.8.0-taglib110.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-2.8.0-taglib110.patch"
+	"${FILESDIR}/${P}-mysql-embedded.patch"
+)
 
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
@@ -84,14 +87,14 @@ src_configure() {
 		-DWITH_SPECTRUM_ANALYZER=OFF
 		-DWITH_NepomukCore=OFF
 		-DWITH_Soprano=OFF
-		$(cmake-utils_use embedded WITH_MYSQL_EMBEDDED)
-		$(cmake-utils_use_with ipod)
-		$(cmake-utils_use_with ipod Gdk)
-		$(cmake-utils_use_with lastfm LibLastFm)
-		$(cmake-utils_use_with mtp)
-		$(cmake-utils_use_with mp3tunes MP3Tunes)
-		$(cmake-utils_use_with ofa LibOFA)
-		$(cmake-utils_use_with utils UTILITIES)
+		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
+		-DWITH_IPOD=$(usex ipod)
+		-DWITH_GDKPixBuf=$(usex ipod)
+		-DWITH_LibLastFm=$(usex lastfm)
+		-DWITH_MP3Tunes=$(usex mp3tunes)
+		-DWITH_Mtp=$(usex mtp)
+		-DWITH_LibOFA=$(usex ofa)
+		-DWITH_UTILITIES=$(usex utils)
 	)
 
 	kde4-base_src_configure

@@ -28,6 +28,7 @@
 ~kde-apps/kwordquiz-9999
 ~kde-apps/libkeduvocdocument-9999
 ~kde-apps/marble-9999
+~kde-apps/minuet-9999
 ~kde-apps/parley-9999
 ~kde-apps/rocs-9999
 ~kde-apps/step-9999
@@ -45,9 +46,11 @@
 ~kde-apps/killbots-9999
 ~kde-apps/kiriki-9999
 ~kde-apps/kjumpingcube-9999
+~kde-apps/klickety-9999
 ~kde-apps/klines-9999
 ~kde-apps/kmahjongg-9999
 ~kde-apps/kmines-9999
+~kde-apps/knavalbattle-9999
 ~kde-apps/knetwalk-9999
 ~kde-apps/kollision-9999
 ~kde-apps/kpat-9999
@@ -59,6 +62,7 @@
 ~kde-apps/picmi-9999
 ~kde-apps/gwenview-9999
 ~kde-apps/kamera-9999
+~kde-apps/kcolorchooser-9999
 ~kde-apps/kruler-9999
 ~kde-apps/libkdcraw-9999
 ~kde-apps/libkexiv2-9999
@@ -77,6 +81,7 @@
 ~kde-apps/kaccounts-providers-9999
 ~kde-apps/kdenetwork-filesharing-9999
 ~kde-apps/kio-extras-9999
+~kde-apps/krdc-9999
 ~kde-apps/krfb-9999
 ~kde-apps/ktp-accounts-kcm-9999
 ~kde-apps/ktp-approver-9999
@@ -92,6 +97,7 @@
 ~kde-apps/ktp-text-ui-9999
 ~kde-apps/plasma-telepathy-meta-9999
 ~kde-apps/signon-kwallet-extension-9999
+~kde-apps/kfloppy-9999
 ~kde-apps/akonadi-9999
 ~kde-apps/akonadiconsole-9999
 ~kde-apps/akonadi-calendar-9999
@@ -99,7 +105,6 @@
 ~kde-apps/akonadi-mime-9999
 ~kde-apps/akonadi-notes-9999
 ~kde-apps/akonadi-search-9999
-~kde-apps/akonadi-socialutils-9999
 ~kde-apps/akregator-9999
 ~kde-apps/blogilo-9999
 ~kde-apps/calendarjanitor-9999
@@ -108,7 +113,6 @@
 ~kde-apps/grantleetheme-9999
 ~kde-apps/incidenceeditor-9999
 ~kde-apps/kaddressbook-9999
-~kde-apps/kaddressbookgrantlee-9999
 ~kde-apps/kalarmcal-9999
 ~kde-apps/kblog-9999
 ~kde-apps/kcalcore-9999
@@ -118,7 +122,6 @@
 ~kde-apps/kdepim-addons-9999
 ~kde-apps/kdepim-apps-libs-9999
 ~kde-apps/kdepim-meta-9999
-~kde-apps/kdepim-kioslaves-9999
 ~kde-apps/kdepim-runtime-9999
 ~kde-apps/kdgantt2-9999
 ~kde-apps/kholidays-9999
@@ -159,6 +162,7 @@
 ~kde-apps/filelight-9999
 ~kde-apps/kcalc-9999
 ~kde-apps/kcharselect-9999
+~kde-apps/kdf-9999
 ~kde-apps/kteatime-9999
 ~kde-apps/ktimer-9999
 ~kde-apps/kwalletmanager-9999

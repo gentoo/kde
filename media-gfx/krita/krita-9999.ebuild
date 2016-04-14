@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_DOXYGEN="true"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="A free digital painting application. Digital Painting, Creative Freedom!"
+DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 KEYWORDS=""
 IUSE="color-management fftw +gsl +jpeg jpeg2k +mime openexr pdf png +raw tiff vc X"
@@ -27,9 +27,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-cpp/eigen:3
-	dev-lang/perl
-	dev-libs/boost
 	$(add_qt_dep designer)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
@@ -43,6 +40,9 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
+	dev-cpp/eigen:3
+	dev-lang/perl
+	dev-libs/boost
 	media-gfx/exiv2:=
 	media-libs/lcms
 	sys-libs/zlib
@@ -70,23 +70,23 @@ DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
 "
 RDEPEND="${COMMON_DEPEND}
-	!app-office/calligra[calligra_features_krita]
+	!app-office/calligra:4[calligra_features_krita]
 "
 
 src_configure() {
 	local mycmakeargs=(
 		-DUSEOPENGL=ON
-		$(cmake-utils_use_with color-management OCIO)
-		$(cmake-utils_use_with fftw FFTW3)
-		$(cmake-utils_use_with gsl GSL)
-		$(cmake-utils_use_with jpeg JPEG)
-		$(cmake-utils_use_with jpeg2k OpenJPEG)
-		$(cmake-utils_use_with raw KF5KDcraw)
-		$(cmake-utils_use_with openexr OpenEXR)
-		$(cmake-utils_use_with pdf Poppler)
-		$(cmake-utils_use_with png PNG)
-		$(cmake-utils_use_with tiff TIFF)
-		$(cmake-utils_use_with vc Vc)
+		-DWITH_OCIO=$(usex color-management)
+		-DWITH_FFTW3=$(usex fftw)
+		-DWITH_GSL=$(usex gsl)
+		-DWITH_JPEG=$(usex jpeg)
+		-DWITH_OpenJPEG=$(usex jpeg2k)
+		-DWITH_OpenEXR=$(usex openexr)
+		-DWITH_Poppler=$(usex pdf)
+		-DWITH_PNG=$(usex png)
+		-DWITH_KF5KDcraw=$(usex raw)
+		-DWITH_TIFF=$(usex tiff)
+		-DWITH_Vc=$(usex vc)
 	)
 
 	kde5_src_configure

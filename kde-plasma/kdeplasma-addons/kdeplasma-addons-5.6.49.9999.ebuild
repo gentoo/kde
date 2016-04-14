@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="ibus scim"
+IUSE="share"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -35,19 +35,13 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep sonnet)
+	$(add_plasma_dep plasma-workspace)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
-	ibus? (
-		app-i18n/ibus
-		dev-libs/glib:2
-		$(add_qt_dep qtx11extras)
-		x11-libs/libxcb
-		x11-libs/xcb-util-keysyms
-	)
-	scim? ( app-i18n/scim )
+	share? ( dev-libs/purpose:5 )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
@@ -56,8 +50,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package ibus IBus)
-		$(cmake-utils_use_find_package scim SCIM)
+		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
 	)
 
 	kde5_src_configure

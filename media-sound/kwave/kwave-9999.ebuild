@@ -7,14 +7,17 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A sound editor that can edit many types of audio files"
+DESCRIPTION="A sound editor built on KDE Frameworks 5 that can edit many types of audio files"
 HOMEPAGE="http://kwave.sourceforge.net/"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${P}-1.tar.bz2"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2
-	handbook? ( FDL-1.2 )"
+LICENSE="
+	CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+
+	handbook? ( FDL-1.2 )
+	opus? ( BSD-2 )
+"
 KEYWORDS=""
 IUSE="alsa flac mp3 +qtmedia opus oss pulseaudio vorbis"
 
@@ -25,17 +28,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	media-libs/audiofile:=
@@ -61,13 +59,15 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep poxml)
+	$(add_qt_dep qtconcurrent)
 	|| ( media-gfx/imagemagick[png,svg] media-gfx/graphicsmagick[imagemagick,png,svg] )
+	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	!media-sound/kwave:4
 "
 
-DOCS=( AUTHORS CHANGES README TODO )
+DOCS=( AUTHORS CHANGES LICENSES README TODO )
 
 src_configure() {
 	local mycmakeargs=(

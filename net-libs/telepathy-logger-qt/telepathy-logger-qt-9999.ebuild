@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 inherit kde5 python-any-r1
@@ -21,10 +21,10 @@ LICENSE="LGPL-2.1"
 IUSE=""
 
 RDEPEND="
+	$(add_qt_dep qtdbus)
 	dev-libs/dbus-glib
 	dev-libs/glib:2
 	dev-libs/libxml2
-	$(add_qt_dep qtdbus)
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
 	net-libs/telepathy-qt[qt5]

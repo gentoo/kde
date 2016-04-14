@@ -60,7 +60,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
-	$(add_kdeapps_dep akonadi-socialutils)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep eventviews)
 	$(add_kdeapps_dep grantleetheme)
@@ -69,7 +68,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kdepim-kioslaves)
 	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
@@ -137,11 +135,9 @@ src_prepare() {
 	sed -i \
 		-e "/akregator/ s/^/#DONT/" \
 		-e "/blogilo/ s/^/#DONT/" \
-		-e "/kleopatra/ s/^/#DONT/" \
 		-e "/knotes/ s/^/#DONT/" \
 		-e "/konsolekalendar/ s/^/#DONT/" \
 		-e "/ktnef/ s/^/#DONT/" \
-		-e "/kwatchgnupg/ s/^/#DONT/" \
 		doc/CMakeLists.txt || die "Failed to disable split docs"
 
 	# applications
@@ -158,4 +154,20 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-apps/kdepim-addons:${SLOT}" ; then
+		echo
+		elog "Install kde-apps/kdepim-addons:${SLOT} for fancy e-mail headers and various useful plugins."
+		echo
+	fi
+
+	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
+		echo
+		elog "Install kde-apps/kleopatra:${SLOT} to get a crypto config and certificate details GUI."
+		echo
+	fi
 }

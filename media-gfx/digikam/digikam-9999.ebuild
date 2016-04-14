@@ -128,6 +128,6 @@ src_install() {
 	if use doc; then
 		# install the api documentation
 		insinto /usr/share/doc/${PF}/
-		doins -r ${CMAKE_BUILD_DIR}/api/html
+		doins -r "${S}"/apidocs/html
 	fi
 }

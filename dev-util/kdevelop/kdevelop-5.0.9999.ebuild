@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="5.0"
 KDE_HANDBOOK="forceoptional"
@@ -67,14 +67,14 @@ PATCHES=( "${FILESDIR}/${PN}-ninja-optional.patch" )
 src_configure() {
 	local mycmakeargs=(
 		-DLEGACY_CPP_SUPPORT=$(usex !clang)
-		$(cmake-utils_use_build cmake)
-		$(cmake-utils_use_build cmake cmakebuilder)
-		$(cmake-utils_use_build ninja ninjabuilder)
-		$(cmake-utils_use_build cxx clang)
-		$(cmake-utils_use_build cxx cpp)
-		$(cmake-utils_use_build qthelp)
+		-DBUILD_cmake=$(usex cmake)
+		-DBUILD_cmakebuilder=$(usex cmake)
+		-DBUILD_clang=$(usex cxx)
+		-DBUILD_cpp=$(usex cxx)
+		-DBUILD_ninjabuilder=$(usex ninja)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
 		$(cmake-utils_use_find_package qmake KDevelop-PG-Qt)
+		-DBUILD_qthelp=$(usex qthelp)
 	)
 
 	kde5_src_configure

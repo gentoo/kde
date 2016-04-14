@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit cmake-utils multibuild git-r3
 
@@ -45,7 +45,7 @@ src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
 			-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
-			$(cmake-utils_use_build examples)
+			-DBUILD_EXAMPLES=$(usex examples)
 		)
 
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then

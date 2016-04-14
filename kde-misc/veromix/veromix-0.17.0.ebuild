@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 CMAKE_REQUIRED="never"
@@ -46,6 +46,8 @@ src_prepare() {
 	sed -e '/^all:/s/build//' -i Makefile || die
 	sed -e 's|/usr/share/kde4/apps/|/usr/share/apps/|' -i Makefile \
 		-i org.veromix.pulseaudio.service || die
+
+	eapply_user
 }
 
 src_install() {

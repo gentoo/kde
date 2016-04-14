@@ -8,6 +8,7 @@
 <kde-apps/kaddressbookgrantlee-15.12.49:5 prison
 <kde-apps/kdepim-15.12.49:5 prison
 <kde-apps/kdepimlibs-15.12.49:5 prison
+kde-apps/ktp-text-ui speech
 kde-frameworks/knotifications speech
 kde-frameworks/ktextwidgets speech
 kde-misc/kdeconnect telepathy

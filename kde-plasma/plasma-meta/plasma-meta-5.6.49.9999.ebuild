@@ -12,15 +12,15 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +display-manager gtk mediacenter networkmanager pam pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth +display-manager grub gtk +handbook mediacenter networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
+	$(add_plasma_dep kactivitymanagerd)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kdeplasma-addons)
 	$(add_plasma_dep kgamma)
-	$(add_plasma_dep khelpcenter)
 	$(add_plasma_dep khotkeys)
 	$(add_plasma_dep kinfocenter)
 	$(add_plasma_dep kmenuedit)
@@ -37,25 +37,27 @@ RDEPEND="
 	$(add_plasma_dep milou)
 	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-desktop)
+	$(add_plasma_dep plasma-integration)
 	$(add_plasma_dep plasma-workspace)
 	$(add_plasma_dep polkit-kde-agent)
 	$(add_plasma_dep powerdevil)
 	$(add_plasma_dep systemsettings)
 	$(add_plasma_dep user-manager)
-	bluetooth? (
-		$(add_plasma_dep bluedevil)
-	)
+	bluetooth? ( $(add_plasma_dep bluedevil) )
 	display-manager? (
 		sddm? ( x11-misc/sddm )
 		!sddm? ( x11-misc/lightdm )
 	)
+	grub? ( $(add_plasma_dep breeze-grub) )
 	gtk? (
 		$(add_plasma_dep breeze-gtk)
 		$(add_plasma_dep kde-gtk-config)
 	)
+	handbook? ( || ( $(add_kdeapps_dep khelpcenter) $(add_plasma_dep khelpcenter) ) )
 	mediacenter? ( $(add_plasma_dep plasma-mediacenter) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pam? ( $(add_plasma_dep kwallet-pam) )
+	plymouth? ( $(add_plasma_dep breeze-plymouth) )
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
 	sddm? ( $(add_plasma_dep sddm-kcm) )
 	sdk? ( $(add_plasma_dep plasma-sdk) )

@@ -4,9 +4,8 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
-KDE_TEST="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5 multilib qmake-utils
 
@@ -96,6 +95,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtpaths)
 	$(add_qt_dep qtquickcontrols 'widgets')
+	app-text/iso-codes
 	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -119,7 +119,7 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
-	"${FILESDIR}/${PN}-tests-optional.patch"
+	"${FILESDIR}/${PN}-5.6.0-rpath.patch"
 )
 
 RESTRICT="test"

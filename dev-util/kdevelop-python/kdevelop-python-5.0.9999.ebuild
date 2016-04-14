@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="5.0"
 KDEBASE="kdevelop"
@@ -10,7 +10,7 @@ KMNAME="kdev-python"
 PYTHON_COMPAT=( python3_5 )
 inherit kde5 python-any-r1
 
-DESCRIPTION="Python plugin for KDevelop 5"
+DESCRIPTION="Python plugin for KDevelop"
 IUSE=""
 
 DEPEND="

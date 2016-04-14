@@ -2,12 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
 DESCRIPTION="Plasma 5 applet for monitoring active network connections"
-HOMEPAGE="http://kde-look.org/content/show.php/Network+Monitor?content=169377 https://github.com/kotelnik/plasma-applet-network-monitor"
+HOMEPAGE="http://kde-look.org/content/show.php/Network+Monitor?content=169377
+https://github.com/kotelnik/plasma-applet-network-monitor"
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 	EGIT_REPO_URI="https://github.com/kotelnik/${PN}.git"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="frameworks"
 inherit kde5
@@ -21,8 +21,8 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtwidgets)
 	media-gfx/synnefo[qt5]
-	=media-libs/oyranos-9999
 	media-libs/libXcm
+	>=media-libs/oyranos-0.9.6
 	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}"

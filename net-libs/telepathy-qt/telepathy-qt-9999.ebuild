@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 EGIT_REPO_URI=( "git://anongit.freedesktop.org/telepathy/${PN}" )
 inherit python-any-r1 cmake-utils virtualx git-r3 multibuild
 
-DESCRIPTION="Qt4 bindings for the Telepathy D-Bus protocol"
+DESCRIPTION="Qt bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="http://telepathy.freedesktop.org/"
 
 LICENSE="LGPL-2.1"
@@ -56,9 +56,9 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=(
-			$(cmake-utils_use_enable debug DEBUG_OUTPUT)
-			$(cmake-utils_use_enable farstream)
-			$(cmake-utils_use_enable test TESTS)
+			-DENABLE_DEBUG_OUTPUT=$(usex debug)
+			-DENABLE_FARSTREAM=$(usex farstream)
+			-DENABLE_TESTS=$(usex test)
 			-DENABLE_EXAMPLES=OFF
 			-ENABLE_SERVICE_SUPPORT=ON
 		)

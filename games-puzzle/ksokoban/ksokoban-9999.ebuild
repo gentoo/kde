@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="port-to-kf5"
-inherit kde5 eutils
+inherit kde5
 
 DESCRIPTION="The japanese warehouse keeper game"
 HOMEPAGE="https://projects.kde.org/projects/playground/games/ksokoban"

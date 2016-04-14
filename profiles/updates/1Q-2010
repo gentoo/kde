@@ -1,3 +1,0 @@
-move app-portage/packagekit app-admin/packagekit
-move app-portage/kpackagekit kde-misc/kpackagekit
-move kde-misc/kportagetray app-portage/kportagetray

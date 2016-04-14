@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 CPPUNIT_REQUIRED="optional"
@@ -41,13 +41,13 @@ RDEPEND="${DEPEND}
 	!kde-misc/akonadi-social-utils
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.9.1-boostincludes.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.14.11-boostincludes.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build handbook doc)
-		$(cmake-utils_use_find_package ldap)
-		$(cmake-utils_use_find_package prison)
+		-DBUILD_doc=$(usex handbook)
+		$(cmake-utils_use_find_package ldap Ldap)
+		$(cmake-utils_use_find_package prison Prison)
 	)
 
 	kde4-base_src_configure

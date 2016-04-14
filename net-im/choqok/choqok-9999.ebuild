@@ -2,10 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-QT_MINIMAL="5.5.1"
 inherit kde5
 
 DESCRIPTION="Free/Open Source micro-blogging client for KDE"
@@ -32,9 +31,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	app-crypt/qca[qt5]
-	dev-libs/qjson
-	dev-libs/qoauth:5
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -42,6 +38,9 @@ DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	app-crypt/qca[qt5]
+	dev-libs/qjson
+	dev-libs/qoauth:5
 	net-libs/telepathy-qt[qt5]
 	attica? ( dev-libs/libattica )
 	konqueror? (

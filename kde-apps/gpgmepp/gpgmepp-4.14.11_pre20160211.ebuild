@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KMNAME="kdepimlibs"
 EGIT_BRANCH="KDE/4.14"
@@ -27,12 +27,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepimlibs:4
 "
 
-PATCHES=( "${FILESDIR}/kdepimlibs-4.9.1-boostincludes.patch" )
+PATCHES=( "${FILESDIR}/kdepimlibs-4.14.11-boostincludes.patch" )
 
 S=${WORKDIR}/${KMNAME}
 
 src_prepare() {
-	comment_add_subdirectory kmime
+	cmake_comment_add_subdirectory kmime
 	kde4-base_src_prepare
 }
 

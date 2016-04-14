@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit kde5
 
@@ -30,12 +30,12 @@ RDEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
-	dev-libs/grantlee:5
-	dev-libs/libxslt
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
+	dev-libs/grantlee:5
+	dev-libs/libxslt
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext

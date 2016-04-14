@@ -242,7 +242,7 @@ _cmake_generator_to_use() {
 		ninja)
 			# if ninja is enabled but not installed, the build could fail
 			# this could happen if ninja is manually enabled (eg. make.conf) but not installed
-			if ! has_version dev-util/ninja; then
+			if ! ROOT=/ has_version dev-util/ninja; then
 				die "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed. Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
 			fi
 			generator_name="Ninja"
@@ -264,14 +264,14 @@ _cmake_generator_to_use() {
 # @DESCRIPTION:
 # Comment out an add_subdirectory call in CMakeLists.txt in the current directory
 cmake_comment_add_subdirectory() {
-        if [[ -z ${1} ]]; then
-                die "comment_add_subdirectory must be passed the directory name to comment"
-        fi
+	if [[ -z ${1} ]]; then
+		die "comment_add_subdirectory must be passed the directory name to comment"
+	fi
 
-        if [[ -e "CMakeLists.txt" ]]; then
-                sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1//\//\\/}[[:space:]]*)/I s/^/#DONOTCOMPILE /" \
-                        -i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
-        fi
+	if [[ -e "CMakeLists.txt" ]]; then
+		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1//\//\\/}[[:space:]]*)/I s/^/#DONOTCOMPILE /" \
+			-i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
+	fi
 }
 
 # @FUNCTION: comment_add_subdirectory

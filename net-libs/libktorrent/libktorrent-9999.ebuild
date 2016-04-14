@@ -26,7 +26,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="A BitTorrent library based on KDE Frameworks"
-HOMEPAGE="http://ktorrent.org/"
+HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 IUSE=""
@@ -44,7 +44,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5]
-	>=dev-libs/gmp-6.0.0a:0
+	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
 "
 DEPEND="${COMMON_DEPEND}

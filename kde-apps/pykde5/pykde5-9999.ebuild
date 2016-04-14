@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
+
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 PYTHON_REQ_USE="threads"
 OPENGL_REQUIRED="always"
-
 inherit python-r1 portability kde5 multilib eutils
 
 DESCRIPTION="Python bindings for KDE Applications 5"
@@ -26,11 +26,11 @@ RDEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kplotting)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep sonnet)
-	dev-python/PyQt5[${PYTHON_USEDEP},gui,widgets]
-	>=dev-python/sip-4.16.2:=[${PYTHON_USEDEP}]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-python/PyQt5[${PYTHON_USEDEP},gui,widgets]
+	>=dev-python/sip-4.16.2:=[${PYTHON_USEDEP}]
 "
 
 DEPEND="${RDEPEND}

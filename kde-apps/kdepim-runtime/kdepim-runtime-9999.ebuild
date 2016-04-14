@@ -4,12 +4,12 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
+KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="KDE PIM runtime plugin collection"
+DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 KEYWORDS=""
-IUSE="google"
+IUSE="google ssl"
 
 # TODO kolab, Qt5TextToSpeech
 
@@ -40,7 +40,6 @@ CDEPEND="
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
-	$(add_kdeapps_dep akonadi-socialutils)
 	$(add_kdeapps_dep kalarmcal)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
@@ -57,6 +56,7 @@ CDEPEND="
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libical:=
+	ssl? ( dev-libs/cyrus-sasl )
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)
@@ -68,6 +68,7 @@ DEPEND="${CDEPEND}
 	google? ( >=net-libs/libkgapi-5.1.0:5 )
 "
 RDEPEND="${CDEPEND}
+	!<kde-apps/kdepim-kioslaves-16.04.50
 	!kde-apps/kdepim-runtime:4
 	$(add_frameworks_dep oxygen-icons)
 "
@@ -75,6 +76,7 @@ RDEPEND="${CDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package google KF5GAPI)
+		$(cmake-utils_use_find_package ssl Sasl2)
 	)
 
 	kde5_src_configure

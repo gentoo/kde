@@ -2,19 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 EGIT_BRANCH="kf5"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
-
 inherit kde5
 
 DESCRIPTION="The CD/DVD Kreator for KDE"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
-SLOT="5"
 KEYWORDS=""
 IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
@@ -89,20 +87,21 @@ src_configure() {
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
-		$(cmake-utils_use debug K3B_DEBUG)
-		$(cmake-utils_use dvd K3B_ENABLE_DVD_RIPPING)
-		$(cmake-utils_use encode K3B_BUILD_EXTERNAL_ENCODER_PLUGIN)
-		$(cmake-utils_use ffmpeg K3B_BUILD_FFMPEG_DECODER_PLUGIN)
-		$(cmake-utils_use flac K3B_BUILD_FLAC_DECODER_PLUGIN)
-		$(cmake-utils_use mp3 K3B_BUILD_LAME_ENCODER_PLUGIN)
-		$(cmake-utils_use mad K3B_BUILD_MAD_DECODER_PLUGIN)
-		$(cmake-utils_use musepack K3B_BUILD_MUSE_DECODER_PLUGIN)
-		$(cmake-utils_use sndfile K3B_BUILD_SNDFILE_DECODER_PLUGIN)
-		$(cmake-utils_use sox K3B_BUILD_SOX_ENCODER_PLUGIN)
-		$(cmake-utils_use taglib K3B_ENABLE_TAGLIB)
-		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_DECODER_PLUGIN)
-		$(cmake-utils_use vorbis K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN)
+		-DK3B_DEBUG=$(usex debug)
+		-DK3B_ENABLE_DVD_RIPPING=$(usex dvd)
+		-DK3B_BUILD_EXTERNAL_ENCODER_PLUGIN=$(usex encode)
+		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=$(usex ffmpeg)
+		-DK3B_BUILD_FLAC_DECODER_PLUGIN=$(usex flac)
+		-DK3B_BUILD_LAME_ENCODER_PLUGIN=$(usex mp3)
+		-DK3B_BUILD_MAD_DECODER_PLUGIN=$(usex mad)
+		-DK3B_BUILD_MUSE_DECODER_PLUGIN=$(usex musepack)
+		-DK3B_BUILD_SNDFILE_DECODER_PLUGIN=$(usex sndfile)
+		-DK3B_BUILD_SOX_ENCODER_PLUGIN=$(usex sox)
+		-DK3B_ENABLE_TAGLIB=$(usex taglib)
+		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbis)
+		-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=$(usex vorbis)
 	)
+
 	kde5_src_configure
 }
 

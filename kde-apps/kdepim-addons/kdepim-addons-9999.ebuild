@@ -5,15 +5,15 @@
 EAPI=6
 
 KDE_EXAMPLES="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Plugins for KDE Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
-PIM_FTS="kaddressbook kmail korganizer"
-IUSE="$(printf 'kdepim_features_%s ' ${PIM_FTS})"
+PIM_FTS="akregator kaddressbook kmail korganizer"
+IUSE="google $(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -47,6 +47,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	google? ( net-libs/libkgapi:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep gpgmepp)
@@ -66,13 +67,14 @@ src_prepare() {
 	kde5_src_prepare
 
 	for pim_ft in ${PIM_FTS}; do
-		use kdepim_features_${pim_ft} || comment_add_subdirectory ${pim_ft}
+		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
 	done
 }
 
 src_configure() {
 	local mycmakeargs=(
 		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
+		$(cmake-utils_use_find_package google KF5GAPI)
 	)
 
 	kde5_src_configure

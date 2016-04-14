@@ -32,7 +32,7 @@ EXPORT_FUNCTIONS pkg_pretend pkg_setup pkg_nofetch src_unpack src_prepare src_co
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimal Qt version to require for the package.
-: ${QT_MINIMAL:=5.4.2}
+: ${QT_MINIMAL:=5.5.1}
 
 # @ECLASS-VARIABLE: KDE_AUTODEPS
 # @DESCRIPTION:
@@ -79,6 +79,8 @@ fi
 # If set to "false", do nothing.
 # Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and
 # generate and install KDE handbook.
+# If set to "optional", config with -DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON
+# when USE=!handbook. In case package requires KF5KDELibs4Support, see next:
 # If set to "forceoptional", remove a KF5DocTools dependency from the root
 # CMakeLists.txt in addition to the above.
 : ${KDE_HANDBOOK:=false}
@@ -92,6 +94,8 @@ fi
 # @DESCRIPTION:
 # If set to "false", do nothing.
 # For any other value, add test to IUSE and add a dependency on dev-qt/qttest:5.
+# If set to "optional", configure with -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=ON
+# when USE=!test.
 # If set to "forceoptional", remove a Qt5Test dependency from the root
 # CMakeLists.txt in addition to the above.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
@@ -164,20 +168,20 @@ case ${KDE_AUTODEPS} in
 			esac
 		fi
 
-		if [[ ${CATEGORY} = kde-plasma ]]; then
-			if [[ ${PV} = 5.5* || ${PV} = 9999 ]]; then
-				QT_MINIMAL=5.5.0
-			fi
-		fi
-
 		DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
 		RDEPEND+=" >=kde-frameworks/kf-env-3"
 		COMMONDEPEND+=" $(add_qt_dep qtcore)"
 
 		if [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma && ${PN} != polkit-kde-agent ]]; then
+			local blocked_version=15.08.0-r1
+
+			if [[ ${CATEGORY} = kde-plasma && $(get_version_component_range 2) -ge 6 ]]; then
+				blocked_version=15.12.3-r1
+			fi
+
 			RDEPEND+="
 				!kde-apps/kde4-l10n[-minimal(-)]
-				!<kde-apps/kde4-l10n-15.08.0-r1
+				!<kde-apps/kde4-l10n-${blocked_version}
 			"
 		fi
 
@@ -463,22 +467,24 @@ kde5_src_prepare() {
 
 	# enable only the requested translations
 	# when required
-	if [[ ${KDE_BUILD_TYPE} = release ]] ; then
-		if [[ -d po ]] ; then
-			pushd po > /dev/null || die
-			for lang in *; do
-				if [[ -d ${lang} ]] && ! has ${lang} ${LINGUAS} ; then
-					rm -r ${lang} || die
-					if [[ -e CMakeLists.txt ]] ; then
-						cmake_comment_add_subdirectory ${lang}
-					fi
-				elif ! has ${lang/.po/} ${LINGUAS} ; then
+	if [[ -d po ]] ; then
+		pushd po > /dev/null || die
+		for lang in *; do
+			if [[ -d ${lang} ]] && ! has ${lang} ${LINGUAS} ; then
+				rm -r ${lang} || die
+				if [[ -e CMakeLists.txt ]] ; then
+					cmake_comment_add_subdirectory ${lang}
+				fi
+			elif ! has ${lang/.po/} ${LINGUAS} ; then
+				if [[ ${lang} != CMakeLists.txt ]] ; then
 					rm ${lang} || die
 				fi
-			done
-			popd > /dev/null || die
-		fi
+			fi
+		done
+		popd > /dev/null || die
+	fi
 
+	if [[ ${KDE_BUILD_TYPE} = release ]] ; then
 		if [[ ${KDE_HANDBOOK} != false && -d ${KDE_DOC_DIR} && ${CATEGORY} != kde-apps ]] ; then
 			pushd ${KDE_DOC_DIR} > /dev/null || die
 			for lang in *; do
@@ -488,12 +494,10 @@ kde5_src_prepare() {
 			done
 			popd > /dev/null || die
 		fi
-	else
-		rm -rf po
 	fi
 
 	# in frameworks, tests = manual tests so never build them
-	if [[ ${CATEGORY} = kde-frameworks ]]; then
+	if [[ ${CATEGORY} = kde-frameworks ]] && [[ ${PN} != extra-cmake-modules ]]; then
 		cmake_comment_add_subdirectory tests
 	fi
 
@@ -532,19 +536,24 @@ kde5_src_prepare() {
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
 		# FIXME: try to push these down into subdirs @upstream
 		# AkonadiSearch:	kaddressbook, knotes, kdepim (kmail, korganizer)
-		# Boost: 			kleopatra, kdepim (kmail, agents)
-		# Gpgme: 			kleopatra
+		# Gpgme: 			kleopatra (removed in >= 16.03.80)
 		# Grantlee:			akregator, kaddressbook, knotes, kdepim (grantleeeditor, kmail, kontact)
-		# MailTransportDBusService: kdepim (kmail)
-		# Phonon4Qt5:		kdepim (kalarm, korgac)
 		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
-			-e "/set_package_properties(Boost/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/set_package_properties(Xsltproc/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/find_package(Gpgme/ s/ REQUIRED//" \
 			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
-			-e "/find_package(MailTransportDBusService/ s/ REQUIRED//" \
-			-e "/find_package(Phonon4Qt5/ s/ REQUIRED//" \
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
+
+		# Boost: kdepim (kmail, mailfilteragent)
+		# MailTransportDBusService: kdepim (kmail)
+		# Phonon4Qt5: kdepim (kalarm, korgac)
+		if [[ ${PN} != "kdepim" ]] ; then
+			sed -e "/find_package(Boost/ s/^/#DONT/" \
+				-e "/set_package_properties(Boost/ s/^/#DONT/" \
+				-e "/find_package(MailTransportDBusService/ s/^/#DONT/" \
+				-e "/find_package(Phonon4Qt5/ s/^/#DONT/" \
+				-i CMakeLists.txt || die "Failed to disable dependencies"
+		fi
 
 		# remove anything else not listed here
 		local _pim_keep_subdir="${PN} ${KDE_PIM_KEEP_SUBDIR}"
@@ -598,6 +607,14 @@ kde5_src_configure() {
 
 	if ! use_if_iuse test ; then
 		cmakeargs+=( -DBUILD_TESTING=OFF )
+
+		if [[ ${KDE_TEST} = optional ]] ; then
+			cmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=ON )
+		fi
+	fi
+
+	if ! use_if_iuse handbook && [[ ${KDE_HANDBOOK} = optional ]] ; then
+		cmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KF5DocTools=ON )
 	fi
 
 	# install mkspecs in the same directory as qt stuff
@@ -692,6 +709,23 @@ kde5_pkg_postinst() {
 
 	gnome2_icon_cache_update
 	xdg_pkg_postinst
+
+	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			echo
+			einfo "WARNING! This is an experimental live ebuild of ${CATEGORY}/${PN}"
+			einfo "Use it at your own risk."
+			einfo "Do _NOT_ file bugs at bugs.gentoo.org because of this ebuild!"
+		fi
+		# for kf5-based applications tell user that he SHOULD NOT be using kde-base/plasma-workspace
+		if [[ ${KDEBASE} != kde-base || ${CATEGORY} = kde-apps ]]  && \
+				has_version 'kde-base/plasma-workspace'; then
+			echo
+			ewarn "WARNING! Your system configuration still contains \"kde-base/plasma-workspace\","
+			ewarn "indicating a Plasma 4 setup. With this setting you are unsupported by KDE team."
+			ewarn "Please consider upgrading to Plasma 5."
+		fi
+	fi
 }
 
 # @FUNCTION: kde5_pkg_postrm

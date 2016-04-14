@@ -2,11 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="KDE color selector/editor"
 HOMEPAGE="https://www.kde.org/applications/graphics/kcolorchooser/"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+"
+RDEPEND="${DEPEND}"

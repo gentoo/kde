@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -25,4 +25,6 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kapptemplate-15.12.3-r1
+"

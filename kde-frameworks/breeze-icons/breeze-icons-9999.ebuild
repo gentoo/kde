@@ -14,5 +14,8 @@ LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="$(add_frameworks_dep extra-cmake-modules)"
+DEPEND="
+	$(add_frameworks_dep extra-cmake-modules)
+	$(add_qt_dep qtcore)
+"
 RDEPEND="!<kde-plasma/breeze-5.4.3:5"

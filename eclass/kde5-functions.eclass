@@ -17,7 +17,7 @@ inherit toolchain-funcs versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently EAPI 5 is supported.
+# Currently EAPI 5 and 6 is supported.
 case ${EAPI} in
 	5|6) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
@@ -26,7 +26,7 @@ esac
 # @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
 # @DESCRIPTION:
 # Minimal Frameworks version to require for the package.
-: ${FRAMEWORKS_MINIMAL:=5.17.0}
+: ${FRAMEWORKS_MINIMAL:=5.18.0}
 
 # @ECLASS-VARIABLE: PLASMA_MINIMAL
 # @DESCRIPTION:
@@ -35,7 +35,7 @@ esac
 
 # @ECLASS-VARIABLE: KDE_APPS_MINIMAL
 # @DESCRIPTION:
-# Minimal KDE Applicaions version to require for the package.
+# Minimal KDE Applications version to require for the package.
 : ${KDE_APPS_MINIMAL:=14.12.0}
 
 # @ECLASS-VARIABLE: KDE_GCC_MINIMAL
@@ -260,7 +260,7 @@ punt_bogus_dep() {
 	local prefix=${1}
 	local dep=${2}
 
-	pcregrep -Mni "(?s)find_package\s*\(\s*${prefix}.[^)]*?${dep}.*?\)" CMakeLists.txt > "${T}/bogus${dep}"
+	pcregrep -Mni "(?s)find_package\s*\(\s*${prefix}[^)]*?${dep}.*?\)" CMakeLists.txt > "${T}/bogus${dep}"
 
 	# pcregrep returns non-zero on no matches/error
 	if [[ $? != 0 ]] ; then
@@ -274,7 +274,7 @@ punt_bogus_dep() {
 	sed -e "${first},${last}s/${dep}//" -i CMakeLists.txt || die
 
 	if [[ ${length} = 1 ]] ; then
-		sed -e "/find_package\s*(\s*${prefix}\s*REQUIRED\s*COMPONENTS\s*)/I d" -i CMakeLists.txt || die
+		sed -e "/find_package\s*(\s*${prefix}\(\s\+\(REQUIRED\|CONFIG\|COMPONENTS\|\${KF5_VERSION}\)\)\+\s*)/Is/^/# removed by kde5-functions.eclass - /" -i CMakeLists.txt || die
 	fi
 }
 

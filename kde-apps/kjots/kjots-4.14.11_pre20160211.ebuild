@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 KDE_HANDBOOK="optional"
 KMNAME="kdepim"
@@ -18,9 +18,9 @@ KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	dev-libs/grantlee:0
 	$(add_kdeapps_dep kdepimlibs 'akonadi(+)')
 	$(add_kdeapps_dep kdepim-common-libs)
+	dev-libs/grantlee:0
 "
 RDEPEND="${DEPEND}"
 

@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="false"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
@@ -20,7 +20,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -29,12 +28,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
@@ -43,13 +40,14 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
-	dev-libs/libxslt
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/grantlee:5
+	dev-libs/libxslt
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
