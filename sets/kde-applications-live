@@ -7,6 +7,7 @@
 @kde-baseapps-live
 @kdeaccessibility-live
 @kdeadmin-live
+@kdebase-runtime-live
 @kdebindings-live
 @kdeedu-live
 @kdegames-live
@@ -17,6 +18,3 @@
 @kdesdk-live
 @kdeutils-live
 @kdewebdev-live
-
-# kdeartwork?
-# kdebase-runtime?
