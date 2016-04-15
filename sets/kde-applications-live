@@ -5,10 +5,18 @@
 ~kde-apps/konsole-9999
 ~kde-apps/kwrite-9999
 @kde-baseapps-live
+@kdeaccessibility-live
 @kdeadmin-live
+@kdebindings-live
 @kdeedu-live
 @kdegames-live
 @kdegraphics-live
 @kdemultimedia-live
+@kdenetwork-live
+@kdepim-live
 @kdesdk-live
 @kdeutils-live
+@kdewebdev-live
+
+# kdeartwork?
+# kdebase-runtime?
