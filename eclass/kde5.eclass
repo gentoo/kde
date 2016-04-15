@@ -381,9 +381,7 @@ debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 # Do some basic settings
 kde5_pkg_pretend() {
 	debug-print-function ${FUNCNAME} "$@"
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		_check_gcc_version
-	fi
+	_check_gcc_version
 }
 
 # @FUNCTION: kde5_pkg_setup
@@ -391,9 +389,7 @@ kde5_pkg_pretend() {
 # Do some basic settings
 kde5_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		_check_gcc_version
-	fi
+	_check_gcc_version
 }
 
 # @FUNCTION: kde5_pkg_nofetch
