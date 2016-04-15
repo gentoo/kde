@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="A textedit with PIM-specific features"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="speech"
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -31,5 +31,14 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
+	speech? ( $(add_qt_dep qtspeech) )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+	)
+
+	kde5_src_configure
+}
