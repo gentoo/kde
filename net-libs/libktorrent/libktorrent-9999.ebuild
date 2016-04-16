@@ -11,7 +11,7 @@ if [[ ${PV} != 9999* ]]; then
 	KTORRENT_VERSION=$(($(get_major_version)+3)).$(get_version_component_range 2-3 ${MY_PV})
 	MY_P="${PN}-${MY_PV}"
 
-	SRC_URI="http://ktorrent.org/downloads/${KTORRENT_VERSION}/${MY_P}.tar.bz2"
+	SRC_URI="mirror://kde/stable/ktorrent/${KTORRENT_VERSION}/${MY_P}.tar.xz"
 	S="${WORKDIR}"/"${MY_P}"
 
 	KEYWORDS="~amd64 ~arm ~x86"
@@ -25,7 +25,7 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="A BitTorrent library based on KDE Frameworks"
+DESCRIPTION="BitTorrent library based on KDE Frameworks"
 HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
