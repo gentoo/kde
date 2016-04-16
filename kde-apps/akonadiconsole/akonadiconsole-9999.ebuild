@@ -4,8 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="false"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 inherit kde5
@@ -49,18 +48,7 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
-	)
-
-	kde5_src_configure
-}
