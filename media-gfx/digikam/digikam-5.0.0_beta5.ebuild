@@ -8,11 +8,10 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KDE_DOXYGEN=true
 	KDE_TEST=true
 fi
-
 inherit kde5
 
 DESCRIPTION="Digital photo management application"
-HOMEPAGE="http://www.digikam.org/"
+HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -49,17 +48,17 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_kdeapps_dep libkexiv2)
-	dev-libs/boost[threads]
-	dev-libs/expat
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsql 'mysql')
+	$(add_qt_dep qtsql 'mysql?')
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/boost[threads]
+	dev-libs/expat
 	>=media-gfx/exiv2-0.24:=
 	media-libs/jasper
 	media-libs/lcms:2
@@ -84,18 +83,16 @@ COMMON_DEPEND="
 	)
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	mysql? ( virtual/mysql )
-	video? ( dev-qt/qtmultimedia[widgets] )
+	video? ( $(add_qt_dep qtmultimedia 'widgets') )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
 "
-
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
 	sys-devel/gettext
 "
-
 RDEPEND="${COMMON_DEPEND}
 	media-plugins/kipi-plugins:5
 	!media-gfx/digikam:4
@@ -105,7 +102,6 @@ RESTRICT=test
 # bug 366505
 
 src_prepare() {
-
 	undetect_lib() {
 		local _use=${1}
 		local _name=${2}
@@ -118,11 +114,9 @@ src_prepare() {
 	undetect_lib scanner KSANE
 
 	kde5_src_prepare
-
 }
 
 src_configure() {
-
 	# LQR = only allows to choose between bundled/external
 	local mycmakeargs=(
 		-DENABLE_OPENCV3=ON
@@ -137,17 +131,14 @@ src_configure() {
 	)
 
 	kde5_src_configure
-
 }
 
 src_install() {
-
 	kde5_src_install
 
 	if use doc; then
 		# install the api documentation
 		insinto /usr/share/doc/${PF}/
-		doins -r ${CMAKE_BUILD_DIR}/api/html
+		doins -r "${S}"/apidocs/html
 	fi
-
 }
