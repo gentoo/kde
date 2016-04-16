@@ -4,15 +4,19 @@
 
 EAPI=6
 
+PYTHON_COMPAT=( python2_7 )
+
 KDE_TEST="true"
-inherit kde5
+VIRTUALX_REQUIRED="test"
+inherit kde5 python-any-r1
 
 DESCRIPTION="Framework for creation and generation of reports in multiple formats"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kwidgetsaddons)
@@ -23,5 +27,8 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
+DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
+"
 
-RDEPEND="${DEPEND}"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
