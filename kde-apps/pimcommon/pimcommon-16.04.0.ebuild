@@ -6,6 +6,7 @@ EAPI=6
 
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
