@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="forceoptional"
 inherit kde5
 
@@ -20,6 +21,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -28,10 +30,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)

@@ -4,13 +4,14 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Common PIM libraries"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE="ssl"
+IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -28,20 +29,11 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	ssl? ( dev-libs/cyrus-sasl )
 "
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
-	!<kde-apps/kdepim-kioslaves-16.04.50
 	!kde-apps/kmail:4
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package ssl Sasl2)
-	)
-	kde5_src_configure
-}

@@ -20,6 +20,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_kdeapps_dep marble 'kde' '' '5=')
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)

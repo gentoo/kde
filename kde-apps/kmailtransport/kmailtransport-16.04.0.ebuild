@@ -4,14 +4,13 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Mail transport service"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
-IUSE="ssl"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -30,18 +29,9 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	ssl? ( dev-libs/cyrus-sasl )
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-kioslaves-16.04.50
 	!kde-apps/kdepimlibs:4
 "
 
 RESTRICT="test"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package ssl Sasl2)
-	)
-	kde5_src_configure
-}
