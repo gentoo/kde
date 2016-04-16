@@ -15,6 +15,6 @@ SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	app-admin/packagekit-qt4
+	app-admin/packagekit-qt
 "
 RDEPEND="${DEPEND}"
