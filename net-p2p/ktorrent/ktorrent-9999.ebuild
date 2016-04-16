@@ -14,7 +14,7 @@ if [[ ${PV} != 9999* ]]; then
 	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
 
-	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
+	SRC_URI="mirror://kde/stable/${PN}/${MY_PV}/${MY_P}.tar.xz"
 	S="${WORKDIR}"/"${MY_P}"
 
 	KEYWORDS="~amd64 ~ppc ~x86"
