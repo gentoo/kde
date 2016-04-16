@@ -4,20 +4,31 @@
 
 EAPI=6
 
-KDE_DOXYGEN="true"
-KDE_TEST="true"
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	KDE_DOXYGEN=true
+	KDE_TEST=true
+fi
 inherit kde5
-
-MY_PV=${PV/_/-}
-MY_P=${PN}-${MY_PV}
 
 DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
-[[ ${KDE_BUILD_TYPE} = live ]] || SRC_URI="mirror://kde/stable/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="addressbook gphoto2 kipi lensfun marble semantic-desktop mysql scanner video X"
+
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+
+	MY_PV=${PV/_/-}
+	MY_P=${PN}-${MY_PV}
+
+	SRC_BRANCH=stable
+	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
+	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.bz2"
+
+	S="${WORKDIR}/${MY_P}/core"
+
+fi
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -42,7 +53,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsql 'mysql')
+	$(add_qt_dep qtsql 'mysql?')
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
