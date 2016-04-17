@@ -4,6 +4,7 @@
 
 EAPI=6
 
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Libraries and daemons to implement searching in Akonadi"

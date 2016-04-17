@@ -9,6 +9,7 @@ KDE_PIM_KEEP_SUBDIR="noteshared"
 KDE_PIM_KONTACTPLUGIN="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="KDE Notes application"

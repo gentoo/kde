@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_TEST="false"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Libraries for KDE PIM applications"
@@ -40,7 +41,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
 	prison? ( media-libs/prison:5 )

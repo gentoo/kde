@@ -4,9 +4,9 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="true"
 KMNAME="kdepimlibs"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for akonadi notes integration"

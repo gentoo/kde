@@ -4,9 +4,9 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="forceoptional"
 KMNAME="kdepimlibs"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for akonadi contact integration"
@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
 	prison? ( media-libs/prison:5 )

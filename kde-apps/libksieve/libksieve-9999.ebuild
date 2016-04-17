@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_TEST="true"
+QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -26,7 +27,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	ssl? ( dev-libs/cyrus-sasl )

@@ -4,6 +4,7 @@
 
 EAPI=6
 
+QT_MINIMAL="5.6.0"
 inherit kde5-meta-pkg
 
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
