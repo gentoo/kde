@@ -4,7 +4,8 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
+QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -58,7 +59,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
 "

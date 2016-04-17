@@ -7,6 +7,7 @@ EAPI=6
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library providing utility functions for the handling of calendar data"

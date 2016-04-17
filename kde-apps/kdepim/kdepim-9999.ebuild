@@ -6,12 +6,12 @@ EAPI=6
 
 PIM_FTS="kalarm kmail korganizer"
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
 KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard agents grantleeeditor importwizard korgac
 mboximporter pimsettingexporter plugins sieveeditor storageservicemanager"
 KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="true"
+QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -92,9 +92,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtopengl)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)

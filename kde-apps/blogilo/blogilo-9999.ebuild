@@ -7,6 +7,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="KDE Blogging Client"
@@ -31,10 +32,11 @@ DEPEND="
 	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/libxslt
 	google? ( net-libs/libkgapi:5 )

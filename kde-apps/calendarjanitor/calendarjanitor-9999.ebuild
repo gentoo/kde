@@ -7,6 +7,7 @@ EAPI=6
 KDE_PUNT_BOGUS_DEPS="true"
 KDE_TEST="false"
 KMNAME="kdepim"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="A tool to scan calendar data for buggy instances"

@@ -8,6 +8,7 @@ KDE_DOXYGEN=true
 KDE_TEST=true
 VIRTUALDBUS_TEST=true
 VIRTUALX_REQUIRED=test
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"

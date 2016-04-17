@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_TEST="false"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for encryption handling"

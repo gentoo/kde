@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_BLOCK_SLOT4="false"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="C++ bindings for gpgme"

@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_DOXYGEN="true"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for embedding KParts in a Kontact component"

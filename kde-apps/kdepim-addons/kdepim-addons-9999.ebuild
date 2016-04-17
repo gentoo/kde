@@ -6,6 +6,7 @@ EAPI=6
 
 KDE_EXAMPLES="true"
 KDE_TEST="forceoptional"
+QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 

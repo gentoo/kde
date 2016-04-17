@@ -7,6 +7,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
+QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="A command line interface to KDE calendars"
