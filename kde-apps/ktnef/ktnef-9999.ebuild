@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
@@ -35,18 +35,21 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
 
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
-	)
+src_prepare() {
+	# ktnef subproject does not contain doc nor searches for DocTools
+	# at least until properly split upstream
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
 
-	kde5_src_configure
+	mkdir doc || die "Failed to create doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
+	cat <<-EOF > doc/CMakeLists.txt
+find_package(KF5DocTools)
+add_subdirectory(${PN})
+EOF
+	kde5_src_prepare
 }
