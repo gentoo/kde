@@ -536,11 +536,9 @@ kde5_src_prepare() {
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
 		# FIXME: try to push these down into subdirs @upstream
 		# AkonadiSearch:	kaddressbook, knotes, kdepim (kmail, korganizer)
-		# Gpgme: 			kleopatra (removed in >= 16.03.80)
 		# Grantlee:			akregator, kaddressbook, knotes, kdepim (grantleeeditor, kmail, kontact)
 		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
 			-e "/set_package_properties(Xsltproc/ s/ REQUIRED/ OPTIONAL/" \
-			-e "/find_package(Gpgme/ s/ REQUIRED//" \
 			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
 
