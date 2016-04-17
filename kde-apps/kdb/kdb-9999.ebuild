@@ -6,7 +6,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit kde5 python-single-r1
+inherit kde5 python-any-r1
 
 DESCRIPTION="Database connectivity and creation framework for various vendors"
 LICENSE="LGPL-2+"
@@ -23,7 +23,6 @@ RDEPEND="
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite:3 )
 "
-
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 "
