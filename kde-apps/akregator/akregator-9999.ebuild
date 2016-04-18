@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="false"
+KDE_HANDBOOK="forceoptional"
 KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="false"
 KMNAME="kdepim"
@@ -59,18 +59,16 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
 
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
-	)
+src_prepare() {
+	# akregator subproject does not contain doc
+	# at least until properly split upstream
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
 
-	kde5_src_configure
+	kde5_src_prepare
 }
