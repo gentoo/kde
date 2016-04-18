@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
@@ -47,10 +47,19 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
+
+src_prepare() {
+	# blogilo subproject does not contain doc
+	# at least until properly split upstream
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
+
+	kde5_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
