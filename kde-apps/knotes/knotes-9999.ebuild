@@ -4,10 +4,9 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_PIM_KEEP_SUBDIR="noteshared"
+KDE_HANDBOOK="forceoptional"
 KDE_PIM_KONTACTPLUGIN="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 inherit kde5
@@ -65,20 +64,33 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
 
+src_prepare() {
+	# knotes subproject does not contain doc
+	# at least until properly split upstream
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+
+	mkdir doc || die "Failed to create doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
+	mv ../doc/akonadi_notes_agent doc || die "Failed to move handbook"
+	cat <<-EOF > doc/CMakeLists.txt
+add_subdirectory(${PN})
+add_subdirectory(akonadi_notes_agent)
+EOF
+
+	kde5_src_prepare
+}
+
 src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-	)
+# 	local mycmakeargs=(
 # 	# FIXME: Does not build (last checked 2016-02-17)
 # 		$(cmake-utils_use_find_package X Qt5X11Extras)
 # 		$(cmake-utils_use_find_package X X11)
+# 	)
 
 	kde5_src_configure
 }

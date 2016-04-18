@@ -136,6 +136,7 @@ src_prepare() {
 	fi
 
 	sed -i \
+		-e "/akonadi_notes_agent/ s/^/#DONT/" \
 		-e "/akregator/ s/^/#DONT/" \
 		-e "/blogilo/ s/^/#DONT/" \
 		-e "/knotes/ s/^/#DONT/" \
