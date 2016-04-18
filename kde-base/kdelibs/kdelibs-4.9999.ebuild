@@ -212,7 +212,7 @@ src_configure() {
 		-DWITH_ENCHANT=$(usex spell)
 		-DWITH_OpenSSL=$(usex ssl)
 		-DWITH_UDev=$(usex udev)
-		-DWITH_SOLID_UDISKS2=$(usex udisks2)
+		-DWITH_SOLID_UDISKS2=$(usex udisks)
 		-DWITH_Avahi=$(usex zeroconf)
 	)
 
