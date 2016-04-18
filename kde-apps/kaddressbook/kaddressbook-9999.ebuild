@@ -4,9 +4,9 @@
 
 EAPI=6
 
-KDE_HANDBOOK="false"
+KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_PIM_KONTACTPLUGIN="true"
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
@@ -66,16 +66,13 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/${PN}"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
 fi
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
 		$(cmake-utils_use_find_package prison KF5Prison)
 	)
 
