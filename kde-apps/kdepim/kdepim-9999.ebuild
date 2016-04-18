@@ -7,8 +7,8 @@ EAPI=6
 PIM_FTS="kalarm kmail korganizer"
 
 KDE_HANDBOOK="true"
-KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard agents grantleeeditor importwizard korgac
-mboximporter pimsettingexporter plugins sieveeditor storageservicemanager"
+KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard grantleeeditor importwizard
+mboximporter pimsettingexporter sieveeditor storageservicemanager"
 KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="true"
 QT_MINIMAL="5.6.0"
