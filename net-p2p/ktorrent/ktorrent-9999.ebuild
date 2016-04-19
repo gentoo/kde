@@ -17,7 +17,7 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${MY_PV}/${MY_P}.tar.xz"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="~amd64 ~ppc ~x86"
+	KEYWORDS="~amd64 ~x86"
 else
 	LIBKT_VERSION_MIN="${PV}"
 	LIBKT_VERSION_MAX="99999999"
@@ -97,6 +97,12 @@ RDEPEND="${COMMON_DEPEND}
 # 
 # 	kde5_src_prepare
 # }
+
+src_prepare() {
+	kde5_src_prepare
+
+	punt_bogus_dep Kross
+}
 
 src_configure() {
 	local mycmakeargs=(
