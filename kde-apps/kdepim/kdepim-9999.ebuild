@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PIM_FTS="kalarm kmail kontact korganizer"
+PIM_FTS="kalarm kmail korganizer"
 
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
@@ -125,12 +125,16 @@ RDEPEND="${COMMON_DEPEND}
 "
 # kontact: summary plugin; kalarm: email scheduler
 REQUIRED_USE="
-	kdepim_features_kontact? ( kdepim_features_kmail )
+	kontact? ( kdepim_features_kmail )
 	kdepim_features_kalarm? ( kdepim_features_kmail )
 "
 
 src_prepare() {
-	kde5_src_prepare
+	if use kontact ; then
+		KDE_PIM_KEEP_SUBDIR="${KDE_PIM_KEEP_SUBDIR} kontact"
+	else
+		cmake_comment_add_subdirectory kontact
+	fi
 
 	sed -i \
 		-e "/akregator/ s/^/#DONT/" \
@@ -144,6 +148,8 @@ src_prepare() {
 	for pim_ft in ${PIM_FTS}; do
 		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
 	done
+
+	kde5_src_prepare
 }
 
 src_configure() {
