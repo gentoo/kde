@@ -84,6 +84,8 @@ DEPEND="${COMMON_DEPEND}
 	test? (	x11-libs/xcb-util-wm )
 "
 
+PATCHES=( "${FILESDIR}/${P}-glibc-sysmacros.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
