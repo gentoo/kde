@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE systemsettings kcm to set GTK application look&feel"
+DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="https://projects.kde.org/kde-gtk-config"
 LICENSE="GPL-3"
 KEYWORDS=""
