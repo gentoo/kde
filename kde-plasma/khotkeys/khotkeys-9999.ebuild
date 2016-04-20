@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="KDE workspace hotkey module"
+DESCRIPTION="KDE Plasma workspace hotkey module"
 KEYWORDS=""
 IUSE=""
 
