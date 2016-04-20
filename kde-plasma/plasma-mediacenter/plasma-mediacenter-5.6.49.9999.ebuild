@@ -7,7 +7,7 @@ EAPI=6
 KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="Unified media experience for any device capable of running KDE"
+DESCRIPTION="Unified media experience for any device capable of running KDE Plasma"
 KEYWORDS=""
 IUSE="semantic-desktop"
 
