@@ -70,7 +70,7 @@ COMMON_DEPEND="
 	zeroconf? ( $(add_frameworks_dep kdnssd) )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost:=
+	dev-libs/boost
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
