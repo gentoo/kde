@@ -8,7 +8,7 @@ if [[ ${PV} != 9999* ]]; then
 	inherit versionator
 	# upstream likes to skip that _ in beta releases
 	MY_PV="${PV/_/}"
-	KTORRENT_VERSION=$(($(get_major_version)+3)).$(get_version_component_range 2-3 ${MY_PV})
+	KTORRENT_VERSION=$(($(get_major_version)+3)).$(get_version_component_range 2 ${MY_PV})
 	MY_P="${PN}-${MY_PV}"
 
 	SRC_URI="mirror://kde/stable/ktorrent/${KTORRENT_VERSION}/${MY_P}.tar.xz"
