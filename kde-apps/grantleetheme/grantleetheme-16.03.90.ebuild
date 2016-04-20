@@ -32,3 +32,6 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
 	!kde-apps/kdepim-common-libs:4
 "
+
+# fails if package not already installed
+RESTRICT="test"
