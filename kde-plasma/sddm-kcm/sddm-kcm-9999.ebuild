@@ -6,7 +6,7 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="KDE control module for SDDM"
+DESCRIPTION="KDE Plasma control module for SDDM"
 HOMEPAGE="https://projects.kde.org/projects/kdereview/sddm-kcm"
 
 LICENSE="GPL-2+"
