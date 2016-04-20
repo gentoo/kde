@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="KDE menu editor"
+DESCRIPTION="KDE Plasma menu editor"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kmenuedit"
 KEYWORDS=""
 IUSE="+hotkeys"
