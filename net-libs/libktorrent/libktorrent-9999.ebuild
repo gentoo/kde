@@ -28,7 +28,7 @@ inherit kde5
 DESCRIPTION="BitTorrent library based on KDE Frameworks"
 HOMEPAGE="http://ktorrent.pwsp.net/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 IUSE=""
 
 COMMON_DEPEND="
