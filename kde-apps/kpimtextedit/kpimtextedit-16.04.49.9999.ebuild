@@ -35,6 +35,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test"
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
