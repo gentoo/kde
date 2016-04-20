@@ -14,7 +14,7 @@ if [[ ${PV} != 9999* ]]; then
 	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
 	MY_P="${PN}-${MY_PV}"
 
-	SRC_URI="mirror://kde/stable/${PN}/${MY_PV}/${MY_P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/$(get_version_component_range 1-2)/${MY_P}.tar.xz"
 	S="${WORKDIR}"/"${MY_P}"
 
 	KEYWORDS="~amd64 ~x86"
