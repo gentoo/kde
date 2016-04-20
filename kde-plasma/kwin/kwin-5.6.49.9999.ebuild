@@ -84,6 +84,8 @@ DEPEND="${COMMON_DEPEND}
 	test? (	x11-libs/xcb-util-wm )
 "
 
+RESTRICT="test"
+
 PATCHES=( "${FILESDIR}/${PN}-5.6.3-glibc-sysmacros.patch" )
 
 src_prepare() {
