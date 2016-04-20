@@ -84,7 +84,7 @@ if [[ -d .kde-applications-live.base ]]; then
 	echo -e "${HEADER}" > kde-applications-live.keywords
 	for file in .kde-applications-live.base/*; do
 		newfile=.kde-applications-live/$(basename "${file}")
-		sed '/^~.*[.-]9999$/s/$/ **/' "${file}" > "${newfile}"
+		sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' "${file}" > "${newfile}"
 	done
 	cat .kde-applications-live/* >> kde-applications-live.keywords
 fi
