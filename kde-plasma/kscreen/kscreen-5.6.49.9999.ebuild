@@ -7,7 +7,7 @@ EAPI=6
 KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="KDE screen management"
+DESCRIPTION="KDE Plasma screen management"
 HOMEPAGE="https://projects.kde.org/projects/extragear/base/kscreen"
 
 KEYWORDS=""
