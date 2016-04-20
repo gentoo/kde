@@ -32,7 +32,7 @@ HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 IUSE="+bwscheduler +downloadorder +infowidget +logviewer
-+magnetgenerator +mediaplayer +shutdown +upnp +zeroconf"
++magnetgenerator +mediaplayer +shutdown +stats +upnp +zeroconf"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -67,6 +67,7 @@ COMMON_DEPEND="
 		>=media-libs/taglib-1.5
 	)
 	shutdown? ( $(add_plasma_dep plasma-workspace) )
+	stats? ( $(add_frameworks_dep kplotting) )
 	zeroconf? ( $(add_frameworks_dep kdnssd) )
 "
 DEPEND="${COMMON_DEPEND}
@@ -114,6 +115,7 @@ src_configure() {
 		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
 		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
 		-DENABLE_SHUTDOWN_PLUGIN=$(usex shutdown)
+		-DENABLE_STATS_PLUGIN=$(usex stats)
 		-DENABLE_UPNP_PLUGIN=$(usex upnp)
 		-DENABLE_ZEROCONF_PLUGIN=$(usex zeroconf)
 	)
@@ -123,7 +125,6 @@ src_configure() {
 # 		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
 # 		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
 # 		-DENABLE_SEARCH_PLUGIN=$(usex search)
-# 		-DENABLE_STATS_PLUGIN=$(usex stats)
 # 		-DENABLE_WEBINTERFACE_PLUGIN=$(usex webinterface)
 	kde5_src_configure
 }
