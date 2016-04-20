@@ -7,7 +7,7 @@ EAPI=6
 KMNAME="${PN}-1"
 inherit kde5
 
-DESCRIPTION="PolKit agent module for KDE"
+DESCRIPTION="PolKit agent module for KDE Plasma"
 HOMEPAGE="https://www.kde.org"
 KEYWORDS=""
 IUSE=""
