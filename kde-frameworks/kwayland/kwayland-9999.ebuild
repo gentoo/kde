@@ -15,11 +15,13 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=dev-libs/wayland-1.7.0
 	$(add_qt_dep qtgui)
+	>=dev-libs/wayland-1.7.0
 	media-libs/mesa[egl]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-plasma/kwayland
+"
 
 # All failing, i guess we need a virtual wayland server
 RESTRICT="test"
