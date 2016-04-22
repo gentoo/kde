@@ -86,8 +86,6 @@ DEPEND="${COMMON_DEPEND}
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-5.6.3-glibc-sysmacros.patch" )
-
 src_prepare() {
 	kde5_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
