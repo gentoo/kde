@@ -38,5 +38,5 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
-	!net-im/ktp-call-ui
+	!kde-apps/ktp-call-ui:4
 "
