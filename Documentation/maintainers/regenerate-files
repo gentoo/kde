@@ -15,8 +15,8 @@ KF_RELEASE=${KF_RELEASE:-5.18}
 PLASMA_RELEASES="5.5 5.6"
 PLASMA_RELEASE=${PLASMA_RELEASE:-5.5}
 
-APPS_RELEASES=""
-APPS_RELEASE=${APPS_RELEASE:-15.08}
+APPS_RELEASES="15.12"
+APPS_RELEASE=${APPS_RELEASE:-15.12}
 
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null
@@ -37,7 +37,7 @@ done
 for release in $APPS_RELEASES; do
 	echo -e "${HEADER}" > "kde-applications-${release}.keywords"
 	if [[ -d ".kde-applications-${release}" ]]; then
-		cat ".kde-applications-${release}/"* | sed '/^~.*[.-]9999$/s/$/ **/' >> "kde-applications-${release}.keywords"
+		cat ".kde-applications-${release}/"* | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-applications-${release}.keywords"
 	fi
 done
 
