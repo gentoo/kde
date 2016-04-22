@@ -144,7 +144,7 @@ for release in $APPS_RELEASES live; do
 	echo -e "${HEADER}" > "kde-applications-${release}"
 	if [[ -d "../package.unmask/.kde-applications-${release}" ]]; then
 		cat "../package.unmask/.kde-applications-${release}/"* >> "kde-applications-${release}"
-		sed -i "kde-applications-${release}" -e "/^<kde-applications\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}"
+		sed -i "kde-applications-${release}" -e "/^<kde-applications\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
 	fi
 done
 popd > /dev/null
