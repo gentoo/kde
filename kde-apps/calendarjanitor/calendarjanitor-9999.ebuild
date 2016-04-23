@@ -32,28 +32,12 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/console"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/console"
 fi
 
-PATCHES=( "${FILESDIR}/kdepim-console.patch" )
-
 src_prepare() {
-
-	mv console/calendarjanitor calendarjanitor || die "Failed to move calendarjanitor"
-	mv console/konsolekalendar konsolekalendar || die "Failed to move konsolekalendar"
-
+	cmake_comment_add_subdirectory konsolekalendar
 	kde5_src_prepare
-}
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
-	)
-
-	kde5_src_configure
 }
