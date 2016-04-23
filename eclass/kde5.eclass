@@ -533,8 +533,9 @@ kde5_src_prepare() {
 		fi
 	fi
 
-	# kdepim split packaging handling (drop other applications != {PN})
-	if [[ ${KMNAME} = "kdepim" && $(basename "${S}") != ${PN} ]] || [[ ${PN} = "kdepim" ]] ; then
+	# legacy (16.04) kdepim split packaging handling (drop other applications != {PN})
+	if [[ ${KMNAME} = "kdepim" && ${PV} = "16.04*" && $(basename "${S}") != ${PN} ]] || \
+			[[ ${PN} = "kdepim" ]] ; then
 		# make optional a lot of otherwise required dependencies in root CMakeLists.txt
 		sed -e "/find_package(KF5/ s/ REQUIRED//" \
 			-e "/find_package(Qt5 / s/ REQUIRED/ OPTIONAL_COMPONENTS/" \
@@ -547,15 +548,20 @@ kde5_src_prepare() {
 			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
 			-i CMakeLists.txt || die "Failed to make dependencies optional"
 
-		# Boost: kdepim (kmail, mailfilteragent)
-		# MailTransportDBusService: kdepim (kmail)
-		# Phonon4Qt5: kdepim (kalarm, korgac)
 		if [[ ${PN} != "kdepim" ]] ; then
+			# Boost: kdepim (kmail, mailfilteragent)
+			# MailTransportDBusService: kdepim (kmail)
+			# Phonon4Qt5: kdepim (kalarm, korgac)
 			sed -e "/find_package(Boost/ s/^/#DONT/" \
 				-e "/set_package_properties(Boost/ s/^/#DONT/" \
 				-e "/find_package(MailTransportDBusService/ s/^/#DONT/" \
 				-e "/find_package(Phonon4Qt5/ s/^/#DONT/" \
 				-i CMakeLists.txt || die "Failed to disable dependencies"
+
+			# only build select handbook
+			if use_if_iuse handbook && [[ -e doc/CMakeLists.txt ]] ; then
+				echo "add_subdirectory(${PN})" > doc/CMakeLists.txt
+			fi
 		fi
 
 		# remove anything else not listed here
@@ -575,23 +581,16 @@ kde5_src_prepare() {
 			fi
 		done
 		popd > /dev/null || die
-
-		# disable build of kontactplugin in kdepim and split kdepim packages
-		if ! use_if_iuse kontact ; then
-			for x in $(find ./ -name CMakeLists.txt -exec grep -l "add_subdirectory.*kontactplugin" "{}" ";"); do
-				einfo "Disabling kontactplugin in: ${x}"
-				pushd $(dirname "${x}") > /dev/null || die
-				cmake_comment_add_subdirectory kontactplugin
-				popd > /dev/null || die
-			done
-		fi
 	fi
 
-	# only build select handbook
-	if [[ ${KMNAME} = "kdepim" && $(basename "${S}") != ${PN} ]] ; then
-		if use_if_iuse handbook && [[ -e doc/CMakeLists.txt ]] ; then
-			echo "add_subdirectory(${PN})" > doc/CMakeLists.txt
-		fi
+	# disable build of kontactplugin in split kdepim packages
+	if ! use_if_iuse kontact ; then
+		for x in $(find ./ -name CMakeLists.txt -exec grep -l "add_subdirectory.*kontactplugin" "{}" ";"); do
+			einfo "Disabling kontactplugin in: ${x}"
+			pushd $(dirname "${x}") > /dev/null || die
+			cmake_comment_add_subdirectory kontactplugin
+			popd > /dev/null || die
+		done
 	fi
 }
 
