@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
@@ -33,27 +33,17 @@ RDEPEND="${DEPEND}
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
+	S="${WORKDIR}/${P}/console"
 else
-	S="${WORKDIR}/${KMNAME}-${PV}"
+	S="${WORKDIR}/${KMNAME}-${PV}/console"
 fi
 
-PATCHES=( "${FILESDIR}/kdepim-console.patch" )
-
 src_prepare() {
-	mv console/calendarjanitor calendarjanitor || die "Failed to move calendarjanitor"
-	mv console/konsolekalendar konsolekalendar || die "Failed to move konsolekalendar"
+	# konsolekalendar subproject does not contain doc
+	# at least until properly split upstream
+	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
+	mv ../doc/${PN} doc || die "Failed to move handbook"
 
+	cmake_comment_add_subdirectory calendarjanitor
 	kde5_src_prepare
-}
-
-src_configure() {
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
-	)
-
-	kde5_src_configure
 }
