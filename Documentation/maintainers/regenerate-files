@@ -163,11 +163,12 @@ for set in *plasma-${PLASMA_RELEASE}; do
 	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|5\..\.50)//" "${set}" >> "${newfile}"
 done
 
-#for set in *-${APPS_RELEASE}; do
-#	newfile=${set/%-${APPS_RELEASE}}
-#	echo -e "${HEADER}" > "${newfile}"
-#	sed -r "/@/s/-${RELEASE}//g;/9999$/s/~//;s/<//;\@kde-apps/@s/-(9999|4\...\.50)/:4/" "${set}" >> "${newfile}"
-#done
+for set in *-${APPS_RELEASE}; do
+	newfile=${set/%-${APPS_RELEASE}}
+	echo -e "${HEADER}" > "${newfile}"
+	# TODO bring back slots when KDE Application is fully migrated
+	sed -r "/@/s/-${APPS_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-apps/@s/-(9999|${APPS_RELEASE}\.50)//" "${set}" >> "${newfile}"
+done
 popd > /dev/null
 
 # regenerate CONTRIBUTORS file
