@@ -534,7 +534,7 @@ kde5_src_prepare() {
 	fi
 
 	# legacy (16.04) kdepim split packaging handling (drop other applications != {PN})
-	if [[ ${KMNAME} = "kdepim" && ${PV} = "16.04*" && $(basename "${S}") != ${PN} ]] || \
+	if [[ ${KMNAME} = "kdepim" && ${PV} = 16.04* && $(basename "${S}") != ${PN} ]] || \
 			[[ ${PN} = "kdepim" ]] ; then
 		# make optional a lot of otherwise required dependencies in root CMakeLists.txt
 		sed -e "/find_package(KF5/ s/ REQUIRED//" \
