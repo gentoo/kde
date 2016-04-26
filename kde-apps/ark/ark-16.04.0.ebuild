@@ -56,4 +56,8 @@ pkg_postinst() {
 	if ! has_version app-arch/unar ; then
 		elog "For handling rar archives, install app-arch/unar"
 	fi
+
+	if ! has_version app-arch/p7zip ; then
+		elog "For handling 7-Zip archives, install app-arch/p7zip"
+	fi
 }
