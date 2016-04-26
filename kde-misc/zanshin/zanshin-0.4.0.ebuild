@@ -14,7 +14,7 @@ HOMEPAGE="https://zanshin.kde.org/"
 [[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="http://files.kde.org/zanshin/${P}.tar.bz2"
 
 LICENSE="|| ( GPL-2 GPL-3 )"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 # FIXME: bundles libkdepim
