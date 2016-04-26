@@ -18,3 +18,6 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 "
 RDEPEND="${DEPEND}"
+
+# bug 579592
+RESTRICT="test"
