@@ -14,5 +14,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=""
-RDEPEND=""
+DEPEND="
+	$(add_qt_dep qtdeclarative)
+"
+RDEPEND="${DEPEND}"
