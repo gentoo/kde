@@ -6,7 +6,7 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="Function (FN) key monitoring for Toshiba laptops"
+DESCRIPTION="Function key (FN) monitoring for Toshiba laptops"
 HOMEPAGE="http://ktoshiba.sourceforge.net/"
 SRC_URI="http://prdownloads.sourceforge.net/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
@@ -18,6 +18,7 @@ RDEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
@@ -29,7 +30,7 @@ RDEPEND="
 	net-libs/libmnl
 "
 
-RDEPEND="${DEPEND}
+DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
 
