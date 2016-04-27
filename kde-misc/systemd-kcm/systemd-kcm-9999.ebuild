@@ -7,27 +7,30 @@ EAPI=6
 CMAKE_MIN_VERSION="3.0.0"
 inherit kde5
 
-DESCRIPTION="KDE control module for systemd"
+DESCRIPTION="Plasma control module for systemd"
 HOMEPAGE="https://projects.kde.org/projects/playground/sysadmin/systemd-kcm"
 
 IUSE=""
 LICENSE="GPL-2+"
 KEYWORDS=""
 
-DEPEND="
+CDEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	>=dev-libs/boost-1.45
 	sys-apps/systemd
 "
-RDEPEND="${DEPEND}
+DEPEND="${CDEPEND}
+	>=dev-libs/boost-1.45
+	sys-devel/gettext
+"
+RDEPEND="${CDEPEND}
 	!kde-misc/kcmsystemd:4
 "
