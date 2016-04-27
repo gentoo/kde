@@ -76,6 +76,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kmail:4
 "
 
+# bug 579630
+RESTRICT="test"
+
 src_prepare() {
 	kde5_src_prepare
 
