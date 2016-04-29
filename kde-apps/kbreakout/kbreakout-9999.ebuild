@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A Breakout-like game for KDE"
+DESCRIPTION="Breakout-like game by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/games/kbreakout/
 	https://games.kde.org/game.php?game=kbreakout
