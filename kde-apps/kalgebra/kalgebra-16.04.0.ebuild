@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="MathML-based graph calculator for KDE"
+DESCRIPTION="MathML-based graph calculator by KDE"
 HOMEPAGE="https://www.kde.org/applications/education/kalgebra
 https://edu.kde.org/kalgebra"
 KEYWORDS="~amd64 ~x86"
