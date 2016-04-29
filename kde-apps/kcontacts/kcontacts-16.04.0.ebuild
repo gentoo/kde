@@ -9,7 +9,7 @@ KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Address book API for KDE"
+DESCRIPTION="Address book API based on KDE Frameworks"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE=""

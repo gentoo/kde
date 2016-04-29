@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 QT_MINIMAL="5.6.0"
 inherit kde5
 
-DESCRIPTION="Address book API for KDE"
+DESCRIPTION="Address book API based on KDE Frameworks"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
