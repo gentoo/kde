@@ -9,7 +9,7 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Nonogram logic game for KDE"
+DESCRIPTION="Nonogram logic game by KDE"
 HOMEPAGE="https://games.kde.org/game.php?game=picmi"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
