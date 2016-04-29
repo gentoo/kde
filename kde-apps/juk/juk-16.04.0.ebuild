@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="Jukebox and music manager for KDE"
+DESCRIPTION="Jukebox and music manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/multimedia/juk/"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug"
@@ -18,7 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	# https://bugs.gentoo.org/410551 for disabling deprecated TunePimp support
+	# bug 410551: for disabling deprecated TunePimp support
 	local mycmakeargs=(
 		-DWITH_TunePimp=OFF
 	)
