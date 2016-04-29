@@ -8,7 +8,7 @@ KDE_BLOCK_SLOT4="false"
 KDE_PUNT_BOGUS_DEPS="true"
 inherit kde5
 
-DESCRIPTION="LibKMahjongg for KDE"
+DESCRIPTION="Mahjongg library based on Qt/KDE Frameworks"
 KEYWORDS=""
 IUSE=""
 
