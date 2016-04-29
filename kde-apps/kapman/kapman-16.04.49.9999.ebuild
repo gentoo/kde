@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Pac-Man clone for KDE"
+DESCRIPTION="Pac-Man clone by KDE"
 HOMEPAGE="https://www.kde.org/applications/games/kapman/"
 KEYWORDS=""
 IUSE=""
