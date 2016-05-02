@@ -67,13 +67,14 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
+	!<kde-apps/kdepim-addons-16.04.50:5
+	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kmail:4
 	!kde-apps/messagecomposer:5
 	!kde-apps/messagecore:5
 	!kde-apps/messagelist:5
 	!kde-apps/messageviewer:5
 	!kde-apps/templateparser:5
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kmail:4
 "
 
 # bug 579630
