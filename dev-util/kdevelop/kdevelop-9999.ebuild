@@ -55,7 +55,7 @@ RDEPEND="${DEPEND}
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
-	!<kde-apps/kapptemplate-15.12.50
+	!<kde-apps/kapptemplate-16.04.0
 	cxx? ( clang? ( !dev-util/kdevelop-clang ) )
 "
 
