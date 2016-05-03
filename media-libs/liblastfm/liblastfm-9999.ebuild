@@ -13,11 +13,17 @@ EGIT_REPO_URI=( "git://github.com/lastfm/${PN}" )
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0/0"
-IUSE="fingerprint test +qt4 qt5"
+IUSE="fingerprint +qt4 qt5 test"
 
 REQUIRED_USE="|| ( qt4 qt5 )"
 
 COMMON_DEPEND="
+	fingerprint? (
+		media-libs/libsamplerate
+		sci-libs/fftw:3.0
+		qt4? ( dev-qt/qtsql:4 )
+		qt5? ( dev-qt/qtsql:5 )
+	)
 	qt4? (
 		dev-qt/qtcore:4
 		dev-qt/qtdbus:4
@@ -27,12 +33,6 @@ COMMON_DEPEND="
 		dev-qt/qtdbus:5
 		dev-qt/qtnetwork:5
 		dev-qt/qtxml:5
-	)
-	fingerprint? (
-		media-libs/libsamplerate
-		sci-libs/fftw:3.0
-		qt4? ( dev-qt/qtsql:4 )
-		qt5? ( dev-qt/qtsql:5 )
 	)
 "
 DEPEND="${COMMON_DEPEND}
