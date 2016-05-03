@@ -45,7 +45,7 @@ RDEPEND="${COMMON_DEPEND}
 	!<media-libs/lastfmlib-0.4.0
 "
 
-# 1 of 2 is failing, last checked 2012-06-22 / version 1.0.1
+# 1 of 2 (UrlBuilderTest) is failing, last checked version 1.0.9
 RESTRICT="test"
 
 pkg_setup() {
@@ -64,7 +64,7 @@ src_configure() {
 			mycmakeargs+=(-DBUILD_WITH_QT4=ON)
 		fi
 		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=(-DBUILD_WITH_OT4=OFF)
+			mycmakeargs+=(-DBUILD_WITH_QT4=OFF)
 		fi
 		cmake-utils_src_configure
 	}
