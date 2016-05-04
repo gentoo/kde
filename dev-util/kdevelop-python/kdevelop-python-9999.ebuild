@@ -34,7 +34,7 @@ RDEPEND="${DEPEND}
 	dev-util/kdevelop:5
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 pkg_setup() {
 	python-any-r1_pkg_setup
