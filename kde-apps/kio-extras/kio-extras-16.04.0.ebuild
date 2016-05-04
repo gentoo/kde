@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="exif mtp openexr phonon samba +sftp slp"
 
 COMMON_DEPEND="
+	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -33,12 +34,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kpty)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
