@@ -326,6 +326,17 @@ _calculate_src_uri() {
 			;;
 	esac
 
+	if [[ -z ${SRC_URI} && -n ${KDEBASE} ]] ; then
+		case ${PV} in
+			*.*.[6-9]? )
+				SRC_URI="mirror://kde/unstable/${KDEBASE}/${PV}/src/${_kmname}-${PV}.tar.xz"
+				RESTRICT+=" mirror"
+				;;
+			*)
+				SRC_URI="mirror://kde/stable/${KDEBASE}/${PV}/src/${_kmname}-${PV}.tar.xz" ;;
+		esac
+	fi
+
 	if _kde_is_unreleased ; then
 		RESTRICT+=" fetch"
 	fi
