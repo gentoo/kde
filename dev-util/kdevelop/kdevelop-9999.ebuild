@@ -59,7 +59,7 @@ RDEPEND="${DEPEND}
 	cxx? ( clang? ( !dev-util/kdevelop-clang ) )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 # see bug 366471
 
 PATCHES=( "${FILESDIR}/${PN}-ninja-optional.patch" )
