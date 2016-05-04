@@ -1,7 +1,7 @@
 Install headers to a custom location to permit slotting with Qt4 version.
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index dca14ec..d25656d 100644
+index 1324566..f98d5da 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -100,7 +100,7 @@ set (LIB_SUFFIX "" CACHE STRING "Define suffix of library directory name (eg. '6
@@ -14,10 +14,10 @@ index dca14ec..d25656d 100644
  
  # set up RPATH/install_name_dir
 diff --git a/templates/lib/CMakeLists.txt b/templates/lib/CMakeLists.txt
-index 741fe65..20179fc 100644
+index dad2ef8..434d163 100644
 --- a/templates/lib/CMakeLists.txt
 +++ b/templates/lib/CMakeLists.txt
-@@ -81,6 +81,7 @@ if (Qt5Script_FOUND)
+@@ -107,6 +107,7 @@ if (Qt5Script_FOUND)
  
    target_sources(Grantlee_Templates PRIVATE ${scriptabletags_SRCS})
    target_include_directories(Grantlee_Templates PRIVATE ../scriptabletags)
@@ -26,14 +26,13 @@ index 741fe65..20179fc 100644
      LINK_PRIVATE Qt5::Script
    )
 diff --git a/textdocument/lib/CMakeLists.txt b/textdocument/lib/CMakeLists.txt
-index 4c94203..e203539 100644
+index 557d262..d2dbaa1 100644
 --- a/textdocument/lib/CMakeLists.txt
 +++ b/textdocument/lib/CMakeLists.txt
-@@ -24,7 +24,7 @@ add_library(Grantlee_TextDocument SHARED
- generate_export_header(Grantlee_TextDocument)
- add_library(Grantlee::TextDocument ALIAS Grantlee_TextDocument)
- set_property(TARGET Grantlee_TextDocument PROPERTY EXPORT_NAME TextDocument)
--
+@@ -42,6 +42,7 @@ if (CMAKE_GENERATOR MATCHES "Visual Studio")
+       )
+   endforeach()
+ endif()
 +target_include_directories(Grantlee_TextDocument INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>")
  
  target_link_libraries(Grantlee_TextDocument

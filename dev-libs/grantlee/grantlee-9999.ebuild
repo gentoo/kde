@@ -4,6 +4,7 @@
 
 EAPI=6
 
+CMAKE_MIN_VERSION="3.1"
 VIRTUALX_REQUIRED="test"
 inherit cmake-utils virtualx git-r3
 
@@ -11,7 +12,7 @@ DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="https://github.com/steveire/grantlee"
 EGIT_REPO_URI=( "https://github.com/steveire/${PN}" )
 
-LICENSE="LGPL-2.1"
+LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS=""
 IUSE="debug doc test"
@@ -30,7 +31,7 @@ DOCS=( AUTHORS CHANGELOG README.md )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
-	"${FILESDIR}/${PN}-slot.patch"
+	"${FILESDIR}/${PN}-5.1.0-slot.patch"
 )
 
 src_configure() {
