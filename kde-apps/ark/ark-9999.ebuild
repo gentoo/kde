@@ -6,6 +6,7 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
@@ -31,6 +32,7 @@ RDEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
