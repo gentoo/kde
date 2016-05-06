@@ -5,7 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 inherit kde5
@@ -62,9 +62,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Prison=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5X11Extras=ON
 		$(cmake-utils_use_find_package google KF5GAPI)
 	)
 
