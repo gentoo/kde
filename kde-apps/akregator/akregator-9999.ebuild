@@ -6,7 +6,7 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_PIM_KONTACTPLUGIN="true"
-KDE_TEST="false"
+KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 inherit kde5
@@ -17,7 +17,7 @@ KEYWORDS=""
 
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -51,11 +51,8 @@ COMMON_DEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.12.2:5
+RDEPEND="${DEPEND}
+	!kde-apps/kdepim:5
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
