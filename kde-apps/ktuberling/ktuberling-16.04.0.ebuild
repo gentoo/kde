@@ -37,4 +37,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-15.12.3-deps.patch" )
+PATCHES=( "${FILESDIR}/${P}-deps.patch" )
