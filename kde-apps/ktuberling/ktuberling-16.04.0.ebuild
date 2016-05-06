@@ -4,8 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
@@ -37,3 +36,5 @@ DEPEND="
 	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-15.12.3-deps.patch" )
