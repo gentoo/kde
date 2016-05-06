@@ -53,15 +53,10 @@ COMMON_DEPEND="
 	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-	test? (
-		$(add_kdeapps_dep akonadi 'sqlite,tools')
-		$(add_qt_dep qtsql 'sqlite')
-	)
+	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.12.2:5
-	$(add_kdeapps_dep kdepim)
+	!kde-apps/kdepim:5
 	$(add_kdeapps_dep kdepim-runtime)
 "
 
