@@ -56,13 +56,12 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.12.50:5
+	!kde-apps/kdepim:5
 	!kde-apps/messageviewer:5
 	!<kde-apps/pimcommon-15.12.50:5
 	!kde-apps/kaddressbook:4
 	!kde-apps/kmail:4
 	!kde-apps/korganizer:4
-	$(add_kdeapps_dep kdepim)
 "
 
 src_prepare() {
