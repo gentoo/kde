@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_PUNT_BOGUS_DEPS="true"
+KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="false"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
