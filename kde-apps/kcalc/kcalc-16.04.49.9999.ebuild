@@ -34,5 +34,3 @@ DEPEND="${RDEPEND}
 	dev-libs/mpfr:0
 	sys-devel/gettext
 "
-
-PATCHES=( "${FILESDIR}/${PN}-15.12.3-fixsetsize.patch" )
