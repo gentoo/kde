@@ -592,16 +592,16 @@ kde5_src_prepare() {
 			fi
 		done
 		popd > /dev/null || die
-	fi
 
-	# disable build of kontactplugin in split kdepim packages
-	if ! use_if_iuse kontact ; then
-		for x in $(find ./ -name CMakeLists.txt -exec grep -l "add_subdirectory.*kontactplugin" "{}" ";"); do
-			einfo "Disabling kontactplugin in: ${x}"
-			pushd $(dirname "${x}") > /dev/null || die
-			cmake_comment_add_subdirectory kontactplugin
-			popd > /dev/null || die
-		done
+		# disable build of kontactplugin in split kdepim packages
+		if ! use_if_iuse kontact ; then
+			for x in $(find ./ -name CMakeLists.txt -exec grep -l "add_subdirectory.*kontactplugin" "{}" ";"); do
+				einfo "Disabling kontactplugin in: ${x}"
+				pushd $(dirname "${x}") > /dev/null || die
+				cmake_comment_add_subdirectory kontactplugin
+				popd > /dev/null || die
+			done
+		fi
 	fi
 }
 

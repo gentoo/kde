@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="true"
 KDE_PIM_KEEP_SUBDIR="noteshared"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 inherit kde5
@@ -29,8 +28,10 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kitemmodels)
+	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -38,7 +39,12 @@ DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
+	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kcalutils)
+	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep kontactinterface)
+	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -49,14 +55,6 @@ DEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 	x11-libs/libX11
-	kontact? (
-		$(add_frameworks_dep kitemviews)
-		$(add_frameworks_dep kparts)
-		$(add_kdeapps_dep kcalcore)
-		$(add_kdeapps_dep kcalutils)
-		$(add_kdeapps_dep kcontacts)
-		$(add_kdeapps_dep libkdepim)
-	)
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.12.2:5

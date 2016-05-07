@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
@@ -38,6 +37,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep messagelib)

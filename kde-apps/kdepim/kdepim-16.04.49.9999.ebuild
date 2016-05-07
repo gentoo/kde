@@ -10,7 +10,6 @@ FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
 KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard agents grantleeeditor importwizard korgac
 mboximporter pimsettingexporter plugins sieveeditor storageservicemanager"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -19,7 +18,7 @@ DESCRIPTION="Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
-IUSE="$(printf 'kdepim_features_%s ' ${PIM_FTS})"
+IUSE="+kontact $(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)

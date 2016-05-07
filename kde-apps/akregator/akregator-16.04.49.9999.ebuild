@@ -6,7 +6,6 @@ EAPI=6
 
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="false"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="false"
 KMNAME="kdepim"
 inherit kde5
@@ -38,6 +37,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep messagelib)

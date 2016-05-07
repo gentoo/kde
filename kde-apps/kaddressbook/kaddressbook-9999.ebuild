@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
@@ -41,6 +40,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)

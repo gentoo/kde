@@ -6,7 +6,6 @@ EAPI=6
 
 FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="false"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="true"
 KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
@@ -41,6 +40,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)

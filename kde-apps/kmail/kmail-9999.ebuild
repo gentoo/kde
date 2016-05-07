@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
