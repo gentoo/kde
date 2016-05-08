@@ -9,6 +9,7 @@ KDE_PIM_KONTACTPLUGIN="true"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE Notes application"
