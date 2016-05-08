@@ -10,7 +10,6 @@ KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="A tool to scan calendar data for buggy instances"
-HOMEPAGE="https://www.kde.org/"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""

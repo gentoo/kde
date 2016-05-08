@@ -15,7 +15,6 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Personal Information Management Suite"
-HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
 IUSE="+kontact $(printf 'kdepim_features_%s ' ${PIM_FTS})"
