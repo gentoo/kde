@@ -31,14 +31,8 @@ DEPEND="
 	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-15.12.1-r2:5
+	!kde-apps/kdepim:5
 "
-
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi
 
 src_prepare() {
 	# ktnef subproject does not contain doc nor searches for DocTools

@@ -46,9 +46,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.12.2:5
 "
-
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi

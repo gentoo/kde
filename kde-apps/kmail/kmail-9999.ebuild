@@ -80,12 +80,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi
-
 src_prepare() {
 	# kmail subproject does not contain doc
 	# at least until properly split upstream

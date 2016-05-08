@@ -31,12 +31,6 @@ RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.12.2:5
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}"
-fi
-
 PATCHES=( "${FILESDIR}/kdepim-console.patch" )
 
 src_prepare() {

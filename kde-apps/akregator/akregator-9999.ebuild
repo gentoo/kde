@@ -55,12 +55,6 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi
-
 src_prepare() {
 	# akregator subproject does not contain doc
 	# at least until properly split upstream

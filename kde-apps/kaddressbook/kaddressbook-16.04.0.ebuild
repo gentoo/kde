@@ -65,12 +65,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kdepim-runtime)
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}"
-fi
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5GAPI=ON

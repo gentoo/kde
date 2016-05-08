@@ -262,6 +262,19 @@ if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KDE_BUILD_TYPE} = release ]]; then
 	S=${WORKDIR}/${KMNAME}-${PV}
 fi
 
+if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KMNAME} = kdepim ]]; then
+	local subproj
+	if [[ ${PV} != 16.04* ]]; then
+		subproj="/${PN}"
+	fi
+	if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+		S="${WORKDIR}/${P}${subproj}"
+	else
+		S="${WORKDIR}/${KMNAME}-${PV}${subproj}"
+	fi
+	unset subproj
+fi
+
 _kde_is_unreleased() {
 	local pair
 	for pair in "${KDE_UNRELEASED[@]}" ; do

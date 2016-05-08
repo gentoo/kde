@@ -60,12 +60,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kdepim-runtime)
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package prison KF5Prison)
