@@ -14,6 +14,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="gles2 multimedia"
 
+# drop qtcore subslot operator when QT_MINIMAL >= 5.7.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
@@ -41,6 +42,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kscreenlocker)
+	$(add_qt_dep qtcore '' '' '5=')
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui 'gles2=,opengl(+)')
