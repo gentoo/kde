@@ -15,7 +15,7 @@ RDEPEND="
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtgui)
 	libav? ( media-video/libav:= )
-	!libav? ( media-video/ffmpeg:= )
+	!libav? ( media-video/ffmpeg:0= )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
