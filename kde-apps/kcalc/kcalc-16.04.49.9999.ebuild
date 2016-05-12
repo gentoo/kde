@@ -24,10 +24,10 @@ RDEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	dev-libs/gmp:0=
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/gmp:0=
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kinit)
