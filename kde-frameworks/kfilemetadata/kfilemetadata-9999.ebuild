@@ -19,7 +19,7 @@ DEPEND="
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? (
 		libav? ( media-video/libav:= )
-		!libav? ( media-video/ffmpeg:0= )
+		!libav? ( media-video/ffmpeg:= )
 	)
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
