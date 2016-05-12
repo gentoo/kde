@@ -39,9 +39,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	app-text/docbook-xml-dtd:4.2
-	!libressl? ( dev-libs/openssl:0 )
-	libressl? ( dev-libs/libressl )
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork 'ssl')
@@ -49,7 +46,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
+	app-text/docbook-xml-dtd:4.2
 	virtual/libintl
+	!libressl? ( dev-libs/openssl:0 )
+	libressl? ( dev-libs/libressl )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libICE
