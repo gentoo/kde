@@ -19,8 +19,3 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 "
 RDEPEND="${DEPEND}"
-
-src_test() {
-	# kmime-dateformattertest fails because of PM
-	LC_TIME=en_US kde5_src_test
-}
