@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit kde5
+inherit eutils kde5
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
@@ -36,4 +36,14 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version app-text/catdoc || ! has_version dev-libs/libxls; then
+		elog "To get additional features, optional runtime dependencies may be installed:"
+		optfeature "indexing of Microsoft Word or Powerpoint files" app-text/catdoc
+		optfeature "indexing of Microsoft Excel files" dev-libs/libxls
+	fi
 }
