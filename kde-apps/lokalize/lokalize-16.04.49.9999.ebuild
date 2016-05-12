@@ -5,7 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 ) # TODO: supports python-3
 inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Applications 5 translation tool"
