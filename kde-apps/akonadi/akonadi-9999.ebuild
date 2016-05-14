@@ -4,18 +4,19 @@
 
 EAPI=6
 
-KDE_DOXYGEN=true
-KDE_TEST=true
-VIRTUALDBUS_TEST=true
-VIRTUALX_REQUIRED=test
+KDE_DESIGNERPLUGIN="true"
+KDE_DOXYGEN="true"
+KDE_TEST="forceoptional"
 QT_MINIMAL="5.6.0"
+VIRTUALDBUS_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS=""
 LICENSE="LGPL-2.1"
-IUSE="designer +mysql postgres sqlite tools xml"
+IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( sqlite mysql postgres ) test? ( tools )"
 
@@ -25,7 +26,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdesignerplugin)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -41,7 +41,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
-	designer? ( $(add_qt_dep designer) )
 	sqlite? ( dev-db/sqlite:3 )
 	tools? ( xml? ( dev-libs/libxml2 ) )
 "
@@ -96,7 +95,6 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package designer Qt5Designer)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
