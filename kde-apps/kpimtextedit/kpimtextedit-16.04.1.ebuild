@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_DESIGNERPLUGIN="true"
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
