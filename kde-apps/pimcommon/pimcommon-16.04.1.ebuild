@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_DESIGNERPLUGIN="true"
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,7 +12,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE="designer"
+IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -54,16 +55,8 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt
-	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
 	!kde-apps/kdepim-common-libs:4
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package designer Qt5Designer)
-	)
-	kde5_src_configure
-}
