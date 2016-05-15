@@ -12,7 +12,7 @@ LICENSE="|| ( GPL-2 GPL-3 )"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -26,11 +26,13 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
-	!<kde-base/kactivities-4.13.3-r1:4[-minimal(-)]
+"
+DEPEND="${COMMON_DEPEND}
+	>=dev-libs/boost-1.54
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-base/kactivities-4.13.3-r2:4
 	!kde-base/kactivitymanagerd
 	!<kde-frameworks/kactivities-5.20.0
 	!<kde-plasma/plasma-desktop-5.6.1
-"
-DEPEND="${RDEPEND}
-	>=dev-libs/boost-1.54
 "
