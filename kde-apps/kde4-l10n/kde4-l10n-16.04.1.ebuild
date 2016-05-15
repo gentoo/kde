@@ -11,13 +11,14 @@ inherit kde4-base
 DESCRIPTION="KDE internationalization package"
 HOMEPAGE="http://l10n.kde.org"
 
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	!<kde-apps/kde-l10n-${PV}
+	!minimal? ( !kde-apps/kde-l10n )
+	minimal? ( >=kde-apps/kde-l10n-${PV} )
 "
 
 REMOVE_DIRS="${FILESDIR}/${PN}-16.03.91-remove-dirs"
@@ -33,7 +34,7 @@ MY_LANGS="ar ast bg bs ca ca@valencia cs da de el en_GB eo es et eu fa fi fr ga
 gl he hi hr hu ia id is it ja kk km ko lt lv mr nb nds nl nn pa pl pt pt_BR ro
 ru sk sl sr sv tr ug uk wa zh_CN zh_TW"
 
-IUSE="minimal test $(printf 'linguas_%s ' ${MY_LANGS})"
+IUSE="+minimal test $(printf 'linguas_%s ' ${MY_LANGS})"
 
 URI_BASE="${SRC_URI/-${PV}.tar.xz/}"
 LURI_BASE="mirror://kde/stable/${LV}/src/${KMNAME}"
