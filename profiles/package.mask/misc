@@ -2,3 +2,6 @@
 =kde-misc/akonadi-ews-0.8.0
 =kde-misc/zanshin-0.4*
 =net-libs/libkgapi-5.1.0
+
+# Depends on KDE PIM, which is currently masked
+kde-misc/akonadi-ews
