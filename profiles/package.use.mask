@@ -6,7 +6,6 @@
 # Unreleased dependencies
 <kde-apps/akonadi-contact-16.04.49:5 prison
 <kde-apps/kaddressbookgrantlee-16.04.49:5 prison
-<kde-apps/kde-apps-meta-16.04.49:5 pim
 <kde-apps/kdepim-16.04.49:5 prison
 <kde-apps/kdepimlibs-16.04.49:5 prison
 kde-apps/ktp-text-ui speech
