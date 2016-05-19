@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.20.0"
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 

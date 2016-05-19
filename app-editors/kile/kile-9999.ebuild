@@ -5,7 +5,6 @@
 EAPI=6
 
 CMAKE_MIN_VERSION="3.0.2"
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="forceoptional"
 MY_P=${P/_beta/b}
 inherit kde5

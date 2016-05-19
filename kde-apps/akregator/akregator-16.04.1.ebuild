@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="false"
 KDE_TEST="false"
 KMNAME="kdepim"
