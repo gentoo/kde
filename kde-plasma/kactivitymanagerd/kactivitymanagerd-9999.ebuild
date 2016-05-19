@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.20.0"
 inherit kde5
 
 DESCRIPTION="System service to manage user's activities, track the usage patterns etc."

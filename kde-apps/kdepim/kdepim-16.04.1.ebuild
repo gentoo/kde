@@ -6,7 +6,6 @@ EAPI=6
 
 PIM_FTS="kalarm kmail korganizer"
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_HANDBOOK="true"
 KDE_PIM_KEEP_SUBDIR="${PIM_FTS} accountwizard agents grantleeeditor importwizard korgac
 mboximporter pimsettingexporter plugins sieveeditor storageservicemanager"

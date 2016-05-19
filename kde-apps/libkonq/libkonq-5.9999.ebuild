@@ -5,7 +5,6 @@
 EAPI=6
 
 EGIT_BRANCH="frameworks"
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_DOXYGEN="true"
 KDE_TEST="true"
 KMNAME="kde-baseapps"

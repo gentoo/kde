@@ -4,7 +4,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.19.0"
 KDE_TEST="forceoptional"
 KMNAME="kdepimlibs"
 inherit kde5
