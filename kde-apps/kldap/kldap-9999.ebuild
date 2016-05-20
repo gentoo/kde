@@ -30,9 +30,19 @@ RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-kioslaves-16.04.50
 "
 
+src_prepare() {
+	kde5_src_prepare
+
+	if ! use_if_iuse handbook ; then
+		sed -e "/add_subdirectory(docs)/I s/^/#DONOTCOMPILE /" \
+			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(docs)"
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package ssl Sasl2)
 	)
+
 	kde5_src_configure
 }
