@@ -111,6 +111,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kabcclient:4
+	!kde-apps/kaddressbook:4
 	!kde-apps/kalarm:4
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-runtime:4
