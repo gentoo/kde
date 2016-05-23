@@ -15,7 +15,7 @@ infrastructure at:
 If you have questions, you can find us on IRC in #gentoo-kde on Freenode or at
 [kde@gentoo.org](mailto:kde@gentoo.org).
 
-Bugs should be reported on https://bugs.gentoo.org. Be sure to include
+Bugs should be reported at https://bugs.gentoo.org. Be sure to include
 "[kde overlay]" in the summary of your bug report.
 
 Users wanting to contribute should first read the
