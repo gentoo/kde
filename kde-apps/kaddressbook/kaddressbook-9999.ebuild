@@ -49,7 +49,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
-	dev-libs/libxslt
 	prison? ( media-libs/prison:5 )
 "
 DEPEND="${COMMON_DEPEND}
