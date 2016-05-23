@@ -24,6 +24,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep libktnef)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
