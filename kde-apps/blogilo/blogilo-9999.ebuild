@@ -37,11 +37,10 @@ DEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
-	dev-libs/libxslt
 	google? ( net-libs/libkgapi:5 )
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-15.12.2:5
+	!kde-apps/kdepim:5
 	!<kde-apps/kdepim-apps-libs-16.04.50
 "
 
