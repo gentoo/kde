@@ -41,8 +41,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
-	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-15.12.2:5
+	!kde-apps/kdepim:5
 "
