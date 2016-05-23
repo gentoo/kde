@@ -24,10 +24,9 @@ DEPEND="
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep kcalcore)
 	$(add_qt_dep qtwidgets)
-	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-15.12.2:5
+	!kde-apps/kdepim:5
 "
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
