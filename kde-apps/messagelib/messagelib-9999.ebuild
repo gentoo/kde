@@ -22,6 +22,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -36,7 +37,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep gpgmepp)
@@ -54,19 +54,19 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebengine 'widgets')
+	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
-	dev-libs/grantlee:5
+	>=dev-libs/grantlee-5.1.0:5
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
+	test? ( $(add_kdeapps_dep akonadi-contact) )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
+	!kde-apps/kdepim:5
 	!<kde-apps/kdepim-addons-16.04.50:5
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kmail:4
