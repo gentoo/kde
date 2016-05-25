@@ -129,6 +129,8 @@ REQUIRED_USE="
 	kdepim_features_kalarm? ( kdepim_features_kmail )
 "
 
+RESTRICT="test"
+
 src_prepare() {
 	if use kontact ; then
 		KDE_PIM_KEEP_SUBDIR="${KDE_PIM_KEEP_SUBDIR} kontact"
