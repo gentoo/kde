@@ -26,7 +26,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdesignerplugin)
-	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -62,7 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-15.12-mysql56-crash.patch" )
+PATCHES=( "${FILESDIR}/${PN}-16.07.80-mysql56-crash.patch" )
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
@@ -98,7 +97,6 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package designer Qt5Designer)
-		$(cmake-utils_use_find_package xml LibXml2)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON

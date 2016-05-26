@@ -97,7 +97,6 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package designer Qt5Designer)
-		$(cmake-utils_use_find_package xml LibXml2)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
