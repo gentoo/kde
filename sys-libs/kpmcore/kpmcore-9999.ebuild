@@ -20,6 +20,7 @@ CDEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/libatasmart
