@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Text-based subtitles editor"
 HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
-EGIT_REPO_URI="git://github.com/maxrd2/${PN}"
+EGIT_REPO_URI="https://github.com/maxrd2/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""

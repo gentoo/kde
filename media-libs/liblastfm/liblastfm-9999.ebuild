@@ -8,7 +8,7 @@ inherit cmake-utils multibuild git-r3
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="https://github.com/lastfm/liblastfm"
-EGIT_REPO_URI=( "git://github.com/lastfm/${PN}" )
+EGIT_REPO_URI=( "https://github.com/lastfm/${PN}" )
 
 LICENSE="GPL-3"
 KEYWORDS=""
