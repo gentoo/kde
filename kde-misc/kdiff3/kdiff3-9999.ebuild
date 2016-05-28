@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Frontend to diff3 based on Qt/KF5"
 HOMEPAGE="http://kdiff3.sourceforge.net/"
-EGIT_REPO_URI="git://anongit.kde.org/scratch/thomasfischer/${PN}"
+EGIT_REPO_URI="https://anongit.kde.org/scratch/thomasfischer/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
