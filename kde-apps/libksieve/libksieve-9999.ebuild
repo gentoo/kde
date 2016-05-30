@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
@@ -14,7 +15,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="ssl"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -32,14 +33,20 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	ssl? ( dev-libs/cyrus-sasl )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
-	!<kde-apps/kdepim-kioslaves-16.04.50
+RDEPEND="${DEPEND}
+	!kde-apps/kdepim:5
+	!kde-apps/kdepim-kioslaves
 	!kde-apps/kmail:4
 "
+
+src_prepare() {
+	kde5_src_prepare
+
+	if ! use_if_iuse handbook ; then
+		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
+			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
