@@ -17,7 +17,7 @@ IUSE="prison"
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -41,14 +41,11 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
-	dev-libs/grantlee:5
+	>=dev-libs/grantlee-5.1.0:5
 	prison? ( media-libs/prison:5 )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.12.50
+RDEPEND="${DEPEND}
+	!kde-apps/kdepim
 	!kde-apps/kdepimlibs:4
 	!kde-apps/kdepimlibs:5
 "
