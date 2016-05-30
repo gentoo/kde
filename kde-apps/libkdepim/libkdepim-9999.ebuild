@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -18,10 +18,16 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwallet)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-search)
@@ -34,11 +40,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
 	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
+	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
 
