@@ -14,25 +14,20 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-contact)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
+RDEPEND="${DEPEND}
+	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
