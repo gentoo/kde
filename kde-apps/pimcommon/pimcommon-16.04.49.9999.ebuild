@@ -51,10 +51,9 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
-	dev-libs/libxslt
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
+	dev-libs/libxslt
 	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
