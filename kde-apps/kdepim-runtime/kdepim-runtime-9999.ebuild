@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 QT_MINIMAL="5.6.0"
 VIRTUALX_REQUIRED="test"
@@ -65,12 +66,11 @@ DEPEND="${CDEPEND}
 	dev-libs/cyrus-sasl:2
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	sys-devel/gettext
 	x11-misc/shared-mime-info
 	google? ( >=net-libs/libkgapi-5.1.0:5 )
 "
 RDEPEND="${CDEPEND}
-	!<kde-apps/kdepim-kioslaves-16.04.50
+	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepim-runtime:4
 	$(add_frameworks_dep oxygen-icons)
 "
