@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
 	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${COMMON_DEPEND}
