@@ -27,7 +27,7 @@ DEPEND="
 	ssl? ( dev-libs/cyrus-sasl )
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-kioslaves-16.04.50
+	!kde-apps/kdepim-kioslaves
 "
 
 src_prepare() {
@@ -35,7 +35,7 @@ src_prepare() {
 
 	if ! use_if_iuse handbook ; then
 		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
-			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(docs)"
+			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
 	fi
 }
 
