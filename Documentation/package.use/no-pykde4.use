@@ -4,6 +4,5 @@
 kde-apps/kdegames-meta -python
 kde-apps/kdeutils-meta -cups
 kde-apps/marble -python
-kde-apps/superkaramba -python
 kde-base/plasma-workspace -python
 
