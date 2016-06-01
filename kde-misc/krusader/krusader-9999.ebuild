@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager with many extras"
-HOMEPAGE="http://www.krusader.org/"
+HOMEPAGE="https://quickgit.kde.org/?p=krusader.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
