@@ -16,6 +16,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug farstream +qt4 qt5 test"
 
+REQUIRED_USE="|| ( qt4 qt5 )"
+
 RDEPEND="
 	farstream? (
 		>=net-libs/telepathy-farstream-0.2.2
@@ -39,7 +41,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	test? (
 		dev-libs/dbus-glib
-		dev-libs/glib
+		dev-libs/glib:2
 		dev-python/dbus-python
 		qt4? ( dev-qt/qttest:4 )
 		qt5? ( dev-qt/qttest:5 )
