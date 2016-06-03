@@ -4,7 +4,6 @@
 
 EAPI=6
 
-# TODO: desktop file has warnings
 inherit kde5
 
 DESCRIPTION="Media player with digital TV support by KDE"
@@ -39,6 +38,8 @@ RDEPEND="${DEPEND}
 "
 
 DOCS=( Changelog NOTES README )
+
+PATCHES=( "${FILESDIR}/${PN}-2.0.1-desktop-file.patch" )
 
 src_configure() {
 	# tools working on $HOME directory for a local git checkout

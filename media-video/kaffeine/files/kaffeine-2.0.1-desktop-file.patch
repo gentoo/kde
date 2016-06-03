@@ -1,0 +1,25 @@
+From 534d90f280b7aea3fa3006d858729cc2d606cee6 Mon Sep 17 00:00:00 2001
+From: Johannes Huber <johu@gentoo.org>
+Date: Fri, 3 Jun 2016 13:59:11 +0200
+Subject: [PATCH] Fix desktop file
+
+---
+ src/kaffeine.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/kaffeine.desktop b/src/kaffeine.desktop
+index dee82c4..0095a07 100644
+--- a/src/kaffeine.desktop
++++ b/src/kaffeine.desktop
+@@ -127,7 +127,7 @@ GenericName[zh_CN]=媒体播放器
+ GenericName[zh_TW]=媒體播放器
+ Categories=Qt;KDE;AudioVideo;Player;
+ Icon=kaffeine
+-MimeType=application/ogg;application/ram;application/vnd.rn-realmedia;application/x-matroska;application/x-ogg;application/x-quicktime-media-link;application/x-shockwave-flash;application/x-shorten;application/xspf+xml;audio/ac3;audio/amr;audio/amr-wb;audio/basic;audio/flac;audio/mp4;audio/mpeg;audio/ogg;audio/vnd.rn-realaudio;audio/webm;audio/x-aiff;audio/x-flac;audio/x-it;audio/x-m4a;audio/x-m4b;audio/x-matroska;audio/x-mod;audio/x-mp3;audio/x-mpeg;audio/x-mpegurl;audio/x-ms-asx;audio/x-ms-wma;audio/x-musepack;audio/x-pn-realaudio;audio/x-pn-realaudio-plugin;audio/x-s3m;audio/x-scpls;audio/x-stm;audio/x-tta;audio/x-voc;audio/x-vorbis+ogg;audio/x-wav;audio/x-wavpack;audio/x-xm;image/vnd.rn-realpix;skip;video/dv;video/mp2t;video/mp4;video/mp4v-es;video/mpeg;video/msvideo;video/ogg;video/quicktime;video/vnd.rn-realvideo;video/webm;video/x-anim;video/x-avi;video/x-fli;video/x-flic;video/x-flv;video/x-matroska;video/x-mng;video/x-mpeg;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;video/x-nsv;video/x-ogm+ogg;x-content/audio-cdda;x-content/audio-player;x-content/video-dvd;x-content/video-svcd;x-content/video-vcd;
++MimeType=application/ogg;application/ram;application/vnd.rn-realmedia;application/x-matroska;application/x-ogg;application/x-quicktime-media-link;application/x-shockwave-flash;application/x-shorten;application/xspf+xml;audio/ac3;audio/amr;audio/amr-wb;audio/basic;audio/flac;audio/mp4;audio/mpeg;audio/ogg;audio/vnd.rn-realaudio;audio/webm;audio/x-aiff;audio/x-flac;audio/x-it;audio/x-m4a;audio/x-m4b;audio/x-matroska;audio/x-mod;audio/x-mp3;audio/x-mpeg;audio/x-mpegurl;audio/x-ms-asx;audio/x-ms-wma;audio/x-musepack;audio/x-pn-realaudio;audio/x-pn-realaudio-plugin;audio/x-s3m;audio/x-scpls;audio/x-stm;audio/x-tta;audio/x-voc;audio/x-vorbis+ogg;audio/x-wav;audio/x-wavpack;audio/x-xm;image/vnd.rn-realpix;x-scheme-handler/skip;video/dv;video/mp2t;video/mp4;video/mp4v-es;video/mpeg;video/msvideo;video/ogg;video/quicktime;video/vnd.rn-realvideo;video/webm;video/x-anim;video/x-avi;video/x-fli;video/x-flic;video/x-flv;video/x-matroska;video/x-mng;video/x-mpeg;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;video/x-nsv;video/x-ogm+ogg;x-content/audio-cdda;x-content/audio-player;x-content/video-dvd;x-content/video-svcd;x-content/video-vcd;
+ Terminal=false
+ Type=Application
+ X-KDE-HasTempFileOption=true
+-- 
+2.8.3
+
