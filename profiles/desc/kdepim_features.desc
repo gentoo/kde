@@ -10,3 +10,4 @@ kaddressbook - KDEPIM_FEATURES option to build address book
 kalarm - KDEPIM_FEATURES option to build personal alarm message, command and email scheduler
 kmail - KDEPIM_FEATURES option to build email component
 korganizer - KDEPIM_FEATURES option to build personal organizer
+plugins - KDEPIM_FEATURES option to build several plugins
