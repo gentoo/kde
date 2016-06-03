@@ -8,7 +8,7 @@ EGIT_BRANCH="0.12"
 inherit kde5
 
 DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
-HOMEPAGE="https://projects.kde.org/projects/extragear/multimedia/kmplayer"
+HOMEPAGE="https://kmplayer.kde.org"
 LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
 KEYWORDS=""
 IUSE="cairo npp"
