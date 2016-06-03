@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="gpg"
 inherit kde4-base
 
-DESCRIPTION="KDE gpg keyring manager"
+DESCRIPTION="Frontend for GnuPG, a powerful encryption utility by KDE"
 HOMEPAGE="https://www.kde.org/applications/utilities/kgpg
 https://utils.kde.org/projects/kgpg"
 KEYWORDS=""
