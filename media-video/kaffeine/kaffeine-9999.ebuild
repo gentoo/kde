@@ -39,3 +39,12 @@ RDEPEND="${DEPEND}
 "
 
 DOCS=( Changelog NOTES README )
+
+src_configure() {
+	# tools working on $HOME directory for a local git checkout
+	local mycmakeargs=(
+		-DBUILD_TOOLS=OFF
+	)
+
+	kde5_src_configure
+}
