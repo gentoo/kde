@@ -34,6 +34,7 @@ CDEPEND="
 	x11-libs/libXScrnSaver
 "
 DEPEND="${CDEPEND}
+	sys-devel/gettext
 	virtual/pkgconfig
 "
 RDEPEND="${CDEPEND}
