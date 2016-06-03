@@ -14,7 +14,7 @@ DESCRIPTION="Plugins for KDE Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 KEYWORDS=""
 
-PIM_FTS="akregator kaddressbook kmail korganizer"
+PIM_FTS="akregator kaddressbook kmail korganizer plugins"
 IUSE="google $(printf 'kdepim_features_%s ' ${PIM_FTS})"
 
 COMMON_DEPEND="
