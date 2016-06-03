@@ -34,7 +34,7 @@ src_prepare() {
 	kde5_src_prepare
 
 	if ! use_if_iuse handbook ; then
-		sed -e "/add_subdirectory(docs)/I s/^/#DONOTCOMPILE /" \
+		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
 			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(docs)"
 	fi
 }
