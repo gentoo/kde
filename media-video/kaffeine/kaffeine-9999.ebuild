@@ -19,6 +19,7 @@ CDEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
@@ -43,7 +44,9 @@ RDEPEND="${CDEPEND}
 
 DOCS=( Changelog NOTES README )
 
-PATCHES=( "${FILESDIR}/${PN}-2.0.1-desktop-file.patch" )
+if [[ ${KDE_BUILD_TYPE} != live ]] ; then
+	S="${WORKDIR}"
+fi
 
 src_configure() {
 	# tools working on $HOME directory for a local git checkout
