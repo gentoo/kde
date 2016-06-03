@@ -13,7 +13,7 @@ LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
 KEYWORDS=""
 IUSE="cairo npp"
 
-DEPEND="
+CDEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -44,7 +44,10 @@ DEPEND="
 		>=x11-libs/gtk+-2.10.14:2
 	)
 "
-RDEPEND="${DEPEND}
+DEPEND="${CDEPEND}
+	sys-devel/gettext
+"
+RDEPEND="${CDEPEND}
 	media-video/mplayer
 	!media-video/kmplayer:4
 "
