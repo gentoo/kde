@@ -12,7 +12,7 @@ LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+CDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -33,7 +33,10 @@ DEPEND="
 	media-video/vlc[X]
 	x11-libs/libXScrnSaver
 "
-RDEPEND="${DEPEND}
+DEPEND="${CDEPEND}
+	virtual/pkgconfig
+"
+RDEPEND="${CDEPEND}
 	!media-video/kaffeine:4
 "
 
