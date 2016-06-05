@@ -19,6 +19,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -26,29 +27,26 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtopengl)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
-	dev-cpp/eigen:3
-	dev-lang/perl
 	dev-libs/boost
 	media-gfx/exiv2:=
 	media-libs/lcms
+	net-misc/curl
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libxcb
+	x11-libs/libXi
 	color-management? ( media-libs/opencolorio )
 	fftw? ( sci-libs/fftw:3.0 )
 	gsl? ( sci-libs/gsl )
@@ -59,9 +57,11 @@ COMMON_DEPEND="
 	png? ( media-libs/libpng:= )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
-	vc? ( dev-libs/vc )
+	vc? ( <dev-libs/vc-0.7.5 )
 "
 DEPEND="${COMMON_DEPEND}
+	dev-cpp/eigen:3
+	dev-lang/perl
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
