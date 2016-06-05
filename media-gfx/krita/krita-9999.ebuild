@@ -57,7 +57,10 @@ COMMON_DEPEND="
 	pdf? ( app-text/poppler[qt5] )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
-	vc? ( <dev-libs/vc-0.7.5 )
+	vc? (
+		>=dev-libs/vc-0.7.4
+		<dev-libs/vc-0.7.5
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
