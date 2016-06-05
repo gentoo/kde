@@ -70,11 +70,11 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_OCIO=$(usex color-management)
 		-DWITH_FFTW3=$(usex fftw)
 		-DWITH_GSL=$(usex gsl)
 		-DWITH_JPEG=$(usex jpeg)
 		-DWITH_LibRaw=$(usex raw)
+		-DWITH_OCIO=$(usex color-management)
 		-DWITH_OpenJPEG=$(usex jpeg2k)
 		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
