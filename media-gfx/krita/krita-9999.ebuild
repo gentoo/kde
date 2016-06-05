@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
