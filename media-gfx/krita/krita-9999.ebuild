@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
-	dev-libs/boost
+	dev-libs/boost:=
 	media-gfx/exiv2:=
 	media-libs/lcms
 	media-libs/libpng:=
@@ -49,12 +49,12 @@ COMMON_DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXi
 	color-management? ( media-libs/opencolorio )
-	fftw? ( sci-libs/fftw:3.0 )
-	gsl? ( sci-libs/gsl )
+	fftw? ( sci-libs/fftw:3.0= )
+	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
-	jpeg2k? ( media-libs/openjpeg:0 )
+	jpeg2k? ( media-libs/openjpeg:0= )
 	openexr? (
-		media-libs/ilmbase
+		media-libs/ilmbase:=
 		media-libs/openexr
 	)
 	pdf? ( app-text/poppler[qt5] )
