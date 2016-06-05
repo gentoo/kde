@@ -53,7 +53,10 @@ COMMON_DEPEND="
 	gsl? ( sci-libs/gsl )
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
-	openexr? ( media-libs/openexr )
+	openexr? (
+		media-libs/ilmbase
+		media-libs/openexr
+	)
 	pdf? ( app-text/poppler[qt5] )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
