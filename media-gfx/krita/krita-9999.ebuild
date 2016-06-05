@@ -70,7 +70,6 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSEOPENGL=ON
 		-DWITH_OCIO=$(usex color-management)
 		-DWITH_FFTW3=$(usex fftw)
 		-DWITH_GSL=$(usex gsl)
