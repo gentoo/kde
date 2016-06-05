@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 KEYWORDS=""
-IUSE="color-management fftw +gsl +jpeg jpeg2k openexr pdf png +raw tiff vc"
+IUSE="color-management fftw +gsl +jpeg jpeg2k openexr pdf +raw tiff vc"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	dev-libs/boost
 	media-gfx/exiv2:=
 	media-libs/lcms
+	media-libs/libpng:=
 	net-misc/curl
 	sys-libs/zlib
 	virtual/opengl
@@ -54,7 +55,6 @@ COMMON_DEPEND="
 	jpeg2k? ( media-libs/openjpeg:0 )
 	openexr? ( media-libs/openexr )
 	pdf? ( app-text/poppler[qt5] )
-	png? ( media-libs/libpng:= )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
 	vc? ( <dev-libs/vc-0.7.5 )
@@ -79,7 +79,6 @@ src_configure() {
 		-DWITH_OpenJPEG=$(usex jpeg2k)
 		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
-		-DWITH_PNG=$(usex png)
 		-DWITH_TIFF=$(usex tiff)
 		-DWITH_Vc=$(usex vc)
 	)
