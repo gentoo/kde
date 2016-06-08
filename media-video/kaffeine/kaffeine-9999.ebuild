@@ -44,9 +44,7 @@ RDEPEND="${CDEPEND}
 
 DOCS=( Changelog NOTES README )
 
-if [[ ${KDE_BUILD_TYPE} != live ]] ; then
-	S="${WORKDIR}"
-fi
+PATCHES=( "${FILESDIR}/${PN}-2.0.2-bogus-dependency.patch" )
 
 src_configure() {
 	# tools working on $HOME directory for a local git checkout
