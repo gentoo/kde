@@ -20,3 +20,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
+
+# requires running environment
+RESTRICT="test"
