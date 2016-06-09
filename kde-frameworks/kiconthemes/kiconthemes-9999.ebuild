@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
