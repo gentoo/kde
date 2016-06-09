@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.23.0"
 inherit kde5
 
 DESCRIPTION="Provides integration plugins for various KDE frameworks for Wayland"
