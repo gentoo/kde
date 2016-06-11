@@ -57,7 +57,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep kwin)
-	$(add_plasma_dep libkscreen)
 	$(add_plasma_dep libksysguard)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
@@ -121,6 +120,7 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
 	"${FILESDIR}/${PN}-5.6.0-rpath.patch"
+	"${FILESDIR}/${PN}-5.6.5-drop-kscreen-dep.patch"
 )
 
 RESTRICT="test"
