@@ -57,7 +57,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep kwin)
-	$(add_plasma_dep libkscreen)
 	$(add_plasma_dep libksysguard)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
