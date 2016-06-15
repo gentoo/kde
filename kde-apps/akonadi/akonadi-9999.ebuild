@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_DESIGNERPLUGIN="true"
-KDE_DOXYGEN="true"
 KDE_TEST="forceoptional"
 QT_MINIMAL="5.6.0"
 VIRTUALDBUS_TEST="true"

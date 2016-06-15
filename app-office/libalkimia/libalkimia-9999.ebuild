@@ -4,8 +4,6 @@
 
 EAPI=6
 
-KDE_DOX_DIR="libalkimia"
-KDE_DOXYGEN="true"
 KMNAME="alkimia"
 inherit kde5
 

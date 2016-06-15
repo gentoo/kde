@@ -5,7 +5,6 @@
 EAPI=6
 
 CHECKREQS_DISK_BUILD="4G"
-KDE_DOXYGEN="true"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 inherit check-reqs kde5 versionator

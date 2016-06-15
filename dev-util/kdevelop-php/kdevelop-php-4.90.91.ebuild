@@ -5,7 +5,6 @@
 EAPI=6
 
 KDEBASE="kdevelop"
-KDE_DOXYGEN="true"
 KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5

@@ -10,7 +10,6 @@ EAPI=6
 # VIRTUALX_REQUIRED="test"
 EGIT_BRANCH="5.0"
 RESTRICT="test"
-KDE_DOXYGEN="true"
 KDEBASE="kdevelop"
 inherit kde5
 

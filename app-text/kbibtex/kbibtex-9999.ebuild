@@ -4,7 +4,6 @@
 
 EAPI=6
 
-KDE_DOXYGEN="true"
 KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="optional"
 inherit kde5

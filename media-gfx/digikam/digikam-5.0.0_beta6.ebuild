@@ -5,7 +5,6 @@
 EAPI=6
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KDE_DOXYGEN=true
 	KDE_TEST=true
 fi
 inherit kde5

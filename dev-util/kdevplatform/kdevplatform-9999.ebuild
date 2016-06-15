@@ -9,7 +9,6 @@ EAPI=6
 # VIRTUALDBUS_TEST="true"
 # VIRTUALX_REQUIRED="test"
 RESTRICT="test"
-KDE_DOXYGEN="true"
 KDEBASE="kdevelop"
 inherit kde5
 

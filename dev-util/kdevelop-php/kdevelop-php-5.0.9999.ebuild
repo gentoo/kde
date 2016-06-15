@@ -6,7 +6,6 @@ EAPI=6
 
 EGIT_BRANCH="5.0"
 KDEBASE="kdevelop"
-KDE_DOXYGEN="true"
 KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5
