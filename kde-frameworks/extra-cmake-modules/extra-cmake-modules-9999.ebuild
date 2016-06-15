@@ -50,3 +50,11 @@ src_configure() {
 
 	cmake-utils_src_configure
 }
+
+src_test() {
+	local myctestargs=(
+		-E KDEInstallDirsTest.relative_or_absolute_usr
+	)
+
+	kde5_src_test
+}
