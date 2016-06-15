@@ -131,13 +131,3 @@ src_configure() {
 
 	kde5_src_configure
 }
-
-src_install() {
-	kde5_src_install
-
-	if use doc; then
-		# install the api documentation
-		insinto /usr/share/doc/${PF}/
-		doins -r "${S}"/apidocs/html
-	fi
-}
