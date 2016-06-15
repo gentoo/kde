@@ -59,7 +59,7 @@ RDEPEND="${COMMON_DEPEND}
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/${PN}-15.12-mysql56-crash.patch" )
+PATCHES=( "${FILESDIR}/${PN}-16.07.80-mysql56-crash.patch" )
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, SQLite PostgreSQL
