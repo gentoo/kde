@@ -125,6 +125,8 @@ PATCHES=(
 
 RESTRICT="test"
 
+S=${WORKDIR}/${PN}-5.6.5
+
 src_prepare() {
 	kde5_src_prepare
 
