@@ -28,6 +28,7 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/dbus
 	policykit? ( sys-auth/polkit )
+	!sys-auth/systemd
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/gperf
