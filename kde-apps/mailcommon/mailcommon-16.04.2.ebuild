@@ -6,10 +6,11 @@ EAPI=6
 
 KDE_DESIGNERPLUGIN="true"
 KDE_TEST="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Common mail library"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
