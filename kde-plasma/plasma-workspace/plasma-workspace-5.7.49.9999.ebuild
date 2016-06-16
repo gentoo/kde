@@ -13,6 +13,7 @@ DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
 IUSE="+geolocation gps prison qalculate"
 
+# drop kde-frameworks/plasma subslot operator when FRAMEWORKS_MINIMAL >= 5.24.0
 COMMON_DEPEND="
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
@@ -52,7 +53,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep kxmlrpcclient)
-	$(add_frameworks_dep plasma)
+	$(add_frameworks_dep plasma '' '' '5=')
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kscreenlocker)
 	$(add_plasma_dep kwin)
