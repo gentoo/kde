@@ -13,7 +13,7 @@ inherit kde5
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://pim.kde.org/akonadi"
 KEYWORDS=""
-LICENSE="LGPL-2.1"
+LICENSE="LGPL-2.1+"
 IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( sqlite mysql postgres ) test? ( tools )"
