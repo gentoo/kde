@@ -11,7 +11,7 @@ inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="dbus +geolocation gps prison qalculate"
+IUSE="+geolocation gps prison qalculate"
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.6.0
 COMMON_DEPEND="
@@ -68,6 +68,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
+	dev-libs/libdbusmenu-qt[qt5]
 	media-libs/phonon[qt5]
 	sys-libs/zlib
 	x11-libs/libICE
@@ -79,7 +80,6 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
-	dbus? ( dev-libs/libdbusmenu-qt[qt5] )
 	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
@@ -136,7 +136,6 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package dbus dbusmenu-qt5)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison KF5Prison)
