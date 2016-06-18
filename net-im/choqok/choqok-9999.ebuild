@@ -32,7 +32,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
