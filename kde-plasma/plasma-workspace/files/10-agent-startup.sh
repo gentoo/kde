@@ -26,7 +26,11 @@ if [ "${GPG_AGENT}" = true ]; then
 	if [ -x /usr/bin/gpgconf ]; then
 		gpgconf --launch gpg-agent >/dev/null 2>&1
 		if [ $? = 2 ]; then
+<<<<<<< Updated upstream
 			eval "$(/usr/bin/gpg-agent --enable-ssh-support --daemon)"
+=======
+			eval "$(/usr/bin/gpg-agent --daemon)"
+>>>>>>> Stashed changes
 		fi
 	fi
 fi
