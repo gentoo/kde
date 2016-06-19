@@ -11,7 +11,7 @@ DESCRIPTION="A utility that provides information about a computer system"
 HOMEPAGE="https://www.kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
 KEYWORDS="~amd64 ~x86"
-IUSE="egl gles2 ieee1394 +opengl +pci samba nfs wayland"
+IUSE="egl gles2 ieee1394 nfs +opengl +pci samba wayland"
 
 REQUIRED_USE="egl? ( || ( gles2 opengl ) )"
 
