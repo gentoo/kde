@@ -12,6 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="libressl X"
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.6.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcodecs)
@@ -40,7 +41,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork 'ssl')
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsvg)
