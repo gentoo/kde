@@ -12,6 +12,7 @@ KEYWORDS=""
 LICENSE="LGPL-2+"
 IUSE="attica"
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.6.0
 RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -24,7 +25,7 @@ RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork 'ssl')
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
