@@ -16,3 +16,12 @@ RDEPEND="sys-boot/plymouth"
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DDISTRO_NAME="Gentoo Linux"
+		-DDISTRO_VERSION=
+	)
+
+	kde5_src_configure
+}
