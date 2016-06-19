@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_GCC_MINIMAL="4.8"
 KDE_HANDBOOK="optional"
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
