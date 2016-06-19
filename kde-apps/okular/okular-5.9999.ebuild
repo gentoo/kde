@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="Universal document viewer based on KPDF"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt djvu ebook +jpeg +pdf +postscript +tiff"
+IUSE="chm crypt djvu ebook +jpeg mobi +pdf +postscript +tiff"
 # TODO:
 # * Deactivated media-libs/qimageblitz as there is no Qt5 version yet
 # * Deactivated kde-apps/kdegraphics-mobipocket, no Qt5 version yet
@@ -50,6 +50,7 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep libkexiv2)
 		virtual/jpeg:0
 	)
+	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
 	tiff? ( media-libs/tiff:0 )
@@ -76,6 +77,7 @@ src_configure() {
 		$(cmake-utils_use_find_package djvu DjVuLibre)
 		$(cmake-utils_use_find_package ebook EPub)
 		$(cmake-utils_use_find_package jpeg KF5KExiv2)
+		$(cmake-utils_use_find_package mobi QMobipocket)
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package postscript LibSpectre)
 		$(cmake-utils_use_find_package tiff TIFF)
