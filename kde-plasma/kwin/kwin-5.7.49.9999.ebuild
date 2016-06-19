@@ -40,6 +40,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem X)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma)
+	$(add_plasma_dep breeze)
 	$(add_plasma_dep kdecoration)
 	$(add_plasma_dep kscreenlocker)
 	$(add_qt_dep qtcore '' '' '5=')
