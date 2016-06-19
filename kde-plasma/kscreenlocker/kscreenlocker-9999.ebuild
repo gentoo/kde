@@ -24,6 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kpackage)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
