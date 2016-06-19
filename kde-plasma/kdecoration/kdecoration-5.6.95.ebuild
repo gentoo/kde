@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_GCC_MINIMAL="4.8"
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
