@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtcore '' '' '5=')
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui 'gles2=,opengl(+)')
+	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
