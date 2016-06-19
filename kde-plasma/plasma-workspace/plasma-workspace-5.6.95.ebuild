@@ -11,7 +11,7 @@ inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS="~amd64 ~x86"
-IUSE="+geolocation gps prison qalculate"
+IUSE="+calendar +geolocation gps prison qalculate"
 
 # drop kde-frameworks/plasma subslot operator when FRAMEWORKS_MINIMAL >= 5.24.0
 COMMON_DEPEND="
@@ -35,6 +35,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kjs)
@@ -80,6 +81,7 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
+	calendar? ( $(add_kdeapps_dep kholidays) )
 	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
@@ -130,6 +132,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package calendar KF5Holidays)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison KF5Prison)
