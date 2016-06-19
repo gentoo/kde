@@ -32,6 +32,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libX11
+	x11-libs/libXtst
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
