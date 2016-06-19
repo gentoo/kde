@@ -12,6 +12,7 @@ KEYWORDS=""
 LICENSE="LGPL-2+"
 IUSE="nls"
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.6.0
 RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -19,7 +20,7 @@ RDEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kwindowsystem X)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libxcb
