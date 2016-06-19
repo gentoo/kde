@@ -5,8 +5,7 @@
 EAPI=6
 
 CMAKE_MIN_VERSION="3.3"
-KDE_PUNT_BOGUS_DEPS=true
-KDE_TEST=true
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Text-based subtitles editor"
