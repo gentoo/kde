@@ -24,6 +24,7 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_plasma_dep breeze)
 	$(add_qt_dep qtdbus)
