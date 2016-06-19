@@ -43,7 +43,7 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDPEEND}
-	!media-video/subtitlecomposer:5
+	!media-video/subtitlecomposer:4
 "
 DEPEND="${CDEPEND}
 	sys-devel/gettext
