@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 KEYWORDS="~amd64 ~x86"
-IUSE="systemd"
+IUSE="systemd +wireless"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -40,6 +40,10 @@ DEPEND="
 	$(add_qt_dep qtx11extras)
 	virtual/libudev:=
 	x11-libs/libxcb
+	wireless? (
+		$(add_frameworks_dep bluez-qt)
+		$(add_frameworks_dep networkmanager-qt)
+	)
 "
 
 RDEPEND="${DEPEND}
@@ -59,6 +63,17 @@ RDEPEND="${DEPEND}
 	!kde-base/powerdevil:4
 	!kde-base/systemsettings:4[handbook]
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.6.95-wireless-optional.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package wireless KF5BluezQt)
+		$(cmake-utils_use_find_package wireless KF5NetworkManagerQt)
+	)
+
+	kde5_src_configure
+}
 
 src_install() {
 	kde5_src_install
