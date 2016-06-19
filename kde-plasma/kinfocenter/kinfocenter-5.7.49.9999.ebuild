@@ -38,20 +38,20 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	x11-libs/libX11
 	ieee1394? ( sys-libs/libraw1394 )
-	nfs? ( net-fs/nfs-utils )
 	opengl? (
 		$(add_qt_dep qtgui 'gles2=')
 		media-libs/mesa[egl?,gles2?]
 		!gles2? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
-	samba? ( net-fs/samba[server(+)] )
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
 "
 RDEPEND="${COMMON_DEPEND}
+	nfs? ( net-fs/nfs-utils )
+	samba? ( net-fs/samba[server(+)] )
 	$(add_plasma_dep kde-cli-tools)
 	!kde-base/kcontrol:4
 	!kde-base/kinfocenter:4
