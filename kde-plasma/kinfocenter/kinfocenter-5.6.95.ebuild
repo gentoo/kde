@@ -11,9 +11,9 @@ DESCRIPTION="A utility that provides information about a computer system"
 HOMEPAGE="https://www.kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
 KEYWORDS="~amd64 ~x86"
-IUSE="egl gles ieee1394 +opengl +pci samba nfs wayland"
+IUSE="egl gles2 ieee1394 +opengl +pci samba nfs wayland"
 
-REQUIRED_USE="egl? ( || ( gles opengl ) )"
+REQUIRED_USE="egl? ( || ( gles2 opengl ) )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -34,21 +34,15 @@ COMMON_DEPEND="
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui 'opengl(+)')
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	x11-libs/libX11
-	gles? (
-		$(add_qt_dep qtgui 'gles2')
-		|| (
-			media-libs/mesa[egl,gles1]
-			media-libs/mesa[egl,gles2]
-		)
-	)
 	ieee1394? ( sys-libs/libraw1394 )
 	nfs? ( net-fs/nfs-utils )
 	opengl? (
-		virtual/glu
-		virtual/opengl
+		$(add_qt_dep qtgui 'gles2=')
+		media-libs/mesa[egl?,gles2?]
+		!gles2? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
 	samba? ( net-fs/samba[server(+)] )
@@ -67,7 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package egl EGL)
-		$(cmake-utils_use_find_package gles OpenGLES)
+		$(cmake-utils_use_find_package gles2 OpenGLES)
 		$(cmake-utils_use_find_package ieee1394 RAW1394)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package pci PCIUTILS)
