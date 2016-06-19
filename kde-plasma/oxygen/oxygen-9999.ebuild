@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kdecoration)
