@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Network-enabled task manager and system monitor"
@@ -19,9 +19,9 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep knewstuff)
