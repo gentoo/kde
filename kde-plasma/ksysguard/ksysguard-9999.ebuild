@@ -39,8 +39,6 @@ RDEPEND="${DEPEND}
 	!kde-base/ksysguard:4
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.6.5-gui.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package lm_sensors Sensors)
