@@ -15,6 +15,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="ssl"
 
+# drop qtwebengine subslot operator when QT_MINIMAL >= 5.7.0
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)
@@ -28,7 +29,7 @@ DEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine 'widgets')
+	$(add_qt_dep qtwebengine 'widgets' '' '5=')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	ssl? ( dev-libs/cyrus-sasl )
