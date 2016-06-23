@@ -37,8 +37,3 @@ RDEPEND="${DEPEND}
 	!dev-util/kdevelop-php-docs
 	dev-util/kdevelop:${SLOT}
 "
-
-src_prepare() {
-	use doc || cmake_comment_add_subdirectory docs
-	kde5_src_prepare
-}
