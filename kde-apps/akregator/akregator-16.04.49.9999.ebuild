@@ -15,6 +15,7 @@ KEYWORDS=""
 
 IUSE=""
 
+# drop qtwebengine subslot operator when QT_MINIMAL >= 5.7.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -45,6 +46,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebengine)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
