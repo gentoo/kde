@@ -19,7 +19,7 @@ DEPEND="
 "
 RDEPEND="
 	!<kde-apps/kde4-l10n-${PV}
-	!kde-apps/kde4-l10n[-minimal]
+	!kde-apps/kde4-l10n[-minimal(+)]
 	!<kde-apps/kdepim-l10n-${PV}:5
 	!<kde-apps/khelpcenter-5.5.5-r1
 	!=kde-apps/khelpcenter-5.6.2
