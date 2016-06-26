@@ -20,7 +20,6 @@ DEPEND="
 RDEPEND="
 	!<kde-apps/kde-l10n-15.08.0-r1
 	!<kde-apps/kde4-l10n-4.14.3-r1
-	!kde-base/kdepim-l10n
 "
 
 # /usr/portage/distfiles $ ls -1 kde-l10n-*-${PV}.* |sed -e 's:-${PV}.tar.xz::' -e 's:kde-l10n-::' |tr '\n' ' '
