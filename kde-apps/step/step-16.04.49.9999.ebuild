@@ -40,7 +40,7 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	=dev-cpp/eigen-3.2*:3
 	sci-libs/cln
-	gsl? ( >=sci-libs/gsl-1.9-r1 )
+	gsl? ( sci-libs/gsl:= )
 	qalculate? ( >=sci-libs/libqalculate-0.9.5 )
 "
 RDEPEND="${DEPEND}"
