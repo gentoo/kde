@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_TEST="true"
-KMNAME="kdepimlibs"
 QT_MINIMAL="5.6.0"
 inherit kde5
 
@@ -41,9 +40,3 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepimlibs:4
 	!kde-apps/kdepimlibs:5
 "
-
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/${PN}"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/${PN}"
-fi
