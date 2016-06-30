@@ -198,7 +198,7 @@ BUMP_VERSION=
 SET=
 DIR=
 OUTPUT_DIR=
-CATEGORY="kde-base"
+CATEGORY="kde-apps"
 while getopts a:s:v:b:l:p:o:c: arg ; do
 	case ${arg} in
 		a) OPERATION=${OPTARG} ;;
