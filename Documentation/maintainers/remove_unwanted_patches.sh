@@ -1,12 +1,13 @@
 #!/bin/bash
 TMP="/tmp/"
+CATEGORY="kde-apps"
 # we also assume that we are run from the directory where we want to remove patches eg. directory where are categories.
-find -mindepth 2 -maxdepth 3 -type d -name files -print | sort -u |sed -e "s:/files::g" -e "s:\./::g" |grep kde-base > ${TMP}/packages-with-patches.txt
+find -mindepth 2 -maxdepth 3 -type d -name files -print | sort -u |sed -e "s:/files::g" -e "s:\./::g" |grep ${CATEGORY} > ${TMP}/packages-with-patches.txt
 EBUILD_BASEDIRS="`cat ${TMP}/packages-with-patches.txt`"
 for EBBD in ${EBUILD_BASEDIRS}; do
 	pushd $EBBD >> /dev/null
-	# now we are in ebuild directory (eg. kde-base/kdelibs)
-	find ./files/ -type f |grep -v "CVS/" |sort -u |sed -e "s:\./files/::g" > ${TMP}/patches-per-package.txt # d. generated on the fly per package.
+	# now we are in ebuild directory (eg. kde-apps/dolphin)
+	find ./files/ -type f |sort -u |sed -e "s:\./files/::g" > ${TMP}/patches-per-package.txt # d. generated on the fly per package.
 	PATCHES="`cat ${TMP}/patches-per-package.txt`"
 	for PATCH in ${PATCHES}; do
 		PATCH_IN_USE="false"
@@ -31,7 +32,7 @@ for EBBD in ${EBUILD_BASEDIRS}; do
 		done
 		if [[ ${PATCH_IN_USE} == "false" ]]; then
 			# for now just write out.
-			echo "NOT IN USE!: \"${EBBD}/files/${PATCH}\"" >> ${TMP}/cleaner-output.txt
+			echo "NOT IN USE!: \"${EBBD}/files/${PATCH}\"" >> ${TMP}/${CATEGORY}-unused-patches.txt
 		fi
 	done
 	popd >> /dev/null
