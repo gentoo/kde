@@ -1,0 +1,43 @@
+# Johannes Huber <johu@gentoo.org> (30 Jun 2016)
+# KDE Plasma 5.7.0 mask
+# Not released yet.
+~kde-plasma/bluedevil-5.7.0
+~kde-plasma/breeze-5.7.0
+~kde-plasma/breeze-grub-5.7.0
+~kde-plasma/breeze-gtk-5.7.0
+~kde-plasma/breeze-plymouth-5.7.0
+~kde-plasma/kactivitymanagerd-5.7.0
+~kde-plasma/kde-cli-tools-5.7.0
+~kde-plasma/kde-gtk-config-5.7.0
+~kde-plasma/kdecoration-5.7.0
+~kde-plasma/kdeplasma-addons-5.7.0
+~kde-plasma/kgamma-5.7.0
+~kde-plasma/khotkeys-5.7.0
+~kde-plasma/kinfocenter-5.7.0
+~kde-plasma/kmenuedit-5.7.0
+~kde-plasma/kscreen-5.7.0
+~kde-plasma/kscreenlocker-5.7.0
+~kde-plasma/ksshaskpass-5.7.0
+~kde-plasma/ksysguard-5.7.0
+~kde-plasma/kwallet-pam-5.7.0
+~kde-plasma/kwayland-integration-5.7.0
+~kde-plasma/kwin-5.7.0
+~kde-plasma/kwrited-5.7.0
+~kde-plasma/libkscreen-5.7.0
+~kde-plasma/libksysguard-5.7.0
+~kde-plasma/milou-5.7.0
+~kde-plasma/oxygen-5.7.0
+~kde-plasma/plasma-desktop-5.7.0
+~kde-plasma/plasma-integration-5.7.0
+~kde-plasma/plasma-mediacenter-5.7.0
+~kde-plasma/plasma-meta-5.7.0
+~kde-plasma/plasma-nm-5.7.0
+~kde-plasma/plasma-pa-5.7.0
+~kde-plasma/plasma-sdk-5.7.0
+~kde-plasma/plasma-workspace-5.7.0
+~kde-plasma/plasma-workspace-wallpapers-5.7.0
+~kde-plasma/polkit-kde-agent-5.7.0
+~kde-plasma/powerdevil-5.7.0
+~kde-plasma/sddm-kcm-5.7.0
+~kde-plasma/systemsettings-5.7.0
+~kde-plasma/user-manager-5.7.0
