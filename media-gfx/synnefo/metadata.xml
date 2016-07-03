@@ -8,7 +8,4 @@
 	<upstream>
 		<remote-id type="github">oyranos-cms/Synnefo</remote-id>
 	</upstream>
-	<use>
-		<flag name="qt5">Build default Qt5 frontend (Qt4 fallback)</flag>
-	</use>
 </pkgmetadata>

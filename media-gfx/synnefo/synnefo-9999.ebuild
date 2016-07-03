@@ -4,45 +4,28 @@
 
 EAPI=6
 
+EGIT_REPO_URI="https://github.com/oyranos-cms/Synnefo.git"
 inherit cmake-utils
+[[ ${PV} == "9999" ]] && inherit git-r3
 
 DESCRIPTION="Qt front end for the Oyranos Color Management System"
 HOMEPAGE="https://github.com/oyranos-cms/Synnefo"
-if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/oyranos-cms/Synnefo.git"
-	inherit git-r3
-	KEYWORDS=""
-else
-	SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+[[ ${PV} == 9999 ]] || \
+SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="qt5"
+[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
+IUSE=""
 
 DEPEND="
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	>=media-libs/oyranos-0.9.6
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-	)
-	!qt5? (
-		dev-qt/qtcore:4
-		dev-qt/qtgui:4
-	)
 "
 RDEPEND="${DEPEND}
 	x11-misc/xcalib
 "
 
 DOCS=( AUTHORS.md README.md )
-
-src_configure() {
-	local mycmakeargs=(
-		-DUSE_Qt4=$(usex !qt5)
-	)
-
-	cmake-utils_src_configure
-}
