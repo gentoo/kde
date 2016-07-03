@@ -4,11 +4,10 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
-HOMEPAGE="http://www.oyranos.org/wiki/index.php?title=Kolor-manager"
+HOMEPAGE="http://www.oyranos.org/kolormanager"
 
 LICENSE="BSD-2"
 KEYWORDS=""
@@ -20,7 +19,7 @@ DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtwidgets)
-	media-gfx/synnefo[qt5]
+	media-gfx/synnefo
 	media-libs/libXcm
 	>=media-libs/oyranos-0.9.6
 	x11-libs/libXrandr
