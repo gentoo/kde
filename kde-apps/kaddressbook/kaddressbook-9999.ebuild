@@ -43,6 +43,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
