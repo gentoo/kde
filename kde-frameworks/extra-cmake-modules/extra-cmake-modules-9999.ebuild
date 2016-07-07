@@ -53,7 +53,7 @@ src_configure() {
 
 src_test() {
 	local myctestargs=(
-		-E KDEInstallDirsTest.relative_or_absolute_usr
+		-E "(ECMToolchainAndroidTest|KDEInstallDirsTest.relative_or_absolute_usr)"
 	)
 
 	kde5_src_test
