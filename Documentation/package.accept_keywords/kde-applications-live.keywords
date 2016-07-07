@@ -26,8 +26,6 @@
 ~kde-apps/kcron-9999 **
 ~kde-apps/ksystemlog-9999 **
 ~kde-apps/kuser-9999 **
-~kde-apps/kdebindings-meta-9999 **
-~kde-apps/kross-interpreters-9999 **
 ~kde-apps/analitza-9999 **
 ~kde-apps/artikulate-9999 **
 ~kde-apps/blinken-9999 **
@@ -220,6 +218,7 @@
 ~kde-apps/kdesdk-kioslaves-9999 **
 ~kde-apps/kdesdk-thumbnailers-9999 **
 ~kde-apps/kompare-9999 **
+~kde-apps/kross-interpreters-9999 **
 ~kde-apps/libkomparediff2-9999 **
 ~kde-apps/lokalize-9999 **
 ~kde-apps/okteta-9999 **
