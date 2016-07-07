@@ -65,8 +65,6 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT="test"
 
 src_prepare() {
-	kde5_src_prepare
-
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		# prepare the handbook
 		mv "${WORKDIR}"/${MY_P}/doc/${PN} "${S}"/doc || die
@@ -83,6 +81,8 @@ src_prepare() {
 			echo "add_subdirectory( po )" >> CMakeLists.txt || die
 		fi
 	fi
+
+	kde5_src_prepare
 }
 
 src_configure() {
