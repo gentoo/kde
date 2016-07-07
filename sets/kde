@@ -20,5 +20,4 @@ kde-base/kdeplasma-addons:4
 @kdewebdev
 
 #for developers
-#@kdebindings
 #@kdesdk
