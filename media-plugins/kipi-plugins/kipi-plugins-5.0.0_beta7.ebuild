@@ -25,7 +25,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 
 	SRC_BRANCH=stable
 	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
-	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.bz2"
+	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.xz"
 
 	S=${WORKDIR}/${MY_P}/extra/${PN}
 
