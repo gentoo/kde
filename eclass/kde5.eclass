@@ -179,8 +179,11 @@ case ${KDE_AUTODEPS} in
 			"
 		fi
 
-		if [[ ${KDE_BLOCK_SLOT4} = true && ${CATEGORY} = kde-apps ]]; then
-			RDEPEND+=" !kde-apps/${PN}:4"
+		if [[ ${CATEGORY} = kde-apps ]]; then
+			RDEPEND+=" kde-apps/kde-l10n"
+                	if [[ ${KDE_BLOCK_SLOT4} = true ]]; then
+        	                RDEPEND+=" !kde-apps/${PN}:4"
+	                fi
 		fi
 		;;
 esac
