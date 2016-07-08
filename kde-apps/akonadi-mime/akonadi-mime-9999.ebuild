@@ -10,13 +10,13 @@ inherit kde5
 
 DESCRIPTION="Library for akonadi mime types"
 KEYWORDS=""
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2+ LGPL-2.1+"
 IUSE=""
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -33,10 +33,7 @@ COMMON_DEPEND="
 	dev-libs/libxslt
 	x11-misc/shared-mime-info
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepimlibs:4
 	!kde-apps/kdepimlibs:5
 "

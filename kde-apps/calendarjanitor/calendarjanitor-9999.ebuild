@@ -11,6 +11,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="A tool to scan calendar data for buggy instances"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
 IUSE=""

@@ -9,7 +9,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="C++ bindings for gpgme"
-LICENSE="LGPL-2+"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 

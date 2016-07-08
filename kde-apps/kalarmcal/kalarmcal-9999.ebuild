@@ -8,10 +8,11 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Client library to access and handling of KAlarm calendar data"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
@@ -20,6 +21,5 @@ RDEPEND="
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 "
-DEPEND="${RDEPEND}
-	sys-devel/gettext
+RDEPEND="${DEPEND}
 "

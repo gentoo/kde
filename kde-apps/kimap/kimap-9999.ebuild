@@ -9,7 +9,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for interacting with IMAP servers"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
@@ -19,7 +19,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep kmime)
-	dev-libs/cyrus-sasl
 	$(add_qt_dep qtgui)
+	dev-libs/cyrus-sasl
 "
 RDEPEND="${DEPEND}"

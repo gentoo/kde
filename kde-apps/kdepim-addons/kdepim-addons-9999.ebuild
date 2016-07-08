@@ -12,6 +12,7 @@ inherit kde5
 
 DESCRIPTION="Plugins for KDE Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 
 PIM_FTS="akregator kaddressbook kmail korganizer plugins"
@@ -53,7 +54,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep gpgmepp)
-	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim:5

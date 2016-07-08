@@ -9,11 +9,11 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Calendar viewer for KDE PIM"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -41,10 +41,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	dev-libs/libical
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-15.08.50:5
 	!kde-apps/kdepim-common-libs:4
 "

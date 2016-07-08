@@ -10,11 +10,11 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library providing utility functions for the handling of calendar data"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -28,6 +28,4 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	dev-libs/grantlee:5
 "
-DEPEND="${RDEPEND}
-	sys-devel/gettext
-"
+RDEPEND="${DEPEND}"

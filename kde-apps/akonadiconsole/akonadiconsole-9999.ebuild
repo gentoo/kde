@@ -10,6 +10,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Akonadi developer console"
+LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
 HOMEPAGE="https://www.kde.org/"
 KEYWORDS=""
 

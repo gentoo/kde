@@ -11,6 +11,7 @@ inherit kde5
 
 DESCRIPTION="Import emails, settings, addressbook and calendar data from various mailers"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Import_Options"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 

@@ -11,6 +11,7 @@ inherit kde5
 
 DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
 HOMEPAGE+=" https://userbase.kde.org/KAlarm"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE="X"
 

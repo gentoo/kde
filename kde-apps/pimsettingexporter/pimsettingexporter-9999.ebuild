@@ -13,6 +13,7 @@ inherit kde5
 
 DESCRIPTION="Export and import PIM settings and local mail"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Backup_Options"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 
