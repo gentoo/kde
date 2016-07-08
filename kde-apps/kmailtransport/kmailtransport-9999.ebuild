@@ -10,7 +10,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Mail transport service"
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="ssl"
 

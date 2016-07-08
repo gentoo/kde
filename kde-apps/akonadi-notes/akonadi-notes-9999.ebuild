@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="Library for akonadi notes integration"
 KEYWORDS=""
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2+"
 IUSE=""
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
@@ -24,7 +24,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep akonadi)
-	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepimlibs:4

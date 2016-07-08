@@ -11,6 +11,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="google ssl"
 

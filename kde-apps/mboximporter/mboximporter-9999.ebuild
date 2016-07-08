@@ -10,7 +10,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Import mbox data from various sources"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 

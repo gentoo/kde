@@ -12,7 +12,7 @@ inherit kde5
 
 DESCRIPTION="Library for akonadi contact integration"
 KEYWORDS=""
-LICENSE="LGPL-2.1"
+LICENSE="GPL-2+"
 IUSE="prison"
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests

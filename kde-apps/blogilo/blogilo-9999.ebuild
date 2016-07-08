@@ -12,6 +12,7 @@ inherit kde5
 
 DESCRIPTION="KDE Blogging Client"
 HOMEPAGE="https://www.kde.org/applications/internet/blogilo"
+LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
 IUSE="google"

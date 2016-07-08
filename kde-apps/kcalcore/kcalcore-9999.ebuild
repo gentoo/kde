@@ -10,7 +10,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for handling calendar data"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 

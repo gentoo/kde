@@ -9,6 +9,7 @@ inherit kde5
 
 DESCRIPTION="Libraries and daemons to implement searching in Akonadi"
 HOMEPAGE="https://projects.kde.org/projects/playground/pim/akonadi-search"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
@@ -26,10 +27,10 @@ RDEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
-	>=dev-libs/xapian-1.3:=[chert]
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	>=dev-libs/xapian-1.3:=[chert]
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost

@@ -10,12 +10,11 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Library for managing identitites"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	$(add_kdeapps_dep kpimtextedit)
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -25,9 +24,10 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep kpimtextedit)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"

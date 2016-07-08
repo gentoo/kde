@@ -13,6 +13,7 @@ inherit kde5
 
 DESCRIPTION="Editor for Sieve scripts used for email filtering on a mail server"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Account_Wizard"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 

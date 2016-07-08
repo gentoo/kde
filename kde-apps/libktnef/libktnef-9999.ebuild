@@ -10,7 +10,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for handling TNEF data"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 

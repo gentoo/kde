@@ -13,6 +13,7 @@ inherit kde5
 
 DESCRIPTION="KDE Notes application"
 HOMEPAGE="https://www.kde.org/"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
 IUSE=""

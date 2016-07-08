@@ -12,6 +12,7 @@ inherit kde5
 
 DESCRIPTION="A viewer for TNEF attachments"
 HOMEPAGE="https://www.kde.org/"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 

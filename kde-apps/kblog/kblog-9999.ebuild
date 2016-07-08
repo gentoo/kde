@@ -9,7 +9,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library providing client-side support for web application remote blogging APIs"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 

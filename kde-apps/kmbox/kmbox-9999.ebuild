@@ -9,7 +9,7 @@ QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for accessing MBox format mail storages"
-LICENSE="LGPL-2+"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 

@@ -13,6 +13,7 @@ inherit kde5
 
 DESCRIPTION="The KDE Address Book"
 HOMEPAGE="https://www.kde.org/applications/office/kaddressbook/"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
 IUSE="prison"

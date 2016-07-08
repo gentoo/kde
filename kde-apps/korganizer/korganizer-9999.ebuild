@@ -13,6 +13,7 @@ inherit kde5
 
 DESCRIPTION="Personal Organizer by KDE"
 HOMEPAGE="https://www.kde.org/applications/office/korganizer/"
+LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE="X"
 
