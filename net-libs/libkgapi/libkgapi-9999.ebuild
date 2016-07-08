@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Library for accessing Google calendar and contact resources"
 HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkgapi"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
