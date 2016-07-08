@@ -25,7 +25,7 @@ RDEPEND="
 	accessibility? ( $(add_kdeapps_dep kdeaccessibility-meta) )
 	nls? (
 		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n 'minimal' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
 	)
 	pim? ( >=kde-apps/kdepim-meta-4.4.2015:4 )
 	sdk? (
