@@ -58,15 +58,14 @@ CDEPEND="
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libical:=
+	google? ( >=net-libs/libkgapi-5.1.0:5 )
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)
 	dev-libs/cyrus-sasl:2
-	dev-libs/libxml2:2
 	dev-libs/libxslt
 	sys-devel/gettext
 	x11-misc/shared-mime-info
-	google? ( >=net-libs/libkgapi-5.1.0:5 )
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-runtime:4
