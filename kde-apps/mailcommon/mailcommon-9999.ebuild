@@ -51,7 +51,4 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt
 "
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim:5
-	!kde-apps/kdepim-common-libs:4
-"
+RDEPEND="${COMMON_DEPEND}"
