@@ -16,16 +16,12 @@ IUSE=""
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT="test"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_kdeapps_dep akonadi)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepimlibs:4
-	!kde-apps/kdepimlibs:5
 "
