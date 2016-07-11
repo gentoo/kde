@@ -21,7 +21,4 @@ DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/ktnef:4
-	!<kde-apps/ktnef-15.12.2:5
-"
+RDEPEND="${DEPEND}"
