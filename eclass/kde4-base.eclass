@@ -683,7 +683,7 @@ kde4-base_pkg_nofetch() {
 	eerror ""
 	eerror "Please consult the upstream release schedule to see when this "
 	eerror "package is scheduled to be released:"
-	eerror "https://techbase.kde.org/Schedules"
+	eerror "https://community.kde.org/Schedules"
 }
 
 # @FUNCTION: kde4-base_src_unpack
