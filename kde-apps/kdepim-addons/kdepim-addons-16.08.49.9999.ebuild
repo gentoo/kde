@@ -15,8 +15,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 
-PIM_FTS="akregator kaddressbook kmail korganizer plugins"
-IUSE="google $(printf 'kdepim_features_%s ' ${PIM_FTS})"
+IUSE="google"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -56,12 +55,8 @@ DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep gpgmepp)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim:5
-	!kde-apps/messageviewer:5
-	!<kde-apps/pimcommon-15.12.50:5
 	!kde-apps/kaddressbook:4
 	!kde-apps/kmail:4
-	!kde-apps/korganizer:4
 "
 
 src_prepare() {
@@ -73,10 +68,6 @@ src_prepare() {
 			plugins/messageviewer/bodypartformatter/CMakeLists.txt \
 			|| die "Failed to disable tests"
 	fi
-
-	for pim_ft in ${PIM_FTS}; do
-		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
-	done
 }
 
 src_configure() {

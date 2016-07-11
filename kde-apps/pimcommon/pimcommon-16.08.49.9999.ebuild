@@ -15,7 +15,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -51,10 +51,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/libxslt
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim:5
-	!kde-apps/kdepim-common-libs:4
 "

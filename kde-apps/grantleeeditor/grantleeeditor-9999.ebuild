@@ -42,8 +42,10 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
+	!kde-apps/kaddressbook:4
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kmail:4
 "
 
 src_prepare() {

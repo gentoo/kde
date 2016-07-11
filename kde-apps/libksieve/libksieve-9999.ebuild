@@ -35,9 +35,7 @@ DEPEND="
 	ssl? ( dev-libs/cyrus-sasl )
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
 	!kde-apps/kdepim-kioslaves
-	!kde-apps/kmail:4
 "
 
 src_prepare() {

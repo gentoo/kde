@@ -42,7 +42,4 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	dev-libs/libical
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
-	!kde-apps/kdepim-common-libs:4
-"
+RDEPEND="${DEPEND}"

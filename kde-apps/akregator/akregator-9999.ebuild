@@ -55,9 +55,7 @@ DEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# akregator subproject does not contain doc

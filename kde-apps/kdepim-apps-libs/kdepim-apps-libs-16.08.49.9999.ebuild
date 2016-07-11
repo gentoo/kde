@@ -34,15 +34,7 @@ DEPEND="
 	>=dev-libs/grantlee-5.1.0:5
 	prison? ( media-libs/prison:5 )
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kaddressbookgrantlee:5
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim:5
-	!kde-apps/kmail:4
-	!kde-apps/libfollowupreminder:5
-	!kde-apps/libkdepimdbusinterfaces:5
-	!kde-apps/libsendlater:5
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

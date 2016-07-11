@@ -33,15 +33,15 @@ DEPEND="
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
 	$(add_kdeapps_dep messagelib)
-	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
-	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kmail:4
 "
 
 src_prepare() {

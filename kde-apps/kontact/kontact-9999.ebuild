@@ -44,7 +44,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
-	!kde-apps/kdepim-common-libs:4
 "
 
 src_prepare() {

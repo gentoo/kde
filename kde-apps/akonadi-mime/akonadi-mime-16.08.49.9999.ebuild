@@ -35,5 +35,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepimlibs:4
-	!kde-apps/kdepimlibs:5
 "

@@ -44,6 +44,4 @@ DEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"

@@ -42,7 +42,6 @@ DEPEND="
 	google? ( net-libs/libkgapi:5 )
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
 	!<kde-apps/kdepim-apps-libs-16.04.50
 "
 
