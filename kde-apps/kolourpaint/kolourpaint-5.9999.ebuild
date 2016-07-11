@@ -28,7 +28,6 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
-	media-libs/qimageblitz
 	scanner? ( $(add_kdeapps_dep libksane) )
 "
 DEPEND="${RDEPEND}
