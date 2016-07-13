@@ -4,27 +4,39 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="Paint Program by KDE"
 HOMEPAGE="https://www.kde.org/applications/graphics/kolourpaint/"
 KEYWORDS=""
 LICENSE="BSD LGPL-2"
-IUSE="debug scanner"
+IUSE="scanner"
 
-DEPEND="
-	media-libs/qimageblitz
+RDEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
 	scanner? ( $(add_kdeapps_dep libksane) )
 "
-RDEPEND="${DEPEND}
-	scanner? ( $(add_kdeapps_dep ksaneplugin) )
+DEPEND="${RDEPEND}
+	sys-devel/gettext
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package scanner KSane)
+		$(cmake-utils_use_find_package scanner KF5Sane)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
