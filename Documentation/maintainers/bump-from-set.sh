@@ -31,7 +31,7 @@ help() {
 	echo Reads KEYWORDS for the new ebuild from your environment, defaulting to ~amd64.
 	echo
 	echo Usage: bump-from-set.sh SETNAME SOURCEVERSION DESTINATIONVERSION
-	echo Example: bump-from-set.sh kde-plasma-5.0 5.0.9999 5.0.1
+	echo Example: bump-from-set.sh kde-plasma-5.7 5.7.49.9999 5.7.1
 	exit 0
 }
 
