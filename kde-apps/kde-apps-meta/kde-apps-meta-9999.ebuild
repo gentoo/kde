@@ -27,7 +27,7 @@ RDEPEND="
 		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
 		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
 	)
-	pim? ( >=kde-apps/kdepim-meta-4.4.2015:4 )
+	pim? ( kde-apps/kdepim-meta:* )
 	sdk? (
 		$(add_kdeapps_dep kdesdk-meta)
 		$(add_kdeapps_dep kdewebdev-meta)
