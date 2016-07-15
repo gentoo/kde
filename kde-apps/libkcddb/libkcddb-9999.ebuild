@@ -4,38 +4,36 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_TEST="true"
+inherit kde5
 
 DESCRIPTION="KDE library for CDDB"
 KEYWORDS=""
-IUSE="debug musicbrainz"
+IUSE="musicbrainz"
 
 # tests require network access and compare static data with online data
 # bug 280996
 RESTRICT=test
 
 DEPEND="
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
 
-KMSAVELIBS="true"
-
-src_prepare() {
-	kde4-base_src_prepare
-
-	if ! use handbook ; then
-		pushd kcmcddb > /dev/null || die
-		cmake_comment_add_subdirectory doc
-		popd > /dev/null || die
-	fi
-}
-
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_MusicBrainz5=$(usex musicbrainz)
+		$(cmake-utils_use_find_package musicbrainz MusicBrainz5)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
