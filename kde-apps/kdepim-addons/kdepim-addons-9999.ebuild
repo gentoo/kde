@@ -67,6 +67,13 @@ RDEPEND="${COMMON_DEPEND}
 src_prepare() {
 	kde5_src_prepare
 
+	if ! use test; then
+		sed -i -e "/add_subdirectory(.*tests)/ s/^/#DONT/" \
+			plugins/webengineurlinterceptor/donottrack/CMakeLists.txt \
+			plugins/messageviewer/bodypartformatter/CMakeLists.txt \
+			|| die "Failed to disable tests"
+	fi
+
 	for pim_ft in ${PIM_FTS}; do
 		use kdepim_features_${pim_ft} || cmake_comment_add_subdirectory ${pim_ft}
 	done
