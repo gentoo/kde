@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -24,16 +24,12 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep pimcommon)
+	$(add_kdeapps_dep kpimtextedit)
 	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-15.08.50:5
-	!kde-apps/kdepim-common-libs:4
 "
