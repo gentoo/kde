@@ -8,7 +8,6 @@ inherit kde5
 
 DESCRIPTION="A very powerful batch file renamer"
 HOMEPAGE="http://www.krename.net/"
-EGIT_REPO_URI="https://anongit.kde.org/scratch/sandsmark/krename"
 
 LICENSE="GPL-2"
 KEYWORDS=""
