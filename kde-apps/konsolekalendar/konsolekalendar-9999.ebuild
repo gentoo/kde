@@ -27,9 +27,7 @@ DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 	S="${WORKDIR}/${P}/console"
