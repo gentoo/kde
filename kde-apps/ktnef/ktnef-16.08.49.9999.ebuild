@@ -31,9 +31,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# ktnef subproject does not contain doc nor searches for DocTools

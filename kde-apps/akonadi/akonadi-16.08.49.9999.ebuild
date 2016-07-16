@@ -54,7 +54,6 @@ RDEPEND="${COMMON_DEPEND}
 	postgres? ( dev-db/postgresql )
 	!app-office/akonadi-server
 	!kde-apps/kdepimlibs
-	!kde-apps/libakonadi
 "
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests

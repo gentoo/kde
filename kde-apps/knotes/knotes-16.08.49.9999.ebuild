@@ -59,10 +59,7 @@ DEPEND="
 	dev-libs/libxslt
 	x11-libs/libX11
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-	!kde-apps/noteshared:5
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# knotes subproject does not contain doc

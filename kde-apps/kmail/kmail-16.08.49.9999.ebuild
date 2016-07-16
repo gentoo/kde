@@ -11,7 +11,7 @@ QT_MINIMAL="5.6.1"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Email component of Kontact, the integrated personal information manager of KDE"
+DESCRIPTION="Email component of Kontact, the integrated personal information manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kmail/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
