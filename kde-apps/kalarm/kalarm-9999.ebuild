@@ -9,7 +9,7 @@ KMNAME="kdepim"
 QT_MINIMAL="5.6.0"
 inherit kde5
 
-DESCRIPTION="Personal alarm message, command and email scheduler for KDE"
+DESCRIPTION="Personal alarm message, command and email scheduler by KDE"
 HOMEPAGE+=" https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -67,7 +67,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
-	!kde-apps/kdepim-common-libs:4
 "
 
 src_prepare() {
