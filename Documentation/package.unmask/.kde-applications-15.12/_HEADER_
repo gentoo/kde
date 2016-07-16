@@ -1,2 +1,2 @@
-# Live packages are masked by default.
+# You can use this file to mask/unmask the KDE Applications 15.12 release.
 # Edit Documentation/package.unmask/.kde-applications-15.12/ files instead.
