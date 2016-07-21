@@ -39,6 +39,7 @@ DEPEND="${COMMON_DEPEND}
 	qt4? ( virtual/pkgconfig )
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	!kde-base/kdebase-cursors:4
 	!kde-base/kstyles:4
 "
