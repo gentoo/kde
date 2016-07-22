@@ -5,17 +5,13 @@
 data/kdeedu khangman
 docs/applications kate
 docs/applications konsole
-docs/applications kwrite
 docs/kde-runtime glossary
 docs/kde-runtime khelpcenter
 docs/kdeedu kig
 docs/kdeedu parley
 docs/kdeedu step
-docs/kdegames bomber
 docs/kdegraphics gwenview
 docs/kdegraphics kruler
-docs/kdesdk kapptemplate
-docs/kdesdk okteta
 docs/kdesdk umbrello
 docs/kdeutils kwalletmanager
 scripts kdeedu
@@ -41,4 +37,3 @@ messages kde-workspace
 messages kdeplasma-addons
 # kdepim-l10n 5
 docs kdepim
-docs kdepimlibs
