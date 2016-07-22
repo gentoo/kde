@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A user friendly IRC Client"
-HOMEPAGE="http://kde.org/applications/internet/konversation/ http://konversation.kde.org"
+HOMEPAGE="https://www.kde.org/applications/internet/konversation/ https://konversation.kde.org"
 
 LICENSE="GPL-2"
 KEYWORDS=""
