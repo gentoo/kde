@@ -4,10 +4,10 @@
 >=kde-apps/marble-14.11.97 python
 
 # Unreleased dependencies
-<kde-apps/akonadi-contact-16.04.49:5 prison
-<kde-apps/kaddressbookgrantlee-16.04.49:5 prison
-<kde-apps/kdepim-16.04.49:5 prison
-<kde-apps/kdepimlibs-16.04.49:5 prison
+<kde-apps/akonadi-contact-16.08.49:5 prison
+<kde-apps/kaddressbookgrantlee-16.08.49:5 prison
+<kde-apps/kdepim-16.08.49:5 prison
+<kde-apps/kdepimlibs-16.08.49:5 prison
 kde-apps/ktp-text-ui speech
 kde-apps/kpimtextedit speech
 kde-frameworks/knotifications speech
