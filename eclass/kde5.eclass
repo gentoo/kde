@@ -606,56 +606,6 @@ EOF
 			cmake_comment_add_subdirectory tests
 		fi
 	fi
-
-	# legacy (16.04) kdepim split packaging handling (drop other applications != {PN})
-	if [[ ${KMNAME} = "kdepim" && ${PV} = 16.04* && $(basename "${S}") != ${PN} ]] || \
-			[[ ${PN} = "kdepim" ]] ; then
-		# make optional a lot of otherwise required dependencies in root CMakeLists.txt
-		sed -e "/find_package(KF5/ s/ REQUIRED//" \
-			-e "/find_package(Qt5 / s/ REQUIRED/ OPTIONAL_COMPONENTS/" \
-			-i CMakeLists.txt || die "Failed to make dependencies optional"
-
-		# AkonadiSearch:	kaddressbook, knotes, kdepim (kmail, korganizer)
-		# Grantlee:			akregator, kaddressbook, knotes, kdepim (grantleeeditor, kmail, kontact)
-		sed -e "/set_package_properties(KF5AkonadiSearch/ s/ REQUIRED/ OPTIONAL/" \
-			-e "/set_package_properties(Xsltproc/ s/ REQUIRED/ OPTIONAL/" \
-			-e "/find_package(Grantlee5/ s/ REQUIRED//" \
-			-i CMakeLists.txt || die "Failed to make dependencies optional"
-
-		if [[ ${PN} != "kdepim" ]] ; then
-			# Boost: kdepim (kmail, mailfilteragent)
-			# MailTransportDBusService: kdepim (kmail)
-			# Phonon4Qt5: kdepim (kalarm, korgac)
-			sed -e "/find_package(Boost/ s/^/#DONT/" \
-				-e "/set_package_properties(Boost/ s/^/#DONT/" \
-				-e "/find_package(MailTransportDBusService/ s/^/#DONT/" \
-				-e "/find_package(Phonon4Qt5/ s/^/#DONT/" \
-				-i CMakeLists.txt || die "Failed to disable dependencies"
-
-			# only build select handbook
-			if use_if_iuse handbook && [[ -e doc/CMakeLists.txt ]] ; then
-				echo "add_subdirectory(${PN})" > doc/CMakeLists.txt
-			fi
-		fi
-
-		# remove anything else not listed here
-		local _pim_keep_subdir="${PN} ${KDE_PIM_KEEP_SUBDIR}"
-		einfo "Building: ${_pim_keep_subdir}"
-		_pim_keep_subdir="cmake doc examples grantlee-extractor-pot-scripts ${_pim_keep_subdir}"
-
-		einfo "Removing other subdirectories:"
-		pushd "${S}" > /dev/null || die
-		for subdir in *; do
-			if ! has ${subdir} ${_pim_keep_subdir} ; then
-				if [[ -d "${subdir}" ]] ; then
-					einfo "   ${subdir}"
-					rm -r ${subdir} || die "Failed to remove ${subdir} application"
-					cmake_comment_add_subdirectory ${subdir}
-				fi
-			fi
-		done
-		popd > /dev/null || die
-	fi
 }
 
 # @FUNCTION: kde5_src_configure
