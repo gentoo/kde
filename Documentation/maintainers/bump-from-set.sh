@@ -15,8 +15,11 @@ get_package_list_from_set() {
 get_main_tree_keyword() {
 	local portdir="$(portageq get_repo_path / gentoo)"
 	local cp="${1}"
-
-	echo $(sed -ne 's/^KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
+	if [[ -e ${portdir}/${cp} ]] ; then
+		echo $(sed -ne 's/^KEYWORDS="\(.*\)"/\1/p' "$(ls ${portdir}/${cp}/*.ebuild | sort | tail -n 1)")
+	else
+		echo "~amd64 ~x86"
+	fi
 }
 
 help() {
@@ -27,8 +30,6 @@ help() {
 	echo bumped from up-to-date live versions.
 	echo
 	echo Reads PORTDIR from your enviroment, defaulting to the current directory.
-	echo
-	echo Reads KEYWORDS for the new ebuild from your environment, defaulting to ~amd64.
 	echo
 	echo Usage: bump-from-set.sh SETNAME SOURCEVERSION DESTINATIONVERSION
 	echo Example: bump-from-set.sh kde-plasma-5.7 5.7.49.9999 5.7.1
