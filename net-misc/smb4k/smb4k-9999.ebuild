@@ -4,18 +4,14 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Advanced network neighborhood browser for KDE"
+DESCRIPTION="Advanced network neighborhood browser"
 HOMEPAGE="http://sourceforge.net/projects/smb4k/"
-if [[ ${PV} != 9999 ]]; then
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~ppc ~x86"
-else
-	KEYWORDS=""
-fi
+[[ ${PV} != 9999 ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
+[[ ${PV} != 9999 ]] && KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE=""
 
@@ -26,7 +22,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
