@@ -6,7 +6,7 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="A very powerful batch file renamer"
+DESCRIPTION="Powerful batch file renamer"
 HOMEPAGE="http://www.krename.net/"
 
 LICENSE="GPL-2"
@@ -17,6 +17,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
