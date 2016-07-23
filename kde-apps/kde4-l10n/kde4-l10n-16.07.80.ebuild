@@ -30,8 +30,7 @@ RDEPEND="
 REMOVE_DIRS="${FILESDIR}/${PN}-16.04.2-remove-dirs"
 REMOVE_MSGS="${FILESDIR}/${PN}-16.03.91-remove-messages"
 
-# TODO: Drop no-op +minimal in 16.08.x - necessary kde5.eclass change happened after KF-5.23/Plasma-5.6.5
-IUSE="aqua +minimal test" # TODO: Drop aqua as soon as possible
+IUSE="aqua test" # TODO: Drop aqua as soon as possible
 
 pkg_setup() {
 	if [[ -z ${A} ]]; then
