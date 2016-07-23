@@ -186,7 +186,7 @@ case ${KDE_AUTODEPS} in
 
 		if [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma && ${PN} != polkit-kde-agent ]]; then
 			RDEPEND+="
-				!kde-apps/kde4-l10n[-minimal(+)]
+				!kde-apps/kde4-l10n
 				!<kde-apps/kde4-l10n-15.12.3-r1
 			"
 		fi
