@@ -109,12 +109,6 @@ if [[ ${KDEBASE} = kdel10n ]]; then
 	fi
 fi
 
-# @ECLASS-VARIABLE: KDE_PIM_KEEP_SUBDIR
-# @DESCRIPTION:
-# If building a split package from KMNAME="kdepim", provide a list of
-# subdirectories that need to be present for a successful build.
-: ${KDE_PIM_KEEP_SUBDIR:=}
-
 # @ECLASS-VARIABLE: KDE_PUNT_BOGUS_DEPS
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -254,16 +248,7 @@ if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 if [[ -n ${KMNAME} && ${KMNAME} != ${PN} && ${KMNAME} = kdepim ]]; then
-	local subproj
-	if [[ ${PV} != 16.04* ]]; then
-		subproj="/${PN}"
-	fi
-	if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-		S="${WORKDIR}/${P}${subproj}"
-	else
-		S="${WORKDIR}/${KMNAME}-${PV}${subproj}"
-	fi
-	unset subproj
+	S="${S}/${PN}"
 fi
 
 _kde_is_unreleased() {
