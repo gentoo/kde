@@ -9,16 +9,12 @@ KDE_TEST="forceoptional"
 EGIT_BRANCH="frameworks"
 inherit kde5
 
-DESCRIPTION="Universal document viewer based on KPDF"
+DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt djvu ebook +jpeg mobi +pdf +postscript +tiff"
-# TODO:
-# * Deactivated media-libs/qimageblitz as there is no Qt5 version yet
-# * Deactivated kde-apps/kdegraphics-mobipocket, no Qt5 version yet
-# * Not packaged: Qt5TextToSpeech
+IUSE="chm crypt djvu ebook +jpeg mobi +pdf +postscript speech +tiff"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -27,7 +23,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjs)
@@ -53,21 +48,14 @@ COMMON_DEPEND="
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
+	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde5_src_prepare
-
-	if ! use test ; then
-		sed -i \
-			-e "/^add_subdirectory.*conf\/autotests/ s/^/#DONT/" \
-			CMakeLists.txt || die
-	fi
+	use test || cmake_comment_add_subdirectory conf/autotests
 }
 
 src_configure() {
@@ -80,6 +68,7 @@ src_configure() {
 		$(cmake-utils_use_find_package mobi QMobipocket)
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package postscript LibSpectre)
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
 		$(cmake-utils_use_find_package tiff TIFF)
 	)
 
