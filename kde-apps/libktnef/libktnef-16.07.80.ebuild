@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_TEST="true"
 KMNAME="ktnef"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library for handling TNEF data"

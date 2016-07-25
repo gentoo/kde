@@ -7,7 +7,6 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="KDE Blogging Client"

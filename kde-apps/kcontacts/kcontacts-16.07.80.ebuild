@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Address book API based on KDE Frameworks"

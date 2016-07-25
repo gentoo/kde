@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KMNAME="kdepim"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Personal alarm message, command and email scheduler by KDE"

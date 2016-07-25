@@ -7,7 +7,6 @@ EAPI=6
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="false"
 KMNAME="kdepim"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="A tool to scan calendar data for buggy instances"

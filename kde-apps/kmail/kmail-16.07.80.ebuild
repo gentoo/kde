@@ -7,7 +7,6 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
-QT_MINIMAL="5.6.1"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 

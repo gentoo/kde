@@ -4,7 +4,6 @@
 
 EAPI=6
 
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Client library to access and handling of KAlarm calendar data"

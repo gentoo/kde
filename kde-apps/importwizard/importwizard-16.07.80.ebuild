@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KMNAME="kdepim"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Import emails, settings, addressbook and calendar data from various mailers"

@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_TEST="true"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Library providing client-side support for web application remote blogging APIs"

@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KMNAME="kdepim"
-QT_MINIMAL="5.6.0"
 inherit kde5
 
 DESCRIPTION="Import mbox data from various sources"
