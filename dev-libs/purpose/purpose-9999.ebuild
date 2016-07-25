@@ -24,3 +24,6 @@ DEPEND="
 	net-libs/accounts-qt
 "
 RDEPEND="${DEPEND}"
+
+# requires running environment
+RESTRICT="test"
