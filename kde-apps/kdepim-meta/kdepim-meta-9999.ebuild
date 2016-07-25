@@ -43,7 +43,6 @@ RDEPEND="
 	$(add_kdeapps_dep kdepim-addons)
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kdepim-runtime)
-	$(add_kdeapps_dep kdgantt2)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
