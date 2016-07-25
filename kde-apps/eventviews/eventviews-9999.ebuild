@@ -32,7 +32,7 @@ DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdgantt2)
+	$(add_kdeapps_dep kdiagram)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
