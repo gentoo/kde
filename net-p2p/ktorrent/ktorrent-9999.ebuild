@@ -31,8 +31,9 @@ DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
 HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
-IUSE="+bwscheduler +downloadorder +infowidget +logviewer
-+magnetgenerator +mediaplayer +shutdown +stats +upnp +zeroconf"
+IUSE="+bwscheduler +downloadorder +infowidget +kross +logviewer
++magnetgenerator +mediaplayer rss +scanfolder +shutdown +stats
++upnp +zeroconf"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -55,7 +56,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
-	$(add_frameworks_dep sonnet)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
@@ -63,9 +63,14 @@ COMMON_DEPEND="
 	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:5
 	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:5
 	infowidget? ( dev-libs/geoip )
+	kross? ( $(add_frameworks_dep kross) )
 	mediaplayer? (
 		media-libs/phonon[qt5]
 		>=media-libs/taglib-1.5
+	)
+	rss? (
+		$(add_frameworks_dep kdewebkit)
+		$(add_kdeapps_dep syndication)
 	)
 	shutdown? ( $(add_plasma_dep plasma-workspace) )
 	stats? ( $(add_frameworks_dep kplotting) )
@@ -78,32 +83,17 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!net-p2p/ktorrent:4
 "
-# add back when ported - DEPEND
-# 	kross? ( $(add_frameworks_dep kross) )
-# 	rss? ( $(add_kdeapps_dep kdepimlibs) )
 # add back when ported - RDEPEND
 # 	ipfilter? (
 # 		app-arch/bzip2
 # 		app-arch/unzip
 # 		$(add_kdeapps_dep kdebase-kioslaves)
 # 	)
-# 	kross? ( $(add_kdebase_dep krosspython) )
-
-# src_prepare() {
-# add back when ported
-# 	if ! use plasma; then
-# 		sed -i \
-# 			-e "s:add_subdirectory(plasma):#nada:g" \
-# 			CMakeLists.txt || die "Failed to make plasmoid optional"
-# 	fi
-#
-# 	kde5_src_prepare
-# }
 
 src_prepare() {
 	kde5_src_prepare
 
-	punt_bogus_dep KF5 Kross
+	use kross || punt_bogus_dep KF5 Kross
 }
 
 src_configure() {
@@ -112,9 +102,12 @@ src_configure() {
 		-DENABLE_DOWNLOADORDER_PLUGIN=$(usex downloadorder)
 		-DENABLE_INFOWIDGET_PLUGIN=$(usex infowidget)
 		-DWITH_SYSTEM_GEOIP=$(usex infowidget)
+		-DENABLE_SCRIPTING_PLUGIN=$(usex kross)
 		-DENABLE_LOGVIEWER_PLUGIN=$(usex logviewer)
 		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
 		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
+		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
+		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
 		-DENABLE_SHUTDOWN_PLUGIN=$(usex shutdown)
 		-DENABLE_STATS_PLUGIN=$(usex stats)
 		-DENABLE_UPNP_PLUGIN=$(usex upnp)
@@ -122,9 +115,6 @@ src_configure() {
 	)
 # add back when ported
 # 		-DENABLE_IPFILTER_PLUGIN=$(usex ipfilter)
-# 		-DENABLE_SCRIPTING_PLUGIN=$(usex kross)
-# 		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
-# 		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
 # 		-DENABLE_SEARCH_PLUGIN=$(usex search)
 # 		-DENABLE_WEBINTERFACE_PLUGIN=$(usex webinterface)
 	kde5_src_configure
