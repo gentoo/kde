@@ -55,6 +55,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
+	!kde-apps/kdepim
 	!kde-apps/kmail:4
 "
 
