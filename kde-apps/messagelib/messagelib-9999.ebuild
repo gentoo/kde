@@ -63,7 +63,7 @@ COMMON_DEPEND="
 	>=dev-libs/grantlee-5.1.0:5
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( $(add_kdeapps_dep akonadi-contact) )
+	test? ( $(add_kdeapps_dep akonadi-contacts) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kdepim-addons-16.04.50:5

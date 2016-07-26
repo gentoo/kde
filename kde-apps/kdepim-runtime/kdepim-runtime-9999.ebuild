@@ -40,7 +40,7 @@ CDEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep kalarmcal)

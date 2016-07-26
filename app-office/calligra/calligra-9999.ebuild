@@ -131,7 +131,7 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep kreport)
 		kdepim? (
 			$(add_kdeapps_dep akonadi)
-			$(add_kdeapps_dep akonadi-contact)
+			$(add_kdeapps_dep akonadi-contacts)
 			$(add_kdeapps_dep kcalcore)
 			$(add_kdeapps_dep kcontacts)
 			$(add_kdeapps_dep kdgantt2)

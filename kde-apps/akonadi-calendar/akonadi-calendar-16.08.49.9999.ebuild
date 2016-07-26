@@ -28,7 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)

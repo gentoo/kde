@@ -18,7 +18,7 @@ RDEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadiconsole)
 	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep akonadi-contact)
+	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)

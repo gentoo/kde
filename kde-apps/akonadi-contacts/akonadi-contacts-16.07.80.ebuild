@@ -5,12 +5,10 @@
 EAPI=6
 
 KDE_TEST="forceoptional"
-# TODO pkg move with 16.08 release
-KMNAME="${PN}s"
 inherit kde5
 
 DESCRIPTION="Library for akonadi contact integration"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2+"
 IUSE="prison"
 
