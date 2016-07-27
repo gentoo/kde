@@ -47,7 +47,7 @@ RDEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	>=media-libs/mlt-0.9.8-r1[ffmpeg,kdenlive,melt,qt5,sdl,xml]
+	>=media-libs/mlt-6.0.0[ffmpeg,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
 	virtual/opengl
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
