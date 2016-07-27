@@ -27,6 +27,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	media-libs/alsa-lib
 	>=media-sound/drumstick-1.0.1
+	media-sound/fluidsynth
 "
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
