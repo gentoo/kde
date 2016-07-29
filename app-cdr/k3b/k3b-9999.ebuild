@@ -6,6 +6,7 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
+EGIT_BRANCH="kf5"
 inherit kde5
 
 DESCRIPTION="The CD/DVD Kreator for KDE"
