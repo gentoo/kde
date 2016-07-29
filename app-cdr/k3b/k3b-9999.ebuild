@@ -77,8 +77,6 @@ REQUIRED_USE="
 	sox? ( encode )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-tests-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
