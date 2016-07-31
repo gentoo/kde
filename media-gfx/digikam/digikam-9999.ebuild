@@ -5,7 +5,8 @@
 EAPI=6
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	KDE_TEST=true
+	KDE_HANDBOOK="true"
+	KDE_TEST="true"
 fi
 CMAKE_MAKEFILE_GENERATOR="emake"
 inherit kde5
@@ -65,7 +66,7 @@ COMMON_DEPEND="
 	media-libs/liblqr
 	>=media-libs/libpgf-6.12.27
 	media-libs/libpng:0=
-	>=media-libs/opencv-3.0.0:=
+	media-libs/opencv:=
 	media-libs/tiff:0
 	virtual/jpeg:0
 	addressbook? (
@@ -113,17 +114,33 @@ src_prepare() {
 	undetect_lib kipi
 	undetect_lib scanner KSANE
 
+	if [[ ${KDE_BUILD_TYPE} != live ]]; then
+		# prepare the translations
+		mv "${WORKDIR}/${MY_P}/po" po || die
+		find po -name "*.po" -and -not -name "digikam.po" -delete || die
+		echo "set_property(GLOBAL PROPERTY ALLOW_DUPLICATE_CUSTOM_TARGETS 1)" >> CMakeLists.txt || die
+		echo "find_package(Gettext REQUIRED)" >> CMakeLists.txt || die
+		echo "add_subdirectory( po )" >> CMakeLists.txt || die
+
+		if use handbook; then
+			# subdirs need to be preserved b/c relative paths...
+			# doc-translated is, in fact, broken, and ignored
+			mv "${WORKDIR}/${MY_P}/doc/${PN}" doc-default || die
+			echo "add_subdirectory( doc-default )" >> CMakeLists.txt || die
+		fi
+	fi
+
 	kde5_src_prepare
 }
 
 src_configure() {
 	# LQR = only allows to choose between bundled/external
 	local mycmakeargs=(
-		-DENABLE_OPENCV3=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_MEDIAPLAYER=$(usex video)
+		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
 		$(cmake-utils_use_find_package lensfun LensFun)
 		$(cmake-utils_use_find_package marble Marble)
