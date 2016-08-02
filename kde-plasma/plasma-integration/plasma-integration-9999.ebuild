@@ -34,7 +34,7 @@ DEPEND="
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep oxygen-fonts '' 5.4.3)
+	media-fonts/hack
 	media-fonts/noto
 "
 
