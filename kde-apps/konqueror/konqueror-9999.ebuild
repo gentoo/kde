@@ -15,7 +15,7 @@ HOMEPAGE="
 	https://konqueror.org/
 "
 KEYWORDS=""
-IUSE="+bookmarks svg X"
+IUSE="X"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT="test"
 
@@ -28,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep khtml)
@@ -50,10 +51,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kfind)
-	$(add_kdeapps_dep kfmclient)
-	$(add_kdeapps_dep kurifilter-plugins)
-	bookmarks? ( $(add_kdeapps_dep keditbookmarks) )
-	svg? ( $(add_kdeapps_dep svgpart '' 5.9999) )
 "
 
 S="${S}/${PN}"
@@ -65,10 +62,6 @@ src_prepare() {
 	echo "add_subdirectory( doc )" >> CMakeLists.txt || die
 
 	kde5_src_prepare
-
-	# Do not install *.desktop files for kfmclient
-	sed -e "/kfmclient\.desktop/d" -i CMakeLists.txt \
-		|| die "Failed to omit .desktop files"
 }
 
 src_configure() {
@@ -81,9 +74,19 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
+	if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
+		elog "For bookmarks support, install the keditbookmarks:"
+		elog "kde-apps/keditbookmarks:${SLOT}"
+	fi
+
 	if ! has_version kde-apps/dolphin:${SLOT} ; then
 		elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
 		elog "kde-apps/dolphin:${SLOT}"
+	fi
+
+	if ! has_version kde-apps/svg:${SLOT} ; then
+		elog "For konqueror to view SVGs, install the svg kpart:"
+		elog "kde-apps/svg:${SLOT}"
 	fi
 
 	if ! has_version virtual/jre ; then
