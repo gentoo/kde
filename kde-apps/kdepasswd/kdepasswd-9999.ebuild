@@ -4,18 +4,32 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
+KDE_DOC_DIR="docs"
+KDE_HANDBOOK="forceoptional"
 KMNAME="kde-baseapps"
-inherit kde4-meta
+inherit kde5
 
-DESCRIPTION="KDE GUI for passwd"
+DESCRIPTION="GUI for passwd based on KDE Frameworks"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdesu)
+	$(add_frameworks_dep kdoctools)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+"
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep libkonq)
 "
-RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kdesu)
+RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools 'kdesu')
 	sys-apps/accountsservice
 "
+
+S="${S}/${PN}"
