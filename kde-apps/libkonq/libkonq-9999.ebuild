@@ -4,16 +4,35 @@
 
 EAPI=6
 
+KDE_TEST="true"
 KMNAME="kde-baseapps"
-KMMODULE="lib/konq"
-CPPUNIT_REQUIRED="optional"
-inherit kde4-meta
+VIRTUALX_REQUIRED="test"
+inherit kde5
 
 DESCRIPTION="The embeddable part of konqueror"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kbookmarks)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	sys-libs/zlib
+"
+RDEPEND="${DEPEND}"
+
 RESTRICT="test"
 
-KMSAVELIBS="true"
-
-PATCHES=( "${FILESDIR}/${PN}-4.9.0-cmake.patch" )
+S=${S}/lib/konq
