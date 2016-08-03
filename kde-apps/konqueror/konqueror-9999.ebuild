@@ -51,6 +51,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kfind)
+	!kde-apps/kfmclient:4
 "
 
 S="${S}/${PN}"
@@ -58,7 +59,7 @@ S="${S}/${PN}"
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 
-	mv ../doc "${S}" || die
+	mv ../doc/${PN} "${S}"/doc || die
 	echo "add_subdirectory( doc )" >> CMakeLists.txt || die
 
 	kde5_src_prepare
