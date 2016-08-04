@@ -44,7 +44,10 @@ RDEPEND="
 	$(add_plasma_dep user-manager)
 	bluetooth? ( $(add_plasma_dep bluedevil) )
 	display-manager? (
-		sddm? ( x11-misc/sddm )
+		sddm? (
+			$(add_plasma_dep sddm-kcm)
+			x11-misc/sddm
+		)
 		!sddm? ( x11-misc/lightdm )
 	)
 	grub? ( $(add_plasma_dep breeze-grub) )
@@ -58,7 +61,6 @@ RDEPEND="
 	pam? ( $(add_plasma_dep kwallet-pam) )
 	plymouth? ( $(add_plasma_dep breeze-plymouth) )
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
-	sddm? ( $(add_plasma_dep sddm-kcm) )
 	sdk? ( $(add_plasma_dep plasma-sdk) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
 "
