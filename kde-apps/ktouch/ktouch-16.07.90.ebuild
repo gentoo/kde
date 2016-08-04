@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="Program that helps to learn and practice touch typing"
-HOMEPAGE="https://edu.kde.org/applications/miscellaneous/ktouch"
+HOMEPAGE="https://www.kde.org/applications/education/ktouch/"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug"
 
