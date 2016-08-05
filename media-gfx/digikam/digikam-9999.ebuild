@@ -103,17 +103,6 @@ RESTRICT=test
 # bug 366505
 
 src_prepare() {
-	undetect_lib() {
-		local _use=${1}
-		local _name=${2}
-		[[ -z ${_name} ]] && _name=$(echo ${_use} | sed 's/./\U&/g')
-		use $_use || \
-			sed -i -e "/DETECT_LIB${_name}/d" CMakeLists.txt || die
-	}
-
-	undetect_lib kipi
-	undetect_lib scanner KSANE
-
 	if [[ ${KDE_BUILD_TYPE} != live ]]; then
 		# prepare the translations
 		mv "${WORKDIR}/${MY_P}/po" po || die
@@ -142,8 +131,10 @@ src_configure() {
 		-DENABLE_MEDIAPLAYER=$(usex video)
 		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
+		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package lensfun LensFun)
 		$(cmake-utils_use_find_package marble Marble)
+		$(cmake-utils_use_find_package scanner KF5Sane)
 		$(cmake-utils_use_find_package X X11)
 	)
 
