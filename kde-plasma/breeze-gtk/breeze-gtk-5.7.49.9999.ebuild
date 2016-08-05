@@ -11,3 +11,13 @@ HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze-gtk"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
+
+src_install() {
+	kde5_src_install
+
+	insinto /usr/share/themes/Breeze/gtk-3.20
+	doins Breeze-gtk/gtk-3.20/gtk.css
+
+	insinto /usr/share/themes/Breeze-Dark/gtk-3.20
+	doins Breeze-dark-gtk/gtk-3.20/gtk.css
+}
