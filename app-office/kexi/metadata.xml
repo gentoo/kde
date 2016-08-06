@@ -9,7 +9,7 @@
 		<flag name="activities">Enable kactivities support</flag>
 		<flag name="marble">Enable displaying of maps using <pkg>kde-apps/marble</pkg></flag>
 		<flag name="mdb">Enable support for Microsoft Access database</flag>
-		<flag name="webform">Enable web form designer widget using <pkg>dev-qt/qtwebkit</pkg></flag>
+		<flag name="webkit">Enable web form designer widget using <pkg>dev-qt/qtwebkit</pkg></flag>
 		<flag name="xbase">Enable support for xbase compatible database formats</flag>
 	</use>
 </pkgmetadata>
