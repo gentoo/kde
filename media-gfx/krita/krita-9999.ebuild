@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="color-management fftw +gsl +jpeg jpeg2k openexr pdf +raw tiff vc"
+IUSE="color-management fftw +gsl +jpeg openexr pdf +raw tiff vc"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -52,7 +52,6 @@ COMMON_DEPEND="
 	fftw? ( sci-libs/fftw:3.0= )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
-	jpeg2k? ( media-libs/openjpeg:0= )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr
@@ -65,10 +64,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-cpp/eigen:3
 	dev-lang/perl
 	sys-devel/gettext
-	vc? (
-		>=dev-libs/vc-0.7.4
-		<dev-libs/vc-0.7.5
-	)
+	vc? ( >=dev-libs/vc-1.1.0 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4[calligra_features_krita]
@@ -81,7 +77,6 @@ src_configure() {
 		-DWITH_JPEG=$(usex jpeg)
 		-DWITH_LibRaw=$(usex raw)
 		-DWITH_OCIO=$(usex color-management)
-		-DWITH_OpenJPEG=$(usex jpeg2k)
 		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
 		-DWITH_TIFF=$(usex tiff)
