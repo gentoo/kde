@@ -8,7 +8,4 @@
 	<use>
 		<flag name="quotes">Enable Online Stock Quote retrieval</flag>
 	</use>
-	<upstream>
-		<remote-id type="sourceforge">kmymoney2</remote-id>
-	</upstream>
 </pkgmetadata>

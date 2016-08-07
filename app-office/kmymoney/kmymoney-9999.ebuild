@@ -4,9 +4,9 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
-KDE_HANDBOOK="true"
-KDE_PUNT_BOGUS_DEPS="true"
+CMAKE_MIN_VERSION="3.1"
+KDE_HANDBOOK="optional"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit kde5
@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="crypt calendar doc ofx quotes"
+IUSE="calendar crypt ofx quotes"
 
 # TODO: hbci (not yet ported to qt5)
 COMMON_DEPEND="
@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
@@ -79,19 +78,7 @@ src_configure() {
 		-DUSE_QT_DESIGNER=OFF
 		-DENABLE_LIBICAL=$(usex calendar)
 		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
-		-DUSE_DEVELOPER_DOC=$(usex doc)
 		-DENABLE_LIBOFX=$(usex ofx)
 	)
 	kde5_src_configure
-}
-
-src_compile() {
-	kde5_src_compile
-
-	use doc && kde5_src_compile apidoc
-}
-
-src_install() {
-	use doc && HTML_DOCS=("${BUILD_DIR}/apidocs/html/")
-	kde5_src_install
 }
