@@ -9,6 +9,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KDE_TEST="true"
 fi
 CMAKE_MAKEFILE_GENERATOR="emake"
+CMAKE_MIN_VERSION="3.0"
 inherit kde5
 
 DESCRIPTION="Digital photo management application"
@@ -67,6 +68,7 @@ COMMON_DEPEND="
 	>=media-libs/libpgf-6.12.27
 	media-libs/libpng:0=
 	media-libs/opencv:=
+	|| ( <media-libs/opencv-3.0.0 >=media-libs/opencv-3.1.0 )
 	media-libs/tiff:0
 	virtual/jpeg:0
 	addressbook? (
