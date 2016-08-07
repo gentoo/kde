@@ -21,8 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-disable-testapp.patch" )
-
 src_configure() {
 	local mycmakeargs=(-DQT5_BUILD=TRUE)
 
