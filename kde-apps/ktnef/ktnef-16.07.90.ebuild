@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_PUNT_BOGUS_DEPS="true"
 KMNAME="kdepim"
 inherit kde5
 
