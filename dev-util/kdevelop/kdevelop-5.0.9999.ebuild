@@ -10,7 +10,7 @@ KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Integrated Development Environment, supporting KDE/Qt, C/C++ and much more"
+DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
 IUSE="+clang +cmake +cxx +gdbui +ninja okteta +plasma +qmake qthelp"
 KEYWORDS=""
@@ -41,7 +41,6 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	>=dev-util/kdevplatform-${PV}:5

@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Integrated Development Environment, supporting KDE/Qt, C/C++ and much more"
+DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
 IUSE="+clang +cmake +cxx debug +ninja +plasma +qmake qthelp"
 KEYWORDS="~amd64"
