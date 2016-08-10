@@ -4,11 +4,10 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="QRCode and data matrix barcode library"
-HOMEPAGE="https://projects.kde.org/projects/kdesupport/prison"
+HOMEPAGE="https://quickgit.kde.org/?p=prison.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -20,9 +19,3 @@ DEPEND="
 	media-libs/libdmtx
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(-DQT5_BUILD=TRUE)
-
-	kde5_src_configure
-}
