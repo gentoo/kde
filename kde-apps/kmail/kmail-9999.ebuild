@@ -4,7 +4,6 @@
 
 EAPI=6
 
-KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
