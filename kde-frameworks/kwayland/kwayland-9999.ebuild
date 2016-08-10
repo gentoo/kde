@@ -25,4 +25,4 @@ RDEPEND="${DEPEND}
 "
 
 # All failing, i guess we need a virtual wayland server
-RESTRICT="test"
+RESTRICT+=" test"

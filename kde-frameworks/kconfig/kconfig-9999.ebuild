@@ -22,6 +22,6 @@ DEPEND="${RDEPEND}
 "
 
 # bug 560086
-RESTRICT="test"
+RESTRICT+=" test"
 
 DOCS=( DESIGN docs/DESIGN.kconfig docs/options.md )

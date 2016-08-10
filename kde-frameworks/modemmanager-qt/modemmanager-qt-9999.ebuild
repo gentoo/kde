@@ -22,4 +22,4 @@ DEPEND="${RDEPEND}
 "
 
 # requires running environment
-RESTRICT="test"
+RESTRICT+=" test"

@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 	X? ( x11-proto/xproto )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 DOCS=( "docs/README.kstartupinfo" )
 

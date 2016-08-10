@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="nls X"
 
 # requires running kde environment
-RESTRICT="test"
+RESTRICT+=" test"
 
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)

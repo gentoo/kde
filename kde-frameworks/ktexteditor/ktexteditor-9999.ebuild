@@ -42,7 +42,7 @@ DEPEND="${RDEPEND}
 	test? ( $(add_frameworks_dep kservice) )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

@@ -54,7 +54,7 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/kdeplasma-addons-5.4.3-r1
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

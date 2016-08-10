@@ -27,4 +27,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-RESTRICT="test" # bug 574770
+RESTRICT+=" test" # bug 574770

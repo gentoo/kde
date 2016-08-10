@@ -75,7 +75,7 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

@@ -28,7 +28,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 # requires running kde environment
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

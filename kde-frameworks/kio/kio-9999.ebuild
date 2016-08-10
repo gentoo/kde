@@ -65,7 +65,7 @@ PDEPEND="
 RDEPEND="${COMMON_DEPEND}"
 
 # tests hang
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
