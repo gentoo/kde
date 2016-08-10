@@ -17,6 +17,7 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwindowsystem X)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
