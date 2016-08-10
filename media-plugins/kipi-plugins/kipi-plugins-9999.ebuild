@@ -42,7 +42,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkipi '' '' '5=')
-	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
@@ -56,6 +55,7 @@ COMMON_DEPEND="
 	vkontakte? ( net-libs/libkvkontakte:5 )
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtconcurrent)
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
