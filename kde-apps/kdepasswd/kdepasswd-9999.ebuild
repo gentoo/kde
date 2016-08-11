@@ -4,8 +4,6 @@
 
 EAPI=6
 
-KDE_DOC_DIR="docs"
-KDE_HANDBOOK="forceoptional"
 KMNAME="kde-baseapps"
 inherit kde5
 
