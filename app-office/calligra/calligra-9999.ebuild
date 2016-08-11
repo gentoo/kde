@@ -47,6 +47,7 @@ REQUIRED_USE="
 # 		dev-libs/libgit2
 # 		dev-libs/libqgit2	# needs porting (currently doesn't build)
 # 	)
+# drop qtcore subslot operator when QT_MINIMAL >= 5.7.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
@@ -125,6 +126,7 @@ COMMON_DEPEND="
 		x11-libs/libX11
 	)
 	calligra_features_plan? (
+		$(add_qt_dep qtcore '' '' '5=')
 		$(add_frameworks_dep kdelibs4support)
 		$(add_kdeapps_dep kdiagram)
 		$(add_kdeapps_dep kproperty)
