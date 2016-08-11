@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Visual database applications creator"
 HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.org/"
 KEYWORDS=""
-IUSE="activities marble mdb mysql postgres sqlite sybase webkit xbase"
+IUSE="marble mdb mysql postgres sqlite webkit"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -39,7 +39,6 @@ COMMON_DEPEND="
 	dev-db/kdb[mysql?,postgres?,sqlite?]
 	dev-libs/kproperty
 	dev-libs/kreport
-	activities? ( $(add_frameworks_dep kactivities) )
 	marble? ( $(add_kdeapps_dep marble) )
 	mdb? ( dev-libs/glib:2 )
 	mysql? ( virtual/libmysqlclient )
@@ -47,14 +46,16 @@ COMMON_DEPEND="
 		dev-db/postgresql:*
 		dev-libs/libpqxx
 	)
-	sybase? ( dev-db/freetds )
 	webkit? ( $(add_qt_dep qtwebkit) )
-	xbase? ( dev-db/xbase )
 "
+# Not yet ported:
+# 	sybase? ( dev-db/freetds )
+# 	xbase? ( dev-db/xbase )
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep breeze-icons-rcc)
 	!app-office/calligra:4[calligra_features_kexi]
 	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
 "
@@ -64,11 +65,6 @@ src_prepare() {
 		punt_bogus_dep Qt5 WebKit
 		punt_bogus_dep Qt5 WebKitWidgets
 	fi
-
-	# otherwise requires breeze-icons w/ -DBINARY_ICONS_RESOURCE=ON
-	sed -i CMakeLists.txt \
-		-e "/include(CheckIfQtGuiCanBeExecuted)/ s/^/#DONT/" \
-		-e "/include(CheckGlobalBreezeIcons)/ s/^/#DONT/" || die
 
 	kde5_src_prepare
 }
@@ -80,9 +76,10 @@ src_configure() {
 		$(cmake-utils_use_find_package mdb GLIB2)
 		$(cmake-utils_use_find_package mysql MySQL)
 		$(cmake-utils_use_find_package postgres KexiPostgreSQL)
-		$(cmake-utils_use_find_package sybase FreeTDS)
-		$(cmake-utils_use_find_package xbase XBase)
 	)
+	# Not yet ported:
+# 	$(cmake-utils_use_find_package sybase FreeTDS)
+# 	$(cmake-utils_use_find_package xbase XBase)
 
 	kde5_src_configure
 }
