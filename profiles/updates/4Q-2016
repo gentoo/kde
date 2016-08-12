@@ -5,3 +5,4 @@ slotmove kde-misc/kio-gdrive 0 5
 move kde-plasma/plasma-mediacenter media-video/plasma-mediacenter
 move kde-apps/kdiagram dev-libs/kdiagram
 move media-sound/kwave kde-apps/kwave
+slotmove app-office/libalkimia 5 0
