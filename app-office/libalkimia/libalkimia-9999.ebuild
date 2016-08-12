@@ -12,16 +12,14 @@ HOMEPAGE="http://kde-apps.org/content/show.php/libalkimia?content=137323"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
+SLOT="0/6"
 IUSE=""
 
-CDEPEND="
+RDEPEND="
 	$(add_qt_dep qtdbus)
 	dev-libs/gmp:0=[cxx]
 "
-RDEPEND="${CDEPEND}
-	!app-office/libalkimia:4
-"
-DEPEND="${CDEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_qt_dep qtnetwork)
