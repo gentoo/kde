@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
+QT_MINIMAL="5.7.0"
 inherit kde5
 
 DESCRIPTION="A KDE Software for Music Education"
@@ -33,7 +34,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtquickcontrols)
+	$(add_qt_dep qtquickcontrols2)
 	media-sound/timidity++
 	media-sound/timidity-freepats
 "
