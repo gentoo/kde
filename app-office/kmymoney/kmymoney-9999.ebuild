@@ -19,9 +19,8 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="calendar crypt ofx quotes"
+IUSE="calendar crypt hbci ofx quotes"
 
-# TODO: hbci (not yet ported to qt5)
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -55,14 +54,18 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-office/libalkimia:5
+	app-office/libalkimia
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )
+	hbci? (
+		>=net-libs/aqbanking-5.6.5
+		>=sys-libs/gwenhywfar-4.15.3-r1[qt5]
+	)
 	crypt? ( $(add_kdeapps_dep gpgmepp) )
-	ofx? ( >=dev-libs/libofx-0.9.4 )
+	ofx? ( dev-libs/libofx )
 "
 DEPEND="${COMMON_DEPEND}
 	!app-office/kmymoney:4
@@ -73,9 +76,28 @@ RDEPEND="${COMMON_DEPEND}
 	quotes? ( dev-perl/Finance-Quote )
 "
 
+src_prepare() {
+	kde5_src_prepare
+	if ! use test ; then
+		sed -i \
+			-e '/add_subdirectory( tests )/ s/^/#DONT_/' \
+			-e '/add_subdirectory(tests)/ s/^/#DONT_/' \
+			kmymoney/CMakeLists.txt \
+			kmymoney/converter/CMakeLists.txt \
+			kmymoney/mymoney/CMakeLists.txt \
+			kmymoney/mymoney/payeeidentifier/CMakeLists.txt \
+			kmymoney/mymoney/storage/CMakeLists.txt \
+			kmymoney/payeeidentifier/ibanandbic/CMakeLists.txt \
+			kmymoney/plugins/csvimport/CMakeLists.txt \
+			kmymoney/reports/CMakeLists.txt \
+			|| die
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_QT_DESIGNER=OFF
+		-DENABLE_KBANKING=$(usex hbci)
 		-DENABLE_LIBICAL=$(usex calendar)
 		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
 		-DENABLE_LIBOFX=$(usex ofx)
