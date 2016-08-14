@@ -7,13 +7,13 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Free/Open Source micro-blogging client for KDE"
+DESCRIPTION="Free/Open Source micro-blogging client by KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 SRC_URI="mirror://kde/unstable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE="attica konqueror"
+IUSE="attica konqueror telepathy"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -40,13 +40,13 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	app-crypt/qca[qt5]
 	dev-libs/qoauth:5
-	net-libs/telepathy-qt[qt5]
 	attica? ( $(add_frameworks_dep attica) )
 	konqueror? (
 		$(add_frameworks_dep kparts)
 		$(add_frameworks_dep kdewebkit)
 		$(add_qt_dep qtwebkit)
 	)
+	telepathy? ( net-libs/telepathy-qt[qt5] )
 "
 RDEPEND="${DEPEND}
 	!net-im/choqok:4
@@ -54,11 +54,14 @@ RDEPEND="${DEPEND}
 
 DOCS=( AUTHORS README TODO changelog )
 
+PATCHES=( "${FILESDIR}/${P}-telepathy-optional.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package attica KF5Attica)
 		$(cmake-utils_use_find_package konqueror KF5Parts)
 		$(cmake-utils_use_find_package konqueror KF5WebKit)
+		$(cmake-utils_use_find_package telepathy TelepathyQt5)
 	)
 
 	kde5_src_configure

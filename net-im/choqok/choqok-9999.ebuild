@@ -7,11 +7,11 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Free/Open Source micro-blogging client for KDE"
+DESCRIPTION="Free/Open Source micro-blogging client by KDE"
 HOMEPAGE="http://choqok.gnufolks.org/"
 
 LICENSE="GPL-2+"
-IUSE="attica konqueror"
+IUSE="attica konqueror telepathy"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -45,6 +45,7 @@ DEPEND="
 		$(add_frameworks_dep kdewebkit)
 		$(add_qt_dep qtwebkit)
 	)
+	telepathy? ( net-libs/telepathy-qt[qt5] )
 "
 RDEPEND="${DEPEND}
 	!net-im/choqok:4
@@ -57,6 +58,7 @@ src_configure() {
 		$(cmake-utils_use_find_package attica KF5Attica)
 		$(cmake-utils_use_find_package konqueror KF5Parts)
 		$(cmake-utils_use_find_package konqueror KF5WebKit)
+		$(cmake-utils_use_find_package telepathy TelepathyQt5)
 	)
 
 	kde5_src_configure
