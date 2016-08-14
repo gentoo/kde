@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -21,7 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep ki18n)
