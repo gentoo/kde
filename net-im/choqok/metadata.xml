@@ -8,5 +8,6 @@
 	<use>
 		<flag name="attica">Build Open Collaboration Services plugin using <pkg>dev-libs/libattica</pkg></flag>
 		<flag name="konqueror">Build Konqueror Choqok plugin</flag>
+		<flag name="telepathy">Enable support for the real-time communication framework telepathy</flag>
 	</use>
 </pkgmetadata>
