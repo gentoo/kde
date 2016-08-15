@@ -6,10 +6,9 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
-EGIT_BRANCH="kf5"
 inherit kde5
 
-DESCRIPTION="The CD/DVD Kreator for KDE"
+DESCRIPTION="Full-featured CD/DVD/Blu-ray burning and ripping application based on KDE Frameworks"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
