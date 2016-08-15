@@ -4,16 +4,24 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="forceoptional"
+inherit kde5
 
-DESCRIPTION="KDE kioslaves from the kdemultimedia package"
+DESCRIPTION="kioslave for accessing audio CDs"
 KEYWORDS=""
-IUSE="debug flac vorbis"
+IUSE="flac vorbis"
 
 DEPEND="
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
 	$(add_kdeapps_dep libkcddb)
 	$(add_kdeapps_dep libkcompactdisc)
+	$(add_qt_dep qtwidgets)
 	media-sound/cdparanoia
 	flac? ( >=media-libs/flac-1.1.2 )
 	vorbis? (
@@ -25,9 +33,9 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_Flac=$(usex flac)
-		-DWITH_OggVorbis=$(usex vorbis)
+		$(cmake-utils_use_find_package flac FLAC)
+		$(cmake-utils_use_find_package vorbis OggVorbis)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
