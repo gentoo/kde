@@ -9,22 +9,18 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Generic geographical map widget"
+DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
 HOMEPAGE="https://marble.kde.org/"
 KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 
-IUSE="aprs designer-plugin gps +kde phonon shapefile"
+IUSE="aprs +dbus designer gps +kde phonon +positioning shapefile"
 
-# FIXME (new packages):
-# libwlocate, WLAN-based geolocation
-# qextserialport, interface to old fashioned serial ports
+# FIXME (new package): libwlocate, WLAN-based geolocation
 RDEPEND="
 	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtopengl)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql)
@@ -32,7 +28,10 @@ RDEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	gps? ( >=sci-geosciences/gpsd-2.95 )
+	aprs? ( $(add_qt_dep qtserialport) )
+	dbus? ( $(add_qt_dep qtdbus) )
+	designer? ( $(add_qt_dep designer) )
+	gps? ( sci-geosciences/gpsd )
 	kde? (
 		$(add_frameworks_dep kconfig)
 		$(add_frameworks_dep kconfigwidgets)
@@ -47,6 +46,10 @@ RDEPEND="
 		$(add_frameworks_dep kwallet)
 	)
 	phonon? ( media-libs/phonon[qt5] )
+	positioning? (
+		$(add_qt_dep qtlocation)
+		$(add_qt_dep qtpositioning)
+	)
 	shapefile? ( sci-libs/shapelib )
 "
 DEPEND="${RDEPEND}
@@ -56,17 +59,28 @@ DEPEND="${RDEPEND}
 # bug 588320
 RESTRICT=test
 
+src_prepare() {
+	if use kde; then
+		sed -e "/add_subdirectory(marble-qt)/ s/^/#DONT/" \
+			-i src/apps/CMakeLists.txt \
+			|| die "Failed to disable marble-qt"
+	fi
+
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package aprs Perl)
+		$(cmake-utils_use_find_package positioning Qt5Location)
+		$(cmake-utils_use_find_package positioning Qt5Positioning)
 		-DBUILD_MARBLE_TESTS=$(usex test)
-		-DWITH_DESIGNER_PLUGIN=$(usex designer-plugin)
+		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
 		-DWITH_KF5=$(usex kde)
 		-DWITH_Phonon=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
-		-DWITH_QextSerialPort=OFF
-		-DWITH_liblocation=0
+		-DWITH_libwlocate=OFF
 	)
 	kde5_src_configure
 }
