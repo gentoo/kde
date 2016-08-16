@@ -4,15 +4,19 @@
 
 EAPI=6
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="KDE library for playing & ripping CDs"
+DESCRIPTION="Library for playing & ripping CDs"
 KEYWORDS=""
-IUSE="alsa debug"
+IUSE="alsa"
 
 DEPEND="
-	media-libs/phonon[qt4]
-	alsa? ( media-libs/alsa-lib )
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep solid)
+	$(add_qt_dep qtdbus)
+	media-libs/phonon[qt5]
 "
 RDEPEND="${DEPEND}"
 
@@ -20,5 +24,5 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package alsa Alsa)
 	)
-	kde4-base_src_configure
+	kde5_src_configure
 }
