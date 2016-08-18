@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="Full-featured CD/DVD/Blu-ray burning and ripping application based on KDE Frameworks"
+DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
 HOMEPAGE="http://www.k3b.org/"
 
 LICENSE="GPL-2 FDL-1.2"
