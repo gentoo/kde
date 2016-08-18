@@ -4,11 +4,10 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="WebKit KPart for Konqueror"
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/kwebkitpart"
+HOMEPAGE="https://quickgit.kde.org/?p=kwebkitpart.git"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
