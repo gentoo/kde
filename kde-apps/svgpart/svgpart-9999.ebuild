@@ -4,8 +4,17 @@
 
 EAPI=6
 
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Svgpart is a kpart for viewing SVGs"
+DESCRIPTION="Kpart for viewing SVGs"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kparts)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+"
+RDEPEND="${DEPEND}"
