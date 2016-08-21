@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -72,18 +72,3 @@ RDEPEND="${COMMON_DEPEND}
 
 # bug 579630
 RESTRICT="test"
-
-src_prepare() {
-	kde5_src_prepare
-
-	if ! use test ; then
-		sed -i \
-			-e '/add_subdirectory(autotests)/ s/^/#DONT/' \
-			-e '/add_subdirectory(tests)/ s/^/#DONT/' \
-			messagecomposer/CMakeLists.txt \
-			messagecore/CMakeLists.txt \
-			messagelist/CMakeLists.txt \
-			messageviewer/CMakeLists.txt \
-			templateparser/CMakeLists.txt || die
-	fi
-}
