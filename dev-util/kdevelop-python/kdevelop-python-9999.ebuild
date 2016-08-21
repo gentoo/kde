@@ -11,8 +11,9 @@ inherit kde5 python-any-r1
 
 DESCRIPTION="Python plugin for KDevelop"
 IUSE=""
+[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -28,7 +29,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-util/kdevplatform:5
-	${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}
 	dev-util/kdevelop:5
