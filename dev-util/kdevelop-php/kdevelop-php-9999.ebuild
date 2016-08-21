@@ -38,5 +38,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!dev-util/kdevelop-php-docs
-	dev-util/kdevelop:${SLOT}
+	dev-util/kdevelop:5
 "
