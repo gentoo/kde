@@ -15,11 +15,9 @@ if [[ ${PV} != 9999* ]]; then
 	S="${WORKDIR}"/"${MY_P}"
 
 	KEYWORDS="~amd64 ~arm ~x86"
-else
-	KEYWORDS=""
 fi
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -60,13 +58,5 @@ src_prepare() {
 	sed -i -e "/^find_dependency/ s/ \"@LibGMP_MIN_VERSION@\"//" \
 		LibKTorrentConfig.cmake.in || die
 
-	# do not build non-installed example binary
-	sed -i -e "/add_subdirectory(examples)/d" CMakeLists.txt || die
-
-	if ! use test ; then
-		sed -i -e "/add_subdirectory(testlib)/d" CMakeLists.txt || die
-		sed -i -e "/add_subdirectory(tests)/d" \
-			src/{datachecker,dht,diskio,download,magnet,mse,net,peer,util,utp,torrent}/CMakeLists.txt \
-			|| die "Failed to remove tests"
-	fi
+	use test || cmake_comment_add_subdirectory testlib
 }
