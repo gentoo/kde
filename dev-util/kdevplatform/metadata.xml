@@ -10,6 +10,6 @@
 		<flag name="konsole">Enable Konsole integration</flag>
 		<flag name="reviewboard">Enable reviewboard support</flag>
 		<flag name="templates">Enable file templates through <pkg>dev-libs/grantlee</pkg></flag>
-		<flag name="welcomepage">Enable welcome page, requires <pkg>dev-qt/qtdeclarative[widgets]</pkg></flag>
+		<flag name="welcomepage">Enable welcome page, requires <pkg>dev-qt/qtdeclarative</pkg></flag>
 	</use>
 </pkgmetadata>
