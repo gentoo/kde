@@ -12,7 +12,7 @@ inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
 IUSE="cvs reviewboard subversion +welcomepage"
-KEYWORDS=""
+[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
