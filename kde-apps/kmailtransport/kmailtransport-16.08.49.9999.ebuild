@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="ssl"
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -32,12 +32,15 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	ssl? ( dev-libs/cyrus-sasl )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_frameworks_dep ktextwidgets) )
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepimlibs:4
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare
