@@ -4,6 +4,7 @@
 
 EAPI=6
 
+EGIT_BRANCH="5.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -69,7 +70,10 @@ RDEPEND="${DEPEND}
 RESTRICT+=" test"
 # see bug 366471
 
-PATCHES=( "${FILESDIR}/${PN}-ninja-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-ninja-optional.patch"
+	"${FILESDIR}/${P}-fix-cpp.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

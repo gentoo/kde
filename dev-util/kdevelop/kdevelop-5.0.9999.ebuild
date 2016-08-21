@@ -12,8 +12,8 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+clang +cmake +cxx +gdbui +ninja okteta +plasma +qmake qthelp"
-KEYWORDS=""
+IUSE="+clang +cmake +gdbui +ninja okteta +plasma +qmake qthelp"
+[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -45,7 +45,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	>=dev-util/kdevplatform-${PV}:5
 	x11-misc/shared-mime-info
-	cxx? ( clang? ( >=sys-devel/clang-3.5.0 ) )
+	clang? ( >=sys-devel/clang-3.5.0 )
 	gdbui? ( $(add_plasma_dep ksysguard) )
 	okteta? ( $(add_kdeapps_dep okteta) )
 	plasma? (
@@ -58,7 +58,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kio-extras)
-	cxx? ( >=sys-devel/gdb-7.0[python] )
+	>=sys-devel/gdb-7.0[python]
 	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-clang
@@ -77,8 +77,6 @@ src_configure() {
 		-DLEGACY_CPP_SUPPORT=$(usex !clang)
 		-DBUILD_cmake=$(usex cmake)
 		-DBUILD_cmakebuilder=$(usex cmake)
-		-DBUILD_clang=$(usex cxx)
-		-DBUILD_cpp=$(usex cxx)
 		$(cmake-utils_use_find_package gdbui KF5SysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
