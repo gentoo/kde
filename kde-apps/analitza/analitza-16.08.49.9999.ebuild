@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -31,12 +31,6 @@ src_prepare() {
 	sed -i \
 		-e "/add_subdirectory(examples)/ s/^/#DONT/" \
 		analitzaplot/CMakeLists.txt || die
-
-	if ! use test ; then
-		sed -i \
-			-e "/add_subdirectory(tests)/ s/^/#DONT/" \
-			analitza{,gui,plot}/CMakeLists.txt || die
-	fi
 
 	kde5_src_prepare
 }
