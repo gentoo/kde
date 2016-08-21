@@ -5,7 +5,7 @@
 EAPI=6
 
 KDE_EXAMPLES="true"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -58,17 +58,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim
 	!kde-apps/kmail:4
 "
-
-src_prepare() {
-	kde5_src_prepare
-
-	if ! use test; then
-		sed -i -e "/add_subdirectory(.*tests)/ s/^/#DONT/" \
-			plugins/webengineurlinterceptor/donottrack/CMakeLists.txt \
-			plugins/messageviewer/bodypartformatter/CMakeLists.txt \
-			|| die "Failed to disable tests"
-	fi
-}
 
 src_configure() {
 	local mycmakeargs=(
