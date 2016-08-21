@@ -4,16 +4,14 @@
 
 EAPI=6
 
-# TODO tests hang + fail
-# KDE_TEST="true"
-# VIRTUALDBUS_TEST="true"
-# VIRTUALX_REQUIRED="test"
-RESTRICT="test"
 KDEBASE="kdevelop"
+KDE_TEST="forceoptional-recursive"
+VIRTUALDBUS_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
-IUSE="classbrowser cvs konsole reviewboard subversion +templates"
+IUSE="cvs reviewboard subversion +welcomepage"
 KEYWORDS=""
 
 COMMON_DEPEND="
@@ -47,18 +45,19 @@ COMMON_DEPEND="
 	$(add_frameworks_dep threadweaver)
 	$(add_kdeapps_dep libkomparediff2)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/grantlee:5
+	reviewboard? ( dev-libs/purpose )
 	subversion? (
 		dev-libs/apr:1
 		dev-libs/apr-util:1
 		dev-vcs/subversion
 	)
-	templates? ( dev-libs/grantlee:5 )
+	welcomepage? ( $(add_qt_dep qtdeclarative 'widgets') )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -67,20 +66,40 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
-	konsole? ( $(add_kdeapps_dep konsole) )
 	!dev-util/kdevelop:4
 	!dev-util/kdevplatform:4
 "
 
+RESTRICT+=" test"
+
+src_prepare() {
+	kde5_src_prepare
+	# root tests subdirectory actually does not contain tests, installs stuff
+	if ! use test; then
+		sed -i -e "/add_subdirectory(tests)/ s/#DONOTCOMPILE //" \
+			CMakeLists.txt || die "Failed to fix CMakeLists.txt"
+		sed -i -e '1s/^/find_package(Qt5Test \$\{QT_MIN_VERSION\})\n/' \
+			tests/CMakeLists.txt || die "Failed to fix tests/CMakeLists.txt"
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_classbrowser=$(usex classbrowser)
 		-DBUILD_cvs=$(usex cvs)
-		-DBUILD_konsole=$(usex konsole)
-		-DBUILD_reviewboard=$(usex reviewboard)
+		$(cmake-utils_use_find_package reviewboard KDEExperimentalPurpose)
 		$(cmake-utils_use_find_package subversion SubversionLibrary)
-		$(cmake-utils_use_find_package templates Grantlee5)
+		$(cmake-utils_use_find_package welcomepage Qt5QuickWidgets)
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-apps/konsole" ; then
+		echo
+		elog "For konsole view, please install kde-apps/konsole"
+		echo
+	fi
 }
