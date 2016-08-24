@@ -11,7 +11,7 @@ inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="+calendar +geolocation gps prison qalculate"
+IUSE="+calendar geolocation gps prison qalculate"
 
 # drop kde-frameworks/plasma subslot operator when FRAMEWORKS_MINIMAL >= 5.24.0
 COMMON_DEPEND="
