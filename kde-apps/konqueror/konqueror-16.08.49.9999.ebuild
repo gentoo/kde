@@ -21,7 +21,6 @@ RESTRICT="test"
 DEPEND="
 	$(add_kdeapps_dep libkonq)
 	filemanager? (
-		$(add_kdebase_dep kactivities '' 4.13)
 		media-libs/phonon[qt4]
 		x11-libs/libXrender
 	)
@@ -52,6 +51,8 @@ KMEXTRACTONLY="
 	lib/konq/
 "
 
+PATCHES=( "${FILESDIR}/${PN}-16.08.0-kactivities.patch" )
+
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 
@@ -78,6 +79,7 @@ src_configure() {
 			-DWITH_Baloo=OFF
 			-DWITH_BalooWidgets=OFF
 			-DWITH_KFileMetaData=OFF
+			-DCMAKE_DISABLE_FIND_PACKAGE_KActivities=ON
 		)
 	fi
 
