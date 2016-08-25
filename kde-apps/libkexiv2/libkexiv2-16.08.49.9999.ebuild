@@ -8,6 +8,7 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="+xmp"
 
