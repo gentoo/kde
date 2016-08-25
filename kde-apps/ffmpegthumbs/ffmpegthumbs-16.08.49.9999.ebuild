@@ -8,6 +8,7 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="FFmpeg based thumbnail generator for video files"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="libav"
 
