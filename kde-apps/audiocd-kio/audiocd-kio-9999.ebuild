@@ -8,6 +8,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="kioslave for accessing audio CDs"
+LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE="flac vorbis"
 
