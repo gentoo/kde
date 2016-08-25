@@ -7,6 +7,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Kpart for viewing SVGs"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
