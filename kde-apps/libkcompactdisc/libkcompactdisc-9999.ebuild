@@ -7,6 +7,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Library for playing & ripping CDs"
+LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
 IUSE="alsa"
 
