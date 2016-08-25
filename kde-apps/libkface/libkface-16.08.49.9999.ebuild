@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Qt/C++ wrapper around LibFace to perform face recognition and detection"
 HOMEPAGE="https://projects.kde.org/projects/kde/kdegraphics/libs/libkface"
 
-LICENSE="GPL-2"
+LICENSE="BSD GPL-2+"
 KEYWORDS=""
 IUSE=""
 
