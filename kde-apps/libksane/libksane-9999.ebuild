@@ -8,9 +8,9 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="SANE Library interface based on KDE Frameworks"
+LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 KEYWORDS=""
 IUSE=""
-LICENSE="LGPL-2"
 
 DEPEND="
 	$(add_frameworks_dep ki18n)
