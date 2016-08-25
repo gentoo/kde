@@ -8,6 +8,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Screenshot capture utility"
+LICENSE="LGPL-2+ handbook? ( FDL-1.3 ) kipi? ( GPL-2+ )"
 KEYWORDS="~amd64 ~x86"
 IUSE="kipi share"
 
