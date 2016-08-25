@@ -26,6 +26,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_plasma_dep libkscreen '' '' '5=')
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
