@@ -8,6 +8,7 @@ KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="A library for image plugins accross KDE applications"
+LICENSE="GPL-2+"
 SLOT="5/31"
 KEYWORDS=""
 IUSE=""
