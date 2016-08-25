@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Wrapper library for world map components as marble, openstreetmap and googlemap"
 HOMEPAGE="https://www.digikam.org/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
