@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="Paint Program by KDE"
