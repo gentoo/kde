@@ -8,6 +8,7 @@ KMNAME="kdegraphics-thumbnailers"
 inherit kde5
 
 DESCRIPTION="Thumbnail generators for PDF/PS and RAW files"
+LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
