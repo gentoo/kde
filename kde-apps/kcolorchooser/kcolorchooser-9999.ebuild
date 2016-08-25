@@ -8,6 +8,8 @@ inherit kde5
 
 DESCRIPTION="KDE color selector/editor"
 HOMEPAGE="https://www.kde.org/applications/graphics/kcolorchooser/"
+
+LICENSE="MIT"
 KEYWORDS=""
 IUSE=""
 
