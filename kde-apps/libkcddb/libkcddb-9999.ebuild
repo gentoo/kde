@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
 
@@ -29,6 +30,16 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde5_src_prepare
+
+	if ! use handbook ; then
+		pushd kcmcddb > /dev/null
+		cmake_comment_add_subdirectory doc
+		popd > /dev/null
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
