@@ -8,6 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Widget library for baloo"
+LICENSE="LGPL-2+ LGPL-2.1+ || ( LGPL-2.1 LGPL-3 )"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
