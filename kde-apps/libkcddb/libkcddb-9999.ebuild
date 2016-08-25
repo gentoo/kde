@@ -9,6 +9,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE library for CDDB"
+LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE="musicbrainz"
 
