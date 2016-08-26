@@ -5,43 +5,46 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+KDE_TEST="optional"
 inherit kde5
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
 HOMEPAGE="http://www.k3b.org/"
+[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2 FDL-1.2"
-KEYWORDS=""
+[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
-# Translations are only in the tarballs, not in the git repo
-if [[ ${KDE_BUILD_TYPE} != live ]] ; then
-	SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
-	DOCS=( FAQ PERMISSIONS README )
-	S=${WORKDIR}/${P/_*}
-else
-	DOCS=( FAQ.txt PERMISSIONS.txt README.txt )
-fi
+DOCS=( {FAQ,PERMISSIONS,README}.txt )
 
 DEPEND="
 	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_kdeapps_dep libkcddb)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread )
 	ffmpeg? (
@@ -80,7 +83,6 @@ REQUIRED_USE="
 src_configure() {
 	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
-		-DK3B_BUILD_K3BSETUP=OFF
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
@@ -106,14 +108,13 @@ pkg_postinst() {
 	kde5_pkg_postinst
 
 	echo
-	elog "We don't install k3bsetup anymore because Gentoo doesn't need it."
 	elog "If you get warnings on start-up, uncheck the \"Check system"
 	elog "configuration\" option in the \"Misc\" settings window."
 	echo
 
 	local group=cdrom
 	use kernel_linux || group=operator
-	elog "Make sure you have proper read/write permissions on the cdrom device(s)."
+	elog "Make sure you have proper read/write permissions on optical device(s)."
 	elog "Usually, it is sufficient to be in the ${group} group."
 	echo
 }
