@@ -8,7 +8,9 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="KDE WebDev - merge this to pull in all kdewebdev-derived packages"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="nls"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 # FIXME: Add back when ported
 # $(add_kdeapps_dep klinkstatus)
@@ -16,4 +18,5 @@ RDEPEND="
 	$(add_kdeapps_dep kfilereplace)
 	$(add_kdeapps_dep kimagemapeditor)
 	$(add_kdeapps_dep kommander)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "

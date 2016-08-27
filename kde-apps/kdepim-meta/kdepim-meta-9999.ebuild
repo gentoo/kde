@@ -72,7 +72,5 @@ RDEPEND="
 	$(add_kdeapps_dep sieveeditor)
 	$(add_kdeapps_dep storageservicemanager)
 	$(add_kdeapps_dep syndication)
-	nls? (
-		$(add_kdeapps_dep kdepim-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kdepim-l10n '' ${L10N_MINIMAL}) )
 "
