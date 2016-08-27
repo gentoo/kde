@@ -9,7 +9,9 @@ inherit kde5-meta-pkg
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="https://www.kde.org/applications/utilities https://utils.kde.org"
 KEYWORDS="~amd64 ~x86"
-IUSE="cups floppy lirc"
+IUSE="cups floppy lirc nls"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 # FIXME: Add back when ported
 # $(add_kdeapps_dep kgpg)
@@ -27,4 +29,8 @@ RDEPEND="
 	cups? ( $(add_kdeapps_dep print-manager) )
 	floppy? ( $(add_kdeapps_dep kfloppy) )
 	lirc? ( $(add_kdeapps_dep kremotecontrol) )
+	nls? (
+		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
+	)
 "

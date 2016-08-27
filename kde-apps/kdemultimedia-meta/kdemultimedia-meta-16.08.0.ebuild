@@ -12,7 +12,9 @@ HOMEPAGE="
 	https://multimedia.kde.org/
 "
 KEYWORDS="~amd64 ~x86"
-IUSE="+ffmpeg"
+IUSE="+ffmpeg nls"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
 	$(add_kdeapps_dep audiocd-kio)
@@ -24,4 +26,8 @@ RDEPEND="
 	$(add_kdeapps_dep libkcddb)
 	$(add_kdeapps_dep libkcompactdisc)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
+	nls? (
+		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
+	)
 "

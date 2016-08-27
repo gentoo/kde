@@ -9,7 +9,9 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
 HOMEPAGE="https://edu.kde.org"
 KEYWORDS=""
-IUSE="+webkit"
+IUSE="nls +webkit"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
 	$(add_kdeapps_dep analitza)
@@ -36,6 +38,10 @@ RDEPEND="
 	$(add_kdeapps_dep parley)
 	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
+	nls? (
+		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
+	)
 	webkit? (
 		$(add_kdeapps_dep kqtquickcharts)
 		$(add_kdeapps_dep ktouch)

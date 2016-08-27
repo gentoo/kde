@@ -9,7 +9,9 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS=""
-IUSE="cvs"
+IUSE="cvs nls"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin-plugins)
@@ -27,4 +29,8 @@ RDEPEND="
 	$(add_kdeapps_dep kross-interpreters)
 	$(add_kdeapps_dep umbrello)
 	cvs? ( $(add_kdeapps_dep cervisia) )
+	nls? (
+		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
+	)
 "

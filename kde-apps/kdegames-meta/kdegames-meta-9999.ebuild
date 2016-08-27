@@ -9,7 +9,9 @@ inherit kde5-meta-pkg
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
 HOMEPAGE="https://games.kde.org/"
 KEYWORDS=""
-IUSE="opengl python"
+IUSE="nls opengl python"
+
+[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
 	$(add_kdeapps_dep bomber)
@@ -50,6 +52,10 @@ RDEPEND="
 	$(add_kdeapps_dep lskat)
 	$(add_kdeapps_dep palapeli)
 	$(add_kdeapps_dep picmi)
+	nls? (
+		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
+		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
+	)
 	opengl? (
 		$(add_kdeapps_dep ksudoku)
 		$(add_kdeapps_dep kubrick)
