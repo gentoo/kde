@@ -10,8 +10,7 @@ DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
 IUSE="epub exif ffmpeg libav pdf taglib"
 
-# TODO: mobi? ( $(add_plasma_dep kdegraphics-mobipocket) ) NOTE: not integrated upstream
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtxml)
@@ -24,7 +23,9 @@ DEPEND="
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	kernel_linux? ( sys-apps/attr )
+"
 
 src_configure() {
 	local mycmakeargs=(
