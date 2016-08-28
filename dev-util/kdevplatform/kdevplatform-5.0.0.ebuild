@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkomparediff2)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qttest)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
@@ -63,7 +63,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qttest)
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
