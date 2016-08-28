@@ -5,6 +5,7 @@
 EAPI=6
 
 KDEBASE="kdevelop"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
