@@ -15,7 +15,7 @@ LICENSE="GPL-2 LGPL-2"
 IUSE="+clang +cmake +gdbui +ninja okteta +plasma +qmake qthelp"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -39,14 +39,16 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep threadweaver)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	>=dev-util/kdevplatform-${PV}:5
 	x11-misc/shared-mime-info
 	clang? ( >=sys-devel/clang-3.5.0 )
-	gdbui? ( $(add_plasma_dep ksysguard) )
+	gdbui? ( $(add_plasma_dep libksysguard) )
 	okteta? ( $(add_kdeapps_dep okteta) )
 	plasma? (
 		$(add_frameworks_dep krunner)
@@ -55,7 +57,10 @@ DEPEND="
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
 	qthelp? ( $(add_qt_dep qthelp) )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtconcurrent)
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kio-extras)
 	>=sys-devel/gdb-7.0[python]
