@@ -9,7 +9,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
-LICENSE="LGPL-2"
+LICENSE="LGPL-2+ LGPL-2.1+"
 IUSE=""
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
