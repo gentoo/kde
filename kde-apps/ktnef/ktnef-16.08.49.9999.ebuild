@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="A viewer for TNEF attachments"
+DESCRIPTION="Viewer for TNEF attachments (proprietary MS Outlook/Exchange Server format)"
 HOMEPAGE="https://www.kde.org/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""

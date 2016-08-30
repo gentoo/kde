@@ -5,10 +5,10 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KMNAME="kdepim"
+KMNAME="kmail"
 inherit kde5
 
-DESCRIPTION="A viewer for TNEF attachments"
+DESCRIPTION="Viewer for TNEF attachments (proprietary MS Outlook/Exchange Server format)"
 HOMEPAGE="https://www.kde.org/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -31,16 +31,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	# ktnef subproject does not contain doc nor searches for DocTools
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-
-	mkdir doc || die "Failed to create doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-	cat <<-EOF > doc/CMakeLists.txt
-find_package(KF5DocTools)
-add_subdirectory(${PN})
-EOF
-	kde5_src_prepare
-}
+S="${S}/${PN}"
