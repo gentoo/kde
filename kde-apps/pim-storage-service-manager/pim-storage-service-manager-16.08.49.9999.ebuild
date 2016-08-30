@@ -7,12 +7,13 @@ EAPI=6
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
+MY_PN="storageservicemanager"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Cloud storage manager"
+DESCRIPTION="Assistant to help with managing external and cloud data storage providers"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -37,3 +38,9 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
+
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${MY_PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${MY_PN}"
+fi
