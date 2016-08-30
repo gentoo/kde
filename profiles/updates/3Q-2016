@@ -5,3 +5,4 @@ move kde-apps/accountwizard kde-apps/kmail-account-wizard
 move kde-apps/mboximporter kde-apps/mbox-importer
 move kde-apps/pimsettingexporter kde-apps/pim-data-exporter
 move kde-apps/sieveeditor kde-apps/pim-sieve-editor
+move kde-apps/storageservicemanager kde-apps/pim-storage-service-manager
