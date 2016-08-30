@@ -6,11 +6,12 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KMNAME="kdepim"
+MY_PN="mboximporter"
 inherit kde5
 
-DESCRIPTION="Import mbox data from various sources"
+DESCRIPTION="Import mbox email archives from various sources into Akonadi"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -32,3 +33,9 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kmail:4
 "
+
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${MY_PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${MY_PN}"
+fi
