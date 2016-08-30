@@ -154,10 +154,10 @@
 <kde-apps/plasma-telepathy-meta-16.08.50
 <kde-apps/signon-kwallet-extension-16.08.50
 <kde-apps/zeroconf-ioslave-16.08.50
-<kde-apps/accountwizard-16.08.50
 <kde-apps/akonadi-16.08.50
 <kde-apps/akonadi-calendar-16.08.50
 <kde-apps/akonadi-contacts-16.08.50
+<kde-apps/akonadi-import-wizard-16.08.50
 <kde-apps/akonadi-mime-16.08.50
 <kde-apps/akonadi-notes-16.08.50
 <kde-apps/akonadi-search-16.08.50
@@ -168,9 +168,8 @@
 <kde-apps/calendarsupport-16.08.50
 <kde-apps/eventviews-16.08.50
 <kde-apps/gpgmepp-16.08.50
-<kde-apps/grantleeeditor-16.08.50
+<kde-apps/grantlee-editor-16.08.50
 <kde-apps/grantleetheme-16.08.50
-<kde-apps/importwizard-16.08.50
 <kde-apps/incidenceeditor-16.08.50
 <kde-apps/kaddressbook-16.08.50
 <kde-apps/kalarm-16.08.50
@@ -190,6 +189,7 @@
 <kde-apps/kldap-16.08.50
 <kde-apps/kleopatra-16.08.50
 <kde-apps/kmail-16.08.50
+<kde-apps/kmail-account-wizard-16.08.50
 <kde-apps/kmailtransport-16.08.50
 <kde-apps/kmbox-16.08.50
 <kde-apps/kmime-16.08.50
@@ -207,12 +207,12 @@
 <kde-apps/libktnef-16.08.50
 <kde-apps/mailcommon-16.08.50
 <kde-apps/mailimporter-16.08.50
-<kde-apps/mboximporter-16.08.50
+<kde-apps/mbox-importer-16.08.50
 <kde-apps/messagelib-16.08.50
+<kde-apps/pim-data-exporter-16.08.50
+<kde-apps/pim-sieve-editor-16.08.50
+<kde-apps/pim-storage-service-manager-16.08.50
 <kde-apps/pimcommon-16.08.50
-<kde-apps/pimsettingexporter-16.08.50
-<kde-apps/sieveeditor-16.08.50
-<kde-apps/storageservicemanager-16.08.50
 <kde-apps/syndication-16.08.50
 <kde-apps/cervisia-16.08.50
 <kde-apps/dolphin-plugins-16.08.50
