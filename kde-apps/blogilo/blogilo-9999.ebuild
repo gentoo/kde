@@ -6,10 +6,9 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="KDE Blogging Client"
+DESCRIPTION="Application to create, edit and update blog content"
 HOMEPAGE="https://www.kde.org/applications/internet/blogilo"
 LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -43,15 +42,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-apps-libs-16.04.50
 "
-
-src_prepare() {
-	# blogilo subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(

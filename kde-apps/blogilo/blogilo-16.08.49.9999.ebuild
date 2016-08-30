@@ -9,7 +9,7 @@ KDE_TEST="forceoptional"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="KDE Blogging Client"
+DESCRIPTION="Application to create, edit and update blog content"
 HOMEPAGE="https://www.kde.org/applications/internet/blogilo"
 LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
