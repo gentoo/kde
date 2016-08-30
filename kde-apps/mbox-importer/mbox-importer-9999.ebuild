@@ -5,10 +5,9 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
-KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Import mbox data from various sources"
+DESCRIPTION="Import mbox email archives from various sources into Akonadi"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""

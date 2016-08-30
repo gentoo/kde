@@ -65,7 +65,7 @@ RDEPEND="
 	$(add_kdeapps_dep libktnef)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
-	$(add_kdeapps_dep mboximporter)
+	$(add_kdeapps_dep mbox-importer)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep pimsettingexporter)
