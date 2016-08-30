@@ -6,11 +6,10 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="The KDE Address Book"
+DESCRIPTION="Address book application based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/office/kaddressbook/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
