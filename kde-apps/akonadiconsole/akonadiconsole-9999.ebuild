@@ -5,10 +5,9 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
-KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Akonadi developer console"
+DESCRIPTION="Application for debugging Akonadi Resources"
 LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
 HOMEPAGE="https://www.kde.org/"
 KEYWORDS=""
