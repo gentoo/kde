@@ -6,11 +6,10 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Personal Organizer by KDE"
+DESCRIPTION="Organizational assistant, providing calendars and other similar functionality"
 HOMEPAGE="https://www.kde.org/applications/office/korganizer/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -85,15 +84,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
-
-src_prepare() {
-	# korganizer subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(

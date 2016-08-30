@@ -10,7 +10,7 @@ KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Personal Organizer by KDE"
+DESCRIPTION="Organizational assistant, providing calendars and other similar functionality"
 HOMEPAGE="https://www.kde.org/applications/office/korganizer/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
