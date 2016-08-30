@@ -7,10 +7,11 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 KMNAME="kdepim"
+MY_PN="sieveeditor"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Editor for Sieve scripts used for email filtering on a mail server"
+DESCRIPTION="Assistant for editing IMAP Sieve filters"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
@@ -46,11 +47,17 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-common-libs:4
 "
 
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${MY_PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${MY_PN}"
+fi
+
 src_prepare() {
 	# sieveeditor subproject does not contain doc
 	# at least until properly split upstream
 	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
+	mv ../doc/${MY_PN} doc || die "Failed to move handbook"
 
 	kde5_src_prepare
 }
