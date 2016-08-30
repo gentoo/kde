@@ -2,6 +2,7 @@
 ~kde-apps/akonadi-16.08.0
 ~kde-apps/akonadi-calendar-16.08.0
 ~kde-apps/akonadi-contacts-16.08.0
+~kde-apps/akonadi-import-wizard-16.08.0
 ~kde-apps/akonadi-mime-16.08.0
 ~kde-apps/akonadi-notes-16.08.0
 ~kde-apps/akonadi-search-16.08.0
@@ -14,7 +15,6 @@
 ~kde-apps/gpgmepp-16.08.0
 ~kde-apps/grantleeeditor-16.08.0
 ~kde-apps/grantleetheme-16.08.0
-~kde-apps/importwizard-16.08.0
 ~kde-apps/incidenceeditor-16.08.0
 ~kde-apps/kaddressbook-16.08.0
 ~kde-apps/kalarm-16.08.0
