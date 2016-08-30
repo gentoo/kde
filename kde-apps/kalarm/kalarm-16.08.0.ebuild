@@ -8,7 +8,7 @@ KDE_HANDBOOK="forceoptional"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Personal alarm message, command and email scheduler by KDE"
+DESCRIPTION="Application to manage alarms and other timer based alerts for the desktop"
 HOMEPAGE+=" https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"

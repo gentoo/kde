@@ -5,10 +5,9 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Personal alarm message, command and email scheduler by KDE"
+DESCRIPTION="Application to manage alarms and other timer based alerts for the desktop"
 HOMEPAGE+=" https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -67,15 +66,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 "
-
-src_prepare() {
-	# kalarm subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
