@@ -10,7 +10,7 @@ KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE Notes application"
+DESCRIPTION="Note taking application"
 HOMEPAGE="https://www.kde.org/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -76,14 +76,4 @@ add_subdirectory(akonadi_notes_agent)
 EOF
 
 	kde5_src_prepare
-}
-
-src_configure() {
-# 	local mycmakeargs=(
-# 	# FIXME: Does not build (last checked 2016-02-17)
-# 		$(cmake-utils_use_find_package X Qt5X11Extras)
-# 		$(cmake-utils_use_find_package X X11)
-# 	)
-
-	kde5_src_configure
 }
