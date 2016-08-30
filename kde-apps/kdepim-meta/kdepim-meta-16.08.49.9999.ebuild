@@ -69,8 +69,8 @@ RDEPEND="
 	$(add_kdeapps_dep mbox-importer)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pim-data-exporter)
+	$(add_kdeapps_dep pim-sieve-editor)
 	$(add_kdeapps_dep pimcommon)
-	$(add_kdeapps_dep sieveeditor)
 	$(add_kdeapps_dep storageservicemanager)
 	$(add_kdeapps_dep syndication)
 	nls? (
