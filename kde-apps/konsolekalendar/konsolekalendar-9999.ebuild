@@ -5,10 +5,10 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KMNAME="kdepim"
+KMNAME="akonadi-calendar-tools"
 inherit kde5
 
-DESCRIPTION="A command line interface to KDE calendars"
+DESCRIPTION="Command line interface to KDE calendars"
 HOMEPAGE+=" https://userbase.kde.org/KonsoleKalendar"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -28,18 +28,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/console"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/console"
-fi
-
 src_prepare() {
-	# konsolekalendar subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
 	cmake_comment_add_subdirectory calendarjanitor
 	kde5_src_prepare
 }
