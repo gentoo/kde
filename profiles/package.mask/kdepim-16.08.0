@@ -1,4 +1,3 @@
-~kde-apps/accountwizard-16.08.0
 ~kde-apps/akonadi-16.08.0
 ~kde-apps/akonadi-calendar-16.08.0
 ~kde-apps/akonadi-contacts-16.08.0
@@ -33,6 +32,7 @@
 ~kde-apps/kldap-16.08.0
 ~kde-apps/kleopatra-16.08.0
 ~kde-apps/kmail-16.08.0
+~kde-apps/kmail-account-wizard-16.08.0
 ~kde-apps/kmailtransport-16.08.0
 ~kde-apps/kmbox-16.08.0
 ~kde-apps/kmime-16.08.0

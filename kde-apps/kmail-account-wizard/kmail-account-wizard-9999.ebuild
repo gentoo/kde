@@ -6,14 +6,13 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Editor for Sieve scripts used for email filtering on a mail server"
+DESCRIPTION="Assistant for KMail accounts configuration"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Account_Wizard"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -53,4 +52,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
+	!kde-apps/kdepim-runtime:4
 "
