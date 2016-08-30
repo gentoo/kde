@@ -6,14 +6,13 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Export and import PIM settings and local mail"
+DESCRIPTION="Assistant to backup and archive PIM data and configuration"
 HOMEPAGE+=" https://userbase.kde.org/Kmail/Backup_Options"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -51,12 +50,3 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kmail:4
 "
-
-src_prepare() {
-	# pimsettingsexporter subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
-	kde5_src_prepare
-}
