@@ -6,10 +6,10 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="false"
-KMNAME="kdepim"
+KMNAME="akonadi-calendar-tools"
 inherit kde5
 
-DESCRIPTION="A tool to scan calendar data for buggy instances"
+DESCRIPTION="Tool to scan calendar data for buggy instances"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
@@ -29,13 +29,7 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim:5
 "
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	S="${WORKDIR}/${P}/console"
-else
-	S="${WORKDIR}/${KMNAME}-${PV}/console"
-fi
-
 src_prepare() {
-	cmake_comment_add_subdirectory konsolekalendar
+	cmake_comment_add_subdirectory doc konsolekalendar
 	kde5_src_prepare
 }
