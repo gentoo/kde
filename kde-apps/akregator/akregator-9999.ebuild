@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 inherit kde5
 
 DESCRIPTION="News feed aggregator"
@@ -48,6 +47,7 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebengine '' '' '5=')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
@@ -55,12 +55,3 @@ DEPEND="
 	dev-libs/libxslt
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# akregator subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-
-	kde5_src_prepare
-}
