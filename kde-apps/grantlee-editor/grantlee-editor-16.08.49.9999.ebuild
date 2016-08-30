@@ -6,11 +6,12 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KMNAME="kdepim"
+MY_PN="grantleeeditor"
 inherit kde5
 
-DESCRIPTION="Editor for Sieve scripts used for email filtering on a mail server"
+DESCRIPTION="Utilities and tools to manage themes in KDE PIM applications"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
@@ -46,6 +47,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kmail:4
 "
+
+if [[ ${KDE_BUILD_TYPE} = live ]] ; then
+	S="${WORKDIR}/${P}/${MY_PN}"
+else
+	S="${WORKDIR}/${KMNAME}-${PV}/${MY_PN}"
+fi
 
 src_prepare() {
 	# grantleeeditor subproject does not contain doc

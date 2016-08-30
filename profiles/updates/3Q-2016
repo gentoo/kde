@@ -1,2 +1,3 @@
 move kde-apps/akonadi-contact kde-apps/akonadi-contacts
 move kde-apps/importwizard kde-apps/akonadi-import-wizard
+move kde-apps/grantleeeditor kde-apps/grantlee-editor
