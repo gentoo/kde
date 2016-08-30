@@ -6,11 +6,10 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE Notes application"
+DESCRIPTION="Note taking application"
 HOMEPAGE="https://www.kde.org/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -59,22 +58,6 @@ DEPEND="
 	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	# knotes subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-
-	mkdir doc || die "Failed to create doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-	mv ../doc/akonadi_notes_agent doc || die "Failed to move handbook"
-	cat <<-EOF > doc/CMakeLists.txt
-add_subdirectory(${PN})
-add_subdirectory(akonadi_notes_agent)
-EOF
-
-	kde5_src_prepare
-}
 
 src_configure() {
 # 	local mycmakeargs=(
