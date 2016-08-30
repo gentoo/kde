@@ -14,7 +14,6 @@ IUSE="nls"
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
-	$(add_kdeapps_dep accountwizard)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadiconsole)
 	$(add_kdeapps_dep akonadi-calendar)
@@ -49,6 +48,7 @@ RDEPEND="
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kleopatra)
 	$(add_kdeapps_dep kmail)
+	$(add_kdeapps_dep kmail-account-wizard)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmbox)
 	$(add_kdeapps_dep kmime)
