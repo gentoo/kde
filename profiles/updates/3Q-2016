@@ -1,1 +1,2 @@
 move kde-apps/akonadi-contact kde-apps/akonadi-contacts
+move kde-apps/importwizard kde-apps/akonadi-import-wizard
