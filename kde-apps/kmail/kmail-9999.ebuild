@@ -6,11 +6,10 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-KMNAME="kdepim"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Email component of Kontact, the integrated personal information manager by KDE"
+DESCRIPTION="Email client, supporting POP3 and IMAP mailboxes."
 HOMEPAGE="https://www.kde.org/applications/internet/kmail/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
@@ -79,26 +78,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
-
-src_prepare() {
-	# kmail subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-
-	mkdir doc || die "Failed to create doc dir"
-	mv ../doc/${PN} doc || die "Failed to move handbook"
-	mv ../doc/akonadi_archivemail_agent doc || die "Failed to move handbook"
-	mv ../doc/akonadi_followupreminder_agent doc || die "Failed to move handbook"
-	mv ../doc/akonadi_sendlater_agent doc || die "Failed to move handbook"
-	cat <<-EOF > doc/CMakeLists.txt
-add_subdirectory(${PN})
-add_subdirectory(akonadi_archivemail_agent)
-add_subdirectory(akonadi_followupreminder_agent)
-add_subdirectory(akonadi_sendlater_agent)
-EOF
-
-	kde5_src_prepare
-}
 
 pkg_postinst() {
 	kde5_pkg_postinst
