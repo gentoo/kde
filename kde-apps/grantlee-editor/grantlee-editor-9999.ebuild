@@ -5,10 +5,9 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="Editor for Sieve scripts used for email filtering on a mail server"
+DESCRIPTION="Utilities and tools to manage themes in KDE PIM applications"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
@@ -46,19 +45,3 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kmail:4
 "
-
-src_prepare() {
-	# grantleeeditor subproject does not contain doc
-	# at least until properly split upstream
-	echo "add_subdirectory(doc)" >> CMakeLists.txt || die "Failed to add doc dir"
-
-	mkdir doc || die "Failed to create doc dir"
-	mv ../doc/contactthemeeditor doc || die "Failed to move handbook"
-	mv ../doc/headerthemeeditor doc || die "Failed to move handbook"
-	cat <<-EOF > doc/CMakeLists.txt
-add_subdirectory(contactthemeeditor)
-add_subdirectory(headerthemeeditor)
-EOF
-
-	kde5_src_prepare
-}
