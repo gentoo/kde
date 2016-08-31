@@ -12,6 +12,9 @@ HOMEPAGE="https://www.kde.org/applications/utilities/kmousetool/"
 KEYWORDS=""
 IUSE="debug"
 
-RDEPEND="
+DEPEND="
+	media-libs/phonon[qt4]
+"
+RDEPEND="${DEPEND}
 	$(add_kdeapps_dep knotify)
 "
