@@ -15,7 +15,7 @@ KEYWORDS=""
 
 IUSE=""
 
-# drop qtwebengine subslot operator when QT_MINIMAL >= 5.7.0
+# drop qtwebengine subslot operator when QT_MINIMAL >= 5.8.0
 DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
