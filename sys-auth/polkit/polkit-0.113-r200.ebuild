@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils multilib pam pax-utils systemd user xdg
 
 DESCRIPTION="Policy framework for controlling privileges for system-wide services"
@@ -39,10 +39,7 @@ RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-policykit )
 "
 PDEPEND="
-	gtk? ( || (
-		>=gnome-extra/polkit-gnome-0.105
-		lxde-base/lxpolkit
-		) )
+	gtk? ( >=gnome-extra/polkit-gnome-0.105 )
 	kde? ( || (
 		kde-plasma/polkit-kde-agent
 		sys-auth/polkit-kde-agent
