@@ -88,7 +88,7 @@ DEPEND="${COMMON_DEPEND}
 	test? (	x11-libs/xcb-util-wm )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare

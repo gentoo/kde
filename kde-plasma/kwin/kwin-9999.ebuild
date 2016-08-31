@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libdrm
 	>=x11-libs/libxcb-1.10
-	>=x11-libs/libxkbcommon-0.4.1
+	>=x11-libs/libxkbcommon-0.5.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
@@ -88,7 +88,7 @@ DEPEND="${COMMON_DEPEND}
 	test? (	x11-libs/xcb-util-wm )
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare
