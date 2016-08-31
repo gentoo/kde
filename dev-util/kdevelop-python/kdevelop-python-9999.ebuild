@@ -7,7 +7,7 @@ EAPI=6
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
 PYTHON_COMPAT=( python3_5 )
-inherit kde5 python-any-r1
+inherit kde5 python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"
 IUSE=""
@@ -37,7 +37,7 @@ RDEPEND="${DEPEND}
 RESTRICT+=" test"
 
 pkg_setup() {
-	python-any-r1_pkg_setup
+	python-single-r1_pkg_setup
 	kde5_pkg_setup
 }
 
