@@ -83,6 +83,7 @@ src_install() {
 		doins "${FILESDIR}"/20-org.freedesktop.consolekit.system.stop-multiple-users.pkla
 		doins "${FILESDIR}"/30-org.freedesktop.consolekit.system.restart-multiple-users.pkla
 		doins "${FILESDIR}"/40-org.freedesktop.consolekit.system.suspend-multiple-users.pkla
+		doins "${FILESDIR}"/50-org.freedesktop.consolekit.system.hibernate-multiple-users.pkla
 	fi
 }
 
