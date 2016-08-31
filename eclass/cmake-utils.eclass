@@ -262,7 +262,7 @@ _cmake_generator_to_use() {
 # @FUNCTION: cmake_comment_add_subdirectory
 # @USAGE: <subdirectory>
 # @DESCRIPTION:
-# Comment out one ore more add_subdirectory calls in CMakeLists.txt in the current directory
+# Comment out one or more add_subdirectory calls in CMakeLists.txt in the current directory
 cmake_comment_add_subdirectory() {
 	if [[ -z ${1} ]]; then
 		die "comment_add_subdirectory must be passed at least one directory name to comment"
