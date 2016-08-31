@@ -18,6 +18,7 @@ IUSE="chm crypt debug djvu dpi ebook +jpeg kde mobi +postscript +pdf +tiff"
 
 DEPEND="
 	media-libs/freetype
+	media-libs/phonon[qt4]
 	media-libs/qimageblitz
 	sys-libs/zlib
 	chm? ( dev-libs/chmlib )

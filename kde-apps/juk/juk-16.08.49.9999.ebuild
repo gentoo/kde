@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="
+	media-libs/phonon[qt4]
 	>=media-libs/taglib-1.6
 "
 RDEPEND="${DEPEND}"
