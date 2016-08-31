@@ -6,7 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="clang">Prefer <pkg>sys-devel/clang</pkg> C++ backend over legacy</flag>
 		<flag name="cmake">Enable support for CMake build system</flag>
 		<flag name="gdbui">Enable GUI for attaching GDB to a running process</flag>
 		<flag name="ninja">Enable support for Ninja build system</flag>
