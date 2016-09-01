@@ -36,7 +36,7 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	>=app-arch/libarchive-3.0.0[bzip2?,lzma?,zlib?]
+	>=app-arch/libarchive-3.1.0[bzip2?,lzma?,zlib?]
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
