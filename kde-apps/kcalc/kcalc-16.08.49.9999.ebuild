@@ -30,6 +30,5 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kinit)
-	dev-libs/mpfr:0
 	sys-devel/gettext
 "
