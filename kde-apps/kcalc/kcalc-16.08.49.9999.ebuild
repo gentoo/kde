@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
@@ -29,6 +30,5 @@ RDEPEND="
 	dev-libs/gmp:0=
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kinit)
 	sys-devel/gettext
 "
