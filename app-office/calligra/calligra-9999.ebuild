@@ -29,15 +29,13 @@ KEYWORDS="~amd64 ~x86"
 IUSE="activities +crypt +eigen +fontconfig gsl import-filter +lcms kdepim
 	marble okular openexr +pdf spacenav +truetype vc +webkit +xml X"
 
-# Don't use Active, it's broken on desktops.
-CAL_FTS="author braindump karbon plan sheets stage words"
+CAL_FTS="braindump karbon plan sheets stage words"
 for cal_ft in ${CAL_FTS}; do
 	IUSE+=" calligra_features_${cal_ft}"
 done
 unset cal_ft
 
 REQUIRED_USE="
-	calligra_features_author? ( calligra_features_words )
 	calligra_features_sheets? ( eigen )
 	calligra_features_stage? ( webkit )
 	test? ( calligra_features_karbon )
@@ -149,6 +147,8 @@ RDEPEND="${COMMON_DEPEND}
 
 #[[ ${PV} == 9999 ]] && LANGVERSION="3.0" || LANGVERSION="$(get_version_component_range 1-2)"
 #PDEPEND=">=app-office/calligra-l10n-${LANGVERSION}"
+
+PATCHES=( "${FILESDIR}/${PN}-vc-cxxflags.patch" )
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
