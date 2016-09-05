@@ -18,14 +18,11 @@
 ~kde-apps/kalarm-16.08.0
 ~kde-apps/kalarmcal-16.08.0
 ~kde-apps/kblog-16.08.0
-~kde-apps/kcalcore-16.08.0
 ~kde-apps/kcalutils-16.08.0
-~kde-apps/kcontacts-16.08.0
 ~kde-apps/kdepim-addons-16.08.0
 ~kde-apps/kdepim-apps-libs-16.08.0
 ~kde-apps/kdepim-meta-16.08.0
 ~kde-apps/kdepim-runtime-16.08.0
-~kde-apps/kholidays-16.08.0
 ~kde-apps/kidentitymanagement-16.08.0
 ~kde-apps/kimap-16.08.0
 ~kde-apps/kldap-16.08.0
