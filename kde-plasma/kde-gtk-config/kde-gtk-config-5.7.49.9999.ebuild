@@ -24,9 +24,10 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
-	dev-libs/glib:2
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/glib:2
+	x11-libs/libXcursor
 	x11-libs/gtk+:2
 	gtk3? ( x11-libs/gtk+:3 )
 "
@@ -36,7 +37,10 @@ RDEPEND="${DEPEND}
 	!kde-misc/kde-gtk-config
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.4.2-gtk3-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.4.2-gtk3-optional.patch"
+	"${FILESDIR}/${PN}-5.7.4-look-for-cursors-in-right-place.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
