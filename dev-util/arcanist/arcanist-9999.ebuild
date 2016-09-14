@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	dev-lang/php
+	dev-lang/php[curl]
 	dev-libs/libphutil
 "
 
