@@ -11,11 +11,10 @@ inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="+calendar geolocation gps prison qalculate"
+IUSE="+calendar geolocation gps prison qalculate +semantic-desktop"
 
 # drop kde-frameworks/plasma subslot operator when FRAMEWORKS_MINIMAL >= 5.24.0
 COMMON_DEPEND="
-	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
@@ -86,6 +85,7 @@ COMMON_DEPEND="
 	gps? ( sci-geosciences/gpsd )
 	prison? ( media-libs/prison:5 )
 	qalculate? ( sci-libs/libqalculate )
+	semantic-desktop? ( $(add_frameworks_dep baloo) )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
@@ -120,7 +120,10 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.4-startkde-script.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
+	"${FILESDIR}/${PN}-5.7.90-baloo-optional.patch"
+)
 
 RESTRICT+=" test"
 
@@ -138,6 +141,7 @@ src_configure() {
 		$(cmake-utils_use_find_package gps libgps)
 		$(cmake-utils_use_find_package prison KF5Prison)
 		$(cmake-utils_use_find_package qalculate Qalculate)
+		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 	)
 
 	kde5_src_configure
