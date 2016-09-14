@@ -12,11 +12,10 @@ inherit kde5
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
 IUSE="+fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics ibus
-legacy-systray packagekit pulseaudio +qt4 scim"
+legacy-systray packagekit pulseaudio +qt4 scim +semantic-desktop"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
-	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kactivities-stats)
 	$(add_frameworks_dep karchive)
@@ -96,6 +95,7 @@ COMMON_DEPEND="
 		media-sound/pulseaudio
 	)
 	scim? ( app-i18n/scim )
+	semantic-desktop? ( $(add_frameworks_dep baloo) )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
@@ -132,6 +132,8 @@ DEPEND="${COMMON_DEPEND}
 
 REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
 
+PATCHES=( "${FILESDIR}/${PN}-5.7.90-baloo-optional.patch" )
+
 pkg_setup() {
 	if has_version net-im/skype && use legacy-systray && use amd64; then
 		einfo
@@ -149,6 +151,7 @@ src_configure() {
 		$(cmake-utils_use_find_package packagekit PackageKitQt5)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 		$(cmake-utils_use_find_package scim SCIM)
+		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 	)
 
 	kde5_src_configure
