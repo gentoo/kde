@@ -58,6 +58,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kmail:4
 "
 
+RESTRICT+=" test"
+
 src_configure() {
 	local mycmakeargs=(
 		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
