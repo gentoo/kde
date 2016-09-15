@@ -9,7 +9,7 @@ KDE_TEST="false"
 KMNAME="kdepim"
 inherit kde5
 
-DESCRIPTION="A tool to scan calendar data for buggy instances"
+DESCRIPTION="Tool to scan calendar data for buggy instances"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
@@ -37,5 +37,6 @@ fi
 
 src_prepare() {
 	cmake_comment_add_subdirectory konsolekalendar
+	sed -i -e "/console\.categories/ s/^/#DONT/" CMakeLists.txt || die
 	kde5_src_prepare
 }
