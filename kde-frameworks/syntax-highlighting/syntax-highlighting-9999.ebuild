@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Framework to let applications perform actions as a privileged user"
+DESCRIPTION="Framework for syntax highlighting"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
