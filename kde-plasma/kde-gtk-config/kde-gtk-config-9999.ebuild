@@ -27,8 +27,8 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/glib:2
-	x11-libs/libXcursor
 	x11-libs/gtk+:2
+	x11-libs/libXcursor
 	gtk3? ( x11-libs/gtk+:3 )
 "
 RDEPEND="${DEPEND}
