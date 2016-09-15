@@ -7,8 +7,4 @@
 <kde-apps/akonadi-contacts-16.08.49:5 prison
 <kde-apps/kaddressbook-16.08.49:5 prison
 <kde-apps/kdepim-apps-libs-16.08.49:5 prison
-kde-apps/ktp-text-ui speech
-kde-apps/kpimtextedit speech
 kde-apps/okular speech
-kde-frameworks/knotifications speech
-kde-frameworks/ktextwidgets speech
