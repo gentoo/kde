@@ -1,8 +1,3 @@
-# Upstream currently only maintains bindings in KDE/4.x branches
-# This is not likely to change in the future
-# Aside, they are sloppy in updating even for releases.
->=kde-apps/marble-14.11.97 python
-
 # Unreleased dependencies
 <kde-apps/akonadi-contacts-16.08.49:5 prison
 <kde-apps/kaddressbook-16.08.49:5 prison
