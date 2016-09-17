@@ -1,0 +1,52 @@
+From 99f491e79914da85213a899574ae36ad2e3c097c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Sebastian=20K=C3=BCgler?= <sebas@kde.org>
+Date: Thu, 15 Sep 2016 13:59:25 +0200
+Subject: [PATCH] parent qaction in test
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Summary:
+My compiler doesn't seem to like this constructor, it bails out with the
+following error:
+
+/home/sebas/kf5/src/kde/workspace/kwin/autotests/integration/globalshortcuts_test.cpp:
+In member function ‘void GlobalShortcutsTest::testConsumedShift()’:
+/home/sebas/kf5/src/kde/workspace/kwin/autotests/integration/globalshortcuts_test.cpp:79:40:
+error: no matching function for call to ‘QAction::QAction()’
+     QScopedPointer<QAction> action(new QAction);
+                                        ^~~~~~~
+
+Using this as first argument fixes the build on my machine.
+
+Test Plan: screenedges test fails, others pass. (this screenedges test failure seems unrelated)
+
+Reviewers: graesslin
+
+Reviewed By: graesslin
+
+Subscribers: luebking, kwin
+
+Tags: #kwin
+
+Differential Revision: https://phabricator.kde.org/D2782
+---
+ autotests/integration/globalshortcuts_test.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/autotests/integration/globalshortcuts_test.cpp b/autotests/integration/globalshortcuts_test.cpp
+index 69dae83..ab46fbd 100644
+--- a/autotests/integration/globalshortcuts_test.cpp
++++ b/autotests/integration/globalshortcuts_test.cpp
+@@ -76,7 +76,7 @@ void GlobalShortcutsTest::testConsumedShift()
+ {
+     // this test verifies that a shortcut with a consumed shift modifier triggers
+     // create the action
+-    QScopedPointer<QAction> action(new QAction);
++    QScopedPointer<QAction> action(new QAction(nullptr));
+     action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+     action->setObjectName(QStringLiteral("globalshortcuts-test-consumed-shift"));
+     QSignalSpy triggeredSpy(action.data(), &QAction::triggered);
+-- 
+2.7.3
+
