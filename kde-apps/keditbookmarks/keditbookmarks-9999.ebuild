@@ -9,7 +9,7 @@ KMNAME="kde-baseapps"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Bookmarks editor for konqueror"
+DESCRIPTION="Bookmarks editor based on KDE Frameworks"
 KEYWORDS=""
 IUSE=""
 
