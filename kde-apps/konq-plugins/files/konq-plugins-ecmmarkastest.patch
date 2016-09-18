@@ -1,9 +1,0 @@
---- a/fsview/tests/CMakeLists.txt	2015-02-11 22:27:17.483424809 +0100
-+++ b/fsview/tests/CMakeLists.txt	2015-02-11 22:29:56.069432617 +0100
-@@ -1,5 +1,6 @@
- set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
- 
-+include(ECMMarkAsTest)
- 
- include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
- 
