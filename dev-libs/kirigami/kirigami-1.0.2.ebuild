@@ -14,13 +14,15 @@ LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE="examples plasma"
 
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsvg)
 	plasma? ( $(add_frameworks_dep plasma) )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_qt_dep linguist-tools)
+"
 
 src_prepare() {
 	kde5_src_prepare
