@@ -7,7 +7,6 @@ EAPI=6
 CMAKE_MIN_VERSION="3.0"
 KDE_HANDBOOK="true"
 KDE_TEST="true"
-VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
@@ -61,9 +60,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!media-plugins/kipi-plugins:4
 "
-
-# hangs
-RESTRICT="test"
 
 src_prepare() {
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
