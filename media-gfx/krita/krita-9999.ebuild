@@ -70,7 +70,10 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4[calligra_features_krita]
 "
 
-PATCHES=( "${FILESDIR}/${PN}-3.0.1-breeze-collisions.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-3.0.1-breeze-collisions.patch"
+	"${FILESDIR}/${PN}-3.0.1-vc-cxxflags.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
