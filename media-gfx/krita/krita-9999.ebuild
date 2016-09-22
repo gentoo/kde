@@ -70,6 +70,8 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4[calligra_features_krita]
 "
 
+PATCHES=( "${FILESDIR}/${PN}-3.0.1-breeze-collisions.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_FFTW3=$(usex fftw)
