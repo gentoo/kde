@@ -7,6 +7,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 KMNAME="kde-baseapps"
+VIRTUALX_REQUIRED="test"
 inherit flag-o-matic kde5
 
 DESCRIPTION="Web browser and file manager based on KDE Frameworks"
@@ -44,11 +45,11 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libkonq)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	sys-libs/zlib
 	speech? ( $(add_qt_dep qtspeech) )
 	tidy? ( app-text/htmltidy )
 	X? ( $(add_qt_dep qtx11extras) )
@@ -61,6 +62,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	!kde-apps/kfmclient:4
 	!kde-apps/konq-plugins
+	!kde-apps/libkonq:5
 "
 
 S="${S}/${PN}"
