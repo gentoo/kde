@@ -4,6 +4,7 @@
 
 EAPI=6
 
+CMAKE_MIN_VERSION="3.1"
 KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
