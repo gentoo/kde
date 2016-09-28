@@ -8,10 +8,9 @@ inherit kde5
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://techbase.kde.org/Kirigami"
-SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="examples plasma"
 
 RDEPEND="
