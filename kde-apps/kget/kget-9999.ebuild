@@ -10,7 +10,7 @@ inherit kde4-base
 DESCRIPTION="An advanced download manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
-IUSE="debug bittorrent gpg mms sqlite webkit"
+IUSE="debug bittorrent gpg mms sqlite"
 
 RDEPEND="
 	$(add_kdeapps_dep libkonq)
@@ -20,7 +20,6 @@ RDEPEND="
 	gpg? ( || ( $(add_kdeapps_dep gpgmepp) $(add_kdeapps_dep kdepimlibs) ) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
-	webkit? ( >=kde-misc/kwebkitpart-0.9.6:4 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
@@ -34,7 +33,6 @@ src_configure() {
 		-DWITH_QGpgme=$(usex gpg)
 		-DWITH_LibMms=$(usex mms)
 		-DWITH_Sqlite=$(usex sqlite)
-		-DWITH_KWebKitPart=$(usex webkit)
 	)
 
 	kde4-base_src_configure
