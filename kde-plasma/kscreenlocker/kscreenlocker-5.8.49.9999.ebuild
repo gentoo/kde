@@ -52,7 +52,7 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-5.4.50
 "
 
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare

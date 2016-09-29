@@ -39,4 +39,4 @@ RDEPEND="${DEPEND}
 "
 
 # requires running kde environment
-RESTRICT="test"
+RESTRICT+=" test"

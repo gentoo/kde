@@ -25,4 +25,4 @@ RDEPEND="${DEPEND}
 "
 
 # requires running session
-RESTRICT="test"
+RESTRICT+=" test"

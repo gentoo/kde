@@ -35,4 +35,4 @@ RDEPEND="${DEPEND}
 "
 
 # bug #580440, last checked 5.6.3
-RESTRICT="test"
+RESTRICT+=" test"
