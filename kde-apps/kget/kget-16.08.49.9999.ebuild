@@ -14,7 +14,6 @@ IUSE="debug bittorrent gpg mms sqlite"
 
 RDEPEND="
 	$(add_kdeapps_dep libkonq)
-	$(add_kdebase_dep libkworkspace '' 4.11)
 	app-crypt/qca:2[qt4]
 	bittorrent? ( >=net-libs/libktorrent-1.0.3:4 )
 	gpg? ( || ( $(add_kdeapps_dep gpgmepp) $(add_kdeapps_dep kdepimlibs) ) )
@@ -27,6 +26,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_KDE4Workspace=OFF
 		-DWITH_NepomukCore=OFF
 		-DWITH_NepomukWidgets=OFF
 		-DWITH_KTorrent=$(usex bittorrent)
