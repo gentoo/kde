@@ -56,6 +56,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4[calligra_features_kexi]
+	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
 "
 
 src_prepare() {
