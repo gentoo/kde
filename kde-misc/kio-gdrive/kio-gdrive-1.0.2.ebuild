@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtwidgets)
 	dev-libs/qtkeychain[qt5]
-	>=net-libs/libkgapi-5.3.1
+	>=net-libs/libkgapi-5.3.1:5
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgui)
