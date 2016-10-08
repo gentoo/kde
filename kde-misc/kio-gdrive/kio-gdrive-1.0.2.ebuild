@@ -9,10 +9,12 @@ inherit kde5
 
 DESCRIPTION="KIO Slave for Google Drive service"
 HOMEPAGE="https://phabricator.kde.org/project/profile/72/"
-[[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
-SLOT="0"
-[[ ${KDE_BUILD_TYPE} != live ]] && KEYWORDS="~amd64"
+if [[ ${KDE_BUILD_TYPE} != live ]] ; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 IUSE="+dolphin"
 
 DOCS=( README.md )

@@ -1,3 +1,4 @@
 move kde-apps/kdb dev-db/kdb
 move kde-apps/kreport dev-libs/kreport
 move kde-apps/kproperty dev-libs/kproperty
+slotmove kde-misc/kio-gdrive 0 5
