@@ -29,5 +29,3 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
-
-RESTRICT+=" test"
