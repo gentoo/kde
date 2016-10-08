@@ -13,7 +13,7 @@ HOMEPAGE="https://phabricator.kde.org/project/profile/72/"
 
 SLOT="0"
 [[ ${KDE_BUILD_TYPE} != live ]] && KEYWORDS="~amd64"
-IUSE=""
+IUSE="+dolphin"
 
 DOCS=( README.md )
 
@@ -29,8 +29,16 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtnetwork)
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep dolphin)
+	dolphin? ( $(add_kdeapps_dep dolphin) )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DDOLPHIN_INTEGRATION=$(usex dolphin)
+	)
+
+	kde5_src_configure
+}
 
 pkg_postinst() {
 	kde5_pkg_postinst
