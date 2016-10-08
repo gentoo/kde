@@ -24,7 +24,7 @@ DEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
