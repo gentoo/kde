@@ -30,7 +30,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep kdb 'mysql?,postgres?,sqlite?')
 	$(add_kdeapps_dep kproperty)
 	$(add_kdeapps_dep kreport)
 	$(add_qt_dep designer)
@@ -39,6 +38,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-db/kdb[mysql?,postgres?,sqlite?]
 	activities? ( $(add_frameworks_dep kactivities) )
 	marble? ( $(add_kdeapps_dep marble) )
 	mdb? ( dev-libs/glib:2 )
