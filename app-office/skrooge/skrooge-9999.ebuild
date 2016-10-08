@@ -5,8 +5,9 @@
 EAPI=6
 
 KDE_GCC_MINIMAL="4.9"
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
+QT_MINIMAL="5.7.0"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -16,7 +17,7 @@ HOMEPAGE="http://www.skrooge.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities crypt ofx"
+IUSE="activities crypt designer kde ofx"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -25,7 +26,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -34,7 +34,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
@@ -56,24 +55,29 @@ COMMON_DEPEND="
 	activities? ( $(add_frameworks_dep kactivities) )
 	crypt? ( dev-db/sqlcipher )
 	!crypt? ( dev-db/sqlite:3 )
+	kde? ( $(add_frameworks_dep krunner) )
 	ofx? ( >=dev-libs/libofx-0.9.1 )
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdesignerplugin)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep designer)
 	dev-libs/libxslt
 	virtual/pkgconfig
 	x11-misc/shared-mime-info
+	designer? (
+		$(add_frameworks_dep kdesignerplugin)
+		$(add_qt_dep designer)
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!app-office/skrooge:4
 "
 
+REQUIRED_USE="test? ( designer )"
+
 # hangs + installs files
-RESTRICT="test"
+RESTRICT+=" test"
 
 DOCS=( AUTHORS CHANGELOG README TODO )
 
@@ -81,7 +85,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DSKG_BUILD_TEST=$(usex test)
 		-DSKG_CIPHER=$(usex crypt)
+		-DSKG_DESIGNER=$(usex designer)
 		$(cmake-utils_use_find_package activities KF5Activities)
+		$(cmake-utils_use_find_package kde KF5Runner)
 		$(cmake-utils_use_find_package ofx LibOfx)
 	)
 
