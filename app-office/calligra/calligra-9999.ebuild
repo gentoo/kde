@@ -116,7 +116,7 @@ COMMON_DEPEND="
 	calligra_features_plan? (
 		$(add_qt_dep qtcore '' '' '5=')
 		$(add_kdeapps_dep kdiagram)
-		$(add_kdeapps_dep kproperty)
+		dev-libs/kproperty
 		dev-libs/kreport
 		kdepim? (
 			$(add_kdeapps_dep akonadi)

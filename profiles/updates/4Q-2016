@@ -1,2 +1,3 @@
 move kde-apps/kdb dev-db/kdb
 move kde-apps/kreport dev-libs/kreport
+move kde-apps/kproperty dev-libs/kproperty

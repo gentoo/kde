@@ -19,5 +19,4 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-
 RDEPEND="${DEPEND}"
