@@ -117,7 +117,7 @@ COMMON_DEPEND="
 		$(add_qt_dep qtcore '' '' '5=')
 		$(add_kdeapps_dep kdiagram)
 		$(add_kdeapps_dep kproperty)
-		$(add_kdeapps_dep kreport)
+		dev-libs/kreport
 		kdepim? (
 			$(add_kdeapps_dep akonadi)
 			$(add_kdeapps_dep akonadi-contacts)
