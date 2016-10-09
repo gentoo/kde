@@ -4,25 +4,49 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
 KDE_SELINUX_MODULE="gpg"
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="Frontend for GnuPG, a powerful encryption utility by KDE"
 HOMEPAGE="https://www.kde.org/applications/utilities/kgpg
 https://utils.kde.org/projects/kgpg"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="
-	$(add_kdeapps_dep kdepimlibs)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kservice)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadi-contacts)
+	$(add_kdeapps_dep kcontacts)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
 	app-crypt/gnupg
 "
 
 pkg_postinst() {
-	kde4-base_pkg_postinst
+	kde5_pkg_postinst
 
 	if ! has_version 'app-crypt/dirmngr' && ! has_version '>=app-crypt/gnupg-2.1'; then
 		elog "For improved key search functionality, install app-crypt/dirmngr."
