@@ -17,7 +17,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_kdeapps_dep kcalcore)
