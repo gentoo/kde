@@ -4,11 +4,13 @@
 
 EAPI=6
 
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Media player with digital TV support by KDE"
 HOMEPAGE="https://kaffeine.kde.org/"
-LICENSE="GPL-2 FDL-1.2"
+
+LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 KEYWORDS=""
 IUSE=""
 
