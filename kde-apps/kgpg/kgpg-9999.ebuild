@@ -14,10 +14,9 @@ https://utils.kde.org/projects/kgpg"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -42,7 +41,10 @@ DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	app-crypt/gpgme
+"
+RDEPEND="${COMMON_DEPEND}
 	app-crypt/gnupg
 "
 
