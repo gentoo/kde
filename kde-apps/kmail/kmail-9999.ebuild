@@ -71,7 +71,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kldap)
-	dev-libs/boost:=
 	dev-libs/libxslt
 	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
 "
