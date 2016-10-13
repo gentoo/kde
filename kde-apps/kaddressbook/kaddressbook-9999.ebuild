@@ -37,7 +37,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-search)
-	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
@@ -50,6 +49,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
+	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 	dev-libs/grantlee:5
 	prison? ( media-libs/prison:5 )
 "
