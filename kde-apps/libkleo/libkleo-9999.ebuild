@@ -21,13 +21,13 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_qt_dep designer)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	>=app-crypt/gpgme-1.7.1[qt5]
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
