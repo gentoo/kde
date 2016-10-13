@@ -27,7 +27,6 @@ RDEPEND="
 	$(add_kdeapps_dep calendarjanitor)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep eventviews)
-	$(add_kdeapps_dep gpgmepp)
 	$(add_kdeapps_dep grantlee-editor)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
