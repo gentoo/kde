@@ -51,7 +51,7 @@ COMMON_DEPEND="
 	google? ( net-libs/libkgapi:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep gpgmepp)
+	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
