@@ -17,3 +17,11 @@ DEPEND="
 	sys-libs/libutempter
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DUTEMPTER_EXECUTABLE=/usr/sbin/utempter
+	)
+
+	kde5_src_configure
+}
