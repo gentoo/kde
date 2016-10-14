@@ -35,7 +35,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
 	$(add_qt_dep qtmultimedia 'qml')
-	!media-video/plasma-mediacenter
+	!media-video/plasma-mediacenter:0
 "
 
 src_configure() {
