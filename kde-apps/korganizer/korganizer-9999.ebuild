@@ -63,7 +63,6 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep pimcommon)
-	$(add_kdeapps_dep syndication)
 	$(add_qt_dep designer)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
