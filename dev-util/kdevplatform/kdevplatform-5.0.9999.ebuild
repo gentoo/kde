@@ -70,7 +70,11 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-util/kdevplatform:4
 "
 
+REQUIRED_USE="test? ( welcomepage )"
+
 RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/${PN}-5.0.1-unused-deps.patch" )
 
 src_prepare() {
 	kde5_src_prepare
