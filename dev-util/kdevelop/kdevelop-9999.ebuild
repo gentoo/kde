@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cxx +cmake +gdbui +ninja okteta +plasma +qmake qthelp"
+IUSE="+cxx +gdbui +ninja okteta +plasma +qmake qthelp"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
@@ -80,8 +80,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DLEGACY_CPP_SUPPORT=$(usex !cxx)
 		-DBUILD_cpp=OFF
-		-DBUILD_cmake=$(usex cmake)
-		-DBUILD_cmakebuilder=$(usex cmake)
 		$(cmake-utils_use_find_package gdbui KF5SysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
