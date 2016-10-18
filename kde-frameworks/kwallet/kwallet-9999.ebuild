@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Gpgmepp=ON
-		$(cmake-utils_use_find_package gpg Gpgme)
+		$(cmake-utils_use_find_package gpg Gpgmepp)
 		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
