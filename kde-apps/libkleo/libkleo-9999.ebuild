@@ -27,7 +27,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	>=app-crypt/gpgme-1.7.0[cxx,qt5]
+	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
