@@ -66,7 +66,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( $(add_kdeapps_dep akonadi-contacts) )
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kdepim-addons-16.04.50:5
+	!<kde-apps/kdepim-addons-16.08.50:5
 	!kde-apps/kdepim-common-libs:4
 "
 
