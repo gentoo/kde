@@ -47,7 +47,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '-gles2')
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql 'mysql?')
 	$(add_qt_dep qtwebkit)
