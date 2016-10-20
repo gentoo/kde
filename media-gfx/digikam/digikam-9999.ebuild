@@ -135,6 +135,7 @@ src_prepare() {
 			# subdirs need to be preserved b/c relative paths...
 			# doc-translated is, in fact, broken, and ignored
 			mv "${WORKDIR}/${MY_P}/doc/${PN}" doc-default || die
+			echo "find_package(KF5DocTools REQUIRED)" >> CMakeLists.txt || die
 			echo "add_subdirectory( doc-default )" >> CMakeLists.txt || die
 		fi
 	fi
