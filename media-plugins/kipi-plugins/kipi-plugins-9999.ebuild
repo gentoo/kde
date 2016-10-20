@@ -5,14 +5,13 @@
 EAPI=6
 
 CMAKE_MIN_VERSION="3.0"
-KDE_HANDBOOK="true"
 KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="https://www.digikam.org/"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="flashexport mediawiki +remotestorage vkontakte"
 
@@ -63,13 +62,6 @@ RDEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		# prepare the handbook
-		mv "${WORKDIR}"/${MY_P}/doc/${PN} "${S}"/doc || die
-
-		if use handbook; then
-			echo "add_subdirectory( doc )" >> CMakeLists.txt || die
-		fi
-
 		if [[ ${SRC_BRANCH} = stable ]]; then
 			# prepare the translations
 			mv "${WORKDIR}/${MY_P}/po" po || die
