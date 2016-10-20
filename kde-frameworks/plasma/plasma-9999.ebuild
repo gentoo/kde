@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="egl gles2 X"
+IUSE="egl gles2 wayland X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	egl? ( media-libs/mesa[egl] )
 	!gles2? ( virtual/opengl )
+	wayland? ( $(add_frameworks_dep kwayland) )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -60,6 +61,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package egl EGL)
 		$(cmake-utils_use_find_package !gles2 OpenGL)
+		$(cmake-utils_use_find_package wayland KF5Wayland)
 		$(cmake-utils_use_find_package X X11)
 		$(cmake-utils_use_find_package X XCB)
 	)
