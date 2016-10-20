@@ -32,6 +32,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libXcursor
+	x11-libs/libxcb
 "
 RDEPEND="${DEPEND}
 	media-fonts/hack
