@@ -137,7 +137,7 @@ src_prepare() {
 	fi
 
 	if ! use marble; then
-		kde_punt_bogus_dep Qt5 Network
+		punt_bogus_dep Qt5 Network
 	fi
 
 	kde5_src_prepare
