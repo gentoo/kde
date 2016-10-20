@@ -76,6 +76,7 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kbookmarks)
 		$(add_frameworks_dep kitemmodels)
 		$(add_kdeapps_dep marble)
+		$(add_qt_dep qtnetwork)
 	)
 	mysql? ( virtual/mysql )
 	opengl? (
@@ -134,6 +135,10 @@ src_prepare() {
 			echo "find_package(KF5DocTools REQUIRED)" >> CMakeLists.txt || die
 			echo "add_subdirectory( doc-default )" >> CMakeLists.txt || die
 		fi
+	fi
+
+	if ! use marble; then
+		kde_punt_bogus_dep Qt5 Network
 	fi
 
 	kde5_src_prepare
