@@ -6,11 +6,12 @@ EAPI=6
 
 KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="optional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="http://home.gna.org/kbibtex/"
-if [[ ${PV} != *9999* ]]; then
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	inherit versionator
 	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
@@ -54,7 +55,7 @@ RDEPEND="${DEPEND}
 	x11-misc/shared-mime-info
 "
 
-S=${WORKDIR}/${P/_/-}
+S="${WORKDIR}/${P/_/-}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-revert-removing-qtoauth.patch"
