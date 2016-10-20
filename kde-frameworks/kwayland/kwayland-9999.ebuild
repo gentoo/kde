@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	>=dev-libs/wayland-1.7.0
 	media-libs/mesa[egl]
