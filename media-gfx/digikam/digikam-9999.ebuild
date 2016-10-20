@@ -49,7 +49,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql 'mysql?')
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
@@ -75,7 +74,6 @@ COMMON_DEPEND="
 	lensfun? ( media-libs/lensfun )
 	marble? (
 		$(add_frameworks_dep kbookmarks)
-		$(add_frameworks_dep kitemmodels)
 		$(add_kdeapps_dep marble)
 		$(add_qt_dep qtnetwork)
 	)
