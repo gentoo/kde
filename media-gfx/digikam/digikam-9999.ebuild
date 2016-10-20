@@ -50,7 +50,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_kdeapps_dep libkexiv2)
-	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
@@ -59,7 +58,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	dev-libs/boost[threads]
 	dev-libs/expat
 	media-gfx/exiv2:=
 	media-libs/lcms:2
@@ -98,7 +96,9 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtconcurrent)
 	dev-cpp/eigen:3
+	dev-libs/boost[threads]
 	sys-devel/gettext
 	panorama? (
 		sys-devel/bison
