@@ -75,6 +75,7 @@ COMMON_DEPEND="
 	marble? (
 		$(add_frameworks_dep kbookmarks)
 		$(add_kdeapps_dep marble)
+		$(add_qt_dep qtconcurrent)
 		$(add_qt_dep qtnetwork)
 	)
 	mysql? ( virtual/mysql )
