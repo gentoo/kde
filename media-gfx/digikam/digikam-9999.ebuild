@@ -17,7 +17,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="addressbook gphoto2 jpeg2k +kipi +lensfun marble semantic-desktop mysql opengl openmp +panorama scanner video X"
+IUSE="addressbook calendar gphoto2 jpeg2k +kipi +lensfun marble semantic-desktop mysql opengl openmp +panorama scanner video X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 
@@ -68,6 +68,7 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep akonadi-contacts)
 		$(add_kdeapps_dep kcontacts)
 	)
+	calendar? ( $(add_kdeapps_dep kcalcore) )
 	gphoto2? ( media-libs/libgphoto2:= )
 	jpeg2k? ( media-libs/jasper )
 	kipi? ( $(add_kdeapps_dep libkipi '' '16.03.80') )
@@ -151,6 +152,7 @@ src_configure() {
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_MEDIAPLAYER=$(usex video)
 		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
+		$(cmake-utils_use_find_package calendar KF5CalendarCore)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
 		$(cmake-utils_use_find_package jpeg2k Jasper)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
