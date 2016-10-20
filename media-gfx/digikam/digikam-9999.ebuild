@@ -146,7 +146,6 @@ src_configure() {
 	# LQR = only allows to choose between bundled/external
 	local mycmakeargs=(
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
-		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_MEDIAPLAYER=$(usex video)
 		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
@@ -159,6 +158,7 @@ src_configure() {
 		$(cmake-utils_use_find_package openmp OpenMP)
 		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
 		$(cmake-utils_use_find_package scanner KF5Sane)
+		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
 		$(cmake-utils_use_find_package X X11)
 	)
 
