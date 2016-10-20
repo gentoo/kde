@@ -10,7 +10,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
-HOMEPAGE="http://www.digikam.org/"
+HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
