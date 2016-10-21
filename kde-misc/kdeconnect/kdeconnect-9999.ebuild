@@ -14,7 +14,7 @@ HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
 
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="app +telepathy wayland"
+IUSE="app wayland"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -39,7 +39,6 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXtst
 	app? ( $(add_frameworks_dep kdeclarative) )
-	telepathy? ( >=net-libs/telepathy-qt-0.9.7[qt5] )
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
 RDEPEND="${DEPEND}
@@ -61,8 +60,6 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
-		$(cmake-utils_use_find_package telepathy TelepathyQt5)
-		$(cmake-utils_use_find_package telepathy TelepathyQt5Service)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
 	)
 
