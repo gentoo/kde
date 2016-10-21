@@ -48,6 +48,8 @@ RDEPEND="${DEPEND}
 	!kde-misc/kdeconnect:4
 "
 
+RESTRICT+=" test"
+
 src_prepare() {
 	sed \
 		-e 's#${LIBEXEC_INSTALL_DIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
