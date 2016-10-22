@@ -41,6 +41,7 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kwindowsystem)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_plasma_dep kde-cli-tools)
 	x11-misc/colord
 "
 
