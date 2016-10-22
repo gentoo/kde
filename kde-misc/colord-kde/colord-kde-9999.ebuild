@@ -25,15 +25,18 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	media-libs/lcms:2
 	x11-libs/libxcb
 	x11-libs/libX11
+	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}
 	x11-misc/colord
