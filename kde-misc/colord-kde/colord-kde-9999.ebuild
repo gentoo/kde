@@ -14,7 +14,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -27,7 +27,6 @@ DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
@@ -38,7 +37,10 @@ DEPEND="
 	x11-libs/libX11
 	x11-libs/libXrandr
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kwindowsystem)
+"
+RDEPEND="${COMMON_DEPEND}
 	x11-misc/colord
 "
 
