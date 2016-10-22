@@ -4,17 +4,18 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="An advanced twin-panel (commander-style) file-manager with many extras"
-HOMEPAGE="https://quickgit.kde.org/?p=krusader.git"
+HOMEPAGE="https://krusader.org/"
+[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-CDEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -22,6 +23,7 @@ CDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -41,12 +43,9 @@ CDEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	sys-apps/attr
+	sys-apps/acl
 	sys-libs/zlib
 "
-DEPEND="${CDEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${CDEPEND}
+RDEPEND="${DEPEND}
 	!kde-misc/krusader:4
 "
