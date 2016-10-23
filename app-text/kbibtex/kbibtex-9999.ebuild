@@ -60,8 +60,6 @@ S="${WORKDIR}/${P/_/-}"
 PATCHES=(
 	"${FILESDIR}/${PN}-revert-removing-qtoauth.patch"
 	"${FILESDIR}/${PN}-part-revert-reenable-qtoauth.patch"
-
-	"${FILESDIR}/${PN}-doctools-optional.patch" # RR pending upstream
 )
 
 src_prepare() {
