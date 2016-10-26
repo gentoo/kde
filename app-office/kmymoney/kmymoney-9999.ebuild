@@ -6,12 +6,12 @@ EAPI=6
 
 CMAKE_MIN_VERSION="3.1"
 KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit kde5
 
-DESCRIPTION="Personal finance manager"
+DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org"
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
@@ -19,10 +19,9 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="calendar crypt hbci ofx quotes"
+IUSE="activities addressbook calendar crypt hbci holidays ofx quotes weboob"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
@@ -43,10 +42,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kholidays)
-	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
@@ -54,53 +49,53 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-office/libalkimia
+	>=app-office/libalkimia-6.0.0
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
 	x11-misc/shared-mime-info
+	activities? ( $(add_frameworks_dep kactivities) )
+	addressbook? (
+		$(add_kdeapps_dep akonadi)
+		$(add_kdeapps_dep kcontacts)
+		$(add_kdeapps_dep kidentitymanagement)
+	)
 	calendar? ( dev-libs/libical:= )
+	crypt? ( $(add_kdeapps_dep gpgmepp) )
 	hbci? (
 		>=net-libs/aqbanking-5.6.5
 		>=sys-libs/gwenhywfar-4.15.3-r1[qt5]
 	)
-	crypt? ( $(add_kdeapps_dep gpgmepp) )
+	holidays? ( $(add_kdeapps_dep kholidays) )
 	ofx? ( dev-libs/libofx )
+	weboob? (
+		$(add_frameworks_dep kross)
+		www-client/weboob
+	)
 "
 DEPEND="${COMMON_DEPEND}
-	!app-office/kmymoney:4
 	dev-libs/boost
 	virtual/pkgconfig
 "
 RDEPEND="${COMMON_DEPEND}
+	!app-office/kmymoney:4
 	quotes? ( dev-perl/Finance-Quote )
 "
-
-src_prepare() {
-	kde5_src_prepare
-	if ! use test ; then
-		sed -i \
-			-e '/add_subdirectory( tests )/ s/^/#DONT_/' \
-			-e '/add_subdirectory(tests)/ s/^/#DONT_/' \
-			kmymoney/CMakeLists.txt \
-			kmymoney/converter/CMakeLists.txt \
-			kmymoney/mymoney/CMakeLists.txt \
-			kmymoney/mymoney/payeeidentifier/CMakeLists.txt \
-			kmymoney/mymoney/storage/CMakeLists.txt \
-			kmymoney/payeeidentifier/ibanandbic/CMakeLists.txt \
-			kmymoney/plugins/csvimport/CMakeLists.txt \
-			kmymoney/reports/CMakeLists.txt \
-			|| die
-	fi
-}
 
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_QT_DESIGNER=OFF
+		$(cmake-utils_use_find_package activities KF5Activities)
+		$(cmake-utils_use_find_package addressbook KF5Akonadi)
+		$(cmake-utils_use_find_package addressbook KF5Contacts)
+		$(cmake-utils_use_find_package addressbook KF5IdentityManagement)
 		-DENABLE_KBANKING=$(usex hbci)
 		-DENABLE_LIBICAL=$(usex calendar)
 		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
+		$(cmake-utils_use_find_package holidays KF5Holidays)
 		-DENABLE_LIBOFX=$(usex ofx)
+		-DENABLE_WEBOOB=$(usex weboob)
+		$(cmake-utils_use_find_package weboob KF5Kross)
 	)
 	kde5_src_configure
 }
