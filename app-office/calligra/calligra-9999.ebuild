@@ -26,7 +26,7 @@ LICENSE="GPL-2"
 [[ ${KDE_BUILD_TYPE} == release ]] && \
 KEYWORDS="~amd64 ~x86"
 
-IUSE="activities +crypt +eigen +fontconfig gsl import-filter +lcms kdepim
+IUSE="activities +crypt +eigen +fontconfig gsl import-filter +lcms pim
 	marble okular openexr +pdf spacenav +truetype vc +webkit +xml X"
 
 CAL_FTS="braindump karbon plan sheets stage words"
@@ -98,7 +98,7 @@ COMMON_DEPEND="
 		app-text/libodfgen
 		app-text/libwpd:*
 		app-text/libwpg:*
-		app-text/libwps
+		>=app-text/libwps-0.4
 		dev-libs/librevenge
 		media-libs/libvisio
 	)
@@ -118,12 +118,11 @@ COMMON_DEPEND="
 		dev-libs/kdiagram:5
 		dev-libs/kproperty:5
 		dev-libs/kreport:5
-		kdepim? (
+		pim? (
 			$(add_kdeapps_dep akonadi)
 			$(add_kdeapps_dep akonadi-contacts)
 			$(add_kdeapps_dep kcalcore)
 			$(add_kdeapps_dep kcontacts)
-			$(add_kdeapps_dep kdgantt2)
 		)
 	)
 	calligra_features_stage? (
@@ -210,17 +209,16 @@ src_configure() {
 		-DWITH_LibWpd=$(usex import-filter)
 		-DWITH_LibWpg=$(usex import-filter)
 		-DWITH_LibWps=$(usex import-filter)
-		$(cmake-utils_use_find_package kdepim KF5Akonadi)
-		$(cmake-utils_use_find_package kdepim KF5AkonadiContact)
-		$(cmake-utils_use_find_package kdepim KF5CalendarCore)
-		$(cmake-utils_use_find_package kdepim KF5Contacts)
-		$(cmake-utils_use_find_package kdepim KGantt)
+		$(cmake-utils_use_find_package pim KF5Akonadi)
+		$(cmake-utils_use_find_package pim KF5AkonadiContact)
+		$(cmake-utils_use_find_package pim KF5CalendarCore)
+		$(cmake-utils_use_find_package pim KF5Contacts)
 		-DWITH_LCMS2=$(usex lcms)
-		-DWITH_CalligraMarble=$(usex marble)
+		$(cmake-utils_use_find_package marble Marble)
 		-DWITH_Okular5=$(usex okular)
 		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
-		-DWITH_Spnav=$(usex spacenav)
+		$(cmake-utils_use_find_package spacenav Spnav)
 		-ENABLE_CSTESTER_TESTING=$(usex test)
 		-DWITH_Freetype=$(usex truetype)
 		-DWITH_Vc=$(usex vc)
