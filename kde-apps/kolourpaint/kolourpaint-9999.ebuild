@@ -25,6 +25,7 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkexiv2)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
