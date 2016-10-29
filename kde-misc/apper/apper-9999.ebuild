@@ -39,7 +39,7 @@ DEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxmlpatterns)
-	app-admin/packagekit-qt[qt5(+)]
+	>=app-admin/packagekit-qt-0.9.6
 "
 RDEPEND="${DEPEND}
 	!kde-misc/apper:4
