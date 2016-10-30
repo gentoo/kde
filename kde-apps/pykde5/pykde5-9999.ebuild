@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE="threads"
 OPENGL_REQUIRED="always"
 inherit python-r1 portability kde5 multilib eutils
