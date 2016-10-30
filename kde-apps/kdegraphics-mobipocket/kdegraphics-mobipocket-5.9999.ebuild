@@ -4,6 +4,7 @@
 
 EAPI=6
 
+KDE_BLOCK_SLOT4="false"
 EGIT_BRANCH="frameworks"
 inherit kde5
 
