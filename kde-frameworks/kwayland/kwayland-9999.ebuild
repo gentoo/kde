@@ -16,12 +16,12 @@ IUSE=""
 
 DEPEND="
 	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui 'egl')
 	>=dev-libs/wayland-1.7.0
 	media-libs/mesa[egl]
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtwayland)
+	$(add_qt_dep qtwayland 'egl')
 	!kde-plasma/kwayland
 "
 
