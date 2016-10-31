@@ -4,23 +4,45 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-CPPUNIT_REQUIRED="optional"
-OPENGL_REQUIRED="always"
-inherit kde4-base flag-o-matic
+KDE_HANDBOOK="forceoptional"
+inherit kde5 flag-o-matic
 
 DESCRIPTION="Periodic table of the elements"
 HOMEPAGE="https://www.kde.org/applications/education/kalzium
 https://edu.kde.org/kalzium"
 KEYWORDS=""
-IUSE="debug editor +plasma solver"
+IUSE="editor solver"
 
 DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep khtml)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kplotting)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kunitconversion)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep solid)
+	$(add_kdeapps_dep libkdegames)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	editor? (
 		dev-cpp/eigen:3
 		sci-chemistry/avogadro
-		>=sci-chemistry/openbabel-2.2
-		dev-qt/qtopengl:4
+		sci-chemistry/openbabel
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "
@@ -33,13 +55,12 @@ src_configure(){
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
 
 	local mycmakeargs=(
-		-DBUILD_plasmoid=$(usex plasma)
-		-DWITH_Eigen3=$(usex editor)
-		-DWITH_Avogadro=$(usex editor)
-		-DWITH_OpenBabel2=$(usex editor)
-		-DWITH_OCaml=$(usex solver)
-		-DWITH_Libfacile=$(usex solver)
+		$(cmake-utils_use_find_package editor Eigen3)
+		$(cmake-utils_use_find_package editor AvogadroLibs)
+		$(cmake-utils_use_find_package editor OpenBabel2)
+		$(cmake-utils_use_find_package solver OCaml)
+		$(cmake-utils_use_find_package solver Libfacile)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
