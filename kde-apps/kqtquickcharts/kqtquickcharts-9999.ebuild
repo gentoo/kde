@@ -4,11 +4,14 @@
 
 EAPI=6
 
-DECLARATIVE_REQUIRED="always"
-inherit kde4-base
+inherit kde5
 
-DESCRIPTION="Qt Quick 1 plugin for beautiful and interactive charts"
+DESCRIPTION="Qt Quick plugin for beautiful and interactive charts"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-RDEPEND="$(add_kdeapps_dep plasma-runtime)"
+DEPEND="
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+"
+RDEPEND="${DEPEND}"
