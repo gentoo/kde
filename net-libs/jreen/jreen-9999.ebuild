@@ -10,7 +10,6 @@ if [[ ${PV} != *9999* ]]; then
 else
 	GIT_ECLASS="git-r3"
 	EGIT_REPO_URI=( "https://github.com/euroelessar/${PN}" )
-	KEYWORDS=""
 fi
 
 inherit cmake-utils multibuild ${GIT_ECLASS}
@@ -40,7 +39,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS ChangeLog README.md )
-PATCHES=( "${FILESDIR}/${PN}-qt5.6.patch" )
 
 pkg_setup() {
 	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
