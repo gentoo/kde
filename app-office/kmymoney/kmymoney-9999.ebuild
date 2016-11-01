@@ -61,7 +61,7 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 	calendar? ( dev-libs/libical:= )
-	crypt? ( $(add_kdeapps_dep gpgmepp) )
+	crypt? ( >=app-crypt/gpgme-1.7.1-r1[cxx] )
 	hbci? (
 		>=net-libs/aqbanking-5.6.5
 		>=sys-libs/gwenhywfar-4.15.3-r1[qt5]
