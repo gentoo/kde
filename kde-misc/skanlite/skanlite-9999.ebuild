@@ -4,12 +4,13 @@
 
 EAPI=6
 
+KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE image scanning application"
 HOMEPAGE="http://www.kde.org/applications/graphics/skanlite/"
 
-LICENSE="GPL-2"
+LICENSE="|| ( GPL-2 GPL-3 ) handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 
@@ -30,3 +31,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-misc/skanlite:4
 "
+
+src_prepare() {
+	kde5_src_prepare
+	cmake_comment_add_subdirectory autotests
+	cmake_comment_add_subdirectory tests
+	use handbook || sed -i -e "/DocTools/d" CMakeLists.txt || die
+}
