@@ -32,7 +32,7 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
-	!kde-base/kmenuedit:4
+	!kde-plasma/kmenuedit:4
 "
 
 src_configure() {
