@@ -4,55 +4,72 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-#VIRTUALX_REQUIRED=test
-RESTRICT=test
-# test 2: parttest hangs
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
+inherit kde5
 
-inherit kde4-base
-
-DESCRIPTION="Universal document viewer based on KPDF"
+DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt debug djvu dpi ebook +jpeg mobi +postscript +pdf +tiff"
+IUSE="chm crypt djvu ebook +jpeg mobi +pdf +postscript speech +tiff"
 
 DEPEND="
+	$(add_frameworks_dep kactivities)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kbookmarks)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep khtml)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kjs)
+	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kwallet)
+	$(add_frameworks_dep threadweaver)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 	media-libs/freetype
-	media-libs/phonon[qt4]
-	media-libs/qimageblitz
+	media-libs/phonon[qt5]
 	sys-libs/zlib
 	chm? ( dev-libs/chmlib )
-	crypt? ( app-crypt/qca:2[qt4] )
+	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
-	dpi? ( x11-libs/libkscreen:4 )
 	ebook? ( app-text/ebook-tools )
 	jpeg? (
 		$(add_kdeapps_dep libkexiv2)
 		virtual/jpeg:0
 	)
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
-	pdf? ( >=app-text/poppler-0.20[qt4,-exceptions(-)] )
+	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
+	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	kde5_src_prepare
+	use test || cmake_comment_add_subdirectory conf/autotests
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_KActivities=OFF
-		-DWITH_CHM=$(usex chm)
-		-DWITH_QCA2=$(usex crypt)
-		-DWITH_DjVuLibre=$(usex djvu)
-		-DWITH_LibKScreen=$(usex dpi)
-		-DWITH_EPub=$(usex ebook)
-		-DWITH_JPEG=$(usex jpeg)
-		-DWITH_Kexiv2=$(usex jpeg)
-		-DWITH_QMobipocket=$(usex mobi)
-		-DWITH_LibSpectre=$(usex postscript)
-		-DWITH_PopplerQt4=$(usex pdf)
-		-DWITH_Poppler=$(usex pdf)
-		-DWITH_TIFF=$(usex tiff)
+		$(cmake-utils_use_find_package chm CHM)
+		$(cmake-utils_use_find_package crypt Qca-qt5)
+		$(cmake-utils_use_find_package djvu DjVuLibre)
+		$(cmake-utils_use_find_package ebook EPub)
+		$(cmake-utils_use_find_package jpeg KF5KExiv2)
+		$(cmake-utils_use_find_package mobi QMobipocket)
+		$(cmake-utils_use_find_package pdf Poppler)
+		$(cmake-utils_use_find_package postscript LibSpectre)
+		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
+		$(cmake-utils_use_find_package tiff TIFF)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
