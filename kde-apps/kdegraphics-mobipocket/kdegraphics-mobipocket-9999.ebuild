@@ -4,16 +4,23 @@
 
 EAPI=6
 
-inherit kde4-base
+KDE_BLOCK_SLOT4="false"
+inherit kde5
 
 DESCRIPTION="Library to support mobipocket ebooks"
 KEYWORDS=""
-IUSE="debug"
+IUSE="+thumbnail"
+
+DEPEND="
+	$(add_qt_dep qtgui)
+	thumbnail? ( $(add_frameworks_dep kio) )
+"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Strigi=ON
+		-DBUILD_thumbnailers=$(usex thumbnail)
 	)
 
-	kde4-base_src_configure
+	kde5_src_configure
 }
