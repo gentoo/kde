@@ -10,7 +10,7 @@ DESCRIPTION="Library for managing partitions"
 HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
 
 LICENSE="GPL-3"
-SLOT="5/3"
+SLOT="5/4"
 KEYWORDS=""
 IUSE=""
 
