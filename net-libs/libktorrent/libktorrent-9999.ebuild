@@ -56,7 +56,7 @@ src_prepare() {
 	sed -i -e "/^find_package/ s/\"\${LibGMP_MIN_VERSION}\" //" \
 		CMakeLists.txt || die
 	sed -i -e "/^find_dependency/ s/ \"@LibGMP_MIN_VERSION@\"//" \
-		LibKTorrentConfig.cmake.in || die
+		KF5TorrentConfig.cmake.in || die
 
 	use test || cmake_comment_add_subdirectory testlib
 }
