@@ -5,7 +5,6 @@ kde-apps/kate
 kde-apps/kde-apps-meta
 kde-apps/kde-meta
 kde-apps/kdebase-meta
-kde-apps/kdebase-runtime-meta
 kde-apps/kdecore-meta
 kde-apps/khelpcenter
 kde-apps/konsole
@@ -13,7 +12,6 @@ kde-apps/kwrite
 @kde-baseapps
 @kdeaccessibility
 @kdeadmin
-@kdebase-runtime
 @kdeedu
 @kdegames
 @kdegraphics

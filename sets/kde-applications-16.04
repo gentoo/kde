@@ -4,7 +4,6 @@
 <kde-apps/kde-apps-meta-16.04.50
 <kde-apps/kde-meta-16.04.50
 <kde-apps/kdebase-meta-16.04.50
-<kde-apps/kdebase-runtime-meta-16.04.50
 <kde-apps/kdecore-meta-16.04.50
 <kde-apps/khelpcenter-16.04.50
 <kde-apps/konsole-16.04.50
@@ -12,7 +11,6 @@
 @kde-baseapps-16.04
 @kdeaccessibility-16.04
 @kdeadmin-16.04
-@kdebase-runtime-16.04
 @kdeedu-16.04
 @kdegames-16.04
 @kdegraphics-16.04
