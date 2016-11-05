@@ -4,9 +4,7 @@
 
 EAPI=6
 
-KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
-KMNAME="kde-baseapps"
 inherit kde5
 
 DESCRIPTION="File finder utility based on KDE Frameworks"
@@ -31,5 +29,3 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
-
-S="${S}/${PN}"
