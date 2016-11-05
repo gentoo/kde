@@ -26,20 +26,14 @@ LICENSE="GPL-2"
 [[ ${KDE_BUILD_TYPE} == release ]] && \
 KEYWORDS="~amd64 ~x86"
 
-IUSE="activities +crypt +eigen +fontconfig gsl import-filter +lcms pim
-	marble okular openexr +pdf spacenav +truetype vc +webkit +xml X"
+CAL_FTS=( plan sheets words )
+CAL_EXP_FTS=( braindump karbon stage )
 
-CAL_FTS="braindump karbon plan sheets stage words"
-for cal_ft in ${CAL_FTS}; do
-	IUSE+=" calligra_features_${cal_ft}"
-done
-unset cal_ft
+IUSE="activities +crypt +eigen +fontconfig gsl import-filter +lcms pim marble okular
+	openexr +pdf spacenav +truetype vc +xml X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})
+	$(printf 'calligra_experimental_features_%s ' ${CAL_EXP_FTS[@]})"
 
-REQUIRED_USE="
-	calligra_features_sheets? ( eigen )
-	calligra_features_stage? ( webkit )
-	test? ( calligra_features_karbon )
-"
+REQUIRED_USE="calligra_features_sheets? ( eigen )"
 
 # drop qtcore subslot operator when QT_MINIMAL >= 5.7.0
 COMMON_DEPEND="
@@ -112,7 +106,11 @@ COMMON_DEPEND="
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
-	calligra_features_braindump? ( webkit? ( $(add_qt_dep qtwebkit) ) )
+	calligra_experimental_features_braindump? ( $(add_qt_dep qtwebkit) )
+	calligra_experimental_features_stage? (
+		$(add_qt_dep qtwebkit)
+		okular? ( $(add_kdeapps_dep okular) )
+	)
 	calligra_features_plan? (
 		$(add_qt_dep qtcore '' '' '5=')
 		dev-libs/kdiagram:5
@@ -125,10 +123,6 @@ COMMON_DEPEND="
 			$(add_kdeapps_dep kcontacts)
 		)
 	)
-	calligra_features_stage? (
-		$(add_qt_dep qtwebkit)
-		okular? ( $(add_kdeapps_dep okular) )
-	)
 	calligra_features_words? (
 		dev-libs/libxslt
 		okular? ( $(add_kdeapps_dep okular) )
@@ -140,7 +134,7 @@ DEPEND="${COMMON_DEPEND}
 	vc? ( >=dev-libs/vc-1.1.0 )
 "
 RDEPEND="${COMMON_DEPEND}
-	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
+	calligra_experimental_features_karbon? ( media-gfx/pstoedit[plotutils] )
 	!app-office/calligra:4
 "
 
@@ -165,7 +159,8 @@ src_prepare() {
 	punt_bogus_dep Qt5 Declarative
 	punt_bogus_dep Qt5 OpenGL
 
-	if ! use webkit; then
+	if ! use calligra_experimental_features_stage && \
+			! use calligra_experimental_features_braindump; then
 		punt_bogus_dep Qt5 WebKitWidgets
 		punt_bogus_dep Qt5 WebKit
 	fi
@@ -176,20 +171,26 @@ src_prepare() {
 			extras/CMakeLists.txt || die "Failed to disable OKULAR_GENERATOR_ODT"
 	fi
 
-	if use okular && ! use calligra_features_stage; then
+	if use okular && ! use calligra_experimental_features_stage; then
 		sed -i -e "/add_subdirectory( *okularodpgenerator *)/ s/^/#DONT/" \
 			extras/CMakeLists.txt || die "Failed to disable OKULAR_GENERATOR_ODP"
 	fi
 }
 
 src_configure() {
-	local cal_ft myproducts
+	local cal_ft myproducts experimental=OFF
 
 	# applications
-	for cal_ft in ${CAL_FTS}; do
-		local prod=${cal_ft^^}
+	for cal_ft in ${CAL_FTS[@]}; do
 		if use calligra_features_${cal_ft} ; then
-			myproducts+=( "${prod}" )
+			myproducts+=( "${cal_ft^^}" )
+		fi
+	done
+	# experimental/unmaintained applications
+	for cal_ft in ${CAL_EXP_FTS[@]}; do
+		if use calligra_experimental_features_${cal_ft} ; then
+			experimental=ON
+			myproducts+=( "${cal_ft^^}" )
 		fi
 	done
 
@@ -197,6 +198,7 @@ src_configure() {
 
 	mycmakeargs+=(
 		-DPACKAGERS_BUILD=OFF
+		-DBUILD_UNMAINTAINED=${experimental}
 		-DWITH_Iconv=ON
 		-DWITH_Qca-qt5=$(usex crypt)
 		-DWITH_Eigen3=$(usex eigen)
