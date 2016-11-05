@@ -4,7 +4,6 @@
 
 EAPI=6
 
-KMNAME="kde-baseapps"
 inherit kde5
 
 DESCRIPTION="Can be used to show nice dialog boxes from shell scripts"
@@ -28,8 +27,6 @@ DEPEND="
 	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}"
-
-S="${S}/${PN}"
 
 src_configure() {
 	local mycmakeargs=(

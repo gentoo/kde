@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
-KMNAME="kde-baseapps"
 VIRTUALX_REQUIRED="test"
 inherit flag-o-matic kde5
 
@@ -65,8 +64,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/konq-plugins
 	!kde-apps/libkonq:5
 "
-
-S="${S}/${PN}"
 
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc

@@ -5,7 +5,6 @@
 EAPI=6
 
 KDE_TEST="true"
-KMNAME="kde-baseapps"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -33,5 +32,3 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
-
-S="${S}/${PN}"
