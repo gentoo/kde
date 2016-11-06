@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	)
 	calendar? ( $(add_kdeapps_dep kcalcore) )
 	gphoto2? ( media-libs/libgphoto2:= )
-	jpeg2k? ( media-libs/jasper )
+	jpeg2k? ( media-libs/jasper:= )
 	kipi? ( $(add_kdeapps_dep libkipi '' '16.03.80') )
 	lensfun? ( media-libs/lensfun )
 	marble? (
@@ -107,14 +107,17 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT=test
 # bug 366505
 
-# FIXME: Unbundle libraw (libs/rawengine/libraw)
 pkg_pretend() {
-	if use openmp ; then
-		tc-has-openmp || die "Please switch to an openmp compatible compiler"
-	fi
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	kde5_pkg_pretend
 }
 
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+	kde5_pkg_setup
+}
+
+# FIXME: Unbundle libraw (libs/rawengine/libraw)
 src_prepare() {
 	if [[ ${KDE_BUILD_TYPE} != live ]]; then
 		# prepare the translations
@@ -141,7 +144,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# LQR = only allows to choose between bundled/external
 	local mycmakeargs=(
 		-DENABLE_APPSTYLES=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
