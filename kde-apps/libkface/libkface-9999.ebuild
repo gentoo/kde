@@ -23,8 +23,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-15.12.2-opencv3.1.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
