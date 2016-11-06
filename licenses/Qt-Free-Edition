@@ -1,0 +1,82 @@
+                        QT FREE EDITION LICENSE
+
+Copyright (C) 1992-1999 Troll Tech AS. All rights reserved. 
+
+This is the license for Qt Free Edition version 1.44; it covers private use,
+use of third-party application programs based on Qt, and development of
+free software for the free software community. 
+
+
+                      COPYRIGHT AND RESTRICTIONS
+
+The Qt toolkit is a product of Troll Tech AS. The Qt Free Edition is limited
+to use with the X Window System. 
+
+You may copy this version of the Qt Free Edition provided that the entire
+archive is distributed unchanged and as a whole, including this notice. 
+
+You may use this version of the Qt Free Edition to compile, link and run
+application programs legally developed by third parties. 
+
+You may use the Qt Free Edition to create application programs
+provided that: 
+
+      You accept this license. 
+      Your software does not require modifications to Qt Free Edition.
+      You satisfy ONE of the following three requirements 
+      EITHER 
+            Users of your software can freely obtain source code for the
+            software, freely modify the source code (possibly with
+            restrictions on copyright notices, attributions and legal
+            responsibility), and freely redistribute original or modified
+            versions of the software. 
+      OR 
+            Your software is distributed under the GNU GENERAL
+            PUBLIC LICENSE, version 2 or later, as defined by the
+            Free Software Foundation. 
+      OR 
+            Your software is distributed under the GNU LIBRARY
+            GENERAL PUBLIC LICENSE, version 2 or later, as
+            defined by the Free Software Foundation. 
+
+If you are paid to develop something with Qt Free Edition or it is a part of
+your job the following conditions also apply: 
+
+      Your software must not require libraries, programs, data or
+      documentation that are not available outside your organization in
+      order to compile or use. 
+      If and when your organization starts using the software, you must
+      notify Troll Tech AS of the following: 
+            Your organization's name and purpose. 
+            The software's name and purpose. 
+            The software's license. 
+            That your organization considers the software to be free
+            software. 
+
+You may also use the Qt Free Edition to create reusable components
+(such as libraries) provided that you accept the terms above, and in
+addition that: 
+
+      Your components' license includes the following text: 
+
+            [Your package] requires the Qt library, which is
+            copyright Troll Tech AS. Freely distributable
+            programs may generally use Qt Free Edition free of
+            charge, see [README.QT] for details. 
+
+      README.QT is distributed along with your components. 
+      Qt Free Edition is not distributed as an integral part of your
+      components. 
+
+                       LIMITATIONS OF LIABILITY
+
+Troll Tech AS makes no obligation under this license to support or
+upgrade Qt Free Edition, or assist in the use of Qt Free Edition. 
+
+In no event shall Troll Tech AS be liable for any lost revenue or profits or
+other direct, indirect, special, incidental or consequential damages, even
+if Troll Tech has been advised of the possibility of such damages. 
+
+QT FREE EDITION IS PROVIDED AS IS WITH NO WARRANTY OF ANY KIND,
+INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE.
