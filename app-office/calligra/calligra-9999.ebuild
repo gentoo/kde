@@ -115,9 +115,9 @@ COMMON_DEPEND="
 	calligra_features_braindump? ( webkit? ( $(add_qt_dep qtwebkit) ) )
 	calligra_features_plan? (
 		$(add_qt_dep qtcore '' '' '5=')
-		$(add_kdeapps_dep kdiagram)
-		dev-libs/kproperty
-		dev-libs/kreport
+		dev-libs/kdiagram:5
+		dev-libs/kproperty:5
+		dev-libs/kreport:5
 		kdepim? (
 			$(add_kdeapps_dep akonadi)
 			$(add_kdeapps_dep akonadi-contacts)

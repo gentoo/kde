@@ -28,10 +28,10 @@ COMMON_DEPEND="
 		$(add_frameworks_dep ki18n)
 		$(add_frameworks_dep kitemmodels)
 		$(add_frameworks_dep threadweaver)
-		$(add_kdeapps_dep kdiagram)
 		$(add_qt_dep qtcore)
 		$(add_qt_dep qtgui)
 		$(add_qt_dep qtwidgets)
+		dev-libs/kdiagram:5
 	)
 "
 DEPEND="${COMMON_DEPEND}

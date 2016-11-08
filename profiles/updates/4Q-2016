@@ -3,3 +3,4 @@ move kde-apps/kreport dev-libs/kreport
 move kde-apps/kproperty dev-libs/kproperty
 slotmove kde-misc/kio-gdrive 0 5
 move kde-plasma/plasma-mediacenter media-video/plasma-mediacenter
+move kde-apps/kdiagram dev-libs/kdiagram

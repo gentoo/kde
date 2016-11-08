@@ -46,7 +46,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdiagram)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtdbus)
@@ -58,6 +57,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	app-office/libalkimia:5
 	dev-libs/gmp:0=
+	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
 	x11-misc/shared-mime-info
 	calendar? ( dev-libs/libical:= )

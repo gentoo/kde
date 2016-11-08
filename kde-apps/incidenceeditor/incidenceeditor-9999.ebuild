@@ -39,7 +39,6 @@ DEPEND="
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kdiagram)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)
@@ -48,5 +47,6 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/kdiagram:5
 "
 RDEPEND="${DEPEND}"

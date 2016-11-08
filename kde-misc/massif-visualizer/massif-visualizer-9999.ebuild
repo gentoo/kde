@@ -25,11 +25,11 @@ RDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep kdiagram)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
+	dev-libs/kdiagram:5
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtxmlpatterns)
