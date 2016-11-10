@@ -9,7 +9,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
 HOMEPAGE="https://edu.kde.org"
 KEYWORDS=""
-IUSE="nls +webkit"
+IUSE="nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -29,21 +29,19 @@ RDEPEND="
 	$(add_kdeapps_dep kiten)
 	$(add_kdeapps_dep klettres)
 	$(add_kdeapps_dep kmplot)
+	$(add_kdeapps_dep kqtquickcharts)
 	$(add_kdeapps_dep kstars)
+	$(add_kdeapps_dep ktouch)
 	$(add_kdeapps_dep kturtle)
 	$(add_kdeapps_dep kwordquiz)
 	$(add_kdeapps_dep libkeduvocdocument)
 	|| ( $(add_kdeapps_dep marble) kde-apps/marble:4 )
-	$(add_kdeapps_dep minuet '' 16.04.3)
+	$(add_kdeapps_dep minuet)
 	$(add_kdeapps_dep parley)
 	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
 	nls? (
 		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
 		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
-	webkit? (
-		$(add_kdeapps_dep kqtquickcharts)
-		$(add_kdeapps_dep ktouch)
 	)
 "
