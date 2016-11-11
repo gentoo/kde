@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
+	$(add_frameworks_dep syntax-highlighting)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
