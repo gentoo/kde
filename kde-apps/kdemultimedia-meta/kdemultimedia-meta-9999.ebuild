@@ -23,6 +23,7 @@ RDEPEND="
 	$(add_kdeapps_dep kdenlive)
 	$(add_kdeapps_dep kmix)
 	$(add_kdeapps_dep kscd)
+	$(add_kdeapps_dep kwave)
 	$(add_kdeapps_dep libkcddb)
 	$(add_kdeapps_dep libkcompactdisc)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
