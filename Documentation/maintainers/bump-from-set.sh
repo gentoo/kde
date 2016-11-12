@@ -10,6 +10,10 @@ get_package_list_from_set() {
 	for entry in $(grep -v ^[#@] "${PORTDIR}/sets/${set}") ; do
 		echo $(qatom ${entry} | cut -d " " -f 1-2 | tr " " "/")
 	done
+
+	for entry in $(grep ^@ "${PORTDIR}/sets/${set}") ; do
+		get_package_list_from_set ${entry/@/}
+	done
 }
 
 get_main_tree_keyword() {
