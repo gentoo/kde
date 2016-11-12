@@ -12,7 +12,7 @@ inherit kde5
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
 KEYWORDS=""
-IUSE="exif mtp openexr phonon samba +sftp slp"
+IUSE="exif htmlthumbs mtp openexr phonon samba +sftp slp"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	virtual/jpeg:0
 	exif? ( media-gfx/exiv2:= )
+	htmlthumbs? ( $(add_qt_dep qtwebengine) )
 	mtp? ( media-libs/libmtp:= )
 	openexr? ( media-libs/openexr )
 	phonon? ( media-libs/phonon[qt5] )
@@ -53,19 +54,18 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
-	!<kde-apps/kcontrol-15.08.0-r1:4
-	!<kde-frameworks/kactivities-5.20.0
 "
 DEPEND="${COMMON_DEPEND}
 	x11-misc/shared-mime-info
 "
 
 # requires running kde environment
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
+		$(cmake-utils_use_find_package htmlthumbs Qt5WebEngineWidgets)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
