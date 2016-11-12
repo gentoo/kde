@@ -121,7 +121,9 @@ DEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
+	# master
 	"${FILESDIR}/${PN}-5.7.90-baloo-optional.patch"
+	"${FILESDIR}/${PN}-5.8.3-systray-cpuload.patch"
 )
 
 RESTRICT+=" test"
