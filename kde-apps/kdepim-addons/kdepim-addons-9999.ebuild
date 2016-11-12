@@ -37,6 +37,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep incidenceeditor)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
+	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
