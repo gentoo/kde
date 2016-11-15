@@ -5,9 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="optional"
-KMNAME="kdewebdev"
-KDE_SCM="svn"
-inherit kde4-meta
+inherit kde4-base
 
 DESCRIPTION="KDE web development - link validity checker"
 HOMEPAGE="https://www.kde.org/applications/development/klinkstatus/"
@@ -25,11 +23,11 @@ src_configure() {
 		-DWITH_LibTidy=$(usex tidy)
 	)
 
-	kde4-meta_src_configure
+	kde4-base_src_configure
 }
 
 pkg_postinst() {
-	kde4-meta_pkg_postinst
+	kde4-base_pkg_postinst
 
 	if ! has_version dev-lang/ruby ; then
 		elog "To use scripting in ${PN}, install dev-lang/ruby."
