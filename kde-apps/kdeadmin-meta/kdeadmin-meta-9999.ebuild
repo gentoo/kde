@@ -12,7 +12,7 @@ IUSE="+cron nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
-LRDEPEND="
+RDEPEND="
 	$(add_kdeapps_dep ksystemlog)
 	cron? ( $(add_kdeapps_dep kcron) )
 	nls? ( $(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL}) )
