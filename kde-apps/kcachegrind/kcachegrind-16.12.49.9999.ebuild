@@ -7,9 +7,9 @@ EAPI=6
 KDE_HANDBOOK="optional"
 inherit kde4-base
 
-DESCRIPTION="KDE Frontend for Cachegrind"
+DESCRIPTION="Frontend for Cachegrind by KDE"
 HOMEPAGE="https://www.kde.org/applications/development/kcachegrind
-http://kcachegrind.sourceforge.net"
+https://kcachegrind.github.io/html/Home.html"
 KEYWORDS=""
 IUSE="debug"
 
