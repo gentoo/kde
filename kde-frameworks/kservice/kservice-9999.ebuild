@@ -38,3 +38,10 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+src_install() {
+	kde5_src_install
+
+	# bug 596316
+	dosym /etc/xdg/menus/kf5-applications.menu /etc/xdg/menus/applications.menu
+}
