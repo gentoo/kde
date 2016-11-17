@@ -4,15 +4,26 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-inherit kde4-base
+KDE_HANDBOOK="forceoptional"
+inherit kde5
 
-DESCRIPTION="KDE Frontend for Cachegrind"
+DESCRIPTION="Frontend for Cachegrind by KDE"
 HOMEPAGE="https://www.kde.org/applications/development/kcachegrind
 http://kcachegrind.sourceforge.net"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-RDEPEND="
+DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kcompletion)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+"
+RDEPEND="${DEPEND}
 	media-gfx/graphviz
 "
