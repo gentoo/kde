@@ -31,7 +31,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdesu)
 	$(add_frameworks_dep kguiaddons)
