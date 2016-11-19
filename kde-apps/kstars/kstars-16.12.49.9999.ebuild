@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	fits? ( sci-libs/cfitsio )
 	indi? (
 		$(add_frameworks_dep knotifications)
-		>=sci-libs/indilib-1.2.0
+		>=sci-libs/indilib-1.3.1
 	)
 	raw? ( media-libs/libraw )
 	wcs? ( sci-astronomy/wcslib )
