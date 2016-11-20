@@ -57,7 +57,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
