@@ -14,27 +14,17 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	media-libs/alsa-lib
-	>=media-sound/drumstick-1.0.1
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtquickcontrols2)
 	media-sound/fluidsynth
 "
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtquickcontrols2)
-	media-sound/timidity++
-	media-sound/timidity-freepats
 "
