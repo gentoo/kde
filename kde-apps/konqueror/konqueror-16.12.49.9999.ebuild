@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
+KDE_HANDBOOK="forceoptional" # not optional until !kdelibs4support
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit flag-o-matic kde5
