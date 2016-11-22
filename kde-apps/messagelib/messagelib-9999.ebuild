@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
-	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
 	>=dev-libs/grantlee-5.1.0:5
 "
 DEPEND="${COMMON_DEPEND}
@@ -72,4 +72,4 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 # bug 579630
-RESTRICT="test"
+RESTRICT+=" test"
