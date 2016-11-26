@@ -5,6 +5,7 @@
 EAPI=6
 
 PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+CMAKE_MIN_VERSION="3.2"
 KDE_AUTODEPS="false"
 KDE_DEBUG="false"
 KDE_TEST="false"
@@ -18,7 +19,6 @@ KEYWORDS=""
 IUSE="doc test"
 
 DEPEND="
-	>=dev-util/cmake-2.8.12
 	doc? (
 		${PYTHON_DEPS}
 		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
@@ -28,7 +28,6 @@ DEPEND="
 		$(add_qt_dep linguist-tools)
 	)
 "
-
 RDEPEND="
 	app-arch/libarchive[bzip2]
 "
