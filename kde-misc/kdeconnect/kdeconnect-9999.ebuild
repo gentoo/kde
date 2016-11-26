@@ -43,6 +43,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
+	app? ( dev-libs/kirigami:5 )
 	wayland? ( $(add_plasma_dep kwin) )
 	!kde-misc/kdeconnect:4
 "
