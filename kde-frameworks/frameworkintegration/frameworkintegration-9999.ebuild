@@ -7,7 +7,7 @@ EAPI=6
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Framework for integrating Qt applications with KDE workspaces"
+DESCRIPTION="Framework for integrating Qt applications with KDE Plasma workspaces"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="X"
@@ -17,6 +17,7 @@ RDEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
@@ -33,7 +34,11 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package X XCB)
+		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
 	)
+	# appstream requires app-admin/packagekit-qt and
+	# not yet packaged AppStreamQt 0.10
 
 	kde5_src_configure
 }
