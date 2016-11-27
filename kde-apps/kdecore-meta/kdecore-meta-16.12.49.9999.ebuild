@@ -14,6 +14,10 @@ IUSE="+handbook nls"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
+	$(add_kdeapps_dep kdialog)
+	$(add_kdeapps_dep keditbookmarks)
+	$(add_kdeapps_dep kfind)
+	$(add_kdeapps_dep konqueror)
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
