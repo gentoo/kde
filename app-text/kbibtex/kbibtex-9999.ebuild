@@ -42,10 +42,9 @@ DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 	app-text/poppler[qt5]
 	dev-libs/icu:=
-	dev-libs/libxml2
-	dev-libs/libxslt
 	dev-libs/qoauth:5
 	virtual/tex-base
 "
