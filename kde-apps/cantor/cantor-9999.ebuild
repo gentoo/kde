@@ -63,14 +63,12 @@ pkg_pretend() {
 
 	if ! has_version sci-mathematics/maxima && ! has_version sci-mathematics/octave && \
 		! use analitza && ! use julia && ! use lua && ! use python && ! use qalculate && ! use R; then
-		einfo
 		einfo "You have decided to build ${PN} with no backend."
 		einfo "To have this application functional, please enable one of the backends via USE flag:"
 		einfo "    analitza, julia, lua, python, qalculate, R"
 		einfo "Alternatively, install one of these:"
 		einfo "    # emerge sci-mathematics/maxima"
 		einfo "    # emerge sci-mathematics/octave"
-		einfo
 	fi
 }
 
