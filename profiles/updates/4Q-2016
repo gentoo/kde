@@ -6,3 +6,4 @@ move kde-plasma/plasma-mediacenter media-video/plasma-mediacenter
 move kde-apps/kdiagram dev-libs/kdiagram
 move media-sound/kwave kde-apps/kwave
 slotmove app-office/libalkimia 5 0
+move media-libs/prison kde-frameworks/prison

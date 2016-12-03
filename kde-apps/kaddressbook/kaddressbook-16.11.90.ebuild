@@ -51,7 +51,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 	dev-libs/grantlee:5
-	prison? ( media-libs/prison:5 )
+	prison? ( $(add_frameworks_dep prison) )
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
