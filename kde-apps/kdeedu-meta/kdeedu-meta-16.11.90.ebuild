@@ -40,8 +40,5 @@ RDEPEND="
 	$(add_kdeapps_dep parley)
 	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL}) )
 "
