@@ -7,7 +7,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="QRCode and data matrix barcode library"
-HOMEPAGE="https://quickgit.kde.org/?p=prison.git"
+HOMEPAGE="https://cgit.kde.org/prison.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
