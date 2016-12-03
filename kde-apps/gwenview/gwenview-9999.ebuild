@@ -6,7 +6,6 @@ EAPI=6
 
 KDE_HANDBOOK="true"
 KDE_TEST="true"
-QT_MINIMAL="5.7.0"
 inherit kde5
 
 DESCRIPTION="KDE image viewer"
