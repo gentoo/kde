@@ -1,5 +1,5 @@
 # Unreleased dependencies
-<kde-apps/akonadi-contacts-16.08.49:5 prison
-<kde-apps/kaddressbook-16.08.49:5 prison
-<kde-apps/kdepim-apps-libs-16.08.49:5 prison
+<kde-apps/akonadi-contacts-16.12.49:5 prison
+<kde-apps/kaddressbook-16.12.49:5 prison
+<kde-apps/kdepim-apps-libs-16.12.49:5 prison
 kde-apps/okular speech
