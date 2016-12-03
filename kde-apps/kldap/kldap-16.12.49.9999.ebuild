@@ -18,7 +18,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep kmbox)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	net-nds/openldap
@@ -27,6 +26,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-kioslaves
 "
+
+PATCHES=( "${FILESDIR}/${PN}-16.11.90-unused-dep.patch" )
 
 src_prepare() {
 	kde5_src_prepare
