@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+cxx +gdbui +ninja okteta +plasma +qmake qthelp"
+IUSE="+gdbui +ninja okteta +plasma +qmake qthelp"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
@@ -45,8 +45,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	>=dev-util/kdevplatform-${PV}:5
+	>=sys-devel/clang-3.5.0
 	x11-misc/shared-mime-info
-	cxx? ( >=sys-devel/clang-3.5.0 )
 	gdbui? ( $(add_plasma_dep libksysguard) )
 	okteta? ( $(add_kdeapps_dep okteta) )
 	plasma? (
@@ -66,6 +66,7 @@ RDEPEND="${COMMON_DEPEND}
 	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-clang
+	!dev-util/kdevelop-cppcheck
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
 	!<kde-apps/kapptemplate-16.04.0
@@ -78,8 +79,6 @@ PATCHES=( "${FILESDIR}/${PN}-5.0.2-ninja-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		-DLEGACY_CPP_SUPPORT=$(usex !cxx)
-		-DBUILD_cpp=OFF
 		$(cmake-utils_use_find_package gdbui KF5SysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
