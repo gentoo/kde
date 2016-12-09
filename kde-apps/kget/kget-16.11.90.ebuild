@@ -10,13 +10,12 @@ inherit kde4-base
 DESCRIPTION="Advanced download manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="debug bittorrent gpg mms sqlite"
+IUSE="debug bittorrent mms sqlite"
 
 RDEPEND="
 	$(add_kdeapps_dep libkonq)
 	app-crypt/qca:2[qt4]
 	bittorrent? ( >=net-libs/libktorrent-1.0.3:4 )
-	gpg? ( || ( $(add_kdeapps_dep gpgmepp) $(add_kdeapps_dep kdepimlibs) ) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
@@ -29,8 +28,8 @@ src_configure() {
 		-DWITH_KDE4Workspace=OFF
 		-DWITH_NepomukCore=OFF
 		-DWITH_NepomukWidgets=OFF
+		-DWITH_QGpgme=OFF
 		-DWITH_KTorrent=$(usex bittorrent)
-		-DWITH_QGpgme=$(usex gpg)
 		-DWITH_LibMms=$(usex mms)
 		-DWITH_Sqlite=$(usex sqlite)
 	)
