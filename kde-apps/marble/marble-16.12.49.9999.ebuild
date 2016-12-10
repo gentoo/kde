@@ -74,7 +74,7 @@ src_configure() {
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
 		-DWITH_KF5=$(usex kde)
-		-DWITH_Phonon=$(usex phonon)
+		-DWITH_Phonon4Qt5=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
 		$(cmake-utils_use_find_package webkit Qt5WebKit)
 		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
