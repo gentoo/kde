@@ -31,6 +31,11 @@ DEPEND="${RDEPEND}"
 # requires running kde environment
 RESTRICT+=" test"
 
+src_prepare() {
+	punt_bogus_dep Qt5 DBus
+	kde5_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package X XCB)
