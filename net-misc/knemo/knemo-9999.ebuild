@@ -9,10 +9,13 @@ inherit kde5
 
 DESCRIPTION="Plasma Network Monitor"
 HOMEPAGE="http://kde-apps.org/content/show.php?content=12956"
-
 LICENSE="GPL-2"
-KEYWORDS=""
 IUSE="wifi"
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	KEYWORDS="~amd64 ~x86"
+	SRC_URI="https://dev.gentoo.org/~johu/distfiles/${P}.tar.xz"
+fi
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -41,7 +44,8 @@ DEPEND="
 	wifi? ( net-wireless/wireless-tools )
 "
 RDEPEND="${DEPEND}
-	!net-misc/knemo:4"
+	!net-misc/knemo:4
+"
 
 DOCS=( AUTHORS ChangeLog README )
 
