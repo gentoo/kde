@@ -10,7 +10,7 @@ DESCRIPTION="QRCode and data matrix barcode library"
 HOMEPAGE="https://cgit.kde.org/prison.git"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 DEPEND="
