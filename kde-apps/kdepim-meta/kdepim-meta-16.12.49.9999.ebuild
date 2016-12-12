@@ -56,7 +56,6 @@ RDEPEND="
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep korganizer)
 	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep ktnef)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
