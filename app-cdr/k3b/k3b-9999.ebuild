@@ -16,8 +16,6 @@ LICENSE="GPL-2 FDL-1.2"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
-DOCS=( {FAQ,PERMISSIONS,README}.txt )
-
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -73,12 +71,12 @@ RDEPEND="${DEPEND}
 	!app-cdr/k3b:4
 "
 
-DOCS+=( ChangeLog )
-
 REQUIRED_USE="
 	mp3? ( encode )
 	sox? ( encode )
 "
+
+DOCS+=( ChangeLog {FAQ,PERMISSIONS,README}.txt )
 
 src_configure() {
 	local mycmakeargs=(
