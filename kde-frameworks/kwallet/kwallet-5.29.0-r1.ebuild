@@ -26,10 +26,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/libgcrypt:0=
-	gpg? (
-		$(add_kdeapps_dep gpgmepp)
-		app-crypt/gpgme
-	)
+	gpg? ( >=app-crypt/gpgme-1.7.1[cxx,qt5] )
 "
 DEPEND="${RDEPEND}
 	man? ( $(add_frameworks_dep kdoctools) )
@@ -37,9 +34,8 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Gpgmepp=ON
-		$(cmake-utils_use_find_package gpg Gpgme)
-		$(cmake-utils_use_find_package gpg KF5Gpgmepp)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Gpgmepp=ON
+		$(cmake-utils_use_find_package gpg Gpgmepp)
 		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
