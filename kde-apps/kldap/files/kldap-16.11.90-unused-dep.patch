@@ -8,11 +8,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 6cde803..c8ea9a5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -22,11 +22,9 @@ include(ECMQtDeclareLoggingCategory)
- 
- set(KLDAP_LIB_VERSION ${PIM_VERSION})
--set(MBOXLIB_VERSION "5.3.90")
- 
+@@ -26,7 +26,6 @@ include(ECMQtDeclareLoggingCategory)
  find_package(KF5KIO ${KF5_VERSION} CONFIG REQUIRED)
  find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
  find_package(KF5DocTools ${KF5_VERSION} CONFIG REQUIRED)
