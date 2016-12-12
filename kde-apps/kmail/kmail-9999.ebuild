@@ -57,6 +57,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
+	$(add_kdeapps_dep libktnef)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
@@ -77,7 +78,16 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
+	!kde-apps/ktnef:5
 "
+
+src_prepare() {
+	cmake-utils_src_prepare
+
+	if ! use handbook; then
+		sed -i ktnef/CMakeLists.txt -e "/add_subdirectory(doc)/ s/^/#DONT/" || die
+	fi
+}
 
 pkg_postinst() {
 	kde5_pkg_postinst
