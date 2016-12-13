@@ -15,7 +15,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -29,12 +29,11 @@ COMMON_DEPEND="
 	>=net-libs/libaccounts-glib-1.21
 	net-libs/signond
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_plasma_dep kde-cli-tools)
 	sys-devel/gettext
 "
-RDEPEND="${COMMON_DEPEND}"
 
 # bug #549444
 RESTRICT+=" test"

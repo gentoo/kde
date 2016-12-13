@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="google"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -30,10 +30,9 @@ COMMON_DEPEND="
 		net-libs/libkgapi:5
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
-RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

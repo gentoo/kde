@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -21,7 +21,7 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde5_src_prepare
