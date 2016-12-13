@@ -56,7 +56,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
-RESTRICT="test"
+RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}/${PN}-16.12.0-mysql56-crash.patch" )
 

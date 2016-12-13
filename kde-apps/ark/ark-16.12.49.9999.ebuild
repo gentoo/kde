@@ -43,7 +43,7 @@ DEPEND="${RDEPEND}
 "
 
 # bug #560548, last checked with 16.04.1
-RESTRICT="test"
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(

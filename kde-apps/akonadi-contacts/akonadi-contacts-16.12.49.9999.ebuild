@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 IUSE="prison"
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
-RESTRICT="test"
+RESTRICT+=" test"
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)

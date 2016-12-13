@@ -24,4 +24,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test" # multiple tests fail or hang indefinitely
+RESTRICT+=" test" # multiple tests fail or hang indefinitely
