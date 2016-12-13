@@ -16,7 +16,7 @@ IUSE="musicbrainz"
 
 # tests require network access and compare static data with online data
 # bug 280996
-RESTRICT=test
+RESTRICT+=" test"
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)

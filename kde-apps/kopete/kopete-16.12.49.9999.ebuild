@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE="debug ssl v4l"
 
 # tests hang, last checked for 4.2.96
-RESTRICT=test
+RESTRICT+=" test"
 
 # Available plugins
 #

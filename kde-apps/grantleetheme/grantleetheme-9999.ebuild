@@ -28,4 +28,4 @@ DEPEND="${RDEPEND}
 "
 
 # fails if package not already installed
-RESTRICT="test"
+RESTRICT+=" test"

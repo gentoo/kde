@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="systemd"
 
 # bug 378101
-RESTRICT=test
+RESTRICT+=" test"
 
 DEPEND="
 	$(add_frameworks_dep karchive)

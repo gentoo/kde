@@ -13,7 +13,7 @@ LICENSE="GPL-2+"
 IUSE=""
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
-RESTRICT="test"
+RESTRICT+=" test"
 
 RDEPEND="
 	$(add_frameworks_dep ki18n)

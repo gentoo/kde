@@ -44,4 +44,4 @@ DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.49
 "
 
-RESTRICT=test	# 1/10 tests currently fails
+RESTRICT+=" test"	# 1/10 tests currently fails
