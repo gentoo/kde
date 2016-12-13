@@ -12,8 +12,6 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdeapps_dep libkcddb)
-	$(add_kdeapps_dep libkcompactdisc)
 	media-libs/musicbrainz:3
 	media-libs/phonon[qt4]
 "
