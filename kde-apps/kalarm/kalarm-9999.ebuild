@@ -63,9 +63,7 @@ DEPEND="
 		x11-libs/libX11
 	)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

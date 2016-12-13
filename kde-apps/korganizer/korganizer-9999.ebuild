@@ -80,7 +80,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 "
 
