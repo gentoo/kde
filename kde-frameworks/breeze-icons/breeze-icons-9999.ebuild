@@ -17,7 +17,7 @@ DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_qt_dep qtcore)
 "
-RDEPEND="!<kde-plasma/breeze-5.4.3:5"
+RDEPEND=""
 
 src_configure() {
 	local mycmakeargs=(

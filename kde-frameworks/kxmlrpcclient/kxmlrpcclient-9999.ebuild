@@ -12,11 +12,10 @@ LICENSE="BSD-2"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtxml)
-	!<kde-plasma/plasma-workspace-5.2.95
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
