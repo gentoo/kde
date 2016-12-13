@@ -50,7 +50,6 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-runtime:4
 "

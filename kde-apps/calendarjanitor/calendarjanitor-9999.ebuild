@@ -25,9 +25,7 @@ DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim:5
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	cmake_comment_add_subdirectory doc konsolekalendar
