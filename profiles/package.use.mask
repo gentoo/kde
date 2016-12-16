@@ -1,2 +1,0 @@
-# Unreleased dependencies
-kde-apps/okular speech
