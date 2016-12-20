@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/education/ktouch/"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -32,8 +32,14 @@ DEPEND="
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
+	x11-libs/libICE
+	x11-libs/libSM
 	x11-libs/libX11
+	x11-libs/libxcb
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kwindowsystem)
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kqtquickcharts)
 "
