@@ -63,7 +63,9 @@ DEPEND="
 		x11-libs/libX11
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_kdeapps_dep kdepim-runtime)
+"
 
 src_configure() {
 	local mycmakeargs=(
