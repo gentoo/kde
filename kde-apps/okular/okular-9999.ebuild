@@ -47,7 +47,7 @@ DEPEND="
 		virtual/jpeg:0
 	)
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
-	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
+	pdf? ( >=app-text/poppler-0.50.0[qt5,-exceptions(-)] )
 	postscript? ( app-text/libspectre )
 	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
