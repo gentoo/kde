@@ -6,6 +6,11 @@ EAPI=6
 
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 DESCRIPTION="systemd managment utility"
 HOMEPAGE="https://cgit.kde.org/systemdgenie.git"
 LICENSE="GPL-2+"
