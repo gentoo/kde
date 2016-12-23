@@ -4,18 +4,19 @@
 
 EAPI=6
 
-EGIT_REPO_URI="https://github.com/oyranos-cms/Synnefo.git"
 inherit cmake-utils
-[[ ${PV} == "9999" ]] && inherit git-r3
+if [[ ${PV} == "9999" ]]; then
+	EGIT_REPO_URI="https://github.com/oyranos-cms/Synnefo.git"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 DESCRIPTION="Qt front end for the Oyranos Color Management System"
 HOMEPAGE="https://github.com/oyranos-cms/Synnefo"
-[[ ${PV} == 9999 ]] || \
-SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
-
 LICENSE="BSD-2"
 SLOT="0"
-[[ ${PV} == 9999 ]] || KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
