@@ -4,7 +4,6 @@
 
 EAPI=6
 
-CMAKE_MIN_VERSION="3.1"
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
