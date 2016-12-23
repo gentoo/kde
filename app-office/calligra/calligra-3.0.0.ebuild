@@ -140,7 +140,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4
 "
 
-PATCHES=( "${FILESDIR}/${PN}-vc-cxxflags.patch" )
+PATCHES=( "${FILESDIR}/${P}-no-arch-detection.patch" )
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
