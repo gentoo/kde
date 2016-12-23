@@ -139,6 +139,7 @@ RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
 	!app-office/calligra:4
 "
+RESTRICT+=" test"
 
 PATCHES=( "${FILESDIR}/${P}-no-arch-detection.patch" )
 
