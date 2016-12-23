@@ -4,7 +4,6 @@
 
 EAPI=6
 
-CMAKE_MIN_VERSION="3.0.2"
 KDE_HANDBOOK="forceoptional"
 MY_P=${P/_beta/b}
 inherit kde5
