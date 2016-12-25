@@ -1,5 +1,3 @@
-=app-admin/systemdgenie-0.99.0
-
 # Johannes Huber <johu@gentoo.org> (23 Dec 2016)
 # Depends on >=media-libs/oyranos-0.9.6, not bumped yet.
 # Bug #602318
