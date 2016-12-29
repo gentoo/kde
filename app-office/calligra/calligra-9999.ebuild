@@ -114,6 +114,7 @@ COMMON_DEPEND="
 		okular? ( $(add_kdeapps_dep okular) )
 	)
 	calligra_features_plan? (
+		$(add_frameworks_dep khtml)
 		$(add_qt_dep qtcore '' '' '5=')
 		dev-libs/kdiagram:5
 		dev-libs/kproperty:5
@@ -196,10 +197,17 @@ src_configure() {
 
 	local mycmakeargs=( -DPRODUCTSET="${myproducts[*]}" )
 
+	if [[ ${KDE_BUILD_TYPE} == release ]] ; then
+		mycmakeargs+=(
+			-DRELEASE_BUILD=ON
+			-DBUILD_UNMAINTAINED=${experimental}
+		)
+	fi
+
 	mycmakeargs+=(
 		-DPACKAGERS_BUILD=OFF
-		-DBUILD_UNMAINTAINED=${experimental}
 		-DWITH_Iconv=ON
+		$(cmake-utils_use_find_package activities KF5Activities)
 		-DWITH_Qca-qt5=$(usex crypt)
 		-DWITH_Eigen3=$(usex eigen)
 		-DWITH_Fontconfig=$(usex fontconfig)
