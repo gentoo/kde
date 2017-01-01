@@ -4,7 +4,6 @@
 
 EAPI=6
 
-KDE_GCC_MINIMAL="4.8"
 KDE_HANDBOOK="optional"
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
@@ -64,7 +63,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libdrm
 	>=x11-libs/libxcb-1.10
-	>=x11-libs/libxkbcommon-0.5.0
+	>=x11-libs/libxkbcommon-0.7.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
