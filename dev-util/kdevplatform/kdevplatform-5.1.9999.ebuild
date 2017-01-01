@@ -4,6 +4,7 @@
 
 EAPI=6
 
+EGIT_BRANCH="5.1"
 KDEBASE="kdevelop"
 KDE_TEST="forceoptional-recursive"
 VIRTUALDBUS_TEST="true"
