@@ -2,3 +2,4 @@
 # Depends on >=media-libs/oyranos-0.9.6, not bumped yet.
 # Bug #602318
 =media-gfx/synnefo-1.1.0
+=kde-misc/kolor-manager-1.1.0
