@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="+fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics ibus
 legacy-systray packagekit pulseaudio +qt4 scim +semantic-desktop"
 
+# TODO appstream optional https://phabricator.kde.org/D3923
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
@@ -67,6 +68,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
+	dev-libs/appstream[qt5]
 	media-libs/phonon[qt5]
 	x11-libs/libX11
 	x11-libs/libXcursor
