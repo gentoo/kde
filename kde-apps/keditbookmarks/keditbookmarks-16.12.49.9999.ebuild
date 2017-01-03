@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Bookmarks editor based on KDE Frameworks"
 KEYWORDS=""
-IUSE=""
+IUSE="+man"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -32,4 +32,14 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	man? ( !kde-apps/konqueror:4 )
+"
+
+src_prepare(){
+	kde5_src_prepare
+
+	if ! use man ; then
+		sed -i -e "/kdoctools_create_manpage/ s/^/#/" doc/CMakeLists.txt || die
+	fi
+}
