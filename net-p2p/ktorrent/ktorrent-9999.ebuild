@@ -21,7 +21,6 @@ if [[ ${PV} != 9999* ]]; then
 else
 	LIBKT_VERSION_MIN="${PV}"
 	LIBKT_VERSION_MAX="99999999"
-	KEYWORDS=""
 fi
 
 KDE_HANDBOOK="forceoptional"
