@@ -11,10 +11,9 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="+fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics ibus
-legacy-systray pulseaudio +qt4 scim +semantic-desktop"
+IUSE="appstream +fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics
+ibus legacy-systray pulseaudio +qt4 scim +semantic-desktop"
 
-# TODO appstream optional https://phabricator.kde.org/D3923
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kactivities)
@@ -68,7 +67,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
-	dev-libs/appstream[qt5]
 	media-libs/phonon[qt5]
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -76,6 +74,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxcb
 	x11-libs/libxkbfile
+	appstream? ( dev-libs/appstream[qt5] )
 	fontconfig? (
 		media-libs/fontconfig
 		media-libs/freetype
@@ -143,6 +142,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
 		$(cmake-utils_use_find_package ibus IBus)
 		$(cmake-utils_use_find_package input_devices_evdev Evdev)
