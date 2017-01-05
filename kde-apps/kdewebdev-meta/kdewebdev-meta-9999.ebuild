@@ -17,6 +17,5 @@ IUSE="nls"
 RDEPEND="
 	$(add_kdeapps_dep kfilereplace)
 	$(add_kdeapps_dep kimagemapeditor)
-	$(add_kdeapps_dep kommander)
 	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "
