@@ -235,11 +235,11 @@
 <kde-apps/kwalletmanager-16.12.50
 <kde-apps/print-manager-16.12.50
 <kde-apps/sweeper-16.12.50
-<kde-apps/kdewebdev-meta-9999
-<kde-apps/kfilereplace-9999
-<kde-apps/kimagemapeditor-9999
-<kde-apps/klinkstatus-9999
-<kde-apps/kommander-9999
+<kde-apps/kdewebdev-meta-16.12.50
+<kde-apps/kfilereplace-16.12.50
+<kde-apps/kimagemapeditor-16.12.50
+<kde-apps/klinkstatus-16.12.50
+<kde-apps/kommander-16.12.50
 dev-qt/*:5/5.7
 ~net-libs/libkgapi-5.3.1
 ~x11-misc/xdg-utils-1.1.1-r1
