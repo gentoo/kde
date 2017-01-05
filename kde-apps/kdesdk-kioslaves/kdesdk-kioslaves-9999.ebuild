@@ -8,24 +8,5 @@ inherit kde4-base
 
 DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
-IUSE="debug subversion"
+IUSE="debug"
 KMNAME="kdesdk-kioslaves"
-
-DEPEND="
-	subversion? (
-		dev-libs/apr
-		=dev-vcs/subversion-1.8*
-	)
-"
-RDEPEND="${DEPEND}
-	subversion? ( !>=dev-vcs/kdesvn-1.5.2:4 )
-"
-
-src_configure() {
-	local mycmakeargs=(
-		-DAPRCONFIG_EXECUTABLE="${EPREFIX}"/usr/bin/apr-1-config
-		-DWITH_SVN=$(usex subversion)
-	)
-
-	kde4-base_src_configure
-}
