@@ -25,6 +25,7 @@ RDEPEND="
 	qt5? ( dev-qt/qtcore:5 )
 "
 DEPEND="${RDEPEND}
+	dev-util/itstool
 	sys-devel/gettext
 "
 
