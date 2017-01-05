@@ -48,7 +48,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!dev-vcs/kdesvn:4
-	!kde-apps/kdesdk-kioslaves:4[subversion(+)]
+	!kde-apps/kdesdk-kioslaves:4[subversion(-)]
 "
 
 src_prepare(){
