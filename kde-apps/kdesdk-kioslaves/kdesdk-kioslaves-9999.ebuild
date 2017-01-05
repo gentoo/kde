@@ -9,4 +9,3 @@ inherit kde4-base
 DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
 IUSE="debug"
-KMNAME="kdesdk-kioslaves"

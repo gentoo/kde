@@ -9,7 +9,6 @@ inherit kde4-base
 DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
 IUSE="debug subversion"
-KMNAME="kdesdk-kioslaves"
 
 DEPEND="
 	subversion? (
