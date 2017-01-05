@@ -41,7 +41,7 @@ DEPEND="
 	=dev-cpp/eigen-3.2*:3
 	sci-libs/cln
 	gsl? ( sci-libs/gsl:= )
-	qalculate? ( >=sci-libs/libqalculate-0.9.5 )
+	qalculate? ( >=sci-libs/libqalculate-0.9.5:= )
 "
 RDEPEND="${DEPEND}"
 
