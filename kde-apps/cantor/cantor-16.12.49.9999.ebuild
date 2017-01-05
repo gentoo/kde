@@ -46,7 +46,7 @@ RDEPEND="
 	lua? ( dev-lang/luajit:2 )
 	qalculate? (
 		sci-libs/cln
-		sci-libs/libqalculate
+		sci-libs/libqalculate:=
 	)
 	postscript? ( app-text/libspectre )
 	python? ( ${PYTHON_DEPS} )
