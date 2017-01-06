@@ -65,7 +65,7 @@ src_configure() {
 		--with-pamlibdir=$(getpam_mod_dir) \
 		--with-udevrulesdir="$(get_udevdir)"/rules.d \
 		--libdir="${EPREFIX}"/usr/$(get_libdir) \
-		--enable-smack
+		--enable-smack \
 		$(use_enable acl) \
 		$(use_enable apparmor) \
 		$(use_enable pam) \
