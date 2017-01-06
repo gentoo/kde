@@ -17,6 +17,7 @@ DEPEND="
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
+	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 "
 RDEPEND="${DEPEND}
