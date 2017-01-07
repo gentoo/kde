@@ -7,7 +7,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="An advanced twin-panel (commander-style) file-manager with many extras"
+DESCRIPTION="Advanced twin-panel (commander-style) file-manager with many extras"
 HOMEPAGE="https://krusader.org/"
 [[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
@@ -47,5 +47,21 @@ DEPEND="
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}
+	$(add_kdeapps_dep kio-extras)
 	!kde-misc/krusader:4
 "
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version kde-apps/thumbnailers:${SLOT} ||
+			! has_version kde-apps/ffmpegthumbs:${SLOT} ; then
+		elog "For PDF/PS, RAW and video thumbnails support, install:"
+		elog "   kde-apps/thumbnailers:${SLOT}"
+		elog "   kde-apps/ffmpegthumbs:${SLOT}"
+	fi
+
+	if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
+		elog "For bookmarks support, install kde-apps/keditbookmarks:${SLOT}"
+	fi
+}
