@@ -13,10 +13,9 @@ inherit kde5
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
 KEYWORDS=""
-IUSE="exif htmlthumbs mtp openexr phonon samba +sftp slp"
+IUSE="activities exif htmlthumbs +man mtp openexr phonon samba +sftp slp"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -27,7 +26,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdnssd)
 	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -39,18 +37,22 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	virtual/jpeg:0
+	activities? (
+		$(add_frameworks_dep kactivities)
+		$(add_qt_dep qtsql)
+	)
 	exif? ( media-gfx/exiv2:= )
 	htmlthumbs? ( $(add_qt_dep qtwebengine) )
+	man? ( $(add_frameworks_dep khtml) )
 	mtp? ( media-libs/libmtp:= )
 	openexr? ( media-libs/openexr )
 	phonon? ( media-libs/phonon[qt5] )
-	samba? ( || ( <net-fs/samba-4.0.0_alpha1[smbclient] >=net-fs/samba-4.0.0_alpha1[client] ) )
-	sftp? ( >=net-libs/libssh-0.6.0:=[sftp] )
+	samba? ( net-fs/samba[client] )
+	sftp? ( net-libs/libssh:=[sftp] )
 	slp? ( net-libs/openslp )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -63,10 +65,17 @@ DEPEND="${COMMON_DEPEND}
 # requires running kde environment
 RESTRICT+=" test"
 
+PATCHES=(
+	"${FILESDIR}/${PN}"-16.12.1-activities-optional.patch
+	"${FILESDIR}/${PN}"-16.12.1-man-optional.patch
+)
+
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package htmlthumbs Qt5WebEngineWidgets)
+		$(cmake-utils_use_find_package man KF5KHtml)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
