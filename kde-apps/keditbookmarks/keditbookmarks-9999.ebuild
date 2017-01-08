@@ -34,6 +34,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	man? ( !kde-apps/konqueror:4 )
+	!<=kde-apps/konqueror-16.08.3:4
 "
 
 src_prepare(){
