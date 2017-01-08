@@ -33,7 +33,6 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
-	man? ( !kde-apps/konqueror:4 )
 	!<=kde-apps/konqueror-16.08.3:4
 "
 
