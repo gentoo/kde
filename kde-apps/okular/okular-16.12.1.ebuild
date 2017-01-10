@@ -11,8 +11,8 @@ inherit kde5
 
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
-KEYWORDS="~amd64 ~arm ~x86"
-IUSE="chm crypt djvu ebook +jpeg mobi +pdf +postscript speech +tiff"
+KEYWORDS=""
+IUSE="chm crypt djvu ebook +jpeg mobi mobile +pdf +postscript speech +tiff"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -52,13 +52,16 @@ DEPEND="
 	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	mobile? ( dev-libs/kirigami:1 )
+"
 
 # bug 603116
 RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare
+	use mobile || cmake_comment_add_subdirectory mobile
 	use test || cmake_comment_add_subdirectory conf/autotests
 }
 
