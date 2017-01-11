@@ -13,7 +13,6 @@ HOMEPAGE="http://rekonq.kde.org/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
-SLOT="5"
 KEYWORDS=""
 IUSE=""
 
