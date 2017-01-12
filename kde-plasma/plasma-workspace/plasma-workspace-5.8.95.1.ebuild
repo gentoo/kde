@@ -122,6 +122,8 @@ PATCHES=( "${FILESDIR}/${PN}-5.4-startkde-script.patch" )
 
 RESTRICT+=" test"
 
+S="${WORKDIR}/${P/\.1}"
+
 src_prepare() {
 	kde5_src_prepare
 
