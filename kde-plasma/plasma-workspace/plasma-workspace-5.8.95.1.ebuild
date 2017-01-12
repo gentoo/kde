@@ -12,6 +12,7 @@ inherit kde5 multilib qmake-utils
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="+calendar geolocation gps prison qalculate +semantic-desktop"
+SRC_URI="mirror://kde/unstable/plasma/${PV/\.1/}/${P}.tar.xz"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
