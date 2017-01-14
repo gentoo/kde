@@ -32,7 +32,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	kdesu? ( $(add_frameworks_dep kdesu) )
 	X? (
-		$(add_frameworks_dep kdelibs4support)
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
 	)
