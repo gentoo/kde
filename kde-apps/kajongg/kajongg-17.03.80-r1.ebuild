@@ -10,7 +10,7 @@ inherit python-single-r1 kde5
 
 DESCRIPTION="The classical Mah Jongg for four players"
 HOMEPAGE="https://www.kde.org/applications/games/kajongg/"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
