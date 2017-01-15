@@ -30,9 +30,8 @@ DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
 HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
-IUSE="+bwscheduler +downloadorder +infowidget +kross +logviewer
-+magnetgenerator +mediaplayer rss +scanfolder +shutdown +stats
-+upnp +zeroconf"
+IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magnetgenerator
++mediaplayer rss +scanfolder +shutdown +stats +upnp +zeroconf"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -80,14 +79,13 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
+	ipfilter? (
+		app-arch/bzip2
+		app-arch/unzip
+		$(add_kdeapps_dep kio-extras)
+	)
 	!net-p2p/ktorrent:4
 "
-# add back when ported - RDEPEND
-# 	ipfilter? (
-# 		app-arch/bzip2
-# 		app-arch/unzip
-# 		$(add_kdeapps_dep kdebase-kioslaves)
-# 	)
 
 src_prepare() {
 	kde5_src_prepare
@@ -101,6 +99,7 @@ src_configure() {
 		-DENABLE_DOWNLOADORDER_PLUGIN=$(usex downloadorder)
 		-DENABLE_INFOWIDGET_PLUGIN=$(usex infowidget)
 		-DWITH_SYSTEM_GEOIP=$(usex infowidget)
+		-DENABLE_IPFILTER_PLUGIN=$(usex ipfilter)
 		-DENABLE_SCRIPTING_PLUGIN=$(usex kross)
 		-DENABLE_LOGVIEWER_PLUGIN=$(usex logviewer)
 		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
@@ -113,7 +112,6 @@ src_configure() {
 		-DENABLE_ZEROCONF_PLUGIN=$(usex zeroconf)
 	)
 # add back when ported
-# 		-DENABLE_IPFILTER_PLUGIN=$(usex ipfilter)
 # 		-DENABLE_SEARCH_PLUGIN=$(usex search)
 # 		-DENABLE_WEBINTERFACE_PLUGIN=$(usex webinterface)
 	kde5_src_configure
