@@ -38,7 +38,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	qt5? ( >=kde-frameworks/kf-env-3 )
+	qt5? ( >=kde-frameworks/kf-env-4 )
 "
 
 src_configure() {
