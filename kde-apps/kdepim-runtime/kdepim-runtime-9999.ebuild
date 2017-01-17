@@ -47,6 +47,7 @@ CDEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kdav)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
 	$(add_kdeapps_dep kmailtransport)
