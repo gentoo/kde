@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="color-management fftw +gsl +jpeg openexr pdf +raw tiff vc"
+IUSE="color-management fftw +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -57,6 +57,7 @@ COMMON_DEPEND="
 		media-libs/openexr
 	)
 	pdf? ( app-text/poppler[qt5] )
+	qtmedia? ( $(add_qt_dep qtmultimedia) )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
 "
@@ -80,6 +81,7 @@ src_configure() {
 		-DWITH_OCIO=$(usex color-management)
 		-DWITH_OpenEXR=$(usex openexr)
 		-DWITH_Poppler=$(usex pdf)
+		$(cmake-utils_use_find_package qtmedia Qt5Multimedia)
 		-DWITH_TIFF=$(usex tiff)
 		-DWITH_Vc=$(usex vc)
 	)
