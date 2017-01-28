@@ -24,6 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_plasma_dep kdecoration)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
