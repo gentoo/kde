@@ -41,7 +41,7 @@ COMMON_DEPEND="
 	dev-libs/boost:=
 	media-gfx/exiv2:=
 	media-libs/lcms
-	media-libs/libpng:=
+	media-libs/libpng:0=
 	net-misc/curl
 	sys-libs/zlib
 	virtual/opengl
