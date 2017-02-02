@@ -74,16 +74,16 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_FFTW3=$(usex fftw)
-		-DWITH_GSL=$(usex gsl)
-		-DWITH_JPEG=$(usex jpeg)
-		-DWITH_LibRaw=$(usex raw)
-		-DWITH_OCIO=$(usex color-management)
-		-DWITH_OpenEXR=$(usex openexr)
-		-DWITH_Poppler=$(usex pdf)
+		$(cmake-utils_use_find_package color-management OCIO)
+		$(cmake-utils_use_find_package fftw FFTW3)
+		$(cmake-utils_use_find_package gsl GSL)
+		$(cmake-utils_use_find_package jpeg JPEG)
+		$(cmake-utils_use_find_package openexr OpenEXR)
+		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package qtmedia Qt5Multimedia)
-		-DWITH_TIFF=$(usex tiff)
-		-DWITH_Vc=$(usex vc)
+		$(cmake-utils_use_find_package raw LibRaw)
+		$(cmake-utils_use_find_package tiff TIFF)
+		$(cmake-utils_use_find_package vc Vc)
 	)
 
 	kde5_src_configure
