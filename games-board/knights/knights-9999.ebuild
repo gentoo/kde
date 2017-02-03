@@ -6,14 +6,15 @@ EAPI=6
 
 KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="forceoptional"
+KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Simple chess board for KDE"
 HOMEPAGE="http://kde-apps.org/content/show.php/Knights?content=122046"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="speech"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -35,6 +36,7 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	speech? ( $(add_qt_dep qtspeech) )
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 "
