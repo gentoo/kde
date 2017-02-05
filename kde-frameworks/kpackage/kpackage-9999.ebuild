@@ -13,7 +13,6 @@ IUSE="man"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 "
