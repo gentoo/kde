@@ -56,7 +56,7 @@ esac
 # @ECLASS-VARIABLE: PLASMA_MINIMAL
 # @DESCRIPTION:
 # Minimal Plasma version to require for the package.
-: ${PLASMA_MINIMAL:=5.8.3}
+: ${PLASMA_MINIMAL:=5.8.5}
 
 # @ECLASS-VARIABLE: KDE_APPS_MINIMAL
 # @DESCRIPTION:
