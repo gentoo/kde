@@ -84,3 +84,15 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version kde-apps/svgpart:${SLOT} ; then
+		elog "For SVG support, install kde-apps/svgpart:${SLOT}"
+	fi
+
+	if use kipi && ! has_version media-plugins/kipi-plugins ; then
+		elog "Plugins for the KIPI interface can be found in media-plugins/kipi-plugins"
+	fi
+}
