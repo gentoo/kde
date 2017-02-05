@@ -18,9 +18,13 @@ RDEPEND="
 	$(add_qt_dep qtxmlpatterns)
 "
 DEPEND="${RDEPEND}
+	$(add_qt_dep linguist-tools)
 	dev-lang/perl
-	test? ( $(add_qt_dep qtwidgets) )
 "
+src_prepare() {
+	kde5_src_prepare
+	cmake_comment_add_subdirectory examples # nothing is installed
+}
 
 src_install() {
 	kde5_src_install
