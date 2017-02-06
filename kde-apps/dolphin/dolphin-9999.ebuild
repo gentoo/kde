@@ -4,6 +4,7 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.30.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -36,7 +37,6 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtconcurrent)
@@ -78,14 +78,10 @@ pkg_postinst() {
 	kde5_pkg_postinst
 
 	if ! has_version "kde-apps/ark:${SLOT}" ; then
-		echo
 		elog "For compress/extract and other actions, please install kde-apps/ark:${SLOT}"
-		echo
 	fi
 
 	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
-		echo
 		elog "For crypto actions, please install kde-apps/kleopatra:${SLOT}"
-		echo
 	fi
 }
