@@ -177,7 +177,7 @@ fi
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
-KDE_UNRELEASED=( )
+KDE_UNRELEASED=( kde-apps-16.12.2 )
 
 # Setup packages inheriting this eclass
 case ${KDEBASE} in
