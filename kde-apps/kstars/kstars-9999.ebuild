@@ -20,9 +20,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kplotting)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
@@ -36,10 +37,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
-	indi? (
-		$(add_frameworks_dep knotifications)
-		>=sci-libs/indilib-1.3.1
-	)
+	indi? ( >=sci-libs/indilib-1.3.1 )
 	raw? ( media-libs/libraw )
 	wcs? ( sci-astronomy/wcslib )
 	xplanet? ( x11-misc/xplanet )
