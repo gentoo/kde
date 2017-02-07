@@ -15,7 +15,7 @@ HOMEPAGE="https://sourceforge.net/p/smb4k/home/Home/"
 LICENSE="GPL-2"
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -37,14 +37,11 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep plasma)
 	>=net-fs/samba-3.4.2[cups]
 	!net-misc/smb4k:4
 "
-
-DOCS=( AUTHORS BUGS ChangeLog README )
