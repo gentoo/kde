@@ -28,7 +28,7 @@ DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadi 'tools')
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep kcalcore)
