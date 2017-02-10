@@ -23,7 +23,6 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjs)
 	$(add_frameworks_dep kparts)
@@ -38,7 +37,10 @@ DEPEND="
 	media-libs/freetype
 	media-libs/phonon[qt5]
 	sys-libs/zlib
-	chm? ( dev-libs/chmlib )
+	chm? (
+		$(add_frameworks_dep khtml)
+		dev-libs/chmlib
+	)
 	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
 	ebook? ( app-text/ebook-tools )
