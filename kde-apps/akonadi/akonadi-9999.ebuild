@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
 	sqlite? ( dev-db/sqlite:3 )
-	tools? ( xml? ( dev-libs/libxml2 ) )
+	xml? ( dev-libs/libxml2 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -95,6 +95,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
+		$(cmake-utils_use_find_package xml LibXml2)
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 	)
 
