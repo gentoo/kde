@@ -58,7 +58,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebengine 'widgets')
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
 	>=dev-libs/grantlee-5.1.0:5
