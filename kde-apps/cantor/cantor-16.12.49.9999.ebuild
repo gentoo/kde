@@ -69,6 +69,12 @@ pkg_pretend() {
 		einfo "Alternatively, install one of these:"
 		einfo "    # emerge sci-mathematics/maxima"
 		einfo "    # emerge sci-mathematics/octave"
+		einfo
+	fi
+
+	if ! has_version virtual/latex-base || ! has_version dev-texlive/texlive-genericrecommended; then
+		einfo "For LaTeX support:"
+		einfo "    # emerge virtual/latex-base dev-texlive/texlive-genericrecommended"
 	fi
 }
 
