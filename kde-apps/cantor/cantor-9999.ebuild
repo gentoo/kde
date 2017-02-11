@@ -72,9 +72,9 @@ pkg_pretend() {
 		einfo
 	fi
 
-	if ! has_version virtual/latex-base || ! has_version dev-texlive/texlive-genericrecommended; then
+	if ! has_version virtual/latex-base; then
 		einfo "For LaTeX support:"
-		einfo "    # emerge virtual/latex-base dev-texlive/texlive-genericrecommended"
+		einfo "    # emerge virtual/latex-base"
 	fi
 }
 

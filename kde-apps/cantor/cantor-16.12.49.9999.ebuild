@@ -56,7 +56,10 @@ RDEPEND="${RDEPEND}"
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}"/${PN}-16.12.2-bashism.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-16.12.2-bashism.patch
+	"${FILESDIR}"/${PN}-16.12.2-julia-kf-5.31.patch
+)
 
 pkg_pretend() {
 	kde5_pkg_pretend
@@ -72,9 +75,9 @@ pkg_pretend() {
 		einfo
 	fi
 
-	if ! has_version virtual/latex-base || ! has_version dev-texlive/texlive-genericrecommended; then
+	if ! has_version virtual/latex-base; then
 		einfo "For LaTeX support:"
-		einfo "    # emerge virtual/latex-base dev-texlive/texlive-genericrecommended"
+		einfo "    # emerge virtual/latex-base"
 	fi
 }
 
