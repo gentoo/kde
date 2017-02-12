@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework for syntax highlighting"
 LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
 
 RDEPEND="
 	$(add_qt_dep qtgui)
@@ -18,8 +18,8 @@ RDEPEND="
 	$(add_qt_dep qtxmlpatterns)
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep linguist-tools)
 	dev-lang/perl
+	nls? ( $(add_qt_dep linguist-tools) )
 "
 
 src_install() {
