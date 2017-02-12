@@ -81,7 +81,7 @@ COMMONDEPEND="
 		dev-libs/openssl:0
 		>=media-libs/mediastreamer-2.3.0
 		media-libs/speex
-		net-libs/libsrtp
+		net-libs/libsrtp:=
 		net-libs/ortp:=
 	)
 	meanwhile? ( net-libs/meanwhile )
@@ -102,10 +102,7 @@ COMMONDEPEND="
 "
 RDEPEND="${COMMONDEPEND}
 	latex? (
-		|| (
-			media-gfx/imagemagick
-			media-gfx/graphicsmagick[imagemagick]
-		)
+		virtual/imagemagick-tools
 		virtual/latex-base
 	)
 	ssl? ( app-crypt/qca:2[ssl] )
