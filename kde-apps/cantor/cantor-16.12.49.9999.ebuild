@@ -52,14 +52,11 @@ DEPEND="
 	python? ( ${PYTHON_DEPS} )
 	R? ( dev-lang/R )
 "
-RDEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-16.12.2-bashism.patch
-	"${FILESDIR}"/${PN}-16.12.2-julia-kf-5.31.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-16.12.2-bashism.patch )
 
 pkg_pretend() {
 	kde5_pkg_pretend
