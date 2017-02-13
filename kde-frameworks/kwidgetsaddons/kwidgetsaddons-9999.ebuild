@@ -18,5 +18,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep designer) )
 "
