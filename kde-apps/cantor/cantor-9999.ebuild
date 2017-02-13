@@ -52,7 +52,7 @@ DEPEND="
 	python? ( ${PYTHON_DEPS} )
 	R? ( dev-lang/R )
 "
-RDEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"
 
