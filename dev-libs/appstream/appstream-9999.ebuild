@@ -4,11 +4,10 @@
 
 EAPI=6
 
-KDE_AUTODEPS="false"
-KDE_TEST="forceoptional-recursive"
-inherit kde5 xdg-utils
+inherit cmake-utils xdg-utils
 
-if [[ ${KDE_BUILD_TYPE} = live ]]; then
+if [[ ${PV} = 9999 ]]; then
+	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ximion/${PN}"
 else
 	inherit versionator
@@ -25,10 +24,11 @@ HOMEPAGE="https://www.freedesktop.org/wiki/Distributions/AppStream/"
 LICENSE="LGPL-2.1+ GPL-2+"
 # check APPSTREAM_LIB_API_LEVEL
 SLOT="0/4"
-IUSE="apt doc qt5"
+IUSE="apt doc qt5 test"
 
 RDEPEND="
 	dev-libs/glib:2
+	dev-libs/gobject-introspection
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer
@@ -42,6 +42,16 @@ DEPEND="${RDEPEND}
 		qt5? ( dev-qt/qttest:5 )
 	)
 "
+
+src_prepare() {
+	cmake-utils_src_prepare
+
+	if ! use test; then
+		pushd qt > /dev/null || die
+		cmake_comment_add_subdirectory tests
+		popd > /dev/null || die
+	fi
+}
 
 src_configure() {
 	xdg_environment_reset
@@ -58,5 +68,5 @@ src_configure() {
 		-DQT=$(usex qt5)
 	)
 
-	kde5_src_configure
+	cmake-utils_src_configure
 }
