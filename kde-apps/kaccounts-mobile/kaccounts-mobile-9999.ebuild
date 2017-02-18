@@ -26,8 +26,8 @@ RDEPEND="
 	net-libs/accounts-qt
 	net-libs/signond
 	google? (
+		$(add_kdeapps_dep libkgapi)
 		$(add_qt_dep qtwebkit)
-		net-libs/libkgapi:5
 	)
 "
 DEPEND="${RDEPEND}

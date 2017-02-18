@@ -1,1 +1,2 @@
 slotmove dev-libs/kirigami 5 1
+move net-libs/libkgapi kde-apps/libkgapi
