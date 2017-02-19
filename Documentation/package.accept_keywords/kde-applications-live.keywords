@@ -187,6 +187,7 @@
 ~kde-apps/kpimtextedit-9999 **
 ~kde-apps/libgravatar-9999 **
 ~kde-apps/libkdepim-9999 **
+~kde-apps/libkgapi-9999 **
 ~kde-apps/libkleo-9999 **
 ~kde-apps/libksieve-9999 **
 ~kde-apps/libktnef-9999 **
@@ -196,7 +197,6 @@
 ~kde-apps/messagelib-9999 **
 ~kde-apps/pim-data-exporter-9999 **
 ~kde-apps/pim-sieve-editor-9999 **
-~kde-apps/pim-storage-service-manager-9999 **
 ~kde-apps/pimcommon-9999 **
 ~kde-apps/syndication-9999 **
 ~kde-apps/cervisia-9999 **
