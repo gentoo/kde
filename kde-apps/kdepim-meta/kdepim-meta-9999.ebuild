@@ -9,7 +9,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS=""
-IUSE="nls"
+IUSE="google nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -67,8 +67,8 @@ RDEPEND="
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pim-data-exporter)
 	$(add_kdeapps_dep pim-sieve-editor)
-	$(add_kdeapps_dep pim-storage-service-manager)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
+	google? ( $(add_kdeapps_dep libkgapi) )
 	nls? ( $(add_kdeapps_dep kdepim-l10n '' ${L10N_MINIMAL}) )
 "
