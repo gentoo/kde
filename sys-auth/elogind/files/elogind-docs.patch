@@ -1,0 +1,15 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -191,12 +191,6 @@
+ rootbin_PROGRAMS =
+ pkglibexec_PROGRAMS =
+ 
+-dist_doc_DATA = \
+-	README \
+-	NEWS \
+-	LICENSE.LGPL2.1 \
+-	LICENSE.GPL2
+-
+ @INTLTOOL_POLICY_RULE@
+ 
+ # ------------------------------------------------------------------------------
