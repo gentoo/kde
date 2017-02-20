@@ -49,7 +49,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	google? ( $(add_kdeapps_dep libkgapi) )
 "
 DEPEND="${COMMON_DEPEND}
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
@@ -64,7 +63,6 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
-		$(cmake-utils_use_find_package google KPimGAPI)
 	)
 
 	kde5_src_configure
