@@ -11,14 +11,16 @@ HOMEPAGE="https://www.kde.org/"
 IUSE=""
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 fi
 
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_qt_dep linguist-tools)
+"
