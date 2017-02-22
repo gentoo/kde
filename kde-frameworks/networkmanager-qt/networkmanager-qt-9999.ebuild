@@ -16,6 +16,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	|| (
 		>=net-misc/networkmanager-1.4.0-r1[consolekit,teamd=]
+		>=net-misc/networkmanager-1.4.0-r1[elogind,teamd=]
 		>=net-misc/networkmanager-1.4.0-r1[systemd,teamd=]
 	)
 "
