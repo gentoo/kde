@@ -132,7 +132,7 @@ DEPEND="${COMMON_DEPEND}
 
 REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
 
-PATCHES=( "${FILESDIR}/${PN}-5.7.90-baloo-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.8.6-baloo-optional.patch" )
 
 pkg_setup() {
 	if has_version net-im/skype && use legacy-systray && use amd64; then
