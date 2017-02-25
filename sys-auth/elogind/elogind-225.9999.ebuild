@@ -14,7 +14,7 @@ EGIT_BRANCH="dev_v226"
 LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
 KEYWORDS=""
-IUSE="acl pam policykit selinux"
+IUSE="acl debug pam policykit selinux"
 
 COMMON_DEPEND="
 	sys-apps/util-linux
@@ -40,7 +40,7 @@ DEPEND="${COMMON_DEPEND}
 PDEPEND="policykit? ( sys-auth/polkit )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-docs.patch"
+	"${FILESDIR}/${P}-docs.patch"
 )
 
 pkg_setup() {
@@ -54,15 +54,18 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	eautoreconf # Makefile.am patched by "${FILESDIR}/${PN}-docs.patch"
+	eautoreconf # Makefile.am patched by "${FILESDIR}/${P}-docs.patch"
 }
 
 src_configure() {
 	econf \
 		--with-pamlibdir=$(getpam_mod_dir) \
 		--with-udevrulesdir="$(get_udevdir)"/rules.d \
-		--libdir="${EPREFIX}"/$(get_libdir) \
+		--libdir="${EPREFIX}"/usr/$(get_libdir) \
+		--with-rootlibdir="${EPREFIX}"/$(get_libdir) \
 		--enable-smack \
+		--disable-kdbus \
+		$(use_enable debug debug elogind) \
 		$(use_enable acl) \
 		$(use_enable pam) \
 		$(use_enable selinux)
@@ -71,11 +74,6 @@ src_configure() {
 src_install() {
 	default
 	find "${D}" -name '*.la' -delete || die
-
-	# Build system ignores --with-rootlibdir and puts pkgconfig below
-	# /$(libdir) - Move it to /usr/$(libdir)/pkgconfig
-	mkdir -p "${ED%/}"/usr/$(get_libdir) || die
-	mv "${ED%/}"/$(get_libdir)/pkgconfig "${ED%/}"/usr/$(get_libdir)/ || die
 
 	newinitd "${FILESDIR}"/${PN}.init ${PN}
 	newconfd "${FILESDIR}"/${PN}.conf ${PN}
