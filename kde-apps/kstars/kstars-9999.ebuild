@@ -36,7 +36,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
-	indi? ( >=sci-libs/indilib-1.3.1 )
+	indi? ( >=sci-libs/indilib-1.4.0 )
 	raw? ( media-libs/libraw )
 	wcs? ( sci-astronomy/wcslib )
 	xplanet? ( x11-misc/xplanet )
