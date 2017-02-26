@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.8.0
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -38,6 +38,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_frameworks_dep syntax-highlighting)
 	$(add_kdeapps_dep akonadi)
+	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep grantleetheme)
@@ -62,10 +63,7 @@ COMMON_DEPEND="
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
 	>=dev-libs/grantlee-5.1.0:5
 "
-DEPEND="${COMMON_DEPEND}
-	test? ( $(add_kdeapps_dep akonadi-contacts) )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-addons-16.08.50:5
 	!kde-apps/kdepim-common-libs:4
 	!=kde-apps/kmail-4.4*:4
