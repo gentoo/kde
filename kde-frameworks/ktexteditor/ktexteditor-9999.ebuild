@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing a full text editor component"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="git"
+IUSE="editorconfig git"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -36,6 +36,7 @@ RDEPEND="
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	editorconfig? ( app-text/editorconfig-core-c )
 	git? ( dev-libs/libgit2:= )
 "
 DEPEND="${RDEPEND}
@@ -47,6 +48,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package editorconfig EditorConfig)
 		$(cmake-utils_use_find_package git LibGit2)
 	)
 
