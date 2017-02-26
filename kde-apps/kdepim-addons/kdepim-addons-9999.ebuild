@@ -14,7 +14,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 
-IUSE="google"
+IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
