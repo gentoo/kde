@@ -21,6 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep syntax-highlighting)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmailtransport)
