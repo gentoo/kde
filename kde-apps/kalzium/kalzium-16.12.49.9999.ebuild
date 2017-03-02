@@ -43,6 +43,11 @@ RDEPEND="${DEPEND}
 	sci-chemistry/chemical-mime-data
 "
 
+src_prepare(){
+	kde5_src_prepare
+	cmake_comment_add_subdirectory qml
+}
+
 src_configure(){
 	# Fix missing finite()
 	[[ ${CHOST} == *-solaris* ]] && append-cppflags -DHAVE_IEEEFP_H
