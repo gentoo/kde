@@ -33,7 +33,6 @@ DEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep libksieve)
-	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
