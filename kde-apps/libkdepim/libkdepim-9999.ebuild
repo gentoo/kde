@@ -32,7 +32,6 @@ DEPEND="
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kldap)
-	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
