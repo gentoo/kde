@@ -34,4 +34,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdeedu-data)
+	$(add_qt_dep qtgraphicaleffects)
+	$(add_qt_dep qtmultimedia)
+	$(add_qt_dep qtquickcontrols)
 "
