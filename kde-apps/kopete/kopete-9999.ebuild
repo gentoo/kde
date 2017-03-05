@@ -20,6 +20,7 @@ RESTRICT+=" test"
 #	alias: NO DEPS (disabled upstream)
 #	autoreplace: NO DEPS
 #	contactnotes: NO DEPS
+#	cryptography: kde-apps/kdepim-common-libs:4 or kde-apps/libkleo:4
 #	highlight: NO DEPS
 #	history: NO DEPS
 #	latex: virtual/latex as RDEPEND
@@ -33,9 +34,9 @@ RESTRICT+=" test"
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
 # NOTE: By default we enable all plugins that don't have any dependencies
-PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
-+nowlistening otr +pipes +privacy +statistics +texteffect +translator
-+urlpicpreview webpresence"
+PLUGINS="+addbookmarks +autoreplace +contactnotes cryptography +highlight
++history latex +nowlistening otr +pipes +privacy +statistics +texteffect
++translator +urlpicpreview webpresence"
 
 # Available protocols
 #
@@ -46,8 +47,8 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight +history latex
 #	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	oscar: NO DEPS
-#   telepathy: net-libs/decibel
-#   testbed: NO DEPS
+#	telepathy: net-libs/decibel
+#	testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
@@ -55,9 +56,9 @@ PROTOCOLS="gadu groupwise jingle meanwhile oscar skype
 testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
-#   telepathy: net-libs/decibel
-#   irc: NO DEPS
-#   msn: net-libs/libmsn
+#	telepathy: net-libs/decibel
+#	irc: NO DEPS
+#	msn: net-libs/libmsn
 #	qq: NO DEPS
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
@@ -72,6 +73,12 @@ COMMONDEPEND="
 	!aqua? (
 		x11-libs/libX11
 		x11-libs/libXScrnSaver
+	)
+	cryptography? (
+		|| (
+			$(add_kdeapps_dep kdepim-common-libs)
+			$(add_kdeapps_dep libkleo '' 4.4.2016.01-r1)
+		)
 	)
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2[qt4(+)] )
