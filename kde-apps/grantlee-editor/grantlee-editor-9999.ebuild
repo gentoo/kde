@@ -31,7 +31,6 @@ DEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
