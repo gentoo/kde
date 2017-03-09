@@ -9,10 +9,8 @@ inherit kde5
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
 HOMEPAGE="http://www.k3b.org/"
-[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-
 LICENSE="GPL-2 FDL-1.2"
-[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 DEPEND="
