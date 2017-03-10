@@ -58,6 +58,7 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
+	# not a typo, app-arch/unar is a real package
 	if ! has_version app-arch/unar ; then
 		elog "For handling rar archives, install app-arch/unar"
 	fi
