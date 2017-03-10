@@ -7,10 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="C++ library for controlling asynchronous tasks"
+
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
-
-DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-"
-RDEPEND="${DEPEND}"
