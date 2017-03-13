@@ -37,7 +37,7 @@ DEPEND="
 	$(add_kdeapps_dep ktp-common-internals otr)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	net-libs/telepathy-qt[qt5]
