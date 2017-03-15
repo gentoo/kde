@@ -10,7 +10,7 @@ DESCRIPTION="MathML-based graph calculator by KDE"
 HOMEPAGE="https://www.kde.org/applications/education/kalgebra
 https://edu.kde.org/kalgebra"
 KEYWORDS=""
-IUSE="opengl readline"
+IUSE="readline"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -20,25 +20,22 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep analitza 'opengl?')
+	$(add_kdeapps_dep analitza)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
-	opengl? (
-		$(add_qt_dep qtopengl)
-		$(add_qt_dep qtprintsupport)
-		virtual/glu
-	)
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
+	$(add_qt_dep qtquickcontrols)
+	dev-libs/kirigami:2
 	!kde-apps/analitza:4
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package readline Readline)
 	)
 
