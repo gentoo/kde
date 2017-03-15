@@ -18,26 +18,21 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	eigen? ( dev-cpp/eigen:3 )
-	opengl? (
-		$(add_qt_dep qtopengl)
-		virtual/opengl
-	)
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	kde5_src_prepare
+
 	# Nothing is installed
 	sed -i \
 		-e "/add_subdirectory(examples)/ s/^/#DONT/" \
 		analitzaplot/CMakeLists.txt || die
-
-	kde5_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package eigen Eigen3)
-		$(cmake-utils_use_find_package opengl OpenGL)
 	)
 
 	kde5_src_configure
