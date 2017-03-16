@@ -12,7 +12,7 @@ DESCRIPTION="KDE Archiving tool"
 HOMEPAGE="https://www.kde.org/applications/utilities/ark
 https://utils.kde.org/projects/ark"
 KEYWORDS=""
-IUSE="bzip2 lzma zlib"
+IUSE="bzip2 lzma zip zlib"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -36,6 +36,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	app-arch/libarchive:=[bzip2?,lzma?,zlib?]
+	zip? ( dev-libs/libzip:= )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
@@ -49,6 +50,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package bzip2 BZip2)
 		$(cmake-utils_use_find_package lzma LibLZMA)
+		$(cmake-utils_use_find_package zip LibZip)
 		$(cmake-utils_use_find_package zlib ZLIB)
 	)
 
