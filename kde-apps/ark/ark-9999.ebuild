@@ -36,7 +36,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	app-arch/libarchive:=[bzip2?,lzma?,zlib?]
-	zip? ( dev-libs/libzip:= )
+	zip? ( >=dev-libs/libzip-1.2.0:= )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
