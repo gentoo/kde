@@ -34,11 +34,9 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep akonadi-contacts)
@@ -54,18 +52,14 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kholidays)
 	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep designer)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5]
 	X? (
@@ -74,8 +68,8 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/boost:=
-	dev-libs/libxslt
+	$(add_kdeapps_dep kldap)
+	$(add_qt_dep designer)
 	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
 "
 RDEPEND="${COMMON_DEPEND}
