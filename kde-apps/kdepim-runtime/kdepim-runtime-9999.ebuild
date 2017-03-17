@@ -14,9 +14,7 @@ KEYWORDS=""
 IUSE="google ssl"
 
 # TODO kolab, Qt5TextToSpeech
-
 CDEPEND="
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -27,7 +25,6 @@ CDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
@@ -55,18 +52,18 @@ CDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libical:=
 	google? ( $(add_kdeapps_dep libkgapi) )
 	ssl? ( dev-libs/cyrus-sasl )
 "
 DEPEND="${CDEPEND}
 	$(add_frameworks_dep kross)
+	$(add_qt_dep qtxmlpatterns)
 	dev-libs/cyrus-sasl:2
 	dev-libs/libxslt
-	x11-misc/shared-mime-info
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-kioslaves
