@@ -13,7 +13,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="speech"
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -23,7 +23,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep sonnet)
@@ -33,7 +32,9 @@ DEPEND="
 	dev-libs/grantlee:5
 	speech? ( $(add_qt_dep qtspeech) )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( $(add_frameworks_dep ktextwidgets) )
+"
 
 RESTRICT+=" test"
 
