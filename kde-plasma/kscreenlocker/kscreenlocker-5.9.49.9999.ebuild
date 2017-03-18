@@ -9,7 +9,7 @@ inherit kde5 pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
 KEYWORDS=""
-IUSE="pam"
+IUSE="+pam"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
