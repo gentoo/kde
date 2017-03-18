@@ -10,9 +10,9 @@ DESCRIPTION="A utility that provides information about a computer system"
 HOMEPAGE="https://www.kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
 KEYWORDS=""
-IUSE="egl gles2 ieee1394 +opengl +pci wayland"
+IUSE="gles2 ieee1394 +opengl +pci wayland"
 
-REQUIRED_USE="egl? ( || ( gles2 opengl ) )"
+REQUIRED_USE="wayland? ( || ( gles2 opengl ) )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -39,11 +39,14 @@ COMMON_DEPEND="
 	ieee1394? ( sys-libs/libraw1394 )
 	opengl? (
 		$(add_qt_dep qtgui 'gles2=')
-		media-libs/mesa[egl?,gles2?]
+		media-libs/mesa[gles2?]
 		!gles2? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
-	wayland? ( $(add_frameworks_dep kwayland) )
+	wayland? (
+		$(add_frameworks_dep kwayland)
+		media-libs/mesa[egl]
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep plasma)
@@ -57,11 +60,11 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package egl EGL)
 		$(cmake-utils_use_find_package gles2 OpenGLES)
 		$(cmake-utils_use_find_package ieee1394 RAW1394)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package pci PCIUTILS)
+		$(cmake-utils_use_find_package wayland EGL)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
 	)
 
