@@ -3,8 +3,16 @@
 
 EAPI=6
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
+
+DEPEND="
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
+	dev-lang/perl
+"
+RDEPEND="${DEPEND}"
