@@ -69,6 +69,7 @@ src_test() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPAM_REQUIRED=$(usex pam)
 		$(cmake-utils_use_find_package pam PAM)
 	)
 	kde5_src_configure
