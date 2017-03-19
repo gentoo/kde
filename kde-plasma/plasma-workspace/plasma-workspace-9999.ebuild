@@ -112,6 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/ksmserver:4
 	!kde-plasma/ksplash:4
 	!kde-plasma/plasma-workspace:4
+	!x11-misc/notification-daemon
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
