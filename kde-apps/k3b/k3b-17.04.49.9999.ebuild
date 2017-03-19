@@ -11,7 +11,7 @@ DESCRIPTION="Full-featured burning and ripping application based on KDE Framewor
 HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
-IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis"
+IUSE="dvd emovix encode ffmpeg flac libav mad mp3 musepack sndfile sox taglib vcd vorbis webkit"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -37,7 +37,6 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	media-libs/libsamplerate
@@ -53,6 +52,7 @@ DEPEND="
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
 	vorbis? ( media-libs/libvorbis )
+	webkit? ( $(add_qt_dep qtwebkit) )
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
@@ -93,6 +93,7 @@ src_configure() {
 		-DK3B_ENABLE_TAGLIB=$(usex taglib)
 		-DK3B_BUILD_OGGVORBIS_DECODER_PLUGIN=$(usex vorbis)
 		-DK3B_BUILD_OGGVORBIS_ENCODER_PLUGIN=$(usex vorbis)
+		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
 	)
 
 	kde5_src_configure
