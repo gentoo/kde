@@ -12,7 +12,7 @@ HOMEPAGE="https://sourceforge.net/p/smb4k/home/Home/"
 
 [[ ${PV} != 9999 ]] && KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
-IUSE="plasma"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kauth)
@@ -40,14 +40,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
+	$(add_frameworks_dep plasma)
 	net-fs/samba[cups]
-	plasma? ( $(add_frameworks_dep plasma) )
 	!net-misc/smb4k:4
 "
-
-src_configure(){
-	local mycmakeargs=(
-		-DINSTALL_PLASMOID=$(usex plasma)
-	)
-	kde5_src_configure
-}
