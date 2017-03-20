@@ -60,7 +60,6 @@ CDEPEND="
 	google? ( $(add_kdeapps_dep libkgapi) )
 "
 DEPEND="${CDEPEND}
-	$(add_frameworks_dep kross)
 	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libxslt
 "
