@@ -19,8 +19,8 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	net-nds/openldap
 	dev-libs/cyrus-sasl
+	net-nds/openldap
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-kioslaves
