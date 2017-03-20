@@ -43,6 +43,11 @@ case ${CATEGORY} in
 			: ${QT_MINIMAL:=5.7.1}
 		fi
 		;;
+	kde-apps)
+		if [[ $(get_version_component_range 1) -ge 17 ]]; then
+			: ${FRAMEWORKS_MINIMAL:=5.32.0}
+		fi
+		;;
 esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
