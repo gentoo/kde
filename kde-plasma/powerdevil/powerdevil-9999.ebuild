@@ -10,11 +10,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 KEYWORDS=""
-IUSE="elogind systemd +wireless"
-
-REQUIRED_USE="elogind? ( !systemd )
-	systemd? ( !elogind )
-"
+IUSE="consolekit +wireless"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -53,19 +49,12 @@ DEPEND="
 
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	systemd? ( >=sys-power/upower-0.9.23 )
-	elogind? ( >=sys-power/upower-0.9.23 )
-	!systemd? ( !elogind? (
+	>=sys-power/upower-0.9.23
+	consolekit? (
+		>=sys-auth/consolekit-1.0.1
 		sys-auth/polkit-pkla-compat
-		|| (
-			(
-				>=sys-auth/consolekit-1.0.1
-				sys-power/pm-utils
-				>=sys-power/upower-0.9.23
-			)
-			sys-power/upower-pm-utils
-		)
-	) )
+		sys-power/pm-utils
+	)
 	!kde-plasma/powerdevil:4
 	!kde-plasma/systemsettings:4[handbook]
 "
@@ -82,24 +71,12 @@ src_configure() {
 src_install() {
 	kde5_src_install
 
-	if ! use systemd && ! use elogind ; then
+	if use consolekit ; then
 		insinto /etc/polkit-1/localauthority/10-vendor.d/
 		doins "${FILESDIR}"/10-org.freedesktop.upower.pkla
 		doins "${FILESDIR}"/20-org.freedesktop.consolekit.system.stop-multiple-users.pkla
 		doins "${FILESDIR}"/30-org.freedesktop.consolekit.system.restart-multiple-users.pkla
 		doins "${FILESDIR}"/40-org.freedesktop.consolekit.system.suspend-multiple-users.pkla
 		doins "${FILESDIR}"/50-org.freedesktop.consolekit.system.hibernate-multiple-users.pkla
-	fi
-}
-
-pkg_postinst() {
-	kde5_pkg_postinst
-
-	if has_version sys-power/upower-pm-utils && ! use systemd && ! use elogind ; then
-		ewarn "You have sys-power/upower-pm-utils installed, which was recommended in the past to"
-		ewarn "enable suspend and hibernate support. This workaround is no longer required, and it"
-		ewarn "is now recommended to use a recent version of upower and consolekit instead:"
-		ewarn
-		ewarn "emerge --ask --update \">=sys-auth/consolekit-1.0.0\" sys-power/upower"
 	fi
 }
