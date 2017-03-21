@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -27,10 +26,10 @@ DEPEND="
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmailtransport)
+	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep mailimporter)
 	$(add_kdeapps_dep messagelib)
-	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
