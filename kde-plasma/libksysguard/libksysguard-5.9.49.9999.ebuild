@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="+detailedmemory X"
+IUSE="+detailedmemory minimal X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
@@ -39,13 +39,16 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep plasma)
+	!minimal? ( $(add_frameworks_dep plasma) )
 	X? ( x11-proto/xproto )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.9.4-plasma-optional.patch" )
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package detailedmemory Qt5WebKitWidgets)
+		$(cmake-utils_use_find_package !minimal KF5Plasma)
 		$(cmake-utils_use_find_package X X11)
 	)
 
