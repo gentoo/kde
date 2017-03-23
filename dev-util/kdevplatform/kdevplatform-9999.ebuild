@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE development support libraries and apps"
-IUSE="cvs reviewboard subversion +welcomepage"
+IUSE="cvs reviewboard subversion webkit +welcomepage"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
@@ -46,7 +46,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qttest)
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
@@ -56,6 +55,8 @@ COMMON_DEPEND="
 		dev-libs/apr-util:1
 		dev-vcs/subversion
 	)
+	webkit? ( $(add_qt_dep qtwebkit) )
+	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 	welcomepage? ( $(add_qt_dep qtdeclarative 'widgets') )
 "
 DEPEND="${COMMON_DEPEND}
@@ -88,6 +89,7 @@ src_configure() {
 		-DBUILD_cvs=$(usex cvs)
 		$(cmake-utils_use_find_package reviewboard KDEExperimentalPurpose)
 		$(cmake-utils_use_find_package subversion SubversionLibrary)
+		$(cmake-utils_use_find_package !webkit Qt5WebEngineWidgets)
 		$(cmake-utils_use_find_package welcomepage Qt5QuickWidgets)
 	)
 
