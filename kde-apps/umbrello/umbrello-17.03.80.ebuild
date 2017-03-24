@@ -42,6 +42,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	kde5_src_prepare
+	sed -e "/org.kde.umbrello5.appdata.xml/d" -i umbrello/CMakeLists.txt || die
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KF5=ON
