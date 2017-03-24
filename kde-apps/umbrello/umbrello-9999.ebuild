@@ -45,9 +45,9 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_KF5=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_LLVM=ON
 		-DBUILD_unittests=$(usex test)
 	)
+	use test && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_LLVM=ON )
 
 	kde5_src_configure
 }
