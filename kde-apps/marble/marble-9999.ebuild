@@ -78,6 +78,8 @@ src_configure() {
 		$(cmake-utils_use_find_package webkit Qt5WebKit)
 		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
 		-DWITH_libwlocate=OFF
+		# bug 608890
+		-DKDE_INSTALL_CONFDIR="/etc/xdg"
 	)
 	kde5_src_configure
 }
