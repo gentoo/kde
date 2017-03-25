@@ -34,7 +34,7 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	editor? (
 		dev-cpp/eigen:3
-		sci-chemistry/avogadro
+		|| ( sci-libs/avogadrolibs sci-chemistry/avogadro )
 		sci-chemistry/openbabel
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
