@@ -69,6 +69,7 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 COMMONDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
@@ -79,6 +80,7 @@ COMMONDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ktexteditor)
 	$(add_kdeapps_dep kcontacts)
+	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
