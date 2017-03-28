@@ -1,16 +1,18 @@
-From d4d49118533aa624331d0ee7cd588f661ca9660e Mon Sep 17 00:00:00 2001
+From 0ecdc46fbf9cdab24be92e785ec59b2338634cb1 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 24 Jan 2016 13:04:26 +0100
 Subject: [PATCH 1/2] Revert "Removing references to QtOAuth and Qca-Qt5"
 
 This reverts commit ff4b966f13b1b8da8471f92f44751b58012a53e8.
+
+REVIEW: 129927
 ---
- CMakeLists.txt                | 22 +++++++++++++++++++++-
- src/networking/CMakeLists.txt | 34 ++++++++++++++++++++++++++++++++--
- 2 files changed, 53 insertions(+), 3 deletions(-)
+ CMakeLists.txt                | 20 ++++++++++++++++++++
+ src/networking/CMakeLists.txt | 33 +++++++++++++++++++++++++++++++--
+ 2 files changed, 51 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index f862018..5502876 100644
+index f8620185..b22b5ef8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -152,6 +152,26 @@ endif(
@@ -40,17 +42,8 @@ index f862018..5502876 100644
      Qca-qt5 "2.1.0"
      REQUIRED
  )
-@@ -160,7 +180,7 @@ find_package(
- # TODO isn't there an "official" way to determine this directory?
- find_path(
-     QTCRYPTO_INCLUDE_DIR qca.h
--    HINTS ENV ${Qt5Core_INCLUDE_DIRS} ENV ${QT_INCLUDES}
-+    HINTS ${QTOAUTH_INCLUDE_DIR} ENV ${Qt5Core_INCLUDE_DIRS} ENV ${QT_INCLUDES}
-     PATH_SUFFIXES QtCrypto
- )
- 
 diff --git a/src/networking/CMakeLists.txt b/src/networking/CMakeLists.txt
-index f99236c..8752f27 100644
+index f99236c1..27507b3a 100644
 --- a/src/networking/CMakeLists.txt
 +++ b/src/networking/CMakeLists.txt
 @@ -40,7 +40,6 @@ if(NOT WIN32)
@@ -96,7 +89,7 @@ index f99236c..8752f27 100644
  add_library(
      kbibtexnetworking
      SHARED
-@@ -128,6 +146,18 @@ target_link_libraries(
+@@ -128,6 +146,17 @@ target_link_libraries(
      ${Poppler_Qt5_LIBRARY}
  )
  
@@ -105,7 +98,6 @@ index f99236c..8752f27 100644
 +)
 +    target_link_libraries(
 +      kbibtexnetworking
-+      ${cmake_2_8_12_PRIVATE}
 +      ${QTOAUTH_LIBRARY}
 +    )
 +endif(
@@ -116,5 +108,5 @@ index f99236c..8752f27 100644
      kbibtexnetworking
      PROPERTIES
 -- 
-2.10.2
+2.12.2
 

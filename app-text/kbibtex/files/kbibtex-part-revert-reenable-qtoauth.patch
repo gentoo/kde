@@ -1,17 +1,19 @@
-From b89af27c4fd1e9ed9ea0fb4f1c53f07d1cc351d2 Mon Sep 17 00:00:00 2001
+From 84f84747649237afcf9bd7465ba85fafd6bbc240 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Sun, 24 Jan 2016 13:16:54 +0100
 Subject: [PATCH 2/2] Partially revert "Re-enabling code for QtOAuth"
 
 This partially reverts commit 7b6937326ba2a4e4072692add38a4abd28bd0cd4
 so that kbibtex is using system-qoauth instead of bundled one.
+
+REVIEW: 129927
 ---
  src/networking/CMakeLists.txt         | 3 ---
  src/networking/zotero/oauthwizard.cpp | 2 +-
  2 files changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/src/networking/CMakeLists.txt b/src/networking/CMakeLists.txt
-index 8752f27..58a124b 100644
+index 27507b3a..4f3d03bc 100644
 --- a/src/networking/CMakeLists.txt
 +++ b/src/networking/CMakeLists.txt
 @@ -42,8 +42,6 @@ if(NOT WIN32)
@@ -32,7 +34,7 @@ index 8752f27..58a124b 100644
      ${CMAKE_SOURCE_DIR}/src/config
      ${CMAKE_BINARY_DIR}/src/data
 diff --git a/src/networking/zotero/oauthwizard.cpp b/src/networking/zotero/oauthwizard.cpp
-index 1d9129e..91ff23b 100644
+index 1d9129ee..91ff23bf 100644
 --- a/src/networking/zotero/oauthwizard.cpp
 +++ b/src/networking/zotero/oauthwizard.cpp
 @@ -34,7 +34,7 @@
@@ -45,5 +47,5 @@ index 1d9129e..91ff23b 100644
  using namespace Zotero;
  
 -- 
-2.10.2
+2.12.2
 
