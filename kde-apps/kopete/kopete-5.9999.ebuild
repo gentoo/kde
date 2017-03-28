@@ -139,23 +139,23 @@ src_configure() {
 	local x x2
 	# Handle common stuff
 	local mycmakeargs=(
-		-DWITH_GOOGLETALK=$(usex jingle)
-		-DWITH_LiboRTP=$(usex jingle)
-		-DWITH_Mediastreamer=$(usex jingle)
-		-DWITH_Speex=$(usex jingle)
+		$(cmake-utils_use_find_package jingle LiboRTP)
+		$(cmake-utils_use_find_package jingle Mediastreamer)
+		$(cmake-utils_use_find_package jingle Speex)
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		case ${x/+/} in
-			zeroconf) x2=bonjour ;;
+			jingle) x2=libjingle ;;
 			xmpp) x2=jabber ;;
+			zeroconf) x2=bonjour ;;
 			*) x2=${x/+/} ;;
 		esac
 		mycmakeargs+=( -DWITH_${x2}=$(usex ${x/+/}) )
 	done
 
-	mycmakeargs+=( -DWITH_Libmsn=OFF -DWITH_qq=OFF )
+	mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Libmsn=ON -DWITH_qq=OFF )
 
 	# disable until fixed:
 	mycmakeargs+=( -DWITH_{skype,sms}=OFF )
