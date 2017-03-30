@@ -40,7 +40,6 @@ pkg_setup() {
 src_prepare() {
 	python_fix_shebang src
 	kde5_src_prepare
-	sed -i -e "/PYTHON_MIN_VERSION/s/\"[0-9.]*\"/\"3.4.0\"/" CMakeLists.txt || die
 	sed -i -e "/KDE_ADD_PYTHON_EXECUTABLE/s/^/#DONT/" CMakeLists.txt || die
 }
 
