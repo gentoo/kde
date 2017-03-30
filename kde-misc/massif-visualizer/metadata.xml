@@ -6,6 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="callgraph">Enable detailed snapshot analysis using <pkg>kde-misc/kgraphviewer</pkg></flag>
+		<flag name="callgraph">Enable detailed snapshot analysis using <pkg>media-gfx/kgraphviewer</pkg></flag>
 	</use>
 </pkgmetadata>
