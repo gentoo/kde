@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Tool visualising massif data"
@@ -11,7 +11,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+IUSE="+callgraph"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -29,8 +29,16 @@ RDEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	dev-libs/kdiagram:5
+	callgraph? ( media-gfx/kgraphviewer:5 )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtxmlpatterns)
 	x11-misc/shared-mime-info
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package callgraph KGraphViewerPart)
+	)
+	kde5_src_configure
+}
