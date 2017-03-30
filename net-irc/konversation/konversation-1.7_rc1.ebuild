@@ -8,9 +8,10 @@ inherit kde5
 
 DESCRIPTION="A user friendly IRC Client"
 HOMEPAGE="https://www.kde.org/applications/internet/konversation/ https://konversation.kde.org"
+SRC_URI="mirror://kde/unstable/${PN}/${PV/_/-}/src/${P/_/-}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+crypt"
 
 DEPEND="
@@ -52,6 +53,8 @@ RDEPEND="${DEPEND}
 	!net-irc/konversation:4
 	crypt? ( app-crypt/qca:2[ssl] )
 "
+
+S="${WORKDIR}/${P/_/-}"
 
 src_configure() {
 	local mycmakeargs=(
