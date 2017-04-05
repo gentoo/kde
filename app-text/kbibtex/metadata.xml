@@ -7,6 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="webengine">Use <pkg>dev-qt/qtwebengine</pkg> for HTML previews</flag>
-		<flag name="webkit">Use <pkg>dev-qt/qtwebengine</pkg> for HTML previews</flag>
+		<flag name="webkit">Use <pkg>dev-qt/qtwebkit</pkg> for HTML previews</flag>
 	</use>
 </pkgmetadata>
