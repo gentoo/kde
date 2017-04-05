@@ -5,7 +5,7 @@ EAPI=6
 
 KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
@@ -17,7 +17,9 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2"
-IUSE=""
+IUSE="webengine webkit"
+
+REQUIRED_USE="?? ( webengine webkit )"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -38,7 +40,6 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
@@ -46,6 +47,8 @@ DEPEND="
 	dev-libs/icu:=
 	dev-libs/qoauth:5
 	virtual/tex-base
+	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
+	webkit? ( $(add_qt_dep qtwebkit) )
 "
 RDEPEND="${DEPEND}
 	!app-text/kbibtex:4
@@ -64,4 +67,13 @@ src_prepare() {
 	kde5_src_prepare
 
 	rm -r src/3rdparty/qoauth || die "Failed to remove bundled qoauth"
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
+		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
+	)
+
+	kde5_src_configure
 }
