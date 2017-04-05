@@ -22,6 +22,7 @@ RESTRICT+=" test"
 #	alias: NO DEPS (disabled upstream)
 #	autoreplace: NO DEPS
 #	contactnotes: NO DEPS
+#	cryptography: app-crypt/gpgme[cxx,qt5], kde-apps/libkleo:5
 #	highlight: NO DEPS
 #	history: NO DEPS
 #	latex: virtual/latex as RDEPEND
@@ -35,8 +36,8 @@ RESTRICT+=" test"
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
 # NOTE: By default we enable all plugins that don't have any dependencies
-PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight history
-latex nowlistening otr pipes +privacy +statistics +texteffect
+PLUGINS="+addbookmarks +autoreplace +contactnotes +cryptography +highlight
+history latex nowlistening otr pipes +privacy +statistics +texteffect
 translator +urlpicpreview webpresence"
 
 # Available protocols
@@ -69,6 +70,8 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 COMMONDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -81,10 +84,12 @@ COMMONDEPEND="
 	$(add_frameworks_dep ktexteditor)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kidentitymanagement)
+	$(add_kdeapps_dep libkleo)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	app-crypt/gpgme[cxx,qt5]
 	dev-libs/libpcre
 	media-libs/phonon[qt5]
 	x11-libs/libX11
