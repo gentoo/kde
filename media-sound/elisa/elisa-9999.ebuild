@@ -36,3 +36,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
+
+RESTRICT+=" test"
