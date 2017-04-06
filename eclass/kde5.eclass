@@ -172,13 +172,17 @@ case ${KDE_AUTODEPS} in
 		RDEPEND+=" >=kde-frameworks/kf-env-4"
 		COMMONDEPEND+=" $(add_qt_dep qtcore)"
 
-		if [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma && ${PN} != polkit-kde-agent ]]; then
-			RDEPEND+=" !<kde-apps/kde4-l10n-15.12.3-r1"
-		fi
-
-		if [[ ${KDE_BLOCK_SLOT4} = true && ${CATEGORY} = kde-apps ]]; then
-			RDEPEND+=" !kde-apps/${PN}:4"
-		fi
+		case ${CATEGORY} in
+			kde-frameworks | \
+			kde-plasma)
+				RDEPEND+=" !<kde-apps/kde4-l10n-15.12.3-r1"
+				;;
+			kde-apps)
+				[[ ${KDE_BLOCK_SLOT4} = true ]] && RDEPEND+=" !kde-apps/${PN}:4"
+				[[ $(get_version_component_range 1) -ge 17 ]] && \
+					RDEPEND+=" !kde-apps/kde-l10n !kde-apps/kdepim-l10n:5"
+				;;
+		esac
 		;;
 esac
 
