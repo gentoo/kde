@@ -29,6 +29,7 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 "
