@@ -26,10 +26,7 @@ RDEPEND="
 	$(add_kdeapps_dep spectacle)
 	$(add_kdeapps_dep svgpart)
 	$(add_kdeapps_dep thumbnailers)
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	scanner? (
 		$(add_kdeapps_dep ksaneplugin)
 		$(add_kdeapps_dep libksane)

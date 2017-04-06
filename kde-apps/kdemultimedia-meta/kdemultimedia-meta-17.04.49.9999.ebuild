@@ -27,8 +27,5 @@ RDEPEND="
 	$(add_kdeapps_dep libkcddb)
 	$(add_kdeapps_dep libkcompactdisc)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "

@@ -7,9 +7,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="kdecore - merge this to pull in the most basic applications"
 KEYWORDS=""
-IUSE="+handbook nls"
-
-[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
+IUSE="+handbook"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
@@ -20,5 +18,4 @@ RDEPEND="
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
-	nls? ( $(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL}) )
 "

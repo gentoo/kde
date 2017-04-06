@@ -51,10 +51,7 @@ RDEPEND="
 	$(add_kdeapps_dep lskat)
 	$(add_kdeapps_dep palapeli)
 	$(add_kdeapps_dep picmi)
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	opengl? (
 		$(add_kdeapps_dep ksudoku)
 		$(add_kdeapps_dep kubrick)

@@ -20,9 +20,6 @@ RDEPEND="
 	$(add_kdeapps_dep krfb)
 	$(add_kdeapps_dep plasma-telepathy-meta)
 	$(add_kdeapps_dep zeroconf-ioslave)
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	ppp? ( $(add_kdeapps_dep kppp) )
 "

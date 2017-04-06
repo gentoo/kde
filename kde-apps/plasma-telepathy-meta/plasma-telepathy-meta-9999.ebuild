@@ -28,7 +28,6 @@ RDEPEND="
 	$(add_kdeapps_dep ktp-text-ui)
 	!kde-apps/plasma-telepathy-meta:4
 	gstreamer? ( $(add_kdeapps_dep ktp-call-ui) )
-	nls? ( $(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL}) )
 "
 
 pkg_postinst() {

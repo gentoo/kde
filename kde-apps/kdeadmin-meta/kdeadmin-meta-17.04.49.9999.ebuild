@@ -7,12 +7,9 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-derived packages"
 KEYWORDS=""
-IUSE="+cron nls"
-
-[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
+IUSE="+cron"
 
 RDEPEND="
 	$(add_kdeapps_dep ksystemlog)
 	cron? ( $(add_kdeapps_dep kcron) )
-	nls? ( $(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL}) )
 "

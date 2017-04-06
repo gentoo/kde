@@ -27,8 +27,5 @@ RDEPEND="
 	cups? ( $(add_kdeapps_dep print-manager) )
 	floppy? ( $(add_kdeapps_dep kfloppy) )
 	lirc? ( $(add_kdeapps_dep kremotecontrol) )
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "

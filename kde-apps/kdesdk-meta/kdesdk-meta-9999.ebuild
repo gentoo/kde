@@ -28,8 +28,5 @@ RDEPEND="
 	$(add_kdeapps_dep poxml)
 	$(add_kdeapps_dep umbrello)
 	cvs? ( $(add_kdeapps_dep cervisia) )
-	nls? (
-		$(add_kdeapps_dep kde-l10n '' ${L10N_MINIMAL})
-		$(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL})
-	)
+	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "
