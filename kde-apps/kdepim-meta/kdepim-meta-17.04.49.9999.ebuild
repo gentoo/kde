@@ -8,9 +8,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS=""
-IUSE="google nls"
-
-[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
+IUSE="google"
 
 RDEPEND="
 	$(add_kdeapps_dep akonadi)
@@ -69,5 +67,4 @@ RDEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
 	google? ( $(add_kdeapps_dep libkgapi) )
-	nls? ( $(add_kdeapps_dep kdepim-l10n '' ${L10N_MINIMAL}) )
 "
