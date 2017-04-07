@@ -30,6 +30,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	kde5_src_prepare
+	# delete colliding kate translations
+	if [[ ${KDE_BUILD_TYPE} = release ]]; then
+		find po -type f -name "*po" -and -not -name "kwrite*" -delete || die
+		rm -rf po/*/docs/kate* || die
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_addons=FALSE
