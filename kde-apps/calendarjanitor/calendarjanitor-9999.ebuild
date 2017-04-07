@@ -27,7 +27,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	kde5_src_prepare
+
 	cmake_comment_add_subdirectory doc konsolekalendar
 	sed -i -e "/console\.categories/ s/^/#DONT/" CMakeLists.txt || die
-	kde5_src_prepare
+
+	# delete colliding konsolekalendar translations
+	if [[ ${KDE_BUILD_TYPE} = release ]]; then
+		rm po/*/konsolekalendar.po || die
+		rm -rf po/*/docs/konsolekalendar || die
+	fi
 }
