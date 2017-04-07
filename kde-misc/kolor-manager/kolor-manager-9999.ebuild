@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
