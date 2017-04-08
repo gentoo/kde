@@ -180,7 +180,11 @@ case ${KDE_AUTODEPS} in
 			kde-apps)
 				[[ ${KDE_BLOCK_SLOT4} = true ]] && RDEPEND+=" !kde-apps/${PN}:4"
 				[[ $(get_version_component_range 1) -ge 17 ]] && \
-					RDEPEND+=" !kde-apps/kde-l10n !kde-apps/kdepim-l10n:5"
+					RDEPEND+="
+						!kde-apps/kde-l10n
+						!<kde-apps/kde4-l10n-16.12.0:4
+						!kde-apps/kdepim-l10n:5
+					"
 				;;
 		esac
 		;;
