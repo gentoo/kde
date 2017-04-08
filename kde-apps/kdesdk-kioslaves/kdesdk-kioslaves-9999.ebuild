@@ -15,4 +15,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	dev-lang/perl
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.03.90:4
+"
