@@ -1,0 +1,30 @@
+commit 76c932320b62b21ac5be21fb3df6be315ef4cdf0
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sat Apr 8 21:17:03 2017 +0200
+
+    Add missing KF5I18n dependency
+    
+    Release tarball expects it for ki18n_install.
+    
+    REVIEW: 130071
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c25a94ff..bca3692d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,13 +9,13 @@ set(KF5_MIN_VERSION "5.15.0")
+ set(TWISTED_MIN_VERSION "16.6.0")
+ 
+ find_package(ECM 1.2.0 REQUIRED NO_MODULE)
+-    
++
+ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+ 
+ find_package(PythonInterp ${PYTHON_MIN_VERSION} REQUIRED)
+ find_package(Twisted ${TWISTED_MIN_VERSION} REQUIRED)
+ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg Widgets)
+-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config DocTools)
++find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n)
+ 
+ include(FeatureSummary)
+ include(ECMPackageConfigHelpers)

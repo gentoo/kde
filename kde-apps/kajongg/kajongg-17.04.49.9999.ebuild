@@ -18,6 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep libkdegames)
 	$(add_qt_dep qtcore)
 	$(add_qt_dep qtgui)
@@ -30,6 +31,7 @@ DEPEND="${PYTHON_DEPS}
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep libkmahjongg)
 	!kde-apps/kajongg:4
+	!<kde-apps/kde4-l10n-17.03.90:4
 "
 
 pkg_setup() {
