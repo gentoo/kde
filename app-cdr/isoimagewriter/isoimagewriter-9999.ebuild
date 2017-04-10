@@ -7,7 +7,7 @@ KMNAME="imagewriter"
 inherit kde5
 
 DESCRIPTION="Write hybrid ISO files onto a USB disk"
-HOMEPAGE="https://cgit.kde.org/imagewriter.git/"
+HOMEPAGE="http://wiki.rosalab.com/en/index.php/Blog:ROSA_Planet/ROSA_Image_Writer"
 
 LICENSE="GPL-3"
 KEYWORDS=""
