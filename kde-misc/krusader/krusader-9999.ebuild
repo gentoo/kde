@@ -14,7 +14,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -28,7 +28,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
@@ -45,7 +44,11 @@ DEPEND="
 	sys-apps/acl
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep knotifications)
+	$(add_qt_dep qtconcurrent)
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kio-extras)
 	!kde-misc/krusader:4
 "
