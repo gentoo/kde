@@ -6,12 +6,14 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="Advanced twin-panel (commander-style) file-manager with many extras"
 HOMEPAGE="https://krusader.org/"
-[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-
 LICENSE="GPL-2+"
-KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
