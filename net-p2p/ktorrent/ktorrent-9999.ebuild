@@ -30,7 +30,7 @@ HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magnetgenerator
-+mediaplayer rss +scanfolder +shutdown +stats +upnp +zeroconf"
++mediaplayer rss +scanfolder +search +shutdown +stats +upnp +zeroconf"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -69,6 +69,10 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kdewebkit)
 		$(add_kdeapps_dep syndication)
 	)
+	search? (
+		$(add_frameworks_dep kdewebkit)
+		$(add_qt_dep qtwebkit)
+	)
 	shutdown? ( $(add_plasma_dep plasma-workspace) )
 	stats? ( $(add_frameworks_dep kplotting) )
 	zeroconf? ( $(add_frameworks_dep kdnssd) )
@@ -105,13 +109,13 @@ src_configure() {
 		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
 		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
 		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
+		-DENABLE_SEARCH_PLUGIN=$(usex search)
 		-DENABLE_SHUTDOWN_PLUGIN=$(usex shutdown)
 		-DENABLE_STATS_PLUGIN=$(usex stats)
 		-DENABLE_UPNP_PLUGIN=$(usex upnp)
 		-DENABLE_ZEROCONF_PLUGIN=$(usex zeroconf)
 	)
 # add back when ported
-# 		-DENABLE_SEARCH_PLUGIN=$(usex search)
 # 		-DENABLE_WEBINTERFACE_PLUGIN=$(usex webinterface)
 	kde5_src_configure
 }
