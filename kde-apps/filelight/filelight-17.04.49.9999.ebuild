@@ -22,7 +22,6 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
