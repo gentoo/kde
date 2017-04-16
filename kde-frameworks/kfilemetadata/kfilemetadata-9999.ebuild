@@ -7,10 +7,9 @@ inherit eutils kde5
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
-IUSE="epub exif ffmpeg libav pdf taglib"
+IUSE="epub exif ffmpeg libav office pdf taglib"
 
 RDEPEND="
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtxml)
 	epub? ( app-text/ebook-tools )
@@ -19,6 +18,7 @@ RDEPEND="
 		libav? ( media-video/libav:= )
 		!libav? ( media-video/ffmpeg:0= )
 	)
+	office? ( $(add_frameworks_dep karchive) )
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
@@ -31,7 +31,8 @@ src_configure() {
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
-		$(cmake-utils_use_find_package pdf PopplerQt5)
+		$(cmake-utils_use_find_package office KF5Archive)
+		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
