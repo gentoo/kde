@@ -1,0 +1,21 @@
+commit 082b1637c6720a0955855a92a037cd033568ddf1
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Apr 16 21:23:58 2017 +0200
+
+    Fix build without ALSA again
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index b25c7d7..c32f1f7 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -13,7 +13,9 @@ set_package_properties(ALSA PROPERTIES
+                        TYPE OPTIONAL
+                        PURPOSE "Play back audo CDs via ALSA")
+ set(HAVE_ALSA ${ALSA_FOUND})
+-configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
++if(ALSA_FOUND)
++    configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
++endif(ALSA_FOUND)
+ 
+ set(wmlib_audio_SRCS
+         wmlib/audio/audio.c

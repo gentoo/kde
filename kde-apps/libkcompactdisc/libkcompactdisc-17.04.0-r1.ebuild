@@ -13,17 +13,19 @@ IUSE="alsa"
 
 DEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
 	media-libs/phonon[qt5]
+	alsa? ( media-libs/alsa-lib )
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-no-alsa.patch" )
+
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package alsa Alsa)
+		$(cmake-utils_use_find_package alsa ALSA)
 	)
 	kde5_src_configure
 }
