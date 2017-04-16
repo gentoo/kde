@@ -33,7 +33,6 @@ RDEPEND="
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
