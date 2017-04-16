@@ -1,21 +1,36 @@
-commit 082b1637c6720a0955855a92a037cd033568ddf1
+commit bb427b44150e23e618209334d826d389b903ac8a
 Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date:   Sun Apr 16 21:23:58 2017 +0200
 
     Fix build without ALSA again
+    
+    Signed-off-by: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index b25c7d7..c32f1f7 100644
+index b25c7d7..c89e9dd 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
-@@ -13,7 +13,9 @@ set_package_properties(ALSA PROPERTIES
+@@ -12,8 +12,10 @@ set_package_properties(ALSA PROPERTIES
+                        DESCRIPTION "ALSA provides audio and MIDI functionality"
                         TYPE OPTIONAL
                         PURPOSE "Play back audo CDs via ALSA")
- set(HAVE_ALSA ${ALSA_FOUND})
+-set(HAVE_ALSA ${ALSA_FOUND})
 -configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
 +if(ALSA_FOUND)
++    add_definitions(-DHAVE_ALSA)
 +    configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
 +endif(ALSA_FOUND)
  
  set(wmlib_audio_SRCS
          wmlib/audio/audio.c
+@@ -79,8 +81,8 @@ target_link_libraries(KF5CompactDisc
+     Phonon::phonon4qt5
+ )
+ 
+-if (HAVE_ALSA)
+-    target_link_libraries(KF5CompactDisc ${ALSA_LIBRARY})
++if (ALSA_FOUND)
++    target_link_libraries(KF5CompactDisc ${ALSA_LIBRARIES})
+ endif ()
+ 
+ if (USE_WMLIB)
