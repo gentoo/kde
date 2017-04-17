@@ -1,36 +1,52 @@
-commit bb427b44150e23e618209334d826d389b903ac8a
+commit 006fda07f559206f9f9f1ccc29080ce71a367b09
 Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date:   Sun Apr 16 21:23:58 2017 +0200
 
-    Fix build without ALSA again
+    Fix linking with ALSA
     
-    Signed-off-by: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+    REVIEW: 130089
 
-diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index b25c7d7..c89e9dd 100644
---- a/src/CMakeLists.txt
-+++ b/src/CMakeLists.txt
-@@ -12,8 +12,10 @@ set_package_properties(ALSA PROPERTIES
-                        DESCRIPTION "ALSA provides audio and MIDI functionality"
-                        TYPE OPTIONAL
-                        PURPOSE "Play back audo CDs via ALSA")
--set(HAVE_ALSA ${ALSA_FOUND})
--configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
-+if(ALSA_FOUND)
-+    add_definitions(-DHAVE_ALSA)
-+    configure_file(config-alsa.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-alsa.h)
-+endif(ALSA_FOUND)
+diff --git a/src/kcompactdisc.cpp b/src/kcompactdisc.cpp
+index 437648f..2e297d1 100644
+--- a/src/kcompactdisc.cpp
++++ b/src/kcompactdisc.cpp
+@@ -22,6 +22,8 @@
+ #include "kcompactdisc.h"
+ #include "kcompactdisc_p.h"
  
- set(wmlib_audio_SRCS
-         wmlib/audio/audio.c
-@@ -79,8 +81,8 @@ target_link_libraries(KF5CompactDisc
-     Phonon::phonon4qt5
- )
++#include <config-alsa.h>
++
+ #include <QtDBus>
+ #include <QUrl>
+ #include <QtGlobal>
+diff --git a/src/wmlib/audio/audio.c b/src/wmlib/audio/audio.c
+index 9ed7a82..729ada5 100644
+--- a/src/wmlib/audio/audio.c
++++ b/src/wmlib/audio/audio.c
+@@ -19,9 +19,8 @@
+ #include "audio.h"
+ #include "../include/wm_config.h"
  
--if (HAVE_ALSA)
--    target_link_libraries(KF5CompactDisc ${ALSA_LIBRARY})
-+if (ALSA_FOUND)
-+    target_link_libraries(KF5CompactDisc ${ALSA_LIBRARIES})
- endif ()
+-#ifdef HAVE_ALSA
+ #include <config-alsa.h>
+-#endif
++
+ #include <string.h>
  
- if (USE_WMLIB)
+ struct audio_oops *setup_phonon(const char *dev, const char *ctl);
+diff --git a/src/wmlib/audio/audio_alsa.c b/src/wmlib/audio/audio_alsa.c
+index 87bbca5..af1a1cb 100644
+--- a/src/wmlib/audio/audio_alsa.c
++++ b/src/wmlib/audio/audio_alsa.c
+@@ -26,9 +26,10 @@
+ #include "../include/wm_struct.h"
+ #include "../include/wm_config.h"
+ 
++#include <config-alsa.h>
++
+ #ifdef HAVE_ALSA
+ 
+-#include <config-alsa.h>
+ #include <alsa/asoundlib.h>
+ 
+ static char *device = NULL;
