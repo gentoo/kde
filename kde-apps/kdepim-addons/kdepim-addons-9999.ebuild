@@ -13,7 +13,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 
-IUSE=""
+IUSE="importwizard"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -52,6 +52,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	importwizard? ( $(add_kdeapps_dep akonadi-import-wizard) )
 "
 DEPEND="${COMMON_DEPEND}
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
@@ -66,6 +67,7 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
+		$(cmake-utils_use_find_package importwizard KPimImportWizard)
 	)
 
 	kde5_src_configure
