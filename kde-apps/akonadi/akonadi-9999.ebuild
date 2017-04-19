@@ -17,7 +17,7 @@ IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( sqlite mysql postgres ) test? ( tools )"
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.7.0
+# drop qtgui subslot operator when QT_MINIMAL >= 5.9.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)

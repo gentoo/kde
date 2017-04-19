@@ -4,7 +4,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-QT_MINIMAL="5.7.0"
 inherit kde5
 
 DESCRIPTION="A KDE Software for Music Education"
