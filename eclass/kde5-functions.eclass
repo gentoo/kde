@@ -47,6 +47,9 @@ case ${CATEGORY} in
 		if [[ $(get_version_component_range 1) -ge 17 ]]; then
 			: ${FRAMEWORKS_MINIMAL:=5.32.0}
 		fi
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			: ${QT_MINIMAL:=5.7.1}
+		fi
 		;;
 esac
 
