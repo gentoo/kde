@@ -12,6 +12,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/libalkimia?content=137323"
 LICENSE="LGPL-2.1"
 SLOT="0/6"
 KEYWORDS=""
+SLOT="0/6"
 IUSE=""
 
 RDEPEND="
