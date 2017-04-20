@@ -242,4 +242,5 @@
 <kde-apps/kimagemapeditor-17.04.50
 <kde-apps/klinkstatus-17.04.50
 ~dev-libs/kdiagram-2.6.0
+~dev-libs/libzip-1.2.0
 dev-qt/*:5/5.7
