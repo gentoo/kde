@@ -9,12 +9,11 @@ inherit kde5
 DESCRIPTION="Library to determine holidays and other special events for a geographical region"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="nls"
 
 DEPEND="
 	$(add_qt_dep qtdeclarative)
 "
-RDEPEND="${DEPEND}"
-
-# bug 579592
-RESTRICT+=" test"
+DEPEND="${RDEPEND}
+	nls? ( $(add_qt_dep linguist-tools) )
+"
