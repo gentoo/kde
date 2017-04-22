@@ -12,7 +12,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep krunner)
@@ -22,9 +22,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	net-libs/telepathy-qt[qt5]
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kservice)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/ktp-contact-runner:4
 "

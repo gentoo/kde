@@ -26,5 +26,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep ktp-contact-list)
-	!kde-apps/ktp-approver:4
 "

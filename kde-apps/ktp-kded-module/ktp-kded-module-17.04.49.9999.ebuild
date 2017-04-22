@@ -36,5 +36,4 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep signon-kwallet-extension)
-	!kde-apps/ktp-kded-module:4
 "

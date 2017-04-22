@@ -35,7 +35,4 @@ DEPEND="
 	net-libs/telepathy-farstream
 	net-libs/telepathy-qt[farstream,qt5]
 "
-
-RDEPEND="${DEPEND}
-	!kde-apps/ktp-call-ui:4
-"
+RDEPEND="${DEPEND}"

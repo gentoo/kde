@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="otr +sso"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -47,12 +47,9 @@ COMMON_DEPEND="
 		net-libs/telepathy-accounts-signon
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtnetwork)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/ktp-common-internals:4
 "
 
 src_configure() {
