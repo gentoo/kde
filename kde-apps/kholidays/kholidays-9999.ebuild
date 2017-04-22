@@ -7,7 +7,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Library to determine holidays and other special events for a geographical region"
-LICENSE="GPL-2+"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
