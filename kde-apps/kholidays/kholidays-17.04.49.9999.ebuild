@@ -11,7 +11,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtdeclarative)
 "
 DEPEND="${RDEPEND}
