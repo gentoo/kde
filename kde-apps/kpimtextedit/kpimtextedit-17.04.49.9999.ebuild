@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="A textedit with PIM-specific features"
-LICENSE="GPL-2+ LGPL-2.1+"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="speech"
 
