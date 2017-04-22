@@ -549,25 +549,30 @@ kde5_src_prepare() {
 		fi
 	fi
 
-	# enable only the requested translations
-	# when required
-	if [[ -d po && -v LINGUAS ]] ; then
-		pushd po > /dev/null || die
-		local lang
-		for lang in *; do
-			if [[ -d ${lang} ]] && ! has ${lang} ${LINGUAS} ; then
-				rm -r ${lang} || die
-				if [[ -e CMakeLists.txt ]] ; then
-					cmake_comment_add_subdirectory ${lang}
-					sed -e "/add_subdirectory([[:space:]]*${lang}\/.*[[:space:]]*)/d" -i CMakeLists.txt || die
+	# enable only the requested translations when required
+	if [[ -v LINGUAS ]] ; then
+		local po
+		for po in po poqm; do
+		if [[ -d ${po} ]] ; then
+			pushd ${po} > /dev/null || die
+			local lang
+			for lang in *; do
+				if [[ -d ${lang} ]] && ! has ${lang} ${LINGUAS} ; then
+					rm -r ${lang} || die
+					if [[ -e CMakeLists.txt ]] ; then
+						cmake_comment_add_subdirectory ${lang}
+						sed -e "/add_subdirectory([[:space:]]*${lang}\/.*[[:space:]]*)/d" \
+							-i CMakeLists.txt || die
+					fi
+				elif [[ -f ${lang} ]] && ! has ${lang/.po/} ${LINGUAS} ; then
+					if [[ ${lang} != CMakeLists.txt && ${lang} != ${PN}.pot ]] ; then
+						rm ${lang} || die
+					fi
 				fi
-			elif [[ -f ${lang} ]] && ! has ${lang/.po/} ${LINGUAS} ; then
-				if [[ ${lang} != CMakeLists.txt && ${lang} != ${PN}.pot ]] ; then
-					rm ${lang} || die
-				fi
-			fi
+			done
+			popd > /dev/null || die
+		fi
 		done
-		popd > /dev/null || die
 	fi
 
 	if [[ ${KDE_BUILD_TYPE} = release && ${CATEGORY} != kde-apps ]] ; then
