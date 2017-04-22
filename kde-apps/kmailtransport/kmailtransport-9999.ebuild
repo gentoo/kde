@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Mail transport service"
-LICENSE="GPL-2+"
+LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
