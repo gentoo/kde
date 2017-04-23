@@ -43,6 +43,7 @@ DEPEND="
 	dev-libs/libgpg-error
 "
 RDEPEND="${DEPEND}
+	!kde-apps/kdepim-l10n
 	>=app-crypt/gnupg-2.1
 	app-crypt/paperkey
 "
