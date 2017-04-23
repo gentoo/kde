@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt djvu ebook +exif mobi mobile +pdf plucker +postscript speech +tiff"
+IUSE="chm crypt djvu ebook +image-backend mobi mobile +pdf plucker +postscript speech +tiff"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -34,6 +34,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	media-libs/freetype
 	media-libs/phonon[qt5]
+	sys-libs/zlib
 	chm? (
 		$(add_frameworks_dep khtml)
 		dev-libs/chmlib
@@ -41,21 +42,19 @@ DEPEND="
 	crypt? ( app-crypt/qca:2[qt5] )
 	djvu? ( app-text/djvu )
 	ebook? ( app-text/ebook-tools )
-	exif? (
+	image-backend? (
 		$(add_kdeapps_dep libkexiv2)
-		virtual/jpeg:0
+		$(add_qt_dep qtgui 'gif,jpeg,png')
 	)
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
-	plucker? (
-		sys-libs/zlib
-		virtual/jpeg:0
-	)
+	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
 	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
 "
 RDEPEND="${DEPEND}
+	image-backend? ( $(add_frameworks_dep kimageformats) )
 	mobile? ( dev-libs/kirigami:1 )
 "
 
@@ -74,10 +73,10 @@ src_configure() {
 		$(cmake-utils_use_find_package crypt Qca-qt5)
 		$(cmake-utils_use_find_package djvu DjVuLibre)
 		$(cmake-utils_use_find_package ebook EPub)
-		$(cmake-utils_use_find_package exif KF5KExiv2)
+		$(cmake-utils_use_find_package image-backend KF5KExiv2)
 		$(cmake-utils_use_find_package mobi QMobipocket)
 		$(cmake-utils_use_find_package pdf Poppler)
-		$(cmake-utils_use_find_package plucker ZLIB)
+		$(cmake-utils_use_find_package plucker JPEG)
 		$(cmake-utils_use_find_package postscript LibSpectre)
 		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
 		$(cmake-utils_use_find_package tiff TIFF)
