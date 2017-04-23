@@ -29,4 +29,6 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
+"
