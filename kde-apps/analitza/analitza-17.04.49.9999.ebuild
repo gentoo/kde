@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE library for mathematical features"
 KEYWORDS=""
-IUSE="eigen opengl"
+IUSE="eigen"
 
 DEPEND="
 	$(add_qt_dep qtdeclarative)
