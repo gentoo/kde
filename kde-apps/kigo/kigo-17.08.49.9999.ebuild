@@ -30,5 +30,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
 	games-board/gnugo
 "
