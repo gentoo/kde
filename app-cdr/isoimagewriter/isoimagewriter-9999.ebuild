@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KMNAME="imagewriter"
 inherit kde5
 
 DESCRIPTION="Write hybrid ISO files onto a USB disk"
