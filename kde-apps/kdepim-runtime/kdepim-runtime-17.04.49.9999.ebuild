@@ -64,7 +64,6 @@ DEPEND="${CDEPEND}
 	dev-libs/libxslt
 "
 RDEPEND="${CDEPEND}
-	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepim-l10n
 	$(add_frameworks_dep oxygen-icons)
 "

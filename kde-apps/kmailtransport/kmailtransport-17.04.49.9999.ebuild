@@ -35,7 +35,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( $(add_frameworks_dep ktextwidgets) )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepim-l10n
 	!kde-apps/kdepimlibs:4
 "

@@ -47,7 +47,6 @@ DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kmailtransport)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepim-l10n
 "
 

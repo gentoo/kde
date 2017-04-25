@@ -23,7 +23,6 @@ DEPEND="
 	net-nds/openldap
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim-kioslaves
 	!kde-apps/kdepim-l10n
 "
 
