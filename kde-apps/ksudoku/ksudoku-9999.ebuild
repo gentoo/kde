@@ -3,27 +3,47 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-OPENGL_REQUIRED="optional"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="Sudoku by KDE"
+DESCRIPTION="Logic-based symbol placement puzzle by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/games/ksudoku/
 	https://games.kde.org/game.php?game=ksudoku
 "
 KEYWORDS=""
-IUSE="debug"
+IUSE="opengl"
 
 DEPEND="
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kguiaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kjobwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
-	opengl? ( virtual/glu )
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
+	opengl? (
+		$(add_qt_dep qtopengl)
+		virtual/glu
+	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_OpenGL=$(usex opengl)
+		$(cmake-utils_use_find_package opengl OpenGL)
 	)
-	kde4-base_src_configure
+
+	kde5_src_configure
 }
