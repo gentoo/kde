@@ -4,7 +4,7 @@
 EAPI=6
 
 EGIT_BRANCH="frameworks"
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Graphviz dot graph file viewer"
@@ -15,7 +15,7 @@ LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -31,7 +31,9 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	>=media-gfx/graphviz-2.30
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+"
+RDEPEND="${COMMON_DEPEND}
 	!media-gfx/kgraphviewer:4
 "
