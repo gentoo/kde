@@ -24,7 +24,9 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	keyboardfocus? ( media-libs/libkdeaccessibilityclient:5 )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
+"
 
 src_configure() {
 	local mycmakeargs=(
