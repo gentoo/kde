@@ -38,7 +38,9 @@ DEPEND="
 		virtual/glu
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
+"
 
 src_configure() {
 	local mycmakeargs=(
