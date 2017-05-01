@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Logic-based symbol placement puzzle by KDE"
