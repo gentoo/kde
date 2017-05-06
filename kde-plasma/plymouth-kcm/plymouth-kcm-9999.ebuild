@@ -16,11 +16,8 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
