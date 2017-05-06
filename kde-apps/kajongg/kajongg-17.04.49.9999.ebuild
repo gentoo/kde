@@ -47,7 +47,7 @@ src_prepare() {
 
 src_install() {
 	kde5_src_install
-	dosym /usr/share/kajongg/kajongg.py /usr/bin/kajongg
-	dosym /usr/share/kajongg/kajonggserver.py /usr/bin/kajonggserver
+	dosym ../share/kajongg/kajongg.py /usr/bin/kajongg
+	dosym ../share/kajongg/kajonggserver.py /usr/bin/kajonggserver
 	fperms a+x /usr/share/kajongg/kajongg{,server}.py
 }
