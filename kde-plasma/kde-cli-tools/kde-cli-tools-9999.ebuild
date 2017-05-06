@@ -36,7 +36,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	handbook? ( !kde-apps/kdesu[handbook] )
+	!kde-apps/kdesu
 "
 
 # requires running kde environment
@@ -54,5 +54,6 @@ src_configure() {
 
 src_install() {
 	kde5_src_install
-	use kdesu && dosym /usr/$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu5
+	use kdesu && dosym ../$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu
+	use kdesu && dosym ../$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu5
 }
