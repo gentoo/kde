@@ -11,21 +11,22 @@ HOMEPAGE="
 	https://multimedia.kde.org/
 "
 KEYWORDS=""
-IUSE="+ffmpeg nls"
+IUSE="+cdrom +ffmpeg nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
 RDEPEND="
-	$(add_kdeapps_dep audiocd-kio)
 	$(add_kdeapps_dep dragon)
 	$(add_kdeapps_dep juk)
-	$(add_kdeapps_dep k3b)
 	$(add_kdeapps_dep kdenlive)
 	$(add_kdeapps_dep kmix)
-	$(add_kdeapps_dep kscd)
 	$(add_kdeapps_dep kwave)
 	$(add_kdeapps_dep libkcddb)
-	$(add_kdeapps_dep libkcompactdisc)
+	cdrom? ( $(add_kdeapps_dep audiocd-kio)
+		$(add_kdeapps_dep k3b)
+		$(add_kdeapps_dep kscd)
+		$(add_kdeapps_dep libkcompactdisc)
+	)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
 	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 "
