@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="optional"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
