@@ -13,7 +13,6 @@ IUSE=""
 COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative widgets)
 	$(add_qt_dep qtgui)
