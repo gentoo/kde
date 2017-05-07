@@ -13,6 +13,7 @@ IUSE="editorconfig git"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
