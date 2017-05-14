@@ -18,5 +18,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	app-crypt/gpgme[cxx,qt5]
+	virtual/libudev:=
 "
 RDEPEND="${DEPEND}"
