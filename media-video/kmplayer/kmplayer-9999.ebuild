@@ -3,8 +3,7 @@
 
 EAPI=6
 
-EGIT_BRANCH="0.12"
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional" # TODO: not optional until kdelibs4support is gone
 inherit kde5
 
 DESCRIPTION="Video player plugin for Konqueror and basic MPlayer frontend"
@@ -44,15 +43,15 @@ CDEPEND="
 		dev-libs/dbus-glib
 		dev-libs/glib:2
 		www-plugins/adobe-flash:*
-		>=x11-libs/gtk+-2.10.14:2
+		x11-libs/gtk+:2
 	)
 "
 DEPEND="${CDEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${CDEPEND}
-	media-video/mplayer
 	!media-video/kmplayer:4
+	media-video/mplayer
 "
 
 src_prepare() {
