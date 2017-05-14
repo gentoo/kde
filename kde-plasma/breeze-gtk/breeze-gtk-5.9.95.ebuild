@@ -5,18 +5,10 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="Official GTK+ port of KDE's Breeze widget style"
+DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze-gtk"
 LICENSE="LGPL-2.1+"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
-src_install() {
-	kde5_src_install
-
-	insinto /usr/share/themes/Breeze/gtk-3.20
-	doins Breeze-gtk/gtk-3.20/gtk.css
-
-	insinto /usr/share/themes/Breeze-Dark/gtk-3.20
-	doins Breeze-dark-gtk/gtk-3.20/gtk.css
-}
+PATCHES=( "${FILESDIR}/${P}-gtk3-dep.patch" )
