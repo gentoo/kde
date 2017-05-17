@@ -41,6 +41,9 @@
 <kde-plasma/sddm-kcm-5.10.50:5
 <kde-plasma/systemsettings-5.10.50:5
 <kde-plasma/user-manager-5.10.50:5
+~dev-lang/python-3.5.3
+~dev-python/constantly-15.1.0
+~dev-python/twisted-17.1.0
 dev-qt/*:5/5.7
 <kde-plasma/plasma-vault-5.10.50:5
 ~x11-libs/libxkbcommon-0.7.1
