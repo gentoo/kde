@@ -10,5 +10,3 @@ HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze-gtk"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
-
-PATCHES=( "${FILESDIR}/${PN}-5.9.95-gtk3-dep.patch" )
