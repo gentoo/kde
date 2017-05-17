@@ -12,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="LGPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # TODO: CryFS not yet packaged
