@@ -1,4 +1,2 @@
-~dev-libs/double-conversion-2.0.1
-~dev-libs/libinput-1.6.2
 dev-qt/*:5/5.7
 ~x11-libs/libxkbcommon-0.7.1
