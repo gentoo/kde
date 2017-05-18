@@ -3,11 +3,10 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A GUI for creating and editing regular expressions"
+DESCRIPTION="GUI for creating and editing regular expressions"
 
 KEYWORDS=""
 IUSE=""
