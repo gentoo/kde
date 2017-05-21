@@ -28,6 +28,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep syntax-highlighting)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-notes)
@@ -72,4 +73,12 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-misc/kregexpeditor" ; then
+		elog "${PN} Sieve editor plugin can make use of kde-misc/kregexpeditor if installed."
+	fi
 }
