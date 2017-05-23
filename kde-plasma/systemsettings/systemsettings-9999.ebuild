@@ -35,8 +35,9 @@ DEPEND="
 	classic? ( $(add_frameworks_dep khtml) )
 "
 RDEPEND="${DEPEND}
-	gtk? ( $(add_plasma_dep kde-gtk-config) )
 	!kde-plasma/systemsettings:4
+	dev-libs/kirigami:2
+	gtk? ( $(add_plasma_dep kde-gtk-config) )
 "
 
 src_configure() {
