@@ -55,8 +55,6 @@ RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}"/${PN}-16.12.2-bashism.patch )
-
 pkg_pretend() {
 	kde5_pkg_pretend
 
