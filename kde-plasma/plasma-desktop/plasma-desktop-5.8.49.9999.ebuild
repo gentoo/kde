@@ -96,6 +96,12 @@ COMMON_DEPEND="
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( $(add_frameworks_dep baloo) )
 "
+DEPEND="${COMMON_DEPEND}
+	dev-libs/boost
+	x11-proto/xproto
+	fontconfig? ( x11-libs/libXrender )
+	input_devices_evdev? ( x11-drivers/xf86-input-evdev )
+"
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
@@ -114,19 +120,12 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepasswd:4
 	!kde-apps/knetattach[handbook]
 	!kde-base/plasma-desktop:4
+	!kde-misc/kcm_touchpad
+	!kde-misc/kcm-touchpad
 	!kde-plasma/plasma-workspace:4
 	!kde-plasma/solid-actions-kcm:4
 	!kde-plasma/systemsettings:4
-	!kde-misc/kcm_touchpad
-	!kde-misc/kcm-touchpad
 	!kde-plasma/kcm-touchpad
-	!<kde-plasma/kdeplasma-addons-5.5.50
-"
-DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
-	x11-proto/xproto
-	fontconfig? ( x11-libs/libXrender )
-	input_devices_evdev? ( x11-drivers/xf86-input-evdev )
 "
 
 REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
