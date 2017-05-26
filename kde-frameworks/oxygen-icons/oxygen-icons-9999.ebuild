@@ -23,7 +23,6 @@ DEPEND="
 	)
 "
 RDEPEND="
-	!<kde-apps/kdepim-15.12.1-r1:5
 	!kde-apps/kdepim-icons:4
 	!kde-frameworks/oxygen-icons:4
 "
