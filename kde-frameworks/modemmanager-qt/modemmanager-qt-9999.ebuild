@@ -14,7 +14,6 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtxml)
 	net-misc/modemmanager
-	!kde-plasma/libmm-qt
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
