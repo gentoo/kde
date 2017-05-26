@@ -21,8 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_qt_dep qtwayland 'egl')
-	!kde-plasma/kwayland
 "
 
-# All failing, i guess we need a virtual wayland server
+# All failing, I guess we need a virtual wayland server
 RESTRICT+=" test"
