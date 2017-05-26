@@ -22,7 +22,6 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	!<kde-frameworks/kdelibs4support-5.3.0:5
 "
 DEPEND="${RDEPEND}
 	man? ( $(add_frameworks_dep kdoctools) )
