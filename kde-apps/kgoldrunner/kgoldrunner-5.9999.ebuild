@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 EGIT_BRANCH="frameworks"
 inherit kde5
@@ -22,8 +22,8 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
