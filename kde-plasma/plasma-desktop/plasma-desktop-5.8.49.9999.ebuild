@@ -120,12 +120,10 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepasswd:4
 	!kde-apps/knetattach[handbook]
 	!kde-base/plasma-desktop:4
-	!kde-misc/kcm_touchpad
 	!kde-misc/kcm-touchpad
 	!kde-plasma/plasma-workspace:4
 	!kde-plasma/solid-actions-kcm:4
 	!kde-plasma/systemsettings:4
-	!kde-plasma/kcm-touchpad
 "
 
 REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
