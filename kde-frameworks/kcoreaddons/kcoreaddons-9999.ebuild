@@ -13,7 +13,6 @@ IUSE="fam nls"
 RDEPEND="
 	$(add_qt_dep qtcore 'icu')
 	fam? ( virtual/fam )
-	!<kde-frameworks/kservice-5.2.0:5
 "
 DEPEND="${RDEPEND}
 	x11-misc/shared-mime-info
@@ -27,4 +26,11 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_test() {
+	# bug: 619656
+	local myctestargs=( -j1 )
+
+	kde5_src_test
 }
