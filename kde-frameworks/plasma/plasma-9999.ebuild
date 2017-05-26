@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2 wayland X"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
@@ -47,12 +47,9 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdoctools)
 	X? ( x11-proto/xproto )
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kapptemplate-15.08.3-r1:5
 "
 
 RESTRICT+=" test"
