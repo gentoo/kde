@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_GCC_MINIMAL="4.8"
 KDE_HANDBOOK="true"
 inherit kde5
 
