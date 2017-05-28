@@ -142,16 +142,23 @@ _add_category_dep() {
 	local category=${1}
 	local package=${2}
 	local use=${3}
-	local version=${4}
-	local slot=${5}
+	local operator=${4}
+	local version=${5}
+	local slot=${6}
 
 	if [[ -n ${use} ]] ; then
 		local use="[${use}]"
 	fi
 
 	if [[ -n ${version} ]] ; then
-		local operator=">="
-		local version="-$(get_version_component_range 1-3 ${version})"
+		if [[ -z ${operator} ]] ; then
+			operator=">="
+		fi
+		if [[ ${operator} = ">=" ]] ; then
+			version="-$(get_version_component_range 1-3 ${version})"
+		else
+			version="-${version}"
+		fi
 	fi
 
 	if [[ -n ${slot} ]] ; then
@@ -192,7 +199,7 @@ add_frameworks_dep() {
 		version=${FRAMEWORKS_MINIMAL}
 	fi
 
-	_add_category_dep kde-frameworks "${1}" "${2}" "${version}" "${4}"
+	_add_category_dep kde-frameworks "${1}" "${2}" "" "${version}" "${4}"
 }
 
 # @FUNCTION: add_plasma_dep
@@ -214,17 +221,21 @@ add_plasma_dep() {
 		die "${FUNCNAME} was called with too many arguments"
 	fi
 
+	local operator
 	local version
 
 	if [[ -n ${3} ]]; then
 		version=${3}
 	elif [[ ${CATEGORY} = kde-plasma ]]; then
 		version=${PV}
+		if [[ ${PV} = 5.8* ]] ; then
+			operator="~"
+		fi
 	elif [[ -z "${version}" ]] ; then
 		version=${PLASMA_MINIMAL}
 	fi
 
-	_add_category_dep kde-plasma "${1}" "${2}" "${version}" "${4}"
+	_add_category_dep kde-plasma "${1}" "${2}" "${operator}" "${version}" "${4}"
 }
 
 # @FUNCTION: add_kdeapps_dep
@@ -261,7 +272,7 @@ add_kdeapps_dep() {
 		fi
 	fi
 
-	_add_category_dep kde-apps "${1}" "${2}" "${version}" "${4}"
+	_add_category_dep kde-apps "${1}" "${2}" "" "${version}" "${4}"
 }
 
 # @FUNCTION: add_qt_dep
@@ -296,7 +307,7 @@ add_qt_dep() {
 		slot="5"
 	fi
 
-	_add_category_dep dev-qt "${1}" "${2}" "${version}" "${slot}"
+	_add_category_dep dev-qt "${1}" "${2}" "" "${version}" "${slot}"
 }
 
 # @FUNCTION: get_kde_version
