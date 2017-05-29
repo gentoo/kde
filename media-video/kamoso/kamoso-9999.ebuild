@@ -16,7 +16,6 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdeclarative)
@@ -27,5 +26,7 @@ DEPEND="
 	virtual/libudev:=
 "
 RDEPEND="${DEPEND}
+	$(add_qt_dep qtquickcontrols2)
+	dev-libs/kirigami:2
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
