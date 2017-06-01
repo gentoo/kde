@@ -43,4 +43,3 @@
 <kde-plasma/user-manager-5.10.50:5
 dev-qt/*:5/5.7
 <kde-plasma/plasma-vault-5.10.50:5
-~x11-libs/libxkbcommon-0.7.1

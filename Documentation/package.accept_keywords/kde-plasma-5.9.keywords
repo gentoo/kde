@@ -41,4 +41,3 @@
 <kde-plasma/systemsettings-5.9.50:5
 <kde-plasma/user-manager-5.9.50:5
 dev-qt/*:5/5.7
-~x11-libs/libxkbcommon-0.7.1

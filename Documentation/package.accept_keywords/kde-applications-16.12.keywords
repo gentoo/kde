@@ -183,6 +183,3 @@
 <kde-apps/kimagemapeditor-16.12.50
 <kde-apps/klinkstatus-16.12.50
 <kde-apps/kommander-16.12.50
-~dev-libs/kdiagram-2.6.0
-dev-qt/*:5/5.7
-~kde-apps/libkgapi-5.3.1

@@ -247,4 +247,3 @@
 ~dev-python/constantly-15.1.0
 ~dev-python/twisted-16.6.0
 dev-qt/*:5/5.7
-~media-libs/taglib-1.11.1
