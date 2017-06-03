@@ -154,10 +154,9 @@ _add_category_dep() {
 		if [[ -z ${operator} ]] ; then
 			operator=">="
 		fi
-		if [[ ${operator} = ">=" ]] ; then
-			version="-$(get_version_component_range 1-3 ${version})"
-		else
-			version="-${version}"
+		version="-$(get_version_component_range 1-3 ${version})"
+		if [[ ${operator} = "=" ]] ; then
+			version="${version}*"
 		fi
 	fi
 
@@ -229,7 +228,7 @@ add_plasma_dep() {
 	elif [[ ${CATEGORY} = kde-plasma ]]; then
 		version=${PV}
 		if [[ ${PV} = 5.8* ]] ; then
-			operator="~"
+			operator="="
 		fi
 	elif [[ -z "${version}" ]] ; then
 		version=${PLASMA_MINIMAL}
