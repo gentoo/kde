@@ -37,9 +37,27 @@ DEPEND="
 	media-libs/phonon[qt5]
 	>=media-libs/taglib-1.5
 "
-
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep audiocd-kio)
 "
 
 DOCS=( Changelog TODO )
+
+pkg_postinst() {
+	local stcnt=0
+
+	has_version media-libs/flac && stcnt=$((stcnt+1))
+	has_version media-sound/lame && stcnt=$((stcnt+1))
+	has_version media-sound/vorbis-tools && stcnt=$((stcnt+1))
+
+	if [[ ${stcnt} -lt 1 ]] ; then
+		ewarn "You you should emerge at least one of the following packages"
+		ewarn "for ${PN} to do anything useful."
+	fi
+	elog "Optional runtime dependencies:"
+	elog "FLAC - media-libs/flac"
+	elog "MP3  - media-sound/lame"
+	elog "OGG  - media-sound/vorbis-tools"
+
+	kde5_pkg_postinst
+}
