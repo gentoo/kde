@@ -52,4 +52,5 @@ pkg_postinst() {
 		elog "that still require old kwalletd4. After migration has finished,"
 		elog "kde-apps/kwalletd can be removed."
 	fi
+	elog "For more information, read https://wiki.gentoo.org/wiki/KDE#KWallet"
 }
