@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE="+kdesu X"
 
 DEPEND="
+	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
