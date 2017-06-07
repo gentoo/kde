@@ -57,7 +57,10 @@ RDEPEND="
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pam? ( $(add_plasma_dep kwallet-pam) )
-	plymouth? ( $(add_plasma_dep breeze-plymouth) )
+	plymouth? (
+		$(add_plasma_dep breeze-plymouth)
+		$(add_plasma_dep plymouth-kcm)
+	)
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
 	sdk? ( $(add_plasma_dep plasma-sdk) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
