@@ -17,3 +17,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	nls? ( $(add_qt_dep linguist-tools) )
 "
+
+PATCHES=( "${FILESDIR}/${P}-revert-tr.patch" )
