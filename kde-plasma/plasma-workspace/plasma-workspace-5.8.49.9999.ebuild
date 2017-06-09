@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
-inherit kde5 multilib qmake-utils
+inherit kde5 qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
