@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Powerful batch file renamer"
@@ -29,9 +30,9 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	exif? ( >=media-gfx/exiv2-0.13:= )
-	pdf? ( >=app-text/podofo-0.8 )
-	taglib? ( >=media-libs/taglib-1.5 )
+	exif? ( media-gfx/exiv2:= )
+	pdf? ( app-text/podofo )
+	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
 "
 DEPEND="${COMMON_DEPEND}
@@ -45,7 +46,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package taglib Taglib)
-		$(cmake-utils_use_find_package pdf LIBPODOFO)
+		$(cmake-utils_use_find_package pdf PoDoFo)
 		$(cmake-utils_use_find_package truetype Freetype)
 	)
 
