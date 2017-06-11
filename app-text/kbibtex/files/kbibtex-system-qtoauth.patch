@@ -1,0 +1,115 @@
+commit d5742d770702b60f375139abb4df6f550682dbe8
+Author: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date:   Sun Jan 24 13:04:26 2016 +0100
+
+    Re-enable system QtOAuth
+    
+    This reverts commit ff4b966f13b1b8da8471f92f44751b58012a53e8 and
+    partially reverts commit 7b6937326ba2a4e4072692add38a4abd28bd0cd4
+    so that kbibtex is using system-qoauth instead of bundled one.
+    
+    REVIEW: 129927
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fc73a28c..f5db0bb2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -165,6 +165,26 @@ endif(
+ )
+ 
+ find_package(
++    QtOAuth
++)
++if(
++    QTOAUTH_FOUND
++)
++    add_definitions(
++        -DHAVE_QTOAUTH
++    )
++else(
++    QTOAUTH_FOUND
++)
++    message(
++        STATUS
++        "No QtOAuth installed, disabling Zotero OAuth wizard"
++    )
++endif(
++    QTOAUTH_FOUND
++)
++
++find_package(
+     Qca-qt5 "2.1.0"
+ )
+ if (Qca-qt5_FOUND)
+diff --git a/src/networking/CMakeLists.txt b/src/networking/CMakeLists.txt
+index bd16f61e..2e3c4d58 100644
+--- a/src/networking/CMakeLists.txt
++++ b/src/networking/CMakeLists.txt
+@@ -40,12 +40,23 @@ if(BUILD_ZOTERO)
+         zotero/collection.cpp
+         zotero/items.cpp
+         zotero/groups.cpp
+-        zotero/oauthwizard.cpp
+         zotero/tags.cpp
+         zotero/tagmodel.cpp
+-        # QOAuth for Qt5 from Git
+-        ../3rdparty/qoauth/src/interface.cpp
++    )
++    if(
++        QTOAUTH_FOUND
++    )
++        include_directories(
++            ${QTOAUTH_INCLUDE_DIR}
++        )
++        list(
++            APPEND
++            kbibtexnetworking_LIB_SRCS
++            zotero/oauthwizard.cpp
+         )
++    endif(
++        QTOAUTH_FOUND
++    )
+ endif(BUILD_ZOTERO)
+ 
+ set(
+@@ -90,7 +101,6 @@ if(UNITY_BUILD)
+ endif(UNITY_BUILD)
+ 
+ include_directories(
+-    ${CMAKE_SOURCE_DIR}/src/3rdparty/qoauth/include
+     ${CMAKE_BINARY_DIR}/src/config
+     ${CMAKE_SOURCE_DIR}/src/config
+     ${CMAKE_BINARY_DIR}/src/data
+@@ -132,9 +142,18 @@ if(BUILD_ZOTERO)
+         kbibtexnetworking
+         qca-qt5
+     )
++    if(
++        QTOAUTH_FOUND
++    )
++        target_link_libraries(
++        kbibtexnetworking
++        ${QTOAUTH_LIBRARY}
++        )
++    endif(
++        QTOAUTH_FOUND
++    )
+ endif(BUILD_ZOTERO)
+ 
+-
+ set_target_properties(
+     kbibtexnetworking
+     PROPERTIES
+diff --git a/src/networking/zotero/oauthwizard.cpp b/src/networking/zotero/oauthwizard.cpp
+index aca03049..7d97886c 100644
+--- a/src/networking/zotero/oauthwizard.cpp
++++ b/src/networking/zotero/oauthwizard.cpp
+@@ -35,7 +35,7 @@
+ #include "internalnetworkaccessmanager.h"
+ #include "logging_networking.h"
+ 
+-#include <QtOAuth>
++#include <QtOAuth/QtOAuth>
+ 
+ using namespace Zotero;
+ 

@@ -61,10 +61,7 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${P/_/-}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-revert-removing-qtoauth.patch"
-	"${FILESDIR}/${PN}-part-revert-reenable-qtoauth.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-system-qtoauth.patch" )
 
 src_prepare() {
 	kde5_src_prepare
