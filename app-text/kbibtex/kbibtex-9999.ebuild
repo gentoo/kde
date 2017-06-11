@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
 inherit kde5
@@ -17,7 +16,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2"
-IUSE="webengine webkit"
+IUSE="webengine webkit zotero"
 
 REQUIRED_USE="?? ( webengine webkit )"
 
@@ -26,6 +25,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -45,10 +45,13 @@ DEPEND="
 	$(add_qt_dep qtxmlpatterns)
 	app-text/poppler[qt5]
 	dev-libs/icu:=
-	dev-libs/qoauth:5
 	virtual/tex-base
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 	webkit? ( $(add_qt_dep qtwebkit) )
+	zotero? (
+		app-crypt/qca[qt5]
+		dev-libs/qoauth:5
+	)
 "
 RDEPEND="${DEPEND}
 	!app-text/kbibtex:4
@@ -73,6 +76,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
 		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
+		$(cmake-utils_use_find_package zotero Qca-qt5)
 	)
 
 	kde5_src_configure
