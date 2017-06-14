@@ -100,7 +100,7 @@ check_cmakelists() {
 # - for live ebuilds - don't use any keywords
 # - in either of the first two cases, drop arch to testing
 update_keywords() {
-	local MINIMAL_KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux" KEYWORDS
+	local MINIMAL_KEYWORDS="~amd64 ~x86" KEYWORDS
 	# Initially strip all keywords
 	ekeyword ^all ${1} > /dev/null
 	if [[ ${BUMP_VERSION} =~ ([4-9]+)\.?([0-9]*)\.?([0-9]*) ]]; then
