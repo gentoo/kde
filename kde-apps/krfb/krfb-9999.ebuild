@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="VNC-compatible server to share KDE desktops"
+DESCRIPTION="VNC-compatible server to share Plasma desktops"
 HOMEPAGE="https://www.kde.org/applications/system/krfb/"
 KEYWORDS=""
 IUSE=""
@@ -30,11 +30,9 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	>=net-libs/libvncserver-0.9.9
-	sys-libs/zlib
-	virtual/jpeg:0
 	x11-libs/libX11
-	x11-libs/libXdamage
-	x11-libs/libXext
+	x11-libs/libxcb
 	x11-libs/libXtst
+	x11-libs/xcb-util-image
 "
 RDEPEND="${DEPEND}"
