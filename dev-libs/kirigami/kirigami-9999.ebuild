@@ -12,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_BRANCH=stable
 	[[ ${PV} = *.[8-9]?.* ]] && SRC_BRANCH=unstable
 	SRC_URI="mirror://kde/${SRC_BRANCH}/${PN}/${MY_PN}-${PV}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 	S="${WORKDIR}/${MY_PN}-${PV}"
 fi
 
@@ -24,6 +24,7 @@ IUSE="examples plasma"
 
 RDEPEND="
 	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsvg)
