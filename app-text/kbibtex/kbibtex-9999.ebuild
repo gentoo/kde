@@ -10,8 +10,7 @@ inherit kde5
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="http://home.gna.org/kbibtex/"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	inherit versionator
-	SRC_URI="http://download.gna.org/${PN}/$(get_version_component_range 1-2)/${P/_/-}.tar.xz"
+	SRC_URI="mirror://kde/stable/KBibTeX/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
