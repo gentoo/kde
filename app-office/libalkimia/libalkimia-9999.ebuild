@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="forceoptional"
 KMNAME="alkimia"
 inherit kde5
 
@@ -12,17 +13,20 @@ HOMEPAGE="http://kde-apps.org/content/show.php/libalkimia?content=137323"
 LICENSE="LGPL-2.1"
 SLOT="0/6"
 KEYWORDS=""
-IUSE=""
+IUSE="doc"
 
 RDEPEND="
 	$(add_qt_dep qtdbus)
 	dev-libs/gmp:0=[cxx]
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtxml)
 	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package doc Doxygen)
+	)
+	kde5_src_configure
+}
