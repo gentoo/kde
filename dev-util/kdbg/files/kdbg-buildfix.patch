@@ -1,0 +1,10 @@
+--- a/kdbg/brkpt.cpp	2017-06-19 01:00:58.825378556 +0200
++++ b/kdbg/brkpt.cpp	2017-06-19 01:01:57.621123943 +0200
+@@ -6,7 +6,6 @@
+ 
+ #include <klocale.h>			/* i18n */
+ #include <kiconloader.h>
+-#include <ksimpleconfig.h>
+ #include <QDialog>
+ #include <QFileInfo>
+ #include <QPainter>
