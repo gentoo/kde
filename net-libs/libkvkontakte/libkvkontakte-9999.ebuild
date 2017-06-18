@@ -7,7 +7,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Library for accessing the features of social networking site vkontakte.ru"
-HOMEPAGE="http://www.digikam.org/"
+HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
