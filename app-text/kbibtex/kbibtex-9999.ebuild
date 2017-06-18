@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
-HOMEPAGE="http://home.gna.org/kbibtex/"
+HOMEPAGE="https://userbase.kde.org/KBibTeX"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/KBibTeX/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
@@ -76,4 +76,12 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-apps/okular:${SLOT}" ; then
+		elog "For PDF or PostScript document preview support, please install kde-apps/okular:${SLOT}"
+	fi
 }
