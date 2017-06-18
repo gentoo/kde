@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="KDE C++ interface for MediaWiki based web service as wikipedia.org"
-HOMEPAGE="http://www.digikam.org/"
+HOMEPAGE="https://www.digikam.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_PV="${PV/_/-}"
