@@ -11,7 +11,7 @@ HOMEPAGE="https://www.kde.org/applications/games/kubrick/"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -25,7 +25,8 @@ RDEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	virtual/glu
-"
-DEPEND="${RDEPEND}
 	virtual/opengl
+"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
 "
