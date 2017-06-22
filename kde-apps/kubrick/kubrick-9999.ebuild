@@ -3,16 +3,27 @@
 
 EAPI=6
 
-KDE_HANDBOOK="optional"
-OPENGL_REQUIRED="always"
-inherit kde4-base
+KDE_HANDBOOK="true"
+inherit kde5
 
-DESCRIPTION="A game based on the \"Rubik's Cube\" puzzle"
+DESCRIPTION="Game based on the \"Rubik's Cube\" puzzle by KDE"
 HOMEPAGE="https://www.kde.org/applications/games/kubrick/"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-RDEPEND="$(add_kdeapps_dep libkdegames)
+RDEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
+	$(add_kdeapps_dep libkdegames)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtopengl)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwidgets)
 	virtual/glu
 "
 DEPEND="${RDEPEND}
