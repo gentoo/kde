@@ -65,6 +65,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
+	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
 	!dev-util/kdevelop:4
 	!dev-util/kdevplatform:4
 "
