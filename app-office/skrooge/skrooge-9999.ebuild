@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_GCC_MINIMAL="4.9"
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
 QT_MINIMAL="5.7.0"
