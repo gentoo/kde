@@ -31,4 +31,6 @@ DEPEND="
 	media-libs/libsndfile
 	media-libs/openal
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
+"
