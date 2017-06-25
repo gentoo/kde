@@ -86,7 +86,9 @@ DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
 	test? ( dev-cpp/gmock )
 "
-RDEPEND="${COMMONDEPEND}"
+RDEPEND="${COMMONDEPEND}
+	!media-sound/amarok:4
+"
 
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
