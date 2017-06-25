@@ -10,7 +10,7 @@ HOMEPAGE="http://wiki.rosalab.com/en/index.php/Blog:ROSA_Planet/ROSA_Image_Write
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
@@ -23,3 +23,8 @@ DEPEND="
 	virtual/libudev:=
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde5_src_prepare
+	cmake_comment_add_subdirectory signing-keys
+}
