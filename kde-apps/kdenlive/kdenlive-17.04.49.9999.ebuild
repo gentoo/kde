@@ -66,3 +66,12 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	# Gentoo bug 603168
+	if ! has_version "media-libs/mlt[fftw]" ; then
+		elog "For 'Crop and Transform/Rotate and Shear' effect, please build media-libs/mlt with USE=fftw enabled."
+	fi
+}
