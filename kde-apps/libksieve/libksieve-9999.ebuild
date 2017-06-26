@@ -39,7 +39,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebengine 'widgets' '' '5=')
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 	dev-libs/cyrus-sasl
 "
 DEPEND="${COMMON_DEPEND}
