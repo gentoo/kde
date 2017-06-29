@@ -23,6 +23,7 @@ else
 fi
 
 KDE_HANDBOOK="forceoptional"
+KDE_TEST="optional"
 inherit kde5
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
@@ -33,15 +34,12 @@ IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magne
 +mediaplayer rss +scanfolder +search +shutdown +stats +upnp +zeroconf"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -60,12 +58,17 @@ COMMON_DEPEND="
 	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:5
 	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:5
 	infowidget? ( dev-libs/geoip )
-	kross? ( $(add_frameworks_dep kross) )
+	kross? (
+		$(add_frameworks_dep karchive)
+		$(add_frameworks_dep kitemviews)
+		$(add_frameworks_dep kross)
+	)
 	mediaplayer? (
 		media-libs/phonon[qt5]
 		>=media-libs/taglib-1.5
 	)
 	rss? (
+		$(add_frameworks_dep kdelibs4support)
 		$(add_frameworks_dep kdewebkit)
 		$(add_kdeapps_dep syndication)
 	)
@@ -73,8 +76,12 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kdewebkit)
 		$(add_qt_dep qtwebkit)
 	)
-	shutdown? ( $(add_plasma_dep plasma-workspace) )
+	shutdown? (
+		$(add_frameworks_dep kdelibs4support)
+		$(add_plasma_dep plasma-workspace)
+	)
 	stats? ( $(add_frameworks_dep kplotting) )
+	upnp? ( $(add_frameworks_dep kcompletion) )
 	zeroconf? ( $(add_frameworks_dep kdnssd) )
 "
 DEPEND="${COMMON_DEPEND}
@@ -85,6 +92,7 @@ RDEPEND="${COMMON_DEPEND}
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
+		$(add_frameworks_dep ktextwidgets)
 		$(add_kdeapps_dep kio-extras)
 	)
 	!net-p2p/ktorrent:4
