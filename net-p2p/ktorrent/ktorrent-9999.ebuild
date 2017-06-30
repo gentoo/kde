@@ -98,12 +98,6 @@ RDEPEND="${COMMON_DEPEND}
 	!net-p2p/ktorrent:4
 "
 
-src_prepare() {
-	kde5_src_prepare
-
-	use kross || punt_bogus_dep KF5 Kross
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_BWSCHEDULER_PLUGIN=$(usex bwscheduler)
