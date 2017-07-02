@@ -28,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
