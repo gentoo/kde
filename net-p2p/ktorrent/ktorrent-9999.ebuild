@@ -68,7 +68,6 @@ COMMON_DEPEND="
 		>=media-libs/taglib-1.5
 	)
 	rss? (
-		$(add_frameworks_dep kdelibs4support)
 		$(add_frameworks_dep kdewebkit)
 		$(add_kdeapps_dep syndication)
 	)
