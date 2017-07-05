@@ -22,6 +22,7 @@ net-im
 net-irc
 net-libs
 net-misc
+net-nntp
 net-p2p
 sys-auth
 sys-block
