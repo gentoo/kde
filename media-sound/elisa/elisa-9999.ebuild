@@ -16,7 +16,7 @@ IUSE=""
 # TODO:
 # - Bogus deps
 # - optional features
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep baloo)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -33,8 +33,12 @@ RDEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
+"
+RDEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtgraphicaleffects)
+	$(add_qt_dep qtquickcontrols)
 "
 
 RESTRICT+=" test"
