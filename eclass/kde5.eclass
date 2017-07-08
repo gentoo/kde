@@ -82,10 +82,13 @@ EXPORT_FUNCTIONS pkg_setup pkg_nofetch src_unpack src_prepare src_configure src_
 # @ECLASS-VARIABLE: KDE_QTHELP
 # @DESCRIPTION:
 # If set to "false", do nothing.
-# Otherwise, add "+qthelp" to IUSE, add the appropriate dependency, and
-# generate and install Qt compressed help files.
-# If set to "optional", config with -DBUILD_QCH=ON when USE=qthelp.
-: ${KDE_QTHELP:=false}
+# Otherwise, add "doc" to IUSE, add the appropriate dependency, generate
+# and install Qt compressed help files with -DBUILD_QCH=ON when USE=doc.
+if [[ ${CATEGORY} = kde-frameworks && ( $(get_version_component_range 2) -ge 36 || ${KDE_BUILD_TYPE} = live ) ]]; then
+	: ${KDE_QTHELP:=true}
+else
+	: ${KDE_QTHELP:=false}
+fi
 
 # @ECLASS-VARIABLE: KDE_TEST
 # @DESCRIPTION:
@@ -152,8 +155,6 @@ SLOT=5
 
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	KDE_SUBSLOT=true
-	[[ $(get_version_component_range 2) -ge 36 || ${KDE_BUILD_TYPE} = live ]] && \
-		KDE_QTHELP=true
 fi
 
 case ${KDE_SUBSLOT} in
@@ -236,9 +237,9 @@ esac
 case ${KDE_QTHELP} in
 	false)	;;
 	*)
-		IUSE+=" +qthelp"
-		COMMONDEPEND+=" qthelp? ( $(add_qt_dep qt-docs) )"
-		DEPEND+=" qthelp? (
+		IUSE+=" doc"
+		COMMONDEPEND+=" doc? ( $(add_qt_dep qt-docs) )"
+		DEPEND+=" doc? (
 			$(add_qt_dep qthelp)
 			>=app-doc/doxygen-1.8.13-r1
 		)"
@@ -669,8 +670,8 @@ kde5_src_configure() {
 		cmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=ON )
 	fi
 
-	if use_if_iuse qthelp ; then
-		cmakeargs+=( -DBUILD_QCH=ON )
+	if [[ ${KDE_QTHELP} != false ]]; then
+		cmakeargs+=( -DBUILD_QCH=$(usex doc) )
 	fi
 
 	# install mkspecs in the same directory as qt stuff
