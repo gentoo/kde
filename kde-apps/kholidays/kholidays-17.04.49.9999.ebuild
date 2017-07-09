@@ -17,3 +17,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	nls? ( $(add_qt_dep linguist-tools) )
 "
+
+src_test() {
+	# bug 624214
+	mkdir -p "${HOME}/.local/share/kf5/libkholidays" || die
+	cp -r "${S}/holidays/plan2" "${HOME}/.local/share/kf5/libkholidays/" || die
+	kde5_src_test
+}
