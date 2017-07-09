@@ -75,10 +75,7 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kdewebkit)
 		$(add_qt_dep qtwebkit)
 	)
-	shutdown? (
-		$(add_frameworks_dep kdelibs4support)
-		$(add_plasma_dep plasma-workspace)
-	)
+	shutdown? ( $(add_plasma_dep plasma-workspace) )
 	stats? ( $(add_frameworks_dep kplotting) )
 	upnp? ( $(add_frameworks_dep kcompletion) )
 	zeroconf? ( $(add_frameworks_dep kdnssd) )
