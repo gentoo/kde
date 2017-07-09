@@ -49,11 +49,3 @@ src_configure() {
 
 	cmake-utils_src_configure
 }
-
-src_test() {
-	local myctestargs=(
-		-E "(ECMToolchainAndroidTest)"
-	)
-
-	kde5_src_test
-}
