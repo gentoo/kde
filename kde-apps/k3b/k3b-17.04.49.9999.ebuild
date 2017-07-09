@@ -56,6 +56,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao
+	dev-libs/libburn
 	media-sound/cdparanoia
 	virtual/cdrtools
 	dvd? (
