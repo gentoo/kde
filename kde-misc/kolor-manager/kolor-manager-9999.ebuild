@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
@@ -24,3 +24,5 @@ DEPEND="
 	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-cmake.patch" )
