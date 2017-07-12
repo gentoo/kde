@@ -66,6 +66,11 @@ DEPEND="${COMMON_DEPEND}
 # requires running kde environment
 RESTRICT+=" test"
 
+PATCHES=(
+	"${FILESDIR}/${P}-mtp.patch"
+	"${FILESDIR}/${P}-smb.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package activities KF5Activities)
