@@ -24,8 +24,6 @@ kde-runtime/drkonqi.po
 kde-runtime/kio_applications.po
 kde-runtime/phonon_kde.po
 kde-runtime/soliduiserver.po
-# fixed in: 5.8.6-r1, 5.9.5.1-r1
-kde-runtime/kio_remote.po
 
 # kde-cli-tools - fixed in: 5.10.0
 # KDE Runtime 4

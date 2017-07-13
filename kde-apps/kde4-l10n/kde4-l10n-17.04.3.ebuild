@@ -54,6 +54,7 @@ RDEPEND="
 	!<kde-frameworks/baloo-5.34.0:5
 	!<kde-frameworks/baloo-widgets-5.34.0:5
 	!<kde-frameworks/kfilemetadata-5.34.0:5
+	!<kde-plasma/plasma-workspace-5.9.5.1-r1
 "
 
 REMOVE_DIRS="${FILESDIR}/${PN}-16.12.3-remove-dirs"
