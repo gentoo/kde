@@ -55,7 +55,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	image-backend? ( $(add_frameworks_dep kimageformats) )
-	mobile? ( dev-libs/kirigami:1 )
+	mobile? (
+		$(add_qt_dep qtquickcontrols)
+		dev-libs/kirigami:1
+	)
 "
 
 # bug 603116
