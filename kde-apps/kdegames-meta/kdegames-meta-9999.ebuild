@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
 HOMEPAGE="https://games.kde.org/"
 KEYWORDS=""
-IUSE="nls opengl python"
+IUSE="nls opengl python +qt4"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -35,13 +35,11 @@ RDEPEND="
 	$(add_kdeapps_dep kmines)
 	$(add_kdeapps_dep knavalbattle)
 	$(add_kdeapps_dep knetwalk)
-	$(add_kdeapps_dep kolf)
 	$(add_kdeapps_dep kollision)
 	$(add_kdeapps_dep konquest)
 	$(add_kdeapps_dep kpat)
 	$(add_kdeapps_dep kreversi)
 	$(add_kdeapps_dep kshisen)
-	$(add_kdeapps_dep ksirk)
 	$(add_kdeapps_dep ksnakeduel)
 	$(add_kdeapps_dep kspaceduel)
 	$(add_kdeapps_dep ksquares)
@@ -49,12 +47,16 @@ RDEPEND="
 	$(add_kdeapps_dep libkdegames)
 	$(add_kdeapps_dep libkmahjongg)
 	$(add_kdeapps_dep lskat)
-	$(add_kdeapps_dep palapeli)
 	$(add_kdeapps_dep picmi)
-	nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	opengl? (
 		$(add_kdeapps_dep ksudoku)
 		$(add_kdeapps_dep kubrick)
 	)
 	python? ( $(add_kdeapps_dep kajongg) )
+	qt4? (
+		$(add_kdeapps_dep kolf)
+		$(add_kdeapps_dep ksirk)
+		$(add_kdeapps_dep palapeli)
+		nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
+	)
 "
