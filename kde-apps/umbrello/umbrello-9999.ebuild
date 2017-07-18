@@ -44,7 +44,9 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdelibs4support)
 "
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-apps/kde4-l10n-17.07.80
+"
 
 src_configure() {
 	local mycmakeargs=(
