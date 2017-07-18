@@ -16,7 +16,7 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -41,7 +41,10 @@ DEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kdelibs4support)
+"
+RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
