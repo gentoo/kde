@@ -39,6 +39,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtquickcontrols)
+	$(add_qt_dep qtquickcontrols2)
 "
 
 RESTRICT+=" test"
