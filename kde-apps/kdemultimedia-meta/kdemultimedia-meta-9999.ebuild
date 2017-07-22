@@ -11,9 +11,7 @@ HOMEPAGE="
 	https://multimedia.kde.org/
 "
 KEYWORDS=""
-IUSE="+cdrom +ffmpeg nls +qt4"
-
-[[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
+IUSE="+cdrom +ffmpeg"
 
 RDEPEND="
 	$(add_kdeapps_dep dragon)
@@ -27,9 +25,4 @@ RDEPEND="
 		$(add_kdeapps_dep libkcompactdisc)
 	)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
-	qt4? (
-		$(add_kdeapps_dep juk)
-		cdrom? ( $(add_kdeapps_dep kscd) )
-		nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
-	)
 "
