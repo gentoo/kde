@@ -11,8 +11,6 @@ IUSE="nls ppp +qt4"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
-# FIXME: Add back whenever it gets ported
-# $(add_kdeapps_dep kopete)
 RDEPEND="
 	$(add_kdeapps_dep kdenetwork-filesharing)
 	$(add_kdeapps_dep krdc)
