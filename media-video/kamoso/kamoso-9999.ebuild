@@ -26,7 +26,7 @@ DEPEND="
 	virtual/libudev:=
 "
 RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami '' 2.2.0)
 	$(add_qt_dep qtquickcontrols2)
-	dev-libs/kirigami:2
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "

@@ -57,7 +57,7 @@ RDEPEND="${DEPEND}
 	image-backend? ( $(add_frameworks_dep kimageformats) )
 	mobile? (
 		$(add_qt_dep qtquickcontrols)
-		dev-libs/kirigami:2
+		$(add_frameworks_dep kirigami '' 2.2.0)
 	)
 "
 

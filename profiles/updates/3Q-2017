@@ -1,1 +1,3 @@
 move media-libs/libkdeaccessibilityclient media-libs/libqaccessibilityclient
+move dev-libs/kirigami kde-frameworks/kirigami
+slotmove kde-frameworks/kirigami 2 5

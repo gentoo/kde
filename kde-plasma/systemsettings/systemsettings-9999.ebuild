@@ -36,7 +36,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-plasma/systemsettings:4
-	dev-libs/kirigami:2
+	$(add_frameworks_dep kirigami)
 	gtk? ( $(add_plasma_dep kde-gtk-config) )
 "
 

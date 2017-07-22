@@ -3,24 +3,15 @@
 
 EAPI=6
 
+KDE_EXAMPLES="true"
 KDE_TEST="forceoptional"
-QT_MINIMAL="5.7.1"
 inherit kde5
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	MY_PN="${PN}2"
-	SRC_BRANCH=stable
-	[[ ${PV} = *.[8-9]?.* ]] && SRC_BRANCH=unstable
-	SRC_URI="mirror://kde/${SRC_BRANCH}/${PN}/${MY_PN}-${PV}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~x86"
-	S="${WORKDIR}/${MY_PN}-${PV}"
-fi
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://techbase.kde.org/Kirigami"
+
 LICENSE="LGPL-2+"
-SLOT="2"
-IUSE="examples plasma"
+IUSE="plasma"
 
 RDEPEND="
 	$(add_qt_dep qtdeclarative)
