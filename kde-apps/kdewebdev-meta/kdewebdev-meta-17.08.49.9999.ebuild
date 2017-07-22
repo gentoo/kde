@@ -11,8 +11,6 @@ IUSE="nls"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
-# FIXME: Add back when ported
-# $(add_kdeapps_dep klinkstatus)
 RDEPEND="
 	$(add_kdeapps_dep kfilereplace)
 	$(add_kdeapps_dep kimagemapeditor)
