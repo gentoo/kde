@@ -69,13 +69,11 @@
 ~kde-apps/kmines-9999 **
 ~kde-apps/knavalbattle-9999 **
 ~kde-apps/knetwalk-9999 **
-~kde-apps/kolf-9999 **
 ~kde-apps/kollision-9999 **
 ~kde-apps/konquest-9999 **
 ~kde-apps/kpat-9999 **
 ~kde-apps/kreversi-9999 **
 ~kde-apps/kshisen-9999 **
-~kde-apps/ksirk-9999 **
 ~kde-apps/ksnakeduel-9999 **
 ~kde-apps/kspaceduel-9999 **
 ~kde-apps/ksquares-9999 **
@@ -85,7 +83,6 @@
 ~kde-apps/libkdegames-9999 **
 ~kde-apps/libkmahjongg-9999 **
 ~kde-apps/lskat-9999 **
-~kde-apps/palapeli-9999 **
 ~kde-apps/picmi-9999 **
 ~kde-apps/gwenview-9999 **
 ~kde-apps/kamera-9999 **
@@ -94,7 +91,6 @@
 ~kde-apps/kdegraphics-mobipocket-9999 **
 ~kde-apps/kruler-9999 **
 ~kde-apps/kolourpaint-9999 **
-~kde-apps/ksaneplugin-9999 **
 ~kde-apps/libkdcraw-9999 **
 ~kde-apps/libkexiv2-9999 **
 ~kde-apps/libkface-9999 **
@@ -108,12 +104,10 @@
 ~kde-apps/audiocd-kio-9999 **
 ~kde-apps/dragon-9999 **
 ~kde-apps/ffmpegthumbs-9999 **
-~kde-apps/juk-9999 **
 ~kde-apps/k3b-9999 **
 ~kde-apps/kdemultimedia-meta-9999 **
 ~kde-apps/kdenlive-9999 **
 ~kde-apps/kmix-9999 **
-~kde-apps/kscd-9999 **
 ~kde-apps/kwave-9999 **
 ~kde-apps/libkcddb-9999 **
 ~kde-apps/libkcompactdisc-9999 **
@@ -121,10 +115,7 @@
 ~kde-apps/kaccounts-providers-9999 **
 ~kde-apps/kdenetwork-meta-9999 **
 ~kde-apps/kdenetwork-filesharing-9999 **
-~kde-apps/kget-9999 **
 ~kde-apps/kio-extras-9999 **
-~kde-apps/kopete-9999 **
-~kde-apps/kppp-9999 **
 ~kde-apps/krdc-9999 **
 ~kde-apps/krfb-9999 **
 ~kde-apps/ktp-accounts-kcm-9999 **
@@ -141,7 +132,6 @@
 ~kde-apps/ktp-text-ui-9999 **
 ~kde-apps/plasma-telepathy-meta-9999 **
 ~kde-apps/signon-kwallet-extension-9999 **
-~kde-apps/zeroconf-ioslave-9999 **
 ~kde-apps/akonadi-9999 **
 ~kde-apps/akonadi-calendar-9999 **
 ~kde-apps/akonadi-contacts-9999 **
@@ -225,14 +215,8 @@
 ~kde-apps/kdf-9999 **
 ~kde-apps/kfloppy-9999 **
 ~kde-apps/kgpg-9999 **
-~kde-apps/kremotecontrol-9999 **
 ~kde-apps/kteatime-9999 **
 ~kde-apps/ktimer-9999 **
 ~kde-apps/kwalletmanager-9999 **
 ~kde-apps/print-manager-9999 **
-~kde-apps/sweeper-9999 **
-~kde-apps/kdewebdev-meta-9999 **
-~kde-apps/kfilereplace-9999 **
-~kde-apps/kimagemapeditor-9999 **
-~kde-apps/klinkstatus-9999 **
 ~kde-apps/libkgapi-9999 **
