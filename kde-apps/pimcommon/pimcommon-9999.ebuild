@@ -45,6 +45,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt
+	test? ( $(add_kdeapps_dep kmime) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
