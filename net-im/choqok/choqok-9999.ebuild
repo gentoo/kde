@@ -4,6 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
+# QT_MINIMAL="5.9.1" # enable as soon as Qt-5.9.1 is in tree
 inherit kde5
 
 DESCRIPTION="Free/Open Source micro-blogging client by KDE"
@@ -37,7 +38,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-crypt/qca[qt5]
-	dev-libs/qoauth:5
 	attica? ( $(add_frameworks_dep attica) )
 	konqueror? (
 		$(add_frameworks_dep kparts)
