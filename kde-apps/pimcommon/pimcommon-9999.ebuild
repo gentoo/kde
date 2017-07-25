@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kiconthemes)
 	dev-libs/libxslt
 	test? ( $(add_kdeapps_dep kmime) )
 "

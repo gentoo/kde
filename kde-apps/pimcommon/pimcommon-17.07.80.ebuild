@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kiconthemes)
 	dev-libs/libxslt
 	test? ( $(add_kdeapps_dep kmime) )
 "
@@ -51,3 +52,5 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
 "
+
+PATCHES=( "${FILESDIR}/${PN}-17.04.3-deps.patch" )
