@@ -6,18 +6,11 @@ EAPI=6
 KDE_EXAMPLES="true"
 inherit kde5
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	MY_PN="${PN/kde/q}"
-	SRC_BRANCH=unstable
-	SRC_URI="mirror://kde/${SRC_BRANCH}/${MY_PN}/${MY_PN}-${PV}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${MY_PN}-${PV}"
-fi
-
 DESCRIPTION="Library for writing accessibility clients such as screen readers"
-HOMEPAGE="https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient/repository"
+HOMEPAGE="https://accessibility.kde.org/ https://cgit.kde.org/libkdeaccessibilityclient.git"
 
 LICENSE="LGPL-2.1"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
