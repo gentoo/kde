@@ -20,6 +20,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep ksmtp)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep akonadi)
@@ -40,12 +41,3 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 RESTRICT+=" test"
-
-src_prepare() {
-	kde5_src_prepare
-
-	if ! use_if_iuse handbook ; then
-		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
-			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
-	fi
-}
