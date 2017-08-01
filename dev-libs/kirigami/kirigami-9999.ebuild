@@ -35,6 +35,9 @@ DEPEND="${RDEPEND}
 	$(add_qt_dep linguist-tools)
 "
 
+# requires package to already be installed
+RESTRICT+=" test"
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=$(usex examples)
