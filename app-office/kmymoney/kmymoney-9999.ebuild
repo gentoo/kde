@@ -5,6 +5,7 @@ EAPI=6
 
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional-recursive"
+# QT_MINIMAL="5.9.1" # for webengine; defaulting to +webkit until Qt-5.9.1 in tree
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit kde5
@@ -17,7 +18,7 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities addressbook calendar crypt hbci holidays ofx quotes weboob"
+IUSE="activities addressbook calendar crypt hbci holidays ofx quotes +webkit weboob"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -27,7 +28,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kiconthemes)
@@ -66,6 +66,8 @@ COMMON_DEPEND="
 	)
 	holidays? ( $(add_kdeapps_dep kholidays) )
 	ofx? ( dev-libs/libofx )
+	webkit? ( $(add_qt_dep qtwebkit) )
+	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 	weboob? (
 		$(add_frameworks_dep kross)
 		www-client/weboob
@@ -92,6 +94,7 @@ src_configure() {
 		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
 		$(cmake-utils_use_find_package holidays KF5Holidays)
 		-DENABLE_LIBOFX=$(usex ofx)
+		-DENABLE_WEBENGINE=$(usex !webkit)
 		-DENABLE_WEBOOB=$(usex weboob)
 		$(cmake-utils_use_find_package weboob KF5Kross)
 	)
