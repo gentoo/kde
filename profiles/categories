@@ -5,11 +5,13 @@ app-office
 app-text
 dev-db
 dev-libs
+dev-qt
 dev-util
 dev-vcs
 games-board
 games-puzzle
 kde-apps
+kde-base
 kde-frameworks
 kde-misc
 kde-plasma
@@ -27,5 +29,4 @@ net-p2p
 sys-auth
 sys-block
 sys-libs
-www-client
 x11-themes
