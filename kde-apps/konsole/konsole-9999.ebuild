@@ -41,7 +41,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	X? ( x11-libs/libX11 )
