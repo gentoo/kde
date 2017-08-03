@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
-DESCRIPTION="Simple chess board for KDE"
+DESCRIPTION="Simple chess board based on KDE Frameworks"
 HOMEPAGE="http://kde-apps.org/content/show.php/Knights?content=122046"
 
 LICENSE="GPL-2+"
@@ -34,9 +34,9 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	speech? ( $(add_qt_dep qtspeech) )
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
+	speech? ( $(add_qt_dep qtspeech) )
 "
 RDEPEND="${DEPEND}
 	!games-board/knights:4
