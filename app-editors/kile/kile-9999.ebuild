@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 MY_P=${P/_beta/b}
 inherit kde5
 
-DESCRIPTION="A Latex Editor and TeX shell for KDE"
+DESCRIPTION="Latex Editor and TeX shell based on KDE Frameworks"
 HOMEPAGE="http://kile.sourceforge.net/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
@@ -37,14 +37,10 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	pdf? ( app-text/poppler[qt5] )
 "
-
 RDEPEND="${DEPEND}
 	!app-editors/kile:4
 	$(add_kdeapps_dep konsole)
-	|| (
-		$(add_kdeapps_dep okular 'pdf?')
-		app-text/acroread
-	)
+	$(add_kdeapps_dep okular 'pdf?')
 	virtual/latex-base
 	virtual/tex-base
 	pdf? (
