@@ -3,7 +3,8 @@
 
 EAPI=6
 
-inherit eutils kde5
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+inherit eutils kde5 python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
@@ -25,9 +26,15 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
+	test? ( ${PYTHON_DEPS} )
 "
 
 REQUIRED_USE="test? ( taglib )"
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+	kde5_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
