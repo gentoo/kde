@@ -41,11 +41,11 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON
 		-DBUILD_HTML_DOCS="$(usex doc)"
 		-DBUILD_MAN_DOCS="$(usex doc)"
 		-DDOC_INSTALL_DIR="/usr/share/doc/${PF}"
 	)
+	use test && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON )
 
 	cmake-utils_src_configure
 }
