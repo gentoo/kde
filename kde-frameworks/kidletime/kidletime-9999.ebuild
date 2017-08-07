@@ -29,8 +29,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.37.0-qtdbus.patch" )
-
 src_prepare() {
 	kde5_src_prepare
 	if ! use xscreensaver; then
