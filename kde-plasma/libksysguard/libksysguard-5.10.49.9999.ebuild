@@ -42,6 +42,8 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-proto/xproto )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.10.4-unused-dep.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package detailedmemory Qt5WebKitWidgets)
