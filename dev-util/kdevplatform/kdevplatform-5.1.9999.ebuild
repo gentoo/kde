@@ -5,7 +5,7 @@ EAPI=6
 
 EGIT_BRANCH="5.1"
 KDEBASE="kdevelop"
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="true"
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
