@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+gdbui +ninja okteta +plasma +qmake qthelp"
+IUSE="+gdbui okteta +plasma +qmake qthelp"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
@@ -60,8 +60,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kio-extras)
+	dev-util/ninja
 	>=sys-devel/gdb-7.0[python]
-	ninja? ( dev-util/ninja )
 	!dev-util/kdevelop:4
 	!dev-util/kdevelop-clang
 	!dev-util/kdevelop-cppcheck
@@ -73,14 +73,11 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT+=" test"
 # see bug 366471
 
-PATCHES=( "${FILESDIR}/${PN}-5.0.2-ninja-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package gdbui KF5SysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake-utils_use_find_package plasma KF5Plasma)
-		-DBUILD_ninjabuilder=$(usex ninja)
 		$(cmake-utils_use_find_package okteta OktetaKastenControllers)
 		$(cmake-utils_use_find_package qmake KDevelop-PG-Qt)
 		-DBUILD_qthelp=$(usex qthelp)
