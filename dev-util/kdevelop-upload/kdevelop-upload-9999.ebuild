@@ -25,8 +25,6 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-util/kdevplatform:5
-"
-RDEPEND="${DEPEND}
 	dev-util/kdevelop:5
 "
+RDEPEND="${DEPEND}"

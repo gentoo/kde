@@ -28,8 +28,6 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	dev-util/kdevelop-pg-qt:5
-	dev-util/kdevplatform:5
-"
-RDEPEND="${DEPEND}
 	dev-util/kdevelop:5
 "
+RDEPEND="${DEPEND}"

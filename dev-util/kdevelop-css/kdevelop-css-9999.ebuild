@@ -12,7 +12,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep ktexteditor)
@@ -21,11 +21,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-util/kdevelop-pg-qt:5
-	dev-util/kdevplatform:5
-"
-DEPEND="${COMMON_DEPEND}
-	sys-devel/flex
-"
-RDEPEND="${COMMON_DEPEND}
 	dev-util/kdevelop:5
+"
+DEPEND="${RDEPEND}
+	sys-devel/flex
 "

@@ -29,11 +29,10 @@ DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep threadweaver)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-util/kdevplatform:5
+	dev-util/kdevelop:5
 "
 RDEPEND="${DEPEND}
 	dev-python/pycodestyle[${PYTHON_USEDEP}]
-	dev-util/kdevelop:5
 "
 
 RESTRICT+=" test"

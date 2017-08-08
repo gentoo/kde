@@ -14,7 +14,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -24,11 +24,8 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	dev-util/kdevplatform:5
-"
-DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep threadweaver)
-"
-RDEPEND="${COMMON_DEPEND}
 	dev-util/kdevelop:5
+"
+DEPEND="${RDEPEND}
+	$(add_frameworks_dep threadweaver)
 "
