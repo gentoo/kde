@@ -31,6 +31,8 @@ RDEPEND="
 	app-arch/libarchive[bzip2]
 "
 
+PATCHES=( "${FILESDIR}/${P}-ecmaddtest.patch" )
+
 python_check_deps() {
 	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
 }
