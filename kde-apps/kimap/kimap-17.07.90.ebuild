@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Library for interacting with IMAP servers"
