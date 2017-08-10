@@ -30,6 +30,11 @@ DEPEND="${RDEPEND}
 # requires package to already be installed
 RESTRICT+=" test"
 
+src_prepare() {
+	kde5_src_prepare
+	punt_bogus_dep Qt5 Test
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=$(usex examples)
