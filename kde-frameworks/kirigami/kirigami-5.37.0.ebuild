@@ -5,10 +5,12 @@ EAPI=6
 
 KDE_EXAMPLES="true"
 KDE_TEST="forceoptional"
+KMNAME="${PN}2"
 inherit kde5
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://techbase.kde.org/Kirigami"
+EGIT_REPO_URI="${EGIT_REPO_URI/${PN}2/${PN}}"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~x86"
