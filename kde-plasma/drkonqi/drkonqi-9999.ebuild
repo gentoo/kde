@@ -35,7 +35,7 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/drkonqi:4
+	!kde-apps/drkonqi:4
 	!<kde-plasma/plasma-workspace-5.10.95:5
 "
 
