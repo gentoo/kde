@@ -21,7 +21,10 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 	dev-libs/icu:=
 	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql:* )
+	postgres? (
+		$(add_qt_dep qtnetwork)
+		dev-db/postgresql:*
+	)
 	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${RDEPEND}
