@@ -41,7 +41,10 @@ COMMON_DEPEND="
 	dev-libs/kproperty
 	dev-libs/kreport
 	marble? ( $(add_kdeapps_dep marble) )
-	mdb? ( dev-libs/glib:2 )
+	mdb? (
+		dev-libs/glib:2
+		virtual/libiconv
+	)
 	mysql? ( virtual/libmysqlclient )
 	postgres? (
 		dev-db/postgresql:*
@@ -49,9 +52,6 @@ COMMON_DEPEND="
 	)
 	webkit? ( $(add_qt_dep qtwebkit) )
 "
-# Not yet ported:
-# 	sybase? ( dev-db/freetds )
-# 	xbase? ( dev-db/xbase )
 DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
@@ -72,15 +72,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package marble KexiMarble)
 		$(cmake-utils_use_find_package mdb GLIB2)
 		$(cmake-utils_use_find_package mysql MySQL)
 		$(cmake-utils_use_find_package postgres KexiPostgreSQL)
 	)
-	# Not yet ported:
-# 	$(cmake-utils_use_find_package sybase FreeTDS)
-# 	$(cmake-utils_use_find_package xbase XBase)
-
 	kde5_src_configure
 }
