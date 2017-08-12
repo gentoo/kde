@@ -52,14 +52,16 @@ RDEPEND="
 	!kde-apps/kde-l10n:5
 	!<kde-apps/khelpcenter-17.04.1:5
 	!<kde-apps/kio-extras-17.04.1:5
+	!<kde-apps/umbrello-17.08.0:5
 	!<kde-frameworks/baloo-5.34.0:5
 	!<kde-frameworks/baloo-widgets-5.34.0:5
 	!<kde-frameworks/kfilemetadata-5.34.0:5
-	!<kde-plasma/plasma-workspace-5.9.5.1-r1:5
+	!<kde-plasma/kde-cli-tools-5.10.0:5
+	!<kde-plasma/plasma-desktop-5.10.0:5
+	!<kde-plasma/plasma-workspace-5.10.0:5
 "
 
 REMOVE_DIRS="${FILESDIR}/${PN}-16.12.3-remove-dirs"
-REMOVE_MSGS="${FILESDIR}/${PN}-17.04.3-remove-messages"
 
 IUSE="test $(printf 'l10n_%s ' ${KDE_L10N[@]})"
 
@@ -115,7 +117,6 @@ src_prepare() {
 
 	einfo "Removing file collisions with Plasma 5 and Applications"
 	[[ -f ${REMOVE_DIRS} ]] || die "Error: ${REMOVE_DIRS} not found!"
-	[[ -f ${REMOVE_MSGS} ]] || die "Error: ${REMOVE_MSGS} not found!"
 
 	use test && einfo "Tests enabled: Listing LINGUAS causing file collisions"
 
@@ -140,26 +141,6 @@ src_prepare() {
 			einfo "F: ${path}"	# run with L10N="*" to cut down list
 		fi
 	done < <(grep -ve "^$\|^\s*\#" "${REMOVE_DIRS}")
-	einfo
-	einfo "Messages..."
-	while read path; do
-		if use test ; then	# build a report w/ L10N="*" to submit @upstream
-			local lngs
-			for lng in $(kde_l10n2lingua ${KDE_L10N[@]}); do
-				SDIR="${S}/${KMNAME}-${lng}-${PV}/4/${lng}"
-				if [[ -e "${SDIR}"/messages/${path} ]] ; then
-					lngs+=" ${lng}"
-				fi
-			done
-			[[ -n "${lngs}" ]] && einfo "${path}${lngs}"
-			unset lngs
-		fi
-		if ls -U ./*/4/*/messages/${path} > /dev/null 2>&1; then
-			rm ./*/4/*/messages/${path} || die "Failed to remove ${path}"
-		else
-			einfo "F: ${path}"	# run with L10N="*" to cut down list
-		fi
-	done < <(grep -ve "^$\|^\s*\#" "${REMOVE_MSGS}")
 }
 
 src_configure() {
