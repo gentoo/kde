@@ -4,7 +4,6 @@
 EAPI=6
 
 EGIT_BRANCH="frameworks"
-KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Friendly nzb linux usenet binary client"
@@ -36,6 +35,12 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde5_src_prepare
+
+	sed -i -e "/KF5DocTools/d" CMakeLists.txt || die
+}
 
 pkg_postinst() {
 	kde5_pkg_postinst
