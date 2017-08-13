@@ -34,7 +34,9 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!net-nntp/kwooty:4
+"
 
 src_prepare() {
 	kde5_src_prepare
