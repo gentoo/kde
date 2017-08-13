@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Friendly nzb linux usenet binary client"
 HOMEPAGE="https://www.linux-apps.com/content/show.php/Kwooty?content=114385"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
