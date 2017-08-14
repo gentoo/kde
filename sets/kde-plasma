@@ -33,6 +33,7 @@ kde-plasma/plasma-pa:5
 kde-plasma/plasma-sdk:5
 kde-plasma/plasma-workspace:5
 kde-plasma/plasma-workspace-wallpapers:5
+kde-plasma/plymouth-kcm:5
 kde-plasma/polkit-kde-agent:5
 kde-plasma/powerdevil:5
 kde-plasma/sddm-kcm:5
