@@ -6,7 +6,7 @@ EAPI=6
 KDEBASE="kdevelop"
 KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5

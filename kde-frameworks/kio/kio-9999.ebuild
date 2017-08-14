@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="acl +handbook kerberos +kwallet X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -48,7 +48,7 @@ RDEPEND="
 	kwallet? ( $(add_frameworks_dep kwallet) )
 	X? ( $(add_qt_dep qtx11extras) )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
 	handbook? ( $(add_frameworks_dep kdoctools) )
 	test? ( sys-libs/zlib )
@@ -61,6 +61,7 @@ DEPEND="${RDEPEND}
 PDEPEND="
 	$(add_frameworks_dep kded)
 "
+RDEPEND="${COMMON_DEPEND}"
 
 # tests hang
 RESTRICT+=" test"

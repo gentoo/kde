@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_DESIGNERPLUGIN="true"
-KDE_TEST="forceoptional"
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 

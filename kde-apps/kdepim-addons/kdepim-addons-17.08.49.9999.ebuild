@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_EXAMPLES="true"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 

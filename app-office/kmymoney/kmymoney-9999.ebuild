@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 # QT_MINIMAL="5.9.1" # for webengine; defaulting to +webkit until Qt-5.9.1 in tree
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"

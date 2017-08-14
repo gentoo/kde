@@ -5,7 +5,7 @@ EAPI=6
 
 CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 inherit check-reqs kde5 versionator
 
 DESCRIPTION="KDE Office Suite"

@@ -16,7 +16,7 @@ if [[ ${PV} != 9999* ]]; then
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
