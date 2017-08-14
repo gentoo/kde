@@ -7,7 +7,7 @@ KDE_EXAMPLES="true"
 inherit kde5
 
 DESCRIPTION="Library for writing accessibility clients such as screen readers"
-HOMEPAGE="https://accessibility.kde.org/ https://cgit.kde.org/libkdeaccessibilityclient.git"
+HOMEPAGE="https://accessibility.kde.org/ https://cgit.kde.org/libqaccessibilityclient.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""
