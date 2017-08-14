@@ -161,7 +161,7 @@ done
 for set in *plasma-${PLASMA_RELEASE}; do
 	newfile=${set/%-${PLASMA_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|5\..\.50)//" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|${PLASMA_RELEASE}\.50)//" "${set}" >> "${newfile}"
 done
 
 for set in *-${APPS_RELEASE}; do
