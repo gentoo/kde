@@ -15,6 +15,7 @@ IUSE="bluetooth +display-manager grub gtk +handbook networkmanager pam plymouth 
 
 RDEPEND="
 	$(add_plasma_dep breeze)
+	$(add_plasma_dep drkonqi)
 	$(add_plasma_dep kactivitymanagerd)
 	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep kdecoration)
