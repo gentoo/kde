@@ -5,6 +5,10 @@
 ~kde-apps/keditbookmarks-9999
 ~kde-apps/kfind-9999
 ~kde-apps/konqueror-9999
+~kde-apps/kdeaccessibility-meta-9999
+~kde-apps/kmag-9999
+~kde-apps/kmousetool-9999
+~kde-apps/kmouth-9999
 ~kde-apps/kdeadmin-meta-9999
 ~kde-apps/kcron-9999
 ~kde-apps/ksystemlog-9999
@@ -64,6 +68,7 @@
 ~kde-apps/kpat-9999
 ~kde-apps/kreversi-9999
 ~kde-apps/kshisen-9999
+~kde-apps/ksirk-9999
 ~kde-apps/ksnakeduel-9999
 ~kde-apps/kspaceduel-9999
 ~kde-apps/ksquares-9999
