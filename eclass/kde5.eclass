@@ -624,11 +624,6 @@ kde5_src_prepare() {
 		fi
 	fi
 
-	# in frameworks, tests = manual tests so never build them
-	if [[ ${CATEGORY} = kde-frameworks ]] && [[ ${PN} != extra-cmake-modules ]]; then
-		cmake_comment_add_subdirectory tests
-	fi
-
 	# only build unit tests when required
 	if ! use_if_iuse test ; then
 		if [[ ${KDE_TEST} = forceoptional ]] ; then
@@ -658,6 +653,11 @@ kde5_src_prepare() {
 		elif [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma || ${CATEGORY} = kde-apps ]] ; then
 			cmake_comment_add_subdirectory autotests test tests
 		fi
+	fi
+
+	# in frameworks, tests = manual tests so never build them
+	if [[ ${CATEGORY} = kde-frameworks ]] && [[ ${PN} != extra-cmake-modules ]]; then
+		cmake_comment_add_subdirectory tests
 	fi
 }
 
