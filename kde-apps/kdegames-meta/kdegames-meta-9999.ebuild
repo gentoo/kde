@@ -38,6 +38,7 @@ RDEPEND="
 	$(add_kdeapps_dep kpat)
 	$(add_kdeapps_dep kreversi)
 	$(add_kdeapps_dep kshisen)
+	$(add_kdeapps_dep ksirk)
 	$(add_kdeapps_dep ksnakeduel)
 	$(add_kdeapps_dep kspaceduel)
 	$(add_kdeapps_dep ksquares)
