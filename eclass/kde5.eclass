@@ -105,8 +105,10 @@ fi
 # when USE=!test.
 # If set to "forceoptional", remove a Qt5Test dependency and comment test
 # subdirs from the root CMakeLists.txt in addition to the above.
-# If set to "forceoptional-recursive", remove a Qt5Test dependency and comment
-# test subdirs from *any* CMakeLists.txt in addition to the above.
+# If set to "forceoptional-recursive", remove Qt5Test dependencies and make
+# test subdirs according to KDE_TESTPATTERN from *any* CMakeLists.txt in ${S}
+# and below conditional on BUILD_TESTING. This is always meant as a short-term
+# fix and creates ${T}/${P}-tests-optional.patch to refine and submit upstream.
 if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: ${KDE_TEST:=true}
 else
