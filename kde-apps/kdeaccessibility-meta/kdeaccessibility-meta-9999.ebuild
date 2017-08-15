@@ -12,4 +12,5 @@ IUSE=""
 RDEPEND="
 	$(add_kdeapps_dep kmag)
 	$(add_kdeapps_dep kmousetool)
+	$(add_kdeapps_dep kmouth)
 "
