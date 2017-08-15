@@ -44,7 +44,7 @@ case ${CATEGORY} in
 		;;
 	kde-apps)
 		: ${QT_MINIMAL:=5.7.1}
-		[[ ${KDE_BUILD_TYPE} = live || ${PN} = 17.08* ]] && : ${FRAMEWORKS_MINIMAL:=5.37.0}
+		[[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.08* ]] && : ${FRAMEWORKS_MINIMAL:=5.37.0}
 		;;
 esac
 
