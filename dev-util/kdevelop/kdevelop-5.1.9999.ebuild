@@ -87,3 +87,11 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "dev-util/cppcheck" ; then
+		elog "For static C/C++ code analysis support, please install dev-util/cppcheck"
+	fi
+}

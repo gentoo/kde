@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="cvs +gdbui okteta +plasma +qmake qthelp reviewboard subversion webkit +welcomepage"
+IUSE="cvs +gdbui okteta +plasma +qmake reviewboard subversion webkit +welcomepage"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 REQUIRED_USE="test? ( welcomepage )"
@@ -50,12 +50,13 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qthelp)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
-	>=sys-devel/clang-3.5.0:*
+	>=sys-devel/clang-3.8.0:*
 	x11-misc/shared-mime-info
 	gdbui? ( $(add_plasma_dep libksysguard) )
 	okteta? ( $(add_kdeapps_dep okteta) )
@@ -64,7 +65,6 @@ COMMON_DEPEND="
 		$(add_frameworks_dep plasma)
 	)
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
-	qthelp? ( $(add_qt_dep qthelp) )
 	reviewboard? ( dev-libs/purpose )
 	subversion? (
 		dev-libs/apr:1
@@ -106,7 +106,6 @@ src_configure() {
 		$(cmake-utils_use_find_package plasma KF5Plasma)
 		$(cmake-utils_use_find_package okteta OktetaKastenControllers)
 		$(cmake-utils_use_find_package qmake KDevelop-PG-Qt)
-		-DBUILD_qthelp=$(usex qthelp)
 		$(cmake-utils_use_find_package reviewboard KDEExperimentalPurpose)
 		$(cmake-utils_use_find_package subversion SubversionLibrary)
 		$(cmake-utils_use_find_package !webkit Qt5WebEngineWidgets)
@@ -121,5 +120,13 @@ pkg_postinst() {
 
 	if ! has_version "kde-apps/konsole" ; then
 		elog "For konsole view, please install kde-apps/konsole"
+	fi
+
+	if ! has_version "dev-util/cppcheck" ; then
+		elog "For static C/C++ code analysis support, please install dev-util/cppcheck"
+	fi
+
+	if ! has_version "dev-util/heaptrack[qt5]" ; then
+		elog "For heap memory profiling support, please install dev-util/heaptrack"
 	fi
 }
