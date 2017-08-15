@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
 KEYWORDS=""
-IUSE="consolekit +wireless"
+IUSE="+brightness-control consolekit +wireless"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -40,12 +40,12 @@ DEPEND="
 	$(add_qt_dep qtx11extras)
 	virtual/libudev:=
 	x11-libs/libxcb
+	brightness-control? ( app-misc/ddcutil )
 	wireless? (
 		$(add_frameworks_dep bluez-qt)
 		$(add_frameworks_dep networkmanager-qt)
 	)
 "
-
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	>=sys-power/upower-0.9.23
@@ -60,6 +60,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package brightness-control DDCUtil)
 		$(cmake-utils_use_find_package wireless KF5BluezQt)
 		$(cmake-utils_use_find_package wireless KF5NetworkManagerQt)
 	)
