@@ -356,6 +356,7 @@ unset cppuintdepend
 [[ -n ${qtcoreuse} ]] && qtcoreuse="[${qtcoreuse}]"
 kdecommondepend="
 	dev-lang/perl
+	>=dev-qt/designer-${QT_MINIMAL}:4
 	>=dev-qt/qtcore-${QT_MINIMAL}:4${qtcoreuse}
 	>=dev-qt/qtdbus-${QT_MINIMAL}:4
 	>=dev-qt/qtgui-${QT_MINIMAL}:4[accessibility,dbus(+)]
