@@ -5,13 +5,13 @@ EAPI=6
 
 EGIT_BRANCH="5.1"
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 LICENSE="GPL-2 LGPL-2"
-IUSE="+gdbui okteta +plasma +qmake qthelp"
+IUSE="+gdbui okteta +plasma +qmake"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
@@ -40,6 +40,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qthelp)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
@@ -54,7 +55,6 @@ COMMON_DEPEND="
 		$(add_frameworks_dep plasma)
 	)
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
-	qthelp? ( $(add_qt_dep qthelp) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
@@ -82,7 +82,7 @@ src_configure() {
 		$(cmake-utils_use_find_package plasma KF5Plasma)
 		$(cmake-utils_use_find_package okteta OktetaKastenControllers)
 		$(cmake-utils_use_find_package qmake KDevelop-PG-Qt)
-		-DBUILD_qthelp=$(usex qthelp)
+		-DBUILD_qthelp=ON
 	)
 
 	kde5_src_configure
