@@ -7,7 +7,7 @@ EGIT_BRANCH="5.1"
 KDEBASE="kdevelop"
 KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="forceoptional"
 KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5
