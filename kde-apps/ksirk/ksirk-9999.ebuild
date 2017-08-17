@@ -37,4 +37,6 @@ DEPEND="
 	media-libs/phonon[qt5(+)]
 	sys-libs/zlib
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/kde4-l10n
+"
