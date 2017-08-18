@@ -4,6 +4,7 @@
 EAPI=6
 
 EGIT_BRANCH="5.1"
+KDE_TEST="forceoptional"
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
 PYTHON_COMPAT=( python3_{4,5,6} )

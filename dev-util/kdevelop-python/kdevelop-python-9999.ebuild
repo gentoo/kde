@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="forceoptional"
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
 PYTHON_COMPAT=( python3_{4,5,6} )
