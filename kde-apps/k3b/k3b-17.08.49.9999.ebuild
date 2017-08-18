@@ -77,8 +77,6 @@ REQUIRED_USE="
 
 DOCS+=( ChangeLog {FAQ,PERMISSIONS,README}.txt )
 
-PATCHES=( "${FILESDIR}/${PN}-17.04.3-out-of-bounds.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
@@ -102,6 +100,15 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_test() {
+	# 628166
+	local myctestargs=(
+		-E "(k3bdeviceglobalstest)"
+	)
+
+	kde5_src_test
 }
 
 pkg_postinst() {
