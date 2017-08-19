@@ -16,7 +16,7 @@ if [[ ${PV} != 9999* ]]; then
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -57,6 +57,4 @@ src_prepare() {
 		CMakeLists.txt || die
 	sed -i -e "/^find_dependency/ s/ \"@LibGMP_MIN_VERSION@\"//" \
 		KF5TorrentConfig.cmake.in || die
-
-	use test || cmake_comment_add_subdirectory testlib
 }
