@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_TEST="forceoptional"
+KDE_TEST="forceoptional-recursive"
 inherit kde5
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -41,7 +41,6 @@ COMMON_DEPEND="
 	media-gfx/exiv2:=
 	media-libs/lcms
 	media-libs/libpng:0=
-	net-misc/curl
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libX11
