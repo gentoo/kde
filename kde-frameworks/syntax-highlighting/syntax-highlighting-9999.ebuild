@@ -23,5 +23,5 @@ DEPEND="${RDEPEND}
 
 src_install() {
 	kde5_src_install
-	dobin "${BUILD_DIR}"/src/indexer/katehighlightingindexer
+	dobin "${BUILD_DIR}"/bin/katehighlightingindexer
 }
