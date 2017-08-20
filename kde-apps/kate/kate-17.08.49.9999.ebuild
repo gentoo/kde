@@ -48,7 +48,6 @@ DEPEND="
 		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
 		$(add_qt_dep qtsql)
-		>=dev-libs/libgit2-0.22.0:=[threads]
 	)
 "
 RDEPEND="${DEPEND}"
@@ -69,6 +68,7 @@ src_configure() {
 		-DBUILD_addons=$(usex addons)
 		-DBUILD_kwrite=FALSE
 	)
+	use addons && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_LibGit2=ON )
 
 	kde5_src_configure
 }
