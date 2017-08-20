@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>jfmcarreira@gmail.com</email>
+		<name>Joao Carreira</name>
+	</maintainer>
+	<use>
+		<flag name="kde">Using KDE libs to generate the graphic interface</flag>
+	</use>
+</pkgmetadata>
+
