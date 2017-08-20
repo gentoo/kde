@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
 KEYWORDS=""
-IUSE="google"
+IUSE=""
 
 RDEPEND="
 	$(add_kdeapps_dep akonadi)
@@ -55,6 +55,7 @@ RDEPEND="
 	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
+	$(add_kdeapps_dep libkgapi)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep libksieve)
 	$(add_kdeapps_dep libktnef)
@@ -66,5 +67,4 @@ RDEPEND="
 	$(add_kdeapps_dep pim-sieve-editor)
 	$(add_kdeapps_dep pimcommon)
 	$(add_kdeapps_dep syndication)
-	google? ( $(add_kdeapps_dep libkgapi) )
 "
