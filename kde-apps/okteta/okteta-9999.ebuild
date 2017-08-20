@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_DESIGNERPLUGIN="true"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
@@ -13,7 +12,7 @@ DESCRIPTION="KDE hexeditor"
 HOMEPAGE="https://www.kde.org/applications/utilities/okteta
 https://utils.kde.org/projects/okteta"
 KEYWORDS=""
-IUSE="crypt"
+IUSE="crypt designer"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -41,6 +40,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	crypt? ( app-crypt/qca:2[qt5] )
+	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${DEPEND}"
 
@@ -48,6 +48,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DOMIT_EXAMPLES=ON
 		$(cmake-utils_use_find_package crypt Qca-qt5)
+		$(cmake-utils_use_find_package designer Qt5Designer)
+		$(cmake-utils_use_find_package designer Qt5UiPlugin)
 	)
 
 	kde5_src_configure
