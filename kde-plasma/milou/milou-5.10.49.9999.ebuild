@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="forceoptional-recursive"
 inherit kde5
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
