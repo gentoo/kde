@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>deathwing00@gentoo.org</email>
-		<name>deathwing00</name>
-	</maintainer>
 	<maintainer type="project">
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
