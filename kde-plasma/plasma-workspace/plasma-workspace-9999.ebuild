@@ -50,7 +50,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep kxmlrpcclient)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_plasma_dep kscreenlocker)
