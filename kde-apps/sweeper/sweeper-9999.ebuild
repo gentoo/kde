@@ -4,7 +4,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Privacy settings widget to clean unwanted traces on the system"
@@ -15,6 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kactivities-stats)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
