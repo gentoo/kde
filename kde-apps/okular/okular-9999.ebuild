@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
 HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
 KEYWORDS=""
-IUSE="chm crypt djvu epub +image-backend mobi mobile +pdf plucker +postscript speech +tiff"
+IUSE="chm crypt djvu epub +image-backend markdown mobi mobile +pdf plucker +postscript speech +tiff"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -46,6 +46,7 @@ DEPEND="
 		$(add_kdeapps_dep libkexiv2)
 		$(add_qt_dep qtgui 'gif,jpeg,png')
 	)
+	markdown? ( app-text/discount )
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	plucker? ( virtual/jpeg:0 )
@@ -77,6 +78,7 @@ src_configure() {
 		$(cmake-utils_use_find_package djvu DjVuLibre)
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package image-backend KF5KExiv2)
+		$(cmake-utils_use_find_package markdown Discount)
 		$(cmake-utils_use_find_package mobi QMobipocket)
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package plucker JPEG)
