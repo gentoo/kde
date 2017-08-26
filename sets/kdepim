@@ -22,6 +22,7 @@ kde-apps/kblog
 kde-apps/kcalcore
 kde-apps/kcalutils
 kde-apps/kcontacts
+kde-apps/kdav
 kde-apps/kdepim-addons
 kde-apps/kdepim-apps-libs
 kde-apps/kdepim-meta
@@ -44,6 +45,7 @@ kde-apps/korganizer
 kde-apps/kpimtextedit
 kde-apps/libgravatar
 kde-apps/libkdepim
+kde-apps/libkgapi
 kde-apps/libkleo
 kde-apps/libksieve
 kde-apps/libktnef
@@ -53,6 +55,5 @@ kde-apps/mbox-importer
 kde-apps/messagelib
 kde-apps/pim-data-exporter
 kde-apps/pim-sieve-editor
-kde-apps/pim-storage-service-manager
 kde-apps/pimcommon
 kde-apps/syndication
