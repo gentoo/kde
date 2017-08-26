@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="forceoptional"
 # QT_MINIMAL="5.9.1" # for webengine; defaulting to +webkit until Qt-5.9.1 in tree
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
@@ -66,7 +66,10 @@ COMMON_DEPEND="
 	)
 	holidays? ( $(add_kdeapps_dep kholidays) )
 	ofx? ( dev-libs/libofx )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? (
+		$(add_frameworks_dep kdewebkit)
+		$(add_qt_dep qtwebkit)
+	)
 	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 	weboob? (
 		$(add_frameworks_dep kross)
