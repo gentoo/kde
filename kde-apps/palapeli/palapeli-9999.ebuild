@@ -4,7 +4,7 @@
 EAPI=6
 
 EGIT_BRANCH="frameworks"
-KDE_HANDBOOK="forceoptional" # not optional until kdelibs4support is gone
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Jigsaw puzzle game by KDE"
@@ -19,7 +19,6 @@ RDEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemviews)
