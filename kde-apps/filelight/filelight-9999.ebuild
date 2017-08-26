@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"
-HOMEPAGE="https://utils.kde.org/projects/filelight"
+HOMEPAGE="https://utils.kde.org/projects/filelight/"
 KEYWORDS=""
 IUSE=""
 
