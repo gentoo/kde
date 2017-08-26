@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="KDE version of the Simon Says game"
 HOMEPAGE="https://www.kde.org/applications/education/blinken
-https://edu.kde.org/blinken"
+https://edu.kde.org/blinken/"
 KEYWORDS=""
 IUSE=""
 
