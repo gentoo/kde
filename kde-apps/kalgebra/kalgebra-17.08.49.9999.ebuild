@@ -7,8 +7,7 @@ KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="MathML-based graph calculator by KDE"
-HOMEPAGE="https://www.kde.org/applications/education/kalgebra
-https://edu.kde.org/kalgebra"
+HOMEPAGE="https://www.kde.org/applications/education/kalgebra https://edu.kde.org/kalgebra/"
 KEYWORDS=""
 IUSE="readline"
 
