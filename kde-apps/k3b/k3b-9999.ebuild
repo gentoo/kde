@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Full-featured burning and ripping application based on KDE Frameworks"
-HOMEPAGE="http://www.k3b.org/"
+HOMEPAGE="https://userbase.kde.org/K3b"
 
 LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
