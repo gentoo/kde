@@ -7,8 +7,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="Game based on anagrams of words"
-HOMEPAGE="https://www.kde.org/applications/education/kanagram
-https://edu.kde.org/kanagram"
+HOMEPAGE="https://www.kde.org/applications/education/kanagram https://edu.kde.org/kanagram/"
 KEYWORDS=""
 IUSE=""
 
