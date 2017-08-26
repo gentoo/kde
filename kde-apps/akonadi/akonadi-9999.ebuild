@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
-HOMEPAGE="https://pim.kde.org/akonadi"
+HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1+"
