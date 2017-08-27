@@ -4,6 +4,7 @@
 EAPI=6
 
 EGIT_BRANCH="port-to-kf5"
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="The japanese warehouse keeper game"
