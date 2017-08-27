@@ -3,7 +3,6 @@
 
 EAPI=6
 
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
@@ -18,5 +17,4 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdbus)
 "
-
 RDEPEND="${DEPEND}"
