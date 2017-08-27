@@ -17,4 +17,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdbus)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/kde4-l10n
+"
