@@ -12,7 +12,7 @@ EGIT_REPO_URI=( "https://github.com/lastfm/${PN}" )
 LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0/0"
-IUSE="fingerprint +qt4 qt5 test"
+IUSE="fingerprint qt4 +qt5 test"
 
 REQUIRED_USE="|| ( qt4 qt5 )"
 
