@@ -60,7 +60,7 @@ COMMONDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5]
-	media-libs/phonon[qt5]
+	media-libs/phonon[qt5(+)]
 	>=media-libs/taglib-1.7[asf(+),mp4(+)]
 	>=media-libs/taglib-extras-1.0.1
 	sys-libs/zlib

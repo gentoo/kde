@@ -91,7 +91,7 @@ COMMONDEPEND="
 	$(add_qt_dep qtxml)
 	app-crypt/gpgme[cxx,qt5]
 	dev-libs/libpcre
-	media-libs/phonon[qt5]
+	media-libs/phonon[qt5(+)]
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )

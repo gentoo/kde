@@ -31,6 +31,6 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	media-libs/musicbrainz:3
-	media-libs/phonon[qt5]
+	media-libs/phonon[qt5(+)]
 "
 RDEPEND="${DEPEND}"

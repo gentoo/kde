@@ -58,7 +58,7 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kross)
 	)
 	mediaplayer? (
-		media-libs/phonon[qt5]
+		media-libs/phonon[qt5(+)]
 		>=media-libs/taglib-1.5
 	)
 	rss? (

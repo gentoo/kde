@@ -22,7 +22,7 @@ RDEPEND="
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	media-libs/phonon[qt5]
+	media-libs/phonon[qt5(+)]
 	media-libs/taglib
 	!media-video/bangarang:4
 "
