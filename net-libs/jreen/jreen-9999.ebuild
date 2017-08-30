@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/euroelessar/jreen"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug +qt4 qt5"
+IUSE="debug qt4 +qt5"
 
 REQUIRED_USE="|| ( qt4 qt5 )"
 
