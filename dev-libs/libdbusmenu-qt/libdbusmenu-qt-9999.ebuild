@@ -6,9 +6,9 @@ EAPI=6
 EBZR_REPO_URI="lp:libdbusmenu-qt"
 
 [[ ${PV} == 9999* ]] && inherit bzr
-inherit cmake-multilib multibuild multilib virtualx cmake-multilib
+inherit cmake-multilib multibuild virtualx
 
-DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
+DESCRIPTION="Library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
 if [[ ${PV} != 9999* ]] ; then
 	MY_PV=${PV/_pre/+16.04.}
@@ -18,27 +18,23 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="debug +qt4 qt5"
-
-REQUIRED_USE="|| ( qt4 qt5 )"
+IUSE="debug qt4"
 
 RDEPEND="
+	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	qt4? (
 		>=dev-qt/qtcore-4.8.6:4[${MULTILIB_USEDEP}]
 		>=dev-qt/qtdbus-4.8.6:4[${MULTILIB_USEDEP}]
 		>=dev-qt/qtgui-4.8.6:4[${MULTILIB_USEDEP}]
 	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-	)
 "
 DEPEND="${RDEPEND}
 	test? (
+		dev-qt/qttest:5
 		qt4? ( >=dev-qt/qttest-4.8.6:4[${MULTILIB_USEDEP}] )
-		qt5? ( dev-qt/qttest:5 )
 	)
 "
 
@@ -50,7 +46,7 @@ DOCS=( NEWS README )
 RESTRICT="test"
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usex qt4 4) $(usex qt5 5) )
+	MULTIBUILD_VARIANTS=( $(usex qt4 4) 5 )
 }
 
 src_prepare() {
