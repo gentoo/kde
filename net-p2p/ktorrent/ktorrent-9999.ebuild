@@ -3,8 +3,6 @@
 
 EAPI=6
 
-LIBKT_VERSION_MIN="${PV}"
-LIBKT_VERSION_MAX="99999999"
 if [[ ${PV} != 9999* ]]; then
 	inherit versionator
 	# upstream likes to skip that _ in beta releases
@@ -55,6 +53,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:5
 	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:5
 	infowidget? ( dev-libs/geoip )
@@ -105,8 +104,8 @@ src_configure() {
 		-DENABLE_LOGVIEWER_PLUGIN=$(usex logviewer)
 		-DENABLE_MAGNETGENERATOR_PLUGIN=$(usex magnetgenerator)
 		-DENABLE_MEDIAPLAYER_PLUGIN=$(usex mediaplayer)
+		$(cmake-utils_use_find_package rss KF5Syndication)
 		-DENABLE_SCANFOLDER_PLUGIN=$(usex scanfolder)
-		-DENABLE_SYNDICATION_PLUGIN=$(usex rss)
 		-DENABLE_SEARCH_PLUGIN=$(usex search)
 		-DENABLE_SHUTDOWN_PLUGIN=$(usex shutdown)
 		-DENABLE_STATS_PLUGIN=$(usex stats)
