@@ -10,7 +10,7 @@ inherit kde5 qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="+calendar geolocation gps prison qalculate +semantic-desktop"
+IUSE="appstream +calendar geolocation gps prison qalculate +semantic-desktop"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -135,6 +135,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package calendar KF5Holidays)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake-utils_use_find_package prison KF5Prison)
