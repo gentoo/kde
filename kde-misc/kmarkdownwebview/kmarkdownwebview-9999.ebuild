@@ -16,21 +16,22 @@ IUSE="webkit"
 DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebchannel)
 	$(add_qt_dep qtwidgets)
 	webkit? ( $(add_qt_dep qtwebkit) )
-	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
+	!webkit? (
+		$(add_qt_dep qtwebchannel)
+		$(add_qt_dep qtwebengine 'widgets')
+	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_WEBKIT=$(usex webkit)
+		-DUSE_QTWEBKIT=$(usex webkit)
 	)
 
 	kde5_src_configure
