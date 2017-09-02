@@ -5,17 +5,10 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="KDE C++ interface for MediaWiki based web service as wikipedia.org"
+DESCRIPTION="C++ interface for MediaWiki based web service as wikipedia.org"
 HOMEPAGE="https://www.digikam.org/"
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	MY_PV="${PV/_/-}"
-	MY_P="digikam-${MY_PV}"
-	SRC_URI="mirror://kde/stable/digikam/${MY_P}.tar.bz2"
-	S=${WORKDIR}/${MY_P}/extra/${PN}
-fi
-
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
@@ -26,3 +19,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!net-libs/libmediawiki:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.0.0_pre20170128-tests-optional.patch" )
