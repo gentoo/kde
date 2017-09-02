@@ -9,14 +9,12 @@ inherit kde5
 DESCRIPTION="Library for accessing the features of social networking site vkontakte.ru"
 HOMEPAGE="https://www.digikam.org/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ || ( LGPL-2.1 LGPL-3 )"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
@@ -29,4 +27,4 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 # accessing network
-RESTRICT="test"
+RESTRICT+=" test"
