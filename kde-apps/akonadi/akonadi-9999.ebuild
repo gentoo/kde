@@ -34,6 +34,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep networkmanager-qt)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
