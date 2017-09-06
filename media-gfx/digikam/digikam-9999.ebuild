@@ -14,10 +14,10 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-KEYWORDS=""
 IUSE="addressbook calendar gphoto2 jpeg2k +kipi +lensfun marble semantic-desktop mysql opengl openmp +panorama scanner X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	KEYWORDS="~amd64 ~x86"
 	MY_PV=${PV/_/-}
 	MY_P=${PN}-${MY_PV}
 	SRC_BRANCH=stable
@@ -32,8 +32,8 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
@@ -42,6 +42,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui '-gles2')
 	$(add_qt_dep qtprintsupport)
@@ -53,7 +54,6 @@ COMMON_DEPEND="
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/liblqr
-	>=media-libs/libpgf-6.12.27
 	media-libs/libpng:0=
 	media-libs/opencv:=[-qt4(-)]
 	|| ( <media-libs/opencv-3.0.0 >=media-libs/opencv-3.1.0 )
@@ -88,7 +88,6 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtconcurrent)
 	dev-cpp/eigen:3
 	dev-libs/boost[threads]
 	sys-devel/gettext
