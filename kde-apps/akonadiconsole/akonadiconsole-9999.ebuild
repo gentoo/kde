@@ -29,6 +29,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
+	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
@@ -40,5 +41,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
+	dev-libs/xapian:=
 "
 RDEPEND="${DEPEND}"
