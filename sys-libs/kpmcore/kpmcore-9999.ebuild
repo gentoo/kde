@@ -13,7 +13,7 @@ fi
 DESCRIPTION="Library for managing partitions"
 HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
 LICENSE="GPL-3"
-SLOT="5/5"
+SLOT="5/6"
 IUSE=""
 
 RDEPEND="
