@@ -19,7 +19,6 @@ IUSE=""
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
@@ -27,7 +26,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/libatasmart
-	sys-apps/util-linux
+	>=sys-apps/util-linux-2.30
 	>=sys-block/parted-3
 "
 DEPEND="${RDEPEND}
