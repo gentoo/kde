@@ -3,12 +3,11 @@
 
 EAPI=6
 
-EGIT_BRANCH="kf5"
 inherit kde5
 
 DESCRIPTION="Frontend to diff3 based on Qt/KF5"
-HOMEPAGE="http://kdiff3.sourceforge.net/"
-EGIT_REPO_URI="https://anongit.kde.org/scratch/thomasfischer/${PN}"
+HOMEPAGE="https://gitlab.com/tfischer/kdiff3.git"
+EGIT_REPO_URI="https://gitlab.com/tfischer/${PN}.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -25,7 +24,6 @@ CDEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtcore)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
@@ -37,12 +35,3 @@ RDEPEND="${CDEPEND}
 	sys-apps/diffutils
 	!kde-misc/kdiff3:4
 "
-
-src_unpack(){
-	if [[ ${KDE_BUILD_TYPE} = live ]]; then
-		git-r3_src_unpack
-		mv "${S}"/${PN}/* "${S}" || die
-	else
-		kde5_src_unpack
-	fi
-}
