@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Tool visualising massif data"
 HOMEPAGE="http://kde-apps.org/content/show.php/Massif+Visualizer?content=122409"
 
-LICENSE="GPL-2"
+LICENSE="|| ( GPL-2 GPL-3 )"
 KEYWORDS=""
 IUSE="+callgraph"
 
