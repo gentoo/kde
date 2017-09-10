@@ -3,7 +3,6 @@
 
 EAPI=6
 
-QT_MINIMAL="5.7.1"
 inherit kde5
 
 DESCRIPTION="KPart for rendering Markdown content "
