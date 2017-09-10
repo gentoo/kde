@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils xdg-utils
+inherit meson xdg-utils
 
 if [[ ${PV} = 9999 ]]; then
 	inherit git-r3
@@ -13,7 +13,7 @@ else
 	MY_PV="$(replace_all_version_separators '_')"
 	MY_P="APPSTREAM_${MY_PV}"
 	SRC_URI="https://github.com/ximion/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 	S="${WORKDIR}/${PN}-${MY_P}"
 fi
 
@@ -21,7 +21,7 @@ DESCRIPTION="Cross-distro effort for providing metadata for software in the Linu
 HOMEPAGE="https://www.freedesktop.org/wiki/Distributions/AppStream/"
 
 LICENSE="LGPL-2.1+ GPL-2+"
-# check APPSTREAM_LIB_API_LEVEL
+# check as_api_level
 SLOT="0/4"
 IUSE="apt doc qt5 test"
 
@@ -42,30 +42,18 @@ DEPEND="${RDEPEND}
 	)
 "
 
-src_prepare() {
-	cmake-utils_src_prepare
-
-	if ! use test; then
-		pushd qt > /dev/null || die
-		cmake_comment_add_subdirectory tests
-		popd > /dev/null || die
-	fi
-}
-
 src_configure() {
 	xdg_environment_reset
 
-	local mycmakeargs=(
-		-DSTEMMING=ON
-		-DL18N=ON
-		-DVAPI=OFF
-		-DMAINTAINER=OFF
-		-DSANITIZERS=OFF
-		-DDOCUMENTATION=OFF
-		-DAPT_SUPPORT=$(usex apt)
-		-DINSTALL_PREBUILT_DOCS=$(usex doc)
-		-DQT=$(usex qt5)
+	local emesonargs=(
+		-Ddocs=false
+		-Dmaintainer=false
+		-Dstemming=true
+		-Dvapi=false
+		-Dapt-support=$(usex apt true false)
+		-Dapidocs=$(usex doc true false)
+		-Dqt=$(usex qt5 true false)
 	)
 
-	cmake-utils_src_configure
+	meson_src_configure
 }
