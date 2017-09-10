@@ -9,10 +9,8 @@ inherit kde5 python-any-r1
 DESCRIPTION="Qt bindings for the Telepathy logger"
 HOMEPAGE="https://projects.kde.org/projects/extragear/network/telepathy/telepathy-logger-qt"
 
-if [[ ${KDE_BUILD_TYPE} = live ]]; then
-	KEYWORDS=""
-else
-	SRC_URI="mirror://kde/unstable/kde-telepathy/${PV}/src/${P}.tar.xz"
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/telepathy-logger-qt/${PV%.*}/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
