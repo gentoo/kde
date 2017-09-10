@@ -26,7 +26,6 @@ IUSE="activities +crypt +fontconfig gsl import-filter jpeg2k +lcms okular openex
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
-# drop qtcore subslot operator when QT_MINIMAL >= 5.7.0
 # FIXME: Disabled by upstream for good reason
 # Crashes plan (https://bugs.kde.org/show_bug.cgi?id=311940)
 # $(add_kdeapps_dep akonadi)
@@ -107,7 +106,6 @@ COMMON_DEPEND="
 	calligra_features_karbon? ( jpeg2k? ( media-libs/openjpeg:= ) )
 	calligra_features_plan? (
 		$(add_frameworks_dep khtml)
-		$(add_qt_dep qtcore '' '' '5=')
 		dev-libs/kdiagram:5
 		=dev-libs/kproperty-3.0*:5
 		=dev-libs/kreport-3.0*:5
