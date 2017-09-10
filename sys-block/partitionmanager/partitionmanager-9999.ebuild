@@ -4,7 +4,6 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-QT_MINIMAL="5.7.1"
 inherit kde5
 
 DESCRIPTION="KDE utility for management of partitions and file systems"
