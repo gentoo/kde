@@ -33,7 +33,6 @@ export KDE_BUILD_TYPE
 case ${CATEGORY} in
 	kde-frameworks)
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		[[ ${KDE_BUILD_TYPE} = live || $(get_version_component_range 2) -ge 37 ]]
 		;;
 	kde-plasma)
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
