@@ -7,8 +7,8 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Graphviz dot graph file viewer"
-HOMEPAGE="http://www.kde.org/applications/graphics/kgraphviewer/
-http://extragear.kde.org/apps/kgraphviewer/"
+HOMEPAGE="https://www.kde.org/applications/graphics/kgraphviewer/"
+[[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
