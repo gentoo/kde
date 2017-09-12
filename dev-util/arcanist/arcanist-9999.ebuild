@@ -22,5 +22,5 @@ RDEPEND="
 src_install() {
 	dodir /opt/${PN}
 	cp -a "${S}"/* "${D}/opt/${PN}"
-	dosym /opt/${PN}/bin/arc /usr/bin/arc
+	dosym "${D}/opt/${PN}/bin/arc" /usr/bin/arc
 }
