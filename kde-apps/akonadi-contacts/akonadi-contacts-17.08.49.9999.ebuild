@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Library for akonadi contact integration"
 KEYWORDS=""
 LICENSE="GPL-2+"
-IUSE="prison"
+IUSE=""
 
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT+=" test"
@@ -29,6 +29,7 @@ DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep prison)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kcontacts)
@@ -38,16 +39,7 @@ DEPEND="
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	>=dev-libs/grantlee-5.1.0:5
-	prison? ( $(add_frameworks_dep prison) )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package prison KF5Prison)
-	)
-
-	kde5_src_configure
-}
