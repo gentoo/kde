@@ -13,7 +13,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kaddressbook/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 
-IUSE="prison"
+IUSE=""
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -33,6 +33,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep prison)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-search)
@@ -49,7 +50,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 	dev-libs/grantlee:5
-	prison? ( $(add_frameworks_dep prison) )
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
@@ -58,11 +58,3 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package prison KF5Prison)
-	)
-
-	kde5_src_configure
-}
