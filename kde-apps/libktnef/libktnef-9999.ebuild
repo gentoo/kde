@@ -13,7 +13,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
