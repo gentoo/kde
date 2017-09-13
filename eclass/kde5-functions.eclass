@@ -59,7 +59,7 @@ esac
 # @ECLASS-VARIABLE: PLASMA_MINIMAL
 # @DESCRIPTION:
 # Minimum version of Plasma to remove. This affects add_plasma_dep.
-: ${PLASMA_MINIMAL:=5.10.4}
+: ${PLASMA_MINIMAL:=5.10.5}
 
 # @ECLASS-VARIABLE: KDE_APPS_MINIMAL
 # @DESCRIPTION:
