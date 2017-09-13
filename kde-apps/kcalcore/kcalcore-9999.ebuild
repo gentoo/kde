@@ -18,7 +18,6 @@ DEPEND="
 	$(add_frameworks_dep kdelibs4support)
 	$(add_qt_dep qtgui)
 	dev-libs/libical:=
-	sys-apps/util-linux
 "
 RDEPEND="${DEPEND}"
 
