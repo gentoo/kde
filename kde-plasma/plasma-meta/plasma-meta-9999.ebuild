@@ -37,6 +37,7 @@ RDEPEND="
 	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-desktop)
 	$(add_plasma_dep plasma-integration)
+	$(add_plasma_dep plasma-vault)
 	$(add_plasma_dep plasma-workspace)
 	$(add_plasma_dep polkit-kde-agent)
 	$(add_plasma_dep powerdevil)
