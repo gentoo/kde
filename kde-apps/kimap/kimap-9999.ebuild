@@ -11,6 +11,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# TODO: Convince upstream not to install stuff with tests
 DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
@@ -19,6 +20,7 @@ DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtgui)
 	dev-libs/cyrus-sasl
+	test? ( $(add_qt_dep qttest) )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
