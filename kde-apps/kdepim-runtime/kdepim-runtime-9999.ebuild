@@ -63,6 +63,7 @@ CDEPEND="
 DEPEND="${CDEPEND}
 	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libxslt
+	test? ( $(add_kdeapps_dep kimap 'test') )
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-l10n
