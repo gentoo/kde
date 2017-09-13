@@ -17,6 +17,7 @@ DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
