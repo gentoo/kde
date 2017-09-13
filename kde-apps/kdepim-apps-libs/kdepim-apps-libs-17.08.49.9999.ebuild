@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Libraries for KDE PIM applications"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE="prison"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -21,6 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep prison)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep grantleetheme)
@@ -31,16 +32,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	>=dev-libs/grantlee-5.1.0:5
-	prison? ( $(add_frameworks_dep prison) )
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package prison KF5Prison)
-	)
-
-	kde5_src_configure
-}
