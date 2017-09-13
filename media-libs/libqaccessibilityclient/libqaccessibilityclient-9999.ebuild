@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="forceoptional"
 KDE_EXAMPLES="true"
 inherit kde5
 
@@ -19,11 +20,3 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		-DQT5_BUILD=ON
-	)
-
-	kde5_src_configure
-}
