@@ -11,7 +11,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -39,9 +39,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	dev-libs/libical
 "
-DEPEND="${COMMON_DEPEND}
-	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
