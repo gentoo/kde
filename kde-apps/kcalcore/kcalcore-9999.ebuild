@@ -13,9 +13,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_qt_dep qtgui)
 	dev-libs/libical:=
 "
