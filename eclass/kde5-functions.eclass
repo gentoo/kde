@@ -40,9 +40,9 @@ case ${CATEGORY} in
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
 		;;
 	kde-plasma)
-		if [[ ${KDE_BUILD_TYPE} = live ]]; then
-			: ${FRAMEWORKS_MINIMAL:=9999}
-		fi
+		[[ ${PV} = 5.10.95 ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
+		[[ ${PV} = 5.11* ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
+		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
 		;;
 esac
 
