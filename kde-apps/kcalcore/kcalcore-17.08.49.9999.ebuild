@@ -12,7 +12,7 @@ LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdelibs4support)
@@ -20,6 +20,8 @@ DEPEND="
 	dev-libs/libical:=
 	sys-apps/util-linux
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-devel/bison
+"
 
 RESTRICT+=" test" # multiple tests fail or hang indefinitely

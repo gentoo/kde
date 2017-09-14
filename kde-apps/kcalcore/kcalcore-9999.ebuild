@@ -12,10 +12,12 @@ LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtgui)
 	dev-libs/libical:=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-devel/bison
+"
 
 RESTRICT+=" test" # multiple tests fail or hang indefinitely
