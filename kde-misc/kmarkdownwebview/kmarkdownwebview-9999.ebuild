@@ -5,7 +5,7 @@ EAPI=6
 
 inherit kde5
 
-DESCRIPTION="KPart for rendering Markdown content "
+DESCRIPTION="KPart for rendering Markdown content"
 HOMEPAGE="https://frinring.wordpress.com/2017/09/14/kmarkdownwebview-0-1-0/"
 
 LICENSE="!webkit? ( BSD ) LGPL-2.1+"
