@@ -12,7 +12,6 @@ LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-# TODO: CryFS not yet packaged
 DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
@@ -29,5 +28,5 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
-	sys-fs/encfs
+	|| ( sys-fs/cryfs sys-fs/encfs )
 "
