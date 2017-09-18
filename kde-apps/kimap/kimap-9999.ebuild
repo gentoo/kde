@@ -12,7 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 # TODO: Convince upstream not to install stuff with tests
-DEPEND="
+CDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -20,9 +20,11 @@ DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtgui)
 	dev-libs/cyrus-sasl
+"
+DEPEND="${CDEPEND}
 	test? ( $(add_qt_dep qttest) )
 "
-RDEPEND="${DEPEND}
+RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-l10n
 "
 
