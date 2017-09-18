@@ -6,6 +6,7 @@ EAPI=6
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
 KMNAME="${PN}-kde"
+FRAMEWORKS_MINIMAL="5.38.0"
 inherit kde5
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
