@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="false"
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="false"
 inherit kde5
 
@@ -12,13 +12,11 @@ HOMEPAGE="https://www.kde.org/applications/multimedia/kmix/"
 KEYWORDS=""
 IUSE="alsa pulseaudio"
 
-DEPEND="
-	$(add_frameworks_dep kcompletion)
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -33,17 +31,20 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
 	pulseaudio? (
+		dev-libs/glib:2
 		media-libs/libcanberra
 		>=media-sound/pulseaudio-0.9.12
 	)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kdelibs4support)
+"
+RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 "
 
 src_configure() {
 	local mycmakeargs=(
-		-DKMIX_KF5_BUILD=ON
 		$(cmake-utils_use_find_package alsa Alsa)
 		$(cmake-utils_use_find_package pulseaudio Canberra)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
