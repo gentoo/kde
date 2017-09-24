@@ -5,6 +5,7 @@ EAPI=6
 
 KDE_AUTODEPS="false"
 KDE_DEBUG="false"
+KDE_QTHELP="false"
 KMNAME="breeze-icons"
 inherit kde5
 
