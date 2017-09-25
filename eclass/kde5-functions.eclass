@@ -141,7 +141,7 @@ _add_category_dep() {
 
 	if [[ -n ${version} ]] ; then
 		local operator=">="
-		local version="-$(get_version_component_range 1-3 ${version})"
+		local version="-${version}"
 	fi
 
 	if [[ -n ${slot} ]] ; then
@@ -178,7 +178,7 @@ add_frameworks_dep() {
 		version=${3}
 	elif [[ ${CATEGORY} = kde-frameworks ]]; then
 		version=$(get_version_component_range 1-2)
-	elif [[ -z "${version}" ]] ; then
+	elif [[ -z ${3} ]] ; then
 		version=${FRAMEWORKS_MINIMAL}
 	fi
 
@@ -209,8 +209,8 @@ add_plasma_dep() {
 	if [[ -n ${3} ]]; then
 		version=${3}
 	elif [[ ${CATEGORY} = kde-plasma ]]; then
-		version=${PV}
-	elif [[ -z "${version}" ]] ; then
+		version=$(get_version_component_range 1-3)
+	elif [[ -z ${3} ]] ; then
 		version=${PLASMA_MINIMAL}
 	fi
 
@@ -241,8 +241,8 @@ add_kdeapps_dep() {
 	if [[ -n ${3} ]]; then
 		version=${3}
 	elif [[ ${CATEGORY} = kde-apps ]]; then
-		version=${PV}
-	elif [[ -z "${version}" ]] ; then
+		version=$(get_version_component_range 1-3)
+	elif [[ -z ${3} ]] ; then
 		version=${KDE_APPS_MINIMAL}
 	fi
 
@@ -268,15 +268,12 @@ add_qt_dep() {
 		die "${FUNCNAME} was called with too many arguments"
 	fi
 
-	local version
+	local version=${3}
 	local slot=${4}
 
-	if [[ -n ${3} ]]; then
-		version=${3}
-	elif [[ -z "${version}" ]]; then
+	if [[ -z ${version} ]]; then
 		version=${QT_MINIMAL}
 	fi
-
 	if [[ -z ${slot} ]]; then
 		slot="5"
 	fi
