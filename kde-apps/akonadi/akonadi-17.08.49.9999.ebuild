@@ -37,7 +37,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsql 'mysql?,postgres?')
+	$(add_qt_dep qtsql 'mysql?,postgres?' 5.7.1-r1)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
@@ -52,10 +52,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kdepimlibs
-	mysql? (
-		!>=dev-db/mariadb-10.2
-		virtual/mysql
-	)
+	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 "
 
