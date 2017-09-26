@@ -6,9 +6,9 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="An input method frontend for Plasma"
-HOMEPAGE="http://kde-apps.org/content/show.php?content=140967"
+HOMEPAGE="https://www.linux-apps.com/content/show.php?content=140967"
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="http://kde-apps.org/CONTENT/content-files/140967-${P}.tar.bz2"
+	SRC_URI="https://dl.opendesktop.org/api/files/download/id/1466629206/140967-${P}.tar.bz2"
 fi
 
 KEYWORDS=""
@@ -32,14 +32,14 @@ COMMON_DEPEND="
 	$(add_frameworks_dep plasma)
 	app-i18n/ibus
 	dev-libs/glib:2
-	!libressl? ( dev-libs/openssl:0= )
-	libressl? ( dev-libs/libressl:= )
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
 	media-libs/libpng:0=[apng]
 	x11-libs/libX11
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:= )
 	scim? (
 		>=app-i18n/scim-1.4.9
 		dev-libs/dbus-c++
@@ -47,13 +47,19 @@ COMMON_DEPEND="
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 "
 DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
 	x11-misc/shared-mime-info
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-misc/kimtoy:4
 	>=app-i18n/fcitx-4.0
 "
+
+src_prepare() {
+	kde5_src_prepare
+
+	# bug 581736
+	cmake_comment_add_subdirectory po
+}
 
 src_configure() {
 	local mycmakeargs=(
