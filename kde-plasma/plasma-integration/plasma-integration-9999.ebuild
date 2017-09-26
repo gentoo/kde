@@ -28,6 +28,7 @@ DEPEND="
 	$(add_plasma_dep breeze)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui 'dbus' '' '5=')
+	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libXcursor
