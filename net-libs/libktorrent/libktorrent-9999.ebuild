@@ -3,19 +3,6 @@
 
 EAPI=6
 
-if [[ ${PV} != 9999* ]]; then
-	inherit versionator
-	# upstream likes to skip that _ in beta releases
-	MY_PV="${PV/_/}"
-	KTORRENT_VERSION=$(($(get_major_version)+3)).$(get_version_component_range 2 ${MY_PV})
-	MY_P="${PN}-${MY_PV}"
-
-	SRC_URI="mirror://kde/stable/ktorrent/${KTORRENT_VERSION}/${MY_P}.tar.xz"
-	S="${WORKDIR}"/"${MY_P}"
-
-	KEYWORDS="~amd64 ~arm ~x86"
-fi
-
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -24,6 +11,7 @@ DESCRIPTION="BitTorrent library based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/internet/ktorrent/"
 
 LICENSE="GPL-2+"
+KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
@@ -57,4 +45,13 @@ src_prepare() {
 		CMakeLists.txt || die
 	sed -i -e "/^find_dependency/ s/ \"@LibGMP_MIN_VERSION@\"//" \
 		KF5TorrentConfig.cmake.in || die
+}
+
+src_test() {
+	# failing network tests
+	local myctestargs=(
+		-E "(fin|packetloss|send|transmit)"
+	)
+
+	kde5_src_test
 }
