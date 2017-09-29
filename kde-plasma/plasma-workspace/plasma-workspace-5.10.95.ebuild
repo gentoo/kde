@@ -10,7 +10,7 @@ inherit kde5 qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="appstream +calendar geolocation gps prison qalculate +semantic-desktop"
+IUSE="appstream +calendar geolocation gps prison qalculate +semantic-desktop systemd"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -103,6 +103,8 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	x11-apps/xset
 	x11-apps/xsetroot
+	systemd? ( sys-apps/dbus[user-session] )
+	!systemd? ( sys-apps/dbus )
 	!dev-libs/xembed-sni-proxy
 	!kde-plasma/freespacenotifier:4
 	!kde-plasma/libtaskmanager:4
