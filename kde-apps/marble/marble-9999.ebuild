@@ -13,7 +13,7 @@ DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
 HOMEPAGE="https://marble.kde.org/"
 KEYWORDS=""
 
-IUSE="aprs +dbus designer gps +kde nls phonon +positioning shapefile +webkit"
+IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webkit"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
 RDEPEND="
@@ -29,6 +29,7 @@ RDEPEND="
 	aprs? ( $(add_qt_dep qtserialport) )
 	dbus? ( $(add_qt_dep qtdbus) )
 	designer? ( $(add_qt_dep designer) )
+	geolocation? ( $(add_qt_dep qtpositioning) )
 	gps? ( sci-geosciences/gpsd )
 	kde? (
 		$(add_frameworks_dep kconfig)
@@ -44,7 +45,6 @@ RDEPEND="
 		$(add_frameworks_dep kwallet)
 	)
 	phonon? ( media-libs/phonon[qt5(+)] )
-	positioning? ( $(add_qt_dep qtpositioning) )
 	shapefile? ( sci-libs/shapelib:= )
 	webkit? ( $(add_qt_dep qtwebkit) )
 "
@@ -69,7 +69,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package aprs Perl)
-		$(cmake-utils_use_find_package positioning Qt5Positioning)
+		$(cmake-utils_use_find_package geolocation Qt5Positioning)
 		-DBUILD_MARBLE_TESTS=$(usex test)
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
