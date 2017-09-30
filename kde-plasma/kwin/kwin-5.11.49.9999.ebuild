@@ -47,7 +47,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtscript)
-	$(add_qt_dep qtvirtualkeyboard)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	>=dev-libs/libinput-1.5
@@ -70,6 +69,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
+	$(add_qt_dep qtvirtualkeyboard)
 	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
 	!<kde-apps/kdeartwork-meta-15.08.3-r1:4
 	!kde-plasma/kwin:4
