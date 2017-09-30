@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="KDE window manager"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="gles2 multimedia"
+IUSE="caps gles2 multimedia"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -66,6 +66,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
+	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
@@ -88,4 +89,12 @@ PATCHES=( "${FILESDIR}/${PN}-5.10.95-test-optional.patch" )
 src_prepare() {
 	kde5_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package caps Libcap)
+	)
+
+	kde5_src_prepare
 }
