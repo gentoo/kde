@@ -10,8 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="appstream +fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics
-ibus legacy-systray pulseaudio +qt4 scim +semantic-desktop"
+IUSE="appstream +fontconfig gtk2 gtk3 ibus legacy-systray +mouse pulseaudio +qt4 scim +semantic-desktop touchpad"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
@@ -87,7 +86,6 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
-	input_devices_synaptics? ( x11-drivers/xf86-input-synaptics )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
@@ -95,12 +93,13 @@ COMMON_DEPEND="
 	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( $(add_frameworks_dep baloo) )
+	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
-	input_devices_evdev? ( x11-drivers/xf86-input-evdev )
+	mouse? ( x11-drivers/xf86-input-evdev )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep breeze)
@@ -141,11 +140,11 @@ src_configure() {
 		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package fontconfig Fontconfig)
 		$(cmake-utils_use_find_package ibus IBus)
-		$(cmake-utils_use_find_package input_devices_evdev Evdev)
-		$(cmake-utils_use_find_package input_devices_synaptics Synaptics)
+		$(cmake-utils_use_find_package mouse Evdev)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 		$(cmake-utils_use_find_package scim SCIM)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
+		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
 	kde5_src_configure
