@@ -12,6 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2 wayland X"
 
+# drop qtdeclarative subslot operator when QT_MINIMAL >= 5.9.0
 RDEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -30,7 +31,7 @@ RDEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtdeclarative '' '' '5=')
 	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtsql)
