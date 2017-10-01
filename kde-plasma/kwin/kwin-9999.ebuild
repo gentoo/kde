@@ -97,5 +97,5 @@ src_configure() {
 		$(cmake-utils_use_find_package caps Libcap)
 	)
 
-	kde5_src_prepare
+	kde5_src_configure
 }
