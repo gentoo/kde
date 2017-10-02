@@ -11,7 +11,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
@@ -31,4 +31,6 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami)
+"
