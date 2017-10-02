@@ -28,7 +28,7 @@ DEPEND="
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami '' 2.2.0)
+	$(add_frameworks_dep kirigami)
 	$(add_qt_dep qtquickcontrols)
 	!kde-apps/analitza:4
 "
