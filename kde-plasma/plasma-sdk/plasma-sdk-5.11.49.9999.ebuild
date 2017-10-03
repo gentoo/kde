@@ -35,5 +35,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!dev-util/plasmate
-	$(add_frameworks_dep kirigami )
+	$(add_frameworks_dep kirigami)
 "
