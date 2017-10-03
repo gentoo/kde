@@ -26,7 +26,9 @@ net-libs
 net-misc
 net-nntp
 net-p2p
+sci-electronics
 sys-auth
 sys-block
 sys-libs
+www-client
 x11-themes
