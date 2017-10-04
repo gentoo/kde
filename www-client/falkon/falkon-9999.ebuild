@@ -4,7 +4,7 @@
 EAPI=6
 
 PLUGINS_HASH="80fea7df7765fdf9c9c64fdb667052b25f1c0a22"
-PLUGINS_VERSION="2016.05.26" # if there are no updates, we can use the older archive
+PLUGINS_VERSION="2017.03.26" # if there are no updates, we can use the older archive
 # QT_MINIMAL="5.9.2"
 inherit kde5
 
@@ -42,7 +42,7 @@ DEPEND="${RDEPEND}
 	gnome-keyring? ( virtual/pkgconfig )
 "
 
-DOCS=( AUTHORS BUILDING.md CHANGELOG FAQ README.md )
+DOCS=( BUILDING.md CHANGELOG README.md )
 
 src_unpack() {
 	kde5_src_unpack
