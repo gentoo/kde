@@ -42,7 +42,20 @@ case ${CATEGORY} in
 	kde-plasma)
 		[[ ${PV} = 5.10.95 ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
 		[[ ${PV} = 5.11* ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
-		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
+		if [[ ${PV} = 5.12* ]]; then
+			: ${QT_MINIMAL:=5.9.2}
+			: ${FRAMEWORKS_MINIMAL:=5.38.0}
+		fi
+		if [[ ${KDE_BUILD_TYPE} = live ]]; then
+			: ${QT_MINIMAL:=5.9.2}
+			: ${FRAMEWORKS_MINIMAL:=9999}
+		fi
+		;;
+	kde-apps)
+		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.12* ]]; then
+			: ${QT_MINIMAL:=5.9.2}
+			: ${FRAMEWORKS_MINIMAL:=5.38.0}
+		fi
 		;;
 esac
 
