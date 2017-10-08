@@ -13,7 +13,6 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-# drop qtwebengine subslot operator when QT_MINIMAL >= 5.8.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
@@ -37,7 +36,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebengine 'widgets' '' '5=')
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/cyrus-sasl
 "

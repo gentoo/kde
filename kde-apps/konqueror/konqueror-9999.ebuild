@@ -18,7 +18,6 @@ IUSE="activities speech tidy X"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT+=" test"
 
-# drop qtwebengine subslot operator when QT_MINIMAL >= 5.8.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -46,7 +45,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine 'widgets' '' '5=')
+	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	sys-libs/zlib

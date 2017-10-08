@@ -12,7 +12,6 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.8.0
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
@@ -52,7 +51,7 @@ DEPEND="
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
-	$(add_qt_dep qtgui '' '' '5=')
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebengine 'widgets')

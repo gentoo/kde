@@ -18,7 +18,6 @@ IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.9.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -36,7 +35,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep networkmanager-qt)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui '' '' '5=')
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtsql 'mysql?,postgres?')
 	$(add_qt_dep qtwidgets)
