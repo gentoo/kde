@@ -43,17 +43,17 @@ case ${CATEGORY} in
 		[[ ${PV} = 5.10.95 ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
 		[[ ${PV} = 5.11* ]] && : ${FRAMEWORKS_MINIMAL:=5.38.0}
 		if [[ ${PV} = 5.12* ]]; then
-			: ${QT_MINIMAL:=5.9.2}
+			: ${QT_MINIMAL:=5.9.1}
 			: ${FRAMEWORKS_MINIMAL:=5.38.0}
 		fi
 		if [[ ${KDE_BUILD_TYPE} = live ]]; then
-			: ${QT_MINIMAL:=5.9.2}
+			: ${QT_MINIMAL:=5.9.1}
 			: ${FRAMEWORKS_MINIMAL:=9999}
 		fi
 		;;
 	kde-apps)
 		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.12* ]]; then
-			: ${QT_MINIMAL:=5.9.2}
+			: ${QT_MINIMAL:=5.9.1}
 			: ${FRAMEWORKS_MINIMAL:=5.38.0}
 		fi
 		;;
