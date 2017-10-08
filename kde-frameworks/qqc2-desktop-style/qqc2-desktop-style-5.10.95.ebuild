@@ -8,7 +8,7 @@ inherit kde5
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"
 SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="|| ( GPL-2+ LGPL-3+ )"
 IUSE=""
 
