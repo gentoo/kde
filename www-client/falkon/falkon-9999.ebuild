@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="dbus gnome-keyring kwallet libressl nonblockdialogs +X"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork 'ssl')
@@ -39,10 +39,13 @@ RDEPEND="
 		x11-libs/libxcb:=
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_RDEPEND}
 	$(add_qt_dep linguist-tools)
 	$(add_qt_dep qtconcurrent)
 	gnome-keyring? ( virtual/pkgconfig )
+"
+RDEPEND="${COMMON_RDEPEND}
+	!www-client/qupzilla
 "
 
 DOCS=( BUILDING.md CHANGELOG README.md )
