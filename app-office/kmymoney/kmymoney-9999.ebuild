@@ -5,7 +5,7 @@ EAPI=6
 
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
-# QT_MINIMAL="5.9.1" # for webengine; defaulting to +webkit until Qt-5.9.1 in tree
+QT_MINIMAL="5.9.1"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
 inherit kde5
@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities addressbook calendar crypt hbci holidays ofx quotes +webkit weboob"
+IUSE="activities addressbook calendar crypt hbci holidays ofx quotes webkit weboob"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
