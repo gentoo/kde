@@ -5,7 +5,7 @@ EAPI=6
 
 PLUGINS_HASH="80fea7df7765fdf9c9c64fdb667052b25f1c0a22"
 PLUGINS_VERSION="2017.03.26" # if there are no updates, we can use the older archive
-# QT_MINIMAL="5.9.2"
+QT_MINIMAL="5.9.2"
 inherit kde5
 
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
