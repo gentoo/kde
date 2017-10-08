@@ -5,6 +5,9 @@ EAPI=6
 
 PLUGINS_HASH="80fea7df7765fdf9c9c64fdb667052b25f1c0a22"
 PLUGINS_VERSION="2017.03.26" # if there are no updates, we can use the older archive
+
+KDE_TEST="forceoptional-recursive"
+KDE_TESTPATTERN="tests\/autotests"
 QT_MINIMAL="5.9.2"
 inherit kde5
 
@@ -61,7 +64,7 @@ src_configure() {
 		-DBUILD_KEYRING=$(usex gnome-keyring)
 		$(cmake-utils_use_find_package kwallet KF5Wallet)
 		-DNONBLOCK_JS_DIALOGS=$(usex nonblockdialogs)
-		-DNOT_X11=$(usex !X)
+		-DNO_X11=$(usex !X)
 		-DDISABLE_UPDATES_CHECK=OFF
 	)
 	kde5_src_configure
