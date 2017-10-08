@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-# QT_MINIMAL="5.9.1" # enable as soon as Qt-5.9.1 is in tree
+QT_MINIMAL="5.9.1"
 inherit kde5
 
 DESCRIPTION="Free/Open Source micro-blogging client by KDE"
