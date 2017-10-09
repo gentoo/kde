@@ -20,7 +20,9 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}"
