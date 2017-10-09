@@ -11,7 +11,8 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="bluetooth +display-manager grub gtk +handbook networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth crypt +display-manager grub gtk +handbook
+networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -37,13 +38,13 @@ RDEPEND="
 	$(add_plasma_dep oxygen)
 	$(add_plasma_dep plasma-desktop)
 	$(add_plasma_dep plasma-integration)
-	$(add_plasma_dep plasma-vault)
 	$(add_plasma_dep plasma-workspace)
 	$(add_plasma_dep polkit-kde-agent)
 	$(add_plasma_dep powerdevil)
 	$(add_plasma_dep systemsettings)
 	$(add_plasma_dep user-manager)
 	bluetooth? ( $(add_plasma_dep bluedevil) )
+	crypt? ( $(add_plasma_dep plasma-vault) )
 	display-manager? (
 		sddm? (
 			$(add_plasma_dep sddm-kcm)
