@@ -14,7 +14,7 @@ HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1+"
-IUSE="+mysql postgres sqlite tools xml"
+IUSE="+mysql networkmanager postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep networkmanager-qt)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
@@ -41,6 +40,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	x11-misc/shared-mime-info
+	networkmanager? ( $(add_frameworks_dep networkmanager-qt) )
 	sqlite? ( dev-db/sqlite:3 )
 	xml? ( dev-libs/libxml2 )
 "
@@ -79,6 +79,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package networkmanager KF5NetworkManagerQt)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		$(cmake-utils_use_find_package xml LibXml2)
