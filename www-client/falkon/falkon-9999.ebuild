@@ -63,7 +63,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DDISABLE_DBUS=$(usex dbus no yes)
+		-DDISABLE_DBUS=$(usex !dbus)
 		-DBUILD_KEYRING=$(usex gnome-keyring)
 		$(cmake-utils_use_find_package kwallet KF5Wallet)
 		-DNONBLOCK_JS_DIALOGS=$(usex nonblockdialogs)
