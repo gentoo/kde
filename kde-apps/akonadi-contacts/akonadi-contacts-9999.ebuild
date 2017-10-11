@@ -36,9 +36,7 @@ DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
-	>=dev-libs/grantlee-5.1.0:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
