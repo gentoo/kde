@@ -62,8 +62,7 @@ RDEPEND="${DEPEND}
 	)
 "
 
-# bug 603116
-RESTRICT+=" test"
+PATCHES=( "${FILESDIR}/${PN}-tests.patch" )
 
 src_prepare() {
 	kde5_src_prepare
@@ -88,4 +87,13 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_test() {
+	# mainshelltest hangs, chmgeneratortest fails, bug #603116
+	local myctestargs=(
+		-E "(mainshelltest|chmgeneratortest)"
+	)
+
+	kde5_src_test
 }
