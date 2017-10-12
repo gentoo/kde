@@ -1,25 +1,22 @@
 certificate version 0.1
-pusher Michael Palimaka <kensington@gentoo.org> 1507810198 +1100
-pushee git+ssh://148.251.78.52/proj/kde.git
-nonce 1507810197-dc0fa0daca1f50e56ab0
+pusher 0x0AF8B3A860381DD4 1507815901 +0200
+pushee git+ssh://git.gentoo.org/proj/kde.git
+nonce 1507815901-b1e169a0cb548dfb1c3e
 
-2d50c058256dd686c0db60684b32c438012707ab 46480ee6b96b34c0e57d516b3bf7ac646d75d20c refs/heads/master
+46480ee6b96b34c0e57d516b3bf7ac646d75d20c 04699559202011cbcc7902fdb2456d3a128441ea refs/heads/master
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v2
 
-iQKQBAABCgB6FiEEl5FpbX03bafptvFQBrHzjcpFoewFAlnfW5ZFFIAAAAAAFAAo
-aXNzdWVyLWZwckBub3RhdGlvbnM5NzkxNjk2RDdEMzc2REE3RTlCNkYxNTAwNkIx
-RjM4RENBNDVBMUVDFhxrZW5zaW5ndG9uQGdlbnRvby5vcmcACgkQBrHzjcpFoezd
-Rw/8CNPmqohAMc6q4pyXBblDWQf4mqo/4tRaHBtphXuhw3miYvXA/BjWCxtOevzh
-3zOWL+1aZxwIuW5mKD0cZrj4QQQt+F9w6LVWEMCqD2ZcO8BK3TSDAvnVRiHY6snJ
-ZU1XR3mXj+wSSvZXhPyziKFUc3LHha6PAhWCqZGlTynIpUVcwroqmzk+NLB/DUN0
-DfNlhhMbF9LlGXBxwxpZGNotnicjCr/Way6Kn00435+W24Kp+itLfqNSruwQkTT+
-UKepdYq2ySYCfcpt0Kbx7l1NK29Cy0eovPc26XSGW3YhJKT1sFGzP3a5lbye1tbH
-AQGOcauPIVuEYaHwS6TTGryNL6y69TDGQx2OtU0LizSCLkKbhmvZhJ5KVt7pWVwp
-mTAF26j8ttJLOUguQRCYEe4si30IBY2yF4Grp+pGHsaB44XQvEPq2uctCfNt/mNw
-TWHrhUR7+cfdlGTbz4UdW5s8Z2/gRzcCjnt+Dner/j/yFouy/satuQzIn7U0ND3r
-+kjEtid1QDcBwmeajivYhEypB5NvvcaagnmmgMH9eS8UxGZZWSa6/gCEvMDIXJ9j
-PiSx5rRofrCwPLYQIYPyYnZPp0h0b/vvVcsmkLbd+YSaciDAD2L2Jfggr/jALtmT
-SE6SIVp2co/vFHTTx/7nR+OODk03E9RX22zPgd6CzX9hHQI=
-=6fO7
+iQIzBAABCAAdFiEEEA5kNNMOfXuhqNzs5yVWldi6B54FAlnfcd0ACgkQ5yVWldi6
+B57mcBAAnu195/zh/9+H3+SGIagsZpK1iLvfW8TwWbW0JSb4hdVzjSwd5XEcxd04
+Io/UFIbG+NxsPFPpIw6LbRv9rZGGRqSHBF9V14yU0UtLl/mPmfdkyq+Y8IczxLax
+sw0euvIXIWti+DEwEKHDGjKykJU6fe79dD72rumUCp1rjssdf2XZohT+e0B8rjOS
+z9nicmdzxdYre+jzyr0ljDDX/358KcGKbNybJt/mxWJ49oM8XuEephCHVk9qkL3+
+kaw+yn69Aih2Z9nMNZhskroFR6Wi0XvfZ7zwKH7xgsSjeAUkYO2qbgzlqyZIdtRg
+cPARuxuR8de7KWkTP+xujBqDpAtjx8QrRjxg1YNjcWA4kWAh2je8OcUI+6YRntNQ
+3WB/xG8bgz/O5mok7ShgG73LM0iT0yIZ0G1+y2D2HdXNIivyLcpd/H/WrpJaUmDd
+RcRWvDcw1Q86xbDY/6/Ju/B/VoXF58OQZic9ryMcPBvE1Pu4NPFkbxYny7HRfZHZ
+2IAuDaLZJOTgVM7k1IEZ0iLextw4CxkpoAuYhZLg3PZSnpNaEWkpO9BZbhkrUHPk
+2cjbfNxaTDFMi8ePF8Rx2qnz7jQUmOiX+mBPoItRzB3c1/TQw2P1vGI+Bm1xuWPG
+f03aS7vnw2fJJ4cQXMNE9dKrNYMUznHTgvyHZQUIZvwxrhR0oqA=
+=Akvz
 -----END PGP SIGNATURE-----
