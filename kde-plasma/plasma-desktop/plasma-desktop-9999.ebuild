@@ -118,6 +118,7 @@ RDEPEND="${COMMON_DEPEND}
 	pulseaudio? ( $(add_plasma_dep plasma-pa ) )
 	qt4? ( kde-plasma/qguiplatformplugin_kde:4 )
 	!kde-apps/kcontrol
+	!<kde-apps/kde4-l10n-17.08.1-r1
 	!kde-apps/knetattach[handbook]
 	!kde-base/plasma-desktop:4
 	!kde-misc/kcm-touchpad
