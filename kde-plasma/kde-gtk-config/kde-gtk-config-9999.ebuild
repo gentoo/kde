@@ -35,8 +35,6 @@ RDEPEND="${DEPEND}
 	!kde-plasma/kde-gtk-config:4
 "
 
-RESTRICT+=" test"
-
 PATCHES=( "${FILESDIR}/${PN}-5.4.2-gtk3-optional.patch" )
 
 src_configure() {
@@ -50,9 +48,7 @@ src_configure() {
 
 pkg_postinst() {
 	kde5_pkg_postinst
-	einfo
 	elog "If you notice missing icons in your GTK applications, you may have to install"
 	elog "the corresponding themes for GTK. A good guess would be x11-themes/oxygen-gtk"
 	elog "for example."
-	einfo
 }
