@@ -38,6 +38,7 @@ DEPEND="
 	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtwebengine 'widgets')
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 "
