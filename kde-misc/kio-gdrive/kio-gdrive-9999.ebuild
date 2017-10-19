@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_APPS_MINIMAL="17.04.0"
 KDE_HANDBOOK="true"
 KDE_TEST="optional"
 inherit kde5
