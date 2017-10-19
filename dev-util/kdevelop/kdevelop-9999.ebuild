@@ -56,7 +56,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
-	>=sys-devel/clang-3.8.0:*
+	>=sys-devel/clang-3.8.0:=
 	x11-misc/shared-mime-info
 	gdbui? ( $(add_plasma_dep libksysguard) )
 	okteta? ( $(add_kdeapps_dep okteta) )
