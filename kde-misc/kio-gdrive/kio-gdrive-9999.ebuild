@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
 inherit kde5
 
@@ -17,7 +17,7 @@ fi
 
 IUSE="+kaccounts"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
@@ -27,10 +27,13 @@ RDEPEND="
 	kaccounts? ( $(add_kdeapps_dep kaccounts-integration) )
 	!kaccounts? ( dev-libs/qtkeychain:=[qt5(+)] )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	dev-util/intltool
+"
+RDEPEND="${COMMON_DEPEND}
+	kaccounts? ( $(add_kdeapps_dep kaccounts-providers) )
 "
 
 DOCS=( README.md )
