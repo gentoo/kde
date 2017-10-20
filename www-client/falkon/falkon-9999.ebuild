@@ -3,9 +3,6 @@
 
 EAPI=6
 
-PLUGINS_HASH="80fea7df7765fdf9c9c64fdb667052b25f1c0a22"
-PLUGINS_VERSION="2017.03.26" # if there are no updates, we can use the older archive
-
 KDE_TEST="forceoptional-recursive"
 KDE_TESTPATTERN="tests\/autotests"
 QT_MINIMAL="5.9.2"
@@ -13,7 +10,6 @@ inherit kde5
 
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
 HOMEPAGE="https://www.qupzilla.com/"
-SRC_URI+=" https://github.com/QupZilla/qupzilla-plugins/archive/${PLUGINS_HASH}.tar.gz -> qupzilla-plugins-${PLUGINS_VERSION}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -49,17 +45,6 @@ RDEPEND="${COMMON_RDEPEND}
 "
 
 DOCS=( BUILDING.md CHANGELOG README.md )
-
-src_unpack() {
-	kde5_src_unpack
-	[[ ${KDE_BUILD_TYPE} = live && -n ${A} ]] && default
-}
-
-src_prepare() {
-	kde5_src_prepare
-	# get extra plugins into qupzilla build tree
-	mv "${WORKDIR}"/qupzilla-plugins-${PLUGINS_HASH}/plugins/* "${S}"/src/plugins/ || die
-}
 
 src_configure() {
 	local mycmakeargs=(
