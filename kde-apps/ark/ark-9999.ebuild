@@ -36,6 +36,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	app-arch/libarchive:=[bzip2?,lzma?,zlib?]
+	sys-libs/zlib
 	zip? ( >=dev-libs/libzip-1.2.0:= )
 "
 DEPEND="${RDEPEND}
