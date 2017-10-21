@@ -93,15 +93,18 @@ src_prepare() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version "kde-apps/kdepim-addons:${SLOT}" ; then
-		echo
-		elog "Install kde-apps/kdepim-addons:${SLOT} for fancy e-mail headers and various useful plugins."
-		echo
-	fi
+	pkg_is_installed() {
+		echo "${1} ($(has_version ${1} || echo "not ")installed)"
+	}
 
-	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
-		echo
-		elog "Install kde-apps/kleopatra:${SLOT} to get a crypto config and certificate details GUI."
-		echo
-	fi
+	elog "KMail supports the following runtime dependencies:"
+	elog "  Virus detection:"
+	elog "    $(pkg_is_installed app-antivirus/clamav)"
+	elog "  Spam filtering:"
+	elog "    $(pkg_is_installed mail-filter/bogofilter)"
+	elog "    $(pkg_is_installed mail-filter/spamassassin)"
+	elog "  Fancy e-mail headers and various useful plugins:"
+	elog "    $(pkg_is_installed kde-apps/kdepim-addons:${SLOT})"
+	elog "  Crypto config and certificate details GUI:"
+	elog "    $(pkg_is_installed kde-apps/kleopatra:${SLOT})"
 }
