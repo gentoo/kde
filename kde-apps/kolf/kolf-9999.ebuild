@@ -3,9 +3,8 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
 KDE_SELINUX_MODULE="games"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Minigolf game by KDE"
@@ -31,5 +30,4 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-
 RDEPEND="${DEPEND}"
