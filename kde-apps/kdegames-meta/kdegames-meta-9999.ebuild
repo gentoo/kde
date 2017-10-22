@@ -33,6 +33,7 @@ RDEPEND="
 	$(add_kdeapps_dep kmines)
 	$(add_kdeapps_dep knavalbattle)
 	$(add_kdeapps_dep knetwalk)
+	$(add_kdeapps_dep kolf)
 	$(add_kdeapps_dep kollision)
 	$(add_kdeapps_dep konquest)
 	$(add_kdeapps_dep kpat)
