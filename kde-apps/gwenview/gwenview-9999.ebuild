@@ -15,7 +15,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
-IUSE="kipi raw semantic-desktop X"
+IUSE="fits kipi raw semantic-desktop X"
 
 # requires running environment
 RESTRICT+=" test"
@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
+	fits? ( sci-libs/cfitsio )
 	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
 	semantic-desktop? (
@@ -68,8 +69,11 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtimageformats)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-17.11.80-cfitsio.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
 		$(cmake-utils_use_find_package X X11)
