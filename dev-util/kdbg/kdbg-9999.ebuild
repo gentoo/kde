@@ -30,8 +30,6 @@ RDEPEND="${DEPEND}
 	sys-devel/gdb
 "
 
-PATCHES=( "${FILESDIR}/${PN}-buildfix.patch" )
-
 src_prepare() {
 	# allow documentation to be handled by eclass
 	mv kdbg/doc . || die
