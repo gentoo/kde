@@ -3,10 +3,10 @@
 
 EAPI=6
 
-inherit kde5 multibuild
+inherit flag-o-matic kde5 multibuild
 
 DESCRIPTION="Oxygen visual style for the Plasma desktop"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/oxygen"
+HOMEPAGE="https://cgit.kde.org/oxygen.git"
 KEYWORDS=""
 IUSE="qt4 wayland"
 
@@ -67,14 +67,18 @@ src_configure() {
 		local mycmakeargs=()
 
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
-			mycmakeargs+=( -DUSE_KDE4=true )
+			use debug || append-cppflags -DQT_NO_DEBUG
+			mycmakeargs+=(
+				-DUSE_KDE4=true
+				-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
+			)
+			cmake-utils_src_configure
 		else
 			mycmakeargs+=(
 				$(cmake-utils_use_find_package wayland KF5Wayland)
 			)
+			kde5_src_configure
 		fi
-
-		kde5_src_configure
 	}
 
 	multibuild_foreach_variant myconfigure
