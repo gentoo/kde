@@ -35,12 +35,12 @@ COMMON_DEPEND="
 		x11-libs/libxcb:=
 	)
 "
-DEPEND="${COMMON_RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep linguist-tools)
 	$(add_qt_dep qtconcurrent)
 	gnome-keyring? ( virtual/pkgconfig )
 "
-RDEPEND="${COMMON_RDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!www-client/qupzilla
 "
 
