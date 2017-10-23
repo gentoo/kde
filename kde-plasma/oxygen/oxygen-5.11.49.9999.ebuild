@@ -64,12 +64,14 @@ pkg_setup() {
 
 src_configure() {
 	myconfigure() {
-		local mycmakeargs=(
-			$(cmake-utils_use_find_package wayland KF5Wayland)
-		)
+		local mycmakeargs=()
 
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
 			mycmakeargs+=( -DUSE_KDE4=true )
+		else
+			mycmakeargs+=(
+				$(cmake-utils_use_find_package wayland KF5Wayland)
+			)
 		fi
 
 		kde5_src_configure
