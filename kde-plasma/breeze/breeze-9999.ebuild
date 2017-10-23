@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5 multibuild
 
 DESCRIPTION="Breeze visual style for the Plasma desktop"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze"
+HOMEPAGE="https://cgit.kde.org/breeze.git"
 KEYWORDS=""
 IUSE="qt4 wayland"
 
@@ -49,12 +49,14 @@ pkg_setup() {
 
 src_configure() {
 	myconfigure() {
-		local mycmakeargs=(
-			$(cmake-utils_use_find_package wayland KF5Wayland)
-		)
+		local mycmakeargs=()
 
-		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
+		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=( -DUSE_KDE4=true )
+		else
+			mycmakeargs+=(
+				$(cmake-utils_use_find_package wayland KF5Wayland)
+			)
 		fi
 
 		kde5_src_configure
