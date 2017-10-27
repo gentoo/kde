@@ -6,7 +6,7 @@ language: python
 python:
     - pypy
 env:
-    - PORTAGE_VER="2.3.11"
+    - PORTAGE_VER="2.3.12"
 before_install:
     - sudo apt-get -qq update
     - pip install lxml
