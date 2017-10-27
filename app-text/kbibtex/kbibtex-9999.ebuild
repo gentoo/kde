@@ -60,14 +60,6 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${P/_/-}"
 
-PATCHES=( "${FILESDIR}/${PN}-system-qtoauth.patch" )
-
-src_prepare() {
-	kde5_src_prepare
-
-	rm -r src/3rdparty/qoauth || die "Failed to remove bundled qoauth"
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
