@@ -69,8 +69,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtimageformats)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-17.11.80-cfitsio.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package fits CFitsio)
