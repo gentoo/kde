@@ -28,6 +28,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep prison)
 	$(add_frameworks_dep syntax-highlighting)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
