@@ -22,7 +22,6 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kplotting)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwallet)
