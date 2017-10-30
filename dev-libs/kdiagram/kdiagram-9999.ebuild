@@ -6,6 +6,7 @@ EAPI=6
 KDE_EXAMPLES="true"
 KDE_QTHELP="true"
 KDE_TEST="true"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Powerful libraries (KChart, KGantt) for creating business diagrams"
