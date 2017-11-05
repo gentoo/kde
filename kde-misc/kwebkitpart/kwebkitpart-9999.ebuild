@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="WebKit KPart for Konqueror"
-HOMEPAGE="https://quickgit.kde.org/?p=kwebkitpart.git"
+HOMEPAGE="https://cgit.kde.org/kwebkitpart.git"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
