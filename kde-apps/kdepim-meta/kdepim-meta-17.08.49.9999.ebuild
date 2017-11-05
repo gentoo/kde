@@ -20,7 +20,6 @@ RDEPEND="
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
 	$(add_kdeapps_dep akregator)
-	$(add_kdeapps_dep blogilo)
 	$(add_kdeapps_dep calendarjanitor)
 	$(add_kdeapps_dep calendarsupport)
 	$(add_kdeapps_dep eventviews)
