@@ -27,7 +27,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep akonadi-contacts)
-	$(add_kdeapps_dep kblog)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpimtextedit)
