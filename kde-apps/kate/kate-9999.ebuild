@@ -50,7 +50,9 @@ DEPEND="
 		$(add_qt_dep qtsql)
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-misc/ktexteditorpreviewplugin
+"
 
 src_prepare() {
 	kde5_src_prepare
