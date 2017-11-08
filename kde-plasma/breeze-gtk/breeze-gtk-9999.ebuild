@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/breeze-gtk"
+HOMEPAGE="https://cgit.kde.org/breeze-gtk.git"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""

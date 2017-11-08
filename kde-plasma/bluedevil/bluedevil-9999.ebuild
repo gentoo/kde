@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Bluetooth stack for KDE Plasma"
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/bluedevil"
+HOMEPAGE="https://cgit.kde.org/bluedevil.git"
 KEYWORDS=""
 IUSE=""
 

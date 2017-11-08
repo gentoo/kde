@@ -7,7 +7,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE contact person abstraction library"
-HOMEPAGE="https://projects.kde.org/projects/frameworks/kpeople"
+HOMEPAGE="https://cgit.kde.org/kpeople.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~arm ~x86"

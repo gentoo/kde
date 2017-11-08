@@ -7,7 +7,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
-HOMEPAGE="https://projects.kde.org/projects/playground/network/libtmdbqt"
+HOMEPAGE="https://cgit.kde.org/libtmdbqt.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

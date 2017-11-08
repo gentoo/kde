@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kde-cli-tools"
+HOMEPAGE="https://cgit.kde.org/kde-cli-tools.git"
 KEYWORDS=""
 IUSE="+kdesu X"
 

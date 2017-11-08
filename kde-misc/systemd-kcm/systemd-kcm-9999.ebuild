@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Plasma control module for systemd"
-HOMEPAGE="https://projects.kde.org/projects/playground/sysadmin/systemd-kcm"
+HOMEPAGE="https://cgit.kde.org/systemd-kcm.git"
 
 IUSE=""
 LICENSE="GPL-2+"

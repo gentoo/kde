@@ -7,7 +7,7 @@ BOGUS=1
 inherit kde5
 
 DESCRIPTION="KDE Plasma control module for Plymouth"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/plymouth-kcm"
+HOMEPAGE="https://cgit.kde.org/plymouth-kcm.git"
 
 LICENSE="GPL-2+"
 KEYWORDS=""

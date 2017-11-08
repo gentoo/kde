@@ -7,7 +7,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE Plasma menu editor"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kmenuedit"
+HOMEPAGE="https://cgit.kde.org/kmenuedit.git"
 KEYWORDS=""
 IUSE="+hotkeys"
 

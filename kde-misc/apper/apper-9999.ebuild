@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="KDE Plasma PackageKit frontend"
-HOMEPAGE="https://projects.kde.org/projects/extragear/sysadmin/apper"
+HOMEPAGE="https://cgit.kde.org/apper.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""

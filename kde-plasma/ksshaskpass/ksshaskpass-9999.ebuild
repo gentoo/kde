@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/ksshaskpass"
+HOMEPAGE="https://cgit.kde.org/ksshaskpass.git"
 KEYWORDS=""
 IUSE=""
 

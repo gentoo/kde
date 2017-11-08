@@ -11,7 +11,7 @@ KDE_TEST="false"
 inherit kde5 python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
-HOMEPAGE="https://projects.kde.org/projects/kdesupport/extra-cmake-modules"
+HOMEPAGE="https://cgit.kde.org/extra-cmake-modules.git"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"

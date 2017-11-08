@@ -7,7 +7,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="Power management for KDE Plasma Shell"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/powerdevil"
+HOMEPAGE="https://cgit.kde.org/powerdevil.git"
 KEYWORDS=""
 IUSE="brightness-control consolekit +wireless"
 

@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Library for accessing Google calendar and contact resources"
-HOMEPAGE="https://projects.kde.org/projects/extragear/libs/libkgapi"
+HOMEPAGE="https://cgit.kde.org/libkgapi.git"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""

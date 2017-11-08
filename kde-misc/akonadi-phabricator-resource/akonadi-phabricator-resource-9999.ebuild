@@ -7,7 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Phabricator integration in Akonadi/KOrganizer"
-HOMEPAGE="https://projects.kde.org/projects/playground/pim/akonadi-phabricator-resource"
+HOMEPAGE="https://cgit.kde.org/akonadi-phabricator-resource.git"
 LICENSE="GPL-2+"
 
 KEYWORDS=""

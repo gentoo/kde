@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Provides integration plugins for various KDE frameworks for Wayland"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kwayland-integration"
+HOMEPAGE="https://cgit.kde.org/kwayland-integration.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""

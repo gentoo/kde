@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kio-extras"
+HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 KEYWORDS=""
 IUSE="activities htmlthumbs +man mtp openexr phonon samba +sftp slp taglib"
 

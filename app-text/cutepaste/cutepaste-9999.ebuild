@@ -7,7 +7,7 @@ KDE_AUTODEPS="false"
 inherit kde5
 
 DESCRIPTION="Client application for paste.kde.org"
-HOMEPAGE="https://projects.kde.org/projects/playground/network/cutepaste"
+HOMEPAGE="https://cgit.kde.org/cutepaste.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""

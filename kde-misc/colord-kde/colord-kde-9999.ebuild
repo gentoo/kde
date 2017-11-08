@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Provides interfaces and session daemon to colord"
-HOMEPAGE="http://projects.kde.org/projects/playground/graphics/colord-kde"
+HOMEPAGE="https://cgit.kde.org/colord-kde.git"
 #SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2+"

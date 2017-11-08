@@ -7,7 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Plasma screen management"
-HOMEPAGE="https://projects.kde.org/projects/extragear/base/kscreen"
+HOMEPAGE="https://cgit.kde.org/kscreen.git"
 
 KEYWORDS=""
 IUSE=""

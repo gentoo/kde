@@ -7,7 +7,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Qt-style client and server library wrapper for Wayland libraries"
-HOMEPAGE="https://projects.kde.org/projects/kde/workspace/kwayland"
+HOMEPAGE="https://cgit.kde.org/kwayland.git"
 
 LICENSE="LGPL-2.1"
 KEYWORDS=""

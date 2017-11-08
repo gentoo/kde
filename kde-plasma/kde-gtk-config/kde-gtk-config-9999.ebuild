@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
-HOMEPAGE="https://projects.kde.org/kde-gtk-config"
+HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
 LICENSE="GPL-3"
 KEYWORDS=""
 IUSE="+gtk3"
