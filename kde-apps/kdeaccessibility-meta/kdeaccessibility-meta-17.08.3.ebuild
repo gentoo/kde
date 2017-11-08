@@ -15,8 +15,6 @@ RDEPEND="
 	$(add_kdeapps_dep kmag)
 	$(add_kdeapps_dep kmousetool)
 	qt4? (
-		$(add_kdeapps_dep jovie)
-		$(add_kdeapps_dep kaccessible)
 		$(add_kdeapps_dep kmouth)
 		nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	)
