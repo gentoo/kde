@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="https://www.kde.org/applications/utilities https://utils.kde.org"
 KEYWORDS=""
-IUSE="cups floppy lirc nls +qt4"
+IUSE="cups floppy nls +qt4"
 
 [[ ${KDE_BUILD_TYPE} = live ]] && L10N_MINIMAL=${KDE_APPS_MINIMAL}
 
@@ -27,7 +27,6 @@ RDEPEND="
 	floppy? ( $(add_kdeapps_dep kfloppy) )
 	qt4? (
 		$(add_kdeapps_dep sweeper)
-		lirc? ( $(add_kdeapps_dep kremotecontrol) )
 		nls? ( $(add_kdeapps_dep kde4-l10n '' ${L10N_MINIMAL}) )
 	)
 "
