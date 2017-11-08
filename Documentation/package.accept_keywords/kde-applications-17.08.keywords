@@ -15,8 +15,6 @@
 <kde-apps/keditbookmarks-17.08.50
 <kde-apps/kfind-17.08.50
 <kde-apps/konqueror-17.08.50
-<kde-apps/jovie-17.08.50
-<kde-apps/kaccessible-17.08.50
 <kde-apps/kdeaccessibility-meta-17.08.50
 <kde-apps/kmag-17.08.50
 <kde-apps/kmousetool-17.08.50
@@ -229,7 +227,6 @@
 <kde-apps/kdf-17.08.50
 <kde-apps/kfloppy-17.08.50
 <kde-apps/kgpg-17.08.50
-<kde-apps/kremotecontrol-17.08.50
 <kde-apps/kteatime-17.08.50
 <kde-apps/ktimer-17.08.50
 <kde-apps/kwalletmanager-17.08.50
