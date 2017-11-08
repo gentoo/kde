@@ -1,5 +1,0 @@
-# possibly incomplete list of useflags that need to be disabled in order
-# to prevent pykde4 from being pulled in (which normally doesn't build)
-
-kde-apps/kdegames-meta -python
-
