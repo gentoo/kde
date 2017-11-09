@@ -4,7 +4,7 @@
 EAPI=6
 
 EGIT_BRANCH="kf5"
-KDE_TEST="optional"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="CDDB enabled audio CD player based on KDE Frameworks"
@@ -30,7 +30,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
-	media-libs/musicbrainz:3
+	media-libs/musicbrainz:5
 	media-libs/phonon[qt5(+)]
 "
 RDEPEND="${DEPEND}"
