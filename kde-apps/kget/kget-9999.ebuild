@@ -5,7 +5,6 @@ EAPI=6
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Advanced download manager by KDE"
