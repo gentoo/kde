@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Generator of HTML image maps."
+DESCRIPTION="Generator of HTML image maps"
 HOMEPAGE="https://www.kde.org/applications/development/kimagemapeditor/"
 KEYWORDS=""
 IUSE=""
@@ -27,4 +27,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/kde4-l10n
+"
