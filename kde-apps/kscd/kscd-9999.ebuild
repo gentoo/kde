@@ -30,6 +30,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
+	media-libs/libdiscid
 	media-libs/musicbrainz:5
 	media-libs/phonon[qt5(+)]
 "
