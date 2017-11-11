@@ -7,18 +7,17 @@ KMNAME="polkit-qt-1"
 inherit kde5
 
 DESCRIPTION="PolicyKit Qt5 API wrapper library"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="https://api.kde.org/kdesupport-api/polkit-qt-1-apidocs/"
 
 LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE="examples"
 
 DEPEND="
-	dev-libs/glib:2
-	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/glib:2
 	>=sys-auth/polkit-0.103
 	examples? ( $(add_qt_dep qtxml) )
 "
