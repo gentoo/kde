@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Media player based on KF5"
-HOMEPAGE="http://bangarangkde.wordpress.com"
+HOMEPAGE="https://bangarangkde.wordpress.com"
 
 LICENSE="GPL-3"
 KEYWORDS=""
