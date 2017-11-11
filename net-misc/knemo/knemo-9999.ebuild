@@ -7,7 +7,7 @@ EGIT_BRANCH="frameworks"
 inherit kde5
 
 DESCRIPTION="Plasma Network Monitor"
-HOMEPAGE="http://kde-apps.org/content/show.php?content=12956"
+HOMEPAGE="https://www.linux-apps.com/content/show.php?content=12956"
 LICENSE="GPL-2"
 IUSE="wifi"
 
