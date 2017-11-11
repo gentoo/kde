@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KControl module for Wacom tablets"
-HOMEPAGE="http://kde-apps.org/content/show.php?action=content&content=114856"
+HOMEPAGE="https://www.linux-apps.com/content/show.php?action=content&content=114856"
 
 LICENSE="GPL-2"
 KEYWORDS=""
