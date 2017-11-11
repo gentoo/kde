@@ -8,7 +8,7 @@ KMNAME="alkimia"
 inherit kde5
 
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
-HOMEPAGE="http://kde-apps.org/content/show.php/libalkimia?content=137323"
+HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323"
 
 LICENSE="LGPL-2.1"
 SLOT="0/6"
