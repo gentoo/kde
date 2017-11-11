@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/multimedia/kmix/"
 KEYWORDS=""
 IUSE="alsa pulseaudio"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -36,16 +36,13 @@ COMMON_DEPEND="
 		>=media-sound/pulseaudio-0.9.12
 	)
 "
-DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdelibs4support)
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package alsa Alsa)
+		$(cmake-utils_use_find_package alsa ALSA)
 		$(cmake-utils_use_find_package pulseaudio Canberra)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 	)
