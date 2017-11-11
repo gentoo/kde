@@ -7,7 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="CD ripper and audio encoder frontend based on KDE Frameworks"
-HOMEPAGE="http://www.kde-apps.org/content/show.php?content=107645"
+HOMEPAGE="https://www.linux-apps.com/content/show.php?content=107645"
 
 LICENSE="GPL-2 FDL-1.2"
 KEYWORDS=""
