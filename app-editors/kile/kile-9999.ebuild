@@ -8,7 +8,7 @@ MY_P=${P/_beta/b}
 inherit kde5
 
 DESCRIPTION="Latex Editor and TeX shell based on KDE Frameworks"
-HOMEPAGE="http://kile.sourceforge.net/"
+HOMEPAGE="https://kile.sourceforge.io/"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="FDL-1.2 GPL-2"
