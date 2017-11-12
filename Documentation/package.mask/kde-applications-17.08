@@ -117,7 +117,6 @@
 <kde-apps/kdemultimedia-meta-17.08.50
 <kde-apps/kdenlive-17.08.50
 <kde-apps/kmix-17.08.50
-<kde-apps/kscd-17.08.50
 <kde-apps/kwave-17.08.50
 <kde-apps/libkcddb-17.08.50
 <kde-apps/libkcompactdisc-17.08.50
@@ -127,8 +126,6 @@
 <kde-apps/kdenetwork-filesharing-17.08.50
 <kde-apps/kget-17.08.50
 <kde-apps/kio-extras-17.08.50
-<kde-apps/kopete-17.08.50
-<kde-apps/kppp-17.08.50
 <kde-apps/krdc-17.08.50
 <kde-apps/krfb-17.08.50
 <kde-apps/ktp-accounts-kcm-17.08.50
@@ -228,12 +225,9 @@
 <kde-apps/kdf-17.08.50
 <kde-apps/kfloppy-17.08.50
 <kde-apps/kgpg-17.08.50
+<kde-apps/kimagemapeditor-17.08.50
 <kde-apps/kteatime-17.08.50
 <kde-apps/ktimer-17.08.50
 <kde-apps/kwalletmanager-17.08.50
 <kde-apps/print-manager-17.08.50
 <kde-apps/sweeper-17.08.50
-<kde-apps/kdewebdev-meta-17.08.50
-<kde-apps/kfilereplace-17.08.50
-<kde-apps/kimagemapeditor-17.08.50
-<kde-apps/klinkstatus-17.08.50
