@@ -27,7 +27,6 @@ RDEPEND="
 	$(add_kdeapps_dep klettres)
 	$(add_kdeapps_dep kmplot)
 	$(add_kdeapps_dep kqtquickcharts)
-	$(add_kdeapps_dep kstars)
 	$(add_kdeapps_dep ktouch)
 	$(add_kdeapps_dep kturtle)
 	$(add_kdeapps_dep kwordquiz)
