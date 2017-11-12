@@ -229,6 +229,4 @@
 <kde-apps/kwalletmanager-17.08.50
 <kde-apps/print-manager-17.08.50
 <kde-apps/sweeper-17.08.50
-~dev-lang/python-3.5.3
 ~media-libs/libqaccessibilityclient-0.2.0
-~sci-libs/indilib-1.4.1
