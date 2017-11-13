@@ -22,9 +22,6 @@
 <kde-apps/kdeadmin-meta-17.12.50
 <kde-apps/kcron-17.12.50
 <kde-apps/ksystemlog-17.12.50
-<media-libs/phonon-17.12.50
-<media-libs/phonon-gstreamer-17.12.50
-<media-libs/phonon-vlc-17.12.50
 <kde-apps/analitza-17.12.50
 <kde-apps/artikulate-17.12.50
 <kde-apps/blinken-17.12.50
@@ -232,14 +229,3 @@
 <kde-apps/kwalletmanager-17.12.50
 <kde-apps/print-manager-17.12.50
 <kde-apps/sweeper-17.12.50
-<dev-util/kdevelop-17.12.50
-<dev-util/kdevelop-clang-tidy-17.12.50
-<dev-util/kdevelop-css-17.12.50
-<dev-util/kdevelop-embedded-17.12.50
-<dev-util/kdevelop-go-17.12.50
-<dev-util/kdevelop-krazy2-17.12.50
-<dev-util/kdevelop-pg-qt-17.12.50
-<dev-util/kdevelop-php-17.12.50
-<dev-util/kdevelop-python-17.12.50
-<dev-util/kdevelop-upload-17.12.50
-<dev-util/kdevelop-valgrind-17.12.50
