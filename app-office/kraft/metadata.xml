@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">dragotin/kraft</remote-id>
 	</upstream>
+	<use>
+		<flag name="pim">Enable support for KDE PIM resources integration</flag>
+	</use>
 </pkgmetadata>
