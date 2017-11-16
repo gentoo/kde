@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 inherit kde5
 
@@ -30,7 +29,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	dev-libs/cyrus-sasl
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( $(add_frameworks_dep ktextwidgets) )
@@ -39,5 +37,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kdepimlibs:4
 "
+
+PATCHES=( "${FILESDIR}/${PN}-17.11.80-deps.patch" )
 
 RESTRICT+=" test"
