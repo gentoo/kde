@@ -51,7 +51,7 @@ case ${CATEGORY} in
 		fi
 		;;
 	kde-apps)
-		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.12* ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.12* || ${PV} = 17.11* ]]; then
 			: ${QT_MINIMAL:=5.9.1}
 			: ${FRAMEWORKS_MINIMAL:=5.38.0}
 		fi
