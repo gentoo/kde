@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS="~amd64 ~x86"
 IUSE="bittorrent gpg mms sqlite"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -46,8 +46,11 @@ RDEPEND="
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+"
+RDEPEND="${COMMON_DEPEND}
+	!kde-apps/kde4-l10n
 "
 
 src_configure() {
