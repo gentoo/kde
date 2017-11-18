@@ -15,9 +15,7 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kdewebkit)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -29,12 +27,10 @@ DEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 "
-
 RDEPEND="${DEPEND}
 	!kde-misc/kwebkitpart:4
 "
