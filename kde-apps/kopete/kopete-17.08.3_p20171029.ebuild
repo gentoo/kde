@@ -24,7 +24,6 @@ RESTRICT+=" test"
 #	alias: NO DEPS (disabled upstream)
 #	autoreplace: NO DEPS
 #	contactnotes: NO DEPS
-#	cryptography: app-crypt/gpgme[cxx,qt5], kde-apps/libkleo:5
 #	highlight: NO DEPS
 #	history: NO DEPS
 #	latex: virtual/latex as RDEPEND
@@ -38,9 +37,8 @@ RESTRICT+=" test"
 #	urlpicpreview: NO DEPS
 #	webpresence: libxml2 libxslt
 # NOTE: By default we enable all plugins that don't have any dependencies
-PLUGINS="+addbookmarks +autoreplace +contactnotes +cryptography +highlight
-history latex nowlistening otr pipes +privacy +statistics +texteffect
-translator +urlpicpreview webpresence"
+PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight history latex nowlistening
+otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence"
 
 # Available protocols
 #
@@ -48,7 +46,6 @@ translator +urlpicpreview webpresence"
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
 #	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
-#	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	oscar: NO DEPS
 #	telepathy: net-libs/decibel
@@ -57,8 +54,7 @@ translator +urlpicpreview webpresence"
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
 # DISABLED until fixed: skype sms
-PROTOCOLS="gadu groupwise jingle meanwhile oscar
-testbed winpopup +xmpp yahoo zeroconf"
+PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
 #	telepathy: net-libs/decibel
@@ -68,7 +64,6 @@ testbed winpopup +xmpp yahoo zeroconf"
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
-#	media-libs/qimageblitz
 COMMONDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
@@ -98,14 +93,6 @@ COMMONDEPEND="
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2[qt5] )
-	jingle? (
-		dev-libs/expat
-		dev-libs/openssl:0
-		>=media-libs/mediastreamer-2.3.0
-		media-libs/speex
-		net-libs/libsrtp:=
-		net-libs/ortp:=
-	)
 	meanwhile? ( net-libs/meanwhile )
 	otr? ( >=net-libs/libotr-4.0.0 )
 	statistics? ( dev-db/sqlite:3 )
@@ -139,22 +126,17 @@ RDEPEND="${COMMONDEPEND}
 #	winpopup? ( net-fs/samba )
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto
-	jingle? ( dev-libs/jsoncpp )
 "
 
 src_configure() {
 	local x x2
 	# Handle common stuff
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package jingle LiboRTP)
-		$(cmake-utils_use_find_package jingle Mediastreamer)
-		$(cmake-utils_use_find_package jingle Speex)
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		case ${x/+/} in
-			jingle) x2=libjingle ;;
 			xmpp) x2=jabber ;;
 			zeroconf) x2=bonjour ;;
 			*) x2=${x/+/} ;;
