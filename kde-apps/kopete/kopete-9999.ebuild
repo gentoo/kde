@@ -141,6 +141,8 @@ src_configure() {
 	local x x2
 	# Handle common stuff
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libmsn=ON
+		-DWITH_qq=OFF
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
 # 		$(cmake-utils_use_find_package jingle LiboRTP)
@@ -158,10 +160,8 @@ src_configure() {
 		mycmakeargs+=( -DWITH_${x2}=$(usex ${x/+/}) )
 	done
 
-	mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Libmsn=ON -DWITH_qq=OFF )
-
 	# disable until fixed:
-	mycmakeargs+=( -DWITH_{skype,sms}=OFF )
+	mycmakeargs+=( -DWITH_{cryptography,libjingle,skype,sms}=OFF )
 
 	# enable plugins
 	for x in ${PLUGINS}; do
