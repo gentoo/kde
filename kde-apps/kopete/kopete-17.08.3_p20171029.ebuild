@@ -12,7 +12,7 @@ DESCRIPTION="Multi-protocol IM client based on KDE Frameworks"
 HOMEPAGE="https://kopete.kde.org https://www.kde.org/applications/internet/kopete"
 SRC_URI="https://github.com/KDE/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="ssl v4l"
 
 # tests hang, last checked for 4.2.96
