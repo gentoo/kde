@@ -24,9 +24,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kapptemplate-15.12.3-r1:5
-"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	# requires virtual dbus #630672
