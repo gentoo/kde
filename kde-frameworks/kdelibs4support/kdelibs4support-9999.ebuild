@@ -71,7 +71,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kitemmodels)
 	$(add_qt_dep qtxml)
-	!<kde-apps/kde4-l10n-16.04.3
 "
 
 RESTRICT+=" test"
