@@ -92,7 +92,6 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
 	!dev-util/kdevplatform
-	!<kde-apps/kapptemplate-16.04.0
 "
 
 RESTRICT+=" test"
