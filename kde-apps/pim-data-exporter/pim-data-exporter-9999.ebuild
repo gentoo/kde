@@ -38,7 +38,6 @@ DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
