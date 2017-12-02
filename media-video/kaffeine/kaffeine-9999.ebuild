@@ -11,7 +11,7 @@ HOMEPAGE="https://kaffeine.kde.org/"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 KEYWORDS=""
-IUSE=""
+IUSE="dvb"
 
 CDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -31,9 +31,9 @@ CDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
-	media-libs/libv4l
 	media-video/vlc[X]
 	x11-libs/libXScrnSaver
+	dvb? ( media-libs/libv4l )
 "
 DEPEND="${CDEPEND}
 	sys-devel/gettext
@@ -49,6 +49,7 @@ src_configure() {
 	# tools working on $HOME directory for a local git checkout
 	local mycmakeargs=(
 		-DBUILD_TOOLS=OFF
+		$(cmake-utils_use_find_package dvb Libdvbv5)
 	)
 
 	kde5_src_configure
