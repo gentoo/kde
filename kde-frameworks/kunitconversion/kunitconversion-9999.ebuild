@@ -13,7 +13,6 @@ IUSE=""
 RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}"
 
