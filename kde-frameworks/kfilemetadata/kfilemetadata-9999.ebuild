@@ -22,7 +22,6 @@ RDEPEND="
 	office? ( $(add_frameworks_dep karchive) )
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
-	!taglib? ( $(add_qt_dep qtmultimedia) )
 "
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
@@ -42,7 +41,6 @@ src_configure() {
 		$(cmake-utils_use_find_package office KF5Archive)
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package taglib Taglib)
-		$(cmake-utils_use_find_package !taglib Qt5Multimedia)
 	)
 
 	kde5_src_configure
