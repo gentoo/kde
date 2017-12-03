@@ -53,7 +53,7 @@ RDEPEND="${DEPEND}
 	)
 	png? (
 		app-text/dvipng
-		|| ( media-gfx/imagemagick[png] media-gfx/graphicsmagick[imagemagick,png] )
+		virtual/imagemagick-tools[png?]
 	)
 "
 
