@@ -99,7 +99,10 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	x11-proto/xproto
 	fontconfig? ( x11-libs/libXrender )
-	mouse? ( x11-drivers/xf86-input-evdev )
+	mouse? (
+		x11-drivers/xf86-input-evdev
+		x11-drivers/xf86-input-libinput
+	)
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep qqc2-desktop-style)
