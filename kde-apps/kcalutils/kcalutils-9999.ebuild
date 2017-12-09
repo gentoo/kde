@@ -29,5 +29,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
-
-RESTRICT+=" test"
