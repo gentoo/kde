@@ -27,6 +27,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
+	!dev-util/kdbg:4
 	sys-devel/gdb
 "
 
