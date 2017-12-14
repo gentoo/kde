@@ -25,6 +25,7 @@ RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kirigami)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kservice)
