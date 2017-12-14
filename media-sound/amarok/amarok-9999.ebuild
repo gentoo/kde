@@ -90,6 +90,8 @@ RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok:4
 "
 
+PATCHES=( ${FILESDIR}/${PN}-2.8.90-mysqld-rpath.patch )
+
 src_configure() {
 	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
 # 	use ppc64 && append-flags -mminimal-toc
@@ -98,16 +100,19 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_QJSON=ON
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
-		-DWITH_SPECTRUM_ANALYZER=OFF
 		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		-DWITH_IPOD=$(usex ipod)
-		$(cmake-utils_use_find_package ipod GDKPixBuf)
 		$(cmake-utils_use_find_package lastfm LibLastFm)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package ofa LibOFA)
 		-DWITH_UTILITIES=$(usex utils)
 	)
+
+	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
+
+	# bug 581554: add libmysqld location for rpath patch
+	use embedded && mycmakeargs+=( -DMYSQLD_DIR="${EPREFIX}/usr/$(get_libdir)/mysql" )
 
 	kde5_src_configure
 }
