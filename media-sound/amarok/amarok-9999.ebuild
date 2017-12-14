@@ -93,9 +93,6 @@ RDEPEND="${COMMONDEPEND}
 PATCHES=( ${FILESDIR}/${PN}-2.8.90-mysqld-rpath.patch )
 
 src_configure() {
-	# Append minimal-toc cflag for ppc64, see bug 280552 and 292707
-# 	use ppc64 && append-flags -mminimal-toc
-
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_QJSON=ON
 		-DWITH_MP3Tunes=OFF
