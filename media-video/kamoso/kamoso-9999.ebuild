@@ -24,7 +24,6 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/purpose:5
 	media-libs/gstreamer:1.0
-	media-libs/qt-gstreamer[qt5(+)]
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
