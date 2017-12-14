@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"
