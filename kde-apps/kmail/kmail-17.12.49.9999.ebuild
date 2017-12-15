@@ -78,6 +78,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/ktnef
 	$(add_kdeapps_dep kdepim-runtime)
+	$(add_kdeapps_dep kmail-account-wizard)
 "
 
 RESTRICT+=" test" # bug 616878
