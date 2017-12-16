@@ -10,6 +10,8 @@ LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
 IUSE="modemmanager openconnect teamd"
 
+PATCHES=( "${FILESDIR}"/${PN}-add_EAP-PWD.patch )
+
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -28,7 +30,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep networkmanager-qt 'teamd=')
+	$(add_frameworks_dep networkmanager-qt 'teamd=' '5.41.0-r1')
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
