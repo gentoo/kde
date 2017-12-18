@@ -53,15 +53,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdebase-cursors:4
 "
 
-pkg_setup() {
-	if use qt4 && [[ $(gcc-major-version) -lt 5 ]] ; then
-		ewarn "A GCC version older than 5 was detected. There may be trouble. See also Gentoo bug #595618"
-	fi
-
-	kde5_pkg_setup
-	MULTIBUILD_VARIANTS=( kf5 $(usev qt4) )
-}
-
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
