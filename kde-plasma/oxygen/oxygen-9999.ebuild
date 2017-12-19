@@ -53,6 +53,11 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdebase-cursors:4
 "
 
+pkg_setup() {
+	kde5_pkg_setup
+	MULTIBUILD_VARIANTS=( kf5 $(usev qt4) )
+}
+
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
