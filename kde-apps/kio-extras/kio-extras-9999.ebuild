@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 KEYWORDS=""
-IUSE="activities htmlthumbs +man mtp openexr phonon samba +sftp slp taglib"
+IUSE="activities htmlthumbs +man mtp openexr phonon samba +sftp taglib"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
@@ -48,7 +48,6 @@ COMMON_DEPEND="
 	phonon? ( media-libs/phonon[qt5(+)] )
 	samba? ( net-fs/samba[client] )
 	sftp? ( net-libs/libssh:=[sftp] )
-	slp? ( net-libs/openslp )
 	taglib? ( >=media-libs/taglib-1.11.1 )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -72,7 +71,6 @@ src_configure() {
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
 		$(cmake-utils_use_find_package samba Samba)
 		$(cmake-utils_use_find_package sftp LibSSH)
-		$(cmake-utils_use_find_package slp SLP)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
