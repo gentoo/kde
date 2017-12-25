@@ -32,6 +32,7 @@ DEPEND="
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kpty)
 	$(add_frameworks_dep ktexteditor)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
