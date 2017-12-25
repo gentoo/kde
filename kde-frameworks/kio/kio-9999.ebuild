@@ -44,13 +44,13 @@ RDEPEND="
 		sys-apps/attr
 		virtual/acl
 	)
+	handbook? ( $(add_frameworks_dep kdoctools) )
 	kerberos? ( virtual/krb5 )
 	kwallet? ( $(add_frameworks_dep kwallet) )
 	X? ( $(add_qt_dep qtx11extras) )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
-	handbook? ( $(add_frameworks_dep kdoctools) )
 	test? ( sys-libs/zlib )
 	X? (
 		x11-libs/libX11
