@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -25,6 +26,7 @@ DEPEND="
 	$(add_plasma_dep libksysguard)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
