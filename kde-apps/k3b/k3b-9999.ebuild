@@ -52,7 +52,10 @@ DEPEND="
 	musepack? ( >=media-sound/musepack-tools-444 )
 	sndfile? ( media-libs/libsndfile )
 	taglib? ( >=media-libs/taglib-1.5 )
-	vorbis? ( media-libs/libvorbis )
+	vorbis? (
+		media-libs/libogg
+		media-libs/libvorbis
+	)
 	webkit? ( $(add_qt_dep qtwebkit) )
 "
 RDEPEND="${DEPEND}
