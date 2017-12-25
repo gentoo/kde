@@ -67,6 +67,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
+	x11-libs/xcb-util-wm
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -81,7 +82,6 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep designer)
 	$(add_qt_dep qtconcurrent)
 	x11-proto/xproto
-	test? ( x11-libs/xcb-util-wm )
 "
 
 RESTRICT+=" test"
