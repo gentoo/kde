@@ -11,6 +11,8 @@ HOMEPAGE="https://edu.kde.org/applications/language/artikulate"
 KEYWORDS=""
 IUSE="+gstreamer qtmedia"
 
+REQUIRED_USE="|| ( gstreamer qtmedia )"
+
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
@@ -30,8 +32,6 @@ DEPEND="
 	qtmedia? ( $(add_qt_dep qtmultimedia) )
 "
 RDEPEND="${DEPEND}"
-
-REQUIRED_USE="|| ( gstreamer qtmedia )"
 
 src_configure() {
 	local mycmakeargs=(
