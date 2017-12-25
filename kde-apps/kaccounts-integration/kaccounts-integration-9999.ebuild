@@ -20,6 +20,7 @@ RDEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
