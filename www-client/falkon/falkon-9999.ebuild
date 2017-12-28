@@ -42,6 +42,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!www-client/qupzilla
+	$(add_qt_dep qtsvg)
 "
 
 DOCS=( BUILDING.md CHANGELOG README.md )
