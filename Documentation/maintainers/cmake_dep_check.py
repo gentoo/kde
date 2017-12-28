@@ -324,8 +324,8 @@ def getMapping(package):
 		return 'ERROR: could not find a mapping for ' + package
 
 
-def main():
-	cmakeFiles = findCmakeFiles('.')
+def getDeps(path):
+	cmakeFiles = findCmakeFiles(path)
 
 	mappings = {}
 	for file in cmakeFiles:
@@ -338,6 +338,11 @@ def main():
 					mappings[file].append(getMapping(package[0] + component))
 			else:
 				mappings[file].append(getMapping(package[0]))
+
+	return mappings
+
+def main():
+	mappings = getDeps('.')
 	for key, value in mappings.items():
 		if len(value) >= 1:
 			for package in sorted(set(value)):
