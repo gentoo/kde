@@ -4,6 +4,7 @@
 EAPI=6
 
 CHECKREQS_DISK_BUILD="4G"
+KDE_APPS_MINIMAL="17.12.0"
 KDE_HANDBOOK="forceoptional"
 KDE_PO_DIRS="po plan/po"
 KDE_TEST="forceoptional"
