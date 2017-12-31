@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_APPS_MINIMAL="17.12.0"
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
