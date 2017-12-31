@@ -280,7 +280,11 @@ add_qt_dep() {
 	local slot=${4}
 
 	if [[ -z ${version} ]]; then
-		version=${QT_MINIMAL}
+		if [[ ${1} = qtwebkit && ${QT_MINIMAL} = 5.9* ]]; then
+			version=5.9.1 # no more upstream release, need bug #624404
+		else
+			version=${QT_MINIMAL}
+		fi
 	fi
 	if [[ -z ${slot} ]]; then
 		slot="5"
