@@ -7,13 +7,14 @@ CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="forceoptional"
 KDE_PO_DIRS="po plan/po"
 KDE_TEST="forceoptional"
+PLANVER="3.0.91"
 inherit check-reqs kde5 versionator
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://www.calligra.org/"
 [[ ${KDE_BUILD_TYPE} == release ]] && \
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz
-		calligra_features_plan? ( mirror://kde/stable/${PN}/${PN}plan-${PV}.tar.xz )"
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz
+		calligra_features_plan? ( mirror://kde/unstable/${PN}/${PN}plan-${PLANVER}.tar.xz )"
 
 LICENSE="GPL-2"
 
@@ -149,7 +150,7 @@ pkg_setup() {
 
 src_prepare() {
 	if use calligra_features_plan && [[ ${KDE_BUILD_TYPE} == release ]]; then
-		mv ../${PN}plan-${PV} plan || die
+		mv ../${PN}plan-${PLANVER} plan || die
 		sed -e "/add_subdirectory(plan)/s/#//" \
 			-e "/^calligra_disable_product(APP_PLAN/s/^/#/" \
 			-i CMakeLists.txt || die
