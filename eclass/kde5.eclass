@@ -95,6 +95,11 @@ EXPORT_FUNCTIONS pkg_setup pkg_nofetch src_unpack src_prepare src_configure src_
 # Specifies the location of the KDE handbook if not the default.
 : ${KDE_DOC_DIR:=doc}
 
+# @ECLASS-VARIABLE: KDE_PO_DIRS
+# @DESCRIPTION:
+# Specifies the possible locations of KDE l10n files if not the default.
+: ${KDE_PO_DIRS:="po poqm"}
+
 # @ECLASS-VARIABLE: KDE_QTHELP
 # @DESCRIPTION:
 # If set to "false", do nothing.
@@ -523,18 +528,18 @@ kde5_src_prepare() {
 
 	# drop translations when nls is not wanted
 	if in_iuse nls && ! use nls ; then
-		if [[ -d po ]] ; then
-			rm -r po || die
-		fi
-		if [[ -d poqm ]] ; then
-			rm -r poqm || die
-		fi
+		local po
+		for po in ${KDE_PO_DIRS}; do
+			if [[ -d ${po} ]] ; then
+				rm -r ${po} || die
+			fi
+		done
 	fi
 
 	# enable only the requested translations when required
 	if [[ -v LINGUAS ]] ; then
 		local po
-		for po in po poqm; do
+		for po in ${KDE_PO_DIRS}; do
 		if [[ -d ${po} ]] ; then
 			pushd ${po} > /dev/null || die
 			local lang
