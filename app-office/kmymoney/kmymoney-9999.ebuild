@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities addressbook calendar crypt hbci holidays ofx quotes webkit weboob"
+IUSE="activities addressbook calendar hbci holidays ofx quotes webkit weboob"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	>=app-crypt/gpgme-1.7.1-r1[cxx]
 	>=app-office/libalkimia-6.0.0
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
@@ -60,7 +61,6 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 	calendar? ( dev-libs/libical:= )
-	crypt? ( >=app-crypt/gpgme-1.7.1-r1[cxx] )
 	hbci? (
 		>=net-libs/aqbanking-5.6.5
 		>=sys-libs/gwenhywfar-4.15.3-r1[qt5]
@@ -95,9 +95,8 @@ src_configure() {
 		$(cmake-utils_use_find_package addressbook KF5IdentityManagement)
 		-DENABLE_KBANKING=$(usex hbci)
 		-DENABLE_LIBICAL=$(usex calendar)
-		$(cmake-utils_use_find_package crypt KF5Gpgmepp)
 		$(cmake-utils_use_find_package holidays KF5Holidays)
-		-DENABLE_LIBOFX=$(usex ofx)
+		-DENABLE_OFXIMPORTER=$(usex ofx)
 		-DENABLE_WEBENGINE=$(usex !webkit)
 		-DENABLE_WEBOOB=$(usex weboob)
 		$(cmake-utils_use_find_package weboob KF5Kross)
