@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="optional"
+KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -48,8 +48,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DOMIT_EXAMPLES=ON
 		$(cmake-utils_use_find_package crypt Qca-qt5)
-		$(cmake-utils_use_find_package designer Qt5Designer)
-		$(cmake-utils_use_find_package designer Qt5UiPlugin)
+		-DBUILD_DESIGNERPLUGIN=$(usex designer)
 	)
 
 	kde5_src_configure
