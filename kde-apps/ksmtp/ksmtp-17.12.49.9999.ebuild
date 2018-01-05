@@ -20,3 +20,5 @@ DEPEND="
 	dev-libs/cyrus-sasl
 "
 RDEPEND="${DEPEND}"
+
+RESTRICT+=" test" # bug 642410
