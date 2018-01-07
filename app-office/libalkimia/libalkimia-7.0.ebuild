@@ -9,10 +9,11 @@ inherit kde5
 
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
 HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323"
+SRC_URI="mirror://kde/stable/${KMNAME}/${PV}/src/${KMNAME}-${PV}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0/7"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND="
