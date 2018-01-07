@@ -77,11 +77,6 @@ COMMONDEPEND="
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	opengl? ( virtual/opengl )
 "
-# 	cdda? (
-# 		$(add_kdeapps_dep libkcddb)
-# 		$(add_kdeapps_dep libkcompactdisc)
-# 		$(add_kdeapps_dep audiocd-kio)
-# 	)
 DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
 	test? ( dev-cpp/gmock )
