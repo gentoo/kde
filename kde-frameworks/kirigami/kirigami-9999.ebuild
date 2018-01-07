@@ -15,7 +15,7 @@ EGIT_REPO_URI="${EGIT_REPO_URI/${PN}2/${PN}}"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="plasma"
+IUSE=""
 
 RDEPEND="
 	$(add_qt_dep qtdeclarative)
@@ -24,7 +24,6 @@ RDEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsvg)
-	plasma? ( $(add_frameworks_dep plasma) )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep linguist-tools)
@@ -36,7 +35,6 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=$(usex examples)
-		-DPLASMA_ENABLED=$(usex plasma)
 	)
 
 	kde5_src_configure
