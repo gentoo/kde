@@ -67,6 +67,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	!kde-apps/kdepim-l10n
+	!kde-misc/akonadi-ews
 	$(add_frameworks_dep oxygen-icons)
 "
 
