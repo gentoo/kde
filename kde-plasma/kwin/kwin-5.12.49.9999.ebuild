@@ -91,6 +91,10 @@ PATCHES=( "${FILESDIR}/${PN}-5.10.95-test-optional.patch" )
 src_prepare() {
 	kde5_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
+
+	# Access violations, bug #640432
+	sed -e "s/^ecm_find_qmlmodule.*QtMultimedia/#&/" \
+		-i CMakeLists.txt || die
 }
 
 src_configure() {
