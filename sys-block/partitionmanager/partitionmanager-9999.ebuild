@@ -23,13 +23,12 @@ DEPEND="
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	sys-apps/util-linux
-	>=sys-libs/kpmcore-3.2.0:5=
+	>=sys-libs/kpmcore-3.3.0:5=
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools kdesu)
