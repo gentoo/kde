@@ -18,12 +18,14 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemviews)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/glib:2
 	dev-libs/purpose:5
-	media-libs/gstreamer:1.0
+	media-libs/gst-plugins-base:1.0
+	virtual/opengl
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
