@@ -38,7 +38,6 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	addons? (

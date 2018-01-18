@@ -54,6 +54,8 @@ RDEPEND="${DEPEND}
 	!kde-misc/ktexteditorpreviewplugin
 "
 
+PATCHES=( "${FILESDIR}/${PN}-17.12.1-deps.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 	# test hangs
