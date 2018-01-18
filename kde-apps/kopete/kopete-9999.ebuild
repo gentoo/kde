@@ -3,7 +3,6 @@
 
 EAPI=6
 
-EGIT_BRANCH="kf5"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 inherit kde5
