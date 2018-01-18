@@ -4,6 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="optional"
+KDE_PO_DIRS="doc/user/po"
 inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
