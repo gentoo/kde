@@ -11,7 +11,7 @@ DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
 LICENSE="GPL-3"
 KEYWORDS=""
-IUSE="+gtk3"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -26,21 +26,19 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-libs/glib:2
+	gnome-base/gsettings-desktop-schemas
 	x11-libs/gtk+:2
+	x11-libs/gtk+:3
 	x11-libs/libXcursor
-	gtk3? ( x11-libs/gtk+:3 )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	!kde-plasma/kde-gtk-config:4
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.4.2-gtk3-optional.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DDATA_INSTALL_DIR="${EPREFIX}/usr/share"
-		-DBUILD_gtk3proxies=$(usex gtk3)
 	)
 
 	kde5_src_configure
