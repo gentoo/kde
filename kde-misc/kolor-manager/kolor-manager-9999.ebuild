@@ -24,5 +24,3 @@ DEPEND="
 	x11-libs/libXrandr
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-cmake.patch" )
