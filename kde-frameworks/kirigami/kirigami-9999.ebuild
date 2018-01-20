@@ -5,7 +5,7 @@ EAPI=6
 
 KDE_EXAMPLES="true"
 KDE_QTHELP="false"
-KDE_TEST="forceoptional"
+KDE_TEST="optional"
 KMNAME="${PN}2"
 inherit kde5
 
