@@ -30,6 +30,7 @@ RDEPEND="
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kwayland)
