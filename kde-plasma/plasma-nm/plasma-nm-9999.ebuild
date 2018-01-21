@@ -50,7 +50,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep plasma-workspace)
+	$(add_plasma_dep kde-cli-tools)
 	!kde-plasma/plasma-nm:4
 "
 
@@ -62,4 +62,14 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if ! has_version "kde-plasma/plasma-workspace:5"; then
+		einfo "${PN} is not terribly useful without kde-plasma/plasma-workspace:5."
+		einfo "However, the networkmanagement KCM can be called from either systemsettings"
+		einfo "or manually: $ kcmshell5 kcm_networkmanagement"
+	fi
 }
