@@ -50,7 +50,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsensors)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
-	>=dev-libs/libinput-1.5
+	>=dev-libs/libinput-1.9
 	>=dev-libs/wayland-1.2
 	media-libs/fontconfig
 	media-libs/freetype
