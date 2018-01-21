@@ -4,6 +4,7 @@ kde-plasma/breeze:5
 kde-plasma/breeze-grub:5
 kde-plasma/breeze-gtk:5
 kde-plasma/breeze-plymouth:5
+kde-plasma/drkonqi:5
 kde-plasma/kactivitymanagerd:5
 kde-plasma/kde-cli-tools:5
 kde-plasma/kde-gtk-config:5
@@ -33,6 +34,7 @@ kde-plasma/plasma-pa:5
 kde-plasma/plasma-sdk:5
 kde-plasma/plasma-workspace:5
 kde-plasma/plasma-workspace-wallpapers:5
+kde-plasma/plasma-vault:5
 kde-plasma/plymouth-kcm:5
 kde-plasma/polkit-kde-agent:5
 kde-plasma/powerdevil:5
