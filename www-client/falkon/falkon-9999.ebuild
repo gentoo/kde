@@ -3,8 +3,7 @@
 
 EAPI=6
 
-KDE_TEST="forceoptional-recursive"
-KDE_TESTPATTERN="tests\/autotests"
+KDE_TEST="true"
 QT_MINIMAL="5.9.2"
 inherit kde5
 
@@ -14,7 +13,7 @@ HOMEPAGE="https://www.qupzilla.com/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="dbus gnome-keyring kwallet libressl nonblockdialogs +X"
+IUSE="dbus gnome-keyring kwallet libressl +X"
 
 COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
@@ -52,7 +51,6 @@ src_configure() {
 		-DDISABLE_DBUS=$(usex !dbus)
 		-DBUILD_KEYRING=$(usex gnome-keyring)
 		$(cmake-utils_use_find_package kwallet KF5Wallet)
-		-DNONBLOCK_JS_DIALOGS=$(usex nonblockdialogs)
 		-DNO_X11=$(usex !X)
 		-DDISABLE_UPDATES_CHECK=OFF
 	)
