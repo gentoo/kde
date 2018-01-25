@@ -44,8 +44,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtsvg)
 "
 
-DOCS=( BUILDING.md CHANGELOG README.md )
-
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_DBUS=$(usex !dbus)
