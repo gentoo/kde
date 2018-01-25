@@ -50,7 +50,6 @@ src_configure() {
 		-DBUILD_KEYRING=$(usex gnome-keyring)
 		$(cmake-utils_use_find_package kwallet KF5Wallet)
 		-DNO_X11=$(usex !X)
-		-DDISABLE_UPDATES_CHECK=OFF
 	)
 	kde5_src_configure
 }
