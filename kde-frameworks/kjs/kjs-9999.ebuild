@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="optional"
 KDE_QTHELP="false"
 inherit kde5
 
@@ -15,7 +16,6 @@ RDEPEND="
 	dev-libs/libpcre
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
 	dev-lang/perl
 "
 
