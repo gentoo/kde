@@ -11,14 +11,12 @@ KEYWORDS=""
 IUSE="share"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
@@ -40,7 +38,6 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwebengine)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
 	share? ( dev-libs/purpose:5 )
 "
 RDEPEND="${DEPEND}
@@ -50,7 +47,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
+		$(cmake-utils_use_find_package share KF5Purpose)
 	)
 
 	kde5_src_configure
