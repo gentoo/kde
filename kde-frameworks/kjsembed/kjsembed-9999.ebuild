@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="optional"
 KDE_QTHELP="false"
 KDE_TEST="false"
 inherit kde5
@@ -21,6 +22,5 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
 	$(add_qt_dep designer)
 "
