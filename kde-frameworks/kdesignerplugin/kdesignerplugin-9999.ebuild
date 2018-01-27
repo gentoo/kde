@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_HANDBOOK="optional"
 KDE_QTHELP="false"
 KDE_TEST="false"
 inherit kde5
@@ -35,7 +36,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
 	nls? ( $(add_qt_dep linguist-tools) )
 "
 
