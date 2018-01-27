@@ -34,7 +34,6 @@ DEPEND="
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kpimtextedit)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep messagelib)
 	$(add_qt_dep qtdbus)
