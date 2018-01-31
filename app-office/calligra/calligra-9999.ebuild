@@ -110,8 +110,8 @@ COMMON_DEPEND="
 		okular? ( $(add_kdeapps_dep okular) )
 	)
 	calligra_features_plan? (
+		$(add_frameworks_dep kholidays)
 		$(add_frameworks_dep khtml)
-		$(add_kdeapps_dep kholidays)
 		dev-libs/kdiagram:5
 		pim? (
 			$(add_kdeapps_dep kcalcore)
