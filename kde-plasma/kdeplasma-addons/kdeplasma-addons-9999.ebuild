@@ -42,6 +42,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
+	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtquickcontrols2)
 	!kde-plasma/kdeplasma-addons:4
 "
