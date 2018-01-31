@@ -37,7 +37,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dictionary? ( $(add_qt_dep qtwebengine) )
-	share? ( dev-libs/purpose:5 )
+	share? ( $(add_frameworks_dep purpose) )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)

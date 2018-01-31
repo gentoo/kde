@@ -41,7 +41,7 @@ DEPEND="
 	$(add_qt_dep qtwebengine)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
-	share? ( dev-libs/purpose:5 )
+	share? ( $(add_frameworks_dep purpose) )
 "
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)

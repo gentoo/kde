@@ -36,7 +36,7 @@ DEPEND="
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
 	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
-	share? ( dev-libs/purpose:5 )
+	share? ( $(add_frameworks_dep purpose) )
 "
 RDEPEND="${DEPEND}
 	kipi? ( media-plugins/kipi-plugins:5 )

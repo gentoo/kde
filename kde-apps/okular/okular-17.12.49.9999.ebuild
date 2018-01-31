@@ -51,7 +51,7 @@ DEPEND="
 	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
 	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
-	share? ( dev-libs/purpose:5 )
+	share? ( $(add_frameworks_dep purpose) )
 	speech? ( $(add_qt_dep qtspeech) )
 	tiff? ( media-libs/tiff:0 )
 "
