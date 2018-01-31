@@ -8,7 +8,7 @@ inherit kde5
 DESCRIPTION="Extra Plasma applets and engines"
 LICENSE="GPL-2 LGPL-2"
 KEYWORDS=""
-IUSE="share"
+IUSE="dictionary share"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -38,9 +38,9 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
+	dictionary? ( $(add_qt_dep qtwebengine) )
 	share? ( dev-libs/purpose:5 )
 "
 RDEPEND="${DEPEND}
@@ -51,6 +51,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package dictionary Qt5WebEngine)
 		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
 	)
 
