@@ -34,6 +34,7 @@
 ~kde-frameworks/kfilemetadata-9999
 ~kde-frameworks/kglobalaccel-9999
 ~kde-frameworks/kguiaddons-9999
+~kde-frameworks/kholidays-9999
 ~kde-frameworks/khtml-9999
 ~kde-frameworks/ki18n-9999
 ~kde-frameworks/kiconthemes-9999
@@ -73,6 +74,7 @@
 ~kde-frameworks/oxygen-icons-9999
 ~kde-frameworks/plasma-9999
 ~kde-frameworks/prison-9999
+~kde-frameworks/purpose-9999
 ~kde-frameworks/qqc2-desktop-style-9999
 ~kde-frameworks/solid-9999
 ~kde-frameworks/sonnet-9999
