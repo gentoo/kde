@@ -21,3 +21,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+# tests require installed headers, bug 636108
+RESTRICT+=" test"
