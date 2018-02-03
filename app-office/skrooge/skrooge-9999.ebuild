@@ -40,6 +40,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql)
@@ -47,7 +48,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-crypt/qca:2[qt5]
+	app-crypt/qca:2[qt5(+)]
 	dev-db/sqlcipher
 	dev-libs/grantlee:5
 	activities? ( $(add_frameworks_dep kactivities) )
