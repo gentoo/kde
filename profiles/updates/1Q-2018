@@ -1,1 +1,2 @@
 move dev-libs/purpose kde-frameworks/purpose
+move kde-misc/plasma-applet-redshift-control kde-misc/plasma-redshift-control

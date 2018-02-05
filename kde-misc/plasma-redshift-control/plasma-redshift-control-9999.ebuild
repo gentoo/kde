@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KMNAME="plasma-redshift-control"
 inherit kde5
 
 DESCRIPTION="Plasma 5 applet for controlling redshift"
