@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}
 	!app-office/kraft:4
 "
 
-DOCS=( AUTHORS Changes.txt README Releasenotes.txt TODO )
+DOCS=( AUTHORS Changes.txt README.md Releasenotes.txt TODO )
 
 src_configure() {
 	local mycmakeargs=(
