@@ -13,6 +13,7 @@ RDEPEND="
 	$(add_kdeapps_dep kdenetwork-filesharing)
 	$(add_kdeapps_dep kget)
 	$(add_kdeapps_dep krdc)
+	$(add_kdeapps_dep kopete)
 	$(add_kdeapps_dep krfb)
 	$(add_kdeapps_dep plasma-telepathy-meta)
 	$(add_kdeapps_dep zeroconf-ioslave)

@@ -13,6 +13,7 @@ IUSE="cups floppy"
 RDEPEND="
 	$(add_kdeapps_dep ark)
 	$(add_kdeapps_dep filelight)
+	$(add_kdeapps_dep kbackup)
 	$(add_kdeapps_dep kcalc)
 	$(add_kdeapps_dep kcharselect)
 	$(add_kdeapps_dep kdebugsettings)
