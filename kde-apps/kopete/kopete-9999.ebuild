@@ -44,7 +44,7 @@ otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
 #	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
-#	jingle: BROKEN (media-libs/speex net-libs/ortp) DISABLED BY UPSTREAM
+#	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	oscar: NO DEPS
 #	telepathy: net-libs/decibel
@@ -53,7 +53,8 @@ otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence
 #	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
 # DISABLED until fixed: skype sms
-PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp yahoo zeroconf"
+PROTOCOLS="gadu groupwise jingle meanwhile oscar
+testbed winpopup +xmpp yahoo zeroconf"
 
 # disabled protocols
 #	telepathy: net-libs/decibel
@@ -92,6 +93,14 @@ COMMONDEPEND="
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2[qt5] )
+	jingle? (
+		dev-libs/expat
+		dev-libs/openssl:0
+		>=media-libs/mediastreamer-2.3.0
+		media-libs/speex
+		net-libs/libsrtp:=
+		net-libs/ortp:=
+	)
 	meanwhile? ( net-libs/meanwhile )
 	otr? ( >=net-libs/libotr-4.0.0 )
 	statistics? ( dev-db/sqlite:3 )
@@ -111,14 +120,6 @@ COMMONDEPEND="
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 "
-# 	jingle? (
-# 		dev-libs/expat
-# 		dev-libs/openssl:0
-# 		>=media-libs/mediastreamer-2.3.0
-# 		media-libs/speex
-# 		net-libs/libsrtp:=
-# 		net-libs/ortp:=
-# 	)
 RDEPEND="${COMMONDEPEND}
 	latex? (
 		|| (
@@ -133,8 +134,8 @@ RDEPEND="${COMMONDEPEND}
 #	winpopup? ( net-fs/samba )
 DEPEND="${COMMONDEPEND}
 	x11-proto/scrnsaverproto
+	jingle? ( dev-libs/jsoncpp )
 "
-# 	jingle? ( dev-libs/jsoncpp )
 
 src_configure() {
 	local x x2
@@ -142,12 +143,11 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libmsn=ON
 		-DWITH_qq=OFF
+		$(cmake-utils_use_find_package jingle LiboRTP)
+		$(cmake-utils_use_find_package jingle Mediastreamer)
+		$(cmake-utils_use_find_package jingle Speex)
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
-# 		$(cmake-utils_use_find_package jingle LiboRTP)
-# 		$(cmake-utils_use_find_package jingle Mediastreamer)
-# 		$(cmake-utils_use_find_package jingle Speex)
-
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		case ${x/+/} in
