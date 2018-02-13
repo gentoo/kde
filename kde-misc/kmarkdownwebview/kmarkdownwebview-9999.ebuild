@@ -16,6 +16,7 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
