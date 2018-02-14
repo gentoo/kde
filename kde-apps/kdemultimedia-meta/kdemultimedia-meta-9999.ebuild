@@ -16,6 +16,7 @@ IUSE="+cdrom +ffmpeg"
 RDEPEND="
 	$(add_kdeapps_dep dragon)
 	$(add_kdeapps_dep juk)
+	$(add_kdeapps_dep kamoso)
 	$(add_kdeapps_dep kdenlive)
 	$(add_kdeapps_dep kmix)
 	$(add_kdeapps_dep kwave)
