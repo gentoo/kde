@@ -3,17 +3,17 @@
 
 EAPI=6
 
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="Frontend to diff3 based on Qt/KF5"
-HOMEPAGE="https://gitlab.com/tfischer/kdiff3.git"
-EGIT_REPO_URI="https://gitlab.com/tfischer/${PN}.git"
+DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
+HOMEPAGE="https://userbase.kde.org/KDiff3"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-CDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -28,10 +28,7 @@ CDEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${CDEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${CDEPEND}
+RDEPEND="${DEPEND}
 	sys-apps/diffutils
 	!kde-misc/kdiff3:4
 "
