@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="nls +policykit"
 
 RDEPEND="
-	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
