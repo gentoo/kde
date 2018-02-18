@@ -1,0 +1,14 @@
+--- a/dataengines/notifications/CMakeLists.txt  2018-01-31 19:54:26.608634042 -0700
++++ b/dataengines/notifications/CMakeLists.txt  2018-01-31 21:00:17.040830824 -0700
+@@ -33,6 +33,8 @@ install(FILES notifications.operations D
+ 
+ #unit test
+ 
+-add_executable(notification_test  notificationsanitizer.cpp notifications_test.cpp)
+-target_link_libraries(notification_test Qt5::Test Qt5::Core)
+-ecm_mark_as_test(notification_test)
++if(BUILD_TESTING)
++    add_executable(notification_test  notificationsanitizer.cpp notifications_test.cpp)
++    target_link_libraries(notification_test Qt5::Test Qt5::Core)
++    ecm_mark_as_test(notification_test)
++endif()
