@@ -40,6 +40,8 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdesu
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
+
 # requires running kde environment
 RESTRICT+=" test"
 
