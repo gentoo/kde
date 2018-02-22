@@ -25,7 +25,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	app-crypt/qca:2[qt5]
+	app-crypt/qca:2[qt5(+)]
 	net-libs/accounts-qt
 	net-libs/signond
 	net-libs/telepathy-qt[qt5(+)]
