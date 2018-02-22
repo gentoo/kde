@@ -11,7 +11,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-# drop qtdeclarative subslot operator when QT_MINIMAL >= 5.8.0
+# drop qtdeclarative subslot operator when QT_MINIMAL >= 5.10.0
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
