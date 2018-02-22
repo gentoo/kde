@@ -92,7 +92,7 @@ COMMONDEPEND="
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
-	groupwise? ( app-crypt/qca:2[qt5] )
+	groupwise? ( app-crypt/qca:2[qt5(+)] )
 	jingle? (
 		dev-libs/expat
 		dev-libs/openssl:0
@@ -110,7 +110,7 @@ COMMONDEPEND="
 		dev-libs/libxslt
 	)
 	xmpp? (
-		app-crypt/qca:2[qt5]
+		app-crypt/qca:2[qt5(+)]
 		net-dns/libidn
 		sys-libs/zlib
 	)
