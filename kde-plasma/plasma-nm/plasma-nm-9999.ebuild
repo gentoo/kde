@@ -36,7 +36,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	>=app-crypt/qca-2.1.1:2[qt5]
+	>=app-crypt/qca-2.1.1:2[qt5(+)]
 	>=net-misc/networkmanager-0.9.10.0[teamd=]
 	modemmanager? (
 		$(add_frameworks_dep modemmanager-qt)
