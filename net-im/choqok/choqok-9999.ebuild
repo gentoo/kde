@@ -38,7 +38,7 @@ DEPEND="
 	$(add_qt_dep qtnetworkauth)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-crypt/qca[qt5]
+	app-crypt/qca[qt5(+)]
 	attica? ( $(add_frameworks_dep attica) )
 	konqueror? (
 		$(add_frameworks_dep kparts)
