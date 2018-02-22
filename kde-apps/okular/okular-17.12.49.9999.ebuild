@@ -39,7 +39,7 @@ DEPEND="
 		$(add_frameworks_dep khtml)
 		dev-libs/chmlib
 	)
-	crypt? ( app-crypt/qca:2[qt5] )
+	crypt? ( app-crypt/qca:2[qt5(+)] )
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (
@@ -48,7 +48,7 @@ DEPEND="
 	)
 	markdown? ( app-text/discount )
 	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
-	pdf? ( app-text/poppler[qt5,-exceptions(-)] )
+	pdf? ( app-text/poppler[qt5(+)] )
 	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
 	share? ( $(add_frameworks_dep purpose) )
