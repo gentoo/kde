@@ -42,13 +42,13 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
-	app-text/poppler[qt5]
+	app-text/poppler[qt5(+)]
 	dev-libs/icu:=
 	virtual/tex-base
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 	webkit? ( $(add_qt_dep qtwebkit) )
 	zotero? (
-		app-crypt/qca[qt5]
+		app-crypt/qca[qt5(+)]
 		dev-libs/qoauth:5
 	)
 "
