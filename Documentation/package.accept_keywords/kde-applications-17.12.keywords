@@ -228,3 +228,4 @@
 <kde-apps/kwalletmanager-17.12.50
 <kde-apps/print-manager-17.12.50
 <kde-apps/sweeper-17.12.50
+dev-qt/*:5/5.9
