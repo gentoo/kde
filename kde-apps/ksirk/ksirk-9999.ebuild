@@ -33,7 +33,7 @@ DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-crypt/qca:2[qt5]
+	app-crypt/qca:2[qt5(+)]
 	media-libs/phonon[qt5(+)]
 	sys-libs/zlib
 "
