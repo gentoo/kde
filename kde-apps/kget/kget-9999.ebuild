@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-crypt/qca:2[qt5]
+	app-crypt/qca:2[qt5(+)]
 	bittorrent? ( net-libs/libktorrent:5 )
 	gpg? ( app-crypt/gpgme[qt5] )
 	mms? ( media-libs/libmms )
