@@ -59,7 +59,7 @@ COMMONDEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	app-crypt/qca:2[qt5]
+	app-crypt/qca:2[qt5(+)]
 	media-libs/phonon[qt5(+)]
 	>=media-libs/taglib-1.7[asf(+),mp4(+)]
 	>=media-libs/taglib-extras-1.0.1
@@ -73,7 +73,7 @@ COMMONDEPEND="
 		dev-libs/glib:2
 		>=media-libs/libgpod-0.7.0[gtk]
 	)
-	lastfm? ( media-libs/liblastfm[qt5] )
+	lastfm? ( media-libs/liblastfm[qt5(+)] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	opengl? ( virtual/opengl )
 "
