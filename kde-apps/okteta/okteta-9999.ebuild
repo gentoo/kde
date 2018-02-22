@@ -39,7 +39,7 @@ DEPEND="
 	$(add_qt_dep qtscript 'scripttools')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	crypt? ( app-crypt/qca:2[qt5] )
+	crypt? ( app-crypt/qca:2[qt5(+)] )
 	designer? ( $(add_qt_dep designer) )
 "
 RDEPEND="${DEPEND}"
