@@ -78,7 +78,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	virtual/libiconv
 	activities? ( $(add_frameworks_dep kactivities) )
-	crypt? ( app-crypt/qca:2[qt5] )
+	crypt? ( app-crypt/qca:2[qt5(+)] )
 	fontconfig? ( media-libs/fontconfig )
 	gemini? ( $(add_qt_dep qtdeclarative 'widgets') )
 	gsl? ( sci-libs/gsl )
@@ -97,7 +97,7 @@ COMMON_DEPEND="
 		media-libs/lcms:2
 	)
 	openexr? ( media-libs/openexr )
-	pdf? ( app-text/poppler:=[qt5] )
+	pdf? ( app-text/poppler:=[qt5(+)] )
 	phonon? ( media-libs/phonon[qt5(+)] )
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
