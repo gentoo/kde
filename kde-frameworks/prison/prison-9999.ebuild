@@ -10,11 +10,20 @@ HOMEPAGE="https://cgit.kde.org/prison.git"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE=""
+IUSE="qml"
 
 DEPEND="
 	$(add_qt_dep qtgui)
 	media-gfx/qrencode:=
 	media-libs/libdmtx
+	qml? ( $(add_qt_dep qtdeclarative) )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package qml Qt5Quick)
+	)
+
+	kde5_src_configure
+}
