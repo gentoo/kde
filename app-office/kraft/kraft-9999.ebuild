@@ -6,7 +6,6 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 EGIT_REPO_URI="https://github.com/dragotin/kraft"
-EGIT_BRANCH="kf5"
 
 DESCRIPTION="Software to manage quotes and invoices in small enterprises"
 HOMEPAGE="http://www.volle-kraft-voraus.de/"
