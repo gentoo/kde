@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="appstream +fontconfig gtk2 gtk3 ibus legacy-systray +mouse pulseaudio +qt4 scim +semantic-desktop touchpad"
+IUSE="appstream +fontconfig ibus +mouse pulseaudio scim +semantic-desktop touchpad"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
@@ -113,13 +113,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/accountsservice
 	sys-apps/util-linux
 	x11-apps/setxkbmap
-	legacy-systray? (
-		gtk2? ( dev-libs/libappindicator:2 )
-		gtk3? ( dev-libs/libappindicator:3 )
-		qt4? ( dev-libs/sni-qt )
-	)
 	pulseaudio? ( $(add_plasma_dep plasma-pa ) )
-	qt4? ( kde-plasma/qguiplatformplugin_kde:4 )
 	!kde-apps/kcontrol
 	!<kde-apps/kde4-l10n-17.08.1-r1
 	!kde-apps/knetattach[handbook]
@@ -129,8 +123,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/solid-actions-kcm:4
 	!kde-plasma/systemsettings:4
 "
-
-REQUIRED_USE="legacy-systray? ( || ( gtk2 gtk3 qt4 ) ) gtk2? ( legacy-systray ) gtk3? ( legacy-systray )"
 
 src_configure() {
 	local mycmakeargs=(
