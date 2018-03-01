@@ -11,8 +11,8 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth crypt +display-manager grub gtk +handbook
-networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth crypt +display-manager grub gtk +handbook legacy-systray
+networkmanager pam plymouth pulseaudio qt4 +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -56,6 +56,10 @@ RDEPEND="
 	gtk? (
 		$(add_plasma_dep breeze-gtk)
 		$(add_plasma_dep kde-gtk-config)
+		legacy-systray? (
+			dev-libs/libappindicator:3
+			dev-libs/libappindicator:2
+		)
 	)
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
@@ -65,6 +69,12 @@ RDEPEND="
 		$(add_plasma_dep plymouth-kcm)
 	)
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
+	qt4? (
+		kde-plasma/qguiplatformplugin_kde:4
+		legacy-systray? ( dev-libs/sni-qt )
+	)
 	sdk? ( $(add_plasma_dep plasma-sdk) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
 "
+
+REQUIRED_USE="legacy-systray? ( || ( gtk qt4 ) )"
