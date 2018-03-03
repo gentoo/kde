@@ -62,6 +62,7 @@ COMMONDEPEND="
 	media-libs/phonon[qt5(+)]
 	>=media-libs/taglib-1.7[asf(+),mp4(+)]
 	>=media-libs/taglib-extras-1.0.1
+	sci-libs/fftw:3.0
 	sys-libs/zlib
 	>=virtual/mysql-5.1[embedded?]
 	ffmpeg? (
