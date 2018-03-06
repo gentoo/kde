@@ -8,7 +8,7 @@ KDE_APPS_MINIMAL="17.12.0"
 KDE_HANDBOOK="forceoptional"
 KDE_PO_DIRS="po plan/po"
 KDE_TEST="forceoptional"
-inherit check-reqs kde5 versionator
+inherit check-reqs kde5
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://www.calligra.org/"
