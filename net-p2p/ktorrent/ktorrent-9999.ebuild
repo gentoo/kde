@@ -3,23 +3,6 @@
 
 EAPI=6
 
-if [[ ${PV} != 9999* ]]; then
-	inherit versionator
-	# upstream likes to skip that _ in beta releases
-	MY_PV="${PV/_/}"
-	LIBKT_VERSION_MIN=$(($(get_major_version)-3)).$(get_version_component_range 2-3 ${PV})
-	LIBKT_VERSION_MAX=$(($(get_major_version)-3)).$(($(get_version_component_range 2)+1))
-	MY_P="${PN}-${MY_PV}"
-
-	SRC_URI="mirror://kde/stable/${PN}/$(get_version_component_range 1-2)/${MY_P}.tar.xz"
-	S="${WORKDIR}"/"${MY_P}"
-
-	KEYWORDS="~amd64 ~x86"
-else
-	LIBKT_VERSION_MIN="${PV}"
-	LIBKT_VERSION_MAX="99999999"
-fi
-
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
@@ -27,8 +10,10 @@ inherit kde5
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/internet/ktorrent/"
+[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV/%.0}/${P}.tar.xz"
 
 LICENSE="GPL-2"
+KEYWORDS=""
 IUSE="+bwscheduler +downloadorder +infowidget +ipfilter +kross +logviewer +magnetgenerator
 +mediaplayer rss +scanfolder +search +shutdown +stats +upnp +zeroconf"
 
@@ -54,8 +39,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:5
-	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:5
+	>=net-libs/libktorrent-2.1:5
 	infowidget? ( dev-libs/geoip )
 	kross? (
 		$(add_frameworks_dep karchive)
