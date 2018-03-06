@@ -8,15 +8,11 @@ inherit kde5
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
 HOMEPAGE="https://store.kde.org/p/1169519/
 	https://github.com/psifidotos/Latte-Dock"
-
-if [[ ${KDE_BUILD_TYPE} = release ]] ; then
-	SRC_URI="https://github.com/psifidotos/Latte-Dock/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/Latte-Dock-${PV}"
-fi
+[[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="
