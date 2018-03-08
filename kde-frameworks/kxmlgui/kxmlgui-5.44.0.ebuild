@@ -11,6 +11,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 LICENSE="LGPL-2+"
 IUSE="attica"
 
+# slot op: includes QtCore/private/qlocale_p.h
 RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -22,6 +23,7 @@ RDEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_qt_dep qtcore '' '' '5=')
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork 'ssl')
