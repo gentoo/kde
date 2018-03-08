@@ -16,9 +16,11 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kcalcore)
+	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	!<kde-apps/kdepim-runtime-18.03.80
 "
