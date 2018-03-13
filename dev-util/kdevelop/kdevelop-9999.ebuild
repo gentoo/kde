@@ -111,6 +111,8 @@ src_configure() {
 		$(cmake-utils_use_find_package welcomepage Qt5QuickWidgets)
 	)
 
+	use reviewboard || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON )
+
 	kde5_src_configure
 }
 
