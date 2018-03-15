@@ -13,7 +13,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="+embedded ffmpeg ipod lastfm mtp ofa opengl +utils"
+IUSE="+embedded ffmpeg ipod lastfm mtp ofa opengl podcast +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -75,6 +75,7 @@ COMMONDEPEND="
 	lastfm? ( media-libs/liblastfm[qt5(+)] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	opengl? ( virtual/opengl )
+	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
 "
 DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
@@ -97,6 +98,7 @@ src_configure() {
 		$(cmake-utils_use_find_package lastfm LibLastFm)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package ofa LibOFA)
+		$(cmake-utils_use_find_package podcast Mygpo-qt5)
 		-DWITH_UTILITIES=$(usex utils)
 	)
 

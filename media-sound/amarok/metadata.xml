@@ -22,6 +22,7 @@
 		<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
 		<flag name="ofa">Use <pkg>media-libs/libofa</pkg> to compute MusicDNS acoustic
 		fingerprints (used by MusicBrainz)</flag>
+		<flag name="podcast">Enable gpodder.net podcast support via <pkg>media-libs/libmygpo-qt</pkg></flag>
 		<flag name="utils">Build the utils - old <pkg>media-sound/amarok-utils</pkg></flag>
 	</use>
 </pkgmetadata>
