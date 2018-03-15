@@ -13,7 +13,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="+embedded ffmpeg ipod lastfm mtp ofa opengl podcast +utils"
+IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast +utils"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -64,6 +64,7 @@ COMMONDEPEND="
 	sci-libs/fftw:3.0
 	sys-libs/zlib
 	>=virtual/mysql-5.1[embedded?]
+	virtual/opengl
 	ffmpeg? (
 		virtual/ffmpeg
 		ofa? ( >=media-libs/libofa-0.9.0 )
@@ -74,7 +75,6 @@ COMMONDEPEND="
 	)
 	lastfm? ( media-libs/liblastfm[qt5(+)] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
-	opengl? ( virtual/opengl )
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
 "
 DEPEND="${COMMONDEPEND}
