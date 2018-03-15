@@ -89,7 +89,6 @@ PATCHES=( ${FILESDIR}/${PN}-2.8.90-mysqld-rpath.patch )
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_QJSON=ON
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
