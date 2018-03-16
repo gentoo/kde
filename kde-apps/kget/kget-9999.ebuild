@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Advanced download manager by KDE"
 HOMEPAGE="https://www.kde.org/applications/internet/kget/"
 KEYWORDS=""
-IUSE="bittorrent gpg mms sqlite"
+IUSE="bittorrent gpg kde mms sqlite"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -43,6 +43,7 @@ COMMON_DEPEND="
 	app-crypt/qca:2[qt5(+)]
 	bittorrent? ( net-libs/libktorrent:5 )
 	gpg? ( app-crypt/gpgme[qt5] )
+	kde? ( $(add_plasma_dep plasma-workspace) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
@@ -57,6 +58,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package bittorrent KF5Torrent)
 		$(cmake-utils_use_find_package gpg Gpgmepp)
+		$(cmake-utils_use_find_package kde LibKWorkspace)
 		$(cmake-utils_use_find_package mms LibMms)
 		$(cmake-utils_use_find_package sqlite Sqlite)
 	)
