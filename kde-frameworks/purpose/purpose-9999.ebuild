@@ -42,9 +42,7 @@ pkg_postinst(){
 	kde5_pkg_postinst
 
 	if ! has_version "kde-misc/kdeconnect[app]" ; then
-		elog
 		elog "Optional runtime dependency:"
 		elog "kde-misc/kdeconnect[app] (send through KDE Connect)"
-		elog
 	fi
 }
