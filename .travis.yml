@@ -33,7 +33,7 @@ script:
 # You can append own scripts after this line
 notifications:
   irc:
-    on_success: never
+    on_success: change
     on_failure: always
     channels:
       - "chat.freenode.net#gentoo-kde"
