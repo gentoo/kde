@@ -3,7 +3,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.42.0"
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
 KMNAME="${PN}-kde"
