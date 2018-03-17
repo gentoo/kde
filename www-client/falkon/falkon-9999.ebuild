@@ -13,7 +13,7 @@ HOMEPAGE="https://www.qupzilla.com/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="dbus gnome-keyring kwallet libressl +X"
+IUSE="dbus gnome-keyring kde libressl +X"
 
 COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
@@ -26,7 +26,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	dbus? ( $(add_qt_dep qtdbus) )
 	gnome-keyring? ( gnome-base/gnome-keyring )
-	kwallet? ( $(add_frameworks_dep kwallet) )
+	kde? (
+		$(add_frameworks_dep kio)
+		$(add_frameworks_dep kwallet)
+	)
 	libressl? ( dev-libs/libressl:= )
 	!libressl? ( dev-libs/openssl:0= )
 	X? (
@@ -48,7 +51,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_DBUS=$(usex !dbus)
 		-DBUILD_KEYRING=$(usex gnome-keyring)
-		$(cmake-utils_use_find_package kwallet KF5Wallet)
+		$(cmake-utils_use_find_package kde KF5Wallet)
+		$(cmake-utils_use_find_package kde KF5KIO)
 		-DNO_X11=$(usex !X)
 	)
 	kde5_src_configure
