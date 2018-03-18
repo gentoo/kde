@@ -25,7 +25,7 @@ RDEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	>=dev-libs/kproperty-3.1.0
+	>=dev-libs/kproperty-3.1.0:5=
 	marble? ( $(add_kdeapps_dep marble '' '' '5=') )
 	scripting? ( $(add_qt_dep qtdeclarative) )
 	webkit? ( $(add_qt_dep qtwebkit) )
