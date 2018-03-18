@@ -5,6 +5,7 @@ EAPI=6
 
 # KDE_HANDBOOK="true"
 KDE_TEST="forceoptional"
+QT_MINIMAL="5.8.0"
 inherit kde5
 
 DESCRIPTION="Visual database applications creator"
@@ -38,9 +39,9 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	dev-db/kdb[mysql?,postgres?,sqlite?]
-	dev-libs/kproperty
-	dev-libs/kreport
+	>=dev-db/kdb-3.1.0-r1:5=[debug?,mysql?,postgres?,sqlite?]
+	>=dev-libs/kproperty-3.1.0:5=
+	>=dev-libs/kreport-3.1.0:5=[scripting]
 	marble? ( $(add_kdeapps_dep marble) )
 	mdb? (
 		dev-libs/glib:2
