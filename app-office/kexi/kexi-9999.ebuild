@@ -15,6 +15,7 @@ KEYWORDS=""
 IUSE="marble mdb mysql postgres sqlite webkit"
 
 COMMON_DEPEND="
+	$(add_frameworks_dep breeze-icons-rcc)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -56,7 +57,6 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep breeze-icons-rcc)
 	!app-office/calligra:4[calligra_features_kexi]
 	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
 "
