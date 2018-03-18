@@ -80,7 +80,7 @@ src_configure() {
 		$(cmake-utils_use_find_package marble KexiMarble)
 		$(cmake-utils_use_find_package mdb GLIB2)
 		$(cmake-utils_use_find_package mysql MySQL)
-		$(cmake-utils_use_find_package postgres KexiPostgreSQL)
+		$(cmake-utils_use_find_package postgres PostgreSQL)
 	)
 	kde5_src_configure
 }
