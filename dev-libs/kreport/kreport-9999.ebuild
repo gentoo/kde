@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_6 )
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -35,7 +35,10 @@ DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 "
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+pkg_setup() {
+	python-any-r1_pkg_setup
+	kde5_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
