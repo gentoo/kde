@@ -9,6 +9,7 @@ DESCRIPTION="Property editing framework with editor widget similar to Qt Designe
 [[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
+SLOT="5/4"
 KEYWORDS=""
 IUSE=""
 
