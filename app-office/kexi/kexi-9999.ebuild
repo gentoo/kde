@@ -13,7 +13,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.
 [[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
 
 KEYWORDS=""
-IUSE="marble mdb mysql postgres sqlite webkit"
+IUSE="debug experimental marble mdb mysql postgres sqlite webkit"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep breeze-icons-rcc)
@@ -73,6 +73,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DKEXI_MIGRATEMANAGER_DEBUG=$(usex debug)
+		-DKEXI_SCRIPTING_DEBUG=$(usex debug)
+		-DKEXI_AUTORISE_TABBED_TOOLBAR=$(usex experimental)
+		-DKEXI_SCRIPTS_SUPPORT=$(usex experimental)
 		$(cmake-utils_use_find_package marble KexiMarble)
 		$(cmake-utils_use_find_package mdb GLIB2)
 		$(cmake-utils_use_find_package mysql MySQL)
