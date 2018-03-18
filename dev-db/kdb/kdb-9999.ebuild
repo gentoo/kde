@@ -11,6 +11,7 @@ DESCRIPTION="Database connectivity and creation framework for various vendors"
 [[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
+SLOT="5/4"
 KEYWORDS=""
 IUSE="mysql postgres sqlite"
 
