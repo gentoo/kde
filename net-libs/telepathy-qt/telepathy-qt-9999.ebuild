@@ -37,11 +37,6 @@ DEPEND="${RDEPEND}
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.9.6.1-yes-release.patch"
-	"${FILESDIR}/${PN}-0.9.6.1-qtpath.patch"
-)
-
 # bug 549448 - last checked with 0.9.7
 RESTRICT="test"
 
