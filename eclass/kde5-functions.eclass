@@ -38,9 +38,7 @@ case ${CATEGORY} in
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
 		;;
 	kde-plasma)
-		[[ ${PV} = 5.12* ]] && : ${QT_MINIMAL:=5.9.1}
 		if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 5.12* ]]; then
-			: ${QT_MINIMAL:=5.9.1}
 			: ${FRAMEWORKS_MINIMAL:=9999}
 		fi
 		;;
@@ -48,16 +46,13 @@ case ${CATEGORY} in
 		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 18* ]]; then
 			: ${FRAMEWORKS_MINIMAL:=5.44.0}
 		fi
-		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 17.12* || ${PV} = 18* ]]; then
-			: ${QT_MINIMAL:=5.9.1}
-		fi
 		;;
 esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimum version of Qt to require. This affects add_qt_dep.
-: ${QT_MINIMAL:=5.7.1}
+: ${QT_MINIMAL:=5.9.4}
 
 # @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
 # @DESCRIPTION:
