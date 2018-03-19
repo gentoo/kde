@@ -85,7 +85,10 @@ RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok:4
 "
 
-PATCHES=( ${FILESDIR}/${PN}-2.8.90-mysqld-rpath.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch
+	"${FILESDIR}"/${PN}-liblastfm-headers.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
