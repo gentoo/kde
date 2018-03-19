@@ -4,13 +4,15 @@
 EAPI=6
 
 EGIT_BRANCH="5.0"
+PYTHON_COMPAT=( python2_7 )
+
 KDE_GCC_MINIMAL="6.4"
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
 QT_MINIMAL="5.9.3"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-inherit kde5
+inherit kde5 python-r1
 
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org"
@@ -21,6 +23,8 @@ fi
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="activities addressbook calendar hbci holidays ofx quotes webkit weboob"
+
+REQUIRED_USE="weboob? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -76,7 +80,8 @@ COMMON_DEPEND="
 	)
 	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 	weboob? (
-		$(add_frameworks_dep kross)
+		${PYTHON_DEPS}
+		$(add_qt_dep qtconcurrent)
 		www-client/weboob
 	)
 "
@@ -88,6 +93,11 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/kmymoney:4
 	quotes? ( dev-perl/Finance-Quote )
 "
+
+pkg_setup() {
+	use weboob && python-setup
+	kde5_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -102,7 +112,7 @@ src_configure() {
 		-DENABLE_OFXIMPORTER=$(usex ofx)
 		-DENABLE_WEBENGINE=$(usex !webkit)
 		-DENABLE_WEBOOB=$(usex weboob)
-		$(cmake-utils_use_find_package weboob KF5Kross)
+		$(cmake-utils_use_find_package weboob PythonLibs)
 	)
 	kde5_src_configure
 }
