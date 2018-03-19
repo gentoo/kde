@@ -29,7 +29,6 @@ DOCS=( AUTHORS README README.porting TODO )
 
 src_configure() {
 	local mycmakeargs=(
-		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 		-DBUILD_EXAMPLES=$(usex examples)
 		-DUSE_QT4=OFF
 		-DUSE_QT5=ON
