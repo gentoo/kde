@@ -9,7 +9,7 @@ inherit kde5 pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
 KEYWORDS=""
-IUSE="consolekit +pam seccomp"
+IUSE="+pam seccomp"
 
 REQUIRED_USE="seccomp? ( pam )"
 
@@ -58,8 +58,6 @@ RESTRICT+=" test"
 src_prepare() {
 	kde5_src_prepare
 
-	use consolekit && eapply "${FILESDIR}"/${PN}-consolekit-unlock.patch
-
 	use test || sed -i \
 		-e "/add_subdirectory(autotests)/ s/^/#/" greeter/CMakeLists.txt || die
 }
@@ -86,8 +84,6 @@ src_install() {
 
 	newpamd "${FILESDIR}/kde.pam" kde
 	newpamd "${FILESDIR}/kde-np.pam" kde-np
-
-	use consolekit && dobin "${FILESDIR}"/ck-unlock-session
 
 	if ! use pam; then
 		chown root "${ED}"usr/$(get_libdir)/libexec/kcheckpass || die
