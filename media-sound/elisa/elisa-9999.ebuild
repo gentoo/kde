@@ -3,7 +3,6 @@
 
 EAPI=6
 
-QT_MINIMAL="5.9.1"
 KDE_TEST="forceoptional"
 KDE_HANDBOOK="optional"
 inherit kde5

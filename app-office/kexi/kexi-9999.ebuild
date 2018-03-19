@@ -5,7 +5,6 @@ EAPI=6
 
 # KDE_HANDBOOK="true"
 KDE_TEST="forceoptional"
-QT_MINIMAL="5.8.0"
 inherit kde5
 
 DESCRIPTION="Visual database applications creator"
