@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils multibuild git-r3
+inherit cmake-utils git-r3
 
 DESCRIPTION="PolicyKit Qt API wrapper library"
 HOMEPAGE="https://api.kde.org/kdesupport-api/polkit-qt-1-apidocs/"
@@ -12,62 +12,28 @@ EGIT_REPO_URI=( "https://anongit.kde.org/polkit-qt-1" )
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug examples qt4 +qt5"
-
-REQUIRED_USE="|| ( qt4 qt5 )"
+IUSE="debug examples"
 
 RDEPEND="
 	dev-libs/glib:2
+	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	>=sys-auth/polkit-0.103
-	qt4? (
-		dev-qt/qtcore:4[glib]
-		dev-qt/qtdbus:4
-		dev-qt/qtgui:4[glib]
-	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		examples? ( dev-qt/qtxml:5 )
-	)
+	examples? ( dev-qt/qtxml:5 )
 "
 DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS README README.porting TODO )
 
-pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
-}
-
 src_configure() {
-	myconfigure() {
-		local mycmakeargs=(
-			-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
-			-DBUILD_EXAMPLES=$(usex examples)
-		)
+	local mycmakeargs=(
+		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
+		-DBUILD_EXAMPLES=$(usex examples)
+		-DUSE_QT4=OFF
+		-DUSE_QT5=ON
+	)
 
-		if [[ ${MULTIBUILD_VARIANT} = qt4 ]] ; then
-			mycmakeargs+=( -DUSE_QT4=ON )
-		fi
-		if [[ ${MULTIBUILD_VARIANT} = qt5 ]] ; then
-			mycmakeargs+=( -DUSE_QT5=ON )
-		fi
-
-		cmake-utils_src_configure
-	}
-
-	multibuild_foreach_variant myconfigure
-}
-
-src_compile() {
-	multibuild_foreach_variant cmake-utils_src_compile
-}
-
-src_test() {
-	multibuild_foreach_variant cmake-utils_src_test
-}
-
-src_install() {
-	multibuild_foreach_variant cmake-utils_src_install
+	cmake-utils_src_configure
 }
