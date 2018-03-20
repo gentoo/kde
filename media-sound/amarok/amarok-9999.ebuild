@@ -13,7 +13,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast +utils wikipedia"
+IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast wikipedia"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -96,6 +96,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
+		-DWITH_UTILITIES=ON
 		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		-DWITH_IPOD=$(usex ipod)
@@ -103,7 +104,6 @@ src_configure() {
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package ofa LibOFA)
 		$(cmake-utils_use_find_package podcast Mygpo-qt5)
-		-DWITH_UTILITIES=$(usex utils)
 		$(cmake-utils_use_find_package wikipedia Qt5WebEngine)
 	)
 
