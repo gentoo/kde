@@ -11,12 +11,11 @@ KEYWORDS=""
 LICENSE="|| ( GPL-2+ LGPL-3+ )"
 IUSE=""
 
-# drop qtdeclarative subslot operator when QT_MINIMAL >= 5.8.0
 DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtdeclarative '' '' '5=')
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
