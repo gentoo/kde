@@ -13,7 +13,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast +utils"
+IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast +utils wikipedia"
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	RESTRICT="test"
@@ -76,6 +76,7 @@ COMMONDEPEND="
 	lastfm? ( media-libs/liblastfm[qt5(+)] )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
+	wikipedia? ( $(add_qt_dep qtwebengine) )
 "
 DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
@@ -83,6 +84,7 @@ DEPEND="${COMMONDEPEND}
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok:4
+	$(add_qt_dep qtquickcontrols2)
 "
 
 PATCHES=(
@@ -102,6 +104,7 @@ src_configure() {
 		$(cmake-utils_use_find_package ofa LibOFA)
 		$(cmake-utils_use_find_package podcast Mygpo-qt5)
 		-DWITH_UTILITIES=$(usex utils)
+		$(cmake-utils_use_find_package wikipedia Qt5WebEngine)
 	)
 
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
