@@ -14,7 +14,7 @@ KEYWORDS=""
 SLOT="0/0"
 IUSE="fingerprint test"
 
-COMMON_DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtnetwork:5[ssl]
@@ -25,11 +25,8 @@ COMMON_DEPEND="
 		sci-libs/fftw:3.0
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
-"
-RDEPEND="${COMMON_DEPEND}
-	!<media-libs/lastfmlib-0.4.0
 "
 
 # 1 of 2 (UrlBuilderTest) is failing, last checked version 1.0.9
