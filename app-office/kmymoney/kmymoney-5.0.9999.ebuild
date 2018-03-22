@@ -12,7 +12,7 @@ KDE_TEST="forceoptional"
 QT_MINIMAL="5.9.3"
 VIRTUALX_REQUIRED="test"
 VIRTUALDBUS_TEST="true"
-inherit kde5 python-r1
+inherit kde5 python-single-r1
 
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org"
@@ -82,7 +82,7 @@ COMMON_DEPEND="
 	weboob? (
 		${PYTHON_DEPS}
 		$(add_qt_dep qtconcurrent)
-		www-client/weboob
+		www-client/weboob[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${COMMON_DEPEND}
