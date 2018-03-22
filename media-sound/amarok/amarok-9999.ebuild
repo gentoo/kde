@@ -73,7 +73,7 @@ COMMONDEPEND="
 		dev-libs/glib:2
 		>=media-libs/libgpod-0.7.0[gtk]
 	)
-	lastfm? ( media-libs/liblastfm[qt5(+)] )
+	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mtp? ( >=media-libs/libmtp-1.0.0 )
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
 	wikipedia? ( $(add_qt_dep qtwebengine) )
@@ -87,10 +87,7 @@ RDEPEND="${COMMONDEPEND}
 	$(add_qt_dep qtquickcontrols2)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch
-	"${FILESDIR}"/${PN}-liblastfm-headers.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch )
 
 src_configure() {
 	local mycmakeargs=(
