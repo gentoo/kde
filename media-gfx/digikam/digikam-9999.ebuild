@@ -8,6 +8,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KDE_TEST="true"
 fi
 CMAKE_MAKEFILE_GENERATOR="emake"
+KDE_APPS_MINIMAL="17.12.0"
 inherit kde5 toolchain-funcs
 
 DESCRIPTION="Digital photo management application"
@@ -26,8 +27,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	S="${WORKDIR}/${MY_P}/core"
 fi
 
-# TODO: Package QtAV http://www.qtav.org/
-# video? ( media-video/qtav )
 COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
