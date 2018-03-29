@@ -84,11 +84,14 @@ COMMON_DEPEND="
 	qalculate? ( sci-libs/libqalculate:= )
 	semantic-desktop? ( $(add_frameworks_dep baloo) )
 "
+DEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtconcurrent)
+	x11-proto/xproto
+"
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdesu)
 	$(add_kdeapps_dep kio-extras)
-	$(add_plasma_dep kde-cli-tools)
 	$(add_plasma_dep ksysguard)
 	$(add_plasma_dep milou)
 	$(add_plasma_dep plasma-integration)
@@ -116,9 +119,8 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/ksplash:4
 	!kde-plasma/plasma-workspace:4
 "
-DEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtconcurrent)
-	x11-proto/xproto
+PDEPEND="
+	$(add_plasma_dep kde-cli-tools)
 "
 
 PATCHES=(
