@@ -166,9 +166,7 @@ src_install() {
 pkg_postinst () {
 	kde5_pkg_postinst
 
-	echo
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
 	elog "edit ${EPREFIX}/etc/plasma/startup/10-agent-startup.sh and"
 	elog "${EPREFIX}/etc/plasma/shutdown/10-agent-shutdown.sh"
-	echo
 }
