@@ -50,6 +50,7 @@ RDEPEND="
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep korganizer)
 	$(add_kdeapps_dep kpimtextedit)
+	$(add_kdeapps_dep kpkpass)
 	$(add_kdeapps_dep ksmtp)
 	$(add_kdeapps_dep libgravatar)
 	$(add_kdeapps_dep libkdepim)
