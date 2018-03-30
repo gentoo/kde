@@ -3,7 +3,6 @@
 
 EAPI=6
 
-EGIT_BRANCH="5.0"
 PYTHON_COMPAT=( python2_7 )
 
 KDE_GCC_MINIMAL="6.4"
