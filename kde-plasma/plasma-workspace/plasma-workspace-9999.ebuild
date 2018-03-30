@@ -126,7 +126,6 @@ PDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
 	"${FILESDIR}/${PN}-5.10-startplasmacompositor-script.patch"
-	"${FILESDIR}/${PN}-5.10.4-unused-dep.patch"
 	"${FILESDIR}/${PN}-5.12.80-tests-optional.patch"
 )
 
