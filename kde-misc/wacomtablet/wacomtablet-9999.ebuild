@@ -32,13 +32,12 @@ CDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	>=x11-drivers/xf86-input-wacom-0.20.0
-	x11-libs/libX11
 	x11-libs/libXi
-	x11-libs/libXrandr
 	x11-libs/libxcb
 "
 DEPEND="${CDEPEND}
 	sys-devel/gettext
+	x11-libs/libX11
 	x11-proto/xproto
 "
 RDEPEND="${CDEPEND}
