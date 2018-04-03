@@ -8,7 +8,7 @@ python:
 env:
     global:
         - PORTAGE_VER="2.3.28"
-        - REPOMAN_VER="2.3.8"
+        - REPOMAN_VER="2.3.9"
 before_install:
     - sudo apt-get -qq update
     - pip install lxml==4.1.1
