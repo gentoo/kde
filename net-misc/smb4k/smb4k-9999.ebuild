@@ -42,7 +42,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-fs/samba[cups]
 	plasma? ( $(add_frameworks_dep plasma) )
-	!net-misc/smb4k:4
 "
 
 src_configure(){
