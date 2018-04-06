@@ -16,7 +16,6 @@ RDEPEND="
 	$(add_kdeapps_dep kfind)
 	|| (
 		www-client/falkon
-		www-client/qupzilla
 		$(add_kdeapps_dep konqueror)
 	)
 	$(add_kdeapps_dep konsole)
