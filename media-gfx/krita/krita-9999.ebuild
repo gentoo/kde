@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui '-gles2')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
