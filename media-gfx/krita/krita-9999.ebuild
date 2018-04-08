@@ -5,14 +5,16 @@ EAPI=6
 
 KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+PYTHON_COMPAT=( python3_{4,5,6} )
+inherit kde5 python-single-r1
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-IUSE="color-management fftw gif +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
+IUSE="color-management fftw gif +gsl +jpeg openexr pdf python qtmedia +raw tiff vc"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -57,6 +59,11 @@ COMMON_DEPEND="
 		media-libs/openexr
 	)
 	pdf? ( app-text/poppler[qt5] )
+	python? (
+		${PYTHON_DEPS}
+		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/sip[${PYTHON_USEDEP}]
+	)
 	qtmedia? ( $(add_qt_dep qtmultimedia) )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
@@ -72,6 +79,10 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra-l10n:4[calligra_features_krita(+)]
 "
 
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package color-management OCIO)
@@ -81,6 +92,8 @@ src_configure() {
 		$(cmake-utils_use_find_package jpeg JPEG)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package pdf Poppler)
+		$(cmake-utils_use_find_package python PyQt5)
+		$(cmake-utils_use_find_package python SIP)
 		$(cmake-utils_use_find_package qtmedia Qt5Multimedia)
 		$(cmake-utils_use_find_package raw LibRaw)
 		$(cmake-utils_use_find_package tiff TIFF)
