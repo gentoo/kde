@@ -12,7 +12,7 @@ HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 
 LICENSE="GPL-3"
 KEYWORDS=""
-IUSE="color-management fftw +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
+IUSE="color-management fftw gif +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -49,6 +49,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	color-management? ( media-libs/opencolorio )
 	fftw? ( sci-libs/fftw:3.0= )
+	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
 	openexr? (
@@ -75,6 +76,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package color-management OCIO)
 		$(cmake-utils_use_find_package fftw FFTW3)
+		$(cmake-utils_use_find_package gif GIF)
 		$(cmake-utils_use_find_package gsl GSL)
 		$(cmake-utils_use_find_package jpeg JPEG)
 		$(cmake-utils_use_find_package openexr OpenEXR)
