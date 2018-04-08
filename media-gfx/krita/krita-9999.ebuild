@@ -8,11 +8,14 @@ VIRTUALX_REQUIRED="test"
 PYTHON_COMPAT=( python3_{4,5,6} )
 inherit kde5 python-single-r1
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV%.1}/${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
-
 LICENSE="GPL-3"
-KEYWORDS=""
 IUSE="color-management fftw gif +gsl +jpeg openexr pdf python qtmedia +raw tiff vc"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
