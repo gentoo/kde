@@ -32,6 +32,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	editor? (
+		$(add_qt_dep qtopengl)
 		$(add_frameworks_dep knewstuff)
 		dev-cpp/eigen:3
 		sci-chemistry/openbabel
@@ -42,6 +43,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	sci-chemistry/chemical-mime-data
 "
+
+PATCHES=( "${FILESDIR}/${P}-missing-header.patch" )
 
 src_configure(){
 	# Fix missing finite()

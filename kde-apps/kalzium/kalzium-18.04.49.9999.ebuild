@@ -32,6 +32,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	editor? (
+		$(add_qt_dep qtopengl)
 		$(add_frameworks_dep knewstuff)
 		dev-cpp/eigen:3
 		sci-chemistry/openbabel
