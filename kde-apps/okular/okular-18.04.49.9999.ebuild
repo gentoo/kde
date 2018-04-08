@@ -21,6 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjs)
 	$(add_frameworks_dep kparts)
@@ -63,7 +64,10 @@ RDEPEND="${DEPEND}
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-tests.patch"
+	"${FILESDIR}/${PN}-18.03.90-kcrash.patch"
+)
 
 src_prepare() {
 	kde5_src_prepare
