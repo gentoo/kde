@@ -7,10 +7,14 @@ KDE_TEST="forceoptional"
 KDE_HANDBOOK="optional"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 DESCRIPTION="Simple music player by KDE"
 HOMEPAGE="https://community.kde.org/Elisa"
 LICENSE="LGPL-3+"
-KEYWORDS=""
 IUSE="mpris semantic-desktop"
 
 COMMON_DEPEND="
