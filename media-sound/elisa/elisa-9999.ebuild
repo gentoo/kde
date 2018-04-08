@@ -24,6 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdeclarative)
@@ -37,7 +38,6 @@ COMMON_DEPEND="
 	)
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
-		$(add_frameworks_dep kfilemetadata)
 	)
 "
 DEPEND="${COMMON_DEPEND}
@@ -55,7 +55,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package mpris KF5DBusAddons)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
-		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
 	)
 
 	kde5_src_configure
