@@ -83,6 +83,9 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra-l10n:4[calligra_features_krita(+)]
 "
 
+# bug 630508
+RESTRICT+=" test"
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
