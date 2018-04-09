@@ -37,7 +37,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtpositioning)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
