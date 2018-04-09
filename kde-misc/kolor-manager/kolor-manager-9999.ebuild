@@ -8,7 +8,7 @@ KDE_PO_DIRS="doc/user/po"
 inherit kde5
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
-HOMEPAGE="http://www.oyranos.org/kolormanager"
+HOMEPAGE="https://www.oyranos.org/kolormanager"
 
 LICENSE="BSD-2"
 KEYWORDS=""
