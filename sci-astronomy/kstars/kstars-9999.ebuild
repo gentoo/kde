@@ -16,6 +16,7 @@ REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
 # TODO: AstrometryNet requires new package
 COMMON_DEPEND="
+	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
