@@ -9,11 +9,14 @@ KMNAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${KMNAME}-${PV}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
-
 LICENSE="GPL-2+"
-KEYWORDS=""
 IUSE="app sms wayland"
 
 DEPEND="
