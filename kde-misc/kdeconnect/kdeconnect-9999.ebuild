@@ -17,7 +17,7 @@ fi
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
 LICENSE="GPL-2+"
-IUSE="app sms wayland"
+IUSE="app mousepad sms wayland"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -38,10 +38,12 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
-	x11-libs/libfakekey
-	x11-libs/libX11
-	x11-libs/libXtst
 	app? ( $(add_frameworks_dep kdeclarative) )
+	mousepad? (
+		x11-libs/libfakekey
+		x11-libs/libX11
+		x11-libs/libXtst
+	)
 	sms? ( $(add_frameworks_dep kpeople) )
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
@@ -67,6 +69,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
+		$(cmake-utils_use_find_package mousepad LibFakeKey)
 		-DSMSAPP_ENABLED=$(usex sms)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
 	)
