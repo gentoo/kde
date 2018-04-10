@@ -36,7 +36,9 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!games-mud/kmuddy:4
+"
 
 DOC=( AUTHORS README CHANGELOG Scripting-HOWTO TODO DESIGN )
 
