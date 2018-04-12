@@ -37,6 +37,7 @@ RDEPEND="
 	$(add_kdeapps_dep kdepim-runtime)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
+	$(add_kdeapps_dep kitinerary)
 	$(add_kdeapps_dep kldap)
 	$(add_kdeapps_dep kleopatra)
 	$(add_kdeapps_dep kmail)
