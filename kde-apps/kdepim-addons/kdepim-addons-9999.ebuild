@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)
+	$(add_kdeapps_dep kitinerary)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep kpkpass)
