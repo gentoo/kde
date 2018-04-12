@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
-HOMEPAGE="https://www.qupzilla.com/"
+HOMEPAGE="https://www.falkon.org/"
 
 LICENSE="GPL-3"
 SLOT="0"
