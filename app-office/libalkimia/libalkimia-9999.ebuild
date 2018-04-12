@@ -7,12 +7,15 @@ KDE_TEST="forceoptional"
 KMNAME="alkimia"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${KMNAME}/${PV}/${KMNAME}-${PV}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
 HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323"
-
 LICENSE="LGPL-2.1"
 SLOT="0/7"
-KEYWORDS=""
 IUSE="doc"
 
 RDEPEND="
