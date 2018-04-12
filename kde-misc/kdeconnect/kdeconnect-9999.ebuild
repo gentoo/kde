@@ -56,8 +56,6 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}-1.3.1-no-wayland.patch" )
-
 src_prepare() {
 	kde5_src_prepare
 
