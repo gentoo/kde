@@ -7,12 +7,16 @@ KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
 HOMEPAGE="https://www.qupzilla.com/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
 IUSE="dbus gnome-keyring kde libressl +X"
 
 COMMON_DEPEND="
