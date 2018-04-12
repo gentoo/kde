@@ -47,4 +47,4 @@ DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)
 "
 
-DOCS=( CHANGELOG.md README.md TRANSLATORS )
+DOCS=( CHANGELOG.md README.md )
