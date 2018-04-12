@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package pdf PopplerQt5)
+		$(cmake-utils_use_find_package pdf Poppler)
 	)
 	kde5_src_configure
 }
