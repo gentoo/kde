@@ -64,10 +64,7 @@ RDEPEND="${DEPEND}
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-tests.patch"
-	"${FILESDIR}/${PN}-18.03.90-kcrash.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-tests.patch" )
 
 src_prepare() {
 	kde5_src_prepare
