@@ -56,6 +56,8 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 "
 
+PATCHES=( "${FILESDIR}/${P}-qt-5.11.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package freesound Qt5WebKitWidgets)
