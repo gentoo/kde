@@ -37,6 +37,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-qt-5.11.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 
