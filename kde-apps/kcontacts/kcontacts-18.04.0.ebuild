@@ -17,12 +17,13 @@ DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
+
+PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )
 
 src_prepare() {
 	kde5_src_prepare
