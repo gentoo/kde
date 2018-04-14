@@ -29,7 +29,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtmultimedia)
+	$(add_qt_dep qtmultimedia 'gstreamer')
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
 	mpris? (
