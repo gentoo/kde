@@ -23,8 +23,6 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
 
-PATCHES=( "${FILESDIR}/${PN}-18.04.0-unused-dep.patch" )
-
 src_prepare() {
 	kde5_src_prepare
 
