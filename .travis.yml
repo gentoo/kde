@@ -7,7 +7,7 @@ python:
     - pypy3.5
 env:
     global:
-        - PORTAGE_VER="2.3.28"
+        - PORTAGE_VER="2.3.30"
         - REPOMAN_VER="2.3.9"
 before_install:
     - sudo apt-get -qq update
