@@ -53,6 +53,7 @@ RDEPEND="
 	v4l? ( media-libs/libv4l )
 "
 DEPEND="${RDEPEND}
+	$(add_qt_dep qtconcurrent)
 	sys-devel/gettext
 "
 
