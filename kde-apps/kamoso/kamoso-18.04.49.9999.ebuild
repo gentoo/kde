@@ -4,6 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
+VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
