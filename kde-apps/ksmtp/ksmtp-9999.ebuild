@@ -15,7 +15,6 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtnetwork)
 	dev-libs/cyrus-sasl
 "
