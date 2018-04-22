@@ -25,10 +25,12 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/cyrus-sasl:2
 "
 DEPEND="${COMMON_DEPEND}
 	nls? ( $(add_qt_dep linguist-tools) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
+	!<kde-apps/kdepim-runtime-18.07.80:5
 "
