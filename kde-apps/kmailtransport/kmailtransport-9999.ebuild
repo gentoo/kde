@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep ksmtp)
+	$(add_kdeapps_dep libkgapi)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
