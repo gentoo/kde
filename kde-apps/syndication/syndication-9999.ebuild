@@ -13,7 +13,6 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcoreaddons)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
