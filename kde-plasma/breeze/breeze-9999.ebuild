@@ -10,7 +10,7 @@ HOMEPAGE="https://cgit.kde.org/breeze.git"
 KEYWORDS=""
 IUSE="wayland X"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep frameworkintegration)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
@@ -31,10 +31,10 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kpackage)
 "
-RDEPEND="${COMMON_DEPEND}
+PDEPEND="
 	$(add_frameworks_dep breeze-icons)
 	$(add_plasma_dep kde-cli-tools)
 "
