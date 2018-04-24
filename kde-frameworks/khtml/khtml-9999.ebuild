@@ -56,7 +56,7 @@ DEPEND="${RDEPEND}
 	dev-lang/perl
 	dev-util/gperf
 	test? ( $(add_qt_dep qtx11extras) )
-	X? ( x11-proto/xproto )
+	X? ( x11-base/xorg-proto )
 "
 
 src_configure() {

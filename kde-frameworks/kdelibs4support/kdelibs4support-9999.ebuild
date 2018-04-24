@@ -64,7 +64,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-lang/perl
 	dev-perl/URI
 	test? ( $(add_qt_dep qtconcurrent) )
-	X? ( x11-proto/xproto )
+	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdoctools)

@@ -133,7 +133,7 @@ RDEPEND="${COMMONDEPEND}
 #	sms? ( app-mobilephone/smssend )
 #	winpopup? ( net-fs/samba )
 DEPEND="${COMMONDEPEND}
-	x11-proto/scrnsaverproto
+	x11-base/xorg-proto
 	jingle? ( dev-libs/jsoncpp )
 "
 

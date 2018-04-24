@@ -17,6 +17,6 @@ RDEPEND="
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
+	x11-base/xorg-proto
 	x11-libs/libxcb
-	x11-proto/xproto
 "

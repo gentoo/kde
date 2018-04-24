@@ -97,7 +97,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	x11-proto/xproto
+	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
 	mouse? (
 		x11-drivers/xf86-input-evdev

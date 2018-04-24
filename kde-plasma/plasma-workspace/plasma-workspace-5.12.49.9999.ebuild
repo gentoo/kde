@@ -118,7 +118,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
-	x11-proto/xproto
+	x11-base/xorg-proto
 "
 
 PATCHES=(

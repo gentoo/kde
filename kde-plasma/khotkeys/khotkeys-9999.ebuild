@@ -40,7 +40,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
+	x11-base/xorg-proto
 	x11-libs/libxcb
 	x11-libs/libXtst
-	x11-proto/xproto
 "

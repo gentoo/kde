@@ -22,7 +22,7 @@ RDEPEND="
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
-	x11-proto/xproto
+	x11-base/xorg-proto
 	nls? ( $(add_qt_dep linguist-tools) )
 	test? ( $(add_qt_dep qtwidgets) )
 "

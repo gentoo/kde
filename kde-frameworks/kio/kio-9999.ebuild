@@ -54,9 +54,9 @@ DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
 	test? ( sys-libs/zlib )
 	X? (
+		x11-base/xorg-proto
 		x11-libs/libX11
 		x11-libs/libXrender
-		x11-proto/xproto
 	)
 "
 PDEPEND="
