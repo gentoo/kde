@@ -44,7 +44,7 @@ case ${CATEGORY} in
 		fi
 		;;
 	kde-apps)
-		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 18* ]]; then
+		if [[ ${KDE_BUILD_TYPE} = live || ${PV} = 18.04* ]]; then
 			: ${FRAMEWORKS_MINIMAL:=5.44.0}
 		fi
 		;;
