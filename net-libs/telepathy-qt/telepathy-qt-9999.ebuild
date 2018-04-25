@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 EGIT_REPO_URI=( "git://anongit.freedesktop.org/telepathy/${PN}" )
-inherit python-any-r1 cmake-utils virtualx git-r3
+inherit python-any-r1 cmake-utils git-r3
 
 DESCRIPTION="Qt bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="https://telepathy.freedesktop.org/"
@@ -13,7 +13,7 @@ HOMEPAGE="https://telepathy.freedesktop.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug farstream test"
+IUSE="debug farstream"
 
 RDEPEND="
 	dev-qt/qtcore:5
@@ -30,13 +30,9 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
-	test? (
-		dev-libs/dbus-glib
-		dev-libs/glib:2
-		dev-python/dbus-python
-		dev-qt/qttest:5
-	)
 "
+
+PATCHES=( "${FILESDIR}/${PN}-0.9.7-deps.patch" )
 
 # bug 549448 - last checked with 0.9.7
 RESTRICT="test"
@@ -50,18 +46,8 @@ src_configure() {
 		-DDESIRED_QT_VERSION=5
 		-DENABLE_DEBUG_OUTPUT=$(usex debug)
 		-DENABLE_FARSTREAM=$(usex farstream)
-		-DENABLE_TESTS=$(usex test)
+		-DENABLE_TESTS=OFF
 		-DENABLE_EXAMPLES=OFF
 	)
 	cmake-utils_src_configure
-}
-
-src_test() {
-	_test_runner() {
-		ctest -E '(CallChannel)'
-	}
-
-	pushd "${BUILD_DIR}" > /dev/null || die
-	virtx _test_runner
-	popd > /dev/null || die
 }
