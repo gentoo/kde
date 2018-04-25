@@ -40,6 +40,7 @@ case ${CATEGORY} in
 	kde-plasma)
 		if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 5.12* ]]; then
 			: ${FRAMEWORKS_MINIMAL:=9999}
+			: ${QT_MINIMAL:=5.10.1}
 		fi
 		;;
 	kde-apps)
