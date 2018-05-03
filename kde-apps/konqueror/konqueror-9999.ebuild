@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://konqueror.org/
 "
 KEYWORDS=""
-IUSE="activities speech tidy X"
+IUSE="activities speech tidy +webengine X"
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT+=" test"
 
@@ -46,27 +46,33 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	sys-libs/zlib
 	speech? ( $(add_qt_dep qtspeech) )
 	tidy? ( app-text/htmltidy )
+	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 	X? ( $(add_qt_dep qtx11extras) )
 "
 DEPEND="${COMMON_DEPEND}
 	activities? ( $(add_frameworks_dep kactivities) )
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep kfind)
-	$(add_plasma_dep kde-cli-tools)
 	!kde-apps/kfmclient:4
 	!kde-apps/konq-plugins
 	!kde-apps/libkonq:5
+	$(add_kdeapps_dep kfind)
+	$(add_plasma_dep kde-cli-tools)
+	!webengine? ( kde-misc/kwebkitpart:5 )
 "
 
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
+
+	if ! use webengine; then
+		punt_bogus_dep Qt5 WebEngineWidgets
+		cmake_comment_add_subdirectory webenginepartexit
+	fi
 
 	kde5_src_prepare
 }
