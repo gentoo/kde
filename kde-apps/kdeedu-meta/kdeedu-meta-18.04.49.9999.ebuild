@@ -8,14 +8,13 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
 HOMEPAGE="https://edu.kde.org"
 KEYWORDS=""
-IUSE=""
+IUSE="+webengine"
 
 RDEPEND="
 	$(add_kdeapps_dep analitza)
 	$(add_kdeapps_dep artikulate)
 	$(add_kdeapps_dep blinken)
 	$(add_kdeapps_dep cantor)
-	$(add_kdeapps_dep kalgebra)
 	$(add_kdeapps_dep kalzium)
 	$(add_kdeapps_dep kanagram)
 	$(add_kdeapps_dep kbruch)
@@ -33,7 +32,10 @@ RDEPEND="
 	$(add_kdeapps_dep libkeduvocdocument)
 	$(add_kdeapps_dep marble)
 	$(add_kdeapps_dep minuet)
-	$(add_kdeapps_dep parley)
 	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
+	webengine? (
+		$(add_kdeapps_dep kalgebra)
+		$(add_kdeapps_dep parley)
+	)
 "
