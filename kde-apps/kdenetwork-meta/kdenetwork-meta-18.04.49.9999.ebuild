@@ -7,7 +7,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
 KEYWORDS=""
-IUSE=""
+IUSE="+telepathy"
 
 RDEPEND="
 	$(add_kdeapps_dep kdenetwork-filesharing)
@@ -15,6 +15,6 @@ RDEPEND="
 	$(add_kdeapps_dep krdc)
 	$(add_kdeapps_dep kopete)
 	$(add_kdeapps_dep krfb)
-	$(add_kdeapps_dep plasma-telepathy-meta)
 	$(add_kdeapps_dep zeroconf-ioslave)
+	telepathy? ( $(add_kdeapps_dep plasma-telepathy-meta) )
 "
