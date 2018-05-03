@@ -11,12 +11,11 @@ HOMEPAGE="
 	https://multimedia.kde.org/
 "
 KEYWORDS=""
-IUSE="+cdrom +ffmpeg"
+IUSE="+cdrom +ffmpeg gstreamer"
 
 RDEPEND="
 	$(add_kdeapps_dep dragon)
 	$(add_kdeapps_dep juk)
-	$(add_kdeapps_dep kamoso)
 	$(add_kdeapps_dep kdenlive)
 	$(add_kdeapps_dep kmix)
 	$(add_kdeapps_dep kwave)
@@ -27,4 +26,5 @@ RDEPEND="
 		$(add_kdeapps_dep libkcompactdisc)
 	)
 	ffmpeg? ( $(add_kdeapps_dep ffmpegthumbs) )
+	gstreamer? ( $(add_kdeapps_dep kamoso) )
 "
