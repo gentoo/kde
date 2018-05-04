@@ -31,7 +31,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
 	$(add_qt_dep qtquickcontrols2)
-	media-libs/gst-plugins-jpeg:1.0
+	media-plugins/gst-plugins-jpeg:1.0
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]
 "
