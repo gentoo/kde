@@ -30,5 +30,5 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
-	|| ( >=sys-fs/encfs-1.9.2 sys-fs/cryfs )
+	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
 "
