@@ -199,7 +199,7 @@ esac
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
-		DEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
+		BDEPEND+=" $(add_frameworks_dep extra-cmake-modules)"
 		RDEPEND+=" >=kde-frameworks/kf-env-4"
 		COMMONDEPEND+=" $(add_qt_dep qtcore)"
 
@@ -230,7 +230,7 @@ case ${KDE_DESIGNERPLUGIN} in
 	false)  ;;
 	*)
 		IUSE+=" designer"
-		DEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
+		BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
 esac
 
 case ${KDE_EXAMPLES} in
@@ -244,7 +244,7 @@ case ${KDE_HANDBOOK} in
 	false)	;;
 	*)
 		IUSE+=" +handbook"
-		DEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
+		BDEPEND+=" handbook? ( $(add_frameworks_dep kdoctools) )"
 		;;
 esac
 
@@ -253,7 +253,7 @@ case ${KDE_QTHELP} in
 	*)
 		IUSE+=" doc"
 		COMMONDEPEND+=" doc? ( $(add_qt_dep qt-docs) )"
-		DEPEND+=" doc? (
+		BDEPEND+=" doc? (
 			$(add_qt_dep qthelp)
 			>=app-doc/doxygen-1.8.13-r1
 		)"
@@ -274,6 +274,10 @@ case ${KDE_SELINUX_MODULE} in
 		IUSE+=" selinux"
 		RDEPEND+=" selinux? ( sec-policy/selinux-${KDE_SELINUX_MODULE} )"
 		;;
+esac
+
+case ${EAPI} in
+	6) DEPEND+=" ${BDEPEND}" ;;
 esac
 
 DEPEND+=" ${COMMONDEPEND} dev-util/desktop-file-utils"
