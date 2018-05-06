@@ -15,4 +15,4 @@ DEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_qt_dep qtcore)
 "
-RDEPEND="!<kde-apps/kde-wallpapers-15.08.3-r2"
+RDEPEND=""
