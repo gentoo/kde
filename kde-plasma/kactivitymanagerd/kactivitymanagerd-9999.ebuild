@@ -31,5 +31,4 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!<kde-frameworks/kactivities-4.13.3-r2:4
 	!kde-plasma/kactivitymanagerd:4
-	!<kde-plasma/plasma-desktop-5.6.1
 "
