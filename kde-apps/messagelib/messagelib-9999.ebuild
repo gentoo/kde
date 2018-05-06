@@ -60,7 +60,6 @@ DEPEND="
 	>=dev-libs/grantlee-5.1.0:5
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kdepim-addons-16.08.50:5
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
 	!=kde-apps/kmail-4.4*:4
