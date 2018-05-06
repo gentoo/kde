@@ -13,6 +13,7 @@ IUSE=""
 COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
