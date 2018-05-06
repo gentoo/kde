@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/boost-1.54
+	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-frameworks/kactivities-4.13.3-r2:4
