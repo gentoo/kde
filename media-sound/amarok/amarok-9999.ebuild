@@ -4,9 +4,6 @@
 EAPI=6
 
 KDE_HANDBOOK="true"
-KDE_TEST="true"
-VIRTUALX_REQUIRED="test"
-VIRTUALDBUS_TEST="true"
 inherit flag-o-matic kde5 pax-utils
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
@@ -14,10 +11,6 @@ HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
 IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast wikipedia"
-
-if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	RESTRICT="test"
-fi
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
@@ -80,7 +73,6 @@ COMMONDEPEND="
 "
 DEPEND="${COMMONDEPEND}
 	virtual/pkgconfig
-	test? ( dev-cpp/gmock )
 "
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok:4
@@ -94,6 +86,7 @@ src_configure() {
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		-DWITH_IPOD=$(usex ipod)
