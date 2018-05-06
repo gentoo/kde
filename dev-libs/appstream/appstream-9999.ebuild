@@ -9,7 +9,6 @@ if [[ ${PV} = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ximion/${PN}"
 else
-	inherit versionator
 	MY_PV="$(ver_rs 1- _)"
 	MY_P="APPSTREAM_${MY_PV}"
 	SRC_URI="https://github.com/ximion/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
