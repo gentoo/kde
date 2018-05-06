@@ -592,10 +592,10 @@ kde5_src_prepare() {
 				diff -Naur ${f}.old ${f} 1>>${pf}
 				rm ${f}.old || die "Failed to clean up"
 			done
-			einfo "Build system was modified by KDE_TEST=forceoptional-recursive."
-			einfo "Unified diff file ready for pickup in:"
-			einfo "  ${pf}"
-			einfo "Push it upstream to make this message go away."
+			eqawarn "Build system was modified by KDE_TEST=forceoptional-recursive."
+			eqawarn "Unified diff file ready for pickup in:"
+			eqawarn "  ${pf}"
+			eqawarn "Push it upstream to make this message go away."
 		elif [[ ${CATEGORY} = kde-frameworks || ${CATEGORY} = kde-plasma || ${CATEGORY} = kde-apps ]] ; then
 			cmake_comment_add_subdirectory autotests test tests
 		fi
