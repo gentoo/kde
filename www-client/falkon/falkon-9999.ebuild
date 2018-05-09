@@ -31,6 +31,8 @@ COMMON_DEPEND="
 	dbus? ( $(add_qt_dep qtdbus) )
 	gnome-keyring? ( gnome-base/gnome-keyring )
 	kde? (
+		$(add_frameworks_dep kcoreaddons)
+		$(add_frameworks_dep kcrash)
 		$(add_frameworks_dep kio)
 		$(add_frameworks_dep kwallet)
 	)
@@ -47,6 +49,9 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
 	gnome-keyring? ( virtual/pkgconfig )
 "
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	DEPEND+=" $(add_frameworks_dep ki18n)"
+fi
 RDEPEND="${COMMON_DEPEND}
 	!www-client/qupzilla
 	$(add_qt_dep qtsvg)
