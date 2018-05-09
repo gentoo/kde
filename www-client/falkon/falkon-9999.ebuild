@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libxcb:=
+		x11-libs/xcb-util
 	)
 "
 DEPEND="${COMMON_DEPEND}
