@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Client library to access and handling of KAlarm calendar data"
@@ -10,8 +11,8 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	$(add_frameworks_dep kdelibs4support)
+COMMON_DEPEND="
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
@@ -20,7 +21,10 @@ DEPEND="
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_qt_dep qtdbus) )
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "
