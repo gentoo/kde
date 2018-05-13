@@ -22,6 +22,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
