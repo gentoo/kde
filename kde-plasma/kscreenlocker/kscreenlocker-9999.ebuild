@@ -48,9 +48,11 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_plasma_dep kde-cli-tools)
 	!<kde-plasma/kcheckpass-4.11.22-r1:4
 	!kde-plasma/kdebase-pam:0
+"
+PDEPEND="
+	$(add_plasma_dep kde-cli-tools)
 "
 
 RESTRICT+=" test"
