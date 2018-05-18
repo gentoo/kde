@@ -44,3 +44,4 @@
 <kde-plasma/sddm-kcm-5.13.50:5
 <kde-plasma/systemsettings-5.13.50:5
 <kde-plasma/user-manager-5.13.50:5
+dev-qt/*:5/5.11
