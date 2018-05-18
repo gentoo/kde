@@ -59,7 +59,6 @@ testbed winpopup +xmpp yahoo zeroconf"
 # disabled protocols
 #	telepathy: net-libs/decibel
 #	irc: NO DEPS
-#	msn: net-libs/libmsn
 #	qq: NO DEPS
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
@@ -141,7 +140,6 @@ src_configure() {
 	local x x2
 	# Handle common stuff
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Libmsn=ON
 		-DWITH_qq=OFF
 		$(cmake-utils_use_find_package jingle LiboRTP)
 		$(cmake-utils_use_find_package jingle Mediastreamer)
