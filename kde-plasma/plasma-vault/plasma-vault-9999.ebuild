@@ -21,6 +21,7 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep networkmanager-qt)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_plasma_dep libksysguard)
