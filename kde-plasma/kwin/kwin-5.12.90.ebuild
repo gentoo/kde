@@ -70,7 +70,6 @@ COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_plasma_dep kde-cli-tools)
 	$(add_qt_dep qtvirtualkeyboard)
 	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
 	!kde-plasma/kwin:4
@@ -80,6 +79,9 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep designer)
 	$(add_qt_dep qtconcurrent)
 	x11-base/xorg-proto
+"
+PDEPEND="
+	$(add_plasma_dep kde-cli-tools)
 "
 
 RESTRICT+=" test"
