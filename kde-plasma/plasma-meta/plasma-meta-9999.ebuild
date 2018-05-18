@@ -36,6 +36,7 @@ RDEPEND="
 	$(add_plasma_dep libksysguard)
 	$(add_plasma_dep milou)
 	$(add_plasma_dep oxygen)
+	$(add_plasma_dep plasma-browser-integration)
 	$(add_plasma_dep plasma-desktop)
 	$(add_plasma_dep plasma-integration)
 	$(add_plasma_dep plasma-workspace)
