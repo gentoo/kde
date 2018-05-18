@@ -11,6 +11,7 @@ inherit kde5
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="appstream +fontconfig ibus +mouse pulseaudio scim +semantic-desktop touchpad"
+SRC_URI="mirror://kde/unstable/plasma/${PV%.1}/${P}.tar.xz"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
