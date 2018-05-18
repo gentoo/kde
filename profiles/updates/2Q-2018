@@ -1,1 +1,2 @@
 move kde-apps/kstars sci-astronomy/kstars
+move kde-misc/plasma-browser-integration kde-plasma/plasma-browser-integration
