@@ -32,6 +32,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kplotting)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtdatavis3d)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
