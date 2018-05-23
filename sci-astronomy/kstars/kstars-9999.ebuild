@@ -14,11 +14,10 @@ fi
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars"
-IUSE="fits indi raw wcs xplanet"
+IUSE="fits indi raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
-# TODO: AstrometryNet requires new package
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfig)
@@ -46,7 +45,6 @@ COMMON_DEPEND="
 	indi? ( >=sci-libs/indilib-1.4.0 )
 	raw? ( media-libs/libraw:= )
 	wcs? ( sci-astronomy/wcslib )
-	xplanet? ( x11-misc/xplanet )
 "
 # TODO: Add back when re-enabled by upstream
 # 	opengl? (
@@ -67,8 +65,16 @@ src_configure() {
 		$(cmake-utils_use_find_package indi INDI)
 		$(cmake-utils_use_find_package raw LibRaw)
 		$(cmake-utils_use_find_package wcs WCSLIB)
-		$(cmake-utils_use_find_package xplanet Xplanet)
 	)
 
 	kde5_src_configure
+}
+
+pkg_postinst () {
+	kde5_pkg_postinst
+
+	if ! has_version "x11-misc/xplanet" ; then
+		elog "${PN} has optional runtime support for x11-misc/xplanet"
+	fi
+	# same for AstrometryNet, which is not packaged.
 }
