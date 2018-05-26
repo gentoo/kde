@@ -10,7 +10,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="+embedded ffmpeg ipod lastfm mtp ofa podcast wikipedia"
+IUSE="ffmpeg ipod lastfm mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
@@ -56,7 +56,7 @@ COMMONDEPEND="
 	>=media-libs/taglib-extras-1.0.1
 	sci-libs/fftw:3.0
 	sys-libs/zlib
-	>=virtual/mysql-5.1[embedded?]
+	>=virtual/mysql-5.1
 	virtual/opengl
 	ffmpeg? (
 		virtual/ffmpeg
@@ -87,7 +87,7 @@ src_configure() {
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
-		-DWITH_MYSQL_EMBEDDED=$(usex embedded)
+		-DWITH_MYSQL_EMBEDDED=OFF
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake-utils_use_find_package lastfm LibLastFm)
@@ -98,9 +98,6 @@ src_configure() {
 	)
 
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
-
-	# bug 581554: add libmysqld location for rpath patch
-	use embedded && mycmakeargs+=( -DMYSQLD_DIR="${EPREFIX}/usr/$(get_libdir)/mysql" )
 
 	kde5_src_configure
 }
@@ -115,16 +112,13 @@ src_install() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! use embedded; then
-		elog "You've disabled the amarok support for embedded mysql DBs."
-		elog "You'll have to configure amarok to use an external db server."
-		elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
-		elog "to configure the external db and migrate your data from the embedded database."
+	elog "You'll have to configure amarok to use an external db server."
+	elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
+	elog "to configure the external db and migrate your data from the embedded database."
 
-		if has_version "virtual/mysql[minimal]"; then
-			elog
-			elog "You built mysql with the minimal use flag, so it doesn't include the server."
-			elog "You won't be able to use the local mysql installation to store your amarok collection."
-		fi
+	if has_version "virtual/mysql[]"; then
+		elog
+		elog "You built mysql with the minimal use flag, so it doesn't include the server."
+		elog "You won't be able to use the local mysql installation to store your amarok collection."
 	fi
 }

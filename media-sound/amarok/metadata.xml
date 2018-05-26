@@ -14,9 +14,6 @@
 		<name>Gentoo Sound project</name>
 	</maintainer>
 	<use>
-		<flag name="embedded">Use libmysqld, MySQL embedded server library.
-		Try disabling this if you encounter -PIC related in amarok,
-		it will make amarok rely only on standalone MySQL server.</flag>
 		<flag name="lastfm">Enable Last.fm streaming services support through
 		<pkg>media-libs/liblastfm</pkg></flag>
 		<flag name="mtp">Enable support for libMTP (Plays4Sure) devices access through libmtp</flag>
