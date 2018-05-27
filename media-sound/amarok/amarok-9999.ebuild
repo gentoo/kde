@@ -116,7 +116,7 @@ pkg_postinst() {
 	elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
 	elog "to configure the external db and migrate your data from the embedded database."
 
-	if has_version "virtual/mysql[]"; then
+	if has_version "virtual/mysql[minimal]"; then
 		elog
 		elog "You built mysql with the minimal use flag, so it doesn't include the server."
 		elog "You won't be able to use the local mysql installation to store your amarok collection."
