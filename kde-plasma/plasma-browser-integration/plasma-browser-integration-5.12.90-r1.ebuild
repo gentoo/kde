@@ -13,9 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -25,5 +22,18 @@ DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-respect-libdir.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		-DMOZILLA_DIR="${EPREFIX}/usr/$(get_libdir)/mozilla"
+	)
+
+	kde5_src_configure
+}
