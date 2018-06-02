@@ -21,6 +21,7 @@ DEPEND="
 	$(add_kdeapps_dep kpkpass)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
+	sys-libs/zlib:=
 	pdf? ( app-text/poppler[qt5] )
 "
 RDEPEND="${DEPEND}
