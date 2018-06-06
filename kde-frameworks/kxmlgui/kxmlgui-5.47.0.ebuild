@@ -41,3 +41,12 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+src_test() {
+	# Files are missing; whatever. Bug: 650290
+	local myctestargs=(
+		-E "(kxmlgui_unittest)"
+	)
+
+	kde5_src_test
+}
