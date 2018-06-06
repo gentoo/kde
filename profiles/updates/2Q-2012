@@ -1,6 +1,0 @@
-slotmove kde-misc/plasma-lionmail 0 4
-move kde-misc/akonadi-google kde-misc/libkgoogle
-move kde-misc/libkgoogle kde-misc/akonadi-google
-move kde-misc/libkgoogle net-libs/libkgoogle
-slotmove x11-misc/lightdm-kde-greeter 0 4
-move x11-misc/lightdm-kde-greeter x11-misc/lightdm-kde

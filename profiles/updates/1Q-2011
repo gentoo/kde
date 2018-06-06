@@ -1,5 +1,0 @@
-slotmove net-misc/ksshaskpass 0 4
-move media-sound/phonon media-libs/phonon
-move media-sound/phonon-gstreamer media-libs/phonon-gstreamer
-move media-sound/phonon-vlc media-libs/phonon-vlc
-move media-sound/phonon-xine media-libs/phonon-xine

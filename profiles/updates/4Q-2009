@@ -1,6 +1,0 @@
-slotmove dev-util/kdesvn 2 4
-slotmove kde-misc/systemloadviewer 0 4
-move kde-misc/recorditnow media-video/recorditnow
-slotmove =dev-cpp/eigen-9999 2 3
-slotmove app-office/kmymoney 0 4
-slotmove net-im/choqok 0 4
