@@ -159,7 +159,7 @@ fi
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
-KDE_UNRELEASED=( kde-frameworks-5.47.0 )
+KDE_UNRELEASED=( kde-frameworks-5.47.0 kde-plasma-5.13.0 )
 
 if [[ ${KDEBASE} = kdevelop ]]; then
 	HOMEPAGE="https://www.kdevelop.org/"
