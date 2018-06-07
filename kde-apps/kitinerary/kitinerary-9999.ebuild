@@ -22,7 +22,7 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	sys-libs/zlib:=
-	pdf? ( app-text/poppler[qt5] )
+	pdf? ( app-text/poppler:=[qt5] )
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-addons-18.07.80
