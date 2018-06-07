@@ -14,6 +14,7 @@ IUSE="ffmpeg ipod lastfm mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 COMMONDEPEND="
+	$(add_frameworks_dep attica)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
