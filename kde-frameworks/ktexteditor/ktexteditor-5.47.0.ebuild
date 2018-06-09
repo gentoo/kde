@@ -46,7 +46,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${P}-CVE-2018-10361.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.46.0-CVE-2018-10361.patch" )
 
 src_configure() {
 	local mycmakeargs=(
