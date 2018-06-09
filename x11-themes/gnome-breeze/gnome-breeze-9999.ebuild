@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit git-r3
 
@@ -10,7 +10,6 @@ HOMEPAGE="https://github.com/dirruk1/gnome-breeze"
 EGIT_REPO_URI="https://github.com/dirruk1/${PN}"
 
 LICENSE="LGPL-2.1"
-KEYWORDS=""
 SLOT="0"
 IUSE=""
 
