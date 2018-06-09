@@ -22,5 +22,5 @@ src_install() {
 		doins -r ${style}/gtk-2.0 ${style}/gtk-3.18 ${style}/gtk-3.20
 	done
 
-	dodoc README.md
+	einstalldocs
 }
