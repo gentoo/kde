@@ -8,7 +8,7 @@ inherit eutils kde5 python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
-IUSE="epub exif ffmpeg libav office pdf taglib"
+IUSE="epub exif ffmpeg kernel_linux libav office pdf taglib"
 
 RDEPEND="
 	$(add_frameworks_dep ki18n)
