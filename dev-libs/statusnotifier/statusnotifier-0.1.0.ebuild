@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit autotools
 
@@ -12,13 +12,14 @@ SRC_URI="https://github.com/jjk-jacky/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc examples"
+IUSE="examples"
 
-RDEPEND="dev-libs/glib:2
-	x11-libs/gdk-pixbuf
+BDEPEND="dev-util/gtk-doc"
+DEPEND="dev-libs/glib:2
+	x11-libs/gdk-pixbuf:2
+	x11-libs/cairo
 	examples? ( x11-libs/gtk+:3 )"
-DEPEND="${RDEPEND}
-	dev-util/gtk-doc"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eautoreconf
