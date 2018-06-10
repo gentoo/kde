@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit git-r3
 
@@ -21,6 +21,6 @@ RDEPEND="
 
 src_install() {
 	dodir /opt/${PN}
-	cp -a "${S}"/* "${D}/opt/${PN}"
+	cp -a "${S}"/* "${D}/opt/${PN}" || die
 	dosym ../../opt/${PN}/bin/arc /usr/bin/arc
 }
