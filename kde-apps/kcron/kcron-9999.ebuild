@@ -22,5 +22,5 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}
-	!prefix? ( virtual/cron )
+	virtual/cron
 "
