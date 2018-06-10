@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGIT_REPO_URI="https://git.devuan.org/pkgs-utopia-substitution/loginkit.git"
 inherit git-r3
@@ -14,7 +14,6 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="dev-libs/glib:2"
-DEPEND="${RDEPEND}
-	dev-util/gdbus-codegen
-"
+BDEPEND="dev-util/gdbus-codegen"
+DEPEND="dev-libs/glib:2"
+RDEPEND="${DEPEND}"
