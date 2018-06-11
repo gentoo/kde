@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
