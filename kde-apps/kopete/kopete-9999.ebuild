@@ -39,7 +39,6 @@ PLUGINS="+addbookmarks +autoreplace +contactnotes +highlight history latex nowli
 otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence"
 
 # Available protocols
-#
 #	gadu: net-libs/libgadu @since 4.3
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
@@ -50,16 +49,15 @@ otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence
 #	telepathy: net-libs/decibel
 #	testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
-#	yahoo: media-libs/jasper
 #	zeroconf (bonjour): NO DEPS
-# DISABLED until fixed: skype sms
-PROTOCOLS="gadu groupwise jingle meanwhile oscar
-testbed winpopup +xmpp yahoo zeroconf"
+PROTOCOLS="gadu groupwise jingle meanwhile oscar testbed winpopup +xmpp zeroconf"
 
 # disabled protocols
-#	telepathy: net-libs/decibel
 #	irc: NO DEPS
 #	qq: NO DEPS
+#	telepathy: net-libs/decibel
+#	yahoo: media-libs/jasper (service shutdown)
+#	skype, sms (until fixed)
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
@@ -113,7 +111,6 @@ COMMONDEPEND="
 		net-dns/libidn
 		sys-libs/zlib
 	)
-	yahoo? ( media-libs/jasper )
 	zeroconf? (
 		$(add_frameworks_dep kdnssd)
 		$(add_kdeapps_dep kidentitymanagement)
