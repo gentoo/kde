@@ -193,7 +193,6 @@ move kde-base/marble kde-apps/marble
 move kde-base/mplayerthumbs kde-apps/mplayerthumbs
 move kde-base/nepomuk kde-apps/nepomuk
 move kde-base/nsplugins kde-apps/nsplugins
-move kde-base/okteta kde-apps/okteta
 move kde-base/okular kde-apps/okular
 move kde-base/oxygen-icons kde-apps/oxygen-icons
 move kde-base/pairs kde-apps/pairs
