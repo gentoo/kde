@@ -9,6 +9,7 @@ DESCRIPTION="Integrate Chrome/Firefox better into Plasma through browser extensi
 HOMEPAGE="https://cgit.kde.org/plasma-browser-integration.git"
 
 LICENSE="GPL-3+"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
