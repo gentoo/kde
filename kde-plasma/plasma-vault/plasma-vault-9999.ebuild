@@ -10,7 +10,7 @@ HOMEPAGE+=" https://cukic.co/2017/02/03/vaults-encryption-in-plasma/"
 
 LICENSE="LGPL-3"
 KEYWORDS=""
-IUSE=""
+IUSE="networkmanager"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -21,7 +21,6 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep networkmanager-qt)
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_plasma_dep libksysguard)
@@ -29,7 +28,16 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	networkmanager? ( $(add_frameworks_dep networkmanager-qt) )
 "
 RDEPEND="${DEPEND}
 	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package networkmanager KF5NetworkManagerQt)
+	)
+
+	kde5_src_configure
+}
