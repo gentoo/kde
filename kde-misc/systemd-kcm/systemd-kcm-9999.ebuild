@@ -12,7 +12,7 @@ IUSE=""
 LICENSE="GPL-2+"
 KEYWORDS=""
 
-CDEPEND="
+RDEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -25,10 +25,6 @@ CDEPEND="
 	$(add_qt_dep qtwidgets)
 	sys-apps/systemd
 "
-DEPEND="${CDEPEND}
-	>=dev-libs/boost-1.45
+DEPEND="${RDEPEND}
 	sys-devel/gettext
-"
-RDEPEND="${CDEPEND}
-	!kde-misc/kcmsystemd:4
 "
