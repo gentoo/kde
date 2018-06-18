@@ -10,4 +10,7 @@ LICENSE="GPL-2+ LGPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
-DEPEND="nls? ( $(add_qt_dep linguist-tools) )"
+DEPEND="
+	dev-util/gperf
+	nls? ( $(add_qt_dep linguist-tools) )
+"
