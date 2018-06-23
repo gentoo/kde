@@ -1,2 +1,0 @@
-move kde-base/kwallet kde-base/kwalletmanager
-move kde-base/kdnssd kde-base/zeroconf-ioslave
