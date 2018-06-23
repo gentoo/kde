@@ -31,6 +31,7 @@ CDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
+	>=dev-libs/libwacom-0.30
 	>=x11-drivers/xf86-input-wacom-0.20.0
 	x11-libs/libXi
 	x11-libs/libxcb
