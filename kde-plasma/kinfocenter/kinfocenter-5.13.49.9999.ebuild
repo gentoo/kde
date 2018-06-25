@@ -71,7 +71,6 @@ src_configure() {
 	else
 		mycmakeargs+=( $(cmake-utils_use_find_package opengl OpenGL) )
 	fi
-	)
 
 	kde5_src_configure
 }
