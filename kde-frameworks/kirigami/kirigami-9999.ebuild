@@ -19,6 +19,7 @@ IUSE=""
 
 # drop qtdeclarative subslot operator when QT_MINIMAL >= 5.10.0
 RDEPEND="
+	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative '' '' '5=')
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtgui)
