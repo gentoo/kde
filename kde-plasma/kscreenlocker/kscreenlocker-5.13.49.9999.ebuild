@@ -84,8 +84,8 @@ src_configure() {
 src_install() {
 	kde5_src_install
 
-	newpamd "${FILESDIR}/kde.pam" kde
-	newpamd "${FILESDIR}/kde-np.pam" kde-np
+	use pam && newpamd "${FILESDIR}/kde.pam" kde
+	use pam && newpamd "${FILESDIR}/kde-np.pam" kde-np
 
 	if ! use pam; then
 		chown root "${ED}"usr/$(get_libdir)/libexec/kcheckpass || die
