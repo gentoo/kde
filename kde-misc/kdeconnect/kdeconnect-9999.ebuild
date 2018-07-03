@@ -48,6 +48,7 @@ DEPEND="
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
 RDEPEND="${DEPEND}
+	net-fs/sshfs
 	app? ( $(add_frameworks_dep kirigami) )
 	sms? ( $(add_frameworks_dep kirigami) )
 	wayland? ( $(add_plasma_dep kwin) )
@@ -78,9 +79,6 @@ src_configure() {
 pkg_postinst(){
 	kde5_pkg_postinst
 
-	elog
-	elog "Optional dependency:"
-	elog "net-fs/sshfs (for 'remote filesystem browser' plugin)"
 	elog
 	elog "The Android .apk file is available via"
 	elog "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
