@@ -11,7 +11,7 @@ HOMEPAGE="http://www.krename.net/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="exif pdf taglib truetype"
+IUSE="exif office pdf taglib truetype"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -31,6 +31,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	exif? ( media-gfx/exiv2:= )
+	office? ( $(add_frameworks_dep karchive) )
 	pdf? ( app-text/podofo )
 	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
@@ -45,8 +46,9 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package exif Exiv2)
-		$(cmake-utils_use_find_package taglib Taglib)
+		$(cmake-utils_use_find_package office KF5Archive)
 		$(cmake-utils_use_find_package pdf PoDoFo)
+		$(cmake-utils_use_find_package taglib Taglib)
 		$(cmake-utils_use_find_package truetype Freetype)
 	)
 
