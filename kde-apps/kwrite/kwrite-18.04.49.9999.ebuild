@@ -30,6 +30,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-18.04.3-root-user.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 	# delete colliding kate translations
