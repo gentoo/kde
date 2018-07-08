@@ -11,8 +11,8 @@ HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth crypt +display-manager grub gtk +handbook legacy-systray
-networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth +browser-integration crypt +display-manager grub gtk +handbook
+legacy-systray networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -36,7 +36,6 @@ RDEPEND="
 	$(add_plasma_dep libksysguard)
 	$(add_plasma_dep milou)
 	$(add_plasma_dep oxygen)
-	$(add_plasma_dep plasma-browser-integration)
 	$(add_plasma_dep plasma-desktop)
 	$(add_plasma_dep plasma-integration)
 	$(add_plasma_dep plasma-workspace)
@@ -45,6 +44,7 @@ RDEPEND="
 	$(add_plasma_dep systemsettings)
 	$(add_plasma_dep user-manager)
 	bluetooth? ( $(add_plasma_dep bluedevil) )
+	browser-integration? ( $(add_plasma_dep plasma-browser-integration) )
 	crypt? ( $(add_plasma_dep plasma-vault) )
 	display-manager? (
 		sddm? (
