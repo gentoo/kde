@@ -53,6 +53,8 @@ RDEPEND="${DEPEND}
 	!kde-misc/ktexteditorpreviewplugin
 "
 
+PATCHES=( "${FILESDIR}/${PN}-18.04.3-root-user.patch" )
+
 src_prepare() {
 	kde5_src_prepare
 	# test hangs
