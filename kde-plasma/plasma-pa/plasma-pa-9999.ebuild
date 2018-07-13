@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/glib:2
 	gnome-base/gconf:2
 	media-libs/libcanberra
-	media-sound/pulseaudio[gnome]
+	|| ( >=media-sound/pulseaudio-12 <media-sound/pulseaudio-12[gnome] )
 "
 
 RDEPEND="${DEPEND}"
