@@ -3,6 +3,7 @@
 
 EAPI=6
 
+ECM_KDEINSTALLDIRS="false"
 KDE_TEST="forceoptional"
 KDE_EXAMPLES="true"
 inherit kde5
