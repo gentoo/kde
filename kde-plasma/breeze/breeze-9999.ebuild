@@ -25,6 +25,7 @@ RDEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	sci-libs/fftw:3.0=
 	wayland? ( $(add_frameworks_dep kwayland) )
 	X? (
 		$(add_qt_dep qtx11extras)
