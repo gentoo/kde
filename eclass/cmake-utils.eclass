@@ -116,16 +116,18 @@ inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
 case ${EAPI} in
 	[56])
 		: ${CMAKE_MAKEFILE_GENERATOR:=emake}
+		_cmake_eqawarn_command=eqawarn
 		inherit eapi7-ver eutils multilib
 		;;
 	*)
 		: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
+		_cmake_eqawarn_command=die
 		;;
 esac
 
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
-[[ ${WANT_CMAKE} ]] && eqawarn "\${WANT_CMAKE} has been removed and is a no-op now"
+[[ ${WANT_CMAKE} ]] && ${_cmake_eqawarn_command} "\${WANT_CMAKE} has been removed and is a no-op now"
 [[ ${PREFIX} ]] && die "\${PREFIX} has been removed and is a no-op now"
 
 case ${CMAKE_MAKEFILE_GENERATOR} in
@@ -208,8 +210,8 @@ _cmake_check_build_dir() {
 		# Respect both the old variable and the new one, depending
 		# on which one was set by the ebuild.
 		if [[ ! ${BUILD_DIR} && ${CMAKE_BUILD_DIR} ]]; then
-			eqawarn "The CMAKE_BUILD_DIR variable has been renamed to BUILD_DIR."
-			eqawarn "Please migrate the ebuild to use the new one."
+			${_cmake_eqawarn_command} "The CMAKE_BUILD_DIR variable has been renamed to BUILD_DIR.
+				Please migrate the ebuild to use the new one."
 
 			# In the next call, both variables will be set already
 			# and we'd have to know which one takes precedence.
@@ -508,7 +510,7 @@ cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ ! ${_CMAKE_UTILS_SRC_PREPARE_HAS_RUN} ]]; then
-		eqawarn "cmake-utils_src_prepare has not been run, please open a bug on https://bugs.gentoo.org/"
+		${_cmake_eqawarn_command} "cmake-utils_src_prepare has not been run, please open a bug on https://bugs.gentoo.org/"
 	fi
 
 	[[ ${EAPI} == 5 ]] && _cmake_cleanup_cmake
