@@ -17,15 +17,15 @@ SLOT="5/8"
 IUSE=""
 
 RDEPEND="
+	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-libs/libatasmart
-	>=sys-apps/util-linux-2.30
-	>=sys-block/parted-3
+	|| ( app-crypt/qca[botan] app-crypt/qca[ssl] )
+	>=sys-apps/util-linux-2.32
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
