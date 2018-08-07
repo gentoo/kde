@@ -20,10 +20,10 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-libs/glib:2
-	gnome-base/gconf:2
 	media-libs/libcanberra
-	media-sound/pulseaudio[gnome(+)]
+	media-sound/pulseaudio
 "
 
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-5.13.3-automagic_gconf.patch" )
