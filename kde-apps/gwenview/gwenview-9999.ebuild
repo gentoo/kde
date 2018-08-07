@@ -7,7 +7,7 @@ KDE_HANDBOOK="true"
 KDE_TEST="true"
 inherit kde5
 
-DESCRIPTION="KDE image viewer"
+DESCRIPTION="Image viewer by KDE"
 HOMEPAGE="
 	https://www.kde.org/applications/graphics/gwenview/
 	https://userbase.kde.org/Gwenview
