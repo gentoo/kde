@@ -15,7 +15,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
-IUSE="fits kipi raw semantic-desktop X"
+IUSE="fits kipi +mpris raw semantic-desktop X"
 
 # requires running environment
 RESTRICT+=" test"
@@ -50,6 +50,7 @@ COMMON_DEPEND="
 	virtual/jpeg:0
 	fits? ( sci-libs/cfitsio )
 	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
+	mpris? ( $(add_qt_dep qtdbus) )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
@@ -73,14 +74,15 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
+		$(cmake-utils_use_find_package mpris Qt5DBus)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
 		$(cmake-utils_use_find_package X X11)
 	)
 
 	if use semantic-desktop; then
-		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=Baloo)
+		mycmakeargs+=( -DGWENVIEW_SEMANTICINFO_BACKEND=Baloo )
 	else
-		mycmakeargs+=(-DGWENVIEW_SEMANTICINFO_BACKEND=None)
+		mycmakeargs+=( -DGWENVIEW_SEMANTICINFO_BACKEND=None )
 	fi
 
 	kde5_src_configure
