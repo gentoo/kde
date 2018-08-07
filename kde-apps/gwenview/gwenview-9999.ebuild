@@ -15,13 +15,12 @@ HOMEPAGE="
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
-IUSE="fits kipi +mpris raw semantic-desktop X"
+IUSE="activities fits kipi +mpris raw semantic-desktop X"
 
 # requires running environment
 RESTRICT+=" test"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -48,6 +47,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
+	activities? ( $(add_frameworks_dep kactivities) )
 	fits? ( sci-libs/cfitsio )
 	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
 	mpris? ( $(add_qt_dep qtdbus) )
@@ -72,6 +72,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package mpris Qt5DBus)
