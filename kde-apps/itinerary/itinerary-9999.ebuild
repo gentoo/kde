@@ -14,13 +14,18 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
+	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kitinerary)
 	$(add_kdeapps_dep kpkpass)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtpositioning)
+	$(add_qt_dep qtwidgets)
+	sys-libs/zlib:=
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep prison)
