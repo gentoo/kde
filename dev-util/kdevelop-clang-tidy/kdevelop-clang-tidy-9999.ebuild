@@ -9,9 +9,13 @@ KMNAME="kdev-clang-tidy"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="KDevelop plugin for clang-tidy static analysis support"
 LICENSE="GPL-2+"
-KEYWORDS=""
 IUSE=""
 
 RDEPEND="
