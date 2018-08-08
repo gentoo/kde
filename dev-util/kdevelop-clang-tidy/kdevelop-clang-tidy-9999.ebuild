@@ -18,7 +18,7 @@ DESCRIPTION="KDevelop plugin for clang-tidy static analysis support"
 LICENSE="GPL-2+"
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -31,7 +31,10 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	>=dev-util/kdevelop-5.2.3:5
 "
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	sys-devel/clang:*
+"
+DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 
