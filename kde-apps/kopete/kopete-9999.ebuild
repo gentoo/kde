@@ -56,7 +56,6 @@ PROTOCOLS="gadu groupwise jingle meanwhile oscar testbed winpopup +xmpp zeroconf
 #	irc: NO DEPS
 #	qq: NO DEPS
 #	telepathy: net-libs/decibel
-#	yahoo: media-libs/jasper (service shutdown)
 #	skype, sms (until fixed)
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
