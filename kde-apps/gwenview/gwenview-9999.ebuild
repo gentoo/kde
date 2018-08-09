@@ -72,7 +72,6 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DCCACHE_SUPPORT=OFF
 		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
