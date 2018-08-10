@@ -26,7 +26,6 @@ RDEPEND="
 	$(add_kdeapps_dep grantlee-editor)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep incidenceeditor)
-	$(add_kdeapps_dep itinerary)
 	$(add_kdeapps_dep kaddressbook)
 	$(add_kdeapps_dep kalarm)
 	$(add_kdeapps_dep kalarmcal)
