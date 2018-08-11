@@ -11,7 +11,7 @@ HOMEPAGE="https://www.kdenlive.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="freesound gles2 jogshuttle semantic-desktop v4l"
+IUSE="freesound gles2 jogshuttle semantic-desktop share v4l"
 
 RDEPEND="
 	$(add_frameworks_dep karchive)
@@ -50,6 +50,7 @@ RDEPEND="
 	virtual/opengl
 	freesound? ( $(add_qt_dep qtwebkit) )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
+	share? ( $(add_frameworks_dep purpose) )
 	v4l? ( media-libs/libv4l )
 "
 DEPEND="${RDEPEND}
@@ -62,6 +63,7 @@ src_configure() {
 		$(cmake-utils_use_find_package freesound Qt5WebKitWidgets)
 		-DWITH_JogShuttle=$(usex jogshuttle)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
+		$(cmake-utils_use_find_package share KF5Purpose)
 		$(cmake-utils_use_find_package v4l LibV4L2)
 	)
 
