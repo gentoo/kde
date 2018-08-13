@@ -14,15 +14,12 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	$(add_qt_dep qtscript)
+	$(add_qt_dep qtdeclarative)
 	sys-devel/gettext
 	virtual/libintl
 "
 DEPEND="${RDEPEND}
-	test? (
-		$(add_qt_dep qtconcurrent)
-		$(add_qt_dep qtdeclarative)
-	)
+	test? ( $(add_qt_dep qtconcurrent) )
 "
 
 pkg_setup() {
