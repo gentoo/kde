@@ -9,12 +9,10 @@ DESCRIPTION="kioslaves from kdesdk package"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	dev-lang/perl
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kde4-l10n-17.03.90:4
-"
+DEPEND="${RDEPEND}"
