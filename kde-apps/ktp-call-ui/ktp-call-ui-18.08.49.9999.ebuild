@@ -12,22 +12,22 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	$(add_frameworks_dep kcmutils)
+RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep ktp-common-internals)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-libs/boost
 	dev-libs/glib:2
 	media-libs/phonon[qt5(+)]
 	media-libs/qt-gstreamer[qt5(+)]
@@ -35,4 +35,7 @@ DEPEND="
 	net-libs/telepathy-farstream
 	net-libs/telepathy-qt[farstream,qt5(+)]
 "
-RDEPEND="${DEPEND}"
+# TODO: dep leak suspect
+DEPEND="${RDEPEND}
+	$(add_frameworks_dep kcmutils)
+"
