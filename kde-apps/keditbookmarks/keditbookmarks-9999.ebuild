@@ -12,7 +12,7 @@ DESCRIPTION="Bookmarks editor based on KDE Frameworks"
 KEYWORDS=""
 IUSE="+man"
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -31,9 +31,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}
-	!<=kde-apps/konqueror-16.08.3:4
-"
+DEPEND="${RDEPEND}"
 
 src_prepare(){
 	kde5_src_prepare
