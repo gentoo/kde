@@ -41,7 +41,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	kipi? ( media-plugins/kipi-plugins:5 )
-	!kde-apps/ksnapshot
 "
 
 src_configure() {
