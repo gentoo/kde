@@ -10,7 +10,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -24,6 +24,4 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/kde4-l10n-17.03.90:4
-"
+DEPEND="${RDEPEND}"
