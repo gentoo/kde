@@ -70,6 +70,7 @@ COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtvirtualkeyboard)
 	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
 	!kde-plasma/kwin:4
