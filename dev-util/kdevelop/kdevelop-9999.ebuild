@@ -86,7 +86,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=sys-devel/gdb-7.0[python]
 	cvs? ( dev-vcs/cvs )
 	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
-	!dev-util/kdevelop:4
 	!dev-util/kdevelop-clang
 	!dev-util/kdevelop-cppcheck
 	!dev-util/kdevelop-qmake
