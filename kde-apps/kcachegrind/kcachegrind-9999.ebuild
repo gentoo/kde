@@ -31,5 +31,4 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	media-gfx/graphviz
-	!<kde-apps/kde4-l10n-17.03.90:4
 "
