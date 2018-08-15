@@ -73,7 +73,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	$(add_qt_dep qtvirtualkeyboard)
 	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
-	!<kde-apps/kdeartwork-meta-15.08.3-r1:4
 	!kde-plasma/kwin:4
 	!kde-plasma/systemsettings:4
 "
