@@ -12,8 +12,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE="libav"
 
 RDEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
 	libav? ( media-video/libav:= )
 	!libav? ( media-video/ffmpeg:0= )
 "
