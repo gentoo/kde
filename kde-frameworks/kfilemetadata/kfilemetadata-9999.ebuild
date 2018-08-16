@@ -4,7 +4,7 @@
 EAPI=6
 
 PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
-inherit eutils kde5 python-any-r1
+inherit kde5 python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
@@ -57,7 +57,7 @@ pkg_postinst() {
 
 	if ! has_version app-text/catdoc || ! has_version dev-libs/libxls; then
 		elog "To get additional features, optional runtime dependencies may be installed:"
-		optfeature "indexing of Microsoft Word or Powerpoint files" app-text/catdoc
-		optfeature "indexing of Microsoft Excel files" dev-libs/libxls
+		elog "app-text/catdoc - indexing of Microsoft Word or Powerpoint files"
+		elog "dev-libs/libxls - indexing of Microsoft Excel files"
 	fi
 }
