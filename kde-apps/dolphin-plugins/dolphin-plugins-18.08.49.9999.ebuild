@@ -66,9 +66,7 @@ src_install() {
 
 pkg_postinst() {
 	if ! use bazaar && ! use dropbox && ! use git && ! use subversion && ! use mercurial; then
-		einfo
-		einfo "You have disabled all plugin use flags. If you want to have vcs"
-		einfo "integration in dolphin, enable those of your needs."
-		einfo
+		elog "You have disabled all plugin use flags. If you want to have vcs"
+		elog "integration in dolphin, enable those of your needs."
 	fi
 }
