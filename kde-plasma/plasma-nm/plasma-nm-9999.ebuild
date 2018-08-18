@@ -67,8 +67,8 @@ pkg_postinst() {
 	kde5_pkg_postinst
 
 	if ! has_version "kde-plasma/plasma-workspace:5"; then
-		einfo "${PN} is not terribly useful without kde-plasma/plasma-workspace:5."
-		einfo "However, the networkmanagement KCM can be called from either systemsettings"
-		einfo "or manually: $ kcmshell5 kcm_networkmanagement"
+		elog "${PN} is not terribly useful without kde-plasma/plasma-workspace:5."
+		elog "However, the networkmanagement KCM can be called from either systemsettings"
+		elog "or manually: $ kcmshell5 kcm_networkmanagement"
 	fi
 }
