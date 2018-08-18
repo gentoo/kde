@@ -87,9 +87,9 @@ src_install() {
 
 pkg_postinst() {
 	if ! has_version "net-fs/nfs-utils"; then
-		einfo "Installing net-fs/nfs-utils will enable the NFS information module."
+		elog "Installing net-fs/nfs-utils will enable the NFS information module."
 	fi
 	if ! has_version "net-fs/samba" || ! has_version "net-fs/samba[server]"; then
-		einfo "Installing net-fs/samba[server(+)] will enable the Samba status information module."
+		elog "Installing net-fs/samba[server(+)] will enable the Samba status information module."
 	fi
 }
