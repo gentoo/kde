@@ -89,7 +89,7 @@ pkg_postinst() {
 	if ! has_version "net-fs/nfs-utils"; then
 		elog "Installing net-fs/nfs-utils will enable the NFS information module."
 	fi
-	if ! has_version "net-fs/samba" || ! has_version "net-fs/samba[server]"; then
-		elog "Installing net-fs/samba[server(+)] will enable the Samba status information module."
+	if ! has_version "net-fs/samba"; then
+		elog "Installing net-fs/samba will enable the Samba status information module."
 	fi
 }
