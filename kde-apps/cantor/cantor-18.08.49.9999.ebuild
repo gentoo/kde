@@ -61,20 +61,20 @@ pkg_pretend() {
 
 	if ! has_version sci-mathematics/maxima && ! has_version sci-mathematics/octave && \
 		! use analitza && ! use julia && ! use lua && ! use python && ! use qalculate && ! use R; then
-		einfo "You have decided to build ${PN} with no backend."
-		einfo "To have this application functional, please enable one of the backends via USE flag:"
-		einfo "    analitza, lua, python, qalculate"
-		einfo "Alternatively, install one of these:"
-		einfo "    # emerge sci-mathematics/maxima (bug #619534)"
-		einfo "    # emerge sci-mathematics/octave"
-		einfo "Experimental available USE flags:"
-		einfo "    julia (not stable, bug #613576), R (bug #619534)"
-		einfo
+		elog "You have decided to build ${PN} with no backend."
+		elog "To have this application functional, please enable one of the backends via USE flag:"
+		elog "    analitza, lua, python, qalculate"
+		elog "Alternatively, install one of these:"
+		elog "    # emerge sci-mathematics/maxima (bug #619534)"
+		elog "    # emerge sci-mathematics/octave"
+		elog "Experimental available USE flags:"
+		elog "    julia (not stable, bug #613576), R (bug #619534)"
+		elog
 	fi
 
 	if ! has_version virtual/latex-base; then
-		einfo "For LaTeX support:"
-		einfo "    # emerge virtual/latex-base"
+		elog "For LaTeX support:"
+		elog "    # emerge virtual/latex-base"
 	fi
 }
 
