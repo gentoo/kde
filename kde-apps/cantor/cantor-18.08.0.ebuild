@@ -63,12 +63,12 @@ pkg_pretend() {
 		! use analitza && ! use julia && ! use lua && ! use python && ! use qalculate && ! use R; then
 		elog "You have decided to build ${PN} with no backend."
 		elog "To have this application functional, please enable one of the backends via USE flag:"
-		elog "    analitza, lua, python, qalculate"
+		elog "    analitza, lua, python, qalculate, R"
 		elog "Alternatively, install one of these:"
 		elog "    # emerge sci-mathematics/maxima (bug #619534)"
 		elog "    # emerge sci-mathematics/octave"
-		elog "Experimental available USE flags:"
-		elog "    julia (not stable, bug #613576), R (bug #619534)"
+		elog "Experimental available USE flag:"
+		elog "    julia (not stable, bug #613576)"
 		elog
 	fi
 
