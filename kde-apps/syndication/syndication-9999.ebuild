@@ -11,10 +11,13 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcodecs)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		$(add_qt_dep qtnetwork)
+		$(add_qt_dep qtwidgets)
+	)
+"

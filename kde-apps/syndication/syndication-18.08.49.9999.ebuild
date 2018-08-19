@@ -11,10 +11,21 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcodecs)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		$(add_qt_dep qtnetwork)
+		$(add_qt_dep qtwidgets)
+	)
+"
+
+src_prepare() {
+	kde5_src_prepare
+	if ! use test; then
+		punt_bogus_dep Qt5 Network
+		punt_bogus_dep Qt5 Widgets
+	fi
+}
