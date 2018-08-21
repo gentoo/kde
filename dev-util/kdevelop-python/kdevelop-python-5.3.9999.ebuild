@@ -3,7 +3,7 @@
 
 EAPI=6
 
-EGIT_BRANCH="5.2"
+EGIT_BRANCH="5.3"
 KDE_TEST="forceoptional"
 KDEBASE="kdevelop"
 KMNAME="kdev-python"

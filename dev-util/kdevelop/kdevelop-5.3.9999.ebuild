@@ -3,7 +3,7 @@
 
 EAPI=6
 
-EGIT_BRANCH="5.2"
+EGIT_BRANCH="5.3"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
 VIRTUALDBUS_TEST="true"
@@ -87,7 +87,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=sys-devel/gdb-7.0[python]
 	cvs? ( dev-vcs/cvs )
 	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
-	!dev-util/kdevelop:4
 	!dev-util/kdevelop-clang
 	!dev-util/kdevelop-cppcheck
 	!dev-util/kdevelop-qmake
