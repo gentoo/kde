@@ -16,10 +16,10 @@ fi
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 LICENSE="GPL-3"
-IUSE="color-management fftw gif +gsl +jpeg openexr pdf python qtmedia +raw tiff vc"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="color-management fftw gif +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-COMMON_DEPEND="
+COMMON_DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -45,6 +45,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
 	dev-libs/boost:=
+	dev-python/PyQt5[${PYTHON_USEDEP}]
+	dev-python/sip[${PYTHON_USEDEP}]
 	media-gfx/exiv2:=
 	media-libs/lcms
 	media-libs/libpng:0=
@@ -63,11 +65,6 @@ COMMON_DEPEND="
 		media-libs/openexr
 	)
 	pdf? ( app-text/poppler[qt5] )
-	python? (
-		${PYTHON_DEPS}
-		dev-python/PyQt5[${PYTHON_USEDEP}]
-		dev-python/sip[${PYTHON_USEDEP}]
-	)
 	qtmedia? ( $(add_qt_dep qtmultimedia) )
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
@@ -87,7 +84,8 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT+=" test"
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
+	python-single-r1_pkg_setup
+	kde5_pkg_setup
 }
 
 src_configure() {
@@ -99,8 +97,6 @@ src_configure() {
 		$(cmake-utils_use_find_package jpeg JPEG)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package pdf Poppler)
-		$(cmake-utils_use_find_package python PyQt5)
-		$(cmake-utils_use_find_package python SIP)
 		$(cmake-utils_use_find_package qtmedia Qt5Multimedia)
 		$(cmake-utils_use_find_package raw LibRaw)
 		$(cmake-utils_use_find_package tiff TIFF)
