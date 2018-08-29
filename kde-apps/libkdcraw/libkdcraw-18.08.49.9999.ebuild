@@ -16,3 +16,5 @@ DEPEND="
 	>=media-libs/libraw-0.16:=
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-18.08.0-libraw-0.19.patch" )
