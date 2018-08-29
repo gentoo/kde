@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 KEYWORDS=""
-IUSE="activities htmlthumbs +man mtp openexr phonon samba +sftp taglib"
+IUSE="activities +man mtp openexr phonon samba +sftp taglib"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
@@ -41,7 +41,6 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kactivities)
 		$(add_qt_dep qtsql)
 	)
-	htmlthumbs? ( $(add_qt_dep qtwebengine 'widgets') )
 	man? ( $(add_frameworks_dep khtml) )
 	mtp? ( media-libs/libmtp:= )
 	openexr? ( media-libs/openexr )
@@ -63,8 +62,8 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngineWidgets=ON
 		$(cmake-utils_use_find_package activities KF5Activities)
-		$(cmake-utils_use_find_package htmlthumbs Qt5WebEngineWidgets)
 		$(cmake-utils_use_find_package man Gperf)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package openexr OpenEXR)
