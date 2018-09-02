@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	)
 	rss? (
 		$(add_frameworks_dep kdewebkit)
-		$(add_kdeapps_dep syndication)
+		$(add_frameworks_dep syndication)
 	)
 	search? (
 		$(add_frameworks_dep kdewebkit)
