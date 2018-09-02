@@ -66,5 +66,4 @@ RDEPEND="
 	$(add_kdeapps_dep pim-data-exporter)
 	$(add_kdeapps_dep pim-sieve-editor)
 	$(add_kdeapps_dep pimcommon)
-	$(add_kdeapps_dep syndication)
 "
