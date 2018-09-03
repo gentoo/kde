@@ -32,7 +32,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	exif? ( media-gfx/exiv2:= )
 	office? ( $(add_frameworks_dep karchive) )
-	pdf? ( app-text/podofo )
+	pdf? ( app-text/podofo:= )
 	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
 "
