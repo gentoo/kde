@@ -40,11 +40,15 @@ RDEPEND="
 	git? ( dev-libs/libgit2:= )
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep qtxmlpatterns)
 	test? ( $(add_frameworks_dep kservice) )
 "
 
 RESTRICT+=" test"
+
+src_prepare() {
+	kde5_src_prepare
+	punt_bogus_dep Qt5 XmlPatterns
+}
 
 src_configure() {
 	local mycmakeargs=(

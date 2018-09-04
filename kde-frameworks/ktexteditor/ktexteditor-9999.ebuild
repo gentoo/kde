@@ -40,7 +40,6 @@ RDEPEND="
 	git? ( dev-libs/libgit2:= )
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep qtxmlpatterns)
 	test? ( $(add_frameworks_dep kservice) )
 "
 
