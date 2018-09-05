@@ -16,7 +16,7 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kxmlrpcclient)
-	|| ( $(add_frameworks_dep syndication) $(add_kdeapps_dep syndication '' '18.08.0') )
+	$(add_frameworks_dep syndication)
 	$(add_kdeapps_dep kcalcore)
 "
 RDEPEND="${DEPEND}
