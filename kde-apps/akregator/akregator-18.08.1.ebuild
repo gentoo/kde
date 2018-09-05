@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	|| ( $(add_frameworks_dep syndication) $(add_kdeapps_dep syndication '' '18.08.0') )
+	$(add_frameworks_dep syndication)
 	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpimtextedit)
