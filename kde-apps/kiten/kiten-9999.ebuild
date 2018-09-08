@@ -4,7 +4,8 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-inherit kde5
+FONT_PN="kanjistrokeorders"
+inherit font kde5
 
 DESCRIPTION="KDE Japanese dictionary and reference"
 HOMEPAGE="https://www.kde.org/applications/education/kiten https://edu.kde.org/kiten"
@@ -29,3 +30,8 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"
+
+src_install() {
+	kde5_src_install
+	font_src_install
+}
