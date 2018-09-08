@@ -4,7 +4,7 @@
 EAPI=6
 
 KDEBASE="kdevelop"
-KDE_TEST="forceoptional"
+KDE_TEST="true"
 KMNAME="kdev-clang-tidy"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -36,10 +36,11 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+	dev-util/kdevelop:5[test?]
 "
 
 src_prepare() {
 	kde5_src_prepare
 	# drop when upstream depends on >=kdevelop-5.2.2
-	punt_bogus_dep KF5 ItemModels
+	sed -e "/KF_ADDITIONAL_REQ_COMPONENTS/d" -i CMakeLists.txt
 }
