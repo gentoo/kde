@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE free disk space utility"
-HOMEPAGE="https://utils.kde.org/projects/kdf"
+HOMEPAGE="https://utils.kde.org/projects/kdf/"
 KEYWORDS=""
 IUSE=""
 

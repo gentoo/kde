@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A powerful flashcard and vocabulary learning program"
-HOMEPAGE="https://www.kde.org/applications/education/kwordquiz https://edu.kde.org/kwordquiz"
+HOMEPAGE="https://www.kde.org/applications/education/kwordquiz https://edu.kde.org/kwordquiz/"
 KEYWORDS=""
 IUSE=""
 

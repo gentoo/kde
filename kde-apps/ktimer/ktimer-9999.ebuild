@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="KDE Timer"
 HOMEPAGE="https://www.kde.org/applications/utilities/ktimer
-https://utils.kde.org/projects/ktimer"
+https://utils.kde.org/projects/ktimer/"
 KEYWORDS=""
 IUSE=""
 
