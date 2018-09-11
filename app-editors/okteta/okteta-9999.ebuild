@@ -15,7 +15,7 @@ fi
 
 DESCRIPTION="Hex editor by KDE"
 HOMEPAGE="https://www.kde.org/applications/utilities/okteta
-https://utils.kde.org/projects/okteta"
+https://utils.kde.org/projects/okteta/"
 IUSE="crypt designer"
 
 DEPEND="

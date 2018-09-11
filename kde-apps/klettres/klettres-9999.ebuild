@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Alphabet learning application"
 HOMEPAGE="https://www.kde.org/applications/education/klettres
-https://edu.kde.org/klettres"
+https://edu.kde.org/klettres/"
 KEYWORDS=""
 IUSE=""
 

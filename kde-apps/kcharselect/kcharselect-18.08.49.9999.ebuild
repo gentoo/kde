@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="KDE character selection utility"
 HOMEPAGE="https://www.kde.org/applications/utilities/kcharselect
-https://utils.kde.org/projects/kcharselect"
+https://utils.kde.org/projects/kcharselect/"
 KEYWORDS=""
 IUSE=""
 
