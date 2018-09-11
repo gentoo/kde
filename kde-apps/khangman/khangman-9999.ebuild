@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Classical hangman game by KDE"
 HOMEPAGE="https://www.kde.org/applications/education/khangman
-https://edu.kde.org/khangman"
+https://edu.kde.org/khangman/"
 KEYWORDS=""
 IUSE=""
 

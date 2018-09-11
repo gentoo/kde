@@ -9,7 +9,7 @@ inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Applications 5 translation tool"
 HOMEPAGE="https://www.kde.org/applications/development/lokalize
-https://l10n.kde.org/tools"
+https://l10n.kde.org/tools/"
 KEYWORDS=""
 IUSE=""
 
