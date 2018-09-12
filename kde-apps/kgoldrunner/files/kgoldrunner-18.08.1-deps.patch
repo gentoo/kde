@@ -1,0 +1,62 @@
+From 8ece3282220b67d44b02f6a4eddb5060333b0295 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Wed, 12 Sep 2018 18:32:52 +0200
+Subject: [PATCH] Drop unused dependencies, add implicit
+
+Test Plan: Still builds, starts fine after the change.
+
+Reviewers: #kde_games
+
+Subscribers: kde-games-devel
+
+Differential Revision: https://phabricator.kde.org/D15460
+---
+ CMakeLists.txt     | 9 +++++----
+ src/CMakeLists.txt | 1 +
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b9eb176..c7ea433 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,20 +7,21 @@ set (KF5_MIN_VERSION "5.30.0")
+ find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+ 
+-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
++find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Gui Widgets)
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+-    CoreAddons
+     Config
+     ConfigWidgets
++    CoreAddons
+     Crash
+     DBusAddons
+     DocTools
+     I18n
+     KIO
+-    XmlGui)
++    WidgetsAddons
++    XmlGui
++)
+ 
+ find_package(KF5KDEGames 4.9.0 REQUIRED)
+-find_package(Phonon4Qt5 CONFIG REQUIRED)
+ 
+ include_directories(BEFORE ${PHONON_INCLUDES})
+ 
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 54c6acb..15e65b0 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -34,6 +34,7 @@ target_link_libraries(kgoldrunner
+     KF5::DBusAddons
+     KF5::KIOCore
+     KF5::Crash
++    KF5::WidgetsAddons
+     KF5::XmlGui
+ )
+ 
+-- 
+2.19.0
+
