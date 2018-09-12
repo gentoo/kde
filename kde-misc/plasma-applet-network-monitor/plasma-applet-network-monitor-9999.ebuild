@@ -6,7 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Plasma 5 applet for monitoring active network connections"
-HOMEPAGE="https://store.kde.org/content/show.php/Network+Monitor?content=169377
+HOMEPAGE="https://store.kde.org/p/998914/
 https://github.com/kotelnik/plasma-applet-network-monitor"
 
 if [[ ${KDE_BUILD_TYPE} = live ]] ; then
