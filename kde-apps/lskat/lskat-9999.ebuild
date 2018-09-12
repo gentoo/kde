@@ -32,7 +32,4 @@ RDEPEND="${DEPEND}
 	!<kde-apps/kde4-l10n-17.07.80
 "
 
-src_prepare() {
-	kde5_src_prepare
-	punt_bogus_dep Phonon 4Qt5
-}
+PATCHES=( "${FILESDIR}/${PN}-18.08.1-deps.patch" )

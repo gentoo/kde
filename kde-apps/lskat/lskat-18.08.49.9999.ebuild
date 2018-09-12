@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK=true
+KDE_HANDBOOK="true"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
@@ -31,3 +31,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-apps/kde4-l10n-17.07.80
 "
+
+PATCHES=( "${FILESDIR}/${PN}-18.08.1-deps.patch" )

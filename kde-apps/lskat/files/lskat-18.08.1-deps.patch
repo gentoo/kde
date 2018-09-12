@@ -1,0 +1,46 @@
+From c0a0fc016d58a2b09967a71d6b0c025e4dee71c4 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Wed, 12 Sep 2018 17:42:44 +0200
+Subject: [PATCH] Drop unused dependencies
+
+Summary: Still builds, starts fine after the change.
+
+Reviewers: #kde_games
+
+Subscribers: kde-games-devel
+
+Differential Revision: https://phabricator.kde.org/D15457
+---
+ CMakeLists.txt | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9764d9c..b22017e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,13 +7,11 @@ set (KF5_MIN_VERSION "5.30.0")
+ find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+ 
+-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
++find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Gui Svg Widgets)
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+     Config
+-    ConfigWidgets
+     CoreAddons
+     Crash
+-    DBusAddons
+     DocTools
+     GuiAddons
+     I18n
+@@ -22,7 +20,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+ )
+ 
+ find_package(KF5KDEGames 4.9.0 REQUIRED)
+-find_package(Phonon4Qt5 CONFIG REQUIRED)
+ 
+ include(FeatureSummary)
+ include(ECMAddAppIcon)
+-- 
+2.19.0
+
