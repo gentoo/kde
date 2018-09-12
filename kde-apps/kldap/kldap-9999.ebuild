@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	kde5_src_prepare
 
-	if ! use_if_iuse handbook ; then
+	if ! use handbook ; then
 		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
 			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
 	fi
