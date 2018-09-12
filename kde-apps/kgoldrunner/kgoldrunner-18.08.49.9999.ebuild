@@ -33,6 +33,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kde4-l10n-17.07.80
+	$(add_qt_dep qtsvg)
 "
 
 PATCHES=( "${FILESDIR}/${PN}-18.08.1-deps.patch" )
