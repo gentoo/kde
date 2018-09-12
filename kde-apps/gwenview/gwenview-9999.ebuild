@@ -70,12 +70,19 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtimageformats)
 "
 
+src_prepare() {
+	kde5_src_prepare
+	if ! use mpris; then
+		# FIXME: upstream a better solution
+		sed -e "/set(HAVE_QTDBUS/s/\${Qt5DBus_FOUND}/0/" -i CMakeLists.txt || die
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
-		$(cmake-utils_use_find_package mpris Qt5DBus)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
 		$(cmake-utils_use_find_package X X11)
 	)
