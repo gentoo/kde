@@ -32,6 +32,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.1.0-slot.patch"
 )
 
+src_prepare() {
+	cmake-utils_src_prepare
+	sed -e '/testfilters/d' \
+		-i templates/tests/CMakeLists.txt || die # bug 661900
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTS=$(usex test)
