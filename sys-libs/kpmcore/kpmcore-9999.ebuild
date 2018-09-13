@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -16,7 +16,8 @@ LICENSE="GPL-3"
 SLOT="5/8"
 IUSE=""
 
-RDEPEND="
+BDEPEND="virtual/pkgconfig"
+DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -24,9 +25,10 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	|| ( app-crypt/qca[botan] app-crypt/qca[ssl] )
+	|| (
+		app-crypt/qca[botan]
+		app-crypt/qca[ssl]
+	)
 	>=sys-apps/util-linux-2.32
 "
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
-"
+RDEPEND="${DEPEND}"
