@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 inherit kde5
@@ -34,7 +34,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep plasma-workspace)
 	$(add_qt_dep qtmultimedia 'qml')
-	!media-video/plasma-mediacenter:0
 "
 
 src_configure() {
