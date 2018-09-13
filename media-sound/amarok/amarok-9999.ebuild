@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 inherit kde5 pax-utils
@@ -13,7 +13,8 @@ LICENSE="GPL-2"
 IUSE="ffmpeg ipod lastfm mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
-COMMONDEPEND="
+BDEPEND="virtual/pkgconfig"
+DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
@@ -73,10 +74,7 @@ COMMONDEPEND="
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
 	wikipedia? ( $(add_qt_dep qtwebengine) )
 "
-DEPEND="${COMMONDEPEND}
-	virtual/pkgconfig
-"
-RDEPEND="${COMMONDEPEND}
+RDEPEND="${DEPEND}
 	!media-sound/amarok:4
 	$(add_qt_dep qtquickcontrols2)
 	virtual/mysql
