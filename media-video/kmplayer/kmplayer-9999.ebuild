@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional" # TODO: not optional until kdelibs4support is gone
 inherit kde5
@@ -14,7 +14,7 @@ LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
 KEYWORDS=""
 IUSE="cairo npp"
 
-CDEPEND="
+DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -46,13 +46,10 @@ CDEPEND="
 		x11-libs/gtk+:2
 	)
 "
-DEPEND="${CDEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${CDEPEND}
-	!media-video/kmplayer:4
+RDEPEND="${DEPEND}
 	media-video/mplayer
 "
+BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	if use npp; then
