@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python2_7 python3_6 )
 
@@ -15,7 +15,10 @@ SLOT="5/4"
 KEYWORDS=""
 IUSE="debug mysql postgres sqlite"
 
-RDEPEND="
+BDEPEND="${PYTHON_DEPS}
+	dev-qt/linguist-tools:5
+"
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
@@ -29,10 +32,7 @@ RDEPEND="
 	)
 	sqlite? ( dev-db/sqlite:3 )
 "
-DEPEND="${RDEPEND}
-	${PYTHON_DEPS}
-	dev-qt/linguist-tools:5
-"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	python-any-r1_pkg_setup
