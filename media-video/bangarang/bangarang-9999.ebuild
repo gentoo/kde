@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -24,8 +24,6 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	media-libs/phonon[qt5(+)]
 	media-libs/taglib
-	!media-video/bangarang:4
 "
-DEPEND="${RDEPEND}
-	sys-devel/gettext
-"
+DEPEND="${RDEPEND}"
+BDEPEND="sys-devel/gettext"
