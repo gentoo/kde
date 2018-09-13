@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -52,7 +52,6 @@ RDEPEND="${DEPEND}
 	net-fs/sshfs
 	app? ( $(add_frameworks_dep kirigami) )
 	sms? ( $(add_frameworks_dep kirigami) )
-	!kde-misc/kdeconnect:4
 "
 
 RESTRICT+=" test"
