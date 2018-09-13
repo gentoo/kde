@@ -1,21 +1,22 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+inherit cmake-utils git-r3
 
 DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
 HOMEPAGE="https://cgit.kde.org/libtmdbqt.git"
+EGIT_REPO_URI="https://anongit.kde.org/libtmdbqt.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="test"
 
 DEPEND="
-	$(add_qt_dep qtnetwork)
+	dev-qt/qtcore:5
+	dev-qt/qtnetwork:5
 "
 RDEPEND="${DEPEND}"
 
@@ -24,5 +25,5 @@ src_configure() {
 		-DTMDBQT_ENABLE_TESTS=$(usex test)
 	)
 
-	kde5_src_configure
+	cmake-utils_src_configure
 }
