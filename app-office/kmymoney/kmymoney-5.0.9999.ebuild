@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGIT_BRANCH="5.0"
 PYTHON_COMPAT=( python2_7 )
@@ -86,12 +86,12 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	virtual/pkgconfig
 "
 RDEPEND="${COMMON_DEPEND}
 	!app-office/kmymoney:4
 	quotes? ( dev-perl/Finance-Quote )
 "
+BDEPEND="virtual/pkgconfig"
 
 pkg_setup() {
 	use weboob && python_setup
