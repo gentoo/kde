@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -13,6 +13,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="+crypt"
 
+BDEPEND="sys-devel/gettext"
 DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -45,11 +46,9 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5(+)]
-	sys-devel/gettext
 	crypt? ( app-crypt/qca:2[qt5(+)] )
 "
 RDEPEND="${DEPEND}
-	!net-irc/konversation:4
 	crypt? ( app-crypt/qca:2[ssl] )
 "
 
