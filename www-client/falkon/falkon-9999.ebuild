@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -19,6 +19,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="dbus gnome-keyring kde libressl +X"
 
+BDEPEND="gnome-keyring? ( virtual/pkgconfig )"
 COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
@@ -47,7 +48,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep linguist-tools)
 	$(add_qt_dep qtconcurrent)
-	gnome-keyring? ( virtual/pkgconfig )
 "
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	DEPEND+=" $(add_frameworks_dep ki18n)"
@@ -66,10 +66,4 @@ src_configure() {
 		-DNO_X11=$(usex !X)
 	)
 	kde5_src_configure
-}
-
-pkg_postinst() {
-	kde5_pkg_postinst
-	elog "If you were previously using QupZilla, you can manually migrate your profiles"
-	elog "by moving the config directory from ~/.config/qupzilla to ~/.config/falkon"
 }
