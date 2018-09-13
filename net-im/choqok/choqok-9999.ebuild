@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -46,9 +46,7 @@ DEPEND="
 	)
 	telepathy? ( net-libs/telepathy-qt[qt5(+)] )
 "
-RDEPEND="${DEPEND}
-	!net-im/choqok:4
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS README TODO changelog )
 
