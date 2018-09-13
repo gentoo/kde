@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -30,12 +30,12 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	!net-libs/libktorrent:4
 	!dev-libs/botan[gmp(-)]
 "
+BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	kde5_src_prepare
