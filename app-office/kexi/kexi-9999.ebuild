@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 # KDE_HANDBOOK="true"
 KDE_TEST="forceoptional"
@@ -14,7 +14,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.
 KEYWORDS=""
 IUSE="debug experimental marble mdb mysql postgres sqlite webkit"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep breeze-icons-rcc)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
@@ -53,13 +53,11 @@ COMMON_DEPEND="
 	)
 	webkit? ( $(add_qt_dep qtwebkit) )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!app-office/calligra:4[calligra_features_kexi]
 	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
 "
+BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	if ! use webkit; then
