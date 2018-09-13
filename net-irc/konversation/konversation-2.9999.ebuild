@@ -7,7 +7,7 @@ EGIT_BRANCH="wip/qtquick"
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A user friendly IRC Client"
+DESCRIPTION="User friendly IRC Client"
 HOMEPAGE="https://www.kde.org/applications/internet/konversation/ https://konversation.kde.org"
 
 LICENSE="GPL-2"
