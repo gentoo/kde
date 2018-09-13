@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -57,7 +57,7 @@ COMMONDEPEND="
 	>=media-libs/taglib-extras-1.0.1
 	sci-libs/fftw:3.0
 	sys-libs/zlib
-	>=virtual/mysql-5.1
+	>=virtual/mysql-5.1[-minimal(-)]
 	virtual/opengl
 	ffmpeg? (
 		virtual/ffmpeg
@@ -116,10 +116,4 @@ pkg_postinst() {
 	elog "You'll have to configure amarok to use an external db server."
 	elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
 	elog "to configure the external db and migrate your data from the embedded database."
-
-	if has_version "virtual/mysql[minimal]"; then
-		elog
-		elog "You built mysql with the minimal use flag, so it doesn't include the server."
-		elog "You won't be able to use the local mysql installation to store your amarok collection."
-	fi
 }
