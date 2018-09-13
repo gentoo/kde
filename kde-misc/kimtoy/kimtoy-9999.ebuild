@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -11,11 +11,11 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="https://dl.opendesktop.org/api/files/download/id/1466629206/140967-${P}.tar.bz2"
 fi
 
-KEYWORDS=""
 LICENSE="GPL-2+"
+KEYWORDS=""
 IUSE="libressl scim semantic-desktop"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -46,11 +46,7 @@ COMMON_DEPEND="
 	)
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 "
-DEPEND="${COMMON_DEPEND}
-	x11-misc/shared-mime-info
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-misc/kimtoy:4
+RDEPEND="${DEPEND}
 	>=app-i18n/fcitx-4.0
 "
 
