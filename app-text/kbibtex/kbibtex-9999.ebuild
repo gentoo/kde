@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
@@ -55,7 +55,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!app-text/kbibtex:4
 	dev-tex/bibtex2html
-	x11-misc/shared-mime-info
 "
 
 S="${WORKDIR}/${P/_/-}"
