@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -12,7 +12,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -23,4 +23,4 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
