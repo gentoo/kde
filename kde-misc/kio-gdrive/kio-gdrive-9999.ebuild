@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
@@ -30,11 +30,11 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	dev-util/intltool
 "
 RDEPEND="${COMMON_DEPEND}
 	kaccounts? ( $(add_kdeapps_dep kaccounts-providers) )
 "
+BDEPEND="dev-util/intltool"
 
 DOCS=( README.md )
 
