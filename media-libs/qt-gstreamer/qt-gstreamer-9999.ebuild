@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://gstreamer.freedesktop.org/src/${PN}/${P}.tar.xz"
@@ -34,11 +34,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-gstreamer15.patch"
-	"${FILESDIR}/${P}-boost157.patch"
-)
 
 # bug 497880
 RESTRICT="test"
