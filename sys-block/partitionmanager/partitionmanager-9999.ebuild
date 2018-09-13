@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="optional"
 inherit kde5
 
-DESCRIPTION="KDE utility for management of partitions and file systems"
+DESCRIPTION="Utility for management of disks, partitions and file systems"
 HOMEPAGE="https://www.kde.org/applications/system/kdepartitionmanager"
 [[ ${KDE_BUILD_TYPE} == release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
