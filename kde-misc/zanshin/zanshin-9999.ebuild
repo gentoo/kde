@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -15,7 +15,9 @@ LICENSE="|| ( GPL-2 GPL-3 )"
 KEYWORDS=""
 IUSE=""
 
-# FIXME: bundles libkdepim
+BDEPEND="
+	test? ( $(add_kdeapps_dep akonadi 'tools') )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -46,7 +48,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	test? ( $(add_kdeapps_dep akonadi 'tools') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-misc/zanshin:4
