@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -46,7 +46,6 @@ DEPEND="
 	dev-vcs/subversion
 "
 RDEPEND="${DEPEND}
-	!dev-vcs/kdesvn:4
 	!kde-apps/kdesdk-kioslaves:4[subversion(-)]
 "
 
