@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -15,7 +15,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="gstreamer libav mpv unicode xine"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -46,10 +46,8 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 	)
 "
-RDEPEND="${COMMON_DEPEND}
-	!media-video/subtitlecomposer:4
-"
-DEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}"
+BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
