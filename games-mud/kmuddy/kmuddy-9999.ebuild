@@ -45,7 +45,7 @@ DOC=( AUTHORS README CHANGELOG Scripting-HOWTO TODO DESIGN )
 src_configure() {
 	# not in portage yet
 	local mycmakeargs=(
-		-DWITH_MXP=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_MXP=OFF
 	)
 	kde5_src_configure
 }
