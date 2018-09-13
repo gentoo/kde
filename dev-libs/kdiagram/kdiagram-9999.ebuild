@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Powerful libraries (KChart, KGantt) for creating business diagrams"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://www.kde.org/ https://www.kdab.com/development-resources/qt-tools/kd-chart/"
 IUSE=""
 
 REQUIRED_USE="test? ( examples )"
