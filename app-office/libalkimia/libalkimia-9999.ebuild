@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 KMNAME="alkimia"
@@ -18,7 +18,11 @@ LICENSE="LGPL-2.1"
 SLOT="0/7"
 IUSE="doc"
 
-RDEPEND="
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+"
+DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
@@ -39,10 +43,7 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	sci-libs/mpir:=
 "
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
