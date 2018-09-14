@@ -1,0 +1,3 @@
+dev-qt/*:5/5.11
+dev-qt/qtwebkit:5/5.212
+=dev-qt/qtsql-5.11*:5
