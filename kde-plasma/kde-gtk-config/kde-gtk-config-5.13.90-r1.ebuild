@@ -9,6 +9,8 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
+SRC_URI="mirror://kde/unstable/plasma/${PV}/${P}a.tar.xz"
+
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
@@ -35,6 +37,8 @@ RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	!kde-plasma/kde-gtk-config:4
 "
+
+S="${S}a"
 
 src_configure() {
 	local mycmakeargs=(
