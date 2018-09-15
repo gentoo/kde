@@ -34,5 +34,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kde4-l10n
 "
-
-PATCHES=( "${FILESDIR}/${PN}-18.08.1-deps.patch" )
