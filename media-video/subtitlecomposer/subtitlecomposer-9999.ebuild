@@ -13,9 +13,9 @@ EGIT_REPO_URI="https://github.com/maxrd2/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="mpv unicode xine"
+IUSE="gstreamer libav mpv unicode xine"
 
-CDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -30,31 +30,38 @@ CDEPEND="
 	$(add_frameworks_dep sonnet)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	dev-libs/glib:2
-	media-libs/gstreamer:1.0
-	media-libs/gst-plugins-base:1.0
 	media-libs/phonon[qt5(+)]
+	gstreamer? (
+		dev-libs/glib:2
+		media-libs/gstreamer:1.0
+		media-libs/gst-plugins-base:1.0
+	)
+	libav? ( media-video/libav:= )
+	!libav? ( media-video/ffmpeg:0= )
 	mpv? ( media-video/mpv )
 	unicode? ( dev-libs/icu:= )
 	xine? (
 		media-libs/xine-lib
+		x11-libs/libX11
 		x11-libs/libxcb
 	)
 "
-RDEPEND="${CDPEEND}
+RDEPEND="${COMMON_DEPEND}
 	!media-video/subtitlecomposer:4
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
+	virtual/pkgconfig
 "
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PocketSphinx=ON # bug 616706
+		$(cmake-utils_use_find_package gstreamer GStreamer)
 		$(cmake-utils_use_find_package mpv MPV)
 		$(cmake-utils_use_find_package unicode ICU)
 		$(cmake-utils_use_find_package xine Xine)
-		$(cmake-utils_use_find_package xine XCB)
+		$(cmake-utils_use_find_package xine X11)
 	)
 
 	kde5_src_configure
@@ -63,8 +70,6 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	echo
-	elog "Some example scripts provided by ${PV} require dev-lang/ruby"
+	elog "Some example scripts provided by ${PN} require dev-lang/ruby"
 	elog "or dev-lang/python to be installed."
-	echo
 }
