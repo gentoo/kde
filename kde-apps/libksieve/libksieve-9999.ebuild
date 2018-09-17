@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="share"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	dev-libs/cyrus-sasl
+	share? ( $(add_frameworks_dep purpose) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kimap)
@@ -57,4 +58,12 @@ src_prepare() {
 		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \
 			-i kioslave/CMakeLists.txt || die "failed to comment add_subdirectory(doc)"
 	fi
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package share KF5Purpose)
+	)
+
+	kde5_src_configure
 }
