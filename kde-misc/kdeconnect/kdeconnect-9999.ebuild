@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,7 +17,7 @@ fi
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
 LICENSE="GPL-2+"
-IUSE="app mousepad sms wayland"
+IUSE="app bluetooth mousepad sms wayland"
 
 DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -39,6 +39,7 @@ DEPEND="
 	$(add_qt_dep qtx11extras)
 	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
 	app? ( $(add_frameworks_dep kdeclarative) )
+	bluetooth? ( $(add_qt_dep qtbluetooth) )
 	mousepad? (
 		x11-libs/libfakekey
 		x11-libs/libX11
@@ -68,6 +69,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
+		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake-utils_use_find_package mousepad LibFakeKey)
 		-DSMSAPP_ENABLED=$(usex sms)
 		$(cmake-utils_use_find_package wayland KF5Wayland)
@@ -79,10 +81,8 @@ src_configure() {
 pkg_postinst(){
 	kde5_pkg_postinst
 
-	elog
 	elog "The Android .apk file is available via"
 	elog "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
 	elog "or via"
 	elog "https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-	elog
 }
