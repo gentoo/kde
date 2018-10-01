@@ -4,7 +4,7 @@
 EAPI=6
 
 KDE_HANDBOOK="true"
-inherit flag-o-matic kde5 pax-utils
+inherit kde5 pax-utils
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
