@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE=""
+IUSE="share"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -42,6 +42,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
+	share? ( $(add_frameworks_dep purpose) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kiconthemes)
@@ -52,6 +53,14 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package share KF5Purpose)
+	)
+
+	kde5_src_configure
+}
 
 src_test() {
 	# bugs 641730, 661330
