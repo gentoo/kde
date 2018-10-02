@@ -6,7 +6,7 @@ EAPI=7
 inherit kde5-functions
 
 DESCRIPTION="Merge this to pull in all Plasma 5 packages"
-HOMEPAGE="https://www.kde.org/workspaces/plasmadesktop/"
+HOMEPAGE="https://www.kde.org/plasma-desktop"
 
 LICENSE="metapackage"
 SLOT="5"

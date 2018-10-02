@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
-HOMEPAGE="http://gcompris.net/"
+HOMEPAGE="https://gcompris.net/"
 
 LICENSE="GPL-3+"
 SLOT="0"
