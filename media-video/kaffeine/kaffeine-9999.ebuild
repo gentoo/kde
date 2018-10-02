@@ -12,7 +12,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Media player with digital TV support by KDE"
-HOMEPAGE="https://kaffeine.kde.org/"
+HOMEPAGE="https://userbase.kde.org/Kaffeine"
 LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 IUSE="dvb"
 
