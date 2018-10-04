@@ -146,6 +146,7 @@ src_configure() {
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
 		-DENABLE_MEDIAPLAYER=$(usex mediaplayer)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
+		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
 		$(cmake-utils_use_find_package calendar KF5CalendarCore)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
