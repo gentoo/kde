@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,7 +16,7 @@ fi
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://www.kde.org/applications/graphics/krita/ https://krita.org/"
 LICENSE="GPL-3"
-IUSE="color-management fftw gif +gsl +jpeg openexr pdf qtmedia +raw tiff vc"
+IUSE="color-management fftw gif +gsl heif +jpeg openexr pdf qtmedia +raw tiff vc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="${PYTHON_DEPS}
@@ -60,6 +60,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
 	jpeg? ( virtual/jpeg:0 )
+	heif? ( media-libs/libheif:= )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr
@@ -98,6 +99,7 @@ src_configure() {
 		$(cmake-utils_use_find_package fftw FFTW3)
 		$(cmake-utils_use_find_package gif GIF)
 		$(cmake-utils_use_find_package gsl GSL)
+		$(cmake-utils_use_find_package heif HEIF)
 		$(cmake-utils_use_find_package jpeg JPEG)
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package pdf Poppler)
