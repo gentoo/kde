@@ -18,6 +18,7 @@ IUSE="debug mysql postgres sqlite"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/icu:=
