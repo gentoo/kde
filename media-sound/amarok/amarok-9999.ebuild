@@ -53,12 +53,12 @@ COMMONDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5(+)]
+	dev-db/mysql-connector-c:=
 	media-libs/phonon[qt5(+)]
 	>=media-libs/taglib-1.7[asf(+),mp4(+)]
 	>=media-libs/taglib-extras-1.0.1
 	sci-libs/fftw:3.0
 	sys-libs/zlib
-	>=virtual/mysql-5.1[-minimal(-)]
 	virtual/opengl
 	ffmpeg? (
 		virtual/ffmpeg
@@ -79,6 +79,7 @@ DEPEND="${COMMONDEPEND}
 RDEPEND="${COMMONDEPEND}
 	!media-sound/amarok:4
 	$(add_qt_dep qtquickcontrols2)
+	virtual/mysql
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch )
