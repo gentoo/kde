@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,15 +16,13 @@ LICENSE="GPL-2 LGPL-2"
 IUSE=""
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
-DEPEND="
-	$(add_frameworks_dep karchive)
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep ktexteditor)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
@@ -34,6 +32,9 @@ DEPEND="
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!dev-util/kdevelop-php-docs
+"
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_frameworks_dep karchive) )
 "
