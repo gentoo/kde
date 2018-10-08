@@ -11,13 +11,12 @@ HOMEPAGE="https://www.kde.org/applications/utilities/kfind/"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
@@ -25,8 +24,9 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	$(add_qt_dep qtconcurrent)
+"
