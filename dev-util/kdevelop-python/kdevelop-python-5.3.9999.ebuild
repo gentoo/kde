@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,7 +7,7 @@ EGIT_BRANCH="5.3"
 KDE_TEST="forceoptional"
 KDEBASE="kdevelop"
 KMNAME="kdev-python"
-PYTHON_COMPAT=( python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 inherit kde5 python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"
