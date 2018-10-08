@@ -6,7 +6,7 @@ EAPI=6
 KDEBASE="kdevelop"
 KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+KDE_TEST="true"
 KMNAME="kdev-php"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -16,7 +16,7 @@ LICENSE="GPL-2 LGPL-2"
 IUSE=""
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -32,9 +32,6 @@ COMMON_DEPEND="
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!dev-util/kdevelop-php-docs
-"
-DEPEND="${COMMON_DEPEND}
-	test? ( $(add_frameworks_dep karchive) )
 "
