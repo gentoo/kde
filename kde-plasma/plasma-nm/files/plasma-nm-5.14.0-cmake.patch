@@ -1,4 +1,4 @@
-From 20514e001ed9f91326181ac2d7ef2a7b2c718903 Mon Sep 17 00:00:00 2001
+From 2eac836c4085beb679b665c0c7cfd3f49b928230 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
 Date: Tue, 9 Oct 2018 16:03:12 +0200
 Subject: [PATCH] openconnect: add missing dependency Qt5Xml
@@ -15,27 +15,24 @@ Tags: #plasma
 
 Differential Revision: https://phabricator.kde.org/D16073
 ---
- CMakeLists.txt                 | 1 +
- vpn/openconnect/CMakeLists.txt | 1 +
- 2 files changed, 2 insertions(+)
+ vpn/openconnect/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ef1ed46a..cb4eb858 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -25,6 +25,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-     Network
-     Quick
-     Widgets
-+    Xml
- )
- 
- find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
 diff --git a/vpn/openconnect/CMakeLists.txt b/vpn/openconnect/CMakeLists.txt
-index cf43740d..fa1bd4a0 100644
+index cf43740d..c3f07088 100644
 --- a/vpn/openconnect/CMakeLists.txt
 +++ b/vpn/openconnect/CMakeLists.txt
-@@ -49,6 +49,7 @@ if (OPENCONNECT_FOUND)
+@@ -6,6 +6,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_MODULE_PATH})
+ 
+ find_package(OpenConnect ${MINIMUM_OPENCONNECT_VERSION_REQUIRED} MODULE)
+ if (OPENCONNECT_FOUND)
++
++    find_package(Qt5Xml ${QT_MIN_VERSION} CONFIG REQUIRED)
++
+     if (${OPENCONNECT_VERSION} VERSION_LESS "3.99")
+ #         macro_optional_find_package(OpenSSL)
+ #         macro_log_feature(OpenSSL_FOUND "OpenSSL headers" "Encryption suite" "http://www.openssl.org" FALSE "" "Needed for OpenConnect support in Network Management")
+@@ -49,6 +52,7 @@ if (OPENCONNECT_FOUND)
              KF5::IconThemes
              KF5::KIOWidgets
              KF5::CoreAddons
