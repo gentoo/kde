@@ -3,7 +3,7 @@
 
 EAPI=6
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Plasma menu editor"
@@ -11,7 +11,7 @@ HOMEPAGE="https://cgit.kde.org/kmenuedit.git"
 KEYWORDS=""
 IUSE="+hotkeys"
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -31,7 +31,10 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	hotkeys? ( $(add_plasma_dep khotkeys) )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kinit)
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kmenuedit:4
 "
 
