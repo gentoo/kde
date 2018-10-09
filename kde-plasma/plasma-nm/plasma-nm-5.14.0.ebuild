@@ -53,6 +53,8 @@ RDEPEND="${DEPEND}
 	!kde-plasma/plasma-nm:4
 "
 
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_MODEMMANAGER_SUPPORT=$(usex !modemmanager)

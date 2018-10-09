@@ -1,0 +1,48 @@
+From 20514e001ed9f91326181ac2d7ef2a7b2c718903 Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <andreas.sturmlechner@gmail.com>
+Date: Tue, 9 Oct 2018 16:03:12 +0200
+Subject: [PATCH] openconnect: add missing dependency Qt5Xml
+
+Summary: QDomDocument is imported from vpn/openconnect/openconnectauth.cpp
+
+Test Plan: Build succeeds now.
+
+Reviewers: #plasma
+
+Subscribers: plasma-devel
+
+Tags: #plasma
+
+Differential Revision: https://phabricator.kde.org/D16073
+---
+ CMakeLists.txt                 | 1 +
+ vpn/openconnect/CMakeLists.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ef1ed46a..cb4eb858 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,6 +25,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+     Network
+     Quick
+     Widgets
++    Xml
+ )
+ 
+ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+diff --git a/vpn/openconnect/CMakeLists.txt b/vpn/openconnect/CMakeLists.txt
+index cf43740d..fa1bd4a0 100644
+--- a/vpn/openconnect/CMakeLists.txt
++++ b/vpn/openconnect/CMakeLists.txt
+@@ -49,6 +49,7 @@ if (OPENCONNECT_FOUND)
+             KF5::IconThemes
+             KF5::KIOWidgets
+             KF5::CoreAddons
++            Qt5::Xml
+             ${OPENCONNECT_LIBRARIES}
+             ${maybe_OPENSSL_LIBRARIES}
+         )
+-- 
+2.19.1
+
