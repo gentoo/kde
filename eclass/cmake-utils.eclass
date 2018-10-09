@@ -116,7 +116,7 @@ inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
 case ${EAPI} in
 	[56])
 		: ${CMAKE_MAKEFILE_GENERATOR:=emake}
-		inherit eapi7-ver eutils multilib
+		inherit eutils multilib
 		;;
 	*)
 		: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
