@@ -3,6 +3,7 @@
 
 EAPI=6
 
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Provides integration plugins for various KDE frameworks for Wayland"
