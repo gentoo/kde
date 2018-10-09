@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -13,7 +13,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kontact/"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 
-IUSE="importwizard"
+IUSE="importwizard markdown"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -57,6 +57,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	importwizard? ( $(add_kdeapps_dep akonadi-import-wizard) )
+	markdown? ( app-text/discount )
 "
 DEPEND="${COMMON_DEPEND}
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
@@ -73,6 +74,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
 		$(cmake-utils_use_find_package importwizard KPimImportWizard)
+		$(cmake-utils_use_find_package markdown Discount)
 	)
 
 	kde5_src_configure
