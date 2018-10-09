@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	sys-libs/zlib
-	detailedmemory? ( $(add_qt_dep qtwebkit) )
+	detailedmemory? ( $(add_qt_dep qtwebengine) )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -44,7 +44,7 @@ DEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package detailedmemory Qt5WebKitWidgets)
+		$(cmake-utils_use_find_package detailedmemory Qt5WebEngineWidgets)
 		$(cmake-utils_use_find_package !minimal KF5Plasma)
 		$(cmake-utils_use_find_package X X11)
 	)
