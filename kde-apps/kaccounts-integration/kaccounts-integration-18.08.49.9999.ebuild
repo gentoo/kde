@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,7 +14,7 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -29,10 +29,13 @@ RDEPEND="
 	>=net-libs/libaccounts-glib-1.21
 	net-libs/signond
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_plasma_dep kde-cli-tools)
 	sys-devel/gettext
+"
+RDEPEND="${COMMON_DEPEND}
+	dev-util/intltool
 "
 
 # bug #549444
