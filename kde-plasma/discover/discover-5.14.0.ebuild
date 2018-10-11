@@ -1,0 +1,47 @@
+# Copyright 1999-2018 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=6
+
+KDE_TEST="forceoptional"
+inherit kde5
+
+DESCRIPTION="KDE Plasma resources management GUI"
+HOMEPAGE="https://cgit.kde.org/bluedevil.git"
+KEYWORDS="~amd64"
+IUSE="firmware"
+
+DEPEND="
+	$(add_frameworks_dep attica)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kcrash)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kitemmodels)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kirigami)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kxmlgui)
+	$(add_qt_dep qtconcurrent)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	firmware? ( sys-apps/fwupd )
+"
+# 	$(add_frameworks_dep kconfigwidgets)
+RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_FIND_PACKAGE_packagekitqt5=OFF
+		-DCMAKE_FIND_PACKAGE_AppStreamQt=OFF
+		$(cmake-utils_use_find_package firmware LIBFWUPD)
+	)
+
+	kde5_src_configure
+}
