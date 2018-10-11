@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -12,7 +12,7 @@ inherit kde5 python-r1
 DESCRIPTION="Interface for doing mathematics and scientific computing"
 HOMEPAGE="https://www.kde.org/applications/education/cantor https://edu.kde.org/cantor/"
 KEYWORDS=""
-IUSE="+analitza julia lua postscript python qalculate R"
+IUSE="+analitza julia lua markdown postscript python qalculate R"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -35,6 +35,7 @@ DEPEND="
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep syntax-highlighting)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsvg)
@@ -44,6 +45,7 @@ DEPEND="
 	analitza? ( $(add_kdeapps_dep analitza) )
 	julia? ( dev-lang/julia )
 	lua? ( dev-lang/luajit:2 )
+	markdown? ( >=app-text/discount-2.2.2 )
 	qalculate? (
 		sci-libs/cln
 		sci-libs/libqalculate:=
@@ -98,6 +100,7 @@ src_configure() {
 		$(cmake-utils_use_find_package analitza Analitza5)
 		$(cmake-utils_use_find_package julia Julia)
 		$(cmake-utils_use_find_package lua LuaJIT)
+		$(cmake-utils_use_find_package markdown Discount)
 		$(cmake-utils_use_find_package postscript LibSpectre)
 		$(cmake-utils_use_find_package python PythonLibs)
 		$(cmake-utils_use_find_package qalculate Qalculate)
