@@ -7,7 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Plasma resources management GUI"
-HOMEPAGE="https://cgit.kde.org/bluedevil.git"
+HOMEPAGE="https://userbase.kde.org/Discover"
 KEYWORDS=""
 IUSE="firmware"
 
