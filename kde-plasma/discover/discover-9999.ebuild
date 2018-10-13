@@ -13,17 +13,18 @@ IUSE="firmware"
 
 DEPEND="
 	$(add_frameworks_dep attica)
-	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kirigami)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep knotifications)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
@@ -31,15 +32,21 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtxml)
 	firmware? ( sys-apps/fwupd )
 "
-# 	$(add_frameworks_dep kconfigwidgets)
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	kde5_src_prepare
+	# we don't need it with PackageKitBackend off
+	punt_bogus_dep KF5 Archive
+}
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_FIND_PACKAGE_packagekitqt5=OFF
-		-DCMAKE_FIND_PACKAGE_AppStreamQt=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=OFF
 		$(cmake-utils_use_find_package firmware LIBFWUPD)
 	)
 
