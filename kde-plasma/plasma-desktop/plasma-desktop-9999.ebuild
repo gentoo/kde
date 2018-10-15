@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
 KEYWORDS=""
-IUSE="appstream +fontconfig ibus +mouse pulseaudio scim +semantic-desktop touchpad"
+IUSE="appstream +fontconfig ibus +mouse scim +semantic-desktop touchpad"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep attica)
@@ -86,11 +86,6 @@ COMMON_DEPEND="
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
-	pulseaudio? (
-		dev-libs/glib:2
-		media-libs/libcanberra
-		media-sound/pulseaudio
-	)
 	scim? ( app-i18n/scim )
 	semantic-desktop? ( $(add_frameworks_dep baloo) )
 	touchpad? ( x11-drivers/xf86-input-synaptics )
@@ -113,7 +108,6 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/accountsservice
 	sys-apps/util-linux
 	x11-apps/setxkbmap
-	pulseaudio? ( $(add_plasma_dep plasma-pa ) )
 	!kde-apps/kcontrol
 	!<kde-apps/kde4-l10n-17.08.1-r1
 	!kde-apps/knetattach[handbook]
@@ -131,7 +125,6 @@ src_configure() {
 		$(cmake-utils_use_find_package ibus IBus)
 		$(cmake-utils_use_find_package mouse Evdev)
 		$(cmake-utils_use_find_package mouse XorgLibinput)
-		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 		$(cmake-utils_use_find_package scim SCIM)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 		$(cmake-utils_use_find_package touchpad Synaptics)
