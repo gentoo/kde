@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -13,7 +13,7 @@ DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
 HOMEPAGE="https://marble.kde.org/"
 KEYWORDS=""
 
-IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webkit"
+IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webengine"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
 RDEPEND="
@@ -46,7 +46,7 @@ RDEPEND="
 	)
 	phonon? ( media-libs/phonon[qt5(+)] )
 	shapefile? ( sci-libs/shapelib:= )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webengine? ( $(add_qt_dep qtwebkit) )
 "
 DEPEND="${RDEPEND}
 	aprs? ( dev-lang/perl )
@@ -76,8 +76,8 @@ src_configure() {
 		-DWITH_KF5=$(usex kde)
 		-DWITH_Phonon4Qt5=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
-		$(cmake-utils_use_find_package webkit Qt5WebKit)
-		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
+		$(cmake-utils_use_find_package webkit Qt5WebEngine)
+		$(cmake-utils_use_find_package webkit Qt5WebEngineWidgets)
 		-DWITH_libwlocate=OFF
 		# bug 608890
 		-DKDE_INSTALL_CONFDIR="/etc/xdg"
