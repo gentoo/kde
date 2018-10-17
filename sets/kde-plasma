@@ -26,6 +26,7 @@ kde-plasma/libkscreen:5
 kde-plasma/libksysguard:5
 kde-plasma/milou:5
 kde-plasma/oxygen:5
+kde-plasma/plasma-browser-integration:5
 kde-plasma/plasma-desktop:5
 kde-plasma/plasma-integration:5
 kde-plasma/plasma-meta:5
