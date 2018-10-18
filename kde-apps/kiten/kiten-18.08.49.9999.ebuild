@@ -1,11 +1,10 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
-FONT_PN="kanjistrokeorders"
-inherit font kde5
+inherit kde5
 
 DESCRIPTION="KDE Japanese dictionary and reference"
 HOMEPAGE="https://www.kde.org/applications/education/kiten https://edu.kde.org/kiten/"
@@ -29,9 +28,11 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	media-fonts/kanjistrokeorders
+"
 
-src_install() {
-	kde5_src_install
-	font_src_install
+src_prepare() {
+	kde5_src_prepare
+	cmake_comment_add_subdirectory data/font
 }
