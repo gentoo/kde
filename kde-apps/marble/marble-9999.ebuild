@@ -46,7 +46,7 @@ RDEPEND="
 	)
 	phonon? ( media-libs/phonon[qt5(+)] )
 	shapefile? ( sci-libs/shapelib:= )
-	webengine? ( $(add_qt_dep qtwebkit) )
+	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 "
 DEPEND="${RDEPEND}
 	aprs? ( dev-lang/perl )
