@@ -76,8 +76,8 @@ src_configure() {
 		-DWITH_KF5=$(usex kde)
 		-DWITH_Phonon4Qt5=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
-		$(cmake-utils_use_find_package webkit Qt5WebEngine)
-		$(cmake-utils_use_find_package webkit Qt5WebEngineWidgets)
+		$(cmake-utils_use_find_package webengine Qt5WebEngine)
+		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
 		-DWITH_libwlocate=OFF
 		# bug 608890
 		-DKDE_INSTALL_CONFDIR="/etc/xdg"
