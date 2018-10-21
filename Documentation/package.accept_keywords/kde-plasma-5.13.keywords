@@ -44,6 +44,3 @@
 <kde-plasma/sddm-kcm-5.13.50:5
 <kde-plasma/systemsettings-5.13.50:5
 <kde-plasma/user-manager-5.13.50:5
-dev-qt/*:5/5.11
-dev-qt/qtwebkit:5/5.212
-=dev-qt/qtsql-5.11*:5
