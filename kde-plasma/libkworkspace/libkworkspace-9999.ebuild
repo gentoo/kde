@@ -3,6 +3,8 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.50.0"
+QT_MINIMAL="5.11.1"
 KDE_TEST="true"
 KMNAME="plasma-workspace"
 inherit kde5
