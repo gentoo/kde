@@ -13,7 +13,6 @@ DESCRIPTION="Legacy xembed tray icons support for SNI-only system trays"
 HOMEPAGE="https://cgit.kde.org/plasma-workspace.git/tree/xembed-sni-proxy/Readme.md"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS=""
 
 DEPEND="
@@ -29,6 +28,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<kde-plasma/plasma-workspace-5.14.2:5
+	!kde-plasma/xembed-sni-proxy:0
 "
 
 S="${S}/${PN}"
