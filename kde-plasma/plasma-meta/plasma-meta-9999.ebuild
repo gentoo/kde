@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -63,6 +63,7 @@ RDEPEND="
 		)
 	)
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
+	legacy-systray? ( $(add_plasma_dep xembed-sni-proxy) )
 	networkmanager? ( $(add_plasma_dep plasma-nm) )
 	pam? ( $(add_plasma_dep kwallet-pam) )
 	plymouth? (
@@ -73,5 +74,3 @@ RDEPEND="
 	sdk? ( $(add_plasma_dep plasma-sdk) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
 "
-
-REQUIRED_USE="legacy-systray? ( gtk )"
