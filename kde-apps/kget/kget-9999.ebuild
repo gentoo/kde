@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	app-crypt/qca:2[qt5(+)]
 	bittorrent? ( net-libs/libktorrent:5 )
 	gpg? ( app-crypt/gpgme[qt5] )
-	kde? ( $(add_plasma_dep plasma-workspace) )
+	kde? ( $(add_plasma_dep libkworkspace) )
 	mms? ( media-libs/libmms )
 	sqlite? ( dev-db/sqlite:3 )
 "
