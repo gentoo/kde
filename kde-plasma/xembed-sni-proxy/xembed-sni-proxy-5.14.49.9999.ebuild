@@ -5,6 +5,7 @@ EAPI=6
 
 FRAMEWORKS_MINIMAL="5.50.0"
 QT_MINIMAL="5.9.6"
+KDE_AUTODEPS="false"
 KMNAME="plasma-workspace"
 inherit kde5
 
@@ -16,7 +17,9 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="
+	$(add_frameworks_dep extra-cmake-modules)
 	$(add_frameworks_dep kwindowsystem)
+	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtx11extras)
