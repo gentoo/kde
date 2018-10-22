@@ -147,6 +147,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_xembed-sni-proxy=OFF
 		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package calendar KF5Holidays)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
