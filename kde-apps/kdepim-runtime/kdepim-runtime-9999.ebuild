@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE="speech"
+IUSE=""
 
 # TODO kolab
 CDEPEND="
@@ -54,12 +54,12 @@ CDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtspeech)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
-	speech? ( $(add_qt_dep qtspeech) )
 "
 DEPEND="${CDEPEND}
 	$(add_qt_dep qtxmlpatterns)
@@ -78,12 +78,4 @@ src_prepare() {
 	kde5_src_prepare
 	# We don't build kolab, so we can disable this
 	punt_bogus_dep KF5 KDELibs4Support
-}
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
-	)
-
-	kde5_src_configure
 }
