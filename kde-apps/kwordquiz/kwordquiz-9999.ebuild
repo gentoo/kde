@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A powerful flashcard and vocabulary learning program"
+DESCRIPTION="Powerful flashcard and vocabulary learning program"
 HOMEPAGE="https://www.kde.org/applications/education/kwordquiz https://edu.kde.org/kwordquiz/"
 KEYWORDS=""
 IUSE=""
@@ -16,7 +16,6 @@ DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
