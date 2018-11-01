@@ -42,7 +42,7 @@ COMMON_DEPEND="
 		$(add_qt_dep qtsql)
 	)
 	man? ( $(add_frameworks_dep khtml) )
-	mtp? ( media-libs/libmtp:= )
+	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	openexr? ( media-libs/openexr:= )
 	phonon? ( media-libs/phonon[qt5(+)] )
 	samba? ( net-fs/samba[client] )
