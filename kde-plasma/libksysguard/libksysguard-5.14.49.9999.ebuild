@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="+detailedmemory minimal X"
+IUSE="minimal webkit X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	sys-libs/zlib
-	detailedmemory? ( $(add_qt_dep qtwebkit) )
+	webkit? ( $(add_qt_dep qtwebkit) )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -44,8 +44,8 @@ DEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package detailedmemory Qt5WebKitWidgets)
 		$(cmake-utils_use_find_package !minimal KF5Plasma)
+		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
 		$(cmake-utils_use_find_package X X11)
 	)
 
