@@ -8,7 +8,6 @@ dev-libs
 dev-python
 dev-util
 dev-vcs
-games-board
 games-kids
 games-mud
 kde-apps
@@ -27,6 +26,7 @@ net-misc
 net-nntp
 net-p2p
 sci-astronomy
+sci-calculators
 sci-electronics
 sys-auth
 sys-block
