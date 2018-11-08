@@ -25,6 +25,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
@@ -89,7 +90,6 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdesu)
 	$(add_kdeapps_dep kio-extras)
 	$(add_plasma_dep ksysguard)
