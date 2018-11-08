@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -33,6 +33,7 @@ RDEPEND="
 	$(add_kdeapps_dep kmines)
 	$(add_kdeapps_dep knavalbattle)
 	$(add_kdeapps_dep knetwalk)
+	$(add_kdeapps_dep knights)
 	$(add_kdeapps_dep kolf)
 	$(add_kdeapps_dep kollision)
 	$(add_kdeapps_dep konquest)
