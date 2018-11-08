@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,6 @@ KEYWORDS=""
 IUSE="accessibility pim sdk"
 
 RDEPEND="
-	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kdeadmin-meta)
 	$(add_kdeapps_dep kdecore-meta)
 	$(add_kdeapps_dep kdeedu-meta)
