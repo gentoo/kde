@@ -38,9 +38,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	speech? ( $(add_qt_dep qtspeech) )
 "
-RDEPEND="${DEPEND}
-	!games-board/knights:4
-"
+RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	kde5_pkg_postinst
