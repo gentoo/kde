@@ -9,7 +9,7 @@ QT_MINIMAL="5.11.1"
 inherit kde5
 
 DESCRIPTION="Commandline interface for accessing Akonadi"
-HOMEPAGE="https://cgit.kde.org/akonadi-phabricator-resource.git"
+HOMEPAGE="https://cgit.kde.org/akonadiclient.git/"
 LICENSE="GPL-2"
 
 KEYWORDS=""
