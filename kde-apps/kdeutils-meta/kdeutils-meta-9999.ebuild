@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,6 +13,7 @@ IUSE="cups floppy"
 RDEPEND="
 	$(add_kdeapps_dep ark)
 	$(add_kdeapps_dep filelight)
+	$(add_kdeapps_dep kate)
 	$(add_kdeapps_dep kbackup)
 	$(add_kdeapps_dep kcalc)
 	$(add_kdeapps_dep kcharselect)
