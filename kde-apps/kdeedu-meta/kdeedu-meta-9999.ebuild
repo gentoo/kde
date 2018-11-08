@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,7 +8,7 @@ inherit kde5-meta-pkg
 DESCRIPTION="KDE educational apps - merge this to pull in all kdeedu-derived packages"
 HOMEPAGE="https://edu.kde.org"
 KEYWORDS=""
-IUSE="+webengine"
+IUSE="+webengine +webkit"
 
 RDEPEND="
 	$(add_kdeapps_dep analitza)
@@ -32,10 +32,10 @@ RDEPEND="
 	$(add_kdeapps_dep libkeduvocdocument)
 	$(add_kdeapps_dep marble)
 	$(add_kdeapps_dep minuet)
-	$(add_kdeapps_dep rocs)
 	$(add_kdeapps_dep step)
 	webengine? (
 		$(add_kdeapps_dep kalgebra)
 		$(add_kdeapps_dep parley)
 	)
+	webkit? ( $(add_kdeapps_dep rocs) )
 "
