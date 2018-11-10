@@ -100,11 +100,9 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtpaths)
 	$(add_qt_dep qtquickcontrols 'widgets')
 	app-text/iso-codes
-	x11-apps/mkfontdir
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrdb
-	x11-apps/xset
 	x11-apps/xsetroot
 	systemd? ( sys-apps/dbus[user-session] )
 	!systemd? ( sys-apps/dbus )
@@ -123,7 +121,7 @@ PDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.4-startkde-script.patch"
+	"${FILESDIR}/${PN}-5.14.80-startkde-script.patch"
 	"${FILESDIR}/${PN}-5.10-startplasmacompositor-script.patch"
 	"${FILESDIR}/${PN}-5.12.80-tests-optional.patch"
 	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch"
