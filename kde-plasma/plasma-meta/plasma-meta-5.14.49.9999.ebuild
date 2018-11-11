@@ -11,8 +11,8 @@ HOMEPAGE="https://www.kde.org/plasma-desktop"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +browser-integration crypt +display-manager grub gtk +handbook
-+legacy-systray networkmanager pam plymouth pulseaudio +sddm sdk +wallpapers"
+IUSE="bluetooth +browser-integration consolekit crypt +display-manager grub gtk +handbook
++legacy-systray networkmanager pam plymouth +pm-utils pulseaudio +sddm sdk +wallpapers"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -45,6 +45,10 @@ RDEPEND="
 	$(add_plasma_dep user-manager)
 	bluetooth? ( $(add_plasma_dep bluedevil) )
 	browser-integration? ( $(add_plasma_dep plasma-browser-integration) )
+	consolekit? (
+		>=sys-auth/consolekit-1.0.1
+		pm-utils? ( sys-power/pm-utils )
+	)
 	crypt? ( $(add_plasma_dep plasma-vault) )
 	display-manager? (
 		sddm? (
