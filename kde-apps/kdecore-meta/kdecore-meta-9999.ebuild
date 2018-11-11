@@ -17,12 +17,9 @@ RDEPEND="
 	$(add_kdeapps_dep konsole)
 	$(add_kdeapps_dep kwrite)
 	handbook? ( $(add_kdeapps_dep khelpcenter) )
-	webengine? ( || (
-		www-client/falkon
-		$(add_kdeapps_dep konqueror 'webengine')
-	) )
+	webengine? ( www-client/falkon )
 	webkit? (
-		$(add_kdeapps_dep konqueror)
+		$(add_kdeapps_dep konqueror 'webengine?')
 		kde-misc/kwebkitpart:5
 	)
 "
