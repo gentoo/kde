@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://cgit.kde.org/powerdevil.git"
 KEYWORDS=""
-IUSE="brightness-control consolekit +wireless"
+IUSE="brightness-control +wireless"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -48,7 +48,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	>=sys-power/upower-0.9.23
-	consolekit? ( >=sys-auth/consolekit-1.0.1[pm-utils] )
 	!kde-plasma/powerdevil:4
 	!kde-plasma/systemsettings:4[handbook]
 "
