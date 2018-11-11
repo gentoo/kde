@@ -1,40 +1,30 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="forceoptional"
-KDE_PO_DIRS="po plan/po"
 KDE_TEST="forceoptional"
 inherit check-reqs kde5
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://www.calligra.org/"
-[[ ${KDE_BUILD_TYPE} == release ]] && \
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz
-		calligra_features_plan? ( mirror://kde/stable/${PN}/${PN}plan-${PV}.tar.xz )"
+
+CAL_FTS=( karbon sheets words )
 
 LICENSE="GPL-2"
-
-[[ ${KDE_BUILD_TYPE} == release ]] && \
-KEYWORDS="~amd64 ~x86"
-
-CAL_FTS=( karbon plan sheets words )
-
 IUSE="activities +crypt +fontconfig gemini gsl import-filter +lcms okular openexr +pdf
 	phonon pim spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})
 	calligra_experimental_features_stage"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
-# FIXME: Disabled by upstream for good reason
-# Crashes plan (https://bugs.kde.org/show_bug.cgi?id=311940)
-# $(add_kdeapps_dep akonadi)
-# $(add_kdeapps_dep akonadi-contacts)
-# Currently upstream-disabled in plan
-# =dev-libs/kproperty-3.0*:5
-# =dev-libs/kreport-3.0*:5
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
@@ -98,6 +88,7 @@ COMMON_DEPEND="
 	openexr? ( media-libs/openexr )
 	pdf? ( app-text/poppler:=[qt5] )
 	phonon? ( media-libs/phonon[qt5(+)] )
+	pim? ( $(add_kdeapps_dep kcalcore) )
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
 	X? (
@@ -108,16 +99,10 @@ COMMON_DEPEND="
 		$(add_qt_dep qtwebkit)
 		okular? ( $(add_kdeapps_dep okular) )
 	)
-	calligra_features_plan? (
-		$(add_frameworks_dep kholidays)
-		$(add_frameworks_dep khtml)
+	calligra_features_sheets? (
+		dev-cpp/eigen:3
 		dev-libs/kdiagram:5
-		pim? (
-			$(add_kdeapps_dep kcalcore)
-			$(add_kdeapps_dep kcontacts)
-		)
 	)
-	calligra_features_sheets? ( dev-cpp/eigen:3 )
 	calligra_features_words? (
 		dev-libs/libxslt
 		okular? ( $(add_kdeapps_dep okular) )
@@ -136,7 +121,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}"-3.1.0-no-arch-detection.patch )
+PATCHES=( "${FILESDIR}"/${PN}-3.1.89-no-arch-detection.patch )
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
@@ -148,12 +133,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if use calligra_features_plan && [[ ${KDE_BUILD_TYPE} == release ]]; then
-		mv ../${PN}plan-${PV} plan || die
-		sed -e "/add_subdirectory(plan)/s/#//" \
-			-e "/^calligra_disable_product(APP_PLAN/s/^/#/" \
-			-i CMakeLists.txt || die
-	fi
 	kde5_src_prepare
 
 	if ! use test; then
@@ -215,7 +194,6 @@ src_configure() {
 		-DWITH_LibWps=$(usex import-filter)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
 		$(cmake-utils_use_find_package pim KF5CalendarCore)
-		$(cmake-utils_use_find_package pim KF5Contacts)
 		-DWITH_LCMS2=$(usex lcms)
 		-DWITH_Okular5=$(usex okular)
 		-DWITH_OpenEXR=$(usex openexr)
