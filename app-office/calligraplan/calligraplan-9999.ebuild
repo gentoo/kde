@@ -12,7 +12,7 @@ KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 inherit kde5
 
-DESCRIPTION="KDE Office Suite"
+DESCRIPTION="Project management application"
 HOMEPAGE="https://www.calligra.org/"
 
 LICENSE="GPL-2"
