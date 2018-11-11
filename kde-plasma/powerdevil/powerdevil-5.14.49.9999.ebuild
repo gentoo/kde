@@ -48,10 +48,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	>=sys-power/upower-0.9.23
-	consolekit? (
-		>=sys-auth/consolekit-1.0.1
-		sys-power/pm-utils
-	)
+	consolekit? ( >=sys-auth/consolekit-1.0.1[pm-utils] )
 	!kde-plasma/powerdevil:4
 	!kde-plasma/systemsettings:4[handbook]
 "
