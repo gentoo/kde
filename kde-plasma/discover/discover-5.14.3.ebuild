@@ -35,7 +35,9 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	firmware? ( sys-apps/fwupd )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami)
+"
 
 src_prepare() {
 	kde5_src_prepare
@@ -45,9 +47,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=OFF
-		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=OFF
-		$(cmake-utils_use_find_package firmware LIBFWUPD)
+		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
+		-DBUILD_FlatpakBackend=OFF
+		-DBUILD_FwupdBackend=$(usex firmware)
 	)
 
 	kde5_src_configure
