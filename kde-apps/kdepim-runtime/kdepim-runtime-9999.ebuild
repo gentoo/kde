@@ -74,8 +74,4 @@ RDEPEND="${CDEPEND}
 
 RESTRICT+=" test"
 
-src_prepare() {
-	kde5_src_prepare
-	# We don't build kolab, so we can disable this
-	punt_bogus_dep KF5 KDELibs4Support
-}
+PATCHES=( "${FILESDIR}/${PN}-18.11.80-nokdelibs4support.patch" )

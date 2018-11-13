@@ -1,0 +1,55 @@
+From 952b572f381f965edbb0b339f7c04a4054aa262e Mon Sep 17 00:00:00 2001
+From: Andreas Sturmlechner <asturm@gentoo.org>
+Date: Tue, 13 Nov 2018 19:23:21 +0100
+Subject: [PATCH] Move required KF5KDELibs4Support dependency to conditional
+ kolab resource
+
+Fix definitions required for build when not provided by KF5KDELibs4Support.
+
+BUG: 400934
+---
+ CMakeLists.txt           | 7 +++----
+ resources/CMakeLists.txt | 1 +
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9c567ab0e..f16bc117a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -126,7 +126,6 @@ find_package(KF5DocTools ${KF5_VERSION} CONFIG REQUIRED) # pop3
+ find_package(KF5Holidays ${KF5_VERSION} CONFIG REQUIRED)
+ find_package(KF5DBusAddons ${KF5_VERSION} CONFIG REQUIRED)
+ find_package(KF5IconThemes ${KF5_VERSION} CONFIG REQUIRED)
+-find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
+ 
+ # KdepimLibs package
+ find_package(KF5Akonadi ${AKONADI_VERSION} CONFIG REQUIRED)
+@@ -149,10 +148,10 @@ find_package(KPimGAPI ${KGAPI_LIB_VERSION} CONFIG REQUIRED)
+ 
+ option(KDEPIM_RUN_ISOLATED_TESTS "Run the isolated tests." FALSE)
+ 
+-
+ #add_definitions( -DQT_DISABLE_DEPRECATED_BEFORE=0x060000 )
+-
+-
++# QUrl
++add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
++remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+ 
+ add_subdirectory(resources)
+ add_subdirectory(agents)
+diff --git a/resources/CMakeLists.txt b/resources/CMakeLists.txt
+index 99f7dbf00..d2534cd92 100644
+--- a/resources/CMakeLists.txt
++++ b/resources/CMakeLists.txt
+@@ -43,6 +43,7 @@ add_subdirectory( dav )
+ add_subdirectory( ical )
+ add_subdirectory( imap )
+ if (Libkolabxml_FOUND)
++    find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
+     add_subdirectory( kolab )
+ endif()
+ add_subdirectory( facebook )
+-- 
+2.19.1
+
