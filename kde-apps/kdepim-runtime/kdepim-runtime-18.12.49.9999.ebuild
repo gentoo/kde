@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 # TODO kolab
-CDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -61,12 +61,12 @@ CDEPEND="
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtxmlpatterns)
 	dev-libs/libxslt
 	test? ( $(add_kdeapps_dep kimap 'test') )
 "
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-misc/akonadi-ews
 	$(add_frameworks_dep oxygen-icons)
