@@ -71,7 +71,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-misc/akonadi-ews
-	$(add_frameworks_dep oxygen-icons)
 "
 
 RESTRICT+=" test"
