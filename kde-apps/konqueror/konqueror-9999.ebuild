@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -50,7 +50,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	sys-libs/zlib
 	speech? ( $(add_qt_dep qtspeech) )
-	tidy? ( app-text/htmltidy )
+	tidy? ( app-text/tidy-html5 )
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 	X? ( $(add_qt_dep qtx11extras) )
 "
@@ -65,6 +65,8 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	!webengine? ( kde-misc/kwebkitpart:5 )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-18.08.3-tidyhtml5.patch" )
 
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
