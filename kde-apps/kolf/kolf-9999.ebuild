@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -24,6 +24,7 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
