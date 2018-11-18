@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-KDE_TEST="true"
+KDE_TEST="optional"
 inherit kde5
 
 DESCRIPTION="KDE library to compare files and strings"
