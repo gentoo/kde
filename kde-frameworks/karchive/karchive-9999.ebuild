@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,9 +11,9 @@ KEYWORDS=""
 IUSE="+bzip2 +lzma"
 
 RDEPEND="
+	sys-libs/zlib
 	bzip2? ( app-arch/bzip2 )
 	lzma? ( app-arch/xz-utils )
-	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
 
