@@ -125,4 +125,8 @@ pkg_postinst() {
 	if ! has_version "dev-util/heaptrack[qt5]" ; then
 		elog "For heap memory profiling support, please install dev-util/heaptrack"
 	fi
+
+	if ! has_version "dev-util/clazy" ; then
+		elog "For static C++ Qt code analysis support, please install dev-util/clazy"
+	fi
 }
