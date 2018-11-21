@@ -84,6 +84,7 @@ RDEPEND="${COMMON_DEPEND}
 	cvs? ( dev-vcs/cvs )
 	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
 	!dev-util/kdevelop-clang
+	!dev-util/kdevelop-clang-tidy
 	!dev-util/kdevelop-cppcheck
 	!dev-util/kdevelop-qmake
 	!dev-util/kdevelop-qmljs
