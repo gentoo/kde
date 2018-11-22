@@ -7,7 +7,7 @@ inherit kde5-meta-pkg
 
 DESCRIPTION="kdecore - merge this to pull in the most basic applications"
 KEYWORDS=""
-IUSE="+handbook +webengine +webkit"
+IUSE="+handbook +webengine webkit"
 
 RDEPEND="
 	$(add_kdeapps_dep dolphin)
