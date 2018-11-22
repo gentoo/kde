@@ -7,5 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="webengine">Enable <pkg>www-client/falkon</pkg> which depends on <pkg>dev-qt/qtwebengine</pkg></flag>
+		<flag name="webkit">Enable <pkg>kde-apps/konqueror</pkg> with <pkg>kde-misc/kwebkitpart</pkg> which depend on <pkg>dev-qt/qtwebengine</pkg></flag>
 	</use>
 </pkgmetadata>
