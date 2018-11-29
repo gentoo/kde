@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -28,3 +28,5 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "
+
+RESTRICT+=" test" # broken within Plasma session, bug #665626
