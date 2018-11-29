@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -76,6 +76,9 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
 "
+
+# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
