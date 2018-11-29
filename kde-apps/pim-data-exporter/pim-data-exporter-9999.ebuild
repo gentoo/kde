@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -43,3 +43,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kmail:4
 "
+
+src_test() {
+	# selectiontypetreewidgettest is broken, bug #665690
+	local myctestargs=(
+		-E "(selectiontypetreewidgettest)"
+	)
+
+	kde5_src_test
+}
