@@ -11,10 +11,10 @@ HOMEPAGE="https://www.kde.org/plasma-desktop"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +browser-integration crypt +display-manager elogind grub gtk +handbook
+IUSE="bluetooth +browser-integration consolekit crypt +display-manager elogind grub gtk +handbook
 +legacy-systray networkmanager pam plymouth +pm-utils pulseaudio +sddm sdk systemd +wallpapers"
 
-REQUIRED_USE="?? ( elogind systemd )"
+REQUIRED_USE="?? ( consolekit elogind systemd )"
 
 RDEPEND="
 	$(add_plasma_dep breeze)
@@ -50,11 +50,15 @@ RDEPEND="
 	sys-fs/udisks:2[elogind?,systemd?]
 	bluetooth? ( $(add_plasma_dep bluedevil) )
 	browser-integration? ( $(add_plasma_dep plasma-browser-integration) )
+	consolekit? (
+		>=sys-auth/consolekit-1.0.1
+		pm-utils? ( sys-power/pm-utils )
+	)
 	crypt? ( $(add_plasma_dep plasma-vault) )
 	display-manager? (
 		sddm? (
 			$(add_plasma_dep sddm-kcm)
-			x11-misc/sddm[elogind?,systemd?]
+			x11-misc/sddm[consolekit?,elogind?,systemd?]
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
@@ -67,11 +71,11 @@ RDEPEND="
 	legacy-systray? ( $(add_plasma_dep xembed-sni-proxy) )
 	networkmanager? (
 		$(add_plasma_dep plasma-nm)
-		net-misc/networkmanager[elogind?,systemd?]
+		net-misc/networkmanager[consolekit?,elogind?,systemd?]
 	)
 	pam? (
 		$(add_plasma_dep kwallet-pam)
-		sys-auth/pambase[elogind?,systemd?]
+		sys-auth/pambase[consolekit?,elogind?,systemd?]
 	)
 	plymouth? (
 		$(add_plasma_dep breeze-plymouth)
@@ -80,11 +84,25 @@ RDEPEND="
 	pulseaudio? ( $(add_plasma_dep plasma-pa) )
 	sdk? ( $(add_plasma_dep plasma-sdk) )
 	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
-	!elogind? ( !systemd? (
-		>=sys-auth/consolekit-1.0.1
-		display-manager? ( sddm? ( x11-misc/sddm[consolekit] ) )
-		networkmanager? ( net-misc/networkmanager[consolekit] )
-		pam? ( sys-auth/pambase[consolekit] )
-		pm-utils? ( sys-power/pm-utils )
-	) )
 "
+
+pkg_postinst() {
+	local i selected use_pkg_map=(
+		consolekit:sys-auth/consolekit
+		elogind:sys-auth/elogind
+		systemd:sys-apps/systemd
+	)
+	for i in ${use_pkg_map[@]}; do
+		use ${i%:*} && selected="${i%:*}"
+	done
+	for i in ${use_pkg_map[@]}; do
+		if ! use ${i%:*} && has_version ${i#*:}; then
+			ewarn "An existing installation of ${i#*:} was detected even though"
+			ewarn "${PN} was configured with USE ${selected} instead of ${i%:*}."
+			ewarn "There can only be one session manager at runtime, otherwise random issues"
+			ewarn "may occur. Please make sure USE ${i%:*} is nowhere enabled in make.conf"
+			ewarn "or package.use and remove ${i#*:} before raising bugs."
+			ewarn "For more information, visit https://wiki.gentoo.org/wiki/KDE"
+		fi
+	done
+}
