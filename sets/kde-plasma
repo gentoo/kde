@@ -4,6 +4,7 @@ kde-plasma/breeze:5
 kde-plasma/breeze-grub:5
 kde-plasma/breeze-gtk:5
 kde-plasma/breeze-plymouth:5
+kde-plasma/discover:5
 kde-plasma/drkonqi:5
 kde-plasma/kactivitymanagerd:5
 kde-plasma/kde-cli-tools:5
@@ -24,6 +25,7 @@ kde-plasma/kwin:5
 kde-plasma/kwrited:5
 kde-plasma/libkscreen:5
 kde-plasma/libksysguard:5
+kde-plasma/libkworkspace:5
 kde-plasma/milou:5
 kde-plasma/oxygen:5
 kde-plasma/plasma-browser-integration:5
@@ -42,3 +44,4 @@ kde-plasma/powerdevil:5
 kde-plasma/sddm-kcm:5
 kde-plasma/systemsettings:5
 kde-plasma/user-manager:5
+kde-plasma/xembed-sni-proxy:5

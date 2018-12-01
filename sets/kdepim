@@ -28,6 +28,7 @@ kde-apps/kdepim-meta
 kde-apps/kdepim-runtime
 kde-apps/kidentitymanagement
 kde-apps/kimap
+kde-apps/kitinerary
 kde-apps/kldap
 kde-apps/kleopatra
 kde-apps/kmail
@@ -41,6 +42,7 @@ kde-apps/kontact
 kde-apps/kontactinterface
 kde-apps/korganizer
 kde-apps/kpimtextedit
+kde-apps/kpkpass
 kde-apps/ksmtp
 kde-apps/libgravatar
 kde-apps/libkdepim
