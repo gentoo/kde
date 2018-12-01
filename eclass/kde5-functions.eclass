@@ -43,9 +43,6 @@ case ${CATEGORY} in
 		fi
 		: ${QT_MINIMAL:=5.11.1}
 		;;
-	kde-apps)
-		[[ ${PV} = 18.04.3 ]] && : ${FRAMEWORKS_MINIMAL:=5.46.0}
-		;;
 esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
@@ -56,7 +53,7 @@ esac
 # @ECLASS-VARIABLE: FRAMEWORKS_MINIMAL
 # @DESCRIPTION:
 # Minimum version of Frameworks to require. This affects add_frameworks_dep.
-: ${FRAMEWORKS_MINIMAL:=5.50.0}
+: ${FRAMEWORKS_MINIMAL:=5.52.0}
 
 # @ECLASS-VARIABLE: PLASMA_MINIMAL
 # @DESCRIPTION:
@@ -66,7 +63,7 @@ esac
 # @ECLASS-VARIABLE: KDE_APPS_MINIMAL
 # @DESCRIPTION:
 # Minimum version of KDE Applications to require. This affects add_kdeapps_dep.
-: ${KDE_APPS_MINIMAL:=18.04.3}
+: ${KDE_APPS_MINIMAL:=18.08.3}
 
 # @ECLASS-VARIABLE: KDE_GCC_MINIMAL
 # @DEFAULT_UNSET
