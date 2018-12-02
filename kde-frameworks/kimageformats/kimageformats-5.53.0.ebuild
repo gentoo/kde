@@ -33,10 +33,3 @@ src_configure() {
 
 	kde5_src_configure
 }
-
-src_test() {
-	# bug: 634426
-	local myctestargs=( -E "(kimageformats-read-xcf)" )
-
-	kde5_src_test
-}

@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -32,11 +32,4 @@ src_configure() {
 	)
 
 	kde5_src_configure
-}
-
-src_test() {
-	# bug: 634426
-	local myctestargs=( -E "(kimageformats-read-xcf)" )
-
-	kde5_src_test
 }
