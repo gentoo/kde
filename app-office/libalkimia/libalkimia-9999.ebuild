@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -19,8 +19,25 @@ SLOT="0/7"
 IUSE="doc"
 
 RDEPEND="
+	$(add_frameworks_dep kcompletions)
+	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep kdelibs4support)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep knewstuff)
+	$(add_frameworks_dep kpackage)
+	$(add_frameworks_dep ktextwidgets)
+	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep plasma)
 	$(add_qt_dep qtdbus)
-	dev-libs/gmp:0=[cxx]
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwebkit)
+	$(add_qt_dep qtwidgets)
+	sci-libs/mpir:=
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
