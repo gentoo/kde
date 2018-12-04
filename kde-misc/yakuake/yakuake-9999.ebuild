@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2 LGPL-2"
-IUSE=""
+IUSE="absolute-position X"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -31,7 +31,6 @@ DEPEND="
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
@@ -39,9 +38,21 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
-	x11-libs/libX11
+	absolute-position? ( $(add_frameworks_dep kwayland) )
+	X? (
+		$(add_qt_dep qtx11extras)
+		x11-libs/libX11
+	)
 "
 RDEPEND="${DEPEND}
 	!kde-misc/yakuake:4
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package absolute-position KF5Wayland)
+		$(cmake-utils_use_find_package X X11)
+	)
+
+	kde5_src_configure
+}
