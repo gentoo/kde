@@ -19,7 +19,7 @@ SLOT="0/7"
 IUSE="doc"
 
 RDEPEND="
-	$(add_frameworks_dep kcompletions)
+	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
