@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,8 +6,7 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Plasma applet to access password from pass"
-HOMEPAGE="https://cgit.kde.org/scratch/dvratil/plasma-pass.git"
-EGIT_REPO_URI="https://anongit.kde.org/scratch/dvratil/plasma-pass.git"
+HOMEPAGE="https://www.dvratil.cz/2018/05/plasma-pass/ https://cgit.kde.org/plasma-pass.git/"
 LICENSE="LGPL-2.1+"
 IUSE=""
 
