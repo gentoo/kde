@@ -68,7 +68,7 @@ src_configure() {
 		$(cmake-utils_use_find_package openexr OpenEXR)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
 		$(cmake-utils_use_find_package samba Samba)
-		$(cmake-utils_use_find_package sftp LibSSH)
+		$(cmake-utils_use_find_package sftp libssh)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
