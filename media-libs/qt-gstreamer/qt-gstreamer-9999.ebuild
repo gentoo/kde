@@ -30,7 +30,8 @@ RDEPEND="
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/glib-utils
 	test? ( dev-qt/qttest:5 )
 "
