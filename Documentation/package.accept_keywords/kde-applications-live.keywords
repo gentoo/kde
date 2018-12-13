@@ -119,6 +119,7 @@
 ~kde-apps/kwave-9999 **
 ~kde-apps/libkcddb-9999 **
 ~kde-apps/libkcompactdisc-9999 **
+~kde-apps/dolphin-plugins-dropbox-9999 **
 ~kde-apps/kaccounts-integration-9999 **
 ~kde-apps/kaccounts-providers-9999 **
 ~kde-apps/kdenetwork-meta-9999 **
@@ -202,7 +203,10 @@
 ~kde-apps/pim-sieve-editor-9999 **
 ~kde-apps/pimcommon-9999 **
 ~kde-apps/cervisia-9999 **
-~kde-apps/dolphin-plugins-9999 **
+~kde-apps/dolphin-plugins-bazaar-9999 **
+~kde-apps/dolphin-plugins-git-9999 **
+~kde-apps/dolphin-plugins-mercurial-9999 **
+~kde-apps/dolphin-plugins-subversion-9999 **
 ~kde-apps/kapptemplate-9999 **
 ~kde-apps/kcachegrind-9999 **
 ~kde-apps/kde-dev-scripts-9999 **
