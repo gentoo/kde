@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -23,10 +23,11 @@ DEPEND="${RDEPEND}
 	nls? ( $(add_qt_dep linguist-tools) )
 	test? ( $(add_qt_dep qtconcurrent) )
 "
+
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version "app-misc/media-player-info" ; then
+	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "app-misc/media-player-info" ; then
 		elog "For media player support, install app-misc/media-player-info"
 	fi
 }
