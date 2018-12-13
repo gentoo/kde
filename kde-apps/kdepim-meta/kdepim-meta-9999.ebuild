@@ -1,69 +1,71 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="KDE PIM - merge this to pull in all kdepim-derived packages"
 HOMEPAGE="https://www.kde.org/applications/development"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadiconsole)
-	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep akonadi-contacts)
-	$(add_kdeapps_dep akonadi-import-wizard)
-	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep akonadi-notes)
-	$(add_kdeapps_dep akonadi-search)
-	$(add_kdeapps_dep akregator)
-	$(add_kdeapps_dep calendarjanitor)
-	$(add_kdeapps_dep calendarsupport)
-	$(add_kdeapps_dep eventviews)
-	$(add_kdeapps_dep grantlee-editor)
-	$(add_kdeapps_dep grantleetheme)
-	$(add_kdeapps_dep incidenceeditor)
-	$(add_kdeapps_dep kaddressbook)
-	$(add_kdeapps_dep kalarm)
-	$(add_kdeapps_dep kalarmcal)
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
-	$(add_kdeapps_dep kdepim-addons)
-	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kdepim-runtime)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kimap)
-	$(add_kdeapps_dep kitinerary)
-	$(add_kdeapps_dep kldap)
-	$(add_kdeapps_dep kleopatra)
-	$(add_kdeapps_dep kmail)
-	$(add_kdeapps_dep kmail-account-wizard)
-	$(add_kdeapps_dep kmailtransport)
-	$(add_kdeapps_dep kmbox)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep knotes)
-	$(add_kdeapps_dep konsolekalendar)
-	$(add_kdeapps_dep kontact)
-	$(add_kdeapps_dep kontactinterface)
-	$(add_kdeapps_dep korganizer)
-	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep kpkpass)
-	$(add_kdeapps_dep ksmtp)
-	$(add_kdeapps_dep libgravatar)
-	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkgapi)
-	$(add_kdeapps_dep libkleo)
-	$(add_kdeapps_dep libksieve)
-	$(add_kdeapps_dep libktnef)
-	$(add_kdeapps_dep mailcommon)
-	$(add_kdeapps_dep mailimporter)
-	$(add_kdeapps_dep mbox-importer)
-	$(add_kdeapps_dep messagelib)
-	$(add_kdeapps_dep pim-data-exporter)
-	$(add_kdeapps_dep pim-sieve-editor)
-	$(add_kdeapps_dep pimcommon)
+	>=kde-apps/akonadi-${PV}:${SLOT}
+	>=kde-apps/akonadiconsole-${PV}:${SLOT}
+	>=kde-apps/akonadi-calendar-${PV}:${SLOT}
+	>=kde-apps/akonadi-contacts-${PV}:${SLOT}
+	>=kde-apps/akonadi-import-wizard-${PV}:${SLOT}
+	>=kde-apps/akonadi-mime-${PV}:${SLOT}
+	>=kde-apps/akonadi-notes-${PV}:${SLOT}
+	>=kde-apps/akonadi-search-${PV}:${SLOT}
+	>=kde-apps/akregator-${PV}:${SLOT}
+	>=kde-apps/calendarjanitor-${PV}:${SLOT}
+	>=kde-apps/calendarsupport-${PV}:${SLOT}
+	>=kde-apps/eventviews-${PV}:${SLOT}
+	>=kde-apps/grantlee-editor-${PV}:${SLOT}
+	>=kde-apps/grantleetheme-${PV}:${SLOT}
+	>=kde-apps/incidenceeditor-${PV}:${SLOT}
+	>=kde-apps/kaddressbook-${PV}:${SLOT}
+	>=kde-apps/kalarm-${PV}:${SLOT}
+	>=kde-apps/kalarmcal-${PV}:${SLOT}
+	>=kde-apps/kcalcore-${PV}:${SLOT}
+	>=kde-apps/kcalutils-${PV}:${SLOT}
+	>=kde-apps/kcontacts-${PV}:${SLOT}
+	>=kde-apps/kdepim-addons-${PV}:${SLOT}
+	>=kde-apps/kdepim-apps-libs-${PV}:${SLOT}
+	>=kde-apps/kdepim-runtime-${PV}:${SLOT}
+	>=kde-apps/kidentitymanagement-${PV}:${SLOT}
+	>=kde-apps/kimap-${PV}:${SLOT}
+	>=kde-apps/kitinerary-${PV}:${SLOT}
+	>=kde-apps/kldap-${PV}:${SLOT}
+	>=kde-apps/kleopatra-${PV}:${SLOT}
+	>=kde-apps/kmail-${PV}:${SLOT}
+	>=kde-apps/kmail-account-wizard-${PV}:${SLOT}
+	>=kde-apps/kmailtransport-${PV}:${SLOT}
+	>=kde-apps/kmbox-${PV}:${SLOT}
+	>=kde-apps/kmime-${PV}:${SLOT}
+	>=kde-apps/knotes-${PV}:${SLOT}
+	>=kde-apps/konsolekalendar-${PV}:${SLOT}
+	>=kde-apps/kontact-${PV}:${SLOT}
+	>=kde-apps/kontactinterface-${PV}:${SLOT}
+	>=kde-apps/korganizer-${PV}:${SLOT}
+	>=kde-apps/kpimtextedit-${PV}:${SLOT}
+	>=kde-apps/kpkpass-${PV}:${SLOT}
+	>=kde-apps/ksmtp-${PV}:${SLOT}
+	>=kde-apps/libgravatar-${PV}:${SLOT}
+	>=kde-apps/libkdepim-${PV}:${SLOT}
+	>=kde-apps/libkgapi-${PV}:${SLOT}
+	>=kde-apps/libkleo-${PV}:${SLOT}
+	>=kde-apps/libksieve-${PV}:${SLOT}
+	>=kde-apps/libktnef-${PV}:${SLOT}
+	>=kde-apps/mailcommon-${PV}:${SLOT}
+	>=kde-apps/mailimporter-${PV}:${SLOT}
+	>=kde-apps/mbox-importer-${PV}:${SLOT}
+	>=kde-apps/messagelib-${PV}:${SLOT}
+	>=kde-apps/pim-data-exporter-${PV}:${SLOT}
+	>=kde-apps/pim-sieve-editor-${PV}:${SLOT}
+	>=kde-apps/pimcommon-${PV}:${SLOT}
+	!kde-apps/kdepim-meta:4
 "

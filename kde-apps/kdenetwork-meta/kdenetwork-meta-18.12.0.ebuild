@@ -3,18 +3,20 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
+HOMEPAGE="https://www.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="+telepathy"
 
 RDEPEND="
-	$(add_kdeapps_dep kdenetwork-filesharing)
-	$(add_kdeapps_dep kget)
-	$(add_kdeapps_dep krdc)
-	$(add_kdeapps_dep kopete)
-	$(add_kdeapps_dep krfb)
-	$(add_kdeapps_dep zeroconf-ioslave)
-	telepathy? ( $(add_kdeapps_dep plasma-telepathy-meta) )
+	>=kde-apps/kdenetwork-filesharing-${PV}:${SLOT}
+	>=kde-apps/kget-${PV}:${SLOT}
+	>=kde-apps/krdc-${PV}:${SLOT}
+	>=kde-apps/kopete-${PV}:${SLOT}
+	>=kde-apps/krfb-${PV}:${SLOT}
+	>=kde-apps/zeroconf-ioslave-${PV}:${SLOT}
+	telepathy? ( >=kde-apps/plasma-telepathy-meta-${PV}:${SLOT} )
 "

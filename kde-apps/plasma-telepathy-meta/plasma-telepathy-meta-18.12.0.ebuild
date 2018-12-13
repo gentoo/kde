@@ -3,28 +3,27 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="Plasma Telepathy client"
 HOMEPAGE="https://community.kde.org/KTp"
 
-LICENSE="|| ( GPL-2 GPL-3 LGPL-2.1 )"
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="gstreamer"
 
 RDEPEND="
-	$(add_kdeapps_dep ktp-accounts-kcm)
-	$(add_kdeapps_dep ktp-approver)
-	$(add_kdeapps_dep ktp-auth-handler)
-	$(add_kdeapps_dep ktp-common-internals)
-	$(add_kdeapps_dep ktp-contact-list)
-	$(add_kdeapps_dep ktp-contact-runner)
-	$(add_kdeapps_dep ktp-desktop-applets)
-	$(add_kdeapps_dep ktp-filetransfer-handler)
-	$(add_kdeapps_dep ktp-kded-module)
-	$(add_kdeapps_dep ktp-send-file)
-	$(add_kdeapps_dep ktp-text-ui)
-	gstreamer? ( $(add_kdeapps_dep ktp-call-ui) )
+	>=kde-apps/ktp-accounts-kcm-${PV}:${SLOT}
+	>=kde-apps/ktp-approver-${PV}:${SLOT}
+	>=kde-apps/ktp-auth-handler-${PV}:${SLOT}
+	>=kde-apps/ktp-common-internals-${PV}:${SLOT}
+	>=kde-apps/ktp-contact-list-${PV}:${SLOT}
+	>=kde-apps/ktp-contact-runner-${PV}:${SLOT}
+	>=kde-apps/ktp-desktop-applets-${PV}:${SLOT}
+	>=kde-apps/ktp-filetransfer-handler-${PV}:${SLOT}
+	>=kde-apps/ktp-kded-module-${PV}:${SLOT}
+	>=kde-apps/ktp-send-file-${PV}:${SLOT}
+	>=kde-apps/ktp-text-ui-${PV}:${SLOT}
+	gstreamer? ( >=kde-apps/ktp-call-ui-${PV}:${SLOT} )
 "
 
 pkg_postinst() {

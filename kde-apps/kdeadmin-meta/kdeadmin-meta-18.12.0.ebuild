@@ -3,13 +3,15 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-derived packages"
+HOMEPAGE="https://www.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="+cron"
 
 RDEPEND="
-	$(add_kdeapps_dep ksystemlog)
-	cron? ( $(add_kdeapps_dep kcron) )
+	>=kde-apps/ksystemlog-${PV}:${SLOT}
+	cron? ( >=kde-apps/kcron-${PV}:${SLOT} )
 "

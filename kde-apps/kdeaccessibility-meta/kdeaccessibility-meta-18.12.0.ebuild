@@ -3,14 +3,16 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derived packages"
+HOMEPAGE="https://www.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kmag)
-	$(add_kdeapps_dep kmousetool)
-	$(add_kdeapps_dep kmouth)
+	>=kde-apps/kmag-${PV}:${SLOT}
+	>=kde-apps/kmousetool-${PV}:${SLOT}
+	>=kde-apps/kmouth-${PV}:${SLOT}
 "

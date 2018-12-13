@@ -3,28 +3,29 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="kdeutils - merge this to pull in all kdeutils-derived packages"
 HOMEPAGE="https://www.kde.org/applications/utilities https://utils.kde.org"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="cups floppy"
 
 RDEPEND="
-	$(add_kdeapps_dep ark)
-	$(add_kdeapps_dep filelight)
-	$(add_kdeapps_dep kate)
-	$(add_kdeapps_dep kbackup)
-	$(add_kdeapps_dep kcalc)
-	$(add_kdeapps_dep kcharselect)
-	$(add_kdeapps_dep kdebugsettings)
-	$(add_kdeapps_dep kdf)
-	$(add_kdeapps_dep kgpg)
-	$(add_kdeapps_dep kimagemapeditor)
-	$(add_kdeapps_dep kteatime)
-	$(add_kdeapps_dep ktimer)
-	$(add_kdeapps_dep kwalletmanager)
-	$(add_kdeapps_dep sweeper)
-	cups? ( $(add_kdeapps_dep print-manager) )
-	floppy? ( $(add_kdeapps_dep kfloppy) )
+	>=kde-apps/ark-${PV}:${SLOT}
+	>=kde-apps/filelight-${PV}:${SLOT}
+	>=kde-apps/kate-${PV}:${SLOT}
+	>=kde-apps/kbackup-${PV}:${SLOT}
+	>=kde-apps/kcalc-${PV}:${SLOT}
+	>=kde-apps/kcharselect-${PV}:${SLOT}
+	>=kde-apps/kdebugsettings-${PV}:${SLOT}
+	>=kde-apps/kdf-${PV}:${SLOT}
+	>=kde-apps/kgpg-${PV}:${SLOT}
+	>=kde-apps/kimagemapeditor-${PV}:${SLOT}
+	>=kde-apps/kteatime-${PV}:${SLOT}
+	>=kde-apps/ktimer-${PV}:${SLOT}
+	>=kde-apps/kwalletmanager-${PV}:${SLOT}
+	>=kde-apps/sweeper-${PV}:${SLOT}
+	cups? ( >=kde-apps/print-manager-${PV}:${SLOT} )
+	floppy? ( >=kde-apps/kfloppy-${PV}:${SLOT} )
 "

@@ -3,56 +3,57 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="kdegames - merge this to pull in all kdegames-derived packages"
 HOMEPAGE="https://games.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS=""
 IUSE="opengl python"
 
 RDEPEND="
-	$(add_kdeapps_dep bomber)
-	$(add_kdeapps_dep bovo)
-	$(add_kdeapps_dep granatier)
-	$(add_kdeapps_dep kapman)
-	$(add_kdeapps_dep katomic)
-	$(add_kdeapps_dep kblackbox)
-	$(add_kdeapps_dep kblocks)
-	$(add_kdeapps_dep kbounce)
-	$(add_kdeapps_dep kbreakout)
-	$(add_kdeapps_dep kdiamond)
-	$(add_kdeapps_dep kfourinline)
-	$(add_kdeapps_dep kgoldrunner)
-	$(add_kdeapps_dep kigo)
-	$(add_kdeapps_dep killbots)
-	$(add_kdeapps_dep kiriki)
-	$(add_kdeapps_dep kjumpingcube)
-	$(add_kdeapps_dep klickety)
-	$(add_kdeapps_dep klines)
-	$(add_kdeapps_dep kmahjongg)
-	$(add_kdeapps_dep kmines)
-	$(add_kdeapps_dep knavalbattle)
-	$(add_kdeapps_dep knetwalk)
-	$(add_kdeapps_dep knights)
-	$(add_kdeapps_dep kolf)
-	$(add_kdeapps_dep kollision)
-	$(add_kdeapps_dep konquest)
-	$(add_kdeapps_dep kpat '' 18.04.3)
-	$(add_kdeapps_dep kreversi)
-	$(add_kdeapps_dep kshisen)
-	$(add_kdeapps_dep ksirk)
-	$(add_kdeapps_dep ksnakeduel)
-	$(add_kdeapps_dep kspaceduel)
-	$(add_kdeapps_dep ksquares)
-	$(add_kdeapps_dep ktuberling)
-	$(add_kdeapps_dep libkdegames)
-	$(add_kdeapps_dep libkmahjongg)
-	$(add_kdeapps_dep lskat)
-	$(add_kdeapps_dep palapeli)
-	$(add_kdeapps_dep picmi)
+	>=kde-apps/bomber-${PV}:${SLOT}
+	>=kde-apps/bovo-${PV}:${SLOT}
+	>=kde-apps/granatier-${PV}:${SLOT}
+	>=kde-apps/kapman-${PV}:${SLOT}
+	>=kde-apps/katomic-${PV}:${SLOT}
+	>=kde-apps/kblackbox-${PV}:${SLOT}
+	>=kde-apps/kblocks-${PV}:${SLOT}
+	>=kde-apps/kbounce-${PV}:${SLOT}
+	>=kde-apps/kbreakout-${PV}:${SLOT}
+	>=kde-apps/kdiamond-${PV}:${SLOT}
+	>=kde-apps/kfourinline-${PV}:${SLOT}
+	>=kde-apps/kgoldrunner-${PV}:${SLOT}
+	>=kde-apps/kigo-${PV}:${SLOT}
+	>=kde-apps/killbots-${PV}:${SLOT}
+	>=kde-apps/kiriki-${PV}:${SLOT}
+	>=kde-apps/kjumpingcube-${PV}:${SLOT}
+	>=kde-apps/klickety-${PV}:${SLOT}
+	>=kde-apps/klines-${PV}:${SLOT}
+	>=kde-apps/kmahjongg-${PV}:${SLOT}
+	>=kde-apps/kmines-${PV}:${SLOT}
+	>=kde-apps/knavalbattle-${PV}:${SLOT}
+	>=kde-apps/knetwalk-${PV}:${SLOT}
+	>=kde-apps/knights-${PV}:${SLOT}
+	>=kde-apps/kolf-${PV}:${SLOT}
+	>=kde-apps/kollision-${PV}:${SLOT}
+	>=kde-apps/konquest-${PV}:${SLOT}
+	>=kde-apps/kpat-18.04.3:${SLOT}
+	>=kde-apps/kreversi-${PV}:${SLOT}
+	>=kde-apps/kshisen-${PV}:${SLOT}
+	>=kde-apps/ksirk-${PV}:${SLOT}
+	>=kde-apps/ksnakeduel-${PV}:${SLOT}
+	>=kde-apps/kspaceduel-${PV}:${SLOT}
+	>=kde-apps/ksquares-${PV}:${SLOT}
+	>=kde-apps/ktuberling-${PV}:${SLOT}
+	>=kde-apps/libkdegames-${PV}:${SLOT}
+	>=kde-apps/libkmahjongg-${PV}:${SLOT}
+	>=kde-apps/lskat-${PV}:${SLOT}
+	>=kde-apps/palapeli-${PV}:${SLOT}
+	>=kde-apps/picmi-${PV}:${SLOT}
 	opengl? (
-		$(add_kdeapps_dep ksudoku)
-		$(add_kdeapps_dep kubrick)
+		>=kde-apps/ksudoku-${PV}:${SLOT}
+		>=kde-apps/kubrick-${PV}:${SLOT}
 	)
-	python? ( $(add_kdeapps_dep kajongg) )
+	python? ( >=kde-apps/kajongg-${PV}:${SLOT} )
 "

@@ -3,22 +3,24 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="Meta package for the KDE Applications collection"
+HOMEPAGE="https://www.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="accessibility pim sdk"
 
 RDEPEND="
-	$(add_kdeapps_dep kdeadmin-meta)
-	$(add_kdeapps_dep kdecore-meta)
-	$(add_kdeapps_dep kdeedu-meta)
-	$(add_kdeapps_dep kdegames-meta)
-	$(add_kdeapps_dep kdegraphics-meta)
-	$(add_kdeapps_dep kdemultimedia-meta)
-	$(add_kdeapps_dep kdenetwork-meta)
-	$(add_kdeapps_dep kdeutils-meta)
-	accessibility? ( $(add_kdeapps_dep kdeaccessibility-meta) )
-	pim? ( $(add_kdeapps_dep kdepim-meta) )
-	sdk? ( $(add_kdeapps_dep kdesdk-meta) )
+	>=kde-apps/kdeadmin-meta-${PV}:${SLOT}
+	>=kde-apps/kdecore-meta-${PV}:${SLOT}
+	>=kde-apps/kdeedu-meta-${PV}:${SLOT}
+	>=kde-apps/kdegames-meta-${PV}:${SLOT}
+	>=kde-apps/kdegraphics-meta-${PV}:${SLOT}
+	>=kde-apps/kdemultimedia-meta-${PV}:${SLOT}
+	>=kde-apps/kdenetwork-meta-${PV}:${SLOT}
+	>=kde-apps/kdeutils-meta-${PV}:${SLOT}
+	accessibility? ( >=kde-apps/kdeaccessibility-meta-${PV}:${SLOT} )
+	pim? ( >=kde-apps/kdepim-meta-${PV}:${SLOT} )
+	sdk? ( >=kde-apps/kdesdk-meta-${PV}:${SLOT} )
 "

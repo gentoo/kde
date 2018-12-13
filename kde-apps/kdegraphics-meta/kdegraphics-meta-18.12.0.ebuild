@@ -3,26 +3,27 @@
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="kdegraphics - merge this to pull in all kdegraphics-derived packages"
 HOMEPAGE="https://www.kde.org/applications/graphics/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="scanner"
 
 RDEPEND="
-	$(add_kdeapps_dep gwenview)
-	$(add_kdeapps_dep kamera)
-	$(add_kdeapps_dep kcolorchooser)
-	$(add_kdeapps_dep kdegraphics-mobipocket)
-	$(add_kdeapps_dep kolourpaint)
-	$(add_kdeapps_dep kruler)
-	$(add_kdeapps_dep libkdcraw)
-	$(add_kdeapps_dep libkexiv2)
-	$(add_kdeapps_dep libkipi)
-	$(add_kdeapps_dep okular)
-	$(add_kdeapps_dep spectacle)
-	$(add_kdeapps_dep svgpart)
-	$(add_kdeapps_dep thumbnailers)
-	scanner? ( $(add_kdeapps_dep libksane) )
+	>=kde-apps/gwenview-${PV}:${SLOT}
+	>=kde-apps/kamera-${PV}:${SLOT}
+	>=kde-apps/kcolorchooser-${PV}:${SLOT}
+	>=kde-apps/kdegraphics-mobipocket-${PV}:${SLOT}
+	>=kde-apps/kolourpaint-${PV}:${SLOT}
+	>=kde-apps/kruler-${PV}:${SLOT}
+	>=kde-apps/libkdcraw-${PV}:${SLOT}
+	>=kde-apps/libkexiv2-${PV}:${SLOT}
+	>=kde-apps/libkipi-${PV}:${SLOT}
+	>=kde-apps/okular-${PV}:${SLOT}
+	>=kde-apps/spectacle-${PV}:${SLOT}
+	>=kde-apps/svgpart-${PV}:${SLOT}
+	>=kde-apps/thumbnailers-${PV}:${SLOT}
+	scanner? ( >=kde-apps/libksane-${PV}:${SLOT} )
 "

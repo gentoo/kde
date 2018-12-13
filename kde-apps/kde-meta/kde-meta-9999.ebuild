@@ -1,15 +1,17 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit kde5-meta-pkg
-
 DESCRIPTION="Merge this to pull in all KDE Plasma and Applications packages"
+HOMEPAGE="https://www.kde.org/"
+
+LICENSE="metapackage"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_kdeapps_dep kde-apps-meta)
-	$(add_plasma_dep plasma-meta)
+	>=kde-apps/kde-apps-meta-${PV}:${SLOT}
+	kde-plasma/plasma-meta:5
 "
