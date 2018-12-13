@@ -3,8 +3,6 @@
 
 EAPI=7
 
-inherit kde5-functions
-
 DESCRIPTION="Merge this to pull in all Plasma 5 packages"
 HOMEPAGE="https://www.kde.org/plasma-desktop"
 
@@ -17,73 +15,73 @@ IUSE="bluetooth +browser-integration consolekit crypt +display-manager elogind g
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
 RDEPEND="
-	$(add_plasma_dep breeze)
-	$(add_plasma_dep drkonqi)
-	$(add_plasma_dep kactivitymanagerd)
-	$(add_plasma_dep kde-cli-tools)
-	$(add_plasma_dep kdecoration)
-	$(add_plasma_dep kdeplasma-addons)
-	$(add_plasma_dep kgamma)
-	$(add_plasma_dep khotkeys)
-	$(add_plasma_dep kinfocenter)
-	$(add_plasma_dep kmenuedit)
-	$(add_plasma_dep kscreen)
-	$(add_plasma_dep kscreenlocker)
-	$(add_plasma_dep ksshaskpass)
-	$(add_plasma_dep ksysguard)
-	$(add_plasma_dep kwayland-integration)
-	$(add_plasma_dep kwin)
-	$(add_plasma_dep kwrited)
-	$(add_plasma_dep libkscreen)
-	$(add_plasma_dep libksysguard)
-	$(add_plasma_dep milou)
-	$(add_plasma_dep oxygen)
-	$(add_plasma_dep plasma-desktop)
-	$(add_plasma_dep plasma-integration)
-	$(add_plasma_dep plasma-workspace)
-	$(add_plasma_dep polkit-kde-agent)
-	$(add_plasma_dep powerdevil)
-	$(add_plasma_dep systemsettings)
-	$(add_plasma_dep user-manager)
+	>=kde-plasma/breeze-${PV}:${SLOT}
+	>=kde-plasma/drkonqi-${PV}:${SLOT}
+	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
+	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
+	>=kde-plasma/kdecoration-${PV}:${SLOT}
+	>=kde-plasma/kdeplasma-addons-${PV}:${SLOT}
+	>=kde-plasma/kgamma-${PV}:${SLOT}
+	>=kde-plasma/khotkeys-${PV}:${SLOT}
+	>=kde-plasma/kinfocenter-${PV}:${SLOT}
+	>=kde-plasma/kmenuedit-${PV}:${SLOT}
+	>=kde-plasma/kscreen-${PV}:${SLOT}
+	>=kde-plasma/kscreenlocker-${PV}:${SLOT}
+	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
+	>=kde-plasma/ksysguard-${PV}:${SLOT}
+	>=kde-plasma/kwayland-integration-${PV}:${SLOT}
+	>=kde-plasma/kwin-${PV}:${SLOT}
+	>=kde-plasma/kwrited-${PV}:${SLOT}
+	>=kde-plasma/libkscreen-${PV}:${SLOT}
+	>=kde-plasma/libksysguard-${PV}:${SLOT}
+	>=kde-plasma/milou-${PV}:${SLOT}
+	>=kde-plasma/oxygen-${PV}:${SLOT}
+	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
+	>=kde-plasma/plasma-integration-${PV}:${SLOT}
+	>=kde-plasma/plasma-workspace-${PV}:${SLOT}
+	>=kde-plasma/polkit-kde-agent-${PV}:${SLOT}
+	>=kde-plasma/powerdevil-${PV}:${SLOT}
+	>=kde-plasma/systemsettings-${PV}:${SLOT}
+	>=kde-plasma/user-manager-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
 	sys-auth/polkit[elogind?,systemd?]
 	sys-fs/udisks:2[elogind?,systemd?]
-	bluetooth? ( $(add_plasma_dep bluedevil) )
-	browser-integration? ( $(add_plasma_dep plasma-browser-integration) )
+	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
+	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
 	consolekit? (
 		>=sys-auth/consolekit-1.0.1
 		pm-utils? ( sys-power/pm-utils )
 	)
-	crypt? ( $(add_plasma_dep plasma-vault) )
+	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
-			$(add_plasma_dep sddm-kcm)
+			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
 			x11-misc/sddm[consolekit?,elogind?,systemd?]
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
-	grub? ( $(add_plasma_dep breeze-grub) )
+	grub? ( >=kde-plasma/breeze-grub-${PV}:${SLOT} )
 	gtk? (
-		$(add_plasma_dep breeze-gtk)
-		$(add_plasma_dep kde-gtk-config)
+		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
+		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
 	)
-	handbook? ( $(add_kdeapps_dep khelpcenter) )
-	legacy-systray? ( $(add_plasma_dep xembed-sni-proxy) )
+	handbook? ( kde-apps/khelpcenter:5 )
+	legacy-systray? ( >=kde-plasma/xembed-sni-proxy-${PV}:${SLOT} )
 	networkmanager? (
-		$(add_plasma_dep plasma-nm)
+		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[consolekit?,elogind?,systemd?]
 	)
 	pam? (
-		$(add_plasma_dep kwallet-pam)
+		>=kde-plasma/kwallet-pam-${PV}:${SLOT}
 		sys-auth/pambase[consolekit?,elogind?,systemd?]
 	)
 	plymouth? (
-		$(add_plasma_dep breeze-plymouth)
-		$(add_plasma_dep plymouth-kcm)
+		>=kde-plasma/breeze-plymouth-${PV}:${SLOT}
+		>=kde-plasma/plymouth-kcm-${PV}:${SLOT}
 	)
-	pulseaudio? ( $(add_plasma_dep plasma-pa) )
-	sdk? ( $(add_plasma_dep plasma-sdk) )
-	wallpapers? ( $(add_plasma_dep plasma-workspace-wallpapers) )
+	pulseaudio? ( >=kde-plasma/plasma-pa-${PV}:${SLOT} )
+	sdk? ( >=kde-plasma/plasma-sdk-${PV}:${SLOT} )
+	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 "
 
 pkg_postinst() {
