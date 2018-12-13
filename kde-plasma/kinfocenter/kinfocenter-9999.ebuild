@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="A utility that provides information about a computer system"
+DESCRIPTION="Utility providing information about the computer hardware"
 HOMEPAGE="https://www.kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
 KEYWORDS=""
@@ -87,10 +87,14 @@ src_install() {
 }
 
 pkg_postinst() {
-	if ! has_version "net-fs/nfs-utils"; then
-		elog "Installing net-fs/nfs-utils will enable the NFS information module."
-	fi
-	if ! has_version "net-fs/samba"; then
-		elog "Installing net-fs/samba will enable the Samba status information module."
+	kde5_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		if ! has_version "net-fs/nfs-utils"; then
+			elog "Installing net-fs/nfs-utils will enable the NFS information module."
+		fi
+		if ! has_version "net-fs/samba"; then
+			elog "Installing net-fs/samba will enable the Samba status information module."
+		fi
 	fi
 }

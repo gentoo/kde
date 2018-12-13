@@ -87,10 +87,14 @@ src_install() {
 }
 
 pkg_postinst() {
-	if ! has_version "net-fs/nfs-utils"; then
-		elog "Installing net-fs/nfs-utils will enable the NFS information module."
-	fi
-	if ! has_version "net-fs/samba"; then
-		elog "Installing net-fs/samba will enable the Samba status information module."
+	kde5_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		if ! has_version "net-fs/nfs-utils"; then
+			elog "Installing net-fs/nfs-utils will enable the NFS information module."
+		fi
+		if ! has_version "net-fs/samba"; then
+			elog "Installing net-fs/samba will enable the Samba status information module."
+		fi
 	fi
 }
