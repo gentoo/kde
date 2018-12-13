@@ -6,7 +6,7 @@ EAPI=6
 KDE_HANDBOOK="true"
 inherit kde5
 
-DESCRIPTION="A utility that provides information about a computer system"
+DESCRIPTION="Utility providing information about the computer hardware"
 HOMEPAGE="https://www.kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
 KEYWORDS=""
