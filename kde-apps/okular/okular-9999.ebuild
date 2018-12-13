@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -66,7 +66,7 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-18.08.0-tests.patch"
-	"${FILESDIR}/${PN}-tests.patch"
+	"${FILESDIR}/${PN}-18.12.0-tests.patch"
 )
 
 src_prepare() {
