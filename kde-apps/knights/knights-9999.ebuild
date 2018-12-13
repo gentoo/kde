@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Simple chess board based on KDE Frameworks"
-HOMEPAGE="https://www.linux-apps.com/content/show.php/Knights?content=122046"
+HOMEPAGE="https://www.kde.org/applications/games/knights/"
 
 LICENSE="GPL-2+"
 KEYWORDS=""
