@@ -1,5 +1,8 @@
 <kde-apps/cervisia-18.12.50
-<kde-apps/dolphin-plugins-18.12.50
+<kde-apps/dolphin-plugins-bazaar-18.12.50
+<kde-apps/dolphin-plugins-git-18.12.50
+<kde-apps/dolphin-plugins-mercurial-18.12.50
+<kde-apps/dolphin-plugins-subversion-18.12.50
 <kde-apps/kapptemplate-18.12.50
 <kde-apps/kcachegrind-18.12.50
 <kde-apps/kde-dev-scripts-18.12.50
