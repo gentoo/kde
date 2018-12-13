@@ -97,14 +97,16 @@ pkg_postinst() {
 		echo "${1} ($(has_version ${1} || echo "not ")installed)"
 	}
 
-	elog "KMail supports the following runtime dependencies:"
-	elog "  Virus detection:"
-	elog "    $(pkg_is_installed app-antivirus/clamav)"
-	elog "  Spam filtering:"
-	elog "    $(pkg_is_installed mail-filter/bogofilter)"
-	elog "    $(pkg_is_installed mail-filter/spamassassin)"
-	elog "  Fancy e-mail headers and various useful plugins:"
-	elog "    $(pkg_is_installed kde-apps/kdepim-addons:${SLOT})"
-	elog "  Crypto config and certificate details GUI:"
-	elog "    $(pkg_is_installed kde-apps/kleopatra:${SLOT})"
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "KMail supports the following runtime dependencies:"
+		elog "  Virus detection:"
+		elog "    $(pkg_is_installed app-antivirus/clamav)"
+		elog "  Spam filtering:"
+		elog "    $(pkg_is_installed mail-filter/bogofilter)"
+		elog "    $(pkg_is_installed mail-filter/spamassassin)"
+		elog "  Fancy e-mail headers and various useful plugins:"
+		elog "    $(pkg_is_installed kde-apps/kdepim-addons:${SLOT})"
+		elog "  Crypto config and certificate details GUI:"
+		elog "    $(pkg_is_installed kde-apps/kleopatra:${SLOT})"
+	fi
 }
