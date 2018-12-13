@@ -92,22 +92,24 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
-		elog "For bookmarks support, install keditbookmarks:"
-		elog "kde-apps/keditbookmarks:${SLOT}"
-	fi
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		if ! has_version kde-apps/keditbookmarks:${SLOT} ; then
+			elog "For bookmarks support, install keditbookmarks:"
+			elog "kde-apps/keditbookmarks:${SLOT}"
+		fi
 
-	if ! has_version kde-apps/dolphin:${SLOT} ; then
-		elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
-		elog "kde-apps/dolphin:${SLOT}"
-	fi
+		if ! has_version kde-apps/dolphin:${SLOT} ; then
+			elog "If you want to use konqueror as a filemanager, install the dolphin kpart:"
+			elog "kde-apps/dolphin:${SLOT}"
+		fi
 
-	if ! has_version kde-apps/svg:${SLOT} ; then
-		elog "For konqueror to view SVGs, install the svg kpart:"
-		elog "kde-apps/svgpart:${SLOT}"
-	fi
+		if ! has_version kde-apps/svg:${SLOT} ; then
+			elog "For konqueror to view SVGs, install the svg kpart:"
+			elog "kde-apps/svgpart:${SLOT}"
+		fi
 
-	if ! has_version virtual/jre ; then
-		elog "To use Java on webpages install virtual/jre."
+		if ! has_version virtual/jre ; then
+			elog "To use Java on webpages install virtual/jre."
+		fi
 	fi
 }
