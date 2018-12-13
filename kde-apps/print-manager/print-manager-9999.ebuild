@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -36,8 +36,9 @@ RDEPEND="${DEPEND}
 "
 
 pkg_postinst(){
-	if ! use gtk ; then
-		ewarn
+	kde5_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]] && ! use gtk ; then
 		ewarn "By switching off \"gtk\" USE flag, you have chosen to do without"
 		ewarn "an important, though optional, runtime dependency:"
 		ewarn
@@ -48,6 +49,5 @@ pkg_postinst(){
 		ewarn
 		ewarn "\"Failed to group devices: 'The name org.fedoraproject.Config.Printing"
 		ewarn "was not provided by any .service files'\""
-		ewarn
 	fi
 }
