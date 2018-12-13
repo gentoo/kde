@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -76,7 +76,7 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if use addons; then
+	if [[ -z "${REPLACING_VERSIONS}" ]] && use addons; then
 		elog "The functionality of ktexteditorpreview plugin can be extended with:"
 		elog "  kde-misc/kmarkdownwebview"
 		elog "  media-gfx/kgraphviewer"
