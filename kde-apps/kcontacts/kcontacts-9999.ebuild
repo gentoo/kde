@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -21,6 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	app-text/iso-codes
 "
 
 src_prepare() {

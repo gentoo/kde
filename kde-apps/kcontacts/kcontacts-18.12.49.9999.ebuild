@@ -21,6 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	app-text/iso-codes
 "
 
 src_prepare() {
