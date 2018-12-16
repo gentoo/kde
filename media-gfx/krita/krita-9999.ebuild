@@ -4,8 +4,9 @@
 EAPI=6
 
 KDE_TEST="forceoptional-recursive"
+QT_MINIMAL="5.11.3"
 VIRTUALX_REQUIRED="test"
-PYTHON_COMPAT=( python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 inherit kde5 python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -28,7 +29,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kwidgetsaddons)
