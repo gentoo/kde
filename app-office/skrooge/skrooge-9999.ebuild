@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,7 +14,7 @@ HOMEPAGE="https://skrooge.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities designer kde ofx"
+IUSE="activities designer kde ofx webkit"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -45,7 +45,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5(+)]
@@ -54,6 +53,8 @@ COMMON_DEPEND="
 	activities? ( $(add_frameworks_dep kactivities) )
 	kde? ( $(add_frameworks_dep krunner) )
 	ofx? ( dev-libs/libofx )
+	webkit? ( $(add_qt_dep qtwebkit) )
+	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kguiaddons)
@@ -69,6 +70,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!app-office/skrooge:4
+	$(add_qt_dep qtquickcontrols)
 "
 
 REQUIRED_USE="test? ( designer )"
@@ -83,6 +85,7 @@ src_configure() {
 		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package kde KF5Runner)
 		$(cmake-utils_use_find_package ofx LibOfx)
+		-DSKG_WEBENGINE=$(usex !webkit)
 	)
 
 	kde5_src_configure
