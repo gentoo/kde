@@ -28,6 +28,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/dolphin-plugins:5
+	dev-vcs/mercurial
 "
 
 src_prepare() {
