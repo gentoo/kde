@@ -33,11 +33,9 @@ RDEPEND="
 RDEPEND="${RDEPEND}
 	7zip? ( app-arch/p7zip )
 	lrz? ( app-arch/lrzip )
-	rar? (
-		|| (
-			app-arch/unar
-			app-arch/unrar
-		)
+	rar? ( || (
 		app-arch/rar
-	)
+		app-arch/unrar
+		app-arch/unar
+	) )
 "
