@@ -45,6 +45,9 @@ case ${CATEGORY} in
 		;;
 	kde-apps)
 		[[ ${PV} = 18.08.3* ]] && : ${QT_MINIMAL:=5.9.4}
+		if [[ ${KDE_BUILD_TYPE} = live && ${PV} != ??.??.49* ]]; then
+			: ${FRAMEWORKS_MINIMAL:=5.53.0}
+		fi
 		;;
 esac
 
