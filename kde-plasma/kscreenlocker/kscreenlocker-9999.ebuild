@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -9,7 +9,7 @@ inherit kde5 pam
 
 DESCRIPTION="Library and components for secure lock screen architecture"
 KEYWORDS=""
-IUSE="+pam seccomp"
+IUSE="consolekit +pam seccomp"
 
 REQUIRED_USE="seccomp? ( pam )"
 
@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
+	consolekit? ( sys-auth/consolekit )
 	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
 "
@@ -74,6 +75,7 @@ src_test() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package consolekit loginctl)
 		-DPAM_REQUIRED=$(usex pam)
 		$(cmake-utils_use_find_package pam PAM)
 		$(cmake-utils_use_find_package seccomp Seccomp)
