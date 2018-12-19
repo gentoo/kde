@@ -6,7 +6,7 @@ EAPI=6
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
+DESCRIPTION="Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks"
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
