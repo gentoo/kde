@@ -61,12 +61,12 @@ pkg_postinst() {
 	kde5_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		if ! has_version app-arch/unar && ! has_version app-arch/unrar; then
-			elog "For extracting rar archives, install app-arch/unar (free) or app-arch/unrar (non-free)."
+		if ! has_version app-arch/rar; then
+			elog "For creating/extracting rar archives, installing app-arch/rar is required."
+			if ! has_version app-arch/unar && ! has_version app-arch/unrar; then
+				elog "Alternatively, for only extracting rar archives, install app-arch/unar (free) or app-arch/unrar (non-free)."
+			fi
 		fi
-
-		has_version app-arch/rar || \
-			elog "For creating rar archives, installing app-arch/rar is required."
 
 		has_version app-arch/p7zip || \
 			elog "For handling 7-Zip archives, install app-arch/p7zip."
