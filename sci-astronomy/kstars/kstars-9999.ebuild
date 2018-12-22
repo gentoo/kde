@@ -64,6 +64,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		-DFETCH_TRANSLATIONS=OFF
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package indi INDI)
 		$(cmake-utils_use_find_package password Qt5Keychain)
