@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,7 +14,7 @@ fi
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars/"
-IUSE="fits indi raw wcs"
+IUSE="fits indi +password raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
 	indi? ( >=sci-libs/indilib-1.4.0 )
+	password? ( dev-libs/qtkeychain:= )
 	raw? ( media-libs/libraw:= )
 	wcs? ( sci-astronomy/wcslib )
 "
@@ -64,6 +65,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package indi INDI)
+		$(cmake-utils_use_find_package password Qt5Keychain)
 		$(cmake-utils_use_find_package raw LibRaw)
 		$(cmake-utils_use_find_package wcs WCSLIB)
 	)
