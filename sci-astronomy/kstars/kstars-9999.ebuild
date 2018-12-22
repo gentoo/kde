@@ -40,6 +40,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebsockets)
 	$(add_qt_dep qtwidgets)
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
@@ -76,7 +77,7 @@ src_configure() {
 pkg_postinst () {
 	kde5_pkg_postinst
 
-	if ! has_version "x11-misc/xplanet" ; then
+	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "x11-misc/xplanet" ; then
 		elog "${PN} has optional runtime support for x11-misc/xplanet"
 	fi
 	# same for AstrometryNet, which is not packaged.
