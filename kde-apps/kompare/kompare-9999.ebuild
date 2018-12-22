@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,8 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A program to view the differences between files"
-HOMEPAGE="https://www.kde.org/applications/development/kompare
-http://www.caffeinated.me.uk/kompare/"
+HOMEPAGE="https://www.kde.org/applications/development/kompare"
 KEYWORDS=""
 IUSE=""
 
