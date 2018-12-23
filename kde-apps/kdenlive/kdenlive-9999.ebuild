@@ -47,7 +47,6 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 	>=media-libs/mlt-6.10.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
-	virtual/opengl
 	freesound? ( $(add_qt_dep qtwebkit) )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	share? ( $(add_frameworks_dep purpose) )
