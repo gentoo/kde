@@ -13,7 +13,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-IUSE="addressbook calendar gphoto2 jpeg2k +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop webkit X"
+IUSE="addressbook calendar gphoto2 jpeg2k +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop vkontakte webkit X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -80,6 +80,7 @@ COMMON_DEPEND="
 	panorama? ( $(add_frameworks_dep threadweaver) )
 	scanner? ( $(add_kdeapps_dep libksane) )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
+	vkontakte? ( net-libs/libkvkontakte:5 )
 	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 	webkit? ( $(add_qt_dep qtwebkit) )
 	X? (
@@ -140,6 +141,7 @@ src_configure() {
 		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
 		$(cmake-utils_use_find_package scanner KF5Sane)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
+		$(cmake-utils_use_find_package vkontakte KF5Vkontakte)
 		-DENABLE_QWEBENGINE=$(usex !webkit)
 		$(cmake-utils_use_find_package X X11)
 	)
