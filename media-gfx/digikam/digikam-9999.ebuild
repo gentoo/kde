@@ -14,7 +14,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-IUSE="addressbook calendar gphoto2 jpeg2k +lensfun marble mediaplayer semantic-desktop mysql opengl openmp +panorama scanner X"
+IUSE="addressbook calendar gphoto2 jpeg2k +lensfun libav marble mediaplayer semantic-desktop mysql opengl openmp +panorama scanner X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -71,7 +71,11 @@ COMMON_DEPEND="
 		$(add_qt_dep qtconcurrent)
 		$(add_qt_dep qtnetwork)
 	)
-	mediaplayer? ( media-libs/qtav[opengl] )
+	mediaplayer? (
+		media-libs/qtav[opengl]
+		!libav? ( media-video/ffmpeg:= )
+		libav? ( media-video/libav:= )
+	)
 	opengl? (
 		$(add_qt_dep qtopengl)
 		virtual/opengl
