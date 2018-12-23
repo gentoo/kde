@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	$(add_qt_dep qtxmlpatterns)
 	dev-libs/expat
 	>=media-gfx/exiv2-0.26:=
 	media-libs/lcms:2
