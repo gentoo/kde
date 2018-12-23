@@ -137,7 +137,6 @@ src_configure() {
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake-utils_use_find_package opengl OpenGL)
-		$(cmake-utils_use_find_package openmp OpenMP)
 		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
 		$(cmake-utils_use_find_package scanner KF5Sane)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
