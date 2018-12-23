@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui '-gles2')
+	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql 'mysql?')
 	$(add_qt_dep qtwidgets)
@@ -66,7 +67,6 @@ COMMON_DEPEND="
 		$(add_frameworks_dep kbookmarks)
 		$(add_kdeapps_dep marble)
 		$(add_qt_dep qtconcurrent)
-		$(add_qt_dep qtnetwork)
 	)
 	mediaplayer? (
 		media-libs/qtav[opengl]
@@ -116,14 +116,6 @@ pkg_setup() {
 }
 
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
-src_prepare() {
-	if ! use marble; then
-		punt_bogus_dep Qt5 Network
-	fi
-
-	kde5_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_APPSTYLES=ON
