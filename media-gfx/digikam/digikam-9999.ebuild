@@ -14,7 +14,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-IUSE="addressbook calendar gphoto2 jpeg2k +kipi +lensfun marble mediaplayer semantic-desktop mysql opengl openmp +panorama scanner X"
+IUSE="addressbook calendar gphoto2 jpeg2k +lensfun marble mediaplayer semantic-desktop mysql opengl openmp +panorama scanner X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -63,7 +63,6 @@ COMMON_DEPEND="
 	calendar? ( $(add_kdeapps_dep kcalcore) )
 	gphoto2? ( media-libs/libgphoto2:= )
 	jpeg2k? ( media-libs/jasper:= )
-	kipi? ( $(add_kdeapps_dep libkipi) )
 	lensfun? ( media-libs/lensfun )
 	marble? (
 		$(add_frameworks_dep kbookmarks)
@@ -94,7 +93,6 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	media-plugins/kipi-plugins:5
 	mysql? ( virtual/mysql[server] )
 	panorama? ( media-gfx/hugin )
 	!media-gfx/digikam:4
@@ -149,7 +147,6 @@ src_configure() {
 		$(cmake-utils_use_find_package calendar KF5CalendarCore)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
 		$(cmake-utils_use_find_package jpeg2k Jasper)
-		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package lensfun LensFun)
 		$(cmake-utils_use_find_package marble Marble)
 		$(cmake-utils_use_find_package mediaplayer QtAV)
