@@ -14,7 +14,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
-IUSE="addressbook calendar gphoto2 jpeg2k +lensfun libav marble mediaplayer semantic-desktop mysql opengl openmp +panorama scanner X"
+IUSE="addressbook calendar gphoto2 jpeg2k +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop webkit X"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -45,7 +45,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui '-gles2')
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql 'mysql?')
-	$(add_qt_dep qtwebkit)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
@@ -83,6 +82,8 @@ COMMON_DEPEND="
 	panorama? ( $(add_frameworks_dep threadweaver) )
 	scanner? ( $(add_kdeapps_dep libksane) )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
+	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
+	webkit? ( $(add_qt_dep qtwebkit) )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -160,6 +161,7 @@ src_configure() {
 		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
 		$(cmake-utils_use_find_package scanner KF5Sane)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
+		-DENABLE_QWEBENGINE=$(usex !webkit)
 		$(cmake-utils_use_find_package X X11)
 	)
 
