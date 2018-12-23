@@ -53,8 +53,7 @@ COMMON_DEPEND="
 	media-libs/lcms:2
 	media-libs/liblqr
 	media-libs/libpng:0=
-	media-libs/opencv:=[-qt4(-)]
-	|| ( <media-libs/opencv-3.0.0 >=media-libs/opencv-3.1.0 )
+	>=media-libs/opencv-3.1.0:=
 	media-libs/tiff:0
 	virtual/jpeg:0
 	addressbook? (
@@ -64,7 +63,7 @@ COMMON_DEPEND="
 	calendar? ( $(add_kdeapps_dep kcalcore) )
 	gphoto2? ( media-libs/libgphoto2:= )
 	jpeg2k? ( media-libs/jasper:= )
-	kipi? ( $(add_kdeapps_dep libkipi '' '16.03.80') )
+	kipi? ( $(add_kdeapps_dep libkipi) )
 	lensfun? ( media-libs/lensfun )
 	marble? (
 		$(add_frameworks_dep kbookmarks)
@@ -147,7 +146,6 @@ src_configure() {
 		-DENABLE_MEDIAPLAYER=$(usex mediaplayer)
 		-DENABLE_MYSQLSUPPORT=$(usex mysql)
 		-DENABLE_INTERNALMYSQL=$(usex mysql)
-		-DENABLE_OPENCV3=$(has_version ">=media-libs/opencv-3" && echo yes || echo no)
 		$(cmake-utils_use_find_package calendar KF5CalendarCore)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
 		$(cmake-utils_use_find_package jpeg2k Jasper)
