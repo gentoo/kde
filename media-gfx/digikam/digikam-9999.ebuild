@@ -7,7 +7,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	KDE_HANDBOOK="true"
 	KDE_TEST="true"
 fi
-CMAKE_MAKEFILE_GENERATOR="emake"
 inherit kde5 toolchain-funcs
 
 DESCRIPTION="Digital photo management application"
@@ -23,7 +22,6 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_BRANCH=stable
 	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
 	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.xz"
-	S="${WORKDIR}/${MY_P}/core"
 fi
 
 COMMON_DEPEND="
@@ -101,10 +99,9 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server] )
 	panorama? ( media-gfx/hugin )
-	!media-gfx/digikam:4
 "
 
-RESTRICT=test
+RESTRICT+=" test"
 # bug 366505
 
 pkg_pretend() {
@@ -119,23 +116,6 @@ pkg_setup() {
 
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
 src_prepare() {
-	if [[ ${KDE_BUILD_TYPE} != live ]]; then
-		# prepare the translations
-		mv "${WORKDIR}/${MY_P}/po" po || die
-		find po -name "*.po" -and -not -name "digikam.po" -delete || die
-		echo "set_property(GLOBAL PROPERTY ALLOW_DUPLICATE_CUSTOM_TARGETS 1)" >> CMakeLists.txt || die
-		echo "find_package(Gettext REQUIRED)" >> CMakeLists.txt || die
-		echo "add_subdirectory( po )" >> CMakeLists.txt || die
-
-		if use handbook; then
-			# subdirs need to be preserved b/c relative paths...
-			# doc-translated is, in fact, broken, and ignored
-			mv "${WORKDIR}/${MY_P}/doc/${PN}" doc-default || die
-			echo "find_package(KF5DocTools REQUIRED)" >> CMakeLists.txt || die
-			echo "add_subdirectory( doc-default )" >> CMakeLists.txt || die
-		fi
-	fi
-
 	if ! use marble; then
 		punt_bogus_dep Qt5 Network
 	fi
@@ -147,15 +127,15 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_APPSTYLES=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
-		-DENABLE_MEDIAPLAYER=$(usex mediaplayer)
-		-DENABLE_MYSQLSUPPORT=$(usex mysql)
-		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake-utils_use_find_package calendar KF5CalendarCore)
 		$(cmake-utils_use_find_package gphoto2 Gphoto2)
 		$(cmake-utils_use_find_package jpeg2k Jasper)
 		$(cmake-utils_use_find_package lensfun LensFun)
 		$(cmake-utils_use_find_package marble Marble)
+		-DENABLE_MEDIAPLAYER=$(usex mediaplayer)
 		$(cmake-utils_use_find_package mediaplayer QtAV)
+		-DENABLE_MYSQLSUPPORT=$(usex mysql)
+		-DENABLE_INTERNALMYSQL=$(usex mysql)
 		$(cmake-utils_use_find_package opengl OpenGL)
 		$(cmake-utils_use_find_package openmp OpenMP)
 		$(cmake-utils_use_find_package panorama KF5ThreadWeaver)
