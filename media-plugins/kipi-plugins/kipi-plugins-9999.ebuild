@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -9,24 +9,15 @@ inherit kde5
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="https://www.digikam.org/"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	KEYWORDS="~amd64 ~x86"
+	SRC_URI="mirror://kde/stable/digikam/digikam-${PV}.tar.xz"
+fi
+
 LICENSE="GPL-2+"
 IUSE="flashexport mediawiki +remotestorage vkontakte"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	KEYWORDS="~amd64 ~x86"
-	if [[ ${PV} =~ beta[0-9]$ ]]; then
-		SRC_BRANCH="unstable"
-	else
-		SRC_BRANCH="stable"
-	fi
-
-	MY_PV="${PV/_/-}"
-	MY_P="digikam-${MY_PV}"
-	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${MY_P}.tar.xz"
-	S="${WORKDIR}/${MY_P}/extra/${PN}"
-fi
-
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -47,27 +38,10 @@ COMMON_DEPEND="
 	remotestorage? ( $(add_frameworks_dep kio) )
 	vkontakte? ( net-libs/libkvkontakte:5 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
 	sys-devel/gettext
 "
-RDEPEND="${COMMON_DEPEND}
-	!media-plugins/kipi-plugins:4
-"
-
-src_prepare() {
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		if [[ ${SRC_BRANCH} = stable ]]; then
-			# prepare the translations
-			mv "${WORKDIR}/${MY_P}/po" po || die
-			find po -name "*.po" -and -not -name "kipiplugin*.po" -delete || die
-			echo "find_package(Gettext REQUIRED)" >> CMakeLists.txt || die
-			echo "add_subdirectory( po )" >> CMakeLists.txt || die
-		fi
-	fi
-
-	kde5_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=(
