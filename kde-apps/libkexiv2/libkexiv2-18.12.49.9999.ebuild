@@ -3,10 +3,11 @@
 
 EAPI=6
 
+FRAMEWORKS_MINIMAL="5.53.0"
 KDE_BLOCK_SLOT4="false"
 inherit kde5
 
-DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
+DESCRIPTION="Wrapper around exiv2 library"
 LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="+xmp"
@@ -16,3 +17,5 @@ DEPEND="
 	>=media-gfx/exiv2-0.25:=[xmp=]
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-18.12.0-exiv2-0.27.patch" )

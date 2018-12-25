@@ -1,13 +1,12 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.53.0"
 KDE_BLOCK_SLOT4="false"
 inherit kde5
 
-DESCRIPTION="KDE Image Plugin Interface: an exiv2 library wrapper"
+DESCRIPTION="Wrapper around exiv2 library"
 LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="+xmp"
@@ -18,4 +17,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-exiv2-0.27.patch" )
+PATCHES=( "${FILESDIR}/${PN}-18.12.0-exiv2-0.27.patch" )
