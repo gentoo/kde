@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="exif office pdf taglib truetype"
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -36,10 +36,7 @@ COMMON_DEPEND="
 	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
 "
-DEPEND="${COMMON_DEPEND}
-	sys-devel/gettext
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-misc/krename:4
 "
 
