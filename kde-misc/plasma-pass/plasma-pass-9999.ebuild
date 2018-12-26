@@ -20,6 +20,4 @@ DEPEND="
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtgui)
 "
-RDEPEND="${DEPEND}
-	app-admin/pass
-"
+RDEPEND="${DEPEND}"
