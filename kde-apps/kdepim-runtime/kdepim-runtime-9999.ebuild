@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE="+oauth"
+IUSE=""
 
 # TODO kolab
 COMMON_DEPEND="
@@ -55,13 +55,13 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtnetworkauth)
 	$(add_qt_dep qtspeech)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
-	oauth? ( $(add_qt_dep qtnetworkauth) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtxmlpatterns)
@@ -74,11 +74,3 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 RESTRICT+=" test"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package oauth Qt5NetworkAuth)
-	)
-
-	kde5_src_configure
-}
