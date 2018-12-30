@@ -41,7 +41,6 @@ RDEPEND="
 	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
