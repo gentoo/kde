@@ -16,7 +16,7 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 fi
 
 LICENSE="GPL-2"
-IUSE="activities dbus +holidays pim X"
+IUSE="activities +holidays kwallet pim X"
 
 # FIXME: Disabled by upstream for good reason
 # Crashes plan (https://bugs.kde.org/show_bug.cgi?id=311940)
@@ -27,40 +27,40 @@ IUSE="activities dbus +holidays pim X"
 # =dev-libs/kreport-3.0*:5
 DEPEND="
 	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kemoticons)
+	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep khtml)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kparts)
+	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep designer)
+	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-lang/perl
 	dev-libs/kdiagram:5
 	sys-libs/zlib
 	activities? ( $(add_frameworks_dep kactivities) )
-	dbus? ( $(add_qt_dep qtdbus) )
 	holidays? ( $(add_frameworks_dep kholidays) )
+	kwallet? (
+		$(add_frameworks_dep kwallet)
+		app-crypt/qca:2[qt5(+)]
+	)
 	pim? (
 		$(add_kdeapps_dep kcalcore)
 		$(add_kdeapps_dep kcontacts)
@@ -73,23 +73,21 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!app-office/calligra[calligra_features_plan(-)]
 	!app-office/calligra-l10n:4
+	$(add_qt_dep qtsvg)
 "
-RESTRICT+=" test"
 
-src_prepare() {
-	kde5_src_prepare
-	# Unconditionally disable deprecated deps
-	punt_bogus_dep Qt5 OpenGL
-}
+RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package activities KF5Activities)
-		$(cmake-utils_use_find_package dbus Qt5DBus)
 		$(cmake-utils_use_find_package holidays KF5Holidays)
 		$(cmake-utils_use_find_package pim KF5CalendarCore)
 		$(cmake-utils_use_find_package pim KF5Contacts)
+		$(cmake-utils_use_find_package kwallet Qca-qt5)
+		$(cmake-utils_use_find_package kwallet KF5Wallet)
 	)
+	# Qt5DBus can't be disabled because of KF5DBusAddons dependency
 
 	kde5_src_configure
 }
