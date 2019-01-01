@@ -1,12 +1,7 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-fi
 
 CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="forceoptional"
@@ -15,6 +10,11 @@ inherit check-reqs kde5
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://www.calligra.org/"
+
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 CAL_FTS=( karbon sheets words )
 
@@ -96,7 +96,6 @@ COMMON_DEPEND="
 		x11-libs/libX11
 	)
 	calligra_experimental_features_stage? (
-		$(add_qt_dep qtwebkit)
 		okular? ( $(add_kdeapps_dep okular) )
 	)
 	calligra_features_sheets? (
@@ -143,11 +142,6 @@ src_prepare() {
 	# Unconditionally disable deprecated deps (required by QtQuick1)
 	punt_bogus_dep Qt5 Declarative
 	punt_bogus_dep Qt5 OpenGL
-
-	if ! use calligra_experimental_features_stage; then
-		punt_bogus_dep Qt5 WebKitWidgets
-		punt_bogus_dep Qt5 WebKit
-	fi
 
 	# Hack around the excessive use of CMake macros
 	if use okular && ! use calligra_features_words; then
