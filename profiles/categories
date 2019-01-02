@@ -8,6 +8,7 @@ dev-libs
 dev-python
 dev-util
 dev-vcs
+games-board
 games-kids
 games-mud
 kde-apps
@@ -32,4 +33,5 @@ sys-auth
 sys-block
 sys-libs
 www-client
+x11-misc
 x11-themes
