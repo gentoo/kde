@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -100,6 +100,7 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kirigami)
 	$(add_frameworks_dep qqc2-desktop-style)
 	$(add_plasma_dep breeze)
 	$(add_plasma_dep kde-cli-tools)
