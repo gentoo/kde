@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -91,6 +91,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kdesu)
+	$(add_frameworks_dep kirigami)
 	$(add_kdeapps_dep kio-extras)
 	$(add_plasma_dep ksysguard)
 	$(add_plasma_dep milou)
@@ -99,6 +100,7 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtpaths)
 	$(add_qt_dep qtquickcontrols 'widgets')
+	$(add_qt_dep qtquickcontrols2)
 	app-text/iso-codes
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -114,6 +116,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/krunner:4
 	!kde-plasma/ksmserver:4
 	!kde-plasma/ksplash:4
+	!<kde-plasma/plasma-desktop-5.14.80:5
 	!kde-plasma/plasma-workspace:4
 "
 PDEPEND="
