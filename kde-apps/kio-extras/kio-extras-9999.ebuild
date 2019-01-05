@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -13,6 +13,7 @@ HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 KEYWORDS=""
 IUSE="activities +man mtp openexr phonon samba +sftp taglib"
 
+# drop kdnssd slot operator when FRAMEWORKS_MINIMAL >= 5.54.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
@@ -21,7 +22,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdnssd)
+	$(add_frameworks_dep kdnssd '' '' '5=')
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
