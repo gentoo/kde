@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -70,6 +70,8 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtimageformats)
 	kipi? ( media-plugins/kipi-plugins:5 )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-18.12.1-exiv2-0.27.patch" )
 
 src_prepare() {
 	kde5_src_prepare
