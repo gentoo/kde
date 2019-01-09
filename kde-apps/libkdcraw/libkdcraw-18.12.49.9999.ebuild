@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="Digital camera raw image library wrapper"

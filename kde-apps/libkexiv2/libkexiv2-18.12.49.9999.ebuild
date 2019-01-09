@@ -4,7 +4,6 @@
 EAPI=6
 
 FRAMEWORKS_MINIMAL="5.53.0"
-KDE_BLOCK_SLOT4="false"
 inherit kde5
 
 DESCRIPTION="Wrapper around exiv2 library"

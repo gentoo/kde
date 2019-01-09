@@ -3,7 +3,6 @@
 
 EAPI=6
 
-KDE_BLOCK_SLOT4=false
 KMNAME="kdegraphics-thumbnailers"
 inherit kde5
 
