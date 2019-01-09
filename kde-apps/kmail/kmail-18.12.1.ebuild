@@ -75,6 +75,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
+	!kde-apps/kmail:4
 	!kde-apps/ktnef
 	$(add_kdeapps_dep kdepim-runtime)
 	$(add_kdeapps_dep kmail-account-wizard)

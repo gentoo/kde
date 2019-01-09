@@ -41,4 +41,5 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	!kde-apps/kontact:4
 "

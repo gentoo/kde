@@ -11,7 +11,7 @@ HOMEPAGE="https://minuet.kde.org/"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
@@ -21,6 +21,9 @@ RDEPEND="
 	$(add_qt_dep qtquickcontrols2)
 	media-sound/fluidsynth
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
+"
+RDEPEND="${COMMON_DEPEND}
+	!kde-apps/minuet:4
 "

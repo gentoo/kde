@@ -60,6 +60,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kfmclient:4
 	!kde-apps/konq-plugins
+	!kde-apps/konqueror:4
 	!kde-apps/libkonq:5
 	$(add_kdeapps_dep kfind)
 	$(add_plasma_dep kde-cli-tools)

@@ -44,6 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	!kde-apps/kleopatra:4
 	>=app-crypt/gnupg-2.1
 	app-crypt/paperkey
 "

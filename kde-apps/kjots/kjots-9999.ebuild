@@ -11,7 +11,7 @@ HOMEPAGE="https://www.kde.org/applications/utilities/kjots/"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
@@ -36,6 +36,6 @@ RDEPEND="
 	dev-libs/grantlee:5
 	dev-libs/libxslt
 "
-DEPEND="${RDEPEND}
-	sys-devel/gettext
+RDEPEND="${DEPEND}
+	!kde-apps/kjots:4
 "

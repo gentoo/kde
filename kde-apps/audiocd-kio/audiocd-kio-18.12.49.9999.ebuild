@@ -29,7 +29,9 @@ DEPEND="
 		media-libs/libvorbis
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!kde-apps/audiocd-kio:4
+"
 
 src_configure() {
 	local mycmakeargs=(

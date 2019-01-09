@@ -51,5 +51,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/grantlee:5
 "
 RDEPEND="${COMMON_DEPEND}
+	!kde-apps/akregator:4
 	!kde-apps/kdepim-l10n
 "

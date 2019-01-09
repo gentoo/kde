@@ -58,6 +58,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
+	!kde-apps/knotes:4
 	$(add_kdeapps_dep kdepim-runtime)
 "
 
