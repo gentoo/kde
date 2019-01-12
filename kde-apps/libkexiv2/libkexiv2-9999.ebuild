@@ -15,5 +15,3 @@ DEPEND="
 	>=media-gfx/exiv2-0.25:=[xmp=]
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-18.12.0-exiv2-0.27.patch" )
