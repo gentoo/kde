@@ -20,8 +20,8 @@ index f66013f9..4e58bd60 100644
 +
 +    cmake_minimum_required(VERSION 3.0)
 +
-+    set(QT_MIN_VERSION "GENTOO_QT_MINIMAL")
-+    set(KF5_MIN_VERSION "GENTOO_KF5_MINIMAL")
++    set(QT_MIN_VERSION "5.11.0")
++    set(KF5_MIN_VERSION "5.54.0")
 +    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core DBus)
 +    find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 +    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})

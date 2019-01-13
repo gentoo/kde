@@ -3,8 +3,6 @@
 
 EAPI=6
 
-FRAMEWORKS_MINIMAL="5.50.0"
-QT_MINIMAL="5.11.1"
 KDE_TEST="true"
 KMNAME="plasma-workspace"
 inherit kde5
@@ -36,7 +34,7 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${S}/${PN}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.2-standalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.14.90-standalone.patch" )
 
 src_prepare() {
 	# delete colliding libkworkspace translations, let kde5_src_prepare do its magic
@@ -52,8 +50,6 @@ src_prepare() {
 		_EOF_
 	fi
 
-	sed -e "/set/s/GENTOO_PV/${PV}/" \
-		-e "/set/s/GENTOO_QT_MINIMAL/${QT_MINIMAL}/" \
-		-e "/set/s/GENTOO_KF5_MINIMAL/${FRAMEWORKS_MINIMAL}/" \
+	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" \
 		-i CMakeLists.txt || die "Failed to prepare CMakeLists.txt"
 }
