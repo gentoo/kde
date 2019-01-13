@@ -31,13 +31,11 @@ RDEPEND="${DEPEND}
 
 S="${S}/${PN}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.2-standalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.14.90-standalone.patch" )
 
 src_prepare() {
 	kde5_src_prepare
 
-	sed -e "/set/s/GENTOO_PV/${PV}/" \
-		-e "/set/s/GENTOO_QT_MINIMAL/${QT_MINIMAL}/" \
-		-e "/set/s/GENTOO_KF5_MINIMAL/${FRAMEWORKS_MINIMAL}/" \
+	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" \
 		-i CMakeLists.txt || die "Failed to prepare CMakeLists.txt"
 }

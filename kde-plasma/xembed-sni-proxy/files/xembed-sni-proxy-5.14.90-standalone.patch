@@ -20,8 +20,8 @@ index c2f67ac6..30b2c1b5 100644
 +
 +    cmake_minimum_required(VERSION 3.0)
 +
-+    set(QT_MIN_VERSION "GENTOO_QT_MINIMAL")
-+    set(KF5_MIN_VERSION "GENTOO_KF5_MINIMAL")
++    set(QT_MIN_VERSION "5.11.0")
++    set(KF5_MIN_VERSION "5.54.0")
 +    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core DBus X11Extras)
 +    find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 +    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -39,7 +39,7 @@ index c2f67ac6..30b2c1b5 100644
 +
 +    configure_file(../config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
 +else()
-+    set(PROJECT_VERSION "5.14.1")
++    set(PROJECT_VERSION "5.14.90")
 +    set(PROJECT_VERSION_MAJOR 5)
 +endif()
 +
