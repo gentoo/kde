@@ -66,8 +66,6 @@ RDEPEND="${COMMON_DEPEND}
 	!webengine? ( kde-misc/kwebkitpart:5 )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-18.08.3-tidyhtml5.patch" )
-
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 
