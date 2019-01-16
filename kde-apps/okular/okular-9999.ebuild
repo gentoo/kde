@@ -35,7 +35,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	media-libs/freetype
 	media-libs/phonon[qt5(+)]
-	sys-libs/zlib:=
+	sys-libs/zlib
 	chm? (
 		$(add_frameworks_dep khtml)
 		dev-libs/chmlib
@@ -87,7 +87,7 @@ src_configure() {
 		$(cmake-utils_use_find_package pdf Poppler)
 		$(cmake-utils_use_find_package plucker JPEG)
 		$(cmake-utils_use_find_package postscript LibSpectre)
-		$(cmake-utils_use_find_package share KDEExperimentalPurpose)
+		$(cmake-utils_use_find_package share KF5Purpose)
 		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
 		$(cmake-utils_use_find_package tiff TIFF)
 	)

@@ -35,7 +35,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	media-libs/freetype
 	media-libs/phonon[qt5(+)]
-	sys-libs/zlib:=
+	sys-libs/zlib
 	chm? (
 		$(add_frameworks_dep khtml)
 		dev-libs/chmlib
