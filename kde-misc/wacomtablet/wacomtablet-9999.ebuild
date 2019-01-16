@@ -41,3 +41,12 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	x11-libs/libX11
 "
+
+src_test() {
+	# test needs DBus, bug 675548
+	local myctestargs=(
+		-E "(Test.KDED.DBusTabletService)"
+	)
+
+	kde5_src_test
+}
