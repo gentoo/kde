@@ -31,11 +31,11 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	editor? (
-		$(add_qt_dep qtopengl)
 		$(add_frameworks_dep knewstuff)
+		$(add_qt_dep qtopengl)
 		dev-cpp/eigen:3
 		sci-chemistry/openbabel
-		sci-libs/avogadrolibs
+		sci-libs/avogadrolibs[qt5]
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "

@@ -32,17 +32,19 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	editor? (
-		$(add_qt_dep qtopengl)
 		$(add_frameworks_dep knewstuff)
+		$(add_qt_dep qtopengl)
 		dev-cpp/eigen:3
 		sci-chemistry/openbabel
-		sci-libs/avogadrolibs
+		sci-libs/avogadrolibs[qt5]
 	)
 	solver? ( dev-ml/facile[ocamlopt] )
 "
 RDEPEND="${DEPEND}
 	sci-chemistry/chemical-mime-data
 "
+
+PATCHES=( "${FILESDIR}/${PN}-18.12.1-deps.patch" )
 
 src_configure(){
 	# Fix missing finite()
