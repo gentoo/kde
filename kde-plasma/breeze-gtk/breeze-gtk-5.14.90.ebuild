@@ -12,9 +12,9 @@ LICENSE="LGPL-2.1+"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
-BDEPEND="${PYTHON_DEPS}
+DEPEND="${PYTHON_DEPS}
 	$(add_plasma_dep breeze)
-	dev-python/pycairo[${PYTHON_USEDEP}]
+	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
 	dev-ruby/sass
 "
 
