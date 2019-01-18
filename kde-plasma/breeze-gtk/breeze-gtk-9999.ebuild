@@ -3,10 +3,22 @@
 
 EAPI=6
 
-inherit kde5
+PYTHON_COMPAT=( python3_{5,6,7} )
+inherit kde5 python-any-r1
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
 HOMEPAGE="https://cgit.kde.org/breeze-gtk.git"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
+
+BDEPEND="${PYTHON_DEPS}
+	$(add_plasma_dep breeze)
+	dev-python/pycairo[${PYTHON_USEDEP}]
+	dev-ruby/sass
+"
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+	kde5_pkg_setup
+}
