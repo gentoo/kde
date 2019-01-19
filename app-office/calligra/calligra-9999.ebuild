@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="forceoptional"
@@ -24,6 +24,10 @@ IUSE="activities +crypt +fontconfig gemini gsl import-filter +lcms okular openex
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
+BDEPEND="
+	sys-devel/gettext
+	test? ( $(add_frameworks_dep threadweaver) )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
@@ -106,9 +110,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	sys-devel/gettext
-	x11-misc/shared-mime-info
-	test? ( $(add_frameworks_dep threadweaver) )
 "
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
