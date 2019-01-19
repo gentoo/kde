@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDEBASE="kdevelop"
 KMNAME="kdev-go"
@@ -12,6 +12,9 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="test"
 
+BDEPEND="
+	test? ( dev-util/kdevelop:5[test] )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -24,7 +27,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-util/kdevelop-pg-qt:5
-	test? ( dev-util/kdevelop:5[test] )
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-lang/go
