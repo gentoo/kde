@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDEBASE="kdevelop"
 KDE_TEST="true"
@@ -13,7 +13,11 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+BDEPEND="
+	sys-devel/flex
+	test? ( >=dev-util/kdevelop-5.1.80:5[test] )
+"
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep ktexteditor)
@@ -24,9 +28,6 @@ RDEPEND="
 	dev-util/kdevelop-pg-qt:5
 	>=dev-util/kdevelop-5.1.80:5
 "
-DEPEND="${RDEPEND}
-	sys-devel/flex
-	test? ( >=dev-util/kdevelop-5.1.80:5[test] )
-"
+RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-tests.patch" ) # TODO: upstream
