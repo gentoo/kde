@@ -24,6 +24,7 @@ IUSE="activities addressbook calendar hbci holidays ofx quotes webkit weboob"
 
 REQUIRED_USE="weboob? ( ${PYTHON_REQUIRED_USE} )"
 
+BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcmutils)
@@ -58,7 +59,6 @@ COMMON_DEPEND="
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
-	x11-misc/shared-mime-info
 	activities? ( $(add_frameworks_dep kactivities) )
 	addressbook? (
 		$(add_kdeapps_dep akonadi)
@@ -90,7 +90,6 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/kmymoney:4
 	quotes? ( dev-perl/Finance-Quote )
 "
-BDEPEND="virtual/pkgconfig"
 
 pkg_setup() {
 	use weboob && python_setup
