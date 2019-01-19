@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGIT_BRANCH="5.3"
 KDEBASE="kdevelop"
@@ -17,7 +17,10 @@ LICENSE="GPL-2 LGPL-2"
 IUSE=""
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
-COMMON_DEPEND="
+BDEPEND="
+	test? ( dev-util/kdevelop:5[test] )
+"
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -33,11 +36,8 @@ COMMON_DEPEND="
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!dev-util/kdevelop-php-docs
-"
-DEPEND="${COMMON_DEPEND}
-	test? ( dev-util/kdevelop:5[test] )
 "
 
 src_test() {
