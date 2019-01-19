@@ -14,6 +14,7 @@ HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.
 KEYWORDS=""
 IUSE="debug experimental marble mdb mysql postgres sqlite webkit"
 
+BDEPEND="sys-devel/gettext"
 DEPEND="
 	$(add_frameworks_dep breeze-icons-rcc)
 	$(add_frameworks_dep karchive)
@@ -57,7 +58,6 @@ RDEPEND="${DEPEND}
 	!app-office/calligra:4[calligra_features_kexi]
 	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
 "
-BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	if ! use webkit; then
