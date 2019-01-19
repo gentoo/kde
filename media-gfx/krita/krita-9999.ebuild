@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional-recursive"
 QT_MINIMAL="5.11.3"
@@ -20,7 +20,13 @@ LICENSE="GPL-3"
 IUSE="color-management fftw gif +gsl heif +jpeg openexr pdf qtmedia +raw tiff vc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-COMMON_DEPEND="${PYTHON_DEPS}
+BDEPEND="
+	dev-cpp/eigen:3
+	dev-lang/perl
+	sys-devel/gettext
+	vc? ( >=dev-libs/vc-1.1.0 )
+"
+DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -70,13 +76,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
 "
-DEPEND="${COMMON_DEPEND}
-	dev-cpp/eigen:3
-	dev-lang/perl
-	sys-devel/gettext
-	vc? ( >=dev-libs/vc-1.1.0 )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!app-office/calligra:4[calligra_features_krita]
 	!app-office/calligra-l10n:4[calligra_features_krita(+)]
 "
