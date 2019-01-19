@@ -23,15 +23,6 @@ LICENSE="LGPL-2.1+ GPL-2+"
 SLOT="0/4"
 IUSE="apt +introspection qt5 test"
 
-RDEPEND="
-	dev-libs/glib:2
-	dev-libs/libxml2:2
-	dev-libs/libyaml
-	dev-libs/snowball-stemmer
-	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
-	qt5? ( dev-qt/qtcore:5 )
-"
-DEPEND="${RDEPEND}"
 BDEPEND="
 	app-text/docbook-xml-dtd:4.5
 	dev-libs/appstream-glib
@@ -43,6 +34,15 @@ BDEPEND="
 		qt5? ( dev-qt/qttest:5 )
 	)
 "
+DEPEND="
+	dev-libs/glib:2
+	dev-libs/libxml2:2
+	dev-libs/libyaml
+	dev-libs/snowball-stemmer
+	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
+	qt5? ( dev-qt/qtcore:5 )
+"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
