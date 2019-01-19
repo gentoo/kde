@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -55,7 +55,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
 	>=sys-devel/clang-3.8.0:=
-	x11-misc/shared-mime-info
 	gdbui? ( $(add_plasma_dep libksysguard) )
 	hex? ( app-editors/okteta:5 )
 	plasma? (
