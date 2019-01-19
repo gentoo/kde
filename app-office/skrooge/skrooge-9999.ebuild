@@ -16,6 +16,10 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="activities designer kde ofx webkit"
 
+BDEPEND="
+	dev-libs/libxslt
+	virtual/pkgconfig
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
@@ -60,18 +64,14 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwindowsystem)
-	dev-libs/libxslt
-	x11-misc/shared-mime-info
 	designer? (
 		$(add_frameworks_dep kdesignerplugin)
 		$(add_qt_dep designer)
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!app-office/skrooge:4
 	$(add_qt_dep qtquickcontrols)
 "
-BDEPEND="virtual/pkgconfig"
 
 REQUIRED_USE="test? ( designer )"
 
