@@ -7,18 +7,17 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/euroelessar/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~ppc ~x86"
 else
-	GIT_ECLASS="git-r3"
+	inherit git-r3
 	EGIT_REPO_URI="https://github.com/euroelessar/${PN}.git"
 fi
-
-inherit cmake-utils ${GIT_ECLASS}
+inherit cmake-utils
 
 DESCRIPTION="Qt XMPP library"
 HOMEPAGE="https://github.com/euroelessar/jreen"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
+IUSE=""
 
 DEPEND="
 	dev-qt/qtcore:5
