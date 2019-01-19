@@ -15,6 +15,10 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="gstreamer libav mpv unicode xine"
 
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
 DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -47,10 +51,6 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	sys-devel/gettext
-	virtual/pkgconfig
-"
 
 src_configure() {
 	local mycmakeargs=(
