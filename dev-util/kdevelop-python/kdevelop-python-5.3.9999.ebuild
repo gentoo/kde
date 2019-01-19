@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGIT_BRANCH="5.3"
 KDE_TEST="forceoptional"
@@ -46,7 +46,7 @@ pkg_setup() {
 
 src_compile() {
 	pushd "${WORKDIR}"/${P}_build > /dev/null || die
-	emake parser
+	eninja parser
 	popd > /dev/null || die
 
 	kde5_src_compile
