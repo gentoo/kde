@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 inherit kde5
@@ -48,8 +48,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	>=sys-power/upower-0.9.23
-	!kde-plasma/powerdevil:4
-	!kde-plasma/systemsettings:4[handbook]
 "
 
 src_configure() {

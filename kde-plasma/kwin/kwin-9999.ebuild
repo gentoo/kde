@@ -1,14 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="KDE window manager"
+DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE="caps gles2 multimedia"
@@ -74,8 +74,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtvirtualkeyboard)
 	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
-	!kde-plasma/kwin:4
-	!kde-plasma/systemsettings:4
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep designer)

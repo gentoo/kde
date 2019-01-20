@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_AUTODEPS="false"
 inherit kde5
@@ -11,10 +11,9 @@ LICENSE="GPL-2+ GPL-3+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="sys-boot/plymouth"
-DEPEND="${RDEPEND}
-	$(add_frameworks_dep extra-cmake-modules)
-"
+BDEPEND="$(add_frameworks_dep extra-cmake-modules)"
+DEPEND="sys-boot/plymouth"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

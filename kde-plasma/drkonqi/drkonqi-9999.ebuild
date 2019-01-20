@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -36,7 +36,6 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/drkonqi:4
 	!<kde-plasma/plasma-workspace-5.10.95:5
 "
 

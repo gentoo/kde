@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 inherit kde5
@@ -33,7 +33,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	$(add_qt_dep qtgraphicaleffects)
-	!kde-plasma/kscreen:4
 "
 
 # bug #580440, last checked 5.6.3

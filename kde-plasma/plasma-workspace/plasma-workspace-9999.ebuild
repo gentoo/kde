@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
@@ -108,16 +108,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xsetroot
 	systemd? ( sys-apps/dbus[user-session] )
 	!systemd? ( sys-apps/dbus )
-	!kde-plasma/freespacenotifier:4
-	!kde-plasma/libtaskmanager:4
-	!kde-plasma/kcminit:4
-	!kde-plasma/kdebase-startkde:4
-	!kde-plasma/klipper:4
-	!kde-plasma/krunner:4
-	!kde-plasma/ksmserver:4
-	!kde-plasma/ksplash:4
 	!<kde-plasma/plasma-desktop-5.14.80:5
-	!kde-plasma/plasma-workspace:4
 "
 PDEPEND="
 	$(add_plasma_dep kde-cli-tools)

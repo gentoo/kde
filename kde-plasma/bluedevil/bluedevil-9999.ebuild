@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,7 +10,7 @@ HOMEPAGE="https://cgit.kde.org/bluedevil.git"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep bluez-qt)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -29,12 +29,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
-	x11-misc/shared-mime-info
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
-	!app-mobilephone/obexd
-	!app-mobilephone/obex-data-server
-	!kde-plasma/bluedevil:4
 "

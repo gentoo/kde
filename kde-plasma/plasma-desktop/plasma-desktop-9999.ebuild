@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -112,11 +112,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kcontrol
 	!<kde-apps/kde4-l10n-17.08.1-r1
 	!kde-apps/knetattach[handbook]
-	!kde-misc/kcm-touchpad
-	!kde-plasma/plasma-desktop:4
-	!kde-plasma/plasma-workspace:4
-	!kde-plasma/solid-actions-kcm:4
-	!kde-plasma/systemsettings:4
 "
 
 src_configure() {

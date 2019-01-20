@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 inherit kde5
@@ -55,8 +55,6 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	$(add_qt_dep qtquickcontrols2)
 	!kde-apps/kcontrol:4
-	!kde-misc/about-distro
-	!kde-plasma/kinfocenter:4
 "
 
 src_configure() {
@@ -90,11 +88,10 @@ pkg_postinst() {
 	kde5_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		if ! has_version "net-fs/nfs-utils"; then
+		has_version "net-fs/nfs-utils" || \
 			elog "Installing net-fs/nfs-utils will enable the NFS information module."
-		fi
-		if ! has_version "net-fs/samba"; then
+
+		has_version "net-fs/samba" || \
 			elog "Installing net-fs/samba will enable the Samba status information module."
-		fi
 	fi
 }

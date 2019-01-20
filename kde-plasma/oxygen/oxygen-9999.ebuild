@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,7 +10,7 @@ HOMEPAGE="https://cgit.kde.org/oxygen.git"
 KEYWORDS=""
 IUSE="wayland"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep frameworkintegration)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
@@ -30,12 +30,11 @@ COMMON_DEPEND="
 	x11-libs/libxcb
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kservice)
 "
-RDEPEND="${COMMON_DEPEND}
+PDEPEND="
 	$(add_plasma_dep kde-cli-tools)
-	!kde-plasma/kdebase-cursors:4
 "
 
 src_configure() {

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 inherit kde5
@@ -33,14 +33,12 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXtst
 "
-RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kded)
-	$(add_plasma_dep kde-cli-tools)
-	!kde-plasma/khotkeys:4
-	!kde-plasma/systemsettings:4
-"
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 	x11-libs/libxcb
 	x11-libs/libXtst
+"
+RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kded)
+	$(add_plasma_dep kde-cli-tools)
 "

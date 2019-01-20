@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -11,7 +11,7 @@ HOMEPAGE="https://cgit.kde.org/kmenuedit.git"
 KEYWORDS=""
 IUSE="+hotkeys"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -31,11 +31,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	hotkeys? ( $(add_plasma_dep khotkeys) )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kinit)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/kmenuedit:4
 "
 
 src_configure() {
