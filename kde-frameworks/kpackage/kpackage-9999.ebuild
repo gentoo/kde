@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,14 +10,15 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="man"
 
-RDEPEND="
+BDEPEND="
+	man? ( $(add_frameworks_dep kdoctools) )
+"
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 "
-DEPEND="${RDEPEND}
-	man? ( $(add_frameworks_dep kdoctools) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

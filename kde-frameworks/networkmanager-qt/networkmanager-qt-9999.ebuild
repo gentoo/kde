@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,15 +10,15 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE="teamd"
 
-COMMON_DEPEND="
+BDEPEND="
+	virtual/pkgconfig
+"
+DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtnetwork)
 	>=net-misc/networkmanager-1.4.0-r1[teamd=]
 "
-DEPEND="${COMMON_DEPEND}
-	virtual/pkgconfig
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!net-libs/libnm-qt:5
 	|| (
 		>=net-misc/networkmanager-1.4.0-r1[consolekit]

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KMNAME="${PN}-framework"
 VIRTUALX_REQUIRED="test"
@@ -12,6 +12,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2 wayland X"
 
+BDEPEND="
+	$(add_frameworks_dep kdoctools)
+"
 RDEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
@@ -50,7 +53,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kdoctools)
 	X? ( x11-base/xorg-proto )
 "
 

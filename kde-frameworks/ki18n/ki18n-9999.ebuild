@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python{2_7,3_{4,5,6,7}} )
 inherit kde5 python-single-r1
@@ -13,14 +13,15 @@ IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
+BDEPEND="
+	test? ( $(add_qt_dep qtconcurrent) )
+"
+DEPEND="${PYTHON_DEPS}
 	$(add_qt_dep qtdeclarative)
 	sys-devel/gettext
 	virtual/libintl
 "
-DEPEND="${RDEPEND}
-	test? ( $(add_qt_dep qtconcurrent) )
-"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	kde5_pkg_setup

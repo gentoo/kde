@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 inherit kde5
@@ -11,15 +11,16 @@ LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-RDEPEND="
+BDEPEND="
+	dev-lang/perl
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtxmlpatterns)
 "
-DEPEND="${RDEPEND}
-	dev-lang/perl
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 src_install() {
 	kde5_src_install

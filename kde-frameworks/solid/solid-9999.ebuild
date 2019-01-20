@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,7 +11,11 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtconcurrent) )
+"
+DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtwidgets)
@@ -19,10 +23,7 @@ RDEPEND="
 	sys-fs/udisks:2
 	virtual/udev
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep qtconcurrent) )
-"
+RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	kde5_pkg_postinst

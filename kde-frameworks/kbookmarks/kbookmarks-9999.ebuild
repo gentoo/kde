@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,6 +11,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls"
 
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
 RDEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
@@ -25,5 +28,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep kconfigwidgets)
-	nls? ( $(add_qt_dep linguist-tools) )
 "

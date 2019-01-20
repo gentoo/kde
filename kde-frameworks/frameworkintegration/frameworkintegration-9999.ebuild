@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 VIRTUALX_REQUIRED="test"
@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="appstream X"
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep ki18n)
@@ -32,7 +32,7 @@ RDEPEND="
 		x11-libs/libxcb
 	)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 # requires running kde environment
 RESTRICT+=" test"

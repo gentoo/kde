@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,16 +11,17 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls +policykit"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	policykit? ( sys-auth/polkit-qt[qt5(+)] )
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 PDEPEND="policykit? ( kde-plasma/polkit-kde-agent )"
 
 src_configure() {

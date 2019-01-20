@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,7 +11,10 @@ KEYWORDS=""
 LICENSE="LGPL-2+"
 IUSE="nls"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -24,6 +27,4 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"

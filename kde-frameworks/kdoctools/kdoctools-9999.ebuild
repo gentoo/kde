@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 inherit kde5
@@ -11,7 +11,12 @@ LICENSE="MIT"
 KEYWORDS=""
 IUSE="nls"
 
-RDEPEND="
+BDEPEND="
+	dev-lang/perl
+	dev-perl/URI
+	nls? ( $(add_frameworks_dep ki18n) )
+"
+DEPEND="
 	$(add_frameworks_dep karchive)
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
@@ -19,11 +24,7 @@ RDEPEND="
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 "
-DEPEND="${RDEPEND}
-	dev-lang/perl
-	dev-perl/URI
-	nls? ( $(add_frameworks_dep ki18n) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

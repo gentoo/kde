@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 KDE_TEST="true"
@@ -12,13 +12,13 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-COMMON_DEPEND="
-	$(add_qt_dep qtdeclarative)
-"
-DEPEND="${COMMON_DEPEND}
+BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
 "
-RDEPEND="${COMMON_DEPEND}
+DEPEND="
+	$(add_qt_dep qtdeclarative)
+"
+RDEPEND="${DEPEND}
 	!kde-apps/kholidays:5
 "
 

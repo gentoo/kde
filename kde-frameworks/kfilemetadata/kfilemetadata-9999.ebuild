@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python{2_7,3_{4,5,6,7}} )
 inherit kde5 python-any-r1
@@ -10,6 +10,9 @@ DESCRIPTION="Library for extracting file metadata"
 KEYWORDS=""
 IUSE="epub exif ffmpeg kernel_linux libav office pdf taglib"
 
+BDEPEND="
+	test? ( ${PYTHON_DEPS} )
+"
 RDEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtxml)
@@ -25,7 +28,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
-	test? ( ${PYTHON_DEPS} )
 "
 
 pkg_setup() {

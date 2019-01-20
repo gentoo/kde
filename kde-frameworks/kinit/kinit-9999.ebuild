@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 KDE_TEST="false"
@@ -12,6 +12,9 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="+caps +man X"
 
+BDEPEND="
+	man? ( $(add_frameworks_dep kdoctools) )
+"
 RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -29,7 +32,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	man? ( $(add_frameworks_dep kdoctools) )
 	X? ( x11-base/xorg-proto )
 "
 

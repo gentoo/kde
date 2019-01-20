@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,12 +10,12 @@ LICENSE="GPL-2 LGPL-2.1"
 KEYWORDS=""
 IUSE="+bzip2 +lzma"
 
-RDEPEND="
+DEPEND="
 	sys-libs/zlib
 	bzip2? ( app-arch/bzip2 )
 	lzma? ( app-arch/xz-utils )
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

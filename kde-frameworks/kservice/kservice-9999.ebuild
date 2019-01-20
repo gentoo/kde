@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,7 +10,13 @@ LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
 IUSE="+man"
 
-RDEPEND="
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+	man? ( $(add_frameworks_dep kdoctools) )
+	test? ( $(add_qt_dep qtconcurrent) )
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -19,12 +25,7 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${RDEPEND}
-	sys-devel/bison
-	sys-devel/flex
-	man? ( $(add_frameworks_dep kdoctools) )
-	test? ( $(add_qt_dep qtconcurrent) )
-"
+RDEPEND="${DEPEND}"
 
 # requires running kde environment
 RESTRICT+=" test"

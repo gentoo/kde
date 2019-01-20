@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 VIRTUALX_REQUIRED="test"
@@ -12,6 +12,12 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="libressl X"
 
+BDEPEND="
+	$(add_frameworks_dep kdoctools)
+	dev-lang/perl
+	dev-perl/URI
+	test? ( $(add_qt_dep qtconcurrent) )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcodecs)
@@ -23,6 +29,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kded)
 	$(add_frameworks_dep kdesignerplugin)
+	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kemoticons)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep kguiaddons)
@@ -59,15 +66,10 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdoctools)
 	$(add_qt_dep designer)
-	dev-lang/perl
-	dev-perl/URI
-	test? ( $(add_qt_dep qtconcurrent) )
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdoctools)
 	$(add_frameworks_dep kinit)
 	$(add_frameworks_dep kitemmodels)
 	$(add_qt_dep qtxml)

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,16 +10,17 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="nls zeroconf"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_qt_dep qtnetwork)
 	zeroconf? (
 		$(add_qt_dep qtdbus)
 		net-dns/avahi[mdnsresponder-compat]
 	)
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,11 +10,11 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_qt_dep qtnetwork)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug 623938 - needs internet connection

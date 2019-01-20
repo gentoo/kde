@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 IUSE="attica"
 
 # slot op: includes QtCore/private/qlocale_p.h
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -32,7 +32,7 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 	attica? ( $(add_frameworks_dep attica) )
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

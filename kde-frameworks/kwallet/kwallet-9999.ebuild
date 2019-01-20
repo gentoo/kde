@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -10,7 +10,10 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gpg +man"
 
-RDEPEND="
+BDEPEND="
+	man? ( $(add_frameworks_dep kdoctools) )
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -27,9 +30,7 @@ RDEPEND="
 	dev-libs/libgcrypt:0=
 	gpg? ( >=app-crypt/gpgme-1.7.1[cxx,qt5] )
 "
-DEPEND="${RDEPEND}
-	man? ( $(add_frameworks_dep kdoctools) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

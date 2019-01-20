@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -11,15 +11,16 @@ LICENSE="LGPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="aspell +hunspell nls"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	aspell? ( app-text/aspell )
 	hunspell? ( app-text/hunspell:= )
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

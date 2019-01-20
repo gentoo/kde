@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -14,6 +14,10 @@ IUSE="nls"
 # requires running kde environment
 RESTRICT+=" test"
 
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+	test? ( $(add_qt_dep qtwidgets) )
+"
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -23,6 +27,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
-	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep qtwidgets) )
 "

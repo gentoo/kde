@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_AUTODEPS="false"
 KDE_DEBUG="false"
@@ -13,7 +13,7 @@ LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
+BDEPEND="
 	$(add_frameworks_dep extra-cmake-modules)
 	$(add_qt_dep qtcore)
 	test? (
@@ -21,7 +21,6 @@ DEPEND="
 		app-misc/fdupes
 	)
 "
-RDEPEND=""
 
 src_configure() {
 	local mycmakeargs=(

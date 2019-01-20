@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -13,6 +13,9 @@ KEYWORDS=""
 IUSE="acl +handbook kerberos +kwallet X"
 
 # drop qtnetwork subslot operator when QT_MINIMAL >= 5.12.0
+BDEPEND="
+	test? ( sys-libs/zlib )
+"
 RDEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep karchive)
@@ -54,7 +57,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
-	test? ( sys-libs/zlib )
 	X? (
 		x11-base/xorg-proto
 		x11-libs/libX11

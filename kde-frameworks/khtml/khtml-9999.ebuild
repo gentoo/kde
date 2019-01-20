@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 VIRTUALX_REQUIRED="test"
@@ -12,6 +12,11 @@ LICENSE="LGPL-2"
 KEYWORDS=""
 IUSE="libressl X"
 
+BDEPEND="
+	dev-lang/perl
+	dev-util/gperf
+	test? ( $(add_qt_dep qtx11extras) )
+"
 RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
@@ -53,9 +58,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	dev-lang/perl
-	dev-util/gperf
-	test? ( $(add_qt_dep qtx11extras) )
 	X? ( x11-base/xorg-proto )
 "
 

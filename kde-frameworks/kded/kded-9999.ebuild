@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_QTHELP="false"
 KDE_TEST="false"
@@ -12,7 +12,10 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="+man"
 
-RDEPEND="
+BDEPEND="
+	man? ( $(add_frameworks_dep kdoctools) )
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -23,9 +26,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${RDEPEND}
-	man? ( $(add_frameworks_dep kdoctools) )
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

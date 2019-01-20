@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_EXAMPLES="true"
 KDE_QTHELP="false"
@@ -17,7 +17,10 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+BDEPEND="
+	$(add_qt_dep linguist-tools)
+"
+DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgraphicaleffects)
@@ -26,9 +29,7 @@ RDEPEND="
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsvg)
 "
-DEPEND="${RDEPEND}
-	$(add_qt_dep linguist-tools)
-"
+RDEPEND="${DEPEND}"
 
 # requires package to already be installed
 RESTRICT+=" test"

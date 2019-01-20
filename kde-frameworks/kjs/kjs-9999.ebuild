@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 KDE_QTHELP="false"
@@ -12,11 +12,12 @@ LICENSE="BSD-2 LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	dev-libs/libpcre
-"
-DEPEND="${RDEPEND}
+BDEPEND="
 	dev-lang/perl
 "
+DEPEND="
+	dev-libs/libpcre
+"
+RDEPEND="${DEPEND}"
 
 DOCS=( src/README )

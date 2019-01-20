@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 inherit kde5
@@ -11,16 +11,16 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_qt_dep qtxml)
-"
-DEPEND="${COMMON_DEPEND}
+BDEPEND="
 	test? (
 		$(add_qt_dep qtnetwork)
 		$(add_qt_dep qtwidgets)
 	)
 "
-RDEPEND="${COMMON_DEPEND}
+DEPEND="
+	$(add_frameworks_dep kcodecs)
+	$(add_qt_dep qtxml)
+"
+RDEPEND="${DEPEND}
 	!kde-apps/syndication
 "
