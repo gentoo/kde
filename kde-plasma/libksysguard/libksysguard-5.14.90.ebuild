@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="minimal webengine X"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -33,10 +33,7 @@ COMMON_DEPEND="
 		x11-libs/libXres
 	)
 "
-RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/ksysguard:4
-"
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kiconthemes)
 	!minimal? ( $(add_frameworks_dep plasma) )
 	X? ( x11-base/xorg-proto )

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -23,7 +23,6 @@ DEPEND="
 	media-libs/libcanberra
 	media-sound/pulseaudio
 "
-
 RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-5.13.3-automagic_gconf.patch" )

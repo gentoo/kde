@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="optional"
 VIRTUALX_REQUIRED="test"
@@ -34,6 +34,5 @@ DEPEND="
 	$(add_qt_dep qtxml)
 "
 RDEPEND="${DEPEND}
-	!dev-util/plasmate
 	$(add_frameworks_dep kirigami)
 "

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -12,7 +12,6 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="lm_sensors"
 
 DEPEND="
-	$(add_plasma_dep libksysguard '-minimal(-)')
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -28,15 +27,14 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
+	$(add_plasma_dep libksysguard '-minimal(-)')
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	lm_sensors? ( sys-apps/lm_sensors:= )
 "
-RDEPEND="${DEPEND}
-	!kde-plasma/ksysguard:4
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

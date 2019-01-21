@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 KMNAME="plasma-workspace"
@@ -28,7 +28,6 @@ DEPEND="${COMMON_DEPEND}
 	$(add_plasma_dep kwin)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/libkworkspace:4
 	!<kde-plasma/plasma-workspace-5.14.2:5
 "
 

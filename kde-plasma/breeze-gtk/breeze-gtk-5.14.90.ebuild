@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python3_{5,6,7} )
 inherit kde5 python-any-r1
@@ -12,7 +12,7 @@ LICENSE="LGPL-2.1+"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
-DEPEND="${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	$(add_plasma_dep breeze)
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
 	dev-ruby/sass

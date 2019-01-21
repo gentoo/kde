@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -13,7 +13,7 @@ IUSE="consolekit +pam seccomp"
 
 REQUIRED_USE="seccomp? ( pam )"
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -45,12 +45,8 @@ COMMON_DEPEND="
 	pam? ( virtual/pam )
 	seccomp? ( sys-libs/libseccomp )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	x11-base/xorg-proto
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/kcheckpass-4.11.22-r1:4
-	!kde-plasma/kdebase-pam:0
 "
 PDEPEND="
 	$(add_plasma_dep kde-cli-tools)
@@ -61,8 +57,10 @@ RESTRICT+=" test"
 src_prepare() {
 	kde5_src_prepare
 
-	use test || sed -i \
-		-e "/add_subdirectory(autotests)/ s/^/#/" greeter/CMakeLists.txt || die
+	if ! use test; then
+		sed -e "/add_subdirectory(autotests)/ s/^/#/" \
+			-i greeter/CMakeLists.txt || die
+	fi
 }
 
 src_test() {
@@ -90,7 +88,7 @@ src_install() {
 	use pam && newpamd "${FILESDIR}/kde-np.pam" kde-np
 
 	if ! use pam; then
-		chown root "${ED}"usr/$(get_libdir)/libexec/kcheckpass || die
-		chmod +s "${ED}"usr/$(get_libdir)/libexec/kcheckpass || die
+		chown root "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
+		chmod +s "${ED}"/usr/$(get_libdir)/libexec/kcheckpass || die
 	fi
 }
