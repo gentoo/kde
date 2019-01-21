@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
@@ -13,8 +13,10 @@ HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 KEYWORDS=""
 IUSE="activities +man mtp openexr phonon samba +sftp taglib"
 
-# drop kdnssd slot operator when FRAMEWORKS_MINIMAL >= 5.54.0
-COMMON_DEPEND="
+BDEPEND="
+	man? ( dev-util/gperf )
+"
+DEPEND="
 	$(add_frameworks_dep karchive 'bzip2,lzma')
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcodecs)
@@ -22,7 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdnssd '' '' '5=')
+	$(add_frameworks_dep kdnssd)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -50,12 +52,8 @@ COMMON_DEPEND="
 	sftp? ( net-libs/libssh:=[sftp] )
 	taglib? ( >=media-libs/taglib-1.11.1 )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	$(add_frameworks_dep kded)
-"
-DEPEND="${COMMON_DEPEND}
-	x11-misc/shared-mime-info
-	man? ( dev-util/gperf )
 "
 
 # requires running kde environment

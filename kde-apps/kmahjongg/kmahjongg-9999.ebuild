@@ -1,17 +1,15 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="A tile matching game for one or two players"
-HOMEPAGE="
-	https://www.kde.org/applications/games/kmahjongg/
-	https://games.kde.org/game.php?game=kmahjongg
-"
+HOMEPAGE="https://www.kde.org/applications/games/kmahjongg/
+https://games.kde.org/game.php?game=kmahjongg"
 KEYWORDS=""
 IUSE=""
 

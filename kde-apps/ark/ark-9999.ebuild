@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
@@ -14,6 +14,9 @@ https://utils.kde.org/projects/ark/"
 KEYWORDS=""
 IUSE="bzip2 lzma zip"
 
+BDEPEND="
+	sys-devel/gettext
+"
 RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
@@ -41,7 +44,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
-	sys-devel/gettext
 "
 
 # bug #560548, last checked with 16.04.1

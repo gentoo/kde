@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -12,7 +12,10 @@ https://kcachegrind.github.io/html/Home.html"
 KEYWORDS=""
 IUSE="nls"
 
-COMMON_DEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -26,9 +29,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	media-gfx/graphviz
 "

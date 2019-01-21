@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -12,7 +12,10 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE="X"
 
-COMMON_DEPEND="
+BDEPEND="${COMMON_DEPEND}
+	dev-libs/libxslt
+"
+DEPEND="
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -63,12 +66,9 @@ COMMON_DEPEND="
 		x11-libs/libX11
 	)
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
-"
-DEPEND="${COMMON_DEPEND}
-	dev-libs/libxslt
 "
 
 src_configure() {

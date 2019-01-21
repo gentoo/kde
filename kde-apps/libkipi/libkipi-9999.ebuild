@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -20,7 +20,4 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}
-	!<kde-apps/libkipi-15.08.3-r1:4
-	!kde-base/legacy-icons
-"
+RDEPEND="${DEPEND}"

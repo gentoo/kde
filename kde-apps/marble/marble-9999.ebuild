@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_SUBSLOT="true"
@@ -11,12 +11,16 @@ inherit kde5
 
 DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
 HOMEPAGE="https://marble.kde.org/"
-KEYWORDS=""
 
+KEYWORDS=""
 IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webengine"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
-RDEPEND="
+BDEPEND="
+	aprs? ( dev-lang/perl )
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
@@ -48,10 +52,7 @@ RDEPEND="
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
 "
-DEPEND="${RDEPEND}
-	aprs? ( dev-lang/perl )
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 # bug 588320
 RESTRICT+=" test"

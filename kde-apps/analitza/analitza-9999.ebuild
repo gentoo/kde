@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional-recursive"
 VIRTUALX_REQUIRED="test"
@@ -11,7 +11,10 @@ DESCRIPTION="KDE library for mathematical features"
 KEYWORDS=""
 IUSE="eigen nls"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui '-gles2')
 	$(add_qt_dep qtprintsupport)
@@ -20,9 +23,7 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 	eigen? ( dev-cpp/eigen:3 )
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde5_src_prepare

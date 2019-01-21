@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_DESIGNERPLUGIN="true"
 KDE_TEST="forceoptional"
@@ -13,6 +13,10 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="share"
 
+BDEPEND="
+	dev-libs/libxslt
+	test? ( $(add_kdeapps_dep kmime) )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
@@ -46,8 +50,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kiconthemes)
-	dev-libs/libxslt
-	test? ( $(add_kdeapps_dep kmime) )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4

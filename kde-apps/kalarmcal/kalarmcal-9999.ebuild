@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 inherit kde5
@@ -11,7 +11,10 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	test? ( $(add_qt_dep qtdbus) )
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
@@ -21,10 +24,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 "
-DEPEND="${COMMON_DEPEND}
-	test? ( $(add_qt_dep qtdbus) )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "

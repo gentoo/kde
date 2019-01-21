@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -12,12 +12,13 @@ LICENSE="GPL-2+ test? ( LGPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+BDEPEND="
+	sys-devel/bison
+"
+DEPEND="
 	$(add_qt_dep qtgui)
 	dev-libs/libical:=
 "
-DEPEND="${RDEPEND}
-	sys-devel/bison
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test" # multiple tests fail or hang indefinitely

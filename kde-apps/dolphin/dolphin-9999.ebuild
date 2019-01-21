@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -72,11 +72,11 @@ src_configure() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version "kde-apps/ark:${SLOT}" ; then
-		elog "For compress/extract and other actions, please install kde-apps/ark:${SLOT}"
-	fi
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		has_version "kde-apps/ark:${SLOT}" || \
+			elog "For compress/extract and other actions install kde-apps/ark:${SLOT}"
 
-	if ! has_version "kde-apps/kleopatra:${SLOT}" ; then
-		elog "For crypto actions, please install kde-apps/kleopatra:${SLOT}"
+		has_version "kde-apps/kleopatra:${SLOT}" || \
+			elog "For crypto actions install kde-apps/kleopatra:${SLOT}"
 	fi
 }

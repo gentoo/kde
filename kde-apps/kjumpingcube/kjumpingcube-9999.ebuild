@@ -1,17 +1,15 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Tactical one or two player game"
-HOMEPAGE="
-	https://www.kde.org/applications/games/kjumpingcube/
-	https://games.kde.org/game.php?game=kjumpingcube
-"
+HOMEPAGE="https://www.kde.org/applications/games/kjumpingcube/
+https://games.kde.org/game.php?game=kjumpingcube"
 KEYWORDS=""
 IUSE=""
 

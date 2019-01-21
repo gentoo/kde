@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 inherit kde5
@@ -12,7 +12,6 @@ KEYWORDS=""
 IUSE="+rdp vnc"
 
 #nx? ( >=net-misc/nxcl-0.9-r1 ) disabled upstream, last checked 2016-01-24
-
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)

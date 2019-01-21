@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
@@ -57,7 +57,6 @@ src_install() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if ! has_version dev-vcs/subversion ; then
+	has_version dev-vcs/subversion || \
 		elog "To be able to autofetch KDE translations in new project wizard, install dev-vcs/subversion."
-	fi
 }

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 inherit kde5
@@ -12,7 +12,10 @@ KEYWORDS=""
 IUSE=""
 
 # TODO: Convince upstream not to install stuff with tests
-CDEPEND="
+BDEPEND="
+	test? ( $(add_qt_dep qttest) )
+"
+DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -21,10 +24,7 @@ CDEPEND="
 	$(add_qt_dep qtgui)
 	dev-libs/cyrus-sasl
 "
-DEPEND="${CDEPEND}
-	test? ( $(add_qt_dep qttest) )
-"
-RDEPEND="${CDEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
 
@@ -33,6 +33,5 @@ src_test() {
 	local myctestargs=(
 		-j1
 	)
-
 	kde5_src_test
 }

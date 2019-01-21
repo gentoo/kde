@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_DESIGNERPLUGIN="true"
 KDE_TEST="forceoptional"
@@ -18,6 +18,9 @@ IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
+BDEPEND="
+	test? ( sys-apps/dbus )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -39,7 +42,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsql 'mysql?,postgres?')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	x11-misc/shared-mime-info
 	sqlite? (
 		$(add_qt_dep qtsql 'sqlite' '' '5=')
 		dev-db/sqlite:3
@@ -49,7 +51,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
-	test? ( sys-apps/dbus )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kapptemplate-17.11.80

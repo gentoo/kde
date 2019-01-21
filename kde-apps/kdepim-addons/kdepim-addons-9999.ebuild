@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_EXAMPLES="true"
 KDE_TEST="forceoptional-recursive"
@@ -10,9 +10,9 @@ inherit kde5
 
 DESCRIPTION="Plugins for KDE Personal Information Management Suite"
 HOMEPAGE="https://www.kde.org/applications/office/kontact/"
+
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-
 IUSE="importwizard markdown"
 
 COMMON_DEPEND="

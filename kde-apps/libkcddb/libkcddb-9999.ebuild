@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -11,10 +11,6 @@ DESCRIPTION="KDE library for CDDB"
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE="musicbrainz"
-
-# tests require network access and compare static data with online data
-# bug 280996
-RESTRICT+=" test"
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -30,6 +26,10 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}"
+
+# tests require network access and compare static data with online data
+# bug 280996
+RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare

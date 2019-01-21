@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 inherit kde5
@@ -25,6 +25,6 @@ src_prepare(){
 	if ! use test; then
 		sed -e "/add_subdirectory(autotests)/ s/^/#DONT/" \
 			-e "/add_subdirectory(tests)/ s/^/#DONT/" \
-			-i keduvocdocument/CMakeLists.txt
+			-i keduvocdocument/CMakeLists.txt || die
 	fi
 }

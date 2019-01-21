@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALDBUS_TEST="true"
@@ -14,6 +14,9 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	sys-devel/gettext
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -32,7 +35,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_plasma_dep kde-cli-tools)
-	sys-devel/gettext
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool

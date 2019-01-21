@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 KDE_TEST="forceoptional-recursive"
@@ -10,12 +10,15 @@ inherit kde5
 
 DESCRIPTION="Address book application based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/office/kaddressbook/"
+
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
-
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
+"
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -51,10 +54,7 @@ COMMON_DEPEND="
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
 	dev-libs/grantlee:5
 "
-DEPEND="${COMMON_DEPEND}
-	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
 "

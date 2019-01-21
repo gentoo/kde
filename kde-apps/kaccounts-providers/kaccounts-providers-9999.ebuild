@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -12,7 +12,10 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	dev-util/intltool
+"
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdeclarative)
 	$(add_frameworks_dep ki18n)
@@ -23,10 +26,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${COMMON_DEPEND}
-	dev-util/intltool
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	net-libs/signon-ui
 	net-libs/signon-oauth2
 "

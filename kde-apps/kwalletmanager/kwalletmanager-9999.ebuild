@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
@@ -41,5 +41,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kwalletmanager-15.04.3-r1:4
-	!kde-base/legacy-icons
 "

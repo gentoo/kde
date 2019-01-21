@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
@@ -14,7 +14,10 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE="nls"
 
-COMMON_DEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_kdeapps_dep kcalcore)
@@ -26,10 +29,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	dev-libs/cyrus-sasl:2
 "
-DEPEND="${COMMON_DEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.07.80:5
 "

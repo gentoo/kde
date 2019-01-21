@@ -1,21 +1,27 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Sound editor built on KDE Frameworks 5 that can edit many types of audio files"
 HOMEPAGE="http://kwave.sourceforge.net/ https://www.kde.org/applications/multimedia/kwave/"
-LICENSE="
-	CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+
+LICENSE="CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+
 	handbook? ( FDL-1.2 )
 	opus? ( BSD-2 )
 "
 KEYWORDS=""
 IUSE="alsa flac mp3 opus oss pulseaudio +qtmedia vorbis"
 
+BDEPEND="
+	sys-devel/gettext
+	handbook? ( || (
+		gnome-base/librsvg
+		virtual/imagemagick-tools[png,svg]
+	) )
+"
 RDEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -55,11 +61,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	$(add_kdeapps_dep poxml)
 	$(add_qt_dep qtconcurrent)
-	sys-devel/gettext
-	handbook? ( || (
-		gnome-base/librsvg
-		virtual/imagemagick-tools[png,svg]
-	) )
 "
 
 DOCS=( AUTHORS CHANGES LICENSES README TODO )
