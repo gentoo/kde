@@ -49,6 +49,9 @@ BDEPEND="
 src_prepare() {
 	default
 	sed -e "/^as_doc_target_dir/s/appstream/${PF}/" -i docs/meson.build || die
+	if ! use test; then
+		sed -e "/^subdir.*tests/s/^/#DONT /" -i {,qt/}meson.build || die # bug 675944
+	fi
 }
 
 src_configure() {
