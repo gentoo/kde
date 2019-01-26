@@ -6,7 +6,7 @@ EAPI=7
 KDE_TEST="forceoptional-recursive"
 QT_MINIMAL="5.11.3"
 VIRTUALX_REQUIRED="test"
-PYTHON_COMPAT=( python3_{4,5,6,7} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 inherit kde5 python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
