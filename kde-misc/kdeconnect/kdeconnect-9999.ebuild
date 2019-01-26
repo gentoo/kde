@@ -49,6 +49,7 @@ DEPEND="
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
 RDEPEND="${DEPEND}
+	$(add_qt_dep qtquickcontrols2)
 	net-fs/sshfs
 	app? ( $(add_frameworks_dep kirigami) )
 	sms? ( $(add_frameworks_dep kirigami) )
