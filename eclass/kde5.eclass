@@ -700,14 +700,14 @@ kde5_src_install() {
 	# cmake can't find the tags and qthelp viewers can't find the docs
 	local p=$(best_version dev-qt/qtcore:5)
 	local pv=$(echo ${p/%-r[0-9]*/} | rev | cut -d - -f 1 | rev)
-	#todo: clean up trailing space check when EAPI <7 is removed
+	#todo: clean up trailing slash check when EAPI <7 is removed
 	if [[ -d ${ED%/}/usr/share/doc/qt-${pv} ]]; then
 		docompress -x /usr/share/doc/qt-${pv}
 	fi
 
 	# We don't want /usr/share/doc/HTML to be compressed,
 	# because then khelpcenter can't find the docs
-	#todo: clean up trailing space check when EAPI <7 is removed
+	#todo: clean up trailing slash check when EAPI <7 is removed
 	if [[ -d ${ED%/}/usr/share/doc/HTML ]]; then
 		docompress -x /usr/share/doc/HTML
 	fi
