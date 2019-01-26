@@ -19,6 +19,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="dbus gnome-keyring kde libressl +X"
 
+# drop qtwebengine subslot operator when QT_MINIMAL >= 5.12.0
 BDEPEND="gnome-keyring? ( virtual/pkgconfig )"
 COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
@@ -27,7 +28,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsql 'sqlite')
 	$(add_qt_dep qtwebchannel)
-	$(add_qt_dep qtwebengine 'widgets')
+	$(add_qt_dep qtwebengine 'widgets' '' '5=')
 	$(add_qt_dep qtwidgets)
 	dbus? ( $(add_qt_dep qtdbus) )
 	gnome-keyring? ( gnome-base/gnome-keyring )
