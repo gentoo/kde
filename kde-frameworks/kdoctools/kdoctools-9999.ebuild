@@ -26,6 +26,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-5.54.0-gentoo-docbundledir.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package nls KF5I18n)
