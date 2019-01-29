@@ -41,3 +41,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 "
+
+src_prepare() {
+	kde5_src_prepare
+	sed -e "/^install.*kde4\/services/s/^/#DONT/" -i CMakeLists.txt || die
+}
