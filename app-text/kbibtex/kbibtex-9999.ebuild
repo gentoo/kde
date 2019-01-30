@@ -48,7 +48,7 @@ DEPEND="
 	dev-libs/icu:=
 	virtual/tex-base
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	zotero? (
 		app-crypt/qca[qt5(+)]
 		dev-libs/qoauth:5

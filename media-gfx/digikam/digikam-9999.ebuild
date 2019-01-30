@@ -86,7 +86,7 @@ COMMON_DEPEND="
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	vkontakte? ( net-libs/libkvkontakte:5 )
 	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11

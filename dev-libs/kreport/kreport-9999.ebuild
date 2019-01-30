@@ -29,7 +29,7 @@ RDEPEND="
 	>=dev-libs/kproperty-3.1.0:5=
 	marble? ( $(add_kdeapps_dep marble '' '' '5=') )
 	scripting? ( $(add_qt_dep qtdeclarative) )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}

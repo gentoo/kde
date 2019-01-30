@@ -57,7 +57,7 @@ COMMON_DEPEND="
 	activities? ( $(add_frameworks_dep kactivities) )
 	kde? ( $(add_frameworks_dep krunner) )
 	ofx? ( dev-libs/libofx )
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
 "
 DEPEND="${COMMON_DEPEND}

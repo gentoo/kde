@@ -29,7 +29,7 @@ DEPEND="
 	net-libs/signond
 	google? (
 		$(add_kdeapps_dep libkgapi)
-		$(add_qt_dep qtwebkit)
+		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	)
 "
 RDEPEND="${DEPEND}"

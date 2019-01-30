@@ -62,7 +62,7 @@ DEPEND="
 		media-libs/libogg
 		media-libs/libvorbis
 	)
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 "
 RDEPEND="${DEPEND}
 	app-cdr/cdrdao

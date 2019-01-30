@@ -42,7 +42,7 @@ DEPEND="
 	konqueror? (
 		$(add_frameworks_dep kparts)
 		$(add_frameworks_dep kdewebkit)
-		$(add_qt_dep qtwebkit)
+		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	)
 	telepathy? ( net-libs/telepathy-qt[qt5(+)] )
 "

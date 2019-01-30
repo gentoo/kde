@@ -52,7 +52,7 @@ DEPEND="
 		dev-db/postgresql:*
 		dev-libs/libpqxx
 	)
-	webkit? ( $(add_qt_dep qtwebkit) )
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 "
 RDEPEND="${DEPEND}
 	!app-office/calligra:4[calligra_features_kexi]

@@ -49,7 +49,7 @@ RDEPEND="
 	$(add_qt_dep qtxml)
 	>=media-libs/mlt-6.10.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
 	virtual/ffmpeg[encode,sdl,X]
-	freesound? ( $(add_qt_dep qtwebkit) )
+	freesound? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	share? ( $(add_frameworks_dep purpose) )
 	v4l? ( media-libs/libv4l )

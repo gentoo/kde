@@ -57,7 +57,7 @@ COMMON_DEPEND="
 	)
 	search? (
 		$(add_frameworks_dep kdewebkit)
-		$(add_qt_dep qtwebkit)
+		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	)
 	shutdown? ( $(add_plasma_dep plasma-workspace) )
 	stats? ( $(add_frameworks_dep kplotting) )

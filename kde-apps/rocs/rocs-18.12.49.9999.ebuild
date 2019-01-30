@@ -32,7 +32,7 @@ RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtscript 'scripttools')
 	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwebkit)
+	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
