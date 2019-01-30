@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_TEST="false"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Framework to handle super user actions"
