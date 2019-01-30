@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
@@ -11,9 +11,6 @@ DESCRIPTION="Multi-protocol IM client based on KDE Frameworks"
 HOMEPAGE="https://userbase.kde.org/Kopete https://www.kde.org/applications/internet/kopete"
 KEYWORDS=""
 IUSE="ssl v4l"
-
-# tests hang, last checked for 4.2.96
-RESTRICT+=" test"
 
 # Available plugins
 #
@@ -60,7 +57,7 @@ PROTOCOLS="gadu groupwise jingle meanwhile oscar testbed winpopup +xmpp zeroconf
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
-COMMONDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcrash)
@@ -115,7 +112,7 @@ COMMONDEPEND="
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 "
-RDEPEND="${COMMONDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kde4-l10n
 	!kde-apps/kopete:4
 	latex? (
@@ -129,10 +126,13 @@ RDEPEND="${COMMONDEPEND}
 "
 #	sms? ( app-mobilephone/smssend )
 #	winpopup? ( net-fs/samba )
-DEPEND="${COMMONDEPEND}
+DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 	jingle? ( dev-libs/jsoncpp )
 "
+
+# tests hang, last checked for 4.2.96
+RESTRICT+=" test"
 
 src_configure() {
 	local x x2

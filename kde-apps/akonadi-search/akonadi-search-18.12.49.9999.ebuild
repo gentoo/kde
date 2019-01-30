@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -13,6 +13,9 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	test? ( $(add_kdeapps_dep akonadi 'mysql,postgres,sqlite,tools') )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
@@ -35,7 +38,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	test? ( $(add_kdeapps_dep akonadi 'mysql,postgres,sqlite,tools') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n

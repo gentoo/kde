@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
@@ -12,7 +12,7 @@ DESCRIPTION="Bookmarks editor based on KDE Frameworks"
 KEYWORDS=""
 IUSE="+man"
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -31,7 +31,7 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_prepare(){
 	kde5_src_prepare

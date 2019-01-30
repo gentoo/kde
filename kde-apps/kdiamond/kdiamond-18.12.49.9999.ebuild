@@ -1,16 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A KDE three-in-a-row game"
-HOMEPAGE="
-	https://www.kde.org/applications/games/kdiamond/
-	https://games.kde.org/game.php?game=kdiamond
-"
+DESCRIPTION="Single player three-in-a-row game"
+HOMEPAGE="https://www.kde.org/applications/games/kdiamond/
+https://games.kde.org/game.php?game=kdiamond"
 KEYWORDS=""
 IUSE=""
 

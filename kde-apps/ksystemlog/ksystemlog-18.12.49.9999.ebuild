@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
@@ -45,10 +45,11 @@ src_prepare() {
 		# comparison succeeds only in 2007 !!!
 		local theyear=$(date +%Y)
 		einfo Setting the current year as ${theyear} in the test files
-		sed -e "s:2007:${theyear}:g" -i tests/systemAnalyzerTest.cpp
+		sed -e "s:2007:${theyear}:g" -i tests/systemAnalyzerTest.cpp || die
 
 		# one test consistently fails, so comment it out for the moment
-		sed -e "s:systemAnalyzerTest:# dont run systemAnalyzerTest:g" -i ksystemlog/tests/CMakeLists.txt
+		sed -e "s:systemAnalyzerTest:# dont run systemAnalyzerTest:g" \
+			-i ksystemlog/tests/CMakeLists.txt || die
 	fi
 }
 

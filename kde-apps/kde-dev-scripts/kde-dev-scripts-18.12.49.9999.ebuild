@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="true"
 inherit kde5
@@ -24,8 +24,8 @@ RDEPEND="
 "
 
 src_prepare() {
-	# bug 275069
-	sed -ie 's:colorsvn::' CMakeLists.txt || die
-
 	kde5_src_prepare
+
+	# bug 275069
+	sed -e 's:colorsvn::' -i CMakeLists.txt || die
 }

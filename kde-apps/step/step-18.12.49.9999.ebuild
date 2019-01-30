@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
@@ -12,7 +12,10 @@ HOMEPAGE="https://edu.kde.org/step/"
 KEYWORDS=""
 IUSE="+gsl nls +qalculate"
 
-RDEPEND="
+BDEPEND="
+	nls? ( $(add_qt_dep linguist-tools) )
+"
+DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -38,9 +41,7 @@ RDEPEND="
 	gsl? ( sci-libs/gsl:= )
 	qalculate? ( >=sci-libs/libqalculate-0.9.5:= )
 "
-DEPEND="${RDEPEND}
-	nls? ( $(add_qt_dep linguist-tools) )
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde5_src_prepare

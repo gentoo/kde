@@ -1,13 +1,13 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
-DESCRIPTION="A game almost the same as ksame, but a bit different by KDE"
+DESCRIPTION="An adaptation of the Clickomania game"
 KEYWORDS=""
 IUSE=""
 

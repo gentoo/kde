@@ -1,12 +1,12 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A straightforward graphical means to format 3.5\" and 5.25\" floppy disks"
+DESCRIPTION="Straightforward graphical means to format 3.5\" and 5.25\" floppy disks"
 HOMEPAGE="
 	https://www.kde.org/applications/utilities/kfloppy/
 	https://utils.kde.org/projects/kfloppy/

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
@@ -14,6 +14,10 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	dev-libs/libxslt
+	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcmutils)
@@ -69,8 +73,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kldap)
-	dev-libs/libxslt
-	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4

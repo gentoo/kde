@@ -1,17 +1,20 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="A KDE Software for Music Education"
+DESCRIPTION="Music Education software by KDE"
 HOMEPAGE="https://minuet.kde.org/"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	virtual/pkgconfig
+"
+DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep ki18n)
@@ -21,9 +24,4 @@ COMMON_DEPEND="
 	$(add_qt_dep qtquickcontrols2)
 	media-sound/fluidsynth
 "
-DEPEND="${COMMON_DEPEND}
-	virtual/pkgconfig
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/minuet:4
-"
+RDEPEND="${DEPEND}"

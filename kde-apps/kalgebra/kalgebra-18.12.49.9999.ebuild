@@ -1,12 +1,12 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 inherit kde5
 
-DESCRIPTION="MathML-based graph calculator by KDE"
+DESCRIPTION="MathML-based 2D and 3D graph calculator by KDE"
 HOMEPAGE="https://www.kde.org/applications/education/kalgebra https://edu.kde.org/kalgebra/"
 KEYWORDS=""
 IUSE="readline"

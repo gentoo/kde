@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit kde5
 
@@ -12,6 +12,9 @@ LICENSE="LGPL-2.1"
 KEYWORDS=""
 IUSE="experimental"
 
+BDEPEND="
+	dev-util/intltool
+"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
@@ -35,7 +38,6 @@ DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kio)
-	dev-util/intltool
 	net-libs/libaccounts-glib
 "
 RDEPEND="${COMMON_DEPEND}
@@ -45,7 +47,8 @@ RDEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	if use experimental; then
-		mv "${S}"/data/kaccounts/disabled/*.in "${S}"/data/kaccounts/ || die "couldn't enable experimental services"
+		mv "${S}"/data/kaccounts/disabled/*.in "${S}"/data/kaccounts/ || \
+			die "couldn't enable experimental services"
 	fi
 	kde5_src_prepare
 }
@@ -56,4 +59,5 @@ pkg_postinst() {
 		ewarn "Most of them aren't integrated nicely and may require additional steps for account creation."
 		ewarn "Use at your own risk!"
 	fi
+	kde5_pkg_postinst
 }

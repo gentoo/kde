@@ -1,12 +1,12 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="KDE version of the Simon Says game"
+DESCRIPTION="Memory enhancement game based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/education/blinken
 https://edu.kde.org/blinken/"
 KEYWORDS=""
@@ -29,6 +29,5 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	kde5_src_install
-
-	rm "${ED}"usr/share/${PN}/README.packagers || die
+	rm "${ED}"/usr/share/${PN}/README.packagers || die
 }

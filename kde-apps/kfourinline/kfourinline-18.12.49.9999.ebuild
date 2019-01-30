@@ -1,16 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE four-in-a-row game"
-HOMEPAGE="
-	https://www.kde.org/applications/games/kfourinline/
-	https://games.kde.org/game.php?game=kfourinline
-"
+HOMEPAGE="https://www.kde.org/applications/games/kfourinline/
+https://games.kde.org/game.php?game=kfourinline"
 KEYWORDS=""
 IUSE=""
 

@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_DESIGNERPLUGIN="true"
 KDE_TEST="forceoptional"
@@ -13,7 +13,10 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	dev-libs/libxslt
+"
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -47,10 +50,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5(+)]
 "
-DEPEND="${COMMON_DEPEND}
-	dev-libs/libxslt
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 "
 

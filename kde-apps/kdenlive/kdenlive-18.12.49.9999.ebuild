@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 inherit kde5
@@ -13,6 +13,9 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="freesound gles2 jogshuttle semantic-desktop share v4l"
 
+BDEPEND="
+	sys-devel/gettext
+"
 RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -54,7 +57,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
-	sys-devel/gettext
 "
 
 src_configure() {

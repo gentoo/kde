@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KMNAME="akonadi-calendar-tools"
@@ -9,9 +9,9 @@ inherit kde5
 
 DESCRIPTION="Command line interface to KDE calendars"
 HOMEPAGE+=" https://userbase.kde.org/KonsoleKalendar"
+
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
-
 IUSE=""
 
 DEPEND="

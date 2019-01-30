@@ -1,17 +1,15 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Game of action and puzzle solving by KDE"
-HOMEPAGE="
-	https://www.kde.org/applications/games/kgoldrunner/
-	https://games.kde.org/game.php?game=kgoldrunner
-"
+HOMEPAGE="https://www.kde.org/applications/games/kgoldrunner/
+https://games.kde.org/game.php?game=kgoldrunner"
 KEYWORDS=""
 IUSE=""
 

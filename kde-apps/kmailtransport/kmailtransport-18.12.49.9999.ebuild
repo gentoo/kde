@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_TEST="true"
 inherit kde5
@@ -11,7 +11,10 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+BDEPEND="
+	test? ( $(add_frameworks_dep ktextwidgets) )
+"
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -31,10 +34,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
-	test? ( $(add_frameworks_dep ktextwidgets) )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kdepimlibs:4
 "
