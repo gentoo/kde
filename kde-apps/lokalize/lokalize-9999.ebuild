@@ -51,7 +51,7 @@ pkg_setup() {
 
 src_install() {
 	kde5_src_install
-	python_fix_shebang "${ED}usr/share/${PN}"
+	python_fix_shebang "${ED}/usr/share/${PN}"
 }
 
 pkg_postinst() {
