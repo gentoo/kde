@@ -33,7 +33,10 @@ RDEPEND="
 	app-arch/libarchive[bzip2]
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.49.0-no-fatal-warnings.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.49.0-no-fatal-warnings.patch"
+	"${FILESDIR}/${P}-clazy-1.5.patch"
+)
 
 python_check_deps() {
 	has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
