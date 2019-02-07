@@ -77,7 +77,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!media-sound/amarok:4
 	$(add_qt_dep qtquickcontrols2)
-	virtual/mysql
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch )
@@ -113,7 +112,15 @@ src_install() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	elog "You'll have to configure amarok to use an external db server."
-	elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
-	elog "to configure the external db and migrate your data from the embedded database."
+	pkg_is_installed() {
+		echo "${1} ($(has_version ${1} || echo "not ")installed)"
+	}
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		elog "You'll have to configure amarok to use an external db server, one of:"
+		elog "    $(pkg_is_installed dev-db/mariadb)"
+		elog "    $(pkg_is_installed dev-db/mysql)"
+		elog "Please read https://community.kde.org/Amarok/Community/MySQL for details on how"
+		elog "to configure the external db and migrate your data from the embedded database."
+	fi
 }
