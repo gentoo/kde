@@ -16,6 +16,8 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="activities designer kde ofx webkit"
 
+REQUIRED_USE="test? ( designer )"
+
 BDEPEND="
 	dev-libs/libxslt
 	virtual/pkgconfig
@@ -72,8 +74,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtquickcontrols)
 "
-
-REQUIRED_USE="test? ( designer )"
 
 # hangs + installs files
 RESTRICT+=" test"
