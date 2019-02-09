@@ -9,17 +9,19 @@ QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
+DESCRIPTION="Cross-platform web browser using QtWebEngine"
+HOMEPAGE="https://www.falkon.org/"
+
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
-DESCRIPTION="Cross-platform web browser using QtWebEngine"
-HOMEPAGE="https://www.falkon.org/"
-
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="dbus kde +X"
+
+RESTRICT="test" # bug 653046
 
 COMMON_DEPEND="
 	dev-libs/openssl:0=
