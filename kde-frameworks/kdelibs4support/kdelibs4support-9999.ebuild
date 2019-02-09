@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_HANDBOOK="true"
 KDE_QTHELP="false"
 VIRTUALX_REQUIRED="test"
 inherit kde5
@@ -13,7 +14,6 @@ KEYWORDS=""
 IUSE="libressl X"
 
 BDEPEND="
-	$(add_frameworks_dep kdoctools)
 	dev-lang/perl
 	dev-perl/URI
 	test? ( $(add_qt_dep qtconcurrent) )
@@ -76,6 +76,13 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 RESTRICT+=" test"
+
+src_prepare() {
+	kde5_src_prepare
+	if ! use handbook; then
+		sed -e "/kdoctools_install/ s/^/#DONT/" -i CMakeLists.txt || die
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
