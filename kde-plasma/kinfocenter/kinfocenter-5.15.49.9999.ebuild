@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Utility providing information about the computer hardware"
