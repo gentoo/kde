@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional" # not optional until !kdelibs4support
 inherit kde5
 
 DESCRIPTION="KDE Plasma workspace hotkey module"
