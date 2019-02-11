@@ -723,7 +723,6 @@ kde5_src_install() {
 kde5_pkg_preinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ ${EAPI} == 6 ]] && gnome2_icon_savelist
 	xdg_pkg_preinst
 }
 
@@ -733,9 +732,6 @@ kde5_pkg_preinst() {
 kde5_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${EAPI} == 6 && -n ${GNOME2_ECLASS_ICONS} ]]; then
-		gnome2_icon_cache_update
-	fi
 	xdg_pkg_postinst
 
 	if [[ -z ${I_KNOW_WHAT_I_AM_DOING} ]]; then
@@ -754,9 +750,6 @@ kde5_pkg_postinst() {
 kde5_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ${EAPI} == 6 && -n ${GNOME2_ECLASS_ICONS} ]]; then
-		gnome2_icon_cache_update
-	fi
 	xdg_pkg_postrm
 }
 
