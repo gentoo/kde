@@ -16,7 +16,11 @@ HOMEPAGE="https://userbase.kde.org/Kaffeine"
 LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 IUSE="dvb"
 
-RDEPEND="
+BDEPEND="
+	sys-devel/gettext
+	virtual/pkgconfig
+"
+DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -38,11 +42,7 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	dvb? ( media-libs/libv4l )
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
-	sys-devel/gettext
-	virtual/pkgconfig
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( Changelog NOTES README.md )
 
