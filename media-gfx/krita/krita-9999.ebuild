@@ -24,9 +24,8 @@ BDEPEND="
 	dev-cpp/eigen:3
 	dev-lang/perl
 	sys-devel/gettext
-	vc? ( >=dev-libs/vc-1.1.0 )
 "
-DEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -76,7 +75,10 @@ DEPEND="${PYTHON_DEPS}
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	vc? ( >=dev-libs/vc-1.1.0 )
+"
+RDEPEND="${COMMON_DEPEND}
 	!app-office/calligra:4[calligra_features_krita]
 	!app-office/calligra-l10n:4[calligra_features_krita(+)]
 "
