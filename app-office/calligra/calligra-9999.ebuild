@@ -26,7 +26,6 @@ IUSE="activities +crypt +fontconfig gemini gsl import-filter +lcms okular openex
 # Required for the matlab/octave formula tool
 BDEPEND="
 	sys-devel/gettext
-	test? ( $(add_frameworks_dep threadweaver) )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -110,6 +109,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+	test? ( $(add_frameworks_dep threadweaver) )
 "
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
