@@ -29,10 +29,7 @@ BDEPEND="
 	dev-util/itstool
 	>=dev-util/meson-0.42.0
 	>=sys-devel/gettext-0.19.8
-	test? (
-		dev-qt/linguist-tools:5
-		qt5? ( dev-qt/qttest:5 )
-	)
+	test? ( dev-qt/linguist-tools:5 )
 "
 DEPEND="
 	dev-libs/glib:2
@@ -40,7 +37,10 @@ DEPEND="
 	dev-libs/libyaml
 	dev-libs/snowball-stemmer
 	introspection? ( >=dev-libs/gobject-introspection-1.56:= )
-	qt5? ( dev-qt/qtcore:5 )
+	qt5? (
+		dev-qt/qtcore:5
+		test? ( dev-qt/qttest:5 )
+	)
 "
 RDEPEND="${DEPEND}"
 
