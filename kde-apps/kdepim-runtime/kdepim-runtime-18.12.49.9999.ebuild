@@ -16,7 +16,6 @@ IUSE="+oauth"
 # TODO kolab
 BDEPEND="
 	dev-libs/libxslt
-	test? ( $(add_kdeapps_dep kimap 'test') )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -69,6 +68,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtxmlpatterns)
+	test? ( $(add_kdeapps_dep kimap 'test') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n

@@ -11,10 +11,7 @@ LICENSE="LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	test? ( $(add_frameworks_dep ktextwidgets) )
-"
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -34,7 +31,10 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_frameworks_dep ktextwidgets) )
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!kde-apps/kdepimlibs:4
 "

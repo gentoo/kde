@@ -11,10 +11,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	test? ( $(add_qt_dep qtdbus) )
-"
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
@@ -24,7 +21,10 @@ DEPEND="
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_qt_dep qtdbus) )
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "

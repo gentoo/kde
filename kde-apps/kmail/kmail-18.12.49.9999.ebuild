@@ -16,7 +16,7 @@ IUSE=""
 
 BDEPEND="
 	dev-libs/libxslt
-	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
+	test? ( $(add_kdeapps_dep akonadi 'tools') )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -73,6 +73,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kldap)
+	test? ( $(add_kdeapps_dep akonadi 'sqlite') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4

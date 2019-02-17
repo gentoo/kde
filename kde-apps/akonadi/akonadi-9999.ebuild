@@ -18,9 +18,6 @@ IUSE="+mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
-BDEPEND="
-	test? ( sys-apps/dbus )
-"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -51,6 +48,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 	dev-libs/libxslt
+	test? ( sys-apps/dbus )
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kapptemplate-17.11.80

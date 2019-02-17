@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="X"
 
 BDEPEND="
-	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
+	test? ( $(add_kdeapps_dep akonadi 'tools') )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -72,6 +72,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kldap)
 	$(add_qt_dep designer)
+	test? ( $(add_kdeapps_dep akonadi 'sqlite') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4

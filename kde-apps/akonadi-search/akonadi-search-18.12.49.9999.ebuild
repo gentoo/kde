@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 BDEPEND="
-	test? ( $(add_kdeapps_dep akonadi 'mysql,postgres,sqlite,tools') )
+	test? ( $(add_kdeapps_dep akonadi 'tools') )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -38,6 +38,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
+	test? ( $(add_kdeapps_dep akonadi 'mysql,postgres,sqlite') )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
