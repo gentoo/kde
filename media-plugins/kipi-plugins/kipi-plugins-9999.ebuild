@@ -7,14 +7,10 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
-HOMEPAGE="https://www.digikam.org/"
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="mirror://kde/stable/digikam/digikam-${PV}.tar.xz"
-fi
+HOMEPAGE="https://userbase.kde.org/KIPI https://cgit.kde.org/kipi-plugins.git/"
 
 LICENSE="GPL-2+"
+KEYWORDS=""
 IUSE="flashexport mediawiki +remotestorage vkontakte"
 
 BDEPEND="sys-devel/gettext"
