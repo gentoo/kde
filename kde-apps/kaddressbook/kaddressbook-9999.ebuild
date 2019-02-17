@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
-KDE_TEST="forceoptional-recursive"
+KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
@@ -15,9 +15,6 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
-	test? ( $(add_kdeapps_dep akonadi 'sqlite,tools') )
-"
 DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
