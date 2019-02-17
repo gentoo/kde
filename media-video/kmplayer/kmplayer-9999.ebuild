@@ -14,6 +14,7 @@ LICENSE="GPL-2 FDL-1.2 LGPL-2.1"
 KEYWORDS=""
 IUSE="cairo npp"
 
+BDEPEND="sys-devel/gettext"
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
@@ -49,7 +50,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	media-video/mplayer
 "
-BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	if use npp; then
