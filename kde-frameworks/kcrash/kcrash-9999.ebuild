@@ -16,7 +16,6 @@ RESTRICT+=" test"
 
 BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep qtwidgets) )
 "
 RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
@@ -27,4 +26,5 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
+	test? ( $(add_qt_dep qtwidgets) )
 "

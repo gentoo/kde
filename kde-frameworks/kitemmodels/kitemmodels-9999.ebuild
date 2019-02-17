@@ -11,4 +11,4 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="test? ( $(add_qt_dep qtwidgets) )"
+DEPEND="test? ( $(add_qt_dep qtwidgets) )"

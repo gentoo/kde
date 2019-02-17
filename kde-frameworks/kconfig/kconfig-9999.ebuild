@@ -13,14 +13,15 @@ IUSE="dbus nls"
 
 BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep qtconcurrent) )
 "
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtxml)
 	dbus? ( $(add_qt_dep qtdbus) )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( $(add_qt_dep qtconcurrent) )
+"
 
 # bug 560086
 RESTRICT+=" test"

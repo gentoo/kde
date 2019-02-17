@@ -13,15 +13,14 @@ IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-BDEPEND="
-	test? ( $(add_qt_dep qtconcurrent) )
-"
-DEPEND="${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}
 	$(add_qt_dep qtdeclarative)
 	sys-devel/gettext
 	virtual/libintl
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( $(add_qt_dep qtconcurrent) )
+"
 
 pkg_setup() {
 	kde5_pkg_setup

@@ -14,9 +14,8 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	man? ( $(add_frameworks_dep kdoctools) )
-	test? ( $(add_qt_dep qtconcurrent) )
 "
-DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -25,7 +24,9 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtxml)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( $(add_qt_dep qtconcurrent) )
+"
 
 # requires running kde environment
 RESTRICT+=" test"

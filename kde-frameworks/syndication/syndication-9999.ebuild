@@ -11,16 +11,16 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="
+COMMON_DEPEND="
+	$(add_frameworks_dep kcodecs)
+	$(add_qt_dep qtxml)
+"
+DEPEND="${COMMON_DEPEND}
 	test? (
 		$(add_qt_dep qtnetwork)
 		$(add_qt_dep qtwidgets)
 	)
 "
-DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_qt_dep qtxml)
-"
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/syndication
 "

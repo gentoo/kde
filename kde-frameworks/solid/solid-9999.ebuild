@@ -13,9 +13,8 @@ IUSE="nls"
 
 BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
-	test? ( $(add_qt_dep qtconcurrent) )
 "
-DEPEND="
+RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtwidgets)
@@ -23,7 +22,9 @@ DEPEND="
 	sys-fs/udisks:2
 	virtual/udev
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( $(add_qt_dep qtconcurrent) )
+"
 
 pkg_postinst() {
 	kde5_pkg_postinst

@@ -16,7 +16,6 @@ IUSE="libressl X"
 BDEPEND="
 	dev-lang/perl
 	dev-perl/URI
-	test? ( $(add_qt_dep qtconcurrent) )
 "
 COMMON_DEPEND="
 	$(add_frameworks_dep kauth)
@@ -67,6 +66,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep designer)
+	test? ( $(add_qt_dep qtconcurrent) )
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
