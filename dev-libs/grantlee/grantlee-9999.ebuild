@@ -20,10 +20,11 @@ RDEPEND="
 	dev-qt/qtgui:5
 	dev-qt/qtscript:5
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qttest:5 )
+"
 BDEPEND="
 	doc? ( app-doc/doxygen[dot] )
-	test? ( dev-qt/qttest:5 )
 "
 
 PATCHES=(
