@@ -11,11 +11,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-# TODO: Convince upstream not to install stuff with tests
-BDEPEND="
-	test? ( $(add_qt_dep qttest) )
-"
-DEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -24,7 +20,11 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	dev-libs/cyrus-sasl
 "
-RDEPEND="${DEPEND}
+# TODO: Convince upstream not to install stuff with tests
+DEPEND="${COMMON_DEPEND}
+	test? ( $(add_qt_dep qtnetwork) )
+"
+RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 "
 
