@@ -25,8 +25,7 @@ RDEPEND="
 		sci-libs/fftw:3.0
 	)
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
+DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
