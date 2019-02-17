@@ -19,6 +19,9 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="test"
 
+BDEPEND="
+	dev-util/glib-utils
+"
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/glib:2
@@ -30,9 +33,7 @@ RDEPEND="
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
-	dev-util/glib-utils
+DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
