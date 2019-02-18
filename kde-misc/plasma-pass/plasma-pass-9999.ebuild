@@ -26,4 +26,6 @@ DEPEND="
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtgui)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami)
+"
