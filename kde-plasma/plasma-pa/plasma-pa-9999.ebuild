@@ -23,6 +23,11 @@ DEPEND="
 	media-libs/libcanberra
 	media-sound/pulseaudio
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami)
+	$(add_qt_dep qtquickcontrols2)
+	media-libs/libcanberra
+	x11-themes/sound-theme-freedesktop
+"
 
 PATCHES=( "${FILESDIR}/${PN}-5.13.3-automagic_gconf.patch" )
