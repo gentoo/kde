@@ -42,11 +42,3 @@ pkg_setup() {
 	python-single-r1_pkg_setup
 	kde5_pkg_setup
 }
-
-src_compile() {
-	pushd "${WORKDIR}"/${P}_build > /dev/null || die
-	eninja parser
-	popd > /dev/null || die
-
-	kde5_src_compile
-}
