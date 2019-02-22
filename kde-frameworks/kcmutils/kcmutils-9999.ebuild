@@ -3,7 +3,7 @@
 
 EAPI=7
 
-FRAMEWORK_TEST="false"
+KDE_TEST="false"
 inherit kde5
 
 DESCRIPTION="Framework to work with KDE System Settings modules"
