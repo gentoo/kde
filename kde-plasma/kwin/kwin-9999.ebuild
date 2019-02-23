@@ -70,6 +70,7 @@ COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
+	$(add_frameworks_dep kirigami)
 	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtvirtualkeyboard)
