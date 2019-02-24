@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebengine 'widgets' '' '5=')
 	$(add_qt_dep qtwidgets)
 	dbus? ( $(add_qt_dep qtdbus) )
-	gnome-keyring? ( gnome-base/gnome-keyring )
+	gnome-keyring? ( gnome-base/libgnome-keyring )
 	kde? (
 		$(add_frameworks_dep kcoreaddons)
 		$(add_frameworks_dep kcrash)
