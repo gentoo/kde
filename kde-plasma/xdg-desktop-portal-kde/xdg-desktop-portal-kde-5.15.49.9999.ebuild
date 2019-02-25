@@ -32,5 +32,5 @@ DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
 "
 RDEPEND="${COMMON_DEPEND}
-	x11-misc/xdg-desktop-portal
+	sys-apps/xdg-desktop-portal
 "

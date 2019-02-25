@@ -29,9 +29,9 @@ net-p2p
 sci-astronomy
 sci-calculators
 sci-electronics
+sys-apps
 sys-auth
 sys-block
 sys-libs
 www-client
-x11-misc
 x11-themes
