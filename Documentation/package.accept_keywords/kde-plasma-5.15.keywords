@@ -48,3 +48,5 @@
 <kde-plasma/user-manager-5.15.50:5
 <kde-plasma/xdg-desktop-portal-kde-5.15.50:5
 <kde-plasma/xembed-sni-proxy-5.15.50:5
+sys-apps/fwupd
+sys-apps/xdg-desktop-portal
