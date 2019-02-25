@@ -10,7 +10,7 @@ DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
-IUSE="ffmpeg ipod lastfm mtp ofa podcast wikipedia"
+IUSE="ipod lastfm libav mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
@@ -56,27 +56,29 @@ DEPEND="
 	app-crypt/qca:2[qt5(+)]
 	dev-db/mysql-connector-c:=
 	media-libs/phonon[qt5(+)]
-	>=media-libs/taglib-1.7[asf(+),mp4(+)]
-	>=media-libs/taglib-extras-1.0.1
+	media-libs/taglib
+	media-libs/taglib-extras
 	sci-libs/fftw:3.0
 	sys-libs/zlib
 	virtual/opengl
-	ffmpeg? (
-		virtual/ffmpeg
-		ofa? ( >=media-libs/libofa-0.9.0 )
+	ofa? (
+		media-libs/libofa
+		!libav? ( media-video/ffmpeg:= )
+		libav? ( media-video/libav:= )
 	)
 	ipod? (
 		dev-libs/glib:2
-		>=media-libs/libgpod-0.7.0[gtk]
+		media-libs/libgpod[gtk]
 	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
-	mtp? ( >=media-libs/libmtp-1.0.0 )
-	podcast? ( >=media-libs/libmygpo-qt-1.0.9[qt5(+)] )
+	mtp? ( media-libs/libmtp )
+	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
 	wikipedia? ( $(add_qt_dep qtwebengine) )
 "
 RDEPEND="${DEPEND}
 	!media-sound/amarok:4
 	$(add_qt_dep qtquickcontrols2)
+	!ofa? ( virtual/ffmpeg )
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-2.8.90-mysqld-rpath.patch )
