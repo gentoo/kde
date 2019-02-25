@@ -9,8 +9,9 @@ HOMEPAGE="https://www.kde.org/plasma-desktop"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="bluetooth +browser-integration consolekit crypt +display-manager elogind grub gtk +handbook
-+legacy-systray networkmanager pam plymouth +pm-utils pulseaudio +sddm sdk systemd +wallpapers"
+IUSE="bluetooth +browser-integration consolekit crypt +desktop-portal discover
++display-manager elogind grub gtk +handbook +legacy-systray networkmanager pam
+plymouth +pm-utils pulseaudio +sddm sdk systemd +wallpapers"
 
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
@@ -53,6 +54,8 @@ RDEPEND="
 		pm-utils? ( sys-power/pm-utils )
 	)
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
+	desktop-portal? ( >=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT} )
+	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
 			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
