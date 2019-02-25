@@ -11,6 +11,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 KEYWORDS=""
 IUSE="firmware"
 
+# libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
 	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kconfig)
