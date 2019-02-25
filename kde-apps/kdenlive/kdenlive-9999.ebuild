@@ -16,7 +16,7 @@ IUSE="freesound gles2 jogshuttle semantic-desktop share v4l"
 BDEPEND="
 	sys-devel/gettext
 "
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
@@ -43,19 +43,21 @@ RDEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui 'gles2=')
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	>=media-libs/mlt-6.10.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
-	virtual/ffmpeg[encode,sdl,X]
 	freesound? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	share? ( $(add_frameworks_dep purpose) )
 	v4l? ( media-libs/libv4l )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtconcurrent)
+"
+RDEPEND="${COMMON_DEPEND}
+	$(add_qt_dep qtquickcontrols)
+	virtual/ffmpeg[encode,sdl,X]
 "
 
 src_configure() {
