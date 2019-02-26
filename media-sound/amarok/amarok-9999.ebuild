@@ -61,14 +61,14 @@ DEPEND="
 	sci-libs/fftw:3.0
 	sys-libs/zlib
 	virtual/opengl
+	ipod? (
+		dev-libs/glib:2
+		media-libs/libgpod[gtk]
+	)
 	ofa? (
 		media-libs/libofa
 		!libav? ( media-video/ffmpeg:= )
 		libav? ( media-video/libav:= )
-	)
-	ipod? (
-		dev-libs/glib:2
-		media-libs/libgpod[gtk]
 	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mtp? ( media-libs/libmtp )
@@ -90,7 +90,6 @@ src_configure() {
 		-DWITH_UTILITIES=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DWITH_MYSQL_EMBEDDED=OFF
-		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake-utils_use_find_package lastfm LibLastFm)
 		$(cmake-utils_use_find_package mtp Mtp)
