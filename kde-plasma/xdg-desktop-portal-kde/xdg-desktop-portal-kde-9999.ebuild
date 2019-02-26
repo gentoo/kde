@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
+	$(add_qt_dep qtprintsupport 'cups')
 	$(add_qt_dep qtwidgets)
 "
 DEPEND="${COMMON_DEPEND}
