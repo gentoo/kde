@@ -40,7 +40,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_LibVNCServer=$(usex vnc)
+		$(cmake-utils_use_find_package vnc LibVNCServer)
 	)
 
 	kde5_src_configure
