@@ -78,6 +78,7 @@ src_configure() {
 src_install() {
 	kde5_src_install
 
+	# TODO: Make this fully obsolete by /etc/os-release
 	insinto /etc/xdg
 	doins "${FILESDIR}"/kcm-about-distrorc
 
