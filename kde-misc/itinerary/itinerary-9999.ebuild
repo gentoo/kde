@@ -25,6 +25,7 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtpositioning)
 	$(add_qt_dep qtwidgets)
+	kde-misc/kpublictransport:5
 	sys-libs/zlib
 "
 RDEPEND="${DEPEND}
