@@ -3,6 +3,7 @@
 
 EAPI=7
 
+FRAMEWORKS_MINIMAL="5.55.0"
 KDE_HANDBOOK="true"
 inherit kde5
 
@@ -22,7 +23,7 @@ DEPEND="
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libksane)
+	$(add_kdeapps_dep libksane '' 19.03.80)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	media-libs/libpng:0=
