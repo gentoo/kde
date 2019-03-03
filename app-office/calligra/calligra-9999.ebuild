@@ -16,7 +16,7 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-CAL_FTS=( karbon sheets stage words )
+CAL_FTS=( flow karbon sheets stage words )
 
 LICENSE="GPL-2"
 IUSE="activities +crypt +fontconfig gemini gsl import-filter +lcms okular openexr +pdf
