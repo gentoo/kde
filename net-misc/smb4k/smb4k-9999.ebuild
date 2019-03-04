@@ -30,7 +30,6 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwallet)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
@@ -42,10 +41,13 @@ DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
+	net-fs/samba[cups]
 "
 RDEPEND="${DEPEND}
-	net-fs/samba[cups]
-	plasma? ( $(add_frameworks_dep plasma) )
+	plasma? (
+		$(add_frameworks_dep plasma)
+		$(add_qt_dep qtquickcontrols2)
+	)
 "
 
 src_configure(){
