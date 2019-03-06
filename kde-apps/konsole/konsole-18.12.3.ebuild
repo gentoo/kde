@@ -55,3 +55,5 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+PATCHES=( "${FILESDIR}/${P}-cursor.patch" ) # bug 673766
