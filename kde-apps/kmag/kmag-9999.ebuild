@@ -22,7 +22,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
-	keyboardfocus? ( media-libs/libqaccessibilityclient:5 )
+	keyboardfocus? ( >=media-libs/libqaccessibilityclient-0.4:5 )
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kde4-l10n-17.07.80
