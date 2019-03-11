@@ -34,6 +34,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
+	$(add_frameworks_dep syntax-highlighting)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
