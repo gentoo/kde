@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="KDE administration tools - merge this to pull in all kdeadmin-derived packages"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

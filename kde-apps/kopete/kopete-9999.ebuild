@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Multi-protocol IM client based on KDE Frameworks"
-HOMEPAGE="https://userbase.kde.org/Kopete https://www.kde.org/applications/internet/kopete"
+HOMEPAGE="https://userbase.kde.org/Kopete https://kde.org/applications/internet/kopete"
 KEYWORDS=""
 IUSE="ssl v4l"
 

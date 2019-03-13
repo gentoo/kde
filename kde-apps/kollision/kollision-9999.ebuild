@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Simple ball dodging game"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kollision/
+	https://kde.org/applications/games/kollision/
 	https://games.kde.org/game.php?game=kollision
 "
 KEYWORDS=""

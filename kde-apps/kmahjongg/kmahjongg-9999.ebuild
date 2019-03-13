@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="A tile matching game for one or two players"
-HOMEPAGE="https://www.kde.org/applications/games/kmahjongg/
+HOMEPAGE="https://kde.org/applications/games/kmahjongg/
 https://games.kde.org/game.php?game=kmahjongg"
 KEYWORDS=""
 IUSE=""

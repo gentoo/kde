@@ -8,7 +8,7 @@ KDE_HANDBOOK="true"
 inherit kde5
 
 DESCRIPTION="KDE image scanning application"
-HOMEPAGE="https://www.kde.org/applications/graphics/skanlite"
+HOMEPAGE="https://kde.org/applications/graphics/skanlite"
 
 LICENSE="|| ( GPL-2 GPL-3 ) handbook? ( FDL-1.2+ )"
 KEYWORDS=""

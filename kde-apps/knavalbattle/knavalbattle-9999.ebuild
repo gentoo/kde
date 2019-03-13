@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Battleship clone by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/navalbattle/
+	https://kde.org/applications/games/navalbattle/
 	https://games.kde.org/game.php?game=kbattleship
 "
 KEYWORDS=""

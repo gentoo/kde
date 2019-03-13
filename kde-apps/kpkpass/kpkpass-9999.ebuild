@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Library to deal with Apple Wallet pass files"
-HOMEPAGE="https://www.kde.org/applications/office/kontact/"
+HOMEPAGE="https://kde.org/applications/office/kontact/"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""

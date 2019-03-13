@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Educational programming environment using the Logo programming language"
-HOMEPAGE="https://www.kde.org/applications/education/kturtle https://edu.kde.org/kturtle/"
+HOMEPAGE="https://kde.org/applications/education/kturtle https://edu.kde.org/kturtle/"
 KEYWORDS=""
 IUSE=""
 

@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Skat game by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/lskat/
+	https://kde.org/applications/games/lskat/
 	https://games.kde.org/game.php?game=lskat
 "
 KEYWORDS=""

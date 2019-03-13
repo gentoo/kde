@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Kill the bots or they kill you!"
-HOMEPAGE="https://www.kde.org/applications/games/killbots/"
+HOMEPAGE="https://kde.org/applications/games/killbots/"
 KEYWORDS=""
 IUSE=""
 

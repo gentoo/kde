@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Interface to work with Graph Theory"
-HOMEPAGE="https://www.kde.org/applications/education/rocs
+HOMEPAGE="https://kde.org/applications/education/rocs
 https://edu.kde.org/applications/mathematics/rocs"
 KEYWORDS=""
 IUSE=""

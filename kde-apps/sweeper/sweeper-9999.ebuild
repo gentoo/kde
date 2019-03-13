@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Privacy settings widget to clean unwanted traces on the system"
-HOMEPAGE="https://www.kde.org/applications/utilities/sweeper
+HOMEPAGE="https://kde.org/applications/utilities/sweeper
 https://utils.kde.org/projects/sweeper/"
 
 KEYWORDS=""

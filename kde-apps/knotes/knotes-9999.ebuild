@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Note taking application"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 

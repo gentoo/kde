@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Paint Program by KDE"
-HOMEPAGE="https://www.kde.org/applications/graphics/kolourpaint/"
+HOMEPAGE="https://kde.org/applications/graphics/kolourpaint/"
 LICENSE="BSD-2 LGPL-2 LGPL-2+ || ( LGPL-2.1 LGPL-3 ) GPL-2 handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE="scanner"

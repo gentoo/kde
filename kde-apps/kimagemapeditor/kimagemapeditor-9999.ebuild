@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Generator of HTML image maps"
-HOMEPAGE="https://www.kde.org/applications/development/kimagemapeditor/"
+HOMEPAGE="https://kde.org/applications/development/kimagemapeditor/"
 KEYWORDS=""
 IUSE=""
 

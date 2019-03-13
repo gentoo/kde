@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="KDE Bounce Ball Game"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kbounce/
+	https://kde.org/applications/games/kbounce/
 	https://games.kde.org/game.php?game=kbounce
 "
 KEYWORDS=""

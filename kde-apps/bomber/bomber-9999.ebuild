@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Single player arcade bombing game"
-HOMEPAGE="https://www.kde.org/applications/games/bomber/"
+HOMEPAGE="https://kde.org/applications/games/bomber/"
 KEYWORDS=""
 IUSE=""
 

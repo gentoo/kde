@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE Archiving tool"
-HOMEPAGE="https://www.kde.org/applications/utilities/ark
+HOMEPAGE="https://kde.org/applications/utilities/ark
 https://utils.kde.org/projects/ark/"
 KEYWORDS=""
 IUSE="bzip2 lzma zip"

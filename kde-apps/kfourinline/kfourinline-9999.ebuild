@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE four-in-a-row game"
-HOMEPAGE="https://www.kde.org/applications/games/kfourinline/
+HOMEPAGE="https://kde.org/applications/games/kfourinline/
 https://games.kde.org/game.php?game=kfourinline"
 KEYWORDS=""
 IUSE=""

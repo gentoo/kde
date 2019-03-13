@@ -13,7 +13,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Desktop Planetarium"
-HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars/"
+HOMEPAGE="https://kde.org/applications/education/kstars https://edu.kde.org/kstars/"
 IUSE="fits indi +password raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"

@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="File finder utility based on KDE Frameworks"
-HOMEPAGE="https://www.kde.org/applications/utilities/kfind/"
+HOMEPAGE="https://kde.org/applications/utilities/kfind/"
 KEYWORDS=""
 IUSE=""
 

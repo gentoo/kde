@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Pac-Man clone by KDE"
-HOMEPAGE="https://www.kde.org/applications/games/kapman/"
+HOMEPAGE="https://kde.org/applications/games/kapman/"
 KEYWORDS=""
 IUSE=""
 

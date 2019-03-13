@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Email client, supporting POP3 and IMAP mailboxes."
-HOMEPAGE="https://www.kde.org/applications/internet/kmail/"
+HOMEPAGE="https://kde.org/applications/internet/kmail/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""

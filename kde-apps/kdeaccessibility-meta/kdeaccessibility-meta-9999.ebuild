@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="kdeaccessibility - merge this to pull in all kdeaccessiblity-derived packages"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

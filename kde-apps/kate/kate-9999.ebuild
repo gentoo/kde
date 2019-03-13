@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Kate is an advanced text editor"
-HOMEPAGE="https://www.kde.org/applications/utilities/kate https://kate-editor.org/"
+HOMEPAGE="https://kde.org/applications/utilities/kate https://kate-editor.org/"
 KEYWORDS=""
 IUSE="+addons"
 

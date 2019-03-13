@@ -10,7 +10,7 @@ inherit flag-o-matic kde5
 
 DESCRIPTION="Web browser and file manager based on KDE Frameworks"
 HOMEPAGE="
-	https://www.kde.org/applications/internet/konqueror/
+	https://kde.org/applications/internet/konqueror/
 	https://konqueror.org/
 "
 KEYWORDS=""

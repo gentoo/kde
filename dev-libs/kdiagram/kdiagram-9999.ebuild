@@ -15,7 +15,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Powerful libraries (KChart, KGantt) for creating business diagrams"
-HOMEPAGE="https://www.kde.org/ https://www.kdab.com/development-resources/qt-tools/kd-chart/"
+HOMEPAGE="https://kde.org/ https://www.kdab.com/development-resources/qt-tools/kd-chart/"
 IUSE=""
 
 REQUIRED_USE="test? ( examples )"

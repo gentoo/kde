@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE Bomberman game"
-HOMEPAGE="https://www.kde.org/applications/games/granatier/"
+HOMEPAGE="https://kde.org/applications/games/granatier/"
 KEYWORDS=""
 IUSE=""
 

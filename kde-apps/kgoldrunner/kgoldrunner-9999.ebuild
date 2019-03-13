@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Game of action and puzzle solving by KDE"
-HOMEPAGE="https://www.kde.org/applications/games/kgoldrunner/
+HOMEPAGE="https://kde.org/applications/games/kgoldrunner/
 https://games.kde.org/game.php?game=kgoldrunner"
 KEYWORDS=""
 IUSE=""

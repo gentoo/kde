@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Frontend for Cachegrind by KDE"
-HOMEPAGE="https://www.kde.org/applications/development/kcachegrind
+HOMEPAGE="https://kde.org/applications/development/kcachegrind
 https://kcachegrind.github.io/html/Home.html"
 KEYWORDS=""
 IUSE="nls"

@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Mathematical function plotter"
-HOMEPAGE="https://www.kde.org/applications/education/kmplot https://edu.kde.org/kmplot/"
+HOMEPAGE="https://kde.org/applications/education/kmplot https://edu.kde.org/kmplot/"
 KEYWORDS=""
 IUSE=""
 

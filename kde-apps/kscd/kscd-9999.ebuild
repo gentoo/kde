@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="CDDB enabled audio CD player based on KDE Frameworks"
-HOMEPAGE="https://www.kde.org/applications/multimedia/kscd/"
+HOMEPAGE="https://kde.org/applications/multimedia/kscd/"
 KEYWORDS=""
 IUSE=""
 

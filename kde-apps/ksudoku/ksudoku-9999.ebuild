@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Logic-based symbol placement puzzle by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/ksudoku/
+	https://kde.org/applications/games/ksudoku/
 	https://games.kde.org/game.php?game=ksudoku
 "
 KEYWORDS=""

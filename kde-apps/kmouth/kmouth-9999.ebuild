@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Text-to-speech synthesizer front end"
-HOMEPAGE="https://www.kde.org/applications/utilities/kmouth/"
+HOMEPAGE="https://kde.org/applications/utilities/kmouth/"
 KEYWORDS=""
 IUSE=""
 

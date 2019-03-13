@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="A little KDE game about balls and how to get rid of them"
-HOMEPAGE="https://www.kde.org/applications/games/klines/
+HOMEPAGE="https://kde.org/applications/games/klines/
 https://games.kde.org/game.php?game=klines"
 KEYWORDS=""
 IUSE=""

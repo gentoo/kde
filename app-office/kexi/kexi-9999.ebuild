@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Visual database applications creator"
-HOMEPAGE="https://www.kde.org/applications/office/kexi/ http://www.kexi-project.org/"
+HOMEPAGE="https://kde.org/applications/office/kexi/ http://www.kexi-project.org/"
 [[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
 
 KEYWORDS=""

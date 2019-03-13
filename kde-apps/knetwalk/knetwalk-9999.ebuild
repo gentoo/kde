@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE version of the popular NetWalk game for system administrators"
 HOMEPAGE="
-	https://www.kde.org/applications/games/knetwalk/
+	https://kde.org/applications/games/knetwalk/
 	https://games.kde.org/game.php?game=knetwalk
 "
 KEYWORDS=""
