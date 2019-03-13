@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE timer for making a fine cup of tea"
-HOMEPAGE="https://www.kde.org/applications/games/kteatime"
+HOMEPAGE="https://kde.org/applications/games/kteatime"
 KEYWORDS=""
 IUSE=""
 

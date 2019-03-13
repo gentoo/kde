@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Shell script to create the necessary framework to develop KDE applications"
-HOMEPAGE="https://www.kde.org/applications/development/kapptemplate"
+HOMEPAGE="https://kde.org/applications/development/kapptemplate"
 KEYWORDS=""
 IUSE=""
 

@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Certificate manager and GUI for OpenPGP and CMS cryptography"
-HOMEPAGE="https://www.kde.org/applications/utilities/kleopatra"
+HOMEPAGE="https://kde.org/applications/utilities/kleopatra"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""

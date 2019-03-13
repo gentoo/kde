@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Application for debugging Akonadi Resources"
 LICENSE="GPL-2+ LGPL-2.1+ handbook? ( FDL-1.2+ )"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 KEYWORDS=""
 
 IUSE=""

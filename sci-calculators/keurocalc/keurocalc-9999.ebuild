@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Universal currency converter and calculator"
-HOMEPAGE="https://www.kde.org/applications/office/keurocalc/ https://userbase.kde.org/KEuroCalc"
+HOMEPAGE="https://kde.org/applications/office/keurocalc/ https://userbase.kde.org/KEuroCalc"
 
 LICENSE="GPL-2+ FDL-1.2"
 KEYWORDS=""

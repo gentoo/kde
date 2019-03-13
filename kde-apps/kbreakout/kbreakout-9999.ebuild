@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Breakout-like game by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kbreakout/
+	https://kde.org/applications/games/kbreakout/
 	https://games.kde.org/game.php?game=kbreakout
 "
 KEYWORDS=""

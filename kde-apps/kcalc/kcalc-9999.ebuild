@@ -8,7 +8,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="KDE calculator"
-HOMEPAGE="https://www.kde.org/applications/utilities/kcalc
+HOMEPAGE="https://kde.org/applications/utilities/kcalc
 https://utils.kde.org/projects/kcalc/"
 KEYWORDS=""
 IUSE=""

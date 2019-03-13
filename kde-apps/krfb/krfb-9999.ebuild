@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="VNC-compatible server to share Plasma desktops"
-HOMEPAGE="https://www.kde.org/applications/system/krfb/"
+HOMEPAGE="https://kde.org/applications/system/krfb/"
 KEYWORDS=""
 IUSE=""
 

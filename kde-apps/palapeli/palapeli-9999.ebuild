@@ -7,7 +7,7 @@ KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Jigsaw puzzle game by KDE"
-HOMEPAGE="https://www.kde.org/applications/games/palapeli/"
+HOMEPAGE="https://kde.org/applications/games/palapeli/"
 KEYWORDS=""
 IUSE=""
 

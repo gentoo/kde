@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="An addictive and fun dice game"
-HOMEPAGE="https://www.kde.org/applications/games/kiriki/
+HOMEPAGE="https://kde.org/applications/games/kiriki/
 https://games.kde.org/game.php?game=kiriki"
 KEYWORDS=""
 IUSE=""

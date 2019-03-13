@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Memory enhancement game based on KDE Frameworks"
-HOMEPAGE="https://www.kde.org/applications/education/blinken
+HOMEPAGE="https://kde.org/applications/education/blinken
 https://edu.kde.org/blinken/"
 KEYWORDS=""
 IUSE=""

@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Straightforward graphical means to format 3.5\" and 5.25\" floppy disks"
 HOMEPAGE="
-	https://www.kde.org/applications/utilities/kfloppy/
+	https://kde.org/applications/utilities/kfloppy/
 	https://utils.kde.org/projects/kfloppy/
 "
 

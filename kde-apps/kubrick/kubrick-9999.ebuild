@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Game based on the \"Rubik's Cube\" puzzle by KDE"
-HOMEPAGE="https://www.kde.org/applications/games/kubrick/"
+HOMEPAGE="https://kde.org/applications/games/kubrick/"
 KEYWORDS=""
 IUSE=""
 

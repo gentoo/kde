@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Galactic Strategy KDE Game"
 HOMEPAGE="
-	https://www.kde.org/applications/games/konquest/
+	https://kde.org/applications/games/konquest/
 	https://games.kde.org/game.php?game=konquest
 "
 KEYWORDS=""

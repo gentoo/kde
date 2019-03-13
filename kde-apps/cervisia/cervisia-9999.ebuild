@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="CVS frontend by KDE"
-HOMEPAGE="https://www.kde.org/applications/development/cervisia"
+HOMEPAGE="https://kde.org/applications/development/cervisia"
 KEYWORDS=""
 IUSE=""
 

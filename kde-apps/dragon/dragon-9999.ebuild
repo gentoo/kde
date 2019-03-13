@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="A simple video player"
-HOMEPAGE="https://www.kde.org/applications/multimedia/dragonplayer"
+HOMEPAGE="https://kde.org/applications/multimedia/dragonplayer"
 
 LICENSE="GPL-2+ || ( GPL-2 GPL-3 ) handbook? ( FDL-1.2 )"
 KEYWORDS=""

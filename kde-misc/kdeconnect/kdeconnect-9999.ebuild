@@ -15,7 +15,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
-HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
+HOMEPAGE="https://kde.org/ https://community.kde.org/KDEConnect"
 LICENSE="GPL-2+"
 IUSE="app bluetooth kde mousepad phonon pulseaudio sms wayland"
 

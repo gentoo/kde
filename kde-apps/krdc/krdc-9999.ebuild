@@ -7,7 +7,7 @@ KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Remote desktop connection (RDP and VNC) client"
-HOMEPAGE="https://www.kde.org/applications/internet/krdc/"
+HOMEPAGE="https://kde.org/applications/internet/krdc/"
 KEYWORDS=""
 IUSE="+rdp vnc"
 

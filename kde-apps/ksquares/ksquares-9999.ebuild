@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="KDE clone of the game squares"
 HOMEPAGE="
-	https://www.kde.org/applications/games/ksquares/
+	https://kde.org/applications/games/ksquares/
 	https://games.kde.org/game.php?game=ksquares
 "
 KEYWORDS=""

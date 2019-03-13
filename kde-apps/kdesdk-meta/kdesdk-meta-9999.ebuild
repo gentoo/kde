@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="KDE SDK - merge this to pull in all kdesdk-derived packages"
-HOMEPAGE="https://www.kde.org/applications/development"
+HOMEPAGE="https://kde.org/applications/development"
 
 LICENSE="metapackage"
 SLOT="5"

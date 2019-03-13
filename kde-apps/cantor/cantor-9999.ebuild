@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit kde5 python-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
-HOMEPAGE="https://www.kde.org/applications/education/cantor https://edu.kde.org/cantor/"
+HOMEPAGE="https://kde.org/applications/education/cantor https://edu.kde.org/cantor/"
 KEYWORDS=""
 IUSE="+analitza julia lua markdown postscript python qalculate R"
 

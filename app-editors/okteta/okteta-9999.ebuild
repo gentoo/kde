@@ -14,7 +14,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Hex editor by KDE"
-HOMEPAGE="https://www.kde.org/applications/utilities/okteta
+HOMEPAGE="https://kde.org/applications/utilities/okteta
 https://utils.kde.org/projects/okteta/"
 IUSE="crypt designer"
 

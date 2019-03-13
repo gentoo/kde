@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Powerful BitTorrent client based on KDE Frameworks"
-HOMEPAGE="https://www.kde.org/applications/internet/ktorrent/"
+HOMEPAGE="https://kde.org/applications/internet/ktorrent/"
 [[ ${KDE_BUILD_TYPE} = release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV/%.0}/${P}.tar.xz"
 
 LICENSE="GPL-2"

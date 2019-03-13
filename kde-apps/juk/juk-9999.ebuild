@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Jukebox and music manager by KDE"
-HOMEPAGE="https://www.kde.org/applications/multimedia/juk/"
+HOMEPAGE="https://kde.org/applications/multimedia/juk/"
 
 KEYWORDS=""
 IUSE=""

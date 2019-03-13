@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 python3_{5,6} )
 inherit python-single-r1 kde5
 
 DESCRIPTION="KDE Applications 5 translation tool"
-HOMEPAGE="https://www.kde.org/applications/development/lokalize
+HOMEPAGE="https://kde.org/applications/development/lokalize
 https://l10n.kde.org/tools/"
 KEYWORDS=""
 IUSE=""

@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Educational application to learn calculating with fractions"
-HOMEPAGE="https://www.kde.org/applications/education/kbruch https://edu.kde.org/kbruch/"
+HOMEPAGE="https://kde.org/applications/education/kbruch https://edu.kde.org/kbruch/"
 KEYWORDS=""
 IUSE=""
 

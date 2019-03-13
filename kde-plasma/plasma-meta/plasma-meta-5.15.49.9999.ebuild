@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Merge this to pull in all Plasma 5 packages"
-HOMEPAGE="https://www.kde.org/plasma-desktop"
+HOMEPAGE="https://kde.org/plasma-desktop"
 
 LICENSE="metapackage"
 SLOT="5"

@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
-HOMEPAGE="https://okular.kde.org https://www.kde.org/applications/graphics/okular"
+HOMEPAGE="https://okular.kde.org https://kde.org/applications/graphics/okular"
 KEYWORDS=""
 IUSE="chm crypt djvu epub +image-backend markdown mobi mobile +pdf plucker +postscript share speech +tiff"
 

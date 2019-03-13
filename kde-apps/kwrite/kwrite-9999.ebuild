@@ -8,7 +8,7 @@ KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="KDE simple text editor"
-HOMEPAGE="https://www.kde.org/applications/utilities/kwrite"
+HOMEPAGE="https://kde.org/applications/utilities/kwrite"
 KEYWORDS=""
 
 DEPEND="

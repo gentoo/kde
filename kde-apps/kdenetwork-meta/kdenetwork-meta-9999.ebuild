@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="kdenetwork - merge this to pull in all kdenetwork-derived packages"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

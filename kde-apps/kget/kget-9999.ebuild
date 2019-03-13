@@ -8,7 +8,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Advanced download manager by KDE"
-HOMEPAGE="https://www.kde.org/applications/internet/kget/"
+HOMEPAGE="https://kde.org/applications/internet/kget/"
 KEYWORDS=""
 IUSE="bittorrent gpg kde mms sqlite"
 

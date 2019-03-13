@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Port of the board game risk"
 HOMEPAGE="
-	https://www.kde.org/applications/games/ksirk/
+	https://kde.org/applications/games/ksirk/
 	https://games.kde.org/game.php?game=ksirk
 "
 KEYWORDS=""

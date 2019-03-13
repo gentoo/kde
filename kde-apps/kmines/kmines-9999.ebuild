@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Classic mine sweeper game"
-HOMEPAGE="https://www.kde.org/applications/games/kmines/
+HOMEPAGE="https://kde.org/applications/games/kmines/
 https://games.kde.org/game.php?game=kmines"
 KEYWORDS=""
 IUSE=""

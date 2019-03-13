@@ -8,7 +8,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Data Model and Extraction System for Travel Reservation information"
-HOMEPAGE="https://www.kde.org/applications/office/kontact/"
+HOMEPAGE="https://kde.org/applications/office/kontact/"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""

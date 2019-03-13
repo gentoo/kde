@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="System log viewer by KDE"
-HOMEPAGE="https://www.kde.org/applications/system/ksystemlog/"
+HOMEPAGE="https://kde.org/applications/system/ksystemlog/"
 KEYWORDS=""
 IUSE="systemd"
 

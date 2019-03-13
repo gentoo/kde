@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Merge this to pull in all KDE Plasma and Applications packages"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

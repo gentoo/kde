@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="Program that helps to learn and practice touch typing"
-HOMEPAGE="https://www.kde.org/applications/education/ktouch/"
+HOMEPAGE="https://kde.org/applications/education/ktouch/"
 KEYWORDS=""
 IUSE=""
 

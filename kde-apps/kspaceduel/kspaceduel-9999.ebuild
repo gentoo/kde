@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Space Game by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kspaceduel/
+	https://kde.org/applications/games/kspaceduel/
 	https://games.kde.org/game.php?game=kspaceduel
 "
 KEYWORDS=""

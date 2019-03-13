@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="A KDE game similiar to Mahjongg"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kshisen/
+	https://kde.org/applications/games/kshisen/
 	https://games.kde.org/game.php?game=kshisen
 "
 KEYWORDS=""

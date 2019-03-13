@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="games"
 inherit kde5
 
 DESCRIPTION="Tactical one or two player game"
-HOMEPAGE="https://www.kde.org/applications/games/kjumpingcube/
+HOMEPAGE="https://kde.org/applications/games/kjumpingcube/
 https://games.kde.org/game.php?game=kjumpingcube"
 KEYWORDS=""
 IUSE=""

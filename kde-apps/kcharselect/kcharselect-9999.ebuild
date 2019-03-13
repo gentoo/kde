@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE character selection utility"
-HOMEPAGE="https://www.kde.org/applications/utilities/kcharselect
+HOMEPAGE="https://kde.org/applications/utilities/kcharselect
 https://utils.kde.org/projects/kcharselect/"
 KEYWORDS=""
 IUSE=""

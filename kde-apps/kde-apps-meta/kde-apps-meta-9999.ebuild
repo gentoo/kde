@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Meta package for the KDE Applications collection"
-HOMEPAGE="https://www.kde.org/"
+HOMEPAGE="https://kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

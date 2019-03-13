@@ -9,7 +9,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE's terminal emulator"
-HOMEPAGE="https://www.kde.org/applications/system/konsole https://konsole.kde.org"
+HOMEPAGE="https://kde.org/applications/system/konsole https://konsole.kde.org"
 
 KEYWORDS=""
 IUSE="X"

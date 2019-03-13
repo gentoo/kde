@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5 flag-o-matic
 
 DESCRIPTION="Periodic table of the elements"
-HOMEPAGE="https://www.kde.org/applications/education/kalzium https://edu.kde.org/kalzium/"
+HOMEPAGE="https://kde.org/applications/education/kalzium https://edu.kde.org/kalzium/"
 KEYWORDS=""
 IUSE="editor solver"
 

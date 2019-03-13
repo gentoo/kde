@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Board game by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/kreversi/
+	https://kde.org/applications/games/kreversi/
 	https://games.kde.org/game.php?game=kreversi
 "
 KEYWORDS=""

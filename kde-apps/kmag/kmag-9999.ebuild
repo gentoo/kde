@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE screen magnifier"
-HOMEPAGE="https://www.kde.org/applications/utilities/kmag/"
+HOMEPAGE="https://kde.org/applications/utilities/kmag/"
 KEYWORDS=""
 IUSE="keyboardfocus"
 

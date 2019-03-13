@@ -8,7 +8,7 @@ KDE_SELINUX_MODULE="gpg"
 inherit kde5
 
 DESCRIPTION="Frontend for GnuPG, a powerful encryption utility by KDE"
-HOMEPAGE="https://www.kde.org/applications/utilities/kgpg
+HOMEPAGE="https://kde.org/applications/utilities/kgpg
 https://utils.kde.org/projects/kgpg/"
 KEYWORDS=""
 IUSE=""

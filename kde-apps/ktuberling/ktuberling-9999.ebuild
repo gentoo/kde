@@ -9,7 +9,7 @@ inherit kde5
 
 DESCRIPTION="Potato game for kids by KDE"
 HOMEPAGE="
-	https://www.kde.org/applications/games/ktuberling/
+	https://kde.org/applications/games/ktuberling/
 	https://games.kde.org/game.php?game=ktuberling
 "
 KEYWORDS=""
