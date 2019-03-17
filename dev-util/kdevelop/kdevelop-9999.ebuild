@@ -10,6 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2 LGPL-2"
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion webkit"
 [[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
