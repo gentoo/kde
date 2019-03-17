@@ -3,13 +3,13 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KDE_TEST="forceoptional"
 KMNAME="kdev-krazy2"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="Plugin for KDevelop to perform Krazy2 analysis"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
