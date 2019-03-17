@@ -3,12 +3,12 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KDE_TEST="true"
 KMNAME="kdev-css"
 inherit kde5
 
 DESCRIPTION="CSS Language Support plugin for KDevelop"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
