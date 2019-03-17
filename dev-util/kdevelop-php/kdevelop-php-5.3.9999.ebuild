@@ -3,7 +3,6 @@
 
 EAPI=7
 
-EGIT_BRANCH="5.3"
 KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
