@@ -3,11 +3,11 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KMNAME="kdev-valgrind"
 inherit kde5
 
 DESCRIPTION="Plugin offering full integration of the valgrind suite to KDevelop"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
