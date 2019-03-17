@@ -3,11 +3,11 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KMNAME="kdev-embedded"
 inherit kde5
 
 DESCRIPTION="Plugin for KDevelop to support the development of embedded systems"
+HOMEPAGE="https://www.kdevelop.org/"
 IUSE=""
 
 DEPEND="
