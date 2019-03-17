@@ -3,11 +3,11 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KMNAME="kdev-go"
 inherit kde5
 
 DESCRIPTION="Go language support for KDevelop"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="test"
