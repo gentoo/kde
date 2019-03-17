@@ -3,11 +3,11 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KMNAME="kdev-upload"
 inherit kde5
 
 DESCRIPTION="Plugin for uploading files to a remote server"
+HOMEPAGE="https://www.kdevelop.org/"
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
