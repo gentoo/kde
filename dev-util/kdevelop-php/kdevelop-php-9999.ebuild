@@ -3,7 +3,6 @@
 
 EAPI=7
 
-KDEBASE="kdevelop"
 KDE_DOC_DIR="docs"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="true"
