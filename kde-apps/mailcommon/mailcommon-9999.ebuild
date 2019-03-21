@@ -46,9 +46,9 @@ DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	media-libs/phonon[qt5(+)]
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
