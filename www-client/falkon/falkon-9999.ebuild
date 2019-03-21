@@ -8,8 +8,8 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/src/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	SRC_URI="mirror://kde/stable/${PN}/${PV%.0}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 DESCRIPTION="Cross-platform web browser using QtWebEngine"
@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwebchannel)
 	$(add_qt_dep qtwebengine 'widgets' '' '5=')
 	$(add_qt_dep qtwidgets)
+	virtual/libintl
 	dbus? ( $(add_qt_dep qtdbus) )
 	gnome-keyring? ( gnome-base/libgnome-keyring )
 	kde? (
