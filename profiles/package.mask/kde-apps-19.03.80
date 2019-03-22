@@ -23,11 +23,11 @@
 ~kde-apps/cantor-19.03.80
 ~kde-apps/cervisia-19.03.80
 ~kde-apps/dolphin-19.03.80
-~kde-apps/dolphin-plugins-bazaar-18.12.3
-~kde-apps/dolphin-plugins-dropbox-18.12.3
-~kde-apps/dolphin-plugins-git-18.12.3
-~kde-apps/dolphin-plugins-mercurial-18.12.3
-~kde-apps/dolphin-plugins-subversion-18.12.3
+~kde-apps/dolphin-plugins-bazaar-19.03.80
+~kde-apps/dolphin-plugins-dropbox-19.03.80
+~kde-apps/dolphin-plugins-git-19.03.80
+~kde-apps/dolphin-plugins-mercurial-19.03.80
+~kde-apps/dolphin-plugins-subversion-19.03.80
 ~kde-apps/dragon-19.03.80
 ~kde-apps/eventviews-19.03.80
 ~kde-apps/ffmpegthumbs-19.03.80
