@@ -26,7 +26,7 @@
 <kde-apps/kolf-18.12.50
 <kde-apps/kollision-18.12.50
 <kde-apps/konquest-18.12.50
-# <kde-apps/kpat-18.12.50 # depends on freecell-solver, bug 656408
+<kde-apps/kpat-18.12.50
 <kde-apps/kreversi-18.12.50
 <kde-apps/kshisen-18.12.50
 <kde-apps/ksirk-18.12.50

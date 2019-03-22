@@ -27,7 +27,7 @@ kde-apps/knights
 kde-apps/kolf
 kde-apps/kollision
 kde-apps/konquest
-# kde-apps/kpat # depends on freecell-solver, bug 656408
+kde-apps/kpat
 kde-apps/kreversi
 kde-apps/kshisen
 kde-apps/ksirk
