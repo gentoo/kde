@@ -89,7 +89,7 @@ RESTRICT+=" test"
 
 src_prepare() {
 	kde5_src_prepare
-	use multimedia || eapply "${FILESDIR}/${PN}-gstreamer-optional.patch"
+	use multimedia || eapply "${FILESDIR}/${PN}-5.15.80-gstreamer-optional.patch"
 
 	# Access violations, bug #640432
 	sed -e "s/^ecm_find_qmlmodule.*QtMultimedia/#&/" \
