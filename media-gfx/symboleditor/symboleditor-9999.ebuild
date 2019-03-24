@@ -18,6 +18,9 @@ LICENSE="GPL-2"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="
+	sys-devel/gettext
+"
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
