@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE="raw"
 
 DEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kio)
 	$(add_qt_dep qtgui)
 	raw? (
