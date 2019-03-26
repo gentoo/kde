@@ -4,6 +4,7 @@
 EAPI=7
 
 KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="Screenshot capture utility"
