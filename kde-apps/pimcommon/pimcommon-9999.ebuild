@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
-IUSE="share"
+IUSE=""
 
 BDEPEND="
 	dev-libs/libxslt
@@ -32,6 +32,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep purpose)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep kcontacts)
@@ -45,7 +46,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/grantlee:5
-	share? ( $(add_frameworks_dep purpose) )
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kiconthemes)
@@ -55,14 +55,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package share KF5Purpose)
-	)
-
-	kde5_src_configure
-}
 
 src_test() {
 	# bugs 641730, 661330
