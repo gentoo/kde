@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Library for encryption handling"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="+fancyviewer"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcodecs)
@@ -20,10 +20,10 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
-	$(add_kdeapps_dep kpimtextedit)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	fancyviewer? ( $(add_kdeapps_dep kpimtextedit) )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
@@ -31,3 +31,11 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package fancyviewer KF5PimTextEdit)
+	)
+
+	cmake-utils_src_configure
+}
