@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_HANDBOOK="true"
-inherit kde5 pax-utils
+inherit kde5
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
@@ -101,13 +101,6 @@ src_configure() {
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
 
 	kde5_src_configure
-}
-
-src_install() {
-	kde5_src_install
-
-	# bug 481592
-	pax-mark m "${ED}"/usr/bin/amarok
 }
 
 pkg_postinst() {
