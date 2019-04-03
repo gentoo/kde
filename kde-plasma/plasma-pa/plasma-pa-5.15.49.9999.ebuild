@@ -3,6 +3,7 @@
 
 EAPI=7
 
+CMAKE_REMOVE_MODULES_LIST=( FindGLIB2 )
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
@@ -20,6 +21,7 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	dev-libs/glib:2
 	media-libs/libcanberra
 	media-sound/pulseaudio
 "
@@ -30,4 +32,4 @@ RDEPEND="${DEPEND}
 	x11-themes/sound-theme-freedesktop
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.13.3-automagic_gconf.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.15.4-gsettings.patch" )
