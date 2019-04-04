@@ -30,5 +30,3 @@ RDEPEND="${DEPEND}
 	media-libs/libcanberra
 	x11-themes/sound-theme-freedesktop
 "
-
-PATCHES=( "${FILESDIR}/${PN}-5.13.3-automagic_gconf.patch" )
