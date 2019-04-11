@@ -30,6 +30,6 @@ DEPEND="
 		app-crypt/qca[botan]
 		app-crypt/qca[ssl]
 	)
-	>=sys-apps/util-linux-2.32
+	>=sys-apps/util-linux-2.33.2
 "
 RDEPEND="${DEPEND}"
