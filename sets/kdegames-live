@@ -26,7 +26,7 @@
 ~kde-apps/kolf-9999
 ~kde-apps/kollision-9999
 ~kde-apps/konquest-9999
-# ~kde-apps/kpat-9999 # depends on freecell-solver, bug 656408
+~kde-apps/kpat-9999
 ~kde-apps/kreversi-9999
 ~kde-apps/kshisen-9999
 ~kde-apps/ksirk-9999
