@@ -85,6 +85,7 @@
 ~kde-apps/kdegraphics-mobipocket-19.04.0
 ~kde-apps/kde-meta-19.04.0
 ~kde-apps/kdemultimedia-meta-19.04.0
+~kde-apps/kdenlive-19.04.0
 ~kde-apps/kdenetwork-filesharing-19.04.0
 ~kde-apps/kdenetwork-meta-19.04.0
 ~kde-apps/kdenlive-19.04.0
@@ -153,6 +154,7 @@
 ~kde-apps/kontactinterface-19.04.0
 ~kde-apps/kopete-19.04.0
 ~kde-apps/korganizer-19.04.0
+~kde-apps/kpat-19.04.0
 ~kde-apps/kpimtextedit-19.04.0
 ~kde-apps/kpkpass-19.04.0
 ~kde-apps/kqtquickcharts-19.04.0
