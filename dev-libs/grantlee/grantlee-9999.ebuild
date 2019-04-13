@@ -27,6 +27,9 @@ BDEPEND="
 	doc? ( app-doc/doxygen[dot] )
 "
 
+# bug 682258
+RESTRICT="test"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.0-nonfatal-warnings.patch"
 	"${FILESDIR}/${PN}-5.1.0-slot.patch"
