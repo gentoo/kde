@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_QTHELP="true"
 KDE_TEST="true" # build system adds autotests dir based on BUILD_TESTING value
 inherit kde5
 
