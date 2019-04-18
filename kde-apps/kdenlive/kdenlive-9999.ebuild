@@ -4,6 +4,7 @@
 EAPI=7
 
 KDE_HANDBOOK="optional"
+KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Non-linear video editing suite by KDE"
@@ -11,7 +12,7 @@ HOMEPAGE="https://www.kdenlive.org/"
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="freesound gles2 jogshuttle semantic-desktop share v4l"
+IUSE="freesound gles2 semantic-desktop share v4l"
 
 BDEPEND="
 	sys-devel/gettext
@@ -64,7 +65,6 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package freesound Qt5WebKitWidgets)
-		-DWITH_JogShuttle=$(usex jogshuttle)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
 		$(cmake-utils_use_find_package share KF5Purpose)
 		$(cmake-utils_use_find_package v4l LibV4L2)
