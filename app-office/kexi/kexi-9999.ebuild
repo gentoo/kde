@@ -54,10 +54,7 @@ DEPEND="
 	)
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 "
-RDEPEND="${DEPEND}
-	!app-office/calligra:4[calligra_features_kexi]
-	!app-office/calligra-l10n:4[calligra_features_kexi(+)]
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	if ! use webkit; then
