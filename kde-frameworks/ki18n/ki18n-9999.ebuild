@@ -22,6 +22,8 @@ DEPEND="${RDEPEND}
 	test? ( $(add_qt_dep qtconcurrent) )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-5.57.0-python.patch" )
+
 pkg_setup() {
 	kde5_pkg_setup
 	python-single-r1_pkg_setup
