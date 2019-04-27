@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	markdown? ( app-text/discount )
 "
 DEPEND="${COMMON_DEPEND}
-	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kaddressbook:4
