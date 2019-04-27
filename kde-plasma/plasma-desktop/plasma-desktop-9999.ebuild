@@ -112,6 +112,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kcontrol
 	!<kde-apps/kde4-l10n-17.08.1-r1
 	!kde-apps/knetattach[handbook]
+	!<kde-plasma/kdeplasma-addons-5.15.80
 "
 
 src_configure() {
