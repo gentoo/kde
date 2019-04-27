@@ -21,6 +21,7 @@ IUSE="dbus kde libressl +X"
 
 # drop qtwebengine subslot operator when QT_MINIMAL >= 5.12.0
 COMMON_DEPEND="
+	$(add_frameworks_dep karchive)
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork 'ssl')
