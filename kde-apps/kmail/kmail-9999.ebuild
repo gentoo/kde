@@ -68,7 +68,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
-	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kcalutils)
