@@ -37,7 +37,7 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
-	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	dev-libs/boost:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
