@@ -48,7 +48,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
-	>=app-crypt/gpgme-1.7.1[cxx,qt5]
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	dev-libs/grantlee:5
 "
 RDEPEND="${DEPEND}
