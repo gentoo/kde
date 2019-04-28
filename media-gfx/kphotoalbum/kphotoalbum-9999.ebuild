@@ -45,12 +45,11 @@ DEPEND="
 	raw? ( $(add_kdeapps_dep libkdcraw) )
 "
 RDEPEND="${DEPEND}
-	|| ( media-video/ffmpeg media-video/mplayer )
+	media-video/ffmpeg
 	kipi? ( media-plugins/kipi-plugins:5 )
-	!media-gfx/kphotoalbum:4
 "
 
-DOCS=( ChangeLog README )
+DOCS=( ChangeLog README.md )
 
 src_configure() {
 	local mycmakeargs=(
