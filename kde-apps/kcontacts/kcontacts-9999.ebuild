@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_QTHELP="true"
 KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
