@@ -12,7 +12,7 @@ HOMEPAGE="https://kde.org/applications/system/kdepartitionmanager"
 [[ ${KDE_BUILD_TYPE} == release ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 DEPEND="
@@ -29,6 +29,6 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	>=sys-libs/kpmcore-3.3.0:5=
+	>=sys-libs/kpmcore-4.0.0:5=
 "
 RDEPEND="${DEPEND}"
