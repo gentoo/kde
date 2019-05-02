@@ -15,9 +15,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2"
-IUSE="webengine webkit zotero"
-
-REQUIRED_USE="?? ( webengine webkit )"
+IUSE="webengine zotero"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -48,7 +46,6 @@ DEPEND="
 	dev-libs/icu:=
 	virtual/tex-base
 	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
-	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	zotero? (
 		app-crypt/qca[qt5(+)]
 		dev-libs/qoauth:5
@@ -63,8 +60,8 @@ S="${WORKDIR}/${P/_/-}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
 		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
-		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
 		$(cmake-utils_use_find_package zotero Qca-qt5)
 	)
 
