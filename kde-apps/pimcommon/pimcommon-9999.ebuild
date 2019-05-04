@@ -45,7 +45,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kiconthemes)
