@@ -39,6 +39,7 @@ DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep akonadi-search)
+	$(add_kdeapps_dep grantleetheme)
 	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kcontacts)
