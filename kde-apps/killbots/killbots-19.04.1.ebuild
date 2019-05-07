@@ -4,12 +4,11 @@
 EAPI=7
 
 KDE_HANDBOOK="forceoptional"
-KDE_SELINUX_MODULE="games"
 inherit kde5
 
-DESCRIPTION="KDE patience game"
-HOMEPAGE="https://games.kde.org/game.php?game=kpat"
-KEYWORDS=""
+DESCRIPTION="Kill the bots or they kill you!"
+HOMEPAGE="https://kde.org/applications/games/killbots/"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 
 DEPEND="
@@ -19,16 +18,13 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep libkdegames)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
-	dev-games/freecell-solver
 "
 RDEPEND="${DEPEND}"
+
+DOCS=()
