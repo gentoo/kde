@@ -10,7 +10,7 @@ DESCRIPTION="Plasma integration for controlling Thunderbolt devices"
 HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
 	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
 
-LICENSE="LGPL-2+"
+LICENSE="|| ( GPL-2 GPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
