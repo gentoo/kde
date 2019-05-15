@@ -427,8 +427,8 @@ _cmake_modify-cmakelists() {
 		-i {} + || die "${LINENO}: failed to disable hardcoded settings"
 	local x
 	for x in $(find "${CMAKE_USE_DIR}" -name CMakeLists.txt -exec grep -l "^#_cmake_modify_IGNORE" {} +;); do
-		eqawarn "Hardcoded definition(s) removed in $(echo "${x}" | cut -c $((${#CMAKE_USE_DIR}+2))-):"
-		eqawarn "$(grep -se '^#_cmake_modify_IGNORE' ${x} | cut -c 22-99)"
+		einfo "Hardcoded definition(s) removed in $(echo "${x}" | cut -c $((${#CMAKE_USE_DIR}+2))-):"
+		einfo "$(grep -se '^#_cmake_modify_IGNORE' ${x} | cut -c 22-99)"
 	done
 
 	# NOTE Append some useful summary here
