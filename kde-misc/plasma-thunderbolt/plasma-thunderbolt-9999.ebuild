@@ -13,7 +13,7 @@ LICENSE="|| ( GPL-2 GPL-3+ )"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
@@ -24,6 +24,6 @@ RDEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 "
-DEPEND="${RDEPEND}
+RDEPEND="${DEPEND}
 	sys-apps/bolt
 "
