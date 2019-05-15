@@ -7,8 +7,7 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Plasma integration for controlling Thunderbolt devices"
-HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
-	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
+HOMEPAGE="https://cgit.kde.org/plasma-thunderbolt.git"
 
 LICENSE="|| ( GPL-2 GPL-3+ )"
 KEYWORDS=""
