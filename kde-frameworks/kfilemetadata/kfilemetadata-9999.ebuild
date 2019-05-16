@@ -31,7 +31,7 @@ DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
 "
 
-RESTRICT+="test"
+RESTRICT+=" test"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
