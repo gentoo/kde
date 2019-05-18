@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="KDE Plasma resources management GUI"
 HOMEPAGE="https://userbase.kde.org/Discover"
 KEYWORDS=""
-IUSE="firmware"
+IUSE="+firmware"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
