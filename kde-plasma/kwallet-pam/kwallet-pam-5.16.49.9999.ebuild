@@ -11,6 +11,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kwallet)
 	dev-libs/libgcrypt:0=
 	virtual/pam
 "
@@ -21,7 +22,6 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_LIBDIR="/$(get_libdir)"
-		-DKWALLET4=0
 	)
 	kde5_src_configure
 }
