@@ -1,0 +1,51 @@
+From fbf0fc710cfbf6f6f9caa88bbe7f5406c2118d1d Mon Sep 17 00:00:00 2001
+From: Michael Palimaka <kensington@gentoo.org>
+Date: Sat, 18 May 2019 12:15:47 +1000
+Subject: Add missing includes
+
+Summary:
+These includes aren't always available transitively, so
+include them explicitly to avoid build failure.
+
+Reviewers: jgrulich!, davidedmundson
+
+Reviewed By: davidedmundson
+
+Subscribers: asturmlechner, plasma-devel
+
+Tags: #plasma
+
+Differential Revision: https://phabricator.kde.org/D21268
+---
+ libs/editor/settings/wireguardinterfacewidget.cpp | 3 +++
+ libs/editor/settings/wireguardpeerwidget.cpp      | 1 +
+ 2 files changed, 4 insertions(+)
+
+diff --git a/libs/editor/settings/wireguardinterfacewidget.cpp b/libs/editor/settings/wireguardinterfacewidget.cpp
+index dc148ee..4d5eeb3 100644
+--- a/libs/editor/settings/wireguardinterfacewidget.cpp
++++ b/libs/editor/settings/wireguardinterfacewidget.cpp
+@@ -26,6 +26,9 @@
+ #include "simpleiplistvalidator.h"
+ #include "wireguardkeyvalidator.h"
+ 
++#include <QFile>
++#include <QFileInfo>
++#include <QPointer>
+ #include <QStandardItemModel>
+ 
+ #include <NetworkManagerQt/Utils>
+diff --git a/libs/editor/settings/wireguardpeerwidget.cpp b/libs/editor/settings/wireguardpeerwidget.cpp
+index ee45bfc..37ab04b 100644
+--- a/libs/editor/settings/wireguardpeerwidget.cpp
++++ b/libs/editor/settings/wireguardpeerwidget.cpp
+@@ -27,6 +27,7 @@
+ #include "wireguardkeyvalidator.h"
+ 
+ #include <QStandardItemModel>
++#include <QUrl>
+ 
+ #include <NetworkManagerQt/Utils>
+ #include <NetworkManagerQt/WireguardSetting>
+-- 
+cgit v1.1
