@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://kde.org/applications/system/dolphin https://userbase.kde.org/Dolphin"
 KEYWORDS=""
-IUSE="semantic-desktop +thumbnail"
+IUSE="semantic-desktop"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -51,10 +51,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kio-extras)
-	thumbnail? (
-		$(add_kdeapps_dep ffmpegthumbs)
-		$(add_kdeapps_dep thumbnailers)
-	)
 "
 
 RESTRICT+=" test"
@@ -78,6 +74,12 @@ pkg_postinst() {
 
 		has_version "kde-apps/kleopatra:${SLOT}" || \
 			elog "For crypto actions install kde-apps/kleopatra:${SLOT}"
+
+		has_version "kde-apps/ffmpegthumbs:${SLOT}" || \
+			elog "For video file thumbnails install kde-apps/ffmpegthumbs:${SLOT}"
+
+		has_version "kde-apps/thumbnailers:${SLOT}" || \
+			elog "For graphics file thumbnails install kde-apps/thumbnailers:${SLOT}"
 
 		has_version "kde-frameworks/purpose:${SLOT}" || \
 			elog "For 'Share' context menu actions install kde-frameworks/purpose:${SLOT}"
