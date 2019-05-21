@@ -9,7 +9,7 @@ HOMEPAGE="https://kde.org/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="+handbook +webengine webkit"
+IUSE="+handbook +share +thumbnail +webengine webkit"
 
 RDEPEND="
 	>=kde-apps/dolphin-${PV}:${SLOT}
@@ -23,5 +23,13 @@ RDEPEND="
 	webkit? (
 		>=kde-apps/konqueror-${PV}:${SLOT}[webengine?]
 		kde-misc/kwebkitpart:5
+	)
+"
+# Optional runtime deps: kde-apps/dolphin
+RDEPEND="${RDEPEND}
+	share? ( kde-frameworks/purpose:${SLOT} )
+	thumbnail? (
+		>=kde-apps/ffmpegthumbs-${PV}:${SLOT}
+		>=kde-apps/thumbnailers-${PV}:${SLOT}
 	)
 "
