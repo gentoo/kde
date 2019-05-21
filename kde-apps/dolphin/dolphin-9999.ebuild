@@ -78,5 +78,8 @@ pkg_postinst() {
 
 		has_version "kde-apps/kleopatra:${SLOT}" || \
 			elog "For crypto actions install kde-apps/kleopatra:${SLOT}"
+
+		has_version "kde-frameworks/purpose:${SLOT}" || \
+			elog "For 'Share' context menu actions install kde-frameworks/purpose:${SLOT}"
 	fi
 }
