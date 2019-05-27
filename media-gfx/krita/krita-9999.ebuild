@@ -26,6 +26,7 @@ BDEPEND="
 	sys-devel/gettext
 "
 COMMON_DEPEND="${PYTHON_DEPS}
+	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
