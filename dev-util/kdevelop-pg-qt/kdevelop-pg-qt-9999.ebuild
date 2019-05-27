@@ -20,6 +20,3 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
-RDEPEND="
-	!dev-util/kdevelop-pg-qt:4
-"
