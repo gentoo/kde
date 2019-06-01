@@ -11,7 +11,9 @@ inherit kde5
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
 HOMEPAGE="https://cgit.kde.org/kde-cli-tools.git"
 KEYWORDS=""
-IUSE="+kdesu X"
+IUSE="kdesu X"
+
+REQUIRED_USE="kdesu? ( X )"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -39,7 +41,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdesu
+	kdesu? ( sys-apps/dbus[X] )
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
@@ -59,5 +61,4 @@ src_configure() {
 src_install() {
 	kde5_src_install
 	use kdesu && dosym ../$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu
-	use kdesu && dosym ../$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu5
 }
