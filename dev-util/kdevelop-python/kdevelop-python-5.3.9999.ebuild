@@ -8,10 +8,14 @@ KMNAME="kdev-python"
 PYTHON_COMPAT=( python3_{5,6,7} )
 inherit kde5 python-single-r1
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/kdevelop/${PV}/src/${KMNAME}-${PV}.tar.xz"
+	KEYWORDS=""
+fi
+
 DESCRIPTION="Python plugin for KDevelop"
 HOMEPAGE="https://www.kdevelop.org/"
 IUSE=""
-[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64 ~x86"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
