@@ -69,8 +69,6 @@ DEPEND="${RDEPEND}"
 # tests need network access
 RESTRICT+=" test"
 
-DOCS=( AUTHORS ChangeLog README )
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Csv=ON
