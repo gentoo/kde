@@ -3,6 +3,7 @@
 
 EAPI=7
 
+CMAKE_MIN_VERSION=3.14.3
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
