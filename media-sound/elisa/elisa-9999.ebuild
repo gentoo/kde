@@ -15,7 +15,7 @@ fi
 DESCRIPTION="Simple music player by KDE"
 HOMEPAGE="https://community.kde.org/Elisa"
 LICENSE="LGPL-3+"
-IUSE="mpris semantic-desktop"
+IUSE="mpris semantic-desktop vlc"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
@@ -28,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kfilemetadata)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kirigami)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtdeclarative)
@@ -42,6 +43,7 @@ DEPEND="
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
 	)
+	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}
 	$(add_qt_dep qtgraphicaleffects)
@@ -55,6 +57,7 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package mpris KF5DBusAddons)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
+		$(cmake-utils_use_find_package vlc LIBVLC)
 	)
 
 	kde5_src_configure
