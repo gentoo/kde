@@ -113,3 +113,12 @@ src_configure() {
 	)
 	kde5_src_configure
 }
+
+src_test() {
+	# bug 652636; bug 673052: needs kmymoney installed to succeed
+	local myctestargs=(
+		-E "(reports-chart-test|qsqlcipher-test)"
+	)
+
+	kde5_src_test
+}
