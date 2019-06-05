@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+KDE_TEST="true"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
