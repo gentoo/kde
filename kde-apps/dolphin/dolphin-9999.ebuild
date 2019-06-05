@@ -35,6 +35,7 @@ DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
+	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtconcurrent)
