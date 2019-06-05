@@ -59,3 +59,12 @@ src_configure() {
 
 	kde5_src_configure
 }
+
+src_test() {
+	# bug 686392: needs network connection
+	local myctestargs=(
+		-E "(knsbackendtest)"
+	)
+
+	kde5_src_test
+}
