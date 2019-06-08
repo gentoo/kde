@@ -39,6 +39,8 @@ DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
 
+PATCHES=( "${FILESDIR}/${P}-no-detailed-mem-message.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package !minimal KF5Plasma)
