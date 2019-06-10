@@ -24,7 +24,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
@@ -76,3 +75,16 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 RESTRICT+=" test"
+
+src_prepare() {
+	kde5_src_prepare
+	# We don't build kolab, so we can disable this
+	punt_bogus_dep KF5 KDELibs4Support
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
+	)
+	kde5_src_configure
+}
