@@ -76,12 +76,6 @@ RDEPEND="${COMMON_DEPEND}
 
 RESTRICT+=" test"
 
-src_prepare() {
-	kde5_src_prepare
-	# We don't build kolab, so we can disable this
-	punt_bogus_dep KF5 KDELibs4Support
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
