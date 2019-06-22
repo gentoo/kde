@@ -16,6 +16,7 @@ DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kirigami)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
