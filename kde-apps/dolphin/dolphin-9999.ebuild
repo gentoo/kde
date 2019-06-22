@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://kde.org/applications/system/dolphin https://userbase.kde.org/Dolphin"
 KEYWORDS=""
-IUSE="semantic-desktop"
+IUSE="activities semantic-desktop"
 
 DEPEND="
 	$(add_frameworks_dep kbookmarks)
@@ -44,6 +44,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	media-libs/phonon[qt5(+)]
+	activities? ( $(add_frameworks_dep kactivities) )
 	semantic-desktop? (
 		$(add_frameworks_dep baloo)
 		$(add_frameworks_dep kfilemetadata)
@@ -58,6 +59,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 		$(cmake-utils_use_find_package semantic-desktop KF5BalooWidgets)
 		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
