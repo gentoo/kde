@@ -15,7 +15,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2+ FDL-1.2"
-IUSE="+kipi map +raw"
+IUSE="+kipi map +raw share"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -43,6 +43,7 @@ DEPEND="
 	kipi? ( $(add_kdeapps_dep libkipi) )
 	map? ( $(add_kdeapps_dep libkgeomap) )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
+	share? ( $(add_frameworks_dep kxmlgui) )
 "
 RDEPEND="${DEPEND}
 	media-video/ffmpeg
@@ -56,6 +57,7 @@ src_configure() {
 		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package map KF5KGeoMap)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
+		$(cmake-utils_use_find_package share KF5Purpose)
 	)
 
 	kde5_src_configure
