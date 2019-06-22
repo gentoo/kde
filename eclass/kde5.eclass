@@ -301,6 +301,9 @@ _calculate_src_uri() {
 		kross)
 			_kmname="portingAids/${_kmname}"
 			;;
+		kdewebkit)
+			[[ ${PV} = 5.5?.* ]] || _kmname="portingAids/${_kmname}"
+			;;
 	esac
 
 	case ${CATEGORY} in
