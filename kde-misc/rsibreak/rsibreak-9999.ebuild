@@ -17,6 +17,7 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="sys-devel/gettext"
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -39,6 +40,4 @@ DEPEND="
 # bug 587170 for frameworkintegration
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep frameworkintegration)
-	!kde-misc/rsibreak:4
 "
-BDEPEND="sys-devel/gettext"
