@@ -15,7 +15,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 KEYWORDS=""
-IUSE="activities fits kipi +mpris raw semantic-desktop share X"
+IUSE="activities fits kipi +mpris raw semantic-desktop X"
 
 # requires running environment
 RESTRICT+=" test"
@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep purpose)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtopengl)
@@ -56,7 +57,6 @@ COMMON_DEPEND="
 		$(add_frameworks_dep baloo)
 		$(add_frameworks_dep kfilemetadata)
 	)
-	share? ( $(add_frameworks_dep purpose) )
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -86,7 +86,6 @@ src_configure() {
 		$(cmake-utils_use_find_package fits CFitsio)
 		$(cmake-utils_use_find_package kipi KF5Kipi)
 		$(cmake-utils_use_find_package raw KF5KDcraw)
-		$(cmake-utils_use_find_package share KF5Purpose)
 		$(cmake-utils_use_find_package X X11)
 	)
 
