@@ -31,5 +31,6 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/gmp:0=
+	dev-libs/mpfr:0=
 "
 RDEPEND="${DEPEND}"
