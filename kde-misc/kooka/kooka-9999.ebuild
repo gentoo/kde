@@ -10,6 +10,9 @@ DESCRIPTION="Scanning application by KDE"
 HOMEPAGE="https://userbase.kde.org/Kooka https://techbase.kde.org/Projects/Kooka"
 KEYWORDS=""
 
+BDEPEND="
+	virtual/pkgconfig
+"
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
