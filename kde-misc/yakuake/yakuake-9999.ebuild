@@ -37,6 +37,7 @@ DEPEND="
 	$(add_kdeapps_dep konsole)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
+	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 	absolute-position? ( $(add_frameworks_dep kwayland) )
 	X? (
