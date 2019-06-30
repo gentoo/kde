@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
