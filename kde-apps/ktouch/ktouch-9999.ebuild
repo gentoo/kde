@@ -10,6 +10,7 @@ DESCRIPTION="Program that helps to learn and practice touch typing"
 HOMEPAGE="https://kde.org/applications/education/ktouch/"
 KEYWORDS=""
 IUSE=""
+# USE !X is broken, https://bugs.kde.org/show_bug.cgi?id=402902
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -34,7 +35,8 @@ COMMON_DEPEND="
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
-	x11-libs/libxcb
+	x11-libs/libxcb[xkb]
+	x11-libs/libxkbfile
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kwindowsystem)
