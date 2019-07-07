@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="VNC-compatible server to share Plasma desktops"
 HOMEPAGE="https://kde.org/applications/system/krfb/"
 KEYWORDS=""
-IUSE=""
+IUSE="wayland"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -35,5 +35,16 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-libs/xcb-util-image
+	wayland? ( media-video/pipewire )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
+"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package wayland PipeWire)
+	)
+
+	kde5_src_configure
+}
