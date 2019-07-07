@@ -46,3 +46,10 @@ RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtquickcontrols)
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DCOMPILE_QML=OFF
+	)
+	kde5_src_configure
+}
