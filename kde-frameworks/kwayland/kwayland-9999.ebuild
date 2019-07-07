@@ -16,8 +16,9 @@ IUSE=""
 DEPEND="
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui 'egl')
-	>=dev-libs/wayland-1.13.0
+	>=dev-libs/wayland-1.15.0
 	media-libs/mesa[egl]
+	>=dev-libs/wayland-protocols-1.15
 "
 RDEPEND="${DEPEND}
 	$(add_qt_dep qtwayland 'egl(+)')
