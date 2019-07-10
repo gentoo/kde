@@ -31,6 +31,4 @@ DEPEND="
 	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	$(add_qt_dep qtwidgets)
 "
-RDEPEND="${DEPEND}
-	!kde-misc/kwebkitpart:4
-"
+RDEPEND="${DEPEND}"
