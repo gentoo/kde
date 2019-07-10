@@ -16,13 +16,13 @@ if [[ ${KDE_BUILD_TYPE} == release ]]; then
 fi
 
 LICENSE="GPL-2"
-IUSE="activities +holidays kwallet pim X"
+IUSE="activities +holidays kwallet X"
 
 # FIXME: Disabled by upstream for good reason
-# Crashes plan (https://bugs.kde.org/show_bug.cgi?id=311940)
+# Crashes (https://bugs.kde.org/show_bug.cgi?id=311940)
 # $(add_kdeapps_dep akonadi)
 # $(add_kdeapps_dep akonadi-contacts)
-# Currently upstream-disabled in plan
+# Currently upstream-disabled:
 # =dev-libs/kproperty-3.0*:5
 # =dev-libs/kreport-3.0*:5
 DEPEND="
@@ -61,10 +61,6 @@ DEPEND="
 		$(add_frameworks_dep kwallet)
 		app-crypt/qca:2[qt5(+)]
 	)
-	pim? (
-		$(add_kdeapps_dep kcalcore)
-		$(add_kdeapps_dep kcontacts)
-	)
 	X? (
 		$(add_qt_dep qtx11extras)
 		x11-libs/libX11
@@ -82,8 +78,6 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package activities KF5Activities)
 		$(cmake-utils_use_find_package holidays KF5Holidays)
-		$(cmake-utils_use_find_package pim KF5CalendarCore)
-		$(cmake-utils_use_find_package pim KF5Contacts)
 		$(cmake-utils_use_find_package kwallet Qca-qt5)
 		$(cmake-utils_use_find_package kwallet KF5Wallet)
 	)
