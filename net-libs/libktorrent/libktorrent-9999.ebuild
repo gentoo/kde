@@ -14,6 +14,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
+BDEPEND="sys-devel/gettext"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
@@ -32,10 +33,8 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
 "
 RDEPEND="${COMMON_DEPEND}
-	!net-libs/libktorrent:4
 	!dev-libs/botan[gmp(-)]
 "
-BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	kde5_src_prepare
