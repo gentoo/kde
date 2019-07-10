@@ -7,12 +7,14 @@ KDE_TEST="true"
 inherit kde5
 
 DESCRIPTION="Powerful batch file renamer"
-HOMEPAGE="http://www.krename.net/"
+HOMEPAGE="https://kde.org/applications/utilities/org.kde.krename
+https://userbase.kde.org/KRename"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 IUSE="exif office pdf taglib truetype"
 
+BDEPEND="sys-devel/gettext"
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -36,10 +38,7 @@ DEPEND="
 	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
 "
-RDEPEND="${DEPEND}
-	!kde-misc/krename:4
-"
-BDEPEND="sys-devel/gettext"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
