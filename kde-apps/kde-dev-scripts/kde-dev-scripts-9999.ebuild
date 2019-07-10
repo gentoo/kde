@@ -17,7 +17,6 @@ DEPEND="
 	$(add_frameworks_dep kdoctools)
 "
 RDEPEND="
-	!kde-apps/kde4-l10n
 	app-arch/advancecomp
 	media-gfx/optipng
 	dev-perl/XML-DOM

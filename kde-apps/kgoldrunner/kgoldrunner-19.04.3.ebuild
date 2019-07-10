@@ -30,6 +30,5 @@ DEPEND="
 	media-libs/openal
 "
 RDEPEND="${DEPEND}
-	!<kde-apps/kde4-l10n-17.07.80
 	$(add_qt_dep qtsvg)
 "

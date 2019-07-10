@@ -30,7 +30,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
 	$(add_qt_dep qtquickcontrols)
-	!kde-apps/analitza:4
 "
 
 src_configure() {

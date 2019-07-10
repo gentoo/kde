@@ -58,9 +58,6 @@ DEPEND="${COMMON_DEPEND}
 	activities? ( $(add_frameworks_dep kactivities) )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kfmclient:4
-	!kde-apps/konq-plugins
-	!kde-apps/libkonq:5
 	$(add_kdeapps_dep kfind)
 	$(add_plasma_dep kde-cli-tools)
 	!webengine? ( kde-misc/kwebkitpart:5 )

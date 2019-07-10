@@ -39,6 +39,4 @@ DEPEND="
 	media-libs/phonon[qt5(+)]
 	>=media-libs/taglib-1.6
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kde4-l10n
-"
+RDEPEND="${DEPEND}"

@@ -16,7 +16,7 @@ HOMEPAGE="
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -35,17 +35,14 @@ COMMON_DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtsvg)
-	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/libxml2
 	dev-libs/libxslt
+	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_frameworks_dep kdelibs4support)
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kde4-l10n-17.07.80
 "
 
 src_configure() {

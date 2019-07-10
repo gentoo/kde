@@ -11,7 +11,7 @@ HOMEPAGE="https://kde.org/applications/games/palapeli/"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -30,9 +30,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	$(add_qt_dep qtconcurrent)
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kde4-l10n
 "

@@ -30,7 +30,6 @@ DEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep libkmahjongg)
-	!kde-apps/kajongg:4
 "
 
 pkg_setup() {

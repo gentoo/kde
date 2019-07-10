@@ -11,7 +11,7 @@ HOMEPAGE="https://kde.org/applications/utilities/kmousetool/"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep ki18n)
@@ -25,11 +25,8 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXtst
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	x11-libs/libXext
 	x11-libs/libXt
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-apps/kde4-l10n-17.07.80
 "
