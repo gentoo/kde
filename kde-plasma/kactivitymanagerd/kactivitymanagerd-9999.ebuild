@@ -10,7 +10,7 @@ LICENSE="|| ( GPL-2 GPL-3 )"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
@@ -26,9 +26,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsql 'sqlite')
 	$(add_qt_dep qtwidgets)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
-	!<kde-frameworks/kactivities-4.13.3-r2:4
 "

@@ -24,7 +24,4 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	>=sys-auth/polkit-qt-0.112.0[qt5(+)]
 "
-RDEPEND="${DEPEND}
-	!sys-auth/polkit-kde-agent:4[-minimal(-)]
-	!sys-auth/polkit-kde-agent:5
-"
+RDEPEND="${DEPEND}"
