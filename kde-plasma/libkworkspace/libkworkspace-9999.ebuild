@@ -17,6 +17,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep plasma)
+	$(add_plasma_dep kscreenlocker)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtx11extras)
 	x11-libs/libICE
@@ -33,7 +34,7 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${S}/${PN}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.14.90-standalone.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.16.80-standalone.patch" )
 
 src_prepare() {
 	# delete colliding libkworkspace translations, let kde5_src_prepare do its magic
