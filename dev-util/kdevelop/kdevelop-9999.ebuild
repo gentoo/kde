@@ -83,6 +83,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	$(add_kdeapps_dep kapptemplate)
 	$(add_kdeapps_dep kio-extras)
+	$(add_qt_dep qtquickcontrols)
+	$(add_qt_dep qtquickcontrols2)
 	dev-util/ninja
 	>=sys-devel/gdb-7.0[python]
 	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
