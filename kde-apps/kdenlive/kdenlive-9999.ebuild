@@ -52,7 +52,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-cpp/rttr
-	>=media-libs/mlt-6.14.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
+	>=media-libs/mlt-6.16.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
 	freesound? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
 	share? ( $(add_frameworks_dep purpose) )
