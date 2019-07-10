@@ -74,7 +74,6 @@ RDEPEND="${COMMON_DEPEND}
 		$(add_frameworks_dep ktextwidgets)
 		$(add_kdeapps_dep kio-extras)
 	)
-	!net-p2p/ktorrent:4
 "
 
 src_configure() {
