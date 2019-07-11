@@ -9,8 +9,7 @@ inherit kde5
 DESCRIPTION="Program that helps to learn and practice touch typing"
 HOMEPAGE="https://kde.org/applications/education/ktouch/"
 KEYWORDS=""
-IUSE=""
-# USE !X is broken, https://bugs.kde.org/show_bug.cgi?id=402902
+IUSE="X"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
@@ -31,14 +30,16 @@ COMMON_DEPEND="
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
 	$(add_qt_dep qtxml)
 	$(add_qt_dep qtxmlpatterns)
-	x11-libs/libICE
-	x11-libs/libSM
-	x11-libs/libX11
-	x11-libs/libxcb[xkb]
-	x11-libs/libxkbfile
+	X? (
+		$(add_qt_dep qtx11extras)
+		x11-libs/libICE
+		x11-libs/libSM
+		x11-libs/libX11
+		x11-libs/libxcb[xkb]
+		x11-libs/libxkbfile
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kwindowsystem)
@@ -51,6 +52,8 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DCOMPILE_QML=OFF
+		$(cmake-utils_use_find_package X X11)
+		$(cmake-utils_use_find_package X Qt5X11Extras)
 	)
 	kde5_src_configure
 }
