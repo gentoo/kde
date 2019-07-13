@@ -157,7 +157,7 @@ fi
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
-KDE_UNRELEASED=( kde-frameworks-5.60.0 kde-apps-19.04.3 )
+KDE_UNRELEASED=( kde-apps-19.04.3 )
 HOMEPAGE="https://kde.org/"
 LICENSE="GPL-2"
 
