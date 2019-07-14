@@ -38,8 +38,8 @@ case ${CATEGORY} in
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
 		;;
 	kde-plasma)
+		[[ ${PV} = 5.16* ]] && : ${FRAMEWORKS_MINIMAL:=5.60.0}
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		: ${FRAMEWORKS_MINIMAL:=5.60.0}
 		;;
 	kde-apps)
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=5.60.0}
