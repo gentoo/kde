@@ -36,12 +36,17 @@ export KDE_BUILD_TYPE
 case ${CATEGORY} in
 	kde-frameworks)
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		[[ ${PV} = 5.57* || ${PV} = 5.59* ]] && : ${QT_MINIMAL:=5.11.1}
 		;;
 	kde-plasma)
-		[[ ${PV} = 5.15.5 ]] && : ${QT_MINIMAL:=5.11.1}
-		[[ ${PV} = 5.16* ]] && : ${FRAMEWORKS_MINIMAL:=5.58.0}
+		if [[ ${PV} = 5.15.5 ]]; then
+			: ${FRAMEWORKS_MINIMAL:=5.57.0}
+			: ${QT_MINIMAL:=5.11.1}
+		fi
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
+		: ${FRAMEWORKS_MINIMAL:=5.60.0}
+		;;
+	kde-apps)
+		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=5.60.0}
 		;;
 esac
 
