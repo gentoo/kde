@@ -32,3 +32,6 @@ DEPEND="
 	>=sys-apps/util-linux-2.33.2
 "
 RDEPEND="${DEPEND}"
+
+# bug 689468, tests need polkit etc.
+RESTRICT+=" test"
