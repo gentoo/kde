@@ -3,7 +3,8 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
+KDE_HANDBOOK="forceoptional"
+KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KDE image scanning application"
@@ -28,10 +29,3 @@ DEPEND="
 	media-libs/libpng:0=
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	kde5_src_prepare
-	cmake_comment_add_subdirectory autotests
-	cmake_comment_add_subdirectory tests
-	use handbook || sed -i -e "/DocTools/d" CMakeLists.txt || die
-}
