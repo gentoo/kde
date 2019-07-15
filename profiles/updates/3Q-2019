@@ -1,1 +1,2 @@
 move media-plugins/kipi-plugins kde-apps/kipi-plugins
+move kde-misc/yakuake kde-apps/yakuake
