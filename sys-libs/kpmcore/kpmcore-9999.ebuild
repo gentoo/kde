@@ -3,7 +3,6 @@
 
 EAPI=7
 
-FRAMEWORKS_MINIMAL="5.56"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
