@@ -86,8 +86,9 @@
 ~kde-apps/kcolorchooser-9999
 ~kde-apps/kdegraphics-meta-9999
 ~kde-apps/kdegraphics-mobipocket-9999
-~kde-apps/kruler-9999
+~kde-apps/kipi-plugins-9999
 ~kde-apps/kolourpaint-9999
+~kde-apps/kruler-9999
 ~kde-apps/libkdcraw-9999
 ~kde-apps/libkexiv2-9999
 ~kde-apps/libkgeomap-9999
@@ -226,3 +227,4 @@
 ~kde-apps/kwalletmanager-9999
 ~kde-apps/print-manager-9999
 ~kde-apps/sweeper-9999
+~kde-apps/yakuake-9999
