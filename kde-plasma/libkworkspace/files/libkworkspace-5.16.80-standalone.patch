@@ -1,4 +1,4 @@
-From d3413c9a69b186fb20d8b4caf5f48e7d372c5294 Mon Sep 17 00:00:00 2001
+From 74087723f0738f4a4a3a60ec72480e8bc4f1b53c Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Wed, 10 Jul 2019 11:38:44 +0200
 Subject: [PATCH] libkworkspace: Allow standalone build
@@ -7,10 +7,10 @@ Subject: [PATCH] libkworkspace: Allow standalone build
  libkworkspace/CMakeLists.txt | 69 +++++++++++++++++++++++++++++++++---
  1 file changed, 65 insertions(+), 4 deletions(-)
 
-diff --git a/libkworkspace/CMakeLists.txt b/libkworkspace/CMakeLists.txt
-index 94576213e..27d46f83a 100644
---- a/libkworkspace/CMakeLists.txt
-+++ b/libkworkspace/CMakeLists.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3c4c47870..cd41a54ce 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -1,3 +1,56 @@
 +project(libkworkspace)
 +
@@ -74,11 +74,11 @@ index 94576213e..27d46f83a 100644
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/org.kde.screensaver.xml kscreenlocker_interface )
 +if(${CMAKE_SOURCE_DIR} STREQUAL ${libkworkspace_SOURCE_DIR})
 +qt5_add_dbus_interface(kworkspace_LIB_SRCS ../ksmserver/org.kde.LogoutPrompt.xml logoutprompt_interface)
-+qt5_add_dbus_interface(kworkspace_LIB_SRCS ../ksmserver/org.kde.Shutdown.xml shutdown_interface)
++qt5_add_dbus_interface(kworkspace_LIB_SRCS ../startkde/plasma-session/org.kde.Shutdown.xml shutdown_interface)
 +set(ksmserver_xml ../ksmserver/org.kde.KSMServerInterface.xml)
 +else()
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${plasma-workspace_SOURCE_DIR}/ksmserver/org.kde.LogoutPrompt.xml logoutprompt_interface)
- qt5_add_dbus_interface(kworkspace_LIB_SRCS ${plasma-workspace_SOURCE_DIR}/ksmserver/org.kde.Shutdown.xml shutdown_interface)
+ qt5_add_dbus_interface(kworkspace_LIB_SRCS ${plasma-workspace_SOURCE_DIR}/startkde/plasma-session/org.kde.Shutdown.xml shutdown_interface)
 +set(ksmserver_xml ${plasma-workspace_SOURCE_DIR}/ksmserver/org.kde.KSMServerInterface.xml)
 +set_source_files_properties(${KWIN_INTERFACE} PROPERTIES INCLUDE "interface_util.h")
 +endif()
