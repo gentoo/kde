@@ -19,7 +19,6 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="dbus kde libressl +X"
 
-# drop qtwebengine subslot operator when QT_MINIMAL >= 5.12.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_qt_dep qtdeclarative 'widgets')
