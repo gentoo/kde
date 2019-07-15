@@ -16,7 +16,6 @@ HOMEPAGE="https://krusader.org/"
 LICENSE="GPL-2+"
 IUSE=""
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.11.0
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kbookmarks)
@@ -40,7 +39,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui '' '' '5=')
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtprintsupport)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
