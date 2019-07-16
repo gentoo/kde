@@ -236,5 +236,9 @@
 <kde-apps/kwalletmanager-19.04.50
 <kde-apps/print-manager-19.04.50
 <kde-apps/sweeper-19.04.50
-dev-cpp/rttr
-~media-libs/mlt-6.14.0
+~dev-cpp/rttr-0.9.6
+~dev-games/freecell-solver-5.6.0
+~dev-python/pysol_cards-0.6.2
+~dev-python/random2-1.0.1
+~media-libs/mlt-6.16.0
+~media-libs/vidstab-1.1.0
