@@ -115,8 +115,7 @@ PDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.14.80-startkde-script.patch"
-	"${FILESDIR}/${PN}-5.10-startplasmacompositor-script.patch"
+	# TODO: Restore Gentoo part for FHS installs, bug 688366
 	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch"
 )
 
@@ -162,7 +161,6 @@ src_install() {
 pkg_postinst () {
 	kde5_pkg_postinst
 
-	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions,"
-	elog "edit ${EPREFIX}/etc/plasma/startup/10-agent-startup.sh and"
-	elog "${EPREFIX}/etc/plasma/shutdown/10-agent-shutdown.sh"
+	elog "TODO: /etc/plasma/{startup,shutdown} locations for gpg-agent/ssh-agent"
+	elog "do not currently work, see bug #688366."
 }
