@@ -39,7 +39,7 @@ DEPEND="
 	share? ( $(add_frameworks_dep purpose) )
 "
 RDEPEND="${DEPEND}
-	kipi? ( media-plugins/kipi-plugins:5 )
+	kipi? ( $(add_kdeapps_dep kipi-plugins) )
 "
 
 src_configure() {
