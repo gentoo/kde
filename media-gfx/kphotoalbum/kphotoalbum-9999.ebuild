@@ -40,14 +40,14 @@ DEPEND="
 	media-gfx/exiv2:=
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
-	kipi? ( $(add_kdeapps_dep libkipi) )
+	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
 	map? ( $(add_kdeapps_dep libkgeomap) )
 	raw? ( $(add_kdeapps_dep libkdcraw) )
 	share? ( $(add_frameworks_dep kxmlgui) )
 "
 RDEPEND="${DEPEND}
 	media-video/ffmpeg
-	kipi? ( media-plugins/kipi-plugins:5 )
+	kipi? ( $(add_kdeapps_dep kipi-plugins) )
 "
 
 DOCS=( ChangeLog README.md )
