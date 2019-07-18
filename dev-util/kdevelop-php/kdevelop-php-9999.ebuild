@@ -12,7 +12,7 @@ inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/kdevelop/${PV}/src/${KMNAME}-${PV}.tar.xz"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="PHP plugin for KDevelop"
@@ -39,9 +39,7 @@ DEPEND="
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5
 "
-RDEPEND="${DEPEND}
-	!dev-util/kdevelop-php-docs
-"
+RDEPEND="${DEPEND}"
 
 # remaining tests fail for some, bug 668530
 RESTRICT+=" test"

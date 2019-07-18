@@ -11,7 +11,7 @@ inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/kdevelop/${PV}/src/${P}.tar.xz"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
@@ -86,10 +86,6 @@ RDEPEND="${COMMON_DEPEND}
 	dev-util/ninja
 	>=sys-devel/gdb-7.0[python]
 	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
-	!dev-util/kdevelop-clang
-	!dev-util/kdevelop-cppcheck
-	!dev-util/kdevelop-qmake
-	!dev-util/kdevelop-qmljs
 	!dev-util/kdevplatform
 "
 
