@@ -7,7 +7,7 @@ KDE_TEST="forceoptional"
 inherit kde5
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
-HOMEPAGE="http://arnavdhamija.com/blog/kio-stash-release.html https://cgit.kde.org/kio-stash.git"
+HOMEPAGE="https://arnavdhamija.com/2017/07/04/kio-stash-shipped/ https://cgit.kde.org/kio-stash.git"
 
 LICENSE="GPL-2+"
 SLOT="0"
