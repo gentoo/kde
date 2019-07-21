@@ -44,6 +44,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep kitinerary)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep kmime)
+	$(add_kdeapps_dep kontactinterface)
 	$(add_kdeapps_dep kpkpass)
 	$(add_kdeapps_dep libkdepim)
 	$(add_kdeapps_dep libkleo)
