@@ -3,29 +3,37 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-KDE_HANDBOOK="optional"
 inherit kde5
 
 DESCRIPTION="Tiny Qt music player by KDE"
-HOMEPAGE="https://milohr.github.io/BabeIt/"
+HOMEPAGE="https://vvave.kde.org/"
+
 LICENSE="GPL-3+"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep attica)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kio)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsql)
+	$(add_qt_dep qtsvg)
+	$(add_qt_dep qtwebengine)
+	$(add_qt_dep qtwebsockets)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	dev-libs/mauikit
 	media-libs/taglib
 "
-RDEPEND="${DEPEND}"
-
-RESTRICT+=" test"
+RDEPEND="${DEPEND}
+	$(add_frameworks_dep kirigami)
+	$(add_qt_dep qtgraphicaleffects)
+	media-plugins/gst-plugins-meta:1.0[ffmpeg,mp3]
+"
