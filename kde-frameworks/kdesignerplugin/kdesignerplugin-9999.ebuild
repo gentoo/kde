@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="designer nls webkit"
+IUSE="designer nls"
 
 BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
@@ -32,11 +32,6 @@ DEPEND="
 		$(add_frameworks_dep kxmlgui)
 		$(add_frameworks_dep sonnet)
 	)
-	webkit? (
-		$(add_qt_dep designer)
-		$(add_qt_dep qtgui)
-		$(add_frameworks_dep kdewebkit)
-	)
 "
 RDEPEND="${DEPEND}"
 
@@ -52,7 +47,6 @@ src_configure() {
 		$(cmake-utils_use_find_package designer KF5TextWidgets)
 		$(cmake-utils_use_find_package designer KF5WidgetsAddons)
 		$(cmake-utils_use_find_package designer KF5XmlGui)
-		$(cmake-utils_use_find_package webkit KF5WebKit)
 	)
 
 	kde5_src_configure

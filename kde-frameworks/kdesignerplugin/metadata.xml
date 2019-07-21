@@ -7,6 +7,5 @@
 	</maintainer>
 	<use>
 		<flag name="designer">Build KF5 widgets plugin for QtDesigner</flag>
-		<flag name="webkit">Build kdewebkit plugin for QtDesigner</flag>
 	</use>
 </pkgmetadata>
