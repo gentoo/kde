@@ -14,6 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep kidletime)
 	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwindowsystem)
