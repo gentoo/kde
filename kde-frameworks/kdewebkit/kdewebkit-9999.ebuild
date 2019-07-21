@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Framework providing KDE integration of QtWebKit"
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="designer"
 
 RDEPEND="
 	$(add_frameworks_dep kconfig)
@@ -22,9 +22,16 @@ RDEPEND="
 	$(add_frameworks_dep kwallet)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+	designer? ( $(add_frameworks_dep kdesignerplugin) )
 "
 DEPEND="${RDEPEND}
 	$(add_qt_dep qtnetwork)
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_DESIGNERPLUGIN=$(usex designer)
+	)
+}
