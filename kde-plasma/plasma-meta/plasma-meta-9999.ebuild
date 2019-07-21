@@ -11,7 +11,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth +browser-integration consolekit crypt +desktop-portal discover
 +display-manager elogind grub gtk +handbook +legacy-systray networkmanager pam
-plymouth +pm-utils pulseaudio +sddm sdk systemd +wallpapers"
+plymouth +pm-utils pulseaudio qrcode +sddm sdk systemd +wallpapers"
 
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
@@ -73,6 +73,7 @@ RDEPEND="
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[consolekit?,elogind?,systemd?]
+		qrcode? ( kde-frameworks/prison[qml] )
 	)
 	pam? (
 		>=kde-plasma/kwallet-pam-${PV}:${SLOT}
