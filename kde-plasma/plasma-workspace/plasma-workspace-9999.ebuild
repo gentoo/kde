@@ -10,7 +10,7 @@ inherit kde5 qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="appstream +calendar geolocation gps prison qalculate +semantic-desktop systemd"
+IUSE="appstream +calendar geolocation gps qalculate qrcode +semantic-desktop systemd"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -81,8 +81,8 @@ COMMON_DEPEND="
 	calendar? ( $(add_frameworks_dep kholidays) )
 	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
-	prison? ( $(add_frameworks_dep prison) )
 	qalculate? ( sci-libs/libqalculate:= )
+	qrcode? ( $(add_frameworks_dep prison) )
 	semantic-desktop? ( $(add_frameworks_dep baloo) )
 "
 DEPEND="${COMMON_DEPEND}
@@ -137,8 +137,8 @@ src_configure() {
 		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package calendar KF5Holidays)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
-		$(cmake-utils_use_find_package prison KF5Prison)
 		$(cmake-utils_use_find_package qalculate Qalculate)
+		$(cmake-utils_use_find_package qrcode KF5Prison)
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 	)
 
