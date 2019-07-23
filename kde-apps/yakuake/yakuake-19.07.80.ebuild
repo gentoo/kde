@@ -9,7 +9,7 @@ DESCRIPTION="Quake-style terminal emulator based on konsole"
 HOMEPAGE="https://kde.org/applications/system/org.kde.yakuake"
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="absolute-position X"
 
 DEPEND="
