@@ -34,4 +34,5 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_DESIGNERPLUGIN=$(usex designer)
 	)
+	kde5_src_configure
 }
