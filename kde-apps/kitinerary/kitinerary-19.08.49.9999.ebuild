@@ -12,7 +12,7 @@ HOMEPAGE="https://kde.org/applications/office/kontact/"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="pdf"
+IUSE="+barcode pdf"
 
 DEPEND="
 	$(add_frameworks_dep karchive)
@@ -24,6 +24,7 @@ DEPEND="
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	sys-libs/zlib
+	barcode? ( media-libs/zxing-cpp )
 	pdf? ( app-text/poppler:=[qt5] )
 "
 RDEPEND="${DEPEND}
@@ -32,6 +33,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package barcode ZXing)
 		$(cmake-utils_use_find_package pdf Poppler)
 	)
 	kde5_src_configure
