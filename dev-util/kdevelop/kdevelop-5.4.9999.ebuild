@@ -15,7 +15,9 @@ fi
 
 DESCRIPTION="Integrated Development Environment, supporting KF5/Qt, C/C++ and much more"
 HOMEPAGE="https://www.kdevelop.org/"
+
 LICENSE="GPL-2 LGPL-2"
+SLOT="5/54" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion webkit"
 
 COMMON_DEPEND="
