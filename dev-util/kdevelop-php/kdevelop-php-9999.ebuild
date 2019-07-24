@@ -36,7 +36,7 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	dev-util/kdevelop-pg-qt:5
-	dev-util/kdevelop:5
+	dev-util/kdevelop:5=
 "
 RDEPEND="${DEPEND}"
 
