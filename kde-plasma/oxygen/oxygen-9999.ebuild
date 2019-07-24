@@ -10,7 +10,7 @@ HOMEPAGE="https://cgit.kde.org/oxygen.git"
 KEYWORDS=""
 IUSE="wayland"
 
-RDEPEND="
+COMMON_DEPEND="
 	$(add_frameworks_dep frameworkintegration)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcompletion)
@@ -30,8 +30,11 @@ RDEPEND="
 	x11-libs/libxcb
 	wayland? ( $(add_frameworks_dep kwayland) )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	$(add_frameworks_dep kservice)
+"
+RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/plasma-desktop-5.16.80
 "
 PDEPEND="
 	$(add_plasma_dep kde-cli-tools)
