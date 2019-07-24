@@ -36,8 +36,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kjs)
-	$(add_frameworks_dep kjsembed)
 	$(add_frameworks_dep knewstuff)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
