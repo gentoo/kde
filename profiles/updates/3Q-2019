@@ -1,3 +1,4 @@
 move media-plugins/kipi-plugins kde-apps/kipi-plugins
 move kde-misc/yakuake kde-apps/yakuake
 move media-sound/babe media-sound/vvave
+move kde-apps/kjots app-text/kjots
