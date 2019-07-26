@@ -70,16 +70,6 @@ pkg_setup() {
 	use postgres && DRIVER="QPSQL"
 	use mysql && DRIVER="QMYSQL"
 
-	if use mysql; then
-		ewarn "If using an Akonadi external QMYSQL DB without lower_case_table_names=1,"
-		ewarn "${CATEGORY}/${PN}-19.04.3 and later may fail to start. Running without"
-		ewarn "that option was never supported but not enforced by the setup GUI."
-		ewarn
-		ewarn "Manual steps are required to fix it, see also:"
-		ewarn "  https://bugs.kde.org/show_bug.cgi?id=409753 (comment #4)"
-		ewarn
-	fi
-
 	if use mysql && has_version ">=dev-db/mariadb-10.4"; then
 		ewarn "If an existing Akonadi QMYSQL database is being upgraded using"
 		ewarn ">=dev-db/mariadb-10.4 and KMail stops fetching and sending mail,"
