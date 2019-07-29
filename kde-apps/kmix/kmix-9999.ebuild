@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="Plasma mixer gui"
 HOMEPAGE="https://kde.org/applications/multimedia/kmix/"
 KEYWORDS=""
-IUSE="alsa pulseaudio"
+IUSE="alsa plasma pulseaudio"
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
@@ -24,13 +24,13 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
+	plasma? ( $(add_frameworks_dep plasma) )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
@@ -44,6 +44,7 @@ RDEPEND="${DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package alsa ALSA)
+		$(cmake-utils_use_find_package plasma KF5Plasma)
 		$(cmake-utils_use_find_package pulseaudio Canberra)
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 	)
