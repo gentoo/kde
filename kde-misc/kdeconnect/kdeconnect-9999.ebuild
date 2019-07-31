@@ -63,14 +63,6 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test"
 
-src_prepare() {
-	kde5_src_prepare
-
-	sed \
-		-e 's#${LIBEXEC_INSTALL_DIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
-		-i daemon/org.kde.kdeconnect.daemon.desktop.cmake || die
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
