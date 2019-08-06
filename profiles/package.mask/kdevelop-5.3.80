@@ -1,6 +1,0 @@
-# Andreas Sturmlechner <asturm@gentoo.org> (22 Jul 2019)
-# KDevelop 5.4 beta1 mask
-# Unstable release
-~dev-util/kdevelop-5.3.80
-~dev-util/kdevelop-php-5.3.80
-~dev-util/kdevelop-python-5.3.80
