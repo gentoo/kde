@@ -11,7 +11,7 @@ inherit kde5
 DESCRIPTION="Framework providing plugins to use KDE frameworks widgets in QtDesigner"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="designer nls"
+IUSE="nls"
 
 BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
@@ -19,35 +19,5 @@ BDEPEND="
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
-	designer? (
-		$(add_qt_dep designer)
-		$(add_frameworks_dep kcompletion)
-		$(add_frameworks_dep kconfigwidgets)
-		$(add_frameworks_dep kiconthemes)
-		$(add_frameworks_dep kio)
-		$(add_frameworks_dep kitemviews)
-		$(add_frameworks_dep kplotting)
-		$(add_frameworks_dep ktextwidgets)
-		$(add_frameworks_dep kwidgetsaddons)
-		$(add_frameworks_dep kxmlgui)
-		$(add_frameworks_dep sonnet)
-	)
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package designer KF5Completion)
-		$(cmake-utils_use_find_package designer KF5ConfigWidgets)
-		$(cmake-utils_use_find_package designer KF5IconThemes)
-		$(cmake-utils_use_find_package designer KF5ItemViews)
-		$(cmake-utils_use_find_package designer KF5KIO)
-		$(cmake-utils_use_find_package designer KF5Plotting)
-		$(cmake-utils_use_find_package designer KF5Sonnet)
-		$(cmake-utils_use_find_package designer KF5TextWidgets)
-		$(cmake-utils_use_find_package designer KF5WidgetsAddons)
-		$(cmake-utils_use_find_package designer KF5XmlGui)
-	)
-
-	kde5_src_configure
-}
