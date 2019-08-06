@@ -55,8 +55,7 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	kde5_src_prepare
-	# test hangs
-	sed -e "/session_manager_test/d" -i kate/autotests/CMakeLists.txt || die
+
 	# delete colliding kwrite translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		find po -type f -name "*po" -and -name "kwrite*" -delete || die
@@ -71,6 +70,15 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_test() {
+	# tests hang
+	local myctestargs=(
+		-E "(session_manager_test|sessions_action_test)"
+	)
+
+	kde5_src_test
 }
 
 pkg_postinst() {
