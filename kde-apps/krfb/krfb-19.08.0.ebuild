@@ -41,6 +41,8 @@ RDEPEND="${DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-19.04.3-missing-header.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package wayland PipeWire)
