@@ -21,7 +21,7 @@ DEPEND="
 	>=dev-libs/wayland-protocols-1.15
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtwayland 'egl(+)')
+	$(add_qt_dep qtwayland)
 "
 
 # All failing, I guess we need a virtual wayland server
