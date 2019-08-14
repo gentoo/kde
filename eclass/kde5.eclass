@@ -187,6 +187,22 @@ case ${KDE_SUBSLOT} in
 		;;
 esac
 
+case ${KDE_DESIGNERPLUGIN} in
+	false)  ;;
+	*)
+		IUSE+=" designer"
+		if [[ ${CATEGORY} = kde-frameworks ]]; then
+			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
+		else
+			if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]]; then
+				FRAMEWORKS_MINIMAL="5.62.0"
+				BDEPEND+=" designer? ( $(add_qt_dep designer) )"
+			else
+				BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
+			fi
+		fi
+esac
+
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
@@ -206,17 +222,6 @@ case ${KDE_DEBUG} in
 	*)
 		IUSE+=" debug"
 		;;
-esac
-
-case ${KDE_DESIGNERPLUGIN} in
-	false)  ;;
-	*)
-		IUSE+=" designer"
-		if [[ ${CATEGORY} = kde-frameworks ]]; then
-			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
-		else
-			BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
-		fi
 esac
 
 case ${KDE_EXAMPLES} in
@@ -611,7 +616,11 @@ kde5_src_configure() {
 		if [[ ${CATEGORY} = kde-frameworks ]]; then
 			cmakeargs+=( -DBUILD_DESIGNERPLUGIN=$(usex designer) )
 		else
-			cmakeargs+=( $(cmake-utils_use_find_package designer KF5DesignerPlugin) )
+			if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]] ; then
+				cmakeargs+=( -DBUILD_DESIGNERPLUGIN=$(usex designer) )
+			else
+				cmakeargs+=( $(cmake-utils_use_find_package designer KF5DesignerPlugin) )
+			fi
 		fi
 	fi
 
