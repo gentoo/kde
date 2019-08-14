@@ -32,7 +32,7 @@ DEPEND="
 	$(add_frameworks_dep plasma)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
