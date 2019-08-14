@@ -304,15 +304,13 @@ _calculate_src_uri() {
 
 	case ${PN} in
 		kdelibs4support | \
+		kdewebkit | \
 		khtml | \
 		kjs | \
 		kjsembed | \
 		kmediaplayer | \
 		kross)
 			_kmname="portingAids/${_kmname}"
-			;;
-		kdewebkit)
-			[[ ${PV} = 5.5?.* ]] || _kmname="portingAids/${_kmname}"
 			;;
 	esac
 
