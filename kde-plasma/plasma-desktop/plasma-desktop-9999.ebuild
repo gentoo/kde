@@ -70,7 +70,7 @@ COMMON_DEPEND="
 	x11-libs/libXcursor
 	x11-libs/libXfixes
 	x11-libs/libXi
-	x11-libs/libxcb
+	x11-libs/libxcb[xkb]
 	x11-libs/libxkbfile
 	appstream? ( >=dev-libs/appstream-0.12.2[qt5] )
 	fontconfig? (
