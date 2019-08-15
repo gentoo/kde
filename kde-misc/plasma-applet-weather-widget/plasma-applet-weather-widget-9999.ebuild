@@ -21,6 +21,6 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtdeclarative 'xml')
+	$(add_qt_dep qtxmlpatterns 'qml')
 "
 RDEPEND="${DEPEND}"
