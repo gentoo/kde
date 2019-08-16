@@ -3,6 +3,7 @@
 
 EAPI=7
 
+KDE_APPS_MINIMAL="19.08.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
 inherit kde5
