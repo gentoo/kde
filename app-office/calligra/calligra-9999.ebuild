@@ -20,7 +20,7 @@ CAL_FTS=( flow karbon sheets stage words )
 
 LICENSE="GPL-2"
 IUSE="activities +crypt +fontconfig gemini gsl import-filter +lcms okular openexr +pdf
-	phonon pim spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
+	phonon spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 # TODO: Not packaged: Cauchy (https://bitbucket.org/cyrille/cauchy)
 # Required for the matlab/octave formula tool
@@ -90,7 +90,6 @@ COMMON_DEPEND="
 	openexr? ( media-libs/openexr )
 	pdf? ( app-text/poppler:=[qt5] )
 	phonon? ( media-libs/phonon[qt5(+)] )
-	pim? ( $(add_kdeapps_dep kcalcore) )
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
 	X? (
@@ -183,7 +182,7 @@ src_configure() {
 		-DWITH_LibWpg=$(usex import-filter)
 		-DWITH_LibWps=$(usex import-filter)
 		$(cmake-utils_use_find_package phonon Phonon4Qt5)
-		$(cmake-utils_use_find_package pim KF5CalendarCore)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
 		-DWITH_LCMS2=$(usex lcms)
 		-DWITH_Okular5=$(usex okular)
 		-DWITH_OpenEXR=$(usex openexr)
