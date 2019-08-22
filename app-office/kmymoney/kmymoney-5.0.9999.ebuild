@@ -21,10 +21,14 @@ fi
 
 LICENSE="GPL-2"
 KEYWORDS=""
-IUSE="activities addressbook calendar hbci holidays ofx quotes webkit weboob"
+IUSE="activities addressbook calendar holidays ofx quotes webkit weboob"
 
 REQUIRED_USE="weboob? ( ${PYTHON_REQUIRED_USE} )"
 
+# 	hbci? (
+# 		>=net-libs/aqbanking-5.8.1
+# 		>=sys-libs/gwenhywfar-4.20.0[qt5]
+# 	)
 BDEPEND="virtual/pkgconfig"
 COMMON_DEPEND="
 	$(add_frameworks_dep karchive)
@@ -67,10 +71,6 @@ COMMON_DEPEND="
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 	calendar? ( dev-libs/libical:= )
-	hbci? (
-		>=net-libs/aqbanking-5.8.1
-		>=sys-libs/gwenhywfar-4.20.0[qt5]
-	)
 	holidays? ( $(add_frameworks_dep kholidays) )
 	ofx? ( dev-libs/libofx )
 	webkit? (
@@ -104,7 +104,7 @@ src_configure() {
 		$(cmake-utils_use_find_package addressbook KF5Akonadi)
 		$(cmake-utils_use_find_package addressbook KF5Contacts)
 		$(cmake-utils_use_find_package addressbook KF5IdentityManagement)
-		-DENABLE_KBANKING=$(usex hbci)
+		-DENABLE_KBANKING=OFF
 		-DENABLE_LIBICAL=$(usex calendar)
 		$(cmake-utils_use_find_package holidays KF5Holidays)
 		-DENABLE_OFXIMPORTER=$(usex ofx)
