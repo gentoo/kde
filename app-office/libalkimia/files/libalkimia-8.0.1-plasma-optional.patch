@@ -1,0 +1,60 @@
+From 420756a78f783099ddd77b0966d593491d64a767 Mon Sep 17 00:00:00 2001
+From: Ralf Habacker <ralf.habacker@freenet.de>
+Date: Wed, 24 Apr 2019 14:05:27 +0200
+Subject: Make building plasma applets optional
+
+---
+ CMakeLists.txt | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2c7833b..8e830ae 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,6 +8,7 @@ project(alkimia VERSION 8.0.0)
+ 
+ option(BUILD_QT4 "Build for Qt4" OFF)
+ option(BUILD_DOXYGEN_DOCS "Build api docs" ON)
++option(BUILD_APPLETS "Build plasma applets" ON)
+ 
+ find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+ 
+@@ -70,6 +71,9 @@ else()
+         WebKitWidgets
+         Qml
+     )
++    if(BUILD_APPLETS)
++        set(PLASMA_COMPONENT Package Plasma)
++    endif()
+     # search packages used by KDE
+     find_package(KF5 REQUIRED COMPONENTS
+         Config
+@@ -77,8 +81,7 @@ else()
+         KDELibs4Support
+         #I18n
+         #WebKit
+-        Package
+-        Plasma
++        ${PLASMA_COMPONENT}
+         NewStuff
+     )
+ 
+@@ -143,10 +146,12 @@ include_directories(
+ add_subdirectory(src)
+ add_subdirectory(autotests)
+ add_subdirectory(qml)
+-if(BUILD_QT4)
+-    add_subdirectory(plasma/applets/onlinequote)
+-else()
+-    add_subdirectory(plasma/applets/ForeignCurrencies)
++if(BUILD_APPLETS)
++    if(BUILD_QT4)
++        add_subdirectory(plasma/applets/onlinequote)
++    else()
++        add_subdirectory(plasma/applets/ForeignCurrencies)
++    endif()
+ endif()
+ add_subdirectory(tests)
+ add_subdirectory(tools)
+-- 
+cgit v1.1
