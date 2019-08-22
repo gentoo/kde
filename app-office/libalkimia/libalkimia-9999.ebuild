@@ -15,8 +15,8 @@ fi
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
 HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323"
 LICENSE="LGPL-2.1"
-SLOT="0/7"
-IUSE="doc"
+SLOT="0/8"
+IUSE="doc gmp plasma"
 
 BDEPEND="
 	virtual/pkgconfig
@@ -31,23 +31,28 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep ktextwidgets)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep plasma)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	$(add_qt_dep qtwidgets)
-	sci-libs/mpir:=
+	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+	!gmp? ( sci-libs/mpir:=[cxx] )
+	gmp? ( dev-libs/gmp:0=[cxx] )
+	plasma? (
+		$(add_frameworks_dep kpackage)
+		$(add_frameworks_dep plasma)
+	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package doc Doxygen)
+		-DBUILD_DOXYGEN_DOCS=$(usex doc)
+		$(cmake-utils_use_find_package !gmp MPIR)
+		-DBUILD_APPLETS=$(usex plasma)
 	)
 	kde5_src_configure
 }
