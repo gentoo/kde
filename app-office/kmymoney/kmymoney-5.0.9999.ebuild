@@ -6,7 +6,6 @@ EAPI=7
 EGIT_BRANCH="5.0"
 PYTHON_COMPAT=( python2_7 )
 
-KDE_GCC_MINIMAL="6.4"
 KDE_HANDBOOK="optional"
 KDE_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
@@ -60,7 +59,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	>=app-crypt/gpgme-1.7.1-r1[cxx]
-	>=app-office/libalkimia-7.0.0
+	>=app-office/libalkimia-7.0.0:=
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
