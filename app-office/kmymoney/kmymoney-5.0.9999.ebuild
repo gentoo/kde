@@ -56,7 +56,7 @@ COMMON_DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	>=app-crypt/gpgme-1.7.1-r1[cxx]
-	>=app-office/libalkimia-6.0.0
+	>=app-office/libalkimia-7.0.0
 	dev-libs/gmp:0=
 	dev-libs/kdiagram:5
 	dev-libs/libgpg-error
@@ -68,8 +68,8 @@ COMMON_DEPEND="
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-5.6.5
-		>=sys-libs/gwenhywfar-4.15.3-r1[qt5]
+		>=net-libs/aqbanking-5.8.1
+		>=sys-libs/gwenhywfar-4.20.0[qt5]
 	)
 	holidays? ( $(add_frameworks_dep kholidays) )
 	ofx? ( dev-libs/libofx )
