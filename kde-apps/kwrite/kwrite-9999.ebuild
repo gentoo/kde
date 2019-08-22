@@ -7,12 +7,13 @@ KMNAME="kate"
 KDE_HANDBOOK="optional"
 inherit kde5
 
-DESCRIPTION="KDE simple text editor"
+DESCRIPTION="Simple text editor based on KDE Frameworks"
 HOMEPAGE="https://kde.org/applications/utilities/kwrite"
+
 KEYWORDS=""
+IUSE="activities"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kcoreaddons)
@@ -27,6 +28,7 @@ DEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	activities? ( $(add_frameworks_dep kactivities) )
 "
 RDEPEND="${DEPEND}"
 
@@ -41,6 +43,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package activities KF5Activities)
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 	)
