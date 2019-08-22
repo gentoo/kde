@@ -8,13 +8,13 @@ KDE_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit kde5
 
-DESCRIPTION="Kate is an advanced text editor"
+DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"
 HOMEPAGE="https://kde.org/applications/utilities/kate https://kate-editor.org/"
+
 KEYWORDS=""
-IUSE="+addons"
+IUSE="activities +filebrowser lspclient +projects plasma +snippets sql"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -26,7 +26,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kitemviews)
 	$(add_frameworks_dep kjobwidgets)
 	$(add_frameworks_dep kparts)
@@ -40,12 +39,17 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	addons? (
-		$(add_frameworks_dep kbookmarks)
+	activities? ( $(add_frameworks_dep kactivities) )
+	filebrowser? ( $(add_frameworks_dep kbookmarks) )
+	lspclient? ( $(add_frameworks_dep kitemmodels) )
+	plasma? ( $(add_frameworks_dep plasma) )
+	projects? (
 		$(add_frameworks_dep knewstuff)
-		$(add_frameworks_dep kwallet)
-		$(add_frameworks_dep plasma)
 		$(add_frameworks_dep threadweaver)
+	)
+	snippets? ( $(add_frameworks_dep knewstuff) )
+	sql? (
+		$(add_frameworks_dep kwallet)
 		$(add_qt_dep qtsql)
 	)
 "
@@ -65,7 +69,13 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_addons=$(usex addons)
+		$(cmake-utils_use_find_package activities KF5Activities)
+		-DBUILD_filebrowser=$(usex filebrowser)
+		-DBUILD_lspclient=$(usex lspclient)
+		-DBUILD_sessionapplet=$(usex plasma)
+		-DBUILD_project=$(usex projects)
+		-DBUILD_snippets=$(usex snippets)
+		-DBUILD_katesql=$(usex sql)
 		-DBUILD_kwrite=FALSE
 	)
 
@@ -84,7 +94,7 @@ src_test() {
 pkg_postinst() {
 	kde5_pkg_postinst
 
-	if [[ -z "${REPLACING_VERSIONS}" ]] && use addons; then
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "The functionality of ktexteditorpreview plugin can be extended with:"
 		elog "  kde-misc/kmarkdownwebview"
 		elog "  media-gfx/kgraphviewer"
