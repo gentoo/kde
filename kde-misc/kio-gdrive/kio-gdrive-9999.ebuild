@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KDE_APPS_MINIMAL="19.07.80"
+KDE_APPS_MINIMAL="19.08.0"
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="optional"
 inherit kde5
@@ -18,6 +18,7 @@ fi
 
 IUSE="+kaccounts"
 
+BDEPEND="dev-util/intltool"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
@@ -35,7 +36,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	kaccounts? ( $(add_kdeapps_dep kaccounts-providers) )
 "
-BDEPEND="dev-util/intltool"
 
 DOCS=( README.md )
 
