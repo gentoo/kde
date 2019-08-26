@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde5
+inherit desktop kde5
 
 DESCRIPTION="KDE multimedia abstraction library"
 HOMEPAGE="https://phonon.kde.org/"
@@ -15,7 +15,7 @@ fi
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 SLOT="0"
-IUSE="debug designer gstreamer gui pulseaudio +vlc"
+IUSE="debug designer gstreamer pulseaudio +vlc"
 
 BDEPEND="
 	dev-qt/linguist-tools:5
@@ -42,7 +42,14 @@ src_configure() {
 		-DPHONON_BUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DCMAKE_DISABLE_FIND_PACKAGE_GLIB2=$(usex !pulseaudio)
 		-DCMAKE_DISABLE_FIND_PACKAGE_PulseAudio=$(usex !pulseaudio)
-		-DPHONON_BUILD_SETTINGS=$(usex gui)
+		-DPHONON_BUILD_SETTINGS=$(usex !pulseaudio)
 	)
 	kde5_src_configure
+}
+
+src_install() {
+	kde5_src_install
+	use pulseaudio || \
+		make_desktop_entry "${PN}settings" \
+			"Phonon Audio and Video" preferences-desktop-sound
 }
