@@ -49,6 +49,7 @@ DEPEND="
 	$(add_qt_dep qtmultimedia)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	>=media-libs/phonon-4.10.90[qt5(+)]
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
