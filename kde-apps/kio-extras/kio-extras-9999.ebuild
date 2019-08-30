@@ -43,6 +43,7 @@ DEPEND="
 	$(add_qt_dep qtxml)
 	activities? (
 		$(add_frameworks_dep kactivities)
+		$(add_frameworks_dep kactivities-stats)
 		$(add_qt_dep qtsql)
 	)
 	man? ( $(add_frameworks_dep khtml) )
@@ -63,6 +64,7 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package activities KF5Activities)
+		$(cmake-utils_use_find_package activities KF5ActivitiesStats)
 		$(cmake-utils_use_find_package man Gperf)
 		$(cmake-utils_use_find_package mtp Mtp)
 		$(cmake-utils_use_find_package openexr OpenEXR)
