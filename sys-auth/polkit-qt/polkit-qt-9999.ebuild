@@ -30,8 +30,6 @@ DOCS=( AUTHORS README README.porting TODO )
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=$(usex examples)
-		-DUSE_QT4=OFF
-		-DUSE_QT5=ON
 	)
 
 	cmake-utils_src_configure
