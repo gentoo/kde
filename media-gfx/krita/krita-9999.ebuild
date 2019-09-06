@@ -58,7 +58,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libX11
-	x11-libs/libxcb
 	x11-libs/libXi
 	color-management? ( media-libs/opencolorio )
 	fftw? ( sci-libs/fftw:3.0= )
