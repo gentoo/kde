@@ -48,11 +48,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-cmake.patch"
-	"${FILESDIR}/${P}-plasma-optional.patch"
-	"${FILESDIR}/${P}-limit-knewstuff-profiles.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-8.0.1-cmake.patch" )
 
 src_configure() {
 	local mycmakeargs=(
