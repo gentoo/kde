@@ -13,6 +13,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	dev-libs/libxslt
 "
@@ -47,9 +48,9 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtmultimedia)
-	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtwidgets '' '' '5=')
 	$(add_qt_dep qtxml)
-	>=media-libs/phonon-4.10.90[qt5(+)]
+	>=media-libs/phonon-4.10.90
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
