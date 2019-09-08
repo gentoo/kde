@@ -11,6 +11,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE=""
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
@@ -32,7 +33,7 @@ DEPEND="
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
 	$(add_qt_dep designer)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtwidgets)
 	dev-libs/kdiagram:5
 	dev-libs/libical
