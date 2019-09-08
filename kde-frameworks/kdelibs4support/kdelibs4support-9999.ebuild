@@ -62,6 +62,7 @@ COMMON_DEPEND="
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
+		x11-libs/libxcb
 	)
 "
 DEPEND="${COMMON_DEPEND}
