@@ -13,14 +13,16 @@ LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	$(add_qt_dep qtconcurrent)
 	$(add_qt_dep qtgui 'egl')
 	>=dev-libs/wayland-1.15.0
 	media-libs/mesa[egl]
+"
+DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.15
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	$(add_qt_dep qtwayland)
 "
 
