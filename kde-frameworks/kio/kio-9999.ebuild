@@ -36,9 +36,9 @@ RDEPEND="
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep solid)
 	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork 'ssl')
-	$(add_qt_dep qtscript)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	dev-libs/libxml2
