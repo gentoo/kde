@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Control Center to configure KDE Plasma desktop"
 KEYWORDS=""
-IUSE="gtk"
+IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -39,7 +39,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
-	gtk? ( $(add_plasma_dep kde-gtk-config) )
 "
 
 src_prepare() {
@@ -48,4 +47,13 @@ src_prepare() {
 	# FIXME: hangs in chroot; similar to bug #640432
 	sed -e "s/^ecm_find_qmlmodule.*org\.kde\.kcm/#&/" \
 		-i CMakeLists.txt || die
+}
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		has_version kde-plasma/kde-gtk-config || \
+			elog "Install kde-plasma/kde-gtk-config to configure looks for GTK+."
+	fi
 }
