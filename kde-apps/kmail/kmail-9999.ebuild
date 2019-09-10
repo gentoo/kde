@@ -14,6 +14,7 @@ LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 KEYWORDS=""
 IUSE=""
 
+# drop qtcore subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	dev-libs/libxslt
 	test? ( $(add_kdeapps_dep akonadi 'tools') )
@@ -63,6 +64,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep mailcommon)
 	$(add_kdeapps_dep messagelib)
 	$(add_kdeapps_dep pimcommon)
+	$(add_qt_dep qtcore '' '' '5=')
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
