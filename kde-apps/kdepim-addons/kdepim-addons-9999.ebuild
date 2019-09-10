@@ -15,6 +15,7 @@ LICENSE="GPL-2+ LGPL-2.1+"
 KEYWORDS=""
 IUSE="importwizard markdown"
 
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -55,7 +56,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtwidgets '' '' '5=')
 	$(add_qt_dep qtxml)
 	importwizard? ( $(add_kdeapps_dep akonadi-import-wizard) )
 	markdown? ( app-text/discount )
