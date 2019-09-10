@@ -6,9 +6,9 @@ EAPI=7
 KDE_HANDBOOK="forceoptional"
 inherit kde5
 
-DESCRIPTION="System settings utility"
+DESCRIPTION="Control Center to configure KDE Plasma desktop"
 KEYWORDS=""
-IUSE="classic gtk"
+IUSE="gtk"
 
 DEPEND="
 	$(add_frameworks_dep kactivities)
@@ -36,7 +36,6 @@ DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	classic? ( $(add_frameworks_dep khtml) )
 "
 RDEPEND="${DEPEND}
 	$(add_frameworks_dep kirigami)
@@ -49,12 +48,4 @@ src_prepare() {
 	# FIXME: hangs in chroot; similar to bug #640432
 	sed -e "s/^ecm_find_qmlmodule.*org\.kde\.kcm/#&/" \
 		-i CMakeLists.txt || die
-}
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake-utils_use_find_package classic KF5KHtml)
-	)
-
-	kde5_src_configure
 }
