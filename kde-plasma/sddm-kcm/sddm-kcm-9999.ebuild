@@ -12,7 +12,7 @@ LICENSE="GPL-2+"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kconfig)
@@ -25,14 +25,8 @@ COMMON_DEPEND="
 	$(add_qt_dep qtdeclarative 'widgets')
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
-	x11-libs/libX11
-	x11-libs/libXcursor
 "
-DEPEND="${COMMON_DEPEND}
-	x11-libs/libXfixes
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	$(add_plasma_dep kde-cli-tools)
 	x11-misc/sddm
 "
