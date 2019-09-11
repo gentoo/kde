@@ -7,7 +7,7 @@ KDE_HANDBOOK="forceoptional"
 KDE_TEST="false"
 inherit kde5
 
-DESCRIPTION="Plasma mixer gui"
+DESCRIPTION="Volume control gui based on KDE Frameworks"
 HOMEPAGE="https://kde.org/applications/multimedia/kmix/"
 KEYWORDS=""
 IUSE="alsa plasma pulseaudio"
@@ -19,7 +19,6 @@ DEPEND="
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kglobalaccel)
 	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
