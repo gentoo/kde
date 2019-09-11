@@ -14,7 +14,7 @@ HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
 KEYWORDS=""
 LICENSE="LGPL-2.1+"
-IUSE="+mysql postgres sqlite tools xml"
+IUSE="+kaccounts +mysql postgres sqlite tools xml"
 
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
@@ -39,6 +39,10 @@ COMMON_DEPEND="
 	$(add_qt_dep qtsql 'mysql?,postgres?')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	kaccounts? (
+		$(add_kdeapps_dep kaccounts-integration)
+		net-libs/accounts-qt
+	)
 	sqlite? (
 		$(add_qt_dep qtsql 'sqlite' '' '5=')
 		dev-db/sqlite:3
@@ -93,6 +97,8 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package kaccounts AccountsQt5)
+		$(cmake-utils_use_find_package kaccounts KAccounts)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
 		$(cmake-utils_use_find_package xml LibXml2)
