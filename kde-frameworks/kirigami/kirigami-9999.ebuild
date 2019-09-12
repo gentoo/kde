@@ -17,6 +17,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	$(add_qt_dep linguist-tools)
 "
@@ -24,7 +25,7 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsvg)
