@@ -47,7 +47,7 @@ DEPEND="
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
 	media-libs/libsamplerate
-	dvd? ( media-libs/libdvdread )
+	dvd? ( media-libs/libdvdread:= )
 	ffmpeg? (
 		libav? ( media-video/libav:= )
 		!libav? ( media-video/ffmpeg:0= )
