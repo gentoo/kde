@@ -48,10 +48,5 @@ pkg_postinst() {
 		elog "Install kde-apps/kwalletmanager:5 to manage your kwallet."
 		elog
 	fi
-	if has_version "kde-apps/kwalletd"; then
-		elog "Starting with 5.34.0-r1, ${PN} is able to serve applications"
-		elog "that still require old kwalletd4. After migration has finished,"
-		elog "kde-apps/kwalletd can be removed."
-	fi
 	elog "For more information, read https://wiki.gentoo.org/wiki/KDE#KWallet"
 }
