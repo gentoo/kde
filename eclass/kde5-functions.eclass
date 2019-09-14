@@ -39,6 +39,9 @@ case ${CATEGORY} in
 	kde-plasma)
 		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
 		;;
+	kde-apps)
+		[[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]] && : ${FRAMEWORKS_MINIMAL:=5.62.0}
+		;;
 esac
 
 # @ECLASS-VARIABLE: QT_MINIMAL
