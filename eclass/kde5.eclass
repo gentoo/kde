@@ -177,22 +177,6 @@ case ${KDE_SUBSLOT} in
 		;;
 esac
 
-case ${KDE_DESIGNERPLUGIN} in
-	false)  ;;
-	*)
-		IUSE+=" designer"
-		if [[ ${CATEGORY} = kde-frameworks ]]; then
-			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
-		else
-			if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]]; then
-				FRAMEWORKS_MINIMAL="5.62.0"
-				BDEPEND+=" designer? ( $(add_qt_dep designer) )"
-			else
-				BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
-			fi
-		fi
-esac
-
 case ${KDE_AUTODEPS} in
 	false)	;;
 	*)
@@ -205,6 +189,21 @@ case ${KDE_AUTODEPS} in
 			RDEPEND+=" || ( $(add_frameworks_dep breeze-icons) kde-frameworks/oxygen-icons:* )"
 		fi
 		;;
+esac
+
+case ${KDE_DESIGNERPLUGIN} in
+	false)  ;;
+	*)
+		IUSE+=" designer"
+		if [[ ${CATEGORY} = kde-frameworks ]]; then
+			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
+		else
+			if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]]; then
+				BDEPEND+=" designer? ( $(add_qt_dep designer) )"
+			else
+				BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
+			fi
+		fi
 esac
 
 case ${KDE_DEBUG} in
