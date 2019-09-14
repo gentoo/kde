@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_HANDBOOK="forceoptional"
 KDE_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{5,6,7} )
+PYTHON_COMPAT=( python3_{6,7} )
 inherit kde5 python-single-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
