@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_QTHELP="true"
 KDE_TEST="true"
-PYTHON_COMPAT=( python2_7 python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7} )
 inherit kde5 python-any-r1
 
 DESCRIPTION="Database connectivity and creation framework for various vendors"
