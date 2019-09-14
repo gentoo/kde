@@ -195,14 +195,10 @@ case ${KDE_DESIGNERPLUGIN} in
 	false)  ;;
 	*)
 		IUSE+=" designer"
-		if [[ ${CATEGORY} = kde-frameworks ]]; then
-			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
+		if [[ ${CATEGORY} = kde-apps && ${PV} = 19.0[48]* ]]; then
+			BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
 		else
-			if [[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]]; then
-				BDEPEND+=" designer? ( $(add_qt_dep designer) )"
-			else
-				BDEPEND+=" designer? ( $(add_frameworks_dep kdesignerplugin) )"
-			fi
+			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
 		fi
 esac
 
