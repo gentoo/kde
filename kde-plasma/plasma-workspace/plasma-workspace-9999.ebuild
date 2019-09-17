@@ -16,6 +16,7 @@ REQUIRED_USE="gps? ( geolocation )"
 
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
+	$(add_frameworks_dep kactivities-stats)
 	$(add_frameworks_dep kauth)
 	$(add_frameworks_dep kbookmarks)
 	$(add_frameworks_dep kcompletion)
@@ -40,6 +41,7 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kpackage)
+	$(add_frameworks_dep kpeople)
 	$(add_frameworks_dep krunner)
 	$(add_frameworks_dep kservice)
 	$(add_frameworks_dep ktexteditor)
@@ -107,7 +109,7 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xsetroot
 	systemd? ( sys-apps/dbus[user-session] )
 	!systemd? ( sys-apps/dbus )
-	!<kde-plasma/plasma-desktop-5.14.80:5
+	!<kde-plasma/plasma-desktop-5.16.80:5
 "
 PDEPEND="
 	$(add_plasma_dep kde-cli-tools)
