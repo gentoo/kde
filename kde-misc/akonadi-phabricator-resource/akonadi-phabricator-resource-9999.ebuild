@@ -15,7 +15,9 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kwidgetsaddons)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep kcalcore)
 	$(add_qt_dep qtdbus)
