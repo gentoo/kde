@@ -20,6 +20,7 @@ DEPEND="
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep knotifications)
 	$(add_frameworks_dep krunner)
+	$(add_frameworks_dep purpose)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
