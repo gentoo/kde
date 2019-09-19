@@ -13,10 +13,12 @@ IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kguiaddons)
 	$(add_frameworks_dep ki18n)
@@ -27,9 +29,7 @@ DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep calendarsupport)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_kdeapps_dep libkdepim)
 	$(add_qt_dep designer)

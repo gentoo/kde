@@ -15,6 +15,7 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
@@ -23,7 +24,6 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kxmlgui)
 	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmailtransport)
 	$(add_kdeapps_dep libkdepim)

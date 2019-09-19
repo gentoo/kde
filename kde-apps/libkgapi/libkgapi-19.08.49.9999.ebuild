@@ -18,10 +18,10 @@ BDEPEND="
 	nls? ( $(add_qt_dep linguist-tools) )
 "
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kwindowsystem)
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kcontacts)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwebengine 'widgets')

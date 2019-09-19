@@ -12,12 +12,12 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kxmlrpcclient)
 	$(add_frameworks_dep syndication)
-	$(add_kdeapps_dep kcalcore)
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

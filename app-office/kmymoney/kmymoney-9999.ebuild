@@ -60,8 +60,8 @@ COMMON_DEPEND="
 	dev-libs/libgpg-error
 	activities? ( $(add_frameworks_dep kactivities) )
 	addressbook? (
+		$(add_frameworks_dep kcontacts)
 		$(add_kdeapps_dep akonadi)
-		$(add_kdeapps_dep kcontacts)
 		$(add_kdeapps_dep kidentitymanagement)
 	)
 	calendar? ( dev-libs/libical:= )

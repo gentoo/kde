@@ -16,10 +16,10 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcodecs)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi 'xml')
-	$(add_kdeapps_dep kcontacts)
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}"

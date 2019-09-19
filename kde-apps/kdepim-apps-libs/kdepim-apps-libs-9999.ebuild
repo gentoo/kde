@@ -15,6 +15,7 @@ IUSE=""
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
@@ -25,7 +26,6 @@ DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep grantleetheme)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep libkleo)
 	$(add_kdeapps_dep pimcommon)
 	$(add_qt_dep qtdbus)

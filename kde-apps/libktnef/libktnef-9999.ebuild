@@ -13,10 +13,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}

@@ -15,12 +15,12 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep calendarsupport)
-	$(add_kdeapps_dep kcalcore)
 	$(add_qt_dep qtwidgets)
 "
 RDEPEND="${DEPEND}

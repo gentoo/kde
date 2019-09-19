@@ -17,11 +17,13 @@ BDEPEND="
 "
 DEPEND="
 	$(add_frameworks_dep kauth)
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
@@ -43,9 +45,7 @@ DEPEND="
 	$(add_kdeapps_dep akonadi-contacts)
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep kalarmcal)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kmailtransport)

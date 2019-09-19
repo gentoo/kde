@@ -12,6 +12,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -26,7 +27,6 @@ DEPEND="
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-calendar)
 	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kdepim-apps-libs)
 	$(add_kdeapps_dep kidentitymanagement)

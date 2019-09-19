@@ -13,6 +13,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -20,7 +21,6 @@ DEPEND="
 	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)

@@ -18,10 +18,12 @@ BDEPEND="
 	dev-libs/libxslt
 "
 COMMON_DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kholidays)
@@ -43,9 +45,7 @@ COMMON_DEPEND="
 	$(add_kdeapps_dep akonadi-mime)
 	$(add_kdeapps_dep akonadi-notes)
 	$(add_kdeapps_dep kalarmcal)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kdav)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep kimap)

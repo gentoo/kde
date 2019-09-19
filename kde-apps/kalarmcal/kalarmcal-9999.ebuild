@@ -12,11 +12,11 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep kcalcore)
 	$(add_kdeapps_dep kcalutils)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_qt_dep qtgui)

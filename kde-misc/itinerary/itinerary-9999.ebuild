@@ -14,10 +14,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kholidays)
 	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kitinerary)
 	$(add_kdeapps_dep kpkpass)
 	$(add_qt_dep qtdeclarative)

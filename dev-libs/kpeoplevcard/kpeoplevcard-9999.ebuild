@@ -13,9 +13,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kpeople)
-	$(add_kdeapps_dep kcontacts)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 "

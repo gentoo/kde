@@ -17,10 +17,12 @@ BDEPEND="
 	test? ( $(add_kdeapps_dep akonadi 'tools') )
 "
 COMMON_DEPEND="
+	$(add_frameworks_dep kcalendarcore)
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kcodecs)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kio)
@@ -28,8 +30,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep krunner)
 	$(add_kdeapps_dep akonadi)
 	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep kcalcore)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kmime)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtgui)

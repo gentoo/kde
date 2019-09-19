@@ -60,6 +60,7 @@ IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 COMMON_DEPEND="
 	$(add_frameworks_dep kcmutils)
 	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcontacts)
 	$(add_frameworks_dep kcrash)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep khtml)
@@ -72,7 +73,6 @@ COMMON_DEPEND="
 	$(add_frameworks_dep knotifyconfig)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep ktexteditor)
-	$(add_kdeapps_dep kcontacts)
 	$(add_kdeapps_dep kidentitymanagement)
 	$(add_kdeapps_dep libkleo)
 	$(add_qt_dep qtgui)
