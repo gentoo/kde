@@ -9,7 +9,7 @@ inherit kde5
 DESCRIPTION="Network-enabled task manager and system monitor"
 LICENSE="GPL-2+"
 KEYWORDS=""
-IUSE="lm-sensors"
+IUSE="caps lm-sensors"
 
 DEPEND="
 	$(add_frameworks_dep kcompletion)
@@ -32,12 +32,17 @@ DEPEND="
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	caps? (
+		net-libs/libpcap
+		sys-libs/libcap
+	)
 	lm-sensors? ( sys-apps/lm-sensors:= )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package caps Libcap)
 		$(cmake-utils_use_find_package lm-sensors Sensors)
 	)
 
