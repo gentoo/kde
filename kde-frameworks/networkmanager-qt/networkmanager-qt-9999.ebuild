@@ -19,7 +19,6 @@ DEPEND="
 	>=net-misc/networkmanager-1.4.0-r1[teamd=]
 "
 RDEPEND="${DEPEND}
-	!net-libs/libnm-qt:5
 	|| (
 		>=net-misc/networkmanager-1.4.0-r1[consolekit]
 		>=net-misc/networkmanager-1.4.0-r1[elogind]
