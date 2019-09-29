@@ -55,3 +55,12 @@ RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
 	$(add_kdeapps_dep kdepim-runtime)
 "
+
+pkg_postinst() {
+	kde5_pkg_postinst
+
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		has_version "kde-apps/kdepim-addons:${SLOT}" || \
+			elog "${PN} is not complete without kde-apps/kdepim-addons:${SLOT}!"
+	fi
+}
