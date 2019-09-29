@@ -3,8 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
-EGIT_REPO_URI=( "git://anongit.freedesktop.org/telepathy/${PN}" )
+PYTHON_COMPAT=( python3_{6,7} )
+EGIT_REPO_URI=( "https://github.com/TelepathyIM/${PN}" )
 inherit python-any-r1 cmake-utils git-r3
 
 DESCRIPTION="Qt bindings for the Telepathy D-Bus protocol"
@@ -15,6 +15,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug farstream"
 
+BDEPEND="${PYTHON_DEPS}
+	virtual/pkgconfig
+"
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -27,10 +30,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	${PYTHON_DEPS}
-	virtual/pkgconfig
-"
 
 PATCHES=( "${FILESDIR}/${PN}-0.9.7-deps.patch" )
 
