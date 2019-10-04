@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{6,7} )
 inherit kde5 python-any-r1
 
 DESCRIPTION="Qt bindings for the Telepathy logger"
