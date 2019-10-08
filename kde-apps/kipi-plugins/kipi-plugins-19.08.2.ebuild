@@ -10,7 +10,7 @@ DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="https://userbase.kde.org/KIPI https://cgit.kde.org/kipi-plugins.git/"
 
 LICENSE="GPL-2+"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="flashexport mediawiki +remotestorage vkontakte"
 
 BDEPEND="sys-devel/gettext"
