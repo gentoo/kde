@@ -10,7 +10,7 @@ inherit kde5
 DESCRIPTION="KDE Plasma resources management GUI"
 HOMEPAGE="https://userbase.kde.org/Discover"
 KEYWORDS=""
-IUSE="+firmware"
+IUSE="+firmware feedback"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -36,6 +36,7 @@ DEPEND="
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
+	feedback? ( dev-libs/kuserfeedback:5 )
 	firmware? ( sys-apps/fwupd )
 "
 RDEPEND="${DEPEND}
@@ -54,6 +55,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
 		-DBUILD_FlatpakBackend=OFF
+		$(cmake-utils_use_find_package feedback KUserFeedback)
 		-DBUILD_FwupdBackend=$(usex firmware)
 	)
 
