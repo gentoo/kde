@@ -10,7 +10,7 @@ inherit kde5
 
 DESCRIPTION="KDE Plasma workspace"
 KEYWORDS=""
-IUSE="appstream +calendar geolocation gps qalculate qrcode +semantic-desktop systemd"
+IUSE="appstream +calendar feedback geolocation gps qalculate qrcode +semantic-desktop systemd"
 
 REQUIRED_USE="gps? ( geolocation )"
 
@@ -80,6 +80,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-image
 	appstream? ( dev-libs/appstream[qt5] )
 	calendar? ( $(add_frameworks_dep kholidays) )
+	feedback? ( dev-libs/kuserfeedback:5 )
 	geolocation? ( $(add_frameworks_dep networkmanager-qt) )
 	gps? ( sci-geosciences/gpsd )
 	qalculate? ( sci-libs/libqalculate:= )
@@ -137,6 +138,7 @@ src_configure() {
 		-DBUILD_xembed-sni-proxy=OFF
 		$(cmake-utils_use_find_package appstream AppStreamQt)
 		$(cmake-utils_use_find_package calendar KF5Holidays)
+		$(cmake-utils_use_find_package feedback KUserFeedback)
 		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
 		$(cmake-utils_use_find_package qalculate Qalculate)
 		$(cmake-utils_use_find_package qrcode KF5Prison)
