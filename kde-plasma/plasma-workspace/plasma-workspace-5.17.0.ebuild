@@ -118,6 +118,7 @@ PDEPEND="
 PATCHES=(
 	# TODO: Restore Gentoo part for FHS installs, bug 688366
 	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch"
+	"${FILESDIR}/${P}-waylandsessionrename.patch"
 )
 
 RESTRICT+=" test"
