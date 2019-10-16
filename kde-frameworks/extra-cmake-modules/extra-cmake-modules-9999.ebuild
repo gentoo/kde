@@ -4,12 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python{2_7,3_{6,7}} )
-ECM_KDEINSTALLDIRS="false"
-KDE_AUTODEPS="false"
-KDE_DEBUG="false"
-KDE_QTHELP="false"
-KDE_TEST="false"
-inherit kde5 python-any-r1
+inherit cmake-utils kde.org python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://cgit.kde.org/extra-cmake-modules.git"
@@ -22,11 +17,11 @@ BDEPEND="
 	doc? (
 		${PYTHON_DEPS}
 		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
-		$(add_qt_dep qthelp)
+		dev-qt/qthelp:5
 	)
 	test? (
-		$(add_qt_dep qtcore)
-		$(add_qt_dep linguist-tools)
+		dev-qt/linguist-tools:5
+		dev-qt/qtcore:5
 	)
 "
 RDEPEND="
@@ -44,7 +39,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	kde5_src_prepare
+	cmake-utils_src_prepare
 	# Requires PyQt5, bug #680256
 	sed -i -e "/^if(NOT SIP_Qt5Core_Mod_FILE)/s/NOT SIP_Qt5Core_Mod_FILE/TRUE/" \
 		tests/CMakeLists.txt || die "failed to disable GenerateSipBindings tests"
@@ -58,7 +53,7 @@ src_configure() {
 		-DDOC_INSTALL_DIR=/usr/share/doc/"${PF}"
 	)
 
-	kde5_src_configure
+	cmake-utils_src_configure
 }
 
 src_test() {
@@ -68,5 +63,5 @@ src_test() {
 		-E "(ECMToolchainAndroidTest|ECMPoQmToolsTest)"
 	)
 
-	kde5_src_test
+	cmake-utils_src_test
 }
