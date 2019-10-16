@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+KDE_ORG_NAME="polkit-qt-1"
+inherit cmake-utils kde.org
 
 DESCRIPTION="PolicyKit Qt API wrapper library"
 HOMEPAGE="https://api.kde.org/kdesupport-api/polkit-qt-1-apidocs/"
-EGIT_REPO_URI=( "https://anongit.kde.org/polkit-qt-1" )
 
 LICENSE="LGPL-2"
 SLOT="0"
