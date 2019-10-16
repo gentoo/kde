@@ -3,28 +3,25 @@
 
 EAPI=7
 
-KDE_AUTODEPS="false"
-KDE_DEBUG="false"
-KDE_QTHELP="false"
-KMNAME="breeze-icons"
-inherit kde5
+KDE_ORG_NAME="breeze-icons"
+inherit cmake-utils kde.org
 
 DESCRIPTION="Breeze SVG icon theme binary resource"
 LICENSE="LGPL-3"
 KEYWORDS=""
-IUSE=""
+IUSE="test"
 
 BDEPEND="
-	$(add_frameworks_dep extra-cmake-modules)
-	$(add_qt_dep qtcore)
+	kde-frameworks/extra-cmake-modules:5
+	dev-qt/qtcore:5
 	test? ( app-misc/fdupes )
 "
-DEPEND="test? ( $(add_qt_dep qttest) )"
+DEPEND="test? ( dev-qt/qttest:5 )"
 
 src_configure() {
 	local mycmakeargs=(
 		-DBINARY_ICONS_RESOURCE=ON
 		-DSKIP_INSTALL_ICONS=ON
 	)
-	kde5_src_configure
+	cmake-utils_src_configure
 }
