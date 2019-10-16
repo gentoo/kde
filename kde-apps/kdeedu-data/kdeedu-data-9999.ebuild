@@ -3,15 +3,16 @@
 
 EAPI=7
 
-KDE_AUTODEPS="false"
-KDE_DEBUG="false"
-inherit kde5
+inherit kde.org
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
+
+LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 BDEPEND="
-	$(add_frameworks_dep extra-cmake-modules)
-	$(add_qt_dep qtcore)
+	dev-qt/qtcore:5
+	kde-frameworks/extra-cmake-modules:5
 "
