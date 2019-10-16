@@ -3,12 +3,9 @@
 
 EAPI=7
 
-KDE_AUTODEPS="false"
-KDE_DEBUG="false"
-KDE_TEST="false"
 DISTUTILS_SINGLE_IMPL="true"
 PYTHON_COMPAT=( python2_7 python3_{6,7} )
-inherit kde5 distutils-r1
+inherit cmake-utils kde.org distutils-r1
 
 DESCRIPTION="Framework for building KDE API documentation in a standard format and style"
 LICENSE="BSD-2"
@@ -24,5 +21,4 @@ RDEPEND="
 
 pkg_setup() {
 	python-single-r1_pkg_setup
-	kde5_pkg_setup
 }
