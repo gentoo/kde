@@ -3,11 +3,10 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils kde.org
 
 DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
 HOMEPAGE="https://cgit.kde.org/libtmdbqt.git"
-EGIT_REPO_URI="https://anongit.kde.org/libtmdbqt.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
