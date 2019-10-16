@@ -3,7 +3,6 @@
 
 EAPI=7
 
-KDE_AUTODEPS="false"
 KDE_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{6,7} )
 inherit python-single-r1 kde5
@@ -16,11 +15,9 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-	$(add_frameworks_dep extra-cmake-modules)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep ki18n)
 	$(add_kdeapps_dep libkdegames)
-	$(add_qt_dep qtcore)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtsvg)
 	$(add_qt_dep qtwidgets)
