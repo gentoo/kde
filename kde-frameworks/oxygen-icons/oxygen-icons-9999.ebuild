@@ -17,4 +17,3 @@ BDEPEND="
 	test? ( app-misc/fdupes )
 "
 DEPEND="test? ( dev-qt/qttest:5 )"
-RDEPEND="!kde-frameworks/oxygen-icons:4"
