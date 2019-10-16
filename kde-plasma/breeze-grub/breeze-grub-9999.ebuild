@@ -3,12 +3,12 @@
 
 EAPI=7
 
-KDE_AUTODEPS="false"
-KDE_DEBUG="false"
-inherit kde5
+inherit kde.org
 
 DESCRIPTION="Breeze theme for GRUB"
+
 LICENSE="GPL-3+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
