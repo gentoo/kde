@@ -192,6 +192,13 @@ case ${KDE_AUTODEPS} in
 		;;
 esac
 
+case ${KDE_DEBUG} in
+	false)	;;
+	*)
+		IUSE+=" debug"
+		;;
+esac
+
 case ${KDE_DESIGNERPLUGIN} in
 	false)  ;;
 	*)
@@ -201,13 +208,6 @@ case ${KDE_DESIGNERPLUGIN} in
 		else
 			BDEPEND+=" designer? ( $(add_qt_dep designer) )"
 		fi
-esac
-
-case ${KDE_DEBUG} in
-	false)	;;
-	*)
-		IUSE+=" debug"
-		;;
 esac
 
 case ${KDE_EXAMPLES} in
