@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_{6,7}} )
+PYTHON_COMPAT=( python3_{6,7} )
 inherit kde5 python-single-r1
 
 DESCRIPTION="Framework based on Gettext for internationalizing user interface text"
