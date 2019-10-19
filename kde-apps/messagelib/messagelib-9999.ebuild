@@ -57,6 +57,7 @@ DEPEND="
 	$(add_qt_dep qtwebengine 'widgets')
 	$(add_qt_dep qtwidgets)
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
+	app-crypt/qca:2
 	>=dev-libs/grantlee-5.1.0:5
 "
 RDEPEND="${DEPEND}
