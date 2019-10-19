@@ -47,7 +47,6 @@ COMMON_DEPEND="
 	$(add_qt_dep qtxml)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kiconthemes)
 	test? ( $(add_kdeapps_dep kmime) )
 "
 RDEPEND="${COMMON_DEPEND}
