@@ -12,7 +12,6 @@ IUSE=""
 
 DEPEND="
 	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kiconthemes)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep kparts)
 	$(add_frameworks_dep kwindowsystem)
