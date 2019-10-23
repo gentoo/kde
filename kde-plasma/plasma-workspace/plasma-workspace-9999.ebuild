@@ -166,8 +166,8 @@ pkg_postinst () {
 
 	elog "To enable gpg-agent and/or ssh-agent in Plasma sessions, do the following:"
 	elog " * Copy the necessary files to your home directory:"
-	elog "  - cp /etc/plasma/startup/10-agent-startup.sh ~/.config/plasma-workspace/env/"
-	elog "  - cp /etc/plasma/startup/10-agent-startup.sh ~/.config/plasma-workspace/shutdown/"
+	elog "   - cp /etc/plasma/startup/10-agent-startup.sh ~/.config/plasma-workspace/env/"
+	elog "   - cp /etc/plasma/shutdown/10-agent-shutdown.sh ~/.config/plasma-workspace/shutdown/"
 	elog " * Edit 10-agent-startup.sh and uncomment the lines enabling ssh-agent."
 	elog " * In 10-agent-shutdown.sh uncomment the respective lines to properly kill"
 	elog "   the agent when the session ends."
