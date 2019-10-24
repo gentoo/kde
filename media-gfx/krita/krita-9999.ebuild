@@ -24,7 +24,7 @@ BDEPEND="
 	dev-lang/perl
 	sys-devel/gettext
 "
-COMMON_DEPEND="${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kcompletion)
 	$(add_frameworks_dep kconfig)
@@ -74,12 +74,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	raw? ( media-libs/libraw:= )
 	tiff? ( media-libs/tiff:0 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	vc? ( >=dev-libs/vc-1.1.0 )
-"
-RDEPEND="${COMMON_DEPEND}
-	!app-office/calligra:4[calligra_features_krita]
-	!app-office/calligra-l10n:4[calligra_features_krita(+)]
 "
 
 # bug 630508
