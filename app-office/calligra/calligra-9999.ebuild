@@ -110,8 +110,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
-	!app-office/calligra:4
-	!app-office/calligra-l10n:4
 "
 RESTRICT+=" test"
 
