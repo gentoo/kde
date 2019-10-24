@@ -62,7 +62,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-common-libs:4
 	!kde-apps/kdepim-l10n
-	!=kde-apps/kmail-4.4*:4
 "
 
 # bug 579630
