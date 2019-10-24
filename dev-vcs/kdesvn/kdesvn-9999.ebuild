@@ -46,9 +46,7 @@ DEPEND="
 	dev-libs/apr-util:1
 	dev-vcs/subversion
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdesdk-kioslaves:4[subversion(-)]
-"
+RDEPEND="${DEPEND}"
 
 src_prepare(){
 	kde5_src_prepare
