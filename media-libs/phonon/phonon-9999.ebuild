@@ -22,7 +22,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	!!dev-qt/qtphonon:4
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	designer? ( dev-qt/designer:5 )
