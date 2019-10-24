@@ -69,7 +69,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!app-office/calligra[calligra_features_plan(-)]
-	!app-office/calligra-l10n:4
 	$(add_qt_dep qtsvg)
 "
 
