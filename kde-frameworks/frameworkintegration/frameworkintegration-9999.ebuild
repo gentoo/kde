@@ -12,6 +12,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="appstream X"
 
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
@@ -22,7 +23,7 @@ DEPEND="
 	$(add_frameworks_dep kpackage)
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtwidgets '' '' '5=')
 	appstream? (
 		app-admin/packagekit-qt
 		dev-libs/appstream[qt5]
