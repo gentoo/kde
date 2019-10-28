@@ -11,6 +11,7 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
@@ -23,7 +24,7 @@ DEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	media-libs/libepoxy
