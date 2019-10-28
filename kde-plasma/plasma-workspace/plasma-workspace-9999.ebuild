@@ -14,6 +14,7 @@ IUSE="appstream +calendar feedback geolocation gps qalculate qrcode +semantic-de
 
 REQUIRED_USE="gps? ( geolocation )"
 
+# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 COMMON_DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep kactivities-stats)
@@ -60,7 +61,7 @@ COMMON_DEPEND="
 	$(add_plasma_dep libkworkspace)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui 'jpeg')
+	$(add_qt_dep qtgui 'jpeg' '' '5=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtsql)
 	$(add_qt_dep qtwidgets)
