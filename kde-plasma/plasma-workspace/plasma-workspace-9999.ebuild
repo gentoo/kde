@@ -117,10 +117,7 @@ PDEPEND="
 	$(add_plasma_dep kde-cli-tools)
 "
 
-PATCHES=(
-	# TODO: Restore Gentoo part for FHS installs, bug 688366
-	"${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-5.14.2-split-libkworkspace.patch" )
 
 RESTRICT+=" test"
 
