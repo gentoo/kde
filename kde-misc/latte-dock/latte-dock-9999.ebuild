@@ -3,6 +3,7 @@
 
 EAPI=7
 
+FRAMEWORKS_MINIMAL="5.63.0"
 inherit kde5
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -37,7 +38,6 @@ DEPEND="
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma X)
-	$(add_plasma_dep libksysguard)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgraphicaleffects)
