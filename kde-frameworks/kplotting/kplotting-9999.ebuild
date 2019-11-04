@@ -4,8 +4,10 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing easy data-plotting functions"
 LICENSE="LGPL-2+"
@@ -13,7 +15,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

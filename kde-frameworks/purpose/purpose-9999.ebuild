@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_QTHELP="false"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
@@ -13,16 +15,16 @@ KEYWORDS=""
 IUSE="+kaccounts"
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/kirigami-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	kaccounts? (
-		$(add_kdeapps_dep kaccounts-integration)
+		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt
 	)
 "
@@ -36,11 +38,11 @@ src_configure() {
 		$(cmake-utils_use_find_package kaccounts KAccounts)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst(){
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if ! has_version "kde-misc/kdeconnect[app]" ; then
 		elog "Optional runtime dependency:"

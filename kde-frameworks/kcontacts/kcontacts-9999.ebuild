@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_TEST="true"
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Address book API based on KDE Frameworks"
 LICENSE="GPL-2+"
@@ -13,11 +15,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/kcodecs-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kcontacts:5
@@ -30,5 +32,5 @@ src_test() {
 	local myctestargs=(
 		-E "(kcontacts-addresstest|kcontacts-picturetest)"
 	)
-	kde5_src_test
+	ecm_src_test
 }

@@ -3,8 +3,10 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for parsing RSS and Atom feeds"
 LICENSE="LGPL-2+"
@@ -12,13 +14,13 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcodecs-${PVCUT}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
 	test? (
-		$(add_qt_dep qtnetwork)
-		$(add_qt_dep qtwidgets)
+		>=dev-qt/qtnetwork-${QTMIN}:5
+		>=dev-qt/qtwidgets-${QTMIN}:5
 	)
 "
 RDEPEND="${COMMON_DEPEND}

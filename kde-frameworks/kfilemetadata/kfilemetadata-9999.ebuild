@@ -4,9 +4,12 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
-inherit kde5 python-any-r1
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="epub exif ffmpeg kernel_linux libav office pdf taglib"
 
@@ -14,16 +17,16 @@ BDEPEND="
 	test? ( ${PYTHON_DEPS} )
 "
 RDEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? (
 		libav? ( >=media-video/libav-12.2:= )
 		!libav? ( media-video/ffmpeg:0= )
 	)
-	office? ( $(add_frameworks_dep karchive) )
+	office? ( >=kde-frameworks/karchive-${PVCUT}:5 )
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
@@ -35,7 +38,7 @@ RESTRICT+=" test"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_configure() {
@@ -48,17 +51,17 @@ src_configure() {
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
 	# FIXME: bug 644650, fails on tmpfs (but not for everyone)
 	local myctestargs=( -E "(usermetadatawritertest)" )
-	kde5_src_test
+	ecm_src_test
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if ! has_version app-text/catdoc || ! has_version dev-libs/libxls; then
 		elog "To get additional features, optional runtime dependencies may be installed:"

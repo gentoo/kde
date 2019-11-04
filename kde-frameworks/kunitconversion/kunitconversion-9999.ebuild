@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for converting units"
 LICENSE="LGPL-2+"
@@ -11,8 +13,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtnetwork)
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -22,5 +24,5 @@ src_test() {
 		-E "(convertertest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

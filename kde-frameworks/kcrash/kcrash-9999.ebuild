@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for intercepting and handling application crashes"
 LICENSE="LGPL-2+"
@@ -15,16 +17,16 @@ IUSE="nls"
 RESTRICT+=" test"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtx11extras)
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
-	test? ( $(add_qt_dep qtwidgets) )
+	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
 "

@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for integrating Qt applications with KDE Plasma workspaces"
 LICENSE="LGPL-2+"
@@ -14,22 +16,22 @@ IUSE="appstream X"
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets '' '' '5=')
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/knewstuff-${PVCUT}:5
+	>=kde-frameworks/knotifications-${PVCUT}:5
+	>=kde-frameworks/kpackage-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5=
 	appstream? (
 		app-admin/packagekit-qt
 		dev-libs/appstream[qt5]
 	)
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libxcb
 	)
 "
@@ -39,8 +41,8 @@ RDEPEND="${DEPEND}"
 RESTRICT+=" test"
 
 src_prepare() {
-	punt_bogus_dep Qt5 DBus
-	kde5_src_prepare
+	ecm_punt_bogus_dep Qt5 DBus
+	ecm_src_prepare
 }
 
 src_configure() {
@@ -50,5 +52,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X XCB)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

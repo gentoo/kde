@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="NetworkManager bindings for Qt"
 LICENSE="LGPL-2"
@@ -14,8 +15,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=net-misc/networkmanager-1.4.0-r1[teamd=]
 "
 RDEPEND="${DEPEND}
@@ -30,5 +31,5 @@ src_test() {
 	# bug: 625276
 	local myctestargs=( -E "(managertest|settingstest|activeconnectiontest)" )
 
-	kde5_src_test
+	ecm_src_test
 }

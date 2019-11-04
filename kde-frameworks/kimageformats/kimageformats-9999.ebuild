@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
 LICENSE="LGPL-2+"
@@ -13,9 +15,9 @@ KEYWORDS=""
 IUSE="eps openexr"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_qt_dep qtgui)
-	eps? ( $(add_qt_dep qtprintsupport) )
+	>=kde-frameworks/karchive-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	eps? ( >=dev-qt/qtprintsupport-${QTMIN}:5 )
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr:=
@@ -31,5 +33,5 @@ src_configure() {
 		$(cmake-utils_use_find_package openexr OpenEXR)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

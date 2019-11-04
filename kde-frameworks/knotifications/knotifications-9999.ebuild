@@ -3,8 +3,10 @@
 
 EAPI=7
 
-KDE_TEST="false"
-inherit kde5
+ECM_TEST="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for notifying the user of an event"
 LICENSE="LGPL-2.1+"
@@ -12,22 +14,22 @@ KEYWORDS=""
 IUSE="dbus nls phonon speech X"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcodecs-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] )
 	!phonon? ( media-libs/libcanberra )
 	phonon? ( media-libs/phonon[qt5(+)] )
-	speech? ( $(add_qt_dep qtspeech) )
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 		x11-libs/libXtst
 	)
@@ -44,5 +46,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
