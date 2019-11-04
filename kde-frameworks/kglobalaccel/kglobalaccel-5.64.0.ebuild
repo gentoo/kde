@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework to handle global shortcuts"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -12,18 +14,18 @@ LICENSE="LGPL-2+"
 IUSE="nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kwindowsystem X)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kcrash-${PVCUT}:5
+	>=kde-frameworks/kdbusaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5[X]
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libxcb
 	x11-libs/xcb-util-keysyms
 "

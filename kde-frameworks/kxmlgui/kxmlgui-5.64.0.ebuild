@@ -4,8 +4,10 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -14,24 +16,24 @@ IUSE="attica"
 
 # slot op: includes QtCore/private/qlocale_p.h
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtcore '' '' '5=')
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork 'ssl')
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	attica? ( $(add_frameworks_dep attica) )
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kglobalaccel-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/kitemviews-${PVCUT}:5
+	>=kde-frameworks/ktextwidgets-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	attica? ( >=kde-frameworks/attica-${PVCUT}:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -40,7 +42,7 @@ src_configure() {
 		$(cmake-utils_use_find_package attica KF5Attica)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -49,5 +51,5 @@ src_test() {
 		-E "(ktoolbar_unittest|kxmlgui_unittest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

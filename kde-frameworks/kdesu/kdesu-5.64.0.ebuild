@@ -3,8 +3,9 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-2)
+inherit ecm kde.org
 
 DESCRIPTION="Framework to handle super user actions"
 LICENSE="LGPL-2"
@@ -12,11 +13,11 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="X"
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kpty)
-	$(add_frameworks_dep kservice)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kpty-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}
@@ -28,5 +29,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

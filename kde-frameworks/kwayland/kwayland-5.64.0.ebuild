@@ -3,8 +3,10 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Qt-style client and server library wrapper for Wayland libraries"
 HOMEPAGE="https://cgit.kde.org/kwayland.git"
@@ -14,8 +16,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtgui 'egl')
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[egl]
 	>=dev-libs/wayland-1.15.0
 	media-libs/mesa[egl]
 "
@@ -23,7 +25,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.15
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtwayland)
+	>=dev-qt/qtwayland-${QTMIN}:5
 "
 
 # All failing, I guess we need a virtual wayland server

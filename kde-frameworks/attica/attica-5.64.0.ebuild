@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing access to Open Collaboration Services"
 LICENSE="LGPL-2.1+"
@@ -11,7 +12,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 DEPEND="${RDEPEND}"
 
@@ -21,5 +22,5 @@ src_test() {
 		-E "(providertest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

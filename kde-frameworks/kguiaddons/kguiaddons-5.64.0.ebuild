@@ -3,8 +3,9 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing assorted high-level user interface components"
 LICENSE="LGPL-2+"
@@ -12,8 +13,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtx11extras)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}

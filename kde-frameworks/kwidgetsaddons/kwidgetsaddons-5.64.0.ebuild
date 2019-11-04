@@ -4,26 +4,27 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="An assortment of high-level widgets for common tasks"
 LICENSE="LGPL-2.1+"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="nls"
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtgui '' '' '5=')
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug 650216, 653186
 	local myctestargs=( -E "(kdatecomboboxtest|ktooltipwidgettest)" )
-	kde5_src_test
+	ecm_src_test
 }

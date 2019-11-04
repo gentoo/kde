@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for reading, creation, and manipulation of various archive formats"
 LICENSE="GPL-2 LGPL-2.1"
@@ -23,5 +23,5 @@ src_configure() {
 		$(cmake-utils_use_find_package lzma LibLZMA)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

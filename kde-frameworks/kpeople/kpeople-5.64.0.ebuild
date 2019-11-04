@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="KDE contact person abstraction library"
 HOMEPAGE="https://cgit.kde.org/kpeople.git"
@@ -14,17 +16,17 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kitemviews-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -35,5 +37,5 @@ src_test() {
 		-E "(persondatatest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

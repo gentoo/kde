@@ -3,8 +3,10 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
-inherit kde5
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -12,14 +14,14 @@ LICENSE="|| ( GPL-2+ LGPL-3+ )"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtdeclarative '' '' '5=')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/kirigami-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5=
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtquickcontrols2)
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "

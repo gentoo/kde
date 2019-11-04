@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+inherit ecm kde.org
 
 DESCRIPTION="Framework to install and load packages of non binary content"
 LICENSE="LGPL-2+"
@@ -11,12 +12,12 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="man"
 
 BDEPEND="
-	man? ( $(add_frameworks_dep kdoctools) )
+	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
+	>=kde-frameworks/karchive-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -25,11 +26,11 @@ src_configure() {
 		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
 	#bug 650214
 	local myctestargs=( -E "(plasma-plasmoidpackagetest)" )
-	kde5_src_test
+	ecm_src_test
 }

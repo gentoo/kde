@@ -4,8 +4,9 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for providing spell-checking through abstraction of popular backends"
 LICENSE="LGPL-2+ LGPL-2.1+"
@@ -13,11 +14,11 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="aspell +hunspell nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	aspell? ( app-text/aspell )
 	hunspell? ( app-text/hunspell:= )
 "
@@ -29,7 +30,7 @@ src_configure() {
 		$(cmake-utils_use_find_package hunspell HUNSPELL)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -38,5 +39,5 @@ src_test() {
 		-E "(sonnet-test_settings|sonnet-test_highlighter)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

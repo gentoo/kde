@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
-KDE_TEST="false"
-inherit kde5
+ECM_QTHELP="false"
+ECM_TEST="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Central daemon of KDE workspaces"
 LICENSE="LGPL-2+"
@@ -13,18 +15,18 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+man"
 
 BDEPEND="
-	man? ( $(add_frameworks_dep kdoctools) )
+	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kservice)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kcrash-${PVCUT}:5
+	>=kde-frameworks/kdbusaddons-${PVCUT}:5
+	>=kde-frameworks/kinit-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -33,5 +35,5 @@ src_configure() {
 		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

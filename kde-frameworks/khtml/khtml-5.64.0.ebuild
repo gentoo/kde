@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="KHTML web rendering engine"
 LICENSE="LGPL-2"
@@ -17,33 +19,33 @@ BDEPEND="
 	dev-util/gperf
 "
 RDEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kjs)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork 'ssl')
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${PVCUT}:5
+	>=kde-frameworks/kcodecs-${PVCUT}:5
+	>=kde-frameworks/kcompletion-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kglobalaccel-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/kjobwidgets-${PVCUT}:5
+	>=kde-frameworks/kjs-${PVCUT}:5
+	>=kde-frameworks/knotifications-${PVCUT}:5
+	>=kde-frameworks/kparts-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
+	>=kde-frameworks/ktextwidgets-${PVCUT}:5
+	>=kde-frameworks/kwallet-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	>=kde-frameworks/kxmlgui-${PVCUT}:5
+	>=kde-frameworks/sonnet-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]
@@ -52,12 +54,12 @@ RDEPEND="
 	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 "
 DEPEND="${RDEPEND}
-	test? ( $(add_qt_dep qtx11extras) )
+	test? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 	X? ( x11-base/xorg-proto )
 "
 
@@ -66,5 +68,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
