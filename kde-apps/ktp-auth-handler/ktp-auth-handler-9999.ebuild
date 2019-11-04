@@ -3,28 +3,32 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Telepathy authentication handler"
-HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep kaccounts-integration)
-	$(add_kdeapps_dep ktp-common-internals)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/kaccounts-integration-${PVCUT}:5
+	>=kde-apps/ktp-common-internals-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	app-crypt/qca:2[qt5(+)]
 	net-libs/accounts-qt
 	net-libs/signond

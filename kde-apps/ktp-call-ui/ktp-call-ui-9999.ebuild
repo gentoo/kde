@@ -3,31 +3,35 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
-DESCRIPTION="KDE Telepathy audio/video conferencing ui"
-HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
+DESCRIPTION="KDE Telepathy audio/video conferencing UI"
+HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep ktp-common-internals)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/ktp-common-internals-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/glib:2
 	media-libs/phonon[qt5(+)]
 	media-libs/qt-gstreamer[qt5(+)]
@@ -37,5 +41,5 @@ RDEPEND="
 "
 # TODO: dep leak suspect
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kcmutils)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 "

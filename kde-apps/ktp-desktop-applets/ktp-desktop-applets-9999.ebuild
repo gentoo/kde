@@ -3,22 +3,25 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Telepathy contact, presence and chat Plasma applets"
-HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="|| ( GPL-2 GPL-3 ) GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep ki18n)
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "

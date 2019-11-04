@@ -3,11 +3,16 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Music Education software by KDE"
 HOMEPAGE="https://minuet.kde.org/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
@@ -15,13 +20,13 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	media-sound/fluidsynth:=
 "
 RDEPEND="${DEPEND}"

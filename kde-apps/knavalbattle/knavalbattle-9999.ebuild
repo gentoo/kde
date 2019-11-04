@@ -3,34 +3,38 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoptional"
 KDE_SELINUX_MODULE="games"
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Battleship clone by KDE"
-HOMEPAGE="
-	https://kde.org/applications/games/org.kde.knavalbattle
-	https://games.kde.org/game.php?game=kbattleship
-"
+HOMEPAGE="https://kde.org/applications/games/org.kde.knavalbattle
+https://games.kde.org/game.php?game=kbattleship"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdnssd)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libkdegames)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdnssd-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/libkdegames-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 

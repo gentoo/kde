@@ -3,24 +3,29 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE character selection utility"
-HOMEPAGE="https://kde.org/applications/utilities/kcharselect
+HOMEPAGE="https://kde.org/applications/utilities/org.kde.kcharselect
 https://utils.kde.org/projects/kcharselect/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

@@ -3,41 +3,46 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{6,7} )
-inherit python-single-r1 kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit python-single-r1 ecm kde.org
 
 DESCRIPTION="KDE Applications 5 translation tool"
-HOMEPAGE="https://kde.org/applications/development/lokalize
+HOMEPAGE="https://kde.org/applications/office/org.kde.lokalize
 https://l10n.kde.org/tools/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kross)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsql 'sqlite')
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kross-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5[sqlite]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=app-text/hunspell-1.2.8:=
 "
 RDEPEND="${DEPEND}
@@ -46,16 +51,16 @@ RDEPEND="${DEPEND}
 
 pkg_setup() {
 	python-single-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 	python_fix_shebang "${ED}/usr/share/${PN}"
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	has_version dev-vcs/subversion || \
 		elog "To be able to autofetch KDE translations in new project wizard, install dev-vcs/subversion."

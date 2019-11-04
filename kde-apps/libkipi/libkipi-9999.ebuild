@@ -3,21 +3,24 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="A library for image plugins accross KDE applications"
+
 LICENSE="GPL-2+"
 SLOT="5/32"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

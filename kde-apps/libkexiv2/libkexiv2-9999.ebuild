@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Wrapper around exiv2 library"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="+xmp"
 
 DEPEND="
-	$(add_qt_dep qtgui)
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=media-gfx/exiv2-0.25:=[xmp=]
 "
 RDEPEND="${DEPEND}"

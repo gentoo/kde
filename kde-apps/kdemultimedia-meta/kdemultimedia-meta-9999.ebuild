@@ -4,10 +4,8 @@
 EAPI=7
 
 DESCRIPTION="kdemultimedia - merge this to pull in all kdemultimedia-derived packages"
-HOMEPAGE="
-	https://kde.org/applications/multimedia/
-	https://multimedia.kde.org/
-"
+HOMEPAGE="https://kde.org/applications/multimedia/
+https://multimedia.kde.org/"
 
 LICENSE="metapackage"
 SLOT="5"

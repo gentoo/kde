@@ -3,15 +3,18 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="true"
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Non-linear video editing suite by KDE"
-HOMEPAGE="https://www.kdenlive.org/"
+HOMEPAGE="https://kdenlive.org/en/"
 
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE="freesound gles2 semantic-desktop share v4l"
 
@@ -19,47 +22,47 @@ BDEPEND="
 	sys-devel/gettext
 "
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui 'gles2=')
-	$(add_qt_dep qtmultimedia)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[gles2=]
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	dev-cpp/rttr
 	>=media-libs/mlt-6.16.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
 	freesound? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
-	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
-	share? ( $(add_frameworks_dep purpose) )
+	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	v4l? ( media-libs/libv4l )
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtquickcontrols)
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	virtual/ffmpeg[encode,sdl,X]
 "
 
@@ -71,11 +74,11 @@ src_configure() {
 		$(cmake-utils_use_find_package v4l LibV4L2)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	# Gentoo bug 603168
 	if ! has_version "media-libs/mlt[fftw]" ; then

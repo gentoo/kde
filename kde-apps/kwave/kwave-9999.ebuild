@@ -3,15 +3,17 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Sound editor built on KDE Frameworks 5 that can edit many types of audio files"
-HOMEPAGE="http://kwave.sourceforge.net/ https://kde.org/applications/multimedia/kwave/"
-LICENSE="CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+
-	handbook? ( FDL-1.2 )
-	opus? ( BSD-2 )
-"
+HOMEPAGE="https://kde.org/applications/multimedia/org.kde.kwave"
+
+LICENSE="CC-BY-SA-3.0 CC0-1.0 GPL-2+ LGPL-2+ handbook? ( FDL-1.2 ) opus? ( BSD-2 )"
+SLOT="5"
 KEYWORDS=""
 IUSE="alsa flac mp3 opus oss pulseaudio +qtmedia vorbis"
 
@@ -23,20 +25,20 @@ BDEPEND="
 	) )
 "
 RDEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/audiofile:=
 	>=sci-libs/fftw-3
 	media-libs/libsamplerate
@@ -47,7 +49,7 @@ RDEPEND="
 		media-libs/libmad
 		|| ( media-sound/lame media-sound/toolame media-sound/twolame )
 	)
-	qtmedia? ( $(add_qt_dep qtmultimedia) )
+	qtmedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5 )
 	opus? (
 		media-libs/libogg
 		media-libs/opus
@@ -59,8 +61,8 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	$(add_kdeapps_dep poxml)
-	$(add_qt_dep qtconcurrent)
+	>=kde-apps/poxml-${PVCUT}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
 DOCS=( AUTHORS CHANGES LICENSES README TODO )
@@ -79,5 +81,5 @@ src_configure() {
 		-DWITH_QT_AUDIO=$(usex qtmedia)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

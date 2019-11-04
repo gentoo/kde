@@ -3,17 +3,19 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Image viewer by KDE"
-HOMEPAGE="
-	https://kde.org/applications/graphics/gwenview/
-	https://userbase.kde.org/Gwenview
-"
+HOMEPAGE="https://kde.org/applications/graphics/org.kde.gwenview
+https://userbase.kde.org/Gwenview"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
+SLOT="5"
 KEYWORDS=""
 IUSE="activities fits kipi +mpris raw semantic-desktop share X"
 
@@ -21,59 +23,59 @@ IUSE="activities fits kipi +mpris raw semantic-desktop share X"
 RESTRICT+=" test"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtopengl)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtopengl-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-gfx/exiv2:=
 	media-libs/lcms:2
 	media-libs/libpng:0=
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
-	activities? ( $(add_frameworks_dep kactivities) )
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	fits? ( sci-libs/cfitsio )
-	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
-	mpris? ( $(add_qt_dep qtdbus) )
-	raw? ( $(add_kdeapps_dep libkdcraw) )
+	kipi? ( >=kde-apps/libkipi-${PVCUT}:5= )
+	mpris? ( >=dev-qt/qtdbus-${QTMIN}:5 )
+	raw? ( >=kde-apps/libkdcraw-${PVCUT}:5 )
 	semantic-desktop? (
-		$(add_frameworks_dep baloo)
-		$(add_frameworks_dep kfilemetadata)
+		>=kde-frameworks/baloo-${KFMIN}:5
+		>=kde-frameworks/kfilemetadata-${KFMIN}:5
 	)
-	share? ( $(add_frameworks_dep purpose) )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtconcurrent)
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kimageformats)
-	$(add_qt_dep qtimageformats)
-	kipi? ( $(add_kdeapps_dep kipi-plugins) )
+	>=kde-frameworks/kimageformats-${KFMIN}:5
+	>=dev-qt/qtimageformats-${QTMIN}:5
+	kipi? ( >=kde-apps/kipi-plugins-${PVCUT}:5 )
 "
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	if ! use mpris; then
 		# FIXME: upstream a better solution
 		sed -e "/set(HAVE_QTDBUS/s/\${Qt5DBus_FOUND}/0/" -i CMakeLists.txt || die
@@ -96,11 +98,11 @@ src_configure() {
 		mycmakeargs+=( -DGWENVIEW_SEMANTICINFO_BACKEND=None )
 	fi
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version kde-apps/svgpart:${SLOT} ; then
 		elog "For SVG support, install kde-apps/svgpart:${SLOT}"

@@ -3,18 +3,22 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
-inherit kde5
+ECM_HANDBOOK="true"
+KFMIN=5.63.0
+inherit ecm kde.org
 
 DESCRIPTION="KDE Development Scripts"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 # kdelibs4support - required for kdex.dtd
 # kdoctools - to use ECM instead of kdelibs4
 DEPEND="
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kdoctools)
+	>=kde-frameworks/kdelibs4support-${KFMIN}:5
+	>=kde-frameworks/kdoctools-${KFMIN}:5
 "
 RDEPEND="
 	app-arch/advancecomp
@@ -23,7 +27,7 @@ RDEPEND="
 "
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	# bug 275069
 	sed -e 's:colorsvn::' -i CMakeLists.txt || die

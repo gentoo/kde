@@ -3,31 +3,35 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Telepathy file manager plugin to send files to contacts"
-HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep ktp-common-internals)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/ktp-common-internals-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	net-libs/telepathy-qt[qt5(+)]
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kcmutils)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep ktp-contact-list)
-	$(add_kdeapps_dep ktp-filetransfer-handler)
+	>=kde-apps/ktp-contact-list-${PVCUT}:5
+	>=kde-apps/ktp-filetransfer-handler-${PVCUT}:5
 "

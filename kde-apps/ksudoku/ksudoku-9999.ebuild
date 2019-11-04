@@ -3,38 +3,42 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Logic-based symbol placement puzzle by KDE"
-HOMEPAGE="
-	https://kde.org/applications/games/ksudoku/
-	https://games.kde.org/game.php?game=ksudoku
-"
+HOMEPAGE="https://kde.org/applications/games/org.kde.ksudoku
+https://games.kde.org/game.php?game=ksudoku"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="opengl"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libkdegames)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/libkdegames-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	opengl? (
-		$(add_qt_dep qtopengl)
+		>=dev-qt/qtopengl-${QTMIN}:5
 		virtual/glu
 	)
 "
@@ -45,5 +49,5 @@ src_configure() {
 		$(cmake-utils_use_find_package opengl OpenGL)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

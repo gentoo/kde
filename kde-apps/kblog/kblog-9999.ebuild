@@ -3,21 +3,25 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+KFMIN=5.63.0
+inherit ecm kde.org
 
 DESCRIPTION="Library providing client-side support for web application remote blogging APIs"
+HOMEPAGE="https://api.kde.org/kdepim/kblog/html/index.html"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kxmlrpcclient)
-	$(add_frameworks_dep syndication)
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kxmlrpcclient-${KFMIN}:5
+	>=kde-frameworks/syndication-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

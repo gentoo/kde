@@ -3,15 +3,19 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE utility to translate DocBook XML files using gettext po files"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtxml-${QTMIN}:5
 	sys-devel/gettext
 "
 RDEPEND="${DEPEND}"

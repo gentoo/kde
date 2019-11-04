@@ -3,21 +3,26 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="DAV protocol implemention with KJobs"
+HOMEPAGE="https://api.kde.org/kdepim/kdav/html/index.html"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
@@ -29,5 +34,5 @@ src_test() {
 	local myctestargs=(
 		-E "(kdav-davitemfetchjob|kdav-davitemslistjob)"
 	)
-	kde5_src_test
+	ecm_src_test
 }

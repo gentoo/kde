@@ -3,33 +3,39 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="false"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="false"
+KFMIN=5.63.0
+PLASMA_MINIMAL=5.16.5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Volume control gui based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/multimedia/kmix/"
+HOMEPAGE="https://kde.org/applications/multimedia/org.kde.kmix"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="alsa plasma pulseaudio"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	alsa? ( >=media-libs/alsa-lib-1.0.14a )
-	plasma? ( $(add_frameworks_dep plasma) )
+	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	pulseaudio? (
 		dev-libs/glib:2
 		media-libs/libcanberra
@@ -37,7 +43,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
 "
 
 src_configure() {
@@ -48,5 +54,5 @@ src_configure() {
 		$(cmake-utils_use_find_package pulseaudio PulseAudio)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

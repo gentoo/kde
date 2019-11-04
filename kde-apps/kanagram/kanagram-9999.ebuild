@@ -3,36 +3,43 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Game based on anagrams of words"
-HOMEPAGE="https://kde.org/applications/education/kanagram https://edu.kde.org/kanagram/"
+HOMEPAGE="https://kde.org/applications/education/org.kde.kanagram
+https://edu.kde.org/kanagram/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="speech"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_kdeapps_dep libkeduvocdocument)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=kde-apps/libkeduvocdocument-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/phonon[qt5(+)]
-	speech? ( $(add_qt_dep qtspeech) )
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kdeedu-data)
-	$(add_qt_dep qtmultimedia 'qml')
-	$(add_qt_dep qtquickcontrols)
+	>=kde-apps/kdeedu-data-${PVCUT}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 src_configure() {
@@ -40,5 +47,5 @@ src_configure() {
 		$(cmake-utils_use_find_package speech Qt5TextToSpeech)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

@@ -3,33 +3,39 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-inherit kde5
+ECM_HANDBOOK="optional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Jigsaw puzzle game by KDE"
-HOMEPAGE="https://kde.org/applications/games/palapeli/"
+HOMEPAGE="https://kde.org/applications/games/org.kde.palapeli"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libkdegames)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/libkdegames-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep qtconcurrent)
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "

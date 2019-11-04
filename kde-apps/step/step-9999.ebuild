@@ -3,38 +3,44 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_TEST="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Interactive physics simulator"
-HOMEPAGE="https://edu.kde.org/step/"
+HOMEPAGE="https://kde.org/applications/education/org.kde.step
+https://edu.kde.org/step/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="+gsl nls +qalculate"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kplotting)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtopengl)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kplotting-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtopengl-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-cpp/eigen-3.2:3
 	sci-libs/cln
 	gsl? ( sci-libs/gsl:= )
@@ -43,7 +49,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	# FIXME: Drop duplicate upstream
 	sed -e '/find_package.*Xml Test/ s/^/#/' \
@@ -55,5 +61,5 @@ src_configure() {
 		$(cmake-utils_use_find_package gsl GSL)
 		$(cmake-utils_use_find_package qalculate Qalculate)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

@@ -3,54 +3,59 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="true"
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"
-HOMEPAGE="https://kde.org/applications/utilities/kate https://kate-editor.org/"
+HOMEPAGE="https://kate-editor.org/
+https://kde.org/applications/utilities/org.kde.kate"
 
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="activities +filebrowser lspclient +projects plasma +snippets sql"
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	activities? ( $(add_frameworks_dep kactivities) )
-	filebrowser? ( $(add_frameworks_dep kbookmarks) )
-	lspclient? ( $(add_frameworks_dep kitemmodels) )
-	plasma? ( $(add_frameworks_dep plasma) )
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
+	filebrowser? ( >=kde-frameworks/kbookmarks-${KFMIN}:5 )
+	lspclient? ( >=kde-frameworks/kitemmodels-${KFMIN}:5 )
+	plasma? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	projects? (
-		$(add_frameworks_dep knewstuff)
-		$(add_frameworks_dep threadweaver)
+		>=kde-frameworks/knewstuff-${KFMIN}:5
+		>=kde-frameworks/threadweaver-${KFMIN}:5
 	)
-	snippets? ( $(add_frameworks_dep knewstuff) )
+	snippets? ( >=kde-frameworks/knewstuff-${KFMIN}:5 )
 	sql? (
-		$(add_frameworks_dep kwallet)
-		$(add_qt_dep qtsql)
+		>=kde-frameworks/kwallet-${KFMIN}:5
+		>=dev-qt/qtsql-${QTMIN}:5
 	)
 "
 RDEPEND="${DEPEND}
@@ -58,7 +63,7 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	# delete colliding kwrite translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -79,7 +84,7 @@ src_configure() {
 		-DBUILD_kwrite=FALSE
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -88,11 +93,11 @@ src_test() {
 		-E "(session_manager_test|sessions_action_test)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "The functionality of ktexteditorpreview plugin can be extended with:"

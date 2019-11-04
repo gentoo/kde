@@ -3,43 +3,48 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional-recursive"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Base library common to many KDE games"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kdnssd)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kdnssd-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/libsndfile
 	media-libs/openal
 "

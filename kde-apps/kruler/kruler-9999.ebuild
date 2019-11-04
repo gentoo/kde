@@ -3,29 +3,32 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Screen ruler for Plasma"
-HOMEPAGE="https://kde.org/applications/graphics/kruler/"
+HOMEPAGE="https://kde.org/applications/graphics/org.kde.kruler"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
+SLOT="5"
 KEYWORDS=""
 IUSE="X"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libxcb
 	)
 "
@@ -36,5 +39,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

@@ -3,18 +3,23 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdnssd)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtdbus)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdnssd-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

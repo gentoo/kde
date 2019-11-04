@@ -3,26 +3,30 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Data Model and Extraction System for Travel Reservation information"
-HOMEPAGE="https://kde.org/applications/office/kontact/"
+HOMEPAGE="https://kde.org/applications/office/org.kde.kontact"
 
 LICENSE="LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE="+barcode pdf"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kpkpass)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kpkpass-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 	sys-libs/zlib
 	barcode? ( media-libs/zxing-cpp )
 	pdf? ( app-text/poppler:=[qt5] )
@@ -36,5 +40,5 @@ src_configure() {
 		$(cmake-utils_use_find_package barcode ZXing)
 		$(cmake-utils_use_find_package pdf Poppler)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

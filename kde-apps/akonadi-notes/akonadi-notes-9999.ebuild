@@ -3,19 +3,24 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for akonadi notes integration"
-KEYWORDS=""
+
 LICENSE="GPL-2+"
+SLOT="5"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep kmime)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

@@ -3,40 +3,44 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plugins for the KDE Image Plugin Interface"
 HOMEPAGE="https://userbase.kde.org/KIPI https://cgit.kde.org/kipi-plugins.git/"
 
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="flashexport mediawiki +remotestorage vkontakte"
 
 BDEPEND="sys-devel/gettext"
 RDEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep libkipi '' '' '5=')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
-	flashexport? ( $(add_frameworks_dep karchive) )
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/libkipi-${PVCUT}:5=
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
+	flashexport? ( >=kde-frameworks/karchive-${KFMIN}:5 )
 	mediawiki? ( net-libs/libmediawiki:5 )
-	remotestorage? ( $(add_frameworks_dep kio) )
+	remotestorage? ( >=kde-frameworks/kio-${KFMIN}:5 )
 	vkontakte? ( net-libs/libkvkontakte:5 )
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep qtconcurrent)
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
 src_configure() {
@@ -47,5 +51,5 @@ src_configure() {
 		$(cmake-utils_use_find_package vkontakte KF5Vkontakte)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

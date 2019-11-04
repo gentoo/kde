@@ -3,30 +3,34 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional-recursive"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="KDE library for mathematical features"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="eigen nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui '-gles2')
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[-gles2]
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	eigen? ( dev-cpp/eigen:3 )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	if ! use test; then
 		sed -i \
@@ -40,5 +44,5 @@ src_configure() {
 		$(cmake-utils_use_find_package eigen Eigen3)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

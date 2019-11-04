@@ -3,25 +3,30 @@
 
 EAPI=7
 
-KDE_TEST="true"
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Library for gravatar integration"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
@@ -32,5 +37,5 @@ src_test() {
 	local myctestargs=(
 		-E "(gravatar-gravatarresolvurljobtest)"
 	)
-	kde5_src_test
+	ecm_src_test
 }

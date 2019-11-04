@@ -3,34 +3,38 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Application to take pictures and videos from your webcam by KDE"
-HOMEPAGE="https://userbase.kde.org/Kamoso"
+HOMEPAGE="https://kde.org/applications/multimedia/org.kde.kamoso
+https://userbase.kde.org/Kamoso"
 
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep purpose)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/purpose-${KFMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/glib:2
 	media-libs/gst-plugins-base:1.0
 	virtual/opengl
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	media-plugins/gst-plugins-jpeg:1.0
 	media-plugins/gst-plugins-libpng:1.0
 	media-plugins/gst-plugins-meta:1.0[alsa,theora,vorbis,v4l]

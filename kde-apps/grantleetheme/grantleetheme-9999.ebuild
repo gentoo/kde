@@ -3,29 +3,33 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for Grantlee plugins"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/grantlee:5
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n

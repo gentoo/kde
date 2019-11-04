@@ -3,27 +3,32 @@
 
 EAPI=7
 
-KDE_TEST="true"
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Library to import mail from various sources"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libkdepim)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

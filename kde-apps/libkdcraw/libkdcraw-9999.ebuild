@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Digital camera raw image library wrapper"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtgui)
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=media-libs/libraw-0.16:=
 "
 RDEPEND="${DEPEND}"
