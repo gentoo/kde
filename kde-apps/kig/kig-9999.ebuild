@@ -3,52 +3,58 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
 PYTHON_COMPAT=( python2_7 )
-inherit python-single-r1 kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit python-single-r1 ecm kde.org
 
 DESCRIPTION="KDE Interactive Geometry tool"
-HOMEPAGE="https://kde.org/applications/education/kig https://edu.kde.org/kig/"
+HOMEPAGE="https://kde.org/applications/education/org.kde.kig
+https://edu.kde.org/kig/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="geogebra scripting"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	geogebra? ( $(add_qt_dep qtxmlpatterns) )
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	geogebra? ( >=dev-qt/qtxmlpatterns-${QTMIN}:5 )
 	scripting? ( >=dev-libs/boost-1.48:=[python,${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep ktexteditor)
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
 "
 
 PATCHES=( "${FILESDIR}/${PN}-4.12.0-boostpython.patch" )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	python_fix_shebang .
 }
 
@@ -58,5 +64,5 @@ src_configure() {
 		$(cmake-utils_use_find_package scripting BoostPython)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

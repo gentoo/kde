@@ -3,12 +3,16 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE accounts providers"
 HOMEPAGE="https://community.kde.org/KTp"
-LICENSE="LGPL-2.1"
 
+LICENSE="LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
@@ -16,15 +20,15 @@ BDEPEND="
 	dev-util/intltool
 "
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kpackage)
-	$(add_kdeapps_dep kaccounts-integration)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-apps/kaccounts-integration-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	net-libs/signon-ui

@@ -5,18 +5,23 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 USE_RUBY="ruby25"
-inherit kde5 python-single-r1 ruby-single
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org python-single-r1 ruby-single
 
 DESCRIPTION="Kross interpreter plugins for programming languages"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="+python ruby"
 
 REQUIRED_USE="|| ( python ruby ) python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
-	$(add_frameworks_dep kross)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kross-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	python? ( ${PYTHON_DEPS} )
 	ruby? ( ${RUBY_DEPS} )
 "
@@ -24,7 +29,7 @@ RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_configure() {
@@ -33,5 +38,5 @@ src_configure() {
 		-DBUILD_ruby=$(usex ruby)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

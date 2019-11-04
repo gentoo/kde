@@ -3,27 +3,32 @@
 
 EAPI=7
 
-KDE_TEST="false"
-inherit kde5
+ECM_TEST="false"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for encryption handling"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="+fancyviewer"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-	fancyviewer? ( $(add_kdeapps_dep kpimtextedit) )
+	fancyviewer? ( >=kde-apps/kpimtextedit-${PVCUT}:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost

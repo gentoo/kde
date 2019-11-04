@@ -3,60 +3,64 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Address book application based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/office/kaddressbook/"
+HOMEPAGE="https://kde.org/applications/office/org.kde.kaddressbook"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep prison)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-contacts)
-	$(add_kdeapps_dep akonadi-search)
-	$(add_kdeapps_dep grantleetheme)
-	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kontactinterface)
-	$(add_kdeapps_dep libgravatar)
-	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkleo)
-	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/prison-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-search-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kontactinterface-${PVCUT}:5
+	>=kde-apps/libgravatar-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	dev-libs/grantlee:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n
-	$(add_kdeapps_dep kdepim-runtime)
+	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		has_version "kde-apps/kdepim-addons:${SLOT}" || \

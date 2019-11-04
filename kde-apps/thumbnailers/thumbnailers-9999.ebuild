@@ -3,21 +3,26 @@
 
 EAPI=7
 
-KMNAME="kdegraphics-thumbnailers"
-inherit kde5
+KDE_ORG_NAME="kdegraphics-thumbnailers"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Thumbnail generators for PDF/PS and RAW files"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="raw"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 	raw? (
-		$(add_kdeapps_dep libkdcraw)
-		$(add_kdeapps_dep libkexiv2)
+		>=kde-apps/libkdcraw-${PVCUT}:5
+		>=kde-apps/libkexiv2-${PVCUT}:5
 	)
 "
 RDEPEND="${DEPEND}"
@@ -28,5 +33,5 @@ src_configure() {
 		$(cmake-utils_use_find_package raw KF5KDcraw)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

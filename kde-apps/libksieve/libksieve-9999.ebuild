@@ -3,45 +3,50 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Common PIM libraries"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep sonnet)
-	$(add_frameworks_dep syntax-highlighting)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebengine 'widgets')
-	$(add_qt_dep qtwidgets '' '' '5=')
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5=
 	dev-libs/cyrus-sasl
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep kimap)
-	$(add_kdeapps_dep kmailtransport)
+	>=kde-apps/kimap-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
@@ -50,7 +55,7 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT+=" test"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	if ! use handbook ; then
 		sed -e "/add_subdirectory(doc)/I s/^/#DONOTCOMPILE /" \

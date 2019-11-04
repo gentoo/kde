@@ -3,45 +3,52 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+PLASMA_MINIMAL=5.16.5
+QTMIN=5.12.3
+inherit ecm kde.org
 
-DESCRIPTION="The KDE Help Center"
-HOMEPAGE+=" https://userbase.kde.org/KHelpCenter"
+DESCRIPTION="Application to read documentation for KDE Plasma, Applications, Utilities"
+HOMEPAGE="https://kde.org/applications/system/org.kde.Help
+https://userbase.kde.org/KHelpCenter"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdoctools)
-	$(add_frameworks_dep khtml)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdoctools-${KFMIN}:5
+	>=kde-frameworks/khtml-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kinit-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	dev-libs/grantlee:5
 	dev-libs/libxml2
 	dev-libs/xapian:=
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
 "
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	sed -e "/^install.*kde4\/services/s/^/#DONT/" -i CMakeLists.txt || die
 }

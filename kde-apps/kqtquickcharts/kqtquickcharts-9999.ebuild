@@ -3,14 +3,18 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Qt Quick plugin for beautiful and interactive charts"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

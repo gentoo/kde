@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+inherit ecm kde.org
 
 DESCRIPTION="KWallet extension for signond"
 HOMEPAGE="https://01.org/gsso/"
+
+SLOT="5"
 KEYWORDS=""
 LICENSE="GPL-2+"
 
 DEPEND="
-	$(add_frameworks_dep kwallet)
+	>=kde-frameworks/kwallet-${KFMIN}:5
 	net-libs/signond
 "
 RDEPEND="${DEPEND}"

@@ -3,21 +3,26 @@
 
 EAPI=7
 
-KDE_TEST="true"
-KMNAME="ktnef"
-inherit kde5
+ECM_TEST="true"
+KDE_ORG_NAME="ktnef"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for handling TNEF data"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep kcalutils)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

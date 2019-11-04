@@ -3,39 +3,43 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="true"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Interface to work with Graph Theory"
-HOMEPAGE="https://kde.org/applications/education/rocs
-https://edu.kde.org/applications/mathematics/rocs"
+HOMEPAGE="https://kde.org/applications/education/org.kde.rocs"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtscript 'scripttools')
-	$(add_qt_dep qtsvg)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5[scripttools]
+	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	dev-libs/grantlee:5
 "
 DEPEND="${RDEPEND}

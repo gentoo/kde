@@ -3,59 +3,64 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional-recursive"
+ECM_TEST="forceoptional-recursive"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Libraries for messaging functions"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_frameworks_dep syntax-highlighting)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-contacts)
-	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep grantleetheme)
-	$(add_kdeapps_dep incidenceeditor)
-	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kldap)
-	$(add_kdeapps_dep kmailtransport)
-	$(add_kdeapps_dep kmbox)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep kpimtextedit)
-	$(add_kdeapps_dep libgravatar)
-	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep libkleo)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebengine 'widgets')
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
+	>=kde-apps/incidenceeditor-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kldap-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmbox-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/libgravatar-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
 	app-crypt/qca:2
 	>=dev-libs/grantlee-5.1.0:5

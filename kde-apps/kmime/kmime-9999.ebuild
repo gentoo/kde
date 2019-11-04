@@ -3,17 +3,20 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+KFMIN=5.63.0
+inherit ecm kde.org
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep ki18n)
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kdepim-l10n

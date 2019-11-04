@@ -4,14 +4,18 @@
 EAPI=7
 
 ECM_DESIGNERPLUGIN="true"
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Storage service for PIM data and libraries for PIM apps"
 HOMEPAGE="https://community.kde.org/KDE_PIM/akonadi"
 
+SLOT="5"
 KEYWORDS=""
 LICENSE="LGPL-2.1+"
 IUSE="+kaccounts +mysql postgres sqlite tools xml"
@@ -19,32 +23,32 @@ IUSE="+kaccounts +mysql postgres sqlite tools xml"
 REQUIRED_USE="|| ( mysql postgres sqlite ) test? ( tools )"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsql 'mysql?,postgres?')
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5[mysql?,postgres?]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	kaccounts? (
-		$(add_kdeapps_dep kaccounts-integration)
+		>=kde-apps/kaccounts-integration-${PVCUT}:5
 		net-libs/accounts-qt
 	)
 	sqlite? (
-		$(add_qt_dep qtsql 'sqlite' '' '5=')
+		>=dev-qt/qtsql-${QTMIN}:5=[sqlite]
 		dev-db/sqlite:3
 	)
 	xml? ( dev-libs/libxml2 )
@@ -92,7 +96,7 @@ pkg_setup() {
 		ewarn "In particular, kde-apps/kmail does not work properly with the sqlite backend."
 	fi
 
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_configure() {
@@ -104,7 +108,7 @@ src_configure() {
 		$(cmake-utils_use_find_package xml LibXml2)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_install() {
@@ -116,11 +120,11 @@ EOF
 	insinto /usr/share/config/akonadi
 	doins "${T}"/akonadiserverrc
 
-	kde5_src_install
+	ecm_src_install
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 	elog "You can select the storage backend in ~/.config/akonadi/akonadiserverrc."
 	elog "Available drivers are:"
 	use mysql && elog "  QMYSQL"

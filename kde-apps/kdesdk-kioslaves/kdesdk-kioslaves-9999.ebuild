@@ -3,16 +3,20 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+inherit ecm kde.org
 
 DESCRIPTION="kioslaves from kdesdk package"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	dev-lang/perl
 "
 RDEPEND="${DEPEND}"

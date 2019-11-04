@@ -3,26 +3,31 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Client library to access and handling of KAlarm calendar data"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kholidays)
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( $(add_qt_dep qtdbus) )
+	test? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
@@ -30,5 +35,5 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_test() {
-	LANG="C" kde5_src_test #bug 665626
+	LANG="C" ecm_src_test #bug 665626
 }

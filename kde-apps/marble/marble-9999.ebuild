@@ -3,55 +3,58 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
-KDE_SUBSLOT="true"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
+ECM_TEST="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Virtual Globe and World Atlas to learn more about Earth"
 HOMEPAGE="https://marble.kde.org/"
 
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5/$(ver_cut 1-2)"
 KEYWORDS=""
 IUSE="aprs +dbus designer gps +kde nls phonon +geolocation shapefile +webengine"
 
 # FIXME (new package): libwlocate, WLAN-based geolocation
 BDEPEND="
 	aprs? ( dev-lang/perl )
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	sys-libs/zlib
-	aprs? ( $(add_qt_dep qtserialport) )
-	dbus? ( $(add_qt_dep qtdbus) )
-	designer? ( $(add_qt_dep designer) )
-	geolocation? ( $(add_qt_dep qtpositioning) )
+	aprs? ( >=dev-qt/qtserialport-${QTMIN}:5 )
+	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
+	designer? ( >=dev-qt/designer-${QTMIN}:5 )
+	geolocation? ( >=dev-qt/qtpositioning-${QTMIN}:5 )
 	gps? ( sci-geosciences/gpsd )
 	kde? (
-		$(add_frameworks_dep kconfig)
-		$(add_frameworks_dep kconfigwidgets)
-		$(add_frameworks_dep kcoreaddons)
-		$(add_frameworks_dep kcrash)
-		$(add_frameworks_dep ki18n)
-		$(add_frameworks_dep kio)
-		$(add_frameworks_dep knewstuff)
-		$(add_frameworks_dep kparts)
-		$(add_frameworks_dep krunner)
-		$(add_frameworks_dep kservice)
-		$(add_frameworks_dep kwallet)
+		>=kde-frameworks/kconfig-${KFMIN}:5
+		>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+		>=kde-frameworks/kcoreaddons-${KFMIN}:5
+		>=kde-frameworks/kcrash-${KFMIN}:5
+		>=kde-frameworks/ki18n-${KFMIN}:5
+		>=kde-frameworks/kio-${KFMIN}:5
+		>=kde-frameworks/knewstuff-${KFMIN}:5
+		>=kde-frameworks/kparts-${KFMIN}:5
+		>=kde-frameworks/krunner-${KFMIN}:5
+		>=kde-frameworks/kservice-${KFMIN}:5
+		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	phonon? ( media-libs/phonon[qt5(+)] )
 	shapefile? ( sci-libs/shapelib:= )
-	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 RDEPEND="${DEPEND}"
 
@@ -59,7 +62,7 @@ RDEPEND="${DEPEND}"
 RESTRICT+=" test"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
 
@@ -86,7 +89,7 @@ src_configure() {
 		-DKDE_INSTALL_CONFDIR="/etc/xdg"
 	)
 	if use kde; then
-		kde5_src_configure
+		ecm_src_configure
 	else
 		cmake-utils_src_configure
 	fi

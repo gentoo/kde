@@ -3,39 +3,44 @@
 
 EAPI=7
 
-KDE_TEST="false"
-inherit kde5
+ECM_TEST="false"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Calendar support library"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep kholidays)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep akonadi-mime)
-	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kdepim-apps-libs)
-	$(add_kdeapps_dep kidentitymanagement)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libkdepim)
-	$(add_kdeapps_dep pimcommon)
-	$(add_qt_dep designer)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/libical
 "
 RDEPEND="${DEPEND}

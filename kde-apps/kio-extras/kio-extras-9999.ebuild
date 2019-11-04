@@ -3,13 +3,18 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="optional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="optional"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
 HOMEPAGE="https://cgit.kde.org/kio-extras.git"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="activities +man mtp openexr phonon samba +sftp taglib"
 
@@ -17,34 +22,34 @@ BDEPEND="
 	man? ( dev-util/gperf )
 "
 DEPEND="
-	$(add_frameworks_dep karchive 'bzip2,lzma')
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdnssd)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kpty)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_frameworks_dep syntax-highlighting)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5[bzip2,lzma]
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdnssd-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	activities? (
-		$(add_frameworks_dep kactivities)
-		$(add_frameworks_dep kactivities-stats)
-		$(add_qt_dep qtsql)
+		>=kde-frameworks/kactivities-${KFMIN}:5
+		>=kde-frameworks/kactivities-stats-${KFMIN}:5
+		>=dev-qt/qtsql-${QTMIN}:5
 	)
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	openexr? ( media-libs/openexr:= )
@@ -54,7 +59,7 @@ DEPEND="
 	taglib? ( >=media-libs/taglib-1.11.1 )
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kded)
+	>=kde-frameworks/kded-${KFMIN}:5
 "
 
 # requires running kde environment
@@ -73,5 +78,5 @@ src_configure() {
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

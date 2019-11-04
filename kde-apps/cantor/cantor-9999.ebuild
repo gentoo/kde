@@ -3,13 +3,20 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{6,7} )
-inherit kde5 python-single-r1
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org python-single-r1
 
 DESCRIPTION="Interface for doing mathematics and scientific computing"
-HOMEPAGE="https://kde.org/applications/education/cantor https://edu.kde.org/cantor/"
+HOMEPAGE="https://kde.org/applications/education/org.kde.cantor
+https://edu.kde.org/cantor/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="+analitza julia lua markdown postscript python qalculate R"
 
@@ -17,30 +24,30 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 # TODO Add Sage Mathematics Software backend (http://www.sagemath.org)
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kpty)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep syntax-highlighting)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
-	analitza? ( $(add_kdeapps_dep analitza) )
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
+	analitza? ( >=kde-apps/analitza-${PVCUT}:5 )
 	julia? ( dev-lang/julia )
 	lua? ( dev-lang/luajit:2 )
 	markdown? ( >=app-text/discount-2.2.2 )
@@ -51,7 +58,7 @@ DEPEND="
 	postscript? ( app-text/libspectre )
 	python? (
 		${PYTHON_DEPS}
-		$(add_qt_dep qtdbus)
+		>=dev-qt/qtdbus-${QTMIN}:5
 	)
 	R? ( dev-lang/R )
 "
@@ -60,7 +67,7 @@ RDEPEND="${DEPEND}"
 RESTRICT+=" test"
 
 pkg_pretend() {
-	kde5_pkg_pretend
+	ecm_pkg_pretend
 
 	if ! has_version sci-mathematics/maxima && ! has_version sci-mathematics/octave && \
 		! use analitza && ! use julia && ! use lua && ! use python && ! use qalculate && ! use R; then
@@ -83,7 +90,7 @@ pkg_pretend() {
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_configure() {
@@ -100,5 +107,5 @@ src_configure() {
 		$(cmake-utils_use_find_package qalculate Qalculate)
 		$(cmake-utils_use_find_package R R)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

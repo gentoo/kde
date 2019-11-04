@@ -3,20 +3,23 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Library to deal with Apple Wallet pass files"
 HOMEPAGE="https://kde.org/applications/office/kontact/"
 
 LICENSE="LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!<kde-apps/kdepim-addons-18.07.80

@@ -3,12 +3,16 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Telepathy account management kcm"
-HOMEPAGE="https://community.kde.org/Real-Time_Communication_and_Collaboration"
+HOMEPAGE="https://community.kde.org/KTp"
 
 LICENSE="LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
 IUSE="experimental"
 
@@ -16,32 +20,32 @@ BDEPEND="
 	dev-util/intltool
 "
 COMMON_DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep kaccounts-integration)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/kaccounts-integration-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	net-libs/accounts-qt
 	net-libs/signond
 	net-libs/telepathy-qt[qt5(+)]
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kio)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	net-libs/libaccounts-glib
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep kaccounts-providers)
+	>=kde-apps/kaccounts-providers-${PVCUT}:5
 	net-im/telepathy-connection-managers
 "
 
@@ -50,7 +54,7 @@ src_prepare() {
 		mv "${S}"/data/kaccounts/disabled/*.in "${S}"/data/kaccounts/ || \
 			die "couldn't enable experimental services"
 	fi
-	kde5_src_prepare
+	ecm_src_prepare
 }
 
 pkg_postinst() {
@@ -59,5 +63,5 @@ pkg_postinst() {
 		ewarn "Most of them aren't integrated nicely and may require additional steps for account creation."
 		ewarn "Use at your own risk!"
 	fi
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 }

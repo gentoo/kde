@@ -3,64 +3,70 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Universal document viewer based on KDE Frameworks"
-HOMEPAGE="https://okular.kde.org https://kde.org/applications/graphics/okular"
+HOMEPAGE="https://okular.kde.org https://kde.org/applications/office/org.kde.okular"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="chm crypt djvu epub +image-backend markdown mobi mobile +pdf plucker +postscript share speech +tiff"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjs)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kpty)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep threadweaver)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjs-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/threadweaver-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/freetype
 	media-libs/phonon[qt5(+)]
 	sys-libs/zlib
 	chm? (
-		$(add_frameworks_dep khtml)
+		>=kde-frameworks/khtml-${KFMIN}:5
 		dev-libs/chmlib
 	)
 	crypt? ( app-crypt/qca:2[qt5(+)] )
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (
-		$(add_kdeapps_dep libkexiv2)
-		$(add_qt_dep qtgui 'gif,jpeg,png')
+		>=kde-apps/libkexiv2-${PVCUT}:5
+		>=dev-qt/qtgui-${QTMIN}:5[gif,jpeg,png]
 	)
 	markdown? ( app-text/discount )
-	mobi? ( $(add_kdeapps_dep kdegraphics-mobipocket) )
+	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
 	pdf? ( app-text/poppler[qt5] )
 	plucker? ( virtual/jpeg:0 )
 	postscript? ( app-text/libspectre )
-	share? ( $(add_frameworks_dep purpose) )
-	speech? ( $(add_qt_dep qtspeech) )
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 	tiff? ( media-libs/tiff:0 )
 "
 RDEPEND="${DEPEND}
-	image-backend? ( $(add_frameworks_dep kimageformats) )
+	image-backend? ( >=kde-frameworks/kimageformats-${KFMIN}:5 )
 	mobile? (
-		$(add_frameworks_dep kirigami)
-		$(add_qt_dep qtquickcontrols)
+		>=kde-frameworks/kirigami-${KFMIN}:5
+		>=dev-qt/qtquickcontrols-${QTMIN}:5
 	)
 "
 
@@ -70,7 +76,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	use mobile || cmake_comment_add_subdirectory mobile
 	use test || cmake_comment_add_subdirectory conf/autotests
 }
@@ -92,7 +98,7 @@ src_configure() {
 		$(cmake-utils_use_find_package tiff TIFF)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -102,5 +108,5 @@ src_test() {
 		-E "(mainshelltest|chmgeneratortest|parttest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

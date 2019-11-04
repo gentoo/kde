@@ -3,15 +3,20 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library to support mobipocket ebooks"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="+thumbnail"
 
 DEPEND="
-	$(add_qt_dep qtgui)
-	thumbnail? ( $(add_frameworks_dep kio) )
+	>=dev-qt/qtgui-${QTMIN}:5
+	thumbnail? ( >=kde-frameworks/kio-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -20,5 +25,5 @@ src_configure() {
 		-DBUILD_thumbnailers=$(usex thumbnail)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

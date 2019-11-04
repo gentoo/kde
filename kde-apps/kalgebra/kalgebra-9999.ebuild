@@ -3,33 +3,40 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-inherit kde5
+ECM_HANDBOOK="optional"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="MathML-based 2D and 3D graph calculator by KDE"
-HOMEPAGE="https://kde.org/applications/education/kalgebra https://edu.kde.org/kalgebra/"
+HOMEPAGE="https://kde.org/applications/education/org.kde.kalgebra
+https://edu.kde.org/kalgebra/"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="readline"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep analitza)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwebengine 'widgets')
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/analitza-${PVCUT}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtquickcontrols)
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 src_configure() {
@@ -37,5 +44,5 @@ src_configure() {
 		$(cmake-utils_use_find_package readline Readline)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

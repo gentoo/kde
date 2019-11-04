@@ -3,10 +3,14 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="FFmpeg based thumbnail generator for video files"
+
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="libav"
 
@@ -14,11 +18,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	libav? ( media-video/libav:= )
 	!libav? ( media-video/ffmpeg:0= )
 "

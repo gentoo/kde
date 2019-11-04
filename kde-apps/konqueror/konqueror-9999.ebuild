@@ -3,63 +3,68 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional" # not optional until !kdelibs4support
-KDE_TEST="true"
+ECM_HANDBOOK="forceoptional" # not optional until !kdelibs4support
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+PLASMA_MINIMAL=5.16.5
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit flag-o-matic kde5
+inherit flag-o-matic ecm kde.org
 
 DESCRIPTION="Web browser and file manager based on KDE Frameworks"
-HOMEPAGE="
-	https://kde.org/applications/internet/konqueror/
-	https://konqueror.org/
-"
+HOMEPAGE="https://kde.org/applications/internet/org.kde.konqueror"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="activities speech tidy +webengine X"
+
 # 4 of 4 tests fail. Last checked for 4.0.3
 RESTRICT+=" test"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kdesu)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdelibs4support-${KFMIN}:5
+	>=kde-frameworks/kdesu-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/khtml-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	sys-libs/zlib
-	speech? ( $(add_qt_dep qtspeech) )
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 	tidy? ( app-text/tidy-html5 )
-	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
-	X? ( $(add_qt_dep qtx11extras) )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
+	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 DEPEND="${COMMON_DEPEND}
-	activities? ( $(add_frameworks_dep kactivities) )
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep kfind)
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-apps/kfind-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
 	!webengine? ( kde-misc/kwebkitpart:5 )
 "
 
@@ -67,11 +72,11 @@ src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 
 	if ! use webengine; then
-		punt_bogus_dep Qt5 WebEngineWidgets
+		ecm_punt_bogus_dep Qt5 WebEngineWidgets
 		cmake_comment_add_subdirectory webenginepart
 	fi
 
-	kde5_src_prepare
+	ecm_src_prepare
 }
 
 src_configure() {
@@ -81,11 +86,11 @@ src_configure() {
 		$(cmake-utils_use_find_package tidy LibTidy)
 		$(cmake-utils_use_find_package X X11)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		if ! has_version kde-apps/keditbookmarks:${SLOT} ; then

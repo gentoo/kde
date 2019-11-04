@@ -3,38 +3,43 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Calendar viewer for KDE PIM"
+
 LICENSE="GPL-2+ LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
-	$(add_frameworks_dep kcalendarcore)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_kdeapps_dep akonadi)
-	$(add_kdeapps_dep akonadi-calendar)
-	$(add_kdeapps_dep calendarsupport)
-	$(add_kdeapps_dep kcalutils)
-	$(add_kdeapps_dep kmime)
-	$(add_kdeapps_dep libkdepim)
-	$(add_qt_dep designer)
-	$(add_qt_dep qtgui '' '' '5=')
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
+	>=kde-apps/calendarsupport-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/kdiagram:5
 	dev-libs/libical
 "

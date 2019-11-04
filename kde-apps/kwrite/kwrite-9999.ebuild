@@ -3,37 +3,41 @@
 
 EAPI=7
 
-KMNAME="kate"
-KDE_HANDBOOK="optional"
-inherit kde5
+KDE_ORG_NAME="kate"
+ECM_HANDBOOK="optional"
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"
-HOMEPAGE="https://kde.org/applications/utilities/kwrite"
+HOMEPAGE="https://kde.org/applications/utilities/org.kde.kwrite"
 
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="activities"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	activities? ( $(add_frameworks_dep kactivities) )
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	# delete colliding kate translations
 	if [[ ${KDE_BUILD_TYPE} = release ]]; then
 		find po -type f -name "*po" -and -not -name "kwrite*" -delete || die
@@ -49,5 +53,5 @@ src_configure() {
 	)
 	use handbook && mycmakeargs+=( -DBUILD_katepart=FALSE )
 
-	kde5_src_configure
+	ecm_src_configure
 }
