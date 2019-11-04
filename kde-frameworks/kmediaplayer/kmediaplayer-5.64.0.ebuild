@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing a common interface for KParts that can play media files"
 LICENSE="MIT"
@@ -13,9 +15,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kparts-${PVCUT}:5
+	>=kde-frameworks/kxmlgui-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

@@ -3,10 +3,12 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_QTHELP="false"
-KDE_TEST="false"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_QTHELP="false"
+ECM_TEST="false"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework binding JavaScript objects to QObjects"
 LICENSE="LGPL-2+"
@@ -14,13 +16,13 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kjs)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kjs-${PVCUT}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep designer)
+	>=dev-qt/designer-${QTMIN}:5
 "

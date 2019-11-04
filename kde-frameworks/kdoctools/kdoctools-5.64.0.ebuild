@@ -3,8 +3,9 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
-inherit kde5
+ECM_QTHELP="false"
+PVCUT=$(ver_cut 1-2)
+inherit ecm kde.org
 
 DESCRIPTION="Tools to generate documentation in various formats from DocBook files"
 LICENSE="MIT"
@@ -14,10 +15,10 @@ IUSE="nls"
 BDEPEND="
 	dev-lang/perl
 	dev-perl/URI
-	nls? ( $(add_frameworks_dep ki18n) )
+	nls? ( >=kde-frameworks/ki18n-${PVCUT}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep karchive)
+	>=kde-frameworks/karchive-${PVCUT}:5
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	app-text/sgml-common
@@ -33,7 +34,7 @@ src_configure() {
 		$(cmake-utils_use_find_package nls KF5I18n)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -42,5 +43,5 @@ src_test() {
 		-E "(kdoctools_install)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

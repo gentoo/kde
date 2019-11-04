@@ -4,6 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
+QTMIN=5.12.3
 inherit cmake-utils kde.org python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
@@ -17,11 +18,11 @@ BDEPEND="
 	doc? (
 		${PYTHON_DEPS}
 		$(python_gen_any_dep 'dev-python/sphinx[${PYTHON_USEDEP}]')
-		dev-qt/qthelp:5
+		>=dev-qt/qthelp-${QTMIN}:5
 	)
 	test? (
-		dev-qt/linguist-tools:5
-		dev-qt/qtcore:5
+		>=dev-qt/linguist-tools-${QTMIN}:5
+		>=dev-qt/qtcore-${QTMIN}:5
 	)
 "
 RDEPEND="

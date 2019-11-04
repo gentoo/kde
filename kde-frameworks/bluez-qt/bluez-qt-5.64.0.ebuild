@@ -3,8 +3,9 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5 udev
+inherit ecm kde.org udev
 
 DESCRIPTION="Qt wrapper for Bluez 5 DBus API"
 LICENSE="LGPL-2"
@@ -12,9 +13,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -23,7 +24,7 @@ src_configure() {
 		-DUDEV_RULES_INSTALL_DIR="$(get_udevdir)/rules.d"
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -33,5 +34,5 @@ src_test() {
 		-E "(managertest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

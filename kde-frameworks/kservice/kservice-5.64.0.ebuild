@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Advanced plugin and service introspection"
 LICENSE="LGPL-2 LGPL-2.1+"
@@ -13,19 +15,19 @@ IUSE="+man"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
-	man? ( $(add_frameworks_dep kdoctools) )
+	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 RDEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kcrash-${PVCUT}:5
+	>=kde-frameworks/kdbusaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	test? ( $(add_qt_dep qtconcurrent) )
+	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
 
 # requires running kde environment
@@ -37,11 +39,11 @@ src_configure() {
 		$(cmake-utils_use_find_package man KF5DocTools)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 
 	# bug 596316
 	dosym kf5-applications.menu /etc/xdg/menus/applications.menu

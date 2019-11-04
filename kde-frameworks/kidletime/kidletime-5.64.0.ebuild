@@ -3,8 +3,9 @@
 
 EAPI=7
 
-KDE_TEST="false"
-inherit kde5
+ECM_TEST="false"
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for detection and notification of device idle time"
 LICENSE="LGPL-2+"
@@ -14,23 +15,23 @@ IUSE="X xscreensaver"
 REQUIRED_USE="xscreensaver? ( X )"
 
 DEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 		x11-libs/libxcb
 		x11-libs/libXext
 	)
 	xscreensaver? (
-		$(add_qt_dep qtdbus)
+		>=dev-qt/qtdbus-${QTMIN}:5
 		x11-libs/libXScrnSaver
 	)
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	if ! use xscreensaver; then
 		sed -i -e "s/\${X11_Xscreensaver_FOUND}/0/" CMakeLists.txt || die
 	fi
@@ -42,5 +43,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X XCB)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

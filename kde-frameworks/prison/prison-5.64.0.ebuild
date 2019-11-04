@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="QRCode and data matrix barcode library"
 HOMEPAGE="https://cgit.kde.org/prison.git"
@@ -13,10 +14,10 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="qml"
 
 DEPEND="
-	$(add_qt_dep qtgui)
+	>=dev-qt/qtgui-${QTMIN}:5
 	media-gfx/qrencode:=
 	media-libs/libdmtx
-	qml? ( $(add_qt_dep qtdeclarative) )
+	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -25,5 +26,5 @@ src_configure() {
 		$(cmake-utils_use_find_package qml Qt5Quick)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

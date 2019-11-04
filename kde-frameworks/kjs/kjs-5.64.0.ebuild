@@ -3,9 +3,9 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_QTHELP="false"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_QTHELP="false"
+inherit ecm kde.org
 
 DESCRIPTION="ECMAScipt compatible parser and engine"
 LICENSE="BSD-2 LGPL-2+"

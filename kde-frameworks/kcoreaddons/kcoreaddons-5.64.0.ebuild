@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
 LICENSE="LGPL-2+"
@@ -11,10 +12,10 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="fam nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtcore 'icu')
+	>=dev-qt/qtcore-${QTMIN}:5[icu]
 	fam? ( virtual/fam )
 "
 RDEPEND="${DEPEND}"
@@ -25,7 +26,7 @@ src_configure() {
 		$(cmake-utils_use_find_package fam FAM)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -35,5 +36,5 @@ src_test() {
 		-E "(kautosavefiletest|kdirwatch_qfswatch_unittest|kdirwatch_stat_unittest|kformattest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

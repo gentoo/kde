@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for managing threads using job and queue-based interfaces"
 LICENSE="LGPL-2+"
@@ -12,5 +12,5 @@ IUSE=""
 
 src_prepare() {
 	cmake_comment_add_subdirectory benchmarks
-	kde5_src_prepare
+	ecm_src_prepare
 }

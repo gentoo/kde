@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+inherit ecm kde.org
 
 DESCRIPTION="Framework for pseudo terminal devices and running child processes"
 LICENSE="LGPL-2+"
@@ -11,8 +12,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
 	sys-libs/libutempter
 "
 RDEPEND="${DEPEND}"
@@ -22,5 +23,5 @@ src_configure() {
 		-DUTEMPTER_EXECUTABLE="${EPREFIX}/usr/sbin/utempter"
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

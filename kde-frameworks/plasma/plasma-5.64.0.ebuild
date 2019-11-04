@@ -3,9 +3,11 @@
 
 EAPI=7
 
-KMNAME="${PN}-framework"
+KDE_ORG_NAME="${PN}-framework"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Plasma framework"
 LICENSE="LGPL-2+"
@@ -14,41 +16,41 @@ IUSE="gles2 wayland X"
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
-	$(add_frameworks_dep kdoctools)
+	>=kde-frameworks/kdoctools-${PVCUT}:5
 "
 RDEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kirigami)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui 'gles2=' '' '5=')
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kactivities-${PVCUT}:5
+	>=kde-frameworks/karchive-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kdeclarative-${PVCUT}:5
+	>=kde-frameworks/kglobalaccel-${PVCUT}:5
+	>=kde-frameworks/kguiaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/kirigami-${PVCUT}:5
+	>=kde-frameworks/knotifications-${PVCUT}:5
+	>=kde-frameworks/kpackage-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	>=kde-frameworks/kxmlgui-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=[gles2=]
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	!gles2? ( virtual/opengl )
 	wayland? (
-		$(add_frameworks_dep kwayland)
+		>=kde-frameworks/kwayland-${PVCUT}:5
 		media-libs/mesa[egl]
 	)
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 		x11-libs/libxcb
 	)
@@ -68,5 +70,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X XCB)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

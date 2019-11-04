@@ -3,12 +3,13 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing data models to help with tasks such as sorting and filtering"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
-DEPEND="test? ( $(add_qt_dep qtwidgets) )"
+DEPEND="test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )"

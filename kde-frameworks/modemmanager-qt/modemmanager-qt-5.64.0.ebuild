@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="ModemManager bindings for Qt"
 LICENSE="LGPL-2"
@@ -14,8 +16,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	net-misc/modemmanager
 "
 RDEPEND="${DEPEND}"

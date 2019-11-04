@@ -3,8 +3,9 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for syntax highlighting"
 LICENSE="LGPL-2+ LGPL-2.1+"
@@ -13,16 +14,16 @@ IUSE="nls"
 
 BDEPEND="
 	dev-lang/perl
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtxmlpatterns)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 	dobin "${BUILD_DIR}"/bin/katehighlightingindexer
 }

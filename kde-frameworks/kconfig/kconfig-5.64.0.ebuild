@@ -3,8 +3,9 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for reading and writing configuration"
 LICENSE="LGPL-2+"
@@ -12,15 +13,15 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="dbus nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtxml)
-	dbus? ( $(add_qt_dep qtdbus) )
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
-	test? ( $(add_qt_dep qtconcurrent) )
+	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
 
 # bug 560086
@@ -32,5 +33,5 @@ src_configure() {
 	local mycmakeargs=(
 		-DKCONFIG_USE_DBUS=$(usex dbus)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

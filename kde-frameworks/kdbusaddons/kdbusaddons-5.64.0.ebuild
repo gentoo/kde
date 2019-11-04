@@ -3,8 +3,9 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALDBUS_TEST="true"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for registering services and applications per freedesktop standards"
 LICENSE="LGPL-2+"
@@ -12,11 +13,11 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="nls X"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtdbus)
-	X? ( $(add_qt_dep qtx11extras) )
+	>=dev-qt/qtdbus-${QTMIN}:5
+	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -25,5 +26,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X Qt5X11Extras)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
