@@ -3,9 +3,10 @@
 
 EAPI=7
 
-KDE_QTHELP="false"
-KDE_TEST="true"
-inherit kde5
+ECM_QTHELP="false"
+ECM_TEST="true"
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library to determine holidays and other special events for a geographical region"
 LICENSE="LGPL-2.1+"
@@ -13,10 +14,10 @@ KEYWORDS=""
 IUSE="nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtdeclarative)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kholidays:5
@@ -26,5 +27,5 @@ src_test() {
 	# bug 624214
 	mkdir -p "${HOME}/.local/share/kf5/libkholidays" || die
 	cp -r "${S}/holidays/plan2" "${HOME}/.local/share/kf5/libkholidays/" || die
-	kde5_src_test
+	ecm_src_test
 }

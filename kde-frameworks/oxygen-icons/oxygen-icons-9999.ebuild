@@ -4,6 +4,8 @@
 EAPI=7
 
 KDE_ORG_NAME="oxygen-icons5"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 inherit cmake-utils kde.org
 
 DESCRIPTION="Oxygen SVG icon theme"
@@ -12,8 +14,8 @@ KEYWORDS=""
 IUSE="test"
 
 BDEPEND="
-	dev-qt/qtcore:5
-	kde-frameworks/extra-cmake-modules:5
+	>=dev-qt/qtcore-${QTMIN}:5
+	>=kde-frameworks/extra-cmake-modules-${PVCUT}:5
 	test? ( app-misc/fdupes )
 "
 DEPEND="test? ( dev-qt/qttest:5 )"

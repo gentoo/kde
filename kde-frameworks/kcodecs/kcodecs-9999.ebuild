@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for manipulating strings using various encodings"
 LICENSE="GPL-2+ LGPL-2+"
@@ -12,5 +13,5 @@ IUSE="nls"
 
 BDEPEND="
 	dev-util/gperf
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "

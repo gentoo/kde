@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework to let applications perform actions as a privileged user"
 LICENSE="LGPL-2.1+"
@@ -12,13 +14,13 @@ KEYWORDS=""
 IUSE="nls +policykit"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	policykit? ( sys-auth/polkit-qt[qt5(+)] )
 "
 RDEPEND="${DEPEND}"
@@ -29,7 +31,7 @@ src_configure() {
 		$(cmake-utils_use_find_package policykit PolkitQt5-1)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -38,5 +40,5 @@ src_test() {
 		-E "(KAuthHelperTest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

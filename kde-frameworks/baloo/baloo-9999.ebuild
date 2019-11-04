@@ -3,28 +3,31 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for searching and managing metadata"
+LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kfilemetadata)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kidletime)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kcrash-${PVCUT}:5
+	>=kde-frameworks/kdbusaddons-${PVCUT}:5
+	>=kde-frameworks/kfilemetadata-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kidletime-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/solid-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-db/lmdb-0.9.17
 "
 RDEPEND="${DEPEND}

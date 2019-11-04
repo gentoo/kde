@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit kde5
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for network service discovery using Zeroconf"
 LICENSE="LGPL-2+"
@@ -11,12 +12,12 @@ KEYWORDS=""
 IUSE="nls zeroconf"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 DEPEND="
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	zeroconf? (
-		$(add_qt_dep qtdbus)
+		>=dev-qt/qtdbus-${QTMIN}:5
 		net-dns/avahi[mdnsresponder-compat]
 	)
 "
@@ -28,5 +29,5 @@ src_configure() {
 		$(cmake-utils_use_find_package zeroconf Avahi)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

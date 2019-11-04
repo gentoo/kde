@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework for getting the usage statistics collected by the activities service"
 LICENSE="LGPL-2+"
@@ -11,10 +13,10 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtsql)
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kconfig)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=kde-frameworks/kactivities-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54

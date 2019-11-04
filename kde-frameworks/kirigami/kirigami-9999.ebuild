@@ -3,11 +3,12 @@
 
 EAPI=7
 
-KDE_EXAMPLES="true"
-KDE_QTHELP="false"
-KDE_TEST="true"
-KMNAME="${PN}2"
-inherit kde5
+ECM_EXAMPLES="true"
+ECM_QTHELP="false"
+ECM_TEST="true"
+KDE_ORG_NAME="${PN}2"
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://techbase.kde.org/Kirigami"
@@ -19,18 +20,18 @@ IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
-	$(add_qt_dep linguist-tools)
+	>=dev-qt/linguist-tools-${QTMIN}:5
 "
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui '' '' '5=')
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtquickcontrols2)
-	$(add_qt_dep qtsvg)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtgraphicaleffects)
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 "
 
 # requires package to already be installed
@@ -41,5 +42,5 @@ src_configure() {
 		-DBUILD_EXAMPLES=$(usex examples)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

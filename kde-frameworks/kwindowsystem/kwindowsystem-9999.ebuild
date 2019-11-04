@@ -3,8 +3,9 @@
 
 EAPI=7
 
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing access to properties and features of the window manager"
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) MIT"
@@ -12,13 +13,13 @@ KEYWORDS=""
 IUSE="nls X"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 		x11-libs/libXfixes
 		x11-libs/libxcb
@@ -38,5 +39,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

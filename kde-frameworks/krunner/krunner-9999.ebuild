@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for providing different actions given a string query"
 LICENSE="LGPL-2+"
@@ -12,18 +14,18 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep plasma)
-	$(add_frameworks_dep solid)
-	$(add_frameworks_dep threadweaver)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/kservice-${PVCUT}:5
+	>=kde-frameworks/plasma-${PVCUT}:5
+	>=kde-frameworks/solid-${PVCUT}:5
+	>=kde-frameworks/threadweaver-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -32,5 +34,5 @@ src_test() {
 	local myctestargs=(
 		-E "(dbusrunnertest)"
 	)
-	kde5_src_test
+	ecm_src_test
 }

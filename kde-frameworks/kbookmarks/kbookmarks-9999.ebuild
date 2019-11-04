@@ -3,8 +3,10 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Framework for managing bookmarks stored in XBEL format"
 LICENSE="LGPL-2+"
@@ -12,20 +14,20 @@ KEYWORDS=""
 IUSE="nls"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/kcodecs-${PVCUT}:5
+	>=kde-frameworks/kconfig-${PVCUT}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kiconthemes-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=kde-frameworks/kxmlgui-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kconfigwidgets)
+	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
 "

@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-2)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework providing assorted widgets for showing the progress of jobs"
 LICENSE="LGPL-2+"
@@ -11,15 +13,15 @@ KEYWORDS=""
 IUSE="nls X"
 
 BDEPEND="
-	nls? ( $(add_qt_dep linguist-tools) )
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	X? ( $(add_qt_dep qtx11extras) )
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	X? (
@@ -33,5 +35,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

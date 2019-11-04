@@ -3,9 +3,10 @@
 
 EAPI=7
 
-KDE_TEST="true"
+ECM_TEST="true"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Library for interfacing with calendars"
 LICENSE="GPL-2+ test? ( LGPL-3+ )"
@@ -16,7 +17,7 @@ BDEPEND="
 	sys-devel/bison
 "
 DEPEND="
-	$(add_qt_dep qtgui)
+	>=dev-qt/qtgui-${QTMIN}:5
 	dev-libs/libical:=
 "
 RDEPEND="${DEPEND}
