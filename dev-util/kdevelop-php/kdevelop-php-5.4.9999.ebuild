@@ -3,12 +3,14 @@
 
 EAPI=7
 
-KDE_DOC_DIR="docs"
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
-KMNAME="kdev-php"
+ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK_DIR="docs"
+ECM_TEST="true"
+KDE_ORG_NAME="kdev-php"
+KF5MIN=5.60.0
+QT5MIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -16,25 +18,27 @@ fi
 
 DESCRIPTION="PHP plugin for KDevelop"
 HOMEPAGE="https://www.kdevelop.org/"
+
 LICENSE="GPL-2 LGPL-2"
+SLOT="5"
 IUSE=""
 
 BDEPEND="
 	test? ( dev-util/kdevelop:5[test] )
 "
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep threadweaver)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcmutils-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KF5MIN}:5
+	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+	>=kde-frameworks/ki18n-${KF5MIN}:5
+	>=kde-frameworks/kio-${KF5MIN}:5
+	>=kde-frameworks/ktexteditor-${KF5MIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
+	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=kde-frameworks/threadweaver-${KF5MIN}:5
+	>=dev-qt/qtgui-${QT5MIN}:5
+	>=dev-qt/qtwidgets-${QT5MIN}:5
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5=
 "
@@ -48,5 +52,5 @@ src_test() {
 	local myctestargs=(
 		-E "(completionbenchmark|duchain_multiplefiles)"
 	)
-	kde5_src_test
+	ecm_src_test
 }

@@ -3,28 +3,32 @@
 
 EAPI=7
 
-KMNAME="kdev-upload"
-inherit kde5
+KDE_ORG_NAME="kdev-upload"
+KF5MIN=5.60.0
+QT5MIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plugin for uploading files to a remote server"
 HOMEPAGE="https://www.kdevelop.org/"
+
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcmutils-${KF5MIN}:5
+	>=kde-frameworks/kcompletion-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KF5MIN}:5
+	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+	>=kde-frameworks/ki18n-${KF5MIN}:5
+	>=kde-frameworks/kio-${KF5MIN}:5
+	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
+	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=dev-qt/qtgui-${QT5MIN}:5
+	>=dev-qt/qtwidgets-${QT5MIN}:5
 	dev-util/kdevelop:5=
 "
 RDEPEND="${DEPEND}"
