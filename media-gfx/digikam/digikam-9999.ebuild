@@ -4,7 +4,9 @@
 EAPI=7
 
 CMAKE_MIN_VERSION=3.14.3
-inherit kde5 toolchain-funcs
+KF5MIN=5.60.0
+QT5MIN=5.12.3
+inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_PV=${PV/_/-}
@@ -20,6 +22,7 @@ DESCRIPTION="Digital photo management application"
 HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
+SLOT="5"
 IUSE="addressbook calendar dnn +imagemagick gphoto2 +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop vkontakte webkit X"
 
 BDEPEND="
@@ -30,29 +33,29 @@ BDEPEND="
 	)
 "
 COMMON_DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui '-gles2')
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql 'mysql?')
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
+	>=dev-qt/qtconcurrent-${QT5MIN}:5
+	>=dev-qt/qtdbus-${QT5MIN}:5
+	>=dev-qt/qtgui-${QT5MIN}:5[-gles2]
+	>=dev-qt/qtnetwork-${QT5MIN}:5
+	>=dev-qt/qtprintsupport-${QT5MIN}:5
+	>=dev-qt/qtsql-${QT5MIN}:5[mysql?]
+	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtxml-${QT5MIN}:5
+	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
 	dev-libs/expat
+	>=kde-frameworks/kconfig-${KF5MIN}:5
+	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+	>=kde-frameworks/ki18n-${KF5MIN}:5
+	>=kde-frameworks/kiconthemes-${KF5MIN}:5
+	>=kde-frameworks/kio-${KF5MIN}:5
+	>=kde-frameworks/knotifications-${KF5MIN}:5
+	>=kde-frameworks/knotifyconfig-${KF5MIN}:5
+	>=kde-frameworks/kservice-${KF5MIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
+	>=kde-frameworks/kwindowsystem-${KF5MIN}:5
+	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=kde-frameworks/solid-${KF5MIN}:5
 	>=media-gfx/exiv2-0.26:=
 	media-libs/lcms:2
 	media-libs/liblqr
@@ -61,18 +64,18 @@ COMMON_DEPEND="
 	media-libs/tiff:0
 	virtual/jpeg:0
 	addressbook? (
-		$(add_frameworks_dep kcontacts)
-		$(add_kdeapps_dep akonadi-contacts)
+		>=kde-apps/akonadi-contacts-19.04.3:5
+		>=kde-frameworks/kcontacts-${KF5MIN}:5
 	)
-	calendar? ( $(add_frameworks_dep kcalendarcore) )
+	calendar? ( >=kde-frameworks/kcalendarcore-${KF5MIN}:5 )
 	dnn? ( >=media-libs/opencv-3.1.0:=[contrib,contrib_dnn] )
 	gphoto2? ( media-libs/libgphoto2:= )
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
 	marble? (
-		$(add_frameworks_dep kbookmarks)
-		$(add_kdeapps_dep marble)
-		$(add_qt_dep qtconcurrent)
+		>=dev-qt/qtconcurrent-${QT5MIN}:5
+		>=kde-apps/marble-19.04.3:5
+		>=kde-frameworks/kbookmarks-${KF5MIN}:5
 	)
 	mediaplayer? (
 		media-libs/qtav[opengl]
@@ -80,17 +83,17 @@ COMMON_DEPEND="
 		libav? ( media-video/libav:= )
 	)
 	opengl? (
-		$(add_qt_dep qtopengl)
+		>=dev-qt/qtopengl-${QT5MIN}:5
 		virtual/opengl
 	)
-	panorama? ( $(add_frameworks_dep threadweaver) )
-	scanner? ( $(add_kdeapps_dep libksane) )
-	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
+	panorama? ( >=kde-frameworks/threadweaver-${KF5MIN}:5 )
+	scanner? ( >=kde-apps/libksane-19.04.3:5 )
+	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KF5MIN}:5 )
 	vkontakte? ( net-libs/libkvkontakte:5 )
-	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
+	!webkit? ( >=dev-qt/qtwebengine-${QT5MIN}:5[widgets] )
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QT5MIN}:5
 		x11-libs/libX11
 	)
 "
@@ -108,12 +111,12 @@ RESTRICT+=" test"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-	kde5_pkg_pretend
+	ecm_pkg_pretend
 }
 
 pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 # FIXME: Unbundle libraw (libs/rawengine/libraw)
@@ -142,5 +145,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
