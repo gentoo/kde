@@ -3,11 +3,14 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
+KDE_APPS_MINIMAL=19.04.3
+KF5MIN=5.60.0
+QT5MIN=5.12.3
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -21,76 +24,76 @@ SLOT="5/54" # look at KDEVELOP_SOVERSION inside CMakeLists.txt
 IUSE="+gdbui hex +plasma +qmake reviewboard subversion webkit"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_frameworks_dep threadweaver)
-	$(add_kdeapps_dep libkomparediff2)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qthelp)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qttest)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/karchive-${KF5MIN}:5
+	>=kde-frameworks/kbookmarks-${KF5MIN}:5
+	>=kde-frameworks/kcmutils-${KF5MIN}:5
+	>=kde-frameworks/kcodecs-${KF5MIN}:5
+	>=kde-frameworks/kcompletion-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KF5MIN}:5
+	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+	>=kde-frameworks/kcrash-${KF5MIN}:5
+	>=kde-frameworks/kdeclarative-${KF5MIN}:5
+	>=kde-frameworks/kguiaddons-${KF5MIN}:5
+	>=kde-frameworks/ki18n-${KF5MIN}:5
+	>=kde-frameworks/kiconthemes-${KF5MIN}:5
+	>=kde-frameworks/kio-${KF5MIN}:5
+	>=kde-frameworks/kitemmodels-${KF5MIN}:5
+	>=kde-frameworks/kitemviews-${KF5MIN}:5
+	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
+	>=kde-frameworks/knewstuff-${KF5MIN}:5
+	>=kde-frameworks/knotifications-${KF5MIN}:5
+	>=kde-frameworks/knotifyconfig-${KF5MIN}:5
+	>=kde-frameworks/kparts-${KF5MIN}:5
+	>=kde-frameworks/kservice-${KF5MIN}:5
+	>=kde-frameworks/ktexteditor-${KF5MIN}:5
+	>=kde-frameworks/ktextwidgets-${KF5MIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
+	>=kde-frameworks/kwindowsystem-${KF5MIN}:5
+	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=kde-frameworks/sonnet-${KF5MIN}:5
+	>=kde-frameworks/threadweaver-${KF5MIN}:5
+	>=kde-apps/libkomparediff2-${KDE_APPS_MINIMAL}:5
+	>=dev-qt/qtdbus-${QT5MIN}:5
+	>=dev-qt/qtdeclarative-${QT5MIN}:5[widgets]
+	>=dev-qt/qtgui-${QT5MIN}:5
+	>=dev-qt/qthelp-${QT5MIN}:5
+	>=dev-qt/qtnetwork-${QT5MIN}:5
+	>=dev-qt/qttest-${QT5MIN}:5
+	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtxml-${QT5MIN}:5
 	dev-libs/grantlee:5
 	>=dev-util/astyle-3.1:=
 	>=sys-devel/clang-3.8.0:=
-	gdbui? ( $(add_plasma_dep libksysguard) )
+	gdbui? ( >=kde-plasma/libksysguard-5.16.5:5 )
 	hex? ( app-editors/okteta:5 )
 	plasma? (
-		$(add_frameworks_dep krunner)
-		$(add_frameworks_dep plasma)
+		>=kde-frameworks/krunner-${KF5MIN}:5
+		>=kde-frameworks/plasma-${KF5MIN}:5
 	)
 	qmake? ( dev-util/kdevelop-pg-qt:5 )
-	reviewboard? ( $(add_frameworks_dep purpose) )
+	reviewboard? ( >=kde-frameworks/purpose-${KF5MIN}:5 )
 	subversion? (
 		dev-libs/apr:1
 		dev-libs/apr-util:1
 		dev-vcs/subversion
 	)
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
-	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
+	!webkit? ( >=dev-qt/qtwebengine-${QT5MIN}:5[widgets] )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	$(add_qt_dep qtconcurrent)
+	>=dev-qt/qtconcurrent-${QT5MIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_kdeapps_dep kapptemplate)
-	$(add_kdeapps_dep kio-extras)
-	$(add_qt_dep qdbus)
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-apps/kapptemplate-${KDE_APPS_MINIMAL}:5
+	>=kde-apps/kio-extras-${KDE_APPS_MINIMAL}:5
+	>=dev-qt/qdbus-${QT5MIN}:5
+	>=dev-qt/qtquickcontrols-${QT5MIN}:5
+	>=dev-qt/qtquickcontrols2-${QT5MIN}:5
 	dev-util/ninja
 	>=sys-devel/gdb-7.0[python]
-	reviewboard? ( $(add_kdeapps_dep ktp-accounts-kcm) )
+	reviewboard? ( >=kde-apps/ktp-accounts-kcm-${KDE_APPS_MINIMAL}:5 )
 	!dev-util/kdevelop-clang-tidy
 	!dev-util/kdevplatform
 "
@@ -112,11 +115,11 @@ src_configure() {
 
 	use reviewboard || mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KDEExperimentalPurpose=ON )
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if ! has_version "kde-apps/konsole" ; then
 		elog "For konsole view, please install kde-apps/konsole"
