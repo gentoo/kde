@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_HANDBOOK="optional"
-KDE_TEST="true"
+KDE_TEST="optional"
 inherit kde5
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
