@@ -3,20 +3,22 @@
 
 EAPI=7
 
-KDE_APPS_MINIMAL="19.08.0"
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
+KF5MIN=5.60.0
+QT5MIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Project management application"
 HOMEPAGE="https://www.calligra.org/"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PN}-${PV}.tar.xz"
+	SRC_URI="mirror://kde/unstable/calligra/${PN}-${PV}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
+SLOT="5"
 IUSE="activities +holidays kwallet X"
 
 # FIXME: Disabled by upstream for good reason
@@ -27,49 +29,49 @@ IUSE="activities +holidays kwallet X"
 # =dev-libs/kproperty-3.0*:5
 # =dev-libs/kreport-3.0*:5
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep designer)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/designer-${QT5MIN}:5
+	>=dev-qt/qtdbus-${QT5MIN}:5
+	>=dev-qt/qtgui-${QT5MIN}:5
+	>=dev-qt/qtprintsupport-${QT5MIN}:5
+	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtxml-${QT5MIN}:5
+	>=kde-frameworks/karchive-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KF5MIN}:5
+	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
+	>=kde-frameworks/kdbusaddons-${KF5MIN}:5
+	>=kde-frameworks/kglobalaccel-${KF5MIN}:5
+	>=kde-frameworks/kguiaddons-${KF5MIN}:5
+	>=kde-frameworks/khtml-${KF5MIN}:5
+	>=kde-frameworks/ki18n-${KF5MIN}:5
+	>=kde-frameworks/kiconthemes-${KF5MIN}:5
+	>=kde-frameworks/kio-${KF5MIN}:5
+	>=kde-frameworks/kitemviews-${KF5MIN}:5
+	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
+	>=kde-frameworks/knotifications-${KF5MIN}:5
+	>=kde-frameworks/kparts-${KF5MIN}:5
+	>=kde-frameworks/kservice-${KF5MIN}:5
+	>=kde-frameworks/ktextwidgets-${KF5MIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
+	>=kde-frameworks/kwindowsystem-${KF5MIN}:5
+	>=kde-frameworks/kxmlgui-${KF5MIN}:5
 	dev-lang/perl
 	dev-libs/kdiagram:5
 	sys-libs/zlib
-	activities? ( $(add_frameworks_dep kactivities) )
-	holidays? ( $(add_frameworks_dep kholidays) )
+	activities? ( >=kde-frameworks/kactivities-${KF5MIN}:5 )
+	holidays? ( >=kde-frameworks/kholidays-${KF5MIN}:5 )
 	kwallet? (
-		$(add_frameworks_dep kwallet)
 		app-crypt/qca:2[qt5(+)]
+		>=kde-frameworks/kwallet-${KF5MIN}:5
 	)
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QT5MIN}:5
 		x11-libs/libX11
 	)
 "
 RDEPEND="${DEPEND}
 	!app-office/calligra[calligra_features_plan(-)]
-	$(add_qt_dep qtsvg)
+	>=dev-qt/qtsvg-${QT5MIN}:5
 "
 
 RESTRICT+=" test"
