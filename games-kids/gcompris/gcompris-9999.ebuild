@@ -21,6 +21,13 @@ LICENSE="GPL-3+"
 SLOT="0"
 IUSE="kiosk"
 
+BDEPEND="
+	>=dev-qt/linguist-tools-${QT5MIN}:5
+	test? (
+		dev-util/cppcheck
+		sys-devel/clang
+	)
+"
 RDEPEND="
 	>=dev-qt/qtdeclarative-${QT5MIN}:5
 	>=dev-qt/qtgui-${QT5MIN}:5
@@ -29,7 +36,6 @@ RDEPEND="
 	>=dev-qt/qtsvg-${QT5MIN}:5
 "
 DEPEND="${RDEPEND}
-	>=dev-qt/linguist-tools-${QT5MIN}:5
 	>=dev-qt/qtmultimedia-${QT5MIN}:5
 	>=dev-qt/qtxml-${QT5MIN}:5
 	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
