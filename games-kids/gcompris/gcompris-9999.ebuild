@@ -3,30 +3,36 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="true"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
+QT5MIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
 HOMEPAGE="https://gcompris.net/"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="https://gcompris.net/download/qt/src/${PN}-qt-${PV}.tar.xz"
+	KEYWORDS=""
+	S="${WORKDIR}/${PN}-qt-${PV}"
+fi
+
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS=""
 IUSE="kiosk"
 
 RDEPEND="
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsensors)
-	$(add_qt_dep qtsvg)
+	>=dev-qt/qtdeclarative-${QT5MIN}:5
+	>=dev-qt/qtgui-${QT5MIN}:5
+	>=dev-qt/qtnetwork-${QT5MIN}:5
+	>=dev-qt/qtsensors-${QT5MIN}:5
+	>=dev-qt/qtsvg-${QT5MIN}:5
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep linguist-tools)
-	$(add_qt_dep qtmultimedia)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
+	>=dev-qt/linguist-tools-${QT5MIN}:5
+	>=dev-qt/qtmultimedia-${QT5MIN}:5
+	>=dev-qt/qtxml-${QT5MIN}:5
+	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
 "
 
 src_configure() {
@@ -34,5 +40,5 @@ src_configure() {
 		-DQML_BOX2D_MODULE=disabled
 		-DWITH_KIOSK_MODE=$(usex kiosk)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }
