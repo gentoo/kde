@@ -61,7 +61,7 @@ esac
 # An array of $CATEGORY-$PV pairs of packages that are unreleased upstream.
 # Any package matching this will have fetch restriction enabled, and receive
 # a proper error message via pkg_nofetch.
-KDE_UNRELEASED=( kde-frameworks-5.64.0 kde-apps-19.08.3 )
+KDE_UNRELEASED=( kde-frameworks-5.64.0 )
 
 HOMEPAGE="https://kde.org/"
 
