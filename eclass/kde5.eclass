@@ -7,17 +7,18 @@
 # @SUPPORTED_EAPIS: 7
 # @BLURB: Support eclass for packages that follow KDE packaging conventions.
 # @DESCRIPTION:
-# This eclass is intended to streamline the creation of ebuilds for packages
-# that follow KDE upstream packaging conventions. It's primarily intended for
-# the three upstream release groups (Frameworks, Plasma, Applications) but
-# is also for any package that follows similar conventions.
+# This eclass is *deprecated*. Please read the PORTING notes for switching to
+# ecm.eclass in case the package is using extra-cmake-modules, otherwise just
+# use cmake-utils.eclass instead. For projects hosted on kde.org infrastructure,
+# inherit kde.org.eclass to fetch and unpack sources independent of the build
+# system being used.
 #
 # This eclass unconditionally inherits kde5-functions.eclass and all its public
 # functions and variables may be considered as part of this eclass's API.
 #
-# This eclass unconditionally inherits cmake-utils.eclass and all its public
-# variables and helper functions (not phase functions) may be considered as part
-# of this eclass's API.
+# This eclass inherits either ecm.eclass if KDE_AUTODEPS=true (default) or
+# cmake-utils.eclass if false. All its public variables and helper functions
+# (not phase functions) may be considered as part of this eclass's API.
 #
 # This eclass's phase functions are not intended to be mixed and matched, so if
 # any phase functions are overridden the version here should also be called.
