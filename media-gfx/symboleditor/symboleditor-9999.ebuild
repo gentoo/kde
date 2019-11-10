@@ -3,8 +3,8 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-inherit kde5
+ECM_HANDBOOK="optional"
+inherit ecm kde.org
 
 DESCRIPTION="Application to create libraries of QPainterPath objects with rendering hints"
 HOMEPAGE="https://userbase.kde.org/SymbolEditor"
@@ -15,6 +15,7 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
@@ -22,15 +23,15 @@ BDEPEND="
 	sys-devel/gettext
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kio:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kxmlgui:5
 "
 RDEPEND="${DEPEND}"
 
@@ -39,5 +40,5 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
