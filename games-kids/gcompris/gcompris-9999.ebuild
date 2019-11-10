@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-QT5MIN=5.12.3
+QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
@@ -22,23 +22,23 @@ SLOT="0"
 IUSE="kiosk"
 
 BDEPEND="
-	>=dev-qt/linguist-tools-${QT5MIN}:5
+	>=dev-qt/linguist-tools-${QTMIN}:5
 	test? (
 		dev-util/cppcheck
 		sys-devel/clang
 	)
 "
 RDEPEND="
-	>=dev-qt/qtdeclarative-${QT5MIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtnetwork-${QT5MIN}:5
-	>=dev-qt/qtsensors-${QT5MIN}:5
-	>=dev-qt/qtsvg-${QT5MIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsensors-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
 "
 DEPEND="${RDEPEND}
-	>=dev-qt/qtmultimedia-${QT5MIN}:5
-	>=dev-qt/qtxml-${QT5MIN}:5
-	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
 
 src_configure() {
