@@ -29,6 +29,8 @@ RDEPEND="
 	app-arch/libarchive[bzip2]
 "
 
+RESTRICT+=" !test? ( test )"
+
 PATCHES=( "${FILESDIR}/${PN}-5.49.0-no-fatal-warnings.patch" )
 
 python_check_deps() {

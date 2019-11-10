@@ -18,6 +18,8 @@ BDEPEND="
 "
 DEPEND="test? ( dev-qt/qttest:5 )"
 
+RESTRICT+=" !test? ( test )"
+
 src_configure() {
 	local mycmakeargs=(
 		-DBINARY_ICONS_RESOURCE=ON

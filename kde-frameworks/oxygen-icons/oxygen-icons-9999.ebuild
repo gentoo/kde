@@ -19,3 +19,5 @@ BDEPEND="
 	test? ( app-misc/fdupes )
 "
 DEPEND="test? ( dev-qt/qttest:5 )"
+
+RESTRICT+=" !test? ( test )"
