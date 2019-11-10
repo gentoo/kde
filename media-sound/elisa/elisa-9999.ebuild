@@ -3,53 +3,51 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-KDE_HANDBOOK="optional"
-inherit kde5
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
+ECM_HANDBOOK="optional"
+ECM_TEST="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Simple music player by KDE"
 HOMEPAGE="https://community.kde.org/Elisa"
+
 LICENSE="LGPL-3+"
+SLOT="5"
+KEYWORDS=""
 IUSE="mpris semantic-desktop vlc"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kfilemetadata 'taglib')
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kirigami)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtmultimedia)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kfilemetadata-${KFMIN}:5[taglib]
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	mpris? (
-		$(add_frameworks_dep kdbusaddons)
-		$(add_qt_dep qtdbus)
+		>=dev-qt/qtdbus-${QTMIN}:5
+		>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	)
-	semantic-desktop? (
-		$(add_frameworks_dep baloo)
-	)
+	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	vlc? ( media-video/vlc:= )
-	!vlc? ( $(add_qt_dep qtmultimedia 'gstreamer') )
+	!vlc? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer] )
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtquickcontrols2)
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 
 RESTRICT+=" test"
@@ -61,5 +59,5 @@ src_configure() {
 		$(cmake-utils_use_find_package vlc LIBVLC)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
