@@ -6,7 +6,7 @@ EAPI=7
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Project management application"
@@ -29,12 +29,12 @@ IUSE="activities +holidays kwallet X"
 # =dev-libs/kproperty-3.0*:5
 # =dev-libs/kreport-3.0*:5
 DEPEND="
-	>=dev-qt/designer-${QT5MIN}:5
-	>=dev-qt/qtdbus-${QT5MIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtprintsupport-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
-	>=dev-qt/qtxml-${QT5MIN}:5
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -65,13 +65,13 @@ DEPEND="
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	X? (
-		>=dev-qt/qtx11extras-${QT5MIN}:5
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 "
 RDEPEND="${DEPEND}
 	!app-office/calligra[calligra_features_plan(-)]
-	>=dev-qt/qtsvg-${QT5MIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
 "
 
 RESTRICT+=" test"
