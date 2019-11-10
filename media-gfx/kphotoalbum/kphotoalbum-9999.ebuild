@@ -3,8 +3,10 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Tool for indexing, searching, and viewing images"
 HOMEPAGE="https://www.kphotoalbum.org/"
@@ -15,39 +17,40 @@ if [[ ${KDE_BUILD_TYPE} != live ]]; then
 fi
 
 LICENSE="GPL-2+ FDL-1.2"
+SLOT="5"
 IUSE="+kipi map +raw share"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtsql 'sqlite')
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5[sqlite]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	media-gfx/exiv2:=
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
-	kipi? ( $(add_kdeapps_dep libkipi '' '' '5=') )
-	map? ( $(add_kdeapps_dep libkgeomap) )
-	raw? ( $(add_kdeapps_dep libkdcraw) )
-	share? ( $(add_frameworks_dep kxmlgui) )
+	kipi? ( kde-apps/libkipi:5= )
+	map? ( kde-apps/libkgeomap:5 )
+	raw? ( kde-apps/libkdcraw:5 )
+	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	media-video/ffmpeg
-	kipi? ( $(add_kdeapps_dep kipi-plugins) )
+	kipi? ( kde-apps/kipi-plugins:5 )
 "
 
 DOCS=( ChangeLog README.md )
@@ -60,5 +63,5 @@ src_configure() {
 		$(cmake-utils_use_find_package share KF5Purpose)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
