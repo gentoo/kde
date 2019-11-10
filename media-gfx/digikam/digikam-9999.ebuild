@@ -4,7 +4,7 @@
 EAPI=7
 
 CMAKE_MIN_VERSION=3.14.3
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org toolchain-funcs
 
@@ -43,19 +43,19 @@ COMMON_DEPEND="
 	>=dev-qt/qtxml-${QT5MIN}:5
 	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
 	dev-libs/expat
-	>=kde-frameworks/kconfig-${KF5MIN}:5
-	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/kiconthemes-${KF5MIN}:5
-	>=kde-frameworks/kio-${KF5MIN}:5
-	>=kde-frameworks/knotifications-${KF5MIN}:5
-	>=kde-frameworks/knotifyconfig-${KF5MIN}:5
-	>=kde-frameworks/kservice-${KF5MIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-	>=kde-frameworks/kwindowsystem-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
-	>=kde-frameworks/solid-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
 	>=media-gfx/exiv2-0.26:=
 	media-libs/lcms:2
 	media-libs/liblqr
@@ -65,9 +65,9 @@ COMMON_DEPEND="
 	virtual/jpeg:0
 	addressbook? (
 		>=kde-apps/akonadi-contacts-19.04.3:5
-		>=kde-frameworks/kcontacts-${KF5MIN}:5
+		>=kde-frameworks/kcontacts-${KFMIN}:5
 	)
-	calendar? ( >=kde-frameworks/kcalendarcore-${KF5MIN}:5 )
+	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
 	dnn? ( >=media-libs/opencv-3.1.0:=[contrib,contrib_dnn] )
 	gphoto2? ( media-libs/libgphoto2:= )
 	imagemagick? ( media-gfx/imagemagick:= )
@@ -75,7 +75,7 @@ COMMON_DEPEND="
 	marble? (
 		>=dev-qt/qtconcurrent-${QT5MIN}:5
 		>=kde-apps/marble-19.04.3:5
-		>=kde-frameworks/kbookmarks-${KF5MIN}:5
+		>=kde-frameworks/kbookmarks-${KFMIN}:5
 	)
 	mediaplayer? (
 		media-libs/qtav[opengl]
@@ -86,9 +86,9 @@ COMMON_DEPEND="
 		>=dev-qt/qtopengl-${QT5MIN}:5
 		virtual/opengl
 	)
-	panorama? ( >=kde-frameworks/threadweaver-${KF5MIN}:5 )
+	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 	scanner? ( >=kde-apps/libksane-19.04.3:5 )
-	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KF5MIN}:5 )
+	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	vkontakte? ( net-libs/libkvkontakte:5 )
 	!webkit? ( >=dev-qt/qtwebengine-${QT5MIN}:5[widgets] )
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
