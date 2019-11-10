@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org
 
@@ -35,34 +35,34 @@ DEPEND="
 	>=dev-qt/qtprintsupport-${QT5MIN}:5
 	>=dev-qt/qtwidgets-${QT5MIN}:5
 	>=dev-qt/qtxml-${QT5MIN}:5
-	>=kde-frameworks/karchive-${KF5MIN}:5
-	>=kde-frameworks/kconfig-${KF5MIN}:5
-	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/kdbusaddons-${KF5MIN}:5
-	>=kde-frameworks/kglobalaccel-${KF5MIN}:5
-	>=kde-frameworks/kguiaddons-${KF5MIN}:5
-	>=kde-frameworks/khtml-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/kiconthemes-${KF5MIN}:5
-	>=kde-frameworks/kio-${KF5MIN}:5
-	>=kde-frameworks/kitemviews-${KF5MIN}:5
-	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
-	>=kde-frameworks/knotifications-${KF5MIN}:5
-	>=kde-frameworks/kparts-${KF5MIN}:5
-	>=kde-frameworks/kservice-${KF5MIN}:5
-	>=kde-frameworks/ktextwidgets-${KF5MIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-	>=kde-frameworks/kwindowsystem-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/khtml-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	dev-lang/perl
 	dev-libs/kdiagram:5
 	sys-libs/zlib
-	activities? ( >=kde-frameworks/kactivities-${KF5MIN}:5 )
-	holidays? ( >=kde-frameworks/kholidays-${KF5MIN}:5 )
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
+	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	kwallet? (
 		app-crypt/qca:2[qt5(+)]
-		>=kde-frameworks/kwallet-${KF5MIN}:5
+		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	X? (
 		>=dev-qt/qtx11extras-${QT5MIN}:5
