@@ -11,7 +11,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="bluetooth +browser-integration consolekit crypt +desktop-portal discover
 +display-manager elogind grub gtk +handbook +legacy-systray networkmanager pam
-plymouth +pm-utils pulseaudio qrcode +sddm sdk systemd +thunderbolt +wallpapers"
+plymouth +pm-utils pulseaudio qrcode +sddm sdk systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="?? ( consolekit elogind systemd )"
 
