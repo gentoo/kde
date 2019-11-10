@@ -3,16 +3,18 @@
 
 EAPI=7
 
-ECM_KDEINSTALLDIRS="false"
-KDE_AUTODEPS="false"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+inherit cmake-utils kde.org
 
 DESCRIPTION="Breeze theme for Plymouth"
+
 LICENSE="GPL-2+ GPL-3+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-BDEPEND="$(add_frameworks_dep extra-cmake-modules)"
+BDEPEND=">=kde-frameworks/extra-cmake-modules-${KFMIN}:5"
 DEPEND="sys-boot/plymouth"
 RDEPEND="${DEPEND}"
 
@@ -22,5 +24,5 @@ src_configure() {
 		-DDISTRO_VERSION=
 	)
 
-	kde5_src_configure
+	cmake-utils_src_configure
 }

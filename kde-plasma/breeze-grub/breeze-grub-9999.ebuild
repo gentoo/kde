@@ -3,6 +3,7 @@
 
 EAPI=7
 
+PVCUT=$(ver_cut 1-3)
 inherit kde.org
 
 DESCRIPTION="Breeze theme for GRUB"

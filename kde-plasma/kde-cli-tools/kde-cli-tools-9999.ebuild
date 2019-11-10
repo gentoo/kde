@@ -3,40 +3,46 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="optional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="optional"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Tools based on KDE Frameworks 5 to better interact with the system"
 HOMEPAGE="https://cgit.kde.org/kde-cli-tools.git"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="kdesu X"
 
 REQUIRED_USE="kdesu? ( X )"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_plasma_dep libkworkspace)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	kdesu? ( $(add_frameworks_dep kdesu) )
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-plasma/libkworkspace-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 "
@@ -55,10 +61,10 @@ src_configure() {
 		$(cmake-utils_use_find_package X Qt5X11Extras)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 	use kdesu && dosym ../$(get_libdir)/libexec/kf5/kdesu /usr/bin/kdesu
 }

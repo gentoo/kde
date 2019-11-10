@@ -4,57 +4,63 @@
 EAPI=7
 
 CMAKE_MIN_VERSION=3.14.3
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Utility providing information about the computer hardware"
 HOMEPAGE="https://kde.org/applications/system/kinfocenter/"
 SRC_URI+=" https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="gles2 ieee1394 +opengl +pci wayland"
 
 REQUIRED_USE="wayland? ( || ( gles2 opengl ) )"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	x11-libs/libX11
 	ieee1394? ( sys-libs/libraw1394 )
 	opengl? (
-		$(add_qt_dep qtgui 'gles2=')
+		>=dev-qt/qtgui-${QTMIN}:5[gles2=]
 		media-libs/mesa[gles2?,X(+)]
 		!gles2? ( media-libs/glu )
 	)
 	pci? ( sys-apps/pciutils )
 	wayland? (
-		$(add_frameworks_dep kwayland)
+		>=kde-frameworks/kwayland-${KFMIN}:5
 		media-libs/mesa[egl]
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep plasma)
+	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_plasma_dep kde-cli-tools)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 
 src_configure() {
@@ -71,11 +77,11 @@ src_configure() {
 		mycmakeargs+=( $(cmake-utils_use_find_package opengl OpenGL) )
 	fi
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 
 	# TODO: Make this fully obsolete by /etc/os-release
 	insinto /etc/xdg
@@ -86,7 +92,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		has_version "net-fs/nfs-utils" || \

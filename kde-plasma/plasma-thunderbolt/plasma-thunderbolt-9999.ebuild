@@ -3,26 +3,30 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plasma integration for controlling Thunderbolt devices"
 HOMEPAGE="https://cgit.kde.org/plasma-thunderbolt.git"
 
 LICENSE="|| ( GPL-2 GPL-3+ )"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knotifications)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
 	sys-apps/bolt

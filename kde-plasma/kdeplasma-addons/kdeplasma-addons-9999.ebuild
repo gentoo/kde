@@ -3,48 +3,53 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Extra Plasma applets and engines"
+
 LICENSE="GPL-2 LGPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE="share webengine"
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kholidays)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kross)
-	$(add_frameworks_dep krunner)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kunitconversion)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	share? ( $(add_frameworks_dep purpose) )
-	webengine? ( $(add_qt_dep qtwebengine) )
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kross-${KFMIN}:5
+	>=kde-frameworks/krunner-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kunitconversion-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep plasma-workspace)
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-plasma/plasma-workspace-${PVCUT}:5
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
 
 src_configure() {
@@ -53,5 +58,5 @@ src_configure() {
 		$(cmake-utils_use_find_package webengine Qt5WebEngine)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

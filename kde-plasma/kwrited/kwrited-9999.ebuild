@@ -3,19 +3,25 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma daemon listening for wall and write messages"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpty)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

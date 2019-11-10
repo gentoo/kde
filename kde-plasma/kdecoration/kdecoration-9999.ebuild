@@ -3,17 +3,22 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Plugin based library to create window decorations"
+
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

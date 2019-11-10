@@ -3,50 +3,56 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://cgit.kde.org/powerdevil.git"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="brightness-control +wireless"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kauth policykit)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kidletime)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwayland)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_plasma_dep libkscreen)
-	$(add_plasma_dep libkworkspace)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5[policykit]
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kidletime-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-plasma/libkscreen-${PVCUT}:5
+	>=kde-plasma/libkworkspace-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	virtual/libudev:=
 	x11-libs/libxcb
 	brightness-control? ( app-misc/ddcutil )
 	wireless? (
-		$(add_frameworks_dep bluez-qt)
-		$(add_frameworks_dep networkmanager-qt)
+		>=kde-frameworks/bluez-qt-${KFMIN}:5
+		>=kde-frameworks/networkmanager-qt-${KFMIN}:5
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	>=sys-power/upower-0.9.23
 "
 
@@ -57,5 +63,5 @@ src_configure() {
 		$(cmake-utils_use_find_package wireless KF5NetworkManagerQt)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

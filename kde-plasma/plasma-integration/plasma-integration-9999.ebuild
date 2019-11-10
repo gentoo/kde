@@ -3,34 +3,39 @@
 
 EAPI=7
 
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
+
 LICENSE="LGPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwayland)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_plasma_dep breeze)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui 'dbus' '' '5=')
-	$(add_qt_dep qtquickcontrols2)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-plasma/breeze-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=[dbus]
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	x11-libs/libXcursor
 	x11-libs/libxcb
 "

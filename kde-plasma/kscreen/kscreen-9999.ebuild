@@ -3,37 +3,42 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma screen management"
 HOMEPAGE="https://cgit.kde.org/kscreen.git"
 
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
-	$(add_plasma_dep libkscreen)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/libkscreen-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools)
-	$(add_qt_dep qtgraphicaleffects)
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 "
 
 # bug #580440, last checked 5.6.3

@@ -3,21 +3,27 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KMNAME="${PN}5"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KDE_ORG_NAME="${PN}5"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Screen gamma values kcontrol module"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 RDEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	x11-libs/libX11
 	x11-libs/libXxf86vm
 "

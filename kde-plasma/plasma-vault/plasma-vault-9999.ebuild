@@ -3,32 +3,36 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plasma applet and services for creating encrypted vaults"
 HOMEPAGE+=" https://cukic.co/2017/02/03/vaults-encryption-in-plasma/"
 
 LICENSE="LGPL-3"
+SLOT="5"
 KEYWORDS=""
 IUSE="networkmanager"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep plasma)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_plasma_dep libksysguard)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	networkmanager? ( $(add_frameworks_dep networkmanager-qt) )
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-plasma/libksysguard-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	|| ( >=sys-fs/cryfs-0.9.9 >=sys-fs/encfs-1.9.2 )
@@ -39,5 +43,5 @@ src_configure() {
 		$(cmake-utils_use_find_package networkmanager KF5NetworkManagerQt)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
