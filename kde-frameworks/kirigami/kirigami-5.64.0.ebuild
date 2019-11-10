@@ -24,13 +24,14 @@ BDEPEND="
 DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgraphicaleffects)
 	$(add_qt_dep qtgui '' '' '5=')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtquickcontrols2)
 	$(add_qt_dep qtsvg)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	$(add_qt_dep qtgraphicaleffects)
+"
 
 # requires package to already be installed
 RESTRICT+=" test"
