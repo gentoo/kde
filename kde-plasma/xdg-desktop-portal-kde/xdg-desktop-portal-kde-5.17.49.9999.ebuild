@@ -4,23 +4,27 @@
 EAPI=7
 
 VIRTUALX_REQUIRED="test"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks"
 LICENSE="LGPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="screencast"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport 'cups')
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5[cups]
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	screencast? (
 		media-libs/libepoxy
 		media-libs/mesa[gbm]
@@ -28,8 +32,8 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kwayland)
-	$(add_qt_dep qtconcurrent)
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/xdg-desktop-portal[screencast?]
@@ -41,5 +45,5 @@ src_configure() {
 		$(cmake-utils_use_find_package screencast GBM)
 		$(cmake-utils_use_find_package screencast Epoxy)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

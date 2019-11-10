@@ -3,44 +3,49 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"
 
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kidletime)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwayland)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlrpcclient)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	X? ( $(add_qt_dep qtx11extras) )
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kidletime-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlrpcclient-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
-	$(add_qt_dep qtconcurrent)
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package X Qt5X11Extras)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -49,11 +54,11 @@ src_test() {
 		-E "(connectiontest)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 	if ! has_version "sys-devel/gdb"; then
 		elog "For more usability consider installing the following package:"
 		elog "    sys-devel/gdb - Easier debugging support"

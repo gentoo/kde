@@ -3,29 +3,33 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
+ECM_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
 HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
 LICENSE="GPL-3"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/glib:2
 	gnome-base/gsettings-desktop-schemas
 	x11-libs/gtk+:2
@@ -33,7 +37,7 @@ DEPEND="
 	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
 src_configure() {
@@ -41,11 +45,11 @@ src_configure() {
 		-DDATA_INSTALL_DIR="${EPREFIX}/usr/share"
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 	elog "If you notice missing icons in your GTK applications, you may have to install"
 	elog "the corresponding themes for GTK. A good guess would be x11-themes/oxygen-gtk"
 	elog "for example."

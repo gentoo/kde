@@ -3,27 +3,31 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional-recursive"
-inherit kde5
+ECM_TEST="forceoptional-recursive"
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Dedicated search application built on top of Baloo"
 HOMEPAGE="https://cgit.kde.org/milou.git"
 
 LICENSE="GPL-2 LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep krunner)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/krunner-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

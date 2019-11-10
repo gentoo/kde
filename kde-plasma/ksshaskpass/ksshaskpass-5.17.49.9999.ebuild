@@ -3,31 +3,36 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE implementation of ssh-askpass with Kwallet integration"
 HOMEPAGE="https://cgit.kde.org/ksshaskpass.git"
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 
 src_install() {
-	kde5_src_install
+	ecm_src_install
 
 	insinto /etc/xdg/plasma-workspace/env/
 	doins "${FILESDIR}/05-ksshaskpass.sh"
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	elog "${PN} has been installed as your default askpass application"
 	elog "for Plasma 5 sessions."

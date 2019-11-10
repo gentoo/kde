@@ -3,42 +3,47 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Breeze visual style for the Plasma desktop"
 HOMEPAGE="https://cgit.kde.org/breeze.git"
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="wayland X"
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.13.0
 RDEPEND="
-	$(add_frameworks_dep frameworkintegration)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_plasma_dep kdecoration)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets '' '' '5=')
+	>=kde-frameworks/frameworkintegration-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-plasma/kdecoration-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5=
 	sci-libs/fftw:3.0=
-	wayland? ( $(add_frameworks_dep kwayland) )
+	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libxcb
 	)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kpackage)
+	>=kde-frameworks/kpackage-${KFMIN}:5
 "
 PDEPEND="
-	$(add_frameworks_dep breeze-icons)
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-frameworks/breeze-icons-${KFMIN}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
 src_configure() {
@@ -46,5 +51,5 @@ src_configure() {
 		$(cmake-utils_use_find_package wayland KF5Wayland)
 		$(cmake-utils_use_find_package X XCB)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

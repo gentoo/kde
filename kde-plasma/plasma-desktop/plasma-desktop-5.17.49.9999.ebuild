@@ -3,67 +3,72 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="true"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE Plasma desktop"
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="+fontconfig ibus +mouse scim +semantic-desktop touchpad"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep attica)
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kactivities-stats)
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kbookmarks)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kded)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kemoticons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep krunner)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
-	$(add_frameworks_dep solid)
-	$(add_frameworks_dep sonnet)
-	$(add_plasma_dep kwin)
-	$(add_plasma_dep plasma-workspace)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
-	$(add_qt_dep qtxml)
+	>=kde-frameworks/attica-${KFMIN}:5
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/kactivities-stats-${KFMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kded-${KFMIN}:5
+	>=kde-frameworks/kdelibs4support-${KFMIN}:5
+	>=kde-frameworks/kemoticons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/krunner-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
+	>=kde-plasma/kwin-${PVCUT}:5
+	>=kde-plasma/plasma-workspace-${PVCUT}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/phonon[qt5(+)]
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -78,14 +83,14 @@ COMMON_DEPEND="
 		x11-libs/xcb-util-image
 	)
 	ibus? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		app-i18n/ibus
 		dev-libs/glib:2
 		x11-libs/libxcb
 		x11-libs/xcb-util-keysyms
 	)
 	scim? ( app-i18n/scim )
-	semantic-desktop? ( $(add_frameworks_dep baloo) )
+	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:5 )
 	touchpad? ( x11-drivers/xf86-input-synaptics )
 "
 DEPEND="${COMMON_DEPEND}
@@ -98,13 +103,13 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_frameworks_dep qqc2-desktop-style)
-	$(add_plasma_dep breeze)
-	$(add_plasma_dep kde-cli-tools)
-	$(add_plasma_dep oxygen)
-	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtquickcontrols2)
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
+	>=kde-plasma/breeze-${PVCUT}:5
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
+	>=kde-plasma/oxygen-${PVCUT}:5
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	sys-apps/util-linux
 	x11-apps/setxkbmap
 	!<kde-plasma/kdeplasma-addons-5.15.80
@@ -121,7 +126,7 @@ src_configure() {
 		$(cmake-utils_use_find_package touchpad Synaptics)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
@@ -132,5 +137,5 @@ src_test() {
 		-E "(foldermodeltest|positionertest|test_kio_fonts)"
 	)
 
-	kde5_src_test
+	ecm_src_test
 }

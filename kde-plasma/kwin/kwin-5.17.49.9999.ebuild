@@ -3,52 +3,56 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="optional"
+ECM_HANDBOOK="optional"
+ECM_TEST="optional"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="caps gles2 multimedia"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kglobalaccel '' '' '5=')
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kidletime '' '' '5=')
-	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwayland)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem X)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
-	$(add_plasma_dep breeze)
-	$(add_plasma_dep kdecoration)
-	$(add_plasma_dep kscreenlocker)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui 'gles2=' '' '5=')
-	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsensors)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5=
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kidletime-${KFMIN}:5=
+	>=kde-frameworks/kinit-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=kde-plasma/breeze-${PVCUT}:5
+	>=kde-plasma/kdecoration-${PVCUT}:5
+	>=kde-plasma/kscreenlocker-${PVCUT}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=[gles2=]
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsensors-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=dev-libs/libinput-1.9
 	>=dev-libs/wayland-1.2
 	media-libs/fontconfig
@@ -70,25 +74,25 @@ COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtquickcontrols2)
-	$(add_qt_dep qtvirtualkeyboard)
-	multimedia? ( $(add_qt_dep qtmultimedia 'gstreamer,qml') )
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
+	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_qt_dep designer)
-	$(add_qt_dep qtconcurrent)
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 	x11-base/xorg-proto
 "
 PDEPEND="
-	$(add_plasma_dep kde-cli-tools)
+	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
 RESTRICT+=" test"
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-5.16.80-gstreamer-optional.patch"
 
 	# Access violations, bug #640432
@@ -101,5 +105,5 @@ src_configure() {
 		$(cmake-utils_use_find_package caps Libcap)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

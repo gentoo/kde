@@ -3,39 +3,43 @@
 
 EAPI=7
 
-KDE_TEST="true"
+ECM_TEST="true"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+KFMIN=5.64.0
+PVCUT=$(ver_cut 1-3)
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Task management and system monitoring library"
 LICENSE="LGPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE="minimal webengine X"
 
 RDEPEND="
-	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	sys-libs/zlib
-	webengine? ( $(add_qt_dep qtwebengine) )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 		x11-libs/libXres
 	)
 "
 DEPEND="${RDEPEND}
-	$(add_frameworks_dep kiconthemes)
-	!minimal? ( $(add_frameworks_dep plasma) )
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	!minimal? ( >=kde-frameworks/plasma-${KFMIN}:5 )
 	X? ( x11-base/xorg-proto )
 "
 
@@ -48,5 +52,5 @@ src_configure() {
 		$(cmake-utils_use_find_package X X11)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
