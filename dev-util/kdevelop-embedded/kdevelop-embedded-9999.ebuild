@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_ORG_NAME="kdev-embedded"
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org
 
@@ -16,19 +16,19 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/karchive-${KF5MIN}:5
-	>=kde-frameworks/kcompletion-${KF5MIN}:5
-	>=kde-frameworks/kconfig-${KF5MIN}:5
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/kitemmodels-${KF5MIN}:5
-	>=kde-frameworks/knewstuff-${KF5MIN}:5
-	>=kde-frameworks/kparts-${KF5MIN}:5
-	>=kde-frameworks/ktexteditor-${KF5MIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
-	>=kde-frameworks/solid-${KF5MIN}:5
-	>=kde-frameworks/threadweaver-${KF5MIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=dev-qt/qtgui-${QT5MIN}:5
 	>=dev-qt/qtnetwork-${QT5MIN}:5
 	>=dev-qt/qtwidgets-${QT5MIN}:5

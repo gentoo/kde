@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_ORG_NAME="kdev-valgrind"
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org
 
@@ -17,23 +17,23 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=kde-frameworks/kconfig-${KF5MIN}:5
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/kio-${KF5MIN}:5
-	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
-	>=kde-frameworks/ktexteditor-${KF5MIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
-	>=kde-frameworks/threadweaver-${KF5MIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=dev-qt/qtgui-${QT5MIN}:5
 	>=dev-qt/qtnetwork-${QT5MIN}:5
 	>=dev-qt/qtwidgets-${QT5MIN}:5
 	dev-util/kdevelop:5=
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kiconthemes-${KF5MIN}:5
-	>=kde-frameworks/kitemmodels-${KF5MIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-util/valgrind

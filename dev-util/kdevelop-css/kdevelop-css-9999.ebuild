@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_TEST="true"
 KDE_ORG_NAME="kdev-css"
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org
 
@@ -22,11 +22,11 @@ BDEPEND="
 	test? ( >=dev-util/kdevelop-5.1.80:5[test] )
 "
 DEPEND="
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/ktexteditor-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
-	>=kde-frameworks/threadweaver-${KF5MIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=dev-qt/qtgui-${QT5MIN}:5
 	>=dev-qt/qtwidgets-${QT5MIN}:5
 	dev-util/kdevelop-pg-qt:5

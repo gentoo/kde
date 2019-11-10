@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_ORG_NAME="kdev-upload"
-KF5MIN=5.60.0
+KFMIN=5.60.0
 QT5MIN=5.12.3
 inherit ecm kde.org
 
@@ -17,16 +17,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcmutils-${KF5MIN}:5
-	>=kde-frameworks/kcompletion-${KF5MIN}:5
-	>=kde-frameworks/kconfig-${KF5MIN}:5
-	>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
-	>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-	>=kde-frameworks/ki18n-${KF5MIN}:5
-	>=kde-frameworks/kio-${KF5MIN}:5
-	>=kde-frameworks/kjobwidgets-${KF5MIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-	>=kde-frameworks/kxmlgui-${KF5MIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=dev-qt/qtgui-${QT5MIN}:5
 	>=dev-qt/qtwidgets-${QT5MIN}:5
 	dev-util/kdevelop:5=
