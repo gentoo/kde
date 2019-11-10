@@ -5,7 +5,7 @@ EAPI=7
 
 CMAKE_MIN_VERSION=3.14.3
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
@@ -33,15 +33,15 @@ BDEPEND="
 	)
 "
 COMMON_DEPEND="
-	>=dev-qt/qtconcurrent-${QT5MIN}:5
-	>=dev-qt/qtdbus-${QT5MIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5[-gles2]
-	>=dev-qt/qtnetwork-${QT5MIN}:5
-	>=dev-qt/qtprintsupport-${QT5MIN}:5
-	>=dev-qt/qtsql-${QT5MIN}:5[mysql?]
-	>=dev-qt/qtwidgets-${QT5MIN}:5
-	>=dev-qt/qtxml-${QT5MIN}:5
-	>=dev-qt/qtxmlpatterns-${QT5MIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[-gles2]
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5[mysql?]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	dev-libs/expat
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -73,7 +73,7 @@ COMMON_DEPEND="
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
 	marble? (
-		>=dev-qt/qtconcurrent-${QT5MIN}:5
+		>=dev-qt/qtconcurrent-${QTMIN}:5
 		>=kde-apps/marble-19.04.3:5
 		>=kde-frameworks/kbookmarks-${KFMIN}:5
 	)
@@ -83,17 +83,17 @@ COMMON_DEPEND="
 		libav? ( media-video/libav:= )
 	)
 	opengl? (
-		>=dev-qt/qtopengl-${QT5MIN}:5
+		>=dev-qt/qtopengl-${QTMIN}:5
 		virtual/opengl
 	)
 	panorama? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 	scanner? ( >=kde-apps/libksane-19.04.3:5 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	vkontakte? ( net-libs/libkvkontakte:5 )
-	!webkit? ( >=dev-qt/qtwebengine-${QT5MIN}:5[widgets] )
+	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	X? (
-		>=dev-qt/qtx11extras-${QT5MIN}:5
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 "
