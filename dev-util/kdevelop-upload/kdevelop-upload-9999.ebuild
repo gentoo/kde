@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_NAME="kdev-upload"
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for uploading files to a remote server"
@@ -27,8 +27,8 @@ DEPEND="
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-util/kdevelop:5=
 "
 RDEPEND="${DEPEND}"

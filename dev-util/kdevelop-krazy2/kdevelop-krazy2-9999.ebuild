@@ -6,7 +6,7 @@ EAPI=7
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="kdev-krazy2"
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -25,8 +25,8 @@ RDEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-util/kdevelop:5=
 "
 DEPEND="${RDEPEND}

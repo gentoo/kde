@@ -8,7 +8,7 @@ ECM_HANDBOOK_DIR="docs"
 ECM_TEST="true"
 KDE_ORG_NAME="kdev-php"
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -37,8 +37,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5=
 "

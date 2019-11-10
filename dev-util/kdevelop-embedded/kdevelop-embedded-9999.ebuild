@@ -5,7 +5,7 @@ EAPI=7
 
 KDE_ORG_NAME="kdev-embedded"
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Plugin for KDevelop to support the development of embedded systems"
@@ -29,9 +29,9 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qtnetwork-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-util/kdevelop-pg-qt:5
 	dev-util/kdevelop:5=
 "

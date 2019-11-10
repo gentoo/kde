@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_APPS_MINIMAL=19.04.3
 KFMIN=5.60.0
-QT5MIN=5.12.3
+QTMIN=5.12.3
 VIRTUALDBUS_TEST="true"
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -54,14 +54,14 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 	>=kde-apps/libkomparediff2-${KDE_APPS_MINIMAL}:5
-	>=dev-qt/qtdbus-${QT5MIN}:5
-	>=dev-qt/qtdeclarative-${QT5MIN}:5[widgets]
-	>=dev-qt/qtgui-${QT5MIN}:5
-	>=dev-qt/qthelp-${QT5MIN}:5
-	>=dev-qt/qtnetwork-${QT5MIN}:5
-	>=dev-qt/qttest-${QT5MIN}:5
-	>=dev-qt/qtwidgets-${QT5MIN}:5
-	>=dev-qt/qtxml-${QT5MIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qthelp-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qttest-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	dev-libs/grantlee:5
 	>=dev-util/astyle-3.1:=
 	>=sys-devel/clang-3.8.0:=
@@ -79,18 +79,18 @@ COMMON_DEPEND="
 		dev-vcs/subversion
 	)
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
-	!webkit? ( >=dev-qt/qtwebengine-${QT5MIN}:5[widgets] )
+	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	>=dev-qt/qtconcurrent-${QT5MIN}:5
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kapptemplate-${KDE_APPS_MINIMAL}:5
 	>=kde-apps/kio-extras-${KDE_APPS_MINIMAL}:5
-	>=dev-qt/qdbus-${QT5MIN}:5
-	>=dev-qt/qtquickcontrols-${QT5MIN}:5
-	>=dev-qt/qtquickcontrols2-${QT5MIN}:5
+	>=dev-qt/qdbus-${QTMIN}:5
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	dev-util/ninja
 	>=sys-devel/gdb-7.0[python]
 	reviewboard? ( >=kde-apps/ktp-accounts-kcm-${KDE_APPS_MINIMAL}:5 )
