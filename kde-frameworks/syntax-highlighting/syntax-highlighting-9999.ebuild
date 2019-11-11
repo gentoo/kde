@@ -8,7 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Framework for syntax highlighting"
-LICENSE="LGPL-2+ LGPL-2.1+"
+LICENSE="MIT"
 KEYWORDS=""
 IUSE="nls"
 
