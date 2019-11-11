@@ -3,30 +3,32 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="systemd managment utility"
+DESCRIPTION="Systemd managment utility"
 HOMEPAGE="https://cgit.kde.org/systemdgenie.git"
+
 LICENSE="GPL-2+"
+SLOT="5"
 IUSE=""
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
-	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	kde-frameworks/kauth:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kcrash:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kxmlgui:5
 	sys-apps/systemd
 "
 RDEPEND="${DEPEND}"
