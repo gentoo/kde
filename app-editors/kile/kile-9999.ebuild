@@ -3,45 +3,51 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
 MY_P=${P/_beta/b}
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Latex Editor and TeX shell based on KDE Frameworks"
 HOMEPAGE="https://kile.sourceforge.io/"
-[[ ${PV} != *9999* ]] && SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="FDL-1.2 GPL-2"
-KEYWORDS=""
+SLOT="5"
 IUSE="+pdf +png"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdoctools)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_kdeapps_dep okular)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtscript)
-	$(add_qt_dep qttest)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qttest-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	kde-apps/okular:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdoctools-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/khtml-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kinit-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	pdf? ( app-text/poppler[qt5] )
 "
 RDEPEND="${DEPEND}
 	!app-editors/kile:4
-	$(add_kdeapps_dep konsole)
-	$(add_kdeapps_dep okular 'pdf?')
+	kde-apps/konsole:5
+	kde-apps/okular:5[pdf?]
 	virtual/latex-base
 	virtual/tex-base
 	pdf? (
@@ -59,7 +65,7 @@ S=${WORKDIR}/${MY_P}
 DOCS=( kile-remote-control.txt )
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	# I know upstream wants to help us but it doesn't work..
 	sed -e '/INSTALL( FILES AUTHORS/s/^/#DISABLED /' \
@@ -70,6 +76,5 @@ src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package pdf Poppler)
 	)
-
-	kde5_src_configure
+	ecm_src_configure
 }
