@@ -3,42 +3,43 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+inherit ecm kde.org
 
 DESCRIPTION="Backup scheduler for KDE's Plasma desktop"
 HOMEPAGE="https://www.linux-apps.com/p/1127689"
 
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kidletime)
-	$(add_frameworks_dep kinit)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	kde-frameworks/kcompletion:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kdbusaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kiconthemes:5
+	kde-frameworks/kidletime:5
+	kde-frameworks/kinit:5
+	kde-frameworks/kio:5
+	kde-frameworks/kjobwidgets:5
+	kde-frameworks/knotifications:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kxmlgui:5
+	kde-frameworks/plasma:5
+	kde-frameworks/solid:5
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 	dev-libs/libgit2:=
 "
 RDEPEND="${DEPEND}
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtsvg)
+	dev-qt/qtdeclarative:5
+	dev-qt/qtsvg:5
 	app-backup/bup
 	net-misc/rsync
 "
@@ -47,5 +48,5 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_SYSTEM_LIBGIT2=ON
 	)
-	kde5_src_configure
+	ecm_src_configure
 }
