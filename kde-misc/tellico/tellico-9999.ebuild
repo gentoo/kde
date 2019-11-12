@@ -3,62 +3,64 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Collection manager based on KDE Frameworks"
-HOMEPAGE="http://tellico-project.org/"
+HOMEPAGE="https://tellico-project.org/"
+
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="http://tellico-project.org/files/${P}.tar.xz"
+	SRC_URI="https://tellico-project.org/files/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
+SLOT="5"
 IUSE="cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 
 BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep khtml)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	kde-frameworks/karchive:5
+	kde-frameworks/kcodecs:5
+	kde-frameworks/kcompletion:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kcrash:5
+	kde-frameworks/kguiaddons:5
+	kde-frameworks/khtml:5
+	kde-frameworks/kiconthemes:5
+	kde-frameworks/kitemmodels:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kjobwidgets:5
+	kde-frameworks/kio:5
+	kde-frameworks/knewstuff:5
+	kde-frameworks/kparts:5
+	kde-frameworks/kservice:5
+	kde-frameworks/ktextwidgets:5
+	kde-frameworks/kwallet:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kwindowsystem:5
+	kde-frameworks/kxmlgui:5
+	kde-frameworks/solid:5
+	kde-frameworks/sonnet:5
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 	dev-libs/libxml2
 	dev-libs/libxslt
 	>=dev-perl/Text-BibTeX-0.780.0-r1
-	cddb? ( $(add_kdeapps_dep libkcddb) )
+	cddb? ( kde-apps/libkcddb:5 )
 	discid? ( dev-libs/libcdio:= )
 	pdf? ( app-text/poppler[qt5] )
-	scanner? ( $(add_kdeapps_dep libksane) )
-	semantic-desktop? ( $(add_frameworks_dep kfilemetadata) )
+	scanner? ( kde-apps/libksane:5 )
+	semantic-desktop? ( kde-frameworks/kfilemetadata:5 )
 	taglib? ( >=media-libs/taglib-1.5 )
 	v4l? ( >=media-libs/libv4l-0.8.3 )
 	xmp? ( >=media-libs/exempi-2 )
@@ -83,5 +85,5 @@ src_configure() {
 		$(cmake-utils_use_find_package yaz Yaz)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
