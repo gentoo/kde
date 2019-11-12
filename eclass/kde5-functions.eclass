@@ -20,19 +20,6 @@ case ${EAPI} in
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
-case ${CATEGORY} in
-	kde-frameworks)
-		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		;;
-	kde-plasma)
-		[[ ${PV} = 5.17* ]] && : ${FRAMEWORKS_MINIMAL:=5.63.0}
-		[[ ${KDE_BUILD_TYPE} = live ]] && : ${FRAMEWORKS_MINIMAL:=9999}
-		;;
-	kde-apps)
-		[[ ${KDE_BUILD_TYPE} = live && ${PV} != 19.08* ]] && : ${FRAMEWORKS_MINIMAL:=5.63.0}
-		;;
-esac
-
 # @ECLASS-VARIABLE: QT_MINIMAL
 # @DESCRIPTION:
 # Minimum version of Qt to require. This affects add_qt_dep.
