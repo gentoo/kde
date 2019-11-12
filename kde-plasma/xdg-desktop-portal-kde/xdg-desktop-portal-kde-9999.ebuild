@@ -6,7 +6,6 @@ EAPI=7
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.12.3
-VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks"
