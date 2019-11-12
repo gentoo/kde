@@ -85,5 +85,5 @@ src_configure() {
 	)
 	# Qt5DBus can't be disabled because of KF5DBusAddons dependency
 
-	kde5_src_configure
+	ecm_src_configure
 }
