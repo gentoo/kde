@@ -3,32 +3,36 @@
 
 EAPI=7
 
-KDE_QTHELP="true"
-KDE_TEST="true"
+ECM_QTHELP="true"
+ECM_TEST="true"
 PYTHON_COMPAT=( python3_{6,7} )
-inherit kde5 python-any-r1
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Database connectivity and creation framework for various vendors"
-[[ ${KDE_BUILD_TYPE} != live ]] && SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="LGPL-2+"
 SLOT="5/4"
-KEYWORDS=""
 IUSE="debug mysql postgres sqlite"
 
 BDEPEND="${PYTHON_DEPS}
 	dev-qt/linguist-tools:5
 "
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 	dev-libs/icu:=
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	mysql? ( dev-db/mysql-connector-c:= )
 	postgres? (
-		$(add_qt_dep qtnetwork)
+		>=dev-qt/qtnetwork-${QTMIN}:5
 		dev-db/postgresql:*
 	)
 	sqlite? ( dev-db/sqlite:3 )
@@ -37,7 +41,7 @@ RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	python-any-r1_pkg_setup
-	kde5_pkg_setup
+	ecm_pkg_setup
 }
 
 src_configure() {
@@ -48,5 +52,5 @@ src_configure() {
 		$(cmake-utils_use_find_package sqlite Sqlite)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
