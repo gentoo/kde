@@ -3,50 +3,54 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="optional"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_TEST="optional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="BibTeX editor to edit bibliographies used with LaTeX"
 HOMEPAGE="https://userbase.kde.org/KBibTeX"
+
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/KBibTeX/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
+SLOT="5"
 IUSE="webengine"
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtnetworkauth)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-	$(add_qt_dep qtxmlpatterns)
 	app-text/poppler[qt5]
 	dev-libs/icu:=
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtnetworkauth-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	virtual/tex-base
-	webengine? ( $(add_qt_dep qtwebengine 'widgets') )
+	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 RDEPEND="${DEPEND}
 	!app-text/kbibtex:4
@@ -61,11 +65,11 @@ src_configure() {
 		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if ! has_version "kde-apps/okular:${SLOT}" ; then
 		elog "For PDF or PostScript document preview support, please install kde-apps/okular:${SLOT}"
