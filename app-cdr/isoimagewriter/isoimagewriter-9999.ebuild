@@ -8,7 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Write hybrid ISO files onto a USB disk"
-HOMEPAGE="http://wiki.rosalab.com/en/index.php/Blog:ROSA_Planet/ROSA_Image_Writer"
+HOMEPAGE="https://community.kde.org/ISOImageWriter"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
