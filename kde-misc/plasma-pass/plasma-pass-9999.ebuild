@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Plasma applet to access password from pass"
 HOMEPAGE="https://www.dvratil.cz/2018/05/plasma-pass/ https://cgit.kde.org/plasma-pass.git/"
@@ -14,18 +16,19 @@ if [[ ${KDE_BUILD_TYPE} != live ]] ; then
 fi
 
 LICENSE="LGPL-2.1+"
+SLOT="5"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtgui)
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami)
+	>=kde-frameworks/kirigami-${KFMIN}:5
 "

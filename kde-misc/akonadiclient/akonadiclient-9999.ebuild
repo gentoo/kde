@@ -3,28 +3,31 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Commandline interface for accessing Akonadi"
 HOMEPAGE="https://cgit.kde.org/akonadiclient.git/"
-LICENSE="GPL-2"
 
+LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_kdeapps_dep akonadi 'xml')
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	kde-apps/akonadi:5[xml]
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	cmake-utils_src_prepare
-	punt_bogus_dep KF5 KIO	# we don't need it with >=Qt-5.10
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 KIO	# we don't need it with >=Qt-5.10
 }

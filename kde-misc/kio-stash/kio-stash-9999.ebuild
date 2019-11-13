@@ -3,8 +3,8 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+inherit ecm kde.org
 
 DESCRIPTION="KIO Slave and daemon to stash discontinuous file selections"
 HOMEPAGE="https://arnavdhamija.com/2017/07/04/kio-stash-shipped/ https://cgit.kde.org/kio-stash.git"
@@ -17,11 +17,11 @@ IUSE=""
 RESTRICT+=" test"
 
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtdbus)
+	dev-qt/qtdbus:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kdbusaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kio:5
 "
 RDEPEND="${DEPEND}"

@@ -3,22 +3,25 @@
 
 EAPI=7
 
-KDE_TEST="optional"
-inherit kde5
+ECM_TEST="optional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="FUSE interface for KIO"
 HOMEPAGE="https://feverfew.home.blog/2019/09/10/kiofuse-final-report/"
 
 LICENSE="GPL-3+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	sys-fs/fuse:3
 "
 RDEPEND="${DEPEND}"

@@ -3,8 +3,9 @@
 
 EAPI=7
 
-FRAMEWORKS_MINIMAL="5.63.0"
-inherit kde5
+KFMIN=5.63.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
@@ -12,38 +13,37 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
-HOMEPAGE="https://store.kde.org/p/1169519/
-	https://github.com/psifidotos/Latte-Dock"
+HOMEPAGE="https://kde.org/applications/utilities/org.kde.latte-dock"
 
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kwayland)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma X)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgraphicaleffects)
-	$(add_qt_dep qtgui 'xcb')
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtx11extras)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5[xcb]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
+	>=kde-frameworks/kactivities-${KFMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kwayland-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5[X]
 	x11-libs/libSM
 	x11-libs/libX11
 	x11-libs/libxcb

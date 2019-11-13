@@ -3,37 +3,40 @@
 
 EAPI=7
 
-KDE_TEST="true"
-inherit kde5
+ECM_TEST="true"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Powerful batch file renamer"
 HOMEPAGE="https://kde.org/applications/utilities/org.kde.krename
 https://userbase.kde.org/KRename"
 
 LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE="exif office pdf taglib truetype"
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kjs)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kjs-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	exif? ( media-gfx/exiv2:= )
-	office? ( $(add_frameworks_dep karchive) )
+	office? ( >=kde-frameworks/karchive-${KFMIN}:5 )
 	pdf? ( app-text/podofo:= )
 	taglib? ( media-libs/taglib )
 	truetype? ( media-libs/freetype:2 )
@@ -49,5 +52,5 @@ src_configure() {
 		$(cmake-utils_use_find_package truetype Freetype)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

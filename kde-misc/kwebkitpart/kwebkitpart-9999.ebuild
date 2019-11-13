@@ -3,32 +3,33 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="WebKit KPart for Konqueror"
 HOMEPAGE="https://cgit.kde.org/kwebkitpart.git"
 
 LICENSE="LGPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdewebkit)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
 	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
-	$(add_qt_dep qtwidgets)
+	dev-qt/qtwidgets:5
+	kde-frameworks/kcompletion:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kdewebkit:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kiconthemes:5
+	kde-frameworks/kio:5
+	kde-frameworks/kparts:5
+	kde-frameworks/kservice:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kxmlgui:5
+	kde-frameworks/sonnet:5
 "
 RDEPEND="${DEPEND}"

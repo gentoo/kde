@@ -3,20 +3,23 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+KFMIN=5.64.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Library for accessing public transport timetables and other information"
 HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
 	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
 
 LICENSE="LGPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

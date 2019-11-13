@@ -3,28 +3,29 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="KPart for rendering Markdown content"
 HOMEPAGE="https://frinring.wordpress.com/2017/09/14/kmarkdownwebview-0-1-0/"
 
 LICENSE="!webkit? ( BSD ) LGPL-2.1+"
+SLOT="5"
 KEYWORDS=""
 IUSE="webkit"
 
 DEPEND="
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kio:5
+	kde-frameworks/kparts:5
+	kde-frameworks/kxmlgui:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	!webkit? (
-		$(add_qt_dep qtwebchannel)
-		$(add_qt_dep qtwebengine 'widgets')
+		dev-qt/qtwebchannel:5
+		dev-qt/qtwebengine:5[widgets]
 	)
 "
 RDEPEND="${DEPEND}"
@@ -34,5 +35,5 @@ src_configure() {
 		-DUSE_QTWEBKIT=$(usex webkit)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

@@ -3,24 +3,26 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm
+
+if [[ ${PV} = *9999* ]] ; then
+	EGIT_REPO_URI="https://github.com/kotelnik/${PN}.git"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/kotelnik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Plasma 5 applet for weather forecasts"
 HOMEPAGE="https://store.kde.org/p/998917/
 https://github.com/kotelnik/plasma-applet-weather-widget"
 
-if [[ ${KDE_BUILD_TYPE} = live ]] ; then
-	EGIT_REPO_URI="https://github.com/kotelnik/${PN}.git"
-else
-	SRC_URI="https://github.com/kotelnik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-fi
-
 LICENSE="GPL-2+"
-KEYWORDS=""
+SLOT="5"
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtxmlpatterns 'qml')
+	dev-qt/qtxmlpatterns:5[qml]
+	kde-frameworks/plasma:5
 "
 RDEPEND="${DEPEND}"

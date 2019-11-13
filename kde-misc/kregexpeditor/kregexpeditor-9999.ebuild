@@ -3,30 +3,32 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+inherit ecm kde.org
 
 DESCRIPTION="GUI for creating and editing regular expressions"
 
+LICENSE="GPL-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
-"
-RDEPEND="${DEPEND}"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
+DEPEND="
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kcrash:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kiconthemes:5
+	kde-frameworks/kio:5
+	kde-frameworks/ktextwidgets:5
+	kde-frameworks/kwidgetsaddons:5
+"
+RDEPEND="${DEPEND}"

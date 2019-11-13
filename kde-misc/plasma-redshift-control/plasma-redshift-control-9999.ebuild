@@ -3,16 +3,17 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Plasma 5 applet for controlling redshift"
 HOMEPAGE="https://store.kde.org/p/998916/"
 
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="$(add_frameworks_dep plasma)"
+DEPEND="kde-frameworks/plasma:5"
 RDEPEND="${DEPEND}
 	x11-misc/redshift
 "

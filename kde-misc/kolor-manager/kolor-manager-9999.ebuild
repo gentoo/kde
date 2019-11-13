@@ -3,22 +3,23 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_PO_DIRS="doc/user/po"
-inherit kde5
+ECM_HANDBOOK="optional"
+ECM_PO_DIRS="doc/user/po"
+inherit ecm kde.org
 
 DESCRIPTION="KControl module for Oyranos CMS cross desktop settings"
 HOMEPAGE="https://www.oyranos.org/kolormanager"
 
 LICENSE="BSD-2"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtwidgets)
+	dev-qt/qtwidgets:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/ki18n:5
 	media-gfx/synnefo
 	media-libs/libXcm
 	>=media-libs/oyranos-0.9.6

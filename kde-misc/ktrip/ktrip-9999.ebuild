@@ -3,26 +3,28 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.60.0
+inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
 HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
 	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
 
 LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep ki18n)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 	kde-misc/kpublictransport:5
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtquickcontrols)
-	$(add_qt_dep qtquickcontrols2)
+	dev-qt/qtquickcontrols:5
+	dev-qt/qtquickcontrols2:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
 "

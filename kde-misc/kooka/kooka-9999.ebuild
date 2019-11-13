@@ -3,32 +3,35 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
-inherit kde5
+ECM_HANDBOOK="true"
+inherit ecm kde.org
 
 DESCRIPTION="Scanning application by KDE"
 HOMEPAGE="https://userbase.kde.org/Kooka https://techbase.kde.org/Projects/Kooka"
+
+LICENSE="GPL-2+"
+SLOT="5"
 KEYWORDS=""
 
 BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtwidgets)
 	app-text/libpaper
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtwidgets:5
+	kde-frameworks/kcompletion:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kconfigwidgets:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kio:5
+	kde-frameworks/kiconthemes:5
+	kde-frameworks/kservice:5
+	kde-frameworks/ktextwidgets:5
+	kde-frameworks/kwidgetsaddons:5
+	kde-frameworks/kxmlgui:5
 	media-gfx/sane-backends
 	media-libs/tiff:0
 "
