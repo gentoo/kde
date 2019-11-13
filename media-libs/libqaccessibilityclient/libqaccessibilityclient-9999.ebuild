@@ -4,10 +4,11 @@
 EAPI=7
 
 ECM_KDEINSTALLDIRS="false"
-KDE_TEST="true"
-KDE_EXAMPLES="true"
+ECM_TEST="true"
+ECM_EXAMPLES="true"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Library for writing accessibility clients such as screen readers"
 HOMEPAGE="https://accessibility.kde.org/ https://cgit.kde.org/libqaccessibilityclient.git"
@@ -18,12 +19,13 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2.1"
+SLOT="5"
 IUSE=""
 
 DEPEND="
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
 

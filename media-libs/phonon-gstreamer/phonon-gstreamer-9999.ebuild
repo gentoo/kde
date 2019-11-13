@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="GStreamer backend for the Phonon multimedia library"
 HOMEPAGE="https://phonon.kde.org/"
