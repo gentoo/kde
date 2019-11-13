@@ -3,17 +3,23 @@
 
 EAPI=7
 
-KDE_HANDBOOK="optional"
-KDE_TEST="forceoptional"
+ECM_HANDBOOK="optional"
+ECM_TEST="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 DESCRIPTION="Personal finances manager, aiming at being simple and intuitive"
 HOMEPAGE="https://skrooge.org/"
-[[ ${PV} == 9999 ]] || SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2"
-KEYWORDS=""
+SLOT="5"
 IUSE="activities designer kde ofx webkit"
 
 REQUIRED_USE="test? ( designer )"
@@ -23,56 +29,56 @@ BDEPEND="
 	virtual/pkgconfig
 "
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtconcurrent)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative 'widgets')
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsql '' '' '5=')
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5(+)]
 	dev-db/sqlcipher
 	dev-libs/grantlee:5
-	activities? ( $(add_frameworks_dep kactivities) )
-	kde? ( $(add_frameworks_dep krunner) )
+	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5=
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
+	kde? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	ofx? ( dev-libs/libofx )
 	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
-	!webkit? ( $(add_qt_dep qtwebengine 'widgets') )
+	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep kwindowsystem)
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	designer? (
-		$(add_frameworks_dep kdesignerplugin)
-		$(add_qt_dep designer)
+		>=kde-frameworks/kdesignerplugin-${KFMIN}:5
+		>=dev-qt/designer-${QTMIN}:5
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtquickcontrols)
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 # hangs + installs files
@@ -88,12 +94,12 @@ src_configure() {
 		-DSKG_WEBENGINE=$(usex !webkit)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 src_test() {
 	local mycmakeargs=(
 		-DSKG_BUILD_TEST=ON
 	)
-	kde5_src_test
+	ecm_src_test
 }

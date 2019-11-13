@@ -3,17 +3,21 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-KMNAME="alkimia"
-inherit kde5
+ECM_TEST="forceoptional"
+KDE_ORG_NAME="alkimia"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${KMNAME}/${PV}/${KMNAME}-${PV}.tar.xz"
+	SRC_URI="mirror://kde/stable/${KDE_ORG_NAME}/${PV}/${KDE_ORG_NAME}-${PV}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Library with common classes and functionality used by KDE finance applications"
-HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323"
+HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323
+https://community.kde.org/Alkimia"
+
 LICENSE="LGPL-2.1"
 SLOT="0/8"
 IUSE="doc gmp plasma"
@@ -23,27 +27,27 @@ BDEPEND="
 	doc? ( app-doc/doxygen )
 "
 DEPEND="
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdelibs4support-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	!gmp? ( sci-libs/mpir:=[cxx] )
 	gmp? ( dev-libs/gmp:0=[cxx] )
 	plasma? (
-		$(add_frameworks_dep kpackage)
-		$(add_frameworks_dep plasma)
+		>=kde-frameworks/kpackage-${KFMIN}:5
+		>=kde-frameworks/plasma-${KFMIN}:5
 	)
 "
 RDEPEND="${DEPEND}"
@@ -54,5 +58,5 @@ src_configure() {
 		$(cmake-utils_use_find_package !gmp MPIR)
 		-DBUILD_APPLETS=$(usex plasma)
 	)
-	kde5_src_configure
+	ecm_src_configure
 }

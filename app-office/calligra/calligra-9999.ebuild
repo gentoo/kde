@@ -4,9 +4,11 @@
 EAPI=7
 
 CHECKREQS_DISK_BUILD="4G"
-KDE_HANDBOOK="forceoptional"
-KDE_TEST="forceoptional"
-inherit check-reqs kde5
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit check-reqs ecm kde.org
 
 DESCRIPTION="KDE Office Suite"
 HOMEPAGE="https://www.calligra.org/"
@@ -19,6 +21,7 @@ fi
 CAL_FTS=( flow karbon sheets stage words )
 
 LICENSE="GPL-2"
+SLOT="5"
 IUSE="activities +charts +crypt +fontconfig gemini gsl import-filter +lcms okular openexr
 	+pdf phonon spacenav +truetype X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
@@ -28,60 +31,60 @@ BDEPEND="
 	sys-devel/gettext
 "
 COMMON_DEPEND="
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdelibs4support)
-	$(add_frameworks_dep kemoticons)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemmodels)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep kjobwidgets)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kparts)
-	$(add_frameworks_dep kross)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwallet)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep sonnet)
-	$(add_qt_dep designer)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtscript)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	dev-lang/perl
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdelibs4support-${KFMIN}:5
+	>=kde-frameworks/kemoticons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kross-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwallet-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/sonnet-${KFMIN}:5
 	sys-libs/zlib
 	virtual/libiconv
-	activities? ( $(add_frameworks_dep kactivities) )
+	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	charts? ( dev-libs/kdiagram:5 )
 	crypt? ( app-crypt/qca:2[qt5(+)] )
 	fontconfig? ( media-libs/fontconfig )
-	gemini? ( $(add_qt_dep qtdeclarative 'widgets') )
+	gemini? ( >=dev-qt/qtdeclarative-${QTMIN}:5[widgets] )
 	gsl? ( sci-libs/gsl )
 	import-filter? (
-		$(add_frameworks_dep khtml)
 		app-text/libetonyek
 		app-text/libodfgen
 		app-text/libwpd:*
 		app-text/libwpg:*
 		>=app-text/libwps-0.4
 		dev-libs/librevenge
+		>=kde-frameworks/khtml-${KFMIN}:5
 		media-libs/libvisio
 	)
 	lcms? (
@@ -94,19 +97,19 @@ COMMON_DEPEND="
 	spacenav? ( dev-libs/libspnav )
 	truetype? ( media-libs/freetype:2 )
 	X? (
-		$(add_qt_dep qtx11extras)
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
 	)
 	calligra_features_sheets? ( dev-cpp/eigen:3 )
-	calligra_features_stage? ( okular? ( $(add_kdeapps_dep okular) ) )
+	calligra_features_stage? ( okular? ( kde-apps/okular:5 ) )
 	calligra_features_words? (
 		dev-libs/libxslt
-		okular? ( $(add_kdeapps_dep okular) )
+		okular? ( kde-apps/okular:5 )
 	)
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/boost
-	test? ( $(add_frameworks_dep threadweaver) )
+	test? ( >=kde-frameworks/threadweaver-${KFMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
@@ -120,12 +123,12 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	kde5_pkg_setup
+	ecm_pkg_setup
 	check-reqs_pkg_setup
 }
 
 src_prepare() {
-	kde5_src_prepare
+	ecm_src_prepare
 
 	if ! use test; then
 		sed -e "/add_subdirectory( *benchmarks *)/s/^/#DONT/" \
@@ -133,8 +136,8 @@ src_prepare() {
 	fi
 
 	# Unconditionally disable deprecated deps (required by QtQuick1)
-	punt_bogus_dep Qt5 Declarative
-	punt_bogus_dep Qt5 OpenGL
+	ecm_punt_bogus_dep Qt5 Declarative
+	ecm_punt_bogus_dep Qt5 OpenGL
 
 	# Hack around the excessive use of CMake macros
 	if use okular && ! use calligra_features_words; then
@@ -190,5 +193,5 @@ src_configure() {
 		-DWITH_Freetype=$(usex truetype)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
