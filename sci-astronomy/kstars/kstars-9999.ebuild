@@ -3,45 +3,51 @@
 
 EAPI=7
 
-KDE_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python2_7 )
-inherit kde5 python-single-r1
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org python-single-r1
+
+DESCRIPTION="Desktop Planetarium"
+HOMEPAGE="https://kde.org/applications/education/org.kde.kstars
+https://edu.kde.org/kstars/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="Desktop Planetarium"
-HOMEPAGE="https://kde.org/applications/education/kstars https://edu.kde.org/kstars/"
+LICENSE="GPL-2" # TODO CHECK
+SLOT="5"
 IUSE="fits indi +password raw wcs"
 
 REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
-	$(add_frameworks_dep kauth)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep knotifyconfig)
-	$(add_frameworks_dep kplotting)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtdatavis3d)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwebsockets)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtdatavis3d-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwebsockets-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
+	>=kde-frameworks/kplotting-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
 	indi? ( >=sci-libs/indilib-1.7.5 )
@@ -51,12 +57,12 @@ COMMON_DEPEND="
 "
 # TODO: Add back when re-enabled by upstream
 # 	opengl? (
-# 		$(add_qt_dep qtopengl)
+# 		>=dev-qt/qtopengl-${QTMIN}:5
 # 		virtual/opengl
 # 	)
 DEPEND="${COMMON_DEPEND}
-	$(add_qt_dep qtconcurrent)
 	dev-cpp/eigen:3
+	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
@@ -72,11 +78,11 @@ src_configure() {
 		$(cmake-utils_use_find_package wcs WCSLIB)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst () {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	if [[ -z "${REPLACING_VERSIONS}" ]] && ! has_version "x11-misc/xplanet" ; then
 		elog "${PN} has optional runtime support for x11-misc/xplanet"
