@@ -3,11 +3,12 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+inherit ecm kde.org
 
 DESCRIPTION="C++ library for controlling asynchronous tasks"
 
 LICENSE="LGPL-2+"
-KEYWORDS=""
+SLOT="5"
+[[ ${KDE_BUILD_TYPE} = release ]] && KEYWORDS="~amd64"
 IUSE=""

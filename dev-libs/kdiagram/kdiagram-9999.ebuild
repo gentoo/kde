@@ -3,11 +3,12 @@
 
 EAPI=7
 
-KDE_EXAMPLES="true"
-KDE_QTHELP="true"
-KDE_TEST="true"
+ECM_EXAMPLES="true"
+ECM_QTHELP="true"
+ECM_TEST="true"
+QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit kde5
+inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
@@ -16,17 +17,20 @@ fi
 
 DESCRIPTION="Powerful libraries (KChart, KGantt) for creating business diagrams"
 HOMEPAGE="https://kde.org/ https://www.kdab.com/development-resources/qt-tools/kd-chart/"
+
+LICENSE="GPL-2" # TODO CHECK
+SLOT="5"
 IUSE=""
 
 REQUIRED_USE="test? ( examples )"
 
 BDEPEND="
-	$(add_qt_dep linguist-tools)
+	>=dev-qt/linguist-tools-${QTMIN}:5
 "
 DEPEND="
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

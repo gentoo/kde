@@ -3,12 +3,15 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Framework to collect user feedback for applications via telemetry and surveys"
 
 LICENSE="MIT"
+SLOT="5"
 KEYWORDS=""
 IUSE="doc"
 
@@ -16,24 +19,24 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	doc? (
-		$(add_qt_dep qdoc)
-		$(add_qt_dep qthelp)
+		>=dev-qt/qdoc-${QTMIN}:5
+		>=dev-qt/qthelp-${QTMIN}:5
 	)
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_qt_dep qtcharts)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtprintsupport)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
+	>=dev-qt/qtcharts-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
 
@@ -47,5 +50,5 @@ src_configure() {
 		-DENABLE_TESTING=$(usex test)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
