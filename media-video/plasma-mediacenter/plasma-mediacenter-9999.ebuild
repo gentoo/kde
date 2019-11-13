@@ -3,37 +3,41 @@
 
 EAPI=7
 
-KDE_TEST="forceoptional"
-inherit kde5
+ECM_TEST="forceoptional"
+inherit ecm kde.org
 
 DESCRIPTION="Unified media experience for any device capable of running KDE Plasma"
+HOMEPAGE="https://community.kde.org/Plasma/Plasma_Media_Center"
+
+LICENSE="GPL-2" # TODO: CHECK
+SLOT="5"
 KEYWORDS=""
 IUSE="semantic-desktop"
 
 DEPEND="
-	$(add_frameworks_dep kactivities)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep plasma)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtxml)
+	dev-qt/qtdbus:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtxml:5
+	kde-frameworks/kactivities:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/kdeclarative:5
+	kde-frameworks/kguiaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kio:5
+	kde-frameworks/kservice:5
+	kde-frameworks/plasma:5
 	media-libs/taglib
 	semantic-desktop? (
-		$(add_frameworks_dep baloo)
-		$(add_frameworks_dep kfilemetadata)
+		kde-frameworks/baloo:5
+		kde-frameworks/kfilemetadata:5
 	)
 "
 RDEPEND="${DEPEND}
-	$(add_plasma_dep plasma-workspace)
-	$(add_qt_dep qtmultimedia 'qml')
+	dev-qt/qtmultimedia:5[qml]
+	kde-plasma/plasma-workspace:5
 "
 
 src_configure() {
@@ -41,5 +45,5 @@ src_configure() {
 		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }

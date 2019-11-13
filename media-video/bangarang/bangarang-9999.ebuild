@@ -3,27 +3,31 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Media player based on KF5"
-HOMEPAGE="https://bangarangkde.wordpress.com"
+HOMEPAGE="https://bangarangkde.wordpress.com
+https://userbase.kde.org/Bangarang"
 
 LICENSE="GPL-3"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep solid)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
+BDEPEND="sys-devel/gettext"
+DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
 	media-libs/phonon[qt5(+)]
 	media-libs/taglib
 "
-DEPEND="${RDEPEND}"
-BDEPEND="sys-devel/gettext"
+RDEPEND="${DEPEND}"
