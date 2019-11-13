@@ -4,7 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
-inherit kde5 python-any-r1
+QTMIN=5.12.3
+inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Qt bindings for the Telepathy logger"
 HOMEPAGE="https://cgit.kde.org/telepathy-logger-qt.git"
@@ -15,14 +16,15 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2.1"
+SLOT="5"
 IUSE=""
 
 BDEPEND="${PYTHON_DEPS}"
 DEPEND="
-	$(add_qt_dep qtdbus)
 	dev-libs/dbus-glib
 	dev-libs/glib:2
 	dev-libs/libxml2
+	>=dev-qt/qtdbus-${QTMIN}:5
 	net-im/telepathy-logger
 	net-libs/telepathy-glib
 	net-libs/telepathy-qt[qt5(+)]
