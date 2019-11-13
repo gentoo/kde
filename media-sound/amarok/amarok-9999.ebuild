@@ -3,58 +3,61 @@
 
 EAPI=7
 
-KDE_HANDBOOK="true"
-inherit kde5
+ECM_HANDBOOK="true"
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Advanced audio player based on KDE frameworks"
 HOMEPAGE="https://amarok.kde.org/"
 
 LICENSE="GPL-2"
+SLOT="5"
 IUSE="ipod lastfm libav mtp ofa podcast wikipedia"
 
 # ipod requires gdk enabled and also gtk compiled in libgpod
 BDEPEND="virtual/pkgconfig"
 DEPEND="
-	$(add_frameworks_dep attica)
-	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kcmutils)
-	$(add_frameworks_dep kcodecs)
-	$(add_frameworks_dep kcompletion)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep kcrash)
-	$(add_frameworks_dep kdbusaddons)
-	$(add_frameworks_dep kdeclarative)
-	$(add_frameworks_dep kdnssd)
-	$(add_frameworks_dep kglobalaccel)
-	$(add_frameworks_dep kguiaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kiconthemes)
-	$(add_frameworks_dep kio)
-	$(add_frameworks_dep kitemviews)
-	$(add_frameworks_dep knewstuff)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep kpackage)
-	$(add_frameworks_dep kservice)
-	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep ktextwidgets)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kwindowsystem)
-	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep solid)
-	$(add_frameworks_dep threadweaver)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtscript 'scripttools')
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 	app-crypt/qca:2[qt5(+)]
 	dev-db/mysql-connector-c:=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5[scripttools]
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/attica-${KFMIN}:5
+	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/kcodecs-${KFMIN}:5
+	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kcrash-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
+	>=kde-frameworks/kdnssd-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemviews-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/ktexteditor-${KFMIN}:5
+	>=kde-frameworks/ktextwidgets-${KFMIN}:5
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
+	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/solid-${KFMIN}:5
+	>=kde-frameworks/threadweaver-${KFMIN}:5
 	media-libs/phonon[qt5(+)]
 	media-libs/taglib
 	media-libs/taglib-extras
@@ -73,11 +76,11 @@ DEPEND="
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 )
 	mtp? ( media-libs/libmtp )
 	podcast? ( >=media-libs/libmygpo-qt-1.0.9_p20180307 )
-	wikipedia? ( $(add_qt_dep qtwebengine) )
+	wikipedia? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	!media-sound/amarok:4
-	$(add_qt_dep qtquickcontrols2)
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	!ofa? ( virtual/ffmpeg )
 "
 
@@ -100,11 +103,11 @@ src_configure() {
 
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )
 
-	kde5_src_configure
+	ecm_src_configure
 }
 
 pkg_postinst() {
-	kde5_pkg_postinst
+	ecm_pkg_postinst
 
 	pkg_is_installed() {
 		echo "${1} ($(has_version ${1} || echo "not ")installed)"

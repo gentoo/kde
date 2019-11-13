@@ -3,37 +3,40 @@
 
 EAPI=7
 
-inherit kde5
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="Tiny Qt music player by KDE"
 HOMEPAGE="https://vvave.kde.org/"
 
 LICENSE="GPL-3+"
+SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	$(add_frameworks_dep attica)
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep knotifications)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtmultimedia)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtquickcontrols2)
-	$(add_qt_dep qtsql)
-	$(add_qt_dep qtsvg)
-	$(add_qt_dep qtwebengine)
-	$(add_qt_dep qtwebsockets)
-	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtxml)
 	dev-libs/mauikit
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5
+	>=dev-qt/qtwebsockets-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/attica-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	media-libs/taglib
 "
 RDEPEND="${DEPEND}
-	$(add_frameworks_dep kirigami)
-	$(add_qt_dep qtgraphicaleffects)
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	media-plugins/gst-plugins-meta:1.0[ffmpeg,mp3]
 "
