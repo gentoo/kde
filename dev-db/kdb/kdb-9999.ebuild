@@ -11,6 +11,8 @@ QTMIN=5.12.3
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Database connectivity and creation framework for various vendors"
+HOMEPAGE="https://community.kde.org/KDb"
+
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
