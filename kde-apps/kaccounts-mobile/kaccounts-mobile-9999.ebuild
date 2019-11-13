@@ -3,12 +3,16 @@
 
 EAPI=7
 
-inherit kde5
+PVCUT=$(ver_cut 1-3)
+KFMIN=5.60.0
+QTMIN=5.12.3
+inherit ecm kde.org
 
 DESCRIPTION="KDE accounts providers"
 HOMEPAGE="https://community.kde.org/KTp"
-LICENSE="LGPL-2.1"
 
+LICENSE="LGPL-2.1"
+SLOT="5"
 KEYWORDS=""
 IUSE="google"
 
@@ -16,20 +20,20 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kcontacts)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kio)
-	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtnetwork)
-	$(add_qt_dep qtxml)
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	net-libs/accounts-qt
 	net-libs/signond
 	google? (
-		$(add_kdeapps_dep libkgapi)
 		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+		>=kde-apps/libkgapi-${PVCUT}:5
 	)
 "
 RDEPEND="${DEPEND}"
@@ -40,5 +44,5 @@ src_configure() {
 		$(cmake-utils_use_find_package google Qt5WebKitWidgets)
 	)
 
-	kde5_src_configure
+	ecm_src_configure
 }
