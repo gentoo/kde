@@ -8,8 +8,21 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Framework providing data models to help with tasks such as sorting and filtering"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE=""
+IUSE="qml"
 
-DEPEND="test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )"
+RDEPEND="
+	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
+"
+DEPEND="${RDEPEND}
+	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
+"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_find_package qml Qt5Qml)
+	)
+	ecm_src_configure
+}
