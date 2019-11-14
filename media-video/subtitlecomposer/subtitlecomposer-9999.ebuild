@@ -7,11 +7,10 @@ ECM_TEST="forceoptional"
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
-inherit ecm
+inherit ecm kde5
 
 DESCRIPTION="Text-based subtitles editor"
 HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
-EGIT_REPO_URI="https://github.com/maxrd2/${PN}"
 
 LICENSE="GPL-2"
 SLOT="5"
