@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# @ECLASS: cmake-utils.eclass
+# @ECLASS: cmake.eclass
 # @MAINTAINER:
 # kde@gentoo.org
 # @AUTHOR:
@@ -12,13 +12,13 @@
 # @SUPPORTED_EAPIS: 7
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
-# The cmake-utils eclass makes creating ebuilds for cmake-based packages much easier.
-# It provides all inherited features (DOCS, HTML_DOCS, PATCHES) along with out-of-source
-# builds (default), in-source builds and an implementation of the well-known use_enable
-# and use_with functions for CMake.
+# The cmake eclass makes creating ebuilds for cmake-based packages much easier.
+# It provides all inherited features (DOCS, HTML_DOCS, PATCHES) along with
+# out-of-source builds (default), in-source builds and an implementation of the
+# well-known use_enable function for CMake.
 
-if [[ -z ${_CMAKE_UTILS_ECLASS} ]]; then
-_CMAKE_UTILS_ECLASS=1
+if [[ -z ${_CMAKE_ECLASS} ]]; then
+_CMAKE_ECLASS=1
 
 # @ECLASS-VARIABLE: BUILD_DIR
 # @DESCRIPTION:
@@ -37,9 +37,9 @@ _CMAKE_UTILS_ECLASS=1
 # @DESCRIPTION:
 # Set to override default CMAKE_BUILD_TYPE. Only useful for packages
 # known to make use of "if (CMAKE_BUILD_TYPE MATCHES xxx)".
-# If about to be set - needs to be set before invoking cmake-utils_src_configure.
-# You usualy do *NOT* want nor need to set it as it pulls CMake default build-type
-# specific compiler flags overriding make.conf.
+# If about to be set - needs to be set before invoking cmake_src_configure.
+# You usually do *NOT* want nor need to set it as it pulls CMake default
+# build-type specific compiler flags overriding make.conf.
 : ${CMAKE_BUILD_TYPE:=Gentoo}
 
 # @ECLASS-VARIABLE: CMAKE_IN_SOURCE_BUILD
@@ -67,15 +67,14 @@ _CMAKE_UTILS_ECLASS=1
 
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
 # @DESCRIPTION:
-# Space-separated list of CMake modules that will be removed in $S during src_prepare,
-# in order to force packages to use the system version.
+# Space-separated list of CMake modules that will be removed in $S during
+# src_prepare, in order to force packages to use the system version.
 : ${CMAKE_REMOVE_MODULES_LIST:=FindBLAS FindLAPACK}
 
 # @ECLASS-VARIABLE: CMAKE_USE_DIR
 # @DESCRIPTION:
-# Sets the directory where we are working with cmake.
-# For example when application uses autotools and only one
-# plugin needs to be done by cmake.
+# Sets the directory where we are working with cmake, for example when
+# application uses autotools and only one plugin needs to be done by cmake.
 # By default it uses ${S}.
 
 # @ECLASS-VARIABLE: CMAKE_VERBOSE
@@ -97,10 +96,10 @@ _CMAKE_UTILS_ECLASS=1
 # for econf and is needed to pass TRY_RUN results when cross-compiling.
 # Should be set by user in a per-package basis in /etc/portage/package.env.
 
-# @ECLASS-VARIABLE: CMAKE_UTILS_QA_SRC_DIR_READONLY
+# @ECLASS-VARIABLE: CMAKE_QA_SRC_DIR_READONLY
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# After running cmake-utils_src_prepare, sets ${S} to read-only. This is
+# After running cmake_src_prepare, sets ${S} to read-only. This is
 # a user flag and should under _no circumstances_ be set in the ebuild.
 # Helps in improving QA of build systems that write to source tree.
 
@@ -114,6 +113,7 @@ inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
 [[ ${CMAKE_BUILD_DIR} ]] && die "The ebuild must be migrated to BUILD_DIR"
+[[ ${CMAKE_UTILS_QA_SRC_DIR_READONLY} ]] && die "Use CMAKE_QA_SRC_DIR_READONLY instead"
 [[ ${WANT_CMAKE} ]] && die "WANT_CMAKE has been removed and is a no-op"
 [[ ${PREFIX} ]] && die "PREFIX has been removed and is a no-op"
 
@@ -217,19 +217,19 @@ cmake-utils_use_with() { _cmake_banned_func WITH_ "$@" ; }
 # Banned. Use -DENABLE_FOO=$(usex foo) instead.
 cmake-utils_use_enable() { _cmake_banned_func ENABLE_ "$@" ; }
 
-# @FUNCTION: cmake-utils_use_find_package
+# @FUNCTION: cmake_use_find_package
 # @USAGE: <USE flag> <package name>
 # @DESCRIPTION:
 # Based on use_enable. See ebuild(5).
 #
-# `cmake-utils_use_find_package foo LibFoo` echoes -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=OFF
+# `cmake_use_find_package foo LibFoo` echoes -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=OFF
 # if foo is enabled and -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=ON if it is disabled.
 # This can be used to make find_package optional.
-cmake-utils_use_find_package() {
+cmake_use_find_package() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ "$#" != 2 || -z $1 ]] ; then
-		die "Usage: cmake-utils_use_find_package <USE flag> <package name>"
+		die "Usage: cmake_use_find_package <USE flag> <package name>"
 	fi
 
 	echo "-DCMAKE_DISABLE_FIND_PACKAGE_$2=$(use $1 && echo OFF || echo ON)"
@@ -320,10 +320,10 @@ _cmake_modify-cmakelists() {
 	_EOF_
 }
 
-# @FUNCTION: cmake-utils_src_prepare
+# @FUNCTION: cmake_src_prepare
 # @DESCRIPTION:
 # Apply ebuild and user patches.
-cmake-utils_src_prepare() {
+cmake_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	pushd "${S}" > /dev/null || die
@@ -352,11 +352,11 @@ cmake-utils_src_prepare() {
 	popd > /dev/null || die
 
 	# make ${S} read-only in order to detect broken build-systems
-	if [[ ${CMAKE_UTILS_QA_SRC_DIR_READONLY} && ! ${CMAKE_IN_SOURCE_BUILD} ]]; then
+	if [[ ${CMAKE_QA_SRC_DIR_READONLY} && ! ${CMAKE_IN_SOURCE_BUILD} ]]; then
 		chmod -R a-w "${S}"
 	fi
 
-	_CMAKE_UTILS_SRC_PREPARE_HAS_RUN=1
+	_CMAKE_SRC_PREPARE_HAS_RUN=1
 }
 
 # @VARIABLE: mycmakeargs
@@ -367,22 +367,22 @@ cmake-utils_src_prepare() {
 # @CODE
 # src_configure() {
 # 	local mycmakeargs=(
-# 		$(cmake-utils_use_with openconnect)
+# 		$(cmake_use_with openconnect)
 # 	)
 #
-# 	cmake-utils_src_configure
+# 	cmake_src_configure
 # }
 # @CODE
 
-# @FUNCTION: cmake-utils_src_configure
+# @FUNCTION: cmake_src_configure
 # @DESCRIPTION:
 # General function for configuring with cmake. Default behaviour is to start an
 # out-of-source build.
-cmake-utils_src_configure() {
+cmake_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	[[ ${_CMAKE_UTILS_SRC_PREPARE_HAS_RUN} ]] || \
-		die "FATAL: cmake-utils_src_prepare has not been run"
+	[[ ${_CMAKE_SRC_PREPARE_HAS_RUN} ]] || \
+		die "FATAL: cmake_src_prepare has not been run"
 
 	_cmake_check_build_dir
 
@@ -556,14 +556,14 @@ cmake-utils_src_configure() {
 	popd > /dev/null || die
 }
 
-# @FUNCTION: cmake-utils_src_compile
+# @FUNCTION: cmake_src_compile
 # @DESCRIPTION:
 # General function for compiling with cmake.
 # Automatically detects the build type. All arguments are passed to emake.
-cmake-utils_src_compile() {
+cmake_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake-utils_src_make "$@"
+	cmake_src_make "$@"
 }
 
 # @FUNCTION: _cmake_ninja_src_make
@@ -595,11 +595,11 @@ _cmake_emake_src_make() {
 
 }
 
-# @FUNCTION: cmake-utils_src_make
+# @FUNCTION: cmake_src_make
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
 # All arguments are passed to emake.
-cmake-utils_src_make() {
+cmake_src_make() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_cmake_check_build_dir
@@ -610,10 +610,10 @@ cmake-utils_src_make() {
 	popd > /dev/null || die
 }
 
-# @FUNCTION: cmake-utils_src_test
+# @FUNCTION: cmake_src_test
 # @DESCRIPTION:
 # Function for testing the package. Automatically detects the build type.
-cmake-utils_src_test() {
+cmake_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_cmake_check_build_dir
@@ -646,10 +646,10 @@ cmake-utils_src_test() {
 	fi
 }
 
-# @FUNCTION: cmake-utils_src_install
+# @FUNCTION: cmake_src_install
 # @DESCRIPTION:
 # Function for installing the package. Automatically detects the build type.
-cmake-utils_src_install() {
+cmake_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_cmake_check_build_dir
