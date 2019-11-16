@@ -47,9 +47,9 @@ PATCHES=( "${FILESDIR}/${PN}-5.16.0-no-detailed-mem-message.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package !minimal KF5Plasma)
-		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
-		$(cmake-utils_use_find_package X X11)
+		$(cmake_use_find_package !minimal KF5Plasma)
+		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
+		$(cmake_use_find_package X X11)
 	)
 
 	ecm_src_configure

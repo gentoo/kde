@@ -62,7 +62,7 @@ S="${WORKDIR}/${P/_/-}"
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebKitWidgets=ON
-		$(cmake-utils_use_find_package webengine Qt5WebEngineWidgets)
+		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
 	)
 
 	ecm_src_configure

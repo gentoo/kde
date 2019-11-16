@@ -45,11 +45,11 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package exif Exiv2)
-		$(cmake-utils_use_find_package office KF5Archive)
-		$(cmake-utils_use_find_package pdf PoDoFo)
-		$(cmake-utils_use_find_package taglib Taglib)
-		$(cmake-utils_use_find_package truetype Freetype)
+		$(cmake_use_find_package exif Exiv2)
+		$(cmake_use_find_package office KF5Archive)
+		$(cmake_use_find_package pdf PoDoFo)
+		$(cmake_use_find_package taglib Taglib)
+		$(cmake_use_find_package truetype Freetype)
 	)
 
 	ecm_src_configure

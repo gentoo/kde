@@ -40,7 +40,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package callgraph KGraphViewerPart)
+		$(cmake_use_find_package callgraph KGraphViewerPart)
 	)
 	ecm_src_configure
 }

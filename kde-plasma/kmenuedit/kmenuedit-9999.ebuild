@@ -43,7 +43,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package hotkeys KHotKeysDBusInterface)
+		$(cmake_use_find_package hotkeys KHotKeysDBusInterface)
 	)
 
 	ecm_src_configure

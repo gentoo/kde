@@ -57,10 +57,10 @@ DOCS=( ChangeLog README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package kipi KF5Kipi)
-		$(cmake-utils_use_find_package map KF5KGeoMap)
-		$(cmake-utils_use_find_package raw KF5KDcraw)
-		$(cmake-utils_use_find_package share KF5Purpose)
+		$(cmake_use_find_package kipi KF5Kipi)
+		$(cmake_use_find_package map KF5KGeoMap)
+		$(cmake_use_find_package raw KF5KDcraw)
+		$(cmake_use_find_package share KF5Purpose)
 	)
 
 	ecm_src_configure

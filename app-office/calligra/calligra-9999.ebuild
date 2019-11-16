@@ -167,12 +167,12 @@ src_configure() {
 		-DRELEASE_BUILD=ON
 		-DWITH_Iconv=ON
 		-DPRODUCTSET="${myproducts[*]}"
-		$(cmake-utils_use_find_package activities KF5Activities)
-		$(cmake-utils_use_find_package charts KChart)
+		$(cmake_use_find_package activities KF5Activities)
+		$(cmake_use_find_package charts KChart)
 		-DWITH_Qca-qt5=$(usex crypt)
 		-DWITH_Fontconfig=$(usex fontconfig)
-		$(cmake-utils_use_find_package gemini Libgit2)
-		$(cmake-utils_use_find_package gemini Qt5QuickWidgets)
+		$(cmake_use_find_package gemini Libgit2)
+		$(cmake_use_find_package gemini Qt5QuickWidgets)
 		-DWITH_GSL=$(usex gsl)
 		-DWITH_LibEtonyek=$(usex import-filter)
 		-DWITH_LibOdfGen=$(usex import-filter)
@@ -181,7 +181,7 @@ src_configure() {
 		-DWITH_LibWpd=$(usex import-filter)
 		-DWITH_LibWpg=$(usex import-filter)
 		-DWITH_LibWps=$(usex import-filter)
-		$(cmake-utils_use_find_package phonon Phonon4Qt5)
+		$(cmake_use_find_package phonon Phonon4Qt5)
 		-DCMAKE_DISABLE_FIND_PACKAGE_KF5CalendarCore=ON
 		-DWITH_LCMS2=$(usex lcms)
 		-DWITH_Okular5=$(usex okular)

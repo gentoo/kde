@@ -61,9 +61,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package scim SCIM)
-		$(cmake-utils_use_find_package scim DBusCXX)
-		$(cmake-utils_use_find_package semantic-desktop KF5FileMetaData)
+		$(cmake_use_find_package scim SCIM)
+		$(cmake_use_find_package scim DBusCXX)
+		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
 	)
 
 	ecm_src_configure

@@ -71,12 +71,12 @@ src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
-		$(cmake-utils_use_find_package kde KF5Runner)
-		$(cmake-utils_use_find_package mousepad LibFakeKey)
-		$(cmake-utils_use_find_package phonon Phonon4Qt5)
-		$(cmake-utils_use_find_package pulseaudio KF5PulseAudioQt)
+		$(cmake_use_find_package kde KF5Runner)
+		$(cmake_use_find_package mousepad LibFakeKey)
+		$(cmake_use_find_package phonon Phonon4Qt5)
+		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
 		-DSMSAPP_ENABLED=$(usex sms)
-		$(cmake-utils_use_find_package wayland KF5Wayland)
+		$(cmake_use_find_package wayland KF5Wayland)
 	)
 
 	ecm_src_configure

@@ -60,10 +60,10 @@ DOCS=( AUTHORS README TODO changelog )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package attica KF5Attica)
-		$(cmake-utils_use_find_package konqueror KF5Parts)
-		$(cmake-utils_use_find_package konqueror KF5WebKit)
-		$(cmake-utils_use_find_package telepathy TelepathyQt5)
+		$(cmake_use_find_package attica KF5Attica)
+		$(cmake_use_find_package konqueror KF5Parts)
+		$(cmake_use_find_package konqueror KF5WebKit)
+		$(cmake_use_find_package telepathy TelepathyQt5)
 	)
 
 	ecm_src_configure

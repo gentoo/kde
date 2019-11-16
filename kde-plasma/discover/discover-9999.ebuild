@@ -61,7 +61,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
 		-DBUILD_FlatpakBackend=OFF
-		$(cmake-utils_use_find_package feedback KUserFeedback)
+		$(cmake_use_find_package feedback KUserFeedback)
 		-DBUILD_FwupdBackend=$(usex firmware)
 	)
 

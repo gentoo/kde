@@ -41,7 +41,7 @@ DOCS=( README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts KAccounts)
 	)
 	ecm_src_configure
 }

@@ -148,15 +148,15 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_xembed-sni-proxy=OFF
-		$(cmake-utils_use_find_package appstream AppStreamQt)
-		$(cmake-utils_use_find_package calendar KF5Holidays)
-		$(cmake-utils_use_find_package geolocation KF5NetworkManagerQt)
-		$(cmake-utils_use_find_package qalculate Qalculate)
-		$(cmake-utils_use_find_package qrcode KF5Prison)
-		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
+		$(cmake_use_find_package appstream AppStreamQt)
+		$(cmake_use_find_package calendar KF5Holidays)
+		$(cmake_use_find_package geolocation KF5NetworkManagerQt)
+		$(cmake_use_find_package qalculate Qalculate)
+		$(cmake_use_find_package qrcode KF5Prison)
+		$(cmake_use_find_package semantic-desktop KF5Baloo)
 	)
 
-	use gps && mycmakeargs+=( $(cmake-utils_use_find_package gps libgps) )
+	use gps && mycmakeargs+=( $(cmake_use_find_package gps libgps) )
 
 	ecm_src_configure
 }

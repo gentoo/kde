@@ -44,8 +44,8 @@ DOCS=( AUTHORS Changes.txt README.md Releasenotes.txt TODO )
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package pim KF5Akonadi)
-		$(cmake-utils_use_find_package pim KF5AkonadiContact)
+		$(cmake_use_find_package pim KF5Akonadi)
+		$(cmake_use_find_package pim KF5AkonadiContact)
 	)
 
 	ecm_src_configure

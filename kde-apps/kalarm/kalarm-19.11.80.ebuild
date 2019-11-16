@@ -78,8 +78,8 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package X Qt5X11Extras)
-		$(cmake-utils_use_find_package X X11)
+		$(cmake_use_find_package X Qt5X11Extras)
+		$(cmake_use_find_package X X11)
 	)
 
 	ecm_src_configure

@@ -55,7 +55,7 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_DOXYGEN_DOCS=$(usex doc)
-		$(cmake-utils_use_find_package !gmp MPIR)
+		$(cmake_use_find_package !gmp MPIR)
 		-DBUILD_APPLETS=$(usex plasma)
 	)
 	ecm_src_configure

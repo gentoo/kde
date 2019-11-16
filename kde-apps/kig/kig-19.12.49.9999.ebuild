@@ -60,8 +60,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package geogebra Qt5XmlPatterns)
-		$(cmake-utils_use_find_package scripting BoostPython)
+		$(cmake_use_find_package geogebra Qt5XmlPatterns)
+		$(cmake_use_find_package scripting BoostPython)
 	)
 
 	ecm_src_configure

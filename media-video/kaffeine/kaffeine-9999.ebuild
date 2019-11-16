@@ -54,7 +54,7 @@ src_configure() {
 	# tools working on $HOME directory for a local git checkout
 	local mycmakeargs=(
 		-DBUILD_TOOLS=OFF
-		$(cmake-utils_use_find_package dvb Libdvbv5)
+		$(cmake_use_find_package dvb Libdvbv5)
 	)
 
 	ecm_src_configure

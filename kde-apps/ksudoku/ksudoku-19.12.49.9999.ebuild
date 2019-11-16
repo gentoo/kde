@@ -46,7 +46,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package opengl OpenGL)
+		$(cmake_use_find_package opengl OpenGL)
 	)
 
 	ecm_src_configure

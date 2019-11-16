@@ -94,11 +94,11 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DWITH_MYSQL_EMBEDDED=OFF
 		-DWITH_IPOD=$(usex ipod)
-		$(cmake-utils_use_find_package lastfm LibLastFm)
-		$(cmake-utils_use_find_package mtp Mtp)
-		$(cmake-utils_use_find_package ofa LibOFA)
-		$(cmake-utils_use_find_package podcast Mygpo-qt5)
-		$(cmake-utils_use_find_package wikipedia Qt5WebEngine)
+		$(cmake_use_find_package lastfm LibLastFm)
+		$(cmake_use_find_package mtp Mtp)
+		$(cmake_use_find_package ofa LibOFA)
+		$(cmake_use_find_package podcast Mygpo-qt5)
+		$(cmake_use_find_package wikipedia Qt5WebEngine)
 	)
 
 	use ipod && mycmakeargs+=( DWITH_GDKPixBuf=ON )

@@ -63,8 +63,8 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_DBUS=$(usex !dbus)
-		$(cmake-utils_use_find_package kde KF5Wallet)
-		$(cmake-utils_use_find_package kde KF5KIO)
+		$(cmake_use_find_package kde KF5Wallet)
+		$(cmake_use_find_package kde KF5KIO)
 		-DNO_X11=$(usex !X)
 	)
 	ecm_src_configure

@@ -40,8 +40,8 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package google KF5GAPI)
-		$(cmake-utils_use_find_package google Qt5WebKitWidgets)
+		$(cmake_use_find_package google KF5GAPI)
+		$(cmake_use_find_package google Qt5WebKitWidgets)
 	)
 
 	ecm_src_configure

@@ -47,9 +47,9 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DKDB_DEBUG_GUI=$(usex debug)
-		$(cmake-utils_use_find_package mysql MySQL)
-		$(cmake-utils_use_find_package postgres PostgreSQL)
-		$(cmake-utils_use_find_package sqlite Sqlite)
+		$(cmake_use_find_package mysql MySQL)
+		$(cmake_use_find_package postgres PostgreSQL)
+		$(cmake_use_find_package sqlite Sqlite)
 	)
 
 	ecm_src_configure

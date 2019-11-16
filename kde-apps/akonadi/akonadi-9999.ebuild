@@ -101,11 +101,11 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package kaccounts AccountsQt5)
-		$(cmake-utils_use_find_package kaccounts KAccounts)
+		$(cmake_use_find_package kaccounts AccountsQt5)
+		$(cmake_use_find_package kaccounts KAccounts)
 		-DAKONADI_BUILD_QSQLITE=$(usex sqlite)
 		-DBUILD_TOOLS=$(usex tools)
-		$(cmake-utils_use_find_package xml LibXml2)
+		$(cmake_use_find_package xml LibXml2)
 	)
 
 	ecm_src_configure

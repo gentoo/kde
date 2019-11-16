@@ -47,7 +47,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package activities KF5Activities)
+		$(cmake_use_find_package activities KF5Activities)
 		-DBUILD_addons=FALSE
 		-DBUILD_kate=FALSE
 	)

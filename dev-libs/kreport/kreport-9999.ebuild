@@ -47,8 +47,8 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package marble Marble)
-		$(cmake-utils_use_find_package webkit Qt5WebKitWidgets)
+		$(cmake_use_find_package marble Marble)
+		$(cmake_use_find_package webkit Qt5WebKitWidgets)
 		-DKREPORT_SCRIPTING=$(usex scripting)
 	)
 	ecm_src_configure

@@ -54,9 +54,9 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package mpris KF5DBusAddons)
-		$(cmake-utils_use_find_package semantic-desktop KF5Baloo)
-		$(cmake-utils_use_find_package vlc LIBVLC)
+		$(cmake_use_find_package mpris KF5DBusAddons)
+		$(cmake_use_find_package semantic-desktop KF5Baloo)
+		$(cmake_use_find_package vlc LIBVLC)
 	)
 
 	ecm_src_configure

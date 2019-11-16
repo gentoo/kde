@@ -48,10 +48,10 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_find_package alsa ALSA)
-		$(cmake-utils_use_find_package plasma KF5Plasma)
-		$(cmake-utils_use_find_package pulseaudio Canberra)
-		$(cmake-utils_use_find_package pulseaudio PulseAudio)
+		$(cmake_use_find_package alsa ALSA)
+		$(cmake_use_find_package plasma KF5Plasma)
+		$(cmake_use_find_package pulseaudio Canberra)
+		$(cmake_use_find_package pulseaudio PulseAudio)
 	)
 
 	ecm_src_configure

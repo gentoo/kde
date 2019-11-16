@@ -144,9 +144,9 @@ src_configure() {
 	# Handle common stuff
 	local mycmakeargs=(
 		-DWITH_qq=OFF
-		$(cmake-utils_use_find_package jingle LiboRTP)
-		$(cmake-utils_use_find_package jingle Mediastreamer)
-		$(cmake-utils_use_find_package jingle Speex)
+		$(cmake_use_find_package jingle LiboRTP)
+		$(cmake_use_find_package jingle Mediastreamer)
+		$(cmake_use_find_package jingle Speex)
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
 	# enable protocols
