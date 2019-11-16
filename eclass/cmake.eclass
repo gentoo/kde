@@ -9,7 +9,7 @@
 # Maciej Mrozowski <reavertm@gentoo.org>
 # (undisclosed contributors)
 # Original author: Zephyrus (zephyrus@mirach.it)
-# @SUPPORTED_EAPIS: 5 6 7
+# @SUPPORTED_EAPIS: 7
 # @BLURB: common ebuild functions for cmake-based packages
 # @DESCRIPTION:
 # The cmake-utils eclass makes creating ebuilds for cmake-based packages much easier.
@@ -26,9 +26,7 @@ _CMAKE_UTILS_ECLASS=1
 # For in-source build it's fixed to ${CMAKE_USE_DIR}.
 # For out-of-source build it can be overridden, by default it uses
 # ${WORKDIR}/${P}_build.
-#
-# This variable has been called CMAKE_BUILD_DIR formerly.
-# It is set under that name for compatibility.
+: ${BUILD_DIR:=${WORKDIR}/${P}_build}
 
 # @ECLASS-VARIABLE: CMAKE_BINARY
 # @DESCRIPTION:
@@ -54,8 +52,8 @@ _CMAKE_UTILS_ECLASS=1
 # @DESCRIPTION:
 # Specify a makefile generator to be used by cmake.
 # At this point only "emake" and "ninja" are supported.
-# In EAPI 7 and above, the default is set to "ninja",
-# whereas in EAPIs below 7, it is set to "emake".
+# The default is set to "ninja".
+: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
 
 # @ECLASS-VARIABLE: CMAKE_MIN_VERSION
 # @DESCRIPTION:
@@ -90,6 +88,7 @@ _CMAKE_UTILS_ECLASS=1
 # Warn about variables that are declared on the command line
 # but not used. Might give false-positives.
 # "no" to disable (default) or anything else to enable.
+: ${CMAKE_WARN_UNUSED_CLI:=yes}
 
 # @ECLASS-VARIABLE: CMAKE_EXTRA_CACHE_FILE
 # @DEFAULT_UNSET
@@ -106,33 +105,17 @@ _CMAKE_UTILS_ECLASS=1
 # Helps in improving QA of build systems that write to source tree.
 
 case ${EAPI} in
-	5) : ${CMAKE_WARN_UNUSED_CLI:=no} ;;
-	6|7) : ${CMAKE_WARN_UNUSED_CLI:=yes} ;;
+	7) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
 
-case ${EAPI} in
-	[56])
-		: ${CMAKE_MAKEFILE_GENERATOR:=emake}
-		inherit eutils multilib
-		;;
-	*)
-		: ${CMAKE_MAKEFILE_GENERATOR:=ninja}
-		;;
-esac
-
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
-if [[ ${WANT_CMAKE} ]]; then
-	if [[ ${EAPI} != [56] ]]; then
-		die "\${WANT_CMAKE} has been removed and is a no-op now"
-	else
-		eqawarn "\${WANT_CMAKE} has been removed and is a no-op now"
-	fi
-fi
-[[ ${PREFIX} ]] && die "\${PREFIX} has been removed and is a no-op now"
+[[ ${CMAKE_BUILD_DIR} ]] && die "The ebuild must be migrated to BUILD_DIR"
+[[ ${WANT_CMAKE} ]] && die "WANT_CMAKE has been removed and is a no-op"
+[[ ${PREFIX} ]] && die "PREFIX has been removed and is a no-op"
 
 case ${CMAKE_MAKEFILE_GENERATOR} in
 	emake)
@@ -151,57 +134,12 @@ if [[ ${PN} != cmake ]]; then
 	BDEPEND+=" >=dev-util/cmake-${CMAKE_MIN_VERSION}"
 fi
 
-case ${EAPI} in
-	7) ;;
-	*) DEPEND=" ${BDEPEND}" ;;
-esac
-
-# Internal functions used by cmake-utils_use_*
-_cmake_use_me_now() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	local arg=$2
-	[[ ! -z $3 ]] && arg=$3
-
-	[[ ${EAPI} == 5 ]] || die "${FUNCNAME[1]} is banned in EAPI 6 and later: use -D$1<related_CMake_variable>=\"\$(usex $2)\" instead"
-
-	local uper capitalised x
-	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	if [[ ! -z $3 ]]; then
-		# user specified the use name so use it
-		echo "-D$1$3=$(use $2 && echo ON || echo OFF)"
-	else
-		# use all various most used combinations
-		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
-		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
-		for x in $2 $uper $capitalised; do
-			echo "-D$1$x=$(use $2 && echo ON || echo OFF) "
-		done
-	fi
-}
-_cmake_use_me_now_inverted() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	local arg=$2
-	[[ ! -z $3 ]] && arg=$3
-
-	if [[ ${EAPI} != 5 && "${FUNCNAME[1]}" != cmake-utils_use_find_package ]] ; then
-		die "${FUNCNAME[1]} is banned in EAPI 6 and later: use -D$1<related_CMake_variable>=\"\$(usex $2)\" instead"
-	fi
-
-	local uper capitalised x
-	[[ -z $2 ]] && die "cmake-utils_use-$1 <USE flag> [<flag name>]"
-	if [[ ! -z $3 ]]; then
-		# user specified the use name so use it
-		echo "-D$1$3=$(use $2 && echo OFF || echo ON)"
-	else
-		# use all various most used combinations
-		uper=$(echo ${2} | tr '[:lower:]' '[:upper:]')
-		capitalised=$(echo ${2} | sed 's/\<\(.\)\([^ ]*\)/\u\1\L\2/g')
-		for x in $2 $uper $capitalised; do
-			echo "-D$1$x=$(use $2 && echo OFF || echo ON) "
-		done
-	fi
+# @FUNCTION: _cmake_banned_func
+# @INTERNAL
+# @DESCRIPTION:
+# Banned functions are banned.
+_cmake_banned_func() {
+	die "${FUNCNAME[1]} is banned. use -D$1<related_CMake_variable>=\"\$(usex $2)\" instead"
 }
 
 # Determine using IN or OUT source build
@@ -210,35 +148,10 @@ _cmake_check_build_dir() {
 	if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
 		# we build in source dir
 		BUILD_DIR="${CMAKE_USE_DIR}"
-	else
-		# Respect both the old variable and the new one, depending
-		# on which one was set by the ebuild.
-		if [[ ! ${BUILD_DIR} && ${CMAKE_BUILD_DIR} ]]; then
-			if [[ ${EAPI} != [56] ]]; then
-				eerror "The CMAKE_BUILD_DIR variable has been renamed to BUILD_DIR."
-				die "The ebuild must be migrated to BUILD_DIR."
-			else
-				eqawarn "The CMAKE_BUILD_DIR variable has been renamed to BUILD_DIR."
-				eqawarn "Please migrate the ebuild to use the new one."
-			fi
-
-			# In the next call, both variables will be set already
-			# and we'd have to know which one takes precedence.
-			_RESPECT_CMAKE_BUILD_DIR=1
-		fi
-
-		if [[ ${_RESPECT_CMAKE_BUILD_DIR} ]]; then
-			BUILD_DIR=${CMAKE_BUILD_DIR:-${WORKDIR}/${P}_build}
-		else
-			: ${BUILD_DIR:=${WORKDIR}/${P}_build}
-		fi
 	fi
 
-	# Backwards compatibility for getting the value.
-	[[ ${EAPI} == [56] ]] && CMAKE_BUILD_DIR=${BUILD_DIR}
-
 	mkdir -p "${BUILD_DIR}" || die
-	echo ">>> Working in BUILD_DIR: \"$BUILD_DIR\""
+	einfo "Working in BUILD_DIR: \"$BUILD_DIR\""
 }
 
 # Determine which generator to use
@@ -249,18 +162,9 @@ _cmake_generator_to_use() {
 		ninja)
 			# if ninja is enabled but not installed, the build could fail
 			# this could happen if ninja is manually enabled (eg. make.conf) but not installed
-			case ${EAPI} in
-				5|6)
-					if ! ROOT=/ has_version dev-util/ninja; then
-						die "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed. Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
-					fi
-				;;
-				*)
-					if ! has_version -b dev-util/ninja; then
-						die "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed. Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
-					fi
-				;;
-			esac
+			if ! has_version -b dev-util/ninja; then
+				die "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed. Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
+			fi
 			generator_name="Ninja"
 			;;
 		emake)
@@ -294,33 +198,24 @@ cmake_comment_add_subdirectory() {
 }
 
 # @FUNCTION: comment_add_subdirectory
-# @USAGE: <subdirectory>
+# @INTERNAL
 # @DESCRIPTION:
-# Comment out an add_subdirectory call in CMakeLists.txt in the current directory
-# Banned in EAPI 6 and later - use cmake_comment_add_subdirectory instead.
+# Banned. Use cmake_comment_add_subdirectory instead.
 comment_add_subdirectory() {
-	[[ ${EAPI} == 5 ]] || die "comment_add_subdirectory is banned in EAPI 6 and later - use cmake_comment_add_subdirectory instead"
-
-	cmake_comment_add_subdirectory "$@"
+	die "comment_add_subdirectory is banned. Use cmake_comment_add_subdirectory instead"
 }
 
 # @FUNCTION: cmake-utils_use_with
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_with. See ebuild(5).
-#
-# `cmake-utils_use_with foo FOO` echoes -DWITH_FOO=ON if foo is enabled
-# and -DWITH_FOO=OFF if it is disabled.
-cmake-utils_use_with() { _cmake_use_me_now WITH_ "$@" ; }
+# Banned. Use -DWITH_FOO=$(usex foo) instead.
+cmake-utils_use_with() { _cmake_banned_func WITH_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_enable
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use_enable foo FOO` echoes -DENABLE_FOO=ON if foo is enabled
-# and -DENABLE_FOO=OFF if it is disabled.
-cmake-utils_use_enable() { _cmake_use_me_now ENABLE_ "$@" ; }
+# Banned. Use -DENABLE_FOO=$(usex foo) instead.
+cmake-utils_use_enable() { _cmake_banned_func ENABLE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_find_package
 # @USAGE: <USE flag> <package name>
@@ -331,84 +226,62 @@ cmake-utils_use_enable() { _cmake_use_me_now ENABLE_ "$@" ; }
 # if foo is enabled and -DCMAKE_DISABLE_FIND_PACKAGE_LibFoo=ON if it is disabled.
 # This can be used to make find_package optional.
 cmake-utils_use_find_package() {
-	if [[ ${EAPI} != 5 && "$#" != 2 ]] ; then
+	debug-print-function ${FUNCNAME} "$@"
+
+	if [[ "$#" != 2 || -z $1 ]] ; then
 		die "Usage: cmake-utils_use_find_package <USE flag> <package name>"
 	fi
 
-	_cmake_use_me_now_inverted CMAKE_DISABLE_FIND_PACKAGE_ "$@" ;
+	echo "-DCMAKE_DISABLE_FIND_PACKAGE_$2=$(use $1 && echo OFF || echo ON)"
 }
 
 # @FUNCTION: cmake-utils_use_disable
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on inversion of use_enable. See ebuild(5).
-#
-# `cmake-utils_use_enable foo FOO` echoes -DDISABLE_FOO=OFF if foo is enabled
-# and -DDISABLE_FOO=ON if it is disabled.
-cmake-utils_use_disable() { _cmake_use_me_now_inverted DISABLE_ "$@" ; }
+# Banned. Use -DDISABLE_FOO=$(usex !foo) instead.
+cmake-utils_use_disable() { _cmake_banned_func DISABLE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_no
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_disable. See ebuild(5).
-#
-# `cmake-utils_use_no foo FOO` echoes -DNO_FOO=OFF if foo is enabled
-# and -DNO_FOO=ON if it is disabled.
-cmake-utils_use_no() { _cmake_use_me_now_inverted NO_ "$@" ; }
+# Banned. Use -DNO_FOO=$(usex !foo) instead.
+cmake-utils_use_no() { _cmake_banned_func NO_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_want
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use_want foo FOO` echoes -DWANT_FOO=ON if foo is enabled
-# and -DWANT_FOO=OFF if it is disabled.
-cmake-utils_use_want() { _cmake_use_me_now WANT_ "$@" ; }
+# Banned. Use -DWANT_FOO=$(usex foo) instead.
+cmake-utils_use_want() { _cmake_banned_func WANT_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_build
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use_build foo FOO` echoes -DBUILD_FOO=ON if foo is enabled
-# and -DBUILD_FOO=OFF if it is disabled.
-cmake-utils_use_build() { _cmake_use_me_now BUILD_ "$@" ; }
+# Banned. Use -DBUILD_FOO=$(usex foo) instead.
+cmake-utils_use_build() { _cmake_banned_func BUILD_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_has
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use_has foo FOO` echoes -DHAVE_FOO=ON if foo is enabled
-# and -DHAVE_FOO=OFF if it is disabled.
-cmake-utils_use_has() { _cmake_use_me_now HAVE_ "$@" ; }
+# Banned. Use -DHAVE_FOO=$(usex foo) instead.
+cmake-utils_use_has() { _cmake_banned_func HAVE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use_use
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use_use foo FOO` echoes -DUSE_FOO=ON if foo is enabled
-# and -DUSE_FOO=OFF if it is disabled.
-cmake-utils_use_use() { _cmake_use_me_now USE_ "$@" ; }
+# Banned. Use -DUSE_FOO=$(usex foo) instead.
+cmake-utils_use_use() { _cmake_banned_func USE_ "$@" ; }
 
 # @FUNCTION: cmake-utils_use
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_use foo FOO` echoes -DFOO=ON if foo is enabled
-# and -DFOO=OFF if it is disabled.
-cmake-utils_use() { _cmake_use_me_now "" "$@" ; }
+# Banned. Use -DFOO=$(usex foo) instead.
+cmake-utils_use() { _cmake_banned_func "" "$@" ; }
 
 # @FUNCTION: cmake-utils_useno
-# @USAGE: <USE flag> [flag name]
+# @INTERNAL
 # @DESCRIPTION:
-# Based on use_enable. See ebuild(5).
-#
-# `cmake-utils_useno foo NOFOO` echoes -DNOFOO=OFF if foo is enabled
-# and -DNOFOO=ON if it is disabled.
-cmake-utils_useno() { _cmake_use_me_now_inverted "" "$@" ; }
+# Banned. Use -DNOFOO=$(usex !foo) instead.
+cmake-utils_useno() { _cmake_banned_func "" "$@" ; }
 
 # Internal function for modifying hardcoded definitions.
 # Removes dangerous definitions that override Gentoo settings.
@@ -447,17 +320,16 @@ _cmake_modify-cmakelists() {
 	_EOF_
 }
 
-# temporary function for moving cmake cleanups from from src_configure -> src_prepare.
-# bug #378850
-_cmake_cleanup_cmake() {
-	: ${CMAKE_USE_DIR:=${S}}
+# @FUNCTION: cmake-utils_src_prepare
+# @DESCRIPTION:
+# Apply ebuild and user patches.
+cmake-utils_src_prepare() {
+	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ "${CMAKE_REMOVE_MODULES}" == "yes" ]] ; then
-		local name
-		for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
-			find "${S}" -name ${name}.cmake -exec rm -v {} + || die
-		done
-	fi
+	pushd "${S}" > /dev/null || die
+
+	default_src_prepare
+	_cmake_check_build_dir
 
 	# check if CMakeLists.txt exist and if no then die
 	if [[ ! -e ${CMAKE_USE_DIR}/CMakeLists.txt ]] ; then
@@ -467,28 +339,15 @@ _cmake_cleanup_cmake() {
 		die "FATAL: Unable to find CMakeLists.txt"
 	fi
 
+	if [[ "${CMAKE_REMOVE_MODULES}" == "yes" ]] ; then
+		local name
+		for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
+			find "${S}" -name ${name}.cmake -exec rm -v {} + || die
+		done
+	fi
+
 	# Remove dangerous things.
 	_cmake_modify-cmakelists
-}
-
-# @FUNCTION: cmake-utils_src_prepare
-# @DESCRIPTION:
-# Apply ebuild and user patches.
-cmake-utils_src_prepare() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	pushd "${S}" > /dev/null || die
-
-	if [[ ${EAPI} != 5 ]]; then
-		default_src_prepare
-		_cmake_cleanup_cmake
-	else
-		debug-print "$FUNCNAME: PATCHES=$PATCHES"
-		[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
-
-		debug-print "$FUNCNAME: applying user patches"
-		epatch_user
-	fi
 
 	popd > /dev/null || die
 
@@ -522,15 +381,8 @@ cmake-utils_src_prepare() {
 cmake-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ ! ${_CMAKE_UTILS_SRC_PREPARE_HAS_RUN} ]]; then
-		if [[ ${EAPI} != [56] ]]; then
-			die "FATAL: cmake-utils_src_prepare has not been run"
-		else
-			eqawarn "cmake-utils_src_prepare has not been run, please open a bug on https://bugs.gentoo.org/"
-		fi
-	fi
-
-	[[ ${EAPI} == 5 ]] && _cmake_cleanup_cmake
+	[[ ${_CMAKE_UTILS_SRC_PREPARE_HAS_RUN} ]] || \
+		die "FATAL: cmake-utils_src_prepare has not been run"
 
 	_cmake_check_build_dir
 
@@ -540,7 +392,7 @@ cmake-utils_src_configure() {
 	# @SEE CMAKE_BUILD_TYPE
 	if [[ ${CMAKE_BUILD_TYPE} = Gentoo ]]; then
 		# Handle release builds
-		if ! has debug ${IUSE//+} || ! use debug; then
+		if ! in_iuse debug || ! use debug; then
 			local CPPFLAGS=${CPPFLAGS}
 			append-cppflags -DNDEBUG
 		fi
@@ -643,18 +495,15 @@ cmake-utils_src_configure() {
 		SET (CMAKE_INSTALL_INFODIR "${EPREFIX}/usr/share/info" CACHE PATH "")
 		SET (CMAKE_INSTALL_MANDIR "${EPREFIX}/usr/share/man" CACHE PATH "")
 		SET (CMAKE_USER_MAKE_RULES_OVERRIDE "${build_rules}" CACHE FILEPATH "Gentoo override rules")
+		SET (CMAKE_INSTALL_DOCDIR "${EPREFIX}/usr/share/doc/${PF}" CACHE PATH "")
+		SET (BUILD_SHARED_LIBS ON CACHE BOOL "")
 	_EOF_
-	[[ "${NOCOLOR}" = true || "${NOCOLOR}" = yes ]] && echo 'SET (CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> "${common_config}"
-
-	if [[ ${EAPI} != [56] ]]; then
-		cat >> "${common_config}" <<- _EOF_ || die
-			SET (CMAKE_INSTALL_DOCDIR "${EPREFIX}/usr/share/doc/${PF}" CACHE PATH "")
-			SET (BUILD_SHARED_LIBS ON CACHE BOOL "")
-		_EOF_
+	if [[ "${NOCOLOR}" = true || "${NOCOLOR}" = yes ]]; then
+		echo 'SET (CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> "${common_config}" || die
 	fi
 
 	# Wipe the default optimization flags out of CMake
-	if [[ ${CMAKE_BUILD_TYPE} != Gentoo && ${EAPI} != 5 ]]; then
+	if [[ ${CMAKE_BUILD_TYPE} != Gentoo ]]; then
 		cat >> ${common_config} <<- _EOF_ || die
 			SET (CMAKE_ASM_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
 			SET (CMAKE_ASM-ATT_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
@@ -668,27 +517,18 @@ cmake-utils_src_configure() {
 		_EOF_
 	fi
 
-	# Convert mycmakeargs to an array, for backwards compatibility
 	# Make the array a local variable since <=portage-2.1.6.x does not
 	# support global arrays (see bug #297255).
 	local mycmakeargstype=$(declare -p mycmakeargs 2>&-)
 	if [[ "${mycmakeargstype}" != "declare -a mycmakeargs="* ]]; then
-		if [[ -n "${mycmakeargstype}" ]] ; then
-			if [[ ${EAPI} == 5 ]]; then
-				eqawarn "Declaring mycmakeargs as a variable is deprecated. Please use an array instead."
-			else
-				die "Declaring mycmakeargs as a variable is banned in EAPI=${EAPI}. Please use an array instead."
-			fi
-		fi
-		local mycmakeargs_local=(${mycmakeargs})
-	else
-		local mycmakeargs_local=("${mycmakeargs[@]}")
+		die "mycmakeargs must be declared as array"
 	fi
 
+	local mycmakeargs_local=( "${mycmakeargs[@]}" )
+
+	local warn_unused_cli=""
 	if [[ ${CMAKE_WARN_UNUSED_CLI} == no ]] ; then
-		local warn_unused_cli="--no-warn-unused-cli"
-	else
-		local warn_unused_cli=""
+		warn_unused_cli="--no-warn-unused-cli"
 	fi
 
 	# Common configure parameters (overridable)
@@ -701,7 +541,6 @@ cmake-utils_src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		"${mycmakeargs_local[@]}"
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
-		$([[ ${EAPI} == 5 ]] && echo -DCMAKE_INSTALL_DO_STRIP=OFF)
 		-DCMAKE_TOOLCHAIN_FILE="${toolchain_file}"
 		"${MYCMAKEARGS}"
 	)
@@ -815,7 +654,8 @@ cmake-utils_src_install() {
 
 	_cmake_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null || die
-	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" || die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
+	DESTDIR="${D}" ${CMAKE_MAKEFILE_GENERATOR} install "$@" ||
+		die "died running ${CMAKE_MAKEFILE_GENERATOR} install"
 	popd > /dev/null || die
 
 	pushd "${S}" > /dev/null || die
