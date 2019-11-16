@@ -10,7 +10,7 @@ else
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/euroelessar/${PN}.git"
 fi
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Qt XMPP library"
 HOMEPAGE="https://github.com/euroelessar/jreen"
@@ -32,5 +32,5 @@ src_configure() {
 	local mycmakeargs=(
 		-DJREEN_FORCE_QT4=OFF
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }

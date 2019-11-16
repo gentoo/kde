@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
 HOMEPAGE="https://github.com/lastfm/liblastfm"
@@ -41,5 +41,5 @@ src_configure() {
 		-DBUILD_TESTS=$(usex test)
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

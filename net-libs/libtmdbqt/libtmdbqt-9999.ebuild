@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils kde.org
+inherit cmake kde.org
 
 DESCRIPTION="Qt library to query the movie database API (themoviedb.org)"
 HOMEPAGE="https://cgit.kde.org/libtmdbqt.git"
@@ -24,5 +24,5 @@ src_configure() {
 		-DTMDBQT_ENABLE_TESTS=$(usex test)
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 EGIT_REPO_URI=( "https://github.com/TelepathyIM/${PN}" )
-inherit python-any-r1 cmake-utils git-r3
+inherit python-any-r1 cmake git-r3
 
 DESCRIPTION="Qt bindings for the Telepathy D-Bus protocol"
 HOMEPAGE="https://telepathy.freedesktop.org/"
@@ -48,5 +48,5 @@ src_configure() {
 		-DENABLE_TESTS=OFF
 		-DENABLE_EXAMPLES=OFF
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
