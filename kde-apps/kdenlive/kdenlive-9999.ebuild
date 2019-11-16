@@ -55,7 +55,7 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	dev-cpp/rttr
-	>=media-libs/mlt-6.16.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
+	>=media-libs/mlt-6.18.0[ffmpeg,frei0r,kdenlive,melt,qt5,sdl,xml]
 	freesound? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
