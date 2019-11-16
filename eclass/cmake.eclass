@@ -55,11 +55,6 @@ _CMAKE_ECLASS=1
 # The default is set to "ninja".
 : ${CMAKE_MAKEFILE_GENERATOR:=ninja}
 
-# @ECLASS-VARIABLE: CMAKE_MIN_VERSION
-# @DESCRIPTION:
-# Specify the minimum required CMake version.
-: ${CMAKE_MIN_VERSION:=3.9.6}
-
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES
 # @DESCRIPTION:
 # Do we want to remove anything? yes or whatever else for no
@@ -131,7 +126,7 @@ case ${CMAKE_MAKEFILE_GENERATOR} in
 esac
 
 if [[ ${PN} != cmake ]]; then
-	BDEPEND+=" >=dev-util/cmake-${CMAKE_MIN_VERSION}"
+	BDEPEND+=" dev-util/cmake"
 fi
 
 # @FUNCTION: _cmake_banned_func
