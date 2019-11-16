@@ -57,3 +57,5 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepim-l10n
 "
+
+PATCHES=( "${FILESDIR}/${P}-tests-optional.patch" )
