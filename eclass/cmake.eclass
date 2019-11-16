@@ -55,15 +55,11 @@ _CMAKE_ECLASS=1
 # The default is set to "ninja".
 : ${CMAKE_MAKEFILE_GENERATOR:=ninja}
 
-# @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES
-# @DESCRIPTION:
-# Do we want to remove anything? yes or whatever else for no
-: ${CMAKE_REMOVE_MODULES:=yes}
-
 # @ECLASS-VARIABLE: CMAKE_REMOVE_MODULES_LIST
 # @DESCRIPTION:
 # Space-separated list of CMake modules that will be removed in $S during
 # src_prepare, in order to force packages to use the system version.
+# Set to empty to disable removing modules entirely.
 : ${CMAKE_REMOVE_MODULES_LIST:=FindBLAS FindLAPACK}
 
 # @ECLASS-VARIABLE: CMAKE_USE_DIR
@@ -108,6 +104,7 @@ inherit toolchain-funcs ninja-utils flag-o-matic multiprocessing xdg-utils
 EXPORT_FUNCTIONS src_prepare src_configure src_compile src_test src_install
 
 [[ ${CMAKE_BUILD_DIR} ]] && die "The ebuild must be migrated to BUILD_DIR"
+[[ ${CMAKE_REMOVE_MODULES} ]] && die "CMAKE_REMOVE_MODULES is banned, set CMAKE_REMOVE_MODULES_LIST=\"\" instead"
 [[ ${CMAKE_UTILS_QA_SRC_DIR_READONLY} ]] && die "Use CMAKE_QA_SRC_DIR_READONLY instead"
 [[ ${WANT_CMAKE} ]] && die "WANT_CMAKE has been removed and is a no-op"
 [[ ${PREFIX} ]] && die "PREFIX has been removed and is a no-op"
@@ -334,12 +331,10 @@ cmake_src_prepare() {
 		die "FATAL: Unable to find CMakeLists.txt"
 	fi
 
-	if [[ "${CMAKE_REMOVE_MODULES}" == "yes" ]] ; then
-		local name
-		for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
-			find "${S}" -name ${name}.cmake -exec rm -v {} + || die
-		done
-	fi
+	local name
+	for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
+		find "${S}" -name ${name}.cmake -exec rm -v {} + || die
+	done
 
 	# Remove dangerous things.
 	_cmake_modify-cmakelists
