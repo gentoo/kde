@@ -43,6 +43,7 @@ src_prepare() {
 		find po -type f -name "*po" -and -not -name "kwrite*" -delete || die
 		rm -rf po/*/docs/kate* || die
 	fi
+	rm -r po || die # 700242
 }
 
 src_configure() {
