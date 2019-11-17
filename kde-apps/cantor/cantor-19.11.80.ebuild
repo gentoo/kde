@@ -108,3 +108,7 @@ src_configure() {
 	)
 	ecm_src_configure
 }
+
+src_compile() {
+	LANG="en_US.utf8" ecm_src_compile
+}
