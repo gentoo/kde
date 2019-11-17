@@ -37,6 +37,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=dev-qt/qtcore-${QTMIN}:5=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -69,7 +70,10 @@ RDEPEND="${COMMON_DEPEND}
 # some akonadi tests time out, that probably needs more work as it's ~700 tests
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}/${PN}-18.12.2-mysql56-crash.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-18.12.2-mysql56-crash.patch"
+	"${FILESDIR}/${P}-qt-5.14.patch"
+)
 
 pkg_setup() {
 	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
