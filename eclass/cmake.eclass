@@ -544,14 +544,14 @@ cmake_src_configure() {
 cmake_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	cmake_src_make "$@"
+	cmake_build "$@"
 }
 
-# @FUNCTION: _cmake_ninja_src_make
+# @FUNCTION: _cmake_ninja_build
 # @INTERNAL
 # @DESCRIPTION:
 # Build the package using ninja generator
-_cmake_ninja_src_make() {
+_cmake_ninja_build() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	[[ -e build.ninja ]] || die "build.ninja not found. Error during configure stage."
@@ -559,36 +559,44 @@ _cmake_ninja_src_make() {
 	eninja "$@"
 }
 
-# @FUNCTION: _cmake_emake_src_make
+# @FUNCTION: _cmake_emake_build
 # @INTERNAL
 # @DESCRIPTION:
 # Build the package using make generator
-_cmake_emake_src_make() {
+_cmake_emake_build() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
 
 	if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
-		emake VERBOSE=1 "$@" || die
+		emake VERBOSE=1 "$@"
 	else
-		emake "$@" || die
+		emake "$@"
 	fi
 
 }
 
-# @FUNCTION: cmake_src_make
+# @FUNCTION: cmake_build
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
 # All arguments are passed to emake.
-cmake_src_make() {
+cmake_build() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	_cmake_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null || die
 
-	_cmake_${CMAKE_MAKEFILE_GENERATOR}_src_make "$@"
+	_cmake_${CMAKE_MAKEFILE_GENERATOR}_build "$@"
 
 	popd > /dev/null || die
+}
+
+# @FUNCTION: cmake-utils_src_make
+# @INTERNAL
+# @DESCRIPTION:
+# Banned. Use cmake_build instead.
+cmake-utils_src_make() {
+	die "cmake_src_make is banned. Use cmake_build instead"
 }
 
 # @FUNCTION: cmake_src_test
