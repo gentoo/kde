@@ -146,31 +146,6 @@ _cmake_check_build_dir() {
 	einfo "Working in BUILD_DIR: \"$BUILD_DIR\""
 }
 
-# Determine which generator to use
-_cmake_generator_to_use() {
-	local generator_name
-
-	case ${CMAKE_MAKEFILE_GENERATOR} in
-		ninja)
-			# if ninja is enabled but not installed, the build could fail
-			# this could happen if ninja is manually enabled (eg. make.conf) but not installed
-			if ! has_version -b dev-util/ninja; then
-				die "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed. Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
-			fi
-			generator_name="Ninja"
-			;;
-		emake)
-			generator_name="Unix Makefiles"
-			;;
-		*)
-			eerror "Unknown value for \${CMAKE_MAKEFILE_GENERATOR}"
-			die "Value ${CMAKE_MAKEFILE_GENERATOR} is not supported"
-			;;
-	esac
-
-	echo ${generator_name}
-}
-
 # @FUNCTION: cmake_comment_add_subdirectory
 # @USAGE: <subdirectory>
 # @DESCRIPTION:
@@ -327,6 +302,13 @@ cmake_src_prepare() {
 		eerror "\"${CMAKE_USE_DIR}/CMakeLists.txt\""
 		eerror "Consider not inheriting the cmake eclass."
 		die "FATAL: Unable to find CMakeLists.txt"
+	fi
+
+	# if ninja is enabled but not installed, the build could fail
+	# this could happen if ninja is manually enabled (eg. make.conf) but not installed
+	if [[ ${CMAKE_MAKEFILE_GENERATOR} == ninja ]] && ! has_version -b dev-util/ninja; then
+		eerror "CMAKE_MAKEFILE_GENERATOR is set to ninja, but ninja is not installed."
+		die "Please install dev-util/ninja or unset CMAKE_MAKEFILE_GENERATOR."
 	fi
 
 	local modules_list
@@ -524,13 +506,19 @@ cmake_src_configure() {
 		warn_unused_cli="--no-warn-unused-cli"
 	fi
 
+	local generator_name
+	case ${CMAKE_MAKEFILE_GENERATOR} in
+		ninja) generator_name="Ninja" ;;
+		emake) generator_name="Unix Makefiles" ;;
+	esac
+
 	# Common configure parameters (overridable)
 	# NOTE CMAKE_BUILD_TYPE can be only overridden via CMAKE_BUILD_TYPE eclass variable
 	# No -DCMAKE_BUILD_TYPE=xxx definitions will be in effect.
 	local cmakeargs=(
 		${warn_unused_cli}
 		-C "${common_config}"
-		-G "$(_cmake_generator_to_use)"
+		-G "${generator_name}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		"${mycmakeargs_local[@]}"
 		-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
