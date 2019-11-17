@@ -547,35 +547,6 @@ cmake_src_compile() {
 	cmake_build "$@"
 }
 
-# @FUNCTION: _cmake_ninja_build
-# @INTERNAL
-# @DESCRIPTION:
-# Build the package using ninja generator
-_cmake_ninja_build() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	[[ -e build.ninja ]] || die "build.ninja not found. Error during configure stage."
-
-	eninja "$@"
-}
-
-# @FUNCTION: _cmake_emake_build
-# @INTERNAL
-# @DESCRIPTION:
-# Build the package using make generator
-_cmake_emake_build() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
-
-	if [[ "${CMAKE_VERBOSE}" != "OFF" ]]; then
-		emake VERBOSE=1 "$@"
-	else
-		emake "$@"
-	fi
-
-}
-
 # @FUNCTION: cmake_build
 # @DESCRIPTION:
 # Function for building the package. Automatically detects the build type.
@@ -586,7 +557,17 @@ cmake_build() {
 	_cmake_check_build_dir
 	pushd "${BUILD_DIR}" > /dev/null || die
 
-	_cmake_${CMAKE_MAKEFILE_GENERATOR}_build "$@"
+	case ${CMAKE_MAKEFILE_GENERATOR} in
+		emake)
+			[[ -e Makefile ]] || die "Makefile not found. Error during configure stage."
+			[[ "${CMAKE_VERBOSE}" != "OFF" ]] && local verbosity="VERBOSE=1"
+			emake "${verbosity} ""$@"
+			;;
+		ninja)
+			[[ -e build.ninja ]] || die "build.ninja not found. Error during configure stage."
+			eninja "$@"
+			;;
+	esac
 
 	popd > /dev/null || die
 }
