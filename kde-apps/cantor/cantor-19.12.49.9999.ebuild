@@ -18,7 +18,7 @@ https://edu.kde.org/cantor/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+analitza julia lua markdown postscript python qalculate R"
+IUSE="+analitza julia lua postscript python qalculate R"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -50,7 +50,6 @@ DEPEND="
 	analitza? ( >=kde-apps/analitza-${PVCUT}:5 )
 	julia? ( dev-lang/julia )
 	lua? ( dev-lang/luajit:2 )
-	markdown? ( >=app-text/discount-2.2.2 )
 	qalculate? (
 		sci-libs/cln
 		sci-libs/libqalculate:=
@@ -101,7 +100,6 @@ src_configure() {
 		$(cmake_use_find_package analitza Analitza5)
 		$(cmake_use_find_package julia Julia)
 		$(cmake_use_find_package lua LuaJIT)
-		$(cmake_use_find_package markdown Discount)
 		$(cmake_use_find_package postscript LibSpectre)
 		$(cmake_use_find_package python PythonLibs3)
 		$(cmake_use_find_package qalculate Qalculate)
