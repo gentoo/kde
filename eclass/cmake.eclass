@@ -331,8 +331,15 @@ cmake_src_prepare() {
 		die "FATAL: Unable to find CMakeLists.txt"
 	fi
 
+	local modules_list
+	if [[ $(declare -p CMAKE_REMOVE_MODULES_LIST) == "declare -a"* ]]; then
+		modules_list=( "${CMAKE_REMOVE_MODULES_LIST[@]}" )
+	else
+		modules_list=( ${CMAKE_REMOVE_MODULES_LIST} )
+	fi
+
 	local name
-	for name in ${CMAKE_REMOVE_MODULES_LIST} ; do
+	for name in "${modules_list[@]}" ; do
 		find "${S}" -name ${name}.cmake -exec rm -v {} + || die
 	done
 
