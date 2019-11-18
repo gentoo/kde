@@ -15,7 +15,6 @@ RDEPEND="
 	>=kde-apps/analitza-${PV}:${SLOT}
 	>=kde-apps/artikulate-${PV}:${SLOT}
 	>=kde-apps/blinken-${PV}:${SLOT}
-	>=kde-apps/cantor-${PV}:${SLOT}
 	>=kde-apps/kalzium-${PV}:${SLOT}
 	>=kde-apps/kanagram-${PV}:${SLOT}
 	>=kde-apps/kbruch-${PV}:${SLOT}
