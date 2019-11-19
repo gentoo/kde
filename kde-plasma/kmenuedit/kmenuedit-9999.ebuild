@@ -5,7 +5,6 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 KFMIN=9999
-PVCUT=$(ver_cut 1-3)
 QTMIN=5.12.3
 inherit ecm kde.org
 
@@ -15,7 +14,7 @@ HOMEPAGE="https://cgit.kde.org/kmenuedit.git"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="+hotkeys"
+IUSE=""
 
 RDEPEND="
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -23,6 +22,7 @@ RDEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
@@ -35,16 +35,7 @@ RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	hotkeys? ( >=kde-plasma/khotkeys-${PVCUT}:5 )
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kinit-${KFMIN}:5
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package hotkeys KHotKeysDBusInterface)
-	)
-
-	ecm_src_configure
-}
