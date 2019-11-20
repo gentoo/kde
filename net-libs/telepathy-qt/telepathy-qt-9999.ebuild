@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 EGIT_REPO_URI=( "https://github.com/TelepathyIM/${PN}" )
 inherit python-any-r1 cmake-utils git-r3
 
