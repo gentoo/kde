@@ -50,7 +50,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	sys-libs/zlib
 	fits? ( sci-libs/cfitsio )
-	indi? ( >=sci-libs/indilib-1.7.5 )
+	indi? (
+		>=sci-libs/indilib-1.7.5
+		sci-libs/libnova
+	)
 	password? ( dev-libs/qtkeychain:= )
 	raw? ( media-libs/libraw:= )
 	wcs? ( sci-astronomy/wcslib )
@@ -71,6 +74,7 @@ RDEPEND="${COMMON_DEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DFETCH_TRANSLATIONS=OFF
+		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package fits CFitsio)
 		$(cmake_use_find_package indi INDI)
 		$(cmake_use_find_package password Qt5Keychain)
