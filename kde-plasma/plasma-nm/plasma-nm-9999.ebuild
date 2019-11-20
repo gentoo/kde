@@ -55,6 +55,8 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
