@@ -3,7 +3,6 @@
 
 EAPI=7
 
-ECM_EXAMPLES="true"
 ECM_TEST="forceoptional-recursive"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.64.0
@@ -77,7 +76,6 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		-DKDEPIMADDONS_BUILD_EXAMPLES=$(usex examples)
 		$(cmake_use_find_package importwizard KPimImportWizard)
 		$(cmake_use_find_package markdown Discount)
 	)
