@@ -33,7 +33,6 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdoctools-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
-	>=kde-frameworks/khtml-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kinit-${KFMIN}:5
