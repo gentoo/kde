@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.63.0
+KFMIN=5.64.0
 inherit ecm kde.org
 
 DESCRIPTION="KWallet extension for signond"

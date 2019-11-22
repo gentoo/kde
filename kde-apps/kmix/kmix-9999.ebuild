@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="false"
-KFMIN=5.63.0
+KFMIN=5.64.0
 PLASMA_MINIMAL=5.16.5
 QTMIN=5.12.3
 inherit ecm kde.org

@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
 ECM_TEST="forceoptional"
-KFMIN=5.63.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org

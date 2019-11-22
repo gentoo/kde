@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.63.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
