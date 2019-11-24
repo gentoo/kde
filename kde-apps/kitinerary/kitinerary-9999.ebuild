@@ -19,14 +19,14 @@ KEYWORDS=""
 IUSE="+barcode pdf"
 
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kpkpass-${PVCUT}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
 	sys-libs/zlib
 	barcode? ( media-libs/zxing-cpp )
 	pdf? ( app-text/poppler:=[qt5] )
