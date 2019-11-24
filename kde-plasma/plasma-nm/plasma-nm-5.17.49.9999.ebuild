@@ -16,6 +16,12 @@ KEYWORDS=""
 IUSE="modemmanager openconnect teamd"
 
 DEPEND="
+	>=app-crypt/qca-2.1.1:2[qt5(+)]
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -35,12 +41,6 @@ DEPEND="
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:5[teamd=]
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/qca-2.1.1:2[qt5(+)]
 	net-misc/networkmanager[teamd=]
 	modemmanager? (
 		>=kde-frameworks/modemmanager-qt-${KFMIN}:5
