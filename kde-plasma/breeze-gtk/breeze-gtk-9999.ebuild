@@ -16,9 +16,9 @@ KEYWORDS=""
 IUSE=""
 
 BDEPEND="${PYTHON_DEPS}
-	>=kde-plasma/breeze-${PVCUT}:5
-	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
 	dev-lang/sassc
+	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
+	>=kde-plasma/breeze-${PVCUT}:5
 "
 
 python_check_deps() {
