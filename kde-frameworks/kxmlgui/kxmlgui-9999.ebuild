@@ -12,10 +12,17 @@ inherit ecm kde.org
 DESCRIPTION="Framework for managing menu and toolbar actions in an abstract way"
 KEYWORDS=""
 LICENSE="LGPL-2+"
-IUSE="attica"
+IUSE=""
 
 # slot op: includes QtCore/private/qlocale_p.h
 DEPEND="
+	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kconfig-${PVCUT}:5
 	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
 	>=kde-frameworks/kcoreaddons-${PVCUT}:5
@@ -26,20 +33,12 @@ DEPEND="
 	>=kde-frameworks/ktextwidgets-${PVCUT}:5
 	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
 	>=kde-frameworks/kwindowsystem-${PVCUT}:5
-	>=dev-qt/qtcore-${QTMIN}:5=
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	attica? ( >=kde-frameworks/attica-${PVCUT}:5 )
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package attica KF5Attica)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Attica=ON
 	)
 
 	ecm_src_configure
