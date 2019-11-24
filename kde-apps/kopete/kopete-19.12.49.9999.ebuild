@@ -20,7 +20,6 @@ KEYWORDS=""
 IUSE="ssl v4l"
 
 # Available plugins
-#
 #	addbookmarks: NO DEPS
 #	alias: NO DEPS (disabled upstream)
 #	autoreplace: NO DEPS
@@ -47,17 +46,17 @@ otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
 #	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
-#	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	meanwhile: net-libs/meanwhile
 #	oscar: NO DEPS
 #	telepathy: net-libs/decibel
 #	testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="gadu groupwise jingle meanwhile oscar testbed winpopup +xmpp zeroconf"
+PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
 
 # disabled protocols
 #	irc: NO DEPS
+#	jingle: media-libs/speex net-libs/ortp DISABLED BY UPSTREAM
 #	qq: NO DEPS
 #	telepathy: net-libs/decibel
 #	skype, sms (until fixed)
@@ -93,14 +92,6 @@ COMMON_DEPEND="
 	x11-libs/libXScrnSaver
 	gadu? ( >=net-libs/libgadu-1.8.0[threads] )
 	groupwise? ( app-crypt/qca:2[qt5(+)] )
-	jingle? (
-		dev-libs/expat
-		dev-libs/openssl:0=
-		>=media-libs/mediastreamer-2.3.0
-		media-libs/speex
-		net-libs/libsrtp:=
-		net-libs/ortp:=
-	)
 	meanwhile? ( net-libs/meanwhile )
 	otr? ( >=net-libs/libotr-4.0.0 )
 	statistics? ( dev-db/sqlite:3 )
@@ -119,6 +110,14 @@ COMMON_DEPEND="
 		>=kde-apps/kidentitymanagement-${PVCUT}:5
 	)
 "
+#	jingle? (
+#		dev-libs/expat
+#		dev-libs/openssl:0=
+#		>=media-libs/mediastreamer-2.3.0
+#		media-libs/speex
+#		net-libs/libsrtp:=
+#		net-libs/ortp:=
+#	)
 RDEPEND="${COMMON_DEPEND}
 	latex? (
 		|| (
@@ -133,8 +132,8 @@ RDEPEND="${COMMON_DEPEND}
 #	winpopup? ( net-fs/samba )
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
-	jingle? ( dev-libs/jsoncpp )
 "
+#	jingle? ( dev-libs/jsoncpp )
 
 # tests hang, last checked for 4.2.96
 RESTRICT+=" test"
@@ -144,11 +143,12 @@ src_configure() {
 	# Handle common stuff
 	local mycmakeargs=(
 		-DWITH_qq=OFF
-		$(cmake_use_find_package jingle LiboRTP)
-		$(cmake_use_find_package jingle Mediastreamer)
-		$(cmake_use_find_package jingle Speex)
 		-DDISABLE_VIDEOSUPPORT=$(usex !v4l)
 	)
+#		$(cmake_use_find_package jingle LiboRTP)
+#		$(cmake_use_find_package jingle Mediastreamer)
+#		$(cmake_use_find_package jingle Speex)
+
 	# enable protocols
 	for x in ${PROTOCOLS}; do
 		case ${x/+/} in
