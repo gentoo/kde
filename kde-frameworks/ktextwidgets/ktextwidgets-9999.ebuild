@@ -20,7 +20,6 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
 	>=kde-frameworks/kcoreaddons-${PVCUT}:5
 	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
 	>=kde-frameworks/kservice-${PVCUT}:5
 	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
 	>=kde-frameworks/kwindowsystem-${PVCUT}:5
