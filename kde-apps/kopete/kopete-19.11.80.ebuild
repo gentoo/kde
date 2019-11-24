@@ -64,6 +64,14 @@ PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
 
 COMMON_DEPEND="
+	app-crypt/gpgme[cxx,qt5]
+	dev-libs/libpcre
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
@@ -79,14 +87,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	app-crypt/gpgme[cxx,qt5]
-	dev-libs/libpcre
 	media-libs/phonon[qt5(+)]
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
@@ -103,11 +103,11 @@ COMMON_DEPEND="
 	xmpp? (
 		app-crypt/qca:2[qt5(+)]
 		net-dns/libidn:0=
-		sys-libs/zlib:=
+		sys-libs/zlib
 	)
 	zeroconf? (
-		>=kde-frameworks/kdnssd-${KFMIN}:5
 		>=kde-apps/kidentitymanagement-${PVCUT}:5
+		>=kde-frameworks/kdnssd-${KFMIN}:5
 	)
 "
 #	jingle? (
