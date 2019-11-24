@@ -9,7 +9,7 @@ HOMEPAGE="https://edu.kde.org"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS=""
-IUSE="+webengine +webkit"
+IUSE="+webengine"
 
 RDEPEND="
 	>=kde-apps/analitza-${PV}:${SLOT}
@@ -33,10 +33,10 @@ RDEPEND="
 	>=kde-apps/libkeduvocdocument-${PV}:${SLOT}
 	>=kde-apps/marble-${PV}:${SLOT}
 	>=kde-apps/minuet-${PV}:${SLOT}
+	>=kde-apps/rocs-${PV}:${SLOT}
 	>=kde-apps/step-${PV}:${SLOT}
 	webengine? (
 		>=kde-apps/kalgebra-${PV}:${SLOT}
 		>=kde-apps/parley-${PV}:${SLOT}
 	)
-	webkit? ( >=kde-apps/rocs-${PV}:${SLOT} )
 "
