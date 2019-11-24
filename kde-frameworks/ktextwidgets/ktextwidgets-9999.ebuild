@@ -15,6 +15,8 @@ KEYWORDS=""
 IUSE="speech"
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${PVCUT}:5
 	>=kde-frameworks/kconfig-${PVCUT}:5
 	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
@@ -24,8 +26,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
 	>=kde-frameworks/kwindowsystem-${PVCUT}:5
 	>=kde-frameworks/sonnet-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
