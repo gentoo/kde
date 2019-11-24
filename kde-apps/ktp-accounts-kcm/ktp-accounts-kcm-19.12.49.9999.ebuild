@@ -20,6 +20,10 @@ BDEPEND="
 	dev-util/intltool
 "
 COMMON_DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -30,10 +34,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-apps/kaccounts-integration-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	net-libs/accounts-qt
 	net-libs/signond
 	net-libs/telepathy-qt[qt5(+)]
@@ -51,7 +51,7 @@ RDEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	if use experimental; then
-		mv "${S}"/data/kaccounts/disabled/*.in "${S}"/data/kaccounts/ || \
+		mv data/kaccounts/disabled/*.in data/kaccounts/ || \
 			die "couldn't enable experimental services"
 	fi
 	ecm_src_prepare
