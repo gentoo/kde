@@ -115,7 +115,7 @@ COMMON_DEPEND="
 #		dev-libs/openssl:0=
 #		>=media-libs/mediastreamer-2.3.0
 #		media-libs/speex
-#		net-libs/libsrtp:=
+#		net-libs/libsrtp:0=
 #		net-libs/ortp:=
 #	)
 RDEPEND="${COMMON_DEPEND}
