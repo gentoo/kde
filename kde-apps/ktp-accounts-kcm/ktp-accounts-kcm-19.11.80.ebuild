@@ -49,7 +49,7 @@ RDEPEND="${COMMON_DEPEND}
 	net-im/telepathy-connection-managers
 "
 
-PATCHES=( "${FILESDIR}/${P}-telepathy-qt-0.9.8.patch" )
+PATCHES=( "${FILESDIR}/${PN}-19.08.3-telepathy-qt-0.9.8.patch" )
 
 src_prepare() {
 	if use experimental; then
