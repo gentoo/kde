@@ -68,7 +68,7 @@ COMMON_DEPEND="
 		>=kde-frameworks/kcontacts-${KFMIN}:5
 	)
 	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
-	dnn? ( >=media-libs/opencv-3.1.0:=[contrib,contrib_dnn] )
+	dnn? ( >=media-libs/opencv-3.1.0:=[contrib,contribdnn] )
 	gphoto2? ( media-libs/libgphoto2:= )
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
