@@ -5,6 +5,9 @@ Subject: [PATCH] Install headers to a custom location to permit slotting
 
 That was previously necessary with Qt4 version, let's keep it while
 Qt6 is around the corner.
+
+Amended with target_include_directories fix by jospezial.
+
 ---
  templates/lib/CMakeLists.txt    | 5 +++--
  textdocument/lib/CMakeLists.txt | 5 +++--
@@ -18,7 +21,7 @@ index 5058481..3ef29a4 100644
  
    target_sources(Grantlee_Templates PRIVATE ${scriptabletags_SRCS})
    target_include_directories(Grantlee_Templates PRIVATE ../scriptabletags)
-+  target_include_directories(Grantlee_Templates INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>")
++  target_include_directories(Grantlee_Templates INTERFACE "$<INSTALL_INTERFACE:include/grantlee5>")
    target_link_libraries(Grantlee_Templates
      PRIVATE Qt5::Qml
    )
@@ -43,7 +46,7 @@ index 2c5a96f..c42d32a 100644
        )
    endforeach()
  endif()
-+target_include_directories(Grantlee_TextDocument INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>")
++target_include_directories(Grantlee_TextDocument INTERFACE "$<INSTALL_INTERFACE:include/grantlee5>")
  
  target_link_libraries(Grantlee_TextDocument
    PUBLIC Qt5::Gui
@@ -62,4 +65,3 @@ index 2c5a96f..c42d32a 100644
  )
 -- 
 2.24.0
-
