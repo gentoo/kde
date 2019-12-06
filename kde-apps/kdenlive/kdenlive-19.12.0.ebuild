@@ -66,6 +66,8 @@ RDEPEND="${DEPEND}
 	virtual/ffmpeg[encode,sdl,X]
 "
 
+PATCHES=( "${FILESDIR}"/${P}-qt-5.14.patch ) # release/19.12 branch
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package freesound Qt5WebKitWidgets)
