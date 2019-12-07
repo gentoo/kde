@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.63.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
@@ -19,9 +19,10 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE=""
 
+# drop qtdeclarative subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5=
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[xcb]
 	>=dev-qt/qtwidgets-${QTMIN}:5
