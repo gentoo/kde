@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.60.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
@@ -20,14 +20,14 @@ SLOT="5"
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
