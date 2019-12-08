@@ -13,7 +13,7 @@ HOMEPAGE="https://gcompris.net/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="https://gcompris.net/download/qt/src/${PN}-qt-${PV}.tar.xz"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${PN}-qt-${PV}"
 fi
 
