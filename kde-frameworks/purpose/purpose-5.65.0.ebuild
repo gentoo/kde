@@ -29,11 +29,16 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kdeclarative-${PVCUT}:5
 	kaccounts? ( net-libs/accounts-qml )
 "
 
 # requires running environment
 RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/${PN}-5.64.0-ecmqmlmodules.patch" ) # git master
 
 src_configure() {
 	local mycmakeargs=(

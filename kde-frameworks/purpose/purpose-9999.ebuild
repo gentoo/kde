@@ -29,6 +29,9 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kdeclarative-${PVCUT}:5
 	kaccounts? ( net-libs/accounts-qml )
 "
 
