@@ -41,6 +41,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package dolphin KF5Notifications)
 		$(cmake_use_find_package kaccounts KAccounts)
 	)
 
