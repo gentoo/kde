@@ -15,20 +15,22 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+kaccounts"
 
 DEPEND="
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kio-${PVCUT}:5
-	>=kde-frameworks/kirigami-${PVCUT}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kcoreaddons-${PVCUT}:5
+	>=kde-frameworks/ki18n-${PVCUT}:5
+	>=kde-frameworks/kio-${PVCUT}:5
+	>=kde-frameworks/kirigami-${PVCUT}:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kaccounts? ( net-libs/accounts-qml )
+"
 
 # requires running environment
 RESTRICT+=" test"
