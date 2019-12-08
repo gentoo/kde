@@ -12,7 +12,7 @@ inherit ecm kde.org
 DESCRIPTION="Library for providing abstractions to get the developer's purposes fulfilled"
 LICENSE="LGPL-2.1+"
 KEYWORDS=""
-IUSE="+kaccounts"
+IUSE="+dolphin +kaccounts"
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -23,6 +23,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${PVCUT}:5
 	>=kde-frameworks/kio-${PVCUT}:5
 	>=kde-frameworks/kirigami-${PVCUT}:5
+	dolphin? ( >=kde-frameworks/knotifications-${PVCUT}:5 )
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt
