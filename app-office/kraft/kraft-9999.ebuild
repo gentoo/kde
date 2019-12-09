@@ -3,17 +3,17 @@
 
 EAPI=7
 
+EGIT_REPO_URI="https://github.com/dragotin/kraft"
 ECM_HANDBOOK="forceoptional"
 KDE_APPS_MINIMAL=19.04.3
 KFMIN=5.60.0
 QTMIN=5.12.3
-inherit ecm kde.org
-EGIT_REPO_URI="https://github.com/dragotin/kraft"
+inherit ecm git-r3
 
 DESCRIPTION="Software to manage quotes and invoices in small enterprises"
 HOMEPAGE="http://www.volle-kraft-voraus.de/"
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2+ LGPL-2+"
 SLOT="5"
 KEYWORDS=""
 IUSE="pim"
