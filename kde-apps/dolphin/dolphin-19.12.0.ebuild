@@ -64,8 +64,6 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=( "${FILESDIR}"/${P}-qt-5.14.patch ) # not yet upstream
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
