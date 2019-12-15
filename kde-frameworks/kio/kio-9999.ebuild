@@ -15,7 +15,16 @@ LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="acl +handbook kerberos +kwallet X"
 
+# drop qtnetwork subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
+	dev-libs/libxml2
+	dev-libs/libxslt
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5=[ssl]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kauth-${PVCUT}:5
 	>=kde-frameworks/karchive-${PVCUT}:5
 	>=kde-frameworks/kbookmarks-${PVCUT}:5
@@ -37,14 +46,6 @@ RDEPEND="
 	>=kde-frameworks/kwindowsystem-${PVCUT}:5
 	>=kde-frameworks/kxmlgui-${PVCUT}:5
 	>=kde-frameworks/solid-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	dev-libs/libxml2
-	dev-libs/libxslt
 	acl? (
 		sys-apps/attr
 		virtual/acl
