@@ -21,6 +21,14 @@ REQUIRED_USE="gps? ( geolocation )"
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 COMMON_DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtgui-${QTMIN}:5=[jpeg]
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtx11extras-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/kactivities-stats-${KFMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
@@ -64,14 +72,6 @@ COMMON_DEPEND="
 	>=kde-plasma/libkscreen-${PVCUT}:5
 	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/libkworkspace-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5=[jpeg]
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsql-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	media-libs/phonon[qt5(+)]
 	sys-libs/zlib
 	x11-libs/libICE
@@ -98,18 +98,19 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kdesu-${KFMIN}:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-apps/kio-extras-19.04.3:5
-	>=kde-plasma/ksysguard-${PVCUT}:5
-	>=kde-plasma/milou-${PVCUT}:5
-	>=kde-plasma/plasma-integration-${PVCUT}:5
+	app-text/iso-codes
 	>=dev-qt/qdbus-${QTMIN}:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtpaths-${QTMIN}:5
 	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	app-text/iso-codes
+	>=kde-apps/kio-extras-19.04.3:5
+	>=kde-frameworks/kquickcharts-${KFMIN}:5
+	>=kde-frameworks/kdesu-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-plasma/ksysguard-${PVCUT}:5
+	>=kde-plasma/milou-${PVCUT}:5
+	>=kde-plasma/plasma-integration-${PVCUT}:5
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrdb
