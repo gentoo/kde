@@ -17,8 +17,8 @@ BDEPEND="
 "
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	sys-fs/udisks:2
 	virtual/libudev:=
