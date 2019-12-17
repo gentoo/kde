@@ -4,19 +4,25 @@
 EAPI=7
 
 ECM_TEST="optional"
-VIRTUALX_REQUIRED="test"
 KFMIN=5.64.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.12.3
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Useful applications for Plasma development"
+
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -32,12 +38,9 @@ DEPEND="
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "

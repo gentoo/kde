@@ -18,6 +18,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -33,12 +38,9 @@ DEPEND="
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
