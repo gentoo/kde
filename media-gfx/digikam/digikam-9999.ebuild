@@ -33,6 +33,7 @@ BDEPEND="
 	)
 "
 COMMON_DEPEND="
+	dev-libs/expat
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[-gles2]
@@ -42,7 +43,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-	dev-libs/expat
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -56,7 +56,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-gfx/exiv2-0.26:=
+	>=media-gfx/exiv2-0.27:=
 	media-libs/lcms:2
 	media-libs/liblqr
 	media-libs/libpng:0=
