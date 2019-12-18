@@ -23,7 +23,7 @@ HOMEPAGE="https://www.digikam.org/"
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="addressbook calendar dnn +imagemagick gphoto2 +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop vkontakte webkit X"
+IUSE="addressbook calendar dnn heif +imagemagick gphoto2 +lensfun libav marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop vkontakte webkit X"
 
 BDEPEND="
 	sys-devel/gettext
@@ -70,6 +70,7 @@ COMMON_DEPEND="
 	calendar? ( >=kde-frameworks/kcalendarcore-${KFMIN}:5 )
 	dnn? ( >=media-libs/opencv-3.1.0:=[contrib,contribdnn] )
 	gphoto2? ( media-libs/libgphoto2:= )
+	heif? ( media-libs/x265:= )
 	imagemagick? ( media-gfx/imagemagick:= )
 	lensfun? ( media-libs/lensfun )
 	marble? (
@@ -129,6 +130,7 @@ src_configure() {
 		$(cmake_use_find_package calendar KF5CalendarCore)
 		-DENABLE_FACESENGINE_DNN=$(usex dnn)
 		$(cmake_use_find_package gphoto2 Gphoto2)
+		$(cmake_use_find_package heif X265)
 		$(cmake_use_find_package imagemagick ImageMagick)
 		$(cmake_use_find_package lensfun LensFun)
 		$(cmake_use_find_package marble Marble)
