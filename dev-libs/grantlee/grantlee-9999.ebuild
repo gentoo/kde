@@ -15,16 +15,16 @@ SLOT="5"
 KEYWORDS=""
 IUSE="debug doc test"
 
+BDEPEND="
+	doc? ( app-doc/doxygen[dot] )
+"
 RDEPEND="
 	dev-qt/qtcore:5
+	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtscript:5
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
-"
-BDEPEND="
-	doc? ( app-doc/doxygen[dot] )
 "
 
 # bug 682258
@@ -60,7 +60,7 @@ src_test() {
 }
 
 src_install() {
-	use doc && HTML_DOCS=("${BUILD_DIR}/apidox/")
+	use doc && local HTML_DOCS=("${BUILD_DIR}/apidox/")
 
 	cmake-utils_src_install
 }
