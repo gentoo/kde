@@ -4,11 +4,10 @@
 EAPI=7
 
 VIRTUALX_REQUIRED="test"
-inherit cmake-utils virtualx git-r3
+inherit kde.org cmake-utils virtualx
 
 DESCRIPTION="C++ string template engine based on the Django template system"
 HOMEPAGE="https://github.com/steveire/grantlee"
-EGIT_REPO_URI=( "https://github.com/steveire/${PN}" )
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
