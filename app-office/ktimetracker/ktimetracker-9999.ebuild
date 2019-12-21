@@ -10,11 +10,15 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Todo management and time tracker"
-HOMEPAGE="https://cgit.kde.org/ktimetracker.git"
+HOMEPAGE="https://userbase.kde.org/KTimeTracker"
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
 SLOT="5"
-KEYWORDS=""
 IUSE=""
 
 DEPEND="
