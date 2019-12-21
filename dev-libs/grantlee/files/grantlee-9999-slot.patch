@@ -21,7 +21,7 @@ index 5058481..3ef29a4 100644
  
    target_sources(Grantlee_Templates PRIVATE ${scriptabletags_SRCS})
    target_include_directories(Grantlee_Templates PRIVATE ../scriptabletags)
-+  target_include_directories(Grantlee_Templates INTERFACE "$<INSTALL_INTERFACE:include/grantlee5>")
++  target_include_directories(Grantlee_Templates INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/grantlee5>")
    target_link_libraries(Grantlee_Templates
      PRIVATE Qt5::Qml
    )
@@ -29,14 +29,14 @@ index 5058481..3ef29a4 100644
    token.h
    util.h
    variable.h
--  DESTINATION include/grantlee COMPONENT Templates
-+  DESTINATION include/grantlee5/grantlee COMPONENT Templates
+-  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee COMPONENT Templates
++  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee5/grantlee COMPONENT Templates
  )
  
  install(FILES
    grantlee_templates.h
--  DESTINATION include COMPONENT Templates
-+  DESTINATION include/grantlee5 COMPONENT Templates
+-  DESTINATION ${KDE_INSTALL_INCLUDEDIR} COMPONENT Templates
++  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee5 COMPONENT Templates
  )
 diff --git a/textdocument/lib/CMakeLists.txt b/textdocument/lib/CMakeLists.txt
 index 2c5a96f..c42d32a 100644
@@ -54,14 +54,14 @@ index 2c5a96f..c42d32a 100644
    texthtmlbuilder.h
    mediawikimarkupbuilder.h
    ${CMAKE_CURRENT_BINARY_DIR}/grantlee_textdocument_export.h
--  DESTINATION include/grantlee COMPONENT TextDocument
-+  DESTINATION include/grantlee5/grantlee COMPONENT TextDocument
+-  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee COMPONENT TextDocument
++  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee5/grantlee COMPONENT TextDocument
  )
  
  install(FILES
    grantlee_textdocument.h
--  DESTINATION include COMPONENT TextDocument
-+  DESTINATION include/grantlee5 COMPONENT TextDocument
+-  DESTINATION ${KDE_INSTALL_INCLUDEDIR} COMPONENT TextDocument
++  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/grantlee5 COMPONENT TextDocument
  )
 -- 
 2.24.0
