@@ -58,6 +58,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-plasma/kwin-${PVCUT}:5
+	>=kde-plasma/libksysguard-${PVCUT}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
