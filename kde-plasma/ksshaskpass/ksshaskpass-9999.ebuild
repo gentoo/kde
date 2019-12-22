@@ -52,7 +52,6 @@ src_install() {
 
 	insinto /etc/xdg/plasma-workspace/env/
 	doins "${FILESDIR}/05-ksshaskpass.sh"
-	fperms +x /etc/xdg/plasma-workspace/env/05-ksshaskpass.sh
 }
 
 pkg_postinst() {
