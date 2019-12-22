@@ -25,6 +25,28 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+pkg_setup() {
+	ecm_pkg_setup
+
+	local srcfile=/etc/plasma/startup/05-ksshaskpass.sh
+	local newfile=/etc/xdg/plasma-workspace/env/05-ksshaskpass.sh
+	if [[ -f "${EROOT}"${srcfile} ]]; then
+		local md5=$(md5sum "${EROOT}"${srcfile})
+		if [[ ${md5%% *} != 615ae8f5b0090ff7f51d0edee7885d55 ]]; then
+			elog "Existing modified "${EPREFIX}"${srcfile} detected."
+			elog "Copying to "${EPREFIX}"${newfile}..."
+			cp -v "${EROOT}"${srcfile} "${T}"/ || die
+		fi
+	fi
+}
+
+src_prepare() {
+	ecm_src_prepare
+	if [[ ! -f "${T}"/05-ksshaskpass.sh ]]; then
+		cp "${FILESDIR}"/05-ksshaskpass.sh "${T}"/ || die
+	fi
+}
+
 src_install() {
 	ecm_src_install
 
@@ -37,7 +59,7 @@ pkg_postinst() {
 	ecm_pkg_postinst
 
 	elog "In order to have ssh-agent start with Plasma 5,"
-	elog "edit /etc/xdg/plasma-workspace/env/10-agent-startup.sh.sh"
+	elog "edit /etc/xdg/plasma-workspace/env/10-agent-startup.sh"
 	elog "and uncomment the lines enabling ssh-agent."
 	elog
 	elog "If you do so, do not forget to uncomment the respective"
@@ -47,6 +69,11 @@ pkg_postinst() {
 	elog "${PN} has been installed as your default askpass application"
 	elog "for Plasma 5 sessions."
 	elog "If that's not desired, select the one you want to use in"
-	elog
-	elog "/etc/xdg/plasma-workspace/env/05-ksshaskpass.sh (ATTN: Path moved!)"
+	elog "/etc/xdg/plasma-workspace/env/05-ksshaskpass.sh"
+
+	# Clean up pre-5.17.4 script
+	if [[ -e "${EROOT}"/etc/plasma/startup/05-ksshaskpass.sh ]]; then
+		rm "${EROOT}"/etc/plasma/startup/05-ksshaskpass.sh || die
+		elog "Removed obsolete ${EPREFIX}/etc/plasma/startup/05-ksshaskpass.sh"
+	fi
 }
