@@ -15,10 +15,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcodecs-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
+	=kde-frameworks/kcodecs-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 	>=dev-qt/qtgui-${QTMIN}:5
 "
 RDEPEND="${DEPEND}

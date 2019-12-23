@@ -15,8 +15,8 @@ IUSE=""
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
-	>=kde-frameworks/kactivities-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
+	=kde-frameworks/kactivities-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.54

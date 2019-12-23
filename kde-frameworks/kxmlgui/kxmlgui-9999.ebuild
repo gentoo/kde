@@ -23,15 +23,15 @@ DEPEND="
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kglobalaccel-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
-	>=kde-frameworks/kitemviews-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
-	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kglobalaccel-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/kitemviews-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 

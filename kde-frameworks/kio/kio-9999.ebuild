@@ -25,34 +25,34 @@ RDEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5=[ssl]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kauth-${PVCUT}:5
-	>=kde-frameworks/karchive-${PVCUT}:5
-	>=kde-frameworks/kbookmarks-${PVCUT}:5
-	>=kde-frameworks/kcodecs-${PVCUT}:5
-	>=kde-frameworks/kcompletion-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kcrash-${PVCUT}:5
-	>=kde-frameworks/kdbusaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
-	>=kde-frameworks/kitemviews-${PVCUT}:5
-	>=kde-frameworks/kjobwidgets-${PVCUT}:5
-	>=kde-frameworks/knotifications-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
-	>=kde-frameworks/ktextwidgets-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
-	>=kde-frameworks/kwindowsystem-${PVCUT}:5
-	>=kde-frameworks/kxmlgui-${PVCUT}:5
-	>=kde-frameworks/solid-${PVCUT}:5
+	=kde-frameworks/kauth-${PVCUT}*:5
+	=kde-frameworks/karchive-${PVCUT}*:5
+	=kde-frameworks/kbookmarks-${PVCUT}*:5
+	=kde-frameworks/kcodecs-${PVCUT}*:5
+	=kde-frameworks/kcompletion-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kcrash-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/kitemviews-${PVCUT}*:5
+	=kde-frameworks/kjobwidgets-${PVCUT}*:5
+	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
+	=kde-frameworks/ktextwidgets-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kxmlgui-${PVCUT}*:5
+	=kde-frameworks/solid-${PVCUT}*:5
 	acl? (
 		sys-apps/attr
 		virtual/acl
 	)
-	handbook? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
+	handbook? ( =kde-frameworks/kdoctools-${PVCUT}*:5 )
 	kerberos? ( virtual/krb5 )
-	kwallet? ( >=kde-frameworks/kwallet-${PVCUT}:5 )
+	kwallet? ( =kde-frameworks/kwallet-${PVCUT}*:5 )
 	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}

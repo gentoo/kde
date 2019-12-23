@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/ki18n-${PVCUT}:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"

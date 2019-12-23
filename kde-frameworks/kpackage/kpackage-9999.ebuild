@@ -7,6 +7,7 @@ PVCUT=$(ver_cut 1-2)
 inherit ecm kde.org
 
 DESCRIPTION="Framework to install and load packages of non binary content"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="man"
@@ -15,9 +16,9 @@ BDEPEND="
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
-	>=kde-frameworks/karchive-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
+	=kde-frameworks/karchive-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 

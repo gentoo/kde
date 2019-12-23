@@ -8,6 +8,7 @@ PVCUT=$(ver_cut 1-2)
 inherit ecm kde.org
 
 DESCRIPTION="Tools to generate documentation in various formats from DocBook files"
+
 LICENSE="MIT"
 KEYWORDS=""
 IUSE="nls"
@@ -18,12 +19,12 @@ BDEPEND="
 	nls? ( >=kde-frameworks/ki18n-${PVCUT}:5 )
 "
 DEPEND="
-	>=kde-frameworks/karchive-${PVCUT}:5
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	app-text/sgml-common
 	dev-libs/libxml2:2
 	dev-libs/libxslt
+	=kde-frameworks/karchive-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 

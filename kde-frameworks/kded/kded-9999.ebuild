@@ -18,15 +18,15 @@ BDEPEND="
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kcrash-${PVCUT}:5
-	>=kde-frameworks/kdbusaddons-${PVCUT}:5
-	>=kde-frameworks/kinit-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kcrash-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	=kde-frameworks/kinit-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
 

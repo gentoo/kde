@@ -10,6 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Plasma framework"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gles2 wayland X"
@@ -19,24 +20,6 @@ BDEPEND="
 	>=kde-frameworks/kdoctools-${PVCUT}:5
 "
 RDEPEND="
-	>=kde-frameworks/kactivities-${PVCUT}:5
-	>=kde-frameworks/karchive-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kdeclarative-${PVCUT}:5
-	>=kde-frameworks/kglobalaccel-${PVCUT}:5
-	>=kde-frameworks/kguiaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
-	>=kde-frameworks/kio-${PVCUT}:5
-	>=kde-frameworks/kirigami-${PVCUT}:5
-	>=kde-frameworks/knotifications-${PVCUT}:5
-	>=kde-frameworks/kpackage-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
-	>=kde-frameworks/kwindowsystem-${PVCUT}:5
-	>=kde-frameworks/kxmlgui-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[gles2=]
@@ -44,9 +27,27 @@ RDEPEND="
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kactivities-${PVCUT}*:5
+	=kde-frameworks/karchive-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kdeclarative-${PVCUT}*:5
+	=kde-frameworks/kglobalaccel-${PVCUT}*:5
+	=kde-frameworks/kguiaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/kio-${PVCUT}*:5
+	=kde-frameworks/kirigami-${PVCUT}*:5
+	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/kpackage-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	!gles2? ( virtual/opengl )
 	wayland? (
-		>=kde-frameworks/kwayland-${PVCUT}:5
+		=kde-frameworks/kwayland-${PVCUT}*:5
 		media-libs/mesa[egl]
 	)
 	X? (

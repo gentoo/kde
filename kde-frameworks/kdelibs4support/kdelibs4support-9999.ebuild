@@ -20,34 +20,6 @@ BDEPEND="
 	dev-perl/URI
 "
 COMMON_DEPEND="
-	>=kde-frameworks/kauth-${PVCUT}:5
-	>=kde-frameworks/kcodecs-${PVCUT}:5
-	>=kde-frameworks/kcompletion-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kcrash-${PVCUT}:5
-	>=kde-frameworks/kdbusaddons-${PVCUT}:5
-	>=kde-frameworks/kded-${PVCUT}:5
-	>=kde-frameworks/kdesignerplugin-${PVCUT}:5
-	>=kde-frameworks/kdoctools-${PVCUT}:5
-	>=kde-frameworks/kemoticons-${PVCUT}:5
-	>=kde-frameworks/kglobalaccel-${PVCUT}:5
-	>=kde-frameworks/kguiaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
-	>=kde-frameworks/kio-${PVCUT}:5
-	>=kde-frameworks/kitemviews-${PVCUT}:5
-	>=kde-frameworks/kjobwidgets-${PVCUT}:5
-	>=kde-frameworks/knotifications-${PVCUT}:5
-	>=kde-frameworks/kparts-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
-	>=kde-frameworks/ktextwidgets-${PVCUT}:5
-	>=kde-frameworks/kunitconversion-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
-	>=kde-frameworks/kwindowsystem-${PVCUT}:5
-	>=kde-frameworks/kxmlgui-${PVCUT}:5
-	>=kde-frameworks/solid-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5[ssl]
@@ -55,6 +27,34 @@ COMMON_DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qttest-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	=kde-frameworks/kauth-${PVCUT}*:5
+	=kde-frameworks/kcodecs-${PVCUT}*:5
+	=kde-frameworks/kcompletion-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kcrash-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	>=kde-frameworks/kded-${PVCUT}:5
+	=kde-frameworks/kdesignerplugin-${PVCUT}*:5
+	=kde-frameworks/kdoctools-${PVCUT}*:5
+	=kde-frameworks/kemoticons-${PVCUT}*:5
+	=kde-frameworks/kglobalaccel-${PVCUT}*:5
+	=kde-frameworks/kguiaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/kio-${PVCUT}*:5
+	=kde-frameworks/kitemviews-${PVCUT}*:5
+	=kde-frameworks/kjobwidgets-${PVCUT}*:5
+	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/kparts-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
+	=kde-frameworks/ktextwidgets-${PVCUT}*:5
+	=kde-frameworks/kunitconversion-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	=kde-frameworks/kxmlgui-${PVCUT}*:5
+	=kde-frameworks/solid-${PVCUT}*:5
 	app-text/docbook-xml-dtd:4.2
 	virtual/libintl
 	!libressl? ( dev-libs/openssl:0 )
@@ -73,8 +73,8 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kinit-${PVCUT}:5
-	>=kde-frameworks/kitemmodels-${PVCUT}:5
+	=kde-frameworks/kinit-${PVCUT}*:5
+	=kde-frameworks/kitemmodels-${PVCUT}*:5
 	>=dev-qt/qtxml-${QTMIN}:5
 "
 

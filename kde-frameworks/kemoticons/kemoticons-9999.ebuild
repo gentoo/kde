@@ -14,10 +14,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/karchive-${PVCUT}:5
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
+	=kde-frameworks/karchive-${PVCUT}*:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5

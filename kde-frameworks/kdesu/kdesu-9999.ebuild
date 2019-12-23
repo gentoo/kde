@@ -13,11 +13,11 @@ KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kpty-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kpty-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}
