@@ -16,14 +16,14 @@ IUSE="appstream X"
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kiconthemes-${PVCUT}:5
-	>=kde-frameworks/knewstuff-${PVCUT}:5
-	>=kde-frameworks/knotifications-${PVCUT}:5
-	>=kde-frameworks/kpackage-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kiconthemes-${PVCUT}*:5
+	=kde-frameworks/knewstuff-${PVCUT}*:5
+	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/kpackage-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5=
 	appstream? (

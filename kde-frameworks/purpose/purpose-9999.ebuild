@@ -19,11 +19,11 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/kio-${PVCUT}:5
-	>=kde-frameworks/kirigami-${PVCUT}:5
-	dolphin? ( >=kde-frameworks/knotifications-${PVCUT}:5 )
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/kio-${PVCUT}*:5
+	=kde-frameworks/kirigami-${PVCUT}*:5
+	dolphin? ( =kde-frameworks/knotifications-${PVCUT}*:5 )
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt

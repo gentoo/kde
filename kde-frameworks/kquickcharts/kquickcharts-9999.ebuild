@@ -24,8 +24,8 @@ DEPEND="
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	examples? (
 		>=dev-qt/qtwidgets-${QTMIN}:5
-		>=kde-frameworks/kdeclarative-${PVCUT}:5
-		>=kde-frameworks/kirigami-${PVCUT}:5
+		=kde-frameworks/kdeclarative-${PVCUT}*:5
+		=kde-frameworks/kirigami-${PVCUT}*:5
 	)
 "
 RDEPEND="${DEPEND}"

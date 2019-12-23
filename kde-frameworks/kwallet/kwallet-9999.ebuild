@@ -8,6 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Framework providing desktop-wide storage for passwords"
+
 LICENSE="LGPL-2+"
 KEYWORDS=""
 IUSE="gpg +man"
@@ -16,19 +17,19 @@ BDEPEND="
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 DEPEND="
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kconfigwidgets-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kdbusaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
-	>=kde-frameworks/knotifications-${PVCUT}:5
-	>=kde-frameworks/kservice-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
-	>=kde-frameworks/kwindowsystem-${PVCUT}:5
+	dev-libs/libgcrypt:0=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-libs/libgcrypt:0=
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
+	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/kservice-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	gpg? ( >=app-crypt/gpgme-1.7.1[cxx,qt5] )
 "
 RDEPEND="${DEPEND}"

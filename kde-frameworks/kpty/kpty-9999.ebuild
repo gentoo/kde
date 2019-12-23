@@ -12,8 +12,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 	sys-libs/libutempter
 "
 RDEPEND="${DEPEND}"

@@ -8,6 +8,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Advanced plugin and service introspection"
+
 LICENSE="LGPL-2 LGPL-2.1+"
 KEYWORDS=""
 IUSE="+man"
@@ -18,13 +19,13 @@ BDEPEND="
 	man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )
 "
 RDEPEND="
-	>=kde-frameworks/kconfig-${PVCUT}:5
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kcrash-${PVCUT}:5
-	>=kde-frameworks/kdbusaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
+	=kde-frameworks/kconfig-${PVCUT}*:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kcrash-${PVCUT}*:5
+	=kde-frameworks/kdbusaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )

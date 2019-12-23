@@ -15,8 +15,8 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kparts-${PVCUT}:5
-	>=kde-frameworks/kxmlgui-${PVCUT}:5
+	=kde-frameworks/kparts-${PVCUT}*:5
+	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "

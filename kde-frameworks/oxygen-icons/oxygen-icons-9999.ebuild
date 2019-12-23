@@ -9,6 +9,7 @@ QTMIN=5.12.3
 inherit cmake kde.org
 
 DESCRIPTION="Oxygen SVG icon theme"
+
 LICENSE="LGPL-3"
 KEYWORDS=""
 IUSE="test"
@@ -18,7 +19,7 @@ BDEPEND="
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:5
 	test? ( app-misc/fdupes )
 "
-DEPEND="test? ( dev-qt/qttest:5 )"
+DEPEND="test? ( >=dev-qt/qttest-${QTMIN}:5 )"
 
 RESTRICT+=" !test? ( test )"
 

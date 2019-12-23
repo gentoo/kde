@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
-	>=kde-frameworks/kcodecs-${PVCUT}:5
+	=kde-frameworks/kcodecs-${PVCUT}*:5
 	>=dev-qt/qtxml-${QTMIN}:5
 "
 DEPEND="${COMMON_DEPEND}

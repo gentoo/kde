@@ -17,8 +17,8 @@ BDEPEND="
 	test? ( ${PYTHON_DEPS} )
 "
 RDEPEND="
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/ki18n-${PVCUT}:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/ki18n-${PVCUT}*:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
@@ -26,7 +26,7 @@ RDEPEND="
 		libav? ( >=media-video/libav-12.2:= )
 		!libav? ( media-video/ffmpeg:0= )
 	)
-	office? ( >=kde-frameworks/karchive-${PVCUT}:5 )
+	office? ( =kde-frameworks/karchive-${PVCUT}*:5 )
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "

@@ -16,8 +16,8 @@ BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 RDEPEND="
-	>=kde-frameworks/kcoreaddons-${PVCUT}:5
-	>=kde-frameworks/kwidgetsaddons-${PVCUT}:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
