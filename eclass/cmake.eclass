@@ -492,8 +492,9 @@ cmake_src_configure() {
 		_EOF_
 	fi
 
-	# Make the array a local variable since <=portage-2.1.6.x does not
-	# support global arrays (see bug #297255).
+	# Make the array a local variable since <=portage-2.1.6.x does not support
+	# global arrays (see bug #297255). But first make sure it is initialised.
+	[[ -z ${mycmakeargs} ]] && declare -a mycmakeargs=()
 	local mycmakeargstype=$(declare -p mycmakeargs 2>&-)
 	if [[ "${mycmakeargstype}" != "declare -a mycmakeargs="* ]]; then
 		die "mycmakeargs must be declared as array"
