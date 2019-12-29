@@ -47,7 +47,6 @@ src_configure() {
 		-DENABLE_PHP_UNIT=NO
 		-DENABLE_SURVEY_TARGET_EXPRESSIONS=YES
 		-DENABLE_DOCS=$(usex doc)
-		-DENABLE_TESTING=$(usex test)
 	)
 
 	ecm_src_configure
