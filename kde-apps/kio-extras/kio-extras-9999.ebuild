@@ -16,7 +16,7 @@ HOMEPAGE="https://cgit.kde.org/kio-extras.git"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS=""
-IUSE="activities +man mtp openexr phonon samba +sftp taglib"
+IUSE="activities +man mtp openexr phonon samba +sftp taglib X"
 
 BDEPEND="
 	man? ( dev-util/gperf )
@@ -57,6 +57,10 @@ DEPEND="
 	samba? ( net-fs/samba[client] )
 	sftp? ( net-libs/libssh:=[sftp] )
 	taglib? ( >=media-libs/taglib-1.11.1 )
+	X? (
+		x11-libs/libX11
+		x11-libs/libXcursor
+	)
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:5
@@ -76,6 +80,7 @@ src_configure() {
 		$(cmake_use_find_package samba Samba)
 		$(cmake_use_find_package sftp libssh)
 		$(cmake_use_find_package taglib Taglib)
+		$(cmake_use_find_package X X11)
 	)
 
 	ecm_src_configure
