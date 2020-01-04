@@ -5,7 +5,7 @@ EAPI=7
 
 ECM_HANDBOOK="optional"
 ECM_TEST="optional"
-KFMIN=5.60.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -43,7 +43,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=net-libs/libktorrent-2.1:5
+	>=net-libs/libktorrent-2.1.1:5
 	infowidget? ( dev-libs/geoip )
 	kross? (
 		>=kde-frameworks/karchive-${KFMIN}:5
@@ -55,13 +55,10 @@ COMMON_DEPEND="
 		>=media-libs/taglib-1.5
 	)
 	rss? (
-		>=kde-frameworks/kdewebkit-${KFMIN}:5
+		>=dev-qt/qtwebengine-${QTMIN}:5
 		>=kde-frameworks/syndication-${KFMIN}:5
 	)
-	search? (
-		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
-		>=kde-frameworks/kdewebkit-${KFMIN}:5
-	)
+	search? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 	shutdown? ( kde-plasma/libkworkspace:5 )
 	stats? ( >=kde-frameworks/kplotting-${KFMIN}:5 )
 	upnp? ( >=kde-frameworks/kcompletion-${KFMIN}:5 )
