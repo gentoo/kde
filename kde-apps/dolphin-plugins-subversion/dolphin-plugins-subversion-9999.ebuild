@@ -7,7 +7,7 @@ ECM_HANDBOOK="false"
 KDE_ORG_NAME="dolphin-plugins"
 MY_PLUGIN_NAME="svn"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.64.0
+KFMIN=5.65.0
 QTMIN=5.12.3
 inherit ecm kde.org
 

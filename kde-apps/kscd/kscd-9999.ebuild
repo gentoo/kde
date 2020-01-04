@@ -5,7 +5,7 @@ EAPI=7
 
 EGIT_BRANCH="kf5"
 ECM_TEST="true"
-KFMIN=5.60.0
+KFMIN=5.65.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
