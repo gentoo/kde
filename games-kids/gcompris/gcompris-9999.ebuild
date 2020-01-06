@@ -28,17 +28,22 @@ BDEPEND="
 		sys-devel/clang
 	)
 "
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtsensors-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
+"
+RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 src_configure() {
