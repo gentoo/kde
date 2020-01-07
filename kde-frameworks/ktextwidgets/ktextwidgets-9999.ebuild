@@ -24,7 +24,6 @@ DEPEND="
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/sonnet-${PVCUT}*:5
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
