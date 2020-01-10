@@ -20,7 +20,7 @@ https://community.kde.org/Alkimia"
 
 LICENSE="LGPL-2.1"
 SLOT="0/8"
-IUSE="doc gmp plasma"
+IUSE="doc gmp plasma webkit"
 
 BDEPEND="
 	virtual/pkgconfig
@@ -31,7 +31,6 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -49,6 +48,7 @@ DEPEND="
 		>=kde-frameworks/kpackage-${KFMIN}:5
 		>=kde-frameworks/plasma-${KFMIN}:5
 	)
+	webkit? ( >=dev-qt/qtwebkit-5.212.0_pre20180120:5 )
 "
 RDEPEND="${DEPEND}"
 
@@ -57,6 +57,7 @@ src_configure() {
 		-DBUILD_DOXYGEN_DOCS=$(usex doc)
 		$(cmake_use_find_package !gmp MPIR)
 		-DBUILD_APPLETS=$(usex plasma)
+		-DBUILD_WITH_WEBKIT=$(usex webkit)
 	)
 	ecm_src_configure
 }
