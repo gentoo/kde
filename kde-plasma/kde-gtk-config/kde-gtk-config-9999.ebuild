@@ -3,14 +3,13 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional"
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="KDE Plasma systemsettings kcm to set GTK application look&feel"
+DESCRIPTION="GTK2 and GTK3 configurator for KDE Plasma"
 HOMEPAGE="https://cgit.kde.org/kde-gtk-config.git"
 
 LICENSE="GPL-3"
@@ -19,23 +18,23 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-libs/glib:2
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	gnome-base/gsettings-desktop-schemas
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-libs/glib:2
-	gnome-base/gsettings-desktop-schemas
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
-	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
