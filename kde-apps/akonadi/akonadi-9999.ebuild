@@ -47,8 +47,8 @@ COMMON_DEPEND="
 		net-libs/accounts-qt
 	)
 	sqlite? (
-		>=dev-qt/qtsql-${QTMIN}:5=[sqlite]
 		dev-db/sqlite:3
+		>=dev-qt/qtsql-${QTMIN}:5=[sqlite]
 	)
 	xml? ( dev-libs/libxml2 )
 "
@@ -59,8 +59,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kapptemplate-17.11.80
-	!kde-apps/kdepim-l10n
-	!kde-apps/kdepimlibs
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 "

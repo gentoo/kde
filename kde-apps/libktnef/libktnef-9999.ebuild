@@ -18,12 +18,10 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

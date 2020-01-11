@@ -38,6 +38,4 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-libs/grantlee-5.1.0:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

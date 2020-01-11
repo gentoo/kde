@@ -21,7 +21,7 @@ IUSE=""
 BDEPEND="
 	dev-libs/libxslt
 "
-COMMON_DEPEND="
+RDEPEND="
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -51,12 +51,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? ( >=kde-apps/kmime-${PVCUT}:5 )
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
 "
 
 src_test() {

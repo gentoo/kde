@@ -57,8 +57,6 @@ DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=media-libs/phonon-4.10.90
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"

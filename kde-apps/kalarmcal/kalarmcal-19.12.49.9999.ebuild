@@ -30,7 +30,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "
 

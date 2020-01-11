@@ -80,8 +80,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 

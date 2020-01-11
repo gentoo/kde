@@ -20,7 +20,7 @@ KEYWORDS=""
 IUSE="importwizard markdown"
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
-COMMON_DEPEND="
+RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5=
@@ -64,13 +64,8 @@ COMMON_DEPEND="
 	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:5 )
 	markdown? ( app-text/discount )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kaddressbook:4
-	!kde-apps/kdepim-l10n
-	!kde-apps/kmail:4
 "
 
 RESTRICT+=" test"

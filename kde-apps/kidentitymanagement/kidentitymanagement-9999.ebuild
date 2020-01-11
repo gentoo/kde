@@ -32,8 +32,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"

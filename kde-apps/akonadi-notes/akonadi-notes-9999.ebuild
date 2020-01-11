@@ -17,11 +17,9 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-apps/kmime-${PVCUT}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

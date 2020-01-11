@@ -33,6 +33,5 @@ DEPEND="
 	dev-libs/cyrus-sasl:2
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.07.80:5
 "

@@ -23,6 +23,4 @@ DEPEND="
 	>=kde-frameworks/kxmlrpcclient-${KFMIN}:5
 	>=kde-frameworks/syndication-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

@@ -17,20 +17,19 @@ KEYWORDS=""
 IUSE=""
 
 COMMON_DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 	!<kde-apps/kdepim-runtime-18.03.80
 "
 

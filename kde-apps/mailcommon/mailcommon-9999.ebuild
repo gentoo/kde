@@ -23,6 +23,21 @@ BDEPEND="
 	dev-libs/libxslt
 "
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5=
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/mailimporter-${PVCUT}:5
+	>=kde-apps/messagelib-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -40,25 +55,8 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/mailimporter-${PVCUT}:5
-	>=kde-apps/messagelib-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5=
-	>=dev-qt/qtxml-${QTMIN}:5
 	>=media-libs/phonon-4.10.90
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test"

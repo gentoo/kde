@@ -24,9 +24,7 @@ DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug 616808 - DavItemFetchJobTest requires D-Bus

@@ -26,6 +26,31 @@ BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
 COMMON_DEPEND="
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/akonadi-search-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kontactinterface-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/libgravatar-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
+	>=kde-apps/libksieve-${PVCUT}:5
+	>=kde-apps/libktnef-${PVCUT}:5
+	>=kde-apps/mailcommon-${PVCUT}:5
+	>=kde-apps/messagelib-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -52,31 +77,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libgravatar-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=kde-apps/libksieve-${PVCUT}:5
-	>=kde-apps/libktnef-${PVCUT}:5
-	>=kde-apps/mailcommon-${PVCUT}:5
-	>=kde-apps/messagelib-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=dev-qt/qtcore-${QTMIN}:5=
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-apps/kcalutils-${PVCUT}:5
@@ -84,8 +84,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 	>=kde-apps/kmail-account-wizard-${PVCUT}:5
 "

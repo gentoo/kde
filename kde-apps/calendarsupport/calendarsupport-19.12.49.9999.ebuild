@@ -43,6 +43,4 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/libical
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

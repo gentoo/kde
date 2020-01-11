@@ -60,8 +60,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-apps/kapptemplate-17.11.80
-	!kde-apps/kdepim-l10n
-	!kde-apps/kdepimlibs
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql )
 "

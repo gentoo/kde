@@ -23,7 +23,32 @@ IUSE=""
 BDEPEND="
 	dev-libs/libxslt
 "
-COMMON_DEPEND="
+RDEPEND="
+	dev-libs/cyrus-sasl:2
+	dev-libs/libical:=
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtnetworkauth-${QTMIN}:5
+	>=dev-qt/qtspeech-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/akonadi-notes-${PVCUT}:5
+	>=kde-apps/kalarmcal-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kdav-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kimap-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmbox-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkgapi-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -45,39 +70,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-calendar-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/kalarmcal-${PVCUT}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kdav-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kimap-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/kmbox-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/libkgapi-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtnetworkauth-${QTMIN}:5
-	>=dev-qt/qtspeech-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	dev-libs/cyrus-sasl:2
-	dev-libs/libical:=
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
-	!kde-misc/akonadi-ews
 "
 
 RESTRICT+=" test"

@@ -24,6 +24,4 @@ DEPEND="
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

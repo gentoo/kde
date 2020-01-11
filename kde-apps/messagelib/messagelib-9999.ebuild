@@ -18,6 +18,29 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
+	app-crypt/qca:2
+	>=dev-libs/grantlee-5.1.0:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
+	>=kde-apps/incidenceeditor-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kldap-${PVCUT}:5
+	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmbox-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/libgravatar-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -41,34 +64,8 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/incidenceeditor-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
-	>=kde-apps/kidentitymanagement-${PVCUT}:5
-	>=kde-apps/kldap-${PVCUT}:5
-	>=kde-apps/kmailtransport-${PVCUT}:5
-	>=kde-apps/kmbox-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libgravatar-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
-	app-crypt/qca:2
-	>=dev-libs/grantlee-5.1.0:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 # bug 579630
 RESTRICT+=" test"

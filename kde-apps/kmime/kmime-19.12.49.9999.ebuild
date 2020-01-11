@@ -18,6 +18,4 @@ DEPEND="
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

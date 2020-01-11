@@ -16,7 +16,10 @@ SLOT="5"
 KEYWORDS=""
 IUSE="+fancyviewer"
 
-COMMON_DEPEND="
+RDEPEND="
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -25,16 +28,10 @@ COMMON_DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
 	fancyviewer? ( >=kde-apps/kpimtextedit-${PVCUT}:5 )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/boost
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 "
 
 src_configure() {

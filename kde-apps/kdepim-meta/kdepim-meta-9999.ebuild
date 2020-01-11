@@ -65,7 +65,6 @@ RDEPEND="
 	>=kde-apps/pim-data-exporter-${PV}:${SLOT}
 	>=kde-apps/pim-sieve-editor-${PV}:${SLOT}
 	>=kde-apps/pimcommon-${PV}:${SLOT}
-	!kde-apps/kdepim-meta:4
 "
 # Optional runtime dependencies: kde-apps/kmail
 RDEPEND="${RDEPEND}

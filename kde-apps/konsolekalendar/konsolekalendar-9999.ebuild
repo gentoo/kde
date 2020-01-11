@@ -18,18 +18,16 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	>=kde-frameworks/kcalendarcore-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare

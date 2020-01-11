@@ -20,6 +20,22 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	dev-libs/grantlee:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-contacts-${PVCUT}:5
+	>=kde-apps/akonadi-search-${PVCUT}:5
+	>=kde-apps/grantleetheme-${PVCUT}:5
+	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
+	>=kde-apps/kontactinterface-${PVCUT}:5
+	>=kde-apps/libgravatar-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
+	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -37,25 +53,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/prison-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-contacts-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/libgravatar-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-	dev-libs/grantlee:5
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 

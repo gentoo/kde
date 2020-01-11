@@ -65,10 +65,7 @@ DEPEND="
 	app-crypt/qca:2
 	>=dev-libs/grantlee-5.1.0:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 # bug 579630
 RESTRICT+=" test"

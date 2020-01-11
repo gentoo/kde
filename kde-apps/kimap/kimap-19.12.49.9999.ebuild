@@ -17,21 +17,18 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
+	dev-libs/cyrus-sasl
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	dev-libs/cyrus-sasl
 "
 # TODO: Convince upstream not to install stuff with tests
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtnetwork-${QTMIN}:5 )
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 "
 
 src_test() {

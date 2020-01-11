@@ -17,7 +17,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-COMMON_DEPEND="
+RDEPEND="
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -35,11 +35,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/grantlee:5
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
-"
-RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 "
 
 RESTRICT+=" test"

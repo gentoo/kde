@@ -27,9 +27,7 @@ DEPEND="
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	ecm_src_prepare

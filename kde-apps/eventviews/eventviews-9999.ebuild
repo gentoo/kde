@@ -18,6 +18,17 @@ IUSE=""
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 DEPEND="
+	dev-libs/kdiagram:5
+	dev-libs/libical
+	>=dev-qt/designer-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
+	>=kde-apps/calendarsupport-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -31,18 +42,5 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/akonadi-calendar-${PVCUT}:5
-	>=kde-apps/calendarsupport-${PVCUT}:5
-	>=kde-apps/kcalutils-${PVCUT}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=dev-qt/designer-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-libs/kdiagram:5
-	dev-libs/libical
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

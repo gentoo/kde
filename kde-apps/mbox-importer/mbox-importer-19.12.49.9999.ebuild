@@ -31,7 +31,4 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
-	!kde-apps/kmail:4
-"
+RDEPEND="${DEPEND}"

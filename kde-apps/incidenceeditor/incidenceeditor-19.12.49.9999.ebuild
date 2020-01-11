@@ -52,7 +52,4 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-libs/kdiagram:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
-"
+RDEPEND="${DEPEND}"

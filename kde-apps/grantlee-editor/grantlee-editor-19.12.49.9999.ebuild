@@ -41,9 +41,4 @@ DEPEND="
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kaddressbook:4
-	!kde-apps/kdepim-common-libs:4
-	!kde-apps/kdepim-l10n
-	!kde-apps/kmail:4
-"
+RDEPEND="${DEPEND}"

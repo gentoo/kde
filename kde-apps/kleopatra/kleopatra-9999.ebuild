@@ -20,6 +20,17 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=app-crypt/gpgme-1.11.1[cxx,qt5]
+	dev-libs/boost:=
+	dev-libs/libassuan
+	dev-libs/libgpg-error
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-apps/kmime-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -34,20 +45,8 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-	dev-libs/boost:=
-	dev-libs/libassuan
-	dev-libs/libgpg-error
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
 	>=app-crypt/gnupg-2.1
 	app-crypt/paperkey
 "

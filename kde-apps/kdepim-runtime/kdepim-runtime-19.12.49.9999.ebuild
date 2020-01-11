@@ -76,7 +76,6 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-apps/kdepim-l10n
 	!kde-misc/akonadi-ews
 "
 

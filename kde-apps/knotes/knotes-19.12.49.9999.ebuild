@@ -62,7 +62,6 @@ DEPEND="
 	x11-libs/libX11
 "
 RDEPEND="${DEPEND}
-	!kde-apps/kdepim-l10n
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 
