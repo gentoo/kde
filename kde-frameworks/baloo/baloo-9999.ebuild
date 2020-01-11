@@ -15,6 +15,11 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	>=dev-db/lmdb-0.9.17
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kcrash-${PVCUT}*:5
@@ -24,14 +29,7 @@ DEPEND="
 	=kde-frameworks/kidletime-${PVCUT}*:5
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-db/lmdb-0.9.17
 "
-RDEPEND="${DEPEND}
-	!kde-frameworks/baloo:4[-minimal(+)]
-"
+RDEPEND="${DEPEND}"
 
 RESTRICT+=" test" # bug 624250
