@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="true"
-KFMIN=5.65.0
+KFMIN=5.66.0
 inherit ecm kde.org
 
 DESCRIPTION="Libary for handling mail messages and newsgroup articles"
