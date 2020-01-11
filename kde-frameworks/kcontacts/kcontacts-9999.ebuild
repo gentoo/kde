@@ -23,7 +23,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kcontacts:5
-	!kde-apps/kdepim-l10n
 	app-text/iso-codes
 "
 
