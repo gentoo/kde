@@ -12,6 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-any-r1
 
 DESCRIPTION="Framework for creation and generation of reports in multiple formats"
+HOMEPAGE="https://community.kde.org/KReport"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
