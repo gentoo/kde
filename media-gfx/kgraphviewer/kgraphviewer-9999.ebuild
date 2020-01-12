@@ -7,7 +7,7 @@ ECM_HANDBOOK="forceoptional"
 inherit ecm kde.org
 
 DESCRIPTION="Graphviz dot graph file viewer"
-HOMEPAGE="https://kde.org/applications/graphics/kgraphviewer/"
+HOMEPAGE="https://kde.org/applications/graphics/org.kde.kgraphviewer"
 [[ ${PV} != *9999* ]] && SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2 GPL-2+ LGPL-2+ LGPL-2.1+ handbook? ( FDL-1.2 )"
