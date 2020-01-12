@@ -7,17 +7,18 @@ ECM_HANDBOOK="optional"
 inherit ecm kde.org
 
 DESCRIPTION="Application to create libraries of QPainterPath objects with rendering hints"
-HOMEPAGE="https://userbase.kde.org/SymbolEditor"
+HOMEPAGE="https://kde.org/applications/graphics/org.kde.SymbolEditor
+https://userbase.kde.org/SymbolEditor"
+
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_P=SymbolEditor-${PV}
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${MY_P}.tar.bz2"
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}"/${MY_P}
 fi
 
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS=""
-IUSE=""
 
 BDEPEND="
 	sys-devel/gettext
