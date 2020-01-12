@@ -5,13 +5,12 @@ EAPI=7
 
 # ECM_HANDBOOK="true"
 ECM_TEST="forceoptional"
-KDE_APPS_MINIMAL=19.04.3
 KFMIN=5.60.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Visual database applications creator"
-HOMEPAGE="https://kde.org/applications/office/org.kde.kexi
+HOMEPAGE="https://kde.org/applications/office/org.kde.kexi http://www.kexi-project.org/
 https://userbase.kde.org/Kexi"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
