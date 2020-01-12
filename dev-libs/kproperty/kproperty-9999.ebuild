@@ -10,6 +10,7 @@ QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Property editing framework with editor widget similar to Qt Designer"
+HOMEPAGE="https://community.kde.org/KProperty"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/src/${P}.tar.xz"
@@ -18,8 +19,6 @@ fi
 
 LICENSE="LGPL-2+"
 SLOT="5/4"
-KEYWORDS=""
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
