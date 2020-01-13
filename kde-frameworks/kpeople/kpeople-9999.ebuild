@@ -20,7 +20,6 @@ DEPEND="
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kitemviews-${PVCUT}*:5
-	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
