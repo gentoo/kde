@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	dev-libs/grantlee:5
+	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
