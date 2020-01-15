@@ -72,8 +72,8 @@ COMMON_DEPEND="
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-5.99.40_beta
-		>=sys-libs/gwenhywfar-4.99.22_rc6:=[qt5]
+		>=net-libs/aqbanking-5.99.45
+		>=sys-libs/gwenhywfar-5.1.1:=[qt5]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	ofx? ( dev-libs/libofx )
