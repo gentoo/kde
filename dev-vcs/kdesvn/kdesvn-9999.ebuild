@@ -20,6 +20,9 @@ LICENSE="GPL-2"
 SLOT="5"
 IUSE="+man"
 
+BDEPEND="
+	man? ( >=kde-frameworks/kdoctools-${KFMIN}:5 )
+"
 DEPEND="
 	dev-libs/apr:1
 	dev-libs/apr-util:1
@@ -28,6 +31,7 @@ DEPEND="
 	>=dev-qt/qtsql-${QTMIN}:5[sqlite]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
+	dev-vcs/subversion
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -47,7 +51,6 @@ DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	dev-vcs/subversion
 "
 RDEPEND="${DEPEND}"
 
