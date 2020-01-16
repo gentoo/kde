@@ -136,7 +136,7 @@ _kde.org_calculate_src_uri() {
 			;;
 		kde-plasma)
 			case ${PV} in
-				5.??.[6-9]? )
+				5.??.[6-9]?* )
 					_src_uri+="unstable/plasma/$(ver_cut 1-3)/"
 					RESTRICT+=" mirror"
 					;;
