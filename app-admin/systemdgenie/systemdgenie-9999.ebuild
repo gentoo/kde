@@ -15,7 +15,6 @@ HOMEPAGE="https://cgit.kde.org/systemdgenie.git"
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE=""
 
 BDEPEND="sys-devel/gettext"
 DEPEND="
@@ -29,6 +28,6 @@ DEPEND="
 	kde-frameworks/ki18n:5
 	kde-frameworks/kwidgetsaddons:5
 	kde-frameworks/kxmlgui:5
-	sys-apps/systemd
+	sys-apps/systemd:=
 "
 RDEPEND="${DEPEND}"
