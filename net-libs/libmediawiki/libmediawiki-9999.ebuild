@@ -13,7 +13,6 @@ HOMEPAGE="https://www.digikam.org/"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -21,7 +20,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-5.0.0_pre20170128-tests-optional.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.37.0-tests-optional.patch" )
 
 src_test() {
 	# bug 646808, 662592
