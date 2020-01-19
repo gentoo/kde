@@ -21,7 +21,7 @@ HOMEPAGE="https://kde.org/ https://community.kde.org/KDEConnect"
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="app bluetooth mousepad pulseaudio sms wayland"
+IUSE="bluetooth mousepad pulseaudio sms wayland"
 
 DEPEND="
 	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
@@ -40,10 +40,11 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	app? ( >=kde-frameworks/kdeclarative-${KFMIN}:5 )
+	>=kde-frameworks/plasma-${KFMIN}:5
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
 	mousepad? (
 		x11-libs/libfakekey
@@ -56,19 +57,15 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
-	app? ( >=kde-frameworks/kirigami-${KFMIN}:5 )
-	sms? (
-		dev-libs/kpeoplevcard
-		>=kde-frameworks/kirigami-${KFMIN}:5
-	)
+	sms? ( dev-libs/kpeoplevcard )
 "
 
 RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		-DEXPERIMENTALAPP_ENABLED=$(usex app)
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake_use_find_package mousepad LibFakeKey)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
