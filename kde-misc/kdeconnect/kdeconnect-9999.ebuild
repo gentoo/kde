@@ -21,7 +21,7 @@ HOMEPAGE="https://kde.org/ https://community.kde.org/KDEConnect"
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="app bluetooth kde mousepad phonon pulseaudio sms wayland"
+IUSE="app bluetooth mousepad phonon pulseaudio sms wayland"
 
 DEPEND="
 	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
@@ -44,7 +44,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	app? ( >=kde-frameworks/kdeclarative-${KFMIN}:5 )
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
-	kde? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	mousepad? (
 		x11-libs/libfakekey
 		x11-libs/libX11
@@ -71,7 +70,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DEXPERIMENTALAPP_ENABLED=$(usex app)
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
-		$(cmake_use_find_package kde KF5Runner)
 		$(cmake_use_find_package mousepad LibFakeKey)
 		$(cmake_use_find_package phonon Phonon4Qt5)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)

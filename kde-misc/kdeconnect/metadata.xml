@@ -8,7 +8,6 @@
 	<use>
 		<flag name="app">Enable experimental kcapp frontend</flag>
 		<flag name="mousepad">Enable remote mousepad plugin using <pkg>x11-libs/libfakekey</pkg></flag>
-		<flag name="kde">Enable runner for executing commands on connected device using <pkg>kde-frameworks/krunner</pkg></flag>
 		<flag name="phonon">Enable find-my-device plugin using <pkg>media-libs/phonon</pkg></flag>
 		<flag name="pulseaudio">Enable system volume control plugin using <pkg>media-sound/pulseaudio</pkg></flag>
 		<flag name="sms">Enable SMS support using <pkg>kde-frameworks/kpeople</pkg></flag>
