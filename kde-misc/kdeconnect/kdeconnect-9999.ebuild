@@ -7,7 +7,7 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=5.60.0
+KFMIN=5.64.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
@@ -59,8 +59,8 @@ RDEPEND="${DEPEND}
 	net-fs/sshfs
 	app? ( >=kde-frameworks/kirigami-${KFMIN}:5 )
 	sms? (
-		>=kde-frameworks/kirigami-${KFMIN}:5
 		dev-libs/kpeoplevcard
+		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
 
