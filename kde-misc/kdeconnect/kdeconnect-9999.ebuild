@@ -21,7 +21,7 @@ HOMEPAGE="https://kde.org/ https://community.kde.org/KDEConnect"
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="bluetooth mousepad pulseaudio sms wayland"
+IUSE="bluetooth pulseaudio wayland X"
 
 DEPEND="
 	>=app-crypt/qca-2.1.0:2[qt5(+),ssl]
@@ -31,7 +31,6 @@ DEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -42,24 +41,26 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kpeople-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
-	mousepad? (
+	X? (
+		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libfakekey
 		x11-libs/libX11
 		x11-libs/libXtst
 	)
 	pulseaudio? ( media-libs/pulseaudio-qt )
-	sms? ( >=kde-frameworks/kpeople-${KFMIN}:5 )
 	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}
+	dev-libs/kpeoplevcard
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	net-fs/sshfs
-	sms? ( dev-libs/kpeoplevcard )
 "
 
 RESTRICT+=" test"
@@ -67,10 +68,9 @@ RESTRICT+=" test"
 src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
-		$(cmake_use_find_package mousepad LibFakeKey)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
-		-DSMSAPP_ENABLED=$(usex sms)
 		$(cmake_use_find_package wayland KF5Wayland)
+		$(cmake_use_find_package X LibFakeKey)
 	)
 
 	ecm_src_configure
