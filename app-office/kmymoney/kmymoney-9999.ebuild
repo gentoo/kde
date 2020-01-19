@@ -7,7 +7,6 @@ PYTHON_COMPAT=( python2_7 )
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KDE_APPS_MINIMAL=19.04.3
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
@@ -66,13 +65,13 @@ COMMON_DEPEND="
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	addressbook? (
 		>=kde-frameworks/kcontacts-${KFMIN}:5
-		>=kde-apps/akonadi-${KDE_APPS_MINIMAL}:5
-		>=kde-apps/kidentitymanagement-${KDE_APPS_MINIMAL}:5
+		kde-apps/akonadi:5
+		kde-apps/kidentitymanagement:5
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
-		>=net-libs/aqbanking-5.99.40_beta
-		>=sys-libs/gwenhywfar-4.99.22_rc6:=[qt5]
+		>=net-libs/aqbanking-6.0.1
+		>=sys-libs/gwenhywfar-5.1.2:=[qt5]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	ofx? ( dev-libs/libofx )
