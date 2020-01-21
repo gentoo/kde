@@ -30,3 +30,5 @@ DEPEND="
 	media-sound/fluidsynth:=
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-19.08.3-fluidsynth-2.patch" )
