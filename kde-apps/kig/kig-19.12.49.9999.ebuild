@@ -49,6 +49,7 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.12.0-boostpython.patch
 	"${FILESDIR}"/${PN}-19.08.3-pykig-python3.patch
+	"${FILESDIR}"/${PN}-19.08.3-scripter-crash.patch
 )
 
 pkg_setup() {
