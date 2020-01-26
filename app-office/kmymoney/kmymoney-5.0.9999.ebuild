@@ -25,6 +25,7 @@ fi
 LICENSE="GPL-2"
 SLOT="5"
 IUSE="activities addressbook calendar hbci holidays ofx quotes webkit weboob"
+[[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 REQUIRED_USE="weboob? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -77,8 +78,8 @@ COMMON_DEPEND="
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	ofx? ( dev-libs/libofx )
 	webkit? (
-		>=kde-frameworks/kdewebkit-${KFMIN}:5
 		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
+		>=kde-frameworks/kdewebkit-${KFMIN}:5
 	)
 	!webkit? ( >=dev-qt/qtwebengine-${QTMIN}:5[widgets] )
 	weboob? (
@@ -98,6 +99,11 @@ RDEPEND="${COMMON_DEPEND}
 pkg_setup() {
 	use weboob && python_setup
 	ecm_pkg_setup
+
+	if [[ ${KDE_BUILD_TYPE} = live ]] && use experimental; then
+		ewarn "USE experimental set: Building infinished features."
+		ewarn "This *will* chew up your data. You have been warned."
+	fi
 }
 
 src_configure() {
@@ -115,6 +121,9 @@ src_configure() {
 		-DENABLE_WEBOOB=$(usex weboob)
 		$(cmake_use_find_package weboob PythonLibs)
 	)
+	[[ ${KDE_BUILD_TYPE} = live ]] &&
+		mycmakeargs+=( -DENABLE_UNFINISHEDFEATURES=$(usex experimental) )
+
 	ecm_src_configure
 }
 
