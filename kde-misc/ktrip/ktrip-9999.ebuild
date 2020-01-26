@@ -7,8 +7,7 @@ KFMIN=5.60.0
 inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
-HOMEPAGE="https://cgit.kde.org/kpublictransport.git/tree/
-	https://www.volkerkrause.eu/2019/03/02/kpublictransport-introduction.html"
+HOMEPAGE="https://kde.org/applications/utilities/org.kde.ktrip"
 
 LICENSE="GPL-2+"
 SLOT="5"
