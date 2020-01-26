@@ -65,9 +65,9 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	addressbook? (
-		>=kde-frameworks/kcontacts-${KFMIN}:5
 		kde-apps/akonadi:5
 		kde-apps/kidentitymanagement:5
+		>=kde-frameworks/kcontacts-${KFMIN}:5
 	)
 	calendar? ( dev-libs/libical:= )
 	hbci? (
