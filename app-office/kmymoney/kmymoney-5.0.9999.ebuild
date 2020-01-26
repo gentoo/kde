@@ -101,7 +101,7 @@ pkg_setup() {
 	ecm_pkg_setup
 
 	if [[ ${KDE_BUILD_TYPE} = live ]] && use experimental; then
-		ewarn "USE experimental set: Building infinished features."
+		ewarn "USE experimental set: Building unfinished features."
 		ewarn "This *will* chew up your data. You have been warned."
 	fi
 }
