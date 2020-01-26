@@ -3,7 +3,6 @@
 
 EAPI=7
 
-KFMIN=5.60.0
 inherit ecm kde.org
 
 DESCRIPTION="Public transport assistant targeted towards mobile Linux and Android"
@@ -18,16 +17,16 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcontacts-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kitemmodels-${KFMIN}:5
+	kde-frameworks/kconfig:5
+	kde-frameworks/kcontacts:5
+	kde-frameworks/kcoreaddons:5
+	kde-frameworks/ki18n:5
+	kde-frameworks/kitemmodels:5
 	kde-misc/kpublictransport:5
 "
 RDEPEND="${DEPEND}
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtquickcontrols2:5
-	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
+	kde-frameworks/kirigami:5
+	kde-frameworks/plasma:5
 "
