@@ -57,7 +57,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( AUTHORS README TODO changelog )
+DOCS=( AUTHORS README changelog )
 
 src_configure() {
 	local mycmakeargs=(
