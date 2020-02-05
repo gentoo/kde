@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="5"
-IUSE="attica konqueror telepathy"
+IUSE="attica konqueror share telepathy"
 
 DEPEND="
 	app-crypt/qca[qt5(+)]
@@ -52,6 +52,7 @@ DEPEND="
 		>=kde-frameworks/kdewebkit-${KFMIN}:5
 		>=dev-qt/qtwebkit-5.212.0_pre20180120:5
 	)
+	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	telepathy? ( net-libs/telepathy-qt[qt5(+)] )
 "
 RDEPEND="${DEPEND}"
@@ -63,6 +64,7 @@ src_configure() {
 		$(cmake_use_find_package attica KF5Attica)
 		$(cmake_use_find_package konqueror KF5Parts)
 		$(cmake_use_find_package konqueror KF5WebKit)
+		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package telepathy TelepathyQt5)
 	)
 
