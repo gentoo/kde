@@ -28,8 +28,10 @@ DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	dev-db/sqlite:3
-	dev-python/PyQt5[gui,svg,widgets,${PYTHON_USEDEP}]
-	>=dev-python/twisted-16.6.0[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/PyQt5[gui,svg,widgets,${PYTHON_MULTI_USEDEP}]
+		>=dev-python/twisted-16.6.0[${PYTHON_MULTI_USEDEP}]
+	')
 "
 RDEPEND="${DEPEND}
 	>=kde-apps/libkmahjongg-${PVCUT}:5
