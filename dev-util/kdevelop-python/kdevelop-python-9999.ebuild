@@ -41,7 +41,9 @@ DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	dev-python/pycodestyle[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/pycodestyle[${PYTHON_MULTI_USEDEP}]
+	')
 "
 
 RESTRICT+=" test"
