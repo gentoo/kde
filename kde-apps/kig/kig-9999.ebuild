@@ -40,7 +40,11 @@ RDEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	geogebra? ( >=dev-qt/qtxmlpatterns-${QTMIN}:5 )
-	scripting? ( >=dev-libs/boost-1.48:=[python,${PYTHON_USEDEP}] )
+	scripting? (
+		$(python_gen_cond_dep '
+			>=dev-libs/boost-1.48:=[python,${PYTHON_MULTI_USEDEP}]
+		')
+	)
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
