@@ -46,7 +46,9 @@ DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/sonnet-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	dev-python/translate-toolkit[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/translate-toolkit[${PYTHON_MULTI_USEDEP}]
+	')
 "
 
 pkg_setup() {
