@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde.org
+inherit kde.org cmake
 
 DESCRIPTION="Shared icons, artwork and data files for educational applications"
 
