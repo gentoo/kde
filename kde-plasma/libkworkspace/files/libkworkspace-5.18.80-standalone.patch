@@ -1,14 +1,14 @@
-From 04f6a5fed3df9b1443159befd8e17ac6cd797916 Mon Sep 17 00:00:00 2001
+From 34cbb4d2482c0df07bf9cd376e30ed878ed44b9f Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sun, 2 Feb 2020 18:29:57 +0100
 Subject: [PATCH] libkworkspace: Allow standalone build
 
 ---
- CMakeLists.txt | 70 +++++++++++++++++++++++++++++++++---
- 1 file changed, 66 insertions(+), 4 deletions(-)
+ CMakeLists.txt | 71 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 67 insertions(+), 4 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index a1869fae2..c7768ce17 100644
+index a1869fae2..8de7a5c28 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,3 +1,56 @@
@@ -39,7 +39,7 @@ index a1869fae2..c7768ce17 100644
 +    include(ECMMarkAsTest)
 +    include(GenerateExportHeader)
 +
-+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n Plasma WindowSystem)
++    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n Init Plasma WindowSystem)
 +
 +    find_package(KWinDBusInterface CONFIG REQUIRED)
 +    find_package(KScreenLocker 5.13.80 REQUIRED)
@@ -68,12 +68,13 @@ index a1869fae2..c7768ce17 100644
  
  set(kworkspace_LIB_SRCS kdisplaymanager.cpp
                          kworkspace.cpp
-@@ -16,9 +69,17 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+@@ -16,9 +69,18 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KINIT_DBUS_INTERFACES_DIR}/kf5_org.kde.KLauncher.xml klauncher_interface)
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.ScreenSaver.xml screenlocker_interface )
  qt5_add_dbus_interface(kworkspace_LIB_SRCS ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/org.kde.screensaver.xml kscreenlocker_interface )
 +if(${CMAKE_SOURCE_DIR} STREQUAL ${libkworkspace_SOURCE_DIR})
 +qt5_add_dbus_interface(kworkspace_LIB_SRCS ../ksmserver/org.kde.LogoutPrompt.xml logoutprompt_interface)
++qt5_add_dbus_interface(kworkspace_LIB_SRCS ../startkde/plasma-session/org.kde.Startup.xml startup_interface)
 +qt5_add_dbus_interface(kworkspace_LIB_SRCS ../startkde/plasma-session/org.kde.Shutdown.xml shutdown_interface)
 +set(ksmserver_xml ../ksmserver/org.kde.KSMServerInterface.xml)
 +else()
@@ -86,7 +87,7 @@ index a1869fae2..c7768ce17 100644
  
  set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/org.freedesktop.login1.Manager.xml"
                              "${CMAKE_SOURCE_DIR}/data/interfaces/org.freedesktop.login1.Seat.xml"
-@@ -34,11 +95,7 @@ list(APPEND kworkspace_LIB_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/login1_manager_inte
+@@ -34,11 +96,7 @@ list(APPEND kworkspace_LIB_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/login1_manager_inte
  qt5_add_dbus_interface(kworkspace_LIB_SRCS "org.freedesktop.UPower.xml" upower_interface)
  qt5_add_dbus_interface(kworkspace_LIB_SRCS "org.freedesktop.ConsoleKit.Manager.xml" consolekit_manager_interface)
  
@@ -98,7 +99,7 @@ index a1869fae2..c7768ce17 100644
  qt5_add_dbus_interface( kworkspace_LIB_SRCS ${KWIN_INTERFACE} kwin_interface )
  
  
-@@ -105,3 +162,8 @@ if(BUILD_TESTING)
+@@ -105,3 +163,8 @@ if(BUILD_TESTING)
      add_subdirectory(autotests)
      add_subdirectory(tests)
  endif()
