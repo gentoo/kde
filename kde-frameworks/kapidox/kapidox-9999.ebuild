@@ -14,9 +14,11 @@ IUSE=""
 
 RDEPEND="
 	app-doc/doxygen
-	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
-	media-gfx/graphviz[python,${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/jinja[${PYTHON_MULTI_USEDEP}]
+		dev-python/pyyaml[${PYTHON_MULTI_USEDEP}]
+	')
+	media-gfx/graphviz[python,${PYTHON_SINGLE_USEDEP}]
 "
 
 pkg_setup() {
