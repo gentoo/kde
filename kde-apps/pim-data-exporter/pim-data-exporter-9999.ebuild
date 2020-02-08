@@ -17,7 +17,7 @@ HOMEPAGE+=" https://userbase.kde.org/Kmail/Backup_Options"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="feedback"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -43,5 +43,14 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	feedback? ( dev-libs/kuserfeedback:5 )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package feedback KUserFeedback)
+	)
+
+	ecm_src_configure
+}
