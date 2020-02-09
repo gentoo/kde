@@ -6,6 +6,6 @@
 		<name>Gentoo KDE Project</name>
 	</maintainer>
 	<use>
-		<flag name="caps">Enable capabilities support for per-process network usage stats</flag>
+		<flag name="pcap">Enable per-process network statistic collection using <pkg>net-libs/libpcap</pkg></flag>
 	</use>
 </pkgmetadata>
