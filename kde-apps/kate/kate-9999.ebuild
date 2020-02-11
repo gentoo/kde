@@ -19,7 +19,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE="activities feedback +filebrowser lspclient +projects plasma +snippets sql"
 
+# only addons/externaltools depends on kiconthemes, too small for USE
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -40,10 +45,6 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	activities? ( >=kde-frameworks/kactivities-${KFMIN}:5 )
 	feedback? ( dev-libs/kuserfeedback:5 )
 	filebrowser? ( >=kde-frameworks/kbookmarks-${KFMIN}:5 )
@@ -55,8 +56,8 @@ DEPEND="
 	)
 	snippets? ( >=kde-frameworks/knewstuff-${KFMIN}:5 )
 	sql? (
-		>=kde-frameworks/kwallet-${KFMIN}:5
 		>=dev-qt/qtsql-${QTMIN}:5
+		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 "
 RDEPEND="${DEPEND}
