@@ -53,6 +53,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-19.12.2-darkbackground-detect.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package X X11)
