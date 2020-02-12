@@ -6,7 +6,7 @@ EAPI=7
 inherit kde.org cmake xdg
 
 DESCRIPTION="Simple tag editor based on Qt"
-HOMEPAGE="https://kid3.sourceforge.io/"
+HOMEPAGE="https://kid3.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
