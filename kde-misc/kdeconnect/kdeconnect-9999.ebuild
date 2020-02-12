@@ -17,8 +17,8 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
-HOMEPAGE="https://kde.org/applications/internet/org.kde.kdeconnect.kcm
-https://community.kde.org/KDEConnect"
+HOMEPAGE="https://kdeconnect.kde.org/
+https://kde.org/applications/internet/org.kde.kdeconnect.kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"
