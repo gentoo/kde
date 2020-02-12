@@ -4,7 +4,7 @@
 EAPI=7
 
 ECM_TEST="forceoptional-recursive"
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
