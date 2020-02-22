@@ -44,7 +44,7 @@ DEPEND="
 	media-libs/phonon[qt5(+)]
 	virtual/jpeg:0
 	kipi? ( kde-apps/libkipi:5= )
-	map? ( kde-apps/libkgeomap:5 )
+	map? ( kde-apps/marble:5 )
 	raw? ( kde-apps/libkdcraw:5 )
 	share? ( >=kde-frameworks/kxmlgui-${KFMIN}:5 )
 "
@@ -58,7 +58,7 @@ DOCS=( ChangeLog README.md )
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package kipi KF5Kipi)
-		$(cmake_use_find_package map KF5KGeoMap)
+		$(cmake_use_find_package map Marble)
 		$(cmake_use_find_package raw KF5KDcraw)
 		$(cmake_use_find_package share KF5Purpose)
 	)
