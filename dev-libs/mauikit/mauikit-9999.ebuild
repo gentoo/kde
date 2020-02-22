@@ -23,7 +23,6 @@ DEPEND="
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/attica-${KFMIN}:5
