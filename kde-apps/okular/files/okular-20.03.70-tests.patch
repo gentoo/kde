@@ -58,7 +58,7 @@ index 6b0b8efc7..25fd6631a 100644
 @@ -34,7 +34,7 @@ void ChmGeneratorTest::initTestCase()
  {
      Okular::SettingsCore::instance( QStringLiteral("ChmGeneratorTest") );
-     m_document = new Okular::Document( 0 );
+     m_document = new Okular::Document( nullptr );
 -    const QString testFile = QStringLiteral(KDESRCDIR "autotests/data/test.chm");
 +    const QString testFile = QStringLiteral(KDESRCDIR "data/test.chm");
      QMimeDatabase db;
