@@ -20,6 +20,11 @@ KEYWORDS=""
 IUSE="chm crypt djvu epub +image-backend markdown mobi mobile +pdf plucker +postscript share speech +tiff"
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
@@ -34,24 +39,19 @@ DEPEND="
 	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
-	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	media-libs/freetype
 	media-libs/phonon[qt5(+)]
 	sys-libs/zlib
 	chm? (
-		>=kde-frameworks/khtml-${KFMIN}:5
 		dev-libs/chmlib
+		>=kde-frameworks/khtml-${KFMIN}:5
 	)
 	crypt? ( app-crypt/qca:2[qt5(+)] )
 	djvu? ( app-text/djvu )
 	epub? ( app-text/ebook-tools )
 	image-backend? (
-		>=kde-apps/libkexiv2-${PVCUT}:5
 		>=dev-qt/qtgui-${QTMIN}:5[gif,jpeg,png]
+		>=kde-apps/libkexiv2-${PVCUT}:5
 	)
 	markdown? ( app-text/discount )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
@@ -65,8 +65,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	image-backend? ( >=kde-frameworks/kimageformats-${KFMIN}:5 )
 	mobile? (
-		>=kde-frameworks/kirigami-${KFMIN}:5
 		>=dev-qt/qtquickcontrols-${QTMIN}:5
+		>=kde-frameworks/kirigami-${KFMIN}:5
 	)
 "
 
