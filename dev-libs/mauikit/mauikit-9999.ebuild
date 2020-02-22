@@ -32,6 +32,7 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
