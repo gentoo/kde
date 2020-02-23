@@ -12,9 +12,13 @@ DESCRIPTION="Powerful batch file renamer"
 HOMEPAGE="https://kde.org/applications/utilities/org.kde.krename
 https://userbase.kde.org/KRename"
 
+if [[ ${KDE_BUILD_TYPE} != live ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~x86"
+fi
+
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS=""
 IUSE="exif office pdf taglib truetype"
 
 BDEPEND="sys-devel/gettext"
