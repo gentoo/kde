@@ -17,7 +17,7 @@ DESCRIPTION="Library for managing partitions"
 HOMEPAGE="https://kde.org/applications/system/org.kde.partitionmanager"
 
 LICENSE="GPL-3"
-SLOT="5/8"
+SLOT="5/9"
 IUSE=""
 
 BDEPEND="virtual/pkgconfig"
