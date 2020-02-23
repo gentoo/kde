@@ -18,6 +18,11 @@ KEYWORDS=""
 IUSE="editor solver"
 
 DEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtscript-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
@@ -31,15 +36,10 @@ DEPEND="
 	>=kde-frameworks/kunitconversion-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtscript-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	editor? (
-		>=kde-frameworks/knewstuff-${KFMIN}:5
 		>=dev-qt/qtopengl-${QTMIN}:5
 		dev-cpp/eigen:3
+		>=kde-frameworks/knewstuff-${KFMIN}:5
 		sci-chemistry/openbabel
 		sci-libs/avogadrolibs[qt5]
 	)
