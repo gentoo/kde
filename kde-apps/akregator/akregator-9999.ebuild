@@ -16,7 +16,7 @@ HOMEPAGE="https://kde.org/applications/internet/org.kde.akregator"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="feedback"
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -49,7 +49,16 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/syndication-${KFMIN}:5
+	feedback? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${RDEPEND}
 	dev-libs/grantlee:5
 "
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package feedback KUserFeedback)
+	)
+
+	ecm_src_configure
+}
