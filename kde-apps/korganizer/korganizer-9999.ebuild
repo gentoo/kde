@@ -17,7 +17,7 @@ HOMEPAGE="https://kde.org/applications/office/org.kde.korganizer"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE="X"
+IUSE="feedback X"
 
 BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
@@ -69,6 +69,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	feedback? ( dev-libs/kuserfeedback:5 )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -88,6 +89,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package feedback KUserFeedback)
 		$(cmake_use_find_package X X11)
 	)
 

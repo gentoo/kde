@@ -5,4 +5,7 @@
 		<email>kde@gentoo.org</email>
 		<name>Gentoo KDE Project</name>
 	</maintainer>
+	<use>
+		<flag name="feedback">Send anonymized usage information to KDE so they can better understand our users</flag>
+	</use>
 </pkgmetadata>
