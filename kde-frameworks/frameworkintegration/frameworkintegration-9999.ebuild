@@ -13,7 +13,7 @@ DESCRIPTION="Framework for integrating Qt applications with KDE Plasma workspace
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="appstream"
+IUSE=""
 
 # drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
 RDEPEND="
@@ -25,23 +25,19 @@ RDEPEND="
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/knewstuff-${PVCUT}*:5
 	=kde-frameworks/knotifications-${PVCUT}*:5
-	appstream? (
-		app-admin/packagekit-qt
-		dev-libs/appstream[qt5]
-	)
 "
 DEPEND="${RDEPEND}
 	=kde-frameworks/kpackage-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 
-# requires running kde environment
+# requires running Plasma environment
 RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package appstream AppStreamQt)
-		$(cmake_use_find_package appstream packagekitqt5)
+		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
 	)
 
 	ecm_src_configure
