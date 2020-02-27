@@ -16,9 +16,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="experimental"
 
-BDEPEND="
-	dev-util/intltool
-"
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -49,12 +46,11 @@ RDEPEND="${COMMON_DEPEND}
 	net-im/telepathy-connection-managers
 "
 
-src_prepare() {
-	if use experimental; then
-		mv data/kaccounts/disabled/*.in data/kaccounts/ || \
-			die "couldn't enable experimental services"
-	fi
-	ecm_src_prepare
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_DISABLED_PROVIDERS=$(usex experimental)
+	)
+	ecm_src_configure
 }
 
 pkg_postinst() {
