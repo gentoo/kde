@@ -20,17 +20,18 @@ BDEPEND="
 	dev-util/intltool
 "
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-apps/kaccounts-integration-${PVCUT}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-apps/kaccounts-integration-${PVCUT}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 "
 RDEPEND="${DEPEND}
-	net-libs/signon-ui
 	net-libs/signon-oauth2
+	net-libs/signon-ui
 "
