@@ -18,7 +18,7 @@ https://kontact.kde.org/components/kmail.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS=""
-IUSE=""
+IUSE="feedback"
 
 # drop qtcore subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
@@ -77,6 +77,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
+	feedback? ( dev-libs/kuserfeedback:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-apps/kcalutils-${PVCUT}:5
@@ -96,6 +97,14 @@ src_prepare() {
 	if ! use handbook; then
 		sed -i ktnef/CMakeLists.txt -e "/add_subdirectory(doc)/ s/^/#DONT/" || die
 	fi
+}
+
+src_configure() {
+	local mycmakeargs=(
+		$(cmake_use_find_package feedback KUserFeedback)
+	)
+
+	ecm_src_configure
 }
 
 pkg_postinst() {
