@@ -54,7 +54,10 @@ DEPEND="
 	mtp? ( >=media-libs/libmtp-1.1.16:= )
 	openexr? ( media-libs/openexr:= )
 	phonon? ( media-libs/phonon[qt5(+)] )
-	samba? ( net-fs/samba[client] )
+	samba? (
+		net-fs/samba[client]
+		net-libs/kdsoap-ws-discovery-client
+	)
 	sftp? ( net-libs/libssh:=[sftp] )
 	taglib? ( >=media-libs/taglib-1.11.1 )
 	X? (
@@ -71,6 +74,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_KDSoapWSDiscoveryClient=OFF # disable bundled stuff
 		$(cmake_use_find_package activities KF5Activities)
 		$(cmake_use_find_package activities KF5ActivitiesStats)
 		$(cmake_use_find_package man Gperf)
