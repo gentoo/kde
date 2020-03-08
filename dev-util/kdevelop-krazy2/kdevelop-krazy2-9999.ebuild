@@ -19,17 +19,17 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtwidgets-${QTMIN}:5
+	dev-util/kdevelop:5=
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/ktexteditor-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
-	dev-util/kdevelop:5=
 "
 DEPEND="${RDEPEND}
-	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 	>=kde-frameworks/threadweaver-${KFMIN}:5
 "
