@@ -44,8 +44,8 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	net-misc/networkmanager[teamd=]
 	modemmanager? (
-		>=kde-frameworks/modemmanager-qt-${KFMIN}:5
 		>=dev-qt/qtxml-${QTMIN}:5
+		>=kde-frameworks/modemmanager-qt-${KFMIN}:5
 		net-misc/mobile-broadband-provider-info
 	)
 	openconnect? (
@@ -57,6 +57,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
