@@ -31,6 +31,7 @@ BDEPEND="
 	sys-devel/gettext
 "
 COMMON_DEPEND="
+	dev-lang/perl
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -41,7 +42,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	dev-lang/perl
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
