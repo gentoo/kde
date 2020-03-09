@@ -113,6 +113,10 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	calligra_features_karbon? ( media-gfx/pstoedit[plotutils] )
+	gemini? (
+		>=dev-qt/qtquickcontrols2-${QTMIN}:5
+		>=kde-frameworks/kirigami-${KFMIN}:5
+	)
 "
 RESTRICT+=" test"
 
