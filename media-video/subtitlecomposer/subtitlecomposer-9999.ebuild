@@ -15,7 +15,7 @@ HOMEPAGE="https://github.com/maxrd2/subtitlecomposer"
 LICENSE="GPL-2"
 SLOT="5"
 KEYWORDS=""
-IUSE="gstreamer libav mpv unicode xine"
+IUSE="libav unicode"
 
 BDEPEND="
 	sys-devel/gettext
@@ -36,32 +36,17 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	media-libs/phonon[qt5(+)]
-	gstreamer? (
-		dev-libs/glib:2
-		media-libs/gstreamer:1.0
-		media-libs/gst-plugins-base:1.0
-	)
+	media-libs/qtav:=
 	libav? ( media-video/libav:= )
 	!libav? ( media-video/ffmpeg:0= )
-	mpv? ( media-video/mpv )
 	unicode? ( dev-libs/icu:= )
-	xine? (
-		media-libs/xine-lib
-		x11-libs/libX11
-		x11-libs/libxcb
-	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PocketSphinx=ON # bug 616706
-		$(cmake_use_find_package gstreamer GStreamer)
-		$(cmake_use_find_package mpv MPV)
 		$(cmake_use_find_package unicode ICU)
-		$(cmake_use_find_package xine Xine)
-		$(cmake_use_find_package xine X11)
 	)
 
 	ecm_src_configure
