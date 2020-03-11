@@ -60,11 +60,7 @@ DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
-PATCHES=(
-	# TODO: upstream
-	"${FILESDIR}/${PN}-2.49b-xdg_mime_install_dir.patch"
-	"${FILESDIR}/${PN}-2.49b-libgit2-0.99-compat.patch" # bug #710832
-)
+PATCHES=( "${FILESDIR}/${PN}-2.49b-xdg_mime_install_dir.patch" ) # TODO: upstream
 
 src_prepare() {
 	ecm_src_prepare
