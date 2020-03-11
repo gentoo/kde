@@ -3,7 +3,7 @@
 
 EAPI=7
 
-KFMIN=5.66.0
+KFMIN=5.68.0
 PLASMA_MINIMAL=5.16.5
 QTMIN=5.12.3
 inherit ecm kde.org
