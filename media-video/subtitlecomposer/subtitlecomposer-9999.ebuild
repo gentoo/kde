@@ -3,7 +3,7 @@
 
 EAPI=7
 
-ECM_TEST="forceoptional"
+ECM_TEST="forceoptional-recursive"
 KFMIN=5.60.0
 QTMIN=5.12.3
 VIRTUALX_REQUIRED="test"
