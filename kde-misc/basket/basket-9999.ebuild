@@ -60,8 +60,6 @@ DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-2.49b-xdg_mime_install_dir.patch" ) # TODO: upstream
-
 src_prepare() {
 	ecm_src_prepare
 	if ! use test; then
