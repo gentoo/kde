@@ -146,6 +146,7 @@
 ~kde-apps/plasma-telepathy-meta-9999 **
 ~kde-apps/signon-kwallet-extension-9999 **
 ~kde-apps/zeroconf-ioslave-9999 **
+~kde-misc/kdeconnect-9999 **
 ~kde-apps/akonadi-9999 **
 ~kde-apps/akonadi-calendar-9999 **
 ~kde-apps/akonadi-contacts-9999 **
