@@ -7,14 +7,9 @@ ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=5.64.0
+KFMIN=5.68.0
 QTMIN=5.12.3
 inherit ecm kde.org
-
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${KDE_ORG_NAME}-${PV}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://kdeconnect.kde.org/
@@ -22,6 +17,7 @@ https://kde.org/applications/internet/org.kde.kdeconnect.kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"
+KEYWORDS=""
 IUSE="bluetooth pulseaudio wayland X"
 
 DEPEND="
