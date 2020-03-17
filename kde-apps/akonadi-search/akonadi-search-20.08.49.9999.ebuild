@@ -18,6 +18,8 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
+RESTRICT+=" test" # perpetually broken, bug 662378
+
 BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
