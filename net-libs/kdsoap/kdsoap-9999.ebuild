@@ -14,7 +14,7 @@ fi
 inherit cmake
 
 DESCRIPTION="Qt-based client-side and server-side SOAP component"
-HOMEPAGE="https://github.com/KDAB/KDSoap/"
+HOMEPAGE="https://www.kdab.com/development-resources/qt-tools/kd-soap/"
 
 LICENSE="GPL-3 AGPL-3"
 SLOT="0"
