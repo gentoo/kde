@@ -18,6 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
+	dev-cpp/glibmm:2
 	dev-libs/glib:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
