@@ -39,8 +39,8 @@ DEPEND="${RDEPEND}
 RESTRICT+=" test"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch
-	"${FILESDIR}"/${PN}-0.2_pre20200317-deps.patch
+	"${FILESDIR}"/${P}-no-install-docs.patch
+	"${FILESDIR}"/${P}-deps.patch
 )
 
 src_prepare() {
