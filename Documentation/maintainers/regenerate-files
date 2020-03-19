@@ -15,11 +15,8 @@ KF_RELEASE=${KF_RELEASE:-5.67}
 PLASMA_RELEASES="5.17 5.18"
 PLASMA_RELEASE=${PLASMA_RELEASE:-5.17}
 
-APPS_RELEASES="19.08"
-APPS_RELEASE=${APPS_RELEASE:-19.08}
-
 SERVICE_RELEASES="19.12 20.04"
-# SERVICE_RELEASE=${SERVICE_RELEASE:-19.12}
+SERVICE_RELEASE=${SERVICE_RELEASE:-19.12}
 
 # regenerate keywords
 pushd ../package.accept_keywords/ > /dev/null
@@ -37,32 +34,10 @@ for release in $PLASMA_RELEASES; do
 	fi
 done
 
-for release in $APPS_RELEASES; do
-	echo -e "${HEADER}" > "kde-applications-${release}.keywords"
-	if [[ -d ".kde-applications-${release}" ]]; then
-		cat ".kde-applications-${release}/"* | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-applications-${release}.keywords"
-	fi
-done
-
 for release in $SERVICE_RELEASES; do
 	echo -e "${HEADER}" > "kde-release-service-${release}.keywords"
 	if [[ -d ".kde-release-service-${release}" ]]; then
 		cat ".kde-release-service-${release}/"* | sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' >> "kde-release-service-${release}.keywords"
-	fi
-done
-
-# ... and for completely unkeyworded packages, add "**"
-for release in $APP_RELEASES; do
-	if [[ -d ".kde-applications-${release}" ]]; then
-		rm -rf ".kde-applications-${release}.49.9999"
-		mkdir -p ".kde-applications-${release}.49.9999"
-		echo -e "${HEADER}" > "kde-applications-${release}.49.9999.keywords"
-		for file in ".kde-applications-${release}"/*; do
-			newfile=".kde-applications-${release}.49.9999"/$(basename "${file}")
-			sed "/^<kde-apps\/.*\.50$/{s/\.50/.49.9999/;s/^</~/};/^~.*[.-]9999$/s/$/ **/" "${file}" > "${newfile}"
-			# echo "${newfile}"
-		done
-		cat ".kde-applications-${release}.49.9999"/* >> "kde-applications-${release}.49.9999.keywords"
 	fi
 done
 
@@ -103,17 +78,6 @@ if [[ -d .kde-plasma-live.base ]]; then
 	cat .kde-plasma-live/* >> kde-plasma-live.keywords
 fi
 
-if [[ -d .kde-applications-live.base ]]; then
-	rm -rf .kde-applications-live
-	mkdir -p .kde-applications-live
-	echo -e "${HEADER}" > kde-applications-live.keywords
-	for file in .kde-applications-live.base/*; do
-		newfile=.kde-applications-live/$(basename "${file}")
-		sed -e '/^~.*[.-]9999$/s/$/ **/' -e '/^@/d' "${file}" > "${newfile}"
-	done
-	cat .kde-applications-live/* >> kde-applications-live.keywords
-fi
-
 if [[ -d .kde-release-service-live.base ]]; then
 	rm -rf .kde-release-service-live
 	mkdir -p .kde-release-service-live
@@ -150,14 +114,6 @@ for release in $PLASMA_RELEASES live; do
 	fi
 done
 
-for release in $APPS_RELEASES live; do
-	echo -e "${HEADER}" > "kde-applications-${release}"
-	if [[ -d ".kde-applications-${release}" ]]; then
-		cat ".kde-applications-${release}/"* >> "kde-applications-${release}"
-		sed -i "kde-applications-${release}" -e "/^@/d"
-	fi
-done
-
 for release in $SERVICE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-release-service-${release}"
 	if [[ -d ".kde-release-service-${release}" ]]; then
@@ -185,14 +141,6 @@ for release in $PLASMA_RELEASES live; do
 	fi
 done
 
-for release in $APPS_RELEASES live; do
-	echo -e "${HEADER}" > "kde-applications-${release}"
-	if [[ -d "../package.unmask/.kde-applications-${release}" ]]; then
-		cat "../package.unmask/.kde-applications-${release}/"* >> "kde-applications-${release}"
-		sed -i "kde-applications-${release}" -e "/^<kde-applications\/.*-14\..\.50:5$/{s/-14\..\.50/-${release}/;s/^</>=/}" -e '/^@/d'
-	fi
-done
-
 for release in $SERVICE_RELEASES live; do
 	echo -e "${HEADER}" > "kde-release-service-${release}"
 	if [[ -d "../package.unmask/.kde-release-service-${release}" ]]; then
@@ -216,18 +164,11 @@ for set in *plasma-${PLASMA_RELEASE}; do
 	sed -r "/@/s/-${PLASMA_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-plasma/@s/-(9999|${PLASMA_RELEASE}\.50)//" "${set}" >> "${newfile}"
 done
 
-for set in *-${APPS_RELEASE}; do
-	newfile=${set/%-${APPS_RELEASE}}
+for set in *-${SERVICE_RELEASE}; do
+	newfile=${set/%-${SERVICE_RELEASE}}
 	echo -e "${HEADER}" > "${newfile}"
-	# TODO bring back slots when KDE Application is fully migrated
-	sed -r "/@/s/-${APPS_RELEASE}//g;/9999$/s/~//;s/<//;\@kde-apps/@s/-(9999|${APPS_RELEASE}\.50)//" "${set}" >> "${newfile}"
+	sed -r "/@/s/-${SERVICE_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${SERVICE_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
 done
-
-# for set in *-${SERVICE_RELEASE}; do
-# 	newfile=${set/%-${SERVICE_RELEASE}}
-# 	echo -e "${HEADER}" > "${newfile}"
-# 	sed -r "/@/s/-${SERVICE_RELEASE}//g;/9999$/s/~//;s/<//;\@[a-z-]+/@s/-(9999|${SERVICE_RELEASE}\.50)/:5/" "${set}" >> "${newfile}"
-# done
 popd > /dev/null
 
 # regenerate CONTRIBUTORS file
