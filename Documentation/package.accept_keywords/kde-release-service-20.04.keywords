@@ -238,4 +238,5 @@
 <kde-apps/print-manager-20.04.50
 <kde-apps/sweeper-20.04.50
 <kde-apps/yakuake-20.04.50
-=media-libs/mlt-6.20.0
+~net-libs/kdsoap-1.9.50_pre20200317
+~net-libs/kdsoap-ws-discovery-client-0.2_pre20200317
