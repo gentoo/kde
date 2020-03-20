@@ -17,7 +17,7 @@ https://kde.org/applications/internet/org.kde.kdeconnect.kcm"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="bluetooth pulseaudio wayland X"
 
 DEPEND="
