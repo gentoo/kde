@@ -4,6 +4,7 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
+ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
 KFMIN=5.68.0
 QTMIN=5.12.3
@@ -52,8 +53,11 @@ DEPEND="${RDEPEND}
 	>=kde-frameworks/kdelibs4support-${KFMIN}:5
 "
 
+PATCHES=( "${FILESDIR}/${PN}-20.03.80-build-qch.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON # broken, re-enable w/ ECM_QTHELP
 		-DBUILD_KF5=ON
 		-DBUILD_PHP_IMPORT=$(usex php)
 		-DBUILD_unittests=$(usex test)
