@@ -16,7 +16,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS=""
-IUSE="caps gles2 multimedia"
+IUSE="caps gles2-only multimedia"
 
 COMMON_DEPEND="
 	>=kde-frameworks/kactivities-${KFMIN}:5
@@ -48,7 +48,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[gles2=]
+	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=]
 	>=dev-qt/qtscript-${QTMIN}:5
 	>=dev-qt/qtsensors-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -58,7 +58,7 @@ COMMON_DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/libepoxy
-	media-libs/mesa[egl,gbm,gles2?,wayland,X(+)]
+	media-libs/mesa[egl,gbm,wayland,X(+)]
 	virtual/libudev:=
 	x11-libs/libICE
 	x11-libs/libSM
@@ -72,6 +72,7 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	caps? ( sys-libs/libcap )
+	gles2-only? ( media-libs/mesa[gles2] )
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5

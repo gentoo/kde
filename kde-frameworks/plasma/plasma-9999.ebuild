@@ -13,7 +13,7 @@ DESCRIPTION="Plasma framework"
 
 LICENSE="LGPL-2+"
 KEYWORDS=""
-IUSE="gles2 wayland X"
+IUSE="gles2-only wayland X"
 
 # drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
@@ -22,7 +22,7 @@ BDEPEND="
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[gles2=]
+	>=dev-qt/qtgui-${QTMIN}:5=[gles2-only=]
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
@@ -45,7 +45,7 @@ RDEPEND="
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
-	!gles2? ( virtual/opengl )
+	!gles2-only? ( virtual/opengl )
 	wayland? (
 		=kde-frameworks/kwayland-${PVCUT}*:5
 		media-libs/mesa[egl]
