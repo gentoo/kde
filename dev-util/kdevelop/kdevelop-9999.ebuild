@@ -138,4 +138,8 @@ pkg_postinst() {
 	if ! has_version "dev-util/clazy" ; then
 		elog "For static C++ Qt code analysis support, please install dev-util/clazy"
 	fi
+
+	if ! has_version ">=dev-util/meson-0.51" ; then
+		elog "For the Meson Project manager plugin, please install dev-util/meson"
+	fi
 }
