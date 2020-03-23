@@ -25,6 +25,6 @@ RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug 650216, 653186, 697866
-	local myctestargs=( -E "(kdatecomboboxtest|ktooltipwidgettest|ksqueezedtextlabelautotest)" )
+	local myctestargs=( -E "(kdatecomboboxtest|ksqueezedtextlabelautotest)" )
 	ecm_src_test
 }
