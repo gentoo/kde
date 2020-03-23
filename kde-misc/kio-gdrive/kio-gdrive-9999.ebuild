@@ -29,7 +29,7 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	kaccounts? ( kde-apps/kaccounts-integration:5 )
+	kaccounts? ( >=kde-apps/kaccounts-integration-20.03.80:5 )
 	!kaccounts? ( dev-libs/qtkeychain:=[qt5(+)] )
 "
 DEPEND="${RDEPEND}
