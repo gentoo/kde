@@ -38,10 +38,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT+=" test"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch
-	"${FILESDIR}"/${PN}-0.2_pre20200317-deps.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-0.2_pre20200317-no-install-docs.patch )
 
 src_prepare() {
 	ecm_src_prepare
