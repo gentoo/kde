@@ -45,12 +45,4 @@ pkg_setup() {
 src_prepare() {
 	python_fix_shebang src
 	ecm_src_prepare
-	sed -i -e "/KDE_ADD_PYTHON_EXECUTABLE/s/^/#DONT/" CMakeLists.txt || die
-}
-
-src_install() {
-	ecm_src_install
-	dosym ../share/kajongg/kajongg.py /usr/bin/kajongg
-	dosym ../share/kajongg/kajonggserver.py /usr/bin/kajonggserver
-	fperms a+x /usr/share/kajongg/kajongg{,server}.py
 }
