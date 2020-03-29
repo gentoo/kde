@@ -5,7 +5,7 @@ EAPI=7
 
 KFMIN=9999
 PVCUT=$(ver_cut 1-3)
-QTMIN=5.12.3
+QTMIN=5.14.1
 inherit ecm kde.org
 
 DESCRIPTION="Plasma crash handler, gives the user feedback if a program crashed"
