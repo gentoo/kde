@@ -10,9 +10,12 @@ inherit ecm kde.org toolchain-funcs
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	MY_PV=${PV/_/-}
 	MY_P=${PN}-${MY_PV}
-	SRC_BRANCH=stable
-	[[ ${PV} =~ beta[0-9]$ ]] && SRC_BRANCH=unstable
-	SRC_URI="mirror://kde/${SRC_BRANCH}/digikam/${PV}/${MY_P}.tar.xz"
+	if [[ ${PV} =~ beta[0-9]$ ]]; then
+		SRC_URI="mirror://kde/unstable/${PN}/"
+	else
+		SRC_URI="mirror://kde/unstable/${PN}/${PV}/"
+	fi
+	SRC_URI+="${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${MY_P}"
 fi
