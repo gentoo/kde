@@ -25,6 +25,7 @@ DEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/akonadi-notes-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kdepim-apps-libs-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
