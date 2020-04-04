@@ -18,15 +18,16 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtcore subslot operator when QT_MINIMAL >= 5.15.0
 BDEPEND="
 	dev-libs/libxslt
 "
 DEPEND="
+	>=dev-qt/qtcore-${QTMIN}:5=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
