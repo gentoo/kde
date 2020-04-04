@@ -20,14 +20,13 @@ SLOT="5"
 KEYWORDS=""
 IUSE="feedback"
 
-# drop qtcore subslot operator when QT_MINIMAL >= 5.14.0
 BDEPEND="
 	dev-libs/libxslt
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
 COMMON_DEPEND="
 	>=app-crypt/gpgme-1.11.1[cxx,qt5]
-	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
