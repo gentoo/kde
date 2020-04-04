@@ -20,11 +20,10 @@ IUSE="appstream +calendar feedback geolocation gps qalculate qrcode +semantic-de
 
 REQUIRED_USE="gps? ( geolocation )"
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
-	>=dev-qt/qtgui-${QTMIN}:5=[jpeg]
+	>=dev-qt/qtgui-${QTMIN}:5[jpeg]
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
