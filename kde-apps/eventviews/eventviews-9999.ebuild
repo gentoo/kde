@@ -16,11 +16,12 @@ SLOT="5"
 KEYWORDS=""
 IUSE=""
 
-# drop qtgui subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtcore subslot operator when QT_MINIMAL >= 5.15.0
 DEPEND="
 	dev-libs/kdiagram:5
 	dev-libs/libical
-	>=dev-qt/qtgui-${QTMIN}:5=
+	>=dev-qt/qtcore-${QTMIN}:5=
+	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-calendar-${PVCUT}:5
