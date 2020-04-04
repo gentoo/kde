@@ -16,7 +16,6 @@ SLOT="5"
 KEYWORDS=""
 IUSE="wayland X"
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.13.0
 RDEPEND="
 	>=kde-frameworks/frameworkintegration-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
@@ -31,7 +30,7 @@ RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5=
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	sci-libs/fftw:3.0=
 	wayland? ( >=kde-frameworks/kwayland-${KFMIN}:5 )
 	X? (
