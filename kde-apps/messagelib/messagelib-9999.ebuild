@@ -19,7 +19,7 @@ IUSE=""
 
 DEPEND="
 	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
-	app-crypt/qca:2
+	>=app-crypt/qca-2.3.0:2
 	>=dev-libs/grantlee-5.1.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
