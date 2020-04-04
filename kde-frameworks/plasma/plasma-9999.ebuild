@@ -64,7 +64,7 @@ RESTRICT+=" test"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package !gles2 OpenGL)
+		$(cmake_use_find_package !gles2-only OpenGL)
 		$(cmake_use_find_package wayland EGL)
 		$(cmake_use_find_package wayland KF5Wayland)
 		$(cmake_use_find_package X X11)
