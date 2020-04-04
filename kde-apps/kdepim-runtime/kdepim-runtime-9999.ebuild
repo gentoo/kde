@@ -24,6 +24,7 @@ BDEPEND="
 	dev-libs/libxslt
 "
 RDEPEND="
+	>=app-crypt/qca-2.3.0:2
 	dev-libs/cyrus-sasl:2
 	dev-libs/libical:=
 	>=dev-qt/qtdbus-${QTMIN}:5
