@@ -18,7 +18,7 @@ SLOT="5"
 KEYWORDS=""
 IUSE="importwizard markdown"
 
-# drop qtwidgets subslot operator when QT_MINIMAL >= 5.14.0
+# drop qtwidgets subslot operator when QT_MINIMAL >= 5.15.0
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
